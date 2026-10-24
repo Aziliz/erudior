@@ -77,7 +77,6 @@
     dp: u1*v1 + u2*v2
     dt: u1*v2 - u2*v1
     phi: atan2d(dt, dp)
-    turn: if(dt > 0, 1, -1)
   prompt: 'Find the dot product, the determinant $\det(\mathbf{u}, \mathbf{v})$, and the signed angle from $\mathbf{u} = \langle {u1}, {u2}\rangle$ to $\mathbf{v} = \langle {v1}, {v2}\rangle$ in degrees, between $-180^\circ$ and $180^\circ$ (2 decimals; counterclockwise is positive).'
   answers:
     - {name: dp, label: '$\mathbf{u}\cdot\mathbf{v}$', format: integer}

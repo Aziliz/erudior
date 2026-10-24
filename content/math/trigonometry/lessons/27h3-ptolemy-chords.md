@@ -29,9 +29,7 @@ perpendicular from the center to the chord: it bisects both the chord and the an
 right triangles with hypotenuse $R$ and angle $\tfrac{\theta}{2}$. Each half of the chord is $R\sin\tfrac{\theta}{2}$, so
 $$\text{crd}\,\theta = 2R\sin\frac{\theta}{2}.$$
 
-```shape
-{"circles": [{"center": [0, 0], "r": 3}], "segments": [{"from": [0, 0], "to": [2.598, 1.5]}, {"from": [0, 0], "to": [2.598, -1.5], "label": "R"}, {"from": [2.598, 1.5], "to": [2.598, -1.5], "label": "crd θ"}, {"from": [0, 0], "to": [2.598, 0], "dashed": true}], "rightAngles": [[[2.598, 0], [0, 0], [2.598, 1.5]]], "labels": [{"at": [0.9, 0.18], "text": "θ/2"}, {"at": [0.9, -0.3], "text": "θ/2"}, {"at": [3.25, 0.75], "text": "R sin(θ/2)"}], "caption": "The perpendicular from the center halves the chord and the angle: crd θ = 2R sin(θ/2)"}
-```
+![A circle with center O and radius R. Two radii make a central angle theta, and the chord joins their ends. A dashed perpendicular from O to the chord splits the angle into two halves of theta/2 and the chord into two halves, each marked R sin(theta/2); the whole chord is labeled crd theta.](images/trig-m6-h-chord.svg)
 
 Ptolemy used a circle of radius 60 (diameter 120 "parts") because he computed in base 60, the
 **sexagesimal** system inherited from Babylonian astronomers. A value such as $84;51,10$ means
@@ -87,16 +85,17 @@ smaller than the right side.)
 
 ![A circle with horizontal diameter AC of length 1. Point B is on the upper arc and D on the lower arc, forming quadrilateral ABCD with right angles at B and D. The angle BAC is alpha and the angle CAD is beta. The sides are AB = cos alpha, BC = sin alpha, AD = cos beta, DC = sin beta, and the diagonal BD = sin(alpha + beta).](images/trig-m6-h-ptolemy-sum.svg)
 
-Take a circle of **diameter 1**. In such a circle a chord equals the sine of any inscribed angle
-that cuts it off (by the law of sines, $\tfrac{\text{chord}}{\sin(\text{angle})} = $ diameter). Let $AC$ be a diameter, with $B$ on one side
+Take a circle of diameter 1, so $R = \tfrac12$. An inscribed angle $\varphi$ cuts off the same arc as a central
+angle $2\varphi$ (the inscribed angle theorem), so its chord is $2R\sin\varphi = \sin\varphi$: in this circle, every chord
+equals the sine of an inscribed angle that cuts it off. Let $AC$ be a diameter, with $B$ on one side
 and $D$ on the other, $\angle BAC = \alpha$ and $\angle CAD = \beta$. The angles at $B$ and $D$ are right angles (angles in a
 semicircle), so
 $$AB = \cos\alpha, \quad BC = \sin\alpha, \quad AD = \cos\beta, \quad CD = \sin\beta,$$
 and the diagonal $BD$ is cut off by the inscribed angle $\angle BAD = \alpha + \beta$, so $BD = \sin(\alpha + \beta)$. Ptolemy's
 theorem, with $AC = 1$, reads
 $$\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta.$$
-Put $A$, $B$, $C$, $D$ in a different order (with $AB$ as the diameter) and the same theorem gives the
-difference formula. Ptolemy stated his results for chords, not sines, but they are these identities.
+Make a side the diameter instead of a diagonal (say $AD$, with $B$ and $C$ on the same side of it) and
+the same theorem gives the difference formula. Ptolemy stated his results for chords, not sines, but they are these identities.
 
 ## How Ptolemy built his table
 

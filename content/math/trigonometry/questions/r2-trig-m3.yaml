@@ -466,10 +466,10 @@
   lesson: trig-m3-h-small-angles
   topic: Small-angle behavior
   stem: 'Use a small-angle approximation to estimate $\sin 3^\circ$.'
-  choices: ['$0.0524$', '$3$', '$0.1411$', '$0.0300$']
+  choices: ['$0.0524$', '$3$', '$0.1411$', '$0.0167$']
   answer: 0
   explanation: |-
-    Convert first: $3^\circ = \tfrac{3\pi}{180} \approx 0.05236$ radians, so $\sin 3^\circ \approx 0.0524$ (the true value is $0.05234$). The answer 3 forgets to convert (a sine can't exceed 1), $0.1411$ is $\sin 3$ with 3 in radians, and $0.0300$ drops the factor $\pi$.
+    Convert first: $3^\circ = \tfrac{3\pi}{180} \approx 0.05236$ radians, so $\sin 3^\circ \approx 0.0524$ (the true value is $0.05234$). The answer 3 forgets to convert (a sine can't exceed 1), $0.1411$ is $\sin 3$ with 3 in radians, and $0.0167$ is $\tfrac{3}{180}$, which drops the factor $\pi$.
 - id: trig-m3-r2-h25
   lesson: trig-m3-h-small-angles
   topic: Small-angle behavior

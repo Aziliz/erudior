@@ -8,7 +8,7 @@ topics: [Polar conics]
 drills: [trig-m9-r2-polar-conic, trig-m9-r2-orbit]
 refs: [trig-ref-triangles]
 ---
-Lesson 35 turned $r = 6\cos\theta$ into a circle, and Lesson 36 drew cardioids, roses and lemniscates. Those curves are natural in polar form because they are built around the pole. This lesson adds a family you have met in algebra, the ellipse, parabola and hyperbola, and shows that in polar coordinates all three come from **one equation** when a focus sits at the pole. That single equation is how astronomers write the orbit of a planet or a comet, and deriving it takes nothing beyond $x = r\cos\theta$ and a little algebra.
+Lesson 35 turned $r = 6\cos\theta$ into a circle, and Lesson 36 drew cardioids, roses and lemniscates. Those curves are natural in polar form because they are built around the pole. This lesson adds a family you have met in algebra, the ellipse, parabola and hyperbola, and shows that in polar coordinates all three come from one equation when a focus sits at the pole. That single equation is how astronomers write the orbit of a planet or a comet, and deriving it takes nothing beyond $x = r\cos\theta$ and a little algebra.
 
 ## One definition for three curves
 

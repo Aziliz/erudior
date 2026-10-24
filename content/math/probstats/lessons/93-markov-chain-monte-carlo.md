@@ -54,7 +54,7 @@ is a law of large numbers for dependent draws.
 Given a target $\pi$ known only up to a constant, $\pi(x) = f(x)/Z$, we need a chain with stationary
 distribution $\pi$. The **Metropolis–Hastings algorithm** (Metropolis and coauthors, 1953;
 generalized by Hastings, 1970) builds one. Choose a **proposal distribution** $q(y \mid x)$ that is easy to
-sample, such as $y = x + $ a $N(0, s^2)$ step. From the current state $x$:
+sample, such as $y = x + \varepsilon$ with a normal step $\varepsilon \sim N(0, s^2)$. From the current state $x$:
 
 1. Propose $y \sim q(y \mid x)$.
 2. Compute the **acceptance probability**

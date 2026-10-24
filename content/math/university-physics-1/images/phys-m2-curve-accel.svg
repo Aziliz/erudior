@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1c2833">
+<title>Car slowing down on a curve</title>
+<rect width="600" height="420" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c2833"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e5d8a"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a0432f"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f7a4a"/></marker></defs>
+<polyline points="406.1,324.9 404.3,315.9 402.3,307.1 399.9,298.3 397.3,289.7 394.3,281.1 391.1,272.6 387.5,264.2 383.7,256.0 379.6,247.9 375.2,240.0 370.5,232.2 365.5,224.6 360.3,217.2 354.9,209.9 349.2,202.9 343.2,196.0 337.0,189.4 330.6,183.0 324.0,176.8 317.1,170.8 310.1,165.1 302.8,159.7 295.4,154.5 287.8,149.5 280.0,144.8 272.1,140.4 264.0,136.3 255.8,132.5 247.4,128.9 238.9,125.7 230.3,122.7 221.7,120.1 212.9,117.7 204.1,115.7 195.1,113.9 186.2,112.5 177.2,111.4 168.1,110.6 159.1,110.2 150.0,110.0 140.9,110.2 131.9,110.6 122.8,111.4 113.8,112.5 104.9,113.9" fill="none" stroke="#9aa5b1" stroke-width="16" stroke-linecap="round"/>
+<polyline points="406.1,324.9 404.3,315.9 402.3,307.1 399.9,298.3 397.3,289.7 394.3,281.1 391.1,272.6 387.5,264.2 383.7,256.0 379.6,247.9 375.2,240.0 370.5,232.2 365.5,224.6 360.3,217.2 354.9,209.9 349.2,202.9 343.2,196.0 337.0,189.4 330.6,183.0 324.0,176.8 317.1,170.8 310.1,165.1 302.8,159.7 295.4,154.5 287.8,149.5 280.0,144.8 272.1,140.4 264.0,136.3 255.8,132.5 247.4,128.9 238.9,125.7 230.3,122.7 221.7,120.1 212.9,117.7 204.1,115.7 195.1,113.9 186.2,112.5 177.2,111.4 168.1,110.6 159.1,110.2 150.0,110.0 140.9,110.2 131.9,110.6 122.8,111.4 113.8,112.5 104.9,113.9" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="10 8"/>
+<line x1="150.0" y1="370.0" x2="317.1" y2="170.8" stroke="#1c2833" stroke-width="1" stroke-dasharray="3 5"/>
+<circle cx="150" cy="370" r="5" fill="#1c2833"/>
+<line x1="359.3" y1="206.2" x2="295.0" y2="282.8" stroke="#1c2833" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="252.8" y1="247.4" x2="295.0" y2="282.8" stroke="#1c2833" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="317.1" y1="170.8" x2="217.5" y2="87.3" stroke="#2e5d8a" stroke-width="3.5" marker-end="url(#ahb)"/>
+<line x1="317.1" y1="170.8" x2="359.3" y2="206.2" stroke="#2f7a4a" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ahg)"/>
+<line x1="317.1" y1="170.8" x2="252.8" y2="247.4" stroke="#2f7a4a" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ahg)"/>
+<line x1="317.1" y1="170.8" x2="295.0" y2="282.8" stroke="#a0432f" stroke-width="3.5" marker-end="url(#ahr)"/>
+<rect x="304.1247785185002" y="162.8284447890657" width="26" height="16" rx="4" fill="#f8e1dc" stroke="#1c2833" stroke-width="2" transform="rotate(-40.0 317.1 170.8)"/>
+<text x="211.5" y="79.3" text-anchor="end" font-size="15">velocity v</text>
+<text x="369.3" y="208.2" text-anchor="start" font-size="15">tangential part</text>
+<text x="369.3" y="226.2" text-anchor="start" font-size="15">(changes speed)</text>
+<text x="242.8" y="251.4" text-anchor="end" font-size="15">radial part</text>
+<text x="242.8" y="269.4" text-anchor="end" font-size="15">(changes direction)</text>
+<text x="305.0" y="296.8" text-anchor="start" font-size="15">acceleration a</text>
+<text x="160.0" y="390.0" text-anchor="start" font-size="15">center of the curve</text>
+<text x="300.0" y="410.0" text-anchor="middle" font-size="14">The car moves counterclockwise and is braking</text>
+</svg>

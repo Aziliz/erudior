@@ -1,0 +1,427 @@
+# Round 2, module trig-m5: new question types for lessons 18-20, and the two honors lessons.
+# Core lessons
+- id: trig-m5-r2-q01
+  lesson: trig-inverse
+  type: text
+  topic: Inverse trig functions
+  stem: 'In degrees, $\sin^{-1}\!\left(-\tfrac12\right) =$ ___. Give only the number of degrees.'
+  accept: ['-30', '-30°', '-30 degrees', '-30 deg']
+  explanation: |-
+    The reference angle is $30^\circ$ ($\sin 30^\circ = \tfrac12$). The range of $\sin^{-1}$ is $[-90^\circ, 90^\circ]$, and a negative input puts the answer in quadrant IV: $-30^\circ$. ($330^\circ$ and $210^\circ$ also have sine $-\tfrac12$, but they are outside the range.)
+- id: trig-m5-r2-q02
+  lesson: trig-inverse
+  type: match
+  module_quiz: true
+  topic: Inverse trig functions
+  stem: 'Match each inverse function to its range.'
+  pairs:
+    - ['$\sin^{-1}x$', 'From −π/2 to π/2, both endpoints included']
+    - ['$\cos^{-1}x$', 'From 0 to π, both endpoints included']
+    - ['$\tan^{-1}x$', 'Between −π/2 and π/2, endpoints excluded']
+  distractors: ['From −1 to 1, both endpoints included', 'From 0 to 2π, including 0 only']
+  explanation: |-
+    Sine is restricted to $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$ and cosine to $[0, \pi]$, so those are the ranges of their inverses. Tangent is undefined at $\pm\tfrac{\pi}{2}$, so $\tan^{-1}$ never reaches those values. $[-1, 1]$ is the domain of $\sin^{-1}$ and $\cos^{-1}$, not a range, and no inverse function returns a full turn of angles.
+- id: trig-m5-r2-q03
+  lesson: trig-inverse
+  topic: Inverse trig functions
+  stem: 'Which of these are undefined? Select all that apply.'
+  choices: ['$\sin^{-1}(1.2)$', '$\cos^{-1}(-1)$', '$\tan^{-1}(50)$', '$\cos^{-1}(-1.01)$']
+  answer: [0, 3]
+  explanation: |-
+    Sine and cosine stay between $-1$ and 1, so $\sin^{-1}$ and $\cos^{-1}$ only accept inputs in $[-1, 1]$: $1.2$ and $-1.01$ are outside. $\cos^{-1}(-1) = \pi$ is fine (the endpoint is allowed), and $\tan^{-1}$ accepts every real number: $\tan^{-1}50 \approx 1.5508$.
+- id: trig-m5-r2-q04
+  lesson: trig-inverse
+  type: label
+  topic: Inverse trig functions
+  stem: 'Each circle shows the range of one inverse function: the shaded half holds every angle the function can return, and an open dot marks an endpoint that is not included. Name the function for each numbered range.'
+  image: {src: images/trig-m5-ranges-blank.svg, alt: 'Three unit circles. On the first, the right half is highlighted from −π/2 to π/2 with solid endpoint dots. On the second, the upper half is highlighted from 0 to π with solid dots. On the third, the right half is highlighted from −π/2 to π/2 with open endpoint dots.'}
+  labels:
+    - {x: 28.6, y: 32.6, text: Inverse sine}
+    - {x: 43.6, y: 23.1, text: Inverse cosine}
+    - {x: 93.7, y: 32.6, text: Inverse tangent}
+  distractors: [Inverse cotangent]
+  explanation: |-
+    Inverse sine and inverse tangent both return angles in the right half of the circle, but $\tan^{-1}$ never reaches $\pm\tfrac{\pi}{2}$ (tangent is undefined there), so its endpoints are open. Inverse cosine returns the upper half, $[0, \pi]$, endpoints included. Inverse cotangent also covers the upper half but with open endpoints, $(0, \pi)$, which matches none of the pictures.
+- id: trig-m5-r2-q05
+  lesson: trig-inverse
+  type: order
+  module_quiz: true
+  topic: Inverse trig functions
+  stem: 'Put these values in order from smallest to largest.'
+  items: ['$\sin^{-1}(-1)$', '$\tan^{-1}(-1)$', '$\cos^{-1}1$', '$\tan^{-1}100$', '$\cos^{-1}(-1)$']
+  explanation: |-
+    $\sin^{-1}(-1) = -\tfrac{\pi}{2} \approx -1.5708$, $\tan^{-1}(-1) = -\tfrac{\pi}{4} \approx -0.7854$, $\cos^{-1}1 = 0$, $\tan^{-1}100 \approx 1.5608$ (just under $\tfrac{\pi}{2}$, which $\tan^{-1}$ never reaches), and $\cos^{-1}(-1) = \pi \approx 3.1416$, the largest value any of the three inverse functions returns.
+- id: trig-m5-r2-q06
+  lesson: trig-inverse-comp
+  type: text
+  topic: Inverse compositions
+  stem: 'Evaluate exactly: $\sin\!\left(\cos^{-1}\!\left(-\tfrac{8}{17}\right)\right) =$ ___. Give a fraction.'
+  accept: ['15/17']
+  explanation: |-
+    Let $\theta = \cos^{-1}\!\left(-\tfrac{8}{17}\right)$. It lies in $[0, \pi]$ with a negative cosine, so it is in quadrant II. Take $x = -8$ and $r = 17$; then $y = \sqrt{17^2 - 8^2} = \sqrt{225} = 15$, positive in quadrant II. So $\sin\theta = \tfrac{15}{17}$. A negative answer would come from copying the sign of the input, but sine is positive in quadrant II.
+- id: trig-m5-r2-q07
+  lesson: trig-inverse-comp
+  type: match
+  module_quiz: true
+  topic: Inverse compositions
+  stem: 'Match each expression to its value.'
+  pairs:
+    - ['$\sin^{-1}\!\left(\sin\tfrac{2\pi}{3}\right)$', 'π/3']
+    - ['$\cos^{-1}\!\left(\cos\left(-\tfrac{\pi}{4}\right)\right)$', 'π/4']
+    - ['$\tan^{-1}\!\left(\tan\tfrac{5\pi}{6}\right)$', '−π/6']
+    - ['$\cos^{-1}\!\left(\cos\tfrac{4\pi}{3}\right)$', '2π/3']
+  distractors: ['5π/6', '−π/4']
+  explanation: |-
+    None of the inner angles is in its inverse's range, so evaluate the inside first. $\sin\tfrac{2\pi}{3} = \tfrac{\sqrt3}{2}$ and $\sin^{-1}\tfrac{\sqrt3}{2} = \tfrac{\pi}{3}$. $\cos\left(-\tfrac{\pi}{4}\right) = \tfrac{\sqrt2}{2}$, giving $\tfrac{\pi}{4}$ (not $-\tfrac{\pi}{4}$, which is outside $[0, \pi]$). $\tan\tfrac{5\pi}{6} = -\tfrac{\sqrt3}{3}$, giving $-\tfrac{\pi}{6}$. $\cos\tfrac{4\pi}{3} = -\tfrac12$, giving $\tfrac{2\pi}{3}$. $\tfrac{5\pi}{6}$ is what blind cancelling would give for the tangent.
+- id: trig-m5-r2-q08
+  lesson: trig-inverse-comp
+  topic: Inverse compositions
+  stem: 'For which values of $x$ (in radians) is $\sin^{-1}(\sin x) = x$? Select all that apply.'
+  choices: ['$x = -1.5$', '$x = 1.6$', '$x = \tfrac{\pi}{2}$', '$x = -2$']
+  answer: [0, 2]
+  explanation: |-
+    The cancellation works exactly when $x$ is in the range of $\sin^{-1}$, $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right] \approx [-1.5708, 1.5708]$. $-1.5$ and $\tfrac{\pi}{2}$ are in it. $1.6$ and $-2$ are not: $\sin^{-1}(\sin 1.6) = \pi - 1.6 \approx 1.5416$ and $\sin^{-1}(\sin(-2)) = -\pi + 2 \approx -1.1416$.
+- id: trig-m5-r2-q09
+  lesson: trig-inverse-comp
+  type: label
+  topic: Inverse compositions
+  stem: 'The picture shows $\theta = \cos^{-1}\!\left(-\tfrac{5}{13}\right)$ with its reference triangle. Name the numbered parts.'
+  image: {src: images/trig-m5-quadrant2-blank.svg, alt: 'A coordinate plane with a point in quadrant II joined to the origin. A right triangle hangs from the point down to the negative x-axis. Two angles are marked at the origin: a large one from the positive x-axis, and a smaller one between the terminal side and the negative x-axis.'}
+  labels:
+    - {x: 55.8, y: 48.7, text: 'r = 13'}
+    - {x: 46.2, y: 48.7, text: 'y = 12'}
+    - {x: 55.8, y: 79.5, text: 'x = −5'}
+    - {x: 69.9, y: 70.5, text: Angle θ}
+    - {x: 54.8, y: 70.1, text: Reference angle}
+  distractors: ['y = −12', 'x = 5']
+  explanation: |-
+    $\cos\theta = \tfrac{x}{r} = -\tfrac{5}{13}$, so $x = -5$ (the horizontal leg points left) and $r = 13$ (the hypotenuse, always positive). Then $y = \sqrt{169 - 25} = 12$, positive because $\theta$ is in quadrant II. $\theta$ is measured from the positive $x$-axis; the reference angle is the acute angle between the terminal side and the negative $x$-axis.
+- id: trig-m5-r2-q10
+  lesson: trig-inverse-comp
+  module_quiz: true
+  topic: Inverse compositions
+  stem: 'Evaluate $\cos^{-1}(\cos 5)$, where 5 is in radians.'
+  choices: ['$5$', '$5 - \pi \approx 1.8584$', '$2\pi - 5 \approx 1.2832$', '$\pi - 5 \approx -1.8584$']
+  answer: 2
+  explanation: |-
+    5 is outside $[0, \pi]$, so it can't be the answer. Cosine has period $2\pi$ and is even, so $\cos 5 = \cos(5 - 2\pi) = \cos(2\pi - 5)$, and $2\pi - 5 \approx 1.2832$ lies in $[0, \pi]$. That is the answer. $5 - \pi$ has the opposite cosine ($\cos(5 - \pi) = -\cos 5$), and $\pi - 5$ is negative, outside the range.
+- id: trig-m5-r2-q11
+  lesson: trig-basic-equations
+  type: text
+  module_quiz: true
+  topic: Trig equations
+  stem: 'How many solutions does $\sin 3x = \tfrac12$ have in $[0, 2\pi)$? ___'
+  accept: ['6', 'six']
+  explanation: |-
+    Let $u = 3x$. As $x$ runs over $[0, 2\pi)$, $u$ runs over $[0, 6\pi)$: three full turns, with two solutions of $\sin u = \tfrac12$ in each. That makes 6: $x = \tfrac{\pi}{18}, \tfrac{5\pi}{18}, \tfrac{13\pi}{18}, \tfrac{17\pi}{18}, \tfrac{25\pi}{18}, \tfrac{29\pi}{18}$. Dividing too early gives only 2.
+- id: trig-m5-r2-q12
+  lesson: trig-basic-equations
+  type: match
+  module_quiz: true
+  topic: Trig equations
+  stem: 'Match each equation to the number of solutions it has in $[0, 2\pi)$.'
+  pairs:
+    - ['$\sin x = 0.4$', '2 solutions']
+    - ['$\cos x = -1$', '1 solution']
+    - ['$\sin x = 1.3$', 'No solutions']
+    - ['$\sin 2x = 0.4$', '4 solutions']
+    - ['$\tan x = 5$', '2 solutions']
+  distractors: ['3 solutions']
+  explanation: |-
+    A sine or cosine equation with $-1 < c < 1$ has two solutions per turn. At $c = \pm1$ the two points merge into one ($\cos x = -1$ only at $\pi$), and $|c| > 1$ gives none. $\sin 2x = 0.4$ covers two turns of $2x$, so 4 solutions. Tangent has one solution per period $\pi$, so 2 in $[0, 2\pi)$.
+- id: trig-m5-r2-q13
+  lesson: trig-basic-equations
+  type: order
+  topic: Trig equations
+  stem: 'Put the steps for solving $\sin 2x = \tfrac{\sqrt3}{2}$ on $[0, 2\pi)$ in order.'
+  items:
+    - 'Let $u = 2x$, so $u$ runs over $[0, 4\pi)$'
+    - 'Find the solutions in the first turn: $u = \tfrac{\pi}{3}, \tfrac{2\pi}{3}$'
+    - 'Add $2\pi$ to get the second turn: $u = \tfrac{7\pi}{3}, \tfrac{8\pi}{3}$'
+    - 'Divide every $u$ by 2: $x = \tfrac{\pi}{6}, \tfrac{\pi}{3}, \tfrac{7\pi}{6}, \tfrac{4\pi}{3}$'
+  explanation: |-
+    Substitute first so you know how far $u$ runs, solve for $u$ over that whole interval (the second turn comes from adding $2\pi$ to the first), and divide by 2 only at the end. Dividing earlier loses the solutions from the second turn.
+- id: trig-m5-r2-q14
+  lesson: trig-basic-equations
+  topic: Trig equations
+  stem: 'Which of these are solutions of $\tan x = -1$? Select all that apply.'
+  choices: ['$\tfrac{3\pi}{4}$', '$\tfrac{5\pi}{4}$', '$\tfrac{7\pi}{4}$', '$-\tfrac{3\pi}{4}$']
+  answer: [0, 2]
+  explanation: |-
+    The general solution is $x = \tan^{-1}(-1) + k\pi = -\tfrac{\pi}{4} + k\pi$: $\tfrac{3\pi}{4}$ ($k = 1$) and $\tfrac{7\pi}{4}$ ($k = 2$) are in it. $\tfrac{5\pi}{4}$ and $-\tfrac{3\pi}{4}$ are in quadrant III, where tangent is positive: $\tan\tfrac{5\pi}{4} = \tan\left(-\tfrac{3\pi}{4}\right) = 1$.
+- id: trig-m5-r2-q15
+  lesson: trig-basic-equations
+  type: label
+  topic: Trig equations
+  stem: 'The picture shows how $\cos x = c$ is solved on the unit circle. Name the numbered parts.'
+  image: {src: images/trig-m5-cos-equation-blank.svg, alt: 'A unit circle with a dashed vertical line crossing it at an upper and a lower point, each joined to the center. A small angle is marked from the positive x-axis up to the upper radius.'}
+  labels:
+    - {x: 57.9, y: 34.1, text: 'Vertical line x = c'}
+    - {x: 57.9, y: 16.4, text: 'Point at angle β'}
+    - {x: 57.9, y: 85.8, text: 'Point at angle 2π − β'}
+    - {x: 53.6, y: 46.6, text: 'Angle β = cos⁻¹ c'}
+  distractors: ['Point at angle π − β', 'Horizontal line y = c']
+  explanation: |-
+    Cosine is the $x$-coordinate, so $\cos x = c$ picks out the points where the vertical line $x = c$ meets the circle. The upper one is at $\beta = \cos^{-1}c$; the lower one is its mirror image across the $x$-axis, at $-\beta$, which is the same point as $2\pi - \beta$. The angle $\pi - \beta$ belongs to sine equations (a horizontal line).
+
+# Honors: Adding arctangents and computing pi
+- id: trig-m5-r2-h01
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Evaluate $\tan^{-1}\tfrac12 + \tan^{-1}\tfrac13$.'
+  choices: ['$\tan^{-1}\tfrac56$', '$\tfrac{\pi}{4}$', '$\tfrac{\pi}{3}$', '$\tfrac{\pi}{6}$']
+  answer: 1
+  explanation: |-
+    $ab = \tfrac16 < 1$, so the sum is $\tan^{-1}\dfrac{\tfrac12 + \tfrac13}{1 - \tfrac16} = \tan^{-1}\dfrac{5/6}{5/6} = \tan^{-1}1 = \tfrac{\pi}{4}$. $\tan^{-1}\tfrac56 \approx 0.6947$ comes from adding the inputs, which is not how arctangents add.
+- id: trig-m5-r2-h02
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Evaluate $\tan^{-1}2 + \tan^{-1}3$.'
+  choices: ['$-\tfrac{\pi}{4}$', '$\tfrac{\pi}{4}$', '$\tfrac{5\pi}{4}$', '$\tfrac{3\pi}{4}$']
+  answer: 3
+  explanation: |-
+    $\tfrac{a + b}{1 - ab} = \tfrac{5}{-5} = -1$, but $ab = 6 > 1$: the point $(1 - ab, a + b) = (-5, 5)$ is in quadrant II, so add $\pi$ to $\tan^{-1}(-1) = -\tfrac{\pi}{4}$, giving $\tfrac{3\pi}{4}$ ($\approx 1.1071 + 1.2490 = 2.3562$). $-\tfrac{\pi}{4}$ is the uncorrected formula; $\tfrac{5\pi}{4}$ is too big, since each arctangent is less than $\tfrac{\pi}{2}$.
+- id: trig-m5-r2-h03
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'The angle $\tan^{-1}a + \tan^{-1}b$ is the direction angle of which point?'
+  choices: ['$(1 - ab,\ a + b)$', '$(1 + ab,\ a + b)$', '$(a + b,\ 1 - ab)$', '$(1 - ab,\ a - b)$']
+  answer: 0
+  explanation: |-
+    Start at $B = (1, a)$, which is at angle $\tan^{-1}a$. Turning $(1, a)$ a quarter turn counterclockwise gives $(-a, 1)$; stepping $b$ of those from $B$ turns the direction by $\tan^{-1}b$ more and lands at $(1, a) + b(-a, 1) = (1 - ab, a + b)$. Swapping the coordinates would give the complementary angle.
+- id: trig-m5-r2-h04
+  lesson: trig-m5-h-arctan-identities
+  type: text
+  topic: Arctangent identities
+  stem: 'If $\alpha = \tan^{-1}\tfrac13$ and $\beta = \tan^{-1}\tfrac14$, then $\tan(\alpha + \beta) =$ ___. Give a fraction.'
+  accept: ['7/11']
+  explanation: |-
+    $\tan(\alpha + \beta) = \dfrac{a + b}{1 - ab} = \dfrac{\tfrac13 + \tfrac14}{1 - \tfrac{1}{12}} = \dfrac{7/12}{11/12} = \dfrac{7}{11}$.
+- id: trig-m5-r2-h05
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Which expression equals $2\tan^{-1}\tfrac13$?'
+  choices: ['$\tan^{-1}\tfrac23$', '$\tan^{-1}\tfrac35$', '$\tan^{-1}\tfrac34$', '$\tan^{-1}\tfrac19$']
+  answer: 2
+  explanation: |-
+    The doubling rule (valid since $\tfrac13 < 1$) gives $\tan^{-1}\dfrac{2 \cdot \tfrac13}{1 - \tfrac19} = \tan^{-1}\dfrac{2/3}{8/9} = \tan^{-1}\tfrac34$. $\tan^{-1}\tfrac23$ doubles the input, $\tfrac35$ uses $1 + a^2$ in the denominator, and $\tfrac19$ squares the input.
+- id: trig-m5-r2-h06
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'For $x = -3$, what is $\tan^{-1}x + \tan^{-1}\tfrac1x$?'
+  choices: ['$\tfrac{\pi}{2}$', '$0$', '$\pi$', '$-\tfrac{\pi}{2}$']
+  answer: 3
+  explanation: |-
+    The product of the inputs is 1, so the point $(1 - ab, a + b) = \left(0, -\tfrac{10}{3}\right)$ is on the negative $y$-axis and the sum is $-\tfrac{\pi}{2}$. Both arctangents are negative here, so the sum can't be $\tfrac{\pi}{2}$; that value is for $x > 0$.
+- id: trig-m5-r2-h07
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Which of these equal $\tfrac{\pi}{4}$? Select all that apply.'
+  choices: ['$\tan^{-1}\tfrac12 + \tan^{-1}\tfrac13$', '$2\tan^{-1}\tfrac12$', '$\tan^{-1}3 - \tan^{-1}\tfrac12$', '$\tan^{-1}\tfrac14 + \tan^{-1}\tfrac34$']
+  answer: [0, 2]
+  explanation: |-
+    First: $\tfrac{5/6}{5/6} = 1$, so $\tfrac{\pi}{4}$. Third: the difference formula ($ab = \tfrac32 > -1$) gives $\tfrac{3 - 1/2}{1 + 3/2} = \tfrac{5/2}{5/2} = 1$, so $\tfrac{\pi}{4}$. Second: doubling gives $\tan^{-1}\tfrac{1}{3/4} = \tan^{-1}\tfrac43 \approx 0.9273$. Fourth: $\tfrac{1}{1 - 3/16} = \tfrac{16}{13}$, so $\tan^{-1}\tfrac{16}{13} \approx 0.8885$.
+- id: trig-m5-r2-h08
+  lesson: trig-m5-h-arctan-identities
+  type: match
+  topic: Arctangent identities
+  stem: 'Match each sum to its value.'
+  pairs:
+    - ['$\tan^{-1}1 + \tan^{-1}2 + \tan^{-1}3$', 'π']
+    - ['$\tan^{-1}\tfrac12 + \tan^{-1}\tfrac13$', 'π/4']
+    - ['$\tan^{-1}5 + \tan^{-1}\tfrac15$', 'π/2']
+    - ['$\tan^{-1}(-2) + \tan^{-1}\left(-\tfrac12\right)$', '−π/2']
+  distractors: ['3π/4', '0']
+  explanation: |-
+    $\tan^{-1}2 + \tan^{-1}3 = \tfrac{3\pi}{4}$ (the point $(-5, 5)$ is in quadrant II), and adding $\tan^{-1}1 = \tfrac{\pi}{4}$ gives $\pi$. $\tan^{-1}\tfrac12 + \tan^{-1}\tfrac13 = \tan^{-1}1 = \tfrac{\pi}{4}$. Reciprocal inputs have product 1: the sum is $\tfrac{\pi}{2}$ for positive inputs and $-\tfrac{\pi}{2}$ for negative ones.
+- id: trig-m5-r2-h09
+  lesson: trig-m5-h-arctan-identities
+  type: order
+  topic: Arctangent identities
+  stem: 'Put the steps of checking Machin''s formula $\tfrac{\pi}{4} = 4\tan^{-1}\tfrac15 - \tan^{-1}\tfrac{1}{239}$ in order, with $\theta = \tan^{-1}\tfrac15$.'
+  items:
+    - 'Double once: $\tan 2\theta = \tfrac{5}{12}$'
+    - 'Double again: $\tan 4\theta = \tfrac{120}{119}$'
+    - 'Subtract $\tan^{-1}\tfrac{1}{239}$ with the difference formula: the tangent comes out as $1$'
+    - 'Conclude that $4\theta - \tan^{-1}\tfrac{1}{239} = \tan^{-1}1 = \tfrac{\pi}{4}$'
+  explanation: |-
+    $\tan 2\theta = \tfrac{2/5}{24/25} = \tfrac{5}{12}$, then $\tan 4\theta = \tfrac{5/6}{119/144} = \tfrac{120}{119}$. The difference formula gives $\tfrac{120 \cdot 239 - 119}{119 \cdot 239 + 120} = \tfrac{28561}{28561} = 1$, and every step stayed in the range where no $\pi$ correction is needed.
+- id: trig-m5-r2-h10
+  lesson: trig-m5-h-arctan-identities
+  type: label
+  topic: Arctangent identities
+  stem: 'The picture shows the construction for adding $\alpha = \tan^{-1}a$ and $\beta = \tan^{-1}b$. Name the numbered parts.'
+  image: {src: images/trig-m5-arctan-construction-blank.svg, alt: 'Two right triangles stacked at the origin O. The lower one has a side of length 1 along the x-axis to A and a vertical side a up to a point. The upper one has a right angle at that point and goes up to a second point. Two angles are marked at O, one inside each triangle.'}
+  labels:
+    - {x: 66.1, y: 57.4, text: 'B = (1, a)'}
+    - {x: 50.0, y: 19.1, text: 'C = (1 − ab, a + b)'}
+    - {x: 26.4, y: 85.5, text: 'Angle tan⁻¹ a'}
+    - {x: 27.7, y: 73.0, text: 'Angle tan⁻¹ b'}
+  distractors: ['C = (a + b, 1 − ab)', 'Angle tan⁻¹(a + b)']
+  explanation: |-
+    The lower triangle has adjacent side 1 and opposite side $a$, so it ends at $B = (1, a)$ and its angle at $O$ is $\tan^{-1}a$. The upper triangle has a right angle at $B$ and $\tfrac{BC}{OB} = b$, so its angle at $O$ is $\tan^{-1}b$, and $C = (1, a) + b(-a, 1) = (1 - ab, a + b)$. The whole angle from the $x$-axis to $OC$ is the sum.
+- id: trig-m5-r2-h11
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Why does Machin''s formula give $\pi$ much faster than the series $\tfrac{\pi}{4} = \tan^{-1}1 = 1 - \tfrac13 + \tfrac15 - \cdots$?'
+  choices: ['It avoids the arctangent series altogether', 'Its inputs are small, so the terms of the arctangent series shrink quickly', 'It works in degrees instead of radians', 'Its series have only positive terms']
+  answer: 1
+  explanation: |-
+    The series for $\tan^{-1}x$ has terms $\tfrac{x^{2k+1}}{2k+1}$. With $x = 1$ they shrink very slowly (1,000 terms still give $\pi \approx 3.1406$); with $x = \tfrac15$ each term is less than $\tfrac{1}{25}$ of the one before, and with $x = \tfrac{1}{239}$ far less still. Machin's formula still uses the series, in radians, and its terms still alternate in sign.
+- id: trig-m5-r2-h12
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'To four decimal places, what is $\tan^{-1}3 + \tan^{-1}4$?'
+  choices: ['$-0.5667$', '$0.5667$', '$2.5749$', '$3.7083$']
+  answer: 2
+  explanation: |-
+    $ab = 12 > 1$ with $a > 0$: the point $(1 - 12, 7) = (-11, 7)$ is in quadrant II. $\tan^{-1}\tfrac{7}{-11} \approx -0.5667$, plus $\pi$ gives $2.5749$ (check: $1.2490 + 1.3258 = 2.5748$ to rounding). $-0.5667$ forgets the correction, $0.5667$ also drops the sign, and $3.7083 = \pi + 0.5667$ adds $\pi$ to the wrong angle.
+- id: trig-m5-r2-h13
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Evaluate $\tan^{-1}\tfrac12 - \tan^{-1}\tfrac13$.'
+  choices: ['$\tan^{-1}\tfrac17$', '$\tan^{-1}\tfrac16$', '$\tan^{-1}\tfrac15$', '$\tan^{-1}1$']
+  answer: 0
+  explanation: |-
+    With $ab = \tfrac16 > -1$, the difference formula gives $\tan^{-1}\dfrac{\tfrac12 - \tfrac13}{1 + \tfrac16} = \tan^{-1}\dfrac{1/6}{7/6} = \tan^{-1}\tfrac17$. $\tfrac16$ forgets the denominator, $\tfrac15$ uses $1 - ab$ (the sum's denominator), and $\tan^{-1}1$ is the sum, not the difference.
+- id: trig-m5-r2-h14
+  lesson: trig-m5-h-arctan-identities
+  type: text
+  topic: Arctangent identities
+  stem: 'If $\tan^{-1}4 + \tan^{-1}b = \tfrac{\pi}{2}$, then $b =$ ___.'
+  accept: ['1/4', '0.25']
+  explanation: |-
+    $\tan^{-1}b = \tfrac{\pi}{2} - \tan^{-1}4$, the complement of $\tan^{-1}4$. In a right triangle with legs 4 and 1 the two acute angles are $\tan^{-1}4$ and $\tan^{-1}\tfrac14$, so $b = \tfrac14$. (Product of the inputs is 1, as the formula requires.)
+- id: trig-m5-r2-h15
+  lesson: trig-m5-h-arctan-identities
+  topic: Arctangent identities
+  stem: 'Using the first two terms of the arctangent series, what is the approximation of $\tan^{-1}0.1$?'
+  choices: ['$0.1$', '$0.100333$', '$0.099833$', '$0.099667$']
+  answer: 3
+  explanation: |-
+    $\tan^{-1}x \approx x - \tfrac{x^3}{3} = 0.1 - \tfrac{0.001}{3} = 0.099667$ (the true value is $0.0996687$). $0.1$ is one term, $0.100333$ adds the second term instead of subtracting it, and $0.099833$ divides by 6 as in the sine series.
+
+# Honors: Families of solutions and equations without exact answers
+- id: trig-m5-r2-h16
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'Which describes every solution of $\sin A = \sin B$?'
+  choices: ['$A = B + 2k\pi$ or $A = \pi - B + 2k\pi$', '$A = \pm B + 2k\pi$', '$A = B + 2k\pi$ only', '$A = B + k\pi$']
+  answer: 0
+  explanation: |-
+    Equal sines mean equal heights on the unit circle: the angle $B$ and its mirror image across the $y$-axis, $\pi - B$, plus full turns. $\pm B + 2k\pi$ is the rule for equal cosines (mirror across the $x$-axis), and $B + k\pi$ is the rule for equal tangents.
+- id: trig-m5-r2-h17
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'Solve $\sin 3x = \sin x$ on $[0, 2\pi)$.'
+  choices: ['$0, \pi$', '$0, \tfrac{\pi}{4}, \tfrac{3\pi}{4}, \pi, \tfrac{5\pi}{4}, \tfrac{7\pi}{4}$', '$\tfrac{\pi}{4}, \tfrac{3\pi}{4}, \tfrac{5\pi}{4}, \tfrac{7\pi}{4}$', '$0, \tfrac{\pi}{2}, \pi, \tfrac{3\pi}{2}$']
+  answer: 1
+  explanation: |-
+    $3x = x + 2k\pi$ gives $x = k\pi$: $0, \pi$. $3x = \pi - x + 2k\pi$ gives $x = \tfrac{\pi}{4} + \tfrac{k\pi}{2}$: $\tfrac{\pi}{4}, \tfrac{3\pi}{4}, \tfrac{5\pi}{4}, \tfrac{7\pi}{4}$. Both families together give six solutions; each of the first and third choices is only one family, and $0, \tfrac{\pi}{2}, \pi, \tfrac{3\pi}{2}$ solves $\cos 3x = \cos x$.
+- id: trig-m5-r2-h18
+  lesson: trig-m5-h-general-solutions
+  type: text
+  topic: General solutions
+  stem: 'How many solutions does $\cos 3x = \cos x$ have in $[0, 2\pi)$? ___'
+  accept: ['4', 'four']
+  explanation: |-
+    $3x = x + 2k\pi$ gives $x = k\pi$: $0, \pi$. $3x = -x + 2k\pi$ gives $x = \tfrac{k\pi}{2}$: $0, \tfrac{\pi}{2}, \pi, \tfrac{3\pi}{2}$. The families overlap at $0$ and $\pi$, so there are 4 different solutions. Counting 6 double-counts the overlap.
+- id: trig-m5-r2-h19
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'Solve $\sin 2x = \cos x$ on $[0, 2\pi)$.'
+  choices: ['$\tfrac{\pi}{6}, \tfrac{5\pi}{6}, \tfrac{3\pi}{2}$', '$\tfrac{\pi}{6}, \tfrac{5\pi}{6}$', '$\tfrac{\pi}{2}, \tfrac{3\pi}{2}$', '$\tfrac{\pi}{6}, \tfrac{\pi}{2}, \tfrac{5\pi}{6}, \tfrac{3\pi}{2}$']
+  answer: 3
+  explanation: |-
+    Write $\cos x = \sin\left(\tfrac{\pi}{2} - x\right)$. Family 1: $2x = \tfrac{\pi}{2} - x + 2k\pi$, so $x = \tfrac{\pi}{6} + \tfrac{2k\pi}{3}$: $\tfrac{\pi}{6}, \tfrac{5\pi}{6}, \tfrac{3\pi}{2}$. Family 2: $2x = \tfrac{\pi}{2} + x + 2k\pi$, so $x = \tfrac{\pi}{2}$. All four together; the other choices each miss part of a family.
+- id: trig-m5-r2-h20
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'Which set of angles is the same as $x = (-1)^n\tfrac{\pi}{6} + n\pi$ ($n$ an integer)?'
+  choices: ['$x = \pm\tfrac{\pi}{6} + 2k\pi$', '$x = \tfrac{\pi}{6} + k\pi$', '$x = \tfrac{\pi}{6} + 2k\pi$ or $x = \tfrac{5\pi}{6} + 2k\pi$', '$x = \tfrac{5\pi}{6} + 2k\pi$ only']
+  answer: 2
+  explanation: |-
+    Even $n = 2k$ gives $\tfrac{\pi}{6} + 2k\pi$; odd $n = 2k + 1$ gives $-\tfrac{\pi}{6} + \pi + 2k\pi = \tfrac{5\pi}{6} + 2k\pi$. These are the solutions of $\sin x = \tfrac12$. $\pm\tfrac{\pi}{6} + 2k\pi$ solves $\cos x = \tfrac{\sqrt3}{2}$, $\tfrac{\pi}{6} + k\pi$ solves $\tan x = \tfrac{\sqrt3}{3}$, and $\tfrac{5\pi}{6} + 2k\pi$ alone is only the odd-$n$ half of the set.
+- id: trig-m5-r2-h21
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'Which values belong to the solution set $x = (-1)^n\tfrac{\pi}{4} + n\pi$ ($n$ an integer)? Select all that apply.'
+  choices: ['$\tfrac{\pi}{4}$', '$\tfrac{3\pi}{4}$', '$\tfrac{5\pi}{4}$', '$\tfrac{9\pi}{4}$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $n = 0$ gives $\tfrac{\pi}{4}$, $n = 1$ gives $-\tfrac{\pi}{4} + \pi = \tfrac{3\pi}{4}$, and $n = 2$ gives $\tfrac{\pi}{4} + 2\pi = \tfrac{9\pi}{4}$. The set is every solution of $\sin x = \tfrac{\sqrt2}{2}$, and $\sin\tfrac{5\pi}{4} = -\tfrac{\sqrt2}{2}$, so $\tfrac{5\pi}{4}$ is not in it.
+- id: trig-m5-r2-h22
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'What is the smallest solution of $\sin\left(2x - \tfrac{\pi}{3}\right) = \tfrac12$ in $[0, 2\pi)$?'
+  choices: ['$\tfrac{\pi}{12}$', '$\tfrac{\pi}{4}$', '$\tfrac{\pi}{6}$', '$\tfrac{7\pi}{12}$']
+  answer: 1
+  explanation: |-
+    With $u = 2x - \tfrac{\pi}{3}$, $u$ runs over $\left[-\tfrac{\pi}{3}, \tfrac{11\pi}{3}\right)$. The smallest solution of $\sin u = \tfrac12$ there is $u = \tfrac{\pi}{6}$, so $2x = \tfrac{\pi}{6} + \tfrac{\pi}{3} = \tfrac{\pi}{2}$ and $x = \tfrac{\pi}{4}$. $\tfrac{\pi}{12}$ ignores the shift, $\tfrac{\pi}{6}$ is the value of $u$, and $\tfrac{7\pi}{12}$ is the second solution.
+- id: trig-m5-r2-h23
+  lesson: trig-m5-h-general-solutions
+  type: match
+  topic: General solutions
+  stem: 'Match each equation to a good first step.'
+  pairs:
+    - ['$\sin 3x = \sin x$', 'Use the two families A = B + 2kπ and A = π − B + 2kπ']
+    - ['$\sin 2x = \cos x$', 'Rewrite cos x as sin(π/2 − x)']
+    - ['$\sin\left(2x - \tfrac{\pi}{3}\right) = \tfrac12$', 'Find the interval that u = 2x − π/3 runs over']
+    - ['$\cos x = x$', 'Graph both sides, then solve numerically']
+  distractors: ['Divide both sides by sin x']
+  explanation: |-
+    Equal sines call for the two families; a sine equal to a cosine becomes equal sines through the cofunction identity; a shifted argument needs its own interval; and $\cos x = x$ mixes a trig function with a plain $x$, so no formula solves it. Dividing by $\sin x$ is never a good first step: it can lose the solutions where $\sin x = 0$.
+- id: trig-m5-r2-h24
+  lesson: trig-m5-h-general-solutions
+  type: order
+  topic: Numerical solutions
+  stem: 'The bisection method is used on $f(x) = \cos x - x$ (radians), starting from $[0, 1]$. Put the intervals in the order the method produces them.'
+  items: ['$[0, 1]$', '$[0.5, 1]$', '$[0.5, 0.75]$', '$[0.625, 0.75]$', '$[0.6875, 0.75]$']
+  explanation: |-
+    Each step keeps the half where $f$ changes sign. $f(0.5) \approx 0.3776 > 0$, so keep $[0.5, 1]$; $f(0.75) \approx -0.0183 < 0$, so keep $[0.5, 0.75]$; $f(0.625) \approx 0.1860 > 0$, so keep $[0.625, 0.75]$; $f(0.6875) \approx 0.0853 > 0$, so keep $[0.6875, 0.75]$. Each interval is half as wide as the one before.
+- id: trig-m5-r2-h25
+  lesson: trig-m5-h-general-solutions
+  type: label
+  topic: General solutions
+  stem: 'The picture explains why $\sin A = \sin B$ has two families of solutions. Name the numbered parts.'
+  image: {src: images/trig-m5-equal-sines-blank.svg, alt: 'A unit circle with a dashed horizontal line crossing it at two points, one on the right and one on the left, each joined to the center. The vertical axis is drawn thicker.'}
+  labels:
+    - {x: 68.0, y: 31.4, text: 'Point at angle B'}
+    - {x: 21.2, y: 31.4, text: 'Point at angle π − B'}
+    - {x: 89.3, y: 31.4, text: 'Height sin B'}
+    - {x: 44.6, y: 15.9, text: 'Mirror line (the y-axis)'}
+  distractors: ['Point at angle −B', 'Point at angle π + B']
+  explanation: |-
+    Sine is the height of the point. The horizontal line at height $\sin B$ meets the circle at the angle $B$ and at its mirror image across the $y$-axis, the angle $\pi - B$. Angles $-B$ and $\pi + B$ have height $-\sin B$, below the axis.
+- id: trig-m5-r2-h26
+  lesson: trig-m5-h-general-solutions
+  topic: Numerical solutions
+  stem: 'How many real solutions does $\sin x = \tfrac{x}{2}$ have?'
+  choices: ['1', '2', '3', 'Infinitely many']
+  answer: 2
+  explanation: |-
+    For $|x| > 2$, $\left|\tfrac{x}{2}\right| > 1$, which sine can't reach, so all solutions are in $[-2, 2]$. A graph shows three crossings: $x = 0$ and $x \approx \pm1.8955$ (both functions are odd, so the solutions come in $\pm$ pairs). It is easy to miss the negative one or to forget $x = 0$.
+- id: trig-m5-r2-h27
+  lesson: trig-m5-h-general-solutions
+  type: text
+  topic: Numerical solutions
+  stem: 'The equation $\cos x = x$ ($x$ in radians) has exactly one solution. To three decimal places, $x =$ ___.'
+  accept: ['0.739']
+  explanation: |-
+    Bisection, fixed-point iteration $x_{n+1} = \cos x_n$ or a calculator's solver all give $x \approx 0.7390851$, which is $0.739$ to three decimal places. Check: $\cos 0.739 \approx 0.7391$.
+- id: trig-m5-r2-h28
+  lesson: trig-m5-h-general-solutions
+  topic: Numerical solutions
+  stem: 'For Kepler''s equation with $e = 0.2$ and $M = 1$, the iteration $E_{n+1} = 1 + 0.2\sin E_n$ starts from $E_0 = 1$. What is $E_1$, to four decimals?'
+  choices: ['$1.1683$', '$1.2000$', '$0.8317$', '$1.0035$']
+  answer: 0
+  explanation: |-
+    $E_1 = 1 + 0.2\sin 1 = 1 + 0.2(0.8415) = 1.1683$ (radians). $1.2000$ leaves out the sine, $0.8317$ subtracts instead of adding, and $1.0035$ comes from a calculator in degree mode ($\sin 1^\circ \approx 0.0175$).
+- id: trig-m5-r2-h29
+  lesson: trig-m5-h-general-solutions
+  topic: General solutions
+  stem: 'How many solutions does $\tan 2x = \tan x$ have in $[0, 2\pi)$?'
+  choices: ['1', '2', '4', '6']
+  answer: 1
+  explanation: |-
+    Equal tangents: $2x = x + k\pi$, so $x = k\pi$: $0$ and $\pi$ in the interval, and both sides are defined there. Tangent has only one family, because its period is $\pi$. Answers of 4 or 6 come from borrowing the two-family rule for sines.

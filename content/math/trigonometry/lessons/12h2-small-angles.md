@@ -37,7 +37,7 @@ strictly bigger than the one before. So $\tfrac12\sin t < \tfrac12 t < \tfrac12\
 claim.
 
 ```plot
-{"x": [-0.2, 1.4], "y": [-0.2, 1.1], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 1.5708]}], "polygons": [{"points": [[0, 0], [1, 0], [0.7648, 0.6442]]}, {"points": [[0, 0], [1, 0], [1, 0.8423]]}], "segments": [{"from": [0.7648, 0.6442], "to": [0.7648, 0], "dashed": true, "label": "sin t"}], "points": [{"at": [0, 0], "label": "O"}, {"at": [1, 0], "label": "A"}, {"at": [0.7648, 0.6442], "label": "P"}, {"at": [1, 0.8423], "label": "T"}], "caption": "t = 0.7: triangle OAP (area ½ sin t) sits inside the sector OAP (area ½ t), which sits inside triangle OAT (area ½ tan t)"}
+{"x": [-0.2, 1.4], "y": [-0.2, 1.1], "equal": true, "curves": [{"x": "cos(t)", "y": "sin(t)", "t": [0, 1.5708]}], "polygons": [{"points": [[0, 0], [1, 0], [0.7648, 0.6442]]}, {"points": [[0, 0], [1, 0], [1, 0.8423]]}], "segments": [{"from": [0.7648, 0.6442], "to": [0.7648, 0], "dashed": true, "label": "sin t"}], "points": [[0, 0], {"at": [1, 0], "label": "A"}, [0.7648, 0.6442], {"at": [1, 0.8423], "label": "T"}], "labels": [{"at": [-0.08, 0.07], "text": "O"}, {"at": [0.72, 0.76], "text": "P"}], "caption": "t = 0.7: triangle OAP (area ½ sin t) sits inside the sector OAP (area ½ t), which sits inside triangle OAT (area ½ tan t)"}
 ```
 
 The same order holds for the lengths themselves: the height $\sin t$ is shorter than the arc $t$ that

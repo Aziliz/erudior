@@ -281,3 +281,52 @@
     Expected false discoveries $= m_0\alpha = {m0:dp0}({al}) =$ **{ev:num4}**; expected true discoveries $= {m1:dp0}({pw}) = {es:num4}$.
 
     Fraction false $\approx {ev:num4}/({ev:num4} + {es:num4}) =$ **{fr:dp3}**.
+
+- id: ps-h1-r2-mh-accept
+  title: Metropolis acceptance probability
+  topic: Markov chain Monte Carlo
+  vars:
+    mu: {choices: [0, 1, 2, 5, 10]}
+    sd: {choices: [1, 2, 3]}
+    dx: {min: -2, max: 2, step: 0.1}
+    st: {min: -2, max: 2, step: 0.1}
+  calc:
+    x: round(mu + sd*dx, 1)
+    y: round(x + st, 1)
+    lr: -((y - mu)^2 - (x - mu)^2)/(2*sd^2)
+    rt: exp(lr)
+    al: min(1, rt)
+  where: ['abs(st) >= 0.3', 'rt < 0.98 or rt > 1.02']
+  prompt: |-
+    A random-walk Metropolis sampler (symmetric normal proposal) targets $N({mu}, {sd}^2)$, so $f(x) = e^{-(x - {mu})^2/(2 \cdot {sd}^2)}$
+    up to a constant. The current state is $x = {x:num1}$ and the proposal is $y = {y:num1}$. Find the acceptance probability (4 decimals).
+  answers:
+    - {name: al, label: '$\alpha =$', tolerance: 0.0006, format: num4}
+  solution: |-
+    With a symmetric proposal, $\alpha = \min\big(1, f(y)/f(x)\big)$ and
+    $$\ln\frac{f(y)}{f(x)} = -\frac{({y:num1} - {mu})^2 - ({x:num1} - {mu})^2}{2({sd})^2} = {lr:num4}.$$
+    So $f(y)/f(x) = {rt:num4}$ and $\alpha = \min(1, {rt:num4}) =$ **{al:num4}**.
+
+- id: ps-h1-r2-ess
+  title: Effective sample size and Monte Carlo error
+  topic: Markov chain Monte Carlo
+  vars:
+    n: {choices: [2000, 5000, 10000, 20000, 50000]}
+    rho: {choices: [0.5, 0.6, 0.7, 0.8, 0.9, 0.95]}
+    s: {min: 0.2, max: 5, step: 0.1}
+  calc:
+    ess: n*(1 - rho)/(1 + rho)
+    mcse: s/sqrt(ess)
+    iid: s/sqrt(n)
+  prompt: |-
+    An MCMC run of $N = {n:dp0}$ draws has autocorrelations close to $\rho^k$ with $\rho = {rho}$, and the draws have
+    standard deviation $s = {s:num1}$. Estimate the effective sample size (nearest whole number) and the Monte Carlo
+    standard error of the posterior mean estimate (3 significant figures, using the unrounded ESS).
+  answers:
+    - {name: ess, label: 'ESS', tolerance: 1, format: num1}
+    - {name: mcse, label: 'MC standard error', relTolerance: 0.006, format: sig3}
+  solution: |-
+    $\text{ESS} \approx N\dfrac{1 - \rho}{1 + \rho} = {n:dp0} \cdot \dfrac{1 - {rho}}{1 + {rho}} =$ **{ess:num1}**.
+
+    Monte Carlo standard error $\approx s/\sqrt{\text{ESS}} = {s:num1}/\sqrt{{ess:num1}} =$ **{mcse:sig3}**
+    (independent draws would give $s/\sqrt N = {iid:sig3}$).

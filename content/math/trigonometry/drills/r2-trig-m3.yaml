@@ -60,7 +60,7 @@
     - {name: arcl, label: 'Arc', tolerance: 0.0051, format: dp2, units: {cm: 1}}
   solution: |-
     The bisector of the central angle splits the chord into two half-chords, each opposite an angle of ${half}^\circ$ in a right triangle with hypotenuse {R}. So the chord is
-    $2 \cdot {R} \sin {half}^\circ \approx$ **{chd:dp2} cm**. The arc uses the angle in radians: ${R} \cdot \dfrac{{ang}\pi}{180} \approx$ **{arcl:dp2} cm**, a little longer than the chord, as it must be.
+    $2 \cdot {R} \sin {half}^\circ \approx$ **{chd:dp2} cm**. The arc uses the angle in radians: ${R} \cdot \dfrac{{ang}\pi}{180} \approx$ **{arcl:dp2} cm**, longer than the chord, as it must be.
 
 - id: trig-m3-r2-small-approx
   title: Small-angle estimates in degrees

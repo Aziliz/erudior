@@ -480,3 +480,171 @@
   distractors: [Unadjusted level α, Adjusted p-value]
   explanation: |-
     The straight line through rank $k$ at height $0.05k/8$ is the BH line. The flat dashed line is Bonferroni's $0.05/8 = 0.00625$. The bending curve is Holm's $0.05/(9 - k)$: equal to Bonferroni at $k = 1$ and rising to 0.05 at $k = 8$. The fifth p-value (0.031) is the last on or below the BH line, so BH rejects ranks 1 to 5; the sixth (0.044) is above its line, 0.0375, and is not rejected.
+
+# ---- Lesson 93: Markov chain Monte Carlo ----
+- id: ps-h1-r2-h42
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'Why can the Metropolis–Hastings algorithm sample from a posterior whose normalizing constant $Z$ is unknown?'
+  choices:
+    - 'It estimates $Z$ by numerical integration before the chain starts'
+    - 'It approximates the posterior by a normal distribution'
+    - 'The acceptance probability uses only the ratio $f(y)/f(x)$, in which $Z$ cancels'
+    - 'It samples from the prior, which needs no normalizing constant'
+  answer: 2
+  explanation: |-
+    The target is $\pi(x) = f(x)/Z$, and the algorithm only ever uses $\pi(y)/\pi(x) = f(y)/f(x)$ (times a proposal ratio), so $Z$ is never needed. That is exactly what makes MCMC useful for posteriors, which are known only up to a constant.
+
+- id: ps-h1-r2-h43
+  lesson: ps-h1-mcmc
+  module_quiz: true
+  topic: Markov chain Monte Carlo
+  stem: 'A random-walk Metropolis sampler targets $N(0, 1)$, so $f(x) = e^{-x^2/2}$. The current state is $x = 1$ and the proposal is $y = 2$. What is the acceptance probability?'
+  choices: ['$0.223$', '$0.5$', '$0.777$', '$1$']
+  answer: 0
+  explanation: |-
+    The proposal is symmetric, so $\alpha = \min(1, f(2)/f(1)) = \min(1, e^{-(4 - 1)/2}) = e^{-1.5} = 0.223$. 0.5 compares the states themselves, 0.777 is $1 - \alpha$, and 1 would be right only for a move to higher density.
+
+- id: ps-h1-r2-h44
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'A transition matrix $P$ satisfies $\pi(x)P(x, y) = \pi(y)P(y, x)$ for all states $x, y$. What follows?'
+  choices:
+    - '$P$ is symmetric'
+    - '$\pi$ is a stationary distribution of the chain'
+    - 'The chain is irreducible'
+    - 'Every proposal is accepted'
+  answer: 1
+  explanation: |-
+    This is detailed balance. Summing over $x$: $\sum_x \pi(x)P(x, y) = \pi(y)\sum_x P(y, x) = \pi(y)$, so $\pi P = \pi$. It does not make $P$ symmetric (that needs $\pi$ uniform), and it says nothing about irreducibility, which is a separate condition for convergence.
+
+- id: ps-h1-r2-h45
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'Three states in a cycle have weights $f = (3, 1, 2)$. From each state a Metropolis sampler proposes each of the other two states with probability 1/2. What is $P(1, 1)$, the probability of staying at state 1?'
+  choices: ['$0$', '$1/3$', '$1/6$', '$1/2$']
+  answer: 3
+  explanation: |-
+    From state 1 ($f = 3$): propose 2 with probability 1/2, accepted with probability $\min(1, 1/3) = 1/3$, so $P(1, 2) = 1/6$; propose 3 with probability 1/2, accepted with probability $2/3$, so $P(1, 3) = 1/3$. The rest is rejections: $P(1, 1) = 1 - 1/6 - 1/3 = 1/2$. The answer 0 forgets that rejected proposals leave the chain where it is.
+
+- id: ps-h1-r2-h46
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'With an asymmetric proposal, $f(x) = 2$, $f(y) = 3$, $q(y \mid x) = 0.5$ and $q(x \mid y) = 0.2$. What is the Metropolis–Hastings acceptance probability for moving from $x$ to $y$?'
+  choices: ['$0.6$', '$1$', '$0.667$', '$0.3$']
+  answer: 0
+  explanation: |-
+    $\alpha = \min\left(1, \dfrac{f(y)q(x \mid y)}{f(x)q(y \mid x)}\right) = \min\left(1, \dfrac{3(0.2)}{2(0.5)}\right) = 0.6$. Ignoring the Hastings correction gives $\min(1, 3/2) = 1$; 0.667 inverts the target ratio; 0.3 leaves out $q(y \mid x)$.
+
+- id: ps-h1-r2-h47
+  lesson: ps-h1-mcmc
+  module_quiz: true
+  topic: Markov chain Monte Carlo
+  stem: 'An MCMC run of $N = 5000$ draws has autocorrelations close to $\rho^k$ with $\rho = 0.8$. About how many independent draws is it worth?'
+  choices: ['$1000$', '$2778$', '$556$', '$4000$']
+  answer: 2
+  explanation: |-
+    $\text{ESS} \approx N(1 - \rho)/(1 + \rho) = 5000(0.2)/1.8 \approx 556$. 1000 forgets the $1 + \rho$, 2778 forgets the $1 - \rho$, and 4000 multiplies by $\rho$.
+
+- id: ps-h1-r2-h48
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'A random-walk Metropolis sampler uses a very small step size. What happens?'
+  choices:
+    - 'Almost every proposal is rejected, so the chain rarely moves'
+    - 'The chain converges in fewer iterations'
+    - 'The stationary distribution changes'
+    - 'Almost every proposal is accepted, but the chain moves slowly and its draws are highly correlated'
+  answer: 3
+  explanation: |-
+    A tiny step barely changes the density, so the ratio is near 1 and nearly every move is accepted, but each move is tiny, so exploring the posterior takes very long and the effective sample size is small. Very large steps cause the opposite problem, mostly rejections. The stationary distribution is $\pi$ for any step size; only the speed changes.
+
+- id: ps-h1-r2-h49
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'When a Metropolis–Hastings proposal is rejected, what is recorded as the next draw?'
+  choices:
+    - 'Nothing; only accepted values are kept'
+    - 'The current state, again'
+    - 'The rejected proposal'
+    - 'A fresh draw from the proposal distribution'
+  answer: 1
+  explanation: |-
+    The chain stays put, and the current state is recorded again. Repeats are part of the correct sample: they give extra weight to high-density states, where proposals tend to be rejected. Dropping them would bias the draws toward low-density regions.
+
+- id: ps-h1-r2-h50
+  lesson: ps-h1-mcmc
+  type: text
+  topic: Markov chain Monte Carlo
+  stem: 'A random-walk Metropolis sampler targets $f(x) = e^{-x^2/2}$. From $x = 0$ it proposes $y = 1$. The acceptance probability, to 3 decimal places, is ___.'
+  accept: ['0.607']
+  explanation: |-
+    $\alpha = \min(1, f(1)/f(0)) = e^{-1/2} \approx 0.607$. A move away from the mode is accepted with probability equal to the density ratio.
+
+- id: ps-h1-r2-h51
+  lesson: ps-h1-mcmc
+  type: text
+  topic: Markov chain Monte Carlo
+  stem: 'The early iterations of an MCMC run, discarded because they still reflect the starting value rather than the target distribution, are called the ___.'
+  accept: [burn-in, burn in, burnin, burn-in period, warm-up, warmup, warm up]
+  explanation: |-
+    They are the burn-in (some software says warm-up). Discarding them removes the influence of the starting point; it does not fix a chain that mixes slowly.
+
+- id: ps-h1-r2-h52
+  lesson: ps-h1-mcmc
+  module_quiz: true
+  type: order
+  topic: Markov chain Monte Carlo
+  stem: 'Put the parts of one Metropolis–Hastings iteration in order, starting from the current state $x$.'
+  items:
+    - 'Propose $y$ from $q(y \mid x)$'
+    - 'Compute $\alpha = \min\big(1, f(y)q(x \mid y)/(f(x)q(y \mid x))\big)$'
+    - 'Compare a Uniform(0, 1) draw with $\alpha$'
+    - 'Record the next state: $y$ if accepted, $x$ again if not'
+  explanation: |-
+    $\alpha$ depends on $y$, so the proposal comes first; the uniform draw is compared with $\alpha$, so $\alpha$ must be known; and the recorded state depends on that comparison.
+
+- id: ps-h1-r2-h53
+  lesson: ps-h1-mcmc
+  topic: Markov chain Monte Carlo
+  stem: 'Which statements about MCMC output are true? Select all that apply.'
+  choices:
+    - 'Consecutive draws are usually positively correlated'
+    - 'Under the conditions of the ergodic theorem, chain averages converge to expectations under the target'
+    - 'The target''s normalizing constant must be computed before sampling'
+    - 'Draws from early in the run may need to be discarded'
+    - 'An acceptance rate of 100% means the sampler is working perfectly'
+  answer: [0, 1, 3]
+  explanation: |-
+    Each state is built from the previous one, so draws are correlated; the ergodic theorem is a law of large numbers for the chain; and burn-in draws reflect the start, not the target. The constant cancels in the acceptance ratio. An acceptance rate near 100% usually means tiny steps and slow exploration (Gibbs sampling, which accepts every update by design, is the exception).
+
+- id: ps-h1-r2-h54
+  lesson: ps-h1-mcmc
+  module_quiz: true
+  type: match
+  topic: Markov chain Monte Carlo
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Markov chain, The next state depends on the past only through the current state]
+    - [Stationary distribution, If the chain is in it at one step it stays in it at the next]
+    - [Detailed balance, Equilibrium flow from x to y equals the flow from y to x]
+    - [Effective sample size, Number of independent draws with the same precision]
+  distractors: [Probability that every proposal is accepted]
+  explanation: |-
+    These are the definitions from the lesson: the Markov property, $\pi P = \pi$, $\pi(x)P(x, y) = \pi(y)P(y, x)$, and ESS $\approx N(1 - \rho)/(1 + \rho)$ for AR(1)-type autocorrelation.
+
+- id: ps-h1-r2-h55
+  lesson: ps-h1-mcmc
+  module_quiz: true
+  type: label
+  topic: Markov chain Monte Carlo
+  stem: 'This trace plot shows 200 Metropolis iterations for a Poisson rate $\lambda$. Name the numbered parts.'
+  image: {src: images/ps-h1-mcmc-trace-blank.svg, alt: 'A trace plot of lambda against iteration from 0 to 200. A dot marks the first value at 9. The line drops through a shaded band covering the first 25 iterations, then moves up and down between about 1 and 4, with some short flat stretches.'}
+  labels:
+    - {x: 10.9, y: 14.1, text: Starting value}
+    - {x: 16.3, y: 40.3, text: Burn-in}
+    - {x: 38.8, y: 65.9, text: A run of rejected proposals}
+    - {x: 74.8, y: 61.3, text: Chain sampling the posterior}
+  distractors: [Posterior mean, Proposal distribution]
+  explanation: |-
+    The chain starts at 9, far from where the posterior has its mass, and the shaded early stretch is burn-in, discarded. A flat segment means the same value was recorded several times: proposals were rejected and the chain stayed put. After burn-in the chain moves back and forth over the posterior (mostly between 1 and 4; the posterior mean is about 2.28).

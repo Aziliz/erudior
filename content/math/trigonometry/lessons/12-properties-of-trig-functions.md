@@ -53,7 +53,7 @@ $$\tan(t + \pi) = \frac{-y}{-x} = \frac{y}{x} = \tan t.$$
 So tangent and cotangent have period $\pi$.
 
 ```plot
-{"x": [-1.5, 1.5], "y": [-1.5, 1.5], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "segments": [{"from": [-0.6, -0.8], "to": [0.6, 0.8], "dashed": true}], "points": [{"at": [0.6, 0.8], "label": "(x, y): t"}, {"at": [-0.6, -0.8], "label": "(−x, −y): t + π"}, [0, 0]], "caption": "t and t + π give opposite points on one line through the origin, so y/x (the tangent, the slope of that line) is the same"}
+{"x": [-1.5, 1.5], "y": [-1.5, 1.5], "equal": true, "circles": [{"center": [0, 0], "r": 1}], "segments": [{"from": [-0.6, -0.8], "to": [0.6, 0.8], "dashed": true}], "points": [{"at": [0.6, 0.8], "label": "(x, y): t"}, [-0.6, -0.8], [0, 0]], "labels": [{"at": [-0.85, -1.2], "text": "(−x, −y): t + π"}], "caption": "t and t + π give opposite points on one line through the origin, so y/x (the tangent, the slope of that line) is the same"}
 ```
 
 Periodicity lets you strip whole periods from an angle before evaluating.

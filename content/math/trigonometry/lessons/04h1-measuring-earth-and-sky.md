@@ -10,25 +10,23 @@ refs: [trig-ref-unit-circle]
 ---
 ## The arc formula, read three ways
 
-Lesson 3 gave you $s = r\theta$ and used it in one direction: know the radius and the angle,
-find the arc. But the formula ties three quantities together, and any two give the third. That
-simple fact let people measure the size of the Earth more than two thousand years ago, lets a
-ship's navigator turn latitude into distance, and lets astronomers find distances to stars they
-will never visit. This lesson works through all three, in that order:
+Lesson 3 used $s = r\theta$ in one direction: know the radius and the angle, find the arc. But
+any two of the three quantities give the third. That let people measure the Earth more than two
+thousand years ago, and it still lets navigators and astronomers measure distances they can't
+walk. This lesson works through three uses:
 
 - **Know $s$ and $\theta$, find $r$:** the size of the Earth.
 - **Know $r$ and $\theta$, find $s$:** distances on the Earth's surface, and the nautical mile.
-- **Know $s$ and $r$, find $\theta$** (and its reverse, know $\theta$ and $s$, find $r$): how big
-  things look in the sky, and how far away the stars are.
+- **Know $s$ and $r$, find $\theta$** (or the reverse): how big things look in the sky, and how
+  far away the stars are.
 
-All of it uses the radian, and all of it is only as simple as it looks *because* the angle is in
-radians.
+All of it is only this simple *because* the angle is in radians.
 
 ## How Eratosthenes measured the Earth
 
-Eratosthenes of Cyrene (about 276–194 BC) was the head of the great library at Alexandria in
-Egypt. The story of his measurement reaches us mainly through a later Greek writer, Cleomedes,
-so some details are uncertain, but the method is clear and it is a beautiful use of angles.
+Eratosthenes of Cyrene (about 276–194 BC) ran the great library at Alexandria in Egypt. His
+measurement reaches us mainly through a later Greek writer, Cleomedes, so some details are
+uncertain, but the method is clear.
 
 He had heard that at noon on the summer solstice, the Sun at Syene (modern Aswan, south of
 Alexandria) shone straight down a deep well: it was directly overhead. At the same time in
@@ -131,8 +129,8 @@ latitude" is an approximation good to well under 1%, which is plenty for this ki
 
 ## Small angles: how big things look
 
-Hold a coin at arm's length and it can cover the Moon. What matters is not an object's size but
-its **angular size**: the angle it covers as seen from where you are. For an object of width $D$
+A coin at arm's length can hide the Moon. What matters is not an object's size but its
+**angular size**: the angle it covers as seen from where you are. For an object of width $D$
 at distance $d$, picture a circle of radius $d$ centered on your eye. If $d$ is much larger than
 $D$, the object is very nearly a short arc of that circle, so by $s = r\theta$,
 
@@ -140,17 +138,14 @@ $$\theta \approx \frac{D}{d} \qquad (\theta \text{ in radians}).$$
 
 This is the small-angle approximation. It treats a straight object as if it were bent to fit
 the circle, and the error is tiny when the angle is small: the straight chord and the arc differ
-by about 0.13% at $10^\circ$ and about 0.001% at $1^\circ$. (Lesson 3 already noticed that a short
-arc looks straight; this is the same fact used on purpose.) Astronomers use it constantly, because
-almost everything in the sky is a very small angle.
+by about 0.13% at $10^\circ$ and about 0.001% at $1^\circ$.
 
 ```shape
 {"segments": [{"from": [0, 0], "to": [10, 2]}, {"from": [0, 0], "to": [10, -2]}, {"from": [10, -2], "to": [10, 2], "label": "D"}, {"from": [0, 0], "to": [10, 0], "dashed": true, "label": "d"}], "curves": [{"x": "10.198cos(t)", "y": "10.198sin(t)", "t": [-0.1974, 0.1974], "dashed": true}, {"x": "2.5cos(t)", "y": "2.5sin(t)", "t": [-0.1974, 0.1974]}], "points": [[0, 0]], "labels": [{"at": [-0.3, -0.7], "text": "eye"}, {"at": [3.1, 0.3], "text": "θ"}], "caption": "An object of width D at distance d is almost an arc of a circle of radius d (dashed), so θ ≈ D/d"}
 ```
 
-Small angles need small units. Recall from Lesson 1 that a degree is 60 minutes and a minute is
-60 seconds; when these measure angles in the sky they are usually called arcminutes and
-**arcseconds** to avoid confusion with time. Two conversions are worth remembering:
+Small angles need small units. Lesson 1's minutes and seconds of angle are called arcminutes and
+**arcseconds** in astronomy, to avoid confusion with time. Two conversions are worth remembering:
 
 $$1 \text{ rad} = \frac{180 \cdot 60}{\pi}' \approx 3438' , \qquad 1 \text{ rad} = \frac{180 \cdot 3600}{\pi}'' \approx 206{,}265''.$$
 

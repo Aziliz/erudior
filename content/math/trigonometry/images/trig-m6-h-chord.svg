@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 380" width="480" height="380" font-family="sans-serif" font-size="16" fill="#1c2833">
+<rect width="480" height="380" fill="#ffffff"/>
+<circle cx="175.0" cy="190.0" r="150.0" fill="none" stroke="#1c2833" stroke-width="1.8"/>
+<polygon points="175.0,190.0 271.4,75.1 271.4,304.9" fill="#dde8f3" stroke="#1c2833" stroke-width="2" stroke-linejoin="round"/>
+<line x1="175.0" y1="190.0" x2="271.4" y2="190.0" stroke="#1c2833" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="271.4" y1="75.1" x2="271.4" y2="304.9" stroke="#244d76" stroke-width="3"/>
+<polyline points="260.4,190.0 260.4,179.0 271.4,179.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 209.0 190.0 A 34 34 0 0 0 196.9 164.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<path d="M 203.3 223.7 A 44 44 0 0 0 219.0 190.0" fill="none" stroke="#1c2833" stroke-width="1.5"/>
+<text x="213.0" y="180.0" font-size="16" text-anchor="start" font-style="italic" fill="#1c2833">θ/2</text>
+<text x="221.0" y="216.0" font-size="16" text-anchor="start" font-style="italic" fill="#1c2833">θ/2</text>
+<circle cx="175.0" cy="190.0" r="4" fill="#1c2833"/>
+<text x="165.0" y="195.0" font-size="16" text-anchor="end" fill="#1c2833">O</text>
+<text x="213.2" y="126.5" font-size="16" text-anchor="end" fill="#1c2833">R</text>
+<text x="213.2" y="265.5" font-size="16" text-anchor="end" fill="#1c2833">R</text>
+<text x="276.4" y="214.0" font-size="15" text-anchor="start" font-weight="bold" fill="#244d76">crd θ</text>
+<line x1="347.0" y1="75.1" x2="347.0" y2="304.9" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="340.0" y1="75.1" x2="354.0" y2="75.1" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="340.0" y1="190.0" x2="354.0" y2="190.0" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="340.0" y1="304.9" x2="354.0" y2="304.9" stroke="#1c2833" stroke-width="1.5"/>
+<line x1="275.4" y1="75.1" x2="339.0" y2="75.1" stroke="#1c2833" stroke-width="1" stroke-dasharray="3 4"/>
+<line x1="275.4" y1="304.9" x2="339.0" y2="304.9" stroke="#1c2833" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="357.0" y="137.5" font-size="16" text-anchor="start" fill="#1c2833">R sin(θ/2)</text>
+<text x="357.0" y="252.5" font-size="16" text-anchor="start" fill="#1c2833">R sin(θ/2)</text>
+</svg>

@@ -1,0 +1,97 @@
+# Round 2 drills for the trig-m7 honors lessons (31h1 circumcircle and incircle, 31h2 half angles and the law of tangents)
+- id: trig-m7-r2-circumradius
+  title: Circumradius from a side and its opposite angle
+  topic: Circumcircle and incircle
+  vars:
+    A: {min: 20, max: 140}
+    B: {min: 15, max: 120}
+    a: {min: 5, max: 40}
+  where: ["A + B <= 165"]
+  calc:
+    C: 180 - A - B
+    R: a / (2 * sind(A))
+    D: 2 * R
+    c: D * sind(C)
+  prompt: 'In triangle $ABC$, $A = {A}^\circ$, $B = {B}^\circ$ and $a = {a}$. Use the extended law of sines to find the circumradius $R$ and then side $c$. (2 decimals)'
+  answers:
+    - {name: R, label: '$R$', tolerance: 0.01}
+    - {name: c, label: '$c$', tolerance: 0.01}
+  solution: |-
+    Extended law of sines: $2R = \dfrac{a}{\sin A} = \dfrac{{a}}{\sin {A}^\circ} \approx {D:num4}$, so $R \approx$ **{R:num2}**.
+    The third angle is $C = 180^\circ - {A}^\circ - {B}^\circ = {C}^\circ$, and $c = 2R\sin C \approx {D:num4}\sin {C}^\circ \approx$ **{c:num2}**.
+
+- id: trig-m7-r2-circle-radii
+  title: Area, circumradius and inradius from three sides
+  topic: Circumcircle and incircle
+  vars:
+    a: {min: 4, max: 30}
+    b: {min: 4, max: 30}
+    c: {min: 4, max: 30}
+  where: ["a + b > c + 1", "a + c > b + 1", "b + c > a + 1"]
+  calc:
+    s: (a + b + c) / 2
+    pr: s * (s - a) * (s - b) * (s - c)
+    K: sqrt(pr)
+    abc: a * b * c
+    R: abc / (4 * K)
+    r: K / s
+  prompt: 'A triangle has sides {a}, {b} and {c}. Find its area $K$, its circumradius $R$ and its inradius $r$. (2 decimals)'
+  answers:
+    - {name: K, label: '$K$', tolerance: 0.01}
+    - {name: R, label: '$R$', tolerance: 0.01}
+    - {name: r, label: '$r$', tolerance: 0.01}
+  solution: |-
+    $s = \dfrac{{a} + {b} + {c}}{2} = {s}$, and Heron gives $K = \sqrt{{pr:num4}} \approx$ **{K:num2}**.
+    Then $R = \dfrac{abc}{4K} = \dfrac{{abc}}{4({K:num4})} \approx$ **{R:num2}** and $r = \dfrac{K}{s} = \dfrac{{K:num4}}{{s}} \approx$ **{r:num2}**.
+
+- id: trig-m7-r2-half-angle
+  title: The largest angle from a half-angle formula
+  topic: Half-angle and tangent laws
+  vars:
+    a: {min: 3, max: 25}
+    b: {min: 3, max: 25}
+    c: {min: 3, max: 25}
+  where: ["c > a", "c > b", "a + b > c + 1"]
+  calc:
+    s: (a + b + c) / 2
+    sa: s - a
+    sb: s - b
+    sc: s - c
+    t: sqrt(sa * sb / (s * sc))
+    h: atand(t)
+    C: 2 * h
+  prompt: 'A triangle has sides $a = {a}$, $b = {b}$, $c = {c}$. Use $\tan\tfrac{\,C}{2} = \sqrt{\tfrac{(s - a)(s - b)}{s(s - c)}}$ to find $\tan\tfrac{\,C}{2}$ (4 decimals) and the largest angle $C$ in degrees (2 decimals).'
+  answers:
+    - {name: t, label: '$\tan\tfrac{\,C}{2}$', tolerance: 0.0001}
+    - {name: C, label: '$C$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    $s = {s}$, so $s - a = {sa}$, $s - b = {sb}$ and $s - c = {sc}$.
+    $\tan\dfrac{\,C}{2} = \sqrt{\dfrac{({sa})({sb})}{({s})({sc})}} \approx$ **{t:num4}**, so $\dfrac{\,C}{2} \approx {h:num4}^\circ$ and $C \approx$ **{C:num2}°**.
+
+- id: trig-m7-r2-tangents-sas
+  title: Solve SAS with the law of tangents
+  topic: Half-angle and tangent laws
+  vars:
+    a: {min: 6, max: 40}
+    b: {min: 3, max: 39}
+    C: {min: 20, max: 150}
+  where: ["a > b"]
+  calc:
+    hc: C / 2
+    hs: 90 - hc
+    k: (a - b) / (a + b)
+    t: k / tand(hc)
+    hd: atand(t)
+    A: hs + hd
+    B: hs - hd
+    dif: a - b
+    sm: a + b
+  prompt: 'In triangle $ABC$, $a = {a}$, $b = {b}$ and the included angle is $C = {C}^\circ$. Use the law of tangents to find the half-difference $\tfrac{A - B}{2}$, then $A$ and $B$. (Degrees, 2 decimals.)'
+  answers:
+    - {name: hd, label: '$\tfrac{A - B}{2}$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: A, label: '$A$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+    - {name: B, label: '$B$', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    Half-sum: $\dfrac{A + B}{2} = 90^\circ - \dfrac{\,C}{2} = 90^\circ - {hc:num2}^\circ = {hs:num2}^\circ$.
+    Law of tangents: $\tan\dfrac{A - B}{2} = \dfrac{a - b}{a + b}\cot\dfrac{\,C}{2} = \dfrac{{dif}}{{sm}}\cot {hc:num2}^\circ \approx {t:num4}$, so $\dfrac{A - B}{2} \approx$ **{hd:num2}°**.
+    Then $A = {hs:num2}^\circ + {hd:num2}^\circ \approx$ **{A:num2}°** and $B = {hs:num2}^\circ - {hd:num2}^\circ \approx$ **{B:num2}°**.
