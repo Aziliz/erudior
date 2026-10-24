@@ -10,7 +10,7 @@
     side: 2 * rad * sind(half)
     apo: rad * cosd(half)
     area: n * side * apo / 2
-  prompt: 'A regular polygon with {n} sides has circumradius {rad}. Find its side length, apothem and area, each to 2 decimal places.'
+  prompt: 'A regular polygon with {n} sides has circumradius {rad}. Find its side length, apothem and area, each to 2 decimal places (use the unrounded side and apothem for the area).'
   answers:
     - {name: side, label: 'Side', tolerance: 0.01, format: num2}
     - {name: apo, label: 'Apothem', tolerance: 0.01, format: num2}

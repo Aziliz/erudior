@@ -54,7 +54,7 @@ For the tree, $\Delta\theta = 0.5^\circ \approx 0.008727$ rad, and
 $\tfrac{50(0.008727)}{\cos^2 38^\circ} \approx 0.70$ m, matching Example 1.
 
 ```plot
-{"x": [0, 90], "y": [0, 12], "xLabel": "angle of elevation θ (degrees)", "yLabel": "relative error in h (%)", "functions": [{"f": "100*(pi/360)/(sind(x)*cosd(x))", "label": "error ±0.5°", "from": 4.8, "to": 85.2}], "points": [{"at": [45, 1.745], "label": "45°: 1.75%"}], "caption": "Relative error in a height from a ±0.5° angle error: smallest at 45°, large at very low or very steep angles"}
+{"x": [0, 90], "y": [0, 12], "xLabel": "angle of elevation θ (degrees)", "yLabel": "relative error in h (%)", "functions": [{"f": "100*(pi/360)/(sind(x)*cosd(x))", "label": "error ±0.5°", "from": 4.8, "to": 85.2}], "points": [{"at": [45, 1.745]}], "labels": [{"at": [45, 0.8], "text": "45°: 1.75%"}], "caption": "Relative error in a height from a ±0.5° angle error: smallest at 45°, large at very low or very steep angles"}
 ```
 
 ### The best angle is 45°
@@ -110,8 +110,9 @@ $\sqrt{2(6\,371\,000)(100)} \approx 35\,700$ m, about 36 km. Climbing 59 times h
 multiplies the distance by $\sqrt{59} \approx 7.7$, because $d$ grows like $\sqrt h$.
 
 This is a simplified model. The air bends light slightly around the curve of the Earth
-(**atmospheric refraction**), so the horizon you actually see is usually a few percent
-farther than this geometric value.
+(**atmospheric refraction**), so the horizon you actually see is usually farther than this
+geometric value: about 8% farther in standard conditions (roughly $3.86\sqrt{h}$ km), though it
+varies with the weather.
 
 ## Measuring the Earth from a hilltop
 

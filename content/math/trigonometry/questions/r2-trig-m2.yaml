@@ -148,9 +148,9 @@
     - ['Know $A$ and $b$, want $a$', tangent]
     - ['Know $a$ and $c$, want $A$', inverse sine]
     - ['Know $a$ and $b$, want $A$', inverse tangent]
-  distractors: [secant]
+  distractors: [inverse cosine]
   explanation: |-
-    $a$ is opposite $A$, $b$ is adjacent and $c$ is the hypotenuse. Opposite and hypotenuse: sine. Adjacent and hypotenuse: cosine. Opposite and adjacent: tangent. To get an angle from two sides, use the inverse of the function that links them: $A = \sin^{-1}\tfrac{a}{c}$ or $A = \tan^{-1}\tfrac{a}{b}$.
+    $a$ is opposite $A$, $b$ is adjacent and $c$ is the hypotenuse. Opposite and hypotenuse: sine. Adjacent and hypotenuse: cosine. Opposite and adjacent: tangent. To get an angle from two sides, use the inverse of the function that links them: $A = \sin^{-1}\tfrac{a}{c}$ or $A = \tan^{-1}\tfrac{a}{b}$. Inverse cosine would need the side adjacent to $A$: $\cos^{-1}\tfrac{a}{c}$ gives angle $B$, not $A$.
 - id: trig-m2-r2-q14
   lesson: trig-solve-right
   module_quiz: true
@@ -284,7 +284,7 @@
     - 'Angle $ABD$ is a right angle, so the angles at $A$ and $D$ split $90^\circ$'
   answer: 0
   explanation: |-
-    $AD = AB$ makes triangle $ABD$ isosceles, so its angles at $B$ and $D$ are equal. Angle $BAC$ is the exterior angle at $A$, which equals the sum of those two remote interior angles, so each is half of it. Triangle $BCD$ is not similar to $BCA$ (its angles are different), $CD$ is not $2\,CA$ in general, and angle $ABD$ is obtuse, not right.
+    $AD = AB$ makes triangle $ABD$ isosceles, so its angles at $B$ and $D$ are equal. Angle $BAC$ is the exterior angle at $A$, which equals the sum of those two remote interior angles, so each is half of it. Triangle $BCD$ is not similar to $BCA$ (its angles are different), $CD$ is not $2\,CA$ in general, and angle $ABD$ is one of the two equal base angles, $\tfrac{\theta}{2}$, not a right angle.
 - id: trig-m2-r2-h07
   lesson: trig-m2-h-exact-geometry
   module_quiz: true
