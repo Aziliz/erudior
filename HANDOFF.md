@@ -110,6 +110,9 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - Fixed along the way: under 900px the exam/quiz answer sheet (with Finish quiz / End session) was hidden; it now sits under the question.
 - Tests: `tests/classroom.test.mts` (in npm test); `scripts/classroom-walkthrough.mjs` (teacher + a second browser as the student's device: setup, assign with due date, class file, shared-computer quiz, join, hand-in, tampered file refused, gradebook, CSV, reports), clean light/dark 1280 and 320.
 
+## Search engines (after v0.24.0)
+- `index.html` has a description, Open Graph tags and `<noscript>` text; course overview pages set their own title and description (App.tsx). `public/robots.txt` allows everything and points to `public/sitemap.xml`, which `write_manifest()` in build.py regenerates (erudior.com pages + each catalog course's app.erudior.com overview). Jon: verify erudior.com as a Domain property in Google Search Console (DNS TXT record in Cloudflare) and submit https://erudior.com/sitemap.xml; same in Bing Webmaster Tools.
+
 ## Terms of Use, privacy and disclaimers (after v0.24.0)
 - `src/components/Terms.tsx`: `TermsOfUse`, `PrivacyPolicy`, `ThirdPartyLicenses`, `LegalView`, `GENERAL_DISCLAIMER`, `LEGAL_EMAIL` (legal@erudior.com — Jon must create it), `TERMS_UPDATED`. Site: erudior.com/terms, /privacy, /licenses (footer links + disclaimer line). App: View `{ name: "legal", page }` at /terms, /privacy, /licenses (Library footer, Progress page, community terms). Names "Erudior" until Erudior SBC/PBC is registered; Colorado law. Not reviewed by a lawyer.
 - `public/third-party-licenses.txt` from `node scripts/third-party-licenses.mjs` (JS production deps with license files; Rust crates from `cargo metadata` with one copy of each license text). Rerun after dependency changes.

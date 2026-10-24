@@ -620,6 +620,21 @@ def write_manifest():
     items.sort(key=lambda e: (e["order"], e["title"]))
     (OUT.parent / "catalog.json").write_text(json.dumps(items, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (OUT.parent / "math-index.json").unlink(missing_ok=True)
+    write_sitemap(items)
+
+
+def write_sitemap(items):
+    """public/sitemap.xml for search engines: the site's pages and each course's overview on
+    app.erudior.com (same slugs as lib/util.ts slugify; one Search Console domain property covers both)."""
+    def slug(t):
+        s = re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")[:60]
+        return s or "bank"
+    urls = [f"https://erudior.com{p}" for p in ("/", "/download", "/terms", "/privacy")]
+    urls += [f"https://app.erudior.com/{slug(e['title'])}" for e in items]
+    body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
+    (ROOT.parent.parent / "public" / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n",
+        encoding="utf-8")
 
 
 if __name__ == "__main__":

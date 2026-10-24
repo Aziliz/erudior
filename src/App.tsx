@@ -381,6 +381,13 @@ export default function App() {
       return t ? `${t} · Erudior` : "Erudior";
     })();
     document.title = title;
+    // Search engines show a course's own description for its overview page.
+    const desc = document.querySelector('meta[name="description"]');
+    const entry = view.name === "overview" ? CATALOG.find((e) => e.id === view.catalogId) : null;
+    if (desc) {
+      desc.setAttribute("data-default", desc.getAttribute("data-default") ?? desc.getAttribute("content") ?? "");
+      desc.setAttribute("content", entry?.description || desc.getAttribute("data-default") || "");
+    }
     if (fromPop.current) {
       fromPop.current = false;
       lastPage.current = key;
