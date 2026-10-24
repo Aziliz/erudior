@@ -22,7 +22,7 @@ so the same model can be written
 
 $$P(t) = \frac{C}{1 + e^{-k(t - t_m)}}.$$
 
-This **midpoint form** shows that every logistic curve is the basic curve $\frac{1}{1 + e^{-t}}$ stretched vertically by $C$, compressed horizontally by $k$, and shifted right by $t_m$: transformations from Module 2. Each constant now has a plain meaning: $C$ is the ceiling, $t_m$ is when the curve is half full, and $k$ sets how quickly it climbs.
+This **midpoint form** shows that every logistic curve is the basic curve $\frac{1}{1 + e^{-t}}$ stretched vertically by $C$, scaled horizontally by a factor $\frac1k$, and shifted right by $t_m$: transformations from Module 2. Each constant now has a plain meaning: $C$ is the ceiling, $t_m$ is when the curve is half full, and $k$ sets how quickly it climbs.
 
 ## The S-curve is symmetric
 
@@ -33,7 +33,7 @@ $$P(t_m + s) + P(t_m - s) = \frac{C}{1 + w} + \frac{C}{1 + \frac1w} = \frac{C}{1
 The two values always add to $C$: if the curve is 20% full one year before the midpoint, it is 80% full one year after. Geometrically, the graph is symmetric about the point $\left(t_m, \frac C2\right)$: rotating it half a turn about that point lands it on itself. The slow start and the slow finish are mirror images.
 
 ```plot
-{"x": [0, 14], "y": [0, 1100], "xLabel": "t", "yLabel": "P", "functions": [{"f": "1000/(1 + exp(-0.8(x - 7)))", "label": "P(t)"}, {"f": "1000", "dashed": true}], "points": [{"at": [7, 500], "label": "midpoint (7, 500)"}, {"at": [5, 168], "label": "(5, 168)"}, {"at": [9, 832], "label": "(9, 832)"}], "segments": [{"from": [5, 168], "to": [9, 832], "dashed": true}], "caption": "The curve P = 1000/(1 + e^(−0.8(t − 7))). Points 2 units before and after the midpoint have P-values adding to 1000; the segment joining them passes through the midpoint."}
+{"x": [0, 14], "y": [0, 1100], "xLabel": "t", "yLabel": "P", "functions": [{"f": "1000/(1 + exp(-0.8(x - 7)))", "label": "P(t)"}, {"f": "1000", "dashed": true}], "points": [{"at": [7, 500]}, {"at": [5, 168]}, {"at": [9, 832]}], "segments": [{"from": [5, 168], "to": [9, 832], "dashed": true}], "caption": "The curve P = 1000/(1 + e^(−0.8(t − 7))). Points 2 units before and after the midpoint have P-values adding to 1000; the segment joining them passes through the midpoint.", "labels": [{"at": [6.6, 110], "text": "(5, 168)"}, {"at": [7.6, 900], "text": "(9, 832)"}, {"at": [9.4, 420], "text": "midpoint (7, 500)"}]}
 ```
 
 ## Solving for time
@@ -54,7 +54,7 @@ Symmetry check: the curve starts at 100, which is 10% of 1,000, at $t = 0$, and 
 
 ## The logit: straightening the S
 
-Rearranging the same equation the other way puts $t$ alone on one side:
+Rearranging the same equation the other way puts everything involving $P$ on one side and a simple expression in $t$ on the other:
 
 $$\ln\frac{P}{C - P} = kt - \ln A.$$
 
@@ -80,7 +80,7 @@ Fit a logistic model with $C = 500$.
 Model: $P(t) = \dfrac{500}{1 + 24e^{-0.6t}}$. Its midpoint is $t_m = \frac{\ln 24}{0.6} \approx 5.30$ years, and the pond reaches 90% of capacity (450 fish) at $t = \frac{1}{0.6}\ln\frac{24 \cdot 450}{50} \approx 8.96$ years. A least-squares line through all four logits (Lesson 19) gives almost the same $k$ and $A$.
 
 ```plot
-{"x": [-0.5, 7], "y": [-4, 1.5], "xLabel": "t (years)", "yLabel": "logit ln(P/(500 − P))", "functions": [{"f": "0.6x - ln(24)", "label": "slope 0.6"}], "points": [{"at": [0, -3.178]}, {"at": [2, -1.974]}, {"at": [4, -0.781]}, {"at": [6, 0.422]}], "caption": "The pond counts after the logit transformation lie on a straight line with slope k = 0.6 and intercept −ln 24 ≈ −3.18."}
+{"x": [-0.5, 8], "y": [-4, 1.5], "xLabel": "t (years)", "yLabel": "logit ln(P/(500 − P))", "functions": [{"f": "0.6x - ln(24)", "label": "slope 0.6"}], "points": [{"at": [0, -3.178]}, {"at": [2, -1.974]}, {"at": [4, -0.781]}, {"at": [6, 0.422]}], "caption": "The pond counts after the logit transformation lie on a straight line with slope k = 0.6 and intercept −ln 24 ≈ −3.18."}
 ```
 
 ## When the ceiling is unknown: three equally spaced points

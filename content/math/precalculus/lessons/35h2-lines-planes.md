@@ -57,7 +57,7 @@ flowchart TD
   T -- "no" --> SKEW["Skew: not parallel, never meet"]
 ```
 
-Use *different* parameters for the two lines. The lines may pass through the same point at different "times," so forcing one $t$ on both can miss a real intersection.
+Use *different* parameters for the two lines. The lines may pass through the same point at different "times," so forcing one $t$ on both can miss a real intersection. Two more cases the chart leaves out: if the two equations you pick already contradict each other (no $t$ and $s$ satisfy both), the lines never meet, so non-parallel lines are skew; and if the pair you pick doesn't pin down $t$ and $s$, use a different pair of coordinates.
 
 ### Example 2
 
@@ -90,7 +90,7 @@ Find an equation of the plane through $A(1, 0, 2)$, $B(3, 1, 1)$ and $C(0, 2, 4)
 
 If the cross product comes out $\vec 0$, the three points are on one line and don't fix a single plane.
 
-The angle between two planes is the angle between their normals. In particular, planes are perpendicular when their normals have dot product 0, and parallel when their normals are multiples of each other.
+The angle between two planes is the angle between their normals (taken as the acute one, $0^\circ$ to $90^\circ$, since either normal can be reversed). In particular, planes are perpendicular when their normals have dot product 0, and parallel when their normals are multiples of each other.
 
 ## Where a line meets a plane
 

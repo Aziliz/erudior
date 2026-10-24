@@ -50,7 +50,7 @@ $$t = 5730 \cdot \frac{\ln 0.30}{\ln 0.5} \approx 9{,}950 \text{ years}.$$
 Sanity check: 30% is between $\tfrac12$ (one half-life, 5,730 years) and $\tfrac14$ (two half-lives, 11,460 years). ✓
 
 ```plot
-{"x": [0, 20000], "y": [0, 110], "xLabel": "years since death", "yLabel": "% of carbon-14 left", "functions": [{"f": "100(0.5)^(x/5730)", "label": "Q = 100(½)^(t/5730)"}], "points": [{"at": [5730, 50], "label": "1 half-life: 50%"}, {"at": [11460, 25], "label": "2 half-lives: 25%"}, {"at": [17190, 12.5], "label": "3: 12.5%"}, {"at": [9950, 30], "open": true, "label": "bone: 30%"}], "caption": "Each half-life of 5,730 years halves what is left. The bone's 30% falls between one and two half-lives, at about 9,950 years."}
+{"x": [0, 20000], "y": [0, 110], "xLabel": "years since death", "yLabel": "% of carbon-14 left", "functions": [{"f": "100(0.5)^(x/5730)"}], "points": [{"at": [5730, 50], "label": "1 half-life: 50%"}, {"at": [11460, 25], "label": "2 half-lives: 25%"}, {"at": [17190, 12.5], "label": "3: 12.5%"}, {"at": [9950, 30], "open": true, "label": "bone: 30%"}], "caption": "Each half-life of 5,730 years halves what is left. The bone's 30% falls between one and two half-lives, at about 9,950 years.", "labels": [{"at": [14500, 42], "text": "Q = 100(½)^(t/5730)"}]}
 ```
 
 ## Newton's law of cooling

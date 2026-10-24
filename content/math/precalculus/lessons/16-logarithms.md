@@ -62,7 +62,7 @@ For $f(x) = \log_b x$ with $b > 1$:
 Changing the base changes how fast the curve climbs, but every graph $y = \log_b x$ passes through $(1, 0)$ and has the same asymptote. For $b > 1$, a larger base gives a flatter curve, because it takes a bigger power to reach each output.
 
 ```plot
-{"x": [-0.5, 10], "y": [-3, 4], "functions": [{"f": "log2(x)", "label": "y = log₂ x"}, {"f": "ln(x)", "label": "y = ln x"}, {"f": "log10(x)", "label": "y = log x", "dashed": true}], "points": [{"at": [1, 0], "label": "(1, 0)"}, {"at": [2, 1]}, {"at": [2.718, 1]}, {"at": [10, 1]}], "caption": "log₂ x, ln x and log x all pass through (1, 0). Each reaches 1 at its own base: x = 2, x = e ≈ 2.718 and x = 10."}
+{"x": [-0.5, 10], "y": [-3, 4], "functions": [{"f": "log2(x)", "label": "y = log₂ x"}, {"f": "ln(x)", "label": "y = ln x"}, {"f": "log10(x)", "label": "y = log x", "dashed": true}], "points": [{"at": [1, 0]}, {"at": [2, 1]}, {"at": [2.718, 1]}, {"at": [10, 1]}], "caption": "log₂ x, ln x and log x all pass through (1, 0). Each reaches 1 at its own base: x = 2, x = e ≈ 2.718 and x = 10.", "labels": [{"at": [1.75, -0.9], "text": "(1, 0)"}]}
 ```
 
 The domain fact matters constantly: $\log_b(\text{expression})$ requires the expression to be positive. For example, $\ln(x - 3)$ has domain $x > 3$ and vertical asymptote $x = 3$.

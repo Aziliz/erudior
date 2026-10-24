@@ -439,7 +439,7 @@
   choices: ['$8 + i$', '$2 - 11i$', '$14 + 11i$', '$2 + 11i$']
   answer: 3
   explanation: |-
-    $(2 + i)^3 = 8 + 3(4)(i) + 3(2)(i^2) + i^3 = 8 + 12i - 6 - i = 2 + 11i$. Cubing each part separately gives $8 + i$ (wrong: $(a + b)^3 \ne a^3 + b^3$); taking $i^2 = +1$ gives $14 + 11i$; $2 - 11i$ is $(2 - i)^3$.
+    $(2 + i)^3 = 8 + 3(4)(i) + 3(2)(i^2) + i^3 = 8 + 12i - 6 - i = 2 + 11i$. Cubing each part separately gives $8 + i$ (wrong: $(a + b)^3 \ne a^3 + b^3$); adding $6$ instead of subtracting it (writing $6i^2$ as $+6$) gives $14 + 11i$; $2 - 11i$ is $(2 - i)^3$.
 - id: pc-m3-r2-h09
   lesson: pc-m3-h-cubic-formula
   topic: Cubic equations

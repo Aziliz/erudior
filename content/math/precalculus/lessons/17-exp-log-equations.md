@@ -81,7 +81,7 @@ Solution: $x = 4$ only.
 The graphs show where the false answer came from. The original left side, $\log_2 x + \log_2(x - 2)$, exists only for $x > 2$. The combined form $\log_2\big(x(x - 2)\big)$ also exists for $x < 0$, so it meets the line $y = 3$ a second time, at $x = -2$, where the original equation isn't even defined.
 
 ```plot
-{"x": [-5, 8], "y": [-4, 6], "functions": [{"f": "log2(x*(x - 2))", "label": "y = log₂(x(x − 2))", "dashed": true}, {"f": "log2(x) + log2(x - 2)", "label": "y = log₂ x + log₂(x − 2)"}, {"f": "3", "label": "y = 3"}], "points": [{"at": [4, 3], "label": "x = 4 ✓"}, {"at": [-2, 3], "open": true, "label": "x = −2 ✗"}], "caption": "The original side (solid) exists only for x > 2 and meets y = 3 once. The combined log (dashed) also has a left branch, which creates the extraneous answer x = −2."}
+{"x": [-5, 8], "y": [-4, 6], "functions": [{"f": "log2(x*(x - 2))", "dashed": true}, {"f": "log2(x) + log2(x - 2)"}, {"f": "3", "label": "y = 3"}], "points": [{"at": [4, 3]}, {"at": [-2, 3], "open": true}], "caption": "The original side (solid) exists only for x > 2 and meets y = 3 once. The combined log (dashed) also has a left branch, which creates the extraneous answer x = −2.", "labels": [{"at": [5.2, 2.1], "text": "x = 4 ✓"}, {"at": [-3.0, 2.0], "text": "x = −2 ✗"}, {"at": [4.3, -2.5], "text": "original (solid)"}, {"at": [-3.2, -1.7], "text": "combined (dashed)"}]}
 ```
 
 ### Example 6

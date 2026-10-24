@@ -143,8 +143,8 @@
   answer: R
   tolerance: 0.0006
   solution: |-
-    The width is $\Delta x = \tfrac{ {b} }{ {n} }$, and the right endpoints are $x_i = \tfrac{ {b}i}{ {n} }$ for $i = 1, \dots, {n}$. The sum is
-    $\displaystyle\sum_{i=1}^{ {n} } {c:coef}\left(\frac{ {b}i}{ {n} }\right)^2 \cdot \frac{ {b} }{ {n} } = \frac{ {cb3} }{ {n}^3} \sum_{i=1}^{ {n} } i^2$, and $\sum_{i=1}^{ {n} } i^2 = \tfrac{ {n}({n} + 1)(2 \cdot {n} + 1)}{6} = {sq}$.
+    The width is $\Delta x = \tfrac{ {b} }{ {n} }$, and the right endpoints are $x_i = \tfrac{ {b:coef}i}{ {n} }$ for $i = 1, \dots, {n}$. The sum is
+    $\displaystyle\sum_{i=1}^{ {n} } {c:coef}\left(\frac{ {b:coef}i}{ {n} }\right)^2 \cdot \frac{ {b} }{ {n} } = \frac{ {cb3} }{ {n}^3} \sum_{i=1}^{ {n} } i^2$, and $\sum_{i=1}^{ {n} } i^2 = \tfrac{ {n}({n} + 1)(2 \cdot {n} + 1)}{6} = {sq}$.
     So $R_{ {n} } = \dfrac{ {cb3} \cdot {sq} }{ {n3} } = {R:texfrac} \approx$ **{R:dp3}**. (It overestimates the exact area ${ex:texfrac}$, because the curve rises.)
 
 - id: pc-h1-r2-area-parabola

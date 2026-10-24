@@ -75,7 +75,7 @@
     - {x: 70.5, y: 80.7, text: 2.16 m}
   distractors: [4 m, 1.44 m]
   explanation: |-
-    Each height is $0.6$ times the one before: $10$, $10(0.6) = 6$, $6(0.6) = 3.6$, $3.6(0.6) = 2.16$ m. The distractors come from mistakes: 4 m is 40% of 10 (the height lost, not kept), and 1.44 m is $0.6 \times 2.4$, which does not appear in the sequence.
+    Each height is $0.6$ times the one before: $10$, $10(0.6) = 6$, $6(0.6) = 3.6$, $3.6(0.6) = 2.16$ m. The distractors come from mistakes: 4 m is 40% of 10 (the height lost, not kept), and 1.44 m is 40% of 3.6 m, the same mistake (the next rebound is $0.6 \times 2.16 \approx 1.30$ m).
 
 - id: pc-m9-r2-q07
   lesson: pc-geometric

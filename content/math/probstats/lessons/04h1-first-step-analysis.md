@@ -141,7 +141,7 @@ $P_i = d_1(1 + \rho + \cdots + \rho^{i-1})$.
   $$P_i = \frac{1 - \rho^{\,i}}{1 - \rho^{N}}, \qquad \rho = \frac{q}{p}.$$
 
 ```plot
-{"x": [0, 20], "y": [0, 1.05], "xLabel": "starting fortune i", "yLabel": "P(reach 20 first)", "functions": [{"f": "x/20", "label": "p = 0.5"}, {"f": "(1 - (11/9)^x)/(1 - (11/9)^20)", "label": "p = 0.45", "dashed": true}], "points": [{"at": [10, 0.5]}, {"at": [10, 0.1185], "label": "(10, 0.12)"}], "caption": "Chance of reaching 20 before 0 (only whole-number i are possible)"}
+{"x": [0, 20], "y": [0, 1.05], "xLabel": "starting fortune i", "yLabel": "P(reach 20 first)", "functions": [{"f": "x/20"}, {"f": "(1 - (11/9)^x)/(1 - (11/9)^20)", "dashed": true}], "points": [{"at": [10, 0.5]}, {"at": [10, 0.1185]}], "labels": [{"at": [4, 0.4], "text": "p = 0.5"}, {"at": [16.6, 0.22], "text": "p = 0.45"}, {"at": [10.5, 0.03], "text": "(10, 0.12)"}], "caption": "Chance of reaching 20 before 0: solid line p = 0.5, dashed curve p = 0.45 (only whole-number i are possible)"}
 ```
 
 The graph shows how much a small edge matters. In a fair game, a gambler who starts halfway to

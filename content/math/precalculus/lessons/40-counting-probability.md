@@ -67,7 +67,7 @@ flowchart TD
   B -- "no: teams, hands, committees" --> F["Combinations: nCr = n!/(r!(n - r)!)"]
 ```
 
-The $n^r$ case is just the counting principle with the same $n$ choices at every stage, like the letters on the license plates of Example 1.
+The $n^r$ case is just the counting principle with the same $n$ choices at every stage, like the letters on the license plates of Example 1. The combination box assumes no item is chosen twice; unordered choices with repeats allowed (such as 3 scoops from 5 flavors, where two scoops may match) need a different count, taught in the honors lesson on counting techniques.
 
 ## Probability with equally likely outcomes
 

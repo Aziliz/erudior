@@ -38,7 +38,7 @@ Compare $2^x$ and $x^2$. At $x = 4$ they tie at 16. At $x = 10$: $1024$ versus $
 The graphs show the race. They cross three times: once at a negative $x$ (about $-0.77$), then at $x = 2$ and $x = 4$. Between 2 and 4 the parabola is ahead, but after $x = 4$ the exponential leads for good.
 
 ```plot
-{"x": [-2, 7], "y": [-2, 70], "functions": [{"f": "2^x", "label": "y = 2ˣ"}, {"f": "x^2", "label": "y = x²", "dashed": true}], "points": [{"at": [2, 4], "label": "(2, 4)"}, {"at": [4, 16], "label": "(4, 16)"}, {"at": [6, 64], "label": "(6, 64)"}, {"at": [6, 36], "label": "(6, 36)"}], "caption": "2ˣ and x² meet at x = 2 and x = 4; after that the exponential pulls away (64 versus 36 at x = 6)."}
+{"x": [-2, 7], "y": [-2, 70], "functions": [{"f": "2^x", "label": "y = 2ˣ"}, {"f": "x^2", "label": "y = x²", "dashed": true}], "points": [{"at": [2, 4]}, {"at": [4, 16]}, {"at": [6, 64], "label": "(6, 64)"}, {"at": [6, 36]}], "caption": "2ˣ and x² meet at x = 2 and x = 4; after that the exponential pulls away (64 versus 36 at x = 6).", "labels": [{"at": [1.0, 9], "text": "(2, 4)"}, {"at": [3.3, 22], "text": "(4, 16)"}, {"at": [6.4, 30], "text": "(6, 36)"}]}
 ```
 
 ## Transformations

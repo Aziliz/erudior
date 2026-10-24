@@ -33,7 +33,7 @@ A few values come straight from the definitions: $\cosh 0 = \frac{1 + 1}{2} = 1$
 ## The graphs
 
 ```plot
-{"x": [-3, 3], "y": [-4, 5], "functions": [{"f": "cosh(x)", "label": "y = cosh x"}, {"f": "sinh(x)", "label": "y = sinh x"}, {"f": "tanh(x)", "label": "y = tanh x"}, {"f": "exp(x)/2", "dashed": true, "label": "y = eˣ/2"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "caption": "cosh x is even with minimum 1 at x = 0; sinh x is odd and increasing; tanh x stays between −1 and 1. For large x, cosh x and sinh x both hug eˣ/2 (dashed)."}
+{"x": [-3, 3], "y": [-4, 5], "functions": [{"f": "cosh(x)"}, {"f": "sinh(x)"}, {"f": "tanh(x)", "label": "y = tanh x"}, {"f": "exp(x)/2", "dashed": true}], "points": [{"at": [0, 1]}], "caption": "cosh x is even with minimum 1 at x = 0; sinh x is odd and increasing; tanh x stays between −1 and 1. For large x, cosh x and sinh x both hug eˣ/2 (dashed).", "labels": [{"at": [-1.1, 3.0], "text": "y = cosh x"}, {"at": [-0.85, -2.9], "text": "y = sinh x"}, {"at": [-2.1, 0.6], "text": "y = eˣ/2"}, {"at": [-0.62, 1.8], "text": "(0, 1)"}]}
 ```
 
 - $\cosh x$ is even, with its lowest point at $(0, 1)$, so its range is $[1, \infty)$. It looks like a parabola near the bottom, but it is not one: far from 0 it grows exponentially.
@@ -137,7 +137,7 @@ A parabola through the same three points (lowest point and both ends) would be $
 
 ## A brief history of the names
 
-Vincenzo Riccati and Johann Heinrich Lambert developed the hyperbolic functions in the 1750s and 1760s, and their names copy the trig names with an "h" for hyperbolic. Many calculators have a "hyp" key for them, and spreadsheets have `COSH`, `SINH` and `TANH`, so you can check any value in this lesson.
+Vincenzo Riccati and Johann Heinrich Lambert developed the hyperbolic functions in the 1750s and 1760s. The modern names copy the trig names with an "h" for hyperbolic. Many calculators have a "hyp" key for them, and spreadsheets have `COSH`, `SINH` and `TANH`, so you can check any value in this lesson.
 
 ## Common mistakes
 

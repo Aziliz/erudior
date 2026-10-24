@@ -71,15 +71,15 @@ The whole procedure fits in one chart:
 ```mermaid
 flowchart TD
   accTitle: From a parabola's equation to its vertex, focus and directrix
-  accDescr: First ask which variable is squared. If x is squared, the parabola opens up or down; complete the square in x and write the equation as (x minus h) squared equals 4p times (y minus k). If y is squared, it opens left or right; complete the square in y and write (y minus k) squared equals 4p times (x minus h). Either way, the vertex is (h, k) and the sign of p picks the direction. The focus is p units from the vertex inside the curve, and the directrix is p units from the vertex on the other side.
+  accDescr: First ask which variable is squared. If x is squared, the parabola opens up or down; complete the square in x and write the equation as (x minus h) squared equals 4p times (y minus k). If y is squared, it opens left or right; complete the square in y and write (y minus k) squared equals 4p times (x minus h). Either way, the vertex is (h, k) and the sign of p picks the direction. The focus is the distance |p| from the vertex, inside the curve, and the directrix is the same distance from the vertex on the other side.
   A["Which variable is squared?"] -- "x" --> B["Opens up or down"]
   A -- "y" --> C["Opens left or right"]
   B --> D["Complete the square in x: (x − h)² = 4p(y − k)"]
   C --> E["Complete the square in y: (y − k)² = 4p(x − h)"]
   D --> F["Vertex (h, k); the sign of p picks the direction"]
   E --> F
-  F --> G["Focus: p units from the vertex, inside the curve"]
-  G --> H["Directrix: p units from the vertex, on the other side"]
+  F --> G["Focus: |p| units from the vertex, inside the curve"]
+  G --> H["Directrix: |p| units from the vertex, on the other side"]
 ```
 
 ### Example 3

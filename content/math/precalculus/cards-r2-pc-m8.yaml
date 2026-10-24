@@ -48,7 +48,7 @@
   back: '$\dfrac{\lvert ax_1 + by_1 + cz_1 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}$'
   topic: Lines and planes in space
 - front: 'Angle between two planes'
-  back: 'The angle between their normals; perpendicular when the normals have dot product 0.'
+  back: 'The acute angle between their normals; perpendicular when the normals have dot product 0.'
   topic: Lines and planes in space
 - front: 'Distance between parallel planes $ax + by + cz = d_1$ and $ax + by + cz = d_2$'
   back: '$\dfrac{\lvert d_1 - d_2 \rvert}{\sqrt{a^2 + b^2 + c^2}}$'

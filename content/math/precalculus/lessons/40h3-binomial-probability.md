@@ -30,7 +30,7 @@ flowchart TD
   D -- no --> X
 ```
 
-We write $q = 1 - p$ for the probability of failure. Drawing cards *without* replacement fails the independence test (Lesson 40, Example 8 needed combinations instead). Rolling a die until a 6 appears fails the first test, since the number of trials isn't fixed.
+We write $q = 1 - p$ for the probability of failure. Drawing cards or marbles *without* replacement fails the independence test (the marbles of Lesson 40, Example 8 needed combinations instead). Rolling a die until a 6 appears fails the first test, since the number of trials isn't fixed.
 
 ## The binomial formula
 
@@ -106,7 +106,7 @@ What is $E(X)$ for a binomial count? Write $X$ as a sum: $X = X_1 + X_2 + \dots 
 
 $$E(X) = p + p + \dots + p = np.$$
 
-The free-throw shooter expects $10(0.7) = 7$ makes in 10 shots, and the guessing student expects $10(0.25) = 2.5$ right answers. The histogram above peaks at 3, close to $np = 3$.
+The free-throw shooter expects $10(0.7) = 7$ makes in 10 shots, and the guessing student expects $10(0.25) = 2.5$ right answers. The histogram above ($n = 10$, $p = 0.3$) peaks at 3, which is exactly $np = 3$. (The peak is not always exactly at $np$, but it is always within 1 of it.)
 
 ### Example 5: waiting for a six
 

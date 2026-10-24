@@ -55,7 +55,7 @@ Write $f(x) = \dfrac{2x + 1}{x - 3}$ as a transformation of $\frac1x$.
 Check with the formula: $a = 2$, $b = 1$, $c = 1$, $d = -3$ give $k = \frac{(1)(1) - (2)(-3)}{1} = 7$. ✓
 
 ```plot
-{"x": [-4, 10], "y": [-6, 10], "functions": [{"f": "(2x + 1)/(x - 3)", "label": "y = (2x + 1)/(x − 3)"}, {"f": "2", "dashed": true}], "segments": [{"from": [3, -6], "to": [3, 10], "dashed": true}], "points": [{"at": [3, 2], "open": true, "label": "center (3, 2)"}, {"at": [4, 9], "label": "(4, 9)"}, {"at": [2, -5], "label": "(2, −5)"}], "caption": "f(x) = 2 + 7/(x − 3): the graph of 1/x stretched by 7 and centered at (3, 2). Points 1 unit either side of 3 are mirror images through the center."}
+{"x": [-4, 10], "y": [-6, 10], "functions": [{"f": "(2x + 1)/(x - 3)"}, {"f": "2", "dashed": true}], "segments": [{"from": [3, -6], "to": [3, 10], "dashed": true}], "points": [{"at": [3, 2], "open": true}, {"at": [4, 9], "label": "(4, 9)"}, {"at": [2, -5]}], "labels": [{"at": [7.5, 6], "text": "y = (2x + 1)/(x − 3)"}, {"at": [5.2, 0.9], "text": "center (3, 2)"}, {"at": [-1.3, -5.2], "text": "(2, −5)"}], "caption": "f(x) = 2 + 7/(x − 3): the graph of 1/x stretched by 7 and centered at (3, 2). Points 1 unit either side of 3 are mirror images through the center."}
 ```
 
 ## The center of symmetry
@@ -112,7 +112,7 @@ A lens has $f = 10$ cm. Describe $d_i$ as a function of $d_o$.
 4. Vertical asymptote $d_o = 10$: as the object approaches the focal point, the image moves off toward infinity.
 5. For $d_o < 10$, $d_i$ is negative; for example $d_o = 5$ gives $d_i = -10$. In the usual sign convention a negative $d_i$ means a virtual image on the same side as the object: what you see through a magnifying glass held close.
 
-The center of symmetry also has meaning here: $d_o = 20$ and $d_i = 20$ (twice the focal length on each side) is the point where object and image distances are equal.
+The center of symmetry is $(f, f) = (10, 10)$, where the two asymptotes cross. The graph is also symmetric across the line $d_i = d_o$, because the thin-lens equation is unchanged when $d_o$ and $d_i$ trade places (light can run through the lens either way). That line meets the branch with $d_o > f$ at $(20, 20)$: an object twice the focal length away gives an image twice the focal length away on the other side, the one setting where object and image distances are equal.
 
 ## Common mistakes
 

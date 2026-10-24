@@ -16,7 +16,7 @@ The answer is one of the cleanest facts in algebra:
 
 > Through $n + 1$ points with different $x$-values there is *exactly one* polynomial of degree at most $n$.
 
-Two points determine a line (degree 1), three points a parabola or a line (degree at most 2), four points a cubic at most, and so on. Finding that polynomial is called **polynomial interpolation**, and the polynomial is the **interpolating polynomial**. It is how calculators draw smooth curves through data, how fonts and animations bend curves, and, surprisingly, how some secrets are kept safe.
+Two points determine a line (degree 1), three points a parabola or a line (degree at most 2), four points a cubic at most, and so on. Finding that polynomial is called **polynomial interpolation**, and the polynomial is the **interpolating polynomial**. It is a basic tool of numerical computing (smooth curves in graphics and animation are usually built from many low-degree pieces called splines, a close relative), and, surprisingly, it is how some secrets are kept safe.
 
 ## Why there is only one
 
@@ -49,7 +49,7 @@ Find the polynomial of degree at most 2 through $(-1, 6)$, $(1, 2)$ and $(2, 3)$
 Check: $p(-1) = 1 + 2 + 3 = 6$, $p(1) = 2$, $p(2) = 3$. ✓
 
 ```plot
-{"x": [-2, 3.5], "y": [-1.5, 8], "functions": [{"f": "x^2 - 2x + 3", "label": "p(x) = x² − 2x + 3"}, {"f": "(x - 1)*(x - 2)/6", "label": "L₀", "dashed": true}, {"f": "-(x + 1)*(x - 2)/2", "label": "L₁", "dashed": true}, {"f": "(x + 1)*(x - 1)/3", "label": "L₂", "dashed": true}], "points": [{"at": [-1, 6], "label": "(−1, 6)"}, {"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 3], "label": "(2, 3)"}], "caption": "Each dashed basis polynomial is 1 at its own x-value and 0 at the other two; p is 6L₀ + 2L₁ + 3L₂."}
+{"x": [-2, 3.5], "y": [-1.5, 8], "functions": [{"f": "x^2 - 2x + 3", "label": "p(x) = x² − 2x + 3"}, {"f": "(x - 1)*(x - 2)/6", "dashed": true}, {"f": "-(x + 1)*(x - 2)/2", "dashed": true}, {"f": "(x + 1)*(x - 1)/3", "dashed": true}], "points": [{"at": [-1, 6], "label": "(−1, 6)"}, {"at": [1, 2], "label": "(1, 2)"}, {"at": [2, 3]}], "labels": [{"at": [2.55, 2.75], "text": "(2, 3)"}, {"at": [3.2, 0.9], "text": "L₀"}, {"at": [0.5, 1.4], "text": "L₁"}, {"at": [2.9, 1.6], "text": "L₂"}], "caption": "Each dashed basis polynomial is 1 at its own x-value and 0 at the other two; p is 6L₀ + 2L₁ + 3L₂."}
 ```
 
 Often you only need one value, not the whole polynomial. Then plug the number straight into the basis polynomials. For instance $p(0) = 6 \cdot \tfrac{2}{6} + 2 \cdot \tfrac{-2}{-2} + 3 \cdot \tfrac{-1}{3} = 2 + 2 - 1 = 3$, which matches $x^2 - 2x + 3$ at 0.
@@ -102,7 +102,7 @@ So $S = 3(52) - 3(68) + 1(90) = 156 - 204 + 90 = 42$. (The quadratic was $42 + 7
 It is tempting to think that a polynomial through more data points must be a better model. In 1901 Carl Runge showed otherwise. Interpolate $f(x) = \dfrac{1}{1 + 25x^2}$ at 11 equally spaced points from $-1$ to $1$: the degree-10 polynomial matches $f$ exactly at those points, yet between the outer points it swings wildly, reaching almost 2 near $x = \pm 0.94$ where $f$ is below 0.05. This is **Runge's phenomenon**, and adding more equally spaced points makes the swings worse.
 
 ```plot
-{"x": [-1.05, 1.05], "y": [-0.5, 2.1], "functions": [{"f": "1/(1 + 25x^2)", "label": "f(x) = 1/(1 + 25x²)"}, {"f": "-390625/1768*x^10 + 109375/221*x^8 - 51875/136*x^6 + 54525/442*x^4 - 3725/221*x^2 + 1", "label": "degree-10 interpolant", "dashed": true, "from": -1, "to": 1}], "points": [{"at": [-1, 0.0385]}, {"at": [-0.8, 0.0588]}, {"at": [-0.6, 0.1]}, {"at": [-0.4, 0.2]}, {"at": [-0.2, 0.5]}, {"at": [0, 1]}, {"at": [0.2, 0.5]}, {"at": [0.4, 0.2]}, {"at": [0.6, 0.1]}, {"at": [0.8, 0.0588]}, {"at": [1, 0.0385]}], "caption": "Runge's phenomenon: the interpolant passes through all 11 points but swings to nearly 2 near the ends."}
+{"x": [-1.05, 1.05], "y": [-0.5, 2.6], "functions": [{"f": "1/(1 + 25x^2)"}, {"f": "-390625/1768*x^10 + 109375/221*x^8 - 51875/136*x^6 + 54525/442*x^4 - 3725/221*x^2 + 1", "dashed": true, "from": -1, "to": 1}], "labels": [{"at": [-0.5, 2.3], "text": "solid: 1/(1 + 25x²)"}, {"at": [0.5, 2.3], "text": "dashed: interpolant"}], "points": [{"at": [-1, 0.0385]}, {"at": [-0.8, 0.0588]}, {"at": [-0.6, 0.1]}, {"at": [-0.4, 0.2]}, {"at": [-0.2, 0.5]}, {"at": [0, 1]}, {"at": [0.2, 0.5]}, {"at": [0.4, 0.2]}, {"at": [0.6, 0.1]}, {"at": [0.8, 0.0588]}, {"at": [1, 0.0385]}], "caption": "Runge's phenomenon: the interpolant passes through all 11 points but swings to nearly 2 near the ends."}
 ```
 
 The lesson for modeling (Lesson 19 returns to it): interpolation is exact at the data and can be badly wrong between and beyond it. With noisy data, a low-degree regression curve usually predicts better than a high-degree curve through every point.

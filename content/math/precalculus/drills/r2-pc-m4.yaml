@@ -74,11 +74,11 @@
     rest: C - C*pct/100
     inside: A*(C*pct/100)/(C - C*pct/100)
     tv: ln(A*(C*pct/100)/(C - C*pct/100))/k
-  prompt: 'For $P(t) = \dfrac{ {C} }{1 + {A}e^{-{k}t} }$, at what time $t$ does $P$ reach {target} ({pct}% of capacity)? Round to 2 decimal places.'
+  prompt: 'For $P(t) = \dfrac{ {C:dp0} }{1 + {A}e^{-{k}t} }$, at what time $t$ does $P$ reach {target} ({pct}% of capacity)? Round to 2 decimal places.'
   answers:
     - {name: tv, label: '$t =$', tolerance: 0.005, format: num2}
   solution: |-
-    Solve for $t$: $t = \dfrac1k\ln\dfrac{AP}{C - P} = \dfrac{1}{ {k} }\ln\dfrac{ {A} \cdot {target} }{ {rest} } = \dfrac{\ln({inside:num4})}{ {k} } \approx$ **{tv:num2}**.
+    Solve for $t$: $t = \dfrac1k\ln\dfrac{AP}{C - P} = \dfrac{1}{ {k} }\ln\dfrac{ {A} \cdot {target:dp0} }{ {rest:dp0} } = \dfrac{\ln({inside:num4})}{ {k} } \approx$ **{tv:num2}**.
 
 - id: pc-m4-r2-logit-rate
   title: Growth rate from the logit
@@ -98,9 +98,9 @@
   where: ["P1 < 0.97*C"]
   prompt: 'A logistic process has carrying capacity {C}. It is at {P0} when $t = 0$ and at {P1} when $t = {T}$. Use the logit $\ln\dfrac{P}{C - P}$ to find $k$. (3 decimal places.)'
   answers:
-    - {name: kv, label: '$k =$', tolerance: 0.0005, format: dp3}
+    - {name: kv, label: '$k =$', tolerance: 0.0006, format: dp3}
   solution: |-
-    Logits: $\ln\dfrac{ {P0} }{ {C} - {P0} } \approx {L0:num4}$ and $\ln\dfrac{ {P1} }{ {C} - {P1} } \approx {L1:num4}$. The logit is linear with slope $k$: $k = \dfrac{ {L1:num4} - ({L0:num4})}{ {T} } \approx$ **{kv:dp3}**.
+    Logits: $\ln\dfrac{ {P0:dp0} }{ {C:dp0} - {P0:dp0} } \approx {L0:num4}$ and $\ln\dfrac{ {P1:dp0} }{ {C:dp0} - {P1:dp0} } \approx {L1:num4}$. The logit is linear with slope $k$: $k = \dfrac{ {L1:num4} - ({L0:num4})}{ {T} } \approx$ **{kv:dp3}**.
 
 - id: pc-m4-r2-three-point
   title: Carrying capacity from three points
@@ -122,7 +122,7 @@
   answers:
     - {name: Cv, label: '$C =$', tolerance: 0.5, format: integer}
   solution: |-
-    Take reciprocals $y_n = 1/P_n$; they follow $y_n = c + Bq^n$ with $c = 1/C$. The differences give $q = \dfrac{y_2 - y_1}{y_1 - y_0} = \dfrac{1}{ {m} }$. Then $B = \dfrac{y_1 - y_0}{q - 1}$ and $c = y_0 - B = \dfrac{1}{ {Cv} }$. Equivalently, $C = \dfrac{P_1(P_0P_1 + P_1P_2 - 2P_0P_2)}{P_1^2 - P_0P_2} = \dfrac{ {num:int} }{ {den:int} } =$ **{Cv}**.
+    Take reciprocals $y_n = 1/P_n$; they follow $y_n = c + Bq^n$ with $c = 1/C$. The differences give $q = \dfrac{y_2 - y_1}{y_1 - y_0} = \dfrac{1}{ {m} }$. Then $B = \dfrac{y_1 - y_0}{q - 1}$ and $c = y_0 - B = \dfrac{1}{ {Cv:dp0} }$. Equivalently, $C = \dfrac{P_1(P_0P_1 + P_1P_2 - 2P_0P_2)}{P_1^2 - P_0P_2} = \dfrac{ {num:dp0} }{ {den:dp0} } =$ **{Cv}**.
 
 - id: pc-m4-r2-digits
   title: Count the digits of a power
@@ -156,7 +156,7 @@
   answers:
     - {name: nmax, label: '$n =$', format: integer}
   solution: |-
-    The budget is $10^{ {s} } \times {ttv:int} \approx {budget:texsci}$ operations, with common log ${lgb:num4}$. We need ${b}^n \le$ budget, so $n \le \dfrac{ {lgb:num4} }{\log {b}} \approx {nexact:num4}$. The largest whole number is **{nmax}**.
+    The budget is $10^{ {s} } \times {ttv:dp0} = {budget:texsci}$ operations, with common log ${lgb:num4}$. We need ${b}^n \le$ budget, so $n \le \dfrac{ {lgb:num4} }{\log {b}} \approx {nexact:num4}$. The largest whole number is **{nmax}**.
 
 - id: pc-m4-r2-bisection-steps
   title: How many bisection steps?
@@ -173,4 +173,4 @@
   answers:
     - {name: nn, label: 'Steps', format: integer}
   solution: |-
-    After $n$ steps the width is $\dfrac{ {w} }{2^n}$. We need $\dfrac{ {w} }{2^n} < 10^{-{d}}$, that is $2^n > {w} \times 10^{ {d} } = {ratio}$. Since $\log_2 {ratio} \approx {lg2:num4}$, the smallest whole $n$ is **{nn}**.
+    After $n$ steps the width is $\dfrac{ {w} }{2^n}$. We need $\dfrac{ {w} }{2^n} < 10^{-{d}}$, that is $2^n > {w} \times 10^{ {d} } = {ratio:dp0}$. Since $\log_2 {ratio:dp0} \approx {lg2:num4}$, the smallest whole $n$ is **{nn}**.

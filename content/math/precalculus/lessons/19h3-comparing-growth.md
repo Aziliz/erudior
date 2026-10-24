@@ -10,7 +10,7 @@ refs: [pc-ref-exp-log]
 ---
 ## Who wins, and when?
 
-Lesson 15 claimed that an exponential with base greater than 1 eventually beats *any* polynomial, and Lesson 16 noted that logarithms grow "very slowly". This honors lesson makes those claims precise and puts them to work. You'll use logarithms to compare numbers far too large for a calculator, count the digits of a number like $2^{127}$ without writing it out, prove that logarithms lose to every power and powers lose to every exponential, and find where two growing functions cross even when no algebra can solve the equation. The last tool, bisection, is your first numerical method: a way to get an answer to any accuracy you like.
+Lesson 15 claimed that an exponential with base greater than 1 eventually beats *any* polynomial, and Lesson 16 noted that logarithms grow "very slowly". This honors lesson makes those claims precise and puts them to work. You'll use logarithms to compare numbers far too large for a calculator, count the digits of a number like $2^{127}$ without writing it out, prove that logarithms lose to every power and powers lose to every exponential, and find where two growing functions cross even when no algebra can solve the equation. The last tool, bisection, which Lesson 8 previewed in one example, is studied here as a full numerical method: a way to get an answer to any accuracy you like, with a predictable number of steps.
 
 ## Comparing huge numbers with logarithms
 
@@ -92,7 +92,7 @@ Compare common logs, $x\log 1.1$ against $10\log x$:
 At $x = 100$, $x^{10} = 10^{20}$ while $1.1^{100}$ is only about 13,781. The crossover lies between 500 and 700; a numerical method (below) puts it at $x \approx 685.08$. The two functions also cross near $x \approx 1.0097$, just above 1, so $x^{10}$ is the larger one from about 1.01 to about 685, and $1.1^x$ wins forever after.
 
 ```plot
-{"x": [0, 1000], "y": [0, 45], "xLabel": "x", "yLabel": "common log of the value", "functions": [{"f": "x*log10(1.1)", "label": "log of 1.1ˣ"}, {"f": "10*log10(x)", "label": "log of x¹⁰", "from": 1}], "points": [{"at": [685.08, 28.36], "label": "crossover x ≈ 685"}], "caption": "Comparing logs: the straight line x·log 1.1 overtakes the slowly rising 10·log x near x = 685, after which 1.1ˣ is larger than x¹⁰ forever."}
+{"x": [0, 1000], "y": [0, 45], "xLabel": "x", "yLabel": "common log of the value", "functions": [{"f": "x*log10(1.1)", "label": "log of 1.1ˣ"}, {"f": "10*log10(x)", "from": 1}], "points": [{"at": [685.08, 28.36]}], "caption": "Comparing logs: the straight line x·log 1.1 overtakes the slowly rising 10·log x near x = 685, after which 1.1ˣ is larger than x¹⁰ forever.", "labels": [{"at": [250, 27.5], "text": "log of x¹⁰"}, {"at": [840, 22], "text": "crossover x ≈ 685"}]}
 ```
 
 No sequence of algebra steps and logarithms isolates $x$ in an equation like $x\log 1.1 = 10\log x$, where $x$ appears both inside and outside a logarithm. (Some such equations can be written with a special function called the Lambert W function, but that only gives the answer a name; its decimal value still comes from a numerical method.)

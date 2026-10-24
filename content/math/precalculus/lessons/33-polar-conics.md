@@ -47,12 +47,12 @@ To read an equation, first make the constant in the denominator equal 1 (divide 
 ```mermaid
 flowchart TD
   accTitle: Reading a polar equation of a conic
-  accDescr: First divide the numerator and denominator by the constant in the denominator so that constant becomes 1. The coefficient of the trig function is then the eccentricity e, which names the conic: less than 1 an ellipse, equal to 1 a parabola, greater than 1 a hyperbola. The numerator is e times d, so d is the numerator divided by e. The sign and the trig function place the directrix: plus cosine to the right, minus cosine to the left, plus sine above, minus sine below. Finally find the vertices at theta equal to 0 and pi for cosine, or pi over 2 and 3 pi over 2 for sine.
+  accDescr: First divide the numerator and denominator by the constant in the denominator so that constant becomes 1. The coefficient of the trig function is then the eccentricity e, which names the conic: less than 1 an ellipse, equal to 1 a parabola, greater than 1 a hyperbola. The numerator is e times d, so d is the numerator divided by e. The sign and the trig function place the directrix: plus cosine to the right, minus cosine to the left, plus sine above, minus sine below. Finally find the vertices at theta equal to 0 and pi for cosine, or pi over 2 and 3 pi over 2 for sine; a parabola has only one vertex, because one of those angles makes the denominator 0.
   A["Make the denominator's constant 1"] --> B["e = coefficient of cos θ or sin θ"]
   B --> C["e #lt; 1 ellipse, e = 1 parabola, e #gt; 1 hyperbola"]
   C --> D["d = numerator ÷ e"]
   D --> E["Directrix: +cos right, −cos left, +sin above, −sin below"]
-  E --> F["Vertices: θ = 0 and π (cos), or π/2 and 3π/2 (sin)"]
+  E --> F["Vertices: θ = 0 and π (cos), or π/2 and 3π/2 (sin); a parabola has just one"]
 ```
 
 ### Example 1

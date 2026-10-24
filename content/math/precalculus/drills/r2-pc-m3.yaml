@@ -209,12 +209,11 @@
   calc:
     di: fl*dob/(dob - fl)
     mag: -di/dob
-    prod: fl*dob
     diff: dob - fl
   prompt: 'A thin lens has focal length {fl} cm. An object is {dob} cm from the lens. Use $d_i = \dfrac{f\,d_o}{d_o - f}$ to find the image distance (to 1 decimal place; negative means a virtual image) and the magnification $m = -\dfrac{d_i}{d_o}$ (to 2 decimal places).'
   answers:
     - {name: di, label: '$d_i \approx$', format: num1, tolerance: 0.06, units: {cm: 1}}
     - {name: mag, label: '$m \approx$', format: num2, tolerance: 0.02}
   solution: |-
-    $d_i = \dfrac{ ({fl})({dob}) }{ {dob} - {fl} } = \dfrac{ {prod} }{ {diff} } \approx$ **{di:num1} cm**.
+    $d_i = \dfrac{ ({fl})({dob}) }{ {dob} - {fl} } = \dfrac{ ({fl})({dob}) }{ {diff} } \approx$ **{di:num1} cm**.
     $m = -\dfrac{d_i}{d_o} \approx$ **{mag:num2}** (negative: the image is upside down; positive: upright and virtual).
