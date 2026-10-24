@@ -55,16 +55,16 @@
   lesson: phys-h2-maxwell
   topic: Maxwell's equations
   stem: 'Which of Maxwell''s equations shows directly that a plane electromagnetic wave in vacuum has no oscillating field component along its direction of travel?'
-  choices: ['Faraday''s law', 'Gauss''s law with no charge, $\nabla\cdot\vec E = 0$', 'The continuity equation', 'The Ampère–Maxwell law with $\vec J = \vec 0$']
-  answer: 1
+  choices: ['Gauss''s law with no charge, $\nabla\cdot\vec E = 0$', 'Faraday''s law', 'The continuity equation', 'The Ampère–Maxwell law with $\vec J = \vec 0$']
+  answer: 0
   explanation: |-
     For a wave traveling along $x$ the fields depend only on $x$ and $t$, so $\nabla\cdot\vec E = \partial E_x/\partial x = 0$: $E_x$ cannot oscillate along the travel direction (and $\nabla\cdot\vec B = 0$ does the same for $\vec B$). Faraday's and the Ampère–Maxwell law link the two fields and fix $E = cB$; the continuity equation is about charge.
 - id: phys-h2-r2-h08
   lesson: phys-h2-maxwell
   topic: Maxwell's equations
   stem: 'In a region the electric field is a uniform 500 V/m along $+x$. What does that tell you about the charge in the region?'
-  choices: ['There is positive charge density proportional to 500 V/m', 'There is no charge density in the region', 'There is negative charge density, since the field points away', 'Nothing, since the divergence of a field cannot be found from its value']
-  answer: 1
+  choices: ['There is no charge density in the region', 'There is positive charge density proportional to 500 V/m', 'There is negative charge density, since the field points away', 'Nothing, since the divergence of a field cannot be found from its value']
+  answer: 0
   explanation: |-
     A uniform field has every partial derivative equal to zero, so $\nabla\cdot\vec E = 0$ and $\rho = \varepsilon_0\nabla\cdot\vec E = 0$. The charges that make the field (for example on capacitor plates) lie outside the region. Divergence depends on how the field changes from point to point, not on how strong it is.
 - id: phys-h2-r2-h09
@@ -205,8 +205,8 @@
   lesson: phys-h2-fields-relativity
   topic: Fields and relativity
   stem: 'In the wire example, the electric force in the moving charge''s frame is $\gamma$ times the magnetic force in the lab. Why is this not a contradiction?'
-  choices: ['The charge is different in the two frames', 'The same sideways momentum is delivered in both frames, but the charge''s clock runs slow in the lab, so the lab force is smaller', 'The factor $\gamma$ is always so close to 1 that it can be ignored', 'The magnetic force does no work, so it can have any size']
-  answer: 1
+  choices: ['The same sideways momentum is delivered in both frames, but the charge''s clock runs slow in the lab, so the lab force is smaller', 'The charge is different in the two frames', 'The factor $\gamma$ is always so close to 1 that it can be ignored', 'The magnetic force does no work, so it can have any size']
+  answer: 0
   explanation: |-
     A sideways push changes the sideways momentum by the same amount in both frames, but the time over which it acts is longer by $\gamma$ in the lab, where the charge moves. So the lab force is smaller by $\gamma$ and both frames predict the same motion. Charge is invariant; $\gamma$ is not always near 1; and the size of the force matters, whatever its work.
 - id: phys-h2-r2-h24

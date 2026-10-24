@@ -74,7 +74,7 @@ A **heat pump** is the same device used to warm a house; its useful output is $Q
 
 The energy-flow diagrams compare the two devices. In an engine, heat flows downhill from hot to cold and some of it is diverted as work. In a refrigerator or heat pump, work is put in to drive heat uphill, and the hot reservoir receives $Q_H = Q_C + W$.
 
-![Energy-flow diagrams. Left, a heat engine: heat Q_H flows down from the hot reservoir into the engine, work W comes out, and heat Q_C flows down to the cold reservoir. Right, a refrigerator: work W goes in, heat Q_C is pulled up from the cold reservoir, and heat Q_H is delivered up to the hot reservoir.](images/phys-m7-engine-fridge.svg)
+![Energy-flow diagrams. Left, a heat engine: heat flows down from the hot reservoir into the engine, work comes out, and the remaining heat flows down to the cold reservoir. Right, a refrigerator: work goes in, heat is pulled up from the cold reservoir, and a larger amount of heat is delivered up to the hot reservoir.](images/phys-m7-engine-fridge.svg)
 
 ### Example 2
 

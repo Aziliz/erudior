@@ -133,8 +133,9 @@ but a good grade in Switzerland.
 
 ## Counting on your fingers
 
-To show "one" with your hand, most Germans hold up the thumb, not the index finger. Two is thumb
-and index finger, three adds the middle finger, and so on. If you order *zwei Kaffee* by
+To show "one" with your hand, most Germans hold up the thumb (*der Daumen*), not the index
+finger (*der Zeigefinger*, the "pointing finger"; *der Finger* is finger). Two is thumb and index
+finger, three adds the middle finger, and so on. If you order *zwei Kaffee* by
 holding up your index and middle finger, you'll almost always get two, but thumb and index
 finger is the local way and can't be misread. When Germans count aloud on their fingers, they
 also start with the thumb.

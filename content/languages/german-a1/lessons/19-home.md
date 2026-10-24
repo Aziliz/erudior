@@ -75,6 +75,13 @@ dative:
 
 You know *vor* from lesson 11 as "before" (*vor dem Essen*); with places it means "in front of".
 
+Eight of the prepositions in pictures. Each time, ask *Wo ist der Ball?* (Where is the ball?):
+
+![Eight small pictures of a ball and a box. auf: the ball is on top of the box. unter: the ball is on the floor under a table. neben: the ball is on the floor beside the box. über: the ball floats above the box. in: the ball is inside an open box, only its top showing. hinter: the ball peeks out over the back of the box. vor: the ball is on the floor in front of the box, covering part of it. zwischen: the ball is between two boxes.](images/de1-m5-prepositions.svg)
+
+*Der Ball ist auf dem Karton. Der Ball ist zwischen den Kartons.* (*der Karton* — box) The ninth one, *an*, is
+the photo on the wall or the bed against the wall.
+
 These nine prepositions are called **two-way prepositions**. With *Wo?* (location, no movement),
 they take the dative. With *Wohin?* (movement to a place), they take the accusative: *Ich lege das
 Buch auf den Tisch* (I put the book onto the table). That second use is for later; at A1 you only

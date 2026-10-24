@@ -39,6 +39,8 @@ ready-made chunks like *Wie geht es dir?* and *Kannst du mir helfen?*
 Many body parts come in pairs, so learn the plurals too: *zwei Augen, zwei Ohren, zwei Hände, zwei
 Füße*. Note *der Hals*: it is both the outside (neck) and the inside (throat).
 
+![A person standing, seen from the front, with eleven labels: der Kopf (head), das Auge (eye), das Ohr (ear), die Nase (nose), der Mund (mouth), der Hals (neck), der Arm (arm), die Hand (hand), der Bauch (stomach), das Bein (leg) and der Fuß (foot). Labels are blue for der, pink for die and green for das. Der Rücken (back) can't be seen from the front.](images/de1-m5-body.svg)
+
 ## Saying what's wrong
 
 There are three common patterns. Learn them as chunks.
@@ -126,6 +128,19 @@ given is the direct object, in the accusative:
 
 At A1 you don't need to master the dative. Learn these chunks well: *Wie geht es dir/Ihnen?*, *Mir
 geht es gut*, *Kannst du mir helfen?*, *Mir ist kalt*, *Mir tut … weh*, *Gib mir …*, *mit mir*.
+
+To choose between *ich*, *mich* and *mir* (or *du*, *dich*, *dir*), ask what job the pronoun does in
+the sentence:
+
+```mermaid
+flowchart TD
+  accTitle: Choosing ich, mich or mir
+  accDescr: Ask what job the pronoun does. If it is the subject, the one who does the action, use the nominative: ich, du, er, as in Ich rufe dich an. If it is the direct object, the one the verb acts on, use the accusative: mich, dich, ihn, as in Ruf mich an. If it comes after a dative preposition such as mit, zu or bei, after helfen, in a feeling chunk, or is the person who receives something, use the dative: mir, dir, ihm, as in Hilf mir, Mir ist kalt, Gib mir das Buch.
+  S{"What job does the pronoun do?"}
+  S --> A["Subject: who does it"] --> N["ich, du, er ... Ich rufe dich an."]
+  S --> B["Direct object: who the verb acts on"] --> K["mich, dich, ihn ... Ruf mich an!"]
+  S --> C["After mit, zu, bei, after helfen, in feeling chunks, or the person who receives"] --> D["mir, dir, ihm ... Hilf mir! Mir ist kalt. Gib mir das Buch."]
+```
 
 ## Dialogue: Einen Termin machen
 

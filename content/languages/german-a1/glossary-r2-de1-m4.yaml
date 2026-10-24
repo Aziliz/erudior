@@ -1,0 +1,8 @@
+- term: prefix
+  aliases: [prefixes, Präfix, Vorsilbe]
+  definition: 'A piece added to the front of a word to change its meaning. Lieblings- in front of a noun means "favourite": der Film → der Lieblingsfilm. Verbs have separable prefixes (auf-, mit-) and inseparable prefixes (be-, ver-).'
+  topic: Word formation
+- term: adjective ending
+  aliases: [adjective endings, Adjektivendung, Adjektivendungen]
+  definition: 'The short ending (-e, -en and others) an adjective takes in front of a noun; it depends on the word before it and on the case. Ordinal numbers in dates take these endings too: der dritte Mai (-e after der), but am, vom, bis zum and den dritten Mai (-en). The full system comes at A2.'
+  topic: Numbers and dates

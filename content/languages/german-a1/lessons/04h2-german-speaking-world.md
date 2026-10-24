@@ -35,7 +35,8 @@ several more places:
 
 ![A simplified map of central Europe showing Deutschland with Berlin, Österreich with Wien, die Schweiz with Bern, the small dot of Liechtenstein between Switzerland and Austria, Luxemburg and Ostbelgien on Germany's western border, and Südtirol in Italy just south of Austria.](images/de1-m1-dach-map.svg)
 
-German is the most widely spoken first language in the European Union. You'll also hear the
+German is the most widely spoken first language (*Muttersprache*, literally "mother language")
+in the European Union. You'll also hear the
 short form *DACH* for the three big German-speaking countries: *D* (Deutschland), *A*
 (Austria, from its Latin name) and *CH* (Switzerland, from Latin *Confoederatio Helvetica*).
 Those letters are also the countries' international car codes.

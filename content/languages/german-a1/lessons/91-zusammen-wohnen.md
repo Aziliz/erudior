@@ -28,7 +28,7 @@ die Nachbarin*). They share the stairwell (*das Treppenhaus*), the cellar (*der 
 courtyard, and the bins. To keep the peace (*die Ruhe*), almost every building has a *Hausordnung*
 hanging in the stairwell. Here is a typical one, written for this course:
 
-> **Hausordnung**
+> HAUSORDNUNG
 >
 > 1. Ruhezeiten: Bitte von 22 bis 7 Uhr und von 13 bis 15 Uhr leise sein. Am Sonntag und an Feiertagen ist den ganzen Tag Ruhezeit.
 >
@@ -171,7 +171,7 @@ something goes: movement to a place) they take the accusative.
 
 Only the article changes, and you know the accusative articles from lesson 9: *den* for
 masculine, *die* and *das* unchanged. *In das* is usually shortened to *ins*, just as *in dem*
-becomes *im*.
+becomes *im*. (*Stellen* means to put something somewhere upright, like a bike or a bottle.)
 
 Three verbs help you here:
 
@@ -194,7 +194,7 @@ glass) and an empty water bottle with a 25-cent Pfand logo. Where does each go?
    Grünglas.*
 3. The newspaper is paper → *Die Zeitung kommt in die blaue Tonne.*
 4. The yoghurt pot is plastic packaging → *Der Joghurtbecher kommt in die gelbe Tonne.*
-5. The apple core is food → *Der Apfel kommt in die Biotonne.*
+5. The apple core is food → *Der Apfelrest kommt in die Biotonne.* (*der Rest*: the rest, leftover)
 
 Each sentence is *Wohin?*, so each bin is in the accusative. Notice *den Glascontainer* and *den
 Supermarkt*: both masculine, both *den*.
@@ -220,7 +220,7 @@ Lukas has just moved in. On the stairs he meets his neighbour, Frau Schmitt.
 
 > Lukas: Guten Tag! Ich bin Lukas Brandt. Ich wohne seit Montag im zweiten Stock.
 >
-> Frau Schmitt: Ah, der neue Nachbar! Herzlich willkommen. Ich bin Frau Schmitt, von unten.
+> Frau Schmitt: Ah, der neue Nachbar! Herzlich willkommen. Ich bin Frau Schmitt, ich wohne unten.
 >
 > Lukas: Freut mich. Sagen Sie, wo sind denn die Mülltonnen?
 >
@@ -237,7 +237,7 @@ Lukas has just moved in. On the stairs he meets his neighbour, Frau Schmitt.
 > Lukas: Gut, dann mache ich das am Samstag. Vielen Dank!
 
 *Lukas: Hello! I'm Lukas Brandt. I've lived on the second floor since Monday. — Mrs Schmitt: Ah,
-the new neighbour! Welcome. I'm Mrs Schmitt, from downstairs. — Lukas: Nice to meet you. Tell me,
+the new neighbour! Welcome. I'm Mrs Schmitt, I live downstairs. — Lukas: Nice to meet you. Tell me,
 where are the bins? — Mrs Schmitt: In the courtyard, behind the building. Paper goes in the blue
 bin, packaging in the yellow one. — Lukas: And bottles? — Mrs Schmitt: You take the deposit
 bottles to the supermarket. The others you throw in the bottle bank on the corner, but please not
@@ -253,7 +253,7 @@ courtyard, and *lieber nicht* "better not".
 ## Pronunciation
 
 - *Nachbar*: NACH-bar, with the throaty *ach* sound.
-- *Müll*: short *ü*, like *Mütter* without the *-tter*. Don't say *Mull*.
+- *Müll*: a short *ü*: say *i* as in *bitte* with tightly rounded lips. Don't say *Mull*.
 - *Pfand*: the *pf* is one quick sound; start with *p* and slide into *f*.
 - *Treppenhaus*: TREP-pen-house.
 - *wirft*: short *i*, and every consonant is said: virft.
@@ -264,7 +264,7 @@ courtyard, and *lieber nicht* "better not".
   somewhere, so it's *Wohin?*: *in die Tonne*.
 - Splitting a separable verb in an infinitive command: *Bitte Tür schließen ab!* is wrong. The
   infinitive stays in one piece: *Bitte Tür abschließen!*
-- Using infinitive commands to people: to a friend say *Mach bitte die Tür zu!*, not *Tür
+- Using infinitive commands to people: to a friend say *Schließ bitte die Tür!*, not *Tür
   schließen!*
 - Putting glass in the yellow bin, or Pfand bottles in the glass container. Pfand bottles go back
   to the shop.
