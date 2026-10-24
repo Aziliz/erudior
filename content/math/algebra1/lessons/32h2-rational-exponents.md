@@ -75,7 +75,7 @@ Check: $9^{3/2} = (\sqrt9)^3 = 27$.
 Lesson 30 drew $f(x) = 3 \cdot 2^x$ as a smooth curve but only computed it at whole numbers. Rational exponents fill the gaps: $f\!\left(\tfrac12\right) = 3 \cdot 2^{1/2} = 3\sqrt2 \approx 4.24$, and $f\!\left(\tfrac32\right) = 3 \cdot 2^{3/2} = 3 \cdot 2\sqrt2 \approx 8.49$. Each half-step multiplies by $\sqrt2 \approx 1.414$, and two half-steps multiply by $\sqrt2 \cdot \sqrt2 = 2$, one full step. (Irrational inputs such as $2^{\sqrt2}$ are defined by taking closer and closer rational approximations; that detail belongs to a later course.)
 
 ```plot
-{"x": [-1, 3.5], "y": [0, 30], "functions": [{"f": "3*2^x", "label": "y = 3 · 2^x"}], "points": [{"at": [0, 3], "label": "(0, 3)"}, {"at": [0.5, 4.243], "label": "x = 1/2: 3√2 ≈ 4.24"}, {"at": [1, 6]}, {"at": [1.5, 8.485], "label": "x = 3/2: ≈ 8.49"}, {"at": [2, 12]}, {"at": [2.5, 16.97], "label": "x = 5/2: ≈ 16.97"}, {"at": [3, 24]}], "caption": "Half-steps multiply by √2 ≈ 1.414; two half-steps double the output"}
+{"x": [-1, 3.5], "y": [0, 30], "functions": [{"f": "3*2^x", "label": "y = 3 · 2^x"}], "points": [{"at": [0, 3], "color": "var(--fig-0)"}, {"at": [0.5, 4.243], "color": "var(--fig-0)"}, {"at": [1, 6], "color": "var(--fig-0)"}, {"at": [1.5, 8.485], "color": "var(--fig-0)"}, {"at": [2, 12], "color": "var(--fig-0)"}, {"at": [2.5, 16.971], "color": "var(--fig-0)"}, {"at": [3, 24], "color": "var(--fig-0)"}], "labels": [{"at": [-0.4, 4.6], "text": "(0, 3)"}, {"at": [0.85, 2.2], "text": "4.24"}, {"at": [1.85, 6.4], "text": "8.49"}, {"at": [2.88, 14.6], "text": "16.97"}], "caption": "At x = 1/2, 3/2 and 5/2 the values are 3√2 ≈ 4.24, 6√2 ≈ 8.49 and 12√2 ≈ 16.97: each half-step multiplies by √2 ≈ 1.414, and two half-steps double the output"}
 ```
 
 ### Example 3

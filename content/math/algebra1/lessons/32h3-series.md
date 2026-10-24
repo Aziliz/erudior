@@ -88,7 +88,7 @@ Cut a square of area 1 in half, then cut the remaining half in half, and keep go
 The partial sums show it in numbers: $S_n = \dfrac{\tfrac12\left(1 - (\tfrac12)^n\right)}{1 - \tfrac12} = 1 - \left(\tfrac12\right)^n$, which is $0.5, 0.75, 0.875, 0.9375, \dots$ The missing piece $\left(\tfrac12\right)^n$ shrinks toward 0, so the partial sums get as close to 1 as you like. We say the **infinite geometric series** $\tfrac12 + \tfrac14 + \tfrac18 + \dots$ **converges** to 1 and write the sum as 1.
 
 ```plot
-{"x": [0, 10.5], "y": [0, 1.2], "functions": [{"f": "1", "label": "sum = 1", "dashed": true}], "points": [[1, 0.5], [2, 0.75], [3, 0.875], [4, 0.9375], [5, 0.96875], [6, 0.984375], [7, 0.9921875], [8, 0.99609375], [9, 0.998046875], [10, 0.9990234375]], "xLabel": "n (number of terms)", "yLabel": "partial sum Sₙ", "caption": "Partial sums of 1/2 + 1/4 + 1/8 + … climb toward 1 without passing it"}
+{"x": [0, 10.5], "y": [0, 1.2], "functions": [{"f": "1", "label": "sum = 1", "dashed": true}], "points": [{"at": [1, 0.5], "color": "var(--fig-0)"}, {"at": [2, 0.75], "color": "var(--fig-0)"}, {"at": [3, 0.875], "color": "var(--fig-0)"}, {"at": [4, 0.9375], "color": "var(--fig-0)"}, {"at": [5, 0.96875], "color": "var(--fig-0)"}, {"at": [6, 0.984375], "color": "var(--fig-0)"}, {"at": [7, 0.9921875], "color": "var(--fig-0)"}, {"at": [8, 0.99609375], "color": "var(--fig-0)"}, {"at": [9, 0.998046875], "color": "var(--fig-0)"}, {"at": [10, 0.9990234375], "color": "var(--fig-0)"}], "xLabel": "n (number of terms)", "yLabel": "partial sum Sₙ", "caption": "Partial sums of 1/2 + 1/4 + 1/8 + … climb toward 1 without passing it"}
 ```
 
 The same thing happens whenever $|r| < 1$: then $r^n$ gets closer and closer to 0 as $n$ grows, and the partial-sum formula approaches

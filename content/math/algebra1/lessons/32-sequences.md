@@ -78,7 +78,7 @@ Find the explicit formula and $a_{10}$ for $3, 6, 12, 24, \dots$, and the explic
 Graphed, the first sequence is a set of separate points that sit on an exponential curve, just as an arithmetic sequence's points sit on a line:
 
 ```plot
-{"x": [0, 6], "y": [0, 60], "functions": [{"f": "1.5*2^x", "dashed": true, "label": "y = 1.5 · 2^x"}], "points": [{"at": [1, 3], "label": "a₁ = 3"}, [2, 6], [3, 12], [4, 24], {"at": [5, 48], "label": "a₅ = 48"}], "xLabel": "n", "yLabel": "aₙ", "caption": "A geometric sequence with r = 2: separate points on an exponential curve"}
+{"x": [0, 6], "y": [0, 60], "functions": [{"f": "1.5*2^x", "dashed": true, "label": "y = 1.5 · 2^x"}], "points": [{"at": [1, 3], "color": "var(--fig-0)"}, {"at": [2, 6], "color": "var(--fig-0)"}, {"at": [3, 12], "color": "var(--fig-0)"}, {"at": [4, 24], "color": "var(--fig-0)"}, {"at": [5, 48], "color": "var(--fig-0)"}], "labels": [{"at": [0.75, 9], "text": "a₁ = 3"}, {"at": [4.15, 50], "text": "a₅ = 48"}], "xLabel": "n", "yLabel": "aₙ", "caption": "A geometric sequence with r = 2: separate points on an exponential curve"}
 ```
 
 ### Example 4

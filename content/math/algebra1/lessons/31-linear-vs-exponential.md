@@ -108,7 +108,7 @@ Job offer A pays a bonus of $L(x) = 1000 + 500x$ dollars in year $x$. Offer B pa
 The graph shows the race. The line starts far ahead, but the exponential curve, tiny at first, bends upward and crosses it between years 9 and 10.
 
 ```plot
-{"x": [0, 11], "y": [0, 12000], "functions": [{"f": "1000 + 500*x", "label": "A: L(x) = 1000 + 500x"}, {"f": "10*2^x", "label": "B: E(x) = 10 · 2^x", "dashed": true}], "points": [{"at": [9, 5500], "label": "year 9: A 5,500"}, {"at": [9, 5120]}, {"at": [10, 10240], "label": "year 10: B 10,240"}, {"at": [10, 6000]}], "xLabel": "year x", "yLabel": "bonus (dollars)", "caption": "Offer B starts at 10 dollars but passes offer A in year 10"}
+{"x": [0, 11], "y": [0, 12], "functions": [{"f": "1 + 0.5*x"}, {"f": "0.01*2^x", "dashed": true}], "points": [{"at": [9, 5.5], "color": "var(--fig-0)"}, {"at": [9, 5.12], "color": "var(--fig-1)"}, {"at": [10, 6], "color": "var(--fig-0)"}, {"at": [10, 10.24], "color": "var(--fig-1)"}], "labels": [{"at": [3, 4.7], "text": "A: L(x) = 1000 + 500x"}, {"at": [6.6, 9.3], "text": "B: E(x) = 10 · 2^x (dashed)"}], "xLabel": "year x", "yLabel": "bonus (thousands of dollars)", "caption": "Offer B starts at 10 dollars but passes offer A in year 10 (dots: years 9 and 10)"}
 ```
 
 The same thing happens against a quadratic. Compare $x^2$ and $2^x$: they're equal at $x = 2$ and $x = 4$, $x^2$ is larger between them, and for every $x > 4$, $2^x$ is larger and races ahead ($2^{10} = 1024$ vs $10^2 = 100$).
