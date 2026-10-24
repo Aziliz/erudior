@@ -45,8 +45,7 @@
     num: if(k == 1, 2, if(k == 2, 1, if(k == 3, 2, 1)))
     den: if(k == 1, 5, if(k == 2, 2, if(k == 3, 3, 1)))
     beta: num/den
-    grav: 9.8
-    v: sqrt(2*grav*h/(1 + beta))
+    v: sqrt(2*9.8*h/(1 + beta))
   prompt: 'A {k} is released from rest and rolls without slipping down a ramp that drops {h} m. Using $g = 9.8$ m/s², find its speed at the bottom. (m/s, 2 decimal places.)'
   answers:
     - {name: v, label: '$v =$', tolerance: 0.005}

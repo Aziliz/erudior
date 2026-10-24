@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="sans-serif">
+<rect width="640" height="360" fill="#ffffff"/>
+<rect x="100" y="40" width="14" height="280" rx="0" fill="#f8e1dc" stroke="#1c2833" stroke-width="2.5"/>
+<rect x="526" y="40" width="14" height="280" rx="0" fill="#dde8f3" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="118.0" y1="90.0" x2="507.0" y2="90.0" stroke="#a3341f" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="520.0,90.0 507.0,95.8 507.0,84.2" fill="#a3341f"/>
+<line x1="118.0" y1="150.0" x2="507.0" y2="150.0" stroke="#a3341f" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="520.0,150.0 507.0,155.8 507.0,144.2" fill="#a3341f"/>
+<line x1="118.0" y1="210.0" x2="507.0" y2="210.0" stroke="#a3341f" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="520.0,210.0 507.0,215.8 507.0,204.2" fill="#a3341f"/>
+<line x1="118.0" y1="270.0" x2="507.0" y2="270.0" stroke="#a3341f" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="520.0,270.0 507.0,275.9 507.0,264.1" fill="#a3341f"/>
+<line x1="217.0" y1="45.0" x2="217.0" y2="315.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="9 7" stroke-linecap="round"/>
+<line x1="320.0" y1="45.0" x2="320.0" y2="315.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="9 7" stroke-linecap="round"/>
+<line x1="423.0" y1="45.0" x2="423.0" y2="315.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="9 7" stroke-linecap="round"/>
+</svg>

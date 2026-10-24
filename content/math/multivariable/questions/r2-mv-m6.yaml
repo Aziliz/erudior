@@ -143,7 +143,7 @@
     - ['$\rho = 2\cos\phi$', 'Sphere of radius 1 resting on the origin']
   distractors: ['Vertical half-plane']
   explanation: |-
-    Fixing $\rho$ gives a sphere about the origin. Fixing $\phi$ gives a cone around the $z$-axis, except $\phi = \tfrac\pi2$, which is the whole $xy$-plane (the equator). $\rho\cos\phi$ is $z$, so $\rho\cos\phi = 2$ is $z = 2$. Multiplying $\rho = 2\cos\phi$ by $\rho$ gives $x^2 + y^2 + z^2 = 2z$, the sphere $x^2 + y^2 + (z - 1)^2 = 1$, which touches the $xy$-plane at the origin. A vertical half-plane is $\theta = $ constant.
+    Fixing $\rho$ gives a sphere about the origin. Fixing $\phi$ gives a cone around the $z$-axis, except $\phi = \tfrac\pi2$, which is the whole $xy$-plane (the equator). $\rho\cos\phi$ is $z$, so $\rho\cos\phi = 2$ is $z = 2$. Multiplying $\rho = 2\cos\phi$ by $\rho$ gives $x^2 + y^2 + z^2 = 2z$, the sphere $x^2 + y^2 + (z - 1)^2 = 1$, which touches the $xy$-plane at the origin. A vertical half-plane comes from fixing $\theta$.
 - id: mv-m6-r2-q13
   lesson: mv-spherical
   module_quiz: true
@@ -256,7 +256,7 @@
 - id: mv-m6-r2-h02
   lesson: mv-m6-h-moments-of-inertia
   topic: Moments of inertia
-  stem: 'Why does the moment of inertia weight each bit of mass by the *square* of its distance from the axis?'
+  stem: 'Why does the moment of inertia weight each bit of mass by the square of its distance from the axis?'
   choices:
     - 'Because torque is defined as force times distance squared'
     - 'A bit at distance $d$ moves at speed $\omega d$, so its kinetic energy $\tfrac12\Delta m\,\omega^2d^2$ contains $d^2$'
@@ -487,7 +487,7 @@
     - 'A linear map multiplies the volumes of some regions by $|\det A|$ but leaves others unchanged'
   answer: [0, 1, 2]
   explanation: |-
-    By the chain rule, the Jacobian matrix of a composition is the product of the Jacobian matrices, and determinants multiply. Composing a map with its inverse gives the identity, with Jacobian 1, so the two Jacobians are reciprocals. A linear map has constant partial derivatives, so its Jacobian is $\det A$ everywhere, and it scales *every* volume by $|\det A|$.
+    By the chain rule, the Jacobian matrix of a composition is the product of the Jacobian matrices, and determinants multiply. Composing a map with its inverse gives the identity, with Jacobian 1, so the two Jacobians are reciprocals. A linear map has constant partial derivatives, so its Jacobian is $\det A$ everywhere, and it scales every volume by $|\det A|$.
 - id: mv-m6-r2-h25
   lesson: mv-m6-h-designing-coordinates
   topic: Custom coordinates
@@ -542,4 +542,4 @@
     - 'The cube containing the ball also shrinks as $n$ grows'
   answer: 0
   explanation: |-
-    Each step of the recursion multiplies by $\tfrac{2\pi}{n}$, which is below 1 for $n \ge 7$, so $V_7 < V_5$, $V_8 < V_6$, and so on toward 0. In fact the volume concentrates near the *surface*, not the center; $a^n$ tends to 0 only when $a < 1$; and the containing cube $[-1, 1]^n$ has volume $2^n$, which grows.
+    Each step of the recursion multiplies by $\tfrac{2\pi}{n}$, which is below 1 for $n \ge 7$, so $V_7 < V_5$, $V_8 < V_6$, and so on toward 0. In fact the volume concentrates near the surface, not the center; $a^n$ tends to 0 only when $a < 1$; and the containing cube $[-1, 1]^n$ has volume $2^n$, which grows.

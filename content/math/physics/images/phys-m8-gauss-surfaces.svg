@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 320" width="780" height="320" font-family="sans-serif">
+<rect width="780" height="320" fill="#ffffff"/>
+<circle cx="130.0" cy="150.0" r="40" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<text x="115.0" y="145.0" font-size="17" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="142.0" y="143.0" font-size="17" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="130.0" y="165.0" font-size="17" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="112.0" y="171.0" font-size="17" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="148.0" y="169.0" font-size="17" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<circle cx="130.0" cy="150.0" r="95" fill="none" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6"/>
+<line x1="390.0" y1="30.0" x2="390.0" y2="275.0" stroke="#a3341f" stroke-width="4" stroke-linecap="round"/>
+<text x="405.0" y="56.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="86.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="116.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="146.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="176.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="206.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="236.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="405.0" y="266.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<ellipse cx="390.0" cy="85.0" rx="60" ry="15" fill="none" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6"/>
+<ellipse cx="390.0" cy="215.0" rx="60" ry="15" fill="none" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6"/>
+<line x1="330.0" y1="85.0" x2="330.0" y2="215.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="450.0" y1="85.0" x2="450.0" y2="215.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<polygon points="630,40 670,70 670,270 630,240" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<text x="650.0" y="96.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="650.0" y="136.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="650.0" y="176.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<text x="650.0" y="216.0" font-size="16" text-anchor="middle" fill="#a3341f" font-weight="bold">+</text>
+<line x1="585.0" y1="130.0" x2="715.0" y2="130.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="585.0" y1="180.0" x2="715.0" y2="180.0" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<ellipse cx="585.0" cy="155.0" rx="11" ry="25" fill="#ffffff" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6"/>
+<ellipse cx="715.0" cy="155.0" rx="11" ry="25" fill="#ffffff" stroke="#1f5f8b" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="130.0" y="290.0" font-size="15" text-anchor="middle" fill="#1c2833">concentric sphere</text>
+<text x="390.0" y="300.0" font-size="15" text-anchor="middle" fill="#1c2833">coaxial cylinder</text>
+<text x="650.0" y="300.0" font-size="15" text-anchor="middle" fill="#1c2833">pillbox</text>
+</svg>

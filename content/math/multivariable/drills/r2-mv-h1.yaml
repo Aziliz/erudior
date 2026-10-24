@@ -60,6 +60,9 @@
     w: {min: -3, max: 3}
   where: ["a != 0", "b != 0", "c != 0", "b != c", "p != 0", "q != 0", "w != 0"]
   calc:
+    ta: 2*a
+    tb: 2*b
+    tc: 2*c
     c1: 2*c*p
     c2: 2*a*p - 2*b*q
     c3: 2*(b - c)*w
@@ -75,7 +78,7 @@
     - {name: c2, label: 'second component', format: integer}
     - {name: c3, label: 'third component', format: integer}
   solution: |-
-    Use $\nabla\times(\nabla\times\mathbf F) = \nabla(\nabla\cdot\mathbf F) - \nabla^2\mathbf F$. Here $\nabla\cdot\mathbf F = {2*a}xy + ({b})z^2 + ({c})x^2$, so $\nabla(\nabla\cdot\mathbf F) = \langle {2*a}y + {2*c}x,\ {2*a}x,\ {2*b}z\rangle$, which is $\langle {gx}, {gy}, {gz}\rangle$ at the point. Componentwise Laplacians: $\nabla^2\mathbf F = \langle {2*a}y,\ {2*b}y,\ {2*c}z\rangle = \langle {lx}, {ly}, {lz}\rangle$ there. Subtract: **{c1}**, **{c2}**, **{c3}**.
+    Use $\nabla\times(\nabla\times\mathbf F) = \nabla(\nabla\cdot\mathbf F) - \nabla^2\mathbf F$. Here $\nabla\cdot\mathbf F = {ta}xy + ({b})z^2 + ({c})x^2$, so $\nabla(\nabla\cdot\mathbf F) = \langle {ta}y + ({tc})x,\ {ta}x,\ {tb}z\rangle$, which is $\langle {gx}, {gy}, {gz}\rangle$ at the point. Componentwise Laplacians: $\nabla^2\mathbf F = \langle {ta}y,\ {tb}y,\ {tc}z\rangle = \langle {lx}, {ly}, {lz}\rangle$ there. Subtract: **{c1}**, **{c2}**, **{c3}**.
 - id: mv-h1-r2-intensity
   title: Field amplitudes from intensity
   topic: Electromagnetic waves
@@ -103,12 +106,15 @@
     rad: {min: 2, max: 6}
   where: ["a != 0", "b != 0", "c != 0"]
   calc:
+    na: -a
+    ta: 2*a
+    nta: -2*a
     val: a*p^2 - a*q^2 + b*p*q + c*p
-  prompt: 'Let $u = {a:coef}x^2 {-a:signedcoef}y^2 {b:signedcoef}xy {c:signedcoef}x$. Find the average value of $u$ over the circle of radius {rad} centered at $({p}, {q})$.'
+  prompt: 'Let $u = {a:coef}x^2 {na:signedcoef}y^2 {b:signedcoef}xy {c:signedcoef}x$. Find the average value of $u$ over the circle of radius {rad} centered at $({p}, {q})$.'
   answers:
     - {name: val, label: 'Average', format: integer}
   solution: |-
-    $u_{xx} + u_{yy} = {2*a} + ({-2*a}) = 0$, so $u$ is harmonic. By the mean value property its average over any circle equals its value at the center, whatever the radius: $u({p}, {q}) =$ **{val}**.
+    $u_{xx} + u_{yy} = {ta} + ({nta}) = 0$, so $u$ is harmonic. By the mean value property its average over any circle equals its value at the center, whatever the radius: $u({p}, {q}) =$ **{val}**.
 - id: mv-h1-r2-make-harmonic
   title: Making a quadratic harmonic
   topic: Harmonic functions
@@ -121,13 +127,15 @@
   where: ["a != 0", "b != 0", "a + b != 0"]
   calc:
     cc: -(a + b)
+    ta: 2*a
+    tb: 2*b
     val: a*p^2 + b*q^2 - (a + b)*w^2
   prompt: '(a) Find the constant $k$ that makes $u = {a:coef}x^2 {b:signedcoef}y^2 + kz^2$ harmonic. (b) With that $k$, find the average of $u$ over the sphere of radius 2 centered at $({p}, {q}, {w})$.'
   answers:
     - {name: cc, label: '(a) $k =$', format: integer}
     - {name: val, label: '(b) average', format: integer}
   solution: |-
-    $\nabla^2u = {2*a} + ({2*b}) + 2k = 0$ gives $k =$ **{cc}**. Then $u$ is harmonic, so its average over a sphere is its value at the center: ${a}({p})^2 + ({b})({q})^2 + ({cc})({w})^2 =$ **{val}**.
+    $\nabla^2u = {ta} + ({tb}) + 2k = 0$ gives $k =$ **{cc}**. Then $u$ is harmonic, so its average over a sphere is its value at the center: ${a}({p})^2 + ({b})({q})^2 + ({cc})({w})^2 =$ **{val}**.
 # Lesson 93: curvature of surfaces
 - id: mv-h1-r2-principal-curv
   title: Principal and Gaussian curvature at a flat spot
@@ -138,6 +146,10 @@
     s: {min: -4, max: 4}
   where: ["q != 0", "p != 0", "s != 0"]
   calc:
+    tp: 2*p
+    ts: 2*s
+    ps: p + s
+    pms: p - s
     k1: p + s + sqrt((p - s)^2 + q^2)
     k2: p + s - sqrt((p - s)^2 + q^2)
     kg: 4*p*s - q^2
@@ -148,7 +160,7 @@
     - {name: k2, label: '$\kappa_2 =$', tolerance: 0.006, format: num2}
     - {name: kg, label: '$K =$', format: integer}
   solution: |-
-    The gradient is zero at the origin, so the principal curvatures are the eigenvalues of the Hessian $\begin{bmatrix}{2*p} & {q}\\ {q} & {2*s}\end{bmatrix}$. Their sum is the trace ${tr}$ and their product the determinant ${kg}$, so $\lambda = {p + s} \pm\sqrt{({p - s})^2 + ({q})^2}$: $\kappa_1 =$ **{k1:num2}**, $\kappa_2 =$ **{k2:num2}**, and $K = \det = ({2*p})({2*s}) - ({q})^2 =$ **{kg}**.
+    The gradient is zero at the origin, so the principal curvatures are the eigenvalues of the Hessian $\begin{bmatrix}{tp} & {q}\\ {q} & {ts}\end{bmatrix}$. Their sum is the trace ${tr}$ and their product the determinant ${kg}$, so $\lambda = {ps} \pm\sqrt{({pms})^2 + ({q})^2}$: $\kappa_1 =$ **{k1:num2}**, $\kappa_2 =$ **{k2:num2}**, and $K = \det = ({tp})({ts}) - ({q})^2 =$ **{kg}**.
 - id: mv-h1-r2-graph-curv
   title: Gaussian curvature of a paraboloid
   topic: Curvature of surfaces
@@ -158,6 +170,7 @@
     q: {min: -2, max: 2}
   where: ["p != 0 or q != 0"]
   calc:
+    ta: 2*a
     fx: 2*a*p
     fy: 2*a*q
     num: 4*a^2
@@ -167,7 +180,7 @@
   answers:
     - {name: kk, label: '$K =$', sigfigs: 4, format: sig3}
   solution: |-
-    $f_{xx} = f_{yy} = {2*a}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num}}{{den}} \approx$ **{kk:sig3}**.
+    $f_{xx} = f_{yy} = {ta}$, $f_{xy} = 0$, $f_x = {fx}$, $f_y = {fy}$. So $K = \dfrac{f_{xx}f_{yy} - f_{xy}^2}{(1 + f_x^2 + f_y^2)^2} = \dfrac{{num}}{{den}} \approx$ **{kk:sig3}**.
 - id: mv-h1-r2-sphere-triangle
   title: Area of a spherical triangle
   topic: Curvature of surfaces

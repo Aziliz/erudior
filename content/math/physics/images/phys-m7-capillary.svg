@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 560 300" width="560" height="300" font-family="sans-serif" font-size="16" role="img">
+<title>Capillary rise of water and capillary depression of mercury in narrow glass tubes</title>
+<rect x="0" y="40" width="560" height="300" fill="#ffffff"/>
+<rect x="40" y="220" width="200" height="100" rx="0" fill="#dde8f3" stroke="none" stroke-width="0" />
+<polyline points="40.0,160.0 40.0,320.0 240.0,320.0 240.0,160.0" fill="none" stroke="#1c2833" stroke-width="3" stroke-linejoin="round"/>
+<rect x="132" y="118" width="16" height="104" rx="0" fill="#dde8f3" stroke="none" stroke-width="0" />
+<path d="M 132 118 Q 140 130 148 118" fill="none" stroke="#1c2833" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="40" y1="220" x2="130" y2="220" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="150" y1="220" x2="240" y2="220" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="130" y1="60" x2="130" y2="300" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="150" y1="60" x2="150" y2="300" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="115" y1="200" x2="115.0" y2="129.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<polygon points="115.0,122.0 119.7,130.8 110.3,130.8" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="115" y1="140" x2="115.0" y2="211.0" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<polygon points="115.0,218.0 110.3,209.2 119.7,209.2" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<rect x="300" y="220" width="200" height="100" rx="0" fill="#e8e2f3" stroke="none" stroke-width="0" />
+<polyline points="300.0,160.0 300.0,320.0 500.0,320.0 500.0,160.0" fill="none" stroke="#1c2833" stroke-width="3" stroke-linejoin="round"/>
+<rect x="392" y="218" width="16" height="44" rx="0" fill="#ffffff" stroke="none" stroke-width="0" />
+<path d="M 392 262 Q 400 250 408 262" fill="none" stroke="#1c2833" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="300" y1="220" x2="390" y2="220" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="410" y1="220" x2="500" y2="220" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="390" y1="60" x2="390" y2="300" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="410" y1="60" x2="410" y2="300" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="375" y1="236" x2="375.0" y2="228.3" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<polygon points="375.0,222.0 379.2,229.9 370.8,229.9" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<line x1="375" y1="246" x2="375.0" y2="253.7" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<polygon points="375.0,260.0 370.8,252.1 379.2,252.1" fill="#1c2833" stroke="#1c2833" stroke-width="1" stroke-linejoin="round"/>
+<text x="140" y="300" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">water</text>
+<text x="400" y="300" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">mercury</text>
+<text x="108" y="175" text-anchor="end" font-size="16" font-weight="normal" fill="#1c2833" font-style="italic">h</text>
+<text x="160" y="112" text-anchor="start" font-size="16" font-weight="normal" fill="#1c2833">concave meniscus</text>
+<text x="160" y="175" text-anchor="start" font-size="16" font-weight="normal" fill="#1c2833">capillary rise</text>
+<text x="420" y="252" text-anchor="start" font-size="16" font-weight="normal" fill="#1c2833">convex meniscus</text>
+<text x="368" y="246" text-anchor="end" font-size="16" font-weight="normal" fill="#1c2833">depression</text>
+</svg>

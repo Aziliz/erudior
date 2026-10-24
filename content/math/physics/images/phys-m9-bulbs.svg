@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="sans-serif">
+<rect width="720" height="400" fill="#ffffff"/>
+<line x1="110.0" y1="330.0" x2="110.0" y2="211.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="110.0" y1="199.0" x2="110.0" y2="80.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="88.0" y1="199.0" x2="132.0" y2="199.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="99.0" y1="211.0" x2="121.0" y2="211.0" stroke="#1c2833" stroke-width="5" stroke-linecap="round"/>
+<line x1="110.0" y1="80.0" x2="210.0" y2="80.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="210.0" y1="80.0" x2="240.0" y2="80.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="280.0" y1="80.0" x2="310.0" y2="80.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="260.0" cy="80.0" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="245.9" y1="65.9" x2="274.1" y2="94.1" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="245.9" y1="94.1" x2="274.1" y2="65.9" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<text x="260.0" y="46.0" font-size="20" text-anchor="middle" fill="#1c2833" font-weight="bold">A</text>
+<line x1="310.0" y1="80.0" x2="610.0" y2="80.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="450.0" y1="80.0" x2="450.0" y2="185.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="450.0" y1="225.0" x2="450.0" y2="330.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="450.0" cy="205.0" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="435.9" y1="190.9" x2="464.1" y2="219.1" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="435.9" y1="219.1" x2="464.1" y2="190.9" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="610.0" y1="80.0" x2="610.0" y2="185.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="610.0" y1="225.0" x2="610.0" y2="330.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="610.0" cy="205.0" r="20" fill="#f7ebcf" stroke="#1c2833" stroke-width="2.5"/>
+<line x1="595.9" y1="190.9" x2="624.1" y2="219.1" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<line x1="595.9" y1="219.1" x2="624.1" y2="190.9" stroke="#1c2833" stroke-width="2" stroke-linecap="round"/>
+<text x="416.0" y="212.0" font-size="20" text-anchor="end" fill="#1c2833" font-weight="bold">B</text>
+<text x="644.0" y="212.0" font-size="20" text-anchor="start" fill="#1c2833" font-weight="bold">C</text>
+<line x1="110.0" y1="330.0" x2="610.0" y2="330.0" stroke="#1c2833" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="450.0" cy="80.0" r="5" fill="#1c2833"/>
+<circle cx="450.0" cy="330.0" r="5" fill="#1c2833"/>
+<text x="80.0" y="211.0" font-size="20" text-anchor="end" fill="#1c2833" font-style="italic">ε</text>
+<text x="360.0" y="375.0" font-size="15" text-anchor="middle" fill="#1c2833">Bulb A carries the full current I; B and C each carry I/2</text>
+</svg>

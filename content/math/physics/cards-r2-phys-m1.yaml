@@ -16,3 +16,5 @@
 - {front: 'Geometric meaning of $|\vec A\times\vec B|$', back: 'The area of the parallelogram on $\vec A$ and $\vec B$ ($AB\sin\phi$); the triangle is half of it.', topic: Vector products}
 - {front: 'Scalar triple product', back: '$|\vec A\cdot(\vec B\times\vec C)|$ = volume of the box on $\vec A$, $\vec B$, $\vec C$; zero means the three are coplanar. Cycling the order keeps its value; swapping two flips its sign.', topic: Vector products}
 - {front: 'Components in rotated axes (rotated by α counterclockwise)', back: '$A_{x''} = A_x\cos\alpha + A_y\sin\alpha$, $A_{y''} = -A_x\sin\alpha + A_y\cos\alpha$. Magnitudes and dot products don''t change.', topic: Vector algebra}
+- {front: 'Two checks for a computed cross product $\vec C = \vec A\times\vec B$', back: '$\vec C\cdot\vec A = 0$ and $\vec C\cdot\vec B = 0$, and $|\vec C| = AB\sin\phi$.', topic: Vector products}
+- {front: 'Work done by a force along a displacement, in projection terms', back: '$W = \vec F\cdot\vec d = F_\parallel\,d$, where $F_\parallel = \vec F\cdot\vec d/d$ is the component of the force along the motion.', topic: Vector algebra}

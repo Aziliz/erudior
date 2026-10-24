@@ -1,0 +1,42 @@
+# Round 2, honors module la-h1 (Linear algebra at work): cards for lessons 90-93.
+
+# Graphs and networks
+- {front: 'Incidence matrix of a directed graph', back: '$m \times n$ (edges $\times$ nodes); row of edge $j \to k$: $-1$ in column $j$, $+1$ in column $k$', topic: Graphs and networks}
+- {front: '$A\mathbf{x}$ for an incidence matrix', back: 'Potential differences across the edges: (head) $-$ (tail)', topic: Graphs and networks}
+- {front: '$\operatorname{Nul} A$ and rank for a connected graph', back: '$\operatorname{Nul} A = \operatorname{Span}\{(1, \dots, 1)\}$; $\operatorname{rank} A = n - 1$', topic: Graphs and networks}
+- {front: 'Kirchhoff''s current law in matrix form', back: '$A^T\mathbf{y} = \mathbf{0}$: flow in = flow out at every node', topic: Graphs and networks}
+- {front: 'Number of independent loops in a connected graph', back: '$\dim\operatorname{Nul} A^T = m - n + 1$', topic: Graphs and networks}
+- {front: 'When is $\mathbf{b}$ a list of potential differences?', back: 'When $\mathbf{b}$ is orthogonal to every loop vector (voltage law): $(\operatorname{Col} A)^\perp = \operatorname{Nul} A^T$', topic: Graphs and networks}
+- {front: 'Rows of the incidence matrix that are independent', back: 'Edges containing no loop; a spanning tree ($n - 1$ edges) gives a basis of $\operatorname{Row} A$', topic: Graphs and networks}
+- {front: 'Graph Laplacian', back: '$L = A^TA = D - W$; $\mathbf{x}^TL\mathbf{x} = \sum_{\text{edges}}(x_k - x_j)^2 \ge 0$; $L\mathbf{1} = \mathbf{0}$', topic: Graphs and networks}
+- {front: 'Matrix-tree theorem', back: 'Number of spanning trees = $\det$ of $L$ with one row and the same column deleted', topic: Graphs and networks}
+- {front: 'Resistor network equation', back: '$A^TCA\mathbf{x} = \mathbf{s}$ ($C$ = conductances, $\mathbf{s}$ = currents fed in); ground one node to make it solvable', topic: Graphs and networks}
+
+# PageRank and the power method
+- {front: 'Link matrix $S$', back: 'Column $j$: $1/d_j$ in each row page $j$ links to; columns sum to 1', topic: PageRank and the power method}
+- {front: 'Dangling page fix', back: 'Replace its zero column with $\tfrac1n$ in every entry', topic: PageRank and the power method}
+- {front: 'Google matrix', back: '$G = \alpha S + \tfrac{1-\alpha}{n}J$, usually $\alpha = 0.85$; all entries positive, so a unique steady state', topic: PageRank and the power method}
+- {front: '$G\mathbf{x}$ for a probability vector $\mathbf{x}$', back: '$\alpha S\mathbf{x} + \tfrac{1-\alpha}{n}(1, \dots, 1)$: only the sparse product with $S$ is needed', topic: PageRank and the power method}
+- {front: 'Power method', back: '$\mathbf{x}_{k+1} = A\mathbf{x}_k$, rescaled; converges to the dominant eigenvector if $c_1 \ne 0$', topic: PageRank and the power method}
+- {front: 'Power method convergence rate', back: 'Error shrinks like $|\lambda_2/\lambda_1|^k$', topic: PageRank and the power method}
+- {front: 'Second eigenvalue of the Google matrix', back: '$|\lambda_2| \le \alpha$ (other eigenvalues are $\alpha$ times those of $S$)', topic: PageRank and the power method}
+- {front: 'Rayleigh quotient', back: '$\dfrac{\mathbf{x}^TA\mathbf{x}}{\mathbf{x}^T\mathbf{x}}$, an eigenvalue estimate for symmetric $A$', topic: PageRank and the power method}
+
+# Principal component analysis
+- {front: 'Covariance matrix', back: '$S = \tfrac{1}{N-1}BB^T$, $B$ = data in mean-deviation form (one column per individual)', topic: Principal component analysis}
+- {front: 'Variance of the data along unit vector $\mathbf{u}$', back: '$\mathbf{u}^TS\mathbf{u}$, a quadratic form; largest value $\lambda_1$ at $\mathbf{u}_1$', topic: Principal component analysis}
+- {front: 'Principal components', back: 'Unit eigenvectors of $S$, in order of decreasing eigenvalue', topic: Principal component analysis}
+- {front: 'Fraction of variance explained by the first $k$ components', back: '$(\lambda_1 + \cdots + \lambda_k)/\operatorname{tr} S$', topic: Principal component analysis}
+- {front: 'What dropping components loses', back: 'Squared lengths of lost parts total $(N - 1)(\lambda_{k+1} + \cdots + \lambda_p)$', topic: Principal component analysis}
+- {front: 'First component line vs least-squares line', back: 'Component line minimizes perpendicular distances; regression minimizes vertical ones', topic: Principal component analysis}
+- {front: 'PCA from the SVD of $B$', back: 'Components = left singular vectors; $\lambda_i = \sigma_i^2/(N - 1)$', topic: Principal component analysis}
+- {front: 'When to standardize before PCA', back: 'When variables have different units: divide each by its standard deviation (correlation matrix)', topic: Principal component analysis}
+
+# Positioning from distances
+- {front: 'Trilateration: making the equations linear', back: 'Subtract $\|\mathbf{x} - \mathbf{p}_1\|^2 = r_1^2$ from the others: $2(\mathbf{p}_i - \mathbf{p}_1)\cdot\mathbf{x} = r_1^2 - r_i^2 + \|\mathbf{p}_i\|^2 - \|\mathbf{p}_1\|^2$', topic: Positioning from distances}
+- {front: 'Beacons needed for a position (exact distances)', back: '3 not on one line in the plane; 4 not on one plane in space', topic: Positioning from distances}
+- {front: 'GPS pseudorange', back: '$\rho_i = \|\mathbf{x} - \mathbf{s}_i\| + cb$; unknowns $x, y, z, b$, so at least 4 satellites', topic: Positioning from distances}
+- {front: 'Light travel per microsecond', back: 'About 300 m: why the receiver clock offset must be solved for', topic: Positioning from distances}
+- {front: 'Row of $J$ in GPS linearization', back: '$[\,\mathbf{e}_i^T\ \ 1\,]$, $\mathbf{e}_i$ = unit vector from satellite toward the guess', topic: Positioning from distances}
+- {front: 'Gauss–Newton method', back: 'Linearize, solve least squares for a correction, update, repeat', topic: Positioning from distances}
+- {front: 'Dilution of precision', back: '$\sqrt{\operatorname{tr}((J^TJ)^{-1})}$; in the plane with two beacons $\theta$ apart, $\sqrt2/\sin\theta$', topic: Positioning from distances}
