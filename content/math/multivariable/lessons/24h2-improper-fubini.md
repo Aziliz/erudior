@@ -32,7 +32,7 @@ $$I_R^2 = \iint_{S_R}e^{-(x^2+y^2)}\,dA,$$
 
 where $S_R$ is the square $[-R, R]\times[-R, R]$. This is the integral over squares, and squares are awkward in polar coordinates. But the square sits between two disks: the disk $D_R$ of radius $R$ fits inside it, and it fits inside the disk of radius $R\sqrt2$ (its corners are at distance $R\sqrt2$).
 
-```plot
+```shape
 {"x": [-1.7, 1.7], "y": [-1.7, 1.7], "equal": true, "circles": [{"center": [0, 0], "r": 1}, {"center": [0, 0], "r": 1.4142}], "polygons": [{"points": [[-1, -1], [1, -1], [1, 1], [-1, 1]]}], "labels": [{"at": [0, 0.45], "text": "disk of radius R"}, {"at": [0, -1.25], "text": "square of side 2R"}, {"at": [0, 1.52], "text": "disk of radius R√2"}], "caption": "The disk of radius R fits inside the square of side 2R, which fits inside the disk of radius R√2"}
 ```
 

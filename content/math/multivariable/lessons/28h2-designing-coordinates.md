@@ -150,7 +150,7 @@ Starting from $V_1(1) = 2$ (a segment) and $V_2(1) = \pi$, the recursion gives e
 ball:
 
 ```plot
-{"x": [0, 13], "y": [0, 6], "bars": [{"x": 1, "height": 2, "width": 0.7}, {"x": 2, "height": 3.1416, "width": 0.7}, {"x": 3, "height": 4.1888, "width": 0.7}, {"x": 4, "height": 4.9348, "width": 0.7}, {"x": 5, "height": 5.2638, "width": 0.7}, {"x": 6, "height": 5.1677, "width": 0.7}, {"x": 7, "height": 4.7248, "width": 0.7}, {"x": 8, "height": 4.0587, "width": 0.7}, {"x": 9, "height": 3.2985, "width": 0.7}, {"x": 10, "height": 2.5502, "width": 0.7}, {"x": 11, "height": 1.8841, "width": 0.7}, {"x": 12, "height": 1.3353, "width": 0.7}], "xLabel": "dimension n", "yLabel": "volume of the unit n-ball", "caption": "Volume of the unit ball in n dimensions: largest at n = 5 (about 5.26), then shrinking toward 0"}
+{"x": [0, 16], "y": [0, 6], "bars": [{"x": 1, "height": 2, "width": 0.7}, {"x": 2, "height": 3.1416, "width": 0.7}, {"x": 3, "height": 4.1888, "width": 0.7}, {"x": 4, "height": 4.9348, "width": 0.7}, {"x": 5, "height": 5.2638, "width": 0.7}, {"x": 6, "height": 5.1677, "width": 0.7}, {"x": 7, "height": 4.7248, "width": 0.7}, {"x": 8, "height": 4.0587, "width": 0.7}, {"x": 9, "height": 3.2985, "width": 0.7}, {"x": 10, "height": 2.5502, "width": 0.7}, {"x": 11, "height": 1.8841, "width": 0.7}, {"x": 12, "height": 1.3353, "width": 0.7}], "xLabel": "dimension n", "yLabel": "volume of the unit n-ball", "caption": "Volume of the unit ball in n dimensions: largest at n = 5 (about 5.26), then shrinking toward 0"}
 ```
 
 The volume grows up to $n = 5$, where $V_5(1) = \tfrac{8\pi^2}{15} \approx 5.26$, and then

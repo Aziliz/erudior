@@ -33,9 +33,9 @@
 <line x1="405.5" y1="175.0" x2="389.5" y2="175.0" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
 <line x1="350.0" y1="214.5" x2="350.0" y2="230.5" stroke="#1f5f99" stroke-width="2" marker-end="url(#ab)"/>
 <rect x="110" y="50" width="345" height="230" fill="none" stroke="#1c2833" stroke-width="3.5"/>
-<line x1="270.5" y1="280.0" x2="294.5" y2="280.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<line x1="213.0" y1="280.0" x2="237.0" y2="280.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
 <line x1="455.0" y1="177.0" x2="455.0" y2="153.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
-<line x1="294.5" y1="50.0" x2="270.5" y2="50.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
+<line x1="237.0" y1="50.0" x2="213.0" y2="50.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
 <line x1="110.0" y1="153.0" x2="110.0" y2="177.0" stroke="#1c2833" stroke-width="3.5" marker-end="url(#ak)"/>
 <text x="469.0" y="70.0" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" fill="#1c2833" font-weight="bold" font-style="italic">C</text>
 <text x="280.0" y="322.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1c2833" font-weight="normal">Each small square: circulation ≈ (Qx − Py) ΔA</text>
