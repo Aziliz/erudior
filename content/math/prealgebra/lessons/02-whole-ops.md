@@ -46,9 +46,27 @@ $$47 \times 36 = 47 \times 30 + 47 \times 6 = 1{,}410 + 282 = 1{,}692$$
 
 The usual written method does exactly this: one row for the ones digit (282), one row for the tens digit (1,410, which is why that row is shifted one place left), then add.
 
+An **area model** shows why. Think of $47 \times 36$ as the area of a rectangle 47 units wide and 36 tall, and cut each side at its place values: $47 = 40 + 7$ and $36 = 30 + 6$. The four smaller rectangles are the four partial products, and together they make the whole.
+
+![An area model: a rectangle 47 wide and 36 tall, split into 40 and 7 across and 30 and 6 down. The four parts are 40 × 30 = 1,200, 7 × 30 = 210, 40 × 6 = 240 and 7 × 6 = 42, which add to 1,692.](images/pre-m1-area-model.svg)
+
+The two rows of the written method are the same four pieces grouped differently: the bottom row of the picture, $240 + 42 = 282$, is $47 \times 6$, and the top row, $1{,}200 + 210 = 1{,}410$, is $47 \times 30$.
+
 ## Long division and remainders
 
 Long division handles one place at a time, from the left. The cycle is *divide, multiply, subtract, bring down*.
+
+```mermaid
+flowchart TD
+  accTitle: The long division cycle
+  accDescr: Divide to find how many times the divisor fits into the current number and write that digit in the quotient. Multiply that digit by the divisor. Subtract the product. If there is another digit of the dividend, bring it down and divide again. When no digits are left, what remains is the remainder; check it is smaller than the divisor.
+  A["Divide: how many times does the divisor fit?"] --> B["Multiply: quotient digit times divisor"]
+  B --> C["Subtract"]
+  C --> D{"Another digit to bring down?"}
+  D -- "yes" --> E["Bring down the next digit"]
+  E --> A
+  D -- "no" --> F["What is left is the remainder (less than the divisor)"]
+```
 
 ### Example 1
 
@@ -58,6 +76,10 @@ Divide $7{,}385 \div 6$.
 - 6 into 13 goes 2 times. $2 \times 6 = 12$; $13 - 12 = 1$. Bring down 8: 18.
 - 6 into 18 goes 3 times. $3 \times 6 = 18$; $18 - 18 = 0$. Bring down 5: 5.
 - 6 into 5 goes 0 times. $0 \times 6 = 0$; $5 - 0 = 5$. Nothing left to bring down.
+
+Written out in the usual layout, the work looks like this:
+
+![The long division of 7,385 by 6 in the usual layout: the divisor 6 sits outside the bracket, the dividend 7385 inside it, the quotient 1230 on top, and the subtraction steps underneath end with the remainder 5.](images/pre-m1-long-division.svg)
 
 The quotient is 1,230 and the **remainder** is 5, written 1,230 R 5. Check: quotient × divisor + remainder should give the dividend. $1{,}230 \times 6 + 5 = 7{,}380 + 5 = 7{,}385$. ✓ The remainder must always be smaller than the divisor; if it isn't, the quotient digit was too small.
 

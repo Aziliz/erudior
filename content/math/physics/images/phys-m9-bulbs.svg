@@ -28,5 +28,4 @@
 <circle cx="450.0" cy="80.0" r="5" fill="#1c2833"/>
 <circle cx="450.0" cy="330.0" r="5" fill="#1c2833"/>
 <text x="80.0" y="211.0" font-size="20" text-anchor="end" fill="#1c2833" font-style="italic">ε</text>
-<text x="360.0" y="375.0" font-size="15" text-anchor="middle" fill="#1c2833">Bulb A carries the full current I; B and C each carry I/2</text>
 </svg>

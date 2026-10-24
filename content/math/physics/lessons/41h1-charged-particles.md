@@ -98,7 +98,7 @@ This result, the **Hall effect**, is useful three ways:
 
 - *Sign of the carriers.* Positive carriers moving with the current and negative carriers moving against it are pushed to the *same* edge, so the sign of $V_H$ reveals the sign of the carriers. In most metals it shows electrons. In p-type semiconductors (and a few metals) it shows positive carriers, the "holes" of semiconductor physics.
 - *Number of carriers.* Measuring $V_H$ gives $n$.
-- *Measuring fields.* With $n$ and $t$ known, $V_H$ measures $B$. Hall sensors in phones (compass), cars (wheel speed, crankshaft position) and laptops (lid closed) work this way.
+- *Measuring fields.* With $n$ and $t$ known, $V_H$ measures $B$. Hall sensors in cars (wheel speed, crankshaft position), in laptops and phone cases (detecting a closed lid) and in many electronic compasses work this way.
 
 ### Example 4
 
@@ -106,7 +106,7 @@ A copper strip 0.10 mm thick carries 10 A in a 1.0 T field perpendicular to its 
 
 $V_H = \dfrac{IB}{nqt} = \dfrac{(10)(1.0)}{(8.5\times10^{28})(1.6\times10^{-19})(1.0\times10^{-4})} = 7.4\times10^{-6}$ V, only 7.4 μV.
 
-So many electrons share the current that each drifts very slowly, and the Hall voltage is tiny. A doped silicon sensor might have $n \approx 10^{22}$ m⁻³, millions of times fewer carriers. With $I = 1.0$ mA, $B = 0.10$ T and the same thickness, $V_H = \dfrac{(1.0\times10^{-3})(0.10)}{(10^{22})(1.6\times10^{-19})(1.0\times10^{-4})} = 6.3\times10^{-4}$ V, almost 100 times larger with $\tfrac{1}{10\,000}$ of the current. That's why practical Hall sensors are semiconductors.
+So many electrons share the current that each drifts very slowly, and the Hall voltage is tiny. A doped silicon sensor might have $n \approx 10^{22}$ m⁻³, millions of times fewer carriers. With $I = 1.0$ mA, $B = 0.10$ T and the same thickness, $V_H = \dfrac{(1.0\times10^{-3})(0.10)}{(10^{22})(1.6\times10^{-19})(1.0\times10^{-4})} = 6.3\times10^{-4}$ V, about 85 times larger with $\tfrac{1}{10\,000}$ of the current. That's why practical Hall sensors are semiconductors.
 
 ## Common mistakes
 
@@ -114,7 +114,7 @@ So many electrons share the current that each drifts very slowly, and the Hall v
 - Thinking a cyclotron's frequency must rise as ions speed up (below relativistic speeds, the period is independent of speed).
 - Expecting the cyclotron's final energy to depend on the gap voltage (it depends on $B$, $R$, $q$ and $m$).
 - Using the strip's width instead of its thickness (the dimension along $B$) in $V_H = IB/(nqt)$.
-- Assuming the Hall voltage reverses when the carriers' sign is unknown: it's the measured sign that tells you the carriers' sign.
+- Thinking positive and negative carriers pile up on opposite edges: positive carriers moving with the current and negative carriers moving against it are pushed to the *same* edge, so the sign of $V_H$ depends on the carriers' sign.
 
 ## Key points
 

@@ -1,0 +1,207 @@
+- id: phys-m5-r2-roll-friction
+  title: Friction needed for rolling down a slope
+  topic: Rolling dynamics
+  vars:
+    M: {min: 0.5, max: 20, step: 0.5}
+    th: {min: 10, max: 60, step: 5}
+    shape: {choices: [{label: 'solid sphere', value: 0.4}, {label: 'solid cylinder', value: 0.5}, {label: 'thin hoop', value: 1}]}
+  calc:
+    acc: 9.8*sind(th)/(1 + shape)
+    fr: shape/(1 + shape)*M*9.8*sind(th)
+    mu: shape/(1 + shape)*tand(th)
+  prompt: 'A {M} kg {shape} rolls without slipping down a slope at {th}° to the horizontal. Using $g = 9.8$ m/s², find its acceleration (m/s²), the static friction force on it (N), and the smallest coefficient of static friction that allows rolling without slipping, each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: acc, label: 'Acceleration', relTolerance: 0.01, units: {'m/s²': 1, 'm/s^2': 1}}
+    - {format: sig4, name: fr, label: 'Friction', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: mu, label: 'Minimum $\mu_s$', relTolerance: 0.01}
+  solution: |-
+    With $I_{\text{cm}} = cMR^2$ and $c = {shape:num1}$: along the slope $Mg\sin\theta - f = Ma$; about the center $fR = cMR^2(a/R)$, so $f = cMa$.
+
+    $a = \dfrac{g\sin\theta}{1 + c} = \dfrac{9.8\sin {th}^\circ}{1 + {shape:num1}} =$ **{acc:sig3} m/s²**.
+
+    $f = cMa = {shape:num1}({M})({acc:num3}) =$ **{fr:sig3} N**.
+
+    $\mu_s \ge \dfrac{c}{1 + c}\tan\theta =$ **{mu:sig3}**.
+- id: phys-m5-r2-bowling
+  title: From skidding to rolling
+  topic: Rolling dynamics
+  vars:
+    v0: {min: 3, max: 10, step: 0.5}
+    mu: {min: 0.05, max: 0.3, step: 0.01}
+  calc:
+    t1: 2*v0/(7*mu*9.8)
+    v1: 5*v0/7
+    d: v0*t1 - 0.5*mu*9.8*t1^2
+  prompt: 'A bowling ball (a uniform solid sphere) is released on a level lane at {v0} m/s with no spin. The coefficient of kinetic friction is {mu}. Using $g = 9.8$ m/s², find how long it skids (s), how far it travels while skidding (m), and its speed once it rolls without slipping (m/s), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: t1, label: 'Skid time', relTolerance: 0.01, units: {s: 1}}
+    - {format: sig4, name: d, label: 'Skid distance', relTolerance: 0.01, units: {m: 1}}
+    - {format: sig4, name: v1, label: 'Rolling speed', relTolerance: 0.01, units: {'m/s': 1}}
+  solution: |-
+    Kinetic friction slows the center, $v = v_0 - \mu_kgt$, and spins the ball up, $R\omega = \tfrac52\mu_kgt$. Rolling starts when they are equal:
+
+    $t_1 = \dfrac{2v_0}{7\mu_kg} = \dfrac{2({v0})}{7({mu})(9.8)} =$ **{t1:sig3} s**.
+
+    Distance: $v_0t_1 - \tfrac12\mu_kgt_1^2 =$ **{d:sig3} m**.
+
+    Speed: $v_1 = \tfrac57v_0 =$ **{v1:sig3} m/s** (also from conservation of angular momentum about a point on the lane).
+- id: phys-m5-r2-precession
+  title: Gyroscope precession rate
+  topic: Precession
+  vars:
+    M: {min: 0.5, max: 3, step: 0.1}
+    R: {min: 0.1, max: 0.4, step: 0.01}
+    rps: {min: 3, max: 20}
+    r: {min: 0.05, max: 0.3, step: 0.01}
+  calc:
+    I: M*R^2
+    w: 2*pi*rps
+    tau: M*9.8*r
+    Om: tau/(I*w)
+    Tp: 2*pi/Om
+  where: ['Om < 0.1*w']
+  prompt: 'A bicycle wheel of mass {M} kg and radius {R} m (treat it as a thin hoop) spins at {rps} rev/s. Its axle is horizontal and supported at one end, with the wheel''s center {r} m from the support. Using $g = 9.8$ m/s², find the precession angular speed (rad/s) and the time for one trip around the support (s), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: Om, label: 'Precession rate', relTolerance: 0.01, units: {'rad/s': 1}}
+    - {format: sig4, name: Tp, label: 'Time per trip', relTolerance: 0.01, units: {s: 1}}
+  solution: |-
+    $I = MR^2 = {I:num4}$ kg·m²; $\omega = 2\pi({rps}) = {w:num2}$ rad/s; torque $\tau = Mgr = {tau:num3}$ N·m.
+
+    $\Omega = \dfrac{\tau}{I\omega} =$ **{Om:sig3} rad/s**; one trip takes $2\pi/\Omega =$ **{Tp:sig3} s**.
+- id: phys-m5-r2-aframe
+  title: Forces in an A-frame truss
+  topic: Trusses
+  vars:
+    P: {min: 2, max: 40}
+    th: {min: 20, max: 70, step: 5}
+  calc:
+    F: P/(2*sind(th))
+    T: F*cosd(th)
+  prompt: 'Two rafters meet at the peak of a symmetric A-frame, each at {th}° to the horizontal, with a horizontal tie joining their feet. The walls push straight up at the feet. A {P} kN load acts at the peak. Find the compression in each rafter and the tension in the tie, in kN to 3 significant figures.'
+  answers:
+    - {format: sig4, name: F, label: 'Rafter (compression)', relTolerance: 0.01, units: {kN: 1, N: 0.001}}
+    - {format: sig4, name: T, label: 'Tie (tension)', relTolerance: 0.01, units: {kN: 1, N: 0.001}}
+  solution: |-
+    Peak joint: $2F\sin\theta = P$, so $F = \dfrac{{P}}{2\sin {th}^\circ} =$ **{F:sig3} kN**.
+
+    Foot joint: the tie balances the rafter's horizontal push, $T = F\cos\theta =$ **{T:sig3} kN**.
+- id: phys-m5-r2-ladder
+  title: Ladder against a smooth wall
+  topic: Friction in equilibrium
+  vars:
+    m: {min: 8, max: 30}
+    th: {min: 50, max: 80, step: 1}
+    mu: {min: 0.2, max: 0.8, step: 0.05}
+  calc:
+    W: m*9.8
+    f: W/(2*tand(th))
+    thmin: atand(1/(2*mu))
+  prompt: 'A uniform {m} kg ladder leans against a smooth wall at {th}° above the floor. Using $g = 9.8$ m/s², find the friction force the floor must supply (N). Then, if $\mu_s = {mu}$ at the floor, find the smallest angle at which the ladder can stand (degrees). Give both to 3 significant figures.'
+  answers:
+    - {format: sig4, name: f, label: 'Friction', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: thmin, label: 'Smallest angle', relTolerance: 0.01, units: {'°': 1, deg: 1, degrees: 1}}
+  solution: |-
+    Torques about the foot: $N_wL\sin\theta = W\tfrac L2\cos\theta$, and $f = N_w$, so $f = \dfrac{W}{2\tan\theta} = \dfrac{{W:num1}}{2\tan {th}^\circ} =$ **{f:sig3} N**.
+
+    Slipping starts when $f = \mu_sW$: $\tan\theta = \dfrac{1}{2\mu_s} = \dfrac{1}{2({mu})}$, so $\theta_{\min} =$ **{thmin:sig3}°**.
+- id: phys-m5-r2-tip-slide
+  title: Tip or slide when pushed
+  topic: Friction in equilibrium
+  vars:
+    m: {min: 20, max: 150, step: 5}
+    w: {min: 0.3, max: 1.2, step: 0.05}
+    H: {min: 0.4, max: 1.8, step: 0.1}
+    mu: {min: 0.2, max: 0.8, step: 0.05}
+  calc:
+    Fs: mu*m*9.8
+    Ft: m*9.8*w/(2*H)
+    Hc: w/(2*mu)
+  where: ['abs(Fs - Ft) > 0.05*Fs']
+  prompt: 'A uniform box of mass {m} kg is {w} m deep in the direction you push. You push horizontally at a height of {H} m; $\mu_s = {mu}$ with the floor. Using $g = 9.8$ m/s², find the force needed to start it sliding (N), the force needed to start it tipping (N), and the push height above which it tips before it slides (m), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: Fs, label: 'To slide', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: Ft, label: 'To tip', relTolerance: 0.01, units: {N: 1}}
+    - {format: sig4, name: Hc, label: 'Critical height', relTolerance: 0.01, units: {m: 1, cm: 0.01}}
+  solution: |-
+    Sliding: $F = \mu_smg =$ **{Fs:sig3} N**.
+
+    Tipping about the front bottom edge: $FH = mg\tfrac w2$, so $F = \dfrac{mgw}{2H} =$ **{Ft:sig3} N**. Whichever force is smaller happens first.
+
+    Equal when $\dfrac{w}{2H} = \mu_s$: $H = \dfrac{w}{2\mu_s} =$ **{Hc:sig3} m**.
+- id: phys-m5-r2-ellipse-speeds
+  title: Speeds on an elliptical orbit
+  topic: Elliptical orbits
+  vars:
+    hp: {min: 200, max: 2000, step: 100}
+    ha: {min: 1000, max: 40000, step: 500}
+  where: ['ha > hp + 500']
+  calc:
+    rp: 6.37e6 + hp*1000
+    ra: 6.37e6 + ha*1000
+    a: (rp + ra)/2
+    vp: sqrt(3.98e14*(2/rp - 1/a))/1000
+    va: vp*rp/ra
+    T: 2*pi*sqrt(a^3/3.98e14)/3600
+  prompt: 'A satellite''s orbit has its perigee {hp} km and its apogee {ha} km above Earth''s surface. Using $R_E = 6.37\times10^6$ m and $GM_E = 3.98\times10^{14}$ m³/s², find its speed at perigee and at apogee (km/s) and its period (hours), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: vp, label: 'Perigee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: va, label: 'Apogee speed', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: T, label: 'Period', relTolerance: 0.01, units: {h: 1, min: 0.0166666667}}
+  solution: |-
+    Distances from Earth's center: $r_p = {rp:texsci}$ m, $r_a = {ra:texsci}$ m, so $a = \tfrac12(r_p + r_a) = {a:texsci}$ m.
+
+    Vis-viva: $v_p = \sqrt{GM\left(\dfrac2{r_p} - \dfrac1a\right)} =$ **{vp:sig3} km/s**.
+
+    Angular momentum: $v_a = v_p\dfrac{r_p}{r_a} =$ **{va:sig3} km/s**.
+
+    $T = 2\pi\sqrt{a^3/GM} =$ **{T:sig3} h**.
+- id: phys-m5-r2-hohmann
+  title: Hohmann transfer between circular orbits
+  topic: Orbital transfers
+  vars:
+    h1: {min: 200, max: 1000, step: 50}
+    h2: {min: 2000, max: 40000, step: 1000}
+  calc:
+    r1: 6.37e6 + h1*1000
+    r2: 6.37e6 + h2*1000
+    at: (r1 + r2)/2
+    v1: sqrt(3.98e14/r1)
+    v2: sqrt(3.98e14/r2)
+    vtp: sqrt(3.98e14*(2/r1 - 1/at))
+    vta: sqrt(3.98e14*(2/r2 - 1/at))
+    dv1: (vtp - v1)/1000
+    dv2: (v2 - vta)/1000
+    tt: pi*sqrt(at^3/3.98e14)/3600
+  prompt: 'A spacecraft moves by Hohmann transfer from a circular orbit {h1} km above Earth''s surface to a circular orbit {h2} km up. Using $R_E = 6.37\times10^6$ m and $GM_E = 3.98\times10^{14}$ m³/s², find the first and second burns (km/s) and the transfer time (hours), each to 3 significant figures.'
+  answers:
+    - {format: sig4, name: dv1, label: 'First burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: dv2, label: 'Second burn', relTolerance: 0.01, units: {'km/s': 1, 'm/s': 0.001}}
+    - {format: sig4, name: tt, label: 'Transfer time', relTolerance: 0.01, units: {h: 1, min: 0.0166666667}}
+  solution: |-
+    Radii: $r_1 = {r1:texsci}$ m, $r_2 = {r2:texsci}$ m; transfer orbit $a_t = \tfrac12(r_1 + r_2) = {at:texsci}$ m.
+
+    Circular speeds: $v_1 = \sqrt{GM/r_1} = {v1:dp0}$ m/s, $v_2 = \sqrt{GM/r_2} = {v2:dp0}$ m/s.
+
+    Vis-viva on the transfer orbit: ${vtp:dp0}$ m/s at periapsis, ${vta:dp0}$ m/s at apoapsis.
+
+    First burn $= {vtp:dp0} - {v1:dp0}$ m/s $=$ **{dv1:sig3} km/s**; second burn $= {v2:dp0} - {vta:dp0}$ m/s $=$ **{dv2:sig3} km/s**.
+
+    Transfer time: half the transfer period, $\pi\sqrt{a_t^3/GM} =$ **{tt:sig3} h**.
+- id: phys-m5-r2-orbit-mass
+  title: Mass of a planet from a moon's orbit
+  topic: Mass from orbits
+  vars:
+    am: {min: 1.0, max: 9.9, step: 0.1}
+    ae: {min: 8, max: 9}
+    Td: {min: 1, max: 30, step: 0.5}
+  calc:
+    a: am*10^ae
+    Ts: Td*86400
+    M: 4*pi^2*a^3/(6.67e-11*Ts^2)
+  prompt: 'A small moon orbits a planet with semimajor axis ${am}\times10^{{ae}}$ m and period {Td} days. Using $G = 6.67\times10^{-11}$ N·m²/kg², find the planet''s mass in kg, to 3 significant figures.'
+  answers:
+    - {name: M, label: 'Mass', format: sci, relTolerance: 0.01, units: {kg: 1}}
+  solution: |-
+    Convert the period: $T = {Td}(86\,400) = {Ts:texsci}$ s.
+
+    $M = \dfrac{4\pi^2a^3}{GT^2} = \dfrac{4\pi^2({am}\times10^{{ae}})^3}{(6.67\times10^{-11})({Ts:texsci})^2} = \mathbf{{M:texsci}}$ kg.

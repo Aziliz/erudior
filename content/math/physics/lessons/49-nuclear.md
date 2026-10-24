@@ -35,6 +35,10 @@ $E_B = 0.030377(931.5) = 28.3$ MeV, or 7.07 MeV per nucleon. That's millions of 
 
 *Binding energy per nucleon* rises steeply for light nuclei, peaks near iron-56 at about 8.8 MeV, and falls slowly for heavy ones. Energy is released by moving toward the peak:
 
+```plot
+{"x": [0, 250], "y": [0, 10], "xLabel": "mass number A", "yLabel": "binding energy per nucleon (MeV)", "segments": [{"from": [2, 1.112], "to": [4, 7.074]}, {"from": [4, 7.074], "to": [6, 5.332]}, {"from": [6, 5.332], "to": [12, 7.680]}, {"from": [12, 7.680], "to": [16, 7.976]}, {"from": [16, 7.976], "to": [56, 8.790]}, {"from": [56, 8.790], "to": [84, 8.717]}, {"from": [84, 8.717], "to": [138, 8.393]}, {"from": [138, 8.393], "to": [208, 7.867]}, {"from": [208, 7.867], "to": [238, 7.570]}], "points": [{"at": [2, 1.112], "label": "H-2"}, {"at": [4, 7.074], "label": "He-4"}, {"at": [6, 5.332]}, {"at": [12, 7.680], "label": "C-12"}, {"at": [16, 7.976]}, {"at": [56, 8.790], "label": "Fe-56"}, {"at": [84, 8.717]}, {"at": [138, 8.393]}, {"at": [208, 7.867]}, {"at": [238, 7.570], "label": "U-238"}], "caption": "Binding energy per nucleon for selected nuclei: fusion climbs the steep left side, fission steps down from the right toward the peak near iron"}
+```
+
 - **Fission**: a heavy nucleus such as uranium-235 splits into two medium nuclei (about 200 MeV per fission). Neutrons released can trigger more fissions, a chain reaction, used in reactors and bombs.
 - **Fusion**: light nuclei combine, as when hydrogen fuses into helium in the Sun (about 26.7 MeV per helium nucleus formed). It requires extreme temperatures to overcome electric repulsion.
 
@@ -50,6 +54,26 @@ Unstable nuclei decay spontaneously, emitting radiation:
 | Gamma (γ) | high-energy photon | no change in $Z$ or $A$; nucleus drops to a lower energy state | follows many α and β decays |
 
 In every nuclear reaction, *charge* (sum of $Z$) and *nucleon number* (sum of $A$) are conserved: the numbers on both sides balance. Alpha particles are stopped by paper, beta particles by a few millimeters of aluminum, gamma rays need thick lead or concrete.
+
+![A radioactive source emits three beams to the right. The alpha beam stops at a sheet of paper; the beta beam passes the paper and stops in an aluminum sheet a few millimeters thick; the gamma beam passes both and is only weakened, not stopped, by a lead block several centimeters thick.](images/phys-m12-penetration.svg)
+
+Which decay an unstable nucleus undergoes depends mostly on what makes it unstable. The chart is a simplified guide (real nuclei sometimes have several possible decays).
+
+```mermaid
+flowchart TD
+  accTitle: Which decay does an unstable nucleus undergo?
+  accDescr: A simplified guide. A nucleus with too many neutrons for its protons decays by beta minus, a neutron becoming a proton so Z goes up by 1. One with too many protons decays by beta plus, a proton becoming a neutron so Z goes down by 1. A very heavy nucleus, beyond about lead, often decays by alpha, so Z goes down by 2 and A by 4. Any of these can leave the daughter nucleus in an excited state, which then emits a gamma ray with no change in Z or A.
+  A["Unstable nucleus"] --> B["Too many neutrons"]
+  A --> C["Too many protons"]
+  A --> D["Very heavy, beyond about lead"]
+  B --> E["Beta minus: neutron to proton, Z + 1"]
+  C --> F["Beta plus: proton to neutron, Z − 1"]
+  D --> G["Alpha: Z − 2, A − 4"]
+  E --> H["Daughter often left in an excited state"]
+  F --> H
+  G --> H
+  H --> I["Gamma ray: Z and A unchanged"]
+```
 
 ## Half-life and the decay law
 

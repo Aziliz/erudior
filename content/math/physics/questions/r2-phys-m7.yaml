@@ -1,0 +1,377 @@
+# Round 2 questions for phys-m7 (Fluids and thermodynamics).
+# phys-m7-r2-q01…q30: core lessons 24–29. phys-m7-r2-h01…h42: honors lessons 29h1–29h3.
+
+# ---------- Lesson 24: Pressure and buoyancy ----------
+- id: phys-m7-r2-q01
+  lesson: phys-fluid-statics
+  type: label
+  topic: Pressure
+  stem: 'Name the numbered parts of this hydraulic lift.'
+  image: {src: images/phys-m7-hydraulic-blank.svg, alt: 'A hydraulic lift with five numbered parts: a downward arrow pushing on the narrow left column, the plate at the top of the narrow column, the plate at the top of the wide right column, the box resting on that plate, and the liquid in the channel joining the two columns.'}
+  labels:
+    - {x: 9.3, y: 21.6, text: Applied force}
+    - {x: 9.3, y: 38.6, text: Small piston}
+    - {x: 53.7, y: 54.5, text: Large piston}
+    - {x: 70.3, y: 44.3, text: Load}
+    - {x: 31.4, y: 83.6, text: Hydraulic fluid}
+  distractors: [Valve, Spring]
+  explanation: |-
+    You push down (1) on the small piston (2). The pressure $F_1/A_1$ spreads undiminished through the hydraulic fluid (5) to the large piston (3), which pushes up on the load (4) with the larger force $F_2 = F_1A_2/A_1$. There is no valve or spring in this simple lift.
+- id: phys-m7-r2-q02
+  lesson: phys-fluid-statics
+  type: text
+  module_quiz: true
+  topic: Pressure
+  stem: 'The large piston of a hydraulic lift has 50 times the area of the small piston. A 120 N push on the small piston can hold up a load of ___ N. Give only the number.'
+  accept: ['6000', '6,000', '6 000']
+  explanation: |-
+    Pascal's principle: the pressure is the same on both pistons, so $F_2 = F_1\dfrac{A_2}{A_1} = 120(50) = 6000$ N. The small piston must move 50 times as far as the large one, so no energy is created.
+- id: phys-m7-r2-q03
+  lesson: phys-fluid-statics
+  topic: Buoyancy
+  stem: 'Which of these change the buoyant force on an object that is completely under the surface of a liquid? Select all that apply.'
+  choices:
+    - 'The density of the liquid'
+    - 'The volume of the object'
+    - 'The density of the object'
+    - 'How deep below the surface the object is'
+  answer: [0, 1]
+  explanation: |-
+    Archimedes: $F_B = \rho_{\text{fluid}}V_{\text{disp}}g$. A fully submerged object displaces its own volume, so the fluid's density and the object's volume matter. The object's own density decides whether it sinks or floats, but not the size of $F_B$. Depth doesn't matter in a liquid: the pressure at the top and bottom both grow with depth, and their difference stays the same.
+- id: phys-m7-r2-q04
+  lesson: phys-fluid-statics
+  type: order
+  module_quiz: true
+  topic: Pressure
+  stem: 'Put these places in order from lowest to highest absolute pressure. (Fresh water 1000 kg/m³, seawater 1025 kg/m³, the same air pressure at both surfaces.)'
+  items:
+    - 'At the surface of a pond'
+    - '2.0 m deep in fresh water'
+    - '2.0 m deep in seawater'
+    - '5.0 m deep in fresh water'
+  explanation: |-
+    $P = P_{\text{atm}} + \rho gh$: 101.3 kPa at the surface; $101.3 + 19.6 = 120.9$ kPa at 2.0 m in fresh water; $101.3 + 20.1 = 121.4$ kPa at 2.0 m in the denser seawater; $101.3 + 49.0 = 150.3$ kPa at 5.0 m.
+- id: phys-m7-r2-q05
+  lesson: phys-fluid-statics
+  type: match
+  topic: Pressure
+  stem: 'Match each device or fact to the idea that explains it.'
+  pairs:
+    - [A hydraulic car lift, Pascal's principle]
+    - [A steel ship floating, Archimedes' principle]
+    - [A mercury barometer, Air pressure balancing the weight of a liquid column]
+    - [A dam built thicker at its base, Pressure increasing with depth]
+  distractors: [The Bernoulli effect]
+  explanation: |-
+    A lift transmits pressure through an enclosed fluid (Pascal). A ship floats because it displaces its own weight of water (Archimedes). In a barometer the atmosphere holds up a column with $P_{\text{atm}} = \rho gh$. The water pushes hardest near the bottom of a dam, where it is deepest. The Bernoulli effect is about moving fluids, and none of these involve flow.
+
+# ---------- Lesson 25: Fluid flow and Bernoulli's equation ----------
+- id: phys-m7-r2-q06
+  lesson: phys-fluid-flow
+  type: label
+  topic: Fluid dynamics
+  stem: 'Name the numbered parts of this Venturi tube, which has water flowing through it.'
+  image: {src: images/phys-m7-venturi-blank.svg, alt: 'A horizontal pipe that narrows in the middle, with five numbered parts: an arrow at the left outside the pipe, one of the lines running along the pipe on the right, the narrow middle section, the tall column of liquid in the tube above the wide left section, and the short column in the tube above the narrow section.'}
+  labels:
+    - {x: 9.3, y: 49.2, text: Flow direction}
+    - {x: 85.7, y: 63.1, text: Streamline}
+    - {x: 58.6, y: 76.9, text: Constriction (narrow section)}
+    - {x: 18.6, y: 30.8, text: Higher-pressure column}
+    - {x: 52.9, y: 56.9, text: Lower-pressure column}
+  distractors: [Pump, Valve]
+  explanation: |-
+    The arrow (1) shows the flow direction, and the lines (2) are streamlines, the paths the fluid follows. In the constriction (3) the streamlines crowd together because the fluid moves faster ($A_1v_1 = A_2v_2$). Faster flow means lower pressure (Bernoulli), so the column above the narrow section (5) is shorter than the one above the wide section (4).
+- id: phys-m7-r2-q07
+  lesson: phys-fluid-flow
+  type: text
+  module_quiz: true
+  topic: Fluid dynamics
+  stem: 'Water flows at 3.0 m/s in a pipe that narrows to half its diameter. In the narrow part it flows at ___ m/s. Give only the number.'
+  accept: ['12']
+  explanation: |-
+    Half the diameter means a quarter of the area ($A \propto D^2$), so by continuity the speed is 4 times as large: $4(3.0) = 12$ m/s. Doubling the speed (6 m/s) is the mistake of scaling with diameter instead of diameter squared.
+- id: phys-m7-r2-q08
+  lesson: phys-fluid-flow
+  type: order
+  topic: Fluid dynamics
+  stem: 'Water flows steadily through a horizontal pipe made of sections with these inside diameters. Put the sections in order from highest to lowest pressure.'
+  items:
+    - '4.0 cm'
+    - '3.0 cm'
+    - '2.0 cm'
+    - '1.5 cm'
+  explanation: |-
+    The narrower the section, the faster the water ($v \propto 1/D^2$), and in a horizontal pipe $P + \tfrac12\rho v^2$ is constant, so faster means lower pressure. The widest section (4.0 cm) has the slowest flow and the highest pressure; the 1.5 cm section has the lowest.
+- id: phys-m7-r2-q09
+  lesson: phys-fluid-flow
+  module_quiz: true
+  topic: Fluid dynamics
+  stem: 'Which of these are explained, at least in part, by the Bernoulli effect (faster flow, lower pressure)? Select all that apply.'
+  choices:
+    - 'A shower curtain bulging in toward the running water'
+    - 'A roof lifting off in a strong wind'
+    - 'A hydraulic jack lifting a car'
+    - 'An iceberg floating with most of its volume under water'
+  answer: [0, 1]
+  explanation: |-
+    Moving air and water inside the shower, and fast wind over a roof, lower the pressure on one side, so the higher pressure on the other side pushes. A hydraulic jack works by Pascal's principle and an iceberg floats by Archimedes' principle; both are fluids at rest.
+- id: phys-m7-r2-q10
+  lesson: phys-fluid-flow
+  type: match
+  topic: Fluid dynamics
+  stem: 'Match each equation to what it describes.'
+  pairs:
+    - ['$A_1v_1 = A_2v_2$', Conservation of mass in steady flow]
+    - ['$P + \tfrac12\rho v^2 + \rho gy = \text{constant}$', Conservation of energy along a streamline]
+    - ['$v = \sqrt{2gh}$', Speed of liquid leaving a hole in a tank]
+    - ['$Q = \dfrac{\pi R^4\Delta P}{8\eta L}$', Viscous flow through a pipe]
+  distractors: [Buoyant force on a submerged object]
+  explanation: |-
+    Continuity says the volume flow rate is the same everywhere in a pipe; Bernoulli's equation is energy per unit volume; Torricelli's theorem gives the leak speed; Poiseuille's law gives viscous flow. The buoyant force is $\rho_{\text{fluid}}V_{\text{disp}}g$ from the previous lesson.
+
+# ---------- Lesson 26: Temperature, heat, and phase changes ----------
+- id: phys-m7-r2-q11
+  lesson: phys-heat
+  type: label
+  topic: Heat and calorimetry
+  stem: 'A pot of water sits on a gas burner. Name the numbered parts: the three ways heat moves, and where the heat comes from.'
+  image: {src: images/phys-m7-heat-transfer-blank.svg, alt: 'A pot of water on a burner with four numbered parts: an arrow running along the pot''s metal handle, a loop of arrows circulating in the water, wavy arrows leaving the flames to the left, and the burner under the pot.'}
+  labels:
+    - {x: 81.6, y: 25.0, text: Conduction}
+    - {x: 61.3, y: 34.6, text: Convection}
+    - {x: 21.0, y: 62.9, text: Radiation}
+    - {x: 53.2, y: 83.9, text: Heat source}
+  distractors: [Evaporation, Insulation]
+  explanation: |-
+    The handle (1) warms by conduction, molecule to molecule through the metal. Warm water rises and cool water sinks in loops (2): convection, which needs a moving fluid. The wavy arrows (3) are radiation, electromagnetic waves that need no medium. The burner (4) is the heat source.
+- id: phys-m7-r2-q12
+  lesson: phys-heat
+  type: text
+  topic: Heat and calorimetry
+  stem: 'Water has a specific heat of 4186 J/(kg·K). Heating 0.50 kg of water from 20°C to 60°C takes ___ J. Give only the exact number.'
+  accept: ['83720', '83,720', '83 720']
+  explanation: |-
+    $Q = mc\Delta T = 0.50(4186)(60 - 20) = 0.50(4186)(40) = 83\,720$ J. A temperature change of 40°C is a change of 40 K, so no conversion is needed.
+- id: phys-m7-r2-q13
+  lesson: phys-heat
+  type: order
+  module_quiz: true
+  topic: Heat and calorimetry
+  stem: 'Heat is added steadily to 1 kg of ice at −20°C until it becomes steam at 120°C. Put the stages in order.'
+  items:
+    - 'The ice warms to 0°C'
+    - 'The ice melts at 0°C'
+    - 'The water warms from 0°C to 100°C'
+    - 'The water boils at 100°C'
+    - 'The steam warms above 100°C'
+  explanation: |-
+    The temperature rises only between phase changes. It stays flat at 0°C while the ice melts ($Q = mL_f$) and at 100°C while the water boils ($Q = mL_v$), which is the longest stage because $L_v$ is so large. That is the shape of the heating curve in the lesson.
+- id: phys-m7-r2-q14
+  lesson: phys-heat
+  module_quiz: true
+  topic: Temperature and expansion
+  stem: 'In which of these calculations must temperatures be in kelvins, not degrees Celsius? Select all that apply.'
+  choices:
+    - 'Pressure from the ideal gas law, $PV = nRT$'
+    - 'Power radiated by a hot surface, $P = e\sigma AT^4$'
+    - 'Heat to warm water, $Q = mc\Delta T$'
+    - 'Thermal expansion of a rod, $\Delta L = \alpha L\Delta T$'
+  answer: [0, 1]
+  explanation: |-
+    The gas law and the Stefan–Boltzmann law use the temperature itself, so they need the absolute (kelvin) scale. $Q = mc\Delta T$ and $\Delta L = \alpha L\Delta T$ use only a temperature *difference*, which is the same in kelvins and Celsius degrees.
+- id: phys-m7-r2-q15
+  lesson: phys-heat
+  type: match
+  topic: Heat and calorimetry
+  stem: 'Match each situation to the main way heat is transferred.'
+  pairs:
+    - [A metal spoon handle heating up in hot soup, Conduction]
+    - [Warm air from a heater spreading around a room, Convection]
+    - [Sunlight warming your face, Radiation]
+    - [Heat leaking through a single pane of window glass, Conduction]
+  explanation: |-
+    Heat moves through a solid (the spoon, the glass) by conduction. A moving fluid carrying heat with it (warm air rising and circulating) is convection. Sunlight crosses the vacuum of space, so it can only be radiation.
+
+# ---------- Lesson 27: Ideal gases and kinetic theory ----------
+- id: phys-m7-r2-q16
+  lesson: phys-gases
+  type: text
+  module_quiz: true
+  topic: Ideal gas law
+  stem: 'At constant temperature, a gas at 2.0 atm is compressed from 9.0 L to 3.0 L. Its new pressure is ___ atm. Give only the number.'
+  accept: ['6', '6.0']
+  explanation: |-
+    Boyle's law: $P_1V_1 = P_2V_2$, so $P_2 = 2.0(9.0/3.0) = 6.0$ atm. A third of the volume means three times the pressure.
+- id: phys-m7-r2-q17
+  lesson: phys-gases
+  type: match
+  topic: Ideal gas law
+  stem: 'For a fixed amount of gas, match each law to the condition it needs.'
+  pairs:
+    - [Boyle's law, Temperature held constant]
+    - [Charles's law, Pressure held constant]
+    - [Gay-Lussac's law, Volume held constant]
+    - [Combined gas law, Nothing held constant]
+  distractors: [Number of molecules changing]
+  explanation: |-
+    Boyle: $P_1V_1 = P_2V_2$ at constant $T$. Charles: $V/T$ constant at constant $P$. Gay-Lussac: $P/T$ constant at constant $V$. The combined law $P_1V_1/T_1 = P_2V_2/T_2$ covers any change of a fixed amount of gas. None of them allows the amount of gas to change; for that you need $PV = nRT$ with the new $n$.
+- id: phys-m7-r2-q18
+  lesson: phys-gases
+  module_quiz: true
+  topic: Kinetic theory
+  stem: 'Helium and nitrogen are held at the same temperature. Which of these are the same for both gases? Select all that apply.'
+  choices:
+    - 'The average translational kinetic energy per molecule'
+    - 'The rms speed of the molecules'
+    - 'The mass of one molecule'
+    - 'The ratio $PV/(nT)$'
+  answer: [0, 3]
+  explanation: |-
+    $\tfrac12m\overline{v^2} = \tfrac32k_BT$ depends only on temperature, and $PV/(nT) = R$ for every ideal gas. Helium atoms are 7 times lighter than N₂ molecules, so with the same kinetic energy they move faster: $v_{\text{rms}} = \sqrt{3RT/M}$ is larger for helium.
+- id: phys-m7-r2-q19
+  lesson: phys-gases
+  type: order
+  topic: Kinetic theory
+  stem: 'Put these gases in order from slowest to fastest rms molecular speed, all at the same temperature.'
+  items:
+    - 'Carbon dioxide, CO₂ (44 g/mol)'
+    - 'Oxygen, O₂ (32 g/mol)'
+    - 'Nitrogen, N₂ (28 g/mol)'
+    - 'Helium, He (4 g/mol)'
+  explanation: |-
+    At the same temperature, $v_{\text{rms}} = \sqrt{3RT/M}$, so the heaviest molecules are slowest. Ordering by molar mass from largest to smallest gives CO₂, O₂, N₂, He.
+- id: phys-m7-r2-q20
+  lesson: phys-gases
+  type: text
+  topic: Kinetic theory
+  stem: 'The absolute temperature of a gas is multiplied by 4. Its rms molecular speed becomes ___ times as large. Give only the number.'
+  accept: ['2', two]
+  explanation: |-
+    $v_{\text{rms}} = \sqrt{3RT/M} \propto \sqrt T$, and $\sqrt4 = 2$. The average kinetic energy is 4 times as large, but speed goes as the square root of energy.
+
+# ---------- Lesson 28: The first law of thermodynamics ----------
+- id: phys-m7-r2-q21
+  lesson: phys-first-law
+  type: label
+  topic: First law of thermodynamics
+  stem: 'A gas in a cylinder is heated and lifts a weight. Name the numbered parts.'
+  image: {src: images/phys-m7-piston-blank.svg, alt: 'A cylinder on a hot plate, with five numbered parts: the space inside the cylinder, the movable plate near the top of the cylinder, the block held up on a rod above it, an upward arrow beside the cylinder, and one of the upward arrows rising from the hot plate into the cylinder.'}
+  labels:
+    - {x: 38.5, y: 61.2, text: Gas (the system)}
+    - {x: 26.0, y: 39.4, text: Piston}
+    - {x: 38.5, y: 12.1, text: Weight being lifted}
+    - {x: 65.4, y: 30.3, text: Work done by the gas}
+    - {x: 49.0, y: 78.2, text: Heat flowing in}
+  distractors: [Heat flowing out, Work done on the gas]
+  explanation: |-
+    The gas (1) is the system. Heat $Q$ flows into it from the hot plate (5). As it expands it pushes the piston (2) up and lifts the weight (3), doing positive work $W$ on its surroundings (4). Then $\Delta E_{\text{int}} = Q - W$.
+- id: phys-m7-r2-q22
+  lesson: phys-first-law
+  type: text
+  module_quiz: true
+  topic: First law of thermodynamics
+  stem: 'A gas absorbs 650 J of heat and does 250 J of work on its surroundings. Its internal energy changes by ___ J. Give only the number, with a minus sign if it decreases.'
+  accept: ['400', '+400']
+  explanation: |-
+    $\Delta E_{\text{int}} = Q - W = 650 - 250 = +400$ J: the energy that came in as heat and did not leave as work stays in the gas. (Adding them, 900 J, is the sign mistake.)
+- id: phys-m7-r2-q23
+  lesson: phys-first-law
+  type: match
+  module_quiz: true
+  topic: First law of thermodynamics
+  stem: 'Match each process to the statement that is true of it for an ideal gas.'
+  pairs:
+    - [Isobaric, The pressure stays constant]
+    - [Isochoric, The gas does no work]
+    - [Isothermal, The internal energy does not change]
+    - [Adiabatic, No heat flows in or out]
+  distractors: [The entropy of the universe decreases]
+  explanation: |-
+    Isobaric means constant pressure. Isochoric means constant volume, so $W = 0$. Isothermal means constant temperature, and an ideal gas's internal energy depends only on $T$, so $\Delta E_{\text{int}} = 0$. Adiabatic means $Q = 0$. No real process decreases the entropy of the universe.
+- id: phys-m7-r2-q24
+  lesson: phys-first-law
+  topic: First law of thermodynamics
+  stem: 'An ideal gas expands isothermally. Which statements are true? Select all that apply.'
+  choices:
+    - 'The gas absorbs heat'
+    - 'The gas does positive work on its surroundings'
+    - 'The internal energy of the gas increases'
+    - 'The pressure of the gas stays constant'
+  answer: [0, 1]
+  explanation: |-
+    Expanding, the gas does positive work. Its temperature is fixed, so $\Delta E_{\text{int}} = 0$, and the first law gives $Q = W > 0$: it absorbs exactly as much heat as the work it does. With $T$ fixed, $PV$ is constant, so the pressure *falls* as the volume grows.
+- id: phys-m7-r2-q25
+  lesson: phys-first-law
+  type: order
+  topic: First law of thermodynamics
+  stem: 'Samples of the same ideal gas start in the same state and expand to the same final volume by three different processes. Put the processes in order from least to most work done by the gas.'
+  items:
+    - 'Adiabatic expansion'
+    - 'Isothermal expansion'
+    - 'Expansion at constant pressure'
+  explanation: |-
+    Work is the area under each path on the PV diagram. At constant pressure the path stays at the starting pressure (most area). On an isotherm the pressure falls as $1/V$. On an adiabat it falls faster still, because the gas also cools, so it has the least area under it.
+
+# ---------- Lesson 29: Heat engines, entropy, and the second law ----------
+- id: phys-m7-r2-q26
+  lesson: phys-second-law
+  type: label
+  topic: Heat engines
+  stem: 'Name the numbered parts of this energy-flow diagram of a heat engine.'
+  image: {src: images/phys-m7-engine-blank.svg, alt: 'An energy-flow diagram with five numbered parts: a box at the top, a box at the bottom, a thick arrow from the top box down into a circle, a thinner arrow leaving the circle to the right, and an arrow from the circle down to the bottom box.'}
+  labels:
+    - {x: 46.9, y: 12.6, text: Hot reservoir}
+    - {x: 46.9, y: 82.1, text: Cold reservoir}
+    - {x: 46.9, y: 26.8, text: Heat taken in from the hot reservoir}
+    - {x: 78.1, y: 47.4, text: Work output}
+    - {x: 46.9, y: 66.3, text: Heat exhausted to the cold reservoir}
+  distractors: [Work input]
+  explanation: |-
+    An engine takes heat $Q_H$ (3) from the hot reservoir (1), turns part of it into work $W$ (4), and exhausts the rest, $Q_C$ (5), to the cold reservoir (2), so $W = Q_H - Q_C$. Work goes *in* only for a refrigerator or heat pump.
+- id: phys-m7-r2-q27
+  lesson: phys-second-law
+  type: text
+  module_quiz: true
+  topic: Heat engines
+  stem: 'A Carnot engine runs between reservoirs at 500 K and 300 K. Its efficiency is ___ %. Give only the number.'
+  accept: ['40', '40.0']
+  explanation: |-
+    $e = 1 - T_C/T_H = 1 - 300/500 = 0.40$, or 40%. No engine working between these temperatures can do better.
+- id: phys-m7-r2-q28
+  lesson: phys-second-law
+  type: order
+  module_quiz: true
+  topic: Heat engines
+  stem: 'Put the four steps of a Carnot cycle in order, starting with the step in which the gas absorbs heat.'
+  items:
+    - 'Isothermal expansion at the hot temperature'
+    - 'Adiabatic expansion, cooling the gas to the cold temperature'
+    - 'Isothermal compression at the cold temperature'
+    - 'Adiabatic compression, warming the gas to the hot temperature'
+  explanation: |-
+    Heat enters only during the hot isothermal expansion. The gas then expands adiabatically and cools to $T_C$, gives up $Q_C$ while being compressed at $T_C$, and is compressed adiabatically back up to $T_H$, ready to start again.
+- id: phys-m7-r2-q29
+  lesson: phys-second-law
+  topic: Entropy
+  stem: 'Which statements agree with the second law of thermodynamics? Select all that apply.'
+  choices:
+    - 'No cyclic device can turn heat completely into work'
+    - 'The total entropy of an isolated system never decreases'
+    - 'The entropy of any object can never decrease'
+    - 'A refrigerator''s coefficient of performance can never be more than 1'
+  answer: [0, 1]
+  explanation: |-
+    The first is the Kelvin–Planck statement and the second the entropy statement. An object's entropy can decrease (water freezing in a freezer) as long as the total increases. A refrigerator's COP is often 2 to 6, because it moves heat rather than converting it; only an engine's efficiency is limited to below 1.
+- id: phys-m7-r2-q30
+  lesson: phys-second-law
+  type: match
+  topic: Heat engines
+  stem: 'Match each expression to what it gives.'
+  pairs:
+    - ['$1 - T_C/T_H$', Highest possible efficiency of an engine]
+    - ['$Q_C/W$', Coefficient of performance of a refrigerator]
+    - ['$Q/T$', Entropy change for heat transferred at constant temperature]
+    - ['$Q_H - Q_C$', Work done by an engine in one cycle]
+  distractors: [Heat absorbed from the cold reservoir by an engine]
+  explanation: |-
+    $1 - T_C/T_H$ is the Carnot limit (kelvins). A refrigerator's COP is the heat removed per unit of work, $Q_C/W$. $\Delta S = Q/T$ at constant $T$. The first law over a cycle gives $W = Q_H - Q_C$. An engine *rejects* heat to the cold reservoir; it does not absorb heat from it.
