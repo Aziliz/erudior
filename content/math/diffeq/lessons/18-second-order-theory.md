@@ -98,7 +98,7 @@ The figure shows superposition at work: the solution is the sum of the two piece
 $2e^{2t}$ and $-e^{-3t}$, and it passes through $(0, 1)$ as required.
 
 ```plot
-{"x": [-1, 1], "y": [-20, 15], "xLabel": "t", "functions": [{"f": "2exp(2x)", "dashed": true}, {"f": "-exp(-3x)", "dashed": true}, {"f": "2exp(2x) - exp(-3x)", "label": "y = 2e^(2t) − e^(−3t)"}], "points": [{"at": [0, 1], "label": "(0, 1)"}], "caption": "The IVP solution (solid) is the sum of 2e^(2t) (dashed, rising) and −e^(−3t) (dashed, below the axis)."}
+{"x": [-1, 1], "y": [-20, 15], "xLabel": "t", "functions": [{"f": "2exp(2x)", "dashed": true}, {"f": "-exp(-3x)", "dashed": true}, {"f": "2exp(2x) - exp(-3x)", "label": "y = 2e^(2t) − e^(−3t)"}], "points": [{"at": [0, 1]}], "labels": [{"at": [-0.3, 5], "text": "(0, 1)"}], "caption": "The IVP solution (solid) is the sum of 2e^(2t) (dashed, rising) and −e^(−3t) (dashed, below the axis)."}
 ```
 
 ### Example 2

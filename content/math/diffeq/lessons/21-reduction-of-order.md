@@ -84,7 +84,7 @@ The two solutions are plotted below. Neither is a constant multiple of the other
 $\ln t$ changes, so they form a fundamental set on $(0, \infty)$.
 
 ```plot
-{"x": [0, 3], "y": [-1, 10], "xLabel": "t", "functions": [{"f": "x^2", "from": 0.01, "label": "y₁ = t²"}, {"f": "x^2 ln(x)", "from": 0.01, "dashed": true, "label": "y₂ = t² ln t"}], "caption": "The given solution t² (solid) and the second solution t² ln t (dashed) found by reduction of order; y₂ is negative for 0 < t < 1."}
+{"x": [0, 3], "y": [-1, 10], "xLabel": "t", "functions": [{"f": "x^2", "from": 0.01}, {"f": "x^2 ln(x)", "from": 0.01, "dashed": true}], "labels": [{"at": [0.7, 5], "text": "y₁ = t²"}, {"at": [2.4, 0.6], "text": "y₂ = t² ln t"}], "caption": "The given solution t² (solid) and the second solution t² ln t (dashed) found by reduction of order; y₂ is negative for 0 < t < 1."}
 ```
 
 ### Example 3

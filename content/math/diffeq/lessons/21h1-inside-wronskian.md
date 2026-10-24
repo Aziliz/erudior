@@ -167,7 +167,7 @@ Yet they are independent: $g = f$ for $t > 0$ but $g = -f$ for $t < 0$, so no si
 $k$ gives $g = kf$ on the whole interval.
 
 ```plot
-{"x": [-1.2, 1.2], "y": [-1.5, 1.5], "xLabel": "t", "functions": [{"f": "x^2", "label": "f = t²"}, {"f": "x*abs(x)", "dashed": true, "label": "g = t|t|"}], "caption": "f = t² (solid) and g = t|t| (dashed) agree for t > 0 and are opposite for t < 0: their Wronskian is 0 everywhere, but neither is a constant multiple of the other."}
+{"x": [-1.2, 1.2], "y": [-1.5, 1.5], "xLabel": "t", "functions": [{"f": "x^2"}, {"f": "x*abs(x)", "dashed": true}], "labels": [{"at": [-0.3, 0.9], "text": "f = t²"}, {"at": [-0.3, -0.9], "text": "g = t|t|"}], "caption": "f = t² (solid) and g = t|t| (dashed) agree for t > 0 and are opposite for t < 0: their Wronskian is 0 everywhere, but neither is a constant multiple of the other."}
 ```
 
 Giuseppe Peano pointed out this kind of example in an 1889 note, correcting the claim, common

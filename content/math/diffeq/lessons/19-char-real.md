@@ -124,7 +124,7 @@ The extra factor $t$ slows the decay but cannot stop it: $e^{-3t}$ eventually wi
 $2 + 5t > 0$ for $t \ge 0$, this solution never crosses zero for $t \ge 0$.
 
 ```plot
-{"x": [0, 3], "y": [-0.2, 2.2], "xLabel": "t", "functions": [{"f": "(2 + 5x)exp(-3x)", "label": "y = (2 + 5t)e^(−3t)"}, {"f": "2exp(-3x)", "dashed": true}], "caption": "The repeated-root solution (solid) decays more slowly than 2e^(−3t) (dashed) because of the factor 2 + 5t."}
+{"x": [0, 3], "y": [-0.2, 2.2], "xLabel": "t", "functions": [{"f": "(2 + 5x)exp(-3x)"}, {"f": "2exp(-3x)", "dashed": true}], "labels": [{"at": [1.7, 0.7], "text": "y = (2 + 5t)e^(−3t)"}], "caption": "The repeated-root solution (solid) decays more slowly than 2e^(−3t) (dashed) because of the factor 2 + 5t."}
 ```
 
 ### Example 4
