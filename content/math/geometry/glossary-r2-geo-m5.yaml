@@ -36,7 +36,7 @@
   topic: Tilings
 - term: vertex configuration
   aliases: [vertex configurations, vertex type, vertex types]
-  definition: 'The list of regular polygons around a vertex of a tiling, in order, by their numbers of sides; for example $4.8.8$ is a square and two octagons. 21 vertex types are possible.'
+  definition: 'The numbers of sides of the regular polygons around a vertex of a tiling, listed in the order the polygons sit around the vertex; for example $4.8.8$ is a square and two octagons. 21 vertex types are possible.'
   topic: Tilings
 - term: semiregular tiling
   aliases: [semiregular tilings, Archimedean tiling, Archimedean tilings]

@@ -49,7 +49,7 @@
     ce: m*pp
     ea: m*qq
     ca: ce + ea
-  where: ["pp + qq <= 12", "pp != qq", "af != fb or bd != dc"]
+  where: ["pp + qq <= 12", "pp != qq", "af != fb or bd != dc", "ca < af + fb + bd + dc", "af + fb < bd + dc + ca", "bd + dc < af + fb + ca"]
   prompt: 'In $\triangle ABC$, cevians $\overline{AD}$, $\overline{BE}$ and $\overline{CF}$ are concurrent, with $D$ on $\overline{BC}$, $E$ on $\overline{CA}$ and $F$ on $\overline{AB}$. $AF = {af}$, $FB = {fb}$, $BD = {bd}$, $DC = {dc}$ and $CA = {ca}$. Find $CE$ and $EA$.'
   answers:
     - {name: ce, label: '$CE =$'}
@@ -76,7 +76,7 @@
     ce: m*pp
     ea: m*qq
     ac: ce + ea
-  where: ["pp + qq <= 14", "pp != qq"]
+  where: ["pp + qq <= 14", "pp != qq", "ac < af + fb + bc", "af + fb < bc + ac", "bc < af + fb + ac"]
   prompt: 'A line crosses side $\overline{AB}$ of $\triangle ABC$ at $F$, side $\overline{AC}$ at $E$, and the extension of $\overline{BC}$ beyond $C$ at $D$. $AF = {af}$, $FB = {fb}$, $BC = {bc}$, $CD = {cd}$ and $AC = {ac}$. Find $CE$ and $EA$.'
   answers:
     - {name: ce, label: '$CE =$'}

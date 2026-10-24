@@ -48,7 +48,7 @@ Walk along a star polygon and count your turning. Each step moves you $k$ places
 
 $$\text{tip angle of } \{n/k\} = 180^\circ - \frac{360^\circ k}{n}, \qquad \text{sum of the } n \text{ tip angles} = 180n - 360k = 180(n - 2k) \text{ degrees}.$$
 
-With $k = 1$ this is the ordinary regular polygon. A second check uses inscribed angles (Lesson 29): the tip at $P_0$ is an inscribed angle whose intercepted arc runs from $P_k$ to $P_{n-k}$, which is $n - 2k$ of the $n$ equal arcs. Half of that arc is $\tfrac12 \cdot \tfrac{360(n - 2k)}{n} = 180 - \tfrac{360k}{n}$, the same answer.
+With $k = 1$ this is the ordinary regular polygon. A second check uses inscribed angles (Lesson 29, later in the course; skip this check until you've seen it): the tip at $P_0$ is an inscribed angle whose intercepted arc runs from $P_k$ to $P_{n-k}$, which is $n - 2k$ of the $n$ equal arcs. Half of that arc is $\tfrac12 \cdot \tfrac{360(n - 2k)}{n} = 180 - \tfrac{360k}{n}$, the same answer.
 
 ### Example 2
 
@@ -68,7 +68,7 @@ Which star polygon has tip angles of $45^\circ$?
 
 ## Tiling with more than one regular polygon
 
-A **tessellation** by regular polygons is **edge-to-edge** if polygons meet only full side to full side (no vertex lands in the middle of another polygon's side). The polygons around a vertex are listed in order by their numbers of sides: the **vertex configuration**. Squares meeting four at a point are $4.4.4.4$; the tiling with a square and two octagons at every vertex is $4.8.8$.
+A **tessellation** by regular polygons is **edge-to-edge** if polygons meet only full side to full side (no vertex lands in the middle of another polygon's side). Listing the polygons' numbers of sides in the order the polygons sit around a vertex gives the **vertex configuration**. Squares meeting four at a point are $4.4.4.4$; the tiling with a square and two octagons at every vertex is $4.8.8$.
 
 ![Four square patches of tilings by regular polygons. 4.8.8: octagons with small squares in the gaps. 3.6.3.6: hexagons meeting corner to corner, with triangles between them, so triangle and hexagon alternate around each vertex. 3.12.12: dodecagons with small triangles in the gaps. 4.6.12: dodecagons separated by squares, with hexagons filling the rest.](images/geo-m5-tilings.svg)
 

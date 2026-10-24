@@ -51,11 +51,11 @@ The total is $\angle CAM + \angle BAM + \angle B + \angle C = \angle A + \angle 
 
 Apply the construction to a Euclidean triangle with $\angle A = 40^\circ$, $\angle B = 60^\circ$, $\angle C = 80^\circ$.
 
-The new triangle $AEC$ has angle $\angle C + \angle B = 140^\circ$ at $C$, and its angles at $A$ and $E$ split the original $40^\circ$ into two parts, say $x$ and $40^\circ - x$. Its sum is $140^\circ + 40^\circ = 180^\circ$, unchanged, and the smaller of its two other angles is at most $20^\circ$. Repeating gives a triangle with an angle of at most $10^\circ$, then $5^\circ$, then $2.5^\circ$, always with sum $180^\circ$. In a world where some triangle had sum $181^\circ$, eight rounds would give an angle under $40^\circ / 2^8 \approx 0.16^\circ$, forcing the other two angles to add to over $180.8^\circ$: impossible.
+The new triangle $AEC$ has angle $\angle C + \angle B = 140^\circ$ at $C$, and its angles at $A$ and $E$ split the original $40^\circ$ into two parts, say $x$ and $40^\circ - x$. Its sum is $140^\circ + 40^\circ = 180^\circ$, unchanged, and the smaller of its two other angles is at most $20^\circ$. Repeating gives a triangle with an angle of at most $10^\circ$, then $5^\circ$, then $2.5^\circ$, always with sum $180^\circ$. In a world where some triangle had sum $181^\circ$, eight rounds would give an angle of at most $40^\circ / 2^8 \approx 0.16^\circ$, forcing the other two angles to add to over $180.8^\circ$: impossible.
 
 ## Defect, and why it acts like area
 
-Recall the **defect** of a triangle, $180^\circ$ minus its angle sum (Lesson 40). The Saccheri–Legendre theorem says every defect in neutral geometry is at least 0. A much stronger fact, which we state without proof, is an all-or-nothing theorem: if even one triangle has defect 0, then every triangle does, and the parallel postulate holds. Otherwise every triangle has positive defect, and the geometry is hyperbolic. There is no geometry where some triangles are Euclidean and others are not.
+Recall the **defect** of a triangle, $180^\circ$ minus its angle sum (Lesson 40). The Saccheri–Legendre theorem says every defect in neutral geometry is at least 0. A much stronger fact, which we state without proof, is an all-or-nothing theorem: if even one triangle has defect 0, then every triangle does, and the parallel postulate holds. Otherwise every triangle has positive defect, and the geometry is hyperbolic. No model of neutral geometry has some triangles with defect 0 and others with positive defect.
 
 Defect also adds up like area. If a segment from $A$ to a point $D$ on $\overline{BC}$ splits $\triangle ABC$ into two triangles, then
 
@@ -65,15 +65,15 @@ The two angles at $D$ form a linear pair ($180^\circ$ together), and the two par
 
 ### Example 2: splitting a hyperbolic triangle
 
-A hyperbolic triangle has $\angle A = 50^\circ$, $\angle B = 60^\circ$, $\angle C = 55^\circ$. A segment from $A$ to $D$ on $\overline{BC}$ makes $\angle BAD = 20^\circ$ and $\angle ADB = 95^\circ$. Find the defect of each piece.
+A hyperbolic triangle has $\angle A = 50^\circ$, $\angle B = 60^\circ$, $\angle C = 55^\circ$. A segment from $A$ to $D$ on $\overline{BC}$ makes $\angle BAD = 20^\circ$. In hyperbolic geometry the angles of a triangle determine it completely (AAA is a congruence test, Lesson 40), so $\angle ADB$ is fixed by these numbers; computed with hyperbolic trigonometry, it is $94^\circ$ to the nearest degree. Find the defect of each piece.
 
 **Step 1.** Whole triangle: $180 - (50 + 60 + 55) = 15^\circ$.
 
-**Step 2.** $\triangle ABD$: angles $20^\circ$, $60^\circ$, $95^\circ$, sum $175^\circ$, defect $5^\circ$.
+**Step 2.** $\triangle ABD$: angles $20^\circ$, $60^\circ$, $94^\circ$, sum $174^\circ$, defect $6^\circ$.
 
-**Step 3.** $\triangle ADC$: $\angle DAC = 50 - 20 = 30^\circ$, $\angle ADC = 180 - 95 = 85^\circ$, $\angle C = 55^\circ$. Sum $170^\circ$, defect $10^\circ$.
+**Step 3.** $\triangle ADC$: $\angle DAC = 50 - 20 = 30^\circ$, $\angle ADC = 180 - 94 = 86^\circ$, $\angle C = 55^\circ$. Sum $171^\circ$, defect $9^\circ$.
 
-**Check.** $5^\circ + 10^\circ = 15^\circ$ ✓. Since hyperbolic area is proportional to defect, the piece $ADC$ has twice the area of $ABD$.
+**Check.** $6^\circ + 9^\circ = 15^\circ$ ✓. Since hyperbolic area is proportional to defect, the piece $ADC$ has $1.5$ times the area of $ABD$.
 
 ## Saccheri quadrilaterals
 

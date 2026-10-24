@@ -72,7 +72,7 @@ Each line has $n + 1 = 4$ points, each point is on 4 lines, and there are $3^2 +
 For every prime power $n$ (2, 3, 4, 5, 7, 8, 9, 11, 13, 16, …) a projective plane of order $n$ exists. It is built from coordinates in a finite number system, the same way the real projective plane is built from real numbers. For other orders the story is hard:
 
 - **Order 6** is impossible. This follows from the Bruck–Ryser theorem (1949): if $n$ leaves remainder 1 or 2 when divided by 4 and a plane of order $n$ exists, then $n$ must be a sum of two perfect squares. Six leaves remainder 2 and is not a sum of two squares.
-- **Order 10** passes the Bruck–Ryser test ($10 = 9 + 1$), yet it is also impossible. That was settled in 1989 by Clement Lam, Larry Thiel and Stanley Swiercz after a computer search that took years of machine time.
+- **Order 10** passes the Bruck–Ryser test ($10 = 9 + 1$), yet it is also impossible. That was settled in 1989 by Clement Lam, Larry Thiel and Stanley Swiercz after a massive computer search that used months of supercomputer time.
 - **Order 12** is the smallest unsettled case. Whether every finite projective plane has prime-power order is an open problem.
 
 So a question a middle-schooler can understand, "for which $n$ can you arrange $n^2 + n + 1$ points into lines like this?", is still unanswered. Projective planes also turn up in recreational math: the card game *Spot It!* (*Dobble*) is usually explained with the plane of order 7 (57 points, 57 lines), where cards are lines and symbols are points, so any two cards share exactly one symbol. The game's deck of 55 cards is two short of the full 57 lines.

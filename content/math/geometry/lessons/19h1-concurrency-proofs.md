@@ -8,7 +8,7 @@ topics: [Concurrency proofs, Euler line]
 drills: [geo-m5-r2-orthocenter, geo-m5-r2-euler]
 refs: [geo-ref-theorems, geo-ref-coord]
 ---
-Lessons 15 and 16 introduced four triangle centers. Two of them came with proofs: the perpendicular bisectors meet at the circumcenter, and the angle bisectors meet at the incenter. The other two were stated without proof: that the medians meet at a point two-thirds of the way along each one, and that the altitudes meet at all. Lesson 16 also mentioned Euler's surprising discovery that three of the centers always lie on one line. This lesson proves all three facts, using nothing beyond midsegments, parallelograms and a little algebra with coordinates. Along the way you'll see two of the most useful moves in geometry: building a helper figure, and choosing coordinates that make the algebra easy.
+Lessons 15 and 16 introduced four triangle centers. The first two rest on bisector theorems: Lesson 15 proved that the perpendicular bisectors meet at the circumcenter, and the same argument, run with the Angle Bisector Theorem and its converse, shows that the angle bisectors meet at the incenter. The other two were stated without proof: that the medians meet at a point two-thirds of the way along each one, and that the altitudes meet at all. Lesson 16 also mentioned Euler's surprising discovery that three of the centers always lie on one line. This lesson proves all three facts, using nothing beyond midsegments, parallelograms and a little algebra with coordinates. Along the way you'll see two of the most useful moves in geometry: building a helper figure, and choosing coordinates that make the algebra easy.
 
 ## Why concurrency needs a proof
 

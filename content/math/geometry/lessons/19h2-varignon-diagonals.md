@@ -28,7 +28,7 @@ So $\overline{EF}$ and $\overline{HG}$ are parallel and congruent, and $EFGH$ is
 Nothing in the proof used convexity, so the theorem holds for concave quadrilaterals too. Two consequences follow at once.
 
 - **Perimeter.** The Varignon parallelogram has two sides of $\tfrac12 AC$ and two of $\tfrac12 BD$, so its perimeter is $AC + BD$, the sum of the diagonals.
-- **Area.** Its area is half the quadrilateral's. For a convex quadrilateral: the corner triangle $\triangle EBF$ is a half-size copy of $\triangle ABC$, so its area is $\tfrac14$ of that triangle's (scaling lengths by $\tfrac12$ scales area by $\tfrac14$, Lesson 20). Likewise $\triangle HDG$ is $\tfrac14$ of $\triangle ADC$. Together those two corners are $\tfrac14$ of the whole quadrilateral; the corners at $A$ and $C$ are another $\tfrac14$ by the same argument with diagonal $\overline{BD}$. The four corners take half, leaving half for $EFGH$. (The half-area rule also holds for concave quadrilaterals, but the corner argument needs more care there.)
+- **Area.** Its area is half the quadrilateral's. For a convex quadrilateral: the corner triangle $\triangle EBF$ is a half-size copy of $\triangle ABC$, so its area is $\tfrac14$ of that triangle's (scaling lengths by $\tfrac12$ scales area by $\tfrac14$; Lesson 20 shows why). Likewise $\triangle HDG$ is $\tfrac14$ of $\triangle ADC$. Together those two corners are $\tfrac14$ of the whole quadrilateral; the corners at $A$ and $C$ are another $\tfrac14$ by the same argument with diagonal $\overline{BD}$. The four corners take half, leaving half for $EFGH$. (The half-area rule also holds for concave quadrilaterals, but the corner argument needs more care there.)
 
 ### Example 1
 
@@ -95,7 +95,7 @@ The picture shows the diagonal patterns with the usual marks: matching tick mark
 
 ![Six pairs of crossing segments, each the diagonals of a quadrilateral, with tick marks. Parallelogram: each diagonal is cut into two equal halves, but the two diagonals have different lengths. Rectangle: all four half-diagonals are equal, and the diagonals are not perpendicular. Rhombus: each diagonal is cut in half, the diagonals differ in length, and they meet at a right angle. Square: all four halves equal and a right angle. Kite: one diagonal is cut in half and meets the other at a right angle; the other is not cut in half. Isosceles trapezoid: the diagonals cut each other into a shorter piece and a longer piece, the two short pieces equal and the two long pieces equal.](images/geo-m5-diagonal-patterns.svg)
 
-The last panel is worth a sentence. If the diagonals cut each other into the *same two lengths* (two short pieces equal, two long pieces equal) without bisecting each other, the quadrilateral is an isosceles trapezoid: the two small triangles at the crossing are isosceles with equal vertical angles, so their base angles match, and those are alternate interior angles that make one pair of sides parallel.
+The last panel is worth a sentence. If the diagonals cut each other into the *same two lengths* (two short pieces equal, two long pieces equal) without bisecting each other, the quadrilateral is an isosceles trapezoid: the triangle formed by the two short pieces and the triangle formed by the two long pieces are both isosceles, with equal vertical angles at the crossing, so their base angles match, and those are alternate interior angles that make one pair of sides parallel.
 
 ### Example 3
 

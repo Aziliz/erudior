@@ -68,7 +68,7 @@
     - {x: 46.9, y: 14.9, text: North Pole}
     - {x: 55.2, y: 30.8, text: 'Line of latitude (not a great circle)'}
     - {x: 62.9, y: 60.7, text: 'Equator (a great circle)'}
-    - {x: 29.1, y: 76.5, text: Great circle through the poles}
+    - {x: 29.1, y: 39.0, text: Great circle through the poles}
   distractors: [South Pole, 'Line of latitude (a great circle)']
   explanation: |-
     Great circles have the sphere's center as their center: the equator and every circle through both poles. A line of latitude near the top is a smaller circle whose center is above the sphere's center, so it is not a great circle and not a shortest path.
@@ -296,11 +296,11 @@
   stem: 'Put the steps for turning an affine plane into a projective plane in order.'
   items:
     - 'Sort the lines into parallel classes.'
-    - 'Create one new point for each parallel class.'
-    - 'Put each new point on every line of its class.'
+    - 'Create one new point for each parallel class, and put it on every line of that class.'
     - 'Add one new line containing all the new points.'
+    - 'Check that any two lines now meet in exactly one point.'
   explanation: |-
-    The parallel classes must be known before you can give each one a point at infinity; each point at infinity goes on the lines of its class, so parallel lines now meet; and the last new line, through all the points at infinity, makes P1 and P2 hold for the new points as well.
+    The parallel classes must be known before you can give each one a point at infinity; each point at infinity goes on the lines of its class, so parallel lines now meet; the last new line can only be drawn once the points at infinity exist, and it makes P1 and P2 hold for the new points as well. Only then is the result a projective plane, so the check comes last.
 - id: geo-m10-r2-h11
   lesson: geo-m10-h-projective-planes
   topic: Projective planes
@@ -386,7 +386,7 @@
 - id: geo-m10-r2-h18
   lesson: geo-m10-h-saccheri
   topic: Neutral geometry
-  stem: 'In Legendre''s construction, $M$ is the midpoint of $\overline{BC}$ and $E$ is on ray $AM$ with $ME = AM$. What is the angle of $\triangle AEC$ at $C$?'
+  stem: 'In Legendre''s construction, $M$ is the midpoint of $\overline{BC}$ and $E$ is on ray $AM$ beyond $M$ with $ME = AM$. What is the angle of $\triangle AEC$ at $C$?'
   choices:
     - '$\angle C$'
     - '$\tfrac12 \angle A$'
@@ -500,7 +500,7 @@
     - [Saccheri, Studied quadrilaterals with congruent legs perpendicular to a base (1733)]
     - [Lambert, Studied quadrilaterals with three right angles]
     - [Legendre, Gave a halving construction showing angle sums are at most 180°]
-    - [Bolyai and Lobachevsky, Published hyperbolic geometry as a consistent alternative]
+    - [Bolyai and Lobachevsky, Published hyperbolic geometry as a genuine alternative geometry]
   distractors: [Proved the parallel postulate from the other four]
   explanation: |-
     Saccheri hoped to prove the parallel postulate by contradiction and instead found many hyperbolic theorems; Lambert studied the three-right-angle quadrilateral (half a Saccheri quadrilateral); Legendre's construction proves the Saccheri–Legendre theorem; Bolyai and Lobachevsky accepted the new geometry. Nobody proved the parallel postulate from the other four: it is independent.
@@ -561,7 +561,7 @@
   stem: 'A needle as long as the line spacing ($\ell = d$) is dropped 200 times and crosses a line 125 times. Using $\pi \approx \tfrac{2\ell N}{dC}$, the estimate of $\pi$ is ___. Give a decimal.'
   accept: ['3.2']
   explanation: |-
-    With $\ell = d$, $\pi \approx \dfrac{2N}{C} = \dfrac{400}{125} = 3.2$. With only 200 drops an error of a few hundredths or more is normal.
+    With $\ell = d$, $\pi \approx \dfrac{2N}{C} = \dfrac{400}{125} = 3.2$. With only 200 drops the typical error is about 0.1 or more, so 3.2 is a normal result.
 - id: geo-m10-r2-h33
   lesson: geo-m10-h-buffon-bertrand
   topic: Buffon's needle
@@ -630,9 +630,9 @@
   image: {src: images/geo-m10-buffon-blank.svg, alt: 'Three horizontal parallel lines. A tilted needle lies between the top two lines with its center marked, a dashed vertical segment from the center down to the nearest line, an arc between the needle and a horizontal dashed reference line, and a double arrow between two lines at the left.'}
   labels:
     - {x: 14.8, y: 25.5, text: Spacing between the lines}
-    - {x: 56.2, y: 48.1, text: Distance from the needle's center to the nearest line}
-    - {x: 66.2, y: 38.7, text: Angle between the needle and the lines}
-    - {x: 47.0, y: 50.4, text: The needle}
+    - {x: 56.2, y: 49.4, text: Distance from the needle's center to the nearest line}
+    - {x: 61.4, y: 42.1, text: Angle between the needle and the lines}
+    - {x: 64.6, y: 35.1, text: The needle}
   distractors: [Half the needle's length, Radius of a circle]
   explanation: |-
     The double arrow is the spacing $d$; the dashed vertical segment from the center to the line below is $x$; the arc measures the acute angle $\theta$ between the needle and the lines; the thick segment is the needle, of length $\ell$.

@@ -358,7 +358,7 @@
     - [A right triangle's circumcenter is the midpoint of the hypotenuse, Completing the triangle to a rectangle]
   distractors: [Points on angle bisectors are equidistant from the sides]
   explanation: |-
-    Those are the four proofs in the lesson. Equidistance from the sides is the idea behind the incenter, which was proved in Lesson 15.
+    Those are the four proofs in the lesson. Equidistance from the sides is the idea behind the incenter (Lesson 15), not one of this lesson's proofs.
 - id: geo-m5-r2-h10
   lesson: geo-m5-h-concurrency
   topic: Euler line
