@@ -561,7 +561,7 @@
   - About 0.63
   - About 10
   answer: 0
-  explanation: On a short interval around 100, $Q = t \approx 100$, so the gaps are close to $\pi/\sqrt{100} = \pi/10 \approx 0.314$ (for instance, $99 \le Q \le 101$ puts them between $0.3126$ and $0.3158$). $0.031$ uses $\pi/100$ (no square root), $0.63$ uses $2\pi/10$ (a full period), and $10$ is $\sqrt{100}$ itself.
+  explanation: On a short interval around 100, $Q = t \approx 100$, so the gaps are close to $\pi/\sqrt{100} = \pi/10 \approx 0.314$ (for instance, $99 \le Q \le 101$ puts them between $0.3126$ and $0.3157$). $0.031$ uses $\pi/100$ (no square root), $0.63$ uses $2\pi/10$ (a full period), and $10$ is $\sqrt{100}$ itself.
 - id: de-m5-r2-h27
   lesson: de-m5-h-sturm
   topic: Oscillation theory

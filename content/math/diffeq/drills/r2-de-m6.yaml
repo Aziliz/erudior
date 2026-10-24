@@ -30,7 +30,7 @@
     nal: -al
     ntal: -2*al
     be2: be^2
-  prompt: 'Find the smallest annihilator of $f(t) = {tp}e^{{al:coef}t}\cos {be:coef}t$. Give it as a polynomial $A(r)$ in $r$ with leading coefficient 1 (factored is fine), e.g. ((r-1)^2+4)^2.'
+  prompt: 'Find the smallest annihilator of $f(t) = {tp}e^{{al:coef}t}\cos {be:coef}t$. Give it as a polynomial $A(r)$ in $r$ with leading coefficient 1 (factored is fine), e.g. ((r-5)^2+9)^3.'
   answers:
     - {kind: expression, expression: '((r - al)^2 + be^2)^(tp + 1)', variables: [r], label: '$A(r) =$', show: '$A(r) = \big((r {nal:signed})^2 + {be2}\big)^{{m}}$'}
   solution: |-

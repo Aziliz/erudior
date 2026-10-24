@@ -13,8 +13,8 @@ refs: [de-ref-solutions]
 Lesson 20 settled oscillation for constant coefficients: solutions of $ay'' + by' + cy = 0$
 oscillate exactly when the characteristic roots are complex, $\lambda \pm i\mu$, and then
 consecutive zeros are exactly $\pi/\mu$ apart. But most variable-coefficient equations have
-no formula for their solutions. Airy's equation $y'' + ty = 0$ (Module 9 solves it by power
-series) is a typical example. Can we still say whether its solutions oscillate, and how far
+no formula for their solutions. Airy's equation, written here as $y'' + ty = 0$ (Module 9 solves the same equation in
+the form $y'' - xy = 0$, with $x = -t$, by power series), is a typical example. Can we still say whether its solutions oscillate, and how far
 apart their zeros are?
 
 Yes. In 1836 Charles-François Sturm published a memoir on second-order linear equations in
@@ -121,7 +121,8 @@ $$m^2 \le Q(t) \le M^2 \qquad (m, M > 0).$$
 - **Zeros are at least $\pi/M$ apart.** Let $a$ be a zero of $u$ and compare $u$ (as the
   equation with $Q_1 = Q$) with $v = \sin\big(M(t - a)\big)$ ($Q_2 = M^2$). If the next zero $b$ of
   $u$ came before $a + \pi/M$, then $v$ would need a zero in $(a, b)$, but $v$'s first zero after
-  $a$ is $a + \pi/M$. So $b \ge a + \pi/M$.
+  $a$ is $a + \pi/M$. (If $Q = M^2$ all the way from $a$ to $b$, the theorem doesn't apply,
+  but then $u$ is a multiple of $v$ and $b = a + \pi/M$ exactly.) So $b \ge a + \pi/M$.
 - **Zeros are at most $\pi/m$ apart.** Now let $v = \sin\big(m(t - a)\big)$ play the role of the
   slower equation ($Q_1 = m^2 \le Q_2 = Q$). Its zeros $a$ and $a + \pi/m$ are consecutive, so $u$ has a
   zero in $(a, a + \pi/m)$, or exactly at $a + \pi/m$ if $Q = m^2$ throughout. So the next
@@ -196,4 +197,5 @@ counts.
   consecutive zeros of $u$.
 - If $m^2 \le Q \le M^2$, consecutive zeros are between $\pi/M$ and $\pi/m$ apart; if $Q \le 0$, at
   most one zero.
-- Sturm (1836) got these from the Wronskian alone, without solving anything.
+- These results go back to Sturm (1836); the proofs here use only Wronskian-type identities,
+  without solving anything.

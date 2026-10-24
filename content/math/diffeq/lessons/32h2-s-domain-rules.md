@@ -162,8 +162,8 @@ gives $1 - \dfrac{t^2}{4} + \dfrac{t^4}{64} - \cdots$, the start of the power se
 $J_0(t) = \sum_{k\ge0}\dfrac{(-1)^k}{(k!)^2}\left(\dfrac t2\right)^{2k}$. (That series is what the method of
 Frobenius produces for this equation; the honors lesson on that method in Module 9 derives it.)
 
-Two cautions. First, $t = 0$ is a singular point of this equation, so it has only one
-solution that is bounded there; the derivative rules assumed $y$, $y'$ and $y''$ behave
+Two cautions. First, $t = 0$ is a singular point of this equation, so, up to a constant
+factor, it has only one solution that is bounded there; the derivative rules assumed $y$, $y'$ and $y''$ behave
 nicely at 0, and that silently picked out $J_0$. Second, term-by-term inversion of a series
 in $1/s$ is legitimate here but not in general; it is a check, not a method.
 

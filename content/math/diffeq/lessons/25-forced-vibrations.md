@@ -69,7 +69,7 @@ rest at equilibrium. Find the motion.
 - $u = \tfrac34t\sin 2t$, growing amplitude $\tfrac34t$.
 
 ```plot
-{"x": [0, 15], "y": [-12, 12], "xLabel": "t", "yLabel": "u", "functions": [{"f": "0.75x*sin(2x)", "label": "u = ¾t sin 2t"}, {"f": "0.75x", "dashed": true}, {"f": "-0.75x", "dashed": true}], "caption": "Resonance in Example 1: the oscillation stays at the natural frequency while its envelope ±¾t (dashed) grows without bound."}
+{"x": [0, 15], "y": [-12, 12], "xLabel": "t", "yLabel": "u", "functions": [{"f": "0.75x*sin(2x)"}, {"f": "0.75x", "dashed": true}, {"f": "-0.75x", "dashed": true}], "labels": [{"at": [4, 9], "text": "u = ¾t sin 2t"}], "caption": "Resonance in Example 1: the oscillation stays at the natural frequency while its envelope ±¾t (dashed) grows without bound."}
 ```
 
 ## Damped forcing: transient and steady state

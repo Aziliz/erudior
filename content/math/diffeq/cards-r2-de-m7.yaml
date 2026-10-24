@@ -32,4 +32,4 @@
 - {front: 'Final value theorem', back: '$\lim_{t\to\infty}f(t) = \lim_{s\to0}sF(s)$, only if every pole of $sF$ is in the open left half-plane.', topic: Poles and stability}
 - {front: 'Final value of a step response', back: 'For a stable system, the DC gain $H(0)$ (times the step height).', topic: Poles and stability}
 - {front: 'Closed-loop transfer function (negative feedback, gain $K$)', back: '$\dfrac{KG}{1 + KG}$; closed-loop poles are the roots of $1 + KG(s) = 0$.', topic: Poles and stability}
-- {front: 'Proportional control trade-off', back: 'Raising $K$ shrinks the steady error but moves closed-loop poles toward (and eventually past) the imaginary axis.', topic: Poles and stability}
+- {front: 'Proportional control trade-off', back: 'Raising $K$ shrinks the steady error, but for plants like three lags in series it moves closed-loop poles toward (and eventually past) the imaginary axis.', topic: Poles and stability}

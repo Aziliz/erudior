@@ -53,7 +53,8 @@ functions. Reading Lesson 27's table backwards:
 
 For a sum, multiply annihilators: if $A_1$ kills $f_1$ and $A_2$ kills $f_2$, then $A_1A_2$
 kills $f_1 + f_2$, because the operators commute. (If the two share a factor, you need it only
-once.) A quick check of one row: $(D - 2)^2$ applied to $te^{2t}$ gives
+once, to the higher of its two powers: $D - 1$ kills $e^t$ and $(D - 1)^2$ kills $te^t$, so
+$(D - 1)^2$ kills $e^t + te^t$.) A quick check of one row: $(D - 2)^2$ applied to $te^{2t}$ gives
 $(D - 2)\big[e^{2t} + 2te^{2t} - 2te^{2t}\big] = (D - 2)e^{2t} = 0$.
 
 Notice which functions appear: exactly the polynomials, exponentials, sines and cosines and

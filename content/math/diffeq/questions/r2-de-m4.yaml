@@ -308,13 +308,13 @@
   topic: Harvesting models
   stem: 'Match each harvesting situation to what happens.'
   pairs:
-    - ['Quota $h$ slightly above $rK/4$', 'Collapse from any starting stock']
-    - ['Effort $E$ slightly above $r$', 'Slow decline to zero']
+    - ['Quota $h$ slightly above $rK/4$', 'Stock hits zero in finite time from any start']
+    - ['Effort $E$ slightly above $r$', 'Slow decline, approaching zero only as t grows without bound']
     - ['Effort $E = r/2$', 'Maximum sustainable yield at a stable equilibrium']
     - ['Quota $h = rK/4$ exactly', 'A semistable equilibrium at K/2']
   distractors: ['Two stable equilibria']
   explanation: |-
-    Above the MSY quota there are no equilibria and $P' < 0$ for every stock (saddle-node). Above $E = r$, the only equilibrium is $P = 0$ and it attracts, with $P' \approx (r - E)P$ for small $P$: a gradual decline (transcritical). Effort $r/2$ gives yield $rK/4$ at the stable $P^* = K/2$. A quota of exactly $rK/4$ leaves one semistable equilibrium at $K/2$. Neither model ever has two stable positive equilibria.
+    Above the MSY quota there are no equilibria and $P' \le rK/4 - h < 0$ for every stock, so the stock reaches zero in a finite time (saddle-node). Above $E = r$, the only equilibrium is $P = 0$ and it attracts, with $P' \approx (r - E)P$ for small $P$: a gradual exponential decline that never reaches zero in finite time (transcritical). Effort $r/2$ gives yield $rK/4$ at the stable $P^* = K/2$. A quota of exactly $rK/4$ leaves one semistable equilibrium at $K/2$. Neither model ever has two stable positive equilibria.
 - id: de-m4-r2-h10
   lesson: de-m4-h-harvesting
   topic: Harvesting models
@@ -574,7 +574,7 @@
   choices: ['$1.7861$', '$1.7934$', '$1.7498$', '$1.8152$']
   answer: 3
   explanation: |-
-    With $p = 1$ the divisor is $2^1 - 1 = 1$: $1.7716 + (1.7716 - 1.7280) = 1.8152$. Dividing by 3 (the second-order divisor) gives 1.7861, dividing by 2 gives 1.7934, and subtracting the correction gives 1.7498.
+    With $p = 1$ the divisor is $2^1 - 1 = 1$: $1.7716 + (1.7716 - 1.7280) = 1.8152$. Dividing by 3 (the second-order divisor) gives 1.7861, dividing by 2 gives 1.7934, and 1.7498 is just the average of the two results.
 - id: de-m4-r2-h39
   lesson: de-m4-h-adaptive
   topic: Adaptive step size

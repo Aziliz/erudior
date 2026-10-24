@@ -3,7 +3,7 @@
 - {front: 'Annihilator of $\cos\beta t$ or $\sin\beta t$', back: '$D^2 + \beta^2$ (roots $\pm i\beta$)', topic: Annihilators}
 - {front: 'Annihilator of $e^{\alpha t}\cos\beta t$ or $e^{\alpha t}\sin\beta t$', back: '$(D - \alpha)^2 + \beta^2 = D^2 - 2\alpha D + \alpha^2 + \beta^2$', topic: Annihilators}
 - {front: 'Annihilator of a polynomial of degree $n$', back: '$D^{n+1}$', topic: Annihilators}
-- {front: 'Annihilator of a sum $f_1 + f_2$', back: 'The product $A_1(D)A_2(D)$ of their annihilators (a shared factor is needed only once)', topic: Annihilators}
+- {front: 'Annihilator of a sum $f_1 + f_2$', back: 'The product $A_1(D)A_2(D)$ of their annihilators (a shared factor is needed only once, to the higher of its two powers)', topic: Annihilators}
 - {front: 'The annihilator method for $p(D)y = g$', back: 'Apply $A(D)$ with $A(D)g = 0$; solve $A(D)p(D)y = 0$; delete the $y_c$ terms; what remains is the form of $Y$.', topic: Annihilators}
 - {front: 'Why the modification rule works', back: 'A root shared by $A(r)$ and $p(r)$ has its multiplicities added in $A(r)p(r)$, which brings in the extra powers of $t$.', topic: Annihilators}
 - {front: 'Exponential shift rule', back: '$p(D)\big[e^{\alpha t}v\big] = e^{\alpha t}p(D + \alpha)v$', topic: Annihilators}

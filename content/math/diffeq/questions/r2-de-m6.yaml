@@ -580,8 +580,8 @@
   image: {src: images/de-m6-beams-blank.svg, alt: 'Two beams under rows of downward arrows. The top beam rests on a triangle at its left end and on a triangle with wheels at its right end, with a dashed curve sagging below it. The bottom beam is built into a wall on the left and sticks out freely to the right, with a dashed curve drooping below it. Six points are numbered.'}
   labels:
     - {x: 50.0, y: 14.3, text: Distributed load}
-    - {x: 13.6, y: 29.0, text: Pinned support}
-    - {x: 86.4, y: 29.0, text: Roller support}
+    - {x: 13.6, y: 36.2, text: Pinned support}
+    - {x: 86.4, y: 36.2, text: Roller support}
     - {x: 50.0, y: 35.7, text: Deflected shape}
     - {x: 10.0, y: 71.4, text: Clamped end}
     - {x: 80.3, y: 65.7, text: Free end}
@@ -663,12 +663,11 @@
   stem: 'Put the steps for finding a uniformly loaded cantilever''s tip deflection in order (clamped at $x = 0$, free at $x = L$).'
   items:
     - 'Integrate $EI\,y^{(4)} = w$ four times'
-    - 'Use $y(0) = 0$ and $y''(0) = 0$ to get $c_0 = c_1 = 0$'
     - 'Use $y''''''(L) = 0$ to find $c_3$'
     - 'Use $y''''(L) = 0$, with $c_3$ known, to find $c_2$'
     - 'Evaluate $y(L)$'
   explanation: |-
-    The constants must exist before conditions can fix them. $y'''$ involves only $c_3$, so it comes first among the free-end conditions; $y''(L)$ involves both $c_3$ and $c_2$, so it needs $c_3$. Only when all four constants are known can you evaluate $y(L) = wL^4/(8EI)$.
+    The constants must exist before conditions can fix them. $y'''$ involves only $c_3$, so it comes first among the free-end conditions; $y''(L)$ involves both $c_3$ and $c_2$, so it needs $c_3$. Only when the constants are known can you evaluate $y(L) = wL^4/(8EI)$. (The clamped conditions $y(0) = y'(0) = 0$, which give $c_0 = c_1 = 0$, are left out of the list because they could be used at any point.)
 - id: de-m6-r2-h39
   lesson: de-m6-h-beams
   topic: Beams and buckling

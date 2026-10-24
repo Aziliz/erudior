@@ -46,7 +46,7 @@ $$W(t) = W(t_0)\exp\!\left(-\int_{t_0}^{t} p(s)\,ds\right).$$
 Two things stand out. First, $q$ has disappeared: the Wronskian depends only on the
 coefficient of $y'$. Second, the exponential is never zero, so $W$ is either zero everywhere
 on $I$ (when $W(t_0) = 0$) or never zero. The result is named for the Norwegian mathematician
-Niels Henrik Abel (1802–1829); Joseph Liouville later extended it to equations of any order.
+Niels Henrik Abel (1802–1829); the same identity for equations of any order, and for systems, is usually credited to Joseph Liouville (Liouville's formula).
 
 ### Example 1
 
@@ -170,8 +170,9 @@ $k$ gives $g = kf$ on the whole interval.
 {"x": [-1.2, 1.2], "y": [-1.5, 1.5], "xLabel": "t", "functions": [{"f": "x^2", "label": "f = t²"}, {"f": "x*abs(x)", "dashed": true, "label": "g = t|t|"}], "caption": "f = t² (solid) and g = t|t| (dashed) agree for t > 0 and are opposite for t < 0: their Wronskian is 0 everywhere, but neither is a constant multiple of the other."}
 ```
 
-Giuseppe Peano pointed out this kind of example in an 1889 note, correcting textbooks that
-claimed $W \equiv 0$ always means dependence. (His pair was built from $t^2$ the same way.)
+Giuseppe Peano pointed out this kind of example in an 1889 note, correcting the claim, common
+in the books and papers of the time, that $W \equiv 0$ always means dependence. (His pair was
+$t^2 + t\lvert t\rvert$ and $t^2 - t\lvert t\rvert$, combinations of these same two functions.)
 
 For *solutions* the converse does hold, and the proof shows exactly what the example lacks.
 Suppose $y_1$, $y_2$ solve $L[y] = 0$ and $W(t_0) = 0$. Then the system

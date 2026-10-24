@@ -129,7 +129,7 @@ the numbers sit on the smooth solution, using a step 50 times larger than Euler'
 limit.
 
 ```plot
-{"x": [0, 1], "y": [0, 1.1], "xLabel": "t", "yLabel": "y", "functions": [{"f": "(1000000cos(x) + 1000sin(x))/1000001 - (1000000/1000001)exp(-1000x)", "label": "exact"}], "points": [{"at": [0, 0]}, {"at": [0.1, 0.9852]}, {"at": [0.2, 0.9801]}, {"at": [0.3, 0.9556]}, {"at": [0.4, 0.9214]}, {"at": [0.5, 0.878]}, {"at": [0.6, 0.8259]}, {"at": [0.7, 0.7654]}, {"at": [0.8, 0.6974]}, {"at": [0.9, 0.6224]}, {"at": [1, 0.5411]}], "caption": "Backward Euler with h = 0.1 (dots) on y′ = −1000(y − cos t). The exact solution jumps almost instantly from 0 to near cos t; the dots follow it from the first step on. Euler with the same step would be near 970,000 by t = 0.3."}
+{"x": [0, 1], "y": [0, 1.1], "xLabel": "t", "yLabel": "y", "functions": [{"f": "(1000000cos(x) + 1000sin(x))/1000001 - (1000000/1000001)exp(-1000x)"}], "labels": [{"at": [0.3, 0.72], "text": "exact solution"}], "points": [{"at": [0, 0]}, {"at": [0.1, 0.9852]}, {"at": [0.2, 0.9801]}, {"at": [0.3, 0.9556]}, {"at": [0.4, 0.9214]}, {"at": [0.5, 0.878]}, {"at": [0.6, 0.8259]}, {"at": [0.7, 0.7654]}, {"at": [0.8, 0.6974]}, {"at": [0.9, 0.6224]}, {"at": [1, 0.5411]}], "caption": "Backward Euler with h = 0.1 (dots) on y′ = −1000(y − cos t). The exact solution jumps almost instantly from 0 to near cos t; the dots follow it from the first step on. Euler with the same step would be near 970,000 by t = 0.3."}
 ```
 
 ### Example 3
@@ -143,7 +143,7 @@ $R(-100) = \tfrac1{101}$ wipes the transient out at once.
 
 The difference is the limit as $z \to -\infty$: backward Euler's $R(z) \to 0$, but the
 trapezoidal $R(z) \to -1$. A method that is A-stable and also has $R(z) \to 0$ as $\lvert z\rvert \to \infty$ is called
-**L-stable**. Most production stiff solvers are built on backward-Euler-like formulas, such as
+**L-stable**. Many widely used stiff solvers are built on backward-Euler-like formulas, such as
 the **backward differentiation formulas** (BDF), which use several earlier points to reach higher
 order.
 
@@ -177,7 +177,7 @@ flowchart TD
   accTitle: Is a problem stiff?
   accDescr: Estimate the step size that accuracy needs and the step size that an explicit method needs for stability, which is about 2 divided by the size of the most negative rate in the problem. If stability forces a much smaller step than accuracy, the problem is stiff and an implicit method such as backward Euler, the trapezoidal method or a BDF solver is the better choice. If not, use an explicit method such as RK4.
   A["Step size accuracy needs"] --> C{"Stability limit much smaller?"}
-  B["Explicit stability limit, about 2 / |λ|"] --> C
+  B["Explicit stability limit, about 2/|λ|"] --> C
   C -- "yes: stiff" --> D["Implicit method: backward Euler, trapezoidal, BDF"]
   C -- "no" --> E["Explicit method such as RK4"]
 ```

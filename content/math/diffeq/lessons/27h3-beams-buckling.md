@@ -139,7 +139,7 @@ century), a bowed shape $c\sin(\pi x/L)$ becomes possible and the column **buckl
 sideways in a half sine wave.
 
 ```plot
-{"x": [0, 1], "y": [-1.2, 1.2], "xLabel": "x / L", "yLabel": "y", "functions": [{"f": "sin(pi*x)"}, {"f": "sin(2pi*x)", "dashed": true}], "labels": [{"at": [0.5, 1.1], "text": "n = 1"}, {"at": [0.75, -1.1], "text": "n = 2 (dashed)"}], "caption": "Buckled shapes of a pinned column. The first mode (n = 1) appears at the critical load π²EI/L²; the second (n = 2) would need four times that load, so in practice the column buckles in the first mode."}
+{"x": [0, 1], "y": [-1.2, 1.2], "xLabel": "x / L", "yLabel": "y", "functions": [{"f": "sin(pi*x)"}, {"f": "sin(2pi*x)", "dashed": true}], "labels": [{"at": [0.5, 1.1], "text": "n = 1"}, {"at": [0.75, -0.5], "text": "n = 2 (dashed)"}], "caption": "Buckled shapes of a pinned column. The first mode (n = 1) appears at the critical load π²EI/L²; the second (n = 2) would need four times that load, so in practice the column buckles in the first mode."}
 ```
 
 ### Example 3
@@ -160,8 +160,8 @@ has $P_{\text{cr}} = \dfrac{\pi^2EI}{4L^2}$, a quarter of the pinned value.
 
 ## Common mistakes
 
-- **Mixing up end conditions.** A pinned end has $y'' = 0$ (no moment) but $y' \ne 0$; a clamped
-  end has $y' = 0$. A free end has *no* condition on $y$ or $y'$.
+- **Mixing up end conditions.** A pinned end has $y'' = 0$ (no moment) and no condition on $y'$ (it
+  may rotate); a clamped end has $y' = 0$. A free end has *no* condition on $y$ or $y'$.
 - **Expecting a unique solution.** A boundary value problem can have none or infinitely many.
 - **Forgetting the fourth power.** Deflection scales like $L^4$; the buckling load like $1/L^2$.
 - **Thinking buckling needs a sideways push.** The equation shows a perfectly straight column
