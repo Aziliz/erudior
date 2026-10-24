@@ -17,7 +17,7 @@
 - {front: 'Bragg''s law', back: '$2d\sin\theta = m\lambda$, $\theta$ measured from the planes; deflection $2\theta$.', topic: X-ray diffraction}
 - {front: 'Why crystals diffract X-rays', back: 'Atomic plane spacings (a few tenths of a nm) match X-ray wavelengths (about 0.01–10 nm); ruled gratings are far too coarse.', topic: X-ray diffraction}
 - {front: 'Highest Bragg order', back: 'Largest whole $m$ with $m \le 2d/\lambda$.', topic: X-ray diffraction}
-- {front: 'History of X-ray diffraction', back: 'Laue proposed it and Friedrich and Knipping observed it (1912); the Braggs explained it with planes (1913; Nobel 1915).', topic: X-ray diffraction}
+- {front: 'History of X-ray diffraction', back: 'Laue proposed it and Friedrich and Knipping observed it (1912); the Braggs explained it with planes (1912–13; Nobel 1915).', topic: X-ray diffraction}
 - {front: 'Ray matrices: translation and thin lens', back: 'Translation $\begin{pmatrix} 1 & d \\ 0 & 1 \end{pmatrix}$; thin lens $\begin{pmatrix} 1 & 0 \\ -1/f & 1 \end{pmatrix}$, acting on $(y, \theta)$.', topic: Ray-transfer matrices}
 - {front: 'Ray matrix: refraction at a spherical surface', back: '$\begin{pmatrix} 1 & 0 \\ -(n_2 - n_1)/(n_2R) & n_1/n_2 \end{pmatrix}$', topic: Ray-transfer matrices}
 - {front: 'Order of matrix multiplication', back: 'First element met goes on the right: $M = M_3M_2M_1$. Determinant $= n_{\text{start}}/n_{\text{end}}$.', topic: Ray-transfer matrices}

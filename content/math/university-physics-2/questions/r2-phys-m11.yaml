@@ -616,7 +616,7 @@
   choices: ['$+3.0$ D and $+2.0$ D', '$+7.5$ D and $-2.5$ D', '$+15$ D and $-10$ D', '$+10$ D and $-5.0$ D']
   answer: 2
   explanation: |-
-    $P_1 = \dfrac{PV_1}{V_1 - V_2} = \dfrac{(5.0)(60.0)}{20.0} = +15$ D and $P_2 = -\dfrac{PV_2}{V_1 - V_2} = -10$ D. Check: they add to 5.0 D, and $15/60 - 10/40 = 0$. Splitting the power in proportion to $V$ gives $+3.0$ and $+2.0$ D, which add up but double the color error instead of cancelling it.
+    $P_1 = \dfrac{PV_1}{V_1 - V_2} = \dfrac{(5.0)(60.0)}{20.0} = +15$ D and $P_2 = -\dfrac{PV_2}{V_1 - V_2} = -10$ D. Check: they add to 5.0 D, and $15/60 - 10/40 = 0$. Splitting the power in proportion to $V$ gives $+3.0$ and $+2.0$ D, which add up but leave a color error of $3.0/60.0 + 2.0/40.0 = 0.10$ D instead of cancelling it (two converging lenses can never cancel each other's color spread).
 - id: phys-m11-r2-h40
   lesson: phys-h-ray-matrices
   type: text
