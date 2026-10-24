@@ -127,7 +127,9 @@ Over a short time the difference is small, but it keeps widening. The graph foll
 
 ```plot
 {"x": [0, 20], "y": [0, 3000], "xLabel": "years", "yLabel": "balance ($)", "functions": [{"f": "1000 + 50*x", "label": "simple: 1000 + 50t", "dashed": true}, {"f": "1000*1.05^x", "label": "compound yearly"}], "points": [{"at": [20, 2000], "label": "2,000"}, {"at": [20, 2653.3], "label": "2,653.30"}], "caption": "$1,000 at 5% a year: simple vs compound interest"}
-``` You'll study compounding in algebra; for now, be sure which kind a problem describes.
+```
+
+You'll study compounding in algebra; for now, be sure which kind a problem describes.
 
 ## Common mistakes
 

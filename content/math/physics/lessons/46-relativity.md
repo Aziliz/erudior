@@ -43,7 +43,7 @@ The factor $\gamma$ (the **Lorentz factor**) is always at least 1. $\Delta t_0$ 
 The graph shows the same numbers: $\gamma$ stays very close to 1 for most of the range and then shoots upward as $v$ approaches $c$.
 
 ```plot
-{"x": [0, 1], "y": [0, 8], "xLabel": "v/c", "yLabel": "γ", "functions": [{"f": "1/sqrt(1 - x^2)", "from": 0, "to": 0.992}], "points": [{"at": [0.6, 1.25], "label": "0.6c: γ = 1.25"}, {"at": [0.9, 2.294], "label": "0.9c: γ = 2.29"}], "caption": "The Lorentz factor γ against speed: almost 1 at everyday speeds, unbounded as v approaches c"}
+{"x": [0, 1], "y": [0, 8], "xLabel": "v/c", "yLabel": "γ", "functions": [{"f": "1/sqrt(1 - x^2)", "from": 0, "to": 0.992}], "points": [{"at": [0.6, 1.25]}, {"at": [0.9, 2.294]}], "labels": [{"at": [0.5, 1.75], "text": "0.6c: γ = 1.25"}, {"at": [0.72, 2.75], "text": "0.9c: γ = 2.29"}], "caption": "The Lorentz factor γ against speed: almost 1 at everyday speeds, unbounded as v approaches c"}
 ```
 
 ### Example 1

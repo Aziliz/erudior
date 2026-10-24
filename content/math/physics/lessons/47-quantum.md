@@ -44,7 +44,7 @@ $$K_{\max} = hf - \phi.$$
 The threshold frequency is $f_0 = \phi/h$. A graph of $K_{\max}$ against $f$ is a straight line with slope $h$ for every metal, which Millikan confirmed in 1916.
 
 ```plot
-{"x": [0, 16], "y": [0, 4.2], "xLabel": "frequency (10¹⁴ Hz)", "yLabel": "K max (eV)", "functions": [{"f": "0.41357*x - 2.28", "from": 5.513, "to": 15, "label": "sodium, φ = 2.28 eV"}, {"f": "0.41357*x - 4.3", "from": 10.397, "to": 15, "label": "φ = 4.3 eV"}], "points": [{"at": [5.513, 0], "label": "f0 = 5.51"}, {"at": [10.397, 0], "label": "f0 = 10.4"}], "caption": "Photoelectric lines for two metals: the same slope h, different thresholds; below f0 no electrons come out"}
+{"x": [0, 20], "y": [0, 4.2], "xLabel": "frequency (10¹⁴ Hz)", "yLabel": "K max (eV)", "functions": [{"f": "0.41357*x - 2.28", "from": 5.513, "to": 15, "label": "sodium, φ = 2.28 eV"}, {"f": "0.41357*x - 4.3", "from": 10.397, "to": 15, "label": "φ = 4.3 eV"}], "points": [{"at": [5.513, 0]}, {"at": [10.397, 0]}], "labels": [{"at": [3.6, 0.2], "text": "f0 = 5.51"}, {"at": [8.4, 0.2], "text": "f0 = 10.4"}], "caption": "Photoelectric lines for two metals: the same slope h, different thresholds; below f0 no electrons come out"}
 ```
  In the lab, $K_{\max}$ is measured as $eV_{\text{stop}}$, where $V_{\text{stop}}$ is the stopping potential that just halts the fastest electrons.
 
@@ -67,7 +67,7 @@ $$\lambda_{\max}T = 2.898\times10^{-3}\text{ m·K},$$
 with $T$ in kelvins. That's why a heated poker glows dull red, then orange, then yellow-white.
 
 ```plot
-{"x": [0, 2.5], "y": [0, 1.1], "xLabel": "wavelength (μm)", "yLabel": "relative power", "functions": [{"f": "1/(x^5*(exp(14388/(x*6000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "6000 K"}, {"f": "1/(x^5*(exp(14388/(x*5000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "5000 K"}, {"f": "1/(x^5*(exp(14388/(x*4000)) - 1))/0.267374", "from": 0.1, "to": 2.5, "label": "4000 K"}], "points": [{"at": [0.483, 1], "label": "peak 0.48 μm"}, {"at": [0.7245, 0.1317], "label": "peak 0.72 μm"}], "caption": "Blackbody spectra at three temperatures (same scale): hotter bodies emit far more power, and their peaks move to shorter wavelengths"}
+{"x": [0, 2.5], "y": [0, 1.1], "xLabel": "wavelength (μm)", "yLabel": "relative power", "functions": [{"f": "1/(x^5*(exp(14388/(x*6000)) - 1))/0.267374", "from": 0.1, "to": 2.5}, {"f": "1/(x^5*(exp(14388/(x*5000)) - 1))/0.267374", "from": 0.1, "to": 2.5}, {"f": "1/(x^5*(exp(14388/(x*4000)) - 1))/0.267374", "from": 0.1, "to": 2.5}], "points": [{"at": [0.483, 1], "label": "6000 K"}, {"at": [0.5796, 0.4018], "label": "5000 K"}, {"at": [0.7245, 0.1317]}], "labels": [{"at": [0.55, 0.16], "text": "4000 K"}], "caption": "Blackbody spectra at 6000, 5000 and 4000 K (same scale): hotter bodies emit far more power, and their peaks (dots, at 0.48, 0.58 and 0.72 μm) move to shorter wavelengths"}
 ```
  Classical wave theory predicted that the emitted power should keep growing without limit at short wavelengths, which is absurd. Planck's assumption that energy is exchanged only in packets of $hf$ made short-wavelength packets too costly to emit often, which bent the curve back down and matched experiment.
 
