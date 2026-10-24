@@ -395,10 +395,10 @@
   lesson: pc-m4-h-logistic
   topic: Logistic models
   stem: 'What is the midpoint $t_m$ of $P(t) = \dfrac{600}{1 + 20e^{-0.4t}}$, the time when $P = 300$?'
-  choices: ['$t_m = 50$', '$t_m = \ln 20 \approx 3.00$', '$t_m = 0.4\ln 20 \approx 1.20$', '$t_m = \dfrac{\ln 20}{0.4} \approx 7.49$']
+  choices: ['$t_m = \dfrac{0.4}{\ln 20} \approx 0.13$', '$t_m = \ln 20 \approx 3.00$', '$t_m = 0.4\ln 20 \approx 1.20$', '$t_m = \dfrac{\ln 20}{0.4} \approx 7.49$']
   answer: 3
   explanation: |-
-    $P = 300$ when $20e^{-0.4t} = 1$, so $t = \frac{\ln 20}{0.4} \approx 7.49$. The other choices forget to divide by $k$, multiply by it instead, or confuse the time with $\frac{C}{A + 1}$-type values.
+    $P = 300$ when $20e^{-0.4t} = 1$, so $t = \frac{\ln 20}{0.4} \approx 7.49$. The other choices flip the fraction, forget to divide by $k$, or multiply by $k$ instead.
 - id: pc-m4-r2-h16
   lesson: pc-m4-h-logistic
   type: text
@@ -556,7 +556,7 @@
   choices: ['$\ln y \ge y - 1$', '$\ln y \le \dfrac{1}{y}$', '$e^y \le 1 + y$', '$\ln y \le y - 1$']
   answer: 3
   explanation: |-
-    From $e^u \ge 1 + u$ (the graph of $e^u$ lies above its tangent line at 0), taking $\ln$ gives $\ln y \le y - 1$. With $y = \sqrt x$ it gives $\ln x < 2\sqrt x$, so $\frac{\ln x}{x} < \frac{2}{\sqrt x}$. The other inequalities point the wrong way or are false (try $y = 1$ in the third... it holds with equality, but at $y = 1$ the second fails: $0 \le 1$ holds, yet at $y = 10$ it says $2.30 \le 0.1$).
+    From $e^u \ge 1 + u$ (the graph of $e^u$ lies above its tangent line at 0), taking $\ln$ gives $\ln y \le y - 1$. With $y = \sqrt x$ it gives $\ln x < 2\sqrt x$, so $\frac{\ln x}{x} < \frac{2}{\sqrt x}$. The other choices are false: at $y = 2$, $\ln 2 \approx 0.69$ is less than $y - 1 = 1$ and $e^2 \approx 7.39$ is more than $1 + 2 = 3$; at $y = 10$, $\ln 10 \approx 2.30$ is more than $\frac{1}{10}$.
 - id: pc-m4-r2-h35
   lesson: pc-m4-h-growth-rates
   type: text

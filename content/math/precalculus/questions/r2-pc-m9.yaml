@@ -485,7 +485,7 @@
   choices: ['$56$', '$126$', '$35$', '$1024$']
   answer: 0
   explanation: |-
-    Five stars and three bars: $\binom{5 + 3}{3} = \binom83 = 56$. $1024 = 4^5$ would count 5 *different* objects placed in 4 groups; $\binom93 = 84$ and $\binom94 = 126$ use the wrong number of positions.
+    Five stars and three bars: $\binom{5 + 3}{3} = \binom83 = 56$. $1024 = 4^5$ would count 5 *different* objects placed in 4 groups; $126 = \binom94$ uses the wrong number of positions and bars.
 
 - id: pc-m9-r2-h20
   lesson: pc-m9-h-counting
@@ -605,7 +605,7 @@
   choices: ['$6$', '$34$', '$0.15$', '$5.1$']
   answer: 0
   explanation: |-
-    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of *good* parts; $5.1 = np(1 - p)$ is a different quantity (the variance).
+    $E(X) = np = 40 \times 0.15 = 6$. $34$ is the expected number of *good* parts; $5.1 = np(1 - p)$ is a different quantity (the variance, met in statistics).
 
 - id: pc-m9-r2-h32
   lesson: pc-m9-h-binomial-probability
@@ -668,7 +668,7 @@
   choices: ['\$0.00', '−\$0.26', '−\$5.26', '−\$0.53']
   answer: 3
   explanation: |-
-    $E = 10\left(\frac{18}{38}\right) - 10\left(\frac{20}{38}\right) = -\frac{20}{38} \approx -0.53$ dollars. The bet looks even, but the two green pockets make red less likely than not. $-5.26$ forgets to divide by 38 correctly ($-\frac{200}{38}$).
+    $E = 10\left(\frac{18}{38}\right) - 10\left(\frac{20}{38}\right) = -\frac{20}{38} \approx -0.53$ dollars. The bet looks even, but the two green pockets make red less likely than not. $-5.26 = -\frac{200}{38}$ multiplies by 10 twice, and $-0.26$ counts only one green pocket.
 
 - id: pc-m9-r2-h38
   lesson: pc-m9-h-binomial-probability
@@ -683,7 +683,7 @@
   lesson: pc-m9-h-binomial-probability
   topic: Expected value
   stem: 'A raffle sells 1000 tickets at \$2 each. There is one \$500 prize and five \$50 prizes. What is the expected net gain of one ticket?'
-  choices: ['−\$2.00', '\$0.75', '−\$1.00', '−\$1.25']
-  answer: 3
+  choices: ['−\$1.25', '−\$2.00', '\$0.75', '−\$1.00']
+  answer: 0
   explanation: |-
     The prizes total $500 + 5(50) = 750$, worth $\frac{750}{1000} = 0.75$ per ticket on average. Subtract the \$2 price: $0.75 - 2 = -1.25$. \$0.75 forgets the ticket price.

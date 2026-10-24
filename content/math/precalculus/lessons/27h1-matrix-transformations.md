@@ -22,7 +22,7 @@ For example $\begin{bmatrix} 2 & 1 \\ 0 & 1 \end{bmatrix}$ sends $(1, 2)$ to $(2
 
 $$A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v}, \qquad A(k\mathbf{u}) = k(A\mathbf{u}).$$
 
-So the origin stays put ($A\mathbf{0} = \mathbf{0}$), straight lines go to straight lines (or collapse to a point), parallel lines stay parallel, and the midpoint of a segment goes to the midpoint of the image. A square grid becomes a grid of parallelograms. A shift such as "move everything 3 units right" is *not* linear, because it moves the origin; we come back to that at the end.
+So the origin stays put ($A\mathbf{0} = \mathbf{0}$), straight lines go to straight lines (or collapse to a point), parallel lines stay parallel when $\det A \ne 0$, and the midpoint of a segment goes to the midpoint of the image. A square grid becomes a grid of parallelograms. A shift such as "move everything 3 units right" is *not* linear, because it moves the origin; we come back to that at the end.
 
 ## The columns tell the whole story
 
