@@ -1,0 +1,21 @@
+# Round 2 cards for module ps-m2 (honors lessons 09h1, 09h2)
+- {front: 'Probability generating function', back: '$G_X(s) = E(s^X) = \sum_k P(X = k)s^k$, for $X$ with values $0, 1, 2, \ldots$; it exists for $|s| \le 1$.', topic: Probability generating functions}
+- {front: 'PGF: probabilities and moments', back: '$P(X = k) = G^{(k)}(0)/k!$; $G(1) = 1$, $G''(1) = E(X)$, $G''''(1) = E[X(X-1)]$, so $\operatorname{Var}(X) = G''''(1) + G''(1) - G''(1)^2$.', topic: Probability generating functions}
+- {front: 'PGFs of the common counts', back: 'Bernoulli $q + ps$; binomial $(q + ps)^n$; Poisson $e^{\lambda(s-1)}$; geometric (trials) $ps/(1 - qs)$.', topic: Probability generating functions}
+- {front: 'PGF of a sum vs. a random sum', back: 'Independent $X + Y$: $G_XG_Y$ (product). Random sum $X_1 + \cdots + X_N$: $G_N(G_X(s))$ (composition).', topic: Probability generating functions}
+- {front: 'Thinning a Poisson count', back: 'Keep each of a Poisson$(\lambda)$ number of events with probability $p$: the kept count is Poisson$(\lambda p)$, since $e^{\lambda(q + ps - 1)} = e^{\lambda p(s - 1)}$.', topic: Probability generating functions}
+- {front: 'Branching process: generation sizes', back: '$G_{Z_n} = f \circ f \circ \cdots \circ f$ ($n$ times), where $f$ is the offspring PGF; $E(Z_n) = m^n$ with $m = f''(1)$.', topic: Branching processes}
+- {front: 'Extinction probability', back: '$q$ is the smallest root of $f(s) = s$ in $[0, 1]$, and $P(Z_n = 0) = f_n(0)$ increases to $q$.', topic: Branching processes}
+- {front: 'Extinction theorem', back: 'If $p_1 \ne 1$: $q = 1$ when $m \le 1$ (subcritical or critical); $q < 1$ when $m > 1$ (supercritical).', topic: Branching processes}
+- {front: 'Extinction with offspring 0, 1 or 2', back: 'If $p_2 > p_0$, then $q = p_0/p_2$ (the other root of $p_2s^2 + (p_1 - 1)s + p_0 = 0$ besides 1).', topic: Branching processes}
+- {front: 'The critical case $m = 1$', back: '$E(Z_n) = 1$ for every $n$, yet extinction is certain (unless $p_1 = 1$); the few surviving lines grow large.', topic: Branching processes}
+- {front: 'History of the extinction problem', back: 'Galton posed the surname question (1873); Watson''s answer missed the smaller root; Bienaymé stated the criterion (1845); Steffensen gave a full solution (1930).', topic: Branching processes}
+- {front: 'Total variation distance', back: '$d_{TV}(X, Y) = \max_A |P(X \in A) - P(Y \in A)| = \tfrac12\sum_k |P(X = k) - P(Y = k)|$; an absolute, not relative, error.', topic: Poisson approximation}
+- {front: 'Le Cam''s inequality', back: 'Independent indicators with probabilities $p_i$: $d_{TV}\big(\sum I_i, \text{Poisson}(\sum p_i)\big) \le \sum p_i^2$. Binomial: $\le np^2 = \lambda p$.', topic: Poisson approximation}
+- {front: 'Coupling inequality', back: 'If $S$ and $T$ are built on one sample space, $d_{TV}(S, T) \le P(S \ne T)$.', topic: Poisson approximation}
+- {front: 'Barbour–Hall bound', back: 'A sharper version of Le Cam: $d_{TV} \le \dfrac{1 - e^{-\lambda}}{\lambda}\sum p_i^2$, much smaller when $\lambda$ is large.', topic: Poisson approximation}
+- {front: 'Poisson paradigm', back: 'Many rare, weakly dependent events $A_i$: the count is roughly Poisson$(\lambda)$ with $\lambda = \sum P(A_i)$, so $P(\text{none}) \approx e^{-\lambda}$. A heuristic.', topic: Poisson approximation}
+- {front: 'Pair check for a Poisson count', back: '$E[X(X-1)] = \sum_{i \ne j} P(A_i \cap A_j)$ (ordered pairs). Poisson needs about $\lambda^2$; much more means clustering and variance above the mean.', topic: Poisson approximation}
+- {front: 'Matches in a random shuffle', back: 'The number of letters in the right envelope has mean 1 and variance 1 for every $n \ge 2$, and is close to Poisson(1).', topic: Poisson approximation}
+- {front: 'Birthday problem by the Poisson paradigm', back: '$\lambda = \binom{n}{2}/365$; $P(\text{no shared birthday}) \approx e^{-\lambda}$. At $n = 23$, $\lambda \approx 0.693$ and $e^{-\lambda} \approx 0.500$ (exact 0.4927).', topic: Poisson approximation}
+- {front: 'Law of small numbers', back: 'Bortkiewicz (1898): counts of rare events, such as horse-kick deaths in Prussian army corps (mean 0.61 per corps-year), fit the Poisson distribution.', topic: Poisson approximation}

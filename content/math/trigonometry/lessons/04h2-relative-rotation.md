@@ -168,7 +168,7 @@ speed. Each point's motion is the forward motion of the center *plus* its spin a
   for that instant it is at rest. That is exactly what "not slipping" means.
 
 ```shape
-{"segments": [{"from": [-1.6, 0], "to": [6.6, 0]}, {"from": [0, 2], "to": [2, 2], "arrow": true, "label": "2v"}, {"from": [0, 1], "to": [1, 1], "arrow": true, "label": "v"}], "circles": [{"center": [0, 1], "r": 1}], "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832], "dashed": true}], "points": [[0, 0], [0, 1], [0, 2]], "labels": [{"at": [-0.35, -0.3], "text": "speed 0"}, {"at": [4.4, 2.25], "text": "path of a rim point"}], "caption": "A rolling wheel: the top moves at twice the center's speed and the contact point is momentarily at rest. A point on the rim traces the dashed arches (a cycloid)."}
+{"segments": [{"from": [-1.6, 0], "to": [6.8, 0]}, {"from": [0, 2], "to": [2, 2], "arrow": true}, {"from": [0, 1], "to": [1, 1], "arrow": true}], "circles": [{"center": [0, 1], "r": 1}], "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832], "dashed": true}], "points": [[0, 0], [0, 1], [0, 2]], "labels": [{"at": [2.35, 2.05], "text": "2v"}, {"at": [1.3, 1.05], "text": "v"}, {"at": [0.15, -0.4], "text": "speed 0"}, {"at": [4.9, 2.2], "text": "path of a rim point"}], "caption": "A rolling wheel: the top moves at twice the center's speed and the contact point is momentarily at rest. A point on the rim traces the dashed arch (a cycloid)."}
 ```
 
 A point on the rim traces a series of arches called a **cycloid**, touching the ground once per
@@ -195,7 +195,7 @@ not quite the same number, because the two percentages are measured from differe
 ## Choosing the right link
 
 ```mermaid
-flowchart TD
+flowchart LR
   accTitle: Choosing the rule that links two rotating parts
   accDescr: Start by asking how the two parts are connected. If they are fixed on the same shaft, they have equal angular speed. If a belt or chain links them, r1 omega1 equals r2 omega2 and they turn the same way. If their teeth mesh, N1 omega1 equals N2 omega2 and they turn opposite ways. If they turn freely about the same center, as clock hands do, the angle between them changes at omega1 minus omega2. If a wheel rolls on the ground without slipping, the center moves at v equals r omega.
   Q{"How are the two parts connected?"}

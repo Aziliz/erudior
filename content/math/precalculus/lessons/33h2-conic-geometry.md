@@ -32,9 +32,9 @@ A double cone is made of straight lines through its apex; each of these lines is
 
 ![A side view of a cone cut by a tilted plane, seen edge-on as a red line. A small sphere sits inside the cone above the plane and a large sphere below it; each touches both sides of the cone along a dashed circle and touches the plane at one point, F₁ for the small sphere and F₂ for the large one. From the point P where the plane meets the side of the cone, a gold segment runs up the side of the cone to the small sphere's circle and a blue segment runs down the side to the large sphere's circle.](images/pc-m7-dandelin.svg)
 
-**Claim.** For every point $P$ on the curve, $PF_1 + PF_2$ is the same. So the slice is an ellipse with foci $F_1$ and $F_2$.
+*Claim.* For every point $P$ on the curve, $PF_1 + PF_2$ is the same. So the slice is an ellipse with foci $F_1$ and $F_2$.
 
-**Proof.** The key fact is about tangent segments: all the segments from an outside point to the points where they touch a sphere have the same length (just as two tangent segments from a point to a circle are equal).
+*Proof.* The key fact is about tangent segments: all the segments from an outside point to the points where they touch a sphere have the same length (just as two tangent segments from a point to a circle are equal).
 
 1. $PF_1$ is tangent to the small sphere, because the plane touches that sphere at $F_1$.
 2. The generator through $P$ is also tangent to the small sphere; it touches it at the point $Q_1$ where the generator crosses the small sphere's circle. So $PF_1 = PQ_1$.
@@ -95,9 +95,9 @@ For a hyperbola, the tangent at $P$ bisects the angle $F_1PF_2$. In optical term
 
 These properties are used in real devices:
 
-- **Whispering galleries** (Lesson 29): sound from one focus of an elliptical room gathers at the other.
-- **Lithotripsy**: since the 1980s, doctors have broken up kidney stones with shock waves made at one focus of an ellipsoidal reflector and focused on the stone at the other.
-- **Cassegrain telescopes**: a parabolic main mirror sends light toward its focus, but a small convex hyperbolic mirror, sharing that focus, reflects it to the hyperbola's other focus behind a hole in the main mirror, where the camera sits.
+- *Whispering galleries* (Lesson 29): sound from one focus of an elliptical room gathers at the other.
+- *Lithotripsy*: since the 1980s, doctors have broken up kidney stones with shock waves made at one focus of an ellipsoidal reflector and focused on the stone at the other.
+- *Cassegrain telescopes*: a parabolic main mirror sends light toward its focus, but a small convex hyperbolic mirror, sharing that focus, reflects it to the hyperbola's other focus behind a hole in the main mirror, where the camera sits.
 
 ### Example 3
 

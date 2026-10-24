@@ -1,0 +1,720 @@
+# Round 2, module ps-m4 (Joint distributions): new question types for the core lessons 15-20
+# (ps-m4-r2-q01..q30) and the honors lessons 20h1, 20h2 (ps-m4-r2-h01..h28).
+
+# ---- Lesson 15: joint distributions and marginals
+- id: ps-m4-r2-q01
+  lesson: ps-joint-dist
+  type: text
+  module_quiz: true
+  topic: Joint distributions
+  stem: 'The function $f(x, y) = c\,xy^2$ for $0 < x < 1$, $0 < y < 1$ (zero elsewhere) is a joint density. Then $c =$ ___. Give only the number.'
+  accept: ['6']
+  explanation: |-
+    The total volume must be 1: $\int_0^1\!\int_0^1 c\,xy^2\,dy\,dx = c \cdot \tfrac12 \cdot \tfrac13 = \tfrac{c}{6}$, so $c = 6$.
+
+- id: ps-m4-r2-q02
+  lesson: ps-joint-dist
+  type: order
+  topic: Joint distributions
+  stem: 'Put the steps for finding $P((X, Y) \in A)$ from a joint density in order.'
+  items:
+    - 'Sketch the support, where $f(x, y) > 0$'
+    - 'Shade the part of the support that lies in the event $A$'
+    - 'Choose the order of integration and read off the limits from the shaded region'
+    - 'Evaluate the inner integral'
+    - 'Evaluate the outer integral and check the answer is between 0 and 1'
+  explanation: |-
+    You can only shade the part of the support inside $A$ after drawing the support. The limits come from the
+    shaded region, the inner integral must be done before the outer one, and the final check comes last.
+
+- id: ps-m4-r2-q03
+  lesson: ps-joint-dist
+  topic: Joint distributions
+  stem: 'Which statements are true for every joint density $f(x, y)$ of a continuous pair $(X, Y)$? Select all that apply.'
+  choices: ['$f(x, y) \ge 0$ for all $x, y$', '$f(x, y) \le 1$ for all $x, y$', '$\iint_{\mathbb{R}^2} f(x, y)\,dA = 1$', '$f(x, y) = f_X(x)\,f_Y(y)$', '$f_X(x) = \int_{-\infty}^{\infty} f(x, y)\,dy$']
+  answer: [0, 2, 4]
+  explanation: |-
+    A joint density is nonnegative and has total volume 1, and integrating out $y$ gives the marginal density of $X$.
+    It can exceed 1 (the lesson's $8xy$ is 5.76 at $(0.9, 0.8)$), and it equals the product of the marginals only when
+    $X$ and $Y$ are independent.
+
+- id: ps-m4-r2-q04
+  lesson: ps-joint-dist
+  type: label
+  module_quiz: true
+  topic: Joint distributions
+  stem: 'The picture shows the support $0 < y < x < 1$ of the density $8xy$ from the lesson and the event $X + Y < 1$. Name the numbered parts.'
+  image: {src: images/ps-m4-joint-region-blank.svg, alt: 'A right triangle with corners at (0, 0), (1, 0) and (1, 1). A dashed line runs from (0, 1) to (1, 0) and crosses the triangle''s slanted edge at the point (1/2, 1/2). The part of the triangle below the dashed line is shaded, and a thin horizontal strip lies across the shaded part.'}
+  labels:
+    - {x: 62.5, y: 32.9, text: 'Line y = x (edge of the support)'}
+    - {x: 30.0, y: 29.5, text: 'Line x + y = 1'}
+    - {x: 47.7, y: 61.6, text: 'Region where 0 < y < x and x + y < 1'}
+    - {x: 35.9, y: 70.5, text: 'Strip for one y: x runs from y to 1 − y'}
+    - {x: 47.7, y: 50.0, text: 'Corner (1/2, 1/2)'}
+  distractors: ['Line y = 1 − 2x', 'Strip for one x: y runs from 0 to x']
+  explanation: |-
+    1 is the slanted edge of the support, the line $y = x$. 2 is the dashed line $x + y = 1$. 3 is the shaded part of
+    the support below that line, the event. 4 is a horizontal strip (fixed $y$), along which $x$ goes from the
+    diagonal $x = y$ to the line $x = 1 - y$. 5 is where the two lines meet, $(\tfrac12, \tfrac12)$, which sets the outer limit
+    $y < \tfrac12$.
+
+- id: ps-m4-r2-q05
+  lesson: ps-joint-dist
+  type: match
+  topic: Joint distributions
+  stem: 'A joint pmf is given as a table with rows $x = 0, 1, 2$ and columns $y = 0, 1$. Match each probability to how it is read from the table.'
+  pairs:
+    - ['$P(X = 1)$', Add the cells across the row x = 1]
+    - ['$P(Y = 0)$', Add the cells down the column y = 0]
+    - ['$P(X = 1, Y = 0)$', Read the single cell in row 1 and column 0]
+    - ['$P(X + Y \le 1)$', 'Add the cells (0, 0), (0, 1) and (1, 0)']
+  distractors: [Multiply the row total by the column total]
+  explanation: |-
+    Marginal probabilities add along a row (for $X$) or a column (for $Y$); a joint probability is one cell; an event
+    about the pair adds the cells in the event. Multiplying a row total by a column total gives the joint probability
+    only under independence.
+
+# ---- Lesson 16: conditional distributions and independence
+- id: ps-m4-r2-q06
+  lesson: ps-conditional-indep
+  type: text
+  topic: Conditional distributions
+  stem: |-
+    In the inspection table
+
+    $$\begin{array}{c|cc} & y = 0 & y = 1 \\ \hline x = 0 & 0.30 & 0.10 \\ x = 1 & 0.20 & 0.15 \\ x = 2 & 0.10 & 0.15 \end{array}$$
+
+    $P(Y = 0 \mid X = 0) =$ ___. Give the exact value as a decimal or fraction.
+  accept: ['0.75']
+  explanation: |-
+    Take the row $x = 0$, which is $(0.30, 0.10)$ with total $0.40$, and divide: $0.30/0.40 = 0.75$.
+
+- id: ps-m4-r2-q07
+  lesson: ps-conditional-indep
+  module_quiz: true
+  topic: Independence of random variables
+  stem: 'For which joint densities (each zero outside the region shown) are $X$ and $Y$ independent? Select all that apply.'
+  choices: ['$6xy^2$ on $0 < x < 1,\ 0 < y < 1$', '$8xy$ on $0 < y < x < 1$', '$e^{-x-y}$ on $x > 0,\ y > 0$', '$x + y$ on $0 < x < 1,\ 0 < y < 1$', '$2e^{-x-y}$ on $0 < x < y$']
+  answer: [0, 2]
+  explanation: |-
+    $6xy^2 = (2x)(3y^2)$ and $e^{-x-y} = e^{-x}e^{-y}$ factor on rectangles, so those pairs are independent. $8xy$ and
+    $2e^{-x-y}$ live on triangles, so knowing $X$ restricts $Y$: dependent. $x + y$ is on a square but cannot be written
+    as $g(x)h(y)$ (its marginals are $x + \tfrac12$ and $y + \tfrac12$, whose product is not $x + y$).
+
+- id: ps-m4-r2-q08
+  lesson: ps-conditional-indep
+  type: match
+  topic: Conditional distributions
+  stem: 'Match each idea to its rule.'
+  pairs:
+    - ['$f_{Y \mid X}(y \mid x)$', 'f(x, y) divided by fX(x)']
+    - [Multiplication rule, 'f(x, y) = fX(x) times f(y | x)']
+    - [Independence of X and Y, Joint density equals the product of the marginals everywhere]
+    - ['$P(X < Y)$ for independent exponentials with rates $a$ and $b$', 'a/(a + b)']
+  distractors: ['f(x, y) divided by fY(y)', 'b/(a + b)']
+  explanation: |-
+    The conditional density of $Y$ given $X$ divides by the marginal of $X$ (dividing by $f_Y$ gives $f_{X \mid Y}$).
+    Rearranging gives the multiplication rule. Independence means the joint factors into the marginals everywhere.
+    In a race of independent exponentials, $X$ wins with probability proportional to its own rate, $a/(a + b)$.
+
+- id: ps-m4-r2-q09
+  lesson: ps-conditional-indep
+  type: order
+  topic: Conditional distributions
+  stem: 'A model is described by a story: first $X$ is drawn, then $Y$ given $X$. Put the steps for finding $P(Y < c)$ in order.'
+  items:
+    - 'Write the marginal density $f_X(x)$ from the story'
+    - 'Write the conditional density $f_{Y \mid X}(y \mid x)$ from the story'
+    - 'Multiply them to get the joint density $f(x, y)$'
+    - 'Integrate out $x$ to get the marginal density $f_Y(y)$'
+    - 'Integrate $f_Y$ from the bottom of its range up to $c$'
+  explanation: |-
+    This is the cable example: the story gives $X$ first and then $Y$ given $X$; the multiplication rule builds the
+    joint; integrating out $x$ gives $f_Y$ (there $-\ln y$); and the probability is an integral of $f_Y$.
+
+- id: ps-m4-r2-q10
+  lesson: ps-conditional-indep
+  type: text
+  module_quiz: true
+  topic: Independence of random variables
+  stem: 'A sensor fails after an exponential time $X$ with rate 0.2 per year, and its battery after an independent exponential time $Y$ with rate 0.3 per year. $P(X < Y) =$ ___. Give the exact decimal.'
+  accept: ['0.4']
+  explanation: |-
+    For independent exponentials, $P(X < Y) = \dfrac{a}{a + b} = \dfrac{0.2}{0.2 + 0.3} = 0.4$. (0.6 is the chance the battery fails first.)
+
+# ---- Lesson 17: covariance and correlation
+- id: ps-m4-r2-q11
+  lesson: ps-covariance
+  type: text
+  module_quiz: true
+  topic: Covariance and correlation
+  stem: '$\operatorname{Var}(X) = 4$, $\operatorname{Var}(Y) = 1$ and $\operatorname{Cov}(X, Y) = -1$. Then $\operatorname{Var}(X - 2Y) =$ ___.'
+  accept: ['12']
+  explanation: |-
+    With $a = 1$, $b = -2$: $\operatorname{Var}(X - 2Y) = 4 + (-2)^2(1) + 2(1)(-2)(-1) = 4 + 4 + 4 = 12$.
+    The covariance term is positive because both $b$ and the covariance are negative.
+
+- id: ps-m4-r2-q12
+  lesson: ps-covariance
+  type: label
+  module_quiz: true
+  topic: Covariance and correlation
+  stem: 'The picture explains the sign of the covariance. Name the numbered parts.'
+  image: {src: images/ps-m4-cov-quadrants-blank.svg, alt: 'A scatter of points rising to the right. A dashed vertical line and a dashed horizontal line cross at an open circle. A green rectangle joins the open circle to a dark point up and to the right; a red rectangle joins it to a dark point up and to the left.'}
+  labels:
+    - {x: 50.0, y: 50.0, text: 'Mean point (μX, μY)'}
+    - {x: 50.0, y: 85.7, text: 'Vertical line x = μX'}
+    - {x: 13.5, y: 50.0, text: 'Horizontal line y = μY'}
+    - {x: 78.8, y: 23.8, text: Point with a positive product of deviations}
+    - {x: 23.1, y: 33.3, text: Point with a negative product of deviations}
+  distractors: [Regression line, Point with zero covariance]
+  explanation: |-
+    The dashed lines go through the mean point and split the plane into quadrants. Point 4 is above both means, so
+    $(x - \mu_X)(y - \mu_Y) > 0$; point 5 has $x$ below its mean and $y$ above, so the product is negative. The
+    covariance averages these signed products; here the points mostly sit in the positive quadrants.
+
+- id: ps-m4-r2-q13
+  lesson: ps-covariance
+  topic: Covariance and correlation
+  stem: 'Each statement below is about random variables $X$ and $Y$ with finite variances. Which ones guarantee $\operatorname{Cov}(X, Y) = 0$? Select all that apply.'
+  choices: ['$X$ and $Y$ are independent', '$E[XY] = E[X]\,E[Y]$', '$\operatorname{Var}(X + Y) = \operatorname{Var}(X) + \operatorname{Var}(Y)$', '$Y = 3 - 2X$', '$\operatorname{Var}(X - Y) > \operatorname{Var}(X) + \operatorname{Var}(Y)$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Independence gives $E[XY] = E[X]E[Y]$, which is exactly covariance 0. $\operatorname{Var}(X + Y) = \operatorname{Var}X + \operatorname{Var}Y + 2\operatorname{Cov}$, so
+    the third statement also forces covariance 0. $Y = 3 - 2X$ gives $\operatorname{Cov} = -2\operatorname{Var}(X)$, not 0 (unless $X$ is constant),
+    and $\operatorname{Var}(X - Y) > \operatorname{Var}X + \operatorname{Var}Y$ means $-2\operatorname{Cov} > 0$, a negative covariance.
+
+- id: ps-m4-r2-q14
+  lesson: ps-covariance
+  type: match
+  topic: Covariance and correlation
+  stem: 'Match each quantity to an equal expression.'
+  pairs:
+    - ['$\operatorname{Cov}(3X + 1,\ 2Y - 5)$', '6 Cov(X, Y)']
+    - ['$\operatorname{Cov}(X, X)$', 'Var(X)']
+    - ['$\operatorname{Var}(X + Y)$', 'Var(X) + Var(Y) + 2 Cov(X, Y)']
+    - ['$\operatorname{Var}(X - Y)$', 'Var(X) + Var(Y) − 2 Cov(X, Y)']
+  distractors: ['Var(X) − Var(Y)', '6 Cov(X, Y) − 5']
+  explanation: |-
+    Shifts do not change covariance and scale factors multiply, so the first is $3 \cdot 2\operatorname{Cov}(X, Y)$. The covariance of
+    a variable with itself is its variance. Sums and differences both add the variances; only the sign of the
+    covariance term changes.
+
+- id: ps-m4-r2-q15
+  lesson: ps-covariance
+  type: order
+  topic: Covariance and correlation
+  stem: '$X$ and $Y$ have SDs 3 and 4. Put the correlations in order from the smallest $\operatorname{SD}(X + Y)$ to the largest.'
+  items: ['$\rho = -0.5$', '$\rho = 0$', '$\rho = 0.5$', '$\rho = 1$']
+  explanation: |-
+    $\operatorname{Var}(X + Y) = 9 + 16 + 2\rho(3)(4) = 25 + 24\rho$: 13, 25, 37 and 49, so the SDs are about 3.61, 5, 6.08 and 7.
+    The larger the correlation, the more the errors reinforce each other.
+
+# ---- Lesson 18: sums of independent random variables
+- id: ps-m4-r2-q16
+  lesson: ps-sums
+  type: text
+  topic: Sums of random variables
+  stem: 'Independent counts $X \sim$ Poisson(2) and $Y \sim$ Poisson(3) add to $X + Y \sim$ Poisson(___). Give only the number.'
+  accept: ['5']
+  explanation: |-
+    Independent Poisson counts add to a Poisson count whose mean is the sum of the means: $2 + 3 = 5$. The MGF
+    product $e^{2(e^t - 1)}e^{3(e^t - 1)} = e^{5(e^t - 1)}$ shows it.
+
+- id: ps-m4-r2-q17
+  lesson: ps-sums
+  type: match
+  module_quiz: true
+  topic: Sums of random variables
+  stem: 'All terms are independent. Match each sum to its distribution.'
+  pairs:
+    - ['Poisson$(\lambda_1)$ + Poisson$(\lambda_2)$', 'Poisson with mean λ1 + λ2']
+    - ['Binomial$(n_1, p)$ + Binomial$(n_2, p)$', 'Binomial with n1 + n2 trials and success probability p']
+    - ['$N(\mu_1, \sigma_1^2) + N(\mu_2, \sigma_2^2)$', 'Normal with mean μ1 + μ2 and variance σ1² + σ2²']
+    - ['Sum of $n$ exponentials, each with mean $\theta$', 'Gamma with shape n and scale θ']
+  distractors: ['Normal with mean μ1 + μ2 and SD σ1 + σ2', 'Exponential with mean nθ']
+  explanation: |-
+    These are the closure rules from the MGF method. For normals the *variances* add, not the SDs, and a sum of
+    $n$ exponentials is gamma (shape $n$), not exponential.
+
+- id: ps-m4-r2-q18
+  lesson: ps-sums
+  topic: Sums of random variables
+  stem: 'Each pair of terms is independent. For which pairs is the sum in the same family as the terms? Select all that apply.'
+  choices: ['Binomial(5, 0.3) and Binomial(8, 0.3)', 'Binomial(5, 0.3) and Binomial(5, 0.6)', 'Gamma(shape 2, scale 3) and Gamma(shape 4, scale 3)', 'Gamma(shape 2, scale 3) and Gamma(shape 2, scale 5)', 'Uniform(0, 1) and Uniform(0, 1)', '$N(1, 4)$ and $N(-2, 9)$']
+  answer: [0, 2, 5]
+  explanation: |-
+    Binomials with the same $p$ add to Binomial(13, 0.3); gammas with the same scale add to Gamma(shape 6, scale 3);
+    normals add to $N(-1, 13)$. Different $p$ or different scales break the MGF pattern, and two uniforms give a
+    triangular density, not a uniform one.
+
+- id: ps-m4-r2-q19
+  lesson: ps-sums
+  type: order
+  topic: Sums of random variables
+  stem: 'Put the steps of the MGF method for the distribution of $X + Y$ ($X$, $Y$ independent) in order.'
+  items:
+    - 'Write down $M_X(t)$ and $M_Y(t)$'
+    - 'Multiply them: $M_{X+Y}(t) = M_X(t)M_Y(t)$, using independence'
+    - 'Simplify the product'
+    - 'Recognize the simplified product as the MGF of a known distribution'
+    - 'Conclude by uniqueness that $X + Y$ has that distribution'
+  explanation: |-
+    The product rule needs both MGFs and independence; you can only recognize a product once it is simplified; and the
+    uniqueness of MGFs (near $t = 0$) is what turns "same MGF" into "same distribution".
+
+- id: ps-m4-r2-q20
+  lesson: ps-sums
+  type: text
+  module_quiz: true
+  topic: Sums of random variables
+  stem: '$X_1$ and $X_2$ are iid with variance 9. Then $\operatorname{Var}(X_1 + X_2) =$ ___ and $\operatorname{Var}(2X_1) =$ ___.'
+  accept:
+    - ['18']
+    - ['36']
+  explanation: |-
+    Variances of independent terms add: $9 + 9 = 18$. Doubling one variable multiplies its variance by $2^2$: $4 \times 9 = 36$.
+    Two independent observations partly cancel each other's errors; one observation counted twice does not.
+
+# ---- Lesson 19: conditional expectation
+- id: ps-m4-r2-q21
+  lesson: ps-cond-expectation
+  type: text
+  module_quiz: true
+  topic: Conditional expectation
+  stem: '$E[Y \mid X] = 3X + 1$ and $E[X] = 2$. Then $E[Y] =$ ___.'
+  accept: ['7']
+  explanation: |-
+    By the law of total expectation, $E[Y] = E\big[E[Y \mid X]\big] = E[3X + 1] = 3(2) + 1 = 7$.
+
+- id: ps-m4-r2-q22
+  lesson: ps-cond-expectation
+  type: text
+  topic: Conditional expectation
+  stem: 'The number of orders $N$ in a day is Poisson with mean 4. Each order''s size has mean 10 and SD 3, independently of each other and of $N$. For the total $T$, $\operatorname{Var}(T) =$ ___.'
+  accept: ['436']
+  explanation: |-
+    Random sum: $\operatorname{Var}(T) = \sigma^2E[N] + \mu^2\operatorname{Var}(N) = 9(4) + 100(4) = 436$ (a Poisson count has variance equal to its
+    mean). Forgetting the second term gives 36.
+
+- id: ps-m4-r2-q23
+  lesson: ps-cond-expectation
+  type: match
+  topic: Conditional expectation
+  stem: 'Match each expression to what it is.'
+  pairs:
+    - ['$E[\operatorname{Var}(Y \mid X)]$', The average spread within each condition]
+    - ['$\operatorname{Var}(E[Y \mid X])$', The spread of the conditional means]
+    - ['$E\big[E[Y \mid X]\big]$', The overall mean of Y]
+    - ['$E[Y \mid X]$', 'A random variable: a function of X']
+  distractors: [The SD of Y, 'A single number that does not depend on X']
+  explanation: |-
+    The law of total variance splits $\operatorname{Var}(Y)$ into the within part $E[\operatorname{Var}(Y \mid X)]$ and the between part
+    $\operatorname{Var}(E[Y \mid X])$. Averaging the conditional mean gives $E[Y]$. $E[Y \mid X]$ itself is random, because it depends on
+    the value of $X$; only $E[Y \mid X = x]$ for a fixed $x$ is a number.
+
+- id: ps-m4-r2-q24
+  lesson: ps-cond-expectation
+  module_quiz: true
+  topic: Conditional expectation
+  stem: 'Which statements are true for any random variables $X$ and $Y$ with finite variances? Select all that apply.'
+  choices: ['$E[Y \mid X]$ is a random variable', '$\operatorname{Var}(Y) \ge E[\operatorname{Var}(Y \mid X)]$', '$\operatorname{Var}(Y) = E[\operatorname{Var}(Y \mid X)]$', '$E[Y \mid X]$ minimizes $E[(Y - h(X))^2]$ over all functions $h$', 'In a two-group mixture, the SD of $Y$ is the weighted average of the group SDs']
+  answer: [0, 1, 3]
+  explanation: |-
+    $E[Y \mid X]$ depends on $X$, so it is random. Total variance adds the nonnegative between part
+    $\operatorname{Var}(E[Y \mid X])$ to $E[\operatorname{Var}(Y \mid X)]$, so $\operatorname{Var}(Y)$ is at least the within part, with equality only when the
+    conditional means do not vary. $E[Y \mid X]$ is the best mean-squared-error predictor. Averaging SDs in a
+    mixture ignores the between part (and averages the wrong quantity).
+
+- id: ps-m4-r2-q25
+  lesson: ps-cond-expectation
+  type: text
+  topic: Conditional expectation
+  stem: 'Half of a population is in group A (mean 10, variance 3) and half in group B (mean 14, variance 5). For a randomly chosen member, $\operatorname{Var}(Y) =$ ___.'
+  accept: ['8']
+  explanation: |-
+    Within part: $0.5(3) + 0.5(5) = 4$. Overall mean 12, so the between part is $0.5(10 - 12)^2 + 0.5(14 - 12)^2 = 4$.
+    Total variance $4 + 4 = 8$. Stopping at the within part gives 4.
+
+# ---- Lesson 20: bivariate normal and order statistics
+- id: ps-m4-r2-q26
+  lesson: ps-bivariate-normal
+  type: label
+  module_quiz: true
+  topic: Bivariate normal
+  stem: 'The picture shows a density contour of a bivariate normal pair with $\rho = 0.6$, drawn in standard units. Name the numbered parts.'
+  image: {src: images/ps-m4-bvn-lines-blank.svg, alt: 'An ellipse tilted up to the right with its centre marked. Three straight lines pass through the centre: a dashed line along the long axis of the ellipse, a flatter solid line, and a steeper dotted line.'}
+  labels:
+    - {x: 40.3, y: 51.9, text: 'Centre (μX, μY)'}
+    - {x: 62.8, y: 20.8, text: 'SD line, slope σY/σX'}
+    - {x: 65.3, y: 31.2, text: 'Line of conditional means E[Y | X = x]'}
+    - {x: 53.6, y: 21.2, text: 'Line of conditional means E[X | Y = y]'}
+    - {x: 47.7, y: 62.2, text: Density contour (an ellipse)}
+  distractors: ['Line y = x/ρ through the origin of the page']
+  explanation: |-
+    In standard units the SD line has slope 1 and is the long axis of the ellipse (2). The regression line of $Y$ on
+    $X$ is flatter, slope $\rho = 0.6$ (3), showing regression to the mean. Predicting $X$ from $Y$ uses a steeper line
+    (4), slope $1/\rho$ in this picture. All pass through the centre (1); the ellipse is a set of equal density (5).
+
+- id: ps-m4-r2-q27
+  lesson: ps-bivariate-normal
+  type: text
+  module_quiz: true
+  topic: Bivariate normal
+  stem: '$(X, Y)$ is bivariate normal with $\sigma_Y = 10$ and $\rho = 0.8$. The conditional SD of $Y$ given $X = x$ is ___ (for every $x$).'
+  accept: ['6']
+  explanation: |-
+    $\operatorname{SD}(Y \mid X = x) = \sigma_Y\sqrt{1 - \rho^2} = 10\sqrt{0.36} = 6$. Using $\sigma_Y(1 - \rho) = 2$ or $\sigma_Y(1 - \rho^2) = 3.6$ are the usual slips.
+
+- id: ps-m4-r2-q28
+  lesson: ps-bivariate-normal
+  topic: Bivariate normal
+  stem: 'Which statements are true for every bivariate normal pair $(X, Y)$ with $-1 < \rho < 1$? Select all that apply.'
+  choices: ['$X$ and $Y$ each have a normal distribution', 'The conditional variance of $Y$ given $X = x$ grows with $|x - \mu_X|$', 'If $\rho = 0$, then $X$ and $Y$ are independent', '$E[Y \mid X = x]$ is a linear function of $x$', 'Any two normal random variables form a bivariate normal pair']
+  answer: [0, 2, 3]
+  explanation: |-
+    The marginals are normal, the conditional mean is the regression line, and for a jointly normal pair zero
+    correlation means independence. The conditional variance $\sigma_Y^2(1 - \rho^2)$ is the same for every $x$. Two normal
+    marginals need not be jointly normal (the random-sign example in the lesson).
+
+- id: ps-m4-r2-q29
+  lesson: ps-bivariate-normal
+  type: match
+  topic: Order statistics
+  stem: '$X_1, \dots, X_n$ are iid with cdf $F$. Match each probability to its formula.'
+  pairs:
+    - ['$P(\max X_i \le x)$', 'F(x)^n']
+    - ['$P(\min X_i > x)$', '(1 − F(x))^n']
+    - ['$P(\min X_i \le x)$', '1 − (1 − F(x))^n']
+    - ['$P(\max X_i > x)$', '1 − F(x)^n']
+  distractors: ['n F(x)', '1 − F(x^n)']
+  explanation: |-
+    The maximum is at most $x$ when all values are at most $x$: $F(x)^n$. The minimum exceeds $x$ when all values exceed
+    $x$: $(1 - F(x))^n$. The other two are complements.
+
+- id: ps-m4-r2-q30
+  lesson: ps-bivariate-normal
+  type: order
+  topic: Order statistics
+  stem: 'Components have iid exponential lifetimes with mean 100 hours. Put the systems in order from shortest to longest expected lifetime.'
+  items: ['A series system of 3 components', 'A series system of 2 components', 'A single component', 'A parallel system of 2 components']
+  explanation: |-
+    A series system dies at its first failure, the minimum, which is exponential with the summed rates: means $100/3 \approx 33$
+    and $100/2 = 50$ hours. One component lasts 100 on average. A parallel system lasts until its last failure, the
+    maximum, which is longer than either component (here $100 + 50 = 150$ hours).
+
+# ---- Honors 20h1: covariance matrices and the multivariate normal
+- id: ps-m4-r2-h01
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: 'For a random vector $(X_1, X_2, X_3)$ with covariance matrix $\Sigma$, what is the entry $\Sigma_{23}$?'
+  choices: ['$\operatorname{Var}(X_2) + \operatorname{Var}(X_3)$', '$\operatorname{Corr}(X_2, X_3)$', '$\operatorname{Cov}(X_2, X_3)$', '$E[X_2X_3]$']
+  answer: 2
+  explanation: |-
+    $\Sigma_{ij} = \operatorname{Cov}(X_i, X_j)$, so $\Sigma_{23} = \operatorname{Cov}(X_2, X_3)$ (and $\Sigma_{32}$ is the same number). The correlation is that
+    entry divided by $\sigma_2\sigma_3$, and $E[X_2X_3]$ equals it only when one of the means is 0.
+
+- id: ps-m4-r2-h02
+  lesson: ps-m4-h-multivariate-normal
+  type: text
+  topic: Covariance matrices
+  stem: |-
+    $(X_1, X_2, X_3)$ has covariance matrix
+
+    $$\Sigma = \begin{pmatrix} 5 & 2 & -1 \\ 2 & 10 & 3 \\ -1 & 3 & 8 \end{pmatrix}.$$
+
+    Then $\operatorname{Var}(X_1 + X_2 + X_3) =$ ___.
+  accept: ['31']
+  explanation: |-
+    With $\mathbf{a} = (1, 1, 1)^\top$, $\mathbf{a}^\top\Sigma\mathbf{a}$ is the sum of all nine entries: $5 + 10 + 8 + 2(2 - 1 + 3) = 23 + 8 = 31$.
+    Counting each covariance once gives 27.
+
+- id: ps-m4-r2-h03
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: '$\mathbf{X}$ has covariance matrix $\Sigma$ ($n \times n$) and $A$ is a fixed $m \times n$ matrix. What is the covariance matrix of $A\mathbf{X} + \mathbf{b}$?'
+  choices: ['$A\Sigma A^\top$', '$A^\top\Sigma A$', '$A\Sigma A^\top + \mathbf{b}\mathbf{b}^\top$', '$A\Sigma$']
+  answer: 0
+  explanation: |-
+    $A\mathbf{X} + \mathbf{b}$ minus its mean is $A(\mathbf{X} - \boldsymbol{\mu})$, whose outer product has expectation $A\Sigma A^\top$. Adding a constant
+    does not change covariances. $A^\top\Sigma A$ does not even multiply out unless $m = n$, and $A\Sigma$ is $m \times n$, not $m \times m$.
+
+- id: ps-m4-r2-h04
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: '$\operatorname{Var}(X_1) = 3$, $\operatorname{Var}(X_2) = 5$ and $\operatorname{Cov}(X_1, X_2) = 1$. Using $\mathbf{a}^\top\Sigma\mathbf{a}$ with $\mathbf{a} = (2, -1)^\top$, find $\operatorname{Var}(2X_1 - X_2)$.'
+  choices: ['$21$', '$17$', '$15$', '$13$']
+  answer: 3
+  explanation: |-
+    $\mathbf{a}^\top\Sigma\mathbf{a} = 2^2(3) + (-1)^2(5) + 2(2)(-1)(1) = 12 + 5 - 4 = 13$. 21 adds the covariance term instead of subtracting it,
+    17 leaves it out, and 15 counts it only once.
+
+- id: ps-m4-r2-h05
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: 'Which of these matrices could be the covariance matrix of some random vector? Select all that apply.'
+  choices: ['$\begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix}$', '$\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$', '$\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$', '$\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$', '$\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$']
+  answer: [0, 2]
+  explanation: |-
+    A covariance matrix must be symmetric and positive semidefinite. The first has determinant $4 - 4 = 0$ and positive
+    diagonal, so it is valid (a degenerate case: $X_1 = 2X_2$ plus a constant). The diagonal one is valid. The second
+    would need a correlation of $2$: with $\mathbf{a} = (1, -1)$ it gives variance $1 + 1 - 4 < 0$. The fourth is not symmetric,
+    and the last has a negative variance.
+
+- id: ps-m4-r2-h06
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: 'Three random variables all have the same pairwise correlation $\rho$. What is the smallest possible value of $\rho$?'
+  choices: ['$-1$', '$-\tfrac12$', '$-\tfrac13$', '$0$']
+  answer: 1
+  explanation: |-
+    The sum of the standardized variables has variance $\mathbf{1}^\top\Sigma\mathbf{1} = 3 + 6\rho \ge 0$, so $\rho \ge -\tfrac12$; in general
+    $\rho \ge -1/(n - 1)$. Three variables cannot all be perfectly opposite to each other: if $X_2 = -X_1$ and $X_3 = -X_1$, then
+    $X_2 = X_3$.
+
+- id: ps-m4-r2-h07
+  lesson: ps-m4-h-multivariate-normal
+  type: text
+  topic: Multivariate normal
+  stem: 'The Cholesky factor of $\Sigma = \begin{pmatrix} 9 & 6 \\ 6 & 8 \end{pmatrix}$ is $L = \begin{pmatrix} 3 & 0 \\ \ell_{21} & \ell_{22} \end{pmatrix}$ with $\ell_{21} =$ ___ and $\ell_{22} =$ ___.'
+  accept:
+    - ['2']
+    - ['2']
+  explanation: |-
+    $\ell_{11}\ell_{21} = 6$ gives $\ell_{21} = 6/3 = 2$, and $\ell_{21}^2 + \ell_{22}^2 = 8$ gives $\ell_{22} = \sqrt{8 - 4} = 2$. So
+    $X_1 = \mu_1 + 3Z_1$, $X_2 = \mu_2 + 2Z_1 + 2Z_2$.
+
+- id: ps-m4-r2-h08
+  lesson: ps-m4-h-multivariate-normal
+  topic: Multivariate normal
+  stem: '$(X_1, X_2, X_3)$ is multivariate normal and $\operatorname{Cov}(X_1, X_3) = 0$. What can you conclude?'
+  choices: ['Nothing beyond zero correlation; independence needs more', '$X_1$ and $X_3$ are independent', '$X_1$, $X_2$ and $X_3$ are mutually independent', '$X_1 + X_3$ is not normal']
+  answer: 1
+  explanation: |-
+    The pair $(X_1, X_3)$ is a sub-vector of a multivariate normal, so it is bivariate normal, and for a jointly normal
+    pair zero covariance means independence. Nothing is known about $X_2$'s covariances, and every linear combination,
+    including $X_1 + X_3$, is normal.
+
+- id: ps-m4-r2-h09
+  lesson: ps-m4-h-multivariate-normal
+  topic: Multivariate normal
+  stem: '$(X, Y)$ is bivariate normal (with invertible $\Sigma$) and $Q = (\mathbf{X} - \boldsymbol{\mu})^\top\Sigma^{-1}(\mathbf{X} - \boldsymbol{\mu})$. Find $P(Q \le 2)$.'
+  choices: ['$0.368$', '$0.632$', '$0.843$', '$0.865$']
+  answer: 1
+  explanation: |-
+    $Q \sim \chi^2_2$, which is exponential with mean 2, so $P(Q \le 2) = 1 - e^{-2/2} = 1 - e^{-1} \approx 0.632$. 0.368 is the
+    complement, 0.843 is $P(|Z| \le \sqrt2)$ for one normal, and 0.865 is $P(Q \le 4)$.
+
+- id: ps-m4-r2-h10
+  lesson: ps-m4-h-multivariate-normal
+  type: match
+  topic: Multivariate normal
+  stem: '$\mathbf{X} \sim N_n(\boldsymbol{\mu}, \Sigma)$ with $\Sigma$ invertible. Match each quantity to what it equals.'
+  pairs:
+    - ['$E[A\mathbf{X} + \mathbf{b}]$', 'A mu + b']
+    - ['$\operatorname{Cov}(A\mathbf{X} + \mathbf{b})$', 'A Sigma A-transpose']
+    - ['$\operatorname{Var}(\mathbf{a}^\top\mathbf{X})$', 'a-transpose Sigma a']
+    - ['$(\mathbf{X} - \boldsymbol{\mu})^\top\Sigma^{-1}(\mathbf{X} - \boldsymbol{\mu})$', 'A chi-square variable with n degrees of freedom']
+  distractors: ['A-transpose Sigma A', 'A normal variable with mean 0 and variance n']
+  explanation: |-
+    Means pass through linear maps; covariances become $A\Sigma A^\top$, with the single-row case $\mathbf{a}^\top\Sigma\mathbf{a}$; and the
+    squared Mahalanobis distance equals $\mathbf{Z}^\top\mathbf{Z}$, a sum of $n$ squared independent standard normals, which is $\chi^2_n$.
+
+- id: ps-m4-r2-h11
+  lesson: ps-m4-h-multivariate-normal
+  type: order
+  topic: Multivariate normal
+  stem: 'Midterm and final scores are bivariate normal with $\rho = 0.6$. Put these students, given by their standardized scores $(z_x, z_y)$, in order from least to most unusual (smallest to largest Mahalanobis distance).'
+  items: ['$(0, 0)$', '$(1, 1)$', '$(1.5, 1.5)$', '$(0, 1.5)$', '$(1, -1)$']
+  explanation: |-
+    $Q = (z_x^2 - 1.2z_xz_y + z_y^2)/0.64$ gives 0, 1.25, 2.81, 3.52 and 5. A student above average on both tests, as
+    the positive correlation leads us to expect, is less unusual than one with an average midterm and a high final,
+    and $(1, -1)$, which goes against the correlation, is the most unusual although each score is only 1 SD from its mean.
+
+- id: ps-m4-r2-h12
+  lesson: ps-m4-h-multivariate-normal
+  topic: Covariance matrices
+  stem: '$\operatorname{Var}(X_1) = 4$, $\operatorname{Var}(X_2) = 9$ and $\operatorname{Cov}(X_1, X_2) = 1$. Find $\operatorname{Cov}(X_1 + X_2,\ X_1 - X_2)$.'
+  choices: ['$5$', '$13$', '$-5$', '$-3$']
+  answer: 2
+  explanation: |-
+    $\mathbf{a}^\top\Sigma\mathbf{c}$ with $\mathbf{a} = (1, 1)$, $\mathbf{c} = (1, -1)$: $\Sigma\mathbf{c} = (4 - 1,\ 1 - 9) = (3, -8)$, and $\mathbf{a}^\top\Sigma\mathbf{c} = 3 - 8 = -5$.
+    The covariance terms cancel, leaving $\operatorname{Var}(X_1) - \operatorname{Var}(X_2)$. The other choices come from a sign slip
+    (5), adding the variances (13), or keeping a covariance term (−3).
+
+- id: ps-m4-r2-h13
+  lesson: ps-m4-h-multivariate-normal
+  topic: Multivariate normal
+  stem: 'For a bivariate normal pair with SDs $\sigma_X$, $\sigma_Y$ and correlation $\rho$, what is $\det\Sigma$, the quantity under the square root in the density?'
+  choices: ['$\sigma_X^2\sigma_Y^2(1 - \rho^2)$', '$\sigma_X\sigma_Y(1 - \rho)$', '$\sigma_X^2\sigma_Y^2 - \rho^2$', '$\sigma_X^2 + \sigma_Y^2 - 2\rho\sigma_X\sigma_Y$']
+  answer: 0
+  explanation: |-
+    $\det\begin{pmatrix} \sigma_X^2 & \rho\sigma_X\sigma_Y \\ \rho\sigma_X\sigma_Y & \sigma_Y^2 \end{pmatrix} = \sigma_X^2\sigma_Y^2 - \rho^2\sigma_X^2\sigma_Y^2 = \sigma_X^2\sigma_Y^2(1 - \rho^2)$, so $\sqrt{\det\Sigma} = \sigma_X\sigma_Y\sqrt{1 - \rho^2}$,
+    the factor in the bivariate formula. Subtracting $\rho^2$ alone forgets that the covariance is $\rho\sigma_X\sigma_Y$; the last
+    choice is $\operatorname{Var}(X - Y)$.
+
+- id: ps-m4-r2-h14
+  lesson: ps-m4-h-multivariate-normal
+  topic: Multivariate normal
+  stem: 'Which statements are true? Select all that apply.'
+  choices: ['Every sub-vector of a multivariate normal vector is multivariate normal', 'If $X_1, \dots, X_n$ are each normal, then $(X_1, \dots, X_n)$ is multivariate normal', 'In a multivariate normal vector, the conditional covariance of $\mathbf{X}_1$ given $\mathbf{X}_2 = \mathbf{x}_2$ does not depend on $\mathbf{x}_2$', 'A multivariate normal vector with singular $\Sigma$ has no density in $n$ dimensions', 'Uncorrelated components of any random vector are independent']
+  answer: [0, 2, 3]
+  explanation: |-
+    Sub-vectors are linear maps, so they stay normal. The conditional covariance $\Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$ involves no
+    $\mathbf{x}_2$. A singular $\Sigma$ means some combination is constant, so the vector lives on a lower-dimensional flat.
+    Normal marginals do not guarantee joint normality, and "uncorrelated implies independent" needs joint normality.
+
+# ---- Honors 20h2: ranges and spacings
+- id: ps-m4-r2-h15
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'For iid continuous $X_1, \dots, X_n$ with density $f$, the order statistics have joint density $c\,f(y_1)\cdots f(y_n)$ for $y_1 < \cdots < y_n$. What is $c$?'
+  choices: ['$1$', '$n$', '$1/n!$', '$n!$']
+  answer: 3
+  explanation: |-
+    The sorted sample lands near $(y_1, \dots, y_n)$ when the unsorted sample lands near any of the $n!$ rearrangements, each with
+    density $\prod f(y_i)$. Without the $n!$ the density would integrate to only $1/n!$ over the ordered region.
+
+- id: ps-m4-r2-h16
+  lesson: ps-m4-h-ranges-spacings
+  type: text
+  topic: Ranges and spacings
+  stem: 'Four values are iid Uniform(0, 1). $P(X_{(1)} > 0.2,\ X_{(4)} \le 0.7) =$ ___. Give the exact value.'
+  accept: ['0.0625']
+  explanation: |-
+    Both happen exactly when all four values lie in $(0.2, 0.7]$, an interval of length 0.5: $0.5^4 = 0.0625 = \tfrac1{16}$.
+
+- id: ps-m4-r2-h17
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'For $n$ iid Uniform(0, 1) values, what is the joint density of the minimum $U$ and maximum $V$ on $0 < u < v < 1$?'
+  choices: ['$n(n-1)(v - u)^{n-2}$', '$n^2u^{n-1}v^{n-1}$', '$n(v - u)^{n-1}$', '$n!\,(v - u)^{n-2}$']
+  answer: 0
+  explanation: |-
+    With $F(u) = u$ and $f = 1$, the formula $n(n-1)f(u)f(v)[F(v) - F(u)]^{n-2}$ gives $n(n-1)(v - u)^{n-2}$: two values at the
+    ends (in $n(n-1)$ ordered ways) and the other $n - 2$ in between. $n^2u^{n-1}v^{n-1}$ treats min and max as independent.
+
+- id: ps-m4-r2-h18
+  lesson: ps-m4-h-ranges-spacings
+  type: text
+  topic: Ranges and spacings
+  stem: 'Nine values are iid Uniform(0, 1). The expected range $E[X_{(9)} - X_{(1)}]$ is ___. Give the exact decimal.'
+  accept: ['0.8']
+  explanation: |-
+    $E[R] = \dfrac{n - 1}{n + 1} = \dfrac{8}{10} = 0.8$. The nine points cut $(0, 1)$ into ten gaps of average length 0.1, and the
+    range leaves out the two end gaps.
+
+- id: ps-m4-r2-h19
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'Three values are iid Uniform(0, 1). Find $P(R \le 0.5)$, where $R$ is the range.'
+  choices: ['$0.125$', '$0.25$', '$0.5$', '$0.75$']
+  answer: 2
+  explanation: |-
+    $P(R \le r) = nr^{n-1} - (n-1)r^n = 3(0.25) - 2(0.125) = 0.5$. 0.125 is $0.5^3$, the chance that all three fall in
+    one *fixed* half; the range can sit anywhere.
+
+- id: ps-m4-r2-h20
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'Six components have iid exponential lifetimes with rate $\lambda$. What is the distribution of $D_3 = X_{(3)} - X_{(2)}$, the gap between the second and third failures?'
+  choices: ['Exponential with rate $\lambda$', 'Exponential with rate $3\lambda$', 'Exponential with rate $6\lambda$', 'Exponential with rate $4\lambda$']
+  answer: 3
+  explanation: |-
+    After two failures, four components are still working; by memorylessness the wait for the next failure is the
+    minimum of four fresh exponentials, rate $4\lambda$. In general $D_k$ has rate $(n - k + 1)\lambda$.
+
+- id: ps-m4-r2-h21
+  lesson: ps-m4-h-ranges-spacings
+  type: text
+  topic: Ranges and spacings
+  stem: 'Four components have iid exponential lifetimes with mean 100 hours. The expected time of the second failure is ___ hours. Give the answer to 1 decimal place.'
+  accept: ['58.3', '58.33', '58.333', '175/3']
+  explanation: |-
+    The first gap has mean $100/4 = 25$ and the second $100/3 \approx 33.3$, so $E[X_{(2)}] = 100\big(\tfrac14 + \tfrac13\big) = \tfrac{175}{3} \approx 58.3$ hours.
+
+- id: ps-m4-r2-h22
+  lesson: ps-m4-h-ranges-spacings
+  type: match
+  topic: Ranges and spacings
+  stem: 'A system has 5 components. Match each design to the failure at which the system fails.'
+  pairs:
+    - [Series system (needs all 5), 'X(1), the first failure']
+    - [2-out-of-5 system, 'X(4), the fourth failure']
+    - [4-out-of-5 system, 'X(2), the second failure']
+    - [Parallel system (needs 1), 'X(5), the last failure']
+  distractors: ['X(3), the third failure']
+  explanation: |-
+    A $k$-out-of-$n$ system works while at least $k$ components work, so it fails at failure number $n - k + 1$. Series is
+    5-out-of-5 (first failure), parallel is 1-out-of-5 (last failure), 2-out-of-5 fails at the fourth and 4-out-of-5 at
+    the second.
+
+- id: ps-m4-r2-h23
+  lesson: ps-m4-h-ranges-spacings
+  type: label
+  topic: Ranges and spacings
+  stem: 'Five components are switched on at time 0; the red dots are their failure times. Name the numbered parts.'
+  image: {src: images/ps-m4-h-spacings-blank.svg, alt: 'A time axis starting at 0 with five red dots. Above the axis, five shaded boxes fill the gaps from 0 to the first dot and between successive dots. Below the axis, a bracket runs from the first dot to the last.'}
+  labels:
+    - {x: 22.1, y: 56.0, text: 'First failure X(1)'}
+    - {x: 26.8, y: 43.6, text: 'Spacing D2'}
+    - {x: 53.3, y: 76.0, text: 'Range R'}
+    - {x: 84.6, y: 56.0, text: 'Last failure X(5)'}
+    - {x: 71.7, y: 43.6, text: 'Spacing D5'}
+  distractors: ['Spacing D1', 'Median X(3)']
+  explanation: |-
+    The dots are the order statistics; 1 is the first, 4 the last. The boxes are the spacings: 2 is the gap between the
+    first and second failures, $D_2$, and 5 the final gap $D_5$. The bracket from first to last failure is the range,
+    $R = X_{(5)} - X_{(1)} = D_2 + \cdots + D_5$. $D_1$ is the first box, from 0 to $X_{(1)}$.
+
+- id: ps-m4-r2-h24
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: '$X_1, \dots, X_n$ are iid exponential with rate $\lambda$, and $D_1, \dots, D_n$ are the spacings of their order statistics. Which statements are true? Select all that apply.'
+  choices: ['The spacings $D_1, \dots, D_n$ are independent', 'The first spacing $D_1$ has the largest mean', 'The last spacing $D_n$ has mean $1/\lambda$', 'All the spacings have the same distribution', 'The range $X_{(n)} - X_{(1)}$ has the same distribution as the maximum of $n - 1$ iid exponentials with rate $\lambda$']
+  answer: [0, 2, 4]
+  explanation: |-
+    By the Rényi representation the spacings are independent with rates $n\lambda, (n-1)\lambda, \dots, \lambda$, so their means grow:
+    $D_1$ has the *smallest* mean $1/(n\lambda)$ and $D_n$ the largest, $1/\lambda$. The range is $D_2 + \cdots + D_n$, whose rates
+    $(n-1)\lambda, \dots, \lambda$ are exactly those of the maximum of $n - 1$ exponentials.
+
+- id: ps-m4-r2-h25
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'Three components have iid exponential lifetimes with mean 100 hours. Find the probability that all three failures happen within 100 hours of the first one.'
+  choices: ['$0.135$', '$0.252$', '$0.400$', '$0.632$']
+  answer: 2
+  explanation: |-
+    The range of 3 exponentials is distributed as the maximum of 2, so $P(R \le 100) = (1 - e^{-1})^2 \approx 0.400$. Cubing
+    instead of squaring gives 0.252, and $1 - e^{-1} = 0.632$ is the chance for one gap alone.
+
+- id: ps-m4-r2-h26
+  lesson: ps-m4-h-ranges-spacings
+  type: order
+  topic: Ranges and spacings
+  stem: 'Four components have iid exponential lifetimes with mean 1 year. Put these expected values in order from smallest to largest.'
+  items: ['$E[D_1]$, the time to the first failure', '$E[X_{(2)}]$', '$E[D_4]$, the last gap', '$E[X_{(3)}]$', '$E[X_{(4)}]$']
+  explanation: |-
+    The gaps have means $\tfrac14, \tfrac13, \tfrac12, 1$. So $E[D_1] = 0.25$, $E[X_{(2)}] = 0.25 + 0.33 \approx 0.58$, $E[D_4] = 1$,
+    $E[X_{(3)}] \approx 1.08$ and $E[X_{(4)}] \approx 2.08$.
+
+- id: ps-m4-r2-h27
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'Three values are iid Uniform(0, 1). Find the probability that at least one is below 0.2 and at least one is above 0.8.'
+  choices: ['$0.192$', '$0.216$', '$0.238$', '$0.488$']
+  answer: 0
+  explanation: |-
+    By inclusion–exclusion, $1 - P(\text{none below } 0.2) - P(\text{none above } 0.8) + P(\text{all in } (0.2, 0.8)) = 1 - 2(0.8^3) + 0.6^3 = 0.192$.
+    0.238 multiplies $P(\min \le 0.2) = 0.488$ by $P(\max \ge 0.8) = 0.488$ as if the min and max were independent, and 0.216 is $0.6^3$.
+
+- id: ps-m4-r2-h28
+  lesson: ps-m4-h-ranges-spacings
+  topic: Ranges and spacings
+  stem: 'Why are the spacings of an exponential sample independent, while the spacings of a uniform sample are not?'
+  choices: ['Exponential variables are always positive', 'The exponential distribution is memoryless, so each gap starts a fresh race among the survivors', 'Exponential samples have no maximum', 'Uniform spacings have different means']
+  answer: 1
+  explanation: |-
+    After each failure, memorylessness makes every survivor's remaining life a fresh exponential, whatever happened
+    before, so the next gap ignores the earlier ones. Uniform spacings must add up to at most 1, so a long gap forces the
+    others to be short: they are dependent. (Uniform spacings actually all have the same mean, $1/(n+1)$.)

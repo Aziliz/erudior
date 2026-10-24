@@ -68,7 +68,7 @@
     m: round(p1 + 2*p2, 2)
     q: p0/p2
     z2: p0 + p1*p0 + p2*p0^2
-  where: ['p1 >= 0', 'p2 > p0 + 0.04']
+  where: ['p1 >= 0.05', 'p2 > p0 + 0.04']
   prompt: |-
     In a branching process each individual has 0, 1 or 2 children with probabilities {p0}, {p1} and
     {p2}. Starting from one individual, find the mean offspring number $m$, the probability
@@ -102,18 +102,18 @@
     approx: poissonpdf(lam, k)
     exact: binompdf(nn, pp, k)
   prompt: |-
-    $X \sim \text{Bin}({nn:dp0}, {pp})$. Using the Poisson approximation, find $\lambda$ and
+    $X \sim \text{Bin}({nn:dp0}, {pp:sig3})$. Using the Poisson approximation, find $\lambda$ and
     $P(X = {k})$ (4 decimals), and give the bound that Le Cam's inequality puts on the total variation
     error.
   answers:
     - {name: lam, label: '$\lambda =$', tolerance: 0.001}
     - {name: approx, label: '$P(X = {k}) \approx$', tolerance: 0.0001, format: num4}
-    - {name: bound, label: 'Le Cam bound', relTolerance: 0.01}
+    - {name: bound, label: 'Le Cam bound', relTolerance: 0.01, format: sig3}
   solution: |-
-    $\lambda = np = {nn:dp0}({pp}) =$ **{lam}**, and
+    $\lambda = np = {nn:dp0}({pp:sig3}) =$ **{lam}**, and
     $P(X = {k}) \approx e^{-\lambda}\dfrac{\lambda^{{k}}}{{k}!} \approx$ **{approx:num4}**.
 
-    Le Cam: every $p_i = {pp}$, so $d_{TV} \le \sum p_i^2 = np^2 = {nn:dp0}({pp})^2 =$ **{bound}**.
+    Le Cam: every $p_i = {pp:sig3}$, so $d_{TV} \le \sum p_i^2 = np^2 = {nn:dp0}({pp:sig3})^2 =$ **{bound:sig3}**.
     (The exact binomial value is {exact:num4}, well within the bound.)
 
 - id: ps-m2-r2-poisson-binomial
@@ -135,14 +135,14 @@
     its Poisson approximation (4 decimals each).
   answers:
     - {name: lam, label: '$\lambda =$', tolerance: 0.0001}
-    - {name: ssq, label: '$\sum p_i^2 =$', tolerance: 0.00001}
+    - {name: ssq, label: '$\sum p_i^2 =$', tolerance: 0.00001, format: dp4}
     - {name: exact, label: 'Exact $P(S = 0) =$', tolerance: 0.0001, format: num4}
     - {name: approx, label: 'Poisson $P(S = 0) \approx$', tolerance: 0.0001, format: num4}
   solution: |-
     $\lambda = {a} + {b} + {c} + {d} =$ **{lam}** and
-    $\sum p_i^2 = {a}^2 + {b}^2 + {c}^2 + {d}^2 =$ **{ssq}**.
+    $\sum p_i^2 = {a}^2 + {b}^2 + {c}^2 + {d}^2 =$ **{ssq:dp4}**.
 
-    Exactly, all four must survive: $P(S = 0) = (1 - {a})(1 - {b})(1 - {c})(1 - {d}) \approx$ **{exact:num4}**.
+    Exactly, all four must survive: $P(S = 0) = (1 - {a})(1 - {b})(1 - {c})(1 - {d}) \approx$ **{exact:dp4}**.
 
-    Poisson: $P(S = 0) \approx e^{-\lambda} = e^{-{lam}} \approx$ **{approx:num4}**. The two differ by
-    much less than the bound {ssq}.
+    Poisson: $P(S = 0) \approx e^{-\lambda} = e^{-{lam}} \approx$ **{approx:dp4}**. The two differ by
+    much less than the bound {ssq:dp4}.

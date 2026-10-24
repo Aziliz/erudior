@@ -41,6 +41,13 @@ $$\underbrace{\sum_{i}\sum_{j}(Y_{ij} - \bar Y_{\cdot\cdot})^2}_{\text{SST}} = \
 The cross term is $2\sum_i(\bar Y_{i\cdot} - \bar Y_{\cdot\cdot})\sum_j(Y_{ij} - \bar Y_{i\cdot})$, and each inner sum is
 zero because deviations from a group's own mean sum to zero.
 
+The picture shows the split for one observation of Example 1 below (the value 19 in ballast B).
+Its total deviation from the grand mean, $19 - 14.67 = 4.33$, is the between-group part
+$17 - 14.67 = 2.33$ plus the within-group part $19 - 17 = 2$. SSTr adds up the squared between
+parts of all $N$ observations and SSE the squared within parts.
+
+![Dot plots of settlement for ballasts A, B and C with a short bar at each group mean and a dashed line across the plot at the grand mean 14.67. For the circled observation 19 in ballast B, a black arrow runs from the grand mean up to 19 (total 4.33). Beside it a blue arrow runs from the grand mean up to B's group mean 17 (between 2.33), and a red arrow continues from 17 up to 19 (within 2).](images/ps-m8-anova-split.svg)
+
 - The **total sum of squares** SST measures all the variation, on $N - 1$ df.
 - The **treatment sum of squares** SSTr (also called the between-groups sum of squares) measures
   how far the group means are from each other, on $k - 1$ df.
@@ -150,6 +157,21 @@ $2.779\sqrt{2.833(2/5)} = 2.96$.
 - C − A $= 1$: not significant.
 
 Ballast B settles more than both A and C; A and C can't be distinguished.
+
+The whole procedure, from assumptions to follow-up comparisons, fits in one chart.
+
+```mermaid
+flowchart TD
+  accTitle: Steps of a one-way ANOVA
+  accDescr: Check independence, roughly normal groups and similar spreads. Compute SSTr and SSE and their degrees of freedom, form the mean squares and the ANOVA table, and compute F = MSTr / MSE with its p-value. If F is not significant, stop: there is no evidence the means differ. If it is significant, compare pairs of means with Bonferroni or Tukey to find which ones differ.
+  A["Check independence, normal-ish groups, similar spreads"] --> B["Compute SSTr and SSE with df k - 1 and N - k"]
+  B --> C["Mean squares MSTr and MSE"]
+  C --> D["F = MSTr / MSE and its p-value"]
+  D --> E{"Reject H0?"}
+  E -- no --> F["Stop: no evidence the means differ"]
+  E -- yes --> G["Pairwise comparisons with Bonferroni or Tukey"]
+  G --> H["Report which means differ"]
+```
 
 ## Common mistakes
 

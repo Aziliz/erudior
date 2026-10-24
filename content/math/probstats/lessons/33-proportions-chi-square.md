@@ -139,6 +139,10 @@ Defects found on the day and night shifts, by severity:
 | Night | 40 | 35 | 25 | 100 |
 | Total | 100 | 65 | 35 | 200 |
 
+The same table with each expected count in parentheses beside the observed count:
+
+![A two-way table with rows Day and Night and columns Minor, Moderate and Severe. Each cell shows the observed count with the expected count in parentheses: Day 60 (50), 30 (32.5), 10 (17.5); Night 40 (50), 35 (32.5), 25 (17.5). Row totals are 100 and 100, column totals 100, 65 and 35, and the grand total is 200.](images/ps-m7-two-way-table.svg)
+
 1. *Expected counts.* $E_{11} = 100(100)/200 = 50$; likewise 32.5 and 17.5 in each row.
 2. *Contributions.* Minor: $10^2/50 = 2.00$ per row; moderate: $2.5^2/32.5 = 0.192$; severe: $7.5^2/17.5 = 3.214$.
 3. $X^2 = 2(2.00 + 0.192 + 3.214) = 10.81$ on $(2-1)(3-1) = 2$ df; p-value $\approx 0.0045$.
@@ -153,6 +157,24 @@ records more severe defects than independence predicts.
 **When the approximation is trustworthy.** The rule of thumb is that every expected count be at
 least 5 (some allow a few cells down to 1 if most are above 5). Combine sparse categories, or use
 an exact test (such as Fisher's exact test for $2 \times 2$ tables), when counts are small.
+
+## Choosing the test for counts
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a test for count data
+  accDescr: For one proportion, use the one-proportion z test when n p0 and n times 1 minus p0 are both at least 10, and the exact binomial test otherwise. For two proportions, use the two-proportion z test with the pooled proportion. For one sample classified into k categories, use the chi-square goodness-of-fit test with k minus 1 minus m degrees of freedom. For two categorical variables in a table, use the chi-square test of independence or homogeneity with (r minus 1)(c minus 1) degrees of freedom. If expected counts are small, combine categories or use an exact test.
+  Q{"What is being compared?"} -- one proportion --> L{"np0 and n(1 − p0) at least 10?"}
+  L -- yes --> Z1["One-proportion z test"]
+  L -- no --> EX["Exact binomial test"]
+  Q -- two proportions --> Z2["Two-proportion z test, pooled p"]
+  Q -- "k categories, one sample" --> G["Goodness of fit, k − 1 − m df"]
+  Q -- two-way table --> I["Independence or homogeneity, (r − 1)(c − 1) df"]
+  G --> S{"All expected counts at least 5?"}
+  I --> S
+  S -- yes --> OK["Use the chi-square approximation"]
+  S -- no --> C["Combine categories or use an exact test"]
+```
 
 ## Common mistakes
 

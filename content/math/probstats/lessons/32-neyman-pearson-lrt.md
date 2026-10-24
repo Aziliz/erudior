@@ -38,7 +38,7 @@ rejection region from the top: first $t = 10$, then 9, then 8. Stopping after $t
 $0.001 + 0.010 + 0.044 = 0.055$ of null probability and buys power $0.107 + 0.268 + 0.302 = 0.678$.
 
 ```plot
-{"x": [2.4, 10.7], "y": [0, 0.34], "xLabel": "number of successes t", "yLabel": "probability", "bars": [{"x": 2.82, "height": 0.1172, "width": 0.36, "color": "#2c5e8f"}, {"x": 3.18, "height": 0.0008, "width": 0.36, "color": "#c2570c"}, {"x": 3.82, "height": 0.2051, "width": 0.36, "color": "#2c5e8f"}, {"x": 4.18, "height": 0.0055, "width": 0.36, "color": "#c2570c"}, {"x": 4.82, "height": 0.2461, "width": 0.36, "color": "#2c5e8f"}, {"x": 5.18, "height": 0.0264, "width": 0.36, "color": "#c2570c"}, {"x": 5.82, "height": 0.2051, "width": 0.36, "color": "#2c5e8f"}, {"x": 6.18, "height": 0.0881, "width": 0.36, "color": "#c2570c"}, {"x": 6.82, "height": 0.1172, "width": 0.36, "color": "#2c5e8f"}, {"x": 7.18, "height": 0.2013, "width": 0.36, "color": "#c2570c"}, {"x": 7.82, "height": 0.0439, "width": 0.36, "color": "#2c5e8f"}, {"x": 8.18, "height": 0.302, "width": 0.36, "color": "#c2570c"}, {"x": 8.82, "height": 0.0098, "width": 0.36, "color": "#2c5e8f"}, {"x": 9.18, "height": 0.2684, "width": 0.36, "color": "#c2570c"}, {"x": 9.82, "height": 0.001, "width": 0.36, "color": "#2c5e8f"}, {"x": 10.18, "height": 0.1074, "width": 0.36, "color": "#c2570c"}], "segments": [{"from": [8.5, 0], "to": [8.5, 0.33], "dashed": true}], "labels": [{"at": [9.6, 0.325], "text": "reject: t ≥ 8"}, {"at": [5, 0.28], "text": "blue: p = 0.5 (H₀)"}, {"at": [5, 0.25], "text": "orange: p = 0.8 (H₁)"}], "caption": "Null (blue, left) and alternative (orange, right) probabilities of each t from 3 to 10 (t = 0, 1, 2 have null probability 0.001, 0.010, 0.044 and are never rejected); the region t ≥ 8 has size 0.055 and power 0.678"}
+{"x": [2.4, 10.7], "y": [0, 0.37], "xLabel": "number of successes t", "yLabel": "probability", "bars": [{"x": 2.82, "height": 0.1172, "width": 0.36, "color": "#2c5e8f"}, {"x": 3.18, "height": 0.0008, "width": 0.36, "color": "#c2570c"}, {"x": 3.82, "height": 0.2051, "width": 0.36, "color": "#2c5e8f"}, {"x": 4.18, "height": 0.0055, "width": 0.36, "color": "#c2570c"}, {"x": 4.82, "height": 0.2461, "width": 0.36, "color": "#2c5e8f"}, {"x": 5.18, "height": 0.0264, "width": 0.36, "color": "#c2570c"}, {"x": 5.82, "height": 0.2051, "width": 0.36, "color": "#2c5e8f"}, {"x": 6.18, "height": 0.0881, "width": 0.36, "color": "#c2570c"}, {"x": 6.82, "height": 0.1172, "width": 0.36, "color": "#2c5e8f"}, {"x": 7.18, "height": 0.2013, "width": 0.36, "color": "#c2570c"}, {"x": 7.82, "height": 0.0439, "width": 0.36, "color": "#2c5e8f"}, {"x": 8.18, "height": 0.302, "width": 0.36, "color": "#c2570c"}, {"x": 8.82, "height": 0.0098, "width": 0.36, "color": "#2c5e8f"}, {"x": 9.18, "height": 0.2684, "width": 0.36, "color": "#c2570c"}, {"x": 9.82, "height": 0.001, "width": 0.36, "color": "#2c5e8f"}, {"x": 10.18, "height": 0.1074, "width": 0.36, "color": "#c2570c"}], "segments": [{"from": [8.5, 0], "to": [8.5, 0.36], "dashed": true}], "labels": [{"at": [9.6, 0.35], "text": "reject: t ≥ 8"}, {"at": [4.2, 0.33], "text": "blue: p = 0.5 (H₀)"}, {"at": [4.2, 0.30], "text": "orange: p = 0.8 (H₁)"}], "caption": "Null (blue, left) and alternative (orange, right) probabilities of each t from 3 to 10 (t = 0, 1, 2 have null probability 0.001, 0.010, 0.044 and are never rejected); the region t ≥ 8 has size 0.055 and power 0.678"}
 ```
 
 **Proof (continuous case).** Let $C'$ be any other region with $P_{\theta_0}(C') \le \alpha$, and write
@@ -141,8 +141,27 @@ historical Poisson rate $\lambda_0 = 3$?
 3. *Reference distribution.* $\Omega$ is one-dimensional and $\Omega_0$ is a point, so $r = 1$. The
    p-value is $P(\chi^2_1 \ge 4.51) \approx 0.034$. Reject at 5%.
 
-The Wald-type $z$ statistic $(\bar x - \lambda_0)/\sqrt{\lambda_0/n} = 2.19$ has $z^2 = 4.80$, close to 4.51,
+The $z$ statistic $(\bar x - \lambda_0)/\sqrt{\lambda_0/n} = 2.19$ (the score statistic, since it uses the null
+variance) has $z^2 = 4.80$, close to 4.51,
 as the Taylor argument predicts.
+
+## The recipe
+
+The chart collects the steps for building a likelihood ratio test. The first branch is the
+important one: if $\Lambda$ reduces to a statistic whose exact null distribution you know (as with
+the $t$ test), use it; otherwise fall back on Wilks' approximation.
+
+```mermaid
+flowchart TD
+  accTitle: Building a likelihood ratio test
+  accDescr: Write the likelihood. Maximize it over the whole parameter space and over the null hypothesis, and form the ratio Lambda of the two maxima. If Lambda is a monotone function of a statistic with a known null distribution, reject for the matching tail of that statistic, an exact test. Otherwise compute minus two log Lambda and compare it with the chi-square critical value whose degrees of freedom are the number of parameters fixed by H0, a large-sample test.
+  A["Write the likelihood L(θ)"] --> B["Maximize over all θ and over H0"]
+  B --> C["Form Λ = restricted max / overall max"]
+  C --> D{"Λ monotone in a statistic with a known null distribution?"}
+  D -- yes --> E["Reject for the matching tail of that statistic (exact test)"]
+  D -- no --> F["Compute −2 ln Λ"]
+  F --> G["Compare with chi-square, df = number of parameters fixed by H0 (large n)"]
+```
 
 ```plot
 {"x": [2.4, 5], "y": [-6, 0.8], "xLabel": "λ", "yLabel": "ℓ(λ) − ℓ(λ̂)", "functions": [{"f": "40*(3.6*ln(x/3.6) - (x - 3.6))", "from": 2.4, "to": 5}], "segments": [{"from": [3, 0], "to": [3, -2.254], "dashed": true}], "points": [{"at": [3.6, 0], "label": "MLE 3.6"}, {"at": [3, -2.254], "label": "λ₀ = 3: drop 2.25"}], "caption": "The log-likelihood falls by 2.25 from its peak at λ₀ = 3, so −2 ln Λ = 4.51"}

@@ -1,0 +1,479 @@
+# Round 2 questions for module ps-m5: core lessons ps-lln and ps-clt (q01-q12),
+# honors lessons ps-m5-h-chernoff-hoeffding and ps-m5-h-convergence-slutsky (h01-h28).
+
+# ---------- ps-lln ----------
+- id: ps-m5-r2-q01
+  lesson: ps-lln
+  module_quiz: true
+  type: text
+  topic: Probability inequalities
+  stem: 'By Chebyshev''s inequality, at least what fraction of any distribution''s probability lies within 4 standard deviations of its mean? Give a fraction or decimal.'
+  accept: ['15/16', '0.9375', '93.75%']
+  explanation: |-
+    With $k = 4$, at most $1/k^2 = 1/16$ lies 4 or more SDs away, so at least $1 - 1/16 = 15/16 = 0.9375$ lies within 4 SDs.
+
+- id: ps-m5-r2-q02
+  lesson: ps-lln
+  type: label
+  topic: Probability inequalities
+  stem: 'This picture illustrates Chebyshev''s inequality on a right-skewed density. Name the numbered parts.'
+  image: {src: images/ps-m5-chebyshev-band-blank.svg, alt: 'A right-skewed density curve with a solid vertical line, two dashed vertical lines equally far to its left and right with arrows marked k sigma, shaded tails outside the dashed lines and an unshaded middle. Five points are numbered.'}
+  labels:
+    - {x: 33.6, y: 13.3, text: Mean}
+    - {x: 10.5, y: 23.8, text: Mean minus k standard deviations}
+    - {x: 56.7, y: 23.8, text: Mean plus k standard deviations}
+    - {x: 70.9, y: 70.0, text: Tail region (both tails together at most 1/k²)}
+    - {x: 29.2, y: 47.0, text: Central band (at least 1 − 1/k²)}
+  distractors: [Mode, Median plus k standard deviations]
+  explanation: |-
+    The solid line is the mean $\mu$; the arrows of length $k\sigma$ run from it to the dashed cutoffs $\mu - k\sigma$ and $\mu + k\sigma$.
+    Chebyshev says the shaded tails outside the band hold at most $1/k^2$ together, so the band holds at least $1 - 1/k^2$.
+    The mode is at the peak of the curve, left of the mean for this right-skewed density, and the band is centered on the mean, not the median.
+
+- id: ps-m5-r2-q03
+  lesson: ps-lln
+  topic: Probability inequalities
+  stem: 'Which of these are guaranteed by Chebyshev''s inequality for every distribution with mean $\mu$ and finite standard deviation $\sigma$? Select all that apply.'
+  choices:
+    - 'At least 75% of the probability lies within $2\sigma$ of $\mu$.'
+    - 'At least 95% of the probability lies within $2\sigma$ of $\mu$.'
+    - 'At most $1/9$ of the probability lies $3\sigma$ or more from $\mu$.'
+    - 'At most 25% of the probability lies $1\sigma$ or more from $\mu$.'
+  answer: [0, 2]
+  explanation: |-
+    Chebyshev: $P(|X - \mu| \ge k\sigma) \le 1/k^2$. With $k = 2$: at most $1/4$ outside, so at least 75% within. With $k = 3$: at most $1/9$.
+    The 95% figure is true for a normal distribution, not for every distribution. With $k = 1$ the bound is $1/1 = 1$, which says nothing; it certainly doesn't cap the probability at 25%.
+
+- id: ps-m5-r2-q04
+  lesson: ps-lln
+  type: order
+  topic: Law of large numbers
+  stem: 'Put the steps of the proof of the weak law of large numbers in order.'
+  items:
+    - 'Compute $E[\bar X_n] = \mu$ and $\operatorname{Var}(\bar X_n) = \sigma^2/n$.'
+    - 'Apply Chebyshev''s inequality to $\bar X_n$.'
+    - 'Conclude $P(|\bar X_n - \mu| \ge \varepsilon) \le \sigma^2/(n\varepsilon^2)$.'
+    - 'Let $n \to \infty$: the bound goes to 0, so $\bar X_n \xrightarrow{P} \mu$.'
+  explanation: |-
+    Chebyshev needs the mean and variance of $\bar X_n$, so those come first. Applying it gives the bound $\sigma^2/(n\varepsilon^2)$, and letting $n$ grow sends the bound to 0, which is the definition of convergence in probability.
+
+- id: ps-m5-r2-q05
+  lesson: ps-lln
+  module_quiz: true
+  type: match
+  topic: Probability inequalities
+  stem: 'Match each situation to the best tool for a tail probability.'
+  pairs:
+    - ['$X \ge 0$; only its mean is known', Markov's inequality]
+    - ['Mean and variance known; shape unknown', Chebyshev's inequality]
+    - ['The full distribution is known', Exact calculation]
+    - ['An average of many iid values; an approximate value is fine', Central Limit Theorem]
+  distractors: [Bayes' theorem]
+  explanation: |-
+    Use the strongest tool your information allows. Markov needs only nonnegativity and the mean; Chebyshev uses the variance as well; with the whole distribution you can compute exactly; and for an average of many iid values the CLT gives a close approximation (though not a guarantee).
+
+- id: ps-m5-r2-q06
+  lesson: ps-lln
+  type: text
+  topic: Probability inequalities
+  stem: 'A nonnegative waiting time has mean 12 minutes. Markov''s inequality says $P(X \ge 48) \le$ ___. Give a number.'
+  accept: ['0.25', '1/4']
+  explanation: |-
+    Markov: $P(X \ge a) \le E[X]/a = 12/48 = 0.25$.
+
+# ---------- ps-clt ----------
+- id: ps-m5-r2-q07
+  lesson: ps-clt
+  type: label
+  topic: Central Limit Theorem
+  stem: 'The picture shows the normal approximation to $P(X \le 10)$ for $X \sim \text{Bin}(30, 0.4)$. Name the numbered parts.'
+  image: {src: images/ps-m5-continuity-bars-blank.svg, alt: 'Binomial probability bars for x from 4 to 21 with a bell-shaped curve over them, a solid vertical line at 12, a dashed vertical line just right of the bar at 10, and the bars up to 10 shaded. Four points are numbered.'}
+  labels:
+    - {x: 39.0, y: 54.4, text: Bar for P(X = 10)}
+    - {x: 41.5, y: 19.0, text: Corrected cutoff at 10.5}
+    - {x: 48.9, y: 11.0, text: Mean np = 12}
+    - {x: 71.6, y: 63.3, text: Approximating normal curve}
+  distractors: [Corrected cutoff at 9.5, Standard deviation]
+  explanation: |-
+    Each bar has width 1 and is centered on an integer, so the bar for $X = 10$ runs from 9.5 to 10.5. To include it in $P(X \le 10)$ the normal area must run to 10.5. The curve is $N(np, np(1-p)) = N(12, 7.2)$, centered at the solid line $np = 12$. A cutoff at 9.5 would leave out the bar for 10 (it is the cutoff for $P(X \le 9)$).
+
+- id: ps-m5-r2-q08
+  lesson: ps-clt
+  type: order
+  topic: Central Limit Theorem
+  stem: 'Put the steps for approximating $P(S_n \le k)$ in order, where $S_n$ is a sum of $n$ iid whole-number counts.'
+  items:
+    - Find the mean and variance of one term.
+    - 'Scale up to the sum: mean $n\mu$, variance $n\sigma^2$.'
+    - 'Apply the continuity correction: use $k + 0.5$.'
+    - 'Standardize: $z = (k + 0.5 - n\mu)/(\sigma\sqrt n)$.'
+    - Read the probability from the standard normal cdf.
+  explanation: |-
+    The sum's mean and variance come from one term's, so those come first. The continuity correction changes the cutoff, which must happen before standardizing, and the z-score must exist before you can look up $\Phi(z)$.
+
+- id: ps-m5-r2-q09
+  lesson: ps-clt
+  module_quiz: true
+  type: text
+  topic: Central Limit Theorem
+  stem: '$X \sim \text{Bin}(400, 0.3)$. To approximate $P(X \ge 130)$ with a continuity correction, the normal cutoff is ___. Give only the number.'
+  accept: ['129.5']
+  explanation: |-
+    $X \ge 130$ includes the bar for 130, which runs from 129.5 to 130.5, so the normal area starts at 129.5: $P(X \ge 130) \approx P\big(Z \ge (129.5 - 120)/\sqrt{84}\big)$. Using 130.5 would drop that bar.
+
+- id: ps-m5-r2-q10
+  lesson: ps-clt
+  topic: Central Limit Theorem
+  stem: 'For which of these is a CLT normal approximation reasonable? Select all that apply.'
+  choices:
+    - The mean of 100 iid values uniform on (0, 1)
+    - The mean of 200 iid Cauchy values
+    - The total of 50 iid exponential waiting times
+    - A single exponential waiting time
+  answer: [0, 2]
+  explanation: |-
+    The CLT is about sums and means of many iid terms with finite variance. 100 uniforms (symmetric, light tails) and 50 exponentials (moderately skewed) both qualify. Cauchy values have no finite variance, and their mean is Cauchy for every $n$. A single exponential is not a sum of many terms; it stays strongly skewed.
+
+- id: ps-m5-r2-q11
+  lesson: ps-clt
+  module_quiz: true
+  type: match
+  topic: Central Limit Theorem
+  stem: '$X_1, \dots, X_n$ are iid with mean $\mu$ and variance $\sigma^2$, and $n$ is large. Match each quantity to its approximate distribution.'
+  pairs:
+    - ['$S_n = X_1 + \cdots + X_n$', 'Normal, mean nμ, variance nσ²']
+    - ['$\bar X_n$', 'Normal, mean μ, variance σ²/n']
+    - ['$(\bar X_n - \mu)/(\sigma/\sqrt n)$', Standard normal]
+    - ['$X \sim \text{Bin}(n, p)$', 'Normal, mean np, variance np(1 − p)']
+  distractors: ['Normal, mean μ, variance σ²']
+  explanation: |-
+    A sum has mean $n\mu$ and variance $n\sigma^2$; a mean has mean $\mu$ and variance $\sigma^2/n$; standardizing gives $N(0, 1)$; a binomial count is a sum of $n$ Bernoulli($p$) terms with mean $p$ and variance $p(1-p)$. "Mean μ, variance σ²" is the distribution of one observation, which the CLT does not change.
+
+- id: ps-m5-r2-q12
+  lesson: ps-clt
+  type: text
+  topic: Central Limit Theorem
+  stem: 'Twenty-five iid amounts each have mean 4 and variance 9. Their total has standard deviation ___.'
+  accept: ['15']
+  explanation: |-
+    Variances add for independent terms: $\operatorname{Var}(S_{25}) = 25 \times 9 = 225$, so the SD is $\sqrt{225} = 15$ (that is, $\sqrt n\,\sigma = 5 \times 3$). Adding SDs ($25 \times 3 = 75$) is the classic mistake.
+
+# ---------- ps-m5-h-chernoff-hoeffding ----------
+- id: ps-m5-r2-h01
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'The Chernoff bound $P(X \ge a) \le e^{-ta}M_X(t)$ comes from applying Markov''s inequality to which random variable?'
+  choices: ['$e^{tX}$ with $t > 0$', '$(X - \mu)^2$', '$|X|$', '$X - a$']
+  answer: 0
+  explanation: |-
+    For $t > 0$, $X \ge a$ exactly when $e^{tX} \ge e^{ta}$, and $e^{tX}$ is nonnegative, so Markov gives $P(X \ge a) \le E[e^{tX}]/e^{ta}$. Applying Markov to $(X - \mu)^2$ is the proof of Chebyshev. $X - a$ can be negative, so Markov doesn't apply to it.
+
+- id: ps-m5-r2-h02
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: '$Z \sim N(0, 1)$. What does the optimized Chernoff bound give for $P(Z \ge 2)$?'
+  choices: ['$0.023$', '$1/4$', '$e^{-2} \approx 0.135$', '$e^{-4} \approx 0.018$']
+  answer: 2
+  explanation: |-
+    For the normal, the optimized bound is $e^{-z^2/2}$; with $z = 2$ that is $e^{-2} \approx 0.135$. The exact tail is $0.023$ (a value, not the bound); $1/4$ is the Chebyshev bound for two tails; $e^{-4}$ forgets the factor $\tfrac12$ in the exponent and is actually below the true probability, so it can't be a valid bound.
+
+- id: ps-m5-r2-h03
+  lesson: ps-m5-h-chernoff-hoeffding
+  type: text
+  topic: Concentration inequalities
+  stem: 'Observations lie in $[0, 1]$. By Hoeffding''s inequality, the smallest sample size that guarantees $P(|\bar X - \mu| \ge 0.1) \le 0.05$ is $n =$ ___. Give only the number.'
+  accept: ['185']
+  explanation: |-
+    Require $2e^{-2n(0.1)^2} \le 0.05$, i.e. $e^{-0.02n} \le 0.025$, so $n \ge \ln(40)/0.02 \approx 184.4$. Round up to 185.
+
+- id: ps-m5-r2-h04
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'Two hundred independent observations lie in $[0, 1]$. What does Hoeffding''s inequality give for $P(\bar X - \mu \ge 0.1)$ (one side only)?'
+  choices: ['$0.135$', '$0.125$', '$0.0366$', '$0.0183$']
+  answer: 3
+  explanation: |-
+    One-sided Hoeffding: $e^{-2n\varepsilon^2} = e^{-2(200)(0.01)} = e^{-4} \approx 0.0183$. $0.0366$ is the two-sided bound $2e^{-4}$; $0.125 = 1/(4n\varepsilon^2)$ is Chebyshev's; $0.135 = e^{-2}$ drops the factor 2 in the exponent.
+
+- id: ps-m5-r2-h05
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'Which conditions does Hoeffding''s inequality for $S_n = X_1 + \cdots + X_n$ require? Select all that apply.'
+  choices:
+    - The $X_i$ are independent.
+    - The $X_i$ are normally distributed.
+    - Each $X_i$ lies in a known bounded interval.
+    - The exact MGF of each $X_i$ is known.
+  answer: [0, 2]
+  explanation: |-
+    Hoeffding needs independence (the MGF of the sum factors) and a known range $[a_i, b_i]$ for each term; Hoeffding's lemma then bounds each centered MGF without knowing it. Normality is not needed. Knowing the exact MGF is what the plain Chernoff method uses, and it can give a sharper bound, but Hoeffding does without it.
+
+- id: ps-m5-r2-h06
+  lesson: ps-m5-h-chernoff-hoeffding
+  type: order
+  topic: Concentration inequalities
+  stem: 'Put the steps of the proof of Hoeffding''s inequality in order.'
+  items:
+    - 'Apply Markov''s inequality to $e^{s(S_n - E[S_n])}$ with $s > 0$.'
+    - Use independence to write the expectation as a product of single-term factors.
+    - Bound each factor with Hoeffding's lemma.
+    - 'Choose $s$ to minimize the resulting exponent.'
+  explanation: |-
+    This is the Chernoff method: Markov on the exponential first; the product form needs independence; Hoeffding's lemma bounds each factor by $e^{s^2(b_i - a_i)^2/8}$; finally the exponent $-su + s^2c/8$ is minimized at $s = 4u/c$, giving $e^{-2u^2/c}$.
+
+- id: ps-m5-r2-h07
+  lesson: ps-m5-h-chernoff-hoeffding
+  type: match
+  topic: Concentration inequalities
+  stem: 'Match each inequality to the information it needs.'
+  pairs:
+    - [Markov's inequality, Nonnegativity and the mean]
+    - [Chebyshev's inequality, The mean and the variance]
+    - [Chernoff bound, The moment generating function]
+    - [Hoeffding's inequality, Independent terms with known bounded ranges]
+  distractors: [The median and the mode]
+  explanation: |-
+    Each step up uses more information and gives a sharper bound: Markov uses only $E[X]$ (for $X \ge 0$), Chebyshev adds the variance, Chernoff uses the whole MGF, and Hoeffding replaces the MGF by a bound that needs only each term's range (plus independence).
+
+- id: ps-m5-r2-h08
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: '$S \sim \text{Bin}(500, 0.5)$. With $D(0.6\,\|\,0.5) \approx 0.0201$, what is the Chernoff bound for $P(S \ge 300)$?'
+  choices: ['$4.2 \times 10^{-5}$', '$4.5 \times 10^{-5}$', '$0.05$', '$0.0201$']
+  answer: 0
+  explanation: |-
+    $e^{-nD} = e^{-500(0.020136)} = e^{-10.07} \approx 4.2 \times 10^{-5}$. Hoeffding gives the slightly weaker $e^{-2(500)(0.1)^2} = e^{-10} \approx 4.5 \times 10^{-5}$; Chebyshev gives $125/50^2 = 0.05$; $0.0201$ is $D$ itself, not the bound.
+
+- id: ps-m5-r2-h09
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'Why does the Hoeffding sample size for $P(|\bar X - \mu| \ge \varepsilon) \le \delta$ grow only like $\ln(1/\delta)$, while Chebyshev''s grows like $1/\delta$?'
+  choices:
+    - 'Hoeffding assumes the data are normal, and Chebyshev does not.'
+    - 'Hoeffding''s bound decays exponentially in $n$, so solving $2e^{-2n\varepsilon^2} \le \delta$ takes a logarithm.'
+    - 'Hoeffding uses a smaller $\varepsilon$ than Chebyshev.'
+    - 'Hoeffding''s bound is an approximation, so it can be smaller.'
+  answer: 1
+  explanation: |-
+    Chebyshev's bound $\sigma^2/(n\varepsilon^2)$ is $\propto 1/n$, so $n \propto 1/\delta$. Hoeffding's bound is $2e^{-2n\varepsilon^2}$; solving for $n$ gives $n \ge \ln(2/\delta)/(2\varepsilon^2)$. Hoeffding needs no normality and is a guarantee, not an approximation.
+
+- id: ps-m5-r2-h10
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'For which of these averages can Hoeffding''s inequality NOT be applied directly?'
+  choices:
+    - The proportion of defective items in a random sample
+    - The average score on a test marked from 0 to 100
+    - The average of iid exponential waiting times
+    - The average reading of a sensor that outputs 0 to 5 volts
+  answer: 2
+  explanation: |-
+    Hoeffding needs each term in a known bounded interval. Proportions (0 or 1), test scores (0 to 100) and sensor readings (0 to 5) are bounded; exponential waiting times can be arbitrarily large. For them, use the Chernoff method with the exponential MGF instead.
+
+- id: ps-m5-r2-h11
+  lesson: ps-m5-h-chernoff-hoeffding
+  type: text
+  topic: Concentration inequalities
+  stem: 'For $X \sim N(\mu, \sigma^2)$ the optimized Chernoff bound gives $P(X \ge \mu + 4\sigma) \le e^{-k}$ with $k =$ ___.'
+  accept: ['8']
+  explanation: |-
+    The normal Chernoff bound is $e^{-z^2/2}$; with $z = 4$, $z^2/2 = 8$. (The bound $e^{-8} \approx 3.4 \times 10^{-4}$ compares with the exact $3.2 \times 10^{-5}$.)
+
+- id: ps-m5-r2-h12
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'What does Cramér''s theorem say about the Chernoff bound for $P(\bar X_n \ge a)$, $a > \mu$?'
+  choices:
+    - 'It is exactly equal to the probability for every $n$.'
+    - 'It is wrong for large $n$, where the CLT must be used instead.'
+    - 'It has the correct exponential rate: $\tfrac1n\ln P(\bar X_n \ge a) \to -I(a)$, the Chernoff exponent.'
+    - 'It decays like $1/n$, the same rate as Chebyshev''s bound.'
+  answer: 2
+  explanation: |-
+    Cramér's theorem identifies the true exponential rate of decay as the rate function $I(a) = \sup_t[ta - \ln M(t)]$, which is the exponent in the Chernoff bound $e^{-nI(a)}$. The bound can still be off by factors that grow more slowly than exponentially, so it is not exact for each $n$. It is never wrong (it is a valid bound), and it decays exponentially, not like $1/n$.
+
+- id: ps-m5-r2-h13
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'A classifier is tested on 1,000 independent fresh examples, each right or wrong. What does Hoeffding''s inequality give for $P(|\hat e - e| \ge 0.05)$, where $\hat e$ is the observed error rate?'
+  choices: ['$0.0067$', '$0.0135$', '$0.1$', '$0.082$']
+  answer: 1
+  explanation: |-
+    Two-sided Hoeffding with range 1: $2e^{-2(1000)(0.05)^2} = 2e^{-5} \approx 0.0135$. $0.0067$ is the one-sided bound $e^{-5}$; $0.1$ is Chebyshev's $1/(4n\varepsilon^2)$; $0.082 = e^{-n\varepsilon^2} = e^{-2.5}$ drops the factor 2 in the exponent and is one-sided.
+
+- id: ps-m5-r2-h14
+  lesson: ps-m5-h-chernoff-hoeffding
+  topic: Concentration inequalities
+  stem: 'Which statements about the Chernoff bound $P(X \ge a) \le e^{-ta}M_X(t)$ are true? Select all that apply.'
+  choices:
+    - 'Every $t > 0$ at which the MGF is finite gives a valid upper bound.'
+    - 'The bound can fall below the true probability.'
+    - 'For a sum of independent terms, the MGF in it is a product of single-term MGFs.'
+    - 'It requires the variable to be bounded.'
+  answer: [0, 2]
+  explanation: |-
+    The derivation works for each $t > 0$; optimizing over $t$ just picks the tightest. Independence factors the MGF of a sum, giving bounds exponential in $n$. As a consequence of Markov's inequality it is always at least the true probability. It needs a finite MGF, not boundedness (normal and exponential variables work); boundedness is Hoeffding's condition.
+
+# ---------- ps-m5-h-convergence-slutsky ----------
+- id: ps-m5-r2-h15
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'What does $Y_n \xrightarrow{a.s.} Y$ (almost sure convergence) mean?'
+  choices:
+    - '$P(|Y_n - Y| \ge \varepsilon) \to 0$ for every $\varepsilon > 0$.'
+    - '$E[(Y_n - Y)^2] \to 0$.'
+    - 'The cdf of $Y_n$ converges to that of $Y$ at its continuity points.'
+    - '$P(\lim_{n\to\infty} Y_n = Y) = 1$: almost every whole sequence converges.'
+  answer: 3
+  explanation: |-
+    Almost sure convergence is about entire sequences: with probability 1, the realized sequence $Y_1, Y_2, \dots$ converges to $Y$. The other three define convergence in probability, in mean square and in distribution.
+
+- id: ps-m5-r2-h16
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: '$Y_1, Y_2, \dots$ are independent with $P(Y_n = 1) = 1/n$ and $Y_n = 0$ otherwise. Which statement is correct?'
+  choices:
+    - '$Y_n \to 0$ in probability, but not almost surely.'
+    - '$Y_n \to 0$ almost surely, but not in probability.'
+    - '$Y_n \to 0$ both almost surely and in probability.'
+    - '$Y_n$ converges in neither sense.'
+  answer: 0
+  explanation: |-
+    $P(Y_n \ne 0) = 1/n \to 0$, so $Y_n \xrightarrow{P} 0$. But $\sum 1/n = \infty$ and the $Y_n$ are independent, so by the second Borel–Cantelli lemma $Y_n = 1$ infinitely often with probability 1, and the sequence does not converge almost surely. "Almost surely but not in probability" is impossible: almost sure convergence implies convergence in probability.
+
+- id: ps-m5-r2-h17
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'Now $P(Y_n = 1) = 1/n^2$ and $Y_n = 0$ otherwise. Why does $Y_n \to 0$ almost surely?'
+  choices:
+    - 'Because $1/n^2 \to 0$, and that alone implies almost sure convergence.'
+    - 'Because $\sum 1/n^2 < \infty$, so by the first Borel–Cantelli lemma only finitely many $Y_n$ equal 1.'
+    - 'Because $E[Y_n] = 1/n^2$ is decreasing.'
+    - 'Because the $Y_n$ are independent and $\sum 1/n^2 = \infty$.'
+  answer: 1
+  explanation: |-
+    $\sum 1/n^2 = \pi^2/6$ is finite, so with probability 1 only finitely many 1s occur; after the last one the sequence stays at 0. $P(Y_n = 1) \to 0$ alone is not enough (the $1/n$ case shows that), and the series does not diverge.
+
+- id: ps-m5-r2-h18
+  lesson: ps-m5-h-convergence-slutsky
+  type: match
+  topic: Modes of convergence
+  stem: 'Match each mode of convergence of $Y_n$ to its definition.'
+  pairs:
+    - ['Almost surely', 'P(lim Y_n = Y) = 1']
+    - ['In probability', 'P(|Y_n − c| ≥ ε) → 0 for every ε > 0']
+    - ['In mean square', 'E[(Y_n − c)²] → 0']
+    - ['In distribution', 'F_n(y) → F(y) at every continuity point of F']
+  distractors: ['E(Y_n) → c']
+  explanation: |-
+    These are the four definitions in the lesson. Convergence of the means alone, $E[Y_n] \to c$, is none of them: in the lesson's second counterexample $Y_n \to 0$ in probability while $E[Y_n] = 1$ for all $n$.
+
+- id: ps-m5-r2-h19
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'Which implications hold in general? Select all that apply.'
+  choices:
+    - Almost sure convergence implies convergence in probability.
+    - Convergence in probability implies almost sure convergence.
+    - Convergence in mean square implies convergence in probability.
+    - Convergence in distribution implies convergence in probability.
+  answer: [0, 2]
+  explanation: |-
+    Almost sure $\Rightarrow$ in probability, and mean square $\Rightarrow$ in probability (by Markov on $(Y_n - c)^2$). The independent Bernoulli($1/n$) sequence converges in probability but not almost surely. Convergence in distribution implies convergence in probability only when the limit is a constant; $Y_n = -Z$ converges in distribution to $Z$ but never gets close to it.
+
+- id: ps-m5-r2-h20
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: '$Y_n = n$ with probability $1/n$ and $Y_n = 0$ otherwise. Which statement is correct?'
+  choices:
+    - '$Y_n \to 0$ in mean square, since $P(Y_n \ne 0) \to 0$.'
+    - '$Y_n$ does not converge in probability, since $E[Y_n] = 1$.'
+    - '$Y_n \to 0$ in probability, but $E[Y_n] = 1$ and $E[Y_n^2] = n$, so not in mean square.'
+    - '$E[Y_n] \to 0$, so $Y_n \to 0$ in every sense.'
+  answer: 2
+  explanation: |-
+    $P(|Y_n| \ge \varepsilon) \le 1/n \to 0$, so $Y_n \xrightarrow{P} 0$. Yet $E[Y_n] = n \cdot \tfrac1n = 1$ and $E[Y_n^2] = n^2 \cdot \tfrac1n = n \to \infty$. Convergence in probability does not control expectations: a rare huge value keeps the mean up.
+
+- id: ps-m5-r2-h21
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: '$Z \sim N(0, 1)$ and $Y_n = -Z$ for every $n$. Then $Y_n \xrightarrow{d} Z$. What is $P(|Y_n - Z| \ge 1)$?'
+  choices: ['About 0.62 for every $n$', 'About 0.32 for every $n$', 'About 0.38 for every $n$', 'It tends to 0 as $n \to \infty$']
+  answer: 0
+  explanation: |-
+    $|Y_n - Z| = |-2Z| = 2|Z|$, so $P(|Y_n - Z| \ge 1) = P(|Z| \ge 0.5) = 2(1 - \Phi(0.5)) \approx 0.617$, the same for every $n$. So $Y_n$ converges in distribution to $Z$ but not in probability. ($0.32 \approx P(|Z| \ge 1)$ forgets the factor 2; $0.38$ is $P(|Z| < 0.5)$.)
+
+- id: ps-m5-r2-h22
+  lesson: ps-m5-h-convergence-slutsky
+  type: order
+  topic: Modes of convergence
+  stem: 'Order these modes of convergence from strongest (implies the others) to weakest.'
+  items: [Almost sure convergence, Convergence in probability, Convergence in distribution]
+  explanation: |-
+    Almost sure $\Rightarrow$ in probability $\Rightarrow$ in distribution, and neither arrow reverses in general (except that convergence in distribution to a constant gives convergence in probability).
+
+- id: ps-m5-r2-h23
+  lesson: ps-m5-h-convergence-slutsky
+  type: text
+  topic: Modes of convergence
+  stem: 'A sample of 100 values from a population of unknown shape has $\bar x = 40$ and $s = 15$. Using the CLT with Slutsky''s theorem, the approximate 95% interval for $\mu$ has upper endpoint ___. Give 2 decimals.'
+  accept: ['42.94']
+  explanation: |-
+    $(\bar X - \mu)/(S/\sqrt n)$ is approximately $N(0, 1)$ by the CLT and Slutsky, so the interval is $40 \pm 1.96(15/10) = 40 \pm 2.94$, from 37.06 to 42.94.
+
+- id: ps-m5-r2-h24
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: '$X_n \xrightarrow{d} Z$ and $Y_n \xrightarrow{d} Z$, where $Z \sim N(0, 1)$. Why can''t we conclude $X_n + Y_n \xrightarrow{d} N(0, 2)$?'
+  choices:
+    - 'Because Slutsky''s theorem only works for products, not sums.'
+    - 'Because $Y_n$ converges to a random limit, not a constant, so the joint behavior matters; with $Y_n = -X_n$ the sum is 0.'
+    - 'Because sums of normal variables are never normal.'
+    - 'Because convergence in distribution never survives addition, even of constants.'
+  answer: 1
+  explanation: |-
+    Slutsky requires $Y_n \xrightarrow{P} c$ for a constant $c$. With two random limits, the answer depends on how $X_n$ and $Y_n$ are related: if $X_n = Z$ and $Y_n = -Z$, each converges in distribution to $N(0, 1)$, but the sum is identically 0. Slutsky covers sums, and adding a sequence converging to a constant is fine.
+
+- id: ps-m5-r2-h25
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'Waiting times are exponential with rate $\lambda$, estimated by $\hat\lambda = 1/\bar X$. By the delta method the SE of $\hat\lambda$ is about $\hat\lambda/\sqrt n$. With $n = 100$ and $\bar x = 2.5$, what is the estimated SE?'
+  choices: ['$0.004$', '$0.25$', '$0.04$', '$0.016$']
+  answer: 2
+  explanation: |-
+    $\hat\lambda = 1/2.5 = 0.4$, and the SE is $0.4/\sqrt{100} = 0.04$. ($0.004$ divides by $n$ instead of $\sqrt n$; $0.25$ is $\bar x/10$, the SE of $\bar X$ itself; $0.016 = \hat\lambda^2/10$ uses the wrong power.)
+
+- id: ps-m5-r2-h26
+  lesson: ps-m5-h-convergence-slutsky
+  type: text
+  topic: Modes of convergence
+  stem: 'In a sample of 400, $\hat p = 0.3$. The margin of error of the 95% Wald interval $\hat p \pm 1.96\sqrt{\hat p(1 - \hat p)/n}$ is ___. Give 3 decimals.'
+  accept: ['0.045']
+  explanation: |-
+    $\sqrt{0.3 \times 0.7/400} = \sqrt{0.000525} \approx 0.02291$, and $1.96 \times 0.02291 \approx 0.0449$, which is 0.045 to 3 decimals. Slutsky's theorem justifies putting $\hat p$ in place of the unknown $p$ in the SE.
+
+- id: ps-m5-r2-h27
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'For which sequences of events can you conclude that, with probability 1, only finitely many $A_n$ occur? Select all that apply.'
+  choices:
+    - '$P(A_n) = 2^{-n}$'
+    - '$P(A_n) = 1/n^2$'
+    - '$P(A_n) = 1/n$, the $A_n$ independent'
+    - '$P(A_n) = 1/\sqrt n$, the $A_n$ independent'
+  answer: [0, 1]
+  explanation: |-
+    The first Borel–Cantelli lemma: if $\sum P(A_n) < \infty$, only finitely many occur (no independence needed). $\sum 2^{-n} = 1$ and $\sum 1/n^2 = \pi^2/6$ are finite. $\sum 1/n$ and $\sum 1/\sqrt n$ diverge, and with independence the second lemma says infinitely many occur.
+
+- id: ps-m5-r2-h28
+  lesson: ps-m5-h-convergence-slutsky
+  topic: Modes of convergence
+  stem: 'How does the strong law of large numbers differ from the weak law?'
+  choices:
+    - 'The strong law needs a finite variance; the weak law does not.'
+    - 'The strong law gives a rate of convergence; the weak law does not.'
+    - 'The strong law is about sums; the weak law is about means.'
+    - 'The strong law says almost every whole sequence $\bar X_n$ converges to $\mu$; the weak law says only that $P(|\bar X_n - \mu| \ge \varepsilon) \to 0$.'
+  answer: 3
+  explanation: |-
+    Both say $\bar X_n \to \mu$, but in different modes: the strong law almost surely, the weak law in probability. Almost sure convergence is the stronger statement. The strong law (Kolmogorov's form) needs only a finite mean, and neither law gives a rate.

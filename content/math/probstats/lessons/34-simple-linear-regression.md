@@ -55,6 +55,12 @@ $$s^2 = \frac{\text{SSE}}{n - 2}$$
 estimates $\sigma^2$ without bias. Two degrees of freedom are lost because two coefficients
 were estimated, and $\text{SSE}/\sigma^2 \sim \chi^2_{n-2}$, independent of $b_0$ and $b_1$.
 
+The picture below names the pieces on a small made-up data set (fitted line $\hat y = 1.65 + 0.7x$,
+$\bar x = 4$, $\bar y = 4.45$). Each residual is a vertical distance, not the perpendicular distance
+to the line, because the model puts all the randomness in $y$.
+
+![A scatterplot of six points with the least squares line ŷ = b₀ + b₁x. One point above the line is marked as the observed point (xᵢ, yᵢ); a dashed vertical segment, the residual eᵢ = yᵢ − ŷᵢ, joins it to an open circle on the line, the fitted value ŷᵢ. A square on the line marks the point of means (x̄, ȳ), a circle where the line meets the y-axis marks the intercept b₀, and a small triangle shows a run of 1 and a rise of b₁.](images/ps-m8-ls-anatomy.svg)
+
 ### Example 1: fitting the line
 
 Rail head wear $y$ (mm) against traffic $x$ (tens of millions of gross tons) at six sites:
@@ -155,6 +161,25 @@ an outlier worth checking.
 
 ```plot
 {"x": [0, 11], "y": [-5, 5], "xLabel": "x", "yLabel": "residual", "points": [{"at": [1, 0.3], "color": "#2c5e8f"}, {"at": [1.5, -0.4], "color": "#2c5e8f"}, {"at": [2, 0.5], "color": "#2c5e8f"}, {"at": [2.5, -0.2], "color": "#2c5e8f"}, {"at": [3, 0.9], "color": "#2c5e8f"}, {"at": [3.5, -0.8], "color": "#2c5e8f"}, {"at": [4, 1.2], "color": "#2c5e8f"}, {"at": [4.5, -1.1], "color": "#2c5e8f"}, {"at": [5, 0.4], "color": "#2c5e8f"}, {"at": [5.5, 1.6], "color": "#2c5e8f"}, {"at": [6, -1.9], "color": "#2c5e8f"}, {"at": [6.5, 2.2], "color": "#2c5e8f"}, {"at": [7, -1.5], "color": "#2c5e8f"}, {"at": [7.5, 2.8], "color": "#2c5e8f"}, {"at": [8, -2.9], "color": "#2c5e8f"}, {"at": [8.5, 1.1], "color": "#2c5e8f"}, {"at": [9, 3.4], "color": "#2c5e8f"}, {"at": [9.5, -3.6], "color": "#2c5e8f"}, {"at": [10, 4.1], "color": "#2c5e8f"}], "segments": [{"from": [0, 0], "to": [11, 0], "dashed": true}], "caption": "A funnel: spread grows with x, so the constant-variance assumption fails"}
+```
+
+A regression analysis follows the same loop every time: fit, look at the residuals, and only
+then infer. The last step depends on whether the question is about the average response or one
+new observation.
+
+```mermaid
+flowchart TD
+  accTitle: A workflow for simple linear regression
+  accDescr: Plot y against x and fit the least squares line. Plot the residuals against x. If there is a curve, a funnel or an outlier, fix the model or check the data and fit again. If the residuals form a patternless band, go on to inference - a t test and confidence interval for the slope, then, for a question about the average response at x0, a confidence interval for the mean response, or, for a question about one new observation at x0, a prediction interval.
+  A["Scatterplot of y against x"] --> B["Fit the least squares line"]
+  B --> C["Plot residuals against x"]
+  C --> D{"Curve, funnel or outlier?"}
+  D -- yes --> E["Change the model or check the data"]
+  E --> B
+  D -- no --> F["t test and interval for the slope"]
+  F --> G{"Question about x0?"}
+  G -- "average y at x0" --> H["Confidence interval for the mean response"]
+  G -- "one new y at x0" --> I["Prediction interval"]
 ```
 
 ## Common mistakes

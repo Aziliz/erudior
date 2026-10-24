@@ -123,7 +123,17 @@ and the variance formula then needs a small correction that software applies.
 Rank tests are special cases of a general principle, previewed in the bootstrap lesson. If $H_0$ says the group labels don't matter,
 then every relabeling of the observed data was equally likely. A **permutation test** computes
 any chosen statistic (a difference in means, say) for every relabeling and reports the fraction at
-least as extreme as the observed one.
+least as extreme as the observed one. The steps, in order:
+
+```mermaid
+flowchart TD
+  accTitle: How a permutation test works
+  accDescr: Choose a test statistic and compute it for the observed group labels. Then relabel the data in every possible way (or in a few thousand random ways), computing the statistic each time. The p-value is the fraction of relabelings whose statistic is at least as extreme as the observed one.
+  A["Choose a statistic, such as the difference in means"] --> B["Compute it for the observed labels"]
+  B --> C["Relabel the pooled data: all ways, or many random ways"]
+  C --> D["Compute the statistic for each relabeling"]
+  D --> E["p-value = fraction at least as extreme as observed"]
+```
 
 ### Example 4: a permutation test by hand
 
@@ -157,6 +167,21 @@ $\chi^2_{k-1}$ under $H_0$.
 | One sample or paired | $t$ test | sign test, signed-rank test |
 | Two independent samples | two-sample $t$ | rank-sum (Mann–Whitney) |
 | $k$ independent samples | one-way ANOVA | Kruskal–Wallis |
+
+When the normal-theory test looks doubtful, this simplified chart picks the rank-based test from
+the design. (Independence is still needed in every branch.)
+
+```mermaid
+flowchart TD
+  accTitle: Choosing a rank-based test
+  accDescr: For one sample or paired differences, use the Wilcoxon signed-rank test if the differences can be assumed symmetric, otherwise the sign test. For two independent samples, use the Wilcoxon rank-sum (Mann-Whitney) test. For three or more independent samples, use the Kruskal-Wallis test.
+  A{"What does the design look like?"}
+  A -- "one sample or paired" --> B{"Differences symmetric?"}
+  B -- yes --> C["Wilcoxon signed-rank test"]
+  B -- no --> D["Sign test"]
+  A -- "two independent samples" --> E["Wilcoxon rank-sum (Mann-Whitney) test"]
+  A -- "three or more independent samples" --> F["Kruskal-Wallis test"]
+```
 
 ## Common mistakes
 

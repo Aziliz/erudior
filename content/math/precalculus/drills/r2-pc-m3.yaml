@@ -76,14 +76,14 @@
     y1: {min: -9, max: 9}
     y2: {min: -9, max: 9}
     xs: {min: -5, max: 7}
-  where: ["xs != x0", "xs != x1", "xs != x2"]
+  where: ["xs != x0", "xs != x1", "xs != x2", "val != 0"]
   calc:
     x1: x0 + g1
     x2: x1 + g2
     L0: (xs - x1)*(xs - x2)/((x0 - x1)*(x0 - x2))
     L1: (xs - x0)*(xs - x2)/((x1 - x0)*(x1 - x2))
     L2: (xs - x0)*(xs - x1)/((x2 - x0)*(x2 - x1))
-    val: y0*L0 + y1*L1 + y2*L2
+    val: round(y0*L0 + y1*L1 + y2*L2, 9)
     a1: xs - x1
     a2: xs - x2
     a0: xs - x0
@@ -190,7 +190,7 @@
     x1: hh + s
     x2: hh - s
     y1: a + kk/s
-    y2: a - kk/s
+    y2: round(a - kk/s, 9)
     twov: 2*a
   prompt: 'For $f(x) = \dfrac{ {a:coef}x {bb:signed} }{ x {nh:signed} }$, you are told that $f({x1}) = {y1:texfrac}$. Use the center of symmetry (no substitution) to find $f({x2})$. Give an exact answer.'
   answers:
