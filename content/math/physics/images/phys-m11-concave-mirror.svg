@@ -21,8 +21,8 @@
 <line x1="560.0" y1="110.0" x2="350.0" y2="320.0" stroke="#8a3324" stroke-width="2"/>
 <line x1="260.0" y1="110.0" x2="560.0" y2="260.0" stroke="#8a3324" stroke-width="2"/>
 <line x1="560.0" y1="260.0" x2="360.0" y2="260.0" stroke="#8a3324" stroke-width="2"/><polygon points="350.0,260.0 360.0,255.5 360.0,264.5" fill="#8a3324"/>
-<line x1="260.0" y1="110.0" x2="560.0" y2="210.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
-<line x1="560.0" y1="210.0" x2="350.0" y2="280.0" stroke="#8a3324" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="260.0" y1="110.0" x2="560.0" y2="210.0" stroke="#8a3324" stroke-width="2"/>
+<line x1="560.0" y1="210.0" x2="350.0" y2="280.0" stroke="#8a3324" stroke-width="2"/>
 <circle cx="360" cy="210" r="6" fill="#1c2833"/>
 <circle cx="460" cy="210" r="6" fill="#1c2833"/>
 <text x="360.0" y="196.0" font-size="18" fill="#1c2833" text-anchor="middle" font-weight="normal">C</text>
