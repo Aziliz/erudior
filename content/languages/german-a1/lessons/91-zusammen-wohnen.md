@@ -107,7 +107,7 @@ colour: *Weißglas* (clear), *Grünglas* (green) and *Braunglas* (brown). Blue a
 with the green glass. Because they're noisy, glass bins can usually only be used on weekdays
 during the day; a sign on the container gives the times.
 
-![Four wheelie bins in a row, each with a picture of what goes in it: a yellow bin with a tin and a yoghurt pot, labelled Gelbe Tonne; a blue bin with a newspaper, labelled Papiertonne; a brown bin with an apple core, labelled Biotonne; and a grey bin with an old sponge, labelled Restmüll.](images/de1-h1-bins.svg)
+![Four wheelie bins in a row, each with a picture of what goes in it: a yellow bin with a tin and a yoghurt pot, labeled die gelbe Tonne; a blue bin with a newspaper, labeled die Papiertonne; a brown bin with an apple core, labeled die Biotonne; and a grey bin with an old sponge, labeled der Restmüll.](images/de1-h1-bins.svg)
 
 ```mermaid
 flowchart TD

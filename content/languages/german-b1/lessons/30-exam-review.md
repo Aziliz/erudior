@@ -32,6 +32,8 @@ The adult exam is modular: there are four *Module* (modules), and you can take a
 | Schreiben (writing) | 60 minutes | 3 tasks: an informal e-mail (about 80 words); a forum post giving your opinion (about 80 words); a semi-formal e-mail (about 40 words) |
 | Sprechen (speaking) | about 15 minutes, plus 15 minutes to prepare | in pairs: plan something together; present a topic; react to your partner's presentation and answer questions on your own |
 
+![The four modules of the Goethe-Zertifikat B1: Lesen 65 minutes in 5 parts, Hören about 40 minutes in 4 parts, Schreiben 60 minutes with 3 tasks of about 80, 80 and 40 words, Sprechen about 15 minutes in pairs plus 15 minutes of preparation in 3 parts. Each module has 100 points and is passed with 60.](images/de3-m6-exam.svg)
+
 Each module is scored out of 100 points and passed with 60. The grades are the same as at A2:
 
 | points | grade |
@@ -76,6 +78,18 @@ Other B1 exams, such as telc Deutsch B1 and the ÖSD Zertifikat B1, and the *Deu
 - Save five minutes to check *Rechtschreibung* (spelling), capitals, verb position and commas.
 
 ### Sprechen
+
+The speaking module runs like this:
+
+```mermaid
+flowchart TD
+  accTitle: How the B1 speaking test runs
+  accDescr: The speaking module starts with 15 minutes of preparation on your own. Then, in part 1, you and your partner plan something together. In part 2, each of you presents a topic for about three minutes. In part 3, after each presentation, the partner reacts and asks a question, and the presenter answers questions from the partner and the examiner.
+  A["15 minutes of preparation, on your own"] --> B["Teil 1: plan something together with your partner"]
+  B --> C["Teil 2: present your topic, about 3 minutes"]
+  C --> D["Teil 3: your partner reacts and asks; you answer questions"]
+  D --> E["Then the same for your partner's presentation"]
+```
 
 - In the 15 minutes of preparation, write keywords, not full sentences. Nobody wants to hear you read.
 - In the planning task, the examiners want a real conversation: suggest, react, disagree politely, agree. Use your partner's ideas: *Gute Idee, und dann könnten wir …*

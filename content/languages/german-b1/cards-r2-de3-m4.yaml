@@ -1,7 +1,7 @@
 # German B1, module 4 honors lessons (round 2): notecards
 # --- 20h1 Wie ein Gesetz entsteht ---
 - {front: 'Das Gesetz wird verabschiedet vs Das Gesetz ist verabschiedet', back: 'werden + participle = the action (it is being passed); sein + participle = the state afterwards (it has been passed, it is done).', topic: Passive}
-- {front: 'When is the state passive (sein + participle) possible?', back: 'Only when the action leaves a lasting result: geöffnet, geschlossen, verboten, geregelt, festgelegt. Not: ~~Der Minister ist kritisiert.~~', topic: Passive}
+- {front: 'When is the state passive (sein + participle) possible?', back: 'Only when the action leaves a lasting result: geöffnet, geschlossen, verboten, geregelt, festgelegt. Not possible: Der Minister ist kritisiert (being criticised leaves no lasting state).', topic: Passive}
 - {front: 'Passive of a verb with a dative object (zustimmen, helfen)', back: 'The dative stays, there is no subject, the verb is singular: Dem Gesetz wurde zugestimmt. Den Bürgern wird geholfen.', topic: Passive}
 - {front: 'Passive of a verb with a preposition (abstimmen über)', back: 'The preposition phrase stays: Über das Gesetz wird abgestimmt. Or with a da-word: Darüber wird abgestimmt.', topic: Passive}
 - {front: 'Es wurde beschlossen, dass …', back: 'It was decided that … A passive that reports a decision without naming who made it. Also: Es wird erwartet / geprüft, dass / ob …', topic: Passive}

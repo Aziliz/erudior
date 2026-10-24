@@ -64,6 +64,10 @@ The choice depends on where the speaker is:
 - *Die Kinder laufen in den Garten hinaus.* — The children run out into the garden (away from me, inside the house).
 - *Wir sind mit der Seilbahn hinaufgefahren und zu Fuß heruntergekommen.* — We went up by cable car and came down on foot (said by someone now at the bottom).
 
+The picture shows the four most common directions from the point of view of one speaker upstairs: what comes up or in moves towards her (*her-*), what goes down or out moves away from her (*hin-*).
+
+![A two-storey house. The speaker is in a room upstairs. A person climbing the stairs towards her is labelled herauf; a key dropped from her window to a friend in the garden is labelled hinunter; a cat walking into her room is labelled herein; a dog running out of the front door downstairs is labelled hinaus.](images/de3-m6-hin-her.svg)
+
 ### Spoken short forms
 
 In everyday speech, Germans don't think about *hin* and *her* very much. They say *rauf, runter, rein, raus, rüber*, which come from the *her-* forms but are used for both directions:
@@ -81,6 +85,18 @@ Some uses have become idioms: *Wo ist mein Handy hin?* (Where has my phone got t
 ## Giving a short presentation
 
 In a short presentation (*eine Präsentation* or *ein kurzer Vortrag*) you speak for about three minutes about a question, such as *Sollte man im Urlaub lieber in die Berge oder ans Meer fahren?* A clear structure makes it easier for you and for your listeners. In a course or at work you'd have slides (*Folien*); in the exam you get five "slides" printed on paper, one for each part below. Each part has its typical phrases.
+
+The five parts always come in this order:
+
+```mermaid
+flowchart TD
+  accTitle: The five parts of a short presentation
+  accDescr: A short presentation goes in five steps. First the introduction, for example In meiner Präsentation geht es um. Second, your own experience, for example Ich habe selbst erlebt, dass. Third, the situation in your home country, for example In meinem Heimatland. Fourth, advantages and disadvantages with your opinion, for example Einerseits, andererseits. Fifth, the conclusion, for example Abschließend möchte ich sagen.
+  A["1 Einleitung: In meiner Präsentation geht es um …"] --> B["2 Eigene Erfahrung: Ich habe selbst erlebt, dass …"]
+  B --> C["3 Heimatland: In meinem Heimatland …"]
+  C --> D["4 Vor- und Nachteile, Meinung: Einerseits … andererseits …"]
+  D --> E["5 Schluss: Abschließend möchte ich sagen, …"]
+```
 
 ### 1. Introduction (die Einleitung)
 

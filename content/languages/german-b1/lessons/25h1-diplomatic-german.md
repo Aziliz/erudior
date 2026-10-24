@@ -15,7 +15,7 @@ In lesson 23 you used the Konjunktiv II to make requests more polite: *Könnten 
 2. with *müsste, dürfte* and *könnte* it shows how sure you are when you guess;
 3. after *sonst* (otherwise) it describes what would have happened if a real fact had been different.
 
-Germans are often described as direct, and there's some truth in it: Germans tend to say clearly what they think about a plan or a problem. But that directness is mostly about content. The form is often carefully softened, and the Konjunktiv II is the main tool for it. Some of the grammar here (guessing about the past, for example) is usually taught at B2, so treat this lesson as a step beyond the core course.
+Germans are often described as direct. That's partly true for content (people say clearly what they think of a plan), but the form is often carefully softened, and the Konjunktiv II is the main tool. Some of this grammar is usually taught at B2, so treat the lesson as a step beyond the core course.
 
 ## Softening statements: hedging
 
@@ -32,17 +32,13 @@ Germans are often described as direct, and there's some truth in it: Germans ten
 | *Das stimmt nicht.* | *Da wäre ich mir nicht so sicher.* | I wouldn't be so sure about that. |
 | *Das ist alles.* | *Das wäre alles.* | That's all (I'd like). |
 
-Notice what changes. The facts stay the same, but the speaker presents them as their own view (*ich würde, ich fände*), as a question (*Könnte es sein, dass …?*) or as an offer (*Ich hätte da eine Frage*). The listener can disagree without anyone losing face.
-
-Three patterns are worth learning as chunks:
+The facts stay the same, but the speaker presents them as a personal view (*ich würde, ich fände*), a question (*Könnte es sein, dass …?*) or an offer (*Ich hätte da eine Frage*). Three patterns are worth learning as chunks:
 
 - *Ich würde sagen, …* — I'd say … This is the most common way to give a careful opinion: *Ich würde sagen, wir brauchen noch eine Woche.* Note the main-clause word order after the comma.
 - *Wäre es nicht besser, wenn …?* / *Wäre es nicht sinnvoller, … zu …?* — Wouldn't it be better if …? A suggestion disguised as a question: *Wäre es nicht sinnvoller, erst die Kunden zu fragen?*
 - *Ich hätte gedacht, …* — I'd have thought … This is the past subjunctive from lesson 22, used to express polite surprise or mild disagreement: *Ich hätte gedacht, dass das Projekt schon fertig ist.*
 
-The small words help too. *vielleicht* (perhaps), *eigentlich* (actually), *etwas* or *ein bisschen* (a bit) and *eher* (rather) soften without any grammar at all: *Das ist eigentlich eher ein kleines Problem.* Combined with the Konjunktiv they make the softest version: *Vielleicht könnten wir das etwas später besprechen?*
-
-You can also overdo it. Three *würde* in one sentence sound clumsy, and with close friends heavy softening can sound cold or ironic. Use it where distance is normal: colleagues, customers, officials, people you don't know well.
+Small words help too: *vielleicht, eigentlich, etwas, ein bisschen, eher* (rather): *Vielleicht könnten wir das etwas später besprechen?* But don't overdo it: with close friends heavy softening can sound cold or ironic. Use it where distance is normal: colleagues, customers, officials.
 
 ### Example 1: Softening an e-mail to a colleague
 
@@ -60,7 +56,7 @@ Result:
 
 > *Könnte es sein, dass bei der Summe ein kleiner Fehler ist? Könnten Sie mir die Tabelle vielleicht noch einmal schicken? Vielen Dank!*
 
-The information is exactly the same: there's a mistake, please resend. Only the relationship has changed.
+The information is the same; only the tone has changed.
 
 ## Guessing: modal verbs that show how sure you are
 
@@ -79,7 +75,7 @@ In this second use, the Konjunktiv II forms make the guess weaker step by step:
 - *könnte*: just a possibility. *Das könnte der Grund sein.* — That could be the reason.
 - *kann nicht*: impossible. *Das kann nicht sein!* — That can't be!
 
-The exact order of *müsste* and *dürfte* is a matter of degree, and grammars describe it a little differently; most put *müsste* slightly above *dürfte*. What matters is the direction: *muss* is surest, *könnte* is a mere possibility. The future with *wohl* from lesson 4 sits in the middle too: *Er wird wohl krank sein.* — He's probably ill.
+*müsste* and *dürfte* are close; most grammars put *müsste* slightly higher. What matters is the direction: *muss* is surest, *könnte* a mere possibility. The future with *wohl* from lesson 4 sits in the middle: *Er wird wohl krank sein.*
 
 Watch out for *dürfte*. In lesson 23 you met it as a very polite way to ask permission: *Dürfte ich Sie um einen Gefallen bitten?* In a statement about a fact it means "probably" and has nothing to do with permission: *Das dürfte teuer werden* means "That's probably going to be expensive", not "That is allowed to be expensive".
 
@@ -100,7 +96,6 @@ You are organizing a party for 40 colleagues and have to tell the caterer how ma
 1. Everyone has said yes, and nobody is ill: you expect all 40, if nothing goes wrong. → *Es müssten etwa vierzig Leute kommen.* (*müsste*: as expected)
 2. Thirty have said yes, ten haven't answered, and usually about half of the late ones come. → *Es dürften so fünfunddreißig werden.* (*dürfte*: a careful estimate. *so* here means "about".)
 3. You've had no answers yet. → *Es könnten zwanzig sein, oder auch fünfzig.* (*könnte*: open possibility)
-4. The room holds only 30 people and the caterer asks about 60. → *Sechzig? Das kann nicht sein, so viele passen gar nicht in den Raum.*
 
 ## Otherwise: sonst with the Konjunktiv II
 
@@ -110,7 +105,7 @@ You are organizing a party for 40 colleagues and have to tell the caterer how ma
 - **Imagined alternative, Konjunktiv II:** *Gut, dass du mich erinnert hast, sonst hätte ich den Termin vergessen.* — Good thing you reminded me, otherwise I'd have forgotten the appointment. (It didn't happen.)
 - **Present imagined alternative:** *Ich habe leider keine Zeit, sonst würde ich mitkommen.* — Unfortunately I have no time, otherwise I'd come along.
 
-Each *sonst* sentence with the Konjunktiv is really an unreal condition in disguise: *sonst hätte ich den Termin vergessen* = *wenn du mich nicht erinnert hättest, hätte ich den Termin vergessen*. In formal texts you'll also meet *andernfalls*, which means the same and works the same way: *Bitte zahlen Sie bis Freitag, andernfalls müssen wir eine Gebühr berechnen.* (a real warning, so indicative).
+A *sonst* sentence with the Konjunktiv is an unreal condition in disguise: *sonst hätte ich …* = *wenn du mich nicht erinnert hättest, hätte ich …*. In formal texts you'll also meet *andernfalls*, which means the same and works the same way: *Bitte zahlen Sie bis Freitag, andernfalls müssen wir eine Gebühr berechnen.* (a real warning, so indicative).
 
 ### Example 3: Indicative or Konjunktiv after sonst?
 
@@ -163,19 +158,12 @@ In English:
 
 Notes: *Bescheid geben* means to let someone know. *ja* in *wir haben ja zwanzig neue Kunden* is a **modal particle** meaning "as we all know". *Das müsste kein Problem sein* is a typical reassuring phrase at work: "that should be fine". Find the jobs of the Konjunktiv: hedging (*ich würde vorschlagen, ich hätte gedacht, wäre es nicht sinnvoller, da wäre ich mir nicht so sicher, ich hätte da noch eine Bitte*), guessing (*dürften, könnte, müsste*), what someone would need to do (*bräuchten, müsste erst nachfragen*) and *sonst* + past subjunctive (*sonst hätten wir das vergessen*).
 
-## Pronunciation
-
-- *dürfte*: DÜRF-te, with a short *ü*; don't let it slide into *durfte* (DURF-te), the simple past "was allowed to".
-- *müsste* (MÜS-te) vs *musste* (MUS-te): again the umlaut is the whole difference between "should probably" and "had to".
-- In softened statements the voice stays light and often rises a little at the end, even in statements: *Ich würde sagen, wir warten noch ↗.* Stressing *würde* (*Ich WÜRDE sagen …*) sounds like a strong hint that you disagree.
-
 ## Common mistakes
 
 - Reading *dürfte* as permission in a statement: *Das dürfte schwierig werden* means "That's probably going to be difficult", not "That may (is allowed to) be difficult".
 - Word order after *sonst*: ~~sonst ich hätte den Termin vergessen~~ → *sonst hätte ich den Termin vergessen*. *sonst* takes position 1, the verb comes next.
 - Konjunktiv after *sonst* for a real warning: ~~Beeil dich, sonst würden wir den Zug verpassen!~~ The danger is real, so use the indicative: *sonst verpassen wir den Zug.*
 - Guess and reproach mixed up: *Er hätte es wissen müssen* (he should have known) is not the same as *Er müsste es gewusst haben* (he presumably knew).
-- Stacking *würde*: ~~Ich würde sagen, dass ich vorschlagen würde, dass wir warten würden.~~ One softener is enough: *Ich würde vorschlagen, dass wir warten.*
 - Using *muss* for a weak guess: *Er muss krank sein* sounds very sure. If you're only guessing, say *Er könnte krank sein* or *Er dürfte krank sein.*
 
 ## Key points

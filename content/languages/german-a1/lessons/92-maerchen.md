@@ -170,7 +170,7 @@ This retelling is much shorter than the Grimms' version, where the frightened ro
 each animal as a different monster. Their text is long out of copyright and free to read, but its
 German is well above A1, so save it for later.
 
-![Four animals standing on each other's backs, in the famous pose of the Bremen Town Musicians: a donkey at the bottom, a dog on the donkey, a cat on the dog and a rooster at the top, with a lit window behind them.](images/de1-h1-musicians.svg)
+![Four animals standing on each other's backs, in the famous pose of the Bremen Town Musicians: a donkey at the bottom, a dog on the donkey, a cat on the dog and a rooster at the top, with a lit window behind them. Labels name them: der Esel, der Hund, die Katze and der Hahn.](images/de1-h1-musicians.svg)
 
 ### Example 2: Following the verbs through a paragraph
 

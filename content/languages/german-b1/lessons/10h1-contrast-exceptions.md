@@ -18,7 +18,7 @@ The theme is comparing everyday life: what is different in Germany, Austria or S
 *aber* (but) can express both of the following ideas, but the more precise connectors do only one job each:
 
 - **Concession** (lesson 6): one fact should prevent another, but doesn't. *Obwohl es regnet, gehen wir spazieren.* The rain should keep us at home.
-- **Contrast**: two different facts stand side by side, and neither should prevent the other. *Mein Bruder liebt Berge, während ich lieber am Meer bin.* Nobody expects my brother's taste to change mine.
+- Contrast: two different facts stand side by side, and neither should prevent the other. *Mein Bruder liebt Berge, während ich lieber am Meer bin.* Nobody expects my brother's taste to change mine.
 
 Connectors that express pure contrast are called **adversative connectors**. A quick test: if you can swap the two halves without changing the meaning, it is contrast. With concession you can't (*Although we go for a walk, it's raining* is nonsense).
 

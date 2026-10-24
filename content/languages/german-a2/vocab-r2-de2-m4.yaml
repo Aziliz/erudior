@@ -1,0 +1,215 @@
+# Round 2, module de2-m4: words introduced by the honors lessons 16h1–16h2.
+
+# --- 16h1 Beyond the room: figurative German ---
+- id: de2-m4-r2-w01
+  lesson: de2-m4-h-figurative
+  term: die Schwierigkeit
+  pos: noun
+  plural: die Schwierigkeiten
+  meanings: [difficulty, trouble, problem]
+  example: Er steckt in Schwierigkeiten.
+  exampleEn: He's in trouble.
+- id: de2-m4-r2-w02
+  lesson: de2-m4-h-figurative
+  kind: phrase
+  term: im Moment
+  pos: phrase
+  meanings: [at the moment, currently, right now, at present]
+  example: Im Moment habe ich keine Zeit.
+  exampleEn: I don't have time at the moment.
+- id: de2-m4-r2-w03
+  lesson: de2-m4-h-figurative
+  kind: phrase
+  term: vor allem
+  pos: phrase
+  meanings: [above all, especially, mainly, most of all]
+  example: Ich mag Obst, vor allem Äpfel.
+  exampleEn: I like fruit, especially apples.
+- id: de2-m4-r2-w04
+  lesson: de2-m4-h-figurative
+  kind: phrase
+  term: unter uns
+  pos: phrase
+  meanings: [between you and me, between ourselves, between us, in confidence]
+  example: 'Unter uns: Das Essen war furchtbar.'
+  exampleEn: 'Between you and me: the food was awful.'
+- id: de2-m4-r2-w05
+  lesson: de2-m4-h-figurative
+  term: dahinter
+  pos: adverb
+  meanings: [behind it, behind that, behind]
+  example: Wer steckt dahinter?
+  exampleEn: Who's behind it?
+- id: de2-m4-r2-w06
+  lesson: de2-m4-h-figurative
+  term: der Möbelwagen
+  pos: noun
+  plural: die Möbelwagen
+  meanings: [removal van, moving van, furniture van]
+  example: Der Möbelwagen steht vor dem Haus.
+  exampleEn: The removal van is outside the house.
+
+# --- 16h2 Weather talk ---
+- id: de2-m4-r2-w07
+  lesson: de2-m4-h-wetter
+  term: hageln
+  pos: verb
+  meanings: [to hail (weather)]
+  example: Gestern hat es gehagelt.
+  exampleEn: It hailed yesterday.
+  note: 'Only with es: es hagelt. Perfect: hat gehagelt.'
+- id: de2-m4-r2-w08
+  lesson: de2-m4-h-wetter
+  term: donnern
+  pos: verb
+  meanings: [to thunder]
+  example: Hörst du das? Es donnert.
+  exampleEn: Can you hear that? It's thundering.
+  note: 'Weather: es donnert. Perfect: hat gedonnert.'
+- id: de2-m4-r2-w09
+  lesson: de2-m4-h-wetter
+  term: blitzen
+  pos: verb
+  meanings: [to flash with lightning, to be lightning, to lighten]
+  example: Es blitzt, komm schnell rein!
+  exampleEn: There's lightning, come inside quickly!
+  note: 'Weather: es blitzt. Perfect: hat geblitzt.'
+- id: de2-m4-r2-w10
+  lesson: de2-m4-h-wetter
+  term: nieseln
+  pos: verb
+  meanings: [to drizzle]
+  example: An der Nordsee nieselt es oft.
+  exampleEn: It often drizzles on the North Sea coast.
+  note: 'Only with es: es nieselt. Perfect: hat genieselt.'
+- id: de2-m4-r2-w11
+  lesson: de2-m4-h-wetter
+  term: tauen
+  pos: verb
+  meanings: [to thaw, to melt]
+  example: Im März taut es endlich.
+  exampleEn: In March it finally thaws.
+  note: 'Weather: es taut. Perfect: hat getaut.'
+- id: de2-m4-r2-w12
+  lesson: de2-m4-h-wetter
+  term: der Hagel
+  pos: noun
+  plural: —
+  meanings: [hail]
+  example: Der Hagel war so groß wie Kirschen.
+  exampleEn: The hail was as big as cherries.
+- id: de2-m4-r2-w13
+  lesson: de2-m4-h-wetter
+  term: der Donner
+  pos: noun
+  plural: —
+  meanings: [thunder]
+  example: Nach dem Blitz kommt der Donner.
+  exampleEn: After the lightning comes the thunder.
+- id: de2-m4-r2-w14
+  lesson: de2-m4-h-wetter
+  term: der Blitz
+  pos: noun
+  plural: die Blitze
+  meanings: [lightning (a flash), lightning, flash, lightning bolt]
+  example: Der Blitz ist in einen Baum eingeschlagen.
+  exampleEn: The lightning struck a tree.
+- id: de2-m4-r2-w15
+  lesson: de2-m4-h-wetter
+  term: der Frost
+  pos: noun
+  plural: die Fröste
+  meanings: [frost]
+  example: Heute Nacht gibt es Frost.
+  exampleEn: There'll be frost tonight.
+- id: de2-m4-r2-w16
+  lesson: de2-m4-h-wetter
+  term: wolkig
+  pos: adjective
+  meanings: [cloudy (partly), cloudy, partly cloudy]
+  example: Am Nachmittag ist es wolkig.
+  exampleEn: In the afternoon it's partly cloudy.
+- id: de2-m4-r2-w17
+  lesson: de2-m4-h-wetter
+  term: regnerisch
+  pos: adjective
+  meanings: [rainy, wet]
+  example: Der Sommer war kühl und regnerisch.
+  exampleEn: The summer was cool and rainy.
+- id: de2-m4-r2-w18
+  lesson: de2-m4-h-wetter
+  term: schwül
+  pos: adjective
+  meanings: [humid (hot and close), humid, muggy, close, sultry]
+  example: Vor dem Gewitter ist es oft schwül.
+  exampleEn: Before a thunderstorm it's often humid.
+- id: de2-m4-r2-w19
+  lesson: de2-m4-h-wetter
+  term: das Thermometer
+  pos: noun
+  plural: die Thermometer
+  meanings: [thermometer]
+  example: Das Thermometer zeigt 30 Grad.
+  exampleEn: The thermometer shows 30 degrees.
+- id: de2-m4-r2-w20
+  lesson: de2-m4-h-wetter
+  term: der Schatten
+  pos: noun
+  plural: die Schatten
+  meanings: [shade, shadow]
+  example: Es sind 30 Grad im Schatten.
+  exampleEn: It's 30 degrees in the shade.
+- id: de2-m4-r2-w21
+  lesson: de2-m4-h-wetter
+  term: der Wetterbericht
+  pos: noun
+  plural: die Wetterberichte
+  meanings: [weather report]
+  example: Hast du den Wetterbericht gehört?
+  exampleEn: Did you hear the weather report?
+- id: de2-m4-r2-w22
+  lesson: de2-m4-h-wetter
+  term: die Luft
+  pos: noun
+  plural: —
+  meanings: [air]
+  example: Die Luft ist heute sehr trocken.
+  exampleEn: The air is very dry today.
+- id: de2-m4-r2-w23
+  lesson: de2-m4-h-wetter
+  term: abkühlen
+  pos: verb
+  meanings: [to cool down, to cool, to cool off]
+  example: In der Nacht kühlt es ab.
+  exampleEn: It cools down at night.
+  note: 'Separable: kühlt … ab. Perfect: hat/ist abgekühlt (both are used).'
+- id: de2-m4-r2-w24
+  lesson: de2-m4-h-wetter
+  term: deutlich
+  pos: adjective
+  meanings: [clear (distinct, noticeable), clearly, noticeably, distinct, clear]
+  example: Am Sonntag wird es deutlich kühler.
+  exampleEn: On Sunday it'll be noticeably cooler.
+- id: de2-m4-r2-w25
+  lesson: de2-m4-h-wetter
+  term: örtlich
+  pos: adjective
+  meanings: [local (in places), locally, in places, local]
+  example: Örtlich gibt es Gewitter.
+  exampleEn: There are thunderstorms in places.
+- id: de2-m4-r2-w26
+  lesson: de2-m4-h-wetter
+  term: der Eimer
+  pos: noun
+  plural: die Eimer
+  meanings: [bucket, pail]
+  example: Es gießt wie aus Eimern.
+  exampleEn: It's bucketing down.
+- id: de2-m4-r2-w27
+  lesson: de2-m4-h-wetter
+  term: das Komma
+  pos: noun
+  plural: die Kommas
+  meanings: [comma (also the decimal point), comma, decimal point, point]
+  example: Sie hat 38 Komma 5 Grad Fieber.
+  exampleEn: She has a temperature of 38.5 degrees.

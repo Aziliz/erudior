@@ -51,6 +51,18 @@ The same pattern can mean that you cause or make someone do something. The conte
 - *Die Lehrerin lässt uns jeden Tag einen Text schreiben.* — The teacher makes us write a text every day.
 - *Der Vermieter lässt uns lange warten.* — The landlord keeps us waiting.
 
+The chart helps you tell the four jobs apart: look at what comes with *lassen*.
+
+```mermaid
+flowchart LR
+  accTitle: Which meaning of lassen?
+  accDescr: Look at what comes with lassen. With only an object and no other verb, lassen means to leave, as in Ich lasse die Tür offen. With an infinitive where someone else does the work, it means to have something done, as in Ich lasse das Auto reparieren. With a person and an infinitive, it means to let or make someone do something, as in Lass mich helfen. With sich and an infinitive, it means that something can be done, as in Das Fenster lässt sich nicht öffnen.
+  A{"What comes with lassen?"} -- "an object, no other verb" --> B["leave: Ich lasse die Tür offen."]
+  A -- "a thing + infinitive" --> C["have something done: Ich lasse das Auto reparieren."]
+  A -- "a person + infinitive" --> D["let or make someone: Lass mich helfen."]
+  A -- "sich + infinitive" --> E["can be done: Das Fenster lässt sich nicht öffnen."]
+```
+
 ### Word order
 
 *lassen* works like a modal verb: it takes the second position, and the other infinitive goes to the end.
@@ -90,6 +102,10 @@ A block of flats in Germany usually has a *Hausordnung* (house rules) and a *Hau
 If the landlord doesn't fix a serious defect, tenants in Germany may have the right to a *Mietminderung* (rent reduction). Before you pay less rent, though, get advice: the local *Mieterverein* (tenants' association) helps its members for a small yearly fee.
 
 Many conflicts are about shared spaces: the *Treppenhaus* (stairwell), the *Hof* (courtyard), the *Mülltonnen* (bins). Common complaints: a *Kinderwagen* (pushchair) or bikes are *abgestellt* (left, parked) in the hall, someone *grillt* on the balcony, a dog barks, the *Klingel* (doorbell) is broken, post ends up in the wrong *Briefkasten* (letterbox). Most of this can be solved with a friendly conversation. If not, a neutral person can *vermitteln* (mediate) until both sides *sich einigen* (come to an agreement). Some towns offer free *Vermittlung* (mediation) between neighbours, and an *Einigung* (agreement) reached that way usually lasts longer than one forced by a lawyer.
+
+Here are the shared parts of a typical building:
+
+![A block of flats with the shared parts labelled: das Treppenhaus (the stairwell in the middle), die Klingel (the doorbell panel next to the front door), der Briefkasten (the letterboxes on the other side of the door), der Balkon (a balcony on the first floor), die Mülltonne (two bins) and der Hof (the courtyard beside the building).](images/de3-m6-building.svg)
 
 - *Der Wasserhahn tropft seit einer Woche.* — The tap has been dripping for a week.
 - *Könnten Sie den Mangel bitte bis Freitag beheben lassen?* — Could you please have the defect fixed by Friday?

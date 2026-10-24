@@ -23,6 +23,18 @@ This lesson shows you how to choose the right **register**, how to build a short
 
 A **semi-formal** message mixes the two: you say *Sie* and stay polite, but you can be warm and personal, because you know the reader. *Liebe Frau Kraus* sounds friendly; *Sehr geehrte Frau Kraus* sounds like an office.
 
+The chart helps you choose:
+
+```mermaid
+flowchart LR
+  accTitle: Choosing the register of a letter or e-mail
+  accDescr: Ask who you are writing to. To a friend or family member, someone you say du to, write informally: Liebe Mia, and close with Liebe Grüße. To someone you know but say Sie to, such as a teacher or neighbour, write semi-formally: Liebe Frau Kraus, and close with Viele Grüße. To a company, an office or a stranger, write formally: Sehr geehrte Damen und Herren, and close with Mit freundlichen Grüßen. In an online forum, use no opening or closing, or just Hallo zusammen.
+  A{"Who will read it?"} -- "a friend: du" --> B["informal: Liebe Mia, … Liebe Grüße"]
+  A -- "someone you know: Sie" --> C["semi-formal: Liebe Frau Kraus, … Viele Grüße"]
+  A -- "a company or office" --> D["formal: Sehr geehrte Damen und Herren, … Mit freundlichen Grüßen"]
+  A -- "an online forum" --> E["no opening or closing, or just Hallo zusammen"]
+```
+
 After the opening, put a comma, and start the next line with a small letter (unless it's a noun or *Sie*):
 
 > Liebe Frau Kraus,
@@ -85,6 +97,10 @@ Task: you can't come to your course tomorrow. Write to your teacher, apologize a
 ## Formal letters: complaints and inquiries
 
 A formal letter has a fixed shape: *Absender* (sender: your name and address) at the top, then the *Empfänger* (recipient), the place and date (*München, 12.03.2027*), a *Betreff* (subject line, no full stop), the *Anrede*, the text in paragraphs, the *Grußformel* and your name. In an e-mail, the address block is left out.
+
+The picture shows where each part goes on the page:
+
+![The layout of a formal letter: the sender's name and address at the top left, the recipient's address below it, the place and date on the right, a bold subject line, the opening Sehr geehrte Damen und Herren, the text in paragraphs, the closing Mit freundlichen Grüßen, a handwritten signature and the typed name.](images/de3-m6-letter.svg)
 
 The two most common reasons to write one are an *Anfrage* (inquiry: you *anfragen* or *sich erkundigen*, ask for information) and a *Reklamation* (complaint about a product or service). In a complaint you say what you bought, what is *mangelhaft* (defective) or *beschädigt* (damaged), and what you want: a repair, an *Ersatz* (replacement), a *Umtausch* (exchange) or your money back.
 

@@ -26,9 +26,27 @@ Health insurance is compulsory in Germany. Most employees have statutory insuran
 
 Notice how German builds these: *Kranken-* + *Versicherung*, *Arbeitslosen-* + *Versicherung*. The last part decides the gender (*die Versicherung*, so all of them are *die*), and the first part says what kind.
 
+The picture shows the five branches as the pillars that hold up the whole system:
+
+![The Sozialversicherung drawn as a roof on five pillars: Krankenversicherung (health), Pflegeversicherung (long-term care), Rentenversicherung (pension), Arbeitslosenversicherung (unemployment) and Unfallversicherung (accidents at work).](images/de3-m6-pillars.svg)
+
 When you're ill, you usually go to your *Hausarzt* or *Hausärztin* (family doctor, GP) first, ideally during the *Sprechstunde* (surgery hours). For many problems the family doctor gives you an *Überweisung* to a *Facharzt* or *Fachärztin* (specialist). You know *die Überweisung* as a bank transfer from A2; here it means a referral, and the logic is the same: something is "sent over" to someone else. If you're too ill to work, you must tell your employer on the first day: that's the *Krankmeldung* (notification of sickness; colloquially the word is also used for the doctor's note). The doctor can *krankschreiben* you (sign you off sick). Under the current rules, your employer needs the doctor's certificate if you are ill for more than three calendar days, so from the fourth day, though employers may ask for it from the first day. Since 2023 the doctor normally sends it electronically to your *Krankenkasse*, and your employer collects it from there. Politicians have discussed changing these rules, so check what applies when you need it.
 
 In an emergency you go to the *Notaufnahme* (A&E, emergency room) of a hospital, or call 112. If it isn't an emergency but can't wait until your practice opens, call the out-of-hours medical service on 116 117. Anything else can wait for the *Wartezimmer* (waiting room) of your family doctor.
+
+The chart sums up where to go:
+
+```mermaid
+flowchart TD
+  accTitle: Where to go when you are ill in Germany
+  accDescr: First ask whether it is a life-threatening emergency. If yes, call 112 or go to the Notaufnahme of a hospital. If not, ask whether it can wait until your practice opens. If it can't wait, call the out-of-hours medical service on 116 117. If it can wait, go to your Hausarzt or Hausärztin during the Sprechstunde. If you need a specialist, the family doctor gives you an Überweisung, and you take it to the Facharzt or Fachärztin.
+  A{"Life-threatening emergency?"} -- "yes" --> B["Call 112 or go to the Notaufnahme"]
+  A -- "no" --> C{"Can it wait until your practice opens?"}
+  C -- "no" --> D["Call the out-of-hours service: 116 117"]
+  C -- "yes" --> E["Hausarzt or Hausärztin, in the Sprechstunde"]
+  E -- "need a specialist" --> F["Überweisung"]
+  F --> G["Facharzt or Fachärztin"]
+```
 
 Some other words you will need:
 
@@ -92,6 +110,22 @@ In spoken German many people use the Konjunktiv II in reported speech, especiall
 - *Sie meinte, das wäre kein Problem.* — She said it wasn't a problem.
 
 This is normal and correct in speech and informal writing. In news texts you'll see a different form, the Konjunktiv I.
+
+The chart collects the everyday rules for reporting:
+
+```mermaid
+flowchart LR
+  accTitle: Reporting what someone said
+  accDescr: First decide what you are reporting. A statement is reported with dass and the verb at the end, or with a comma and normal word order. A yes/no question is reported with ob and the verb at the end. A W-question keeps its question word, with the verb at the end. An instruction or request is reported with sollen. In every case, change the pronouns to fit the new speaker.
+  A{"What are you reporting?"} -- "a statement" --> B["dass + verb at the end, or comma + normal order"]
+  A -- "a yes/no question" --> C["ob + verb at the end"]
+  A -- "a W-question" --> D["question word + verb at the end"]
+  A -- "an instruction" --> E["sollen: Ich soll …"]
+  B --> F["Change the pronouns: ich becomes er or sie"]
+  C --> F
+  D --> F
+  E --> F
+```
 
 ## Konjunktiv I: recognizing the news form
 
