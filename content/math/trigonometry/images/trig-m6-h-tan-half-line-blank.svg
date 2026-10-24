@@ -13,5 +13,5 @@
 <circle cx="361.6" cy="80.9" r="4.5" fill="#1c2833"/>
 <circle cx="300.0" cy="250.0" r="4.5" fill="#1c2833"/>
 <text x="310.0" y="272.0" font-size="16" text-anchor="start" fill="#1c2833">O</text>
-<text x="400.6" y="75.3" font-size="16" text-anchor="start" fill="#244d76">slope t</text>
+<text x="225.0" y="204.7" font-size="16" text-anchor="start" fill="#244d76">slope t</text>
 </svg>
