@@ -110,7 +110,7 @@ Find the radical axis of $x^2 + y^2 = 25$ and $(x - 6)^2 + y^2 = 13$, the common
 **Step 4.** $P(4, 6.5)$ is on the axis. Power with respect to the first circle: $16 + 42.25 - 25 = 33.25$; with respect to the second: $16 + 42.25 - 48 + 23 = 33.25$. Both tangent segments have length $\sqrt{33.25} \approx 5.77$.
 
 ```plot
-{"x": [-6, 10], "y": [-7, 8], "equal": true, "circles": [{"center": [0, 0], "r": 5}, {"center": [6, 0], "r": 3.6056}], "segments": [{"from": [4, -7], "to": [4, 8], "dashed": true}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [6, 0], "label": "(6, 0)"}, {"at": [4, 3], "label": "(4, 3)"}, {"at": [4, -3], "label": "(4, −3)"}, {"at": [4, 6.5], "label": "P"}], "labels": [{"at": [5.6, -6.2], "text": "x = 4"}], "caption": "Example 3: x² + y² = 25 and (x − 6)² + y² = 13. The radical axis x = 4 contains their common chord."}
+{"x": [-6, 11], "y": [-7, 8], "equal": true, "circles": [{"center": [0, 0], "r": 5}, {"center": [6, 0], "r": 3.6056}], "segments": [{"from": [4, -7], "to": [4, 8], "dashed": true}], "points": [{"at": [0, 0], "label": "(0, 0)"}, {"at": [6, 0], "label": "(6, 0)"}, {"at": [4, 3]}, {"at": [4, -3]}, {"at": [4, 6.5], "label": "P"}], "labels": [{"at": [5.8, 4.4], "text": "(4, 3)"}, {"at": [5.8, -4.7], "text": "(4, −3)"}, {"at": [5.6, -6.2], "text": "x = 4"}], "caption": "Example 3: x² + y² = 25 and (x − 6)² + y² = 13. The radical axis x = 4 contains their common chord."}
 ```
 
 ## Three circles: the radical center
