@@ -228,101 +228,112 @@
   solution: |-
     Total variance = trace = sum of the eigenvalues = ${l1} + {l2} + {l3} = {tot}$. The first {kk} component(s) carry {kept} of it: ${kept}/{tot} \approx$ **{pct:num1}%**.
 
-- id: la-h1-r2-lowrank
-  title: Error and storage of a low-rank approximation
-  topic: Low-rank approximation
+- id: la-h1-r2-pc-direction
+  title: First principal component of a 2×2 covariance matrix
+  topic: Principal component analysis
   vars:
-    s1: {min: 20, max: 40}
-    s2: {min: 8, max: 19}
-    s3: {min: 3, max: 7}
-    s4: {min: 1, max: 2}
-    kk: {choices: [1, 2]}
-    rows: {choices: [100, 200, 300]}
-    cols: {choices: [150, 400, 500]}
+    pp: {min: 1, max: 3}
+    qq: {choices: [-3, -2, -1, 1, 2, 3]}
+    l1: {min: 4, max: 20}
+    l2: {min: 1, max: 6}
+  where: ["l1 > l2", "gcd(pp, abs(qq)) == 1", "mod(l1*pp^2 + l2*qq^2, pp^2 + qq^2) == 0", "mod((l1 - l2)*pp*qq, pp^2 + qq^2) == 0", "mod(l1*qq^2 + l2*pp^2, pp^2 + qq^2) == 0"]
   calc:
-    err2: if(kk == 1, s2^2 + s3^2 + s4^2, s3^2 + s4^2)
-    err: sqrt(err2)
-    store: kk*(rows + cols + 1)
+    nn: pp^2 + qq^2
+    s11: (l1*pp^2 + l2*qq^2)/nn
+    s12: (l1 - l2)*pp*qq/nn
+    s22: (l1*qq^2 + l2*pp^2)/nn
+    trv: s11 + s22
+    dt: s11*s22 - s12^2
+    a11: s11 - l1 + 0
+    slope: qq/pp
+    pct: 100*l1/(l1 + l2)
   prompt: |-
-    A {rows} × {cols} matrix has rank 4 with singular values {s1}, {s2}, {s3}, {s4}. For its best rank-{kk} approximation $A_{kk}$, find the Frobenius-norm error $\|A - A_{kk}\|_F$ (2 decimal places) and how many numbers must be stored for $A_{kk}$ (the $\sigma$'s, $\mathbf{u}$'s and $\mathbf{v}$'s).
+    A data set has covariance matrix $S = \begin{bmatrix} {s11} & {s12} \\ {s12} & {s22}\end{bmatrix}$. Find the variance along the first principal component, the slope of the first component's direction (as a fraction), and the percent of the total variance it explains (1 decimal place).
   answers:
-    - {name: err, label: 'Error', tolerance: 0.006, format: num2}
-    - {name: store, label: 'Numbers stored', format: integer}
+    - {name: l1, label: 'Variance $\lambda_1$'}
+    - {name: slope, label: 'Slope', kind: fraction, lowestTerms: true}
+    - {name: pct, label: 'Percent explained', tolerance: 0.06, format: num1}
   solution: |-
-    Eckart–Young: the error is the square root of the sum of the squares of the dropped singular values: $\sqrt{{err2}} \approx$ **{err:num2}**.
-    Each rank-one piece needs $1 + {rows} + {cols}$ numbers, so {kk} piece(s) need **{store}**.
+    The eigenvalues satisfy $\lambda^2 - {trv}\lambda + {dt} = 0$, so $\lambda_1 = {l1}$ and $\lambda_2 = {l2}$ (they add to {trv} and multiply to {dt}).
+    For $\lambda_1$: row 1 of $S - {l1}I$ is $({a11})u_1 + ({s12})u_2 = 0$, which holds for $\mathbf{u} = ({pp}, {qq})$, so the first component points along $({pp}, {qq})$ and its slope is **{slope:frac}**.
+    Variance **{l1}**; it explains ${l1}/{trv} \approx$ **{pct:num1}%** of the total.
 
-- id: la-h1-r2-hamming-encode
-  title: Encode with the Hamming (7,4) code
-  topic: Error-correcting codes
+- id: la-h1-r2-trilaterate
+  title: Position from three distances
+  topic: Positioning from distances
   vars:
-    d3: {choices: [0, 1]}
-    d5: {choices: [0, 1]}
-    d6: {choices: [0, 1]}
-    d7: {choices: [0, 1]}
+    aa: {min: 4, max: 10}
+    bb: {min: -2, max: 6}
+    cc: {min: 3, max: 9}
+    xx: {min: 0, max: 8}
+    yy: {min: 0, max: 8}
+  where: ["xx != 0 or yy != 0"]
   calc:
-    p1: mod(d3 + d5 + d7, 2)
-    p2: mod(d3 + d6 + d7, 2)
-    p4: mod(d5 + d6 + d7, 2)
+    r1s: xx^2 + yy^2
+    r2s: (xx - aa)^2 + yy^2
+    r3s: (xx - bb)^2 + (yy - cc)^2
+    ta: 2*aa
+    tb: 2*bb
+    tc: 2*cc
+    asq: aa^2
+    bcsq: bb^2 + cc^2
+    rhs1: r1s - r2s + aa^2
+    rhs2: r1s - r3s + bb^2 + cc^2
+    rem: rhs2 - tb*xx
   prompt: |-
-    Encode the data bits $x_3 x_5 x_6 x_7 = {d3}{d5}{d6}{d7}$ with the Hamming (7,4) code (parity bits in positions 1, 2 and 4, with $H$'s column $j$ equal to $j$ in binary). Find the parity bits.
+    Beacons sit at $\mathbf{p}_1 = (0, 0)$, $\mathbf{p}_2 = ({aa}, 0)$ and $\mathbf{p}_3 = ({bb}, {cc})$. The squared distances from you to them are $r_1^2 = {r1s}$, $r_2^2 = {r2s}$ and $r_3^2 = {r3s}$. Find your position $(x, y)$.
   answers:
-    - {name: p1, label: '$x_1 =$', format: integer}
-    - {name: p2, label: '$x_2 =$', format: integer}
-    - {name: p4, label: '$x_4 =$', format: integer}
+    - {name: xx, label: '$x =$'}
+    - {name: yy, label: '$y =$'}
   solution: |-
-    Work mod 2: $x_1 = x_3 + x_5 + x_7 = {d3} + {d5} + {d7}$, $x_2 = x_3 + x_6 + x_7 = {d3} + {d6} + {d7}$, $x_4 = x_5 + x_6 + x_7 = {d5} + {d6} + {d7}$, each reduced mod 2.
-    **$x_1 = {p1}$, $x_2 = {p2}$, $x_4 = {p4}$**, so the codeword is $({p1}, {p2}, {d3}, {p4}, {d5}, {d6}, {d7})$.
+    Subtract the first circle equation from the others: $2(\mathbf{p}_i - \mathbf{p}_1)\cdot\mathbf{x} = r_1^2 - r_i^2 + \|\mathbf{p}_i\|^2$.
+    Beacon 2: ${ta}x = {r1s} - {r2s} + {asq} = {rhs1}$, so $x = {xx}$.
+    Beacon 3: ${tb}x + {tc}y = {r1s} - {r3s} + {bcsq} = {rhs2}$. With $x = {xx}$: ${tc}y = {rem}$, so $y = {yy}$.
+    Position: **({xx}, {yy})**.
 
-- id: la-h1-r2-syndrome
-  title: Find a single error with the syndrome
-  topic: Error-correcting codes
+- id: la-h1-r2-position-ls
+  title: Least-squares position from four beacons
+  topic: Positioning from distances
   vars:
-    d3: {choices: [0, 1]}
-    d5: {choices: [0, 1]}
-    d6: {choices: [0, 1]}
-    d7: {choices: [0, 1]}
-    jj: {min: 1, max: 7}
+    xx: {min: 1, max: 9}
+    yy: {min: 1, max: 9}
+    e1: {min: -3, max: 3}
+    e2: {min: -3, max: 3}
+    e3: {min: -3, max: 3}
+    e4: {min: -3, max: 3}
+  where: ["e1 - e2 + e3 - e4 != 0 or e1 - e2 - e3 + e4 != 0"]
   calc:
-    c1: mod(d3 + d5 + d7, 2)
-    c2: mod(d3 + d6 + d7, 2)
-    c4: mod(d5 + d6 + d7, 2)
-    r1: mod(c1 + (jj == 1), 2)
-    r2: mod(c2 + (jj == 2), 2)
-    r3: mod(d3 + (jj == 3), 2)
-    r4: mod(c4 + (jj == 4), 2)
-    r5: mod(d5 + (jj == 5), 2)
-    r6: mod(d6 + (jj == 6), 2)
-    r7: mod(d7 + (jj == 7), 2)
-    t4: mod(r4 + r5 + r6 + r7, 2)
-    t2: mod(r2 + r3 + r6 + r7, 2)
-    t1: mod(r1 + r3 + r5 + r7, 2)
-    pos: 4*t4 + 2*t2 + t1
+    m1: xx^2 + yy^2 + e1
+    m2: (xx - 10)^2 + yy^2 + e2
+    m3: xx^2 + (yy - 10)^2 + e3
+    m4: (xx - 10)^2 + (yy - 10)^2 + e4
+    a1: (m1 - m2 + 100)/20
+    a2: (m1 - m3 + 100)/20
+    a3: (m1 - m4 + 200)/20
+    xh: (2*a1 - a2 + a3)/3
+    yh: (2*a2 - a1 + a3)/3
   prompt: |-
-    A Hamming (7,4) codeword was sent and exactly one bit was flipped. The received word is $({r1}, {r2}, {r3}, {r4}, {r5}, {r6}, {r7})$. Using $H = \begin{bmatrix} 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 & 1 & 0 & 1\end{bmatrix}$, find the syndrome and the position of the flipped bit.
+    Beacons sit at the corners $(0, 0)$, $(10, 0)$, $(0, 10)$, $(10, 10)$ of a square. The measured squared distances to them are {m1}, {m2}, {m3} and {m4} (with small errors). Subtract the first equation from the others and find the least-squares estimate of your position, to 2 decimal places.
   answers:
-    - {name: t4, label: 'Syndrome, top entry', format: integer}
-    - {name: t2, label: 'Syndrome, middle entry', format: integer}
-    - {name: t1, label: 'Syndrome, bottom entry', format: integer}
-    - {name: pos, label: 'Flipped position', format: integer}
+    - {name: xh, label: '$\hat x =$', tolerance: 0.006, format: num2}
+    - {name: yh, label: '$\hat y =$', tolerance: 0.006, format: num2}
   solution: |-
-    Row 1 adds positions 4–7: ${r4} + {r5} + {r6} + {r7} \equiv {t4}$. Row 2 adds positions 2, 3, 6, 7: ${r2} + {r3} + {r6} + {r7} \equiv {t2}$. Row 3 adds positions 1, 3, 5, 7: ${r1} + {r3} + {r5} + {r7} \equiv {t1}$ (all mod 2).
-    The syndrome **({t4}, {t2}, {t1})** is binary {t4}{t2}{t1} $= 4({t4}) + 2({t2}) + {t1} =$ **{pos}**, so bit {pos} was flipped.
+    Subtracting and dividing by 20 gives $x = {a1}$, $y = {a2}$, $x + y = {a3}$: $M = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1\end{bmatrix}$, $\mathbf{c} = ({a1}, {a2}, {a3})$.
+    Normal equations: $\begin{bmatrix} 2 & 1 \\ 1 & 2\end{bmatrix}\hat{\mathbf{x}} = ({a1} + {a3},\ {a2} + {a3})$, so $\hat x = \tfrac{2({a1}) - ({a2}) + {a3}}{3}$ and $\hat y = \tfrac{2({a2}) - ({a1}) + {a3}}{3}$.
+    **$\hat x \approx {xh:num2}$, $\hat y \approx {yh:num2}$.**
 
-- id: la-h1-r2-block-error
-  title: Block failure rate with and without coding
-  topic: Error-correcting codes
+- id: la-h1-r2-dop
+  title: Dilution of precision for two beacons
+  topic: Positioning from distances
   vars:
-    pp: {choices: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05]}
+    th: {choices: [15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90]}
   calc:
-    fail4: 1 - (1 - pp)^4
-    fail7: 1 - (1 - pp)^7 - 7*pp*(1 - pp)^6
-    ratio: fail4/fail7
+    sn: sind(th)
+    dop: sqrt(2)/sind(th)
   prompt: |-
-    Each bit is flipped independently with probability $p = {pp}$. Find the probability that a block of 4 data bits is damaged when sent unprotected, and the probability that a Hamming (7,4) block is decoded wrongly (that is, has 2 or more errors). Give each to 3 significant figures.
-  answers:
-    - {name: fail4, label: 'Unprotected, 4 bits', sigfigs: 3, format: sig3}
-    - {name: fail7, label: 'Hamming (7,4)', sigfigs: 3, format: sig3}
+    In the plane, a receiver measures ranges to two beacons whose directions (unit line-of-sight vectors) differ by ${th}^\circ$. Find the dilution of precision $\sqrt{\operatorname{tr}((J^TJ)^{-1})}$, to 2 decimal places.
+  answer: dop
+  format: num2
+  tolerance: 0.006
   solution: |-
-    Unprotected: $1 - (1 - {pp})^4 \approx$ **{fail4:sig3}**.
-    Hamming: the block is fine with 0 or 1 errors, so it fails with probability $1 - (1 - {pp})^7 - 7({pp})(1 - {pp})^6 \approx$ **{fail7:sig3}**, about {ratio:num1} times smaller.
+    With rows $(1, 0)$ and $(\cos\theta, \sin\theta)$, $J^TJ$ has trace 2 and determinant $\sin^2\theta$, so $\operatorname{tr}((J^TJ)^{-1}) = 2/\sin^2\theta$ and $\text{DOP} = \sqrt2/\sin\theta = 1.4142/{sn:num4} \approx$ **{dop:num2}**.

@@ -250,3 +250,329 @@
   answer: 1
   explanation: |-
     The region and density are symmetric about the $x$-axis, so $\bar y = 0$. Mass: $m = \iint(1 + x)\,dA = \pi + 0 = \pi$ (the integral of $x$ over the disk is 0 by symmetry). $M_y = \iint x(1 + x)\,dA = \iint x^2\,dA = \int_0^{2\pi}\int_0^1 r^2\cos^2\theta\,r\,dr\,d\theta = \tfrac14\cdot\pi$. So $\bar x = \dfrac{\pi/4}{\pi} = \tfrac14$: pulled toward the heavier right side. The choice $\tfrac{1}{4\pi}$ comes from dividing by $\pi$ twice, and $\left(0, \tfrac14\right)$ puts the shift on the wrong axis.
+
+# ---------- Honors 24h1: approximating double integrals ----------
+- id: mv-m5-r2-h01
+  lesson: mv-m5-h-numerical
+  type: text
+  topic: Numerical double integration
+  stem: 'On one Simpson panel (a $3\times3$ grid), each value is multiplied by a weight before the sum is multiplied by $\frac{hk}{9}$. The weight of the center point is ___.'
+  accept: ['16', 'sixteen']
+  explanation: |-
+    The two-variable weights are products of the one-variable weights $1, 4, 1$. The center is a middle point in both directions, so its weight is $4\times4 = 16$. Edge midpoints get $1\times4 = 4$ and corners $1\times1 = 1$.
+- id: mv-m5-r2-h02
+  lesson: mv-m5-h-numerical
+  topic: Numerical double integration
+  stem: 'Apply the midpoint rule with four unit squares to $\iint_R (x^2 + y^2)\,dA$ on $R = [0, 2]\times[0, 2]$. What are the estimate $M$ and the error (exact value minus $M$)?'
+  choices:
+    - '$M = 10$, error $\tfrac23$'
+    - '$M = 10$, error $-\tfrac23$'
+    - '$M = \tfrac{32}{3}$, error $0$'
+    - '$M = 9$, error $\tfrac53$'
+  answer: 0
+  explanation: |-
+    The midpoints have $x, y\in\{0.5, 1.5\}$, with $x^2 \in \{0.25, 2.25\}$. Over the four squares, $\sum(x^2 + y^2) = 2(0.25 + 2.25) + 2(0.25 + 2.25) = 10$, and $\Delta A = 1$, so $M = 10$. The exact value is $\int_0^2\int_0^2(x^2 + y^2)\,dy\,dx = \tfrac{32}{3}$, so the error is $\tfrac23$. The error formula agrees: $\tfrac{1}{24}\left(\iint 2\,dA + \iint 2\,dA\right) = \tfrac{16}{24} = \tfrac23$. It is positive because $f$ is convex: the midpoint rule underestimates.
+- id: mv-m5-r2-h03
+  lesson: mv-m5-h-numerical
+  topic: Numerical double integration
+  stem: 'For a smooth integrand, the midpoint rule with $h = k = 0.2$ has an error of about $0.004$. About what error do you expect with $h = k = 0.1$?'
+  choices:
+    - '$0.002$'
+    - '$0.0005$'
+    - '$0.001$'
+    - '$0.00025$'
+  answer: 2
+  explanation: |-
+    The midpoint error is proportional to $h^2$ (order 2). Halving $h$ divides the error by $2^2 = 4$: $0.004/4 = 0.001$. Dividing by 2 assumes order 1; dividing by 16 is the behavior of Simpson's rule.
+- id: mv-m5-r2-h04
+  lesson: mv-m5-h-numerical
+  topic: Numerical double integration
+  stem: 'For which integrands does the midpoint rule give the exact value of $\iint_R f\,dA$ on every rectangle and every grid? Select all that apply.'
+  choices:
+    - '$3 - 2x + 5y$'
+    - '$xy$'
+    - '$x^2$'
+    - '$e^x$'
+  answer: [0, 1]
+  explanation: |-
+    About the center of each sub-rectangle, the terms $x - \bar x$, $y - \bar y$ and $(x - \bar x)(y - \bar y)$ all integrate to zero, so the midpoint rule is exact for $a + bx + cy + dxy$. For $x^2$ the error is $\tfrac{h^2}{24}\iint 2\,dA \ne 0$, and $e^x$ has a nonzero second derivative too.
+- id: mv-m5-r2-h05
+  lesson: mv-m5-h-numerical
+  type: order
+  topic: Monte Carlo integration
+  stem: 'Put the steps of a Monte Carlo estimate of $\iint_D f\,dA$ in order.'
+  items:
+    - 'Choose a box $B$ of known area that contains $D$'
+    - 'Generate $N$ points uniformly at random in $B$'
+    - 'At each point, record $f$ if the point is in $D$ and $0$ if it is not'
+    - 'Average the $N$ recorded values'
+    - 'Multiply the average by the area of $B$'
+  explanation: |-
+    The points are drawn from the box, so the box comes first. Each point contributes $g(P_i)$, which is $f$ inside $D$ and 0 outside. The average estimates the average value of $g$ over $B$, and the integral is the average value times the area: $A(B)\cdot\tfrac1N\sum g(P_i)$.
+- id: mv-m5-r2-h06
+  lesson: mv-m5-h-numerical
+  type: match
+  topic: Monte Carlo integration
+  stem: 'For a smooth integrand of two variables, match each method to how its error typically shrinks with $N$ function values.'
+  pairs:
+    - [Midpoint rule, About 1/N]
+    - [Simpson's rule, About 1/N²]
+    - [Monte Carlo integration, About 1/√N]
+  distractors: [About 1/N³]
+  explanation: |-
+    With $N$ points on a grid in the plane, the spacing is $h \approx 1/\sqrt N$. The midpoint error $\sim h^2 \sim 1/N$ and Simpson's error $\sim h^4 \sim 1/N^2$. Monte Carlo's standard error $\sim 1/\sqrt N$ in any dimension, which is slower in the plane but wins in many dimensions.
+- id: mv-m5-r2-h07
+  lesson: mv-m5-h-numerical
+  type: text
+  topic: Numerical double integration
+  stem: 'A surveyor estimates a pond''s volume with the midpoint rule on a 10 m grid, then repeats it on a 5 m grid (four times as many depth readings). If the bottom is smooth, the error should be divided by about ___.'
+  accept: ['4', 'four']
+  explanation: |-
+    The midpoint rule has order 2: halving the spacing in both directions divides the error by about $2^2 = 4$. (Four times as many readings, one quarter of the error.)
+- id: mv-m5-r2-h08
+  lesson: mv-m5-h-numerical
+  topic: Monte Carlo integration
+  stem: 'A region $D$ lies inside the rectangle $[0, 2]\times[0, 3]$. Of 500 random points in the rectangle, 180 land in $D$. Estimate the area of $D$.'
+  choices:
+    - '$0.36$'
+    - '$1.08$'
+    - '$3.84$'
+    - '$2.16$'
+  answer: 3
+  explanation: |-
+    The fraction of hits is $\tfrac{180}{500} = 0.36$, and the rectangle has area 6, so the area of $D$ is about $6\times0.36 = 2.16$. Leaving out the box area gives $0.36$; using the misses instead of the hits gives $6\times0.64 = 3.84$.
+- id: mv-m5-r2-h09
+  lesson: mv-m5-h-numerical
+  topic: Monte Carlo integration
+  stem: 'A Monte Carlo estimate uses 1,000 points. If you use 100,000 points instead, its standard error is'
+  choices:
+    - 'divided by about 100'
+    - 'divided by about 10'
+    - 'divided by about 3.2'
+    - 'about the same'
+  answer: 1
+  explanation: |-
+    The standard error is proportional to $1/\sqrt N$. Multiplying $N$ by 100 divides it by $\sqrt{100} = 10$. That is why each extra correct digit costs 100 times as many points.
+- id: mv-m5-r2-h10
+  lesson: mv-m5-h-numerical
+  topic: Monte Carlo integration
+  stem: 'A grid with 10 points in each direction is used to approximate an integral of a function of 6 variables. How many function values does it need?'
+  choices:
+    - '$60$'
+    - '$1{,}000{,}000$'
+    - '$6^{10} \approx 60{,}000{,}000$'
+    - '$100$'
+  answer: 1
+  explanation: |-
+    A grid in $d$ dimensions with $n$ points per direction has $n^d$ points: $10^6 = 1{,}000{,}000$. This explosion is the curse of dimensionality; a Monte Carlo estimate's accuracy depends on the number of points, not on $d$.
+- id: mv-m5-r2-h11
+  lesson: mv-m5-h-numerical
+  topic: Numerical double integration
+  stem: 'Simpson''s rule with one panel ($h = k = 1$) is applied to $\iint_R x^2y^2\,dA$ on $R = [0, 2]\times[0, 2]$. What does it give?'
+  choices:
+    - '$\tfrac{64}{9}$, the exact value'
+    - '$6.25$'
+    - '$9$'
+    - '$4$'
+  answer: 0
+  explanation: |-
+    Simpson's rule is exact for polynomials of degree at most 3 in each variable, and $x^2y^2$ has degree 2 in each, so it returns the exact value $\left(\tfrac83\right)\left(\tfrac83\right) = \tfrac{64}{9} \approx 7.11$. The $2\times2$ midpoint rule gives $6.25$, the $2\times2$ trapezoid rule gives $9$, and a single midpoint gives $4$.
+- id: mv-m5-r2-h12
+  lesson: mv-m5-h-numerical
+  topic: Numerical double integration
+  stem: 'The depth of a lake drops suddenly at an underwater cliff. Why might Simpson''s rule do no better than the midpoint rule there?'
+  choices:
+    - 'Simpson''s rule cannot be used on data from measurements'
+    - 'Simpson''s rule needs more points per panel than the data have'
+    - 'Simpson''s rule always overestimates volumes'
+    - 'Its $h^4$ accuracy depends on the integrand being smooth, and a jump is not'
+  answer: 3
+  explanation: |-
+    Simpson's rule fits smooth parabolas through the values; its error bound uses fourth derivatives. Across a jump or a sharp kink those derivatives do not exist, and the error shrinks much more slowly. It can be used on measured data on an even grid, and it does not always overestimate.
+- id: mv-m5-r2-h13
+  lesson: mv-m5-h-numerical
+  topic: Monte Carlo integration
+  stem: 'For smooth integrands, in roughly how many dimensions does Monte Carlo integration start to beat Simpson''s rule for the same number of points?'
+  choices:
+    - 'more than 2'
+    - 'more than 4'
+    - 'more than 8'
+    - 'never'
+  answer: 2
+  explanation: |-
+    Simpson's error with $N$ points in $d$ dimensions is about $N^{-4/d}$; Monte Carlo's is about $N^{-1/2}$. Monte Carlo is better when $\tfrac12 > \tfrac4d$, that is $d > 8$. (Against the midpoint rule, $N^{-2/d}$, it wins for $d > 4$.)
+- id: mv-m5-r2-h14
+  lesson: mv-m5-h-numerical
+  topic: Monte Carlo integration
+  stem: 'Of 100 random points in the unit square, 78 land in the quarter disk $x^2 + y^2 \le 1$. Which statement is correct?'
+  choices:
+    - 'The estimate $4\times0.78 = 3.12$ proves $\pi < 3.13$'
+    - 'The estimate is $3.12$, with a standard error of about $0.16$'
+    - 'The estimate is $0.78$, with a standard error of about $0.04$'
+    - 'With 200 points the error would be cut in half'
+  answer: 1
+  explanation: |-
+    The quarter disk has area $\tfrac\pi4$, so $\pi \approx 4\times0.78 = 3.12$. Each point scores 1 with probability $p = \tfrac\pi4$, so $s = \sqrt{p(1 - p)} \approx 0.41$ and the standard error of $4\times$(fraction) is $4\times0.41/\sqrt{100} \approx 0.16$. A random estimate proves nothing about $\pi$, and halving the error takes 4 times the points, not 2.
+
+# ---------- Honors 24h2: improper double integrals ----------
+- id: mv-m5-r2-h15
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'Evaluate the improper integral $\displaystyle\iint_{x^2 + y^2\le1}\frac{dA}{(x^2 + y^2)^{1/4}}$.'
+  choices:
+    - '$4\pi$'
+    - '$2\pi$'
+    - 'It diverges'
+    - '$\tfrac{4\pi}{3}$'
+  answer: 3
+  explanation: |-
+    $(x^2 + y^2)^{1/4} = r^{1/2}$, so the integral is $\displaystyle\int_0^{2\pi}\int_0^1 r^{-1/2}\,r\,dr\,d\theta = 2\pi\cdot\frac{1}{3/2} = \frac{4\pi}{3}$ (the exponent $\tfrac12$ is less than 2, so it converges). $4\pi$ comes from $r^{-3/2}$, and dropping the factor $r$ gives $2\pi\int_0^1 r^{-1/2}dr = 4\pi$ as well.
+- id: mv-m5-r2-h16
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'Which improper integrals converge? Select all that apply.'
+  choices:
+    - '$\displaystyle\iint_{x^2+y^2\le1}\frac{dA}{\sqrt{x^2 + y^2}}$'
+    - '$\displaystyle\iint_{x^2+y^2\le1}\frac{dA}{x^2 + y^2}$'
+    - '$\displaystyle\iint_{x^2+y^2\ge1}\frac{dA}{(x^2 + y^2)^{3/2}}$'
+    - '$\displaystyle\iint_{x^2+y^2\ge1}\frac{dA}{x^2 + y^2}$'
+  answer: [0, 2]
+  explanation: |-
+    Write each as $r^{-q}$. Near the origin, $r^{-q}$ is integrable when $q < 2$: $q = 1$ converges (to $2\pi$), $q = 2$ diverges ($2\pi\int_0^1\frac{dr}{r}$). Far away, it is integrable when $q > 2$: $q = 3$ converges (to $2\pi$), $q = 2$ diverges ($2\pi\int_1^\infty\frac{dr}{r}$).
+- id: mv-m5-r2-h17
+  lesson: mv-m5-h-improper
+  type: order
+  topic: Improper double integrals
+  stem: 'Put these convergent integrals in order from smallest value to largest. (Here $r = \sqrt{x^2 + y^2}$.)'
+  items:
+    - '$\displaystyle\iint_{r\ge1}r^{-6}\,dA$'
+    - '$\displaystyle\iint_{\mathbb R^2}e^{-(x^2+y^2)}\,dA$'
+    - '$\displaystyle\iint_{r\le1}r^{-1}\,dA$'
+    - '$\displaystyle\iint_{r\le1}r^{-3/2}\,dA$'
+  explanation: |-
+    $\iint_{r\ge1}r^{-6}\,dA = \frac{2\pi}{6 - 2} = \frac\pi2$; the Gaussian integral is $\pi$; $\iint_{r\le1}r^{-1}\,dA = \frac{2\pi}{2 - 1} = 2\pi$; and $\iint_{r\le1}r^{-3/2}\,dA = \frac{2\pi}{2 - 3/2} = 4\pi$. Exponents close to the critical value 2 give large values.
+- id: mv-m5-r2-h18
+  lesson: mv-m5-h-improper
+  type: text
+  topic: Improper double integrals
+  stem: '$\displaystyle\iint_{x^2+y^2\ge1}\frac{dA}{(x^2 + y^2)^{3/2}} =$ ___$\,\pi$. Give only the number that multiplies $\pi$.'
+  accept: ['2']
+  explanation: |-
+    The integrand is $r^{-3}$, and $3 > 2$, so the integral converges: $\displaystyle\int_0^{2\pi}\int_1^\infty r^{-3}\,r\,dr\,d\theta = 2\pi\left[-\frac1r\right]_1^\infty = 2\pi.$
+- id: mv-m5-r2-h19
+  lesson: mv-m5-h-improper
+  type: match
+  topic: Improper double integrals
+  stem: 'Match each improper integral (with $r = \sqrt{x^2 + y^2}$) to its behavior.'
+  pairs:
+    - ['$\iint_{r\le1}r^{-1}\,dA$', Converges to 2π]
+    - ['$\iint_{r\le1}r^{-2}\,dA$', Diverges because of the blow-up at the origin]
+    - ['$\iint_{r\ge1}r^{-2}\,dA$', Diverges because the tail at infinity is too heavy]
+    - ['$\iint_{r\ge1}r^{-4}\,dA$', Converges to π]
+  distractors: [Converges to π/2]
+  explanation: |-
+    In polar form each becomes $2\pi\int r^{1-q}\,dr$. For $q = 1$ on the unit disk: $2\pi\int_0^1 dr = 2\pi$. For $q = 2$: $2\pi\int\frac{dr}{r}$, which diverges at $0$ on the disk and at $\infty$ outside it. For $q = 4$ outside: $2\pi\int_1^\infty r^{-3}\,dr = \pi$.
+- id: mv-m5-r2-h20
+  lesson: mv-m5-h-improper
+  topic: Fubini and Tonelli
+  stem: 'Let $f(x, y) = \dfrac{x^2 - y^2}{(x^2 + y^2)^2}$ on $[0, 1]\times[0, 1]$. What is true of its two iterated integrals?'
+  choices:
+    - 'They are $\tfrac\pi4$ and $-\tfrac\pi4$; Fubini does not apply because $\iint|f|\,dA$ is infinite'
+    - 'Both are $\tfrac\pi4$, because $f$ is continuous on the square'
+    - 'Both are $0$, because swapping $x$ and $y$ changes the sign of $f$'
+    - 'They disagree only because of rounding; the double integral is $0$'
+  answer: 0
+  explanation: |-
+    Integrating in $y$ first gives $\int_0^1\frac{dx}{1 + x^2} = \frac\pi4$; in $x$ first, $-\frac\pi4$. $f$ is not continuous on the square (it is unbounded near the origin), and in polar form $|f| = |\cos2\theta|/r^2$, whose integral diverges. With $\iint|f| = \infty$ the double integral is not defined, and the order of integration decides how two infinite parts cancel. The antisymmetry argument would only work if the double integral existed.
+- id: mv-m5-r2-h21
+  lesson: mv-m5-h-improper
+  topic: Fubini and Tonelli
+  stem: 'A continuous function $f \ge 0$ on the first quadrant has $\displaystyle\int_0^\infty\int_0^\infty f(x, y)\,dy\,dx = 5$. What is $\displaystyle\int_0^\infty\int_0^\infty f(x, y)\,dx\,dy$?'
+  choices:
+    - 'It could be different, because the region is unbounded'
+    - 'It could be $+\infty$'
+    - '$5$'
+    - '$-5$'
+  answer: 2
+  explanation: |-
+    By Tonelli's theorem, for a nonnegative integrand both iterated integrals equal the double integral, finite or infinite, even on an unbounded region. So the other order also gives 5. Disagreement is possible only for integrands that change sign and are not absolutely integrable.
+- id: mv-m5-r2-h22
+  lesson: mv-m5-h-improper
+  type: text
+  topic: Fubini and Tonelli
+  stem: 'Independent waiting times $X$ and $Y$ have densities $3e^{-3x}$ ($x \ge 0$) and $e^{-y}$ ($y \ge 0$). Then $P(X < Y) =$ ___. Give the exact value.'
+  accept: ['3/4', '0.75']
+  explanation: |-
+    $\displaystyle P(X < Y) = \int_0^\infty\int_x^\infty 3e^{-3x}e^{-y}\,dy\,dx = \int_0^\infty 3e^{-3x}e^{-x}\,dx = \frac34.$ (In general, rates $a$ and $b$ give $\frac{a}{a + b}$.) $X$ has the larger rate, so it usually ends first.
+- id: mv-m5-r2-h23
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'Let $I_R = \int_{-R}^{R}e^{-x^2}\,dx$. Comparing the square $[-R, R]^2$ with disks gives which inequality?'
+  choices:
+    - '$2\pi\left(1 - e^{-R^2}\right) \le I_R^2 \le 2\pi\left(1 - e^{-2R^2}\right)$'
+    - '$\pi\left(1 - e^{-R^2}\right) \le I_R^2 \le \pi\left(1 - e^{-2R^2}\right)$'
+    - '$\pi\left(1 - e^{-2R^2}\right) \le I_R^2 \le \pi\left(1 - e^{-R^2}\right)$'
+    - '$\pi\left(1 - e^{-R^2}\right) \le I_R \le \pi\left(1 - e^{-2R^2}\right)$'
+  answer: 1
+  explanation: |-
+    $I_R^2$ is the integral of $e^{-(x^2+y^2)}$ over the square, which contains the disk of radius $R$ and lies inside the disk of radius $R\sqrt2$. Over a disk of radius $\rho$ the integral is $2\pi\cdot\frac12\left(1 - e^{-\rho^2}\right) = \pi\left(1 - e^{-\rho^2}\right)$. The bigger region gives the bigger value, so the smaller disk gives the lower bound. The first choice forgets the $\frac12$ from $\int re^{-r^2}dr$; the last bounds $I_R$ instead of $I_R^2$.
+- id: mv-m5-r2-h24
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'Which sequences of regions are exhaustions of the whole plane that can be used to compute $\iint_{\mathbb R^2}e^{-(x^2+y^2)}\,dA$? Select all that apply.'
+  choices:
+    - 'The disks $x^2 + y^2 \le n^2$, $n = 1, 2, 3, \dots$'
+    - 'The squares $[-n, n]\times[-n, n]$, $n = 1, 2, 3, \dots$'
+    - 'The strips $[-n, n]\times[-1, 1]$, $n = 1, 2, 3, \dots$'
+    - 'The disks $x^2 + y^2 \le \tfrac{1}{n^2}$, $n = 1, 2, 3, \dots$'
+  answer: [0, 1]
+  explanation: |-
+    An exhaustion must be increasing and eventually contain every point of the plane. The growing disks and squares do; since the integrand is positive, both give the same limit, $\pi$. The strips never reach points with $|y| > 1$, and the shrinking disks are not increasing and close in on the origin.
+- id: mv-m5-r2-h25
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'Does $\displaystyle\iint_{x^2+y^2\ge1}\frac{dA}{x^4 + y^4}$ converge?'
+  choices:
+    - 'No, because $x^4 + y^4 \le (x^2 + y^2)^2$'
+    - 'Yes, because $\frac{1}{x^4 + y^4} \le \frac{2}{r^4}$ and $\iint_{r\ge1}\frac{2}{r^4}\,dA = 2\pi$'
+    - 'No, because the critical exponent outside the unit disk is 4'
+    - 'Yes, because $\frac{1}{x^4 + y^4} \le \frac{1}{r^4}$ everywhere'
+  answer: 1
+  explanation: |-
+    Since $2x^2y^2 \le x^4 + y^4$, we get $r^4 = (x^2 + y^2)^2 \le 2(x^4 + y^4)$, so $\frac{1}{x^4 + y^4} \le \frac{2}{r^4}$, and $r^{-4}$ is integrable outside the unit disk ($4 > 2$). The inequality $x^4 + y^4 \le r^4$ is true but goes the wrong way to prove anything: it gives $\frac{1}{x^4 + y^4} \ge \frac{1}{r^4}$, which also rules out the last choice. The critical exponent in the plane is 2, not 4.
+- id: mv-m5-r2-h26
+  lesson: mv-m5-h-improper
+  topic: Improper double integrals
+  stem: 'For which exponents $q > 0$ does $\displaystyle\iint_{x^2+y^2\le1}\frac{dA}{(x^2 + y^2)^{q/2}}$ converge?'
+  choices:
+    - '$q < 2$'
+    - '$q < 1$'
+    - '$q > 2$'
+    - '$q \le 2$'
+  answer: 0
+  explanation: |-
+    The integrand is $r^{-q}$, and with the area element $r\,dr\,d\theta$ the integral is $2\pi\int_0^1 r^{1-q}\,dr$, which converges exactly when $1 - q > -1$, that is $q < 2$. The answer $q < 1$ is the one-variable rule, which forgets the factor $r$.
+- id: mv-m5-r2-h27
+  lesson: mv-m5-h-improper
+  topic: Fubini and Tonelli
+  stem: 'Why does the definition of an improper double integral of a function that changes sign require $\iint_D|f|\,dA < \infty$?'
+  choices:
+    - 'Because $|f|$ is always easier to integrate than $f$'
+    - 'Because a function that changes sign cannot have a finite integral'
+    - 'Because polar coordinates only work for nonnegative functions'
+    - 'Because otherwise different exhaustions or orders of integration can give different values'
+  answer: 3
+  explanation: |-
+    For $f \ge 0$ every exhaustion gives the same limit. When the positive and negative parts both have infinite integrals, how they cancel depends on how you approach the limit, as the example $\frac{x^2 - y^2}{(x^2 + y^2)^2}$ shows ($\frac\pi4$ one way, $-\frac\pi4$ the other). Requiring absolute integrability rules this out.
+- id: mv-m5-r2-h28
+  lesson: mv-m5-h-improper
+  topic: Fubini and Tonelli
+  stem: 'Independent waiting times $X$ and $Y$ each have density $e^{-t}$ for $t \ge 0$. Find $P(X + Y \le 1)$.'
+  choices:
+    - '$\tfrac12$'
+    - '$1 - \tfrac1e$'
+    - '$1 - \tfrac2e$'
+    - '$\tfrac1e$'
+  answer: 2
+  explanation: |-
+    $\displaystyle\int_0^1\int_0^{1-x}e^{-x-y}\,dy\,dx = \int_0^1 e^{-x}\left(1 - e^{-(1-x)}\right)dx = (1 - e^{-1}) - e^{-1} = 1 - \frac2e \approx 0.264.$ The value $1 - \frac1e$ is $P(X \le 1)$ alone, and $\frac12$ is $P(X < Y)$.

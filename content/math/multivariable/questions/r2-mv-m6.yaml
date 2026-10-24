@@ -1,0 +1,545 @@
+# Round 2, module mv-m6 (Triple integrals and change of variables): new question types and honors
+# --- Lesson 25: Triple integrals ---
+- id: mv-m6-r2-q01
+  lesson: mv-triple
+  module_quiz: true
+  type: text
+  topic: Triple integrals
+  stem: 'Evaluate $\iiint_B 2z\,dV$ over the box $B = [0, 2]\times[0, 1]\times[0, 3]$. Give only the number: ___'
+  accept: ['18']
+  explanation: |-
+    The limits are constants, so the integral factors: $\left(\int_0^2dx\right)\left(\int_0^1dy\right)\left(\int_0^3 2z\,dz\right) = 2\cdot1\cdot9 = 18$.
+- id: mv-m6-r2-q02
+  lesson: mv-triple
+  type: order
+  topic: Triple integrals
+  stem: 'Put the steps of computing the volume of the tetrahedron $0 \le x \le 1$, $0 \le y \le 1 - x$, $0 \le z \le 1 - x - y$ in order, from first to last.'
+  items:
+    - 'Write the volume as $\int_0^1\int_0^{1-x}\int_0^{1-x-y}dz\,dy\,dx$'
+    - 'Inner integral: $\int_0^{1-x-y}dz = 1 - x - y$'
+    - 'Middle integral: $\int_0^{1-x}(1 - x - y)\,dy = \tfrac{(1-x)^2}{2}$'
+    - 'Outer integral: $\int_0^1\tfrac{(1-x)^2}{2}\,dx = \tfrac16$'
+  explanation: |-
+    Set up the iterated integral first, then work from the inside out. Each step uses the result of the one before it: the $z$-integral gives a function of $x$ and $y$, the $y$-integral turns that into a function of $x$ alone, and the $x$-integral gives the number $\tfrac16$.
+- id: mv-m6-r2-q03
+  lesson: mv-triple
+  module_quiz: true
+  topic: Triple integrals
+  stem: 'Which iterated integrals equal the volume of the tetrahedron bounded by the coordinate planes and $x + y + z = 1$? Select all that apply.'
+  choices:
+    - '$\int_0^1\int_0^{1-x}\int_0^{1-x-y}dz\,dy\,dx$'
+    - '$\int_0^1\int_0^{1-z}\int_0^{1-y-z}dx\,dy\,dz$'
+    - '$\int_0^1\int_0^{1}\int_0^{1-x-y}dz\,dy\,dx$'
+    - '$\int_0^1\int_0^{1-x}\int_0^{1}dz\,dy\,dx$'
+  answer: [0, 1]
+  explanation: |-
+    The first is the usual type 1 description. The second slices in the $x$-direction: $x$ runs from 0 to the plane $x = 1 - y - z$ over the triangle $y + z \le 1$ in the $yz$-plane, which is just as correct. The third uses the whole unit square as the shadow, where $1 - x - y$ goes negative; it actually equals 0. The fourth takes the top as $z = 1$ instead of the slanted plane, giving the volume $\tfrac12$ of a prism.
+- id: mv-m6-r2-q04
+  lesson: mv-triple
+  type: label
+  topic: Triple integrals
+  stem: 'The picture shows the tetrahedron $x, y, z \ge 0$, $x + y + z \le 1$, with its shadow drawn below it. Name the numbered parts.'
+  image: {src: images/mv-m6-tetra-slice-blank.svg, alt: 'A tetrahedron in the first octant with four numbered parts: a point on its large slanted face, a point on a flat triangle drawn below the solid, a point on a green vertical segment that runs from the bottom of the solid to the slanted face, and a point on the edge where the slanted face meets the xy-plane.'}
+  labels:
+    - {x: 61.1, y: 40.0, text: 'Top surface z = 1 − x − y'}
+    - {x: 36.4, y: 87.8, text: 'Shadow D in the xy-plane'}
+    - {x: 46.6, y: 45.1, text: 'Vertical segment of the inner z-integral'}
+    - {x: 65.9, y: 51.9, text: 'Edge on the line x + y = 1 in the xy-plane'}
+  distractors: ['Cylinder wall', 'Level curve of the integrand']
+  explanation: |-
+    The slanted face (1) is the top surface $z = 1 - x - y$; it gives the upper $z$-limit. The triangle drawn below (2) is the shadow $D$, where $x, y \ge 0$ and $x + y \le 1$. The green segment (3) is one vertical line through the solid: it enters at $z = 0$ and leaves at the top face, which is what the inner integral adds up along. The edge (4) is where the top face meets $z = 0$, the line $x + y = 1$ that bounds the shadow.
+- id: mv-m6-r2-q05
+  lesson: mv-triple
+  type: match
+  topic: Triple integrals
+  stem: 'A solid $E$ has density $\rho(x, y, z)$. Match each quantity to the integrand of the triple integral over $E$ that gives it.'
+  pairs:
+    - ['Mass $m$', 'ρ']
+    - ['Moment $M_{xy}$', 'z times ρ']
+    - ['Moment $M_{yz}$', 'x times ρ']
+    - ['Moment $M_{xz}$', 'y times ρ']
+  distractors: ['(x² + y²) times ρ']
+  explanation: |-
+    Mass is $\iiint_E\rho\,dV$. A moment about a coordinate plane weights mass by the distance from that plane: $M_{xy}$ (about the $xy$-plane) uses $z$, $M_{yz}$ uses $x$, and $M_{xz}$ uses $y$. The integrand $(x^2 + y^2)\rho$ gives the moment of inertia about the $z$-axis, not a moment about a plane.
+# --- Lesson 26: Cylindrical coordinates ---
+- id: mv-m6-r2-q06
+  lesson: mv-cylindrical
+  module_quiz: true
+  type: text
+  topic: Cylindrical coordinates
+  stem: 'In cylindrical coordinates, the paraboloid $z = x^2 + y^2$ is $z =$ ___'
+  accept: ['r^2', 'r²', 'r*r', 'r**2', 'rr']
+  explanation: |-
+    $x^2 + y^2 = r^2$, so the paraboloid is $z = r^2$. (The cone $z = \sqrt{x^2 + y^2}$ is $z = r$.)
+- id: mv-m6-r2-q07
+  lesson: mv-cylindrical
+  type: match
+  topic: Cylindrical coordinates
+  stem: 'Match each cylindrical equation to the surface it describes in space.'
+  pairs:
+    - ['$r = 3$', 'Circular cylinder around the z-axis']
+    - ['$z = r$', 'Cone with its vertex at the origin']
+    - ['$z = r^2$', 'Paraboloid']
+    - ['$\theta = \tfrac\pi4$', 'Vertical half-plane']
+    - ['$z = 3$', 'Horizontal plane']
+  distractors: ['Sphere centered at the origin']
+  explanation: |-
+    $r = 3$ fixes the distance from the $z$-axis: a cylinder. $z = r$ is $z = \sqrt{x^2 + y^2}$, the upper half of a cone, and $z = r^2$ is $z = x^2 + y^2$, a paraboloid. Fixing $\theta$ gives a half-plane through the $z$-axis, and fixing $z$ a horizontal plane. A sphere centered at the origin would be $r^2 + z^2 = c^2$.
+- id: mv-m6-r2-q08
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'For which of these integrals are cylindrical coordinates a natural choice? Select all that apply.'
+  choices:
+    - 'The volume inside $x^2 + y^2 = 4$, above $z = 0$ and below $z = 5 - x^2 - y^2$'
+    - '$\iiint_E(x^2 + y^2)\,dV$ over the solid between $z = \sqrt{x^2 + y^2}$ and $z = 3$'
+    - '$\iiint_B xyz\,dV$ over the box $[0, 1]\times[0, 2]\times[0, 3]$'
+    - 'The volume of the tetrahedron bounded by the coordinate planes and $x + y + z = 1$'
+  answer: [0, 1]
+  explanation: |-
+    The first two are symmetric about the $z$-axis and involve $x^2 + y^2$, which becomes $r^2$: the limits become constants or simple functions of $r$. The box and the tetrahedron are bounded by planes with no circular symmetry, so rectangular coordinates give simpler limits.
+- id: mv-m6-r2-q09
+  lesson: mv-cylindrical
+  type: label
+  topic: Cylindrical coordinates
+  stem: 'Name the numbered parts of this picture of the cylindrical coordinates of a point $P$.'
+  image: {src: images/mv-m6-cyl-point-blank.svg, alt: 'Axes x, y and z with a point P above the xy-plane. Marker 1 is on the segment from the origin to the point directly below P, marker 2 on an arc in the xy-plane between the positive x-axis and that segment, marker 3 on the vertical segment from the xy-plane up to P, and marker 4 on a dashed ellipse belonging to a cylinder around the z-axis that passes through P.'}
+  labels:
+    - {x: 54.2, y: 77.9, text: 'r: distance from the z-axis'}
+    - {x: 43.1, y: 76.0, text: 'θ: angle from the positive x-axis'}
+    - {x: 59.3, y: 61.4, text: 'z: height above the xy-plane'}
+    - {x: 74.6, y: 22.1, text: 'Cylinder r = constant through P'}
+  distractors: ['ρ: distance from the origin', 'φ: angle from the positive z-axis']
+  explanation: |-
+    The segment in the $xy$-plane (1) from the origin to the point below $P$ has length $r$, the distance of $P$ from the $z$-axis, and the arc (2) marks $\theta$, measured from the positive $x$-axis. The vertical segment (3) is $z$. All points with the same $r$ form the cylinder (4). $\rho$ and $\phi$ are spherical coordinates and do not appear here.
+- id: mv-m6-r2-q10
+  lesson: mv-cylindrical
+  topic: Cylindrical coordinates
+  stem: 'Evaluate $\iiint_E z\,dV$, where $E$ is the solid between the paraboloid $z = x^2 + y^2$ and the plane $z = 4$.'
+  choices: ['$8\pi$', '$\tfrac{128\pi}{3}$', '$\tfrac{64\pi}{3}$', '$\tfrac{32\pi}{3}$']
+  answer: 2
+  explanation: |-
+    In cylindrical coordinates, $r^2 \le z \le 4$ over the disk $r \le 2$:
+    $\int_0^{2\pi}\int_0^2\int_{r^2}^4 z\,r\,dz\,dr\,d\theta = 2\pi\int_0^2\frac{16 - r^4}{2}r\,dr = \pi\left(32 - \frac{64}{6}\right) = \frac{64\pi}{3}$.
+    $8\pi$ is the volume of the solid (the integral of 1), and $\tfrac{128\pi}{3}$ comes from dropping the $\tfrac12$ in $\int z\,dz = \tfrac{z^2}{2}$.
+# --- Lesson 27: Spherical coordinates ---
+- id: mv-m6-r2-q11
+  lesson: mv-spherical
+  type: text
+  topic: Spherical coordinates
+  stem: 'In spherical coordinates the cone $z = \sqrt3\,\sqrt{x^2 + y^2}$ is $\phi = \dfrac{\pi}{k}$. What is $k$? Give only the number: ___'
+  accept: ['6']
+  explanation: |-
+    On the cone $z = \sqrt3\,r$, so $\tan\phi = \dfrac{r}{z} = \dfrac{1}{\sqrt3}$ and $\phi = \dfrac\pi6$. So $k = 6$. (This cone is narrower than $z = r$, which is $\phi = \tfrac\pi4$.)
+- id: mv-m6-r2-q12
+  lesson: mv-spherical
+  type: match
+  topic: Spherical coordinates
+  stem: 'Match each spherical equation to the surface it describes.'
+  pairs:
+    - ['$\rho = 3$', 'Sphere centered at the origin']
+    - ['$\phi = \tfrac\pi3$', 'Cone with its vertex at the origin']
+    - ['$\phi = \tfrac\pi2$', 'The xy-plane']
+    - ['$\rho\cos\phi = 2$', 'The horizontal plane z = 2']
+    - ['$\rho = 2\cos\phi$', 'Sphere of radius 1 resting on the origin']
+  distractors: ['Vertical half-plane']
+  explanation: |-
+    Fixing $\rho$ gives a sphere about the origin. Fixing $\phi$ gives a cone around the $z$-axis, except $\phi = \tfrac\pi2$, which is the whole $xy$-plane (the equator). $\rho\cos\phi$ is $z$, so $\rho\cos\phi = 2$ is $z = 2$. Multiplying $\rho = 2\cos\phi$ by $\rho$ gives $x^2 + y^2 + z^2 = 2z$, the sphere $x^2 + y^2 + (z - 1)^2 = 1$, which touches the $xy$-plane at the origin. A vertical half-plane is $\theta = $ constant.
+- id: mv-m6-r2-q13
+  lesson: mv-spherical
+  module_quiz: true
+  topic: Spherical coordinates
+  stem: 'Which statements about spherical coordinates $(\rho, \theta, \phi)$, with the convention of this course, are true? Select all that apply.'
+  choices:
+    - '$\phi$ is measured from the positive $z$-axis and runs from $0$ to $\pi$'
+    - '$dV = \rho^2\sin\phi\,d\rho\,d\theta\,d\phi$'
+    - '$\rho$ is the distance from the $z$-axis'
+    - '$\phi$ runs from $0$ to $2\pi$'
+    - '$z = \rho\cos\phi$'
+  answer: [0, 1, 4]
+  explanation: |-
+    $\phi$ is the angle down from the positive $z$-axis, so $0 \le \phi \le \pi$ (it is $\theta$ that goes around through $2\pi$). The volume element is $\rho^2\sin\phi\,d\rho\,d\theta\,d\phi$, and the right triangle in the vertical half-plane gives $z = \rho\cos\phi$. $\rho$ is the distance from the origin; the distance from the $z$-axis is $r = \rho\sin\phi$.
+- id: mv-m6-r2-q14
+  lesson: mv-spherical
+  type: label
+  topic: Spherical coordinates
+  stem: 'Name the numbered parts of this picture of the spherical coordinates of a point $P$.'
+  image: {src: images/mv-m6-sph-point-blank.svg, alt: 'Axes x, y and z with a point P. Marker 1 is on the segment from the origin to P, marker 2 on an arc between the positive z-axis and that segment, marker 3 on an arc in the xy-plane next to the positive x-axis, marker 4 on a dashed segment in the xy-plane from the origin to the point below P, and marker 5 on a dashed vertical segment from that point up to P.'}
+  labels:
+    - {x: 52.9, y: 47.0, text: 'ρ: distance from the origin'}
+    - {x: 46.3, y: 50.8, text: 'φ: angle from the positive z-axis'}
+    - {x: 43.1, y: 73.4, text: 'θ: angle from the positive x-axis'}
+    - {x: 55.4, y: 75.8, text: 'r = ρ sin φ: distance from the z-axis'}
+    - {x: 58.8, y: 55.4, text: 'z = ρ cos φ: height'}
+  distractors: ['r = ρ cos φ', 'Angle from the positive y-axis']
+  explanation: |-
+    The segment from the origin to $P$ (1) has length $\rho$. The angle between it and the positive $z$-axis (2) is $\phi$, and the angle in the $xy$-plane from the positive $x$-axis (3) is $\theta$, the same as in cylindrical coordinates. In the right triangle with hypotenuse $\rho$, the leg along the $xy$-plane (4) is $r = \rho\sin\phi$ (opposite $\phi$) and the vertical leg (5) is $z = \rho\cos\phi$ (adjacent to $\phi$).
+- id: mv-m6-r2-q15
+  lesson: mv-spherical
+  type: order
+  topic: Spherical coordinates
+  stem: 'Put these points in order of their spherical coordinate $\phi$, from smallest to largest.'
+  items: ['$(0, 0, 5)$', '$(1, 0, \sqrt3)$', '$(3, 0, 0)$', '$(0, 1, -1)$', '$(0, 0, -2)$']
+  explanation: |-
+    $\phi$ depends only on the direction from the origin, measured down from the positive $z$-axis: $\cos\phi = z/\rho$.
+    $(0, 0, 5)$ is on the positive $z$-axis: $\phi = 0$. $(1, 0, \sqrt3)$ has $\rho = 2$, $\cos\phi = \tfrac{\sqrt3}{2}$: $\phi = \tfrac\pi6$. $(3, 0, 0)$ is on the equator: $\phi = \tfrac\pi2$. $(0, 1, -1)$ has $\cos\phi = -\tfrac{1}{\sqrt2}$: $\phi = \tfrac{3\pi}{4}$. $(0, 0, -2)$ is on the negative $z$-axis: $\phi = \pi$.
+# --- Lesson 28: Change of variables and Jacobians ---
+- id: mv-m6-r2-q16
+  lesson: mv-jacobian
+  module_quiz: true
+  type: text
+  topic: Jacobians
+  stem: 'For $x = 4u + v$, $y = 2u + 3v$, find the area scaling factor $\left|\dfrac{\partial(x, y)}{\partial(u, v)}\right|$. Give only the number: ___'
+  accept: ['10']
+  explanation: |-
+    $\dfrac{\partial(x, y)}{\partial(u, v)} = x_uy_v - x_vy_u = 4\cdot3 - 1\cdot2 = 10$. Every region in the $uv$-plane is mapped to a region with 10 times its area.
+- id: mv-m6-r2-q17
+  lesson: mv-jacobian
+  type: match
+  topic: Jacobians
+  stem: 'Match each transformation to its area or volume scaling factor $|J|$.'
+  pairs:
+    - ['Polar: $x = r\cos\theta$, $y = r\sin\theta$', 'r']
+    - ['$x = au$, $y = bv$ (with $a, b > 0$)', 'ab']
+    - ['Spherical: $x = \rho\sin\phi\cos\theta$, $y = \rho\sin\phi\sin\theta$, $z = \rho\cos\phi$', 'ρ² sin φ']
+    - ['$x = \tfrac{u + v}{2}$, $y = \tfrac{u - v}{2}$', '1/2']
+  distractors: ['2', 'r²']
+  explanation: |-
+    Polar: $\cos\theta\cdot r\cos\theta - (-r\sin\theta)\sin\theta = r$. Stretching by $a$ and $b$: the diagonal determinant $ab$. Spherical: $|J| = \rho^2\sin\phi$. For $x = \tfrac{u+v}{2}$, $y = \tfrac{u-v}{2}$: $J = -\tfrac14 - \tfrac14 = -\tfrac12$, so $|J| = \tfrac12$. The 2 is $\left|\tfrac{\partial(u,v)}{\partial(x,y)}\right|$ for the inverse map, the reciprocal.
+- id: mv-m6-r2-q18
+  lesson: mv-jacobian
+  module_quiz: true
+  topic: Change of variables
+  stem: 'Which statements about the change of variables formula $\iint_R f\,dA = \iint_S f\,\left|\frac{\partial(x,y)}{\partial(u,v)}\right|du\,dv$ are true? Select all that apply.'
+  choices:
+    - 'It uses the absolute value of the Jacobian'
+    - '$\dfrac{\partial(x,y)}{\partial(u,v)}$ is the reciprocal of $\dfrac{\partial(u,v)}{\partial(x,y)}$'
+    - 'Both the integrand and the region must be rewritten in terms of $u$ and $v$'
+    - 'The transformation may map large parts of $S$ onto the same part of $R$'
+    - 'The Jacobian of a transformation is always 1, since area is preserved'
+  answer: [0, 1, 2]
+  explanation: |-
+    Areas are positive, so the formula uses $|J|$. The two Jacobians are reciprocals, which is the shortcut when $u, v$ are given in terms of $x, y$. The integrand and the region both change: $f$ becomes $f(x(u,v), y(u,v))$ and $R$ becomes $S$. The transformation must be one-to-one (except perhaps on the boundary), or parts of $R$ get counted more than once. Most transformations stretch areas; $|J|$ measures by how much.
+- id: mv-m6-r2-q19
+  lesson: mv-jacobian
+  type: label
+  topic: Jacobians
+  stem: 'The picture shows how a transformation $T$ from the $uv$-plane to the $xy$-plane stretches a small rectangle. Name the numbered parts.'
+  image: {src: images/mv-m6-jacobian-map-blank.svg, alt: 'On the left a square grid with a small shaded rectangle (marker 1). A curved arrow (marker 2) leads to a curved grid on the right, where the rectangle has become a curved shaded patch (marker 3). From the corner of the patch, one arrow runs along its lower side (marker 4) and another along its left side (marker 5).'}
+  labels:
+    - {x: 23.9, y: 59.0, text: 'Small rectangle in the uv-plane'}
+    - {x: 45.6, y: 35.6, text: 'The transformation T'}
+    - {x: 77.9, y: 49.5, text: 'Image of the rectangle, nearly a parallelogram'}
+    - {x: 76.6, y: 60.3, text: 'Tangent vector along the image of the u-side'}
+    - {x: 71.4, y: 49.9, text: 'Tangent vector along the image of the v-side'}
+  distractors: ['Normal vector to the region', 'Level curve of the integrand']
+  explanation: |-
+    The small rectangle (1) with sides $\Delta u$ and $\Delta v$ is carried by $T$ (2) to a curved patch (3). The image of the bottom side, along which $u$ changes, is approximated by $\mathbf r_u\,\Delta u$ (4), and the image of the left side, along which $v$ changes, by $\mathbf r_v\,\Delta v$ (5). The patch's area is about $|\mathbf r_u\,\Delta u \times \mathbf r_v\,\Delta v| = |J|\,\Delta u\,\Delta v$.
+- id: mv-m6-r2-q20
+  lesson: mv-jacobian
+  topic: Change of variables
+  stem: 'Find the area of the first-quadrant region bounded by $xy = 2$, $xy = 6$, $y = x$ and $y = 4x$.'
+  choices: ['$2\ln4$', '$4\ln4$', '$60$', '$\ln4$']
+  answer: 0
+  explanation: |-
+    Let $u = xy$ (from 2 to 6) and $v = \tfrac yx$ (from 1 to 4). As in Lesson 28, $\dfrac{\partial(u, v)}{\partial(x, y)} = 2v$, so $|J| = \dfrac{1}{2v}$ and
+    $\text{Area} = \int_2^6\int_1^4\frac{1}{2v}\,dv\,du = 4\cdot\frac{\ln4}{2} = 2\ln4 \approx 2.77$.
+    $60$ comes from multiplying by $2v$ instead of dividing (using $\tfrac{\partial(u,v)}{\partial(x,y)}$ in place of its reciprocal), and $4\ln4$ from forgetting the $\tfrac12$.
+# --- Honors: Moments of inertia of solids ---
+- id: mv-m6-r2-h01
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'A uniform solid ball has mass 3 kg and radius 0.2 m. What is its moment of inertia about a diameter?'
+  choices: ['0.048 kg·m²', '0.06 kg·m²', '0.08 kg·m²', '0.12 kg·m²']
+  answer: 0
+  explanation: |-
+    $I = \tfrac25ma^2 = 0.4\cdot3\cdot0.04 = 0.048$ kg·m². The others use $\tfrac12$ (a cylinder), $\tfrac23$ (a thin shell) and $1$ (all mass at the rim).
+- id: mv-m6-r2-h02
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'Why does the moment of inertia weight each bit of mass by the *square* of its distance from the axis?'
+  choices:
+    - 'Because torque is defined as force times distance squared'
+    - 'A bit at distance $d$ moves at speed $\omega d$, so its kinetic energy $\tfrac12\Delta m\,\omega^2d^2$ contains $d^2$'
+    - 'Because the volume of a solid grows like the square of its radius'
+    - 'By convention, so that $I$ has the units of an area'
+  answer: 1
+  explanation: |-
+    In rotation about an axis, a piece at distance $d$ travels on a circle of radius $d$ at speed $\omega d$. Its kinetic energy is $\tfrac12\Delta m(\omega d)^2$; adding up gives $\tfrac12\omega^2\iiint d^2\delta\,dV = \tfrac12I\omega^2$. Torque is force times distance (not squared), and $I$ has units of mass times length squared.
+- id: mv-m6-r2-h03
+  lesson: mv-m6-h-moments-of-inertia
+  type: text
+  topic: Moments of inertia
+  stem: 'A solid of mass 8 kg has moment of inertia 18 kg·m² about an axis. Its radius of gyration about that axis is ___ m.'
+  accept: ['1.5', '3/2']
+  explanation: |-
+    $k = \sqrt{I/m} = \sqrt{18/8} = \sqrt{2.25} = 1.5$ m. A thin ring of radius 1.5 m with the same mass would have the same $I$.
+- id: mv-m6-r2-h04
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'A uniform solid ball of mass $m$ and radius $a$ turns about a line tangent to its surface. What is its moment of inertia about that line?'
+  choices: ['$\tfrac25ma^2$', '$\tfrac35ma^2$', '$\tfrac{12}{5}ma^2$', '$\tfrac75ma^2$']
+  answer: 3
+  explanation: |-
+    The tangent line is parallel to a diameter at distance $d = a$. By the parallel axis theorem, $I = \tfrac25ma^2 + ma^2 = \tfrac75ma^2$. $\tfrac25ma^2$ is the value about the diameter itself; $\tfrac{12}{5}ma^2$ comes from adding $2ma^2$ (using $d = 2a$, a diameter instead of a radius).
+- id: mv-m6-r2-h05
+  lesson: mv-m6-h-moments-of-inertia
+  type: text
+  topic: Moments of inertia
+  stem: 'A uniform solid cylinder has mass 2 kg and radius 0.5 m. Find its moment of inertia, in kg·m², about a line on its curved surface parallel to its axis. Give only the number: ___'
+  accept: ['0.75', '3/4', '.75']
+  explanation: |-
+    About its axis, $I_{\text{cm}} = \tfrac12ma^2 = \tfrac12\cdot2\cdot0.25 = 0.25$. The line on the surface is parallel to the axis at distance $d = 0.5$, so $I = 0.25 + 2\cdot0.25 = 0.75$ kg·m².
+- id: mv-m6-r2-h06
+  lesson: mv-m6-h-moments-of-inertia
+  type: order
+  topic: Moments of inertia
+  stem: 'All four objects are released from rest at the top of the same ramp and roll without slipping. Put them in order of arrival at the bottom, first to last.'
+  items: ['Solid ball', 'Solid cylinder', 'Thin spherical shell', 'Thin hoop']
+  explanation: |-
+    With $I = \beta mR^2$, the speed after dropping a height $h$ is $\sqrt{2gh/(1 + \beta)}$ at every point of the ramp, so a smaller $\beta$ is faster all the way down. $\beta = \tfrac25$ (ball), $\tfrac12$ (cylinder), $\tfrac23$ (spherical shell), $1$ (hoop). Mass and radius do not matter.
+- id: mv-m6-r2-h07
+  lesson: mv-m6-h-moments-of-inertia
+  type: match
+  topic: Moments of inertia
+  stem: 'Match each uniform object (mass $m$, radius $a$) to its moment of inertia about an axis through its center (for the cylinder and hoop, their own axis).'
+  pairs:
+    - ['Solid ball', '(2/5) m a²']
+    - ['Solid cylinder', '(1/2) m a²']
+    - ['Thin spherical shell', '(2/3) m a²']
+    - ['Thin hoop', 'm a²']
+  distractors: ['(3/10) m a²', '(7/5) m a²']
+  explanation: |-
+    The ball and cylinder come from triple integrals in spherical and cylindrical coordinates; the shell from differentiating the ball's $I$ and $m$ with respect to $a$; the hoop has all its mass at distance $a$. $\tfrac{3}{10}ma^2$ is a solid cone about its axis, and $\tfrac75ma^2$ is a ball about a tangent line.
+- id: mv-m6-r2-h08
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'Which statements about the parallel axis theorem $I = I_{\text{cm}} + md^2$ are true? Select all that apply.'
+  choices:
+    - 'Of all axes in a given direction, the one through the center of mass has the smallest moment of inertia'
+    - 'The cross term $-2d\iiint x\,\delta\,dV$ vanishes because the center of mass is at the origin'
+    - 'It holds for nonuniform density as well as uniform density'
+    - 'It links any two parallel axes, whether or not either passes through the center of mass'
+    - 'It also applies to two axes that are not parallel'
+  answer: [0, 1, 2]
+  explanation: |-
+    Since $md^2 \ge 0$, the center-of-mass axis gives the smallest $I$. In the proof, the middle term is $-2d\,m\bar x$, which is 0 because $\bar x = 0$; nothing in the proof needs constant density. It only connects an axis to the parallel axis through the center of mass (between two other parallel axes, go through $I_{\text{cm}}$), and it says nothing about axes in different directions.
+- id: mv-m6-r2-h09
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'Earth''s moment of inertia factor $C/(MR^2)$ is about 0.331, while a uniform ball has 0.4. What does the lower value tell us?'
+  choices:
+    - 'Earth is slightly flattened at the poles'
+    - 'Earth spins faster than a uniform ball would'
+    - 'Earth''s mass is concentrated toward its center'
+    - 'Earth''s mass is concentrated near its surface'
+  answer: 2
+  explanation: |-
+    The factor compares $I$ with that of a uniform ball of the same mass and radius. Mass near the center contributes little to $I$ (small $d^2$), so a value below 0.4 means mass is concentrated toward the center, as with Earth's dense iron core. Mass near the surface would push the factor up toward the thin shell's $\tfrac23$. The factor does not depend on the spin rate.
+- id: mv-m6-r2-h10
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'A uniform solid cone has mass $m$, base radius $a$ and height $h$. What is its moment of inertia about its axis?'
+  choices: ['$\tfrac13ma^2$', '$\tfrac{3}{10}ma^2$', '$\tfrac12ma^2$', '$\tfrac35ma^2$']
+  answer: 1
+  explanation: |-
+    Put the vertex at the origin, so the cone is $\tfrac{h}{a}r \le z \le h$. With density $\delta$:
+    $I = \delta\int_0^{2\pi}\int_0^a\int_{hr/a}^h r^2\cdot r\,dz\,dr\,d\theta = 2\pi\delta h\int_0^a\left(r^3 - \frac{r^4}{a}\right)dr = 2\pi\delta h\cdot\frac{a^4}{20} = \frac{\pi\delta ha^4}{10}$.
+    With $m = \tfrac13\pi a^2h\delta$, $I = \tfrac{3}{10}ma^2$: less than a cylinder's $\tfrac12ma^2$, because the cone has more of its mass near the axis.
+- id: mv-m6-r2-h11
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'Two uniform solid balls roll without slipping down the same ramp from rest. Ball B has twice the radius and eight times the mass of ball A. Which is true?'
+  choices:
+    - 'B is faster, because it is heavier'
+    - 'A is faster, because B has a larger moment of inertia'
+    - 'B is faster, because a larger radius means fewer turns'
+    - 'They arrive together'
+  answer: 3
+  explanation: |-
+    For rolling without slipping, $v = \sqrt{2gh/(1 + \beta)}$ with $\beta = I/(mR^2)$. Both are uniform balls, so $\beta = \tfrac25$ for both: mass and radius cancel. B's larger $I$ is exactly matched by its larger mass and radius.
+- id: mv-m6-r2-h12
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'A uniform solid ball rolls without slipping from rest down a ramp that drops 1.25 m. With $g = 9.8$ m/s², about how fast is it moving at the bottom?'
+  choices: ['4.18 m/s', '4.95 m/s', '4.04 m/s', '3.50 m/s']
+  answer: 0
+  explanation: |-
+    $v = \sqrt{\dfrac{2gh}{1 + \beta}} = \sqrt{\dfrac{2\cdot9.8\cdot1.25}{1.4}} = \sqrt{17.5} \approx 4.18$ m/s.
+    4.95 m/s is $\sqrt{2gh}$, which ignores the energy that goes into spinning; 4.04 m/s is a solid cylinder ($\beta = \tfrac12$) and 3.50 m/s a hoop ($\beta = 1$).
+- id: mv-m6-r2-h13
+  lesson: mv-m6-h-moments-of-inertia
+  topic: Moments of inertia
+  stem: 'For a ball whose density depends only on $\rho$, why is the moment of inertia about any diameter equal to $\tfrac23\iiint\rho^2\,\delta\,dV$?'
+  choices:
+    - 'Because $x^2 + y^2 = \tfrac23\rho^2$ at every point of the ball'
+    - 'Because the average of $\sin^2\phi$ over $[0, \pi]$ is $\tfrac23$'
+    - 'Because $I_x + I_y + I_z = 2\iiint\rho^2\,\delta\,dV$ and the three are equal by symmetry'
+    - 'Because two thirds of the mass lies outside half the radius'
+  answer: 2
+  explanation: |-
+    Adding the three formulas gives $\iiint 2(x^2 + y^2 + z^2)\delta\,dV = 2\iiint\rho^2\delta\,dV$. A ball with density depending only on $\rho$ looks the same about every diameter, so $I_x = I_y = I_z$, and each is a third of the sum. The identity $x^2 + y^2 = \tfrac23\rho^2$ is false pointwise (on the $z$-axis, $x^2 + y^2 = 0$); it is only true on average.
+- id: mv-m6-r2-h14
+  lesson: mv-m6-h-moments-of-inertia
+  type: text
+  topic: Moments of inertia
+  stem: 'A uniform box of mass 6 kg has edges 2 m and 4 m across a central axis that runs parallel to its third edge. Its moment of inertia about that axis is ___ kg·m².'
+  accept: ['10']
+  explanation: |-
+    $I = \tfrac{1}{12}m(b^2 + c^2) = \tfrac{1}{12}\cdot6\cdot(4 + 16) = 10$ kg·m². The length of the box along the axis does not matter, just as the height did not matter for the cylinder.
+- id: mv-m6-r2-h15
+  lesson: mv-m6-h-moments-of-inertia
+  type: label
+  topic: Moments of inertia
+  stem: 'The picture illustrates the parallel axis theorem for a lumpy solid. Name the numbered parts.'
+  image: {src: images/mv-m6-parallel-axis-blank.svg, alt: 'A lumpy solid with a dot inside it (marker 1). A blue dashed vertical line passes through the dot (marker 2), a red dashed vertical line lies to the right of the solid (marker 3), and a double-headed arrow at the top spans the gap between the two lines (marker 4).'}
+  labels:
+    - {x: 37.5, y: 54.2, text: 'Center of mass'}
+    - {x: 37.5, y: 86.2, text: 'Axis through the center of mass'}
+    - {x: 71.4, y: 75.0, text: 'Parallel axis'}
+    - {x: 54.5, y: 15.0, text: 'Distance d between the axes'}
+  distractors: ['Radius of gyration k', 'Tangent plane']
+  explanation: |-
+    The dot (1) is the center of mass, and the blue axis (2) passes through it; tables give $I_{\text{cm}}$ about such axes. The red axis (3) is parallel to it, a distance $d$ away (4). The theorem says $I_{\text{red}} = I_{\text{cm}} + md^2$.
+# --- Honors: Designing coordinates ---
+- id: mv-m6-r2-h16
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'What is the volume of the solid ellipsoid $\dfrac{x^2}{4} + \dfrac{y^2}{9} + \dfrac{z^2}{16} \le 1$?'
+  choices: ['$24\pi$', '$\tfrac{32}{3}\pi$', '$128\pi$', '$32\pi$']
+  answer: 3
+  explanation: |-
+    The semi-axes are $a = 2$, $b = 3$, $c = 4$. The map $x = 2u$, $y = 3v$, $z = 4w$ sends the unit ball onto the ellipsoid with Jacobian $abc = 24$, so $V = 24\cdot\tfrac43\pi = 32\pi$. $24\pi$ forgets the $\tfrac43$, and $128\pi$ uses $a^2b^2c^2$-style factors instead of $abc$.
+- id: mv-m6-r2-h17
+  lesson: mv-m6-h-designing-coordinates
+  type: text
+  topic: Custom coordinates
+  stem: 'The linear map $x = 2u$, $y = u + 3v$, $z = w$ multiplies every volume by the same factor. What is it? Give only the number: ___'
+  accept: ['6']
+  explanation: |-
+    The Jacobian matrix has rows $(2, 0, 0)$, $(1, 3, 0)$, $(0, 0, 1)$. It is lower triangular, so its determinant is the product of the diagonal: $2\cdot3\cdot1 = 6$.
+- id: mv-m6-r2-h18
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'Find the volume of the solid $0 \le x + y \le 2$, $0 \le y + z \le 2$, $0 \le x + z \le 3$.'
+  choices: ['$12$', '$6$', '$24$', '$3$']
+  answer: 1
+  explanation: |-
+    With $u = x + y$, $v = y + z$, $w = x + z$ the solid becomes the box $[0, 2]\times[0, 2]\times[0, 3]$ of volume 12. The determinant $\dfrac{\partial(u,v,w)}{\partial(x,y,z)} = \begin{vmatrix}1&1&0\\0&1&1\\1&0&1\end{vmatrix} = 2$, so $|J| = \tfrac12$ and $V = 6$. $24$ multiplies by 2 instead of dividing.
+- id: mv-m6-r2-h19
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'Spherical coordinates can be built in two steps: polar coordinates $(\rho, \phi)$ in the half-plane give $(r, z)$, then cylindrical coordinates give $(x, y, z)$. How does this produce $\rho^2\sin\phi$?'
+  choices:
+    - 'The factors $\rho$ and $r = \rho\sin\phi$ multiply'
+    - 'The factors $\rho$ and $r = \rho\sin\phi$ add'
+    - 'The factors $\rho^2$ and $\sin\phi$ come from two separate polar steps'
+    - 'The second step reverses the first, so their factors divide'
+  answer: 0
+  explanation: |-
+    Jacobians of successive substitutions multiply (determinant of a product of matrices). Polar coordinates in the half-plane stretch area by their radius, $\rho$; cylindrical coordinates stretch volume by $r$. So the total is $\rho\cdot r = \rho\cdot\rho\sin\phi = \rho^2\sin\phi$.
+- id: mv-m6-r2-h20
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'A torus is formed by revolving a disk of radius 1, centered 3 units from the $z$-axis, about that axis. What is its volume?'
+  choices: ['$3\pi^2$', '$12\pi^2$', '$6\pi^2$', '$6\pi$']
+  answer: 2
+  explanation: |-
+    $V = 2\pi^2Ra^2 = 2\pi^2\cdot3\cdot1 = 6\pi^2 \approx 59.2$. Equivalently (Pappus), the disk's area $\pi$ times the distance $2\pi\cdot3$ its center travels. $6\pi$ forgets the area $\pi$ of the disk.
+- id: mv-m6-r2-h21
+  lesson: mv-m6-h-designing-coordinates
+  type: text
+  topic: Custom coordinates
+  stem: 'A square of side 2, in a half-plane through the $z$-axis, has its center 5 units from the axis. Revolving it about the $z$-axis sweeps out a solid of volume $k\pi$. Find $k$. Give only the number: ___'
+  accept: ['40']
+  explanation: |-
+    By Pappus's theorem, $V = 2\pi\bar r A = 2\pi\cdot5\cdot4 = 40\pi$, since the centroid of a square is its center. So $k = 40$.
+- id: mv-m6-r2-h22
+  lesson: mv-m6-h-designing-coordinates
+  type: order
+  topic: Custom coordinates
+  stem: 'Put these unit balls (radius 1, in $n$ dimensions) in order of volume, from smallest to largest.'
+  items: ['$n = 1$', '$n = 10$', '$n = 2$', '$n = 8$', '$n = 5$']
+  explanation: |-
+    From $V_n(1) = \tfrac{2\pi}{n}V_{n-2}(1)$ with $V_1 = 2$ and $V_2 = \pi$: $V_1 = 2$, $V_{10} = \tfrac{\pi^5}{120} \approx 2.55$, $V_2 = \pi \approx 3.14$, $V_8 = \tfrac{\pi^4}{24} \approx 4.06$, and $V_5 = \tfrac{8\pi^2}{15} \approx 5.26$, the largest of all.
+- id: mv-m6-r2-h23
+  lesson: mv-m6-h-designing-coordinates
+  type: match
+  topic: Custom coordinates
+  stem: 'Match each change of variables to its volume scaling factor $|J|$.'
+  pairs:
+    - ['Toroidal coordinates $(s, \alpha, \theta)$', 's(R + s cos α)']
+    - ['Spherical coordinates $(\rho, \theta, \phi)$', 'ρ² sin φ']
+    - ['Cylindrical coordinates $(r, \theta, z)$', 'r']
+    - ['$x = au$, $y = bv$, $z = cw$ (with $a, b, c > 0$)', 'abc']
+    - ['$x_i = a\,u_i$ for $i = 1, \dots, n$ (with $a > 0$)', 'aⁿ']
+  distractors: ['ρ sin φ']
+  explanation: |-
+    Toroidal: polar around the tube's center (factor $s$) then cylindrical (factor $r = R + s\cos\alpha$). Spherical: $\rho\cdot r = \rho^2\sin\phi$. Cylindrical: $r$. A diagonal linear map: the product of the diagonal entries, $abc$, and in $n$ dimensions scaling every coordinate by $a$ gives $a^n$. $\rho\sin\phi$ is $r$ written in spherical form, only one of the two factors.
+- id: mv-m6-r2-h24
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'Which statements are true? Select all that apply.'
+  choices:
+    - 'The Jacobian of two substitutions done in a row is the product of their Jacobians'
+    - 'The Jacobian of an inverse transformation is the reciprocal of the original Jacobian'
+    - 'For a linear map $\mathbf x = A\mathbf u$, the Jacobian is the constant $\det A$'
+    - 'The Jacobian of two substitutions done in a row is the sum of their Jacobians'
+    - 'A linear map multiplies the volumes of some regions by $|\det A|$ but leaves others unchanged'
+  answer: [0, 1, 2]
+  explanation: |-
+    By the chain rule, the Jacobian matrix of a composition is the product of the Jacobian matrices, and determinants multiply. Composing a map with its inverse gives the identity, with Jacobian 1, so the two Jacobians are reciprocals. A linear map has constant partial derivatives, so its Jacobian is $\det A$ everywhere, and it scales *every* volume by $|\det A|$.
+- id: mv-m6-r2-h25
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'What is the four-dimensional volume of the ball $x^2 + y^2 + z^2 + w^2 \le a^2$?'
+  choices: ['$\tfrac43\pi a^4$', '$\pi^2a^4$', '$\tfrac{8}{15}\pi^2a^4$', '$\tfrac12\pi^2a^4$']
+  answer: 3
+  explanation: |-
+    For each $(z, w)$ with $z^2 + w^2 = s^2 \le a^2$, the slice in $(x, y)$ is a disk of area $\pi(a^2 - s^2)$. In polar coordinates over the $(z, w)$ disk:
+    $\int_0^{2\pi}\int_0^a\pi(a^2 - s^2)\,s\,ds\,d\theta = 2\pi^2\left(\tfrac{a^4}{2} - \tfrac{a^4}{4}\right) = \tfrac12\pi^2a^4$.
+    $\tfrac{8}{15}\pi^2a^4$ would be the 5-dimensional ball's formula with $a^4$ in place of $a^5$.
+- id: mv-m6-r2-h26
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'In 10 dimensions, about what fraction of the volume of a ball lies within 10% of its radius from the surface?'
+  choices: ['About 10%', 'About 35%', 'About 65%', 'About 99%']
+  answer: 2
+  explanation: |-
+    The inner ball of radius $0.9a$ has volume $0.9^{10}$ times the whole, about 0.35. So the outer shell holds $1 - 0.9^{10} \approx 0.65$, about 65%. (About 35% is the inner part; in 3 dimensions the shell would hold only about 27%.)
+- id: mv-m6-r2-h27
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'Evaluate $\iiint_E z^2\,dV$ over the solid ellipsoid $x^2 + \dfrac{y^2}{4} + \dfrac{z^2}{9} \le 1$.'
+  choices: ['$\tfrac{24\pi}{5}$', '$\tfrac{72\pi}{5}$', '$8\pi$', '$\tfrac{8\pi}{5}$']
+  answer: 1
+  explanation: |-
+    Use $x = u$, $y = 2v$, $z = 3w$, with Jacobian $6$. Over the unit ball, $\iiint w^2\,dV = \tfrac13\iiint\rho^2\,dV = \tfrac13\cdot\tfrac{4\pi}{5} = \tfrac{4\pi}{15}$. So
+    $\iiint_E z^2\,dV = 6\iiint_{\text{ball}}9w^2\,dV = 54\cdot\tfrac{4\pi}{15} = \tfrac{72\pi}{5}$.
+    $\tfrac{24\pi}{5}$ uses $3$ instead of $3^2 = 9$, $\tfrac{8\pi}{5}$ leaves out the $9$ altogether, and $8\pi$ is the ellipsoid's volume.
+- id: mv-m6-r2-h28
+  lesson: mv-m6-h-designing-coordinates
+  type: label
+  topic: Custom coordinates
+  stem: 'The picture shows a cross-section of a torus in a half-plane through its axis. Name the numbered parts.'
+  image: {src: images/mv-m6-torus-section-blank.svg, alt: 'A vertical axis with a curved arrow around it (marker 1). To its right a shaded disk, with a double-headed arrow along the bottom from the axis to the disk''s center (marker 2). Inside the disk, a dashed segment from the center to the edge (marker 3), a solid segment from the center to a point (marker 4), and an arc between the horizontal and that segment (marker 5).'}
+  labels:
+    - {x: 20.0, y: 18.4, text: 'Axis of revolution'}
+    - {x: 37.5, y: 86.8, text: 'Distance R from the axis to the center of the tube'}
+    - {x: 51.0, y: 60.9, text: 'Tube radius a'}
+    - {x: 58.5, y: 35.0, text: 'Coordinate s: distance from the center of the tube'}
+    - {x: 61.5, y: 47.9, text: 'Coordinate α: angle around the tube'}
+  distractors: ['Coordinate θ: angle around the axis', 'Coordinate φ: angle from the axis']
+  explanation: |-
+    The torus is swept out by revolving the disk about the axis (1). The disk's center is a distance $R$ from the axis (2), and its radius is $a$ (3). A point in the disk is located by polar coordinates centered at the tube's center: distance $s$ (4) and angle $\alpha$ (5). The third coordinate, $\theta$, measures the turn around the axis and does not appear in a single cross-section.
+- id: mv-m6-r2-h29
+  lesson: mv-m6-h-designing-coordinates
+  topic: Custom coordinates
+  stem: 'Why does the volume of the unit ball in $n$ dimensions eventually decrease as $n$ grows?'
+  choices:
+    - '$V_n(1) = \tfrac{2\pi}{n}V_{n-2}(1)$, and the factor $\tfrac{2\pi}{n}$ is less than 1 once $n > 2\pi$'
+    - 'In high dimensions most of the ball lies near its center'
+    - 'The Jacobian $a^n$ of scaling tends to 0 for every $a$'
+    - 'The cube containing the ball also shrinks as $n$ grows'
+  answer: 0
+  explanation: |-
+    Each step of the recursion multiplies by $\tfrac{2\pi}{n}$, which is below 1 for $n \ge 7$, so $V_7 < V_5$, $V_8 < V_6$, and so on toward 0. In fact the volume concentrates near the *surface*, not the center; $a^n$ tends to 0 only when $a < 1$; and the containing cube $[-1, 1]^n$ has volume $2^n$, which grows.

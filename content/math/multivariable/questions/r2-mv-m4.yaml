@@ -1,0 +1,669 @@
+# Round 2 questions for module mv-m4 (Optimization)
+# Core lessons: mv-m4-r2-q01 … q20. Honors lessons: mv-m4-r2-h01 … h40.
+
+# ---- Lesson 17: Local extrema and the second-derivative test (mv-extrema) ----
+- id: mv-m4-r2-q01
+  lesson: mv-extrema
+  type: text
+  module_quiz: true
+  topic: Second-derivative test
+  stem: 'For $f(x, y) = 2x^2 + 3xy + y^2$, the origin is a critical point. There the discriminant is $D =$ ___, so the origin is a ___ (local minimum, local maximum or saddle point).'
+  accept:
+    - ['-1', '−1']
+    - [saddle point, saddle, a saddle point, a saddle, saddle pt]
+  explanation: |-
+    $f_{xx} = 4$, $f_{yy} = 2$, $f_{xy} = 3$, so $D = 4 \cdot 2 - 3^2 = 8 - 9 = -1 < 0$: a saddle point, whatever the sign of $f_{xx}$. (Using $+f_{xy}^2$ instead would give 17 and the wrong verdict.)
+- id: mv-m4-r2-q02
+  lesson: mv-extrema
+  type: order
+  topic: Critical points
+  stem: 'Put the steps for classifying the critical points of $f(x, y)$ in order.'
+  items:
+    - 'Compute the first partials $f_x$ and $f_y$'
+    - 'Solve $f_x = 0$ and $f_y = 0$ together to find the critical points'
+    - 'Evaluate $D = f_{xx}f_{yy} - f_{xy}^2$ at each critical point'
+    - 'Where $D > 0$, use the sign of $f_{xx}$ to decide between a minimum and a maximum'
+  explanation: |-
+    Each step needs the one before it: the critical points come from the first partials, $D$ is evaluated at those points, and the sign of $f_{xx}$ only matters once you know $D > 0$ there. (Where $D < 0$ the point is a saddle; where $D = 0$ the test is inconclusive.)
+- id: mv-m4-r2-q03
+  lesson: mv-extrema
+  topic: Second-derivative test
+  stem: 'At a critical point $(a, b)$ of $f$ with continuous second partials, $D(a, b) < 0$. Which statements are true? Select all that apply.'
+  choices:
+    - 'The point is a saddle point'
+    - '$f$ takes values both larger and smaller than $f(a, b)$ arbitrarily close to $(a, b)$'
+    - 'The point is a local maximum if $f_{xx}(a, b) < 0$'
+    - 'The tangent plane to the graph at $(a, b)$ is horizontal'
+    - 'The test is inconclusive at this point'
+  answer: [0, 1, 3]
+  explanation: |-
+    $D < 0$ means a saddle point, which by definition has larger and smaller values of $f$ arbitrarily close by. The sign of $f_{xx}$ only matters when $D > 0$, so "local maximum if $f_{xx} < 0$" is wrong. At any critical point where the partials exist, $f_x = f_y = 0$, so the tangent plane is horizontal, even at a saddle. The test is inconclusive only when $D = 0$.
+- id: mv-m4-r2-q04
+  lesson: mv-extrema
+  type: label
+  module_quiz: true
+  topic: Critical points
+  stem: 'The contour map shows $f(x, y) = x^3 - 3x + y^3 - 3y$. Dashed curves are negative levels, and the thick curve that crosses itself is the level $f = 0$. Name the numbered points.'
+  image: {src: images/mv-m4-critical-points-blank.svg, alt: 'A contour map in a square window. At the lower left, solid closed loops labeled f = 1.2 and f = 2.5 nest around point 1. At the upper right, dashed loops labeled f = −1.2 and f = −2.5 nest around point 2. A thick curve labeled f = 0, made of a diagonal line and an oval, crosses itself at the lower right at point 3 and at the upper left. Point 4 lies between two solid loops, away from every crossing.'}
+  labels:
+    - {x: 30.5, y: 69.5, text: Local maximum}
+    - {x: 69.5, y: 30.5, text: Local minimum}
+    - {x: 69.5, y: 69.5, text: Saddle point}
+    - {x: 46.1, y: 58.8, text: Not a critical point}
+  distractors: [Point where the test is inconclusive]
+  explanation: |-
+    1: closed loops nest around $(-1, -1)$ with values rising toward it (1.2, then 2.5), a local maximum ($f = 4$; $f_{xx} = -6$, $D = 36$). 2: dashed loops with values falling toward $(1, 1)$, a local minimum ($f = -4$). 3: two branches of the level curve $f = 0$ cross at $(1, -1)$, the signature of a saddle ($D = 6 \cdot (-6) = -36 < 0$). 4: level curves pass by smoothly, and $\nabla f = \langle 3x^2 - 3, 3y^2 - 3\rangle$ is not zero there, so it is not a critical point. All three critical points have $D \ne 0$, so the test is never inconclusive here.
+- id: mv-m4-r2-q05
+  lesson: mv-extrema
+  type: match
+  topic: Second-derivative test
+  stem: 'Each function has a critical point at the origin. Match each function to what happens there.'
+  pairs:
+    - ['$x^2 + 3y^2$', Local minimum]
+    - ['$-x^2 + xy - y^2$', Local maximum]
+    - ['$x^2 + 4xy + y^2$', Saddle point]
+    - ['$x^3 + y^2$', 'D = 0, and the origin is not an extremum']
+  distractors: [Not a critical point]
+  explanation: |-
+    $x^2 + 3y^2$: $D = 2 \cdot 6 - 0 = 12 > 0$, $f_{xx} = 2 > 0$, a minimum. $-x^2 + xy - y^2$: $D = (-2)(-2) - 1 = 3 > 0$, $f_{xx} = -2 < 0$, a maximum. $x^2 + 4xy + y^2$: $D = 2 \cdot 2 - 16 = -12 < 0$, a saddle (the cross term wins even though $f_{xx}, f_{yy} > 0$). $x^3 + y^2$: $f_{xx} = 6x = 0$ at the origin, so $D = 0$ and the test is silent; along the $x$-axis $f = x^3$ changes sign, so the origin is neither a max nor a min.
+
+# ---- Lesson 18: Absolute extrema on closed regions (mv-absolute-extrema) ----
+- id: mv-m4-r2-q06
+  lesson: mv-absolute-extrema
+  type: text
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'Find the absolute extrema of $f(x, y) = x^2 + y^2 - 2x$ on the closed disk $x^2 + y^2 \le 4$. Absolute maximum = ___, absolute minimum = ___.'
+  accept:
+    - ['8']
+    - ['-1', '−1']
+  explanation: |-
+    Interior: $f_x = 2x - 2 = 0$, $f_y = 2y = 0$ give $(1, 0)$, inside the disk, with $f = -1$. Boundary: on $x^2 + y^2 = 4$, $f = 4 - 2x$ for $-2 \le x \le 2$, a linear function with largest value $8$ at $x = -2$ and smallest $0$ at $x = 2$. Comparing $-1$, $8$ and $0$: the maximum is $8$ at $(-2, 0)$ and the minimum is $-1$ at $(1, 0)$.
+- id: mv-m4-r2-q07
+  lesson: mv-absolute-extrema
+  type: order
+  topic: Absolute extrema
+  stem: 'For $f(x, y) = x^2 - xy + y^2 - 3x$ on the rectangle $0 \le x \le 3$, $0 \le y \le 2$ (Example 1), put these candidate points in order from the smallest value of $f$ to the largest.'
+  items: ['$(2, 1)$', '$(1.5, 0)$', '$(3, 2)$', '$(0, 0)$', '$(0, 2)$']
+  explanation: |-
+    $f(2, 1) = 4 - 2 + 1 - 6 = -3$; $f(1.5, 0) = 2.25 - 4.5 = -2.25$; $f(3, 2) = 9 - 6 + 4 - 9 = -2$; $f(0, 0) = 0$; $f(0, 2) = 4$. So the absolute minimum $-3$ is at the interior critical point and the absolute maximum $4$ is at a corner.
+- id: mv-m4-r2-q08
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'For which of these does the Extreme Value Theorem guarantee that $f$ has an absolute maximum on the given set? Select all that apply.'
+  choices:
+    - '$f = x^2 + y^2$ on the square $0 \le x \le 1$, $0 \le y \le 1$'
+    - '$f = e^x\sin y$ on the closed disk $x^2 + y^2 \le 9$'
+    - '$f = x + y$ on the open disk $x^2 + y^2 < 1$'
+    - '$f = xy$ on the quadrant $x \ge 0$, $y \ge 0$'
+    - '$f = \dfrac{1}{x^2 + y^2}$ on the closed disk $x^2 + y^2 \le 1$'
+  answer: [0, 1]
+  explanation: |-
+    The theorem needs $f$ continuous on a closed, bounded set. The square and the closed disk qualify, with continuous $f$. The open disk is not closed (and $x + y$ indeed has no maximum there). The quadrant is unbounded (and $xy$ grows without bound). $\dfrac{1}{x^2 + y^2}$ is not continuous at the origin, which lies in the disk (and it blows up there).
+- id: mv-m4-r2-q09
+  lesson: mv-absolute-extrema
+  type: label
+  module_quiz: true
+  topic: Absolute extrema
+  stem: 'The picture shows the kinds of points you check when finding the absolute extrema of $f$ on the triangle $D$. Name the numbered points.'
+  image: {src: images/mv-m4-region-candidates-blank.svg, alt: 'A shaded right triangle D with legs on the positive x- and y-axes. Point 1 is inside the triangle. Point 2 is on the slanted side. Point 3 is the corner where the slanted side meets the x-axis. Point 4, an open circle, lies outside the triangle. An unnumbered dot sits on the bottom edge.'}
+  labels:
+    - {x: 26.9, y: 55.0, text: Interior critical point}
+    - {x: 45.4, y: 53.5, text: Critical point of an edge function}
+    - {x: 73.1, y: 85.0, text: Corner}
+    - {x: 82.3, y: 33.0, text: Critical point outside the region}
+  distractors: [Asymptote, Inflection point]
+  explanation: |-
+    1 is a point inside $D$ where $\nabla f = \mathbf 0$. 2 lies on an edge, where the one-variable function you get by restricting $f$ to that edge has a critical point. 3 is a corner, an endpoint of two edge pieces. Points 1, 2 and 3 (and the unnumbered dot on the bottom edge) are all candidates. 4 is a critical point of $f$ that lies outside $D$, so it is discarded.
+- id: mv-m4-r2-q10
+  lesson: mv-absolute-extrema
+  topic: Absolute extrema
+  stem: 'On the edge $y = 0$, $0 \le x \le 4$, of a region, $f$ restricts to $g(x) = x^2 - 6x$. Which values of $f$ does this edge contribute to the list of candidates?'
+  choices: ['$-9$ only', '$0$ and $-8$ only', '$-9$, $0$ and $-8$', '$-9$ and $0$ only']
+  answer: 2
+  explanation: |-
+    $g'(x) = 2x - 6 = 0$ at $x = 3$, inside $[0, 4]$, with $g(3) = -9$. The endpoints give $g(0) = 0$ and $g(4) = 16 - 24 = -8$. All three are candidates. Leaving out $-9$ forgets the edge's critical point; leaving out $-8$ forgets the corner at $x = 4$.
+
+# ---- Lesson 19: Lagrange multipliers (mv-lagrange) ----
+- id: mv-m4-r2-q11
+  lesson: mv-lagrange
+  type: text
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'Use Lagrange multipliers to maximize $f(x, y) = 3x + 4y$ on the circle $x^2 + y^2 = 25$. The maximum value is ___, and at the maximum point $\lambda =$ ___.'
+  accept:
+    - ['25']
+    - ['1/2', '0.5']
+  explanation: |-
+    $3 = 2\lambda x$ and $4 = 2\lambda y$ give $y = \tfrac43x$. Then $x^2 + \tfrac{16}{9}x^2 = 25$, so $x^2 = 9$ and $x = \pm3$. At $(3, 4)$, $f = 9 + 16 = 25$ (the maximum; $(-3, -4)$ gives $-25$), and $\lambda = \dfrac{3}{2 \cdot 3} = \tfrac12$. Check the meaning of $\lambda$: on $x^2 + y^2 = k$ the maximum is $5\sqrt k$, whose derivative at $k = 25$ is $\dfrac{5}{2\sqrt{25}} = \tfrac12$.
+- id: mv-m4-r2-q12
+  lesson: mv-lagrange
+  type: order
+  topic: Lagrange multipliers
+  stem: 'Put the steps of the method of Lagrange multipliers in order, for finding the extreme values of $f$ on the curve $g = k$.'
+  items:
+    - 'Write the equations $\nabla f = \lambda\nabla g$ and $g = k$'
+    - 'Solve the system for every point $(x, y)$, with its $\lambda$'
+    - 'Evaluate $f$ at each solution point'
+    - 'Take the largest value as the maximum and the smallest as the minimum'
+  explanation: |-
+    Set up the system (including the constraint itself), solve it for all candidate points, evaluate $f$ at them, and compare. The value of $\lambda$ is a by-product, not the answer.
+- id: mv-m4-r2-q13
+  lesson: mv-lagrange
+  topic: Lagrange multipliers
+  stem: 'Suppose $f$ has its maximum on the curve $g(x, y) = k$ at a point $P$, and $\nabla g \ne \mathbf 0$ at $P$. Which statements must be true at $P$? Select all that apply.'
+  choices:
+    - '$\nabla f = \lambda\nabla g$ for some number $\lambda$'
+    - '$g(P) = k$'
+    - '$\nabla f = \mathbf 0$'
+    - '$\lambda > 0$'
+    - '$f$ has a local maximum at $P$ among all points of the plane'
+  answer: [0, 1]
+  explanation: |-
+    The Lagrange condition and the constraint itself must hold. $\nabla f$ need not be zero: for $x + 2y$ on a circle it is never zero. $\lambda$ can be negative at a constrained maximum: maximizing $-(x^2 + y^2)$ on the line $x + y = 2$ gives $(1, 1)$ with $\langle -2, -2\rangle = \lambda\langle 1, 1\rangle$, so $\lambda = -2$. And a constrained maximum is usually not a maximum over the whole plane; $f = x + 2y$ has none at all.
+- id: mv-m4-r2-q14
+  lesson: mv-lagrange
+  type: label
+  module_quiz: true
+  topic: Lagrange multipliers
+  stem: 'The picture shows the constraint $x^2 + y^2 = 5$ and three level lines of $f = x + 2y$; the arrow shows the common direction of $\nabla f$ and $\nabla g$. Name the numbered parts.'
+  image: {src: images/mv-m4-lagrange-tangency-blank.svg, alt: 'A shaded circle centered at the origin with three parallel lines sloping down to the right. Point 1 is on the circle at the lower left. Point 2 is on the solid line, which touches the circle at exactly one point, point 4, where an arrow points up and out. Point 3 is on a dashed line that cuts through the circle. Point 5 is on a dashed line above the circle that never meets it.'}
+  labels:
+    - {x: 26.4, y: 75.7, text: Constraint curve}
+    - {x: 38.6, y: 16.6, text: Level curve tangent to the constraint}
+    - {x: 31.1, y: 32.8, text: Level curve crossing the constraint}
+    - {x: 58.4, y: 27.4, text: Constrained maximum}
+    - {x: 57.2, y: 9.9, text: Level curve that misses the constraint}
+  distractors: [Constrained minimum, Unconstrained maximum]
+  explanation: |-
+    1 is on the circle, the constraint curve. 2 is on the level line $f = 5$, which touches the circle at 4, the point $(1, 2)$ where $f$ is largest on the circle (the constrained maximum, with $\nabla f \parallel \nabla g$). 3 is on $f = 2$, which crosses the circle, so values of $f$ on the circle go above and below 2 near the crossing. 5 is on $f = 7.5$, which misses the circle: that value is never reached. The constrained minimum, $(-1, -2)$, is not marked, and $f = x + 2y$ has no unconstrained maximum.
+- id: mv-m4-r2-q15
+  lesson: mv-lagrange
+  type: match
+  topic: Lagrange multipliers
+  stem: 'Match each condition to the situation it describes.'
+  pairs:
+    - ['$\nabla f = \mathbf 0$', Critical point with no constraint]
+    - ['$\nabla f = \lambda\nabla g$ and $g = k$', One equality constraint]
+    - ['$\nabla f = \lambda\nabla g + \mu\nabla h$, $g = k$, $h = c$', Two equality constraints]
+    - ['$\lambda = \dfrac{df_{\max}}{dk}$', Sensitivity of the optimal value to the constraint level]
+  distractors: [Closest point of a plane to the origin]
+  explanation: |-
+    $\nabla f = \mathbf 0$ is the unconstrained condition of Lesson 17. One constraint: gradients parallel, plus the constraint. Two constraints: $\nabla f$ lies in the plane spanned by $\nabla g$ and $\nabla h$, plus both constraints. The multiplier itself is the rate at which the optimal value changes as $k$ changes, the shadow price.
+
+# ---- Lesson 20: Least squares fitting (mv-least-squares) ----
+- id: mv-m4-r2-q16
+  lesson: mv-least-squares
+  type: text
+  module_quiz: true
+  topic: Least squares
+  stem: 'Find the least squares line $y = mx + b$ for the points $(1, 1)$, $(2, 3)$, $(3, 2)$, $(4, 5)$. Give only the numbers: $m =$ ___ and $b =$ ___.'
+  accept:
+    - ['1.1', '11/10']
+    - ['0']
+  explanation: |-
+    Sums: $n = 4$, $\sum x_i = 10$, $\sum y_i = 11$, $\sum x_i^2 = 30$, $\sum x_iy_i = 1 + 6 + 6 + 20 = 33$. Then $m = \dfrac{4(33) - 10(11)}{4(30) - 10^2} = \dfrac{22}{20} = 1.1$ and $b = \dfrac{11 - 1.1(10)}{4} = 0$. The line $y = 1.1x$ passes through the means $(2.5, 2.75)$, as it must.
+- id: mv-m4-r2-q17
+  lesson: mv-least-squares
+  type: match
+  topic: Least squares
+  stem: 'For the data $(0, 2)$, $(1, 3)$, $(2, 7)$, match each sum to its value.'
+  pairs:
+    - ['$\sum x_i$', '3']
+    - ['$\sum y_i$', '12']
+    - ['$\sum x_i^2$', '5']
+    - ['$\sum x_iy_i$', '17']
+  distractors: ['9', '36']
+  explanation: |-
+    $\sum x_i = 0 + 1 + 2 = 3$; $\sum y_i = 2 + 3 + 7 = 12$; $\sum x_i^2 = 0 + 1 + 4 = 5$; $\sum x_iy_i = 0 + 3 + 14 = 17$. The distractor 9 is $\left(\sum x_i\right)^2$, the classic mix-up with $\sum x_i^2$, and 36 is $\sum x_i \cdot \sum y_i$, which is not $\sum x_iy_i$.
+- id: mv-m4-r2-q18
+  lesson: mv-least-squares
+  topic: Least squares
+  stem: 'Data with at least two different $x$-values have least squares line $y = mx + b$. Which statements are always true? Select all that apply.'
+  choices:
+    - 'The line passes through the point of means $(\bar x, \bar y)$'
+    - 'The residuals add up to zero'
+    - 'The line passes through at least one data point'
+    - 'The line minimizes the sum of the squared vertical residuals'
+    - 'The line minimizes the sum of the perpendicular distances from the points to the line'
+  answer: [0, 1, 3]
+  explanation: |-
+    The normal equation from $S_b = 0$ says $\sum e_i = 0$, and dividing it by $n$ gives $\bar y = m\bar x + b$. Minimizing the squared vertical residuals is the definition. The line need not touch any data point (in Example 1 of the lesson every residual is $\pm0.5$), and perpendicular distances define a different fit.
+- id: mv-m4-r2-q19
+  lesson: mv-least-squares
+  type: label
+  module_quiz: true
+  topic: Least squares
+  stem: 'The picture shows six data points and their least squares line. Name the numbered parts.'
+  image: {src: images/mv-m4-residuals-blank.svg, alt: 'Six data points scattered around a rising straight line, each joined to the line by a dashed vertical segment. Point 1 is a filled dot above the line; point 2 is on the thick dashed segment below it; point 3 is an open circle on the line directly below point 1. Point 4 is a small square on the line near the middle of the data, and point 5 is farther along the line.'}
+  labels:
+    - {x: 35.0, y: 32.8, text: Data point}
+    - {x: 35.0, y: 43.5, text: Residual}
+    - {x: 35.0, y: 54.2, text: Predicted value}
+    - {x: 54.0, y: 40.1, text: Point of means}
+    - {x: 68.0, y: 29.8, text: Least squares line}
+  distractors: [Slope, Normal equation]
+  explanation: |-
+    1 is an observed data point $(x_i, y_i)$. 3 is the value the line predicts at that $x$, $mx_i + b$. 2 is the vertical gap between them, the residual $e_i = y_i - (mx_i + b)$ (positive here, since the point is above the line). 4 is $(\bar x, \bar y)$, which always lies on the least squares line. 5 is on the line itself.
+- id: mv-m4-r2-q20
+  lesson: mv-least-squares
+  topic: Least squares
+  stem: 'A least squares line has slope $m = 2$, and the data have $\bar x = 3$ and $\bar y = 10$. What does the line predict at $x = 5$?'
+  choices: ['$20$', '$14$', '$17$', '$16$']
+  answer: 1
+  explanation: |-
+    The line passes through $(3, 10)$, so $b = 10 - 2(3) = 4$ and the prediction is $2(5) + 4 = 14$. (Equivalently, $\hat y = \bar y + m(x - \bar x) = 10 + 2(2) = 14$.)
+    $20$ takes $b = \bar y$; $17$ takes $b = \bar y - \bar x$, forgetting the slope; $16$ plugs in $\bar x = 3$ instead of 5 and adds $\bar y$.
+
+# ---- Honors: Why the second-derivative test works (mv-m4-h-hessian) ----
+- id: mv-m4-r2-h01
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'At a critical point $(a, b)$ of $f$ (continuous second partials), $f(a + h, b + k) - f(a, b)$ is approximately'
+  choices:
+    - '$f_xh + f_yk$'
+    - '$f_{xx}h^2 + f_{xy}hk + f_{yy}k^2$'
+    - '$\tfrac12\left(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2\right)$'
+    - '$\tfrac12\left(f_{xx}h + f_{yy}k\right)$'
+  answer: 2
+  explanation: |-
+    The second-degree Taylor polynomial has linear terms $f_xh + f_yk$, which are zero at a critical point, plus $\tfrac12(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2)$. The second choice drops the $\tfrac12$ and the 2 on the mixed term; the last is not even quadratic.
+- id: mv-m4-r2-h02
+  lesson: mv-m4-h-hessian
+  type: text
+  topic: Quadratic forms and the Hessian
+  stem: 'For $Q(h, k) = Ah^2 + 2Bhk + Ck^2$ with $A \ne 0$, completing the square gives $A\,Q(h, k) = (Ah + Bk)^2 + (\text{___})\,k^2$. Write the missing expression in terms of $A$, $B$, $C$.'
+  accept: ['AC-B^2', 'AC - B^2', 'AC-B²', 'AC-BB', 'AC-B*B', 'A*C-B^2', '-B^2+AC', 'CA-B^2', 'AC-(B^2)']
+  explanation: |-
+    $A\,Q = A^2h^2 + 2ABhk + ACk^2$, and $(Ah + Bk)^2 = A^2h^2 + 2ABhk + B^2k^2$. The difference is $(AC - B^2)k^2$. That coefficient is the discriminant $D$ of the second-derivative test.
+- id: mv-m4-r2-h03
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'The quadratic form $Q(h, k) = 2h^2 + 6hk + 3k^2$ is'
+  choices: ['positive definite', 'negative definite', 'indefinite', 'zero for every $(h, k)$']
+  answer: 2
+  explanation: |-
+    In the form $Ah^2 + 2Bhk + Ck^2$: $A = 2$, $B = 3$, $C = 3$, so $AC - B^2 = 6 - 9 = -3 < 0$: indefinite. For example $Q(1, 0) = 2 > 0$ but $Q(3, -2) = 18 - 36 + 12 = -6 < 0$. Positive diagonal coefficients alone do not make a form positive definite.
+- id: mv-m4-r2-h04
+  lesson: mv-m4-h-hessian
+  type: match
+  topic: Quadratic forms and the Hessian
+  stem: 'The eigenvalues of the Hessian at a critical point are given. Match each pair to the conclusion.'
+  pairs:
+    - ['$\lambda_1 = 3$, $\lambda_2 = 5$', Local minimum]
+    - ['$\lambda_1 = -2$, $\lambda_2 = -7$', Local maximum]
+    - ['$\lambda_1 = 4$, $\lambda_2 = -1$', Saddle point]
+    - ['$\lambda_1 = 0$, $\lambda_2 = 6$', Test inconclusive]
+  distractors: [Not a critical point]
+  explanation: |-
+    Both eigenvalues positive: positive definite, a minimum. Both negative: a maximum. Opposite signs: indefinite, a saddle. A zero eigenvalue makes $D = \lambda_1\lambda_2 = 0$, and the quadratic part says nothing in that eigenvector's direction.
+- id: mv-m4-r2-h05
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'At a critical point, the Hessian has $D = \det H = 12$ and $f_{xx} + f_{yy} = 8$. What are its eigenvalues?'
+  choices: ['$3$ and $4$', '$2$ and $6$', '$-2$ and $-6$', '$4$ and $4$']
+  answer: 1
+  explanation: |-
+    The eigenvalues have product $\det H = 12$ and sum $f_{xx} + f_{yy} = 8$, so they solve $\lambda^2 - 8\lambda + 12 = 0$: $\lambda = 2$ and $6$. Both positive, so the point is a minimum. $3$ and $4$ have the right product but sum 7; $-2$ and $-6$ have sum $-8$; $4$ and $4$ have product 16.
+- id: mv-m4-r2-h06
+  lesson: mv-m4-h-hessian
+  type: text
+  topic: Quadratic forms and the Hessian
+  stem: 'Find the eigenvalues of $H = \begin{bmatrix} 5 & 2\\ 2 & 2\end{bmatrix}$. Larger eigenvalue: ___; smaller eigenvalue: ___.'
+  accept:
+    - ['6']
+    - ['1']
+  explanation: |-
+    $\det(H - \lambda I) = (5 - \lambda)(2 - \lambda) - 4 = \lambda^2 - 7\lambda + 6 = (\lambda - 6)(\lambda - 1)$. Check: the sum is $7 = 5 + 2$ (the trace) and the product is $6 = 10 - 4 = \det H$.
+- id: mv-m4-r2-h07
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'For $f(x, y) = 5x^2 + 4xy + 2y^2$, in which direction from the origin does the graph curve upward most sharply (the largest second directional derivative)?'
+  choices: ['$\langle 1, -2\rangle$', '$\langle 1, 0\rangle$', '$\langle 1, 1\rangle$', '$\langle 2, 1\rangle$']
+  answer: 3
+  explanation: |-
+    $H = \begin{bmatrix} 10 & 4\\ 4 & 4\end{bmatrix}$ has $\lambda^2 - 14\lambda + 24 = 0$, so $\lambda = 12$ and $2$. For $\lambda = 12$: $-2v_1 + 4v_2 = 0$ gives $\langle 2, 1\rangle$; along that unit direction $\mathbf u^{\mathsf T}H\mathbf u = 12$, the maximum. $\langle 1, -2\rangle$ is the other eigenvector, the direction of *least* curvature (2). Along $\langle 1, 0\rangle$ the value is $f_{xx} = 10$, and along $\langle 1, 1\rangle$ it is $(10 + 8 + 4)/2 = 11$, both less than 12.
+- id: mv-m4-r2-h08
+  lesson: mv-m4-h-hessian
+  type: order
+  topic: Quadratic forms and the Hessian
+  stem: 'Put the steps of the proof that $D > 0$ and $f_{xx} > 0$ at a critical point give a local minimum in order.'
+  items:
+    - 'Use $\nabla f(a, b) = \mathbf 0$ to write $f(a + h, b + k) - f(a, b) \approx \tfrac12 Q(h, k)$'
+    - 'Complete the square in $Q$: $A\,Q = (Ah + Bk)^2 + Dk^2$'
+    - 'From $D > 0$ and $A > 0$, conclude $Q(h, k) > 0$ for every $(h, k) \ne (0, 0)$'
+    - 'Let $m > 0$ be the minimum of $Q$ on the unit circle, so $Q(h, k) \ge m(h^2 + k^2)$'
+    - 'The Taylor error is too small to cancel $\tfrac12 m(h^2 + k^2)$, so $f > f(a, b)$ near $(a, b)$'
+  explanation: |-
+    The quadratic $Q$ has to appear before you can complete the square in it; the square form is what shows $Q > 0$; positivity on the unit circle (a closed, bounded set, so the Extreme Value Theorem gives a minimum) is what makes $m > 0$; and the bound $Q \ge m(h^2 + k^2)$ is what beats the Taylor error.
+- id: mv-m4-r2-h09
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'At a critical point of $f(x, y, z)$ the Hessian is $\begin{bmatrix} -3 & 1 & 0\\ 1 & -2 & 1\\ 0 & 1 & -4\end{bmatrix}$. The point is'
+  choices: ['a local maximum', 'a local minimum', 'a saddle point', 'impossible to classify with this test']
+  answer: 0
+  explanation: |-
+    $D_1 = -3$, $D_2 = 6 - 1 = 5$, $D_3 = -3(8 - 1) - 1(-4 - 0) + 0 = -21 + 4 = -17$. The pattern $-, +, -$ means negative definite: a local maximum.
+- id: mv-m4-r2-h10
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'At a critical point of $f(x, y, z)$, the leading principal minors $D_1, D_2, D_3$ of the Hessian have the sign patterns below. Which patterns mean a saddle point? Select all that apply.'
+  choices: ['$+, -, +$', '$-, -, -$', '$+, +, -$', '$-, +, -$', '$+, +, +$']
+  answer: [0, 1, 2]
+  explanation: |-
+    $+, +, +$ is a minimum and $-, +, -$ a maximum. Any other pattern with $D_3 \ne 0$ is a saddle: the determinant is nonzero, so no eigenvalue is 0, and the Hessian is neither positive nor negative definite, so its eigenvalues have mixed signs. Note that $-, -, -$ is a saddle, not a maximum (Example 3 of the lesson).
+- id: mv-m4-r2-h11
+  lesson: mv-m4-h-hessian
+  type: text
+  topic: Quadratic forms and the Hessian
+  stem: 'For $f(x, y, z) = x^2 + 2y^2 + 3z^2 + 2xy - 2x$, find the leading principal minors of the Hessian: $D_1 =$ ___, $D_2 =$ ___, $D_3 =$ ___.'
+  accept:
+    - ['2']
+    - ['4']
+    - ['24']
+  explanation: |-
+    $H = \begin{bmatrix} 2 & 2 & 0\\ 2 & 4 & 0\\ 0 & 0 & 6\end{bmatrix}$. $D_1 = 2$, $D_2 = 8 - 4 = 4$, $D_3 = 6 \cdot 4 = 24$ (expand along the last row). All positive, so the critical point (at $(2, -1, 0)$) is a local minimum.
+- id: mv-m4-r2-h12
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'The origin is a critical point of $f(x, y, z) = x^2 + y^2 + z^2 + 3xy$, and $f_{xx}$, $f_{yy}$, $f_{zz}$ are all positive. What is the origin?'
+  choices: ['A local minimum', 'A local maximum', 'Impossible to classify', 'A saddle point']
+  answer: 3
+  explanation: |-
+    $H = \begin{bmatrix} 2 & 3 & 0\\ 3 & 2 & 0\\ 0 & 0 & 2\end{bmatrix}$: $D_1 = 2$, $D_2 = 4 - 9 = -5$, $D_3 = -10$. $D_3 \ne 0$ and the pattern is not $+, +, +$, so it is a saddle. Directly: $f(t, -t, 0) = 2t^2 - 3t^2 = -t^2 < 0$, while $f(t, 0, 0) = t^2 > 0$. Positive diagonal entries do not make a minimum.
+- id: mv-m4-r2-h13
+  lesson: mv-m4-h-hessian
+  topic: Quadratic forms and the Hessian
+  stem: 'Why is the two-variable second-derivative test inconclusive when $D = 0$ (with $A = f_{xx} \ne 0$)?'
+  choices:
+    - 'Because then $f$ has no critical point'
+    - 'Because then $A\,Q = (Ah + Bk)^2$ is zero along a whole line of directions, where higher-order terms decide'
+    - 'Because then $Q$ is negative in every direction'
+    - 'Because then the Hessian is not symmetric'
+  answer: 1
+  explanation: |-
+    With $D = 0$ the completed square is $A\,Q = (Ah + Bk)^2 \ge 0$, which vanishes when $Ah + Bk = 0$. In those directions the quadratic part is zero, so the cubic and higher terms of $f$ decide, and they can go either way ($x^2 + y^4$ has a minimum at the origin, $x^2 - y^4$ a saddle). The Hessian is always symmetric when the second partials are continuous.
+- id: mv-m4-r2-h14
+  lesson: mv-m4-h-hessian
+  type: match
+  topic: Quadratic forms and the Hessian
+  stem: 'Match each quadratic form in $(h, k)$ to its type.'
+  pairs:
+    - ['$h^2 + k^2$', Positive definite]
+    - ['$-h^2 + hk - k^2$', Negative definite]
+    - ['$h^2 - 4k^2$', Indefinite]
+    - ['$(h - k)^2$', Semidefinite (zero along a line)]
+  explanation: |-
+    $h^2 + k^2 > 0$ away from the origin. $-h^2 + hk - k^2$ has $A = -1$, $B = \tfrac12$, $C = -1$, so $AC - B^2 = \tfrac34 > 0$ with $A < 0$: negative definite. $h^2 - 4k^2$ is positive at $(1, 0)$ and negative at $(0, 1)$. $(h - k)^2 \ge 0$ but is zero all along $h = k$, so it is only semidefinite ($D = 1 \cdot 1 - 1 = 0$).
+
+# ---- Honors: Inequality constraints and the meaning of the multiplier (mv-m4-h-kkt) ----
+- id: mv-m4-r2-h15
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'The proof that $\lambda = F''(k)$, where $F(k)$ is the optimal value of $f$ on $g = k$, rests on which tools?'
+  choices:
+    - 'The second-derivative test and the Hessian'
+    - 'The chain rule, together with $f_x = \lambda g_x$ and $f_y = \lambda g_y$ at the optimum'
+    - 'The Extreme Value Theorem'
+    - 'Completing the square'
+  answer: 1
+  explanation: |-
+    $F'(k) = f_xx'(k) + f_yy'(k)$ by the chain rule; substituting the Lagrange conditions gives $\lambda\,\tfrac{d}{dk}g(x(k), y(k)) = \lambda\,\tfrac{d}{dk}k = \lambda$.
+- id: mv-m4-r2-h16
+  lesson: mv-m4-h-kkt
+  type: text
+  topic: Inequality constraints
+  stem: 'Maximize $f(x, y) = xy$ subject to $2x + y = 20$. The maximum value is ___ and $\lambda =$ ___.'
+  accept:
+    - ['50']
+    - ['5']
+  explanation: |-
+    $\langle y, x\rangle = \lambda\langle 2, 1\rangle$ gives $y = 2\lambda$, $x = \lambda$, so $y = 2x$. Then $4x = 20$: $x = 5$, $y = 10$, $f = 50$, $\lambda = 5$. Check: with budget $k$, $x = k/4$, $y = k/2$, $F(k) = k^2/8$, and $F'(20) = 20/4 = 5 = \lambda$.
+- id: mv-m4-r2-h17
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'The maximum of $f$ on $g = 40$ is $300$, with multiplier $\lambda = 6$. Estimate the maximum of $f$ on $g = 42$.'
+  choices: ['$306$', '$342$', '$288$', '$312$']
+  answer: 3
+  explanation: |-
+    $\lambda = F'(k)$, so $F(42) \approx F(40) + 6 \cdot 2 = 312$. $306$ adds $\lambda$ only once, $288$ subtracts, and $342$ adds the new level $42$ instead of the change in level.
+- id: mv-m4-r2-h18
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'Which of these belong to the KKT conditions for maximizing $f$ subject to $g \le k$? Select all that apply.'
+  choices: ['$\nabla f = \lambda\nabla g$', '$\lambda \ge 0$', '$\lambda\,(g - k) = 0$', '$g = k$', '$\lambda > 0$']
+  answer: [0, 1, 2]
+  explanation: |-
+    The conditions are $\nabla f = \lambda\nabla g$, $\lambda \ge 0$, $g \le k$ and complementary slackness $\lambda(g - k) = 0$. The constraint need not be active, so $g = k$ is not required (an interior maximum has $g < k$ and $\lambda = 0$); for the same reason $\lambda > 0$ is too strong.
+- id: mv-m4-r2-h19
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'At a KKT point of "maximize $f$ subject to $g \le k$", the constraint is inactive: $g < k$. What must $\lambda$ be?'
+  choices: ['$0$', 'Positive', 'Negative', '$1$']
+  answer: 0
+  explanation: |-
+    Complementary slackness, $\lambda(g - k) = 0$ with $g - k \ne 0$, forces $\lambda = 0$; then $\nabla f = \mathbf 0$, an ordinary critical point. It also fits the shadow-price meaning: loosening a limit you are not touching gains nothing.
+- id: mv-m4-r2-h20
+  lesson: mv-m4-h-kkt
+  type: match
+  topic: Inequality constraints
+  stem: 'In "maximize $f$ subject to $g \le k$", match each finding to what it tells you.'
+  pairs:
+    - ['The unconstrained maximum satisfies $g < k$', 'The constraint is inactive and λ = 0']
+    - ['An active-case point has $\lambda = -2$', 'Reject it: moving into the region raises f']
+    - ['An active-case point has $\lambda = 3$', 'Keep it as a candidate']
+    - ['The maximum has $\lambda = 3$ and $k$ rises by $0.1$', 'The maximum rises by about 0.3']
+  explanation: |-
+    A feasible unconstrained maximum needs no help from the constraint, so $\lambda = 0$. In the active case $\lambda < 0$ means $\nabla f$ points into the region, so $f$ increases inward and the point cannot be the maximum; $\lambda \ge 0$ passes the sign test. And $\lambda = F'(k)$ predicts a change of about $3 \times 0.1 = 0.3$.
+- id: mv-m4-r2-h21
+  lesson: mv-m4-h-kkt
+  type: order
+  topic: Inequality constraints
+  stem: 'Put the steps of the proof that $\lambda = F''(k)$ in order.'
+  items:
+    - 'Let $F(k) = f\big(x(k), y(k)\big)$ be the optimal value at level $k$'
+    - 'By the chain rule, $F''(k) = f_x\,x''(k) + f_y\,y''(k)$'
+    - 'Substitute $f_x = \lambda g_x$ and $f_y = \lambda g_y$ to get $\lambda\left(g_x\,x''(k) + g_y\,y''(k)\right)$'
+    - 'Recognize the bracket as $\tfrac{d}{dk}\,g\big(x(k), y(k)\big)$'
+    - 'Since $g\big(x(k), y(k)\big) = k$, that derivative is 1, so $F''(k) = \lambda$'
+  explanation: |-
+    Each step uses the previous one: $F$ is defined, differentiated by the chain rule, the Lagrange conditions turn the $f$-partials into $g$-partials times $\lambda$, the bracket is the chain rule run backward for $g$, and the constraint makes it 1.
+- id: mv-m4-r2-h22
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'Maximize $f(x, y) = 4x + 2y - x^2 - y^2$ subject to $x + y \le 1$.'
+  choices: ['$(2, 1)$, with $f = 5$', '$(0.5, 0.5)$, with $f = 2.5$', '$(1, 0)$, with $f = 3$', '$(0, 1)$, with $f = 1$']
+  answer: 2
+  explanation: |-
+    The unconstrained maximum $(2, 1)$ has $x + y = 3 > 1$, so it is not feasible. Active case: $4 - 2x = \lambda$, $2 - 2y = \lambda$, $x + y = 1$ give $x - y = 1$, so $(1, 0)$ with $\lambda = 2 \ge 0$, and $f = 4 - 1 = 3$. Since $f$ is concave and the constraint linear, this is the maximum. $(0.5, 0.5)$ is on the line but fails $\nabla f = \lambda\nabla g$ ($3 \ne 1$), and its value $2.5$ is smaller.
+- id: mv-m4-r2-h23
+  lesson: mv-m4-h-kkt
+  type: text
+  topic: Inequality constraints
+  stem: 'Maximize $f(x, y) = -x^2 - y^2$ subject to $x + 2y \ge 5$, written as $g = -x - 2y \le -5$. The maximizer is $x =$ ___, $y =$ ___, with KKT multiplier $\lambda =$ ___.'
+  accept:
+    - ['1']
+    - ['2']
+    - ['2']
+  explanation: |-
+    Inactive case: $\nabla f = \mathbf 0$ at $(0, 0)$, where $g = 0 > -5$: infeasible. Active case: $\langle -2x, -2y\rangle = \lambda\langle -1, -2\rangle$ gives $x = \tfrac{\lambda}{2}$, $y = \lambda$. Then $x + 2y = \tfrac52\lambda = 5$, so $\lambda = 2 \ge 0$ and the point is $(1, 2)$: the point of the half-plane closest to the origin.
+- id: mv-m4-r2-h24
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'To find the point of the disk $x^2 + y^2 \le 1$ closest to $(0, 3)$, you maximize $f = -x^2 - (y - 3)^2$. Lagrange on the circle gives $(0, 1)$ and $(0, -1)$. Which statement is right?'
+  choices:
+    - '$(0, -1)$ has $\lambda = -4$, so it is the closest point'
+    - 'Both have $\lambda \ge 0$, so compare their distances'
+    - '$(0, 1)$ has $\lambda = 2 \ge 0$, so it is the closest point'
+    - 'The closest point is $(0, 3)$ itself'
+  answer: 2
+  explanation: |-
+    $\nabla f = \langle -2x, -2(y - 3)\rangle = \lambda\langle 2x, 2y\rangle$. At $(0, 1)$: $4 = 2\lambda$, $\lambda = 2 \ge 0$, keep. At $(0, -1)$: $8 = -2\lambda$, $\lambda = -4 < 0$, reject: it is the farthest point. $(0, 3)$ is outside the disk, so the constraint is active.
+- id: mv-m4-r2-h25
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'A KKT point of "maximize $f$ subject to $g \le k$" is guaranteed to be the global maximum when $f$ is concave and $g$ is convex. Which problems meet these conditions? Select all that apply.'
+  choices:
+    - 'Maximize $-x^2 - y^2$ subject to $x + y \le 1$'
+    - 'Maximize $4x + 2y - x^2 - y^2$ subject to $x^2 + y^2 \le 4$'
+    - 'Maximize $x^2 + y^2$ subject to $x + y \le 1$'
+    - 'Maximize $-x^2 - y^2$ subject to $1 - x^2 - y^2 \le 0$'
+  answer: [0, 1]
+  explanation: |-
+    $-x^2 - y^2$ and $4x + 2y - x^2 - y^2$ are concave (downward bowls), and $x + y$ (linear) and $x^2 + y^2$ (an upward bowl) are convex. $x^2 + y^2$ is convex, not concave, so maximizing it fails the conditions. $1 - x^2 - y^2$ is not convex; its region $x^2 + y^2 \ge 1$, the outside of a disk, is not a convex set.
+- id: mv-m4-r2-h26
+  lesson: mv-m4-h-kkt
+  topic: Inequality constraints
+  stem: 'To *minimize* $f$ subject to $g \le k$, a minimum on the edge $g = k$ satisfies $\nabla f = \lambda\nabla g$ with'
+  choices: ['$\lambda \ge 0$', '$\lambda = 0$', '$\lambda = 1$', '$\lambda \le 0$']
+  answer: 3
+  explanation: |-
+    Minimizing $f$ is maximizing $-f$, which needs $\nabla(-f) = \mu\nabla g$ with $\mu \ge 0$. So $\nabla f = -\mu\nabla g$, that is, $\lambda = -\mu \le 0$: at a minimum on the edge, $f$ must increase as you step into the region.
+- id: mv-m4-r2-h27
+  lesson: mv-m4-h-kkt
+  type: text
+  topic: Inequality constraints
+  stem: 'The KKT condition $\lambda\,(g - k) = 0$, which says the multiplier is zero or the constraint is active, is called complementary ___.'
+  accept: [slackness]
+  explanation: |-
+    Complementary slackness: if there is slack in the constraint ($g < k$), the multiplier must be zero; if the multiplier is positive, there is no slack ($g = k$).
+
+# ---- Honors: Gradient descent and Newton's method (mv-m4-h-numerical) ----
+- id: mv-m4-r2-h28
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Take one gradient descent step with $\alpha = 0.1$ for $f(x, y) = x^2 + y^2$, starting at $(5, -5)$.'
+  choices: ['$(4, -4)$', '$(6, -6)$', '$(4.5, -4.5)$', '$(-5, 5)$']
+  answer: 0
+  explanation: |-
+    $\nabla f(5, -5) = \langle 10, -10\rangle$, so the new point is $(5, -5) - 0.1\langle 10, -10\rangle = (4, -4)$. $(6, -6)$ adds the gradient (climbing uphill); $(4.5, -4.5)$ forgets the factor 2 in $\nabla f$.
+- id: mv-m4-r2-h29
+  lesson: mv-m4-h-numerical
+  type: text
+  topic: Numerical optimization
+  stem: 'Take one gradient descent step with $\alpha = 0.25$ for $f(x, y) = 2x^2 + y^2$, starting at $(1, 4)$. Give only the numbers: $x_1 =$ ___, $y_1 =$ ___.'
+  accept:
+    - ['0']
+    - ['2']
+  explanation: |-
+    $\nabla f = \langle 4x, 2y\rangle = \langle 4, 8\rangle$ at $(1, 4)$. Then $x_1 = 1 - 0.25(4) = 0$ and $y_1 = 4 - 0.25(8) = 2$. (The $x$-factor $1 - 4\alpha$ happens to be 0 here, so $x$ lands exactly on the minimum.)
+- id: mv-m4-r2-h30
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Gradient descent on $f = x^2 + 3y^2$ with $\alpha = 0.1$ makes slow progress in $x$. Why?'
+  choices:
+    - 'The gradient points away from the minimum in the $x$-direction'
+    - 'The step size is too large for the $x$-direction'
+    - 'The bowl is shallow along $x$ (second derivative 2), so each step only multiplies $x$ by $0.8$'
+    - 'Changing $x$ does not change $f$'
+  answer: 2
+  explanation: |-
+    The update multiplies $x$ by $1 - 2\alpha = 0.8$ and $y$ by $1 - 6\alpha = 0.4$. The shallow direction (small second derivative) gives a small gradient and so a small step. A larger $\alpha$ would speed up $x$, but $\alpha$ is limited by the steep $y$-direction: it must stay below $1/3$.
+- id: mv-m4-r2-h31
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Which statements about Newton''s method for optimization are true? Select all that apply.'
+  choices:
+    - 'It uses the Hessian as well as the gradient'
+    - 'For a quadratic $f$ with $D \ne 0$, it reaches the critical point in one step'
+    - 'It can converge to a saddle point'
+    - 'It needs a step size $\alpha$ to be tuned'
+    - 'Each step costs less work than a gradient descent step'
+  answer: [0, 1, 2]
+  explanation: |-
+    The step is $-H^{-1}\nabla f$. For a quadratic the Taylor model is exact, so one step lands on the critical point. It solves $\nabla f = \mathbf 0$ without regard to type, so it can find saddles (for $x^4 + y^2 - 2xy$ from $(0.3, 0.3)$ it does). It has no step size to tune, but each step needs the Hessian and a linear solve, more work than a gradient step.
+- id: mv-m4-r2-h32
+  lesson: mv-m4-h-numerical
+  type: order
+  topic: Numerical optimization
+  stem: 'Put the steps of one iteration of Newton''s method in order.'
+  items:
+    - 'Evaluate $\nabla f$ and $H$ at the current point $\mathbf x_n$'
+    - 'Solve $H\mathbf h = -\nabla f$ for the step $\mathbf h$'
+    - 'Move to $\mathbf x_{n+1} = \mathbf x_n + \mathbf h$'
+    - 'Apply the stopping criterion at $\mathbf x_{n+1}$'
+  explanation: |-
+    The linear system needs $\nabla f$ and $H$ at the current point; the move needs the step; and the stopping test is applied to the new point before deciding whether to iterate again.
+- id: mv-m4-r2-h33
+  lesson: mv-m4-h-numerical
+  type: text
+  topic: Numerical optimization
+  stem: 'Newton''s method is applied to $f(x, y) = x^2 + xy + y^2 - 3x$ from any starting point. Where does the first step land? $x =$ ___, $y =$ ___.'
+  accept:
+    - ['2']
+    - ['-1', '−1']
+  explanation: |-
+    $f$ is quadratic, so the second-degree Taylor model is $f$ itself, and one Newton step lands on its critical point: $f_x = 2x + y - 3 = 0$ and $f_y = x + 2y = 0$ give $x = -2y$, $-3y = 3$, so $(2, -1)$. ($D = 4 - 1 = 3 > 0$ with $f_{xx} > 0$: a minimum.)
+- id: mv-m4-r2-h34
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Take one Newton step for $f(x, y) = x^4 + y^2 - 2xy$ from $(0.5, 0.5)$.'
+  choices: ['$(0, 0)$', '$(0.75, 0.75)$', '$(1, 1)$', '$(0.5, 0.5)$']
+  answer: 2
+  explanation: |-
+    $\nabla f = \langle 4x^3 - 2y, 2y - 2x\rangle = \langle -0.5, 0\rangle$ and $H = \begin{bmatrix} 3 & -2\\ -2 & 2\end{bmatrix}$, $D = 6 - 4 = 2$. Then $H^{-1}\nabla f = \tfrac12\begin{bmatrix} 2 & 2\\ 2 & 3\end{bmatrix}\begin{bmatrix} -0.5\\ 0\end{bmatrix} = \langle -0.5, -0.5\rangle$, and the new point is $(0.5, 0.5) - \langle -0.5, -0.5\rangle = (1, 1)$. The step overshoots the minimum at about $(0.707, 0.707)$; Newton's method is only fast once it is close.
+- id: mv-m4-r2-h35
+  lesson: mv-m4-h-numerical
+  type: match
+  topic: Numerical optimization
+  stem: 'Match each term to its meaning.'
+  pairs:
+    - [Step size, The multiplier α on the gradient in each descent step]
+    - [Iterate, One of the successive approximations x_n]
+    - [Quadratic convergence, The number of correct digits roughly doubles each step]
+    - [Stopping criterion, The rule that decides when to end the iteration]
+  distractors: [The matrix of second partial derivatives]
+  explanation: |-
+    Gradient descent moves by $-\alpha\nabla f$, so $\alpha$ is the step size. The iterates are the points $\mathbf x_0, \mathbf x_1, \dots$. Quadratic convergence (error roughly squared each step) is Newton's hallmark. A stopping criterion such as $|\nabla f| < 10^{-8}$ ends the loop. The matrix of second partials is the Hessian.
+- id: mv-m4-r2-h36
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Gradient descent on $f = x^2 + 3y^2$ uses $\alpha = 0.3$. Each step multiplies the $y$-coordinate by'
+  choices: ['$0.4$', '$-0.8$', '$0.8$', '$-1.4$']
+  answer: 1
+  explanation: |-
+    $y \leftarrow y - 0.3(6y) = (1 - 1.8)y = -0.8y$. The sign flips each step (the zigzag in the lesson's picture), but $|-0.8| < 1$, so $y$ still shrinks. $0.4$ is the $x$-factor $1 - 2(0.3)$; $-1.4$ is the $y$-factor for $\alpha = 0.4$.
+- id: mv-m4-r2-h37
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'Gradient descent on $f = x^2 + 3y^2$ uses $\alpha = 0.5$, starting at $(3, 1)$. What happens?'
+  choices:
+    - 'Both coordinates converge to 0 smoothly'
+    - '$x$ jumps to 0 in one step, but $y$ doubles in size each step (with alternating sign), so the iterates diverge'
+    - 'Both coordinates double in size each step'
+    - 'The method lands on the minimum in one step'
+  answer: 1
+  explanation: |-
+    The factors are $1 - 2(0.5) = 0$ for $x$ and $1 - 6(0.5) = -2$ for $y$. So $x_1 = 0$, but $y$ goes $1, -2, 4, -8, \dots$. Convergence needs $\alpha < 2/\lambda_{\max} = 2/6 = 1/3$.
+- id: mv-m4-r2-h38
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'The errors of an iterative method at successive steps are $10^{-1}$, $10^{-2}$, $10^{-4}$, $10^{-8}$. This pattern is typical of'
+  choices:
+    - 'quadratic convergence, as in Newton''s method'
+    - 'convergence that gains one digit per step'
+    - 'divergence'
+    - 'convergence to a saddle point'
+  answer: 0
+  explanation: |-
+    Each error is the square of the one before ($10^{-2} \to 10^{-4} \to 10^{-8}$), so the number of correct digits doubles: quadratic convergence. Gaining one digit per step would look like $10^{-1}, 10^{-2}, 10^{-3}, 10^{-4}$, the steady pace of gradient descent at best. The kind of critical point cannot be read from the errors.
+- id: mv-m4-r2-h39
+  lesson: mv-m4-h-numerical
+  topic: Numerical optimization
+  stem: 'What is the inverse of $H = \begin{bmatrix} 4 & 1\\ 1 & 2\end{bmatrix}$?'
+  choices:
+    - '$\dfrac17\begin{bmatrix} 4 & -1\\ -1 & 2\end{bmatrix}$'
+    - '$\dfrac17\begin{bmatrix} 2 & 1\\ 1 & 4\end{bmatrix}$'
+    - '$\dfrac19\begin{bmatrix} 2 & -1\\ -1 & 4\end{bmatrix}$'
+    - '$\dfrac17\begin{bmatrix} 2 & -1\\ -1 & 4\end{bmatrix}$'
+  answer: 3
+  explanation: |-
+    $D = 4 \cdot 2 - 1^2 = 7$. Swap the diagonal entries and change the sign of the off-diagonal ones: $\tfrac17\begin{bmatrix} 2 & -1\\ -1 & 4\end{bmatrix}$. Check: $H$ times it has first row $\tfrac17(8 - 1, -4 + 4) = (1, 0)$. The other choices forget the swap, forget the sign change, or use $AC + B^2 = 9$.
+- id: mv-m4-r2-h40
+  lesson: mv-m4-h-numerical
+  type: text
+  topic: Numerical optimization
+  stem: 'Gradient descent on $f(x, y) = 4x^2 + y^2$ converges for every starting point exactly when $0 < \alpha <$ ___.'
+  accept: ['1/4', '0.25', '.25']
+  explanation: |-
+    The update multiplies $x$ by $1 - 8\alpha$ and $y$ by $1 - 2\alpha$; both must lie strictly between $-1$ and $1$. The first needs $\alpha < \tfrac14$, the second only $\alpha < 1$. Equivalently, the Hessian's eigenvalues are 8 and 2, and $\alpha < 2/\lambda_{\max} = 2/8$.

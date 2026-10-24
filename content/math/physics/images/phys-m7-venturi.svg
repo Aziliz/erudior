@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 20 700 360" width="700" height="360" font-family="sans-serif" font-size="16" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 20 700 325" width="700" height="325" font-family="sans-serif" font-size="16" role="img">
 <title>A Venturi tube with pressure columns</title>
-<rect x="0" y="20" width="700" height="360" fill="#ffffff"/>
+<rect x="0" y="20" width="700" height="325" fill="#ffffff"/>
 <polygon points="30.0,200.0 230.0,200.0 310.0,230.0 430.0,230.0 510.0,200.0 680.0,200.0 680.0,300.0 510.0,300.0 430.0,270.0 310.0,270.0 230.0,300.0 30.0,300.0" fill="#dde8f3" stroke="none" stroke-width="0" stroke-linejoin="round"/>
 <rect x="121" y="80" width="18" height="120" rx="0" fill="#dde8f3" stroke="none" stroke-width="0" />
 <rect x="361" y="172" width="18" height="58" rx="0" fill="#dde8f3" stroke="none" stroke-width="0" />
@@ -10,15 +10,15 @@
 <line x1="380" y1="40" x2="380" y2="231" stroke="#1c2833" stroke-width="3" stroke-linecap="round"/>
 <polyline points="30.0,225.0 230.0,225.0 310.0,240.0 430.0,240.0 510.0,225.0 680.0,225.0" fill="none" stroke="#5d6d7e" stroke-width="2" stroke-linejoin="round"/>
 <polygon points="185.0,225.0 175.3,230.2 175.3,219.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="385.0,240.0 375.3,245.2 375.3,234.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="345.0,240.0 335.3,245.2 335.3,234.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polygon points="620.0,225.0 610.3,230.2 610.3,219.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polyline points="30.0,250.0 230.0,250.0 310.0,250.0 430.0,250.0 510.0,250.0 680.0,250.0" fill="none" stroke="#5d6d7e" stroke-width="2" stroke-linejoin="round"/>
 <polygon points="185.0,250.0 175.3,255.2 175.3,244.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="385.0,250.0 375.3,255.2 375.3,244.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="345.0,250.0 335.3,255.2 335.3,244.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polygon points="620.0,250.0 610.3,255.2 610.3,244.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polyline points="30.0,275.0 230.0,275.0 310.0,260.0 430.0,260.0 510.0,275.0 680.0,275.0" fill="none" stroke="#5d6d7e" stroke-width="2" stroke-linejoin="round"/>
 <polygon points="185.0,275.0 175.3,280.2 175.3,269.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
-<polygon points="385.0,260.0 375.3,265.2 375.3,254.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="345.0,260.0 335.3,265.2 335.3,254.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polygon points="620.0,275.0 610.3,280.2 610.3,269.8" fill="#5d6d7e" stroke="#5d6d7e" stroke-width="1" stroke-linejoin="round"/>
 <polyline points="30.0,200.0 120.0,200.0" fill="none" stroke="#1c2833" stroke-width="4" stroke-linejoin="round"/>
 <polyline points="140.0,200.0 230.0,200.0 310.0,230.0 360.0,230.0" fill="none" stroke="#1c2833" stroke-width="4" stroke-linejoin="round"/>
@@ -34,5 +34,6 @@
 <text x="130" y="325" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">wide: slower flow</text>
 <text x="370" y="300" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">narrow: faster flow</text>
 <text x="370" y="320" text-anchor="middle" font-size="14" font-weight="normal" fill="#1c2833">(streamlines crowd together)</text>
-<text x="600" y="325" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">streamlines</text>
+<text x="600" y="328" text-anchor="middle" font-size="16" font-weight="normal" fill="#1c2833">streamlines</text>
+<line x1="600" y1="310" x2="600" y2="278" stroke="#1c2833" stroke-width="1.5" stroke-linecap="round"/>
 </svg>

@@ -1,0 +1,398 @@
+# Round 2, module phys-m1 (Measurement and vectors): new question types for the core lessons
+# (q01–q11) and the two honors lessons (h01–h15 uncertainty, h16–h30 vector algebra).
+
+# ---- Core: phys-measurement
+- id: phys-m1-r2-q01
+  lesson: phys-measurement
+  type: text
+  topic: Units and conversions
+  stem: 'How many cubic centimeters are in one cubic meter? Give only the number.'
+  accept: ['1000000', '1e6', '10^6', '1 000 000', '1,000,000']
+  explanation: |-
+    $1\text{ m} = 100\text{ cm}$, so $1\text{ m}^3 = (100\text{ cm})^3 = 100^3\text{ cm}^3 = 10^6\text{ cm}^3$, one million. The conversion factor is cubed, not just multiplied by 100 (which would give 100) or squared (10 000).
+- id: phys-m1-r2-q02
+  lesson: phys-measurement
+  type: match
+  topic: Units and conversions
+  stem: 'Match each derived unit to its expression in SI base units.'
+  pairs:
+    - ['newton (force)', 'kg·m/s²']
+    - ['joule (energy)', 'kg·m²/s²']
+    - ['watt (power)', 'kg·m²/s³']
+    - ['kg·m/s (momentum)', 'kg·m/s']
+  distractors: ['kg/(m·s²)']
+  explanation: |-
+    From $F = ma$: $1\text{ N} = 1\text{ kg·m/s}^2$. A joule is a newton times a meter, $\text{kg·m}^2/\text{s}^2$. A watt is a joule per second, $\text{kg·m}^2/\text{s}^3$. Momentum is mass times velocity, kg·m/s. The leftover, kg/(m·s²), is the pascal (newton per square meter), the unit of pressure.
+- id: phys-m1-r2-q03
+  lesson: phys-measurement
+  module_quiz: true
+  topic: Significant figures
+  stem: 'Which of these values have exactly three significant figures? Select all that apply.'
+  choices: ['$0.00402$', '$4.020$', '$3.06 \times 10^{5}$', '$0.0150$']
+  answer: [0, 2, 3]
+  explanation: |-
+    $0.00402$: leading zeros don't count, leaving 4, 0, 2 (three). $4.020$: the trailing zero after the decimal point counts, so four. $3.06 \times 10^{5}$: every digit of 3.06 counts, three. $0.0150$: leading zeros don't count, the trailing zero does: 1, 5, 0 (three).
+- id: phys-m1-r2-q04
+  lesson: phys-measurement
+  type: label
+  module_quiz: true
+  topic: Significant figures
+  stem: 'Each target shows six darts thrown by a different player. Describe each player''s throws.'
+  image: {src: images/phys-m1-targets-blank.svg, alt: 'Four numbered targets. Target 1: six dots tightly clustered on the center. Target 2: six dots tightly clustered far up and to the left of the center. Target 3: six dots scattered widely all around the center. Target 4: six dots scattered widely, mostly up and to the left.'}
+  labels:
+    - {x: 25, y: 8.3, text: Accurate and precise}
+    - {x: 75, y: 8.3, text: Precise but not accurate}
+    - {x: 25, y: 53.3, text: Accurate but not precise}
+    - {x: 75, y: 53.3, text: Neither accurate nor precise}
+  explanation: |-
+    Precision is how tightly the darts cluster; accuracy is whether they center on the bullseye. 1: tight and centered. 2: tight but off-center, the signature of a systematic error. 3: spread out, but their average is the center. 4: spread out and off-center.
+- id: phys-m1-r2-q05
+  lesson: phys-measurement
+  type: order
+  topic: Dimensional analysis
+  stem: 'Put the steps for finding how a pendulum''s period depends on $L$, $m$ and $g$ by dimensional analysis in order.'
+  items:
+    - 'Assume $T = C\,L^a m^b g^c$ with unknown powers'
+    - 'Write the dimensions of both sides in terms of [M], [L] and [T]'
+    - 'Set the powers of [M], [L] and [T] equal on the two sides'
+    - 'Solve those equations for $a$, $b$ and $c$'
+    - 'Substitute the powers back, and find $C$ from experiment or full theory'
+  explanation: |-
+    You need the trial form before you can write its dimensions, the dimensions before you can match powers, and the equations before you can solve them. Here mass gives $b = 0$, time gives $c = -\tfrac12$ and length gives $a = \tfrac12$, so $T = C\sqrt{L/g}$; dimensional analysis can't find $C$ (it is $2\pi$).
+- id: phys-m1-r2-q06
+  lesson: phys-measurement
+  type: text
+  topic: Dimensional analysis
+  stem: 'On a graph of velocity (m/s) against time (s), the area under the curve has the SI unit ___ (give the unit name or symbol).'
+  accept: [m, meter, meters, metre, metres]
+  explanation: |-
+    Area is (vertical unit) × (horizontal unit): $(\text{m/s})\cdot\text{s} = \text{m}$. The area under a velocity–time graph is a displacement. (The slope, $(\text{m/s})/\text{s} = \text{m/s}^2$, is an acceleration.)
+
+# ---- Core: phys-vectors
+- id: phys-m1-r2-q07
+  lesson: phys-vectors
+  type: label
+  module_quiz: true
+  topic: Vectors
+  stem: 'The picture shows a vector resolved into components. Name the numbered parts.'
+  image: {src: images/phys-m1-components-blank.svg, alt: 'x and y axes. Arrow 1 runs from the origin up and to the right. Arrow 2 runs along the x axis from the origin to directly below the tip of arrow 1. Arrow 3 rises vertically from the end of arrow 2 to the tip of arrow 1, with a right-angle mark at its base. Mark 4 is an arc at the origin between the x axis and arrow 1.'}
+  labels:
+    - {x: 36.8, y: 53.4, text: The vector A}
+    - {x: 38.5, y: 82.6, text: x component (A cos θ)}
+    - {x: 61.4, y: 56.4, text: y component (A sin θ)}
+    - {x: 28.0, y: 77.8, text: Angle θ from the +x axis}
+  distractors: [Resultant of two vectors, Unit vector along y]
+  explanation: |-
+    The vector (1) is the hypotenuse of a right triangle. Its $x$ component (2) is the adjacent side, $A\cos\theta$, and its $y$ component (3) is the opposite side, $A\sin\theta$. The angle (4) is measured at the tail, from the $+x$ axis. Adding components 2 and 3 tip to tail gives back the vector.
+- id: phys-m1-r2-q08
+  lesson: phys-vectors
+  type: order
+  module_quiz: true
+  topic: Vectors
+  stem: 'Put the steps for adding several vectors by components in order.'
+  items:
+    - 'Sketch the vectors and choose axes'
+    - 'Resolve each vector into signed $x$ and $y$ components'
+    - 'Add all the $x$ components, then all the $y$ components'
+    - 'Find $R = \sqrt{R_x^2 + R_y^2}$ and $\tan^{-1}(R_y/R_x)$'
+    - 'Add $180^\circ$ to the angle if $R_x < 0$'
+  explanation: |-
+    Axes come first because components depend on them. Each vector is resolved before components can be added, and the sums $R_x$ and $R_y$ are needed for the magnitude and calculator angle. The quadrant check comes last, because the calculator's $\tan^{-1}$ only returns angles between $-90^\circ$ and $90^\circ$.
+- id: phys-m1-r2-q09
+  lesson: phys-vectors
+  topic: Vectors
+  stem: 'Which of these are vector quantities? Select all that apply.'
+  choices: [Displacement, Momentum, Speed, Work, Force]
+  answer: [0, 1, 4]
+  explanation: |-
+    Displacement, momentum and force all have a direction. Speed is the magnitude of velocity with no direction, and work is a scalar (a dot product, $W = \vec F\cdot\vec d$), so both are scalars.
+- id: phys-m1-r2-q10
+  lesson: phys-vectors
+  type: text
+  topic: Vectors
+  stem: 'The vector $\vec A = 5\hat\imath - 12\hat\jmath$ m has magnitude ___ m. Give only the number.'
+  accept: ['13']
+  explanation: |-
+    $A = \sqrt{A_x^2 + A_y^2} = \sqrt{5^2 + (-12)^2} = \sqrt{25 + 144} = \sqrt{169} = 13$ m. The minus sign disappears when squared; a magnitude is never negative.
+- id: phys-m1-r2-q11
+  lesson: phys-vectors
+  type: match
+  topic: Vector products
+  stem: 'Match each operation on two vectors to what it produces.'
+  pairs:
+    - ['$\vec A\cdot\vec B$', 'A scalar, largest when the vectors are parallel']
+    - ['$\vec A\times\vec B$', 'A vector perpendicular to both']
+    - ['$\vec A + \vec B$', 'A vector found by placing them tip to tail']
+    - ['$-2\vec A$', 'A vector twice as long, pointing the opposite way']
+  distractors: ['A scalar, largest when the vectors are perpendicular']
+  explanation: |-
+    The dot product $AB\cos\phi$ is a scalar, largest at $\phi = 0$. The cross product is a vector perpendicular to both, with magnitude $AB\sin\phi$ (largest when perpendicular, but it is a vector, not a scalar). Adding uses tip to tail. Multiplying by $-2$ doubles the length and reverses the direction.
+
+# ---- Honors: phys-m1-h-uncertainty
+- id: phys-m1-r2-h01
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'A mass is measured as $52.4 \pm 0.2$ g. What is its percent uncertainty?'
+  choices: ['0.2%', '0.38%', '2.6%', '0.0038%']
+  answer: 1
+  explanation: |-
+    Fractional uncertainty $= 0.2/52.4 = 0.0038$, which is 0.38%. Quoting 0.2% confuses the absolute uncertainty (0.2 g) with a percentage; 0.0038% forgets to multiply by 100; 2.6% comes from $52.4/0.2$ with a slipped decimal, upside down.
+- id: phys-m1-r2-h02
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'Which step reduces the effect of random error but does nothing about systematic error?'
+  choices: ['Recalibrating the balance against a standard mass', 'Zeroing the balance before weighing', 'Averaging many repeated readings', 'Measuring the same quantity by a different method']
+  answer: 2
+  explanation: |-
+    Averaging lets random errors partly cancel (the uncertainty of the mean falls as $1/\sqrt n$), but a systematic error shifts every reading the same way and survives averaging. Recalibrating and zeroing remove systematic errors, and a different method is how systematic errors are usually discovered.
+- id: phys-m1-r2-h03
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'Nine timings have a standard deviation of $s = 0.30$ s. What is the standard error of their mean?'
+  choices: ['0.033 s', '0.30 s', '0.90 s', '0.10 s']
+  answer: 3
+  explanation: |-
+    $s_{\bar x} = s/\sqrt n = 0.30/\sqrt9 = 0.30/3 = 0.10$ s. Dividing by $n$ instead of $\sqrt n$ gives 0.033 s; 0.30 s is the spread of single readings, not the uncertainty of the mean; 0.90 s multiplies by 3.
+- id: phys-m1-r2-h04
+  lesson: phys-m1-h-uncertainty
+  topic: Error propagation
+  stem: 'Two independent lengths are $x = 8.6 \pm 0.3$ cm and $y = 5.1 \pm 0.4$ cm. Combining in quadrature, what is the uncertainty of $x - y$?'
+  choices: ['0.5 cm', '0.1 cm', '0.7 cm', '0.35 cm']
+  answer: 0
+  explanation: |-
+    For a difference, combine absolute uncertainties: $\sqrt{0.3^2 + 0.4^2} = \sqrt{0.25} = 0.5$ cm, so $x - y = 3.5 \pm 0.5$ cm. Uncertainties never subtract (0.1 cm). Adding directly gives the upper bound 0.7 cm, not the quadrature value; 0.35 cm is the average of the two.
+- id: phys-m1-r2-h05
+  lesson: phys-m1-h-uncertainty
+  topic: Error propagation
+  stem: 'A square''s side is $5.00 \pm 0.02$ cm. Its area, with uncertainty, is'
+  choices: ['$25.0 \pm 0.1\text{ cm}^2$', '$25.0 \pm 0.14\text{ cm}^2$', '$25.0 \pm 0.2\text{ cm}^2$', '$25.0 \pm 0.02\text{ cm}^2$']
+  answer: 2
+  explanation: |-
+    $A = s^2 = 25.0\text{ cm}^2$. The side's fractional uncertainty is $0.02/5.00 = 0.4\%$; squaring doubles it to 0.8%, and $0.008 \times 25.0 = 0.2\text{ cm}^2$. Forgetting the factor 2 gives 0.1. Treating $s \cdot s$ as two independent factors in quadrature gives $\sqrt2 \times 0.4\% \times 25 = 0.14$, but both factors carry the same error, so it adds directly. Copying the side's 0.02 ignores propagation.
+- id: phys-m1-r2-h06
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'A calculation gives $3.4682$ m with an uncertainty of $0.0237$ m. How should the result be reported?'
+  choices: ['$3.4682 \pm 0.02$ m', '$3.47 \pm 0.02$ m', '$3.5 \pm 0.02$ m', '$3.47 \pm 0.0237$ m']
+  answer: 1
+  explanation: |-
+    Round the uncertainty to one significant figure, 0.02 m (its first digit is 2, not 1), then round the value to the same decimal place, the hundredths: 3.47 m. Keeping 3.4682 claims digits the uncertainty has already wiped out; 3.5 throws away a digit that is still meaningful; 0.0237 overstates how well the uncertainty itself is known.
+- id: phys-m1-r2-h07
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'Two labs measure the same resistance as $4.52 \pm 0.05\ \Omega$ and $4.58 \pm 0.04\ \Omega$. What should you conclude?'
+  choices: ['They disagree, since the two values are not equal', 'They disagree, since the difference exceeds the smaller uncertainty', 'They can''t be compared without the true value', 'They agree, since the difference is within the combined uncertainty']
+  answer: 3
+  explanation: |-
+    Difference: $0.06\ \Omega$. Combined uncertainty: $\sqrt{0.05^2 + 0.04^2} = 0.064\ \Omega$. The difference is smaller than the combined uncertainty, so the results agree. Measured values are never exactly equal, comparing with just one uncertainty ignores the other, and agreement between two results doesn't need the true value.
+- id: phys-m1-r2-h08
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'A student measures $g = 9.62$ m/s². Taking the accepted value as $9.80$ m/s², what is the percent error?'
+  choices: ['1.8%', '1.9%', '0.18%', '18%']
+  answer: 0
+  explanation: |-
+    $\dfrac{|9.62 - 9.80|}{9.80} \times 100\% = \dfrac{0.18}{9.80} \times 100\% = 1.8\%$. Dividing by the measured value instead of the accepted one gives $0.18/9.62 = 1.9\%$; 0.18% and 18% are decimal slips.
+- id: phys-m1-r2-h09
+  lesson: phys-m1-h-uncertainty
+  topic: Error propagation
+  stem: 'In a pendulum measurement of $g = 4\pi^2L/T^2$, $L$ is known to 0.25% and a single timed period to 0.28%. Which change would most reduce the uncertainty in $g$?'
+  choices: ['Measuring $L$ with a ruler twice as precise', 'Timing 20 swings and dividing by 20', 'Using a heavier bob', 'Using more digits of $\pi$']
+  answer: 1
+  explanation: |-
+    $T$ is squared, so it contributes $2 \times 0.28\% = 0.56\%$, more than twice the length's 0.25%. Timing 20 swings spreads the same start-and-stop error over 20 periods, cutting $\delta T/T$ about twentyfold. A better ruler only shrinks the smaller term; the bob's mass doesn't appear in the formula; $\pi$ is exact and contributes no uncertainty.
+- id: phys-m1-r2-h10
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'A student measures a pendulum''s length only to the top of the bob instead of to its center, then calculates $g = 4\pi^2L/T^2$. How does this affect the result?'
+  choices: ['$g$ comes out too small, every time', '$g$ comes out too large, every time', '$g$ is unaffected', 'The values of $g$ scatter more, but their average is right']
+  answer: 0
+  explanation: |-
+    The recorded $L$ is shorter than the true length, and $g$ is proportional to $L$, so every result is too small. That is a systematic error: it shifts every trial the same way and doesn't show up as scatter or average away.
+- id: phys-m1-r2-h11
+  lesson: phys-m1-h-uncertainty
+  topic: Measurement uncertainty
+  stem: 'Which of these are systematic errors? Select all that apply.'
+  choices: ['A balance that reads 0.3 g with nothing on it', 'A stopwatch that runs 1% fast', 'Reaction time varying from one timing to the next', 'Always reading a ruler from the same angle above it (parallax)', 'Air currents jiggling a balance reading up and down']
+  answer: [0, 1, 3]
+  explanation: |-
+    A zero offset, a fast clock and a consistent viewing angle shift every reading the same way: systematic errors, which averaging can't remove. Varying reaction time and jiggling air currents push readings up and down unpredictably: random errors, which show up as scatter and shrink with averaging.
+- id: phys-m1-r2-h12
+  lesson: phys-m1-h-uncertainty
+  type: text
+  topic: Measurement uncertainty
+  stem: 'If you take four times as many readings (with the same scatter), the standard error of the mean is multiplied by ___. Give a number.'
+  accept: ['0.5', '1/2', 'half', 'one half']
+  explanation: |-
+    The standard error is $s/\sqrt n$. Multiplying $n$ by 4 multiplies $\sqrt n$ by 2, so the standard error is multiplied by $\tfrac12$. The spread of single readings, $s$, stays about the same.
+- id: phys-m1-r2-h13
+  lesson: phys-m1-h-uncertainty
+  type: match
+  topic: Error propagation
+  stem: 'Match each formula to how its uncertainty is found from the uncertainty of $x$ (and $y$). The errors are independent and random.'
+  pairs:
+    - ['$q = x - y$', 'Combine absolute uncertainties in quadrature']
+    - ['$q = x/y$', 'Combine fractional uncertainties in quadrature']
+    - ['$q = x^3$', 'Triple the fractional uncertainty of x']
+    - ['$q = 2\pi x$', 'Multiply the absolute uncertainty of x by 2π']
+  distractors: ['Subtract the absolute uncertainties']
+  explanation: |-
+    Differences (like sums) combine absolute uncertainties; quotients (like products) combine fractional ones. A power multiplies the fractional uncertainty by the exponent, 3. An exact constant like $2\pi$ scales the absolute uncertainty and leaves the fractional uncertainty unchanged. Uncertainties are never subtracted.
+- id: phys-m1-r2-h14
+  lesson: phys-m1-h-uncertainty
+  type: order
+  topic: Measurement uncertainty
+  stem: 'Put the steps for reporting a result from repeated readings in order.'
+  items:
+    - 'Find the mean of the readings'
+    - 'Find the standard deviation $s$ of the readings'
+    - 'Divide $s$ by $\sqrt n$ to get the standard error'
+    - 'Round the standard error to one significant figure (two if it starts with 1)'
+    - 'Round the mean to the same decimal place as the uncertainty'
+  explanation: |-
+    The standard deviation is computed from deviations from the mean, so the mean comes first; the standard error comes from $s$. The rounded uncertainty sets how many decimal places the mean keeps, so the mean is rounded last.
+- id: phys-m1-r2-h15
+  lesson: phys-m1-h-uncertainty
+  type: text
+  topic: Error propagation
+  stem: 'A period $T$ is measured with a fractional uncertainty of 0.3%. The fractional uncertainty of $T^2$ is ___ %. Give only the number.'
+  accept: ['0.6', '.6']
+  explanation: |-
+    For a power, multiply the fractional uncertainty by the exponent: $2 \times 0.3\% = 0.6\%$. (Not $0.3\%$ squared, and not $\sqrt2 \times 0.3\%$: both factors of $T \cdot T$ carry the same error.)
+
+# ---- Honors: phys-m1-h-vector-algebra
+- id: phys-m1-r2-h16
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'What is the unit vector in the direction of $\vec A = 3\hat\imath + 4\hat k$?'
+  choices: ['$3\hat\imath + 4\hat k$', '$0.43\hat\imath + 0.57\hat k$', '$0.6\hat\imath + 0.8\hat k$', '$0.2\hat\imath + 0.25\hat k$']
+  answer: 2
+  explanation: |-
+    $A = \sqrt{3^2 + 4^2} = 5$, so $\hat A = \vec A/5 = 0.6\hat\imath + 0.8\hat k$, which has length $\sqrt{0.36 + 0.64} = 1$. Dividing by the sum of components (7) gives 0.43 and 0.57, a vector of the wrong length; $0.2\hat\imath + 0.25\hat k$ takes reciprocals of the components.
+- id: phys-m1-r2-h17
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'A vector''s direction cosines with the $x$ and $y$ axes are $\cos\alpha = 0.6$ and $\cos\beta = 0.8$. What angle does it make with the $z$ axis?'
+  choices: ['$0^\circ$', '$53.1^\circ$', '$36.9^\circ$', '$90^\circ$']
+  answer: 3
+  explanation: |-
+    $\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$, so $\cos^2\gamma = 1 - 0.36 - 0.64 = 0$ and $\gamma = 90^\circ$: the vector lies in the $xy$ plane. $53.1^\circ$ and $36.9^\circ$ are its angles with the $x$ and $y$ axes, and $0^\circ$ would make it point along $z$.
+- id: phys-m1-r2-h18
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'Find the scalar projection (component) of $\vec B = 4\hat\imath + 2\hat\jmath - \hat k$ along $\vec A = \hat\imath + 2\hat\jmath + 2\hat k$.'
+  choices: ['6', '2', '0.67', '1.33']
+  answer: 1
+  explanation: |-
+    $\vec A\cdot\vec B = 4 + 4 - 2 = 6$ and $A = \sqrt{1 + 4 + 4} = 3$, so the component is $6/3 = 2$. The bare dot product, 6, forgets to divide by $A$; 0.67 divides by $A^2$ (that is the factor in the vector projection, not the component).
+- id: phys-m1-r2-h19
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector products
+  stem: 'Compute $(\hat\imath + 2\hat\jmath + 3\hat k)\times(4\hat\imath + 5\hat\jmath + 6\hat k)$.'
+  choices: ['$-3\hat\imath + 6\hat\jmath - 3\hat k$', '$3\hat\imath - 6\hat\jmath + 3\hat k$', '$-3\hat\imath - 6\hat\jmath - 3\hat k$', '$4\hat\imath + 10\hat\jmath + 18\hat k$']
+  answer: 0
+  explanation: |-
+    $x$: $2(6) - 3(5) = -3$. $y$: $3(4) - 1(6) = 6$. $z$: $1(5) - 2(4) = -3$. So the result is $-3\hat\imath + 6\hat\jmath - 3\hat k$; check: its dot product with $(1, 2, 3)$ is $-3 + 12 - 9 = 0$. The opposite vector is $\vec B\times\vec A$; $-6$ in the middle comes from breaking the cyclic order in the $y$ component; multiplying matching components is not a cross product at all.
+- id: phys-m1-r2-h20
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector products
+  stem: 'Three nonzero vectors have $\vec A\cdot(\vec B\times\vec C) = 0$. This tells you that the three vectors'
+  choices: ['are all parallel', 'lie in one plane', 'are mutually perpendicular', 'all have the same length']
+  answer: 1
+  explanation: |-
+    The absolute value of the triple product is the volume of the box on the three vectors. Zero volume means the box is flat: the vectors are coplanar. They need not be parallel (three vectors in the $xy$ plane pointing different ways also give zero). Mutually perpendicular vectors give the largest volume for their lengths, not zero.
+- id: phys-m1-r2-h21
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector products
+  stem: 'What is the area of the triangle whose two sides from one corner are $\vec A = 2\hat\imath$ m and $\vec B = 3\hat\jmath$ m?'
+  choices: ['6 m²', '1.5 m²', '0 m²', '3 m²']
+  answer: 3
+  explanation: |-
+    $\vec A\times\vec B = 6\hat k$ m², so the parallelogram on $\vec A$ and $\vec B$ has area 6 m², and the triangle is half of it: 3 m². (For this right triangle, $\tfrac12 \times 2 \times 3 = 3$ m² agrees.) 6 m² is the whole parallelogram; 0 is the dot product.
+- id: phys-m1-r2-h22
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'A force $\vec F = 10\hat\imath$ N is described using axes rotated $30^\circ$ counterclockwise from the original ones. What are its new components $(F_{x''}, F_{y''})$?'
+  choices: ['$(8.66, 5.00)$ N', '$(5.00, -8.66)$ N', '$(8.66, -5.00)$ N', '$(10.0, 0)$ N']
+  answer: 2
+  explanation: |-
+    $F_{x'} = F_x\cos30^\circ + F_y\sin30^\circ = 8.66$ N and $F_{y'} = -F_x\sin30^\circ + F_y\cos30^\circ = -5.00$ N. The new $x'$ axis has turned toward the force's left, so from the new axes the force points below $x'$: negative $y'$ component. Check: $\sqrt{8.66^2 + 5^2} = 10$ N. Rotating the vector instead of the axes gives $(8.66, 5.00)$.
+- id: phys-m1-r2-h23
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'Rotating the coordinate axes changes which of these?'
+  choices: ['The magnitude of a vector', 'The dot product of two vectors', 'The components of a vector', 'The angle between two vectors']
+  answer: 2
+  explanation: |-
+    Components are measured along the axes, so they change when the axes turn. The vector itself doesn't, so its length, the angle between two vectors and their dot product $AB\cos\phi$ are the same in every set of axes.
+- id: phys-m1-r2-h24
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector algebra
+  stem: 'Which expression is the vector projection of $\vec B$ onto $\vec A$ (the part of $\vec B$ along $\vec A$)?'
+  choices: ['$\dfrac{\vec A\cdot\vec B}{A}\,\vec A$', '$(\vec A\cdot\vec B)\,\vec A$', '$\dfrac{\vec A\times\vec B}{A}$', '$\dfrac{\vec A\cdot\vec B}{A^2}\,\vec A$']
+  answer: 3
+  explanation: |-
+    The component of $\vec B$ along $\vec A$ is $\vec A\cdot\vec B/A$; multiplying by the unit vector $\vec A/A$ gives $(\vec A\cdot\vec B/A^2)\vec A$. The other two dot-product forms have the wrong length unless $A = 1$, and the cross product points perpendicular to $\vec A$.
+- id: phys-m1-r2-h25
+  lesson: phys-m1-h-vector-algebra
+  type: label
+  topic: Vector products
+  stem: 'The picture shows the parallelogram formed by two vectors from the same point. Name the numbered parts.'
+  image: {src: images/phys-m1-parallelogram-blank.svg, alt: 'A shaded parallelogram. Arrow 1 runs along the bottom edge to the right. Arrow 2 rises up and to the right from the same corner. Line 3 is dotted and drops straight down from the tip of arrow 2 to the bottom edge. Mark 4 is a circle with a dot in the middle of the parallelogram. Mark 5 is an arc at the corner between arrows 1 and 2.'}
+  labels:
+    - {x: 41.7, y: 85.3, text: Vector A}
+    - {x: 23.6, y: 55.2, text: Vector B}
+    - {x: 34.7, y: 64.0, text: Height (B sin φ)}
+    - {x: 61.1, y: 55.2, text: Direction of A × B (out of the page)}
+    - {x: 21.7, y: 78.8, text: Angle φ between A and B}
+  distractors: [Direction of B × A, Resultant A + B]
+  explanation: |-
+    The base is $\vec A$ (1) and the slanted side is $\vec B$ (2). The dotted height (3) is $B\sin\phi$, so the area is $AB\sin\phi = |\vec A\times\vec B|$. The circle with a dot (4) is an arrow pointing out of the page: curling the fingers from $\vec A$ (right) toward $\vec B$ (up-right) is counterclockwise, so the thumb points out. $\vec B\times\vec A$ would point into the page. The angle $\phi$ (5) is at the shared tail.
+- id: phys-m1-r2-h26
+  lesson: phys-m1-h-vector-algebra
+  type: text
+  topic: Vector products
+  stem: 'Write $\hat\imath\times\hat k$ as a signed unit vector (for example, -i). $\hat\imath\times\hat k =$ ___'
+  accept: ['-j', '-ĵ', 'minus j', '-1j', '-y']
+  explanation: |-
+    Forward around the cycle, $\hat k\times\hat\imath = \hat\jmath$. Reversing the order flips the sign, so $\hat\imath\times\hat k = -\hat\jmath$. Check with the formula: $(1, 0, 0)\times(0, 0, 1) = (0\cdot1 - 0\cdot0,\ 0\cdot0 - 1\cdot1,\ 1\cdot0 - 0\cdot0) = (0, -1, 0)$.
+- id: phys-m1-r2-h27
+  lesson: phys-m1-h-vector-algebra
+  type: text
+  topic: Vector products
+  stem: 'For $\vec A = 3\hat\imath - \hat\jmath + 2\hat k$ and $\vec B = \hat\imath + 2\hat\jmath$, $\vec A\times\vec B =$ ___ $\hat\imath$ + ___ $\hat\jmath$ + ___ $\hat k$. Give each component as a number.'
+  accept:
+    - ['-4']
+    - ['2']
+    - ['7']
+  explanation: |-
+    $x$: $A_yB_z - A_zB_y = (-1)(0) - (2)(2) = -4$. $y$: $A_zB_x - A_xB_z = (2)(1) - (3)(0) = 2$. $z$: $A_xB_y - A_yB_x = (3)(2) - (-1)(1) = 7$. Check: $\vec A\cdot(-4, 2, 7) = -12 - 2 + 14 = 0$ and $\vec B\cdot(-4, 2, 7) = -4 + 4 + 0 = 0$.
+- id: phys-m1-r2-h28
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector products
+  stem: 'Which of these are true for all vectors $\vec A$, $\vec B$, $\vec C$? Select all that apply.'
+  choices: ['$\vec A\times\vec B = -\vec B\times\vec A$', '$\vec A\cdot(\vec A\times\vec B) = 0$', '$\vec A\times\vec B = \vec B\times\vec A$', '$|\vec A\times\vec B| \le AB$', '$\vec A\times(\vec B\times\vec C) = (\vec A\times\vec B)\times\vec C$']
+  answer: [0, 1, 3]
+  explanation: |-
+    The cross product is anticommutative (swapping flips the sign), so the third statement is false except when the product is zero. $\vec A\times\vec B$ is perpendicular to $\vec A$, so its dot product with $\vec A$ is 0. $|\vec A\times\vec B| = AB\sin\phi \le AB$. The cross product is not associative: for example, $\hat\imath\times(\hat\imath\times\hat\jmath) = \hat\imath\times\hat k = -\hat\jmath$, but $(\hat\imath\times\hat\imath)\times\hat\jmath = 0$.
+- id: phys-m1-r2-h29
+  lesson: phys-m1-h-vector-algebra
+  type: match
+  topic: Vector algebra
+  stem: 'Match each expression to its geometric meaning.'
+  pairs:
+    - ['$|\vec A\times\vec B|$', 'Area of the parallelogram on A and B']
+    - ['$|\vec A\cdot(\vec B\times\vec C)|$', 'Volume of the box on A, B and C']
+    - ['$\vec A\cdot\vec B/A$', 'Component of B along A']
+    - ['$\vec A/A$', 'Unit vector pointing along A']
+  distractors: ['Angle between A and B']
+  explanation: |-
+    The cross product's magnitude $AB\sin\phi$ is base times height of the parallelogram. The triple product's absolute value is base area times height of the box. Dividing $\vec A\cdot\vec B$ by $A$ gives the scalar projection of $\vec B$ on $\vec A$. Dividing a vector by its magnitude gives a unit vector. The angle needs an inverse cosine: $\phi = \cos^{-1}[\vec A\cdot\vec B/(AB)]$.
+- id: phys-m1-r2-h30
+  lesson: phys-m1-h-vector-algebra
+  topic: Vector products
+  stem: 'A force $\vec F = 50\hat k$ N acts at $\vec r = 0.40\hat\imath$ m from a pivot. What is the torque $\vec\tau = \vec r\times\vec F$?'
+  choices: ['$-20\hat\jmath$ N·m', '$20\hat\jmath$ N·m', '$20\hat k$ N·m', '$0$']
+  answer: 0
+  explanation: |-
+    $\vec r\times\vec F = (0.40)(50)\,(\hat\imath\times\hat k) = 20(-\hat\jmath) = -20\hat\jmath$ N·m, since $\hat\imath\times\hat k = -\hat\jmath$. Getting $+20\hat\jmath$ means computing $\vec F\times\vec r$ (or $\hat k\times\hat\imath$). A torque is perpendicular to both $\vec r$ and $\vec F$, so it can't point along $\hat k$; it would be zero only if $\vec r$ and $\vec F$ were parallel.

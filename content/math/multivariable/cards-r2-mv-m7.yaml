@@ -1,0 +1,18 @@
+# Round 2 cards for mv-m7 (honors lessons 32h1 and 32h2)
+- {front: 'Vortex field', back: '$\mathbf V = \left\langle\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2}\right\rangle$, locally $\nabla\theta$; $\mathbf V\cdot d\mathbf r = d\theta$', topic: Fields on regions with holes}
+- {front: 'Winding number of $C$ around the origin', back: '$w = \dfrac{1}{2\pi}\oint_C\dfrac{-y\,dx + x\,dy}{x^2 + y^2}$, the net number of counterclockwise turns', topic: Winding number}
+- {front: 'Why the winding number is an integer', back: 'Following the angle continuously around a closed curve, you end at the starting point, so the angle changes by a whole number of $2\pi$ turns.', topic: Winding number}
+- {front: 'Winding number around the point $(a, b)$', back: 'Replace $x$ by $x - a$ and $y$ by $y - b$ in the vortex field integral.', topic: Winding number}
+- {front: 'Deformation principle', back: 'If $Q_x = P_y$ between two simple closed curves (same orientation), the circulations around them are equal.', topic: Fields on regions with holes}
+- {front: 'Why the vortex field is not conservative on the punctured plane', back: 'There is no single continuous angle $\theta$ there: going once around the origin raises $\theta$ by $2\pi$.', topic: Fields on regions with holes}
+- {front: 'Curl-free fields on the punctured plane', back: '$\mathbf F = \nabla f + c\mathbf V$, with $2\pi c$ = circulation around the unit circle; so $\oint_C\mathbf F\cdot d\mathbf r = 2\pi c\,w$.', topic: Fields on regions with holes}
+- {front: 'Magnetic field of a long straight wire', back: '$\mathbf B = \dfrac{\mu_0 I}{2\pi}\mathbf V$; a loop winding $w$ times around the wire has $\oint\mathbf B\cdot d\mathbf r = \mu_0 I w$.', topic: Fields on regions with holes}
+- {front: 'Point vortex of strength $\Gamma$', back: 'Velocity $\frac{\Gamma}{2\pi}\mathbf V$: circulation $\Gamma$ once around it, zero curl elsewhere.', topic: Fields on regions with holes}
+- {front: 'Integral of $x\,dy - y\,dx$ along one edge from $(x_a, y_a)$ to $(x_b, y_b)$', back: '$x_ay_b - x_by_a$', topic: Shoelace formula}
+- {front: 'Shoelace formula', back: '$A = \tfrac12\sum_{i=1}^n(x_iy_{i+1} - x_{i+1}y_i)$, vertices counterclockwise, wrapping around to the first', topic: Shoelace formula}
+- {front: 'Shoelace sum is negative', back: 'The vertices were listed clockwise; the area is the absolute value.', topic: Shoelace formula}
+- {front: 'Meaning of one shoelace term', back: 'Twice the signed area of the fan triangle from the origin to that edge.', topic: Shoelace formula}
+- {front: 'Shoelace formula on a self-crossing outline', back: 'Gives a signed total (pieces weighted by winding number), not the area; split at the crossings.', topic: Shoelace formula}
+- {front: 'Centroid moments by Green''s theorem', back: '$\iint_D x\,dA = \tfrac12\oint_C x^2\,dy$, $\;\iint_D y\,dA = -\tfrac12\oint_C y^2\,dx$', topic: Centroids from line integrals}
+- {front: 'Centroid of a polygon', back: '$\bar x = \frac{1}{6A}\sum(x_i + x_{i+1})c_i$, $\bar y = \frac{1}{6A}\sum(y_i + y_{i+1})c_i$, with $c_i = x_iy_{i+1} - x_{i+1}y_i$', topic: Centroids from line integrals}
+- {front: 'Centroid of a triangle', back: 'The average of its three vertices.', topic: Centroids from line integrals}
