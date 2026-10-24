@@ -13,7 +13,7 @@
 <line x1="197.0" y1="161.0" x2="197.0" y2="169.0" stroke="#1c2833" stroke-width="1.2"/>
 <line x1="224.0" y1="161.0" x2="224.0" y2="169.0" stroke="#1c2833" stroke-width="1.2"/>
 <line x1="251.0" y1="161.0" x2="251.0" y2="169.0" stroke="#1c2833" stroke-width="1.2"/>
-<text x="116.0" y="185.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">−2</text>
+<text x="111.0" y="185.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">−2</text>
 <text x="224.0" y="185.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">2</text>
 <text x="314.0" y="157.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Re z</text>
 <text x="176.0" y="88.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Im z</text>
@@ -51,7 +51,7 @@
 <line x1="224.0" y1="411.0" x2="224.0" y2="419.0" stroke="#1c2833" stroke-width="1.2"/>
 <line x1="251.0" y1="411.0" x2="251.0" y2="419.0" stroke="#1c2833" stroke-width="1.2"/>
 <text x="116.0" y="435.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">−2</text>
-<text x="224.0" y="435.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">2</text>
+<text x="229.0" y="435.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">2</text>
 <text x="314.0" y="407.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Re z</text>
 <text x="176.0" y="338.0" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#1c2833" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Im z</text>
 <rect x="20" y="322" width="300" height="178" fill="none" stroke="#1c2833" stroke-width="1.5"/>
