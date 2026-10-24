@@ -87,7 +87,7 @@ The same accusative says how long something lasts. The verb for "to last, to tak
 - *Der Kurs dauert einen Tag.* — The course takes one day. (*der Tag* → *einen Tag*)
 - *Ich bleibe eine Woche in Wien.* — I'm staying in Vienna for a week. (*bleiben* = to stay)
 
-English often adds "for"; German doesn't: never *für eine Woche* in this sense at A1.
+English often adds "for"; German usually needs no word at all. (*Ich bleibe für eine Woche* is also heard, but after *dauern* the accusative always stands alone.)
 
 ### Example 2: building the phrase
 
@@ -127,7 +127,7 @@ When a sentence has two time phrases, the general one comes before the specific 
 - *Am Freitag gegen sieben gehen wir ins Kino.* — On Friday at around seven we're going to the cinema.
 - *Der Kurs ist dienstags von sechs bis acht.* — The course is on Tuesdays from six to eight.
 
-A time phrase usually comes before a place: *Ich bin um acht im Büro* (*im Büro* = at the office). Both time phrases can stand together in position 1, since they count as one element: *Morgen um acht rufe ich dich an.*
+A time phrase usually comes before a place: *Ich bin um acht im Büro* (*im Büro* = at the office). Both time phrases can stand together in position 1, since they count as one element: *Morgen um acht rufe ich dich an* (*dich* = you).
 
 ### Example 3: putting the pieces in order
 
@@ -169,8 +169,8 @@ In English:
 
 - *montags*, *abends*: the final *-gs* and *-ds* sound like *ks* and *ts* (final devoicing): MOHN-tahks, AH-bents.
 - *nachts*: the *ch* of *Bach*, then *ts*: nahkhts.
-- *geöffnet*: four syllables are wrong; it's three: ge-ÖFF-net.
-- *nächste*: NÄKS-te; the *chs* is often said like *ks*.
+- *geöffnet*: three syllables, ge-ÖFF-net, with a tiny break before the *ö*.
+- *gegen*: GAY-gen, both *g*s hard.
 
 ## Common mistakes
 

@@ -1,0 +1,30 @@
+# Round 2 notecards for phys-m11 (Light and optics) and its honors lessons.
+- {front: 'Image types from a converging lens or concave mirror', back: 'Beyond $2f$: real, inverted, smaller. At $2f$: same size. Between $f$ and $2f$: real, inverted, larger. At $f$: none. Inside $f$: virtual, upright, larger.', topic: Thin lenses}
+- {front: 'Center of curvature of a spherical mirror', back: 'At distance $R$ from the mirror, twice the focal length: $f = R/2$. An object there images onto itself, inverted.', topic: Mirrors}
+- {front: 'Parts of the eye in the order light meets them', back: 'Cornea (most of the focusing), pupil in the iris, lens (accommodation), retina; signals leave by the optic nerve.', topic: Optical instruments}
+- {front: 'Michelson interferometer: fringes from mirror motion', back: '$N = 2\Delta d/\lambda$: each fringe is $\lambda/2$ of mirror motion.', topic: Interferometry}
+- {front: 'Michelson: fringes from filling a gas cell of length $L$', back: '$N = 2L(n - 1)/\lambda$', topic: Interferometry}
+- {front: 'Optical path length', back: '$nL$: geometric length times index. Interference depends on differences in optical path.', topic: Interferometry}
+- {front: 'Air-wedge fringe spacing (plates of length $L$, spacer $D$)', back: '$\Delta x = \lambda L/(2D)$; dark at the contact line (one phase flip).', topic: Interferometry}
+- {front: 'Newton''s rings (dark, in reflection)', back: '$r_m = \sqrt{m\lambda R}$, $m = 0, 1, 2, \ldots$; dark center.', topic: Interferometry}
+- {front: 'Coherence length', back: '$\ell_c \approx \lambda^2/\Delta\lambda$ (estimate): about 1 μm for white light, meters for a stabilized laser.', topic: Interferometry}
+- {front: 'Michelson–Morley experiment (1887)', back: 'No fringe shift from Earth''s motion through the supposed ether: a null result later explained by relativity.', topic: Interferometry}
+- {front: 'LIGO', back: 'Michelson interferometer with 4 km arms; strains near $10^{-21}$, arm changes near $4\times10^{-18}$ m. First detection 14 Sept 2015.', topic: Interferometry}
+- {front: 'Grating line half-width', back: '$\Delta\theta = \lambda/(Nd\cos\theta)$: more lines lit, sharper lines.', topic: Grating spectroscopy}
+- {front: 'Grating angular dispersion', back: '$d\theta/d\lambda = m/(d\cos\theta)$', topic: Grating spectroscopy}
+- {front: 'Grating resolving power', back: '$R = \lambda/\Delta\lambda = Nm$ (lines illuminated × order), independent of spacing.', topic: Grating spectroscopy}
+- {front: 'Overlapping grating orders', back: 'Same angle when $m\lambda = m''\lambda''$; e.g. 700 nm in 2nd order with 467 nm in 3rd.', topic: Grating spectroscopy}
+- {front: 'Bragg''s law', back: '$2d\sin\theta = m\lambda$, $\theta$ measured from the planes; deflection $2\theta$.', topic: X-ray diffraction}
+- {front: 'Why crystals diffract X-rays', back: 'Atomic plane spacings (a few tenths of a nm) match X-ray wavelengths (about 0.01–10 nm); ruled gratings are far too coarse.', topic: X-ray diffraction}
+- {front: 'Highest Bragg order', back: 'Largest whole $m$ with $m \le 2d/\lambda$.', topic: X-ray diffraction}
+- {front: 'History of X-ray diffraction', back: 'Laue proposed it and Friedrich and Knipping observed it (1912); the Braggs explained it with planes (1913; Nobel 1915).', topic: X-ray diffraction}
+- {front: 'Ray matrices: translation and thin lens', back: 'Translation $\begin{pmatrix} 1 & d \\ 0 & 1 \end{pmatrix}$; thin lens $\begin{pmatrix} 1 & 0 \\ -1/f & 1 \end{pmatrix}$, acting on $(y, \theta)$.', topic: Ray-transfer matrices}
+- {front: 'Ray matrix: refraction at a spherical surface', back: '$\begin{pmatrix} 1 & 0 \\ -(n_2 - n_1)/(n_2R) & n_1/n_2 \end{pmatrix}$', topic: Ray-transfer matrices}
+- {front: 'Order of matrix multiplication', back: 'First element met goes on the right: $M = M_3M_2M_1$. Determinant $= n_{\text{start}}/n_{\text{end}}$.', topic: Ray-transfer matrices}
+- {front: 'Reading a system matrix (in air)', back: 'Effective focal length $f = -1/C$; back focal distance $-A/C$; image plane where $B = 0$, magnification $A$.', topic: Ray-transfer matrices}
+- {front: 'Two thin lenses a distance $d$ apart', back: '$\dfrac1f = \dfrac1{f_1} + \dfrac1{f_2} - \dfrac{d}{f_1f_2}$', topic: Ray-transfer matrices}
+- {front: 'Spherical aberration', back: 'Edge rays focus short of central rays. Cures: smaller aperture, aspheric surfaces, paraboloidal mirror.', topic: Aberrations}
+- {front: 'Chromatic aberration', back: 'Dispersion makes violet focus closer than red. Mirrors are free of it; lenses use achromatic doublets.', topic: Aberrations}
+- {front: 'Abbe number', back: '$V = (n_d - 1)/(n_F - n_C)$; large $V$ = low dispersion. A thin lens''s power changes by $P/V$ from red to blue.', topic: Aberrations}
+- {front: 'Achromatic doublet design', back: '$P_1 + P_2 = P$, $P_1/V_1 + P_2/V_2 = 0$: $P_1 = PV_1/(V_1 - V_2)$, $P_2 = -PV_2/(V_1 - V_2)$.', topic: Aberrations}
+- {front: 'Hubble''s mirror (1990)', back: 'Polished about 2.2 μm too flat near the edge: spherical aberration, corrected by added optics in 1993.', topic: Aberrations}

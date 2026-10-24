@@ -35,7 +35,7 @@
     - {name: dEdt, label: '(a) V/(m·s)', sigfigs: 3, format: sci}
     - {name: Bu, label: '(b) μT', sigfigs: 3, format: sig3}
   solution: |-
-    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi(R)^2}$ with $R = {Rcm}$ cm, giving **{dEdt:sci}** V/(m·s).
+    (a) $E = Q/(\varepsilon_0\pi R^2)$, so $\dfrac{dE}{dt} = \dfrac{I}{\varepsilon_0\pi R^2} = \dfrac{{cur}}{(8.85\times10^{-12})\pi({Rcm}\times10^{-2})^2} =$ **{dEdt:sci}** V/(m·s).
 
     (b) No conduction current crosses the gap, so the Ampère–Maxwell law on a circle of radius $r$ gives $B(2\pi r) = \mu_0\varepsilon_0\pi r^2\,dE/dt$, i.e. $B = \dfrac{\mu_0Ir}{2\pi R^2}$. With $r = {rcm}$ cm and $R = {Rcm}$ cm: $B =$ **{Bu:sig3}** μT.
 # Lesson 91: electric and magnetic fields in relativity
