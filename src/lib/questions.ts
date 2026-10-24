@@ -61,10 +61,11 @@ function numValue(s: string): number | null {
  * and numbers compare by value, fractions and mixed numbers included ("1/2" = "0.5" = ".5",
  * "1 1/2" = "3/2" = "1.5"). A space between two digits is kept, so "1 1/2" never reads as "11/2".
  */
-export function textMatches(typed: string, accepted: string[], caseSensitive = false): boolean {
+export function textMatches(typed: string, accepted: string[], caseSensitive = false, lowestTerms = false): boolean {
   const t = normText(typed, caseSensitive);
   if (!t) return false;
   const tc = compact(t);
+  if (lowestTerms && !isLowest(tc)) return false;
   const tv = numValue(tc);
   return accepted.some((a) => {
     const n = normText(a, caseSensitive);
@@ -73,6 +74,16 @@ export function textMatches(typed: string, accepted: string[], caseSensitive = f
     const av = numValue(nc);
     return tv !== null && av !== null && Math.abs(tv - av) <= 1e-9 * Math.max(1, Math.abs(av));
   });
+}
+
+const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
+
+/** False for a fraction that can be reduced ("6/8", "1 2/4", "4/2"); anything else passes. */
+export function isLowest(s: string): boolean {
+  const f = FRAC.exec(s) ?? (() => { const m = MIXED.exec(s); return m ? [m[0], m[1], m[3], m[4]] : null; })();
+  if (!f) return true;
+  const n = Number(f[2]), d = Number(f[3]);
+  return d > 1 && gcd(n, d) === 1;
 }
 
 /** Has the learner given an answer (all of it, for kinds with several parts)? */
@@ -107,7 +118,7 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
   if (!chosen || !isAnswered(q, chosen)) return false;
   switch (qtype(q)) {
     case "text":
-      return (q.accept ?? []).every((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive));
+      return (q.accept ?? []).every((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
     case "match":
     case "label":
       return q.answer.length > 0 && q.answer.every((a, i) => chosen[i] === a);
@@ -125,7 +136,7 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
 export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
   switch (qtype(q)) {
     case "text":
-      return (q.accept ?? []).map((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive));
+      return (q.accept ?? []).map((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
     case "match":
     case "label":
       return q.answer.map((a, i) => chosen[i] === a);
@@ -241,6 +252,7 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
         answer: [],
         accept,
         ...(q.caseSensitive ? { caseSensitive: true } : {}),
+        ...(q.lowestTerms ? { lowestTerms: true } : {}),
       };
     }
     case "match":

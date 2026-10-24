@@ -166,4 +166,14 @@ t("diagrams", () => {
   assert.equal(decodeURIComponent(/data-src="([^"]+)"/.exec(html)![1].replace(/&amp;/g, "&")), src);
 });
 
+t("lowest terms", () => {
+  assert.equal(textMatches("6/8", ["3/4"], false, true), false);
+  assert.equal(textMatches("3/4", ["3/4"], false, true), true);
+  assert.equal(textMatches("1 2/4", ["3/2"], false, true), false);
+  assert.equal(textMatches("6/8", ["3/4"]), true);
+  const q = { id: "lt", type: "text", stem: "Simplify 6/8: ___", choices: [], answer: [], accept: [["3/4"]], lowestTerms: true } as Question;
+  assert.equal(isCorrect(q, ["6/8"]), false);
+  assert.equal(isCorrect(q, ["3/4"]), true);
+});
+
 console.log(`questions: ${n} groups passed`);

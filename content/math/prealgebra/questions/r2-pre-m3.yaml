@@ -168,6 +168,7 @@
 - id: pre-m3-r2-q15
   lesson: pre-frac-addsub
   type: text
+  lowestTerms: true
   topic: Adding and subtracting fractions
   stem: 'Subtract: $\dfrac{2}{3} - \dfrac{1}{4} =$ ___. Give a fraction in simplest form.'
   accept: ['5/12']

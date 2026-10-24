@@ -116,7 +116,7 @@ The perspective (*die Perspektive*) decides what the reader may know: in *Der Ze
 The **Inhaltsangabe** (summary of the content) is the standard German school summary. It follows strict rules, and teachers mark them:
 
 - Present tense (*Präsens*), even though the story is in the past. The past perfect becomes the perfect: *Sie war hier aufgewachsen* → *Sie ist hier aufgewachsen*.
-- No direct speech. Turn quotations into reported speech with *dass* or a verb such as *behaupten, fragen, versprechen* (lesson 26).
+- No direct speech. Turn quotations into reported speech with *dass* or a verb such as *behaupten, fragen, versprechen* (lesson 26). German schools often expect the Konjunktiv I here (*Er behauptet, sie komme zu spät*), a form you only need to recognize at B1; *dass* + indicative, as in this lesson, is correct German.
 - Your own words, short and in order. Leave out details that don't matter.
 - No opinion. No *spannend*, no *traurig*, no "I think". Interpretation comes afterwards, in a separate part.
 - An introduction sentence with title, author, text type and theme: *In der Kurzgeschichte „…“ von … geht es um …*

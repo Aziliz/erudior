@@ -121,7 +121,7 @@ flowchart LR
   A -- "a yes/no question" --> C["ob + verb at the end"]
   A -- "a W-question" --> D["question word + verb at the end"]
   A -- "an instruction" --> E["sollen: Ich soll …"]
-  B --> F["Change the pronouns: ich becomes er or sie"]
+  B --> F["Change the pronouns to fit: ich becomes er or sie, Sie becomes ich"]
   C --> F
   D --> F
   E --> F

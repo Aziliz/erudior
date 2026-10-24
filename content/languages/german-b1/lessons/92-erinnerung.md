@@ -32,7 +32,7 @@ A *Gedenktag* is a day of remembrance (*gedenken* = to commemorate). The most im
 
 | date | what is remembered |
 |---|---|
-| 27 January | 1945: the Auschwitz camp is liberated by the Soviet army. A German day of remembrance for the victims of National Socialism since 1996, and International Holocaust Remembrance Day since 2005. |
+| 27 January | 1945: the Auschwitz camp is liberated by the Soviet army. A German day of remembrance for the victims of National Socialism since 1996, and International Holocaust Remembrance Day (declared by the United Nations in 2005). |
 | 8 May | 1945: the war in Europe ends. |
 | 3 October | 1990: German reunification, the national holiday (lesson 2). |
 | 9 November | the "day of fate" in German history (see below). |
@@ -55,7 +55,7 @@ In the night of 9 to 10 November 1938, synagogues were set on fire across German
 
 Walk through almost any German city and look down. In front of some houses there's a small brass plate set into the pavement, 10 by 10 centimetres, on top of a concrete cube. This is a **Stolperstein**, a "stumbling stone". Each one carries the name of one person who lived there and was persecuted by the Nazis: most of them murdered, some driven out, a few who survived.
 
-The artist Gunter Demnig laid his first stone in Cologne in 1992. In May 2023 the 100,000th Stolperstein was laid in Nuremberg, and there are now stones in many European countries. They're placed in front of the last address the person chose freely, and they're paid for by neighbours, school classes, relatives and local groups, who often research the person's life first. Nobody really stumbles: the idea is that you stop, bend down to read, and so bow to the person.
+The artist Gunter Demnig laid his first stone in front of Cologne's city hall in 1992; stones with individual names followed from the mid-1990s. In May 2023 the 100,000th Stolperstein was laid in Nuremberg, and there are now stones in many European countries. They're placed in front of the last address the person chose freely, and they're paid for by neighbours, school classes, relatives and local groups, who often research the person's life first. Nobody really stumbles: the idea is that you stop, bend down to read, and so bow to the person.
 
 The stones aren't uncontroversial. Munich, for example, doesn't allow them on public ground: Charlotte Knobloch, president of the Jewish community there, and others objected that people would again tread on the victims' names. Since 2018 Munich has used its own *Erinnerungszeichen*, plaques on walls and small steles at eye level. Both sides want the same thing, to remember each person by name; they disagree about how.
 

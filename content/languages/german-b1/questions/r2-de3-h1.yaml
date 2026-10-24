@@ -199,6 +199,7 @@
   accept:
   - abab
   - a-b-a-b
+  - a b a b
   explanation: 'Himmel is a, geküsst is b, Blütenschimmer rhymes (impurely) with Himmel (a), müsst'' rhymes with geküsst (b): abab, a Kreuzreim.'
 - id: de3-h1-r2-h17
   lesson: de3-h-gedichte

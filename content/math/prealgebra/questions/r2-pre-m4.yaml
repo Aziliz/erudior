@@ -352,6 +352,7 @@
   lesson: pre-m4-h-repeating
   topic: Repeating decimals
   type: text
+  lowestTerms: true
   stem: 'Write $0.1\overline{45}$ (the 45 repeats) as a fraction in lowest terms: ___'
   accept: ['8/55']
   explanation: |-

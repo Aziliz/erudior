@@ -194,6 +194,10 @@ export function QuestionEditor({ api, q, onChange }: { api: AppApi; q: CQuestion
             <input type="checkbox" checked={!!q.caseSensitive} onChange={(e) => set({ caseSensitive: e.target.checked || undefined })} />
             Capital letters must match
           </label>
+          <label className="check">
+            <input type="checkbox" checked={!!q.lowestTerms} onChange={(e) => set({ lowestTerms: e.target.checked || undefined })} />
+            Fractions must be in lowest terms
+          </label>
         </fieldset>
       )}
 

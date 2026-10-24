@@ -670,6 +670,7 @@
 - id: a1-m7-r2-h35
   lesson: a1-m7-h-series
   type: text
+  lowestTerms: true
   topic: Series
   stem: 'Write the repeating decimal $0.2727\ldots$ (27 repeating) as a fraction in lowest terms: ___'
   accept: ['3/11']

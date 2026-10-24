@@ -46,6 +46,8 @@ export interface Question {
   accept?: string[][];
   /** text: answers must match capital letters too (e.g. gene symbols). */
   caseSensitive?: boolean;
+  /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
+  lowestTerms?: boolean;
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   explanation?: string;

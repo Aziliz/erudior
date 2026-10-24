@@ -157,7 +157,7 @@ def question_kind(folder, q, where, errors):
             errors.append(f"{where}: {blanks} blanks (___) but {len(acc)} accept lists")
         if blanks <= 1 and len(acc) > 1:
             errors.append(f"{where}: {len(acc)} accept lists but one blank; mark each blank with ___")
-        return {**out, "type": "text", "choices": [], "answer": [], "accept": acc, **({"caseSensitive": True} if q.get("caseSensitive") else {})}
+        return {**out, "type": "text", "choices": [], "answer": [], "accept": acc, **({"caseSensitive": True} if q.get("caseSensitive") else {}), **({"lowestTerms": True} if q.get("lowestTerms") else {})}
     if t == "match":
         pairs = q.get("pairs") or []
         if len(pairs) < 2 or any(not isinstance(p, list) or len(p) != 2 for p in pairs):

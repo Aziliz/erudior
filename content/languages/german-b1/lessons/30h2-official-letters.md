@@ -92,7 +92,7 @@ A **light verb construction** (*Funktionsverbgefüge*) is a noun plus a verb tha
 | *eine Entscheidung treffen* | *entscheiden* | to decide |
 | *in Anspruch nehmen* | *nutzen* | to make use of |
 | *zur Verfügung stellen* | *geben, bereitstellen* | to provide |
-| *zur Kenntnis nehmen* | *bemerken, wissen* | to note |
+| *zur Kenntnis nehmen* | *bemerken, registrieren* | to note |
 | *in Kraft treten* | *gültig werden* | to come into force |
 
 You don't need to use them yourself; *Ich möchte widersprechen* is perfectly correct. But *Ich lege Widerspruch ein* is what offices expect, and it's worth learning as a phrase.

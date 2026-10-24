@@ -29,6 +29,7 @@ export interface CQuestion {
   explanation: string;
   accept?: string[][];
   caseSensitive?: boolean;
+  lowestTerms?: boolean;
   left?: string[];
   /** label: marker positions in percent of the image's width and height. */
   markers?: { x: number; y: number }[];
@@ -237,7 +238,7 @@ function appQuestion(q: CQuestion, imageSrc: (id: string) => string): Record<str
     stem: q.stem.trim(),
     choices: kind === "text" ? [] : q.choices.map(line),
     answer: kind === "text" || kind === "order" ? [] : q.answer,
-    ...(kind === "text" ? { accept: (q.accept ?? []).map((a) => a.map((x) => x.trim()).filter(Boolean)), ...(q.caseSensitive ? { caseSensitive: true } : {}) } : {}),
+    ...(kind === "text" ? { accept: (q.accept ?? []).map((a) => a.map((x) => x.trim()).filter(Boolean)), ...(q.caseSensitive ? { caseSensitive: true } : {}), ...(q.lowestTerms ? { lowestTerms: true } : {}) } : {}),
     ...(kind === "match" ? { left: (q.left ?? []).map(line) } : {}),
     ...(kind === "label" ? { markers: q.markers ?? [] } : {}),
     ...(q.imageId ? { image: { src: imageSrc(q.imageId), alt: (q.imageAlt ?? "").trim() } } : {}),

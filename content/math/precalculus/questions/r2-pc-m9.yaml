@@ -81,6 +81,7 @@
   lesson: pc-geometric
   module_quiz: true
   type: text
+  lowestTerms: true
   topic: Geometric sequences
   stem: 'Write $0.\overline{45} = 0.454545\ldots$ as a fraction in lowest terms: ___'
   accept: ['5/11']

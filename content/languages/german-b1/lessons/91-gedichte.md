@@ -72,7 +72,7 @@ A plain translation: *It was as if the sky had quietly kissed the earth, so that
 
 Words: *der Schimmer* (shimmer, glow), *die Blüte* (blossom), *die Ähre* (ear of grain), *wogen* (to sway, surge like waves), *sacht* (gently), *rauschen* (to rustle, murmur), *die Seele* (soul), *der Flügel* (wing).
 
-Two things to notice first. The grammar you know from lessons 21–23 is everywhere: *als hätt' der Himmel … geküsst* and *als flöge sie* are *als ob* sentences with the verb moved forward, in Konjunktiv II: "as if the sky had kissed", "as if it were flying". The poem opens and closes with a comparison to something unreal. And the poem uses grammatical gender: *der Himmel* is masculine and *die Erde* feminine, so *sie* (she, the earth) dreams *von ihm* (of him, the sky). In English the love story disappears; in German it's built into the articles.
+Two things to notice first. The grammar you know from lessons 21–23 frames the poem: *als hätt' der Himmel … geküsst* and *als flöge sie* are *als ob* sentences with the verb moved forward, in Konjunktiv II: "as if the sky had kissed", "as if it were flying". The poem opens and closes with a comparison to something unreal. And the poem uses grammatical gender: *der Himmel* is masculine and *die Erde* feminine, so *sie* (she, the earth) dreams *von ihm* (of him, the sky). In English the love story disappears; in German it's built into the articles.
 
 The old and poetic forms are all still understandable (honors lesson 25h2 has more one-word Konjunktiv forms like *flöge*):
 

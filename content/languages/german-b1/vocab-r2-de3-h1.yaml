@@ -41,7 +41,7 @@
   - narrator
   - storyteller
   example: Der Erzähler sagt uns nicht, was der Vater denkt.
-  exampleEn: The narrator doesnt tell us what the father is thinking.
+  exampleEn: "The narrator doesn't tell us what the father is thinking."
 - id: de3-h1-r2-w05
   lesson: de3-h-kurzgeschichte
   term: die Erzählerin
@@ -109,7 +109,7 @@
   - perspective
   - point of view
   example: Die Geschichte ist aus der Perspektive der Tochter erzählt.
-  exampleEn: The story is told from the daughters point of view.
+  exampleEn: The story is told from the daughter's point of view.
 - id: de3-h1-r2-w11
   lesson: de3-h-kurzgeschichte
   term: falten
@@ -207,7 +207,7 @@
   - saga
   - myth
   example: Die Sage von der Loreley ist gar nicht so alt.
-  exampleEn: The legend of the Lorelei isnt that old at all.
+  exampleEn: The legend of the Lorelei isn't that old at all.
 - id: de3-h1-r2-w20
   lesson: de3-h-gedichte
   term: die Welle
@@ -499,8 +499,9 @@
   term: sinken
   pos: verb
   meanings:
-  - to fall (go down)
+  - to sink (go down)
   - to sink
+  - to fall
   - to go down
   - to drop
   - to decrease
