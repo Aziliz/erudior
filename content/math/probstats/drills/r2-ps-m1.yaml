@@ -41,8 +41,8 @@
     - {name: ans, label: '$P(\text{reach target}) =$', tolerance: 0.0001, format: num4}
     - {name: ruin, label: '$P(\text{ruin}) =$', tolerance: 0.0001, format: num4}
   solution: |-
-    Here $\rho = q/p = {qq:num2}/{pw:num2} = {rho:num4}$, so
-    $$P_{st} = \frac{1 - \rho^{st}}{1 - \rho^{nn}} = \frac{1 - {rho:num4}^{st}}{1 - {rho:num4}^{nn}} =$$
+    Here $\rho = q/p = {qq:num2}/{pw:num2} \approx {rho:num4}$, so
+    $P_{st} = \dfrac{1 - \rho^{st}}{1 - \rho^{nn}} \approx \dfrac{1 - {rho:num4}^{st}}{1 - {rho:num4}^{nn}} =$
     **{ans:num4}**, and the probability of ruin is $1 - {ans:num4} =$ **{ruin:num4}**.
 
 - id: ps-m1-r2-points

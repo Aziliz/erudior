@@ -1,5 +1,5 @@
 # Round 2 questions for module pc-m3 (Polynomial and rational functions)
-# Core lessons: pc-m3-r2-q01 … q31. Honors lessons: pc-m3-r2-h01 … h39.
+# Core lessons: pc-m3-r2-q01 … q31. Honors lessons: pc-m3-r2-h01 … h38.
 
 # ---- Lesson 08: Polynomial functions and their graphs (pc-polynomial-graphs) ----
 - id: pc-m3-r2-q01
@@ -462,10 +462,10 @@
   lesson: pc-m3-h-cubic-formula
   topic: Cubic equations
   stem: 'Where was the method for solving cubics first published?'
-  choices: ['Bombelli''s *Algebra* (1572)', 'Cardano''s *Ars Magna* (1545)', 'Tartaglia''s contest with Fior (1535)', 'Del Ferro''s notes (about 1515)']
+  choices: ['Bombelli''s Algebra (1572)', 'Cardano''s Ars Magna (1545)', 'Tartaglia''s contest with Fior (1535)', 'Del Ferro''s notes (about 1515)']
   answer: 1
   explanation: |-
-    Del Ferro found the method around 1515 but kept it secret, and Tartaglia rediscovered it for the 1535 contest without publishing it. Cardano published it in *Ars Magna* in 1545, crediting both. Bombelli's book came later and dealt with the complex numbers the formula produces.
+    Del Ferro found the method around 1515 but kept it secret, and Tartaglia rediscovered it for the 1535 contest without publishing it. Cardano published it in Ars Magna in 1545, crediting both. Bombelli's book came later and dealt with the complex numbers the formula produces.
 - id: pc-m3-r2-h12
   lesson: pc-m3-h-cubic-formula
   topic: Cubic equations
@@ -616,7 +616,7 @@
   lesson: pc-m3-h-linear-fractional
   topic: Linear fractional functions
   stem: 'What is the inverse of $f(x) = \dfrac{x + 2}{x - 1}$?'
-  choices: ['$\dfrac{x - 1}{x + 2}$', '$\dfrac{x - 2}{x + 1}$', '$\dfrac{x + 2}{x - 1}$, the function itself', '$\dfrac{-x + 2}{x + 1}$']
+  choices: ['$\dfrac{x - 1}{x + 2}$', '$\dfrac{x - 2}{x + 1}$', '$\dfrac{x + 2}{x - 1}$', '$\dfrac{-x + 2}{x + 1}$']
   answer: 2
   explanation: |-
     Swap $a = 1$ and $d = -1$, and negate $b$ and $c$: $f^{-1}(x) = \dfrac{-x - 2}{-x + 1} = \dfrac{x + 2}{x - 1}$. So $f$ is its own inverse (this happens when $a = -d$). Check: $f(2) = 4$ and $f(4) = \frac63 = 2$. The reciprocal $\frac{x - 1}{x + 2}$ is the common confusion of $f^{-1}$ with $\frac1f$.
