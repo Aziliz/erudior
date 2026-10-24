@@ -8,7 +8,7 @@
   stem: 'A uniform wire runs from a higher-potential end (+) to a lower-potential end (−). Name the numbered features.'
   image: {src: images/phys-m9-wire-blank.svg, alt: 'A cylindrical wire between a + end on the left and a − end on the right, with electrons drawn inside. Marker 1 is at the circular end face, marker 2 on a bracket under the whole wire, marker 3 on an arrow above the wire pointing from + to −, and marker 4 on an arrow below the wire pointing from − to +.'}
   labels:
-    - {x: 20.8, y: 31.1, text: Cross-sectional area}
+    - {x: 20.8, y: 47.2, text: Cross-sectional area}
     - {x: 50.0, y: 80.6, text: Length}
     - {x: 50.0, y: 26.4, text: Conventional current direction}
     - {x: 50.0, y: 68.1, text: Electron drift direction}
@@ -236,10 +236,10 @@
   lesson: phys-m9-h-network-methods
   topic: Network analysis
   stem: 'What is the Norton current of the same divider (12 V, 4.0 kΩ, 12 kΩ, terminals across the 12 kΩ)?'
-  choices: ['0.75 mA', '1.0 mA', '3.0 mA', '9.0 mA']
+  choices: ['0.75 mA', '1.0 mA', '3.0 mA', '0.56 mA']
   answer: 2
   explanation: |-
-    A wire across a and b shorts out $R_2$, so $I_N = 12/4.0 = 3.0$ mA, which equals $V_{\text{th}}/R_{\text{th}} = 9.0/3.0$. 0.75 mA is the current with nothing connected; 9.0 mA divides 9.0 V by 1 kΩ.
+    A wire across a and b shorts out $R_2$, so $I_N = 12/4.0 = 3.0$ mA, which equals $V_{\text{th}}/R_{\text{th}} = 9.0/3.0$. 0.75 mA is the divider current with nothing connected; 0.56 mA divides $V_{\text{th}}$ by $R_1 + R_2$ instead of by $R_{\text{th}}$.
 - id: phys-m9-r2-h07
   lesson: phys-m9-h-network-methods
   topic: Network analysis
@@ -381,7 +381,7 @@
   choices: ['21.3 kHz', '0.339 kHz', '3.39 kHz', '6.77 kHz']
   answer: 2
   explanation: |-
-    $f_c = \dfrac{1}{2\pi RC} = \dfrac{1}{2\pi(4.7\times10^3)(10\times10^{-9})} = 3.39$ kHz. Forgetting the $2\pi$ gives $1/RC = 21.3$ kHz (an angular frequency in s⁻¹, not a frequency in Hz).
+    $f_c = \dfrac{1}{2\pi RC} = \dfrac{1}{2\pi(4.7\times10^3)(10\times10^{-9})} = 3.39$ kHz. Forgetting the $2\pi$ gives $1/RC = 21.3$ kHz (an angular frequency in s⁻¹, not a frequency in Hz); $1/(\pi RC) = 6.77$ kHz uses $\pi$ instead of $2\pi$; 0.339 kHz slips a power of ten in the nanofarads.
 - id: phys-m9-r2-h23
   lesson: phys-m9-h-transients
   topic: RC filters
@@ -397,7 +397,7 @@
   choices: ['0.447', '0.707', '0.500', '0.894']
   answer: 3
   explanation: |-
-    High-pass gain $= \dfrac{\omega RC}{\sqrt{1 + (\omega RC)^2}}$ with $\omega RC = 2$: $2/\sqrt5 = 0.894$. 0.447 is the low-pass gain at the same frequency; 0.707 is the gain at the cutoff.
+    High-pass gain $= \dfrac{\omega RC}{\sqrt{1 + (\omega RC)^2}}$ with $\omega RC = 2$: $2/\sqrt5 = 0.894$. 0.447 is the low-pass gain at the same frequency; 0.707 is the gain at the cutoff; 0.500 is $1/(\omega RC)$, the high-frequency approximation of the low-pass gain.
 - id: phys-m9-r2-h25
   lesson: phys-m9-h-transients
   topic: Circuit transients
@@ -418,7 +418,7 @@
   choices: ['33 V and 2.5 mJ', '25 V and 4.7 mJ', '33 V and zero', '50 V and 2.5 mJ']
   answer: 0
   explanation: |-
-    Charge is conserved: $V_f = \dfrac{6.0(50)}{9.0} = 33$ V. Heat $= \tfrac12\dfrac{C_1C_2}{C_1 + C_2}V_0^2 = \tfrac12(2.0\ \mu\text{F})(50)^2 = 2.5$ mJ (7.5 mJ before, 5.0 mJ after). Averaging the voltages gives 25 V; "zero" assumes energy is conserved, which it is not.
+    Charge is conserved: $V_f = \dfrac{6.0(50)}{9.0} = 33$ V. Heat $= \tfrac12\dfrac{C_1C_2}{C_1 + C_2}V_0^2 = \tfrac12(2.0\ \mu\text{F})(50)^2 = 2.5$ mJ (7.5 mJ before, 5.0 mJ after). Averaging the voltages gives 25 V; "zero" assumes energy is conserved, which it is not; 50 V assumes the first capacitor keeps its voltage, which would need charge to appear from nowhere.
 - id: phys-m9-r2-h27
   lesson: phys-m9-h-transients
   topic: Circuit transients
@@ -431,7 +431,7 @@
   lesson: phys-m9-h-transients
   topic: RC filters
   stem: 'An RC low-pass filter is driven at ten times its cutoff frequency. What is its gain, to 3 significant figures?'
-  choices: ['0.707', '0.500', '0.0995', '0.0100']
+  choices: ['0.707', '0.995', '0.0995', '0.0100']
   answer: 2
   explanation: |-
-    $\omega RC = 10$, so the gain is $1/\sqrt{101} = 0.0995$, very close to $f_c/f = 0.1$. 0.0100 squares the ratio (that's roughly the power ratio); 0.707 is the gain at the cutoff.
+    $\omega RC = 10$, so the gain is $1/\sqrt{101} = 0.0995$, very close to $f_c/f = 0.1$. 0.0100 squares the ratio (that's roughly the power ratio); 0.995 is the high-pass gain $10/\sqrt{101}$; 0.707 is the gain at the cutoff.

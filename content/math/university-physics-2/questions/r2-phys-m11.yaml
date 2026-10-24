@@ -115,7 +115,7 @@
   image: {src: images/phys-m11-concave-mirror-blank.svg, alt: 'A concave mirror on the right with a dashed axis, an upright arrow, an inverted arrow, two points on the axis and two rays, with five numbered markers'}
   labels:
     - {x: 20.0, y: 41.7, text: Object}
-    - {x: 56.8, y: 57.2, text: Real image}
+    - {x: 52.6, y: 56.0, text: Real image}
     - {x: 63.9, y: 48.1, text: Focal point}
     - {x: 43.1, y: 48.1, text: Center of curvature}
     - {x: 34.7, y: 52.4, text: Principal axis}

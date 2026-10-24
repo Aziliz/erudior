@@ -97,7 +97,9 @@ flowchart TD
 
 RC circuits also act as filters. A capacitor needs time to respond, so it can't follow voltage changes much faster than $1/\tau$. Take the output across the capacitor and rapid fluctuations are smoothed away while slow changes pass through: a **low-pass filter**, used to remove hiss from audio and to smooth the ripple from a power supply. Take the output across the resistor instead and only the rapid changes get through, a high-pass filter.
 
-![A low-pass RC filter: two input terminals on the left, a resistor R along the top wire, a capacitor C connected from the top wire down to the bottom wire, and two output terminals on the right taken across the capacitor. A note says that for a high-pass filter R and C swap places so the output is across R.](images/phys-m9-lowpass.svg) The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
+![A low-pass RC filter: two input terminals on the left, a resistor R along the top wire, a capacitor C connected from the top wire down to the bottom wire, and two output terminals on the right taken across the capacitor. A note says that for a high-pass filter R and C swap places so the output is across R.](images/phys-m9-lowpass.svg)
+
+The crossover frequency is about $f = \dfrac{1}{2\pi RC}$. A 10 kΩ resistor with a 16 nF capacitor gives roughly 1 kHz.
 
 ## Deriving the exponentials
 

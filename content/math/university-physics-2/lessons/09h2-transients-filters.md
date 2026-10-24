@@ -60,7 +60,7 @@ During each charging stretch the capacitor starts at $V_{\text{off}}$ and heads 
 
 $$T = RC\ln\frac{\mathcal{E} - V_{\text{off}}}{\mathcal{E} - V_{\text{on}}},$$
 
-the period if the discharge is fast enough to neglect. The common 555 timer chip switches at one-third and two-thirds of its supply voltage, so each of its charging stretches lasts $RC\ln 2 \approx 0.693RC$ (a simplified view; in its usual circuit the discharge also goes through a resistor and takes time of its own). Since $\mathcal{E} > V_{\text{on}}$ is needed for the capacitor to ever reach the threshold, a battery that runs down too far stops the oscillation completely rather than just slowing it.
+the period if the discharge is fast enough to neglect. The common 555 timer chip switches at one-third and two-thirds of its supply voltage, so each of its charging stretches lasts $RC\ln 2 \approx 0.693RC$, with $R$ the total resistance it charges through (a simplified view; in its usual circuit the discharge also goes through a resistor and takes time of its own). Since $\mathcal{E} > V_{\text{on}}$ is needed for the capacitor to ever reach the threshold, a battery that runs down too far stops the oscillation completely rather than just slowing it.
 
 ### Example 2
 

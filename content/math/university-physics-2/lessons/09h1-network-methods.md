@@ -12,7 +12,7 @@ refs: [phys-ref-em-modern]
 
 The DC circuits lesson solved every network with Kirchhoff's rules: one unknown current per branch, a junction equation for each junction, loop equations for the rest. That always works, but it treats every circuit as a pile of simultaneous equations, and most of the time you only want one number: the current in one resistor, or what a sensor reads. This lesson shows how circuit analysts cut the work down. The **node-voltage method** uses potentials as the unknowns, which usually means fewer of them. **Thévenin's theorem** and **Norton's theorem** replace everything except the part you care about with two components. Then the same ideas explain the Wheatstone bridge, a precision measuring circuit, and an infinite ladder of resistors, whose resistance turns out to involve the golden ratio.
 
-Everything here applies to a **linear circuit**: one built from ideal batteries (fixed emfs) and ohmic resistors. In such a circuit every current and voltage is a linear combination of the emfs, because Kirchhoff's rules with $V = IR$ are linear equations.
+Everything here applies to a **linear circuit**: one built from ideal batteries (fixed emfs), ohmic resistors and, if present, ideal current sources. In such a circuit every current and voltage is a linear combination of the source values, because Kirchhoff's rules with $V = IR$ are linear equations.
 
 ## The node-voltage method
 
@@ -113,7 +113,7 @@ $$R_\infty = R + \frac{R\,R_\infty}{R + R_\infty} \quad\Rightarrow\quad R_\infty
 ```mermaid
 flowchart TD
   accTitle: Choosing a network method
-  accDescr: If the network reduces by series and parallel steps, reduce it. If not, and you need every current, use the node-voltage method, which needs one unknown per node except the reference, or Kirchhoff's rules. If you need only the current or power in one element, or want to try several loads, find the Thévenin or Norton equivalent seen by that element. If the circuit is a bridge, check the balance condition first; off balance, use the Thévenin equivalent between the bridge midpoints.
+  accDescr: If the network reduces by series and parallel steps, reduce it. If not, and you need every current, use the node-voltage method, which needs one unknown per node except the reference. If you need only the current or power in one element, or want to try several loads, find the Thévenin or Norton equivalent seen by that element. If the circuit is a bridge, check the balance condition first; off balance, use the Thévenin equivalent between the bridge midpoints.
   A{"Reduces by series and parallel steps?"} -- yes --> B["Reduce it"]
   A -- no --> C{"Need every current?"}
   C -- yes --> D["Node voltages: one unknown per node except the reference"]

@@ -46,7 +46,7 @@ $$V = IR.$$
 Components that obey it are called ohmic; their $I$–$V$ graph is a straight line through the origin. Diodes, light bulb filaments (whose resistance rises as they heat up) and transistors are non-ohmic. The graph contrasts the two kinds.
 
 ```plot
-{"x": [0, 12], "y": [0, 1.25], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10", "label": "ohmic, R = 10 Ω"}, {"f": "0.32*sqrt(x)", "dashed": true}], "labels": [{"at": [2.6, 0.95], "text": "filament bulb (dashed)"}], "caption": "An ohmic resistor gives a straight line through the origin. A filament's curve bends toward the voltage axis because its resistance V/I rises as it heats (shape illustrative)."}
+{"x": [0, 12], "y": [0, 1.25], "xLabel": "voltage V (V)", "yLabel": "current I (A)", "functions": [{"f": "x/10", "label": "ohmic, R = 10 Ω"}, {"f": "x/(2 + 0.75*x)", "dashed": true}], "labels": [{"at": [2.6, 0.95], "text": "filament bulb (dashed)"}], "caption": "An ohmic resistor gives a straight line through the origin. A filament's curve bends toward the voltage axis because its resistance V/I rises as it heats (shape illustrative)."}
 ```
 
 ## Resistivity
