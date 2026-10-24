@@ -56,7 +56,7 @@ $$b^{-n} = \frac{1}{b^n} \qquad (b \ne 0).$$
 The bar chart shows the pattern: each step to the left halves the bar, and the halving doesn't stop at $2^0 = 1$; it carries on into the negative exponents.
 
 ```plot
-{"x": [-3.8, 3.8], "y": [0, 9], "bars": [{"x": -3, "height": 0.125, "width": 0.7, "label": "1/8"}, {"x": -2, "height": 0.25, "width": 0.7, "label": "1/4"}, {"x": -1, "height": 0.5, "width": 0.7, "label": "1/2"}, {"x": 0, "height": 1, "width": 0.7, "label": "1"}, {"x": 1, "height": 2, "width": 0.7, "label": "2"}, {"x": 2, "height": 4, "width": 0.7, "label": "4"}, {"x": 3, "height": 8, "width": 0.7, "label": "8"}], "xLabel": "exponent n", "yLabel": "2ⁿ", "caption": "Powers of 2 from 2⁻³ = 1/8 to 2³ = 8: each step left divides by 2"}
+{"x": [-3.6, 3.6], "y": [-0.9, 9], "grid": false, "bars": [{"x": -3, "height": 0.125, "width": 0.7, "label": "2⁻³"}, {"x": -2, "height": 0.25, "width": 0.7, "label": "2⁻²"}, {"x": -1, "height": 0.5, "width": 0.7, "label": "2⁻¹"}, {"x": 0, "height": 1, "width": 0.7, "label": "2⁰"}, {"x": 1, "height": 2, "width": 0.7, "label": "2¹"}, {"x": 2, "height": 4, "width": 0.7, "label": "2²"}, {"x": 3, "height": 8, "width": 0.7, "label": "2³"}], "segments": [{"from": [-3.6, 0], "to": [3.6, 0]}], "labels": [{"at": [-3, 0.575], "text": "1/8"}, {"at": [-2, 0.7], "text": "1/4"}, {"at": [-1, 0.95], "text": "1/2"}, {"at": [0, 1.45], "text": "1"}, {"at": [1, 2.45], "text": "2"}, {"at": [2, 4.45], "text": "4"}, {"at": [3, 8.45], "text": "8"}], "caption": "Powers of 2 from 2⁻³ = 1/8 to 2³ = 8: each step left divides by 2"}
 ```
 
 *A negative exponent means reciprocal, not a negative number.* $2^{-3} = \tfrac18$, which is positive. Some more:

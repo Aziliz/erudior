@@ -135,7 +135,7 @@ The same answer comes from listing net results (prize minus cost): $-3$ with pro
 $$-3 \cdot \tfrac12 + 1 \cdot \tfrac14 + 3 \cdot \tfrac14 = -1.5 + 0.25 + 0.75 = -0.5.$$
 
 ```plot
-{"x": [-4, 4], "y": [0, 0.6], "bars": [{"x": -3, "height": 0.5, "width": 0.8, "label": "-3"}, {"x": 1, "height": 0.25, "width": 0.8, "label": "+1"}, {"x": 3, "height": 0.25, "width": 0.8, "label": "+3"}], "points": [{"at": [-0.5, 0], "label": "expected value -0.5"}], "xLabel": "Net gain per play (dollars)", "yLabel": "Probability", "caption": "The spinner game: the bars balance at the expected value, -0.50 dollars"}
+{"x": [-4, 4], "y": [0, 0.7], "bars": [{"x": -3, "height": 0.5, "width": 0.8}, {"x": 1, "height": 0.25, "width": 0.8}, {"x": 3, "height": 0.25, "width": 0.8}], "points": [{"at": [-0.5, 0]}], "segments": [{"from": [-0.5, 0], "to": [-0.5, 0.55], "dashed": true}], "labels": [{"at": [-1.9, 0.6], "text": "expected value −0.50"}], "xLabel": "Net gain per play (dollars)", "yLabel": "Probability", "caption": "The spinner game: the bars balance at the expected value, -0.50 dollars"}
 ```
 
 A game is a **fair game** when its expected net gain is 0. This one would be fair at a price of \$2.50.
