@@ -51,19 +51,18 @@ The chart below collects the three checks: one for pairs and tables, one for gra
 ```mermaid
 flowchart TD
   accTitle: Deciding whether a relation is a function
-  accDescr: First ask how the relation is given. For ordered pairs or a table, check whether any input appears with two different outputs. For a graph, check whether any vertical line crosses it more than once. For an equation in x and y, check whether some x gives two different y-values. If the answer is yes, it is not a function; if no, it is a function.
+  accDescr: First ask how the relation is given. For ordered pairs or a table, look for an input that appears with two different outputs. For a graph, look for a vertical line that crosses it more than once. For an equation in x and y, look for an x that gives two different y-values. All three lead to the same question: did you find an input with two outputs? If yes, it is not a function; if no, it is a function.
   A["How is the relation given?"] --> B["Ordered pairs or a table"]
   A --> C["A graph"]
   A --> D["An equation in x and y"]
-  B --> E["Does any input appear with two different outputs?"]
-  C --> F["Does any vertical line cross the graph more than once?"]
-  D --> G["Does some x give two different y-values?"]
-  E -- yes --> N["Not a function"]
-  F -- yes --> N
-  G -- yes --> N
-  E -- no --> Y["Function"]
-  F -- no --> Y
-  G -- no --> Y
+  B --> E["Look for an input that appears with two different outputs"]
+  C --> F["Look for a vertical line that crosses the graph more than once"]
+  D --> G["Look for an x that gives two different y-values"]
+  E --> Q{"Did you find an input with two outputs?"}
+  F --> Q
+  G --> Q
+  Q -- yes --> N["Not a function"]
+  Q -- no --> Y["Function"]
 ```
 
 ## Function notation

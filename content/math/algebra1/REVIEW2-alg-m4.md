@@ -99,4 +99,4 @@ Counts: answer-key errors 0, factual fixes 3, picture fixes 5, other fixes 1.
   machines at the Plywood Trust. The lesson's "assigning work to machines at a plywood factory" is a
   fair simplification, so I left it.
 - 17h1 is now about 2,300 whitespace-separated words, math tokens included (the writer counted about
-  2,050). The prose alone is within the 2,200 guideline.
+  2,050). The prose alone is about 1,420 words (each inline math counted as one word, with display math, diagrams and alt text left out), which is within the 1,200–2,200 guideline.

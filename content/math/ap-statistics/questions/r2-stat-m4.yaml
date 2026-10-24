@@ -617,7 +617,7 @@
     - '150 and 45; X’s rate is about 3.3 times Y’s'
   answer: 2
   explanation: |-
-    $300/20000 \times 10{,}000 = 150$ and $45/15000 \times 10{,}000 = 30$; $150/30 = 5$. Comparing raw counts (300 and 45) ignores that the companies supplied different numbers of houses; 15 and 3 are rates per 1,000.
+    $300/20000 \times 10{,}000 = 150$ and $45/15000 \times 10{,}000 = 30$; $150/30 = 5$. Comparing raw counts (300 and 45) ignores that the companies supplied different numbers of houses; 150 and 45 converts only X's count to a rate; 15 and 3 are rates per 1,000.
 - id: stat-m4-r2-h38
   lesson: stat-m4-h-causal-inference
   topic: Causal inference
@@ -629,7 +629,7 @@
     - 'Temporality: the cause comes before the effect'
   answer: 3
   explanation: |-
-    An effect cannot come before its cause, so temporality is the one viewpoint that must hold. Hill stressed that the others support a judgment but none is required; smoking, for example, fails specificity because it harms many organs.
+    An effect cannot come before its cause, so temporality is the one viewpoint that must hold. Hill himself said no single viewpoint was indispensable, and the others support a judgment rather than settle it; smoking, for example, fails specificity because it harms many organs.
 - id: stat-m4-r2-h39
   lesson: stat-m4-h-causal-inference
   topic: Causal inference

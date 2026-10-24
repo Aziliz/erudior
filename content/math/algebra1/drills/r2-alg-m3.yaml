@@ -108,7 +108,7 @@
   solution: |-
     Split the income into layers and tax each at its own rate:
     first layer {L1:money0} × {r1}% = {t1:money}; second layer {L2:money0} × {r2}% = {t2:money}; top layer {L3:money0} × {r3}% = {t3:money}.
-    Total tax: **{T:money}**. Average rate: {T:money} ÷ {x:money0} × 100 ≈ **{avgp:num1}%**. (The marginal rate, on the next dollar, is {marg}%.)
+    Total tax: **{T:money}**. Average rate: {T:money} ÷ {x:money0} × 100 ≈ **{avgp:dp1}%**. (The marginal rate, on the next dollar, is {marg}%.)
 
 - id: alg-m3-r2-arc-quadratic
   title: Average rate of change of a quadratic

@@ -79,7 +79,7 @@ without practice quizzes. The mean scores (made-up data) are:
 Quizzes help more when study is spaced, so the two work better together than either suggests alone.
 
 ```plot
-{"x": [-0.3, 1.3], "y": [55, 90], "xLabel": "practice quizzes (0 = no, 1 = yes)", "yLabel": "mean score", "functions": [{"f": "62 + 8*x", "from": 0, "to": 1, "label": "massed"}, {"f": "66 + 16*x", "from": 0, "to": 1, "label": "spaced", "dashed": true}], "points": [{"at": [0, 62]}, {"at": [1, 70]}, {"at": [0, 66]}, {"at": [1, 82]}], "caption": "Interaction plot for Example 1: the lines are not parallel, because quizzes add 8 points to massed study and 16 to spaced study"}
+{"x": [-0.3, 1.3], "y": [55, 90], "xLabel": "practice quizzes (0 = no, 1 = yes)", "yLabel": "mean score", "functions": [{"f": "62 + 8*x", "from": 0, "to": 1, "label": "massed"}, {"f": "66 + 16*x", "from": 0, "to": 1, "label": "spaced", "dashed": true}], "caption": "Interaction plot for Example 1: the lines are not parallel, because quizzes add 8 points to massed study and 16 to spaced study"}
 ```
 
 ## Why not one factor at a time?
@@ -127,7 +127,7 @@ Reporting "fertilizer has no effect" would be badly wrong: it raises yield in dr
 it in wet soil. When an interaction is large, report the simple effects, not the main effects.
 
 ```plot
-{"x": [-0.3, 1.3], "y": [35, 65], "xLabel": "fertilizer (0 = none, 1 = added)", "yLabel": "mean yield (g)", "functions": [{"f": "40 + 6*x", "from": 0, "to": 1, "label": "dry soil"}, {"f": "58 - 6*x", "from": 0, "to": 1, "label": "wet soil", "dashed": true}], "points": [{"at": [0, 40]}, {"at": [1, 46]}, {"at": [0, 58]}, {"at": [1, 52]}], "caption": "Interaction plot for Example 3: the fertilizer's effect has opposite signs in dry and wet soil"}
+{"x": [-0.3, 1.3], "y": [35, 65], "xLabel": "fertilizer (0 = none, 1 = added)", "yLabel": "mean yield (g)", "functions": [{"f": "40 + 6*x", "from": 0, "to": 1, "label": "dry soil"}, {"f": "58 - 6*x", "from": 0, "to": 1, "dashed": true}], "labels": [{"at": [0.5, 57], "text": "wet soil"}], "caption": "Interaction plot for Example 3: the fertilizer's effect has opposite signs in dry and wet soil"}
 ```
 
 ## Running a factorial experiment well
@@ -145,8 +145,8 @@ All the principles of lesson 17 still apply.
 
 The number of treatments grows fast: $k$ factors at two levels each need $2^k$ treatments, so
 5 factors need 32 and 7 need 128. Industrial experimenters often run a
-**fractional factorial design**, a carefully chosen fraction of the combinations (say 16 of the 32), accepting that some
-higher-order interactions can no longer be separated from each other. That trade is usually
+**fractional factorial design**, a carefully chosen fraction of the combinations (say 16 of the 32), accepting that each effect is then mixed up (aliased) with some other
+effect, usually a higher-order interaction, and the two can no longer be separated. That trade is usually
 worth it when most of those interactions are expected to be small.
 
 ## Common mistakes

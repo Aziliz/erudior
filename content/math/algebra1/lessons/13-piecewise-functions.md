@@ -29,7 +29,7 @@ The procedure is a loop through the conditions, shown in this chart. If an input
 flowchart TD
   accTitle: Evaluating a piecewise function at an input a
   accDescr: Take the input a and look at the first piece's condition. If a satisfies it, substitute a into that piece's formula only, and the result is f(a). If not, ask whether there is another piece. If there is, move to the next piece and check its condition, paying attention at boundaries to whether the inequality is strict or includes the endpoint. If there are no more pieces, a is not in the domain.
-  A["Input a"] --> B{"Does a satisfy this piece's condition? Check < versus ≤ at boundaries"}
+  A["Input a"] --> B{"Does a satisfy this piece's condition? At a boundary, check strict #lt; versus ≤"}
   B -- yes --> C["Substitute a into this piece's formula only"]
   C --> D["The result is f(a)"]
   B -- no --> E{"Is there another piece?"}

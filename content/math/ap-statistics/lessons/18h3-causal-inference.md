@@ -162,7 +162,8 @@ were not a checklist:
 | Experiment | Does removing the cause change the outcome? | People who quit had lower risk later |
 | Analogy | Are similar causes known? | Other inhaled carcinogens cause cancer |
 
-Of these, only temporality is generally treated as essential. A strong, consistent **dose-response relationship** (Hill's
+Of these, only temporality is generally treated as essential today (Hill himself wrote that none of
+his viewpoints could be required as a sine qua non, but a cause that comes after its effect makes no sense). A strong, consistent **dose-response relationship** (Hill's
 biological gradient) that appears in different study designs is hard to explain away: a confounder
 would have to be strongly linked to smoking, in a dose-dependent way, in every population studied.
 Notice that the case was built from many studies of different kinds, not from one big one.
@@ -189,6 +190,6 @@ names the assumption and asks what would happen if it failed.
 - Average treatment effect: mean of $Y(1) - Y(0)$. Naive difference = effect on the treated + selection bias.
 - Randomization makes the selection-bias term zero on average.
 - Standardization compares groups at the same mix of a measured confounder; unmeasured confounders remain.
-- Natural experiments use assignment that happened by chance (Snow's water companies, lotteries).
+- Natural experiments use assignment that happened by chance or close to it (lotteries, Snow's water companies).
 - Causal conclusions from observational data rest on a body of consistent evidence: strength,
   temporality, dose-response, consistency and plausibility together.

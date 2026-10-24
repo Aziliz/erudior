@@ -46,7 +46,7 @@ The phone-plan graph has no break: you could draw it without lifting your pencil
 
 If yes, the pieces meet there. If no, the graph jumps, as in the parking-garage staircase of Lesson 13.
 
-Billing rules are usually designed to be continuous, so that using a tiny bit more never makes the price leap. That gives an equation for any unknown number in the rule.
+Many billing rules are designed to be continuous, so that using a tiny bit more never makes the price leap. That gives an equation for any unknown number in the rule.
 
 ### Example 2
 

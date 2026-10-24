@@ -135,7 +135,7 @@ $n/\text{deff}$ is the size of the SRS that would give the same precision. Small
 matter a lot when clusters are big, because $\rho$ is multiplied by $m - 1$.
 
 ```plot
-{"x": [1, 50], "y": [0, 7], "xLabel": "cluster size m", "yLabel": "design effect", "functions": [{"f": "1 + (x-1)*0.02", "label": "ρ = 0.02"}, {"f": "1 + (x-1)*0.05", "label": "ρ = 0.05", "dashed": true}, {"f": "1 + (x-1)*0.10", "label": "ρ = 0.10"}], "points": [{"at": [25, 2.2], "label": "2.2"}], "caption": "The approximate design effect 1 + (m − 1)ρ grows with cluster size, faster when members of a cluster are more alike. The marked point is m = 25, ρ = 0.05, deff = 2.2."}
+{"x": [1, 50], "y": [0, 7], "xLabel": "cluster size m", "yLabel": "design effect", "functions": [{"f": "1 + (x-1)*0.02", "label": "ρ = 0.02"}, {"f": "1 + (x-1)*0.05", "label": "ρ = 0.05", "dashed": true}, {"f": "1 + (x-1)*0.10", "label": "ρ = 0.10"}], "points": [{"at": [25, 2.2]}], "labels": [{"at": [25, 1.75], "text": "2.2"}], "caption": "The approximate design effect 1 + (m − 1)ρ grows with cluster size, faster when members of a cluster are more alike. The marked point is m = 25, ρ = 0.05, deff = 2.2."}
 ```
 
 ### Example 3: a classroom survey
@@ -148,7 +148,7 @@ For a question about liking math, past surveys suggest $\rho \approx 0.05$.
 3. A 95% margin of error for a proportion near 0.5 would be $1.96\sqrt{0.25/1000} \approx 0.031$
    for an SRS of 1,000, but multiply by $\sqrt{2.2} \approx 1.48$: about $0.046$.
 
-Reporting "±3.1 points" would overstate the precision by half. The cluster design may still be the
+Reporting "±3.1 points" would overstate the precision: the honest margin is about half again as large (±4.6). The cluster design may still be the
 right choice, because visiting 40 classrooms is far cheaper than finding 1,000 students in 1,000
 places; the design effect just makes the trade honest.
 
