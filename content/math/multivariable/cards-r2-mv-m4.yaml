@@ -1,0 +1,27 @@
+# Round 2 cards for module mv-m4 (Optimization): honors lessons
+- {front: 'Near a critical point, $f(a+h, b+k) - f(a,b) \approx$', back: '$\tfrac12 Q(h,k) = \tfrac12\left(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2\right)$, a quadratic form in the displacement', topic: Quadratic forms and the Hessian}
+- {front: 'Completing the square in $Q = Ah^2 + 2Bhk + Ck^2$', back: '$A\,Q = (Ah + Bk)^2 + (AC - B^2)k^2$; the coefficient $AC - B^2$ is the discriminant $D$', topic: Quadratic forms and the Hessian}
+- {front: 'Positive / negative definite / indefinite', back: 'Positive for all nonzero inputs / negative for all nonzero inputs / takes both signs. Hessian type at a critical point: min / max / saddle', topic: Quadratic forms and the Hessian}
+- {front: 'Classify a critical point by Hessian eigenvalues', back: 'All positive: min. All negative: max. Mixed signs: saddle. A zero eigenvalue: inconclusive', topic: Quadratic forms and the Hessian}
+- {front: '$\det H$ and the trace of a $2\times2$ Hessian in terms of eigenvalues', back: '$\det H = D = \lambda_1\lambda_2$ and $f_{xx} + f_{yy} = \lambda_1 + \lambda_2$', topic: Quadratic forms and the Hessian}
+- {front: 'Meaning of the Hessian''s eigenvectors', back: 'The directions of greatest and least second directional derivative $\mathbf u^{\mathsf T}H\mathbf u$ (greatest and least curvature)', topic: Quadratic forms and the Hessian}
+- {front: 'Leading principal minors of a $3\times3$ Hessian', back: '$D_1 = f_{xx}$, $D_2$ = top-left $2\times2$ determinant, $D_3 = \det H$', topic: Quadratic forms and the Hessian}
+- {front: 'Three-variable test by leading principal minors', back: '$+,+,+$: min. $-,+,-$: max. Any other pattern with $D_3 \ne 0$: saddle. $D_3 = 0$: inconclusive', topic: Quadratic forms and the Hessian}
+- {front: 'Sylvester''s criterion', back: 'A symmetric matrix is positive definite exactly when all its leading principal minors are positive', topic: Quadratic forms and the Hessian}
+- {front: 'Why $D = 0$ is inconclusive', back: '$A\,Q = (Ah + Bk)^2$ vanishes along a line of directions, where higher-order terms decide', topic: Quadratic forms and the Hessian}
+- {front: 'Proof that $\lambda = F''(k)$', back: 'Chain rule: $F'' = f_xx'' + f_yy'' = \lambda(g_xx'' + g_yy'') = \lambda\,\tfrac{d}{dk}g = \lambda$', topic: Inequality constraints}
+- {front: 'Shadow price', back: 'The multiplier $\lambda$, the rate at which the optimal value changes per unit of constraint level: $F(k + \Delta k) \approx F(k) + \lambda\,\Delta k$', topic: Inequality constraints}
+- {front: 'KKT conditions (maximize $f$ subject to $g \le k$)', back: '$\nabla f = \lambda\nabla g$, $\lambda \ge 0$, $g \le k$, $\lambda(g - k) = 0$', topic: Inequality constraints}
+- {front: 'Complementary slackness', back: '$\lambda(g - k) = 0$: an inactive constraint ($g < k$) has $\lambda = 0$; a positive $\lambda$ means the constraint is active', topic: Inequality constraints}
+- {front: 'Active vs inactive constraint', back: 'Active: $g = k$ at the optimum (on the edge). Inactive: $g < k$, the optimum is an ordinary critical point with $\lambda = 0$', topic: Inequality constraints}
+- {front: 'Sign of $\lambda$ at an active point', back: 'Maximizing $f$ with $g \le k$: $\lambda \ge 0$. Minimizing: $\lambda \le 0$ (maximize $-f$). Wrong sign: reject the point', topic: Inequality constraints}
+- {front: 'When are KKT conditions sufficient?', back: 'When $f$ is concave and $g$ is convex (convex feasible region): a KKT point is then the global maximum', topic: Inequality constraints}
+- {front: 'Steps for max $f$ subject to $g \le k$', back: 'Inactive case: $\nabla f = \mathbf 0$ with $g \le k$. Active case: $\nabla f = \lambda\nabla g$, $g = k$, $\lambda \ge 0$. Compare $f$ at the kept points', topic: Inequality constraints}
+- {front: 'Gradient descent update', back: '$\mathbf x_{n+1} = \mathbf x_n - \alpha\nabla f(\mathbf x_n)$, with step size $\alpha > 0$', topic: Numerical optimization}
+- {front: 'Step-size limit for gradient descent on a quadratic bowl', back: 'Converges exactly when $0 < \alpha < 2/\lambda_{\max}$, with $\lambda_{\max}$ the largest Hessian eigenvalue', topic: Numerical optimization}
+- {front: 'Gradient descent on $x^2 + 3y^2$: factors per step', back: '$x$ is multiplied by $1 - 2\alpha$ and $y$ by $1 - 6\alpha$; both must lie between $-1$ and $1$', topic: Numerical optimization}
+- {front: 'Newton''s method for optimization', back: '$\mathbf x_{n+1} = \mathbf x_n - H^{-1}\nabla f(\mathbf x_n)$: jump to the critical point of the second-degree Taylor model', topic: Numerical optimization}
+- {front: 'Inverse of $\begin{bmatrix} A & B\\ B & C\end{bmatrix}$', back: '$\dfrac{1}{AC - B^2}\begin{bmatrix} C & -B\\ -B & A\end{bmatrix}$', topic: Numerical optimization}
+- {front: 'Quadratic convergence', back: 'Each error is about a constant times the square of the last; correct digits roughly double each step (Newton near a minimum)', topic: Numerical optimization}
+- {front: 'Gradient descent vs Newton', back: 'Descent: gradient only, cheap steps, needs $\alpha$, can be slow. Newton: needs the Hessian, very fast near the answer, can converge to a saddle or max', topic: Numerical optimization}
+- {front: 'After a numerical method converges', back: 'Classify the point with the Hessian: the method only finds where $\nabla f \approx \mathbf 0$', topic: Numerical optimization}

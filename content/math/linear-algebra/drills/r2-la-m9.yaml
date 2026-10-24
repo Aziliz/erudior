@@ -1,0 +1,217 @@
+# Round 2 drills for la-m9 (honors lessons 40h1-40h3)
+
+- id: la-m9-r2-eval-ip
+  title: An evaluation inner product on P2
+  topic: Inner product spaces
+  vars:
+    a0: {min: -3, max: 3}
+    a1: {min: -3, max: 3}
+    a2: {min: -3, max: 3}
+    b0: {min: -3, max: 3}
+    b1: {min: -3, max: 3}
+    b2: {min: -3, max: 3}
+  where: ["a0 != 0", "a1 != 0", "a2 != 0", "b0 != 0", "b1 != 0", "b2 != 0"]
+  calc:
+    pm: a0 - a1 + a2 + 0
+    pz: a0 + 0
+    pp: a0 + a1 + a2 + 0
+    qm: b0 - b1 + b2 + 0
+    qz: b0 + 0
+    qp: b0 + b1 + b2 + 0
+    ip: (a0 - a1 + a2)*(b0 - b1 + b2) + a0*b0 + (a0 + a1 + a2)*(b0 + b1 + b2) + 0
+    np: (a0 - a1 + a2)^2 + a0^2 + (a0 + a1 + a2)^2 + 0
+  prompt: |-
+    In $\mathbb{P}_2$ use $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$. For $p(t) = {a0} {a1:signedcoef}t {a2:signedcoef}t^2$ and $q(t) = {b0} {b1:signedcoef}t {b2:signedcoef}t^2$, find $\langle p, q\rangle$ and $\|p\|^2$.
+  answers:
+    - {name: ip, label: '$\langle p, q\rangle =$'}
+    - {name: np, label: '$\|p\|^2 =$'}
+  solution: |-
+    Evaluate at $t = -1, 0, 1$: $p$ gives $({pm}, {pz}, {pp})$ and $q$ gives $({qm}, {qz}, {qp})$.
+    $\langle p, q\rangle = ({pm})({qm}) + ({pz})({qz}) + ({pp})({qp}) =$ **{ip}**, and $\|p\|^2 = ({pm})^2 + ({pz})^2 + ({pp})^2 =$ **{np}**.
+
+- id: la-m9-r2-weighted
+  title: A weighted inner product
+  topic: Inner product spaces
+  vars:
+    w1: {min: 1, max: 4}
+    w2: {min: 1, max: 4}
+    w3: {min: 1, max: 4}
+    u1: {min: -4, max: 4}
+    u2: {min: -4, max: 4}
+    u3: {min: -4, max: 4}
+    v1: {min: -4, max: 4}
+    v2: {min: -4, max: 4}
+    v3: {min: -4, max: 4}
+  where: ["u1^2 + u2^2 + u3^2 > 0"]
+  calc:
+    ip: w1*u1*v1 + w2*u2*v2 + w3*u3*v3 + 0
+    nsq: w1*u1^2 + w2*u2^2 + w3*u3^2 + 0
+    nrm: sqrt(w1*u1^2 + w2*u2^2 + w3*u3^2) + 0
+  prompt: |-
+    On $\mathbb{R}^3$ use $\langle \mathbf{u}, \mathbf{v}\rangle = {w1}u_1v_1 + {w2}u_2v_2 + {w3}u_3v_3$. For $\mathbf{u} = ({u1}, {u2}, {u3})$ and $\mathbf{v} = ({v1}, {v2}, {v3})$, find $\langle \mathbf{u}, \mathbf{v}\rangle$ and $\|\mathbf{u}\|$ (exact like sqrt(29), or 2 decimals).
+  answers:
+    - {name: ip, label: '$\langle \mathbf{u}, \mathbf{v}\rangle =$'}
+    - {name: nrm, label: '$\|\mathbf{u}\| =$', tolerance: 0.01}
+  solution: |-
+    $\langle \mathbf{u}, \mathbf{v}\rangle = {w1}({u1})({v1}) + {w2}({u2})({v2}) + {w3}({u3})({v3}) =$ **{ip}**.
+    $\|\mathbf{u}\|^2 = {w1}({u1})^2 + {w2}({u2})^2 + {w3}({u3})^2 = {nsq}$, so $\|\mathbf{u}\| = \sqrt{{nsq}} \approx$ **{nrm:num2}**.
+
+- id: la-m9-r2-fourier
+  title: Fourier coefficients of a line
+  topic: Fourier approximation
+  vars:
+    p: {min: -5, max: 5}
+    q: {min: -3, max: 3}
+    k: {min: 1, max: 4}
+  where: ["p != 0", "q != 0"]
+  calc:
+    bk: 2*q*(-1)^(k + 1)/k + 0
+  prompt: |-
+    On $[-\pi, \pi]$ with $\langle f, g\rangle = \int_{-\pi}^{\pi} f(t)g(t)\,dt$, find the constant term $\tfrac{a_0}{2}$ and the coefficient $b_{k}$ of $\sin {k}t$ in the Fourier approximation of $f(t) = {p} {q:signedcoef}t$. Use $\int_{-\pi}^{\pi} t\sin kt\,dt = \dfrac{2\pi(-1)^{k+1}}{k}$. Give exact fractions.
+  answers:
+    - {name: p, label: '$\tfrac{a_0}{2} =$', kind: fraction, lowestTerms: true}
+    - {name: bk, label: 'coefficient of $\sin {k}t$', kind: fraction, lowestTerms: true}
+  solution: |-
+    Constant term: $\dfrac{\langle f, 1\rangle}{\langle 1, 1\rangle} = \dfrac{2\pi({p}) + 0}{2\pi} =$ **{p}** (the ${q}t$ part is odd, so it integrates to 0).
+    The constant ${p}$ is orthogonal to $\sin {k}t$, so $b = \dfrac{1}{\pi}\cdot({q})\cdot\dfrac{2\pi(-1)^{{k}+1}}{{k}} =$ **${bk:texfrac}$**.
+
+- id: la-m9-r2-householder
+  title: Apply a Householder reflection
+  topic: Householder reflections
+  vars:
+    u1: {min: -2, max: 2}
+    u2: {min: -2, max: 2}
+    u3: {min: -2, max: 2}
+    y1: {min: -4, max: 4}
+    y2: {min: -4, max: 4}
+    y3: {min: -4, max: 4}
+  where: ["u1*y1 + u2*y2 + u3*y3 != 0"]
+  calc:
+    uu: u1^2 + u2^2 + u3^2 + 0
+    uy: u1*y1 + u2*y2 + u3*y3 + 0
+    cf: 2*(u1*y1 + u2*y2 + u3*y3)/(u1^2 + u2^2 + u3^2) + 0
+    h1: y1 - 2*(u1*y1 + u2*y2 + u3*y3)/(u1^2 + u2^2 + u3^2)*u1 + 0
+    h2: y2 - 2*(u1*y1 + u2*y2 + u3*y3)/(u1^2 + u2^2 + u3^2)*u2 + 0
+    h3: y3 - 2*(u1*y1 + u2*y2 + u3*y3)/(u1^2 + u2^2 + u3^2)*u3 + 0
+  prompt: |-
+    Let $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$ with $\mathbf{u} = ({u1}, {u2}, {u3})$. Find $H\mathbf{y}$ for $\mathbf{y} = ({y1}, {y2}, {y3})$. Give exact fractions.
+  answers:
+    - {name: h1, label: 'entry 1', kind: fraction, lowestTerms: true}
+    - {name: h2, label: 'entry 2', kind: fraction, lowestTerms: true}
+    - {name: h3, label: 'entry 3', kind: fraction, lowestTerms: true}
+  solution: |-
+    $\mathbf{u}^T\mathbf{y} = {uy}$ and $\mathbf{u}^T\mathbf{u} = {uu}$, so $H\mathbf{y} = \mathbf{y} - \dfrac{2({uy})}{{uu}}\mathbf{u} = \mathbf{y} - {cf:texfrac}\,({u1}, {u2}, {u3})$
+    $=$ **$\left({h1:texfrac},\ {h2:texfrac},\ {h3:texfrac}\right)$**. (Check: it has the same length as $\mathbf{y}$.)
+
+- id: la-m9-r2-house-zero
+  title: A Householder matrix that zeros an entry
+  topic: Householder reflections
+  vars:
+    pick:
+      choices:
+        - {label: '1', value: 0}
+        - {label: '2', value: 1}
+        - {label: '3', value: 2}
+        - {label: '4', value: 3}
+        - {label: '5', value: 4}
+    sa: {choices: [1, -1]}
+    sb: {choices: [1, -1]}
+  calc:
+    a: sa*if(pick == 0, 3, if(pick == 1, 4, if(pick == 2, 5, if(pick == 3, 12, 8)))) + 0
+    b: sb*if(pick == 0, 4, if(pick == 1, 3, if(pick == 2, 12, if(pick == 3, 5, 6)))) + 0
+    r: if(pick == 0, 5, if(pick == 1, 5, if(pick == 2, 13, if(pick == 3, 13, 10)))) + 0
+    w1: a - r + 0
+    uu: (a - r)^2 + b^2 + 0
+    h11: a/r + 0
+    h12: b/r + 0
+    h22: -a/r + 0
+  prompt: |-
+    For $\mathbf{x} = ({a}, {b})$, let $r = \|\mathbf{x}\|$ and $\mathbf{u} = \mathbf{x} - r\mathbf{e}_1$. Find $r$ and the entries of $H = I - \dfrac{2\mathbf{u}\mathbf{u}^T}{\mathbf{u}^T\mathbf{u}}$, which sends $\mathbf{x}$ to $(r, 0)$. Give exact fractions.
+  answers:
+    - {name: r, label: '$r =$'}
+    - {name: h11, label: '$h_{11} =$', kind: fraction, lowestTerms: true}
+    - {name: h12, label: '$h_{12} = h_{21} =$', kind: fraction, lowestTerms: true}
+    - {name: h22, label: '$h_{22} =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    $r = \sqrt{({a})^2 + ({b})^2} = {r}$, so $\mathbf{u} = ({w1}, {b})$ and $\mathbf{u}^T\mathbf{u} = {uu}$.
+    $H = I - \dfrac{2}{{uu}}\begin{bmatrix} ({w1})^2 & ({w1})({b}) \\ ({w1})({b}) & ({b})^2\end{bmatrix}$, which simplifies to **$\begin{bmatrix} {h11:texfrac} & {h12:texfrac} \\ {h12:texfrac} & {h22:texfrac}\end{bmatrix}$**.
+    Check: $H\mathbf{x} = ({r}, 0)$.
+
+- id: la-m9-r2-min-norm
+  title: Closest solution of one equation
+  topic: Pseudoinverse
+  vars:
+    a1: {min: -3, max: 3}
+    a2: {min: -3, max: 3}
+    a3: {min: -3, max: 3}
+    rhs: {min: -12, max: 12}
+  where: ["a1 != 0", "a2 != 0", "a3 != 0", "rhs != 0"]
+  calc:
+    aa: a1^2 + a2^2 + a3^2 + 0
+    x1: rhs*a1/(a1^2 + a2^2 + a3^2) + 0
+    x2: rhs*a2/(a1^2 + a2^2 + a3^2) + 0
+    x3: rhs*a3/(a1^2 + a2^2 + a3^2) + 0
+    sc: rhs/(a1^2 + a2^2 + a3^2) + 0
+  prompt: |-
+    Find the solution of ${a1:coef}x_1 {a2:signedcoef}x_2 {a3:signedcoef}x_3 = {rhs}$ closest to the origin (the minimum-norm solution). Give exact fractions.
+  answers:
+    - {name: x1, label: '$x_1 =$', kind: fraction, lowestTerms: true}
+    - {name: x2, label: '$x_2 =$', kind: fraction, lowestTerms: true}
+    - {name: x3, label: '$x_3 =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    With $\mathbf{a} = ({a1}, {a2}, {a3})$, $\|\mathbf{a}\|^2 = {aa}$ and $A^+ = \mathbf{a}/{aa}$, so $\mathbf{x}^+ = \dfrac{{rhs}}{{aa}}\mathbf{a} = {sc:texfrac}\,({a1}, {a2}, {a3}) =$ **$\left({x1:texfrac},\ {x2:texfrac},\ {x3:texfrac}\right)$**.
+    It points along the normal vector $\mathbf{a}$ of the plane.
+
+- id: la-m9-r2-pinv-rank1
+  title: Pseudoinverse of a rank-one matrix
+  topic: Pseudoinverse
+  vars:
+    c1: {min: -3, max: 3}
+    c2: {min: -3, max: 3}
+    r1: {min: -3, max: 3}
+    r2: {min: -3, max: 3}
+  where: ["c1 != 0", "c2 != 0", "r1 != 0", "r2 != 0"]
+  calc:
+    m11: c1*r1 + 0
+    m12: c1*r2 + 0
+    m21: c2*r1 + 0
+    m22: c2*r2 + 0
+    ss: (c1^2 + c2^2)*(r1^2 + r2^2) + 0
+    p11: c1*r1/((c1^2 + c2^2)*(r1^2 + r2^2)) + 0
+    p12: c2*r1/((c1^2 + c2^2)*(r1^2 + r2^2)) + 0
+    p21: c1*r2/((c1^2 + c2^2)*(r1^2 + r2^2)) + 0
+    p22: c2*r2/((c1^2 + c2^2)*(r1^2 + r2^2)) + 0
+  prompt: |-
+    $A = \begin{bmatrix} {m11} & {m12} \\ {m21} & {m22}\end{bmatrix}$ has rank one. Find its pseudoinverse $A^+$. Give exact fractions.
+  answers:
+    - {name: p11, label: '$(A^+)_{11} =$', kind: fraction, lowestTerms: true}
+    - {name: p12, label: '$(A^+)_{12} =$', kind: fraction, lowestTerms: true}
+    - {name: p21, label: '$(A^+)_{21} =$', kind: fraction, lowestTerms: true}
+    - {name: p22, label: '$(A^+)_{22} =$', kind: fraction, lowestTerms: true}
+  solution: |-
+    For rank one, $A^+ = A^T/\sigma_1^2$, and $\sigma_1^2$ is the sum of the squares of the entries: $({m11})^2 + ({m12})^2 + ({m21})^2 + ({m22})^2 = {ss}$.
+    So $A^+ = \dfrac{1}{{ss}}\begin{bmatrix} {m11} & {m21} \\ {m12} & {m22}\end{bmatrix} =$ **$\begin{bmatrix} {p11:texfrac} & {p12:texfrac} \\ {p21:texfrac} & {p22:texfrac}\end{bmatrix}$**.
+
+- id: la-m9-r2-lowrank
+  title: Error of the best low-rank approximation
+  topic: Low-rank approximation
+  vars:
+    s1: {min: 8, max: 12}
+    s2: {min: 4, max: 7}
+    s3: {min: 2, max: 3}
+    kk: {choices: [1, 2]}
+  calc:
+    fro: sqrt(s1^2 + s2^2 + s3^2 + 1) + 0
+    fsq: s1^2 + s2^2 + s3^2 + 1 + 0
+    e2: if(kk == 1, s2, s3) + 0
+    esq: if(kk == 1, s2^2 + s3^2 + 1, s3^2 + 1) + 0
+    ef: sqrt(if(kk == 1, s2^2 + s3^2 + 1, s3^2 + 1)) + 0
+  prompt: |-
+    A matrix $A$ has singular values ${s1}, {s2}, {s3}, 1$. Let $A_{kk}$ be its best rank-{kk} approximation. Find $\|A\|_F$, $\|A - A_{kk}\|_2$ and $\|A - A_{kk}\|_F$ (exact like sqrt(29), or 2 decimals).
+  answers:
+    - {name: fro, label: '$\|A\|_F =$', tolerance: 0.01}
+    - {name: e2, label: 'spectral error'}
+    - {name: ef, label: 'Frobenius error', tolerance: 0.01}
+  solution: |-
+    $\|A\|_F = \sqrt{{s1}^2 + {s2}^2 + {s3}^2 + 1^2} = \sqrt{{fsq}} \approx$ **{fro:num2}**.
+    Keeping {kk} term(s) leaves the singular values after the first {kk}. The spectral error is the largest of them, **{e2}**, and the Frobenius error is $\sqrt{{esq}} \approx$ **{ef:num2}**.
