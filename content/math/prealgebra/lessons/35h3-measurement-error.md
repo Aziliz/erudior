@@ -10,7 +10,7 @@ refs: [pre-ref-geometry]
 ---
 ## Every measurement is rounded
 
-In this module's lessons, a board was "8 ft" and a can was "11 cm" tall, and we computed with those numbers as if they were exact. Real measurements never are. A ruler marked in centimeters can't tell 7 cm from 7.2 cm; a bathroom scale that shows whole pounds can't tell 150 lb from 150.4 lb. This lesson shows how to say exactly how uncertain a measurement is, how to compare that uncertainty with the size of the measurement, and what happens to it when measurements are multiplied to find areas and volumes. Scientists and engineers deal with these questions every day; the ideas here are their starting point.
+In this module's lessons, a fish tank was "30 in" long and a can was "11 cm" tall, and we computed with those numbers as if they were exact. Real measurements never are. A ruler marked in centimeters can't tell 7 cm from 7.2 cm; a bathroom scale that shows whole pounds can't tell 150 lb from 150.4 lb. This lesson shows how to say exactly how uncertain a measurement is, how to compare that uncertainty with the size of the measurement, and what happens to it when measurements are multiplied to find areas and volumes. Scientists and engineers deal with these questions every day; the ideas here are their starting point.
 
 ## Precision and greatest possible error
 

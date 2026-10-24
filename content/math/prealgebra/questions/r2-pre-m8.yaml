@@ -148,13 +148,13 @@
   type: match
   stem: 'Match each shape to how its area is found.'
   pairs:
-    - [Rectangle, length times width]
     - [Parallelogram, base times height]
     - [Triangle, half of base times height]
     - [Trapezoid, half the sum of the bases times height]
+    - [L-shaped room, split into rectangles and add their areas]
   distractors: [pi times radius squared, sum of all the sides]
   explanation: |-
-    Rectangle $A = lw$; parallelogram $A = bh$; triangle $A = \tfrac12 bh$; trapezoid $A = \tfrac12(b_1 + b_2)h$. Pi times radius squared is a circle's area, and the sum of the sides is a perimeter.
+    Parallelogram $A = bh$; triangle $A = \tfrac12 bh$; trapezoid $A = \tfrac12(b_1 + b_2)h$; a composite shape like an L-shaped room is split into rectangles whose areas are added. Pi times radius squared is a circle's area, and the sum of the sides is a perimeter.
 
 - id: pre-m8-r2-q14
   lesson: pre-area
