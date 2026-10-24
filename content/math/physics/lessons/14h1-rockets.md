@@ -71,7 +71,7 @@ Three features stand out:
 - **The mass ratio grows exponentially with the goal.** Solving for it, $m_0/m_f = e^{\Delta v/u}$. Each extra $u$ of delta-v multiplies the required mass ratio by another factor of $e$.
 
 ```plot
-{"x": [1, 20], "y": [0, 3.2], "xLabel": "mass ratio m0/mf", "yLabel": "Δv / u", "functions": [{"f": "ln(x)", "from": 1, "to": 20, "label": "Δv/u = ln(m0/mf)"}], "points": [{"at": [2.718, 1]}, {"at": [7.389, 2]}], "labels": [{"at": [3.3, 0.8], "text": "ratio e: Δv = u"}, {"at": [8, 1.75], "text": "ratio 7.4: Δv = 2u"}], "caption": "The rocket equation: each extra u of Δv multiplies the mass ratio needed by e ≈ 2.7"}
+{"x": [1, 20], "y": [0, 3.2], "xLabel": "mass ratio m0/mf", "yLabel": "Δv / u", "functions": [{"f": "ln(x)", "from": 1, "to": 20, "label": "Δv/u = ln(m0/mf)"}], "points": [{"at": [2.718, 1]}, {"at": [7.389, 2]}], "labels": [{"at": [5.2, 0.85], "text": "ratio e: Δv = u"}, {"at": [4.9, 2.35], "text": "ratio 7.4: Δv = 2u"}], "caption": "The rocket equation: each extra u of Δv multiplies the mass ratio needed by e ≈ 2.7"}
 ```
 
 ### Example 2: why reaching orbit is hard
