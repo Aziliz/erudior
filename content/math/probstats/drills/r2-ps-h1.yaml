@@ -261,7 +261,7 @@
   vars:
     m: {choices: [500, 1000, 2000, 5000]}
     pct: {choices: [80, 90, 95, 98]}
-    al: {choices: [0.001, 0.01, 0.05]}
+    al: {choices: [{label: '0.001', value: 0.001}, {label: '0.01', value: 0.01}, {label: '0.05', value: 0.05}]}
     pw: {choices: [0.5, 0.6, 0.7, 0.8, 0.9]}
   calc:
     m0: m*pct/100
@@ -273,11 +273,11 @@
     A screen runs {m:dp0} tests, each at level $\alpha = {al}$. Suppose {pct}% of the null hypotheses are true and each real effect is
     detected with power {pw}. Find the expected number of false discoveries and, using expected counts, the fraction of discoveries that are false (3 decimals).
   answers:
-    - {name: ev, label: 'False discoveries', tolerance: 0.01}
+    - {name: ev, label: 'False discoveries', tolerance: 0.01, format: num4}
     - {name: fr, label: 'Fraction false', tolerance: 0.0015, format: dp3}
   solution: |-
     True nulls: $m_0 = {m0:dp0}$; real effects: ${m1:dp0}$.
 
-    Expected false discoveries $= m_0\alpha = {m0:dp0}({al}) =$ **{ev}**; expected true discoveries $= {m1:dp0}({pw}) = {es}$.
+    Expected false discoveries $= m_0\alpha = {m0:dp0}({al}) =$ **{ev:num4}**; expected true discoveries $= {m1:dp0}({pw}) = {es:num4}$.
 
-    Fraction false $\approx {ev}/({ev} + {es}) =$ **{fr:dp3}**.
+    Fraction false $\approx {ev:num4}/({ev:num4} + {es:num4}) =$ **{fr:dp3}**.

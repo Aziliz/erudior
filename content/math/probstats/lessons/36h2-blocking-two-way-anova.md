@@ -40,7 +40,7 @@ $$Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}, \qquad \textstyle\sum_i\ta
 for treatment $i = 1, \dots, k$ and block $j = 1, \dots, b$. "Additive" means a block shifts every
 treatment by the same amount $\beta_j$; there is no treatment-by-block interaction.
 
-**The decomposition.** Write $\bar y_{i\cdot}$ for treatment means, $\bar y_{\cdot j}$ for block means and $\bar y_{\cdot\cdot}$ for the
+*The decomposition.* Write $\bar y_{i\cdot}$ for treatment means, $\bar y_{\cdot j}$ for block means and $\bar y_{\cdot\cdot}$ for the
 grand mean. Each deviation splits three ways:
 
 $$y_{ij} - \bar y_{\cdot\cdot} = (\bar y_{i\cdot} - \bar y_{\cdot\cdot}) + (\bar y_{\cdot j} - \bar y_{\cdot\cdot}) + (y_{ij} - \bar y_{i\cdot} - \bar y_{\cdot j} + \bar y_{\cdot\cdot}).$$
@@ -83,11 +83,11 @@ in the error: $\text{SSE} = 1190.67 - 50.67 = 1140$ on 9 df, $\text{MSE} = 126.7
 $p = 0.82$. The treatment differences are the same in both analyses; blocking simply stopped the
 huge site-to-site differences from hiding them. A scored lowest at every site, and C highest at three of the four.
 
-**Link to the paired $t$ test.** With $k = 2$ treatments, each block is a pair, and the
+*Link to the paired $t$ test.* With $k = 2$ treatments, each block is a pair, and the
 randomized block $F$ equals the square of the paired $t$ statistic, just as one-way ANOVA with two
 groups reproduces the pooled $t$ test. Blocking is pairing generalized to more than two treatments.
 
-**A price.** Error df fall from $kb - k$ to $(k - 1)(b - 1)$, here from 9 to 6. If blocks do not really
+*A price.* Error df fall from $kb - k$ to $(k - 1)(b - 1)$, here from 9 to 6. If blocks do not really
 differ, blocking wastes degrees of freedom; when they differ a lot, as here, it is a bargain.
 
 ## Two factors of interest: the factorial design

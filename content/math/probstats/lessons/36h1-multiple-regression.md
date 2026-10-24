@@ -94,7 +94,7 @@ $$T_j = \frac{b_j - \beta_j}{s\sqrt{c_{jj}}} \sim t_{n-p},$$
 
 which gives tests of $H_0: \beta_j = 0$ and intervals $b_j \pm t_{\alpha/2,\, n-p}\, s\sqrt{c_{jj}}$.
 
-**Gauss–Markov in one line.** Any other linear unbiased estimator can be written
+*Gauss–Markov in one line.* Any other linear unbiased estimator can be written
 $(\mathbf{A} + \mathbf{D})\mathbf{Y}$; unbiasedness for every $\boldsymbol\beta$ forces $\mathbf{D}\mathbf{X} = \mathbf{0}$, so the cross terms vanish and
 its covariance is $\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1} + \sigma^2\mathbf{D}\mathbf{D}^\top$. The extra $\mathbf{D}\mathbf{D}^\top$ is positive
 semidefinite, so no linear unbiased estimator beats least squares, coefficient by coefficient.
@@ -138,11 +138,11 @@ busier sites here also happen to be more curved, and the simple slope absorbs pa
 $\text{SST} = \text{SSR} + \text{SSE}$ still holds (the orthogonality of $\mathbf{e}$ and $\hat{\mathbf{y}} - \bar y\mathbf{1}$ kills the cross
 term), and $R^2 = 1 - \text{SSE}/\text{SST}$. But $R^2$ can never fall when a predictor is added, even a
 useless one, because least squares can always set its coefficient to zero. The
-**adjusted $R^2$** charges for each parameter:
+**adjusted R-squared**, $R^2_{\text{adj}}$, charges for each parameter:
 
 $$R^2_{\text{adj}} = 1 - \frac{\text{SSE}/(n - p)}{\text{SST}/(n - 1)}.$$
 
-The **overall $F$ test** of $H_0: \beta_1 = \cdots = \beta_k = 0$ uses
+The **overall F test** of $H_0: \beta_1 = \cdots = \beta_k = 0$ uses
 
 $$F = \frac{\text{SSR}/(p - 1)}{\text{SSE}/(n - p)} \sim F_{p-1,\, n-p} \text{ under } H_0.$$
 

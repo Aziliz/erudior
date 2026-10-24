@@ -1,0 +1,138 @@
+# Round 2 drills for module trig-m1 (honors lessons)
+- id: trig-m1-r2-meridian-distance
+  title: Distance along a meridian in nautical miles
+  topic: Measuring the Earth
+  vars:
+    D1: {min: 0, max: 60}
+    M1: {min: 0, max: 59}
+    D2: {min: 0, max: 60}
+    M2: {min: 0, max: 59}
+    h1: {choices: [{label: 'N', value: 1}, {label: 'S', value: -1}]}
+    h2: {choices: [{label: 'N', value: 1}, {label: 'S', value: -1}]}
+  calc:
+    a1: h1 * (60*D1 + M1)
+    a2: h2 * (60*D2 + M2)
+    nm: abs(a2 - a1)
+    km: nm * 1.852
+  where: ["60*D1 + M1 > 0", "60*D2 + M2 > 0", "nm >= 120"]
+  prompt: 'A ship sails due north or due south from latitude ${D1}^\circ\,{M1}''$ {h1} to latitude ${D2}^\circ\,{M2}''$ {h2}. Taking 1 nautical mile as 1 minute of latitude, how far does it sail in nautical miles, and in kilometers (1 nautical mile = 1.852 km; 1 decimal)?'
+  answers:
+    - {name: nm, label: 'Nautical miles', format: integer, units: {'nmi': 1, 'nautical miles': 1}}
+    - {name: km, label: 'Kilometers', tolerance: 0.051, units: {'km': 1}}
+  solution: |-
+    Write each latitude in minutes, counting south as negative: ${D1} \cdot 60 + {M1}$ gives ${a1}'$, and ${D2} \cdot 60 + {M2}$ gives ${a2}'$.
+    The difference is $\lvert {a2} - ({a1}) \rvert =$ **{nm}** minutes of latitude, so about **{nm} nautical miles**.
+    In kilometers: ${nm} \times 1.852 \approx$ **{km:num1} km**.
+
+- id: trig-m1-r2-angular-size
+  title: Angular size with the small-angle approximation
+  topic: Small angles
+  vars:
+    D: {min: 2, max: 80}
+    dk: {choices: [0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 8, 10]}
+  calc:
+    th: D / (1000 * dk)
+    mr: 1000 * th
+    am: th * 10800 / pi
+  where: ["th <= 0.05"]
+  prompt: 'An object {D} m wide is seen from {dk} km away. Use the small-angle approximation to find its angular size in milliradians (2 decimals) and in arcminutes (1 decimal).'
+  answers:
+    - {name: mr, label: 'Milliradians', tolerance: 0.006, units: {'mrad': 1}}
+    - {name: am, label: 'Arcminutes', tolerance: 0.051, units: {'′': 1, "'": 1, 'arcmin': 1}}
+  solution: |-
+    Put both lengths in meters: $\theta \approx \dfrac{\,D}{\,d} = \dfrac{{D}}{{dk} \times 1000} \approx {th:sig3}$ rad, which is **{mr:num2} mrad**.
+    One radian is $\dfrac{180 \times 60}{\pi} \approx 3437.7'$, so $\theta \approx {th:sig3} \times 3437.7 \approx$ **{am:num1}′**.
+
+- id: trig-m1-r2-parallax
+  title: Distance from parallax
+  topic: Small angles
+  vars:
+    p: {min: 0.05, max: 0.8, step: 0.01}
+  calc:
+    d: 1 / p
+    ly: d * 3.2616
+  prompt: 'A star has a parallax of ${p}''''$. Find its distance in parsecs (2 decimals) and in light-years (1 decimal; use 1 pc ≈ 3.26 light-years).'
+  answers:
+    - {name: d, label: 'Parsecs', tolerance: 0.006, units: {'pc': 1}}
+    - {name: ly, label: 'Light-years', tolerance: 0.12, units: {'ly': 1, 'light-years': 1}}
+  solution: |-
+    With the parallax in arcseconds, $d = \dfrac{1}{\,p} = \dfrac{1}{{p}} \approx$ **{d:num2} pc**.
+    In light-years: ${d:num2} \times 3.26 \approx$ **{ly:num1} ly**.
+
+- id: trig-m1-r2-clock-angle
+  title: Angle between the hands of a clock
+  topic: Relative rotation
+  vars:
+    h: {min: 1, max: 12}
+    mt: {min: 0, max: 5}
+    mo: {min: 0, max: 9}
+  calc:
+    m: 10*mt + mo
+    h12: mod(h, 12)
+    mh: 6 * m
+    hh: 30 * h12 + 0.5 * m
+    df: abs(mh - hh)
+    ang: min(df, 360 - df)
+  where: ["ang > 0"]
+  prompt: 'What is the smaller angle between the hour hand and the minute hand of a clock at {h}:{mt}{mo}? Answer in degrees.'
+  answers:
+    - {name: ang, label: 'Angle', tolerance: 0.01, units: {'°': 1, 'deg': 1, 'degrees': 1}}
+  solution: |-
+    Measure each hand clockwise from 12. Minute hand: $6^\circ \times {m} = {mh}^\circ$.
+    Hour hand: $30^\circ \times {h12} + 0.5^\circ \times {m} = {hh}^\circ$ (it moves $0.5^\circ$ each minute).
+    The difference is ${df}^\circ$; the smaller angle is **{ang}°**.
+  figure:
+    type: plot
+    x: [-1.3, 1.3]
+    y: [-1.3, 1.3]
+    equal: true
+    circles:
+      - {center: [0, 0], r: 1}
+    segments:
+      - {from: [0, 0], to: ['0.9*sind(mh)', '0.9*cosd(mh)'], arrow: true}
+      - {from: [0, 0], to: ['0.55*sind(hh)', '0.55*cosd(hh)'], arrow: true}
+    labels:
+      - {at: [0, 1.15], text: '12'}
+      - {at: [1.15, 0], text: '3'}
+      - {at: [0, -1.15], text: '6'}
+      - {at: [-1.15, 0], text: '9'}
+    caption: 'The clock at {h}:{mt}{mo} (long hand: minutes)'
+
+- id: trig-m1-r2-gear-train
+  title: Output speed of a two-stage gearbox
+  topic: Gears and rolling
+  vars:
+    w: {min: 600, max: 3000, step: 100}
+    N1: {min: 10, max: 20}
+    N2: {min: 30, max: 60}
+    N3: {min: 10, max: 20}
+    N4: {min: 30, max: 72}
+  calc:
+    w2: w * N1 / N2
+    out: w2 * N3 / N4
+  prompt: 'A motor turns at {w} rpm. Its {N1}-tooth gear meshes with a {N2}-tooth gear. A {N3}-tooth gear on the same shaft as the {N2}-tooth gear meshes with a {N4}-tooth output gear. Find the output speed in rpm (1 decimal).'
+  answers:
+    - {name: out, label: 'Output', tolerance: 0.051, units: {'rpm': 1}}
+  solution: |-
+    Meshing gears satisfy $N_1\omega_1 = N_2\omega_2$. Stage 1: $\omega = {w} \cdot \dfrac{{N1}}{{N2}} \approx {w2:num2}$ rpm.
+    The {N3}-tooth gear shares that shaft, so it turns at the same speed. Stage 2: ${w2:num2} \cdot \dfrac{{N3}}{{N4}} \approx$ **{out:num1} rpm**.
+    Two meshes reverse the direction twice, so the output turns the same way as the motor.
+
+- id: trig-m1-r2-tire-size
+  title: Speedometer error from a tire change
+  topic: Gears and rolling
+  vars:
+    d0: {min: 60, max: 70, step: 0.5}
+    dd: {choices: [-3, -2.5, -2, -1.5, -1, 1, 1.5, 2, 2.5, 3, 3.5, 4]}
+    S: {min: 40, max: 120, step: 10}
+  calc:
+    d1: d0 + dd
+    v: S * d1 / d0
+    dist: 100 * d1 / d0
+  prompt: 'A car''s speedometer and odometer count wheel turns and are set up for tires {d0} cm in diameter. The owner fits tires {d1} cm in diameter. When the speedometer reads {S} km/h, what is the true speed? When the odometer adds 100 km, how far has the car really gone? (1 decimal each)'
+  answers:
+    - {name: v, label: 'True speed', tolerance: 0.051, units: {'km/h': 1}}
+    - {name: dist, label: 'True distance', tolerance: 0.051, units: {'km': 1}}
+  solution: |-
+    The instruments measure the wheels' angular speed and assume the old size. With the same $\omega$, $v = r\omega$ is proportional to the diameter, so every reading is off by the factor $\dfrac{{d1}}{{d0}}$.
+    True speed: ${S} \times \dfrac{{d1}}{{d0}} \approx$ **{v:num1} km/h**. True distance: $100 \times \dfrac{{d1}}{{d0}} \approx$ **{dist:num1} km**.
