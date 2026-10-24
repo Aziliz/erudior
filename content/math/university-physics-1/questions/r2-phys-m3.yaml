@@ -124,7 +124,7 @@
     - {x: 43.7, y: 23.3, text: Normal force on block 1}
     - {x: 32.5, y: 55.7, text: Weight of block 1}
     - {x: 22.1, y: 41.4, text: Kinetic friction on block 1}
-    - {x: 56.0, y: 34.1, text: Rope tension on block 1}
+    - {x: 54.2, y: 34.1, text: Rope tension on block 1}
     - {x: 80.7, y: 59.3, text: Rope tension on block 2}
     - {x: 77.0, y: 87.5, text: Weight of block 2}
   distractors: [Normal force on block 2]
@@ -178,10 +178,10 @@
   stem: 'A car rounds a frictionless banked curve at its design speed; the center of the curve is to the left. Name each numbered part.'
   image: {src: images/phys-m3-banked-curve-blank.svg, alt: 'Cross-section of a banked road rising to the right, with an arrow at the top pointing left toward the center of the curve. A car on the road has a solid arrow tilted up and left, a solid arrow straight down, a dashed arrow straight up and a dashed arrow pointing left. The bank angle at the bottom left is also numbered.'}
   labels:
-    - {x: 39.9, y: 35.8, text: Normal force}
+    - {x: 40.7, y: 38.1, text: Normal force}
     - {x: 47.6, y: 72.0, text: Weight}
-    - {x: 47.6, y: 35.8, text: Vertical component of the normal force}
-    - {x: 40.5, y: 57.8, text: Horizontal component of the normal force}
+    - {x: 47.6, y: 38.1, text: Vertical component of the normal force}
+    - {x: 41.8, y: 57.8, text: Horizontal component of the normal force}
     - {x: 24.6, y: 83.8, text: Bank angle}
   distractors: [Centripetal force, Static friction]
   explanation: |-
@@ -559,10 +559,10 @@
   stem: 'A pendulum hangs at rest inside a van that accelerates to the right. Viewed in the van''s frame, name each numbered arrow.'
   image: {src: images/phys-m3-accel-van-blank.svg, alt: 'A van with a pendulum hanging from its ceiling, swung back to the left. Arrows from the bob: one up along the string, one straight down, a short dashed one to the left, and a dashed one down and to the left along the line of the string. An arrow above the van points right. Five arrows are numbered.'}
   labels:
-    - {x: 47.9, y: 35.2, text: String tension}
-    - {x: 43.8, y: 63.5, text: Weight}
-    - {x: 37.5, y: 47.1, text: Fictitious force}
-    - {x: 37.5, y: 65.0, text: Mass times effective gravity}
+    - {x: 47.3, y: 36.9, text: String tension}
+    - {x: 41.5, y: 69.0, text: Weight}
+    - {x: 35.7, y: 53.6, text: Fictitious force}
+    - {x: 34.4, y: 73.8, text: Mass times effective gravity}
     - {x: 75.9, y: 10.7, text: Acceleration of the van}
   distractors: [Centrifugal force, Normal force]
   explanation: |-
