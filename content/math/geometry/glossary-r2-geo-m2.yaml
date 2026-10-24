@@ -73,7 +73,7 @@
   topic: Proof methods
 - term: irrational number
   aliases: [irrational, irrational numbers]
-  definition: 'A real number that cannot be written as a fraction of whole numbers, such as $\sqrt{2}$ or $\pi$.'
+  definition: 'A real number that cannot be written as a fraction $\tfrac{a}{b}$ of integers with $b \ne 0$, such as $\sqrt{2}$ or $\pi$.'
   topic: Proof methods
 - term: incommensurable
   definition: 'Describes two lengths that no common unit measures a whole number of times, such as the side and diagonal of a square; their ratio is irrational.'

@@ -67,7 +67,7 @@ $$R(n) = 1 + (1 + 2 + \dots + n) = \frac{n(n+1)}{2} + 1.$$
 
 **Base case, $n = 0$.** With no lines the plane is one region, and $\tfrac{0 \cdot 1}{2} + 1 = 1$. ✓
 
-**Inductive step.** Assume $k$ lines in general position make $\tfrac{k(k+1)}{2} + 1$ regions. Add line number $k + 1$, keeping general position. It is not parallel to any old line, so it crosses each of them, and it crosses each one exactly once, because two distinct lines meet in at most one point. That gives $k$ crossing points, and they are all different, because no three lines pass through one point. The $k$ points cut the new line into $k + 1$ pieces (two rays at the ends and $k - 1$ segments between). Each piece runs through one old region and splits it in two, so each piece adds one region:
+**Inductive step.** Assume $k$ lines in general position make $\tfrac{k(k+1)}{2} + 1$ regions. Add line number $k + 1$, keeping general position. It is not parallel to any old line, so it crosses each of them, and it crosses each one exactly once, because two distinct lines meet in at most one point. That gives $k$ crossing points, and they are all different, because no three lines pass through one point. The $k$ points cut the new line into $k + 1$ pieces (for $k \ge 1$, two rays at the ends and $k - 1$ segments between; for $k = 0$, the whole line). Each piece runs through one old region and splits it in two, so each piece adds one region:
 $$R(k + 1) = \frac{k(k+1)}{2} + 1 + (k + 1) = \frac{k(k+1) + 2(k+1)}{2} + 1 = \frac{(k+1)(k+2)}{2} + 1. \checkmark$$
 
 By induction, the formula holds for every $n \ge 0$. $\blacksquare$
@@ -101,7 +101,7 @@ To use it, count the terms first: in $1 + 3 + \dots + 39$, the last term $39 = 2
 
 What about the regions inside a circle with $n$ points, the pattern that broke at 31? The correct count (when no three chords meet at one point) is
 $$1 + \frac{n(n-1)}{2} + \frac{n(n-1)(n-2)(n-3)}{24}.$$
-The Module 1 honors lesson on counting figures derives it by counting chords and the points where two chords cross; here we just check it. Check it: for $n = 5$ it gives $1 + 10 + 5 = 16$, and for $n = 6$ it gives $1 + 15 + 15 = 31$, not 32. For $n = 7$ it gives 57, far from the 64 that doubling predicts. The formula's last term is 0 for $n \le 3$ and grows like $n^4$, so it was hidden in the first few cases. That is exactly how patterns lie.
+The Module 1 honors lesson on counting figures derives it by counting chords and the points where two chords cross; here we just check it: for $n = 5$ it gives $1 + 10 + 5 = 16$, and for $n = 6$ it gives $1 + 15 + 15 = 31$, not 32. For $n = 7$ it gives 57, far from the 64 that doubling predicts. The formula's last term is 0 for $n \le 3$ and grows like $n^4$, so it was hidden in the first few cases. That is exactly how patterns lie.
 
 ## Common mistakes
 

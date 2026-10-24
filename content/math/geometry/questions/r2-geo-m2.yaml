@@ -424,7 +424,7 @@
   type: text
   topic: Proof methods
   stem: 'In the proof that an odd number has an odd square, $n = 2k + 1$ gives $n^2 = 2m + 1$, where $m =$ ___ (write $m$ in terms of $k$).'
-  accept: ['2k^2+2k', '2k²+2k', '2k+2k^2', '2k+2k²', '2k(k+1)', '2(k^2+k)', '2(k²+k)', '2k*k+2k', '2*k^2+2*k']
+  accept: ['2k^2+2k', '2k²+2k', '2k+2k^2', '2k+2k²', '2k(k+1)', '2(k^2+k)', '2(k²+k)', '2k*k+2k', '2*k^2+2*k', 'k(2k+2)', '2k(1+k)']
   explanation: |-
     $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$, so $m = 2k^2 + 2k$. Since $m$ is a whole number, $n^2$ is one more than an even number, so it is odd.
 - id: geo-m2-r2-h23

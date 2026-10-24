@@ -38,7 +38,7 @@ Here are all the basic connectives in one table:
 | F | T | T | F | T | T | F |
 | F | F | T | F | F | T | T |
 
-The conditional column is the one people question. Its last two rows say that a conditional with a false hypothesis is true. Such a statement is called *vacuously true*: "If a triangle has four sides, then it is a circle" makes a promise that can never be tested, so it can never be broken. This is a convention, but it is the only choice that makes the conditional agree with its contrapositive and keeps the laws of deduction working, as Example 1 shows.
+The conditional column is the one people question. Its last two rows say that a conditional with a false hypothesis is true. Such a statement is called *vacuously true*: "If a triangle has four sides, then it is a circle" makes a promise that can never be tested, so it can never be broken. This is a convention, but a well-chosen one: with it, every conditional agrees with its contrapositive (Example 1 checks this). Any other choice for the last two rows would either break that agreement or make $p \to q$ mean the same as "$p$ if and only if $q$".
 
 ### Example 1: The contrapositive rule, proved
 

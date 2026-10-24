@@ -65,7 +65,7 @@ The negation of "at most one" is "at least two", not "exactly two" and not "none
 
 ### Example 4: $\sqrt{2}$ is irrational
 
-A square with sides of length 1 has a diagonal of length $\sqrt{2}$ (you'll see why in Module 6). Is $\sqrt{2}$ a fraction of whole numbers? A number that is not such a fraction is called **irrational**.
+A square with sides of length 1 has a diagonal of length $\sqrt{2}$ (you'll see why in Module 6). Is $\sqrt{2}$ a fraction of whole numbers? A real number that cannot be written as a fraction $\tfrac{a}{b}$ of integers (with $b \ne 0$) is called **irrational**. Since $\sqrt{2}$ is positive, it is enough to rule out fractions of positive whole numbers.
 
 *Prove:* $\sqrt{2}$ is irrational.
 
