@@ -65,13 +65,13 @@
   type: text
   module_quiz: true
   topic: Infinitive clauses
-  stem: 'Complete with um, damit or ohne: "Ich lerne Deutsch, ___ in Wien zu arbeiten." / "Ich erkläre es noch einmal, ___ du es verstehst." / "Er ist gegangen, ___ sich zu verabschieden."'
+  stem: 'Complete with um, damit or ohne: "Ich lerne Deutsch, ___ in Wien zu arbeiten." / "Ich erkläre es noch einmal, ___ du es verstehst." / "Er ist einfach gegangen, ___ sich zu verabschieden."'
   accept:
     - [um]
     - [damit]
     - [ohne]
   explanation: |-
-    1: same subject (I learn, I work) and zu + infinitive at the end: um … zu. 2: different subjects (I explain, you understand) and a full clause with the verb at the end: damit. 3: he left without saying goodbye: ohne … zu, which works like um … zu.
+    1: same subject (I learn, I work) and zu + infinitive at the end: um … zu. 2: different subjects (I explain, you understand) and a full clause with the verb at the end: damit. 3: he simply left without saying goodbye: ohne … zu, which works like um … zu.
 - id: de3-m2-r2-q07
   lesson: de3-um-zu-damit
   type: order
@@ -124,7 +124,7 @@
   type: text
   module_quiz: true
   topic: Reasons and results
-  stem: 'Complete with da, falls or sodass: "___ Sie umgezogen sind, müssen Sie Ihre Adresse ändern." / "Rufen Sie uns an, ___ Sie Fragen haben." / "Ich habe die Frist verpasst, ___ der Vertrag automatisch verlängert wurde."'
+  stem: 'Complete with da, falls or sodass, using each word once: "___ Sie umgezogen sind, müssen Sie Ihre Adresse ändern." / "Rufen Sie uns an, ___ Sie Fragen haben." / "Ich habe die Frist verpasst, ___ der Vertrag automatisch verlängert wurde."'
   accept:
     - [da, weil]
     - [falls, wenn]
@@ -367,10 +367,10 @@
   topic: Contrast
   stem: 'Complete: "In Hamburg regnet es oft, ___ es in München mehr Sonne gibt." (whereas) / "Das Hotel war schön. ___ war das Frühstück teuer." (however)'
   accept:
-    - [während, wohingegen, waehrend]
+    - [während, wohingegen, waehrend, wogegen]
     - [allerdings, jedoch]
   explanation: |-
-    1: a contrast with the verb (gibt) at the end: während or wohingegen. 2: the verb (war) comes straight after the gap, so it must be a linking adverb in position 1: Allerdings (or Jedoch). aber is position 0 and would need "Aber das Frühstück war teuer".
+    1: a contrast with the verb (gibt) at the end: während or wohingegen (or the less common wogegen). 2: the verb (war) comes straight after the gap, so it must be a linking adverb in position 1: Allerdings (or Jedoch). aber is position 0 and would need "Aber das Frühstück war teuer".
 - id: de3-m2-r2-h10
   lesson: de3-m2-h-contrast
   type: match

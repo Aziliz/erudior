@@ -91,4 +91,12 @@ const third = { id: "t", title: "Third", vars: { a: { choices: [7] } }, calc: { 
   answers: [{ name: "r", format: "num2", tolerance: 0.0001 }], solution: "" };
 { const g = generate(third as any); const ok = checkAll(g, ["2.33"])[0].ok, bad = checkAll(g, ["2.34"])[0].ok;
   if (!ok || bad) { fails++; console.log("FAIL shown value", g.parts[0].display, ok, bad); } }
+// Numbers filled into TeX keep a tight thousands separator; plain text keeps the comma.
+{ const d = { id: "c", title: "Commas", vars: { n: { choices: [5000] } }, calc: {}, prompt: "Text {n} and $x = {n}$ and $$y={n:int}$$ then {n}", answer: "n", format: "number", solution: "" };
+  const g = generate(d as any);
+  if (g.prompt !== "Text 5,000 and $x = 5{,}000$ and $$y=5{,}000$$ then 5,000") { fails++; console.log("FAIL math commas", g.prompt); } }
+for (const [v, f, want] of [[1.8, "sig3", "1.80"], [12345, "sig3", "12300"], [0.000123, "sig2", "0.00012"]] as const) {
+  const got = formatNum(v, f);
+  if (got !== want) { fails++; console.log("FAIL sig format", v, f, got); }
+}
 console.log(fails ? `${fails} FAILURES` : "all engine tests passed");

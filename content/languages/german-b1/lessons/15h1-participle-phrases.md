@@ -48,7 +48,7 @@ To understand a phrase, turn it back into a relative clause. How you do that dep
 - **Partizip II of a verb with an accusative object** (*entdecken, finden, bauen*): passive. An agent stays with *von*: *die von Schülern gefundenen Münzen* = *die Münzen, die von Schülern gefunden wurden*.
 - **Partizip II of a *sein* verb** (*ankommen, umfallen, ziehen*): active and finished: *die in die Stadt gezogenen Familien* = *die Familien, die in die Stadt gezogen sind*.
 
-Verbs with *haben* and no object (*arbeiten, schlafen, lachen*) have no Partizip II before a noun: ~~der lange geschlafene Mann~~ is impossible; you need a relative clause (*der Mann, der lange geschlafen hat*). Their Partizip I is fine: *der schlafende Mann*.
+Verbs with *haben* and no object (*arbeiten, schlafen, lachen*) have no Partizip II before a noun: ~~der lange geschlafene Mann~~ is impossible; you need a relative clause (*der Mann, der lange geschlafen hat*). Their Partizip I is fine: *der schlafende Mann*. (A few such participles have become ordinary adjectives and are exceptions, for example *ein studierter Mann*, a man with a university degree; treat them as vocabulary, not as a pattern.)
 
 The tenses in the table are simplified: the passive could also be *ist entdeckt worden* or *wird entdeckt*. The participle doesn't say which; the context decides.
 
@@ -59,13 +59,13 @@ When a German sentence suddenly seems to make no sense, look for an article with
 ```mermaid
 flowchart TD
   accTitle: Unpacking an extended participle phrase
-  accDescr: Step 1, notice an article with no noun after it, as in der beim. Step 2, jump ahead to the first noun that fits the article, der ... Schatz. Step 3, the word just before that noun is the participle or adjective, entdeckte. Step 4, everything in between belongs to the participle, beim Bau der neuen Brücke. Step 5, ask which participle it is. A present participle in -end is active and happening at the same time: die steigenden Preise are die Preise, die steigen. A past participle of a haben verb is passive: der entdeckte Schatz is der Schatz, der entdeckt wurde. A past participle of a sein verb is active and finished: der angekommene Zug is der Zug, der angekommen ist.
+  accDescr: Step 1, notice an article with no noun after it, as in der beim. Step 2, jump ahead to the first noun that fits the article, der ... Schatz. Step 3, the word just before that noun is the participle or adjective, entdeckte. Step 4, everything in between belongs to the participle, beim Bau der neuen Brücke. Step 5, ask which participle it is. A present participle in -end is active and happening at the same time: die steigenden Preise are die Preise, die steigen. A past participle of a verb with an accusative object is passive: der entdeckte Schatz is der Schatz, der entdeckt wurde. A past participle of a sein verb is active and finished: der angekommene Zug is der Zug, der angekommen ist.
   A["1. An article with no noun after it: der beim ..."] --> B["2. Jump to the first noun that fits it: der ... Schatz"]
   B --> C["3. The word just before the noun is the participle: entdeckte"]
   C --> D["4. Everything in between belongs to the participle"]
   D --> E{"5. Which participle is it?"}
   E -- "Partizip I, -end" --> F["active, same time: die Preise, die steigen"]
-  E -- "Partizip II of a haben verb" --> G["passive: der Schatz, der entdeckt wurde"]
+  E -- "Partizip II of a verb with an object" --> G["passive: der Schatz, der entdeckt wurde"]
   E -- "Partizip II of a sein verb" --> H["active, finished: der Zug, der angekommen ist"]
 ```
 

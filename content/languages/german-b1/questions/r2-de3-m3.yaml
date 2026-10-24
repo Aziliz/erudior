@@ -95,11 +95,11 @@
     - ['Das ist alles, ___ wir gesprochen haben.', worüber]
     - ['die Stadt, ___ wir im Sommer fahren', wohin]
     - ['das Dorf, ___ meine Großeltern kommen', woher]
-    - ['das Beste, ___ ich in Wien gegessen habe', was]
+    - ['etwas, ___ ich nicht verstehe', was]
     - ['das Buch, ___ ich gerade lese', das]
-  distractors: [wo, welches]
+  distractors: [wo, wer]
   explanation: |-
-    "sprechen über" after "alles" needs a wo(r)- word: "worüber". Movement towards a place: "wohin"; origin: "woher". After a superlative used as a noun (das Beste) German uses "was". After a real noun with a gender (das Buch) the relative pronoun is "das". "wo" is for a place with no movement.
+    "sprechen über" after "alles" needs a wo(r)- word: "worüber". Movement towards a place: "wohin"; origin: "woher". After "etwas" (like alles, nichts) German uses "was". After a real noun with a gender (das Buch) the relative pronoun is "das". "wo" is for a place with no movement.
 - id: de3-m3-r2-q09
   lesson: de3-relative-wo-was
   module_quiz: true
@@ -185,10 +185,10 @@
   topic: Prepositions
   stem: 'Complete with genitive prepositions: "___ des Streiks fahren heute keine Züge." (because of) and "___ der Verspätung haben wir den Anschluss noch bekommen." (despite)'
   accept:
-    - [wegen]
+    - [wegen, aufgrund]
     - [trotz]
   explanation: |-
-    "wegen" means because of, "trotz" means despite; both take the genitive in written German: wegen des Streiks, trotz der Verspätung.
+    "wegen" means because of, "trotz" means despite; both take the genitive in written German: wegen des Streiks, trotz der Verspätung. (The more formal "aufgrund", from the honors lesson, is also right in the first gap.)
 - id: de3-m3-r2-q17
   lesson: de3-genitive-preps
   type: match
@@ -209,10 +209,10 @@
   module_quiz: true
   topic: Prepositions
   stem: 'Which phrases are correct in written standard German? Select all that apply.'
-  choices: ['wegen des starken Regens', 'innerhalb von zwei Wochen', 'trotz den Streik', 'während der ganzen Fahrt', 'innerhalb zwei Wochen']
+  choices: ['wegen des starken Regens', 'innerhalb von zwei Wochen', 'trotz den Streik', 'während der ganzen Fahrt', 'innerhalb einem Monat']
   answer: [0, 1, 3]
   explanation: |-
-    "wegen des starken Regens" and "während der ganzen Fahrt" are genitives with -en on the adjective. A number without an article can't show the genitive, so "innerhalb von zwei Wochen" needs "von". "trotz den Streik" is accusative, which is wrong both in writing (trotz des Streiks) and in speech (trotz dem Streik).
+    "wegen des starken Regens" and "während der ganzen Fahrt" are genitives with -en on the adjective. A number without an article can't show the genitive, so "innerhalb von zwei Wochen" needs "von". "trotz den Streik" is accusative, which is wrong both in writing (trotz des Streiks) and in speech (trotz dem Streik). "innerhalb einem Monat" uses the spoken dative where the genitive can be shown: write "innerhalb eines Monats".
 - id: de3-m3-r2-q19
   lesson: de3-genitive-preps
   topic: Travel problems

@@ -126,7 +126,7 @@
     - {x: 14.3, y: 63.3, text: der Topf}
     - {x: 35.0, y: 71.3, text: die Pfanne}
     - {x: 65.0, y: 73.3, text: der Teller}
-    - {x: 77.9, y: 50.0, text: die Gabel}
+    - {x: 77.9, y: 37.0, text: die Gabel}
     - {x: 84.3, y: 35.0, text: das Messer}
     - {x: 90.7, y: 30.7, text: der Löffel}
   distractors: [die Tasse, das Glas]
@@ -348,7 +348,7 @@
   choices: ['Paprika is masculine and accusative.', 'All participles end in -e.', 'There is no article, and Paprika is feminine (or plural) and nominative.', 'It follows a der-word.']
   answer: 2
   explanation: |-
-    die Paprika is feminine. The menu item stands alone (nominative) with no article, so the participle takes the strong ending of "die": -e. If the sign means several peppers (plural), the strong ending is -e as well. Participles don't have a fixed ending; they take whatever ending an adjective would take there.
+    die Paprika is feminine (Duden also allows der Paprika; one masculine Paprika would be "Gefüllter Paprika"). The menu item stands alone (nominative) with no article, so the participle takes the strong ending of "die": -e. If the sign means several peppers (plural), the strong ending is -e as well. Participles don't have a fixed ending; they take whatever ending an adjective would take there.
 
 # --- 12h2 Honors: comparing the German-speaking countries ---
 - id: de2-m3-r2-h15
@@ -433,10 +433,10 @@
   lesson: de2-m3-h-records
   topic: Landscape
   stem: 'Lake Constance (der Bodensee) is shared by three countries. Which is the largest lake lying entirely inside Germany?'
-  choices: ['der Genfersee', 'der Bodensee', 'die Nordsee', 'die Müritz']
+  choices: ['der Genfer See', 'der Bodensee', 'die Nordsee', 'die Müritz']
   answer: 3
   explanation: |-
-    The Müritz in Mecklenburg is the largest lake entirely inside Germany. The Bodensee is far bigger but shared with Austria and Switzerland, the Genfersee (Lake Geneva) lies in Switzerland and France, and the Nordsee is a sea.
+    The Müritz in Mecklenburg is the largest lake entirely inside Germany. The Bodensee is far bigger but shared with Austria and Switzerland, the Genfer See (Lake Geneva) lies in Switzerland and France, and the Nordsee is a sea.
 - id: de2-m3-r2-h25
   lesson: de2-m3-h-records
   topic: Comparison

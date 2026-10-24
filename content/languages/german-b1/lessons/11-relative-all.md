@@ -98,11 +98,11 @@ Every relative pronoun in this lesson comes from the same few questions. Work th
 ```mermaid
 flowchart TD
   accTitle: Choosing the relative pronoun
-  accDescr: Step 1, find the antecedent before the comma; it gives the gender and number. Step 2, is there a preposition in front of the pronoun? If yes, the preposition decides the case, as in mit dem, für den, über das. If not, does the pronoun mean whose? If yes, use the genitive dessen or deren. If not, ask what job the pronoun does in its own clause: as the subject it is nominative (der, die, das, die), as a direct object accusative (den, die, das, die), and as the object of a dative verb dative (dem, der, dem, denen).
-  A["1. Find the antecedent before the comma: it gives gender and number"] --> Q1{"2. Is there a preposition in front?"}
-  Q1 -- "yes" --> P["the preposition decides the case: mit dem, für den, über das"]
-  Q1 -- "no" --> Q2{"Does it mean whose?"}
-  Q2 -- "yes" --> G["genitive: dessen, deren"]
+  accDescr: Step 1, find the antecedent before the comma; it gives the gender and number. Step 2, does the pronoun mean whose? If yes, use the genitive dessen or deren, even after a preposition, as in mit deren Hilfe. If not, is there a preposition in front of the pronoun? If yes, the preposition decides the case, as in mit dem, für den, über das. If not, ask what job the pronoun does in its own clause: as the subject it is nominative (der, die, das, die), as a direct object accusative (den, die, das, die), and as the object of a dative verb dative (dem, der, dem, denen).
+  A["1. Find the antecedent before the comma: it gives gender and number"] --> Q1{"2. Does it mean whose?"}
+  Q1 -- "yes" --> G["genitive: dessen, deren (also after a preposition: mit deren Hilfe)"]
+  Q1 -- "no" --> Q2{"Is there a preposition in front?"}
+  Q2 -- "yes" --> P["the preposition decides the case: mit dem, für den, über das"]
   Q2 -- "no" --> Q3{"Its job in its own clause?"}
   Q3 -- "subject" --> N["nominative: der, die, das, die"]
   Q3 -- "direct object" --> K["accusative: den, die, das, die"]

@@ -126,7 +126,7 @@ Notes: *abheben* = to withdraw (money); *sperren lassen* = to have something blo
 
 - *obwohl* for a possible event: ~~Obwohl es morgen regnet, …~~ → *Auch wenn es morgen regnen sollte, …*
 - Main-clause order after *auch wenn / selbst wenn*: ~~selbst wenn ich habe Zeit~~ → *selbst wenn ich Zeit habe*.
-- Subject first after a fronted *auch wenn* clause: you may hear ~~Auch wenn es regnet, wir gehen raus~~ in speech, but write *Auch wenn es regnet, gehen wir raus.* (Only *egal* and *wie … auch* clauses normally keep the subject first.)
+- Subject first after a fronted *auch wenn* clause: you may hear ~~Auch wenn es regnet, wir gehen raus~~ in speech, but write *Auch wenn es regnet, gehen wir raus.* (Only *egal* and *wie … auch* clauses, and the old split *wenn … auch*, normally keep the subject first.)
 - Translating "even" as *auch* alone: ~~Auch es regnet …~~ "even if" needs *auch wenn* or *selbst wenn*.
 - *darüber hinaus* + subject first: ~~Darüber hinaus man muss …~~ → *Darüber hinaus muss man …*
 - An essay that lists arguments without signposts: every new argument deserves a connector, and every essay a conclusion with your own view.

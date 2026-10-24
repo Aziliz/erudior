@@ -102,7 +102,7 @@ The superlative part takes its normal ending: *in der zweitgrößten Stadt*.
 The chart compares the highest mountain in each of the three countries.
 
 ```plot
-{"x": [0.3, 3.7], "y": [0, 5000], "bars": [{"x": 1, "height": 2962, "width": 0.6, "label": "Zugspitze 2962 m"}, {"x": 2, "height": 3798, "width": 0.6, "label": "Großglockner 3798 m"}, {"x": 3, "height": 4634, "width": 0.6, "label": "Dufourspitze 4634 m"}], "yLabel": "height in metres", "caption": "The highest mountain in Germany (Zugspitze), Austria (Großglockner) and Switzerland (Dufourspitze)"}
+{"x": [0.3, 3.7], "y": [-800, 5400], "grid": false, "bars": [{"x": 1, "height": 2962, "width": 0.6}, {"x": 2, "height": 3798, "width": 0.6}, {"x": 3, "height": 4634, "width": 0.6}], "segments": [{"from": [0.4, 0], "to": [3.6, 0]}], "labels": [{"at": [1, 3200], "text": "2962 m"}, {"at": [2, 4036], "text": "3798 m"}, {"at": [3, 4872], "text": "4634 m"}, {"at": [1, -500], "text": "Zugspitze"}, {"at": [2, -500], "text": "Großglockner"}, {"at": [3, -500], "text": "Dufourspitze"}], "caption": "Height in metres of the highest mountain in Germany (Zugspitze), Austria (Großglockner) and Switzerland (Dufourspitze)"}
 ```
 
 | | Deutschland | Österreich | die Schweiz |
@@ -128,7 +128,7 @@ Notice *mehr als viermal*: the exact figure is about 4.3, so "more than four tim
 >
 > Aber bei den Bergen gewinnt Deutschland nicht. Die Zugspitze an der Grenze zu Österreich ist knapp 3000 Meter hoch. Der Großglockner in Österreich ist viel höher, und die Dufourspitze in der Schweiz ist noch höher: Sie ist über 4600 Meter hoch. Die Schweiz ist zwar das kleinste der drei Länder, aber sie hat die höchsten Berge.
 >
-> Und das Wasser? Der Rhein ist der längste Fluss in Deutschland. Die Donau ist insgesamt mehr als doppelt so lang wie der Rhein, aber nur ein kürzerer Teil von ihr fließt durch Deutschland. Der Bodensee ist einer der größten Seen in Mitteleuropa, und er gehört drei Ländern: Deutschland, Österreich und der Schweiz. Der Genfersee ist noch etwas größer, aber dort spricht man Französisch.
+> Und das Wasser? Der Rhein ist der längste Fluss in Deutschland. Die Donau ist insgesamt mehr als doppelt so lang wie der Rhein, aber nur ein kürzerer Teil von ihr fließt durch Deutschland. Der Bodensee ist einer der größten Seen in Mitteleuropa, und er gehört drei Ländern: Deutschland, Österreich und der Schweiz. Der Genfer See ist noch etwas größer, aber dort spricht man Französisch.
 >
 > Übrigens: Viele Menschen denken, dass Bern die Hauptstadt der Schweiz ist. Offiziell hat die Schweiz aber keine Hauptstadt. Bern heißt „Bundesstadt“, und dort arbeiten die Regierung und das Parlament.
 
@@ -142,7 +142,7 @@ In English:
 >
 > By the way: many people think that Bern is the capital of Switzerland. Officially, though, Switzerland has no capital. Bern is called the "federal city", and that's where the government and parliament work.
 
-Find the tools: *mehr als viermal so groß wie, neunmal so viele* (multiples); *mit Abstand die größte, die zweitgrößte* (ranking); *viel höher, noch höher, noch etwas größer* (intensifiers); *einer der größten Seen* (one of the …); *das kleinste der drei Länder* (superlative with a group); *die meisten Menschen* (most). (*knapp* = just under, *insgesamt* = in total, *zwar … aber* = admittedly … but, *übrigens* = by the way, *deutschsprachig* = German-speaking.)
+Find the tools: *mehr als viermal so groß wie, neunmal so viele* (multiples); *mit Abstand die größte, die zweitgrößte* (ranking); *viel höher, noch höher, noch etwas größer* (intensifiers); *einer der größten Seen* (one of the …); *das kleinste der drei Länder* (superlative with a group). (*knapp* = just under, *insgesamt* = in total, *zwar … aber* = admittedly … but, *übrigens* = by the way, *deutschsprachig* = German-speaking.)
 
 A note on simplification: "the biggest lake in Germany" is a tricky title. Lake Constance is by far the largest lake that Germany has a share in, but because it is shared, the largest lake lying entirely inside Germany is the Müritz in Mecklenburg, which is much smaller. And the borders inside Lake Constance have never been fully agreed between the three countries.
 

@@ -35,7 +35,7 @@ In English:
 
 Words to note: *der Gesetzentwurf* (bill, draft law; *der Entwurf* is any draft), *einbringen* (to introduce a bill), *zuleiten* (to forward officially), *Stellung nehmen* (to comment, give a view), *die Lesung* (reading), *der Ausschuss* (committee), *überweisen* (here: to refer), *anhören* (here: to hear, consult), *das Plenum* (plenary, the full house), *verabschieden* (to pass a law), *die Zustimmung* (consent, approval), *der Einspruch* (objection), *zurückweisen* (to reject, overrule), *der Vermittlungsausschuss* (mediation committee, 16 members from each chamber), *gegenzeichnen* (to countersign), *unterzeichnen* (to sign, formal), *verkünden* (to proclaim, publish officially), *in Kraft treten* (to come into force; *trat in Kraft, ist in Kraft getreten*).
 
-The process as a chart. It is simplified: for example, a bill from the Bundestag itself goes straight to its first reading.
+The process as a chart. It is simplified: for example, a bill from the Bundestag itself goes straight to its first reading, and for a law that doesn't need its consent, the Bundesrat must call the mediation committee before it can lodge an objection.
 
 ```mermaid
 flowchart TD
@@ -119,7 +119,7 @@ Official German has a whole family of constructions that avoid naming who does s
 |---|---|---|
 | someone does it | *Das Formular wird ausgefüllt.* | *Man füllt das Formular aus.* |
 | it must be done | *Der Antrag muss eingereicht werden.* | *Der Antrag ist einzureichen.* |
-| it can be done | *Das Problem kann gelöst werden.* | *Das Problem lässt sich lösen.* / *Das Problem ist zu lösen.* / *Das Problem ist lösbar.* |
+| it can be done | *Das Problem kann gelöst werden.* | *Das Problem lässt sich lösen.* / *Das Problem ist (leicht) zu lösen.* / *Das Problem ist lösbar.* |
 
 The new one is **sich lassen** + infinitive: *Das lässt sich ändern* means "that can be changed". The thing is the subject, *lassen* agrees with it, *sich* stands next to it, and the infinitive goes to the end:
 
@@ -127,7 +127,7 @@ The new one is **sich lassen** + infinitive: *Das lässt sich ändern* means "th
 - *Die Fenster lassen sich nicht öffnen.* — The windows can't be opened.
 - *Der Streit ließ sich nur mit einem Kompromiss beenden.* — The dispute could only be ended with a compromise. (Präteritum *ließ*.)
 
-Lesson 27 teaches *lassen* in its other meaning, "to have something done" (*Ich lasse mein Auto reparieren*). With *sich* and a thing as subject, it means "can be done".
+Lesson 27 comes back to *sich lassen* and teaches *lassen* in its other meanings, such as "to have something done" (*Ich lasse mein Auto reparieren*). With *sich* and a thing as subject, it means "can be done".
 
 ### Example 3: one sentence, four forms
 
@@ -138,7 +138,7 @@ Start: *Man kann das Grundgesetz nur mit einer Zweidrittelmehrheit ändern.*
 3. *sein + zu*: *Das Grundgesetz ist nur mit einer Zweidrittelmehrheit zu ändern.*
 4. *-bar*: *Das Grundgesetz ist nur mit einer Zweidrittelmehrheit änderbar.*
 
-All four are correct; the first two are the most common. But without a word like *leicht, schwer, nur, kaum*, *sein + zu* means "must": *Der Antrag ist online zu stellen* = it must be made online. For "can", use the modal passive: *Der Antrag kann online gestellt werden.*
+All four are correct; the first two are the most common. But without a word like *leicht, schwer, nur, kaum*, *sein + zu* usually means "must": *Der Antrag ist online zu stellen* = it must be made online. For "can", use the modal passive: *Der Antrag kann online gestellt werden.*
 
 ### An authentic sentence
 

@@ -15,7 +15,7 @@ This honors lesson is about recognizing them in real reading. You'll meet the wr
 
 ## The one-word forms of writing
 
-The recipe from lesson 21 works for every strong verb: take the simple past stem, add an umlaut to *a, o, u*, and add *-e*. Here are the forms you're most likely to meet in novels, newspapers and essays:
+The recipe from lesson 21 works for most strong verbs: take the simple past stem, add an umlaut to *a, o, u*, and add *-e*. A few verbs keep an older, irregular vowel instead: *stehen → stünde* (beside the regular *stände*), *werfen → würfe*, *helfen → hülfe* (beside *hälfe*). Here are the forms you're most likely to meet in novels, newspapers and essays:
 
 | Infinitive | Simple past | Konjunktiv II | Example |
 |---|---|---|---|
@@ -26,7 +26,7 @@ The recipe from lesson 21 works for every strong verb: take the simple past stem
 | *halten* | *hielt* | *hielte* | *Ich hielte das für möglich.* — I'd consider that possible. |
 | *fallen* | *fiel* | *fiele* | *Es fiele mir schwer.* — It would be hard for me. |
 | *tun* | *tat* | *täte* | *Das täte dir gut.* — That would do you good. |
-| *fahren* | *fuhr* | *führe* | *Wenn ich Zeit hätte, führe ich ans Meer.* — I'd drive to the sea. |
+| *fahren* | *fuhr* | *führe* | *Wenn ich Zeit hätte, führe ich ans Meer.* — If I had time, I'd drive to the sea. |
 | *bringen* | *brachte* | *brächte* | *Das brächte nichts.* — That wouldn't achieve anything. |
 | *denken* | *dachte* | *dächte* | *Man dächte, …* — One would think … |
 
@@ -153,7 +153,7 @@ Result: *Wenn es kein Telefon gegeben hätte, hätten die Menschen noch lange Br
 
 ## Key points
 
-- Written one-word forms: simple past stem + umlaut + *-e*: *läge, stünde, sähe, nähme, hielte, fiele, täte, führe, brächte, dächte*. Recognize them; in speech use *würde* + infinitive.
+- Written one-word forms: simple past stem + umlaut + *-e* (a few irregular, like *stünde*): *läge, stünde, sähe, nähme, hielte, fiele, täte, führe, brächte, dächte*. Recognize them; in speech use *würde* + infinitive.
 - Weak verbs have no separate form (*machte, erzitterte*): context decides between past and Konjunktiv.
 - Kafka's *Wunsch, Indianer zu werden* is one unreal wish: *Wenn man doch … wäre*, with no main clause; after *bis* it continues in plain past forms.
 - Counterfactual history: facts in the indicative, the imagined past in *hätte/wäre* + participle, present effects in the present Konjunktiv II, and a hedge (*vielleicht, wahrscheinlich*) to mark speculation.

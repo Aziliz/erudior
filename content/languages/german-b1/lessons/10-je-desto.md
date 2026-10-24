@@ -38,7 +38,7 @@ The comparative always stays right after *je* or *desto*, together with its noun
 A graph shows the idea of a proportional clause: as one value goes up, another goes up with it (*je mehr …, desto mehr …*) or goes down (*je mehr …, desto weniger …*). The lines here are a simplified picture, not real data.
 
 ```plot
-{"x": [0, 10], "y": [0, 10], "functions": [{"f": "1 + 0.8x"}, {"f": "9 - 0.6x", "dashed": true}], "labels": [{"at": [7.6, 9.2], "text": "Ausdauer"}, {"at": [8.6, 4.8], "text": "Stress"}], "xLabel": "Training (Stunden pro Woche)", "yLabel": "Punkte", "caption": "Je mehr man trainiert, desto größer die Ausdauer und desto kleiner der Stress (simplified)"}
+{"x": [0, 10], "y": [0, 10], "functions": [{"f": "1 + 0.8x", "label": "Ausdauer"}, {"f": "9 - 0.6x", "dashed": true}], "labels": [{"at": [8.6, 2.8], "text": "Stress"}], "xLabel": "Training (Stunden pro Woche)", "yLabel": "Punkte", "caption": "Je mehr man trainiert, desto größer die Ausdauer und desto kleiner der Stress (simplified)"}
 ```
 
 ### umso instead of desto

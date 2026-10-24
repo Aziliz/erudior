@@ -168,7 +168,7 @@
   stem: 'Complete with a -bar adjective: "Man kann den Pilz essen. Er ist ___." "Man kann die Schrift nicht lesen. Sie ist ___." (der Pilz: mushroom)'
   accept:
     - [essbar]
-    - [unlesbar]
+    - [unlesbar, nicht lesbar]
   explanation: |-
     -bar means "can be …-ed": essbar (edible) = kann gegessen werden. un- makes it negative: unlesbar (illegible) = kann nicht gelesen werden.
 
@@ -465,8 +465,8 @@
   stem: 'Match each adverb to its meaning.'
   pairs:
     - ['tatsächlich', 'in fact (confirmed)']
-    - ['offenbar', 'evidently']
-    - ['anscheinend', 'apparently']
+    - ['offenbar', 'evidently (the evidence is clear)']
+    - ['anscheinend', 'apparently (it seems so)']
     - ['vermutlich', 'presumably']
     - ['angeblich', 'allegedly']
     - ['scheinbar', 'seemingly (but not really)']
@@ -534,6 +534,6 @@
   type: text
   topic: Media
   stem: '"seriös" means reputable, trustworthy. Which German adjective means "serious" in the sense of "not joking"? ___'
-  accept: [ernst]
+  accept: [ernst, ernsthaft]
   explanation: |-
     seriös is a false friend: eine seriöse Zeitung is a reputable newspaper. "Are you serious?" is "Meinst du das ernst?"

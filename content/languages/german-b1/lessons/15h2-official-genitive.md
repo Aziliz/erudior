@@ -51,7 +51,7 @@ The theme is official letters: the town writes to its residents about roadworks,
 
 ## Above, below, along
 
-- *oberhalb, unterhalb* (above, below), mostly for places on a slope or a river: *Die Burg liegt oberhalb des Dorfes.* Without an article: *oberhalb von*.
+- *oberhalb, unterhalb* (above, below: higher or lower than something, often on a slope or along a river): *Die Burg liegt oberhalb des Dorfes.* Without an article: *oberhalb von*.
 - *entlang* (along) is unusual. It normally comes after its noun, and then it takes the accusative: *Wir gingen den Fluss entlang.* A preposition that follows its noun is called a **postposition**. Before the noun, *entlang* takes the genitive (sometimes the dative): *entlang des Flusses*. In speech, *am Fluss entlang* is the most common of all.
 
 This chart sums up the new prepositions by meaning:

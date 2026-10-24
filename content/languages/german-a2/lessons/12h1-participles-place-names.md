@@ -100,8 +100,8 @@ In lesson 10 you met **adjectival nouns** like *der Bekannte* and *ein Bekannter
 
 | | after a der-word (weak) | after an ein-word (mixed) | no article (strong) |
 |---|---|---|---|
-| man | der Erwachsene | ein Erwachsener | — |
-| woman | die Erwachsene | eine Erwachsene | — |
+| man | der Erwachsene | ein Erwachsener | als Erwachsener (as an adult) |
+| woman | die Erwachsene | eine Erwachsene | als Erwachsene |
 | plural | die Erwachsenen | meine Verwandten | zwei Erwachsene, viele Deutsche |
 | dative plural | mit den Erwachsenen | mit meinen Verwandten | mit zwei Erwachsenen |
 

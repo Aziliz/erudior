@@ -152,10 +152,10 @@
     - ['Wenn ich nur mehr Zeit', hätte!]
     - ['An deiner Stelle', würde ich warten.]
     - ['Würde es Ihnen etwas ausmachen,', 'das Fenster zu schließen?']
-    - ['Er tut so, als ob er alles', wüsste.]
+    - ['Er tut so, als ob er krank', wäre.]
   distractors: [ich würde warten., habe!]
   explanation: |-
-    An unreal wish needs the Konjunktiv II: hätte, not habe. An deiner Stelle fills position 1, so the verb comes next: würde ich warten (not ich würde). Würde es Ihnen etwas ausmachen takes a zu infinitive. After als ob, the Konjunktiv II verb goes to the end: als ob er alles wüsste.
+    An unreal wish needs the Konjunktiv II: hätte, not habe. An deiner Stelle fills position 1, so the verb comes next: würde ich warten (not ich würde). Würde es Ihnen etwas ausmachen takes a zu infinitive. After als ob, the Konjunktiv II verb goes to the end: als ob er krank wäre.
 - id: de3-m5-r2-q15
   lesson: de3-advice-wishes
   type: text
@@ -408,7 +408,7 @@
     - [brächte, bringen]
   distractors: [legen, nennen]
   explanation: |-
-    Simple past stem + umlaut + -e: lag → läge, stand → stünde, nahm → nähme, fuhr → führe, brachte → brächte. (führe can also be the ich form of führen in the present, but as a Konjunktiv II it comes from fahren.)
+    Simple past stem + umlaut + -e: lag → läge, nahm → nähme, fuhr → führe, brachte → brächte. stehen is one of the few irregular ones: stünde (the regular stände also exists). (führe can also be the ich form of führen in the present, but as a Konjunktiv II it comes from fahren.)
 - id: de3-m5-r2-h16
   lesson: de3-m5-h-literature
   topic: Konjunktiv II

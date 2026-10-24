@@ -14,7 +14,7 @@
   lesson: de3-m2-h-contrast
   term: hingegen
   pos: adverb
-  meanings: ['by contrast (hingegen)', by contrast, on the other hand, in contrast, whereas, however]
+  meanings: ['by contrast (slightly formal)', by contrast, on the other hand, in contrast, whereas, however]
   example: Ich trinke Kaffee. Meine Frau hingegen trinkt nur Tee.
   exampleEn: I drink coffee. My wife, by contrast, drinks only tea.
   note: 'Slightly formal. Position 1 (verb next) or straight after the first element.'
@@ -190,7 +190,7 @@
   term: das Zahlungsmittel
   pos: noun
   plural: die Zahlungsmittel
-  meanings: [means of payment, method of payment, payment method, currency]
+  meanings: [means of payment, method of payment, payment method]
   example: Bargeld ist ein beliebtes Zahlungsmittel.
   exampleEn: Cash is a popular means of payment.
 - id: de3-m2-r2-w24
@@ -242,7 +242,7 @@
   lesson: de3-m2-h-argument
   term: letztlich
   pos: adverb
-  meanings: [in the end, ultimately, at the end of the day, finally]
+  meanings: [ultimately, in the end, at the end of the day, finally]
   example: Letztlich geht es um Freiheit.
   exampleEn: In the end it's about freedom.
 - id: de3-m2-r2-w30

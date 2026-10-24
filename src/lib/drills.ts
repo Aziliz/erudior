@@ -100,7 +100,11 @@ function formatRaw(v: number, fmt?: string): string {
       return `${v < 0 ? "-" : "+"} ${Math.abs(v) === 1 ? "" : Number(Math.abs(v).toFixed(4))}`;
     default: {
       const sig = /^sig(\d)$/.exec(fmt ?? "");
-      if (sig) return String(Number(v.toPrecision(Number(sig[1]))));
+      if (sig) {
+        // Keep trailing zeros (1.80 to 3 s.f.); big numbers fall back to plain digits (12300, not 1.23e+4).
+        const p = v.toPrecision(Number(sig[1]));
+        return p.includes("e") ? String(Number(p)) : p;
+      }
       const dp = /^dp(\d)$/.exec(fmt ?? "");
       if (dp) return v.toFixed(Number(dp[1]));
       return v.toLocaleString("en-US", { maximumFractionDigits: 2 });
@@ -114,10 +118,36 @@ function fill(text: string, values: Record<string, number | string>, labels: Rec
   text = text
     .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt?: string) => (val(name, fmt) === "1" ? "" : m))
     .replace(/\\sqrt\[\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\]/g, (m, name: string, fmt?: string) => (val(name, fmt) === "2" ? "\\sqrt" : m));
-  return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}/g, (m, name: string, fmt?: string) => {
+  const math = mathMask(text);
+  return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}/g, (m, name: string, fmt: string | undefined, at: number) => {
     if (!fmt && name in labels) return labels[name];
-    return name in values ? formatNum(values[name], fmt) : m;
+    if (!(name in values)) return m;
+    const out = formatNum(values[name], fmt);
+    // Inside TeX a bare comma adds a space ("5, 000"); {,} keeps the thousands separator tight.
+    return math[at] ? out.replace(/(\d),(?=\d)/g, "$1{,}") : out;
   });
+}
+
+/** For each character of `text`, whether it sits inside $…$ or $$…$$ (escaped \$ doesn't count). */
+function mathMask(text: string): boolean[] {
+  const mask: boolean[] = new Array(text.length).fill(false);
+  let on = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (c === "\\") {
+      mask[i] = on;
+      if (i + 1 < text.length) mask[i + 1] = on;
+      i++;
+      continue;
+    }
+    if (c === "$") {
+      if (text[i + 1] === "$") i++;
+      on = !on;
+      continue;
+    }
+    mask[i] = on;
+  }
+  return mask;
 }
 
 export function defaultTolerance(fmt: NumFormat): number {

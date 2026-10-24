@@ -7,7 +7,7 @@
 - {front: 'Es wurde beschlossen, dass …', back: 'It was decided that … A passive that reports a decision without naming who made it. Also: Es wird erwartet / geprüft, dass / ob …', topic: Passive}
 - {front: 'Das lässt sich ändern.', back: 'That can be changed. sich lassen + infinitive = kann … werden.', topic: Passive}
 - {front: '"Can be done": four ways', back: 'Es kann gelöst werden. Es lässt sich lösen. Es ist (leicht) zu lösen. Es ist lösbar.', topic: Passive}
-- {front: 'Der Antrag ist online zu stellen.', back: 'Must, not can: The application must be made online. sein + zu without leicht/schwer/kaum/nur gives a rule.', topic: Passive}
+- {front: 'Der Antrag ist online zu stellen.', back: 'Must, not can: The application must be made online. In a rule, without leicht/schwer/kaum/nur, sein + zu usually means must.', topic: Passive}
 - {front: 'How a German federal law is made', back: 'Bill → (government bills: Bundesrat comments) → 1st reading → committee → 2nd and 3rd reading, vote → Bundesrat → countersignature → Federal President signs → Bundesgesetzblatt → in force.', topic: Politics}
 - {front: 'Zustimmungsgesetz vs other laws', back: 'Some laws need the Bundesrat''s consent (Zustimmung). For the others it can only object (Einspruch), and the Bundestag can overrule it.', topic: Politics}
 - {front: 'in Kraft treten', back: 'to come into force: on the day set in the law, or 14 days after it appears in the Bundesgesetzblatt.', topic: Politics}

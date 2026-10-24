@@ -130,9 +130,9 @@ Which word you need depends on the situation:
 ```mermaid
 flowchart TD
   accTitle: Taking something back to a shop in Germany
-  accDescr: If the product is faulty, you reklamieren it and the guarantee or warranty applies. If it is not faulty, the shop does not have to take it back, but with the receipt most shops will let you umtauschen it for something else or zurückgeben it for your money. Without a receipt it is usually hard.
+  accDescr: If the product is faulty, you reklamieren it: by law the seller must put it right (the legal warranty, usually two years in Germany), whether or not there is also a guarantee. If it is not faulty, the shop does not have to take it back, but with the receipt most shops will let you umtauschen it for something else or zurückgeben it for your money. Without a receipt it is usually hard.
   A["You want to take something back"] --> B{"Is it faulty?"}
-  B -- yes --> R["reklamieren: the guarantee covers it"]
+  B -- yes --> R["reklamieren: the legal warranty covers it"]
   B -- no --> C{"Do you have the Kassenzettel?"}
   C -- yes --> U["Most shops let you umtauschen or zurückgeben"]
   C -- no --> H["Usually difficult: the shop decides"]

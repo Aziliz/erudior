@@ -64,7 +64,7 @@ A neighbour tells you: *Der Bürgermeister hat Geld von einer Baufirma genommen!
 2. The action is in the past, so you need the perfect infinitive. *nehmen* has *haben* in the Perfekt: *genommen haben*.
 3. *Der Bürgermeister soll Geld von einer Baufirma genommen haben.*
 4. If you know the source, name it: *Laut einem Bericht der Lokalzeitung soll der Bürgermeister Geld von einer Baufirma genommen haben.*
-5. If the mayor denies it, *wollen* is wrong, because he is not claiming anything about himself; report his words: *Der Bürgermeister bestreitet das.* (*bestreiten*: to deny, dispute.)
+5. If the mayor denies it, report that neutrally with *bestreiten*: *Der Bürgermeister bestreitet das.* (*bestreiten*: to deny, dispute.) If you want to signal doubt about his denial, this is where *wollen* fits, because it is a claim about himself: *Der Bürgermeister will kein Geld genommen haben.* (The mayor claims not to have taken any money.)
 
 ## Reported speech in the news *(receptive)*
 
@@ -153,7 +153,7 @@ Several German newsrooms run their own fact-checking teams (*der Faktencheck*), 
 
 Article 5 of the Basic Law protects the freedom of the press (*die Pressefreiheit*) and says, in four words: *Eine Zensur findet nicht statt.* (There is no censorship.) Newspapers in Germany have also set themselves rules: the press code (*der Pressekodex*) of the German Press Council (*der Deutsche Presserat*), which, for example, asks journalists to check information carefully and to correct mistakes.
 
-Besides private media, Germany has public broadcasters (*der öffentlich-rechtliche Rundfunk*): the ARD, the ZDF and Deutschlandradio. They are financed mainly by a fee that every household pays (*der Rundfunkbeitrag*), not by the state budget, and they are meant to be independent of the government. How much they should cost and how balanced they are is a regular subject of political debate.
+Besides private media, Germany has public broadcasters (*der öffentlich-rechtliche Rundfunk*): the ARD, the ZDF and Deutschlandradio. They are financed mainly by a fee charged per household (*der Rundfunkbeitrag*; some people, for example those on certain benefits, are exempt), not by the state budget, and they are meant to be independent of the government. How much they should cost and how balanced they are is a regular subject of political debate.
 
 ## Common mistakes
 

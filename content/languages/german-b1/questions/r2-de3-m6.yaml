@@ -448,13 +448,13 @@
   topic: Reading the news
   type: label
   stem: 'Find the reporting signals in this article. Name each numbered part.'
-  image: {src: images/de3-m6-news-blank.svg, alt: 'A short news article headed Brücke bleibt gesperrt. 1 is above the words „Wir arbeiten so, the start of a quotation. 2 is above the word sei. 3 is above the word erklärte. 4 is above Einem Gutachten zufolge. 5 is above the word angeblich.'}
+  image: {src: images/de3-m6-news-blank.svg, alt: 'A short news article headed Brücke bleibt gesperrt, with five parts in dashed boxes, each followed by a number. 1 follows the words „Wir arbeiten so, the start of a quotation. 2 follows the word sei. 3 follows the word erklärte. 4 follows Einem Gutachten zufolge. 5 follows the word angeblich.'}
   labels:
-    - {x: 55.3, y: 46.1, text: Direct quotation}
-    - {x: 60.7, y: 29.6, text: Konjunktiv I verb}
-    - {x: 61.2, y: 37.9, text: Reporting verb}
-    - {x: 21.2, y: 62.5, text: Source named with zufolge}
-    - {x: 35.3, y: 78.9, text: Distancing adverb}
+    - {x: 70.9, y: 50.5, text: Direct quotation}
+    - {x: 66.6, y: 34.1, text: Konjunktiv I verb}
+    - {x: 70.5, y: 42.3, text: Reporting verb}
+    - {x: 49.5, y: 67.0, text: Source named with zufolge}
+    - {x: 65.9, y: 83.4, text: Distancing adverb}
   distractors: [Konjunktiv II verb, Passive verb]
   explanation: |-
     The words in German quotation marks („ … “) are direct speech (1). sei is the Konjunktiv I of sein (2), introduced by the reporting verb erklärte (3). "Einem Gutachten zufolge" names the source, with zufolge after a dative noun (4), and angeblich (supposedly) keeps a distance (5). There's no Konjunktiv II and no werden-passive in the article.

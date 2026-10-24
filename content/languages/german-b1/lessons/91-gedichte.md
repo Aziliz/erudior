@@ -40,12 +40,9 @@ To describe how a poem rhymes, give each new rhyme sound a letter: the first is 
 
 A small example of couplet rhyme, written for this course:
 
-> Im Garten blüht der erste Baum,
->
-> der Winter war ein langer Traum.
->
-> Die Kinder rennen aus dem Haus,
->
+> Im Garten blüht der erste Baum,\
+> der Winter war ein langer Traum.\
+> Die Kinder rennen aus dem Haus,\
 > der Frühling ruft: „Kommt alle raus!“
 
 *Baum / Traum* is *a*, *Haus / raus* is *b*: *aabb*. (In the garden the first tree is blooming, the winter was a long dream. The children run out of the house, spring calls: "Everybody come out!")
@@ -56,35 +53,26 @@ A rhyme starts at the last stressed vowel: *Nacht* and *sacht* rhyme from the *a
 
 Joseph von Eichendorff (1788–1857) was one of the great poets of German Romanticism, the movement that loved nature, night, longing and the feeling of being far from home. He published *Mondnacht* (Moonlit Night) in 1837, and Robert Schumann set it to music in 1840. The text here is in modern spelling; Eichendorff wrote *geküßt*, *Daß* and *müßt'*.
 
-> Es war, als hätt' der Himmel
->
-> Die Erde still geküsst,
->
-> Dass sie im Blütenschimmer
->
+> Es war, als hätt' der Himmel\
+> Die Erde still geküsst,\
+> Dass sie im Blütenschimmer\
 > Von ihm nun träumen müsst'.
 >
-> Die Luft ging durch die Felder,
->
-> Die Ähren wogten sacht,
->
-> Es rauschten leis die Wälder,
->
+> Die Luft ging durch die Felder,\
+> Die Ähren wogten sacht,\
+> Es rauschten leis die Wälder,\
 > So sternklar war die Nacht.
 >
-> Und meine Seele spannte
->
-> Weit ihre Flügel aus,
->
-> Flog durch die stillen Lande,
->
+> Und meine Seele spannte\
+> Weit ihre Flügel aus,\
+> Flog durch die stillen Lande,\
 > Als flöge sie nach Haus.
 
 A plain translation: *It was as if the sky had quietly kissed the earth, so that, in the shimmer of blossom, she now had to dream of him. The air moved through the fields, the ears of grain swayed gently, the forests rustled softly, so starry-clear was the night. And my soul spread its wings wide, flew through the silent lands, as if it were flying home.*
 
 Words: *der Schimmer* (shimmer, glow), *die Blüte* (blossom), *die Ähre* (ear of grain), *wogen* (to sway, surge like waves), *sacht* (gently), *rauschen* (to rustle, murmur), *die Seele* (soul), *der Flügel* (wing).
 
-Two things to notice first. The grammar you know from lessons 21–23 is everywhere: *als hätt' der Himmel … geküsst* and *als flöge sie* are *als ob* sentences with the verb moved forward, in Konjunktiv II: "as if the sky had kissed", "as if it were flying". The whole poem is a comparison with something unreal. And the poem uses grammatical gender: *der Himmel* is masculine and *die Erde* feminine, so *sie* (she, the earth) dreams *von ihm* (of him, the sky). In English the love story disappears; in German it's built into the articles.
+Two things to notice first. The grammar you know from lessons 21–23 is everywhere: *als hätt' der Himmel … geküsst* and *als flöge sie* are *als ob* sentences with the verb moved forward, in Konjunktiv II: "as if the sky had kissed", "as if it were flying". The poem opens and closes with a comparison to something unreal. And the poem uses grammatical gender: *der Himmel* is masculine and *die Erde* feminine, so *sie* (she, the earth) dreams *von ihm* (of him, the sky). In English the love story disappears; in German it's built into the articles.
 
 The old and poetic forms are all still understandable (honors lesson 25h2 has more one-word Konjunktiv forms like *flöge*):
 
@@ -120,22 +108,16 @@ Heinrich Heine (1797–1856) was born in Düsseldorf into a Jewish family and li
 
 The first stanza:
 
-> Ich weiß nicht, was soll es bedeuten,
->
-> Dass ich so traurig bin;
->
-> Ein Märchen aus alten Zeiten,
->
+> Ich weiß nicht, was soll es bedeuten,\
+> Dass ich so traurig bin;\
+> Ein Märchen aus alten Zeiten,\
 > Das kommt mir nicht aus dem Sinn.
 
 And the last:
 
-> Ich glaube, die Wellen verschlingen
->
-> Am Ende Schiffer und Kahn;
->
-> Und das hat mit ihrem Singen
->
+> Ich glaube, die Wellen verschlingen\
+> Am Ende Schiffer und Kahn;\
+> Und das hat mit ihrem Singen\
 > Die Lore-Ley getan.
 
 Translation: *I don't know what it should mean that I am so sad; a tale from olden times won't leave my mind. … I believe the waves in the end swallow up the boatman and his boat; and that is what the Lorelei did with her singing.*
