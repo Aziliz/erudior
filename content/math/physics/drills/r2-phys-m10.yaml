@@ -100,14 +100,14 @@
   where: ['abs(phi) > 5', 'abs(phi) < 80', 'abs(phi + 15.54) > 0.3']
   prompt: 'A series circuit with $R = {R:dp0}\ \Omega$, $L = {LmH:dp0}$ mH and $C = {CuF:dp0}\ \mu$F is driven by a 120 V (rms), 60 Hz source. Find the phase angle $\varphi$ (in degrees to the nearest 0.1°, negative if the current leads), the power factor (to 3 decimal places), and the average power (W, to 3 significant figures).'
   answers:
-    - {name: phi, label: '$\varphi$ (degrees)', tolerance: 0.06}
-    - {name: pf, label: 'Power factor', tolerance: 0.0006}
+    - {name: phi, label: '$\varphi$ (degrees)', format: num1, tolerance: 0.06}
+    - {name: pf, label: 'Power factor', format: dp3, tolerance: 0.0006}
     - {format: sig4, name: P, label: 'Average power', relTolerance: 0.01, units: {W: 1, kW: 1000}}
   solution: |-
     $\omega = 2\pi(60) = 377$ rad/s. $X_L = \omega L = {XL:num2}\ \Omega$, $X_C = \dfrac{1}{\omega C} = {XC:num2}\ \Omega$.
 
     $Z = \sqrt{R^2 + (X_L - X_C)^2} = {Z:num2}\ \Omega$, so $I_{\text{rms}} = 120/Z = {Irms:sig4}$ A.
 
-    Phase angle: $\tan\varphi = \dfrac{X_L - X_C}{R}$, so $\varphi =$ **{phi:num1}°**. Power factor: $\cos\varphi = R/Z =$ **{pf:dp3}**.
+    Phase angle: $\tan\varphi = \dfrac{X_L - X_C}{\,R}$, so $\varphi =$ **{phi:num1}°**. Power factor: $\cos\varphi = R/Z =$ **{pf:dp3}**.
 
     Average power: $P = I_{\text{rms}}^2R = I_{\text{rms}}V_{\text{rms}}\cos\varphi =$ **{P:sig3} W**.

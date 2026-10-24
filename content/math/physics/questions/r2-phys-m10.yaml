@@ -121,7 +121,7 @@
     - 'Inside a 0.40 m solenoid with 2000 turns carrying 3.0 A'
     - 'Inside a hospital MRI scanner'
   explanation: |-
-    From the lesson: the power line gives $\mu_0I/(2\pi r) = 4.0\times10^{-6}$ T; Earth's field is about $5\times10^{-5}$ T; the solenoid gives $\mu_0nI = 1.9\times10^{-2}$ T; an MRI scanner is 1.5–3 T. Each is roughly ten to a hundred times the one before.
+    From the lesson: the power line gives $\mu_0I/(2\pi r) = 4.0\times10^{-6}$ T; Earth's field is about $5\times10^{-5}$ T; the solenoid gives $\mu_0nI = 1.9\times10^{-2}$ T; an MRI scanner is 1.5–3 T. Each is at least ten times the one before (the solenoid is a few hundred times Earth's field).
 
 # ---- Core: phys-induction
 - id: phys-m10-r2-q11
@@ -364,7 +364,7 @@
   choices: ['The magnetic force stops acting on fast particles', 'The particles start to radiate all their energy away instantly', 'Their orbit period grows (a relativistic effect), so they fall out of step with the voltage', 'The dees become too hot to hold a voltage']
   answer: 2
   explanation: |-
-    The speed-independent period $2\pi m/(|q|B)$ is only true well below light speed. Near it, special relativity makes the period grow with energy, so the ions arrive at the gap later and later and are no longer accelerated. Synchrocyclotrons lower the frequency to keep in step; synchrotrons raise the field. (Fast particles do radiate in magnetic fields, but that isn't what limits a cyclotron.)
+    The speed-independent period $2\pi m/(|q|B)$ is only true well below light speed. Near it, special relativity makes the period grow with energy, so the ions arrive at the gap later and later and are no longer accelerated. Synchrocyclotrons lower the frequency to keep in step; synchrotrons raise the field (and adjust the frequency) as the particles gain energy. (Fast particles do radiate in magnetic fields, but that isn't what limits a cyclotron.)
 
 # ---- Honors: phys-m10-h-ac-power
 - id: phys-m10-r2-h15
@@ -427,7 +427,7 @@
   choices: ['100 V', '300 V', '140 V', '189 V']
   answer: 0
   explanation: |-
-    The voltages add as phasors: $V = \sqrt{V_R^2 + (V_L - V_C)^2} = \sqrt{60^2 + 80^2} = 100$ V. Adding them as numbers gives 300 V; $60 + 80$ gives 140 V; squaring all three separately gives 189 V. The inductor's 160 V really is larger than the source's 100 V, because $V_L$ and $V_C$ partly cancel.
+    The voltages add as phasors: $V = \sqrt{V_R^2 + (V_L - V_C)^2} = \sqrt{60^2 + 80^2} = 100$ V. Adding them as numbers gives 300 V; adding $V_R$ and $V_L - V_C$ as plain numbers ($60 + 80$) gives 140 V; squaring all three separately gives 189 V. The inductor's 160 V really is larger than the source's 100 V, because $V_L$ and $V_C$ partly cancel.
 - id: phys-m10-r2-h22
   lesson: phys-m10-h-ac-power
   type: label

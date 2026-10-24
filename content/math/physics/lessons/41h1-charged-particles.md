@@ -37,7 +37,7 @@ Period: $T = \dfrac{2\pi(9.11\times10^{-31})}{(1.6\times10^{-19})(1.0\times10^{-
 
 Pitch: $p = v_\parallel T = (1.73\times10^6)(3.58\times10^{-8}) = 0.062$ m $= 6.2$ cm, about eleven times the radius: a long, stretched helix, because most of the velocity is along the field.
 
-*Magnetic bottles (a simplified picture).* Where field lines crowd together, the field is stronger, and a spiraling particle feels a small force component pushing it back toward the weaker region. If the field is strong enough, the particle's motion along the field stops and reverses, so it bounces. A field that is weak in the middle and strong at both ends, a **magnetic mirror**, can trap particles bouncing back and forth. Earth's field is shaped like this, strong near both poles, and it traps charged particles in the Van Allen radiation belts. Particles that reach low enough near the poles collide with the upper atmosphere and make the aurora. (The full theory involves the particle's magnetic moment and is beyond this course; the point here is only that spiraling particles follow field lines.)
+*Magnetic bottles (a simplified picture).* Where field lines crowd together, the field is stronger, and a spiraling particle feels a small force component pushing it back toward the weaker region. If the field grows enough (how much is enough depends on the angle at which the particle spirals), the particle's motion along the field stops and reverses, so it bounces. A field that is weak in the middle and strong at both ends, a **magnetic mirror**, can trap particles bouncing back and forth. Earth's field is shaped like this, strong near both poles, and it traps charged particles in the Van Allen radiation belts. Separately, charged particles guided down the field lines at high latitudes (mostly electrons from farther out in the magnetosphere, not the belt particles themselves) collide with the upper atmosphere and make the aurora. (The full theory involves the particle's magnetic moment and is beyond this course; the point here is only that spiraling particles follow field lines.)
 
 ## The cyclotron
 
@@ -80,7 +80,7 @@ With $E = 2.0\times10^4$ V/m and $B = 1.0\times10^{-3}$ T, a beam of electrons g
 
 Speed: $v = E/B = 2.0\times10^7$ m/s.
 
-Ratio: $\dfrac em = \dfrac{E}{B^2r} = \dfrac{2.0\times10^4}{(1.0\times10^{-3})^2(0.114)} = 1.75\times10^{11}$ C/kg, within 1% of the accepted $1.76\times10^{11}$ C/kg. For comparison, a hydrogen ion's ratio is about 1800 times smaller, which is how Thomson knew these particles were far lighter than atoms.
+Ratio: $\dfrac em = \dfrac{E}{B^2r} = \dfrac{2.0\times10^4}{(1.0\times10^{-3})^2(0.114)} = 1.75\times10^{11}$ C/kg, within 1% of the accepted $1.76\times10^{11}$ C/kg. For comparison, a hydrogen ion's ratio is about 1800 times smaller. A larger $e/m$ could mean a larger charge or a smaller mass; Thomson argued, and his later charge measurements supported, that the charge was about the same as a hydrogen ion's, so these particles had to be far lighter than atoms.
 
 ## The Hall effect
 
