@@ -56,6 +56,19 @@ function tickStep(span: number, target = 8): number {
   return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p;
 }
 
+/** Multiples of `step` from a to b, computed from whole counts and rounded (no 0.30000000000000004 drift). */
+function gridValues(a: number, b: number, step: number): number[] {
+  if (!(step > 0)) return [];
+  const out: number[] = [];
+  const first = Math.ceil(a / step - 1e-9);
+  for (let k = first; k * step <= b + 1e-9 * Math.max(1, Math.abs(b)); k++) {
+    const v = Number((k * step).toPrecision(12));
+    out.push(Object.is(v, -0) ? 0 : v);
+    if (out.length > 2000) break;
+  }
+  return out;
+}
+
 const fmtTick = (v: number) => String(Number(v.toPrecision(6)));
 
 export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {}, funcs: Record<string, UserFn> = {}): string {
@@ -91,7 +104,10 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
   const H = isLine ? 64 : isPlot && spec.equal ? Math.round(Math.max(W * 0.4, Math.min(W * 1.2, (W * (y1 - y0)) / (x1 - x0)))) : isPlot ? Math.round(W * 0.75) : Math.round(Math.min(W * 1.2, (W * (y1 - y0)) / (x1 - x0)));
   const pad = isPlot || isLine ? 28 : 16;
   const sx = (x: number) => pad + ((x - x0) / (x1 - x0)) * (W - 2 * pad);
-  const sy = (y: number) => H - pad - ((y - y0) / (y1 - y0)) * (H - 2 * pad);
+  // Bar charts put the x title under the axis (tall bars on the right would cover it), so leave room.
+  const barTitle = isPlot && spec.grid !== false && !!spec.bars?.length && !!spec.xLabel;
+  const padB = barTitle ? pad + 14 : pad;
+  const sy = (y: number) => H - padB - ((y - y0) / (y1 - y0)) * (H - pad - padB);
   const P = (p: Pt) => [sx(num(p[0], ctx)), sy(num(p[1], ctx))] as const;
   const out: string[] = [];
   const cls = (base: string, color?: string, i = 0) => `${base} c${color ? "" : i % PALETTE}`;
@@ -109,20 +125,29 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
   if (isPlot && spec.grid !== false) {
     const tx = tickStep(x1 - x0);
     const ty = tickStep(y1 - y0);
-    for (let v = Math.ceil(x0 / tx) * tx; v <= x1 + 1e-9; v += tx)
-      out.push(`<line class="fig-grid" x1="${sx(v)}" y1="${sy(y0)}" x2="${sx(v)}" y2="${sy(y1)}"/>`);
-    for (let v = Math.ceil(y0 / ty) * ty; v <= y1 + 1e-9; v += ty)
-      out.push(`<line class="fig-grid" x1="${sx(x0)}" y1="${sy(v)}" x2="${sx(x1)}" y2="${sy(v)}"/>`);
-    // Axes, at zero when visible, else along the edge.
-    const ax = y0 <= 0 && y1 >= 0 ? 0 : y0;
-    const ay = x0 <= 0 && x1 >= 0 ? 0 : x0;
+    for (const v of gridValues(x0, x1, tx)) out.push(`<line class="fig-grid" x1="${sx(v)}" y1="${sy(y0)}" x2="${sx(v)}" y2="${sy(y1)}"/>`);
+    for (const v of gridValues(y0, y1, ty)) out.push(`<line class="fig-grid" x1="${sx(x0)}" y1="${sy(v)}" x2="${sx(x1)}" y2="${sy(v)}"/>`);
+    // Axes, at zero when visible, else along the edge (or on the edge when asked).
+    const ax = spec.xAxisAt !== "bottom" && y0 <= 0 && y1 >= 0 ? 0 : y0;
+    const ay = spec.yAxisAt !== "left" && x0 <= 0 && x1 >= 0 ? 0 : x0;
     out.push(`<line class="fig-axis" x1="${sx(x0)}" y1="${sy(ax)}" x2="${sx(x1)}" y2="${sy(ax)}"/>`);
     out.push(`<line class="fig-axis" x1="${sx(ay)}" y1="${sy(y0)}" x2="${sx(ay)}" y2="${sy(y1)}"/>`);
-    for (let v = Math.ceil(x0 / tx) * tx; v <= x1 + 1e-9; v += tx)
-      if (Math.abs(v) > 1e-9) out.push(`<text class="fig-tick" x="${sx(v)}" y="${sy(ax) + 13}" text-anchor="middle">${fmtTick(v)}</text>`);
-    for (let v = Math.ceil(y0 / ty) * ty; v <= y1 + 1e-9; v += ty)
-      if (Math.abs(v) > 1e-9) out.push(`<text class="fig-tick" x="${sx(ay) - 5}" y="${sy(v) + 4}" text-anchor="end">${fmtTick(v)}</text>`);
-    out.push(`<text class="fig-tick" x="${sx(x1) - 4}" y="${sy(ax) - 6}" text-anchor="end">${esc(spec.xLabel ?? "x")}</text>`);
+    // Bars that all carry names put them on the tick row, so the x numbers would collide with them.
+    const barLabels = !!spec.bars?.length && spec.bars.every((b) => b.label);
+    // Zero is skipped where both axes cross at it; on an edge axis it's a real tick.
+    const skip0x = ay === 0;
+    const skip0y = ax === 0;
+    if (!barLabels)
+      for (const v of gridValues(x0, x1, tx))
+        if (!(skip0x && v === 0)) {
+          // A number right under an edge y-axis would be cut by it; start it just past the axis.
+          const edge = v === ay && ay !== 0;
+          out.push(`<text class="fig-tick" x="${sx(v) + (edge ? 3 : 0)}" y="${sy(ax) + 13}" text-anchor="${edge ? "start" : "middle"}">${fmtTick(v)}</text>`);
+        }
+    for (const v of gridValues(y0, y1, ty))
+      if (!(skip0y && v === 0)) out.push(`<text class="fig-tick" x="${sx(ay) - 5}" y="${sy(v) + 4}" text-anchor="end">${fmtTick(v)}</text>`);
+    if (barTitle) out.push(`<text class="fig-tick" x="${(sx(x0) + sx(x1)) / 2}" y="${sy(y0) + (ax === y0 ? 29 : 14)}" text-anchor="middle">${esc(spec.xLabel!)}</text>`);
+    else out.push(`<text class="fig-tick" x="${sx(x1) - 4}" y="${sy(ax) - 6}" text-anchor="end">${esc(spec.xLabel ?? "x")}</text>`);
     out.push(`<text class="fig-tick" x="${sx(ay) + 6}" y="${sy(y1) + 12}">${esc(spec.yLabel ?? "y")}</text>`);
   }
 
@@ -130,7 +155,7 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const tx = tickStep(x1 - x0, 10);
     const yy = sy(0);
     out.push(`<line class="fig-axis" x1="${sx(x0) - 10}" y1="${yy}" x2="${sx(x1) + 10}" y2="${yy}" marker-start="url(#${id}-arrow)" marker-end="url(#${id}-arrow)"/>`);
-    for (let v = Math.ceil(x0 / tx) * tx; v <= x1 + 1e-9; v += tx) {
+    for (const v of gridValues(x0, x1, tx)) {
       out.push(`<line class="fig-axis" x1="${sx(v)}" y1="${yy - 5}" x2="${sx(v)}" y2="${yy + 5}"/>`);
       out.push(`<text class="fig-tick" x="${sx(v)}" y="${yy + 19}" text-anchor="middle">${fmtTick(Math.abs(v) < 1e-9 ? 0 : v)}</text>`);
     }
@@ -153,8 +178,8 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const node = parse(spec.slopeField.f, { implicit: true, funcNames: Object.keys(ctx.funcs), vars: [...Object.keys(ctx.scope), "x", "y"] });
     const st = gridStep(spec.slopeField.step);
     const len = 0.35 * Math.min(sx(x0 + st) - sx(x0), sy(y0) - sy(y0 + st));
-    for (let gx = Math.ceil(x0 / st) * st; gx <= x1 + 1e-9; gx += st)
-      for (let gy = Math.ceil(y0 / st) * st; gy <= y1 + 1e-9; gy += st) {
+    for (const gx of gridValues(x0, x1, st))
+      for (const gy of gridValues(y0, y1, st)) {
         let m: number;
         try {
           m = evalNode(node, { scope: { ...ctx.scope, x: gx, y: gy }, funcs: ctx.funcs });
@@ -176,23 +201,29 @@ export function renderFigure(spec: FigureSpec, scope: Record<string, number> = {
     const vn = parse(spec.vectorField.v, { implicit: true, funcNames: Object.keys(ctx.funcs), vars });
     const st = gridStep(spec.vectorField.step);
     const cells: [number, number, number, number][] = [];
-    let maxLen = 0;
-    for (let gx = Math.ceil(x0 / st) * st; gx <= x1 + 1e-9; gx += st)
-      for (let gy = Math.ceil(y0 / st) * st; gy <= y1 + 1e-9; gy += st) {
+    for (const gx of gridValues(x0, x1, st))
+      for (const gy of gridValues(y0, y1, st)) {
         try {
           const env = { scope: { ...ctx.scope, x: gx, y: gy }, funcs: ctx.funcs };
           const [u, v] = [evalNode(un, env), evalNode(vn, env)];
           if (!Number.isFinite(u) || !Number.isFinite(v)) continue;
           cells.push([gx, gy, u, v]);
-          maxLen = Math.max(maxLen, Math.hypot(u, v));
         } catch {
           continue;
         }
       }
+    // Scale to the longest arrow, unless a few arrows near a singularity dwarf the rest: then scale
+    // to the 95th percentile and cap the outliers at full length so the field stays readable.
+    const lens = cells.map(([, , u, v]) => Math.hypot(u, v)).sort((a, b) => a - b);
+    let maxLen = lens[lens.length - 1] ?? 0;
+    const p95 = lens[Math.floor(0.95 * (lens.length - 1))] ?? 0;
+    if (lens.length >= 20 && p95 > 0 && maxLen > 3 * p95) maxLen = p95;
     const scale = maxLen ? (0.85 * st) / maxLen : 0;
     for (const [gx, gy, u, v] of cells) {
-      if (Math.hypot(u, v) * scale < 1e-9) continue;
-      out.push(`<line class="fig-field" x1="${sx(gx)}" y1="${sy(gy)}" x2="${sx(gx + u * scale)}" y2="${sy(gy + v * scale)}" marker-end="url(#${id}-arrow)"/>`);
+      const L = Math.hypot(u, v);
+      if (L * scale < 1e-9) continue;
+      const k = L > maxLen ? (scale * maxLen) / L : scale;
+      out.push(`<line class="fig-field" x1="${sx(gx)}" y1="${sy(gy)}" x2="${sx(gx + u * k)}" y2="${sy(gy + v * k)}" marker-end="url(#${id}-arrow)"/>`);
     }
   }
 

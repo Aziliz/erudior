@@ -1,5 +1,6 @@
 import { evaluate, compileFuncs } from "../src/lib/expr.ts";
 import { generate, checkAll, formatNum } from "../src/lib/drills.ts";
+import { renderFigure } from "../src/lib/figure.ts";
 let fails = 0;
 const eq = (name: string, got: number, want: number, tol = 1e-6) => {
   const ok = Math.abs(got - want) <= tol * Math.max(1, Math.abs(want));
@@ -99,4 +100,14 @@ for (const [v, f, want] of [[1.8, "sig3", "1.80"], [12345, "sig3", "12300"], [0.
   const got = formatNum(v, f);
   if (got !== want) { fails++; console.log("FAIL sig format", v, f, got); }
 }
+// Figures: field grids land exactly on the singularity (skipped), outlier arrows are capped,
+// fully labelled bars drop the x numbers, and the y-axis can sit on the left edge.
+{ const svg = renderFigure({ type: "plot", x: [-2, 2], y: [-2, 2], vectorField: { u: "x/(x^2+y^2)^1.5", v: "y/(x^2+y^2)^1.5", step: 0.4 } } as any);
+  const lens = [...svg.matchAll(/class="fig-field" x1="([\d.]+)" y1="([\d.]+)" x2="([\d.]+)" y2="([\d.]+)"/g)].map((m) => Math.hypot(+m[3] - +m[1], +m[4] - +m[2]));
+  const sorted = [...lens].sort((a, b) => a - b);
+  if (!lens.length || svg.includes("NaN") || sorted[Math.floor(lens.length / 2)] < 1 || sorted[lens.length - 1] > 40) { fails++; console.log("FAIL vector field scaling", sorted[Math.floor(lens.length / 2)], sorted[lens.length - 1]); } }
+{ const bars = renderFigure({ type: "plot", x: [0, 3], y: [0, 5], bars: [{ x: 1, height: 2, label: "A" }, { x: 2, height: 3, label: "B" }] } as any);
+  if (/>1<\/text>/.test(bars.replace(/text-anchor="end">\d/g, "")) || !bars.includes(">A<")) { fails++; console.log("FAIL bar labels vs ticks"); }
+  const left = renderFigure({ type: "plot", x: [-4, 4], y: [-2, 6], yAxisAt: "left" } as any);
+  if (!left.includes(">0</text>")) { fails++; console.log("FAIL yAxisAt left keeps the 0 tick"); } }
 console.log(fails ? `${fails} FAILURES` : "all engine tests passed");

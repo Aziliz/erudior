@@ -311,6 +311,10 @@ export interface FigureSpec {
   y?: [number | string, number | string];
   /** Grid and axes (plot only). Default true. */
   grid?: boolean;
+  /** Where the y-axis (and its numbers) sits: at x = 0 when visible (default) or along the left edge. */
+  yAxisAt?: "zero" | "left";
+  /** Where the x-axis (and its numbers) sits: at y = 0 when visible (default) or along the bottom edge. */
+  xAxisAt?: "zero" | "bottom";
   /** Functions to graph: "f" (a drill function), or an expression in x like "2x + 1". */
   functions?: (string | { f: string; label?: string; color?: string; dashed?: boolean; from?: number | string; to?: number | string })[];
   /** Points: [x, y] or { at: [x, y], label?, open? }. */

@@ -4,7 +4,8 @@
 // Writes <outdir>/<lesson>-fig<N>.png for each block (N counts from 1 in file order) and prints
 // the paths. --width sets the lesson column width in px (default 680, about the app's column).
 // PLAYWRIGHT_MODULE overrides where Playwright is found (e.g. a global install).
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import { build } from "esbuild";
 import { mkdirSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";

@@ -187,11 +187,11 @@ Drills can have a `figure` (or a list of them); lessons can include them as fenc
 ```
 
 - `type`: `plot` (grid, axes and ticks), `shape` (a plain diagram with true proportions; the view fits the shapes when `x`/`y` are left out), or `numberline` (one horizontal line over the `x` range; put points and segments at y = 0, e.g. an open point and an arrow for $x > 2$). Lessons use ` ```numberline ` blocks for these.
-- `xLabel`, `yLabel`: axis titles for plots (default x and y). `equal: true` gives a plot the same scale on both axes so circles look round.
+- `xLabel`, `yLabel`: axis titles for plots (default x and y). `equal: true` gives a plot the same scale on both axes so circles look round. `"yAxisAt": "left"` and `"xAxisAt": "bottom"` move an axis and its numbers to the edge (useful when numbers at x = 0 would sit on the data); `"grid": false` hides grid and axes.
 - `curves`: parametric curves `{ "x": "3cos(t)", "y": "2sin(t)", "t": [0, "2pi"] }`; polar curves as `r(t)cos(t)`, `r(t)sin(t)`.
 - `slopeField`: `{ "f": "x - y", "step": 0.5 }` draws the slope field of dy/dx = f(x, y).
-- `vectorField`: `{ "u": "-y", "v": "x", "step": 1 }` draws arrows scaled to fit.
-- `bars`: `[{ "x": 1, "height": 4, "width": 1, "label": "A" }, …]` for histograms and bar charts.
+- `vectorField`: `{ "u": "-y", "v": "x", "step": 1 }` draws arrows scaled to fit; when a few arrows near a singularity are far longer than the rest, they are capped so the others stay visible.
+- `bars`: `[{ "x": 1, "height": 4, "width": 1, "label": "A" }, …]` for histograms and bar charts. When bars have labels, the x-axis numbers are left out so the two don't overlap.
 - `functions`: a drill function name or an expression in `x`; optional `label`, `color`, `dashed`, `from`, `to`. Curves break at asymptotes and are clipped to the view.
 - `tangents`, `shade` (between `f` and the x-axis, or `g`), `points`, `segments` (`from`, `to`, `label`, `arrow`, `dashed`), `polygons`, `circles` (`center`, `r`), `labels` (`at`, `text`), `rightAngles` (`[vertex, a, b]`), `width`, `caption`. Text fields can use `{placeholders}`.
 

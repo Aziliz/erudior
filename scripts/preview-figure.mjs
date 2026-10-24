@@ -5,7 +5,8 @@
 // source and are drawn with the app's light (or --dark) colors. Labels for a label question
 // can be checked with --markers '[{"x":30,"y":40},…]' (percent positions, numbered 1, 2, …).
 // PLAYWRIGHT_MODULE overrides where Playwright is found (e.g. a global install).
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const { chromium } = pw.chromium ? pw : pw.default;
 import { readFileSync } from "node:fs";
 import path from "node:path";
 

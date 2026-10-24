@@ -147,7 +147,7 @@ A flow cytometer measures the DNA content of thousands of dye-stained cells. G1 
 A culture with a 20-hour cycle is analyzed before and after 16 hours with a drug that inhibits CDK1.
 
 ```plot
-{"x": [0, 6], "y": [0, 100], "xLabel": "DNA content per cell", "yLabel": "percent of cells", "bars": [{"x": 1, "height": 50, "width": 0.8, "label": "2C"}, {"x": 2, "height": 30, "width": 0.8, "label": "2C-4C"}, {"x": 3, "height": 20, "width": 0.8, "label": "4C"}, {"x": 4.2, "height": 5, "width": 0.4}, {"x": 4.6, "height": 7, "width": 0.4}, {"x": 5.0, "height": 88, "width": 0.4}], "labels": [{"at": [2, 70], "text": "untreated"}, {"at": [4.6, 95], "text": "after CDK1 inhibitor"}], "caption": "Left: an untreated culture (50% 2C, 30% between, 20% 4C). Right: the same culture after the drug (5% 2C, 7% between, 88% 4C)."}
+{"x": [0.2, 7.8], "y": [0, 100], "xLabel": "DNA content per cell", "yLabel": "percent of cells", "bars": [{"x": 1, "height": 50, "width": 0.8, "label": "2C"}, {"x": 2, "height": 30, "width": 0.8, "label": "2C-4C"}, {"x": 3, "height": 20, "width": 0.8, "label": "4C"}, {"x": 5, "height": 5, "width": 0.8, "label": "2C"}, {"x": 6, "height": 7, "width": 0.8, "label": "2C-4C"}, {"x": 7, "height": 88, "width": 0.8, "label": "4C"}], "labels": [{"at": [2, 70], "text": "untreated"}, {"at": [6, 96], "text": "after CDK1 inhibitor"}], "caption": "Left: an untreated culture (50% 2C, 30% between, 20% 4C). Right: the same culture after the drug (5% 2C, 7% between, 88% 4C)."}
 ```
 
 How long are G1, S and G2 + M, and what did the drug do?

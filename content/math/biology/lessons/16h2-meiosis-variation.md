@@ -58,7 +58,7 @@ The sex chromosomes give some neat tests of the logic. A 47,XYY person usually r
 The risk of a trisomy 21 birth rises steeply with maternal age (approximate figures):
 
 ```plot
-{"x": [20, 50], "y": [0, 36], "xLabel": "mother's age at delivery (years)", "yLabel": "trisomy 21 births per 1,000", "bars": [{"x": 25, "height": 0.8, "width": 3, "label": "0.8"}, {"x": 30, "height": 1.1, "width": 3, "label": "1.1"}, {"x": 35, "height": 2.9, "width": 3, "label": "2.9"}, {"x": 40, "height": 10, "width": 3, "label": "10"}, {"x": 45, "height": 33, "width": 3, "label": "33"}], "caption": "Approximate risk of a birth with trisomy 21: about 1 in 1,250 at age 25, 1 in 950 at 30, 1 in 350 at 35, 1 in 100 at 40, and 1 in 30 at 45"}
+{"x": [20, 50], "y": [0, 36], "xLabel": "mother's age at delivery (years)", "yLabel": "trisomy 21 births per 1,000", "bars": [{"x": 25, "height": 0.8, "width": 3}, {"x": 30, "height": 1.1, "width": 3}, {"x": 35, "height": 2.9, "width": 3}, {"x": 40, "height": 10, "width": 3}, {"x": 45, "height": 33, "width": 3}], "caption": "Approximate risk of a birth with trisomy 21: about 1 in 1,250 at age 25, 1 in 950 at 30, 1 in 350 at 35, 1 in 100 at 40, and 1 in 30 at 45", "labels": [{"at": [25, 2.42], "text": "0.8"}, {"at": [30, 2.72], "text": "1.1"}, {"at": [35, 4.52], "text": "2.9"}, {"at": [40, 11.62], "text": "10"}, {"at": [45, 34.62], "text": "33"}]}
 ```
 
 ## Counting the possible gametes
