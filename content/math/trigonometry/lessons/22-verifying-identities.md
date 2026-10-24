@@ -104,7 +104,7 @@ identity. (It is true at $x = 0$, which shows why checking one value can't *prov
 identity.)
 
 ```plot
-{"x": [-3.2, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)", "label": "sin x + cos x"}, {"f": "1", "dashed": true, "label": "y = 1"}], "points": [{"at": [0, 1]}, {"at": [1.5708, 1]}], "caption": "sin x + cos x equals 1 only at isolated points such as x = 0 and x = π/2, so the equation is not an identity"}
+{"x": [-3.2, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)"}, {"f": "1", "dashed": true}], "points": [{"at": [0, 1]}, {"at": [1.5708, 1]}, {"at": [6.2832, 1]}], "labels": [{"at": [1.6, 1.53], "text": "sin x + cos x"}, {"at": [4.6, 1.1], "text": "y = 1"}], "caption": "sin x + cos x equals 1 only at isolated points such as x = 0, π/2 and 2π, so the equation is not an identity"}
 ```
 
 ```plot

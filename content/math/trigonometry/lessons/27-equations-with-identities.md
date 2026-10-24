@@ -105,7 +105,7 @@ The graph shows why: $\sin x + \cos x$ meets the line $y = 1$ at the two real so
 the two extraneous ones.
 
 ```plot
-{"x": [0, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)", "label": "sin x + cos x"}, {"f": "1", "dashed": true, "label": "y = 1"}, {"f": "-1", "dashed": true, "label": "y = −1"}], "points": [{"at": [0, 1], "label": "0"}, {"at": [1.5708, 1], "label": "π/2"}, {"at": [3.1416, -1], "label": "π"}, {"at": [4.7124, -1], "label": "3π/2"}], "caption": "Squaring merges sin x + cos x = 1 with sin x + cos x = −1; only the crossings with y = 1 solve the original"}
+{"x": [0, 6.4], "y": [-1.7, 1.7], "functions": [{"f": "sin(x) + cos(x)"}, {"f": "1", "dashed": true}, {"f": "-1", "dashed": true}], "points": [{"at": [0, 1]}, {"at": [1.5708, 1], "label": "π/2"}, {"at": [3.1416, -1]}, {"at": [4.7124, -1]}], "labels": [{"at": [0.2, 0.78], "text": "0"}, {"at": [2.95, -1.25], "text": "π"}, {"at": [5.05, -1.25], "text": "3π/2"}, {"at": [2.4, 1.48], "text": "sin x + cos x"}, {"at": [5.0, 1.1], "text": "y = 1"}, {"at": [1.2, -0.9], "text": "y = −1"}], "caption": "Squaring merges sin x + cos x = 1 with sin x + cos x = −1; only the crossings with y = 1 solve the original"}
 ```
 (Alternatively, $\sin x + \cos x = \sqrt2\sin\left(x + \tfrac{\pi}{4}\right)$ from Lesson 23 avoids squaring entirely.)
 

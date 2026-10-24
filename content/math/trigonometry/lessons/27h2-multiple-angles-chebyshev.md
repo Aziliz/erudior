@@ -47,7 +47,7 @@ And since $T_n(\cos x) = \cos nx$ always lies between $-1$ and $1$, the graph of
 between $-1$ and $1$, touching each of them again and again.
 
 ```plot
-{"x": [-1.1, 1.1], "y": [-1.3, 1.3], "functions": [{"f": "2x^2 - 1", "label": "T₂"}, {"f": "4x^3 - 3x", "label": "T₃", "dashed": true}, {"f": "8x^4 - 8x^2 + 1", "label": "T₄"}], "caption": "T₂, T₃ and T₄ on −1 ≤ c ≤ 1: each stays between −1 and 1 and touches those levels n + 1 times"}
+{"x": [-1.1, 1.1], "y": [-1.3, 1.3], "functions": [{"f": "2x^2 - 1"}, {"f": "4x^3 - 3x", "dashed": true}, {"f": "8x^4 - 8x^2 + 1"}], "labels": [{"at": [0.25, -1.2], "text": "T₂"}, {"at": [-0.5, 1.08], "text": "T₃"}, {"at": [0.71, -1.2], "text": "T₄"}], "caption": "T₂, T₃ (dashed) and T₄ on −1 ≤ c ≤ 1: each stays between −1 and 1 and touches those levels n + 1 times"}
 ```
 
 ### Example 1

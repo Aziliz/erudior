@@ -42,7 +42,7 @@ Graphing both sides shows they are the same function: the product, which is hard
 an ordinary sum of two sine waves.
 
 ```plot
-{"x": [0, 3.2], "y": [-1.2, 1.2], "functions": [{"f": "sin(5x)cos(3x)", "label": "sin 5x cos 3x"}, {"f": "0.5(sin(8x) + sin(2x))", "dashed": true, "label": "½(sin 8x + sin 2x)"}], "caption": "The product sin 5x cos 3x and the sum ½(sin 8x + sin 2x) have the same graph"}
+{"x": [0, 3.2], "y": [-1.2, 1.2], "functions": [{"f": "sin(5x)cos(3x)"}, {"f": "0.5(sin(8x) + sin(2x))", "dashed": true}], "caption": "The product sin 5x cos 3x (solid) and the sum ½(sin 8x + sin 2x) (dashed) have the same graph"}
 ```
 
 ### Example 2
