@@ -1,0 +1,435 @@
+# Round 2 questions for trig-m8 (Vectors in the plane)
+# Core lessons: trig-m8-r2-q01 ... q15. Honors lessons: trig-m8-r2-h01 ... h28.
+
+# --- Lesson 32: Vectors in the plane ---
+- id: trig-m8-r2-q01
+  lesson: trig-vectors
+  module_quiz: true
+  topic: Vectors
+  type: label
+  stem: 'Name the numbered parts of this vector diagram.'
+  image: {src: images/trig-m8-vector-anatomy-blank.svg, alt: 'An arrow from a point at the lower left to a point at the upper right, with a dashed horizontal leg from the starting point, a dashed vertical leg up to the arrow tip, a right angle mark where they meet, and a shaded angle at the starting point between the horizontal direction and the arrow. Six numbered markers: the starting point, the arrow tip, the horizontal leg, the vertical leg, the shaded angle, and the middle of the arrow.'}
+  labels:
+    - {x: 18.8, y: 78.9, text: Initial point}
+    - {x: 75.0, y: 23.7, text: Terminal point}
+    - {x: 46.9, y: 78.9, text: Horizontal component}
+    - {x: 75.0, y: 51.3, text: Vertical component}
+    - {x: 26.0, y: 75.7, text: Direction angle}
+    - {x: 46.9, y: 51.3, text: Magnitude (length)}
+  distractors: [Resultant, Unit vector]
+  explanation: |-
+    The arrow starts at the initial point (1) and ends at the terminal point (2). Sliding along the horizontal leg (3) and then up the vertical leg (4) reaches the same tip, so these are the components $a$ and $b$. The angle from the positive $x$ direction to the arrow (5) is the direction angle, and the length of the arrow itself (6) is the magnitude $\sqrt{a^2 + b^2}$, the hypotenuse of the right triangle.
+- id: trig-m8-r2-q02
+  lesson: trig-vectors
+  topic: Vectors
+  type: text
+  stem: 'The vector from $P(-3, 5)$ to $Q(4, 1)$ is ⟨ ___ , ___ ⟩. Type one number in each blank.'
+  accept:
+    - ['7']
+    - ['-4', '−4']
+  explanation: |-
+    Terminal minus initial: $\langle 4 - (-3),\ 1 - 5\rangle = \langle 7, -4\rangle$. Subtracting the other way gives $\langle -7, 4\rangle$, the vector from $Q$ to $P$.
+- id: trig-m8-r2-q03
+  lesson: trig-vectors
+  topic: Vectors
+  stem: 'Which vectors have magnitude 5? Select all that apply.'
+  choices: ['$\langle 3, -4\rangle$', '$\langle -5, 0\rangle$', '$\langle 1, 4\rangle$', '$\langle 2.5, 2.5\rangle$', '$\langle -4, -3\rangle$']
+  answer: [0, 1, 4]
+  explanation: |-
+    Square, add, take the root. $\sqrt{9 + 16} = 5$, $\sqrt{25 + 0} = 5$ and $\sqrt{16 + 9} = 5$: signs don't matter because the components are squared. $\langle 1, 4\rangle$ has magnitude $\sqrt{17} \approx 4.12$ (not $1 + 4$), and $\langle 2.5, 2.5\rangle$ has $\sqrt{12.5} \approx 3.54$ (not $2.5 + 2.5$).
+- id: trig-m8-r2-q04
+  lesson: trig-vectors
+  module_quiz: true
+  topic: Vectors
+  type: match
+  stem: 'Match each vector to its direction angle in $[0^\circ, 360^\circ)$.'
+  pairs:
+    - ['$\langle 2, 2\rangle$', '45°']
+    - ['$\langle -2, 2\rangle$', '135°']
+    - ['$\langle -2, -2\rangle$', '225°']
+    - ['$\langle 2, -2\rangle$', '315°']
+  distractors: ['-45°', '-135°']
+  explanation: |-
+    All four have reference angle $\tan^{-1}1 = 45^\circ$; the signs place them. Quadrant I: $45^\circ$. Quadrant II ($a < 0$, $b > 0$): $180^\circ - 45^\circ = 135^\circ$. Quadrant III: $180^\circ + 45^\circ = 225^\circ$. Quadrant IV: $360^\circ - 45^\circ = 315^\circ$. The calculator's $\tan^{-1}(-1) = -45^\circ$ is coterminal with $315^\circ$ but is not in $[0^\circ, 360^\circ)$, and it would be wrong for $\langle -2, 2\rangle$.
+- id: trig-m8-r2-q05
+  lesson: trig-vectors
+  topic: Vectors
+  type: order
+  stem: 'Put these vectors in order from shortest to longest.'
+  items: ['$\langle 1, 1\rangle$', '$\langle -2, 0\rangle$', '$\langle 2, -2\rangle$', '$\langle 0, 3\rangle$', '$\langle -3, 2\rangle$']
+  explanation: |-
+    Magnitudes: $\sqrt2 \approx 1.41$, $2$, $\sqrt8 \approx 2.83$, $3$, $\sqrt{13} \approx 3.61$. A negative component still adds its square, so $\langle -2, 0\rangle$ has length 2, not $-2$.
+
+# --- Lesson 33: The dot product ---
+- id: trig-m8-r2-q06
+  lesson: trig-dot-product
+  topic: Dot product
+  type: label
+  stem: 'Name the numbered parts of this projection diagram.'
+  image: {src: images/trig-m8-projection-blank.svg, alt: 'Two arrows from a common tail O: a steep one and a long shallow one, with a shaded angle between them. A dashed segment drops from the tip of the steep arrow to the shallow one, meeting it at a right angle, and a thick arrow runs along the shallow one from O to the foot of the dashed segment. Five numbered markers: the steep arrow, the far part of the shallow arrow, the thick arrow, the dashed segment, and the shaded angle.'}
+  labels:
+    - {x: 21.6, y: 51.9, text: The vector u}
+    - {x: 77.7, y: 46.1, text: The vector v}
+    - {x: 26.8, y: 77.6, text: Projection of u onto v}
+    - {x: 38.3, y: 42.4, text: Perpendicular remainder w}
+    - {x: 15.9, y: 78.1, text: Angle between u and v}
+  distractors: [Projection of v onto u, The sum u + v]
+  explanation: |-
+    The projection of $\mathbf{u}$ onto $\mathbf{v}$ (3) lies along $\mathbf{v}$ (2), from the common tail to the foot of the perpendicular dropped from the tip of $\mathbf{u}$ (1). The dashed perpendicular (4) is $\mathbf{w} = \mathbf{u} - \text{proj}_{\mathbf{v}}\mathbf{u}$, which is orthogonal to $\mathbf{v}$. The shaded angle (5) is $\theta$, with $\lVert\text{proj}\rVert = \lVert\mathbf{u}\rVert\cos\theta$. The projection of $\mathbf{v}$ onto $\mathbf{u}$ would lie along $\mathbf{u}$, and no sum is drawn.
+- id: trig-m8-r2-q07
+  lesson: trig-dot-product
+  module_quiz: true
+  topic: Dot product
+  type: text
+  stem: '$\langle 4, -1\rangle\cdot\langle 2, 5\rangle =$ ___ , and $\langle k, 2\rangle$ is orthogonal to $\langle 3, -6\rangle$ when $k =$ ___ . Give only the numbers.'
+  accept:
+    - ['3']
+    - ['4']
+  explanation: |-
+    $4(2) + (-1)(5) = 8 - 5 = 3$. For orthogonality set the dot product to zero: $3k + 2(-6) = 3k - 12 = 0$, so $k = 4$.
+- id: trig-m8-r2-q08
+  lesson: trig-dot-product
+  topic: Dot product
+  stem: 'Nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ have $\mathbf{u}\cdot\mathbf{v} = 0$. Which statements must be true? Select all that apply.'
+  choices: ['The angle between them is $90^\circ$', '$\text{proj}_{\mathbf{v}}\mathbf{u} = \mathbf{0}$', '$\mathbf{u}$ is a scalar multiple of $\mathbf{v}$', '$\lVert\mathbf{u} + \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2$', '$\lVert\mathbf{u}\rVert = \lVert\mathbf{v}\rVert$']
+  answer: [0, 1, 3]
+  explanation: |-
+    $\cos\theta = 0$ gives $\theta = 90^\circ$. The projection is $\tfrac{0}{\lVert\mathbf{v}\rVert^2}\mathbf{v} = \mathbf{0}$. Expanding, $\lVert\mathbf{u} + \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + 2\,\mathbf{u}\cdot\mathbf{v} + \lVert\mathbf{v}\rVert^2$, and the middle term is 0: the Pythagorean theorem. Nonzero multiples of each other are parallel, not perpendicular, and nothing forces equal lengths ($\langle 1, 0\rangle$ and $\langle 0, 5\rangle$ are orthogonal).
+- id: trig-m8-r2-q09
+  lesson: trig-dot-product
+  module_quiz: true
+  topic: Dot product
+  type: match
+  stem: 'For nonzero vectors $\mathbf{u}$ and $\mathbf{v}$, match each fact to the angle between them.'
+  pairs:
+    - ['$\mathbf{u}\cdot\mathbf{v} = 12 > 0$, not parallel', 'Acute']
+    - ['$\mathbf{u}\cdot\mathbf{v} = 0$', 'Right angle']
+    - ['$\mathbf{u}\cdot\mathbf{v} = -7 < 0$, not parallel', 'Obtuse']
+    - ['$\mathbf{u}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$', '0° (same direction)']
+    - ['$\mathbf{u}\cdot\mathbf{v} = -\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$', '180° (opposite directions)']
+  distractors: ['Reflex (more than 180°)']
+  explanation: |-
+    $\cos\theta = \tfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert}$ has the sign of the dot product: positive means acute, zero means right, negative means obtuse. The extreme values $\cos\theta = 1$ and $\cos\theta = -1$ give $0^\circ$ and $180^\circ$. The angle between two vectors is always between $0^\circ$ and $180^\circ$, so it is never reflex.
+- id: trig-m8-r2-q10
+  lesson: trig-dot-product
+  topic: Dot product
+  type: order
+  stem: 'Put these pairs of vectors in order of the angle between them, smallest angle first.'
+  items: ['$\langle 2, 1\rangle$ and $\langle 1, 2\rangle$', '$\langle 1, 1\rangle$ and $\langle 1, -1\rangle$', '$\langle 1, 0\rangle$ and $\langle -1, 1\rangle$', '$\langle 3, 4\rangle$ and $\langle -4, -3\rangle$']
+  explanation: |-
+    $\cos\theta = \tfrac{4}{5}$ gives $36.87^\circ$; the dot product $1 - 1 = 0$ gives $90^\circ$; $\cos\theta = \tfrac{-1}{\sqrt2}$ gives $135^\circ$; $\cos\theta = \tfrac{-24}{25}$ gives $163.74^\circ$. A larger dot product alone doesn't decide it: divide by the magnitudes first.
+
+# --- Lesson 34: Vector applications ---
+- id: trig-m8-r2-q11
+  lesson: trig-vector-apps
+  module_quiz: true
+  topic: Vector applications
+  type: label
+  stem: 'Name the numbered forces and the angle in this diagram of a block on a ramp.'
+  image: {src: images/trig-m8-incline-blank.svg, alt: 'A block on a ramp rising to the right, with a shaded angle where the ramp meets the ground. Four arrows start at the block: a long one straight down, a short one pointing down the slope, one pointing into the ramp at a right angle to its surface, and one pointing out of the ramp at a right angle to its surface. Five numbered markers: the straight-down arrow, the down-slope arrow, the into-ramp arrow, the out-of-ramp arrow, and the angle at the bottom of the ramp.'}
+  labels:
+    - {x: 55.4, y: 76.8, text: Weight}
+    - {x: 47.8, y: 53.6, text: 'Component along the ramp, W sin θ'}
+    - {x: 60.8, y: 65.8, text: 'Component into the ramp, W cos θ'}
+    - {x: 49.8, y: 30.1, text: Normal force from the ramp}
+    - {x: 13.1, y: 88.2, text: Angle of the ramp}
+  distractors: [Friction force, 'Component along the ramp, W cos θ']
+  explanation: |-
+    Gravity pulls straight down with the weight (1). It splits into a part down the slope (2), $W\sin\theta$, and a part pressing into the ramp (3), $W\cos\theta$. The ramp pushes back with the normal force (4), perpendicular to its surface. The angle at the bottom (5) is the ramp angle $\theta$. No friction arrow is drawn, and the part along the ramp uses sine, not cosine: a flat ramp ($\theta = 0$) gives no pull along it.
+- id: trig-m8-r2-q12
+  lesson: trig-vector-apps
+  topic: Vector applications
+  type: text
+  stem: 'A 200 N crate rests on a frictionless ramp inclined at $30^\circ$. Holding it in place takes a force of ___ N parallel to the ramp, and the crate presses into the ramp with ___ N (to the nearest newton).'
+  accept:
+    - ['100']
+    - ['173', '173.2']
+  explanation: |-
+    Along the ramp: $200\sin 30^\circ = 100$ N. Into the ramp: $200\cos 30^\circ = 100\sqrt3 \approx 173.2$, which is 173 N to the nearest newton. Swapping sine and cosine gives the two numbers the wrong way round.
+- id: trig-m8-r2-q13
+  lesson: trig-vector-apps
+  topic: Vector applications
+  type: order
+  stem: 'Put the steps for finding the resultant of several forces in the order the lesson''s checklist gives.'
+  items: ['Sketch every vector and label its angle', 'Convert each vector to components, using direction angles', 'Add the horizontal components and the vertical components', 'Convert the sum back to a magnitude and a direction, checking the quadrant']
+  explanation: |-
+    Sketch first so the angles are clear, then convert to components (changing any bearings to direction angles), add, and only at the end convert back. Adding magnitudes before converting is the classic mistake: 40 N + 60 N is 100 N only for forces in the same direction.
+- id: trig-m8-r2-q14
+  lesson: trig-vector-apps
+  topic: Vector applications
+  stem: 'A plane heads due north with airspeed 400 mi/h, and a 50 mi/h wind blows from the west. Which statements are true? Select all that apply.'
+  choices: ['The ground speed is about 403 mi/h', 'The course is a little east of north', 'The ground speed is 450 mi/h', 'The course is a little west of north', 'The wind vector is $\langle -50, 0\rangle$ (east, north)']
+  answer: [0, 1]
+  explanation: |-
+    A wind from the west blows toward the east: $\langle 50, 0\rangle$. Ground velocity $= \langle 0, 400\rangle + \langle 50, 0\rangle = \langle 50, 400\rangle$, with speed $\sqrt{50^2 + 400^2} \approx 403.1$ mi/h and course bearing $\tan^{-1}\tfrac{50}{400} \approx 7.1^\circ$, a little east of north. 450 mi/h comes from adding the speeds, which works only for a tailwind.
+- id: trig-m8-r2-q15
+  lesson: trig-vector-apps
+  module_quiz: true
+  topic: Vector applications
+  type: match
+  stem: 'Match each problem to the method that solves it.'
+  pairs:
+    - ['Tension in two cables holding a sign', 'Set the x and y component sums to zero']
+    - ['Work done by a pulling force', 'Dot product of force and displacement']
+    - ['Ground speed of a plane in a wind', 'Add air velocity and wind velocity']
+    - ['Force needed to hold a cart on a ramp', 'Weight times the sine of the ramp angle']
+  distractors: ['Subtract the wind velocity from the air velocity', 'Weight times the cosine of the ramp angle']
+  explanation: |-
+    A hanging sign is in equilibrium, so the components balance. Work is $\mathbf{F}\cdot\mathbf{D}$. Ground velocity is the vector sum of air velocity and wind (not the difference). The force along a ramp is $W\sin\theta$; $W\cos\theta$ is the push into the ramp.
+
+# --- Honors: Rotating vectors and measuring area with the determinant ---
+- id: trig-m8-r2-h01
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'What is $\langle 4, 2\rangle$ rotated $90^\circ$ counterclockwise?'
+  choices: ['$\langle 2, -4\rangle$', '$\langle -2, 4\rangle$', '$\langle -4, 2\rangle$', '$\langle 2, 4\rangle$']
+  answer: 1
+  explanation: |-
+    A $90^\circ$ counterclockwise turn sends $\langle a, b\rangle$ to $\langle -b, a\rangle = \langle -2, 4\rangle$ (from the rotation formula with $\cos 90^\circ = 0$, $\sin 90^\circ = 1$). Check: $\langle 4, 2\rangle\cdot\langle -2, 4\rangle = 0$. $\langle 2, -4\rangle$ is the clockwise turn, and $\langle -4, 2\rangle$ only negates one component, which is a reflection, not a rotation.
+- id: trig-m8-r2-h02
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'What is $\langle 2, 0\rangle$ rotated $60^\circ$ counterclockwise?'
+  choices: ['$\langle \sqrt3, 1\rangle$', '$\langle 1, -\sqrt3\rangle$', '$\langle 1, \sqrt3\rangle$', '$\langle 2, 2\sqrt3\rangle$']
+  answer: 2
+  explanation: |-
+    $\langle 2\cos 60^\circ - 0,\ 2\sin 60^\circ + 0\rangle = \langle 1, \sqrt3\rangle$. $\langle \sqrt3, 1\rangle$ is a $30^\circ$ turn (sine and cosine swapped), $\langle 1, -\sqrt3\rangle$ turns clockwise, and $\langle 2, 2\sqrt3\rangle$ has length 4, so it stretched the vector.
+- id: trig-m8-r2-h03
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'The rotation formula $\langle a\cos\theta - b\sin\theta,\ a\sin\theta + b\cos\theta\rangle$ comes from which identities?'
+  choices: ['The double-angle formulas', 'The Pythagorean identity', 'The law of cosines', 'The sum formulas for cosine and sine']
+  answer: 3
+  explanation: |-
+    Write $\langle a, b\rangle = \langle r\cos\alpha, r\sin\alpha\rangle$. Rotating adds $\theta$ to the direction angle, and expanding $r\cos(\alpha + \theta)$ and $r\sin(\alpha + \theta)$ with the sum formulas gives the two components. The Pythagorean identity explains why the length doesn't change, but it doesn't produce the formula.
+- id: trig-m8-r2-h04
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  type: text
+  stem: 'For $\mathbf{u} = \langle 3, 5\rangle$ and $\mathbf{v} = \langle 2, -1\rangle$, $\det(\mathbf{u}, \mathbf{v}) =$ ___ . Give only the number.'
+  accept: ['-13', '−13']
+  explanation: |-
+    $u_1v_2 - u_2v_1 = 3(-1) - 5(2) = -3 - 10 = -13$. The negative sign says $\mathbf{v}$ is clockwise from $\mathbf{u}$. Reversing the order, $\det(\mathbf{v}, \mathbf{u}) = 13$.
+- id: trig-m8-r2-h05
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'What is the area of the triangle with vertices $A(-1, 0)$, $B(4, 2)$, $C(1, 5)$?'
+  choices: ['$10.5$', '$21$', '$10$', '$14.5$']
+  answer: 0
+  explanation: |-
+    $\overrightarrow{AB} = \langle 5, 2\rangle$, $\overrightarrow{AC} = \langle 2, 5\rangle$, $\det = 25 - 4 = 21$, and the triangle is half the parallelogram: $10.5$. $21$ forgets the $\tfrac12$; $10$ is half the dot product $10 + 10$; $14.5$ adds $25 + 4$ instead of subtracting.
+- id: trig-m8-r2-h06
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'For nonzero, non-parallel vectors, what does $\det(\mathbf{u}, \mathbf{v}) < 0$ tell you?'
+  choices: ['The angle between them is obtuse', '$\mathbf{v}$ is clockwise from $\mathbf{u}$', '$\mathbf{v}$ is counterclockwise from $\mathbf{u}$', 'The vectors are perpendicular']
+  answer: 1
+  explanation: |-
+    $\det(\mathbf{u}, \mathbf{v}) = \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\sin\varphi$, so a negative value means $\sin\varphi < 0$: the signed angle from $\mathbf{u}$ to $\mathbf{v}$ is negative, a clockwise turn. Whether the angle is obtuse is told by the dot product, not the determinant; perpendicular vectors have dot product 0.
+- id: trig-m8-r2-h07
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'Use the shoelace formula to find the area of the quadrilateral with vertices $(0, 0)$, $(4, 0)$, $(5, 3)$, $(1, 4)$, in that order.'
+  choices: ['$29$', '$2$', '$20$', '$14.5$']
+  answer: 3
+  explanation: |-
+    The terms $x_k y_{k+1} - x_{k+1} y_k$ are $0 - 0 = 0$, $12 - 0 = 12$, $20 - 3 = 17$ and $0 - 0 = 0$. They sum to $29$, so the area is $\tfrac{29}{2} = 14.5$. $29$ forgets the $\tfrac12$. $2$ is what you get by listing the vertices out of order, as $(0, 0), (5, 3), (4, 0), (1, 4)$, which traces a self-crossing shape. $20$ is the $5 \times 4$ box around the shape.
+- id: trig-m8-r2-h08
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'What is the signed angle from $\mathbf{u} = \langle 2, 1\rangle$ to $\mathbf{v} = \langle -1, 3\rangle$?'
+  choices: ['$-81.87^\circ$ (clockwise)', '$98.13^\circ$ (counterclockwise)', '$81.87^\circ$ (counterclockwise)', '$8.13^\circ$ (counterclockwise)']
+  answer: 2
+  explanation: |-
+    $\mathbf{u}\cdot\mathbf{v} = -2 + 3 = 1$ and $\det(\mathbf{u}, \mathbf{v}) = 2(3) - 1(-1) = 7$. Cosine and sine are both positive, so $\varphi$ is in quadrant I: $\varphi = \tan^{-1}\tfrac71 \approx 81.87^\circ$, counterclockwise because the determinant is positive. $98.13^\circ$ is the supplement; $8.13^\circ$ is $\tan^{-1}\tfrac17$, with dot and determinant swapped.
+- id: trig-m8-r2-h09
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  type: order
+  stem: 'Put the steps for rotating a point $P$ by an angle $\theta$ about a center $C$ in order.'
+  items: ['Find the vector $P - C$ from the center to the point', 'Rotate that vector by $\theta$ with the rotation formula', 'Add $C$ to the rotated vector to get the new point']
+  explanation: |-
+    The rotation formula turns vectors about the origin, so first move the center to the origin by subtracting $C$, then rotate, then move back by adding $C$. Rotating $P$ itself would turn it about the origin instead of about $C$.
+- id: trig-m8-r2-h10
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'Which statements are true for all plane vectors $\mathbf{u}$ and $\mathbf{v}$? Select all that apply.'
+  choices: ['$\det(\mathbf{v}, \mathbf{u}) = -\det(\mathbf{u}, \mathbf{v})$', '$\det(\mathbf{u}, \mathbf{u}) = 0$', '$(\mathbf{u}\cdot\mathbf{v})^2 + \det(\mathbf{u}, \mathbf{v})^2 = \lVert\mathbf{u}\rVert^2\lVert\mathbf{v}\rVert^2$', '$\det(\mathbf{u}, \mathbf{v}) = \det(\mathbf{v}, \mathbf{u})$', '$\det(3\mathbf{u}, \mathbf{v}) = 9\det(\mathbf{u}, \mathbf{v})$']
+  answer: [0, 1, 2]
+  explanation: |-
+    Swapping the vectors swaps $u_1v_2$ and $u_2v_1$, which flips the sign, so the symmetric version is false (unless the determinant is 0). $\det(\mathbf{u}, \mathbf{u}) = u_1u_2 - u_2u_1 = 0$: a vector is parallel to itself. The third is Lagrange's identity. Scaling one vector by 3 scales the determinant by 3, not 9 (it is $3u_1v_2 - 3u_2v_1$).
+- id: trig-m8-r2-h11
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  type: match
+  stem: 'Match each counterclockwise rotation of $\langle a, b\rangle$ to its result.'
+  pairs:
+    - ['$90^\circ$', '⟨−b, a⟩']
+    - ['$180^\circ$', '⟨−a, −b⟩']
+    - ['$270^\circ$', '⟨b, −a⟩']
+    - ['$360^\circ$', '⟨a, b⟩']
+  distractors: ['⟨b, a⟩', '⟨−a, b⟩']
+  explanation: |-
+    Put $\cos\theta$ and $\sin\theta$ into $\langle a\cos\theta - b\sin\theta,\ a\sin\theta + b\cos\theta\rangle$. At $90^\circ$ ($\cos = 0$, $\sin = 1$): $\langle -b, a\rangle$. At $180^\circ$ ($-1$, $0$): $\langle -a, -b\rangle$. At $270^\circ$ ($0$, $-1$): $\langle b, -a\rangle$, the same as $90^\circ$ clockwise. A full turn returns $\langle a, b\rangle$. Swapping the components or negating just one of them is a reflection, not a rotation.
+- id: trig-m8-r2-h12
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  type: label
+  stem: 'Name the numbered parts of this diagram of the area of a parallelogram.'
+  image: {src: images/trig-m8-parallelogram-area-blank.svg, alt: 'A parallelogram with one arrow along its bottom side and another arrow up its left side from the same corner, with a shaded angle between them. A dashed vertical segment drops from the top of the left arrow to the bottom side at a right angle. Five numbered markers: the bottom arrow, the left arrow, the dashed segment, the shaded angle, and the inside of the parallelogram.'}
+  labels:
+    - {x: 62.5, y: 83.3, text: 'Base vector u'}
+    - {x: 25.4, y: 52.8, text: 'Side vector v'}
+    - {x: 35.9, y: 63.9, text: 'Height, |v| sin φ'}
+    - {x: 17.8, y: 78.6, text: 'Angle φ from u to v'}
+    - {x: 67.2, y: 66.7, text: 'Area, |det(u, v)|'}
+  distractors: ['Diagonal u + v', 'Height, |v| cos φ']
+  explanation: |-
+    The bottom arrow (1) is the base $\mathbf{u}$ and the left arrow (2) is $\mathbf{v}$. The dashed perpendicular (3) is the height, $\lVert\mathbf{v}\rVert\sin\varphi$, using the angle $\varphi$ (4). The region (5) has area base times height, $\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert\sin\varphi = |\det(\mathbf{u}, \mathbf{v})|$. $\lVert\mathbf{v}\rVert\cos\varphi$ would be the horizontal shadow of $\mathbf{v}$, not the height, and no diagonal is drawn.
+- id: trig-m8-r2-h13
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  type: text
+  stem: 'A robot drives from $A(0, 0)$ to $B(3, 1)$, then to $C(4, -2)$. $\det(\overrightarrow{AB}, \overrightarrow{BC}) =$ ___ , so at $B$ the robot turns ___ (left or right).'
+  accept:
+    - ['-10', '−10']
+    - [right, to the right, a right turn, right turn]
+  explanation: |-
+    $\overrightarrow{AB} = \langle 3, 1\rangle$ and $\overrightarrow{BC} = \langle 1, -3\rangle$. $\det = 3(-3) - 1(1) = -10$. Negative means clockwise: a right turn.
+- id: trig-m8-r2-h14
+  lesson: trig-m8-h-rotation-area
+  topic: Rotations and signed area
+  stem: 'What is the area of the parallelogram spanned by $\langle 6, 1\rangle$ and $\langle 2, 4\rangle$?'
+  choices: ['$11$', '$26$', '$22$', '$16$']
+  answer: 2
+  explanation: |-
+    $|\det| = |6(4) - 1(2)| = 22$. $11$ is the triangle (half), $26$ adds the products instead of subtracting, and $16$ is the dot product $12 + 4$.
+
+# --- Honors: Geometry and proof with vectors ---
+- id: trig-m8-r2-h15
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'For $A(1, -3)$ and $B(9, 9)$, which point is three quarters of the way from $A$ to $B$?'
+  choices: ['$(7, 6)$', '$(3, 0)$', '$(5, 3)$', '$(6.75, 6.75)$']
+  answer: 0
+  explanation: |-
+    $B - A = \langle 8, 12\rangle$, so $A + \tfrac34\langle 8, 12\rangle = (1 + 6, -3 + 9) = (7, 6)$. $(3, 0)$ is one quarter of the way, $(5, 3)$ is the midpoint, and $(6.75, 6.75)$ is $\tfrac34$ of $B$'s coordinates, forgetting to start from $A$.
+- id: trig-m8-r2-h16
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  type: text
+  stem: 'The centroid of the triangle with vertices $(0, 0)$, $(9, 3)$ and $(3, 6)$ is ( ___ , ___ ).'
+  accept:
+    - ['4']
+    - ['3']
+  explanation: |-
+    Average the vertices: $\left(\tfrac{0 + 9 + 3}{3}, \tfrac{0 + 3 + 6}{3}\right) = (4, 3)$.
+- id: trig-m8-r2-h17
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'Which equation describes the line through $(2, -1)$ with normal vector $\langle 3, 4\rangle$?'
+  choices: ['$4x - 3y = 11$', '$3x + 4y = 2$', '$3x + 4y = -2$', '$3x + 4y = 10$']
+  answer: 1
+  explanation: |-
+    $\mathbf{n}\cdot(P - P_0) = 0$ gives $3(x - 2) + 4(y + 1) = 0$, that is $3x + 4y = 6 - 4 = 2$. $4x - 3y = 11$ treats $\langle 3, 4\rangle$ as a direction vector instead of a normal. $-2$ and $10$ come from sign slips in $3(2) + 4(-1)$.
+- id: trig-m8-r2-h18
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'What is the distance from $(5, -2)$ to the line $5x - 12y = 7$?'
+  choices: ['$\tfrac{6}{13}$', '$\tfrac{42}{17}$', '$42$', '$\tfrac{42}{13}$']
+  answer: 3
+  explanation: |-
+    $\tfrac{|5(5) - 12(-2) - 7|}{\sqrt{5^2 + 12^2}} = \tfrac{|25 + 24 - 7|}{13} = \tfrac{42}{13} \approx 3.23$. $\tfrac{6}{13}$ drops the sign of $-2$ ($25 - 24 - 7$); $\tfrac{42}{17}$ divides by $5 + 12$ instead of $\sqrt{25 + 144}$; $42$ forgets to divide at all.
+- id: trig-m8-r2-h19
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'What is the point on the line $x + y = 2$ closest to $Q(7, 1)$?'
+  choices: ['$(4, -2)$', '$(1, -5)$', '$(2, 0)$', '$(2.76, -3.24)$']
+  answer: 0
+  explanation: |-
+    With $\mathbf{n} = \langle 1, 1\rangle$: $7 + 1 - 2 = 6$ and $\lVert\mathbf{n}\rVert^2 = 2$, so $F = (7, 1) - \tfrac62\langle 1, 1\rangle = (4, -2)$. Check: $4 + (-2) = 2$, and $Q - F = \langle 3, 3\rangle$ is parallel to the normal. $(1, -5)$ forgets to divide by $\lVert\mathbf{n}\rVert^2$; $(2.76, -3.24)$ divides by $\lVert\mathbf{n}\rVert$ instead; $(2, 0)$ is on the line, but $\langle 5, 1\rangle$ from it to $Q$ is not perpendicular to the line.
+- id: trig-m8-r2-h20
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'Expand $(\mathbf{u} + \mathbf{v})\cdot(\mathbf{u} - \mathbf{v})$.'
+  choices: ['$\lVert\mathbf{u}\rVert^2 - \lVert\mathbf{v}\rVert^2$', '$\lVert\mathbf{u}\rVert^2 + \lVert\mathbf{v}\rVert^2$', '$\lVert\mathbf{u}\rVert^2 - 2\,\mathbf{u}\cdot\mathbf{v} + \lVert\mathbf{v}\rVert^2$', '$0$']
+  answer: 0
+  explanation: |-
+    $\mathbf{u}\cdot\mathbf{u} - \mathbf{u}\cdot\mathbf{v} + \mathbf{v}\cdot\mathbf{u} - \mathbf{v}\cdot\mathbf{v} = \lVert\mathbf{u}\rVert^2 - \lVert\mathbf{v}\rVert^2$, because $\mathbf{u}\cdot\mathbf{v} = \mathbf{v}\cdot\mathbf{u}$. The third choice is $\lVert\mathbf{u} - \mathbf{v}\rVert^2$. The result is 0 only when $\lVert\mathbf{u}\rVert = \lVert\mathbf{v}\rVert$, which is the rhombus case.
+- id: trig-m8-r2-h21
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'A parallelogram has sides 6 and 8, and one diagonal is 12. How long is the other diagonal?'
+  choices: ['$10$', '$8$', '$10\sqrt2 \approx 14.14$', '$2\sqrt{14} \approx 7.48$']
+  answer: 3
+  explanation: |-
+    Parallelogram law: $12^2 + d^2 = 2(6^2) + 2(8^2) = 200$, so $d^2 = 56$ and $d = 2\sqrt{14} \approx 7.48$. $10$ uses the Pythagorean theorem, which only fits a rectangle (where both diagonals would be 10, not 12). $10\sqrt2$ forgets to subtract $12^2$.
+- id: trig-m8-r2-h22
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  type: order
+  stem: 'Put the steps of the vector proof of Thales''s theorem in order.'
+  items: ['Put the center at the origin: $B = \mathbf{a}$, $A = -\mathbf{a}$, $P = \mathbf{p}$ with $\lVert\mathbf{p}\rVert = \lVert\mathbf{a}\rVert$', 'Write the sides from $P$: $A - P = -\mathbf{a} - \mathbf{p}$ and $B - P = \mathbf{a} - \mathbf{p}$', 'Compute their dot product: $(\mathbf{p} + \mathbf{a})\cdot(\mathbf{p} - \mathbf{a}) = \lVert\mathbf{p}\rVert^2 - \lVert\mathbf{a}\rVert^2$', 'Use equal radii to get a dot product of 0', 'Conclude that the angle at $P$ is $90^\circ$']
+  explanation: |-
+    Set up the vectors, then write the two sides meeting at $P$, then compute their dot product, then use $\lVert\mathbf{p}\rVert = \lVert\mathbf{a}\rVert$ to see it is 0, and only then conclude perpendicularity. Each step uses the one before it.
+- id: trig-m8-r2-h23
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'Which statements are true for every parallelogram $ABCD$ (vertices in order)? Select all that apply.'
+  choices: ['The diagonals bisect each other', 'The diagonals are perpendicular', 'The squares of the diagonals add up to the squares of the four sides', 'The diagonals have equal length', '$\overrightarrow{AB} = \overrightarrow{DC}$']
+  answer: [0, 2, 4]
+  explanation: |-
+    Opposite sides of a parallelogram are equal and parallel, so $\overrightarrow{AB} = \overrightarrow{DC}$; from that, both diagonals have midpoint $\tfrac{A + C}{2}$, so they bisect each other. The third is the parallelogram law. Perpendicular diagonals happen only in a rhombus, and equal diagonals only in a rectangle.
+- id: trig-m8-r2-h24
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  type: match
+  stem: 'Match each term to its description.'
+  pairs:
+    - [Position vector, The arrow from the origin to a point]
+    - [Direction vector, A vector parallel to a line]
+    - [Normal vector, A vector perpendicular to a line]
+    - [Centroid, The average of a triangle's three vertices]
+    - [Median, A segment from a vertex to the midpoint of the opposite side]
+  distractors: [The midpoint of a triangle's longest side]
+  explanation: |-
+    A position vector locates a point from the origin. A line $P_0 + t\mathbf{d}$ runs along its direction vector $\mathbf{d}$, while a normal $\langle a, b\rangle$ in $ax + by = c$ is perpendicular to it. The three medians meet at the centroid, $\tfrac{A + B + C}{3}$.
+- id: trig-m8-r2-h25
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  type: label
+  stem: 'Name the numbered points and segment in this triangle.'
+  image: {src: images/trig-m8-centroid-blank.svg, alt: 'Triangle ABC with C at the top, A at the lower left and B at the lower right. Three dashed segments run from each vertex to the middle of the opposite side and cross at one point. Five numbered markers: the middle of side BC, the middle of side AC, the middle of side AB, the crossing point, and the dashed segment from A between A and the crossing point.'}
+  labels:
+    - {x: 63.3, y: 47.5, text: Midpoint of BC}
+    - {x: 23.4, y: 50.0, text: Midpoint of AC}
+    - {x: 50.8, y: 85.0, text: Midpoint of AB}
+    - {x: 45.8, y: 60.8, text: Centroid}
+    - {x: 28.4, y: 74.2, text: Median from A}
+  distractors: [Circumcenter, Altitude from A]
+  explanation: |-
+    Each dashed segment is a median, joining a vertex to the midpoint of the opposite side: (1) is on $BC$, (2) on $AC$, (3) on $AB$, and (5) is on the median from $A$. The medians cross at the centroid (4), $G = \tfrac{A + B + C}{3}$, two thirds of the way from each vertex. The medians are not altitudes (they don't meet the sides at right angles), and the circumcenter is a different point in general.
+- id: trig-m8-r2-h26
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  type: text
+  stem: 'The distance from $(1, 2)$ to the line $3x + 4y = 31$ is ___ .'
+  accept: ['4']
+  explanation: |-
+    $\tfrac{|3(1) + 4(2) - 31|}{\sqrt{9 + 16}} = \tfrac{|-20|}{5} = 4$.
+- id: trig-m8-r2-h27
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'In the algebraic proof of Cauchy–Schwarz, why is the discriminant of $\lVert\mathbf{v}\rVert^2 t^2 - 2(\mathbf{u}\cdot\mathbf{v})t + \lVert\mathbf{u}\rVert^2$ at most 0?'
+  choices: ['Because $\cos\theta$ is between $-1$ and $1$', 'Because $\mathbf{u}$ and $\mathbf{v}$ are perpendicular', 'Because the quadratic equals $\lVert\mathbf{u} - t\mathbf{v}\rVert^2$, which is never negative, so it has at most one real root', 'Because the coefficient of $t^2$ is positive']
+  answer: 2
+  explanation: |-
+    The quadratic is a squared length, so it is never below zero; a parabola that opens up and never dips below the axis touches it at most once, so its discriminant $4(\mathbf{u}\cdot\mathbf{v})^2 - 4\lVert\mathbf{u}\rVert^2\lVert\mathbf{v}\rVert^2 \le 0$. A positive leading coefficient alone still allows two roots. The point of this proof is to avoid using $\cos\theta$, and nothing in it assumes perpendicular vectors.
+- id: trig-m8-r2-h28
+  lesson: trig-m8-h-vector-geometry
+  topic: Vector geometry
+  stem: 'In the proof of the triangle inequality, which step uses the Cauchy–Schwarz inequality?'
+  choices: ['$\lVert\mathbf{u} + \mathbf{v}\rVert^2 = \lVert\mathbf{u}\rVert^2 + 2\,\mathbf{u}\cdot\mathbf{v} + \lVert\mathbf{v}\rVert^2$', '$\lVert\mathbf{u}\rVert^2 + 2\,\mathbf{u}\cdot\mathbf{v} + \lVert\mathbf{v}\rVert^2 \le \lVert\mathbf{u}\rVert^2 + 2\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert + \lVert\mathbf{v}\rVert^2$', '$\lVert\mathbf{u}\rVert^2 + 2\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert + \lVert\mathbf{v}\rVert^2 = (\lVert\mathbf{u}\rVert + \lVert\mathbf{v}\rVert)^2$', 'Taking square roots of both sides']
+  answer: 1
+  explanation: |-
+    Replacing $\mathbf{u}\cdot\mathbf{v}$ by the larger $\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$ is exactly Cauchy–Schwarz ($\mathbf{u}\cdot\mathbf{v} \le |\mathbf{u}\cdot\mathbf{v}| \le \lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert$). The first step is expanding a dot product, the third is factoring a perfect square, and taking square roots is allowed because both sides are nonnegative.

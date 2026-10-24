@@ -323,10 +323,10 @@
     standard deviation $s = {s:num1}$. Estimate the effective sample size (nearest whole number) and the Monte Carlo
     standard error of the posterior mean estimate (3 significant figures, using the unrounded ESS).
   answers:
-    - {name: ess, label: 'ESS', tolerance: 1, format: num1}
+    - {name: ess, label: 'ESS', tolerance: 0.6, format: integer}
     - {name: mcse, label: 'MC standard error', relTolerance: 0.006, format: sig3}
   solution: |-
-    $\text{ESS} \approx N\dfrac{1 - \rho}{1 + \rho} = {n:dp0} \cdot \dfrac{1 - {rho}}{1 + {rho}} =$ **{ess:num1}**.
+    $\text{ESS} \approx N\dfrac{1 - \rho}{1 + \rho} = {n:dp0} \cdot \dfrac{1 - {rho}}{1 + {rho}} =$ **{ess:dp1}**.
 
-    Monte Carlo standard error $\approx s/\sqrt{\text{ESS}} = {s:num1}/\sqrt{{ess:num1}} =$ **{mcse:sig3}**
+    Monte Carlo standard error $\approx s/\sqrt{\text{ESS}} = {s:num1}/\sqrt{{ess:dp1}} =$ **{mcse:sig3}**
     (independent draws would give $s/\sqrt N = {iid:sig3}$).

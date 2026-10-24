@@ -579,21 +579,19 @@
 - id: ps-m6-r2-h19
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
-  stem: 'For $p = 8$ independent $N(\theta_i, 1)$ observations, what is the total risk of the James–Stein estimator when every $\theta_i = 0$?'
-  choices: ['8', '6', '2', '0']
+  stem: 'With $\bar X \sim N(\theta, 4)$, the Bayes estimator $\delta_B = 0.8\bar X + 20$ has risk $0.64 \times 4 + 0.04(\theta - 100)^2$. What is its risk when the true $\theta = 105$?'
+  choices: ['2.56', '4.00', '3.56', '4.56']
   answer: 2
   explanation: |-
-    The risk is $p - (p-2)^2E[1/\lVert\mathbf X\rVert^2]$. At $\boldsymbol\theta = \mathbf 0$, $\lVert\mathbf X\rVert^2 \sim \chi^2_8$ with $E[1/\chi^2_8] = 1/6$, so the risk is $8 - 36/6 = 2$, against 8 for $\mathbf X$ itself.
-
+    $2.56 + 0.04 \times 5^2 = 2.56 + 1.00 = 3.56$, still below the risk 4 of $\bar X$, since $|105 - 100| < 6$. 2.56 is the variance part alone.
 - id: ps-m6-r2-h20
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
-  stem: 'For how many normal means $p$ is the usual estimator $\mathbf X$ inadmissible under total squared-error loss?'
-  choices: ['$p \ge 1$', '$p \ge 3$', '$p \ge 2$', '$p \ge 10$']
+  stem: 'For a normal mean with known variance and squared-error loss, which estimator is minimax?'
+  choices: ['The Bayes estimator for a $N(100, 16)$ prior', '$\bar X$', 'The constant guess 100', '$0.5\bar X$']
   answer: 1
   explanation: |-
-    Stein (1956) showed $\mathbf X$ is admissible for $p = 1$ and 2 but inadmissible for $p \ge 3$; the James–Stein factor $1 - (p-2)/\lVert\mathbf X\rVert^2$ does nothing when $p = 2$.
-
+    $\bar X$ has constant risk $v = \sigma^2/n$, and the Bayes risks $\tau^2v/(\tau^2 + v)$ of ever flatter normal priors approach $v$, so no estimator can have a smaller maximum risk. Any estimator that shrinks toward a fixed point has a risk that grows without bound as $\theta$ moves away from that point.
 - id: ps-m6-r2-h21
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
@@ -616,13 +614,12 @@
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
   type: text
-  stem: 'Six independent readings $X_i \sim N(\theta_i, 1)$ have $\lVert\mathbf x\rVert^2 = 16$. The James–Stein shrinkage factor is ___, and a reading $x_1 = 2$ is estimated as ___.'
+  stem: '$\bar X \sim N(\theta, 9)$ and the prior is $\theta \sim N(50, 18)$. The Bayes estimator is $c\bar X + (1 - c)50$ with $c =$ ___, and its Bayes risk is ___.'
   accept:
-    - ['0.75', '3/4']
-    - ['1.5', '3/2']
+    - ['2/3', '0.667', '0.6667']
+    - ['6']
   explanation: |-
-    Factor $1 - (p - 2)/\lVert\mathbf x\rVert^2 = 1 - 4/16 = 0.75$, so $x_1 = 2$ becomes $1.5$.
-
+    $c = \tau^2/(\tau^2 + v) = 18/27 = 2/3$, and the Bayes risk is $cv = \frac23 \times 9 = 6$, which is also the posterior variance $1/(1/18 + 1/9)$.
 - id: ps-m6-r2-h24
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
@@ -657,20 +654,19 @@
     - [Bayes risk, Risk averaged over a prior]
     - [Minimax estimator, Smallest possible worst-case risk]
     - [Inadmissible estimator, Dominated by some other estimator]
-    - [Empirical Bayes, Prior settings estimated from the data]
+    - [Admissible estimator, Not dominated by any other estimator]
   distractors: [Unbiased with the smallest variance]
   explanation: |-
-    Risk is $E_\theta[L]$; Bayes risk averages it over $\pi$; minimax minimizes $\max_\theta R$; dominated rules are inadmissible; empirical Bayes estimates the prior from the data, as James–Stein does. "Unbiased with the smallest variance" describes an MVUE.
+    Risk is $E_\theta[L]$; Bayes risk averages it over $\pi$; minimax minimizes $\max_\theta R$; dominated rules are inadmissible, and undominated ones admissible. "Unbiased with the smallest variance" describes an MVUE.
 
 - id: ps-m6-r2-h27
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory
-  stem: 'Which statements about the James–Stein estimator are true? Select all that apply.'
-  choices: ['For $p \ge 3$ it has smaller total risk than $\mathbf X$ for every $\boldsymbol\theta$', 'It has smaller risk than $X_i$ for each mean separately', 'It gains most when the true means are near the shrinkage point', 'Its positive-part version has smaller risk still', 'It only helps when the means are related to one another']
-  answer: [0, 2, 3]
+  stem: 'Let $\delta_c = c\bar X + (1 - c)\mu_0$ with $0 < c < 1$ and $\bar X \sim N(\theta, v)$. Which statements are true? Select all that apply.'
+  choices: ['It is biased unless $\theta = \mu_0$', 'Its variance is smaller than that of $\bar X$', 'It has smaller risk than $\bar X$ for every $\theta$', 'It is the Bayes estimator for some normal prior centered at $\mu_0$', 'It is dominated by $\bar X$']
+  answer: [0, 1, 3]
   explanation: |-
-    James–Stein dominates $\mathbf X$ in *total* risk for $p \ge 3$, with the biggest gain near the shrinkage point (risk 2 at $\boldsymbol\theta = \mathbf 0$). Individual components can do worse. The means can be completely unrelated: that is the paradox. Replacing a negative factor by 0 improves it further.
-
+    Bias $(1 - c)(\mu_0 - \theta)$ is zero only at $\theta = \mu_0$; variance $c^2v < v$. Its risk $c^2v + (1-c)^2(\theta - \mu_0)^2$ beats $v$ only near $\mu_0$, so neither estimator dominates the other. It is the posterior mean for the prior $N(\mu_0, \tau^2)$ with $\tau^2 = cv/(1 - c)$, and as a unique Bayes estimator it is admissible.
 - id: ps-m6-r2-h28
   lesson: ps-m6-h-decision-shrinkage
   topic: Decision theory

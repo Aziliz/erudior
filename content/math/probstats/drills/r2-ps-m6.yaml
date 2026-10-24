@@ -116,31 +116,35 @@
     The MLE is unbiased, so its risk is its variance $p(1-p)/n = {pp}(1 - {pp})/{nn} =$ **{rml:sig3}**.
     The MLE is better at this $p$ exactly when its risk is the smaller of the two.
 
-- id: ps-m6-r2-james-stein
-  title: A James–Stein estimate
+- id: ps-m6-r2-linear-shrinkage
+  title: Risk of shrinking a normal mean toward a prior guess
   topic: Decision theory
   vars:
-    x1: {min: -3, max: 3, step: 0.1}
-    x2: {min: -3, max: 3, step: 0.1}
-    x3: {min: -3, max: 3, step: 0.1}
-    x4: {min: -3, max: 3, step: 0.1}
-    x5: {min: -3, max: 3, step: 0.1}
-  where: ['ss >= 5', 'abs(x1) >= 0.5']
+    sig: {min: 4, max: 20}
+    nn: {choices: [4, 9, 16, 25, 36]}
+    m0: {min: 40, max: 60}
+    tau: {min: 2, max: 10}
+    dd: {min: -12, max: 12}
+  where: ['dd != 0']
   calc:
-    ss: x1^2 + x2^2 + x3^2 + x4^2 + x5^2
-    cf: 1 - 3/ss
-    e1: cf*x1
+    vv: sig^2/nn
+    tt: m0 + dd
+    cc: tau^2/(tau^2 + vv)
+    rk: cc^2*vv + (1 - cc)^2*dd^2
+    br: cc*vv
+    win: if(rk < vv, 1, 0)
   prompt: |-
-    Five independent readings $X_i \sim N(\theta_i, 1)$ are $x = ({x1}, {x2}, {x3}, {x4}, {x5})$. Find $\lVert x\rVert^2$, the
-    James–Stein shrinkage factor $1 - (p-2)/\lVert x\rVert^2$, and the James–Stein estimate of $\theta_1$ (3 decimals).
+    $\bar X$ is the mean of {nn} readings with $\sigma = {sig}$, so $\bar X \sim N(\theta, v)$ with $v = \sigma^2/n$. The prior is
+    $\theta \sim N({m0}, {tau}^2)$. Find the weight $c$ in the Bayes estimator $c\bar X + (1 - c)({m0})$, its risk (MSE) when the true
+    $\theta = {tt}$, and its Bayes risk. Give 4 decimals.
   answers:
-    - {name: ss, label: '$\lVert x\rVert^2 =$', tolerance: 0.001, format: num2}
-    - {name: cf, label: 'Factor', tolerance: 0.001, format: dp3}
-    - {name: e1, label: 'Estimate of $\theta_1$', tolerance: 0.002, format: dp3}
+    - {name: cc, label: '$c =$', tolerance: 0.0002, format: num4}
+    - {name: rk, label: 'Risk at $\theta$', relTolerance: 0.001, format: num4}
+    - {name: br, label: 'Bayes risk', relTolerance: 0.001, format: num4}
   solution: |-
-    $\lVert x\rVert^2 = ({x1})^2 + ({x2})^2 + ({x3})^2 + ({x4})^2 + ({x5})^2 =$ **{ss:num2}**.
-    With $p = 5$, the factor is $1 - 3/{ss:num2} =$ **{cf:dp3}**, and the estimate of $\theta_1$ is ${cf:dp3} \times ({x1}) =$ **{e1:dp3}**.
-    Every reading is pulled toward 0 by the same factor.
+    $v = {sig}^2/{nn} = {vv:num4}$ and $\tau^2 = {tau}^2$, so $c = \dfrac{\tau^2}{\tau^2 + v} =$ **{cc:num4}**.
+    Risk $= c^2v + (1 - c)^2(\theta - \mu_0)^2 = {cc:num4}^2({vv:num4}) + (1 - {cc:num4})^2({dd})^2 =$ **{rk:num4}**
+    (compare $v = {vv:num4}$ for $\bar X$). Bayes risk $= cv =$ **{br:num4}**, the posterior variance.
 
 # ---------------------------------------------------------------- 29h3: intervals for a proportion
 - id: ps-m6-r2-wilson

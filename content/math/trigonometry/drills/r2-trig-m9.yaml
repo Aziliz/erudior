@@ -1,0 +1,125 @@
+# Round 2 drills for module trig-m9 (honors lessons 39h1, 39h2, 39h3)
+- id: trig-m9-r2-polar-conic
+  title: Read a conic in polar form
+  topic: Polar conics
+  vars:
+    c: {min: 1, max: 6}
+    m: {min: 1, max: 9}
+    dd: {min: 1, max: 6}
+    f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+    dv: {choices: [{label: 'x', value: 0}, {label: 'y', value: 1}]}
+    sg: {choices: [{label: '+', value: 1}, {label: '-', value: -1}]}
+    tp: {choices: [{label: 'an ellipse', value: 0}, {label: 'a parabola', value: 1}, {label: 'a hyperbola', value: 2}]}
+  where: ["f == dv", "tp == if(m < c, 0, if(m == c, 1, 2))", "c > 1 or m > 1"]
+  calc:
+    p: m * dd
+    e: m / c
+    ed: p / c
+    D: sg * dd
+  prompt: 'The conic $r = \dfrac{{p}}{{c} {sg} {m:coef}{f}\theta}$ has a focus at the pole. Find its eccentricity $e$ (a fraction is fine) and its directrix.'
+  answers:
+    - {name: e, label: '$e =$', tolerance: 0.005}
+    - {name: D, label: 'Directrix: ${dv} =$', tolerance: 0.001}
+  solution: |-
+    Divide the numerator and denominator by {c} so the constant in the denominator is 1:
+    $r = \dfrac{{ed:frac}}{1 {sg} {e:frac}\,{f}\theta}$ (with fractions written out). So $e = \dfrac{{m}}{{c}} =$ **{e:frac}**, and the curve is {tp}.
+    The numerator is $ed = {ed:frac}$, so $d = \dfrac{ed}{e} = {dd}$. The function ${f}$ means the directrix is the line ${dv} = \pm d$, and the
+    sign in the denominator picks the side: ${dv} =$ **{D}**.
+
+- id: trig-m9-r2-orbit
+  title: Perihelion and aphelion of an orbit
+  topic: Polar conics
+  vars:
+    a: {min: 0.4, max: 40, step: 0.1}
+    e: {min: 0.01, max: 0.97, step: 0.01}
+  calc:
+    rmin: a * (1 - e)
+    rmax: a * (1 + e)
+    num: a * (1 - e^2)
+  prompt: 'An object orbits the Sun on an ellipse with semi-major axis $a = {a}$ AU and eccentricity $e = {e}$. Find its perihelion and aphelion distances and the numerator $a(1 - e^2)$ of its polar equation $r = \dfrac{a(1 - e^2)}{1 + e\cos\theta}$. Give each to 2 decimal places.'
+  answers:
+    - {name: rmin, label: 'Perihelion (AU)', tolerance: 0.01, format: num2}
+    - {name: rmax, label: 'Aphelion (AU)', tolerance: 0.01, format: num2}
+    - {name: num, label: '$a(1 - e^2) =$', tolerance: 0.01, format: num2}
+  solution: |-
+    The nearest point is at $\theta = 0$: $r = a(1 - e) = {a}(1 - {e}) \approx$ **{rmin:num2} AU**. The farthest is at $\theta = \pi$:
+    $r = a(1 + e) = {a}(1 + {e}) \approx$ **{rmax:num2} AU**. The numerator is $a(1 - e^2) = {a}(1 - {e}^2) \approx$ **{num:num2}**.
+    (Check: $\dfrac{a(1 - e^2)}{1 + e} = a(1 - e)$.)
+
+- id: trig-m9-r2-cycloid-point
+  title: A point on a rolling wheel
+  topic: Rolling curves
+  vars:
+    a: {min: 2, max: 40}
+    deg: {min: 15, max: 345, step: 15}
+  calc:
+    t: rad(deg)
+    x: a * (t - sin(t))
+    y: round(a * (1 - cos(t)), 9) + 0
+    cx: a * t
+  prompt: 'A wheel of radius {a} cm rolls to the right along the $x$-axis. A point on its rim starts at the origin. Where is the point after the wheel has turned ${deg}^\circ$? Give $x$ and $y$ in cm to 2 decimal places.'
+  answers:
+    - {name: x, label: '$x =$', tolerance: 0.01, format: num2}
+    - {name: y, label: '$y =$', tolerance: 0.01, format: num2}
+  solution: |-
+    In radians, $t = {deg}^\circ \cdot \dfrac{\pi}{180} \approx {t:num4}$. The cycloid is $x = a(t - \sin t)$, $y = a(1 - \cos t)$ with $a = {a}$:
+    $x = {a}({t:num4} - \sin {deg}^\circ) \approx$ **{x:num2} cm** and $y = {a}(1 - \cos {deg}^\circ) \approx$ **{y:num2} cm**.
+    (The wheel's center is then at $({cx:num2}, {a})$.)
+  figure:
+    type: plot
+    x: [-2, '2*pi*a + 2']
+    y: [-1, '2*a + 2']
+    equal: true
+    curves:
+      - {x: 'a*(t - sin(t))', y: 'a*(1 - cos(t))', t: [0, 6.2832], dashed: true}
+    circles:
+      - {center: ['cx', 'a'], r: 'a'}
+    points:
+      - {at: ['x', 'y'], label: 'P'}
+
+- id: trig-m9-r2-roulette
+  title: Epicycloids and hypocycloids
+  topic: Rolling curves
+  vars:
+    kind: {choices: [{label: 'around the outside of', value: 0}, {label: 'around the inside of', value: 1}]}
+    b: {min: 1, max: 3}
+    k: {min: 3, max: 6}
+    deg: {min: 30, max: 330, step: 30}
+  calc:
+    a: k * b
+    t: rad(deg)
+    R: if(kind == 0, a + b, a - b)
+    w: if(kind == 0, (a + b) / b, (a - b) / b)
+    x: round(R * cos(t) + if(kind == 0, -1, 1) * b * cos(w * t), 9) + 0
+    y: round(R * sin(t) - b * sin(w * t), 9) + 0
+  prompt: 'A circle of radius {b} rolls {kind} a fixed circle of radius {a} centered at the origin. A point on the rolling circle starts at $({a}, 0)$. How many cusps does its path have? Where is the point when the rolling circle''s center has swept $t = {deg}^\circ$ around the origin (2 decimal places)?'
+  answers:
+    - {name: k, label: 'Cusps', format: integer}
+    - {name: x, label: '$x =$', tolerance: 0.01, format: num2}
+    - {name: y, label: '$y =$', tolerance: 0.01, format: num2}
+  solution: |-
+    $\dfrac{a}{b} = \dfrac{{a}}{{b}} = {k}$ is a whole number, so the path closes with **{k}** cusps. The center moves on a circle of radius
+    ${R}$ and the point turns at ${w}$ times the rate of the center, so with the formulas from the lesson
+    $x = {R}\cos {deg}^\circ {kind:signs} {b}\cos({w} \cdot {deg}^\circ) \approx$ **{x:num2}** and $y = {R}\sin {deg}^\circ - {b}\sin({w} \cdot {deg}^\circ) \approx$ **{y:num2}**.
+
+- id: trig-m9-r2-triple-angle
+  title: Triple-angle values from De Moivre
+  topic: Roots of unity
+  vars:
+    f: {choices: [{label: '\cos', value: 0}, {label: '\sin', value: 1}]}
+    p: {min: 1, max: 5}
+    q: {min: 2, max: 7}
+  where: ["p < q", "gcd(p, q) == 1"]
+  calc:
+    num: if(f == 0, 4*p^3 - 3*p*q^2, 3*p*q^2 - 4*p^3)
+    den: q^3
+    g: gcd(abs(num), den)
+    n2: num / g
+    d2: den / g
+    val: num / den
+  prompt: 'If ${f}\theta = \tfrac{{p}}{{q}}$, find ${f} 3\theta$ exactly, as a fraction.'
+  answers:
+    - {name: val, kind: fraction, label: '${f} 3\theta =$'}
+  solution: |-
+    Expanding $(\cos\theta + i\sin\theta)^3$ and matching parts gives $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ and $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$.
+    With ${f}\theta = \tfrac{{p}}{{q}}$, the answer is $\dfrac{{num}}{{den}}$, which in lowest terms is **{n2}/{d2}**.

@@ -35,14 +35,10 @@ letter $T$ comes from older spellings of his name such as Tchebycheff.
 flowchart TD
   accTitle: Building the Chebyshev polynomials
   accDescr: Start with T0 = 1 and T1 = c. Each next polynomial is 2c times the previous one minus the one before that. T2 = 2c squared minus 1, T3 = 4c cubed minus 3c, T4 = 8c to the fourth minus 8c squared plus 1, T5 = 16c to the fifth minus 20c cubed plus 5c.
-  A["T0 = 1"] --> C["T2 = 2c² − 1"]
-  B["T1 = c"] --> C
-  B --> D["T3 = 4c³ − 3c"]
-  C --> D
-  C --> E["T4 = 8c⁴ − 8c² + 1"]
-  D --> E
-  D --> F["T5 = 16c⁵ − 20c³ + 5c"]
-  E --> F
+  A["T0 = 1 and T1 = c"] -- "2c·T1 − T0" --> C["T2 = 2c² − 1"]
+  C -- "2c·T2 − T1" --> D["T3 = 4c³ − 3c"]
+  D -- "2c·T3 − T2" --> E["T4 = 8c⁴ − 8c² + 1"]
+  E -- "2c·T4 − T3" --> F["T5 = 16c⁵ − 20c³ + 5c"]
 ```
 
 Three patterns are worth noticing. The leading coefficient doubles each time, so $T_n$ starts with

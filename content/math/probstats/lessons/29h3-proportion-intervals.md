@@ -79,7 +79,8 @@ whose roots are the endpoints:
 $$\frac{\hat p + \dfrac{z^2}{2n}}{1 + \dfrac{z^2}{n}} \;\pm\; \frac{z}{1 + \dfrac{z^2}{n}}\sqrt{\frac{\hat p(1 - \hat p)}{n} + \frac{z^2}{4n^2}}, \qquad z = z_{\alpha/2}.$$
 
 Its center is pulled from $\hat p$ toward $\tfrac12$, its endpoints always lie in $[0, 1]$, and it has positive width
-even when $x = 0$. Its coverage hovers near the nominal level (the middle panel), with brief dips
+even when $x = 0$. (Because it keeps the null value $p$ in the standard error, it is also the interval obtained from the
+score test; the honors lesson on Wald, score and likelihood ratio tests in the testing module shows this.) Its coverage hovers near the nominal level (the middle panel), with brief dips
 very close to 0 and 1.
 
 ## Agresti–Coull: add two successes and two failures
@@ -140,7 +141,7 @@ claims certainty that the failure probability is zero.
    0.05: $(1 - p)^{30} = 0.05$, so $p_U = 1 - 0.05^{1/30} \approx 0.0950$.
 2. *The rule of three.* Since $\ln(1 - p) \approx -p$ for small $p$, the equation becomes $e^{-30p} \approx 0.05$, so
    $p_U \approx -\ln(0.05)/30 \approx 2.996/30 \approx 3/30 = 0.1$. In general, after $n$ trials with no events, about $3/n$ is a 95% upper
-   bound. (For a two-sided 95% interval use 0.025 in place of 0.05: $1 - 0.025^{1/30} \approx 0.116$.)
+   bound: the **rule of three**. (For a two-sided 95% interval use 0.025 in place of 0.05: $1 - 0.025^{1/30} \approx 0.116$.)
 3. *Wilson* gives $(0,\; 0.114)$, close to the exact two-sided answer.
 
 Thirty clean tests show only that the failure probability is probably below about 10%.

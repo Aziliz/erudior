@@ -142,7 +142,7 @@ becomes the $p \times p$ **Fisher information matrix** with entries
 $$I_{jk}(\boldsymbol\eta) = -E\left[\frac{\partial^2}{\partial\eta_j\,\partial\eta_k}\ln f(X; \boldsymbol\eta)\right].$$
 
 The large-sample result becomes $\hat{\boldsymbol\eta} \approx N\big(\boldsymbol\eta, (nI(\boldsymbol\eta))^{-1}\big)$, a multivariate normal whose covariance
-matrix is the **inverse** of the information matrix. The standard error of $\hat\eta_j$ is the square root of
+matrix is the *inverse* of the information matrix. The standard error of $\hat\eta_j$ is the square root of
 the $j$th diagonal entry of that inverse. Newton's method becomes
 $\boldsymbol\eta_{k+1} = \boldsymbol\eta_k + J(\boldsymbol\eta_k)^{-1}\nabla\ell(\boldsymbol\eta_k)$, where $J = -\nabla^2\ell$ is the matrix of second derivatives with its sign flipped.
 

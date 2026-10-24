@@ -114,7 +114,7 @@ A beaker with liquid has mass $152.4 \pm 0.2$ g; the empty beaker has mass $148.
 
 $m = 152.4 - 148.9 = 3.5$ g, with $\delta m = \sqrt{0.2^2 + 0.2^2} = 0.28 \approx 0.3$ g. So $m = 3.5 \pm 0.3$ g.
 
-Each weighing was good to about 0.13%, but the result is uncertain by 8%. Subtracting two nearly equal numbers keeps their absolute uncertainties while the result becomes small. When an experiment depends on a small difference, measure the difference directly if you can.
+Each weighing was good to about 0.13%, but the result is uncertain by about 8%. Subtracting two nearly equal numbers keeps their absolute uncertainties while the result becomes small. When an experiment depends on a small difference, measure the difference directly if you can.
 
 ## The general rule from calculus
 
@@ -133,7 +133,7 @@ The tangent-line rule assumes $\delta x$ is small enough that the function is ne
 Suppose three students measure $g$ where the accepted local value is $9.80\text{ m/s}^2$: A gets $9.81 \pm 0.06$, B gets $9.62 \pm 0.05$, C gets $9.90 \pm 0.15$.
 
 ```plot
-{"x": [0, 4], "y": [9.4, 10.1], "xLabel": "student", "yLabel": "g (m/s²)", "segments": [{"from": [0, 9.80], "to": [4, 9.80], "dashed": true}, {"from": [1, 9.75], "to": [1, 9.87]}, {"from": [2, 9.57], "to": [2, 9.67]}, {"from": [3, 9.75], "to": [3, 10.05]}], "points": [{"at": [1, 9.81], "label": "A"}, {"at": [2, 9.62], "label": "B"}, {"at": [3, 9.90], "label": "C"}], "labels": [{"at": [3.3, 9.76], "text": "accepted 9.80"}], "caption": "Three results for g with their uncertainty bars; the dashed line is the accepted value"}
+{"x": [0, 4], "y": [9.4, 10.1], "xLabel": "student", "yLabel": "g (m/s²)", "segments": [{"from": [0, 9.80], "to": [4, 9.80], "dashed": true}, {"from": [1, 9.75], "to": [1, 9.87]}, {"from": [2, 9.57], "to": [2, 9.67]}, {"from": [3, 9.75], "to": [3, 10.05]}], "points": [{"at": [1, 9.81], "label": "A"}, {"at": [2, 9.62], "label": "B"}, {"at": [3, 9.90], "label": "C"}], "labels": [{"at": [2.0, 9.85], "text": "accepted 9.80"}], "caption": "Three results for g with their uncertainty bars; the dashed line is the accepted value"}
 ```
 
 Compare the **discrepancy** (the difference between the result and the accepted value, or between two results) with the uncertainty. A rough rule of thumb, assuming the uncertainty behaves like one standard deviation: a discrepancy within about $2\,\delta$ is consistent; one much beyond that points to a mistake or a systematic error.

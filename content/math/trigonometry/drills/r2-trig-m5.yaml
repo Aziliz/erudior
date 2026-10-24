@@ -36,7 +36,7 @@
     ph: {choices: [{label: '+ \tfrac{\pi}{6}', value: 0.5235987755982988}, {label: '- \tfrac{\pi}{6}', value: -0.5235987755982988}, {label: '+ \tfrac{\pi}{4}', value: 0.7853981633974483}, {label: '- \tfrac{\pi}{4}', value: -0.7853981633974483}, {label: '+ \tfrac{\pi}{3}', value: 1.0471975511965976}, {label: '- \tfrac{\pi}{3}', value: -1.0471975511965976}, {label: '+ \tfrac{\pi}{2}', value: 1.5707963267948966}]}
     st: {choices: [{label: '\tfrac{\pi}{6}', value: 0.5235987755982988}, {label: '-\tfrac{\pi}{6}', value: -0.5235987755982988}, {label: '\tfrac{\pi}{4}', value: 0.7853981633974483}, {label: '-\tfrac{\pi}{4}', value: -0.7853981633974483}, {label: '\tfrac{\pi}{3}', value: 1.0471975511965976}, {label: '-\tfrac{\pi}{3}', value: -1.0471975511965976}, {label: '\tfrac{\pi}{2}', value: 1.5707963267948966}]}
     k: {choices: [{label: '\tfrac12', value: 0.5}, {label: '-\tfrac12', value: -0.5}, {label: '\tfrac{\sqrt2}{2}', value: 0.7071067811865476}, {label: '-\tfrac{\sqrt2}{2}', value: -0.7071067811865476}, {label: '\tfrac{\sqrt3}{2}', value: 0.8660254037844386}, {label: '-\tfrac{\sqrt3}{2}', value: -0.8660254037844386}, {label: '0', value: 0}]}
-  where: ["abs(st - ph) < 0.000001", "min(r1, 2*pi - r1) > 0.001", "min(r2, 2*pi - r2) > 0.001", "abs(q - 1) > 0.001"]
+  where: ["abs(st - ph) < 0.000001", "min(r1, 2*pi - r1) > 0.001", "min(r2, 2*pi - r2) > 0.001", "abs(q - 1) > 0.001", "abs(qm - 1) > 0.001"]
   calc:
     al: if(f == 0, asin(k), acos(k))
     r1: mod(al - ph, 2*pi)
@@ -67,12 +67,12 @@
     'kep(z)': 'z - ec*sin(z) - mA'
   calc:
     E1: mA + ec*sin(mA)
-    E: solve(kep, 0, 4)
-    chk: E - ec*sin(E)
+    Ek: solve(kep, 0, 4)
+    chk: Ek - ec*sin(Ek)
   prompt: 'Kepler''s equation is $M = E - e\sin E$ (radians). Take $e = {ec:num2}$ and $M = {mA:num1}$. Starting from $E_0 = M$, find the first iterate $E_1 = M + e\sin E_0$, then solve for $E$. Give both to 4 decimals.'
   answers:
     - {name: E1, label: '$E_1 \approx$', tolerance: 0.0002, format: num4}
-    - {name: E, label: '$E \approx$', tolerance: 0.0002, format: num4}
+    - {name: Ek, label: '$E \approx$', tolerance: 0.0002, format: num4}
   solution: |-
     $E_1 = {mA:num1} + {ec:num2}\sin {mA:num1} \approx$ **{E1:num4}**. Keep iterating $E_{n+1} = {mA:num1} + {ec:num2}\sin E_n$ (or use a
-    solver): the values settle at $E \approx$ **{E:num4}**. Check: ${E:num4} - {ec:num2}\sin({E:num4}) \approx {chk:num4}$, which is $M$.
+    solver): the values settle at $E \approx$ **{Ek:num4}**. Check: ${Ek:num4} - {ec:num2}\sin({Ek:num4}) \approx {chk:num4}$, which is $M$.
