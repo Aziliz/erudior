@@ -60,7 +60,8 @@ about 185 m. With 157.5 m the circumference comes out near 39,400 km, within abo
 modern pole-to-pole value of about 40,008 km; with 185 m it is near 46,250 km, about 16% too
 large. Some of his inputs were also off: Aswan lies about 3° east of Alexandria, not due south,
 and the two cities' latitudes differ by about $7.1^\circ$, not $7.2^\circ$. Either way, the
-*method* is sound, and it was the first measurement of the Earth based on geometry that we know of.
+*method* is sound, and it is the earliest measurement of the Earth whose geometric method we know.
+(Aristotle and Archimedes quote earlier sizes of 400,000 and 300,000 stadia, but not how they were found.)
 
 ### Example 1: Eratosthenes with modern numbers
 
@@ -85,7 +86,7 @@ $\beta - \alpha$.
 
 ## Latitude, great circles and the nautical mile
 
-The **latitude** of a place is the central angle between it and the equator, measured north or
+Treating the Earth as a sphere, the **latitude** of a place is the central angle between it and the equator, measured north or
 south along the place's **meridian**, the north–south circle through both poles. Since latitude is
 a central angle, the distance between two places on the same meridian is just an arc:
 $s = R\,\Delta\theta$, where $\Delta\theta$ is the difference in latitude in radians and $R$ is
@@ -141,7 +142,7 @@ the circle, and the error is tiny when the angle is small: the straight chord an
 by about 0.13% at $10^\circ$ and about 0.001% at $1^\circ$.
 
 ```shape
-{"segments": [{"from": [0, 0], "to": [10, 2]}, {"from": [0, 0], "to": [10, -2]}, {"from": [10, -2], "to": [10, 2], "label": "D"}, {"from": [0, 0], "to": [10, 0], "dashed": true, "label": "d"}], "curves": [{"x": "10.198cos(t)", "y": "10.198sin(t)", "t": [-0.1974, 0.1974], "dashed": true}, {"x": "2.5cos(t)", "y": "2.5sin(t)", "t": [-0.1974, 0.1974]}], "points": [[0, 0]], "labels": [{"at": [-0.3, -0.7], "text": "eye"}, {"at": [3.1, 0.3], "text": "θ"}], "caption": "An object of width D at distance d is almost an arc of a circle of radius d (dashed), so θ ≈ D/d"}
+{"segments": [{"from": [0, 0], "to": [10, 2]}, {"from": [0, 0], "to": [10, -2]}, {"from": [10, -2], "to": [10, 2]}, {"from": [0, 0], "to": [10, 0], "dashed": true, "label": "d"}], "curves": [{"x": "10.198cos(t)", "y": "10.198sin(t)", "t": [-0.1974, 0.1974], "dashed": true}, {"x": "2.5cos(t)", "y": "2.5sin(t)", "t": [-0.1974, 0.1974]}], "points": [[0, 0]], "labels": [{"at": [11.1, 0.6], "text": "D"}, {"at": [-0.3, -0.7], "text": "eye"}, {"at": [3.1, 0.3], "text": "θ"}], "caption": "An object of width D at distance d is almost an arc of a circle of radius d (dashed), so θ ≈ D/d"}
 ```
 
 Small angles need small units. Lesson 1's minutes and seconds of angle are called arcminutes and
@@ -204,9 +205,9 @@ small the difference from $s = r\theta$ is far smaller than any measurement erro
 
 Proxima Centauri has a parallax of about $0.768''$. How far away is it?
 
-**Step 1:** $d = \tfrac{1}{0.768} \approx 1.30$ pc.
+**Step 1:** $d = \tfrac{1}{0.768} \approx 1.302$ pc.
 
-**Step 2:** in light-years, $1.30 \times 3.26 \approx 4.25$ ly.
+**Step 2:** in light-years, $1.302 \times 3.26 \approx 4.24$ ly.
 
 **Step 3 (sense check):** even the *nearest* star has a parallax under one arcsecond, about the
 angular width of a coin seen from 4 km away. That is why stellar parallax was first measured only

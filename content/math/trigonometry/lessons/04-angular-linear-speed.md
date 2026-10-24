@@ -100,7 +100,7 @@ A belt connects a pulley of radius 5 cm to a pulley of radius 15 cm. The small p
 spins at 12 rad/s. How fast does the large pulley spin?
 
 ```shape
-{"circles": [{"center": [0, 0], "r": 1}, {"center": [6, 0], "r": 3}], "segments": [{"from": [-0.3333, 0.9428], "to": [5.0000, 2.8284]}, {"from": [-0.3333, -0.9428], "to": [5.0000, -2.8284]}, {"from": [0, 0], "to": [1, 0], "label": "5 cm"}, {"from": [6, 0], "to": [9, 0], "label": "15 cm"}], "points": [[0, 0], [6, 0]], "labels": [{"at": [-0.2, 1.6], "text": "12 rad/s"}, {"at": [6, 3.5], "text": "4 rad/s"}, {"at": [0.4, -2.9], "text": "belt: 60 cm/s everywhere"}], "caption": "The belt moves at one linear speed, so the pulley with three times the radius turns at one third the angular speed"}
+{"circles": [{"center": [0, 0], "r": 1}, {"center": [6, 0], "r": 3}], "segments": [{"from": [-0.3333, 0.9428], "to": [5.0000, 2.8284]}, {"from": [-0.3333, -0.9428], "to": [5.0000, -2.8284]}, {"from": [0, 0], "to": [1, 0]}, {"from": [6, 0], "to": [9, 0], "label": "15 cm"}], "points": [[0, 0], [6, 0]], "labels": [{"at": [1.9, 0.35], "text": "5 cm"}, {"at": [-0.2, 1.6], "text": "12 rad/s"}, {"at": [6, 3.5], "text": "4 rad/s"}, {"at": [0.4, -2.9], "text": "belt: 60 cm/s everywhere"}], "caption": "The belt moves at one linear speed, so the pulley with three times the radius turns at one third the angular speed"}
 ```
 
 The belt doesn't slip, so every point on the belt, and the rim of each pulley, has the same

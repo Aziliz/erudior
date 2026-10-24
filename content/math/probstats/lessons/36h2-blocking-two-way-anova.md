@@ -19,8 +19,9 @@ whether they act independently (**factorial design**). Both rest on the same ide
 analysis: split the total sum of squares into orthogonal pieces and compare mean squares.
 
 Both designs were developed by R. A. Fisher at the Rothamsted agricultural research station in
-England in the 1920s and set out in his books *Statistical Methods for Research Workers* (1925)
-and *The Design of Experiments* (1935). The vocabulary of "blocks" and "plots" comes from those
+England in the 1920s. He presented the analysis of variance in *Statistical Methods for Research
+Workers* (1925), argued for randomized blocks in the paper "The arrangement of field experiments"
+(1926), and set out both designs at length in *The Design of Experiments* (1935). The vocabulary of "blocks" and "plots" comes from those
 field trials.
 
 ## The randomized block design

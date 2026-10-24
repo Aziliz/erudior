@@ -63,7 +63,7 @@
   topic: Relative rotation
 - term: synodic period
   aliases: [synodic periods]
-  definition: 'The time for one orbiting body to come back into the same position relative to another, for example new Moon to new Moon (about 29.5 days). It satisfies $\tfrac{1}{T} = \tfrac{1}{T_1} - \tfrac{1}{T_2}$.'
+  definition: 'The time for one orbiting body to come back into the same position relative to another, for example new Moon to new Moon (about 29.5 days). For two bodies circling the same way with periods $T_1 < T_2$, it satisfies $\tfrac{1}{T} = \tfrac{1}{T_1} - \tfrac{1}{T_2}$.'
   topic: Relative rotation
 - term: gear train
   aliases: [gear trains]

@@ -137,7 +137,7 @@ Estimate $\sin 2^\circ$ and $\cos 2^\circ$.
 **Step 1: convert.** $t = 2\cdot\tfrac{\pi}{180} = \tfrac{\pi}{90} \approx 0.034907$. (Using 2 itself would claim $\sin 2^\circ \approx 2$,
 which is impossible.)
 
-**Step 2: approximate.** $\sin 2^\circ \approx 0.034907$; the true value is $0.034900$ (to six decimals). And
+**Step 2: approximate.** $\sin 2^\circ \approx 0.034907$; the true value is $0.034899$ (to six decimals). And
 $\cos 2^\circ \approx 1 - \tfrac{0.034907^2}{2} \approx 0.999391$, matching the true value $0.999391$ to six decimals.
 
 ### Example 4

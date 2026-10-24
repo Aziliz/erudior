@@ -193,4 +193,4 @@ is not the same as being wrong, but such points deserve a second look.
 - $\hat{\mathbf{y}} = \mathbf{H}\mathbf{y}$ is the orthogonal projection of $\mathbf{y}$ onto the column space; residuals are orthogonal to every column.
 - $\operatorname{Cov}(\mathbf{b}) = \sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$; $s^2 = \text{SSE}/(n - p)$; $(b_j - \beta_j)/(s\sqrt{c_{jj}}) \sim t_{n-p}$.
 - Adjusted $R^2$ and the overall $F = \dfrac{\text{SSR}/(p-1)}{\text{SSE}/(n-p)}$ account for the number of parameters.
-- Correlated predictors inflate variances by the VIF $1/(1 - R_j^2)$; leverages $h_{ii}$ sum to $p$ and flag influential $x$ positions.
+- Correlated predictors inflate variances by the VIF $1/(1 - R_j^2)$; leverages $h_{ii}$ sum to $p$ and flag far-out $x$ positions, whose points can be influential.

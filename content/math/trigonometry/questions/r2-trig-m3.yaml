@@ -347,7 +347,7 @@
     - [Versine of θ, 1 − cos θ]
     - [Exsecant of θ, sec θ − 1]
     - [Chord of θ, 2 sin(θ/2)]
-    - [Half-chord (jya) of θ, sin θ]
+    - [Jya of θ (half the chord of 2θ), sin θ]
   distractors: [cos θ − 1, 2 sin θ]
   explanation: |-
     The versine is the segment $MA$ from the foot of the sine to the circle, $1 - \cos\theta$. The exsecant is the part $PT$ of the secant outside the circle, $\sec\theta - 1$. The chord of $\theta$ splits into two half-chords, each $\sin\tfrac{\theta}{2}$, so it is $2\sin\tfrac{\theta}{2}$. The Indian jya of an angle $\theta$ is half the chord of the doubled angle $2\theta$, which is $\sin\theta$: the sine itself.

@@ -504,10 +504,10 @@
     - [Parallel lines, No interaction]
     - [Lines that cross, Interaction in which one factor's effect reverses direction]
     - [Lines that spread apart but do not cross, Interaction in which one factor's effect changes size]
-    - [Two flat lines at the same height, Neither factor has an effect]
+    - [Two flat lines at the same height, No interaction and no effect of either factor]
   distractors: [The errors are not normal]
   explanation: |-
-    No interaction means the gap between the lines is the same at every level, so they are parallel. Non-parallel lines suggest interaction, whether they cross (the effect changes sign) or just spread (it changes size). Flat, overlapping lines mean neither factor moves the mean. An interaction plot of means says nothing about the error distribution, and with noisy data the $F$ test, not the eye, decides.
+    No interaction means the gap between the lines is the same at every level, so they are parallel. Non-parallel lines suggest interaction, whether they cross (the effect changes sign) or just spread (it changes size). Flat, overlapping lines are parallel too (no interaction), and in addition neither factor moves the mean, so the more complete answer fits them. An interaction plot of means says nothing about the error distribution, and with noisy data the $F$ test, not the eye, decides.
 
 - id: ps-m8-r2-h26
   lesson: ps-m8-h-two-way-anova
@@ -556,7 +556,7 @@
   choices: ['Karl Pearson', 'R. A. Fisher', 'W. S. Gosset ("Student")', 'Jerzy Neyman']
   answer: 1
   explanation: |-
-    R. A. Fisher worked at Rothamsted from 1919 and described these designs and the analysis of variance in "Statistical Methods for Research Workers" (1925) and "The Design of Experiments" (1935). Gosset developed the $t$ distribution at the Guinness brewery, Pearson the chi-square test, and Neyman (with E. S. Pearson) the theory of hypothesis tests.
+    R. A. Fisher worked at Rothamsted from 1919. He presented the analysis of variance in "Statistical Methods for Research Workers" (1925), argued for randomized blocks in the 1926 paper "The arrangement of field experiments", and set out these designs at length in "The Design of Experiments" (1935). Gosset developed the $t$ distribution at the Guinness brewery, Pearson the chi-square test, and Neyman (with E. S. Pearson) the theory of hypothesis tests.
 
 - id: ps-m8-r2-h30
   lesson: ps-m8-h-two-way-anova

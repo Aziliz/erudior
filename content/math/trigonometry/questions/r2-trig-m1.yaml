@@ -225,7 +225,7 @@
   labels:
     - {x: 93.3, y: 20.5, text: Parallel sun ray}
     - {x: 34.3, y: 27.6, text: Gnomon (vertical stick)}
-    - {x: 55, y: 35.9, text: Well at Syene}
+    - {x: 55, y: 33.4, text: Well at Syene}
     - {x: 42, y: 32.2, text: Arc between the cities}
     - {x: 52.6, y: 75.3, text: Central angle}
   distractors: [Equator, Earth's axis]
@@ -286,7 +286,7 @@
   choices: ['About $25^\circ$', 'About $1.4^\circ$', 'About $0.025^\circ$', 'About $14^\circ$']
   answer: 1
   explanation: |-
-    Use the same units: $\theta \approx \tfrac{50}{2000} = 0.025$ rad. In degrees, $0.025 \cdot \tfrac{180}{\pi} \approx 1.43^\circ$. $0.025^\circ$ forgets that $D/d$ is in radians, and $25^\circ$ divides 50 by 2 without converting km to m.
+    Use the same units: $\theta \approx \tfrac{50}{2000} = 0.025$ rad. In degrees, $0.025 \cdot \tfrac{180}{\pi} \approx 1.43^\circ$. $0.025^\circ$ forgets that $D/d$ is in radians, $25^\circ$ divides 50 by 2 without converting km to m, and $14^\circ$ is ten times too big (a misplaced decimal point).
 - id: trig-m1-r2-h08
   lesson: trig-m1-h-earth-sky
   topic: Small angles
@@ -379,10 +379,10 @@
   lesson: trig-m1-h-relative-rotation
   topic: Relative rotation
   stem: 'What is the smaller angle between the hands of a clock at 9:30?'
-  choices: ['$90^\circ$', '$75^\circ$', '$105^\circ$', '$120^\circ$']
+  choices: ['$90^\circ$', '$75^\circ$', '$105^\circ$', '$255^\circ$']
   answer: 2
   explanation: |-
-    Minute hand: $6 \times 30 = 180^\circ$. Hour hand: $30 \times 9 + 0.5 \times 30 = 285^\circ$. Difference: $105^\circ$. $90^\circ$ comes from leaving the hour hand on the 9.
+    Minute hand: $6 \times 30 = 180^\circ$. Hour hand: $30 \times 9 + 0.5 \times 30 = 285^\circ$. Difference: $105^\circ$. $90^\circ$ comes from leaving the hour hand on the 9, $75^\circ$ from moving it back toward the 8 instead of on toward the 10, and $255^\circ$ is the larger of the two angles.
 - id: trig-m1-r2-h18
   lesson: trig-m1-h-relative-rotation
   topic: Relative rotation
@@ -446,12 +446,12 @@
   stem: 'Match each connection between two rotating parts to what it does.'
   pairs:
     - [Two gears on the same shaft, Equal angular speeds]
-    - [A belt or chain, 'Equal rim speeds, same direction']
+    - [A chain or an uncrossed belt, 'Equal rim speeds, same direction']
     - [Two meshing gears, 'Equal rim speeds, opposite directions']
     - [An idler gear between two gears, Reverses the direction without changing the ratio]
   distractors: [Doubles the angular speed]
   explanation: |-
-    Parts fixed to one shaft turn together. A belt or chain and a pair of meshing teeth both give equal linear speeds at the rims ($r_1\omega_1 = r_2\omega_2$, or $N_1\omega_1 = N_2\omega_2$), but only meshing reverses the direction. An idler's tooth count cancels out of the ratio; it adds one reversal.
+    Parts fixed to one shaft turn together. A chain (or an uncrossed belt) and a pair of meshing teeth both give equal linear speeds at the rims ($r_1\omega_1 = r_2\omega_2$, or $N_1\omega_1 = N_2\omega_2$), but only meshing reverses the direction. An idler's tooth count cancels out of the ratio; it adds one reversal.
 - id: trig-m1-r2-h25
   lesson: trig-m1-h-relative-rotation
   topic: Gears and rolling

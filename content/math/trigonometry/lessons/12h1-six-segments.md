@@ -158,10 +158,10 @@ translated it as *sinus*, which became "sine"; exactly which translator first di
 ```mermaid
 flowchart TD
   accTitle: From chords to sines: how the trig functions got their names
-  accDescr: Greek astronomers, Hipparchus in the second century BC and Ptolemy in the second century AD, tabulated chords of a circle. Indian astronomers by about the fifth century AD tabulated the half-chord, called jya or jiva, which is our sine. Arabic writers borrowed the word as jiba, written without vowels. Twelfth-century Latin translators read it as jaib, meaning a fold or bosom, and translated it as sinus. In 1583 Thomas Fincke introduced the names tangent and secant.
+  accDescr: Greek astronomers, Hipparchus in the second century BC and Ptolemy in the second century AD, tabulated chords of a circle. Indian astronomers by about the fifth century AD tabulated the half-chord, called jya or jiva, which is our sine. Arabic writers borrowed the word as jiba, written without vowels. Twelfth-century Latin translators read it as jayb, meaning a fold or bosom, and translated it as sinus. In 1583 Thomas Fincke introduced the names tangent and secant.
   A["Chord tables: Hipparchus (2nd c. BC), Ptolemy (2nd c. AD)"] --> B["Half-chord tables in India (jya, jiva), by about 500 AD"]
   B --> C["Arabic astronomy: the word becomes jiba"]
-  C --> D["12th-c. Latin translators: read as jaib, translated sinus"]
+  C --> D["12th-c. Latin translators: read as jayb, translated sinus"]
   D --> E["1583: Thomas Fincke names tangent and secant"]
 ```
 

@@ -116,8 +116,8 @@ $$N_1\omega_1 = N_2\omega_2 .$$
 Counting teeth is easier than measuring radii, and it explains the rule directly: every tooth of
 the first gear that passes the contact point pushes one tooth of the second gear past it.
 
-The difference from a belt is *direction*: meshing gears turn in *opposite* directions (a belt
-or chain keeps the same direction). A chain of meshing gears is a **gear train**, and three kinds
+The difference from a belt is *direction*: meshing gears turn in *opposite* directions (a chain, or an ordinary
+uncrossed belt, keeps the same direction; a belt crossed into a figure eight reverses it). A chain of meshing gears is a **gear train**, and three kinds
 of link appear in one:
 
 - **Meshing gears:** $N_1\omega_1 = N_2\omega_2$, and the direction reverses.
@@ -168,7 +168,7 @@ speed. Each point's motion is the forward motion of the center *plus* its spin a
   for that instant it is at rest. That is exactly what "not slipping" means.
 
 ```shape
-{"segments": [{"from": [-1.6, 0], "to": [6.8, 0]}, {"from": [0, 2], "to": [2, 2], "arrow": true}, {"from": [0, 1], "to": [1, 1], "arrow": true}], "circles": [{"center": [0, 1], "r": 1}], "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832], "dashed": true}], "points": [[0, 0], [0, 1], [0, 2]], "labels": [{"at": [2.35, 2.05], "text": "2v"}, {"at": [1.3, 1.05], "text": "v"}, {"at": [0.15, -0.4], "text": "speed 0"}, {"at": [4.9, 2.2], "text": "path of a rim point"}], "caption": "A rolling wheel: the top moves at twice the center's speed and the contact point is momentarily at rest. A point on the rim traces the dashed arch (a cycloid)."}
+{"segments": [{"from": [-1.6, 0], "to": [6.8, 0]}, {"from": [0, 2], "to": [2, 2], "arrow": true}, {"from": [0, 1], "to": [1, 1], "arrow": true}], "circles": [{"center": [0, 1], "r": 1}], "curves": [{"x": "t - sin(t)", "y": "1 - cos(t)", "t": [0, 6.2832], "dashed": true}], "points": [[0, 0], [0, 1], [0, 2]], "labels": [{"at": [2.35, 2.05], "text": "2v"}, {"at": [1.3, 1.05], "text": "v"}, {"at": [0.6, -0.5], "text": "speed 0"}, {"at": [4.9, 2.2], "text": "path of a rim point"}], "caption": "A rolling wheel: the top moves at twice the center's speed and the contact point is momentarily at rest. A point on the rim traces the dashed arch (a cycloid)."}
 ```
 
 A point on the rim traces a series of arches called a **cycloid**, touching the ground once per
@@ -197,10 +197,10 @@ not quite the same number, because the two percentages are measured from differe
 ```mermaid
 flowchart LR
   accTitle: Choosing the rule that links two rotating parts
-  accDescr: Start by asking how the two parts are connected. If they are fixed on the same shaft, they have equal angular speed. If a belt or chain links them, r1 omega1 equals r2 omega2 and they turn the same way. If their teeth mesh, N1 omega1 equals N2 omega2 and they turn opposite ways. If they turn freely about the same center, as clock hands do, the angle between them changes at omega1 minus omega2. If a wheel rolls on the ground without slipping, the center moves at v equals r omega.
+  accDescr: Start by asking how the two parts are connected. If they are fixed on the same shaft, they have equal angular speed. If a chain or an uncrossed belt links them, r1 omega1 equals r2 omega2 and they turn the same way. If their teeth mesh, N1 omega1 equals N2 omega2 and they turn opposite ways. If they turn freely about the same center, as clock hands do, the angle between them changes at omega1 minus omega2. If a wheel rolls on the ground without slipping, the center moves at v equals r omega.
   Q{"How are the two parts connected?"}
   Q -->|"same shaft"| A["Equal angular speed"]
-  Q -->|"belt or chain"| B["r1 ω1 = r2 ω2, same direction"]
+  Q -->|"chain or uncrossed belt"| B["r1 ω1 = r2 ω2, same direction"]
   Q -->|"meshing teeth"| C["N1 ω1 = N2 ω2, opposite directions"]
   Q -->|"turning freely about one center"| D["Gap changes at ω1 − ω2"]
   Q -->|"wheel rolling on the ground"| E["Center moves at v = r ω"]
@@ -213,8 +213,8 @@ flowchart LR
 - **Adding speeds that should be subtracted.** Clock hands and the Earth's spin and orbit turn the
   same way, so the gap changes at the *difference* of their angular speeds.
 - **Using radii and tooth counts upside down.** The small gear turns faster: $\omega_2 = \omega_1\cdot\tfrac{N_1}{N_2}$.
-- **Forgetting direction.** Each mesh reverses the direction; a belt, a chain or a shared shaft
-  does not.
+- **Forgetting direction.** Each mesh reverses the direction; a chain, an uncrossed belt or a shared
+  shaft does not.
 - **Thinking an idler changes the speed ratio.** It only changes the direction.
 - **Assuming every point of a rolling wheel moves at the car's speed.** Only the center does; the
   top moves at twice that speed and the contact point is momentarily still.

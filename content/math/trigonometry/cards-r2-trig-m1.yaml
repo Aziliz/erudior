@@ -10,7 +10,7 @@
 - {front: 'Small-angle rule for angular size', back: '$\theta \approx \dfrac{D}{d}$ radians for an object of width $D$ at distance $d \gg D$.', topic: Small angles}
 - {front: 'One radian in arcminutes and arcseconds', back: '$1 \text{ rad} \approx 3438'' \approx 206{,}265''''$', topic: Small angles}
 - {front: 'Milliradian rule', back: '1 mrad covers 1 m at 1 km (or 10 cm at 100 m).', topic: Small angles}
-- {front: 'Angular size of the Sun and the Moon', back: 'Both about $0.5^\circ$ (about $31''$ and $32''$), which is why total solar eclipses are possible.', topic: Small angles}
+- {front: 'Angular size of the Sun and the Moon', back: 'Both about $0.5^\circ$ (Sun about $32''$, Moon about $31''$), which is why total solar eclipses are possible.', topic: Small angles}
 - {front: 'Parsec', back: 'Distance at which 1 au subtends $1''''$: $\tfrac{648{,}000}{\pi}$ au $\approx 3.26$ light-years.', topic: Small angles}
 - {front: 'Distance from parallax', back: '$d \text{ (pc)} = \dfrac{1}{p \text{ (arcseconds)}}$', topic: Small angles}
 # Relative rotation

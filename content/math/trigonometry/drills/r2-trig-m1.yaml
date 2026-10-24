@@ -50,14 +50,14 @@
     p: {min: 0.05, max: 0.8, step: 0.01}
   calc:
     d: 1 / p
-    ly: d * 3.2616
+    ly: d * 3.26
   prompt: 'A star has a parallax of ${p}''''$. Find its distance in parsecs (2 decimals) and in light-years (1 decimal; use 1 pc ≈ 3.26 light-years).'
   answers:
     - {name: d, label: 'Parsecs', tolerance: 0.006, units: {'pc': 1}}
     - {name: ly, label: 'Light-years', tolerance: 0.12, units: {'ly': 1, 'light-years': 1}}
   solution: |-
     With the parallax in arcseconds, $d = \dfrac{1}{\,p} = \dfrac{1}{{p}} \approx$ **{d:num2} pc**.
-    In light-years: ${d:num2} \times 3.26 \approx$ **{ly:num1} ly**.
+    In light-years: ${d:dp3} \times 3.26 \approx$ **{ly:num1} ly**.
 
 - id: trig-m1-r2-clock-angle
   title: Angle between the hands of a clock

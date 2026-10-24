@@ -115,11 +115,11 @@
   choices:
     - 'The A values have a larger spread than the B values'
     - 'There are only six locomotives, so the $t$ distribution has heavy tails'
-    - 'The lines start at very different heights but nearly all fall by a similar amount'
+    - 'The lines start at very different heights but every one falls from A to B'
     - 'The B values are all below 5.5 mm'
   answer: 2
   explanation: |-
-    The heights differ a lot between locomotives (large unit-to-unit variation), but the drops from A to B are consistent. The paired test uses only the drops, so the between-locomotive variation, which swamps a two-sample test, cancels out.
+    The heights differ a lot between locomotives (large unit-to-unit variation), but every line drops from A to B, and the drops (0.1 to 0.7 mm) vary much less than the heights do. The paired test uses only the drops, so the between-locomotive variation, which swamps a two-sample test, cancels out.
 
 - id: ps-m7-r2-q10
   lesson: ps-normal-tests
@@ -200,7 +200,7 @@
     - '$8$ is closer than $7$ to the alternative mean $10(0.8)$'
   answer: 0
   explanation: |-
-    The Neyman–Pearson lemma adds outcomes in order of the likelihood ratio $f_1(t)/f_0(t) = 1.6^t\,0.4^{10}$, which increases with $t$: $0.302/0.0439 \approx 6.9$ for $t = 8$ and $0.201/0.117 \approx 1.7$ for $t = 7$. A small null probability alone, or a large alternative probability alone, is not the criterion; it is their ratio. (Here the ratio happens to increase in $t$, so the order also matches the distance from $8$, but that is a consequence, not the rule.)
+    The Neyman–Pearson lemma adds outcomes in order of the likelihood ratio $f_1(t)/f_0(t) = 1.6^t\,0.4^{10-t} = 4^t\,0.4^{10}$, which increases with $t$: $0.302/0.0439 \approx 6.9$ for $t = 8$ and $0.201/0.117 \approx 1.7$ for $t = 7$. A small null probability alone, or a large alternative probability alone, is not the criterion; it is their ratio. (Here the ratio happens to increase in $t$, so the order also matches the distance from $8$, but that is a consequence, not the rule.)
 
 # ---- Lesson 33: proportions and chi-square tests ----
 - id: ps-m7-r2-q16
