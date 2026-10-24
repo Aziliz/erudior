@@ -222,7 +222,7 @@
 
     $\text{SS}_A = br\sum(\bar y_{i\cdot\cdot} - \bar y)^2 = 2({rr})\big[({ga:num2} - {gm:num2})^2 + ({gb2:num2} - {gm:num2})^2\big] =$ **{ssa:num2}**, and likewise $\text{SS}_B =$ **{ssb:num2}**.
 
-    In a $2 \times 2$ design every interaction estimate is $\pm(\bar y_{11} - \bar y_{12} - \bar y_{21} + \bar y_{22})/4 = \pm{con}/4$, so
-    $\text{SS}_{AB} = 4r({con}/4)^2 =$ **{ssab:num2}**.
+    Here $\bar y_{11} - \bar y_{12} - \bar y_{21} + \bar y_{22} = {con}$, and in a $2 \times 2$ design each of the four interaction
+    estimates is plus or minus a quarter of it, so $\text{SS}_{AB} = 4r({con}/4)^2 =$ **{ssab:num2}**.
 
     $F_{AB} = \text{SS}_{AB}/\text{MSE} =$ **{fab:num2}** on (1, {dfe}) df (p-value {pv:num4}).

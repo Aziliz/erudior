@@ -10,7 +10,7 @@
 <circle cx="178.6" cy="140.0" r="4" fill="#1c2833"/>
 <text x="34.0" y="244.0" font-size="17" text-anchor="middle" font-weight="bold">A</text>
 <text x="174.6" y="130.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
-<text x="98.0" y="168.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
+<text x="86.0" y="184.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
 <text x="166.6" y="185.0" font-size="16" text-anchor="middle" font-style="italic">h</text>
 <text x="320.0" y="64.0" font-size="16" text-anchor="middle"></text>
 <clipPath id="p1"><rect x="382" y="40" width="376" height="216"/></clipPath>
@@ -27,7 +27,7 @@
 <circle cx="558.6" cy="140.0" r="4" fill="#1c2833"/>
 <text x="414.0" y="244.0" font-size="17" text-anchor="middle" font-weight="bold">A</text>
 <text x="554.6" y="130.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
-<text x="478.0" y="168.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
+<text x="466.0" y="184.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
 <text x="546.6" y="185.0" font-size="16" text-anchor="middle" font-style="italic">h</text>
 <text x="700.0" y="64.0" font-size="16" text-anchor="middle"></text>
 <clipPath id="p2"><rect x="2" y="300" width="376" height="216"/></clipPath>
@@ -44,7 +44,7 @@
 <circle cx="178.6" cy="400.0" r="4" fill="#1c2833"/>
 <text x="34.0" y="504.0" font-size="17" text-anchor="middle" font-weight="bold">A</text>
 <text x="174.6" y="390.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
-<text x="98.0" y="428.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
+<text x="86.0" y="444.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
 <text x="166.6" y="445.0" font-size="16" text-anchor="middle" font-style="italic">h</text>
 <text x="320.0" y="324.0" font-size="16" text-anchor="middle"></text>
 <clipPath id="p3"><rect x="382" y="300" width="376" height="216"/></clipPath>
@@ -61,7 +61,7 @@
 <circle cx="558.6" cy="400.0" r="4" fill="#1c2833"/>
 <text x="414.0" y="504.0" font-size="17" text-anchor="middle" font-weight="bold">A</text>
 <text x="554.6" y="390.0" font-size="17" text-anchor="middle" font-weight="bold">C</text>
-<text x="478.0" y="428.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
+<text x="466.0" y="444.0" font-size="17" text-anchor="middle" font-style="italic">b</text>
 <text x="546.6" y="445.0" font-size="16" text-anchor="middle" font-style="italic">h</text>
 <text x="700.0" y="324.0" font-size="16" text-anchor="middle"></text>
 </svg>
