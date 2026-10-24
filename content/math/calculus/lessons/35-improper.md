@@ -77,7 +77,7 @@ Evaluate $\displaystyle\int_0^1\frac{dx}{\sqrt x}$.
 $\frac{1}{\sqrt x}$ blows up at 0. $\displaystyle\lim_{t\to0^+}\Big[2\sqrt x\Big]_t^1 = \lim(2 - 2\sqrt t) = \mathbf 2$. Converges, even though the region is infinitely tall.
 
 ```plot
-{"x": [-0.1, 1.5], "y": [0, 6], "functions": [{"f": "1/sqrt(x)", "from": 0.02, "to": 1.5, "label": "y = 1/√x"}], "shade": [{"f": "1/sqrt(x)", "from": 0.028, "to": 1}], "caption": "The region under y = 1/√x from 0 to 1 is infinitely tall near x = 0 but has area 2"}
+{"x": [-0.1, 1.5], "y": [0, 6], "functions": [{"f": "1/sqrt(x)", "from": 0.02, "to": 1.5}], "shade": [{"f": "1/sqrt(x)", "from": 0.028, "to": 1}], "labels": [{"at": [1.05, 1.6], "text": "y = 1/√x"}], "caption": "The region under y = 1/√x from 0 to 1 is infinitely tall near x = 0 but has area 2"}
 ```
 
 The p-integrals on $[0, 1]$ behave the opposite way: $\displaystyle\int_0^1\frac{dx}{x^p}$ converges (to $\frac{1}{1 - p}$) if $p < 1$ and diverges if $p \ge 1$.

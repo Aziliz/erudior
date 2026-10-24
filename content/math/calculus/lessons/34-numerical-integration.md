@@ -104,7 +104,7 @@ For a concave-up function, $M_n < \int_a^b f < T_n$, which brackets the true val
 The picture shows why, on a single subinterval of $f(x) = \frac12x^2 + 1$ over $[0, 2]$ (true area $\frac{10}{3} \approx 3.33$). The chord of the trapezoid lies above the concave-up curve, so $T_1 = 4$ is too big. The midpoint rectangle's top is a horizontal line through $(1, 1.5)$; tilting it to the tangent line there doesn't change its area, and the tangent lies below the curve, so $M_1 = 3$ is too small.
 
 ```plot
-{"x": [-0.3, 2.5], "y": [0, 3.5], "functions": [{"f": "0.5x^2 + 1", "from": 0, "to": 2, "label": "y = ½x² + 1"}], "polygons": [{"points": [[0, 0], [0, 1], [2, 3], [2, 0]]}, {"points": [[0, 0], [0, 1.5], [2, 1.5], [2, 0]]}], "tangents": [{"f": "0.5x^2 + 1", "at": 1}], "points": [{"at": [1, 1.5], "label": "midpoint"}], "caption": "Concave up: the trapezoid (top edge from (0, 1) to (2, 3)) has area 4, above the true 10/3; the midpoint rectangle (height 1.5) has area 3, below it"}
+{"x": [-0.3, 2.5], "y": [0, 3.5], "functions": [{"f": "0.5x^2 + 1", "from": 0, "to": 2, "label": "y = ½x² + 1"}], "polygons": [{"points": [[0, 0], [0, 1], [2, 3], [2, 0]]}, {"points": [[0, 0], [0, 1.5], [2, 1.5], [2, 0]]}], "tangents": [{"f": "0.5x^2 + 1", "at": 1}], "points": [{"at": [1, 1.5]}], "labels": [{"at": [1.3, 1.25], "text": "midpoint"}], "caption": "Concave up: the trapezoid (top edge from (0, 1) to (2, 3)) has area 4, above the true 10/3; the midpoint rectangle (height 1.5) has area 3, below it"}
 ```
 
 ## Error bounds
