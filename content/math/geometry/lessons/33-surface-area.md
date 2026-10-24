@@ -19,7 +19,7 @@ A **polyhedron** is a solid bounded by polygons, called **faces**. Faces meet in
 - A **cone** has one circular base and a curved surface rising to an apex.
 - A **sphere** is the set of points in space at a fixed distance $r$ from a center.
 
-To name a solid, ask whether every face is flat, then count its bases:
+To tell apart the common solids listed above, ask whether every face is flat, then count the bases (the chart covers only these six; many other solids exist):
 
 ```mermaid
 flowchart TD

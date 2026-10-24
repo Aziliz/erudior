@@ -117,7 +117,7 @@ Here is a surprise. Take *any* polyhedron without holes whose faces are all pent
 
 $$F = p + h, \qquad 2E = 5p + 6h, \qquad 3V = 2E.$$
 
-Substitute into Euler's formula: $V - E + F = \tfrac{2E}{3} - E + F = F - \tfrac{E}{3} = p + h - \tfrac{5p + 6h}{6} = \tfrac{p}{6}$. Setting $\tfrac{p}{6} = 2$ gives $p = 12$, no matter how many hexagons there are. The fullerenes, closed cage-shaped molecules made only of carbon (such as the 60-atom "buckyball", shaped like a soccer ball), follow the same rule: every one has exactly 12 pentagonal rings.
+Substitute into Euler's formula: $V - E + F = \tfrac{2E}{3} - E + F = F - \tfrac{E}{3} = p + h - \tfrac{5p + 6h}{6} = \tfrac{p}{6}$. Setting $\tfrac{p}{6} = 2$ gives $p = 12$, no matter how many hexagons there are. The fullerenes, closed cage-shaped carbon molecules whose rings of atoms are all pentagons and hexagons, with three bonds at each atom (such as the 60-atom "buckyball", shaped like a soccer ball), follow the same rule: every one has exactly 12 pentagonal rings.
 
 ## When V − E + F is not 2
 

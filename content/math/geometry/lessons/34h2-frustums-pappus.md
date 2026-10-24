@@ -68,7 +68,7 @@ which simplifies to
 
 $$V_{\text{cap}} = \frac{\pi h^2}{3}(3R - h).$$
 
-Checks: $h = R$ gives $\tfrac23 \pi R^3$, a hemisphere, and $h = 2R$ gives $\tfrac43 \pi R^3$, the whole ball.
+This argument works for a cap no taller than a hemisphere ($h \le R$); a taller cap is the whole ball minus a short cap, and the same formula comes out, so it holds for every $h$ from 0 to $2R$. Checks: $h = R$ gives $\tfrac23 \pi R^3$, a hemisphere, and $h = 2R$ gives $\tfrac43 \pi R^3$, the whole ball.
 
 **The curved area.** Archimedes also proved a remarkable fact, now called the **hat-box theorem**: the curved surface of a cap, or of any band of a sphere between two parallel planes, has area
 

@@ -105,7 +105,7 @@
     - [Segment of a circle, Sector area minus the triangle's area]
     - [Annulus (ring), Big circle's area minus the small circle's area]
     - [Regular polygon, Half the apothem times the perimeter]
-  distractors: [Pi times the difference of the radii squared]
+  distractors: [Pi times the square of the difference of the radii]
   explanation: |-
     A sector with central angle $\theta$ is $\tfrac{\theta}{360^\circ}$ of the circle. A segment is what is left of a sector after removing the triangle made by the two radii and the chord. A ring is found by subtracting areas, $\pi R^2 - \pi r^2$; $\pi(R - r)^2$ is the common mistake of subtracting radii first. A regular polygon has $A = \tfrac12 aP$.
 - id: geo-m8-r2-q10
@@ -402,7 +402,7 @@
   choices: ['$45\pi$', '$30\pi$', '$36\pi$', '$12\pi$']
   answer: 2
   explanation: |-
-    $V = \tfrac{\pi h^2}{3}(3R - h) = \tfrac{9\pi}{3}(15 - 3) = 3\pi \cdot 12 = 36\pi$. $45\pi$ forgets to subtract $h$; $30\pi$ uses $2R$ in place of $3R$; $12\pi$ drops the factor $h^2/3 = 3$.
+    $V = \tfrac{\pi h^2}{3}(3R - h) = \tfrac{9\pi}{3}(15 - 3) = 3\pi \cdot 12 = 36\pi$. $45\pi$ forgets to subtract $h$; $30\pi$ is the cap's curved area $2\pi R h = 2\pi(5)(3)$, not its volume; $12\pi$ drops the factor $h^2/3 = 3$.
 - id: geo-m8-r2-h20
   lesson: geo-m8-h-frustums-pappus
   topic: Frustums and caps
@@ -414,11 +414,11 @@
 - id: geo-m8-r2-h21
   lesson: geo-m8-h-frustums-pappus
   topic: Frustums and caps
-  stem: 'Two parallel planes, 1 and 3 units from the center, slice a band from a sphere of radius 6. What is the area of the band''s curved surface?'
+  stem: 'Two parallel planes on the same side of the center, 1 and 3 units from it, slice a band from a sphere of radius 6. What is the area of the band''s curved surface?'
   choices: ['$12\pi$', '$48\pi$', '$144\pi$', '$24\pi$']
   answer: 3
   explanation: |-
-    By Archimedes' hat-box theorem the band's area is $2\pi R h$, where $h$ is the distance between the planes: $2\pi(6)(2) = 24\pi$. It doesn't matter where the band sits. $12\pi$ drops the 2; $144\pi$ is the whole sphere, $4\pi(36)$.
+    By Archimedes' hat-box theorem the band's area is $2\pi R h$, where $h$ is the distance between the planes: $2\pi(6)(2) = 24\pi$. It doesn't matter where the band sits. $48\pi$ adds the two distances ($1 + 3 = 4$), which would be right only if the planes were on opposite sides of the center; $12\pi$ drops the 2; $144\pi$ is the whole sphere, $4\pi(36)$.
 - id: geo-m8-r2-h22
   lesson: geo-m8-h-frustums-pappus
   topic: Pappus's theorem
@@ -430,11 +430,11 @@
 - id: geo-m8-r2-h23
   lesson: geo-m8-h-frustums-pappus
   topic: Pappus's theorem
-  stem: 'A torus is made by spinning a circle of radius 2 around an axis 6 units from its center. Find its volume.'
-  choices: ['$48\pi^2$', '$24\pi^2$', '$96\pi^2$', '$24\pi$']
+  stem: 'A torus is made by spinning a circle of radius 3 around an axis 5 units from its center. Find its volume.'
+  choices: ['$90\pi^2$', '$45\pi^2$', '$60\pi^2$', '$90\pi$']
   answer: 0
   explanation: |-
-    The disk has area $\pi(2)^2 = 4\pi$ and its centroid travels $2\pi(6) = 12\pi$, so $V = 4\pi \cdot 12\pi = 48\pi^2 \approx 473.7$. That is $2\pi^2 R r^2$. $24\pi^2$ uses $\pi R$ instead of $2\pi R$; $96\pi^2$ is the surface area $4\pi^2 R r$, not the volume; $24\pi$ forgets that the area itself contains $\pi$.
+    The disk has area $\pi(3)^2 = 9\pi$ and its centroid travels $2\pi(5) = 10\pi$, so $V = 9\pi \cdot 10\pi = 90\pi^2 \approx 888.3$. That is $2\pi^2 R r^2$. $45\pi^2$ uses $\pi R$ instead of $2\pi R$; $60\pi^2$ is the surface area $4\pi^2 R r$, not the volume; $90\pi$ forgets that the disk's area $9\pi$ contains a $\pi$.
 - id: geo-m8-r2-h24
   lesson: geo-m8-h-frustums-pappus
   topic: Pappus's theorem
