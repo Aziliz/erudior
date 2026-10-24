@@ -38,7 +38,7 @@ $$T_s = T_e\left(\frac{2}{2 - \varepsilon}\right)^{1/4}.$$
 For $\varepsilon = 0$ this gives $T_e$; for $\varepsilon = 1$, the all-absorbing 303 K. As a check, the energy leaving the top, $(1 - \varepsilon)\sigma T_s^4 + \varepsilon\sigma T_a^4 = \sigma T_s^4(1 - \varepsilon/2) = \sigma T_e^4$, still equals the absorbed sunlight, as it must.
 
 ```plot
-{"x": [0, 1], "y": [250, 310], "xLabel": "fraction of infrared absorbed, ε", "yLabel": "surface temperature (K)", "functions": [{"f": "254.6*(2/(2 - x))^0.25", "label": "one-layer model"}], "points": [{"at": [0.78, 288], "label": "Earth, 288 K"}], "caption": "One-layer model: the more infrared the layer absorbs, the warmer the surface"}
+{"x": [0, 1], "y": [250, 310], "xLabel": "fraction of infrared absorbed, ε", "yLabel": "surface temperature (K)", "functions": [{"f": "254.6*(2/(2 - x))^0.25", "label": "one-layer model"}], "points": [{"at": [0.78, 288]}], "labels": [{"at": [0.86, 280], "text": "Earth, 288 K"}], "caption": "One-layer model: the more infrared the layer absorbs, the warmer the surface"}
 ```
 
 ### Example 1: how absorbing is the atmosphere?

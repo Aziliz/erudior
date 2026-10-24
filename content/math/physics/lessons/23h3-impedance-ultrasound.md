@@ -28,7 +28,7 @@ and the rest, $T = 1 - R$, is transmitted. (Here and below, "straight on" means 
 For displacement on a string, the reflected wave's amplitude is $\dfrac{Z_1 - Z_2}{Z_1 + Z_2}$ times the incoming amplitude. If $Z_2 > Z_1$ this is negative: the reflection is inverted. A fixed end is the limit $Z_2 \to \infty$ (amplitude ratio $-1$, inverted), and a free end is $Z_2 \to 0$ (ratio $+1$, upright), the two cases from the waves lesson.
 
 ```plot
-{"x": [0, 10], "y": [0, 1], "xLabel": "impedance ratio Z2 / Z1", "yLabel": "fraction reflected R", "functions": [{"f": "((x - 1)/(x + 1))^2"}], "points": [{"at": [1, 0], "label": "matched: no echo"}], "caption": "Reflected fraction of intensity against impedance ratio; a ratio of 1/r gives the same R as r"}
+{"x": [0, 10], "y": [0, 1], "xLabel": "impedance ratio Z2 / Z1", "yLabel": "fraction reflected R", "functions": [{"f": "((x - 1)/(x + 1))^2"}], "points": [{"at": [1, 0]}], "caption": "Reflected fraction of intensity against impedance ratio: R = 0 (no echo) when the impedances match (ratio 1), and a ratio of 1/r gives the same R as r", "labels": [{"at": [1.45, 0.2], "text": "no echo"}]}
 ```
 
 ### Example 1
@@ -111,7 +111,7 @@ A 5.0 MHz beam points along an artery in which blood flows toward the probe at 0
 
 $\Delta f = \dfrac{2(5.0\times10^6)(0.50)}{1540} = 3.2\times10^3$ Hz $= 3.2$ kHz. At 60°: $3.2 \times \cos 60^\circ = 1.6$ kHz.
 
-The shift is a tiny fraction of 5 MHz, but it falls in the audible range, so many scanners play it through a speaker: the "whoosh" of blood flow is a 1 to 3 kHz Doppler tone.
+The shift is a tiny fraction of 5 MHz, but it falls in the audible range, so many scanners play it through a speaker: the "whoosh" of blood flow is a Doppler tone, typically somewhere between a few hundred hertz and a few kilohertz.
 
 ## Common mistakes
 

@@ -78,7 +78,7 @@ while the tone you hear has the average frequency, $\tfrac12(f_1 + f_2)$. Musici
 The graph adds two waves with frequencies far too low to hear (8 Hz and 9 Hz), so that the individual oscillations are visible. The dashed envelope shows the loudness swelling and fading once per second.
 
 ```plot
-{"x": [0, 2], "y": [-2.6, 2.6], "xLabel": "time t (s)", "yLabel": "total displacement", "functions": [{"f": "sin(2*pi*8*x) + sin(2*pi*9*x)"}, {"f": "2*cos(pi*x)", "dashed": true}, {"f": "-2*cos(pi*x)", "dashed": true}], "caption": "8 Hz + 9 Hz: loud when the waves are in step (t = 0, 1, 2 s), silent halfway between; beat frequency 1 Hz"}
+{"x": [0, 2.5], "y": [-2.6, 2.6], "xLabel": "time t (s)", "yLabel": "total displacement", "functions": [{"f": "sin(2*pi*8*x) + sin(2*pi*9*x)", "to": 2}, {"f": "2*cos(pi*x)", "dashed": true, "to": 2}, {"f": "-2*cos(pi*x)", "dashed": true, "to": 2}], "caption": "8 Hz + 9 Hz: loud when the waves are in step (t = 0, 1, 2 s), silent halfway between; beat frequency 1 Hz"}
 ```
 
 ## Reflection and standing waves

@@ -25,13 +25,13 @@ A clean example is the square wave, which jumps between $+1$ and $-1$ every half
 $$\text{square wave} = \frac{4}{\pi}\left[\sin(2\pi f_1t) + \tfrac13\sin(2\pi\cdot3f_1t) + \tfrac15\sin(2\pi\cdot5f_1t) + \cdots\right]$$
 
 ```plot
-{"x": [0, 2], "y": [-1.6, 1.6], "xLabel": "time (in periods)", "yLabel": "displacement", "functions": [{"f": "(4/pi)*sin(2*pi*x)", "dashed": true, "label": "1 term"}, {"f": "(4/pi)*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9)", "label": "5 terms"}], "caption": "Adding odd harmonics with amplitudes 1, 1/3, 1/5, … builds a square wave"}
+{"x": [0, 2.3], "y": [-1.6, 1.6], "xLabel": "t / T", "yLabel": "displacement", "functions": [{"f": "(4/pi)*sin(2*pi*x)", "dashed": true, "to": 2}, {"f": "(4/pi)*(sin(2*pi*x) + sin(6*pi*x)/3 + sin(10*pi*x)/5 + sin(14*pi*x)/7 + sin(18*pi*x)/9)", "to": 2}], "caption": "Adding odd harmonics with amplitudes 1, 1/3, 1/5, … builds a square wave: dashed, the 1st harmonic alone; solid, the sum of the first five odd harmonics (time in periods)"}
 ```
 
 A sawtooth wave (rising steadily, then dropping) contains *all* harmonics with amplitudes $1/n$. The two waves have the same period and so the same pitch; they differ only in their spectra.
 
 ```plot
-{"x": [0, 10], "y": [0, 1.15], "xLabel": "harmonic number n", "yLabel": "amplitude (fundamental = 1)", "bars": [{"x": 1, "height": 1, "width": 0.6}, {"x": 3, "height": 0.3333, "width": 0.6}, {"x": 5, "height": 0.2, "width": 0.6}, {"x": 7, "height": 0.1429, "width": 0.6}, {"x": 9, "height": 0.1111, "width": 0.6}], "caption": "Spectrum of a square wave: odd harmonics only, amplitude 1/n"}
+{"x": [0, 11.5], "y": [0, 1.15], "xLabel": "harmonic n", "yLabel": "amplitude (fundamental = 1)", "bars": [{"x": 1, "height": 1, "width": 0.6}, {"x": 3, "height": 0.3333, "width": 0.6}, {"x": 5, "height": 0.2, "width": 0.6}, {"x": 7, "height": 0.1429, "width": 0.6}, {"x": 9, "height": 0.1111, "width": 0.6}], "caption": "Spectrum of a square wave: odd harmonics only, amplitude 1/n"}
 ```
 
 ## Timbre
@@ -77,10 +77,10 @@ Two notes sound smooth together (consonant) when their frequencies are in a simp
 | Perfect fourth | 4 : 3 | 293.3 Hz |
 | Major third | 5 : 4 | 275 Hz |
 
-One explanation, proposed by Hermann von Helmholtz in the 1860s and still the leading account of the physical side (though musical training and culture also shape what sounds pleasant), uses harmonics. With a simple ratio, many harmonics of the two notes *coincide*: in a 3 : 2 fifth, the 3rd harmonic of the lower note equals the 2nd of the upper. When the ratio is slightly off, those near-coinciding harmonics produce beats, heard as roughness.
+One explanation, proposed by Hermann von Helmholtz in the 1860s, uses harmonics. With a simple ratio, many harmonics of the two notes *coincide*: in a 3 : 2 fifth, the 3rd harmonic of the lower note equals the 2nd of the upper. When the ratio is slightly off, those near-coinciding harmonics produce beats, heard as roughness. This is one of the main accounts of the physical side, but the question is not settled: a rival account says listeners prefer combinations whose harmonics together still fit a single harmonic series, and musical training and culture also shape what sounds pleasant.
 
 ```plot
-{"x": [0, 1400], "y": [0, 1.3], "xLabel": "frequency (Hz)", "yLabel": "harmonics", "segments": [{"from": [220, 0], "to": [220, 1]}, {"from": [440, 0], "to": [440, 1]}, {"from": [660, 0], "to": [660, 1]}, {"from": [880, 0], "to": [880, 1]}, {"from": [1100, 0], "to": [1100, 1]}, {"from": [1320, 0], "to": [1320, 1]}, {"from": [330, 0], "to": [330, 0.7], "dashed": true}, {"from": [660, 0], "to": [660, 0.7], "dashed": true}, {"from": [990, 0], "to": [990, 0.7], "dashed": true}, {"from": [1320, 0], "to": [1320, 0.7], "dashed": true}], "labels": [{"at": [660, 1.15], "text": "coincide"}, {"at": [1320, 1.15], "text": "coincide"}], "caption": "Harmonics of 220 Hz (solid) and 330 Hz (dashed): in a perfect fifth every 2nd harmonic of the upper note lands on a harmonic of the lower"}
+{"x": [0, 1600], "y": [0, 1.3], "xLabel": "f (Hz)", "yLabel": "harmonics", "segments": [{"from": [220, 0], "to": [220, 1]}, {"from": [440, 0], "to": [440, 1]}, {"from": [660, 0], "to": [660, 1]}, {"from": [880, 0], "to": [880, 1]}, {"from": [1100, 0], "to": [1100, 1]}, {"from": [1320, 0], "to": [1320, 1]}, {"from": [330, 0], "to": [330, 0.7], "dashed": true}, {"from": [660, 0], "to": [660, 0.7], "dashed": true}, {"from": [990, 0], "to": [990, 0.7], "dashed": true}, {"from": [1320, 0], "to": [1320, 0.7], "dashed": true}], "labels": [{"at": [660, 1.15], "text": "coincide"}, {"at": [1320, 1.15], "text": "coincide"}], "caption": "Harmonics of 220 Hz (solid) and 330 Hz (dashed): in a perfect fifth every 2nd harmonic of the upper note lands on a harmonic of the lower"}
 ```
 
 Piano tuners use exactly this. To tune a fifth, they listen to the beat between the two nearly coinciding harmonics, which is much easier to hear than the fifth itself.

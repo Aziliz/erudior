@@ -32,21 +32,21 @@ where $\omega_0 = \sqrt{k/m}$ is the undamped (natural) angular frequency. Two t
 Since energy is proportional to amplitude squared ($E = \tfrac12kA^2$), the energy decays twice as fast: $E(t) = E_0e^{-bt/m}$.
 
 ```plot
-{"x": [0, 10], "y": [-1.2, 1.2], "xLabel": "time t (s)", "yLabel": "x / A0", "functions": [{"f": "exp(-0.15*x)*cos(2*pi*x)"}, {"f": "exp(-0.15*x)", "dashed": true}, {"f": "-exp(-0.15*x)", "dashed": true}], "caption": "Light damping: the oscillation stays inside a shrinking exponential envelope (dashed), losing the same fraction of amplitude each cycle"}
+{"x": [0, 12.5], "y": [-1.2, 1.2], "xLabel": "time t (s)", "yLabel": "x / A0", "functions": [{"f": "exp(-0.15*x)*cos(2*pi*x)", "to": 10}, {"f": "exp(-0.15*x)", "dashed": true, "to": 10}, {"f": "-exp(-0.15*x)", "dashed": true, "to": 10}], "caption": "Light damping: the oscillation stays inside a shrinking exponential envelope (dashed), losing the same fraction of amplitude each cycle"}
 ```
 
 ## Underdamped, critically damped, overdamped
 
 The formula for $\omega_d$ stops making sense when $b/(2m)$ reaches $\omega_0$. That boundary splits oscillators into three regimes:
 
-- **Underdamped** ($b < 2\sqrt{mk}$): the system oscillates with shrinking amplitude. Guitar strings, pendulums and tuning forks are strongly underdamped.
+- **Underdamped** ($b < 2\sqrt{mk}$): the system oscillates with shrinking amplitude. Guitar strings, pendulums and tuning forks are underdamped, and very lightly damped (far below critical).
 - **Critically damped** ($b = 2\sqrt{mk}$): the system returns to equilibrium as fast as possible *without* overshooting.
 - **Overdamped** ($b > 2\sqrt{mk}$): the system creeps back to equilibrium without overshooting, more slowly than with critical damping, because the large drag force holds it back.
 
 The critical value $b_c = 2\sqrt{mk} = 2m\omega_0$ comes from setting $b/(2m) = \omega_0$.
 
 ```plot
-{"x": [0, 6], "y": [-0.8, 1.1], "xLabel": "time t (s)", "yLabel": "x / x0", "functions": [{"f": "exp(-0.4*x)*(cos(1.9596*x) + 0.2041*sin(1.9596*x))", "label": "underdamped"}, {"f": "(1 + 2*x)*exp(-2*x)", "label": "critical"}, {"f": "(7.4641*exp(-0.5359*x) - 0.5359*exp(-7.4641*x))/6.9282", "dashed": true, "label": "overdamped"}], "caption": "The same oscillator (ω0 = 2 rad/s) released from rest at x0 with three amounts of damping"}
+{"x": [0, 7.5], "y": [-0.8, 1.1], "xLabel": "time t (s)", "yLabel": "x / x0", "functions": [{"f": "exp(-0.4*x)*(cos(1.9596*x) + 0.2041*sin(1.9596*x))", "to": 6}, {"f": "(1 + 2*x)*exp(-2*x)", "to": 6}, {"f": "(7.4641*exp(-0.5359*x) - 0.5359*exp(-7.4641*x))/6.9282", "dashed": true, "to": 6}], "caption": "The same oscillator (ω0 = 2 rad/s) released from rest at x0: underdamped (the curve that swings below zero), critically damped (solid, the fastest return without crossing zero) and overdamped (dashed, slower)"}
 ```
 
 Devices that must settle quickly use damping near critical: analog meter needles, door closers, and car suspensions (which are usually tuned somewhat below critical, accepting a little overshoot for a softer ride).
@@ -102,7 +102,7 @@ Look at three cases:
 - **Fast driving** ($\omega \gg \omega_0$): $A \approx \dfrac{F_0}{m\omega^2}$, small. The mass's inertia can't keep up.
 
 ```plot
-{"x": [0, 2], "y": [0, 11], "xLabel": "driving frequency ω / ω0", "yLabel": "amplitude ÷ (F0/k)", "functions": [{"f": "1/sqrt((1 - x^2)^2 + (x/10)^2)", "label": "Q = 10"}, {"f": "1/sqrt((1 - x^2)^2 + (x/5)^2)", "label": "Q = 5"}, {"f": "1/sqrt((1 - x^2)^2 + (x/2)^2)", "label": "Q = 2"}], "caption": "Resonance curves: the higher the Q, the taller and narrower the peak near ω = ω0"}
+{"x": [0, 2.4], "y": [0, 11], "xLabel": "ω / ω0", "yLabel": "amplitude ÷ (F0/k)", "functions": [{"f": "1/sqrt((1 - x^2)^2 + (x/10)^2)", "to": 2}, {"f": "1/sqrt((1 - x^2)^2 + (x/5)^2)", "to": 2}, {"f": "1/sqrt((1 - x^2)^2 + (x/2)^2)", "to": 2}], "caption": "Resonance curves against driving frequency ω / ω0 for Q = 10 (tallest peak), Q = 5 (middle) and Q = 2 (lowest): the higher the Q, the taller and narrower the peak near ω = ω0", "labels": [{"at": [1.0, 10.3], "text": "Q = 10"}, {"at": [0.93, 1.2], "text": "Q = 2"}]}
 ```
 
 The peak is not only tall but narrow. The range of driving frequencies over which the oscillator responds strongly (amplitude above about 71% of the peak, which is half the peak energy) has a width of about

@@ -480,7 +480,7 @@
   choices: ['It finds the GCF without factoring either number', 'The GCF is the last nonzero remainder', 'The GCF is the last quotient', 'It works only when both numbers are prime']
   answer: [0, 1]
   explanation: |-
-    It uses only division with remainder, and the answer is the last nonzero remainder. The quotients are not the answer (in GCF(1,071, 462) they were 2, 3 and 7, but the GCF is 21), and the algorithm works for any two whole numbers that aren't both 0.
+    It uses only division with remainder, and the answer is the last nonzero remainder. The quotients are not the answer (in GCF(1,071, 462) they were 2, 3 and 7, but the GCF is 21), and the algorithm works for any two positive whole numbers, prime or not.
 
 - id: pre-m1-r2-h21
   lesson: pre-m1-h-euclid
@@ -585,7 +585,7 @@
   choices: ['3,500', '3,000', '2,400', '2,914']
   answer: 2
   explanation: |-
-    $40 \times 60 = 2{,}400$. The exact product, 2,914, can't be below it. (3,500 is the upper bound $50 \times 70$; 3,000 is the estimate $50 \times 60$, which isn't a bound at all.)
+    $40 \times 60 = 2{,}400$. The exact product, 2,914, can't be below it. (3,500 is the upper bound $50 \times 70$; 3,000 is the estimate $50 \times 60$, which happens to be above the product here but comes from rounding one factor up and one down, so it is not guaranteed to be on either side; 2,914 is the exact product, not a rounded bound.)
 
 - id: pre-m1-r2-h32
   lesson: pre-m1-h-estimation
@@ -599,11 +599,11 @@
 - id: pre-m1-r2-h33
   lesson: pre-m1-h-estimation
   topic: Estimation
-  stem: 'Rounding to the hundreds, what is an upper bound for $6{,}240 - 1{,}780$?'
-  choices: ['4,600', '4,400', '4,500', '4,460']
+  stem: 'Rounding each number to the hundreds, which of these is an upper bound for $6{,}240 - 1{,}720$?'
+  choices: ['4,600', '4,400', '4,500', '4,000']
   answer: 0
   explanation: |-
-    For the largest possible difference, round the first number up and the number subtracted down: $6{,}300 - 1{,}700 = 4{,}600$. (4,400 is the lower bound $6{,}200 - 1{,}800$; 4,500 rounds both up, which isn't a bound; 4,460 is the exact answer.)
+    For the largest possible difference, round the first number up and the number subtracted down: $6{,}300 - 1{,}700 = 4{,}600$. The exact difference is 4,520, so 4,600 is above it. (4,400 is the lower bound $6{,}200 - 1{,}800$; 4,500 rounds both numbers up, which is not a bound and here lands below the exact answer; 4,000 rounds to the thousands, $6{,}000 - 2{,}000$, and is also below it.)
 
 - id: pre-m1-r2-h34
   lesson: pre-m1-h-estimation

@@ -77,7 +77,7 @@ which is $5.29\times10^{-10}\times86\,400\text{ s} = 45.7$ μs gained per day.
 The plot shows how the two effects trade off with orbit radius, for a circular orbit. In units of Earth radii $x = r/R_E$, the gravity gain is $60.1(1 - 1/x)$ μs per day and the speed loss is $30.1/x$ μs per day. They cancel at $x = 1.5$, about 3200 km up: an orbiting clock below that runs slow overall, one above it runs fast.
 
 ```plot
-{"x": [1, 7], "y": [-40, 60], "xLabel": "orbit radius (Earth radii)", "yLabel": "clock gain (μs per day)", "functions": [{"f": "60.1*(1 - 1/x)", "label": "gravity", "dashed": true}, {"f": "-30.1/x", "label": "speed", "dashed": true}, {"f": "60.1 - 90.2/x", "label": "net"}], "points": [{"at": [4.17, 38.5], "label": "GPS"}, {"at": [1.5, 0], "label": "break-even"}], "caption": "Daily gain of an orbiting clock compared with a ground clock (circular orbits, Earth's rotation ignored)"}
+{"x": [1, 7], "y": [-40, 60], "xLabel": "orbit radius (Earth radii)", "yLabel": "clock gain (μs per day)", "functions": [{"f": "60.1*(1 - 1/x)", "dashed": true}, {"f": "-30.1/x", "dashed": true}, {"f": "60.1 - 90.2/x"}], "points": [{"at": [4.17, 38.5]}, {"at": [1.5, 0]}], "labels": [{"at": [2.5, 46], "text": "gravity"}, {"at": [5.5, 34], "text": "net"}, {"at": [5.5, -18], "text": "speed"}, {"at": [4.2, 30], "text": "GPS"}, {"at": [2.6, 4], "text": "break-even"}], "caption": "Daily gain of an orbiting clock compared with a ground clock (circular orbits, Earth's rotation ignored)"}
 ```
 
 ## Curved spacetime and bending light

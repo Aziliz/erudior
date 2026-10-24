@@ -32,4 +32,4 @@
 - {front: 'Steps of a Fermi estimate', back: 'Break the quantity into pieces, estimate each (state assumptions), combine, then judge whether the result is reasonable.', topic: 'Estimation'}
 - {front: 'Heartbeats in a year at 70 beats a minute', back: '$70 \times 60 \times 24 \times 365 = 36{,}792{,}000$, about 40 million.', topic: 'Estimation'}
 - {front: 'Minutes in a day, week and year', back: '1,440; 10,080; 525,600', topic: 'Estimation'}
-- {front: 'Why Fermi estimates often land close', back: 'Errors in different directions partly cancel: twice too big times half too small is exactly right.', topic: 'Estimation'}
+- {front: 'Why Fermi estimates often land close', back: 'Errors in different directions partly cancel: a piece guessed twice too big times a piece guessed half as large as it should be is exactly right.', topic: 'Estimation'}

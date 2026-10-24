@@ -107,7 +107,7 @@ Backlight of intensity $I_0$ reaches a pixel. Model a partly switched pixel as t
 
 After the first polarizer: $I_0/2$. The light is now at angle $\phi$ to the first axis, so at $90^\circ - \phi$ to the second, and Malus's law gives $I = \tfrac12I_0\cos^2(90^\circ - \phi) = \tfrac12I_0\sin^2\phi$.
 
-$\phi = 90^\circ$: $0.50I_0$ (bright). $\phi = 45^\circ$: $\tfrac12(0.5)I_0 = 0.25I_0$ (mid-gray). $\phi = 0^\circ$: $0$ (dark). An ideal display can never pass more than half the backlight, which is one reason LCDs need bright backlights.
+$\phi = 90^\circ$: $0.50I_0$ (bright). $\phi = 45^\circ$: $\tfrac12(0.5)I_0 = 0.25I_0$ (mid-gray). $\phi = 0^\circ$: $0$ (dark). With an absorbing first polarizer, even an ideal pixel can never pass more than half the backlight, which is one reason LCDs need bright backlights. (Many modern displays recover part of the lost half with a reflective polarizer film that sends the wrong polarization back into the backlight to be recycled.)
 
 Other uses of the same ideas: many 3D cinemas send the left-eye and right-eye images with opposite circular polarizations, and the glasses' filters (a wave plate plus a polarizer for each eye) separate them; engineers put clear plastic models of parts between crossed polarizers, where stress makes the plastic birefringent and shows up as colored fringes (photoelasticity).
 

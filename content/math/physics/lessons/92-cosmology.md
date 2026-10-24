@@ -44,7 +44,7 @@ $$v = H_0d,$$
 where the **Hubble constant** $H_0$ is about 70 km/s per megaparsec (Mpc, a million parsecs). This value is a live research question: measurements from the early universe give about 67 km/s/Mpc, while measurements using Cepheids and supernovae give about 73. The gap, called the Hubble tension, is larger than either side's stated uncertainty and is not yet explained.
 
 ```plot
-{"x": [0, 120], "y": [0, 9000], "xLabel": "distance (Mpc)", "yLabel": "recession speed (km/s)", "functions": [{"f": "70*x", "label": "v = 70 d"}], "points": [{"at": [15, 1200]}, {"at": [28, 1850]}, {"at": [43, 3020]}, {"at": [55, 3700]}, {"at": [70, 5100]}, {"at": [88, 6000]}, {"at": [105, 7500]}], "caption": "A Hubble diagram (illustrative data): recession speed grows in proportion to distance, and the slope is H₀"}
+{"x": [0, 120], "y": [0, 9], "xLabel": "distance (Mpc)", "yLabel": "recession speed (1000 km/s)", "functions": [{"f": "0.07*x", "label": "v = 70 d"}], "points": [{"at": [15, 1.2]}, {"at": [28, 1.85]}, {"at": [43, 3.02]}, {"at": [55, 3.7]}, {"at": [70, 5.1]}, {"at": [88, 6.0]}, {"at": [105, 7.5]}], "caption": "A Hubble diagram (illustrative data): recession speed grows in proportion to distance, and the slope is H₀"}
 ```
 
 Hubble's law does not mean we are at the center. If space itself is stretching uniformly, every galaxy sees every other galaxy moving away at a speed proportional to distance, like raisins in rising bread dough: from any raisin, a raisin twice as far away moves off twice as fast. Strictly, a galaxy's large redshift comes from light's wavelength being stretched along with space while the light travels, not from motion through space, so $v \approx cz$ is only a good approximation for small $z$.
@@ -101,7 +101,7 @@ $$v = \sqrt{\frac{GM(r)}{r}}, \qquad M(r) = \frac{v^2r}{G}.$$
 Most of a galaxy's stars are near its center. If that were all its mass, stars far out should orbit more slowly, with $v \propto 1/\sqrt r$, like the outer planets. Instead, in the 1970s Vera Rubin and Kent Ford, followed by radio astronomers, found that orbital speeds stay roughly constant far beyond the visible edge. A flat **rotation curve** means $M(r) = v^2r/G$ keeps growing in proportion to $r$: there is mass out there we cannot see.
 
 ```plot
-{"x": [0, 30], "y": [0, 300], "xLabel": "distance from galaxy center (kpc)", "yLabel": "orbital speed (km/s)", "functions": [{"f": "230*(1 - exp(-x/2.5))", "label": "observed (roughly flat)"}, {"f": "221*sqrt(8/x)", "label": "expected from visible mass", "dashed": true, "from": 8}], "caption": "A schematic rotation curve: speeds stay high far from the center instead of falling off"}
+{"x": [0, 30], "y": [0, 300], "xLabel": "distance from galaxy center (kpc)", "yLabel": "orbital speed (km/s)", "functions": [{"f": "230*(1 - exp(-x/2.5))", "label": "observed (roughly flat)"}, {"f": "221*sqrt(8/x)", "dashed": true, "from": 8}], "labels": [{"at": [22, 85], "text": "expected from visible mass"}], "caption": "A schematic rotation curve: speeds stay high far from the center instead of falling off"}
 ```
 
 ### Example 4: weighing the Milky Way

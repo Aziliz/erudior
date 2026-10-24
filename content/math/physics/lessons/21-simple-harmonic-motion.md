@@ -75,7 +75,7 @@ A **simple pendulum** is a point mass on a light string of length $L$. Displaced
 
 ![A pendulum of length L hanging from a ceiling, pulled aside by angle θ from the dashed vertical line. The arc from the bottom to the bob is the arc length s = Lθ. Forces on the bob: tension T along the string toward the pivot and weight mg straight down. The weight is split into mg cos θ along the string, away from the pivot, and mg sin θ along the arc, toward equilibrium.](images/phys-m6-pendulum.svg)
 
- For small angles, $\sin\theta \approx \theta$ (in radians; accurate to 1% up to about $14^\circ$), and with arc length $s = L\theta$ the restoring force is $-\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So
+For small angles, $\sin\theta \approx \theta$ (in radians; accurate to 1% up to about $14^\circ$), and with arc length $s = L\theta$ the restoring force is $-\dfrac{mg}{L}s$, Hooke's-law form with effective $k = mg/L$. So
 
 $$\omega = \sqrt{\frac gL}, \qquad T = 2\pi\sqrt{\frac Lg}.$$
 

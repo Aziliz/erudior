@@ -52,7 +52,7 @@ $$I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau}\right), \qquad \tau = \frac 
 The time constant $L/R$ plays the same role as $RC$: after one time constant the current has reached $1 - e^{-1} = 63\%$ of its final value, after two 86%, after five over 99%. The curve has the same shape as a charging capacitor's charge, and for the same reason: the closer the current gets to $\mathcal{E}/R$, the less voltage is left across the inductor, so the current grows more and more slowly. If the battery is then removed (with a path left for the current), the current decays as $I = I_0e^{-t/\tau}$. An inductor acts like an open circuit at the instant of switching on and like a plain wire once the current is steady, the opposite of a capacitor.
 
 ```plot
-{"x": [0, 26], "y": [0, 0.34], "xLabel": "time (ms)", "yLabel": "current (A)", "functions": [{"f": "0.30*(1 - exp(-x/5))"}, {"f": "0.30", "dashed": true}], "points": [{"at": [5, 0.1896], "label": "t = τ: 63%"}, {"at": [10, 0.2594], "label": "t = 2τ: 86%"}], "labels": [{"at": [20, 0.315], "text": "final current ε/R = 0.30 A"}], "caption": "Current in an RL circuit with τ = 5 ms and final current 0.30 A (the numbers of Example 2)"}
+{"x": [0, 26], "y": [0, 0.34], "xLabel": "time (ms)", "yLabel": "current (A)", "functions": [{"f": "0.30*(1 - exp(-x/5))"}, {"f": "0.30", "dashed": true}], "points": [{"at": [5, 0.1896]}, {"at": [10, 0.2594]}], "labels": [{"at": [20, 0.315], "text": "final current ε/R = 0.30 A"}, {"at": [9, 0.17], "text": "t = τ: 63%"}, {"at": [14.5, 0.235], "text": "t = 2τ: 86%"}], "caption": "Current in an RL circuit with τ = 5 ms and final current 0.30 A (the numbers of Example 2)"}
 ```
 
 Breaking an inductive circuit abruptly forces $\Delta I/\Delta t$ to be huge, inducing a large voltage that can spark across the switch. Car ignition coils use this deliberately to make the tens of kilovolts that fire a spark plug.
@@ -104,7 +104,7 @@ A capacitor blocks low frequencies and passes high ones; an inductor does the re
 $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad I_{\text{rms}} = \frac{V_{\text{rms}}}{Z}.$$
 
 ```plot
-{"x": [0, 150], "y": [0, 120], "xLabel": "frequency (Hz)", "yLabel": "reactance (Ω)", "functions": [{"f": "2*pi*x*0.10"}, {"f": "1/(2*pi*x*50e-6)", "from": 26, "dashed": true}], "points": [{"at": [71.2, 44.7], "label": "equal at 71 Hz"}], "labels": [{"at": [125, 92], "text": "inductor: ωL"}, {"at": [30, 112], "text": "capacitor: 1/(ωC), dashed"}], "caption": "Reactances of a 0.10 H inductor and a 50 μF capacitor (Example 4): X_L rises with frequency, X_C falls, and they cross at resonance"}
+{"x": [0, 150], "y": [0, 120], "xLabel": "frequency (Hz)", "yLabel": "reactance (Ω)", "functions": [{"f": "2*pi*x*0.10"}, {"f": "1/(2*pi*x*50e-6)", "from": 26, "dashed": true}], "points": [{"at": [71.2, 44.7]}], "labels": [{"at": [125, 92], "text": "inductor: ωL"}, {"at": [70, 108], "text": "capacitor: 1/(ωC), dashed"}, {"at": [100, 15], "text": "equal at 71 Hz"}], "caption": "Reactances of a 0.10 H inductor and a 50 μF capacitor (Example 4): X_L rises with frequency, X_C falls, and they cross at resonance"}
 ```
 
 The current is largest when $X_L = X_C$, at the resonant frequency $\omega_0 = 1/\sqrt{LC}$: the same frequency at which the LC circuit oscillates on its own.

@@ -21,7 +21,7 @@ Drive a sinusoidal current $I = I_0\sin(\omega t)$ through each kind of element 
 - *Capacitor.* Now turn it around: the capacitor's charge follows its voltage, $Q = CV$, and the current is how fast the charge changes. The current is largest as the voltage crosses zero, a quarter cycle *before* the voltage peaks. The current leads the voltage by $90^\circ$.
 
 ```plot
-{"x": [0, 12.57], "y": [-1.3, 1.3], "xLabel": "phase ωt (rad)", "yLabel": "value / peak", "functions": [{"f": "sin(x)", "dashed": true}, {"f": "sin(x - pi/2)"}], "labels": [{"at": [1.57, 1.18], "text": "voltage peaks first (dashed)"}, {"at": [3.3, 1.18], "text": "current a quarter cycle later"}], "caption": "Inductor: the current (solid) lags the voltage (dashed) by a quarter cycle"}
+{"x": [0, 14.5], "y": [-1.8, 1.3], "xLabel": "ωt (rad)", "yLabel": "value / peak", "functions": [{"f": "sin(x)", "dashed": true, "to": 12.57}, {"f": "sin(x - pi/2)", "to": 12.57}], "labels": [{"at": [2.8, -1.55], "text": "voltage: dashed"}, {"at": [9.6, -1.55], "text": "current: solid, a quarter cycle later"}], "caption": "Inductor: the current (solid) lags the voltage (dashed) by a quarter cycle"}
 ```
 
 A memory aid used by many students: "ELI the ICE man". In an inductor (L), the emf E comes before the current I; in a capacitor (C), I comes before E.

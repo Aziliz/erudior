@@ -82,12 +82,12 @@ To decide whether $n$ is prime, try dividing it by the primes 2, 3, 5, 7, 11, â€
 ```mermaid
 flowchart TD
   accTitle: Testing whether a whole number n greater than 1 is prime
-  accDescr: List the primes 2, 3, 5, 7 and so on up to the square root of n. Try dividing n by each one in turn. If one of them divides n with no remainder, n is composite. If none of them does, n is prime.
-  A["List the primes up to the square root of n"] --> B["Divide n by the next prime on the list"]
+  accDescr: List the primes 2, 3, 5, 7 and so on up to the square root of n. While primes are left on the list, divide n by the next one. If one of them divides n with no remainder, n is composite. If the list runs out (or was empty, as for 2 and 3) without any of them dividing n, n is prime.
+  A["List the primes up to the square root of n"] --> E{"Any primes left on the list?"}
+  E -- "yes" --> B["Divide n by the next prime on the list"]
   B --> C{"Remainder 0?"}
   C -- "yes" --> D["n is composite"]
-  C -- "no" --> E{"Any primes left on the list?"}
-  E -- "yes" --> B
+  C -- "no" --> E
   E -- "no" --> F["n is prime"]
 ```
 

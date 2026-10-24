@@ -413,7 +413,7 @@
   choices: ['600 nm', '300 nm', '75 nm', '150 nm']
   answer: 3
   explanation: |-
-    Neighboring fringes are contour lines a height $\lambda/2 = 300$ nm apart. A shift of half a fringe spacing means half that height: $\lambda/4 = 150$ nm. 300 nm would be a full fringe of shift, and 600 nm forgets that the light crosses the gap twice.
+    Neighboring fringes are contour lines a height $\lambda/2 = 300$ nm apart. A shift of half a fringe spacing means half that height: $\lambda/4 = 150$ nm. 300 nm would be a full fringe of shift; 600 nm treats a full fringe as a height step of $\lambda$, forgetting that the light crosses the gap twice; 75 nm halves the answer one time too many.
 - id: phys-m11-r2-h20
   lesson: phys-m11-h-interferometry
   topic: Air wedges and Newton's rings
