@@ -20,7 +20,7 @@
   choices: ['$19$', '$20$', '$18$', '$39$']
   answer: 0
   explanation: |-
-    $|a_n - 2| = \dfrac{1}{n + 1}$, and $\dfrac{1}{n + 1} < 0.05$ exactly when $n + 1 > 20$, that is $n > 19$. So $N = 19$ works: from $n = 20$ on, the distance is at most $\frac{1}{21}$. $N = 18$ fails because $n = 19$ gives exactly $\frac{1}{20} = 0.05$, which is not less than $0.05$. $N = 20$ also works but isn't the smallest, and 39 comes from writing $|a_n - 2|$ as $\frac{1}{2(n+1)}$.
+    $|a_n - 2| = \dfrac{1}{n + 1}$, and $\dfrac{1}{n + 1} < 0.05$ exactly when $n + 1 > 20$, that is $n > 19$. So $N = 19$ works: from $n = 20$ on, the distance is at most $\frac{1}{21}$. $N = 18$ fails because $n = 19$ gives exactly $\frac{1}{20} = 0.05$, which is not less than $0.05$. $N = 20$ also works but isn't the smallest, and 39 comes from miscomputing the numerator and writing $|a_n - 2|$ as $\frac{2}{n+1}$.
 - id: calc-h1-r2-h03
   lesson: calc-h1-sequence-limits
   type: text
@@ -617,13 +617,13 @@
   topic: Integrability
   stem: 'Match each function on $[0, 1]$ to the best description.'
   pairs:
-    - ['$f(x) = x^2$', 'Integrable because it is continuous']
+    - ['$f(x) = (2x - 1)^2$', 'Integrable because it is continuous']
     - ['The Dirichlet function', 'Not integrable: U − L is always 1']
     - ['$f(x) = \frac{1}{\sqrt x}$ for $x > 0$, $f(0) = 0$', 'Not Riemann integrable: unbounded']
     - ['$f(x) = \lfloor 4x \rfloor$', 'Integrable because it is monotone']
   distractors: ['Not integrable: it has a jump']
   explanation: |-
-    $x^2$ is continuous. The Dirichlet function has $U = 1$, $L = 0$ for every partition. $\frac{1}{\sqrt x}$ is unbounded near 0, so it has only an improper integral (which happens to converge, to 2). $\lfloor 4x \rfloor$ is increasing with jumps at $\frac14, \frac12, \frac34, 1$; monotone functions are integrable, so jumps alone don't prevent integrability.
+    $(2x - 1)^2$ is continuous (and not monotone on $[0, 1]$: it falls to 0 at $x = \frac12$, then rises). The Dirichlet function has $U = 1$, $L = 0$ for every partition. $\frac{1}{\sqrt x}$ is unbounded near 0, so it has only an improper integral (which happens to converge, to 2). $\lfloor 4x \rfloor$ is increasing with jumps at $\frac14, \frac12, \frac34, 1$; monotone functions are integrable, so jumps alone don't prevent integrability.
 - id: calc-h1-r2-h55
   lesson: calc-h1-integrability
   topic: Upper and lower sums

@@ -38,7 +38,7 @@ $$e^x = \sum_{n=0}^\infty\frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!
 (Radius $\infty$ by Lesson 43, Example 2.) At $x = 1$: $e = 1 + 1 + \frac12 + \frac16 + \frac1{24} + \cdots \approx 2.71828$.
 
 ```plot
-{"x": [-3, 2], "y": [-1, 5], "functions": [{"f": "e^x", "label": "eˣ"}, {"f": "1 + x", "dashed": true, "label": "P₁"}, {"f": "1 + x + x^2/2", "dashed": true, "label": "P₂"}, {"f": "1 + x + x^2/2 + x^3/6", "dashed": true, "label": "P₃"}], "points": [{"at": [0, 1]}], "caption": "Maclaurin polynomials of eˣ agree with eˣ at (0, 1) and stay close over a wider range as the degree rises"}
+{"x": [-3, 2.6], "y": [-1, 8], "functions": [{"f": "e^x"}, {"f": "1 + x", "dashed": true}, {"f": "1 + x + x^2/2", "dashed": true}, {"f": "1 + x + x^2/2 + x^3/6", "dashed": true}], "labels": [{"at": [1.7, 7.3], "text": "eˣ"}, {"at": [2.47, 7.75], "text": "P₃"}, {"at": [2.45, 5.0], "text": "P₂"}, {"at": [2.35, 2.6], "text": "P₁"}], "points": [{"at": [0, 1]}], "caption": "Maclaurin polynomials of eˣ agree with eˣ at (0, 1) and stay close over a wider range as the degree rises"}
 ```
 
 ### Example 2 ($\sin x$ and $\cos x$)

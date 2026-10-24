@@ -35,7 +35,7 @@
   topic: Continuous dependence
 - term: sensitive dependence on initial conditions
   aliases: [sensitive dependence]
-  definition: 'Nearby starting states that separate roughly exponentially until they become unrelated; the hallmark of chaos, possible in systems of three or more first-order equations.'
+  definition: 'Nearby starting states that separate roughly exponentially until they become unrelated; the hallmark of chaos, possible in autonomous systems of three or more first-order equations (or periodically forced systems of two), never in a single first-order equation.'
   topic: Continuous dependence
 - term: Riccati equation
   aliases: [Riccati equations]

@@ -28,7 +28,7 @@
 - {front: 'EVT proof, Step 1', back: 'If $f$ were unbounded, pick $|f(x_n)| > n$; Bolzano–Weierstrass gives $x_{n_k} \to c$ in $[a, b]$; continuity makes $f(x_{n_k})$ convergent, hence bounded. Contradiction.', topic: Proving the IVT and EVT}
 - {front: 'EVT proof, Step 2', back: 'Take $M = \sup f$ and points with $f(x_n) > M - \frac1n$; a convergent subsequence $x_{n_k} \to c$ gives $f(c) = M$.', topic: Proving the IVT and EVT}
 - {front: 'Where "closed" is used in the EVT proof', back: 'To keep the limit $c$ of the subsequence inside the interval. On $(0, 1)$, $x^2$ has sup 1 but no max.', topic: Proving the IVT and EVT}
-- {front: 'Chain from completeness to FTC 2', back: 'Completeness → Bolzano–Weierstrass → EVT → Rolle → MVT → ($f'' = 0$ ⇒ constant) → FTC Part 2.', topic: Proving the IVT and EVT}
+- {front: 'Chain from completeness to FTC 2', back: 'Completeness → Bolzano–Weierstrass → EVT → Rolle → MVT → ($f'' = 0$ ⇒ constant) → FTC Part 2 (which also uses FTC Part 1).', topic: Proving the IVT and EVT}
 - {front: 'Converse of the IVT?', back: 'False: $\sin\frac1x$ with $f(0) = 0$ takes every intermediate value but is discontinuous at 0.', topic: Sequential continuity}
 # Lesson 93
 - {front: 'Upper and lower sums', back: '$U(f, P) = \sum M_i\Delta x_i$, $L(f, P) = \sum m_i\Delta x_i$ with $M_i$, $m_i$ the sup and inf of $f$ on each piece.', topic: Upper and lower sums}

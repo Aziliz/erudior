@@ -103,7 +103,7 @@ flowchart TD
   Z --> F["FTC Part 2: antiderivatives differ by a constant"]
 ```
 
-FTC Part 2 also needs Part 1, and Part 1 needs the integral to exist. Lesson 93 supplies that last piece.
+Along this route, FTC Part 2 also needs Part 1 (to know that $\int_a^x f(t)\,dt$ is an antiderivative), and Part 1 needs the integral to exist. Lesson 93 supplies that last piece.
 
 ## Common mistakes
 

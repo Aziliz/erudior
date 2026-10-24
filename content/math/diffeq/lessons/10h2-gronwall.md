@@ -174,8 +174,9 @@ times. In some systems the exponential separation is real, not just a pessimisti
 nearby states stay close for a while and then become unrelated. This
 **sensitive dependence on initial conditions** is the hallmark of chaos, made famous by Edward Lorenz's 1963 study of
 a simplified three-variable convection model. A single first-order autonomous equation can't
-be chaotic (its solutions are monotone, as Module 4 shows), but systems of three or more
-equations can. Continuous dependence still holds for them on every finite interval; it just
+be chaotic (its solutions are monotone, as Module 4 shows), but autonomous systems of three or
+more equations can (and so can two equations with a periodic forcing term, such as a driven
+pendulum). Continuous dependence still holds for them on every finite interval; it just
 stops being useful for long-range prediction.
 
 ## Common mistakes

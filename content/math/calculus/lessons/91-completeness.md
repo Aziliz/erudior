@@ -55,7 +55,7 @@ Everything else in this lesson follows from the axiom:
 flowchart TD
   accTitle: What the completeness axiom implies
   accDescr: The completeness axiom implies the Archimedean property and the monotone convergence theorem. The monotone convergence theorem implies the nested interval property. The nested interval property, together with repeated halving, gives the Bolzano–Weierstrass theorem. Bolzano–Weierstrass then shows that every Cauchy sequence of real numbers converges.
-  C["Completeness axiom: every set bounded above has a sup"] --> A["Archimedean property"]
+  C["Completeness axiom: every nonempty set bounded above has a sup"] --> A["Archimedean property"]
   C --> M["Monotone convergence theorem"]
   M --> N["Nested interval property"]
   N -- "keep halving" --> B["Bolzano–Weierstrass theorem"]
@@ -64,7 +64,7 @@ flowchart TD
 
 ## The Archimedean property
 
-**Archimedean property**: for every real number $x$ there is a natural number $n > x$. Equivalently, for every $\varepsilon > 0$ some $n$ has $\frac1n < \varepsilon$. Lesson 90 used this silently every time it said "choose a whole number $N \ge \frac1\varepsilon$."
+**Archimedean property**: for every real number $x$ there is a natural number $n > x$. Equivalently, for every $\varepsilon > 0$ some $n$ has $\frac1n < \varepsilon$. Lesson 90 used this silently: a condition like "$n > \frac1\varepsilon$" is only useful because whole numbers that large exist.
 
 *Proof.* Suppose instead that the natural numbers were bounded above. By completeness they have a supremum $s$. Then $s - 1$ is not an upper bound, so some natural number $m$ has $m > s - 1$. But then $m + 1 > s$, and $m + 1$ is a natural number, which contradicts $s$ being an upper bound.
 
