@@ -92,8 +92,9 @@
   term: der Quadratmeter
   pos: noun
   plural: die Quadratmeter
+  alt: [das Quadratmeter]
   meanings: [square metre, square meter, square metres, square meters]
-  note: Written m² or qm.
+  note: Written m² or qm. Duden also allows das Quadratmeter.
   example: Die Wohnung hat 78 Quadratmeter.
   exampleEn: The flat is 78 square metres.
 - id: de1-m5-r2-w12

@@ -138,7 +138,8 @@ Station signs are short. Four you need on day one:
 | *Vorsicht!* | Caution! Careful! |
 
 *Eingang* and *Ausgang* come from *gehen*: *eingehen*, *ausgehen*, and the noun *der Gang* (a walk,
-a passage). In a big station, *Ausgang* is often followed by a street name or a direction: *Ausgang
+a passage). (Today the verbs mostly mean other things, for example *ausgehen* — to go out in the
+evening, but the nouns keep the old sense: the way in, the way out.) In a big station, *Ausgang* is often followed by a street name or a direction: *Ausgang
 Nord*, *Ausgang Hauptstraße*. That's another sign of the nominal style, which comes next.
 
 ## The nominal style: nouns made from verbs
@@ -212,7 +213,8 @@ ten minutes late, but that's no problem. After all, I have a day ticket!*
 
 - *Abfahrt*, *Ausstieg*, *Einstieg*: as with the verbs, the stress is on the prefix: AB-fahrt,
   AUS-stieg, EIN-stieg.
-- *Ankunft*: AN-kunft; the *n* before *k* sounds like the *ng* in "sink".
+- *Ankunft*: AN-kunft, in two parts, *an* + *kunft*. In careful speech the first *n* stays a plain
+  *n*; in fast speech it often slides towards the *ng* of "sink".
 - *Gleis* and *Richtung*: [glaɪs], RICH-tung with the soft *ich* sound.
 - *ICE* is read letter by letter the German way: "ee-tsay-ay". *Hbf* is always said in full:
   *Hauptbahnhof*.

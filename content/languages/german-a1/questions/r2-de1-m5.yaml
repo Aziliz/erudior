@@ -214,7 +214,7 @@
   lesson: de1-body-health
   type: order
   topic: Health
-  stem: 'Put the words in order: "I''ve had a temperature since yesterday."'
+  stem: 'Put the words in order, starting with the time phrase: "I''ve had a temperature since yesterday."'
   items: ['Seit gestern', 'habe', 'ich', 'Fieber.']
   explanation: |-
     The time phrase seit gestern comes first, so the verb habe stays in position 2 and the subject ich comes right after it (inversion): Seit gestern habe ich Fieber. Seit + present tense is how German says "have had since".
@@ -269,7 +269,7 @@
   type: text
   topic: Public transport
   stem: 'The RE 7 to Köln is planned for 08:12, and the note says +10. At about what time should it leave? Write the time on the 24-hour clock, like 08:12.'
-  accept: ['08:22', '8:22', '08.22', '8.22', '0822', '08:22 Uhr', '8:22 Uhr', '8.22 Uhr']
+  accept: ['08:22', '8:22', '08.22', '8.22', '0822', '08:22 Uhr', '8:22 Uhr', '8.22 Uhr', '08.22 Uhr']
   explanation: |-
     +10 means about 10 minutes late (10 Minuten Verspätung): 08:12 + 10 minutes = 08:22. The train still runs; it is not cancelled.
 - id: de1-m5-r2-h04

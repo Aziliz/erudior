@@ -157,8 +157,9 @@ the verb first for yes/no questions, a question word first for W-questions (less
 
 Two details:
 
-- Rent is *hoch* (high) or *niedrig* (low), so you ask *Wie hoch …?*, not *Wie viel …?*, about a
-  rent or costs, as Mr Okafor did in lesson 19. *Was kostet die Wohnung?* is also fine.
+- Rent is *hoch* (high) or *niedrig* (low), so the usual question about a rent or costs is *Wie
+  hoch …?*, as Mr Okafor asked in lesson 19. *Was kostet die Wohnung?* and *Wie viel kostet die
+  Wohnung?* are also fine.
 - *Nebenkosten* is plural, so the verb is plural too: *Wie hoch sind die Nebenkosten?*
 
 ### Example 3: Choosing the right question

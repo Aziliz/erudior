@@ -35,7 +35,7 @@ Along the way you learn the words for trains, buses, planes, tickets and timetab
 The picture puts eight of these words in one scene (blue labels for *der*, pink for *die*, green for
 *das*):
 
-![A station scene. In the sky: das Flugzeug (plane). A long der Zug (train) stands on das Gleis (the track) next to a platform with a sign showing the number 3. On the platform: der Koffer (suitcase) and der Fahrplan (timetable) on a post. In the street below: die Straßenbahn (tram) on rails with a pole up to an overhead wire, der Bus (bus) and das Taxi (taxi) with a TAXI sign on its roof.](images/de1-m5-station.svg)
+![A station scene. In the sky: das Flugzeug (plane). A long der Zug (train) stands on das Gleis (the track) next to a platform with a sign showing the number 3. On the platform: der Koffer (suitcase). Below the platform: der Fahrplan (timetable), a board with lines of text. In the street below: die Straßenbahn (tram) on rails with a pole up to an overhead wire, der Bus (bus) and das Taxi (taxi) with a TAXI sign on its roof.](images/de1-m5-station.svg)
 
 Five useful verbs. All except *fliegen* are separable:
 
