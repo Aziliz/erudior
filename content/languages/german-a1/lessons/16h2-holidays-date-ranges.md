@@ -64,11 +64,13 @@ Here is the German year in short A1 sentences. Read the German first, then check
   Feuerwerk. Man sagt: „Frohes neues Jahr!"* — On 31 December people celebrate with friends.
   At midnight there are fireworks. People say "Happy New Year!" (Before midnight people wish
   each other *Guten Rutsch!*, "a good slide" into the new year.)
-- **Karneval or Fasching.** *Im Februar tragen viele Leute Kostüme, vor allem im Rheinland
-  (Köln, Düsseldorf, Mainz).* — In February many people wear costumes, especially in the
-  Rhineland. The carnival season officially opens on 11 November at 11:11, and its high point
-  is the week before Ash Wednesday, with big parades on *Rosenmontag*. *Karneval* is the usual
-  word in the Rhineland; in the south and in Austria people say *Fasching*.
+- **Karneval or Fasching.** *Im Februar oder März tragen viele Leute Kostüme, vor allem im
+  Rheinland (Köln, Düsseldorf, Mainz).* — In February or March many people wear costumes,
+  especially in the Rhineland. The carnival season officially opens on 11 November at 11:11, and
+  its high point is the week before Ash Wednesday, with big parades on *Rosenmontag*. Its date
+  depends on Easter, so it is usually in February and in some years in early March. *Karneval*
+  is the usual word in Cologne and Düsseldorf; Bavaria and Austria say *Fasching*, and Mainz and
+  the south-west say *Fastnacht*.
 - **Ostern.** *Zu Ostern suchen Kinder Ostereier im Garten.* — At Easter children look for
   Easter eggs in the garden.
 - **Sankt Martin.** *Am 11. November gehen Kinder mit Laternen durch die Straßen und singen.* —
@@ -232,7 +234,7 @@ the ordinal is read *am dreiundzwanzigsten* and *bis zum dreiundzwanzigsten*.
 - *Feiertag*: "FYE-er-tahk"; the final g sounds like k.
 - *vierundzwanzigsten*: stress the first number: VIER-und-zwan-zig-sten; the g before s is a
   soft "ch" in standard pronunciation (as in *ich*), though many speakers say k.
-- *Fasching*: "FAH-shing"; *Karneval*: "KAR-ne-val", with a v sound.
+- *Fasching*: "FASH-ing", with a short a; *Karneval*: "KAR-ne-val", with a v sound.
 
 ## Common mistakes
 

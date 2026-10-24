@@ -251,7 +251,7 @@
   choices: ['6.0 μs', '8.0 μs', '10.0 μs', '11.7 μs']
   answer: 1
   explanation: |-
-    $c\Delta t = 3000$ m, so $(\Delta s)^2 = 3000^2 - 1800^2 = 5.76\times10^6$ m² and $\Delta s = 2400$ m. Proper time $= 2400/(3.00\times10^8) = 8.0$ μs. Adding the squares instead of subtracting gives $\sqrt{3000^2 + 1800^2} = 3499$ m, or 11.7 μs; 10.0 μs is the Earth-frame time, always the longer one.
+    $c\Delta t = 3000$ m, so $(\Delta s)^2 = 3000^2 - 1800^2 = 5.76\times10^6$ m² and $\Delta s = 2400$ m. Proper time $= 2400/(3.00\times10^8) = 8.0$ μs. Adding the squares instead of subtracting gives $\sqrt{3000^2 + 1800^2} = 3499$ m, or 11.7 μs; 10.0 μs is the Earth-frame time, always the longer one; 6.0 μs is just $\Delta x/c$, the time light needs to cover the 1800 m.
 - id: phys-m12-r2-h02
   lesson: phys-m12-h-spacetime
   topic: Spacetime and the Doppler effect
@@ -264,10 +264,10 @@
   lesson: phys-m12-h-spacetime
   topic: Spacetime and the Doppler effect
   stem: 'In Earth''s frame, event A is at $x = 0$, $t = 0$ and event B is at $x = 1200$ m, $t = 2.00$ μs. At what speed must an observer move along $+x$ to see them as simultaneous?'
-  choices: ['$0.25c$', '$0.50c$', '$0.60c$', '$2.0c$']
+  choices: ['$0.25c$', '$0.50c$', '$0.87c$', '$2.0c$']
   answer: 1
   explanation: |-
-    $\Delta t' = \gamma(\Delta t - v\Delta x/c^2) = 0$ gives $v = c^2\Delta t/\Delta x = c(c\Delta t)/\Delta x = c(600/1200) = 0.50c$. Inverting the ratio gives $2.0c$, which is impossible; a spacelike separation always gives a speed below $c$.
+    $\Delta t' = \gamma(\Delta t - v\Delta x/c^2) = 0$ gives $v = c^2\Delta t/\Delta x = c(c\Delta t)/\Delta x = c(600/1200) = 0.50c$. Inverting the ratio gives $2.0c$, which is impossible; a spacelike separation always gives a speed below $c$. Squaring the ratio gives $0.25c$, and $0.87c = \sqrt{1 - 0.50^2}\,c$ mixes up $\beta$ with $1/\gamma$.
 - id: phys-m12-r2-h04
   lesson: phys-m12-h-spacetime
   topic: Spacetime and the Doppler effect
@@ -389,7 +389,7 @@
   choices: ['$1\times10^{-6}$', '$5\times10^{-4}$', '$2\times10^{-3}$', '$3\times10^{-5}$']
   answer: 0
   explanation: |-
-    Doubling $L$ doubles the exponent: $e^{-2\kappa(2L)} = (e^{-2\kappa L})^2 = 10^{-6}$. Halving ($5\times10^{-4}$) treats the dependence as $1/L$; $3\times10^{-5}$ is $(10^{-3})^{1.5}$.
+    Doubling $L$ doubles the exponent: $e^{-2\kappa(2L)} = (e^{-2\kappa L})^2 = 10^{-6}$. Halving ($5\times10^{-4}$) treats the dependence as $1/L$; doubling ($2\times10^{-3}$) treats it as proportional to $L$; $3\times10^{-5}$ is $(10^{-3})^{1.5}$.
 - id: phys-m12-r2-h17
   lesson: phys-m12-h-tunneling
   topic: Quantum tunneling
@@ -397,15 +397,15 @@
   choices: ['95% of its value', 'one third of its value', 'one ninth of its value', 'half of its value']
   answer: 1
   explanation: |-
-    The current goes as $e^{-2\kappa d}$, so it is multiplied by $e^{-2(10.9)(0.050)} = e^{-1.09} = 0.34$, about one third. One ninth is the factor for a 0.10 nm change; using $e^{-\kappa\Delta d}$ gives 0.58, roughly a half.
+    The current goes as $e^{-2\kappa d}$, so it is multiplied by $e^{-2(10.9)(0.050)} = e^{-1.09} = 0.34$, about one third. One ninth is the factor for a 0.10 nm change; using $e^{-\kappa\Delta d}$ gives 0.58, roughly a half; 95% is $e^{-0.05}$, which leaves $2\kappa$ out of the exponent altogether.
 - id: phys-m12-r2-h18
   lesson: phys-m12-h-tunneling
   topic: Quantum tunneling
   stem: 'An electron with $E = 2.0$ eV hits a barrier $U = 5.0$ eV high and 0.25 nm wide ($\kappa = 8.87$ nm⁻¹). Using the exact formula $T = \left[1 + \dfrac{U^2\sinh^2\kappa L}{4E(U - E)}\right]^{-1}$, what is $T$?'
-  choices: ['0.012', '0.27', '0.044', '0.0044']
+  choices: ['0.012', '0.17', '0.044', '0.098']
   answer: 2
   explanation: |-
-    $\kappa L = 2.22$, $\sinh 2.22 = 4.54$, so $\sinh^2 = 20.6$. Then $\dfrac{25(20.6)}{4(2.0)(3.0)} = 21.4$ and $T = 1/22.4 = 0.044$. The bare $e^{-2\kappa L} = 0.012$ leaves out the prefactor, 3.84 here; the thick-barrier formula $3.84(0.012) = 0.045$ is already close even though $\kappa L$ is only about 2.
+    $\kappa L = 2.22$, $\sinh 2.22 = 4.54$, so $\sinh^2 = 20.6$. Then $\dfrac{25(20.6)}{4(2.0)(3.0)} = 21.4$ and $T = 1/22.4 = 0.044$. The bare $e^{-2\kappa L} = 0.012$ leaves out the prefactor, 3.84 here; the thick-barrier formula $3.84(0.012) = 0.045$ is already close even though $\kappa L$ is only about 2. Forgetting to square the sinh gives $1/(1 + 4.73) = 0.17$; using $E$ instead of $U - E$ in $\kappa$ gives 0.098.
 - id: phys-m12-r2-h19
   lesson: phys-m12-h-tunneling
   topic: Quantum tunneling
@@ -503,15 +503,15 @@
   choices: ['4.20 MeV', '4.27 MeV', '3730 MeV', '0.00458 MeV']
   answer: 1
   explanation: |-
-    $\Delta m = 238.050788 - 234.043601 - 4.002603 = 0.004584$ u, and $Q = 0.004584(931.5) = 4.27$ MeV. 4.20 MeV is the alpha particle's share, $4.27(234/238)$; 0.00458 is the mass difference in u, not MeV.
+    $\Delta m = 238.050788 - 234.043601 - 4.002603 = 0.004584$ u, and $Q = 0.004584(931.5) = 4.27$ MeV. 4.20 MeV is the alpha particle's share, $4.27(234/238)$; 0.00458 is the mass difference in u, not MeV; 3730 MeV is the rest energy of the whole helium-4 atom, not the energy released.
 - id: phys-m12-r2-h29
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics
   stem: 'Polonium-210 alpha decays at rest with $Q = 5.41$ MeV. What is the alpha particle''s kinetic energy?'
-  choices: ['5.41 MeV', '0.10 MeV', '5.31 MeV', '5.20 MeV']
+  choices: ['5.41 MeV', '0.10 MeV', '5.31 MeV', '2.71 MeV']
   answer: 2
   explanation: |-
-    Equal and opposite momenta give $K_\alpha = Q(A - 4)/A = 5.41(206/210) = 5.31$ MeV. The lead-206 nucleus recoils with the remaining 0.10 MeV. Giving all of $Q$ to the alpha particle ignores the recoil.
+    Equal and opposite momenta give $K_\alpha = Q(A - 4)/A = 5.41(206/210) = 5.31$ MeV. The lead-206 nucleus recoils with the remaining 0.10 MeV. Giving all of $Q$ to the alpha particle ignores the recoil; 0.10 MeV is the recoil's share, given to the wrong particle; 2.71 MeV splits $Q$ evenly, which equal momenta do not do for unequal masses.
 - id: phys-m12-r2-h30
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics
@@ -527,7 +527,7 @@
   choices: ['14.1 MeV', '3.5 MeV', '8.8 MeV', '17.6 MeV']
   answer: 0
   explanation: |-
-    Equal momenta mean energies in inverse ratio to mass: the neutron (mass number 1) gets $\tfrac45$ of 17.6 MeV $= 14.1$ MeV, and the helium nucleus gets 3.5 MeV. Splitting evenly gives 8.8 MeV.
+    Equal momenta mean energies in inverse ratio to mass: the neutron (mass number 1) gets $\tfrac45$ of 17.6 MeV $= 14.1$ MeV, and the helium nucleus gets 3.5 MeV. Splitting evenly gives 8.8 MeV, 3.5 MeV is the helium nucleus's share, and 17.6 MeV ignores the helium nucleus's recoil.
 - id: phys-m12-r2-h32
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics
@@ -540,10 +540,10 @@
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics
   stem: 'The line of stability is $Z \approx A/(2 + 0.0150A^{2/3})$. What does it predict for $A = 120$?'
-  choices: ['$Z \approx 60$', '$Z \approx 45$', '$Z \approx 40$', '$Z \approx 51$']
+  choices: ['$Z \approx 60$', '$Z \approx 32$', '$Z \approx 58$', '$Z \approx 51$']
   answer: 3
   explanation: |-
-    $120^{2/3} = 24.3$, so $Z \approx 120/(2 + 0.364) = 50.7$, about 51. Tin ($Z = 50$) has several stable isotopes near $A = 120$. $Z = 60$ is the naive $A/2$, which ignores the Coulomb term.
+    $120^{2/3} = 24.3$, so $Z \approx 120/(2 + 0.364) = 50.7$, about 51. Tin ($Z = 50$) has several stable isotopes near $A = 120$. $Z = 60$ is the naive $A/2$, which ignores the Coulomb term. Using $A$ instead of $A^{2/3}$ gives $120/3.80 = 32$; using $A^{1/3}$ gives $120/2.074 = 58$.
 - id: phys-m12-r2-h34
   lesson: phys-m12-h-liquid-drop
   topic: Nuclear energetics

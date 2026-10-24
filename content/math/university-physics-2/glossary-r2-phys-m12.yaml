@@ -15,7 +15,7 @@
   topic: Spacetime and the Doppler effect
 - term: light cone
   aliases: [light cones]
-  definition: 'The $45^\circ$ lines (a cone in more dimensions) through an event, traced by light. Only events inside its future half can be affected by the event.'
+  definition: 'The $45^\circ$ lines (a cone in more dimensions) through an event, traced by light. Only events inside or on its future half can be affected by the event.'
   topic: Spacetime and the Doppler effect
 - term: spacetime interval
   aliases: [interval]

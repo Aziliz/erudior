@@ -418,9 +418,9 @@
   lesson: de1-m4-h-feiertage
   topic: Holidays and customs
   stem: 'Which statement about Karneval and Fasching is true?'
-  choices: ['Fasching is a public holiday in every state.', 'Karneval is celebrated only in Austria.', 'Fasching is the usual word in southern Germany and Austria; Karneval in the Rhineland.', 'Both are celebrated in December.']
+  choices: ['Fasching is a public holiday in every state.', 'Karneval is celebrated only in Austria.', 'Fasching is the usual word in Bavaria and Austria; Karneval in the Rhineland.', 'Both are celebrated in December.']
   answer: 2
-  explanation: 'They are names for the same season. Its high point is in February or early March, with parades on Rosenmontag, which is not a public holiday.'
+  explanation: 'They are names for the same season (Mainz and the south-west also say Fastnacht). Its high point is in February or early March, with parades on Rosenmontag, which is not a public holiday.'
 - id: de1-m4-r2-h27
   lesson: de1-m4-h-feiertage
   topic: Dates and ranges

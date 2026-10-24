@@ -11,7 +11,7 @@
   calc:
     dv: p1 + p2 + p3
     rho: 8.85*(p1 + p2 + p3)
-  prompt: 'In a region the electric field is $\vec E = ({p1}x\,\hat\imath {p2:signed}y\,\hat\jmath {p3:signed}z\,\hat k)\times10^3$ V/m² (with $x, y, z$ in meters). Find $\nabla\cdot\vec E$ in units of $10^3$ V/m², and the charge density $\rho$ in nC/m³ to 3 significant figures. Use $\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²).'
+  prompt: 'In a region the electric field is $\vec E = ({p1:coef}x\,\hat\imath {p2:signedcoef}y\,\hat\jmath {p3:signedcoef}z\,\hat k)\times10^3$ V/m² (with $x, y, z$ in meters). Find $\nabla\cdot\vec E$ in units of $10^3$ V/m², and the charge density $\rho$ in nC/m³ to 3 significant figures. Use $\varepsilon_0 = 8.85\times10^{-12}$ C²/(N·m²).'
   answers:
     - {name: dv, label: '$\nabla\cdot\vec E$ ($10^3$ V/m²)', tolerance: 0.001}
     - {name: rho, label: '$\rho$ (nC/m³)', sigfigs: 3, format: sig3}

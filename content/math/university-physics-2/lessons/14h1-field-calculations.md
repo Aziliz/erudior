@@ -56,7 +56,7 @@ The radius and current appear only through the **magnetic dipole moment** $\mu =
 
 $$B_{\text{equator}} = \frac{\mu_0}{4\pi}\frac{\mu}{r^3}.$$
 
-This is why a bar magnet's field, made by the aligned atomic current loops inside it, looks like the field of one big loop when seen from a distance.
+This is why a bar magnet's field, made by the aligned atomic magnetic moments inside it (each acts like a tiny current loop, though much of it comes from electron spin rather than orbital motion), looks like the field of one big loop when seen from a distance.
 
 How far is "far"? In Example 1, $z = 2.4R$, and the dipole formula gives $1.36\times10^{-4}$ T against the exact $1.07\times10^{-4}$ T, about 27% too high. The approximation is good only when $z$ is several times $R$.
 

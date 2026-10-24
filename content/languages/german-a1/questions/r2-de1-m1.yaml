@@ -136,14 +136,14 @@
   topic: Personal details
   type: label
   stem: 'Name the numbered parts of this German address.'
-  image: {src: images/de1-m1-envelope-blank.svg, alt: 'An envelope addressed to Lisa Krämer, Lindenstraße 14, 04107 Leipzig. Number 1 is on Lisa, 2 on Krämer, 3 on Lindenstraße, 4 on 14, 5 on 04107 and 6 on Leipzig.'}
+  image: {src: images/de1-m1-envelope-blank.svg, alt: 'An envelope addressed to Lisa Krämer, Lindenstraße 14, 04107 Leipzig. Each line has a number before its first part and after its last part: 1 before Lisa, 2 after Krämer, 3 before Lindenstraße, 4 after 14, 5 before 04107 and 6 after Leipzig.'}
   labels:
-    - {x: 45.5, y: 53.0, text: Vorname (first name)}
-    - {x: 58.1, y: 53.0, text: Familienname (surname)}
-    - {x: 51.3, y: 63.3, text: Straße (street)}
-    - {x: 69.3, y: 63.3, text: Hausnummer (house number)}
-    - {x: 46.5, y: 73.6, text: Postleitzahl (postcode)}
-    - {x: 60.0, y: 73.6, text: Stadt (city)}
+    - {x: 38.5, y: 55.2, text: Vorname (first name)}
+    - {x: 65.0, y: 55.2, text: Familienname (surname)}
+    - {x: 38.5, y: 65.5, text: Straße (street)}
+    - {x: 72.0, y: 65.5, text: Hausnummer (house number)}
+    - {x: 38.5, y: 75.8, text: Postleitzahl (postcode)}
+    - {x: 68.5, y: 75.8, text: Stadt (city)}
   distractors: [Telefonnummer (phone number), Handynummer (mobile number)]
   explanation: |-
     Lisa is the first name (1) and Krämer the surname (2). In a German address the street (3) comes first and the house number (4) after it. On the last line the five-digit postcode (5) comes before the town or city (6). There's no phone number on the envelope.
@@ -313,7 +313,7 @@
   choices: [muß, mus, muss, mußs]
   answer: 2
   explanation: |-
-    The u is short, so since the 1996 spelling reform it's written ss: ich muss. muß is the old spelling you may still see in older books; mus would suggest a z sound or a long vowel.
+    The u is short, so since the 1996 spelling reform it's written ss: ich muss. muß is the old spelling you may still see in older books; mus would suggest a long u, as in das Mus (purée), and mußs is not a word.
 
 - id: de1-m1-r2-h08
   lesson: de1-m1-h-sounds-in-depth
@@ -346,7 +346,7 @@
   topic: Pronunciation
   type: text
   stem: 'In careful German, a word or word part that starts with a vowel (ein | Ei) begins with a small catch in the throat called a ___.'
-  accept: [glottal stop, Knacklaut, glottal stops, glottal]
+  accept: [glottal stop, Knacklaut, glottal stops, glottal, Glottisschlag]
   explanation: |-
     It's a glottal stop (German Knacklaut): a brief closing of the throat, like the break in English "uh-oh". It keeps ein Ei from running together as "ei-nei".
 

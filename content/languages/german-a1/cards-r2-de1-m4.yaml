@@ -17,7 +17,7 @@
 - {front: 'Not public holidays (but well known)', back: 'Heiligabend (24.12.), Silvester (31.12.), Rosenmontag, Sankt Martin (11.11.), Nikolaustag (6.12.).', topic: Holidays and customs}
 - {front: 'When are Christmas presents opened in Germany?', back: 'Usually on the evening of 24 December, Heiligabend (die Bescherung).', topic: Holidays and customs}
 - {front: 'Guten Rutsch! or Frohes neues Jahr!?', back: 'Guten Rutsch! before New Year (until midnight on 31.12.); Frohes neues Jahr! from 1 January on.', topic: Holidays and customs}
-- {front: 'Karneval or Fasching?', back: 'Same season, different regions: Karneval in the Rhineland (Köln, Düsseldorf, Mainz), Fasching in the south and Austria. Parades on Rosenmontag.', topic: Holidays and customs}
+- {front: 'Karneval or Fasching?', back: 'Same season, different regions: Karneval in Köln and Düsseldorf, Fasching in Bavaria and Austria, Fastnacht in Mainz and the south-west. Usually in February, some years early March. Parades on Rosenmontag.', topic: Holidays and customs}
 - {front: 'Congratulating early on a birthday', back: 'Many Germans consider it bad luck (a superstition). Wait for the day: Alles Gute zum Geburtstag!', topic: Holidays and customs}
 - {front: 'Easter and the holidays counted from it', back: 'Easter Sunday: between 22 March and 25 April. Good Friday 2 days before; Ascension Day 39 days after (a Thursday); Whit Monday 50 days after.', topic: Holidays and customs}
 - {front: 'Ordinal endings in dates', back: 'der + -e: der dritte Mai. am, vom, zum, den + -en: am dritten, vom dritten, bis zum dritten, den dritten Mai.', topic: Dates and ranges}

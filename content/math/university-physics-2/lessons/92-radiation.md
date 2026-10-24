@@ -117,7 +117,7 @@ $$f_{\text{photon}} = \frac{13.6\text{ eV}}{h}\left(\frac{1}{(n - 1)^2} - \frac{
 For large $n$, $2n - 1 \approx 2n$ and $(n - 1)^2 \approx n^2$, so $f_{\text{photon}} \to 2(13.6\text{ eV})/(hn^3) = f_{\text{orbit}}$. The ratio is $\dfrac{n(2n - 1)}{2(n - 1)^2}$, which is 3.0 at $n = 2$ and approaches 1:
 
 ```plot
-{"x": [0, 30], "y": [0, 3.2], "functions": [{"f": "x*(2*x - 1)/(2*(x - 1)^2)", "from": 2, "to": 30, "label": "f photon / f orbit"}, {"f": "1", "dashed": true}], "points": [{"at": [2, 3]}], "xLabel": "n", "yLabel": "frequency ratio", "caption": "Ratio of the n to n − 1 photon frequency to the classical orbital frequency in hydrogen; it approaches 1 (dashed) for large n"}
+{"x": [0, 30], "y": [0, 3.6], "functions": [{"f": "x*(2*x - 1)/(2*(x - 1)^2)", "from": 2, "to": 30, "label": "f photon / f orbit"}, {"f": "1", "dashed": true}], "points": [{"at": [2, 3]}], "xLabel": "n", "yLabel": "frequency ratio", "caption": "Ratio of the n to n − 1 photon frequency to the classical orbital frequency in hydrogen; it approaches 1 (dashed) for large n"}
 ```
 
 ### Example 4

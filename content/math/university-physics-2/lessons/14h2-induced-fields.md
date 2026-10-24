@@ -73,7 +73,7 @@ Setting them equal gives $\dfrac{dB_{\text{orbit}}}{dt} = \dfrac12\dfrac{d\bar B
 
 $$B_{\text{orbit}} = \tfrac12\bar B.$$
 
-The magnet's poles are shaped so that the field is stronger near the center than at the orbit, by exactly this factor.
+The magnet's poles are shaped so that the field is stronger near the center than at the orbit, making the average field inside the orbit exactly twice the field at the orbit.
 
 ### Example 2
 

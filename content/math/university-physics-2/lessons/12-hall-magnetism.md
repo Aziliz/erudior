@@ -84,7 +84,7 @@ where $K_m = 1 + \chi_m$ is the **relative permeability** (also written $\mu_r$)
 
 **Ferromagnetism**. In iron, nickel, cobalt and some alloys, a quantum-mechanical interaction aligns neighboring atoms' moments with each other, in regions called **magnetic domains**. With no applied field the domains point in different directions and largely cancel. A small applied field grows the domains that point along it, producing a huge magnetization: $K_m$ runs from hundreds to many thousands. It is not a constant, though. As the field rises the iron **saturates** (around 2 T for iron), and when the field is removed some alignment remains.
 
-The two questions that sort any material are whether its atoms carry a net moment and whether neighboring moments line up with each other:
+In this simplified scheme (it leaves out other types, such as antiferromagnets and ferrimagnets), two questions sort a material: whether its atoms carry a net moment and whether neighboring moments line up with each other:
 
 ```mermaid
 flowchart TD

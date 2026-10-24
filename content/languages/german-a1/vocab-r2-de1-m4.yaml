@@ -42,7 +42,7 @@
   term: die Halle
   pos: noun
   plural: die Hallen
-  meanings: [hall, sports hall, gym, gymnasium]
+  meanings: ['hall (large building, e.g. a sports hall)', hall, sports hall, gym, gymnasium]
   example: In der Halle spielen wir Tennis.
   exampleEn: We play tennis in the hall.
 - id: de1-m4-r2-w06
@@ -118,11 +118,11 @@
   lesson: de1-m4-h-feiertage
   term: der Fasching
   pos: noun
-  plural: —
-  meanings: ['carnival (southern German and Austrian word)', carnival, Shrovetide, Mardi Gras]
-  example: Im Februar ist Fasching.
-  exampleEn: Carnival is in February.
-  note: In the Rhineland the usual word is der Karneval.
+  plural: die Faschinge
+  meanings: ['carnival (Bavarian and Austrian word)', carnival, Shrovetide, Mardi Gras]
+  example: Im Februar ist oft Fasching.
+  exampleEn: Carnival is often in February.
+  note: In the Rhineland the usual word is der Karneval; in Mainz and the south-west, die Fastnacht. Plural also die Faschings; rarely used.
 - id: de1-m4-r2-w15
   lesson: de1-m4-h-feiertage
   term: der Nikolaustag

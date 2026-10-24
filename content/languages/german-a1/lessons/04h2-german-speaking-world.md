@@ -50,7 +50,8 @@ flat north (where *Plattdeutsch*, "Low German", is spoken). Standard German is w
 newspapers, hear on the news and use in school and at work.
 
 Alongside it, many people speak a **dialect**, a regional form of the language with its own
-sounds, words and some grammar. Bavarian, Swabian and Low German are well-known examples. Most
+sounds, words and some grammar. Bavarian, Swabian and Low German are well-known examples (Low German is so different that
+many linguists count it as a language of its own). Most
 Germans and Austrians can switch between their dialect and standard German, and the standard is
 always understood.
 

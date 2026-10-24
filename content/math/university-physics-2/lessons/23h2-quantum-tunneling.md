@@ -96,7 +96,7 @@ flowchart LR
   T --> M["Flash memory and tunnel diodes: electrons cross thin layers"]
 ```
 
-The same physics runs in reverse in stars. In the Sun's core, near 15 million K, typical proton energies are only about 1 keV, hundreds of times below the Coulomb barrier between two protons, so fusion happens only through the rare protons that tunnel. Electronics depends on tunneling too: flash memory erases its cells (and in many designs writes them) by tunneling electrons through an oxide layer a few nanometers thick, and the tunnel diode (Leo Esaki, 1957) relies on electrons tunneling through a very thin junction.
+The same physics runs in reverse in stars. In the Sun's core, near 15 million K, typical proton energies are only about 1 keV, hundreds of times below the Coulomb barrier between two protons, so fusion happens only through the rare protons that tunnel. Electronics depends on tunneling too: flash memory erases its cells (and in many designs writes them) by tunneling electrons through an oxide layer only about 10 nanometers thick or less, and the tunnel diode (Leo Esaki, 1957) relies on electrons tunneling through a very thin junction.
 
 ## Common mistakes
 

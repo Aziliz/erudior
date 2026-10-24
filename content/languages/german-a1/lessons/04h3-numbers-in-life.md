@@ -113,8 +113,8 @@ the pass mark. Each German and Austrian grade also has a name:
 
 *sehr gut* means very good, *gut* good, *befriedigend* satisfactory, *ausreichend* sufficient,
 *mangelhaft* poor and *ungenügend* insufficient. In everyday talk, people just use the number
-noun: *eine Eins*, *eine Zwei*, *eine Fünf*. (In the last two years of a German *Gymnasium*,
-grades are given as points from 0 to 15 instead, with 15 the best.)
+noun: *eine Eins*, *eine Zwei*, *eine Fünf*. (In the upper school years of a German *Gymnasium*, the
+*Oberstufe*, grades are given as points from 0 to 15 instead, with 15 the best.)
 
 The scales are a classic misunderstanding between the countries. A Swiss pupil who proudly says
 *Ich habe eine Sechs!* has the top grade; a German pupil with *eine Sechs* has the worst.

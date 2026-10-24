@@ -160,7 +160,7 @@ lesson 5, a compound takes its gender from the last noun:
 
 With a possessive (lesson 6), the ending follows the gender as usual:
 
-- *Mein Lieblingsfilm ist „Lola rennt".* — My favourite film is "Run Lola Run".
+- *Mein Lieblingsfilm ist „Lola rennt“.* — My favourite film is "Run Lola Run".
 - *Meine Lieblingsfarbe ist Grün.* — My favourite colour is green.
 - *Was ist dein Lieblingsessen?* — What's your favourite food?
 

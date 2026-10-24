@@ -18,7 +18,7 @@ For any nuclear reaction or decay, the **Q-value** is the rest energy that disap
 
 $$Q = \left(\sum m_{\text{initial}} - \sum m_{\text{final}}\right)c^2.$$
 
-If $Q > 0$ the reaction is **exothermic** and releases $Q$ as kinetic energy of the products (and any photons). If $Q < 0$ it is **endothermic**: it can only happen if the incoming particles bring at least $|Q|$ of kinetic energy (in fact somewhat more, because momentum must also be conserved; the honors lesson on relativistic collisions shows how to find the exact threshold). A spontaneous decay must have $Q > 0$.
+If $Q > 0$ the reaction is **exothermic** and releases $Q$ as kinetic energy of the products (and any photons). If $Q < 0$ it is **endothermic**: it can only happen if the incoming particles bring at least $|Q|$ of kinetic energy (in fact somewhat more, because momentum must also be conserved; the honors lesson on invariant mass and thresholds shows how to find the exact threshold). A spontaneous decay must have $Q > 0$.
 
 Tables list *atomic* masses (nucleus plus electrons), not nuclear masses. Using them is easy as long as you keep track of electrons:
 
@@ -104,7 +104,7 @@ The estimate, 495.4 MeV or 8.85 MeV per nucleon, is within 0.7% of the measured 
 
 ## What the model explains
 
-**The peak.** The surface term makes light nuclei weakly bound per nucleon; the Coulomb term makes heavy ones weakly bound. In between, binding per nucleon is greatest. (Measured precisely, the very top belongs to nickel-62 at 8.795 MeV per nucleon, just above iron-58 and iron-56 at 8.790; "near iron" is the usual summary.)
+**The peak.** The surface term makes light nuclei weakly bound per nucleon; the Coulomb term makes heavy ones weakly bound. In between, binding per nucleon is greatest. (Measured precisely, the very top belongs to nickel-62 at 8.795 MeV per nucleon, just above iron-58 at 8.792 and iron-56 at 8.790; "near iron" is the usual summary.)
 
 **The line of stability.** For a fixed $A$, the most stable $Z$ maximizes $E_B$. Setting $\partial E_B/\partial Z = 0$ (with $Z(Z - 1) \approx Z^2$ and ignoring the small neutron–proton mass difference) gives
 
@@ -112,7 +112,7 @@ $$Z \approx \frac{A}{2 + \dfrac{a_C}{2a_A}A^{2/3}} = \frac{A}{2 + 0.0150A^{2/3}}
 
 For light nuclei this is $Z \approx A/2$, equal numbers of protons and neutrons; for $A = 56$ it gives 25.2 (iron has 26); for $A = 238$, 92.4 (uranium has 92). The Coulomb term is why heavy nuclei need extra neutrons. A nucleus with too many neutrons for its $A$ moves toward this line by β⁻ decay; one with too many protons, by β⁺ decay or electron capture.
 
-**Fission.** Uranium-235 has about 7.6 MeV per nucleon; its fission fragments, near $A = 95$ to 140, have about 8.5. Rearranging 236 nucleons (after it absorbs a neutron) into more tightly bound fragments releases roughly $(8.5 - 7.6)(236) \approx 200$ MeV, matching the measured value of about 200 MeV per fission. In the drop picture, deforming a heavy nucleus increases its surface energy but decreases its Coulomb energy. Bohr and Wheeler's 1939 analysis found that a drop with no barrier against splitting would need $Z^2/A$ above about $2a_S/a_C \approx 50$; uranium's 36 means a barrier of a few MeV remains, which absorbing a neutron can supply. (This is a simplified estimate; the full theory includes shell effects.)
+**Fission.** Uranium-235 has about 7.6 MeV per nucleon; its fission fragments, near $A = 95$ to 140, have about 8.5. Rearranging 236 nucleons (after it absorbs a neutron) into more tightly bound fragments releases roughly $(8.5 - 7.6)(236) \approx 200$ MeV, matching the measured value of about 200 MeV per fission. In the drop picture, deforming a heavy nucleus increases its surface energy but decreases its Coulomb energy. Bohr and Wheeler's 1939 analysis found that a drop with no barrier against splitting would need $Z^2/A$ above about $2a_S/a_C \approx 50$; uranium's 36 means a barrier of about 6 MeV remains. When uranium-235 absorbs a slow neutron, the binding energy released (about 6.5 MeV) is enough to get over it; uranium-238 gains less and needs a fast neutron. (This is a simplified estimate; the full theory includes shell effects.)
 
 ## Common mistakes
 

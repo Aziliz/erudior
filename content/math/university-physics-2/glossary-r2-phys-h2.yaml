@@ -62,7 +62,7 @@
   definition: 'Bohr''s requirement that quantum predictions agree with classical physics in the limit of large quantum numbers; for hydrogen, the $n \to n - 1$ photon frequency approaches the classical orbital frequency.'
   topic: Radiation from accelerating charges
 - term: four-momentum
-  aliases: [four-momenta, four-vector]
+  aliases: [four-momenta]
   definition: 'The four numbers $P = (E/c, p_x, p_y, p_z)$, which transform between frames like $(ct, x, y, z)$. Its square $P\cdot P = E^2/c^2 - p^2 = m^2c^2$ is the same in every frame.'
   topic: Four-momentum
 - term: invariant mass

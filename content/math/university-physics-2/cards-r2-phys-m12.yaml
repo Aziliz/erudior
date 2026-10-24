@@ -25,5 +25,5 @@
 - {front: 'SEMF coefficients (one common fit)', back: '$a_V = 15.75$, $a_S = 17.8$, $a_C = 0.711$, $a_A = 23.7$ MeV, $\delta = 11.18/\sqrt A$ MeV', topic: Nuclear energetics}
 - {front: 'Pairing term sign', back: 'Even $Z$, even $N$: $+\delta$. Odd $Z$, odd $N$: $-\delta$. Odd $A$: 0.', topic: Nuclear energetics}
 - {front: 'Line of stability (liquid drop)', back: '$Z \approx \dfrac{A}{2 + 0.0150A^{2/3}}$: $Z \approx A/2$ for light nuclei, extra neutrons for heavy ones', topic: Nuclear energetics}
-- {front: 'Highest binding energy per nucleon', back: 'Nickel-62 (8.795 MeV), just above iron-58 and iron-56 (8.790 MeV)', topic: Nuclear energetics}
+- {front: 'Highest binding energy per nucleon', back: 'Nickel-62 (8.795 MeV), just above iron-58 (8.792 MeV) and iron-56 (8.790 MeV)', topic: Nuclear energetics}
 - {front: 'Energy per uranium-235 fission', back: 'About 200 MeV: $(8.5 - 7.6)$ MeV per nucleon $\times$ 236 nucleons', topic: Nuclear energetics}
