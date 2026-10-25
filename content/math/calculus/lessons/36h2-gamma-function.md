@@ -61,7 +61,7 @@ This also explains the convention $0! = 1$: it is $\Gamma(1)$, the integral of $
 {"x": [0, 5.2], "y": [0, 10], "functions": [{"f": "gamma(x)", "from": 0.1, "to": 5.2, "label": "y = Γ(x)"}], "points": [{"at": [1, 1], "label": "(1, 1)"}, {"at": [2, 1]}, {"at": [3, 2]}, {"at": [4, 6], "label": "(4, 6)"}, {"at": [0.5, 1.7725], "label": "(1/2, √π)"}], "labels": [{"at": [1.95, 1.8], "text": "(2, 1)"}, {"at": [3.45, 1.3], "text": "(3, 2)"}], "caption": "The gamma function for x > 0 passes through (n, (n − 1)!) and rises without bound as x → 0⁺; its minimum, about 0.8856, is near x ≈ 1.4616"}
 ```
 
-## $\Gamma\left(\frac12\right) = \sqrt\pi$
+## Gamma of one half: $\Gamma\left(\frac12\right) = \sqrt\pi$
 
 The value at $s = \frac12$ is $\Gamma(\frac12) = \int_0^\infty x^{-1/2}e^{-x}\,dx$. Substitute $x = u^2$ (with $u \ge 0$), so $dx = 2u\,du$ and $x^{-1/2} = \frac1u$:
 

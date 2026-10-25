@@ -629,7 +629,7 @@ def write_sitemap(items):
     def slug(t):
         s = re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")[:60]
         return s or "bank"
-    urls = [f"https://erudior.com{p}" for p in ("/", "/download", "/terms", "/privacy")]
+    urls = [f"https://erudior.com{p}" for p in ("/", "/roadmap", "/download", "/terms", "/privacy")]
     urls += [f"https://app.erudior.com/{slug(e['title'])}" for e in items]
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     (ROOT.parent.parent / "public" / "sitemap.xml").write_text(

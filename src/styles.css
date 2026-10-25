@@ -4216,6 +4216,72 @@ a.brand {
   padding-left: 1.1em;
   line-height: 1.7;
 }
+/* The site's menu wraps on narrow screens instead of running off the side. */
+.site .topbar .nav {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.roadmap .home-lede {
+  margin-left: 0;
+}
+.roadmap h1 {
+  margin-bottom: 8px;
+}
+.roadmap-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  align-items: center;
+  margin: 20px 0 12px;
+}
+.roadmap-stat {
+  display: flex;
+  flex-direction: column;
+}
+.roadmap-stat b {
+  font-size: 1.5rem;
+}
+.roadmap-bar {
+  flex: 1 1 240px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.roadmap-bar span {
+  display: block;
+  height: 100%;
+  background: var(--ok);
+}
+.roadmap-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-bottom: 8px;
+}
+.roadmap-group {
+  margin-top: 28px;
+}
+.roadmap-group h2 {
+  font-size: 1.15rem;
+}
+.roadmap-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.roadmap-list li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.roadmap-list .pill {
+  flex: 0 0 auto;
+  min-width: 76px;
+  text-align: center;
+}
 .site-disclaimer {
   flex-basis: 100%;
   max-width: 640px;

@@ -25,7 +25,7 @@ const slug = (t) =>
 const catalog = JSON.parse(readFileSync(path.join(root, "samples", "catalog.json"), "utf8"));
 
 const pages = [
-  ...["/", "/download", "/terms", "/privacy", "/licenses"].map((p) => ({ url: `https://erudior.com${p}`, out: `__site${p}`, wait: "main h1" })),
+  ...["/", "/roadmap", "/download", "/terms", "/privacy", "/licenses"].map((p) => ({ url: `https://erudior.com${p}`, out: `__site${p}`, wait: "main h1" })),
   { url: "https://app.erudior.com/", out: "__app/", wait: ".catalog" },
   ...catalog.map((e) => ({ url: `https://app.erudior.com/${slug(e.title)}`, out: `__app/${slug(e.title)}`, wait: ".overview-about" })),
 ];

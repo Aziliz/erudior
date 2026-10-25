@@ -3,17 +3,18 @@
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import DownloadPage from "./pages/DownloadPage";
+import Roadmap from "./pages/Roadmap";
 import { Mark } from "./components/Mark";
 import { SITE_ORIGIN, appUrl } from "./lib/site";
 import { CATALOG } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
-type Page = "home" | "download" | LegalPage;
+type Page = "home" | "download" | "roadmap" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
+  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
 }
 
 export default function Site() {
@@ -27,6 +28,13 @@ export default function Site() {
   // (it doesn't across domains, so the site follows the system setting).
   useEffect(() => {
     if (page === "home" || !page) setSeo({ title: DEFAULT_TITLE, url: SITE_ORIGIN + "/", jsonLd: homeJsonLd(CATALOG) });
+    else if (page === "roadmap")
+      setSeo({
+        title: "Road to version 1.0 · Erudior",
+        description:
+          "Every course and feature Erudior needs before version 1.0: a complete free homeschool program from kindergarten through high school, with what's available today.",
+        url: SITE_ORIGIN + "/roadmap",
+      });
     else if (page === "download")
       setSeo({
         title: "Download Erudior for Windows, macOS and Linux",
@@ -71,6 +79,9 @@ export default function Site() {
           <a href="/#parents">For parents</a>
           <a href="/#live">Live rooms</a>
           <a href="/#classroom">For teachers</a>
+          <a href="/roadmap" onClick={(e) => go(e, "roadmap")} aria-current={page === "roadmap" ? "page" : undefined}>
+            Roadmap
+          </a>
           <a href="/download" onClick={(e) => go(e, "download")} aria-current={page === "download" ? "page" : undefined}>
             Download
           </a>
@@ -85,6 +96,8 @@ export default function Site() {
           <Home />
         ) : page === "download" ? (
           <DownloadPage />
+        ) : page === "roadmap" ? (
+          <Roadmap />
         ) : (
           <div className="page">
             <LegalView
@@ -103,6 +116,9 @@ export default function Site() {
           <a href={appUrl("/community")}>Community courses</a>
           <a href="/download" onClick={(e) => go(e, "download")}>
             Download
+          </a>
+          <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>
+            Roadmap
           </a>
           <a href="https://github.com/Aziliz/examiner/releases">Releases</a>
           <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>
