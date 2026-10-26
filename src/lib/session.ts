@@ -1,7 +1,8 @@
 import type { Attempt, Bank, Chosen, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
 import { shuffle, uid } from "./util";
 import { isAnswered, isCorrect, qtype } from "./questions";
-import { RESERVE, adaptiveOrder } from "./mastery";
+import { RESERVE, adaptiveOrder, interleave } from "./mastery";
+import { isDue, localDay, nextReview, type Confidence } from "./review";
 
 export { isCorrect };
 
@@ -34,6 +35,10 @@ export interface Session {
   lesson?: LessonRef;
   /** Set for an end-of-module quiz. */
   module?: ModuleRef;
+  /** A special practice session: warm-up before a lesson (not recorded), or the weekly cumulative review. */
+  kind?: "pretest" | "weekly";
+  /** For a warm-up: the lesson to go back to. */
+  pretestLesson?: LessonRef;
   /** Smart practice: spare question ids the session can swap in as it adapts (lib/mastery). */
   adaptive?: { reserve: string[]; shuffleChoices: boolean };
 }
@@ -45,7 +50,7 @@ export const isQuiz = (s: { lesson?: LessonRef; module?: ModuleRef }) => !!(s.le
 export const LESSON_QUIZ_PASS = 70;
 
 /** "smart": every matching question, weighted toward your weak topics, and adapting as you go. */
-export type PracticeFilter = "smart" | "all" | "missed" | "unseen" | "weak" | "flagged";
+export type PracticeFilter = "smart" | "due" | "all" | "missed" | "unseen" | "weak" | "flagged";
 
 export interface ExamOptions {
   count: number;
@@ -194,6 +199,8 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
         return !!s && !s.lastCorrect;
       case "unseen":
         return !s;
+      case "due":
+        return isDue(s);
       case "weak":
         return !!s && s.correct / s.seen < 0.7;
       case "flagged":
@@ -206,7 +213,7 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
 
 export function startPractice(bank: Bank, progress: Progress, opts: PracticeOptions): Session {
   const smart = opts.filter === "smart" && !opts.questionIds?.length;
-  const pool = smart ? adaptiveOrder(practicePool(bank, progress, opts), bank, progress) : shuffle(practicePool(bank, progress, opts));
+  const pool = smart ? interleave(adaptiveOrder(practicePool(bank, progress, opts), bank, progress)) : shuffle(practicePool(bank, progress, opts));
   const n = Math.max(1, opts.count);
   const items = makeItems(pool.slice(0, n), opts.shuffleChoices);
   return {
@@ -231,6 +238,36 @@ export function lessonQuizQuestions(bank: Bank | undefined, quiz: string[] | und
 /** Correct answers needed to pass a quiz of n questions. */
 export function lessonQuizNeeded(n: number): number {
   return Math.ceil((n * LESSON_QUIZ_PASS) / 100 - 1e-9);
+}
+
+/**
+ * Warm-up questions before reading a lesson (pretesting: trying first helps the lesson stick,
+ * even when you get them wrong). Bank questions on the lesson's topics, never from the lesson's
+ * own quiz (quizIds), no honors questions, unseen ones first. Empty when there aren't at least two.
+ */
+export function pretestQuestions(bank: Bank | undefined, quizIds: Set<string>, topics: string[], progress: Progress, n = 3): Question[] {
+  if (!bank || !topics.length) return [];
+  const stats = progress.stats[bank.id] ?? {};
+  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors && !quizIds.has(q.id));
+  const unseen = shuffle(cands.filter((q) => !stats[q.id]));
+  const seen = shuffle(cands.filter((q) => stats[q.id]));
+  const out = [...unseen, ...seen].slice(0, n);
+  return out.length >= 2 ? out : [];
+}
+
+export function startPretest(bank: Bank, lesson: LessonRef, questions: Question[]): Session {
+  const items = makeItems(questions, true);
+  return {
+    id: uid("s"),
+    bankId: bank.id,
+    bankTitle: bank.title,
+    mode: "practice",
+    kind: "pretest",
+    pretestLesson: lesson,
+    items,
+    blocks: [{ start: 0, end: items.length }],
+    startedAt: Date.now(),
+  };
 }
 
 /** An end-of-module quiz: same style as a lesson quiz, over the module's quiz list. */
@@ -262,6 +299,7 @@ export function finishSession(
   progress: Progress,
   bank: Bank | undefined,
   usedSec?: number,
+  confidence: Record<string, Confidence> = {},
 ): { attempt: Attempt; progress: Progress } {
   const now = new Date();
   const byTopic: Record<string, Tally> = {};
@@ -291,7 +329,13 @@ export function finishSession(
     if (ok) correct++;
     bump(byTopic, it.q.topic, ok);
     if (bank?.sections.length) bump(bySection, sectionName(it.q.section), ok);
-    return { qid: it.q.id, chosen: did ? chosen : [], correct: ok, flagged: flags[it.q.id] || undefined };
+    return {
+      qid: it.q.id,
+      chosen: did ? chosen : [],
+      correct: ok,
+      flagged: flags[it.q.id] || undefined,
+      ...(did && confidence[it.q.id] ? { confidence: confidence[it.q.id] } : {}),
+    };
   });
 
   const attempt: Attempt = {
@@ -310,12 +354,17 @@ export function finishSession(
     sectionPassing: session.sectionPassing,
     lesson: session.lesson,
     module: session.module,
+    ...(session.kind ? { kind: session.kind } : {}),
     byTopic,
     bySection,
     answers: records,
   };
 
+  // Warm-up questions before a lesson are guesses by design: they don't touch stats or history.
+  if (session.kind === "pretest") return { attempt, progress };
+
   const stats = { ...(progress.stats[session.bankId] ?? {}) };
+  const day = localDay(now);
   for (const r of records) {
     if (!r.chosen.length) continue; // skipped questions don't count as seen
     const s = stats[r.qid] ?? { seen: 0, correct: 0, lastCorrect: false, lastSeen: "" };
@@ -324,6 +373,7 @@ export function finishSession(
       correct: s.correct + (r.correct ? 1 : 0),
       lastCorrect: r.correct,
       lastSeen: attempt.finishedAt,
+      ...nextReview(s, r.correct, r.confidence, day),
     };
   }
 
@@ -396,6 +446,8 @@ export interface RunState {
   blockIdx: number;
   /** Seconds used in each block so far. */
   blockUsed: number[];
+  /** How sure the student said they were, per question (optional). */
+  confidence?: Record<string, Confidence>;
 }
 
 interface SavedSession {

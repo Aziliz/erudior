@@ -160,7 +160,7 @@ export default function CardsRunner({ api, course, decks, mode, topics }: Props)
           tabIndex={0}
           onClick={(e) => {
             // Glossary links inside the card open their pop-up instead of flipping.
-            if ((e.target as HTMLElement).closest(".gloss, .gloss-pop, .pop-scrim")) return;
+            if ((e.target as HTMLElement).closest(".gloss, .gloss-pop, .pop-scrim, button")) return;
             setFlipped((f) => !f);
           }}
           aria-label={flipped ? "Card back. Click to show the front." : "Card front. Click to reveal the answer."}

@@ -15,6 +15,7 @@ import { splitMath } from "../src/lib/math.ts";
 import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
+import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -43,6 +44,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     if (!text) return;
     let t = text;
     if (allowFigures) {
+      // Worked examples: report malformed blocks, then check their fields like the lesson text.
+      for (const p of exampleProblems(t)) say(`${where}: ${p}`);
+      t = t.replace(EXAMPLE_BLOCK, (_m, info: string, body: string) => {
+        const ex = parseExample(info, body);
+        return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
+      });
       t = t.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
         try {
           const spec = JSON.parse(body) as FigureSpec;
@@ -115,7 +122,8 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       }
       if (kind === "order" && !isCorrect(q, q.choices.map((_, i) => i))) say(`question ${q.id}: the correct order is rejected`);
     }
-  for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front), checkText(`card ${k.id} back`, k.back));
+  // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
+  for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
 
   // --- References between parts ---------------------------------------------------

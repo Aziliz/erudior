@@ -8,6 +8,7 @@ import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Ses
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { recordSession } from "../lib/quiz";
 import { adaptAfterCheck, topicMastery } from "../lib/mastery";
+import type { Confidence } from "../lib/review";
 import { LETTERS, formatClock } from "../lib/util";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
@@ -20,6 +21,12 @@ interface Props {
   initial?: RunState;
 }
 
+const CONFIDENCE: { id: Confidence; label: string }[] = [
+  { id: "sure", label: "Sure" },
+  { id: "unsure", label: "Unsure" },
+  { id: "guess", label: "Guess" },
+];
+
 export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
 
 export default function Runner({ api, session: started, bank, initial }: Props) {
@@ -29,8 +36,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const isExam = session.mode === "exam";
   const items = session.items;
   // Lesson quizzes return to their lesson, module quizzes to the lesson list, everything else to the bank.
-  const exitView: View = session.lesson
-    ? { name: "lesson", courseId: session.lesson.courseId, lessonId: session.lesson.lessonId }
+  const backLesson = session.lesson ?? session.pretestLesson;
+  const exitView: View = backLesson
+    ? { name: "lesson", courseId: backLesson.courseId, lessonId: backLesson.lessonId }
     : session.module
       ? { name: "course", courseId: session.module.courseId, tab: "lessons" }
       : { name: "bank", bankId: session.bankId };
@@ -46,6 +54,16 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       Object.fromEntries(items.filter((it) => qmeta[metaKey(session.bankId, it.q.id)]?.flag).map((it) => [it.q.id, true])),
   );
   const [checked, setChecked] = useState<Record<string, boolean>>(initial?.checked ?? {});
+  const [confidence, setConfidence] = useState<Record<string, Confidence>>(initial?.confidence ?? {});
+  // Confidence is asked in practice and quizzes, not exams or warm-ups (those are guesses by design).
+  const askConfidence = !isExam && session.kind !== "pretest";
+  // Study habits (BankHome): explain it yourself before reading the explanation; recall before seeing choices.
+  const study = api.progress.study ?? {};
+  const explainFirst = !isExam && session.kind !== "pretest" && study.explainFirst !== false;
+  const recallFirst = !isExam && !!study.recallFirst;
+  const [shownExpl, setShownExpl] = useState<Record<string, boolean>>({});
+  const [shownChoices, setShownChoices] = useState<Record<string, boolean>>({});
+  const [ownWords, setOwnWords] = useState<Record<string, string>>({});
   const [blockIdx, setBlockIdx] = useState(initial?.blockIdx ?? 0);
   const [blockUsed, setBlockUsed] = useState<number[]>(initial?.blockUsed ?? blocks.map(() => 0));
   const [now, setNow] = useState(Date.now());
@@ -63,6 +81,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const multi = choiceQ && q.answer.length > 1;
   const answeredNow = isAnswered(q, chosen);
   const isChecked = !isExam && !!checked[q.id];
+  const choicesHidden = recallFirst && choiceQ && !shownChoices[q.id] && !isChecked && !isAnswered(q, answers[q.id]);
+  const explHidden = explainFirst && isChecked && !!q.explanation && !shownExpl[q.id];
   const answeredCount = items.filter((it) => isAnswered(it.q, answers[it.q.id])).length;
   const inBlock = (i: number) => i >= block.start && i < block.end;
   const blockItems = items.slice(block.start, block.end);
@@ -98,8 +118,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const snapshot = useCallback((): RunState => {
     const used = blockUsed.slice();
     used[blockIdx] = (used[blockIdx] ?? 0) + Math.max(0, (Date.now() - activeSince.current) / 1000);
-    return { index, answers, flags, checked, blockIdx, blockUsed: used };
-  }, [index, answers, flags, checked, blockIdx, blockUsed]);
+    return { index, answers, flags, checked, blockIdx, blockUsed: used, confidence };
+  }, [index, answers, flags, checked, blockIdx, blockUsed, confidence]);
 
   const save = useCallback(() => {
     if (finishing.current) return;
@@ -124,17 +144,22 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     finishing.current = true;
     await saveSessionState(null).catch(() => {});
     const used = totalUsed();
-    const preview = finishSession(session, answers, flags, api.progress, bank, used);
+    const preview = finishSession(session, answers, flags, api.progress, bank, used, confidence);
     if (preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0)) {
       api.toast("Session ended. No questions were answered, so nothing was recorded.");
       api.go(exitView);
       return;
     }
     // Apply against the latest progress so flag/note writes made during the session aren't lost.
-    await api.updateProgress((p) => recordSession(p, session, answers, flags, bank, used).progress);
+    await api.updateProgress((p) => recordSession(p, session, answers, flags, bank, used, confidence).progress);
+    if (session.kind === "pretest") {
+      api.toast("Now read the lesson. The answers to the warm-up are in it.");
+      api.go(exitView);
+      return;
+    }
     api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session, answers, flags, api, bank, blockUsed, blockIdx]);
+  }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence]);
 
   const nextBlock = useCallback(() => {
     if (lastBlock) return finish();
@@ -197,13 +222,13 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     setChecked(nowChecked);
     if (session.adaptive && bank) {
       const prior = topicMastery(api.progress, [bank]);
-      const r = adaptAfterCheck(session, bank, index, answers, nowChecked, prior);
+      const r = adaptAfterCheck(session, bank, index, answers, nowChecked, prior, confidence);
       if (r) {
         setSession((s) => ({ ...s, items: r.items, adaptive: { ...s.adaptive!, reserve: r.reserve } }));
         setAdaptNote({ qid: q.id, text: r.note });
       }
     }
-  }, [answeredNow, q, chosen, checked, session, bank, index, answers, api.progress]);
+  }, [answeredNow, q, chosen, checked, session, bank, index, answers, api.progress, confidence]);
 
   const toggleFlag = useCallback(() => {
     const on = !flags[q.id];
@@ -262,7 +287,12 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       let pos = -1;
       if (/^[1-9]$/.test(k)) pos = Number(k) - 1;
       else if (k.length === 1 && LETTERS.toLowerCase().indexOf(k) > -1 && k !== "f") pos = LETTERS.toLowerCase().indexOf(k);
-      if (choiceQ && pos >= 0 && pos < n) {
+      if (choicesHidden && (k === "enter" || k === " ")) {
+        e.preventDefault();
+        setShownChoices((m) => ({ ...m, [q.id]: true }));
+        return;
+      }
+      if (choiceQ && pos >= 0 && pos < n && !choicesHidden) {
         e.preventDefault();
         choose(item.order[pos]);
       } else if (k === "arrowright") {
@@ -274,12 +304,13 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       } else if (k === "enter" && !isExam) {
         e.preventDefault();
         if (!isChecked) check();
+        else if (explHidden) setShownExpl((m) => ({ ...m, [q.id]: true }));
         else if (index < items.length - 1) go(index + 1);
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag, choiceQ]);
+  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag, choiceQ, choicesHidden, explHidden, q.id]);
 
   const sectionName = q.section ? (bank?.sections.find((s) => s.id === q.section)?.name ?? q.section) : undefined;
   const clockClass =
@@ -298,7 +329,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             Save &amp; exit
           </button>
           <h1 className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</h1>
-          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.adaptive ? "Smart practice" : "Practice"}</span>
+          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.kind === "pretest" ? "Warm-up" : session.kind === "weekly" ? "Weekly review" : session.adaptive ? "Smart practice" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -330,6 +361,14 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
             {!choiceQ && <p className="q-type small muted">{typeLabel(q)}</p>}
 
+            {choicesHidden ? (
+              <div className="recall-cover">
+                <p>Think of the answer before you look at the choices.</p>
+                <button className="btn primary" autoFocus onClick={() => setShownChoices((m) => ({ ...m, [q.id]: true }))}>
+                  Show choices
+                </button>
+              </div>
+            ) : (
             <QuestionBody
               key={q.id}
               q={q}
@@ -340,6 +379,30 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               onEnter={() => (!isExam && !isChecked ? check() : undefined)}
               reveal={isChecked}
             />
+            )}
+
+            {askConfidence && !isChecked && answeredNow && (
+              <div className="confidence" role="group" aria-label="How sure are you? (optional)">
+                <span className="small muted">How sure are you?</span>
+                {CONFIDENCE.map((c) => (
+                  <button
+                    key={c.id}
+                    className="btn sm ghost"
+                    aria-pressed={confidence[q.id] === c.id}
+                    onClick={() =>
+                      setConfidence((m) => {
+                        const next = { ...m };
+                        if (next[q.id] === c.id) delete next[q.id];
+                        else next[q.id] = c.id;
+                        return next;
+                      })
+                    }
+                  >
+                    {c.label}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {isChecked && (
               <div className="feedback" role="status">
@@ -353,7 +416,28 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
                           .join(" and ")}.`
                       : "Not quite. The marks above show which parts were right."}
                 </p>
-                {q.explanation ? (
+                {!correctNow && confidence[q.id] === "sure" && (
+                  <p className="conf-note sure-miss">You were sure about this one, so it&rsquo;s worth a careful read. It&rsquo;ll come back tomorrow.</p>
+                )}
+                {correctNow && confidence[q.id] === "guess" && (
+                  <p className="conf-note small muted">Right, but you guessed, so it doesn&rsquo;t count as learned yet. It&rsquo;ll come back tomorrow.</p>
+                )}
+                {explHidden ? (
+                  <div className="explain-first">
+                    <label className="field">
+                      <span>Why is the answer what it is? Explain it in your own words first (optional).</span>
+                      <textarea
+                        className="input"
+                        rows={2}
+                        value={ownWords[q.id] ?? ""}
+                        onChange={(e) => setOwnWords((m) => ({ ...m, [q.id]: e.target.value }))}
+                      />
+                    </label>
+                    <button className="btn sm" onClick={() => setShownExpl((m) => ({ ...m, [q.id]: true }))}>
+                      Show explanation
+                    </button>
+                  </div>
+                ) : q.explanation ? (
                   <MathText as="p" className="expl" text={q.explanation} />
                 ) : (
                   <p className="small muted">No explanation for this question.</p>

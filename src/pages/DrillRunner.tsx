@@ -9,7 +9,7 @@ import { renderMathText } from "../lib/math";
 import DOMPurify from "dompurify";
 import MathText from "../components/MathText";
 import { logActivity } from "../lib/planner";
-import { courseMastery, topicPriority, weightedOrder } from "../lib/mastery";
+import { courseMastery, interleave, topicPriority, weightedOrder } from "../lib/mastery";
 import Markdown from "../components/Markdown";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
@@ -58,7 +58,8 @@ function makeSet(drills: Drill[], count: number, weight: (d: Drill) => number = 
       pool = pool.filter((x) => x !== d);
     }
   }
-  return { list, errors: [...new Set(errors)] };
+  // Interleave: avoid the same topic twice in a row when another problem can go there.
+  return { list: interleave(list.map((inst) => ({ inst, topic: inst.drill.topic ?? inst.drill.id }))).map((x) => x.inst), errors: [...new Set(errors)] };
 }
 
 /** Weak topics and drills you often miss come up more. */

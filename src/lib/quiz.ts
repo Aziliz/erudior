@@ -1,3 +1,4 @@
+import type { Confidence } from "./review";
 import type { Attempt, Bank, Chosen, Course, Progress } from "./types";
 import { attemptPassed, finishSession, type Session } from "./session";
 import { lessonKey, logActivity } from "./planner";
@@ -15,8 +16,9 @@ export function recordSession(
   flags: Record<string, boolean>,
   bank: Bank | undefined,
   usedSec?: number,
+  confidence: Record<string, Confidence> = {},
 ): { progress: Progress; attempt: Attempt } {
-  const { attempt, progress } = finishSession(session, answers, flags, p, bank, usedSec);
+  const { attempt, progress } = finishSession(session, answers, flags, p, bank, usedSec, confidence);
   let next = logActivity(progress, "questions", attempt.answered);
   if (session.lesson && attemptPassed(attempt)) {
     const key = lessonKey(session.lesson.courseId, session.lesson.lessonId);

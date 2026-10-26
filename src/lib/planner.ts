@@ -5,7 +5,7 @@
 import { courseMastery, weakTopics } from "./mastery";
 import type { Course, DayActivity, Lesson, Plan, Progress } from "./types";
 import { dueCards } from "./vocab";
-import { MISSED_DECK_ID, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
+import { MISSED_DECK_ID, addDays, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
 import { coreLessons, isHonorsLesson } from "./course";
 
 export function emptyDay(): DayActivity {
@@ -127,7 +127,7 @@ export function readiness(n: CourseNumbers): { score: number; parts: { label: st
   return { score, parts };
 }
 
-export type TaskKind = "lesson" | "cards" | "vocab" | "practice" | "drills" | "exam";
+export type TaskKind = "lesson" | "cards" | "vocab" | "practice" | "drills" | "exam" | "weekly";
 
 export interface PlanTask {
   kind: TaskKind;
@@ -224,6 +224,17 @@ export function planToday(course: Course, plan: Plan, p: Progress, now = today()
     });
   }
 
+  const weekly = weeklyReview(course, p, now);
+  if (weekly.show) {
+    tasks.push({
+      kind: "weekly",
+      title: "Weekly review quiz",
+      detail: `${WEEKLY_COUNT} questions mixed from every lesson you've finished, so earlier material stays fresh`,
+      done: weekly.doneToday,
+      count: WEEKLY_COUNT,
+    });
+  }
+
   if (course.drills.length && (phase === "review" || new Date().getDay() % 2 === 1)) {
     tasks.push({
       kind: "drills",
@@ -247,3 +258,42 @@ export function planToday(course: Course, plan: Plan, p: Progress, now = today()
 }
 
 export { cardKey };
+
+// ---------------------------------------------------------------------------
+// Weekly cumulative review and the spread-it-out nudge.
+
+export const WEEKLY_COUNT = 15;
+
+/**
+ * The weekly review quiz: questions from every finished lesson's topics (not just the current
+ * module), once a week. `show` while it's due or after it was done today; `topics` to draw from.
+ */
+export function weeklyReview(course: Course, p: Progress, now = today()): { show: boolean; doneToday: boolean; due: boolean; topics: string[] } {
+  const bankIds = new Set(course.banks.map((b) => b.id));
+  const done = course.lessons.filter((l) => p.lessonsDone[lessonKey(course.id, l.id)]);
+  const topics = [...new Set(done.flatMap((l) => l.topics ?? []))].filter((t) => course.banks.some((b) => b.questions.some((q) => q.topic === t)));
+  const pool = course.banks.reduce((n, b) => n + b.questions.filter((q) => topics.includes(q.topic)).length, 0);
+  const last = p.attempts.find((a) => a.kind === "weekly" && bankIds.has(a.bankId));
+  const lastDay = last ? today(new Date(last.finishedAt)) : undefined;
+  const doneToday = lastDay === now;
+  const due = done.length >= 3 && pool >= 10 && (!lastDay || daysBetween(lastDay, now) >= 7);
+  return { show: due || doneToday, doneToday, due, topics };
+}
+
+/**
+ * A nudge when the last two weeks' studying was packed into one or two days: the same time spread
+ * over more days is remembered much better (the spacing effect). Null when spacing looks fine.
+ */
+export function spacingNudge(p: Progress, now = today()): string | null {
+  let days = 0;
+  let total = 0;
+  for (let i = 0; i < 14; i++) {
+    const a = p.activity[addDays(now, -i)];
+    if (!a) continue;
+    const n = a.questions + a.cards + a.drills + a.lessons * 10;
+    if (n > 0) days++;
+    total += n;
+  }
+  if (total < 80 || days > 2) return null;
+  return `You've studied on ${days === 1 ? "one day" : "two days"} in the last two weeks. The same time split into short sessions on more days sticks much better: try 20 to 30 minutes most days.`;
+}

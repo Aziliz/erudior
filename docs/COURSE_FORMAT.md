@@ -41,6 +41,7 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - `drills` and `refs` (optional) list math drill ids and quick-reference sheet ids. The lesson's Study tools box links them, along with the notecards for the lesson's topics.
 - `honors: true` (optional) makes it an honors lesson: optional extra depth. It isn't needed to finish its module or the course, its quiz doesn't count toward grades, and full exams skip its questions; study time on it still counts. A module with `honors: true` is an honors module: all its lessons are honors lessons, and it has its own module quiz.
 - Lesson bodies (and quick-reference sheets) can show pictures (`![alt text](data:image/svg+xml;base64,…)`; bundled courses keep them in `images/` and the build embeds them) and Mermaid diagrams in a ```` ```mermaid ```` block. Each diagram needs `accTitle:` and `accDescr:` lines; it's drawn in the app's colors and redrawn when the theme changes.
+- Lesson bodies (and quick-reference sheets) can hold **worked examples with fading** in an ```` ```example ```` block; see [Worked examples](#worked-examples) below.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks
@@ -58,7 +59,29 @@ Same as a standalone bank (see [BANK_FORMAT.md](BANK_FORMAT.md)), placed in the 
 }
 ```
 
-Fronts and backs are Markdown and can use `[[glossary]]` links.
+Fronts and backs are Markdown and can use `[[glossary]]` links, math and pictures. A picture works exactly as in lessons: `![alt text](data:image/svg+xml;base64,…)` in the course file (bundled courses write `![alt text](images/name.svg)` and the build embeds the file), alt text required. On the card it's scaled to fit: never wider than the card, and at most about 40% of the screen height, so the answer and the rating buttons stay in view. Keep card pictures simple; a detailed figure belongs in the lesson.
+
+## Worked examples
+
+A worked example shows every step of a solution. Fading turns it into practice: the last steps are left for the learner, who works each one out and then reveals it to check. A typical lesson runs the same kind of problem three times: fully worked, then with the last step faded, then with most steps faded.
+
+````markdown
+```example fade=1
+title: Prorating property taxes
+problem: Annual taxes are $3,650 and the seller owns the home for 120 days of the year. How much of the tax does the seller owe?
+step: Daily rate = $3,650 ÷ 365 = $10 per day
+step: Seller's days = 120
+step: Seller owes 120 × $10 = $1,200
+answer: $1,200
+```
+````
+
+- Each line starting with `title:`, `problem:`, `step:` or `answer:` (any case) starts a field; any other line continues the field above, so a step can be several lines, a list, a table or display math (`$$…$$`). Every field is Markdown with math, glossary links and pictures, rendered like the lesson text. The block must start at the beginning of a line (not indented, not inside a list).
+- `problem:` and at least one `step:` are required; `title:` and `answer:` are optional; steps are numbered in order.
+- `fade=N` hides the last N steps. Each hidden step shows "Your turn: work out this step." with a **Show step** button; only the next hidden step can be revealed, so they come out in order. The answer stays hidden until every step is shown, then **Show answer** reveals it. Revealed text gets keyboard focus, so screen readers read it. Without `fade` (or `fade=0`) the example is fully worked and nothing is hidden. If N is the number of steps, the block is labeled a practice problem.
+- Printing shows every step and the answer. Revealing is per page view; nothing is saved.
+- The course checker reports a block with no steps, no problem, `fade` larger than the number of steps (it's treated as "all steps"), a `fade` that isn't a whole number, unknown options, text before the first field, a repeated title/problem/answer, empty fields and unclosed blocks. Math in the fields is checked like any lesson math.
+- A `### Example …` heading's colored box ends where an example block starts; the block has its own panel, so it doesn't need the heading.
 
 ## Glossary
 

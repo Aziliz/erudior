@@ -11,7 +11,7 @@ import { SectionTable, TallyTable } from "../components/Bars";
 import { attemptPassed } from "../lib/session";
 import { focusAreas, topicMastery } from "../lib/mastery";
 
-type Filter = "wrong" | "flagged" | "all";
+type Filter = "wrong" | "sure" | "flagged" | "all";
 
 export default function Results({
   api,
@@ -30,6 +30,8 @@ export default function Results({
   const marks = attempt.sectionPassing && Object.keys(attempt.sectionPassing).length ? attempt.sectionPassing : undefined;
   const wrong = attempt.answers.filter((a) => !a.correct);
   const flagged = attempt.answers.filter((a) => a.flagged);
+  // Misses you were sure about: the ones most worth a careful read.
+  const sureWrong = wrong.filter((a) => a.confidence === "sure");
   const [filter, setFilter] = useState<Filter>(wrong.length ? "wrong" : "all");
 
   const qById = new Map(bank?.questions.map((q) => [q.id, q]) ?? []);
@@ -44,7 +46,7 @@ export default function Results({
   const toggleFlag = (qid: string) => setMeta(qid, { flag: meta[qid]?.flag ? undefined : true });
   const editNote = (qid: string) => setNoteFor(noteFor === qid ? null : qid);
   const saveNote = (qid: string, text: string) => setMeta(qid, { note: text.trim() ? text : undefined });
-  const shown = (filter === "wrong" ? wrong : filter === "flagged" ? flagged : attempt.answers).map((a) => ({
+  const shown = (filter === "wrong" ? wrong : filter === "sure" ? sureWrong : filter === "flagged" ? flagged : attempt.answers).map((a) => ({
     rec: a,
     q: qById.get(a.qid),
     n: attempt.answers.indexOf(a) + 1,
@@ -290,6 +292,11 @@ export default function Results({
             <button aria-pressed={filter === "wrong"} onClick={() => setFilter("wrong")}>
               Missed ({wrong.length})
             </button>
+            {sureWrong.length > 0 && (
+              <button aria-pressed={filter === "sure"} onClick={() => setFilter("sure")}>
+                Sure but wrong ({sureWrong.length})
+              </button>
+            )}
             <button aria-pressed={filter === "flagged"} onClick={() => setFilter("flagged")}>
               Flagged ({flagged.length})
             </button>

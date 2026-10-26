@@ -2,6 +2,10 @@
 // swaps and the "what to study next" list after an exam.
 import { adaptAfterCheck, adaptiveOrder, focusAreas, masteryFrom, topicMastery, topicPriority, weakTopics } from "../src/lib/mastery.ts";
 import { startPractice } from "../src/lib/session.ts";
+import { interleave } from "../src/lib/mastery.ts";
+import { nextReview, isDue, isLearned, plusDays } from "../src/lib/review.ts";
+import { spacingNudge, weeklyReview } from "../src/lib/planner.ts";
+import { pretestQuestions } from "../src/lib/session.ts";
 
 let fails = 0;
 const ok = (name: string, cond: boolean, ...info: unknown[]) => {
@@ -23,17 +27,16 @@ const questions = topics.flatMap((t) =>
 const bank: any = { id: "b", title: "Bank", questions, sections: [], exam: { questionCount: 10, timeLimitMinutes: 10 } };
 
 function progressWith(results: Record<string, boolean[]>): any {
-  // One finished practice attempt per topic result list, oldest answers first.
-  const answers = Object.entries(results).flatMap(([t, rs]) => rs.map((c, i) => ({ qid: `${t[0]}${i}`, chosen: [c ? 0 : 1], correct: c })));
+  // Answers spread over three finished practice attempts on separate days, oldest answers first.
+  const all = Object.entries(results).flatMap(([t, rs]) => rs.map((c, i) => ({ qid: `${t[0]}${i}`, chosen: [c ? 0 : 1], correct: c })));
   const stats: any = {};
-  for (const a of answers) stats[a.qid] = { seen: 1, correct: a.correct ? 1 : 0, lastCorrect: a.correct, lastSeen: "2026-10-01" };
-  return {
-    attempts: [{ id: "a1", bankId: "b", mode: "practice", answers, byTopic: {}, bySection: {} }],
-    stats: { b: stats },
-    drills: {},
-    cards: {},
-    qmeta: {},
-  };
+  for (const a of all) stats[a.qid] = { seen: 1, correct: a.correct ? 1 : 0, lastCorrect: a.correct, lastSeen: "2026-10-01" };
+  const days = ["2026-10-03T18:00:00", "2026-10-02T18:00:00", "2026-10-01T18:00:00"];
+  const attempts = days.map((d, k) => ({
+    id: `a${k}`, bankId: "b", mode: "practice", finishedAt: new Date(d).toISOString(), byTopic: {}, bySection: {},
+    answers: all.filter((_, i) => i % 3 === k),
+  }));
+  return { attempts, stats: { b: stats }, drills: {}, cards: {}, qmeta: {} };
 }
 
 // masteryFrom: recent answers count most; no evidence stays at 50% with no confidence.
@@ -42,6 +45,13 @@ ok("no evidence", none.mastery === 0.5 && none.confidence === 0, none);
 ok("all right high", masteryFrom(Array(10).fill(true)).mastery > 0.85);
 ok("all wrong low", masteryFrom(Array(10).fill(false)).mastery < 0.15);
 ok("recent counts more", masteryFrom([true, true, true, false, false, false]).mastery > masteryFrom([false, false, false, true, true, true]).mastery);
+
+// Strong needs right answers on three separate days.
+const oneDay = progressWith({ Alpha: Array(10).fill(true) });
+oneDay.attempts = [{ ...oneDay.attempts[0], answers: oneDay.attempts.flatMap((a: any) => a.answers) }];
+ok("one day caps mastery", topicMastery(oneDay, [bank]).get("Alpha")!.mastery < 0.8, topicMastery(oneDay, [bank]).get("Alpha"));
+// A right guess counts half.
+ok("guess counts half", masteryFrom([0.5, 0.5, 0.5, 0.5]).mastery < masteryFrom([true, true, true, true]).mastery);
 
 // Priority: weak > unseen > strong, and strong keeps a floor.
 const p = progressWith({ Alpha: Array(10).fill(true), Beta: Array(10).fill(false) });
@@ -98,6 +108,45 @@ ok("one miss on a strong topic isn't a focus area", focusAreas({ Alpha: { total:
 ok("single miss ranks below a clear pattern", focusAreas({ Gamma: { total: 1, correct: 0 }, Beta: { total: 6, correct: 2 } }, m).map((x) => x.topic).join() === "Beta,Gamma");
 ok("no history shown from this attempt alone", focusAreas({ Gamma: { total: 4, correct: 0 } }, new Map([["Gamma", { topic: "Gamma", ...masteryFrom([false, false, false, false]) }]]))[0].mastery === undefined);
 ok("perfect topic never a focus area", focusAreas({ Beta: { total: 2, correct: 2 } }, m).length === 0);
+
+// Spaced question reviews.
+const d0 = "2026-10-01";
+let r = nextReview(undefined, true, undefined, d0);
+ok("first right: 1 day", r.streak === 1 && r.due === "2026-10-02", r);
+ok("same day doesn't count twice", nextReview(r, true, undefined, d0).streak === 1);
+r = nextReview(r, true, undefined, "2026-10-02");
+ok("second right: 3 days", r.streak === 2 && r.due === "2026-10-05", r);
+r = nextReview(r, true, "unsure", "2026-10-05");
+ok("unsure: shorter gap", r.streak === 3 && r.due === "2026-10-08", r);
+ok("learned after 3 days", isLearned({ seen: 3, correct: 3, lastCorrect: true, lastSeen: "", ...r } as any, "2026-10-06"));
+ok("due on its day", isDue({ seen: 3, correct: 3, lastCorrect: true, lastSeen: "", ...r } as any, "2026-10-08"));
+ok("guess doesn't advance", nextReview(r, true, "guess", "2026-10-08").streak === 3 && nextReview(r, true, "guess", "2026-10-08").due === "2026-10-09");
+ok("miss resets", nextReview(r, false, "sure", "2026-10-08").streak === 0);
+ok("plusDays month end", plusDays("2026-10-31", 1) === "2026-11-01");
+// Interleave: no same topic twice in a row when avoidable.
+const il = interleave([{ topic: "A" }, { topic: "A" }, { topic: "A" }, { topic: "B" }, { topic: "B" }, { topic: "C" }]).map((x) => x.topic).join("");
+ok("interleave", !/(.)\1/.test(il.slice(0, 5)), il);
+
+// Weekly review: needs 3 finished lessons; due again 7 days after the last one.
+const course: any = {
+  id: "c", banks: [bank], drills: [], decks: [], modules: [],
+  lessons: topics.map((t, i) => ({ id: `l${i}`, title: t, topics: [t], body: "" })),
+};
+const pw: any = { ...p, lessonsDone: { "c/l0": "2026-10-01", "c/l1": "2026-10-01" }, activity: {} };
+ok("weekly needs 3 lessons", !weeklyReview(course, pw, "2026-10-20").due);
+pw.lessonsDone["c/l2"] = "2026-10-02";
+ok("weekly due", weeklyReview(course, pw, "2026-10-20").due && weeklyReview(course, pw, "2026-10-20").topics.length === 3);
+pw.attempts = [{ ...pw.attempts[0], id: "w", kind: "weekly", finishedAt: new Date("2026-10-16T12:00:00").toISOString() }, ...pw.attempts];
+ok("weekly not due within 7 days", !weeklyReview(course, pw, "2026-10-20").due);
+ok("weekly due after 7 days", weeklyReview(course, pw, "2026-10-23").due);
+// Spacing nudge: lots of work crammed into one day.
+ok("nudge when crammed", !!spacingNudge({ activity: { "2026-10-20": { questions: 120, cards: 0, lessons: 0, drills: 0 } } } as any, "2026-10-21"));
+ok("no nudge when spread", spacingNudge({ activity: Object.fromEntries(["15", "17", "19", "21"].map((d) => [`2026-10-${d}`, { questions: 40, cards: 0, lessons: 0, drills: 0 }])) } as any, "2026-10-21") === null);
+// Warm-up questions never come from a quiz.
+const quizIds = new Set(["A0", "A1", "A2"]);
+const wq = pretestQuestions(bank, quizIds, ["Alpha"], p);
+ok("warm-up avoids quiz questions", wq.length === 3 && wq.every((q) => !quizIds.has(q.id) && q.topic === "Alpha"), wq.map((q) => q.id));
+ok("warm-up needs 2", pretestQuestions(bank, new Set(questions.filter((q) => q.id !== "A5").map((q) => q.id)), ["Alpha"], p).length === 0);
 
 if (fails) {
   console.log(`${fails} mastery test(s) failed`);

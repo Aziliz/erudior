@@ -7,7 +7,7 @@ import type { Bank, Course, Lesson, Plan } from "../lib/types";
 import * as store from "../lib/storage";
 import { courseCounts, bankKey, isHonorsLesson, moduleCoreLessons } from "../lib/course";
 import { bestQuizScore } from "../lib/quiz";
-import { courseNumbers, lessonKey, orderedLessons, planToday, readiness, streak, type PlanTask } from "../lib/planner";
+import { WEEKLY_COUNT, courseNumbers, lessonKey, orderedLessons, planToday, readiness, spacingNudge, streak, weeklyReview, type PlanTask } from "../lib/planner";
 import { MISSED_DECK_ID, addDays, daysBetween, deckStatus, studyDecks, today } from "../lib/srs";
 import {
   bankCoverage,
@@ -192,8 +192,19 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
   const days = streak(progress);
   const bank = mainBank(course);
 
+  const weekly = weeklyReview(course, progress);
+  const nudge = spacingNudge(progress);
+  function startWeekly() {
+    if (!bank) return;
+    const s = startPractice(bank, progress, { count: WEEKLY_COUNT, topics: weekly.topics, sections: [], filter: "smart", shuffleChoices: true, honors: false });
+    api.go({ name: "run", session: { ...s, kind: "weekly" } });
+  }
+
   function runTask(t: PlanTask) {
     switch (t.kind) {
+      case "weekly":
+        startWeekly();
+        break;
       case "lesson":
         if (t.lessonIds?.[0]) api.go({ name: "lesson", courseId: course.id, lessonId: t.lessonIds[0] });
         break;
@@ -255,6 +266,18 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
             </button>
           )}
         </section>
+        {nudge && <p className="notice small">{nudge}</p>}
+        {weekly.due && (
+          <section className="panel">
+            <div className="panel-head">
+              <h2>Weekly review quiz</h2>
+              <button className="btn sm primary" onClick={startWeekly}>
+                Start
+              </button>
+            </div>
+            <p className="small muted">{WEEKLY_COUNT} questions mixed from every lesson you&rsquo;ve finished, so earlier material stays fresh.</p>
+          </section>
+        )}
         <Snapshot n={n} ready={ready} streakDays={days} />
       </div>
     );
@@ -288,6 +311,8 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
           </p>
         </div>
       </section>
+
+      {nudge && <p className="notice small">{nudge}</p>}
 
       {day.tasks.length > 0 && (
         <section className="panel">

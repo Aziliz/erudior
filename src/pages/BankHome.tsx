@@ -14,9 +14,11 @@ import {
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
 import { bankWarnings } from "../lib/validate";
+import { isDue, isLearned } from "../lib/review";
 
 const FILTERS: { id: PracticeFilter; label: string }[] = [
   { id: "smart", label: "Smart mix" },
+  { id: "due", label: "Due for review" },
   { id: "all", label: "All" },
   { id: "unseen", label: "Not yet seen" },
   { id: "missed", label: "Last missed" },
@@ -50,6 +52,9 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
 
   const pool = practicePool(bank, progress, { topics: pTopics, sections: pSections, filter: pFilter, shuffleChoices, honors: pHonors });
   const cov = bankCoverage(bank, progress);
+  const bstats = progress.stats[bank.id] ?? {};
+  const dueCount = bank.questions.filter((q) => isDue(bstats[q.id])).length;
+  const learnedCount = bank.questions.filter((q) => isLearned(bstats[q.id])).length;
   const tstats = topicStats(bank, progress).sort(
     (a, b) => (a.accuracy ?? 2) - (b.accuracy ?? 2) || a.topic.localeCompare(b.topic),
   );
@@ -119,6 +124,10 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
         <div>
           <b>{cov.missed}</b>
           <span>last answered wrong</span>
+        </div>
+        <div title="Right on three different days and not due for review">
+          <b>{learnedCount}</b>
+          <span>learned</span>
         </div>
         <div>
           <b>{exams.length}</b>
@@ -237,9 +246,16 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                 {FILTERS.map((f) => (
                   <button key={f.id} aria-pressed={pFilter === f.id} onClick={() => setPFilter(f.id)}>
                     {f.label}
+                    {f.id === "due" && ` (${dueCount})`}
                   </button>
                 ))}
               </div>
+              {pFilter === "due" && (
+                <span className="small muted">
+                  Questions you got right a while ago, back on schedule so they stick. Each one counts as learned after you&rsquo;ve got it
+                  right on three different days.
+                </span>
+              )}
               {pFilter === "smart" && (
                 <span className="small muted">
                   More questions on your weaker topics and fewer on the ones you&rsquo;ve mastered. It keeps adjusting as you answer.
@@ -332,6 +348,25 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
           Shuffle answer choices
         </label>
       </p>
+      <fieldset className="study-habits">
+        <legend className="small muted">Study habits for practice and quizzes</legend>
+        <label className="check small muted">
+          <input
+            type="checkbox"
+            checked={progress.study?.explainFirst !== false}
+            onChange={(e) => api.updateProgress((p) => ({ ...p, study: { ...(p.study ?? {}), explainFirst: e.target.checked } }))}
+          />
+          Explain it yourself first: after checking, try your own explanation before reading the app&rsquo;s
+        </label>
+        <label className="check small muted">
+          <input
+            type="checkbox"
+            checked={!!progress.study?.recallFirst}
+            onChange={(e) => api.updateProgress((p) => ({ ...p, study: { ...(p.study ?? {}), recallFirst: e.target.checked } }))}
+          />
+          Recall first: hide the answer choices until you&rsquo;ve thought of the answer
+        </label>
+      </fieldset>
 
       <div className="grid-2" style={{ marginTop: 24 }}>
         <section className="panel">

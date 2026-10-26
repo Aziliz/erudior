@@ -134,6 +134,38 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
   - Lists up to 5 topics with links to lessons covering each, plus "Practice these topics" (smart practice on them).
 - Tests: `tests/mastery.test.mts` (in npm test).
 
+## Memory aids (after v0.24.0)
+- **Spaced question reviews** (`lib/review.ts`):
+  - `QuestionStat` gains `streak`, `due` and `rightDay`, set in `finishSession` via `nextReview`.
+  - A right answer on a new day advances the streak, with gaps of 1, 3, 7, 21 and 60 days. "Unsure" uses one gap shorter. A guess, or a second right answer on the same day, doesn't advance it. A miss resets it and the question is due tomorrow.
+  - A question counts as learned at streak 3 and not due.
+  - In `mastery.ts`, `questionWeight` gives due questions +1.5 and learned questions 0.05. A topic can't be strong (≥80%) until it has right answers on 3 separate days. A right guess counts 0.5 in history.
+  - Bank page: a "Due for review (n)" filter and a "learned" count.
+- **Confidence:**
+  - Optional Sure/Unsure/Guess buttons appear once an answer is chosen, in practice and quizzes. Not in exams or warm-ups.
+  - Stored in `RunState.confidence` and on `AnswerRecord.confidence`.
+  - A sure-but-wrong answer gets an extra feedback line; Results gets a "Sure but wrong" filter.
+  - Guesses are also passed to `adaptAfterCheck`, so a run of right guesses doesn't trigger a swap.
+- **Warm-up before a lesson:**
+  - `pretestQuestions` and `startPretest`; LessonView shows it once per lesson, before the lesson is done (`progress.pretests`).
+  - Session `kind: "pretest"`. These sessions change no stats or history (`finishSession` returns early) and go straight back to the lesson.
+  - Warm-up questions never come from the lesson's own quiz. In the school courses, nearly every question belongs to its own lesson's quiz, so few lessons get a warm-up (138 of 1,143 when last counted). Colorado: 43 of 48.
+- **Study habits** (`progress.study`, set by checkboxes on the bank page):
+  - Explain-first is on by default: after checking, an optional "explain it in your own words" box; Enter or the button shows the explanation.
+  - Recall-first is off by default: choices stay covered until "Show choices", Enter or Space.
+- **Interleaving:** `interleave()` on the smart practice order and on drill sets.
+- **Weekly review:**
+  - `weeklyReview`/`WEEKLY_COUNT` in the planner: 15 smart questions on the topics of every finished lesson.
+  - Due 7 days after the last one; needs 3 finished lessons and 10 questions.
+  - Session/attempt `kind: "weekly"`. It's a plan task, and a card on Today when there's no plan.
+- **Spacing nudge:** `spacingNudge` shows on Today when the last 14 days of study happened on 2 days or fewer.
+- **FSRS-5 notecards** (`srs.ts`): default weights, 90% retention, 365-day cap. `CardState` gains `stability` and `difficulty`. Old SM-2 cards are converted the next time they're rated (stability from ivl, difficulty from ease); due dates are never rewritten. Tests: `tests/fsrs.test.mts`.
+- **Worked examples:**
+  - A lesson Markdown block (see "Worked examples" in docs/COURSE_FORMAT.md); `fade=N` hides the last N steps for the student to try.
+  - Parser and renderer in `src/lib/examples.ts`; checked by `tests/check-course.mts`; tests in `tests/examples.test.mts`.
+  - No course uses it yet.
+- **Card pictures:** `![alt](images/x.svg)` on notecards. The courses repo's build.py now embeds them; display height is capped.
+
 ## Published courses are read-only in the app (after v0.24.0)
 - `isPublishedCourse` (lib/catalog.ts): catalog (Erudior) courses and community courses. The course page hides Edit course, Add question bank, New deck and deck Edit; the bank page hides Edit questions and Delete; App sends old `courseEdit`/`deckEdit`/`editor` addresses for them to the course or bank page; importing a file with a published course's id makes a separate "(copy)" instead of replacing it. Erudior's courses change only through their sources (content/) and the publish pipeline; community courses only in the website editor. Personal notes/flags and progress are unaffected.
 
@@ -261,6 +293,8 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 | `src/lib/storage.ts` | Tauri invoke calls, with a localStorage fallback when the UI runs in a plain browser; backup and restore; the session file |
 | `src/lib/session.ts` | Drawing exam questions, timed blocks, practice pools, scoring, `finishSession`, `attemptPassed`, saving and restoring a run, `defaultExamOptions` |
 | `src/lib/srs.ts` | Spaced repetition scheduling, queues, `missedDeck` and `studyDecks` |
+| `src/lib/review.ts` | Spaced reviews for practice questions (streak, due, learned) and `Confidence` |
+| `src/lib/examples.ts` | Worked-example lesson blocks (parse, check, render, reveal) |
 | `src/lib/mastery.ts` | Adaptive engine: topic mastery, smart practice order, in-session swaps, focus areas after an exam |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |

@@ -6,6 +6,7 @@ import type { GlossaryEntry } from "../lib/types";
 import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
 import { protectDiagrams } from "../lib/diagram";
+import { protectExamples, revealExample } from "../lib/examples";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -34,6 +35,9 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
 export function renderMarkdown(md: string, scope?: Record<string, number>): string {
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
+  // Worked examples (```example blocks): each field goes through this same pipeline.
+  const examples = protectExamples(md, (field) => renderMarkdown(field, scope));
+  md = examples.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
   const math = protectMath(figs.text);
@@ -44,7 +48,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return mathHeaders(clean);
+  return examples.restore(mathHeaders(clean));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -205,6 +209,7 @@ export default function Markdown({
   }, [html]);
 
   function onClick(e: React.MouseEvent) {
+    if (revealExample(e.target as Element)) return;
     const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
     const term = el.dataset.term ?? "";

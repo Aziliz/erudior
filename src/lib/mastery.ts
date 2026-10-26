@@ -2,9 +2,10 @@
 // give you next. Mastery comes from your own answers, newest counting most, so a topic you've
 // been getting right lately asks for less time and a topic you keep missing asks for more.
 // Exams and lesson/module quizzes never use this; their questions stay fixed.
-import type { Bank, Chosen, Course, Progress, Question } from "./types";
+import type { Bank, Chosen, Course, Progress, Question, QuestionStat } from "./types";
 import { makeItems, type Session, type SessionItem } from "./session";
 import { isCorrect } from "./questions";
+import { isDue, isLearned, localDay } from "./review";
 
 export interface TopicMastery {
   topic: string;
@@ -26,14 +27,17 @@ const PRIOR = 1.5;
 export const STRONG = 0.8;
 export const WEAK = 0.7;
 
-/** Mastery from a topic's answers, newest first. */
-export function masteryFrom(history: boolean[], extra?: { seen: number; correct: number }): { mastery: number; n: number; confidence: number } {
+/**
+ * Mastery from a topic's answers, newest first: true/1 right, false/0 wrong, 0.5 for a right
+ * answer the student said was a guess.
+ */
+export function masteryFrom(history: (boolean | number)[], extra?: { seen: number; correct: number }): { mastery: number; n: number; confidence: number } {
   let w = 1;
   let sw = 0;
   let sc = 0;
   for (const ok of history.slice(0, KEEP)) {
     sw += w;
-    if (ok) sc += w;
+    sc += w * Number(ok);
     w *= DECAY;
   }
   let n = Math.min(history.length, KEEP);
@@ -49,24 +53,28 @@ export function masteryFrom(history: boolean[], extra?: { seen: number; correct:
 }
 
 /** Topic answer history (newest first) across these banks, from saved attempts. */
-function histories(progress: Progress, banks: Bank[]): { hist: Map<string, boolean[]>; topicOf: Map<string, string> } {
+function histories(progress: Progress, banks: Bank[]): { hist: Map<string, number[]>; rightDays: Map<string, Set<string>>; topicOf: Map<string, string> } {
   const topicOf = new Map<string, string>();
   for (const b of banks) for (const q of b.questions) topicOf.set(`${b.id}/${q.id}`, q.topic);
   const ids = new Set(banks.map((b) => b.id));
-  const hist = new Map<string, boolean[]>();
+  const hist = new Map<string, number[]>();
+  const rightDays = new Map<string, Set<string>>();
   for (const a of progress.attempts) {
     // Attempts are newest first; answers inside one are in the order given.
-    if (!ids.has(a.bankId)) continue;
+    if (!ids.has(a.bankId) || a.kind === "pretest") continue;
+    const day = localDay(new Date(a.finishedAt));
     for (let i = a.answers.length - 1; i >= 0; i--) {
       const r = a.answers[i];
       const t = topicOf.get(`${a.bankId}/${r.qid}`);
       if (!t) continue;
       const h = hist.get(t) ?? [];
-      if (h.length < KEEP) h.push(r.correct);
+      const v = r.correct ? (r.confidence === "guess" ? 0.5 : 1) : 0;
+      if (h.length < KEEP) h.push(v);
       hist.set(t, h);
+      if (v === 1) rightDays.set(t, (rightDays.get(t) ?? new Set()).add(day));
     }
   }
-  return { hist, topicOf };
+  return { hist, rightDays, topicOf };
 }
 
 /**
@@ -74,7 +82,7 @@ function histories(progress: Progress, banks: Bank[]): { hist: Map<string, boole
  * attempt history fall back to the per-question totals, which outlive trimmed attempts.
  */
 export function topicMastery(progress: Progress, banks: Bank[], course?: Course): Map<string, TopicMastery> {
-  const { hist } = histories(progress, banks);
+  const { hist, rightDays } = histories(progress, banks);
   const totals = new Map<string, { seen: number; correct: number }>();
   const add = (t: string, seen: number, correct: number) => {
     const x = totals.get(t) ?? { seen: 0, correct: 0 };
@@ -99,7 +107,10 @@ export function topicMastery(progress: Progress, banks: Bank[], course?: Course)
     }
   const out = new Map<string, TopicMastery>();
   for (const t of new Set([...hist.keys(), ...totals.keys()])) {
-    out.set(t, { topic: t, ...masteryFrom(hist.get(t) ?? [], totals.get(t)) });
+    const m = masteryFrom(hist.get(t) ?? [], totals.get(t));
+    // Strong only after right answers on three separate days: one good session isn't enough.
+    if (hist.has(t) && (rightDays.get(t)?.size ?? 0) < 3) m.mastery = Math.min(m.mastery, STRONG - 0.01);
+    out.set(t, { topic: t, ...m });
   }
   return out;
 }
@@ -129,11 +140,35 @@ export function weakTopics(mastery: Map<string, TopicMastery>, limit = 5): Topic
     .slice(0, limit);
 }
 
-/** How much a single question is worth asking now: unseen and recently missed ones first. */
-export function questionWeight(stat: { seen: number; correct: number; lastCorrect: boolean } | undefined): number {
+/**
+ * How much a single question is worth asking now: questions due for review first, then unseen
+ * and recently missed ones; learned questions that aren't due hardly come up.
+ */
+export function questionWeight(stat: QuestionStat | undefined, day = localDay()): number {
   if (!stat || !stat.seen) return 1;
   const miss = 1 - stat.correct / stat.seen;
-  return 0.25 + miss * 1.2 + (stat.lastCorrect ? 0 : 0.8);
+  const base = 0.25 + miss * 1.2 + (stat.lastCorrect ? 0 : 0.8);
+  if (isDue(stat, day)) return base + 1.5;
+  if (isLearned(stat, day)) return 0.05;
+  // Right recently and scheduled for later: wait for its review day.
+  if (stat.due) return base * 0.3;
+  return base;
+}
+
+/**
+ * Spreads topics out so the same topic doesn't come twice in a row when another can go there
+ * (interleaving: mixing topics helps you learn which method each problem needs). Keeps the
+ * order otherwise.
+ */
+export function interleave<T extends { topic: string }>(list: T[]): T[] {
+  const rest = list.slice();
+  const out: T[] = [];
+  while (rest.length) {
+    const prev = out[out.length - 1]?.topic;
+    const i = rest.findIndex((x) => x.topic !== prev);
+    out.push(...rest.splice(i < 0 ? 0 : i, 1));
+  }
+  return out;
 }
 
 function pickWeighted<T>(list: T[], weight: (x: T) => number, rand: () => number): number {
@@ -204,6 +239,7 @@ export function adaptAfterCheck(
   answers: Record<string, Chosen>,
   checked: Record<string, boolean>,
   prior: Map<string, TopicMastery>,
+  confidence: Record<string, "sure" | "unsure" | "guess"> = {},
 ): AdaptResult | null {
   const reserveIds = session.adaptive?.reserve ?? [];
   if (!session.adaptive || !reserveIds.length) return null;
@@ -214,11 +250,12 @@ export function adaptAfterCheck(
   const ok = isCorrect(cur.q, answers[cur.q.id]);
 
   // This session's results, newest first, per topic, on top of the saved history.
-  const sessionHist = new Map<string, boolean[]>();
+  const sessionHist = new Map<string, (boolean | number)[]>();
   for (let i = items.length - 1; i >= 0; i--) {
     const it = items[i];
     if (!checked[it.q.id]) continue;
-    sessionHist.set(it.q.topic, [...(sessionHist.get(it.q.topic) ?? []), isCorrect(it.q, answers[it.q.id])]);
+    const right = isCorrect(it.q, answers[it.q.id]);
+    sessionHist.set(it.q.topic, [...(sessionHist.get(it.q.topic) ?? []), right ? (confidence[it.q.id] === "guess" ? 0.5 : 1) : 0]);
   }
   // Session answers already in `prior` (from finished attempts) aren't double-counted: prior holds
   // only finished sessions, and this one isn't finished.
@@ -263,7 +300,7 @@ export function adaptAfterCheck(
   }
 
   const recent = sessionHist.get(T) ?? [];
-  if (recent.length < 3 || !recent.slice(0, 3).every(Boolean) || now(T).mastery < STRONG) return null;
+  if (recent.length < 3 || !recent.slice(0, 3).every((v) => v === 1) || now(T).mastery < STRONG) return null;
   const sameTopic = upcoming(first).find((x) => x.it.q.topic === T);
   if (!sameTopic) return null;
   // The weakest other topic that still has spare questions.

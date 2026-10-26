@@ -4,7 +4,8 @@ import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
-import { lessonQuizNeeded, lessonQuizQuestions, startLessonQuiz } from "../lib/session";
+import { lessonQuizNeeded, lessonQuizQuestions, pretestQuestions, startLessonQuiz, startPretest } from "../lib/session";
+import { useState } from "react";
 import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
 import { SpeakButton } from "./VocabRunner";
@@ -36,6 +37,20 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const hasQuiz = !!bank && quizQs.length > 0;
   const needed = lessonQuizNeeded(quizQs.length);
   const best = bestQuizScore(api.progress, course.id, { lessonId: lesson.id });
+  // Warm-up before a first read: offered once per lesson, picked when the lesson opens.
+  const [warmup] = useState(() => {
+    if (done || api.progress.pretests?.[key] || isHonorsLesson(course, lesson)) return [];
+    // Never this lesson's own quiz questions (that would hand out the quiz answers in advance).
+    const quizIds = new Set(lesson.quiz ?? []);
+    return pretestQuestions(bank, quizIds, topics, api.progress);
+  });
+  const [warmupClosed, setWarmupClosed] = useState(false);
+  const markWarmup = () => api.updateProgress((p) => ({ ...p, pretests: { ...(p.pretests ?? {}), [key]: today() } }));
+  function startWarmup() {
+    if (!bank) return;
+    markWarmup();
+    api.go({ name: "run", session: startPretest(bank, { courseId: course.id, lessonId: lesson.id }, warmup) });
+  }
   function takeQuiz() {
     if (!bank) return;
     api.go({ name: "run", session: startLessonQuiz(bank, { courseId: course.id, lessonId: lesson.id }, lesson.quiz ?? []) });
@@ -79,6 +94,30 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           </p>
         )}
       </header>
+
+      {warmup.length > 0 && !warmupClosed && (
+        <section className="panel warmup" aria-labelledby="warmup-h">
+          <h2 id="warmup-h">Warm up first</h2>
+          <p className="small muted">
+            {warmup.length} quick questions on what this lesson covers. You aren&rsquo;t expected to know them yet: trying first helps the lesson stick,
+            even when you get them wrong. They don&rsquo;t count toward your scores.
+          </p>
+          <div className="row">
+            <button className="btn primary sm" onClick={startWarmup}>
+              Start the warm-up
+            </button>
+            <button
+              className="btn sm ghost"
+              onClick={() => {
+                markWarmup();
+                setWarmupClosed(true);
+              }}
+            >
+              Skip
+            </button>
+          </div>
+        </section>
+      )}
 
       <article className="lesson-body">
         <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} />

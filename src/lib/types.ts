@@ -105,6 +105,8 @@ export interface AnswerRecord {
   chosen: Chosen;
   correct: boolean;
   flagged?: boolean;
+  /** How sure the student said they were before checking (practice and quizzes). */
+  confidence?: "sure" | "unsure" | "guess";
 }
 
 export interface Tally {
@@ -131,6 +133,8 @@ export interface Attempt {
   lesson?: LessonRef;
   /** Set when this attempt was a module's end-of-module quiz. */
   module?: ModuleRef;
+  /** "weekly": the weekly cumulative review quiz. */
+  kind?: "pretest" | "weekly";
   byTopic: Record<string, Tally>;
   bySection: Record<string, Tally>;
   answers: AnswerRecord[];
@@ -151,6 +155,12 @@ export interface QuestionStat {
   correct: number;
   lastCorrect: boolean;
   lastSeen: string;
+  /** Spaced review (lib/review.ts): right answers on separate days since the last miss. */
+  streak?: number;
+  /** Spaced review: local YYYY-MM-DD the question is next due. */
+  due?: string;
+  /** Spaced review: local day of the last right answer that counted. */
+  rightDay?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -466,14 +476,19 @@ export interface VocabState {
 export interface CardState {
   /** YYYY-MM-DD the card is next due. */
   due: string;
-  /** Interval in days. */
+  /** Scheduled interval in days (0 = again, still in today's session). */
   ivl: number;
+  /** Legacy SM-2 ease; only read to convert old cards to FSRS. */
   ease: number;
   reps: number;
   lapses: number;
   last: string;
   /** YYYY-MM-DD the card was first studied (for the new-cards-per-day limit). */
   first?: string;
+  /** FSRS memory stability in days (absent on cards not yet rated under FSRS). */
+  stability?: number;
+  /** FSRS difficulty, 1 (easy) to 10 (hard). */
+  difficulty?: number;
 }
 
 export interface Plan {
@@ -519,6 +534,17 @@ export interface Progress {
   vocab?: Record<string, VocabState>;
   /** `${bankId}/${questionId}` -> the user's persistent flag and note */
   qmeta?: Record<string, QuestionMeta>;
+  /** Study habits for practice (see BankHome). */
+  study?: StudyPrefs;
+  /** `${courseId}/${lessonId}` -> local YYYY-MM-DD the pre-lesson warm-up was done or skipped */
+  pretests?: Record<string, string>;
+}
+
+export interface StudyPrefs {
+  /** Before the explanation, prompt for your own explanation. Default on. */
+  explainFirst?: boolean;
+  /** Hide answer choices until you've thought of the answer. Default off. */
+  recallFirst?: boolean;
 }
 
 export interface QuestionMeta {
