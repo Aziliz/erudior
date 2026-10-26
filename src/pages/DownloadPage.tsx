@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { appUrl } from "../lib/site";
 
-const REPO = "Aziliz/examiner";
+const REPO = "Aziliz/erudior";
 const RELEASES = `https://github.com/${REPO}/releases`;
 export const BREW = "brew install --cask aziliz/erudior/erudior";
 

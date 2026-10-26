@@ -120,7 +120,7 @@ export default function Site() {
           <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>
             Roadmap
           </a>
-          <a href="https://github.com/Aziliz/examiner/releases">Releases</a>
+          <a href="https://github.com/Aziliz/erudior/releases">Releases</a>
           <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>
             Terms of Use
           </a>

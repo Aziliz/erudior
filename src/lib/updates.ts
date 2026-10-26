@@ -6,7 +6,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { inApp } from "./storage";
 
-export const RELEASES_URL = "https://github.com/Aziliz/examiner/releases/latest";
+export const RELEASES_URL = "https://github.com/Aziliz/erudior/releases/latest";
 
 /** On since v0.24.0 (the repo and its releases are public). */
 export const UPDATES_ENABLED = true;

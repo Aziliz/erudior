@@ -47,7 +47,7 @@ as before.
 4. **API token** (My Profile → API Tokens → Create Token → Custom):
    - Permissions: Account · Cloudflare Pages · Edit, and Account · Workers R2 Storage · Edit.
    - Note your Account ID (right side of the account home page).
-5. **GitHub** (Aziliz/examiner → Settings → Secrets and variables → Actions):
+5. **GitHub** (Aziliz/erudior → Settings → Secrets and variables → Actions):
    - Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `COURSE_SIGNING_KEY` (the contents
      of `.keys/course-signing.key`).
    - Variables: `COURSES_URL` = `https://courses.erudior.com/v1/`, `R2_BUCKET` =
@@ -81,7 +81,7 @@ marks that version **Reviewed**.
 4. **API token**: add Account · Workers Scripts · Edit, Account · D1 · Edit and
    Zone (erudior.com) · Workers Routes · Edit to the token from step 4 above (the Worker
    claims `api.erudior.com` as a custom domain when it deploys).
-5. **GitHub** (Aziliz/examiner → Settings → Secrets and variables → Actions):
+5. **GitHub** (Aziliz/erudior → Settings → Secrets and variables → Actions):
    - Variables: `COMMUNITY_API` = `https://api.erudior.com`, `D1_DATABASE_ID` = the id from
      step 1, `ADMIN_EMAILS` = your sign-in email (comma-separate several), `GOOGLE_CLIENT_ID`,
      `OAUTH_GITHUB_CLIENT_ID`.
