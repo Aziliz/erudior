@@ -68,6 +68,9 @@ jobs:
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
             --content-type text/plain --cache-control "public, max-age=300"
 
+      - name: Sitemap from the course catalog
+        run: node scripts/sitemap.mjs
+
       - name: Build the web app
         run: npm run build
 
