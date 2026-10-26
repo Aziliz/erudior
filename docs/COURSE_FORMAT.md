@@ -45,6 +45,8 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - Lesson bodies can hold **math manipulatives** (counters, base-ten blocks, number lines, fraction bars, a clock, coins) in a ```` ```manipulative ```` block; see [Math manipulatives](#math-manipulatives) below.
 
 - Lesson bodies can hold **dialogues** (```` ```dialogue ````) and **speaking practice** (```` ```speak ````); see [Listening and speaking](#listening-and-speaking) below.
+
+- Lesson bodies can hold interactive **maps** (```` ```map ````), **timelines** (```` ```timeline ````) and **science simulations** (```` ```sim ````); see [Maps](#maps), [Timelines](#timelines) and [Simulations](#simulations) below. Question banks have matching `map` and `timeline` question types ([BANK_FORMAT.md](BANK_FORMAT.md#other-question-types)). `samples/demo-maps-timelines-sims.json` (built by `scripts/build-demo-widgets.py`) shows all of them.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks
@@ -280,6 +282,86 @@ log
 - **Hours:** in a homeschool family, minutes logged in an activity log are added to the student's time on that course for that day (taken back if the entry is deleted), so they count toward attendance, hours by subject and the state's required hours. Time on a writing or lab screen counts like any study screen.
 - **Portfolio:** handed-in writing (with its grade, rubric levels and comment), labs (data tables, answers, photos) and activity-log totals with pictures of work print under their course in the portfolio report.
 - The course checker reports unknown or repeated ids, rubrics with fewer than two levels or duplicate points, missing prompts, labs without safety notes, materials, steps or anything to record, adult steps in a lab not marked `adult`, tables without columns, an activity log without types, and assignment blocks that link missing items or can't be read.
+
+## Maps
+
+A map block draws an interactive map: shaded regions, labeled points, routes with arrows and a key. Learners can zoom (+ / − buttons or keys), drag to pan when zoomed in, and point at a place (or Tab to the map and move with the arrow keys) to see its name. The title, the key (each group with its places) and the caption are plain text in the page, so the map reads without the picture, in print and to screen readers.
+
+````markdown
+```map
+base: us
+title: The Louisiana Purchase (1803)
+view: fit
+region: Arkansas, Missouri, Iowa | All of the state
+region: Montana, Wyoming, Colorado | Part of the state
+point: St. Louis | 38.63, -90.20
+route: Lewis and Clark | 38.63, -90.20; 47.30, -101.03; 46.13, -123.88 | Lewis and Clark's route
+caption: The United States bought this land from France.
+```
+````
+
+One setting per line (`key: value`; parts separated by `|`); lines starting with `#` are ignored. The block must start at the beginning of a line.
+
+| Line | Meaning |
+|---|---|
+| `base:` | `world` (countries, Natural Earth 1:110m; Antarctica only when the map names it), `us` (the 50 states and DC; Alaska and Hawaii as insets) or `none` with your own `geojson:` or `svg:`. Default `world`. |
+| `title:`, `caption:` | Shown above and below; Markdown with math. A caption can run over several lines. |
+| `region: names \| group` | Shades places (comma-separated). Regions, points and routes with the same group share a color and a line in the key (up to 6 groups); without a group they're shaded in the accent color. |
+| `point: name \| lat, lon \| group` | A dot with its name. Positions are latitude, longitude in degrees (south and west negative), or `39.74N, 104.99W`. |
+| `route: name \| lat, lon; lat, lon; … \| group` | A line with an arrow at the end (long routes follow the curve of the Earth). `line:` is the same without the arrow, dashed (borders, fronts). |
+| `label: text \| lat, lon` | Free text on the map (oceans, deserts). |
+| `view:` | What the map opens on: `fit` (everything marked), place names (`view: France, Spain`) or two corners (`view: 30, -15 to 55, 20`). Default: the whole base map. |
+| `labels:` | `on` writes the names of shaded regions on the map; `all` writes every region's name. Points are always labeled. |
+| `projection:` | `equal-earth` (world default), `albers-usa` (us default), `mercator` (default for GeoJSON) or `plain`. |
+| `geojson:` | Your own shapes: a GeoJSON FeatureCollection (on the following lines, or a `data:` URL). Each feature's `properties.name` is its place name. With `projection: plain` coordinates are x, y in your own units. |
+| `svg:` | Your own drawing (on the following lines, or a `data:` URL): every `path`, `polygon`, `rect`, `circle` and `ellipse` with an `id`, `data-name`, `aria-label` or `<title>` becomes a named place; unnamed shapes are drawn as background. Only the shapes are read (no styles, scripts or text), and positions for points and routes are x, y in the SVG's units. Transforms aren't applied. |
+
+- Place names match without regard to capital letters, accents or a leading "the". US states also match their two-letter abbreviations (`CO`); countries match common names (`USA`, `UK`, `Ivory Coast`, `Burma`, `Czech Republic`, `DR Congo`). The world map's names: `United States`, `Democratic Republic of the Congo`, `Republic of the Congo`, `Bosnia and Herzegovina`, `North Macedonia`, `Eswatini`, `South Sudan` and so on (Natural Earth's short forms are spelled out).
+- The shapes load only when a map is shown (about 40 KB compressed for each base map).
+- The course checker reports unknown lines, bad positions, names that aren't on the map, points outside it and unclosed blocks.
+
+## Timelines
+
+````markdown
+```timeline
+title: Ancient Rome
+era: 509–27 BCE | Republic
+era: 27 BCE – 476 CE | Empire
+event: c. 753 BCE | Rome is founded (the traditional date) | Rome
+event: 264–146 BCE | The Punic Wars | Wars
+event: March 15, 44 BCE | Julius Caesar is killed | Rome
+caption: There was no year 0: 1 BCE is followed by 1 CE.
+```
+````
+
+- `event: date | text | category` and `era: range | name | category` (category optional; up to 6 get their own colors and a key). Eras are periods drawn as bands above the line. Text is Markdown with math. `title:` and `caption:` as for maps.
+- **Dates:** `1776`, `July 4, 1776`, `4 July 1776`, `July 1776`, `1776-07-04`, `44 BCE` (or BC; `CE`/`AD` optional), `AD 476`, `c. 3000 BCE` (or ca., circa, about), `1960s`, `15th century`, `5th century BCE`, `65 million years ago`, `3.5 billion years ago`, `10,000 years ago`. **Ranges:** `1861–1865`, `1861-1865`, `1914 to 1918`, `27 BCE – 14 CE`; `753–509 BCE` makes both ends BCE. The date is shown exactly as written.
+- Events are listed oldest first whatever order they're written in. On screens at least 520 px wide the timeline runs across the page with + / − / Fit zoom buttons and sideways scrolling (labels are stacked so they never overlap); on narrower screens, in print and to screen readers it's an ordered list.
+- The course checker reports dates it can't read, ranges that end before they start, eras without a range, missing text and unclosed blocks.
+
+## Simulations
+
+````markdown
+```sim projectile
+title: How far does it go?
+speed: 20
+angle: 30 [5, 85]
+fixed: gravity
+caption: Find the angle that sends the ball farthest.
+```
+````
+
+The word after ```` ```sim ```` is the kind. Each line sets a setting's starting value, optionally with a narrower slider range in `[min, max]`; `fixed:` hides settings the learner shouldn't change; `title:` (default: the kind's name) and `caption:` as above. Every simulation has sliders, live readouts, a picture and a graph; nothing moves until Play. Play/Pause, Step and Reset are real buttons, sliders work with the arrow keys, and screen readers hear a one-sentence summary when a run ends, pauses or steps, or a setting changes. With the system's "reduce motion" setting, Play becomes Run (jumps ahead and draws the graph at once) and the circuit and gas pictures stay still.
+
+| Kind | Settings (default, range) | Shows |
+|---|---|---|
+| `projectile` | `speed` m/s (20, 1–50), `angle` ° (45, 0–90), `height` m (0, 0–50), `gravity` m/s² (9.8, 1–25) | The path as height against distance; time, distance, height, speed, highest point, landing distance. |
+| `pendulum` | `length` m (1, 0.1–5), `angle` ° (20, 1–170), `gravity`, `damping` per s (0, 0–1) | The swing (solved exactly, not with the small-angle shortcut) and angle against time; the period from 2π√(L/g) and as measured. |
+| `circuit` | `voltage` V (9, 1–24), `r1`, `r2` Ω (10, 20; 1–100), `r3` Ω (0 = none), `layout`: `series` or `parallel` | The circuit with moving charges (Show the motion), total resistance, current, each resistor's current and voltage, power; current against voltage. |
+| `gas` | `temperature` K (300, 50–1000), `volume` L (25, 1–50), `amount` mol (1, 0.1–3), `graph`: `volume` or `temperature` | Particles in a box; pressure from PV = nRT in kPa and atm; pressure against volume (Boyle) or temperature (Gay-Lussac). |
+| `population` | `model`: `predator-prey` (rabbits and foxes: `prey` 40, `predators` 9, `birth` 0.6, `catch` 0.025, `gain` 0.01, `death` 0.5) or `logistic` (`start` 10, `rate` 0.5, `capacity` 500) | Numbers over time (Lotka–Volterra or logistic growth). |
+
+The course checker reports unknown kinds and settings, values outside their range and bad choices.
 
 ## Glossary
 

@@ -66,6 +66,10 @@ Answer choices are shuffled at run time unless the user turns that off, so don't
 | `"order"` | `choices`: the items in the correct order; `answer`: `[]`. | Shown shuffled; the learner moves items up and down. |
 | `"model"` | `model`: a math manipulative and how it starts; `target`: what counts as right. `choices` and `answer` are `[]`. | Answered by changing the model. See [Model questions](#model-questions). |
 
+| `"order"` | `choices`: the items in the correct order; `answer`: `[]`; optional `dates`: one date per item (see Dates in [COURSE_FORMAT.md](COURSE_FORMAT.md#timelines)), oldest first. | Shown shuffled; the learner moves items up and down. With `dates` it's labeled "Put in time order" and the dates show after checking. |
+| `"map"` | `map`: the map, written like a lesson's map block (see [Maps](COURSE_FORMAT.md#maps)), e.g. `"base: us"`. Then either `targets`: the place(s) to pick, e.g. `["Colorado"]` (`choices` and `answer` are `[]`), or `marks`: places to number, e.g. `["Brazil", "Peru"]`, with `choices`/`answer` as for label (if `choices` is left out, the marked names are the choices). | **Find** (`targets`): the learner clicks the place(s) on the map, or picks from a list (one place: a drop-down; several: checkboxes). Names never show before checking. Names compare like the map does (`CO` = `Colorado`, `USA` = `United States`). Picking a place that isn't a target makes the answer wrong. **Label** (`marks`): numbered markers on the map with a drop-down for each. |
+| `"timeline"` | `slots`: dates, oldest first, e.g. `["44 BCE", "79 CE"]`; `choices`: the events (extra ones are distractors); `answer[i]`: the event that belongs at `slots[i]`; optional `timeline`: periods for context, in timeline block lines (`era: 27 BCE – 476 CE \| Empire`). | A small timeline shows numbered slots at their dates; each slot gets a drop-down of events. |
+
 Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
 
 ## Model questions

@@ -17,10 +17,16 @@ export interface Section {
  * - match: `left[i]` is matched to `choices[answer[i]]`; extra choices are distractors.
  * - label: like match, but the left side is numbered markers on `image` at `markers[i]`.
  * - order: `choices` are listed in the correct order and shown shuffled. `answer` is empty.
+ *   Optional `dates` (one per item) turn it into "put the events in time order".
+ * - map: a map drawn from `map` (the ```map block syntax). Either `targets` (find: click the
+ *   named place(s); the answer is the picked names, `choices`/`answer` empty) or `marks`
+ *   (label: numbered places, `answer[i]` is the choice for marks[i], like label).
+ * - timeline: numbered `slots` (dates) on a timeline; `answer[i]` is the choice (event) placed
+ *   at slot i, like label. Optional `timeline` (```timeline syntax) adds periods for context.
  * - model: answered by changing a math manipulative (`model`: counters, blocks, number line,
  *   fraction bars, clock, coins); `target` says what's right. `choices` and `answer` are empty.
  */
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model";
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline";
 
 export interface QuestionImage {
   /** A data: URL (bundled and community courses) or an app-relative path. */
@@ -53,6 +59,18 @@ export interface Question {
   caseSensitive?: boolean;
   /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
   lowestTerms?: boolean;
+  /** order: the date of each item, in the correct order (shown after checking). */
+  dates?: string[];
+  /** map: the map, in ```map block syntax (base, view, regions, points, routes…). */
+  map?: string;
+  /** map (find): the place(s) to pick. */
+  targets?: string[];
+  /** map (label): the places that get numbered markers. */
+  marks?: string[];
+  /** timeline: the dates of the numbered slots. */
+  slots?: string[];
+  /** timeline: periods (and other events) for context, in ```timeline block syntax. */
+  timeline?: string;
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   /** model: the manipulative and its starting state. */
@@ -86,8 +104,9 @@ export interface AudioClip {
 
 /**
  * A learner's answer: choice indices (choice), the choice picked for each left item or marker
- * (match, label; -1 = none yet), the choices in the learner's order (order), or the typed
- * text per blank (text), or the manipulative's state (model; see startState in manip.ts).
+ * (match, label, map with marks, timeline; -1 = none yet), the choices in the learner's order
+ * (order), the typed text per blank (text), the names of the places picked (map with targets),
+ * or the manipulative's state (model; see startState in manip.ts).
  */
 export type Chosen = (number | string)[];
 

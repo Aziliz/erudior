@@ -2,17 +2,23 @@
 // answering (Runner) and read-only when reviewing (Results). `reveal` marks each part right or
 // wrong and shows the correct answer.
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, lazy, Suspense, useEffect, useRef, useState } from "react";
 import MathText from "./MathText";
+import TimelineStrip from "./TimelineStrip";
 import { canPlay, playClip, stopAudio } from "../lib/audio";
 import { onVoices } from "../lib/speech";
 import type { Chosen, Question } from "../lib/types";
-import { BLANK, blankCount, isCorrect, partsCorrect, qtype } from "../lib/questions";
+import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, qtype } from "../lib/questions";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
 import { ManipModel } from "./Manipulative";
 import { LETTERS } from "../lib/util";
 import { mathTextSpeech, sayItem, type AudioLib } from "../lib/readAloud";
 import { SayButton } from "./ReadAloud";
+
+// Maps load d3-geo and the base map's shapes, so only when a map question is shown.
+const MapFind = lazy(() => import("./GeoMap").then((m) => ({ default: m.MapFind })));
+const MapMarks = lazy(() => import("./GeoMap").then((m) => ({ default: m.MapMarks })));
+const mapWait = <p className="map-wait small muted">Loading the map…</p>;
 
 /** Readable text for a string that may hold $math$ (for aria-labels and <option>s). */
 export const spoken = (s: string) =>
@@ -206,11 +212,29 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
     );
   }
 
-  if (kind === "match" || kind === "label") {
-    const rows = kind === "match" ? (q.left ?? []) : q.answer.map((_, i) => `Part ${i + 1}`);
+  if (kind === "map" && isMapFind(q)) {
+    return (
+      <Suspense fallback={mapWait}>
+        <MapFind q={q} chosen={chosen} onChange={onChange} reveal={reveal} review={review} disabled={disabled} />
+      </Suspense>
+    );
+  }
+
+  if (kind === "match" || kind === "label" || kind === "map" || kind === "timeline") {
+    const numbered = kind !== "match";
+    const rows =
+      kind === "match"
+        ? (q.left ?? [])
+        : q.answer.map((_, i) => (kind === "timeline" ? `Slot ${i + 1}: ${q.slots?.[i] ?? ""}` : kind === "map" ? `Place ${i + 1}` : `Part ${i + 1}`));
     return (
       <>
         {kind === "label" && <QuestionImage q={q} numbered />}
+        {kind === "map" && (
+          <Suspense fallback={mapWait}>
+            <MapMarks q={q} reveal={reveal || review} />
+          </Suspense>
+        )}
+        {kind === "timeline" && <TimelineStrip dates={q.slots ?? []} context={q.timeline} />}
         <div className="q-parts match-rows">
           {rows.map((left, i) => {
             const pick = typeof chosen[i] === "number" ? (chosen[i] as number) : -1;
@@ -218,12 +242,21 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
             return (
               <div key={i} className={`match-row ${reveal ? (parts[i] ? "is-right" : "is-wrong") : ""}`}>
                 <label htmlFor={id} className="match-left">
-                  {kind === "label" ? (
+                  {numbered ? (
                     <span className="q-marker inline" aria-hidden="true">
                       {i + 1}
                     </span>
                   ) : null}
-                  {kind === "label" ? <span className="sr-only">{left}</span> : <MathText text={left} />}
+                  {kind === "timeline" ? (
+                    <>
+                      <span className="sr-only">Slot {i + 1}: </span>
+                      {q.slots?.[i]}
+                    </>
+                  ) : numbered ? (
+                    <span className="sr-only">{left}</span>
+                  ) : (
+                    <MathText text={left} />
+                  )}
                 </label>
                 {read && kind === "match" && <ReadOne text={left} read={read} owner={`item-${q.id}-${i}`} />}
                 {review ? (
@@ -394,13 +427,14 @@ function OrderList({
           </li>
         ))}
       </ol>
-      {reveal && !parts.every(Boolean) && (
+      {reveal && (!parts.every(Boolean) || !!q.dates?.length) && (
         <p className="small">
           <span className="muted">Correct order: </span>
           {q.choices.map((c, i) => (
             <Fragment key={i}>
               {i > 0 && " → "}
               <MathText text={c} />
+              {q.dates?.[i] && <span className="muted"> ({q.dates[i]})</span>}
             </Fragment>
           ))}
         </p>
