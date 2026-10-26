@@ -112,7 +112,6 @@ export type EngineStatus = "done" | "planned";
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
   { title: "Read-aloud lessons and questions", detail: "Every lesson, question and answer choice can be read aloud, so children who can't read yet can learn on their own (kindergarten to grade 2).", status: "planned" },
-  { title: "Math manipulatives", detail: "Interactive counters, base-ten blocks, number lines, fraction bars, clocks and coins in lessons and practice.", status: "planned" },
   { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing for early readers.", status: "planned" },
   { title: "Writing assignments with rubrics", detail: "Essays and short responses written in the app, graded by the parent or teacher with a rubric, and kept in the portfolio (English and social studies).", status: "planned" },
   { title: "Built-in reader for books and documents", detail: "Public-domain novels, poems, plays and primary sources read inside the app, with reading-log time recorded.", status: "planned" },
@@ -123,6 +122,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Activity logs for PE, art and music", detail: "Log practice and activities, upload work, and count hours toward state requirements.", status: "planned" },
   { title: "Adaptive practice", detail: "Smart practice gives more questions on your weak topics and fewer on the ones you've mastered, adjusting as you answer; notecards, drills and the daily plan lean the same way, and every exam ends with what to study next.", status: "done" },
   { title: "Memory aids from learning science", detail: "Practice questions come back on a spaced schedule until you've got them right on three different days; optional Sure/Unsure/Guess ratings; warm-up questions before a lesson; explain-it-yourself and recall-first habits; mixed topics; a weekly review quiz; FSRS notecard scheduling; and fading worked examples in lessons.", status: "done" },
+  { title: "Math manipulatives", detail: "Counters in ten-frames, base-ten blocks, number lines, fraction bars, a clock and coins to play with in lessons, and practice questions answered by using them. Every model works with buttons or the keyboard and tells screen readers what it shows.", status: "done" },
   { title: "Question types, pictures, diagrams and graphs", detail: "Fill in the blank, matching, ordering, labeling pictures, drawn diagrams and auto-labeled graphs.", status: "done" },
   { title: "Homeschool records", detail: "Attendance, hours, grades, report cards, transcripts, portfolios and state reports for all 50 states and DC.", status: "done" },
   { title: "Classrooms and live rooms", detail: "Classes, due dates, a gradebook, hand-in files, and live quizzes on any device.", status: "done" },

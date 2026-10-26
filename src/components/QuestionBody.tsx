@@ -5,7 +5,9 @@
 import { Fragment, useEffect, useRef } from "react";
 import MathText from "./MathText";
 import type { Chosen, Question } from "../lib/types";
-import { BLANK, blankCount, partsCorrect, qtype } from "../lib/questions";
+import { BLANK, blankCount, isCorrect, partsCorrect, qtype } from "../lib/questions";
+import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
+import { ManipModel } from "./Manipulative";
 import { LETTERS } from "../lib/util";
 
 /** Readable text for a string that may hold $math$ (for aria-labels and <option>s). */
@@ -185,6 +187,8 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
     );
   }
 
+  if (kind === "model") return <ModelAnswer q={q} chosen={chosen} onChange={onChange} reveal={reveal} disabled={off} review={review} />;
+
   if (kind === "order") {
     return <OrderList q={q} order={order} chosen={chosen} onChange={onChange} reveal={reveal} disabled={off} review={review} parts={parts} />;
   }
@@ -317,6 +321,32 @@ function OrderList({
             </Fragment>
           ))}
         </p>
+      )}
+    </div>
+  );
+}
+
+/** A model question: the learner changes the manipulative; after checking, a right answer is drawn. */
+function ModelAnswer({ q, chosen, onChange, reveal, disabled, review }: { q: Question; chosen: Chosen; onChange?: (next: Chosen) => void; reveal?: boolean; disabled?: boolean; review?: boolean }) {
+  const model = readSpec(q.model).model;
+  const state = stateOr(model, chosen);
+  const right = !!reveal && isCorrect(q, chosen);
+  const sol = reveal && !right && q.target ? solution(model, q.target) : null;
+  return (
+    <div className={`q-parts model-answer ${reveal ? (right ? "is-right" : "is-wrong") : ""}`}>
+      {review && !chosen.length ? (
+        <p className="faint">(not answered)</p>
+      ) : (
+        <ManipModel model={model} state={state} onChange={(s) => onChange?.(s)} disabled={disabled || review} label={review ? "Your answer" : undefined} />
+      )}
+      {reveal && <Mark ok={right} fix={q.target ? targetText(model, q.target) : undefined} />}
+      {sol && (
+        <figure className="model-solution">
+          <figcaption className="small muted">One right answer</figcaption>
+          {/* The picture with its description: the same words a screen reader gets for the model. */}
+          <div aria-hidden="true" dangerouslySetInnerHTML={{ __html: drawModel(model, sol, 420) }} />
+          <p className="small">{describe(model, sol, true)}</p>
+        </figure>
       )}
     </div>
   );

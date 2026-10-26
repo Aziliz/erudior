@@ -3,8 +3,9 @@
 
 import type { Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { sameSet } from "./util";
+import { actionLabel, describe, manipCorrect, readSpec, stateOr, targetProblems, targetText, validState } from "./manip";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -95,6 +96,9 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
     case "match":
     case "label":
       return chosen.some((c) => typeof c === "number" && c >= 0);
+    case "model":
+      // The state is saved only once the learner changes the model.
+      return validState(readSpec(q.model).model, chosen);
     default:
       return true;
   }
@@ -124,6 +128,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return q.answer.length > 0 && q.answer.every((a, i) => chosen[i] === a);
     case "order":
       return chosen.length === q.choices.length && chosen.every((c, i) => c === i);
+    case "model":
+      return !!q.target && manipCorrect(readSpec(q.model).model, q.target, chosen);
     default:
       return sameSet(
         q.answer,
@@ -158,6 +164,8 @@ export function answerText(q: Question): string {
       return q.answer.map((a, i) => `${i + 1}: ${q.choices[a]}`).join("; ");
     case "order":
       return q.choices.join(" → ");
+    case "model":
+      return q.target ? targetText(readSpec(q.model).model, q.target) : "";
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -179,6 +187,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
         .join("; ");
     case "order":
       return chosen.map((c) => q.choices[c as number]).join(" → ");
+    case "model": {
+      const m = readSpec(q.model).model;
+      return describe(m, stateOr(m, chosen), true);
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -195,6 +207,8 @@ export function typeLabel(q: Question): string {
       return "Label the picture";
     case "order":
       return "Put in order";
+    case "model":
+      return actionLabel(readSpec(q.model).model.kind);
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -275,6 +289,14 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       if (choices.length < 2) throw new Error(`needs at least two items in "choices" (in the correct order).`);
       if (new Set(choices).size !== choices.length) throw new Error(`has the same item twice.`);
       return { ...base, choices, answer: [] };
+    }
+    case "model": {
+      if (!isObj(q.model)) throw new Error(`(model) needs a "model": the manipulative, e.g. { "kind": "blocks" }.`);
+      const { spec, model, problems } = readSpec(q.model);
+      if (problems.length) throw new Error(`has a model problem: ${problems[0]}.`);
+      const tp = targetProblems(model, q.target);
+      if (tp.length) throw new Error(`has a target problem: ${tp[0]}.`);
+      return { ...base, choices: [], answer: [], model: spec, target: q.target as Question["target"] };
     }
   }
 }

@@ -42,6 +42,7 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - `honors: true` (optional) makes it an honors lesson: optional extra depth. It isn't needed to finish its module or the course, its quiz doesn't count toward grades, and full exams skip its questions; study time on it still counts. A module with `honors: true` is an honors module: all its lessons are honors lessons, and it has its own module quiz.
 - Lesson bodies (and quick-reference sheets) can show pictures (`![alt text](data:image/svg+xml;base64,…)`; bundled courses keep them in `images/` and the build embeds them) and Mermaid diagrams in a ```` ```mermaid ```` block. Each diagram needs `accTitle:` and `accDescr:` lines; it's drawn in the app's colors and redrawn when the theme changes.
 - Lesson bodies (and quick-reference sheets) can hold **worked examples with fading** in an ```` ```example ```` block; see [Worked examples](#worked-examples) below.
+- Lesson bodies can hold **math manipulatives** (counters, base-ten blocks, number lines, fraction bars, a clock, coins) in a ```` ```manipulative ```` block; see [Math manipulatives](#math-manipulatives) below.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks
@@ -82,6 +83,33 @@ answer: $1,200
 - Printing shows every step and the answer. Revealing is per page view; nothing is saved.
 - The course checker reports a block with no steps, no problem, `fade` larger than the number of steps (it's treated as "all steps"), a `fade` that isn't a whole number, unknown options, text before the first field, a repeated title/problem/answer, empty fields and unclosed blocks. Math in the fields is checked like any lesson math.
 - A `### Example …` heading's colored box ends where an example block starts; the block has its own panel, so it doesn't need the heading.
+
+## Math manipulatives
+
+A **manipulative** is a math model the learner can play with: counters in a ten-frame, base-ten blocks, a number line, fraction bars, an analog clock or US coins. Lessons (and reference sheets and notecards) show one with a ```` ```manipulative ```` block; practice questions use the same models with `"type": "model"` (see [BANK_FORMAT.md](BANK_FORMAT.md#model-questions)).
+
+````markdown
+```manipulative blocks
+value: 124
+caption: This shows 124. Break a ten into 10 ones. Is it still 124?
+```
+````
+
+- The word after `manipulative` is the kind: `counters`, `blocks`, `numberline`, `fractions`, `clock` or `coins`. Each line is `key: value`; lists are separated by commas or spaces. The body can also be JSON (`{"value": 124}`), which is how community courses store it. The block must start at the beginning of a line.
+- Every key is optional. `caption:` is a line shown above the model (plain text). `readout: false` hides the total shown beside the model (the number, amount, time or fraction).
+
+| Kind | Keys (default) | What the learner does |
+|---|---|---|
+| `counters` | `frames` 1 or 2 (1), `colors` 1 or 2 (1), `count` red counters at the start, `count2` yellow ones (needs `colors: 2`) | Tap a box to add or remove a counter; buttons add or take away each color, and Clear. Yellow counters also have a ring, so the colors differ by more than color. |
+| `blocks` | `places` 1–4 (3: hundreds, tens, ones), `value` the number built at the start (0) | Add or take away blocks in each place (up to 20), **Break** a block into 10 of the next smaller place, **Trade** 10 for one of the next bigger place. |
+| `numberline` | `min` (0), `max` (min + 10 steps), `step` space between ticks (1; `0.5`, or `1/4` to label fractions), `at` where the marker starts (0 if on the line, else `min`), `hops` sizes for hop buttons (one step) | Hop buttons, arrow keys (one step), Page Up/Down (biggest hop), Home/End, or tap/drag to a tick. Each move is drawn as a labeled arc. At most 100 ticks. |
+| `fractions` | `bars` one starting fraction per bar as shaded/parts (`0/1`), up to 4 bars and 12 parts; `fixed: true` keeps the number of parts | Tap a part to shade up to it; buttons shade or unshade one part, add or remove a part, or cut every part in half (1/2 becomes 2/4). With two bars the total compares them (1/2 = 2/4). |
+| `clock` | `time` "h:mm" (12:00), `step` minutes the minute hand moves per press: 1, 5, 15, 30 or 60 (5) | Buttons move the hour or minute hand; the clock is a slider: arrow keys move the minute hand, Page Up/Down the hour; drag either hand. The hour hand moves along with the minutes, as on a real clock. |
+| `coins` | `coins` offered: `penny`, `nickel`, `dime`, `quarter`, `half`, `dollar` (the first four), `start` coins already on the mat (`quarter, dime`) | Add or take away each coin (up to 20 of each); tap a coin on the mat to take it away. Coins are plain labeled circles sized like the real ones. |
+
+- Accessibility: every action has a real button (unusable ones stay focusable and say so), the number line and clock are sliders that take arrow keys, the model is described in words for screen readers ("3 hundreds, 4 tens, 7 ones: 347") and each change is announced. The picture works in every theme and at 320 px wide; a **Start over** button returns to the starting state.
+- Without JavaScript (and in prerendered pages and print) the block shows a picture of its starting state with the same description. Changes aren't saved; it's a model to explore.
+- The course checker reports unknown kinds and keys, values out of range (`at` off the ticks, more counters than boxes, a bar with more shaded than parts, a coin in `start` that isn't offered…), lines it can't read, repeated keys and unclosed blocks.
 
 ## Glossary
 

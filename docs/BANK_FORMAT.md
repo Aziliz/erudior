@@ -64,7 +64,39 @@ Answer choices are shuffled at run time unless the user turns that off, so don't
 | `"match"` | `left`: the items to match; `choices`: the answers (extra ones are distractors); `answer[i]`: the index in `choices` that matches `left[i]` (answers may repeat). | Each left item gets a drop-down, so `choices` are plain text. |
 | `"label"` | `image` (required), `markers`: `[{ "x": 30, "y": 45 }, …]` in percent of the image's width and height from the top-left; `choices` and `answer` as for match, one per marker. | The app draws numbered markers on the picture. |
 | `"order"` | `choices`: the items in the correct order; `answer`: `[]`. | Shown shuffled; the learner moves items up and down. |
+| `"model"` | `model`: a math manipulative and how it starts; `target`: what counts as right. `choices` and `answer` are `[]`. | Answered by changing the model. See [Model questions](#model-questions). |
 
 Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
+
+## Model questions
+
+The learner answers by using a math manipulative (the same models as lesson blocks; see "Math manipulatives" in [COURSE_FORMAT.md](COURSE_FORMAT.md#math-manipulatives) for every kind and its starting options).
+
+```json
+{
+  "id": "mq-coins",
+  "topic": "Money",
+  "type": "model",
+  "stem": "Make 68¢ using the fewest coins.",
+  "choices": [],
+  "answer": [],
+  "model": { "kind": "coins" },
+  "target": { "cents": 68, "fewest": true }
+}
+```
+
+| Model `kind` | `target` | Right when |
+|---|---|---|
+| `counters` | `count`, or `colors: [red, yellow]` (needs `colors: 2` in the model) | That many counters (anywhere in the frames), or exactly that many of each color. |
+| `blocks` | `value`; optional `fewest: true` | The blocks make the number in any way (34 tens and 7 ones is 347); with `fewest`, no place but the biggest may have 10 or more. |
+| `numberline` | `at` (a number, or a fraction like `"3/4"`) | The marker is there. It must be a tick on the line. |
+| `fractions` | `values`: one fraction per bar, from the first (`["3/4"]`); optional `exact: true` | Each listed bar shows an equal fraction (6/8 for 3/4); with `exact`, the same number of parts too. With `fixed` parts, each value must be possible. |
+| `clock` | `time` `"h:mm"` | The hands show that time. The minutes must be a multiple of the model's `step`. |
+| `coins` | `cents`; optional `fewest: true` | The coins add up to the amount; with `fewest`, using as few coins as possible from those offered. |
+
+- The model starts as written in `model`; a question isn't answered until the learner changes it. The starting model can't already be right, and the target must be possible (the checker and the importer refuse both).
+- `"readout": false` in the model hides the total beside it, so the learner can't just watch the number (good for reading a clock); screen readers then get a description of the pieces (where the hands point) instead of the total.
+- After checking, a wrong answer shows the right answer in words and a picture of one right model. The saved answer is the model's state (a short list of numbers), so a run can be saved and resumed.
+- The bank editor and community courses write model questions: pick the model, set how it starts, then set the right answer by changing the model.
 
 `honors: true` marks a question from an optional honors lesson: full exams leave it out, and practice includes it only when asked.

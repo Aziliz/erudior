@@ -1,0 +1,264 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "demo-manipulatives",
+ "title": "Demo: Math models",
+ "description": "Counters, base-ten blocks, number lines, fraction bars, a clock and coins, in lessons and in practice questions.",
+ "author": "Erudior",
+ "revision": 1,
+ "modules": [
+  {
+   "id": "mm1",
+   "title": "Math models"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "ml1",
+   "module": "mm1",
+   "title": "Counters, blocks and number lines",
+   "minutes": 10,
+   "topics": [
+    "Counting",
+    "Place value",
+    "Number lines"
+   ],
+   "quiz": [
+    "mq-counters",
+    "mq-counters-add",
+    "mq-blocks",
+    "mq-blocks-regroup",
+    "mq-line",
+    "mq-line-frac"
+   ],
+   "body": "Math models let you **see** numbers. Tap the pieces or use the buttons under each model.\n\n## Counters in a ten-frame\n\nA ten-frame holds 10 counters: two rows of five. Add counters and count them.\n\n```manipulative counters\ncount: 3\ncaption: Add counters until the frame shows 7.\n```\n\nTwo colors help you add. Red and yellow together make the total.\n\n```manipulative counters\nframes: 2\ncolors: 2\ncount: 8\ncount2: 5\ncaption: 8 red + 5 yellow. Fill the first frame to make a ten: how many are left over?\n```\n\n## Base-ten blocks\n\nA small cube is **one**. A rod is **ten** ones. A flat is **ten tens**: one hundred.\n\n```manipulative blocks\nvalue: 124\ncaption: This shows 124. Break a ten into 10 ones. Is it still 124?\n```\n\n```manipulative blocks\nplaces: 4\nvalue: 1036\ncaption: Thousands, hundreds, tens and ones.\n```\n\n## Number lines\n\nHop along the line. Each hop is drawn as an arc.\n\n```manipulative numberline\nmin: -10\nmax: 10\nat: 2\nhops: 1, 5\ncaption: Start at 2. Hop back 5. Where do you land?\n```\n\n```manipulative numberline\nmin: 0\nmax: 2\nstep: 1/4\ncaption: Fourths between 0 and 2.\n```\n"
+  },
+  {
+   "id": "ml2",
+   "module": "mm1",
+   "title": "Fractions, time and money",
+   "minutes": 10,
+   "topics": [
+    "Fractions",
+    "Time",
+    "Money"
+   ],
+   "quiz": [
+    "mq-fraction",
+    "mq-fraction-equal",
+    "mq-clock",
+    "mq-coins",
+    "mq-coins-any"
+   ],
+   "body": "## Fraction bars\n\nEvery bar is the same length, so you can compare the shaded parts.\n\n```manipulative fractions\nbars: 1/2, 0/4\ncaption: Shade the second bar to match 1/2. How many fourths is that?\n```\n\n```manipulative fractions\nbars: 0/1\ncaption: Split the bar into parts, then shade some of them.\n```\n\n## Telling time\n\nThe short hand shows the hour. The long hand shows the minutes.\n\n```manipulative clock\ntime: 3:00\ncaption: Move the minute hand around once. Watch the hour hand move too.\n```\n\n## Coins\n\n```manipulative coins\ncoins: penny, nickel, dime, quarter, half, dollar\nstart: quarter, dime\ncaption: Add coins to make one dollar.\n```\n"
+  }
+ ],
+ "banks": [
+  {
+   "id": "models",
+   "title": "Math model questions",
+   "questions": [
+    {
+     "id": "mq-counters",
+     "topic": "Counting",
+     "type": "model",
+     "stem": "Put 5 counters in the ten-frame.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "counters"
+     },
+     "target": {
+      "count": 5
+     },
+     "explanation": "Five counters fill the top row of a ten-frame."
+    },
+    {
+     "id": "mq-counters-add",
+     "topic": "Counting",
+     "type": "model",
+     "stem": "Show 6 + 3 with 6 red counters and 3 yellow counters.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "counters",
+      "colors": 2
+     },
+     "target": {
+      "colors": [
+       6,
+       3
+      ]
+     },
+     "explanation": "6 red and 3 yellow make 9 in all."
+    },
+    {
+     "id": "mq-blocks",
+     "topic": "Place value",
+     "type": "model",
+     "stem": "Show 347 with base-ten blocks.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "blocks"
+     },
+     "target": {
+      "value": 347
+     },
+     "explanation": "347 is 3 hundreds, 4 tens and 7 ones. Other ways, like 34 tens and 7 ones, also make 347."
+    },
+    {
+     "id": "mq-blocks-regroup",
+     "topic": "Place value",
+     "type": "model",
+     "stem": "The blocks show 28. Add 15 more, then trade so no place has more than 9 blocks.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "blocks",
+      "places": 2,
+      "value": 28
+     },
+     "target": {
+      "value": 43,
+      "fewest": true
+     },
+     "explanation": "28 + 15: 8 ones + 5 ones = 13 ones. Trade 10 ones for a ten: 4 tens and 3 ones = 43."
+    },
+    {
+     "id": "mq-line",
+     "topic": "Number lines",
+     "type": "model",
+     "stem": "Move the marker to -3 on the number line.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "numberline",
+      "min": -5,
+      "max": 5,
+      "at": 0
+     },
+     "target": {
+      "at": -3
+     },
+     "explanation": "-3 is 3 steps to the left of 0."
+    },
+    {
+     "id": "mq-line-frac",
+     "topic": "Number lines",
+     "type": "model",
+     "stem": "Move the marker to 3/4.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "numberline",
+      "min": 0,
+      "max": 2,
+      "step": "1/4"
+     },
+     "target": {
+      "at": "3/4"
+     },
+     "explanation": "Each step is 1/4. Three steps from 0 is 3/4."
+    },
+    {
+     "id": "mq-fraction",
+     "topic": "Fractions",
+     "type": "model",
+     "stem": "Shade the bar to show 3/4.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "fractions",
+      "bars": [
+       "0/4"
+      ],
+      "fixed": true
+     },
+     "target": {
+      "values": [
+       "3/4"
+      ]
+     },
+     "explanation": "The bar has 4 equal parts. Shade 3 of them."
+    },
+    {
+     "id": "mq-fraction-equal",
+     "topic": "Fractions",
+     "type": "model",
+     "stem": "Shade the second bar to show a fraction equal to 2/3.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "fractions",
+      "bars": [
+       "2/3",
+       "0/6"
+      ],
+      "fixed": true
+     },
+     "target": {
+      "values": [
+       "2/3",
+       "2/3"
+      ]
+     },
+     "explanation": "2/3 = 4/6: shade 4 of the 6 parts."
+    },
+    {
+     "id": "mq-clock",
+     "topic": "Time",
+     "type": "model",
+     "stem": "Set the clock to 2:45.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "clock",
+      "time": "12:00",
+      "readout": false
+     },
+     "target": {
+      "time": "2:45"
+     },
+     "explanation": "At 2:45 the minute hand points at 9, and the hour hand is most of the way from 2 to 3."
+    },
+    {
+     "id": "mq-coins",
+     "topic": "Money",
+     "type": "model",
+     "stem": "Make 68¢ using the fewest coins.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "coins"
+     },
+     "target": {
+      "cents": 68,
+      "fewest": true
+     },
+     "explanation": "2 quarters (50¢) + 1 dime (60¢) + 1 nickel (65¢) + 3 pennies = 68¢. That's 7 coins."
+    },
+    {
+     "id": "mq-coins-any",
+     "topic": "Money",
+     "type": "model",
+     "stem": "Make 41¢ with coins. Any coins that add up to 41¢ are right.",
+     "choices": [],
+     "answer": [],
+     "model": {
+      "kind": "coins",
+      "readout": false
+     },
+     "target": {
+      "cents": 41
+     },
+     "explanation": "For example: 1 quarter, 1 dime, 1 nickel and 1 penny."
+    }
+   ]
+  }
+ ],
+ "decks": [],
+ "glossary": [],
+ "references": [],
+ "drills": []
+}

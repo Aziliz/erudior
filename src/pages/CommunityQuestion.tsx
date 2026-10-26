@@ -7,6 +7,7 @@ import type { AppApi } from "../App";
 import { api as community, imageUrl } from "../lib/community";
 import { LIMITS, type CQuestion, type QKind } from "../lib/communityFormat";
 import { shrinkImage } from "../lib/portfolio";
+import { DEFAULT_TARGET, ModelFields } from "../components/ManipEditor";
 
 export const Q_KIND_LABEL: Record<QKind, string> = {
   choice: "Multiple choice",
@@ -14,6 +15,7 @@ export const Q_KIND_LABEL: Record<QKind, string> = {
   match: "Match",
   label: "Label a picture",
   order: "Put in order",
+  model: "Math model (blocks, clock, coins…)",
 };
 
 /** Upload a picture to the community store (large photos are shrunk first). */
@@ -66,6 +68,8 @@ function retype(q: CQuestion, kind: QKind): CQuestion {
       return { ...base, markers: [], choices: [], answer: [] };
     case "order":
       return { ...base, choices: q.choices.length >= 2 ? q.choices : ["", "", ""], answer: [] };
+    case "model":
+      return { ...base, choices: [], answer: [], model: { kind: "blocks" }, target: DEFAULT_TARGET.blocks };
   }
 }
 
@@ -320,6 +324,8 @@ export function QuestionEditor({ api, q, onChange }: { api: AppApi; q: CQuestion
           </button>
         </fieldset>
       )}
+
+      {kind === "model" && <ModelFields idBase={`cq-${q.id}`} model={q.model} target={q.target} onChange={(model, target) => set({ model, target })} />}
 
       <label className="field" style={{ marginTop: 8 }}>
         <span>Explanation shown after answering (optional)</span>

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import MathText from "./MathText";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
@@ -7,6 +8,8 @@ import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
 import { protectDiagrams } from "../lib/diagram";
 import { protectExamples, revealExample } from "../lib/examples";
+import { protectManipulatives, type ManipSpec } from "../lib/manip";
+import { LessonManipulative } from "./Manipulative";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -38,6 +41,9 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   // Worked examples (```example blocks): each field goes through this same pipeline.
   const examples = protectExamples(md, (field) => renderMarkdown(field, scope));
   md = examples.text;
+  // Manipulatives (```manipulative blocks): a static picture here; the component mounts controls.
+  const manips = protectManipulatives(md);
+  md = manips.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
   const math = protectMath(figs.text);
@@ -48,7 +54,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return examples.restore(mathHeaders(clean));
+  return examples.restore(manips.restore(mathHeaders(clean)));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -157,6 +163,20 @@ export default function Markdown({
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
+  // Manipulative blocks get their controls here, rendered into each block's box.
+  const [manips, setManips] = useState<{ el: HTMLElement; spec: ManipSpec }[]>([]);
+  useLayoutEffect(() => {
+    const found: { el: HTMLElement; spec: ManipSpec }[] = [];
+    body.current?.querySelectorAll<HTMLElement>("figure.manip[data-manip]").forEach((el) => {
+      try {
+        found.push({ el, spec: JSON.parse(el.dataset.manip ?? "") as ManipSpec });
+        el.querySelector(".manip-static")?.setAttribute("hidden", "");
+      } catch {
+        // Keep the static picture.
+      }
+    });
+    setManips(found);
+  }, [html]);
 
   // Wide display math scrolls sideways in its box; such a box must be reachable by keyboard.
   useEffect(() => {
@@ -226,6 +246,7 @@ export default function Markdown({
   return (
     <div className="md-host" ref={ref}>
       <div ref={body} className={className} onClick={onClick} dangerouslySetInnerHTML={{ __html: html }} />
+      {manips.map((m, i) => createPortal(<LessonManipulative spec={m.spec} />, m.el, `manip-${i}-${html.length}`))}
       {pop && (
         <>
           <div className="pop-scrim" onClick={() => setPop(null)} />
