@@ -121,6 +121,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Listening and speaking practice", detail: "Audio for Spanish and German vocabulary and dialogues, with optional recording to compare pronunciation.", status: "planned" },
   { title: "Code exercises", detail: "Write and run code in the browser with automatic checks, for Computer Science.", status: "planned" },
   { title: "Activity logs for PE, art and music", detail: "Log practice and activities, upload work, and count hours toward state requirements.", status: "planned" },
+  { title: "Adaptive practice", detail: "Smart practice gives more questions on your weak topics and fewer on the ones you've mastered, adjusting as you answer; notecards, drills and the daily plan lean the same way, and every exam ends with what to study next.", status: "done" },
   { title: "Question types, pictures, diagrams and graphs", detail: "Fill in the blank, matching, ordering, labeling pictures, drawn diagrams and auto-labeled graphs.", status: "done" },
   { title: "Homeschool records", detail: "Attendance, hours, grades, report cards, transcripts, portfolios and state reports for all 50 states and DC.", status: "done" },
   { title: "Classrooms and live rooms", detail: "Classes, due dates, a gradebook, hand-in files, and live quizzes on any device.", status: "done" },

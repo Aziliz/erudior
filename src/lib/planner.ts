@@ -2,6 +2,7 @@
 // a rough readiness estimate. All heuristics are deliberately simple and shown
 // to the user as estimates.
 
+import { courseMastery, weakTopics } from "./mastery";
 import type { Course, DayActivity, Lesson, Plan, Progress } from "./types";
 import { dueCards } from "./vocab";
 import { MISSED_DECK_ID, cardKey, daysBetween, deckStatus, studyDecks, today } from "./srs";
@@ -209,10 +210,15 @@ export function planToday(course: Course, plan: Plan, p: Progress, now = today()
 
   if (course.banks.some((b) => b.questions.length)) {
     const q = phase === "review" ? 40 : 20;
+    const weak = weakTopics(courseMastery(course, p), 3).map((m) => m.topic);
     tasks.push({
       kind: "practice",
       title: `Practice ${q} questions`,
-      detail: phase === "review" ? "Focus on missed and weak questions" : "On topics from lessons you've read",
+      detail: weak.length
+        ? `Mostly on your weak spots: ${weak.join(", ")}`
+        : phase === "review"
+          ? "Weighted toward your weakest topics"
+          : "On topics from lessons you've read",
       done: todayAct.questions >= q,
       count: q,
     });

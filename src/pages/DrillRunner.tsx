@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import type { AppApi } from "../App";
-import type { Course, Drill } from "../lib/types";
+import type { Course, Drill, Progress } from "../lib/types";
 import { checkAll, generate, type DrillInstance } from "../lib/drills";
 import { canCheck, readAnswer, type PartInstance } from "../lib/answers";
 import DrillFigure from "../components/DrillFigure";
@@ -9,7 +9,7 @@ import { renderMathText } from "../lib/math";
 import DOMPurify from "dompurify";
 import MathText from "../components/MathText";
 import { logActivity } from "../lib/planner";
-import { shuffle } from "../lib/util";
+import { courseMastery, topicPriority, weightedOrder } from "../lib/mastery";
 import Markdown from "../components/Markdown";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
@@ -37,14 +37,17 @@ function previewTex(part: PartInstance, text: string): string | null {
 }
 
 
-/** Spread problems across the chosen drill types instead of repeating one. */
-function makeSet(drills: Drill[], count: number): { list: DrillInstance[]; errors: string[] } {
+/**
+ * Spread problems across the chosen drill types instead of repeating one. Each round through the
+ * types starts with the ones on your weaker topics, so a short set leans toward them.
+ */
+function makeSet(drills: Drill[], count: number, weight: (d: Drill) => number = () => 1): { list: DrillInstance[]; errors: string[] } {
   const list: DrillInstance[] = [];
   const errors: string[] = [];
   let pool: Drill[] = [];
   let guard = 0;
   while (list.length < count && guard++ < count * 4) {
-    if (!pool.length) pool = shuffle(drills);
+    if (!pool.length) pool = weightedOrder(drills, weight).reverse();
     const d = pool.pop()!;
     try {
       list.push(generate(d));
@@ -58,9 +61,19 @@ function makeSet(drills: Drill[], count: number): { list: DrillInstance[]; error
   return { list, errors: [...new Set(errors)] };
 }
 
+/** Weak topics and drills you often miss come up more. */
+function drillWeight(course: Course, progress: Progress) {
+  const mastery = courseMastery(course, progress);
+  return (d: Drill) => {
+    const s = progress.drills[`${course.id}/${d.id}`];
+    const miss = s && s.attempts ? 1 - s.correct / s.attempts : 0.5;
+    return topicPriority(d.topic ? mastery.get(d.topic) : undefined) * (0.5 + miss);
+  };
+}
+
 export default function DrillRunner({ api, course, drills, count }: { api: AppApi; course: Course; drills: Drill[]; count: number }) {
   // Generated once per set; `drills` is a fresh array on every app render.
-  const [set, setSet] = useState(() => makeSet(drills, count));
+  const [set, setSet] = useState(() => makeSet(drills, count, drillWeight(course, api.progress)));
   const { list, errors } = set;
   const [i, setI] = useState(0);
   const [texts, setTexts] = useState<string[]>([]);
@@ -128,7 +141,7 @@ export default function DrillRunner({ api, course, drills, count }: { api: AppAp
               <button
                 className="btn primary"
                 onClick={() => {
-                  setSet(makeSet(drills, count));
+                  setSet(makeSet(drills, count, drillWeight(course, api.progress)));
                   setI(0);
                   setTexts([]);
                   setResults([]);

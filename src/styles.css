@@ -4463,3 +4463,19 @@ a.btn:hover {
   margin-top: 10px;
   min-height: 24px;
 }
+
+/* Results: "What to study next" (lib/mastery focusAreas). */
+.focus-panel {
+  margin-bottom: 16px;
+}
+.focus-list {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}
+.focus-list li {
+  margin: 6px 0;
+}
+/* Runner: a quiet line when smart practice adjusts the questions ahead. */
+.adapt-note {
+  margin-top: 8px;
+}

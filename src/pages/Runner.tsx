@@ -7,6 +7,7 @@ import { isAnswered, isChoice, isComplete, qtype, typeLabel } from "../lib/quest
 import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { recordSession } from "../lib/quiz";
+import { adaptAfterCheck, topicMastery } from "../lib/mastery";
 import { LETTERS, formatClock } from "../lib/util";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
@@ -21,7 +22,10 @@ interface Props {
 
 export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
 
-export default function Runner({ api, session, bank, initial }: Props) {
+export default function Runner({ api, session: started, bank, initial }: Props) {
+  // Smart practice can swap upcoming questions, so the session lives in state.
+  const [session, setSession] = useState<Session>(started);
+  const [adaptNote, setAdaptNote] = useState<{ qid: string; text: string } | null>(null);
   const isExam = session.mode === "exam";
   const items = session.items;
   // Lesson quizzes return to their lesson, module quizzes to the lesson list, everything else to the bank.
@@ -189,8 +193,17 @@ export default function Runner({ api, session, bank, initial }: Props) {
     if (!answeredNow) return;
     if (!isComplete(q, chosen) && !(await confirmAction("Some parts are still empty and will count as wrong. Check your answer anyway?", "Check answer")))
       return;
-    setChecked((c) => ({ ...c, [q.id]: true }));
-  }, [answeredNow, q, chosen]);
+    const nowChecked = { ...checked, [q.id]: true };
+    setChecked(nowChecked);
+    if (session.adaptive && bank) {
+      const prior = topicMastery(api.progress, [bank]);
+      const r = adaptAfterCheck(session, bank, index, answers, nowChecked, prior);
+      if (r) {
+        setSession((s) => ({ ...s, items: r.items, adaptive: { ...s.adaptive!, reserve: r.reserve } }));
+        setAdaptNote({ qid: q.id, text: r.note });
+      }
+    }
+  }, [answeredNow, q, chosen, checked, session, bank, index, answers, api.progress]);
 
   const toggleFlag = useCallback(() => {
     const on = !flags[q.id];
@@ -285,7 +298,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
             Save &amp; exit
           </button>
           <h1 className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</h1>
-          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : "Practice"}</span>
+          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.adaptive ? "Smart practice" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -364,6 +377,7 @@ export default function Runner({ api, session, bank, initial }: Props) {
                     ))}
                   </p>
                 )}
+                {adaptNote?.qid === q.id && <p className="adapt-note small muted">{adaptNote.text}.</p>}
               </div>
             )}
 

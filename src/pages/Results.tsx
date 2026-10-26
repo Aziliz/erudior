@@ -9,6 +9,7 @@ import { orderedLessons } from "../lib/planner";
 import { LETTERS, formatDateTime, formatDuration, percent } from "../lib/util";
 import { SectionTable, TallyTable } from "../components/Bars";
 import { attemptPassed } from "../lib/session";
+import { focusAreas, topicMastery } from "../lib/mastery";
 
 type Filter = "wrong" | "flagged" | "all";
 
@@ -79,6 +80,27 @@ export default function Results({
   function takeModuleQuiz() {
     if (!bank || !course || !moduleNext?.quiz) return;
     api.go({ name: "run", session: startModuleQuiz(bank, { courseId: course.id, moduleId: moduleNext.id }, moduleNext.quiz) });
+  }
+
+  // Weak spots from this attempt and your recent history (not for lesson and module quizzes,
+  // which already send you back to their lesson).
+  const showFocus = !quizLesson && !quizModule && !attempt.lesson && !attempt.module && attempt.answers.length >= 5 && !!bank;
+  const focus = showFocus
+    ? focusAreas(attempt.byTopic, topicMastery(api.progress, [bank!]))
+    : [];
+  const lessonsFor = (topic: string) => (course ? orderedLessons(course).filter((l) => l.topics?.includes(topic)).slice(0, 2) : []);
+  function practiceFocus() {
+    if (!bank) return;
+    api.go({
+      name: "run",
+      session: startPractice(bank, api.progress, {
+        count: 20,
+        topics: focus.map((f) => f.topic),
+        sections: [],
+        filter: "smart",
+        shuffleChoices: true,
+      }),
+    });
   }
 
   function practiceMissed() {
@@ -198,6 +220,55 @@ export default function Results({
           )}
         </div>
       </div>
+
+      {showFocus && (
+        <section className="panel focus-panel" aria-labelledby="focus-h">
+          <div className="panel-head">
+            <h2 id="focus-h">What to study next</h2>
+            {focus.length > 0 && (
+              <button className="btn sm" onClick={practiceFocus}>
+                Practice these topics
+              </button>
+            )}
+          </div>
+          {focus.length ? (
+            <>
+              <p className="small muted">Your weakest topics, from this {isExam ? "exam" : "session"} and your recent answers. Weakest first.</p>
+              <ul className="focus-list">
+                {focus.map((f) => {
+                  const ls = lessonsFor(f.topic);
+                  return (
+                    <li key={f.topic}>
+                      <b>{f.topic}</b>
+                      <span className="small muted">
+                        {" "}
+                        {f.correct} of {f.total} right here
+                        {f.mastery !== undefined && `, about ${Math.round(f.mastery * 100)}% across your recent work`}
+                      </span>
+                      {ls.length > 0 && (
+                        <span className="small">
+                          {" "}
+                          · Review:{" "}
+                          {ls.map((l, i) => (
+                            <span key={l.id}>
+                              {i > 0 && ", "}
+                              <button className="linkish" onClick={() => goLesson(l.id)}>
+                                {l.title}
+                              </button>
+                            </span>
+                          ))}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          ) : (
+            <p className="small muted">No weak spots stand out. Every topic was solid on this {isExam ? "exam" : "session"} and in your recent answers.</p>
+          )}
+        </section>
+      )}
 
       {(Object.keys(attempt.bySection).length > 0 || Object.keys(attempt.byTopic).length > 1) && (
         <div className="grid-2" style={{ marginBottom: 16 }}>

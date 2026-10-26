@@ -225,12 +225,11 @@ function TodayTab({ api, course }: { api: AppApi; course: Course }) {
         ].filter((t) => bank.questions.some((q) => q.topic === t));
         const count = t.count ?? 20;
         const base = { sections: [] as string[], shuffleChoices: true, count, honors: false };
+        // Smart practice either way, so weak topics get most of the questions.
         const candidates: PracticeOptions[] = [];
-        if (plan && planToday(course, plan, progress).phase === "review") {
-          candidates.push({ ...base, topics: [], filter: "missed" }, { ...base, topics: [], filter: "weak" });
-        }
-        if (readTopics.length) candidates.push({ ...base, topics: readTopics, filter: "all" });
-        candidates.push({ ...base, topics: [], filter: "all" });
+        if (!(plan && planToday(course, plan, progress).phase === "review") && readTopics.length)
+          candidates.push({ ...base, topics: readTopics, filter: "smart" });
+        candidates.push({ ...base, topics: [], filter: "smart" });
         const opts =
           candidates.find((o) => practicePool(bank, progress, o).length >= Math.min(10, count)) ??
           candidates[candidates.length - 1];

@@ -16,6 +16,7 @@ import { AccuracyBar, ScorePill } from "../components/Bars";
 import { bankWarnings } from "../lib/validate";
 
 const FILTERS: { id: PracticeFilter; label: string }[] = [
+  { id: "smart", label: "Smart mix" },
   { id: "all", label: "All" },
   { id: "unseen", label: "Not yet seen" },
   { id: "missed", label: "Last missed" },
@@ -42,7 +43,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   const topics = useMemo(() => [...new Set(bank.questions.map((q) => q.topic))].sort(), [bank]);
   const [pTopics, setPTopics] = useState<string[]>([]);
   const [pSections, setPSections] = useState<string[]>([]);
-  const [pFilter, setPFilter] = useState<PracticeFilter>("all");
+  const [pFilter, setPFilter] = useState<PracticeFilter>("smart");
   const [pCount, setPCount] = useState(20);
   const hasHonors = bank.questions.some((q) => q.honors);
   const [pHonors, setPHonors] = useState(false);
@@ -239,6 +240,11 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                   </button>
                 ))}
               </div>
+              {pFilter === "smart" && (
+                <span className="small muted">
+                  More questions on your weaker topics and fewer on the ones you&rsquo;ve mastered. It keeps adjusting as you answer.
+                </span>
+              )}
             </div>
             {bank.sections.length > 1 && (
               <div className="field">

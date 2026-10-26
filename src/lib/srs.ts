@@ -1,5 +1,6 @@
 // Spaced repetition: a simplified SM-2 (the family Anki uses). Day-granular.
 
+import { courseMastery, isWeak } from "./mastery";
 import { answerText, isChoice } from "./questions";
 import type { Card, CardState, Course, Deck, Progress } from "./types";
 import { shuffle } from "./util";
@@ -119,7 +120,10 @@ export function buildReviewQueue(
   }
   due.sort((a, b) => a.dueOn.localeCompare(b.dueOn));
   const room = Math.max(0, newLimit - newIntroducedToday(course, progress, now));
-  return [...due, ...fresh.slice(0, room)];
+  // New cards on topics you're weak in come first; the rest keep their deck order.
+  const mastery = courseMastery(course, progress);
+  const weakFirst = [...fresh.filter((f) => isWeak(mastery.get(f.card.topic ?? ""))), ...fresh.filter((f) => !isWeak(mastery.get(f.card.topic ?? "")))];
+  return [...due, ...weakFirst.slice(0, room)];
 }
 
 export function cramQueue(course: Course, decks: Deck[], topics: string[] = []): QueueItem[] {

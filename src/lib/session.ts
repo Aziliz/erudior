@@ -1,6 +1,7 @@
 import type { Attempt, Bank, Chosen, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
 import { shuffle, uid } from "./util";
 import { isAnswered, isCorrect, qtype } from "./questions";
+import { RESERVE, adaptiveOrder } from "./mastery";
 
 export { isCorrect };
 
@@ -33,6 +34,8 @@ export interface Session {
   lesson?: LessonRef;
   /** Set for an end-of-module quiz. */
   module?: ModuleRef;
+  /** Smart practice: spare question ids the session can swap in as it adapts (lib/mastery). */
+  adaptive?: { reserve: string[]; shuffleChoices: boolean };
 }
 
 /** True for lesson and module quizzes: every question is scored and there's a pass mark. */
@@ -41,7 +44,8 @@ export const isQuiz = (s: { lesson?: LessonRef; module?: ModuleRef }) => !!(s.le
 /** Percent needed on an end-of-lesson quiz to complete the lesson. */
 export const LESSON_QUIZ_PASS = 70;
 
-export type PracticeFilter = "all" | "missed" | "unseen" | "weak" | "flagged";
+/** "smart": every matching question, weighted toward your weak topics, and adapting as you go. */
+export type PracticeFilter = "smart" | "all" | "missed" | "unseen" | "weak" | "flagged";
 
 export interface ExamOptions {
   count: number;
@@ -63,7 +67,7 @@ export interface PracticeOptions {
   honors?: boolean;
 }
 
-function makeItems(questions: Question[], shuffleChoices: boolean): SessionItem[] {
+export function makeItems(questions: Question[], shuffleChoices: boolean): SessionItem[] {
   return questions.map((q) => {
     const idx = q.choices.map((_, i) => i);
     if (qtype(q) === "order") {
@@ -201,9 +205,12 @@ export function practicePool(bank: Bank, progress: Progress, opts: Omit<Practice
 }
 
 export function startPractice(bank: Bank, progress: Progress, opts: PracticeOptions): Session {
-  const pool = shuffle(practicePool(bank, progress, opts));
-  const items = makeItems(pool.slice(0, Math.max(1, opts.count)), opts.shuffleChoices);
+  const smart = opts.filter === "smart" && !opts.questionIds?.length;
+  const pool = smart ? adaptiveOrder(practicePool(bank, progress, opts), bank, progress) : shuffle(practicePool(bank, progress, opts));
+  const n = Math.max(1, opts.count);
+  const items = makeItems(pool.slice(0, n), opts.shuffleChoices);
   return {
+    ...(smart ? { adaptive: { reserve: pool.slice(n, n + RESERVE).map((q) => q.id), shuffleChoices: opts.shuffleChoices } } : {}),
     id: uid("s"),
     bankId: bank.id,
     bankTitle: bank.title,

@@ -116,6 +116,24 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 - Fixed along the way: under 900px the exam/quiz answer sheet (with Finish quiz / End session) was hidden; it now sits under the question.
 - Tests: `tests/classroom.test.mts` (in npm test); `scripts/classroom-walkthrough.mjs` (teacher + a second browser as the student's device: setup, assign with due date, class file, shared-computer quiz, join, hand-in, tampered file refused, gradebook, CSV, reports), clean light/dark 1280 and 320.
 
+## Adaptive engine (after v0.24.0)
+- `src/lib/mastery.ts`. Per-topic mastery within one bank or course: a recency-weighted score over answers in saved attempts (newest first, decay 0.85, 30 kept, a 50% prior worth 1.5 answers). It falls back to per-question totals and drill totals when no attempt history exists. `confidence = 1 - e^(-n/6)`. `topicPriority`: weak > unmeasured > strong, with a 0.15 floor so strong topics still come up. `isWeak` is mastery < 70% with confidence >= 0.3.
+- Smart practice: `PracticeFilter "smart"`, the default "Smart mix" on the bank page.
+  - `adaptiveOrder` picks a topic by priority (each pick shrinks that topic's share by 0.7×), then a question by `questionWeight` (unseen and recently missed first).
+  - The session carries `adaptive.reserve` (60 spare ids), which is saved and resumed with the run.
+  - In Runner, `adaptAfterCheck` runs after each checked answer. A miss puts another question on that topic two places ahead, in place of an upcoming one on a stronger topic; one topic is capped at 30% of the session. Three right in a row on a strong topic (≥80%) swaps an upcoming question on it for the weakest topic that still has spare questions.
+  - The session length never changes, and a quiet line under the explanation says what changed.
+- Exams and lesson/module quizzes never adapt.
+- Elsewhere:
+  - The planner's practice task says which weak topics it's aiming at; Today's practice button starts smart practice.
+  - New notecards on weak topics are introduced first.
+  - Drill sets weight drill types by topic priority and how often the drill is missed.
+- Results ("What to study next"):
+  - Shown after exams and practice sessions with at least 5 answers.
+  - `focusAreas` blends this attempt's per-topic score (pulled toward 75%, so one miss isn't a pattern) with mastery from answers outside this attempt.
+  - Lists up to 5 topics with links to lessons covering each, plus "Practice these topics" (smart practice on them).
+- Tests: `tests/mastery.test.mts` (in npm test).
+
 ## Published courses are read-only in the app (after v0.24.0)
 - `isPublishedCourse` (lib/catalog.ts): catalog (Erudior) courses and community courses. The course page hides Edit course, Add question bank, New deck and deck Edit; the bank page hides Edit questions and Delete; App sends old `courseEdit`/`deckEdit`/`editor` addresses for them to the course or bank page; importing a file with a published course's id makes a separate "(copy)" instead of replacing it. Erudior's courses change only through their sources (content/) and the publish pipeline; community courses only in the website editor. Personal notes/flags and progress are unaffected.
 
@@ -243,6 +261,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 | `src/lib/storage.ts` | Tauri invoke calls, with a localStorage fallback when the UI runs in a plain browser; backup and restore; the session file |
 | `src/lib/session.ts` | Drawing exam questions, timed blocks, practice pools, scoring, `finishSession`, `attemptPassed`, saving and restoring a run, `defaultExamOptions` |
 | `src/lib/srs.ts` | Spaced repetition scheduling, queues, `missedDeck` and `studyDecks` |
+| `src/lib/mastery.ts` | Adaptive engine: topic mastery, smart practice order, in-session swaps, focus areas after an exam |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |
 | `src/lib/updates.ts` | The updater wrapper (currently disabled by `UPDATES_ENABLED`) |
