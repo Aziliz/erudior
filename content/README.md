@@ -1,23 +1,13 @@
-# Colorado broker course sources
+# Course sources
 
-`samples/colorado-broker-course.json` (bundled with the app) is generated from these files. Edit the sources, then run:
+Erudior's course sources (lessons, questions, drills, notecards, pictures, writer notes and
+reviews) live in the private repo **Aziliz/erudior-courses**. It builds the course files and
+`scripts/sync-to-app.sh` copies them into this repo's `samples/`, which the website deploy signs
+and publishes to courses.erudior.com.
 
-```bash
-python3 content/build_course.py
-```
+Still here:
 
-| Path | What it is |
-|---|---|
-| `parts/n1–n4.json` | National-portion lessons, questions, notecards and glossary |
-| `parts/s1–s4.json` | Colorado state-portion material |
-| `parts/g1–g5.json` | Gap-fill parts from the Van Ed outline comparison (mapped to modules in `GAPS` in `build_course.py`); `g3-drills.json` holds their drills |
-| `quizzes/<module>.json` | Coverage maps: each lesson's teaching points mapped to questions answerable from that lesson alone (the lesson quiz), plus a module quiz spanning every point |
-| `parts/h1–h8.json` | Questions written to cover lesson points no earlier question covered |
-| `abbreviations.json` | Every abbreviation: what it stands for and what it means; the build turns each into its own glossary entry |
-| `lesson-links.json` | Per lesson: the math drills and quick-reference sheets offered in its Study tools box |
-| `refs/*.md` | Quick-reference sheets |
-| `drills.json` | Math drill templates (format in `docs/COURSE_FORMAT.md`) |
-| `research/` | Writers' fact notes with source links |
-| `SPEC.md`, `REVIEW.md` | The writing and fact-check briefs |
+- `content/states/`: the 50-state homeschool rules (`python3 content/states/build.py` → `samples/states.json`).
+- `content/math-sampler/`: a small demo course for the drill engine (`python3 content/math-sampler/build.py`).
 
-The bundled course is installed once on first launch. To ship an updated course to an existing install, import the regenerated JSON from the Library and choose to replace; progress is kept as long as ids don't change.
+The course format is documented in `docs/COURSE_FORMAT.md`.

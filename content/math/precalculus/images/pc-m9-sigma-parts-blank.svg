@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" font-family="sans-serif" fill="#1c2833">
-<rect width="640" height="300" fill="#ffffff"/>
-<text x="300.0" y="180.0" font-size="130" text-anchor="middle" font-family="serif">Σ</text>
-<text x="296.0" y="55.0" font-size="40" text-anchor="middle" >5</text>
-<text x="270.0" y="242.0" font-size="36" text-anchor="middle" font-style="italic" font-family="serif">k</text>
-<text x="302.0" y="240.0" font-size="32" text-anchor="middle" >=</text>
-<text x="332.0" y="242.0" font-size="36" text-anchor="middle" >1</text>
-<text x="450.0" y="155.0" font-size="44" text-anchor="middle" font-family="serif">(2k − 1)</text>
-</svg>
