@@ -14,6 +14,8 @@ import { handlePhonicsClick, hydratePhonics, protectPhonics } from "../lib/phoni
 import { elementItem, markReadUnits, READ_LANG, readUnits, sectionUnits, type AudioLib } from "../lib/readAloud";
 import { canSpeak, onVoices, speaker } from "../lib/speech";
 import { assignTarget, protectAssignments, type BlockLink, type LinkInfo } from "../lib/work";
+import { mediaClick, prepareMedia, protectMedia, releaseMedia } from "../lib/dialogue";
+import { saveBlob } from "../lib/storage";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -49,7 +51,9 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   // Phonics blocks (```sounds, ```blend, ```trace) are finished HTML built from escaped text.
   const phonics = protectPhonics(md);
   const examples = protectExamples(phonics.text, (field) => renderMarkdown(field, scope));
-  md = examples.text;
+  // Dialogues and speaking practice (```dialogue / ```speak): lines rendered the same way.
+  const media = protectMedia(examples.text, (field) => renderMarkdown(field, scope));
+  md = media.text;
   // Manipulatives (```manipulative blocks): a static picture here; the component mounts controls.
   const manips = protectManipulatives(md);
   md = manips.text;
@@ -63,7 +67,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return phonics.restore(assigns.restore(examples.restore(manips.restore(mathHeaders(clean)))));
+  return phonics.restore(assigns.restore(examples.restore(media.restore(manips.restore(mathHeaders(clean))))));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -153,6 +157,10 @@ export default function Markdown({
   foreignLang,
   read,
   assignments,
+  ttsLang,
+  notes,
+  html: prerendered,
+  decorate = true,
 }: {
   source: string;
   /**
@@ -163,6 +171,14 @@ export default function Markdown({
   read?: { lib?: AudioLib; buttons?: boolean };
   /** Lessons: what the ```assignment cards show, and what Open does. Keep the object stable (memoize it). */
   assignments?: { info: (l: BlockLink) => LinkInfo | undefined; open: (l: BlockLink) => void };
+  /** `source` is already sanitized HTML from renderMarkdown (the reader's line-numbered verse). */
+  html?: boolean;
+  /** Color "Key points", examples and tips (lessons); off for texts in the reader. */
+  decorate?: boolean;
+  /** Voice for read-aloud in dialogue and speaking blocks (e.g. "de-DE"); default foreignLang. */
+  ttsLang?: string;
+  /** Footnotes in the text (lib/reader.ts footnotes): note buttons open them. */
+  notes?: { id: string; n: number; text: string }[];
   /** Language courses: italic text is the target language (authoring convention), so mark it
    * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
   foreignLang?: string;
@@ -174,14 +190,17 @@ export default function Markdown({
   const marking = !!read;
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
-    const plain = renderMarkdown(source, scope, assignments?.info);
-    const decorated = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
+    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info);
+    const decorated = decorate && className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
-    return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang, className, marking, readButtons, assignments]);
+    return out
+      .replace(/<em>/g, `<em lang="${code}">`)
+      .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
+      .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
+  }, [source, scope, foreignLang, className, marking, readButtons, assignments, prerendered, decorate]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -277,6 +296,15 @@ export default function Markdown({
     };
   }, [html, lib]);
 
+  // Dialogue and speaking blocks: hide recording where it can't work; when the text changes or
+  // the page closes, stop the sound and drop the student's recordings (they're never kept).
+  useEffect(() => {
+    const el = body.current;
+    if (!el || !el.querySelector(".dlg, .spk")) return;
+    prepareMedia(el);
+    return () => releaseMedia(el);
+  }, [html]);
+
   function readButton(btn: HTMLElement) {
     const root = body.current;
     const id = btn.dataset.raBtn;
@@ -298,19 +326,28 @@ export default function Markdown({
     if (rb) return readButton(rb);
     if (handlePhonicsClick(target, { lib, lang: READ_LANG })) return;
     if (revealExample(target)) return;
+    if (
+      mediaClick(target, {
+        lang: ttsLang ?? foreignLang,
+        save: (r, name) => saveBlob(r.blob, name, "Recording", name.split(".").pop() ?? "webm"),
+      })
+    )
+      return;
     const link = assignTarget(target);
     if (link) {
       assignments?.open(link);
       return;
     }
-    const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
+    const fn = (e.target as HTMLElement).closest<HTMLElement>("button.fn-ref");
+    const el = fn ?? (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
-    const term = el.dataset.term ?? "";
+    const note = fn ? notes?.find((n) => n.id === fn.dataset.fn) : undefined;
+    const term = fn ? `Note ${note?.n ?? ""}` : (el.dataset.term ?? "");
     const box = el.getBoundingClientRect();
     const host = ref.current!.getBoundingClientRect();
     setPop({
       term,
-      entry: findTerm(glossary, term),
+      entry: fn ? (note ? { term, definition: note.text } : undefined) : findTerm(glossary, term),
       x: Math.min(box.left - host.left, host.width - 340),
       y: box.bottom - host.top + 6,
     });

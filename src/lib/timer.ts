@@ -3,7 +3,7 @@
 // minutes; otherwise it pauses. Saved to the student's records about once a minute.
 
 import { useEffect } from "react";
-import { addTime, adjustTime, loadRecords, saveRecords } from "./records";
+import { addTime, adjustTime, loadRecords, saveRecords, type Records } from "./records";
 import { today } from "./srs";
 
 export const IDLE_MS = 3 * 60_000;
@@ -12,10 +12,12 @@ const FLUSH_MS = 60_000;
 
 // Writes to one records file go one at a time.
 let chain: Promise<unknown> = Promise.resolve();
-export function creditTime(studentId: string, courseId: string, seconds: number, date = today()): Promise<void> {
+/** Change a student's records file, queued behind any other write (the timer saves every minute). */
+export function updateRecords(studentId: string, change: (r: Records) => Records): Promise<void> {
   const next = chain.then(async () => {
-    if (seconds < 1) return;
-    await saveRecords(studentId, addTime(await loadRecords(studentId), date, courseId, seconds));
+    const r = await loadRecords(studentId);
+    const out = change(r);
+    if (out !== r) await saveRecords(studentId, out);
   });
   chain = next.catch(() => {});
   return next;
@@ -31,20 +33,32 @@ export function adjustLogged(studentId: string, courseId: string, date: string, 
   return next;
 }
 
+export function creditTime(studentId: string, courseId: string, seconds: number, date = today()): Promise<void> {
+  if (seconds < 1) return Promise.resolve();
+  return updateRecords(studentId, (r) => addTime(r, date, courseId, seconds));
+}
+
 /** Pure accumulator, separate from the DOM so it can be tested. */
 export class ActiveClock {
   private lastInput: number;
   private lastTick: number;
   private seconds = 0;
-  constructor(now: number) {
+  constructor(
+    now: number,
+    private idleMs = IDLE_MS,
+  ) {
     this.lastInput = now;
     this.lastTick = now;
+  }
+  /** True while time counts: visible and some input within the idle limit. */
+  counting(now: number, visible: boolean): boolean {
+    return visible && now - this.lastInput < this.idleMs;
   }
   input(now: number) {
     this.lastInput = now;
   }
   tick(now: number, visible: boolean) {
-    if (visible && now - this.lastInput < IDLE_MS) this.seconds += Math.min(now - this.lastTick, TICK_MS * 2) / 1000;
+    if (this.counting(now, visible)) this.seconds += Math.min(now - this.lastTick, TICK_MS * 2) / 1000;
     this.lastTick = now;
   }
   take(): number {

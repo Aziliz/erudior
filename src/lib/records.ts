@@ -20,7 +20,23 @@ export interface BookEntry {
   author: string;
   subject: string;
   note: string;
+  /** Minutes spent reading it in the app's reader (only for books read there). */
+  minutes?: number;
+  /** `${courseId}/${textId}` for books read in the app, so finishing again updates the entry. */
+  textKey?: string;
 }
+
+/** Add a book the student finished in the reader, or update its entry (minutes, date). */
+export function logBook(r: Records, e: Omit<BookEntry, "id">): Records {
+  const old = e.textKey ? r.reading.find((b) => b.textKey === e.textKey) : undefined;
+  if (!old) return { ...r, reading: [...r.reading, { ...e, id: uid("b") }] };
+  // Keep what the parent may have changed (subject, note); refresh the time read.
+  if (old.minutes === e.minutes) return r;
+  return { ...r, reading: r.reading.map((b) => (b === old ? { ...b, minutes: e.minutes } : b)) };
+}
+
+/** "3 h 20 min" / "45 min" for the reading log. */
+export const bookMinutes = (m: number) => (m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? ` ${m % 60} min` : ""}` : `${m} min`);
 
 export const ACTIVITY_KINDS = ["Physical education and sports", "Extracurricular", "Volunteer service", "Work experience", "Other"] as const;
 

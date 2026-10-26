@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Merged into the macOS app's Info.plist by Tauri. macOS shows this text when Erudior first asks
+     for the microphone (speaking practice); without it the app would be stopped. -->
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Erudior uses the microphone only when you press Record in speaking practice, so you can hear yourself and compare. Recordings stay on this computer.</string>
+</dict>
+</plist>

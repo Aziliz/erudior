@@ -4,6 +4,8 @@ import type { Course } from "../lib/types";
 import { REVIEW_CAP, CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
 import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
+import MathText from "../components/MathText";
+import { readingKey, readingTime, sectionsRead } from "../lib/reader";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
@@ -115,7 +117,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                     <tr key={v.id}>
                       <td lang={lang?.code}>
                         <span className="vocab-term">{v.term}</span>
-                        <SpeakButton text={v.term} lang={lang?.tts} />
+                        <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                         {v.plural && <div className="muted small">pl. {v.plural}</div>}
                       </td>
                       <td>{v.meanings.join("; ")}</td>
@@ -139,12 +141,56 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   );
 }
 
-export function ReadingTab({ course }: { course: Course }) {
+/** The course's reading: texts to read in the app (the library), then books to find elsewhere. */
+export function ReadingTab({ api, course }: { api: AppApi; course: Course }) {
   const list = course.readingList ?? [];
+  const texts = course.texts ?? [];
   return (
     <div className="stack">
+      {texts.length > 0 && (
+        <section className="panel">
+          <h2>Library</h2>
+          <p className="muted small">
+            Read these right here. Erudior keeps your place and counts your reading time while you read
+            {api.family && api.student ? `, and a finished book goes in ${api.student.name}'s reading log` : ""}.
+          </p>
+          <ul className="library-list">
+            {texts.map((t) => {
+              const s = api.progress.reading?.[readingKey(course.id, t.id)];
+              const n = sectionsRead(api.progress, course.id, t);
+              const parts = t.sections.length;
+              return (
+                <li key={t.id} className="library-item">
+                  <div className="library-main">
+                    <h3>
+                      <cite>{t.title}</cite>
+                    </h3>
+                    <p className="muted small">
+                      {[t.author, t.date, t.kind && t.kind !== "prose" ? { poem: "Poem", play: "Play", document: "Document" }[t.kind] : null, parts > 1 ? `${parts} parts` : null]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
+                    {t.about && <MathText as="p" className="small" text={t.about.split(/\n\s*\n/)[0].replace(/[*_]/g, "")} />}
+                    {s && (
+                      <p className="small library-progress">
+                        {s.finished ? <span className="pill pass">Finished</span> : parts > 1 ? `${n} of ${parts} parts read` : "Started"}
+                        {s.seconds >= 60 && <span className="muted"> · read for {readingTime(s.seconds)}</span>}
+                      </p>
+                    )}
+                  </div>
+                  <button className={`btn${s && !s.finished ? " primary" : ""}`} onClick={() => api.go({ name: "read", courseId: course.id, textId: t.id })}>
+                    {s ? (s.finished ? "Read again" : "Continue reading") : "Start reading"}
+                    <span className="sr-only">: {t.title}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+      {list.length > 0 && (
       <section className="panel">
-        <h2>Reading list</h2>
+        <h2>{texts.length ? "More to read" : "Reading list"}</h2>
         <p className="muted small">
           Books and texts written for learners at this level. Try reading on your own: aim to follow the story, not every word.
         </p>
@@ -170,6 +216,7 @@ export function ReadingTab({ course }: { course: Course }) {
           ))}
         </ul>
       </section>
+      )}
     </div>
   );
 }

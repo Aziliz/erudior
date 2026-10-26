@@ -298,3 +298,41 @@ class Speaker {
 
 /** The one reader for the whole app (starting a new reading stops the old one). */
 export const speaker = new Speaker();
+
+/**
+ * Speak and resolve when the voice finishes (or is stopped). Used to play a dialogue or a page
+ * line by line. Resolves at once when there's no speech engine.
+ */
+export function speakAsync(text: string, lang: string, rate = 0.9): Promise<void> {
+  const s = synth();
+  if (!s || !text.trim()) return Promise.resolve();
+  return new Promise((resolve) => {
+    s.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    const v = voiceFor(lang);
+    if (v) u.voice = v;
+    u.rate = rate;
+    let done = false;
+    let started = false;
+    const t0 = Date.now();
+    const end = () => {
+      if (done) return;
+      done = true;
+      window.clearInterval(watch);
+      resolve();
+    };
+    u.onstart = () => (started = true);
+    u.onend = end;
+    u.onerror = end;
+    // Some engines never fire onend after cancel(); stop waiting once nothing is speaking.
+    const watch = window.setInterval(() => {
+      if ((started || Date.now() - t0 > 3000) && !s.speaking && !s.pending) end();
+    }, 400);
+    s.speak(u);
+  });
+}
+
+export function stopSpeaking() {
+  synth()?.cancel();
+}

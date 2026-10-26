@@ -13,7 +13,7 @@ import {
   type StudentData,
 } from "../lib/reports";
 import { stateInfo } from "../lib/states";
-import type { Activity, BookEntry } from "../lib/records";
+import { bookMinutes, type Activity, type BookEntry } from "../lib/records";
 import type { DocumentRef } from "../lib/documents";
 import { PortfolioWork } from "./WorkParts";
 
@@ -88,7 +88,8 @@ function ReadingList({ books }: { books: BookEntry[] }) {
         {sorted.map((b) => (
           <li key={b.id}>
             <cite>{b.title}</cite>
-            {b.author && `, ${b.author}`} ({b.subject}, finished {short(b.date)}){b.note && `. ${b.note}`}
+            {b.author && `, ${b.author}`} ({b.subject}, finished {short(b.date)}
+            {b.minutes ? `; ${bookMinutes(b.minutes)} of reading recorded in the app` : ""}){b.note && `. ${b.note}`}
           </li>
         ))}
       </ol>

@@ -15,10 +15,11 @@ export function emptyDay(): DayActivity {
 /** Return progress with today's activity counter bumped. */
 export function logActivity(p: Progress, kind: keyof DayActivity, n = 1, day = today()): Progress {
   const cur = p.activity[day] ?? emptyDay();
-  return { ...p, activity: { ...p.activity, [day]: { ...cur, [kind]: cur[kind] + n } } };
+  return { ...p, activity: { ...p.activity, [day]: { ...cur, [kind]: (cur[kind] ?? 0) + n } } };
 }
 
-const active = (a?: DayActivity) => !!a && a.questions + a.cards + a.lessons + a.drills > 0;
+// A minute of reading counts as studying that day (readingSec is seconds).
+const active = (a?: DayActivity) => !!a && (a.questions + a.cards + a.lessons + a.drills > 0 || (a.readingSec ?? 0) >= 60);
 
 /** Consecutive days with any study, ending today (or yesterday if today is still empty). */
 export function streak(p: Progress, now = today()): number {

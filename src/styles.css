@@ -6081,3 +6081,446 @@ figure.manip {
     display: none;
   }
 }
+
+/* ==========================================================================
+   Built-in reader (pages/Reader.tsx, Reading tab library) and listening and
+   speaking practice (```dialogue / ```speak blocks, listening questions)
+   ========================================================================== */
+
+/* ---------- Reading tab: the library ---------- */
+.library-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.library-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--subj, var(--accent));
+  border-radius: var(--r-md);
+  background: var(--paper);
+}
+.library-main {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+.library-main h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+.library-main h3 cite {
+  font-style: normal;
+}
+.library-main p {
+  margin: 4px 0 0;
+}
+.library-progress .pill {
+  margin-right: 4px;
+}
+
+/* ---------- The reader ---------- */
+.reader-head h1 {
+  font-family: var(--serif);
+  margin: 4px 0 0;
+}
+.reader-by {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink-2);
+}
+.reader-about {
+  margin-top: 12px;
+}
+.reader-about summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 600;
+  min-height: 24px;
+}
+.reader-about[open] {
+  padding: 4px 14px 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+/* Tools stay in reach while reading (the page scrolls inside .main). */
+.reader-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 16px 0 0;
+  padding: 8px 10px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+}
+.reader-toc {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.reader-toc .select {
+  max-width: 100%;
+  width: auto;
+}
+.reader-time {
+  margin-left: auto;
+}
+.reader-body {
+  margin-top: 20px;
+  padding: 8px clamp(14px, 4vw, 40px) 24px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow-wrap: break-word;
+}
+.reader-section {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: 0.8em 0 0.6em;
+}
+.reader-section:focus {
+  outline: none;
+}
+.reader-section:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+/* Long reading: a little larger and airier than lesson text. */
+.reader-text.prose {
+  font-size: 1.1875rem;
+  line-height: 1.75;
+}
+.reader-text.prose > p + p {
+  margin-top: 0.9em;
+}
+.reader-text .is-reading {
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  border-radius: 2px;
+}
+/* Poems and plays: one line per line, numbers in a gutter on the left. */
+.reader-text.is-verse {
+  line-height: 1.6;
+}
+.verse {
+  padding-left: 3.2em;
+}
+.verse .stanza {
+  margin: 0 0 1.1em;
+}
+.verse .vl,
+.verse .stage {
+  position: relative;
+  margin: 0;
+  /* A long line wraps with a hanging indent, as in printed verse. */
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.verse .ln {
+  position: absolute;
+  left: -3.2em;
+  width: 2.6em;
+  text-indent: 0;
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 0.75em;
+  line-height: 2.3;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.verse .speaker {
+  margin: 1em 0 0.15em;
+  font-family: var(--sans);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.verse .stage {
+  color: var(--ink-2);
+}
+.verse .verse-head {
+  margin: 1.2em 0 0.6em;
+}
+/* Footnote markers and the notes list. */
+sup.fn {
+  line-height: 0;
+}
+button.fn-ref {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 0;
+  border-radius: 4px;
+  /* An inline target in running text (WCAG 2.5.8's inline exception): keep the line spacing even. */
+  min-width: 1.5em;
+  line-height: 1.3;
+  padding: 0 3px;
+  cursor: pointer;
+}
+.reader-notes {
+  margin-top: 2em;
+  padding-top: 0.8em;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.reader-notes h3 {
+  margin: 0 0 0.4em;
+  font-size: 1rem;
+}
+.reader-notes ol {
+  margin: 0;
+  padding-left: 1.6em;
+}
+.reader-notes .note-text p {
+  margin: 0.2em 0;
+}
+.reader-questions,
+.reader-end {
+  margin-top: 16px;
+}
+.reader-end .row {
+  margin-top: 10px;
+  gap: 10px;
+}
+@media (max-width: 520px) {
+  .reader-text.prose {
+    font-size: 1.0625rem;
+  }
+  .verse {
+    padding-left: 2em;
+  }
+  .verse .ln {
+    left: -2em;
+    width: 1.6em;
+  }
+  .verse .vl,
+  .verse .stage {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  .reader-time {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+}
+
+/* ---------- Dialogues ---------- */
+.prose .dlg,
+.prose .spk {
+  margin: 1.4em 0;
+  padding: 6px 16px 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--subj, var(--accent));
+  border-radius: var(--r-md);
+  overflow-wrap: anywhere;
+}
+.media-kicker {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--subj, var(--accent));
+}
+.prose .dlg-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin: 0.6em 0 0.4em;
+}
+.prose .dlg-title,
+.prose .spk-head {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  font-weight: 650;
+}
+.prose .spk-head {
+  margin-top: 0.8em;
+}
+.dlg-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.prose .dlg-lines,
+.prose .spk-items {
+  list-style: none;
+  margin: 0.6em 0 0;
+  padding: 0;
+}
+.prose .dlg-line {
+  display: grid;
+  grid-template-columns: minmax(4.5em, max-content) 1fr auto;
+  align-items: start;
+  gap: 4px 12px;
+  margin: 0;
+  padding: 6px 6px;
+  border-radius: var(--r-sm);
+}
+.prose .dlg-line + .dlg-line {
+  border-top: 1px solid var(--rule);
+}
+.dlg-who {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  padding-top: 0.2em;
+}
+.prose .dlg-text,
+.prose .spk-text {
+  margin: 0;
+}
+.prose .dlg-tr,
+.prose .spk-tr {
+  margin: 0.1em 0 0;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.prose .dlg-line.is-playing,
+.prose .spk-item.is-playing {
+  background: var(--subj-soft, var(--accent-soft));
+}
+/* "Hide the words": listen first, read later. Translations can be turned off too. */
+.dlg.hide-words .dlg-text,
+.dlg.hide-words .dlg-tr,
+.dlg.hide-tr .dlg-tr {
+  display: none;
+}
+.dlg.hide-words .dlg-say::before {
+  content: "…";
+  color: var(--ink-2);
+}
+.media-btn[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+.prose .media-status {
+  margin: 0.4em 0 0;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.prose .media-status:empty {
+  display: none;
+}
+
+/* ---------- Speaking practice ---------- */
+.prose .spk-note,
+.prose .spk-norec {
+  margin: 0.4em 0 0;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.prose .spk-item {
+  margin: 0;
+  padding: 10px 8px;
+  border-radius: var(--r-sm);
+}
+.prose .spk-item + .spk-item {
+  border-top: 1px solid var(--rule);
+}
+.prose .spk-text {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.spk-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.spk-controls .btn[hidden] {
+  display: none;
+}
+.media-btn.is-recording {
+  background: var(--bad);
+  border-color: var(--bad);
+  /* --bad is dark in light themes and light in dark ones; the surface color contrasts with both. */
+  color: var(--surface);
+}
+@media (max-width: 420px) {
+  .prose .dlg,
+  .prose .spk {
+    padding: 4px 10px 12px;
+  }
+  .prose .dlg-line {
+    grid-template-columns: 1fr auto;
+  }
+  .prose .dlg-who {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+}
+
+/* ---------- Listening questions ---------- */
+.q-audio {
+  margin: 10px 0 4px;
+}
+.q-audio .row {
+  gap: 8px;
+}
+.q-transcript {
+  margin: 8px 0 0;
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+@media print {
+  .reader-bar,
+  .reader-end,
+  .reader-questions,
+  .dlg-tools,
+  .dlg-play,
+  .spk-controls,
+  .spk-note,
+  .media-status {
+    display: none !important;
+  }
+  .reader-body {
+    border: 0;
+    padding: 0;
+  }
+  .dlg.hide-words .dlg-text,
+  .dlg.hide-words .dlg-tr,
+  .dlg.hide-tr .dlg-tr {
+    display: block !important;
+  }
+  .prose .dlg,
+  .prose .spk {
+    break-inside: avoid;
+  }
+  .reader-text .is-reading {
+    background: none;
+    box-shadow: none;
+  }
+}

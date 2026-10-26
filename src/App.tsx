@@ -24,6 +24,7 @@ import DrillRunner from "./pages/DrillRunner";
 import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites, setCatalog } from "./lib/catalog";
 import { fetchCatalog, type CatalogSource } from "./lib/courseSource";
 import RefView from "./pages/RefView";
+import Reader from "./pages/Reader";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
 import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
@@ -90,6 +91,7 @@ export type View =
   | { name: "deckEdit"; courseId: string; deckId: string }
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
   | { name: "ref"; courseId: string; refId: string }
+  | { name: "read"; courseId: string; textId: string }
   | { name: "search"; q: string }
   | { name: "overview"; catalogId: string }
   | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number }
@@ -612,6 +614,7 @@ export default function App() {
       case "drill":
       case "ref":
       case "work":
+      case "read":
         return view.courseId;
       case "run": {
         const b = allBanks.find((x) => x.id === view.session.bankId);
@@ -772,6 +775,12 @@ export default function App() {
     case "search":
       body = <SearchPage key={view.q} api={api} initial={view.q} />;
       break;
+    case "read": {
+      const c = courseFor(view.courseId);
+      const t = c?.texts?.find((x) => x.id === view.textId);
+      if (c && t) body = <Reader key={`${c.id}/${t.id}`} api={api} course={c} text={t} />;
+      break;
+    }
     case "ref": {
       const c = courseFor(view.courseId);
       const r = c?.references.find((x) => x.id === view.refId);

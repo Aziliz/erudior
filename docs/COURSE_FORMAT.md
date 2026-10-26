@@ -43,6 +43,8 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - Lesson bodies (and quick-reference sheets) can show pictures (`![alt text](data:image/svg+xml;base64,…)`; bundled courses keep them in `images/` and the build embeds them) and Mermaid diagrams in a ```` ```mermaid ```` block. Each diagram needs `accTitle:` and `accDescr:` lines; it's drawn in the app's colors and redrawn when the theme changes.
 - Lesson bodies (and quick-reference sheets) can hold **worked examples with fading** in an ```` ```example ```` block; see [Worked examples](#worked-examples) below.
 - Lesson bodies can hold **math manipulatives** (counters, base-ten blocks, number lines, fraction bars, a clock, coins) in a ```` ```manipulative ```` block; see [Math manipulatives](#math-manipulatives) below.
+
+- Lesson bodies can hold **dialogues** (```` ```dialogue ````) and **speaking practice** (```` ```speak ````); see [Listening and speaking](#listening-and-speaking) below.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks
@@ -292,6 +294,85 @@ log
 ```
 
 Sheets print cleanly from the app.
+
+## Reader texts
+
+`texts` is the course's library: books, poems, plays and primary sources read in the app's reader (the **Reading** tab, which also lists the `readingList` books to find elsewhere under "More to read").
+
+```json
+"texts": [{
+  "id": "lamplighter",
+  "title": "The Lamplighter's Last Round",
+  "author": "A. Writer",
+  "date": "1894",
+  "kind": "prose",
+  "lang": "en-US",
+  "subject": "English language arts",
+  "about": "Markdown introduction, shown in the library and under **About this text**.",
+  "source": "Edition used, and why it's in the public domain.",
+  "lineNumbers": 5,
+  "glossary": [{ "term": "lamplighter", "definition": "A person who lit the gas street lamps." }],
+  "sections": [
+    { "id": "ch1", "title": "The Ladder", "body": "Markdown…", "questions": ["r-1", "r-2"] }
+  ]
+}]
+```
+
+- `id`, `title` and at least one section are required; section ids must be unique within the text. Keep ids stable: the student's place, reading time and finished parts are keyed on them.
+- `kind`: `prose` (default) and `document` are Markdown, like lessons (pictures, math, tables, glossary links). `poem` and `play` are laid out line by line: each line of `body` is a line of the text, a blank line starts a new stanza (or speech), leading spaces indent, and every `lineNumbers`-th line (default 5; `0` for none) is numbered in the margin. In a play, a line in capitals ending in a period (`HAMLET.`) is a speaker, and a line wrapped in `*…*` or `[…]` is a stage direction; neither is counted, as in printed editions. A `#` line is a heading in both.
+- Footnotes in any kind: `[^1]` in the text and a `[^1]: note` line (indented lines continue it). The notes are numbered in the order they're first used, open in a pop-up from the marker, and are listed under the section.
+- `glossary`: words explained for this text only. `[[term]]` links look here first, then in the course glossary.
+- `questions`: reading questions after the section, ids from the course's question bank (the biggest one, as for lesson quizzes). They run as practice (answers and explanations shown, recorded like any practice), then return to the text.
+- `lang` sets the text's language (for screen readers and read-aloud); the default is the course's language, else English. `subject` is the subject for the homeschool reading log (default English language arts, or World languages in a language course).
+- The reader follows the Display settings (theme, reading width, text size), remembers the part and the paragraph or line at the top of the screen, and has **Read aloud** (the device's voice, paragraph by paragraph from where you are, highlighting each) when a voice exists for the language. Reading time counts only while the window is visible and the student scrolled, typed or clicked in the last four minutes (or read-aloud is playing); it's saved to progress (`progress.reading`, and the day's activity, so a minute of reading keeps a streak) and, in homeschool families, to the student's study time like other study screens. "I've read this part" marks a section; when every section is read the text is finished, and a homeschool student's reading log gets the book (title, author, date, subject, minutes read in the app). The parent can edit or delete the entry; reading it again updates the minutes only.
+- Texts live in the course file, like lessons, so a course stays one signed file that works offline. Only the open section is rendered, so a long book is fine; a large library is better as a course of its own (a course is the unit of download).
+- Copyright: only public-domain texts (in the US, as of 2026, works published in 1930 or earlier; a later edition or translation can still be under copyright, so check the one you use) or texts you have the right to publish. Say which in `source`.
+- The course checker reports missing ids or titles, repeated ids, empty or untitled sections, unknown kinds, reading questions that aren't in the bank, footnotes without a note (and notes never used), and checks the math in every section.
+- `samples/demo-reader.json` shows a story, a poem, a play scene and a document-style letter (all sample texts written for Erudior).
+
+## Listening and speaking
+
+Language courses (and any course with spoken content) can use sound in three places: words, lessons and questions. Sound is a recorded clip when the course has one, otherwise the device's own voice (text-to-speech) for the course's `language.tts`. Clips are embedded like pictures, as `data:audio/…;base64` URLs (mp3 is the safest format; m4a/aac, ogg/opus, wav, webm and flac also work), at most 400 KB each.
+
+**Words:** a vocabulary item can have `"audio": "data:audio/mpeg;base64,…"`, its recorded pronunciation. The 🔊 buttons and the automatic playback after a recall card use it in place of the device's voice.
+
+**Dialogues** play line by line with speaker labels and translations:
+
+````markdown
+```dialogue lang=de-DE
+# Im Café
+Kellner: Guten Tag! Was möchten Sie trinken?
+= Hello! What would you like to drink?
+audio: data:audio/mpeg;base64,…
+Anna: Einen Kaffee, bitte.
+= A coffee, please.
+```
+````
+
+- `Name: text` starts a line (the name is up to 40 characters, before the first colon). `= …` is the translation of the line above, and `audio: data:audio/…` its recorded clip. A `# …` first line is the title. Other lines continue the text (or translation) above, so long lines can wrap. Lines and translations are Markdown with math and glossary links.
+- `lang=…` (optional) sets the voice; the default is the course language. The text is marked with that language for screen readers.
+- The student can play one line (🔊) or **Play all** (in order, with a short pause between speakers, and **Stop**), **Hide the words** to listen first, and turn **Translations** off. The line being played is highlighted.
+
+**Speaking practice** is a list of phrases to say:
+
+````markdown
+```speak lang=de-DE
+# Introduce yourself
+Ich heiße Anna.
+= My name is Anna.
+audio: data:audio/mpeg;base64,…
+Wie heißt du?
+= What's your name?
+```
+````
+
+- Every line is a phrase (colons are fine), with optional `= translation` and `audio:` lines after it.
+- Each phrase has **Listen**, **Slower**, **Record yourself** (then **Stop recording**), **Your recording**, **Compare: model, then you**, **Keep a copy** and **Delete recording**. There's no automatic scoring: students compare by ear and try again. Recordings stay on the device: they're held in memory while the page is open and dropped when the student records again, deletes it, or leaves the page, unless they keep a copy (saved as a file they choose; never uploaded). Recordings stop after 30 seconds.
+- Without a microphone, or when it isn't allowed, the student gets a plain explanation and can still listen and repeat out loud; on a device that can't record at all, the Record button is hidden with a note.
+
+**Listening questions:** any question can have `audio` (see BANK_FORMAT.md): "pick what you heard" (choice) or dictation (`text`).
+
+Without JavaScript (printing, prerendered pages) dialogues and phrases show as text with their translations. The course checker reports unknown options, lines without a speaker, translations or audio before the first line, repeated translations, audio that isn't an embedded `data:audio` URL, clips over 400 KB, empty and unclosed blocks, and listening questions without `text` (or without a voice language). `samples/demo-listening.json` shows all of it (its clips are made with a computer voice, espeak-ng; real courses should use recordings of native speakers).
 
 ## Math drills
 

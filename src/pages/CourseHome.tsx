@@ -39,7 +39,7 @@ const TABS: { id: CourseTab; label: string; show: (c: Course) => boolean }[] = [
   { id: "drills", label: "Math drills", show: (c) => c.drills.length > 0 },
   { id: "glossary", label: "Glossary", show: (c) => c.glossary.length > 0 },
   { id: "reference", label: "Quick reference", show: (c) => c.references.length > 0 },
-  { id: "reading", label: "Reading list", show: (c) => !!c.readingList?.length },
+  { id: "reading", label: "Reading", show: (c) => !!c.readingList?.length || !!c.texts?.length },
 ];
 
 /** The bank used for planner tasks: the biggest one. */
@@ -126,7 +126,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
       {tab === "banks" && <BanksTab api={api} course={course} />}
       {tab === "cards" && <CardsTab api={api} course={course} />}
       {tab === "vocab" && <VocabTab api={api} course={course} />}
-      {tab === "reading" && <ReadingTab course={course} />}
+      {tab === "reading" && <ReadingTab api={api} course={course} />}
       {tab === "drills" && <DrillsTab api={api} course={course} />}
       {tab === "glossary" && <GlossaryTab course={course} />}
       {tab === "reference" && <ReferenceTab api={api} course={course} />}

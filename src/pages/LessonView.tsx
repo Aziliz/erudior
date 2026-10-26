@@ -140,7 +140,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       />
 
       <article className="lesson-body">
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
       </article>
 
       {words.length > 0 && (
@@ -155,7 +155,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
                 <tr key={v.id}>
                   <td lang={lang?.code}>
                     <span className="vocab-term">{v.term}</span>
-                    <SpeakButton text={v.term} lang={lang?.tts} />
+                    <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                     {v.plural && <div className="muted small">pl. {v.plural}</div>}
                   </td>
                   <td>

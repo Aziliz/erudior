@@ -25,7 +25,8 @@ function shuffle<T>(xs: T[]): T[] {
 
 const toLive = (q: Question): LiveQuestion => ({ stem: q.stem, choices: q.choices, answer: q.answer });
 /** Live rooms use multiple-choice questions without pictures (other kinds need the full app). */
-const liveable = (q: Question) => isChoice(q) && !q.image;
+// Live rooms show the question on each device as text: no pictures or sound.
+const liveable = (q: Question) => isChoice(q) && !q.image && !q.audio;
 
 export default function LiveHost({ api }: { api: AppApi }) {
   const [room, setRoom] = useState(hosting);
