@@ -17,7 +17,7 @@ export interface RouteCourse {
   title: string;
 }
 
-const TABS: CourseTab[] = ["today", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference"];
+const TABS: CourseTab[] = ["today", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
 
 /** The address part for a course: its title as a slug, unless another course has the same slug. */
 export function courseSlug(id: string, all: RouteCourse[]): string {
@@ -44,6 +44,7 @@ function courseOf(v: View): string | null {
     case "drill":
     case "ref":
     case "vocab":
+    case "work":
       return v.courseId;
     case "overview":
       return v.catalogId;
@@ -84,6 +85,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return course(v.courseId) + (v.tab && v.tab !== "today" ? "/" + v.tab : "");
     case "lesson":
       return course(v.courseId) + "/lessons/" + encodeURIComponent(v.lessonId);
+    case "work":
+      return course(v.courseId) + "/work/" + encodeURIComponent(v.itemId);
     case "courseEdit":
       return course(v.courseId) + "/edit";
     case "cards":
@@ -141,6 +144,7 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   const courseId = have.id;
   if (second === "lessons" && third) return { name: "lesson", courseId, lessonId: decodeURIComponent(third) };
   if (second === "reference" && third) return { name: "ref", courseId, refId: decodeURIComponent(third) };
+  if (second === "work" && third) return { name: "work", courseId, itemId: decodeURIComponent(third) };
   if (second && (TABS as string[]).includes(second)) return { name: "course", courseId, tab: second as CourseTab };
   // Activities (practice, results, …) need state the address doesn't carry: open the course.
   return { name: "course", courseId };

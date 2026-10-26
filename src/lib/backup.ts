@@ -9,6 +9,7 @@ import { loadPhotos, savePhotos } from "./portfolio";
 import { loadFile, putFile } from "./documents";
 import type { PortfolioPhoto } from "./reports";
 import * as store from "./storage";
+import { workFileIds } from "./work";
 import { serializeCourse, normalizeCourse } from "./course";
 import { parseBank, serializeBank } from "./validate";
 
@@ -103,18 +104,22 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     progress: await store.loadBaseProgress(),
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
-    files: await gatherFiles(students),
+    files: await gatherFiles(students, await store.loadBaseProgress()),
   };
 }
 
-async function gatherFiles(students: Contents["students"]): Promise<Contents["files"]> {
+async function gatherFiles(students: Contents["students"], base: Progress): Promise<Contents["files"]> {
   const files: NonNullable<Contents["files"]> = {};
-  for (const s of Object.values(students))
-    for (const d of s.records.documents ?? []) {
-      if (files[d.fileId]) continue;
-      const f = await loadFile(d.fileId);
-      if (f) files[d.fileId] = f;
-    }
+  // Documents on record, plus photos and files attached to students' writing, labs and logs.
+  const ids = [
+    ...Object.values(students).flatMap((s) => [...(s.records.documents ?? []).map((d) => d.fileId), ...workFileIds(s.progress)]),
+    ...workFileIds(base),
+  ];
+  for (const id of ids) {
+    if (files[id]) continue;
+    const f = await loadFile(id);
+    if (f) files[id] = f;
+  }
   return files;
 }
 

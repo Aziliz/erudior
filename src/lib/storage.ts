@@ -192,6 +192,8 @@ export interface Backup {
   progress: Progress;
   courses: unknown[];
   banks: unknown[];
+  /** Photos and files attached to writing, labs and activity logs, by file id. */
+  files?: Record<string, { mime: string; data: string }>;
 }
 
 /** Save everything (courses, banks, progress) to one file the user picks. */
@@ -204,6 +206,14 @@ export async function exportBackup(courses: Course[], banks: Bank[], progress: P
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.map((b) => JSON.parse(serializeBank(b))),
   };
+  // Loaded on demand: documents.ts and work.ts import this module.
+  const [{ loadFile }, { workFileIds }] = await Promise.all([import("./documents"), import("./work")]);
+  const files: NonNullable<Backup["files"]> = {};
+  for (const id of workFileIds(progress)) {
+    const f = await loadFile(id).catch(() => null);
+    if (f) files[id] = f;
+  }
+  if (Object.keys(files).length) backup.files = files;
   const day = new Date().toISOString().slice(0, 10);
   return exportText(JSON.stringify(backup), `erudior-backup-${day}.json`, "Erudior backup");
 }
@@ -221,6 +231,10 @@ export async function restoreBackup(
   for (const x of current.banks) if (!banks.some((y) => y.id === x.id)) await deleteBank(x.id);
   for (const c of courses) await saveCourse(c);
   for (const x of banks) await saveBank(x);
+  if (b.files) {
+    const { putFile } = await import("./documents");
+    for (const [id, file] of Object.entries(b.files)) if (/^[a-z0-9]{1,64}$/.test(id) && file?.data) await putFile(id, file);
+  }
   await saveProgress({ ...emptyProgress(), ...b.progress, seeded: true });
   return { courses: courses.length, banks: banks.length };
 }

@@ -3,7 +3,7 @@
 // minutes; otherwise it pauses. Saved to the student's records about once a minute.
 
 import { useEffect } from "react";
-import { addTime, loadRecords, saveRecords } from "./records";
+import { addTime, adjustTime, loadRecords, saveRecords } from "./records";
 import { today } from "./srs";
 
 export const IDLE_MS = 3 * 60_000;
@@ -16,6 +16,16 @@ export function creditTime(studentId: string, courseId: string, seconds: number,
   const next = chain.then(async () => {
     if (seconds < 1) return;
     await saveRecords(studentId, addTime(await loadRecords(studentId), date, courseId, seconds));
+  });
+  chain = next.catch(() => {});
+  return next;
+}
+
+/** Logged minutes (activity logs) added or taken back; same write queue as tracked time. */
+export function adjustLogged(studentId: string, courseId: string, date: string, seconds: number): Promise<void> {
+  const next = chain.then(async () => {
+    if (!seconds) return;
+    await saveRecords(studentId, adjustTime(await loadRecords(studentId), date, courseId, seconds));
   });
   chain = next.catch(() => {});
   return next;

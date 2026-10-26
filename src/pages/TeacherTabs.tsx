@@ -11,6 +11,7 @@ import { coursePercent, gradeParts, letterFor } from "../lib/grades";
 import { loadRecords, type Records } from "../lib/records";
 import { today } from "../lib/srs";
 import * as store from "../lib/storage";
+import { putFile } from "../lib/documents";
 import type { Progress } from "../lib/types";
 
 const fmt = (d: string) => new Date(`${d.slice(0, 10)}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
@@ -463,6 +464,12 @@ export function GradebookTab({ api, family }: { api: AppApi; family: Family }) {
 
 // ---------- Hand-ins ----------
 
+function handedWork(p: { work?: Record<string, { submitted?: string }>; logs?: unknown[] }): string {
+  const handed = Object.values(p.work ?? {}).filter((w) => w.submitted).length;
+  const logs = p.logs?.length ?? 0;
+  return `${handed ? `, ${handed} piece${handed === 1 ? "" : "s"} of written or lab work` : ""}${logs ? `, ${logs} activity log entr${logs === 1 ? "y" : "ies"}` : ""}`;
+}
+
 export function HandinsTab({ api, family }: { api: AppApi; family: Family }) {
   const [log, setLog] = useState<{ ok: boolean; text: string }[]>([]);
   const [busy, setBusy] = useState(false);
@@ -478,6 +485,8 @@ export function HandinsTab({ api, family }: { api: AppApi; family: Family }) {
         return;
       const t = await store.loadState(`progress-${h.studentId}`);
       const p: Progress = t ? { ...store.emptyProgress(), ...(JSON.parse(t) as Progress) } : store.emptyProgress();
+      // Photos and files from writing, labs and activity logs go in this computer's file store.
+      for (const [fileId, f] of Object.entries(h.files ?? {})) if (/^[a-z0-9]{1,64}$/.test(fileId) && f?.data) await putFile(fileId, f);
       await store.saveState(`progress-${h.studentId}`, JSON.stringify(mergeWork(p, h.progress, h.courses)));
       // Courses the student worked on must be on this computer to show lessons and questions.
       for (const id of h.courses) {
@@ -487,7 +496,7 @@ export function HandinsTab({ api, family }: { api: AppApi; family: Family }) {
       await api.reload();
       const fresh = { ...family, classes: (family.classes ?? []).map((c) => (c.id === cls.id ? { ...c, handins: { ...c.handins, [h.studentId]: h.created } } : c)) };
       await api.setFamily(fresh);
-      setLog((l) => [{ ok: true, text: `${h.studentName} (${cls.name}): ${h.progress.attempts.length} quiz and exam results, ${Object.keys(h.progress.lessonsDone).length} lessons, saved ${fmt(h.created)}` }, ...l]);
+      setLog((l) => [{ ok: true, text: `${h.studentName} (${cls.name}): ${h.progress.attempts.length} quiz and exam results, ${Object.keys(h.progress.lessonsDone).length} lessons${handedWork(h.progress)}, saved ${fmt(h.created)}` }, ...l]);
     } catch (e) {
       setLog((l) => [{ ok: false, text: (e as Error).message }, ...l]);
     } finally {

@@ -9,6 +9,7 @@
 import type { ClassInfo, Family } from "./family";
 import type { Attempt, Progress } from "./types";
 import { loadState, saveState } from "./storage";
+import { mergeStudentWork, workFileIds, workForCourses } from "./work";
 
 export interface ClassFile {
   format: "erudior-class";
@@ -32,7 +33,9 @@ export interface HandIn {
   studentName: string;
   created: string;
   courses: string[];
-  progress: Pick<Progress, "attempts" | "lessonsDone" | "modulesDone" | "drills">;
+  progress: Pick<Progress, "attempts" | "lessonsDone" | "modulesDone" | "drills" | "work" | "logs">;
+  /** Photos and files attached to writing, labs and activity logs, by file id. */
+  files?: Record<string, { mime: string; data: string }>;
   mac: string;
 }
 
@@ -90,13 +93,27 @@ export function workFor(p: Progress, courses: string[]): HandIn["progress"] {
     lessonsDone: pick(p.lessonsDone),
     modulesDone: pick(p.modulesDone),
     drills: pick(p.drills),
+    ...workForCourses(p, courses),
   };
 }
 
-export async function makeHandIn(c: ClassFile, studentId: string, p: Progress): Promise<HandIn> {
+/** `loadFile` reads a stored photo or file (documents.ts) so it travels with the work. */
+export async function makeHandIn(
+  c: ClassFile,
+  studentId: string,
+  p: Progress,
+  loadFile?: (fileId: string) => Promise<{ mime: string; data: string } | null>,
+): Promise<HandIn> {
   const student = c.students.find((s) => s.id === studentId);
   if (!student) throw new Error("Pick your name in the class first.");
   const courses = c.assignments.map((a) => a.courseId);
+  const progress = workFor(p, courses);
+  const files: NonNullable<HandIn["files"]> = {};
+  if (loadFile)
+    for (const id of workFileIds(progress)) {
+      const f = await loadFile(id).catch(() => null);
+      if (f) files[id] = f;
+    }
   const body = {
     format: "erudior-handin" as const,
     version: 1 as const,
@@ -106,7 +123,8 @@ export async function makeHandIn(c: ClassFile, studentId: string, p: Progress): 
     studentName: student.name,
     created: new Date().toISOString(),
     courses,
-    progress: workFor(p, courses),
+    progress,
+    ...(Object.keys(files).length ? { files } : {}),
   };
   return { ...body, mac: await hmac(c.secret, stableJson(body)) };
 }
@@ -135,7 +153,7 @@ export function mergeWork(p: Progress, w: HandIn["progress"], courses: string[])
   const drills = { ...p.drills };
   for (const [k, v] of Object.entries(w.drills ?? {})) if (!drills[k] || v.attempts > drills[k].attempts) drills[k] = v;
   const enrolled = [...new Set([...(p.enrolled ?? []), ...courses])];
-  return { ...p, attempts, lessonsDone: earliest(p.lessonsDone, w.lessonsDone), modulesDone: earliest(p.modulesDone, w.modulesDone), drills, enrolled };
+  return { ...mergeStudentWork(p, w), attempts, lessonsDone: earliest(p.lessonsDone, w.lessonsDone), modulesDone: earliest(p.modulesDone, w.modulesDone), drills, enrolled };
 }
 
 // ---------- student device: joined classes ----------

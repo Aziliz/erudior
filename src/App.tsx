@@ -17,6 +17,7 @@ import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
 import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
+import WorkView from "./pages/WorkView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
@@ -84,6 +85,7 @@ export type View =
   | { name: "course"; courseId: string; tab?: CourseTab }
   | { name: "courseEdit"; courseId: string; isNew?: boolean }
   | { name: "lesson"; courseId: string; lessonId: string }
+  | { name: "work"; courseId: string; itemId: string }
   | { name: "cards"; courseId: string; deckIds: string[]; mode: "review" | "cram"; topics?: string[] }
   | { name: "deckEdit"; courseId: string; deckId: string }
   | { name: "drill"; courseId: string; drillIds: string[]; count: number }
@@ -609,6 +611,7 @@ export default function App() {
       case "cards":
       case "drill":
       case "ref":
+      case "work":
         return view.courseId;
       case "run": {
         const b = allBanks.find((x) => x.id === view.session.bankId);
@@ -716,6 +719,11 @@ export default function App() {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
       if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      break;
+    }
+    case "work": {
+      const c = courseFor(view.courseId);
+      if (c) body = <WorkView key={view.itemId} api={api} course={c} itemId={view.itemId} />;
       break;
     }
     case "vocab": {

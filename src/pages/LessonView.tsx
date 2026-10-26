@@ -13,6 +13,7 @@ import { mainBank } from "./CourseHome";
 import { SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
+import { useAssignmentLinks } from "./WorkView";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
@@ -37,6 +38,9 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const pageRef = useRef<HTMLDivElement>(null);
   const lib = useMemo(() => audioLibrary(course), [course]);
   const read = useMemo(() => ({ lib, buttons: !!course.readAloud }), [lib, course.readAloud]);
+  const links = useAssignmentLinks(api, course);
+  // Only lessons that link assignments need the cards (keeps other lessons' rendering cached).
+  const assignments = lesson.body.includes("```assignment") ? links : undefined;
 
   const goLesson = (id: string) => api.go({ name: "lesson", courseId: course.id, lessonId: id });
 
@@ -136,7 +140,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       />
 
       <article className="lesson-body">
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} />
       </article>
 
       {words.length > 0 && (

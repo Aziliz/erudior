@@ -202,6 +202,83 @@ Any question can carry:
 
 `samples/early-readers-demo.json` is a small course with all of this (import it from the Library).
 
+## Student work: writing, labs and activity logs
+
+Work a parent or teacher reviews lives in four optional top-level fields. Lessons link to it with an ```` ```assignment ```` block, and the course gets an **Assignments** tab listing everything. `samples/demo-student-work.json` has one of each.
+
+```json
+"rubrics": [{
+  "id": "paragraph",
+  "title": "Persuasive paragraph",
+  "criteria": [{
+    "id": "claim",
+    "name": "Topic sentence",
+    "description": "Optional",
+    "levels": [
+      { "points": 4, "label": "Excellent", "description": "Clearly says what you think…" },
+      { "points": 3, "label": "Good", "description": "…" },
+      { "points": 1, "label": "Not yet", "description": "…" }
+    ]
+  }]
+}],
+"writing": [{
+  "id": "class-pet",
+  "title": "Should our class get a pet?",
+  "module": "m1",
+  "kind": "essay",
+  "prompt": "Markdown: what to write.",
+  "words": { "min": 80, "max": 200 },
+  "rubric": "paragraph",
+  "selfCheck": true,
+  "minutes": 20
+}],
+"labs": [{
+  "id": "ice-melt",
+  "title": "Does salt make ice melt faster?",
+  "module": "m1",
+  "minutes": 40,
+  "adult": true,
+  "intro": "Markdown: what the lab finds out.",
+  "safety": ["Never taste anything in a science lab."],
+  "materials": ["2 ice cubes the same size", "1 teaspoon of salt"],
+  "steps": ["Markdown step", { "text": "Measure the salt with an adult.", "adult": true }],
+  "tables": [{ "id": "watch", "title": "What you saw", "columns": ["Time", "Plain", "Salted"], "rows": 5, "rowLabels": ["Start", "5 min", "10 min", "15 min", "20 min"] }],
+  "questions": [
+    { "id": "saw", "kind": "observation", "prompt": "What differences did you see?" },
+    { "id": "why", "kind": "conclusion", "prompt": "Did salt make the ice melt faster? Explain with your data." }
+  ],
+  "photos": "Take a photo of both plates after 20 minutes.",
+  "rubric": "lab-basic"
+}],
+"activityLog": {
+  "title": "Movement log",
+  "types": ["Walking or running", "Biking", "Sports or games"],
+  "weeklyMinutes": 150,
+  "weeklyDays": 5,
+  "prompt": "Markdown shown above the log.",
+  "uploads": true
+}
+```
+
+- **Rubrics:** each criterion needs an `id`, a `name` and at least two `levels` with different `points` (shown highest first) and a `label`; `description` says what work at that level looks like. A score is the sum of the chosen levels' points out of the sum of each criterion's highest. `rubric` on a writing assignment or lab names a rubric by id, or holds a rubric object inline (it gets the id `<item id>-rubric` unless it has its own).
+- **Writing:** `kind` is `essay` (a full editor with bold, italic and lists) or `short` (a few sentences). `prompt` is Markdown. `words` is the length target (either end optional); the editor shows a live word count against it and asks before handing in work under `min`. `selfCheck` (default true whenever there's a rubric) lets the student rate their own work against the rubric before handing it in; the reviewer sees those picks next to their own. Writing and lab ids share one namespace within the course.
+- **Labs:** `safety` (at least one note) shows first in a warning box; `adult: true` adds "An adult must be with you for this whole lab" there and an "Adult needed" tag on the cards. A step can be `{ "text", "adult": true }` ("Adult step"); a lab with adult steps must be `adult: true`. Materials and steps get checkboxes. `tables` are data tables the student fills in: `columns` are the headings, `rows` the starting number of rows (students can add more unless `rowLabels` fixes the first column's labels, one per row). `questions` are `observation` (shown under "What did you notice?") or `conclusion` ("What did you find out?"). `photos` (text, or `true` for a default prompt) asks for photos; they're shrunk to 1600 px and go in the portfolio with the lab. Lab text (intro, steps, questions) is Markdown with math.
+- **Activity log:** one per course (PE, art, music). `types` fill the "What you did" menu ("Other" is added). `weeklyMinutes` / `weeklyDays` are the weekly goals the student sees as meters (weeks start on Monday). `uploads` (default true) allows a photo or file (picture, PDF, audio or video, up to 15 MB) with each entry.
+- **Lesson links:** a block lists one link per line: `writing: <id>`, `lab: <id>` or `log` (the course's activity log). Each becomes a card with the title, a short detail (length target, minutes, adult flag), the student's status and an **Open** button.
+
+````markdown
+```assignment
+writing: class-pet
+lab: ice-melt
+log
+```
+````
+
+- **Handing in and grading:** with a homeschool family or a teacher's computer, **Hand in** sends the work to the Parent or Teacher area → **Student work**, where it's graded by clicking a level for each rubric criterion (or a percent when there's no rubric), with a comment and optional notes per criterion, or sent back for another draft. A grade is saved as graded work on the student's records (one per assignment, replaced on regrading), so it counts in the course grade's "graded work" part. A student on their own device in a class hands work in with the class's **Hand in work** file (photos travel inside it). Without a family or a class (the website, or the app before a family is set up) there's no one to hand in to: the student marks the work finished and can print it; work stays on that device.
+- **Hours:** in a homeschool family, minutes logged in an activity log are added to the student's time on that course for that day (taken back if the entry is deleted), so they count toward attendance, hours by subject and the state's required hours. Time on a writing or lab screen counts like any study screen.
+- **Portfolio:** handed-in writing (with its grade, rubric levels and comment), labs (data tables, answers, photos) and activity-log totals with pictures of work print under their course in the portfolio report.
+- The course checker reports unknown or repeated ids, rubrics with fewer than two levels or duplicate points, missing prompts, labs without safety notes, materials, steps or anything to record, adult steps in a lab not marked `adult`, tables without columns, an activity log without types, and assignment blocks that link missing items or can't be read.
+
 ## Glossary
 
 ```json

@@ -13,6 +13,7 @@ import { LessonManipulative } from "./Manipulative";
 import { handlePhonicsClick, hydratePhonics, protectPhonics } from "../lib/phonics";
 import { elementItem, markReadUnits, READ_LANG, readUnits, sectionUnits, type AudioLib } from "../lib/readAloud";
 import { canSpeak, onVoices, speaker } from "../lib/speech";
+import { assignTarget, protectAssignments, type BlockLink, type LinkInfo } from "../lib/work";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -38,7 +39,10 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
   );
 }
 
-export function renderMarkdown(md: string, scope?: Record<string, number>): string {
+export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined): string {
+  // Assignment links (```assignment blocks) become cards with an Open button.
+  const assigns = protectAssignments(md, assign);
+  md = assigns.text;
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
@@ -59,7 +63,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return phonics.restore(examples.restore(manips.restore(mathHeaders(clean))));
+  return phonics.restore(assigns.restore(examples.restore(manips.restore(mathHeaders(clean)))));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -148,6 +152,7 @@ export default function Markdown({
   scope,
   foreignLang,
   read,
+  assignments,
 }: {
   source: string;
   /**
@@ -156,6 +161,8 @@ export default function Markdown({
    * course's recorded audio (it also gives phonics blocks their sounds).
    */
   read?: { lib?: AudioLib; buttons?: boolean };
+  /** Lessons: what the ```assignment cards show, and what Open does. Keep the object stable (memoize it). */
+  assignments?: { info: (l: BlockLink) => LinkInfo | undefined; open: (l: BlockLink) => void };
   /** Language courses: italic text is the target language (authoring convention), so mark it
    * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
   foreignLang?: string;
@@ -167,14 +174,14 @@ export default function Markdown({
   const marking = !!read;
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
-    const plain = renderMarkdown(source, scope);
+    const plain = renderMarkdown(source, scope, assignments?.info);
     const decorated = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
     return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang, className, marking, readButtons]);
+  }, [source, scope, foreignLang, className, marking, readButtons, assignments]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -291,6 +298,11 @@ export default function Markdown({
     if (rb) return readButton(rb);
     if (handlePhonicsClick(target, { lib, lang: READ_LANG })) return;
     if (revealExample(target)) return;
+    const link = assignTarget(target);
+    if (link) {
+      assignments?.open(link);
+      return;
+    }
     const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
     const term = el.dataset.term ?? "";
