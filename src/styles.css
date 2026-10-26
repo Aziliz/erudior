@@ -4680,3 +4680,790 @@ a.btn:hover {
   padding: 0;
   margin-bottom: 4px;
 }
+
+/* ---------- Maps, timelines and simulations (lib/mapSpec.ts, mapGeo.ts, timeline.ts, sims.ts;
+   components/GeoMap.tsx, TimelineStrip.tsx, SimView.tsx) ---------- */
+.geo-map,
+.tl,
+.sim {
+  margin: 1.4em 0;
+  padding: 4px 16px 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--subj, var(--accent));
+  border-radius: var(--r-md);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.map-head,
+.tl-head,
+.sim-head {
+  margin: 0.8em 0 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+.map-kicker,
+.tl-kicker,
+.sim-kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--subj, var(--accent));
+}
+.map-title,
+.tl-title,
+.sim-title {
+  font-weight: 650;
+  color: var(--ink);
+}
+.map-caption,
+.tl-caption,
+.sim-caption {
+  margin-top: 0.6em;
+  font-size: 0.92em;
+  color: var(--ink-2);
+}
+.map-caption > :first-child,
+.tl-caption > :first-child,
+.sim-caption > :first-child {
+  margin-top: 0;
+}
+.map-caption > :last-child,
+.tl-caption > :last-child,
+.sim-caption > :last-child {
+  margin-bottom: 0;
+}
+
+/* Maps */
+.map-canvas {
+  position: relative;
+}
+.map-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.map-tools .btn {
+  min-width: 36px;
+}
+.map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  touch-action: pan-y;
+  user-select: none;
+}
+.map-canvas.is-zoomed .map-svg {
+  cursor: grab;
+  touch-action: none;
+}
+.map-svg:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.map-water {
+  fill: var(--accent-soft);
+}
+.map-svg .rg,
+.map-decor {
+  fill: var(--surface);
+  stroke: var(--field);
+  stroke-width: 0.75px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.map-svg .rg.hi {
+  fill: color-mix(in srgb, var(--accent) 45%, var(--surface));
+}
+.map-svg .rg.g0 { fill: color-mix(in srgb, var(--fig-0) 55%, var(--surface)); }
+.map-svg .rg.g1 { fill: color-mix(in srgb, var(--fig-1) 55%, var(--surface)); }
+.map-svg .rg.g2 { fill: color-mix(in srgb, var(--fig-2) 55%, var(--surface)); }
+.map-svg .rg.g3 { fill: color-mix(in srgb, var(--fig-3) 55%, var(--surface)); }
+.map-svg .rg.g4 { fill: color-mix(in srgb, var(--fig-4) 55%, var(--surface)); }
+.map-svg .rg.g5 { fill: color-mix(in srgb, var(--fig-5) 55%, var(--surface)); }
+.map-svg .rg.is-pickable {
+  cursor: pointer;
+}
+.map-svg .rg.is-pickable:hover {
+  fill: color-mix(in srgb, var(--accent) 20%, var(--surface));
+}
+.map-svg .rg.is-picked,
+.map-svg .rg.is-picked:hover {
+  fill: color-mix(in srgb, var(--accent) 70%, var(--surface));
+  stroke: var(--ink);
+  stroke-width: 2px;
+}
+.map-svg .rg.is-right {
+  fill: color-mix(in srgb, var(--ok) 60%, var(--surface));
+  stroke: var(--ok);
+  stroke-width: 2px;
+}
+.map-svg .rg.is-wrong {
+  fill: color-mix(in srgb, var(--bad) 55%, var(--surface));
+  stroke: var(--bad);
+  stroke-width: 2px;
+}
+.map-svg [tabindex]:focus {
+  outline: none;
+}
+.map-svg .rg:focus-visible {
+  stroke: var(--focus);
+  stroke-width: 3px;
+}
+.map-svg .mode-view .rg:hover,
+.map-canvas.mode-view .rg:hover {
+  stroke: var(--ink);
+  stroke-width: 1.5px;
+}
+.map-route {
+  fill: none;
+  stroke: var(--study);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.map-route.is-line {
+  stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 2.5px !important;
+}
+.map-route.g0 { stroke: var(--fig-0); }
+.map-route.g1 { stroke: var(--fig-1); }
+.map-route.g2 { stroke: var(--fig-2); }
+.map-route.g3 { stroke: var(--fig-3); }
+.map-route.g4 { stroke: var(--fig-4); }
+.map-route.g5 { stroke: var(--fig-5); }
+.map-arrowhead {
+  fill: var(--ink);
+}
+.map-point circle {
+  fill: var(--ink);
+  stroke: var(--surface);
+}
+.map-point.g0 circle { fill: var(--fig-0); }
+.map-point.g1 circle { fill: var(--fig-1); }
+.map-point.g2 circle { fill: var(--fig-2); }
+.map-point.g3 circle { fill: var(--fig-3); }
+.map-point.g4 circle { fill: var(--fig-4); }
+.map-point.g5 circle { fill: var(--fig-5); }
+.map-point circle.is-pickable {
+  cursor: pointer;
+}
+.map-point.is-picked circle {
+  fill: var(--accent);
+  stroke: var(--ink);
+}
+.map-point.is-right circle {
+  fill: var(--ok);
+}
+.map-point.is-wrong circle {
+  fill: var(--bad);
+}
+.map-point circle:focus-visible {
+  stroke: var(--focus);
+  stroke-width: 3px !important;
+}
+.map-text {
+  fill: var(--ink);
+  font-family: var(--sans);
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.map-text.region-text {
+  text-anchor: middle;
+}
+.map-text.free-text {
+  text-anchor: middle;
+  font-style: italic;
+  font-weight: 500;
+  fill: var(--ink-2);
+}
+.map-mark circle {
+  fill: #244d76;
+  stroke: #fff;
+}
+.map-mark text {
+  fill: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+  text-anchor: middle;
+}
+.map-info {
+  min-height: 1.5em;
+  margin: 6px 2px 0;
+  color: var(--ink-2);
+}
+.map-key {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 0.9em;
+}
+.prose .map-key li + li {
+  margin-top: 0;
+}
+.map-key li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.map-swatch {
+  flex: none;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--field);
+  border-radius: 3px;
+  transform: translateY(2px);
+}
+.map-swatch.hi { background: color-mix(in srgb, var(--accent) 45%, var(--surface)); }
+.map-swatch.g0 { background: color-mix(in srgb, var(--fig-0) 55%, var(--surface)); }
+.map-swatch.g1 { background: color-mix(in srgb, var(--fig-1) 55%, var(--surface)); }
+.map-swatch.g2 { background: color-mix(in srgb, var(--fig-2) 55%, var(--surface)); }
+.map-swatch.g3 { background: color-mix(in srgb, var(--fig-3) 55%, var(--surface)); }
+.map-swatch.g4 { background: color-mix(in srgb, var(--fig-4) 55%, var(--surface)); }
+.map-swatch.g5 { background: color-mix(in srgb, var(--fig-5) 55%, var(--surface)); }
+.map-swatch.pt {
+  border-radius: 50%;
+  background: var(--ink);
+  width: 10px;
+  height: 10px;
+}
+.map-swatch.rt {
+  height: 0;
+  border: 0;
+  border-top: 3px solid var(--study);
+  transform: translateY(-3px);
+}
+.map-wait {
+  margin: 8px 0;
+}
+.map-q .q-hint .btn {
+  margin-left: 4px;
+}
+.map-list {
+  margin-bottom: 8px;
+}
+.map-checks {
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 6px 10px;
+  max-height: 14em;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  gap: 2px 12px;
+}
+.map-marks-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: grid;
+  gap: 4px;
+}
+
+/* Timelines: a list by default (no JavaScript, narrow screens, print). */
+.tl-eras,
+.tl-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tl { --tl-c: var(--ink-2); }
+.tl .k0, .tl-strip .k0 { --tl-c: var(--fig-0); }
+.tl .k1, .tl-strip .k1 { --tl-c: var(--fig-1); }
+.tl .k2, .tl-strip .k2 { --tl-c: var(--fig-2); }
+.tl .k3, .tl-strip .k3 { --tl-c: var(--fig-3); }
+.tl .k4, .tl-strip .k4 { --tl-c: var(--fig-4); }
+.tl .k5, .tl-strip .k5 { --tl-c: var(--fig-5); }
+.tl-eras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.prose .tl li + li {
+  margin-top: 0;
+}
+.tl-era {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  font-size: 0.88em;
+}
+.tl-era .tl-date {
+  color: var(--ink-2);
+}
+.tl-events {
+  border-left: 2px solid var(--rule);
+  margin-left: 6px;
+  padding-left: 16px;
+}
+.tl-ev {
+  position: relative;
+  padding: 3px 0;
+}
+.tl-ev::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 0.75em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tl-c);
+  border: 2px solid var(--surface);
+}
+.tl-date {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.tl-cat {
+  font-size: 0.85em;
+  color: var(--ink-2);
+}
+.tl-key {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.9em;
+}
+.tl-key li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tl-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--tl-c);
+}
+.tl-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.tl-tools .btn {
+  min-width: 36px;
+}
+@media screen {
+  .tl.tl-live .tl-view {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid var(--rule);
+    border-radius: var(--r-sm);
+    background: var(--paper);
+  }
+  .tl.tl-live .tl-view:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .tl.tl-live .tl-track {
+    position: relative;
+    height: calc(var(--top, 66px) + var(--events-h, 60px) + 4px);
+  }
+  .tl.tl-live .tl-track:not(:has(.tl-eras)) {
+    --top: 32px;
+  }
+  .tl.tl-live .tl-eras {
+    position: absolute;
+    inset: 4px 0 auto 0;
+    height: 28px;
+    margin: 0;
+    display: block;
+  }
+  .tl.tl-live .tl-era {
+    position: absolute;
+    top: 0;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: color-mix(in srgb, var(--tl-c) 22%, var(--surface));
+  }
+  .tl.tl-live .tl-era:nth-child(even):not([class*=" k"]) {
+    background: var(--sheet);
+  }
+  .tl.tl-live .tl-era .tl-date {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .tl.tl-live .tl-axis {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--top, 66px) - 30px);
+    height: 24px;
+    border-bottom: 2px solid var(--ink-2);
+  }
+  .tl-tick {
+    position: absolute;
+    bottom: 4px;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .tl-tick::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    height: 6px;
+    border-left: 1px solid var(--ink-2);
+  }
+  .tl.tl-live .tl-events {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--top, 66px);
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .tl.tl-live .tl-ev {
+    position: absolute;
+    top: var(--y, 10px);
+    width: max-content;
+    padding: 0 0 0 7px;
+    border-left: 2px solid var(--tl-c);
+    font-size: 0.84rem;
+    line-height: 1.3;
+  }
+  .tl.tl-live .tl-ev .tl-date,
+  .tl.tl-live .tl-ev .tl-text {
+    display: block;
+  }
+  .tl.tl-live .tl-ev .tl-cat {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  /* A dashed stem up to the axis, and a dot (or a bar for a range) on it. */
+  .tl.tl-live .tl-ev::before {
+    left: -2px;
+    top: calc(-1 * var(--y, 10px));
+    width: 0;
+    height: var(--y, 10px);
+    border: 0;
+    border-left: 1px dashed var(--tl-c);
+    border-radius: 0;
+    background: none;
+  }
+  .tl.tl-live .tl-ev::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: calc(-1 * var(--y, 10px) - 5px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--tl-c);
+  }
+  .tl.tl-live .tl-ev.is-range::after {
+    left: -2px;
+    width: max(10px, var(--span, 0px));
+    height: 6px;
+    top: calc(-1 * var(--y, 10px) - 3px);
+    border-radius: 3px;
+  }
+  /* Near the right end the label hangs to the left of its date. */
+  .tl.tl-live .tl-ev.is-flip {
+    transform: translateX(-100%);
+    padding: 0 7px 0 0;
+    border-left: 0;
+    border-right: 2px solid var(--tl-c);
+    text-align: right;
+  }
+  .tl.tl-live .tl-ev.is-flip::before {
+    left: auto;
+    right: -2px;
+  }
+  .tl.tl-live .tl-ev.is-flip::after {
+    left: auto;
+    right: -6px;
+  }
+}
+
+/* The small timeline in timeline questions. */
+.tl-strip {
+  position: relative;
+  margin: 8px 14px 14px;
+  font-size: 0.82rem;
+}
+.tl-strip-eras {
+  position: relative;
+  height: 26px;
+  margin-bottom: 4px;
+}
+.tl-strip-era {
+  position: absolute;
+  top: 0;
+  height: 24px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--tl-c, var(--accent)) 20%, var(--surface));
+}
+.tl-strip-era.n0 { background: var(--sheet); }
+.tl-strip-era.n1 { background: var(--accent-soft); }
+.tl-strip-axis {
+  position: relative;
+  height: 66px;
+  border-top: 2px solid var(--ink-2);
+  margin-top: 16px;
+}
+.tl-strip-slot {
+  position: absolute;
+  top: -15px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  max-width: 7em;
+  text-align: center;
+}
+.tl-strip-slot.row1 .tl-strip-date {
+  margin-top: 20px;
+}
+.tl-strip-date {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Simulations */
+.sim-intro {
+  margin: 0 0 10px;
+  color: var(--ink-2);
+  font-size: 0.95em;
+}
+.sim-start {
+  margin: 0;
+}
+.sim-ui {
+  display: grid;
+  gap: 12px;
+}
+.sim-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 8px 18px;
+}
+.sim-field {
+  margin: 0;
+}
+.sim-field.is-choice {
+  grid-column: 1 / -1;
+}
+.sim-field.is-choice select {
+  max-width: min(100%, 34em);
+}
+.sim-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.sim-label b {
+  white-space: nowrap;
+}
+.sim-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  min-height: 28px;
+}
+.sim-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sim-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .sim-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.sim-scene svg,
+.sim-graph svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+}
+.sim-graph {
+  margin: 0;
+  max-width: 560px;
+}
+.sim-readouts {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 0.92em;
+}
+.sim-readouts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.sim-readouts dt {
+  color: var(--ink-2);
+}
+.sim-readouts dd {
+  margin: 0;
+  font-weight: 650;
+  text-align: right;
+}
+.sim-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+.sim-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 3px;
+  vertical-align: middle;
+}
+.sim-swatch.k0 { background: var(--fig-0); }
+.sim-swatch.k1 { background: var(--fig-1); }
+.sim-grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.sim-axis {
+  stroke: var(--ink-2);
+  stroke-width: 1.5;
+}
+.sim-tick,
+.sim-axis-label {
+  fill: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 12px;
+}
+.sim-axis-label {
+  fill: var(--ink);
+  font-weight: 600;
+}
+.sim-line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.sim-line.k0 { stroke: var(--fig-0); }
+.sim-line.k1 { stroke: var(--fig-1); }
+.sim-dot,
+.sim-ball {
+  fill: var(--fig-1);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.sim-launch {
+  stroke: var(--ink-2);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+.sim-string {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.sim-pivot {
+  fill: var(--ink);
+}
+.sim-wire {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.sim-wire.thick {
+  stroke-width: 6;
+}
+.sim-flow {
+  fill: none;
+  stroke: var(--fig-1);
+  stroke-width: 4;
+  stroke-dasharray: 2 38;
+  stroke-linecap: round;
+}
+.sim-erase {
+  fill: var(--paper);
+}
+.sim-bar.k0 { fill: var(--fig-0); }
+.sim-bar.k1 { fill: var(--fig-1); }
+.sim-cap {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+.sim-box {
+  fill: var(--surface);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.sim-piston {
+  fill: var(--ink-2);
+}
+.sim-particle {
+  fill: var(--fig-0);
+}
+
+/* Editors: dates beside items. */
+.pair-edit .date-input {
+  max-width: 11em;
+}
+
+@media print {
+  .map-tools,
+  .tl-tools,
+  .sim-buttons,
+  .sim-controls,
+  .map-info {
+    display: none !important;
+  }
+  .geo-map,
+  .tl,
+  .sim {
+    break-inside: avoid;
+  }
+}

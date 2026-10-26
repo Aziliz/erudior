@@ -7,6 +7,8 @@ import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
 import { protectDiagrams } from "../lib/diagram";
 import { protectExamples, revealExample } from "../lib/examples";
+import { protectLessonBlocks } from "../lib/lessonBlocks";
+import { hydrateTimelines } from "../lib/timeline";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -38,6 +40,9 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   // Worked examples (```example blocks): each field goes through this same pipeline.
   const examples = protectExamples(md, (field) => renderMarkdown(field, scope));
   md = examples.text;
+  // Maps, timelines and simulations: same idea (their short text fields use this pipeline too).
+  const blocks = protectLessonBlocks(md, (field) => renderMarkdown(field, scope));
+  md = blocks.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
   const math = protectMath(figs.text);
@@ -48,7 +53,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return examples.restore(mathHeaders(clean));
+  return blocks.restore(examples.restore(mathHeaders(clean)));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -205,6 +210,25 @@ export default function Markdown({
       alive = false;
       obs.disconnect();
       mq?.removeEventListener?.("change", draw);
+    };
+  }, [html]);
+
+  // Timelines become horizontal and zoomable when there's room; maps and simulations mount
+  // their interactive parts (loaded only when a lesson has one).
+  useEffect(() => {
+    const el = body.current;
+    if (!el) return;
+    const undoTimelines = el.querySelector("figure.tl") ? hydrateTimelines(el) : null;
+    let alive = true;
+    let unmount: (() => void) | null = null;
+    if (el.querySelector("figure.geo-map, figure.sim"))
+      import("./LessonWidgets").then((m) => {
+        if (alive) unmount = m.mountWidgets(el);
+      });
+    return () => {
+      alive = false;
+      undoTimelines?.();
+      unmount?.();
     };
   }, [html]);
 

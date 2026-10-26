@@ -4,6 +4,8 @@
 import { useRef } from "react";
 import type { Question, QuestionType } from "../lib/types";
 import { BLANK, qtype } from "../lib/questions";
+import { parseMapSpec } from "../lib/mapSpec";
+import { parseSpan, parseTimeline } from "../lib/timeline";
 
 const TYPE_NAMES: Record<QuestionType, string> = {
   choice: "Multiple choice",
@@ -11,6 +13,8 @@ const TYPE_NAMES: Record<QuestionType, string> = {
   match: "Match",
   order: "Put in order",
   label: "Label a picture",
+  map: "Map: find or label places",
+  timeline: "Place events on a timeline",
 };
 
 const lines = (s: string) =>
@@ -22,7 +26,7 @@ const uniq = (xs: string[]) => [...new Set(xs)];
 
 /** Defaults when a question changes kind (keeps the stem, topic, section, picture, explanation). */
 export function changeKind(q: Question, kind: QuestionType): Question {
-  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, ...base } = q;
+  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, map: _mp, targets: _tg, marks: _mk, slots: _sl, timeline: _tl, dates: _d, ...base } = q;
   switch (kind) {
     case "choice":
       return { ...base, choices: ["", "", "", ""], answer: [0] };
@@ -40,6 +44,10 @@ export function changeKind(q: Question, kind: QuestionType): Question {
       return { ...base, type: "order", choices: ["", "", ""], answer: [] };
     case "label":
       return { ...base, type: "label", markers: [], choices: [], answer: [] };
+    case "map":
+      return { ...base, type: "map", map: "base: us", targets: [""], choices: [], answer: [] };
+    case "timeline":
+      return { ...base, type: "timeline", slots: ["", ""], choices: ["", ""], answer: [0, 1] };
   }
 }
 
@@ -73,6 +81,27 @@ export function kindErrors(q: Question): string[] {
       if (!q.image) e.push("Add a picture to label.");
       if ((q.markers?.length ?? 0) < 2) e.push("Click the picture to place at least two numbered markers.");
       if (q.answer.some((a) => !q.choices[a]?.trim())) e.push("Name every marker.");
+      break;
+    case "order":
+      if (q.dates?.some((d) => !parseSpan(d))) e.push(`A date can't be read (examples: 1776, July 4, 1776, 44 BCE).`);
+      break;
+    case "map": {
+      const p = parseMapSpec(q.map ?? "").problems[0];
+      if (!q.map?.trim()) e.push("Describe the map (at least a base: line).");
+      else if (p) e.push(`Map: ${p}.`);
+      if (q.targets) {
+        if (!q.targets.some((t) => t.trim())) e.push("Name at least one place to find.");
+      } else if ((q.marks?.length ?? 0) < 2) e.push("Name at least two places to number.");
+      break;
+    }
+    case "timeline":
+      if ((q.slots?.length ?? 0) < 2) e.push("Add at least two events.");
+      if (q.slots?.some((d) => !parseSpan(d))) e.push(`Every event needs a date the app can read (examples: 1776, July 4, 1776, 44 BCE, c. 3000 BCE).`);
+      if (q.answer.some((a) => !q.choices[a]?.trim())) e.push("Describe every event.");
+      if (q.timeline?.trim()) {
+        const p = parseTimeline(q.timeline).problems.find((x) => !x.startsWith("no event"));
+        if (p) e.push(`Periods: ${p}.`);
+      }
       break;
   }
   return e;
@@ -152,6 +181,9 @@ export function PictureField({ q, onChange, toast }: { q: Question; onChange: (q
 /** Answer fields for text, match, order and label questions. */
 export function KindFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
   const kind = qtype(q);
+
+  if (kind === "map") return <MapFields q={q} onChange={onChange} />;
+  if (kind === "timeline") return <TimelineFields q={q} onChange={onChange} />;
 
   if (kind === "text") {
     const blanks = Math.max(1, (q.stem.match(BLANK) ?? []).length);
@@ -279,6 +311,16 @@ export function KindFields({ q, onChange }: { q: Question; onChange: (q: Questio
               aria-label={`Item ${i + 1}`}
               value={c}
               onChange={(e) => set(q.choices.map((x, j) => (j === i ? e.target.value : x)))}
+            />
+            <input
+              className="input date-input"
+              aria-label={`Item ${i + 1} date (optional)`}
+              placeholder="Date (optional)"
+              value={q.dates?.[i] ?? ""}
+              onChange={(e) => {
+                const dates = q.choices.map((_, j) => (j === i ? e.target.value : (q.dates?.[j] ?? "")));
+                onChange({ ...q, dates: dates.some((d) => d.trim()) ? dates : undefined });
+              }}
             />
             <button
               className="btn ghost sm"
@@ -415,4 +457,97 @@ export function KindFields({ q, onChange }: { q: Question; onChange: (q: Questio
     );
   }
   return null;
+}
+
+/** Map questions: the map (block syntax) and either places to find or places to number. */
+function MapFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
+  const find = !!q.targets;
+  const names = find ? (q.targets ?? []) : (q.marks ?? []);
+  const extra = find ? [] : q.choices.filter((c) => !(q.marks ?? []).includes(c));
+  const setNames = (ns: string[], ds: string[] = extra) => {
+    if (find) return onChange({ ...q, targets: ns, choices: [], answer: [] });
+    const choices = uniq([...ns, ...ds]);
+    onChange({ ...q, marks: ns, choices, answer: ns.map((n) => choices.indexOf(n)) });
+  };
+  return (
+    <div className="field">
+      <label className="field">
+        <span>Map</span>
+        <textarea className="textarea mono" rows={5} value={q.map ?? ""} onChange={(e) => onChange({ ...q, map: e.target.value })} />
+      </label>
+      <p className="small muted">
+        Same lines as a map in a lesson: <code>base: world</code> or <code>base: us</code>, <code>view: fit</code>, <code>region: France, Spain | Group</code>,{" "}
+        <code>point: Denver | 39.74, -104.99</code>. See the course format guide.
+      </p>
+      <fieldset className="row" style={{ border: 0, padding: 0, gap: 16 }}>
+        <legend className="small">The learner</legend>
+        <label className="check small">
+          <input type="radio" checked={find} onChange={() => onChange({ ...q, targets: q.marks?.length ? q.marks : [""], marks: undefined, choices: [], answer: [] })} />
+          clicks the named place(s)
+        </label>
+        <label className="check small">
+          <input
+            type="radio"
+            checked={!find}
+            onChange={() => {
+              const ms = (q.targets ?? []).filter((t) => t.trim());
+              const marks = ms.length >= 2 ? ms : [...ms, "", ""].slice(0, Math.max(2, ms.length));
+              onChange({ ...q, targets: undefined, marks, choices: marks, answer: marks.map((_, i) => i) });
+            }}
+          />
+          names numbered places
+        </label>
+      </fieldset>
+      <label className="field">
+        <span>{find ? "Places to click (one per line; the question should name them)" : "Places to number (one per line, in order: regions or points on the map)"}</span>
+        <textarea className="textarea" rows={3} value={names.join("\n")} onChange={(e) => setNames(e.target.value.split("\n"))} onBlur={() => setNames(lines(names.join("\n")))} />
+      </label>
+      {!find && (
+        <label className="field">
+          <span>Extra wrong names (optional, one per line)</span>
+          <textarea className="textarea" rows={2} defaultValue={extra.join("\n")} key={q.id} onBlur={(e) => setNames(names, lines(e.target.value))} />
+        </label>
+      )}
+    </div>
+  );
+}
+
+/** Timeline questions: events with their dates (the slots), extra wrong events, optional periods. */
+function TimelineFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
+  const rows = (q.slots ?? []).map((d, i) => [d, q.choices[q.answer[i]] ?? ""] as [string, string]);
+  const extra = q.choices.filter((_, i) => !q.answer.includes(i));
+  const rebuild = (rs: [string, string][], ds: string[] = extra) => {
+    const choices = uniq([...rs.map((r) => r[1]), ...ds]);
+    onChange({ ...q, slots: rs.map((r) => r[0]), choices, answer: rs.map((r) => choices.indexOf(r[1])) });
+  };
+  return (
+    <div className="field">
+      <span>Events and their dates (numbered on the timeline; learners place each event)</span>
+      {rows.map(([d, ev], i) => (
+        <div key={i} className="pair-edit">
+          <span className="q-marker inline" aria-hidden="true">
+            {i + 1}
+          </span>
+          <input className="input date-input" aria-label={`Slot ${i + 1} date`} placeholder="Date, e.g. 1776" value={d} onChange={(e) => rebuild(rows.map((r, j) => (j === i ? [e.target.value, r[1]] : r)))} />
+          <input className="input" aria-label={`Slot ${i + 1} event`} placeholder="What happened" value={ev} onChange={(e) => rebuild(rows.map((r, j) => (j === i ? [r[0], e.target.value] : r)))} />
+          <button className="btn ghost sm" aria-label={`Remove slot ${i + 1}`} disabled={rows.length <= 2} onClick={() => rebuild(rows.filter((_, j) => j !== i))}>
+            Remove
+          </button>
+        </div>
+      ))}
+      <div className="row" style={{ marginTop: 8 }}>
+        <button className="btn sm" disabled={rows.length >= 8} onClick={() => rebuild([...rows, ["", ""]])}>
+          Add event
+        </button>
+      </div>
+      <label className="field">
+        <span>Extra wrong events (optional, one per line)</span>
+        <textarea className="textarea" rows={2} defaultValue={extra.join("\n")} key={q.id} onBlur={(e) => rebuild(rows, lines(e.target.value))} />
+      </label>
+      <label className="field">
+        <span>Periods shown for context (optional; lines like era: 1861–1865 | Civil War)</span>
+        <textarea className="textarea mono" rows={2} value={q.timeline ?? ""} onChange={(e) => onChange({ ...q, timeline: e.target.value || undefined })} />
+      </label>
+    </div>
+  );
 }

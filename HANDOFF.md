@@ -166,6 +166,15 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
   - No course uses it yet.
 - **Card pictures:** `![alt](images/x.svg)` on notecards. The courses repo's build.py now embeds them; display height is capped.
 
+## Maps, timelines and simulations (after v0.24.0)
+- Lesson blocks ```` ```map ````, ```` ```timeline ````, ```` ```sim <kind> ```` (syntax in docs/COURSE_FORMAT.md). Same pattern as worked examples: `lib/lessonBlocks.ts` swaps them for placeholders before Markdown and puts back static HTML (title, key/list, caption: readable without JS, in print, prerendered). Markdown.tsx then hydrates timelines (`hydrateTimelines` in lib/timeline.ts, plain DOM) and lazy-loads `components/LessonWidgets.tsx`, which mounts React roots for maps (`GeoMap.tsx`) and sims (`SimView.tsx`) into the placeholders.
+- **Maps:** d3-geo + topojson-client; base maps from npm `world-atlas` (Natural Earth 110m countries) and `us-atlas` (Census states 10m), both ISC/public domain, each a lazy chunk of ~40 KB gzipped (GeoMap chunk with d3-geo ~45 KB raw). `lib/mapGeo.ts` builds projected paths (Equal Earth / Albers USA / Mercator / plain), fits the view, finds missing names; also runs in Node for the checker. Course-supplied GeoJSON (rewound if wound "inside out") or SVG (only shape geometry read by regex: no markup injected). Names: `lib/mapNames.ts` (Natural Earth renames, aliases, USPS codes; sync, used for grading). One Tab stop per map, arrow keys move spatially, names on hover/focus (never in questions before checking), +/− zoom, drag-pan when zoomed.
+- **Timelines:** BCE as astronomical years (44 BCE = −43), month/day fractions, centuries, decades, "million years ago". List by default; ≥520 px wide becomes horizontal with zoom and lanes measured so labels never overlap (labels near the right end hang left).
+- **Sims:** `lib/sims.ts` (kinds, settings, parse, static HTML), `lib/simModels.ts` (projectile, pendulum RK4, circuit series/parallel, ideal gas, logistic and Lotka–Volterra; tested), `SimView.tsx` (sliders, Play/Pause/Step/Reset, readouts, SVG picture and graph, aria-live summary on pause/end/step/change). Reduced motion: Play → Run (jumps ahead), circuit/gas pictures still.
+- **Question kinds:** `map` (`map` spec + `targets` = click the place(s), answer stored as names; or `marks` = numbered places with drop-downs, like label; list alternative behind "Choose from a list instead"), `timeline` (`slots` dates + choices/answer like label, optional `timeline` periods; `components/TimelineStrip.tsx`), `order` gains optional `dates`. Bank editor writes all three. Not in community courses or live rooms (choice only there).
+- Checker: block problems, map names looked up on the base map, order/slot dates oldest first, own answers accepted. Tests `tests/widgets.test.mts` (in npm test). Demo course `samples/demo-maps-timelines-sims.json` from `scripts/build-demo-widgets.py` (not bundled; import it). Walkthrough `scripts/widgets-walkthrough.mjs` (axe + overflow, light/dark, 1280/320, `REDUCED=1`): clean.
+- No CSP change: map data and widgets are same-origin JS chunks.
+
 ## Published courses are read-only in the app (after v0.24.0)
 - `isPublishedCourse` (lib/catalog.ts): catalog (Erudior) courses and community courses. The course page hides Edit course, Add question bank, New deck and deck Edit; the bank page hides Edit questions and Delete; App sends old `courseEdit`/`deckEdit`/`editor` addresses for them to the course or bank page; importing a file with a published course's id makes a separate "(copy)" instead of replacing it. Erudior's courses change only through their sources (content/) and the publish pipeline; community courses only in the website editor. Personal notes/flags and progress are unaffected.
 
@@ -295,6 +304,10 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 | `src/lib/srs.ts` | Spaced repetition scheduling, queues, `missedDeck` and `studyDecks` |
 | `src/lib/review.ts` | Spaced reviews for practice questions (streak, due, learned) and `Confidence` |
 | `src/lib/examples.ts` | Worked-example lesson blocks (parse, check, render, reveal) |
+| `src/lib/lessonBlocks.ts`, `blockUtil.ts` | Map/timeline/sim lesson blocks: placeholders and static HTML; shared field reader |
+| `src/lib/mapSpec.ts`, `mapNames.ts`, `mapGeo.ts`; `src/components/GeoMap.tsx` | Maps: block syntax, place names/aliases, geometry (d3-geo, lazy base maps), interactive map + map questions |
+| `src/lib/timeline.ts`; `src/components/TimelineStrip.tsx` | Timelines: dates (BCE…), block, horizontal layout; strip for timeline questions |
+| `src/lib/sims.ts`, `simModels.ts`; `src/components/SimView.tsx`, `LessonWidgets.tsx` | Simulations: kinds/settings, physics models, screen; lazy mounting of maps and sims in lessons |
 | `src/lib/mastery.ts` | Adaptive engine: topic mastery, smart practice order, in-session swaps, focus areas after an exam |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |

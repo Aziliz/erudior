@@ -116,7 +116,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing for early readers.", status: "planned" },
   { title: "Writing assignments with rubrics", detail: "Essays and short responses written in the app, graded by the parent or teacher with a rubric, and kept in the portfolio (English and social studies).", status: "planned" },
   { title: "Built-in reader for books and documents", detail: "Public-domain novels, poems, plays and primary sources read inside the app, with reading-log time recorded.", status: "planned" },
-  { title: "Maps and timelines", detail: "Interactive maps and timelines for history, geography and civics, including map-labeling questions.", status: "planned" },
+  { title: "Maps and timelines", detail: "Interactive world and US maps (or a course's own) with shaded regions, places, routes and zoom; zoomable timelines from prehistory to today; questions where you find or label places on a map and place events on a timeline.", status: "done" },
   { title: "Science labs and simulations", detail: "Guided at-home labs with safety notes and photo uploads to the portfolio, plus simple simulations where a lab isn't practical.", status: "planned" },
   { title: "Listening and speaking practice", detail: "Audio for Spanish and German vocabulary and dialogues, with optional recording to compare pronunciation.", status: "planned" },
   { title: "Code exercises", detail: "Write and run code in the browser with automatic checks, for Computer Science.", status: "planned" },

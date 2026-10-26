@@ -16,6 +16,12 @@ import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
+import { lessonBlockProblems } from "../src/lib/lessonBlocks.ts";
+import { MAP_BLOCK, parseMapSpec, type MapSpec } from "../src/lib/mapSpec.ts";
+import { buildMap } from "../src/lib/mapGeo.ts";
+import { samePlace } from "../src/lib/mapNames.ts";
+import { parseSpan, parseTimeline, TIMELINE_BLOCK } from "../src/lib/timeline.ts";
+import { parseSim, SIM_BLOCK } from "../src/lib/sims.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -38,6 +44,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   const c = normalizeCourse(JSON.parse(readFileSync(file, "utf8")));
   const runs = opts.runs ?? 40;
   const diagrams: { where: string; src: string }[] = [];
+  const maps: { where: string; spec: MapSpec; places?: string[] }[] = [];
 
   // --- Notation -----------------------------------------------------------------
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
@@ -49,6 +56,22 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       t = t.replace(EXAMPLE_BLOCK, (_m, info: string, body: string) => {
         const ex = parseExample(info, body);
         return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
+      });
+      // Maps, timelines and simulations: malformed blocks, then their text fields like the lesson
+      // text; map place names are looked up on the base map below.
+      for (const p of lessonBlockProblems(t)) say(`${where}: ${p}`);
+      t = t.replace(MAP_BLOCK, (_m, _i: string, body: string) => {
+        const spec = parseMapSpec(body);
+        maps.push({ where, spec });
+        return ["", spec.title, spec.caption, ""].filter((x) => x !== undefined).join("\n\n");
+      });
+      t = t.replace(TIMELINE_BLOCK, (_m, _i: string, body: string) => {
+        const tl = parseTimeline(body);
+        return ["", tl.title, tl.caption, ...tl.eras.map((e) => e.text), ...tl.events.map((e) => e.text), ""].filter((x) => x !== undefined).join("\n\n");
+      });
+      t = t.replace(SIM_BLOCK, (_m, info: string, body: string) => {
+        const sim = parseSim(info, body);
+        return ["", sim.title, sim.caption, ""].filter((x) => x !== undefined).join("\n\n");
       });
       t = t.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
         try {
@@ -121,6 +144,21 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (!isCorrect(q, q.answer)) say(`question ${q.id}: its own answer is rejected`);
       }
       if (kind === "order" && !isCorrect(q, q.choices.map((_, i) => i))) say(`question ${q.id}: the correct order is rejected`);
+      if (kind === "order" && q.dates) {
+        const ys = q.dates.map((d) => parseSpan(d)?.a.y ?? NaN);
+        if (ys.some((y, i) => i > 0 && y < ys[i - 1])) say(`question ${q.id}: "dates" aren't oldest first, but the items must be listed in the correct (time) order`);
+      }
+      if (kind === "map" || kind === "timeline") {
+        if (new Set(q.choices).size !== q.choices.length) say(`question ${q.id}: the same choice is listed twice`);
+        if (q.choices.some((ch) => ch.includes("$"))) say(`question ${q.id}: ${kind} answers are shown in a drop-down list, which can't show math; use plain text`);
+        if (!isCorrect(q, q.targets ?? q.answer)) say(`question ${q.id}: its own answer is rejected`);
+      }
+      if (kind === "map") maps.push({ where: `question ${q.id} map`, spec: parseMapSpec(q.map ?? ""), places: q.targets ?? q.marks });
+      if (kind === "timeline") {
+        const ys = (q.slots ?? []).map((d) => parseSpan(d)?.a.y ?? NaN);
+        if (ys.some((y, i) => i > 0 && y < ys[i - 1])) say(`question ${q.id}: list "slots" oldest first, so the numbers read left to right on the timeline`);
+        for (const e of parseTimeline(q.timeline ?? "").eras) checkText(`question ${q.id} timeline`, e.text);
+      }
     }
   // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));
@@ -207,6 +245,24 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       await parseMermaid(d.src);
     } catch (e) {
       say(`${d.where}: mermaid error: ${String((e as Error).message ?? e).split("\n").slice(0, 3).join(" ")}`);
+    }
+  }
+
+  // --- Maps: every place name must be on the map ------------------------------------
+  for (const m of maps) {
+    if (m.spec.problems.length) continue; // already reported
+    let built;
+    try {
+      built = await buildMap(m.spec);
+    } catch (e) {
+      say(`${m.where}: map can't be drawn: ${(e as Error).message}`);
+      continue;
+    }
+    for (const n of built.missing) say(`${m.where}: "${n}" isn't on the ${m.spec.base === "none" ? "map" : `${m.spec.base} base map`}${m.spec.base === "world" ? " (country names from Natural Earth, e.g. United States, Democratic Republic of the Congo)" : ""}`);
+    for (const p of built.problems) say(`${m.where}: ${p}`);
+    for (const n of m.places ?? []) {
+      const on = built.regions.some((r) => samePlace(m.spec.base, r.name, n)) || built.points.some((p) => samePlace(m.spec.base, p.name, n));
+      if (!on) say(`${m.where}: "${n}" isn't a region or point on this map`);
     }
   }
 

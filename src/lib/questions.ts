@@ -3,10 +3,21 @@
 
 import type { Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { sameSet } from "./util";
+import { parseMapSpec } from "./mapSpec";
+import { samePlace } from "./mapNames";
+import { parseSpan, parseTimeline } from "./timeline";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "map", "timeline"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
+
+/** Map questions where the learner picks the named place(s) on the map (answers are names). */
+export const isMapFind = (q: Pick<Question, "type" | "targets">) => qtype(q) === "map" && !!q.targets?.length;
+
+/** The base map a map question uses (for matching place names like "CO" = "Colorado"). */
+export const mapBaseOf = (q: Pick<Question, "map">) => parseMapSpec(q.map ?? "").base;
+
+const picksOf = (chosen: Chosen) => chosen.filter((c): c is string => typeof c === "string" && c.trim() !== "");
 
 /** Choice questions with one answer or several (the only kind live rooms and community courses use). */
 export const isChoice = (q: Pick<Question, "type">) => qtype(q) === "choice";
@@ -92,8 +103,12 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
   switch (qtype(q)) {
     case "text":
       return chosen.some((c) => String(c).trim() !== "");
+    case "map":
+      if (isMapFind(q)) return picksOf(chosen).length > 0;
+      return chosen.some((c) => typeof c === "number" && c >= 0);
     case "match":
     case "label":
+    case "timeline":
       return chosen.some((c) => typeof c === "number" && c >= 0);
     default:
       return true;
@@ -106,8 +121,12 @@ export function isComplete(q: Question, chosen: Chosen | undefined): boolean {
   switch (qtype(q)) {
     case "text":
       return Array.from({ length: blankCount(q) }, (_, i) => String(chosen![i] ?? "").trim() !== "").every(Boolean);
+    case "map":
+      if (isMapFind(q)) return picksOf(chosen!).length >= q.targets!.length;
+      return q.answer.every((_, i) => typeof chosen![i] === "number" && (chosen![i] as number) >= 0);
     case "match":
     case "label":
+    case "timeline":
       return q.answer.every((_, i) => typeof chosen![i] === "number" && (chosen![i] as number) >= 0);
     default:
       return true;
@@ -119,8 +138,17 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
   switch (qtype(q)) {
     case "text":
       return (q.accept ?? []).every((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
+    case "map":
+      if (isMapFind(q)) {
+        // Every target picked and nothing else (names compare like "CO" = "Colorado").
+        const base = mapBaseOf(q);
+        const picks = picksOf(chosen);
+        return q.targets!.every((t) => picks.some((p) => samePlace(base, p, t))) && picks.every((p) => q.targets!.some((t) => samePlace(base, p, t)));
+      }
+      return q.answer.length > 0 && q.answer.every((a, i) => chosen[i] === a);
     case "match":
     case "label":
+    case "timeline":
       return q.answer.length > 0 && q.answer.every((a, i) => chosen[i] === a);
     case "order":
       return chosen.length === q.choices.length && chosen.every((c, i) => c === i);
@@ -137,8 +165,16 @@ export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
   switch (qtype(q)) {
     case "text":
       return (q.accept ?? []).map((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
+    case "map":
+      if (isMapFind(q)) {
+        const base = mapBaseOf(q);
+        const picks = picksOf(chosen);
+        return q.targets!.map((t) => picks.some((p) => samePlace(base, p, t)));
+      }
+      return q.answer.map((a, i) => chosen[i] === a);
     case "match":
     case "label":
+    case "timeline":
       return q.answer.map((a, i) => chosen[i] === a);
     case "order":
       return q.choices.map((_, i) => chosen[i] === i);
@@ -156,8 +192,13 @@ export function answerText(q: Question): string {
       return (q.left ?? []).map((l, i) => `${l} → ${q.choices[q.answer[i]]}`).join("; ");
     case "label":
       return q.answer.map((a, i) => `${i + 1}: ${q.choices[a]}`).join("; ");
+    case "map":
+      if (isMapFind(q)) return q.targets!.join("; ");
+      return q.answer.map((a, i) => `${i + 1}: ${q.choices[a]}`).join("; ");
+    case "timeline":
+      return q.answer.map((a, i) => `${q.slots?.[i] ?? i + 1}: ${q.choices[a]}`).join("; ");
     case "order":
-      return q.choices.join(" → ");
+      return q.dates?.length === q.choices.length ? q.choices.map((c, i) => `${c} (${q.dates![i]})`).join(" → ") : q.choices.join(" → ");
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -166,7 +207,8 @@ export function answerText(q: Question): string {
 /** Plain-text description of a learner's answer. */
 export function chosenText(q: Question, chosen: Chosen): string {
   if (!isAnswered(q, chosen)) return "";
-  switch (qtype(q)) {
+  const kind = qtype(q);
+  switch (kind) {
     case "text":
       return chosen.map((c) => String(c).trim() || "(blank)").join("; ");
     case "match":
@@ -174,6 +216,12 @@ export function chosenText(q: Question, chosen: Chosen): string {
         .map((l, i) => `${l} → ${typeof chosen[i] === "number" && (chosen[i] as number) >= 0 ? q.choices[chosen[i] as number] : "(none)"}`)
         .join("; ");
     case "label":
+    case "timeline":
+      return q.answer
+        .map((_, i) => `${kind === "timeline" ? (q.slots?.[i] ?? i + 1) : i + 1}: ${typeof chosen[i] === "number" && (chosen[i] as number) >= 0 ? q.choices[chosen[i] as number] : "(none)"}`)
+        .join("; ");
+    case "map":
+      if (isMapFind(q)) return picksOf(chosen).join("; ");
       return q.answer
         .map((_, i) => `${i + 1}: ${typeof chosen[i] === "number" && (chosen[i] as number) >= 0 ? q.choices[chosen[i] as number] : "(none)"}`)
         .join("; ");
@@ -193,8 +241,12 @@ export function typeLabel(q: Question): string {
       return "Match";
     case "label":
       return "Label the picture";
+    case "map":
+      return isMapFind(q) ? ((q.targets?.length ?? 0) > 1 ? "Find the places on the map" : "Find it on the map") : "Label the map";
+    case "timeline":
+      return "Place the events on the timeline";
     case "order":
-      return "Put in order";
+      return q.dates?.length ? "Put in time order" : "Put in order";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -274,7 +326,47 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
     case "order": {
       if (choices.length < 2) throw new Error(`needs at least two items in "choices" (in the correct order).`);
       if (new Set(choices).size !== choices.length) throw new Error(`has the same item twice.`);
-      return { ...base, choices, answer: [] };
+      let dates: string[] | undefined;
+      if (q.dates !== undefined) {
+        dates = Array.isArray(q.dates) ? q.dates.map((d) => String(d)) : [];
+        if (dates.length !== choices.length) throw new Error(`needs one entry in "dates" per item.`);
+        const bad = dates.find((d) => !parseSpan(d));
+        if (bad !== undefined) throw new Error(`has a date that can't be read ("${bad}").`);
+      }
+      return { ...base, choices, answer: [], ...(dates ? { dates } : {}) };
+    }
+    case "map": {
+      const map = typeof q.map === "string" ? q.map : "";
+      if (!map.trim()) throw new Error(`(map) needs a "map" (the map in map block syntax, e.g. "base: us").`);
+      const problem = parseMapSpec(map).problems[0];
+      if (problem) throw new Error(`has a problem in its "map": ${problem}.`);
+      const strs = (v: unknown) => (Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []);
+      const targets = strs(q.targets);
+      const marks = strs(q.marks);
+      if (targets.length && marks.length) throw new Error(`has both "targets" and "marks"; use one.`);
+      if (targets.length) return { ...base, map, targets, choices: [], answer: [] };
+      if (marks.length < 2) throw new Error(`(map) needs "targets" (places to find) or at least two "marks" (places to label).`);
+      // Choices default to the marked names, in order.
+      const ch = choices.length ? choices : marks;
+      const answer = !choices.length && q.answer === undefined ? marks.map((_, i) => i) : indices(q.answer);
+      if (answer.length !== marks.length || !answer.every((a) => Number.isInteger(a) && a >= 0 && a < ch.length)) throw new Error(`has an invalid "answer" (one choice index per mark).`);
+      if (new Set(ch).size !== ch.length) throw new Error(`has the same choice twice.`);
+      return { ...base, map, marks, choices: ch, answer };
+    }
+    case "timeline": {
+      const slots = Array.isArray(q.slots) ? q.slots.map((s) => String(s).trim()) : [];
+      if (slots.length < 2) throw new Error(`(timeline) needs at least two "slots" (dates).`);
+      const bad = slots.find((s) => !parseSpan(s));
+      if (bad !== undefined) throw new Error(`has a slot date that can't be read ("${bad}").`);
+      if (choices.length < 2) throw new Error(`needs at least two "choices" (the events).`);
+      const answer = indices(q.answer);
+      if (answer.length !== slots.length || !answer.every(inRange)) throw new Error(`has an invalid "answer" (one choice index per slot).`);
+      const timeline = typeof q.timeline === "string" && q.timeline.trim() ? q.timeline : undefined;
+      if (timeline) {
+        const problem = parseTimeline(timeline).problems.find((p) => !p.startsWith("no event"));
+        if (problem) throw new Error(`has a problem in its "timeline": ${problem}.`);
+      }
+      return { ...base, slots, choices, answer, ...(timeline ? { timeline } : {}) };
     }
   }
 }
