@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MathText from "../components/MathText";
-import QuestionBody, { QuestionImage, QuestionStem } from "../components/QuestionBody";
+import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
 import { isChoice, qtype } from "../lib/questions";
 import type { AppApi, View } from "../App";
 import type { Attempt, Bank } from "../lib/types";
@@ -324,6 +324,7 @@ export default function Results({
               </div>
               <QuestionStem q={q} />
               {qtype(q) !== "label" && <QuestionImage q={q} />}
+              <QuestionAudio q={q} revealed />
               {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
               {!isChoice(q) ? (
                 <QuestionBody q={q} order={q.choices.map((_, i) => i)} chosen={rec.chosen} reveal review />

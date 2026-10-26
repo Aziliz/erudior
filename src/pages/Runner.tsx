@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
-import QuestionBody, { QuestionImage, QuestionStem } from "../components/QuestionBody";
+import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
 import type { AppApi, View } from "../App";
 import type { Bank, Chosen, Lesson } from "../lib/types";
 import { isAnswered, isChoice, isComplete, qtype, typeLabel } from "../lib/questions";
@@ -39,7 +39,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const backLesson = session.lesson ?? session.pretestLesson;
   const exitView: View = backLesson
     ? { name: "lesson", courseId: backLesson.courseId, lessonId: backLesson.lessonId }
-    : session.module
+    : session.reading
+      ? { name: "read", courseId: session.reading.courseId, textId: session.reading.textId }
+      : session.module
       ? { name: "course", courseId: session.module.courseId, tab: "lessons" }
       : { name: "bank", bankId: session.bankId };
   const blocks = session.blocks?.length ? session.blocks : [{ start: 0, end: items.length, timeLimitSec: session.timeLimitSec }];
@@ -329,7 +331,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             Save &amp; exit
           </button>
           <h1 className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</h1>
-          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.kind === "pretest" ? "Warm-up" : session.kind === "weekly" ? "Weekly review" : session.adaptive ? "Smart practice" : "Practice"}</span>
+          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.kind === "pretest" ? "Warm-up" : session.kind === "weekly" ? "Weekly review" : session.reading ? "Reading questions" : session.adaptive ? "Smart practice" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -358,6 +360,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </div>
             <QuestionStem q={q} />
             {qtype(q) !== "label" && <QuestionImage q={q} />}
+            <QuestionAudio q={q} revealed={isChecked} />
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
             {!choiceQ && <p className="q-type small muted">{typeLabel(q)}</p>}
 

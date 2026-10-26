@@ -67,4 +67,6 @@ Answer choices are shuffled at run time unless the user turns that off, so don't
 
 Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
 
+Any question can have `audio`, which makes it a listening question: `{ "src": "data:audio/mpeg;base64,…", "text": "Was möchten Sie trinken?", "lang": "de-DE" }`. `src` is a recorded clip (mp3, m4a/aac, ogg/opus, wav, webm or flac as a `data:audio/…;base64` URL, up to 400 KB); without it, the device's voice speaks `text` in `lang` (in a course, `lang` defaults to the course language's voice). `text` is what is said: it's shown after the answer is checked (and in results), or straight away when the device can't play the sound, so always give it. The question shows **Listen** and **Listen slowly** buttons. A choice question with audio is "pick what you heard"; a `text` question with audio is dictation ("type what you hear", with the sentence in `accept`). Live rooms leave listening questions out. See COURSE_FORMAT.md for dialogues and speaking practice.
+
 `honors: true` marks a question from an optional honors lesson: full exams leave it out, and practice includes it only when asked.

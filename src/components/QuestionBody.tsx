@@ -2,8 +2,10 @@
 // answering (Runner) and read-only when reviewing (Results). `reveal` marks each part right or
 // wrong and shows the correct answer.
 
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import MathText from "./MathText";
+import { canPlay, playClip, stopAudio } from "../lib/audio";
+import { onVoices } from "../lib/speech";
 import type { Chosen, Question } from "../lib/types";
 import { BLANK, blankCount, partsCorrect, qtype } from "../lib/questions";
 import { LETTERS } from "../lib/util";
@@ -74,6 +76,59 @@ export function QuestionImage({ q, numbered }: { q: Question; numbered?: boolean
         </figcaption>
       )}
     </figure>
+  );
+}
+
+/**
+ * Listening questions: play the clip (or the device's voice) before answering. The words
+ * (transcript) appear only once the answer is checked, or when this device can't play the sound.
+ */
+export function QuestionAudio({ q, revealed }: { q: Question; revealed?: boolean }) {
+  const [, tick] = useState(0);
+  const [playing, setPlaying] = useState<"normal" | "slow" | null>(null);
+  const [showWords, setShowWords] = useState(false);
+  useEffect(() => onVoices(() => tick((n) => n + 1)), []);
+  // A new question (or leaving the screen) stops the sound.
+  useEffect(() => {
+    setShowWords(false);
+    return () => stopAudio();
+  }, [q.id]);
+  const a = q.audio;
+  if (!a) return null;
+  const ok = canPlay(a);
+  const lang = a.lang?.split(/[-_]/)[0];
+  const play = (how: "normal" | "slow") => {
+    setPlaying(how);
+    playClip(a, { rate: how === "slow" ? 0.7 : 1 }).finally(() => setPlaying((p) => (p === how ? null : p)));
+  };
+  return (
+    <div className="q-audio">
+      {ok ? (
+        <div className="row">
+          <button type="button" className="btn" onClick={() => play("normal")} aria-pressed={playing === "normal"}>
+            🔊 {playing === "normal" ? "Playing…" : "Listen"}
+          </button>
+          <button type="button" className="btn ghost" onClick={() => play("slow")} aria-pressed={playing === "slow"}>
+            {playing === "slow" ? "Playing slowly…" : "Listen slowly"}
+          </button>
+        </div>
+      ) : (
+        <p className="small muted">
+          This question has sound, but this device has no voice for its language.{" "}
+          {!revealed && a.text && !showWords && (
+            <button type="button" className="linkish" onClick={() => setShowWords(true)}>
+              Show the words instead
+            </button>
+          )}
+        </p>
+      )}
+      {(revealed || showWords) && a.text && (
+        <p className="q-transcript" aria-live="polite">
+          <span className="muted">What was said: </span>
+          <span lang={lang}>{a.text}</span>
+        </p>
+      )}
+    </div>
   );
 }
 

@@ -16,6 +16,9 @@ import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
+import { MEDIA_BLOCK, mediaProblems, parseMedia } from "../src/lib/dialogue.ts";
+import { textProblems } from "../src/lib/reader.ts";
+import { audioBytes, isAudioSrc } from "../src/lib/audio.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -35,7 +38,8 @@ async function parseMermaid(src: string): Promise<void> {
 export async function checkCourse(file: string, opts: { runs?: number; money?: boolean } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
-  const c = normalizeCourse(JSON.parse(readFileSync(file, "utf8")));
+  const raw = JSON.parse(readFileSync(file, "utf8"));
+  const c = normalizeCourse(raw);
   const runs = opts.runs ?? 40;
   const diagrams: { where: string; src: string }[] = [];
 
@@ -49,6 +53,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       t = t.replace(EXAMPLE_BLOCK, (_m, info: string, body: string) => {
         const ex = parseExample(info, body);
         return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
+      });
+      // Dialogues and speaking practice: report malformed blocks, then check the lines' text.
+      for (const p of mediaProblems(t)) say(`${where}: ${p}`);
+      t = t.replace(MEDIA_BLOCK, (_m, kind: "dialogue" | "speak", info: string, body: string) => {
+        const b = parseMedia(kind, info, body);
+        return ["", b.title, ...b.lines.flatMap((l) => [l.text, l.translation]), ""].filter((x) => x !== undefined).join("\n\n");
       });
       t = t.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
         try {
@@ -125,6 +135,30 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
+
+  // --- Reader texts --------------------------------------------------------------------
+  const firstBank = [...c.banks].sort((a, b) => b.questions.length - a.questions.length)[0];
+  for (const p of textProblems(c.texts ?? [], new Set(firstBank?.questions.map((q) => q.id) ?? []), raw.texts)) say(p);
+  for (const t of c.texts ?? []) {
+    if (t.about) checkText(`text ${t.id} about`, t.about, true);
+    for (const g of t.glossary ?? []) checkText(`text ${t.id} glossary ${g.term}`, g.definition);
+    for (const s of t.sections) checkText(`text ${t.id} section ${s.id}`, s.body, true);
+  }
+
+  // --- Sound -----------------------------------------------------------------------------
+  const big = (src: string) => audioBytes(src) > 400_000;
+  for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
+    if (v?.audio === undefined) continue;
+    if (!isAudioSrc(v.audio)) say(`word ${v.id ?? i + 1}: "audio" must be a data:audio/…;base64 URL`);
+    else if (big(v.audio)) say(`word ${v.id ?? i + 1}: the audio clip is over 400 KB`);
+  }
+  for (const b of c.banks)
+    for (const q of b.questions) {
+      if (!q.audio) continue;
+      if (q.audio.src && big(q.audio.src)) say(`question ${q.id}: the audio clip is over 400 KB`);
+      if (!q.audio.src && !q.audio.lang) say(`question ${q.id}: audio with only "text" needs a "lang" (or a course "language") for the voice`);
+      if (!q.audio.text) say(`question ${q.id}: audio needs "text" (the words said), shown after answering and to anyone who can't play it`);
+    }
 
   // --- References between parts ---------------------------------------------------
   const qids = new Set(c.banks.flatMap((b) => b.questions.map((q) => q.id)));

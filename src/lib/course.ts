@@ -1,6 +1,8 @@
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
+import { normalizeTexts } from "./reader";
+import { isAudioSrc } from "./audio";
 
 const SEP = "__";
 
@@ -150,6 +152,7 @@ export function normalizeCourse(raw: unknown): Course {
         example: str(v.example) || undefined,
         exampleEn: str(v.exampleEn) || undefined,
         note: str(v.note) || undefined,
+        ...(isAudioSrc(v.audio) ? { audio: v.audio } : {}),
         directions: dirs && dirs.length ? dirs : undefined,
       };
     })
@@ -168,6 +171,14 @@ export function normalizeCourse(raw: unknown): Course {
       note: str(r.note) || undefined,
     }))
     .filter((r) => r.title);
+
+  const texts = normalizeTexts(raw.texts);
+
+  // Listening questions with text but no voice language speak in the course's language.
+  const voice = language?.tts ?? language?.code;
+  if (voice)
+    for (const b of banks)
+      for (const q of b.questions) if (q.audio && !q.audio.src && !q.audio.lang) q.audio = { ...q.audio, lang: voice };
 
   return {
     format: "examiner-course",
@@ -190,6 +201,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(language ? { language } : {}),
     ...(vocab.length ? { vocab } : {}),
     ...(readingList.length ? { readingList } : {}),
+    ...(texts.length ? { texts } : {}),
     ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
   };

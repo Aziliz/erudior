@@ -276,12 +276,51 @@ fn copy_old_data(old: &Path, new: &Path) -> usize {
     copied
 }
 
+/// True for the app's own pages (bundled UI, or the dev server in debug builds).
+fn own_page(url: &tauri::Url) -> bool {
+    match url.scheme() {
+        // macOS and Linux serve the bundled UI from tauri://localhost, Windows from http(s)://tauri.localhost.
+        "tauri" => true,
+        "http" | "https" => match url.host_str() {
+            Some("tauri.localhost") => true,
+            Some("localhost") => cfg!(debug_assertions),
+            _ => false,
+        },
+        _ => false,
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
             move_old_data(app.handle());
+            // Speaking practice records the student's voice (getUserMedia). WebKitGTK ships with
+            // media streams turned off; turn them on for the main window.
+            #[cfg(target_os = "linux")]
+            {
+                use tauri::Manager;
+                if let Some(w) = app.get_webview_window("main") {
+                    let _ = w.with_webview(|wv| {
+                        use webkit2gtk::{SettingsExt, WebViewExt};
+                        if let Some(s) = wv.inner().settings() {
+                            s.set_enable_media_stream(true);
+                        }
+                    });
+                }
+            }
             Ok(())
+        })
+        // The microphone is only used when the student presses Record in a speaking exercise,
+        // and only Erudior's own pages may have it. Without this, WebKitGTK (Linux) denies it
+        // silently; Windows and macOS still apply the system's microphone privacy settings
+        // (macOS asks once, using NSMicrophoneUsageDescription in Info.plist). Everything else
+        // (camera, location, …) keeps the web view's default behavior.
+        .on_permission_request(|webview, kind| match kind {
+            tauri::webview::PermissionKind::Microphone if webview.url().map(|u| own_page(&u)).unwrap_or(false) => {
+                tauri::webview::PermissionResponse::Allow
+            }
+            _ => tauri::webview::PermissionResponse::Default,
         })
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())

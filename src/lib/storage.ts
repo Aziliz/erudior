@@ -185,6 +185,27 @@ export async function exportText(content: string, name: string, label: string, e
   return true;
 }
 
+/** Save binary data (e.g. a speaking-practice recording) to a file the user chooses. */
+export async function saveBlob(blob: Blob, name: string, label: string, ext: string): Promise<boolean> {
+  if (inApp) {
+    const { save } = await import("@tauri-apps/plugin-dialog");
+    const path = await save({ defaultPath: name, filters: [{ name: label, extensions: [ext] }] });
+    if (!path) return false;
+    const bytes = new Uint8Array(await blob.arrayBuffer());
+    let bin = "";
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    await invoke("write_base64_file", { path, data: btoa(bin) });
+    return true;
+  }
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  return true;
+}
+
 export interface Backup {
   format: "examiner-backup";
   version: 1;

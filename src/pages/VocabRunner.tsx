@@ -18,6 +18,7 @@ import {
 } from "../lib/vocab";
 import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
+import { playClip } from "../lib/audio";
 import { imeFor } from "../lib/ime";
 import { confirmAction } from "../lib/storage";
 
@@ -62,21 +63,24 @@ export function SpeakButton({
   text,
   lang,
   label = "Play pronunciation",
+  audio,
 }: {
   text: string;
   lang?: string;
   label?: string;
+  /** A recorded clip (data:audio URL); the device's voice is the fallback. */
+  audio?: string;
 }) {
   const [, tick] = useState(0);
   useEffect(() => onVoices(() => tick((n) => n + 1)), []);
-  if (!canSpeak(lang)) return null;
+  if (!audio && !canSpeak(lang)) return null;
   return (
     <button
       type="button"
       className="btn ghost speak"
       aria-label={label}
       title={label}
-      onClick={() => speak(text, lang!)}
+      onClick={() => (audio ? playClip({ src: audio }) : speak(text, lang!))}
     >
       🔊
     </button>
@@ -160,7 +164,8 @@ export default function VocabRunner({
       wrong: s.wrong + (v.ok ? 0 : 1),
     }));
     setShown({ verdict: v, typed, change });
-    if (card.dir === "recall" && lang?.tts) speak(card.item.term, lang.tts);
+    if (card.dir === "recall" && card.item.audio) playClip({ src: card.item.audio });
+    else if (card.dir === "recall" && lang?.tts) speak(card.item.term, lang.tts);
   }
 
   function next() {
@@ -307,7 +312,7 @@ export default function VocabRunner({
         {dir === "meaning" ? (
           <div className="vocab-prompt" lang={lang?.code}>
             <span>{item.term}</span>
-            <SpeakButton text={item.term} lang={lang?.tts} />
+            <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />
           </div>
         ) : (
           <div className="vocab-prompt en">
@@ -389,7 +394,7 @@ export default function VocabRunner({
             </p>
             <p className="vocab-answer" lang={lang?.code}>
               <span>{item.term}</span>
-              <SpeakButton text={item.term} lang={lang?.tts} />
+              <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />
               <span className="muted"> — {item.meanings.join("; ")}</span>
             </p>
             {item.plural && <p className="muted">Plural: {item.plural}</p>}

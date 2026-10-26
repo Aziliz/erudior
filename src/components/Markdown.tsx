@@ -7,6 +7,8 @@ import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
 import { protectDiagrams } from "../lib/diagram";
 import { protectExamples, revealExample } from "../lib/examples";
+import { mediaClick, prepareMedia, protectMedia, releaseMedia } from "../lib/dialogue";
+import { saveBlob } from "../lib/storage";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -37,7 +39,9 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
   const examples = protectExamples(md, (field) => renderMarkdown(field, scope));
-  md = examples.text;
+  // Dialogues and speaking practice (```dialogue / ```speak): lines rendered the same way.
+  const media = protectMedia(examples.text, (field) => renderMarkdown(field, scope));
+  md = media.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
   const math = protectMath(figs.text);
@@ -48,7 +52,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return examples.restore(mathHeaders(clean));
+  return examples.restore(media.restore(mathHeaders(clean)));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -136,8 +140,20 @@ export default function Markdown({
   className = "prose",
   scope,
   foreignLang,
+  ttsLang,
+  notes,
+  html: prerendered,
+  decorate = true,
 }: {
   source: string;
+  /** `source` is already sanitized HTML from renderMarkdown (the reader's line-numbered verse). */
+  html?: boolean;
+  /** Color "Key points", examples and tips (lessons); off for texts in the reader. */
+  decorate?: boolean;
+  /** Voice for read-aloud in dialogue and speaking blocks (e.g. "de-DE"); default foreignLang. */
+  ttsLang?: string;
+  /** Footnotes in the text (lib/reader.ts footnotes): note buttons open them. */
+  notes?: { id: string; n: number; text: string }[];
   /** Language courses: italic text is the target language (authoring convention), so mark it
    * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
   foreignLang?: string;
@@ -147,13 +163,16 @@ export default function Markdown({
   scope?: Record<string, number>;
 }) {
   const html = useMemo(() => {
-    const plain = renderMarkdown(source, scope);
-    const out = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
+    const plain = prerendered ? source : renderMarkdown(source, scope);
+    const out = decorate && className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
-    return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang, className]);
+    return out
+      .replace(/<em>/g, `<em lang="${code}">`)
+      .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
+      .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
+  }, [source, scope, foreignLang, className, prerendered, decorate]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -208,16 +227,34 @@ export default function Markdown({
     };
   }, [html]);
 
+  // Dialogue and speaking blocks: hide recording where it can't work; when the text changes or
+  // the page closes, stop the sound and drop the student's recordings (they're never kept).
+  useEffect(() => {
+    const el = body.current;
+    if (!el || !el.querySelector(".dlg, .spk")) return;
+    prepareMedia(el);
+    return () => releaseMedia(el);
+  }, [html]);
+
   function onClick(e: React.MouseEvent) {
     if (revealExample(e.target as Element)) return;
-    const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
+    if (
+      mediaClick(e.target as Element, {
+        lang: ttsLang ?? foreignLang,
+        save: (r, name) => saveBlob(r.blob, name, "Recording", name.split(".").pop() ?? "webm"),
+      })
+    )
+      return;
+    const fn = (e.target as HTMLElement).closest<HTMLElement>("button.fn-ref");
+    const el = fn ?? (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
-    const term = el.dataset.term ?? "";
+    const note = fn ? notes?.find((n) => n.id === fn.dataset.fn) : undefined;
+    const term = fn ? `Note ${note?.n ?? ""}` : (el.dataset.term ?? "");
     const box = el.getBoundingClientRect();
     const host = ref.current!.getBoundingClientRect();
     setPop({
       term,
-      entry: findTerm(glossary, term),
+      entry: fn ? (note ? { term, definition: note.text } : undefined) : findTerm(glossary, term),
       x: Math.min(box.left - host.left, host.width - 340),
       y: box.bottom - host.top + 6,
     });

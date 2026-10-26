@@ -1,8 +1,9 @@
 // Question kinds beyond plain multiple choice: grading, "answered" checks and validation.
 // See QuestionType in types.ts for how each kind stores its answer.
 
-import type { Chosen, Question, QuestionImage, QuestionType } from "./types";
+import type { AudioClip, Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { sameSet } from "./util";
+import { isAudioSrc } from "./audio";
 
 export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order"];
 
@@ -211,6 +212,16 @@ function readImage(v: unknown): QuestionImage | undefined {
   };
 }
 
+/** A listening question's sound: a data:audio URL and/or text for the device's voice. */
+function readAudio(v: unknown): AudioClip | undefined {
+  if (!isObj(v)) return undefined;
+  const src = isAudioSrc(v.src) ? v.src : undefined;
+  const text = typeof v.text === "string" && v.text.trim() ? v.text.trim() : undefined;
+  if (!src && !text) return undefined;
+  const lang = typeof v.lang === "string" && /^[A-Za-z]{2,3}([-_][A-Za-z0-9]{2,8})*$/.test(v.lang) ? v.lang : undefined;
+  return { ...(src ? { src } : {}), ...(text ? { text } : {}), ...(lang ? { lang } : {}) };
+}
+
 /**
  * Check and tidy the type-specific fields of a question read from a file. Returns the
  * fields to merge into the question, or throws an Error with a readable message.
@@ -221,10 +232,13 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
   const image = readImage(q.image);
   if (q.image !== undefined && !image) throw new Error(`has an "image" without a "src".`);
   if (image && !image.alt.trim()) throw new Error(`has an image without "alt" text (describe the picture).`);
+  const audio = readAudio(q.audio);
+  if (q.audio !== undefined && !audio) throw new Error(`has "audio" without a data:audio "src" or a "text" to speak.`);
   const choices = Array.isArray(q.choices) ? q.choices.map((c) => String(c)) : [];
   const base = {
     ...(type !== "choice" ? { type } : {}),
     ...(image ? { image } : {}),
+    ...(audio ? { audio } : {}),
   };
   const indices = (v: unknown) => (Array.isArray(v) ? v : v === undefined ? [] : [v]).map((a) => Number(a));
   const inRange = (a: number) => Number.isInteger(a) && a >= 0 && a < choices.length;

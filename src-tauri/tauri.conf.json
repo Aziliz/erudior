@@ -21,7 +21,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src 'self' https://courses.erudior.com https://api.erudior.com wss://api.erudior.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+      "csp": "default-src 'self'; connect-src 'self' https://courses.erudior.com https://api.erudior.com wss://api.erudior.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src data: blob:"
     }
   },
   "bundle": {
@@ -62,7 +62,8 @@
     "createUpdaterArtifacts": true,
     "macOS": {
       "minimumSystemVersion": "10.15",
-      "signingIdentity": "-"
+      "signingIdentity": "-",
+      "entitlements": "Entitlements.plist"
     }
   },
   "plugins": {

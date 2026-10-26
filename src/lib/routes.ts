@@ -4,6 +4,7 @@
 //   /colorado-real-estate-broker       a course (or its catalog overview before it's started)
 //   /colorado-real-estate-broker/cards a course tab ("today" is the bare course address)
 //   /colorado-real-estate-broker/lessons/<lessonId>
+//   /<course>/read/<textId>             a text in the course's reader
 //   /colorado-real-estate-broker/<activity>   practice, exam results, cards, drills, … (not
 //                                       restorable from the address alone; reopens the course)
 //   /progress, /search?q=…, /create, /review, /live
@@ -44,6 +45,7 @@ function courseOf(v: View): string | null {
     case "drill":
     case "ref":
     case "vocab":
+    case "read":
       return v.courseId;
     case "overview":
       return v.catalogId;
@@ -96,6 +98,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return course(v.courseId) + "/reference/" + encodeURIComponent(v.refId);
     case "vocab":
       return course(v.courseId) + "/vocabulary-practice";
+    case "read":
+      return course(v.courseId) + "/read/" + encodeURIComponent(v.textId);
     case "bank":
     case "editor": {
       const cid = bankCourse(v.bankId);
@@ -141,6 +145,7 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   const courseId = have.id;
   if (second === "lessons" && third) return { name: "lesson", courseId, lessonId: decodeURIComponent(third) };
   if (second === "reference" && third) return { name: "ref", courseId, refId: decodeURIComponent(third) };
+  if (second === "read" && third) return { name: "read", courseId, textId: decodeURIComponent(third) };
   if (second && (TABS as string[]).includes(second)) return { name: "course", courseId, tab: second as CourseTab };
   // Activities (practice, results, …) need state the address doesn't carry: open the course.
   return { name: "course", courseId };

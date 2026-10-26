@@ -1,0 +1,229 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "demo-reader",
+ "title": "Reader demo",
+ "description": "Try the built-in reader: a short story in three chapters, a poem and a play scene with line numbers, and a letter in the style of a primary source. All are sample texts written for Erudior.",
+ "author": "Erudior",
+ "revision": 1,
+ "modules": [],
+ "lessons": [],
+ "banks": [
+  {
+   "id": "reading",
+   "title": "Reading questions",
+   "questions": [
+    {
+     "id": "r-1",
+     "topic": "Reading",
+     "stem": "Why does Tomas say the lamp by the bridge counts?",
+     "choices": [
+      "Because nobody else will light the ugly lamps",
+      "Because the council told him to count it",
+      "Because it is the brightest lamp on Mill Street",
+      "Because Ilse asked him to light it first"
+     ],
+     "answer": 0,
+     "explanation": "Tomas says every lamp counts, \"especially the ugly ones. Nobody else will light them.\" He cares for the lamps nobody else would."
+    },
+    {
+     "id": "r-2",
+     "topic": "Reading",
+     "stem": "What news does the town council's letter bring?",
+     "choices": [
+      "The streets will get electric lights in the spring",
+      "Tomas will be paid more",
+      "The bridge will be rebuilt",
+      "The bakery will close"
+     ],
+     "answer": 0,
+     "explanation": "The letter says the streets will be lit by electricity in the spring, and thanks Tomas for his service: his job is ending."
+    },
+    {
+     "id": "r-3",
+     "topic": "Reading",
+     "type": "text",
+     "stem": "Ilse names the bakery lamp after the sound it makes. What does she call it? The ___",
+     "accept": [
+      [
+       "Kettle"
+      ]
+     ],
+     "explanation": "The bakery lamp \"hissed like a kettle\" in Chapter 1, so in Chapter 2 Ilse names it The Kettle."
+    },
+    {
+     "id": "r-4",
+     "topic": "Reading",
+     "stem": "Why is \"Squeak\" crossed out in Ilse's notebook?",
+     "choices": [
+      "Tomas oiled its hinge, so it stopped squeaking",
+      "The lamp was taken down",
+      "Ilse thought of a better name",
+      "The council renamed the lamp"
+     ],
+     "answer": 0,
+     "explanation": "Tomas oiled the hinge on the lamp by the school, so it \"didn't squeak anymore.\""
+    },
+    {
+     "id": "r-5",
+     "topic": "Reading",
+     "stem": "What does Ilse's last note, \"Still counts,\" suggest?",
+     "choices": [
+      "The old lamp, and the care Tomas gave it, still matter",
+      "Ilse still can't count the lamps correctly",
+      "The town will go back to gas lamps",
+      "The mayor wants Tomas to count the new lamps"
+     ],
+     "answer": 0,
+     "explanation": "Ilse echoes Tomas's words from Chapter 1, \"Every lamp counts.\" The ugly old bridge lamp needed his tap one last time."
+    },
+    {
+     "id": "r-6",
+     "topic": "Reading",
+     "stem": "What does the speaker of \"Winter Orchard\" believe about winter?",
+     "choices": [
+      "It is a resting time that keeps summer alive",
+      "It has killed the orchard for good",
+      "It is the best season of the year",
+      "It ends when the crow flies away"
+     ],
+     "answer": 0,
+     "explanation": "The last stanza says the cold is \"only on its way to somewhere else\" and the roots \"keep the summer, even now.\""
+    },
+    {
+     "id": "r-7",
+     "topic": "Reading",
+     "stem": "Why hasn't Daniel written for the last four nights?",
+     "choices": [
+      "He had no candle to write by",
+      "He was too ill to write",
+      "The paymaster took his paper",
+      "He was working through the night"
+     ],
+     "answer": 0,
+     "explanation": "He begins: \"having had no candle these four nights past.\""
+    }
+   ]
+  }
+ ],
+ "decks": [],
+ "glossary": [],
+ "references": [],
+ "drills": [],
+ "texts": [
+  {
+   "id": "lamplighter",
+   "title": "The Lamplighter's Last Round",
+   "author": "Erudior (sample story)",
+   "date": "2026",
+   "about": "A short story in three chapters about a town getting electric street lights. A sample text written for Erudior to show the reader. It isn't a published or historical work.",
+   "source": "Written for Erudior's reader demo; free to use.",
+   "glossary": [
+    {
+     "term": "lamplighter",
+     "definition": "A person whose job was to light the gas street lamps at dusk and put them out at dawn."
+    },
+    {
+     "term": "electric light",
+     "definition": "Light from electricity, such as a light bulb, instead of from a flame."
+    },
+    {
+     "term": "town council",
+     "definition": "The group of elected people who make decisions for a town."
+    }
+   ],
+   "sections": [
+    {
+     "id": "ch1",
+     "title": "The Ladder",
+     "questions": [
+      "r-1",
+      "r-2"
+     ],
+     "body": "Every evening at a quarter past five, Tomas Varga, the town's [[lamplighter]], carried his ladder down Mill Street and lit its forty-one gas lamps.[^gas] He had done it for twenty-two years, in snow and in fog and once, memorably, in a hailstorm that dented his hat.\n\nHe knew each lamp by its habits. The one outside the bakery hissed like a kettle. The one by the bridge needed a tap on its glass before it would catch. Children followed him on summer nights, counting the lamps aloud, and the baker's daughter, Ilse, always counted wrong on purpose so that he would have to correct her.\n\n\"Forty,\" she said one October evening, when the last lamp flared.\n\n\"Forty-one,\" said Tomas. \"You skipped the bridge again.\"\n\n\"The bridge doesn't count. It's ugly.\"\n\n\"Every lamp counts,\" he said. \"Even the ugly ones. Especially the ugly ones. Nobody else will light them.\"\n\nThat night a letter waited for him at home. It came from the [[town council]], and it was very polite. In the spring, it said, the streets would be lit by [[electric light|electricity]]. The council thanked him for his long and faithful service.\n\nTomas read it twice, folded it into a small square, and put it in the pocket where he kept his matches.\n\n[^gas]: Before electric street lights, many towns lit their streets with gas lamps. Gas came to each lamp through pipes under the street, and someone had to light every lamp by hand."
+    },
+    {
+     "id": "ch2",
+     "title": "The Wires",
+     "questions": [
+      "r-3",
+      "r-4"
+     ],
+     "body": "All winter, men in heavy coats strung wires along Mill Street. They climbed tall poles with spikes strapped to their boots, and they did not need ladders at all.\n\nIlse watched them from the bakery window. \"Will the new lamps hiss?\" she asked her father.\n\n\"I don't think so.\"\n\n\"Then how will anyone know they're working?\"\n\nTomas still made his rounds. The council had asked him to keep the gas lamps burning until the new ones were ready, so he walked the same route as always, but more slowly now, as if he were memorizing it. He polished the glass on the bridge lamp until it shone. He oiled the hinge on the lamp by the school, which had squeaked for nine years.\n\nOne evening Ilse fell into step beside him. She had brought a notebook.\n\n\"What's that for?\" he asked.\n\n\"I'm writing down their names,\" she said. \"The lamps. Somebody should remember them.\"\n\n\"Lamps don't have names.\"\n\n\"These ones do now.\" She showed him the page. The bakery lamp was *The Kettle*. The bridge lamp was *Old Grumpy*. The lamp by the school was *Squeak*, with a line through it, because it didn't squeak anymore.\n\nTomas laughed for the first time in weeks."
+    },
+    {
+     "id": "ch3",
+     "title": "Morning",
+     "questions": [
+      "r-5"
+     ],
+     "body": "The electric lights came on for the first time on a Tuesday in April. The whole town gathered on Mill Street to watch. The mayor gave a speech, a switch was turned, and forty-one white globes blinked on together, all at once, without a sound.\n\nPeople clapped. A brass band played. Someone said it was like daylight.\n\nTomas stood at the back of the crowd with his ladder over his shoulder, out of habit. Ilse found him there.\n\n\"They don't hiss,\" she said.\n\n\"No.\"\n\n\"And nobody had to light them.\" She frowned, as though this were a kind of cheating.\n\nThe next morning, very early, there was a knock at Tomas's door. It was the mayor, holding his hat. The new lights, he explained, had worked beautifully, except for one. The lamp by the bridge had refused to come on, and the engineers could not say why.\n\n\"We wondered,\" said the mayor, \"whether you might look at it.\"\n\nTomas took his ladder down from its hook. At the bridge, he climbed up, looked at the new glass globe for a long moment, and gave it a gentle tap.\n\nIt flickered, and then it shone.\n\nIlse, who had followed him, wrote something in her notebook. *Old Grumpy*, it said. *Still counts.*"
+    }
+   ]
+  },
+  {
+   "id": "winter-orchard",
+   "title": "Winter Orchard",
+   "author": "Erudior (sample poem)",
+   "date": "2026",
+   "kind": "poem",
+   "about": "Four short stanzas with line numbers, the way poems are printed for study. A sample text written for Erudior to show the reader. It isn't a published or historical work.",
+   "glossary": [
+    {
+     "term": "bough",
+     "definition": "A large branch of a tree."
+    }
+   ],
+   "sections": [
+    {
+     "id": "poem",
+     "title": "Winter Orchard",
+     "questions": [
+      "r-6"
+     ],
+     "body": "The apple trees stand bare and gray,\ntheir summer spent, their fruit away;\nthe frost has written on each [[bough]]\na quiet word I can't read now.\n\nThe ladder leans against the wall\nwhere once it helped the apples fall,\nand in the grass beneath the snow\nthe seeds are sleeping, row by row.[^cold]\n\nA crow walks out across the white\nas careful as a candlelight,\nand leaves a line of little marks\nlike stitches sewn across the dark.\n\nSo wait, the orchard seems to say:\nthe cold is only on its way\nto somewhere else. The roots know how\nto keep the summer, even now.\n\n[^cold]: Apple seeds need a long cold spell before they will sprout, so winter is part of how a new tree begins."
+    }
+   ]
+  },
+  {
+   "id": "borrowed-ladder",
+   "title": "The Borrowed Ladder",
+   "author": "Erudior (sample scene)",
+   "date": "2026",
+   "kind": "play",
+   "about": "A one-page scene for two actors, laid out like a printed play: speakers in capitals, stage directions in italics, and numbered lines. A sample text written for Erudior to show the reader. It isn't a published or historical work.",
+   "sections": [
+    {
+     "id": "scene",
+     "title": "A Scene",
+     "body": "*A small yard behind two houses. MARTA is looking up at her roof. JONAS comes in, carrying a ladder.*\n\nJONAS.\nI saw you from my window. You've been staring at that roof for an hour.\n\nMARTA.\nThe wind took three tiles last night. I'm deciding whether to be brave.\n\nJONAS.\nBravery is easier with a ladder.\n\n*He leans the ladder against the wall.*\n\nMARTA.\nThat's my father's ladder. He lent it to you in the spring.\n\nJONAS.\nDid he? I thought it had always been mine.\n\nMARTA.\nIt has his initials on the bottom rung. Look: H. B.\n\nJONAS.\n(*kneeling to look*) So it does. Well. I've kept it very well for him.\n\nMARTA.\nYou've kept it for six months.\n\nJONAS.\nThen I'm a very good keeper. Shall I hold it while you climb?\n\nMARTA.\nYou could climb.\n\nJONAS.\nI could. But it's your roof, and your father's ladder,\nand your bravery. I'm only the man who borrowed it.\n\n*MARTA laughs, and starts to climb.*"
+    }
+   ]
+  },
+  {
+   "id": "canal-letter",
+   "title": "A Canal Builder's Letter Home",
+   "author": "\"Daniel\" (invented letter)",
+   "date": "1827 (invented)",
+   "kind": "document",
+   "about": "A letter in the style of a primary source: a worker on a canal writes to his sister. Historians read letters like this for everyday details that official records leave out. This one was invented for Erudior's reader demo; it isn't a real historical document.",
+   "source": "Written for Erudior's reader demo, in the style of an 1820s letter.",
+   "glossary": [
+    {
+     "term": "foreman",
+     "definition": "The worker in charge of a group of workers."
+    }
+   ],
+   "sections": [
+    {
+     "id": "letter",
+     "title": "The letter",
+     "questions": [
+      "r-7"
+     ],
+     "body": "*Stony Cut, the 9th of May*\n\nDear Sister,\n\nI take up my pen at last, having had no candle these four nights past. The work goes on at a great pace. We are cutting through solid rock, and the [[foreman]] says we advance some twenty feet in a good day, less when the powder is damp.[^powder]\n\nThe men here come from every country I have heard of and several I had not. We do not always understand one another's speech, but a shovel is the same word in every tongue, and so we get on.\n\nWages are paid each Saturday, when they are paid at all. Last week the paymaster was late on account of a broken axle, and there was nearly a riot, until the cook gave out double bread and peace was restored.\n\nTell Mother I am eating well, which is not quite true, and that I go to church on Sundays, which is truer than it was.\n\nYour affectionate brother,\nDaniel\n\n[^powder]: Canal builders broke rock with black powder (gunpowder). Damp powder burns badly or not at all."
+    }
+   ]
+  }
+ ]
+}

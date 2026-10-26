@@ -39,6 +39,8 @@ export interface Session {
   kind?: "pretest" | "weekly";
   /** For a warm-up: the lesson to go back to. */
   pretestLesson?: LessonRef;
+  /** Questions about a section of a text in the reader: go back to the text afterwards. */
+  reading?: { courseId: string; textId: string; sectionId: string };
   /** Smart practice: spare question ids the session can swap in as it adapts (lib/mastery). */
   adaptive?: { reserve: string[]; shuffleChoices: boolean };
 }
@@ -264,6 +266,21 @@ export function startPretest(bank: Bank, lesson: LessonRef, questions: Question[
     mode: "practice",
     kind: "pretest",
     pretestLesson: lesson,
+    items,
+    blocks: [{ start: 0, end: items.length }],
+    startedAt: Date.now(),
+  };
+}
+
+/** Reading questions after a section in the reader: practice-style, recorded like any practice. */
+export function startReadingQuestions(bank: Bank, reading: NonNullable<Session["reading"]>, ids: string[]): Session {
+  const items = makeItems(lessonQuizQuestions(bank, ids), true);
+  return {
+    id: uid("s"),
+    bankId: bank.id,
+    bankTitle: bank.title,
+    mode: "practice",
+    reading,
     items,
     blocks: [{ start: 0, end: items.length }],
     startedAt: Date.now(),

@@ -51,6 +51,20 @@ export interface Question {
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   explanation?: string;
+  /**
+   * Listening questions: something to hear before answering (a recorded clip, or text spoken by
+   * the device's voice). The transcript (`text`) is shown only after the answer is checked.
+   */
+  audio?: AudioClip;
+}
+
+/** A recorded clip (`src`, a data:audio/… URL) and/or text for the device's voice to speak. */
+export interface AudioClip {
+  src?: string;
+  /** What is said. Spoken by text-to-speech when there's no `src`; shown as the transcript. */
+  text?: string;
+  /** Voice language for text-to-speech, e.g. "de-DE" (defaults to the course language). */
+  lang?: string;
 }
 
 /**
@@ -382,6 +396,8 @@ export interface Course {
   vocab?: VocabItem[];
   /** Recommended reading for the course's level. */
   readingList?: ReadingItem[];
+  /** Books and documents read inside the app (the Reading tab's library). See lib/reader.ts. */
+  texts?: ReaderText[];
   /** The calculator offered while studying ("none": no calculator); by default it follows the subject (lib/calcKind.ts). */
   calculator?: "basic" | "scientific" | "graphing" | "none";
   /** Community courses (made by users on the website): never count toward homeschool records. */
@@ -440,8 +456,59 @@ export interface VocabItem {
   example?: string;
   exampleEn?: string;
   note?: string;
+  /** Recorded pronunciation (data:audio/… URL); the device's voice is used when missing. */
+  audio?: string;
   /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
   directions?: VocabDirection[];
+}
+
+/** A book, poem, play or document in the course's library, read in the app's reader. */
+export interface ReaderText {
+  id: string;
+  title: string;
+  author?: string;
+  /** When it was written or first published, shown as given ("1862", "c. 1600"). */
+  date?: string;
+  /** prose (default) and document are Markdown; poem and play are line by line, with line numbers. */
+  kind?: "prose" | "poem" | "play" | "document";
+  /** Language of the text (BCP-47, e.g. "de-DE"); default: the course's language, else English. */
+  lang?: string;
+  /** Subject for the homeschool reading log (default: English language arts, or World languages). */
+  subject?: string;
+  /** Short Markdown introduction shown in the library and above the text. */
+  about?: string;
+  /** Edition or source, and its copyright status. */
+  source?: string;
+  /** Poems and plays: number every Nth line (default 5; 0 = no numbers). */
+  lineNumbers?: number;
+  /** Words explained for this text; [[term]] links look here first, then in the course glossary. */
+  glossary?: GlossaryEntry[];
+  sections: ReaderSection[];
+}
+
+/** A chapter, scene, poem or part of a text. */
+export interface ReaderSection {
+  id: string;
+  title: string;
+  /** Markdown (poems and plays: one line of the text per line). Footnotes: [^1] … [^1]: note. */
+  body: string;
+  /** Reading questions: ids of questions in the course's first bank. */
+  questions?: string[];
+}
+
+/** Where a student is in one text, and how long they've read it. */
+export interface ReadingState {
+  /** The section open last, and the paragraph or line at the top of the screen. */
+  section: string;
+  at: number;
+  /** Seconds of active reading (window visible, not idle). */
+  seconds: number;
+  /** sectionId -> YYYY-MM-DD the student finished it. */
+  read: Record<string, string>;
+  /** YYYY-MM-DD every section had been read. */
+  finished?: string;
+  /** YYYY-MM-DD last opened. */
+  last: string;
 }
 
 export interface ReadingItem {
@@ -503,6 +570,8 @@ export interface DayActivity {
   cards: number;
   lessons: number;
   drills: number;
+  /** Seconds of reading in the reader (optional: older progress files don't have it). */
+  readingSec?: number;
 }
 
 export interface Progress {
@@ -538,6 +607,8 @@ export interface Progress {
   study?: StudyPrefs;
   /** `${courseId}/${lessonId}` -> local YYYY-MM-DD the pre-lesson warm-up was done or skipped */
   pretests?: Record<string, string>;
+  /** `${courseId}/${textId}` -> place and time in a text read in the reader */
+  reading?: Record<string, ReadingState>;
 }
 
 export interface StudyPrefs {

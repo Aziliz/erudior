@@ -4,7 +4,7 @@
 import { useRef, useState } from "react";
 import type { AppApi } from "../App";
 import { SUBJECTS, type Family } from "../lib/family";
-import { ACTIVITY_KINDS, loadRecords, saveRecords, type Records } from "../lib/records";
+import { ACTIVITY_KINDS, bookMinutes, loadRecords, saveRecords, type Records } from "../lib/records";
 import { DOC_KINDS, deleteFile, newDocRef, saveCopy, storeFile } from "../lib/documents";
 import { today } from "../lib/srs";
 import { uid } from "../lib/util";
@@ -91,7 +91,12 @@ function Books({ api, r, setRecords, name }: { api: AppApi; r: Records; setRecor
             <li key={b.id} className="row" style={{ justifyContent: "space-between" }}>
               <span>
                 {fmtDate(b.date)}: <cite>{b.title}</cite>
-                {b.author && `, ${b.author}`} <span className="muted">({b.subject}{b.note ? `; ${b.note}` : ""})</span>
+                {b.author && `, ${b.author}`}{" "}
+                <span className="muted">
+                  ({b.subject}
+                  {b.minutes ? `; ${bookMinutes(b.minutes)} reading in Erudior` : ""}
+                  {b.note ? `; ${b.note}` : ""})
+                </span>
               </span>
               <button className="btn sm ghost" onClick={() => setRecords({ ...r, reading: r.reading.filter((x) => x.id !== b.id) })}>
                 Delete<span className="sr-only">: {b.title}</span>
