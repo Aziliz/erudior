@@ -40,7 +40,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   // Warm-up before a first read: offered once per lesson, picked when the lesson opens.
   const [warmup] = useState(() => {
     if (done || api.progress.pretests?.[key] || isHonorsLesson(course, lesson)) return [];
-    // Never this lesson's own quiz questions (that would hand out the quiz answers in advance).
+    // Questions outside the lesson's own quiz first; its quiz questions fill in (classic pretesting).
     const quizIds = new Set(lesson.quiz ?? []);
     return pretestQuestions(bank, quizIds, topics, api.progress);
   });

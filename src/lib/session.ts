@@ -242,16 +242,16 @@ export function lessonQuizNeeded(n: number): number {
 
 /**
  * Warm-up questions before reading a lesson (pretesting: trying first helps the lesson stick,
- * even when you get them wrong). Bank questions on the lesson's topics, never from the lesson's
- * own quiz (quizIds), no honors questions, unseen ones first. Empty when there aren't at least two.
+ * even when you get them wrong). Bank questions on the lesson's topics, no honors questions.
+ * Questions outside `quizIds` (the lesson's own quiz) come first, then quiz questions; unseen
+ * before seen. Empty when there aren't at least two.
  */
 export function pretestQuestions(bank: Bank | undefined, quizIds: Set<string>, topics: string[], progress: Progress, n = 3): Question[] {
   if (!bank || !topics.length) return [];
   const stats = progress.stats[bank.id] ?? {};
-  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors && !quizIds.has(q.id));
-  const unseen = shuffle(cands.filter((q) => !stats[q.id]));
-  const seen = shuffle(cands.filter((q) => stats[q.id]));
-  const out = [...unseen, ...seen].slice(0, n);
+  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors);
+  const group = (inQuiz: boolean, seen: boolean) => shuffle(cands.filter((q) => quizIds.has(q.id) === inQuiz && !!stats[q.id] === seen));
+  const out = [...group(false, false), ...group(false, true), ...group(true, false), ...group(true, true)].slice(0, n);
   return out.length >= 2 ? out : [];
 }
 

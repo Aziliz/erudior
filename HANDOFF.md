@@ -149,7 +149,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 - **Warm-up before a lesson:**
   - `pretestQuestions` and `startPretest`; LessonView shows it once per lesson, before the lesson is done (`progress.pretests`).
   - Session `kind: "pretest"`. These sessions change no stats or history (`finishSession` returns early) and go straight back to the lesson.
-  - Warm-up questions never come from the lesson's own quiz. In the school courses, nearly every question belongs to its own lesson's quiz, so few lessons get a warm-up (138 of 1,143 when last counted). Colorado: 43 of 48.
+  - Warm-up questions come from outside the lesson's own quiz first, then from its quiz (Jon chose this so every lesson gets one; classic pretesting).
 - **Study habits** (`progress.study`, set by checkboxes on the bank page):
   - Explain-first is on by default: after checking, an optional "explain it in your own words" box; Enter or the button shows the explanation.
   - Recall-first is off by default: choices stay covered until "Show choices", Enter or Space.

@@ -145,8 +145,10 @@ ok("no nudge when spread", spacingNudge({ activity: Object.fromEntries(["15", "1
 // Warm-up questions never come from a quiz.
 const quizIds = new Set(["A0", "A1", "A2"]);
 const wq = pretestQuestions(bank, quizIds, ["Alpha"], p);
-ok("warm-up avoids quiz questions", wq.length === 3 && wq.every((q) => !quizIds.has(q.id) && q.topic === "Alpha"), wq.map((q) => q.id));
-ok("warm-up needs 2", pretestQuestions(bank, new Set(questions.filter((q) => q.id !== "A5").map((q) => q.id)), ["Alpha"], p).length === 0);
+ok("warm-up prefers non-quiz questions", wq.length === 3 && wq.every((q) => !quizIds.has(q.id) && q.topic === "Alpha"), wq.map((q) => q.id));
+const allQuiz = new Set(questions.filter((q) => q.id !== "A5").map((q) => q.id));
+const wq2 = pretestQuestions(bank, allQuiz, ["Alpha"], p);
+ok("warm-up falls back to quiz questions", wq2.length === 3 && wq2[0].id === "A5", wq2.map((q) => q.id));
 
 if (fails) {
   console.log(`${fails} mastery test(s) failed`);
