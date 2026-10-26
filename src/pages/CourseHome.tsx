@@ -1,4 +1,4 @@
-import { catalogEntry } from "../lib/catalog";
+import { catalogEntry, isPublishedCourse } from "../lib/catalog";
 import { useMemo, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -95,9 +95,11 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
           {course.community && <CommunityNote api={api} course={course} />}
         </div>
         <div className="row">
-          <button className="btn" onClick={() => api.go({ name: "courseEdit", courseId: course.id })}>
-            Edit course
-          </button>
+          {!fromCatalog && (
+            <button className="btn" onClick={() => api.go({ name: "courseEdit", courseId: course.id })}>
+              Edit course
+            </button>
+          )}
           <button className="btn" onClick={onExport}>
             Export
           </button>
@@ -529,10 +531,16 @@ function BanksTab({ api, course }: { api: AppApi; course: Course }) {
       {course.banks.length === 0 ? (
         <div className="panel empty">
           <h2>No question banks in this course</h2>
-          <p className="muted">Add a bank and write questions, or import a course file that includes them.</p>
-          <button className="btn primary" onClick={addBank}>
-            Add question bank
-          </button>
+          {isPublishedCourse(course) ? (
+            <p className="muted">This course has no question banks.</p>
+          ) : (
+            <>
+              <p className="muted">Add a bank and write questions, or import a course file that includes them.</p>
+              <button className="btn primary" onClick={addBank}>
+                Add question bank
+              </button>
+            </>
+          )}
         </div>
       ) : (
         <>
@@ -562,11 +570,13 @@ function BanksTab({ api, course }: { api: AppApi; course: Course }) {
               );
             })}
           </div>
-          <div>
-            <button className="btn sm" onClick={addBank}>
-              Add question bank
-            </button>
-          </div>
+          {!isPublishedCourse(course) && (
+            <div>
+              <button className="btn sm" onClick={addBank}>
+                Add question bank
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
@@ -615,10 +625,16 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
       {statuses.length === 0 ? (
         <div className="panel empty">
           <h2>No notecard decks yet</h2>
-          <p className="muted">Make a deck and add cards with a prompt on the front and the answer on the back.</p>
-          <button className="btn primary" onClick={addDeck}>
-            New deck
-          </button>
+          {isPublishedCourse(course) ? (
+            <p className="muted">This course has no notecards.</p>
+          ) : (
+            <>
+              <p className="muted">Make a deck and add cards with a prompt on the front and the answer on the back.</p>
+              <button className="btn primary" onClick={addDeck}>
+                New deck
+              </button>
+            </>
+          )}
         </div>
       ) : (
         <>
@@ -661,7 +677,7 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
                         >
                           Cram
                         </button>
-                        {d.id !== MISSED_DECK_ID && (
+                        {d.id !== MISSED_DECK_ID && !isPublishedCourse(course) && (
                           <button
                             className="btn sm ghost"
                             onClick={() => api.go({ name: "deckEdit", courseId: course.id, deckId: d.id })}
@@ -676,11 +692,13 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
               </tbody>
             </table>
           </section>
-          <div>
-            <button className="btn sm" onClick={addDeck}>
-              New deck
-            </button>
-          </div>
+          {!isPublishedCourse(course) && (
+            <div>
+              <button className="btn sm" onClick={addDeck}>
+                New deck
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

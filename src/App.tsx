@@ -31,7 +31,7 @@ import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
 import { HOMESCHOOL, adultLabel, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
-import { courseFinished } from "./lib/catalog";
+import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
 import { useStudyTimer } from "./lib/timer";
 import FamilySetup from "./pages/FamilySetup";
@@ -674,7 +674,9 @@ export default function App() {
     }
     case "editor": {
       const bank = bankFor(view.bankId);
-      if (bank) body = <Editor key={bank.id} api={api} bank={bank} isNew={view.isNew} />;
+      // Published courses can't be edited here (links or old addresses land on the bank instead).
+      if (bank && bank.courseId && isPublishedCourse(courseFor(bank.courseId))) body = <BankHome api={api} bank={bank} />;
+      else if (bank) body = <Editor key={bank.id} api={api} bank={bank} isNew={view.isNew} />;
       fullScreen = true;
       break;
     }
@@ -705,7 +707,8 @@ export default function App() {
     }
     case "courseEdit": {
       const c = courseFor(view.courseId);
-      if (c) body = <CourseEditor key={c.id} api={api} course={c} isNew={view.isNew} />;
+      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={c} tab="today" />;
+      else if (c) body = <CourseEditor key={c.id} api={api} course={c} isNew={view.isNew} />;
       fullScreen = true;
       break;
     }
@@ -739,7 +742,8 @@ export default function App() {
     case "deckEdit": {
       const c = courseFor(view.courseId);
       const d = c?.decks.find((x) => x.id === view.deckId);
-      if (c && d) body = <DeckEditor key={d.id} api={api} course={c} deck={d} />;
+      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={c} tab="cards" />;
+      else if (c && d) body = <DeckEditor key={d.id} api={api} course={c} deck={d} />;
       fullScreen = true;
       break;
     }

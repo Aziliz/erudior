@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
-import { CATALOG, courseFinished, facets, prerequisites, type CatalogEntry } from "../lib/catalog";
+import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
 import { ClassAssignments, MyClasses } from "../components/ClassViews";
 import { LIVE } from "../lib/live";
@@ -39,7 +39,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       if (looksLikeCourse(raw)) {
         let course = normalizeCourse(raw);
         const existing = courses.find((c) => c.id === course.id);
-        if (existing) {
+        // A file can't replace an Erudior or community course: it comes in as a separate copy.
+        if (isPublishedCourse(course) || isPublishedCourse(existing)) {
+          course = normalizeCourse({ ...(raw as object), id: `${course.id}-${uid()}`, title: `${course.title} (copy)`, community: undefined });
+          api.toast(`"${course.title}" was imported as your own copy; the published course can't be replaced.`);
+        } else if (existing) {
           const replace = await store.confirmAction(
             `"${existing.title}" is already in your library. Replace it with the imported file? Your progress is kept.\n\nChoose No to keep both.`,
           );

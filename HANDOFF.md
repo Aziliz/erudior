@@ -110,6 +110,9 @@ The code is on GitHub at https://github.com/Aziliz/examiner (branch `main`, push
 - Fixed along the way: under 900px the exam/quiz answer sheet (with Finish quiz / End session) was hidden; it now sits under the question.
 - Tests: `tests/classroom.test.mts` (in npm test); `scripts/classroom-walkthrough.mjs` (teacher + a second browser as the student's device: setup, assign with due date, class file, shared-computer quiz, join, hand-in, tampered file refused, gradebook, CSV, reports), clean light/dark 1280 and 320.
 
+## Published courses are read-only in the app (after v0.24.0)
+- `isPublishedCourse` (lib/catalog.ts): catalog (Erudior) courses and community courses. The course page hides Edit course, Add question bank, New deck and deck Edit; the bank page hides Edit questions and Delete; App sends old `courseEdit`/`deckEdit`/`editor` addresses for them to the course or bank page; importing a file with a published course's id makes a separate "(copy)" instead of replacing it. Erudior's courses change only through their sources (content/) and the publish pipeline; community courses only in the website editor. Personal notes/flags and progress are unaffected.
+
 ## Roadmap page (after v0.24.0)
 - erudior.com/roadmap (`pages/Roadmap.tsx`, data in `lib/roadmap.ts`): the v1.0 course map from the claude.ai "Erudior: Free Homeschool Roadmap" doc (K–8 math, language arts, science, social studies per grade; art/music/health/PE per band; high school courses) plus `ENGINE`, the lesson-engine work Jon wants for v1.0 (read-aloud, manipulatives, phonics/handwriting, writing with rubrics, reader, maps/timelines, labs, listening/speaking, code exercises, activity logs). Availability comes from the catalog by title (`catalog` field maps Math 8 → Pre-algebra), so it updates as courses ship. Linked from the site menu, footer and the home page notice; in the sitemap and prerendered.
 

@@ -68,6 +68,14 @@ export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
 
 export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
 
+/**
+ * Erudior's own published courses (in the catalog) and community courses can't be edited in the
+ * app: Erudior's courses change only through their sources and the publishing pipeline, community
+ * courses only in the website's course editor. Updates would overwrite local edits anyway.
+ * Courses people make or import under their own ids stay editable.
+ */
+export const isPublishedCourse = (c: { id: string; community?: unknown } | undefined | null) => !!c && (!!c.community || !!catalogEntry(c.id));
+
 
 /** Filter values in a stable order: by how they appear in the catalog. */
 export function facets() {

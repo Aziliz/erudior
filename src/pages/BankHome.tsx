@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Bank } from "../lib/types";
+import { isPublishedCourse } from "../lib/catalog";
 import * as store from "../lib/storage";
 import {
   bankCoverage,
@@ -25,6 +26,8 @@ const FILTERS: { id: PracticeFilter; label: string }[] = [
 export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   const { progress } = api;
   const total = bank.questions.length;
+  // Banks in Erudior's or community courses are read-only here (see isPublishedCourse).
+  const locked = !!bank.courseId && isPublishedCourse(api.courses.find((c) => c.id === bank.courseId));
 
   // Exam settings start from the bank's defaults but can be changed per run.
   const [examCount, setExamCount] = useState(Math.min(bank.exam.questionCount, total));
@@ -85,15 +88,19 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
           {bank.description && <p className="muted">{bank.description}</p>}
         </div>
         <div className="row">
-          <button className="btn" onClick={() => api.go({ name: "editor", bankId: bank.id })}>
-            Edit questions
-          </button>
+          {!locked && (
+            <button className="btn" onClick={() => api.go({ name: "editor", bankId: bank.id })}>
+              Edit questions
+            </button>
+          )}
           <button className="btn" onClick={onExport}>
             Export
           </button>
-          <button className="btn danger ghost" onClick={onDelete}>
-            Delete
-          </button>
+          {!locked && (
+            <button className="btn danger ghost" onClick={onDelete}>
+              Delete
+            </button>
+          )}
         </div>
       </div>
 
