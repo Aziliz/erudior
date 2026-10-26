@@ -8,8 +8,9 @@ import { isAudioSrc } from "./audio";
 import { parseMapSpec } from "./mapSpec";
 import { samePlace } from "./mapNames";
 import { parseSpan, parseTimeline } from "./timeline";
+import { normalizeCodeSpec, readStamp } from "./code";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -115,6 +116,9 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
     case "model":
       // The state is saved only once the learner changes the model.
       return validState(readSpec(q.model).model, chosen);
+    case "code":
+      // Handed in = the tests ran on the code as it is now.
+      return readStamp(chosen) !== null;
     default:
       return true;
   }
@@ -159,6 +163,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return chosen.length === q.choices.length && chosen.every((c, i) => c === i);
     case "model":
       return !!q.target && manipCorrect(readSpec(q.model).model, q.target, chosen);
+    case "code":
+      return !!readStamp(chosen)?.pass;
     default:
       return sameSet(
         q.answer,
@@ -208,6 +214,8 @@ export function answerText(q: Question): string {
       return q.dates?.length === q.choices.length ? q.choices.map((c, i) => `${c} (${q.dates![i]})`).join(" → ") : q.choices.join(" → ");
     case "model":
       return q.target ? targetText(readSpec(q.model).model, q.target) : "";
+    case "code":
+      return q.code?.solution?.trim() ?? "Code that passes every test";
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -240,6 +248,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
       const m = readSpec(q.model).model;
       return describe(m, stateOr(m, chosen), true);
     }
+    case "code": {
+      const s = readStamp(chosen);
+      return s ? `Code that passed ${s.passed} of ${s.total} tests` : "Code (tests not run)";
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -262,6 +274,8 @@ export function typeLabel(q: Question): string {
       return q.dates?.length ? "Put in time order" : "Put in order";
     case "model":
       return actionLabel(readSpec(q.model).model.kind);
+    case "code":
+      return "Write code";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -404,5 +418,7 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       if (tp.length) throw new Error(`has a target problem: ${tp[0]}.`);
       return { ...base, choices: [], answer: [], model: spec, target: q.target as Question["target"] };
     }
+    case "code":
+      return { ...base, choices: [], answer: [], code: normalizeCodeSpec(q.code) };
   }
 }

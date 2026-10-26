@@ -98,6 +98,9 @@ export function useStudentFiles(id: string | null): void {
   student = id;
 }
 
+/** The student whose files are in use (null = the single-user files). */
+export const activeStudent = (): string | null => student;
+
 /** Read a named state file (see valid_state_name in lib.rs). */
 export async function loadState(name: string): Promise<string | null> {
   if (inApp) return invoke<string | null>("load_state", { name });

@@ -25,8 +25,12 @@ export interface Section {
  *   at slot i, like label. Optional `timeline` (```timeline syntax) adds periods for context.
  * - model: answered by changing a math manipulative (`model`: counters, blocks, number line,
  *   fraction bars, clock, coins); `target` says what's right. `choices` and `answer` are empty.
+ * - code: write a program; `code` holds the language, starter code, tests, hints and solution
+ *   (see lib/code.ts). `choices` and `answer` are empty.
  */
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline";
+import type { CodeSpec } from "./code";
+
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code";
 
 export interface QuestionImage {
   /** A data: URL (bundled and community courses) or an app-relative path. */
@@ -71,6 +75,8 @@ export interface Question {
   slots?: string[];
   /** timeline: periods (and other events) for context, in ```timeline block syntax. */
   timeline?: string;
+  /** code: the exercise (language, starter, tests, hints, solution). */
+  code?: CodeSpec;
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   /** model: the manipulative and its starting state. */
@@ -106,7 +112,8 @@ export interface AudioClip {
  * A learner's answer: choice indices (choice), the choice picked for each left item or marker
  * (match, label, map with marks, timeline; -1 = none yet), the choices in the learner's order
  * (order), the typed text per blank (text), the names of the places picked (map with targets),
- * or the manipulative's state (model; see startState in manip.ts).
+ * or the manipulative's state (model; see startState in manip.ts),
+ * or `[code, stamp?]` (code; the stamp records the last test run, see makeStamp in lib/code.ts).
  */
 export type Chosen = (number | string)[];
 

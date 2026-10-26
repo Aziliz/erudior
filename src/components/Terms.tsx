@@ -156,7 +156,9 @@ export function PrivacyPolicy({ linkTo }: { linkTo: LinkTo }) {
       </p>
       <p>
         When you open a course, the app downloads it from our servers. Like any website, our hosting provider (Cloudflare) handles your internet address
-        to deliver the page; we don't use it to identify you.
+        to deliver the page; we don't use it to identify you. The first time you run Python code in a lesson or exercise, the app downloads Python
+        (Pyodide) from jsDelivr, a public service for open-source files, which handles your internet address the same way. Your code itself runs on
+        your device and isn't sent anywhere.
       </p>
 
       <h2>Community authors</h2>
@@ -218,6 +220,10 @@ export function ThirdPartyLicenses() {
     <article className="prose terms-of-use">
       <h1>Third-party licenses</h1>
       <p>Erudior is built with open-source software. These are the packages it includes and their licenses.</p>
+      <p>
+        Python in code exercises is Pyodide (Mozilla Public License 2.0, source at github.com/pyodide/pyodide), downloaded from jsDelivr the first time
+        Python runs; it isn't part of the app download.
+      </p>
       {text === null ? <p className="muted">Loading…</p> : <pre className="licenses-text" tabIndex={0} aria-label="License texts">{text}</pre>}
     </article>
   );

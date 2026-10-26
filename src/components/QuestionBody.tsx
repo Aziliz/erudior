@@ -7,6 +7,8 @@ import MathText from "./MathText";
 import TimelineStrip from "./TimelineStrip";
 import { canPlay, playClip, stopAudio } from "../lib/audio";
 import { onVoices } from "../lib/speech";
+import Markdown from "./Markdown";
+import CodeExercise from "./CodeExercise";
 import type { Chosen, Question } from "../lib/types";
 import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, qtype } from "../lib/questions";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
@@ -43,6 +45,10 @@ interface Props {
   disabled?: boolean;
   /** Review screens: smaller, no inputs. */
   review?: boolean;
+  /** Timed exam (code exercises hide hints). */
+  exam?: boolean;
+  /** Code exercises: where the draft is kept on this device. */
+  draftKey?: string;
   /** Early-reader courses: a read button beside every choice and item (`lib`: recorded audio). */
   read?: { lib?: AudioLib };
 }
@@ -61,6 +67,8 @@ function ReadOne({ text, read, owner }: { text: string; read: { lib?: AudioLib }
 
 /** The stem, with numbered blanks for fill-in-the-blank questions. */
 export function QuestionStem({ q, className = "q-stem" }: { q: Question; className?: string }) {
+  // Code exercises explain a task, often with `code`, so their prompt is Markdown.
+  if (qtype(q) === "code") return <Markdown source={q.stem} className={`${className} code-prompt`} />;
   if (qtype(q) !== "text" || !/_{3,}/.test(q.stem)) return <MathText as="p" className={className} text={q.stem} />;
   const parts = q.stem.split(BLANK);
   const many = parts.length > 2;
@@ -160,10 +168,13 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const off = disabled || reveal;
+
+  if (kind === "code" && q.code)
+    return <CodeExercise key={q.id} q={q} chosen={chosen} onChange={onChange} reveal={reveal} review={review} disabled={disabled} exam={exam} draftKey={draftKey} />;
 
   if (kind === "text") {
     const n = blankCount(q);

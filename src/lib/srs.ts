@@ -235,6 +235,7 @@ export function missedDeck(course: Course, progress: Progress): Deck | null {
     for (const q of bank.questions) {
       const s = stats[q.id];
       if (!s || s.correct >= s.seen) continue; // never missed
+      if (q.type === "code") continue; // writing code doesn't fit on a flash card
       const letters = "ABCDEFGH";
       const choice = isChoice(q);
       const front = choice ? `${q.stem}\n\n${q.choices.map((c, i) => `${letters[i]}. ${c}`).join("  \n")}` : q.stem;

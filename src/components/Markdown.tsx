@@ -18,6 +18,7 @@ import { mediaClick, prepareMedia, protectMedia, releaseMedia } from "../lib/dia
 import { saveBlob } from "../lib/storage";
 import { protectLessonBlocks } from "../lib/lessonBlocks";
 import { hydrateTimelines } from "../lib/timeline";
+import { protectCode } from "../lib/code";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -64,8 +65,10 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   md = blocks.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
-  const math = protectMath(figs.text);
-  const html = diags.restore(math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string)));
+  // Code (```code blocks, other fences, `spans`) is set aside before math, since code is never math.
+  const code = protectCode(figs.text);
+  const math = protectMath(code.text);
+  const html = diags.restore(code.restore(math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string))));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
   const tidy = html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>");
   const clean = DOMPurify.sanitize(tidy, {
@@ -271,6 +274,21 @@ export default function Markdown({
       alive = false;
       obs.disconnect();
       mq?.removeEventListener?.("change", draw);
+    };
+  }, [html]);
+
+  // Runnable code blocks: the editor and Run button load only when a block is on the page.
+  useEffect(() => {
+    const el = body.current;
+    if (!el || !el.querySelector("figure.code-block")) return;
+    let undo: (() => void) | undefined;
+    let alive = true;
+    import("../lib/codeBlocks").then((m) => {
+      if (alive) undo = m.mountCodeBlocks(el);
+    });
+    return () => {
+      alive = false;
+      undo?.();
     };
   }, [html]);
 

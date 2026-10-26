@@ -345,8 +345,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
-      // Math models use arrows (sliders) and Enter (their buttons) themselves.
-      if (e.defaultPrevented || (e.target as HTMLElement)?.closest?.(".mp")) return;
+      // Math models use arrows (sliders) and Enter (their buttons) themselves; a code exercise has
+      // its own editor and buttons: keys there are for typing and pressing.
+      if (e.defaultPrevented || (e.target as HTMLElement)?.closest?.(".mp, .code-ex")) return;
       const k = e.key.toLowerCase();
       const n = item.order.length;
       let pos = -1;
@@ -461,6 +462,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               onEnter={() => (!isExam && !isChecked ? check() : undefined)}
               reveal={isChecked}
               read={readAloud ? { lib } : undefined}
+              exam={isExam}
+              draftKey={metaKey(session.bankId, q.id)}
             />
             )}
 
@@ -498,7 +501,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
                           .map((o, p) => (q.answer.includes(o) ? LETTERS[p] : null))
                           .filter(Boolean)
                           .join(" and ")}.`
-                      : "Not quite. The marks above show which parts were right."}
+                      : qtype(q) === "code"
+                        ? "Not quite: some tests didn't pass. The results above show which."
+                        : "Not quite. The marks above show which parts were right."}
                 </p>
                 {!correctNow && confidence[q.id] === "sure" && (
                   <p className="conf-note sure-miss">You were sure about this one, so it&rsquo;s worth a careful read. It&rsquo;ll come back tomorrow.</p>

@@ -251,7 +251,8 @@ export function lessonQuizNeeded(n: number): number {
 export function pretestQuestions(bank: Bank | undefined, quizIds: Set<string>, topics: string[], progress: Progress, n = 3): Question[] {
   if (!bank || !topics.length) return [];
   const stats = progress.stats[bank.id] ?? {};
-  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors);
+  // Code exercises take too long for a quick warm-up.
+  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors && qtype(q) !== "code");
   const group = (inQuiz: boolean, seen: boolean) => shuffle(cands.filter((q) => quizIds.has(q.id) === inQuiz && !!stats[q.id] === seen));
   const out = [...group(false, false), ...group(false, true), ...group(true, false), ...group(true, true)].slice(0, n);
   return out.length >= 2 ? out : [];

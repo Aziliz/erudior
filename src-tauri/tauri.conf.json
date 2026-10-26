@@ -21,7 +21,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src 'self' https://courses.erudior.com https://api.erudior.com wss://api.erudior.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' data: blob:"
+      "csp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://cdn.jsdelivr.net/npm/pyodide@314.0.7/; worker-src 'self'; connect-src 'self' https://courses.erudior.com https://api.erudior.com wss://api.erudior.com https://cdn.jsdelivr.net/npm/pyodide@314.0.7/; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' data: blob:"
     }
   },
   "bundle": {

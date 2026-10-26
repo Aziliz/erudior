@@ -36,6 +36,8 @@ export default defineConfig(({ command }) => ({
     strictPort: true,
   },
   envPrefix: ["VITE_", "TAURI_ENV_"],
+  // Code exercise workers are module workers (the Python one imports Pyodide's ES module).
+  worker: { format: "es" },
   build: {
     target: "es2021",
     outDir: "dist",
