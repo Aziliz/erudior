@@ -14,11 +14,11 @@
       "id": "co-prorations-settlement-math",
       "module": "m8-co-closing",
       "title": "Prorations and settlement math",
-      "minutes": 30,
+      "minutes": 40,
       "topics": [
         "Closing and settlement"
       ],
-      "body": "## The language of settlement\n\nEvery [[closing statement]] is a set of **[[debits]]** (what a party owes or is charged) and **[[credits]]** (what a party receives or is given credit for). A good way to keep them straight:\n\n| Item | Buyer | Seller |\n|---|---|---|\n| Purchase price | Debit | Credit |\n| Earnest money | Credit | — (already in the price) |\n| New loan proceeds | Credit | — |\n| Payoff of seller's loan | — | Debit |\n| Seller concessions | Credit | Debit |\n| Unpaid current-year property taxes (seller's share) | Credit | Debit |\n| HOA dues prepaid by seller | Debit | Credit |\n| Rent collected by seller for days buyer will own | Credit | Debit |\n| Tenant security deposits | Credit | Debit |\n| Brokerage commission paid by seller | — | Debit |\n\nThe rule of thumb: when one party has **paid ahead** for something the other party will use, the payer gets a **[[credit]]** and the other party a **[[debit]]**. When an expense has **built up but hasn't been paid** (accrued), the party who owes it is **[[Debit|debited]]** and the party who will end up paying it is **[[Credit|credited]]**.\n\n## [[Prorations]] under the Colorado contract\n\nThe Commission's residential contract (section 16) prorates listed items **to the Closing Date** unless the parties agree otherwise:\n\n- **[[General real estate taxes]]** for the year of closing, plus personal property taxes and special taxing district assessments.\n- **Rents** — on rents actually received or accrued (the contract has a checkbox). The seller must transfer or credit **[[security deposits]]** for assigned leases and notify tenants in writing.\n- **Other items** such as water and sewer, propane, and interest on a loan the buyer takes over.\n- **[[Assessments|Association assessments]]** — regular assessments the seller paid in advance are credited to the seller; reserves the association holds for deferred maintenance are **not** credited to the seller unless the governing documents say so. The seller must ask for an association **[[status letter]]** at least 14 days before closing, and pays its fee.\n- Prorations are **final** unless the parties agree otherwise in writing.\n\n### Property taxes are paid in arrears\n\nColorado property taxes for a year become due on **January 1 of the following year** (C.R.S. 39-10-102). They can be paid in full by the end of April, or in two halves — the end of February and June 15. So at a closing in, say, June 2026, the 2026 taxes have not been billed yet. The seller owned the property for part of 2026 and the buyer will pay the whole 2026 bill next year — so the seller's share is a **debit to the seller and a credit to the buyer**.\n\nBecause the current year's bill isn't known yet, the contract sets a default basis: **the taxes for the calendar year immediately before closing**, using the most recent mill levy and the most recent assessed (actual) valuation — unless the parties check a different option. Any unpaid *prior-year* taxes are paid off by the seller in full as a debit.\n\n> **Exam tip:** \"[[Paid in arrears]]\" taxes → **seller debit, buyer credit** for the seller's days. Don't credit the seller for taxes unless the problem says the current year was already paid.\n\n## How to do a proration\n\n1. Find the **daily (or monthly) rate**: annual amount ÷ 365 (or 360, or 12 months, as the question directs).\n2. Count the **days** the seller owned or used the item in the period.\n3. Multiply, then decide who is debited and who is credited.\n\nExam problems tell you which day-count method to use and who owns the day of closing. In the examples below, the year has 365 days and the **buyer owns the day of closing**, so the seller's days run through the day before closing.\n\n### Example 1: Taxes in arrears\n\nLast year's taxes were **$3,650**. Closing is **June 15** (not a leap year). Taxes for the current year are unpaid.\n\n- Daily rate: $3,650 ÷ 365 = **$10.00**\n- Seller's days: January 1 through June 14 = 31 + 28 + 31 + 30 + 31 + 14 = **165 days**\n- Seller's share: 165 × $10 = **$1,650**\n- Entry: **debit seller $1,650, credit buyer $1,650**\n\n### Example 2: Rent collected in advance\n\nA seller of a rental collected June's rent of **$1,800** on June 1. Closing is **June 15** in a 30-day month; the buyer owns the day of closing.\n\n- Daily rent: $1,800 ÷ 30 = $60\n- Buyer's days: June 15 through June 30 = **16 days**\n- Buyer's share: 16 × $60 = **$960**\n- Entry: **debit seller $960, credit buyer $960** (the seller collected money that belongs to the buyer)\n\nIf the tenant also paid a **$2,000 security deposit**, the seller transfers it: debit seller $2,000, credit buyer $2,000. A deposit is not prorated — it moves over in full.\n\n### Example 3: HOA dues paid in advance\n\nThe seller paid the **$300** monthly HOA dues for June. Closing is June 15 (30-day month), buyer owns the closing day.\n\n- Daily: $300 ÷ 30 = $10; buyer's days = 16\n- Entry: **credit seller $160, debit buyer $160** (the seller prepaid days the buyer will enjoy)\n\n### Example 4: Documentary fee\n\nSale price **$485,000**: $485,000 ÷ 100 = 4,850 units × $0.01 = **$48.50**.\n\n## Putting a statement together\n\nA $400,000 sale closing June 15. Buyer put down $10,000 earnest money and gets a new $320,000 loan. The seller owes $250,000 on an existing loan, pays a $20,000 commission and $1,500 for the owner's title policy. Use the tax and HOA figures from Examples 1 and 3, and assume a $150 seller-paid status letter fee and a $40 documentary fee charged to the buyer.\n\n**Seller**\n\n- Credits: price $400,000 + prepaid HOA $160 = **$400,160**\n- Debits: payoff $250,000 + commission $20,000 + owner's policy $1,500 + tax proration $1,650 + status letter $150 = **$273,300**\n- Net to seller: $400,160 − $273,300 = **$126,860**\n\n**Buyer**\n\n- Debits: price $400,000 + documentary fee $40 + HOA $160 = **$400,200**\n- Credits: earnest money $10,000 + loan $320,000 + tax proration $1,650 = **$331,650**\n- Cash due from buyer at closing: $400,200 − $331,650 = **$68,550** (before the buyer's own loan costs)\n\nNotice the **tax proration appears on both statements** (debit seller, credit buyer), while the **[[loan payoff]]** and **[[Brokerage fee|commission]]** appear only on the seller's side and the **new loan** only on the buyer's side.\n\n> **Exam tip:** Items that appear on **both** sides are prorations and transfers between the parties. Items that appear on only **one** side are paid to or received from a third party (lender, broker, title company, county).\n\n## Common traps\n\n- Earnest money is a **buyer credit**, never a seller debit — it's part of the price the seller is already credited with.\n- The **buyer's new loan** is a buyer credit and doesn't appear on the seller's side.\n- An **[[assumed loan]]** is a buyer credit and a seller debit.\n- The **[[documentary fee]]** is based on the full consideration, not just the down payment.\n"
+      "body": "## The language of settlement\n\nEvery [[closing statement]] is a set of **[[debits]]** (what a party owes or is charged) and **[[credits]]** (what a party receives or is given credit for).\n\nThink of each party's column as a **running tab**:\n\n- A **debit** is something the party owes. For the buyer it raises the cash they must bring; for the seller it lowers the check they take home.\n- A **credit** is something in the party's favor. For the buyer it lowers the cash they must bring; for the seller it raises their check.\n\nSo for every line, the question is simply **\"who owes whom?\"** The party who owes is debited; the party who is owed is credited. A good way to keep the common items straight:\n\n| Item | Buyer | Seller |\n|---|---|---|\n| Purchase price | Debit | Credit |\n| Earnest money | Credit | — (already in the price) |\n| New loan proceeds | Credit | — |\n| Payoff of seller's loan | — | Debit |\n| Seller concessions | Credit | Debit |\n| Unpaid current-year property taxes (seller's share) | Credit | Debit |\n| HOA dues prepaid by seller | Debit | Credit |\n| Rent collected by seller for days buyer will own | Credit | Debit |\n| Tenant security deposits | Credit | Debit |\n| Brokerage commission paid by seller | — | Debit |\n\nThe rule of thumb: when one party has **paid ahead** for something the other party will use, the payer gets a **[[credit]]** and the other party a **[[debit]]**. When an expense has **built up but hasn't been paid** (accrued), the party who owes it is **[[Debit|debited]]** and the party who will end up paying it is **[[Credit|credited]]**.\n\n## Which column? Three questions\n\nWhen an item isn't obvious, ask these in order.\n\n**1. Does money move between the buyer and the seller, or between one party and an outsider?**\n\n- **Between the buyer and the seller** (price, concessions, prorations, deposits handed over, an assumed loan): it's a **double entry**. The same amount is a debit to one party and a credit to the other.\n- **Between one party and an outsider** (a lender, the county, the title company, a brokerage): it's a **single entry** in that party's column only. Paying an outsider is a debit (payoff, commission, title charges); money coming in for the buyer is a credit (earnest money already paid, the new loan).\n\n**2. For a double entry that isn't a proration: who owes whom?** The buyer owes the price (buyer debit, seller credit). The seller owes a concession or the tenants' deposits (seller debit, buyer credit). An assumed loan is part of the price the buyer pays by taking over the seller's debt (seller debit, buyer credit).\n\n**3. For a proration: has the bill been paid already, or will it be paid later?**\n\n| The bill was... | Example | Entry | For whose days? |\n|---|---|---|---|\n| Paid ahead by the seller | HOA dues, propane or heating oil in the tank | **Buyer debit, seller credit** | The buyer's days (the buyer reimburses the seller) |\n| Collected ahead by the seller | Rent for the month of closing | **Seller debit, buyer credit** | The buyer's days (the seller hands over the buyer's share) |\n| Not paid yet; the buyer will pay it later ([[paid in arrears]]) | Colorado property taxes, interest on an assumed loan, a water bill paid after the period | **Seller debit, buyer credit** | The seller's days (the seller pays the buyer for time the seller used) |\n\nIn short: **paid in advance → buyer debit, seller credit. Paid in arrears → seller debit, buyer credit.** Rent collected in advance is the one that looks backward: the seller already *received* the money, so the seller owes the buyer.\n\n```mermaid\nflowchart TD\n  accTitle: Which column does a closing item go in?\n  accDescr: Start with an item on the closing statement. If money moves between one party and an outsider such as a lender, the county, a title company or a brokerage, it is a single entry: a payment out is that party's debit, and money coming in for the buyer, such as earnest money or the new loan, is a buyer credit. If money moves between the buyer and the seller, it is a double entry. If it is not a proration, debit the party who owes it and credit the party who is owed. If it is a proration, ask whether the bill was paid ahead by the seller, collected ahead by the seller, or will be paid later. Paid ahead by the seller, such as HOA dues or fuel: buyer debit, seller credit for the buyer's days. Collected ahead by the seller, such as rent: seller debit, buyer credit for the buyer's days. Paid later, such as Colorado property taxes or interest on an assumed loan: seller debit, buyer credit for the seller's days.\n  A[\"An item on the closing statement\"] --> B{\"Between buyer and seller, or with an outsider?\"}\n  B -- \"With an outsider\" --> C[\"Single entry, one column only\"]\n  C --> C1[\"Paying out: that party's debit\"]\n  C --> C2[\"Money in for the buyer: buyer credit\"]\n  B -- \"Between buyer and seller\" --> D{\"Is it a proration?\"}\n  D -- \"No\" --> E[\"Double entry: debit who owes, credit who is owed\"]\n  D -- \"Yes\" --> F{\"When is the bill paid?\"}\n  F -- \"Seller paid ahead\" --> G[\"Buyer debit, seller credit for the buyer's days\"]\n  F -- \"Seller collected ahead\" --> H[\"Seller debit, buyer credit for the buyer's days\"]\n  F -- \"Paid later, in arrears\" --> I[\"Seller debit, buyer credit for the seller's days\"]\n```\n\n> **Check yourself:** on a correct statement, every double entry shows up **twice** (once in each party's column, same amount), and every single entry shows up **once**. If an item appears on both sides but the amounts differ, one of them is wrong.\n\n## [[Prorations]] under the Colorado contract\n\nThe Commission's residential contract (section 16) prorates listed items **to the Closing Date** unless the parties agree otherwise:\n\n- **[[General real estate taxes]]** for the year of closing, plus personal property taxes and special taxing district assessments.\n- **Rents** — on rents actually received or accrued (the contract has a checkbox). The seller must transfer or credit **[[security deposits]]** for assigned leases and notify tenants in writing.\n- **Other items** such as water and sewer, propane, and interest on a loan the buyer takes over.\n- **[[Assessments|Association assessments]]** — regular assessments the seller paid in advance are credited to the seller; reserves the association holds for deferred maintenance are **not** credited to the seller unless the governing documents say so. The seller must ask for an association **[[status letter]]** at least 14 days before closing, and pays its fee.\n- Prorations are **final** unless the parties agree otherwise in writing.\n\n### Property taxes are paid in arrears\n\nColorado property taxes for a year become due on **January 1 of the following year** (C.R.S. 39-10-102). They can be paid in full by the end of April, or in two halves — the end of February and June 15. So at a closing in, say, June 2026, the 2026 taxes have not been billed yet. The seller owned the property for part of 2026 and the buyer will pay the whole 2026 bill next year — so the seller's share is a **debit to the seller and a credit to the buyer**.\n\nBecause the current year's bill isn't known yet, the contract sets a default basis: **the taxes for the calendar year immediately before closing**, using the most recent mill levy and the most recent assessed (actual) valuation — unless the parties check a different option. Any unpaid *prior-year* taxes are paid off by the seller in full as a debit.\n\n> **Exam tip:** \"[[Paid in arrears]]\" taxes → **seller debit, buyer credit** for the seller's days. Don't credit the seller for taxes unless the problem says the current year was already paid.\n\n## How to do a proration\n\n1. Find the **daily (or monthly) rate**: annual amount ÷ 365 (or 360, or 12 months, as the question directs).\n2. Count the **days** the seller owned or used the item in the period.\n3. Multiply, then decide who is debited and who is credited.\n\nExam problems tell you which day-count method to use and who owns the day of closing. In the examples below, the year has 365 days and the **buyer owns the day of closing**, so the seller's days run through the day before closing.\n\n### Example 1: Taxes in arrears\n\nLast year's taxes were **$3,650**. Closing is **June 15** (not a leap year). Taxes for the current year are unpaid.\n\n- Daily rate: $3,650 ÷ 365 = **$10.00**\n- Seller's days: January 1 through June 14 = 31 + 28 + 31 + 30 + 31 + 14 = **165 days**\n- Seller's share: 165 × $10 = **$1,650**\n- Entry: **debit seller $1,650, credit buyer $1,650**\n\n### Example 2: Rent collected in advance\n\nA seller of a rental collected June's rent of **$1,800** on June 1. Closing is **June 15** in a 30-day month; the buyer owns the day of closing.\n\n- Daily rent: $1,800 ÷ 30 = $60\n- Buyer's days: June 15 through June 30 = **16 days**\n- Buyer's share: 16 × $60 = **$960**\n- Entry: **debit seller $960, credit buyer $960** (the seller collected money that belongs to the buyer)\n\nIf the tenant also paid a **$2,000 security deposit**, the seller transfers it: debit seller $2,000, credit buyer $2,000. A deposit is not prorated — it moves over in full.\n\n### Example 3: HOA dues paid in advance\n\nThe seller paid the **$300** monthly HOA dues for June. Closing is June 15 (30-day month), buyer owns the closing day.\n\n- Daily: $300 ÷ 30 = $10; buyer's days = 16\n- Entry: **credit seller $160, debit buyer $160** (the seller prepaid days the buyer will enjoy)\n\n### Example 4: Documentary fee\n\nSale price **$485,000**: $485,000 ÷ 100 = 4,850 units × $0.01 = **$48.50**.\n\n## Putting a statement together\n\nA $400,000 sale closing June 15. Buyer put down $10,000 earnest money and gets a new $320,000 loan. The seller owes $250,000 on an existing loan, pays a $20,000 commission and $1,500 for the owner's title policy. Use the tax and HOA figures from Examples 1 and 3, and assume a $150 seller-paid status letter fee and a $40 documentary fee charged to the buyer.\n\n**Seller**\n\n- Credits: price $400,000 + prepaid HOA $160 = **$400,160**\n- Debits: payoff $250,000 + commission $20,000 + owner's policy $1,500 + tax proration $1,650 + status letter $150 = **$273,300**\n- Net to seller: $400,160 − $273,300 = **$126,860**\n\n**Buyer**\n\n- Debits: price $400,000 + documentary fee $40 + HOA $160 = **$400,200**\n- Credits: earnest money $10,000 + loan $320,000 + tax proration $1,650 = **$331,650**\n- Cash due from buyer at closing: $400,200 − $331,650 = **$68,550** (before the buyer's own loan costs)\n\nNotice the **tax proration appears on both statements** (debit seller, credit buyer), while the **[[loan payoff]]** and **[[Brokerage fee|commission]]** appear only on the seller's side and the **new loan** only on the buyer's side.\n\n> **Exam tip:** Items that appear on **both** sides are prorations and transfers between the parties. Items that appear on only **one** side are paid to or received from a third party (lender, broker, title company, county).\n\n## Common traps\n\n- Earnest money is a **buyer credit**, never a seller debit — it's part of the price the seller is already credited with.\n- The **buyer's new loan** is a buyer credit and doesn't appear on the seller's side.\n- An **[[assumed loan]]** is a buyer credit and a seller debit.\n- The **[[documentary fee]]** is based on the full consideration, not just the down payment.\n"
     },
     {
       "id": "co-property-management-landlord-tenant",
@@ -483,6 +483,166 @@
         3
       ],
       "explanation": "C.R.S. 6-1-1113 lets the homeowner cancel an equity purchase contract until midnight of the third business day after signing, or noon on the day before the foreclosure sale, whichever comes first."
+    },
+    {
+      "id": "s4-028",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "type": "match",
+      "stem": "Match each closing item to the way it is entered on a Colorado closing statement.",
+      "left": [
+        "Earnest money the buyer already paid",
+        "Payoff of the seller's loan",
+        "HOA dues the seller paid ahead, for the buyer's days",
+        "Unpaid current-year property taxes, for the seller's days",
+        "Rent the seller collected ahead, for the buyer's days"
+      ],
+      "choices": [
+        "Buyer credit only",
+        "Seller debit only",
+        "Buyer debit and seller credit",
+        "Seller debit and buyer credit"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3,
+        3
+      ],
+      "explanation": "Earnest money and a loan payoff involve an outsider, so they are single entries (buyer credit; seller debit). Prepaid HOA dues: the buyer reimburses the seller (buyer debit, seller credit). Taxes paid in arrears and rent collected ahead both leave the seller owing the buyer (seller debit, buyer credit)."
+    },
+    {
+      "id": "s4-029",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "The seller filled the propane tank last month, and the contract prorates the fuel left in the tank, worth $420 at closing. How is it entered?",
+      "choices": [
+        "Debit buyer $420, credit seller $420",
+        "Debit seller $420, credit buyer $420",
+        "Debit buyer $420 only",
+        "Credit seller $420 only"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The seller paid ahead for fuel the buyer will use, so the buyer reimburses the seller: a double entry, buyer debit and seller credit. It moves between the parties, so it appears on both sides."
+    },
+    {
+      "id": "s4-030",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "Which question tells you whether a closing item is a single entry or a double entry?",
+      "choices": [
+        "Does money move between the buyer and the seller, or between one party and an outsider?",
+        "Is the amount larger than $1,000?",
+        "Is the item required by the lender?",
+        "Was the item paid in advance or in arrears?"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Items between the buyer and seller (price, prorations, concessions) are double entries; items between one party and an outsider (a lender, the county, a title company, a brokerage) are single entries. Advance versus arrears decides which way a proration goes, not whether it's double."
+    },
+    {
+      "id": "s4-031",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "Closing is September 10 (not a leap year). Last year's taxes were $4,380, current-year taxes are unpaid, the year has 365 days and the buyer owns the day of closing. What is the tax entry?",
+      "choices": [
+        "Debit seller $3,024, credit buyer $3,024",
+        "Debit seller $3,036, credit buyer $3,036",
+        "Debit buyer $1,356, credit seller $1,356",
+        "Credit seller $3,024, debit buyer $3,024"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Daily rate $4,380 ÷ 365 = $12. The seller owned January 1 through September 9 = 252 days: 252 × $12 = $3,024. Colorado taxes are paid in arrears (the buyer will pay this year's bill), so the seller is debited and the buyer credited. $3,036 counts the closing day for the seller; $1,356 is the buyer's 113 days."
+    },
+    {
+      "id": "s4-032",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "A seller collected September rent of $2,100 on September 1. Closing is September 10 in a 30-day month, and the buyer owns the day of closing. What is the rent entry?",
+      "choices": [
+        "Debit seller $1,470, credit buyer $1,470",
+        "Debit buyer $1,470, credit seller $1,470",
+        "Debit seller $630, credit buyer $630",
+        "Debit seller $700, credit buyer $700"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Daily rent $2,100 ÷ 30 = $70. The buyer owns September 10 through 30 = 21 days: 21 × $70 = $1,470. The seller already collected money that belongs to the buyer, so the seller is debited and the buyer credited. $630 is the seller's 9 days."
+    },
+    {
+      "id": "s4-033",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "Which of these is entered as a seller debit and a buyer credit?",
+      "choices": [
+        "Accrued interest on a loan the buyer assumes, when interest is paid in arrears",
+        "HOA dues the seller paid for the rest of the quarter",
+        "The purchase price",
+        "The buyer's new loan"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Interest paid in arrears: the buyer's next payment will cover days the seller owned, so the seller pays the buyer for them (seller debit, buyer credit). Prepaid HOA dues go the other way, the price is a buyer debit and seller credit, and the new loan is a buyer credit only."
+    },
+    {
+      "id": "s4-034",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "type": "order",
+      "stem": "Put the steps of a proration in order.",
+      "choices": [
+        "Find the daily (or monthly) rate",
+        "Count the days that belong to the party being charged",
+        "Multiply the rate by the days",
+        "Decide who is debited and who is credited"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Rate, days, multiply, then post it: for example $3,650 ÷ 365 = $10 a day, 165 seller days, $1,650, debited to the seller and credited to the buyer for taxes paid in arrears."
+    },
+    {
+      "id": "s4-035",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "A student enters the buyer's $12,000 earnest money as a seller debit. What's wrong?",
+      "choices": [
+        "Earnest money is only a buyer credit; the seller is already credited with the full price",
+        "Earnest money should be a seller credit",
+        "Earnest money should be a buyer debit",
+        "Nothing; earnest money is a double entry"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "The deposit is part of how the buyer pays the price, so it reduces what the buyer brings (buyer credit). The seller's side already shows the full price as a credit; debiting the seller would take the deposit away from them."
+    },
+    {
+      "id": "s4-036",
+      "section": "state",
+      "topic": "Closing and settlement",
+      "stem": "On a correct closing statement, the property tax proration appears as a $2,310 seller debit and a $2,130 buyer credit. What does that tell you?",
+      "choices": [
+        "One of the amounts is wrong: a double entry has the same amount on both sides",
+        "Nothing; buyer and seller amounts can differ",
+        "The difference is the documentary fee",
+        "The difference goes to the broker"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "A proration moves value between the parties, so it is the same amount on both sides. Different amounts mean a math or copying error (here, transposed digits)."
     }
   ],
   "cards": [
@@ -797,6 +957,30 @@
       "front": "When can't the CFPA contract be used?",
       "back": "Seller leaseback, seller repurchase right, or buyer assuming the loan — an attorney must draft.",
       "topic": "Colorado special topics"
+    },
+    {
+      "id": "s4-c053",
+      "front": "Debit vs. credit on a closing statement, in plain words?",
+      "back": "Debit = the party owes it (buyer brings more / seller takes home less). Credit = in the party's favor (buyer brings less / seller takes home more).",
+      "topic": "Closing and settlement"
+    },
+    {
+      "id": "s4-c054",
+      "front": "Single entry or double entry: how to tell?",
+      "back": "Between buyer and seller → double entry (same amount, both columns). Between one party and an outsider (lender, county, title company, broker) → single entry.",
+      "topic": "Closing and settlement"
+    },
+    {
+      "id": "s4-c055",
+      "front": "Prorations: paid in advance vs. paid in arrears?",
+      "back": "Seller paid ahead (HOA dues, fuel) → buyer debit, seller credit. Paid in arrears (Colorado taxes, assumed-loan interest) → seller debit, buyer credit. Rent the seller collected ahead → seller debit, buyer credit.",
+      "topic": "Closing and settlement"
+    },
+    {
+      "id": "s4-c056",
+      "front": "Propane left in the tank that the seller paid for?",
+      "back": "Buyer debit, seller credit (the buyer reimburses the seller).",
+      "topic": "Closing and settlement"
     }
   ],
   "glossary": [

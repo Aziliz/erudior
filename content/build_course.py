@@ -194,8 +194,8 @@ course = {
         "Estate or any school. Laws and Commission forms change; check current sources."
     ),
     "author": "Erudior",
-    "revision": 15,
-    "changelog": "Adds a disclaimer: this course is for education only, doesn't replace professional advice, and isn't an approved pre-licensing course.",
+    "revision": 16,
+    "changelog": "Clearer debits and credits: Prorations and settlement math now explains debits and credits in plain words, gives a three-question test and a flowchart for which column an item goes in, and adds nine practice questions (including matching and ordering). The closing worksheet lesson points to it. Also adds a disclaimer: this course is for education only, isn't professional advice, and isn't an approved pre-licensing course.",
     "disclaimer": (
         "The information in this course is for educational and informational purposes only and should not be used to "
         "replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent "

@@ -121,6 +121,32 @@
           ]
         },
         {
+          "point": "Debit = the party owes it; credit = in the party's favor",
+          "questions": [
+            "s4-035"
+          ]
+        },
+        {
+          "point": "Between buyer and seller = double entry; with an outsider = single entry",
+          "questions": [
+            "s4-030",
+            "s4-028"
+          ]
+        },
+        {
+          "point": "Paid ahead by the seller = buyer debit/seller credit; paid in arrears = seller debit/buyer credit; rent collected ahead = seller debit/buyer credit",
+          "questions": [
+            "s4-029",
+            "s4-033"
+          ]
+        },
+        {
+          "point": "A double entry is the same amount on both sides",
+          "questions": [
+            "s4-036"
+          ]
+        },
+        {
           "point": "Payoffs, commissions and new loans are one-side items with third parties; prorations appear on both sides",
           "questions": [
             "s4-015"
@@ -191,6 +217,14 @@
           "questions": [
             "g3-012"
           ]
+        },
+        {
+          "point": "Proration steps: rate, days, multiply, post",
+          "questions": [
+            "s4-034",
+            "s4-031",
+            "s4-032"
+          ]
         }
       ],
       "quiz": [
@@ -206,7 +240,16 @@
         "s4-013",
         "s3-020",
         "h8-006",
-        "g3-012"
+        "g3-012",
+        "s4-035",
+        "s4-030",
+        "s4-028",
+        "s4-029",
+        "s4-033",
+        "s4-036",
+        "s4-034",
+        "s4-031",
+        "s4-032"
       ]
     },
     "co-property-management-landlord-tenant": {

@@ -4,8 +4,8 @@
   "file": "colorado-broker-course.json",
   "order": 0,
   "title": "Colorado Real Estate Broker",
-  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 809-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
-  "revision": 15,
+  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 818-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
+  "revision": 16,
   "disclaimer": "The information in this course is for educational and informational purposes only and should not be used to replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent study material, not affiliated with PSI, the Colorado Division of Real Estate or any school. It is not an approved pre-licensing course and does not count toward the education hours required for a Colorado license. Laws, rules and Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes no liability for the use or misuse of the information in it.",
   "subject": "Real estate",
   "level": [
@@ -15,8 +15,8 @@
    "Exam prep"
   ],
   "lessons": 48,
-  "questions": 809,
-  "cards": 590,
+  "questions": 818,
+  "cards": 594,
   "drills": 25,
   "lessonIds": [
    "n1-real-vs-personal-property",
