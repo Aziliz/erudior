@@ -164,6 +164,13 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
   - A lesson Markdown block (see "Worked examples" in docs/COURSE_FORMAT.md); `fade=N` hides the last N steps for the student to try.
   - Parser and renderer in `src/lib/examples.ts`; checked by `tests/check-course.mts`; tests in `tests/examples.test.mts`.
   - No course uses it yet.
+- **Math manipulatives** (roadmap ENGINE item, now done):
+  - Six models: ten-frame counters (1–2 frames, 1–2 colors), base-ten blocks (1–4 places, break/trade), number line (fractions via `step: 1/4`, hop buttons, arcs), fraction bars (≤4 bars, ≤12 parts, cut in half, comparison), analog clock (geared hour hand), US coins (penny to dollar coin, plain labeled circles).
+  - Lessons: ```` ```manipulative <kind> ```` block, `key: value` lines or JSON (docs/COURSE_FORMAT.md "Math manipulatives"). `protectManipulatives` renders a static SVG + description inside `figure.manip[data-manip]`; Markdown.tsx portals `LessonManipulative` into it (state not saved).
+  - Questions: `type: "model"` with `model` (spec) and `target` (docs/BANK_FORMAT.md "Model questions"). `Chosen` = the model state (numbers; meaning per kind in `startState`); unanswered until changed; `isCorrect` → `manipCorrect`. Review shows the learner's model, the answer in words and a picture of one right model (`solution`).
+  - Pure logic + SVG strings in `src/lib/manip.ts` (worker bundles it via communityFormat); controls in `src/components/Manipulative.tsx` (buttons with `aria-disabled`, number line and clock are `role=slider`, `aria-live` description). Runner and CardsRunner ignore their shortcut keys inside `.mp`.
+  - Editors: `src/components/ManipEditor.tsx` (`ModelFields`: set the right answer by changing the model; `ModelStartFields`). Bank editor and community questions use it; community lessons have a "Math model to play with" block (`{type: "manipulative", spec}`, written as a JSON-bodied block).
+  - Checker: block problems, question spec/target problems, own answer accepted, start not already right. Tests: `tests/manip.test.mts` (logic + keyboard-only DOM test). Demo: `samples/manipulatives-demo.json` (2 lessons, 11 questions; Import it); walkthrough `scripts/manip-walkthrough.mjs` (clean light/dark, 1280/320).
 - **Card pictures:** `![alt](images/x.svg)` on notecards. The courses repo's build.py now embeds them; display height is capped.
 
 ## Published courses are read-only in the app (after v0.24.0)
@@ -295,6 +302,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 | `src/lib/srs.ts` | Spaced repetition scheduling, queues, `missedDeck` and `studyDecks` |
 | `src/lib/review.ts` | Spaced reviews for practice questions (streak, due, learned) and `Confidence` |
 | `src/lib/examples.ts` | Worked-example lesson blocks (parse, check, render, reveal) |
+| `src/lib/manip.ts`, `src/components/Manipulative.tsx`, `ManipEditor.tsx` | Math manipulatives: specs, state, moves, checking, words, SVG; interactive controls; editor fields |
 | `src/lib/mastery.ts` | Adaptive engine: topic mastery, smart practice order, in-session swaps, focus areas after an exam |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |

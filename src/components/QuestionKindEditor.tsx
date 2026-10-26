@@ -4,6 +4,7 @@
 import { useRef } from "react";
 import type { Question, QuestionType } from "../lib/types";
 import { BLANK, qtype } from "../lib/questions";
+import { DEFAULT_TARGET, ModelFields, modelErrors } from "./ManipEditor";
 
 const TYPE_NAMES: Record<QuestionType, string> = {
   choice: "Multiple choice",
@@ -11,6 +12,7 @@ const TYPE_NAMES: Record<QuestionType, string> = {
   match: "Match",
   order: "Put in order",
   label: "Label a picture",
+  model: "Use a math model (blocks, clock, coins…)",
 };
 
 const lines = (s: string) =>
@@ -22,7 +24,7 @@ const uniq = (xs: string[]) => [...new Set(xs)];
 
 /** Defaults when a question changes kind (keeps the stem, topic, section, picture, explanation). */
 export function changeKind(q: Question, kind: QuestionType): Question {
-  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, ...base } = q;
+  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, model: _mo, target: _ta, ...base } = q;
   switch (kind) {
     case "choice":
       return { ...base, choices: ["", "", "", ""], answer: [0] };
@@ -40,6 +42,8 @@ export function changeKind(q: Question, kind: QuestionType): Question {
       return { ...base, type: "order", choices: ["", "", ""], answer: [] };
     case "label":
       return { ...base, type: "label", markers: [], choices: [], answer: [] };
+    case "model":
+      return { ...base, type: "model", choices: [], answer: [], model: { kind: "blocks" }, target: DEFAULT_TARGET.blocks };
   }
 }
 
@@ -73,6 +77,9 @@ export function kindErrors(q: Question): string[] {
       if (!q.image) e.push("Add a picture to label.");
       if ((q.markers?.length ?? 0) < 2) e.push("Click the picture to place at least two numbered markers.");
       if (q.answer.some((a) => !q.choices[a]?.trim())) e.push("Name every marker.");
+      break;
+    case "model":
+      e.push(...modelErrors(q.model, q.target));
       break;
   }
   return e;
@@ -306,6 +313,9 @@ export function KindFields({ q, onChange }: { q: Question; onChange: (q: Questio
       </div>
     );
   }
+
+  if (kind === "model")
+    return <ModelFields idBase={`mf-${q.id}`} model={q.model} target={q.target} onChange={(model, target) => onChange({ ...q, model, target })} />;
 
   if (kind === "label") {
     const names = q.answer.map((a) => q.choices[a] ?? "");

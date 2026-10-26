@@ -4680,3 +4680,381 @@ a.btn:hover {
   padding: 0;
   margin-bottom: 4px;
 }
+
+/* ---------- Math manipulatives (lib/manip.ts, components/Manipulative.tsx) ---------- */
+.prose figure.manip,
+figure.manip {
+  margin: 1.4em 0;
+  padding: 10px 16px 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--subj, var(--accent));
+  border-radius: var(--r-md);
+}
+.manip-caption {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.manip-desc {
+  margin: 6px 0 0;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+.mp {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  font-family: var(--sans);
+}
+/* The total sits right under the picture, above the buttons. */
+.mp > * {
+  order: 2;
+}
+.mp > .mp-pic,
+.mp > .mp-places {
+  order: 0;
+}
+.mp > .mp-readout {
+  order: 1;
+}
+.mp-pic {
+  min-width: 0;
+}
+.mp-svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.mp-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.mp-pair {
+  display: inline-flex;
+  gap: 4px;
+}
+/* Touch-friendly targets. */
+.mp .btn {
+  min-height: 40px;
+  min-width: 40px;
+}
+.mp .btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.mp-readout {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.mp-reset {
+  justify-content: flex-start;
+}
+.mp-slider {
+  border-radius: var(--r-sm);
+  touch-action: none;
+  cursor: pointer;
+}
+.mp.is-off .mp-slider {
+  cursor: default;
+}
+.mp-slider:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.mp-counters .mp-cell,
+.mp-fractions .mp-part,
+.mp-mat .mp-placed {
+  cursor: pointer;
+}
+.mp.is-off .mp-cell,
+.mp.is-off .mp-part,
+.mp.is-off .mp-placed {
+  cursor: default;
+}
+/* Counters */
+.mp-frame {
+  fill: var(--surface);
+  stroke: var(--ink-2);
+  stroke-width: 2.5;
+}
+.mp-cell {
+  fill: transparent;
+  stroke: var(--ink-3);
+  stroke-width: 1.2;
+}
+.mp-counter {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.mp-c1 {
+  fill: var(--fig-5);
+}
+.mp-c2 {
+  fill: var(--fig-4);
+}
+/* Yellow counters carry a ring, so the two colors differ by more than color. */
+.mp-counter-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  pointer-events: none;
+}
+/* Base-ten blocks */
+.mp-places {
+  display: grid;
+  /* Columns wrap on narrow screens so each keeps room for its + and − buttons. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 96px), 1fr));
+  gap: 8px;
+  align-items: start;
+}
+.mp-place-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 6px 4px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+}
+.mp-place-name {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  text-transform: capitalize;
+}
+.mp-place-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+.mp-place-btns .btn.ghost {
+  white-space: normal;
+  font-size: 0.75rem;
+}
+.mp-block {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.mp-cube-top,
+.mp-cube-side {
+  fill: var(--sheet);
+}
+.mp-grid {
+  stroke: var(--accent);
+  stroke-width: 0.6;
+  opacity: 0.7;
+}
+/* Number line */
+.mp-axis,
+.mp-tick {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.mp-tick.is-major {
+  stroke-width: 2.2;
+}
+.mp-arrowhead {
+  fill: var(--ink);
+}
+.mp-label {
+  fill: var(--ink);
+  font: 600 14px var(--sans);
+}
+.mp-hop {
+  fill: none;
+  stroke: var(--fig-1);
+  stroke-width: 2.5;
+}
+.mp-hop-label {
+  fill: var(--ink-2);
+  font: 700 12px var(--sans);
+}
+.mp-token {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+/* Fraction bars */
+.mp-part {
+  fill: var(--surface);
+  stroke: var(--ink-2);
+  stroke-width: 1.5;
+}
+.mp-part.is-shaded {
+  fill: var(--accent);
+}
+.mp-part-label {
+  fill: var(--ink-2);
+  font: 600 12px var(--sans);
+  pointer-events: none;
+}
+.mp-part-label.is-shaded {
+  fill: var(--accent-ink);
+}
+.mp-bar-outline {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+.mp-bars {
+  display: grid;
+  gap: 6px;
+}
+.mp-bar-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  min-width: 3.5em;
+}
+/* Clock */
+.mp-clock-box {
+  width: min(260px, 100%);
+}
+.mp-face {
+  fill: var(--surface);
+  stroke: var(--ink);
+  stroke-width: 4;
+}
+.mp-mark {
+  stroke: var(--ink-3);
+  stroke-width: 1.2;
+}
+.mp-mark.is-hour {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.mp-num {
+  fill: var(--ink);
+  font: 700 19px var(--sans);
+}
+.mp-hand {
+  stroke-linecap: round;
+}
+.mp-hand-h {
+  stroke: var(--ink);
+  stroke-width: 8;
+}
+.mp-hand-m {
+  stroke: var(--accent);
+  stroke-width: 5;
+}
+.mp-hub {
+  fill: var(--ink);
+}
+/* Coins: plain labeled circles in metal colors; dark text on them in every theme. */
+.mp-coin {
+  stroke: #3d3d3d;
+  stroke-width: 1.5;
+}
+.mp-copper {
+  fill: #d0915f;
+}
+.mp-silver {
+  fill: #d3d8dc;
+}
+.mp-gold {
+  fill: #dcbd62;
+}
+.mp-coin-rim {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.28);
+  stroke-width: 1;
+}
+.mp-coin-label {
+  fill: #161616;
+  font-family: var(--sans);
+  font-weight: 700;
+  pointer-events: none;
+}
+.mp-empty {
+  fill: var(--ink-3);
+  font: 14px var(--sans);
+}
+.mp-mat-box {
+  border: 1px dashed var(--rule);
+  border-radius: var(--r-sm);
+  padding: 4px;
+}
+.mp-tray {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 6px;
+}
+.mp-tray-coin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+}
+.mp-tray-pic {
+  display: flex;
+  width: 52px;
+  justify-content: center;
+}
+.mp-tray-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.875rem;
+}
+.mp-tray-count {
+  font-variant-numeric: tabular-nums;
+  min-width: 2.2em;
+  text-align: right;
+}
+/* Model questions */
+.model-answer.is-right,
+.model-answer.is-wrong {
+  padding-left: 12px;
+  background: none;
+  border: 0;
+  border-left: 4px solid var(--ok);
+}
+.model-answer.is-wrong {
+  border-left-color: var(--bad);
+}
+.model-solution {
+  margin: 10px 0 0;
+  padding: 10px;
+  border: 1px dashed var(--rule);
+  border-radius: var(--r-sm);
+}
+.model-solution p {
+  margin: 6px 0 0;
+}
+.model-fields .plain-fieldset {
+  margin-top: 8px;
+}
+.model-errors {
+  color: var(--bad);
+  margin: 6px 0 0;
+}
+@media print {
+  .mp .btn,
+  .mp-reset {
+    display: none;
+  }
+}
+.mp-clock-box .mp-svg {
+  width: 100%;
+}
+.model-fields .check {
+  margin-top: 8px;
+}
+@media print {
+  .mp-bars,
+  .mp-tray {
+    display: none;
+  }
+}

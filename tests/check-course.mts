@@ -16,6 +16,7 @@ import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
+import { MANIP_BLOCK, manipProblems, readSpec, solution, startState, targetProblems } from "../src/lib/manip.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -50,6 +51,9 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         const ex = parseExample(info, body);
         return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
       });
+      // Manipulatives: options and starting state must make sense.
+      for (const p of manipProblems(t)) say(`${where}: ${p}`);
+      t = t.replace(MANIP_BLOCK, "");
       t = t.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
         try {
           const spec = JSON.parse(body) as FigureSpec;
@@ -121,6 +125,13 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (!isCorrect(q, q.answer)) say(`question ${q.id}: its own answer is rejected`);
       }
       if (kind === "order" && !isCorrect(q, q.choices.map((_, i) => i))) say(`question ${q.id}: the correct order is rejected`);
+      if (kind === "model") {
+        const r = readSpec(q.model);
+        for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) say(`question ${q.id}: model: ${p}`);
+        const sol = q.target ? solution(r.model, q.target) : null;
+        if (!sol || !isCorrect(q, sol)) say(`question ${q.id}: model: its own answer is rejected`);
+        if (isCorrect(q, startState(r.model))) say(`question ${q.id}: model: the starting model is already right`);
+      }
     }
   // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));

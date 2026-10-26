@@ -80,6 +80,8 @@ export default function CardsRunner({ api, course, decks, mode, topics }: Props)
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      // A math model on a card uses these keys itself.
+      if (e.defaultPrevented || (e.target as HTMLElement)?.closest?.(".mp")) return;
       if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
         if (!flipped) setFlipped(true);

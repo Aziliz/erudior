@@ -1,5 +1,7 @@
 // Question bank file format ("examiner-bank", version 1). See docs/BANK_FORMAT.md.
 
+import type { ManipSpec, ManipTarget } from "./manip";
+
 export interface Section {
   id: string;
   name: string;
@@ -14,8 +16,10 @@ export interface Section {
  * - match: `left[i]` is matched to `choices[answer[i]]`; extra choices are distractors.
  * - label: like match, but the left side is numbered markers on `image` at `markers[i]`.
  * - order: `choices` are listed in the correct order and shown shuffled. `answer` is empty.
+ * - model: answered by changing a math manipulative (`model`: counters, blocks, number line,
+ *   fraction bars, clock, coins); `target` says what's right. `choices` and `answer` are empty.
  */
-export type QuestionType = "choice" | "text" | "match" | "label" | "order";
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model";
 
 export interface QuestionImage {
   /** A data: URL (bundled and community courses) or an app-relative path. */
@@ -50,13 +54,17 @@ export interface Question {
   lowestTerms?: boolean;
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
+  /** model: the manipulative and its starting state. */
+  model?: ManipSpec;
+  /** model: what counts as right. */
+  target?: ManipTarget;
   explanation?: string;
 }
 
 /**
  * A learner's answer: choice indices (choice), the choice picked for each left item or marker
  * (match, label; -1 = none yet), the choices in the learner's order (order), or the typed
- * text per blank (text).
+ * text per blank (text), or the manipulative's state (model; see startState in manip.ts).
  */
 export type Chosen = (number | string)[];
 

@@ -282,6 +282,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
+      // Math models use arrows (sliders) and Enter (their buttons) themselves.
+      if (e.defaultPrevented || (e.target as HTMLElement)?.closest?.(".mp")) return;
       const k = e.key.toLowerCase();
       const n = item.order.length;
       let pos = -1;

@@ -7,10 +7,11 @@ import type { Drill, FigureSpec } from "./types";
 import { drillError } from "./drills";
 import { renderFigure } from "./figure";
 import { splitMath } from "./mathSplit";
+import { readSpec, targetProblems, type ManipSpec, type ManipTarget } from "./manip";
 export { LEVELS, SUBJECTS, TYPES };
 
-export type QKind = "choice" | "text" | "match" | "label" | "order";
-export const Q_KINDS: QKind[] = ["choice", "text", "match", "label", "order"];
+export type QKind = "choice" | "text" | "match" | "label" | "order" | "model";
+export const Q_KINDS: QKind[] = ["choice", "text", "match", "label", "order", "model"];
 
 /**
  * A question (in a lesson or a module quiz). Like the app's questions:
@@ -19,6 +20,7 @@ export const Q_KINDS: QKind[] = ["choice", "text", "match", "label", "order"];
  * - match: `left[i]` goes with `choices[answer[i]]`; extra choices are distractors.
  * - label: numbered `markers` on the image; marker i goes with `choices[answer[i]]`.
  * - order: `choices` written in the right order (shown shuffled).
+ * - model: a math manipulative (`model`) set to show `target` (as in the app's model questions).
  */
 export interface CQuestion {
   id: string;
@@ -36,6 +38,10 @@ export interface CQuestion {
   /** A picture shown under the question (required for label questions). */
   imageId?: string;
   imageAlt?: string;
+  /** model: the manipulative and how it starts. */
+  model?: ManipSpec;
+  /** model: what counts as right. */
+  target?: ManipTarget;
 }
 
 export type CalloutKind = "tip" | "warning" | "rule";
@@ -55,7 +61,9 @@ export type Block =
   /** A graph or geometry drawing: a figure spec as JSON (the same format as official courses). */
   | { type: "figure"; spec: string; caption: string }
   /** A Mermaid diagram (flowchart, timeline, sequence…), with a title and description for screen readers. */
-  | { type: "diagram"; code: string; title: string; description: string };
+  | { type: "diagram"; code: string; title: string; description: string }
+  /** A math manipulative to play with (counters, blocks, number line, fraction bars, clock, coins). */
+  | { type: "manipulative"; spec: ManipSpec };
 
 export interface CLesson {
   id: string;
@@ -236,11 +244,12 @@ function appQuestion(q: CQuestion, imageSrc: (id: string) => string): Record<str
     ...(kind !== "choice" ? { type: kind } : {}),
     // Questions show as plain text with math (not Markdown).
     stem: q.stem.trim(),
-    choices: kind === "text" ? [] : q.choices.map(line),
-    answer: kind === "text" || kind === "order" ? [] : q.answer,
+    choices: kind === "text" || kind === "model" ? [] : q.choices.map(line),
+    answer: kind === "text" || kind === "order" || kind === "model" ? [] : q.answer,
     ...(kind === "text" ? { accept: (q.accept ?? []).map((a) => a.map((x) => x.trim()).filter(Boolean)), ...(q.caseSensitive ? { caseSensitive: true } : {}), ...(q.lowestTerms ? { lowestTerms: true } : {}) } : {}),
     ...(kind === "match" ? { left: (q.left ?? []).map(line) } : {}),
     ...(kind === "label" ? { markers: q.markers ?? [] } : {}),
+    ...(kind === "model" ? { model: readSpec(q.model).spec, target: q.target } : {}),
     ...(q.imageId ? { image: { src: imageSrc(q.imageId), alt: (q.imageAlt ?? "").trim() } } : {}),
     explanation: q.explanation.trim() || undefined,
   };
@@ -262,6 +271,8 @@ function checkQuestion(q: CQuestion, at: string, strict: boolean, errs: string[]
     errs.push(`${at}: bad markers.`);
   if (q.imageId !== undefined && q.imageId !== "" && !ID.test(q.imageId)) errs.push(`${at}: the picture is missing.`);
   if (q.imageAlt !== undefined && (!isStr(q.imageAlt) || q.imageAlt.length > LIMITS.short)) errs.push(`${at}: picture description too long.`);
+  if ((q.model !== undefined && (!isObj(q.model) || JSON.stringify(q.model).length > 1000)) || (q.target !== undefined && (!isObj(q.target) || JSON.stringify(q.target).length > 500)))
+    errs.push(`${at}: the model is too big.`);
   if (!strict) return;
   if (!q.stem.trim()) errs.push(`${at}: the question is empty.`);
   if (q.imageId && !q.imageAlt?.trim()) errs.push(`${at}: describe the picture for people who can't see it.`);
@@ -292,6 +303,11 @@ function checkQuestion(q: CQuestion, at: string, strict: boolean, errs: string[]
       if (choices.length < 2 || choices.some((c) => !c.trim())) errs.push(`${at}: needs at least two steps, none empty.`);
       if (new Set(choices.map((c) => c.trim())).size !== choices.length) errs.push(`${at}: the same step is listed twice.`);
       break;
+    case "model": {
+      const r = readSpec(q.model);
+      for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) errs.push(`${at}: ${p}.`);
+      break;
+    }
   }
 }
 
@@ -446,6 +462,10 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
             errs.push(`${at}: title or description too long.`);
           if (strict && !diagramBody(b.code ?? "")) errs.push(`${at}: empty diagram.`);
           if (strict && (!b.title.trim() || !b.description.trim())) errs.push(`${at}: give the diagram a title and a description for people who can't see it.`);
+          break;
+        case "manipulative":
+          if (!isObj(b.spec) || JSON.stringify(b.spec).length > 1000) errs.push(`${at}: the model is too big.`);
+          else if (strict) for (const p of readSpec(b.spec).problems) errs.push(`${at}: ${p}.`);
           break;
         default:
           errs.push(`${at}: unknown block.`);
@@ -662,6 +682,11 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
       if (!body || body.includes("```")) return "";
       const one = (s: string) => s.replace(/[\n{}]/g, " ").trim();
       return ["```mermaid", body.split("\n")[0], `  accTitle: ${one(b.title) || "Diagram"}`, `  accDescr: ${one(b.description) || one(b.title) || "Diagram"}`, ...body.split("\n").slice(1), "```"].join("\n");
+    }
+    case "manipulative": {
+      // JSON can't hold a line break, so the block can't be closed early by its contents.
+      const { spec } = readSpec(b.spec);
+      return "```manipulative " + spec.kind + "\n" + JSON.stringify(spec) + "\n```";
     }
     case "question":
       return "";

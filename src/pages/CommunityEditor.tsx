@@ -9,6 +9,9 @@ import { api as community, imageUrl, type Editors, type Review } from "../lib/co
 import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
 import { calculatorForSubject } from "../lib/taxonomy";
 import { renderFigure } from "../lib/figure";
+import { readSpec } from "../lib/manip";
+import { ModelStartFields } from "../components/ManipEditor";
+import { LessonManipulative } from "../components/Manipulative";
 import { Drills, Glossary, Language, Modules, References, newId } from "./CommunityTabs";
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
@@ -26,8 +29,9 @@ const BLOCK_LABEL: Record<Block["type"], string> = {
   math: "Formula",
   figure: "Graph or drawing",
   diagram: "Diagram",
+  manipulative: "Math model to play with",
 };
-const ADDABLE: Block["type"][] = ["heading", "text", "list", "example", "callout", "math", "image", "figure", "diagram", "question"];
+const ADDABLE: Block["type"][] = ["heading", "text", "list", "example", "callout", "math", "image", "figure", "diagram", "manipulative", "question"];
 
 const CALC_LABEL: Record<CalcChoice, string> = { basic: "Basic", scientific: "Scientific", graphing: "Graphing", none: "No calculator" };
 
@@ -279,6 +283,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
       math: () => ({ type: "math", tex: "" }),
       figure: () => ({ type: "figure", spec: FIGURE_START, caption: "" }),
       diagram: () => ({ type: "diagram", code: "flowchart LR\n  A[Start] --> B[Next step]", title: "", description: "" }),
+      manipulative: () => ({ type: "manipulative", spec: { kind: "blocks" } }),
     };
     setBlocks((bs) => [...bs, blank[type]()]);
   };
@@ -555,6 +560,24 @@ function BlockEditor({
         </>
       )}
       {b.type === "figure" && <FigureFields b={b} onChange={onChange} />}
+      {b.type === "manipulative" && (
+        <div className="stack">
+          <ModelStartFields
+            spec={b.spec}
+            idBase={`mb-${n}`}
+            withCaption
+            onSpec={(spec) => onChange({ ...b, spec })}
+            onKind={(kind) => onChange({ ...b, spec: { kind } })}
+          />
+          {readSpec(b.spec).problems.map((p) => (
+            <p key={p} className="notice error small">
+              {p}
+            </p>
+          ))}
+          <p className="small muted">Try it (this is what learners see):</p>
+          <LessonManipulative spec={readSpec(b.spec).spec} />
+        </div>
+      )}
       {b.type === "diagram" && (
         <div className="form-grid">
           <label className="field span-2">
