@@ -1,5 +1,7 @@
 // Question bank file format ("examiner-bank", version 1). See docs/BANK_FORMAT.md.
 
+import type { ActivityLogSpec, Lab, LogEntry, Rubric, WorkRecord, WritingTask } from "./work";
+
 export interface Section {
   id: string;
   name: string;
@@ -386,6 +388,11 @@ export interface Course {
   calculator?: "basic" | "scientific" | "graphing" | "none";
   /** Community courses (made by users on the website): never count toward homeschool records. */
   community?: CommunityInfo;
+  /** Student work a parent or teacher reviews (lib/work.ts): rubrics, writing assignments, labs, an activity log. */
+  rubrics?: Rubric[];
+  writing?: WritingTask[];
+  labs?: Lab[];
+  activityLog?: ActivityLogSpec;
 }
 
 export interface CommunityInfo {
@@ -538,6 +545,10 @@ export interface Progress {
   study?: StudyPrefs;
   /** `${courseId}/${lessonId}` -> local YYYY-MM-DD the pre-lesson warm-up was done or skipped */
   pretests?: Record<string, string>;
+  /** `${courseId}/${itemId}` -> the student's writing or lab work (lib/work.ts). */
+  work?: Record<string, WorkRecord>;
+  /** Activity log entries (PE, art, music practice), every course. */
+  logs?: LogEntry[];
 }
 
 export interface StudyPrefs {

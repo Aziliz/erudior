@@ -15,6 +15,7 @@ import {
 import { stateInfo } from "../lib/states";
 import type { Activity, BookEntry } from "../lib/records";
 import type { DocumentRef } from "../lib/documents";
+import { PortfolioWork } from "./WorkParts";
 
 export const fmtDate = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
 const short = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric" });
@@ -576,6 +577,14 @@ export function PortfolioDoc({ d, yearStart, photos }: { d: StudentData; yearSta
                       </ol>
                     </div>
                   ))}
+                  <PortfolioWork
+                    course={d.courses.find((c) => c.id === row.courseId)}
+                    work={d.progress.work ?? {}}
+                    reviews={d.records.reviews ?? {}}
+                    logs={d.progress.logs ?? []}
+                    from={r.year.from}
+                    to={r.year.to}
+                  />
                 </div>
               );
             })}

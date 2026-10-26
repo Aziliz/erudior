@@ -9,6 +9,7 @@ import { loadState, saveState } from "./storage";
 import { uid } from "./util";
 import type { CourseRecord, OutsideCourse, ParentGrade } from "./grades";
 import type { DocumentRef } from "./documents";
+import type { WorkReview } from "./work";
 
 /** A book the student read (for the reading log; Pennsylvania requires one). */
 export interface BookEntry {
@@ -77,6 +78,8 @@ export interface Records {
   documents: DocumentRef[];
   reading: BookEntry[];
   activities: Activity[];
+  /** Reviews of writing and labs, keyed `${courseId}/${itemId}`, oldest first (lib/work.ts). */
+  reviews?: Record<string, WorkReview[]>;
 }
 
 export const emptyRecords = (): Records => ({
@@ -114,6 +117,23 @@ export function addTime(r: Records, date: string, courseId: string, seconds: num
   const day = { ...(r.time[date] ?? {}) };
   day[courseId] = (day[courseId] ?? 0) + Math.round(seconds);
   return { ...r, time: { ...r.time, [date]: day } };
+}
+
+/**
+ * Add (or with a negative number, take back) logged minutes on a course: activity-log entries
+ * count as learning time on their course and day, like time tracked in the app, so they reach
+ * attendance, hours by subject and every report without special cases.
+ */
+export function adjustTime(r: Records, date: string, courseId: string, seconds: number): Records {
+  if (!seconds) return r;
+  const day = { ...(r.time[date] ?? {}) };
+  const v = Math.max(0, (day[courseId] ?? 0) + Math.round(seconds));
+  if (v) day[courseId] = v;
+  else delete day[courseId];
+  const time = { ...r.time };
+  if (Object.keys(day).length) time[date] = day;
+  else delete time[date];
+  return { ...r, time };
 }
 
 export function addManual(r: Records, e: Omit<ManualEntry, "id">): Records {

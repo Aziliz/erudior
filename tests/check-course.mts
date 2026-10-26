@@ -16,6 +16,7 @@ import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
+import { workProblems } from "../src/lib/work.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -125,6 +126,15 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
+  // Student work: writing prompts, lab text and the activity log prompt are Markdown like lessons.
+  for (const w of c.writing ?? []) checkText(`writing ${w.id} prompt`, w.prompt, true);
+  for (const l of c.labs ?? []) {
+    checkText(`lab ${l.id} intro`, l.intro, true);
+    l.steps.forEach((s, i) => checkText(`lab ${l.id} step ${i + 1}`, s.text, true));
+    for (const q of l.questions) checkText(`lab ${l.id} question ${q.id}`, q.prompt, true);
+  }
+  checkText("activityLog prompt", c.activityLog?.prompt, true);
+  for (const p of workProblems(c)) say(p);
 
   // --- References between parts ---------------------------------------------------
   const qids = new Set(c.banks.flatMap((b) => b.questions.map((q) => q.id)));

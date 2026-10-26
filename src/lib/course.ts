@@ -1,6 +1,7 @@
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
+import { normalizeWork } from "./work";
 
 const SEP = "__";
 
@@ -192,6 +193,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(readingList.length ? { readingList } : {}),
     ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
+    ...normalizeWork(raw),
   };
 }
 

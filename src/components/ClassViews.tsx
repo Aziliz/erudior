@@ -7,6 +7,7 @@ import { CATALOG, courseFinished } from "../lib/catalog";
 import { classesOf, type Family, type Student } from "../lib/family";
 import { loadJoined, makeHandIn, parseClassFile, saveJoined, type Joined } from "../lib/classroom";
 import * as store from "../lib/storage";
+import { loadFile } from "../lib/documents";
 import { today } from "../lib/srs";
 
 const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric" });
@@ -93,7 +94,7 @@ export function MyClasses({ api }: { api: AppApi }) {
 
   async function handIn(j: Joined) {
     try {
-      const h = await makeHandIn(j.cls, j.studentId, api.progress);
+      const h = await makeHandIn(j.cls, j.studentId, api.progress, loadFile);
       const name = j.cls.students.find((s) => s.id === j.studentId)?.name ?? "student";
       const file = `hand-in ${j.cls.name} ${name} ${today()}.json`.replace(/[^\w\- .]+/g, "");
       if (await store.exportText(JSON.stringify(h), file, "Erudior hand-in")) api.toast("Saved. Give that file to your teacher.");

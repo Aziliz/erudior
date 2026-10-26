@@ -11,6 +11,7 @@ import { mainBank } from "./CourseHome";
 import { SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
+import { useAssignmentLinks } from "./WorkView";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
@@ -29,6 +30,10 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));
   const lessonRefs = (lesson.refs ?? []).map((id) => course.references.find((r) => r.id === id)).filter((r) => !!r);
   const topicCards = course.decks.reduce((s, d) => s + d.cards.filter((c) => c.topic && topics.includes(c.topic)).length, 0);
+
+  const links = useAssignmentLinks(api, course);
+  // Only lessons that link assignments need the cards (keeps other lessons' rendering cached).
+  const assignments = lesson.body.includes("```assignment") ? links : undefined;
 
   const goLesson = (id: string) => api.go({ name: "lesson", courseId: course.id, lessonId: id });
 
@@ -120,7 +125,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       )}
 
       <article className="lesson-body">
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} assignments={assignments} />
       </article>
 
       {words.length > 0 && (

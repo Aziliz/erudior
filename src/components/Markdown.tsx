@@ -7,6 +7,7 @@ import { protectMath } from "../lib/math";
 import { protectFigures } from "../lib/figure";
 import { protectDiagrams } from "../lib/diagram";
 import { protectExamples, revealExample } from "../lib/examples";
+import { assignTarget, protectAssignments, type BlockLink, type LinkInfo } from "../lib/work";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -32,7 +33,10 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
   );
 }
 
-export function renderMarkdown(md: string, scope?: Record<string, number>): string {
+export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined): string {
+  // Assignment links (```assignment blocks) become cards with an Open button.
+  const assigns = protectAssignments(md, assign);
+  md = assigns.text;
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
@@ -48,7 +52,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return examples.restore(mathHeaders(clean));
+  return assigns.restore(examples.restore(mathHeaders(clean)));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -136,8 +140,11 @@ export default function Markdown({
   className = "prose",
   scope,
   foreignLang,
+  assignments,
 }: {
   source: string;
+  /** Lessons: what the ```assignment cards show, and what Open does. Keep the object stable (memoize it). */
+  assignments?: { info: (l: BlockLink) => LinkInfo | undefined; open: (l: BlockLink) => void };
   /** Language courses: italic text is the target language (authoring convention), so mark it
    * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
   foreignLang?: string;
@@ -147,13 +154,13 @@ export default function Markdown({
   scope?: Record<string, number>;
 }) {
   const html = useMemo(() => {
-    const plain = renderMarkdown(source, scope);
+    const plain = renderMarkdown(source, scope, assignments?.info);
     const out = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
     return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang, className]);
+  }, [source, scope, foreignLang, className, assignments]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -210,6 +217,11 @@ export default function Markdown({
 
   function onClick(e: React.MouseEvent) {
     if (revealExample(e.target as Element)) return;
+    const link = assignTarget(e.target as Element);
+    if (link) {
+      assignments?.open(link);
+      return;
+    }
     const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
     const term = el.dataset.term ?? "";

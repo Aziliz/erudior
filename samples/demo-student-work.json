@@ -1,0 +1,167 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-student-work",
+  "title": "Demo: writing, labs and activity logs",
+  "description": "A tiny sample course showing writing assignments with rubrics, a guided at-home lab and an activity log. Import it from the Library to try them.",
+  "author": "Erudior",
+  "revision": 1,
+  "modules": [{ "id": "m1", "title": "Student work" }],
+  "lessons": [
+    {
+      "id": "l1",
+      "module": "m1",
+      "title": "Writing a persuasive paragraph",
+      "minutes": 25,
+      "body": "## What makes writing persuasive\n\nA persuasive paragraph tries to change the reader's mind. It has three parts:\n\n1. A **topic sentence** that says what you think.\n2. **Reasons**, each with an example or a fact.\n3. A **closing sentence** that sums up.\n\n> **Tip:** Read your paragraph out loud. If a sentence makes you stop and stumble, fix it.\n\n## Your turn\n\nStart with the short response, then write the full paragraph. You can check your own work against the rubric before you hand it in.\n\n```assignment\nwriting: favorite-season\nwriting: class-pet\n```\n"
+    },
+    {
+      "id": "l2",
+      "module": "m1",
+      "title": "Lab: does salt make ice melt faster?",
+      "minutes": 40,
+      "body": "## Why salt?\n\nIn winter, people spread salt on icy sidewalks. In this lab you'll test whether salt really makes ice melt faster, using two ice cubes and a timer.\n\nA good experiment changes **one thing** at a time. Here the only difference between the two cubes is the salt.\n\n```assignment\nlab: ice-melt\n```\n"
+    },
+    {
+      "id": "l3",
+      "module": "m1",
+      "title": "Moving every day",
+      "minutes": 10,
+      "body": "## Get moving\n\nKids need about an hour of active play most days. Walking, biking, dancing, swimming and playing games all count.\n\nKeep track of what you do in the activity log. Try to reach your goal each week.\n\n```assignment\nlog\n```\n"
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "paragraph",
+      "title": "Persuasive paragraph",
+      "criteria": [
+        {
+          "id": "claim",
+          "name": "Topic sentence",
+          "levels": [
+            { "points": 4, "label": "Excellent", "description": "Clearly says what you think, in a way that makes the reader curious." },
+            { "points": 3, "label": "Good", "description": "Clearly says what you think." },
+            { "points": 2, "label": "Getting there", "description": "Your opinion is there, but it's hard to find." },
+            { "points": 1, "label": "Not yet", "description": "No clear opinion." }
+          ]
+        },
+        {
+          "id": "reasons",
+          "name": "Reasons and examples",
+          "levels": [
+            { "points": 4, "label": "Excellent", "description": "Three or more reasons, each with a good example." },
+            { "points": 3, "label": "Good", "description": "Two reasons with examples." },
+            { "points": 2, "label": "Getting there", "description": "Reasons without examples." },
+            { "points": 1, "label": "Not yet", "description": "No real reasons." }
+          ]
+        },
+        {
+          "id": "conventions",
+          "name": "Spelling and punctuation",
+          "levels": [
+            { "points": 4, "label": "Excellent", "description": "Almost no mistakes." },
+            { "points": 3, "label": "Good", "description": "A few mistakes that don't get in the way." },
+            { "points": 2, "label": "Getting there", "description": "Mistakes make some sentences hard to read." },
+            { "points": 1, "label": "Not yet", "description": "Mistakes make it hard to understand." }
+          ]
+        }
+      ]
+    }
+  ],
+  "writing": [
+    {
+      "id": "favorite-season",
+      "title": "Your favorite season",
+      "module": "m1",
+      "kind": "short",
+      "prompt": "Which season do you like best? Answer in **two or three sentences** and give one reason.",
+      "words": { "min": 20, "max": 60 },
+      "minutes": 5
+    },
+    {
+      "id": "class-pet",
+      "title": "Should our class get a pet?",
+      "module": "m1",
+      "kind": "essay",
+      "prompt": "Write one persuasive paragraph that answers: **Should our class (or family) get a pet?**\n\n- Start with a topic sentence that says what you think.\n- Give at least two reasons, each with an example.\n- End with a closing sentence.",
+      "words": { "min": 80, "max": 200 },
+      "rubric": "paragraph",
+      "minutes": 20
+    }
+  ],
+  "labs": [
+    {
+      "id": "ice-melt",
+      "title": "Does salt make ice melt faster?",
+      "module": "m1",
+      "minutes": 40,
+      "adult": true,
+      "intro": "You'll put two ice cubes side by side, sprinkle salt on one, and watch which melts faster. Before you start, guess what will happen.",
+      "safety": [
+        "Never taste anything in a science lab, even salt.",
+        "Salt stings in cuts and eyes. Wash your hands when you finish.",
+        "Wipe up melted water right away so no one slips."
+      ],
+      "materials": ["2 ice cubes the same size", "2 small plates", "1 teaspoon of table salt", "A clock or timer", "Paper towels"],
+      "steps": [
+        "Put one ice cube on each plate. Label the plates **plain** and **salt**.",
+        { "text": "Measure 1 teaspoon of salt with an adult's help.", "adult": true },
+        "Sprinkle the salt over the cube on the **salt** plate. Start the timer.",
+        "Every 5 minutes, look closely at both cubes and write what you see in the table.",
+        "After 20 minutes, take a photo of both plates side by side.",
+        "Clean up: pour the water down the sink, wipe the plates and wash your hands."
+      ],
+      "tables": [
+        {
+          "id": "watch",
+          "title": "What the cubes looked like",
+          "columns": ["Time", "Plain cube", "Salted cube"],
+          "rows": 5,
+          "rowLabels": ["Start", "5 minutes", "10 minutes", "15 minutes", "20 minutes"]
+        }
+      ],
+      "questions": [
+        { "id": "guess", "kind": "observation", "prompt": "Before you started, what did you guess would happen?" },
+        { "id": "saw", "kind": "observation", "prompt": "What differences did you see between the two cubes?" },
+        { "id": "why", "kind": "conclusion", "prompt": "Did salt make the ice melt faster? Use what you wrote in the table to explain." }
+      ],
+      "photos": "Take a photo of both plates after 20 minutes.",
+      "rubric": {
+        "id": "lab-basic",
+        "criteria": [
+          {
+            "id": "data",
+            "name": "Recording data",
+            "levels": [
+              { "points": 3, "label": "Complete", "description": "Every row of the table is filled in with clear notes." },
+              { "points": 2, "label": "Mostly", "description": "Most rows are filled in." },
+              { "points": 1, "label": "Not yet", "description": "Few notes in the table." }
+            ]
+          },
+          {
+            "id": "conclusion",
+            "name": "Conclusion",
+            "levels": [
+              { "points": 3, "label": "Complete", "description": "Answers the question and uses the data as evidence." },
+              { "points": 2, "label": "Mostly", "description": "Answers the question without using the data." },
+              { "points": 1, "label": "Not yet", "description": "Doesn't answer the question." }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "activityLog": {
+    "title": "Movement log",
+    "types": ["Walking or running", "Biking", "Sports or games", "Dancing or yoga", "Swimming"],
+    "weeklyMinutes": 150,
+    "weeklyDays": 5,
+    "prompt": "Log each time you're active for at least 10 minutes. Add a photo if you like (a map of your bike ride, you at the pool).",
+    "uploads": true
+  },
+  "banks": [],
+  "decks": [],
+  "glossary": [],
+  "references": [],
+  "drills": []
+}
