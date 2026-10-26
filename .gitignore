@@ -15,3 +15,6 @@ dist-courses/
 *.tmp.*
 # Round 2 writers' scratch scripts
 /.r2-*
+
+# Temporary git worktrees for parallel work
+.claude/worktrees/
