@@ -51,6 +51,14 @@ export interface Question {
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   explanation?: string;
+  /**
+   * Early readers: words played with a big Listen button under the stem ("Listen. Which word
+   * did you hear?"). A recording from the course's audio library under the same text (or a
+   * data:audio URL here) plays in place of text-to-speech.
+   */
+  listen?: string;
+  /** Early readers: sound units to blend, shown as tiles the child taps one by one ("c a t"; "c[k]" plays sound:k). */
+  blend?: string[];
 }
 
 /**
@@ -386,6 +394,18 @@ export interface Course {
   calculator?: "basic" | "scientific" | "graphing" | "none";
   /** Community courses (made by users on the website): never count toward homeschool records. */
   community?: CommunityInfo;
+  /**
+   * Early-reader course (kindergarten to grade 2): read-aloud buttons on every paragraph,
+   * question and answer choice, larger text, and each new question read aloud automatically
+   * (each learner can turn that off).
+   */
+  readAloud?: boolean;
+  /**
+   * Recorded audio that replaces text-to-speech: { key: data:audio URL or "say:<text>" }. A key
+   * is the words as they're read (matched ignoring case, spacing and punctuation) or a name
+   * that a block refers to, such as `sound:m` for the sound of m. See lib/readAloud.ts.
+   */
+  audio?: Record<string, string>;
 }
 
 export interface CommunityInfo {
@@ -545,6 +565,8 @@ export interface StudyPrefs {
   explainFirst?: boolean;
   /** Hide answer choices until you've thought of the answer. Default off. */
   recallFirst?: boolean;
+  /** Read-aloud courses: read each new question aloud by itself. Default on. */
+  autoRead?: boolean;
 }
 
 export interface QuestionMeta {

@@ -4680,3 +4680,460 @@ a.btn:hover {
   padding: 0;
   margin-bottom: 4px;
 }
+
+/* ---------- Read-aloud, phonics and handwriting (early readers) ---------- */
+.ra-btn[hidden],
+.ph [hidden],
+.phonics-prompt [hidden] {
+  display: none !important;
+}
+.ra-icon {
+  flex: none;
+}
+/* Read button at the start of a paragraph or list item (read-aloud courses). */
+.ra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 4px 6px;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  border: 1px solid var(--field);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 560;
+  line-height: 1;
+  cursor: pointer;
+}
+.ra-btn:hover {
+  border-color: var(--accent);
+}
+.ra-btn.is-playing,
+.btn.is-playing {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.ra-btn.ra-section {
+  margin: -4px 0 10px;
+}
+/* The part being read right now. */
+.ra-now {
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  border-radius: 4px;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.ra-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+/* While reading, Pause and Stop stay in view as the page scrolls along. */
+.ra-bar.is-active {
+  position: sticky;
+  top: 8px;
+  z-index: 5;
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.ra-bar.is-prominent .ra-start {
+  font-size: 1.125rem;
+  padding: 12px 20px;
+}
+.ra-pos {
+  min-width: 0;
+}
+/* Early-reader courses: bigger text and bigger targets. */
+.ra-course .lesson-body .prose {
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+.ra-course .q-stem {
+  font-size: 1.625rem;
+}
+.ra-course .choice {
+  font-size: 1.375rem;
+  min-height: 56px;
+  align-items: center;
+}
+.q-stem-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 10px;
+}
+/* On a phone the read button goes under the question instead of squeezing it. */
+.q-stem-row .q-stem {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.ph-trace {
+  user-select: none;
+  -webkit-user-select: none;
+}
+.q-stem-row .read-q {
+  flex: none;
+  margin-top: 2px;
+}
+.choice-row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.choice-row .choice {
+  flex: 1;
+  min-width: 0;
+}
+.ra-btn.ra-choice {
+  margin: 0;
+  min-width: 48px;
+}
+.match-row .ra-choice,
+.order-item .ra-choice {
+  align-self: center;
+}
+.feedback .read-fb {
+  float: right;
+  margin: -4px -6px 4px 8px;
+}
+.auto-read[aria-pressed="false"] {
+  color: var(--ink-2);
+}
+.phonics-prompt {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  margin: 6px 0 12px;
+}
+.listen-btn {
+  font-size: 1.25rem;
+  padding: 12px 22px;
+}
+
+/* Phonics blocks: letter tiles, blending */
+.ph {
+  margin: 1.25em 0;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.ph.in-question {
+  margin: 0;
+  width: 100%;
+}
+.ph-kicker {
+  margin: 0 0 10px;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--ink);
+}
+.ph-hint {
+  display: block;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+.prose .ph-tiles,
+.prose .ph-units,
+.prose .ph-trace-list {
+  padding: 0;
+}
+.ph-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 10px;
+}
+.prose .ph-tiles li {
+  margin: 0;
+}
+.ph-tile {
+  display: grid;
+  gap: 6px;
+}
+.ph-letter,
+.ph-unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  border: 2px solid var(--field);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.ph-letter:hover,
+.ph-unit:hover {
+  border-color: var(--accent);
+}
+.ph-letter.is-silent,
+.ph-unit.is-silent,
+.ph-word.is-silent {
+  cursor: default;
+}
+.is-silent .ra-icon {
+  display: none;
+}
+.ph-word {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 1px solid var(--field);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ph-word.big {
+  font-size: 1.75rem;
+  padding: 8px 18px;
+}
+.ph-letter.ra-now,
+.ph-unit.ra-now,
+.ph-word.ra-now {
+  background: var(--accent-soft);
+}
+.ph-units {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  transition: gap 0.4s ease;
+}
+.prose .ph-units li {
+  margin: 0;
+}
+.ph-unit {
+  min-width: 76px;
+  padding: 0 14px;
+}
+.ph-units.is-blended {
+  gap: 2px;
+}
+.ph-bw .ph-hint {
+  margin: 0 0 8px;
+}
+.ph-whole {
+  margin: 10px 0 0;
+}
+.ph-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.ph-nosound {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+/* Letter tracing */
+.ph-trace-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.prose .ph-trace-list > li {
+  margin: 0;
+}
+.tr-name {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+.tr-glyph {
+  font-family: var(--sans);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.tr-label {
+  color: var(--ink-2);
+}
+.trace-pad {
+  display: block;
+  width: min(100%, 340px);
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+/* Touch on the pad draws instead of scrolling the page. */
+.trace-pad.is-live {
+  touch-action: none;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.tr-line {
+  stroke: var(--field);
+  stroke-width: 1.2;
+}
+.tr-line.mid {
+  stroke-dasharray: 6 5;
+}
+.tr-line.desc {
+  stroke: var(--rule);
+  stroke-dasharray: 2 4;
+}
+.tr-road {
+  fill: none;
+  stroke: var(--sheet);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tr-road.tr-dot {
+  fill: var(--sheet);
+  stroke: none;
+}
+.tr-road.is-current {
+  stroke: var(--accent-soft);
+}
+.tr-road.tr-dot.is-current {
+  fill: var(--accent-soft);
+}
+.tr-road.is-done {
+  stroke: var(--ok-soft);
+}
+.tr-road.tr-dot.is-done {
+  fill: var(--ok-soft);
+}
+.tr-center {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.4;
+  stroke-dasharray: 3 4;
+  stroke-linecap: round;
+}
+.tr-arrow {
+  fill: var(--accent);
+}
+.tr-start circle {
+  fill: var(--accent);
+}
+.tr-start text {
+  fill: var(--accent-ink);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+.is-live .tr-arrow.is-later,
+.is-live .tr-start.is-later {
+  opacity: 0.4;
+}
+.is-live .tr-arrow.is-done,
+.is-live .tr-start.is-done {
+  opacity: 0.25;
+}
+.tr-ink-line {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tr-ink-line.is-ok {
+  stroke: var(--ok);
+}
+.tr-demo {
+  fill: var(--fig-1);
+}
+.ph-trace-item.is-done .trace-pad {
+  border-color: var(--ok);
+  box-shadow: 0 0 0 2px var(--ok-soft);
+}
+.tr-status {
+  min-height: 1.5em;
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+.ph-trace-item.is-done .tr-status {
+  color: var(--ok);
+}
+.tr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.trace-pad.is-shake {
+  animation: tr-shake 0.3s ease;
+}
+@keyframes tr-shake {
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trace-pad.is-shake {
+    animation: none;
+  }
+  .ph-units {
+    transition: none;
+  }
+}
+@media print {
+  .ra-btn,
+  .ra-bar,
+  .read-q,
+  .read-fb,
+  .ph-word,
+  .ph-go,
+  .ph-nav,
+  .ph-hint,
+  .tr-actions,
+  .tr-status,
+  .ph-nosound,
+  .tr-ink {
+    display: none !important;
+  }
+  .ph .ph-trace-item[hidden],
+  .ph .ph-bw[hidden],
+  .ph .ph-units li[hidden],
+  .ph .ph-whole[hidden] {
+    display: block !important;
+  }
+  .ph .ph-units li[hidden] {
+    display: list-item !important;
+  }
+  .ph-trace-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+  }
+  .ra-now {
+    background: none;
+    box-shadow: none;
+    outline: 0;
+  }
+}

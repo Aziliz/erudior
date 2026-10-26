@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import QuestionBody, { QuestionImage, QuestionStem } from "../components/QuestionBody";
 import type { AppApi, View } from "../App";
@@ -12,6 +12,9 @@ import type { Confidence } from "../lib/review";
 import { LETTERS, formatClock } from "../lib/util";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
+import { PhonicsPrompt, SayButton, useCanSpeak } from "../components/ReadAloud";
+import { audioLibrary, mathTextSpeech, READ_LANG, sayItem } from "../lib/readAloud";
+import { speaker, type SayItem } from "../lib/speech";
 
 interface Props {
   api: AppApi;
@@ -56,11 +59,14 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const [checked, setChecked] = useState<Record<string, boolean>>(initial?.checked ?? {});
   const [confidence, setConfidence] = useState<Record<string, Confidence>>(initial?.confidence ?? {});
   // Confidence is asked in practice and quizzes, not exams or warm-ups (those are guesses by design).
-  const askConfidence = !isExam && session.kind !== "pretest";
+  // Early readers (read-aloud courses) skip the reading-heavy extras: confidence ratings,
+  // explain-it-yourself and covered choices.
+  const earlyReader = !!(bank?.courseId && api.courses.find((c) => c.id === bank.courseId)?.readAloud);
+  const askConfidence = !isExam && session.kind !== "pretest" && !earlyReader;
   // Study habits (BankHome): explain it yourself before reading the explanation; recall before seeing choices.
   const study = api.progress.study ?? {};
-  const explainFirst = !isExam && session.kind !== "pretest" && study.explainFirst !== false;
-  const recallFirst = !isExam && !!study.recallFirst;
+  const explainFirst = !isExam && session.kind !== "pretest" && study.explainFirst !== false && !earlyReader;
+  const recallFirst = !isExam && !!study.recallFirst && !earlyReader;
   const [shownExpl, setShownExpl] = useState<Record<string, boolean>>({});
   const [shownChoices, setShownChoices] = useState<Record<string, boolean>>({});
   const [ownWords, setOwnWords] = useState<Record<string, string>>({});
@@ -102,6 +108,14 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const quizModule = session.module ? course?.modules.find((m) => m.id === session.module!.moduleId) : undefined;
   const relatedLessons = (topic: string): Lesson[] =>
     course ? course.lessons.filter((l) => l.topics?.includes(topic)).slice(0, 3) : [];
+
+  // Read-aloud: any question can be read aloud; early-reader courses add a read button on
+  // every choice and read each new question (and the feedback) by themselves unless the
+  // learner turned that off.
+  const readAloud = !!course?.readAloud;
+  const lib = useMemo(() => audioLibrary(course), [course]);
+  const autoRead = readAloud && study.autoRead !== false;
+  const tts = useCanSpeak();
 
   useEffect(() => {
     const t = window.setInterval(() => setNow(Date.now()), 500);
@@ -277,6 +291,53 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     api.go(exitView);
   }
 
+  // ---- Reading aloud -------------------------------------------------------
+  const questionItems = useCallback((): SayItem[] => {
+    const root = scrollRef.current;
+    const stemEl = root?.querySelector<HTMLElement>(".q-stem") ?? null;
+    const out: SayItem[] = [sayItem(lib, mathTextSpeech(q.stem), { key: q.stem, el: stemEl })];
+    if (q.listen) out.push(sayItem(lib, q.listen, { pause: 300, el: root?.querySelector<HTMLElement>(".listen-btn") }));
+    const kind = qtype(q);
+    if (kind === "choice" && !choicesHidden)
+      item.order.forEach((orig, pos) => {
+        const el = root?.querySelector<HTMLElement>(`[data-choice="${orig}"]`) ?? null;
+        const a = sayItem(lib, mathTextSpeech(q.choices[orig]), { key: q.choices[orig], el, pause: 150 });
+        out.push(a.clip ? a : { ...a, text: `${LETTERS[pos]}: ${a.text}` });
+      });
+    if (kind === "match") (q.left ?? []).forEach((l) => out.push(sayItem(lib, mathTextSpeech(l), { key: l, pause: 150 })));
+    if (kind === "match" || kind === "label") out.push({ text: `Choices: ${item.order.map((o) => mathTextSpeech(q.choices[o])).join(", ")}.`, pause: 150 });
+    if (kind === "order") item.order.forEach((o) => out.push(sayItem(lib, mathTextSpeech(q.choices[o]), { key: q.choices[o], pause: 150 })));
+    return out;
+  }, [q, item.order, lib, choicesHidden]);
+
+  const feedbackItems = useCallback((): SayItem[] => {
+    const box = scrollRef.current?.querySelector<HTMLElement>(".feedback");
+    const verdict = box?.querySelector<HTMLElement>(".verdict");
+    const out: SayItem[] = [];
+    if (verdict) out.push({ text: verdict.textContent ?? "", el: verdict });
+    const expl = box?.querySelector<HTMLElement>(".expl");
+    if (expl && q.explanation) out.push(sayItem(lib, mathTextSpeech(q.explanation), { key: q.explanation, el: expl }));
+    return out;
+  }, [q, lib]);
+
+  // Each new question is read by itself (read-aloud courses); so is the feedback after checking.
+  useEffect(() => {
+    if (!autoRead) return;
+    const t = window.setTimeout(() => speaker.play(questionItems(), { lang: READ_LANG, owner: `q-${q.id}` }), 250);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, autoRead, q.id]);
+  useEffect(() => {
+    if (!autoRead || !isChecked) return;
+    const t = window.setTimeout(() => speaker.play(feedbackItems(), { lang: READ_LANG, owner: `fb-${q.id}` }), 150);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isChecked, autoRead, q.id]);
+  useEffect(() => () => speaker.stop(), []);
+
+  const toggleAutoRead = () =>
+    api.updateProgress((p) => ({ ...p, study: { ...(p.study ?? {}), autoRead: p.study?.autoRead === false } }));
+
   // Keyboard: letters/numbers pick, arrows move, F flags, Enter checks/advances.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -321,7 +382,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const atBlockEnd = index === block.end - 1;
 
   return (
-    <div className="runner">
+    <div className={`runner${readAloud ? " ra-course" : ""}`}>
       <CalcDock kind={calcKind(course)} />
       <div className="runner-main">
         <div className="runner-bar">
@@ -336,6 +397,11 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </span>
           )}
           <div className="spacer" />
+          {readAloud && tts && (
+            <button type="button" className="btn ghost sm auto-read" aria-pressed={autoRead} onClick={toggleAutoRead}>
+              Read questions to me: {autoRead ? "on" : "off"}
+            </button>
+          )}
           <span className="small muted num">
             {blocks.length > 1 ? `${blockAnswered}/${blockItems.length}` : `${answeredCount}/${items.length}`} answered
           </span>
@@ -356,7 +422,18 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               {sectionName && blocks.length === 1 && <span>{sectionName}</span>}
               {!isExam && <span>{q.topic}</span>}
             </div>
-            <QuestionStem q={q} />
+            <div className="q-stem-row">
+              <QuestionStem q={q} />
+              <SayButton
+                owner={`q-${q.id}`}
+                className={readAloud ? "btn read-q" : "btn ghost sm read-q"}
+                label="Read the question aloud"
+                text={readAloud ? "Read to me" : undefined}
+                hasClip={!!sayItem(lib, q.stem).clip}
+                items={questionItems}
+              />
+            </div>
+            <PhonicsPrompt q={q} lib={lib} />
             {qtype(q) !== "label" && <QuestionImage q={q} />}
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
             {!choiceQ && <p className="q-type small muted">{typeLabel(q)}</p>}
@@ -378,6 +455,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               onChange={setAnswer}
               onEnter={() => (!isExam && !isChecked ? check() : undefined)}
               reveal={isChecked}
+              read={readAloud ? { lib } : undefined}
             />
             )}
 
@@ -406,6 +484,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
             {isChecked && (
               <div className="feedback" role="status">
+                <SayButton owner={`fb-${q.id}`} className="btn ghost sm read-fb" label="Read this aloud" items={feedbackItems} />
                 <p className={`verdict ${correctNow ? "ok" : "bad"}`}>
                   {correctNow
                     ? "Correct"

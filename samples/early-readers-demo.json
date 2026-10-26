@@ -1,0 +1,166 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-early-readers",
+  "title": "Early readers demo",
+  "description": "A small sample of the early-reader tools: read-aloud lessons and questions, letter sounds, blending and letter tracing. Not a full course.",
+  "author": "Erudior",
+  "revision": 1,
+  "readAloud": true,
+  "calculator": "none",
+  "audio": {
+    "Listen to the bell.": "data:audio/wav;base64,UklGRuQSAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YcASAACAzObAfElBVm9+jaS8uo9LHSpwwOXJiFBAUmt8iZ+4vZlYIyRhs+LSlFhBTmd6h5qzvqJlKiBTpd3YoGFCSmN3hJWuvqpxMx5HltbcrGtFR190gpGpvLB9Ph48h83ft3ZKRVtxgI2kurWJSSEzeMLfwIJQRFZufYqftriTVCUsarbeyY1XRFNre4easrqcYCwnXKna0JlfRU9neYWWrrqkbDQkUJzU1aRoR0xjdoOSqbmreD0kRY7N2K5yS0pfdIGOpLewg0clPH/D2rh8UEhbcX+LoLWzjVEoNHK52cGHVkdXbn2Im7G1ll0uL2Wt1siSXUhUanqGl622nmg0K1ig0s6cZUpQZ3iDk6m2pXM8KU2TzNKnbkxOY3aBj6S1qn5FKkSGxNSwd1BMX3OAjKCzr4hPLDx5utS5gVVLW3B+iZywsZFaMDZssNPAjFtLWG18hpess5lkNjFgpM/GlmNMVWp6hJOos6BvPC9VmMrLoGtOUmZ4gpCksqV5RC5MjMPOqXNRUGN1gI2gsaqDTTBEf7vPsXxVT19zf4qcrq2MVzM9c7LPuYZbTlxwfYeYq6+UYTc4aKjMv5BhTllte4WUqLCbaz01XZ3IxJloUFZpeYOQpLChdEQzU5HDyKJwUlRmd4GNoK+lfkw0S4W8yqp4VlJjdYCKnK2ph1U2RHqzyrKBWlFgcn6ImKqrj145Pm+qybmKYFFcb3yGlaetlmc+O2Sgxr6TZlJabHqEkaStnHFEOVqVwcKcbVRXaXiCjqCsoXpLOFKKu8WkdVdWZnaAi5yrpYJTOUt/tMasfVpUY3R/iZmpqIpcPEV1rMWyhV9UYHJ9hpWmqpFkQEBro8O4jmRUXW98hJKjqpdtRT5hmcC8lmtVW2x6g46gqp12SzxZj7u/nnJYWWl4gYycqaF+Uj1RhbXBpXlbV2Z2gImZp6SGWj5Leq3BrIFfV2N0foeVpaaNYkJGcaXAsoljV2FxfYWSoqeTakZDZ5y+t5FpV15ve4OPn6iZcktBX5O6uphvWVxseYKMnKedelJAV4m0vaB2W1ppd4CKmaahglhBUX+uvaZ9X1lmdX+HlqSjiWBETHanvayFY1lkc32FkqKlj2hHSG2fu7GMaFlhcXyEj5+llW9MRWWWuLWTbVpfbnqCjZylmXdRRF2NtLiac1xdbHmBipmknX5YRVeErrmhel9caXeAiJajoIVeRlF7qLqngWJbZ3V+hpOhootlSU1yobmsiGdbZHN9hJCeo5FtTUpqmbawj2xcYnF8g42co5Z0UUhjkbOzlnFdYG56gYuZo5p7V0hciK61nHdgX2x4gIiWoZ2CXUlWf6m2on1jXml3f4eToJ+IZEtSd6K2p4RmXmd1foWQnqCNak5Ob5u0q4tqXmVzfIOOm6GScVJMaJOxr5FvX2Nwe4KLmaGWeFdLYYyusZd1YGFueoGJlqCaflxLW4Ops517Y2BseICHk5+chGJNV3yjs6KBZmBqdn6FkZ2eimhPU3SdsqeHamBndH2Ejpufj29TUG2WsKqNbmBmcnyCjJifk3VXT2aPra2Tc2FkcHuBiZael3tcTmCHqa+ZeGNjbnmAh5OdmYFhT1t/pLCefmZibHh/hpGcm4dnUVd4nq+ig2lianZ+hI6anIxtVFRxmK6miW1iaHR9g4yYnZBzV1Jrkaypj3FjZnJ8goqWnZR5XFFliqirlHZkZXB6gYiTnJZ/YFJgg6StmntmZG55gIaRm5mEZlNbfJ+tnoBpY2x3f4WPmZqJa1VYdZmsooZsY2p2fYOMmJuNcVhWb5OqpYtwZGl0fIKKlZuRdlxUaY2nqJF0ZWdye4GIk5uUfGBUZIakqZZ5Z2ZweoCHkZqWgWVVX3+gqpp+aWVueX+Fj5mYhmpWXHmbqp6DbGVsd36EjZeZim9ZWXOVqaKIb2VrdX2CipWZjnRcWG2PpqSNc2ZpdHyBiZOZkXpgV2iJo6aSd2docnuAh5GZlH9kV2ODoKeXfGlncHqAhY+YloNpWGB8m6ebgGxnbnh/hI2Wl4huWl12lqeehW5nbXd+g4uVmItzXVtxkaWhinJna3V9gomTmI94YFpsi6Ojj3ZoanR8gYeRmJF8ZFlnhaClk3pqaXJ7gIaPl5SBaFpjf5yll35saHB5f4SNlpWFbFtgepelm4NuaG94foOLlJaJcV1edJKknodxaG13fYKJk5aMdmBcb42ioIx0aWx1fIGIkZaPemNca4ifopB4amt0e4CGj5aRf2dcZ4Kco5R8bGpyeoCFjZWTg2tdY32Yo5eAbmpweX+Di5SUh3BeYXiUopqFcGpveH6CiZKVinRhX3OPoZ2Jc2pudn2BiJGVjXhkXm6Kn5+Nd2ttdXyBho+Vj31nXmqFnKCRemxsdHuAhY2UkYFrXmd/mKGUfm5rcnp/hIuTk4VvX2R6laCXgnBrcXl+g4qSk4hzYWJ2kJ+ahnNrb3h+goiQlIt3ZGBxjJ6cinZsbnZ9gYePlI17Z2Bth5yejnltbXV8gIWNk49/amBqgpmfkXxubXR7gISLkpGCbmFnfZWflYBwbHJ6f4OKkZKGcmJkeJGel4RybHF5foKIkJKJdWRjdI2dmoh1bXB4fYGHj5OLeWdicImbm4t4bW92fYGGjZKNfWpibISZnI97bm51fICEi5KPgW1iaX+WnZJ+cG50e3+DipGQhHFjZ3uSnZWCcm1yen+CiJCRh3RlZXeOnJeFdG1xeX6Ch46RiXhnZHOKmpmJd25wd32Bho2RjHtqZG+GmJqMem9vdnyAhYuRjX9tZGyClpuPfXBvdXuAhIqQj4JwZGp9k5uSgHJudHt/g4mPkIVzZmh5j5qVg3Ruc3p+goeOkIh3Z2Z1i5mXh3Zvcnh+gYaNkIp6amVyiJiYinlvcXd9gIWLkIx9bGVvhJaZjXxwcHZ8gISKkI2Ab2ZsgJOZkH9ycHV7f4OJj46DcmdqfJCZkoJ0b3R6f4KHjo+GdmhoeI2YlIV2cHN5foGGjY+IeWpndImXloh4cHJ4fYGFi4+KfGxncYWVl4t6cXF3fYCEio+Mf29nboGTmI19cnF2fICDiY6NgnJobH6QmJCAc3B1e3+CiI2OhHVpanqNl5KDdXB0en6BhoyOh3hqaXeKlpSGd3FzeX6BhYuOiXtsaHOHlZWJenFyeH2AhIqOin5vaHGDk5aLfHJyd32Ag4mOjIBxaW5/kZaOf3Nxdnx/goiNjYN0aWx8jpaQgXVxdXt/goaMjYV3a2t5i5WShHdxdHp+gYWLjYd6bGp2iJSTh3lydHl+gISKjYl8bmpzhZOUiXtzc3h9gIOJjYp/cWpwgZGVjH10cnd8gIOIjIuCc2pufo6VjoB1cnZ8f4KHjIyEdmtte4yVkIN2cnV7f4GGi4yGeW1seImUkYV4cnV6foGFio2Ie29rdYaSk4h6c3R5fYCEiYyJfnFrcoORk4p8dHN4fYCDiIyKgHNrcICPlIx/dXN3fH+Ch4uLg3Vsb3yMk46BdnN2fH+BhouMhXhtbXqKk5CEeHN2e36BhYqMhnpvbXeHkpGGenN1en6AhImMiH1wbHSEkJKIfHR0eX2Ag4iLiX9zbHKBj5KKfnV0eH2AgoeLioF1bXB+jZKMgHZ0d3x/goaKi4N3bm97ipKOgnd0d3t/gYWKi4V5b255iJGPhHl0dnt+gYSJi4d8cW52hZCQh3t0dXp+gIOIi4h+cm10go+RiX11dXl9gIKHiomAdG5yf42Ri392dXh9f4KGioqCdm5xfYuRjIF3dHh8f4GFiYqEeW9weoiRjoN5dXd7f4GEiYqGe3FveIaQj4V6dXZ7foCDiIqHfXJvdoOOkId8dXZ6foCDh4qIf3RvdIGNkIl+dnV5fYCChoqJgXZvcn6LkIuAd3V4fH+BhYmJg3hwcXyJkIyCeHV4fH+BhIiKhHpxcHmHj42EenV3e36Ag4iKhnxycHeEjo6Ge3Z3e36Ag4eKh350cHWCjY+IfXZ2en2AgoaJiIB2cHR/i4+Jf3d2eX1/goWJiIJ4cHJ9iY+LgXh2eHx/gYSIiYN5cXF7h4+Mg3l2eHx/gYSHiYV7cnF5hY6NhXt2d3t+gIOHiYZ9dHF3g42Ohnx3d3t+gIKGiYd/dXF1gYuOiH53d3p9gIKFiIiBd3F0foqOiYB4dnl9f4GEiIiCeXJzfIiOi4J5dnl8f4GEh4iEe3NyeoaNjIN6d3h8foCDh4iFfXRyeISMjYV8d3h7foCChoiGfnVxd4KLjYd9d3d6foCChYiHgHdydX+KjYh/eHd6fX+BhIiHgnhydH2IjYmBeXd5fX+BhIeIg3pzc3uGjYuCend5fH+Ag4eIhHx0c3qFjIuEe3d4fH6AgoaIhX51cniDi4yGfXh4e36AgoWIhn93cnaBioyHfnh4e36AgYSHh4F4c3V/iYyIgHl3en1/gYSHh4J6c3R9h4yJgXp3eX1/gYOGh4N7dHR7hYyKg3t4eXx/gIOGh4R9dXN5g4uLhHx4eXx+gIKFh4V+dnN4gYqMhn54eHt+gIKEh4aAeHN2f4mMh395eHt+f4GEh4eBeXR1foeMiIB6eHp9f4GDhoeDe3R1fIaLiYJ7eHp9f4CDhoeEfHV0eoSLioN8eHl8f4CChYeFfnZ0eYKKi4V9eXl8foCChIeFf3h0d4CJi4Z+eXl7foCBhIaGgXl0dn+Hi4eAenh7fX+Bg4aGgnp1dn2Gi4iBe3h6fX+Ag4aGg3x1dXuEiomCfHl6fX+AgoWGhH12dXqDioqEfXl5fH6AgoSGhX94dXmBiYqFfnl5fH6AgYSGhYB5dXd/iIqGf3p5e35/gYOGhoF6dXZ+hoqHgHt5e31/gYOFhoJ7dnZ8hYqIgnt5en1/gIKFhoN9d3V7g4mJg3x5en1/gIKEhoR+d3V6gomJhH15enx+gIGEhoV/eXV4gIiKhX96eXx+gIGDhoWAenZ3f4eKhoB6eXt+f4GDhYWCe3Z3fYWJh4F7eXt9f4CChYaDfHd2fISJiIJ8eXp9f4CChIaDfXd2eoKIiYN9enp8f4CBhIaEf3h2eYGIiYR+enp8foCBg4WFgHp2eH+HiYV/enp8fn+Bg4WFgXt2eH6GiYaAe3p7fn+AgoWFgnx3d32EiYeBfHp7fX+AgoSFg314d3uDiIiDfXp7fX+AgoSFg354dnqCiIiEfnp6fH6AgYOFhH95dnmAh4iFf3t6fH6AgYOFhIB6d3h/hoiGgHt6fH5/gIKFhYF7d3h9hYiGgXx6e35/gIKEhYJ9eHd8g4iHgnx6e31/gIKEhYN+eHd7goeHg316e31/gIGDhYR/eXd6gYeIhH57enx+gIGDhYSAend5f4aIhX97enx+f4GChISBe3d4foWIhoB8enx+f4CChIWCfHh4fYSIhoF8ent+f4CChIWCfXl4fIOHh4J9ent9f4CBg4WDfnl3e4GHh4N+e3t9f4CBg4SDf3p4eoCGh4R/e3t8fn+Bg4SEgHt4eX+Fh4WAfHt8fn+AgoSEgXx4eX6Eh4aBfHt8fn+AgoSEgn15eH2Dh4aCfXt8fX+AgYOEgn55eHyChoeCfnt7fX+AgYOEg396eHuBhoeDfnt7fX+AgYOEg4B7eHp/hYeEf3x7fH5/gIKEhIF8eHl+hIeFgHx7fH5/gIKEhIF9eXl9g4eFgX17fH5/gIGDhIJ+eXl8goaGgn17fH1/gIGDhIN+enh7gYaGg357e31/gIGDhIN/e3h7gIWGg398e31+gIGChIOAfHl6f4SGhIB8e31+f4CCg4SBfHl5foOGhYB9e3x+f4CBg4SCfXl5fYOGhYF9e3x+f4CBg4SCfnp5fIKGhoJ+e3x9f4CBg4SDf3t5e4GFhoN+fHx9f4CBgoSDgHt5e4CEhoR/fHt9fn+AgoODgHx5en+EhoSAfHt9fn+AgYODgX16en6DhoWBfXt8fn+AgYODgn56eX2ChYWCfnx8fn+AgYODgn97eXyBhYWCfnx8fX+AgYKDg397eXuAhIaDf3x8fX+AgIKDg4B8eXt/hIaEgHx8fX5/gIKDg4F9enp+g4aEgH18fX5/gIGDg4F+enp9goWFgX18fH5/gIGCg4J+e3p8gYWFgn58fH5/gIGCg4J/e3p8gISFgn98fH1/gICCg4OAfHp7f4SFg398fH1/f4CCg4OAfXp7f4OFhIB9fH1+f4CBg4OBfXp6foKFhIF9fH1+f4CBgoOBfnt6fYKFhIF+fHx+f4CBgoOCf3t6fIGEhYJ+fHx+f4CAgoOCf3x6fICEhYN/fHx9f4CAgoODgHx6e3+DhYOAfXx9f3+AgYODgX16e36DhYSAfXx9fn+AgYKDgX57e36ChYSBfnx9fn+AgYKDgn57en2BhISCfnx9fn+AgYKDgn98enyAhIWCf318fn+AgIKDgoB8enw=",
+    "sound:m": "say:mmm",
+    "sound:s": "say:sss",
+    "sound:sh": "say:shh"
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "title": "Reading and writing"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "listen",
+      "module": "m1",
+      "title": "Listen and count",
+      "minutes": 5,
+      "topics": [
+        "Numbers"
+      ],
+      "quiz": [
+        "q-add",
+        "q-abc"
+      ],
+      "body": "Every part of this lesson can be read to you. Press **Read the lesson to me**, or the speaker button beside any part.\n\n## Counting\n\nWe count one, two, three, four, five.\n\n- Two apples and three apples make five apples.\n- Write it like this: $2 + 3 = 5$.\n- Half of a pizza is $\\frac{1}{2}$ of it.\n\n## A recording\n\nListen to the bell.\n\nThat sentence plays a recording from the course instead of the computer's voice."
+    },
+    {
+      "id": "sounds",
+      "module": "m1",
+      "title": "Letter sounds",
+      "minutes": 5,
+      "topics": [
+        "Letter sounds"
+      ],
+      "quiz": [
+        "q-sun"
+      ],
+      "body": "Each letter makes a sound. Tap a letter to hear it, then tap the word.\n\n```sounds\nMm word=moon\nSs word=sun\nAa word=apple say=\"a, as in apple\"\nTt word=top\nsh word=ship\n```\n\nThe sounds of m, s and sh come from the course's audio list. A real course gives every sound a recording."
+    },
+    {
+      "id": "blend",
+      "module": "m1",
+      "title": "Blending sounds",
+      "minutes": 5,
+      "topics": [
+        "Blending"
+      ],
+      "quiz": [
+        "q-cat",
+        "q-ship"
+      ],
+      "body": "Put sounds together to read a word. Tap each sound, then blend them.\n\n```blend\ncat = c a t\nsun = s u n\nmap = m a p\nship = sh i p\n```"
+    },
+    {
+      "id": "trace",
+      "module": "m1",
+      "title": "Tracing letters",
+      "minutes": 10,
+      "topics": [
+        "Handwriting"
+      ],
+      "body": "Start at the number 1. Follow the arrow and stay on the path.\n\n```trace\na b c A B C\n```\n\n## Every letter\n\nPractice any letter. This pad is a little easier to stay on.\n\n```trace tolerance=loose\nabcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n```"
+    }
+  ],
+  "banks": [
+    {
+      "id": "main",
+      "title": "Early readers questions",
+      "sections": [],
+      "exam": {
+        "questionCount": 5,
+        "timeLimitMinutes": 15,
+        "passingPercent": 70
+      },
+      "questions": [
+        {
+          "id": "q-add",
+          "topic": "Numbers",
+          "stem": "What is $2 + 3$?",
+          "choices": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": 1,
+          "explanation": "Two and three more make five: $2 + 3 = 5$."
+        },
+        {
+          "id": "q-abc",
+          "topic": "Numbers",
+          "type": "order",
+          "stem": "Put the letters in ABC order.",
+          "choices": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "explanation": "a, b, c, d."
+        },
+        {
+          "id": "q-sun",
+          "topic": "Letter sounds",
+          "stem": "Listen. Which word did you hear?",
+          "listen": "sun",
+          "choices": [
+            "sun",
+            "sit",
+            "map"
+          ],
+          "answer": 0,
+          "explanation": "You heard sun: s, u, n."
+        },
+        {
+          "id": "q-cat",
+          "topic": "Blending",
+          "stem": "Tap each sound, then say them fast. Which word is it?",
+          "blend": [
+            "c",
+            "a",
+            "t"
+          ],
+          "choices": [
+            "cat",
+            "cot",
+            "cut"
+          ],
+          "answer": 0,
+          "explanation": "c, a, t makes cat."
+        },
+        {
+          "id": "q-ship",
+          "topic": "Blending",
+          "stem": "Tap each sound, then say them fast. Which word is it?",
+          "blend": [
+            "sh",
+            "i",
+            "p"
+          ],
+          "choices": [
+            "shop",
+            "ship",
+            "chip"
+          ],
+          "answer": 1,
+          "explanation": "sh, i, p makes ship."
+        }
+      ]
+    }
+  ],
+  "decks": [],
+  "glossary": [],
+  "references": [],
+  "drills": []
+}

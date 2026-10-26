@@ -5,7 +5,9 @@ import Markdown from "../components/Markdown";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
 import { lessonQuizNeeded, lessonQuizQuestions, pretestQuestions, startLessonQuiz, startPretest } from "../lib/session";
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { ReadAloudBar } from "../components/ReadAloud";
+import { audioLibrary, readUnits } from "../lib/readAloud";
 import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
 import { SpeakButton } from "./VocabRunner";
@@ -29,6 +31,12 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));
   const lessonRefs = (lesson.refs ?? []).map((id) => course.references.find((r) => r.id === id)).filter((r) => !!r);
   const topicCards = course.decks.reduce((s, d) => s + d.cards.filter((c) => c.topic && topics.includes(c.topic)).length, 0);
+
+  // Read-aloud: every lesson can be read aloud; early-reader courses get a read button on
+  // every paragraph and a big "read the lesson" button.
+  const pageRef = useRef<HTMLDivElement>(null);
+  const lib = useMemo(() => audioLibrary(course), [course]);
+  const read = useMemo(() => ({ lib, buttons: !!course.readAloud }), [lib, course.readAloud]);
 
   const goLesson = (id: string) => api.go({ name: "lesson", courseId: course.id, lessonId: id });
 
@@ -76,7 +84,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   }
 
   return (
-    <div className="page lesson-page">
+    <div className={`page lesson-page${course.readAloud ? " ra-course" : ""}`} ref={pageRef}>
       <CalcDock kind={calcKind(course)} />
       <button className="back" onClick={() => api.go({ name: "course", courseId: course.id, tab: "lessons" })}>
         ← {course.title}
@@ -86,7 +94,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {module && `Module ${moduleIdx + 1}: ${module.title}`}
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
-        <h1>{lesson.title}</h1>
+        <h1 data-ra="title">{lesson.title}</h1>
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}
@@ -119,8 +127,16 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
         </section>
       )}
 
+      <ReadAloudBar
+        key={lesson.id}
+        owner={`lesson-${course.id}-${lesson.id}`}
+        lib={lib}
+        prominent={course.readAloud}
+        units={() => (pageRef.current ? readUnits(pageRef.current) : [])}
+      />
+
       <article className="lesson-body">
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} />
       </article>
 
       {words.length > 0 && (
