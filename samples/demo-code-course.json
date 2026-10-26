@@ -1,0 +1,218 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-code",
+  "title": "Code exercises demo",
+  "description": "Try-out course for Erudior's code exercises: runnable Python and JavaScript examples in a lesson, and four exercises checked by tests.",
+  "author": "Erudior",
+  "revision": 1,
+  "calculator": "none",
+  "modules": [
+    {
+      "id": "m1",
+      "title": "First programs"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "first-programs",
+      "module": "m1",
+      "title": "First programs",
+      "minutes": 15,
+      "topics": [
+        "Functions",
+        "Input and output",
+        "Loops"
+      ],
+      "quiz": [
+        "py-double",
+        "py-greet",
+        "js-even",
+        "js-countdown"
+      ],
+      "body": "## Programs you can run\n\nA program is a list of instructions. Press **Run** to run this one. Then change the message and run it again.\n\n```code python\nprint(\"Hello, world!\")\nfor n in range(1, 4):\n    print(\"Counting:\", n)\n```\n\nJavaScript does the same job with `console.log`:\n\n```code js\nconst name = \"Ada\";\nconsole.log(`Hello, ${name}!`);\nfor (let n = 1; n <= 3; n++) {\n  console.log(\"Counting:\", n);\n}\n```\n\n## Asking for input\n\n`input()` waits for the person using the program to type a line. Here the typed lines come from the box under the code, one line for each `input()`.\n\n```code python\nname = input(\"What is your name? \")\nage = int(input(\"How old are you? \"))\nprint(\"Hi\", name + \"!\")\nprint(\"Next year you will be\", age + 1)\n--- input ---\nAda\n11\n```\n\n## Look, don't touch\n\nSome examples are only for reading and running. This one counts down:\n\n```code js readonly\nlet n = 3;\nwhile (n > 0) {\n  console.log(n);\n  n = n - 1;\n}\nconsole.log(\"Liftoff!\");\n```\n\n## Key points\n\n- `print` (Python) and `console.log` (JavaScript) show text.\n- A loop repeats instructions.\n- Exercises check your code with tests. Press **Run tests** as often as you like, then **Check answer**.\n"
+    }
+  ],
+  "banks": [
+    {
+      "id": "code-bank",
+      "title": "Code exercises",
+      "sections": [],
+      "exam": {
+        "questionCount": 4,
+        "timeLimitMinutes": 20,
+        "passingPercent": 70
+      },
+      "questions": [
+        {
+          "id": "py-double",
+          "type": "code",
+          "topic": "Functions",
+          "stem": "Write a Python function `double(n)` that **returns** twice the number `n`.\n\nFor example, `double(4)` should give `8`.",
+          "code": {
+            "language": "python",
+            "function": "double",
+            "starter": "def double(n):\n    # Replace pass with your code\n    pass\n",
+            "solution": "def double(n):\n    return n * 2\n",
+            "tests": [
+              {
+                "args": [
+                  4
+                ],
+                "expect": 8
+              },
+              {
+                "args": [
+                  0
+                ],
+                "expect": 0
+              },
+              {
+                "args": [
+                  -3
+                ],
+                "expect": -6,
+                "hidden": true
+              },
+              {
+                "args": [
+                  2.5
+                ],
+                "expect": 5.0,
+                "hidden": true
+              }
+            ],
+            "hints": [
+              "Multiply `n` by 2. In Python, `*` means times.",
+              "Use `return`, not `print`: the test looks at what the function gives back."
+            ]
+          },
+          "explanation": "`return n * 2` hands back twice the number. Printing it would show it on the screen but give nothing back to the code that called the function."
+        },
+        {
+          "id": "py-greet",
+          "type": "code",
+          "topic": "Input and output",
+          "stem": "Write a Python program that reads a name with `input()` and prints `Hello, NAME!` with the name in place of NAME.\n\nIf the person types `Ada`, the program prints `Hello, Ada!`",
+          "code": {
+            "language": "python",
+            "starter": "name = input()\n",
+            "solution": "name = input()\nprint(\"Hello, \" + name + \"!\")\n",
+            "tests": [
+              {
+                "name": "Typing Ada",
+                "stdin": [
+                  "Ada"
+                ],
+                "stdout": "Hello, Ada!"
+              },
+              {
+                "name": "Typing Grace Hopper",
+                "stdin": [
+                  "Grace Hopper"
+                ],
+                "stdout": "Hello, Grace Hopper!",
+                "hidden": true
+              }
+            ],
+            "hints": [
+              "Join text with `+`: `\"Hello, \" + name`.",
+              "Don't forget the `!` at the end."
+            ]
+          },
+          "explanation": "`print(\"Hello, \" + name + \"!\")` joins three pieces of text. `print(f\"Hello, {name}!\")` works too."
+        },
+        {
+          "id": "js-even",
+          "type": "code",
+          "topic": "Functions",
+          "stem": "Write a JavaScript function `isEven(n)` that returns `true` when `n` is even and `false` when it's odd.",
+          "code": {
+            "language": "javascript",
+            "function": "isEven",
+            "starter": "function isEven(n) {\n  // your code here\n}\n",
+            "solution": "function isEven(n) {\n  return n % 2 === 0;\n}\n",
+            "tests": [
+              {
+                "args": [
+                  4
+                ],
+                "expect": true
+              },
+              {
+                "args": [
+                  7
+                ],
+                "expect": false
+              },
+              {
+                "args": [
+                  0
+                ],
+                "expect": true,
+                "hidden": true
+              },
+              {
+                "args": [
+                  -3
+                ],
+                "expect": false,
+                "hidden": true
+              }
+            ],
+            "hints": [
+              "`n % 2` is the remainder after dividing by 2.",
+              "Even numbers have remainder 0: `return n % 2 === 0;`"
+            ]
+          },
+          "explanation": "The remainder operator `%` gives 0 for even numbers, so `n % 2 === 0` is `true` exactly when `n` is even."
+        },
+        {
+          "id": "js-countdown",
+          "type": "code",
+          "topic": "Loops",
+          "stem": "Write a JavaScript function `countdown(n)` that prints the numbers from `n` down to 1, one per line, and then prints `Liftoff!`",
+          "code": {
+            "language": "javascript",
+            "function": "countdown",
+            "starter": "function countdown(n) {\n  \n}\n",
+            "solution": "function countdown(n) {\n  for (let i = n; i >= 1; i--) {\n    console.log(i);\n  }\n  console.log(\"Liftoff!\");\n}\n",
+            "tests": [
+              {
+                "name": "countdown(3)",
+                "args": [
+                  3
+                ],
+                "stdout": "3\n2\n1\nLiftoff!"
+              },
+              {
+                "name": "countdown(1)",
+                "args": [
+                  1
+                ],
+                "stdout": "1\nLiftoff!"
+              },
+              {
+                "name": "countdown(5)",
+                "args": [
+                  5
+                ],
+                "stdout": "5\n4\n3\n2\n1\nLiftoff!",
+                "hidden": true
+              }
+            ],
+            "hints": [
+              "A `for` loop can count down: `for (let i = n; i >= 1; i--)`.",
+              "Print `Liftoff!` after the loop, not inside it."
+            ]
+          },
+          "explanation": "The loop starts at `n` and goes down while `i` is at least 1. `Liftoff!` comes once, after the loop ends."
+        }
+      ]
+    }
+  ],
+  "decks": [],
+  "glossary": [],
+  "references": [],
+  "drills": []
+}

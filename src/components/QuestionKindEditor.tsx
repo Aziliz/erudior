@@ -1,9 +1,10 @@
 // Bank editor: the question-type picker, the picture, and the answer fields for each kind
 // (choices are edited by the Editor page itself).
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Question, QuestionType } from "../lib/types";
 import { BLANK, qtype } from "../lib/questions";
+import { DEFAULT_TIME_LIMIT, normalizeCodeSpec, type CodeLang, type CodeSpec } from "../lib/code";
 
 const TYPE_NAMES: Record<QuestionType, string> = {
   choice: "Multiple choice",
@@ -11,6 +12,7 @@ const TYPE_NAMES: Record<QuestionType, string> = {
   match: "Match",
   order: "Put in order",
   label: "Label a picture",
+  code: "Code exercise",
 };
 
 const lines = (s: string) =>
@@ -22,7 +24,7 @@ const uniq = (xs: string[]) => [...new Set(xs)];
 
 /** Defaults when a question changes kind (keeps the stem, topic, section, picture, explanation). */
 export function changeKind(q: Question, kind: QuestionType): Question {
-  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, ...base } = q;
+  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, code: _k, ...base } = q;
   switch (kind) {
     case "choice":
       return { ...base, choices: ["", "", "", ""], answer: [0] };
@@ -40,6 +42,14 @@ export function changeKind(q: Question, kind: QuestionType): Question {
       return { ...base, type: "order", choices: ["", "", ""], answer: [] };
     case "label":
       return { ...base, type: "label", markers: [], choices: [], answer: [] };
+    case "code":
+      return {
+        ...base,
+        type: "code",
+        choices: [],
+        answer: [],
+        code: { language: "python", function: "solve", starter: "def solve(n):\n    pass\n", solution: "def solve(n):\n    return n\n", tests: [{ args: [1], expect: 1 }] },
+      };
   }
 }
 
@@ -74,8 +84,106 @@ export function kindErrors(q: Question): string[] {
       if ((q.markers?.length ?? 0) < 2) e.push("Click the picture to place at least two numbered markers.");
       if (q.answer.some((a) => !q.choices[a]?.trim())) e.push("Name every marker.");
       break;
+    case "code":
+      try {
+        normalizeCodeSpec(q.code);
+      } catch (err) {
+        e.push(`The exercise ${(err as Error).message.replace(/^\(code\) /, "")}`);
+      }
+      if (!q.code?.solution?.trim()) e.push("Add a model solution (shown after a correct answer).");
+      break;
   }
   return e;
+}
+
+/** Code exercise fields: language, function name, starter and model code, tests (as JSON), hints. */
+function CodeFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
+  const spec: CodeSpec = q.code ?? { language: "python", starter: "", tests: [] };
+  const set = (patch: Partial<CodeSpec>) => onChange({ ...q, code: { ...spec, ...patch } });
+  const [testsText, setTestsText] = useState(() => JSON.stringify(spec.tests, null, 2));
+  const [testsError, setTestsError] = useState("");
+  useEffect(() => {
+    setTestsText(JSON.stringify(q.code?.tests ?? [], null, 2));
+    setTestsError("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+  return (
+    <div className="field code-fields">
+      <div className="row">
+        <label className="field">
+          <span>Language</span>
+          <select className="select" value={spec.language} onChange={(e) => set({ language: e.target.value as CodeLang })}>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+          </select>
+        </label>
+        <label className="field">
+          <span>Function the tests call (optional)</span>
+          <input className="input code-input" value={spec.function ?? ""} spellCheck={false} onChange={(e) => set({ function: e.target.value.trim() || undefined })} />
+        </label>
+        <label className="field">
+          <span>Seconds per test</span>
+          <input
+            className="input"
+            type="number"
+            min={1}
+            max={30}
+            value={spec.timeLimit ?? DEFAULT_TIME_LIMIT}
+            onChange={(e) => set({ timeLimit: Number(e.target.value) === DEFAULT_TIME_LIMIT ? undefined : Number(e.target.value) })}
+          />
+        </label>
+      </div>
+      <label className="field">
+        <span>Starter code (what the student sees first)</span>
+        <textarea className="textarea code-input" rows={5} spellCheck={false} value={spec.starter} onChange={(e) => set({ starter: e.target.value })} />
+      </label>
+      <label className="field">
+        <span>Model solution (shown after a correct answer, or on request after checking)</span>
+        <textarea className="textarea code-input" rows={5} spellCheck={false} value={spec.solution ?? ""} onChange={(e) => set({ solution: e.target.value || undefined })} />
+      </label>
+      <label className="field">
+        <span>Tests (JSON list)</span>
+        <textarea
+          className="textarea code-input"
+          rows={8}
+          spellCheck={false}
+          value={testsText}
+          aria-invalid={!!testsError}
+          aria-describedby="code-tests-help"
+          onChange={(e) => setTestsText(e.target.value)}
+          onBlur={() => {
+            try {
+              const tests = JSON.parse(testsText);
+              if (!Array.isArray(tests)) throw new Error("Tests must be a list: [ … ].");
+              setTestsError("");
+              set({ tests });
+            } catch (err) {
+              setTestsError((err as Error).message);
+            }
+          }}
+        />
+      </label>
+      <p id="code-tests-help" className="small muted">
+        Each test is <code>{`{ "args": [3], "expect": 6 }`}</code> (calls the function) or <code>{`{ "stdin": ["Ada"], "stdout": "Hello, Ada!" }`}</code> (runs the program
+        and compares what it prints). Add <code>"hidden": true</code> to keep a test's details from the student.
+      </p>
+      {testsError && (
+        <p className="small bad" role="alert">
+          Tests aren't valid JSON yet: {testsError}
+        </p>
+      )}
+      <label className="field">
+        <span>Hints (optional, one per line, shown one at a time)</span>
+        <textarea
+          className="textarea"
+          rows={2}
+          defaultValue={(spec.hints ?? []).join("\n")}
+          key={q.id}
+          onBlur={(e) => set({ hints: lines(e.target.value).length ? lines(e.target.value) : undefined })}
+        />
+      </label>
+    </div>
+  );
 }
 
 export function KindPicker({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
@@ -152,6 +260,8 @@ export function PictureField({ q, onChange, toast }: { q: Question; onChange: (q
 /** Answer fields for text, match, order and label questions. */
 export function KindFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
   const kind = qtype(q);
+
+  if (kind === "code") return <CodeFields q={q} onChange={onChange} />;
 
   if (kind === "text") {
     const blanks = Math.max(1, (q.stem.match(BLANK) ?? []).length);

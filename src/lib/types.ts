@@ -14,8 +14,12 @@ export interface Section {
  * - match: `left[i]` is matched to `choices[answer[i]]`; extra choices are distractors.
  * - label: like match, but the left side is numbered markers on `image` at `markers[i]`.
  * - order: `choices` are listed in the correct order and shown shuffled. `answer` is empty.
+ * - code: write a program; `code` holds the language, starter code, tests, hints and solution
+ *   (see lib/code.ts). `choices` and `answer` are empty.
  */
-export type QuestionType = "choice" | "text" | "match" | "label" | "order";
+import type { CodeSpec } from "./code";
+
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "code";
 
 export interface QuestionImage {
   /** A data: URL (bundled and community courses) or an app-relative path. */
@@ -48,6 +52,8 @@ export interface Question {
   caseSensitive?: boolean;
   /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
   lowestTerms?: boolean;
+  /** code: the exercise (language, starter, tests, hints, solution). */
+  code?: CodeSpec;
   /** From an honors lesson: left out of full practice exams unless asked for. */
   honors?: boolean;
   explanation?: string;
@@ -56,7 +62,8 @@ export interface Question {
 /**
  * A learner's answer: choice indices (choice), the choice picked for each left item or marker
  * (match, label; -1 = none yet), the choices in the learner's order (order), or the typed
- * text per blank (text).
+ * text per blank (text), or `[code, stamp?]` (code; the stamp records the last test run, see
+ * makeStamp in lib/code.ts).
  */
 export type Chosen = (number | string)[];
 

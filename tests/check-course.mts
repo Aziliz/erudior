@@ -16,6 +16,11 @@ import type { FigureSpec } from "../src/lib/types.ts";
 import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
+import { spawnSync } from "node:child_process";
+import vm from "node:vm";
+import { DEFAULT_TIME_LIMIT, codeBlockProblems, findCodeBlocks, judge, testCall, type CodeLang } from "../src/lib/code.ts";
+import type { Question } from "../src/lib/types.ts";
+import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -32,12 +37,53 @@ async function parseMermaid(src: string): Promise<void> {
   await mermaidParse(src);
 }
 
+/** A syntax error in a lesson's code block (JavaScript via vm, Python via python3 if present). */
+function compileProblem(lang: CodeLang, code: string): string | null {
+  if (lang === "javascript") {
+    try {
+      new vm.Script(`(async function () {\n${code}\n})`, { filename: "block.js" });
+      return null;
+    } catch (e) {
+      return String((e as Error).message);
+    }
+  }
+  const py = pythonPath();
+  if (!py) return null;
+  const r = spawnSync(py, ["-I", "-c", "import sys\ncompile(sys.stdin.read(), '<block>', 'exec')"], { input: code, encoding: "utf8", timeout: 10000 });
+  return r.status === 0 ? null : (r.stderr.trim().split("\n").pop() ?? "syntax error");
+}
+
+/**
+ * A code exercise: its model solution passes every test and its starter code doesn't (in Node
+ * for JavaScript; with the system's python3 for Python, skipped without one).
+ */
+async function checkExercise(q: Question, say: (s: string) => void): Promise<void> {
+  const spec = q.code!;
+  if (!spec.solution) return say(`question ${q.id}: code exercise has no "solution" (shown to students after they check)`);
+  const jobs = spec.tests.map((t) => ({ stdin: t.stdin, call: testCall(spec, t), args: t.args }));
+  const limit = spec.timeLimit ?? DEFAULT_TIME_LIMIT;
+  const run = async (code: string) => (spec.language === "javascript" ? await runJsNode(code, jobs, limit) : runPythonNode(code, jobs, limit));
+  const sol = await run(spec.solution);
+  if (!sol) return; // no python3 here
+  spec.tests.forEach((t, i) => {
+    const o = judge(spec, t, sol[i]);
+    if (!o.ok)
+      say(
+        `question ${q.id}: the model solution fails test ${i + 1} (${o.label}): ` +
+          (o.problem ?? `expected ${o.expected ?? JSON.stringify(o.expectedOut)}, got ${o.actual ?? JSON.stringify(o.actualOut)}`),
+      );
+  });
+  const starter = await run(spec.starter);
+  if (starter && spec.tests.every((t, i) => judge(spec, t, starter[i]).ok)) say(`question ${q.id}: the starter code already passes every test`);
+}
+
 export async function checkCourse(file: string, opts: { runs?: number; money?: boolean } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
   const c = normalizeCourse(JSON.parse(readFileSync(file, "utf8")));
   const runs = opts.runs ?? 40;
   const diagrams: { where: string; src: string }[] = [];
+  const codeChecks: { where: string; lang: CodeLang; code: string }[] = [];
 
   // --- Notation -----------------------------------------------------------------
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
@@ -46,6 +92,9 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     if (allowFigures) {
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
       for (const p of exampleProblems(t)) say(`${where}: ${p}`);
+      // Runnable code blocks: well formed, and the code at least compiles.
+      for (const p of codeBlockProblems(t)) say(`${where}: ${p}`);
+      for (const b of findCodeBlocks(t)) if (b.language) codeChecks.push({ where, lang: b.language, code: b.source });
       t = t.replace(EXAMPLE_BLOCK, (_m, info: string, body: string) => {
         const ex = parseExample(info, body);
         return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
@@ -103,6 +152,13 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         ...(q.accept ?? []).flatMap((a, i) => a.map((x, j): [string, string] => [`blank ${i + 1} answer ${j + 1}`, x])),
         ...(q.image?.caption ? [["image caption", q.image.caption] as [string, string]] : []),
       ];
+      if (kind === "code") {
+        // Code exercises: the prompt is Markdown; the model solution must pass and the starter must not.
+        checkText(`question ${q.id} stem`, q.stem, true);
+        checkText(`question ${q.id} explanation`, q.explanation);
+        await checkExercise(q, say);
+        continue;
+      }
       for (const [what, t] of parts) checkText(`question ${q.id} ${what}`, t);
       // Questions render as plain text with math, not Markdown.
       for (const [what, t] of parts)
@@ -208,6 +264,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     } catch (e) {
       say(`${d.where}: mermaid error: ${String((e as Error).message ?? e).split("\n").slice(0, 3).join(" ")}`);
     }
+  }
+
+  // --- Code blocks in lessons: they must at least compile ------------------------------
+  for (const c of codeChecks) {
+    const err = compileProblem(c.lang, c.code);
+    if (err) say(`${c.where}: code block doesn't compile: ${err}`);
   }
 
   // --- Honors -------------------------------------------------------------------------

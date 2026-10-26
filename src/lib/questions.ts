@@ -3,8 +3,9 @@
 
 import type { Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { sameSet } from "./util";
+import { normalizeCodeSpec, readStamp } from "./code";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "code"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -95,6 +96,9 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
     case "match":
     case "label":
       return chosen.some((c) => typeof c === "number" && c >= 0);
+    case "code":
+      // Handed in = the tests ran on the code as it is now.
+      return readStamp(chosen) !== null;
     default:
       return true;
   }
@@ -124,6 +128,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return q.answer.length > 0 && q.answer.every((a, i) => chosen[i] === a);
     case "order":
       return chosen.length === q.choices.length && chosen.every((c, i) => c === i);
+    case "code":
+      return !!readStamp(chosen)?.pass;
     default:
       return sameSet(
         q.answer,
@@ -158,6 +164,8 @@ export function answerText(q: Question): string {
       return q.answer.map((a, i) => `${i + 1}: ${q.choices[a]}`).join("; ");
     case "order":
       return q.choices.join(" → ");
+    case "code":
+      return q.code?.solution?.trim() ?? "Code that passes every test";
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -179,6 +187,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
         .join("; ");
     case "order":
       return chosen.map((c) => q.choices[c as number]).join(" → ");
+    case "code": {
+      const s = readStamp(chosen);
+      return s ? `Code that passed ${s.passed} of ${s.total} tests` : "Code (tests not run)";
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -195,6 +207,8 @@ export function typeLabel(q: Question): string {
       return "Label the picture";
     case "order":
       return "Put in order";
+    case "code":
+      return "Write code";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -276,5 +290,7 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       if (new Set(choices).size !== choices.length) throw new Error(`has the same item twice.`);
       return { ...base, choices, answer: [] };
     }
+    case "code":
+      return { ...base, choices: [], answer: [], code: normalizeCodeSpec(q.code) };
   }
 }

@@ -4680,3 +4680,279 @@ a.btn:hover {
   padding: 0;
   margin-bottom: 4px;
 }
+
+/* ==========================================================================
+   Code exercises: ```code lesson blocks, the "code" question type, the editor
+   (CodeMirror colors are set in lib/codeEditor.ts from the tokens above)
+   ========================================================================== */
+:root {
+  --code-font: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+.code-prompt {
+  white-space: normal;
+}
+.code-prompt p {
+  margin: 0;
+}
+.code-prompt p + p,
+.code-prompt pre {
+  margin-top: 0.5em;
+}
+.code-prompt code,
+.code-hint code,
+.code-ex code,
+.code-fields code {
+  font-family: var(--code-font);
+  font-size: 0.88em;
+  color: var(--ink);
+  background: var(--sheet);
+  padding: 1px 5px;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+}
+.code-block,
+.code-ex {
+  margin: 14px 0;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.code-block {
+  padding: 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--paper);
+}
+.code-head,
+.code-ex-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.code-lang {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 1px 10px;
+}
+.code-editor {
+  min-width: 0;
+  border: 1px solid var(--field);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+.code-editor:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 1px;
+}
+.code-editor .cm-editor {
+  max-height: 60vh;
+}
+.code-editor .cm-scroller {
+  overflow: auto;
+}
+.code-editor .cm-error-line {
+  background: var(--bad-soft);
+  box-shadow: inset 3px 0 0 var(--bad);
+}
+.code-src,
+.code-out,
+.code-trace,
+.prose pre:not([class]) {
+  font-family: var(--code-font);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+.code-src {
+  padding: 8px 10px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.prose pre:not([class]) {
+  padding: 10px 12px;
+  background: var(--sheet);
+  border-radius: var(--r-sm);
+}
+.code-src code,
+.prose pre:not([class]) code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+.code-keys {
+  margin: 0;
+}
+.code-ex-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.code-status {
+  margin: 0;
+  min-height: 1.4em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.code-status:empty {
+  min-height: 0;
+}
+.code-spinner {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border: 2px solid var(--rule);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: code-spin 0.8s linear infinite;
+}
+@keyframes code-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.code-stdin {
+  max-width: 40rem;
+}
+.code-input,
+.code-fallback {
+  font-family: var(--code-font);
+  font-size: 0.9rem;
+}
+.code-fallback {
+  min-height: 120px;
+}
+.code-run,
+.code-tests-box,
+.code-solution {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.code-io {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.code-io-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.code-out {
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink);
+  max-height: 16rem;
+  overflow: auto;
+}
+.code-err {
+  padding: 8px 12px;
+  border: 1px solid var(--bad);
+  border-left-width: 4px;
+  background: var(--surface);
+  border-radius: var(--r-sm);
+  display: grid;
+  gap: 4px;
+}
+.code-err p {
+  margin: 0;
+}
+.code-err-head {
+  font-weight: 650;
+  color: var(--ink);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.code-trace {
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+.code-tests-title {
+  font-size: 0.95rem;
+  margin: 4px 0 0;
+}
+.code-tests {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.code-test {
+  display: grid;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  min-width: 0;
+}
+/* A colored edge rather than a tinted fill, so the colored marks keep full contrast. */
+.code-test.is-right {
+  border-color: var(--ok);
+  box-shadow: inset 4px 0 0 var(--ok);
+}
+.code-test.is-wrong {
+  border-color: var(--bad);
+  box-shadow: inset 4px 0 0 var(--bad);
+}
+.code-test-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+.code-mark {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.code-mark.ok {
+  color: var(--ok);
+}
+.code-mark.bad {
+  color: var(--bad);
+}
+.code-hidden {
+  margin: 0;
+}
+.code-hints {
+  margin: 0;
+  padding: 10px 12px 10px 2em;
+  background: var(--flag-soft);
+  border-radius: var(--r-sm);
+  display: grid;
+  gap: 4px;
+}
+.code-hint p {
+  margin: 0;
+}
+.code-fields .row > .field {
+  flex: 1 1 12rem;
+}
+@media print {
+  .code-ex-actions,
+  .code-keys,
+  .code-status,
+  .code-stdin {
+    display: none !important;
+  }
+  .code-editor .cm-editor {
+    max-height: none;
+  }
+  .code-editor .cm-scroller {
+    overflow: visible;
+  }
+}

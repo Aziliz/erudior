@@ -42,6 +42,7 @@ Every section is optional except `title`. Ids must use letters, numbers, `-` and
 - `honors: true` (optional) makes it an honors lesson: optional extra depth. It isn't needed to finish its module or the course, its quiz doesn't count toward grades, and full exams skip its questions; study time on it still counts. A module with `honors: true` is an honors module: all its lessons are honors lessons, and it has its own module quiz.
 - Lesson bodies (and quick-reference sheets) can show pictures (`![alt text](data:image/svg+xml;base64,…)`; bundled courses keep them in `images/` and the build embeds them) and Mermaid diagrams in a ```` ```mermaid ```` block. Each diagram needs `accTitle:` and `accDescr:` lines; it's drawn in the app's colors and redrawn when the theme changes.
 - Lesson bodies (and quick-reference sheets) can hold **worked examples with fading** in an ```` ```example ```` block; see [Worked examples](#worked-examples) below.
+- Lesson bodies (and quick-reference sheets) can hold **runnable Python or JavaScript** in a ```` ```code ```` block, and question banks can hold graded **code exercises**; see [Code exercises](#code-exercises) below.
 - A **module** can also have a `quiz` (`{ "id": "m1", "title": "Foundations", "quiz": ["q-1", "q-9"] }`). It appears at the end of the module in the Lessons tab, unlocks once every lesson in the module is complete, works like a lesson quiz, and passing it at 70% marks the module complete.
 
 ## Question banks
@@ -82,6 +83,66 @@ answer: $1,200
 - Printing shows every step and the answer. Revealing is per page view; nothing is saved.
 - The course checker reports a block with no steps, no problem, `fade` larger than the number of steps (it's treated as "all steps"), a `fade` that isn't a whole number, unknown options, text before the first field, a repeated title/problem/answer, empty fields and unclosed blocks. Math in the fields is checked like any lesson math.
 - A `### Example …` heading's colored box ends where an example block starts; the block has its own panel, so it doesn't need the heading.
+
+## Code exercises
+
+For Computer Science: students write and run Python or JavaScript in the app, and tests check it. Each block or exercise picks its language. `samples/demo-code-course.json` shows every piece (import it from the Library).
+
+### Runnable examples in lessons
+
+````markdown
+```code python
+name = input("What is your name? ")
+print("Hi", name + "!")
+--- input ---
+Ada
+```
+````
+
+- The info string is the language (`python` or `py`, `javascript` or `js`), optionally followed by `readonly` (can be run, not edited). The block must start at the beginning of a line.
+- The page shows the code in an editor with a **Run** button, **Start over** after an edit, and the output under it. Edits are kept on this device (per student) until Start over.
+- A program that uses `input()` (or `prompt()` in JavaScript) gets a "Typed input" box: one line per question the program asks. Lines after a `--- input ---` line in the block fill it in to start with.
+- Without JavaScript (printed or prerendered pages) the block is plain code. Other fenced blocks (```` ```python ````, etc.) stay plain code that can't be run. Code in blocks and in `code spans` is never read as math.
+- The course checker reports a missing or unknown language, unknown options, an empty or unclosed block, and code that doesn't compile (JavaScript always; Python when the checking computer has python3).
+
+### Graded exercises (question type `"code"`)
+
+```json
+{
+  "id": "py-double",
+  "type": "code",
+  "topic": "Functions",
+  "stem": "Write a function `double(n)` that **returns** twice `n`.",
+  "code": {
+    "language": "python",
+    "function": "double",
+    "starter": "def double(n):\n    pass\n",
+    "solution": "def double(n):\n    return n * 2\n",
+    "tests": [
+      { "args": [4], "expect": 8 },
+      { "args": [-3], "expect": -6, "hidden": true },
+      { "name": "Typing Ada", "stdin": ["Ada"], "stdout": "Hello, Ada!" }
+    ],
+    "hints": ["Multiply `n` by 2.", "Use `return`, not `print`."],
+    "timeLimit": 5
+  },
+  "explanation": "Optional, shown after checking like any question's."
+}
+```
+
+- `stem` is Markdown (code spans, bold, lists), unlike other question stems. `choices` and `answer` are left out (or `[]`).
+- `language`: `"python"` or `"javascript"`. `starter`: the code the student starts from. `solution`: the model solution, required by the checker; it's shown after a correct answer, or with **Show a model solution** after a wrong one (never before checking, never during a timed exam; the results page shows it).
+- `tests` (at least one, and at least one not hidden). Every test runs the student's whole program from the top, in a fresh start:
+  - **Call test:** `args` (a list, `[]` for none) calls the function named by `function` (or the test's own `call`) and compares what it returns with `expect` (any JSON: numbers, text, `true`/`false`, `null` = Python `None`, lists, objects/dicts). Numbers may differ by tiny rounding errors; `tolerance` allows more. Python tuples count as lists and sets as sorted lists.
+  - **Output test:** `stdout` is what the program must print. Trailing spaces at line ends and blank lines at the end don't matter; everything else does. Python's `input("prompt")` prints its prompt (without the typed text), so include prompts in `stdout`, or have the exercise use `input()` without one.
+  - A test may have both (a function that prints). `stdin` (a string, or a list of lines) is the typed input for `input()` (and JavaScript's `input()`/`prompt()`), for either kind.
+  - `hidden: true`: the student sees only how many hidden tests passed. `name`: what the test is called in the results (default: the call, like `double(4)`, or "Output").
+- `hints` (optional): shown one at a time on request (not in timed exams). Markdown.
+- `timeLimit` (optional, 1–30 seconds, default 5): how long each test may run before it's stopped as an endless loop.
+- The student presses **Run tests** as often as they like (each test shows passed/failed, expected and actual values or output, and errors with the line number and a plain-language tip; Python errors show only the student's own lines), or **Run code** to just run the program with their own typed input. **Check answer** hands in the code as of the last test run; it's right when every test passed. Editing after a run means running the tests again before Check answer works. The answer saved with the session is `[code, stamp]`, the stamp recording the last run's result for exactly that code, so resume and results work like other questions. Drafts are also kept on the device per question.
+- Exercises work in practice, lesson and module quizzes, and timed exams (no hints or solution there; a test run still shows which visible tests pass). Warm-ups and the "Missed questions" notecards skip them. Live rooms and community courses don't have them.
+- JavaScript runs in a Web Worker started for each run, with the network and the app's saved data removed; Python runs in Pyodide in its own worker, downloaded (about 6 MB, once, then cached) the first time Python runs or a Python exercise opens. Only Python's standard library is available. Desktop and website both load Pyodide from jsDelivr at a pinned version (`src/lib/codeRun.ts`).
+- The course checker runs every exercise's model solution against its tests and reports any failure, and reports starter code that already passes every test. JavaScript runs in Node; Python runs with the checking computer's python3 (skipped if it has none), using the same test harness as the app.
 
 ## Glossary
 
