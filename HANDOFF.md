@@ -13,6 +13,12 @@ Examiner is Jon's desktop study app for licensing exams. It runs on Linux (.deb,
 
 Jon prefers terse answers and wants clarifying questions asked rather than assumptions made.
 
+
+## Course sources are private (2026-10-26)
+- Course sources (content/math, content/languages, the Colorado course parts, quizzes, refs, build.py, build_course.py, check-module.sh, AUTHORING/ROUND2 briefs, NOTES/REVIEW files, research) moved to the **private repo Aziliz/erudior-courses** (cloned at /home/claude/erudior-courses). Paths inside it are unchanged (`content/...`, built files in its `samples/`, committed so card ids stay stable). Its CI ("Check courses") checks out this public repo as `app/`, builds every course, fails if `samples/` isn't committed current, and runs `tests/check-course.mts` on everything.
+- Work loop: edit and build in the course repo (`python3 content/math/build.py`, `python3 content/build_course.py`, `content/math/check-module.sh` finds this repo via `ERUDIOR_APP`, `../examiner` or `./app`), then `scripts/sync-to-app.sh` copies `samples/math`, `samples/languages`, the Colorado JSON and `catalog.json` here and regenerates `public/sitemap.xml` (`scripts/sitemap.mjs`, also run in the site deploy). Commit both repos; this repo's deploy signs and publishes the courses as before.
+- Still here: `content/states` (state rules) and `content/math-sampler` (drill demo). Older notes below that mention `content/...` course paths now mean the course repo. The sources remain in this public repo's git history.
+
 ## Project files
 
 | File | Contents |
