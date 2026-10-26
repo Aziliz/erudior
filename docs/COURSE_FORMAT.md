@@ -110,6 +110,97 @@ caption: This shows 124. Break a ten into 10 ones. Is it still 124?
 - Accessibility: every action has a real button (unusable ones stay focusable and say so), the number line and clock are sliders that take arrow keys, the model is described in words for screen readers ("3 hundreds, 4 tens, 7 ones: 347") and each change is announced. The picture works in every theme and at 320 px wide; a **Start over** button returns to the starting state.
 - Without JavaScript (and in prerendered pages and print) the block shows a picture of its starting state with the same description. Changes aren't saved; it's a model to explore.
 - The course checker reports unknown kinds and keys, values out of range (`at` off the ticks, more counters than boxes, a bar with more shaded than parts, a coin in `start` that isn't offered…), lines it can't read, repeated keys and unclosed blocks.
+## Read-aloud (early readers)
+
+Every lesson, question, answer choice and explanation can be read aloud with the device's own voice (the browser's text-to-speech). Every lesson has a **Read aloud** button (read the whole lesson, highlighting the part being read, with Pause/Resume and Stop) and every question has a small speaker button. Math is read from its TeX source ("$x^2 - 1$" → "x squared minus 1", "$\frac{3}{4}$" → "3 fourths"), pictures by their alt text.
+
+Courses for children who can't read yet (kindergarten to grade 2) set `"readAloud": true` at the top of the course file. That adds:
+
+- a speaker button on every paragraph, list item, table and equation, and a "Read this part" button under every heading;
+- a big "Read the lesson to me" button and larger text;
+- a speaker button beside every answer choice (and match and order items), and a big "Read to me" button on the question;
+- each new question read aloud by itself, then the feedback after checking. Each learner can turn this off with "Read questions to me" on the question screen or "Read each question aloud by itself" on the question bank page (`progress.study.autoRead`);
+- no confidence ratings, explain-it-yourself box or covered choices (they need reading).
+
+When the device has no voice (some desktop systems have none), the read buttons are hidden and nothing else changes; a part with a recording (below) keeps its button.
+
+### Recorded audio
+
+The course's `audio` object holds recordings that replace the computer voice:
+
+```json
+"audio": {
+  "The cat sat on the mat.": "data:audio/mpeg;base64,…",
+  "sound:m": "data:audio/mpeg;base64,…",
+  "sound:s": "say:sss",
+  "St. Louis": "say:Saint Louis"
+}
+```
+
+- A **key** is either the words exactly as they're read aloud (a paragraph, a question stem, an answer choice, an explanation, a `listen` word), compared ignoring capital letters, spacing, punctuation and Markdown marks, with math written as its TeX (`"$2 + 3 = 5$"` matches the sentence "2 + 3 = 5"); or a name that a block refers to, like `sound:m` for the sound of the letter m (see Phonics below).
+- A **value** is a recording as a `data:audio/…` URL (MP3, M4A, OGG, WAV, WebM; embed it like a picture, keep each under 400 KB), or `say:` followed by the words the computer voice should say instead (a pronunciation fix).
+- A recording that fails to play falls back to the computer voice. The course checker reports values that aren't recordings or `say:` text, recordings that aren't embedded and recordings over 400 KB.
+
+## Phonics and handwriting
+
+Three lesson blocks for early readers. They're lesson blocks, not question types: they teach and let children practice as often as they like (nothing is scored). To check what was learned, use ordinary multiple-choice questions with `listen` or `blend` (below) in the lesson's quiz.
+
+Text-to-speech can say words and letter names but can't reliably say a sound by itself ("mmm", the short a), so sounds come from recordings in the course's `audio` (keys `sound:<letters>`: `sound:m`, `sound:sh`). Without a recording a sound falls back to its `say=` text, or the letter name and the word ("m, as in moon"). Give every sound a recording in a real course.
+
+### Letter sounds
+
+````markdown
+```sounds
+Mm word=moon
+s word=sun say="sss"
+sh word=ship sound=data:audio/mpeg;base64,…
+```
+````
+
+- One line per tile: the letters shown first, then options. Tapping the letters plays the sound; the word button says the word (the computer voice, or a recording under the word's key).
+- `sound=` names the recording: a key in `audio` or a `data:audio` URL. Default `sound:<letters>` (`Mm` uses `sound:m`).
+- `say=` is what the computer voice says when there's no recording. Quote values with spaces.
+
+### Blending
+
+````markdown
+```blend
+cat = c a t
+ship = sh i p
+city = c[s] i t y
+```
+````
+
+- One word per line: the word, `=`, then its sound units separated by spaces. Each unit plays `sound:<unit>`; `c[s]` shows c but plays `sound:s`.
+- The child sees the first sound, taps it to hear it and see the next one, and so on; then **Blend the sounds** plays the sounds quickly together and then the word, which appears. **Next word** moves through the list.
+- The checker reports units that don't spell the word.
+
+### Tracing letters
+
+````markdown
+```trace tolerance=loose
+a b c A B C
+```
+````
+
+- Lists the letters to trace (a–z, A–Z; spaces optional). One writing pad at a time with **Next letter**; printing shows them all as a tracing worksheet.
+- The pad shows the writing lines (top, dashed middle, baseline, tail line), the letter as a lane with a dashed center line, a numbered dot where each stroke starts and an arrow for its direction, in manuscript (ball-and-stick print) style.
+- The child traces with a finger, pen or mouse. Each stroke is checked when the pen lifts: it must start near its number, go the way of the arrow, stay inside the lane and cover at least three quarters of it (reaching its end). A stroke can be finished in more than one go. The next number lights up after each stroke; a stroke that goes off the path is erased with a hint ("Start at number 2", "Follow the arrow"). **Show me** moves a dot along the stroke; **Start over** clears the pad. Feedback is spoken too when the device has a voice.
+- `tolerance=` `loose`, `normal` (default) or `tight`: how far from the center line a tracing may wander.
+
+### Questions with sounds
+
+Any question can carry:
+
+- `"listen": "sun"`: a big **Listen** button under the stem that says the word (or plays the recording under that key). "Listen. Which word did you hear?"
+- `"blend": ["c", "a", "t"]`: sound tiles the child taps one by one, then **Say the sounds fast** (the word itself isn't said or shown). The checker requires one of the choices to be the word the sounds spell.
+
+```json
+{ "id": "q-cat", "topic": "Blending", "stem": "Tap each sound, then say them fast. Which word is it?",
+  "blend": ["c", "a", "t"], "choices": ["cat", "cot", "cut"], "answer": 0 }
+```
+
+`samples/early-readers-demo.json` is a small course with all of this (import it from the Library).
 
 ## Glossary
 

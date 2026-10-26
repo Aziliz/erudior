@@ -9,6 +9,8 @@ import { BLANK, blankCount, isCorrect, partsCorrect, qtype } from "../lib/questi
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
 import { ManipModel } from "./Manipulative";
 import { LETTERS } from "../lib/util";
+import { mathTextSpeech, sayItem, type AudioLib } from "../lib/readAloud";
+import { SayButton } from "./ReadAloud";
 
 /** Readable text for a string that may hold $math$ (for aria-labels and <option>s). */
 export const spoken = (s: string) =>
@@ -33,6 +35,20 @@ interface Props {
   disabled?: boolean;
   /** Review screens: smaller, no inputs. */
   review?: boolean;
+  /** Early-reader courses: a read button beside every choice and item (`lib`: recorded audio). */
+  read?: { lib?: AudioLib };
+}
+
+/** A small button that reads one choice or item aloud. */
+function ReadOne({ text, read, owner }: { text: string; read: { lib?: AudioLib }; owner: string }) {
+  return (
+    <SayButton
+      owner={owner}
+      className="ra-btn ra-choice"
+      label={`Read aloud: ${spoken(text)}`}
+      items={() => [sayItem(read.lib, mathTextSpeech(text), { key: text })]}
+    />
+  );
 }
 
 /** The stem, with numbered blanks for fill-in-the-blank questions. */
@@ -83,7 +99,7 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const off = disabled || reveal;
@@ -154,6 +170,7 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                   ) : null}
                   {kind === "label" ? <span className="sr-only">{left}</span> : <MathText text={left} />}
                 </label>
+                {read && kind === "match" && <ReadOne text={left} read={read} owner={`item-${q.id}-${i}`} />}
                 {review ? (
                   <span className="match-pick">{pick >= 0 ? <MathText text={q.choices[pick]} /> : <span className="faint">(none)</span>}</span>
                 ) : (
@@ -190,7 +207,7 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
   if (kind === "model") return <ModelAnswer q={q} chosen={chosen} onChange={onChange} reveal={reveal} disabled={off} review={review} />;
 
   if (kind === "order") {
-    return <OrderList q={q} order={order} chosen={chosen} onChange={onChange} reveal={reveal} disabled={off} review={review} parts={parts} />;
+    return <OrderList q={q} order={order} chosen={chosen} onChange={onChange} reveal={reveal} disabled={off} review={review} parts={parts} read={read} />;
   }
 
   // Multiple choice / select all that apply.
@@ -214,18 +231,26 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
           cls += " selected";
           bubble += " filled";
         }
-        return (
+        const btn = (
           <button
             key={orig}
             className={cls}
             role={multi ? "checkbox" : "radio"}
             aria-checked={selected}
             disabled={off}
+            data-choice={orig}
             onClick={() => onChoose?.(orig)}
           >
             <span className={bubble}>{LETTERS[pos]}</span>
             <MathText text={q.choices[orig]} />
           </button>
+        );
+        if (!read) return btn;
+        return (
+          <div key={orig} className="choice-row">
+            {btn}
+            <ReadOne text={q.choices[orig]} read={read} owner={`choice-${q.id}-${orig}`} />
+          </div>
         );
       })}
     </div>
@@ -241,6 +266,7 @@ function OrderList({
   disabled,
   review,
   parts,
+  read,
 }: {
   q: Question;
   order: number[];
@@ -250,6 +276,7 @@ function OrderList({
   disabled?: boolean;
   review?: boolean;
   parts: boolean[];
+  read?: { lib?: AudioLib };
 }) {
   const current = (chosen.length === q.choices.length ? chosen : order) as number[];
   const focusNext = useRef<string | null>(null);
@@ -285,6 +312,7 @@ function OrderList({
             <span className="order-text">
               <MathText text={q.choices[orig]} />
             </span>
+            {read && <ReadOne text={q.choices[orig]} read={read} owner={`item-${q.id}-${orig}`} />}
             {!review && !reveal && (
               <span className="order-btns">
                 <button

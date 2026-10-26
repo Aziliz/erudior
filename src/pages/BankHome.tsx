@@ -366,6 +366,16 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
           />
           Recall first: hide the answer choices until you&rsquo;ve thought of the answer
         </label>
+        {!!bank.courseId && api.courses.find((c) => c.id === bank.courseId)?.readAloud && (
+          <label className="check small muted">
+            <input
+              type="checkbox"
+              checked={progress.study?.autoRead !== false}
+              onChange={(e) => api.updateProgress((p) => ({ ...p, study: { ...(p.study ?? {}), autoRead: e.target.checked } }))}
+            />
+            Read each question aloud by itself
+          </label>
+        )}
       </fieldset>
 
       <div className="grid-2" style={{ marginTop: 24 }}>

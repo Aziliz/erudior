@@ -9,6 +9,13 @@ const isObj = (v: unknown): v is Record<string, unknown> =>
 
 const str = (v: unknown): string => (typeof v === "string" ? v : "");
 
+/** Sound units to blend: a list, or one string split at spaces ("c a t"). */
+function blendUnits(v: unknown): string[] | undefined {
+  const list = Array.isArray(v) ? v.map((x) => String(x).trim()) : typeof v === "string" ? v.trim().split(/\s+/) : [];
+  const units = list.filter(Boolean);
+  return units.length ? units : undefined;
+}
+
 /**
  * Parse and normalize a bank from JSON text. Throws BankError with a
  * readable message pointing at the first problem it finds.
@@ -69,6 +76,8 @@ export function normalizeBank(raw: unknown): Bank {
       ...kind,
       ...(q.honors === true ? { honors: true } : {}),
       explanation: str(q.explanation).trim() || undefined,
+      ...(str(q.listen).trim() ? { listen: str(q.listen).trim() } : {}),
+      ...(blendUnits(q.blend) ? { blend: blendUnits(q.blend) } : {}),
     };
   });
 

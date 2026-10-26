@@ -10,6 +10,9 @@ import { protectDiagrams } from "../lib/diagram";
 import { protectExamples, revealExample } from "../lib/examples";
 import { protectManipulatives, type ManipSpec } from "../lib/manip";
 import { LessonManipulative } from "./Manipulative";
+import { handlePhonicsClick, hydratePhonics, protectPhonics } from "../lib/phonics";
+import { elementItem, markReadUnits, READ_LANG, readUnits, sectionUnits, type AudioLib } from "../lib/readAloud";
+import { canSpeak, onVoices, speaker } from "../lib/speech";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -39,7 +42,9 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
-  const examples = protectExamples(md, (field) => renderMarkdown(field, scope));
+  // Phonics blocks (```sounds, ```blend, ```trace) are finished HTML built from escaped text.
+  const phonics = protectPhonics(md);
+  const examples = protectExamples(phonics.text, (field) => renderMarkdown(field, scope));
   md = examples.text;
   // Manipulatives (```manipulative blocks): a static picture here; the component mounts controls.
   const manips = protectManipulatives(md);
@@ -54,7 +59,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>): stri
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return examples.restore(manips.restore(mathHeaders(clean)));
+  return phonics.restore(examples.restore(manips.restore(mathHeaders(clean))));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -142,8 +147,15 @@ export default function Markdown({
   className = "prose",
   scope,
   foreignLang,
+  read,
 }: {
   source: string;
+  /**
+   * Read-aloud: marks each paragraph, heading, list item, table and equation as something a
+   * reader can read (data-ra), and with `buttons` adds a read button to each. `lib` is the
+   * course's recorded audio (it also gives phonics blocks their sounds).
+   */
+  read?: { lib?: AudioLib; buttons?: boolean };
   /** Language courses: italic text is the target language (authoring convention), so mark it
    * with lang="…" for screen readers and the browser's hyphenation (WCAG 3.1.2). */
   foreignLang?: string;
@@ -152,14 +164,17 @@ export default function Markdown({
   /** Values for expressions inside figures (drills). */
   scope?: Record<string, number>;
 }) {
+  const marking = !!read;
+  const readButtons = !!read?.buttons;
   const html = useMemo(() => {
     const plain = renderMarkdown(source, scope);
-    const out = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
+    const decorated = className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
+    const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
     return out.replace(/<em>/g, `<em lang="${code}">`).replace(/<blockquote>/g, `<blockquote lang="${code}">`);
-  }, [source, scope, foreignLang, className]);
+  }, [source, scope, foreignLang, className, marking, readButtons]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -228,8 +243,54 @@ export default function Markdown({
     };
   }, [html]);
 
+  // Read buttons and phonics sounds: hidden where nothing can be heard (no voice, no
+  // recording), shown again if voices load later; the button being read is marked.
+  const lib = read?.lib;
+  useEffect(() => {
+    const el = body.current;
+    if (!el) return;
+    const update = () => {
+      const tts = canSpeak(READ_LANG);
+      for (const b of el.querySelectorAll<HTMLButtonElement>("button.ra-btn")) {
+        const unit = el.querySelector<HTMLElement>(`[data-ra="${b.dataset.raBtn}"]`);
+        b.hidden = !tts && !(unit && elementItem(unit, lib).clip);
+      }
+      hydratePhonics(el, { lib, lang: READ_LANG });
+    };
+    update();
+    const offVoices = onVoices(update);
+    const offSpeaker = speaker.subscribe(() => {
+      const st = speaker.getState();
+      for (const b of el.querySelectorAll<HTMLButtonElement>("button.ra-btn"))
+        b.classList.toggle("is-playing", st.status !== "idle" && st.owner === `ra-${b.dataset.raBtn}`);
+    });
+    return () => {
+      offVoices();
+      offSpeaker();
+    };
+  }, [html, lib]);
+
+  function readButton(btn: HTMLElement) {
+    const root = body.current;
+    const id = btn.dataset.raBtn;
+    const unit = root?.querySelector<HTMLElement>(`[data-ra="${id}"]`);
+    if (!root || !unit) return;
+    const owner = `ra-${id}`;
+    const st = speaker.getState();
+    if (st.owner === owner && st.status !== "idle") return speaker.stop();
+    const units = btn.dataset.raScope === "section" ? sectionUnits(readUnits(root), unit) : [unit];
+    speaker.play(
+      units.map((u) => elementItem(u, lib)),
+      { lang: READ_LANG, owner, scroll: units.length > 1 },
+    );
+  }
+
   function onClick(e: React.MouseEvent) {
-    if (revealExample(e.target as Element)) return;
+    const target = e.target as Element;
+    const rb = target.closest<HTMLElement>("button.ra-btn");
+    if (rb) return readButton(rb);
+    if (handlePhonicsClick(target, { lib, lang: READ_LANG })) return;
+    if (revealExample(target)) return;
     const el = (e.target as HTMLElement).closest<HTMLElement>("button.gloss");
     if (!el) return;
     const term = el.dataset.term ?? "";

@@ -17,7 +17,9 @@ export function hasMath(src: string): boolean {
 export function renderTex(tex: string, display = false): string {
   // Thousands separators: in TeX "1,000" renders as "1, 000"; "1{,}000" keeps it tight.
   tex = tex.replace(/(\d),(?=\d{3}(?![\d.]))/g, "$1{,}");
-  return katex.renderToString(tex, { displayMode: display, throwOnError: false, strict: "ignore", output: "htmlAndMathml" });
+  const html = katex.renderToString(tex, { displayMode: display, throwOnError: false, strict: "ignore", output: "htmlAndMathml" });
+  // The TeX source rides along for read-aloud (sanitizing drops KaTeX's <annotation>).
+  return html.replace('<span class="katex"', `<span class="katex" data-tex="${escapeHtml(tex)}"`);
 }
 
 const escapeHtml = (s: string) =>

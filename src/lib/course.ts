@@ -192,7 +192,16 @@ export function normalizeCourse(raw: unknown): Course {
     ...(readingList.length ? { readingList } : {}),
     ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
+    ...(raw.readAloud === true ? { readAloud: true } : {}),
+    ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
   };
+}
+
+/** The audio library: string values only (lib/readAloud.ts decides which are usable). */
+function audioLib(a: unknown): Record<string, string> | undefined {
+  if (!isObj(a)) return undefined;
+  const out = Object.fromEntries(Object.entries(a).filter(([k, v]) => k.trim() && typeof v === "string" && v.trim())) as Record<string, string>;
+  return Object.keys(out).length ? out : undefined;
 }
 
 function community(c: unknown): Course["community"] | undefined {

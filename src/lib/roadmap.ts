@@ -111,8 +111,8 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
-  { title: "Read-aloud lessons and questions", detail: "Every lesson, question and answer choice can be read aloud, so children who can't read yet can learn on their own (kindergarten to grade 2).", status: "planned" },
-  { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing for early readers.", status: "planned" },
+  { title: "Read-aloud lessons and questions", detail: "Every lesson, question and answer choice can be read aloud, with the part being read highlighted, so children who can't read yet can learn on their own (kindergarten to grade 2). Early-reader courses read each new question by themselves and can use recorded audio.", status: "done" },
+  { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing (finger, pen or mouse) for early readers.", status: "done" },
   { title: "Writing assignments with rubrics", detail: "Essays and short responses written in the app, graded by the parent or teacher with a rubric, and kept in the portfolio (English and social studies).", status: "planned" },
   { title: "Built-in reader for books and documents", detail: "Public-domain novels, poems, plays and primary sources read inside the app, with reading-log time recorded.", status: "planned" },
   { title: "Maps and timelines", detail: "Interactive maps and timelines for history, geography and civics, including map-labeling questions.", status: "planned" },

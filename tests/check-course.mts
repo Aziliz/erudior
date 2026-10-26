@@ -17,6 +17,8 @@ import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
 import { MANIP_BLOCK, manipProblems, readSpec, solution, startState, targetProblems } from "../src/lib/manip.ts";
+import { PHONICS_BLOCK, parseUnits, phonicsProblems } from "../src/lib/phonics.ts";
+import { clipKey, isAudioValue } from "../src/lib/readAloud.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -47,6 +49,9 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     if (allowFigures) {
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
       for (const p of exampleProblems(t)) say(`${where}: ${p}`);
+      // Phonics blocks (sounds, blend, trace): their own checks; they hold no math.
+      for (const p of phonicsProblems(t)) say(`${where}: ${p}`);
+      t = t.replace(PHONICS_BLOCK, "");
       t = t.replace(EXAMPLE_BLOCK, (_m, info: string, body: string) => {
         const ex = parseExample(info, body);
         return ["", ex.title, ex.problem, ...ex.steps, ex.answer, ""].filter((x) => x !== undefined).join("\n\n");
@@ -132,10 +137,25 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (!sol || !isCorrect(q, sol)) say(`question ${q.id}: model: its own answer is rejected`);
         if (isCorrect(q, startState(r.model))) say(`question ${q.id}: model: the starting model is already right`);
       }
+      // Early-reader extras.
+      if (q.listen !== undefined && !q.listen.trim()) say(`question ${q.id}: "listen" is empty`);
+      if (q.blend) {
+        const word = clipKey(parseUnits(q.blend.join(" ")).map((u) => u.show).join(""));
+        if (q.blend.length < 2) say(`question ${q.id}: "blend" needs at least two sounds`);
+        if (kind === "choice" && !q.choices.some((ch) => clipKey(ch).split(" ").includes(word)))
+          say(`question ${q.id}: none of the choices is "${word}", the word its blend sounds spell`);
+      }
     }
   // Cards are Markdown like lessons (pictures, figures, diagrams and examples all render).
   for (const d of c.decks) for (const k of d.cards) (checkText(`card ${k.id} front`, k.front, true), checkText(`card ${k.id} back`, k.back, true));
   for (const g of c.glossary) checkText(`glossary ${g.term}`, g.definition);
+
+  // --- Recorded audio ---------------------------------------------------------------
+  for (const [key, v] of Object.entries(c.audio ?? {})) {
+    if (!isAudioValue(v)) say(`audio "${key.slice(0, 40)}": not a data:audio URL, an audio file path or say:<text>`);
+    else if (v.startsWith("data:") && v.length > 550_000) say(`audio "${key.slice(0, 40)}": the recording is over 400 KB; shorten it or lower its bit rate`);
+    else if (!v.startsWith("data:") && !/^say:/i.test(v)) say(`audio "${key.slice(0, 40)}": isn't embedded (only data: URLs play in the desktop app)`);
+  }
 
   // --- References between parts ---------------------------------------------------
   const qids = new Set(c.banks.flatMap((b) => b.questions.map((q) => q.id)));
