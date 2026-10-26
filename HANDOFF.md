@@ -228,6 +228,20 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 - Checker (`tests/check-course.mts`): exercise model solutions must pass all tests, starter must not pass all; code blocks must compile. JS in a Node worker thread with the app harness, Python via system python3 with `PY_HARNESS` (skipped without python3) — `tests/code-node.mts`.
 - Tests: `tests/code.test.mts` (in npm test); walkthrough `scripts/code-walkthrough.mjs` (build + `vite preview --port 5191`; `PYODIDE_DIR=<pyodide npm package dir>` serves Pyodide locally): lesson blocks, keyboard, all 4 exercises incl. endless loops in both languages, results; clean light/dark at 1280/320; sepia/dim only show the themes' existing AAA misses (.pill, headings; dim's --bad on surface is 6.7:1).
 
+## Engine follow-ups (after the roadmap engine items)
+- Every roadmap engine item is built (built in parallel, then merged). Demo courses to import: samples/early-readers-demo.json, manipulatives-demo.json, demo-student-work.json, demo-reader.json, demo-listening.json, demo-maps-timelines-sims.json, demo-code-course.json. No real course uses the new blocks yet.
+- Walkthrough scripts (Playwright against `vite preview`): scripts/manip-, work-, reader-, widgets-, code-walkthrough.mjs. All pass on the merged app. code-walkthrough needs `PYODIDE_DIR` (npm i pyodide@314.0.7 somewhere).
+- Not yet tried in real desktop builds (Windows, macOS, Linux):
+  - Microphone recording; macOS Info.plist and Entitlements are new.
+  - Module workers.
+  - The Pyodide download from jsDelivr.
+- Two audio ideas exist side by side:
+  - Course `audio` library (read-aloud and phonics, keyed by text or `sound:x`).
+  - Per-item `audio` (vocab words; question `audio: {src, text, lang}` for listening). Questions also have `listen`/`blend` for early readers.
+  - Unify them later if it gets confusing.
+- Community courses, live rooms and the course editor don't support the new blocks or question types (model, map, timeline, code) yet.
+- Terms.tsx: the privacy text now says Python downloads from jsDelivr (which sees the visitor's IP), and the licenses page lists Pyodide. TERMS_UPDATED was not bumped; Jon should look at the wording.
+
 ## Published courses are read-only in the app (after v0.24.0)
 - `isPublishedCourse` (lib/catalog.ts): catalog (Erudior) courses and community courses. The course page hides Edit course, Add question bank, New deck and deck Edit; the bank page hides Edit questions and Delete; App sends old `courseEdit`/`deckEdit`/`editor` addresses for them to the course or bank page; importing a file with a published course's id makes a separate "(copy)" instead of replacing it. Erudior's courses change only through their sources (content/) and the publish pipeline; community courses only in the website editor. Personal notes/flags and progress are unaffected.
 
