@@ -1,5 +1,5 @@
 import type { Course } from "./types";
-import { localBankId } from "./course";
+import { importCourseSnapshot, localBankId } from "./course";
 
 /** Structural issues that must be fixed before a course is approved for publication. */
 export interface CourseIntegrityIssue {
@@ -59,4 +59,14 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
       checkQuiz(section.questions, `texts[${i}].sections[${j}].questions`);
   }
   return issues;
+}
+
+/** Import a portable course and reject dangling references before publishing/review. */
+export function importValidatedCourseSnapshot(source: string): Course {
+  const course = importCourseSnapshot(source);
+  const errors = validateCourseIntegrity(course);
+  if (errors.length) {
+    throw new Error("Invalid course references: " + errors.map((e) => `${e.path}: ${e.message}`).join("; "));
+  }
+  return course;
 }
