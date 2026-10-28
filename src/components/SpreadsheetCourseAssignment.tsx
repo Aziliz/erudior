@@ -45,7 +45,7 @@ export default function SpreadsheetCourseAssignment({api,courseId,assignment}:{a
        setGrade(result);
        await api.updateProgress(previous=>({...previous, spreadsheetGrades:{...previous.spreadsheetGrades,[gradeKey]:{score:result.score,gradedAt:new Date().toISOString(),revision:(previous.spreadsheetGrades?.[gradeKey]?.revision??0)+1}}}));
      }}>Grade assignment</button>
-     {existingGrade&&<p className="small muted">Saved grade: {Math.round(existingGrade.score*100)}% · {existingGrade.revision} grading attempt(s)</p>
+     {existingGrade&&<p className="small muted">Saved grade: {Math.round(existingGrade.score*100)}% · {existingGrade.revision} grading attempt(s)</p>}
      {grade ? (
        <div role="status">
          <strong>{Math.round(grade.score * 100)}% correct</strong>

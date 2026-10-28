@@ -28,6 +28,11 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
   unique(course.drills.map((d) => d.id), "drills");
   if (course.texts) unique(course.texts.map((t) => t.id), "texts");
 
+  unique((course.spreadsheetAssignments ?? []).map(a => a.id), "spreadsheetAssignments");
+  for (const [i,a] of (course.spreadsheetAssignments ?? []).entries()) {
+    if (!course.lessons.some(l => l.id === a.lessonId)) report(`spreadsheetAssignments[${i}].lessonId`, "Unknown lesson");
+    for (const issue of validateAssignment(a)) report(`spreadsheetAssignments[${i}]`, issue);
+  }
   const moduleIds = new Set(course.modules.map((m) => m.id));
   for (const [i, lesson] of course.lessons.entries())
     if (!moduleIds.has(lesson.module)) report(`lessons[${i}].module`, `Unknown module: ${lesson.module}`);
@@ -73,6 +78,19 @@ export function importValidatedCourseSnapshot(source: string): Course {
   for (const [i, lesson] of rawLessons.entries()) {
     if (typeof lesson.module === "string" && !ids.has(lesson.module))
       throw new Error(`Invalid course references: lessons[${i}].module: ${lesson.module}`);
+  }
+  if (Array.isArray(raw.spreadsheetAssignments)) {
+    const seen = new Set<string>();
+    for (const [i, candidate] of raw.spreadsheetAssignments.entries()) {
+      if (!candidate || typeof candidate !== "object" || Array.isArray(candidate))
+        throw new Error(`Invalid spreadsheet assignment at index ${i}`);
+      const item = candidate as Record<string,unknown>;
+      if (typeof item.id !== "string" || seen.has(item.id))
+        throw new Error(`Duplicate or invalid spreadsheet assignment ID at index ${i}`);
+      seen.add(item.id);
+      if (typeof item.lessonId !== "string" || !rawLessons.some(l=>l.id===item.lessonId))
+        throw new Error(`Invalid spreadsheet lesson reference at index ${i}`);
+    }
   }
   const course = importCourseSnapshot(source);
   const errors = validateCourseIntegrity(course);
