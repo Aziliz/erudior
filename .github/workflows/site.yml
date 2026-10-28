@@ -17,6 +17,8 @@ on:
       - "public/**"
       - "functions/**"
       - "scripts/prerender.mjs"
+      - "scripts/publish-courses.ts"
+      - "scripts/fetch-previous-courses.ts"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -50,7 +52,16 @@ jobs:
       - name: Check the signing key matches the app
         run: npx tsx scripts/check-signing-key.ts
 
+      - name: Fetch and authenticate previous release
+        env:
+          COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
+          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
+        run: npx tsx scripts/fetch-previous-courses.ts
+
       - name: Build and sign course packages
+        env:
+          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
+          COURSE_PREVIOUS_PUBLIC_KEY: ${{ vars.COURSE_PUBLIC_KEY }}
         run: npm run courses:publish
 
       # Course files are immutable (named by revision): upload only new ones, then the
