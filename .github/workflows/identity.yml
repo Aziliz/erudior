@@ -1,0 +1,39 @@
+name: Erudior identity and regression checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "src-tauri/**"
+      - "tests/**"
+      - "scripts/check-product-identity.mjs"
+      - ".github/workflows/identity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  identity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Erudior-only product identity
+        run: node scripts/check-product-identity.mjs
+
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Full regression suite
+        run: npm test
+      - name: Production web build
+        run: npm run build
