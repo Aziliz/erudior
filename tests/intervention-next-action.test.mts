@@ -1,0 +1,11 @@
+import { interventionNextAction } from "../src/lib/interventionNextAction.ts";
+import type { CompetencyState } from "../src/lib/competencies.ts";
+import type { Progress } from "../src/lib/types.ts";
+const s=(mastery:number|null,mastered=false):CompetencyState=>({id:"skill",title:"Skill",mastery,mastered,confidence:0.8,attempts:5,ready:true,blockedBy:[]});
+const p=(baseline:number|null):Progress=>({attempts:[{id:"a",finishedAt:"2026-10-27T10:00:00Z",intervention:{skillId:"skill",baseline}}]} as Progress);
+const check=(name:string,yes:boolean)=>{if(!yes)throw Error(name)};
+check("mastered advances",interventionNextAction(s(.9,true),p(.5)).action==="advance");
+check("unknown assesses",interventionNextAction(s(null),p(null)).action==="assess");
+check("missing baseline assesses",interventionNextAction(s(.6),p(null)).action==="assess");
+check("regression reviews",interventionNextAction(s(.5),p(.7)).action==="review");
+check("improvement practices",interventionNextAction(s(.7),p(.5)).action==="practice");
