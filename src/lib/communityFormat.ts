@@ -3,7 +3,8 @@
 // No DOM or Node APIs here: the worker bundles this file too.
 
 import { LEVELS, SUBJECTS, TYPES, calculatorForSubject, knownSubject, normalizeLevels } from "./taxonomy";
-import type { Drill, FigureSpec } from "./types";
+import type { Drill, FigureSpec, ReaderText } from "./types";
+import { normalizeTexts } from "./reader";
 import { drillError } from "./drills";
 import { renderFigure } from "./figure";
 import { splitMath } from "./mathSplit";
@@ -183,6 +184,10 @@ export interface CommunityDoc {
   readingList?: CReading[];
   /** Enable official early-reader read-aloud UI for this course. */
   readAloud?: boolean;
+  /** Recorded speech and phonics keys, matching official course audio. */
+  audio?: Record<string, string>;
+  /** Embedded reading texts, such as public-domain stories and primary sources. */
+  texts?: ReaderText[];
 }
 
 export const LIMITS = {
@@ -213,6 +218,8 @@ export const LIMITS = {
   drillBytes: 12000,
   vocab: 3000,
   readingList: 60,
+  texts: 30,
+  audioEntries: 400,
   minutes: 600,
 };
 
@@ -352,6 +359,22 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
   if (!SUBJECTS.includes(d.subject as (typeof SUBJECTS)[number])) errs.push("Choose a subject.");
   if (!LEVELS.includes(d.level as (typeof LEVELS)[number])) errs.push("Choose a level.");
   if (d.type !== undefined && !TYPES.includes(d.type as (typeof TYPES)[number])) errs.push("Choose a type.");
+  if (d.audio !== undefined) {
+    if (!isObj(d.audio) || Object.keys(d.audio).length > LIMITS.audioEntries) errs.push("Audio library is invalid or too large.");
+    else for (const [key, value] of Object.entries(d.audio)) {
+      if (!key.trim() || key.length > LIMITS.short || !isStr(value) || value.length > 550000 ||
+          !(value.startsWith("say:") || /^data:audio\/(?:mpeg|mp4|ogg|wav|webm);base64,[A-Za-z0-9+/=]+$/.test(value)))
+        errs.push("Audio library entry has an invalid key or recording: " + key.slice(0, 32));
+    }
+  }
+  if (d.texts !== undefined) {
+    if (!Array.isArray(d.texts) || d.texts.length > LIMITS.texts) errs.push("Reading text library exceeds the limit.");
+    else for (const [i, t] of d.texts.entries()) {
+      if (!t || !ID.test(t.id) || !t.title?.trim() || !Array.isArray(t.sections) || !t.sections.length ||
+          !t.sections.every(section => ID.test(section.id) && !!section.body?.trim()))
+        errs.push(`Reading text ${i + 1} must have a title and valid nonempty sections.`);
+    }
+  }
   if (d.readAloud !== undefined && typeof d.readAloud !== "boolean") errs.push("Read-aloud must be enabled or disabled.");
   if (d.calculator !== undefined && !CALCULATORS.includes(d.calculator)) errs.push("Choose a calculator.");
   if (d.exam !== undefined) {
@@ -809,6 +832,8 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
     calculator,
     ...(d.readAloud === true ? { readAloud: true } : {}),
+    ...(d.audio && Object.keys(d.audio).length ? { audio: d.audio } : {}),
+    ...(d.texts?.length ? { texts: normalizeTexts(d.texts) } : {}),
     community: meta,
   };
 }
