@@ -39,6 +39,7 @@ import {
 } from "../lib/backup";
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
+import { deleteStudentWithSubmissionHistory } from "../lib/classroomSubmissionStore";
 import { GradesTab, ReportsTab } from "./ParentRecords";
 import {
   ClassOverview,
@@ -941,19 +942,21 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
     if (family.students.length === 1)
       return api.toast("A family needs at least one student.");
     const ok = await store.confirmAction(
-      `Remove ${st.name}? Their progress and attendance records are deleted from this computer. Back up first if you may need them.`,
+      `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
       "Remove student",
     );
     if (!ok) return;
-    await store.saveState(`progress-${st.id}`, null);
-    await store.saveState(`records-${st.id}`, null);
-    await store.saveState(`session-${st.id}`, null);
-    await store.saveState(`portfolio-${st.id}`, null);
-    await api.setFamily({
-      ...family,
-      students: family.students.filter((x) => x.id !== st.id),
-    });
-    api.toast(`Removed ${st.name}`);
+    try {
+      const updated = await deleteStudentWithSubmissionHistory(st.id, family);
+      // Never leave future saves pointed at a profile whose state was deleted.
+      if (store.activeStudent() === st.id) store.useStudentFiles(null);
+      if (api.reloadClassroomState) await api.reloadClassroomState();
+      else await api.setFamily(updated);
+      if (api.student?.id === st.id) await api.chooseStudent(updated.students[0].id);
+      api.toast(`Removed ${st.name}, including saved hand-ins and review history`);
+    } catch (error) {
+      api.toast(`Student deletion did not finish: ${error instanceof Error ? error.message : String(error)}. Reload and retry removal; some data may already be deleted.`);
+    }
   }
 
   return (

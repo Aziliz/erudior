@@ -190,9 +190,9 @@ sp = touchWork(sp, "demo-student-work/ice-melt", "lab", (w) => submitWork({ ...w
 sp = touchWork(sp, "other-course/x", "writing", (w) => ({ ...w, text: "not assigned" }));
 sp = { ...sp, logs: [{ ...log("2026-10-02", "Biking", 20), courseId: "demo-student-work", file: { ...photo, id: "w2", fileId: "flog1" } }, log("2026-10-02", "Biking", 5)] };
 ok("file ids", workFileIds(sp).sort().join() === "flog1,fphoto1");
-const h = await makeHandIn(cf, ana.id, sp, async (id) => ({ mime: "image/jpeg", data: `data-${id}` }));
+const h = await makeHandIn(cf, ana.id, sp, async (id) => ({ mime: "image/jpeg", data: id === "fphoto1" ? "AQID" : "BAUG" }));
 ok("hand-in carries assigned work only", Object.keys(h.progress.work ?? {}).join() === "demo-student-work/ice-melt" && h.progress.logs?.length === 1);
-ok("hand-in carries files", h.files?.fphoto1?.data === "data-fphoto1" && h.files?.flog1?.data === "data-flog1");
+ok("hand-in carries files", h.files?.fphoto1?.data === "AQID" && h.files?.flog1?.data === "BAUG");
 const { h: hv } = await verifyHandIn(JSON.parse(JSON.stringify(h)), fam);
 ok("verified", hv.studentId === ana.id);
 const tampered = JSON.parse(JSON.stringify(h));

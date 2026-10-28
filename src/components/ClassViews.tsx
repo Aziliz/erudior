@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished } from "../lib/catalog";
 import { classesOf, type Family, type Student } from "../lib/family";
-import { loadJoined, makeHandIn, parseClassFile, saveJoined, type Joined } from "../lib/classroom";
+import { loadJoined, parseClassFile, saveJoined, type Joined } from "../lib/classroom";
 import * as store from "../lib/storage";
-import { loadFile } from "../lib/documents";
+import { preparePersistedHandIn } from "../lib/classroomExport";
 import { today } from "../lib/srs";
 
 const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric" });
@@ -94,7 +94,7 @@ export function MyClasses({ api }: { api: AppApi }) {
 
   async function handIn(j: Joined) {
     try {
-      const h = await makeHandIn(j.cls, j.studentId, api.progress, loadFile);
+      const h = await preparePersistedHandIn(j);
       const name = j.cls.students.find((s) => s.id === j.studentId)?.name ?? "student";
       const file = `hand-in ${j.cls.name} ${name} ${today()}.json`.replace(/[^\w\- .]+/g, "");
       if (await store.exportText(JSON.stringify(h), file, "Erudior hand-in")) api.toast("Saved. Give that file to your teacher.");
@@ -130,7 +130,7 @@ export function MyClasses({ api }: { api: AppApi }) {
                 </button>
               </div>
             </div>
-            <p className="small muted">Signed in to this class as {me?.name ?? "?"}. Hand in saves a file with your work on these courses for your teacher.</p>
+            <p className="small muted">Class roster selection: {me?.name ?? "?"}. Hand in saves a file with your work on these courses for your teacher.</p>
             {j.cls.assignments.length === 0 ? (
               <p className="small muted">Nothing assigned yet.</p>
             ) : (

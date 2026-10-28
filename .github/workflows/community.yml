@@ -9,6 +9,9 @@ on:
     paths:
       - "worker/**"
       - "src/lib/communityFormat.ts"
+      - "src/lib/exerciseTypes.ts"
+      - "src/lib/spreadsheet*.ts"
+      - "src/lib/workbookTemplates.ts"
       - ".github/workflows/community.yml"
 
 permissions:
@@ -42,6 +45,14 @@ jobs:
       - name: Typecheck
         id: typecheck
         run: node ../scripts/diagnostic-command.mjs community-typecheck -- npx tsc -p .
+
+      - name: Validate local community publishing workflows
+        timeout-minutes: 8
+        env:
+          CLOUDFLARE_API_TOKEN: ""
+          CLOUDFLARE_ACCOUNT_ID: ""
+          WRANGLER_SEND_METRICS: "false"
+        run: npm test
 
       - name: Point wrangler.toml at the real database
         run: sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml

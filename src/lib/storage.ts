@@ -6,7 +6,8 @@ import { invoke, isTauri } from "@tauri-apps/api/core";
 import type { Bank, Course, Progress } from "./types";
 import { parseBank, serializeBank } from "./validate";
 import { normalizeCourse, serializeCourse } from "./course";
-import { webDelete, webGet, webList, webSet } from "./webstore";
+import { webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
+import { stateTransactions, validStateName } from "./stateLock";
 
 export const inApp = isTauri();
 
@@ -101,18 +102,35 @@ export function useStudentFiles(id: string | null): void {
 /** The student whose files are in use (null = the single-user files). */
 export const activeStudent = (): string | null => student;
 
-/** Read a named state file (see valid_state_name in lib.rs). */
+/** Read a named state file (same exact allowlist as native valid_state_name). */
 export async function loadState(name: string): Promise<string | null> {
+  if (!validStateName(name)) throw Error("Unknown state file: " + name);
   if (inApp) return invoke<string | null>("load_state", { name });
   return webGet(`erudior.${name}`);
 }
 
-/** Write a named state file, or delete it when content is null. */
-export async function saveState(name: string, content: string | null): Promise<void> {
-  if (inApp) return invoke("save_state", { name, content });
-  if (content === null) await webDelete(`erudior.${name}`);
-  else await webSet(`erudior.${name}`, content);
-}
+// This backend must remain unlocked: stateTransactions owns the lock for the
+// whole read-modify-write, and saveState joins that same serialization boundary.
+const namedState = stateTransactions({
+  read: loadState,
+  async write(name, content) {
+    if (inApp) return invoke<void>("save_state", { name, content });
+    if (content === null) await webDelete(`erudior.${name}`);
+    else await webSet(`erudior.${name}`, content);
+  },
+  compareAndSwap: (name: string, expected: string | null, content: string) => inApp
+    ? invoke<boolean>("compare_and_swap_state", { name, expected, content })
+    : webCompareAndSwap(`erudior.${name}`, expected, content),
+});
+
+/** Write/delete a named state file, serialized with updateState callers. */
+export const saveState = (name: string, content: string | null): Promise<void> => namedState.save(name, content);
+
+/** Atomically read/transform/write one named state. The updater must be pure,
+ * may be retried on contention, and must not call saveState/updateState.
+ * Browser CAS uses one IndexedDB transaction across tabs, even without Web Locks.
+ * Native CAS protects webviews in one app process, not separate app processes. */
+export const updateState = (name: string, updater: (old: string | null) => string | Promise<string>): Promise<string> => namedState.update(name, updater);
 
 function parseProgress(text: string | null): Progress {
   if (!text) return emptyProgress();

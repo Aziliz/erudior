@@ -12,6 +12,7 @@ import * as store from "./storage";
 import { workFileIds } from "./work";
 import { serializeCourse, normalizeCourse } from "./course";
 import { parseBank, serializeBank } from "./validate";
+import { validateClassroomSubmissionState } from "./classroomSubmissionStore";
 
 interface Envelope {
   format: "examiner-backup-encrypted";
@@ -30,6 +31,8 @@ interface Contents {
   progress: Progress;
   courses: unknown[];
   banks: unknown[];
+  /** Instructor-only receipt/review ledger, including pending import markers. */
+  classroomSubmissions?: ReturnType<typeof validateClassroomSubmissionState>;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -86,6 +89,8 @@ export async function decryptText(raw: unknown, passphrase: string): Promise<str
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
+  const classroomText = await store.loadState("classroom-submissions");
+  const classroomSubmissions = classroomText === null ? undefined : validateClassroomSubmissionState(classroomText);
   const students: Contents["students"] = {};
   for (const s of family?.students ?? []) {
     const progressText = await store.loadState(`progress-${s.id}`);
@@ -101,6 +106,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     createdAt: new Date().toISOString(),
     family,
     students,
+    ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
     progress: await store.loadBaseProgress(),
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -136,6 +142,10 @@ export async function restoreContents(
 ): Promise<{ students: number; courses: number }> {
   const b = JSON.parse(text) as Contents;
   if (b.format !== "examiner-family-backup") throw new Error("This backup's contents weren't recognized.");
+  // Validate evidence before deleting/replacing any existing family data. Legacy full
+  // backups clear the ledger: retaining it would mix another family's evidence.
+  const classroomSubmissions = b.classroomSubmissions === undefined ? null
+    : JSON.stringify(validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions)));
   const courses = b.courses.map((c) => normalizeCourse(c));
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await store.deleteCourse(c.id);
@@ -152,5 +162,6 @@ export async function restoreContents(
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
   if (b.family) await saveFamily(b.family);
   else await store.saveState("family", null);
+  await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

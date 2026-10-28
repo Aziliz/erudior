@@ -1,3 +1,4 @@
+import { requestNavigation } from "../src/lib/navigationGuard.ts";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
 import { emptyCourse, exportCourseSnapshot } from "../src/lib/course.ts";
@@ -68,15 +69,22 @@ let resolveSave: (() => void) | undefined;
 let saveCalls = 0;
 let navigationCalls = 0;
 const persistedTitles: string[] = [];
-const delayedApi = { ...api, courses: [saved!], go: () => { navigationCalls++; }, saveCourse: async (value: Course) => {
+const delayedApi = { ...api, courses: [saved!], go: (target: {name: string; courseId?: string}) => {
+  assert.equal(requestNavigation("app", {name: "library"}), false, "Done discard cannot authorize another target");
+  assert.equal(requestNavigation("history", target), false, "Done discard cannot authorize browser history");
+  if (requestNavigation("app", target)) navigationCalls++;
+}, saveCourse: async (value: Course) => {
   saveCalls++;
   persistedTitles.push(value.title);
   if (saveCalls === 1) await new Promise<void>(resolve => { resolveSave = resolve; });
 } } as unknown as AppApi;
 await act(async () => root.render(createElement(CourseEditor, { key: "deferred-save", api: delayedApi, course: saved! })));
+assert.equal(requestNavigation(), true, "clean official editor permits navigation");
 await fill("Title", "First saved snapshot");
+assert.equal(requestNavigation(), false, "dirty official editor vetoes global navigation");
 await click("Save course");
 assert.equal(saveCalls, 1);
+assert.equal(requestNavigation("history"), false, "pending save vetoes browser navigation");
 await act(async () => { window.dispatchEvent(new dom.window.KeyboardEvent("keydown", { key: "s", ctrlKey: true, bubbles: true })); });
 assert.equal(saveCalls, 1, "repeated save shortcut cannot start overlapping persistence");
 await fill("Title", "New edit during save");
@@ -90,6 +98,14 @@ assert.equal(field("Title").value, "New edit during save");
 await click("Save course");
 assert.deepEqual(persistedTitles, ["First saved snapshot", "New edit during save"]);
 assert.equal(document.querySelector(".dirty-dot"), null, "second save persists the newer snapshot");
+assert.equal(requestNavigation(), true, "latest persisted draft permits navigation");
+await fill("Title", "Explicit discard only");
+let confirmations = 0;
+window.confirm = () => { confirmations++; return true; };
+await click("← Done");
+assert.equal(confirmations, 1, "Done asks once before intentional discard");
+assert.equal(navigationCalls, 1, "confirmed discard permits its exact course destination");
+assert.equal(requestNavigation("app", {name: "course", courseId: saved!.id}), false, "discard permission is not retained");
 // Review is explicit and bound to exact bytes, not a reusable approval toggle.
 const reviewCourse = saved!;
 await act(async () => root.render(createElement(SpreadsheetReviewPanel, { course: reviewCourse })));

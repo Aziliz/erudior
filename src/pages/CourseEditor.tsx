@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -19,6 +20,24 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
   const [saving, setSaving] = useState(false);
   const savingRef = useRef(false);
   const draftVersion = useRef(0);
+  const persistedVersion = useRef(0);
+  const editingRef = useRef(false);
+  const closingRef = useRef(false);
+  const discardTarget = useRef<NavigationTarget | null>(null);
+  const hasPendingChanges = () => savingRef.current || editingRef.current || draftVersion.current !== persistedVersion.current;
+  useEffect(() => {
+    const unregister = registerNavigationGuard((kind, target) => {
+      if (kind === "app" && target && discardTarget.current?.name === target.name && discardTarget.current.courseId === target.courseId) return true;
+      if (!hasPendingChanges()) return true;
+      api.toast("Save your course, or use Done to explicitly discard changes before leaving.");
+      return false;
+    });
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (hasPendingChanges()) { event.preventDefault(); event.returnValue = ""; }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => { unregister(); window.removeEventListener("beforeunload", beforeUnload); };
+  }, [api.toast]);
   const [dirty, setDirty] = useState(false);
   const [tab, setTab] = useState<Tab>("details");
   const update = (fn: (c: Course) => Course) => {
@@ -50,6 +69,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
     setSaving(true);
     try {
       await api.saveCourse({ ...draft, banks: latest.banks, decks: latest.decks });
+      persistedVersion.current = savedVersion;
       if (draftVersion.current === savedVersion) {
         setDirty(false);
         api.toast("Course saved");
@@ -62,8 +82,20 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
 
   async function close() {
     if (savingRef.current) return api.toast("Wait for the current save to finish before leaving the editor.");
-    if ((dirty || assignmentEditing) && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
-    api.go({ name: "course", courseId: course.id });
+    if (closingRef.current) return;
+    closingRef.current = true;
+    try {
+      const version = draftVersion.current;
+      const editing = editingRef.current;
+      if (hasPendingChanges() && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
+      if (savingRef.current || version !== draftVersion.current || editing !== editingRef.current) {
+        api.toast("The draft changed while confirming. Finish your changes before leaving.");
+        return;
+      }
+      const target = { name: "course" as const, courseId: course.id };
+      discardTarget.current = target;
+      try { api.go(target); } finally { discardTarget.current = null; }
+    } finally { closingRef.current = false; }
   }
 
   useEffect(() => {
@@ -123,7 +155,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
-        {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={setAssignmentEditing} />}
+        {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={(value) => { editingRef.current = value; setAssignmentEditing(value); }} />}
         {tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
     </div>

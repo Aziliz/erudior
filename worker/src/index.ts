@@ -572,13 +572,51 @@ async function route(req: Request, env: Env): Promise<Response> {
       const fromTeam = img && (img.owner_id === c.owner_id || img.owner_id === u.id || (await isEditor(env, c.id, img.owner_id)));
       if (!fromTeam) return json({ error: "An image in this course is missing; upload it again." }, 400);
     }
-    const version = c.version + 1;
-    await env.FILES.put(`courses/${c.id}.v${version}.json`, JSON.stringify(doc), { httpMetadata: { contentType: "application/json" } });
-    await env.DB.prepare(
-      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, kind = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ?",
+    // Continuity is checked against the actual immutable published snapshot, never
+    // the editable draft. Missing/corrupt release data must fail closed.
+    if (c.version > 0) {
+      const previousObject = await env.FILES.get(`courses/${c.id}.v${c.version}.json`);
+      if (!previousObject) throw new HttpError(409, "The previous published version is unavailable; contact the administrators.");
+      let previous: CommunityDoc;
+      try { previous = upgradeDoc(await previousObject.json<CommunityDoc>()); }
+      catch { throw new HttpError(409, "The previous published version is invalid; contact the administrators."); }
+      if (checkDoc(previous, true).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
+      const next = new Map((doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
+      for (const assignment of previous.spreadsheetAssignments ?? []) {
+        const current = next.get(assignment.id);
+        if (!current || current.lessonId !== assignment.lessonId)
+          throw new HttpError(409, "Published spreadsheet assignments cannot be removed or reassigned to another lesson.");
+      }
+    }
+    const serialized = JSON.stringify(doc);
+    let version = c.version + 1;
+    // R2 evaluates If-None-Match atomically. Never overwrite (or delete) an
+    // immutable object, including an orphan left by a failed D1 commit. Identical
+    // bytes can be retried safely; differing orphan bytes consume a version slot.
+    // Bounded contention fails explicitly rather than weakening the precondition.
+    for (let attempt = 0; ; attempt++, version++) {
+      if (attempt === 16) throw new HttpError(409, "Publication is busy; retry shortly.");
+      const key = `courses/${c.id}.v${version}.json`;
+      const written = await env.FILES.put(key, serialized, {
+        onlyIf: new Headers({ "If-None-Match": "*" }),
+        httpMetadata: { contentType: "application/json" },
+      });
+      if (written) break;
+      const existing = await env.FILES.get(key);
+      if (existing && await existing.text() === serialized) break;
+    }
+    // D1 commits only the snapshot we validated, and only if publication,
+    // moderation, ownership and draft content have not changed in the meantime.
+    // Recheck current account/session/role/editor access atomically as well: an
+    // authorization snapshot taken before an R2 await may already be revoked.
+    // A losing request leaves a recoverable unreferenced R2 object, not a corrupt
+    // public version. Never reset review metadata on an unsuccessful commit.
+    const committed = await env.DB.prepare(
+      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, kind = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ? AND version = ? AND draft = ? AND status = ? AND owner_id = ? AND EXISTS (SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id WHERE actor.id = ? AND actor.banned = 0 AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ? AND session.token_hash = ? AND session.expires_at > ? AND (courses.owner_id = actor.id OR actor.role = 'admin' OR EXISTS (SELECT 1 FROM course_editors editor WHERE editor.course_id = courses.id AND editor.user_id = actor.id)))",
     )
-      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, doc.type ?? "Course", JSON.stringify(counts(doc)), now(), now(), c.id)
+      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, doc.type ?? "Course", JSON.stringify(counts(doc)), now(), now(), c.id, c.version, c.draft, c.status, c.owner_id, u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), now())
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "The course changed during publication. Reload and publish the saved draft again.");
     return json({ ok: true, version });
   }
   // Editors: the owner (or an admin) chooses who else may change the course.
@@ -682,17 +720,20 @@ async function route(req: Request, env: Env): Promise<Response> {
   if (r && method === "POST") {
     const u = await needUser(req, env);
     needRole(u, "reviewer", "admin");
-    const body = await readJson<{ action?: string; note?: string }>(req, 4000);
+    const body = await readJson<{ action?: string; note?: string; version?: number }>(req, 4000);
     const c = await env.DB.prepare("SELECT * FROM courses WHERE id = ?").bind(r[1]).first<CourseRow>();
     if (!c) throw new HttpError(404, "Course not found.");
     const note = (body.note ?? "").slice(0, 1000);
     switch (body.action) {
-      case "reviewed":
-        if (c.status !== "published") throw new HttpError(400, "Only published courses can be marked reviewed.");
-        await env.DB.prepare("UPDATE courses SET reviewed_version = version, reviewed_by = ?, reviewed_at = ?, review_note = ? WHERE id = ?")
-          .bind(u.id, now(), note || null, c.id)
+      case "reviewed": {
+        if (!Number.isSafeInteger(body.version) || body.version! < 1) throw new HttpError(400, "Specify the published version you reviewed.");
+        if (c.status !== "published" || body.version !== c.version) throw new HttpError(409, "The published version changed; reload and review it again.");
+        const reviewed = await env.DB.prepare("UPDATE courses SET reviewed_version = ?, reviewed_by = ?, reviewed_at = ?, review_note = ? WHERE id = ? AND version = ? AND status = 'published' AND EXISTS (SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id WHERE actor.id = ? AND actor.banned = 0 AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ? AND actor.role IN ('reviewer', 'admin') AND session.token_hash = ? AND session.expires_at > ?)")
+          .bind(body.version, u.id, now(), note || null, c.id, body.version, u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), now())
           .run();
+        if (reviewed.meta.changes !== 1) throw new HttpError(409, "The course or your review access changed; reload before reviewing again.");
         break;
+      }
       case "not_reviewed":
         await env.DB.prepare("UPDATE courses SET reviewed_version = 0, review_note = ? WHERE id = ?").bind(note || null, c.id).run();
         break;

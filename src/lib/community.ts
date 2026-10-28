@@ -2,7 +2,7 @@
 // community courses in the Library; the web build also has the course editor and review queue.
 
 import type { CommunityDoc, CommunityMeta } from "./communityFormat";
-import { imageIds, toCourse } from "./communityFormat";
+import { checkDoc, imageIds, toCourse, upgradeDoc } from "./communityFormat";
 import { inApp } from "./storage";
 
 export const API = (import.meta.env?.VITE_COMMUNITY_API ?? "").trim().replace(/\/+$/, "");
@@ -128,7 +128,7 @@ export const api = {
   queue: () => call<ReviewQueue>("GET", "/review"),
   allCourses: (q = "") =>
     call<{ courses: (CommunityEntry & { status: "published" | "removed" | "unpublished"; reviewNote: string | null })[] }>("GET", `/review/all?q=${encodeURIComponent(q)}`),
-  review: (id: string, action: "reviewed" | "not_reviewed" | "remove" | "restore", note: string) => call("POST", `/review/${id}`, { action, note }),
+  review: (id: string, action: "reviewed" | "not_reviewed" | "remove" | "restore", note: string, version?: number) => call("POST", `/review/${id}`, { action, note, version }),
   resolve: (id: string, resolution: string) => call("POST", `/reports/${id}/resolve`, { resolution }),
   users: (q: string) => call<{ users: { id: string; provider: string; email: string | null; display_name: string; role: string; banned: number }[] }>("GET", `/admin/users?q=${encodeURIComponent(q)}`),
   setUser: (id: string, change: { role?: string; banned?: boolean }) => call("POST", `/admin/users/${id}`, change),
@@ -151,10 +151,22 @@ async function dataUrl(id: string): Promise<string> {
 /** Download a community course and build an app course, with images embedded for offline use. */
 export async function downloadCommunityCourse(id: string): Promise<Record<string, unknown>> {
   const c = await api.course(id);
+  // A server response is an untrusted import boundary. Validate before image
+  // downloads or conversion, which otherwise may silently omit unsupported data.
+  // Upgrade only historically supported labels; this does not repair invalid content.
+  let doc: CommunityDoc;
+  let errors: string[];
+  try {
+    doc = upgradeDoc(c?.doc);
+    errors = checkDoc(doc, true);
+  } catch {
+    throw new ApiError("This community course could not be installed because its document is malformed.", 422);
+  }
+  if (errors.length) throw new ApiError("This community course could not be installed because its document is invalid.", 422, errors);
   const images = new Map<string, string>();
-  for (const img of imageIds(c.doc)) images.set(img, await dataUrl(img));
+  for (const img of imageIds(doc)) images.set(img, await dataUrl(img));
   const meta: CommunityMeta = { id: c.id, version: c.version, review: c.review, author: c.author };
-  return toCourse(c.doc, meta, (img) => images.get(img) ?? "");
+  return toCourse(doc, meta, (img) => images.get(img) ?? "");
 }
 
 export const isCommunityId = (courseId: string) => courseId.startsWith("community-");
