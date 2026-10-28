@@ -1,4 +1,4 @@
-import { addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../src/lib/communityModules";
+import { addCommunityLesson, addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../src/lib/communityModules";
 import { checkDoc, toCourse, type CommunityDoc } from "../src/lib/communityFormat";
 
 let errors = 0;
@@ -17,6 +17,10 @@ assert(new Set(added.modules?.map(m=>m.id)).size === 2, "module IDs are unique")
 const collision = addCommunityModule({...base, lessons:[{...base.lessons[0],id:"m1"},{...base.lessons[0],id:"m2"}]}, "m3");
 assert(collision.modules?.[0].id === "m4", "implicit module avoids collisions with lesson IDs");
 assert(added.lessons[0].module === added.modules?.[0].id, "existing lesson stays in original module");
+const appended = addCommunityLesson(added, added.modules![1].id);
+assert(appended.lessons.length === 2, "adding a lesson inside a module creates exactly one lesson");
+assert(appended.lessons[1].module === added.modules![1].id, "new lesson is assigned to the selected module");
+assert(new Set(appended.lessons.map(l => l.id)).size === appended.lessons.length, "new lesson ID is unique");
 const withLesson: CommunityDoc = {...added, lessons: [...added.lessons, {id:"l2",title:"Shapes",module:"m3",blocks:[{type:"text",md:"Draw a circle."}]}]};
 const moved = moveCommunityLesson(withLesson, "l1", "m3");
 assert(moved.lessons[0].module === "m3", "lesson can be moved using module selector");
