@@ -44,20 +44,23 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
   const attempts = progress.attempts.filter((a) => !bankFilter || a.bankId === bankFilter);
   const placement = (() => {
-    const available = FOUNDATION_COMPETENCIES.filter(skill =>
-      Object.keys(skill.lessons).some(id => api.courses.some(course => course.id === id)));
-    // Include prerequisites so a partial curriculum still has a valid graph.
-    const expanded = new Set(available.map(s => s.id));
-    const byId = new Map(FOUNDATION_COMPETENCIES.map(s => [s.id, s]));
-    const addParents = (id: string) => {
-      for (const parent of byId.get(id)?.prerequisites ?? []) if (!expanded.has(parent)) {
-        expanded.add(parent);
-        addParents(parent);
-      }
+    const installed = new Set(api.courses.map(c => c.id));
+    // A skill is present only when its course and every prerequisite are available.
+    // Otherwise a partial installation could create a dangling prerequisite and crash Progress.
+    const byId = new Map(FOUNDATION_COMPETENCIES.map(skill => [skill.id, skill]));
+    const eligible = new Map<string, boolean>();
+    const canShow = (id: string, visiting = new Set<string>()): boolean => {
+      if (eligible.has(id)) return eligible.get(id)!;
+      const skill = byId.get(id);
+      if (!skill || visiting.has(id)) return false;
+      const next = new Set(visiting);
+      next.add(id);
+      const ok = Object.keys(skill.lessons).every(courseId => installed.has(courseId)) &&
+        skill.prerequisites.every(parent => canShow(parent, next));
+      eligible.set(id, ok);
+      return ok;
     };
-    for (const skill of available) addParents(skill.id);
-    const authored = FOUNDATION_COMPETENCIES.filter(s => expanded.has(s.id) &&
-      Object.keys(s.lessons).every(id => api.courses.some(c => c.id === id)));
+    const authored = FOUNDATION_COMPETENCIES.filter(skill => canShow(skill.id));
     if (!authored.length) return null;
     const graph = resolveCompetencyEvidence(authored, api.courses);
     return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph) };
