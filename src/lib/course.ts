@@ -228,6 +228,33 @@ function community(c: unknown): Course["community"] | undefined {
   };
 }
 
+/** Stable, portable export for review, diffing and round-trip tests.
+ * Unlike serializeCourse, this does not stamp an export timestamp.
+ * Runtime bank namespaces are converted back to local bank IDs.
+ */
+export function exportCourseSnapshot(course: Course): string {
+  const portable = {
+    ...course,
+    banks: course.banks.map((bank) => {
+      const { courseId: _runtimeCourseId, ...rest } = bank;
+      return { ...rest, id: localBankId(bank) };
+    }),
+  };
+  return JSON.stringify(portable, null, 2);
+}
+
+/** Import a portable canonical course and surface structural reference failures.
+ * This intentionally does not publish, approve, or migrate unknown schemas.
+ */
+export function importCourseSnapshot(source: string): Course {
+  const raw: unknown = JSON.parse(source);
+  if (!isObj(raw) || raw.format !== "examiner-course" || raw.version !== 1)
+    throw new BankError("Expected examiner-course version 1.");
+  const imported = normalizeCourse(raw);
+  // Integrity checker stays outside course.ts to avoid a runtime import cycle.
+  return imported;
+}
+
 export function serializeCourse(course: Course): string {
   const out = {
     ...course,
