@@ -1,5 +1,5 @@
 import { emptyCourse, exportCourseSnapshot, importCourseSnapshot } from "../src/lib/course.ts";
-import { validateCourseIntegrity } from "../src/lib/courseIntegrity.ts";
+import { importValidatedCourseSnapshot, validateCourseIntegrity } from "../src/lib/courseIntegrity.ts";
 
 const base = emptyCourse("Integrity test");
 base.lessons = [{ id: "l1", module: "m1", title: "Intro", topics: [], body: "Hello" }];
@@ -27,3 +27,10 @@ assert("portable snapshot does not mutate course", base.lessons[0].id === "l1");
 let rejected = false;
 try { importCourseSnapshot(JSON.stringify({ ...base, version: 2 })); } catch { rejected = true; }
 assert("unsupported schema rejected", rejected);
+
+assert("validated snapshot imports", importValidatedCourseSnapshot(portable).lessons.length === 1);
+let rejectedRefs = false;
+try {
+  importValidatedCourseSnapshot(JSON.stringify({ ...base, lessons: [{ ...base.lessons[0], quiz: ["absent"] }] }));
+} catch (e) { rejectedRefs = String(e).includes("Question not found"); }
+assert("checked import rejects missing question references", rejectedRefs);
