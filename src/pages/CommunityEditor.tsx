@@ -21,6 +21,7 @@ type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "dr
 const BLOCK_LABEL: Record<Block["type"], string> = {
   heading: "Heading",
   text: "Text",
+  source: "Advanced lesson source",
   list: "List",
   image: "Image",
   question: "Question",
@@ -31,7 +32,7 @@ const BLOCK_LABEL: Record<Block["type"], string> = {
   diagram: "Diagram",
   manipulative: "Math model to play with",
 };
-const ADDABLE: Block["type"][] = ["heading", "text", "list", "example", "callout", "math", "image", "figure", "diagram", "manipulative", "question"];
+const ADDABLE: Block["type"][] = ["heading", "text", "source", "list", "example", "callout", "math", "image", "figure", "diagram", "manipulative", "question"];
 
 const CALC_LABEL: Record<CalcChoice, string> = { basic: "Basic", scientific: "Scientific", graphing: "Graphing", none: "No calculator" };
 
@@ -275,6 +276,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
     const blank: Record<Block["type"], () => Block> = {
       heading: () => ({ type: "heading", text: "" }),
       text: () => ({ type: "text", md: "" }),
+      source: () => ({ type: "source", md: "" }),
       list: () => ({ type: "list", ordered: false, items: [""] }),
       image: () => ({ type: "image", imageId: "", alt: "", caption: "" }),
       question: () => ({ type: "question", ...newQuestion(newId("q", qids)) }),
@@ -398,8 +400,8 @@ function LessonSettings({
     return next.length ? next : undefined;
   };
   return (
-    <details className="lesson-settings">
-      <summary>Lesson settings{lesson.honors ? " · honors" : ""}</summary>
+    <div className="lesson-settings">
+      <p className="small muted">Lesson settings — choose the module for this lesson</p>
       <div className="form-grid">
         {modules.length > 0 && (
           <label className="field">
@@ -451,7 +453,7 @@ function LessonSettings({
           </fieldset>
         )}
       </div>
-    </details>
+    </div>
   );
 }
 
@@ -502,10 +504,10 @@ function BlockEditor({
           </label>
         </div>
       )}
-      {b.type === "text" && (
+      {(b.type === "text" || b.type === "source") && (
         <label className="field">
           <span>
-            Text: **bold**, *italic*, [link](https://…), tables with | pipes |, math like $x^2$ or $$a^2 + b^2 = c^2$$, [[term]] links to the
+            {b.type === "source" ? "Advanced official lesson Markdown: fenced phonics, dialogue, speaking, maps, timelines, simulations, code, and assignments (see author guide)." : "Text: **bold**, *italic*, [link](https://…), tables with | pipes |, math like $x^2$ or $a^2 + b^2 = c^2$, [[term]] links to the
             glossary. A blank line starts a new paragraph.
           </span>
           <textarea className="textarea" rows={6} value={b.md} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, md: e.target.value })} />
