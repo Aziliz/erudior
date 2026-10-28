@@ -1,0 +1,17 @@
+import { interventionOutcome } from "../src/lib/interventionOutcome.ts";
+import type { CompetencyState } from "../src/lib/competencies.ts";
+import type { Progress, Attempt } from "../src/lib/types.ts";
+const check=(name:string,ok:boolean)=>{if(!ok)throw Error(name);console.log("PASS",name)};
+const state=(mastery:number|null,mastered=false):CompetencyState=>({id:"fractions",title:"Fractions",mastery,confidence:0.8,attempts:8,ready:true,blockedBy:[],mastered});
+const progress={attempts:[]} as unknown as Progress;
+check("no intervention has no outcome",interventionOutcome(state(0.5),progress)===null);
+const attempt=(id:string,baseline:number|null,date:string):Attempt=>({id,bankId:"b",bankTitle:"B",mode:"practice",startedAt:date,finishedAt:date,durationSec:20,total:2,answered:2,correct:1,byTopic:{},bySection:{},answers:[],intervention:{skillId:"fractions",baseline}});
+progress.attempts=[attempt("older",0.4,"2026-10-20T00:00:00Z"),attempt("newer",0.6,"2026-10-21T00:00:00Z"),{...attempt("other",0.1,"2026-10-22T00:00:00Z"),intervention:{skillId:"other",baseline:0.1}}];
+const improved=interventionOutcome(state(0.8),progress)!;
+check("select latest matching intervention",improved.attemptId==="newer"&&improved.sessions===2);
+check("compare mastery to mastery, not session accuracy",Math.abs(improved.delta!-0.2)<1e-8);
+check("improved but below threshold recommends more practice",improved.next.includes("continue focused practice"));
+check("mastered outcome recommends advancing",interventionOutcome(state(0.85,true),progress)!.next.includes("Advance"));
+check("missing baseline avoids invented change",interventionOutcome(state(0.7),{...progress,attempts:[attempt("unknown",null,"2026-10-23T00:00:00Z")]} as Progress)!.delta===null);
+check("missing current mastery avoids invented change",interventionOutcome(state(null),progress)!.delta===null);
+check("no mutation of history",progress.attempts[0].id==="older");
