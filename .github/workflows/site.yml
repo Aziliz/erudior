@@ -26,6 +26,8 @@ on:
       - "scripts/publish-courses.ts"
       - "scripts/fetch-previous-courses.ts"
       - "scripts/recheck-course-catalog.ts"
+      - "scripts/verify-immutable-release.sh"
+      - "scripts/lib/releaseTransport.ts"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -90,7 +92,9 @@ jobs:
         run: npx tsx scripts/check-signing-key.ts
 
       - name: Fetch and authenticate previous release
+        timeout-minutes: 15
         env:
+          COURSE_PREVIOUS_R2_BUCKET: ${{ vars.R2_BUCKET }}
           COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
           COURSE_PREVIOUS_RELEASE_DIR: .course-previous
           COURSE_BOOTSTRAP_FIRST_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}
@@ -115,20 +119,17 @@ jobs:
           fi
 
       - name: Upload course packages to R2
+        timeout-minutes: 15
         working-directory: dist-courses/v1
         run: |
           set -euo pipefail
           for f in *.r*.json states.*.json; do
             # Immutable filenames must never point to different bytes on a later release.
-            status=$(curl --silent --show-error --location --output /tmp/erudior-remote-course --write-out '%{http_code}' --max-time 60 "${VITE_COURSES_URL}${f}")
-            if [ "$status" = "200" ]; then
-              if ! cmp -s "$f" /tmp/erudior-remote-course; then
-                echo "::error::Immutable published file differs: $f"; exit 1
-              fi
-              echo "verified existing $f"; continue
-            fi
-            if [ "$status" != "404" ]; then
-              echo "::error::Cannot verify existing remote file $f (HTTP $status)"; exit 1
+            if bash ../../scripts/verify-immutable-release.sh "$f" "${{ vars.R2_BUCKET }}" "$VITE_COURSES_URL"; then
+              continue
+            else
+              result=$?
+              if [ "$result" != 10 ]; then exit "$result"; fi
             fi
             npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
               --content-type application/json --cache-control "public, max-age=31536000, immutable"
