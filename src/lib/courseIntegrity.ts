@@ -1,3 +1,4 @@
+import { validateReaderTexts } from "./readerContent";
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
 import { validateAssignment } from "./spreadsheetAssignments";
@@ -31,7 +32,7 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
   unique(course.decks.map((d) => d.id), "decks");
   unique(course.references.map((r) => r.id), "references");
   unique(course.drills.map((d) => d.id), "drills");
-  if (course.texts) unique(course.texts.map((t) => t.id), "texts");
+  for (const message of validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(q => q.id) ?? [] })) report("texts", message);
 
   if (course.spreadsheetAssignments !== undefined && !Array.isArray(course.spreadsheetAssignments)) {
     report("spreadsheetAssignments", "Must be an array");
@@ -72,11 +73,6 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
         report(`lessons[${i}].refs[${j}]`, `Unknown reference: ${id}`);
   }
 
-  for (const [i, text] of (course.texts ?? []).entries()) {
-    unique(text.sections.map((section) => section.id), `texts[${i}].sections`);
-    for (const [j, section] of text.sections.entries())
-      checkQuiz(section.questions, `texts[${i}].sections[${j}].questions`);
-  }
   return issues;
 }
 
@@ -85,6 +81,8 @@ export function importValidatedCourseSnapshot(source: string): Course {
   const parsed: unknown = JSON.parse(source);
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("Course must be an object.");
   const raw = parsed as Record<string, unknown>;
+  const readerErrors = validateReaderTexts(raw.texts, { legacy: true });
+  if (readerErrors.length) throw Error("Invalid reading library: " + readerErrors.join("; "));
   // Detect invalid IDs and dangling references before normalization can repair or discard them.
   const rawModules = Array.isArray(raw.modules) ? raw.modules.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];
   const rawLessons = Array.isArray(raw.lessons) ? raw.lessons.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];

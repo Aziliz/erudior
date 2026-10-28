@@ -1,3 +1,5 @@
+import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
+import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
 import { useEffect, useRef, useState } from "react";
 import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
@@ -10,14 +12,16 @@ import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { spreadsheetReviewReport } from "../lib/spreadsheetReview";
+import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
+import { validateReaderTexts } from "../lib/readerContent";
 import WorkResourceEditor from "../components/WorkResourceEditor";
 import { workProblems } from "../lib/work";
-import { validateCourseWork } from "../lib/courseWork";
+import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
 import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview" | "work";
+type Tab = "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
 
-export default function CourseEditor({ api, course, isNew }: { api: AppApi; course: Course; isNew?: boolean }) {
+export default function CourseEditor({ api, course, isNew, communityMode = false }: { api: AppApi; course: Course; isNew?: boolean; communityMode?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
   const [assignmentEditing, setAssignmentEditing] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -25,9 +29,10 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
   const draftVersion = useRef(0);
   const persistedVersion = useRef(0);
   const editingRef = useRef(false);
+  const uploadPending = useRef(false);
   const closingRef = useRef(false);
   const discardTarget = useRef<NavigationTarget | null>(null);
-  const hasPendingChanges = () => savingRef.current || editingRef.current || draftVersion.current !== persistedVersion.current;
+  const hasPendingChanges = () => savingRef.current || editingRef.current || uploadPending.current || draftVersion.current !== persistedVersion.current;
   useEffect(() => {
     const unregister = registerNavigationGuard((kind, target) => {
       if (kind === "app" && target && discardTarget.current?.name === target.name && discardTarget.current.courseId === target.courseId) return true;
@@ -51,11 +56,14 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
 
   async function save() {
     if (savingRef.current) return;
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before saving.");
     if (assignmentEditing) return api.toast("Apply or cancel assignment changes before saving the course.");
     if (!draft.title.trim()) {
       setTab("details");
       return api.toast("Give the course a title.");
     }
+    const audioErrors = [...validateCourseAudioFields(draft, "course", { mode: "source" }), ...(draft.vocab ?? []).flatMap((word, index) => validateVocabAudioFields(word, `vocabulary[${index}]`, { mode: "source" }))];
+    if (audioErrors.length) { setTab("metadata"); return api.toast("Fix audio metadata before saving: " + audioErrors.join("; ")); }
     const bad = draft.drills.map((d) => drillError(d)).filter(Boolean);
     if (bad.length) {
       setTab("drills");
@@ -65,10 +73,12 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
       const report = spreadsheetReviewReport(draft);
       if (!report.readyForHumanReview) { setTab("spreadsheets"); return api.toast("Fix spreadsheet assignment errors before saving: " + report.issues.join("; ")); }
     }
-    const workErrors = [...validateCourseWork(draft, { moduleIds: draft.modules.map(module => module.id) }), ...workProblems(draft)];
+    const workErrors = [...validateCourseWork(draft, { strict: !communityMode, moduleIds: draft.modules.map(module => module.id) }), ...(communityMode ? validateWorkLessonReferences(draft, draft.lessons) : workProblems(draft))];
     if (workErrors.length) { setTab("work"); return api.toast("Fix work resource errors before saving: " + workErrors.join("; ")); }
-    // Banks and decks are edited in their own editors; keep whatever is stored now.
     const latest = api.courses.find((c) => c.id === course.id) ?? course;
+    const readingErrors = validateReaderTexts(draft.texts ?? [], { strict: !communityMode, questionIds: latest.banks[0]?.questions.map(question => question.id) ?? [] });
+    if (readingErrors.length) { setTab("reading"); return api.toast("Fix reading library errors before saving: " + readingErrors.join("; ")); }
+    // Banks and decks are edited in their own editors; keep whatever is stored now.
     const savedVersion = draftVersion.current;
     savingRef.current = true;
     setSaving(true);
@@ -86,6 +96,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
   }
 
   async function close() {
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before leaving.");
     if (savingRef.current) return api.toast("Wait for the current save to finish before leaving the editor.");
     if (closingRef.current) return;
     closingRef.current = true;
@@ -142,28 +153,32 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
           {(
             [
               ["details", "Details"],
+              ["metadata", "Metadata & audio"],
               ["lessons", `Lessons (${draft.lessons.length})`],
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
               ["drills", `Math drills (${draft.drills.length})`],
+              ["reading", "Reading library"],
               ["work", "Writing, labs & activities"],
               ["spreadsheets", `Spreadsheets (${draft.spreadsheetAssignments?.length ?? 0})`],
-              ...(draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
+              ...(!communityMode && draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
           ).map(([id, label]) => (
-            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if (assignmentEditing && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else setTab(id); }}>
+            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if ((assignmentEditing || uploadPending.current) && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else setTab(id); }}>
               {label}
             </button>
           ))}
         </nav>
+        {tab === "metadata" && <CourseMetadataEditor onPendingChange={value=>{uploadPending.current=value;}} key={draft.id} course={draft} onChange={next => update(() => next)} />}
         {tab === "details" && <Details draft={draft} update={update} />}
         {tab === "lessons" && <Lessons draft={draft} update={update} />}
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
+        {tab === "reading" && <ReaderLibraryEditor texts={draft.texts ?? []} questions={(api.courses.find(c => c.id === course.id) ?? course).banks[0]?.questions ?? []} onChange={texts => update(c => ({ ...c, texts }))} protectedTextIds={(draft.texts ?? []).filter(text => !!api.progress?.reading?.[course.id + "/" + text.id]).map(text => text.id)} protectedSectionIds={Object.fromEntries((draft.texts ?? []).map(text => { const reading = api.progress?.reading?.[course.id + "/" + text.id]; return [text.id, reading ? [...Object.keys(reading.read), reading.section] : []]; }))} />}
         {tab === "work" && <WorkResourceEditor work={{ rubrics: draft.rubrics, writing: draft.writing, labs: draft.labs, activityLog: draft.activityLog }} modules={draft.modules} lessons={draft.lessons} onChange={next => update(c => { const result = { ...c }; for (const field of ["rubrics", "writing", "labs", "activityLog"] as const) delete result[field]; return { ...result, ...next }; })} onLessonBodyChange={(id, body) => update(c => ({ ...c, lessons: c.lessons.map(lesson => lesson.id === id ? { ...lesson, body } : lesson) }))} />}
         {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={(value) => { editingRef.current = value; setAssignmentEditing(value); }} />}
-        {tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
+        {!communityMode && tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
     </div>
   );

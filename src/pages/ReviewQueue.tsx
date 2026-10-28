@@ -1,9 +1,13 @@
+import { preparePromotionCandidate } from "../lib/promotionCandidate";
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import CanonicalCourseInspection from "../components/CanonicalCourseInspection";
+import { exportText } from "../lib/storage";
+import ReadingLibraryInspection from "../components/ReadingLibraryInspection";
 import CourseWorkInspection from "../components/CourseWorkInspection";
 import Markdown from "../components/Markdown";
-import { api as community, imageUrl, type CommunityEntry, type Me, type ReviewQueue as Queue } from "../lib/community";
-import { checkDoc, upgradeDoc, toCourse, type CommunityDoc } from "../lib/communityFormat";
+import { API, api as community, imageUrl, resolveCommunityImageDataUrl, type CommunityEntry, type Me, type ReviewQueue as Queue } from "../lib/community";
+import { checkDoc, communityReaderQuestions, upgradeDoc, toCourse, type CommunityDoc } from "../lib/communityFormat";
 
 /** The hidden admin page (/admin, linked from nowhere): every community course with its
  * Reviewed / Not reviewed tag, courses waiting for review, open reports, taken-down courses;
@@ -212,6 +216,8 @@ export function ReviewItem({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
 
 function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry; onDone: () => void }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
+  const [canonicalAcknowledged, setCanonicalAcknowledged] = useState(false);
+  const [readerAcknowledged, setReaderAcknowledged] = useState(false);
   const [workAcknowledged, setWorkAcknowledged] = useState(false);
   const [acknowledged, setAcknowledged] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -220,13 +226,13 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
   useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const read = async () => {
     if (operation.current) return;
-    operation.current = true; setBusy(true); setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false);
+    operation.current = true; setBusy(true); setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false); setReaderAcknowledged(false); setCanonicalAcknowledged(false);
     try {
       const r = await community.course(c.id);
       if (!alive.current) return;
       if (r.id !== c.id || r.version !== c.version) throw Error("The published version changed. Reload the review queue before reviewing.");
       const next = upgradeDoc(r.doc);
-      if (checkDoc(next, true).length) throw Error("This course contains invalid content and cannot be reviewed.");
+      if (checkDoc(next, true, { communityImageOrigin: API || undefined }).length) throw Error("This course contains invalid content and cannot be reviewed.");
       setDoc(next); setReadVersion(r.version);
     } catch (e) { if (alive.current) api.toast((e as Error).message); }
     finally { operation.current = false; if (alive.current) setBusy(false); }
@@ -237,6 +243,8 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
     if (action === "reviewed" && (!doc || readVersion !== c.version)) return api.toast("Read the current published version first.");
     if (action === "reviewed" && doc?.spreadsheetAssignments?.length && !acknowledged) return api.toast("Inspect and acknowledge the spreadsheet assignments first.");
     if (action === "reviewed" && doc && hasAssessedWork(doc) && !workAcknowledged) return api.toast("Inspect and acknowledge assessed work first.");
+    if (action === "reviewed" && doc?.texts?.length && !readerAcknowledged) return api.toast("Inspect and acknowledge the reading library first.");
+    if (action === "reviewed" && doc?.canonical && !canonicalAcknowledged) return api.toast("Inspect and acknowledge the entire canonical publication first.");
     if (operation.current) return;
     if (action === "remove" && !note.trim()) return api.toast("Write a note saying why; the author sees it.");
     operation.current = true; setBusy(true);
@@ -246,12 +254,23 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
       onDone();
     } catch (e) {
       if (alive.current && action === "reviewed") {
-        setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false);
+        setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false); setReaderAcknowledged(false); setCanonicalAcknowledged(false);
       }
       api.toast((e as Error).message);
     } finally { operation.current = false; if (alive.current) setBusy(false); }
   };
-  const course = doc ? (toCourse(doc, { id: c.id, version: c.version, review: c.review, author: c.author }, imageUrl) as { lessons: { title: string; body: string }[]; banks: { questions: { id: string; stem: string; choices: string[]; answer: number[] }[] }[]; decks: { title: string; cards: { front: string; back: string }[] }[] }) : null;
+  const exportCandidate = async () => {
+    if (operation.current || !doc?.canonical || readVersion !== c.version || !canonicalAcknowledged) return;
+    operation.current = true; setBusy(true);
+    try {
+      const candidate = await preparePromotionCandidate({ payload: doc.canonical, communityId: c.id, publishedVersion: readVersion, communityImageOrigin: API || undefined }, resolveCommunityImageDataUrl);
+      if (!alive.current) return;
+      const exported = await exportText(JSON.stringify(candidate, null, 2), `${c.id}-v${readVersion}-unapproved-candidate.json`, "Unapproved promotion candidate");
+      if (exported && alive.current) api.toast("Unapproved candidate exported. Official authorization, licensing, review, signing, and release integrity checks are still required.");
+    } catch (error) { if (alive.current) api.toast((error as Error).message); }
+    finally { operation.current = false; if (alive.current) setBusy(false); }
+  };
+  const course = doc && !doc.canonical ? (toCourse(doc, { id: c.id, version: c.version, review: c.review, author: c.author }, imageUrl, API || undefined) as { lessons: { title: string; body: string }[]; banks: { questions: { id: string; stem: string; choices: string[]; answer: number[] }[] }[]; decks: { title: string; cards: { front: string; back: string }[] }[] }) : null;
   return (
     <section className="panel review-item">
       <h3>
@@ -264,7 +283,14 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
         </button>
       ) : (
         <div className="review-read" tabIndex={0} role="region" aria-label={`Contents of ${c.title}`}>
-          {course!.lessons.map((l, i) => (
+          {doc.canonical && <>
+            <CanonicalCourseInspection course={doc.canonical.course} />
+            <button onClick={() => exportText(JSON.stringify(doc.canonical, null, 2), `${c.id}-v${readVersion}-authoring.json`, "Published canonical authoring payload").catch(error => api.toast((error as Error).message))}>Download exact published authoring payload</button>
+            <p>Promotion preparation creates an unapproved candidate only. It does not grant official approval or source rights, sign a release, or bypass licensing and integrity checks.</p>
+            <button disabled={busy || !canonicalAcknowledged || readVersion !== c.version} onClick={exportCandidate}>Export unapproved promotion candidate</button>
+            <label className="field"><input type="checkbox" checked={canonicalAcknowledged} onChange={e => setCanonicalAcknowledged(e.target.checked)} />I inspected all canonical lessons, question banks, exam rules, media, activities, references, metadata, and source rights for version {readVersion}.</label>
+          </>}
+          {!doc.canonical && course!.lessons.map((l, i) => (
             <article key={i}>
               <h4>
                 Lesson {i + 1}: {l.title}
@@ -272,6 +298,12 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
               <Markdown source={l.body} />
             </article>
           ))}
+          {!!doc.texts?.length && <>
+            <ReadingLibraryInspection texts={doc.texts} questions={communityReaderQuestions(doc)} />
+            <label className="field"><input type="checkbox" checked={readerAcknowledged} onChange={e => setReaderAcknowledged(e.target.checked)} />
+              I inspected every reading text, section, source/copyright attribution, glossary entry, and linked question for version {readVersion}.
+            </label>
+          </>}
           {hasAssessedWork(doc) && <>
             <CourseWorkInspection work={doc} />
             <h4>Assessed-work lesson links</h4>
@@ -305,7 +337,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
             I inspected every spreadsheet starter, formula, protected cell, lesson link, expected answer, and tolerance for version {readVersion}.
           </label>}
           <button className="btn sm" disabled={busy} onClick={read}>Reload course contents</button>
-          {course!.banks[0] && (
+          {!doc.canonical && course!.banks[0] && (
             <>
               <h4>Questions</h4>
               <ol className="small">
@@ -317,7 +349,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
               </ol>
             </>
           )}
-          {course!.decks.map((k, i) => (
+          {!doc.canonical && course!.decks.map((k, i) => (
             <div key={i}>
               <h4>Notecards: {k.title}</h4>
               <ul className="small">
@@ -336,7 +368,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
         <input className="input" value={note} onChange={(e) => setNote(e.target.value)} />
       </label>
       <div className="row" style={{ marginTop: 8 }}>
-        <button className="btn sm primary" disabled={busy || !doc || readVersion !== c.version || (!!doc.spreadsheetAssignments?.length && !acknowledged) || (!!doc && hasAssessedWork(doc) && !workAcknowledged)} onClick={() => act("reviewed")} title={doc && readVersion === c.version ? undefined : "Read it first"}>
+        <button className="btn sm primary" disabled={busy || !doc || readVersion !== c.version || (!!doc.spreadsheetAssignments?.length && !acknowledged) || (!!doc && hasAssessedWork(doc) && !workAcknowledged) || (!!doc?.texts?.length && !readerAcknowledged) || (!!doc?.canonical && !canonicalAcknowledged)} onClick={() => act("reviewed")} title={doc && readVersion === c.version ? undefined : "Read it first"}>
           Mark version {c.version} reviewed<span className="sr-only">: {c.title}</span>
         </button>
         <button className="btn sm danger ghost" disabled={busy} onClick={() => act("remove")}>

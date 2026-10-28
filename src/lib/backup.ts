@@ -1,3 +1,5 @@
+import { assertCourseImportPreservesFields } from "./courseImport";
+import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 // Encrypted family backup: everything on this computer (family settings, every student's
 // progress and records, courses, banks) in one file, encrypted with AES-256-GCM under a key
 // derived from a passphrase (PBKDF2-SHA-256). Restoring needs the same passphrase.
@@ -15,6 +17,7 @@ import { parseBank, serializeBank } from "./validate";
 import { validateClassroomSubmissionState } from "./classroomSubmissionStore";
 import { mergeAssessedWorkSubmissions } from "./assessedWorkEvidence";
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
+import { validateReaderTexts } from "./readerContent";
 import { mergeSpreadsheetSubmissions } from "./spreadsheetEvidence";
 
 interface Envelope {
@@ -160,10 +163,13 @@ export async function restoreContents(
   validateProgressEvidence(b.progress);
   for (const student of Object.values(b.students)) validateProgressEvidence(student.progress);
   const courses = b.courses.map((c) => {
-    const errors = validateCourseWork(c, { legacy: true });
+    const source = (c as { format?: string } | null)?.format === "erudior-canonical-authoring"
+      ? courseFromCanonicalAuthoring(c, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER }) : c;
+    const errors = [...validateCourseWork(source, { legacy: true }), ...validateReaderTexts((source as { texts?: unknown } | null)?.texts, { legacy: true })];
     if (errors.length) throw Error(`Invalid backup course work: ${errors.join("; ")}`);
+    try { assertCourseImportPreservesFields(c); } catch (error) { throw new Error("Invalid backup course work: " + (error as Error).message); }
     const course = normalizeCourse(c);
-    const canonicalErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+    const canonicalErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons), ...validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(question => question.id) ?? [] })];
     if (canonicalErrors.length) throw Error(`Invalid backup course work: ${canonicalErrors.join("; ")}`);
     return course;
   });

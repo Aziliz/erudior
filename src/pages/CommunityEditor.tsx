@@ -3,6 +3,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import CanonicalCommunityEditor from "./CanonicalCommunityEditor";
+import { confirmAction } from "../lib/storage";
+import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
 import WorkResourceEditor from "../components/WorkResourceEditor";
 import { validateCourseWork, type CourseWork } from "../lib/courseWork";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
@@ -10,8 +13,8 @@ import { registerNavigationGuard } from "../lib/navigationGuard";
 import type { Course } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
-import { api as community, imageUrl, type Editors, type Review } from "../lib/community";
-import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, checkCommunitySpreadsheetAssignments, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
+import { API, api as community, imageUrl, type Editors, type Review } from "../lib/community";
+import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, migrateCommunityDocToCanonical, communityReaderQuestions, checkCommunityReaderTexts, checkCommunitySpreadsheetAssignments, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
 import { calculatorForSubject } from "../lib/taxonomy";
 import { renderFigure } from "../lib/figure";
 import { readSpec } from "../lib/manip";
@@ -21,7 +24,7 @@ import { Drills, Glossary, Language, Modules, References, newId } from "./Commun
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "work" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "work" | "reader" | "publish";
 
 const BLOCK_LABEL: Record<Block["type"], string> = {
   assignment: "Assessed work link",
@@ -125,6 +128,11 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   const update = (fn: (d: CommunityDoc) => CommunityDoc) => {
     if (!latest.current || publicationBusy.current) return;
     const next = fn(latest.current);
+    const previousQuestionIds = new Set(communityReaderQuestions(latest.current).map(q => q.id));
+    const nextQuestionIds = new Set(communityReaderQuestions(next).map(q => q.id));
+    if (next.texts?.some(text => text.sections.some(section => section.questions?.some(id => previousQuestionIds.has(id) && !nextQuestionIds.has(id))))) {
+      api.toast("Unlink reading questions from the library before deleting their question, lesson, or module."); return;
+    }
     const moduleIds = new Set((next.modules ?? []).map(m => m.id));
     if ([...(next.writing ?? []), ...(next.labs ?? [])].some(resource => resource.module && !moduleIds.has(resource.module))) {
       api.toast("Move assessed work to another module before deleting its module."); return;
@@ -176,6 +184,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   if (!doc || !meta) return <div className="page muted">Loading…</div>;
   const readOnly = meta.status === "removed";
 
+  if (doc.canonical) return <CanonicalCommunityEditor api={api} id={id} initialDoc={doc} initialMeta={meta} />;
   return (
     <div className="page community-editor">
       <button className="back" onClick={async () => { if (canNavigate() && await flush() && canNavigate()) api.go({ name: "create" }); }}>
@@ -198,6 +207,17 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         <p className="small muted save-state" role="status">
           {pendingAssignment ? "Unapplied assignment changes" : save === "saved" ? "All changes saved" : save === "saving" ? "Saving…" : save === "unsaved" ? "Unsaved changes" : `Not saved: ${saveError}`}
         </p>
+        <button type="button" className="btn sm" disabled={readOnly || pendingAssignment || publishing || save === "saving"} onClick={async () => {
+          if (!(await confirmAction("Migrate this draft to the full canonical editor? This is one-way for this draft; existing published versions remain unchanged. All authored lesson blocks and resources will be converted to their existing app representation."))) return;
+          if (publicationBusy.current || !(await flush()) || !latest.current) return;
+          publicationBusy.current = true; setPublishing(true);
+          try {
+            const canonicalDoc = migrateCommunityDocToCanonical(latest.current, id, imageUrl, API || undefined);
+            await community.save(id, canonicalDoc);
+            latest.current = canonicalDoc; persisted.current = canonicalDoc; setDoc(canonicalDoc); setSave("saved");
+          } catch (error) { api.toast((error as Error).message); }
+          finally { publicationBusy.current = false; setPublishing(false); }
+        }}>Migrate to full canonical editor</button>
         <button type="button" className="btn sm" disabled={readOnly || pendingAssignment || publishing || save === "saving"} onClick={() => void flush()}>Save draft</button>
       </div>
       {readOnly && <p className="notice error">A reviewer took this course down: {meta.reviewNote}. It can't be edited or published again unless they restore it.</p>}
@@ -217,6 +237,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
             ["refs", `Reference sheets (${doc.references?.length ?? 0})`],
             ["drills", `Drills (${doc.drills?.length ?? 0})`],
             ["language", "Language and reading"],
+            ["reader", `Reading library (${doc.texts?.length ?? 0})`],
             ["work", "Writing, labs and activities"],
             ["spreadsheets", `Spreadsheets (${doc.spreadsheetAssignments?.length ?? 0})`],
             ["publish", "Publish"],
@@ -237,6 +258,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         {tab === "refs" && <References doc={doc} update={update} />}
         {tab === "drills" && <Drills doc={doc} update={update} />}
         {tab === "language" && <Language doc={doc} update={update} />}
+        {tab === "reader" && <ReaderLibraryEditor texts={doc.texts ?? []} questions={communityReaderQuestions(doc)} onChange={texts => update(current => ({ ...current, texts: structuredClone(texts) }))} />}
         {tab === "work" && <WorkResourceEditor
           work={doc}
           modules={doc.modules ?? []}
@@ -772,7 +794,7 @@ function FigureFields({ b, onChange }: { b: Extract<Block, { type: "figure" }>; 
 }
 
 function LessonPreview({ doc, ix }: { doc: CommunityDoc; ix: number }) {
-  const workProblems = validateCourseWork(doc, { moduleIds: doc.modules?.map(m => m.id) ?? [] });
+  const workProblems = [...validateCourseWork(doc, { moduleIds: doc.modules?.map(m => m.id) ?? [] }), ...checkCommunityReaderTexts(doc, true)];
   if (workProblems.length) return <p role="alert">Finish assessed work before previewing: {workProblems.join("; ")}</p>;
   const course = toCourse(doc, { id: "preview", version: 0, review: "not_reviewed", author: "" }, imageUrl) as {
     lessons: { body: string; title: string; quiz?: string[] }[];
@@ -924,7 +946,7 @@ function Publish({
   onBusyChange: (busy: boolean) => void;
   onChange: (m: { status?: string; version?: number; review?: Review }) => void;
 }) {
-  const problems = checkDoc(doc, true);
+  const problems = checkDoc(doc, true, { communityImageOrigin: API || undefined });
   const [errors, setErrors] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const busyRef = useRef(false);

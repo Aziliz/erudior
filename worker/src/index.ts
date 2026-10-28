@@ -290,9 +290,9 @@ async function devLogin(req: Request, env: Env): Promise<Response> {
 // ---------- courses ----------
 
 const counts = (d: CommunityDoc) => ({
-  lessons: d.lessons.length,
-  questions: d.lessons.reduce((s, l) => s + l.blocks.filter((b) => b.type === "question").length, 0),
-  cards: d.decks.reduce((s, k) => s + k.cards.length, 0),
+  lessons: d.canonical ? d.canonical.course.lessons.length : d.lessons.length,
+  questions: d.canonical ? d.canonical.course.banks.reduce((n, b) => n + b.questions.length, 0) : d.lessons.reduce((s, l) => s + l.blocks.filter((b) => b.type === "question").length, 0) + (d.modules ?? []).reduce((s, m) => s + (m.quiz?.length ?? 0), 0),
+  cards: d.canonical ? d.canonical.course.decks.reduce((n, d) => n + d.cards.length, 0) : d.decks.reduce((s, k) => s + k.cards.length, 0),
 });
 
 const tag = (c: { version: number; reviewed_version: number }) => (c.version > 0 && c.reviewed_version === c.version ? "reviewed" : "not_reviewed");
@@ -540,7 +540,7 @@ async function route(req: Request, env: Env): Promise<Response> {
     const c = await ownCourse(env, u, r[1]);
     if (c.status === "removed") throw new HttpError(403, "This course was taken down; contact the reviewers.");
     const doc = upgradeDoc(await readJson<CommunityDoc>(req));
-    const errs = checkDoc(doc, false);
+    const errs = checkDoc(doc, false, { communityImageOrigin: env.API_ORIGIN });
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
     await env.DB.prepare("UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ? WHERE id = ?")
       .bind(JSON.stringify(doc), doc.title.trim() || "Untitled course", now(), c.id)
@@ -563,9 +563,9 @@ async function route(req: Request, env: Env): Promise<Response> {
       return json({ ok: true });
     }
     const doc = upgradeDoc(JSON.parse(c.draft) as CommunityDoc);
-    const errs = checkDoc(doc, true);
+    const errs = checkDoc(doc, true, { communityImageOrigin: env.API_ORIGIN });
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
-    const ids = imageIds(doc);
+    const ids = imageIds(doc, env.API_ORIGIN);
     for (const id of ids) {
       const img = await env.DB.prepare("SELECT owner_id FROM images WHERE id = ?").bind(id).first<{ owner_id: string }>();
       // Pictures can come from the owner, any editor, or whoever is publishing.
@@ -580,10 +580,10 @@ async function route(req: Request, env: Env): Promise<Response> {
       let previous: CommunityDoc;
       try { previous = upgradeDoc(await previousObject.json<CommunityDoc>()); }
       catch { throw new HttpError(409, "The previous published version is invalid; contact the administrators."); }
-      if (checkDoc(previous, true).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
-      const workRevisionErrors = communityWorkRevisionProblems(previous, doc);
+      if (checkDoc(previous, true, { communityImageOrigin: env.API_ORIGIN }).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
+      const workRevisionErrors = communityWorkRevisionProblems(previous, doc, c.id, env.API_ORIGIN);
       if (workRevisionErrors.length) throw new HttpError(409, workRevisionErrors.join("; "));
-      const next = new Map((doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
+      const next = new Map((doc.canonical?.course.spreadsheetAssignments ?? doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
       for (const assignment of previous.spreadsheetAssignments ?? []) {
         const current = next.get(assignment.id);
         if (!current || current.lessonId !== assignment.lessonId)

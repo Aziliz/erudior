@@ -18,7 +18,9 @@ const {createRoot}=await import('react-dom/client');
 const {default:Library}=await import('../src/pages/Library.tsx');
 const valid=emptyCourse('Import test');
 valid.writing=[{id:'essay',title:'Explain',kind:'short',prompt:'Give evidence.',selfCheck:true}];
+valid.texts=[{id:'reading',title:'Original reading',kind:'prose',lang:'en',source:'Synthetic fixture',lineNumbers:0,glossary:[{term:'Term',definition:'Meaning',aliases:[],topic:'Topic'}],sections:[{id:'part',title:'Part',body:'Original body',questions:[]}]}];
 const invalids=[{...valid,writing:[null]},{...valid,writing:[{...valid.writing[0],extra:'lost'}]},{...valid,writing:[{...valid.writing[0],module:'missing'}]},{...valid,lessons:[{id:'lesson',module:valid.modules[0].id,title:'Missing',body:'```assignment\nwriting: absent\n```'}]}];
+invalids.push(...[{...valid,texts:[null]},{...valid,texts:[{...valid.texts[0],unknown:'must not drop'}]},{...valid,texts:[{...valid.texts[0],sections:[{id:'part',title:'Part',body:'Text',questions:['missing']}]}]}] as any);
 const backup=(course:unknown)=>({format:'erudior-backup',version:1,progress:emptyProgress(),courses:[course],banks:[]});
 for(const invalid of invalids){mutations.length=0;await assert.rejects(restoreBackup(backup(invalid),{courses:[{id:'never-delete'} as any],banks:[]}),/Invalid backup course work/);assert.deepEqual(mutations,[]);}
 for (const field of ['assessedWorkSubmissions','spreadsheetSubmissions']) {
@@ -42,7 +44,14 @@ async function importFile(course:unknown){
  assert.ok(notices.length,`Import did not complete; saved=${!!saved}, mutations=${mutations.join(',')}`);
 }
 for(const invalid of invalids){await importFile(invalid);assert.equal(saved,undefined);assert.match(notices.join('\n'),/Invalid course work/);}
-await importFile(valid);assert.deepEqual(saved.writing,valid.writing);
+await importFile(valid);assert.deepEqual(saved.writing,valid.writing);assert.deepEqual(saved.texts,valid.texts);
+const unknownLegacy={...valid,decks:[{id:'deck',title:'Deck',cards:[{id:'card',front:'Prompt',back:'Answer',unknownAuthoredField:'must not disappear'}]}]};
+await importFile(unknownLegacy);assert.equal(saved,undefined);assert.match(notices.join('\n'),/unknownAuthoredField|unknown|unsupported/);
+mutations.length=0;await assert.rejects(restoreBackup(backup(unknownLegacy),{courses:[{id:'never-delete'} as any],banks:[]}));assert.deepEqual(mutations,[]);
+const { canonicalAuthoringFromCourse } = await import('../src/lib/canonicalAuthoring.ts');
+const envelope = canonicalAuthoringFromCourse({...valid,updated:'2024-01-01',readAloud:false});
+await importFile(envelope);assert.equal(saved.updated,'2024-01-01');assert.equal(saved.readAloud,false);assert.deepEqual(saved.texts,valid.texts);
+for(const mutate of [(p:any)=>p.version=99,(p:any)=>p.course.community={review:'reviewed'},(p:any)=>p.course.audio={bad:'https://evil.test/audio.mp3'}]){const invalid=structuredClone(envelope);mutate(invalid);await importFile(invalid);assert.equal(saved,undefined);mutations.length=0;await assert.rejects(restoreBackup(backup(invalid),{courses:[{id:'never-delete'} as any],banks:[]}));assert.deepEqual(mutations,[]);}
 const legacy=JSON.parse(readFileSync('samples/demo-student-work.json','utf8'));await importFile(legacy);assert.ok(saved.labs.length);assert.ok(saved.writing.length);
 await act(async()=>root.unmount());dom.window.close();
 console.log('actual Library import and backup restore reject malformed work before writes; canonical exact fields and legacy imports preserved');

@@ -208,7 +208,7 @@ export function readAnswer(part: PartInstance, text: string): { value?: number; 
     const units = Object.keys(spec.units).sort((a, b) => b.length - a.length);
     for (const u of units) {
       if (t.toLowerCase().endsWith(u.toLowerCase())) {
-        factor = spec.units[u];
+        factor = Number(spec.units[u]);
         t = t.slice(0, t.length - u.length).trim();
         break;
       }

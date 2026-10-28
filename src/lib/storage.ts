@@ -1,3 +1,5 @@
+import { assertCourseImportPreservesFields } from "./courseImport";
+import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 // Storage layer. Inside the desktop app everything goes through Rust commands
 // (files in the per-user app data dir). In a plain browser (the web version, or
 // `npm run dev` without Tauri) it uses IndexedDB (see webstore.ts).
@@ -8,6 +10,7 @@ import { parseBank, serializeBank } from "./validate";
 import { normalizeCourse, serializeCourse } from "./course";
 import { webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
+import { validateReaderTexts } from "./readerContent";
 import { stateTransactions, validStateName } from "./stateLock";
 
 export const inApp = isTauri();
@@ -277,10 +280,13 @@ export async function restoreBackup(
   if (b.progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, b.progress.spreadsheetSubmissions);
   // Validate every raw work collection before normalization or any deletion/write.
   const courses = b.courses.map(rawCourse => {
-    const rawErrors = validateCourseWork(rawCourse, { legacy: true });
+    const source = (rawCourse as { format?: string } | null)?.format === "erudior-canonical-authoring"
+      ? courseFromCanonicalAuthoring(rawCourse, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER }) : rawCourse;
+    const rawErrors = [...validateCourseWork(source, { legacy: true }), ...validateReaderTexts((source as { texts?: unknown } | null)?.texts, { legacy: true })];
     if (rawErrors.length) throw Error("Invalid backup course work: " + rawErrors.join("; "));
+    try { assertCourseImportPreservesFields(rawCourse); } catch (error) { throw new Error("Invalid backup course work: " + (error as Error).message); }
     const course = normalizeCourse(rawCourse);
-    const errors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+    const errors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons), ...validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(question => question.id) ?? [] })];
     if (errors.length) throw Error("Invalid backup course work: " + errors.join("; "));
     return course;
   });

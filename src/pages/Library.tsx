@@ -1,3 +1,4 @@
+import { assertCourseImportPreservesFields } from "../lib/courseImport";
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
@@ -9,8 +10,10 @@ import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
-import { courseCounts, emptyCourse, looksLikeCourse, normalizeCourse } from "../lib/course";
+import { courseCounts, emptyCourse, exportCourseSnapshot, looksLikeCourse, normalizeCourse } from "../lib/course";
 import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
+import { courseFromCanonicalAuthoring } from "../lib/canonicalAuthoring";
+import { validateReaderTexts } from "../lib/readerContent";
 import { bankCoverage } from "../lib/session";
 import { courseNumbers } from "../lib/planner";
 import { daysBetween, today } from "../lib/srs";
@@ -38,21 +41,24 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         throw new BankError(`This file isn't valid JSON: ${(e as Error).message}`);
       }
       if (looksLikeCourse(raw)) {
-        const rawWorkErrors = validateCourseWork(raw, { legacy: true });
+        const source = (raw as { format?: string }).format === "erudior-canonical-authoring"
+          ? courseFromCanonicalAuthoring(raw, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER }) : raw;
+        const rawWorkErrors = [...validateCourseWork(source, { legacy: true }), ...validateReaderTexts((source as { texts?: unknown }).texts, { legacy: true })];
         if (rawWorkErrors.length) throw new BankError("Invalid course work: " + rawWorkErrors.join("; "));
+        try { assertCourseImportPreservesFields(raw); } catch (error) { throw new Error("Invalid course work: " + (error as Error).message); }
         let course = normalizeCourse(raw);
-        const workErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+        const workErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons), ...validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(question => question.id) ?? [] })];
         if (workErrors.length) throw new BankError("Invalid course work: " + workErrors.join("; "));
         const existing = courses.find((c) => c.id === course.id);
         // A file can't replace an Erudior or community course: it comes in as a separate copy.
         if (isPublishedCourse(course) || isPublishedCourse(existing)) {
-          course = normalizeCourse({ ...(raw as object), id: `${course.id}-${uid()}`, title: `${course.title} (copy)`, community: undefined });
+          course = normalizeCourse({ ...JSON.parse(exportCourseSnapshot(course)), id: `${course.id}-${uid()}`, title: `${course.title} (copy)`, community: undefined });
           api.toast(`"${course.title}" was imported as your own copy; the published course can't be replaced.`);
         } else if (existing) {
           const replace = await store.confirmAction(
             `"${existing.title}" is already in your library. Replace it with the imported file? Your progress is kept.\n\nChoose No to keep both.`,
           );
-          if (!replace) course = normalizeCourse({ ...(raw as object), id: `${course.id}-${uid()}`, title: `${course.title} (copy)` });
+          if (!replace) course = normalizeCourse({ ...JSON.parse(exportCourseSnapshot(course)), id: `${course.id}-${uid()}`, title: `${course.title} (copy)` });
         }
         await api.saveCourse(course);
         const n = courseCounts(course);

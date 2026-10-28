@@ -440,7 +440,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </div>
             <PhonicsPrompt q={q} lib={lib} />
             {qtype(q) !== "label" && <QuestionImage q={q} />}
-            <QuestionAudio q={q} revealed={isChecked} />
+            <QuestionAudio q={q} revealed={isChecked} fallbackLang={course?.language?.tts ?? course?.language?.code} />
             {multi && <p className="q-hint">Select {q.answer.length} answers.</p>}
             {!choiceQ && <p className="q-type small muted">{typeLabel(q)}</p>}
 

@@ -5,29 +5,27 @@
 // device's voice, footnotes and word pop-ups, and reading questions after a section.
 // Finishing a text adds it to a homeschool student's reading log.
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { AppApi } from "../App";
 import type { Course, ReaderText } from "../lib/types";
 import Markdown, { renderMarkdown } from "../components/Markdown";
 import {
-  addReadingTime,
   footnotes,
   isVerse,
-  markSectionRead,
   readingKey,
-  readingState,
   readingSubject,
   readingTime,
   renderVerse,
-  savePlace,
   verseLines,
 } from "../lib/reader";
-import { ActiveClock, updateRecords } from "../lib/timer";
-import { logBook } from "../lib/records";
+import { ActiveClock } from "../lib/timer";
+import { persistReaderBook } from "../lib/readerRecords";
 import { canSpeak, onVoices, speakAsync, stopSpeaking } from "../lib/speech";
-import { lessonQuizQuestions, startReadingQuestions } from "../lib/session";
+import { lessonQuizQuestions, startReadingQuestions, serializeRun } from "../lib/session";
 import { mainBank } from "./CourseHome";
 import { fmtDate } from "../components/ReportDocs";
+import { activeStudent, saveSessionState } from "../lib/storage";
+import { readerPersistence, readerRevision, type ReaderPersistence } from "../lib/readerPersistence";
 
 /** Reading pauses after this long without scrolling, keys or clicks (a long page takes a while). */
 const READ_IDLE_MS = 4 * 60_000;
@@ -43,13 +41,32 @@ function blockText(el: Element): string {
   return (c.textContent ?? "").replace(/\s+/g, " ").trim();
 }
 
-export default function Reader({ api, course, text }: { api: AppApi; course: Course; text: ReaderText }) {
+export default function Reader(props: { api: AppApi; course: Course; text: ReaderText }) {
+  const bank=mainBank(props.course);
+  const identity=JSON.stringify([props.api.student?.id??null,props.course.id,!!props.course.community,props.text,bank?.questions]);
+  if(!props.text.sections.length)return <p role="alert">This text has no readable sections.</p>;
+  return <ReaderLoader key={identity} {...props}/>;
+}
+function ReaderLoader({api,course,text}:{api:AppApi;course:Course;text:ReaderText}) {
+ const [controller,setController]=useState<ReaderPersistence|null>(null),[error,setError]=useState("");
+ useEffect(()=>{let live=true;const bank=mainBank(course);readerRevision(text,ids=>lessonQuizQuestions(bank,ids)).then(version=>{if(live)setController(readerPersistence(api.student?.id??null,course.id,text,version,api.progress));}).catch(e=>{if(live)setError((e as Error).message);});return()=>{live=false;};},[]);
+ if(error)return <p role="alert">Reader could not open safely: {error}</p>;
+ if(!controller)return <p role="status">Opening offline text…</p>;
+ return <ReaderSession api={api} course={course} text={text} controller={controller}/>;
+}
+function ReaderSession({ api, course, text, controller }: { api: AppApi; course: Course; text: ReaderText; controller:ReaderPersistence }) {
   const key = readingKey(course.id, text.id);
-  const start = readingState(api.progress, course.id, text);
+  useSyncExternalStore(controller.subscribe,controller.version,controller.version);
+  const apiRef=useRef(api);apiRef.current=api;
+  const alive=useRef(true),studentId=api.student?.id??null;
+  const allowed=useCallback(()=>alive.current&&activeStudent()===studentId,[studentId]);
+  const [actionError,setActionError]=useState(""),[actionBusy,setActionBusy]=useState(false),[historyOpen,setHistoryOpen]=useState(false);
+  const acting=useRef(false);
+  const start = controller.confirmed;
   const [sectionId, setSectionId] = useState(text.sections.some((s) => s.id === start.section) ? start.section : text.sections[0].id);
   const idx = Math.max(0, text.sections.findIndex((s) => s.id === sectionId));
   const section = text.sections[idx];
-  const state = api.progress.reading?.[key] ?? start;
+  const state = controller.confirmed;
   const verse = isVerse(text);
   const voice = text.lang ?? course.language?.tts ?? course.language?.code ?? "en-US";
   const langCode = (text.lang ?? course.language?.code)?.split(/[-_]/)[0];
@@ -69,6 +86,7 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
 
   const bodyRef = useRef<HTMLDivElement>(null);
   const headRef = useRef<HTMLHeadingElement>(null);
+  const noteTrigger = useRef<HTMLElement|null>(null);
   const blocks = useCallback((): HTMLElement[] => {
     const el = bodyRef.current?.querySelector(".reader-text");
     if (!el) return [];
@@ -79,15 +97,16 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
   // ---- Reading time ------------------------------------------------------------------------
   const clock = useRef<ActiveClock | null>(null);
   const [counting, setCounting] = useState(true);
-  const flush = useCallback(() => {
-    const s = clock.current?.take() ?? 0;
-    if (s >= 1) api.updateProgress((p) => addReadingTime(p, course.id, text, s)).catch(() => {});
-  }, [api, course.id, text]);
+  const flush = useCallback(async () => {
+    const seconds=clock.current?.take()??0;
+    controller.addTime(seconds);
+    return controller.persist(fn=>apiRef.current.updateProgress(fn),allowed);
+  }, [controller,allowed]);
   useEffect(() => {
     const c = new ActiveClock(Date.now(), READ_IDLE_MS);
     clock.current = c;
     const visible = () => document.visibilityState === "visible";
-    const onInput = () => c.input(Date.now());
+    const onInput = () => { if(visible()) c.input(Date.now()); };
     const events = ["keydown", "pointerdown", "pointermove", "wheel", "touchstart", "scroll"] as const;
     for (const e of events) window.addEventListener(e, onInput, { passive: true, capture: true });
     const tick = window.setInterval(() => {
@@ -96,9 +115,11 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
       setCounting(c.counting(now, visible()));
     }, TICK_MS);
     const saver = window.setInterval(flush, SAVE_MS);
+    let wasVisible=visible();
     const onHide = () => {
-      c.tick(Date.now(), true);
-      if (!visible()) flush();
+      c.tick(Date.now(), wasVisible);
+      wasVisible=visible();
+      if (!wasVisible) void flush();
     };
     document.addEventListener("visibilitychange", onHide);
     return () => {
@@ -107,7 +128,7 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
       document.removeEventListener("visibilitychange", onHide);
       window.clearInterval(tick);
       window.clearInterval(saver);
-      flush();
+      void flush();
       clock.current = null;
     };
   }, [flush]);
@@ -119,12 +140,11 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
     if (!sc) return;
     const onScroll = () => {
       window.clearTimeout(placeTimer.current);
-      placeTimer.current = window.setTimeout(() => {
-        const top = (sc === document.scrollingElement ? 0 : sc.getBoundingClientRect().top) + (document.querySelector(".reader-bar")?.getBoundingClientRect().height ?? 0);
-        const list = blocks();
-        const at = Math.max(0, list.findIndex((b) => b.getBoundingClientRect().bottom > top + 8));
-        api.updateProgress((p) => savePlace(p, course.id, text, section.id, at)).catch(() => {});
-      }, 1200);
+      const top = (sc === document.scrollingElement ? 0 : sc.getBoundingClientRect().top) + (document.querySelector(".reader-bar")?.getBoundingClientRect().height ?? 0);
+      const list = blocks();
+      const at = Math.max(0, list.findIndex((b) => b.getBoundingClientRect().bottom > top + 8));
+      controller.setPlace(section.id,at);
+      placeTimer.current=window.setTimeout(()=>{void flush();},1200);
     };
     sc.addEventListener("scroll", onScroll, { passive: true });
     return () => {
@@ -137,10 +157,11 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
   // Open at the saved place (first visit to this section: at its top), and note the section.
   const firstOpen = useRef(true);
   useEffect(() => {
-    const at = firstOpen.current && state.section === section.id ? state.at : 0;
+    const at = firstOpen.current && state.section === section.id ? Math.min(Math.max(0,Math.floor(state.at)||0),Math.max(0,blocks().length-1)) : 0;
     const el = blocks()[at];
     const sc = scroller();
-    requestAnimationFrame(() => {
+    const frame=requestAnimationFrame(() => {
+      if(!allowed())return;
       if (at > 0 && el) {
         el.scrollIntoView({ block: "start" });
         // Leave room for the sticky bar.
@@ -149,7 +170,9 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
       if (!firstOpen.current) headRef.current?.focus();
       firstOpen.current = false;
     });
-    api.updateProgress((p) => savePlace(p, course.id, text, section.id, at)).catch(() => {});
+    controller.setPlace(section.id,at);
+    void flush();
+    return ()=>cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [section.id]);
 
@@ -191,72 +214,64 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
   }
 
   // ---- Sections, finishing, questions ------------------------------------------------------
-  const go = (i: number) => {
-    flush();
-    setSectionId(text.sections[i].id);
-  };
+  async function syncReadingLog() {
+    if(!controller.confirmed.finished || !api.family || !studentId || course.community)return true;
+    try {
+      // Explicit captured learner ID; finish a confirmed learner's projection even if they switch during its write.
+      if(!allowed())return false;
+      const total=controller.confirmed.seconds;
+      await persistReaderBook(studentId,{date:controller.confirmed.finished!,title:text.title,author:text.author??"",subject:readingSubject(text,course.language?.code),note:`Read in Erudior (${course.title})`,minutes:Math.round(total/60),textKey:key},!!course.community);
+      controller.logSaved=true;controller.logError="";controller.notify();return true;
+    } catch(e){controller.logError=`Reading is saved, but its reading-log entry is not confirmed: ${(e as Error).message}`;controller.notify();return false;}
+  }
+  async function action(run:()=>Promise<void>) {
+    if(acting.current||!allowed())return;
+    acting.current=true;setActionBusy(true);setActionError("");
+    try{await run();}catch(e){if(alive.current)setActionError((e as Error).message);}finally{acting.current=false;if(alive.current)setActionBusy(false);}
+  }
+  const go = (i:number) => action(async()=>{if(i<0||i>=text.sections.length)return;if(await flush()&&allowed())setSectionId(text.sections[i].id);});
   const readOn = state.read[section.id];
   const last = idx === text.sections.length - 1;
   const bank = mainBank(course);
   const questions = lessonQuizQuestions(bank, section.questions);
-
-  async function finishSection() {
-    flush();
-    let finished = false;
-    await api.updateProgress((p) => {
-      const was = !!p.reading?.[key]?.finished;
-      const next = markSectionRead(p, course.id, text, section.id);
-      finished = !was && !!next.reading?.[key]?.finished;
-      return next;
-    });
-    if (finished) {
-      api.toast(`You finished ${text.title}!`);
-      // Homeschool: it goes in the student's reading log (the parent can edit or remove it).
-      if (api.family && api.student && !course.community) {
-        const secs = api.progress.reading?.[key]?.seconds ?? 0;
-        await updateRecords(api.student.id, (r) =>
-          logBook(r, {
-            date: new Date().toISOString().slice(0, 10),
-            title: text.title,
-            author: text.author ?? "",
-            subject: readingSubject(text, course.language?.code),
-            note: `Read in Erudior (${course.title})`,
-            minutes: Math.round(secs / 60),
-            textKey: key,
-          }),
-        ).catch(() => {});
-      }
+  const total=state.seconds;
+  function finishSection() {void action(async()=>{
+    controller.finish(section.id);
+    if(!await flush())return;
+    await syncReadingLog();
+    if(!allowed())return;
+    if(controller.confirmed.finished)api.toast(`You finished ${text.title}!`);
+    if(!last)setSectionId(text.sections[idx+1].id);
+  });}
+  function askQuestions() {void action(async()=>{
+    if(!bank||!await flush()||!allowed())return;
+    if(!controller.questions[section.id]) {
+      const session=startReadingQuestions(bank,{courseId:course.id,textId:text.id,sectionId:section.id},section.questions!);
+      const flags=Object.fromEntries(session.items.filter(item=>apiRef.current.progress.qmeta?.[session.bankId+"/"+item.q.id]?.flag).map(item=>[item.q.id,true]));
+      controller.questions[section.id]={session,initial:{index:0,answers:{},flags,checked:{},blockIdx:0,blockUsed:session.blocks?.map(()=>0)??[0]}};
     }
-    if (!last) go(idx + 1);
-  }
-
-  function askQuestions() {
-    if (!bank) return;
-    flush();
-    api.go({ name: "run", session: startReadingQuestions(bank, { courseId: course.id, textId: text.id, sectionId: section.id }, section.questions!) });
-  }
-
-  // Keep the reading log's minutes current for a finished book read again.
-  const total = state.seconds;
-  useEffect(() => {
-    if (!state.finished || !api.family || !api.student || course.community) return;
-    const sid = api.student.id;
-    updateRecords(sid, (r) => {
-      const e = r.reading.find((b) => b.textKey === key);
-      return e ? logBook(r, { ...e, minutes: Math.round(total / 60) }) : r;
-    }).catch(() => {});
-    // Only when a whole minute is added.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Math.floor(total / 60)]);
+    const {session,initial}=controller.questions[section.id];
+    await saveSessionState(serializeRun(session,initial));
+    if(!allowed())return;
+    delete controller.questions[section.id];api.go({name:"run",session,initial});
+  });}
+  // Reconcile a failed reading-log projection after remount/reload, never community records.
+  useEffect(()=>{if(state.finished&&!controller.pending)void syncReadingLog();},[state.finished,Math.floor(total/60),controller.pending]);
+  // Registered after time/position cleanups: their final synchronous write can start,
+  // but any later asynchronous continuation cannot write into a different reader/profile.
+  useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
 
   const kind = KIND_LABEL[text.kind ?? "prose"];
   const done = text.sections.filter((s) => state.read[s.id]).length;
 
   return (
-    <div className="page reader">
-      <button className="back" onClick={() => api.go({ name: "course", courseId: course.id, tab: "reading" })}>
+    <div className="page reader" onClickCapture={event=>{const trigger=(event.target as HTMLElement).closest<HTMLElement>(".fn-ref, .gloss");if(trigger)noteTrigger.current=trigger;}} onKeyDown={event=>{if(event.key==="Escape"){const close=bodyRef.current?.querySelector<HTMLButtonElement>('[role="dialog"] button[aria-label="Close"]');if(close){close.click();noteTrigger.current?.focus();event.preventDefault();}}}}>
+      <button className="back" onClick={()=>void action(async()=>{if(await flush()&&allowed())api.go({name:"course",courseId:course.id,tab:"reading"});})}>
         ← {course.title}: Reading
       </button>
+      {(controller.error||controller.logError||actionError)&&<div role="alert" className="notice">{controller.error||controller.logError||actionError}<button className="btn" disabled={actionBusy||controller.busy} onClick={()=>controller.questions[section.id] ? askQuestions() : void action(async()=>{if(await flush())await syncReadingLog();})}>{controller.questions[section.id] ? "Retry question launch" : "Retry saving reading"}</button></div>}
+      {controller.pending&&<p role="status">Reading changes are not yet confirmed saved.</p>}
+      {!!Object.keys(state.priorRead??{}).length&&<details onToggle={event=>setHistoryOpen(event.currentTarget.open)}><summary>Previous-version reading history retained</summary><p>Changed sections must be read again. Unchanged sections keep their place and completion.</p>{historyOpen&&<pre>{JSON.stringify({sections:state.priorRead,completed:state.completedRevisions},null,2)}</pre>}</details>}
       <header className="reader-head">
         <p className="muted small">
           {kind}
@@ -277,12 +292,12 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
       <div className="reader-bar" role="toolbar" aria-label="Reading tools">
         {text.sections.length > 1 && (
           <>
-            <button className="btn sm ghost" disabled={idx === 0} onClick={() => go(idx - 1)} aria-label="Previous part">
+            <button className="btn sm ghost" disabled={idx === 0||actionBusy||controller.busy} onClick={() => go(idx - 1)} aria-label="Previous part">
               ←
             </button>
             <label className="reader-toc">
               <span className="sr-only">Part</span>
-              <select className="select" value={section.id} onChange={(e) => go(text.sections.findIndex((s) => s.id === e.target.value))}>
+              <select className="select" disabled={actionBusy||controller.busy} value={section.id} onChange={(e) => go(text.sections.findIndex((s) => s.id === e.target.value))}>
                 {text.sections.map((s, i) => (
                   <option key={s.id} value={s.id}>
                     {state.read[s.id] ? "✓ " : ""}
@@ -291,13 +306,13 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
                 ))}
               </select>
             </label>
-            <button className="btn sm ghost" disabled={last} onClick={() => go(idx + 1)} aria-label="Next part">
+            <button className="btn sm ghost" disabled={last||actionBusy||controller.busy} onClick={() => go(idx + 1)} aria-label="Next part">
               →
             </button>
           </>
         )}
         {canSpeak(voice) && (
-          <button className="btn sm" onClick={readAloud} aria-pressed={aloud}>
+          <button className="btn sm" onClick={()=>void readAloud().catch(error=>{if(alive.current){stopAloud();setActionError(`Read-aloud stopped: ${(error as Error).message}`);}})} aria-pressed={aloud}>
             {aloud ? "■ Stop reading aloud" : "🔊 Read aloud"}
           </button>
         )}
@@ -341,7 +356,7 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
           <p className="muted small">
             {questions.length} question{questions.length === 1 ? "" : "s"} to check your understanding. You see the answer and an explanation after each one.
           </p>
-          <button className="btn" onClick={askQuestions}>
+          <button className="btn" disabled={actionBusy||controller.busy} onClick={askQuestions}>
             Answer the questions
           </button>
         </section>
@@ -357,7 +372,7 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
         )}
         <div className="row">
           {!readOn && (
-            <button className="btn primary" onClick={finishSection}>
+            <button className="btn primary" disabled={actionBusy||controller.busy} onClick={finishSection}>
               {last ? (done === text.sections.length - 1 ? `I've finished the ${kind.toLowerCase()}` : "I've read this part") : "I've read this part: next"}
             </button>
           )}
@@ -369,7 +384,7 @@ export default function Reader({ api, course, text }: { api: AppApi; course: Cou
           {state.finished && (
             <span className="small muted">
               Finished on {fmtDate(state.finished)}
-              {api.family && api.student ? `; it's in ${api.student.name}'s reading log.` : "."}
+              {api.family && api.student && !course.community && controller.logSaved ? `; it's in ${api.student.name}'s reading log.` : course.community ? "; community reading stays outside official reading records." : "."}
             </span>
           )}
         </div>
