@@ -1,0 +1,36 @@
+name: CI diagnostics verification
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/diagnostic-command.mjs"
+      - "tests/diagnostic-command.test.mjs"
+      - ".github/workflows/diagnostics.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnostics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify diagnostic command runner and redaction
+        id: tests
+        run: node --test tests/diagnostic-command.test.mjs
+      - name: Write structured CI summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: diagnostics-verification
+          ERUDIOR_DIAG_STAGES: "tests:${{ steps.tests.outcome }}"
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-verification
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
