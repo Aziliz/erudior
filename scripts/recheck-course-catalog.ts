@@ -17,6 +17,11 @@ async function get(name: string) {
   return response;
 }
 const catalog = await get("catalog.json");
+if (process.env.COURSE_BOOTSTRAP_FIRST_RELEASE === "true") {
+  if (catalog.status !== 404) throw new Error("First-release baseline changed: a remote catalog now exists.");
+  console.log("Confirmed no remote catalog has appeared since authorized bootstrap.");
+  process.exit(0);
+}
 if (catalog.status !== 200) throw new Error(`Catalog changed or became unavailable before commit (HTTP ${catalog.status}).`);
 const bytes = new Uint8Array(await catalog.arrayBuffer());
 const signatureResponse = await get("catalog.json.sig");
