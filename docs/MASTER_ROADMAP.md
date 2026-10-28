@@ -133,3 +133,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - **PR under development:** Stable cross-course skill IDs, directed prerequisites with missing-link and cycle checks, weighted topic evidence from multiple courses, minimum confidence for mastery, readiness gates, and recommendations for unmastered ready skills.
 - **Future integration:** map canonical courses' topics/assessments to approved skill definitions, persist course-independent learner mastery, support explicit placement and teacher override, expose progression in student and parent views, and test privacy/accessibility.
 - This item remains **Planned** publicly until merge-only CI completes successfully and at least one course uses the graph end-to-end.
+
+### Cross-course competency graph — placement integration slice (2026-10-28)
+- Added `collectCompetencyEvidence` bridge from existing course/question/drill mastery to shared skill IDs, without changing stored Progress format.
+- Added `studentCompetencyPlacement` with prerequisite gates, course-specific suggestions, and interpretable mastery/confidence explanations; unknown mastery remains unknown.
+- Added targeted tests for missing evidence, recommendation order, blocked prerequisites and nonmutation, included in merge-only full suite.
+- **Still outstanding:** real authored skill taxonomy mapped against existing courses, student and teacher interfaces, placement override/history, and graph-driven adaptive practice. PR #15 remains draft and public status stays Planned until merged and verified.
