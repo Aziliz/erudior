@@ -464,6 +464,8 @@ export interface Course {
   writing?: WritingTask[];
   labs?: Lab[];
   activityLog?: ActivityLogSpec;
+  /** Course-authored spreadsheet exercises; lessonId attaches each assignment to a lesson. */
+  spreadsheetAssignments?: Array<import("./spreadsheetAssignments").SpreadsheetAssignment & { lessonId: string }>;
 }
 
 export interface CommunityInfo {
