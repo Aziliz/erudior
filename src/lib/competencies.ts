@@ -71,7 +71,7 @@ export function evaluateCompetencies(
     for (const [courseId, topics] of Object.entries(skill.evidence))
       for (const topic of topics) {
         const entry = sources[courseId]?.[topic];
-        if (entry && entry.n > 0 && Number.isFinite(entry.mastery) && Number.isFinite(entry.confidence))
+        if (entry && Number.isFinite(entry.n) && entry.n > 0 && entry.mastery >= 0 && entry.mastery <= 1 && entry.confidence >= 0 && entry.confidence <= 1 && Number.isFinite(entry.mastery) && Number.isFinite(entry.confidence))
           evidence.push(entry);
       }
     const attempts = evidence.reduce((sum,e) => sum + Math.max(0,e.n), 0);
