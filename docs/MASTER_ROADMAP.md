@@ -104,3 +104,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Cloudflare R2 publication now fetches existing versioned course/state files and compares exact bytes before skipping upload. Identical files are reused; mismatches fail publication rather than silently accepting stale or conflicting immutable artifacts.
 - HTTP responses other than 200 (verified existing) and 404 (new upload) fail closed. Catalog publication remains last after all immutable files have been verified or uploaded.
 - **Status:** committed on draft PR #11; merge-only CI and live deployment verification outstanding. Do not mark the canonical course model Done yet.
+
+### Slice 16 — Catalog publication race guard
+- Before uploading the new catalog, the release workflow re-fetches the live catalog with no-cache intent, verifies its signature against pinned Erudior keys, and compares bytes/signature with the authenticated baseline used to validate the update.
+- Authorized first-release publishing rechecks that no catalog has appeared. A changed or inaccessible catalog stops the release rather than overwriting it.
+- **Limitation:** This is optimistic concurrency protection, not atomic compare-and-swap. A separately authorized writer could still race between recheck and upload. Object-store generation-conditional writes or a centralized single-writer release service remain required for a strict guarantee.
+- **Status:** committed in draft PR #11; do not mark the roadmap item Done until merge-only CI and live deployment verification succeed.
