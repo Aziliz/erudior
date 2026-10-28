@@ -556,9 +556,9 @@ const planned = (title: string, detail: string, phase: "1.0" | "Later" = "1.0"):
 export const UPDATES: UpdateArea[] = [
   {
     id: "web-app-updates", title: "Website update",
-    intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
+    intro: "Public discovery, free guest learning, and admin-only management. No student, family, teacher or professional accounts on the public website.",
     items: [
-      { title: "Erudior opening-book splash and official motto", detail: "Opening-book and teal bookmark startup splash with Learn without limits; reduced-motion and no artificial load delay (PR #39).", status: "done", phase: "1.0" },
+      { title: "Erudior opening-book splash and official motto", detail: "Opening-book and teal bookmark on first website visit per browser session (not refresh), visible about 1.7 seconds with reduced-motion support.", status: "done", phase: "1.0" },
       { title: "Third-party Powered by Erudior splash", detail: "Reusable independent-product splash with product name, Engine attribution and explicit non-endorsement notice (PR #39).", status: "done", phase: "1.0" },
       { title: "Erudior Engine attribution and contribution license", detail: "License draft updated in PR #3; attribution and upstream modified-source obligations require rights-holder and legal review before adoption.", status: "in_progress", phase: "1.0" },
       { title: "Independent website deployment and public roadmap publishing", detail: "Cloudflare Pages deploys independently of signed R2 course packages; verified successful workflow jobs.", status: "done", phase: "1.0" },
@@ -567,9 +567,8 @@ export const UPDATES: UpdateArea[] = [
       { title: "Community creation guide and authoring tests", detail: "In-editor guide for headings, Markdown tables, images/alt text, diagrams, manipulatives, quizzes and advanced source; test complete create→publish→install workflow. Draft PR #1 not deployed.", status: "in_progress", phase: "1.0" },
       planned("Community editor visual audio, reader and assignment tools", "Replace advanced JSON-only resource inputs with accessible authoring and file support."),
       planned("Community creator eight-course K demo browser test", "Create, save, reopen, publish and install eight K subjects, compare parity with official courses and repair defects."),
-      planned("Teacher Content Studio editor and presenter UI", "Website controls for creating and presenting teacher materials, classroom games and lessons.", "Later"),
-      planned("Reviewed community-to-official promotion", "Admin-gated review of an immutable published version; embed media, retain provenance, check parity and approval; publish only via authorized official release pipeline."),
-      planned("Safe authentication and family accounts", "Parent-created under-13 profiles with verifiable consent, restricted child sessions and device pairing; teen sign-in transition at 13, adult transition at 18, guardian reauthentication."),
+      planned("Teacher Content Studio editor and presenter UI", "Admin-panel-only website controls for authoring and review; teacher and learner accounts live in the application.", "Later"),
+      planned("Reviewed community-to-official promotion", "Admin-panel-gated review of an immutable published version; embed media, retain provenance, check parity and approval; publish only via authorized official release pipeline."),
       planned("Credential registry and public verification", "Professional-only certificate issuance when authorized; signed PDFs, unguessable IDs, privacy-preserving lookup, revocation, correction and issuer identity."),
     ],
   },
@@ -578,6 +577,7 @@ export const UPDATES: UpdateArea[] = [
     intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
     items: [
       { title: "Official Erudior application splash and motto", detail: "Accessible official opening-book loading splash shared with the public website (PR #39).", status: "done", phase: "1.0" },
+      planned("Safe authentication and family accounts", "App-only student and guardian profiles, consent, device pairing and age transitions; no public website accounts."),
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
       planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),
       planned("Parent dashboard PIN protection and child account switching", "Restricted child profiles, parent reauthentication and shared-device role switching."),
