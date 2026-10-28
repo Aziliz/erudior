@@ -122,6 +122,18 @@ jobs:
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
             --content-type text/plain --cache-control "public, max-age=300"
 
+      - name: Verify published catalog and signature
+        working-directory: dist-courses/v1
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Read back the authoritative objects from R2 rather than cached CDN responses.
+          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json" --file /tmp/erudior-published-catalog.json
+          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file /tmp/erudior-published-catalog.json.sig
+          cmp catalog.json /tmp/erudior-published-catalog.json
+          cmp catalog.json.sig /tmp/erudior-published-catalog.json.sig
+          echo "Published catalog and signature match signed release artifacts."
+
       - name: Sitemap from the course catalog
         run: node scripts/sitemap.mjs
 
