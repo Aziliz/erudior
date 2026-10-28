@@ -94,3 +94,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - All ordinary publishing still requires a signature-verified previous catalog; first-release bootstrap is never automatically activated on a failed fetch.
 - Existing catalog courses with established revision numbers can be imported during this one-time initialization. After a release exists, newly introduced courses must begin at revision 1.
 - **Status:** implementation on draft PR #11, awaiting merge-only CI and deployment validation; keep public Lesson Engine status planned.
+
+### Slice 14 — Publishing integration blocker fixes
+- Corrected prior-course filename validation so valid immutable `course.rN.json` paths are accepted during subsequent publication.
+- Corrected the explicitly bootstrapped catalog signature output to a newline-terminated signature string.
+- **Status:** both fixes committed on draft PR #11, not merged or verified. The full test suite remains scheduled for merge to `main` only.
