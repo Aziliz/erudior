@@ -167,3 +167,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Algebra 1 installed without Pre-algebra no longer causes an invalid graph via missing prerequisites; uninstalled course skill pathways are omitted until dependencies are available, without inventing mastery.
 - Added merge-only regression coverage for no courses, Algebra 1 alone, Pre-algebra alone, and all three mapped courses installed.
 - **Status:** PR #15 remains draft. Integration is committed but neither merged nor full-suite verified. Public status remains In Progress.
+
+### Two-slice competency and publishing update — October 28, 2026
+- **Competency coverage:** PR #24 merged. Skill graph expanded from 27 to 45 authored definitions across 12 existing courses, including Trigonometry, Precalculus, Calculus, Biology, Physics and German B1. New course-availability/prerequisite test cases are included in the merge-only suite.
+- **Previous-release reliability:** PR #25 merged. Course downloads now use bounded retries and longer timeouts, keeping signed catalog verification and SHA-256 integrity enforcement mandatory.
+- **Outstanding:** Public course publishing has experienced both a German A1 digest mismatch and a later download timeout. Neither cause is fully resolved or independently verified in production. Keep production course publishing repair **In Progress**.
+- **Policy:** Roadmap edits are committed directly to main; application/engine code may use PRs. Full tests are merge-only.
