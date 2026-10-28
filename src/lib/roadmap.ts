@@ -476,7 +476,7 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Shared canonical course and content model": "Canonical/community spreadsheet and writing, rubric, lab and activity workflows are deployed through PRs #64 and #71: lossless authoring/install, original submission evidence, exact instructor review and encrypted recovery. The full original capability still requires reader/audio, advanced interactive content and remaining metadata round-trip parity. These remaining parts will be released together, not as completed subfeatures.",
+  "Shared canonical course and content model": "The complete canonical model is implemented and delivered on web and community API through PR #73, including reader/audio resources, advanced interactive content, metadata, lossless authoring/review/install, learner persistence, revisions and encrypted recovery. Full regression and separate release-integrity gates are verified. Desktop v0.25.0 distribution remains pending; this whole capability stays In Progress until the signed installers and updater assets are published and verified.",
   "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). The original simulator scope still requires spreadsheet functions, named ranges, validation rules and safe simulated macro teaching; imported VBA or untrusted macros must never execute. The instructor/learner/review/publishing workflow is complete, but the whole simulator is not.",
 };
 
