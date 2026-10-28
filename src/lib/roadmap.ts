@@ -514,6 +514,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Local spreadsheet assignment authoring interface", detail: "Author protected cells, expected results and grading tolerance in the workbook lab, save locally and open an assignment (PR #45). Course publishing remains planned.", status: "done" },
   { title: "Spreadsheet assignment grading and protected-cell foundation", detail: "Reusable workbook assignment schema, expected cell results, locked inputs and learner-facing grading exercise (PR #44). Instructor authoring and publishing remain in progress.", status: "done" },
   { title: "Saved spreadsheet practice and reusable templates", detail: "Local workbook persistence, validated reload, and reusable budget, closing and formula templates (PR #43). Instructor template publishing and device sync remain in progress.", status: "done" },
   { title: "Interactive spreadsheet practice workspace", detail: "Editable multi-sheet grid, safe calculations, cross-sheet references, formula error feedback and reset accessible through learner Progress (PR #42). Persistence and templates remain in progress.", status: "done" },
