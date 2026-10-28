@@ -2,6 +2,15 @@
 
 ## Active whole-capability checkpoint — 2026-10-28
 
+**Cross-course competency graph — Done.** PR #76 (`dac59988ca0ff30457204344bd0890dd7d315e32`) completes the original capability without adding course content or splitting it into artificial rows.
+
+- Existing 45 approved skills across 12 courses use exact course/bank/question identities, validated prerequisite links and exact-pool adaptive practice. Same-topic or broad module questions cannot confer evidence; unknown evidence remains unknown.
+- Private course-independent history preserves source/revision lineage and retained prerequisites through uninstall/reinstall and encrypted recovery. Legacy revisionless answers remain in history but require new assessment after an identity baseline. Changed sources cannot recycle old mastery. Active snapshot references avoid replay/double counting.
+- Student and existing PIN-gated parent/classroom-teacher views separate assessed estimates from explicit reasoned placement, overrides and revocation history. Plaintext imported manual history is non-operative until an adult reissues a decision. This is learning guidance, not a certification or external credential.
+- Exact-head full regression/build and native tests passed before normal merge. All six post-merge lanes passed: regression/build `40784958918`, native `40784958941`, integrity `40784958984`, Pages `40784958891`, community API `40784959028`, and authenticated signed-course publication/readback `40784958970`.
+- Desktop packaging remains explicitly deferred to a later consolidated release. No new installer or tag is claimed. Next roadmap work has not started in this checkpoint.
+
+
 **Shared canonical course and content model — Done (implementation, integrated validation and web/API delivery).** On 2026-10-28 the user explicitly deferred new desktop installers until other features are complete and authorized continuing the roadmap. This status does not claim desktop distribution. The complete original model covers modules/lessons, supported question/bank metadata, readers, audio/language, rubrics/work, images and interactive blocks, including authoring, learner, review, publishing, import/export, revisions and recovery. No partial sub-feature rows or completion-count inflation.
 
 - Integrated in PR #73 (`04cfcfd1`): strict canonical envelopes and explicit runtime adapters; reader authoring and revision-aware persistence; complete metadata/audio editing; advanced source validation; safe code/figure/SVG rendering; owned-media handling; canonical community author→review→publish→install and encrypted backup/recovery.
@@ -14,9 +23,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 10 Done, 4 In Progress, 12 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 11 Done, 3 In Progress, 12 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Selected unfinished entry: Cross-course competency graph — In Progress.** This is the next unfinished entry in the existing Lesson Engine order. Complete its original stable skill/prerequisite model, verified assessment mappings, durable course-independent evidence, explicit placement and instructor overrides/history, learner and supervising-adult progression views, and graph-driven practice with privacy/accessibility tests. Audit existing deployed foundations before implementation; hold one integrated feature PR until the full scope is verified. Desktop packaging is deferred to the later consolidated release, not treated as a new blocker.
+**Next unfinished entry in existing Lesson Engine order: Learning game mechanics and live quiz modes — Planned.** The cross-course graph is complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 

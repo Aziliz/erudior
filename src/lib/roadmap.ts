@@ -469,7 +469,6 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 export const ENGINE_IN_PROGRESS = new Set<string>([
   "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
-  "Cross-course competency graph",
   "Learning diagnostics and targeted intervention",
 ]);
 
@@ -479,7 +478,6 @@ export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
 };
 
 export const ENGINE_PLANNED = [
-  "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
   "Learning diagnostics and targeted intervention",
@@ -501,6 +499,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Cross-course competency graph", detail: "Complete stable skill/prerequisite pathways with exact linked assessment evidence, durable private per-learner history, revision-safe reassessment, retained prerequisites, adult placement/override/revoke history, learner and supervising-adult views, and exact-question adaptive practice. Full regression, native persistence, integrity and separate web/API/course delivery passed in PR #76. Manual placement is not assessed mastery or certification. Installers are deferred to the later consolidated release.", status: "done" },
   { title: "Shared canonical course and content model", detail: "Complete versioned model for reader/audio resources, advanced interactive content and metadata, with lossless authoring, review, publishing/install, learner persistence, revisions and encrypted recovery. Integrated tests and web/API delivery passed through PRs #73–75. Desktop installers are explicitly deferred to a later consolidated release; this does not claim desktop distribution.", status: "done" },
   { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–58. Bounded transfers retain exact-byte verification and fail-closed authoritative-origin recovery. Release integrity checks remain mandatory.", status: "done" },
   { title: "Course content validation and portable revisions", detail: "Course integrity checks, deterministic snapshots, compatible revisions and signed-release preflight. Live release repair remains tracked separately.", status: "done" },
@@ -508,7 +507,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Reading, writing and language practice", detail: "Reader for documents, writing assignments and rubrics, and listening/speaking practice.", status: "done" },
   { title: "Interactive mathematics, science and coding", detail: "Math manipulatives, science labs and simulations, executable code exercises, diagrams and supported question formats.", status: "done" },
   { title: "Maps, timelines and visual learning", detail: "Interactive maps, timelines, route and event learning activities.", status: "done" },
-  { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. Cross-course graph and diagnostics are separate ongoing capabilities.", status: "done" },
+  { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. The cross-course graph is completed separately; learning diagnostics remain an ongoing capability.", status: "done" },
   { title: "Homeschool and activity records", detail: "Attendance, grades, transcripts, portfolios and physical/art/music activity logs.", status: "done" },
   { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook and live quizzes, with immutable hand-in history, exact-snapshot instructor decisions, interrupted-import recovery and encrypted backup.", status: "done" },
 ];
