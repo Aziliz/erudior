@@ -240,6 +240,22 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         Early-reader mode: read lessons, questions and answer choices aloud (recommended for K–2)
       </label>
       <fieldset className="plain-fieldset span-2">
+        <legend>Recorded audio and built-in reading texts</legend>
+        <p className="small muted">Use recordings for phonics and read-aloud, and add novels, poems or primary sources to the built-in reader. Only upload or include material you have permission to publish.</p>
+        <ResourceJsonEditor
+          label="Audio library (JSON object mapping spoken text or sound keys to say: overrides or embedded recordings)"
+          value={doc.audio ?? {}}
+          onApply={(value) => update((d) => ({ ...d, audio: value as Record<string, string> }))}
+          isValid={(value) => !!value && typeof value === "object" && !Array.isArray(value)}
+        />
+        <ResourceJsonEditor
+          label="Reader library (JSON list of texts with title, sections, and source attribution)"
+          value={doc.texts ?? []}
+          onApply={(value) => update((d) => ({ ...d, texts: value as CommunityDoc["texts"] }))}
+          isValid={(value) => Array.isArray(value)}
+        />
+      </fieldset>
+      <fieldset className="plain-fieldset span-2">
         <legend>Practice exam (drawn from all the questions in the course)</legend>
         <div className="row">
           {(
@@ -270,6 +286,34 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         </div>
       </fieldset>
     </section>
+  );
+}
+
+function ResourceJsonEditor({ label, value, onApply, isValid }: {
+  label: string;
+  value: unknown;
+  onApply: (value: unknown) => void;
+  isValid: (value: unknown) => boolean;
+}) {
+  const [draft, setDraft] = useState(() => JSON.stringify(value, null, 2));
+  const [error, setError] = useState("");
+  return (
+    <div className="field" style={{ marginTop: 12 }}>
+      <label>{label}</label>
+      <textarea className="textarea code" rows={5} value={draft} onChange={(e) => { setDraft(e.target.value); setError(""); }} />
+      <div className="row">
+        <button className="btn sm" onClick={() => {
+          try {
+            const parsed: unknown = JSON.parse(draft);
+            if (!isValid(parsed)) throw new Error("Incorrect JSON structure for this resource.");
+            onApply(parsed);
+            setError("");
+          } catch (e) { setError((e as Error).message); }
+        }}>Apply resource changes</button>
+        <button className="btn sm ghost" onClick={() => { setDraft(JSON.stringify(value, null, 2)); setError(""); }}>Reset to saved</button>
+      </div>
+      {error && <p className="notice error" role="alert">{error}</p>}
+    </div>
   );
 }
 
