@@ -470,6 +470,7 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
   "Shared canonical course and content model",
   "Cross-course competency graph",
   "Expand competency pathways and assessment coverage across courses",
+  "Learning diagnostics and targeted intervention",
   "Production course publishing deployment repair",
   "Course creator parity regression suite",
   "Community and official course content round-trip fidelity",
