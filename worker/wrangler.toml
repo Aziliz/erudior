@@ -5,6 +5,19 @@ compatibility_date = "2025-02-01"
 workers_dev = false
 routes = [{ pattern = "api.erudior.com", custom_domain = true }]
 
+# Keep production observability in source control so redeployments preserve logging.
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
+
+[observability.traces]
+enabled = false
+
+[observability]
+
+
 [vars]
 APP_ORIGIN = "https://app.erudior.com"
 # Extra origins allowed to call signed-in endpoints (comma separated), e.g. local dev.
