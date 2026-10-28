@@ -23,12 +23,29 @@ export function deleteCommunityModule(doc: CommunityDoc, moduleId: string): Comm
 export function addCommunityModule(doc: CommunityDoc, newId: string): CommunityDoc {
   const modules = doc.modules ?? [];
   if (!modules.length) {
-    const implicit = "m1" === newId ? "m2" : "m1";
+    // A course without explicit modules already has one implicit teaching unit.
+    // Materialize it and append exactly one additional unit.
+    const used = new Set([...doc.lessons.map((l) => l.id), newId]);
+    let number = 1;
+    while (used.has(`m${number}`)) number++;
+    const originalId = `m${number}`;
     return {
       ...doc,
-      modules: [{ id: implicit, title: doc.title }, { id: newId, title: "Module 2" }],
-      lessons: doc.lessons.map((l) => ({ ...l, module: implicit })),
+      modules: [
+        { id: originalId, title: doc.title || "Module 1" },
+        { id: newId, title: "Module 2" },
+      ],
+      lessons: doc.lessons.map((l) => ({ ...l, module: originalId })),
     };
   }
   return { ...doc, modules: [...modules, { id: newId, title: `Module ${modules.length + 1}` }] };
+}
+
+/** Move a lesson between explicit modules without changing its stable ID or contents. */
+export function moveCommunityLesson(doc: CommunityDoc, lessonId: string, moduleId: string): CommunityDoc {
+  if (!(doc.modules ?? []).some((m) => m.id === moduleId)) return doc;
+  return {
+    ...doc,
+    lessons: doc.lessons.map((lesson) => lesson.id === lessonId ? { ...lesson, module: moduleId } : lesson),
+  };
 }
