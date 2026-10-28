@@ -512,6 +512,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Traceable competency focused-practice sessions", detail: "Targeted sessions retain skill ID and starting mastery estimate in saved attempts, with linked session results shown in Progress (PR #33).", status: "done" },
   { title: "Competency assessment improvement trends", detail: "Student Learning Path compares earlier and later recorded topic assessment performance without claiming causal impact (PR #32).", status: "done" },
   { title: "Focused competency practice from Learning Path", detail: "Starts actual question-bank practice limited to assessment-linked competency topics from the student Progress page (PR #31).", status: "done" },
   { title: "Student learning path and recommended-course navigation", detail: "Progress page with prerequisite explanations and course navigation, merged PRs #15 and #21; initial learning pathway implementation.", status: "done" },
