@@ -444,6 +444,7 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 /** Outstanding engine tasks consolidated into the original lesson-engine roadmap. */
 export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
+  "Course revision compatibility checks and publishing preflight",
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
