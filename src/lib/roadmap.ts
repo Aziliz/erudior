@@ -558,9 +558,9 @@ export const UPDATES: UpdateArea[] = [
     id: "web-app-updates", title: "Website update",
     intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
     items: [
-      planned("Erudior opening-book splash and official motto", "Opening book with teal star bookmark, official Learn without limits tagline, reduced-motion support and no artificial load delay."),
-      planned("Third-party Powered by Erudior splash", "Same book animation with independent developer branding, no implied partnership or endorsement."),
-      planned("Erudior Engine attribution and contribution license", "Finalize legally reviewed splash and upstream modification requirements, attribution and no implied endorsement; release rights subject to third-party licenses."),
+      { title: "Erudior opening-book splash and official motto", detail: "Opening-book and teal bookmark startup splash with Learn without limits; reduced-motion and no artificial load delay (PR #39).", status: "done", phase: "1.0" },
+      { title: "Third-party Powered by Erudior splash", detail: "Reusable independent-product splash with product name, Engine attribution and explicit non-endorsement notice (PR #39).", status: "done", phase: "1.0" },
+      { title: "Erudior Engine attribution and contribution license", detail: "License draft updated in PR #3; attribution and upstream modified-source obligations require rights-holder and legal review before adoption.", status: "in_progress", phase: "1.0" },
       { title: "Independent website deployment and public roadmap publishing", detail: "Cloudflare Pages deploys independently of signed R2 course packages; verified successful workflow jobs.", status: "done", phase: "1.0" },
       planned("Keep all learning publicly accessible", "Public course pages, reading and practice without an account; optional local guest progress and export."),
       { title: "Fix community module and lesson controls", detail: "Predictable add/delete, explicit lesson-to-module assignment, inline confirmation, save/reopen tests and accessible controls; changes currently on draft PR #1.", status: "in_progress", phase: "1.0" },
@@ -577,7 +577,7 @@ export const UPDATES: UpdateArea[] = [
     id: "application-updates", title: "App update",
     intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
     items: [
-      planned("Official Erudior application splash and motto", "Opening-book star bookmark with Learn without limits and accessible motion settings."),
+      { title: "Official Erudior application splash and motto", detail: "Accessible official opening-book loading splash shared with the public website (PR #39).", status: "done", phase: "1.0" },
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
       planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),
       planned("Parent dashboard PIN protection and child account switching", "Restricted child profiles, parent reauthentication and shared-device role switching."),
