@@ -191,19 +191,20 @@ const planned = (title: string, detail: string, phase: "1.0" | "Later" = "1.0"):
 
 export const UPDATES: UpdateArea[] = [
   {
-    id: "web-app-updates", title: "Web app update",
+    id: "web-app-updates", title: "Website update",
     intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
     items: [
       planned("Keep all learning publicly accessible", "Public course pages, reading and practice without an account; optional local guest progress and export."),
       { title: "Fix community module and lesson controls", detail: "Predictable add/delete, explicit lesson-to-module assignment, inline confirmation, save/reopen tests and accessible controls; changes currently on draft PR #1.", status: "in_progress", phase: "1.0" },
       { title: "Community creation guide and authoring tests", detail: "In-editor guide for headings, Markdown tables, images/alt text, diagrams, manipulatives, quizzes and advanced source; test complete create→publish→install workflow. Draft PR #1 not deployed.", status: "in_progress", phase: "1.0" },
+      planned("Teacher Content Studio editor and presenter UI", "Website controls for creating and presenting teacher materials, classroom games and lessons.", "Later"),
       planned("Reviewed community-to-official promotion", "Admin-gated review of an immutable published version; embed media, retain provenance, check parity and approval; publish only via authorized official release pipeline."),
       planned("Safe authentication and family accounts", "Parent-created under-13 profiles with verifiable consent, restricted child sessions and device pairing; teen sign-in transition at 13, adult transition at 18, guardian reauthentication."),
       planned("Credential registry and public verification", "Professional-only certificate issuance when authorized; signed PDFs, unguessable IDs, privacy-preserving lookup, revocation, correction and issuer identity."),
     ],
   },
   {
-    id: "application-updates", title: "Application update",
+    id: "application-updates", title: "App update",
     intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
     items: [
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
