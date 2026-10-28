@@ -128,3 +128,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - **CI policy:** Merge-only Lesson Engine workflow includes previous-release recheck and trusted-key source changes; no full PR-branch test suite is run.
 - **Merge gate:** PR #11 is still in draft. Before merging, review source-format compatibility with the existing 20 published sample courses; then merge and use post-merge CI to verify the complete workflow. If post-merge CI fails, revert or repair promptly before relying on the new publisher.
 - **Remaining architectural limitation:** catalog.json and catalog.json.sig are independent R2 objects, and the recheck is not atomic against an external publisher. A single authorized publishing path with exclusive credentials or atomic manifest pointer is still required for full guarantees. Do not claim the backlog item Done before post-merge verification.
+
+## Cross-course competency graph — initial implementation (2026-10-28)
+- **PR under development:** Stable cross-course skill IDs, directed prerequisites with missing-link and cycle checks, weighted topic evidence from multiple courses, minimum confidence for mastery, readiness gates, and recommendations for unmastered ready skills.
+- **Future integration:** map canonical courses' topics/assessments to approved skill definitions, persist course-independent learner mastery, support explicit placement and teacher override, expose progression in student and parent views, and test privacy/accessibility.
+- This item remains **Planned** publicly until merge-only CI completes successfully and at least one course uses the graph end-to-end.
