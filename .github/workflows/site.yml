@@ -25,6 +25,7 @@ on:
       - "scripts/prerender.mjs"
       - "scripts/publish-courses.ts"
       - "scripts/fetch-previous-courses.ts"
+      - "scripts/recheck-course-catalog.ts"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -91,6 +92,13 @@ jobs:
             npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
               --content-type application/json --cache-control "public, max-age=31536000, immutable"
           done
+          # Re-check the exact authenticated baseline just before committing a new catalog.
+          # GitHub's site concurrency group serializes our own publishers; this also
+          # detects most out-of-band writes, but is not atomic compare-and-swap.
+          COURSE_PREVIOUS_URL="${VITE_COURSES_URL}" \
+          COURSE_PREVIOUS_RELEASE_DIR="../../.course-previous" \
+          COURSE_BOOTSTRAP_FIRST_RELEASE="${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}" \
+          npx tsx ../../scripts/recheck-course-catalog.ts
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json" --file catalog.json \
             --content-type application/json --cache-control "public, max-age=300"
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
