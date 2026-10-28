@@ -94,7 +94,7 @@ for (const entry of entries) {
   const previousEntry = previousCatalog?.courses.find((c) => c.id === entry.id);
   // Reject catalog reuse with incompatible identity before comparison.
   if (previousEntry && (!Number.isInteger(previousEntry.revision) || previousEntry.revision < 1 ||
-      !/^[A-Za-z0-9_-]{1,100}\\.r[1-9][0-9]*\\.json$/.test(previousEntry.file) ||
+      !/^[A-Za-z0-9_-]{1,100}\.r[1-9][0-9]*\.json$/.test(previousEntry.file) ||
       !/^[a-f0-9]{64}$/i.test(previousEntry.sha256)))
     throw new Error(`Malformed previous course entry: ${entry.id}`);
   if (previousCatalog && previousCatalog.courses.length > 0 && !previousEntry && entry.revision !== 1)
