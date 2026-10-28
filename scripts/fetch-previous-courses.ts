@@ -39,17 +39,22 @@ const sig = new TextDecoder().decode(await fetchBytes("catalog.json.sig")).trim(
 if (!verifySignature(catalogBytes, sig, COURSE_PUBLIC_KEYS))
   throw new Error("Previous catalog signature invalid against pinned Erudior keys.");
 const catalog: unknown = JSON.parse(new TextDecoder().decode(catalogBytes));
-if (!catalog || typeof catalog !== "object" || !("courses" in catalog) || !Array.isArray(catalog.courses))
+if (!catalog || typeof catalog !== "object" || !("courses" in catalog) || !Array.isArray(catalog.courses) ||
+    !("format" in catalog) || catalog.format !== "examiner-catalog" || !("version" in catalog) || catalog.version !== 1)
   throw new Error("Previous catalog format invalid.");
 const courses = catalog.courses as Array<{id:string;file:string;sha256:string}>;
 const files = new Map<string, Uint8Array>();
+const seenIds = new Set<string>();
 for (const course of courses) {
-  if (!/^[A-Za-z0-9_-]+\.r[1-9][0-9]*\.json$/.test(course.file) ||
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(course.id) ||
+      !course.file.startsWith(course.id + ".r") || seenIds.has(course.id) ||
+      !/^[A-Za-z0-9_-]+\.r[1-9][0-9]*\.json$/.test(course.file) ||
       !/^[a-f0-9]{64}$/i.test(course.sha256) ||
       files.has(course.file)) throw new Error("Invalid or duplicate previous course entry.");
   const bytes = await fetchBytes(course.file);
   if ((await sha256Hex(bytes)) !== course.sha256.toLowerCase())
     throw new Error(`Previous course hash mismatch: ${course.file}`);
+  seenIds.add(course.id);
   files.set(course.file, bytes);
 }
 // Write only after every downloaded artifact has passed verification.
