@@ -100,7 +100,7 @@ routes = []
 [env.dev.vars]
 APP_ORIGIN = "http://localhost:5181"
 ALLOWED_ORIGINS = "http://localhost:5181"
-API_ORIGIN = ${JSON.stringify(api)}
+API_ORIGIN = "https://community.test"
 ADMIN_EMAILS = "admin@example.test"
 GOOGLE_CLIENT_ID = ""
 GITHUB_CLIENT_ID = ""

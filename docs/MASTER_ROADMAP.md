@@ -1,5 +1,14 @@
 # Erudior Master Roadmap — 2026-10-27
 
+## Active whole-capability checkpoint — 2026-10-28 17:13 UTC
+
+**Shared canonical course and content model — In Progress (local, not deployed).** This is the only active feature. The public status remains unchanged. Original acceptance is one versioned, data-preserving model covering modules/lessons, all supported question/bank metadata, readers, audio/language, rubrics/work, images, and supported interactive blocks, with authoring, learner, review, publishing, import/export, revisions and recovery workflows. No partial sub-feature release or artificial roadmap rows.
+
+- Implemented locally: strict canonical envelope and explicit runtime namespace adapters; reader authoring/inspection and durable revision-aware learner state; complete metadata/audio editors; advanced source validation; inert code-fence and bounded figure rendering; static SVG asset validation preserving bytes; community canonical editor/review/install integration.
+- Verified focused milestones before environment restart: canonical roundtrips across eight existing demo families; reader DOM suite five consecutive runs; reader persistence/deletion-race checks; audio/metadata/upload/navigation checks; strict SVG and rendering safety checks. These are not a substitute for final integrated CI or post-merge regression.
+- Remaining: finish full existing-source schema audit and canonical community UI/API golden tests, verify all-field persistence/backup/recovery, run complete regression/build/security/release checks, review one complete feature PR, then merge/deploy and update both roadmap representations truthfully. Existing community transport limits and media ownership checks remain enforced; no signing, licensing or integrity bypass.
+- Recovery: workspace `erudior-reading-library`, branch `work/canonical-reading-library`, base `7949d899`; feature batch held locally for final validation and no remote feature mutation attempted. Latest verified roadmap-only main commit `7949d899` incorporated into local roadmap files. Other-chat website work must be preserved.
+
 ## Implementation checkpoint — 2026-10-28
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.

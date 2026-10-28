@@ -1,3 +1,4 @@
+import { validateCourseIntegrity } from "./lib/courseIntegrity";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
 import type { Bank, Course, Progress } from "./lib/types";
@@ -468,6 +469,10 @@ export default function App() {
 
   const saveCourse = useCallback(
     async (course: Course) => {
+      // Bank/deck editors share this boundary: no alternate editor may persist
+      // deletion of a question still used by a lesson or reading section.
+      const issues = validateCourseIntegrity(course);
+      if (issues.length) throw Error("Cannot save course: " + issues.map(issue => `${issue.path}: ${issue.message}`).join("; "));
       await store.saveCourse(course);
       await enroll(course.id);
       await reload();

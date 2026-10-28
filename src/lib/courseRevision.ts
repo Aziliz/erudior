@@ -1,3 +1,4 @@
+import { readerRevisionProblems } from "./readerContent";
 import type { Course } from "./types";
 import { localBankId } from "./course";
 import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems } from "./courseWork";
@@ -54,6 +55,7 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     const current = (next.texts ?? []).find((t) => t.id === text.id);
     if (current) compare(`texts.${text.id}.sections`, text.sections, current.sections, (section) => section.id);
   }
+  for (const message of readerRevisionProblems(previous.texts ?? [], next.texts ?? [])) add("blocking", "texts", message);
   compare("spreadsheetAssignments", previous.spreadsheetAssignments ?? [], next.spreadsheetAssignments ?? [],
     (assignment) => assignment.id, (assignment) => assignment.lessonId);
   for (const [i, assignment] of (next.spreadsheetAssignments ?? []).entries())

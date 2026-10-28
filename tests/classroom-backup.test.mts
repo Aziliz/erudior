@@ -69,3 +69,10 @@ for(const course of [{...validCourse,writing:[null]},{...validCourse,writing:[{i
  assert.deepEqual([...state],before);assert.deepEqual(mutations,[]);
 }
 console.log('encrypted course backup: malformed raw work and dangling module/lesson references rejected before writes');
+
+for(const texts of [[null],[{id:'reading',title:'Read',sections:[{id:'section',title:'Part',body:'Text',questions:['missing']}]}]]) {
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify({...withWork,courses:[{...validCourse,texts}]}),{courses:[{id:'never-delete'} as any],banks:[]}),/Invalid backup course work/);
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[]);
+}
+console.log('reader backup: malformed or dangling reader resources fail before restore writes');

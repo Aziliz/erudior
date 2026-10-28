@@ -1,4 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { registerNavigationGuard } from "../lib/navigationGuard";
+import { QuestionAudioEditor } from "../components/QuestionAudioEditor";
+import { validateQuestionAudioFields } from "../lib/courseAudio";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import type { Bank, Question } from "../lib/types";
 import * as store from "../lib/storage";
@@ -12,7 +15,7 @@ type Sel = { kind: "settings" } | { kind: "question"; id: string };
 function questionErrors(q: Question): string[] {
   const e: string[] = [];
   if (!q.stem.trim()) e.push("Write the question text.");
-  e.push(...kindErrors(q));
+  e.push(...kindErrors(q), ...validateQuestionAudioFields(q, "question", { mode: "source" }));
   if (!q.topic.trim()) e.push("Give the question a topic.");
   return e;
 }
@@ -20,13 +23,25 @@ function questionErrors(q: Question): string[] {
 export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; isNew?: boolean }) {
   const [draft, setDraft] = useState<Bank>(() => structuredClone(bank));
   const [dirty, setDirty] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const savingRef = useRef(false);
+  const uploadPending = useRef(false);
+  const draftVersion = useRef(0);
   const [sel, setSel] = useState<Sel>(
     isNew || !bank.questions.length ? { kind: "settings" } : { kind: "question", id: bank.questions[0].id },
   );
+  useEffect(() => {
+    const unregister = registerNavigationGuard(() => { if (!uploadPending.current) return true; api.toast("Finish or cancel the audio upload before leaving."); return false; });
+    const beforeUnload = (event: BeforeUnloadEvent) => { if (uploadPending.current) { event.preventDefault(); event.returnValue = ""; } };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => { unregister(); window.removeEventListener("beforeunload", beforeUnload); };
+  }, [api.toast]);
+  const select = (next: Sel) => { if (uploadPending.current) { api.toast("Finish or cancel the audio upload before changing questions."); return; } setSel(next); };
   const [search, setSearch] = useState("");
   const [showErrors, setShowErrors] = useState(false);
 
   const update = (fn: (b: Bank) => Bank) => {
+    draftVersion.current++;
     setDraft((d) => fn(d));
     setDirty(true);
   };
@@ -44,6 +59,8 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
   });
 
   async function save() {
+    if (savingRef.current) return;
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before saving.");
     if (!draft.title.trim()) {
       setSel({ kind: "settings" });
       api.toast("Give the bank a title before saving.");
@@ -56,16 +73,22 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
       api.toast(`${errorsById.size} question${errorsById.size === 1 ? " needs" : "s need"} fixing before saving.`);
       return;
     }
+    const savedVersion = draftVersion.current;
+    savingRef.current = true; setSaving(true);
     try {
       await api.saveBank(draft);
-      setDirty(false);
-      api.toast("Bank saved");
+      if (draftVersion.current === savedVersion) {
+        setDirty(false);
+        api.toast("Bank saved");
+      } else api.toast("Earlier bank changes saved. Newer edits still need saving.");
     } catch (e) {
       api.toast(`Save failed: ${String(e)}`);
-    }
+    } finally { savingRef.current = false; setSaving(false); }
   }
 
   async function close() {
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before leaving.");
+    if (savingRef.current) return api.toast("Wait for the bank save to finish before leaving.");
     if (dirty && !(await store.confirmAction("Discard unsaved changes to this bank?", "Unsaved changes"))) return;
     api.go({ name: "bank", bankId: bank.id });
   }
@@ -83,6 +106,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
   });
 
   function addQuestion(base?: Question) {
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before changing questions.");
     const prev = sel.kind === "question" ? draft.questions.find((q) => q.id === sel.id) : undefined;
     const q: Question = base
       ? { ...structuredClone(base), id: uid("q") }
@@ -105,6 +129,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
   }
 
   async function deleteQuestion(id: string) {
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before changing questions.");
     if (!(await store.confirmAction("Delete this question?", "Delete question"))) return;
     const idx = draft.questions.findIndex((q) => q.id === id);
     const rest = draft.questions.filter((q) => q.id !== id);
@@ -127,7 +152,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
             className={`q-item`}
             style={{ border: "1px solid var(--rule)", borderRadius: 6 }}
             aria-current={sel.kind === "settings"}
-            onClick={() => setSel({ kind: "settings" })}
+            onClick={() => select({ kind: "settings" })}
           >
             <span className="t" style={{ fontWeight: 600 }}>
               Bank settings
@@ -158,7 +183,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                 key={q.id}
                 className="q-item"
                 aria-current={sel.kind === "question" && sel.id === q.id}
-                onClick={() => setSel({ kind: "question", id: q.id })}
+                onClick={() => select({ kind: "question", id: q.id })}
               >
                 <span className="t">
                   {draft.questions.indexOf(q) + 1}. {q.stem || <span className="faint">New question</span>}
@@ -182,7 +207,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
           )}
           <div className="spacer" />
           <span className="kbd">Ctrl+S</span>
-          <button className="btn primary" onClick={save} disabled={!dirty}>
+          <button className="btn primary" onClick={save} disabled={!dirty || saving}>
             Save bank
           </button>
         </div>
@@ -254,6 +279,7 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                 />
               </label>
 
+              <QuestionAudioEditor onPendingChange={value=>{uploadPending.current=value;}} key={current.id} question={current} onChange={next => updateQ(current.id, () => next)} />
               <PictureField q={current} onChange={(nq) => updateQ(current.id, () => nq)} toast={api.toast} />
 
               {!isChoice(current) ? (
@@ -352,14 +378,14 @@ export default function Editor({ api, bank, isNew }: { api: AppApi; bank: Bank; 
                 <button
                   className="btn"
                   disabled={currentIndex <= 0}
-                  onClick={() => setSel({ kind: "question", id: draft.questions[currentIndex - 1].id })}
+                  onClick={() => select({ kind: "question", id: draft.questions[currentIndex - 1].id })}
                 >
                   Previous
                 </button>
                 <button
                   className="btn"
                   disabled={currentIndex >= draft.questions.length - 1}
-                  onClick={() => setSel({ kind: "question", id: draft.questions[currentIndex + 1].id })}
+                  onClick={() => select({ kind: "question", id: draft.questions[currentIndex + 1].id })}
                 >
                   Next
                 </button>

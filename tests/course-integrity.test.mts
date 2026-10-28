@@ -39,3 +39,15 @@ let rejectedDanglingModule = false;
 try { importValidatedCourseSnapshot(JSON.stringify({ ...base, lessons: [{ ...base.lessons[0], module: "missing" }] })); }
 catch (e) { rejectedDanglingModule = String(e).includes("module"); }
 assert("import rejects missing module before normalization", rejectedDanglingModule);
+
+// The App's common saveCourse boundary uses this validation for standalone bank
+// saves/deletions as well as the course editor. First-bank reader links are not
+// interchangeable with a coincidentally equal ID in a different bank.
+const readerLinked = { ...base, banks: [
+  { format: 'examiner-bank', version: 1, id: 'main', title: 'Main', sections: [], exam: { questionCount: 1, timeLimitMinutes: 5, passingPercent: 70 }, questions: [{ id: 'q1', stem: 'Read?', topic: 'Reading', choices: ['A','B'], answer: [0] }] },
+  { format: 'examiner-bank', version: 1, id: 'other', title: 'Other', sections: [], exam: { questionCount: 1, timeLimitMinutes: 5, passingPercent: 70 }, questions: [] },
+], texts: [{ id: 'text', title: 'Read', kind: 'prose', sections: [{ id: 'section', title: 'Section', body: 'A passage.', questions: ['q1'] }] }] } as any;
+assert('reader links valid before bank edit', validateCourseIntegrity(readerLinked).length === 0);
+assert('bank edit cannot delete reader question', validateCourseIntegrity({ ...readerLinked, banks: [{ ...readerLinked.banks[0], questions: [] }, readerLinked.banks[1]] }).some(i => i.path === 'texts'));
+assert('bank deletion cannot orphan reader', validateCourseIntegrity({ ...readerLinked, banks: [readerLinked.banks[1]] }).some(i => i.path === 'texts'));
+assert('reader cannot silently relink to another bank', validateCourseIntegrity({ ...readerLinked, banks: [{ ...readerLinked.banks[0], questions: [] }, { ...readerLinked.banks[1], questions: readerLinked.banks[0].questions }] }).some(i => i.path === 'texts'));
