@@ -472,12 +472,10 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
   "Spreadsheet simulator",
   "Cross-course competency graph",
   "Learning diagnostics and targeted intervention",
-  "Production course publishing deployment repair",
 ]);
 
 export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
-  "Production course publishing deployment repair",
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
@@ -500,6 +498,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–56. Release integrity checks remain mandatory.", status: "done" },
   { title: "Course content validation and portable revisions", detail: "Course integrity checks, deterministic snapshots, compatible revisions and signed-release preflight. Live release repair remains tracked separately.", status: "done" },
   { title: "Early literacy and accessible learning", detail: "Read-aloud lessons and questions, phonics, handwriting practice and accessible learning interactions.", status: "done" },
   { title: "Reading, writing and language practice", detail: "Reader for documents, writing assignments and rubrics, and listening/speaking practice.", status: "done" },
