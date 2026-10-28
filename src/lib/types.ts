@@ -220,6 +220,8 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Profile-local durable skill evidence and explicit supervising-adult placement history. */
+  competencies?: import("./competencyState").CompetencyLedger;
   version: 1;
   seeded: boolean;
   /** Bundled courses already installed once (so deleting one doesn't bring it back). */

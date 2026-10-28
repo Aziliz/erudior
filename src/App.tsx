@@ -42,6 +42,10 @@ import FamilySetup from "./pages/FamilySetup";
 import WhoPage from "./pages/WhoPage";
 import ParentArea, { type ParentTab } from "./pages/ParentArea";
 import ParentGate from "./pages/ParentGate";
+import type { CompetencySupervisorAccess } from "./components/CompetencySupervisor";
+import { createCompetencyStore } from "./lib/competencyStore";
+import { FOUNDATION_COMPETENCIES } from "./lib/competencyCatalog";
+import { resolveCompetencyEvidence } from "./lib/competencyEvidence";
 import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/community";
 import CreateHome from "./pages/CreateHome";
 import CommunityPage from "./pages/CommunityPage";
@@ -111,6 +115,9 @@ export interface AppApi {
   banks: Bank[];
   courses: Course[];
   progress: Progress;
+  competencySupervisor?: CompetencySupervisorAccess;
+  competencySync?: { pending: boolean; error: string };
+  retryCompetencySync?: () => void;
   go: (v: View) => void;
   toast: (msg: string) => void;
   reload: () => Promise<void>;
@@ -215,6 +222,10 @@ export default function App() {
   const [family, setFamilyState] = useState<Family | null>(null);
   const [studentId, setStudentId] = useState<string | null>(null);
   const [parentUnlocked, setParentUnlocked] = useState(false);
+  const adultAccess = useRef({ unlocked: false, parentView: false });
+  adultAccess.current = { unlocked: parentUnlocked, parentView: view.name === "parent" };
+  const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
+  const [competencyRetry, setCompetencyRetry] = useState(0);
   const student = family?.students.find((s) => s.id === studentId) ?? null;
 
   // Ctrl/Cmd+K jumps to search.
@@ -353,6 +364,31 @@ export default function App() {
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
   const myCourses = enrolled ? courses.filter((c) => enrolled.has(c.id)) : courses;
   const allBanks = [...myCourses.flatMap((c) => c.banks), ...standalone];
+
+  // Capture from the live persisted profile under CAS; stale async results never replace
+  // another learner or a newer answer. Ledger updates merge independently of raw progress.
+  const competencyEvidenceVersion = JSON.stringify([progress.attempts, progress.stats, progress.enrolled]);
+  useEffect(() => {
+    if (!ready || (family && !studentId)) return;
+    const selected = store.activeStudent();
+    let active = true;
+    setCompetencySync({ pending: true, error: "" });
+    Promise.resolve().then(() => {
+      const graph = resolveCompetencyEvidence(FOUNDATION_COMPETENCIES, courses, { allowMissingCourses: true });
+      return store.syncCompetencyState(selected, graph, courses);
+    }).then(fresh => {
+      if (!active || store.activeStudent() !== selected) return;
+      if (JSON.stringify(progressRef.current.competencies) !== JSON.stringify(fresh.competencies)) {
+        const merged = { ...progressRef.current, competencies: fresh.competencies };
+        progressRef.current = merged; setProgressState(merged);
+      }
+      setCompetencySync({ pending: false, error: "" });
+    }, error => {
+      if (active && store.activeStudent() === selected) setCompetencySync({ pending: false, error: error instanceof Error ? error.message : String(error) });
+    });
+    return () => { active = false; };
+  }, [ready, courses, studentId, competencyEvidenceVersion, !!family, competencyRetry]);
+
 
   // Website addresses: app.erudior.com/<course>, /<course>/lessons/<id>, … (see lib/routes.ts).
   // An address typed or reloaded is opened once the courses (and the catalog) are known.
@@ -577,13 +613,47 @@ export default function App() {
     }
   };
 
+  const competencyAdultStore = createCompetencyStore({
+    readProgress: store.loadProfileProgress,
+    updateProgress: store.updateProfileProgress,
+    studentExists: store.competencyProfileExists,
+    authorize: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review learning paths.");
+      const current = await loadFamily();
+      if (!current || !current.students.some(s => s.id === id) || !adultAccess.current.unlocked || !adultAccess.current.parentView)
+        throw Error("Adult access or learner membership changed; reopen the learning path.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent") };
+    },
+    now: () => new Date().toISOString(),
+  });
+  const competencySupervisor: CompetencySupervisorAccess = {
+    load: async id => {
+      const graph = resolveCompetencyEvidence(FOUNDATION_COMPETENCIES, courses, { allowMissingCourses: true });
+      await competencyAdultStore.sync(id, graph, courses);
+      return competencyAdultStore.load(id);
+    },
+    decide: async (id, input) => {
+      if (!FOUNDATION_COMPETENCIES.some(s => s.id === input.skillId)) throw Error("Unknown skill.");
+      const fresh = await competencyAdultStore.decide(id, input);
+      if (store.activeStudent() === id) {
+        const merged = { ...progressRef.current, competencies: fresh.competencies };
+        progressRef.current = merged; setProgressState(merged);
+      }
+      return fresh;
+    },
+  };
+
   const api: AppApi = {
     catalog: catalogInfo,
     banks: allBanks,
     courses: myCourses,
     progress,
+    competencySync,
+    retryCompetencySync: () => setCompetencyRetry(n => n + 1),
+    competencySupervisor,
     go: (v) => {
       if (!requestNavigation("app", v)) return;
+      if (v.name !== "parent") adultAccess.current = { unlocked: false, parentView: false };
       // Starting a new session replaces the saved one, so ask first.
       if (v.name === "run" && !v.initial && resumable) {
         const s = runSummary(resumable);
@@ -861,7 +931,7 @@ export default function App() {
         body = parentUnlocked ? (
           <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => api.go({ name: "library" })} />
         ) : (
-          <ParentGate api={api} family={family} onUnlock={() => setParentUnlocked(true)} />
+          <ParentGate api={api} family={family} onUnlock={() => { adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
       break;
   }

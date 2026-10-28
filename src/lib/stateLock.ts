@@ -1,6 +1,6 @@
 /** Named-state transaction boundary. No DOM/storage dependencies are required in tests. */
 export function validStateName(name: string): boolean {
-  return ["session", "family", "classes", "classroom-submissions"].includes(name)
+  return ["progress", "session", "family", "classes", "classroom-submissions"].includes(name)
     || /^(progress|records|session|portfolio)-[a-z0-9]{1,24}$/.test(name);
 }
 const tails = new Map<string, Promise<void>>();

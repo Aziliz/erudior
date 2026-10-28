@@ -12,12 +12,13 @@ import { webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstor
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 import { validateReaderTexts } from "./readerContent";
 import { stateTransactions, validStateName } from "./stateLock";
+import { parseCompetencyLedger, captureCompetencyEvidence, syncCompetencyLedger, importCompetencyHistory } from "./competencyState";
+import type { Competency } from "./competencies";
 
 export const inApp = isTauri();
 
 const LS_BANK = "erudior.bank.";
 const LS_COURSE = "erudior.course.";
-const LS_PROGRESS = "erudior.progress";
 
 export function emptyProgress(): Progress {
   return {
@@ -138,29 +139,55 @@ export const updateState = (name: string, updater: (old: string | null) => strin
 
 function parseProgress(text: string | null): Progress {
   if (!text) return emptyProgress();
-  try {
-    const p = JSON.parse(text) as Progress;
-    return { ...emptyProgress(), ...p };
-  } catch {
-    return emptyProgress();
-  }
+  let p: Progress;
+  try { p = JSON.parse(text) as Progress; } catch { return emptyProgress(); }
+  if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
+  return { ...emptyProgress(), ...p };
 }
-
-/** The single-user progress file (progress.json), whatever student is active. */
-export async function loadBaseProgress(): Promise<Progress> {
-  return parseProgress(inApp ? await invoke<string | null>("load_progress") : await webGet(LS_PROGRESS));
+function profileName(id: string | null): string {
+  if (id !== null && !/^[a-z0-9]{1,24}$/.test(id)) throw Error("Invalid learner profile.");
+  return id === null ? "progress" : `progress-${id}`;
 }
-
-export async function loadProgress(): Promise<Progress> {
-  if (student) return parseProgress(await loadState(`progress-${student}`));
-  return loadBaseProgress();
+/** Explicit profile scope never follows a later active-student switch. */
+export async function loadProfileProgress(id: string | null): Promise<Progress> {
+  return parseProgress(await loadState(profileName(id)));
 }
-
-export async function saveProgress(p: Progress): Promise<void> {
-  const content = JSON.stringify(p);
-  if (student) await saveState(`progress-${student}`, content);
-  else if (inApp) await invoke("save_progress", { content });
-  else await webSet(LS_PROGRESS, content);
+export async function updateProfileProgress(id: string | null, change: (current: Progress) => Progress | Promise<Progress>): Promise<Progress> {
+  const name = profileName(id);
+  const text = await updateState(name, async old => {
+    // Refuse damaged JSON rather than overwriting it through an empty fallback.
+    if (old !== null) JSON.parse(old);
+    const next = await change(parseProgress(old));
+    if (next.competencies !== undefined) parseCompetencyLedger(next.competencies);
+    return JSON.stringify(next);
+  });
+  return parseProgress(text);
+}
+export const loadBaseProgress = (): Promise<Progress> => loadProfileProgress(null);
+export const loadProgress = (): Promise<Progress> => loadProfileProgress(student);
+/** Read/capture/merge runs against current storage under the profile CAS boundary. */
+export async function competencyProfileExists(id: string): Promise<boolean> {
+  if (!/^[a-z0-9]{1,24}$/.test(id)) return false;
+  const tombstones = await loadState("classroom-submissions");
+  if (tombstones && JSON.parse(tombstones).deletedStudentIds?.includes(id)) return false;
+  const text = await loadState("family"), family = text ? JSON.parse(text) : null;
+  return Array.isArray(family?.students) && family.students.some((s: {id?:unknown}) => s.id === id);
+}
+export async function syncCompetencyState(id: string | null, graph: Competency[], courses: Course[]): Promise<Progress> {
+  const exists = async () => { if (id !== null && !await competencyProfileExists(id)) throw Error("This learner profile was deleted or no longer exists."); };
+  await exists();
+  return updateProfileProgress(id, async current => {
+    await exists(); const capture = await captureCompetencyEvidence(graph,courses,current); await exists();
+    return syncCompetencyLedger(current,capture);
+  });
+}
+/** Other learner writes must not erase newer durable evidence or adult decisions. */
+export async function saveProgress(p: Progress, options: { replaceCompetencies?: boolean } = {}): Promise<void> {
+  if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
+  const selected = student;
+  await updateProfileProgress(selected, current => ({ ...p,
+    ...(!options.replaceCompetencies && current.competencies !== undefined ? {competencies:current.competencies} : {}),
+  }));
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
@@ -244,6 +271,7 @@ export interface Backup {
 
 /** Save everything (courses, banks, progress) to one file the user picks. */
 export async function exportBackup(courses: Course[], banks: Bank[], progress: Progress): Promise<boolean> {
+  if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   const backup: Backup = {
     format: "erudior-backup",
     version: 1,
@@ -269,8 +297,12 @@ export async function restoreBackup(
   raw: unknown,
   current: { courses: Course[]; banks: Bank[] },
 ): Promise<{ courses: number; banks: number }> {
+  const targetStudent = student;
   const b = raw as Backup;
   if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
+  if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
+  const currentProgress = await loadProfileProgress(targetStudent);
+  const importedCompetencies = importCompetencyHistory(b.progress.competencies,currentProgress.competencies);
   // Historical evidence must remain independently verifiable, including legacy
   // unencrypted backups. Preflight both ledgers before touching stored state.
   const [{ mergeAssessedWorkSubmissions }, { mergeSpreadsheetSubmissions }] = await Promise.all([
@@ -299,7 +331,10 @@ export async function restoreBackup(
     const { putFile } = await import("./documents");
     for (const [id, file] of Object.entries(b.files)) if (/^[a-z0-9]{1,64}$/.test(id) && file?.data) await putFile(id, file);
   }
-  await saveProgress({ ...emptyProgress(), ...b.progress, seeded: true });
+  await updateProfileProgress(targetStudent, async current => {
+    if(targetStudent !== null && !await competencyProfileExists(targetStudent))throw Error("This learner profile no longer exists.");
+    return {...emptyProgress(), ...b.progress, competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true};
+  });
   return { courses: courses.length, banks: banks.length };
 }
 
