@@ -18,7 +18,13 @@ export function resolveCompetencyEvidence(
     const evidence: Record<string,string[]> = {};
     for (const [courseId, lessonIds] of Object.entries(skill.lessons)) {
       const course = courseMap.get(courseId)!;
-      const linkedIds = new Set(course.lessons.filter(l => lessonIds.includes(l.id)).flatMap(l=>l.quiz ?? []));
+      // Lesson quizzes and their parent module quizzes may both assess these skills.
+      const targetLessons = course.lessons.filter(l => lessonIds.includes(l.id));
+      const linkedModules = new Set(targetLessons.map(l => l.module));
+      const linkedIds = new Set([
+        ...targetLessons.flatMap(l=>l.quiz ?? []),
+        ...course.modules.filter(m => linkedModules.has(m.id)).flatMap(m => m.quiz ?? []),
+      ]);
       const topics = new Set<string>();
       for (const bank of course.banks) for (const q of bank.questions)
         if (linkedIds.has(q.id) && q.topic.trim()) topics.add(q.topic);
