@@ -184,13 +184,12 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
 
 
 const advanced = structuredClone(doc);
-advanced.lessons[0].blocks.push({
-  type: "source",
-  md: "## Advanced\\n\\n\`\`\`trace\\nletters: A B\\n\`\`\`\\n\\n| One | Two |\\n|---|---|\\n| A | B |",
-});
+const advancedMarkdown = ["## Advanced", "", "```trace", "letters: A B", "```", "", "| One | Two |", "|---|---|", "| A | B |"].join("\n");
+advanced.lessons[0].blocks.push({ type: "source", md: advancedMarkdown });
 ok("advanced source validates", checkDoc(advanced, true).length === 0, checkDoc(advanced, true));
 const advancedCourse = toCourse(advanced, { id: "advanced", version: 1, review: "not_reviewed", author: "tester" }, () => "") as { lessons: { body: string }[] };
-ok("advanced official Markdown survives promotion", advancedCourse.lessons[0].body.includes("```trace") && advancedCourse.lessons[0].body.includes("| One | Two |"));
+ok("advanced interactive block survives conversion", advancedCourse.lessons[0].body.includes("```trace\nletters: A B\n```"));
+ok("advanced table survives conversion", advancedCourse.lessons[0].body.includes("| One | Two |"));
 
 if (fails) {
   console.log(`${fails} community test(s) failed`);
