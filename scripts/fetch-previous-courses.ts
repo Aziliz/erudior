@@ -52,8 +52,12 @@ for (const course of courses) {
       !/^[a-f0-9]{64}$/i.test(course.sha256) ||
       files.has(course.file)) throw new Error("Invalid or duplicate previous course entry.");
   const bytes = await fetchBytes(course.file);
-  if ((await sha256Hex(bytes)) !== course.sha256.toLowerCase())
-    throw new Error(`Previous course hash mismatch: ${course.file}`);
+  const actual = await sha256Hex(bytes);
+  if (actual !== course.sha256.toLowerCase()) {
+    // Never accept mismatched content. Report both digests to make R2/CDN
+    // investigation possible without weakening the signed catalog checks.
+    throw new Error(`Previous course hash mismatch: ${course.file}; expected ${course.sha256.toLowerCase()}; downloaded ${actual}; bytes ${bytes.length}. Verify the authoritative R2 object against the signed catalog and inspect CDN caching.`);
+  }
   seenIds.add(course.id);
   files.set(course.file, bytes);
 }
