@@ -476,7 +476,7 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Spreadsheet simulator": "Instructor authoring, separate learner drafts, full-grid navigation, save recovery and exact-snapshot review are deployed (PR #57). Community publishing/install parity and broader simulator workflows remain in progress.",
+  "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). Functions/ranges and broader usability, accessibility and independent learner verification remain in progress.",
 };
 
 export const ENGINE_PLANNED = [
@@ -511,7 +511,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Maps, timelines and visual learning", detail: "Interactive maps, timelines, route and event learning activities.", status: "done" },
   { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. Cross-course graph and diagnostics are separate ongoing capabilities.", status: "done" },
   { title: "Homeschool and activity records", detail: "Attendance, grades, transcripts, portfolios and physical/art/music activity logs.", status: "done" },
-  { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook, hand-ins and live quizzes.", status: "done" },
+  { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook and live quizzes, with immutable hand-in history, exact-snapshot instructor decisions, interrupted-import recovery and encrypted backup.", status: "done" },
 ];
 
 /** Planned work beyond the existing course catalog, organized by delivery surface.

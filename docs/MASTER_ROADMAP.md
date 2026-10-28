@@ -2,7 +2,9 @@
 
 ## Implementation checkpoint — 2026-10-28
 
-Classroom submission history, exact-snapshot instructor review, learner spreadsheet evidence and encrypted persistence/recovery are implemented and focused-tested locally in the combined PR64/PR59 capability batch. They are not deployed; native CI and complete release validation remain pending. The public roadmap remains the deployed-source truth. Shared canonical content and Spreadsheet simulator remain **In Progress**, with no duplicate capability rows. Only complete validated capabilities may deploy; course content work comes after every other engine, website and app feature. See `CLASSROOM_SUBMISSION_WORKFLOW.md` for acceptance and limitations.
+Classroom submission history, exact-snapshot instructor review, learner spreadsheet evidence and encrypted persistence/recovery are deployed through PR #64 (`52fef593`), incorporating revalidated PR #59 community authoring/publishing/install workflows. Full post-merge regression/build and integrity checks passed; website, signed-course publication and community API deployment succeeded. Native persistence checks passed on both the final PR head and post-merge main. Historical spreadsheet grading is explicitly versioned and frozen. See `CLASSROOM_SUBMISSION_WORKFLOW.md` for recovery, privacy and rollback limits.
+
+Shared canonical content and Spreadsheet simulator remain **In Progress**, with one public roadmap entry per major capability. Spreadsheet functions/ranges and broader usability/accessibility/independent learner verification remain unfinished. Next local engine work is canonical writing/rubric/lab/activity authoring, immutable authored-specification evidence and exact rubric review; it is not deployed. Only complete validated capabilities may deploy; course content work comes after every other engine, website and app feature. This checkpoint supersedes older historical progress notes below; `src/lib/roadmap.ts` is the synchronized public roadmap source.
 
 
 ## Mission and release policy
