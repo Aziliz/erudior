@@ -1,11 +1,24 @@
 import { useState } from "react";
+import { WORKBOOK_STORAGE_KEY, WORKBOOK_TEMPLATES, cloneTemplate, validateWorkbook } from "../lib/workbookTemplates";
 import { calculateCell, type Workbook } from "../lib/spreadsheet";
 
-const INITIAL:Workbook={sheets:{Budget:{A1:"Item",B1:"Amount",A2:"Income",B2:1200,A3:"Costs",B3:450,A4:"Balance",B4:"=B2-B3"},Practice:{A1:"First value",B1:10,A2:"Second value",B2:5,A3:"Sum",B3:"=B1+B2"}}};
 const COLS=["A","B","C","D","E","F"];
 /** Small standalone spreadsheet training workspace using the same calculation engine as course templates. */
 export default function SpreadsheetLab(){
-  const [book,setBook]=useState<Workbook>(INITIAL);
+  const [book,setBook]=useState<Workbook>(() => {
+    try { const saved=localStorage.getItem(WORKBOOK_STORAGE_KEY);if(saved){const value:unknown=JSON.parse(saved);if(validateWorkbook(value))return value;} }catch {}
+    return cloneTemplate("Budget");
+  });
+  const [notice,setNotice]=useState("");
+  function save(workbook:Workbook){
+    try { localStorage.setItem(WORKBOOK_STORAGE_KEY,JSON.stringify(workbook));setNotice("Saved on this device.");}
+    catch {setNotice("Unable to save to device storage.");}
+  }
+  function loadTemplate(name:string){
+    const workbook=cloneTemplate(name);setBook(workbook);setSheet(Object.keys(workbook.sheets)[0]);setSelected("A1");
+    setDraft(String(workbook.sheets[Object.keys(workbook.sheets)[0]]?.A1??""));setEditing(false);setError("");
+    setNotice("Template loaded. Save to keep your changes.");
+  }
   const [sheet,setSheet]=useState("Budget");
   const [selected,setSelected]=useState("B4");
   const [draft,setDraft]=useState("=B2-B3");
@@ -18,12 +31,21 @@ export default function SpreadsheetLab(){
     const value=draft.trim();
     const parsed=value && !value.startsWith("=")&&/^-?(?:\d+\.?\d*|\.\d+)$/.test(value)?Number(value):value;
     const updated={...book,sheets:{...book.sheets,[sheet]:{...book.sheets[sheet],[selected]:parsed}}};
-    try { if(value.startsWith("="))calculateCell(updated,sheet,selected);setBook(updated);setError("");setEditing(false); }
+    try { if(value.startsWith("="))calculateCell(updated,sheet,selected);setBook(updated);setError("");setEditing(false);save(updated); }
     catch(e){setError(String(e));}
   }
   return <section className="panel" aria-labelledby="spreadsheet-lab">
     <div className="panel-head"><h2 id="spreadsheet-lab">Spreadsheet practice lab</h2></div>
-    <p className="muted small">Edit cells, calculate formulas, and switch worksheets. This is a temporary practice workbook; changes are not yet saved.</p>
+    <p className="muted small">Edit cells, calculate formulas, and switch worksheets. Changes can be saved locally on this device. Choose a reusable template or continue your saved workbook.</p>
+    <div className="row" style={{flexWrap:"wrap",marginBottom:8}}>
+      <label htmlFor="workbook-template">Template</label>
+      <select id="workbook-template" className="select" defaultValue="" onChange={e=>{if(e.target.value)loadTemplate(e.target.value);e.target.value="";}}>
+        <option value="">Choose a template</option>
+        {Object.keys(WORKBOOK_TEMPLATES).map(name=><option key={name} value={name}>{name}</option>)}
+      </select>
+      <button type="button" className="btn sm" onClick={()=>save(book)}>Save workbook</button>
+    </div>
+    {notice && <p className="small muted" role="status">{notice}</p>}
     <div className="row" role="group" aria-label="Worksheets">
       {Object.keys(book.sheets).map(name=><button key={name} type="button" className={sheet===name?"btn primary sm":"btn sm"} onClick={()=>{setSheet(name);setSelected("A1");setDraft(String(book.sheets[name]?.A1??""));setEditing(false);setError("");}}>{name}</button>)}
     </div>
@@ -44,6 +66,6 @@ export default function SpreadsheetLab(){
       </table>
     </div>
     <p className="muted small">Try <code>=B2-B3</code> or <code>=PRACTICE!B3</code>. Unsupported formulas and circular references display an error.</p>
-    <button type="button" className="btn sm" onClick={()=>{setBook(INITIAL);setSheet("Budget");setSelected("B4");setDraft("=B2-B3");setEditing(false);setError("");}}>Reset workbook</button>
+    <button type="button" className="btn sm" onClick={()=>{setBook(cloneTemplate("Budget"));try{localStorage.removeItem(WORKBOOK_STORAGE_KEY);}catch{}setNotice("Saved workbook cleared.");setSheet("Budget");setSelected("B4");setDraft("=B2-B3");setEditing(false);setError("");}}>Reset workbook</button>
   </section>;
 }
