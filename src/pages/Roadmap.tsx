@@ -81,7 +81,7 @@ export default function Roadmap() {
             {area.items.map((item) => (
               <li key={item.title} className={item.status === "done" ? "is-done" : ""}>
                 <span className={`pill ${item.status === "done" ? "pass" : ""}`}>
-                  {item.status === "done" ? "Done" : item.status === "in_progress" ? "In progress" : "Planned"}
+                  {item.status === "done" ? "Done" : item.status === "in_progress" ? "In Progress" : "Planned"}
                 </span>
                 <span className="roadmap-name">
                   {item.title}
