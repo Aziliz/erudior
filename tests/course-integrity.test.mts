@@ -34,3 +34,8 @@ try {
   importValidatedCourseSnapshot(JSON.stringify({ ...base, lessons: [{ ...base.lessons[0], quiz: ["absent"] }] }));
 } catch (e) { rejectedRefs = String(e).includes("Question not found"); }
 assert("checked import rejects missing question references", rejectedRefs);
+
+let rejectedDanglingModule = false;
+try { importValidatedCourseSnapshot(JSON.stringify({ ...base, lessons: [{ ...base.lessons[0], module: "missing" }] })); }
+catch (e) { rejectedDanglingModule = String(e).includes("module"); }
+assert("import rejects missing module before normalization", rejectedDanglingModule);
