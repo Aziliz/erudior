@@ -852,6 +852,10 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
  * images when it installs a course, so it works offline).
  */
 export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string, communityOrigin?: string): Record<string, unknown> {
+  return convertCommunityCourse(d, meta, imageSrc, communityOrigin, false);
+}
+/** Migration retains validated source URLs; only installation embeds remote media. */
+function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string, communityOrigin: string | undefined, preserveSourceMedia: boolean): Record<string, unknown> {
   if (d.canonical !== undefined) {
     const errors = checkDoc(d, true, { communityImageOrigin: communityOrigin });
     if (errors.length) throw Error(errors.join("; "));
@@ -873,7 +877,7 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
   visitReaderMarkdown(texts, (owner, key, kind) => {
     owner[key] = (key === "body" ? transformReaderMarkdownImages : transformMarkdownImages)(owner[key] as string, source => {
       const id = communityImageId(source, communityOrigin);
-      if (!id) return source;
+      if (!id || preserveSourceMedia) return source;
       const embedded = imageSrc(id);
       if (!embedded) throw Error("A required community reader image could not be embedded.");
       const errors = validateImageAsset(embedded);
@@ -999,7 +1003,10 @@ export function migrateCommunityDocToCanonical(doc: CommunityDoc, communityId: s
   const errors = checkDoc(doc, true, { communityImageOrigin });
   if (errors.length) throw Error(errors.join("; "));
   if (doc.canonical) return structuredClone(doc);
-  const runtime = toCourse(doc, { id: communityId, version: 1, review: "not_reviewed", author: "" }, imageSrc) as unknown as Course;
+  const runtime = convertCommunityCourse(doc, { id: communityId, version: 1, review: "not_reviewed", author: "" }, imageSrc, communityImageOrigin, true) as unknown as Course;
+  // Legacy conversion creates bank data, not complete portable bank envelopes.
+  // These are documented generated markers, never inferred publication authority.
+  runtime.banks = runtime.banks.map(bank => ({ ...bank, format: "examiner-bank", version: 1 }));
   const { payload } = demoteRuntimeCourse(runtime, { communityImageOrigin });
   return { format: "erudior-community", version: 1, title: payload.course.title, description: doc.description, subject: doc.subject, level: doc.level, type: doc.type ?? "Course", lessons: [], decks: [], canonical: payload };
 }

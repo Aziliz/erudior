@@ -59,3 +59,13 @@ assert.throws(()=>runtimeCourseFromCanonicalAuthoring(payload,{id:'community-tes
 assert.throws(()=>runtimeCourseFromCanonicalAuthoring(payload,{id:'official-id',revision:8,community:{id:'test',version:8,review:'reviewed',author:'Publisher'}}),/provenance/);
 const empty={format:'erudior-canonical-authoring',version:1,course:emptyCourse('Empty draft')};assert.deepEqual(validateCanonicalAuthoring(empty,{strict:false}),[]);assert.ok(validateCanonicalAuthoring(empty).some(e=>e.includes('requires learner content')));
 console.log('canonical authoring core: exact metadata roundtrip, explicit runtime demotion, authority rejection, identity continuity, strict source and question validation passed');
+
+const vocabularyDraft = structuredClone(withQuestion);
+vocabularyDraft.course.lessons = [{ id: 'lesson', module: course.modules[0].id, title: 'Lesson', body: 'Words.' }];
+vocabularyDraft.course.vocab = [{ id: 'word', lesson: 'lesson', term: 'Word', meanings: [] }];
+const vocabularyBefore = structuredClone(vocabularyDraft);
+assert.deepEqual(validateCanonicalAuthoring(vocabularyDraft, { strict: false }), [], 'incomplete vocabulary remains editable');
+assert.ok(validateCanonicalAuthoring(vocabularyDraft).some(e => e.includes('at least one accepted meaning')), 'publication rejects impossible vocabulary recall');
+assert.deepEqual(vocabularyDraft, vocabularyBefore, 'validation never deletes or repairs authored vocabulary');
+vocabularyDraft.course.vocab[0].meanings = ['Meaning'];
+assert.deepEqual(validateCanonicalAuthoring(vocabularyDraft), []);

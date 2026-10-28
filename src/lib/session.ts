@@ -120,8 +120,8 @@ export function drawExamQuestions(bank: Bank, count: number): Question[] {
 
 /** One block per quota section when every drawn question belongs to a timed section. */
 function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[] {
-  const quotas = Object.keys(bank.exam.sectionQuotas ?? {});
-  const mins = opts.sectionMinutes;
+  const quotas = Object.entries(bank.exam.sectionQuotas ?? {}).filter(([, count]) => count > 0).map(([id]) => id);
+  const mins = positiveSectionMinutes(opts.sectionMinutes);
   const split =
     mins && quotas.length > 1 && quotas.every((s) => mins[s] > 0) && items.every((it) => quotas.includes(it.q.section ?? ""));
   if (!split) return [{ start: 0, end: items.length, timeLimitSec: Math.round(opts.minutes * 60) }];
@@ -141,9 +141,15 @@ function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[
   return blocks;
 }
 
+/** Empty/zero authored timing maps mean no section override, without rewriting source. */
+export function positiveSectionMinutes(value?: Record<string, number>): Record<string, number> | undefined {
+  const entries = Object.entries(value ?? {}).filter(([, minutes]) => Number.isFinite(minutes) && minutes > 0);
+  return entries.length ? Object.fromEntries(entries) : undefined;
+}
+
 /** The bank's default exam settings, including split timers when it has them. */
 export function defaultExamOptions(bank: Bank): ExamOptions {
-  const split = bank.exam.sectionTimeLimits;
+  const split = positiveSectionMinutes(bank.exam.sectionTimeLimits);
   const minutes = split ? Object.values(split).reduce((a, b) => a + b, 0) : bank.exam.timeLimitMinutes;
   return { count: bank.exam.questionCount, minutes, shuffleChoices: true, sectionMinutes: split };
 }

@@ -236,6 +236,40 @@ for (const [name, field] of [
   }
 }
 
+// Upgrade a previously published legacy reader/question/workbook as one capability.
+const upgradeId = (await author.call("POST", "/drafts")).data.id;
+const upgradeLegacy = { format: "erudior-community", version: 1, title: "Upgrade", description: "Upgrade parity", subject: "Science", level: "Middle School", decks: [],
+  lessons: [{ id: "l1", title: "Lesson", blocks: [{ type: "text", md: "Read." }, { type: "question", id: "q1", kind: "choice", stem: "Which?", choices: ["A", "B"], answer: [0], explanation: "A." }] }, { id: "l2", title: "Other", blocks: [{ type: "text", md: "Other." }] }],
+  texts: [{ id: "reading", title: "Reading", kind: "prose", sections: [{ id: "s1", title: "Section", body: `Read[^1]\n\n[^1]: ![Owned](${img.data.url})`, questions: ["l1-q1"] }] }],
+  spreadsheetAssignments: [{ id: "sheet", title: "Sheet", lessonId: "l1", starter: { sheets: { Sheet1: { A1: 1 } } }, protectedCells: [], answers: { "Sheet1!A1": 1 }, tolerance: 0 }] };
+ok("legacy upgrade baseline saved", (await author.call("PUT", `/drafts/${upgradeId}`, upgradeLegacy)).status === 200);
+ok("legacy upgrade baseline published", (await author.call("POST", `/drafts/${upgradeId}/publish`)).status === 200);
+const upgradeCanonical = { format: "erudior-community", version: 1, type: "Course", title: "Upgrade", description: "Upgrade parity", subject: "Science", level: "Middle School", lessons: [], decks: [],
+  canonical: { format: "erudior-canonical-authoring", version: 1, course: {
+    format: "examiner-course", version: 1, id: `community-${upgradeId}`, title: "Upgrade", revision: 1,
+    modules: [{ id: "m1", title: "Upgrade" }], lessons: [{ id: "l1", module: "m1", title: "Lesson", body: "Read.", quiz: ["l1-q1"] }, { id: "l2", module: "m1", title: "Other", body: "Other." }],
+    banks: [{ format: "examiner-bank", version: 1, id: "main", title: "Upgrade: questions", sections: [], exam: { questionCount: 1, timeLimitMinutes: 10, passingPercent: 70 }, questions: [{ id: "l1-q1", type: "choice", topic: "Lesson", stem: "Which?", choices: ["A", "B"], answer: [0] }] }],
+    decks: [], references: [], drills: [], glossary: [], texts: structuredClone(upgradeLegacy.texts), spreadsheetAssignments: structuredClone(upgradeLegacy.spreadsheetAssignments)
+  } } };
+for (const [name, mutate] of [
+  ["removed workbook", c => c.spreadsheetAssignments = []],
+  ["reassigned workbook", c => c.spreadsheetAssignments[0].lessonId = "l2"],
+  ["removed question", c => { c.banks[0].questions = []; c.lessons[0].quiz = []; c.texts[0].sections[0].questions = []; }],
+]) {
+  const invalidUpgrade = structuredClone(upgradeCanonical); mutate(invalidUpgrade.canonical.course);
+  const saved = await author.call("PUT", `/drafts/${upgradeId}`, invalidUpgrade);
+  ok(`legacy upgrade ${name} editable draft`, saved.status === 200, saved.data);
+  const refused = await author.call("POST", `/drafts/${upgradeId}/publish`);
+  ok(`legacy upgrade ${name} continuity refused`, refused.status === 409, refused.data);
+}
+ok("complete canonical upgrade saved", (await author.call("PUT", `/drafts/${upgradeId}`, upgradeCanonical)).status === 200);
+const upgraded = await author.call("POST", `/drafts/${upgradeId}/publish`);
+ok("complete canonical reader question workbook upgrade published", upgraded.status === 200 && upgraded.data.version === 2, upgraded.data);
+const upgradePublic = (await anon.call("GET", `/courses/${upgradeId}`)).data;
+ok("canonical upgrade exact source and owned reader URL preserved", JSON.stringify(upgradePublic.doc) === JSON.stringify(upgradeCanonical));
+ok("canonical downgrade draft saved", (await author.call("PUT", `/drafts/${upgradeId}`, upgradeLegacy)).status === 200);
+ok("canonical downgrade publication refused", (await author.call("POST", `/drafts/${upgradeId}/publish`)).status === 409);
+
 for (const [name, mutate] of [
   ["question", c => c.banks[0].questions[0].image.src = foreignImage.data.url],
   ["lab step", c => c.labs[0].steps[0].text += `\n![Lab evidence](${foreignImage.data.url})`],

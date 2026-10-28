@@ -59,3 +59,24 @@ try {
   }
 } finally { globalThis.fetch = fetchBefore; }
 console.log('canonical community: all-family golden payload, authority/ref rejection, explicit migration/namespace, source export and offline runtime image embedding passed');
+
+// A real legacy upgrade retains authored media references and generated bank schemas.
+const legacyRich = structuredClone(legacy);
+legacyRich.lessons[0].blocks.push({ type: 'question', id: 'q1', kind: 'choice', stem: 'Which?', choices: ['A', 'B'], answer: [0], explanation: '' });
+legacyRich.texts = [{ id: 'reading', title: 'Reading', kind: 'prose', sections: [{ id: 's1', title: 'Section', body: 'Text[^1]\n\n[^1]: ![Owned](https://community.example/images/owned)', questions: ['l1-q1'] }] }];
+legacyRich.spreadsheetAssignments = [{ id: 'sheet', title: 'Sheet', lessonId: 'l1', starter: { sheets: { Sheet1: { A1: 1 } } }, protectedCells: [], answers: { 'Sheet1!A1': 1 }, tolerance: 0 }];
+const richBefore = structuredClone(legacyRich);
+const rich = migrateCommunityDocToCanonical(legacyRich, 'rich', id => `https://community.example/images/${id}`, 'https://community.example');
+assert.deepEqual(checkDoc(rich, true, { communityImageOrigin: 'https://community.example' }), []);
+assert.deepEqual(rich.canonical!.course.texts, legacyRich.texts);
+assert.deepEqual(rich.canonical!.course.spreadsheetAssignments, legacyRich.spreadsheetAssignments);
+assert.equal(rich.canonical!.course.banks[0].format, 'examiner-bank');
+assert.equal(rich.canonical!.course.banks[0].version, 1);
+assert.equal(rich.canonical!.course.banks[0].questions[0].id, 'l1-q1');
+assert.deepEqual(communityWorkRevisionProblems(legacyRich, rich, 'rich', 'https://community.example'), []);
+assert.deepEqual(legacyRich, richBefore);
+const missingSheet = structuredClone(rich); missingSheet.canonical!.course.spreadsheetAssignments = [];
+assert(communityWorkRevisionProblems(legacyRich, missingSheet, 'rich', 'https://community.example').some(e => e.includes('sheet')));
+assert.throws(() => toCourse(legacyRich, meta, id => `https://community.example/images/${id}`, 'https://community.example'), /downloaded community reader image is invalid/, 'installation still requires validated embedded media');
+assert.throws(() => migrateCommunityDocToCanonical(legacyRich, 'rich'), /image asset/, 'migration never trusts an origin inferred from source');
+console.log('legacy canonical upgrade: reader source URLs, generated question bank schema, spreadsheet identities, and strict installation boundary preserved');
