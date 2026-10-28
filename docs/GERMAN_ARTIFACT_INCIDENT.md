@@ -30,3 +30,16 @@ origin verification, investigate CDN caching; do not accept mismatched bytes.
 The repair is not an atomic R2 compare-and-swap. Existing GitHub concurrency and
 latest-main checks serialize this repository's writer. An independently
 authorized external writer remains a race limitation; stop if observed.
+
+## Verified recovery outcome
+
+PR #55 merged as `166cb45fd8ea3788e2bfd52eea185fe35ce514f7`. Run
+[40659248714](https://github.com/Aziliz/erudior/actions/runs/40659248714)
+restored all three allowlisted objects, verified their retained backups and
+origin read-back, authenticated all 20 public course files, and successfully
+published/read back the catalog and signature. Website deployment and full
+regression suite passed. Independent engine-integrity workflow
+[40659248745](https://github.com/Aziliz/erudior/actions/runs/40659248745) also passed.
+
+The temporary invocation has now been removed. The recovery script remains
+an explicit incident record only; ordinary publication cannot invoke it.
