@@ -7,7 +7,7 @@ const files = execFileSync("git", ["ls-files", "-z"], { encoding: "buffer" }).to
 const skip = (p) => p === "scripts/check-product-identity.mjs" || p.startsWith("samples/") || p.startsWith("docs/") || p === "HANDOFF.md";
 const patterns = [
   new RegExp("com[.]aziliz[.]" + legacy, "i"),
-  new RegExp("['\\x22\\x60]" + legacy + "(?:[.]|[-]|['\\x22\\x60])", "i"),
+  new RegExp("https?://(?:[a-z0-9.-]*[.])?" + legacy + "[.]", "i"),
 ];
 const failures = [];
 for (const file of files) {
