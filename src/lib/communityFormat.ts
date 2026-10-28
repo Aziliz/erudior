@@ -644,7 +644,7 @@ export interface CommunityMeta {
  * The final lesson renderer sanitizes generated HTML independently.
  */
 export function safeAdvancedSource(md: string): string {
-  const allowed = /^(?:sounds|blend|trace|dialogue|speak|map|timeline|sim|code|assignment|example|manipulative|figure|plot|shape|mermaid)(?:\\s|$)/;
+  const allowed = /^(?:sounds|blend|trace|dialogue|speak|map|timeline|sim|code|assignment|example|manipulative|figure|plot|shape|mermaid)(?:\s|$)/;
   const fence = /^\`\`\`([^\n]*)\n([\s\S]*?)^\`\`\`[ \t]*$/gm;
   let result = "";
   let previous = 0;
