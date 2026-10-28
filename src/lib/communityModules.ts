@@ -49,3 +49,12 @@ export function moveCommunityLesson(doc: CommunityDoc, lessonId: string, moduleI
     lessons: doc.lessons.map((lesson) => lesson.id === lessonId ? { ...lesson, module: moduleId } : lesson),
   };
 }
+
+/** Add a lesson to the selected module, maintaining unique IDs and an editable text block. */
+export function addCommunityLesson(doc: CommunityDoc, moduleId: string): CommunityDoc {
+  if (!(doc.modules ?? []).some((m) => m.id === moduleId)) return doc;
+  const ids = new Set([...doc.lessons.map((l) => l.id), ...(doc.modules ?? []).map((m) => m.id)]);
+  let i = 1;
+  while (ids.has(`l${i}`)) i++;
+  return { ...doc, lessons: [...doc.lessons, { id: `l${i}`, module: moduleId, title: `Lesson ${doc.lessons.length + 1}`, blocks: [{ type: "text", md: "" }] }] };
+}
