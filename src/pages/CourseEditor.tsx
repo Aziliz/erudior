@@ -7,8 +7,9 @@ import { confirmAction } from "../lib/storage";
 import { drillError, generate } from "../lib/drills";
 import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
+import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "details" | "lessons" | "glossary" | "reference" | "drills";
+type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheetReview";
 
 export default function CourseEditor({ api, course, isNew }: { api: AppApi; course: Course; isNew?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
@@ -84,6 +85,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
               ["drills", `Math drills (${draft.drills.length})`],
+              ...(draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
           ).map(([id, label]) => (
             <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => setTab(id)}>
@@ -96,6 +98,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
+        {tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
     </div>
   );
