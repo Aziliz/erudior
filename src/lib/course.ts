@@ -208,6 +208,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(raw.readAloud === true ? { readAloud: true } : {}),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
+    ...(Array.isArray(raw.spreadsheetAssignments) ? { spreadsheetAssignments: raw.spreadsheetAssignments.filter((a): a is Course["spreadsheetAssignments"] extends (infer T)[] ? T : never => Boolean(a && typeof a === "object" && "lessonId" in a && lessons.some(l => l.id === a.lessonId) && "starter" in a && "answers" in a)) as NonNullable<Course["spreadsheetAssignments"]> } : {}),
   };
 }
 
