@@ -468,6 +468,7 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
  */
 export const ENGINE_IN_PROGRESS = new Set<string>([
   "Shared canonical course and content model",
+  "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Cross-course competency graph",
   "Expand competency pathways and assessment coverage across courses",
   "Learning diagnostics and targeted intervention",
@@ -512,6 +513,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Jurisdiction-neutral requirements pack foundation", detail: "Versioned rules, validation of program hours and source metadata, explicit jurisdiction selection and fail-closed lookups (PR #37). Full course integration remains in progress.", status: "done" },
   { title: "Automatic competency intervention next-step recommendations", detail: "Use saved baselines and current mastery to select review, reassessment, continued practice, or advancement (PR #36).", status: "done" },
   { title: "Repeatable competency reassessment and outcome regression coverage", detail: "Students can repeat focused assessments after an intervention, with tests for mastery comparisons, missing baselines and newest-session selection (PR #35).", status: "done" },
   { title: "Post-intervention mastery reassessment", detail: "Compare saved pre-practice competency mastery with current mastery, recommend next steps, and show mastered skills ready to advance (PR #34).", status: "done" },
