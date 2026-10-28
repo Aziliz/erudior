@@ -7588,27 +7588,45 @@ button.fn-ref {
   }
 }
 
-/* Roadmap: distinct section/subsection hierarchy and readable course entries. */
+/* One consistent visual rhythm for every roadmap group and entry. */
+.roadmap {
+  --roadmap-row-gap: 10px;
+  --roadmap-section-gap: 28px;
+  --roadmap-accent: #4b8c96;
+}
+.roadmap .roadmap-group { margin-top: var(--roadmap-section-gap); }
 .roadmap .roadmap-group > h2 {
-  color: #4b8c96;
+  color: var(--roadmap-accent);
   border-bottom: 2px solid currentColor;
   padding-bottom: 10px;
-  margin-bottom: 22px;
+  margin: 0 0 18px;
+  font-size: 1.15rem;
 }
 .roadmap #course-updates h3 {
   color: #a47735;
-  margin-top: 30px;
-  margin-bottom: 12px;
+  margin: 24px 0 12px;
+  font-size: 1.05rem;
 }
-.roadmap #course-updates .roadmap-list {
-  gap: 14px;
-  margin-bottom: 24px;
+.roadmap .roadmap-list {
+  list-style: none;
+  margin: 8px 0 18px;
+  padding: 0;
+  display: grid;
+  gap: var(--roadmap-row-gap);
 }
-.roadmap #course-updates .roadmap-list li {
-  padding: 7px 0;
+.roadmap .roadmap-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 0;
   line-height: 1.55;
 }
+.roadmap .roadmap-list .pill {
+  flex: 0 0 auto;
+  min-width: 84px;
+  text-align: center;
+}
+.roadmap .roadmap-name { min-width: 0; }
 @media (max-width: 600px) {
-  .roadmap #course-updates .roadmap-list { gap: 12px; }
-  .roadmap #course-updates .roadmap-list li { align-items: flex-start; }
+  .roadmap .roadmap-list li { align-items: flex-start; }
 }
