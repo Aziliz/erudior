@@ -126,6 +126,18 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
         Don't put personal information in a course: no students' names, photos of students, addresses or phone numbers.
       </p>
 
+      <details className="panel" style={{ marginBottom: 16 }}>
+        <summary><strong>How to create a course — author guide</strong></summary>
+        <p>Make a course in About, group its lessons in Modules, then open Lessons. Each lesson has a visible Module selector above its blocks.</p>
+        <p><strong>Formatting:</strong> Use Heading for headings, List for bullet or numbered items, Image to upload pictures (with alt text), and Text for paragraphs, tables, links and math.</p>
+        <pre>{`| Shape | Sides |
+|---|---:|
+| Triangle | 3 |
+| Square | 4 |`}</pre>
+        <p>Markdown: <code>**bold**</code>, <code>*italic*</code>, <code>[link](https://example.com)</code>, <code>$2+3=5$</code>. Add questions with answers and explanations. For maps, timelines, phonics, audio, simulations, code and assignments, use <strong>Advanced lesson source</strong> and official lesson Markdown.</p>
+        <p>Preview the lesson before publishing. On the Publish tab, correct all validation issues. Published community content remains Not reviewed pending Erudior review.</p>
+        <p>More examples: <a href="https://github.com/Aziliz/erudior/blob/main/docs/COURSE_FORMAT.md" target="_blank" rel="noopener noreferrer">Official course syntax guide</a>.</p>
+      </details>
       <nav className="tabs" aria-label="Course editor sections">
         {(
           [
