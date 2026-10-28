@@ -21,7 +21,11 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npm test
+      - name: Community regression tests
+        run: npx tsx tests/community.test.mts && npx tsx tests/community-modules.test.mts && npx tsx tests/community-promotion.test.mts
+      - name: Complete test suite
+        timeout-minutes: 15
+        run: npm test
       - run: npm run build
   worker:
     runs-on: ubuntu-latest
