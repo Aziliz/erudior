@@ -470,6 +470,7 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
   "Shared canonical course and content model",
   "Cross-course competency graph",
   "Expand competency pathways and assessment coverage across courses",
+  "Student learning path recommendations and course navigation",
   "Production course publishing deployment repair",
   "Course creator parity regression suite",
   "Community and official course content round-trip fidelity",
@@ -481,6 +482,7 @@ export const ENGINE_PLANNED = [
   "Production course publishing deployment repair",
   "Cross-course competency graph",
   "Expand competency pathways and assessment coverage across courses",
+  "Student learning path recommendations and course navigation",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
   "Lesson-to-game and lesson-to-assessment conversion",
@@ -511,6 +513,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Student learning path and recommended-course navigation", detail: "Progress page with prerequisite explanations and course navigation, merged PRs #15 and #21; initial learning pathway implementation.", status: "done" },
   { title: "Cross-course competency graph foundation and student Learning Path", detail: "Skill prerequisites, course-linked evidence, mastery and placement recommendations with the Progress page. Merged PR #15; broader course coverage remains in progress.", status: "done" },
   { title: "Course integrity validation and portable snapshots", detail: "Non-destructive checks for content IDs and references, canonical version 1 import and deterministic exports; merged in PR #11 and merge-only integrity CI passed.", status: "done" },
   { title: "Course revision compatibility and publishing preflight", detail: "Stable identifiers and revision comparison, authenticated baseline verification and rejection of unsafe updates; merged in PR #11 with integrity CI passed. Production deployment remains blocked by a historical course hash mismatch.", status: "done" },
