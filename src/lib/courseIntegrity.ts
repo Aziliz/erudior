@@ -79,6 +79,19 @@ export function importValidatedCourseSnapshot(source: string): Course {
     if (typeof lesson.module === "string" && !ids.has(lesson.module))
       throw new Error(`Invalid course references: lessons[${i}].module: ${lesson.module}`);
   }
+  if (Array.isArray(raw.spreadsheetAssignments)) {
+    const seen = new Set<string>();
+    for (const [i, candidate] of raw.spreadsheetAssignments.entries()) {
+      if (!candidate || typeof candidate !== "object" || Array.isArray(candidate))
+        throw new Error(`Invalid spreadsheet assignment at index ${i}`);
+      const item = candidate as Record<string,unknown>;
+      if (typeof item.id !== "string" || seen.has(item.id))
+        throw new Error(`Duplicate or invalid spreadsheet assignment ID at index ${i}`);
+      seen.add(item.id);
+      if (typeof item.lessonId !== "string" || !rawLessons.some(l=>l.id===item.lessonId))
+        throw new Error(`Invalid spreadsheet lesson reference at index ${i}`);
+    }
+  }
   const course = importCourseSnapshot(source);
   const errors = validateCourseIntegrity(course);
   if (errors.length) {
