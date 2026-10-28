@@ -127,3 +127,78 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Homeschool records", detail: "Attendance, hours, grades, report cards, transcripts, portfolios and state reports for all 50 states and DC.", status: "done" },
   { title: "Classrooms and live rooms", detail: "Classes, due dates, a gradebook, hand-in files, and live quizzes on any device.", status: "done" },
 ];
+
+
+/** Planned work beyond the existing course catalog, organized by delivery surface.
+ * "in_progress" is used only for source changes known to be in a draft PR; not deployed.
+ */
+export type UpdateStatus = "done" | "in_progress" | "planned";
+export type UpdateItem = { title: string; detail: string; status: UpdateStatus; phase: "1.0" | "Later" };
+export type UpdateArea = { id: string; title: string; intro: string; items: UpdateItem[] };
+const planned = (title: string, detail: string, phase: "1.0" | "Later" = "1.0"): UpdateItem =>
+  ({ title, detail, status: "planned", phase });
+
+export const UPDATES: UpdateArea[] = [
+  {
+    id: "course-updates", title: "Course update",
+    intro: "Every course stays free to read without registration. Published K–12 courses meet the chosen grade plan; parents can add courses. Professional credentials are a separate, approved enrollment pathway.",
+    items: [
+      planned("Complete high school core first", "English 9–12, Chemistry, Earth and Environmental Science, World History, US History, US Government and Civics, and Economics; retain existing high-school math, Biology and Physics."),
+      planned("Finish kindergarten through grade 5", "Math, structured literacy and language arts, science, social studies, plus art, music, health/safety and PE; systematic phonics, decoding, fluency, handwriting and accessible read-aloud lessons."),
+      planned("Complete grades 6–8", "Full middle-school subject progression, interdisciplinary scientific inquiry, geography, literary analysis and algebra readiness."),
+      planned("Expand languages and electives", "Spanish 1–2 with listening/speaking; German beyond B1 and later additional languages; Personal Finance and Computer Science."),
+      planned("Add life and digital skills sequences", "Digital citizenship, computer literacy, personal finance, independent living, communication, critical thinking, media and AI literacy across appropriate grade bands.", "Later"),
+      planned("Add career and advanced pathways", "Career discovery/readiness, entrepreneurship, vocational introductions, engineering, psychology, philosophy, advanced STEM and college preparation; retain college-level math and physics as optional electives.", "Later"),
+      planned("Colorado broker practical curriculum", "Align each of the six required 168-hour subjects with official objectives; interactive contracts, six-column closings, trust-account reconciliation, current legal issues and full transaction simulations. No hour-padding or approval claims."),
+      planned("Course review and pilot validation", "Independent lesson/question review, versioned standards coverage, instructional pacing, actual student/parent pilot feedback and accessibility review."),
+    ],
+  },
+  {
+    id: "web-app-updates", title: "Web app update",
+    intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
+    items: [
+      planned("Keep all learning publicly accessible", "Public course pages, reading and practice without an account; optional local guest progress and export."),
+      planned("Unify community and official authoring", "One lossless canonical course contract or round-trip conversion, preserving modules, lessons, images, tables, assignments, audio, advanced questions, reading resources, experiments and code."),
+      { title: "Fix community module and lesson controls", detail: "Predictable add/delete, explicit lesson-to-module assignment, inline confirmation, save/reopen tests and accessible controls; changes currently on draft PR #1.", status: "in_progress", phase: "1.0" },
+      { title: "Community creation guide and authoring tests", detail: "In-editor guide for headings, Markdown tables, images/alt text, diagrams, manipulatives, quizzes and advanced source; test complete create→publish→install workflow. Draft PR #1 not deployed.", status: "in_progress", phase: "1.0" },
+      planned("Reviewed community-to-official promotion", "Admin-gated review of an immutable published version; embed media, retain provenance, check parity and approval; publish only via authorized official release pipeline."),
+      planned("Teacher Assistant — games and classroom tools", "Kahoot-style live/team quizzes, review boards, bingo, matching, timers, random picker, teams, polling, whiteboard, exit tickets and presenter mode."),
+      planned("Teacher Content Studio and interactive lessons", "Create worksheets, study guides, slides, rubrics, presentations, labs and projects from verified content; teacher-paced and student-paced lessons, video questions and reusable resources.", "Later"),
+      planned("Teacher analytics and interventions", "Transparent misconceptions, reteaching groups, targeted follow-up, differentiated assignments, classroom observations and parent reports.", "Later"),
+      planned("Safe authentication and family accounts", "Parent-created under-13 profiles with verifiable consent, restricted child sessions and device pairing; teen sign-in transition at 13, adult transition at 18, guardian reauthentication."),
+      planned("Credential registry and public verification", "Professional-only certificate issuance when authorized; signed PDFs, unguessable IDs, privacy-preserving lookup, revocation, correction and issuer identity."),
+    ],
+  },
+  {
+    id: "application-updates", title: "Application update",
+    intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
+    items: [
+      planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
+      planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),
+      planned("Multiple devices and offline recovery", "Restricted student sign-ins on personal computers, shared-device profile switching, sync, offline drafts, interruption recovery and conflict-safe completion tracking."),
+      planned("Age transitions and permissions", "Keep one permanent student academic identity from child to teen to adult; age 13 updates login options without creating a duplicate record; adult control and guardian access reviewed at 18."),
+      planned("Professional verified enrollment", "Free public lessons remain separate from identity-verified prelicensing/CE tracking, assessments, provider-approved hour equivalency and certificates."),
+      planned("Academic records and portability", "Retain existing attendance, report cards, transcripts and portfolios; add configurable graduation policies, exports, audit trails, retention schedules and authorization controls."),
+      planned("Classroom and teacher workflows", "Reuse existing classrooms and gradebook for assignments, live games, peer review, conferencing, group projects, communication and field trip logs."),
+      planned("Security, privacy and accessibility", "COPPA-consent workflow, teen protections, least-privilege access, privacy-first analytics, encrypted backups, age-appropriate sharing, WCAG 2.2 AA test coverage and restore drills."),
+      planned("Educational interoperability", "Plan for CASE, QTI, OneRoster, LTI and Common Cartridge where useful; avoid hardcoding proprietary identifiers.", "Later"),
+    ],
+  },
+  {
+    id: "engine-updates", title: "Engine update",
+    intro: "Shared content capabilities behind the web and application experiences. Existing working engine features remain listed separately below.",
+    items: [
+      planned("Shared canonical course and content model", "Versioned modules, lessons, questions, bank metadata, audio, readers, rubrics, work, images and supported interactive blocks; import/export must preserve semantics."),
+      planned("Cross-course competency graph", "Stable skill IDs, prerequisites, standards mapping, diagnostic placement, mastery and explanation of why targeted practice was assigned."),
+      planned("Interactive document and case file engine", "Fillable forms, document annotation, side-by-side revision comparison, evidence submissions and instructor feedback; supports real estate and general education."),
+      planned("Workbook and financial calculation engine", "Spreadsheet-like cells, six-column closings, prorations, buyer/seller figures, ledger reconciliation, partial-credit mathematical reasoning and deterministic grading."),
+      planned("Branching scenario and timeline engine", "Persistent fictional case files, decision consequences, deadlines, state changes, transaction simulation and project milestones."),
+      planned("Scientific and engineering workspaces", "Guided labs, measurements, uncertainty, graphing, simulated instruments, engineering design and safe instructor-reviewed evidence."),
+      planned("Advanced assessment and feedback", "Multi-step math work, oral assessment, rubric revision history, question variants, integrity controls, misconception reporting and verifiable assessment lineage."),
+      planned("Content review, versioning and auditability", "Independent review gates, lesson/question version IDs, signed approved releases, content rights provenance and preserved historical results."),
+      planned("Credential integrity and compliance evidence", "Authenticated qualifying enrollments, instructor approvals, tamper-evident event records, equivalent-hours methodology, secure PDFs and revocation; never certify unapproved programs."),
+      planned("Course creator parity regression suite", "Unit tests for module operations, two-way course mapping, images, phonics, maps, code, assignments and real browser create/publish/install; require web build and worker checks."),
+      planned("Privacy-preserving learner data architecture", "Local anonymous practice, server-backed account progress, isolated high-integrity credential registry, retention/deletion controls and data recovery."),
+    ],
+  },
+];
