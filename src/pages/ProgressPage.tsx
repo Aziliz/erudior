@@ -171,6 +171,14 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {progress.attempts.filter(a=>a.intervention?.skillId===skill.skillId).slice(-3).reverse().map(a=>{
+                        const baseline=a.intervention?.baseline;
+                        const assessed=a.total>0?a.correct/a.total:null;
+                        return <span key={a.id} className="small muted">
+                          Focused practice {new Date(a.finishedAt).toLocaleDateString()}: {assessed===null?"No graded answers":Math.round(assessed*100)+"% on this session"}
+                          {baseline===null||baseline===undefined||assessed===null?" (no comparable pre-practice mastery baseline)":` (starting mastery estimate ${Math.round(baseline*100)}%; these are different measures)`}
+                        </span>;
+                      })}
                       {placement.graph.filter(item=>item.id===skill.skillId).map(item=>{
                         const trend=competencyImprovement(item,api.banks,progress);
                         return trend ? <span key={item.id} className="small muted">
@@ -203,10 +211,10 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                         )
                       ).slice(0,1).map(({bank,topics}) => (
                         <button key={bank.id + "-practice"} type="button" className="linkish small"
-                          onClick={() => api.go({name:"run",session:startPractice(bank, progress, {
+                          onClick={() => api.go({name:"run",session:{...startPractice(bank, progress, {
                             count:Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length),
                             topics,sections:[],filter:"all",shuffleChoices:true,
-                          })})}>
+                          }), intervention:{skillId:skill.skillId,baseline:placement.states.find(s=>s.id===skill.skillId)?.mastery ?? null}}})}>
                           Start focused practice ({Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length)} questions)
                         </button>
                       ))}

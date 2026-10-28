@@ -21,6 +21,7 @@ export interface Block {
 }
 
 export interface Session {
+  intervention?: { skillId: string; baseline: number | null };
   id: string;
   bankId: string;
   bankTitle: string;
@@ -373,6 +374,7 @@ export function finishSession(
     lesson: session.lesson,
     module: session.module,
     ...(session.kind ? { kind: session.kind } : {}),
+    ...(session.intervention ? { intervention: session.intervention } : {}),
     byTopic,
     bySection,
     answers: records,
