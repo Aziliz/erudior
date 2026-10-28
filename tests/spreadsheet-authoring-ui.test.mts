@@ -113,6 +113,14 @@ assert.equal(button("Prepare review record").disabled, true);
 await fill("Reviewer", "Instructor test");
 await act(async () => document.querySelector<HTMLInputElement>('input[type="checkbox"]')!.click());
 await click("Prepare review record");
+// WebCrypto digest completes outside React's event promise; act(click) alone
+// cannot guarantee the immutable receipt is ready on a loaded CI runner.
+const reviewDeadline = Date.now() + 5000;
+while (!document.querySelector('textarea[aria-label="Reviewed course snapshot JSON"]') && Date.now() < reviewDeadline) {
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 10)); });
+}
+assert.ok(document.querySelector('textarea[aria-label="Reviewed course snapshot JSON"]'),
+  `Review preparation did not finish: ${document.querySelector('[role="status"]')?.textContent ?? document.body.textContent}`);
 const record = field("Review record JSON") as unknown as HTMLTextAreaElement;
 const approval = JSON.parse(record.value);
 assert.deepEqual(await validateSpreadsheetReleaseApproval(reviewCourse, approval), []);
