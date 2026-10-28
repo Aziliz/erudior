@@ -116,3 +116,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - The workflow uses `set -euo pipefail` for file uploads so failed commands stop publication; the existing GitHub Actions `site` concurrency group serializes this repository's deployments.
 - **Boundary:** These safeguards prevent superseded in-repository workflows from publishing stale catalogs, but they are not an atomic global lock against external writes. Strict cross-client exclusivity still needs a conditional commit or dedicated single-writer service and exclusive credentials.
 - **Status:** committed on draft PR #11; full tests remain merge-only. Do not mark the shared canonical course model Done until post-merge verification.
+
+### Slice 18 — Release read-back verification
+- After upload, the publisher now downloads the authoritative R2 catalog and detached signature and compares both byte-for-byte with the locally signed release. A mismatch fails the deployment before downstream website work.
+- This detects failed or corrupted publication but does not make the two-object catalog/signature update atomic. Existing readers must tolerate short propagation windows; a future single signed manifest object or conditional single-writer commit should address atomicity.
+- **Status:** draft PR #11, unmerged. Full test suite runs only after merge. Public roadmap remains Planned pending successful verification.
