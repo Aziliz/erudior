@@ -5,16 +5,25 @@ import type { Progress } from "../src/lib/types.ts";
 const dom=new JSDOM("<!doctype html><div id='root'></div>",{url:"https://example.test"});
 Object.assign(globalThis,{window:dom.window,document:dom.window.document,localStorage:dom.window.localStorage,HTMLElement:dom.window.HTMLElement,IS_REACT_ACT_ENVIRONMENT:true});
 Object.defineProperty(globalThis,"navigator",{configurable:true,value:dom.window.navigator});
-const {createElement,act}=await import("react");const {createRoot}=await import("react-dom/client");
+const {createElement,act}=await import("react");
+async function waitFor(condition:()=>boolean,label:string) {
+ const deadline=Date.now()+5000;
+ while(!condition()) { assert(Date.now()<deadline,`Timed out waiting for ${label}`); await act(async()=>{await new Promise(resolve=>setTimeout(resolve,5));}); }
+}
+const {createRoot}=await import("react-dom/client");
 const {default:WorkView}=await import("../src/pages/WorkView.tsx");
 const {emptyProgress,useStudentFiles}=await import("../src/lib/storage.ts");
 const {emptyCourse}=await import("../src/lib/course.ts");
 const {pendingAssessedWorkSubmission,prepareAssessedWorkSubmission,getConfirmedAssessedWorkProgress}=await import("../src/lib/assessedWorkSubmissionState.ts");
-const root=createRoot(document.getElementById("root")!);let student="learnera",mount=0,mode="fail",calls=0;let finish:()=>void=()=>{};const deferred:Array<()=>void>=[];
+const root=createRoot(document.getElementById("root")!);let student="learnera",mount=0,mode="fail",calls=0;const deferred:Array<()=>void>=[];
 let progress:Progress=emptyProgress();progress.work={"course/essay":{kind:"writing",started:"2026-10-28T01:00:00Z",updated:"2026-10-28T02:00:00Z",text:"Original response"}};
 let course={...emptyCourse("Work"),id:"course",writing:[{id:"essay",title:"Original task",kind:"short" as const,prompt:"Explain."}]};
 const toasts:string[]=[];
-const api={get progress(){return progress;},get student(){return{id:student};},family:null,toast:(m:string)=>toasts.push(m),go:()=>{},updateProgress:async(fn:(p:Progress)=>Progress)=>{calls++;progress=fn(progress);render();if(mode==="fail")throw Error("disk failure");if(mode==="defer")await new Promise<void>(resolve=>{finish=resolve;deferred.push(resolve);});}} as unknown as AppApi;
+const api={get progress(){return progress;},get student(){return{id:student};},family:null,toast:(m:string)=>toasts.push(m),go:()=>{},updateProgress:async(fn:(p:Progress)=>Progress)=>{calls++;progress=fn(progress);render();if(mode==="fail")throw Error("disk failure");if(mode==="defer"){await new Promise(resolve=>setTimeout(resolve,25));await new Promise<void>(resolve=>{deferred.push(resolve);});}}} as unknown as AppApi;
+async function releaseSave() {
+ await waitFor(()=>deferred.length>0,"deferred save entry");
+ await act(async()=>deferred.shift()!());
+}
 function render(){root.render(createElement(WorkView,{key:mount,api,course,itemId:"essay"}));}
 const button=(text:string)=>{const b=[...document.querySelectorAll("button")].find(b=>b.textContent===text);assert(b,text);return b;};
 useStudentFiles(student);await act(async()=>render());
@@ -27,7 +36,7 @@ await act(async()=>{mount++;course={...course,writing:[{...course.writing[0],pro
 progress={...progress,work:{...progress.work,"course/essay":{...progress.work!["course/essay"],text:"Newer external draft",updated:"2030-01-01T00:00:00Z"}}};
 mode="defer";await act(async()=>button("Retry original submission").click());
 assert.equal(calls,2);assert(button("Saving…").disabled);assert.equal(Object.keys(getConfirmedAssessedWorkProgress(progress,student).assessedWorkSubmissions!).length,0);
-await act(async()=>finish());assert.deepEqual(progress.assessedWorkSubmissions![pending.id],pending);assert.equal(progress.work!["course/essay"].text,"Newer external draft","old retry never overwrites a newer draft");assert.match(document.body.textContent!,/Confirmed submission history/);
+await releaseSave();assert.deepEqual(progress.assessedWorkSubmissions![pending.id],pending);assert.equal(progress.work!["course/essay"].text,"Newer external draft","old retry never overwrites a newer draft");assert.match(document.body.textContent!,/Confirmed submission history/);
 assert.equal((progress.assessedWorkSubmissions![pending.id].task as any).prompt,"Explain.");
 // Same content with a newer submission round is a distinct revision, not the predecessor.
 await act(async()=>{prepareAssessedWorkSubmission(student,pending);progress={...progress,work:{...progress.work,"course/essay":{...pending.response as any,rounds:99}}};render();});
@@ -39,22 +48,23 @@ assert.doesNotMatch(document.body.textContent!,/Original response/);assert.doesN
 await act(async()=>{student="learnerc";useStudentFiles(student);progress=emptyProgress();progress.work={"course/essay":{kind:"writing",started:"2026-10-28T01:00:00Z",updated:"2026-10-28T02:00:00Z",text:"Initial"}};mount++;render();});
 const edit=async(value:string)=>{await act(async()=>{const box=document.querySelector("textarea")!;assert(box);Object.getOwnPropertyDescriptor(dom.window.HTMLTextAreaElement.prototype,"value")!.set!.call(box,value);box.dispatchEvent(new dom.window.Event("input",{bubbles:true}));});};
 mode="defer";const before=calls;
-await edit("First edit");await act(async()=>{await new Promise(resolve=>setTimeout(resolve,850));});assert.equal(calls,before+1);
+await edit("First edit");await waitFor(()=>calls===before+1,"autosave to start");assert.equal(calls,before+1);
 await edit("Newest edit before submit");
 await act(async()=>button("Mark as finished").click());
 assert.equal(calls,before+1,"submission cannot race in-flight autosave");
 assert.equal(document.querySelector("textarea"),null,"editing is frozen while handing in");
-await act(async()=>finish());assert.equal(calls,before+2,"newer queued draft is saved after first draft");
-await act(async()=>finish());assert.equal(calls,before+3,"immutable evidence writes only after final autosave");
+await releaseSave();assert.equal(calls,before+2,"newer queued draft is saved after first draft");
+await releaseSave();assert.equal(calls,before+3,"immutable evidence writes only after final autosave");
 assert.equal(Object.keys(getConfirmedAssessedWorkProgress(progress,student).assessedWorkSubmissions!).length,0);
-await act(async()=>finish());
+await releaseSave();
 const latest=Object.values(progress.assessedWorkSubmissions!)[0];assert.equal((latest.response as any).text,"Newest edit before submit");assert.equal(progress.work!["course/essay"].text,"Newest edit before submit");
 // An awaited confirmation cannot carry the previous learner's response into a new profile.
 let confirm!: (answer:boolean)=>void;
-dom.window.confirm=(()=>new Promise<boolean>(resolve=>{confirm=resolve;})) as any;
+dom.window.confirm=(async()=>{await new Promise(resolve=>setTimeout(resolve,30));return new Promise<boolean>(resolve=>{confirm=resolve;});}) as any;
 mode="ok";await act(async()=>{student="learnerd";useStudentFiles(student);progress=emptyProgress();progress.work={"course/essay":{kind:"writing",started:"2026-10-28T01:00:00Z",updated:"2026-10-28T02:00:00Z",text:"Short"}};course={...course,writing:[{...course.writing[0],words:{min:100}}] as any};mount++;render();});
 const beforeConfirm=calls;await act(async()=>button("Mark as finished").click());assert.equal(document.querySelector("textarea"),null);
 await act(async()=>{student="learnere";useStudentFiles(student);progress=emptyProgress();mount++;render();});
+await waitFor(()=>typeof confirm==="function","delayed confirmation entry");
 await act(async()=>confirm(true));assert.equal(calls,beforeConfirm);assert.equal(progress.assessedWorkSubmissions,undefined);
 const {AssessedWorkHistory}=await import("../src/components/AssessedWorkSubmission.tsx");
 const {createAssessedWorkSubmission}=await import("../src/lib/assessedWorkEvidence.ts");
