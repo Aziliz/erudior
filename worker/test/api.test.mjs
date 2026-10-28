@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+const assessedWork = JSON.parse(readFileSync(new URL("../../tests/fixtures/community-assessed-work.json", import.meta.url), "utf8"));
 // Smoke test of the community API against `npm run dev` (http://localhost:8787, dev sign-in on).
 //   node test/api.test.mjs
 const API = process.env.API ?? "http://localhost:8787";
@@ -57,6 +59,7 @@ ok("image uploaded", img.status === 201 && img.data.id, img.data);
 ok("not an image refused", (await author.call("POST", "/images", null, new TextEncoder().encode("<svg onload=alert(1)>"))).status === 415);
 
 const doc = {
+  ...assessedWork,
   format: "erudior-community",
   version: 1,
   title: `Backyard birds ${tag}`,
@@ -68,6 +71,9 @@ const doc = {
       id: "l1",
       title: "Backyard birds",
       blocks: [
+        { type: "assignment", kind: "writing", id: "bird-report" },
+        { type: "assignment", kind: "lab", id: "bird-observation" },
+        { type: "assignment", kind: "log" },
         { type: "heading", text: "Look and listen" },
         { type: "text", md: "The **black-capped chickadee** says its name. <script>x</script>" },
         { type: "list", ordered: false, items: ["Chickadee", "Junco"] },
@@ -95,6 +101,16 @@ for (const [name, assignment] of [
   ok(`direct API refuses ${name}`, invalid.status === 400, invalid.data);
 }
 ok("direct API refuses duplicate assignments", (await author.call("PUT", `/drafts/${id}`, { ...doc, spreadsheetAssignments: [...doc.spreadsheetAssignments, ...doc.spreadsheetAssignments] })).status === 400);
+for (const key of ["writing", "rubrics", "labs", "activityLog"]) ok(`assessed-work draft ${key} parity`, JSON.stringify(reopened.data.doc[key]) === JSON.stringify(doc[key]));
+for (const [name, change] of [
+  ["missing rubric", { writing: [{ ...doc.writing[0], rubric: "missing" }] }],
+  ["bad rubric score", { rubrics: [{ ...doc.rubrics[0], criteria: [{ ...doc.rubrics[0].criteria[0], levels: [{ points: -1, label: "Bad" }, { points: 0, label: "None" }] }] }] }],
+  ["unknown lab module", { labs: [{ ...doc.labs[0], module: "missing" }] }],
+  ["dangling typed reference", { lessons: [{ ...doc.lessons[0], blocks: [{ type: "assignment", kind: "writing", id: "missing" }] }] }],
+]) ok(`API refuses assessed work ${name}`, (await author.call("PUT", `/drafts/${id}`, { ...doc, ...change })).status === 400);
+ok("incomplete assessed-work draft is editable", (await author.call("PUT", `/drafts/${id}`, { ...doc, writing: [{ ...doc.writing[0], prompt: "" }] })).status === 200);
+ok("incomplete assessed work cannot publish", (await author.call("POST", `/drafts/${id}/publish`)).status === 400);
+await author.call("PUT", `/drafts/${id}`, doc);
 const pub = await author.call("POST", `/drafts/${id}/publish`);
 ok("publish", pub.status === 200 && pub.data.version === 1, pub.data);
 
@@ -103,8 +119,19 @@ let cat = (await anon.call("GET", "/catalog")).data;
 let entry = cat.courses.find((c) => c.id === id);
 ok("in catalog, not reviewed", entry && entry.review === "not_reviewed" && entry.counts.questions === 1 && entry.author === `Author ${tag}`, entry);
 const full = await anon.call("GET", `/courses/${id}`);
-ok("public course", full.status === 200 && full.data.doc.lessons[0].blocks.length === 5);
+ok("public course", full.status === 200 && full.data.doc.lessons[0].blocks.length === 8);
 ok("public spreadsheet parity", JSON.stringify(full.data.doc.spreadsheetAssignments) === JSON.stringify(doc.spreadsheetAssignments));
+for (const key of ["writing", "rubrics", "labs", "activityLog"]) ok(`public assessed-work ${key} parity`, JSON.stringify(full.data.doc[key]) === JSON.stringify(doc[key]));
+for (const [name, change] of [
+  ["writing removal", { writing: [], lessons: [{ ...doc.lessons[0], blocks: doc.lessons[0].blocks.filter(b => !(b.type === "assignment" && b.kind === "writing")) }] }],
+  ["rubric reassignment", { writing: [{ ...doc.writing[0], rubric: undefined }] }],
+  ["lab question removal", { labs: [{ ...doc.labs[0], questions: [doc.labs[0].questions[0]] }] }],
+  ["lesson reference removal", { lessons: [{ ...doc.lessons[0], blocks: doc.lessons[0].blocks.filter(b => b.type !== "assignment") }] }],
+]) {
+  ok(`save reversible ${name} draft`, (await author.call("PUT", `/drafts/${id}`, { ...doc, ...change })).status === 200);
+  ok(`publish guards ${name}`, (await author.call("POST", `/drafts/${id}/publish`)).status === 409);
+}
+await author.call("PUT", `/drafts/${id}`, doc);
 // Saving a draft remains reversible; publishing cannot orphan existing progress.
 await author.call("PUT", `/drafts/${id}`, { ...doc, spreadsheetAssignments: [] });
 ok("cannot remove published assignment", (await author.call("POST", `/drafts/${id}/publish`)).status === 409);

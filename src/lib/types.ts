@@ -527,6 +527,7 @@ export interface Progress {
   theme?: "light" | "dark" | "system";
   /** Course spreadsheet assignment grading history, keyed by course/assignment ID. */
   /** Immutable learner-submitted spreadsheet evidence; practice scores remain separate. */
+  assessedWorkSubmissions?: import("./assessedWorkEvidence").AssessedWorkSubmissionMap;
   spreadsheetSubmissions?: import("./spreadsheetEvidence").SpreadsheetSubmissionMap;
   spreadsheetGrades?: Record<string, {score: number; gradedAt: string; revision: number; assignmentSnapshot?: string; workbookSnapshot?: string; submissionId?: string}>;
   attempts: Attempt[];

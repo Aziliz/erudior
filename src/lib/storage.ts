@@ -7,6 +7,7 @@ import type { Bank, Course, Progress } from "./types";
 import { parseBank, serializeBank } from "./validate";
 import { normalizeCourse, serializeCourse } from "./course";
 import { webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
+import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 import { stateTransactions, validStateName } from "./stateLock";
 
 export const inApp = isTauri();
@@ -267,7 +268,22 @@ export async function restoreBackup(
 ): Promise<{ courses: number; banks: number }> {
   const b = raw as Backup;
   if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
-  const courses = b.courses.map((c) => normalizeCourse(c));
+  // Historical evidence must remain independently verifiable, including legacy
+  // unencrypted backups. Preflight both ledgers before touching stored state.
+  const [{ mergeAssessedWorkSubmissions }, { mergeSpreadsheetSubmissions }] = await Promise.all([
+    import("./assessedWorkEvidence"), import("./spreadsheetEvidence"),
+  ]);
+  if (b.progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, b.progress.assessedWorkSubmissions);
+  if (b.progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, b.progress.spreadsheetSubmissions);
+  // Validate every raw work collection before normalization or any deletion/write.
+  const courses = b.courses.map(rawCourse => {
+    const rawErrors = validateCourseWork(rawCourse, { legacy: true });
+    if (rawErrors.length) throw Error("Invalid backup course work: " + rawErrors.join("; "));
+    const course = normalizeCourse(rawCourse);
+    const errors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+    if (errors.length) throw Error("Invalid backup course work: " + errors.join("; "));
+    return course;
+  });
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await deleteCourse(c.id);
   for (const x of current.banks) if (!banks.some((y) => y.id === x.id)) await deleteBank(x.id);

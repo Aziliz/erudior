@@ -5,7 +5,7 @@
 import type { Family } from "./family";
 import { loadFamily, saveFamily } from "./family";
 import { mergeWork, verifyHandIn, missingHandInAttachments } from "./classroom";
-import { parseSubmissionHistory, recordHandIn, reviewHandIn, type SubmissionRecord } from "./submissionHistory";
+import { parseSubmissionHistory, recordHandIn, reviewHandIn, type SubmissionRecord, type SubmissionAssessment } from "./submissionHistory";
 import { loadState, saveState, updateState, emptyProgress } from "./storage";
 import { loadFile, putFilePreserving } from "./documents";
 import type { Progress } from "./types";
@@ -13,7 +13,7 @@ import type { Progress } from "./types";
 const KEY = "classroom-submissions";
 type State = { version: 1; records: SubmissionRecord[]; complete: string[]; deletedStudentIds?: string[] };
 export type StoredSubmissionRecord = SubmissionRecord & { importComplete: boolean };
-export type ClassroomReviewInput = { submissionId: string; eventId: string; status: "reviewed" | "needs_revision"; reviewedAt: string; note: string };
+export type ClassroomReviewInput = { submissionId: string; eventId: string; status: "reviewed" | "needs_revision"; reviewedAt: string; note: string; assessment?: SubmissionAssessment };
 export interface ClassroomSubmissionIO {
   readState(name: string): Promise<string | null>;
   writeState(name: string, text: string | null): Promise<void>;
@@ -161,7 +161,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
       const updated = await mutate(current => {
         assertNotDeleted(current, record.studentId);
         if (!current.complete.includes(input.submissionId)) throw Error("Finish importing this exact submission before reviewing it.");
-        return { ...current, records: reviewHandIn(current.records, input.submissionId, input.status, input.reviewedAt, input.note, input.eventId) };
+        return { ...current, records: reviewHandIn(current.records, input.submissionId, input.status, input.reviewedAt, input.note, input.eventId, input.assessment) };
       });
       return view(updated);
     }),

@@ -14,7 +14,7 @@
 // adds, and admins can change them. If the owner hasn't been seen for a year (CLAIM_DAYS), any
 // author can take the course over (the old owner stays on as an editor).
 
-import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
+import { LIMITS, IMAGE_TYPES, checkDoc, communityWorkRevisionProblems, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
 import { normalizeLevel, normalizeSubject, normalizeType } from "../../src/lib/taxonomy.ts";
 
 export { LiveRoom } from "./live.ts";
@@ -581,6 +581,8 @@ async function route(req: Request, env: Env): Promise<Response> {
       try { previous = upgradeDoc(await previousObject.json<CommunityDoc>()); }
       catch { throw new HttpError(409, "The previous published version is invalid; contact the administrators."); }
       if (checkDoc(previous, true).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
+      const workRevisionErrors = communityWorkRevisionProblems(previous, doc);
+      if (workRevisionErrors.length) throw new HttpError(409, workRevisionErrors.join("; "));
       const next = new Map((doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
       for (const assignment of previous.spreadsheetAssignments ?? []) {
         const current = next.get(assignment.id);

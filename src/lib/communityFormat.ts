@@ -9,6 +9,7 @@ import { renderFigure } from "./figure";
 import { splitMath } from "./mathSplit";
 import { readSpec, targetProblems, type ManipSpec, type ManipTarget } from "./manip";
 import { normalizeSpreadsheetAssignment, validateAssignment, type SpreadsheetAssignment } from "./spreadsheetAssignments";
+import { courseWorkRevisionProblems, validateCourseWork, type CourseWork } from "./courseWork";
 export { LEVELS, SUBJECTS, TYPES };
 
 export type QKind = "choice" | "text" | "match" | "label" | "order" | "model";
@@ -48,6 +49,8 @@ export interface CQuestion {
 export type CalloutKind = "tip" | "warning" | "rule";
 
 export type Block =
+  | { type: "assignment"; kind: "writing" | "lab"; id: string }
+  | { type: "assignment"; kind: "log" }
   | { type: "heading"; text: string; /** 2 = section (default), 3 = subsection. */ level?: 2 | 3 }
   | { type: "text"; md: string }
   | { type: "list"; ordered: boolean; items: string[] }
@@ -155,7 +158,7 @@ export interface CExam {
 export type CalcChoice = "basic" | "scientific" | "graphing" | "none";
 export const CALCULATORS: CalcChoice[] = ["basic", "scientific", "graphing", "none"];
 
-export interface CommunityDoc {
+export interface CommunityDoc extends CourseWork {
   format: "erudior-community";
   version: 1;
   title: string;
@@ -375,6 +378,31 @@ export function checkCommunitySpreadsheetAssignments(value: unknown, lessonIds: 
   return errors;
 }
 
+/** Assignment directives are typed references, never arbitrary Markdown/source. */
+export function checkCommunityAssignmentReferences(d: CommunityDoc): string[] {
+  const errors: string[] = [];
+  for (const lesson of Array.isArray(d.lessons) ? d.lessons : []) for (const block of Array.isArray(lesson?.blocks) ? lesson.blocks : []) {
+    if (block?.type !== "assignment") continue;
+    if (block.kind === "log") {
+      if (!d.activityLog || Object.keys(block).some(key => !["type", "kind"].includes(key))) errors.push(`Lesson ${lesson.id}: invalid activity log reference.`);
+    } else if (block.kind === "writing" || block.kind === "lab") {
+      const resources = block.kind === "writing" ? d.writing : d.labs;
+      if (typeof block.id !== "string" || !/^[A-Za-z0-9_-]{1,100}$/.test(block.id) || !Array.isArray(resources) || !resources.some(resource => resource?.id === block.id) || Object.keys(block).some(key => !["type", "kind", "id"].includes(key))) errors.push(`Lesson ${lesson.id}: invalid ${block.kind} reference.`);
+    } else errors.push(`Lesson ${lesson.id}: unknown assignment kind.`);
+  }
+  return errors;
+}
+/** Match immutable publication identities, independent of draft/UI state. */
+export function communityWorkRevisionProblems(previous: CommunityDoc, next: CommunityDoc): string[] {
+  const errors = courseWorkRevisionProblems(previous, next);
+  for (const lesson of previous.lessons) for (const block of lesson.blocks) {
+    if (block.type !== "assignment") continue;
+    const replacement = next.lessons.find(l => l.id === lesson.id)?.blocks.some(b => b.type === "assignment" && b.kind === block.kind && (b.kind === "log" || block.kind !== "log" && b.id === block.id));
+    if (!replacement) errors.push(`Published lesson ${lesson.id}: assessed-work references cannot be removed or reassigned.`);
+  }
+  return errors;
+}
+
 /**
  * Problems that stop publishing (an empty list means it's fine). Drafts may be incomplete;
  * `strict` adds the checks for publishing (no empty lessons, questions answerable, etc.).
@@ -456,6 +484,8 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
     l.blocks.forEach((b, j) => {
       const at = `${where}, block ${j + 1}`;
       switch (b?.type) {
+        case "assignment":
+          break;
         case "heading":
           if (!isStr(b.text) || b.text.length > LIMITS.short) errs.push(`${at}: heading too long.`);
           if (b.level !== undefined && b.level !== 2 && b.level !== 3) errs.push(`${at}: bad heading size.`);
@@ -520,6 +550,8 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
       }
     });
   });
+  errs.push(...checkCommunityAssignmentReferences(d));
+  errs.push(...validateCourseWork(d, { strict, moduleIds: [...mids] }));
   errs.push(...checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments, ids));
   if (images > LIMITS.images) errs.push(`At most ${LIMITS.images} images per course.`);
 
@@ -689,6 +721,8 @@ export interface CommunityMeta {
 /** One block as lesson Markdown. */
 function blockMd(b: Block, imageSrc: (id: string) => string): string {
   switch (b.type) {
+    case "assignment":
+      return "```assignment\n" + (b.kind === "log" ? "log" : `${b.kind}: ${b.id}`) + "\n```";
     case "heading":
       return `${b.level === 3 ? "###" : "##"} ${oneLine(b.text)}`;
     case "text":
@@ -747,6 +781,9 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
  * images when it installs a course, so it works offline).
  */
 export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string): Record<string, unknown> {
+  const workProblems = [...validateCourseWork(d, { moduleIds: d.modules?.map(m => m.id) ?? [] }), ...checkCommunityAssignmentReferences(d)];
+  if (workProblems.length) throw new Error("Cannot install assessed work: " + workProblems.join("; "));
+  const work = Object.fromEntries((["rubrics", "writing", "labs", "activityLog"] as const).filter(key => d[key] !== undefined).map(key => [key, structuredClone(d[key])]));
   const spreadsheetProblems = checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments,
     new Set(d.lessons.filter(lesson => lesson && typeof lesson.id === "string").map(lesson => lesson.id)));
   if (spreadsheetProblems.length) throw new Error("Cannot install spreadsheet assignments: " + spreadsheetProblems.join("; "));
@@ -838,6 +875,7 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
     calculator,
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
+    ...work,
     community: meta,
   };
 }

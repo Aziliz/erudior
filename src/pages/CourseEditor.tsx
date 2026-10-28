@@ -10,9 +10,12 @@ import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { spreadsheetReviewReport } from "../lib/spreadsheetReview";
+import WorkResourceEditor from "../components/WorkResourceEditor";
+import { workProblems } from "../lib/work";
+import { validateCourseWork } from "../lib/courseWork";
 import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview";
+type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview" | "work";
 
 export default function CourseEditor({ api, course, isNew }: { api: AppApi; course: Course; isNew?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
@@ -62,6 +65,8 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
       const report = spreadsheetReviewReport(draft);
       if (!report.readyForHumanReview) { setTab("spreadsheets"); return api.toast("Fix spreadsheet assignment errors before saving: " + report.issues.join("; ")); }
     }
+    const workErrors = [...validateCourseWork(draft, { moduleIds: draft.modules.map(module => module.id) }), ...workProblems(draft)];
+    if (workErrors.length) { setTab("work"); return api.toast("Fix work resource errors before saving: " + workErrors.join("; ")); }
     // Banks and decks are edited in their own editors; keep whatever is stored now.
     const latest = api.courses.find((c) => c.id === course.id) ?? course;
     const savedVersion = draftVersion.current;
@@ -141,6 +146,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
               ["drills", `Math drills (${draft.drills.length})`],
+              ["work", "Writing, labs & activities"],
               ["spreadsheets", `Spreadsheets (${draft.spreadsheetAssignments?.length ?? 0})`],
               ...(draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
@@ -155,6 +161,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
+        {tab === "work" && <WorkResourceEditor work={{ rubrics: draft.rubrics, writing: draft.writing, labs: draft.labs, activityLog: draft.activityLog }} modules={draft.modules} lessons={draft.lessons} onChange={next => update(c => { const result = { ...c }; for (const field of ["rubrics", "writing", "labs", "activityLog"] as const) delete result[field]; return { ...result, ...next }; })} onLessonBodyChange={(id, body) => update(c => ({ ...c, lessons: c.lessons.map(lesson => lesson.id === id ? { ...lesson, body } : lesson) }))} />}
         {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={(value) => { editingRef.current = value; setAssignmentEditing(value); }} />}
         {tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
@@ -228,9 +235,9 @@ function Details({ draft, update }: EP) {
             </button>
             <button
               className="btn sm ghost danger"
-              disabled={draft.lessons.some((l) => l.module === m.id)}
-              title={draft.lessons.some((l) => l.module === m.id) ? "Move or delete its lessons first" : undefined}
-              onClick={() => update((c) => ({ ...c, modules: c.modules.filter((x) => x.id !== m.id) }))}
+              disabled={draft.lessons.some((l) => l.module === m.id) || [...(draft.writing ?? []), ...(draft.labs ?? [])].some(item => item.module === m.id)}
+              title="Move or delete linked lessons and work resources first"
+              onClick={() => update((c) => c.lessons.some(l => l.module === m.id) || [...(c.writing ?? []), ...(c.labs ?? [])].some(item => item.module === m.id) ? c : ({ ...c, modules: c.modules.filter((x) => x.id !== m.id) }))}
             >
               Remove
             </button>
@@ -363,7 +370,10 @@ function Lessons({ draft, update }: EP) {
             <div>
               <button
                 className="btn sm ghost danger"
+                disabled={draft.spreadsheetAssignments?.some(item => item.lessonId === current.id)}
+                title="Detach lesson-linked spreadsheet assignments before deleting"
                 onClick={() => {
+                  if (draft.spreadsheetAssignments?.some(item => item.lessonId === current.id)) return;
                   update((c) => ({ ...c, lessons: c.lessons.filter((l) => l.id !== current.id) }));
                   setSel(null);
                 }}
