@@ -67,6 +67,12 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Career Exploration 6–8" },
     ],
   },
+  { id: "k8-technology", title: "Technology and practical skills, kindergarten to grade 8", courses: [
+    { title: "Keyboarding and Typing 3–5" },
+    { title: "Digital Productivity 6–8" },
+    { title: "AI Literacy 6–8" },
+    { title: "Robotics and Engineering 6–8" },
+  ] },
   {
     id: "hs-math",
     title: "High school math",
@@ -103,7 +109,7 @@ export const ROADMAP: RoadmapGroup[] = [
   {
     id: "hs-languages",
     title: "World languages",
-    courses: [{ title: "German A1" }, { title: "German A2" }, { title: "German B1" }, { title: "Spanish 1" }, { title: "Spanish 2" }],
+    courses: [{ title: "German A1" }, { title: "German A2" }, { title: "German B1" }, { title: "German B2" }, { title: "Spanish 1" }, { title: "Spanish 2" }],
   },
   {
     id: "hs-careers",
@@ -134,6 +140,14 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Computer Science" },
     ],
   },
+  { id: "professional-real-estate", title: "Professional education — Colorado real estate broker", courses: [
+    { title: "Real Estate Law and Practice (48 hours)" },
+    { title: "Colorado Contracts and Regulations (48 hours)" },
+    { title: "Real Estate Closings (24 hours)" },
+    { title: "Real Estate Trust Accounts (8 hours)" },
+    { title: "Current Legal Issues (8 hours)" },
+    { title: "Real Estate Practical Applications (32 hours)" },
+  ] },
 ];
 
 /** Already in the catalog and kept as advanced electives; not needed for 1.0. */
@@ -144,10 +158,18 @@ export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
+  "Teacher-paced and student-paced interactive presentations",
+  "Lesson-to-game and lesson-to-assessment conversion",
+  "Teacher-generated materials with review and approval",
   "Interactive lesson, worksheet and assessment generation",
   "Learning diagnostics and targeted intervention",
   "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)",
   "Interactive document and case file engine",
+  "Colorado real estate contracts and counteroffers simulator",
+  "Trust account three-way reconciliation simulator",
+  "Colorado six-column closing and proration workbook",
+  "End-to-end real estate transaction case simulator",
+  "Regulated instructional-hour and assessment evidence tracking",
   "Workbook and financial calculation engine",
   "Branching scenario and timeline engine",
   "Scientific and engineering workspaces",
@@ -155,6 +177,9 @@ export const ENGINE_PLANNED = [
   "Content review, versioning and auditability",
   "Credential integrity and compliance evidence",
   "Course creator parity regression suite",
+  "Community and official course content round-trip fidelity",
+  "Community course audio, reading and assignment parity",
+  "Independent course review, accessibility and learner pilot verification",
   "Privacy-preserving learner data architecture",
 ] as const;
 
@@ -194,9 +219,14 @@ export const UPDATES: UpdateArea[] = [
     id: "web-app-updates", title: "Website update",
     intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
     items: [
+      planned("Erudior opening-book splash and official motto", "Opening book with teal star bookmark, official Learn without limits tagline, reduced-motion support and no artificial load delay."),
+      planned("Third-party Powered by Erudior splash", "Same book animation with independent developer branding, no implied partnership or endorsement."),
+      planned("Erudior Engine attribution and contribution license", "Finalize legally reviewed splash and upstream modification requirements, attribution and no implied endorsement; release rights subject to third-party licenses."),
       planned("Keep all learning publicly accessible", "Public course pages, reading and practice without an account; optional local guest progress and export."),
       { title: "Fix community module and lesson controls", detail: "Predictable add/delete, explicit lesson-to-module assignment, inline confirmation, save/reopen tests and accessible controls; changes currently on draft PR #1.", status: "in_progress", phase: "1.0" },
       { title: "Community creation guide and authoring tests", detail: "In-editor guide for headings, Markdown tables, images/alt text, diagrams, manipulatives, quizzes and advanced source; test complete create→publish→install workflow. Draft PR #1 not deployed.", status: "in_progress", phase: "1.0" },
+      planned("Community editor visual audio, reader and assignment tools", "Replace advanced JSON-only resource inputs with accessible authoring and file support."),
+      planned("Community creator eight-course K demo browser test", "Create, save, reopen, publish and install eight K subjects, compare parity with official courses and repair defects."),
       planned("Teacher Content Studio editor and presenter UI", "Website controls for creating and presenting teacher materials, classroom games and lessons.", "Later"),
       planned("Reviewed community-to-official promotion", "Admin-gated review of an immutable published version; embed media, retain provenance, check parity and approval; publish only via authorized official release pipeline."),
       planned("Safe authentication and family accounts", "Parent-created under-13 profiles with verifiable consent, restricted child sessions and device pairing; teen sign-in transition at 13, adult transition at 18, guardian reauthentication."),
@@ -207,10 +237,13 @@ export const UPDATES: UpdateArea[] = [
     id: "application-updates", title: "App update",
     intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
     items: [
+      planned("Official Erudior application splash and motto", "Opening-book star bookmark with Learn without limits and accessible motion settings."),
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
       planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),
+      planned("Parent dashboard PIN protection and child account switching", "Restricted child profiles, parent reauthentication and shared-device role switching."),
       planned("Multiple devices and offline recovery", "Restricted student sign-ins on personal computers, shared-device profile switching, sync, offline drafts, interruption recovery and conflict-safe completion tracking."),
       planned("Age transitions and permissions", "Keep one permanent student academic identity from child to teen to adult; age 13 updates login options without creating a duplicate record; adult control and guardian access reviewed at 18."),
+      planned("Credential certificate issuance and revocation", "Signed PDFs, public verification with unguessable IDs and authorization checks."),
       planned("Professional verified enrollment", "Free public lessons remain separate from identity-verified prelicensing/CE tracking, assessments, provider-approved hour equivalency and certificates."),
       planned("Academic records and portability", "Retain existing attendance, report cards, transcripts and portfolios; add configurable graduation policies, exports, audit trails, retention schedules and authorization controls."),
       planned("Classroom and teacher workflows", "Reuse existing classrooms and gradebook for assignments, live games, peer review, conferencing, group projects, communication and field trip logs."),
