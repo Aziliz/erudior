@@ -514,6 +514,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Saved spreadsheet practice and reusable templates", detail: "Local workbook persistence, validated reload, and reusable budget, closing and formula templates (PR #43). Instructor template publishing and device sync remain in progress.", status: "done" },
   { title: "Interactive spreadsheet practice workspace", detail: "Editable multi-sheet grid, safe calculations, cross-sheet references, formula error feedback and reset accessible through learner Progress (PR #42). Persistence and templates remain in progress.", status: "done" },
   { title: "Reusable spreadsheet calculation foundation", detail: "Generic workbook, sheet references, arithmetic formula evaluation and circular-reference protection (PR #38). Interactive editing and templates remain in progress.", status: "done" },
   { title: "Jurisdiction-neutral requirements pack foundation", detail: "Versioned rules, validation of program hours and source metadata, explicit jurisdiction selection and fail-closed lookups (PR #37). Full course integration remains in progress.", status: "done" },
