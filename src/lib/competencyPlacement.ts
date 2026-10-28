@@ -1,4 +1,6 @@
 import type { Course, Progress } from "./types";
+import type { AuthoredCompetency } from "./competencyCatalog";
+import { resolveCompetencyEvidence } from "./competencyEvidence";
 import { courseMastery } from "./mastery";
 import { evaluateCompetencies, recommendedCompetencies, type Competency, type CompetencyState, type CourseTopicEvidence } from "./competencies";
 
@@ -70,4 +72,14 @@ export function explainCompetencyBlock(state: CompetencyState, all: CompetencySt
     const parent = byId.get(id);
     return parent ? `${parent.title} (${parent.mastery === null ? "not yet assessed" : Math.round(parent.mastery * 100) + "% mastery"})` : id;
   }).join("; ");
+}
+
+/** First real-course entry point: derive actual assessed topics before recommending placement. */
+export function studentPlacementFromAuthoredCourses(
+  authored: AuthoredCompetency[],
+  courses: Course[],
+  progress: Progress,
+  limit = 5,
+) {
+  return studentCompetencyPlacement(resolveCompetencyEvidence(authored, courses), courses, progress, limit);
 }
