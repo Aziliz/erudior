@@ -1,6 +1,6 @@
 // erudior.com/roadmap: every course and engine feature Erudior needs before version 1.0.
 import { CATALOG } from "../lib/catalog";
-import { ELECTIVES, ENGINE, ENGINE_IN_PROGRESS, ENGINE_PLANNED, ROADMAP, UPDATES } from "../lib/roadmap";
+import { ELECTIVES, ENGINE, ENGINE_IN_PROGRESS, ENGINE_PROGRESS_DETAILS, ENGINE_PLANNED, ROADMAP, UPDATES } from "../lib/roadmap";
 import { appUrl } from "../lib/site";
 import { slugify } from "../lib/util";
 
@@ -105,8 +105,8 @@ export default function Roadmap() {
           ))}
           {ENGINE_PLANNED.map((title) => (
             <li key={title}>
-              <span className="pill">{ENGINE_IN_PROGRESS.has(title) ? "In progress" : "Planned"}</span>
-              <span className="roadmap-name">{title}</span>
+              <span className="pill">{ENGINE_IN_PROGRESS.has(title) ? "In Progress" : "Planned"}</span>
+              <span className="roadmap-name">{title}{ENGINE_PROGRESS_DETAILS[title] && <span className="small muted" style={{ display: "block" }}>{ENGINE_PROGRESS_DETAILS[title]}</span>}</span>
             </li>
           ))}
         </ul>

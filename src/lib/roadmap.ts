@@ -474,6 +474,11 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
   "Learning diagnostics and targeted intervention",
 ]);
 
+/** Deployed slices and remaining work; each capability still has one roadmap row. */
+export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
+  "Spreadsheet simulator": "Instructor authoring, separate learner drafts, full-grid navigation, save recovery and exact-snapshot review are deployed (PR #57). Community publishing/install parity and broader simulator workflows remain in progress.",
+};
+
 export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
   "Cross-course competency graph",
@@ -498,7 +503,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
-  { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–56. Release integrity checks remain mandatory.", status: "done" },
+  { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–58. Bounded transfers retain exact-byte verification and fail-closed authoritative-origin recovery. Release integrity checks remain mandatory.", status: "done" },
   { title: "Course content validation and portable revisions", detail: "Course integrity checks, deterministic snapshots, compatible revisions and signed-release preflight. Live release repair remains tracked separately.", status: "done" },
   { title: "Early literacy and accessible learning", detail: "Read-aloud lessons and questions, phonics, handwriting practice and accessible learning interactions.", status: "done" },
   { title: "Reading, writing and language practice", detail: "Reader for documents, writing assignments and rubrics, and listening/speaking practice.", status: "done" },
