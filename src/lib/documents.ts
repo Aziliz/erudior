@@ -34,7 +34,7 @@ export interface DocumentRef {
   note: string;
 }
 
-const WEB_KEY = "examiner.document.";
+const WEB_KEY = "erudior.document.";
 
 function toB64(bytes: Uint8Array): string {
   let s = "";
