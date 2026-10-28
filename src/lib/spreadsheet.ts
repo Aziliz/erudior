@@ -2,7 +2,6 @@
 export interface Workbook { sheets: Record<string, Record<string, string | number>> }
 export type CellValue = number | string;
 const CELL=/^[A-Z]+[1-9][0-9]*$/;
-const REF=/^(?:'([^']+)'|([A-Za-z][A-Za-z0-9_ ]*))!([A-Z]+[1-9][0-9]*)$/;
 export function calculateCell(book: Workbook, sheet: string, address: string): CellValue {
   const cache=new Map<string,CellValue>();
   const visiting=new Set<string>();
