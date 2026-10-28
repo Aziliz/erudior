@@ -16,7 +16,7 @@ export default function SpreadsheetLab(){
   }
   function commit(){
     const value=draft.trim();
-    const parsed=value && !value.startsWith("=")&&/^-?(?:\d+\.?\\d*|\\.\\d+)$/.test(value)?Number(value):value;
+    const parsed=value && !value.startsWith("=")&&/^-?(?:\d+\.?\d*|\.\d+)$/.test(value)?Number(value):value;
     const updated={...book,sheets:{...book.sheets,[sheet]:{...book.sheets[sheet],[selected]:parsed}}};
     try { if(value.startsWith("="))calculateCell(updated,sheet,selected);setBook(updated);setError("");setEditing(false); }
     catch(e){setError(String(e));}
