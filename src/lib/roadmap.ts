@@ -465,7 +465,7 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 /** Outstanding engine tasks consolidated into the original lesson-engine roadmap. */
 export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
-  "Course revision compatibility checks and publishing preflight",
+  "Production course publishing deployment repair",
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
@@ -497,6 +497,8 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Course integrity validation and portable snapshots", detail: "Non-destructive checks for content IDs and references, canonical version 1 import and deterministic exports; merged in PR #11 and merge-only integrity CI passed.", status: "done" },
+  { title: "Course revision compatibility and publishing preflight", detail: "Stable identifiers and revision comparison, authenticated baseline verification and rejection of unsafe updates; merged in PR #11 with integrity CI passed. Production deployment remains blocked by a historical course hash mismatch.", status: "done" },
   { title: "Read-aloud lessons and questions", detail: "Every lesson, question and answer choice can be read aloud, with the part being read highlighted, so children who can't read yet can learn on their own (kindergarten to grade 2). Early-reader courses read each new question by themselves and can use recorded audio.", status: "done" },
   { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing (finger, pen or mouse) for early readers.", status: "done" },
   { title: "Writing assignments with rubrics", detail: "Essays and short responses written in the app, graded by the parent or teacher with a rubric, and kept in the portfolio (English and social studies).", status: "done" },
