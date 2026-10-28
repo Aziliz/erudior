@@ -35,6 +35,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Verify Erudior-only product identity
+        run: node scripts/check-product-identity.mjs
 
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
