@@ -473,9 +473,6 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
   "Cross-course competency graph",
   "Learning diagnostics and targeted intervention",
   "Production course publishing deployment repair",
-  "Course creator parity regression suite",
-  "Community and official course content round-trip fidelity",
-  "Community course audio, reading and assignment parity",
 ]);
 
 export const ENGINE_PLANNED = [
@@ -484,15 +481,10 @@ export const ENGINE_PLANNED = [
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
-  "Lesson-to-game and lesson-to-assessment conversion",
-  "Teacher-generated materials with review and approval",
-  "Interactive lesson, worksheet and assessment generation",
   "Learning diagnostics and targeted intervention",
   "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)",
   "Interactive document and case file engine",
-  "Jurisdiction-configurable contracts and counteroffers simulator",
-  "Jurisdiction-configurable trust account reconciliation simulator",
-  "Jurisdiction-configurable real estate transaction case simulator",
+  "Jurisdiction-configurable regulated transaction simulations",
   "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
   "Branching scenario and timeline engine",
@@ -500,9 +492,6 @@ export const ENGINE_PLANNED = [
   "Advanced assessment and feedback",
   "Content review, versioning and auditability",
   "Credential integrity and compliance evidence",
-  "Course creator parity regression suite",
-  "Community and official course content round-trip fidelity",
-  "Community course audio, reading and assignment parity",
   "Independent course review, accessibility and learner pilot verification",
   "Privacy-preserving learner data architecture",
 ] as const;
@@ -511,25 +500,15 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
-  { title: "Course integrity validation and portable snapshots", detail: "Non-destructive checks for content IDs and references, canonical version 1 import and deterministic exports; merged in PR #11 and merge-only integrity CI passed.", status: "done" },
-  { title: "Course revision compatibility and publishing preflight", detail: "Stable identifiers and revision comparison, authenticated baseline verification and rejection of unsafe updates; merged in PR #11 with integrity CI passed. Production deployment remains blocked by a historical course hash mismatch.", status: "done" },
-  { title: "Read-aloud lessons and questions", detail: "Every lesson, question and answer choice can be read aloud, with the part being read highlighted, so children who can't read yet can learn on their own (kindergarten to grade 2). Early-reader courses read each new question by themselves and can use recorded audio.", status: "done" },
-  { title: "Phonics and handwriting practice", detail: "Letter sounds with audio, blending practice and letter tracing (finger, pen or mouse) for early readers.", status: "done" },
-  { title: "Writing assignments with rubrics", detail: "Essays and short responses written in the app, graded by the parent or teacher with a rubric, and kept in the portfolio (English and social studies).", status: "done" },
-  { title: "Built-in reader for books and documents", detail: "Public-domain novels, poems, plays and primary sources read inside the app: chapters, line-numbered poems and plays, footnotes and word pop-ups, read-aloud, reading questions, your place remembered, and reading time recorded in the reading log.", status: "done" },
-  { title: "Maps and timelines", detail: "Interactive world and US maps (or a course's own) with shaded regions, places, routes and zoom; zoomable timelines from prehistory to today; questions where you find or label places on a map and place events on a timeline.", status: "done" },
-  { title: "Science labs and simulations", detail: "Guided at-home labs with safety notes and photo uploads to the portfolio, plus simple simulations where a lab isn't practical.", status: "done" },
-  { title: "Listening and speaking practice", detail: "Audio for vocabulary and dialogues (recordings or the device's voice), dialogues played line by line with translations, listening and dictation questions, and speaking practice: record yourself and compare with the model. Recordings stay on your device.", status: "done" },
-  { title: "Code exercises", detail: "Write and run Python or JavaScript in the app, with runnable examples in lessons and exercises checked by automatic tests, for Computer Science.", status: "done" },
-  { title: "Activity logs for PE, art and music", detail: "Log practice and activities, upload work, and count hours toward state requirements.", status: "done" },
-  { title: "Adaptive practice", detail: "Smart practice gives more questions on your weak topics and fewer on the ones you've mastered, adjusting as you answer; notecards, drills and the daily plan lean the same way, and every exam ends with what to study next.", status: "done" },
-  { title: "Memory aids from learning science", detail: "Practice questions come back on a spaced schedule until you've got them right on three different days; optional Sure/Unsure/Guess ratings; warm-up questions before a lesson; explain-it-yourself and recall-first habits; mixed topics; a weekly review quiz; FSRS notecard scheduling; and fading worked examples in lessons.", status: "done" },
-  { title: "Math manipulatives", detail: "Counters in ten-frames, base-ten blocks, number lines, fraction bars, a clock and coins to play with in lessons, and practice questions answered by using them. Every model works with buttons or the keyboard and tells screen readers what it shows.", status: "done" },
-  { title: "Question types, pictures, diagrams and graphs", detail: "Fill in the blank, matching, ordering, labeling pictures, drawn diagrams and auto-labeled graphs.", status: "done" },
-  { title: "Homeschool records", detail: "Attendance, hours, grades, report cards, transcripts, portfolios and state reports for all 50 states and DC.", status: "done" },
-  { title: "Classrooms and live rooms", detail: "Classes, due dates, a gradebook, hand-in files, and live quizzes on any device.", status: "done" },
+  { title: "Course content validation and portable revisions", detail: "Course integrity checks, deterministic snapshots, compatible revisions and signed-release preflight. Live release repair remains tracked separately.", status: "done" },
+  { title: "Early literacy and accessible learning", detail: "Read-aloud lessons and questions, phonics, handwriting practice and accessible learning interactions.", status: "done" },
+  { title: "Reading, writing and language practice", detail: "Reader for documents, writing assignments and rubrics, and listening/speaking practice.", status: "done" },
+  { title: "Interactive mathematics, science and coding", detail: "Math manipulatives, science labs and simulations, executable code exercises, diagrams and supported question formats.", status: "done" },
+  { title: "Maps, timelines and visual learning", detail: "Interactive maps, timelines, route and event learning activities.", status: "done" },
+  { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. Cross-course graph and diagnostics are separate ongoing capabilities.", status: "done" },
+  { title: "Homeschool and activity records", detail: "Attendance, grades, transcripts, portfolios and physical/art/music activity logs.", status: "done" },
+  { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook, hand-ins and live quizzes.", status: "done" },
 ];
-
 
 /** Planned work beyond the existing course catalog, organized by delivery surface.
  * "in_progress" is used only for source changes known to be in a draft PR; not deployed.
