@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["src", "../src/lib/communityFormat.ts", "../src/vite-env.d.ts"]
+  "include": ["src", "../src/lib/communityFormat.ts", "../src/env.d.ts"]
 }
