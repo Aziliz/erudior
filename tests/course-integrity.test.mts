@@ -1,4 +1,4 @@
-import { emptyCourse } from "../src/lib/course.ts";
+import { emptyCourse, exportCourseSnapshot, importCourseSnapshot } from "../src/lib/course.ts";
 import { validateCourseIntegrity } from "../src/lib/courseIntegrity.ts";
 
 const base = emptyCourse("Integrity test");
@@ -18,3 +18,12 @@ assert("reader duplicate section IDs", validateCourseIntegrity({
   texts: [{ id: "text1", title: "Book", sections: [{ id: "s1", title: "One", body: "A" }, { id: "s1", title: "Two", body: "B" }] }],
 }).some((i) => i.message.includes("Duplicate ID")));
 assert("non-mutating validation", base.lessons[0].module === "m1");
+
+const portable = exportCourseSnapshot(base);
+assert("deterministic snapshot", portable === exportCourseSnapshot(base));
+const restored = importCourseSnapshot(portable);
+assert("portable import stable", exportCourseSnapshot(restored) === portable);
+assert("portable snapshot does not mutate course", base.lessons[0].id === "l1");
+let rejected = false;
+try { importCourseSnapshot(JSON.stringify({ ...base, version: 2 })); } catch { rejected = true; }
+assert("unsupported schema rejected", rejected);
