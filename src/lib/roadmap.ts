@@ -417,6 +417,27 @@ export const ROADMAP: RoadmapGroup[] = [
     ],
   },
   {
+    id: "hs-programming",
+    title: "Programming and web development — high school and adult learners",
+    courses: [
+      { title: "C Fundamentals", covers: "Variables, control flow, functions, compilation, arrays and pointers" },
+      { title: "C Intermediate", covers: "Memory management, structures, file I/O, debugging and modular programs" },
+      { title: "C Advanced", covers: "Data structures, systems programming, performance and portable projects" },
+      { title: "C++ Fundamentals", covers: "Modern C++ syntax, types, functions, classes and standard containers" },
+      { title: "C++ Intermediate", covers: "Object-oriented design, RAII, templates, algorithms and smart pointers" },
+      { title: "C++ Advanced", covers: "Concurrency, generic programming, performance and larger software architecture" },
+      { title: "Python Fundamentals", covers: "Syntax, variables, loops, functions, collections and small scripts" },
+      { title: "Python Intermediate", covers: "Modules, files, exceptions, classes, testing and automation" },
+      { title: "Python Advanced", covers: "Typing, asynchronous programming, APIs, packaging and production projects" },
+      { title: "JavaScript Fundamentals", covers: "Variables, functions, arrays, objects and browser scripting" },
+      { title: "JavaScript Intermediate", covers: "DOM, events, modules, fetch, asynchronous code and debugging" },
+      { title: "JavaScript Advanced", covers: "Application architecture, testing, security, performance and full-stack projects" },
+      { title: "HTML/CSS Fundamentals", covers: "Semantic HTML, selectors, typography, colors and accessible page structure" },
+      { title: "HTML/CSS Intermediate", covers: "Responsive design, Flexbox, Grid, forms and reusable components" },
+      { title: "HTML/CSS Advanced", covers: "Accessibility, design systems, animations, performance and production websites" },
+    ],
+  },
+  {
     id: "hs-other",
     title: "High school health, PE, arts and electives",
     courses: [
