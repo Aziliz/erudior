@@ -139,3 +139,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Added `studentCompetencyPlacement` with prerequisite gates, course-specific suggestions, and interpretable mastery/confidence explanations; unknown mastery remains unknown.
 - Added targeted tests for missing evidence, recommendation order, blocked prerequisites and nonmutation, included in merge-only full suite.
 - **Still outstanding:** real authored skill taxonomy mapped against existing courses, student and teacher interfaces, placement override/history, and graph-driven adaptive practice. PR #15 remains draft and public status stays Planned until merged and verified.
+
+### Post-merge canonical publisher verification — October 28, 2026
+- Lesson Engine integrity workflow for merged PR #11: **passed** (GitHub Actions run 40645742318).
+- Website/course publishing run 40645742240: **failed** at “Fetch and authenticate previous release”: the served file `lang-german-a1.r3.json` did not match the SHA-256 recorded in the signed catalog. Publication stopped, as designed.
+- Investigate whether R2 origin contents, public CDN/cache, or an older immutable object diverged; compare signed catalog digest with authoritative object bytes before choosing a repair. Do not bypass signature/hash checks or mark production publishing Done.
