@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { missingHandInAttachments } from "../lib/classroom";
 import type { Family } from "../lib/family";
 import type { StoredSubmissionRecord } from "../lib/classroomSubmissionStore";
 import * as ledger from "../lib/classroomSubmissionStore";
@@ -55,7 +56,9 @@ export default function ClassroomSubmissionReview({ family, services = defaults,
   };
   const eligible = records.filter(r => family.students.some(s => s.id === r.studentId) && family.classes?.some(c => c.id === r.classId && c.students.includes(r.studentId)));
   const visible = eligible.filter(r => (!classId || r.classId === classId) && (!studentId || r.studentId === studentId));
-  const chosen = visible.find(r => r.id === selected);
+  const archived = records.filter(r => family.students.some(s => s.id === r.studentId) && !eligible.some(current => current.id === r.id));
+  const chosen = visible.find(r => r.id === selected) ?? archived.find(r => r.id === selected);
+  const canReview = !!chosen && eligible.some(r => r.id === chosen.id);
   return <>
     <section className="panel">
       <h2>Import hand-ins</h2>
@@ -81,7 +84,14 @@ export default function ClassroomSubmissionReview({ family, services = defaults,
         <td>{r.studentName} / {family.classes?.find(c => c.id === r.classId)?.name}</td><td>{when(r.submittedAt)}</td><td>{when(r.receivedAt)}</td><td>{r.importComplete ? statusLabel(r.status) : "Received, import incomplete"}</td><td><button className="btn sm" disabled={busy} onClick={() => setSelected(r.id)}>Inspect submission<span className="sr-only"> from {r.studentName} at {r.submittedAt}</span></button></td>
       </tr>)}</tbody></table>}
     </section>
-    {ready && chosen && <Receipt key={chosen.id} record={chosen} busy={busy} retryImport={() => run(() => importReceipt(chosen.snapshot))} save={(event) => run(async () => {
+    {ready && archived.length > 0 && <section className="panel" aria-label="Archived receipts">
+      <h2>Archived receipts</h2>
+      <p>Read-only evidence for existing student profiles whose class or roster membership was removed. These receipts cannot receive new reviews or retry imports.</p>
+      <ul>{archived.map(r => <li key={r.id}>{r.studentName} · {r.snapshot.className} · {when(r.submittedAt)} · {statusLabel(r.status)}
+        <button className="btn sm" disabled={busy} onClick={() => setSelected(r.id)}>Inspect archived receipt<span className="sr-only"> from {r.studentName} at {r.submittedAt}</span></button>
+      </li>)}</ul>
+    </section>}
+    {ready && chosen && <Receipt key={chosen.id} record={chosen} busy={busy} canReview={canReview} retryImport={() => run(() => importReceipt(chosen.snapshot))} save={(event) => run(async () => {
       const next = await services.saveClassroomSubmissionReview(event, family);
       setRecords(next); setMessage("Instructor review saved.");
     })} />}
@@ -91,13 +101,17 @@ export default function ClassroomSubmissionReview({ family, services = defaults,
 function Evidence({ title, value }: { title: string; value: unknown }) {
   return <section><h4>{title}</h4><pre style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{JSON.stringify(value ?? {}, null, 2)}</pre></section>;
 }
-function Receipt({ record, busy, save, retryImport }: { record: StoredSubmissionRecord; busy: boolean; retryImport: () => Promise<void>; save: (event: Parameters<Services["saveClassroomSubmissionReview"]>[0]) => Promise<void> }) {
+function Receipt({ record, busy, save, retryImport, canReview }: { record: StoredSubmissionRecord; busy: boolean; canReview: boolean; retryImport: () => Promise<void>; save: (event: Parameters<Services["saveClassroomSubmissionReview"]>[0]) => Promise<void> }) {
   const [note, setNote] = useState("");
   const [status, setStatus] = useState<"reviewed" | "needs_revision">("reviewed");
   const retry = useRef<Parameters<Services["saveClassroomSubmissionReview"]>[0] | null>(null);
   const snapshot = record.snapshot;
+  const missing = missingHandInAttachments(snapshot);
+  const reviewDisabled = busy || !record.importComplete || !canReview || missing.length > 0;
   return <section className="panel" aria-label="Immutable submission evidence">
     <h2>Submission from {snapshot.studentName}</h2>
+    {!canReview && <p role="status">Archived receipt — read-only. Current class roster membership is required to add a review or retry an import.</p>}
+    {missing.length > 0 && <p role="alert">Incomplete attachment evidence: {missing.join(", ")}. This signed receipt does not contain the referenced files. Neither Reviewed nor Needs revision can be saved. Ask the student for a new complete hand-in; the existing receipt cannot be changed.</p>}
     <p>Signed class: {snapshot.className} ({snapshot.classId}) · Student ID: {snapshot.studentId}</p>
     <p>Submitted: {snapshot.created} · Received: {record.receivedAt}</p>
     <p>This is the exact saved hand-in, not the student’s current or merged progress. Later imports do not change this evidence.</p>
@@ -115,12 +129,13 @@ function Receipt({ record, busy, save, retryImport }: { record: StoredSubmission
     <details><summary>Exact signed receipt JSON (including attachment payloads)</summary><Evidence title="Signed receipt" value={snapshot} /></details>
     <h3>Review history</h3>
     {!record.reviewEvents.length ? <p>No instructor reviews yet.</p> : <ol>{record.reviewEvents.map(event => <li key={event.id}><strong>{statusLabel(event.status)}</strong> · {event.reviewedAt}<p style={{ whiteSpace: "pre-wrap" }}>{event.note || "No note."}</p></li>)}</ol>}
-    {!record.importComplete && <div role="status"><p>Received, import incomplete. The signed receipt is saved, but its files or progress still need importing. Review is disabled until completion.</p><button className="btn" disabled={busy} onClick={retryImport}>Retry saved import</button></div>}
+    {!record.importComplete && <div role="status"><p>Received, import incomplete. The signed receipt is saved, but its files or progress still need importing. Review is disabled until completion.</p><button className="btn" disabled={busy || !canReview} onClick={retryImport}>Retry saved import</button></div>}
     <h3>Add instructor review</h3>
-    <label className="field">Decision<select disabled={busy || !record.importComplete} value={status} onChange={e => setStatus(e.target.value as typeof status)}><option value="reviewed">Reviewed</option><option value="needs_revision">Needs revision</option></select></label>
-    <label className="field">Review note<textarea disabled={busy || !record.importComplete} maxLength={2000} value={note} onChange={e => setNote(e.target.value)} /></label>
+    <label className="field">Decision<select disabled={reviewDisabled} value={status} onChange={e => setStatus(e.target.value as typeof status)}><option value="reviewed">Reviewed</option><option value="needs_revision">Needs revision</option></select></label>
+    <label className="field">Review note<textarea disabled={reviewDisabled} maxLength={2000} value={note} onChange={e => setNote(e.target.value)} /></label>
     <p className="muted small">Each saved decision is appended. Prior decisions and submitted work are never overwritten.</p>
-    <button className="btn primary" disabled={busy || !record.importComplete} onClick={() => {
+    <button className="btn primary" disabled={reviewDisabled} onClick={() => {
+      if (reviewDisabled) return;
       if (!retry.current || retry.current.status !== status || retry.current.note !== note || record.reviewEvents.some(e => e.id === retry.current!.eventId))
         retry.current = { submissionId: record.id, eventId: crypto.randomUUID(), status, reviewedAt: new Date().toISOString(), note };
       void save(retry.current);

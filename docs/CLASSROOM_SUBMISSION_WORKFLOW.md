@@ -10,6 +10,9 @@
 2. **Hand in work** reads persisted progress, filters exact assigned courses and
    withholds unconfirmed evidence. Configured learner profiles cannot export under
    a different selected roster ID; asynchronous learner changes invalidate export.
+   Missing attachment bytes or read errors stop a new export rather than silently
+   omitting evidence. Older incomplete receipts remain inspectable but cannot be
+   approved until complete evidence is supplied.
 3. The instructor imports the hand-in from the existing teacher area. Schema,
    size, roster, course scope and HMAC checks precede mutation. An immutable receipt
    is retained before projecting work/files into ordinary learner progress.
@@ -58,6 +61,14 @@ consent, signing, licensing, public role or new network endpoint is introduced.
 No learner data, receipt payload or secret is collected in diagnostic artifacts.
 The only added native state name is the exact `classroom-submissions` identifier;
 path validation and existing item/command scope remain intact.
+
+Full learner-profile deletion explicitly removes its receipts/reviews and class
+roster/hand-in references. A bounded ID-only deletion marker prevents an in-flight
+import from recreating deleted progress; failed cleanup remains visibly retryable.
+Previously exported backups/files and shared document storage are not swept;
+embedded receipt payloads are removed. The confirmation states these limits.
+Removing only a learner from a class retains a read-only archived receipt rather
+than pretending its review history disappeared.
 
 ## Validation and release gate
 

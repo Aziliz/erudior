@@ -246,12 +246,20 @@ export function workFor(p: Progress, courses: string[]): HandIn["progress"] {
   };
 }
 
-/** `loadFile` reads a stored photo or file (documents.ts) so it travels with the work. */
+/** Older v1 receipts may omit attachments. Surface this explicitly before review;
+ * it is not a reason to fabricate missing evidence or trust a local same-ID file. */
+export function missingHandInAttachments(handIn: Pick<HandIn, "progress" | "files">): string[] {
+  return workFileIds(handIn.progress).filter(id => !Object.prototype.hasOwnProperty.call(handIn.files ?? {}, id));
+}
+
+/** `loadFile` reads a stored photo or file (documents.ts) so it travels with the work.
+ * Legacy callers may omit attachments; user-facing exports requireAttachments. */
 export async function makeHandIn(
   c: ClassFile,
   studentId: string,
   p: Progress,
   loadFile?: (fileId: string) => Promise<{ mime: string; data: string } | null>,
+  options: { requireAttachments?: boolean } = {},
 ): Promise<HandIn> {
   const student = c.students.find((s) => s.id === studentId);
   if (!student) throw new Error("Pick your name in the class first.");
@@ -259,10 +267,15 @@ export async function makeHandIn(
   const progress = structuredClone(workFor(p, courses));
   validateHandInProgress(progress, courses);
   const files: NonNullable<HandIn["files"]> = {};
+  const required = workFileIds(progress);
+  if (options.requireAttachments && required.length && !loadFile) throw Error("Attachment storage is unavailable; the hand-in was not exported.");
   if (loadFile)
-    for (const id of workFileIds(progress)) {
-      const f = await loadFile(id).catch(() => null);
+    for (const id of required) {
+      // In strict mode, storage errors and learner-switch cancellation must not
+      // be swallowed. Legacy generation retains its documented optional files.
+      const f = options.requireAttachments ? await loadFile(id) : await loadFile(id).catch(() => null);
       if (f) files[id] = f;
+      else if (options.requireAttachments) throw Error(`Attachment ${id} is missing; restore it before exporting this hand-in.`);
     }
   const body = {
     format: "erudior-handin" as const,
@@ -284,6 +297,7 @@ export async function verifyHandIn(raw: unknown, f: Family): Promise<{ h: HandIn
   const h = parseHandIn(raw);
   const cls = (f.classes ?? []).find((c) => c.id === h.classId);
   if (!cls) throw new Error(`This hand-in is for a class that isn't on this computer (${h.className}).`);
+  if (!f.students.some(student => student.id === h.studentId)) throw new Error("This student profile no longer exists in the teacher household or classroom.");
   if (!cls.students.includes(h.studentId)) throw new Error(`${h.studentName} isn't on the roster of ${cls.name}.`);
   if (h.courses.some(id => !cls.assignments.some(a => a.courseId === id))) throw new Error("This hand-in contains a course not assigned in this class.");
   const { mac, ...body } = h;

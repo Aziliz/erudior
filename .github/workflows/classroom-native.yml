@@ -39,6 +39,7 @@ jobs:
         run: node scripts/check-product-identity.mjs
       - run: npm ci
       - name: Prepare validated frontend assets
+        id: frontend
         run: node scripts/diagnostic-command.mjs native-frontend -- npm run build
       - name: Native named-state tests (no packaging or deployment)
         id: native
@@ -47,7 +48,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: native-state
-          ERUDIOR_DIAG_STAGES: "native:${{ steps.native.outcome }}"
+          ERUDIOR_DIAG_STAGES: "frontend:${{ steps.frontend.outcome }},native:${{ steps.native.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - uses: actions/upload-artifact@v4
         if: always()

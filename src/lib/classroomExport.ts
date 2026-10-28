@@ -22,7 +22,7 @@ export async function preparePersistedHandIn(joined: Joined, io: ClassroomExport
   const persisted = await io.loadProgress();
   ensure();
   const progress = { ...persisted, spreadsheetSubmissions: getConfirmedSpreadsheetSubmissions(persisted, learner) };
-  const result = await makeHandIn(joined.cls, joined.studentId, progress, async id => { ensure(); const file = await io.loadFile(id); ensure(); return file; });
+  const result = await makeHandIn(joined.cls, joined.studentId, progress, async id => { ensure(); const file = await io.loadFile(id); ensure(); return file; }, { requireAttachments: true });
   ensure();
   return result;
 }

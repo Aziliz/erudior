@@ -68,9 +68,31 @@ try {
   await React.act(async () => { button("Save instructor review").click(); button("Save instructor review").click(); });
   assert(button("Save instructor review").disabled); assert.equal(saveCalls.length, before);
   await React.act(async () => { finishSave!(); }); assert.equal(saveCalls.length, before + 1, "repeated save clicks produce one review");
-  // Changing roster removes old evidence immediately, regardless of its stored history.
+  services.saveClassroomSubmissionReview = normalSave;
+  // A legacy signed receipt may reference files it did not include. Neither decision is allowed.
+  persisted[0].snapshot.progress.work["science/lab"].photos = [{ fileId: "missingphoto" }];
+  await click(button("Reload submission"));
+  assert.match(text(), /Incomplete attachment evidence: missingphoto/);
+  assert(button("Save instructor review").disabled);
+  const reviewDecision = [...document.querySelectorAll("select")].at(-1)!;
+  assert(reviewDecision.disabled); assert.deepEqual([...reviewDecision.options].map(x => x.value), ["reviewed", "needs_revision"]);
+  const callsBeforeIncomplete = saveCalls.length;
+  await click(button("Save instructor review")); assert.equal(saveCalls.length, callsBeforeIncomplete);
+  // Removing roster membership preserves evidence for an existing profile, but only read-only.
   const reducedFamily = { ...family, classes: [{ ...family.classes[0], students: ["student-b"] }] };
   await React.act(async () => root.render(React.createElement(Review, { family: reducedFamily, services })));
-  assert(!text().includes("Original writing evidence")); assert.equal(button("Inspect submission"), undefined);
+  assert.match(text(), /Archived receipts/); assert.equal(button("Inspect submission"), undefined);
+  await click(button("Inspect archived receipt"));
+  assert.match(text(), /Original writing evidence/); assert.match(text(), /Archived receipt — read-only/);
+  assert(button("Save instructor review").disabled); assert(!text().includes("PRIVATE STUDENT"));
+  // Removing the entire class still exposes archived evidence, not import or review authority.
+  persisted[0].importComplete = false;
+  await React.act(async () => root.render(React.createElement(Review, { family: { ...family, classes: [] }, services })));
+  await click(button("Inspect archived receipt"));
+  assert(button("Retry saved import").disabled); assert(button("Save instructor review").disabled);
+  assert.match(text(), /Original lab evidence/);
+  // A deleted student profile must not expose even the archived receipt.
+  await React.act(async () => root.render(React.createElement(Review, { family: { ...family, classes: [], students: [] }, services })));
+  assert(!text().includes("Original writing evidence")); assert.equal(button("Inspect archived receipt"), undefined);
   console.log("classroom submission review: immutable evidence, roster isolation, reload/remount, append-only review and import failure/retry checks passed");
 } finally { await React.act(async () => root.unmount()); dom.window.close(); }
