@@ -8,6 +8,7 @@ import path from "node:path";
 import { newKeyPair, publicKeyOf, sha256Hex, signBytes, verifySignature, b64 } from "../src/lib/courseSign";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 import { compareCourseRevisions } from "../src/lib/courseRevision";
+import { validateSpreadsheetReleaseApproval, type SpreadsheetReleaseApproval } from "../src/lib/spreadsheetReleaseApproval";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -91,6 +92,13 @@ for (const entry of entries) {
   const course = importValidatedCourseSnapshot(source);
   if (course.id !== entry.id || (course.revision ?? 1) !== entry.revision)
     throw new Error(`Catalog identity/revision mismatch for ${entry.file}: expected ${entry.id} r${entry.revision}`);
+  if (!dev && course.spreadsheetAssignments?.length) {
+    const approvalFile = path.join(root, "samples", "reviews", entry.id + ".json");
+    const approval = fs.existsSync(approvalFile)
+      ? JSON.parse(fs.readFileSync(approvalFile, "utf8")) as SpreadsheetReleaseApproval : undefined;
+    const problems = await validateSpreadsheetReleaseApproval(course, approval);
+    if (problems.length) throw new Error("Spreadsheet publication blocked for " + entry.id + ": " + problems.join("; "));
+  }
   const previousEntry = previousCatalog?.courses.find((c) => c.id === entry.id);
   // Reject catalog reuse with incompatible identity before comparison.
   if (previousEntry && (!Number.isInteger(previousEntry.revision) || previousEntry.revision < 1 ||
