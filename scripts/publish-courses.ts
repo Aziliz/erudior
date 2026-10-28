@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { newKeyPair, publicKeyOf, sha256Hex, signBytes, b64 } from "../src/lib/courseSign";
+import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dev = process.argv.includes("--dev");
@@ -26,8 +27,15 @@ function secretKey(): string {
   throw new Error("No signing key: set COURSE_SIGNING_KEY or run `npm run course-keys` (or use --dev).");
 }
 
+const entries = JSON.parse(fs.readFileSync(path.join(root, "samples", "catalog.json"), "utf8")) as { id: string; revision: number; file: string }[];
+// Validate every source before touching the output directory or loading a signing key.
+for (const entry of entries) {
+  const source = fs.readFileSync(path.join(root, "samples", entry.file), "utf8");
+  const course = importValidatedCourseSnapshot(source);
+  if (course.id !== entry.id || (course.revision ?? 1) !== entry.revision)
+    throw new Error(`Catalog identity/revision mismatch for ${entry.file}: expected ${entry.id} r${entry.revision}`);
+}
 const key = secretKey();
-const entries = JSON.parse(fs.readFileSync(path.join(root, "samples", "catalog.json"), "utf8"));
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 
