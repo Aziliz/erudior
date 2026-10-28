@@ -5,6 +5,12 @@ name: Publish website and courses
 # repository variable is set, so it stays idle until hosting exists.
 on:
   workflow_dispatch:
+    inputs:
+      bootstrap_first_release:
+        description: "Initialize first release only if no remote catalog exists"
+        type: boolean
+        required: true
+        default: false
   push:
     branches: [main]
     paths:
@@ -56,6 +62,8 @@ jobs:
         env:
           COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
           COURSE_PREVIOUS_RELEASE_DIR: .course-previous
+          COURSE_BOOTSTRAP_FIRST_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}
+          COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
         run: npx tsx scripts/fetch-previous-courses.ts
 
       - name: Build and sign course packages
