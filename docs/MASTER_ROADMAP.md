@@ -156,3 +156,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Added the student placement entry point from authored curriculum + installed courses + saved Progress, plus coverage reporting for authored skills without linked assessment.
 - Added tests for linked-quiz evidence, unrelated-topic exclusion, unknown mastery, and prerequisite blocking. Full suite is merge-only.
 - **Limitation:** Some existing courses' assessments may not be linked directly on lessons; their skills will remain unassessed until verified bank-topic mappings are added. Student UI and persistent graph lineage are still pending; keep the public competency graph Planned.
+
+### Student-facing skill pathway slice
+- Progress page now renders a Learning path using installed courses, saved practice evidence, next-skill recommendations, locked prerequisites, and an all-skills drill-down.
+- Unlinked assessments do not count as mastery; the interface explains when skills are unassessed, and skill paths appear only for supported installed courses.
+- **Still draft:** broader assessment coverage, parent/teacher controls, and merge-only build/test verification. Public roadmap remains In Progress until validated and merged.
