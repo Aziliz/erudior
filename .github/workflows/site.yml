@@ -61,7 +61,6 @@ jobs:
       - name: Build and sign course packages
         env:
           COURSE_PREVIOUS_RELEASE_DIR: .course-previous
-          COURSE_PREVIOUS_PUBLIC_KEY: ${{ vars.COURSE_PUBLIC_KEY }}
         run: npm run courses:publish
 
       # Course files are immutable (named by revision): upload only new ones, then the
