@@ -67,8 +67,8 @@ export function importValidatedCourseSnapshot(source: string): Course {
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("Course must be an object.");
   const raw = parsed as Record<string, unknown>;
   // Detect invalid IDs and dangling references before normalization can repair or discard them.
-  const rawModules = Array.isArray(raw.modules) ? raw.modules as Array<Record<string, unknown>> : [];
-  const rawLessons = Array.isArray(raw.lessons) ? raw.lessons as Array<Record<string, unknown>> : [];
+  const rawModules = Array.isArray(raw.modules) ? raw.modules.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];
+  const rawLessons = Array.isArray(raw.lessons) ? raw.lessons.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];
   const ids = new Set(rawModules.map(m => m.id));
   for (const [i, lesson] of rawLessons.entries()) {
     if (typeof lesson.module === "string" && !ids.has(lesson.module))
