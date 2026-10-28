@@ -235,6 +235,10 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
           ))}
         </select>
       </label>
+      <label className="check span-2">
+        <input type="checkbox" checked={!!doc.readAloud} onChange={(e) => update((d) => ({ ...d, readAloud: e.target.checked || undefined }))} />
+        Early-reader mode: read lessons, questions and answer choices aloud (recommended for K–2)
+      </label>
       <fieldset className="plain-fieldset span-2">
         <legend>Practice exam (drawn from all the questions in the course)</legend>
         <div className="row">
