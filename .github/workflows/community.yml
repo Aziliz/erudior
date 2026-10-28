@@ -39,14 +39,14 @@ jobs:
 
       - name: Typecheck
         id: typecheck
-        run: npx tsc -p .
+        run: node ../scripts/diagnostic-command.mjs community-typecheck -- npx tsc -p .
 
       - name: Point wrangler.toml at the real database
         run: sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml
 
       - name: Apply database migrations
         id: migrations
-        run: npx wrangler d1 migrations apply erudior-community --remote
+        run: node ../scripts/diagnostic-command.mjs community-migrations -- npx wrangler d1 migrations apply erudior-community --remote
 
       - name: Update sign-in secrets (when set)
         env:
