@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { topicStats } from "../lib/session";
 import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
+import { availableCompetencySubset } from "../lib/competencyAvailability";
 import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
 import { studentCompetencyPlacement, explainCompetencyBlock } from "../lib/competencyPlacement";
 import * as store from "../lib/storage";
@@ -44,23 +45,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
   const attempts = progress.attempts.filter((a) => !bankFilter || a.bankId === bankFilter);
   const placement = (() => {
-    const installed = new Set(api.courses.map(c => c.id));
-    // A skill is present only when its course and every prerequisite are available.
-    // Otherwise a partial installation could create a dangling prerequisite and crash Progress.
-    const byId = new Map(FOUNDATION_COMPETENCIES.map(skill => [skill.id, skill]));
-    const eligible = new Map<string, boolean>();
-    const canShow = (id: string, visiting = new Set<string>()): boolean => {
-      if (eligible.has(id)) return eligible.get(id)!;
-      const skill = byId.get(id);
-      if (!skill || visiting.has(id)) return false;
-      const next = new Set(visiting);
-      next.add(id);
-      const ok = Object.keys(skill.lessons).every(courseId => installed.has(courseId)) &&
-        skill.prerequisites.every(parent => canShow(parent, next));
-      eligible.set(id, ok);
-      return ok;
-    };
-    const authored = FOUNDATION_COMPETENCIES.filter(skill => canShow(skill.id));
+    const authored = availableCompetencySubset(FOUNDATION_COMPETENCIES, api.courses.map(c => c.id));
     if (!authored.length) return null;
     const graph = resolveCompetencyEvidence(authored, api.courses);
     return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph) };
