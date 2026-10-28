@@ -21,5 +21,9 @@ rejects("unpublished not promotable",()=>prepareOfficialPromotion(d,{...meta,ver
 rejects("invalid ID rejected",()=>prepareOfficialPromotion(d,meta,"community-abc"));
 rejects("invalid course rejected",()=>prepareOfficialPromotion({...d,description:""},meta,"math-k"));
 rejects("missing approved image resolver rejected",()=>prepareOfficialPromotion({...d,lessons:[{...lesson,blocks:[{type:"image",imageId:"img1",alt:"Dot",caption:""}]}]},meta,"math-k"));
+const imageDoc: CommunityDoc = {...d,lessons:[{...lesson,blocks:[{type:"image",imageId:"img1",alt:"A counting dot",caption:"One dot"}]}]};
+const imageCourse = prepareOfficialPromotion(imageDoc,meta,"math-k-images",()=> "data:image/png;base64,aGVsbG8=") as typeof converted;
+ok("embedded image survives promotion",imageCourse.lessons[0].body.includes("data:image/png;base64,aGVsbG8="));
+rejects("remote image references rejected",()=>prepareOfficialPromotion(imageDoc,meta,"math-k-images",()=> "https://example.com/image.png"));
 if(failures)process.exit(1);
 console.log("community promotion tests passed");
