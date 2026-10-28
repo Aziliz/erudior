@@ -28,6 +28,11 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
   unique(course.drills.map((d) => d.id), "drills");
   if (course.texts) unique(course.texts.map((t) => t.id), "texts");
 
+  unique((course.spreadsheetAssignments ?? []).map(a => a.id), "spreadsheetAssignments");
+  for (const [i,a] of (course.spreadsheetAssignments ?? []).entries()) {
+    if (!course.lessons.some(l => l.id === a.lessonId)) report(`spreadsheetAssignments[${i}].lessonId`, "Unknown lesson");
+    for (const issue of validateAssignment(a)) report(`spreadsheetAssignments[${i}]`, issue);
+  }
   const moduleIds = new Set(course.modules.map((m) => m.id));
   for (const [i, lesson] of course.lessons.entries())
     if (!moduleIds.has(lesson.module)) report(`lessons[${i}].module`, `Unknown module: ${lesson.module}`);
