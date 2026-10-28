@@ -469,6 +469,7 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 export const ENGINE_IN_PROGRESS = new Set<string>([
   "Shared canonical course and content model",
   "Cross-course competency graph",
+  "Expand competency pathways and assessment coverage across courses",
   "Production course publishing deployment repair",
   "Course creator parity regression suite",
   "Community and official course content round-trip fidelity",
@@ -479,6 +480,7 @@ export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
   "Production course publishing deployment repair",
   "Cross-course competency graph",
+  "Expand competency pathways and assessment coverage across courses",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
   "Lesson-to-game and lesson-to-assessment conversion",
