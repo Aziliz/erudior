@@ -7630,3 +7630,20 @@ button.fn-ref {
 @media (max-width: 600px) {
   .roadmap .roadmap-list li { align-items: flex-start; }
 }
+
+/* Accessible first-paint book mark. Never delays application startup. */
+.erudior-splash { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; background:#142638; color:#f3ebdd; pointer-events:none; transition:opacity .25s ease, visibility .25s ease; font-family:Georgia,serif; }
+.erudior-splash strong {font-size:clamp(1.6rem,5vw,2.8rem);letter-spacing:.18em;margin-top:1.5rem}
+.erudior-splash p {margin:.5rem;color:#d8ad72;letter-spacing:.04em}
+.erudior-splash-book {position:relative; width:112px;height:72px;perspective:350px; display:flex;align-items:end}
+.erudior-splash-book span {width:50%;height:66px;background:#f3ebdd;border:2px solid #d8ad72;box-shadow:0 3px 10px #0005}
+.erudior-splash-book span:first-child {border-radius:9px 2px 2px 4px;transform-origin:right bottom;animation:erudior-book-left .6s ease-out both}
+.erudior-splash-book span:nth-child(2) {border-radius:2px 9px 4px 2px;transform-origin:left bottom;animation:erudior-book-right .6s ease-out both}
+.erudior-splash-book i {position:absolute;top:-9px;left:51%;width:14px;height:31px;background:#85b6b2;color:#d8ad72;font-size:11px;font-style:normal;text-align:center;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
+.erudior-splash-exit {opacity:0;visibility:hidden}
+@keyframes erudior-book-left {from{transform:rotateY(65deg)}to{transform:rotateY(0)}}
+@keyframes erudior-book-right {from{transform:rotateY(-65deg)}to{transform:rotateY(0)}}
+@media(prefers-reduced-motion:reduce){.erudior-splash,.erudior-splash-book span {animation:none!important;transition:none!important}}
+
+.erudior-splash a {color:#f3ebdd;text-decoration:underline;pointer-events:auto;margin-top:.3rem}
+.erudior-splash small {margin-top:.6rem;text-align:center;max-width:28rem;padding:0 1rem;color:#d1d8db;font: .8rem/1.5 system-ui,sans-serif}
