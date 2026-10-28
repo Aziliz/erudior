@@ -10,16 +10,12 @@ export default function Roadmap() {
   const rows = ROADMAP.map((g) => ({ ...g, courses: g.courses.map((c) => ({ ...c, entry: byTitle.get((c.catalog ?? c.title).toLowerCase()) })) }));
   const all = rows.flatMap((g) => g.courses);
   const done = all.filter((c) => c.entry).length;
+  const extraAreas = UPDATES.filter((area) => area.id === "web-app-updates" || area.id === "application-updates");
   const engineDone = ENGINE.filter((e) => e.status === "done").length;
   const pct = Math.round((done / all.length) * 100);
   return (
     <div className="page roadmap">
       <h1>Road to version 1.0</h1>
-      <p className="home-lede">
-        Erudior stays below version 1.0 until a family can use it as its whole homeschool program, from kindergarten through high school, and a teacher
-        can use it for a full course load. This is everything that has to be finished first.
-      </p>
-
       <section className="panel roadmap-summary" aria-label="Progress">
         <div className="roadmap-stat">
           <b>
@@ -44,8 +40,8 @@ export default function Roadmap() {
             {g.title}
           </a>
         ))}
-        {UPDATES.map((area) => <a key={area.id} href={`#${area.id}`}>{area.title}</a>)}
-        <a href="#engine">Existing lesson engine</a>
+        {extraAreas.map((area) => <a key={area.id} href={`#${area.id}`}>{area.title}</a>)}
+        <a href="#engine">Lesson engine</a>
       </nav>
 
       {rows.map((g) => {
@@ -55,7 +51,6 @@ export default function Roadmap() {
             <h2 id={`h-${g.id}`}>
               {g.title} <span className="faint small">({n} of {g.courses.length} available)</span>
             </h2>
-            {g.note && <p className="muted small">{g.note}</p>}
             <ul className="roadmap-list">
               {g.courses.map((c) => (
                 <li key={c.title} className={c.entry ? "is-done" : ""}>
@@ -63,7 +58,6 @@ export default function Roadmap() {
                   <span className="roadmap-name">
                     {c.entry ? <a href={appUrl("/" + slugify(c.entry.title))}>{c.title}</a> : c.title}
                     {c.catalog && c.entry && <span className="faint small"> ({c.entry.title})</span>}
-                    {c.covers && <span className="faint small"> · {c.covers}</span>}
                   </span>
                 </li>
               ))}
@@ -73,10 +67,9 @@ export default function Roadmap() {
       })}
 
 
-      {UPDATES.map((area) => (
+      {extraAreas.map((area) => (
         <section key={area.id} id={area.id} className="roadmap-group" aria-labelledby={`h-${area.id}`}>
           <h2 id={`h-${area.id}`}>{area.title}</h2>
-          <p className="muted small">{area.intro}</p>
           <ul className="roadmap-list">
             {area.items.map((item) => (
               <li key={item.title} className={item.status === "done" ? "is-done" : ""}>
@@ -84,8 +77,7 @@ export default function Roadmap() {
                   {item.status === "done" ? "Done" : item.status === "in_progress" ? "In progress" : "Planned"}
                 </span>
                 <span className="roadmap-name">
-                  <b>{item.title}</b> <span className="faint small">· {item.phase}</span>
-                  <span className="muted"> — {item.detail}</span>
+                  {item.title}
                 </span>
               </li>
             ))}
@@ -94,14 +86,13 @@ export default function Roadmap() {
       ))}
 
       <section id="engine" className="roadmap-group" aria-labelledby="h-engine">
-        <h2 id="h-engine">Existing lesson-engine capabilities</h2>
-        <p className="muted small">New subjects need new kinds of lessons. These features have to work before their courses can be good.</p>
+        <h2 id="h-engine">Lesson engine</h2>
         <ul className="roadmap-list">
           {[...ENGINE].sort((a, b) => (a.status === b.status ? 0 : a.status === "done" ? 1 : -1)).map((e) => (
             <li key={e.title} className={e.status === "done" ? "is-done" : ""}>
               <span className={`pill ${e.status === "done" ? "pass" : ""}`}>{e.status === "done" ? "Done" : "Planned"}</span>
               <span className="roadmap-name">
-                <b>{e.title}.</b> <span className="muted">{e.detail}</span>
+                {e.title}
               </span>
             </li>
           ))}
@@ -125,11 +116,7 @@ export default function Roadmap() {
         </p>
       </section>
 
-      <p className="small muted">
-        Every course is written and then checked by an independent review of each lesson, question and practice problem before it's released. Order of
-        work: high school courses first (students need transcript credits soonest), then kindergarten to grade 5 with art, music, health and PE, then
-        grades 6 to 8, Spanish and electives.
-      </p>
+
     </div>
   );
 }
