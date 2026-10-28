@@ -14,7 +14,7 @@ type Page = "home" | "download" | "roadmap" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
+  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : p === "/engine-license" ? "engine-license" : null;
 }
 
 export default function Site() {
@@ -44,7 +44,7 @@ export default function Site() {
     else
       setSeo({
         title: `${LEGAL_TITLES[page]} · Erudior`,
-        description: page === "terms" ? "Erudior's Terms of Use." : page === "privacy" ? "How Erudior handles your information: no accounts to study, no tracking, no ads." : "Open-source software used by Erudior.",
+        description: page === "terms" ? "Erudior's Terms of Use." : page === "privacy" ? "How Erudior handles your information: no accounts to study, no tracking, no ads." : page === "engine-license" ? "Read the proposed Erudior Engine source-available license, pending legal approval." : "Open-source software used by Erudior.",
         url: `${SITE_ORIGIN}/${page}`,
       });
     window.scrollTo({ top: 0 });
@@ -127,6 +127,7 @@ export default function Site() {
           <a href="/privacy" onClick={(e) => go(e, "privacy")} aria-current={page === "privacy" ? "page" : undefined}>
             Privacy Policy
           </a>
+          <a href="/engine-license" onClick={(e) => go(e, "engine-license")} aria-current={page === "engine-license" ? "page" : undefined}>Engine license (draft)</a>
           <a href="/licenses" onClick={(e) => go(e, "licenses")} aria-current={page === "licenses" ? "page" : undefined}>
             Licenses
           </a>
