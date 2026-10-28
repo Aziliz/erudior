@@ -92,6 +92,7 @@ jobs:
         run: npx tsx scripts/check-signing-key.ts
 
       - name: Fetch and authenticate previous release
+        id: previous_release
         timeout-minutes: 15
         env:
           COURSE_PREVIOUS_R2_BUCKET: ${{ vars.R2_BUCKET }}
@@ -119,6 +120,7 @@ jobs:
           fi
 
       - name: Upload course packages to R2
+        id: r2_upload
         timeout-minutes: 15
         working-directory: dist-courses/v1
         run: |
@@ -164,4 +166,21 @@ jobs:
           cmp catalog.json /tmp/erudior-published-catalog.json
           cmp catalog.json.sig /tmp/erudior-published-catalog.json.sig
           echo "Published catalog and signature match signed release artifacts."
+
+      - name: Course publishing diagnostics
+        if: always()
+        env:
+          FETCH_RESULT: ${{ steps.previous_release.outcome }}
+          UPLOAD_RESULT: ${{ steps.r2_upload.outcome }}
+        run: |
+          {
+            echo "### Course publishing diagnostics"
+            echo "- Run: $GITHUB_RUN_ID (attempt $GITHUB_RUN_ATTEMPT)"
+            echo "- Commit: $GITHUB_SHA"
+            echo "- Previous signed release: $FETCH_RESULT"
+            echo "- Immutable R2 verification/upload: $UPLOAD_RESULT"
+            echo "- GitHub runner OS: $RUNNER_OS"
+            echo "- Fail-closed checks remain mandatory."
+            echo "- For per-artifact timing, HTTP status, origin checks and SHA-256 mismatch, expand the R2 upload step logs."
+          } >> "$GITHUB_STEP_SUMMARY"
 
