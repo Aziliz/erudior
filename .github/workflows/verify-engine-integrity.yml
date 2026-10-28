@@ -5,6 +5,8 @@ on:
       - "src/lib/courseIntegrity.ts"
       - "src/lib/courseRevision.ts"
       - "scripts/publish-courses.ts"
+      - "scripts/fetch-previous-courses.ts"
+      - ".github/workflows/site.yml"
       - "src/lib/course.ts"
       - "src/lib/types.ts"
       - "tests/course-integrity.test.mts"
