@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { newKeyPair, publicKeyOf, sha256Hex, signBytes, b64 } from "../src/lib/courseSign";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
+import { compareCourseRevisions } from "../src/lib/courseRevision";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dev = process.argv.includes("--dev");
@@ -28,12 +29,36 @@ function secretKey(): string {
 }
 
 const entries = JSON.parse(fs.readFileSync(path.join(root, "samples", "catalog.json"), "utf8")) as { id: string; revision: number; file: string }[];
+/** Optional previous-release directory: --previous-dir PATH.
+ * The directory must contain catalog.json and the immutable course files named by its entries.
+ * A supplied baseline is mandatory to validate a change in previously published identities;
+ * without one, this script cannot assert revision compatibility.
+ */
+const previousArg = process.argv.indexOf("--previous-dir");
+if (previousArg >= 0 && !process.argv[previousArg + 1]) throw new Error("--previous-dir requires a directory.");
+const previousDir = previousArg >= 0 ? path.resolve(process.argv[previousArg + 1]) : undefined;
+const previousCatalog = previousDir
+  ? JSON.parse(fs.readFileSync(path.join(previousDir, "catalog.json"), "utf8")) as { courses: { id: string; revision: number; file: string }[] }
+  : undefined;
+if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error("Previous catalog has no courses array.");
+
 // Validate every source before touching the output directory or loading a signing key.
 for (const entry of entries) {
   const source = fs.readFileSync(path.join(root, "samples", entry.file), "utf8");
   const course = importValidatedCourseSnapshot(source);
   if (course.id !== entry.id || (course.revision ?? 1) !== entry.revision)
     throw new Error(`Catalog identity/revision mismatch for ${entry.file}: expected ${entry.id} r${entry.revision}`);
+  const previousEntry = previousCatalog?.courses.find((c) => c.id === entry.id);
+  if (previousDir && previousEntry) {
+    const previousFile = path.resolve(previousDir, previousEntry.file);
+    if (!previousFile.startsWith(previousDir + path.sep))
+      throw new Error(`Unsafe previous course file path: ${previousEntry.file}`);
+    const previous = importValidatedCourseSnapshot(fs.readFileSync(previousFile, "utf8"));
+    if (previous.id !== previousEntry.id || (previous.revision ?? 1) !== previousEntry.revision)
+      throw new Error(`Previous catalog mismatch for ${previousEntry.id}`);
+    const issues = compareCourseRevisions(previous, course);
+    if (issues.length) throw new Error(`Revision compatibility issue in ${entry.id}: ${issues.map((i) => `${i.severity} ${i.path}: ${i.message}`).join("; ")}`);
+  }
 }
 const key = secretKey();
 fs.rmSync(out, { recursive: true, force: true });
