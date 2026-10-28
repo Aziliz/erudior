@@ -11,7 +11,7 @@ export function validateAssignment(a:SpreadsheetAssignment):string[]{
  if(!a.id.trim()||!a.title.trim()||!validateWorkbook(a.starter))errors.push("Invalid assignment metadata or workbook");
  if(a.tolerance!==undefined&&(!Number.isFinite(a.tolerance)||a.tolerance<0))errors.push("Invalid tolerance");
  for(const cell of [...a.protectedCells,...Object.keys(a.answers)]){
-  if(!address.test(cell)||!Object.hasOwn(a.starter.sheets,cell.split("!")[0]))errors.push("Invalid assignment cell "+cell);
+  if(!address.test(cell)||!Object.prototype.hasOwnProperty.call(a.starter.sheets,cell.split("!")[0]))errors.push("Invalid assignment cell "+cell);
  }
  if(!Object.keys(a.answers).length)errors.push("No grading criteria");
  return errors;

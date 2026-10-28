@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { WORKBOOK_STORAGE_KEY, WORKBOOK_TEMPLATES, cloneTemplate, validateWorkbook } from "../lib/workbookTemplates";
 import { calculateCell, type Workbook } from "../lib/spreadsheet";
-import { SAMPLE_ASSIGNMENT, gradeAssignment } from "../lib/spreadsheetAssignments";
+import { SAMPLE_ASSIGNMENT, gradeAssignment, type SpreadsheetAssignment } from "../lib/spreadsheetAssignments";
+import { AssignmentEditor } from "./AssignmentEditor";
 
 const COLS=["A","B","C","D","E","F"];
 /** Small standalone spreadsheet training workspace using the same calculation engine as course templates. */
@@ -12,6 +13,8 @@ export default function SpreadsheetLab(){
   });
   const [notice,setNotice]=useState("");
   const [assignment,setAssignment]=useState(false);
+  const [activeAssignment,setActiveAssignment]=useState<SpreadsheetAssignment>(SAMPLE_ASSIGNMENT);
+  const [authoring,setAuthoring]=useState(false);
   const [grade,setGrade]=useState<ReturnType<typeof gradeAssignment>|null>(null);
   function save(workbook:Workbook){
     try { localStorage.setItem(WORKBOOK_STORAGE_KEY,JSON.stringify(workbook));setNotice("Saved on this device.");}
@@ -32,7 +35,7 @@ export default function SpreadsheetLab(){
     setSelected(address);setDraft(String(book.sheets[sheet]?.[address]??""));setEditing(false);setError("");
   }
   function commit(){
-    if(assignment && SAMPLE_ASSIGNMENT.protectedCells.includes(sheet+"!"+selected)){setError("Instructor-protected cell");return;}
+    if(assignment && activeAssignment.protectedCells.includes(sheet+"!"+selected)){setError("Instructor-protected cell");return;}
     const value=draft.trim();
     const parsed=value && !value.startsWith("=")&&/^-?(?:\d+\.?\d*|\.\d+)$/.test(value)?Number(value):value;
     const updated={...book,sheets:{...book.sheets,[sheet]:{...book.sheets[sheet],[selected]:parsed}}};
@@ -42,14 +45,21 @@ export default function SpreadsheetLab(){
   return <section className="panel" aria-labelledby="spreadsheet-lab">
     <div className="panel-head"><h2 id="spreadsheet-lab">Spreadsheet practice lab</h2></div>
     <p className="muted small">Edit cells, calculate formulas, and switch worksheets. Changes can be saved locally on this device. Choose a reusable template or continue your saved workbook.</p>
+    <button type="button" className="btn sm" onClick={()=>setAuthoring(a=>!a)}>{authoring?"Close assignment editor":"Create assignment"}</button>
+    {authoring&&<AssignmentEditor workbook={book} onUse={created=>{
+      setActiveAssignment(created);setBook(structuredClone(created.starter));setSheet(Object.keys(created.starter.sheets)[0]);
+      setSelected("A1");setDraft(String(created.starter.sheets[Object.keys(created.starter.sheets)[0]]?.A1??""));
+      setAssignment(true);setGrade(null);setEditing(false);setError("");setAuthoring(false);
+      setNotice("Custom assignment saved and opened for practice.");
+    }}/>}
     <div className="row" style={{flexWrap:"wrap",marginBottom:8}}>
       <button type="button" className="btn sm" onClick={() => {
-        const starter=structuredClone(SAMPLE_ASSIGNMENT.starter);
+        const starter=structuredClone(activeAssignment.starter);
         setBook(starter);setAssignment(true);setGrade(null);setSheet("Budget");setSelected("B3");setDraft("");setError("");setEditing(false);
         setNotice("Assignment opened: enter the balance formula in Budget!B3.");
       }}>Start graded assignment</button>
       {assignment && <button type="button" className="btn sm" onClick={() => {
-        const result=gradeAssignment(SAMPLE_ASSIGNMENT,book);setGrade(result);
+        const result=gradeAssignment(activeAssignment,book);setGrade(result);
       }}>Grade assignment</button>}
     </div>
     {grade && <div role="status" className="small">Assignment score: {Math.round(grade.score*100)}%.
