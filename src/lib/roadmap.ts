@@ -53,6 +53,21 @@ export const ROADMAP: RoadmapGroup[] = [
     ),
   },
   {
+    id: "k8-life-skills",
+    title: "Digital and life skills, kindergarten to grade 8",
+    courses: [
+      { title: "Digital Citizenship K–2" },
+      { title: "Digital Literacy 3–5" },
+      { title: "Computer Literacy 6–8" },
+      { title: "Financial Literacy 3–5" },
+      { title: "Financial Literacy 6–8" },
+      { title: "Media Literacy 6–8" },
+      { title: "Critical Thinking 6–8" },
+      { title: "Communication and Life Skills 6–8" },
+      { title: "Career Exploration 6–8" },
+    ],
+  },
+  {
     id: "hs-math",
     title: "High school math",
     courses: [
@@ -91,6 +106,23 @@ export const ROADMAP: RoadmapGroup[] = [
     courses: [{ title: "German A1" }, { title: "German A2" }, { title: "German B1" }, { title: "Spanish 1" }, { title: "Spanish 2" }],
   },
   {
+    id: "hs-careers",
+    title: "High school career and advanced electives",
+    courses: [
+      { title: "Digital Citizenship and AI Literacy" },
+      { title: "Media Literacy and Critical Thinking" },
+      { title: "Life Skills and Independent Living" },
+      { title: "Communication and Public Speaking" },
+      { title: "Career Readiness" },
+      { title: "Entrepreneurship" },
+      { title: "Vocational Foundations" },
+      { title: "Engineering Design" },
+      { title: "Psychology" },
+      { title: "Philosophy" },
+      { title: "College and Career Preparation" },
+    ],
+  },
+  {
     id: "hs-other",
     title: "High school health, PE, arts and electives",
     courses: [
@@ -106,6 +138,21 @@ export const ROADMAP: RoadmapGroup[] = [
 
 /** Already in the catalog and kept as advanced electives; not needed for 1.0. */
 export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Differential Equations", "Probability and Statistics", "University Physics I", "University Physics II"];
+
+/** Outstanding engine tasks consolidated into the original lesson-engine roadmap. */
+export const ENGINE_PLANNED = [
+  "Shared canonical course and content model",
+  "Cross-course competency graph",
+  "Interactive document and case file engine",
+  "Workbook and financial calculation engine",
+  "Branching scenario and timeline engine",
+  "Scientific and engineering workspaces",
+  "Advanced assessment and feedback",
+  "Content review, versioning and auditability",
+  "Credential integrity and compliance evidence",
+  "Course creator parity regression suite",
+  "Privacy-preserving learner data architecture",
+] as const;
 
 export type EngineStatus = "done" | "planned";
 
