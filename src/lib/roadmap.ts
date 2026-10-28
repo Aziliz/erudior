@@ -463,6 +463,17 @@ export const ROADMAP: RoadmapGroup[] = [
 export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Differential Equations", "Probability and Statistics", "University Physics I", "University Physics II"];
 
 /** Outstanding engine tasks consolidated into the original lesson-engine roadmap. */
+/** Status reflects the full deliverable, not merely the existence of foundation code.
+ * Done subfeatures live in ENGINE; broad items stay in progress until fully integrated.
+ */
+export const ENGINE_IN_PROGRESS = new Set<string>([
+  "Shared canonical course and content model",
+  "Cross-course competency graph",
+  "Course creator parity regression suite",
+  "Community and official course content round-trip fidelity",
+  "Community course audio, reading and assignment parity",
+]);
+
 export const ENGINE_PLANNED = [
   "Shared canonical course and content model",
   "Production course publishing deployment repair",
