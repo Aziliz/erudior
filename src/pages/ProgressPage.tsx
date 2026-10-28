@@ -168,7 +168,18 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 {placement.recommendations.map(skill => (
                   <li key={skill.skillId}>
                     <span className="pill">Next</span>
-                    <span><strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span></span>
+                    <span>
+                      <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {skill.suggestedCourseIds.map(courseId => {
+                        const course = api.courses.find(c => c.id === courseId);
+                        return course ? (
+                          <button key={courseId} type="button" className="linkish small"
+                            onClick={() => api.go({ name: "course", courseId, tab: "lessons" })}>
+                            Study in {course.title}
+                          </button>
+                        ) : null;
+                      })}
+                    </span>
                   </li>
                 ))}
               </ul>
