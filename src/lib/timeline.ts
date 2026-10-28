@@ -246,7 +246,7 @@ function hydrateOne(fig: HTMLElement): () => void {
     b.textContent = text;
     b.setAttribute("aria-label", label);
     b.addEventListener("click", fn);
-    tools.append(b);
+    tools.appendChild(b);
     return b;
   };
   const zin = mk("+", "Zoom in", () => setZoom(zi + 1));
@@ -265,16 +265,16 @@ function hydrateOne(fig: HTMLElement): () => void {
     fig.classList.toggle("tl-live", on);
     if (on) {
       fig.insertBefore(tools, view);
-      while (view.firstChild) track.append(view.firstChild);
-      track.prepend(axis);
-      view.append(track);
+      while (view.firstChild) track.appendChild(view.firstChild);
+      track.insertBefore(axis, track.firstChild);
+      view.appendChild(track);
       view.tabIndex = 0;
       view.setAttribute("role", "group");
       view.setAttribute("aria-label", "Timeline (scroll sideways to see all of it)");
     } else {
       tools.remove();
       axis.remove();
-      while (track.firstChild) view.append(track.firstChild);
+      while (track.firstChild) view.appendChild(track.firstChild);
       track.remove();
       view.removeAttribute("tabindex");
       view.removeAttribute("role");
@@ -303,7 +303,7 @@ function hydrateOne(fig: HTMLElement): () => void {
       tick.className = "tl-tick";
       tick.style.left = `${x(t)}px`;
       tick.textContent = yearLabel(t, bceMode);
-      axis.append(tick);
+      axis.appendChild(tick);
     }
     // Eras: one row of bands.
     for (const li of items.filter((l) => l.classList.contains("tl-era"))) {
