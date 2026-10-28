@@ -61,3 +61,26 @@ Add module-end quizzes from **Modules**. Add notecards in **Cards**, terms in **
 - Content is accurate and accessible.
 - Images, external resources and quotations may legally be published.
 - Go to **Publish**, fix validation errors, and publish. Revisions remain draft until you publish a new version.
+
+## Audio and books in the reader
+Open **About → Recorded audio and built-in reading texts**. These advanced fields use JSON, with **Apply resource changes** to save valid JSON into your draft. The Publish screen validates the structure.
+
+For spoken overrides or phonics, enter an audio object:
+```json
+{ "sound:m": "say:mmm", "Good morning": "say:Good morning" }
+```
+Recorded audio may use embedded `data:audio/mpeg;base64,…` values; the file must be appropriately licensed and within the community course size limits. These fields are not a direct audio-file uploader yet.
+
+For a short reader text:
+```json
+[
+  {
+    "id": "story1",
+    "title": "A Short Story",
+    "kind": "prose",
+    "source": "Original text by the author",
+    "sections": [{ "id": "part1", "title": "Part One", "body": "Once upon a time…" }]
+  }
+]
+```
+Choose `kind` from `prose`, `poem`, `play` or `document`. Poems and plays can use line numbering; source and copyright attribution are important. Do not paste copyrighted books without permission. Every section needs a unique ID and nonempty body. Preview the Reader after publishing and installing the course.
