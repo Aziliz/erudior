@@ -3,7 +3,7 @@
 // Together they give community courses everything official courses have.
 
 import { useState } from "react";
-import { addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../lib/communityModules";
+import { addCommunityLesson, addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../lib/communityModules";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { LIMITS, type CGlossary, type CModule, type CommunityDoc, type CReading, type CReference, type CVocab } from "../lib/communityFormat";
@@ -82,7 +82,8 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
                 </label>
               </div>
             ))}
-            {!lessonsIn(m.id, mi === 0).length && <p className="small muted">No lessons assigned. Add or move a lesson here from the Lessons tab.</p>}
+            {!lessonsIn(m.id, mi === 0).length && <p className="small muted">No lessons assigned. Add or move a lesson here from the Lessons tab.</p>
+            <button className="btn sm" disabled={doc.lessons.length >= LIMITS.lessons} onClick={() => update((d) => addCommunityLesson(d, m.id))}>Add lesson to this module</button>}
           </div>
           <details open={open === m.id} onToggle={(e) => (e.currentTarget.open ? setOpen(m.id) : open === m.id && setOpen(null))}>
             <summary>Module quiz ({m.quiz?.length ?? 0} questions)</summary>
