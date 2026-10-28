@@ -30,7 +30,7 @@ if (bootstrap) {
   const signature = signBytes(new Uint8Array(bytes), b64.decode(secret));
   fs.mkdirSync(target, {recursive:true});
   fs.writeFileSync(path.join(target,"catalog.json"), bytes);
-  fs.writeFileSync(path.join(target,"catalog.json.sig"), signature+"\\n");
+  fs.writeFileSync(path.join(target,"catalog.json.sig"), signature+"\n");
   console.log("Explicitly initialized signed empty first-release baseline.");
   process.exit(0);
 }
