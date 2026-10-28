@@ -48,6 +48,7 @@ jobs:
       - name: Create public sitemap
         run: node scripts/sitemap.mjs
       - name: Build website
+        id: website_build
         run: npm run build
       - name: Prerender public pages
         continue-on-error: true
@@ -56,12 +57,28 @@ jobs:
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
       - name: Deploy website to Cloudflare Pages
+        id: pages_deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           VITE_COURSES_URL: ${{ vars.COURSES_URL }}
           VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
         run: npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
+
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: website
+          ERUDIOR_DIAG_STAGES: ${{ format('build:{website_build},deploy:{pages_deploy}', steps.website_build.outcome, steps.pages_deploy.outcome) }}
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-website
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
 
   publish:
     concurrency:
@@ -85,6 +102,7 @@ jobs:
 
       - run: npm ci
       - name: Full regression suite (merge-only, bounded)
+        id: regression
         timeout-minutes: 15
         run: npm test
 
@@ -103,6 +121,7 @@ jobs:
         run: npx tsx scripts/fetch-previous-courses.ts
 
       - name: Build and sign course packages
+        id: course_build
         env:
           COURSE_PREVIOUS_RELEASE_DIR: .course-previous
         run: npm run courses:publish
@@ -156,6 +175,7 @@ jobs:
             --content-type text/plain --cache-control "public, max-age=300"
 
       - name: Verify published catalog and signature
+        id: catalog_verify
         working-directory: dist-courses/v1
         shell: bash
         run: |
@@ -184,3 +204,17 @@ jobs:
             echo "- For per-artifact timing, HTTP status, origin checks and SHA-256 mismatch, expand the R2 upload step logs."
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: course-publish
+          ERUDIOR_DIAG_STAGES: ${{ format('regression:{regression},previous_release:{previous_release},course_build:{course_build},upload:{r2_upload},catalog_verify:{catalog_verify}', steps.regression.outcome, steps.previous_release.outcome, steps.course_build.outcome, steps.r2_upload.outcome, steps.catalog_verify.outcome) }}
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-course-publish
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
