@@ -191,6 +191,12 @@ const advancedCourse = toCourse(advanced, { id: "advanced", version: 1, review: 
 ok("advanced interactive block survives conversion", advancedCourse.lessons[0].body.includes("```trace\nletters: A B\n```"));
 ok("advanced table survives conversion", advancedCourse.lessons[0].body.includes("| One | Two |"));
 
+const earlyReader = { ...doc, readAloud: true };
+ok("community early-reader mode validates", checkDoc(earlyReader, true).length === 0);
+const earlyReaderConverted = toCourse(earlyReader, { id: "readaloud", version: 1, review: "reviewed", author: "Teacher" }, () => "");
+ok("read-aloud survives official conversion", earlyReaderConverted.readAloud === true);
+ok("invalid read-aloud settings rejected", checkDoc({ ...doc, readAloud: "yes" }, false).some(e => e.includes("Read-aloud")));
+
 if (fails) {
   console.log(`${fails} community test(s) failed`);
   process.exit(1);
