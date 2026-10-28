@@ -52,7 +52,7 @@ if (previousCatalogBytes) {
     throw new Error("Previous catalog signature verification failed.");
 }
 const previousCatalog = previousCatalogBytes
-  ? JSON.parse(previousCatalogBytes.toString("utf8")) as { courses: { id: string; revision: number; file: string; sha256: string }[] }
+  ? JSON.parse(previousCatalogBytes.toString("utf8")) as { format: string; version: number; courses: { id: string; revision: number; file: string; sha256: string }[] }
   : undefined;
 if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error("Previous catalog has no courses array.");
 // An empty catalog is permitted only for an explicitly authenticated first release.
@@ -62,6 +62,28 @@ if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error(
 for (const prior of previousCatalog?.courses ?? [])
   if (!entries.some((entry) => entry.id === prior.id))
     throw new Error(`Previous course ${prior.id} is missing from the new catalog.`);
+
+// Refuse ambiguous manifests before signing: two entries may not share an ID or versioned package name.
+const seenIds = new Set<string>();
+const seenFiles = new Set<string>();
+for (const entry of entries) {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(entry.id) || !Number.isInteger(entry.revision) || entry.revision < 1 ||
+      !/^[A-Za-z0-9_./-]+\.json$/.test(entry.file) || entry.file.includes("..") || path.isAbsolute(entry.file))
+    throw new Error(`Invalid catalog entry: ${entry.id}`);
+  if (seenIds.has(entry.id) || seenFiles.has(entry.file))
+    throw new Error(`Duplicate course ID or source file in catalog: ${entry.id}`);
+  seenIds.add(entry.id);
+  seenFiles.add(entry.file);
+}
+if (previousCatalog) {
+  if (previousCatalog.version !== 1 || previousCatalog.format !== "examiner-catalog")
+    throw new Error("Previous catalog schema invalid.");
+  const priorIds = new Set<string>();
+  for (const prior of previousCatalog.courses) {
+    if (priorIds.has(prior.id)) throw new Error(`Duplicate ID in previous catalog: ${prior.id}`);
+    priorIds.add(prior.id);
+  }
+}
 
 // Validate every source before touching the output directory or loading a signing key.
 for (const entry of entries) {
