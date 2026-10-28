@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { IS_SITE, siteUrl } from "./lib/site";
 
@@ -14,11 +14,14 @@ const splash = createStartupSplash({ kind: "official" });
 document.body.appendChild(splash);
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 (IS_SITE ? import("./Site") : import("./App")).then(({ default: Page }) =>
-  (root.render(
+  root.render(
     <React.StrictMode>
-      <Page />
+      <StartupView Page={Page} />
     </React.StrictMode>,
-  ), requestAnimationFrame(() => {
-    dismissStartupSplash(splash);
-  })),
+  ),
 );
+
+function StartupView({ Page }: { Page: React.ComponentType }) {
+  useEffect(() => { dismissStartupSplash(splash); }, []);
+  return <Page />;
+}
