@@ -2,9 +2,15 @@
 
 ## Implementation checkpoint — 2026-10-28
 
-Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`); full post-merge regression, native persistence, integrity, website, signed-course and community API checks passed. Public/local release checkpoint `1663c166` is live. An intermittent review-DOM timing race was repaired by test-only PR #69 (`c088582`); exact-head and post-merge full regression/build passed, preserving all security/digest assertions. Separate website/API/signed-course release lanes from PR #70 are retained.
+Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-Canonical assessed-work authoring/publication/install and original-task/rubric/response evidence are implemented and undergoing final local validation. Instructor rubric decisions reuse the receipt ledger and never automatically create academic grades. See `CANONICAL_ASSESSED_WORK.md`. This next capability is not deployed. Shared canonical content and Spreadsheet simulator remain **In Progress**, with one public entry each. Only complete validated capabilities deploy; courses remain last.
+**Current counts:** Lesson Engine 9 Done, 5 In Progress, 12 Planned (26 entries). No new rows or completion-count inflation. PRs #64/#71 completed workflows inside existing broad entries; they did not finish the entire canonical model or simulator.
+
+**Selected unfinished entry: Shared canonical course and content model — In Progress.** Finish its original acceptance in one held batch: reader and audio resources; advanced supported questions/interactive blocks; remaining bank, deck, vocabulary and course metadata; semantic-preserving canonical/community conversion, assets, import/export/backup and revision/migration behavior. Verify full author→review→publish→install and learner persistence workflows. No further partial umbrella releases. Local reader work is unvalidated and not deployed.
+
+**Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
+
+Courses remain last, after all other engine, website and app features. Public roadmap data in `src/lib/roadmap.ts` is synchronized with this checkpoint. Historical notes below are retained as history, not current status.
 
 
 ## Mission and release policy

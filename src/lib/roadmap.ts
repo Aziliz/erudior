@@ -476,7 +476,8 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). Functions/ranges and broader usability, accessibility and independent learner verification remain in progress.",
+  "Shared canonical course and content model": "Canonical/community spreadsheet and writing, rubric, lab and activity workflows are deployed through PRs #64 and #71: lossless authoring/install, original submission evidence, exact instructor review and encrypted recovery. The full original capability still requires reader/audio, advanced interactive content and remaining metadata round-trip parity. These remaining parts will be released together, not as completed subfeatures.",
+  "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). The original simulator scope still requires spreadsheet functions, named ranges, validation rules and safe simulated macro teaching; imported VBA or untrusted macros must never execute. The instructor/learner/review/publishing workflow is complete, but the whole simulator is not.",
 };
 
 export const ENGINE_PLANNED = [
