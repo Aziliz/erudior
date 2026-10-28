@@ -181,6 +181,8 @@ export interface CommunityDoc {
   language?: CLanguage;
   vocab?: CVocab[];
   readingList?: CReading[];
+  /** Enable official early-reader read-aloud UI for this course. */
+  readAloud?: boolean;
 }
 
 export const LIMITS = {
@@ -350,6 +352,7 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
   if (!SUBJECTS.includes(d.subject as (typeof SUBJECTS)[number])) errs.push("Choose a subject.");
   if (!LEVELS.includes(d.level as (typeof LEVELS)[number])) errs.push("Choose a level.");
   if (d.type !== undefined && !TYPES.includes(d.type as (typeof TYPES)[number])) errs.push("Choose a type.");
+  if (d.readAloud !== undefined && typeof d.readAloud !== "boolean") errs.push("Read-aloud must be enabled or disabled.");
   if (d.calculator !== undefined && !CALCULATORS.includes(d.calculator)) errs.push("Choose a calculator.");
   if (d.exam !== undefined) {
     const e = d.exam;
@@ -805,6 +808,7 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     ...(d.language && d.vocab?.length ? { vocab: d.vocab.filter((v) => v.term.trim() && v.meanings.some((m) => m.trim())).map((v) => ({ ...v, meanings: v.meanings.filter((m) => m.trim()) })) } : {}),
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
     calculator,
+    ...(d.readAloud === true ? { readAloud: true } : {}),
     community: meta,
   };
 }
