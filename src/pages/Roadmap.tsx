@@ -54,6 +54,7 @@ export default function Roadmap() {
                     <span className={`pill ${c.entry ? "pass" : ""}`}>{c.entry ? "Available" : "Planned"}</span>
                     <span className="roadmap-name">
                       {c.entry ? <a href={appUrl("/" + slugify(c.entry.title))}>{c.title}</a> : c.title}
+                      {c.covers && <span className="faint small"> · {c.covers}</span>}
                     </span>
                   </li>
                 ))}
