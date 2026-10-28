@@ -150,3 +150,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Skill assessment evidence remains intentionally unassigned until question-bank topic labels are audited: simply completing an instructional lesson does not count as mastery. No skill is automatically certified or unlocked from lesson availability.
 - Regression tests are committed and run only after merge. PR #15 remains draft; mapping evidence, UI and placement integration remain outstanding.
 - Production publishing is blocked by a SHA-256 mismatch for the hosted German A1 r3 file. The signed catalog and remote object must be reconciled without bypassing integrity checks.
+
+### Competency graph — assessment-linked evidence slice
+- Added a resolver that associates authored skill lesson IDs with actual question topics only when a question is referenced by the lesson's quiz. Generic same-name topics elsewhere in the course do not confer evidence.
+- Added the student placement entry point from authored curriculum + installed courses + saved Progress, plus coverage reporting for authored skills without linked assessment.
+- Added tests for linked-quiz evidence, unrelated-topic exclusion, unknown mastery, and prerequisite blocking. Full suite is merge-only.
+- **Limitation:** Some existing courses' assessments may not be linked directly on lessons; their skills will remain unassessed until verified bank-topic mappings are added. Student UI and persistent graph lineage are still pending; keep the public competency graph Planned.
