@@ -110,3 +110,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Authorized first-release publishing rechecks that no catalog has appeared. A changed or inaccessible catalog stops the release rather than overwriting it.
 - **Limitation:** This is optimistic concurrency protection, not atomic compare-and-swap. A separately authorized writer could still race between recheck and upload. Object-store generation-conditional writes or a centralized single-writer release service remain required for a strict guarantee.
 - **Status:** committed in draft PR #11; do not mark the roadmap item Done until merge-only CI and live deployment verification succeed.
+
+### Slice 17 — Stale release prevention
+- The site publisher now verifies that its checked-out commit equals current `origin/main` before uploading course packages, and checks again immediately before catalog publication. New commits supersede stale queued or long-running releases.
+- The workflow uses `set -euo pipefail` for file uploads so failed commands stop publication; the existing GitHub Actions `site` concurrency group serializes this repository's deployments.
+- **Boundary:** These safeguards prevent superseded in-repository workflows from publishing stale catalogs, but they are not an atomic global lock against external writes. Strict cross-client exclusivity still needs a conditional commit or dedicated single-writer service and exclusive credentials.
+- **Status:** committed on draft PR #11; full tests remain merge-only. Do not mark the shared canonical course model Done until post-merge verification.
