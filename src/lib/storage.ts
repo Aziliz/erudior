@@ -10,9 +10,9 @@ import { webDelete, webGet, webList, webSet } from "./webstore";
 
 export const inApp = isTauri();
 
-const LS_BANK = "examiner.bank.";
-const LS_COURSE = "examiner.course.";
-const LS_PROGRESS = "examiner.progress";
+const LS_BANK = "erudior.bank.";
+const LS_COURSE = "erudior.course.";
+const LS_PROGRESS = "erudior.progress";
 
 export function emptyProgress(): Progress {
   return {
@@ -104,14 +104,14 @@ export const activeStudent = (): string | null => student;
 /** Read a named state file (see valid_state_name in lib.rs). */
 export async function loadState(name: string): Promise<string | null> {
   if (inApp) return invoke<string | null>("load_state", { name });
-  return webGet(`examiner.${name}`);
+  return webGet(`erudior.${name}`);
 }
 
 /** Write a named state file, or delete it when content is null. */
 export async function saveState(name: string, content: string | null): Promise<void> {
   if (inApp) return invoke("save_state", { name, content });
-  if (content === null) await webDelete(`examiner.${name}`);
-  else await webSet(`examiner.${name}`, content);
+  if (content === null) await webDelete(`erudior.${name}`);
+  else await webSet(`erudior.${name}`, content);
 }
 
 function parseProgress(text: string | null): Progress {
@@ -210,7 +210,7 @@ export async function saveBlob(blob: Blob, name: string, label: string, ext: str
 }
 
 export interface Backup {
-  format: "examiner-backup";
+  format: "erudior-backup";
   version: 1;
   createdAt: string;
   progress: Progress;
@@ -223,7 +223,7 @@ export interface Backup {
 /** Save everything (courses, banks, progress) to one file the user picks. */
 export async function exportBackup(courses: Course[], banks: Bank[], progress: Progress): Promise<boolean> {
   const backup: Backup = {
-    format: "examiner-backup",
+    format: "erudior-backup",
     version: 1,
     createdAt: new Date().toISOString(),
     progress,
@@ -248,7 +248,7 @@ export async function restoreBackup(
   current: { courses: Course[]; banks: Bank[] },
 ): Promise<{ courses: number; banks: number }> {
   const b = raw as Backup;
-  if (!b || b.format !== "examiner-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
+  if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
   const courses = b.courses.map((c) => normalizeCourse(c));
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await deleteCourse(c.id);
