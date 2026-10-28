@@ -9,6 +9,9 @@ const byTitle = new Map(CATALOG.map((e) => [e.title.toLowerCase(), e]));
 export default function Roadmap() {
   const rows = ROADMAP.map((g) => ({ ...g, courses: g.courses.map((c) => ({ ...c, entry: byTitle.get((c.catalog ?? c.title).toLowerCase()) })) }));
   const all = rows.flatMap((g) => g.courses);
+  const languages = rows.filter((g) => g.id.startsWith("language-"));
+  const languageAvailable = languages.reduce((n, g) => n + g.courses.filter((course) => course.entry).length, 0);
+  const languageTotal = languages.reduce((n, g) => n + g.courses.length, 0);
   const done = all.filter((c) => c.entry).length;
   const extraAreas = UPDATES.filter((area) => area.id === "web-app-updates" || area.id === "application-updates");
   const engineDone = ENGINE.filter((e) => e.status === "done").length;
@@ -43,7 +46,7 @@ export default function Roadmap() {
 
       <section id="course-updates" className="roadmap-group" aria-labelledby="h-course-updates">
         <h2 id="h-course-updates">Course update</h2>
-        {rows.map((g) => {
+        {rows.filter((g) => !g.id.startsWith("language-")).map((g) => {
           const n = g.courses.filter((c) => c.entry).length;
           return (
             <div key={g.id} id={g.id}>
@@ -62,6 +65,25 @@ export default function Roadmap() {
             </div>
           );
         })}
+        <div id="languages">
+          <h3>Languages <span className="faint small">({languageAvailable} of {languageTotal} available)</span></h3>
+          {languages.map((language) => (
+            <div key={language.id} id={language.id} className="roadmap-language">
+              <h4>{language.title} <span className="faint small">({language.courses.filter((course) => course.entry).length} of {language.courses.length} available)</span></h4>
+              <ul className="roadmap-list roadmap-language-levels">
+                {language.courses.map((course) => (
+                  <li key={course.title} className={course.entry ? "is-done" : ""}>
+                    <span className={`pill ${course.entry ? "pass" : ""}`}>{course.entry ? "Available" : "Planned"}</span>
+                    <span className="roadmap-name">
+                      {course.entry ? <a href={appUrl("/" + slugify(course.entry.title))}>{course.title}</a> : course.title}
+                      {course.covers && <span className="faint small"> · {course.covers}</span>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
         <h3>Advanced college electives</h3>
         <ul className="roadmap-list">
           {ELECTIVES.map((title) => {
