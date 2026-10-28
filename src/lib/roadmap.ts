@@ -512,6 +512,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Focused competency practice from Learning Path", detail: "Starts actual question-bank practice limited to assessment-linked competency topics from the student Progress page (PR #31).", status: "done" },
   { title: "Student learning path and recommended-course navigation", detail: "Progress page with prerequisite explanations and course navigation, merged PRs #15 and #21; initial learning pathway implementation.", status: "done" },
   { title: "Cross-course competency graph foundation and student Learning Path", detail: "Skill prerequisites, course-linked evidence, mastery and placement recommendations with the Progress page. Merged PR #15; broader course coverage remains in progress.", status: "done" },
   { title: "Course integrity validation and portable snapshots", detail: "Non-destructive checks for content IDs and references, canonical version 1 import and deterministic exports; merged in PR #11 and merge-only integrity CI passed.", status: "done" },
