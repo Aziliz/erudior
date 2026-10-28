@@ -1,6 +1,7 @@
 name: Lesson engine integrity
 on:
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - "src/lib/courseIntegrity.ts"
       - "src/lib/courseRevision.ts"
@@ -15,7 +16,6 @@ on:
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/verify-engine-integrity.yml"
-  workflow_dispatch:
 permissions:
   contents: read
 jobs:
