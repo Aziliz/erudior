@@ -36,11 +36,15 @@ const entries = JSON.parse(fs.readFileSync(path.join(root, "samples", "catalog.j
  */
 const previousArg = process.argv.indexOf("--previous-dir");
 if (previousArg >= 0 && !process.argv[previousArg + 1]) throw new Error("--previous-dir requires a directory.");
-const previousDir = previousArg >= 0 ? path.resolve(process.argv[previousArg + 1]) : undefined;
+const baselinePath = previousArg >= 0 ? process.argv[previousArg + 1] : process.env.COURSE_PREVIOUS_RELEASE_DIR;
+const previousDir = baselinePath ? path.resolve(baselinePath) : undefined;
+if (!dev && !previousDir) throw new Error("Production publishing requires --previous-dir PATH or COURSE_PREVIOUS_RELEASE_DIR. Supply an authenticated prior release (or an empty baseline catalog for first publication).");
 const previousCatalog = previousDir
   ? JSON.parse(fs.readFileSync(path.join(previousDir, "catalog.json"), "utf8")) as { courses: { id: string; revision: number; file: string }[] }
   : undefined;
 if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error("Previous catalog has no courses array.");
+// An empty catalog is permitted only for an explicitly authenticated first release.
+// The caller is responsible for fetching/verifying the prior signed catalog.
 
 // Validate every source before touching the output directory or loading a signing key.
 for (const entry of entries) {
@@ -49,6 +53,8 @@ for (const entry of entries) {
   if (course.id !== entry.id || (course.revision ?? 1) !== entry.revision)
     throw new Error(`Catalog identity/revision mismatch for ${entry.file}: expected ${entry.id} r${entry.revision}`);
   const previousEntry = previousCatalog?.courses.find((c) => c.id === entry.id);
+  if (previousCatalog && !previousEntry && entry.revision !== 1)
+    throw new Error(`New course ${entry.id} must start at revision 1 (got ${entry.revision}).`);
   if (previousDir && previousEntry) {
     const previousFile = path.resolve(previousDir, previousEntry.file);
     if (!previousFile.startsWith(previousDir + path.sep))
@@ -56,6 +62,11 @@ for (const entry of entries) {
     const previous = importValidatedCourseSnapshot(fs.readFileSync(previousFile, "utf8"));
     if (previous.id !== previousEntry.id || (previous.revision ?? 1) !== previousEntry.revision)
       throw new Error(`Previous catalog mismatch for ${previousEntry.id}`);
+    if (entry.revision === previousEntry.revision) {
+      if (source !== fs.readFileSync(previousFile, "utf8"))
+        throw new Error(`Course ${entry.id} changed without incrementing revision ${entry.revision}.`);
+      continue;
+    }
     const issues = compareCourseRevisions(previous, course);
     if (issues.length) throw new Error(`Revision compatibility issue in ${entry.id}: ${issues.map((i) => `${i.severity} ${i.path}: ${i.message}`).join("; ")}`);
   }
