@@ -15,11 +15,12 @@ Legal review and confirmation of all copyright holders' rights are recommended b
 2. PERMISSION
 Subject to compliance with this License, the Licensor grants a worldwide, nonexclusive, royalty-free, revocable-on-breach license to use, copy, modify and redistribute the Engine and make Covered Products, in source and binary form. This license grants no ownership of the Engine, no patent rights beyond any rights required by applicable law, and no rights in Third-Party Materials.
 
-3. REQUIRED ERUDIOR SPLASH AND ATTRIBUTION
-Every Covered Product with a graphical launch or entry experience must visibly display the official Erudior splash screen when the product starts, before presenting its main experience, with the Erudior name and a readable "Powered by Erudior" attribution. The splash may be adapted to screen size and accessibility requirements but must not be obscured, falsified, disabled by default or represented as the Covered Product developer's own branding.
-Until the official graphic asset is supplied in the Main Engine Repository, an accessible text splash showing "Powered by Erudior" and a link to https://erudior.com satisfies this condition. Once the official asset is made available, new releases of Covered Products must include it in its unaltered branding form, except for resizing and accessible alternatives.
-Products without a graphical launch (for example, command-line tools or headless services) must display equivalent attribution in their startup output when practical and in their readily accessible documentation or About information.
-This requirement does not apply to mere independent course files, worksheets or other content that does not incorporate the Engine.
+3. REQUIRED STARTUP SPLASH AND ATTRIBUTION
+Official Erudior releases display the opening-book and teal star-bookmark splash, the ERUDIOR name, and "Learn without limits." on startup.
+
+Independent Covered Products with graphical startup experiences must display an accessible version of the same opening-book and teal star-bookmark motif, the independent product's own name, a readable "Powered by Erudior" credit linking to https://erudior.com, and a clear statement that the product is independent and is not affiliated with or endorsed by Erudior. They must not use the official motto or presentation to suggest official status. Equivalent attribution in --about output or accompanying startup documentation applies to headless products.
+
+The splash must respect reduced-motion accessibility and must not impose an artificial minimum wait before access to the product. Maintain required copyright and third-party notices. The illustrated variants and implementation guidance are documented in docs/SPLASH_AND_CONTRIBUTION_TERMS_DRAFT.md; visual implementation is not a substitute for these obligations.
 
 4. ENGINE MODIFICATIONS MUST BE RETURNED
 If you distribute a Covered Product containing an Engine Modification, or make it available for interaction by users over a network, you must:
