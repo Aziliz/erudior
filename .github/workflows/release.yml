@@ -56,6 +56,8 @@ jobs:
           workspaces: src-tauri -> target
 
       - run: npm ci
+      - name: Diagnostic runner tests
+        run: node --test tests/diagnostic-command.test.mjs
       - name: Regression tests
         id: regression
         run: node scripts/diagnostic-command.mjs regression -- npm test
