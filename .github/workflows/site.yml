@@ -89,6 +89,13 @@ jobs:
       - name: Check the signing key matches the app
         run: npx tsx scripts/check-signing-key.ts
 
+      # Temporary incident recovery; remove after verified restoration (see incident doc).
+      - name: Restore known stale German artifacts to signed bytes
+        if: ${{ !inputs.bootstrap_first_release }}
+        env:
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+        run: npx tsx scripts/recover-german-artifacts.ts
+
       - name: Fetch and authenticate previous release
         env:
           COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
