@@ -8,6 +8,7 @@ import path from "node:path";
 import { newKeyPair, publicKeyOf, sha256Hex, signBytes, verifySignature, b64 } from "../src/lib/courseSign";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 import { compareCourseRevisions } from "../src/lib/courseRevision";
+import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dev = process.argv.includes("--dev");
@@ -41,11 +42,13 @@ const previousDir = baselinePath ? path.resolve(baselinePath) : undefined;
 if (!dev && !previousDir) throw new Error("Production publishing requires --previous-dir PATH or COURSE_PREVIOUS_RELEASE_DIR. Supply an authenticated prior release (or an empty baseline catalog for first publication).");
 const previousCatalogBytes = previousDir ? fs.readFileSync(path.join(previousDir, "catalog.json")) : undefined;
 const trustedPreviousKey = process.env.COURSE_PREVIOUS_PUBLIC_KEY?.trim();
-if (previousDir && !dev && !trustedPreviousKey)
-  throw new Error("Production publishing requires COURSE_PREVIOUS_PUBLIC_KEY to verify the prior catalog signature.");
-if (previousCatalogBytes && trustedPreviousKey) {
+if (trustedPreviousKey && !COURSE_PUBLIC_KEYS.includes(trustedPreviousKey))
+  throw new Error("Previous-release key must match an application-pinned public key.");
+if (previousDir && !dev && !COURSE_PUBLIC_KEYS.length)
+  throw new Error("No pinned public keys available to verify the prior catalog.");
+if (previousCatalogBytes) {
   const signature = fs.readFileSync(path.join(previousDir!, "catalog.json.sig"), "utf8").trim();
-  if (!verifySignature(new Uint8Array(previousCatalogBytes), signature, [trustedPreviousKey]))
+  if (!verifySignature(new Uint8Array(previousCatalogBytes), signature, trustedPreviousKey ? [trustedPreviousKey] : COURSE_PUBLIC_KEYS))
     throw new Error("Previous catalog signature verification failed.");
 }
 const previousCatalog = previousCatalogBytes
@@ -54,6 +57,11 @@ const previousCatalog = previousCatalogBytes
 if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error("Previous catalog has no courses array.");
 // An empty catalog is permitted only for an explicitly authenticated first release.
 // The caller is responsible for fetching/verifying the prior signed catalog.
+
+// Never silently remove a previously issued course from the published catalog.
+for (const prior of previousCatalog?.courses ?? [])
+  if (!entries.some((entry) => entry.id === prior.id))
+    throw new Error(`Previous course ${prior.id} is missing from the new catalog.`);
 
 // Validate every source before touching the output directory or loading a signing key.
 for (const entry of entries) {
