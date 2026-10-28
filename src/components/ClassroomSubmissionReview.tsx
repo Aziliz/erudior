@@ -1,4 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { Workbook } from "../lib/spreadsheet";
+import { calculateCellV1 } from "../lib/spreadsheetGradingV1";
+import type { SpreadsheetSubmission } from "../lib/spreadsheetEvidence";
 import { missingHandInAttachments } from "../lib/classroom";
 import type { Family } from "../lib/family";
 import type { StoredSubmissionRecord } from "../lib/classroomSubmissionStore";
@@ -8,6 +11,7 @@ import { pickJsonFile } from "../lib/storage";
 type Services = Pick<typeof ledger, "loadClassroomSubmissions" | "importClassroomSubmission" | "saveClassroomSubmissionReview"> & { pickJsonFile: typeof pickJsonFile };
 const defaults: Services = { ...ledger, pickJsonFile };
 const statusLabel = (status: string) => status === "needs_revision" ? "Needs revision" : status === "reviewed" ? "Reviewed" : "Pending";
+const savedTime = (value: number) => Number.isFinite(new Date(value).getTime()) ? new Date(value).toISOString() : `Unrepresentable timestamp: ${value}`;
 const when = (value: string) => new Date(value).toLocaleString();
 
 /** Instructor-only host: all evidence here comes from signed immutable receipts, not merged progress. */
@@ -118,7 +122,8 @@ function Receipt({ record, busy, save, retryImport, canReview }: { record: Store
     <p>Courses: {snapshot.courses.join(", ")}</p>
     <Evidence title="Quiz and exam attempts" value={snapshot.progress.attempts} />
     <Evidence title="Writing, lab work, and submitted drafts" value={snapshot.progress.work} />
-    <Evidence title="Spreadsheet evidence (when present) and all submitted progress" value={snapshot.progress} />
+    <SpreadsheetEvidence submissions={Object.values(snapshot.progress.spreadsheetSubmissions ?? {})} />
+    <details><summary>All submitted progress (exact JSON)</summary><Evidence title="Submitted progress" value={snapshot.progress} /></details>
     <Evidence title="Activity logs" value={snapshot.progress.logs} />
     <h3>Attached files from this receipt</h3>
     {Object.entries(snapshot.files ?? {}).map(([id, file]) => <div key={id}>
@@ -140,5 +145,57 @@ function Receipt({ record, busy, save, retryImport, canReview }: { record: Store
         retry.current = { submissionId: record.id, eventId: crypto.randomUUID(), status, reviewedAt: new Date().toISOString(), note };
       void save(retry.current);
     }}>Save instructor review</button>
+  </section>;
+}
+
+
+/** Page rows before calculating cells: even very large sparse sheets have a bounded DOM. */
+function PagedRows<T>({ title, rows, headers, render }: { title: string; rows: T[]; headers: string[]; render: (row: T) => ReactNode }) {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.max(1, Math.ceil(rows.length / 50));
+  const current = Math.min(page, totalPages - 1);
+  return <section aria-label={title}>
+    <h4>{title}</h4>
+    <p>{rows.length} entries · Page {current + 1} of {totalPages} · Up to 50 entries per page</p>
+    <table className="table"><thead><tr>{headers.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead>
+      <tbody>{rows.slice(current * 50, (current + 1) * 50).map((row, index) => <tr key={current * 50 + index}>{render(row)}</tr>)}</tbody>
+    </table>
+    {!rows.length && <p>No entries.</p>}
+    <button className="btn sm" disabled={current === 0} onClick={() => setPage(current - 1)}>Previous {title} page</button>
+    <button className="btn sm" disabled={current + 1 === totalPages} onClick={() => setPage(current + 1)}>Next {title} page</button>
+  </section>;
+}
+function WorkbookInspection({ title, workbook }: { title: string; workbook: Workbook }) {
+  const cells = Object.entries(workbook.sheets).flatMap(([sheet, entries]) => Object.entries(entries).map(([address, raw]) => ({ sheet, address, raw })));
+  return <div><p>{title} worksheets: {Object.entries(workbook.sheets).map(([name, cells]) => `${name} (${Object.keys(cells).length} cells)`).join(", ")}</p>
+    <PagedRows title={title} rows={cells} headers={["Cell", "Raw value / formula", "Calculated from saved workbook"]} render={({ sheet, address, raw }) => {
+      let result: ReactNode;
+      try { result = String(calculateCellV1(workbook, sheet, address)); }
+      catch (error) { result = <span className="notice error">Formula error: {(error as Error).message}</span>; }
+      return <><th scope="row">{sheet}!{address}</th><td><code>{String(raw)}</code></td><td>{result}</td></>;
+    }} />
+  </div>;
+}
+function SpreadsheetEvidence({ submissions }: { submissions: SpreadsheetSubmission[] }) {
+  const [selection, setSelection] = useState("");
+  const submission = submissions.find(s => s.id === selection) ?? submissions[0];
+  if (!submission) return <section><h3>Spreadsheet submissions</h3><p>No spreadsheet submission evidence in this receipt.</p></section>;
+  const assignment = submission.assignment;
+  return <section aria-label="Spreadsheet submission inspection">
+    <h3>Spreadsheet submissions ({submissions.length})</h3>
+    <label className="field">Inspect spreadsheet submission<select value={submission.id} onChange={e => setSelection(e.target.value)}>{submissions.map(s => <option key={s.id} value={s.id}>{s.assignment.title} · {savedTime(s.submittedAt)} · {s.id}</option>)}</select></label>
+    <article key={submission.id}>
+      <h4>{assignment.title}</h4>
+      <p>Assignment: {submission.assignmentId} · Course: {submission.courseId} · Lesson: {submission.lessonId}</p>
+      <p>Submission: {submission.id} · Submitted: {savedTime(submission.submittedAt)}</p>
+      <p><strong>Automatic evidence score: {Math.round(submission.grade.score * 10000) / 100}% — not an academic grade.</strong> This is the saved automatic result for this submitted workbook, not a new grade against the current course.</p>
+      <p>Numeric tolerance: {assignment.tolerance ?? 0}</p>
+      <p>Protected-cell changes detected: {submission.grade.protectedChanges.length ? submission.grade.protectedChanges.join(", ") : "None"}</p>
+      <WorkbookInspection title="Original starter cells" workbook={assignment.starter} />
+      <PagedRows title="Original protected cells" rows={assignment.protectedCells} headers={["Protected cell"]} render={address => <td>{address}</td>} />
+      <PagedRows title="Original grading criteria" rows={Object.entries(assignment.answers)} headers={["Cell", "Expected value"]} render={([address, value]) => <><th scope="row">{address}</th><td>{String(value)}</td></>} />
+      <WorkbookInspection title="Submitted cells" workbook={submission.workbook} />
+      <PagedRows title="Saved automatic feedback" rows={submission.grade.feedback} headers={["Cell", "Expected", "Actual", "Result"]} render={f => <><th scope="row">{f.address}</th><td>{String(f.expected)}</td><td>{f.actual === null ? "Calculation failed" : String(f.actual)}</td><td>{f.passed ? "Passed" : "Not passed"}</td></>} />
+    </article>
   </section>;
 }

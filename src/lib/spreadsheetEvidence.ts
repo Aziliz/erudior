@@ -1,9 +1,12 @@
-import { gradeAssignment, validateAssignment, type SpreadsheetAssignment } from "./spreadsheetAssignments";
-import { isWorkbookRecord, validateWorkbook } from "./workbookTemplates";
+import type { SpreadsheetAssignment } from "./spreadsheetAssignments";
+import { gradeAssignmentV1 as gradeAssignment, validateAssignmentV1 as validateAssignment, validateWorkbookV1 as validateWorkbook } from "./spreadsheetGradingV1";
+import { isWorkbookRecord } from "./workbookTemplates";
 import type { Workbook } from "./spreadsheet";
 
 /** Learner evidence, not an instructor attestation or an authorization token. */
 export interface SpreadsheetSubmission {
+  version: 1;
+  gradingVersion: 1;
   id: string;
   submittedAt: number;
   courseId: string;
@@ -44,9 +47,13 @@ function frozenClone<T>(value: T): T {
   return clone;
 }
 
+// The version gate dispatches only to the frozen V1 evaluator and validators.
+// Future versions must dispatch separately, never replace historical semantics.
 export function validateSpreadsheetSubmission(value: unknown): string[] {
   try {
     if (!isWorkbookRecord(value)) return ["Submission must be an object"];
+    if (value.version !== 1) return ["Unsupported or missing submission schema version"];
+    if (value.gradingVersion !== 1) return ["Unsupported or missing submission grading version"];
     if (bytes(stableJSON(value)) > SPREADSHEET_EVIDENCE_LIMITS.submissionBytes) return ["Submission exceeds byte limit"];
     const errors: string[] = [];
     for (const field of ["id", "courseId", "lessonId", "assignmentId"])
@@ -66,13 +73,13 @@ export function validateSpreadsheetSubmission(value: unknown): string[] {
   } catch { return ["Submission must be bounded, finite, acyclic JSON evidence"]; }
 }
 
-export function createSpreadsheetSubmission(input: Omit<SpreadsheetSubmission, "assignmentId" | "grade">): SpreadsheetSubmission {
+export function createSpreadsheetSubmission(input: Omit<SpreadsheetSubmission, "version" | "gradingVersion" | "assignmentId" | "grade">): SpreadsheetSubmission {
   // Validate JSON before cloning/grading so unsupported values are never dropped.
   if (bytes(stableJSON(input)) > SPREADSHEET_EVIDENCE_LIMITS.submissionBytes) throw Error("Submission exceeds byte limit");
   const assignmentErrors = validateAssignment(input.assignment);
   if (assignmentErrors.length) throw Error(assignmentErrors.join("; "));
   if (!validateWorkbook(input.workbook)) throw Error("Invalid submitted workbook");
-  const result = { ...input, assignmentId: input.assignment.id, grade: gradeAssignment(input.assignment, input.workbook) };
+  const result: SpreadsheetSubmission = { ...input, version: 1, gradingVersion: 1, assignmentId: input.assignment.id, grade: gradeAssignment(input.assignment, input.workbook) };
   const errors = validateSpreadsheetSubmission(result);
   if (errors.length) throw Error(errors.join("; "));
   return frozenClone(result);

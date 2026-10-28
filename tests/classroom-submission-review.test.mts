@@ -5,8 +5,15 @@ Object.assign(globalThis, { window: dom.window, document: dom.window.document, H
 const React = await import("react");
 const { createRoot } = await import("react-dom/client");
 const { default: Review } = await import("../src/components/ClassroomSubmissionReview.tsx");
+const { createSpreadsheetSubmission } = await import("../src/lib/spreadsheetEvidence.ts");
 const snapshot = { format: "erudior-handin", version: 1, classId: "class-a", className: "Science", studentId: "student-a", studentName: "Alice", created: "2026-10-01T10:00:00Z", courses: ["science"], mac: "signed", progress: { attempts: [{ id: "attempt", bankId: "science__quiz", score: 80 }], lessonsDone: {}, drills: {}, work: { "science/essay": { text: "Original writing evidence", submitted: "2026-10-01" }, "science/lab": { observations: "Original lab evidence" } }, spreadsheetGrades: { "science/sheet": { workbookSnapshot: '{"sheets":{"Budget":{"AA12":"=A1-450"}}}' } } } };
 const make = (id: string, studentId = "student-a", name = "Alice") => ({ id, importComplete: true, classId: "class-a", studentId, studentName: name, submittedAt: snapshot.created, receivedAt: "2026-10-02T10:00:00Z", courses: ["science"], attemptCount: 1, status: "pending", snapshot: { ...structuredClone(snapshot), studentId, studentName: name }, reviewEvents: [] as any[] });
+const spreadsheet = createSpreadsheetSubmission({
+  id: "spreadsheet-receipt", courseId: "science", lessonId: "budget-lesson", submittedAt: Date.parse("2026-10-01T09:00:00Z"),
+  assignment: { id: "budget-task", title: "Read a saved budget", starter: { sheets: { Budget: { A1: 1200, AA12: "" } } }, protectedCells: ["Budget!A1"], answers: { "Budget!AA12": 750 }, tolerance: 0.01 },
+  workbook: { sheets: { Budget: { A1: 1200, AA12: "=A1-450", C1: "=C1", ...Object.fromEntries(Array.from({length: 110}, (_, i) => [`D${i + 1}`, i])) } } },
+});
+(snapshot.progress as any).spreadsheetSubmissions = { [spreadsheet.id]: spreadsheet };
 let persisted: any[] = [make("receipt-1"), make("hidden", "not-rostered", "PRIVATE STUDENT")];
 const family: any = { classes: [{ id: "class-a", name: "Science", students: ["student-a", "student-b"] }], students: [{ id: "student-a", name: "Alice" }, { id: "student-b", name: "Bob" }] };
 let failLoad = true, failSave = false, failImport = false;
@@ -38,13 +45,25 @@ try {
   await click(button("Inspect submission"));
   for (const value of ["Original writing evidence", "Original lab evidence", "=A1-450", "Quiz and exam attempts", "No instructor reviews yet."])
     assert(text().includes(value), value);
+  const spreadsheetPanel = document.querySelector('[aria-label="Spreadsheet submission inspection"]')!;
+  for (const value of ["Read a saved budget", "Assignment: budget-task", "Course: science", "Lesson: budget-lesson", "2026-10-01T09:00:00.000Z", "Automatic evidence score: 100% — not an academic grade", "Numeric tolerance: 0.01", "Original starter cells", "Original protected cells", "Original grading criteria", "Saved automatic feedback"])
+    assert(spreadsheetPanel.textContent!.includes(value), value);
+  const cellsPanel = () => document.querySelector('[aria-label="Submitted cells"]')!;
+  assert.equal(cellsPanel().querySelectorAll("tbody tr").length, 50);
+  const submittedRows = [...cellsPanel().querySelectorAll("tbody tr")];
+  const answerRow = submittedRows.find(row => row.textContent!.includes("Budget!AA12"))!;
+  assert.match(answerRow.textContent!, /=A1-450750/);
+  assert.match(cellsPanel().textContent!, /Formula error: Circular reference/);
+  await click(button("Next Submitted cells page")); assert.equal(cellsPanel().querySelectorAll("tbody tr").length, 50);
+  await click(button("Next Submitted cells page")); assert.equal(cellsPanel().querySelectorAll("tbody tr").length, 13);
+  assert.match(cellsPanel().textContent!, /Budget!D110/); assert(button("Next Submitted cells page").disabled);
   failSave = true; await setValue(document.querySelector("textarea")!, "Revise your explanation");
   await click(button("Save instructor review")); assert.match(text(), /disk review failed/); assert(!text().includes("Instructor review saved.")); assert.equal(persisted[0].reviewEvents.length, 0);
   assert.equal(saveCalls[0].note, "Revise your explanation");
   const firstId = saveCalls[0].eventId;
   failSave = false; await click(button("Save instructor review")); assert.equal(saveCalls[1].eventId, firstId, "retry reuses event id"); assert.equal(persisted[0].reviewEvents.length, 1);
   assert.match(text(), /Instructor review saved/);
-  await setValue([...document.querySelectorAll("select")].at(-1)!, "needs_revision");
+  await setValue([...document.querySelectorAll("select")].find(el => [...el.options].some(o => o.value === "needs_revision"))!, "needs_revision");
   await click(button("Save instructor review")); assert.notEqual(saveCalls[2].eventId, firstId); assert.equal(persisted[0].reviewEvents.length, 2);
   assert.equal(persisted[0].reviewEvents[0].status, "reviewed"); assert.equal(persisted[0].reviewEvents[1].status, "needs_revision");
   await React.act(async () => root.render(null)); await render(); await click(button("Inspect submission")); assert.match(text(), /Needs revision/); assert.match(text(), /Original writing evidence/);
@@ -54,7 +73,7 @@ try {
   failImport = false; await click(button("Retry saved import"));
   assert.deepEqual(importedRaw, persisted[0].snapshot, "retry uses exact durable evidence, no new file selection");
   assert(!button("Save instructor review").disabled);
-  await click(button("Import a hand-in")); assert.match(text(), /already saved/); assert.equal(document.querySelectorAll("tbody tr").length, 1);
+  await click(button("Import a hand-in")); assert.match(text(), /already saved/); assert.equal(document.querySelector("table")!.querySelectorAll("tbody tr").length, 1);
   picked = null; await click(button("Import a hand-in")); assert.equal(persisted.length, 2);
   failLoad = true; await click(button("Reload submission")); assert.match(text(), /disk read failed/); assert.equal(button("Save instructor review"), undefined, "reload failure hides stale actionable receipt");
   failLoad = false; await click(button("Reload submission")); assert.match(text(), /Submission history reloaded/);
@@ -74,7 +93,7 @@ try {
   await click(button("Reload submission"));
   assert.match(text(), /Incomplete attachment evidence: missingphoto/);
   assert(button("Save instructor review").disabled);
-  const reviewDecision = [...document.querySelectorAll("select")].at(-1)!;
+  const reviewDecision = [...document.querySelectorAll("select")].find(el => [...el.options].some(o => o.value === "needs_revision"))!;
   assert(reviewDecision.disabled); assert.deepEqual([...reviewDecision.options].map(x => x.value), ["reviewed", "needs_revision"]);
   const callsBeforeIncomplete = saveCalls.length;
   await click(button("Save instructor review")); assert.equal(saveCalls.length, callsBeforeIncomplete);
