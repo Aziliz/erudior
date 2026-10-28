@@ -507,8 +507,7 @@ function BlockEditor({
       {(b.type === "text" || b.type === "source") && (
         <label className="field">
           <span>
-            {b.type === "source" ? "Advanced official lesson Markdown: fenced phonics, dialogue, speaking, maps, timelines, simulations, code, and assignments (see author guide)." : "Text: **bold**, *italic*, [link](https://…), tables with | pipes |, math like $x^2$ or $a^2 + b^2 = c^2$, [[term]] links to the
-            glossary. A blank line starts a new paragraph.
+            {b.type === "source" ? "Advanced official lesson Markdown (phonics, maps, timelines, simulations, dialogue, code and assignments)" : "Text: **bold**, *italic*, [link](https://…), Markdown tables, math, and [[glossary]] links."}
           </span>
           <textarea className="textarea" rows={6} value={b.md} maxLength={LIMITS.text} onChange={(e) => onChange({ ...b, md: e.target.value })} />
         </label>
