@@ -32,7 +32,7 @@ export type CourseTab = "today" | "lessons" | "banks" | "cards" | "vocab" | "rea
 const TABS: { id: CourseTab; label: string; show: (c: Course) => boolean }[] = [
   { id: "today", label: "Today", show: () => true },
   { id: "lessons", label: "Lessons", show: (c) => c.lessons.length > 0 },
-  { id: "work", label: "Assignments", show: (c) => hasWork(c) },
+  { id: "work", label: "Assignments", show: (c) => hasWork(c) || !!c.spreadsheetAssignments?.length },
   { id: "banks", label: "Questions", show: () => true },
   { id: "vocab", label: "Vocabulary", show: (c) => !!c.vocab?.length },
   { id: "cards", label: "Notecards", show: (c) => !c.language || c.decks.length > 0 },
@@ -122,7 +122,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
 
       {tab === "today" && <TodayTab api={api} course={course} />}
       {tab === "lessons" && <LessonsTab api={api} course={course} />}
-      {tab === "work" && hasWork(course) && <WorkTab api={api} course={course} />}
+      {tab === "work" && (hasWork(course) || !!course.spreadsheetAssignments?.length) && <WorkTab api={api} course={course} />}
       {tab === "banks" && <BanksTab api={api} course={course} />}
       {tab === "cards" && <CardsTab api={api} course={course} />}
       {tab === "vocab" && <VocabTab api={api} course={course} />}
