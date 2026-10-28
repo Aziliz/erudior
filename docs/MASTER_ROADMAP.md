@@ -99,3 +99,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Corrected prior-course filename validation so valid immutable `course.rN.json` paths are accepted during subsequent publication.
 - Corrected the explicitly bootstrapped catalog signature output to a newline-terminated signature string.
 - **Status:** both fixes committed on draft PR #11, not merged or verified. The full test suite remains scheduled for merge to `main` only.
+
+### Slice 15 — Immutable artifact deployment guard
+- Cloudflare R2 publication now fetches existing versioned course/state files and compares exact bytes before skipping upload. Identical files are reused; mismatches fail publication rather than silently accepting stale or conflicting immutable artifacts.
+- HTTP responses other than 200 (verified existing) and 404 (new upload) fail closed. Catalog publication remains last after all immutable files have been verified or uploaded.
+- **Status:** committed on draft PR #11; merge-only CI and live deployment verification outstanding. Do not mark the canonical course model Done yet.
