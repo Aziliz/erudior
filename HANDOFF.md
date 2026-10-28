@@ -1,4 +1,4 @@
-# Erudior (formerly Erudior): handoff
+# Erudior: handoff
 
 State as of 2026-10-23, v0.21.0. Read this first in a new chat.
 
@@ -7,7 +7,7 @@ State as of 2026-10-23, v0.21.0. Read this first in a new chat.
 Erudior is Jon's desktop study app for licensing exams. It runs on Linux (.deb, .rpm, AppImage) and Windows (NSIS .exe, .msi).
 
 - **Stack:** Tauri 2 (Rust) with React 19, TypeScript and Vite.
-- **Repo:** GitHub `Aziliz/erudior`. The app ID is `com.aziliz.erudior`.
+- **Repo:** GitHub `Aziliz/erudior`. The app ID is `com.erudior.app`.
 - **First course:** "Colorado Real Estate Broker", bundled with the app and installed on first launch.
 - **Later:** a CCNA course, which must stay separate from the Colorado content. That separation is why the app organizes content into courses.
 
@@ -69,7 +69,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 ## Live hosting and web addresses (2026-10-24)
 
 - Live: app.erudior.com (Pages project `erudior`), courses.erudior.com/v1/ (R2 `erudior-courses`, CORS GET/HEAD *), api.erudior.com (Worker `erudior-community`, D1 `erudior-community` e29b2c3f-3867-41a9-bba7-aa86a3463c39, private R2 `erudior-community`). Cloudflare account 262dfbe98a9322b1f31a693ba1ed5ef3.
-- GitHub Aziliz/erudior (renamed from Aziliz/erudior on 2026-10-26; GitHub redirects the old name, so never create a new repo called erudior) is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
+- GitHub Aziliz/erudior is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
 - Production signing public key in `src/lib/courseKeys.ts`; Jon holds the secret key (password manager).
 - Google sign-in: Cloud project `erudior`, External, still in Testing mode. GitHub OAuth app "Erudior" (Aziliz).
 - Calculator history: a History list under the keypad (all kinds), kept across screens and the Calculate/Graph tabs while open, cleared on close (module-level `openHistory`).
