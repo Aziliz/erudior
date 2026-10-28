@@ -1,6 +1,6 @@
 // erudior.com/roadmap: every course and engine feature Erudior needs before version 1.0.
 import { CATALOG } from "../lib/catalog";
-import { ELECTIVES, ENGINE, ROADMAP } from "../lib/roadmap";
+import { ELECTIVES, ENGINE, ROADMAP, UPDATES } from "../lib/roadmap";
 import { appUrl } from "../lib/site";
 import { slugify } from "../lib/util";
 
@@ -44,7 +44,8 @@ export default function Roadmap() {
             {g.title}
           </a>
         ))}
-        <a href="#engine">Lesson engine</a>
+        {UPDATES.map((area) => <a key={area.id} href={`#${area.id}`}>{area.title}</a>)}
+        <a href="#engine">Existing lesson engine</a>
       </nav>
 
       {rows.map((g) => {
@@ -71,8 +72,29 @@ export default function Roadmap() {
         );
       })}
 
+
+      {UPDATES.map((area) => (
+        <section key={area.id} id={area.id} className="roadmap-group" aria-labelledby={`h-${area.id}`}>
+          <h2 id={`h-${area.id}`}>{area.title}</h2>
+          <p className="muted small">{area.intro}</p>
+          <ul className="roadmap-list">
+            {area.items.map((item) => (
+              <li key={item.title} className={item.status === "done" ? "is-done" : ""}>
+                <span className={`pill ${item.status === "done" ? "pass" : ""}`}>
+                  {item.status === "done" ? "Done" : item.status === "in_progress" ? "In progress" : "Planned"}
+                </span>
+                <span className="roadmap-name">
+                  <b>{item.title}</b> <span className="faint small">· {item.phase}</span>
+                  <span className="muted"> — {item.detail}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
       <section id="engine" className="roadmap-group" aria-labelledby="h-engine">
-        <h2 id="h-engine">Lesson engine</h2>
+        <h2 id="h-engine">Existing lesson-engine capabilities</h2>
         <p className="muted small">New subjects need new kinds of lessons. These features have to work before their courses can be good.</p>
         <ul className="roadmap-list">
           {[...ENGINE].sort((a, b) => (a.status === b.status ? 0 : a.status === "done" ? 1 : -1)).map((e) => (
