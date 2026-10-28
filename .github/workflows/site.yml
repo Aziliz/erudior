@@ -54,7 +54,9 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - name: Full regression suite (merge-only, bounded)\n        timeout-minutes: 15\n        run: npm test
+      - name: Full regression suite (merge-only, bounded)
+        timeout-minutes: 15
+        run: npm test
 
       - name: Check the signing key matches the app
         run: npx tsx scripts/check-signing-key.ts
