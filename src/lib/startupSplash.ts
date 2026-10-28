@@ -10,7 +10,16 @@ export function createStartupSplash(brand: SplashBrand): HTMLDivElement {
   const book=document.createElement("div");
   book.className="erudior-splash-book";
   book.setAttribute("aria-hidden","true");
-  book.innerHTML="<span></span><span></span><i>★</i>";
+  // One continuous sequence: closed cover, open spread, three turning leaves,
+  // then the marked page and its ribbon. All parts are decorative.
+  book.innerHTML = `<span class="erudior-book-back"></span>
+    <span class="erudior-book-left-page"></span>
+    <span class="erudior-book-right-page"></span>
+    <span class="erudior-book-leaf erudior-book-leaf-one"></span>
+    <span class="erudior-book-leaf erudior-book-leaf-two"></span>
+    <span class="erudior-book-leaf erudior-book-leaf-three"></span>
+    <span class="erudior-book-ribbon">★</span>
+    <span class="erudior-book-cover"></span>`;
   splash.appendChild(book);
   const heading=document.createElement("strong");
   heading.textContent=brand.kind==="official"?"ERUDIOR":brand.productName;

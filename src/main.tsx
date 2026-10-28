@@ -40,7 +40,7 @@ function StartupView({ Page }: { Page: React.ComponentType }) {
       dismissStartupSplash(splash);
       return;
     }
-    const delay = Math.max(0, 1700 - (performance.now() - splashStartedAt));
+    const delay = Math.max(0, 4800 - (performance.now() - splashStartedAt));
     const timeout = window.setTimeout(() => dismissStartupSplash(splash), delay);
     return () => window.clearTimeout(timeout);
   }, []);
