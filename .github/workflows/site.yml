@@ -74,9 +74,20 @@ jobs:
 
       # Course files are immutable (named by revision): upload only new ones, then the
       # catalog last, so a catalog never points at a file that isn't there yet.
+      - name: Reject superseded website release
+        shell: bash
+        run: |
+          set -euo pipefail
+          latest=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "::error::This deployment is no longer the latest main commit; refusing stale catalog publication."
+            exit 1
+          fi
+
       - name: Upload course packages to R2
         working-directory: dist-courses/v1
         run: |
+          set -euo pipefail
           for f in *.r*.json states.*.json; do
             # Immutable filenames must never point to different bytes on a later release.
             status=$(curl --silent --show-error --location --output /tmp/erudior-remote-course --write-out '%{http_code}' --max-time 60 "${VITE_COURSES_URL}${f}")
@@ -92,6 +103,13 @@ jobs:
             npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
               --content-type application/json --cache-control "public, max-age=31536000, immutable"
           done
+          # GitHub serializes our own publishers; re-check main after potentially
+          # slow immutable file uploads so an old run cannot overwrite a newer release.
+          latest=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "::error::New main revision appeared during uploads; refusing stale catalog publication."
+            exit 1
+          fi
           # Re-check the exact authenticated baseline just before committing a new catalog.
           # GitHub's site concurrency group serializes our own publishers; this also
           # detects most out-of-band writes, but is not atomic compare-and-swap.
