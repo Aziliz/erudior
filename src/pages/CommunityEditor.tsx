@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
+import { registerNavigationGuard } from "../lib/navigationGuard";
 import type { Course } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
@@ -141,6 +142,13 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
     if (publicationBusy.current) { api.toast("Wait for publication to finish before leaving the editor."); return false; }
     return true;
   }
+  useEffect(() => registerNavigationGuard(() => {
+    if (assignmentEditing.current) { api.toast("Apply or cancel assignment changes before navigating away."); return false; }
+    if (publicationBusy.current) { api.toast("Wait for publication to finish before navigating away."); return false; }
+    if (inFlight.current || latest.current !== persisted.current) { api.toast("Save the draft and wait for saving to finish before navigating away."); return false; }
+    return true;
+  }), [api.toast]);
+
   useEffect(() => {
     const beforeUnload = (event: BeforeUnloadEvent) => {
       if (assignmentEditing.current || inFlight.current || latest.current !== persisted.current || publicationBusy.current) {

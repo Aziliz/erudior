@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
+import { requestNavigation } from "../src/lib/navigationGuard.ts";
 import type { AppApi } from "../src/App.tsx";
 import { checkDoc, type CommunityDoc } from "../src/lib/communityFormat.ts";
 
@@ -54,6 +55,8 @@ try {
   await click("Spreadsheets (0)");
   await click("Add spreadsheet assignment");
   assert.equal(button("Save draft").disabled, true);
+  assert.equal(requestNavigation("app"), false, "global app navigation vetoes unapplied assignment edits");
+  assert.equal(requestNavigation("history"), false, "browser route navigation vetoes unapplied assignment edits");
   await click("About");
   assert.ok(document.querySelector('[aria-label="Spreadsheet assignment author"]'), "pending author edits block tab navigation");
   await click("← Your courses");
@@ -71,6 +74,7 @@ try {
   await click("Apply assignment to course");
   await click("Save draft");
   assert.equal(stored.spreadsheetAssignments?.length, 1);
+  assert.equal(requestNavigation("app"), true, "clean editor allows global navigation");
   const assignmentId = stored.spreadsheetAssignments![0].id;
   assert.equal(stored.spreadsheetAssignments![0].lessonId, "l2");
   assert.deepEqual(stored.spreadsheetAssignments![0].protectedCells, ["Budget!B1", "Budget!B2"]);
@@ -89,6 +93,7 @@ try {
   deferNextSave = true;
   await fill("Title", "Older pending title"); await click("Save draft");
   const pendingCalls = saveCalls;
+  assert.equal(requestNavigation("app"), false, "in-flight save vetoes global navigation");
   await fill("Title", "Latest title");
   assert.equal(button("Save draft").disabled, false, "newer edits remain visibly unsaved");
   await click("Save draft");
@@ -101,9 +106,11 @@ try {
   await fill("Title", "Retry after offline"); await click("← Your courses");
   assert.equal(navigation, 0, "failed persistence cannot silently navigate away");
   assert.match(document.querySelector(".save-state")!.textContent!, /Offline test/);
+  assert.equal(requestNavigation("history"), false, "failed unsaved draft vetoes global navigation");
   await click("Save draft"); assert.equal(stored.title, "Retry after offline");
   await click("Publish"); await click("Publish", true);
   assert.equal(publishes, 1);
+  assert.equal(requestNavigation("history"), false, "publication in flight vetoes browser routes");
   await click("About"); await click("← Your courses");
   assert.equal(navigation, 0, "publication in flight blocks departure");
   assert.ok(document.querySelector("fieldset[disabled]"), "publication freezes edits");
@@ -113,6 +120,7 @@ try {
   console.log("community spreadsheet authoring: attach/save/reopen, field preservation, pending edits, lesson guard, serialized recovery and publish freeze passed");
 } finally {
   await act(async () => root.unmount());
+  assert.equal(requestNavigation(), true, "unmount releases navigation protection");
   Object.assign(community, original);
   dom.window.close();
 }

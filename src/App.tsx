@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
 import type { Bank, Course, Progress } from "./lib/types";
 import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
 import { formatClock } from "./lib/util";
@@ -356,6 +357,8 @@ export default function App() {
     ROUTES && window.location.pathname !== "/" ? window.location.pathname + window.location.search : null,
   );
   const fromPop = useRef(false);
+  const displayedHistory = useRef<DisplayedHistory>({ url: window.location.pathname + window.location.search + window.location.hash, state: window.history.state });
+  const restoringHistory = useRef(false);
   const lastPage = useRef<string | null>(null);
   const [catalogTried, setCatalogTried] = useState(false);
   const routeCourses = (): RouteCourse[] => {
@@ -400,11 +403,14 @@ export default function App() {
     }
     const write = (push: boolean) => {
       const fn = push ? window.history.pushState : window.history.replaceState;
+      const position = navigationPosition(displayedHistory.current.state) ?? newNavigationPosition();
+      if (push) position.index += 1;
       try {
-        fn.call(window.history, { erudiorView: view }, "", path);
+        fn.call(window.history, withNavigationPosition({ erudiorView: view }, position), "", path);
       } catch {
-        fn.call(window.history, null, "", path); // a screen whose state can't be stored
+        fn.call(window.history, withNavigationPosition({}, position), "", path); // retain routing position if view state can't be stored
       }
+      displayedHistory.current = { url: window.location.pathname + window.location.search + window.location.hash, state: window.history.state };
     };
     write(lastPage.current !== null && lastPage.current !== key);
     lastPage.current = key;
@@ -414,6 +420,18 @@ export default function App() {
   useEffect(() => {
     if (!ROUTES) return;
     const onPop = (e: PopStateEvent) => {
+      if (restoringHistory.current && sameNavigationPosition(e.state, displayedHistory.current.state)) {
+        restoringHistory.current = false;
+        return;
+      }
+      restoringHistory.current = false;
+      if (!requestNavigation("history")) {
+        const restored = restoreBlockedPop(window.history, displayedHistory.current, e.state);
+        restoringHistory.current = restored.traversing;
+        displayedHistory.current = restored.displayed;
+        return;
+      }
+      displayedHistory.current = { url: window.location.pathname + window.location.search + window.location.hash, state: e.state };
       const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
       const v = saved
         ? restorable(saved)
@@ -477,15 +495,23 @@ export default function App() {
     [student, courses, family],
   );
 
+  const studentSelectionRequest = useRef(0);
   const chooseStudent = useCallback(
     async (id: string) => {
-      store.useStudentFiles(id);
-      let p = await store.loadProgress();
+      const target = { name: "library" as const };
+      if (!requestNavigation("app", target)) return;
+      const request = ++studentSelectionRequest.current;
+      // Read the selected files without changing the active student's storage context.
+      const raw = await store.loadState(`progress-${id}`);
+      let p = store.emptyProgress();
+      try { if (raw) p = { ...p, ...JSON.parse(raw) }; } catch { /* Match storage's corrupt-file fallback. */ }
       const migrated = migrateVocabKeys(p, courses);
       if (migrated !== p) {
         p = migrated;
-        await store.saveProgress(p);
+        await store.saveState(`progress-${id}`, JSON.stringify(p));
       }
+      if (request !== studentSelectionRequest.current || !requestNavigation("app", target)) return;
+      store.useStudentFiles(id);
       progressRef.current = p;
       setProgressState(p);
       setStudentId(id);
@@ -524,7 +550,8 @@ export default function App() {
         if (!courses.some((c) => c.id === id)) await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
         await enroll(id);
         await reload();
-        setView({ name: "course", courseId: id });
+        const target = { name: "course" as const, courseId: id };
+        if (requestNavigation("app", target)) setView(target);
       } catch (e) {
         toast(`Couldn't add "${entry.title}": ${String(e)}`);
       }
@@ -536,7 +563,8 @@ export default function App() {
     try {
       const course = normalizeCourse(await downloadCommunityCourse(id));
       await saveCourse(course);
-      setView({ name: "course", courseId: course.id });
+      const target = { name: "course" as const, courseId: course.id };
+      if (requestNavigation("app", target)) setView(target);
     } catch (e) {
       toast(`Couldn't add the course: ${(e as Error).message}`);
     }
@@ -548,6 +576,7 @@ export default function App() {
     courses: myCourses,
     progress,
     go: (v) => {
+      if (!requestNavigation("app", v)) return;
       // Starting a new session replaces the saved one, so ask first.
       if (v.name === "run" && !v.initial && resumable) {
         const s = runSummary(resumable);
@@ -558,10 +587,10 @@ export default function App() {
             "Start new session",
           )
           .then(async (ok) => {
-            if (!ok) return;
+            if (!ok || !requestNavigation("app", v)) return;
             await store.saveSessionState(null);
             setResumable(null);
-            setView(v);
+            if (requestNavigation("app", v)) setView(v);
           });
         return;
       }
@@ -796,14 +825,16 @@ export default function App() {
           <FamilySetup
             api={api}
             onDone={async (f) => {
+              if (!requestNavigation("app", { name: isClassroom(f) ? "parent" : "library" })) return;
               setFamilyState(f);
               if (isClassroom(f)) {
                 // The teacher who just set it up goes straight to their area.
                 setParentUnlocked(true);
-                setView({ name: "parent", tab: "classes" });
+                api.go({ name: "parent", tab: "classes" });
                 return;
               }
               await chooseStudent(f.students[0].id);
+              if (store.activeStudent() !== f.students[0].id || !requestNavigation("app", { name: "library" })) return;
               // Courses already on this computer stay in the first student's list.
               const p = progressRef.current;
               await setProgress({ ...p, enrolled: courses.map((c) => c.id) });
@@ -814,7 +845,7 @@ export default function App() {
     case "parent":
       if (family)
         body = parentUnlocked ? (
-          <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => setView({ name: "library" })} />
+          <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => api.go({ name: "library" })} />
         ) : (
           <ParentGate api={api} family={family} onUnlock={() => setParentUnlocked(true)} />
         );
@@ -852,7 +883,7 @@ export default function App() {
               Erudior
             </a>
           ) : (
-            <button className="brand" onClick={() => setView({ name: "library" })} aria-label="Erudior: library">
+            <button className="brand" onClick={() => api.go({ name: "library" })} aria-label="Erudior: library">
               <Mark />
               Erudior
             </button>
@@ -860,21 +891,21 @@ export default function App() {
           <nav className="nav" aria-label="Main">
             <button
               aria-current={navCurrent === "library" ? "page" : undefined}
-              onClick={() => setView({ name: "library" })}
+              onClick={() => api.go({ name: "library" })}
             >
               {ROUTES ? "Courses" : "Library"}
             </button>
             {showCommunity && (
               <button
                 aria-current={navCurrent === "community" ? "page" : undefined}
-                onClick={() => setView({ name: "community" })}
+                onClick={() => api.go({ name: "community" })}
               >
                 Community
               </button>
             )}
             <button
               aria-current={navCurrent === "progress" ? "page" : undefined}
-              onClick={() => setView({ name: "progress" })}
+              onClick={() => api.go({ name: "progress" })}
             >
               Progress
             </button>
@@ -884,21 +915,21 @@ export default function App() {
           {HOMESCHOOL && family && (
             <div className="row family-nav">
               {student && (
-                <button className="btn sm ghost" onClick={() => setView({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
+                <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
                   Student: {student.name}
                 </button>
               )}
               <button
                 className="btn sm"
                 aria-current={view.name === "parent" ? "page" : undefined}
-                onClick={() => setView({ name: "parent" })}
+                onClick={() => api.go({ name: "parent" })}
               >
                 {adultLabel(family)}
               </button>
             </div>
           )}
           {HOMESCHOOL && !family && (
-            <button className="btn sm" onClick={() => setView({ name: "familySetup" })}>
+            <button className="btn sm" onClick={() => api.go({ name: "familySetup" })}>
               Homeschool or classroom
             </button>
           )}
