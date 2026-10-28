@@ -3,6 +3,7 @@ import type { AppApi } from "../App";
 import { topicStats, startPractice } from "../lib/session";
 import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
 import { competencyImprovement } from "../lib/competencyImprovement";
+import { interventionOutcome } from "../lib/interventionOutcome";
 import { availableCompetencySubset } from "../lib/competencyAvailability";
 import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
 import { studentCompetencyPlacement, explainCompetencyBlock } from "../lib/competencyPlacement";
@@ -171,6 +172,15 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {placement.states.filter(state=>state.id===skill.skillId).map(state=>{
+                        const outcome=interventionOutcome(state,progress);
+                        return outcome ? <span key={state.id + "-outcome"} className="small muted">
+                          Reassessment: {outcome.baseline===null||outcome.current===null
+                            ? "Comparable mastery evidence not yet available."
+                            : `Mastery estimate ${Math.round(outcome.baseline*100)}% → ${Math.round(outcome.current*100)}% (${outcome.delta!>0?"+":""}${Math.round(outcome.delta!*100)} points).`}
+                          {" "}{outcome.next}
+                        </span> : null;
+                      })}
                       {progress.attempts.filter(a=>a.intervention?.skillId===skill.skillId).slice(-3).reverse().map(a=>{
                         const baseline=a.intervention?.baseline;
                         const assessed=a.total>0?a.correct/a.total:null;
