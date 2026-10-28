@@ -38,12 +38,14 @@ jobs:
       - run: npm ci
 
       - name: Typecheck
+        id: typecheck
         run: npx tsc -p .
 
       - name: Point wrangler.toml at the real database
         run: sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml
 
       - name: Apply database migrations
+        id: migrations
         run: npx wrangler d1 migrations apply erudior-community --remote
 
       - name: Update sign-in secrets (when set)
@@ -55,8 +57,23 @@ jobs:
           if [ -n "$GITHUB_CLIENT_SECRET" ]; then printf '%s' "$GITHUB_CLIENT_SECRET" | npx wrangler secret put GITHUB_CLIENT_SECRET; fi
 
       - name: Deploy
+        id: deploy
         run: >
           npx wrangler deploy
           --var ADMIN_EMAILS:"${{ vars.ADMIN_EMAILS }}"
           --var GOOGLE_CLIENT_ID:"${{ vars.GOOGLE_CLIENT_ID }}"
           --var GITHUB_CLIENT_ID:"${{ vars.OAUTH_GITHUB_CLIENT_ID }}"
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: "community"
+          ERUDIOR_DIAG_STAGES: "typecheck:${{ steps.typecheck.outcome }},migrations:${{ steps.migrations.outcome }},deploy:${{ steps.deploy.outcome }}"
+        run: node ../scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-community
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
