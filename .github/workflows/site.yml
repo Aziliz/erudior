@@ -69,7 +69,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: ${{ format('build:{website_build},deploy:{pages_deploy}', steps.website_build.outcome, steps.pages_deploy.outcome) }}
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
@@ -208,7 +208,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: course-publish
-          ERUDIOR_DIAG_STAGES: ${{ format('regression:{regression},previous_release:{previous_release},course_build:{course_build},upload:{r2_upload},catalog_verify:{catalog_verify}', steps.regression.outcome, steps.previous_release.outcome, steps.course_build.outcome, steps.r2_upload.outcome, steps.catalog_verify.outcome) }}
+          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},previous_release:${{ steps.previous_release.outcome }},course_build:${{ steps.course_build.outcome }},upload:${{ steps.r2_upload.outcome }},catalog_verify:${{ steps.catalog_verify.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
