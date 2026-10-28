@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
-import { topicStats } from "../lib/session";
+import { topicStats, startPractice } from "../lib/session";
 import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
 import { availableCompetencySubset } from "../lib/competencyAvailability";
 import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
@@ -48,7 +48,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
     const authored = availableCompetencySubset(FOUNDATION_COMPETENCIES, api.courses.map(c => c.id));
     if (!authored.length) return null;
     const graph = resolveCompetencyEvidence(authored, api.courses);
-    return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph) };
+    return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph), graph };
   })();
   const exams = attempts.filter((a) => a.mode === "exam");
   const answeredTotal = attempts.reduce((s, a) => s + a.total, 0);
@@ -185,6 +185,22 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                               Study lesson: {lesson?.title ?? lessonId}
                             </button>;
                           })}
+                      {placement.graph.filter(item => item.id === skill.skillId).flatMap(item =>
+                        Object.entries(item.evidence).flatMap(([courseId, topics]) =>
+                          api.banks.filter(bank => bank.courseId === courseId).flatMap(bank => {
+                            const available = topics.filter(topic => bank.questions.some(q => q.topic === topic));
+                            return available.length ? [{bank, topics:available}] : [];
+                          })
+                        )
+                      ).slice(0,1).map(({bank,topics}) => (
+                        <button key={bank.id + "-practice"} type="button" className="linkish small"
+                          onClick={() => api.go({name:"run",session:startPractice(bank, progress, {
+                            count:Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length),
+                            topics,sections:[],filter:"all",shuffleChoices:true,
+                          })})}>
+                          Start focused practice ({Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length)} questions)
+                        </button>
+                      ))}
                       {skill.suggestedCourseIds.map(courseId => {
                         const course = api.courses.find(c => c.id === courseId);
                         return course ? (
