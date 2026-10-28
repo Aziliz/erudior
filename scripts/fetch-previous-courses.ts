@@ -11,9 +11,27 @@ const target = path.resolve(process.env.COURSE_PREVIOUS_RELEASE_DIR || ".course-
 const fetchBytes = async (file: string): Promise<Uint8Array> => {
   const url = new URL(file, base.endsWith("/") ? base : base + "/");
   if (url.origin !== new URL(base).origin) throw new Error("Cross-origin course URL rejected.");
-  const response = await fetch(url, { redirect: "error", signal: AbortSignal.timeout(30000) });
-  if (!response.ok) throw new Error(`Cannot retrieve previous release: ${file} (${response.status}). First release requires a separately approved bootstrap.`);
-  return new Uint8Array(await response.arrayBuffer());
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, {
+        cache: "no-store", redirect: "error", signal: AbortSignal.timeout(90000),
+      });
+      if (response.status === 404) throw new Error(`Previous release artifact missing: ${file} (HTTP 404).`);
+      if (!response.ok) {
+        if (response.status >= 500 || response.status === 429) throw new Error(`Temporary HTTP ${response.status}`);
+        throw new Error(`Cannot retrieve previous release: ${file} (HTTP ${response.status}).`);
+      }
+      const bytes = new Uint8Array(await response.arrayBuffer());
+      console.log(`Verified download candidate ${file}: ${bytes.length} bytes`);
+      return bytes;
+    } catch (error) {
+      lastError = error;
+      if (String(error).includes("missing:") || /HTTP 4(?!29)/.test(String(error))) break;
+      if (attempt < 3) await new Promise(resolve => setTimeout(resolve, attempt * 2000));
+    }
+  }
+  throw new Error(`Failed retrieving ${file} after bounded retries: ${String(lastError)}`);
 };
 // First publication is an explicit, auditable operation, never an automatic 404 fallback.
 const bootstrap = process.env.COURSE_BOOTSTRAP_FIRST_RELEASE === "true";
