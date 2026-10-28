@@ -8,7 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts && tsx tests/homeschool.test.mts && tsx tests/records.test.mts && tsx tests/community.test.mts && tsx tests/community-modules.test.mts && tsx tests/classroom.test.mts && tsx tests/questions.test.mts && tsx tests/calculator.test.mts && tsx tests/mastery.test.mts && tsx tests/fsrs.test.mts && tsx tests/examples.test.mts && tsx tests/readaloud.test.mts && tsx tests/phonics.test.mts && tsx tests/manip.test.mts && tsx tests/work.test.mts && tsx tests/reader.test.mts && tsx tests/listening.test.mts && tsx tests/widgets.test.mts && tsx tests/code.test.mts",
+    "test": "tsx tests/engine.test.mts && tsx tests/drills.test.mts && tsx tests/vocab.test.mts && tsx tests/courses.test.mts && tsx tests/homeschool.test.mts && tsx tests/records.test.mts && tsx tests/community.test.mts && tsx tests/community-modules.test.mts && tsx tests/community-promotion.test.mts && tsx tests/classroom.test.mts && tsx tests/questions.test.mts && tsx tests/calculator.test.mts && tsx tests/mastery.test.mts && tsx tests/fsrs.test.mts && tsx tests/examples.test.mts && tsx tests/readaloud.test.mts && tsx tests/phonics.test.mts && tsx tests/manip.test.mts && tsx tests/work.test.mts && tsx tests/reader.test.mts && tsx tests/listening.test.mts && tsx tests/widgets.test.mts && tsx tests/code.test.mts",
     "course-keys": "tsx scripts/course-keys.ts",
     "courses:publish": "tsx scripts/publish-courses.ts",
     "dev:remote": "tsx scripts/publish-courses.ts --dev && VITE_COURSES_URL=/courses-dev/v1/ vite"
