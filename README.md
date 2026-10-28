@@ -23,7 +23,7 @@ Content is organized into **courses**. Each course is one file with its own less
 
 Data lives in the per-user app data folder. The path is shown at the bottom of the Progress screen:
 
-- Linux: `~/.local/share/com.erudior.app/` (before v0.17.0: `com.aziliz.examiner`, copied over on first start)
+- Linux: `~/.local/share/com.erudior.app/`
 - Windows: `%APPDATA%\com.erudior.app\`
 
 ## Keyboard

@@ -232,50 +232,6 @@ fn install_kind() -> &'static str {
     }
 }
 
-/// The app was called Examiner (identifier com.aziliz.examiner) before v0.17.0. On the first
-/// start under the new identifier, copy that data folder's files over; the old folder is left
-/// as it was. Only our own files are copied (JSON at the top level, courses/banks/documents).
-fn move_old_data(app: &AppHandle) {
-    let Ok(new) = app.path().app_data_dir() else { return };
-    let Some(parent) = new.parent() else { return };
-    copy_old_data(&parent.join("com.aziliz.examiner"), &new);
-}
-
-/// Copies Examiner's files into the new data folder once; returns how many were copied.
-fn copy_old_data(old: &Path, new: &Path) -> usize {
-    let marker = new.join(".moved-from-examiner");
-    if !old.is_dir() || marker.exists() || new.join("progress.json").exists() || new.join("family.json").exists() {
-        return 0;
-    }
-    if fs::create_dir_all(new).is_err() {
-        return 0;
-    }
-    let mut copied = 0usize;
-    if let Ok(entries) = fs::read_dir(old) {
-        for e in entries.flatten() {
-            let p = e.path();
-            let name = e.file_name();
-            if p.is_file() && p.extension().and_then(|x| x.to_str()) == Some("json") {
-                if fs::copy(&p, new.join(&name)).is_ok() {
-                    copied += 1;
-                }
-            } else if p.is_dir() && matches!(name.to_str(), Some("courses" | "banks" | "documents")) {
-                let dest = new.join(&name);
-                let _ = fs::create_dir_all(&dest);
-                if let Ok(files) = fs::read_dir(&p) {
-                    for f in files.flatten() {
-                        if f.path().is_file() && fs::copy(f.path(), dest.join(f.file_name())).is_ok() {
-                            copied += 1;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    let _ = fs::write(&marker, format!("Copied {copied} files from {}\n", old.display()));
-    copied
-}
-
 /// True for the app's own pages (bundled UI, or the dev server in debug builds).
 fn own_page(url: &tauri::Url) -> bool {
     match url.scheme() {
@@ -294,7 +250,6 @@ fn own_page(url: &tauri::Url) -> bool {
 pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
-            move_old_data(app.handle());
             // Speaking practice records the student's voice (getUserMedia). WebKitGTK ships with
             // media streams turned off; turn them on for the main window.
             #[cfg(target_os = "linux")]
