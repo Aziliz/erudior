@@ -5,9 +5,9 @@ import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
 import { competencyImprovement } from "../lib/competencyImprovement";
 import { interventionOutcome } from "../lib/interventionOutcome";
 import { interventionNextAction } from "../lib/interventionNextAction";
-import { availableCompetencySubset } from "../lib/competencyAvailability";
-import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
-import { studentCompetencyPlacement, explainCompetencyBlock } from "../lib/competencyPlacement";
+import { competencyPath } from "../lib/competencyPath";
+import { competencyQuestionIds } from "../lib/competencyEvidence";
+import { explainCompetencyBlock } from "../lib/competencyPlacement";
 import * as store from "../lib/storage";
 import { inApp } from "../lib/storage";
 import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
@@ -48,12 +48,12 @@ export default function ProgressPage({ api }: { api: AppApi }) {
   }, []);
 
   const attempts = progress.attempts.filter((a) => !bankFilter || a.bankId === bankFilter);
-  const placement = (() => {
-    const authored = availableCompetencySubset(FOUNDATION_COMPETENCIES, api.courses.map(c => c.id));
-    if (!authored.length) return null;
-    const graph = resolveCompetencyEvidence(authored, api.courses);
-    return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph), graph };
-  })();
+  let placement: ReturnType<typeof competencyPath> | null = null;
+  let pathError = api.competencySync?.error ?? "";
+  try {
+    const model = competencyPath(api.courses, progress);
+    if (model.states.length) placement = model;
+  } catch (error) { pathError = error instanceof Error ? error.message : String(error); }
   const exams = attempts.filter((a) => a.mode === "exam");
   const answeredTotal = attempts.reduce((s, a) => s + a.total, 0);
   const correctTotal = attempts.reduce((s, a) => s + a.correct, 0);
@@ -161,13 +161,13 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
       <section className="panel" aria-labelledby="skill-path-title">
         <div className="panel-head"><h2 id="skill-path-title">Learning path</h2></div>
-        <p className="muted small">Skills across your installed courses. Only linked assessments with saved answers count as mastery; this is a learning recommendation, not a certification.</p>
-        {!placement ? (
-          <p className="muted small">Install Pre-algebra, Algebra 1 or German A1 to see the initial skill pathways.</p>
+        <p className="muted small">Skills across your installed courses. Only linked assessments recorded after their identity baseline count as mastery. Earlier revisionless practice stays in your history but needs reassessment. This is a learning recommendation, not a certification.</p>
+        {api.competencySync?.pending ? <p role="status">Updating the private learning path…</p> : pathError ? <div role="alert"><p>Learning-path evidence could not be verified: {pathError}</p>{api.retryCompetencySync && <button type="button" onClick={api.retryCompetencySync}>Retry learning path</button>}</div> : !placement ? (
+          <p className="muted small">Install a supported course to see its skill pathway. Previously recorded skill evidence remains private and available after course removal.</p>
         ) : (
           <>
             <p className="small muted">
-              {placement.states.filter(s => s.mastered).length} mastered · {placement.states.filter(s => s.ready && !s.mastered).length} ready · {placement.states.filter(s => !s.ready).length} awaiting prerequisites
+              {placement.states.filter(s => s.assessedMastered).length} assessed as mastered · {placement.states.filter(s => s.placement).length} adult decisions · {placement.states.filter(s => s.ready && !s.mastered).length} ready · {placement.states.filter(s => !s.ready).length} awaiting prerequisites
             </p>
             {placement.recommendations.length === 0 ? <p className="small muted">No new placement recommendations available yet.</p> : (
               <ul className="roadmap-list">
@@ -223,19 +223,18 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                             </button>;
                           })}
                       {placement.graph.filter(item => item.id === skill.skillId).flatMap(item =>
-                        Object.entries(item.evidence).flatMap(([courseId, topics]) =>
-                          api.banks.filter(bank => bank.courseId === courseId).flatMap(bank => {
-                            const available = topics.filter(topic => bank.questions.some(q => q.topic === topic));
-                            return available.length ? [{bank, topics:available}] : [];
-                          })
-                        )
-                      ).slice(0,1).map(({bank,topics}) => (
+                        api.banks.flatMap(bank => {
+                          const ids = new Set(competencyQuestionIds(item, bank));
+                          const questions = bank.questions.filter(q => ids.has(q.id));
+                          return questions.length ? [{ bank: { ...bank, questions } }] : [];
+                        })
+                      ).slice(0,1).map(({bank}) => (
                         <button key={bank.id + "-practice"} type="button" className="linkish small"
                           onClick={() => api.go({name:"run",session:{...startPractice(bank, progress, {
-                            count:Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length),
-                            topics,sections:[],filter:"all",shuffleChoices:true,
+                            count:Math.min(10,bank.questions.length),
+                            topics:[],sections:[],filter:"all",shuffleChoices:true,
                           }), intervention:{skillId:skill.skillId,baseline:placement.states.find(s=>s.id===skill.skillId)?.mastery ?? null}}})}>
-                          {progress.attempts.some(a=>a.intervention?.skillId===skill.skillId) ? "Reassess competency" : "Start focused practice"} ({Math.min(10,bank.questions.filter(q=>topics.includes(q.topic)).length)} questions)
+                          {progress.attempts.some(a=>a.intervention?.skillId===skill.skillId) ? "Reassess competency" : "Start focused practice"} ({Math.min(10,bank.questions.length)} linked questions)
                         </button>
                       ))}
                       {skill.suggestedCourseIds.map(courseId => {
@@ -252,11 +251,11 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 ))}
               </ul>
             )}
-            {placement.states.filter(state=>state.mastered && interventionOutcome(state,progress)).length > 0 && (
+            {placement.states.filter(state=>state.assessedMastered && !state.placement && interventionOutcome(state,progress)).length > 0 && (
               <div>
                 <h3>Ready to advance</h3>
                 <ul className="roadmap-list">
-                  {placement.states.filter(state=>state.mastered && interventionOutcome(state,progress)).map(state=>(
+                  {placement.states.filter(state=>state.assessedMastered && !state.placement && interventionOutcome(state,progress)).map(state=>(
                     <li key={state.id}>{state.title} — mastered after recorded focused practice. Continue to a recommended prerequisite-unlocked skill.</li>
                   ))}
                 </ul>
@@ -267,8 +266,11 @@ export default function ProgressPage({ api }: { api: AppApi }) {
               <ul className="roadmap-list">
                 {placement.states.map(skill => (
                   <li key={skill.id}>
-                    <span className={`pill ${skill.mastered ? "pass" : ""}`}>{skill.mastered ? "Mastered" : skill.ready ? "Ready" : "Locked"}</span>
-                    <span>{skill.title}<span className="small muted"> — {explainCompetencyBlock(skill, placement.states)}</span></span>
+                    <span className={`pill ${skill.mastered ? "pass" : ""}`}>{skill.placement ? "Adult placement" : skill.assessedMastered ? "Assessed mastery" : skill.ready ? "Ready" : "Locked"}</span>
+                    <span>{skill.title}<span className="small muted"> — {explainCompetencyBlock(skill, placement.states)}</span>
+                      {skill.placement && <span className="small muted"> Adult decision by {skill.placement.actorName}: {skill.placement.reason}. This is not assessed mastery or certification.</span>}
+                      <span className="small muted"> {skill.mastery === null ? "No current assessed evidence." : `Assessment estimate ${Math.round(skill.mastery * 100)}%, confidence ${Math.round(skill.confidence * 100)}%.`}</span>
+                    </span>
                   </li>
                 ))}
               </ul>

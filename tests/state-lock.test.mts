@@ -23,8 +23,8 @@ await a.save("family", "after failure"); assert.equal(values.get("family"), "aft
 const failing = stateTransactions({ ...backend, write: async () => { throw Error("disk full"); } });
 await assert.rejects(failing.save("classes", "not saved"), /disk full/);
 await a.save("classes", null); assert.equal(values.has("classes"), false, "failed writes release lock; delete participates");
-for (const name of ["session", "classes", "family", "classroom-submissions", "progress-a1", "records-a1", "session-a1", "portfolio-a1"]) assert.ok(validStateName(name));
-for (const name of ["classroom-submissions-other", "classroom-other", "../family", "progress-", "progress-A", "progress-a/b", "progress", `records-${"a".repeat(25)}`]) {
+for (const name of ["progress", "session", "classes", "family", "classroom-submissions", "progress-a1", "records-a1", "session-a1", "portfolio-a1"]) assert.ok(validStateName(name));
+for (const name of ["classroom-submissions-other", "classroom-other", "../family", "progress-", "progress-A", "progress-a/b", "progress/other", `records-${"a".repeat(25)}`]) {
   assert.equal(validStateName(name), false);
   await assert.rejects(a.save(name, "bad"), /Unknown state/);
   await assert.rejects(a.update(name, () => "bad"), /Unknown state/);
@@ -51,6 +51,7 @@ assert.equal(lockName, "erudior.state.classroom-submissions"); assert.equal(lock
 // Source integration guard supplements, but does not replace, native Rust tests.
 const rust = await readFile(new URL("../src-tauri/src/lib.rs", import.meta.url), "utf8");
 assert.match(rust, /name == "classroom-submissions"/);
+assert.match(rust, /fn save_progress[\s\S]*?NAMED_STATE_LOCK\.lock\(\)/);
 assert.match(rust, /fn save_state[\s\S]*?NAMED_STATE_LOCK\.lock\(\)/);
 assert.match(rust, /fn compare_and_swap_state[\s\S]*?NAMED_STATE_LOCK\.lock\(\)/);
 assert.match(rust, /save_state,\s+compare_and_swap_state,/);
@@ -58,3 +59,6 @@ const storage = await readFile(new URL("../src/lib/storage.ts", import.meta.url)
 assert.match(storage, /saveState = [^\n]*namedState\.save/);
 assert.match(storage, /updateState = [^\n]*namedState\.update/);
 console.log("named state serialization, CAS, allowlist and lock tests passed");
+
+await Promise.all(Array.from({length:8},()=>a.update("progress",old=>String(Number(old??"0")+1))));
+assert.equal(values.get("progress"),"8","single-user progress joins named-state transaction boundary");

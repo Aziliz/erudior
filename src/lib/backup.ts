@@ -1,3 +1,4 @@
+import { parseCompetencyLedger } from "./competencyState";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 // Encrypted family backup: everything on this computer (family settings, every student's
@@ -94,6 +95,7 @@ export async function decryptText(raw: unknown, passphrase: string): Promise<str
 
 /** Historical evidence is optional for legacy progress, but never silently repaired. */
 function validateProgressEvidence(progress: Progress): Progress {
+  if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, progress.assessedWorkSubmissions);
   if (progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, progress.spreadsheetSubmissions);
   return progress;

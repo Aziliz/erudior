@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CompetencySupervisor from "../components/CompetencySupervisor";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished } from "../lib/catalog";
 import {
@@ -61,6 +62,7 @@ import {
 
 export type ParentTab =
   | "overview"
+  | "learning-paths"
   | "attendance"
   | "courses"
   | "grades"
@@ -78,6 +80,7 @@ export type ParentTab =
 
 const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "learning-paths", label: "Learning paths" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -91,6 +94,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "learning-paths", label: "Learning paths" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -190,6 +194,7 @@ export default function ParentArea({
             ) : (
               <Overview api={api} family={family} records={records} />
             ))}
+          {tab === "learning-paths" && <CompetencySupervisor api={api} family={family} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}

@@ -7,6 +7,7 @@ const mutations: string[] = [];
 (globalThis as any).isTauri = true;
 (globalThis as any).window = { __TAURI_INTERNALS__: { invoke: async (command: string, args: any) => {
   if (command === 'load_state') return state.get(args.name) ?? null;
+  if (command === 'compare_and_swap_state') { if((state.get(args.name) ?? null)!==args.expected)return false; mutations.push(args.name); state.set(args.name,args.content); return true; }
   if (command === 'save_state') { mutations.push(args.name); args.content === null ? state.delete(args.name) : state.set(args.name, args.content); return; }
   if (command === 'load_progress') return state.get('progress') ?? null;
   if (command === 'save_progress') { mutations.push('progress'); state.set('progress', args.content); return; }

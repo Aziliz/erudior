@@ -17,3 +17,22 @@ const placement=studentPlacementFromAuthoredCourses(specs,[c],progress);
 check("empty progress has no invented mastery",placement.states[0].mastery===null);
 check("dependent skill blocked",!placement.states[1].ready);
 check("missing lesson link rejected",(()=>{try{resolveCompetencyEvidence([{...specs[0],lessons:{"course1":["bad"]}}],[c]);return false}catch{return true}})());
+
+// A shared topic is display metadata, never permission to count another question.
+{
+  const sameTopic = structuredClone(c);
+  sameTopic.banks[0].questions[1].topic = "fractions";
+  sameTopic.modules = [{id:"m1",title:"Module",quiz:["q1","q2"]}];
+  const exact = resolveCompetencyEvidence(specs,[sameTopic]);
+  check("module quiz does not broaden lesson assessment",exact[0].assessments?.[0].questionIds.join() === "q1");
+  const unrelated = structuredClone(progress);
+  unrelated.stats[sameTopic.banks[0].id] = {q2:{seen:100,correct:100,lastCorrect:true,lastSeen:"2026-10-28T00:00:00Z"}};
+  check("same-topic unlinked stats do not grant mastery",studentPlacementFromAuthoredCourses(specs,[sameTopic],unrelated).states[0].mastery === null);
+  const missingQuiz = structuredClone(sameTopic); missingQuiz.lessons[0].quiz=[];
+  const unassessed = studentPlacementFromAuthoredCourses(specs,[missingQuiz],unrelated);
+  check("unassessed skill remains unknown without throwing",unassessed.states[0].mastery === null);
+  const absent = resolveCompetencyEvidence(specs,[],{allowMissingCourses:true});
+  check("full graph retains absent-course prerequisite nodes",absent.length === specs.length && absent.every(s => s.assessments?.length === 0));
+  const duplicate = structuredClone(sameTopic); duplicate.banks[0].questions.push({...duplicate.banks[0].questions[0]});
+  check("ambiguous question identity fails closed",resolveCompetencyEvidence(specs,[duplicate])[0].assessments?.length === 0);
+}
