@@ -144,3 +144,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Lesson Engine integrity workflow for merged PR #11: **passed** (GitHub Actions run 40645742318).
 - Website/course publishing run 40645742240: **failed** at “Fetch and authenticate previous release”: the served file `lang-german-a1.r3.json` did not match the SHA-256 recorded in the signed catalog. Publication stopped, as designed.
 - Investigate whether R2 origin contents, public CDN/cache, or an older immutable object diverged; compare signed catalog digest with authoritative object bytes before choosing a repair. Do not bypass signature/hash checks or mark production publishing Done.
+
+### Cross-course taxonomy slice — 2026-10-28
+- Authored thirteen stable, prerequisite-linked competencies for Pre-algebra, Algebra 1 and German A1, mapped to lesson IDs currently listed in the real course catalog. Added validation that all referenced lesson IDs exist.
+- Skill assessment evidence remains intentionally unassigned until question-bank topic labels are audited: simply completing an instructional lesson does not count as mastery. No skill is automatically certified or unlocked from lesson availability.
+- Regression tests are committed and run only after merge. PR #15 remains draft; mapping evidence, UI and placement integration remain outstanding.
+- Production publishing is blocked by a SHA-256 mismatch for the hosted German A1 r3 file. The signed catalog and remote object must be reconciled without bypassing integrity checks.
