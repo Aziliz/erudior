@@ -13,6 +13,7 @@ import { inApp } from "../lib/storage";
 import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
+import SpreadsheetLab from "../components/SpreadsheetLab";
 
 export default function ProgressPage({ api }: { api: AppApi }) {
   const { progress, banks } = api;
@@ -132,6 +133,8 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           </select>
         </div>
       </div>
+
+      <details style={{marginBottom:16}}><summary>Open spreadsheet practice lab</summary><SpreadsheetLab /></details>
 
       <div className="stats-strip">
         <div>
