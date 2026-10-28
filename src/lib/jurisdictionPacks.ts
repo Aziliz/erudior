@@ -19,7 +19,7 @@ export function validateJurisdictionPack(pack: JurisdictionPack): string[] {
   const errors: string[] = [];
   if (!/^[a-z]{2}(?:-[a-z0-9]+)*$/.test(pack.id)) errors.push("Invalid jurisdiction ID");
   if (!pack.name.trim() || !pack.authority.trim() || !pack.version.trim()) errors.push("Missing jurisdiction metadata");
-  const validDate=(v:string)=>/^\\d{4}-\\d{2}-\\d{2}$/.test(v) && Number.isFinite(Date.parse(v));
+  const validDate=(v:string)=>/^\d{4}-\d{2}-\d{2}$/.test(v) && Number.isFinite(Date.parse(v));
   if (!validDate(pack.effectiveFrom) || !validDate(pack.reviewedAt) ||
       (pack.effectiveThrough && (!validDate(pack.effectiveThrough) || pack.effectiveThrough < pack.effectiveFrom)))
     errors.push("Invalid effective or review dates");
