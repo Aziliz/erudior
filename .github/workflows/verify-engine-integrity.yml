@@ -4,6 +4,7 @@ on:
     paths:
       - "src/lib/courseIntegrity.ts"
       - "src/lib/courseRevision.ts"
+      - "scripts/publish-courses.ts"
       - "src/lib/course.ts"
       - "src/lib/types.ts"
       - "tests/course-integrity.test.mts"
@@ -26,4 +27,6 @@ jobs:
       - run: npm ci
       - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts
       - run: npm run build
+      - name: Validate and package sample courses
+        run: npm run courses:publish -- --dev
       - run: npm test
