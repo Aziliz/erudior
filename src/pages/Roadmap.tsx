@@ -95,18 +95,18 @@ export default function Roadmap() {
       <section id="engine" className="roadmap-group" aria-labelledby="h-engine">
         <h2 id="h-engine">Lesson engine</h2>
         <ul className="roadmap-list">
-          {ENGINE_PLANNED.map((title) => (
-            <li key={title}>
-              <span className="pill">Planned</span>
-              <span className="roadmap-name">{title}</span>
-            </li>
-          ))}
-          {[...ENGINE].sort((a, b) => (a.status === b.status ? 0 : a.status === "done" ? 1 : -1)).map((e) => (
+          {[...ENGINE].sort((a, b) => (a.status === b.status ? 0 : a.status === "done" ? -1 : 1)).map((e) => (
             <li key={e.title} className={e.status === "done" ? "is-done" : ""}>
               <span className={`pill ${e.status === "done" ? "pass" : ""}`}>{e.status === "done" ? "Done" : "Planned"}</span>
               <span className="roadmap-name">
                 {e.title}
               </span>
+            </li>
+          ))}
+          {ENGINE_PLANNED.map((title) => (
+            <li key={title}>
+              <span className="pill">Planned</span>
+              <span className="roadmap-name">{title}</span>
             </li>
           ))}
         </ul>
