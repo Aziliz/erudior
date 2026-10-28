@@ -10,10 +10,10 @@ check("pre-algebra yields usable skills",pre.some(s=>s.id==="math.fractions"));
 check("pre-algebra omits algebra-specific skills",!pre.some(s=>s.id==="math.functions"));
 const all=availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-prealgebra","math-algebra1","lang-german-a1"]);
 check("complete installed subjects include all mapped skills",all.length===13);
-check("original taxonomy remains unchanged",FOUNDATION_COMPETENCIES.length===45);
+check("expanded taxonomy includes new skills",FOUNDATION_COMPETENCIES.length===45);
 
 const expanded=availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-prealgebra","math-algebra1","math-algebra2","math-geometry","lang-german-a1","lang-german-a2"]);
-check("expanded course set exposes all mapped skills",expanded.length===FOUNDATION_COMPETENCIES.length);
+check("six-course set exposes original 27 skills",expanded.length===27);
 check("algebra 2 remains blocked without prerequisites",!availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-algebra2"]).some(s=>s.id==="math.algebra2.polynomials"));
 check("german A2 remains blocked without A1",!availableCompetencySubset(FOUNDATION_COMPETENCIES,["lang-german-a2"]).some(s=>s.id==="german.a2.writing"));
 
