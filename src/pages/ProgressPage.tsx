@@ -170,6 +170,18 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId) &&
+                        Object.entries(FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId)!.lessons)
+                          .flatMap(([courseId, ids]) => ids.map(lessonId => ({courseId,lessonId})))
+                          .filter(({courseId,lessonId}) => api.courses.some(c => c.id === courseId && c.lessons.some(l => l.id === lessonId)))
+                          .slice(0, 2)
+                          .map(({courseId,lessonId}) => {
+                            const lesson = api.courses.find(c => c.id === courseId)?.lessons.find(l => l.id === lessonId);
+                            return <button key={courseId + "/" + lessonId} type="button" className="linkish small"
+                              onClick={() => api.go({name:"lesson",courseId,lessonId})}>
+                              Study lesson: {lesson?.title ?? lessonId}
+                            </button>;
+                          })}
                       {skill.suggestedCourseIds.map(courseId => {
                         const course = api.courses.find(c => c.id === courseId);
                         return course ? (
