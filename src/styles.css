@@ -7644,3 +7644,6 @@ button.fn-ref {
 @keyframes erudior-book-left {from{transform:rotateY(65deg)}to{transform:rotateY(0)}}
 @keyframes erudior-book-right {from{transform:rotateY(-65deg)}to{transform:rotateY(0)}}
 @media(prefers-reduced-motion:reduce){.erudior-splash,.erudior-splash-book span {animation:none!important;transition:none!important}}
+
+.erudior-splash a {color:#f3ebdd;text-decoration:underline;pointer-events:auto;margin-top:.3rem}
+.erudior-splash small {margin-top:.6rem;text-align:center;max-width:28rem;padding:0 1rem;color:#d1d8db;font: .8rem/1.5 system-ui,sans-serif}
