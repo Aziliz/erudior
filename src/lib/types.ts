@@ -172,6 +172,8 @@ export interface Tally {
 }
 
 export interface Attempt {
+  /** Competency and baseline at the start of a targeted practice intervention. */
+  intervention?: { skillId: string; baseline: number | null };
   id: string;
   bankId: string;
   bankTitle: string;
