@@ -51,6 +51,11 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     const current = (next.texts ?? []).find((t) => t.id === text.id);
     if (current) compare(`texts.${text.id}.sections`, text.sections, current.sections, (section) => section.id);
   }
+  compare("spreadsheetAssignments", previous.spreadsheetAssignments ?? [], next.spreadsheetAssignments ?? [],
+    (assignment) => assignment.id, (assignment) => assignment.lessonId);
+  for (const [i, assignment] of (next.spreadsheetAssignments ?? []).entries())
+    if (!next.lessons.some(lesson => lesson.id === assignment.lessonId))
+      add("blocking", `spreadsheetAssignments[${i}].lessonId`, `Assignment refers to unknown lesson: ${assignment.lessonId}`);
   compare("vocab", previous.vocab ?? [], next.vocab ?? [], (word) => word.id, (word) => word.lesson);
   for (const [i, word] of (next.vocab ?? []).entries())
     if (!next.lessons.some((lesson) => lesson.id === word.lesson))

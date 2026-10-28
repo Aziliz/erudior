@@ -649,7 +649,7 @@ export interface Progress {
   enrolled?: string[];
   theme?: "light" | "dark" | "system";
   /** Course spreadsheet assignment grading history, keyed by course/assignment ID. */
-  spreadsheetGrades?: Record<string, {score: number; gradedAt: string; revision: number}>;
+  spreadsheetGrades?: Record<string, {score: number; gradedAt: string; revision: number; assignmentSnapshot?: string; workbookSnapshot?: string; submissionId?: string}>;
   attempts: Attempt[];
   /** bankId -> questionId -> stats */
   stats: Record<string, Record<string, QuestionStat>>;

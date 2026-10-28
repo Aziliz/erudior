@@ -11,15 +11,17 @@ export interface SpreadsheetReleaseApproval {
   reviewer:string;
   reviewedAt:string;
 }
-export async function validateSpreadsheetReleaseApproval(course:Course, approval:SpreadsheetReleaseApproval|undefined):Promise<string[]> {
+export async function validateSpreadsheetReleaseApproval(course:Course, approval:unknown):Promise<string[]> {
  if(!(course.spreadsheetAssignments?.length))return [];
  const report=spreadsheetReviewReport(course);
  if(!report.readyForHumanReview)return ["Spreadsheet content failed review preflight: "+report.issues.join("; ")];
  if(!approval)return ["Spreadsheet approval missing"];
+ if(typeof approval!=="object" || Array.isArray(approval))return ["Spreadsheet approval must be a review record"];
+ const record=approval as Record<string,unknown>;
  const expected=await sha256Hex(new TextEncoder().encode(exportCourseSnapshot(course)));
  const errors:string[]=[];
- if(approval.courseId!==course.id||approval.revision!==(course.revision??1))errors.push("Approval course identity or revision mismatch");
- if(approval.snapshotSha256!==expected)errors.push("Approval snapshot digest mismatch");
- if(!approval.reviewer?.trim() || !Number.isFinite(Date.parse(approval.reviewedAt)))errors.push("Approval reviewer/date invalid");
+ if(record.courseId!==course.id||record.revision!==(course.revision??1))errors.push("Approval course identity or revision mismatch");
+ if(record.snapshotSha256!==expected)errors.push("Approval snapshot digest mismatch");
+ if(typeof record.reviewer!=="string" || !record.reviewer.trim() || typeof record.reviewedAt!=="string" || !Number.isFinite(Date.parse(record.reviewedAt)))errors.push("Approval reviewer/date invalid");
  return errors;
 }

@@ -4,6 +4,7 @@ import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
+import { normalizeSpreadsheetAssignment } from "./spreadsheetAssignments";
 
 const SEP = "__";
 
@@ -55,6 +56,22 @@ export function normalizeCourse(raw: unknown): Course {
         refs: arr(l.refs).length ? arr(l.refs).map(String).filter(Boolean) : undefined,
       };
     });
+
+  // Spreadsheet assignments are progress-bearing content: malformed imports must
+  // fail visibly rather than being filtered out by permissive normalization.
+  let spreadsheetAssignments: Course["spreadsheetAssignments"];
+  if (raw.spreadsheetAssignments !== undefined) {
+    if (!Array.isArray(raw.spreadsheetAssignments)) throw new BankError("spreadsheetAssignments must be an array.");
+    const seen = new Set<string>();
+    spreadsheetAssignments = raw.spreadsheetAssignments.map((candidate, index) => {
+      const assignment = normalizeSpreadsheetAssignment(candidate);
+      if (!isObj(candidate) || typeof candidate.lessonId !== "string" || !lessons.some(lesson => lesson.id === candidate.lessonId))
+        throw new BankError(`Invalid spreadsheet lesson reference at index ${index}.`);
+      if (seen.has(assignment.id)) throw new BankError(`Duplicate spreadsheet assignment ID: ${assignment.id}`);
+      seen.add(assignment.id);
+      return { ...assignment, lessonId: candidate.lessonId };
+    });
+  }
 
   const banks: Bank[] = arr(raw.banks).map((b, i) => {
     try {
@@ -208,7 +225,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(raw.readAloud === true ? { readAloud: true } : {}),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
-    ...(Array.isArray(raw.spreadsheetAssignments) ? { spreadsheetAssignments: raw.spreadsheetAssignments.filter((a): a is NonNullable<Course["spreadsheetAssignments"]>[number] => Boolean(a && typeof a === "object" && "lessonId" in a && typeof a.lessonId === "string" && lessons.some(l => l.id === a.lessonId) && "starter" in a && "answers" in a)) } : {}),
+    ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
 }
 
