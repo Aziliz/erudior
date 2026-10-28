@@ -124,7 +124,7 @@ function AllCourses({ api, onChange }: { api: AppApi; onChange: () => void }) {
   const act = async (c: Row, action: "reviewed" | "not_reviewed") => {
     setBusy(c.id);
     try {
-      await community.review(c.id, action, "");
+      await community.review(c.id, action, "", c.version);
       api.toast(action === "reviewed" ? `"${c.title}" marked Reviewed` : `"${c.title}" marked Not reviewed`);
       await load();
       onChange();
@@ -204,11 +204,13 @@ function AllCourses({ api, onChange }: { api: AppApi; onChange: () => void }) {
 
 function ReviewItem({ api, c, onDone }: { api: AppApi; c: CommunityEntry; onDone: () => void }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
+  const [readVersion, setReadVersion] = useState<number | null>(null);
   const [note, setNote] = useState("");
   const act = async (action: "reviewed" | "remove") => {
+    if (action === "reviewed" && (!doc || readVersion !== c.version)) return api.toast("Read the current published version first.");
     if (action === "remove" && !note.trim()) return api.toast("Write a note saying why; the author sees it.");
     try {
-      await community.review(c.id, action, note.trim());
+      await community.review(c.id, action, note.trim(), readVersion ?? undefined);
       api.toast(action === "reviewed" ? "Marked reviewed" : "Taken down");
       onDone();
     } catch (e) {
@@ -222,8 +224,8 @@ function ReviewItem({ api, c, onDone }: { api: AppApi; c: CommunityEntry; onDone
         {c.title} <span className="small muted">by {c.author} · version {c.version} · {c.subject}, {c.level}</span>
       </h3>
       <p className="small">{c.description}</p>
-      {!doc ? (
-        <button className="btn sm" onClick={() => community.course(c.id).then((r) => setDoc(r.doc), (e) => api.toast((e as Error).message))}>
+      {!doc || readVersion !== c.version ? (
+        <button className="btn sm" onClick={() => community.course(c.id).then((r) => { if (r.version !== c.version) { api.toast("The published version changed. Reload the review queue before reviewing."); return; } setDoc(r.doc); setReadVersion(r.version); }, (e) => api.toast((e as Error).message))}>
           Read the course<span className="sr-only">: {c.title}</span>
         </button>
       ) : (
@@ -267,7 +269,7 @@ function ReviewItem({ api, c, onDone }: { api: AppApi; c: CommunityEntry; onDone
         <input className="input" value={note} onChange={(e) => setNote(e.target.value)} />
       </label>
       <div className="row" style={{ marginTop: 8 }}>
-        <button className="btn sm primary" disabled={!doc} onClick={() => act("reviewed")} title={doc ? undefined : "Read it first"}>
+        <button className="btn sm primary" disabled={!doc || readVersion !== c.version} onClick={() => act("reviewed")} title={doc && readVersion === c.version ? undefined : "Read it first"}>
           Mark version {c.version} reviewed<span className="sr-only">: {c.title}</span>
         </button>
         <button className="btn sm danger ghost" onClick={() => act("remove")}>

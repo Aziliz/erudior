@@ -3,11 +3,12 @@
 // No DOM or Node APIs here: the worker bundles this file too.
 
 import { LEVELS, SUBJECTS, TYPES, calculatorForSubject, knownSubject, normalizeLevels } from "./taxonomy";
-import type { Drill, FigureSpec } from "./types";
+import type { Drill, FigureSpec } from "./exerciseTypes";
 import { drillError } from "./drills";
 import { renderFigure } from "./figure";
 import { splitMath } from "./mathSplit";
 import { readSpec, targetProblems, type ManipSpec, type ManipTarget } from "./manip";
+import { normalizeSpreadsheetAssignment, validateAssignment, type SpreadsheetAssignment } from "./spreadsheetAssignments";
 export { LEVELS, SUBJECTS, TYPES };
 
 export type QKind = "choice" | "text" | "match" | "label" | "order" | "model";
@@ -179,6 +180,8 @@ export interface CommunityDoc {
   language?: CLanguage;
   vocab?: CVocab[];
   readingList?: CReading[];
+  /** Canonical, lesson-linked spreadsheet exercises; community publication is not official approval. */
+  spreadsheetAssignments?: Array<SpreadsheetAssignment & { lessonId: string }>;
 }
 
 export const LIMITS = {
@@ -209,6 +212,9 @@ export const LIMITS = {
   drillBytes: 12000,
   vocab: 3000,
   readingList: 60,
+  spreadsheetAssignments: 60,
+  /** One complete spreadsheet assignment, including its starter and grading criteria. */
+  spreadsheetAssignmentBytes: 128 * 1024,
   minutes: 600,
 };
 
@@ -332,6 +338,43 @@ const diagramBody = (code: string) =>
     .join("\n")
     .trim();
 
+/** Shared server/editor boundary. Drafts may omit exercises, but attached exercises
+ * must be structurally valid so saving or installation cannot discard their data. */
+export function checkCommunitySpreadsheetAssignments(value: unknown, lessonIds: ReadonlySet<string>): string[] {
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) return ["Spreadsheet assignments must be an array."];
+  if (value.length > LIMITS.spreadsheetAssignments) return [`At most ${LIMITS.spreadsheetAssignments} spreadsheet assignments.`];
+  const errors: string[] = [];
+  const seen = new Set<string>();
+  for (const [index, assignment] of value.entries()) {
+    const at = `Spreadsheet assignment ${index + 1}`;
+    // Test serializability before traversing nested author data. Worker inputs are
+    // JSON, while the editor can also pass incomplete in-memory drafts here.
+    try {
+      const serialized = JSON.stringify(assignment);
+      if (serialized === undefined || new TextEncoder().encode(serialized).byteLength > LIMITS.spreadsheetAssignmentBytes) {
+        errors.push(`${at}: exceeds the ${LIMITS.spreadsheetAssignmentBytes} byte limit.`);
+        continue;
+      }
+    } catch {
+      errors.push(`${at}: must contain JSON data only.`);
+      continue;
+    }
+    const problems = validateAssignment(assignment);
+    errors.push(...problems.map(problem => `${at}: ${problem}.`));
+    if (!isObj(assignment)) continue;
+    if (typeof assignment.id === "string") {
+      if (seen.has(assignment.id)) errors.push(`${at}: repeated assignment id.`);
+      seen.add(assignment.id);
+    }
+    if (!isStr(assignment.lessonId) || !lessonIds.has(assignment.lessonId))
+      errors.push(`${at}: its lesson doesn't exist.`);
+    if (typeof assignment.title === "string" && assignment.title.length > LIMITS.title)
+      errors.push(`${at}: keep the title under ${LIMITS.title} characters.`);
+  }
+  return errors;
+}
+
 /**
  * Problems that stop publishing (an empty list means it's fine). Drafts may be incomplete;
  * `strict` adds the checks for publishing (no empty lessons, questions answerable, etc.).
@@ -340,7 +383,12 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
   const errs: string[] = [];
   const d = raw as CommunityDoc;
   if (!d || typeof d !== "object" || d.format !== "erudior-community" || d.version !== 1) return ["Not a community course document."];
-  if (JSON.stringify(d).length > LIMITS.docBytes) errs.push("The course is too large. Split it into two courses.");
+  try {
+    if (new TextEncoder().encode(JSON.stringify(d)).byteLength > LIMITS.docBytes)
+      return ["The course is too large. Split it into two courses."];
+  } catch {
+    return ["The course must contain JSON data only."];
+  }
   if (!isStr(d.title) || !d.title.trim()) errs.push("Give the course a title.");
   else if (d.title.length > LIMITS.title) errs.push(`Keep the title under ${LIMITS.title} characters.`);
   if (!isStr(d.description) || d.description.length > LIMITS.description) errs.push(`Keep the description under ${LIMITS.description} characters.`);
@@ -472,6 +520,7 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
       }
     });
   });
+  errs.push(...checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments, ids));
   if (images > LIMITS.images) errs.push(`At most ${LIMITS.images} images per course.`);
 
   // Notecards
@@ -698,6 +747,12 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
  * images when it installs a course, so it works offline).
  */
 export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string): Record<string, unknown> {
+  const spreadsheetProblems = checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments,
+    new Set(d.lessons.filter(lesson => lesson && typeof lesson.id === "string").map(lesson => lesson.id)));
+  if (spreadsheetProblems.length) throw new Error("Cannot install spreadsheet assignments: " + spreadsheetProblems.join("; "));
+  const spreadsheetAssignments = d.spreadsheetAssignments?.map(assignment => ({
+    ...normalizeSpreadsheetAssignment(assignment), lessonId: assignment.lessonId,
+  }));
   const title = d.title.trim();
   const modules = d.modules?.length ? d.modules : [{ id: "m1", title }];
   const moduleOf = (l: CLesson) => (l.module && modules.some((m) => m.id === l.module) ? l.module : modules[0].id);
@@ -782,6 +837,7 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     ...(d.language && d.vocab?.length ? { vocab: d.vocab.filter((v) => v.term.trim() && v.meanings.some((m) => m.trim())).map((v) => ({ ...v, meanings: v.meanings.filter((m) => m.trim()) })) } : {}),
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
     calculator,
+    ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
     community: meta,
   };
 }

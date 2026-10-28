@@ -3,7 +3,7 @@
 // where the drill allows them; fractions can be required exactly; expressions like
 // 6x^2 - 2 are checked by plugging in values.
 
-import type { AnswerPart, Drill, NumFormat } from "./types";
+import type { AnswerPart, Drill, NumFormat } from "./exerciseTypes";
 import { collectVars, evalNode, parse, simplify, substitute, toTex, type Node, type UserFn } from "./expr";
 
 export interface PartInstance {

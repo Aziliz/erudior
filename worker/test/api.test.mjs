@@ -1,6 +1,9 @@
 // Smoke test of the community API against `npm run dev` (http://localhost:8787, dev sign-in on).
 //   node test/api.test.mjs
 const API = process.env.API ?? "http://localhost:8787";
+const target = new URL(API);
+if (target.protocol !== "http:" || !["localhost", "127.0.0.1", "[::1]"].includes(target.hostname) || target.username || target.password || target.pathname !== "/" || target.search || target.hash)
+  throw new Error("API tests only permit an explicit local loopback HTTP worker.");
 const ORIGIN = "http://localhost:5181";
 let fails = 0;
 const ok = (name, cond, extra) => {
@@ -56,7 +59,7 @@ ok("not an image refused", (await author.call("POST", "/images", null, new TextE
 const doc = {
   format: "erudior-community",
   version: 1,
-  title: `Birds of Colorado ${tag}`,
+  title: `Backyard birds ${tag}`,
   description: "Common birds and how to tell them apart.",
   subject: "Science",
   level: "Elementary",
@@ -73,11 +76,25 @@ const doc = {
       ],
     },
   ],
+  spreadsheetAssignments: [{ id: "bird-counts", lessonId: "l1", title: "Count observations",
+    starter: { sheets: { Observations: { A1: 2, A2: 3 }, Summary: { B1: "=SUM(Observations!A1:A2)" } } },
+    protectedCells: ["Observations!A1", "Observations!A2"], answers: { "Summary!B1": 5 }, tolerance: 0.01 }],
   decks: [{ id: "d1", title: "Bird names", cards: [{ id: "c1", front: "Small, black cap", back: "Chickadee" }] }],
 };
 ok("save draft", (await author.call("PUT", `/drafts/${id}`, doc)).status === 200);
 const bad = await author.call("PUT", `/drafts/${id}`, { ...doc, subject: "Nope" });
 ok("invalid draft refused", bad.status === 400 && /subject/i.test(bad.data.error), bad.data);
+const reopened = await author.call("GET", `/drafts/${id}`);
+ok("spreadsheet draft roundtrip", JSON.stringify(reopened.data.doc.spreadsheetAssignments) === JSON.stringify(doc.spreadsheetAssignments), reopened.data);
+for (const [name, assignment] of [
+  ["missing workbook", { ...doc.spreadsheetAssignments[0], starter: undefined }],
+  ["unknown lesson", { ...doc.spreadsheetAssignments[0], lessonId: "missing" }],
+  ["bad cell", { ...doc.spreadsheetAssignments[0], answers: { "Missing!A1": 5 } }],
+]) {
+  const invalid = await author.call("PUT", `/drafts/${id}`, { ...doc, spreadsheetAssignments: [assignment] });
+  ok(`direct API refuses ${name}`, invalid.status === 400, invalid.data);
+}
+ok("direct API refuses duplicate assignments", (await author.call("PUT", `/drafts/${id}`, { ...doc, spreadsheetAssignments: [...doc.spreadsheetAssignments, ...doc.spreadsheetAssignments] })).status === 400);
 const pub = await author.call("POST", `/drafts/${id}/publish`);
 ok("publish", pub.status === 200 && pub.data.version === 1, pub.data);
 
@@ -87,6 +104,14 @@ let entry = cat.courses.find((c) => c.id === id);
 ok("in catalog, not reviewed", entry && entry.review === "not_reviewed" && entry.counts.questions === 1 && entry.author === `Author ${tag}`, entry);
 const full = await anon.call("GET", `/courses/${id}`);
 ok("public course", full.status === 200 && full.data.doc.lessons[0].blocks.length === 5);
+ok("public spreadsheet parity", JSON.stringify(full.data.doc.spreadsheetAssignments) === JSON.stringify(doc.spreadsheetAssignments));
+// Saving a draft remains reversible; publishing cannot orphan existing progress.
+await author.call("PUT", `/drafts/${id}`, { ...doc, spreadsheetAssignments: [] });
+ok("cannot remove published assignment", (await author.call("POST", `/drafts/${id}/publish`)).status === 409);
+await author.call("PUT", `/drafts/${id}`, { ...doc, lessons: [...doc.lessons, { id: "l2", title: "More birds", blocks: [{ type: "text", md: "Practice." }] }], spreadsheetAssignments: [{ ...doc.spreadsheetAssignments[0], lessonId: "l2" }] });
+ok("cannot reassign published assignment", (await author.call("POST", `/drafts/${id}/publish`)).status === 409);
+ok("rejected publication preserves public snapshot", JSON.stringify((await anon.call("GET", `/courses/${id}`)).data.doc) === JSON.stringify(full.data.doc));
+await author.call("PUT", `/drafts/${id}`, doc);
 ok("CORS for app", full.headers.get("access-control-allow-origin") === ORIGIN);
 const pic = await fetch(`${API}/images/${img.data.id}`);
 ok("image served safely", pic.status === 200 && pic.headers.get("content-type") === "image/png" && pic.headers.get("x-content-type-options") === "nosniff");
@@ -107,15 +132,29 @@ await rev.login(`Reviewer ${tag}`, "reviewer");
 await rev.call("POST", "/me/accept", { adult: true, terms: true });
 const queue = (await rev.call("GET", "/review")).data;
 ok("in review queue with report", queue.waiting.some((c) => c.id === id) && queue.reports.some((x) => x.course_id === id), queue);
-ok("mark reviewed", (await rev.call("POST", `/review/${id}`, { action: "reviewed", note: "Checked facts." })).status === 200);
+ok("mark reviewed", (await rev.call("POST", `/review/${id}`, { action: "reviewed", version: 1, note: "Checked facts." })).status === 200);
 entry = (await anon.call("GET", "/catalog")).data.courses.find((c) => c.id === id);
 ok("tag reviewed", entry.review === "reviewed");
 
+ok("review requires explicit version", (await rev.call("POST", `/review/${id}`, { action: "reviewed" })).status === 400);
 // A new version is not reviewed again.
 await author.call("PUT", `/drafts/${id}`, { ...doc, description: "Updated." });
 await author.call("POST", `/drafts/${id}/publish`);
 entry = (await anon.call("GET", "/catalog")).data.courses.find((c) => c.id === id);
 ok("new version not reviewed", entry.version === 2 && entry.review === "not_reviewed", entry);
+
+ok("stale review refused", (await rev.call("POST", `/review/${id}`, { action: "reviewed", version: 1 })).status === 409);
+ok("stale review leaves current version unreviewed", (await anon.call("GET", `/courses/${id}`)).data.review === "not_reviewed");
+// Real local D1/R2 concurrency: successful requests have distinct versions;
+// contending snapshots never overwrite an already published version.
+const raced = await Promise.all(Array.from({ length: 8 }, () => author.call("POST", `/drafts/${id}/publish`)));
+const winners = raced.filter(result => result.status === 200);
+ok("concurrent publication has a winner", winners.length > 0, raced);
+ok("concurrent publication only returns success or conflict", raced.every(result => [200, 409].includes(result.status)), raced);
+ok("concurrent winners have unique versions", new Set(winners.map(result => result.data.version)).size === winners.length, raced);
+const afterRace = (await anon.call("GET", `/courses/${id}`)).data;
+ok("latest version points at complete spreadsheet snapshot", JSON.stringify(afterRace.doc.spreadsheetAssignments) === JSON.stringify(doc.spreadsheetAssignments));
+ok("latest version equals highest committed publication", afterRace.version === Math.max(...winners.map(result => result.data.version)), afterRace);
 
 // Take down and restore.
 ok("remove needs note", (await rev.call("POST", `/review/${id}`, { action: "remove" })).status === 400);
