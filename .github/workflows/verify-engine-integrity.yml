@@ -27,6 +27,12 @@ jobs:
       - run: npm ci
       - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts
       - run: npm run build
+      - name: Reject production publishing without a previous-release baseline
+        run: |
+          if npm run courses:publish > /tmp/course-baseline-check.log 2>&1; then
+            echo "Production publish unexpectedly succeeded without a baseline"; exit 1
+          fi
+          grep -q "Production publishing requires" /tmp/course-baseline-check.log
       - name: Validate and package sample courses
         run: npm run courses:publish -- --dev
       - run: npm test
