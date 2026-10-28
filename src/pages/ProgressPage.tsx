@@ -170,6 +170,9 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {skill.confidence > 0 && skill.reason.startsWith("Ready for practice") && (
+                        <span className="small muted"> Targeted intervention: review a linked lesson, then repeat its practice quiz to check for improvement.</span>
+                      )}
                       {FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId) &&
                         Object.entries(FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId)!.lessons)
                           .flatMap(([courseId, ids]) => ids.map(lessonId => ({courseId,lessonId})))
