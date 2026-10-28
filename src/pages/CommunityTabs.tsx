@@ -3,7 +3,7 @@
 // Together they give community courses everything official courses have.
 
 import { useState } from "react";
-import { addCommunityModule, deleteCommunityModule } from "../lib/communityModules";
+import { addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../lib/communityModules";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { LIMITS, type CGlossary, type CModule, type CommunityDoc, type CReading, type CReference, type CVocab } from "../lib/communityFormat";
@@ -69,12 +69,21 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
               <button className="btn sm ghost danger" onClick={() => setDeletePending(m.id)}>Delete module</button>
             )}
           </div>
-          <p className="small muted">
-            Lessons:{" "}
-            {lessonsIn(m.id, mi === 0)
-              .map((l) => l.title)
-              .join(", ") || "none yet (choose the module on each lesson's settings)"}
-          </p>
+          <div className="panel" aria-label={`Lessons in ${m.title}`}>
+            <strong>Lessons (${lessonsIn(m.id, mi === 0).length})</strong>
+            {lessonsIn(m.id, mi === 0).map((lesson) => (
+              <div className="row" key={lesson.id} style={{ marginTop: 8, alignItems: "center" }}>
+                <span className="grow">{lesson.title}</span>
+                <label className="field">
+                  <span className="sr-only">{`Move ${lesson.title} to module`}</span>
+                  <select className="select" value={m.id} onChange={(event) => update((d) => moveCommunityLesson(d, lesson.id, event.target.value))}>
+                    {modules.map((destination) => <option key={destination.id} value={destination.id}>{destination.title}</option>)}
+                  </select>
+                </label>
+              </div>
+            ))}
+            {!lessonsIn(m.id, mi === 0).length && <p className="small muted">No lessons assigned. Add or move a lesson here from the Lessons tab.</p>}
+          </div>
           <details open={open === m.id} onToggle={(e) => (e.currentTarget.open ? setOpen(m.id) : open === m.id && setOpen(null))}>
             <summary>Module quiz ({m.quiz?.length ?? 0} questions)</summary>
             {(m.quiz ?? []).map((q, qi) => (
