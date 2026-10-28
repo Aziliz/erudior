@@ -83,3 +83,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Full Lesson Engine regression suite is now configured for **push to main only** (merge); no pull-request or per-commit test-suite trigger.
 - Production publisher rejects duplicate course IDs/source entries, unsafe source paths and malformed prior catalog schemas before generating signed files.
 - **Still in PR #11, not released:** trusted release acquisition, revision comparisons, validation and signing preflight. Full automated tests deliberately await merge. Do not mark the canonical course model complete until merged validation succeeds.
+
+### Engine backlog progress estimate — 2026-10-28
+- The public roadmap currently lists **26 planned Lesson Engine tasks** and existing completed capabilities separately. This PR addresses part of the canonical course/content model, revision protection and publishing integrity, but does not complete all 26 tasks.
+- Estimated delivery remaining, grouped into **larger functional slices**, not one tiny fix each: ~3–5 slices to finish and integrate canonical content/publishing (pending CI and deployment compatibility); ~5–8 for cross-course skills, placement and mastery; ~6–10 for teacher learning tools, games, content generation and intervention; ~8–14 for document, financial, case, science and regulated-professional engines; ~5–8 for assessments, content review, interoperability, privacy and end-to-end QA. **Total: ~27–45 substantial slices**, subject to findings and scope.
+- Test policy: full suite only after merge to main; draft PR is not considered verified or Done. Update public roadmap status only when implementation has merged and validation succeeded.
