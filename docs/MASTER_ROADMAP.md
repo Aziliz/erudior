@@ -128,3 +128,42 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - **CI policy:** Merge-only Lesson Engine workflow includes previous-release recheck and trusted-key source changes; no full PR-branch test suite is run.
 - **Merge gate:** PR #11 is still in draft. Before merging, review source-format compatibility with the existing 20 published sample courses; then merge and use post-merge CI to verify the complete workflow. If post-merge CI fails, revert or repair promptly before relying on the new publisher.
 - **Remaining architectural limitation:** catalog.json and catalog.json.sig are independent R2 objects, and the recheck is not atomic against an external publisher. A single authorized publishing path with exclusive credentials or atomic manifest pointer is still required for full guarantees. Do not claim the backlog item Done before post-merge verification.
+
+## Cross-course competency graph — initial implementation (2026-10-28)
+- **PR under development:** Stable cross-course skill IDs, directed prerequisites with missing-link and cycle checks, weighted topic evidence from multiple courses, minimum confidence for mastery, readiness gates, and recommendations for unmastered ready skills.
+- **Future integration:** map canonical courses' topics/assessments to approved skill definitions, persist course-independent learner mastery, support explicit placement and teacher override, expose progression in student and parent views, and test privacy/accessibility.
+- This item remains **Planned** publicly until merge-only CI completes successfully and at least one course uses the graph end-to-end.
+
+### Cross-course competency graph — placement integration slice (2026-10-28)
+- Added `collectCompetencyEvidence` bridge from existing course/question/drill mastery to shared skill IDs, without changing stored Progress format.
+- Added `studentCompetencyPlacement` with prerequisite gates, course-specific suggestions, and interpretable mastery/confidence explanations; unknown mastery remains unknown.
+- Added targeted tests for missing evidence, recommendation order, blocked prerequisites and nonmutation, included in merge-only full suite.
+- **Still outstanding:** real authored skill taxonomy mapped against existing courses, student and teacher interfaces, placement override/history, and graph-driven adaptive practice. PR #15 remains draft and public status stays Planned until merged and verified.
+
+### Post-merge canonical publisher verification — October 28, 2026
+- Lesson Engine integrity workflow for merged PR #11: **passed** (GitHub Actions run 40645742318).
+- Website/course publishing run 40645742240: **failed** at “Fetch and authenticate previous release”: the served file `lang-german-a1.r3.json` did not match the SHA-256 recorded in the signed catalog. Publication stopped, as designed.
+- Investigate whether R2 origin contents, public CDN/cache, or an older immutable object diverged; compare signed catalog digest with authoritative object bytes before choosing a repair. Do not bypass signature/hash checks or mark production publishing Done.
+
+### Cross-course taxonomy slice — 2026-10-28
+- Authored thirteen stable, prerequisite-linked competencies for Pre-algebra, Algebra 1 and German A1, mapped to lesson IDs currently listed in the real course catalog. Added validation that all referenced lesson IDs exist.
+- Skill assessment evidence remains intentionally unassigned until question-bank topic labels are audited: simply completing an instructional lesson does not count as mastery. No skill is automatically certified or unlocked from lesson availability.
+- Regression tests are committed and run only after merge. PR #15 remains draft; mapping evidence, UI and placement integration remain outstanding.
+- Production publishing is blocked by a SHA-256 mismatch for the hosted German A1 r3 file. The signed catalog and remote object must be reconciled without bypassing integrity checks.
+
+### Competency graph — assessment-linked evidence slice
+- Added a resolver that associates authored skill lesson IDs with actual question topics only when a question is referenced by the lesson's quiz. Generic same-name topics elsewhere in the course do not confer evidence.
+- Added the student placement entry point from authored curriculum + installed courses + saved Progress, plus coverage reporting for authored skills without linked assessment.
+- Added tests for linked-quiz evidence, unrelated-topic exclusion, unknown mastery, and prerequisite blocking. Full suite is merge-only.
+- **Limitation:** Some existing courses' assessments may not be linked directly on lessons; their skills will remain unassessed until verified bank-topic mappings are added. Student UI and persistent graph lineage are still pending; keep the public competency graph Planned.
+
+### Student-facing skill pathway slice
+- Progress page now renders a Learning path using installed courses, saved practice evidence, next-skill recommendations, locked prerequisites, and an all-skills drill-down.
+- Unlinked assessments do not count as mastery; the interface explains when skills are unassessed, and skill paths appear only for supported installed courses.
+- **Still draft:** broader assessment coverage, parent/teacher controls, and merge-only build/test verification. Public roadmap remains In Progress until validated and merged.
+
+### Competency graph — partial-install stability (2026-10-28)
+- Student Progress learning paths now use a shared prerequisite-closed eligibility function rather than attempting to render skills from missing course dependencies.
+- Algebra 1 installed without Pre-algebra no longer causes an invalid graph via missing prerequisites; uninstalled course skill pathways are omitted until dependencies are available, without inventing mastery.
+- Added merge-only regression coverage for no courses, Algebra 1 alone, Pre-algebra alone, and all three mapped courses installed.
+- **Status:** PR #15 remains draft. Integration is committed but neither merged nor full-suite verified. Public status remains In Progress.

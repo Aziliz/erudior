@@ -1,0 +1,13 @@
+import { availableCompetencySubset } from "../src/lib/competencyAvailability.ts";
+import { FOUNDATION_COMPETENCIES } from "../src/lib/competencyCatalog.ts";
+const check=(name:string,ok:boolean)=>{if(!ok)throw Error(name);console.log("PASS",name)};
+const none=availableCompetencySubset(FOUNDATION_COMPETENCIES,[]);
+check("no installed courses yields no skills",none.length===0);
+const algebraOnly=availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-algebra1"]);
+check("algebra alone does not expose missing math prerequisites",algebraOnly.length===0);
+const pre=availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-prealgebra"]);
+check("pre-algebra yields usable skills",pre.some(s=>s.id==="math.fractions"));
+check("pre-algebra omits algebra-specific skills",!pre.some(s=>s.id==="math.functions"));
+const all=availableCompetencySubset(FOUNDATION_COMPETENCIES,["math-prealgebra","math-algebra1","lang-german-a1"]);
+check("complete installed subjects include all mapped skills",all.length===FOUNDATION_COMPETENCIES.length);
+check("original taxonomy remains unchanged",FOUNDATION_COMPETENCIES.length===13);

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { topicStats } from "../lib/session";
+import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
+import { availableCompetencySubset } from "../lib/competencyAvailability";
+import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
+import { studentCompetencyPlacement, explainCompetencyBlock } from "../lib/competencyPlacement";
 import * as store from "../lib/storage";
 import { inApp } from "../lib/storage";
 import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
@@ -40,6 +44,12 @@ export default function ProgressPage({ api }: { api: AppApi }) {
   }, []);
 
   const attempts = progress.attempts.filter((a) => !bankFilter || a.bankId === bankFilter);
+  const placement = (() => {
+    const authored = availableCompetencySubset(FOUNDATION_COMPETENCIES, api.courses.map(c => c.id));
+    if (!authored.length) return null;
+    const graph = resolveCompetencyEvidence(authored, api.courses);
+    return { ...studentCompetencyPlacement(graph, api.courses, progress), coverage: competencyCoverage(graph) };
+  })();
   const exams = attempts.filter((a) => a.mode === "exam");
   const answeredTotal = attempts.reduce((s, a) => s + a.total, 0);
   const correctTotal = attempts.reduce((s, a) => s + a.correct, 0);
@@ -142,6 +152,42 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           <span>study time</span>
         </div>
       </div>
+
+      <section className="panel" aria-labelledby="skill-path-title">
+        <div className="panel-head"><h2 id="skill-path-title">Learning path</h2></div>
+        <p className="muted small">Skills across your installed courses. Only linked assessments with saved answers count as mastery; this is a learning recommendation, not a certification.</p>
+        {!placement ? (
+          <p className="muted small">Install Pre-algebra, Algebra 1 or German A1 to see the initial skill pathways.</p>
+        ) : (
+          <>
+            <p className="small muted">
+              {placement.states.filter(s => s.mastered).length} mastered · {placement.states.filter(s => s.ready && !s.mastered).length} ready · {placement.states.filter(s => !s.ready).length} awaiting prerequisites
+            </p>
+            {placement.recommendations.length === 0 ? <p className="small muted">No new placement recommendations available yet.</p> : (
+              <ul className="roadmap-list">
+                {placement.recommendations.map(skill => (
+                  <li key={skill.skillId}>
+                    <span className="pill">Next</span>
+                    <span><strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span></span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <details>
+              <summary>All skills and prerequisites</summary>
+              <ul className="roadmap-list">
+                {placement.states.map(skill => (
+                  <li key={skill.id}>
+                    <span className={`pill ${skill.mastered ? "pass" : ""}`}>{skill.mastered ? "Mastered" : skill.ready ? "Ready" : "Locked"}</span>
+                    <span>{skill.title}<span className="small muted"> — {explainCompetencyBlock(skill, placement.states)}</span></span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+            {placement.coverage.some(c => !c.assessed) && <p className="muted small">Some skills have no linked assessment yet. They remain unassessed rather than being treated as completed.</p>}
+          </>
+        )}
+      </section>
 
       <div className="grid-2">
         <section className="panel">
