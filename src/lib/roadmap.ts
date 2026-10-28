@@ -467,7 +467,6 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
  * Done subfeatures live in ENGINE; broad items stay in progress until fully integrated.
  */
 export const ENGINE_IN_PROGRESS = new Set<string>([
-  "Shared canonical course and content model",
   "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
   "Cross-course competency graph",
@@ -476,12 +475,10 @@ export const ENGINE_IN_PROGRESS = new Set<string>([
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Shared canonical course and content model": "The complete canonical model is implemented and delivered on web and community API through PR #73, including reader/audio resources, advanced interactive content, metadata, lossless authoring/review/install, learner persistence, revisions and encrypted recovery. Full regression and separate release-integrity gates are verified. Desktop v0.25.0 distribution remains pending; this whole capability stays In Progress until the signed installers and updater assets are published and verified.",
   "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). The original simulator scope still requires spreadsheet functions, named ranges, validation rules and safe simulated macro teaching; imported VBA or untrusted macros must never execute. The instructor/learner/review/publishing workflow is complete, but the whole simulator is not.",
 };
 
 export const ENGINE_PLANNED = [
-  "Shared canonical course and content model",
   "Cross-course competency graph",
   "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
@@ -504,6 +501,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Shared canonical course and content model", detail: "Complete versioned model for reader/audio resources, advanced interactive content and metadata, with lossless authoring, review, publishing/install, learner persistence, revisions and encrypted recovery. Integrated tests and web/API delivery passed through PRs #73–75. Desktop installers are explicitly deferred to a later consolidated release; this does not claim desktop distribution.", status: "done" },
   { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–58. Bounded transfers retain exact-byte verification and fail-closed authoritative-origin recovery. Release integrity checks remain mandatory.", status: "done" },
   { title: "Course content validation and portable revisions", detail: "Course integrity checks, deterministic snapshots, compatible revisions and signed-release preflight. Live release repair remains tracked separately.", status: "done" },
   { title: "Early literacy and accessible learning", detail: "Read-aloud lessons and questions, phonics, handwriting practice and accessible learning interactions.", status: "done" },
