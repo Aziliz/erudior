@@ -51,7 +51,7 @@ jobs:
         run: node scripts/sitemap.mjs
       - name: Build website
         id: website_build
-        run: npm run build
+        run: node scripts/diagnostic-command.mjs website-build -- npm run build
       - name: Prerender public pages
         continue-on-error: true
         run: |
@@ -65,7 +65,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           VITE_COURSES_URL: ${{ vars.COURSES_URL }}
           VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
-        run: npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
+        run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
 
       - name: Write safe CI diagnostic summary
         if: always()

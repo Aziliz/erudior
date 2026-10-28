@@ -58,9 +58,11 @@ jobs:
           workspaces: src-tauri -> target
 
       - run: npm ci
+      - name: Diagnostic runner tests
+        run: node --test tests/diagnostic-command.test.mjs
       - name: Regression tests
         id: regression
-        run: npm test
+        run: node scripts/diagnostic-command.mjs regression -- npm test
 
       # Once course hosting is set up (docs/HOSTING.md), installers download courses from
       # the website instead of bundling them.
