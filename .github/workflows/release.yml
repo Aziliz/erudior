@@ -56,7 +56,9 @@ jobs:
           workspaces: src-tauri -> target
 
       - run: npm ci
-      - run: npm test
+      - name: Regression tests
+        id: regression
+        run: npm test
 
       # Once course hosting is set up (docs/HOSTING.md), installers download courses from
       # the website instead of bundling them.
@@ -68,6 +70,7 @@ jobs:
           echo "VITE_COMMUNITY_API=${{ vars.COMMUNITY_API }}" >> "$GITHUB_ENV"
 
       - name: Build (tagged release)
+        id: tagged_build
         if: startsWith(github.ref, 'refs/tags/')
         uses: tauri-apps/tauri-action@v0
         env:
@@ -83,6 +86,7 @@ jobs:
           args: --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}
 
       - name: Build (manual run)
+        id: manual_build
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
@@ -112,3 +116,18 @@ jobs:
             src-tauri/target/release/bundle/msi/*.msi
             src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
           if-no-files-found: error
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: "installers-${{ matrix.platform }}"
+          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},tagged_build:${{ steps.tagged_build.outcome }},manual_build:${{ steps.manual_build.outcome }}"
+        shell: bash
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-installers-${{ matrix.platform }}
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn

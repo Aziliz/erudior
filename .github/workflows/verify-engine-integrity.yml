@@ -31,7 +31,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts && npx tsx tests/publish-integrity.test.mts
-      - run: npm run build
+      - name: Typecheck and build
+        id: build
+        run: npm run build
       - name: Reject production publishing without a previous-release baseline
         run: |
           if npm run courses:publish > /tmp/course-baseline-check.log 2>&1; then
@@ -40,4 +42,20 @@ jobs:
           grep -q "Production publishing requires" /tmp/course-baseline-check.log
       - name: Validate and package sample courses
         run: npm run courses:publish -- --dev
-      - run: npm test
+      - name: Full regression suite
+        id: regression
+        run: npm test
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: "integrity"
+          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},build:${{ steps.build.outcome }}"
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-integrity
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
