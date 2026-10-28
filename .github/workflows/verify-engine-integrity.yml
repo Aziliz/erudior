@@ -1,0 +1,27 @@
+name: Lesson engine integrity
+on:
+  pull_request:
+    paths:
+      - "src/lib/courseIntegrity.ts"
+      - "src/lib/course.ts"
+      - "src/lib/types.ts"
+      - "tests/course-integrity.test.mts"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify-engine-integrity.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx tsx tests/course-integrity.test.mts
+      - run: npm run build
+      - run: npm test
