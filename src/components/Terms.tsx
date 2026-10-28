@@ -7,7 +7,7 @@ import { useEffect, useState, type ReactNode } from "react";
 export const TERMS_UPDATED = "October 24, 2026";
 export const LEGAL_EMAIL = "legal@erudior.com";
 
-export type LegalPage = "terms" | "privacy" | "licenses";
+export type LegalPage = "terms" | "privacy" | "licenses" | "engine-license";
 
 /** One line shown in the site footer and the app. */
 export const GENERAL_DISCLAIMER =
@@ -229,9 +229,26 @@ export function ThirdPartyLicenses() {
   );
 }
 
-/** The right page for a legal page name. */
-export function LegalView({ page, linkTo }: { page: LegalPage; linkTo: LinkTo }) {
-  return page === "terms" ? <TermsOfUse linkTo={linkTo} /> : page === "privacy" ? <PrivacyPolicy linkTo={linkTo} /> : <ThirdPartyLicenses />;
+/** Proposed Engine license, clearly distinguished from an adopted software license. */
+export function EngineLicenseDraft() {
+  const [text, setText] = useState<string | null>(null);
+  useEffect(() => {
+    fetch("/engine-license-draft.txt").then(
+      r => r.ok ? r.text() : Promise.reject(new Error(String(r.status))),
+    ).then(setText, () => setText("The proposed license could not be loaded."));
+  }, []);
+  return <article className="prose terms-of-use">
+    <h1>Erudior Engine license proposal</h1>
+    <p><strong>Draft for rights-holder and legal review. Not yet adopted as the repository's effective license.</strong></p>
+    <p>This proposed custom source-available license outlines Engine reuse, startup attribution, and sharing modifications to distributed or publicly hosted versions. It is not an OSI-approved open-source license. Independent course content and learner records are excluded from its contribution-back requirement.</p>
+    <p>Read the <a href="https://github.com/Aziliz/erudior/blob/main/LICENSE-DRAFT.md">draft in the GitHub repository</a> and the <a href="https://github.com/Aziliz/erudior/blob/main/docs/ENGINE_LICENSING.md">licensing explanation</a>. Third-party dependencies retain their own separate license terms.</p>
+    {text === null ? <p className="muted">Loading proposed license…</p> : <pre className="licenses-text" tabIndex={0}>{text}</pre>}
+  </article>;
 }
 
-export const LEGAL_TITLES: Record<LegalPage, string> = { terms: "Terms of Use", privacy: "Privacy Policy", licenses: "Third-party licenses" };
+/** The right page for a legal page name. */
+export function LegalView({ page, linkTo }: { page: LegalPage; linkTo: LinkTo }) {
+  return page === "terms" ? <TermsOfUse linkTo={linkTo} /> : page === "privacy" ? <PrivacyPolicy linkTo={linkTo} /> : page === "engine-license" ? <EngineLicenseDraft /> : <ThirdPartyLicenses />;
+}
+
+export const LEGAL_TITLES: Record<LegalPage, string> = { terms: "Terms of Use", privacy: "Privacy Policy", licenses: "Third-party licenses", "engine-license": "Erudior Engine license proposal" };
