@@ -26,6 +26,14 @@ Data lives in the per-user app data folder. The path is shown at the bottom of t
 - Linux: `~/.local/share/com.erudior.app/` (before v0.17.0: `com.aziliz.examiner`, copied over on first start)
 - Windows: `%APPDATA%\com.erudior.app\`
 
+## License and engine attribution
+
+The Erudior Engine is distributed under the custom [Erudior Engine Source-Available License](LICENSE) (draft v0.1; pending legal review). It is **source-available**, not represented as OSI-approved open-source software.
+
+Developers building applications or services with the Engine must display an Erudior launch splash / "Powered by Erudior" attribution and return publicly deployed or distributed Engine modifications upstream (as source and a pull request or public submission). The official graphic splash is planned for the next development slice; an accessible text splash is the interim compliance option. The requirements do **not** claim ownership of independently authored courses, worksheets, artwork, student records, or data.
+
+See [Engine Licensing and Attribution Guide](docs/ENGINE_LICENSING.md) for examples and scope. Dependencies and other third-party materials retain their own licenses. Review ownership and legal enforceability before treating these terms as final.
+
 ## Keyboard
 
 | Key | Action |
