@@ -49,6 +49,8 @@ export type CalloutKind = "tip" | "warning" | "rule";
 export type Block =
   | { type: "heading"; text: string; /** 2 = section (default), 3 = subsection. */ level?: 2 | 3 }
   | { type: "text"; md: string }
+  /** Full official lesson Markdown, including fenced maps, timelines, phonics, code and assignments. */
+  | { type: "source"; md: string }
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "image"; imageId: string; alt: string; caption: string }
   | ({ type: "question" } & CQuestion)
@@ -404,7 +406,7 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
     if (l.drills !== undefined && (!strList(l.drills, LIMITS.drills, 40) || l.drills.some((x) => !drillIds.has(x)))) errs.push(`${where}: lists a drill that doesn't exist.`);
     if (l.refs !== undefined && (!strList(l.refs, LIMITS.references, 40) || l.refs.some((x) => !refIds.has(x)))) errs.push(`${where}: lists a reference sheet that doesn't exist.`);
     if (l.blocks.length > LIMITS.blocksPerLesson) errs.push(`${where}: at most ${LIMITS.blocksPerLesson} blocks.`);
-    if (strict && !l.blocks.some((b) => b.type !== "question" && !(b.type === "text" && !b.md.trim()))) errs.push(`${where}: has no content.`);
+    if (strict && !l.blocks.some((b) => b.type !== "question" && !((b.type === "text" || b.type === "source") && !b.md.trim()))) errs.push(`${where}: has no content.`);
     l.blocks.forEach((b, j) => {
       const at = `${where}, block ${j + 1}`;
       switch (b?.type) {
@@ -413,6 +415,7 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
           if (b.level !== undefined && b.level !== 2 && b.level !== 3) errs.push(`${at}: bad heading size.`);
           if (strict && !b.text.trim()) errs.push(`${at}: empty heading.`);
           break;
+        case "source":
         case "text":
           if (!isStr(b.md) || b.md.length > LIMITS.text) errs.push(`${at}: text over ${LIMITS.text} characters; split it.`);
           break;
@@ -642,6 +645,8 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
   switch (b.type) {
     case "heading":
       return `${b.level === 3 ? "###" : "##"} ${oneLine(b.text)}`;
+    case "source":
+      return safeMd(b.md);
     case "text":
       return safeMd(b.md);
     case "list":
