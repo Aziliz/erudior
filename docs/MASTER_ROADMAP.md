@@ -78,3 +78,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Previous catalog bytes are verified against an Ed25519 signature when COURSE_PREVIOUS_PUBLIC_KEY is supplied; production requires this key.
 - Every previous course file used as a revision baseline is verified against its signed catalog SHA-256 digest before comparison.
 - The publisher still needs deployment wiring to fetch the latest published release and securely provision its trusted public key. The Lesson Engine item remains **planned / in draft**, not Done.
+
+### Engine Slice 11 — CI cadence and manifest safety
+- Full Lesson Engine regression suite is now configured for **push to main only** (merge); no pull-request or per-commit test-suite trigger.
+- Production publisher rejects duplicate course IDs/source entries, unsafe source paths and malformed prior catalog schemas before generating signed files.
+- **Still in PR #11, not released:** trusted release acquisition, revision comparisons, validation and signing preflight. Full automated tests deliberately await merge. Do not mark the canonical course model complete until merged validation succeeds.
