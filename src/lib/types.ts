@@ -648,6 +648,8 @@ export interface Progress {
   /** Homeschool families: the courses this student has in progress (courses are shared on disk). */
   enrolled?: string[];
   theme?: "light" | "dark" | "system";
+  /** Course spreadsheet assignment grading history, keyed by course/assignment ID. */
+  spreadsheetGrades?: Record<string, {score: number; gradedAt: string; revision: number}>;
   attempts: Attempt[];
   /** bankId -> questionId -> stats */
   stats: Record<string, Record<string, QuestionStat>>;

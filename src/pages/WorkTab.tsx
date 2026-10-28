@@ -51,7 +51,7 @@ export default function WorkTab({ api, course }: { api: AppApi; course: Course }
           you can hand work in.
         </p>
       )}
-      {(course.spreadsheetAssignments?.length ?? 0) > 0 && <section className="panel"><h2>Spreadsheet assignments</h2>{course.spreadsheetAssignments?.map(a => <SpreadsheetCourseAssignment key={a.id} courseId={course.id} assignment={a} />)}</section>}
+      {(course.spreadsheetAssignments?.length ?? 0) > 0 && <section className="panel"><h2>Spreadsheet assignments</h2>{course.spreadsheetAssignments?.map(a => <SpreadsheetCourseAssignment key={a.id} api={api} courseId={course.id} assignment={a} />)}</section>}
       {writing.length > 0 && (
         <section className="panel" aria-labelledby="wt-writing">
           <h2 id="wt-writing">Writing</h2>
