@@ -1,5 +1,6 @@
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
+import { validateAssignment } from "./spreadsheetAssignments";
 
 /** Structural issues that must be fixed before a course is approved for publication. */
 export interface CourseIntegrityIssue {
