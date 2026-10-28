@@ -640,13 +640,31 @@ export interface CommunityMeta {
   author: string;
 }
 
+/** Preserve only documented interactive fences; ordinary prose still uses the community sanitizer.
+ * The final lesson renderer sanitizes generated HTML independently.
+ */
+export function safeAdvancedSource(md: string): string {
+  const allowed = /^(?:sounds|blend|trace|dialogue|speak|map|timeline|sim|code|assignment|example|manipulative|figure|plot|shape|mermaid)(?:\\s|$)/;
+  const fence = /^\`\`\`([^\n]*)\n([\s\S]*?)^\`\`\`[ \t]*$/gm;
+  let result = "";
+  let previous = 0;
+  for (const match of md.matchAll(fence)) {
+    const offset = match.index ?? 0;
+    result += safeMd(md.slice(previous, offset));
+    if (allowed.test(match[1].trim()) && !match[2].includes("\`\`\`")) result += match[0];
+    else result += safeMd(match[0]);
+    previous = offset + match[0].length;
+  }
+  return result + safeMd(md.slice(previous));
+}
+
 /** One block as lesson Markdown. */
 function blockMd(b: Block, imageSrc: (id: string) => string): string {
   switch (b.type) {
     case "heading":
       return `${b.level === 3 ? "###" : "##"} ${oneLine(b.text)}`;
     case "source":
-      return safeMd(b.md);
+      return safeAdvancedSource(b.md);
     case "text":
       return safeMd(b.md);
     case "list":
