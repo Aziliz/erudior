@@ -7647,3 +7647,9 @@ button.fn-ref {
 
 .erudior-splash a {color:#f3ebdd;text-decoration:underline;pointer-events:auto;margin-top:.3rem}
 .erudior-splash small {margin-top:.6rem;text-align:center;max-width:28rem;padding:0 1rem;color:#d1d8db;font: .8rem/1.5 system-ui,sans-serif}
+
+/* Keep each language in one roadmap subsection, with one indented row per level. */
+.roadmap .roadmap-language { margin: 1rem 0 1.25rem; }
+.roadmap .roadmap-language h4 { margin: 0 0 .4rem; font-weight: 650; }
+.roadmap .roadmap-language-levels { margin-left: 1.75rem; padding-left: .5rem; }
+@media (max-width: 600px) { .roadmap .roadmap-language-levels { margin-left: .8rem; } }
