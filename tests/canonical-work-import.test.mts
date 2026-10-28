@@ -32,7 +32,15 @@ let saved:any;const notices:string[]=[];
 const api:any={courses:[],allCourses:[],progress:emptyProgress(),family:{mode:'family',students:[]},student:null,catalog:{source:'website'},assignmentBlock:()=>null,toast:(s:string)=>notices.push(s),saveCourse:async(c:any)=>{saved=c;},go:()=>{}};
 const root=createRoot(document.getElementById('root')!);
 await act(async()=>root.render(createElement(Library,{api,broken:[],standalone:[]})));
-async function importFile(course:unknown){picked=JSON.stringify(course);saved=undefined;notices.length=0;await act(async()=>{[...document.querySelectorAll('button')].find(b=>b.textContent?.trim()==='Import')!.click();});}
+async function importFile(course:unknown){
+ picked=JSON.stringify(course);saved=undefined;notices.length=0;
+ await act(async()=>{[...document.querySelectorAll('button')].find(b=>b.textContent?.trim()==='Import')!.click();});
+ // The native picker is dynamically imported outside React's event promise.
+ // Wait for the actual completion/error callback, not a fast local module load.
+ const deadline=Date.now()+5000;
+ while(!notices.length&&Date.now()<deadline)await act(async()=>{await new Promise(resolve=>setTimeout(resolve,10));});
+ assert.ok(notices.length,`Import did not complete; saved=${!!saved}, mutations=${mutations.join(',')}`);
+}
 for(const invalid of invalids){await importFile(invalid);assert.equal(saved,undefined);assert.match(notices.join('\n'),/Invalid course work/);}
 await importFile(valid);assert.deepEqual(saved.writing,valid.writing);
 const legacy=JSON.parse(readFileSync('samples/demo-student-work.json','utf8'));await importFile(legacy);assert.ok(saved.labs.length);assert.ok(saved.writing.length);
