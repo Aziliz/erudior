@@ -131,7 +131,8 @@ bucket_name = "erudior-local-test"
     await delay(250);
   }
   await bounded(launch([path.join(worker, "test/api.test.mjs")], { API: api }), 120_000, "Local API regression");
-  console.log("Local API regression passed using isolated D1/R2 state.");
+  await bounded(launch([path.join(worker, "test/live.test.mjs")], { API: api }), 120_000, "Local live-room protocol regression");
+  console.log("Local API and live-room regressions passed using isolated D1/R2 state.");
 } catch (error) {
   if (server) process.stderr.write(server.log);
   console.error(error);

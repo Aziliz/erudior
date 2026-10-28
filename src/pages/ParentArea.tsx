@@ -49,6 +49,7 @@ import {
   HandinsTab,
 } from "./TeacherTabs";
 import LiveHost from "./LiveHost";
+import LearningGames from "./LearningGames";
 import { LIVE } from "../lib/live";
 import { DocumentsTab, ReadingTab } from "./ParentFiles";
 import { StudentWorkTab } from "./StudentWork";
@@ -76,7 +77,8 @@ export type ParentTab =
   | "gradebook"
   | "handins"
   | "work"
-  | "live";
+  | "live"
+  | "games";
 
 const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
@@ -88,6 +90,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "grades", label: "Grades" },
   { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
+  { id: "games", label: "Learning games" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
@@ -104,6 +107,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
+  { id: "games", label: "Learning games" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
@@ -200,6 +204,7 @@ export default function ParentArea({
           {tab === "handins" && <HandinsTab api={api} family={family} />}
           {tab === "work" && <StudentWorkTab api={api} family={family} />}
           {tab === "live" && LIVE && <LiveHost api={api} />}
+          {tab === "games" && <LearningGames api={api} />}
           {tab === "attendance" && (
             <Attendance
               api={api}
