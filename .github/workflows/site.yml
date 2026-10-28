@@ -6,18 +6,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/Site.tsx"
-      - "src/pages/Home.tsx"
-      - "src/pages/AudiencePage.tsx"
-      - "src/pages/Roadmap.tsx"
-      - "src/pages/DownloadPage.tsx"
-      - "src/components/Terms.tsx"
-      - "src/components/Mark.tsx"
-      - "src/styles.css"
-      - "src/lib/startupSplash.ts"
-      - "src/lib/roadmap.ts"
-      - "src/lib/seo.ts"
-      - "src/main.tsx"
+      - "src/**"
       - "index.html"
       - "public/**"
       - "functions/**"
