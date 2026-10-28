@@ -11,6 +11,7 @@ on:
       - "src/lib/types.ts"
       - "tests/course-integrity.test.mts"
       - "tests/course-revision.test.mts"
+      - "tests/publish-integrity.test.mts"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/verify-engine-integrity.yml"
@@ -27,7 +28,7 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts
+      - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts && npx tsx tests/publish-integrity.test.mts
       - run: npm run build
       - name: Reject production publishing without a previous-release baseline
         run: |
