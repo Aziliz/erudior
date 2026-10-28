@@ -3,7 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
-import { newKeyPair, signBytes, sha256Hex, b64 } from "../src/lib/courseSign.ts";
+import { newKeyPair, signBytes, sha256Hex, verifySignature, b64 } from "../src/lib/courseSign.ts";
 
 const root = path.resolve(import.meta.dirname, "..");
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "erudior-publish-"));
@@ -29,6 +29,8 @@ try {
   assert.match(untrusted.stderr+untrusted.stdout,/pinned public key|application-pinned/);
   // A corrupt signature must fail even when the supplied public key is syntactically valid.
   fs.writeFileSync(path.join(previous,"catalog.json.sig"),"bad-signature");
+  assert.equal(verifySignature(new Uint8Array(catalog), "bad-signature", [keys.publicKey]), false);
+  assert.equal(verifySignature(new Uint8Array(catalog), signBytes(new Uint8Array(catalog), b64.decode(keys.secretKey)), [keys.publicKey]), true);
   const corrupt = run({COURSE_PREVIOUS_PUBLIC_KEY:keys.publicKey});
   assert.notEqual(corrupt.status,0,"Corrupted signature must fail");
   assert.match(corrupt.stderr+corrupt.stdout,/pinned public key|signature/);
