@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
-import { sha256Hex, verifySignature } from "../src/lib/courseSign";
+import { sha256Hex, verifySignature, publicKeyOf, signBytes, b64 } from "../src/lib/courseSign";
 
 const base = process.env.COURSE_PREVIOUS_URL?.trim();
 if (!base || !/^https:\/\//.test(base)) throw new Error("COURSE_PREVIOUS_URL must be HTTPS.");
@@ -15,6 +15,25 @@ const fetchBytes = async (file: string): Promise<Uint8Array> => {
   if (!response.ok) throw new Error(`Cannot retrieve previous release: ${file} (${response.status}). First release requires a separately approved bootstrap.`);
   return new Uint8Array(await response.arrayBuffer());
 };
+// First publication is an explicit, auditable operation, never an automatic 404 fallback.
+const bootstrap = process.env.COURSE_BOOTSTRAP_FIRST_RELEASE === "true";
+if (bootstrap) {
+  const secret = process.env.COURSE_SIGNING_KEY?.trim();
+  if (!secret || !COURSE_PUBLIC_KEYS.includes(publicKeyOf(secret)))
+    throw new Error("First-release bootstrap requires the trusted production signing key.");
+  const response = await fetch(new URL("catalog.json", base.endsWith("/") ? base : base + "/"), {
+    method: "GET", redirect: "error", signal: AbortSignal.timeout(30000),
+  });
+  if (response.status !== 404)
+    throw new Error(`First-release bootstrap refused: catalog returned ${response.status}, expected 404.`);
+  const bytes = Buffer.from(JSON.stringify({format:"examiner-catalog",version:1,courses:[]}));
+  const signature = signBytes(new Uint8Array(bytes), b64.decode(secret));
+  fs.mkdirSync(target, {recursive:true});
+  fs.writeFileSync(path.join(target,"catalog.json"), bytes);
+  fs.writeFileSync(path.join(target,"catalog.json.sig"), signature+"\\n");
+  console.log("Explicitly initialized signed empty first-release baseline.");
+  process.exit(0);
+}
 const catalogBytes = await fetchBytes("catalog.json");
 const sig = new TextDecoder().decode(await fetchBytes("catalog.json.sig")).trim();
 if (!verifySignature(catalogBytes, sig, COURSE_PUBLIC_KEYS))
