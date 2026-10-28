@@ -1,0 +1,11 @@
+import { validateJurisdictionPack, resolveProgram, type JurisdictionPack } from "../src/lib/jurisdictionPacks.ts";
+const check=(name:string,result:boolean)=>{if(!result)throw Error(name);console.log("PASS",name)};
+const base:JurisdictionPack={id:"us-co",name:"Example A",authority:"Training demonstration",version:"1",effectiveFrom:"2026-01-01",reviewedAt:"2026-01-01",sources:["https://example.org/rules"],programs:{broker:{subjectHours:{core:50,law:20},totalHours:70,minimumAssessmentPercent:75}}};
+check("valid pack",validateJurisdictionPack(base).length===0);
+check("valid program lookup",resolveProgram(base,"broker","2026-10-01").status==="available");
+check("missing jurisdiction refuses certification",resolveProgram(undefined,"broker","2026-10-01").status==="unavailable");
+check("unknown program refuses fallback",resolveProgram(base,"other","2026-10-01").status==="unavailable");
+check("different jurisdictions can specify different program hours",resolveProgram({...base,id:"us-ny",programs:{broker:{subjectHours:{core:90},totalHours:90}}},"broker","2026-10-01").status==="available");
+check("different jurisdictions retain independent hours",resolveProgram({...base,id:"us-ny",programs:{broker:{subjectHours:{core:90},totalHours:90}}},"broker","2026-10-01").status==="available" && base.programs.broker.totalHours===70);
+check("invalid hours rejected",validateJurisdictionPack({...base,programs:{broker:{subjectHours:{core:50},totalHours:70}}}).length>0);
+check("expired packs unavailable",resolveProgram({...base,effectiveThrough:"2026-06-01"},"broker","2026-10-01").status==="unavailable");
