@@ -6,7 +6,7 @@ export const WORKBOOK_TEMPLATES:Record<string,Workbook>={
   "Spreadsheet formulas":{sheets:{Practice:{A1:"Quantity",B1:6,A2:"Unit price",B2:12,A3:"Subtotal",B3:"=B1*B2",A4:"Discount",B4:5,A5:"Total",B5:"=B3-B4"}}}
 };
 export function validateWorkbook(value:unknown):value is Workbook {
-  if(!value||typeof value!=="object"||!value.hasOwnProperty("sheets"))return false;
+  if(!value||typeof value!=="object"||!Object.prototype.hasOwnProperty.call(value,"sheets"))return false;
   const sheets=(value as Workbook).sheets;
   if(!sheets||typeof sheets!=="object"||Array.isArray(sheets))return false;
   const names=Object.keys(sheets);
