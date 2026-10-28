@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { topicStats, startPractice } from "../lib/session";
 import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
+import { competencyImprovement } from "../lib/competencyImprovement";
 import { availableCompetencySubset } from "../lib/competencyAvailability";
 import { resolveCompetencyEvidence, competencyCoverage } from "../lib/competencyEvidence";
 import { studentCompetencyPlacement, explainCompetencyBlock } from "../lib/competencyPlacement";
@@ -170,6 +171,14 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {placement.graph.filter(item=>item.id===skill.skillId).map(item=>{
+                        const trend=competencyImprovement(item,api.banks,progress);
+                        return trend ? <span key={item.id} className="small muted">
+                          Recent assessment trend: {Math.round(trend.before*100)}% → {Math.round(trend.after*100)}%
+                          ({trend.change>0?"+":""}{Math.round(trend.change*100)} points across {trend.sessions} assessed sessions).
+                          {trend.change<0?" Performance declined; consider reviewing the linked lesson.":trend.change>0?" Performance improved; keep practicing to confirm mastery.":" Performance is unchanged."}
+                        </span> : null;
+                      })}
                       {skill.confidence > 0 && skill.reason.startsWith("Ready for practice") && (
                         <span className="small muted"> Targeted intervention: review a linked lesson, then repeat its practice quiz to check for improvement.</span>
                       )}
