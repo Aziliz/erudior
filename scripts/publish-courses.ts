@@ -97,7 +97,7 @@ for (const entry of entries) {
       !/^[A-Za-z0-9_-]{1,100}\\.r[1-9][0-9]*\\.json$/.test(previousEntry.file) ||
       !/^[a-f0-9]{64}$/i.test(previousEntry.sha256)))
     throw new Error(`Malformed previous course entry: ${entry.id}`);
-  if (previousCatalog && !previousEntry && entry.revision !== 1)
+  if (previousCatalog && previousCatalog.courses.length > 0 && !previousEntry && entry.revision !== 1)
     throw new Error(`New course ${entry.id} must start at revision 1 (got ${entry.revision}).`);
   if (previousDir && previousEntry) {
     const previousFile = path.resolve(previousDir, previousEntry.file);
