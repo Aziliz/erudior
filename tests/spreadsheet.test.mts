@@ -11,3 +11,5 @@ const fails=(book:any,cell:string)=>{try{calculateCell(book,"Budget",cell);retur
 check("circular reference rejected",fails({sheets:{Budget:{A1:"=B1",B1:"=A1"}}},"A1"));
 check("injection rejected",fails({sheets:{Budget:{A1:"=EVAL(1)"}}},"A1"));
 check("division by zero rejected",fails({sheets:{Budget:{A1:"=1/0"}}},"A1"));
+
+check("cross-sheet references ignore worksheet capitalization",calculateCell(workbook,"Closing","A1")===140);

@@ -7,10 +7,12 @@ export function calculateCell(book: Workbook, sheet: string, address: string): C
   const visiting=new Set<string>();
   function evaluate(tab:string, cell:string):CellValue {
     if(!CELL.test(cell))throw Error("Invalid cell reference");
-    const key=tab+"!"+cell;
+    const actualTab=Object.keys(book.sheets).find(name=>name.toUpperCase()===tab.toUpperCase());
+    if(!actualTab)throw Error("Unknown worksheet: "+tab);
+    const key=actualTab+"!"+cell;
     if(cache.has(key))return cache.get(key)!;
     if(visiting.has(key))throw Error("Circular reference: "+key);
-    const worksheet=book.sheets[tab];
+    const worksheet=book.sheets[actualTab];
     if(!worksheet)throw Error("Unknown worksheet: "+tab);
     visiting.add(key);
     try {
@@ -31,7 +33,7 @@ export function calculateCell(book: Workbook, sheet: string, address: string): C
           if(/^\d/.test(token))return Number(token);
           const match=token.match(/^(?:([A-Z][A-Z0-9_]*)!)?([A-Z]+[1-9][0-9]*)$/);
           if(!match)throw Error("Unsupported formula token");
-          const value=evaluate(match[1] ?? tab,match[2]);
+          const value=evaluate(match[1] ?? actualTab,match[2]);
           if(typeof value!=="number" || !Number.isFinite(value))throw Error("Referenced cell is not numeric");
           return value;
         };
