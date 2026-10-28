@@ -6,6 +6,9 @@ workers_dev = false
 routes = [{ pattern = "api.erudior.com", custom_domain = true }]
 
 # Keep production observability in source control so redeployments preserve logging.
+[observability]
+enabled = true
+
 [observability.logs]
 enabled = true
 head_sampling_rate = 1
@@ -14,8 +17,6 @@ persist = true
 
 [observability.traces]
 enabled = false
-
-[observability]
 
 
 [vars]
