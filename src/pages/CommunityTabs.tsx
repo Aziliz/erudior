@@ -3,6 +3,7 @@
 // Together they give community courses everything official courses have.
 
 import { useState } from "react";
+import { addCommunityModule, deleteCommunityModule } from "../lib/communityModules";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { LIMITS, type CGlossary, type CModule, type CommunityDoc, type CReading, type CReference, type CVocab } from "../lib/communityFormat";
@@ -31,6 +32,7 @@ const lines = (s: string, max: number) => s.split("\n").slice(0, max);
 export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; update: Update }) {
   const modules = doc.modules ?? [];
   const [open, setOpen] = useState<string | null>(null);
+  const [deletePending, setDeletePending] = useState<string | null>(null);
   const setModule = (mi: number, fn: (m: CModule) => CModule) => update((d) => ({ ...d, modules: (d.modules ?? []).map((m, i) => (i === mi ? fn(m) : m)) }));
   const lessonsIn = (id: string, first: boolean) => doc.lessons.filter((l) => l.module === id || (first && !l.module));
   return (
@@ -57,18 +59,15 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
             <button className="btn sm ghost" disabled={mi === modules.length - 1} onClick={() => update((d) => ({ ...d, modules: move(d.modules ?? [], mi, 1) }))}>
               Down<span className="sr-only">: module {mi + 1}</span>
             </button>
-            <button
-              className="btn sm ghost danger"
-              onClick={() => {
-                if (!window.confirm(`Delete the module "${m.title}"? Its lessons will move to the first remaining module.`)) return;
-                update((d) => {
-                  const rest = (d.modules ?? []).filter((_, i) => i !== mi);
-                  return { ...d, modules: rest.length ? rest : undefined, lessons: d.lessons.map((l) => (l.module === m.id ? { ...l, module: rest[0]?.id } : l)) };
-                });
-              }}
-            >
-              Delete module
-            </button>
+            {deletePending === m.id ? (
+              <span className="row">
+                <span className="small">Move lessons to the first remaining module?</span>
+                <button className="btn sm danger" onClick={() => { update((d) => deleteCommunityModule(d, m.id)); setDeletePending(null); }}>Confirm delete</button>
+                <button className="btn sm ghost" onClick={() => setDeletePending(null)}>Cancel</button>
+              </span>
+            ) : (
+              <button className="btn sm ghost danger" onClick={() => setDeletePending(m.id)}>Delete module</button>
+            )}
           </div>
           <p className="small muted">
             Lessons:{" "}
@@ -106,20 +105,8 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
       ))}
       <button
         className="btn"
-        disabled={modules.length >= LIMITS.modules}
-        onClick={() =>
-          update((d) => {
-            const taken = [...(d.modules ?? []).map((m) => m.id), ...d.lessons.map((l) => l.id)];
-            const existing = d.modules ?? [];
-            // The implicit default module already exists for the learner; make it explicit
-            // without creating an extra empty module on the first click.
-            if (!existing.length) {
-              const a = newId("m", taken);
-              return { ...d, modules: [{ id: a, title: d.title || "Module 1" }], lessons: d.lessons.map((l) => ({ ...l, module: a })) };
-            }
-            return { ...d, modules: [...existing, { id: newId("m", taken), title: `Module ${existing.length + 1}` }] };
-          })
-        }
+        disabled={modules.length >= LIMITS.modules - (modules.length ? 0 : 1)}
+        onClick={() => update((d) => addCommunityModule(d, newId("m", [...(d.modules ?? []).map((m) => m.id), ...d.lessons.map((l) => l.id), "m1"])))}
       >
         Add a module
       </button>
