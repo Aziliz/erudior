@@ -113,6 +113,7 @@ export default function Home() {
                 <li key={p}>{p}</li>
               ))}
             </ul>
+            {(f.id === "parents" || f.id === "live" || f.id === "classroom") && <p><a className="btn" href={f.id === "parents" ? "/parents" : f.id === "live" ? "/live-rooms" : "/teachers"}>Learn more about {f.kicker.toLowerCase()}</a></p>}
           </div>
           <div className={`home-shot${f.extra ? " with-phone" : ""}`}>
             <img src={f.shot} alt={f.alt} loading="lazy" width={1280} height={800} />
