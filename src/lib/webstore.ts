@@ -4,9 +4,9 @@
 // ~0.7 MB), so everything goes in IndexedDB, which allows hundreds of MB. Anything an
 // older version left in localStorage is moved over the first time it's opened.
 
-const DB = "examiner";
+const DB = "erudior";
 const STORE = "kv";
-const MOVE_PREFIXES = ["examiner.course.", "examiner.bank.", "examiner.progress", "examiner.session"];
+const MOVE_PREFIXES = ["erudior.course.", "erudior.bank.", "erudior.progress", "erudior.session"];
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
