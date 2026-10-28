@@ -140,20 +140,6 @@ const planned = (title: string, detail: string, phase: "1.0" | "Later" = "1.0"):
 
 export const UPDATES: UpdateArea[] = [
   {
-    id: "course-updates", title: "Course update",
-    intro: "Every course stays free to read without registration. Published K–12 courses meet the chosen grade plan; parents can add courses. Professional credentials are a separate, approved enrollment pathway.",
-    items: [
-      planned("Complete high school core first", "English 9–12, Chemistry, Earth and Environmental Science, World History, US History, US Government and Civics, and Economics; retain existing high-school math, Biology and Physics."),
-      planned("Finish kindergarten through grade 5", "Math, structured literacy and language arts, science, social studies, plus art, music, health/safety and PE; systematic phonics, decoding, fluency, handwriting and accessible read-aloud lessons."),
-      planned("Complete grades 6–8", "Full middle-school subject progression, interdisciplinary scientific inquiry, geography, literary analysis and algebra readiness."),
-      planned("Expand languages and electives", "Spanish 1–2 with listening/speaking; German beyond B1 and later additional languages; Personal Finance and Computer Science."),
-      planned("Add life and digital skills sequences", "Digital citizenship, computer literacy, personal finance, independent living, communication, critical thinking, media and AI literacy across appropriate grade bands.", "Later"),
-      planned("Add career and advanced pathways", "Career discovery/readiness, entrepreneurship, vocational introductions, engineering, psychology, philosophy, advanced STEM and college preparation; retain college-level math and physics as optional electives.", "Later"),
-      planned("Colorado broker practical curriculum", "Align each of the six required 168-hour subjects with official objectives; interactive contracts, six-column closings, trust-account reconciliation, current legal issues and full transaction simulations. No hour-padding or approval claims."),
-      planned("Course review and pilot validation", "Independent lesson/question review, versioned standards coverage, instructional pacing, actual student/parent pilot feedback and accessibility review."),
-    ],
-  },
-  {
     id: "web-app-updates", title: "Web app update",
     intro: "Public discovery, community authoring, Teacher Assistant and safe family/credential account access.",
     items: [
@@ -182,23 +168,6 @@ export const UPDATES: UpdateArea[] = [
       planned("Classroom and teacher workflows", "Reuse existing classrooms and gradebook for assignments, live games, peer review, conferencing, group projects, communication and field trip logs."),
       planned("Security, privacy and accessibility", "COPPA-consent workflow, teen protections, least-privilege access, privacy-first analytics, encrypted backups, age-appropriate sharing, WCAG 2.2 AA test coverage and restore drills."),
       planned("Educational interoperability", "Plan for CASE, QTI, OneRoster, LTI and Common Cartridge where useful; avoid hardcoding proprietary identifiers.", "Later"),
-    ],
-  },
-  {
-    id: "engine-updates", title: "Engine update",
-    intro: "Shared content capabilities behind the web and application experiences. Existing working engine features remain listed separately below.",
-    items: [
-      planned("Shared canonical course and content model", "Versioned modules, lessons, questions, bank metadata, audio, readers, rubrics, work, images and supported interactive blocks; import/export must preserve semantics."),
-      planned("Cross-course competency graph", "Stable skill IDs, prerequisites, standards mapping, diagnostic placement, mastery and explanation of why targeted practice was assigned."),
-      planned("Interactive document and case file engine", "Fillable forms, document annotation, side-by-side revision comparison, evidence submissions and instructor feedback; supports real estate and general education."),
-      planned("Workbook and financial calculation engine", "Spreadsheet-like cells, six-column closings, prorations, buyer/seller figures, ledger reconciliation, partial-credit mathematical reasoning and deterministic grading."),
-      planned("Branching scenario and timeline engine", "Persistent fictional case files, decision consequences, deadlines, state changes, transaction simulation and project milestones."),
-      planned("Scientific and engineering workspaces", "Guided labs, measurements, uncertainty, graphing, simulated instruments, engineering design and safe instructor-reviewed evidence."),
-      planned("Advanced assessment and feedback", "Multi-step math work, oral assessment, rubric revision history, question variants, integrity controls, misconception reporting and verifiable assessment lineage."),
-      planned("Content review, versioning and auditability", "Independent review gates, lesson/question version IDs, signed approved releases, content rights provenance and preserved historical results."),
-      planned("Credential integrity and compliance evidence", "Authenticated qualifying enrollments, instructor approvals, tamper-evident event records, equivalent-hours methodology, secure PDFs and revocation; never certify unapproved programs."),
-      planned("Course creator parity regression suite", "Unit tests for module operations, two-way course mapping, images, phonics, maps, code, assignments and real browser create/publish/install; require web build and worker checks."),
-      planned("Privacy-preserving learner data architecture", "Local anonymous practice, server-backed account progress, isolated high-integrity credential registry, retention/deletion controls and data recovery."),
     ],
   },
 ];
