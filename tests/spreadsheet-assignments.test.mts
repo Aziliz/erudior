@@ -1,0 +1,11 @@
+import { SAMPLE_ASSIGNMENT, gradeAssignment, validateAssignment } from "../src/lib/spreadsheetAssignments.ts";
+const check=(name:string,ok:boolean)=>{if(!ok)throw Error(name);console.log("PASS",name)};
+check("valid assignment",validateAssignment(SAMPLE_ASSIGNMENT).length===0);
+const book=structuredClone(SAMPLE_ASSIGNMENT.starter);
+book.sheets.Budget.B3="=B1-B2";
+const graded=gradeAssignment(SAMPLE_ASSIGNMENT,book);
+check("formula result graded",graded.score===1&&graded.feedback[0].passed);
+book.sheets.Budget.B1=999;
+check("protected modification fails grading",gradeAssignment(SAMPLE_ASSIGNMENT,book).score===0);
+check("bad address rejected",validateAssignment({...SAMPLE_ASSIGNMENT,answers:{"Bad!A1":1}}).length>0);
+check("negative tolerance rejected",validateAssignment({...SAMPLE_ASSIGNMENT,tolerance:-1}).length>0);
