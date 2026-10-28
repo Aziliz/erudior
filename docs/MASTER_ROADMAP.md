@@ -67,3 +67,64 @@ All courses are free to read without accounts. Homeschool learners follow grade-
 
 ## Proven vs planned
 Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE` stays labeled done. Community creator revisions and promotion scaffolding in draft PR #1 are **in progress**, not live or approved. Proposed topics remain **planned** until verified in released code and independently reviewed course content.
+
+## Engine publishing integrity — implementation progress (2026-10-28)
+
+- **In draft PR #11 (not released):** deterministic v1 export/import, structural checks for IDs and references, revision compatibility checker, and publishing preflight.
+- **Production publisher guard:** `npm run courses:publish` requires `--previous-dir PATH` or `COURSE_PREVIOUS_RELEASE_DIR`; `--dev` remains available without a baseline. Prior catalog must include `courses` and its referenced files. Existing course revision may be repackaged only with identical bytes; changed content requires higher revision and retention of progress-bearing IDs.
+- **Still required before release:** trusted acquisition and signature verification of the actual previous production catalog, first-release provenance authorization, deployment integration, full sample-catalog CI and browser/recovery tests. Do not label the shared canonical model Done until these pass and the PR is merged.
+
+### Trusted release verification — development slice
+- Previous catalog bytes are verified against an Ed25519 signature when COURSE_PREVIOUS_PUBLIC_KEY is supplied; production requires this key.
+- Every previous course file used as a revision baseline is verified against its signed catalog SHA-256 digest before comparison.
+- The publisher still needs deployment wiring to fetch the latest published release and securely provision its trusted public key. The Lesson Engine item remains **planned / in draft**, not Done.
+
+### Engine Slice 11 — CI cadence and manifest safety
+- Full Lesson Engine regression suite is now configured for **push to main only** (merge); no pull-request or per-commit test-suite trigger.
+- Production publisher rejects duplicate course IDs/source entries, unsafe source paths and malformed prior catalog schemas before generating signed files.
+- **Still in PR #11, not released:** trusted release acquisition, revision comparisons, validation and signing preflight. Full automated tests deliberately await merge. Do not mark the canonical course model complete until merged validation succeeds.
+
+### Engine backlog progress estimate — 2026-10-28
+- The public roadmap currently lists **26 planned Lesson Engine tasks** and existing completed capabilities separately. This PR addresses part of the canonical course/content model, revision protection and publishing integrity, but does not complete all 26 tasks.
+- Estimated delivery remaining, grouped into **larger functional slices**, not one tiny fix each: ~3–5 slices to finish and integrate canonical content/publishing (pending CI and deployment compatibility); ~5–8 for cross-course skills, placement and mastery; ~6–10 for teacher learning tools, games, content generation and intervention; ~8–14 for document, financial, case, science and regulated-professional engines; ~5–8 for assessments, content review, interoperability, privacy and end-to-end QA. **Total: ~27–45 substantial slices**, subject to findings and scope.
+- Test policy: full suite only after merge to main; draft PR is not considered verified or Done. Update public roadmap status only when implementation has merged and validation succeeded.
+
+### Slice 13 — Explicit first-release publishing
+- Signed empty baseline is created **only** when a human manually dispatches the site workflow with `bootstrap_first_release=true`, the remote catalog returns HTTP 404, and the production signing key matches the app-pinned public key.
+- All ordinary publishing still requires a signature-verified previous catalog; first-release bootstrap is never automatically activated on a failed fetch.
+- Existing catalog courses with established revision numbers can be imported during this one-time initialization. After a release exists, newly introduced courses must begin at revision 1.
+- **Status:** implementation on draft PR #11, awaiting merge-only CI and deployment validation; keep public Lesson Engine status planned.
+
+### Slice 14 — Publishing integration blocker fixes
+- Corrected prior-course filename validation so valid immutable `course.rN.json` paths are accepted during subsequent publication.
+- Corrected the explicitly bootstrapped catalog signature output to a newline-terminated signature string.
+- **Status:** both fixes committed on draft PR #11, not merged or verified. The full test suite remains scheduled for merge to `main` only.
+
+### Slice 15 — Immutable artifact deployment guard
+- Cloudflare R2 publication now fetches existing versioned course/state files and compares exact bytes before skipping upload. Identical files are reused; mismatches fail publication rather than silently accepting stale or conflicting immutable artifacts.
+- HTTP responses other than 200 (verified existing) and 404 (new upload) fail closed. Catalog publication remains last after all immutable files have been verified or uploaded.
+- **Status:** committed on draft PR #11; merge-only CI and live deployment verification outstanding. Do not mark the canonical course model Done yet.
+
+### Slice 16 — Catalog publication race guard
+- Before uploading the new catalog, the release workflow re-fetches the live catalog with no-cache intent, verifies its signature against pinned Erudior keys, and compares bytes/signature with the authenticated baseline used to validate the update.
+- Authorized first-release publishing rechecks that no catalog has appeared. A changed or inaccessible catalog stops the release rather than overwriting it.
+- **Limitation:** This is optimistic concurrency protection, not atomic compare-and-swap. A separately authorized writer could still race between recheck and upload. Object-store generation-conditional writes or a centralized single-writer release service remain required for a strict guarantee.
+- **Status:** committed in draft PR #11; do not mark the roadmap item Done until merge-only CI and live deployment verification succeed.
+
+### Slice 17 — Stale release prevention
+- The site publisher now verifies that its checked-out commit equals current `origin/main` before uploading course packages, and checks again immediately before catalog publication. New commits supersede stale queued or long-running releases.
+- The workflow uses `set -euo pipefail` for file uploads so failed commands stop publication; the existing GitHub Actions `site` concurrency group serializes this repository's deployments.
+- **Boundary:** These safeguards prevent superseded in-repository workflows from publishing stale catalogs, but they are not an atomic global lock against external writes. Strict cross-client exclusivity still needs a conditional commit or dedicated single-writer service and exclusive credentials.
+- **Status:** committed on draft PR #11; full tests remain merge-only. Do not mark the shared canonical course model Done until post-merge verification.
+
+### Slice 18 — Release read-back verification
+- After upload, the publisher now downloads the authoritative R2 catalog and detached signature and compares both byte-for-byte with the locally signed release. A mismatch fails the deployment before downstream website work.
+- This detects failed or corrupted publication but does not make the two-object catalog/signature update atomic. Existing readers must tolerate short propagation windows; a future single signed manifest object or conditional single-writer commit should address atomicity.
+- **Status:** draft PR #11, unmerged. Full test suite runs only after merge. Public roadmap remains Planned pending successful verification.
+
+### Slice 19 — Integration blockers and merge preparation
+- **Fixed:** Publication checks now reject dangling lesson-to-module references *before* `normalizeCourse` can silently repair them; regression case added.
+- **Hardened:** Previous-release fetch validates catalog format/version, unique course IDs, and filenames tied to course IDs before accepting downloaded artifacts.
+- **CI policy:** Merge-only Lesson Engine workflow includes previous-release recheck and trusted-key source changes; no full PR-branch test suite is run.
+- **Merge gate:** PR #11 is still in draft. Before merging, review source-format compatibility with the existing 20 published sample courses; then merge and use post-merge CI to verify the complete workflow. If post-merge CI fails, revert or repair promptly before relying on the new publisher.
+- **Remaining architectural limitation:** catalog.json and catalog.json.sig are independent R2 objects, and the recheck is not atomic against an external publisher. A single authorized publishing path with exclusive credentials or atomic manifest pointer is still required for full guarantees. Do not claim the backlog item Done before post-merge verification.

@@ -5,6 +5,12 @@ name: Publish website and courses
 # repository variable is set, so it stays idle until hosting exists.
 on:
   workflow_dispatch:
+    inputs:
+      bootstrap_first_release:
+        description: "Initialize first release only if no remote catalog exists"
+        type: boolean
+        required: true
+        default: false
   push:
     branches: [main]
     paths:
@@ -17,6 +23,9 @@ on:
       - "public/**"
       - "functions/**"
       - "scripts/prerender.mjs"
+      - "scripts/publish-courses.ts"
+      - "scripts/fetch-previous-courses.ts"
+      - "scripts/recheck-course-catalog.ts"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -50,23 +59,80 @@ jobs:
       - name: Check the signing key matches the app
         run: npx tsx scripts/check-signing-key.ts
 
+      - name: Fetch and authenticate previous release
+        env:
+          COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
+          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
+          COURSE_BOOTSTRAP_FIRST_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}
+          COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
+        run: npx tsx scripts/fetch-previous-courses.ts
+
       - name: Build and sign course packages
+        env:
+          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
         run: npm run courses:publish
 
       # Course files are immutable (named by revision): upload only new ones, then the
       # catalog last, so a catalog never points at a file that isn't there yet.
+      - name: Reject superseded website release
+        shell: bash
+        run: |
+          set -euo pipefail
+          latest=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "::error::This deployment is no longer the latest main commit; refusing stale catalog publication."
+            exit 1
+          fi
+
       - name: Upload course packages to R2
         working-directory: dist-courses/v1
         run: |
+          set -euo pipefail
           for f in *.r*.json states.*.json; do
-            if curl -sfI "${VITE_COURSES_URL}${f}" > /dev/null; then echo "have $f"; continue; fi
+            # Immutable filenames must never point to different bytes on a later release.
+            status=$(curl --silent --show-error --location --output /tmp/erudior-remote-course --write-out '%{http_code}' --max-time 60 "${VITE_COURSES_URL}${f}")
+            if [ "$status" = "200" ]; then
+              if ! cmp -s "$f" /tmp/erudior-remote-course; then
+                echo "::error::Immutable published file differs: $f"; exit 1
+              fi
+              echo "verified existing $f"; continue
+            fi
+            if [ "$status" != "404" ]; then
+              echo "::error::Cannot verify existing remote file $f (HTTP $status)"; exit 1
+            fi
             npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
               --content-type application/json --cache-control "public, max-age=31536000, immutable"
           done
+          # GitHub serializes our own publishers; re-check main after potentially
+          # slow immutable file uploads so an old run cannot overwrite a newer release.
+          latest=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
+            echo "::error::New main revision appeared during uploads; refusing stale catalog publication."
+            exit 1
+          fi
+          # Re-check the exact authenticated baseline just before committing a new catalog.
+          # GitHub's site concurrency group serializes our own publishers; this also
+          # detects most out-of-band writes, but is not atomic compare-and-swap.
+          COURSE_PREVIOUS_URL="${VITE_COURSES_URL}" \
+          COURSE_PREVIOUS_RELEASE_DIR="../../.course-previous" \
+          COURSE_BOOTSTRAP_FIRST_RELEASE="${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}" \
+          npx tsx ../../scripts/recheck-course-catalog.ts
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json" --file catalog.json \
             --content-type application/json --cache-control "public, max-age=300"
           npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
             --content-type text/plain --cache-control "public, max-age=300"
+
+      - name: Verify published catalog and signature
+        working-directory: dist-courses/v1
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Read back the authoritative objects from R2 rather than cached CDN responses.
+          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json" --file /tmp/erudior-published-catalog.json
+          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file /tmp/erudior-published-catalog.json.sig
+          cmp catalog.json /tmp/erudior-published-catalog.json
+          cmp catalog.json.sig /tmp/erudior-published-catalog.json.sig
+          echo "Published catalog and signature match signed release artifacts."
 
       - name: Sitemap from the course catalog
         run: node scripts/sitemap.mjs

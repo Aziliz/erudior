@@ -1,0 +1,43 @@
+name: Lesson engine integrity
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/lib/courseIntegrity.ts"
+      - "src/lib/courseRevision.ts"
+      - "scripts/publish-courses.ts"
+      - "scripts/fetch-previous-courses.ts"
+      - "scripts/recheck-course-catalog.ts"
+      - ".github/workflows/site.yml"
+      - "src/lib/courseKeys.ts"
+      - "src/lib/course.ts"
+      - "src/lib/types.ts"
+      - "tests/course-integrity.test.mts"
+      - "tests/course-revision.test.mts"
+      - "tests/publish-integrity.test.mts"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify-engine-integrity.yml"
+permissions:
+  contents: read
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx tsx tests/course-integrity.test.mts && npx tsx tests/course-revision.test.mts && npx tsx tests/publish-integrity.test.mts
+      - run: npm run build
+      - name: Reject production publishing without a previous-release baseline
+        run: |
+          if npm run courses:publish > /tmp/course-baseline-check.log 2>&1; then
+            echo "Production publish unexpectedly succeeded without a baseline"; exit 1
+          fi
+          grep -q "Production publishing requires" /tmp/course-baseline-check.log
+      - name: Validate and package sample courses
+        run: npm run courses:publish -- --dev
+      - run: npm test
