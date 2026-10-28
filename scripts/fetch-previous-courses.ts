@@ -2,20 +2,26 @@
 // without verifying the detached catalog signature against pinned app public keys.
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
+import { execFileSync } from "node:child_process";
+import { transientReleaseTransport } from "./lib/releaseTransport";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
 import { sha256Hex, verifySignature, publicKeyOf, signBytes, b64 } from "../src/lib/courseSign";
 
 const base = process.env.COURSE_PREVIOUS_URL?.trim();
 if (!base || !/^https:\/\//.test(base)) throw new Error("COURSE_PREVIOUS_URL must be HTTPS.");
 const target = path.resolve(process.env.COURSE_PREVIOUS_RELEASE_DIR || ".course-previous");
+const originBucket = process.env.COURSE_PREVIOUS_R2_BUCKET?.trim();
+if (originBucket && !/^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$/.test(originBucket)) throw Error("Invalid previous-release R2 bucket.");
 const fetchBytes = async (file: string): Promise<Uint8Array> => {
   const url = new URL(file, base.endsWith("/") ? base : base + "/");
   if (url.origin !== new URL(base).origin) throw new Error("Cross-origin course URL rejected.");
   let lastError: unknown;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
+      console.log(`Fetching ${file}: public attempt ${attempt}/3`);
       const response = await fetch(url, {
-        cache: "no-store", redirect: "error", signal: AbortSignal.timeout(90000),
+        cache: "no-store", redirect: "error", signal: AbortSignal.timeout(30000),
       });
       if (response.status === 404) throw new Error(`Previous release artifact missing: ${file} (HTTP 404).`);
       if (!response.ok) {
@@ -28,6 +34,22 @@ const fetchBytes = async (file: string): Promise<Uint8Array> => {
     } catch (error) {
       lastError = error;
       if (String(error).includes("missing:") || /HTTP 4(?!29)/.test(String(error))) break;
+      console.warn(`Public transfer failed for ${file}: ${String(error)}`);
+      if (originBucket && transientReleaseTransport(error)) {
+        // Transport fallback only. The caller still verifies catalog signature and
+        // every course digest. HTTP 404/other permanent 4xx never reach this path.
+        const directory = fs.mkdtempSync(path.join(os.tmpdir(), "erudior-origin-"));
+        const destination = path.join(directory, "artifact");
+        try {
+          execFileSync("npx", ["--yes", "wrangler@3.114.0", "r2", "object", "get", `${originBucket}/v1/${file}`, "--file", destination], { stdio: "inherit", timeout: 90000 });
+          const bytes = new Uint8Array(fs.readFileSync(destination));
+          console.log(`Authoritative origin candidate ${file}: ${bytes.length} bytes; authentication still required`);
+          return bytes;
+        } catch (originError) {
+          console.warn(`Origin transfer failed for ${file}: ${String(originError)}`);
+          lastError = originError;
+        } finally { fs.rmSync(directory, { recursive: true, force: true }); }
+      }
       if (attempt < 3) await new Promise(resolve => setTimeout(resolve, attempt * 2000));
     }
   }
