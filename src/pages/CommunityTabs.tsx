@@ -60,7 +60,7 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
             <button
               className="btn sm ghost danger"
               onClick={() => {
-                if (!window.confirm(`Delete the module "${m.title}"? Its lessons move to the first module.`)) return;
+                if (!window.confirm(`Delete the module "${m.title}"? Its lessons will move to the first remaining module.`)) return;
                 update((d) => {
                   const rest = (d.modules ?? []).filter((_, i) => i !== mi);
                   return { ...d, modules: rest.length ? rest : undefined, lessons: d.lessons.map((l) => (l.module === m.id ? { ...l, module: rest[0]?.id } : l)) };
@@ -111,11 +111,11 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
           update((d) => {
             const taken = [...(d.modules ?? []).map((m) => m.id), ...d.lessons.map((l) => l.id)];
             const existing = d.modules ?? [];
-            // The first time, the lessons go into module 1 and a second module is added.
+            // The implicit default module already exists for the learner; make it explicit
+            // without creating an extra empty module on the first click.
             if (!existing.length) {
               const a = newId("m", taken);
-              const b = newId("m", [...taken, a]);
-              return { ...d, modules: [{ id: a, title: d.title || "Module 1" }, { id: b, title: "Module 2" }], lessons: d.lessons.map((l) => ({ ...l, module: a })) };
+              return { ...d, modules: [{ id: a, title: d.title || "Module 1" }], lessons: d.lessons.map((l) => ({ ...l, module: a })) };
             }
             return { ...d, modules: [...existing, { id: newId("m", taken), title: `Module ${existing.length + 1}` }] };
           })
