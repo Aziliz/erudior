@@ -1,5 +1,10 @@
 # Erudior Master Roadmap — 2026-10-27
 
+## Implementation checkpoint — 2026-10-28
+
+Classroom submission history, exact-snapshot instructor review, learner spreadsheet evidence and encrypted persistence/recovery are implemented and focused-tested locally in the combined PR64/PR59 capability batch. They are not deployed; native CI and complete release validation remain pending. The public roadmap remains the deployed-source truth. Shared canonical content and Spreadsheet simulator remain **In Progress**, with no duplicate capability rows. Only complete validated capabilities may deploy; course content work comes after every other engine, website and app feature. See `CLASSROOM_SUBMISSION_WORKFLOW.md` for acceptance and limitations.
+
+
 ## Mission and release policy
 All courses are free to read without accounts. Homeschool learners follow grade-appropriate core courses plus parent-selected additions. Professional CE/qualifying education is optional, enrolled, account-backed and only called state-approved after approval. Keep 1.0 scope finite: high-school core first, then K–5, 6–8, Spanish and electives. Require independent content review and real learner pilots. Do not count community-created demonstration courses as completed official courses.
 

@@ -4,6 +4,11 @@
 
 use std::fs;
 use std::path::{Path, PathBuf};
+use std::sync::Mutex;
+
+// Serializes named-state writes/CAS across webviews in this application process.
+// This is not an inter-process lock.
+static NAMED_STATE_LOCK: Mutex<()> = Mutex::new(());
 use tauri::{AppHandle, Manager};
 
 const PROGRESS_FILE: &str = "progress.json";
@@ -113,7 +118,7 @@ fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
 }
 
 fn valid_state_name(name: &str) -> bool {
-    if name == "session" || name == "family" || name == "classes" {
+    if name == "session" || name == "family" || name == "classes" || name == "classroom-submissions" {
         return true;
     }
     for prefix in ["progress-", "records-", "session-", "portfolio-"] {
@@ -137,6 +142,7 @@ fn load_state(app: AppHandle, name: String) -> Result<Option<String>, String> {
 #[tauri::command]
 fn save_state(app: AppHandle, name: String, content: Option<String>) -> Result<(), String> {
     let path = aux_path(&app, &name)?;
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
     match content {
         Some(c) => write_atomic(&path, &c),
         None => {
@@ -145,6 +151,53 @@ fn save_state(app: AppHandle, name: String, content: Option<String>) -> Result<(
             }
             Ok(())
         }
+    }
+}
+
+/// Optimistic read/transform happens in the frontend; comparison and replacement
+/// are atomic against every named-state save in this native application process.
+#[tauri::command]
+fn compare_and_swap_state(app: AppHandle, name: String, expected: Option<String>, content: String) -> Result<bool, String> {
+    let path = aux_path(&app, &name)?;
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    compare_and_swap_path(&path, expected.as_deref(), &content)
+}
+
+fn compare_and_swap_path(path: &PathBuf, expected: Option<&str>, content: &str) -> Result<bool, String> {
+    let current = match fs::read_to_string(path) {
+        Ok(text) => Some(text),
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
+        Err(error) => return Err(format!("read failed: {error}")),
+    };
+    if current.as_deref() != expected { return Ok(false); }
+    write_atomic(path, content)?;
+    Ok(true)
+}
+
+#[cfg(test)]
+mod named_state_tests {
+    use super::*;
+    #[test]
+    fn exact_classroom_state_allowlist() {
+        for name in ["classroom-submissions", "family", "classes", "session", "progress-a1", "records-a1", "session-a1", "portfolio-a1"] {
+            assert!(valid_state_name(name), "{name}");
+        }
+        for name in ["classroom-submissions-extra", "classroom-submissions/other", "../classroom-submissions", "progress-", "records-A", "progress-a/../b", "classroom-other", "progress"] {
+            assert!(!valid_state_name(name), "{name}");
+        }
+    }
+    #[test]
+    fn stale_native_cas_does_not_replace_current_bytes() {
+        let dir = std::env::temp_dir().join(format!("erudior-state-test-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
+        fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("state.json");
+        assert!(compare_and_swap_path(&path, None, "one").unwrap());
+        assert!(!compare_and_swap_path(&path, None, "stale").unwrap());
+        assert!(!compare_and_swap_path(&path, Some("other"), "stale").unwrap());
+        assert_eq!(fs::read_to_string(&path).unwrap(), "one");
+        assert!(compare_and_swap_path(&path, Some("one"), "two").unwrap());
+        assert_eq!(fs::read_to_string(&path).unwrap(), "two");
+        fs::remove_dir_all(dir).unwrap();
     }
 }
 
@@ -291,6 +344,7 @@ pub fn run() {
             save_progress,
             load_state,
             save_state,
+            compare_and_swap_state,
             read_text_file,
             write_text_file,
             data_location,

@@ -1,0 +1,84 @@
+import assert from "node:assert/strict";
+import { JSDOM } from "jsdom";
+import { SAMPLE_ASSIGNMENT } from "../src/lib/spreadsheetAssignments.ts";
+import type { Progress } from "../src/lib/types.ts";
+import type { AppApi } from "../src/App.tsx";
+import { getConfirmedSpreadsheetSubmissions, pendingSpreadsheetSubmission } from "../src/lib/spreadsheetSubmissionState.ts";
+const dom = new JSDOM("<!doctype html><div id='root'></div>", {url: "https://example.test"});
+Object.assign(globalThis, {window: dom.window, document: dom.window.document, localStorage: dom.window.localStorage, HTMLElement: dom.window.HTMLElement, IS_REACT_ACT_ENVIRONMENT: true});
+Object.defineProperty(globalThis, "navigator", {configurable: true, value: dom.window.navigator});
+const {createElement, act} = await import("react");
+const {createRoot} = await import("react-dom/client");
+const {default: SpreadsheetCourseAssignment} = await import("../src/components/SpreadsheetCourseAssignment.tsx");
+const {useStudentFiles, emptyProgress} = await import("../src/lib/storage.ts");
+const root = createRoot(document.getElementById("root")!);
+const assignment = {...SAMPLE_ASSIGNMENT, lessonId: "lesson"};
+let progress: Progress = emptyProgress();
+let mode: "ok" | "fail" | "defer" = "ok";
+let finish: () => void;
+let calls = 0;
+let student = "learner-a";
+let mount = 0;
+let currentAssignment = assignment;
+const api = {get progress() {return progress;}, get student() {return {id: student};}, updateProgress: async (fn: (p: Progress) => Progress) => {
+  calls++; progress = fn(progress); render();
+  if (mode === "fail") throw Error("simulated disk failure");
+  if (mode === "defer") await new Promise<void>(resolve => {finish = resolve;});
+}} as unknown as AppApi;
+function render() { root.render(createElement(SpreadsheetCourseAssignment, {key: mount, api, courseId: "course", assignment: currentAssignment})); }
+const button = (text: string) => {const found = [...document.querySelectorAll("button")].find(node => node.textContent === text); assert.ok(found, text); return found;};
+async function click(text: string) { await act(async () => button(text).click()); }
+async function edit(value: string) {
+ const input = document.querySelector<HTMLInputElement>('input[id]')!;
+ const target = [...document.querySelectorAll("label")].find(label => label.textContent === "Budget!B3")!;
+ const cell = document.getElementById(target.htmlFor) as HTMLInputElement;
+ assert.ok(input && cell);
+ await act(async () => {Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, "value")!.set!.call(cell,value); cell.dispatchEvent(new dom.window.Event("input", {bubbles:true}));});
+}
+useStudentFiles(student);
+await act(async () => render());
+await edit("=B1-B2");
+await click("Grade assignment");
+assert.equal(progress.spreadsheetSubmissions, undefined, "practice grading is not an instructor submission");
+mode = "fail";
+await click("Submit for instructor review");
+const failed = pendingSpreadsheetSubmission(student, "course", assignment.id)!.submission;
+assert.equal(failed.grade.score, 1);
+assert.match(document.body.textContent!, /Not confirmed saved/);
+assert.deepEqual(getConfirmedSpreadsheetSubmissions(progress, student), {});
+await act(async () => {mount++; render();});
+assert.match(document.body.textContent!, /Not confirmed saved/, "unmount does not confirm an optimistic write");
+await edit("0");
+mode = "ok";
+await click("Retry submission save");
+assert.equal(Object.keys(progress.spreadsheetSubmissions!).length, 1);
+assert.deepEqual(progress.spreadsheetSubmissions![failed.id], failed, "retry ignores newer workbook edits and preserves the captured snapshot");
+assert.match(document.body.textContent!, /Saved for instructor review/);
+assert.equal(document.querySelector('pre[aria-label="Submitted workbook snapshot"]')!.textContent!.includes("=B1-B2"), true);
+await click("Submit for instructor review");
+assert.equal(Object.keys(progress.spreadsheetSubmissions!).length, 2, "new explicit submission appends rather than overwrites");
+await act(async () => {currentAssignment = {...assignment, title: "Revised instruction"}; render();});
+assert.match(document.body.textContent!, /Historical assignment snapshot/);
+// A pending write belongs to its captured learner even if another profile mounts.
+mode = "defer";
+await click("Submit for instructor review");
+const aProgress = progress;
+const pendingA = pendingSpreadsheetSubmission(student, "course", assignment.id)!;
+assert.ok(pendingA.saving);
+const callsBefore = calls;
+await act(async () => {mount++; render();});
+assert.equal(button("Retry submission save").disabled, true, "in-flight registry survives remount");
+assert.equal(calls, callsBefore);
+await act(async () => {student = "learner-b"; useStudentFiles(student); progress = emptyProgress(); render();});
+assert.match(document.body.textContent!, /No submissions yet/);
+await act(async () => finish!());
+assert.equal(progress.spreadsheetSubmissions, undefined, "old completion cannot install another learner's history");
+assert.equal(Object.keys(getConfirmedSpreadsheetSubmissions(aProgress, "learner-a")).length, 3);
+// Stale UI identity cannot write into a newly selected storage profile.
+useStudentFiles("learner-c");
+await click("Submit for instructor review");
+assert.equal(calls, callsBefore);
+assert.match(document.body.textContent!, /active learner is changing/i);
+await act(async () => root.unmount());
+dom.window.close();
+console.log("spreadsheet submission UI: explicit evidence, exact failed-save retries, append/history, remount and learner-switch isolation passed");

@@ -57,6 +57,33 @@ export async function webSet(key: string, value: string): Promise<void> {
   await run(await open(), "readwrite", (s) => s.put(value, key));
 }
 
+/** Compare and replace in one IndexedDB transaction. Readwrite transactions on
+ * this store serialize across tabs even where navigator.locks is unavailable.
+ * Resolve only on commit, never merely when the put request succeeds. */
+export async function webCompareAndSwap(key: string, expected: string | null, content: string): Promise<boolean> {
+  const db = await open();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    let matched = false;
+    let failure: unknown;
+    tx.oncomplete = () => resolve(matched);
+    tx.onerror = () => reject(failure ?? tx.error ?? new Error("Storage comparison failed"));
+    tx.onabort = () => reject(failure ?? tx.error ?? new Error("Storage comparison was aborted"));
+    const store = tx.objectStore(STORE);
+    const request = store.get(key);
+    request.onsuccess = () => {
+      if ((request.result ?? null) !== expected) return;
+      try {
+        store.put(content, key);
+        matched = true;
+      } catch (error) {
+        failure = error;
+        tx.abort();
+      }
+    };
+  });
+}
+
 export async function webDelete(key: string): Promise<void> {
   await run(await open(), "readwrite", (s) => s.delete(key));
 }

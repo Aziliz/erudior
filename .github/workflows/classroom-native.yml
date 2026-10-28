@@ -1,0 +1,58 @@
+name: Classroom native persistence validation
+
+# Validation only: never signs, publishes, or deploys an incomplete capability.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src-tauri/**"
+      - "src/lib/stateLock.ts"
+      - "src/lib/storage.ts"
+      - "src/lib/classroomSubmissionStore.ts"
+      - ".github/workflows/classroom-native.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src-tauri/**"
+      - "src/lib/stateLock.ts"
+      - "src/lib/storage.ts"
+      - "src/lib/classroomSubmissionStore.ts"
+      - ".github/workflows/classroom-native.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-state:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - name: Verify product identity
+        run: node scripts/check-product-identity.mjs
+      - run: npm ci
+      - name: Prepare validated frontend assets
+        run: node scripts/diagnostic-command.mjs native-frontend -- npm run build
+      - name: Native named-state tests (no packaging or deployment)
+        id: native
+        run: node scripts/diagnostic-command.mjs native-state-tests -- cargo test --locked --manifest-path src-tauri/Cargo.toml --lib named_state_tests
+      - name: Write safe diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: native-state
+          ERUDIOR_DIAG_STAGES: "native:${{ steps.native.outcome }}"
+        run: node scripts/ci-diagnostics.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: erudior-diagnostics-native-state
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn

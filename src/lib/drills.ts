@@ -1,4 +1,4 @@
-import type { Drill, FigureSpec, NumFormat } from "./types";
+import type { Drill, FigureSpec, NumFormat } from "./exerciseTypes";
 import { fillFigureText } from "./figure";
 import { compileFuncs, evaluate, type UserFn } from "./expr";
 import {

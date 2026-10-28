@@ -9,6 +9,10 @@ import {
   spreadsheetDraftKey, spreadsheetSnapshot, spreadsheetViewport, SPREADSHEET_VIEW_COLUMNS, SPREADSHEET_VIEW_ROWS,
 } from "../lib/spreadsheetLearnerState";
 
+import { appendSpreadsheetSubmission, createSpreadsheetSubmission, submissionMatchesAssignment, type SpreadsheetSubmission } from "../lib/spreadsheetEvidence";
+import { beginSpreadsheetSubmissionSave, confirmSpreadsheetSubmissionSave, failSpreadsheetSubmissionSave, getConfirmedSpreadsheetSubmissions,
+  pendingSpreadsheetSubmission, prepareSpreadsheetSubmission, spreadsheetSubmissionRegistryVersion, subscribeSpreadsheetSubmissions } from "../lib/spreadsheetSubmissionState";
+
 type Props = { api: AppApi; courseId: string; assignment: SpreadsheetAssignment & { lessonId: string } };
 
 export default function SpreadsheetCourseAssignment(props: Props) {
@@ -21,6 +25,7 @@ export default function SpreadsheetCourseAssignment(props: Props) {
 
 function LearnerSession({ api, courseId, assignment }: Props) {
   const prefix = useId();
+  const studentId = api.student?.id ?? null;
   const key = spreadsheetDraftKey(api.student?.id ?? null, courseId, assignment.id);
   const assignmentSnapshot = spreadsheetSnapshot(assignment);
   const [initial] = useState(() => {
@@ -47,6 +52,13 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   const unconfirmedGrade = spreadsheetGradeUnconfirmed(key, savedGrade?.submissionId);
   const currentGrade = savedGrade?.assignmentSnapshot === assignmentSnapshot ? savedGrade : undefined;
   const currentWorkbookSnapshot = spreadsheetSnapshot(book);
+  useSyncExternalStore(subscribeSpreadsheetSubmissions, spreadsheetSubmissionRegistryVersion, spreadsheetSubmissionRegistryVersion);
+  const pendingSubmission = pendingSpreadsheetSubmission(studentId, courseId, assignment.id);
+  const submissionSaving = !!pendingSubmission?.saving;
+  let history: SpreadsheetSubmission[] = [], historyError = "";
+  try { history = Object.values(getConfirmedSpreadsheetSubmissions(api.progress, studentId)).filter(item => item.courseId === courseId && item.assignmentId === assignment.id).sort((a, b) => b.submittedAt - a.submittedAt); }
+  catch { historyError = "Submission history could not be validated. Existing evidence was not changed."; }
+
 
   function saveDraft(next: Workbook) {
     try { localStorage.setItem(key, serializeSpreadsheetDraft(assignment, next)); setStatus("Saved locally for this learner"); }
@@ -54,7 +66,7 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   }
 
   function change(cell: string, raw: string) {
-    if (busyRef.current || protectedSet.has(sheet + "!" + cell)) return;
+    if (busyRef.current || submissionSaving || protectedSet.has(sheet + "!" + cell)) return;
     const value = raw && !raw.startsWith("=") && /^-?(?:\d+\.?\d*|\.\d+)$/.test(raw) ? Number(raw) : raw;
     const cells = { ...book.sheets[sheet], [cell]: value };
     if (raw === "" && !(cell in assignment.starter.sheets[sheet])) delete cells[cell];
@@ -72,8 +84,8 @@ function LearnerSession({ api, courseId, assignment }: Props) {
     setSheet(canonical.slice(0, separator)); setPosition(next); setTarget(""); setError("");
   }
 
-  async function submit() {
-    if (busyRef.current) return;
+  async function gradePractice() {
+    if (busyRef.current || submissionSaving) return;
     busyRef.current = true; setBusy(true); setError("");
     try {
       const problems = learnerWorkbookProblems(assignment, book);
@@ -88,7 +100,7 @@ function LearnerSession({ api, courseId, assignment }: Props) {
         assignmentSnapshot, workbookSnapshot: currentWorkbookSnapshot, submissionId,
       } } }));
       confirmSpreadsheetGrade(key, submissionId);
-      if (alive.current) { setGradeSaveFailed(false); setGrade(result); setStatus("Grade saved for this assignment version"); }
+      if (alive.current) { setGradeSaveFailed(false); setGrade(result); setStatus("Practice grade saved for this assignment version"); }
     } catch (failure) {
       if (alive.current) { setGradeSaveFailed(true); setError("Could not save the grade. Your workbook is unchanged; retry. " + (failure instanceof Error ? failure.message : "")); }
     } finally {
@@ -97,8 +109,36 @@ function LearnerSession({ api, courseId, assignment }: Props) {
     }
   }
 
+  async function submitForReview() {
+    if (busyRef.current || submissionSaving) return;
+    let record: SpreadsheetSubmission | undefined;
+    try {
+      if (activeStudent() !== studentId) throw Error("The active learner is changing. Wait for the new learner to load.");
+      const existing = pendingSpreadsheetSubmission(studentId, courseId, assignment.id);
+      if (!existing) {
+        const problems = learnerWorkbookProblems(assignment, book);
+        if (problems.length) throw Error(problems.join("; "));
+      }
+      const candidate = existing?.submission ?? createSpreadsheetSubmission({ id: crypto.randomUUID(), submittedAt: Date.now(), courseId, lessonId: assignment.lessonId, assignment, workbook: book });
+      // Check limits/conflicts before retaining a new pending record. Never prune history.
+      appendSpreadsheetSubmission(api.progress.spreadsheetSubmissions ?? {}, candidate);
+      record = prepareSpreadsheetSubmission(studentId, candidate);
+      if (!beginSpreadsheetSubmissionSave(studentId, record)) return;
+      busyRef.current = true; setBusy(true); setError("");
+      const captured = record;
+      // No await may intervene between identity check and persistence invocation.
+      if (activeStudent() !== studentId) throw Error("The active learner changed before saving.");
+      await api.updateProgress(previous => ({ ...previous, spreadsheetSubmissions: appendSpreadsheetSubmission(previous.spreadsheetSubmissions ?? {}, captured) }));
+      confirmSpreadsheetSubmissionSave(studentId, captured);
+      if (alive.current) setStatus("Submission saved for instructor review. This is evidence, not an instructor decision.");
+    } catch (failure) {
+      if (record) failSpreadsheetSubmissionSave(studentId, record);
+      if (alive.current) setError("Could not save the submission. Retry preserves its exact snapshot and ID. " + (failure instanceof Error ? failure.message : ""));
+    } finally { busyRef.current = false; if (alive.current) setBusy(false); }
+  }
+
   async function reset() {
-    if (busyRef.current) return;
+    if (busyRef.current || submissionSaving) return;
     busyRef.current = true; setBusy(true);
     try {
       if (await confirmAction("Replace your current workbook with the assignment starter? Your saved grade is retained.", "Reset spreadsheet")) {
@@ -134,23 +174,43 @@ function LearnerSession({ api, courseId, assignment }: Props) {
         let calculated = ""; try { calculated = String(calculateCell(book, sheet, cell)); } catch { calculated = "Formula error"; }
         const inputId = prefix + "-" + cell;
         return <td key={cell}><label className="sr-only" htmlFor={inputId}>{sheet}!{cell}{locked ? " (protected)" : ""}</label>
-          <input id={inputId} className="input" style={{ minWidth: 85, width: 105 }} maxLength={2048} value={String(raw)} readOnly={locked} disabled={busy} aria-readonly={locked} aria-describedby={typeof raw === "string" && raw.startsWith("=") ? inputId + "-result" : undefined} onChange={event => change(cell, event.target.value)} />
+          <input id={inputId} className="input" style={{ minWidth: 85, width: 105 }} maxLength={2048} value={String(raw)} readOnly={locked} disabled={busy || submissionSaving} aria-readonly={locked} aria-describedby={typeof raw === "string" && raw.startsWith("=") ? inputId + "-result" : undefined} onChange={event => change(cell, event.target.value)} />
           {typeof raw === "string" && raw.startsWith("=") && <div id={inputId + "-result"} className="small">Result: {calculated}</div>}
         </td>;
       })}</tr>)}
     </tbody></table></div>
     <div className="row">
-      <button className="btn sm" type="button" disabled={busy} onClick={submit}>{busy ? "Please wait…" : "Grade assignment"}</button>
-      <button className="btn sm" type="button" disabled={busy} onClick={() => saveDraft(book)}>Retry save</button>
-      <button className="btn sm" type="button" disabled={busy} onClick={reset}>Reset workbook</button>
+      <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={gradePractice}>{busy ? "Please wait…" : "Grade assignment"}</button>
+      <button className="btn primary sm" type="button" disabled={busy || submissionSaving || !!historyError} onClick={submitForReview}>{pendingSubmission ? "Retry submission save" : "Submit for instructor review"}</button>
+      <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={() => saveDraft(book)}>Retry save</button>
+      <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={reset}>Reset workbook</button>
     </div>
-    {currentGrade && !busy && !gradeSaveFailed && !unconfirmedGrade && <p className="small muted">{currentGrade.workbookSnapshot === currentWorkbookSnapshot ? "Saved grade" : "Earlier saved submission"}: {Math.round(currentGrade.score * 100)}% · {currentGrade.revision} grading attempt(s). {currentGrade.workbookSnapshot !== currentWorkbookSnapshot && "Grade again to assess current edits."}</p>}
+    {currentGrade && !busy && !gradeSaveFailed && !unconfirmedGrade && <p className="small muted">{currentGrade.workbookSnapshot === currentWorkbookSnapshot ? "Saved practice grade" : "Earlier practice grade"}: {Math.round(currentGrade.score * 100)}% · {currentGrade.revision} grading attempt(s). {currentGrade.workbookSnapshot !== currentWorkbookSnapshot && "Grade again to assess current edits."}</p>}
     {savedGrade && !currentGrade && !busy && !gradeSaveFailed && !unconfirmedGrade && <p className="small muted">An earlier grade belongs to an older or unverified assignment version and is not applied to this workbook.</p>}
     {unconfirmedGrade && !busy && !gradeSaveFailed && <p role="status">A grade submission has not been confirmed saved. Grade again to retry.</p>}
     {grade && <div role="status"><strong>{Math.round(grade.score * 100)}% correct</strong>
       {grade.feedback.map(feedback => <p className="small" key={feedback.address}><button className="btn ghost sm" type="button" onClick={() => goToCell(feedback.address)}>{feedback.address}</button>: {feedback.passed ? "Correct" : "Revise"} (calculated {String(feedback.actual)})</p>)}
     </div>}
+    <section aria-label="Submission history">
+      <h4>Submissions for instructor review</h4>
+      <p className="small muted">Grading is practice. Submit explicitly to save immutable evidence for review. Later edits do not change an earlier submission.</p>
+      {historyError && <p role="alert">{historyError}</p>}
+      {!history.length && !pendingSubmission && <p>No submissions yet.</p>}
+      {pendingSubmission && <SubmissionSnapshot submission={pendingSubmission.submission} current={submissionMatchesAssignment(pendingSubmission.submission, assignment)} status={pendingSubmission.saving ? "Saving — not yet confirmed" : "Not confirmed saved — retry this exact snapshot"} />}
+      {history.map(item => <SubmissionSnapshot key={item.id} submission={item} current={submissionMatchesAssignment(item, assignment)} status="Saved for instructor review (not an instructor decision)" />)}
+    </section>
     {error && <p role="alert">{error}</p>}
     {status && <p className="small muted" role="status">{status}</p>}
   </section>;
+}
+
+function SubmissionSnapshot({ submission, current, status }: { submission: SpreadsheetSubmission; current: boolean; status: string }) {
+  return <details><summary>{new Date(submission.submittedAt).toLocaleString()} · {Math.round(submission.grade.score * 100)}% · {status}</summary>
+    <p>{current ? "Current assignment snapshot" : "Historical assignment snapshot — the assignment has changed"}</p>
+    <p className="small">Submission ID: {submission.id}</p>
+    <p>Original lesson: {submission.lessonId}</p>
+    <pre aria-label="Submitted workbook snapshot">{JSON.stringify(submission.workbook, null, 2)}</pre>
+    <pre aria-label="Submitted assignment and criteria snapshot">{JSON.stringify(submission.assignment, null, 2)}</pre>
+    <pre aria-label="Submission grading evidence">{JSON.stringify(submission.grade, null, 2)}</pre>
+  </details>;
 }

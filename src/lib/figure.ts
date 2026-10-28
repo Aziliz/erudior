@@ -2,7 +2,7 @@
 // drills (the drill's `figure`) and lessons (```plot or ```figure code blocks).
 // Any number in a spec may be an expression using the drill's values and functions.
 
-import type { FigureSpec } from "./types";
+import type { FigureSpec } from "./exerciseTypes";
 import { derivAt as deriv1, evalNode, parse, type UserFn } from "./expr";
 
 

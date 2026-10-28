@@ -3,10 +3,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
+import { registerNavigationGuard } from "../lib/navigationGuard";
+import type { Course } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
 import { api as community, imageUrl, type Editors, type Review } from "../lib/community";
-import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
+import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, checkCommunitySpreadsheetAssignments, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
 import { calculatorForSubject } from "../lib/taxonomy";
 import { renderFigure } from "../lib/figure";
 import { readSpec } from "../lib/manip";
@@ -16,7 +19,7 @@ import { Drills, Glossary, Language, Modules, References, newId } from "./Commun
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "publish";
 
 const BLOCK_LABEL: Record<Block["type"], string> = {
   heading: "Heading",
@@ -36,6 +39,22 @@ const ADDABLE: Block["type"][] = ["heading", "text", "list", "example", "callout
 const CALC_LABEL: Record<CalcChoice, string> = { basic: "Basic", scientific: "Scientific", graphing: "Graphing", none: "No calculator" };
 
 export default function CommunityEditor({ api, id }: { api: AppApi; id: string }) {
+  return <CommunityEditorSession key={id} api={api} id={id} />;
+}
+
+/** A projection for the shared authoring UI, never a replacement for CommunityDoc. */
+function spreadsheetCourse(doc: CommunityDoc, id: string): Course {
+  const modules = doc.modules?.length ? doc.modules : [{ id: "m1", title: doc.title }];
+  return {
+    format: "examiner-course", version: 1, id, title: doc.title,
+    modules: modules.map(m => ({ id: m.id, title: m.title })),
+    lessons: doc.lessons.map(l => ({ id: l.id, module: l.module ?? modules[0].id, title: l.title, body: "" })),
+    banks: [], decks: [], glossary: [], references: [], drills: [],
+    spreadsheetAssignments: structuredClone(doc.spreadsheetAssignments ?? []),
+  };
+}
+
+function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
   const [meta, setMeta] = useState<{ status: string; version: number; review: Review; reviewNote: string | null; role?: string } | null>(null);
   const [save, setSave] = useState<Save>("saved");
@@ -45,46 +64,100 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
   const [loadError, setLoadError] = useState("");
   const timer = useRef<number>(undefined);
   const latest = useRef<CommunityDoc | null>(null);
+  const persisted = useRef<CommunityDoc | null>(null);
+  const inFlight = useRef<Promise<boolean> | null>(null);
+  const assignmentEditing = useRef(false);
+  const [pendingAssignment, setPendingAssignment] = useState(false);
+  const publicationBusy = useRef(false);
+  const [publishing, setPublishing] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
     community.draft(id).then(
       (d) => {
-        setDoc(upgradeDoc(d.doc));
-        latest.current = d.doc;
+        if (cancelled) return;
+        const upgraded = upgradeDoc(d.doc);
+        setDoc(upgraded);
+        latest.current = upgraded;
+        persisted.current = upgraded;
         setMeta({ status: d.status, version: d.version, review: d.review, reviewNote: d.reviewNote, role: d.role });
       },
-      (e) => setLoadError((e as Error).message),
+      (e) => { if (!cancelled) setLoadError((e as Error).message); },
     );
+    return () => { cancelled = true; };
   }, [id]);
 
-  const flush = async () => {
+  // One writer per editor session. A save that completes after newer edits cannot
+  // mark those edits clean or overwrite a newer save with an older snapshot.
+  const flush = (): Promise<boolean> => {
     window.clearTimeout(timer.current);
-    if (!latest.current) return true;
-    setSave("saving");
-    try {
-      await community.save(id, latest.current);
-      setSave("saved");
-      setSaveError("");
-      return true;
-    } catch (e) {
-      setSave("error");
-      setSaveError((e as Error).message);
-      return false;
+    if (assignmentEditing.current) {
+      setSaveError("Apply or cancel assignment changes before saving.");
+      return Promise.resolve(false);
     }
+    if (inFlight.current) return inFlight.current;
+    const task = (async () => {
+      while (latest.current && latest.current !== persisted.current) {
+        if (assignmentEditing.current) return false;
+        const snapshot = latest.current;
+        setSave("saving");
+        try {
+          await community.save(id, snapshot);
+          persisted.current = snapshot;
+          setSave(latest.current === snapshot ? "saved" : "unsaved");
+          setSaveError("");
+        } catch (e) {
+          setSave("error");
+          setSaveError((e as Error).message);
+          return false;
+        }
+      }
+      return !assignmentEditing.current;
+    })();
+    inFlight.current = task;
+    void task.finally(() => { if (inFlight.current === task) inFlight.current = null; });
+    return task;
   };
 
-  // Save shortly after each change, and before leaving.
   const update = (fn: (d: CommunityDoc) => CommunityDoc) => {
-    setDoc((d) => {
-      const next = fn(d!);
-      latest.current = next;
-      return next;
-    });
+    if (!latest.current || publicationBusy.current) return;
+    const next = fn(latest.current);
+    latest.current = next;
+    setDoc(next);
     setSave("unsaved");
     window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(flush, 1200);
+    timer.current = window.setTimeout(() => void flush(), 1200);
   };
-  useEffect(() => () => void flush(), []); // eslint-disable-line react-hooks/exhaustive-deps
+  function editingChanged(editing: boolean) {
+    assignmentEditing.current = editing;
+    setPendingAssignment(editing);
+    window.clearTimeout(timer.current);
+    if (!editing) {
+      setSaveError("");
+      if (latest.current !== persisted.current) timer.current = window.setTimeout(() => void flush(), 1200);
+    }
+  }
+  function canNavigate() {
+    if (assignmentEditing.current) { api.toast("Apply or cancel assignment changes before leaving this section."); return false; }
+    if (publicationBusy.current) { api.toast("Wait for publication to finish before leaving the editor."); return false; }
+    return true;
+  }
+  useEffect(() => registerNavigationGuard(() => {
+    if (assignmentEditing.current) { api.toast("Apply or cancel assignment changes before navigating away."); return false; }
+    if (publicationBusy.current) { api.toast("Wait for publication to finish before navigating away."); return false; }
+    if (inFlight.current || latest.current !== persisted.current) { api.toast("Save the draft and wait for saving to finish before navigating away."); return false; }
+    return true;
+  }), [api.toast]);
+
+  useEffect(() => {
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (assignmentEditing.current || inFlight.current || latest.current !== persisted.current || publicationBusy.current) {
+        event.preventDefault(); event.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => { window.removeEventListener("beforeunload", beforeUnload); window.clearTimeout(timer.current); void flush(); };
+  }, []); // Session is keyed by id; cleanup never writes a new document to an old id.
 
   if (loadError)
     return (
@@ -98,7 +171,7 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
 
   return (
     <div className="page community-editor">
-      <button className="back" onClick={async () => (await flush(), api.go({ name: "create" }))}>
+      <button className="back" onClick={async () => { if (canNavigate() && await flush() && canNavigate()) api.go({ name: "create" }); }}>
         ← Your courses
       </button>
       <div className="page-head">
@@ -116,8 +189,9 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
           </p>
         </div>
         <p className="small muted save-state" role="status">
-          {save === "saved" ? "All changes saved" : save === "saving" ? "Saving…" : save === "unsaved" ? "Unsaved changes" : `Not saved: ${saveError}`}
+          {pendingAssignment ? "Unapplied assignment changes" : save === "saved" ? "All changes saved" : save === "saving" ? "Saving…" : save === "unsaved" ? "Unsaved changes" : `Not saved: ${saveError}`}
         </p>
+        <button type="button" className="btn sm" disabled={readOnly || pendingAssignment || publishing || save === "saving"} onClick={() => void flush()}>Save draft</button>
       </div>
       {readOnly && <p className="notice error">A reviewer took this course down: {meta.reviewNote}. It can't be edited or published again unless they restore it.</p>}
       {meta.reviewNote && !readOnly && <p className="notice">Reviewer's note: {meta.reviewNote}</p>}
@@ -136,16 +210,17 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
             ["refs", `Reference sheets (${doc.references?.length ?? 0})`],
             ["drills", `Drills (${doc.drills?.length ?? 0})`],
             ["language", "Language and reading"],
+            ["spreadsheets", `Spreadsheets (${doc.spreadsheetAssignments?.length ?? 0})`],
             ["publish", "Publish"],
           ] as [Tab, string][]
         ).map(([t, label]) => (
-          <button key={t} aria-current={tab === t ? "page" : undefined} onClick={() => setTab(t)}>
+          <button key={t} aria-current={tab === t ? "page" : undefined} onClick={() => { if (canNavigate()) setTab(t); }}>
             {label}
           </button>
         ))}
       </nav>
 
-      <fieldset disabled={readOnly} className="plain-fieldset">
+      <fieldset disabled={readOnly || publishing} className="plain-fieldset">
         {tab === "about" && <About doc={doc} update={update} />}
         {tab === "lessons" && <Lessons api={api} doc={doc} update={update} ix={Math.min(lessonIx, doc.lessons.length - 1)} setIx={setLessonIx} />}
         {tab === "modules" && <Modules api={api} doc={doc} update={update} />}
@@ -154,6 +229,20 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
         {tab === "refs" && <References doc={doc} update={update} />}
         {tab === "drills" && <Drills doc={doc} update={update} />}
         {tab === "language" && <Language doc={doc} update={update} />}
+        {tab === "spreadsheets" && <CourseSpreadsheetEditor
+          course={spreadsheetCourse(doc, id)}
+          onEditingChange={editingChanged}
+          update={change => update(current => {
+            const changed = change(spreadsheetCourse(current, id));
+            const errors = checkCommunitySpreadsheetAssignments(changed.spreadsheetAssignments, new Set(current.lessons.map(l => l.id)));
+            if (errors.length) throw new Error(errors.join("; "));
+            // Copy back only this capability. Rich blocks, media, quiz metadata,
+            // vocabulary and future fields stay on the original document.
+            const next = { ...current, spreadsheetAssignments: structuredClone(changed.spreadsheetAssignments ?? []) };
+            if (new TextEncoder().encode(JSON.stringify(next)).length > LIMITS.docBytes) throw new Error("The course exceeds the community document size limit. Reduce workbook content before applying.");
+            return next;
+          })}
+        />}
         {tab === "publish" && (
           <Publish
             api={api}
@@ -161,6 +250,7 @@ export default function CommunityEditor({ api, id }: { api: AppApi; id: string }
             doc={doc}
             meta={meta}
             flush={flush}
+            onBusyChange={busy => { publicationBusy.current = busy; setPublishing(busy); }}
             onChange={(m) => setMeta({ ...meta, ...m })}
           />
         )}
@@ -333,8 +423,10 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
               </button>
               <button
                 className="btn sm ghost danger"
-                disabled={doc.lessons.length === 1}
+                disabled={doc.lessons.length === 1 || doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id)}
+                title={doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) ? "Move or remove spreadsheet assignments linked to this lesson first." : undefined}
                 onClick={() => {
+                  if (doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id)) { api.toast("Move or remove linked spreadsheet assignments before deleting this lesson."); return; }
                   if (!window.confirm(`Delete the lesson "${lesson.title}"?`)) return;
                   update((d) => ({ ...d, lessons: d.lessons.filter((_, i) => i !== ix) }));
                   setIx(Math.max(0, ix - 1));
@@ -794,6 +886,7 @@ function Publish({
   doc,
   meta,
   flush,
+  onBusyChange,
   onChange,
 }: {
   api: AppApi;
@@ -801,11 +894,13 @@ function Publish({
   doc: CommunityDoc;
   meta: { status: string; version: number; review: Review };
   flush: () => Promise<boolean>;
+  onBusyChange: (busy: boolean) => void;
   onChange: (m: { status?: string; version?: number; review?: Review }) => void;
 }) {
   const problems = checkDoc(doc, true);
   const [errors, setErrors] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
+  const busyRef = useRef(false);
   const shown = errors.length ? errors : problems;
   return (
     <section className="panel">
@@ -836,6 +931,9 @@ function Publish({
           className="btn primary"
           disabled={busy || problems.length > 0}
           onClick={async () => {
+            if (busyRef.current) return;
+            busyRef.current = true;
+            onBusyChange(true);
             setBusy(true);
             setErrors([]);
             try {
@@ -847,6 +945,8 @@ function Publish({
               const err = e as Error & { errors?: string[] };
               setErrors(err.errors?.length ? err.errors : [err.message]);
             } finally {
+              busyRef.current = false;
+              onBusyChange(false);
               setBusy(false);
             }
           }}

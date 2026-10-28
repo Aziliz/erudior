@@ -153,18 +153,18 @@ api.updateProgress = async fn => { progress = fn(progress) as Record<string, unk
 await press("Grade assignment");
 await show("child-a", { ...authored, answers: { "Budget!AA12": 999 } });
 assert.match(doc.body.textContent ?? "", /Could not save the grade/);
-assert(!doc.body.textContent?.includes("Saved grade:"), "optimistic failed progress never appears as saved");
+assert(!doc.body.textContent?.includes("Saved practice grade:"), "optimistic failed progress never appears as saved");
 assert.equal([...doc.querySelectorAll("button")].find(x => x.textContent === "Grade assignment")?.disabled, false, "failed grading can retry");
 // Fully unmount the learner component, then reopen it with optimistic shared progress.
 await act(async () => root.render(null));
 await show("child-a", { ...authored, answers: { "Budget!AA12": 999 } });
-assert(!doc.body.textContent?.includes("Saved grade:"), "failed optimistic grade remains unconfirmed after remount");
+assert(!doc.body.textContent?.includes("Saved practice grade:"), "failed optimistic grade remains unconfirmed after remount");
 assert.match(doc.body.textContent ?? "", /has not been confirmed saved/);
 // A later confirmed submission has its own identity and is not hidden by the failed one.
 api.updateProgress = async fn => { progress = fn(progress) as Record<string, unknown>; api.progress = progress; };
 await press("Grade assignment");
 await show("child-a", { ...authored, answers: { "Budget!AA12": 999 } });
-assert.match(doc.body.textContent ?? "", /Saved grade:/);
+assert.match(doc.body.textContent ?? "", /Saved practice grade:/);
 assert(!doc.body.textContent?.includes("has not been confirmed saved"));
 
 await act(async () => root.unmount());
