@@ -1,9 +1,12 @@
 import { useState } from "react";
+import type { AppApi } from "../App";
 import { calculateCell, type Workbook } from "../lib/spreadsheet";
 import { gradeAssignment, validateAssignment, type SpreadsheetAssignment } from "../lib/spreadsheetAssignments";
 import { validateWorkbook } from "../lib/workbookTemplates";
 
-export default function SpreadsheetCourseAssignment({courseId,assignment}:{courseId:string;assignment:SpreadsheetAssignment & {lessonId:string}}){
+export default function SpreadsheetCourseAssignment({api,courseId,assignment}:{api:AppApi;courseId:string;assignment:SpreadsheetAssignment & {lessonId:string}}){
+ const gradeKey=courseId+"/"+assignment.id;
+ const existingGrade=api.progress.spreadsheetGrades?.[gradeKey];
  const key="erudior.course.spreadsheet."+courseId+"."+assignment.id;
  const [book,setBook]=useState<Workbook>(()=>{
    try{const raw=localStorage.getItem(key);if(raw){const value:unknown=JSON.parse(raw);if(validateWorkbook(value))return value;}}catch{}
@@ -37,7 +40,12 @@ export default function SpreadsheetCourseAssignment({courseId,assignment}:{cours
        })}</tr>)}
      </tbody></table></div>
      <p className="small muted">Formula cells display their calculated values on hover. Protected inputs cannot be edited.</p>
-     <button className="btn sm" type="button" onClick={()=>setGrade(gradeAssignment(assignment,book))}>Grade assignment</button>
+     <button className="btn sm" type="button" onClick={async()=>{
+       const result=gradeAssignment(assignment,book);
+       setGrade(result);
+       await api.updateProgress(previous=>({...previous, spreadsheetGrades:{...previous.spreadsheetGrades,[gradeKey]:{score:result.score,gradedAt:new Date().toISOString(),revision:(previous.spreadsheetGrades?.[gradeKey]?.revision??0)+1}}}));
+     }}>Grade assignment</button>
+     {existingGrade&&<p className="small muted">Saved grade: {Math.round(existingGrade.score*100)}% · {existingGrade.revision} grading attempt(s)</p>
      {grade&&<div role="status"><strong>{Math.round(grade.score*100)}% correct</strong>{grade.feedback.map(f=><p className="small" key={f.address}>{f.address}: {f.passed?"Correct":"Revise"} (calculated {String(f.actual)})</p>)}</div>}
      {status&&<p className="small muted" role="status">{status}</p>}
    </>}
