@@ -469,6 +469,7 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 export const ENGINE_IN_PROGRESS = new Set<string>([
   "Shared canonical course and content model",
   "Cross-course competency graph",
+  "Production course publishing deployment repair",
   "Course creator parity regression suite",
   "Community and official course content round-trip fidelity",
   "Community course audio, reading and assignment parity",
