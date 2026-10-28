@@ -512,6 +512,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Repeatable competency reassessment and outcome regression coverage", detail: "Students can repeat focused assessments after an intervention, with tests for mastery comparisons, missing baselines and newest-session selection (PR #35).", status: "done" },
   { title: "Post-intervention mastery reassessment", detail: "Compare saved pre-practice competency mastery with current mastery, recommend next steps, and show mastered skills ready to advance (PR #34).", status: "done" },
   { title: "Traceable competency focused-practice sessions", detail: "Targeted sessions retain skill ID and starting mastery estimate in saved attempts, with linked session results shown in Progress (PR #33).", status: "done" },
   { title: "Competency assessment improvement trends", detail: "Student Learning Path compares earlier and later recorded topic assessment performance without claiming causal impact (PR #32).", status: "done" },
