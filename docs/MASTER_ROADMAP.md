@@ -161,3 +161,9 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - Progress page now renders a Learning path using installed courses, saved practice evidence, next-skill recommendations, locked prerequisites, and an all-skills drill-down.
 - Unlinked assessments do not count as mastery; the interface explains when skills are unassessed, and skill paths appear only for supported installed courses.
 - **Still draft:** broader assessment coverage, parent/teacher controls, and merge-only build/test verification. Public roadmap remains In Progress until validated and merged.
+
+### Competency graph — partial-install stability (2026-10-28)
+- Student Progress learning paths now use a shared prerequisite-closed eligibility function rather than attempting to render skills from missing course dependencies.
+- Algebra 1 installed without Pre-algebra no longer causes an invalid graph via missing prerequisites; uninstalled course skill pathways are omitted until dependencies are available, without inventing mastery.
+- Added merge-only regression coverage for no courses, Algebra 1 alone, Pre-algebra alone, and all three mapped courses installed.
+- **Status:** PR #15 remains draft. Integration is committed but neither merged nor full-suite verified. Public status remains In Progress.
