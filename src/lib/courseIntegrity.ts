@@ -63,6 +63,17 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
 
 /** Import a portable course and reject dangling references before publishing/review. */
 export function importValidatedCourseSnapshot(source: string): Course {
+  const parsed: unknown = JSON.parse(source);
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("Course must be an object.");
+  const raw = parsed as Record<string, unknown>;
+  // Detect invalid IDs and dangling references before normalization can repair or discard them.
+  const rawModules = Array.isArray(raw.modules) ? raw.modules as Array<Record<string, unknown>> : [];
+  const rawLessons = Array.isArray(raw.lessons) ? raw.lessons as Array<Record<string, unknown>> : [];
+  const ids = new Set(rawModules.map(m => m.id));
+  for (const [i, lesson] of rawLessons.entries()) {
+    if (typeof lesson.module === "string" && !ids.has(lesson.module))
+      throw new Error(`Invalid course references: lessons[${i}].module: ${lesson.module}`);
+  }
   const course = importCourseSnapshot(source);
   const errors = validateCourseIntegrity(course);
   if (errors.length) {
