@@ -5,7 +5,7 @@
 // revision (<id>.r<revision>.json). Upload the whole folder; course files never change in place.
 import fs from "node:fs";
 import path from "node:path";
-import { newKeyPair, publicKeyOf, sha256Hex, signBytes, b64 } from "../src/lib/courseSign";
+import { newKeyPair, publicKeyOf, sha256Hex, signBytes, verifySignature, b64 } from "../src/lib/courseSign";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 import { compareCourseRevisions } from "../src/lib/courseRevision";
 
@@ -39,8 +39,17 @@ if (previousArg >= 0 && !process.argv[previousArg + 1]) throw new Error("--previ
 const baselinePath = previousArg >= 0 ? process.argv[previousArg + 1] : process.env.COURSE_PREVIOUS_RELEASE_DIR;
 const previousDir = baselinePath ? path.resolve(baselinePath) : undefined;
 if (!dev && !previousDir) throw new Error("Production publishing requires --previous-dir PATH or COURSE_PREVIOUS_RELEASE_DIR. Supply an authenticated prior release (or an empty baseline catalog for first publication).");
-const previousCatalog = previousDir
-  ? JSON.parse(fs.readFileSync(path.join(previousDir, "catalog.json"), "utf8")) as { courses: { id: string; revision: number; file: string }[] }
+const previousCatalogBytes = previousDir ? fs.readFileSync(path.join(previousDir, "catalog.json")) : undefined;
+const trustedPreviousKey = process.env.COURSE_PREVIOUS_PUBLIC_KEY?.trim();
+if (previousDir && !dev && !trustedPreviousKey)
+  throw new Error("Production publishing requires COURSE_PREVIOUS_PUBLIC_KEY to verify the prior catalog signature.");
+if (previousCatalogBytes && trustedPreviousKey) {
+  const signature = fs.readFileSync(path.join(previousDir!, "catalog.json.sig"), "utf8").trim();
+  if (!verifySignature(new Uint8Array(previousCatalogBytes), signature, [trustedPreviousKey]))
+    throw new Error("Previous catalog signature verification failed.");
+}
+const previousCatalog = previousCatalogBytes
+  ? JSON.parse(previousCatalogBytes.toString("utf8")) as { courses: { id: string; revision: number; file: string; sha256: string }[] }
   : undefined;
 if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error("Previous catalog has no courses array.");
 // An empty catalog is permitted only for an explicitly authenticated first release.
@@ -59,7 +68,11 @@ for (const entry of entries) {
     const previousFile = path.resolve(previousDir, previousEntry.file);
     if (!previousFile.startsWith(previousDir + path.sep))
       throw new Error(`Unsafe previous course file path: ${previousEntry.file}`);
-    const previous = importValidatedCourseSnapshot(fs.readFileSync(previousFile, "utf8"));
+    const previousBytes = fs.readFileSync(previousFile);
+    const digest = await sha256Hex(new Uint8Array(previousBytes));
+    if (digest.toLowerCase() !== previousEntry.sha256?.toLowerCase())
+      throw new Error(`Previous course ${previousEntry.id} SHA-256 mismatch.`);
+    const previous = importValidatedCourseSnapshot(previousBytes.toString("utf8"));
     if (previous.id !== previousEntry.id || (previous.revision ?? 1) !== previousEntry.revision)
       throw new Error(`Previous catalog mismatch for ${previousEntry.id}`);
     if (entry.revision === previousEntry.revision) {
