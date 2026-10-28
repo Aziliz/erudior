@@ -15,3 +15,10 @@ check((await validateSpreadsheetReleaseApproval(withAssignment,receipt)).length=
 check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,snapshotSha256:"0".repeat(64)})).length>0,"changed bytes blocked");
 check((await validateSpreadsheetReleaseApproval({...withAssignment,title:"Changed"},receipt)).length>0,"edited course invalidates review");
 check((await validateSpreadsheetReleaseApproval(course,undefined)).length===0,"ordinary course unaffected");
+
+for(const invalid of [true, 42, [], "approved", { ...receipt, reviewer: 42 }, { ...receipt, reviewedAt: {} }]) {
+ check((await validateSpreadsheetReleaseApproval(withAssignment,invalid)).length>0,"malformed approval rejected without throwing");
+}
+check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,courseId:"another-course"})).length>0,"different course cannot borrow review");
+check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,revision:receipt.revision+1})).length>0,"different revision cannot borrow review");
+console.log("spreadsheet release approval checks passed");

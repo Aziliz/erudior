@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -7,20 +7,29 @@ import { confirmAction } from "../lib/storage";
 import { drillError, generate } from "../lib/drills";
 import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
+import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
+import { spreadsheetReviewReport } from "../lib/spreadsheetReview";
 import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheetReview";
+type Tab = "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview";
 
 export default function CourseEditor({ api, course, isNew }: { api: AppApi; course: Course; isNew?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
+  const [assignmentEditing, setAssignmentEditing] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const savingRef = useRef(false);
+  const draftVersion = useRef(0);
   const [dirty, setDirty] = useState(false);
   const [tab, setTab] = useState<Tab>("details");
   const update = (fn: (c: Course) => Course) => {
+    draftVersion.current += 1;
     setDraft(fn);
     setDirty(true);
   };
 
   async function save() {
+    if (savingRef.current) return;
+    if (assignmentEditing) return api.toast("Apply or cancel assignment changes before saving the course.");
     if (!draft.title.trim()) {
       setTab("details");
       return api.toast("Give the course a title.");
@@ -30,15 +39,30 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
       setTab("drills");
       return api.toast(`${bad.length} math drill${bad.length === 1 ? " has" : "s have"} errors.`);
     }
+    if (draft.spreadsheetAssignments?.length) {
+      const report = spreadsheetReviewReport(draft);
+      if (!report.readyForHumanReview) { setTab("spreadsheets"); return api.toast("Fix spreadsheet assignment errors before saving: " + report.issues.join("; ")); }
+    }
     // Banks and decks are edited in their own editors; keep whatever is stored now.
     const latest = api.courses.find((c) => c.id === course.id) ?? course;
-    await api.saveCourse({ ...draft, banks: latest.banks, decks: latest.decks });
-    setDirty(false);
-    api.toast("Course saved");
+    const savedVersion = draftVersion.current;
+    savingRef.current = true;
+    setSaving(true);
+    try {
+      await api.saveCourse({ ...draft, banks: latest.banks, decks: latest.decks });
+      if (draftVersion.current === savedVersion) {
+        setDirty(false);
+        api.toast("Course saved");
+      } else {
+        api.toast("Earlier changes saved. Newer edits still need saving.");
+      }
+    } catch { api.toast("Course could not be saved. Your draft is still open."); }
+    finally { savingRef.current = false; setSaving(false); }
   }
 
   async function close() {
-    if (dirty && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
+    if (savingRef.current) return api.toast("Wait for the current save to finish before leaving the editor.");
+    if ((dirty || assignmentEditing) && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
     api.go({ name: "course", courseId: course.id });
   }
 
@@ -67,7 +91,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         )}
         <div className="spacer" />
         <span className="kbd">Ctrl+S</span>
-        <button className="btn primary" onClick={save} disabled={!dirty}>
+        <button className="btn primary" onClick={save} disabled={!dirty || saving || assignmentEditing}>
           Save course
         </button>
       </div>
@@ -85,10 +109,11 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
               ["drills", `Math drills (${draft.drills.length})`],
+              ["spreadsheets", `Spreadsheets (${draft.spreadsheetAssignments?.length ?? 0})`],
               ...(draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
           ).map(([id, label]) => (
-            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => setTab(id)}>
+            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if (assignmentEditing && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else setTab(id); }}>
               {label}
             </button>
           ))}
@@ -98,6 +123,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
+        {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={setAssignmentEditing} />}
         {tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
     </div>
