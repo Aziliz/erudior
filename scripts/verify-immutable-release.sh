@@ -10,7 +10,9 @@ if [[ ! "$name" =~ ^[A-Za-z0-9_.-]+\.json$ ]] || [[ ! "$bucket" =~ ^[a-z0-9][a-z
   echo "Invalid immutable artifact verification input" >&2; exit 2
 fi
 candidate=$(mktemp)
-trap 'rm -f "$candidate"' EXIT
+started=$SECONDS
+echo "::group::Verify immutable artifact $name" >&2
+trap 'echo "verification artifact=$name elapsed_seconds=$((SECONDS-started))" >&2; echo "::endgroup::" >&2; rm -f "$candidate"' EXIT
 if status=$(curl --silent --show-error --location --output "$candidate" --write-out '%{http_code} %{time_namelookup} %{time_connect} %{time_starttransfer} %{time_total} %{size_download}' --connect-timeout 10 --max-time 30 --retry 2 --retry-delay 2 --retry-all-errors "${base%/}/$name"); then
   read -r status dns_time connect_time first_byte total_time downloaded_bytes <<< "$status"
   echo "public_check artifact=$name http=$status dns_s=$dns_time connect_s=$connect_time first_byte_s=$first_byte total_s=$total_time bytes=$downloaded_bytes" >&2
