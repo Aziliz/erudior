@@ -242,6 +242,16 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 ))}
               </ul>
             )}
+            {placement.states.filter(state=>state.mastered && interventionOutcome(state,progress)).length > 0 && (
+              <div>
+                <h3>Ready to advance</h3>
+                <ul className="roadmap-list">
+                  {placement.states.filter(state=>state.mastered && interventionOutcome(state,progress)).map(state=>(
+                    <li key={state.id}>{state.title} — mastered after recorded focused practice. Continue to a recommended prerequisite-unlocked skill.</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <details>
               <summary>All skills and prerequisites</summary>
               <ul className="roadmap-list">
