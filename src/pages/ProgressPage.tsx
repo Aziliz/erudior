@@ -171,6 +171,14 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                     <span className="pill">Next</span>
                     <span>
                       <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {progress.attempts.filter(a=>a.intervention?.skillId===skill.skillId).slice(-3).reverse().map(a=>{
+                        const baseline=a.intervention?.baseline;
+                        const assessed=a.total>0?a.correct/a.total:null;
+                        return <span key={a.id} className="small muted">
+                          Focused practice {new Date(a.finishedAt).toLocaleDateString()}: {assessed===null?"No graded answers":Math.round(assessed*100)+"% on this session"}
+                          {baseline===null||baseline===undefined||assessed===null?" (no comparable pre-practice mastery baseline)":` (starting mastery estimate ${Math.round(baseline*100)}%; these are different measures)`}
+                        </span>;
+                      })}
                       {placement.graph.filter(item=>item.id===skill.skillId).map(item=>{
                         const trend=competencyImprovement(item,api.banks,progress);
                         return trend ? <span key={item.id} className="small muted">
