@@ -1,6 +1,7 @@
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
 import { validateAssignment } from "./spreadsheetAssignments";
+import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 
 /** Structural issues that must be fixed before a course is approved for publication. */
 export interface CourseIntegrityIssue {
@@ -20,6 +21,9 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
       seen.add(value);
     }
   };
+
+  for (const message of validateCourseWork(course, { moduleIds: course.modules.map(m => m.id) })) report("work", message);
+  for (const message of validateWorkLessonReferences(course, course.lessons)) report("work", message);
 
   unique(course.modules.map((m) => m.id), "modules");
   unique(course.lessons.map((l) => l.id), "lessons");
@@ -106,6 +110,8 @@ export function importValidatedCourseSnapshot(source: string): Course {
         throw new Error(`Invalid spreadsheet lesson reference at index ${i}`);
     }
   }
+  const workErrors = validateCourseWork(raw, { legacy: true, moduleIds: rawModules.map(m => String(m.id)) });
+  if (workErrors.length) throw new Error("Invalid course work: " + workErrors.join("; "));
   const course = importCourseSnapshot(source);
   const errors = validateCourseIntegrity(course);
   if (errors.length) {

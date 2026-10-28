@@ -10,6 +10,7 @@ import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
 import { courseCounts, emptyCourse, looksLikeCourse, normalizeCourse } from "../lib/course";
+import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
 import { bankCoverage } from "../lib/session";
 import { courseNumbers } from "../lib/planner";
 import { daysBetween, today } from "../lib/srs";
@@ -37,7 +38,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         throw new BankError(`This file isn't valid JSON: ${(e as Error).message}`);
       }
       if (looksLikeCourse(raw)) {
+        const rawWorkErrors = validateCourseWork(raw, { legacy: true });
+        if (rawWorkErrors.length) throw new BankError("Invalid course work: " + rawWorkErrors.join("; "));
         let course = normalizeCourse(raw);
+        const workErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+        if (workErrors.length) throw new BankError("Invalid course work: " + workErrors.join("; "));
         const existing = courses.find((c) => c.id === course.id);
         // A file can't replace an Erudior or community course: it comes in as a separate copy.
         if (isPublishedCourse(course) || isPublishedCourse(existing)) {

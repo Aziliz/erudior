@@ -3,6 +3,7 @@ import type { Progress } from "./types";
 import { activeStudent, loadProgress } from "./storage";
 import { loadFile } from "./documents";
 import { getConfirmedSpreadsheetSubmissions } from "./spreadsheetSubmissionState";
+import { getConfirmedAssessedWorkProgress } from "./assessedWorkSubmissionState";
 
 export interface ClassroomExportIO {
   activeStudent(): string | null;
@@ -21,7 +22,7 @@ export async function preparePersistedHandIn(joined: Joined, io: ClassroomExport
   ensure();
   const persisted = await io.loadProgress();
   ensure();
-  const progress = { ...persisted, spreadsheetSubmissions: getConfirmedSpreadsheetSubmissions(persisted, learner) };
+  const progress = { ...getConfirmedAssessedWorkProgress(persisted, learner), spreadsheetSubmissions: getConfirmedSpreadsheetSubmissions(persisted, learner) };
   const result = await makeHandIn(joined.cls, joined.studentId, progress, async id => { ensure(); const file = await io.loadFile(id); ensure(); return file; }, { requireAttachments: true });
   ensure();
   return result;

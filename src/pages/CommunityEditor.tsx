@@ -3,6 +3,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import WorkResourceEditor from "../components/WorkResourceEditor";
+import { validateCourseWork, type CourseWork } from "../lib/courseWork";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { registerNavigationGuard } from "../lib/navigationGuard";
 import type { Course } from "../lib/types";
@@ -19,9 +21,10 @@ import { Drills, Glossary, Language, Modules, References, newId } from "./Commun
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "work" | "publish";
 
 const BLOCK_LABEL: Record<Block["type"], string> = {
+  assignment: "Assessed work link",
   heading: "Heading",
   text: "Text",
   list: "List",
@@ -122,6 +125,10 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   const update = (fn: (d: CommunityDoc) => CommunityDoc) => {
     if (!latest.current || publicationBusy.current) return;
     const next = fn(latest.current);
+    const moduleIds = new Set((next.modules ?? []).map(m => m.id));
+    if ([...(next.writing ?? []), ...(next.labs ?? [])].some(resource => resource.module && !moduleIds.has(resource.module))) {
+      api.toast("Move assessed work to another module before deleting its module."); return;
+    }
     latest.current = next;
     setDoc(next);
     setSave("unsaved");
@@ -210,6 +217,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
             ["refs", `Reference sheets (${doc.references?.length ?? 0})`],
             ["drills", `Drills (${doc.drills?.length ?? 0})`],
             ["language", "Language and reading"],
+            ["work", "Writing, labs and activities"],
             ["spreadsheets", `Spreadsheets (${doc.spreadsheetAssignments?.length ?? 0})`],
             ["publish", "Publish"],
           ] as [Tab, string][]
@@ -229,6 +237,21 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         {tab === "refs" && <References doc={doc} update={update} />}
         {tab === "drills" && <Drills doc={doc} update={update} />}
         {tab === "language" && <Language doc={doc} update={update} />}
+        {tab === "work" && <WorkResourceEditor
+          work={doc}
+          modules={doc.modules ?? []}
+          lessons={doc.lessons.map(lesson => ({ id: lesson.id, title: lesson.title, body: lesson.blocks.filter(b => b.type === "assignment").map(b => "```assignment\n" + (b.kind === "log" ? "log" : `${b.kind}: ${b.id}`) + "\n```").join("\n\n") }))}
+          onChange={(work: CourseWork) => update(current => ({ ...current, rubrics: work.rubrics, writing: work.writing, labs: work.labs, activityLog: work.activityLog }))}
+          onAssignmentAttachmentChange={(lessonId, reference, attached) => update(current => ({ ...current, lessons: current.lessons.map(lesson => {
+            if (lesson.id !== lessonId) return lesson;
+            const matches = (b: Block) => b.type === "assignment" && b.kind === reference.kind && (b.kind === "log" || b.id === reference.id);
+            if (!attached) return { ...lesson, blocks: lesson.blocks.filter(b => !matches(b)) };
+            if (lesson.blocks.some(matches)) return lesson;
+            if (lesson.blocks.length >= LIMITS.blocksPerLesson) { api.toast("This lesson has reached its block limit."); return lesson; }
+            const block: Block = reference.kind === "log" ? { type: "assignment", kind: "log" } : { type: "assignment", kind: reference.kind, id: reference.id! };
+            return { ...lesson, blocks: [...lesson.blocks, block] };
+          }) }))}
+        />}
         {tab === "spreadsheets" && <CourseSpreadsheetEditor
           course={spreadsheetCourse(doc, id)}
           onEditingChange={editingChanged}
@@ -363,6 +386,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
   const addBlock = (type: Block["type"]) => {
     const qids = doc.lessons.flatMap((l) => l.blocks.flatMap((b) => (b.type === "question" ? [b.id] : [])));
     const blank: Record<Block["type"], () => Block> = {
+      assignment: () => ({ type: "assignment", kind: "log" }),
       heading: () => ({ type: "heading", text: "" }),
       text: () => ({ type: "text", md: "" }),
       list: () => ({ type: "list", ordered: false, items: [""] }),
@@ -579,6 +603,7 @@ function BlockEditor({
           Delete<span className="sr-only">: {label}</span>
         </button>
       </div>
+      {b.type === "assignment" && <p>Linked {b.kind}: {b.kind === "log" ? "Activity log" : b.id}. Edit the resource or its lesson attachments in Writing, labs and activities.</p>}
       {b.type === "heading" && (
         <div className="row" style={{ alignItems: "flex-end" }}>
           <label className="field grow">
@@ -747,6 +772,8 @@ function FigureFields({ b, onChange }: { b: Extract<Block, { type: "figure" }>; 
 }
 
 function LessonPreview({ doc, ix }: { doc: CommunityDoc; ix: number }) {
+  const workProblems = validateCourseWork(doc, { moduleIds: doc.modules?.map(m => m.id) ?? [] });
+  if (workProblems.length) return <p role="alert">Finish assessed work before previewing: {workProblems.join("; ")}</p>;
   const course = toCourse(doc, { id: "preview", version: 0, review: "not_reviewed", author: "" }, imageUrl) as {
     lessons: { body: string; title: string; quiz?: string[] }[];
     banks: { questions: { id: string; type?: string; stem: string; choices: string[]; answer: number[]; left?: string[]; accept?: string[][] }[] }[];

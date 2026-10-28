@@ -43,3 +43,29 @@ await restoreContents(JSON.stringify(legacy),{courses:[],banks:[]});
 assert.equal(state.has("classroom-submissions"),false);
 assert.equal((await collect([],[])).classroomSubmissions,undefined);
 console.log("classroom backup: encrypted snapshot/review/pending roundtrip, wrong passphrase, preflight tampering/count rejection, damaged collect and legacy clear passed");
+
+// Optional assessed-work evidence is validated even without an instructor receipt.
+const {createAssessedWorkSubmission}=await import('../src/lib/assessedWorkEvidence.ts');
+const at='2026-10-28T12:00:00Z';
+const workEvidence=createAssessedWorkSubmission({id:'writing1',submittedAt:Date.parse(at),courseId:'writing',assignmentId:'essay',kind:'writing',task:{id:'essay',title:'Original task',kind:'short',prompt:'Original prompt'},response:{kind:'writing',started:at,updated:at,submitted:at,rounds:1,text:'Original answer',photos:[{id:'p1',fileId:'f1',name:'evidence.txt',mime:'text/plain',bytes:3,caption:'Original',date:'2026-10-28'}]},files:{f1:{mime:'text/plain',data:'AQID'}}});
+const withWork={...backup,classroomSubmissions:undefined,progress:{...backup.progress,assessedWorkSubmissions:{writing1:workEvidence}}};
+await restoreContents(await decryptText(JSON.parse(await encryptText(JSON.stringify(withWork),'another test passphrase')),'another test passphrase'),{courses:[],banks:[]});
+assert.deepEqual(JSON.parse(state.get('progress')!).assessedWorkSubmissions,{writing1:workEvidence});
+assert.deepEqual((await collect([],[])).progress.assessedWorkSubmissions,{writing1:workEvidence});
+for(const invalid of [{...workEvidence,task:{...workEvidence.task,id:'different'}},{...workEvidence,files:{f1:{mime:'text/plain',data:'AQI='}}}]) {
+ const damaged={...withWork,progress:{...withWork.progress,assessedWorkSubmissions:{writing1:invalid}}};
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify(damaged),{courses:[{id:'never-delete'} as any],banks:[]}));
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[],'malformed assessed evidence rejected before any restore mutation');
+}
+state.set('progress',JSON.stringify({...withWork.progress,assessedWorkSubmissions:{writing1:{...workEvidence,version:2}}}));
+await assert.rejects(collect([],[]));
+console.log('assessed-work backup: encrypted original task/response/file roundtrip and collect/restore preflight passed');
+const {emptyCourse}=await import('../src/lib/course.ts');
+const validCourse=emptyCourse('Backup work course');
+for(const course of [{...validCourse,writing:[null]},{...validCourse,writing:[{id:'essay',title:'Essay',kind:'short',prompt:'Prompt',module:'missing'}]},{...validCourse,lessons:[{id:'lesson',module:validCourse.modules[0].id,title:'Lesson',body:'```assignment\nwriting: missing\n```'}]}]) {
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify({...withWork,courses:[course]}),{courses:[{id:'never-delete'} as any],banks:[]}),/Invalid backup course work/);
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[]);
+}
+console.log('encrypted course backup: malformed raw work and dangling module/lesson references rejected before writes');

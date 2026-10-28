@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import CourseWorkInspection from "../components/CourseWorkInspection";
 import Markdown from "../components/Markdown";
 import { api as community, imageUrl, type CommunityEntry, type Me, type ReviewQueue as Queue } from "../lib/community";
 import { checkDoc, upgradeDoc, toCourse, type CommunityDoc } from "../lib/communityFormat";
@@ -211,6 +212,7 @@ export function ReviewItem({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
 
 function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry; onDone: () => void }) {
   const [doc, setDoc] = useState<CommunityDoc | null>(null);
+  const [workAcknowledged, setWorkAcknowledged] = useState(false);
   const [acknowledged, setAcknowledged] = useState(false);
   const [busy, setBusy] = useState(false);
   const operation = useRef(false);
@@ -218,7 +220,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
   useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const read = async () => {
     if (operation.current) return;
-    operation.current = true; setBusy(true); setDoc(null); setReadVersion(null); setAcknowledged(false);
+    operation.current = true; setBusy(true); setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false);
     try {
       const r = await community.course(c.id);
       if (!alive.current) return;
@@ -234,6 +236,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
   const act = async (action: "reviewed" | "remove") => {
     if (action === "reviewed" && (!doc || readVersion !== c.version)) return api.toast("Read the current published version first.");
     if (action === "reviewed" && doc?.spreadsheetAssignments?.length && !acknowledged) return api.toast("Inspect and acknowledge the spreadsheet assignments first.");
+    if (action === "reviewed" && doc && hasAssessedWork(doc) && !workAcknowledged) return api.toast("Inspect and acknowledge assessed work first.");
     if (operation.current) return;
     if (action === "remove" && !note.trim()) return api.toast("Write a note saying why; the author sees it.");
     operation.current = true; setBusy(true);
@@ -243,7 +246,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
       onDone();
     } catch (e) {
       if (alive.current && action === "reviewed") {
-        setDoc(null); setReadVersion(null); setAcknowledged(false);
+        setDoc(null); setReadVersion(null); setAcknowledged(false); setWorkAcknowledged(false);
       }
       api.toast((e as Error).message);
     } finally { operation.current = false; if (alive.current) setBusy(false); }
@@ -269,6 +272,14 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
               <Markdown source={l.body} />
             </article>
           ))}
+          {hasAssessedWork(doc) && <>
+            <CourseWorkInspection work={doc} />
+            <h4>Assessed-work lesson links</h4>
+            <ul>{doc.lessons.flatMap(lesson => lesson.blocks.filter(block => block.type === "assignment").map((block, index) => <li key={`${lesson.id}-${index}`}>{lesson.title} ({lesson.id}): {block.kind}{block.kind === "log" ? "" : ` — ${block.id}`}</li>))}</ul>
+            <label className="field"><input type="checkbox" checked={workAcknowledged} onChange={e => setWorkAcknowledged(e.target.checked)} />
+              I inspected every writing prompt, rubric level, lab safety instruction, activity log requirement, and lesson assignment link for version {readVersion}.
+            </label>
+          </>}
           {doc.spreadsheetAssignments?.map((assignment) => (
             <article key={assignment.id} aria-label={`Spreadsheet assignment: ${assignment.title}`}>
               <h4>Spreadsheet: {assignment.title}</h4>
@@ -325,7 +336,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
         <input className="input" value={note} onChange={(e) => setNote(e.target.value)} />
       </label>
       <div className="row" style={{ marginTop: 8 }}>
-        <button className="btn sm primary" disabled={busy || !doc || readVersion !== c.version || (!!doc.spreadsheetAssignments?.length && !acknowledged)} onClick={() => act("reviewed")} title={doc && readVersion === c.version ? undefined : "Read it first"}>
+        <button className="btn sm primary" disabled={busy || !doc || readVersion !== c.version || (!!doc.spreadsheetAssignments?.length && !acknowledged) || (!!doc && hasAssessedWork(doc) && !workAcknowledged)} onClick={() => act("reviewed")} title={doc && readVersion === c.version ? undefined : "Read it first"}>
           Mark version {c.version} reviewed<span className="sr-only">: {c.title}</span>
         </button>
         <button className="btn sm danger ghost" disabled={busy} onClick={() => act("remove")}>
@@ -398,3 +409,5 @@ function Users({ api }: { api: AppApi }) {
     </section>
   );
 }
+
+function hasAssessedWork(doc: CommunityDoc) { return !!(doc.writing?.length || doc.labs?.length || doc.rubrics?.length || doc.activityLog); }

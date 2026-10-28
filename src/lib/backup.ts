@@ -13,6 +13,9 @@ import { workFileIds } from "./work";
 import { serializeCourse, normalizeCourse } from "./course";
 import { parseBank, serializeBank } from "./validate";
 import { validateClassroomSubmissionState } from "./classroomSubmissionStore";
+import { mergeAssessedWorkSubmissions } from "./assessedWorkEvidence";
+import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
+import { mergeSpreadsheetSubmissions } from "./spreadsheetEvidence";
 
 interface Envelope {
   format: "examiner-backup-encrypted";
@@ -86,6 +89,13 @@ export async function decryptText(raw: unknown, passphrase: string): Promise<str
   }
 }
 
+/** Historical evidence is optional for legacy progress, but never silently repaired. */
+function validateProgressEvidence(progress: Progress): Progress {
+  if (progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, progress.assessedWorkSubmissions);
+  if (progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, progress.spreadsheetSubmissions);
+  return progress;
+}
+
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
@@ -95,11 +105,12 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   for (const s of family?.students ?? []) {
     const progressText = await store.loadState(`progress-${s.id}`);
     students[s.id] = {
-      progress: progressText ? (JSON.parse(progressText) as Progress) : store.emptyProgress(),
+      progress: validateProgressEvidence(progressText ? (JSON.parse(progressText) as Progress) : store.emptyProgress()),
       records: await loadRecords(s.id),
       photos: await loadPhotos(s.id),
     };
   }
+  const baseProgress = validateProgressEvidence(await store.loadBaseProgress());
   return {
     format: "examiner-family-backup",
     version: 1,
@@ -107,10 +118,10 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     family,
     students,
     ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
-    progress: await store.loadBaseProgress(),
+    progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
-    files: await gatherFiles(students, await store.loadBaseProgress()),
+    files: await gatherFiles(students, baseProgress),
   };
 }
 
@@ -146,7 +157,16 @@ export async function restoreContents(
   // backups clear the ledger: retaining it would mix another family's evidence.
   const classroomSubmissions = b.classroomSubmissions === undefined ? null
     : JSON.stringify(validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions)));
-  const courses = b.courses.map((c) => normalizeCourse(c));
+  validateProgressEvidence(b.progress);
+  for (const student of Object.values(b.students)) validateProgressEvidence(student.progress);
+  const courses = b.courses.map((c) => {
+    const errors = validateCourseWork(c, { legacy: true });
+    if (errors.length) throw Error(`Invalid backup course work: ${errors.join("; ")}`);
+    const course = normalizeCourse(c);
+    const canonicalErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons)];
+    if (canonicalErrors.length) throw Error(`Invalid backup course work: ${canonicalErrors.join("; ")}`);
+    return course;
+  });
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await store.deleteCourse(c.id);
   for (const x of current.banks.filter((y) => !y.courseId)) if (!banks.some((y) => y.id === x.id)) await store.deleteBank(x.id);

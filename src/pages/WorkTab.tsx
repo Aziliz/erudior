@@ -1,7 +1,7 @@
 // A course's Assignments tab: its writing assignments and labs with their status, and the
 // course's activity log (PE, art, music practice) with weekly goals and totals.
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import type { Course } from "../lib/types";
 import { isClassroom } from "../lib/family";
@@ -28,6 +28,8 @@ import Markdown from "../components/Markdown";
 import SpreadsheetCourseAssignment from "../components/SpreadsheetCourseAssignment";
 import { StoredFile, sizeOf, storeWorkFile } from "../components/WorkParts";
 import { useWorkContext } from "./WorkView";
+import { uid } from "../lib/util";
+import { AssessedWorkHistory, useAssessedWorkSubmission } from "../components/AssessedWorkSubmission";
 
 const fmtDay = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 
@@ -103,7 +105,7 @@ export default function WorkTab({ api, course }: { api: AppApi; course: Course }
           </ul>
         </section>
       )}
-      {course.activityLog && <ActivityLog api={api} course={course} spec={course.activityLog} />}
+      {course.activityLog && <ActivityLog key={JSON.stringify([api.student?.id??null,course.id,course.activityLog])} api={api} course={course} spec={course.activityLog} />}
     </div>
   );
 }
@@ -126,6 +128,12 @@ function Meter({ label, have, need, unit }: { label: string; have: number; need:
 }
 
 function ActivityLog({ api, course, spec }: { api: AppApi; course: Course; spec: ActivityLogSpec }) {
+  const studentId = api.student?.id ?? null;
+  const alive = useRef(true);
+  const adding = useRef(false);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
+  const sameLearner = () => alive.current && store.activeStudent() === studentId;
+  const requireLearner = () => { if (!sameLearner()) throw Error("The active learner changed. No activity was written to the new profile."); };
   const types = [...spec.types, ...(spec.types.includes("Other") ? [] : ["Other"])];
   const blank = { date: today(), type: types[0], minutes: "", note: "" };
   const [f, setF] = useState(blank);
@@ -133,6 +141,7 @@ function ActivityLog({ api, course, spec }: { api: AppApi; course: Course; spec:
   const [busy, setBusy] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const entries = courseLogs(api.progress, course.id);
+  const submission = useAssessedWorkSubmission(api,course.id,"activity-log","log");
   const week = thisWeek(entries);
   const all = logTotals(entries);
   // Minutes count toward the school-hours record in a homeschool family (not in a classroom, which keeps no hours).
@@ -142,13 +151,15 @@ function ActivityLog({ api, course, spec }: { api: AppApi; course: Course; spec:
 
   async function add(e: React.FormEvent) {
     e.preventDefault();
+    if (adding.current || !sameLearner()) return;
     const minutes = Math.round(Number(f.minutes));
     if (!(minutes > 0 && minutes <= 24 * 60)) return api.toast("Enter how many minutes (1 to 1440).");
     if (f.date > today()) return api.toast("The date can't be in the future.");
-    setBusy(true);
+    adding.current = true;setBusy(true);
     try {
       let stored: WorkFile | undefined;
       if (file) stored = await storeWorkFile(file, f.note.trim());
+      requireLearner();
       const entry: LogEntry = newLogEntry({
         courseId: course.id,
         date: f.date,
@@ -159,24 +170,28 @@ function ActivityLog({ api, course, spec }: { api: AppApi; course: Course; spec:
         ...(creditTo ? { credited: creditTo } : {}),
       });
       await api.updateProgress((p) => ({ ...p, logs: [...(p.logs ?? []), entry] }));
+      // This write committed to the captured learner; finish their explicit-ID hours projection.
       if (creditTo) await adjustLogged(creditTo, course.id, entry.date, minutes * 60);
+      if (!sameLearner()) return;
       setF({ ...blank, type: f.type });
       setFile(null);
       if (fileInput.current) fileInput.current.value = "";
       api.toast(`Logged ${fmtMinutes(minutes)} of ${f.type.toLowerCase()}`);
     } catch (err) {
-      api.toast((err as Error).message);
+      if (sameLearner()) api.toast((err as Error).message);
     } finally {
-      setBusy(false);
+      adding.current = false;if (alive.current) setBusy(false);
     }
   }
 
   async function remove(e: LogEntry) {
     if (!(await store.confirmAction(`Delete ${fmtMinutes(e.minutes)} of ${e.type.toLowerCase()} on ${fmtDay(e.date)}?`))) return;
+    if (!sameLearner()) return;
     await api.updateProgress((p) => ({ ...p, logs: (p.logs ?? []).filter((x) => x.id !== e.id) }));
+    // The deletion committed to the captured learner; finish that learner's hours adjustment.
     if (e.credited) await adjustLogged(e.credited, e.courseId, e.date, -e.minutes * 60).catch(() => {});
     if (e.file) deleteFile(e.file.fileId).catch(() => {});
-    api.toast("Entry deleted");
+    if (sameLearner()) api.toast("Entry deleted");
   }
 
   return (
@@ -185,6 +200,13 @@ function ActivityLog({ api, course, spec }: { api: AppApi; course: Course; spec:
         <h2 id="wt-log">{spec.title}</h2>
         {creditTo && <span className="small muted">Minutes you log count toward your school hours.</span>}
       </div>
+      <AssessedWorkHistory entries={submission.history}/>
+      {submission.error && <p role="alert">{submission.error}</p>}
+      {submission.pending && <p role="status">Original activity snapshot not confirmed saved. Retry before exporting a hand-in.</p>}
+      <button className="btn" disabled={busy||submission.busy||(!entries.length&&!submission.pending)} onClick={async()=>{
+        const source=submission.pending?.submission ?? {id:uid("logwork"),submittedAt:Date.now(),courseId:course.id,assignmentId:"activity-log",kind:"log" as const,task:spec,response:entries};
+        if(await submission.submit(source)) api.toast("Original activity log snapshot confirmed saved.");
+      }}>{submission.busy?"Saving…":submission.pending?"Retry original activity submission":"Submit activity log snapshot"}</button>
       {spec.prompt && <Markdown source={spec.prompt} glossary={course.glossary} />}
 
       <div className="log-week" aria-labelledby="wt-week">

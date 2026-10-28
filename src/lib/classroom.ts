@@ -11,6 +11,7 @@ import type { Attempt, Progress } from "./types";
 import { loadState, saveState } from "./storage";
 import { mergeStudentWork, workFileIds, workForCourses } from "./work";
 import { mergeSpreadsheetSubmissions, spreadsheetSubmissionsForCourses, type SpreadsheetSubmissionMap } from "./spreadsheetEvidence";
+import { mergeAssessedWorkSubmissions, assessedWorkSubmissionsForCourses, type AssessedWorkSubmissionMap } from "./assessedWorkEvidence";
 
 export interface ClassFile {
   format: "erudior-class";
@@ -34,7 +35,7 @@ export interface HandIn {
   studentName: string;
   created: string;
   courses: string[];
-  progress: Pick<Progress, "attempts" | "lessonsDone" | "modulesDone" | "drills" | "work" | "logs"> & { spreadsheetSubmissions?: SpreadsheetSubmissionMap };
+  progress: Pick<Progress, "attempts" | "lessonsDone" | "modulesDone" | "drills" | "work" | "logs"> & { spreadsheetSubmissions?: SpreadsheetSubmissionMap; assessedWorkSubmissions?: AssessedWorkSubmissionMap };
   /** Photos and files attached to writing, labs and activity logs, by file id. */
   files?: Record<string, { mime: string; data: string }>;
   mac: string;
@@ -81,10 +82,14 @@ function mime(v: unknown, at: string) { if (typeof v !== "string" || !/^[a-zA-Z0
 /** Validate without normalizing/discarding content; safe for independently used merge APIs. */
 export function validateHandInProgress(raw: unknown, allowedCourses: string[]): asserts raw is HandIn["progress"] {
   const courses = courseList(allowedCourses), p = object(raw, "progress");
-  keys(p, ["attempts", "lessonsDone", "modulesDone", "drills", "work", "logs", "spreadsheetSubmissions"], "progress");
+  keys(p, ["attempts", "lessonsDone", "modulesDone", "drills", "work", "logs", "spreadsheetSubmissions", "assessedWorkSubmissions"], "progress");
   if (p.spreadsheetSubmissions !== undefined) {
     const submissions = mergeSpreadsheetSubmissions({}, p.spreadsheetSubmissions);
     if (Object.values(submissions).some(item => !courses.includes(item.courseId))) bad("unassigned spreadsheet course");
+  }
+  if (p.assessedWorkSubmissions !== undefined) {
+    const submissions = mergeAssessedWorkSubmissions({}, p.assessedWorkSubmissions);
+    if (Object.values(submissions).some(item => !courses.includes(item.courseId))) bad("unassigned assessed-work course");
   }
   const seen = new Set<string>();
   for (const rawAttempt of list(p.attempts, "attempts")) {
@@ -243,6 +248,7 @@ export function workFor(p: Progress, courses: string[]): HandIn["progress"] {
     drills: pick(p.drills),
     ...workForCourses(p, courses),
     ...(p.spreadsheetSubmissions ? { spreadsheetSubmissions: spreadsheetSubmissionsForCourses(p.spreadsheetSubmissions, courses) } : {}),
+    ...(p.assessedWorkSubmissions ? { assessedWorkSubmissions: assessedWorkSubmissionsForCourses(p.assessedWorkSubmissions, courses) } : {}),
   };
 }
 
@@ -328,7 +334,8 @@ export function mergeWork(p: Progress, w: HandIn["progress"], courses: string[])
   for (const [k, v] of Object.entries(w.drills ?? {})) if (!drills[k] || v.attempts > drills[k].attempts) drills[k] = v;
   const enrolled = [...new Set([...(p.enrolled ?? []), ...courses])];
   const spreadsheetSubmissions = mergeSpreadsheetSubmissions(p.spreadsheetSubmissions ?? {}, w.spreadsheetSubmissions ?? {});
-  return { ...mergeStudentWork(p, w), ...(Object.keys(spreadsheetSubmissions).length ? { spreadsheetSubmissions } : {}), attempts, lessonsDone: earliest(p.lessonsDone, w.lessonsDone), modulesDone: earliest(p.modulesDone, w.modulesDone), drills, enrolled };
+  const assessedWorkSubmissions = mergeAssessedWorkSubmissions(p.assessedWorkSubmissions ?? {}, w.assessedWorkSubmissions ?? {});
+  return { ...mergeStudentWork(p, w), ...(Object.keys(assessedWorkSubmissions).length ? { assessedWorkSubmissions } : {}), ...(Object.keys(spreadsheetSubmissions).length ? { spreadsheetSubmissions } : {}), attempts, lessonsDone: earliest(p.lessonsDone, w.lessonsDone), modulesDone: earliest(p.modulesDone, w.modulesDone), drills, enrolled };
 }
 
 // ---------- student device: joined classes ----------

@@ -9,6 +9,7 @@ on:
     paths:
       - "worker/**"
       - "src/lib/communityFormat.ts"
+      - "src/lib/courseWork.ts"
       - "src/lib/exerciseTypes.ts"
       - "src/lib/spreadsheet*.ts"
       - "src/lib/workbookTemplates.ts"

@@ -1,5 +1,6 @@
 import type { Course } from "./types";
 import { localBankId } from "./course";
+import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems } from "./courseWork";
 
 export interface CourseRevisionIssue {
   severity: "blocking" | "warning";
@@ -31,6 +32,8 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
         add("warning", `${kind}.${key}`, "Existing ID moved or reassigned; review saved progress compatibility.");
     }
   };
+
+  for (const message of [...courseWorkRevisionProblems(previous, next), ...courseWorkLessonRevisionProblems(previous.lessons, next.lessons)]) add("blocking", "work", message);
 
   compare("modules", previous.modules, next.modules, (m) => m.id);
   compare("lessons", previous.lessons, next.lessons, (l) => l.id, (l) => l.module);
