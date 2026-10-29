@@ -1,3 +1,4 @@
+import { importQtiItem, qtiChoiceToBank } from "./lib/interopQti";
 import { createInterventionStore } from "./lib/interventionStore";
 import { createInterventionTaskAccess } from "./lib/interventionTaskAccess";
 import { taskFromPlan, parseInterventionTask, sameInterventionTask, type InterventionTask } from "./lib/interventionTasks";
@@ -130,6 +131,7 @@ export interface AppApi {
   launchInterventionTask?: (task:InterventionTask, activity:InterventionActivity) => Promise<void>;
   importInterventionTask?: () => Promise<boolean>;
   exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
+  importInteroperabilityBank?: (xml: string) => Promise<void>;
   presentationLibrary?: ReturnType<typeof createPresentationStore>;
   validatePresentation?: (deck: PresentationDeck) => Promise<string[]>;
   competencySync?: { pending: boolean; error: string };
@@ -810,6 +812,21 @@ export default function App() {
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
     saveCourse,
     addCourse,
+    importInteroperabilityBank: async (xml) => {
+      // A file never carries adult authority, a published source identity, or credit.
+      const assertAdult = async () => {
+        if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area before importing content.");
+        const current = await loadFamily();
+        if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed; reopen content exchange.");
+        return JSON.stringify(current.parent.password);
+      };
+      const authority = await assertAdult();
+      const bank = qtiChoiceToBank(importQtiItem(xml), `qti-${crypto.randomUUID()}`);
+      if (await assertAdult() !== authority) throw Error("Supervising adult changed; review the import again.");
+      await store.saveBank(bank); // New random standalone ID only; never replaces an installed source.
+      // A refresh failure must not misreport a completed save and invite a duplicate retry.
+      try { await reload(); } catch { toast("The new bank was saved. Reopen the library to refresh its listing."); }
+    },
     saveBank: async (bank) => {
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);

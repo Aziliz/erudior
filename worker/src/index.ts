@@ -1,3 +1,4 @@
+import { handleLti } from "./lti.ts";
 // Erudior community course API (Cloudflare Worker, D1 + R2).
 //
 // Public:   GET /catalog, GET /courses/:id, GET /images/:id, POST /courses/:id/report
@@ -33,6 +34,8 @@ export interface Env {
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET?: string;
   DEV_LOGIN?: string;
+  /** Absent by default. Real platform trust configuration needs explicit approval. */
+  LTI_REGISTRATIONS?: string;
 }
 
 type Role = "author" | "reviewer" | "admin";
@@ -802,6 +805,8 @@ async function route(req: Request, env: Env): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const p = new URL(req.url).pathname;
+    // Isolated OIDC form_post handler; never relax community CSRF or identity rules.
+    if (p === "/lti/login" || p === "/lti/launch") return handleLti(req, env);
     const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms" || p === "/presentation/rooms";
     // WebSocket upgrades go straight to the room.
     if (req.headers.get("Upgrade") === "websocket") {
