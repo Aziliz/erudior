@@ -8,9 +8,9 @@ const remoteStub = fs.readFileSync("src/lib/bundledCourses.remote.ts", "utf8");
 const catalog = fs.readFileSync("src/lib/catalog.ts", "utf8");
 const source = fs.readFileSync("src/lib/courseSource.ts", "utf8");
 
-test("both Android build jobs use live remote course endpoint", () => {
+test("all three Android build jobs use live remote course endpoint", () => {
   assert.equal(process.env.VITE_COURSES_URL, "https://courses.erudior.com/v1/");
-  assert.equal((workflow.match(/VITE_COURSES_URL: https:\/\/courses\.erudior\.com\/v1\//g) ?? []).length, 2);
+  assert.equal((workflow.match(/VITE_COURSES_URL: https:\/\/courses\.erudior\.com\/v1\//g) ?? []).length, 3);
 });
 
 test("Vite replaces bulky bundled course imports when remote URL is configured", () => {
