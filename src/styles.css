@@ -7682,3 +7682,62 @@ button.fn-ref {
   .lesson-page > .calc-toggle { position: static; transform: none; flex-direction: row; width: max-content; margin-bottom: 12px; border-left: 1px solid var(--rule); border-radius: var(--r-md); }
   .lesson-page > .calc-toggle span { writing-mode: horizontal-tb; transform: none; }
 }
+
+/* Native and canonical community course structure controls share one bounded layout. */
+.canonical-course-editor-shell {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.course-structure-editor,
+.course-structure-editor .inner,
+.course-structure-editor .split-main,
+.course-structure-editor .split-list,
+.course-structure-editor .field {
+  min-width: 0;
+  max-width: 100%;
+}
+.course-structure-editor .split {
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+}
+.course-structure-editor .course-lesson-settings {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 100px);
+  margin-bottom: 0;
+}
+.course-structure-editor .editor-bar {
+  flex-wrap: wrap;
+}
+.course-structure-editor .editor-bar > strong,
+.course-structure-editor .notice,
+.course-structure-editor .split-group,
+.course-structure-editor .q-item {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.course-structure-editor input,
+.course-structure-editor select,
+.course-structure-editor textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+@media (max-width: 700px) {
+  .course-structure-editor .split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .course-structure-editor .split-list {
+    max-height: 16rem;
+  }
+  .course-structure-editor .course-lesson-settings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .course-structure-editor .inner,
+  .course-structure-editor .editor-bar {
+    padding: 12px;
+  }
+}
+
+.canonical-listing-fieldset { min-inline-size: 0; margin-block: 1rem; }
+.canonical-listing-fieldset > .btn { margin: .25rem; white-space: normal; }

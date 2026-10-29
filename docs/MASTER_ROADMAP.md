@@ -351,3 +351,7 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - **Previous-release reliability:** PR #25 merged. Course downloads now use bounded retries and longer timeouts, keeping signed catalog verification and SHA-256 integrity enforcement mandatory.
 - **Outstanding:** Public course publishing has experienced both a German A1 digest mismatch and a later download timeout. Neither cause is fully resolved or independently verified in production. Keep production course publishing repair **In Progress**.
 - **Policy:** Roadmap edits are committed directly to main; application/engine code may use PRs. Full tests are merge-only.
+
+### Community module and lesson controls (implementation validation)
+
+PR #1 is being revalidated against current main. Predictable stable-ID add/reorder/move controls, dependency-preserving inline deletion, legacy and canonical editor coverage, and save/reopen/publish/install acceptance are under validation. The public capability remains In Progress until the complete deployment and regression checks pass. The comprehensive authoring-guide/demo capabilities remain separate.

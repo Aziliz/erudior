@@ -1,6 +1,7 @@
+import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
 import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
 import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
@@ -129,7 +130,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
   });
 
   return (
-    <div className="editor-main" style={{ height: "100%" }}>
+    <div className="editor-main course-structure-editor" style={{ height: "100%" }}>
       <div className="editor-bar">
         <button className="btn ghost sm" onClick={close}>
           ← Done
@@ -196,6 +197,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
 type EP = { draft: Course; update: (fn: (c: Course) => Course) => void };
 
 function Details({ draft, update }: EP) {
+  const [pendingDelete, setPendingDelete] = useState<{ id: string; snapshot: string } | null>(null);
   return (
     <div className="stack">
       <label className="field">
@@ -232,39 +234,35 @@ function Details({ draft, update }: EP) {
           </button>
         </div>
         {draft.modules.map((m, i) => (
-          <div key={m.id} className="row" style={{ flexWrap: "nowrap", marginBottom: 8 }}>
+          <div key={m.id} className="panel" style={{ marginBottom: 8 }}>
+          <div className="row" style={{ flexWrap: "wrap" }}>
             <span className="faint num" style={{ width: 24 }}>
               {i + 1}.
             </span>
             <input
               className="input"
               value={m.title}
+              aria-label={`Module ${i + 1} title`}
               onChange={(e) =>
                 update((c) => ({ ...c, modules: c.modules.map((x) => (x.id === m.id ? { ...x, title: e.target.value } : x)) }))
               }
             />
-            <button
-              className="btn sm ghost"
-              disabled={i === 0}
-              aria-label="Move up"
-              onClick={() =>
-                update((c) => {
-                  const ms = c.modules.slice();
-                  [ms[i - 1], ms[i]] = [ms[i], ms[i - 1]];
-                  return { ...c, modules: ms };
-                })
-              }
-            >
-              ↑
-            </button>
-            <button
-              className="btn sm ghost danger"
-              disabled={draft.lessons.some((l) => l.module === m.id) || [...(draft.writing ?? []), ...(draft.labs ?? [])].some(item => item.module === m.id)}
-              title="Move or delete linked lessons and work resources first"
-              onClick={() => update((c) => c.lessons.some(l => l.module === m.id) || [...(c.writing ?? []), ...(c.labs ?? [])].some(item => item.module === m.id) ? c : ({ ...c, modules: c.modules.filter((x) => x.id !== m.id) }))}
-            >
-              Remove
-            </button>
+            <button className="btn sm ghost" disabled={i === 0} aria-label={`Move module ${m.title} up`}
+              onClick={() => update(c => reorderCourseItem(c, "modules", m.id, -1))}>Up</button>
+            <button className="btn sm ghost" disabled={i === draft.modules.length - 1} aria-label={`Move module ${m.title} down`}
+              onClick={() => update(c => reorderCourseItem(c, "modules", m.id, 1))}>Down</button>
+            <button className="btn sm ghost danger" disabled={!!courseModuleDeleteReason(draft, m.id)}
+              aria-label={`Remove module ${m.title}`}
+              onClick={() => setPendingDelete({ id: m.id, snapshot: JSON.stringify(m) })}>Remove</button>
+          </div>
+          {courseModuleDeleteReason(draft, m.id) && <p className="small muted">{courseModuleDeleteReason(draft, m.id)}</p>}
+          {pendingDelete?.id === m.id && <div className="notice" role="group" aria-label={`Confirm removing module ${m.title}`}>
+            <p>Remove “{m.title}”? Its module settings and quiz links will be removed. Question-bank contents remain.</p>
+            {pendingDelete.snapshot !== JSON.stringify(m) && <p role="status">The module changed. Cancel and review it before confirming again.</p>}
+            <button className="btn sm danger" disabled={pendingDelete.snapshot !== JSON.stringify(m) || !!courseModuleDeleteReason(draft, m.id)}
+              onClick={() => { const target = pendingDelete; setPendingDelete(null); update(c => deleteCourseItem(c, "modules", target.id, target.snapshot)); }}>Confirm remove module</button>
+            <button className="btn sm" onClick={() => setPendingDelete(null)}>Cancel removal</button>
+          </div>}
           </div>
         ))}
       </div>
@@ -280,25 +278,26 @@ function useSelection<T extends { id: string }>(items: T[]) {
 }
 
 function Lessons({ draft, update }: EP) {
+  const fieldId = useId();
   const { setSel, current } = useSelection(draft.lessons);
   const [preview, setPreview] = useState(false);
+  const [pendingDelete, setPendingDelete] = useState<{ id: string; snapshot: string } | null>(null);
   const setLesson = (id: string, patch: Partial<Lesson>) =>
     update((c) => ({ ...c, lessons: c.lessons.map((l) => (l.id === id ? { ...l, ...patch } : l)) }));
 
   function add() {
-    const l: Lesson = {
-      id: `l-${uid()}`,
-      module: current?.module ?? draft.modules[0]?.id ?? "m1",
-      title: "New lesson",
-      topics: [],
-      body: "",
-    };
-    update((c) => ({
-      ...c,
-      modules: c.modules.length ? c.modules : [{ id: l.module, title: "Module 1" }],
-      lessons: [...c.lessons, l],
-    }));
-    setSel(l.id);
+    const lessonId = `l-${uid()}`;
+    const fallbackModuleId = `m-${uid()}`;
+    const requestedModuleId = current?.module;
+    update(c => {
+      if (c.lessons.some(lesson => lesson.id === lessonId) || c.modules.some(module => module.id === lessonId)) return c;
+      const moduleId = c.modules.find(module => module.id === requestedModuleId)?.id ?? c.modules[0]?.id ?? fallbackModuleId;
+      if (!c.modules.length && c.lessons.some(lesson => lesson.id === moduleId)) return c;
+      const lesson: Lesson = { id: lessonId, module: moduleId, title: "New lesson", topics: [], body: "" };
+      return { ...c, modules: c.modules.length ? c.modules : [{ id: moduleId, title: "Module 1" }], lessons: [...c.lessons, lesson] };
+    });
+    setPendingDelete(null);
+    setSel(lessonId);
   }
 
   return (
@@ -313,7 +312,7 @@ function Lessons({ draft, update }: EP) {
             {draft.lessons
               .filter((l) => l.module === m.id)
               .map((l) => (
-                <button key={l.id} className="q-item" aria-current={current?.id === l.id} onClick={() => setSel(l.id)}>
+                <button key={l.id} className="q-item" aria-current={current?.id === l.id} onClick={() => { setPendingDelete(null); setSel(l.id); }}>
                   <span className="t">{l.title}</span>
                 </button>
               ))}
@@ -322,17 +321,17 @@ function Lessons({ draft, update }: EP) {
       </div>
       <div className="split-main">
         {!current ? (
-          <p className="muted">Add a lesson to start writing.</p>
+          <p className="muted">{draft.lessons.length ? "Choose a lesson from the list, or add another lesson." : "Add a lesson to start writing."}</p>
         ) : (
           <div className="stack">
-            <div className="form-grid" style={{ gridTemplateColumns: "2fr 1fr 100px", marginBottom: 0 }}>
-              <label className="field">
-                <span>Title</span>
-                <input className="input" value={current.title} onChange={(e) => setLesson(current.id, { title: e.target.value })} />
+            <div className="form-grid course-lesson-settings">
+              <label className="field" htmlFor={`${fieldId}-title`}>
+                <span id={`${fieldId}-title-label`}>Title</span>
+                <input id={`${fieldId}-title`} aria-labelledby={`${fieldId}-title-label`} className="input" value={current.title} onChange={(e) => setLesson(current.id, { title: e.target.value })} />
               </label>
-              <label className="field">
-                <span>Module</span>
-                <select className="select" value={current.module} onChange={(e) => setLesson(current.id, { module: e.target.value })}>
+              <label className="field" htmlFor={`${fieldId}-module`}>
+                <span id={`${fieldId}-module-label`}>Module</span>
+                <select id={`${fieldId}-module`} aria-labelledby={`${fieldId}-module-label`} className="select" value={current.module} onChange={(e) => update(c => assignCourseLesson(c, current.id, e.target.value))}>
                   {draft.modules.map((m) => (
                     <option key={m.id} value={m.id}>
                       {m.title}
@@ -340,9 +339,10 @@ function Lessons({ draft, update }: EP) {
                   ))}
                 </select>
               </label>
-              <label className="field">
-                <span>Minutes</span>
+              <label className="field" htmlFor={`${fieldId}-minutes`}>
+                <span id={`${fieldId}-minutes-label`}>Minutes</span>
                 <input
+                  id={`${fieldId}-minutes`} aria-labelledby={`${fieldId}-minutes-label`}
                   className="input num"
                   type="number"
                   min={0}
@@ -351,9 +351,10 @@ function Lessons({ draft, update }: EP) {
                 />
               </label>
             </div>
-            <label className="field">
-              <span>Topics (comma-separated; links the lesson to matching questions and notecards)</span>
+            <label className="field" htmlFor={`${fieldId}-topics`}>
+              <span id={`${fieldId}-topics-label`}>Topics (comma-separated; links the lesson to matching questions and notecards)</span>
               <input
+                id={`${fieldId}-topics`} aria-labelledby={`${fieldId}-topics-label`}
                 className="input"
                 value={(current.topics ?? []).join(", ")}
                 onChange={(e) =>
@@ -386,24 +387,27 @@ function Lessons({ draft, update }: EP) {
                 <textarea
                   className="textarea mono"
                   rows={24}
+                  aria-label="Lesson text (Markdown)"
                   value={current.body}
                   onChange={(e) => setLesson(current.id, { body: e.target.value })}
                 />
               )}
             </div>
             <div>
-              <button
-                className="btn sm ghost danger"
-                disabled={(draft.spreadsheetAssignments?.some(item => item.lessonId === current.id) || draft.branchingScenarios?.some(item=>item.lessonId===current.id) || draft.scientificWorkspaces?.some(item=>item.lessonId===current.id) || draft.advancedAssessments?.some(item=>item.lessonId===current.id))}
-                title="Detach lesson-linked workspaces and assignments before deleting"
-                onClick={() => {
-                  if ((draft.spreadsheetAssignments?.some(item => item.lessonId === current.id) || draft.branchingScenarios?.some(item=>item.lessonId===current.id) || draft.scientificWorkspaces?.some(item=>item.lessonId===current.id) || draft.advancedAssessments?.some(item=>item.lessonId===current.id))) return;
-                  update((c) => ({ ...c, lessons: c.lessons.filter((l) => l.id !== current.id) }));
-                  setSel(null);
-                }}
-              >
-                Delete lesson
-              </button>
+              <button className="btn sm ghost" disabled={draft.lessons[0]?.id === current.id}
+                onClick={() => update(c => reorderCourseItem(c, "lessons", current.id, -1))}>Move lesson up</button>
+              <button className="btn sm ghost" disabled={draft.lessons.at(-1)?.id === current.id}
+                onClick={() => update(c => reorderCourseItem(c, "lessons", current.id, 1))}>Move lesson down</button>
+              <button className="btn sm ghost danger" disabled={!!courseLessonDeleteReason(draft, current.id)}
+                onClick={() => setPendingDelete({ id: current.id, snapshot: JSON.stringify(current) })}>Delete lesson</button>
+              {courseLessonDeleteReason(draft, current.id) && <p className="small muted">{courseLessonDeleteReason(draft, current.id)}</p>}
+              {pendingDelete?.id === current.id && <div className="notice" role="group" aria-label={`Confirm deleting lesson ${current.title}`}>
+                <p>Delete “{current.title}” and its lesson text and settings? Question-bank contents and other lessons remain.</p>
+                {pendingDelete.snapshot !== JSON.stringify(current) && <p role="status">The lesson changed. Cancel and review it before confirming again.</p>}
+                <button className="btn sm danger" disabled={pendingDelete.snapshot !== JSON.stringify(current) || !!courseLessonDeleteReason(draft, current.id)}
+                  onClick={() => { const target = pendingDelete; setPendingDelete(null); update(c => deleteCourseItem(c, "lessons", target.id, target.snapshot)); }}>Confirm delete lesson</button>
+                <button className="btn sm" onClick={() => setPendingDelete(null)}>Cancel deletion</button>
+              </div>}
             </div>
           </div>
         )}
@@ -464,6 +468,7 @@ function References({ draft, update }: EP) {
                 <textarea
                   className="textarea mono"
                   rows={24}
+                  aria-label="Lesson text (Markdown)"
                   value={current.body}
                   onChange={(e) => setRef(current.id, { body: e.target.value })}
                 />

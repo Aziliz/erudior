@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import { addCommunityLesson, deleteCommunityLesson, communityLessonDeleteProblem, reorderCommunityLesson } from "../lib/communityModules";
 import CanonicalCommunityEditor from "./CanonicalCommunityEditor";
 import { confirmAction } from "../lib/storage";
 import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
@@ -134,6 +135,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   const update = (fn: (d: CommunityDoc) => CommunityDoc) => {
     if (!latest.current || publicationBusy.current) return;
     const next = fn(latest.current);
+    if (next === latest.current) return;
     const previousQuestionIds = new Set(communityReaderQuestions(latest.current).map(q => q.id));
     const nextQuestionIds = new Set(communityReaderQuestions(next).map(q => q.id));
     if (next.texts?.some(text => text.sections.some(section => section.questions?.some(id => previousQuestionIds.has(id) && !nextQuestionIds.has(id))))) {
@@ -428,9 +430,10 @@ function move<T>(xs: T[], i: number, d: number): T[] {
 
 function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityDoc; update: Update; ix: number; setIx: (n: number) => void }) {
   const [preview, setPreview] = useState(false);
+  const [deletePending, setDeletePending] = useState<{ id: string; snapshot: string } | null>(null);
   const lesson = doc.lessons[ix];
   const setLesson = (fn: (l: CommunityDoc["lessons"][number]) => CommunityDoc["lessons"][number]) =>
-    update((d) => ({ ...d, lessons: d.lessons.map((l, i) => (i === ix ? fn(l) : l)) }));
+    update((d) => ({ ...d, lessons: d.lessons.map((l) => (l.id === lesson?.id ? fn(l) : l)) }));
   const setBlocks = (fn: (b: Block[]) => Block[]) => setLesson((l) => ({ ...l, blocks: fn(l.blocks) }));
   const addBlock = (type: Block["type"]) => {
     const qids = doc.lessons.flatMap((l) => l.blocks.flatMap((b) => (b.type === "question" ? [b.id] : [])));
@@ -467,8 +470,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
           className="btn sm"
           disabled={doc.lessons.length >= LIMITS.lessons}
           onClick={() => {
-            const lid = newId("l", doc.lessons.map((l) => l.id));
-            update((d) => ({ ...d, lessons: [...d.lessons, { id: lid, title: `Lesson ${d.lessons.length + 1}`, blocks: [{ type: "text", md: "" }] }] }));
+            update((d) => addCommunityLesson(d, lesson?.module ?? d.modules?.[0]?.id));
             setIx(doc.lessons.length);
           }}
         >
@@ -484,33 +486,39 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
                 <span>Lesson title</span>
                 <input className="input" value={lesson.title} maxLength={LIMITS.title} onChange={(e) => setLesson((l) => ({ ...l, title: e.target.value }))} />
               </label>
-              <button className="btn sm ghost" disabled={ix === 0} onClick={() => (update((d) => ({ ...d, lessons: move(d.lessons, ix, -1) })), setIx(ix - 1))}>
+              <button className="btn sm ghost" disabled={ix === 0} onClick={() => (update((d) => reorderCommunityLesson(d, lesson.id, -1)), setIx(ix - 1))}>
                 Move lesson up
               </button>
               <button
                 className="btn sm ghost"
                 disabled={ix === doc.lessons.length - 1}
-                onClick={() => (update((d) => ({ ...d, lessons: move(d.lessons, ix, 1) })), setIx(ix + 1))}
+                onClick={() => (update((d) => reorderCommunityLesson(d, lesson.id, 1)), setIx(ix + 1))}
               >
                 Move lesson down
               </button>
-              <button
-                className="btn sm ghost danger"
-                disabled={doc.lessons.length === 1 || (doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id))}
-                title={(doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id)) ? "Move or remove workspaces and assignments linked to this lesson first." : undefined}
-                onClick={() => {
-                  if ((doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id))) { api.toast("Move or remove linked workspaces and assignments before deleting this lesson."); return; }
-                  if (!window.confirm(`Delete the lesson "${lesson.title}"?`)) return;
-                  update((d) => ({ ...d, lessons: d.lessons.filter((_, i) => i !== ix) }));
-                  setIx(Math.max(0, ix - 1));
-                }}
-              >
+              <button className="btn sm ghost danger" disabled={!!communityLessonDeleteProblem(doc, lesson.id)}
+                onClick={() => setDeletePending({ id: lesson.id, snapshot: JSON.stringify(lesson) })}>
                 Delete lesson
               </button>
               <button className="btn sm" aria-pressed={preview} onClick={() => setPreview((p) => !p)}>
                 {preview ? "Edit" : "Preview"}
               </button>
             </div>
+            {communityLessonDeleteProblem(doc, lesson.id) && <p className="small muted">{communityLessonDeleteProblem(doc, lesson.id)}</p>}
+            {deletePending?.id === lesson.id && <div className="notice" role="group" aria-label="Confirm lesson deletion">
+              <p>Delete “{lesson.title}” and its content? This does not delete already published versions.</p>
+              <button className="btn danger" onClick={() => {
+                update(d => {
+                  const current = d.lessons.find(l => l.id === deletePending.id);
+                  if (!current || JSON.stringify(current) !== deletePending.snapshot) { api.toast("The lesson changed. Review it before deleting."); return d; }
+                  const problem = communityLessonDeleteProblem(d, current.id);
+                  if (problem) { api.toast(problem); return d; }
+                  return deleteCommunityLesson(d, current.id);
+                });
+                setDeletePending(null); setIx(Math.max(0, ix - 1));
+              }}>Confirm delete lesson</button>
+              <button className="btn ghost" onClick={() => setDeletePending(null)}>Cancel lesson deletion</button>
+            </div>}
             <LessonSettings doc={doc} lesson={lesson} setLesson={setLesson} />
           </div>
 
@@ -563,8 +571,8 @@ function LessonSettings({
     return next.length ? next : undefined;
   };
   return (
-    <details className="lesson-settings">
-      <summary>Lesson settings{lesson.honors ? " · honors" : ""}</summary>
+    <div className="lesson-settings">
+      <p className="small muted">Lesson settings{lesson.honors ? " · honors" : ""}</p>
       <div className="form-grid">
         {modules.length > 0 && (
           <label className="field">
@@ -616,7 +624,7 @@ function LessonSettings({
           </fieldset>
         )}
       </div>
-    </details>
+    </div>
   );
 }
 

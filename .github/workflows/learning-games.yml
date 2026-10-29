@@ -21,6 +21,7 @@ on:
       - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/course-activities-browser.mjs'
       - 'scripts/public-learning-browser.mjs'
+      - 'scripts/community-controls-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -43,6 +44,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Community module controls, persistence and publication
+        run: npm run test:community-controls-browser
       - name: Public guest discovery, signed course loading, practice and optional storage
         run: npm run test:public-learning-browser
       - name: Lesson-linked activity discovery, exact source launch and return
@@ -161,3 +164,11 @@ jobs:
           name: public-learning-browser
           path: test-results/public-learning-browser/
           if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-controls-browser
+          path: test-results/community-controls-browser/
+          if-no-files-found: warn
+          retention-days: 14
