@@ -843,6 +843,21 @@ export default function App() {
     courses: async () => (await store.listCourses()).courses,
     progress: id => store.loadProfileProgress(id),
     updateProgress: (id, change) => store.updateProfileProgress(id, change),
+    anonymous: {
+      read: () => store.readAnonymousPrivacy(),
+      erase: (expected, guard) => store.eraseAnonymousPrivacy(expected, guard),
+      recover: (expected, progress, session, files, guard) => store.recoverAnonymousPrivacy(expected, progress, session, files, guard),
+      sources: async () => {
+        const [courses, banks] = await Promise.all([store.listCourses(), store.listBanks()]);
+        return { courses: courses.courses, banks: [...banks.banks, ...courses.courses.flatMap(course => course.banks)] };
+      },
+      changed: async progress => {
+        // Display only: deletion invalidates this realm's write lease until explicit reload.
+        if (store.activeStudent() === null && !await loadFamily()) {
+          progressRef.current = progress; setProgressState(progress); setResumable(null);
+        }
+      },
+    },
     authorize: async id => {
       // Anonymous practice has no account or upload identity. Family privacy actions require
       // the current unlocked adult, never a learner selection or a community author cookie.

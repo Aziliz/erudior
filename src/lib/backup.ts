@@ -342,6 +342,7 @@ export async function restoreContents(
     return course;
   });
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
+  const anonymousGeneration = await store.assertAnonymousWriteLease();
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await store.deleteCourse(c.id);
   for (const x of current.banks.filter((y) => !y.courseId)) if (!banks.some((y) => y.id === x.id)) await store.deleteBank(x.id);
   for (const c of courses) await store.saveCourse(c);
@@ -353,7 +354,7 @@ export async function restoreContents(
   }
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
-  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true }, { replaceInterventionTasks: true });
+  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true });
   if (b.family) await saveFamily(b.family);
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);

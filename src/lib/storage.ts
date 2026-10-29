@@ -9,7 +9,7 @@ import { invoke, isTauri } from "@tauri-apps/api/core";
 import type { Bank, Course, Progress } from "./types";
 import { parseBank, serializeBank } from "./validate";
 import { normalizeCourse, serializeCourse } from "./course";
-import { webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
+import { webReplaceAnonymous, webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 import { validateReaderTexts } from "./readerContent";
 import { stateTransactions, validStateName } from "./stateLock";
@@ -99,6 +99,30 @@ export async function deleteBank(id: string): Promise<void> {
 // records-<id> next to family.json. Without a family (or before one is set up) the original
 // progress.json / session.json are used.
 let student: string | null = null;
+let anonymousLease: number | null = null;
+function anonymousGeneration(raw: string | null): number {
+  const value = raw === null ? 0 : (JSON.parse(raw).anonymousGeneration ?? 0);
+  if (!Number.isSafeInteger(value) || value < 0 || value >= Number.MAX_SAFE_INTEGER) throw Error("Invalid anonymous generation.");
+  return value;
+}
+export async function anonymousDocumentGeneration():Promise<number|undefined>{
+ // A later family/profile switch cannot authorize an old anonymous callback after erasure.
+ if(anonymousLease!==null)await anonymousEpoch();
+ if(student!==null||await loadState("family")!==null)return undefined;
+ return anonymousEpoch();
+}
+export async function assertAnonymousWriteLease():Promise<number>{ return anonymousEpoch(); }
+async function anonymousEpoch(): Promise<number> {
+  const current = anonymousGeneration(await loadState("progress"));
+  if (anonymousLease === null) anonymousLease = current;
+  if (anonymousLease !== current) throw Error("Anonymous data was erased or recovered. Reload this view before saving.");
+  return current;
+}
+async function guardedAnonymousCas(name: "progress" | "session", expected: string | null, content: string, generation: number): Promise<boolean> {
+  return inApp ? invoke<boolean>("compare_and_swap_state", {name, expected, content, anonymousGeneration:generation})
+    : webCompareAndSwap(`erudior.${name}`, expected, content, generation);
+}
+
 
 /** Point progress and session storage at a student's files (null = the single-user files). */
 export function useStudentFiles(id: string | null): void {
@@ -130,13 +154,26 @@ const namedState = stateTransactions({
 });
 
 /** Write/delete a named state file, serialized with updateState callers. */
-export const saveState = (name: string, content: string | null): Promise<void> => namedState.save(name, content);
+export const saveState = (name: string, content: string | null): Promise<void> => name === "progress" || name === "session" ? saveAnonymousState(name, content) : namedState.save(name, content);
+async function saveAnonymousState(name:"progress"|"session",content:string|null):Promise<void>{
+  if(name === "session")return saveAnonymousSession(content);
+  await updateState(name,()=>content??JSON.stringify(emptyProgress()));
+}
 
 /** Atomically read/transform/write one named state. The updater must be pure,
  * may be retried on contention, and must not call saveState/updateState.
  * Browser CAS uses one IndexedDB transaction across tabs, even without Web Locks.
  * Native CAS protects webviews in one app process, not separate app processes. */
-export const updateState = (name: string, updater: (old: string | null) => string | Promise<string>): Promise<string> => namedState.update(name, updater);
+export const updateState = (name: string, updater: (old: string | null) => string | Promise<string>): Promise<string> => name === "progress" || name === "session" ? updateAnonymousState(name,updater) : namedState.update(name,updater);
+async function updateAnonymousState(name:"progress"|"session",updater:(old:string|null)=>string|Promise<string>):Promise<string>{
+  const epoch = await anonymousEpoch();
+  for (let retry=0;retry<16;retry++) {
+    const old = await loadState(name), content = await updater(old);
+    if (name === "progress" && anonymousGeneration(content) !== epoch) throw Error("Stale anonymous progress cannot replace erased data.");
+    if (await guardedAnonymousCas(name,old,content,epoch)) return content;
+  }
+  throw Error("Anonymous data changed repeatedly; reload before retrying.");
+}
 
 function parseProgress(text: string | null): Progress {
   if (!text) return emptyProgress();
@@ -144,6 +181,7 @@ function parseProgress(text: string | null): Progress {
   try { p = JSON.parse(text) as Progress; } catch { return emptyProgress(); }
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
+  if (p.anonymousGeneration !== undefined) anonymousGeneration(text);
   return { ...emptyProgress(), ...p };
 }
 function profileName(id: string | null): string {
@@ -152,7 +190,9 @@ function profileName(id: string | null): string {
 }
 /** Explicit profile scope never follows a later active-student switch. */
 export async function loadProfileProgress(id: string | null): Promise<Progress> {
-  return parseProgress(await loadState(profileName(id)));
+  const raw = await loadState(profileName(id));
+  if (id === null && anonymousLease === null) anonymousLease = anonymousGeneration(raw);
+  return parseProgress(raw);
 }
 export async function updateProfileProgress(id: string | null, change: (current: Progress) => Progress | Promise<Progress>): Promise<Progress> {
   const name = profileName(id);
@@ -306,6 +346,7 @@ export async function restoreBackup(
   current: { courses: Course[]; banks: Bank[] },
 ): Promise<{ courses: number; banks: number }> {
   const targetStudent = student;
+  if(targetStudent===null)await assertAnonymousWriteLease();
   const b = raw as Backup;
   if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
   if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
@@ -342,14 +383,27 @@ export async function restoreBackup(
   }
   await updateProfileProgress(targetStudent, async current => {
     if(targetStudent !== null && !await competencyProfileExists(targetStudent))throw Error("This learner profile no longer exists.");
-    return {...emptyProgress(), ...b.progress, competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true};
+    return {...emptyProgress(), ...b.progress, ...(targetStudent===null?{anonymousGeneration:current.anonymousGeneration??0}:{}), competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true};
   });
   return { courses: courses.length, banks: banks.length };
 }
 
 /** The in-progress session (exam or practice), or null. */
 export async function loadSessionState(): Promise<string | null> {
-  return loadState(student ? `session-${student}` : "session");
+  if (student) return loadState(`session-${student}`);
+  const epoch = await anonymousEpoch();
+  return unwrapAnonymousSession(await loadState("session"),epoch);
+}
+function unwrapAnonymousSession(raw:string|null,epoch:number):string|null {
+  if (raw === null) return null;
+  const value=JSON.parse(raw);
+  if (value?.format === "erudior-anonymous-session") return value.generation === epoch && (value.content === null || typeof value.content === "string") ? value.content : null;
+  return epoch === 0 ? raw : null;
+}
+async function saveAnonymousSession(content:string|null):Promise<void> {
+  const epoch=await anonymousEpoch(), wrapped=JSON.stringify({format:"erudior-anonymous-session",version:1,generation:epoch,content});
+  for(let retry=0;retry<16;retry++) { const old=await loadState("session"); if(await guardedAnonymousCas("session",old,wrapped,epoch)) return; }
+  throw Error("Anonymous session changed repeatedly.");
 }
 
 export async function saveSessionState(content: string | null): Promise<void> {
@@ -366,4 +420,43 @@ export async function confirmAction(message: string, title = "Erudior"): Promise
 
 export async function dataLocation(): Promise<string> {
   return inApp ? invoke<string>("data_location") : "this browser's storage (web version; not synced with the desktop app)";
+}
+
+export interface AnonymousPrivacySnapshot {
+ progress:Progress;session:string|null;files:Record<string,import('./documents').StoredDocument>;missingFiles:string[];
+ generation:number;progressDigest:string;sessionDigest:string;privacyDigest:string;anonymousAssociation:boolean;anonymousPending:boolean;
+}
+export type AnonymousPrivacyExpected=Pick<AnonymousPrivacySnapshot,'generation'|'progressDigest'|'sessionDigest'|'privacyDigest'>;
+async function anonymousDigest(raw:string|null):Promise<string>{const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw??'null'));return Array.from(new Uint8Array(bytes),x=>x.toString(16).padStart(2,'0')).join('');}
+async function requireAnonymous():Promise<void>{if(student!==null||await loadState('family')!==null)throw Error('This action is only available for anonymous local data without a family.');}
+async function anonymousRaw(){await requireAnonymous();const progress=await loadState('progress'),session=await loadState('session');await requireAnonymous();return {progress,session};}
+export async function readAnonymousPrivacy():Promise<AnonymousPrivacySnapshot>{
+ const raw=await anonymousRaw(),progress=parseProgress(raw.progress),generation=anonymousGeneration(raw.progress);
+ if(anonymousLease===null)anonymousLease=generation;
+ const {anonymousFileIds,parseAnonymousProgress,parseAnonymousSession}=await import('./anonymousPrivacy');parseAnonymousProgress(progress);parseAnonymousSession(unwrapAnonymousSession(raw.session,generation));
+ const {loadFile}=await import('./documents');const files:AnonymousPrivacySnapshot['files']={},missingFiles:string[]=[];
+ for(const id of anonymousFileIds(progress)){const file=await loadFile(id);if(file)files[id]=file;else missingFiles.push(id);}
+ const privacyRaw=await loadState('learner-privacy');const {parseLearnerPrivacyLibrary}=await import('./learnerPrivacyStore');const profile=parseLearnerPrivacyLibrary(privacyRaw).profiles.find(p=>p.studentId===null);
+ const latest=await anonymousRaw();if(latest.progress!==raw.progress||latest.session!==raw.session)throw Error('Anonymous data changed during inventory. Inspect again.');
+ return {progress,session:unwrapAnonymousSession(raw.session,generation),files,missingFiles,generation,progressDigest:await anonymousDigest(raw.progress),sessionDigest:await anonymousDigest(raw.session),privacyDigest:await anonymousDigest(privacyRaw),anonymousAssociation:!!profile?.consent,anonymousPending:!!profile?.pending};
+}
+async function replaceAnonymous(expected:AnonymousPrivacyExpected,next:Progress,session:string|null,fileIds:string[],guard?:()=>void|Promise<void>,files:Record<string,import('./documents').StoredDocument>={}):Promise<{progress:Progress;retainedFileIds:string[]}>{
+ const raw=await anonymousRaw();if(anonymousGeneration(raw.progress)!==expected.generation||await anonymousDigest(raw.progress)!==expected.progressDigest||await anonymousDigest(raw.session)!==expected.sessionDigest)throw Error('Anonymous data changed. Inspect again before replacing it.');
+ const expectedPrivacy=await loadState('learner-privacy');if(await anonymousDigest(expectedPrivacy)!==expected.privacyDigest)throw Error('Anonymous privacy settings changed. Inspect again.');const {parseLearnerPrivacyLibrary}=await import('./learnerPrivacyStore');const privacy=parseLearnerPrivacyLibrary(expectedPrivacy);const privacyContent=JSON.stringify(parseLearnerPrivacyLibrary({...privacy,revision:privacy.revision+1,profiles:privacy.profiles.filter(p=>p.studentId!==null)}));
+ const progress={...next,anonymousGeneration:expected.generation+1},content=JSON.stringify(progress),wrapped=JSON.stringify({format:'erudior-anonymous-session',version:1,generation:expected.generation+1,content:session});
+ await requireAnonymous();await guard?.();
+ const retainedFileIds=inApp?await invoke<string[]>('replace_anonymous_state',{expectedProgress:raw.progress,expectedSession:raw.session,progress:content,session:wrapped,fileIds,files,expectedPrivacy,privacy:privacyContent}):(await webReplaceAnonymous(raw.progress,raw.session,content,wrapped,fileIds,files,expectedPrivacy,privacyContent)).retainedFileIds;
+ // Intentionally do not advance this realm's write lease: stale timers/components must reload.
+ return {progress,retainedFileIds};
+}
+export async function eraseAnonymousPrivacy(expected:AnonymousPrivacyExpected,guard?:()=>void|Promise<void>):Promise<{progress:Progress;retainedFileIds:string[]}>{
+ const snapshot=await readAnonymousPrivacy();const {anonymousFileIds}=await import('./anonymousPrivacy');
+ const p=snapshot.progress;return replaceAnonymous(expected,{...emptyProgress(),seeded:p.seeded,...(p.seededCourses?{seededCourses:p.seededCourses}:{}),...(p.catalogV1===undefined?{}:{catalogV1:p.catalogV1}),...(p.theme?{theme:p.theme}:{})},null,anonymousFileIds(p),guard);
+}
+export async function recoverAnonymousPrivacy(expected:AnonymousPrivacyExpected,progress:Progress,session:string|null,files:Record<string,import('./documents').StoredDocument>,guard?:()=>void|Promise<void>):Promise<{progress:Progress;retainedFileIds:string[]}>{
+ await requireAnonymous();const current=await readAnonymousPrivacy();if(current.generation!==expected.generation||current.progressDigest!==expected.progressDigest||current.sessionDigest!==expected.sessionDigest||current.privacyDigest!==expected.privacyDigest)throw Error('Anonymous data changed. Preview recovery again.');
+ const {parseAnonymousProgress,anonymousFileIds,inventoryAnonymousData}=await import('./anonymousPrivacy');parseAnonymousProgress(progress);inventoryAnonymousData(progress,session,files);
+ const ids=new Set(anonymousFileIds(progress));if(Object.keys(files).some(id=>!ids.has(id)))throw Error('Recovery contains unrelated attachments.');
+ // The backend preflights every attachment and commits bytes with the scoped replacement.
+ return replaceAnonymous(expected,progress,session,anonymousFileIds(current.progress).filter(id=>!ids.has(id)),guard,files);
 }

@@ -1,3 +1,5 @@
+import nacl from 'tweetnacl';
+import {learnerCanonical} from './learnerPrivacy';
 import type { Attempt, Bank, Chosen, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
 import { shuffle, uid } from "./util";
 import { isAnswered, isCorrect, qtype } from "./questions";
@@ -21,6 +23,9 @@ export interface Block {
 }
 
 export interface Session {
+  /** Local anonymous recovery source guard, not authentication or grading authority.
+   * Persisted by serializeRun and rechecked at every actual resume. Legacy sessions omit it. */
+  anonymousRecoverySourceDigest?: string;
   intervention?: { skillId: string; baseline: number | null };
   id: string;
   bankId: string;
@@ -499,6 +504,11 @@ export interface Resumable {
   savedAt: string;
 }
 
+/** Synchronous exact-source guard for recovered sessions. No signature/identity claim. */
+export function anonymousRecoveryBankDigest(bank: Bank): string {
+  return Array.from(nacl.hash(new TextEncoder().encode(learnerCanonical(bank))), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
 /** Rebuild a saved session against the current bank. Null if it can't be restored. */
 export function restoreRun(text: string, banks: Bank[]): Resumable | null {
   try {
@@ -506,6 +516,9 @@ export function restoreRun(text: string, banks: Bank[]): Resumable | null {
     if (saved.version !== 1) return null;
     const bank = banks.find((b) => b.id === saved.session.bankId);
     if (!bank) return null;
+    const recoveredDigest = saved.session.anonymousRecoverySourceDigest;
+    if (recoveredDigest !== undefined && (typeof recoveredDigest !== 'string' || !/^[a-f0-9]{128}$/.test(recoveredDigest)
+      || banks.filter(candidate => candidate.id === bank.id).some(candidate => anonymousRecoveryBankDigest(candidate) !== recoveredDigest))) return null;
     const byId = new Map(bank.questions.map((q) => [q.id, q]));
     const items: SessionItem[] = [];
     for (const it of saved.session.items) {
