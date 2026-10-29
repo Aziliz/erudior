@@ -1,3 +1,5 @@
+import { parseInterventionState } from './interventions';
+import { deleteInterventionStudent } from './interventionStore';
 /** Durable instructor-side hand-in receipt, retryable projection and review storage.
  * The ledger is authoritative evidence; merged progress is a recoverable projection.
  * Existing UI parent/teacher gates control access, not the class-file HMAC alone.
@@ -138,6 +140,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
         return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
           deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
       });
+      await io.updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
       for (const prefix of ["progress", "records", "session", "portfolio"])
         await io.writeState(`${prefix}-${studentId}`, null);
       const text = await io.updateState("family", previous => {

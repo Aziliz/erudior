@@ -6,6 +6,7 @@ import { IS_SITE, siteUrl } from "./lib/site";
 if (!IS_SITE && typeof window !== "undefined" && /^\/download\/?$/.test(window.location.pathname)) window.location.replace(siteUrl("/download"));
 import "katex/dist/katex.min.css";
 import "./styles.css";
+import "./diagnostics.css";
 import "./learningGames.css";
 import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 
