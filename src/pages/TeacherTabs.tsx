@@ -3,15 +3,14 @@
 
 import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
-import { CATALOG, courseFinished, loadCatalogCourse } from "../lib/catalog";
-import { normalizeCourse } from "../lib/course";
+import { CATALOG, courseFinished } from "../lib/catalog";
 import { newClass, newStudent, gradingOf, type ClassInfo, type Family } from "../lib/family";
-import { classFile, mergeWork, verifyHandIn } from "../lib/classroom";
+import { classFile } from "../lib/classroom";
 import { coursePercent, gradeParts, letterFor } from "../lib/grades";
 import { loadRecords, type Records } from "../lib/records";
 import { today } from "../lib/srs";
 import * as store from "../lib/storage";
-import { putFile } from "../lib/documents";
+import ClassroomSubmissionReview from "../components/ClassroomSubmissionReview";
 import type { Progress } from "../lib/types";
 
 const fmt = (d: string) => new Date(`${d.slice(0, 10)}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
@@ -464,87 +463,6 @@ export function GradebookTab({ api, family }: { api: AppApi; family: Family }) {
 
 // ---------- Hand-ins ----------
 
-function handedWork(p: { work?: Record<string, { submitted?: string }>; logs?: unknown[] }): string {
-  const handed = Object.values(p.work ?? {}).filter((w) => w.submitted).length;
-  const logs = p.logs?.length ?? 0;
-  return `${handed ? `, ${handed} piece${handed === 1 ? "" : "s"} of written or lab work` : ""}${logs ? `, ${logs} activity log entr${logs === 1 ? "y" : "ies"}` : ""}`;
-}
-
 export function HandinsTab({ api, family }: { api: AppApi; family: Family }) {
-  const [log, setLog] = useState<{ ok: boolean; text: string }[]>([]);
-  const [busy, setBusy] = useState(false);
-
-  async function importOne() {
-    const text = await store.pickJsonFile();
-    if (text === null) return;
-    setBusy(true);
-    try {
-      const { h, cls } = await verifyHandIn(JSON.parse(text), family);
-      const prev = cls.handins[h.studentId];
-      if (prev && prev > h.created && !(await store.confirmAction(`This hand-in from ${h.studentName} is older than the last one you imported. Import it anyway? Nothing is lost either way.`)))
-        return;
-      const t = await store.loadState(`progress-${h.studentId}`);
-      const p: Progress = t ? { ...store.emptyProgress(), ...(JSON.parse(t) as Progress) } : store.emptyProgress();
-      // Photos and files from writing, labs and activity logs go in this computer's file store.
-      for (const [fileId, f] of Object.entries(h.files ?? {})) if (/^[a-z0-9]{1,64}$/.test(fileId) && f?.data) await putFile(fileId, f);
-      await store.saveState(`progress-${h.studentId}`, JSON.stringify(mergeWork(p, h.progress, h.courses)));
-      // Courses the student worked on must be on this computer to show lessons and questions.
-      for (const id of h.courses) {
-        const entry = CATALOG.find((e) => e.id === id);
-        if (entry && !api.allCourses.some((c) => c.id === id)) await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry))).catch(() => {});
-      }
-      await api.reload();
-      const fresh = { ...family, classes: (family.classes ?? []).map((c) => (c.id === cls.id ? { ...c, handins: { ...c.handins, [h.studentId]: h.created } } : c)) };
-      await api.setFamily(fresh);
-      setLog((l) => [{ ok: true, text: `${h.studentName} (${cls.name}): ${h.progress.attempts.length} quiz and exam results, ${Object.keys(h.progress.lessonsDone).length} lessons${handedWork(h.progress)}, saved ${fmt(h.created)}` }, ...l]);
-    } catch (e) {
-      setLog((l) => [{ ok: false, text: (e as Error).message }, ...l]);
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return (
-    <>
-      <section className="panel">
-        <div className="panel-head">
-          <h2>Import hand-ins</h2>
-        </div>
-        <p className="muted small" style={{ marginBottom: 12 }}>
-          Students on their own device choose Hand in work, which saves a file. Collect the files (shared drive, email, USB) and import them here, one at a time.
-          Work is added to what's already here; nothing is overwritten. A file that was changed or belongs to another class is refused.
-        </p>
-        <button className="btn primary" onClick={importOne} disabled={busy}>
-          {busy ? "Importing…" : "Import a hand-in file…"}
-        </button>
-      </section>
-      {log.length > 0 && (
-        <section className="panel" aria-live="polite">
-          <h2>This session</h2>
-          <ul className="plain-list">
-            {log.map((x, i) => (
-              <li key={i} className={x.ok ? "" : "late"}>
-                {x.ok ? "Imported: " : "Refused: "}
-                {x.text}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-      <section className="panel">
-        <h2>Last hand-in by class</h2>
-        {(family.classes ?? []).map((c) => (
-          <div key={c.id} style={{ marginTop: 8 }}>
-            <h3 className="small">{c.name}</h3>
-            <p className="small muted">
-              {family.students
-                .filter((s) => c.students.includes(s.id))
-                .map((s) => `${s.name}: ${c.handins[s.id] ? fmt(c.handins[s.id]) : "none"}`)
-                .join(" · ") || "No students."}
-            </p>
-          </div>
-        ))}
-      </section>
-    </>
-  );
+  return <ClassroomSubmissionReview family={family} onChanged={api.reloadClassroomState ?? api.reload} />;
 }

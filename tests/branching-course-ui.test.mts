@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {JSDOM} from 'jsdom';
+import {emptyCourse} from '../src/lib/course.ts';
+const dom=new JSDOM('<!doctype html><body><div id="root"></div></body>',{url:'https://example.test'});
+Object.assign(globalThis,{window:dom.window,document:dom.window.document,HTMLElement:dom.window.HTMLElement,localStorage:dom.window.localStorage,IS_REACT_ACT_ENVIRONMENT:true});Object.defineProperty(globalThis,'navigator',{value:dom.window.navigator,configurable:true});
+const {createElement,act}=await import('react');const {createRoot}=await import('react-dom/client');const {default:Editor}=await import('../src/components/CourseBranchingEditor.tsx');
+const root=createRoot(document.getElementById('root')!);let course=emptyCourse('Test'),pending=false;course.lessons=[{id:'intro',title:'Test',module:course.modules[0].id,body:''}];
+const render=()=>root.render(createElement(Editor,{course,update:fn=>{course=fn(course);render();},onEditingChange:v=>{pending=v;}}));await act(async()=>render());
+const click=async(t:string)=>{const b=[...document.querySelectorAll('button')].find(b=>b.textContent?.trim()===t);assert(b,t);await act(async()=>b.click());};
+const fill=async(label:string,v:string)=>{const el=document.querySelector(`[aria-label="${label}"]`) as HTMLInputElement;assert(el,label);const proto=el.tagName==='SELECT'?dom.window.HTMLSelectElement.prototype:el.tagName==='TEXTAREA'?dom.window.HTMLTextAreaElement.prototype:dom.window.HTMLInputElement.prototype;await act(async()=>{Object.getOwnPropertyDescriptor(proto,'value')!.set!.call(el,v);el.dispatchEvent(new dom.window.Event(el.tagName==='SELECT'?'change':'input',{bubbles:true}));});};
+await click('Add branching scenario');assert(pending);await fill('Scenario title','Synthetic project');await fill('Scenario attached lesson','intro');await click('Apply scenario to course');assert(!pending);assert.equal(course.branchingScenarios?.[0].title,'Synthetic project');assert.equal(course.branchingScenarios?.[0].revision,1);assert.equal(course.branchingScenarios?.[0].lessonId,'intro');
+await click('Edit scenario Synthetic project');await fill('Scenario title','Unsaved edit');await click('Discard scenario draft');assert.equal(course.branchingScenarios?.[0].title,'Synthetic project');assert(!pending);
+await click('Edit scenario Synthetic project');await click('Add scenario node');await click('Apply scenario to course');assert(document.querySelector('[role="alert"]'));assert(pending,'invalid graph stays editable');assert.equal(course.branchingScenarios?.[0].nodes.length,1);
+await click('Discard scenario draft');await click('Edit scenario Synthetic project');await fill('Node narrative','Changed reviewed source');await click('Apply scenario to course');assert.equal(course.branchingScenarios?.[0].revision,2);assert.equal(course.branchingScenarios?.[0].nodes[0].text,'Changed reviewed source');
+await click('Remove scenario Synthetic project');await click('Keep scenario');assert.equal(course.branchingScenarios?.length,1);await click('Remove scenario Synthetic project');await click('Confirm scenario removal');assert.equal(course.branchingScenarios?.length,0);
+await act(async()=>root.unmount());console.log('Branching course UI: controlled structured author, apply/reopen, invalid graph preservation, discard, revision and removal confirmation passed');

@@ -26,7 +26,7 @@ ok("routes listed", routeOptions(stateInfo("PA")!).length >= 2 && routeOptions(s
 // ---- parent password / PIN ----
 const fast = (s: string) => makeSecret(s, 1000);
 const family: Family = {
-  format: "examiner-family",
+  format: "erudior-family",
   version: 1,
   state: "GA",
   route: "Home education law",

@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { TEMPORARY_GUEST, learningDraftStorage } from "../lib/guestSession";
+import { assertCourseImportPreservesFields } from "../lib/courseImport";
+import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
@@ -9,7 +11,10 @@ import { REMOTE } from "../lib/courseSource";
 import type { Bank } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
-import { courseCounts, emptyCourse, looksLikeCourse, normalizeCourse } from "../lib/course";
+import { courseCounts, emptyCourse, exportCourseSnapshot, looksLikeCourse, normalizeCourse } from "../lib/course";
+import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
+import { courseFromCanonicalAuthoring } from "../lib/canonicalAuthoring";
+import { validateReaderTexts } from "../lib/readerContent";
 import { bankCoverage } from "../lib/session";
 import { courseNumbers } from "../lib/planner";
 import { daysBetween, today } from "../lib/srs";
@@ -37,17 +42,24 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         throw new BankError(`This file isn't valid JSON: ${(e as Error).message}`);
       }
       if (looksLikeCourse(raw)) {
+        const source = (raw as { format?: string }).format === "erudior-canonical-authoring"
+          ? courseFromCanonicalAuthoring(raw, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER }) : raw;
+        const rawWorkErrors = [...validateCourseWork(source, { legacy: true }), ...validateReaderTexts((source as { texts?: unknown }).texts, { legacy: true })];
+        if (rawWorkErrors.length) throw new BankError("Invalid course work: " + rawWorkErrors.join("; "));
+        try { assertCourseImportPreservesFields(raw); } catch (error) { throw new Error("Invalid course work: " + (error as Error).message); }
         let course = normalizeCourse(raw);
+        const workErrors = [...validateCourseWork(course, { moduleIds: course.modules.map(module => module.id) }), ...validateWorkLessonReferences(course, course.lessons), ...validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(question => question.id) ?? [] })];
+        if (workErrors.length) throw new BankError("Invalid course work: " + workErrors.join("; "));
         const existing = courses.find((c) => c.id === course.id);
         // A file can't replace an Erudior or community course: it comes in as a separate copy.
         if (isPublishedCourse(course) || isPublishedCourse(existing)) {
-          course = normalizeCourse({ ...(raw as object), id: `${course.id}-${uid()}`, title: `${course.title} (copy)`, community: undefined });
+          course = normalizeCourse({ ...JSON.parse(exportCourseSnapshot(course)), id: `${course.id}-${uid()}`, title: `${course.title} (copy)`, community: undefined });
           api.toast(`"${course.title}" was imported as your own copy; the published course can't be replaced.`);
         } else if (existing) {
           const replace = await store.confirmAction(
             `"${existing.title}" is already in your library. Replace it with the imported file? Your progress is kept.\n\nChoose No to keep both.`,
           );
-          if (!replace) course = normalizeCourse({ ...(raw as object), id: `${course.id}-${uid()}`, title: `${course.title} (copy)` });
+          if (!replace) course = normalizeCourse({ ...JSON.parse(exportCourseSnapshot(course)), id: `${course.id}-${uid()}`, title: `${course.title} (copy)` });
         }
         await api.saveCourse(course);
         const n = courseCounts(course);
@@ -91,10 +103,11 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
-          {LIVE && (
-            <button className="btn" onClick={() => api.go({ name: "live" })}>
+          {LIVE && !TEMPORARY_GUEST && (
+            <><button className="btn" onClick={() => api.go({ name: "live" })}>
               Join a live room
             </button>
+            <button className="btn" onClick={() => api.go({ name: "presentation" })}>Join presentation</button></>
           )}
           <button className="btn" onClick={newCourse}>
             New course
@@ -272,7 +285,7 @@ const FILTER_KEY = "examiner.catalogFilters";
 
 function readFilters(): Filters {
   try {
-    const f = JSON.parse(localStorage.getItem(FILTER_KEY) ?? "null");
+    const f = JSON.parse(learningDraftStorage.getItem(FILTER_KEY) ?? "null");
     if (f && Array.isArray(f.subject)) return { q: "", subject: f.subject, level: f.level ?? [], type: f.type ?? [] };
   } catch {
     /* no saved filters */
@@ -293,10 +306,10 @@ function Catalog({ api }: { api: AppApi }) {
   const [f, setF] = useState<Filters>(readFilters);
   const [adding, setAdding] = useState<string | null>(null);
   const [page, setPage] = useState(0);
-  const opts = useMemo(facets, []);
+  const opts = facets();
   useEffect(() => {
     try {
-      localStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
+      learningDraftStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
     } catch {
       /* filters just won't be remembered */
     }
@@ -374,7 +387,7 @@ function Catalog({ api }: { api: AppApi }) {
         <div className="catalog-grid">
           {visible.map((e) => {
             const have = installed.has(e.id);
-            const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
+            const needs = have || api.publicLearning ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
               <div key={e.id} className="catalog-card" data-subject={subjectKey(e.subject)}>

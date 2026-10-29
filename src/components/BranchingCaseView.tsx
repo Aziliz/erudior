@@ -1,0 +1,11 @@
+import { replayBranchingSession, type BranchingAssignment, type BranchingSession } from '../lib/branchingEngine';
+export default function BranchingCaseView({assignment,session}:{assignment:BranchingAssignment;session:BranchingSession}) {
+ const state=replayBranchingSession(assignment,session),pack=assignment.pack,node=pack.nodes.find(n=>n.id===state.nodeId)!;
+ return <section className="branching"><div className="branching-summary"><h3>Scenario state: {node.title}</h3><p>{node.text}</p><p>Simulated time: {state.tick} {pack.timeUnit}. Outcome: {state.outcome}. {state.terminalOutcome && `Ending classification: ${state.terminalOutcome}.`} Session revision: {session.revision}.</p><p>Exact source: {pack.title} — local source revision {pack.revision}; assignment revision {assignment.revision}.</p></div>
+ <h4>State variables</h4>{pack.variables.length?<dl>{pack.variables.map(v=><div key={v.id}><dt>{v.title}</dt><dd>{String(state.values[v.id])}{typeof v.initial==='number'?` (reviewed bounds ${v.min} to ${v.max})`:''}</dd></div>)}</dl>:<p>No configured state variables.</p>}
+ <h4>Project milestones and simulated deadlines</h4><p>Deadlines are inclusive simulated ticks, not real calendar dates or professional obligations.</p>{pack.milestones.length?<ul>{pack.milestones.map(m=><li key={m.id}><strong>{m.title}: {state.milestones[m.id]}</strong> — reach {pack.nodes.find(n=>n.id===m.nodeId)?.title} by tick {m.deadlineTick}; {m.required?'required':'optional'}. If missed: {m.consequence}</li>)}</ul>:<p>No configured milestones.</p>}
+ <h4>Decision and consequence timeline</h4><ol className="branching-timeline">{state.timeline.map((e,i)=><li key={i}><strong>Tick {e.tick} · {e.kind}</strong><p style={{whiteSpace:'pre-wrap'}}>{e.text}</p></li>)}</ol>
+ <details><summary>Exact reviewed scenario source</summary><p>{pack.description}</p><p>Source provenance: {pack.sourceNote}</p><p>Historical source approval: {pack.approval?`${pack.approval.actor} at ${pack.approval.at}`:'none'}. Imported labels are not current local authority.</p><pre>{JSON.stringify(pack,null,2)}</pre></details>
+ <details><summary>Immutable decision journal ({session.events.length})</summary><ol>{session.events.map(e=><li key={e.id}><p>{e.at} · {e.command.kind} · event {e.id}</p><p>{e.command.note}</p></li>)}</ol></details>
+ </section>;
+}

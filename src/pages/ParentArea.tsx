@@ -1,4 +1,15 @@
+import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
+import CredentialWorkspace from "../components/CredentialWorkspace";
+import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
+import ScientificStudio from "../components/ScientificStudio";
+import BranchingStudio from "../components/BranchingStudio";
+import InstructionalStudio from "../components/InstructionalStudio";
+import TransactionStudio from "../components/TransactionStudio";
+import DocumentEngine from "../components/DocumentEngine";
+import ContentInteroperability from "../components/ContentInteroperability";
+import LearningDiagnostics from "../components/LearningDiagnostics";
 import { useEffect, useState } from "react";
+import CompetencySupervisor from "../components/CompetencySupervisor";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished } from "../lib/catalog";
 import {
@@ -39,6 +50,7 @@ import {
 } from "../lib/backup";
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
+import { deleteStudentWithSubmissionHistory } from "../lib/classroomSubmissionStore";
 import { GradesTab, ReportsTab } from "./ParentRecords";
 import {
   ClassOverview,
@@ -47,6 +59,8 @@ import {
   HandinsTab,
 } from "./TeacherTabs";
 import LiveHost from "./LiveHost";
+import LearningGames from "./LearningGames";
+import Presentations from "./Presentations";
 import { LIVE } from "../lib/live";
 import { DocumentsTab, ReadingTab } from "./ParentFiles";
 import { StudentWorkTab } from "./StudentWork";
@@ -59,7 +73,12 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "learner-privacy"
   | "overview"
+  | "learning-paths"
+  | "diagnostics"
+  | "interoperability"
+  | "credential-evidence" | "advanced-assessment" | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -73,10 +92,23 @@ export type ParentTab =
   | "gradebook"
   | "handins"
   | "work"
-  | "live";
+  | "live"
+  | "games"
+  | "presentations";
 
 const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "learning-paths", label: "Learning paths" },
+  { id: "diagnostics", label: "Learning diagnostics" },
+  { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
+  { id: "scientific", label: "Scientific workspaces" },
+  { id: "branching", label: "Branching scenarios" },
+  { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -84,12 +116,25 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "grades", label: "Grades" },
   { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
+  { id: "games", label: "Learning games" },
+  { id: "presentations", label: "Interactive presentations" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "learning-paths", label: "Learning paths" },
+  { id: "diagnostics", label: "Learning diagnostics" },
+  { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
+  { id: "scientific", label: "Scientific workspaces" },
+  { id: "branching", label: "Branching scenarios" },
+  { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -99,6 +144,8 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "reports", label: "Reports" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
+  { id: "games", label: "Learning games" },
+  { id: "presentations", label: "Interactive presentations" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
@@ -189,11 +236,24 @@ export default function ParentArea({
             ) : (
               <Overview api={api} family={family} records={records} />
             ))}
+          {tab === "learning-paths" && <CompetencySupervisor api={api} family={family} />}
+          {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
+          {tab === "interoperability" && <ContentInteroperability api={api} />}
+          {tab === "document-cases" && <DocumentEngine api={api} />}
+          {tab === "advanced-assessment" && <AdvancedAssessmentStudio api={api} />}
+          {tab === "scientific" && <ScientificStudio api={api} />}
+          {tab === "branching" && <BranchingStudio api={api} />}
+          {tab === "transactions" && <TransactionStudio api={api} />}
+          {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
+          {tab === "credential-evidence" && <CredentialWorkspace api={api} />}
+          {tab === "learner-privacy" && <LearnerPrivacyWorkspace api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}
           {tab === "work" && <StudentWorkTab api={api} family={family} />}
           {tab === "live" && LIVE && <LiveHost api={api} />}
+          {tab === "games" && <LearningGames api={api} />}
+          {tab === "presentations" && <Presentations api={api} />}
           {tab === "attendance" && (
             <Attendance
               api={api}
@@ -941,19 +1001,21 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
     if (family.students.length === 1)
       return api.toast("A family needs at least one student.");
     const ok = await store.confirmAction(
-      `Remove ${st.name}? Their progress and attendance records are deleted from this computer. Back up first if you may need them.`,
+      `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
       "Remove student",
     );
     if (!ok) return;
-    await store.saveState(`progress-${st.id}`, null);
-    await store.saveState(`records-${st.id}`, null);
-    await store.saveState(`session-${st.id}`, null);
-    await store.saveState(`portfolio-${st.id}`, null);
-    await api.setFamily({
-      ...family,
-      students: family.students.filter((x) => x.id !== st.id),
-    });
-    api.toast(`Removed ${st.name}`);
+    try {
+      const updated = await deleteStudentWithSubmissionHistory(st.id, family);
+      // Never leave future saves pointed at a profile whose state was deleted.
+      if (store.activeStudent() === st.id) store.useStudentFiles(null);
+      if (api.reloadClassroomState) await api.reloadClassroomState();
+      else await api.setFamily(updated);
+      if (api.student?.id === st.id) await api.chooseStudent(updated.students[0].id);
+      api.toast(`Removed ${st.name}, including saved hand-ins and review history`);
+    } catch (error) {
+      api.toast(`Student deletion did not finish: ${error instanceof Error ? error.message : String(error)}. Reload and retry removal; some data may already be deleted.`);
+    }
   }
 
   return (

@@ -1,87 +1,79 @@
-name: Publish website and courses
+name: Deploy Erudior website
 
-# Publishes the course packages to Cloudflare R2 and the web app (free learning) to
-# Cloudflare Pages. One-time setup: docs/HOSTING.md. Runs only once the COURSES_URL
-# repository variable is set, so it stays idle until hosting exists.
+# Website-only release: Cloudflare Pages, independent of course signing and API migrations.
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/site.yml"
+      - "scripts/prerender.mjs"
   push:
     branches: [main]
     paths:
-      - "samples/**"
       - "src/**"
       - "index.html"
-      - "package.json"
-      - "package-lock.json"
-      - "vite.config.ts"
       - "public/**"
       - "functions/**"
+      - "vite.config.ts"
+      - "package.json"
+      - "package-lock.json"
       - "scripts/prerender.mjs"
+      - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
-
 permissions:
   contents: read
 
 concurrency:
-  group: site
+  group: erudior-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
   cancel-in-progress: false
 
 jobs:
-  publish:
-    if: ${{ vars.COURSES_URL != '' }}
-    runs-on: ubuntu-latest
-    env:
-      VITE_COURSES_URL: ${{ vars.COURSES_URL }}
-      VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
+  website:
+    # Website deployment is independent of slow or failing course R2 verification.
+    if: ${{ github.event_name == 'pull_request' || vars.PAGES_PROJECT != '' }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-
+      - name: Verify Erudior-only product identity
+        run: node scripts/check-product-identity.mjs
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
       - run: npm ci
-      - run: npm test
-
-      - name: Check the signing key matches the app
-        run: npx tsx scripts/check-signing-key.ts
-
-      - name: Build and sign course packages
-        run: npm run courses:publish
-
-      # Course files are immutable (named by revision): upload only new ones, then the
-      # catalog last, so a catalog never points at a file that isn't there yet.
-      - name: Upload course packages to R2
-        working-directory: dist-courses/v1
-        run: |
-          for f in *.r*.json states.*.json; do
-            if curl -sfI "${VITE_COURSES_URL}${f}" > /dev/null; then echo "have $f"; continue; fi
-            npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
-              --content-type application/json --cache-control "public, max-age=31536000, immutable"
-          done
-          npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json" --file catalog.json \
-            --content-type application/json --cache-control "public, max-age=300"
-          npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
-            --content-type text/plain --cache-control "public, max-age=300"
-
-      - name: Sitemap from the course catalog
+      - name: Create public sitemap
         run: node scripts/sitemap.mjs
-
-      - name: Build the web app
-        run: npm run build
-
-      # Rendered HTML of the public pages for search engines and link previews (served by
-      # functions/_middleware.js). A failure here only means plain pages, so it doesn't block.
+      - name: Build website
+        id: website_build
+        run: node scripts/diagnostic-command.mjs website-build -- npm run build
       - name: Prerender public pages
-        continue-on-error: true
+        id: website_prerender
         run: |
-          npm install --no-save playwright@1.56.0
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Deploy website to Cloudflare Pages
+        id: pages_deploy
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          VITE_COURSES_URL: ${{ vars.COURSES_URL }}
+          VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
+        run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
 
-      - name: Deploy the web app to Pages
-        run: npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
+      - name: Write safe CI diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: website
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+        run: node scripts/ci-diagnostics.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-diagnostics-website
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn
+

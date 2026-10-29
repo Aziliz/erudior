@@ -1,4 +1,8 @@
-import { useEffect, useState } from "react";
+import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
+import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
+import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
+import { useEffect, useRef, useState } from "react";
+import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -7,38 +11,111 @@ import { confirmAction } from "../lib/storage";
 import { drillError, generate } from "../lib/drills";
 import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
+import CourseBranchingEditor from "../components/CourseBranchingEditor";
+import CourseAdvancedAssessmentEditor from "../components/CourseAdvancedAssessmentEditor";
+import CourseScientificEditor from "../components/CourseScientificEditor";
+import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
+import { spreadsheetReviewReport } from "../lib/spreadsheetReview";
+import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
+import { validateReaderTexts } from "../lib/readerContent";
+import WorkResourceEditor from "../components/WorkResourceEditor";
+import { workProblems } from "../lib/work";
+import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
+import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "details" | "lessons" | "glossary" | "reference" | "drills";
+type Tab = "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "branching" | "scientific" | "advanced" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
 
-export default function CourseEditor({ api, course, isNew }: { api: AppApi; course: Course; isNew?: boolean }) {
+export default function CourseEditor({ api, course, isNew, communityMode = false }: { api: AppApi; course: Course; isNew?: boolean; communityMode?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
+  const [assignmentEditing, setAssignmentEditing] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const savingRef = useRef(false);
+  const draftVersion = useRef(0);
+  const persistedVersion = useRef(0);
+  const editingRef = useRef(false);
+  const uploadPending = useRef(false);
+  const closingRef = useRef(false);
+  const discardTarget = useRef<NavigationTarget | null>(null);
+  const hasPendingChanges = () => savingRef.current || editingRef.current || uploadPending.current || draftVersion.current !== persistedVersion.current;
+  useEffect(() => {
+    const unregister = registerNavigationGuard((kind, target) => {
+      if (kind === "app" && target && discardTarget.current?.name === target.name && discardTarget.current.courseId === target.courseId) return true;
+      if (!hasPendingChanges()) return true;
+      api.toast("Save your course, or use Done to explicitly discard changes before leaving.");
+      return false;
+    });
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (hasPendingChanges()) { event.preventDefault(); event.returnValue = ""; }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => { unregister(); window.removeEventListener("beforeunload", beforeUnload); };
+  }, [api.toast]);
   const [dirty, setDirty] = useState(false);
   const [tab, setTab] = useState<Tab>("details");
   const update = (fn: (c: Course) => Course) => {
+    draftVersion.current += 1;
     setDraft(fn);
     setDirty(true);
   };
 
   async function save() {
+    if (savingRef.current) return;
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before saving.");
+    if (assignmentEditing) return api.toast("Apply or cancel assignment changes before saving the course.");
     if (!draft.title.trim()) {
       setTab("details");
       return api.toast("Give the course a title.");
     }
+    const audioErrors = [...validateCourseAudioFields(draft, "course", { mode: "source" }), ...(draft.vocab ?? []).flatMap((word, index) => validateVocabAudioFields(word, `vocabulary[${index}]`, { mode: "source" }))];
+    if (audioErrors.length) { setTab("metadata"); return api.toast("Fix audio metadata before saving: " + audioErrors.join("; ")); }
     const bad = draft.drills.map((d) => drillError(d)).filter(Boolean);
     if (bad.length) {
       setTab("drills");
       return api.toast(`${bad.length} math drill${bad.length === 1 ? " has" : "s have"} errors.`);
     }
-    // Banks and decks are edited in their own editors; keep whatever is stored now.
+    if (draft.spreadsheetAssignments?.length) {
+      const report = spreadsheetReviewReport(draft);
+      if (!report.readyForHumanReview) { setTab("spreadsheets"); return api.toast("Fix spreadsheet assignment errors before saving: " + report.issues.join("; ")); }
+    }
+    const workErrors = [...validateCourseWork(draft, { strict: !communityMode, moduleIds: draft.modules.map(module => module.id) }), ...(communityMode ? validateWorkLessonReferences(draft, draft.lessons) : workProblems(draft))];
+    if (workErrors.length) { setTab("work"); return api.toast("Fix work resource errors before saving: " + workErrors.join("; ")); }
     const latest = api.courses.find((c) => c.id === course.id) ?? course;
-    await api.saveCourse({ ...draft, banks: latest.banks, decks: latest.decks });
-    setDirty(false);
-    api.toast("Course saved");
+    const readingErrors = validateReaderTexts(draft.texts ?? [], { strict: !communityMode, questionIds: latest.banks[0]?.questions.map(question => question.id) ?? [] });
+    if (readingErrors.length) { setTab("reading"); return api.toast("Fix reading library errors before saving: " + readingErrors.join("; ")); }
+    // Banks and decks are edited in their own editors; keep whatever is stored now.
+    const savedVersion = draftVersion.current;
+    savingRef.current = true;
+    setSaving(true);
+    try {
+      await api.saveCourse({ ...draft, banks: latest.banks, decks: latest.decks });
+      persistedVersion.current = savedVersion;
+      if (draftVersion.current === savedVersion) {
+        setDirty(false);
+        api.toast("Course saved");
+      } else {
+        api.toast("Earlier changes saved. Newer edits still need saving.");
+      }
+    } catch { api.toast("Course could not be saved. Your draft is still open."); }
+    finally { savingRef.current = false; setSaving(false); }
   }
 
   async function close() {
-    if (dirty && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
-    api.go({ name: "course", courseId: course.id });
+    if (uploadPending.current) return api.toast("Finish or cancel the audio upload before leaving.");
+    if (savingRef.current) return api.toast("Wait for the current save to finish before leaving the editor.");
+    if (closingRef.current) return;
+    closingRef.current = true;
+    try {
+      const version = draftVersion.current;
+      const editing = editingRef.current;
+      if (hasPendingChanges() && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
+      if (savingRef.current || version !== draftVersion.current || editing !== editingRef.current) {
+        api.toast("The draft changed while confirming. Finish your changes before leaving.");
+        return;
+      }
+      const target = { name: "course" as const, courseId: course.id };
+      discardTarget.current = target;
+      try { api.go(target); } finally { discardTarget.current = null; }
+    } finally { closingRef.current = false; }
   }
 
   useEffect(() => {
@@ -66,7 +143,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
         )}
         <div className="spacer" />
         <span className="kbd">Ctrl+S</span>
-        <button className="btn primary" onClick={save} disabled={!dirty}>
+        <button className="btn primary" onClick={save} disabled={!dirty || saving || assignmentEditing}>
           Save course
         </button>
       </div>
@@ -80,22 +157,38 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
           {(
             [
               ["details", "Details"],
+              ["metadata", "Metadata & audio"],
               ["lessons", `Lessons (${draft.lessons.length})`],
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
               ["drills", `Math drills (${draft.drills.length})`],
+              ["reading", "Reading library"],
+              ["work", "Writing, labs & activities"],
+              ["branching", `Scenarios (${draft.branchingScenarios?.length ?? 0})`],
+              ["scientific", `Science (${draft.scientificWorkspaces?.length ?? 0})`],
+              ["advanced", `Assessment (${draft.advancedAssessments?.length ?? 0})`],
+              ["spreadsheets", `Spreadsheets (${draft.spreadsheetAssignments?.length ?? 0})`],
+              ...(!communityMode && draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
           ).map(([id, label]) => (
-            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => setTab(id)}>
+            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if ((assignmentEditing || uploadPending.current) && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else setTab(id); }}>
               {label}
             </button>
           ))}
         </nav>
+        {tab === "metadata" && <CourseMetadataEditor onPendingChange={value=>{uploadPending.current=value;}} key={draft.id} course={draft} onChange={next => update(() => next)} />}
         {tab === "details" && <Details draft={draft} update={update} />}
         {tab === "lessons" && <Lessons draft={draft} update={update} />}
         {tab === "glossary" && <Glossary draft={draft} update={update} />}
         {tab === "reference" && <References draft={draft} update={update} />}
         {tab === "drills" && <Drills draft={draft} update={update} />}
+        {tab === "reading" && <ReaderLibraryEditor texts={draft.texts ?? []} questions={(api.courses.find(c => c.id === course.id) ?? course).banks[0]?.questions ?? []} onChange={texts => update(c => ({ ...c, texts }))} protectedTextIds={(draft.texts ?? []).filter(text => !!api.progress?.reading?.[course.id + "/" + text.id]).map(text => text.id)} protectedSectionIds={Object.fromEntries((draft.texts ?? []).map(text => { const reading = api.progress?.reading?.[course.id + "/" + text.id]; return [text.id, reading ? [...Object.keys(reading.read), reading.section] : []]; }))} />}
+        {tab === "work" && <WorkResourceEditor work={{ rubrics: draft.rubrics, writing: draft.writing, labs: draft.labs, activityLog: draft.activityLog }} modules={draft.modules} lessons={draft.lessons} onChange={next => update(c => { const result = { ...c }; for (const field of ["rubrics", "writing", "labs", "activityLog"] as const) delete result[field]; return { ...result, ...next }; })} onLessonBodyChange={(id, body) => update(c => ({ ...c, lessons: c.lessons.map(lesson => lesson.id === id ? { ...lesson, body } : lesson) }))} />}
+        {tab === "branching" && <CourseBranchingEditor course={draft} update={update} onEditingChange={value=>{editingRef.current=value;setAssignmentEditing(value);}} />}
+        {tab === "scientific" && <CourseScientificEditor course={draft} update={update} onEditingChange={value=>{editingRef.current=value;setAssignmentEditing(value);}} />}
+        {tab === "advanced" && <CourseAdvancedAssessmentEditor course={draft} update={update} onEditingChange={value=>{editingRef.current=value;setAssignmentEditing(value);}} />}
+        {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={(value) => { editingRef.current = value; setAssignmentEditing(value); }} />}
+        {!communityMode && tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
     </div>
   );
@@ -104,6 +197,7 @@ export default function CourseEditor({ api, course, isNew }: { api: AppApi; cour
 type EP = { draft: Course; update: (fn: (c: Course) => Course) => void };
 
 function Details({ draft, update }: EP) {
+  const [pendingDelete, setPendingDelete] = useState<{ id: string; snapshot: string } | null>(null);
   return (
     <div className="stack">
       <label className="field">
@@ -140,39 +234,35 @@ function Details({ draft, update }: EP) {
           </button>
         </div>
         {draft.modules.map((m, i) => (
-          <div key={m.id} className="row" style={{ flexWrap: "nowrap", marginBottom: 8 }}>
+          <div key={m.id} className="panel" style={{ marginBottom: 8 }}>
+          <div className="row" style={{ flexWrap: "wrap" }}>
             <span className="faint num" style={{ width: 24 }}>
               {i + 1}.
             </span>
             <input
               className="input"
               value={m.title}
+              aria-label={`Module ${i + 1} title`}
               onChange={(e) =>
                 update((c) => ({ ...c, modules: c.modules.map((x) => (x.id === m.id ? { ...x, title: e.target.value } : x)) }))
               }
             />
-            <button
-              className="btn sm ghost"
-              disabled={i === 0}
-              aria-label="Move up"
-              onClick={() =>
-                update((c) => {
-                  const ms = c.modules.slice();
-                  [ms[i - 1], ms[i]] = [ms[i], ms[i - 1]];
-                  return { ...c, modules: ms };
-                })
-              }
-            >
-              ↑
-            </button>
-            <button
-              className="btn sm ghost danger"
-              disabled={draft.lessons.some((l) => l.module === m.id)}
-              title={draft.lessons.some((l) => l.module === m.id) ? "Move or delete its lessons first" : undefined}
-              onClick={() => update((c) => ({ ...c, modules: c.modules.filter((x) => x.id !== m.id) }))}
-            >
-              Remove
-            </button>
+            <button className="btn sm ghost" disabled={i === 0} aria-label={`Move module ${m.title} up`}
+              onClick={() => update(c => reorderCourseItem(c, "modules", m.id, -1))}>Up</button>
+            <button className="btn sm ghost" disabled={i === draft.modules.length - 1} aria-label={`Move module ${m.title} down`}
+              onClick={() => update(c => reorderCourseItem(c, "modules", m.id, 1))}>Down</button>
+            <button className="btn sm ghost danger" disabled={!!courseModuleDeleteReason(draft, m.id)}
+              aria-label={`Remove module ${m.title}`}
+              onClick={() => setPendingDelete({ id: m.id, snapshot: JSON.stringify(m) })}>Remove</button>
+          </div>
+          {courseModuleDeleteReason(draft, m.id) && <p className="small muted">{courseModuleDeleteReason(draft, m.id)}</p>}
+          {pendingDelete?.id === m.id && <div className="notice" role="group" aria-label={`Confirm removing module ${m.title}`}>
+            <p>Remove “{m.title}”? Its module settings and quiz links will be removed. Question-bank contents remain.</p>
+            {pendingDelete.snapshot !== JSON.stringify(m) && <p role="status">The module changed. Cancel and review it before confirming again.</p>}
+            <button className="btn sm danger" disabled={pendingDelete.snapshot !== JSON.stringify(m) || !!courseModuleDeleteReason(draft, m.id)}
+              onClick={() => { const target = pendingDelete; setPendingDelete(null); update(c => deleteCourseItem(c, "modules", target.id, target.snapshot)); }}>Confirm remove module</button>
+            <button className="btn sm" onClick={() => setPendingDelete(null)}>Cancel removal</button>
+          </div>}
           </div>
         ))}
       </div>
@@ -190,6 +280,7 @@ function useSelection<T extends { id: string }>(items: T[]) {
 function Lessons({ draft, update }: EP) {
   const { setSel, current } = useSelection(draft.lessons);
   const [preview, setPreview] = useState(false);
+  const [pendingDelete, setPendingDelete] = useState<{ id: string; snapshot: string } | null>(null);
   const setLesson = (id: string, patch: Partial<Lesson>) =>
     update((c) => ({ ...c, lessons: c.lessons.map((l) => (l.id === id ? { ...l, ...patch } : l)) }));
 
@@ -221,7 +312,7 @@ function Lessons({ draft, update }: EP) {
             {draft.lessons
               .filter((l) => l.module === m.id)
               .map((l) => (
-                <button key={l.id} className="q-item" aria-current={current?.id === l.id} onClick={() => setSel(l.id)}>
+                <button key={l.id} className="q-item" aria-current={current?.id === l.id} onClick={() => { setPendingDelete(null); setSel(l.id); }}>
                   <span className="t">{l.title}</span>
                 </button>
               ))}
@@ -230,7 +321,7 @@ function Lessons({ draft, update }: EP) {
       </div>
       <div className="split-main">
         {!current ? (
-          <p className="muted">Add a lesson to start writing.</p>
+          <p className="muted">{draft.lessons.length ? "Choose a lesson from the list, or add another lesson." : "Add a lesson to start writing."}</p>
         ) : (
           <div className="stack">
             <div className="form-grid" style={{ gridTemplateColumns: "2fr 1fr 100px", marginBottom: 0 }}>
@@ -240,7 +331,7 @@ function Lessons({ draft, update }: EP) {
               </label>
               <label className="field">
                 <span>Module</span>
-                <select className="select" value={current.module} onChange={(e) => setLesson(current.id, { module: e.target.value })}>
+                <select className="select" value={current.module} onChange={(e) => update(c => assignCourseLesson(c, current.id, e.target.value))}>
                   {draft.modules.map((m) => (
                     <option key={m.id} value={m.id}>
                       {m.title}
@@ -294,21 +385,27 @@ function Lessons({ draft, update }: EP) {
                 <textarea
                   className="textarea mono"
                   rows={24}
+                  aria-label="Lesson text (Markdown)"
                   value={current.body}
                   onChange={(e) => setLesson(current.id, { body: e.target.value })}
                 />
               )}
             </div>
             <div>
-              <button
-                className="btn sm ghost danger"
-                onClick={() => {
-                  update((c) => ({ ...c, lessons: c.lessons.filter((l) => l.id !== current.id) }));
-                  setSel(null);
-                }}
-              >
-                Delete lesson
-              </button>
+              <button className="btn sm ghost" disabled={draft.lessons[0]?.id === current.id}
+                onClick={() => update(c => reorderCourseItem(c, "lessons", current.id, -1))}>Move lesson up</button>
+              <button className="btn sm ghost" disabled={draft.lessons.at(-1)?.id === current.id}
+                onClick={() => update(c => reorderCourseItem(c, "lessons", current.id, 1))}>Move lesson down</button>
+              <button className="btn sm ghost danger" disabled={!!courseLessonDeleteReason(draft, current.id)}
+                onClick={() => setPendingDelete({ id: current.id, snapshot: JSON.stringify(current) })}>Delete lesson</button>
+              {courseLessonDeleteReason(draft, current.id) && <p className="small muted">{courseLessonDeleteReason(draft, current.id)}</p>}
+              {pendingDelete?.id === current.id && <div className="notice" role="group" aria-label={`Confirm deleting lesson ${current.title}`}>
+                <p>Delete “{current.title}” and its lesson text and settings? Question-bank contents and other lessons remain.</p>
+                {pendingDelete.snapshot !== JSON.stringify(current) && <p role="status">The lesson changed. Cancel and review it before confirming again.</p>}
+                <button className="btn sm danger" disabled={pendingDelete.snapshot !== JSON.stringify(current) || !!courseLessonDeleteReason(draft, current.id)}
+                  onClick={() => { const target = pendingDelete; setPendingDelete(null); update(c => deleteCourseItem(c, "lessons", target.id, target.snapshot)); }}>Confirm delete lesson</button>
+                <button className="btn sm" onClick={() => setPendingDelete(null)}>Cancel deletion</button>
+              </div>}
             </div>
           </div>
         )}
@@ -369,6 +466,7 @@ function References({ draft, update }: EP) {
                 <textarea
                   className="textarea mono"
                   rows={24}
+                  aria-label="Lesson text (Markdown)"
                   value={current.body}
                   onChange={(e) => setRef(current.id, { body: e.target.value })}
                 />

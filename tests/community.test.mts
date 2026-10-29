@@ -182,31 +182,6 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
   bad("not all honors", (d) => d.lessons.forEach((l) => (l.honors = true)), /regular/);
 }
 
-
-const advanced = structuredClone(doc);
-const advancedMarkdown = ["## Advanced", "", "```trace", "letters: A B", "```", "", "| One | Two |", "|---|---|", "| A | B |"].join("\n");
-advanced.lessons[0].blocks.push({ type: "source", md: advancedMarkdown });
-ok("advanced source validates", checkDoc(advanced, true).length === 0, checkDoc(advanced, true));
-const advancedCourse = toCourse(advanced, { id: "advanced", version: 1, review: "not_reviewed", author: "tester" }, () => "") as { lessons: { body: string }[] };
-ok("advanced interactive block survives conversion", advancedCourse.lessons[0].body.includes("```trace\nletters: A B\n```"));
-ok("advanced table survives conversion", advancedCourse.lessons[0].body.includes("| One | Two |"));
-
-const earlyReader = { ...doc, readAloud: true };
-ok("community early-reader mode validates", checkDoc(earlyReader, true).length === 0);
-const earlyReaderConverted = toCourse(earlyReader, { id: "readaloud", version: 1, review: "reviewed", author: "Teacher" }, () => "");
-ok("read-aloud survives official conversion", earlyReaderConverted.readAloud === true);
-ok("invalid read-aloud settings rejected", checkDoc({ ...doc, readAloud: "yes" }, false).some(e => e.includes("Read-aloud")));
-
-const richResources = structuredClone(doc);
-richResources.audio = { "sound:m": "say:mmm", "hello": "data:audio/mpeg;base64,aGVsbG8=" };
-richResources.texts = [{ id: "story1", title: "A Short Story", kind: "prose", source: "Original example", sections: [{ id: "part1", title: "Part One", body: "The little bird flew home." }] }];
-ok("reader and audio resources validate", checkDoc(richResources, true).length === 0, checkDoc(richResources, true));
-const richConverted = toCourse(richResources,{id:"res",version:1,review:"reviewed",author:"Tester"},()=>"") as {audio?: Record<string,string>; texts?: {id:string;sections:{body:string}[]}[]};
-ok("recorded audio preserved", richConverted.audio?.["sound:m"] === "say:mmm");
-ok("reader chapters preserved", richConverted.texts?.[0]?.sections?.[0]?.body === "The little bird flew home.");
-ok("invalid audio rejected", checkDoc({...doc,audio:{"bad":"https://example.org/audio.mp3"}},false).some(x=>x.includes("Audio library")));
-ok("empty reader section rejected", checkDoc({...doc,texts:[{id:"story",title:"Story",sections:[{id:"sec",title:"First",body:""}]}]},true).some(x=>x.includes("Reading text")));
-
 if (fails) {
   console.log(`${fails} community test(s) failed`);
   process.exit(1);

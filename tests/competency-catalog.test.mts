@@ -1,0 +1,10 @@
+import { FOUNDATION_COMPETENCIES, validateAuthoredCompetencies } from "../src/lib/competencyCatalog.ts";
+import { validateCompetencies, evaluateCompetencies } from "../src/lib/competencies.ts";
+import fs from "node:fs";
+const assert=(name:string,pass:boolean)=>{if(!pass)throw Error(name);console.log("PASS",name)};
+const catalog=JSON.parse(fs.readFileSync("samples/catalog.json","utf8")) as Array<{id:string;lessonIds:string[]}>;
+const lessons=Object.fromEntries(catalog.map(c=>[c.id,c.lessonIds])) as Record<string,string[]>;
+assert("foundation graph has no cycles or missing prerequisite IDs",validateCompetencies(FOUNDATION_COMPETENCIES).length===0);
+assert("authored lessons exist in real course catalog",validateAuthoredCompetencies(FOUNDATION_COMPETENCIES,lessons).length===0);
+assert("unmapped question evidence never grants mastery",evaluateCompetencies(FOUNDATION_COMPETENCIES,{}).every(x=>x.mastery===null&&!x.mastered));
+assert("bad authored lesson rejected",validateAuthoredCompetencies([{...FOUNDATION_COMPETENCIES[0],lessons:{"math-prealgebra":["does-not-exist"]}}],lessons).length>0);

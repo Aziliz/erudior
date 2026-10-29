@@ -1,11 +1,27 @@
+import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
+import LearnerAdvancedAssessment from "../components/LearnerAdvancedAssessment";
+import LearnerScientific from "../components/LearnerScientific";
+import LearnerBranching from "../components/LearnerBranching";
+import LearnerInstructionalEvidence from "../components/LearnerInstructionalEvidence";
+import LearnerTransactions from "../components/LearnerTransactions";
+import LearnerDocumentCases from "../components/LearnerDocumentCases";
+import LearnerInterventions from "../components/LearnerInterventions";
 import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
-import { topicStats } from "../lib/session";
+import { topicStats, startPractice } from "../lib/session";
+import { FOUNDATION_COMPETENCIES } from "../lib/competencyCatalog";
+import { competencyImprovement } from "../lib/competencyImprovement";
+import { interventionOutcome } from "../lib/interventionOutcome";
+import { interventionNextAction } from "../lib/interventionNextAction";
+import { competencyPath } from "../lib/competencyPath";
+import { competencyQuestionIds } from "../lib/competencyEvidence";
+import { explainCompetencyBlock } from "../lib/competencyPlacement";
 import * as store from "../lib/storage";
 import { inApp } from "../lib/storage";
 import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
+import SpreadsheetLab from "../components/SpreadsheetLab";
 
 export default function ProgressPage({ api }: { api: AppApi }) {
   const { progress, banks } = api;
@@ -40,6 +56,12 @@ export default function ProgressPage({ api }: { api: AppApi }) {
   }, []);
 
   const attempts = progress.attempts.filter((a) => !bankFilter || a.bankId === bankFilter);
+  let placement: ReturnType<typeof competencyPath> | null = null;
+  let pathError = api.competencySync?.error ?? "";
+  try {
+    const model = competencyPath(api.courses, progress);
+    if (model.states.length) placement = model;
+  } catch (error) { pathError = error instanceof Error ? error.message : String(error); }
   const exams = attempts.filter((a) => a.mode === "exam");
   const answeredTotal = attempts.reduce((s, a) => s + a.total, 0);
   const correctTotal = attempts.reduce((s, a) => s + a.correct, 0);
@@ -103,6 +125,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
   return (
     <div className="page">
+      {!api.family && <details><summary style={{minHeight:32}}>Local practice privacy and recovery</summary><LearnerPrivacyWorkspace api={api} /></details>}
       <div className="page-head">
         <div>
           <h1>Progress</h1>
@@ -119,6 +142,8 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           </select>
         </div>
       </div>
+
+      <details style={{marginBottom:16}}><summary>Open spreadsheet practice lab</summary><SpreadsheetLab /></details>
 
       <div className="stats-strip">
         <div>
@@ -142,6 +167,135 @@ export default function ProgressPage({ api }: { api: AppApi }) {
           <span>study time</span>
         </div>
       </div>
+
+      <LearnerInterventions api={api} />
+      <LearnerDocumentCases api={api} />
+      <LearnerAdvancedAssessment api={api} />
+      <LearnerScientific api={api} />
+      <LearnerBranching api={api} />
+      <LearnerTransactions api={api} />
+      <LearnerInstructionalEvidence api={api} />
+
+      <section className="panel" aria-labelledby="skill-path-title">
+        <div className="panel-head"><h2 id="skill-path-title">Learning path</h2></div>
+        <p className="muted small">Skills across your installed courses. Only linked assessments recorded after their identity baseline count as mastery. Earlier revisionless practice stays in your history but needs reassessment. This is a learning recommendation, not a certification.</p>
+        {api.competencySync?.pending ? <p role="status">Updating the private learning path…</p> : pathError ? <div role="alert"><p>Learning-path evidence could not be verified: {pathError}</p>{api.retryCompetencySync && <button type="button" onClick={api.retryCompetencySync}>Retry learning path</button>}</div> : !placement ? (
+          <p className="muted small">Install a supported course to see its skill pathway. Previously recorded skill evidence remains private and available after course removal.</p>
+        ) : (
+          <>
+            <p className="small muted">
+              {placement.states.filter(s => s.assessedMastered).length} assessed as mastered · {placement.states.filter(s => s.placement).length} adult decisions · {placement.states.filter(s => s.ready && !s.mastered).length} ready · {placement.states.filter(s => !s.ready).length} awaiting prerequisites
+            </p>
+            {placement.recommendations.length === 0 ? <p className="small muted">No new placement recommendations available yet.</p> : (
+              <ul className="roadmap-list">
+                {placement.recommendations.map(skill => (
+                  <li key={skill.skillId}>
+                    <span className="pill">Next</span>
+                    <span>
+                      <strong>{skill.title}</strong><span className="small muted"> — {skill.reason}</span>
+                      {placement.states.filter(state=>state.id===skill.skillId).map(state=>{
+                        const action=interventionNextAction(state,progress);
+                        return <span key={state.id+"-next"} className="small muted">
+                          Suggested next action: {action.action==="review"?"Review lesson":action.action==="practice"?"Practice again":action.action==="advance"?"Advance":"Assess"} — {action.reason}
+                        </span>;
+                      })}
+                      {placement.states.filter(state=>state.id===skill.skillId).map(state=>{
+                        const outcome=interventionOutcome(state,progress);
+                        return outcome ? <span key={state.id + "-outcome"} className="small muted">
+                          Reassessment: {outcome.baseline===null||outcome.current===null
+                            ? "Comparable mastery evidence not yet available."
+                            : `Mastery estimate ${Math.round(outcome.baseline*100)}% → ${Math.round(outcome.current*100)}% (${outcome.delta!>0?"+":""}${Math.round(outcome.delta!*100)} points).`}
+                          {" "}{outcome.next}
+                        </span> : null;
+                      })}
+                      {progress.attempts.filter(a=>a.intervention?.skillId===skill.skillId).slice(-3).reverse().map(a=>{
+                        const baseline=a.intervention?.baseline;
+                        const assessed=a.total>0?a.correct/a.total:null;
+                        return <span key={a.id} className="small muted">
+                          Focused practice {new Date(a.finishedAt).toLocaleDateString()}: {assessed===null?"No graded answers":Math.round(assessed*100)+"% on this session"}
+                          {baseline===null||baseline===undefined||assessed===null?" (no comparable pre-practice mastery baseline)":` (starting mastery estimate ${Math.round(baseline*100)}%; these are different measures)`}
+                        </span>;
+                      })}
+                      {placement.graph.filter(item=>item.id===skill.skillId).map(item=>{
+                        const trend=competencyImprovement(item,api.banks,progress);
+                        return trend ? <span key={item.id} className="small muted">
+                          Recent assessment trend: {Math.round(trend.before*100)}% → {Math.round(trend.after*100)}%
+                          ({trend.change>0?"+":""}{Math.round(trend.change*100)} points across {trend.sessions} assessed sessions).
+                          {trend.change<0?" Performance declined; consider reviewing the linked lesson.":trend.change>0?" Performance improved; keep practicing to confirm mastery.":" Performance is unchanged."}
+                        </span> : null;
+                      })}
+                      {skill.confidence > 0 && skill.reason.startsWith("Ready for practice") && (
+                        <span className="small muted"> Targeted intervention: review a linked lesson, then repeat its practice quiz to check for improvement.</span>
+                      )}
+                      {FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId) &&
+                        Object.entries(FOUNDATION_COMPETENCIES.find(item => item.id === skill.skillId)!.lessons)
+                          .flatMap(([courseId, ids]) => ids.map(lessonId => ({courseId,lessonId})))
+                          .filter(({courseId,lessonId}) => api.courses.some(c => c.id === courseId && c.lessons.some(l => l.id === lessonId)))
+                          .slice(0, 2)
+                          .map(({courseId,lessonId}) => {
+                            const lesson = api.courses.find(c => c.id === courseId)?.lessons.find(l => l.id === lessonId);
+                            return <button key={courseId + "/" + lessonId} type="button" className="linkish small"
+                              onClick={() => api.go({name:"lesson",courseId,lessonId})}>
+                              Study lesson: {lesson?.title ?? lessonId}
+                            </button>;
+                          })}
+                      {placement.graph.filter(item => item.id === skill.skillId).flatMap(item =>
+                        api.banks.flatMap(bank => {
+                          const ids = new Set(competencyQuestionIds(item, bank));
+                          const questions = bank.questions.filter(q => ids.has(q.id));
+                          return questions.length ? [{ bank: { ...bank, questions } }] : [];
+                        })
+                      ).slice(0,1).map(({bank}) => (
+                        <button key={bank.id + "-practice"} type="button" className="linkish small"
+                          onClick={() => api.go({name:"run",session:{...startPractice(bank, progress, {
+                            count:Math.min(10,bank.questions.length),
+                            topics:[],sections:[],filter:"all",shuffleChoices:true,
+                          }), intervention:{skillId:skill.skillId,baseline:placement.states.find(s=>s.id===skill.skillId)?.mastery ?? null}}})}>
+                          {progress.attempts.some(a=>a.intervention?.skillId===skill.skillId) ? "Reassess competency" : "Start focused practice"} ({Math.min(10,bank.questions.length)} linked questions)
+                        </button>
+                      ))}
+                      {skill.suggestedCourseIds.map(courseId => {
+                        const course = api.courses.find(c => c.id === courseId);
+                        return course ? (
+                          <button key={courseId} type="button" className="linkish small"
+                            onClick={() => api.go({ name: "course", courseId, tab: "lessons" })}>
+                            Study in {course.title}
+                          </button>
+                        ) : null;
+                      })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {placement.states.filter(state=>state.assessedMastered && !state.placement && interventionOutcome(state,progress)).length > 0 && (
+              <div>
+                <h3>Ready to advance</h3>
+                <ul className="roadmap-list">
+                  {placement.states.filter(state=>state.assessedMastered && !state.placement && interventionOutcome(state,progress)).map(state=>(
+                    <li key={state.id}>{state.title} — mastered after recorded focused practice. Continue to a recommended prerequisite-unlocked skill.</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <details>
+              <summary>All skills and prerequisites</summary>
+              <ul className="roadmap-list">
+                {placement.states.map(skill => (
+                  <li key={skill.id}>
+                    <span className={`pill ${skill.mastered ? "pass" : ""}`}>{skill.placement ? "Adult placement" : skill.assessedMastered ? "Assessed mastery" : skill.ready ? "Ready" : "Locked"}</span>
+                    <span>{skill.title}<span className="small muted"> — {explainCompetencyBlock(skill, placement.states)}</span>
+                      {skill.placement && <span className="small muted"> Adult decision by {skill.placement.actorName}: {skill.placement.reason}. This is not assessed mastery or certification.</span>}
+                      <span className="small muted"> {skill.mastery === null ? "No current assessed evidence." : `Assessment estimate ${Math.round(skill.mastery * 100)}%, confidence ${Math.round(skill.confidence * 100)}%.`}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+            {placement.coverage.some(c => !c.assessed) && <p className="muted small">Some skills have no linked assessment yet. They remain unassessed rather than being treated as completed.</p>}
+          </>
+        )}
+      </section>
 
       <div className="grid-2">
         <section className="panel">
@@ -188,6 +342,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
         {attempts.length === 0 ? (
           <p className="muted small">No sessions yet.</p>
         ) : (
+          <div className="table-wrap learning-history" role="region" aria-label="Learning session history" tabIndex={0}>
           <table className="table">
             <thead>
               <tr>
@@ -196,7 +351,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 <th>Mode</th>
                 <th className="r">Score</th>
                 <th className="r">Time</th>
-                <th><span className="sr-only">Actions</span></th>
+                <th>Result</th>
               </tr>
             </thead>
             <tbody>
@@ -211,11 +366,13 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                   <td className="r">{formatDuration(a.durationSec)}</td>
                   <td className="r">
                     <ScorePill attempt={a} />
+                    <button className="btn sm" onClick={(event) => { event.stopPropagation(); api.go({name:"results",attemptId:a.id,back:{name:"progress"}}); }}>View result</button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </section>
 

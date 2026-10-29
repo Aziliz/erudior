@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {prepareAuthorizedCredentialEvidence} from '../src/components/CredentialWorkspace';
+import {emptyInstructionalLibrary} from '../src/lib/instructionalEvidence';
+// The exact App-owned authorization implementation remains the sole local evidence authority.
+await import('./instructional-evidence-authority.test.mts');
+const at='2026-01-01T12:00:00Z';
+const pack:any={format:'erudior-instructional-pack',version:1,id:'synthetic-pack',revision:1,title:'Synthetic requirements',approval:{at,actor:'Synthetic local reviewer'},jurisdiction:{id:'synthetic',name:'Synthetic only',version:'1',sourceNote:'No regulatory claim.',effectiveFrom:'2026-01-01',effectiveThrough:'2026-12-31'},methodNote:'Explicit educational workload review, not elapsed time.',requirements:[{id:'objective',title:'Synthetic objective',minutes:60}],mappings:[{id:'mapping',requirementId:'objective',title:'Synthetic work',minutes:60,rationale:'Synthetic task equivalency.',source:{kind:'external',courseId:'synthetic',courseRevision:0,itemId:'work',title:'Synthetic evidence',snapshot:JSON.stringify({description:'Synthetic external work.'})}}]};
+let state:any={...emptyInstructionalLibrary(),packs:[pack],assignments:[{id:'assignment',revision:1,studentId:'alice',title:'Synthetic assignment',instructions:'Original synthetic fixture.',startDate:'2026-01-01',pack,createdAt:at}]};
+let count=0,afterRead=()=>{},denied=false;
+const service:any={load:async()=>{if(denied)throw Error('Unlock authority required.');count++;const result=structuredClone(state);afterRead();return result;}};
+const report=JSON.parse(await prepareAuthorizedCredentialEvidence(service,'assignment',1));
+assert.equal(count,3);assert.equal(report.authority,'local-educational-observations-only');assert.equal(report.report.assignment.studentId,'alice');assert.equal(report.report.complete,false);
+assert(!('signature' in report));assert(!('issuer' in report));
+denied=true;await assert.rejects(prepareAuthorizedCredentialEvidence(service,'assignment',1),/authority/);denied=false;
+count=0;afterRead=()=>{if(count===1)denied=true;};await assert.rejects(prepareAuthorizedCredentialEvidence(service,'assignment',1),/authority/);denied=false;
+count=0;afterRead=()=>{if(count===1)state={...state,assignments:[]};};await assert.rejects(prepareAuthorizedCredentialEvidence(service,'assignment',1),/unavailable/);
+const parent=await readFile(new URL('../src/pages/ParentArea.tsx',import.meta.url),'utf8');assert.match(parent,/tab === "credential-evidence" && <CredentialWorkspace api=\{api\}/);
+const wrapper=await readFile(new URL('../src/components/CredentialWorkspace.tsx',import.meta.url),'utf8');assert(!/fetch\(|saveState\(|updateState\(/.test(wrapper),'Read-only wrapper cannot upload or restore issuer registry');assert.match(wrapper,/<CredentialIntegrityPanel key=\{scope/);
+console.log('Credential actual App authority, per-export reauthorization, lock/deletion races, read-only privacy and nonqualification export passed.');

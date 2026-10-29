@@ -3,7 +3,7 @@
 // Together they give community courses everything official courses have.
 
 import { useState } from "react";
-import { addCommunityLesson, addCommunityModule, deleteCommunityModule, moveCommunityLesson } from "../lib/communityModules";
+import { addCommunityLesson, addCommunityModule, deleteCommunityModule, moveCommunityLesson, reorderCommunityModule, communityModuleDeleteProblem } from "../lib/communityModules";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { LIMITS, type CGlossary, type CModule, type CommunityDoc, type CReading, type CReference, type CVocab } from "../lib/communityFormat";
@@ -32,8 +32,8 @@ const lines = (s: string, max: number) => s.split("\n").slice(0, max);
 export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; update: Update }) {
   const modules = doc.modules ?? [];
   const [open, setOpen] = useState<string | null>(null);
-  const [deletePending, setDeletePending] = useState<string | null>(null);
-  const setModule = (mi: number, fn: (m: CModule) => CModule) => update((d) => ({ ...d, modules: (d.modules ?? []).map((m, i) => (i === mi ? fn(m) : m)) }));
+  const [deletePending, setDeletePending] = useState<{ id: string; snapshot: string } | null>(null);
+  const setModule = (mi: number, fn: (m: CModule) => CModule) => update((d) => ({ ...d, modules: (d.modules ?? []).map((m) => (m.id === modules[mi]?.id ? fn(m) : m)) }));
   const lessonsIn = (id: string, first: boolean) => doc.lessons.filter((l) => l.module === id || (first && !l.module));
   return (
     <>
@@ -53,22 +53,23 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
               <input type="checkbox" checked={!!m.honors} onChange={(e) => setModule(mi, (x) => ({ ...x, honors: e.target.checked || undefined }))} />
               Honors module
             </label>
-            <button className="btn sm ghost" disabled={mi === 0} onClick={() => update((d) => ({ ...d, modules: move(d.modules ?? [], mi, -1) }))}>
+            <button className="btn sm ghost" disabled={mi === 0} onClick={() => update((d) => reorderCommunityModule(d, m.id, -1))}>
               Up<span className="sr-only">: module {mi + 1}</span>
             </button>
-            <button className="btn sm ghost" disabled={mi === modules.length - 1} onClick={() => update((d) => ({ ...d, modules: move(d.modules ?? [], mi, 1) }))}>
+            <button className="btn sm ghost" disabled={mi === modules.length - 1} onClick={() => update((d) => reorderCommunityModule(d, m.id, 1))}>
               Down<span className="sr-only">: module {mi + 1}</span>
             </button>
-            {deletePending === m.id ? (
+            {deletePending?.id === m.id ? (
               <span className="row">
-                <span className="small">Move lessons to the first remaining module?</span>
-                <button className="btn sm danger" onClick={() => { update((d) => deleteCommunityModule(d, m.id)); setDeletePending(null); }}>Confirm delete</button>
+                <span className="small" role="status">Delete “{m.title}” and its {m.quiz?.length ?? 0} quiz questions? Its lessons move to the first remaining module{modules.length === 1 ? " (the implicit course module)" : ""}.</span>
+                <button className="btn sm danger" onClick={() => { update((d) => { if (JSON.stringify(d.modules?.find(current => current.id === m.id)) !== deletePending.snapshot) { api.toast("The module changed. Review it before deleting."); return d; } const problem = communityModuleDeleteProblem(d, m.id); if (problem) { api.toast(problem); return d; } return deleteCommunityModule(d, m.id); }); setDeletePending(null); }}>Confirm delete</button>
                 <button className="btn sm ghost" onClick={() => setDeletePending(null)}>Cancel</button>
               </span>
             ) : (
-              <button className="btn sm ghost danger" onClick={() => setDeletePending(m.id)}>Delete module</button>
+              <button className="btn sm ghost danger" disabled={!!communityModuleDeleteProblem(doc, m.id)} onClick={() => setDeletePending({ id: m.id, snapshot: JSON.stringify(m) })}>Delete module<span className="sr-only">: {m.title}</span></button>
             )}
           </div>
+          {communityModuleDeleteProblem(doc, m.id) && <p className="small muted">{communityModuleDeleteProblem(doc, m.id)}</p>}
           <div className="panel" aria-label={`Lessons in ${m.title}`}>
             <strong>Lessons (${lessonsIn(m.id, mi === 0).length})</strong>
             {lessonsIn(m.id, mi === 0).map((lesson) => (
@@ -116,7 +117,7 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
       <button
         className="btn"
         disabled={modules.length >= LIMITS.modules - (modules.length ? 0 : 1)}
-        onClick={() => update((d) => addCommunityModule(d, newId("m", [...(d.modules ?? []).map((m) => m.id), ...d.lessons.map((l) => l.id), "m1"])))}
+        onClick={() => update((d) => addCommunityModule(d))}
       >
         Add a module
       </button>

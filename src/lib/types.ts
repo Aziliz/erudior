@@ -1,12 +1,13 @@
+import type { Chosen } from "./courseContentTypes";
+export type { Section, QuestionType, QuestionImage, Question, AudioClip, Chosen, ExamConfig, Bank, Module, Lesson, Card, Deck, RefSheet, Course, CommunityInfo, LanguageInfo, VocabDirection, VocabItem, ReadingItem } from "./courseContentTypes";
+export type { GlossaryEntry, ReaderText, ReaderSection } from "./readerContent";
+export type { DrillChoice, DrillVar, NumFormat, AnswerPart, Drill, FigureSpec } from "./exerciseTypes";
+
 // Question bank file format ("examiner-bank", version 1). See docs/BANK_FORMAT.md.
 
-import type { ManipSpec, ManipTarget } from "./manip";
-import type { ActivityLogSpec, Lab, LogEntry, Rubric, WorkRecord, WritingTask } from "./work";
+import type { LogEntry, WorkRecord } from "./work";
 
-export interface Section {
-  id: string;
-  name: string;
-}
+
 
 /**
  * Question kinds. All of them keep `choices` and `answer` so code that only lists or counts
@@ -28,85 +29,15 @@ export interface Section {
  * - code: write a program; `code` holds the language, starter code, tests, hints and solution
  *   (see lib/code.ts). `choices` and `answer` are empty.
  */
-import type { CodeSpec } from "./code";
 
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code";
 
-export interface QuestionImage {
-  /** A data: URL (bundled and community courses) or an app-relative path. */
-  src: string;
-  /** What the image shows, for people who can't see it. Required. */
-  alt: string;
-  caption?: string;
-}
 
-export interface Question {
-  id: string;
-  /** Section id (e.g. "national" / "state"). Optional. */
-  section?: string;
-  /** Free-text topic used for practice filters and weak-topic tracking. */
-  topic: string;
-  type?: QuestionType;
-  stem: string;
-  /** Shown under the stem (any type); the picture for label questions. */
-  image?: QuestionImage;
-  choices: string[];
-  /** Zero-based indices into `choices`. More than one = "select all that apply". */
-  answer: number[];
-  /** match: the items on the left. */
-  left?: string[];
-  /** label: marker positions on the image, in percent of its width and height. */
-  markers?: { x: number; y: number }[];
-  /** text: accepted answers per blank. */
-  accept?: string[][];
-  /** text: answers must match capital letters too (e.g. gene symbols). */
-  caseSensitive?: boolean;
-  /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
-  lowestTerms?: boolean;
-  /** order: the date of each item, in the correct order (shown after checking). */
-  dates?: string[];
-  /** map: the map, in ```map block syntax (base, view, regions, points, routes…). */
-  map?: string;
-  /** map (find): the place(s) to pick. */
-  targets?: string[];
-  /** map (label): the places that get numbered markers. */
-  marks?: string[];
-  /** timeline: the dates of the numbered slots. */
-  slots?: string[];
-  /** timeline: periods (and other events) for context, in ```timeline block syntax. */
-  timeline?: string;
-  /** code: the exercise (language, starter, tests, hints, solution). */
-  code?: CodeSpec;
-  /** From an honors lesson: left out of full practice exams unless asked for. */
-  honors?: boolean;
-  /** model: the manipulative and its starting state. */
-  model?: ManipSpec;
-  /** model: what counts as right. */
-  target?: ManipTarget;
-  explanation?: string;
-  /**
-   * Early readers: words played with a big Listen button under the stem ("Listen. Which word
-   * did you hear?"). A recording from the course's audio library under the same text (or a
-   * data:audio URL here) plays in place of text-to-speech.
-   */
-  listen?: string;
-  /** Early readers: sound units to blend, shown as tiles the child taps one by one ("c a t"; "c[k]" plays sound:k). */
-  blend?: string[];
-  /**
-   * Listening questions: something to hear before answering (a recorded clip, or text spoken by
-   * the device's voice). The transcript (`text`) is shown only after the answer is checked.
-   */
-  audio?: AudioClip;
-}
+
+
+
 
 /** A recorded clip (`src`, a data:audio/… URL) and/or text for the device's voice to speak. */
-export interface AudioClip {
-  src?: string;
-  /** What is said. Spoken by text-to-speech when there's no `src`; shown as the transcript. */
-  text?: string;
-  /** Voice language for text-to-speech, e.g. "de-DE" (defaults to the course language). */
-  lang?: string;
-}
+
 
 /**
  * A learner's answer: choice indices (choice), the choice picked for each left item or marker
@@ -115,45 +46,11 @@ export interface AudioClip {
  * or the manipulative's state (model; see startState in manip.ts),
  * or `[code, stamp?]` (code; the stamp records the last test run, see makeStamp in lib/code.ts).
  */
-export type Chosen = (number | string)[];
 
-export interface ExamConfig {
-  /** Questions drawn at random for each timed exam. */
-  questionCount: number;
-  timeLimitMinutes: number;
-  passingPercent: number;
-  /** Optional fixed count per section id; the rest of questionCount is drawn from anywhere. */
-  sectionQuotas?: Record<string, number>;
-  /**
-   * Optional pass mark per section id (percent). When set, an exam passes only
-   * if every listed section meets its own mark, like PSI's two-portion exams.
-   */
-  sectionPassing?: Record<string, number>;
-  /**
-   * Optional time limit per section id (minutes). With section quotas, the
-   * exam runs one section at a time, each on its own clock, like PSI.
-   */
-  sectionTimeLimits?: Record<string, number>;
-}
 
-export interface Bank {
-  format: "examiner-bank";
-  version: 1;
-  /**
-   * Standalone banks: the file id. Banks inside a course are given the
-   * runtime id `${courseId}__${localId}` so stats never collide across courses.
-   */
-  id: string;
-  /** Runtime only: set when the bank lives inside a course. Never serialized. */
-  courseId?: string;
-  title: string;
-  description?: string;
-  author?: string;
-  updated?: string;
-  sections: Section[];
-  exam: ExamConfig;
-  questions: Question[];
-}
+
+
+
 
 export type Mode = "exam" | "practice";
 
@@ -172,6 +69,8 @@ export interface Tally {
 }
 
 export interface Attempt {
+  /** Competency and baseline at the start of a targeted practice intervention. */
+  intervention?: { skillId: string; baseline: number | null };
   id: string;
   bankId: string;
   bankTitle: string;
@@ -223,341 +122,36 @@ export interface QuestionStat {
 // ---------------------------------------------------------------------------
 // Course pack format ("examiner-course", version 1). See docs/COURSE_FORMAT.md.
 
-export interface Module {
-  id: string;
-  title: string;
-  /** An honors module: optional extra material (every lesson in it is honors). */
-  honors?: boolean;
-  /**
-   * End-of-module quiz: ids of questions in the course's first bank. It unlocks once
-   * every lesson in the module is complete; passing it marks the module complete.
-   */
-  quiz?: string[];
-}
 
-export interface Lesson {
-  id: string;
-  module: string;
-  title: string;
-  /**
-   * Honors lesson: optional extra depth. It isn't needed to finish its module or the course,
-   * but study time on it counts like any lesson.
-   */
-  honors?: boolean;
-  /** Question/card topics this lesson covers, for "practice this" links. */
-  topics?: string[];
-  minutes?: number;
-  /** Markdown. [[term]] or [[term|shown text]] links to the glossary. */
-  body: string;
-  /** Math drill ids and quick-reference sheet ids offered in the lesson's study box. */
-  drills?: string[];
-  refs?: string[];
-  /**
-   * End-of-lesson quiz: ids of questions in the course's first bank. When set,
-   * passing the quiz (LESSON_QUIZ_PASS percent) is what marks the lesson complete.
-   */
-  quiz?: string[];
-}
 
-export interface Card {
-  id: string;
-  front: string;
-  back: string;
-  topic?: string;
-}
 
-export interface Deck {
-  id: string;
-  title: string;
-  description?: string;
-  cards: Card[];
-}
 
-export interface GlossaryEntry {
-  term: string;
-  definition: string;
-  aliases?: string[];
-  topic?: string;
-}
 
-export interface RefSheet {
-  id: string;
-  title: string;
-  body: string; // Markdown
-}
 
-/** A choice can be a number, text, or a label shown in text with a number used in math. */
-export type DrillChoice = number | string | { label: string; value: number };
 
-export type DrillVar = { min: number; max: number; step?: number } | { choices: DrillChoice[] };
 
-export type NumFormat = "money" | "money0" | "percent" | "number" | "integer" | "fraction" | "sci";
 
-/**
- * One answer box. A drill has either the classic single `answer` + `format`, or a list
- * of `answers` (multi-part, e.g. x and y).
- */
-export interface AnswerPart {
-  /** Name of the calc/var value that's correct (number kinds). */
-  name?: string;
-  /** Label next to the box, e.g. "x =" or "Speed". Markdown/math allowed. */
-  label?: string;
-  /**
-   * number (default): any equivalent value, typed as a number or math like 3/4, sqrt(3)/2, 2pi.
-   * fraction: must be typed as a whole number or fraction (no decimals), e.g. -7/4.
-   * expression: an algebraic answer in the listed variables, e.g. 6x^2 - 2, checked by
-   *   plugging values in. `expression` is the correct one, written with drill values/functions.
-   */
-  kind?: "number" | "fraction" | "expression";
-  format?: NumFormat;
-  /** Absolute tolerance (number kinds). */
-  tolerance?: number;
-  /** Relative tolerance, e.g. 0.01 for 1%. */
-  relTolerance?: number;
-  /** Accept anything that rounds to the same value at this many significant figures. */
-  sigfigs?: number;
-  /** Fractions must be in lowest terms. */
-  lowestTerms?: boolean;
-  /** Accepted units and their factor to the answer's unit: { "m/s": 1, "km/h": 0.27778 }. The first is shown. */
-  units?: Record<string, number>;
-  /** Expression kind: the correct expression, e.g. "3*a*x^2 - 2" or "deriv(f, x)". */
-  expression?: string;
-  /** Expression kind: the variables the answer may use. Default ["x"]. */
-  variables?: string[];
-  /** Expression kind: accept answers that differ by a constant (antiderivatives, "+ C"). */
-  plusC?: boolean;
-  /** Expression kind: how to show the correct answer (placeholders and $math$ allowed). */
-  show?: string;
-}
 
-export interface Drill {
-  id: string;
-  title: string;
-  topic?: string;
-  /** Random inputs. */
-  vars: Record<string, DrillVar>;
-  /**
-   * Functions usable in calc, where and answers: { "f(x)": "a*x^2 + b*x" }. They can use
-   * the drill's values, and deriv(f, x), integ(f, a, b), solve(f, lo, hi), limit(f, a)
-   * and extremum(f, lo, hi, ±1) work on them.
-   */
-  funcs?: Record<string, string>;
-  /** Derived values, evaluated in order. See docs/COURSE_FORMAT.md for operators and functions. */
-  calc?: Record<string, string>;
-  /** Conditions every problem must meet (e.g. "b^2 - 4*a*c > 0"); the inputs are re-rolled until they do. */
-  where?: string[];
-  /** Text with {name} or {name:format} placeholders. */
-  prompt: string;
-  /** Name of the var/calc value that is the answer (single-answer drills). */
-  answer: string;
-  format: NumFormat;
-  /** Accepted absolute difference. Defaults by format. */
-  tolerance?: number;
-  /** Multi-part or non-numeric answers. When present, `answer`/`format`/`tolerance` are ignored. */
-  answers?: AnswerPart[];
-  /** A graph or diagram shown with the problem (see Figure in docs/COURSE_FORMAT.md). */
-  figure?: FigureSpec | FigureSpec[];
-  /** Worked solution, same placeholder syntax. */
-  solution: string;
-}
 
-/** Graph or diagram spec. Numbers anywhere may be expressions using the drill's values. */
-export interface FigureSpec {
-  /**
-   * "plot" draws on coordinate axes; "shape" draws a plain diagram (geometry);
-   * "numberline" draws a single horizontal number line (use y = 0 for points and segments).
-   */
-  type: "plot" | "shape" | "numberline";
-  /** Plot only: same scale on both axes (circles look round). Height follows the ranges. */
-  equal?: boolean;
-  /** Axis titles (plot only). */
-  xLabel?: string;
-  yLabel?: string;
-  /** Visible range; plot defaults to [-10, 10] both ways. */
-  x?: [number | string, number | string];
-  y?: [number | string, number | string];
-  /** Grid and axes (plot only). Default true. */
-  grid?: boolean;
-  /** Where the y-axis (and its numbers) sits: at x = 0 when visible (default) or along the left edge. */
-  yAxisAt?: "zero" | "left";
-  /** Where the x-axis (and its numbers) sits: at y = 0 when visible (default) or along the bottom edge. */
-  xAxisAt?: "zero" | "bottom";
-  /** Functions to graph: "f" (a drill function), or an expression in x like "2x + 1". */
-  functions?: (string | { f: string; label?: string; color?: string; dashed?: boolean; from?: number | string; to?: number | string })[];
-  /** Points: [x, y] or { at: [x, y], label?, open? }. */
-  points?: ([number | string, number | string] | { at: [number | string, number | string]; label?: string; open?: boolean; color?: string })[];
-  /** Line segments and arrows. */
-  segments?: { from: [number | string, number | string]; to: [number | string, number | string]; label?: string; arrow?: boolean; dashed?: boolean; color?: string }[];
-  /** Polygons (triangles, etc.). */
-  polygons?: { points: [number | string, number | string][]; fill?: boolean; color?: string }[];
-  circles?: { center: [number | string, number | string]; r: number | string; fill?: boolean; color?: string }[];
-  /** Text labels at a point. */
-  labels?: { at: [number | string, number | string]; text: string }[];
-  /** Shade between a function and the x-axis (or another function) from a to b. */
-  shade?: { f: string; g?: string; from: number | string; to: number | string; color?: string }[];
-  /** Tangent line to a function at x. */
-  tangents?: { f: string; at: number | string; color?: string }[];
-  /** Right-angle marks: the corner vertex and its two neighbors. */
-  rightAngles?: [[number | string, number | string], [number | string, number | string], [number | string, number | string]][];
-  /** Parametric curves (x(t), y(t)) for t in [from, to]; also polar curves via r(t)cos t, r(t)sin t. */
-  curves?: { x: string; y: string; t: [number | string, number | string]; label?: string; color?: string; dashed?: boolean }[];
-  /** Slope field for dy/dx = f(x, y): short segments on a grid (step defaults to a 20×15 grid). */
-  slopeField?: { f: string; step?: number | string };
-  /** Vector field (u(x, y), v(x, y)): arrows on a grid, scaled to fit. */
-  vectorField?: { u: string; v: string; step?: number | string };
-  /** Bars (histograms, bar charts): each bar is centered at x with the given height. */
-  bars?: { x: number | string; height: number | string; width?: number | string; label?: string; color?: string }[];
-  /** Drawing size in px (width); height follows the aspect of the ranges for shapes. Default 420. */
-  width?: number;
-  caption?: string;
-}
 
-export interface Course {
-  format: "examiner-course";
-  version: 1;
-  id: string;
-  title: string;
-  description?: string;
-  author?: string;
-  updated?: string;
-  /** Integer that goes up with each published version of the course. */
-  revision?: number;
-  /** What changed in this revision (shown when offering the update). */
-  changelog?: string;
-  /** Shown on the course's pages: limits of the material (professional and exam-prep courses). */
-  disclaimer?: string;
-  modules: Module[];
-  lessons: Lesson[];
-  banks: Bank[];
-  decks: Deck[];
-  glossary: GlossaryEntry[];
-  references: RefSheet[];
-  drills: Drill[];
-  /** Language courses: the language, its proficiency level, and typing helpers. */
-  language?: LanguageInfo;
-  /** Language courses: words (and alphabet characters) learned with typed review cards. */
-  vocab?: VocabItem[];
-  /** Recommended reading for the course's level. */
-  readingList?: ReadingItem[];
-  /** Books and documents read inside the app (the Reading tab's library). See lib/reader.ts. */
-  texts?: ReaderText[];
-  /** The calculator offered while studying ("none": no calculator); by default it follows the subject (lib/calcKind.ts). */
-  calculator?: "basic" | "scientific" | "graphing" | "none";
-  /** Community courses (made by users on the website): never count toward homeschool records. */
-  community?: CommunityInfo;
-  /**
-   * Early-reader course (kindergarten to grade 2): read-aloud buttons on every paragraph,
-   * question and answer choice, larger text, and each new question read aloud automatically
-   * (each learner can turn that off).
-   */
-  readAloud?: boolean;
-  /**
-   * Recorded audio that replaces text-to-speech: { key: data:audio URL or "say:<text>" }. A key
-   * is the words as they're read (matched ignoring case, spacing and punctuation) or a name
-   * that a block refers to, such as `sound:m` for the sound of m. See lib/readAloud.ts.
-   */
-  audio?: Record<string, string>;
-  /** Student work a parent or teacher reviews (lib/work.ts): rubrics, writing assignments, labs, an activity log. */
-  rubrics?: Rubric[];
-  writing?: WritingTask[];
-  labs?: Lab[];
-  activityLog?: ActivityLogSpec;
-}
 
-export interface CommunityInfo {
-  /** The course's id on the community site. */
-  id: string;
-  version: number;
-  review: "reviewed" | "not_reviewed";
-  author: string;
-}
 
-export interface LanguageInfo {
-  /** BCP-47 code, e.g. "de". */
-  code: string;
-  /** Display name, e.g. "German". */
-  name: string;
-  /** Voice for text-to-speech, e.g. "de-DE". */
-  tts?: string;
-  /** Characters offered as buttons under the typing box, e.g. ["ä", "ö", "ü", "ß"]. */
-  keys?: string[];
-  /** Input converter for non-Roman scripts (e.g. "ja": romaji -> kana -> kanji). */
-  ime?: string;
-  /** Proficiency framework and level, e.g. "CEFR A1". */
-  level?: string;
-  /** Recommended minimum vocabulary for the level. */
-  vocabTarget?: number;
-  /** Where vocabTarget comes from. */
-  vocabSource?: string;
-}
 
-export type VocabDirection = "meaning" | "recall";
 
-export interface VocabItem {
-  id: string;
-  /** Set on words carried over from an earlier course (its course id), e.g. A1 words inside A2. */
-  from?: string;
-  /** Lesson that introduces it; it joins the review backlog once that lesson is done. */
-  lesson: string;
-  kind?: "word" | "phrase" | "char";
-  /** The word as written in the language, e.g. "der Hund" (nouns with their article). */
-  term: string;
-  /** Other accepted spellings of the term. */
-  alt?: string[];
-  /** Accepted English meanings; the first is shown. */
-  meanings: string[];
-  /** Romanization or pronunciation guide (non-Roman scripts). */
-  reading?: string;
-  /** Part of speech, e.g. "noun", "verb". */
-  pos?: string;
-  /** Noun plural, e.g. "die Hunde". */
-  plural?: string;
-  /** Example sentence and its translation. */
-  example?: string;
-  exampleEn?: string;
-  note?: string;
-  /** Recorded pronunciation (data:audio/… URL); the device's voice is used when missing. */
-  audio?: string;
-  /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
-  directions?: VocabDirection[];
-}
 
-/** A book, poem, play or document in the course's library, read in the app's reader. */
-export interface ReaderText {
-  id: string;
-  title: string;
-  author?: string;
-  /** When it was written or first published, shown as given ("1862", "c. 1600"). */
-  date?: string;
-  /** prose (default) and document are Markdown; poem and play are line by line, with line numbers. */
-  kind?: "prose" | "poem" | "play" | "document";
-  /** Language of the text (BCP-47, e.g. "de-DE"); default: the course's language, else English. */
-  lang?: string;
-  /** Subject for the homeschool reading log (default: English language arts, or World languages). */
-  subject?: string;
-  /** Short Markdown introduction shown in the library and above the text. */
-  about?: string;
-  /** Edition or source, and its copyright status. */
-  source?: string;
-  /** Poems and plays: number every Nth line (default 5; 0 = no numbers). */
-  lineNumbers?: number;
-  /** Words explained for this text; [[term]] links look here first, then in the course glossary. */
-  glossary?: GlossaryEntry[];
-  sections: ReaderSection[];
-}
 
-/** A chapter, scene, poem or part of a text. */
-export interface ReaderSection {
-  id: string;
-  title: string;
-  /** Markdown (poems and plays: one line of the text per line). Footnotes: [^1] … [^1]: note. */
-  body: string;
-  /** Reading questions: ids of questions in the course's first bank. */
-  questions?: string[];
-}
+
+
 
 /** Where a student is in one text, and how long they've read it. */
 export interface ReadingState {
+  /** Local semantic revision; prior completion remains separately available. */
+  revision?: string;
+  sectionRevisions?: Record<string, string>;
+  priorRead?: Record<string, string>;
+  completedRevisions?: Record<string, string>;
+  /** Idempotent cumulative writer/day active-time receipts; never silently pruned. */
+  writerSeconds?: Record<string, number>;
   /** The section open last, and the paragraph or line at the top of the screen. */
   section: string;
   at: number;
@@ -571,16 +165,7 @@ export interface ReadingState {
   last: string;
 }
 
-export interface ReadingItem {
-  title: string;
-  author?: string;
-  publisher?: string;
-  level?: string;
-  url?: string;
-  isbn?: string;
-  free?: boolean;
-  note?: string;
-}
+
 
 /** Review state of one vocab card (item + direction). */
 export interface VocabState {
@@ -635,6 +220,12 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Local anonymous erasure generation; never academic evidence or remote authority. */
+  anonymousGeneration?: number;
+  /** Learner-imported support instructions only; never adult authority or assessment evidence. */
+  interventionTasks?: import("./interventionTasks").InterventionTask[];
+  /** Profile-local durable skill evidence and explicit supervising-adult placement history. */
+  competencies?: import("./competencyState").CompetencyLedger;
   version: 1;
   seeded: boolean;
   /** Bundled courses already installed once (so deleting one doesn't bring it back). */
@@ -644,6 +235,11 @@ export interface Progress {
   /** Homeschool families: the courses this student has in progress (courses are shared on disk). */
   enrolled?: string[];
   theme?: "light" | "dark" | "system";
+  /** Course spreadsheet assignment grading history, keyed by course/assignment ID. */
+  /** Immutable learner-submitted spreadsheet evidence; practice scores remain separate. */
+  assessedWorkSubmissions?: import("./assessedWorkEvidence").AssessedWorkSubmissionMap;
+  spreadsheetSubmissions?: import("./spreadsheetEvidence").SpreadsheetSubmissionMap;
+  spreadsheetGrades?: Record<string, {score: number; gradedAt: string; revision: number; assignmentSnapshot?: string; workbookSnapshot?: string; submissionId?: string}>;
   attempts: Attempt[];
   /** bankId -> questionId -> stats */
   stats: Record<string, Record<string, QuestionStat>>;

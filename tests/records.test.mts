@@ -81,7 +81,7 @@ ok("until date limits", near(gradeParts(C, progress, [], "2026-09-10").lessons, 
 
 // ---- school years and reports ----
 const family: Family = {
-  format: "examiner-family",
+  format: "erudior-family",
   version: 1,
   state: "NY",
   route: "Home education law",

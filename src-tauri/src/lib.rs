@@ -4,6 +4,11 @@
 
 use std::fs;
 use std::path::{Path, PathBuf};
+use std::sync::Mutex;
+
+// Serializes named-state writes/CAS across webviews in this application process.
+// This is not an inter-process lock.
+static NAMED_STATE_LOCK: Mutex<()> = Mutex::new(());
 use tauri::{AppHandle, Manager};
 
 const PROGRESS_FILE: &str = "progress.json";
@@ -69,14 +74,18 @@ fn list_items(app: AppHandle, kind: String) -> Result<Vec<String>, String> {
 }
 
 #[tauri::command]
-fn save_item(app: AppHandle, kind: String, id: String, content: String) -> Result<(), String> {
+fn save_item(app: AppHandle, kind: String, id: String, content: String, anonymous_generation: Option<u64>) -> Result<(), String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    if kind == "documents" && (anonymous_generation.is_some() || !data_dir(&app)?.join("family.json").exists()) {check_anonymous_generation(&data_dir(&app)?,anonymous_generation.unwrap_or(0))?;}
     serde_json::from_str::<serde_json::Value>(&content)
         .map_err(|e| format!("content is not valid JSON: {e}"))?;
     write_atomic(&item_path(&app, &kind, &id)?, &content)
 }
 
 #[tauri::command]
-fn delete_item(app: AppHandle, kind: String, id: String) -> Result<(), String> {
+fn delete_item(app: AppHandle, kind: String, id: String, anonymous_generation: Option<u64>) -> Result<(), String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    if kind == "documents" && (anonymous_generation.is_some() || !data_dir(&app)?.join("family.json").exists()) {check_anonymous_generation(&data_dir(&app)?,anonymous_generation.unwrap_or(0))?;}
     let path = item_path(&app, &kind, &id)?;
     if path.exists() {
         fs::remove_file(path).map_err(|e| format!("delete failed: {e}"))?;
@@ -86,6 +95,7 @@ fn delete_item(app: AppHandle, kind: String, id: String) -> Result<(), String> {
 
 #[tauri::command]
 fn load_progress(app: AppHandle) -> Result<Option<String>, String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
     let path = data_dir(&app)?.join(PROGRESS_FILE);
     if !path.exists() {
         return Ok(None);
@@ -96,7 +106,9 @@ fn load_progress(app: AppHandle) -> Result<Option<String>, String> {
 }
 
 #[tauri::command]
-fn save_progress(app: AppHandle, content: String) -> Result<(), String> {
+fn save_progress(app: AppHandle, content: String, anonymous_generation: Option<u64>) -> Result<(), String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    check_anonymous_generation(&data_dir(&app)?, anonymous_generation.unwrap_or(0))?;
     write_atomic(&data_dir(&app)?.join(PROGRESS_FILE), &content)
 }
 
@@ -113,7 +125,7 @@ fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
 }
 
 fn valid_state_name(name: &str) -> bool {
-    if name == "session" || name == "family" || name == "classes" {
+    if name == "progress" || name == "session" || name == "family" || name == "classes" || name == "classroom-submissions" || name == "presentations" || name == "interventions" || name == "document-engine" || name == "transaction-engine" || name == "instructional-evidence" || name == "branching-engine" || name == "scientific-workspace" || name == "advanced-assessment" || name == "learner-privacy" {
         return true;
     }
     for prefix in ["progress-", "records-", "session-", "portfolio-"] {
@@ -126,6 +138,7 @@ fn valid_state_name(name: &str) -> bool {
 
 #[tauri::command]
 fn load_state(app: AppHandle, name: String) -> Result<Option<String>, String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
     let path = aux_path(&app, &name)?;
     if !path.exists() {
         return Ok(None);
@@ -135,8 +148,10 @@ fn load_state(app: AppHandle, name: String) -> Result<Option<String>, String> {
 
 /// Saves the state file, or deletes it when `content` is None.
 #[tauri::command]
-fn save_state(app: AppHandle, name: String, content: Option<String>) -> Result<(), String> {
+fn save_state(app: AppHandle, name: String, content: Option<String>, anonymous_generation: Option<u64>) -> Result<(), String> {
     let path = aux_path(&app, &name)?;
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    if name == "progress" || name == "session" { check_anonymous_generation(&data_dir(&app)?, anonymous_generation.unwrap_or(0))?; }
     match content {
         Some(c) => write_atomic(&path, &c),
         None => {
@@ -145,6 +160,148 @@ fn save_state(app: AppHandle, name: String, content: Option<String>) -> Result<(
             }
             Ok(())
         }
+    }
+}
+
+/// Optimistic read/transform happens in the frontend; comparison and replacement
+/// are atomic against every named-state save in this native application process.
+#[tauri::command]
+fn compare_and_swap_state(app: AppHandle, name: String, expected: Option<String>, content: String, anonymous_generation: Option<u64>) -> Result<bool, String> {
+    let path = aux_path(&app, &name)?;
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    if name == "progress" || name == "session" { check_anonymous_generation(&data_dir(&app)?, anonymous_generation.unwrap_or(0))?; }
+    compare_and_swap_path(&path, expected.as_deref(), &content)
+}
+
+/// Explicit anonymous replacement with generation fencing. File failures roll back newly
+/// inserted attachments/session; the filesystem is not power-loss atomic across files.
+#[tauri::command]
+fn replace_anonymous_state(app: AppHandle, expected_progress: Option<String>, expected_session: Option<String>, progress: String, session: String, file_ids: Vec<String>, files: std::collections::BTreeMap<String,serde_json::Value>, expected_privacy: Option<String>, privacy: String) -> Result<Vec<String>, String> {
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    replace_anonymous_path(&data_dir(&app)?, expected_progress, expected_session, progress, session, file_ids, files, expected_privacy, privacy)
+}
+fn replace_anonymous_path(dir:&Path, expected_progress:Option<String>, expected_session:Option<String>, progress:String, session:String, file_ids:Vec<String>, files:std::collections::BTreeMap<String,serde_json::Value>,expected_privacy:Option<String>,privacy:String)->Result<Vec<String>,String> {
+    if dir.join("family.json").exists() { return Err("Anonymous scope changed".into()); }
+    let read=|name:&str| -> Result<Option<String>,String> { let p=dir.join(name); if p.exists(){fs::read_to_string(p).map(Some).map_err(|e|e.to_string())}else{Ok(None)} };
+    if read(PROGRESS_FILE)? != expected_progress || read("session.json")? != expected_session || read("learner-privacy.json")? != expected_privacy { return Err("Anonymous data changed. Inspect again.".into()); }
+    let old_value:serde_json::Value=match expected_progress.as_ref(){None=>serde_json::json!({}),Some(raw)=>serde_json::from_str(raw).map_err(|_|"Invalid progress")?};
+    let old_generation=match old_value.get("anonymousGeneration"){None=>0,Some(value)=>value.as_u64().ok_or("Invalid generation")?};
+    if old_generation>=9007199254740991 {return Err("Invalid generation".into());}
+    let next:serde_json::Value=serde_json::from_str(&progress).map_err(|_|"Invalid progress")?;
+    let wrapped:serde_json::Value=serde_json::from_str(&session).map_err(|_|"Invalid session")?;
+    if wrapped.get("format").and_then(|v|v.as_str())!=Some("erudior-anonymous-session") || wrapped.get("version").and_then(|v|v.as_u64())!=Some(1) || !wrapped.get("content").map(|v|v.is_null()||v.is_string()).unwrap_or(false) || next.get("anonymousGeneration").and_then(|v|v.as_u64())!=Some(old_generation+1) || wrapped.get("generation").and_then(|v|v.as_u64())!=Some(old_generation+1) {return Err("Invalid generation".into());}
+    if file_ids.len()>10000 || file_ids.iter().any(|id| id.is_empty()||id.len()>100||!id.chars().all(|c|c.is_ascii_alphanumeric()||c=='_'||c=='-')) {return Err("Invalid attachment IDs".into());}
+    // Conservatively retain any attachment referenced by another JSON file. No bulk directory removal.
+    fn referenced(dir:&Path, root:&Path, id:&str, excluded:&Path)->Result<bool,String>{
+      for entry in fs::read_dir(dir).map_err(|e|e.to_string())? {let entry=entry.map_err(|e|e.to_string())?;if entry.file_type().map_err(|e|e.to_string())?.is_symlink(){return Err("Unexpected linked data; attachments retained".into());}let p=entry.path();if p==excluded {continue;}if p.is_dir(){if referenced(&p,root,id,excluded)?{return Ok(true);}}else if p.extension().and_then(|x|x.to_str())==Some("json") && p!=root.join("progress.json") && p!=root.join("session.json") && p!=root.join("learner-privacy.json") {let raw=fs::read_to_string(&p).map_err(|e|e.to_string())?;
+        fn has(v:&serde_json::Value,id:&str)->bool{match v{serde_json::Value::String(s)=>s==id,serde_json::Value::Array(a)=>a.iter().any(|v|has(v,id)),serde_json::Value::Object(o)=>o.iter().any(|(key,v)|key==id||has(v,id)),_=>false}}
+        match serde_json::from_str::<serde_json::Value>(&raw){Ok(v)=>if has(&v,id){return Ok(true);},Err(_)=>return Ok(true)} }}Ok(false)
+    }
+    let mut removable=Vec::new();let mut retained=Vec::new();
+    for id in file_ids {let p=dir.join("documents").join(format!("{id}.json"));if referenced(&dir,&dir,&id,&p)? {retained.push(id);}else{removable.push((id,p));}}
+    if privacy.is_empty(){return Err("Anonymous association cleanup is required".into());}
+    {
+      let old:serde_json::Value=match expected_privacy.as_ref(){Some(raw)=>serde_json::from_str(raw).map_err(|_|"Invalid privacy state")?,None=>serde_json::json!({"format":"erudior-learner-privacy","version":1,"revision":0,"profiles":[],"deletedStudentIds":[]})};
+      let mut expected=old.clone();let profiles=old.get("profiles").and_then(|v|v.as_array()).ok_or("Invalid privacy profiles")?;
+      expected["profiles"]=serde_json::Value::Array(profiles.iter().filter(|p|!p.get("studentId").map(|v|v.is_null()).unwrap_or(false)).cloned().collect());
+      expected["revision"]=serde_json::json!(old.get("revision").and_then(|v|v.as_u64()).ok_or("Invalid privacy revision")?+1);
+      if serde_json::from_str::<serde_json::Value>(&privacy).map_err(|_|"Invalid privacy replacement")?!=expected{return Err("Only anonymous association removal is allowed".into());}
+    }
+    if files.len()>100 || progress.len()>24*1024*1024 || session.len()>3*1024*1024 || serde_json::to_string(&files).map_err(|e|e.to_string())?.len()>24*1024*1024 {return Err("Recovery size limit".into());}
+    let mut new_files=Vec::new();
+    for (id,file) in &files {
+      if id.is_empty()||id.len()>100||!id.chars().all(|c|c.is_ascii_alphanumeric()||c=='_'||c=='-')||file.as_object().map(|o|o.len())!=Some(2)||!file.get("mime").map(|v|v.is_string()).unwrap_or(false)||!file.get("data").map(|v|v.is_string()).unwrap_or(false){return Err("Invalid recovery attachment".into());}
+      let p=dir.join("documents").join(format!("{id}.json"));
+      if p.exists(){let existing:serde_json::Value=serde_json::from_str(&fs::read_to_string(&p).map_err(|e|e.to_string())?).map_err(|_|"Damaged existing attachment")?;if &existing!=file{return Err("Recovery attachment conflicts with existing bytes".into());}}else{new_files.push((p,serde_json::to_string(file).map_err(|e|e.to_string())?));}
+    }
+    fs::create_dir_all(dir.join("documents")).map_err(|e|e.to_string())?;
+    let commit=(||->Result<(),String>{
+      for(p,content)in &new_files{write_atomic(p,content)?;}
+      write_atomic(&dir.join("session.json"),&session)?;
+      if !privacy.is_empty(){write_atomic(&dir.join("learner-privacy.json"),&privacy)?;}
+      write_atomic(&dir.join(PROGRESS_FILE),&progress)
+    })();
+    if let Err(error)=commit {
+      let mut cleanup_failed=false;
+      for(p,_)in &new_files{if p.exists()&&fs::remove_file(p).is_err(){cleanup_failed=true;}}
+      let rollback=match expected_session {Some(ref old)=>write_atomic(&dir.join("session.json"),old),None=>{if dir.join("session.json").exists(){fs::remove_file(dir.join("session.json")).map_err(|e|e.to_string())}else{Ok(())}}};
+      let privacy_rollback=match expected_privacy {Some(ref old)=>write_atomic(&dir.join("learner-privacy.json"),old),None=>{if dir.join("learner-privacy.json").exists(){fs::remove_file(dir.join("learner-privacy.json")).map_err(|e|e.to_string())}else{Ok(())}}};
+      if cleanup_failed||rollback.is_err()||privacy_rollback.is_err(){return Err(format!("Recovery interrupted; some attachment/session bytes may remain. Inspect before retrying: {error}"));}
+      return Err(error);
+    }
+    for (id,p) in removable {if p.exists()&&fs::remove_file(&p).is_err(){retained.push(id);}}
+    Ok(retained)
+}
+
+fn check_anonymous_generation(dir: &Path, expected: u64) -> Result<(), String> {
+    let path = dir.join(PROGRESS_FILE);
+    let generation = if path.exists() {
+        let text = fs::read_to_string(path).map_err(|e| format!("read failed: {e}"))?;
+        let value: serde_json::Value = serde_json::from_str(&text).map_err(|_| "damaged anonymous progress".to_string())?;
+        match value.get("anonymousGeneration") { None => 0, Some(v) => v.as_u64().ok_or("invalid anonymous generation")? }
+    } else { 0 };
+    if generation != expected { return Err("Anonymous data changed or was erased. Reload before saving.".to_string()); }
+    Ok(())
+}
+
+fn compare_and_swap_path(path: &PathBuf, expected: Option<&str>, content: &str) -> Result<bool, String> {
+    let current = match fs::read_to_string(path) {
+        Ok(text) => Some(text),
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
+        Err(error) => return Err(format!("read failed: {error}")),
+    };
+    if current.as_deref() != expected { return Ok(false); }
+    write_atomic(path, content)?;
+    Ok(true)
+}
+
+#[cfg(test)]
+mod named_state_tests {
+    use super::*;
+    #[test]
+    fn anonymous_erasure_generation_and_reference_isolation() {
+        let dir=std::env::temp_dir().join(format!("erudior-anonymous-{}",std::process::id()));
+        let _=fs::remove_dir_all(&dir);fs::create_dir_all(dir.join("documents")).unwrap();
+        fs::write(dir.join("progress.json"),r#"{"version":1,"anonymousGeneration":0,"work":{"fileId":"unique"}}"#).unwrap();
+        fs::write(dir.join("session.json"),"private session").unwrap();
+        fs::write(dir.join("progress-bob.json"),r#"{"fileId":"\u0073hared"}"#).unwrap();
+        fs::write(dir.join("documents/unique.json"),"{}").unwrap();fs::write(dir.join("documents/shared.json"),"{}").unwrap();
+        let old=fs::read_to_string(dir.join("progress.json")).unwrap();
+        let privacy=r#"{"format":"erudior-learner-privacy","version":1,"revision":1,"profiles":[],"deletedStudentIds":[]}"#.to_string();
+        let next=r#"{"version":1,"anonymousGeneration":1}"#.to_string();let session=r#"{"format":"erudior-anonymous-session","version":1,"generation":1,"content":null}"#.to_string();
+        assert!(replace_anonymous_path(&dir,Some(old.clone()),Some("wrong".into()),next.clone(),session.clone(),vec![],Default::default(),None,privacy.clone()).is_err());
+        let mut conflicting=std::collections::BTreeMap::new();
+        conflicting.insert("orphan".into(),serde_json::json!({"mime":"text/plain","data":"YQ=="}));
+        conflicting.insert("shared".into(),serde_json::json!({"mime":"text/plain","data":"Yg=="}));
+        assert!(replace_anonymous_path(&dir,Some(old.clone()),Some("private session".into()),next.clone(),session.clone(),vec![],conflicting,None,privacy.clone()).is_err());
+        assert!(!dir.join("documents/orphan.json").exists());assert_eq!(fs::read_to_string(dir.join("progress.json")).unwrap(),old);
+        let kept=replace_anonymous_path(&dir,Some(old),Some("private session".into()),next,session,vec!["unique".into(),"shared".into()],Default::default(),None,privacy.clone()).unwrap();
+        assert_eq!(kept,vec!["shared"]);assert!(!dir.join("documents/unique.json").exists());assert!(dir.join("documents/shared.json").exists());
+        assert!(check_anonymous_generation(&dir,0).is_err());assert!(check_anonymous_generation(&dir,1).is_ok());assert!(dir.join("progress-bob.json").exists());
+        fs::remove_dir_all(dir).unwrap();
+    }
+
+    #[test]
+    fn exact_classroom_state_allowlist() {
+        for name in ["learner-privacy", "advanced-assessment", "scientific-workspace", "branching-engine", "instructional-evidence", "transaction-engine", "document-engine", "interventions", "presentations", "classroom-submissions", "family", "classes", "session", "progress", "progress-a1", "records-a1", "session-a1", "portfolio-a1"] {
+            assert!(valid_state_name(name), "{name}");
+        }
+        for name in ["learner-privacy-extra", "../learner-privacy", "learner-privacy/other", "advanced-assessment-extra", "../advanced-assessment", "advanced-assessment/other", "scientific-workspace-extra", "../scientific-workspace", "scientific-workspace/other", "branching-engine-extra", "../branching-engine", "branching-engine/other", "instructional-evidence-extra", "../instructional-evidence", "instructional-evidence/other", "transaction-engine-extra", "../transaction-engine", "transaction-engine/other", "document-engine-extra", "../document-engine", "document-engine/other", "interventions-extra", "../interventions", "interventions/other", "presentations-extra", "../presentations", "presentations/other", "classroom-submissions-extra", "classroom-submissions/other", "../classroom-submissions", "progress-", "records-A", "progress-a/../b", "classroom-other", "progress/other"] {
+            assert!(!valid_state_name(name), "{name}");
+        }
+    }
+    #[test]
+    fn stale_native_cas_does_not_replace_current_bytes() {
+        let dir = std::env::temp_dir().join(format!("erudior-state-test-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
+        fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("state.json");
+        assert!(compare_and_swap_path(&path, None, "one").unwrap());
+        assert!(!compare_and_swap_path(&path, None, "stale").unwrap());
+        assert!(!compare_and_swap_path(&path, Some("other"), "stale").unwrap());
+        assert_eq!(fs::read_to_string(&path).unwrap(), "one");
+        assert!(compare_and_swap_path(&path, Some("one"), "two").unwrap());
+        assert_eq!(fs::read_to_string(&path).unwrap(), "two");
+        fs::remove_dir_all(dir).unwrap();
     }
 }
 
@@ -232,50 +389,6 @@ fn install_kind() -> &'static str {
     }
 }
 
-/// The app was called Examiner (identifier com.aziliz.examiner) before v0.17.0. On the first
-/// start under the new identifier, copy that data folder's files over; the old folder is left
-/// as it was. Only our own files are copied (JSON at the top level, courses/banks/documents).
-fn move_old_data(app: &AppHandle) {
-    let Ok(new) = app.path().app_data_dir() else { return };
-    let Some(parent) = new.parent() else { return };
-    copy_old_data(&parent.join("com.aziliz.examiner"), &new);
-}
-
-/// Copies Examiner's files into the new data folder once; returns how many were copied.
-fn copy_old_data(old: &Path, new: &Path) -> usize {
-    let marker = new.join(".moved-from-examiner");
-    if !old.is_dir() || marker.exists() || new.join("progress.json").exists() || new.join("family.json").exists() {
-        return 0;
-    }
-    if fs::create_dir_all(new).is_err() {
-        return 0;
-    }
-    let mut copied = 0usize;
-    if let Ok(entries) = fs::read_dir(old) {
-        for e in entries.flatten() {
-            let p = e.path();
-            let name = e.file_name();
-            if p.is_file() && p.extension().and_then(|x| x.to_str()) == Some("json") {
-                if fs::copy(&p, new.join(&name)).is_ok() {
-                    copied += 1;
-                }
-            } else if p.is_dir() && matches!(name.to_str(), Some("courses" | "banks" | "documents")) {
-                let dest = new.join(&name);
-                let _ = fs::create_dir_all(&dest);
-                if let Ok(files) = fs::read_dir(&p) {
-                    for f in files.flatten() {
-                        if f.path().is_file() && fs::copy(f.path(), dest.join(f.file_name())).is_ok() {
-                            copied += 1;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    let _ = fs::write(&marker, format!("Copied {copied} files from {}\n", old.display()));
-    copied
-}
-
 /// True for the app's own pages (bundled UI, or the dev server in debug builds).
 fn own_page(url: &tauri::Url) -> bool {
     match url.scheme() {
@@ -294,7 +407,6 @@ fn own_page(url: &tauri::Url) -> bool {
 pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
-            move_old_data(app.handle());
             // Speaking practice records the student's voice (getUserMedia). WebKitGTK ships with
             // media streams turned off; turn them on for the main window.
             #[cfg(target_os = "linux")]
@@ -336,6 +448,8 @@ pub fn run() {
             save_progress,
             load_state,
             save_state,
+            compare_and_swap_state,
+            replace_anonymous_state,
             read_text_file,
             write_text_file,
             data_location,

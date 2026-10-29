@@ -1,0 +1,396 @@
+{
+  "format": "erudior-canonical-authoring",
+  "version": 1,
+  "course": {
+    "format": "examiner-course",
+    "version": 1,
+    "id": "original-source",
+    "title": "Complete canonical test course",
+    "description": "Original authored description",
+    "author": "Original source author",
+    "updated": "2026-01-01",
+    "revision": 9,
+    "changelog": "Source revision nine",
+    "disclaimer": "Test fixture only.",
+    "calculator": "none",
+    "readAloud": false,
+    "audio": {
+      "Bird": "data:audio/mpeg;base64,AA=="
+    },
+    "modules": [
+      {
+        "id": "m1",
+        "title": "Observation",
+        "quiz": [
+          "l1-q1"
+        ]
+      }
+    ],
+    "lessons": [
+      {
+        "id": "l1",
+        "module": "m1",
+        "title": "Observe and explain",
+        "topics": [
+          "Original topic"
+        ],
+        "minutes": 12,
+        "quiz": [
+          "l1-q1"
+        ],
+        "refs": [
+          "ref1"
+        ],
+        "body": "Read and observe.\n\n```assignment\nwriting: bird-report\nlab: bird-observation\nlog\n```\n\n```dialogue lang=en-US\n# Observation\nSpeaker: A bird.\n= Observation\naudio: data:audio/mpeg;base64,AA==\n```"
+      }
+    ],
+    "banks": [
+      {
+        "format": "examiner-bank",
+        "version": 1,
+        "id": "first-bank",
+        "title": "First bank",
+        "description": "Original bank description",
+        "author": "Question author",
+        "updated": "2026-01-01",
+        "sections": [
+          {
+            "id": "part",
+            "name": "Observation"
+          }
+        ],
+        "exam": {
+          "questionCount": 2,
+          "timeLimitMinutes": 15,
+          "passingPercent": 70,
+          "sectionQuotas": {
+            "part": 1
+          },
+          "sectionPassing": {
+            "part": 60
+          },
+          "sectionTimeLimits": {
+            "part": 5
+          }
+        },
+        "questions": [
+          {
+            "id": "l1-q1",
+            "topic": "Observation",
+            "stem": "What did you see?",
+            "choices": [
+              "A bird",
+              "A fish"
+            ],
+            "answer": [
+              0
+            ],
+            "explanation": "The text describes a bird.",
+            "audio": {
+              "src": "data:audio/mpeg;base64,AA==",
+              "text": " What did you see? ",
+              "lang": "en-US"
+            },
+            "listen": "Bird",
+            "blend": [
+              "b",
+              "ir",
+              "d"
+            ],
+            "section": "part"
+          },
+          {
+            "id": "m1-mq1",
+            "topic": "Observation",
+            "stem": "Choose the observation.",
+            "choices": [
+              "Bird",
+              "Fish"
+            ],
+            "answer": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "format": "examiner-bank",
+        "version": 1,
+        "id": "second-bank",
+        "title": "Second bank",
+        "description": "Original bank description",
+        "author": "Question author",
+        "updated": "2026-01-01",
+        "sections": [],
+        "exam": {
+          "questionCount": 1,
+          "timeLimitMinutes": 10,
+          "passingPercent": 75
+        },
+        "questions": [
+          {
+            "id": "other-question",
+            "topic": "Extra",
+            "stem": "Choose B.",
+            "choices": [
+              "A",
+              "B"
+            ],
+            "answer": [
+              1
+            ]
+          }
+        ]
+      }
+    ],
+    "decks": [
+      {
+        "id": "deck1",
+        "title": "Terms",
+        "description": "Full deck description",
+        "cards": [
+          {
+            "id": "card1",
+            "front": "Observe",
+            "back": "Notice carefully",
+            "topic": "Skills"
+          }
+        ]
+      }
+    ],
+    "glossary": [
+      {
+        "term": "observe",
+        "definition": "Notice carefully",
+        "aliases": [
+          "observing"
+        ],
+        "topic": "Skills"
+      }
+    ],
+    "references": [
+      {
+        "id": "ref1",
+        "title": "Reference",
+        "body": "Keep an observation record."
+      }
+    ],
+    "drills": [],
+    "language": {
+      "code": "en",
+      "name": "English",
+      "tts": "en-US",
+      "keys": [
+        "\u00e9"
+      ],
+      "ime": "latin",
+      "level": "A1",
+      "vocabTarget": 5,
+      "vocabSource": "Original fixture"
+    },
+    "vocab": [
+      {
+        "id": "word1",
+        "from": "fixture",
+        "lesson": "l1",
+        "kind": "word",
+        "term": "bird",
+        "alt": [
+          "birds"
+        ],
+        "meanings": [
+          "A feathered animal"
+        ],
+        "reading": "bird",
+        "pos": "noun",
+        "plural": "birds",
+        "example": "A bird flies.",
+        "exampleEn": "A bird flies.",
+        "note": "Fixture",
+        "audio": "data:audio/mpeg;base64,AA==",
+        "directions": [
+          "meaning",
+          "recall"
+        ]
+      }
+    ],
+    "readingList": [
+      {
+        "title": "Example reading",
+        "author": "Example author",
+        "publisher": "Example publisher",
+        "level": "Beginner",
+        "url": "https://example.test/book",
+        "isbn": "123",
+        "free": false,
+        "note": "Bibliography fixture"
+      }
+    ],
+    "texts": [
+      {
+        "id": "observation-poem",
+        "title": "An observation poem",
+        "author": "Test fixture author",
+        "date": "2026",
+        "kind": "poem",
+        "lang": "en-US",
+        "subject": "English language arts",
+        "about": "A **test-only** reading sample.",
+        "source": "Original test fixture; no external publication.",
+        "lineNumbers": 2,
+        "glossary": [
+          {
+            "term": "observe",
+            "definition": "To notice carefully.",
+            "aliases": [
+              "observing"
+            ],
+            "topic": "Reading"
+          }
+        ],
+        "sections": [
+          {
+            "id": "opening",
+            "title": "Opening lines",
+            "body": "I observe the quiet sky.\nA bird passes by.[^1]\n\n[^1]: A fictional observation.",
+            "questions": [
+              "l1-q1"
+            ]
+          },
+          {
+            "id": "closing",
+            "title": "Closing lines",
+            "body": "I write what I can see.\nThe notes remain with me.",
+            "questions": [
+              "m1-mq1"
+            ]
+          }
+        ]
+      }
+    ],
+    "spreadsheetAssignments": [
+      {
+        "id": "sheet1",
+        "lessonId": "l1",
+        "title": "Compute count",
+        "starter": {
+          "sheets": {
+            "Count": {
+              "A1": 2,
+              "B1": ""
+            }
+          }
+        },
+        "protectedCells": [
+          "Count!A1"
+        ],
+        "answers": {
+          "Count!B1": 4
+        },
+        "tolerance": 0.01
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "evidence-rubric",
+        "title": "Evidence and explanation",
+        "criteria": [
+          {
+            "id": "reasoning",
+            "name": "Reasoning",
+            "description": "Connect observations to claims.",
+            "levels": [
+              {
+                "points": 4,
+                "label": "Supported",
+                "description": "Uses recorded observations."
+              },
+              {
+                "points": 0,
+                "label": "Not yet",
+                "description": "Needs evidence."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "writing": [
+      {
+        "id": "bird-report",
+        "title": "Explain an observation",
+        "kind": "essay",
+        "prompt": "Describe one bird observation and support your explanation.",
+        "words": {
+          "min": 50,
+          "max": 300
+        },
+        "rubric": "evidence-rubric",
+        "selfCheck": true,
+        "minutes": 20
+      }
+    ],
+    "labs": [
+      {
+        "id": "bird-observation",
+        "title": "Observe safely",
+        "intro": "Observe from a safe distance.",
+        "adult": true,
+        "safety": [
+          "Stay with an adult; do not approach wildlife."
+        ],
+        "materials": [
+          "Notebook"
+        ],
+        "steps": [
+          {
+            "text": "Record observations from a safe location.",
+            "adult": true
+          }
+        ],
+        "tables": [
+          {
+            "id": "counts",
+            "title": "Bird counts",
+            "columns": [
+              "Species",
+              "Count"
+            ],
+            "rows": 2,
+            "rowLabels": [
+              "First observation",
+              "Second observation"
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "observe",
+            "kind": "observation",
+            "prompt": "What did you see?"
+          },
+          {
+            "id": "conclude",
+            "kind": "conclusion",
+            "prompt": "What supports your conclusion?"
+          }
+        ],
+        "photos": "Optional notebook photo; no identifying people.",
+        "rubric": "evidence-rubric",
+        "selfCheck": true,
+        "minutes": 15
+      }
+    ],
+    "activityLog": {
+      "title": "Observation practice",
+      "types": [
+        "Observation",
+        "Sketching"
+      ],
+      "weeklyMinutes": 30,
+      "weeklyDays": 2,
+      "prompt": "Record time spent observing safely.",
+      "uploads": false
+    }
+  }
+}

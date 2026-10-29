@@ -1,13 +1,13 @@
-# Erudior (formerly Examiner): handoff
+# Erudior: handoff
 
 State as of 2026-10-23, v0.21.0. Read this first in a new chat.
 
 ## What it is
 
-Examiner is Jon's desktop study app for licensing exams. It runs on Linux (.deb, .rpm, AppImage) and Windows (NSIS .exe, .msi).
+Erudior is Jon's desktop study app for licensing exams. It runs on Linux (.deb, .rpm, AppImage) and Windows (NSIS .exe, .msi).
 
 - **Stack:** Tauri 2 (Rust) with React 19, TypeScript and Vite.
-- **Repo:** GitHub `Aziliz/erudior`. The app ID is `com.aziliz.examiner`.
+- **Repo:** GitHub `Aziliz/erudior`. The app ID is `com.erudior.app`.
 - **First course:** "Colorado Real Estate Broker", bundled with the app and installed on first launch.
 - **Later:** a CCNA course, which must stay separate from the Colorado content. That separation is why the app organizes content into courses.
 
@@ -16,7 +16,7 @@ Jon prefers terse answers and wants clarifying questions asked rather than assum
 
 ## Course sources are private (2026-10-26)
 - Course sources (content/math, content/languages, the Colorado course parts, quizzes, refs, build.py, build_course.py, check-module.sh, AUTHORING/ROUND2 briefs, NOTES/REVIEW files, research) moved to the **private repo Aziliz/erudior-courses** (cloned at /home/claude/erudior-courses). Paths inside it are unchanged (`content/...`, built files in its `samples/`, committed so card ids stay stable). Its CI ("Check courses") checks out this public repo as `app/`, builds every course, fails if `samples/` isn't committed current, and runs `tests/check-course.mts` on everything.
-- Work loop: edit and build in the course repo (`python3 content/math/build.py`, `python3 content/build_course.py`, `content/math/check-module.sh` finds this repo via `ERUDIOR_APP`, `../examiner` or `./app`), then `scripts/sync-to-app.sh` copies `samples/math`, `samples/languages`, the Colorado JSON and `catalog.json` here and regenerates `public/sitemap.xml` (`scripts/sitemap.mjs`, also run in the site deploy). Commit both repos; this repo's deploy signs and publishes the courses as before.
+- Work loop: edit and build in the course repo (`python3 content/math/build.py`, `python3 content/build_course.py`, `content/math/check-module.sh` finds this repo via `ERUDIOR_APP`, `../erudior` or `./app`), then `scripts/sync-to-app.sh` copies `samples/math`, `samples/languages`, the Colorado JSON and `catalog.json` here and regenerates `public/sitemap.xml` (`scripts/sitemap.mjs`, also run in the site deploy). Commit both repos; this repo's deploy signs and publishes the courses as before.
 - Still here: `content/states` (state rules) and `content/math-sampler` (drill demo). Older notes below that mention `content/...` course paths now mean the course repo. The sources remain in this public repo's git history.
 
 ## Project files
@@ -24,7 +24,7 @@ Jon prefers terse answers and wants clarifying questions asked rather than assum
 | File | Contents |
 |---|---|
 | `claude/HANDOFF.md` | This doc |
-| `claude/examiner-source.md` | Every source file in the repo, concatenated, with paths |
+| `claude/erudior-source.md` | Every source file in the repo, concatenated, with paths |
 | `claude/colorado-broker-course.json` | The built course pack (`samples/colorado-broker-course.json` in the repo) |
 | `claude/research-notes.md` | The content writers' verified Colorado facts, with source URLs |
 
@@ -69,7 +69,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 ## Live hosting and web addresses (2026-10-24)
 
 - Live: app.erudior.com (Pages project `erudior`), courses.erudior.com/v1/ (R2 `erudior-courses`, CORS GET/HEAD *), api.erudior.com (Worker `erudior-community`, D1 `erudior-community` e29b2c3f-3867-41a9-bba7-aa86a3463c39, private R2 `erudior-community`). Cloudflare account 262dfbe98a9322b1f31a693ba1ed5ef3.
-- GitHub Aziliz/erudior (renamed from Aziliz/examiner on 2026-10-26; GitHub redirects the old name, so never create a new repo called examiner) is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
+- GitHub Aziliz/erudior is **public** (Jon's choice: private repo was out of free Actions minutes). Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, COURSE_SIGNING_KEY, GOOGLE_CLIENT_SECRET, OAUTH_GITHUB_CLIENT_SECRET. Variables: COURSES_URL, R2_BUCKET, PAGES_PROJECT, COMMUNITY_API, D1_DATABASE_ID, ADMIN_EMAILS, GOOGLE_CLIENT_ID, OAUTH_GITHUB_CLIENT_ID.
 - Production signing public key in `src/lib/courseKeys.ts`; Jon holds the secret key (password manager).
 - Google sign-in: Cloud project `erudior`, External, still in Testing mode. GitHub OAuth app "Erudior" (Aziliz).
 - Calculator history: a History list under the keypad (all kinds), kept across screens and the Calculate/Graph tabs while open, cleared on close (module-level `openHistory`).
@@ -291,11 +291,11 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 ## Renamed to Erudior (v0.17.0)
 
 - App name Erudior, identifier `com.erudior.app`, Cargo package `erudior` (lib `erudior_lib`), npm name `erudior`. The GitHub repo is still `Aziliz/erudior` (the updater endpoint and release links point there).
-- Data folder: `~/.local/share/com.erudior.app/` and `%APPDATA%\com.erudior.app\`. On the first start `move_old_data` (lib.rs) copies top-level JSON files and `courses/`, `banks/`, `documents/` from the old `com.aziliz.examiner` folder (left in place) and writes `.moved-from-examiner`; it skips if the new folder already has progress.json or family.json. Display settings and the cached catalog (localStorage) don't carry over; they rebuild.
+- Data folder: `~/.local/share/com.erudior.app/` and `%APPDATA%\com.erudior.app\`. On the first start `move_old_data` (lib.rs) copies top-level JSON files and `courses/`, `banks/`, `documents/` from the old `com.aziliz.erudior` folder (left in place) and writes `.moved-from-erudior`; it skips if the new folder already has progress.json or family.json. Display settings and the cached catalog (localStorage) don't carry over; they rebuild.
 - Domains (Jon): web app `app.erudior.com` (Pages project `erudior`), course packages `courses.erudior.com/v1/` (R2 bucket `erudior-courses`). docs/HOSTING.md, CSP and env docs updated; the old azilizlabs hosts never went live and are dropped.
-- Internal format strings (`examiner-course`, `examiner-bank`, `examiner-backup`, `examiner-family`, `examiner-records`, `examiner-catalog`, `examiner-states`) and localStorage/IndexedDB keys (`examiner.*`) are unchanged on purpose so existing files keep working.
+- Internal format strings (`erudior-course`, `erudior-bank`, `erudior-backup`, `erudior-family`, `erudior-records`, `erudior-catalog`, `erudior-states`) and localStorage/IndexedDB keys (`erudior.*`) are unchanged on purpose so existing files keep working.
 - Course `author` is now "Erudior" (rebuilt; revisions not bumped, only that field and one precalculus sentence changed).
-- The claude.ai roadmap doc still says Examiner in its title.
+- The claude.ai roadmap doc still says Erudior in its title.
 
 ## More records (v0.17.0)
 
@@ -330,11 +330,11 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 
 ## Course hosting (v0.14.0)
 
-- Plan: the website (examiner.azilizlabs.com, Cloudflare Pages) is free learning; the desktop app is for homeschool families and schools. Both download courses from examiner-courses.azilizlabs.com/v1/ (Cloudflare R2).
+- Plan: the website (erudior.azilizlabs.com, Cloudflare Pages) is free learning; the desktop app is for homeschool families and schools. Both download courses from erudior-courses.azilizlabs.com/v1/ (Cloudflare R2).
 - `npm run courses:publish` writes dist-courses/v1: catalog.json (with each file's SHA-256), catalog.json.sig (Ed25519) and immutable `<id>.r<rev>.json` files. The app trusts keys in src/lib/courseKeys.ts (src/lib/courseSource.ts, courseSign.ts), caches the last good catalog for offline use.
 - Builds without VITE_COURSES_URL bundle courses as before; with it, no course ships in the build (web build 2.4 MB instead of 16 MB).
 - Setup steps (signing key, R2, Pages, token, GitHub secrets/variables) are in docs/HOSTING.md; the "Publish website and courses" workflow stays idle until the COURSES_URL variable is set. `npm run dev:remote` tests the download path locally with a dev key.
-- Roadmap doc: claude.ai artifact "Examiner: Free Homeschool Roadmap" (with a State rules tab for all 50 states + DC).
+- Roadmap doc: claude.ai artifact "Erudior: Free Homeschool Roadmap" (with a State rules tab for all 50 states + DC).
 
 ## Layout and accessibility (v0.13.0)
 
@@ -491,7 +491,7 @@ This answers the questions a new chat would ask before starting the Van Ed pass.
 
 ## Storage (per-user app data)
 
-Data lives in `~/.local/share/com.aziliz.examiner/` on Linux and `%APPDATA%\com.aziliz.examiner\` on Windows:
+Data lives in `~/.local/share/com.aziliz.erudior/` on Linux and `%APPDATA%\com.aziliz.erudior\` on Windows:
 - `courses/<id>.json` and `banks/<id>.json`
 - `progress.json`: attempts, question stats, card states, completed lessons, plans, activity, drill stats, flags and notes, and `seededCourses`
 - `session.json`: the unfinished exam or practice session
@@ -508,7 +508,7 @@ Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `
   - `bundle.createUpdaterArtifacts` is `false`, so builds don't need the signing key.
   - CI no longer uses the signing secret, and `includeUpdaterJson` is `false`.
   - The updater code, plugin config and public key are all still in place.
-- **Turning updates back on later:** publish releases to a public repo (e.g. `Aziliz/erudior-releases`, via tauri-action's `owner`/`repo` inputs with a token secret). Then point the endpoint there, set the two flags back to true, and add `TAURI_SIGNING_PRIVATE_KEY`. Jon has the private key file `examiner-updater-PRIVATE.key`; no other copy exists.
+- **Turning updates back on later:** publish releases to a public repo (e.g. `Aziliz/erudior-releases`, via tauri-action's `owner`/`repo` inputs with a token secret). Then point the endpoint there, set the two flags back to true, and add `TAURI_SIGNING_PRIVATE_KEY`. Jon has the private key file `erudior-updater-PRIVATE.key`; no other copy exists.
 - **CI:** `.github/workflows/release.yml` uses `tauri-action`.
   - On Ubuntu 22.04 it builds .deb, .rpm and AppImage; on Windows it builds the NSIS .exe and .msi.
   - Pushing a `v*` tag creates a draft release with the installers. Jon downloads them and installs by hand.

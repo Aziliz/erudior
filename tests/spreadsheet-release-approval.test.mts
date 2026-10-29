@@ -1,0 +1,24 @@
+import {emptyCourse} from "../src/lib/course.ts";
+import {attachSpreadsheetAssignment} from "../src/lib/spreadsheetCoursePackage.ts";
+import {SAMPLE_ASSIGNMENT} from "../src/lib/spreadsheetAssignments.ts";
+import {exportCourseSnapshot} from "../src/lib/course.ts";
+import {sha256Hex} from "../src/lib/courseSign.ts";
+import {validateSpreadsheetReleaseApproval} from "../src/lib/spreadsheetReleaseApproval.ts";
+const course=emptyCourse("Reviewed sample");
+course.lessons=[{id:"intro",module:"m1",title:"Intro",body:""}];
+const withAssignment=attachSpreadsheetAssignment(course,"intro",SAMPLE_ASSIGNMENT);
+const check=(ok:boolean,name:string)=>{if(!ok)throw Error(name)};
+check((await validateSpreadsheetReleaseApproval(withAssignment,undefined)).length>0,"unreviewed blocked");
+const digest=await sha256Hex(new TextEncoder().encode(exportCourseSnapshot(withAssignment)));
+const receipt={courseId:withAssignment.id,revision:withAssignment.revision??1,snapshotSha256:digest,reviewer:"Human reviewer",reviewedAt:"2026-10-28T00:00:00Z"};
+check((await validateSpreadsheetReleaseApproval(withAssignment,receipt)).length===0,"matching review accepted");
+check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,snapshotSha256:"0".repeat(64)})).length>0,"changed bytes blocked");
+check((await validateSpreadsheetReleaseApproval({...withAssignment,title:"Changed"},receipt)).length>0,"edited course invalidates review");
+check((await validateSpreadsheetReleaseApproval(course,undefined)).length===0,"ordinary course unaffected");
+
+for(const invalid of [true, 42, [], "approved", { ...receipt, reviewer: 42 }, { ...receipt, reviewedAt: {} }]) {
+ check((await validateSpreadsheetReleaseApproval(withAssignment,invalid)).length>0,"malformed approval rejected without throwing");
+}
+check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,courseId:"another-course"})).length>0,"different course cannot borrow review");
+check((await validateSpreadsheetReleaseApproval(withAssignment,{...receipt,revision:receipt.revision+1})).length>0,"different revision cannot borrow review");
+console.log("spreadsheet release approval checks passed");

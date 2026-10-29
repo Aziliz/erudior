@@ -80,7 +80,7 @@ export interface ClassAssignment {
 }
 
 export interface Family {
-  format: "examiner-family";
+  format: "erudior-family";
   version: 1;
   /** Homeschool (the default) or Classroom (a teacher's computer). */
   mode?: "homeschool" | "classroom";
@@ -136,7 +136,7 @@ export async function loadFamily(): Promise<Family | null> {
   const text = await loadState("family");
   if (!text) return null;
   const f = JSON.parse(text) as Family;
-  if (f.format !== "examiner-family") throw new Error("family.json isn't an Erudior family file.");
+  if (f.format !== "erudior-family") throw new Error("family.json isn't an Erudior family file.");
   return { ...f, reminders: f.reminders ?? [], done: f.done ?? [] };
 }
 
@@ -170,7 +170,7 @@ export async function createFamily(input: {
   const recoveryCode = makeRecoveryCode();
   const classroom = input.mode === "classroom";
   const family: Family = {
-    format: "examiner-family",
+    format: "erudior-family",
     version: 1,
     ...(classroom ? { mode: "classroom" as const, classes: [newClass(input.className || "My class", students.map((s) => s.id))] } : {}),
     ...(input.school ? { school: input.school } : {}),

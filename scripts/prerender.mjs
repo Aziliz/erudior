@@ -78,5 +78,8 @@ try {
 } finally {
   server.kill();
 }
-// A missing snapshot only means that page is served the plain way; don't block the deploy.
-if (failed) console.error(`${failed} page(s) not prerendered`);
+// Public discovery snapshots are part of website release validation.
+if (failed) {
+  console.error(`${failed} page(s) not prerendered`);
+  process.exitCode = 1;
+}

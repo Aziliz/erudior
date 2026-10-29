@@ -3,7 +3,7 @@
 // where the drill allows them; fractions can be required exactly; expressions like
 // 6x^2 - 2 are checked by plugging in values.
 
-import type { AnswerPart, Drill, NumFormat } from "./types";
+import type { AnswerPart, Drill, NumFormat } from "./exerciseTypes";
 import { collectVars, evalNode, parse, simplify, substitute, toTex, type Node, type UserFn } from "./expr";
 
 export interface PartInstance {
@@ -120,6 +120,72 @@ export function sciTex(x: number, digits = 3): string {
   return `${Number(m)} \\times 10^{${Number(e)}}`;
 }
 
+// Prove cancellation to exact zero without widening any answer tolerance. This
+// deliberately small rational evaluator handles only finite arithmetic through the
+// selected drill values and ordered calc expressions. Unsupported functions, cyclic
+// or overwritten inputs, large powers, and excessive work leave the float untouched.
+function exactFractionZero(drill: Drill, values: Record<string, number | string>, name: string): boolean {
+  type Rational = readonly [bigint, bigint];
+  const variables = Object.keys(drill.vars), calculations = Object.entries(drill.calc ?? {});
+  if (variables.length > 128 || calculations.length > 128 || calculations.some(([, expression]) => typeof expression === 'string' && expression.length > 4096)) return false;
+  const known = new Map<string, Rational>();
+  let budget = 256;
+  const bound = (n: bigint, d: bigint): Rational | undefined => {
+    if (!d || n.toString(2).length > 512 || d.toString(2).length > 512) return;
+    let a = n < 0n ? -n : n, b = d < 0n ? -d : d;
+    while (b) [a, b] = [b, a % b];
+    return d < 0n ? [-n / a, -d / a] : [n / a, d / a];
+  };
+  const decimal = (value: number): Rational | undefined => {
+    if (!Number.isFinite(value)) return;
+    const [mantissa, exponent = '0'] = String(value).toLowerCase().split('e');
+    const digits = (mantissa.split('.')[1] ?? '').length - Number(exponent);
+    if (Math.abs(digits) > 100) return;
+    const n = BigInt(mantissa.replace('.', ''));
+    return digits >= 0 ? bound(n, 10n ** BigInt(digits)) : bound(n * 10n ** BigInt(-digits), 1n);
+  };
+  const visit = (node: Node): Rational | undefined => {
+    if (--budget < 0) return;
+    if (node.k === 'num') return decimal(node.v);
+    if (node.k === 'var') return known.get(node.name);
+    if (node.k === 'un') {
+      const a = visit(node.a);
+      return a && (node.op === '+' ? a : node.op === '-' ? [-a[0], a[1]] : undefined);
+    }
+    if (node.k !== 'bin') return;
+    const a = visit(node.a), b = visit(node.b);
+    if (!a || !b) return;
+    switch (node.op) {
+      case '+': return bound(a[0] * b[1] + b[0] * a[1], a[1] * b[1]);
+      case '-': return bound(a[0] * b[1] - b[0] * a[1], a[1] * b[1]);
+      case '*': return bound(a[0] * b[0], a[1] * b[1]);
+      case '/': return bound(a[0] * b[1], a[1] * b[0]);
+      case '^': {
+        if (b[1] !== 1n || b[0] < -32n || b[0] > 32n) return;
+        const power = b[0] < 0n ? -b[0] : b[0];
+        if (Math.max(a[0].toString(2).length, a[1].toString(2).length) * Number(power) > 512) return;
+        return b[0] < 0n ? bound(a[1] ** power, a[0] ** power) : bound(a[0] ** power, a[1] ** power);
+      }
+    }
+  };
+  try {
+    for (const key of variables) {
+      // A calc overwriting a sampled variable loses its original value in `values`.
+      if (Object.prototype.hasOwnProperty.call(drill.calc ?? {}, key)) continue;
+      const value = values[key];
+      const exact = typeof value === 'number' ? decimal(value) : undefined;
+      if (exact) known.set(key, exact);
+    }
+    for (const [key, expression] of calculations) {
+      if (--budget < 0) return false;
+      const exact = typeof expression === 'number' ? decimal(expression) : visit(parse(String(expression)));
+      known.delete(key);
+      if (exact) known.set(key, exact);
+    }
+    return known.get(name)?.[0] === 0n;
+  } catch { return false; }
+}
+
 // --- Building and checking ---------------------------------------------------
 
 /** Resolve a drill's answer boxes for one generated problem. */
@@ -158,8 +224,9 @@ export function resolveParts(
       return { spec, expr, scope: fixed, funcs, display };
     }
     const name = spec.name ?? drill.answer;
-    const target = values[name];
+    let target = values[name];
     if (typeof target !== "number") throw new Error(`${drill.title}: answer "${name}" is not a number`);
+    if ((kind === "fraction" || spec.format === "fraction") && target !== 0 && Math.abs(target) < 1e-12 && exactFractionZero(drill, values, name)) target = 0;
     const fmt = spec.format ?? (kind === "fraction" ? "fraction" : "number");
     const shown =
       kind === "fraction" || fmt === "fraction"
@@ -208,7 +275,7 @@ export function readAnswer(part: PartInstance, text: string): { value?: number; 
     const units = Object.keys(spec.units).sort((a, b) => b.length - a.length);
     for (const u of units) {
       if (t.toLowerCase().endsWith(u.toLowerCase())) {
-        factor = spec.units[u];
+        factor = Number(spec.units[u]);
         t = t.slice(0, t.length - u.length).trim();
         break;
       }

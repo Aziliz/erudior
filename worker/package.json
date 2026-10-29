@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "wrangler dev --env dev --port 8787",
     "migrate:local": "wrangler d1 migrations apply erudior-community --local --env dev",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "test": "node test/run-local-api.mjs"
   },
   "devDependencies": {
     "wrangler": "3.114.0",

@@ -72,7 +72,7 @@ export interface ManualEntry {
 }
 
 export interface Records {
-  format: "examiner-records";
+  format: "erudior-records";
   version: 1;
   /** Seconds of active study, by day and course id. */
   time: Record<string, Record<string, number>>;
@@ -99,7 +99,7 @@ export interface Records {
 }
 
 export const emptyRecords = (): Records => ({
-  format: "examiner-records",
+  format: "erudior-records",
   version: 1,
   time: {},
   manual: [],

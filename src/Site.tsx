@@ -2,6 +2,7 @@
 // any other address here (erudior.com/algebra-1, /community …) is sent there.
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
+import AudiencePage from "./pages/AudiencePage";
 import DownloadPage from "./pages/DownloadPage";
 import Roadmap from "./pages/Roadmap";
 import { Mark } from "./components/Mark";
@@ -10,11 +11,11 @@ import { CATALOG } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
-type Page = "home" | "download" | "roadmap" | LegalPage;
+type Page = "home" | "parents" | "live-rooms" | "teachers" | "download" | "roadmap" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
+  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/parents" ? "parents" : p === "/live-rooms" ? "live-rooms" : p === "/teachers" ? "teachers" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
 }
 
 export default function Site() {
@@ -28,6 +29,8 @@ export default function Site() {
   // (it doesn't across domains, so the site follows the system setting).
   useEffect(() => {
     if (page === "home" || !page) setSeo({ title: DEFAULT_TITLE, url: SITE_ORIGIN + "/", jsonLd: homeJsonLd(CATALOG) });
+    else if (page === "parents" || page === "live-rooms" || page === "teachers")
+      setSeo({ title: `${page === "parents" ? "For Parents" : page === "teachers" ? "For Teachers" : "Live Rooms"} · Erudior`, description: page === "parents" ? "Explore Erudior homeschool planning, records, attendance and learning tools for families." : page === "teachers" ? "Learn about Erudior classrooms, assignments, hand-ins, gradebooks and group activities." : "Explore Erudior live quiz rooms, joining with a code and host-led sessions.", url: `${SITE_ORIGIN}/${page}` });
     else if (page === "roadmap")
       setSeo({
         title: "Road to version 1.0 · Erudior",
@@ -76,9 +79,9 @@ export default function Site() {
           Erudior
         </a>
         <nav className="nav" aria-label="Main">
-          <a href="/#parents">For parents</a>
-          <a href="/#live">Live rooms</a>
-          <a href="/#classroom">For teachers</a>
+          <a href="/parents" onClick={(e) => go(e, "parents")} aria-current={page === "parents" ? "page" : undefined}>For parents</a>
+          <a href="/live-rooms" onClick={(e) => go(e, "live-rooms")} aria-current={page === "live-rooms" ? "page" : undefined}>Live rooms</a>
+          <a href="/teachers" onClick={(e) => go(e, "teachers")} aria-current={page === "teachers" ? "page" : undefined}>For teachers</a>
           <a href="/roadmap" onClick={(e) => go(e, "roadmap")} aria-current={page === "roadmap" ? "page" : undefined}>
             Roadmap
           </a>
@@ -94,6 +97,8 @@ export default function Site() {
       <main id="main" className="main" tabIndex={-1}>
         {page === "home" ? (
           <Home />
+        ) : page === "parents" || page === "live-rooms" || page === "teachers" ? (
+          <AudiencePage kind={page} />
         ) : page === "download" ? (
           <DownloadPage />
         ) : page === "roadmap" ? (

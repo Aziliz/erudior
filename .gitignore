@@ -18,3 +18,6 @@ dist-courses/
 
 # Temporary git worktrees for parallel work
 .claude/worktrees/
+
+# Browser regression screenshots
+test-results/

@@ -1,27 +1,19 @@
-# Community / Official course parity status
+# Community authoring status
 
-This project currently has two persisted authoring representations:
-- `erudior-community` version 1: editor document containing structured lesson blocks and inline questions.
-- `examiner-course` version 1: runtime and official content document.
+PR #1 has been revalidated against the canonical engine and newer activity editors. Its old source-block, JSON-resource, promotion-helper and worker-type changes are superseded by the validated implementations already on main; they must not replace the current validators or authorization boundaries.
 
-**Do not misrepresent these as the same JSON format.** Both can be played by the official engine after conversion, but a lossless two-way format is not implemented. The migration to a single canonical authoring schema must be versioned and tested against existing community drafts.
+## Module and lesson controls
 
-## Current implementation
-- Community course conversion to official runtime format: `toCourse` in `src/lib/communityFormat.ts`.
-- Advanced Markdown fences in new `source` blocks are preserved for the official rendering pipeline; `checkDoc` still enforces draft/publish limits.
-- Author-facing module controls, including lesson reassignment and inline delete confirmation.
-- The reviewer-gated conversion helper `prepareOfficialPromotion` in `src/lib/communityPromotion.ts` prepares a normal runtime course **without publishing** and requires a published, reviewed version, an explicit official ID and complete content.
-- Community authors remain **not reviewed** by default; explicit review/promotion authorization is necessary.
-- Tests: `tests/community.test.mts`, `tests/community-modules.test.mts`, `tests/community-promotion.test.mts`.
-- CI: `.github/workflows/verify-community.yml` on pull requests.
+- Legacy drafts can add modules, assign lessons explicitly, reorder modules without changing implicit lesson membership, and delete a module after inline confirmation. Lessons survive module deletion; the confirmation identifies deleted module quiz questions.
+- Module deletion is blocked while assessed work or reading-question references depend on it. Lesson deletion is blocked while vocabulary, reader questions, assessed work links or engine activities depend on it.
+- Stable IDs are resolved against the latest document. Add operations enforce limits and avoid module/lesson ID collisions; repeated stale operations do not target another item.
+- Canonical authoring uses the shared full-course editor, preserving the complete payload. Its module and lesson controls use exact-target inline confirmation and retain typed resource guards.
+- The existing serialized save/retry and navigation protection remain in force. Publishing creates a new, not-reviewed community version; editing or deleting draft structure does not rewrite already published versions.
 
-## Known gaps before merge/promotion
-1. True schema convergence and reverse conversion of official files to editable community blocks.
-2. Official-only course metadata and resources (including `audio`, `texts`, `work`, specialized question types and media) need a complete mapping and preservation tests.
-3. Promotion needs an administrator-only, server-side action, verified immutable review version and image embedding. The helper deliberately does not grant permission or publish.
-4. End-to-end browser authoring: add/move/delete modules, reopen persisted draft, preview, publish, and install course.
-5. Exact course content / image rights review and accessibility testing.
-6. GitHub Actions tests and build must pass; no verified passing run was available when this document was written.
+## Distinct work
 
-## Definition of done
-An existing official course's supported content imports into the community editor without data loss; it can be saved, reopened, validated and converted back with semantic parity. A reviewed published community version can be promoted by an authorized administrator with all dependencies and images preserved. The promoted course is independently verified and published via the official release workflow, not by client-controlled status fields.
+The canonical course model, asset validation, server publication and immutable official promotion candidate are implemented separately on main. Community publication does not grant official approval. Official publication still requires its authorized signing/release process.
+
+The comprehensive community creation guide/test capability, visual resource-tool audit and eight-subject demo remain separate roadmap items. This module-control completion does not claim those broader workflows are finished.
+
+Validation: `tests/community-modules.test.mts`, `tests/course-structure-controls.test.mts`, and the synthetic browser workflow in `scripts/community-controls-browser.mjs`. The browser fixture does not create production accounts, accept real agreements or publish real courses.

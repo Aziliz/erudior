@@ -1,8 +1,9 @@
+import { validateImageAsset } from "./imageAssets";
 // Talking to the community course API (worker/). Builds with VITE_COMMUNITY_API set show
 // community courses in the Library; the web build also has the course editor and review queue.
 
 import type { CommunityDoc, CommunityMeta } from "./communityFormat";
-import { imageIds, toCourse } from "./communityFormat";
+import { checkDoc, imageIds, toCourse, upgradeDoc } from "./communityFormat";
 import { inApp } from "./storage";
 
 export const API = (import.meta.env?.VITE_COMMUNITY_API ?? "").trim().replace(/\/+$/, "");
@@ -128,7 +129,7 @@ export const api = {
   queue: () => call<ReviewQueue>("GET", "/review"),
   allCourses: (q = "") =>
     call<{ courses: (CommunityEntry & { status: "published" | "removed" | "unpublished"; reviewNote: string | null })[] }>("GET", `/review/all?q=${encodeURIComponent(q)}`),
-  review: (id: string, action: "reviewed" | "not_reviewed" | "remove" | "restore", note: string) => call("POST", `/review/${id}`, { action, note }),
+  review: (id: string, action: "reviewed" | "not_reviewed" | "remove" | "restore", note: string, version?: number) => call("POST", `/review/${id}`, { action, note, version }),
   resolve: (id: string, resolution: string) => call("POST", `/reports/${id}/resolve`, { resolution }),
   users: (q: string) => call<{ users: { id: string; provider: string; email: string | null; display_name: string; role: string; banned: number }[] }>("GET", `/admin/users?q=${encodeURIComponent(q)}`),
   setUser: (id: string, change: { role?: string; banned?: boolean }) => call("POST", `/admin/users/${id}`, change),
@@ -136,13 +137,20 @@ export const api = {
 
 export const imageUrl = (id: string) => `${API}/images/${id}`;
 
-async function dataUrl(id: string): Promise<string> {
-  const res = await fetch(imageUrl(id));
+export async function resolveCommunityImageDataUrl(id: string): Promise<string> {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(id)) throw new Error("Invalid community image ID.");
+  const res = await fetch(imageUrl(id), { redirect: "error" });
   if (!res.ok) throw new Error(`An image in this course couldn't be downloaded (${res.status}).`);
-  const blob = await res.blob();
+  const reader=res.body?.getReader();let blob:Blob;
+  if(reader){const chunks:Uint8Array<ArrayBuffer>[]=[];let bytes=0;
+    try{while(true){const {done,value}=await reader.read();if(done)break;bytes+=value.byteLength;if(bytes>2*1024*1024)throw Error("A community image exceeds the asset size limit.");chunks.push(new Uint8Array(value));}}
+    catch(error){await reader.cancel().catch(()=>{});throw error;}finally{reader.releaseLock();}
+    blob=new Blob(chunks,{type:res.headers.get("content-type")??""});
+  }else blob=await res.blob();
+  if (blob.size > 2 * 1024 * 1024) throw new Error("A community image exceeds the asset size limit.");
   return new Promise((resolve, reject) => {
     const r = new FileReader();
-    r.onload = () => resolve(String(r.result));
+    r.onload = () => { const value=String(r.result);const errors=validateImageAsset(value);if(errors.length)reject(new Error("A community image is invalid: "+errors.join("; ")));else resolve(value); };
     r.onerror = () => reject(r.error);
     r.readAsDataURL(blob);
   });
@@ -151,10 +159,22 @@ async function dataUrl(id: string): Promise<string> {
 /** Download a community course and build an app course, with images embedded for offline use. */
 export async function downloadCommunityCourse(id: string): Promise<Record<string, unknown>> {
   const c = await api.course(id);
+  // A server response is an untrusted import boundary. Validate before image
+  // downloads or conversion, which otherwise may silently omit unsupported data.
+  // Upgrade only historically supported labels; this does not repair invalid content.
+  let doc: CommunityDoc;
+  let errors: string[];
+  try {
+    doc = upgradeDoc(c?.doc);
+    errors = checkDoc(doc, true, { communityImageOrigin: API || undefined });
+  } catch {
+    throw new ApiError("This community course could not be installed because its document is malformed.", 422);
+  }
+  if (errors.length) throw new ApiError("This community course could not be installed because its document is invalid.", 422, errors);
   const images = new Map<string, string>();
-  for (const img of imageIds(c.doc)) images.set(img, await dataUrl(img));
+  for (const img of imageIds(doc, API)) images.set(img, await resolveCommunityImageDataUrl(img));
   const meta: CommunityMeta = { id: c.id, version: c.version, review: c.review, author: c.author };
-  return toCourse(c.doc, meta, (img) => images.get(img) ?? "");
+  return toCourse(doc, meta, (img) => images.get(img) ?? "", API);
 }
 
 export const isCommunityId = (courseId: string) => courseId.startsWith("community-");
