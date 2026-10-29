@@ -2,7 +2,7 @@
 set -euo pipefail
 
 mkdir -p android-test-evidence
-apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+apk="${ANDROID_TEST_APK:-$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)}"
 if [[ -z "$apk" ]]; then
   echo "::error::Android APK not found"
   exit 1
