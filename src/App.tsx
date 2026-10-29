@@ -663,17 +663,6 @@ export default function App() {
     },
   };
 
-  const presentationLibrary = createPresentationStore({
-    read: () => store.loadState("presentations"),
-    update: change => store.updateState("presentations", change),
-    authorize: async () => {
-      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to edit presentations.");
-      const current = await loadFamily();
-      if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed. Reopen the presentation library.");
-      return JSON.stringify(current.parent.password);
-    },
-  });
-
   const interventionSupervisor = createInterventionStore({
     read: () => store.loadState("interventions"),
     update: change => store.updateState("interventions", change),
@@ -713,6 +702,17 @@ export default function App() {
       const entry = CATALOG.find(c => c.id === courseId);
       if (entry && prerequisites(entry,p).some(r => !r.done)) return "Course prerequisites are not yet satisfied. Ask the supervising adult to review them.";
       return null;
+    },
+  });
+
+  const presentationLibrary = createPresentationStore({
+    read: () => store.loadState("presentations"),
+    update: change => store.updateState("presentations", change),
+    authorize: async () => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to edit presentations.");
+      const current = await loadFamily();
+      if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed. Reopen the presentation library.");
+      return JSON.stringify(current.parent.password);
     },
   });
 
