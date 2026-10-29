@@ -469,7 +469,6 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 export const ENGINE_IN_PROGRESS = new Set<string>([
   "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
-  "Learning diagnostics and targeted intervention",
 ]);
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
@@ -478,7 +477,6 @@ export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
 };
 
 export const ENGINE_PLANNED = [
-  "Learning diagnostics and targeted intervention",
   "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)",
   "Interactive document and case file engine",
   "Jurisdiction-configurable regulated transaction simulations",
@@ -497,6 +495,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Learning diagnostics and targeted intervention", detail: "Transparent exact-source skill evidence and uncertainty, observed response patterns, adult-selected reteaching groups and differentiated support plans; own-learner activities, sanitized offline handoff, classroom observations, explicit follow-up reviews and private parent summaries. Source/profile/authority races, CAS retries, encrypted recovery and deletion are covered. Full regression, native, Android/emulator, browser/accessibility, integrity and separate web/API/signed-course delivery passed in PR #84. Educational guidance only: no clinical diagnosis, automatic grades or new course content; desktop installers remain deferred.", status: "done" },
   { title: "Teacher-paced and student-paced interactive presentations", detail: "Reusable installed-source decks with authoring, save/reopen, reorder, import/export and encrypted backup; teacher-led and independent student-paced local/remote delivery; opt-in video questions with accessible transcripts and timestamp pauses. Exact source/revision checks, private learner responses, reconnect/close recovery and draft conflicts are covered. Full regression, native, browser/accessibility, live API, integrity and separate web/API/signed-course delivery passed in PR #81. No academic credit or new course content; desktop installers remain deferred.", status: "done" },
   { title: "Learning game mechanics and live quiz modes", detail: "Installed-content review boards, bingo, memory and matching; classroom timer, random picker, balanced teams, local polls, text whiteboard, exit tickets and presenter view; individual, team and cooperative live quizzes with private learner results and authoritative scoring. Full regression, browser/accessibility, live protocol, integrity and separate web/API/signed-course delivery passed in PR #77. Games do not award academic credit. Desktop installers remain deferred.", status: "done" },
   { title: "Cross-course competency graph", detail: "Complete stable skill/prerequisite pathways with exact linked assessment evidence, durable private per-learner history, revision-safe reassessment, retained prerequisites, adult placement/override/revoke history, learner and supervising-adult views, and exact-question adaptive practice. Full regression, native persistence, integrity and separate web/API/course delivery passed in PR #76. Manual placement is not assessed mastery or certification. Installers are deferred to the later consolidated release.", status: "done" },
@@ -507,7 +506,7 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Reading, writing and language practice", detail: "Reader for documents, writing assignments and rubrics, and listening/speaking practice.", status: "done" },
   { title: "Interactive mathematics, science and coding", detail: "Math manipulatives, science labs and simulations, executable code exercises, diagrams and supported question formats.", status: "done" },
   { title: "Maps, timelines and visual learning", detail: "Interactive maps, timelines, route and event learning activities.", status: "done" },
-  { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. The cross-course graph is completed separately; learning diagnostics remain an ongoing capability.", status: "done" },
+  { title: "Practice, review and memory aids", detail: "Adaptive practice, spaced review and evidence-based study supports. The cross-course graph and human-supervised learning diagnostics are completed separately.", status: "done" },
   { title: "Homeschool and activity records", detail: "Attendance, grades, transcripts, portfolios and physical/art/music activity logs.", status: "done" },
   { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook and live quizzes, with immutable hand-in history, exact-snapshot instructor decisions, interrupted-import recovery and encrypted backup.", status: "done" },
 ];

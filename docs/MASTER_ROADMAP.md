@@ -2,6 +2,16 @@
 
 ## Active whole-capability checkpoint — 2026-10-29
 
+**Learning diagnostics and targeted intervention — Done.** PR #84 (`3a612bb70832d0cc801002c707128f8e62647b29`) completes the original single teacher analytics capability from `8d90b78f` / consolidation `077a9952` without duplicating the completed competency graph.
+
+- Transparent exact-source skill summaries distinguish unknown/limited evidence from demonstrated difficulty, explain repeated-response patterns without causal or clinical claims, and suggest adult-reviewed reteaching/assessment groups. Differentiated per-learner plans retain exact activities, fresh baselines, dates and explicit adult approval.
+- Own-learner actionable tasks and sanitized offline handoff preserve enrollment/prerequisite/source checks. Immutable plans and append-only observations/reviews support continue/revise/complete/cancel, descriptive compatible-lineage reassessment, and private single-learner parent reports. Handoff files do not authenticate the sender or grant academic authority; exported copies are not remotely revocable.
+- CAS retries, group partial-save recovery, StrictMode/dirty-draft/interrupted flows, live adult/profile authority, encrypted family recovery and profile deletion passed focused and integrated tests. No clinical diagnosis, mastery/grade mutation, new role permissions, network learner service or course content was introduced.
+- Exact-head full regression/build, real Chromium 320/1280 light/dark/keyboard/axe, native persistence and Android APK/optimized-size/emulator checks passed. All seven post-merge lanes passed: regression `40822019643`, native `40822019775`, browser/live `40822019669`, integrity `40822019630`, website `40822019624`, API `40822019612`, signed courses `40822019621`. The origin catalog/signature exactly matched signed artifacts; existing immutable packages were verified. Live app controls were verified at `app.erudior.com/progress`.
+- Desktop installers remain deferred; no version/tag or desktop release was created. Independent Android work remains preserved. Full original acceptance, usage, privacy and offline-copy limitations are documented in `docs/LEARNING_DIAGNOSTICS.md`.
+
+## Previous whole-capability checkpoint — 2026-10-29
+
 **Teacher-paced and student-paced interactive presentations — Done.** PR #81 (`fde87085f2a15e06101dc2fa5b32e1cd3a2e6df1`) completes the original single presentation capability, not unrelated worksheet/lab/project generators.
 
 - Reusable decks support source-checked authoring, reorder, save/reopen, duplicate, real export/import roundtrip, encrypted backup and conflict-safe adult persistence. Exact installed source content/revision and current adult authority are rechecked before delivery, including recovered rooms and concurrent course changes.
@@ -40,9 +50,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 13 Done, 3 In Progress, 10 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 14 Done, 2 In Progress, 10 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Next unfinished entry in existing Lesson Engine order: Learning diagnostics and targeted intervention — In Progress.** Interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
+**Next unfinished entry in existing Lesson Engine order: Learning content interoperability (CASE, QTI, LTI and Common Cartridge) — Planned.** Learning diagnostics and interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 
