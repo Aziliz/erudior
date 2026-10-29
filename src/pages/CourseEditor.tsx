@@ -1,4 +1,3 @@
-import "../courseStructureEditor.css";
 import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
 import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
 import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
