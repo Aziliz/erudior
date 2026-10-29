@@ -66,7 +66,7 @@ export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLab
       <label>Expected result <input className="input" value={expected} onChange={e => setExpected(e.target.value)} /></label>
       <button type="button" className="btn sm" onClick={add}>Add or replace criterion</button>
     </div>
-    {Object.entries(checks).map(([key, value]) => <p className="small" key={key}>{key}: {JSON.stringify(value)} ({typeof value}) <button className="linkish small" type="button" aria-label={"Remove criterion " + key} onClick={() => setChecks(c => { const next = { ...c }; delete next[key]; return next; })}>Remove</button></p>)}
+    {Object.entries(checks).map(([key, value]) => <p className="small" key={key}>{key}: {JSON.stringify(value)} ({typeof value}) <button className="btn sm" type="button" aria-label={"Remove criterion " + key} onClick={() => setChecks(c => { const next = { ...c }; delete next[key]; return next; })}>Remove</button></p>)}
     <label>Numeric tolerance <input className="input" inputMode="decimal" value={tolerance} onChange={e => setTolerance(e.target.value)} /></label>
     <div className="row" style={{flexWrap:"wrap"}}>
       <button type="button" className="btn primary sm" onClick={useAssignment}>{submitLabel}</button>

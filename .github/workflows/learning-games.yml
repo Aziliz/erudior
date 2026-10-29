@@ -36,6 +36,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Spreadsheet simulator authoring, validation and macro evidence workflows
+        run: npm run test:spreadsheet-v2-browser
       - name: Keyboard, responsive and accessibility game workflows
         run: npm run test:games-browser
       - name: Interactive presentation authoring and playback browser workflows
@@ -50,8 +52,6 @@ jobs:
         run: npm run test:transactions-browser
       - name: Instructional workload evidence browser workflows
         run: npm run test:instructional-evidence-browser
-      - name: Spreadsheet simulator authoring, validation and macro evidence workflows
-        run: npm run test:spreadsheet-v2-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
