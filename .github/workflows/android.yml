@@ -190,6 +190,7 @@ jobs:
       - name: Build optimized x86_64 APK for emulator
         run: |
           npm run tauri android init -- --ci
+          python3 scripts/android-integrate-installer.py
           npm run tauri android build -- --apk --ci --target x86_64
       - name: Sign optimized emulator APK with disposable test certificate
         shell: bash
@@ -256,6 +257,8 @@ jobs:
         run: node --test tests/android-remote-courses.test.mjs
       - name: Generate Android project
         run: npm run tauri android init -- --ci
+      - name: Integrate Android native installer
+        run: python3 scripts/android-integrate-installer.py
       - name: Compile optimized ARM64 Android package (no debug)
         run: npm run tauri android build -- --apk --ci --target aarch64
       - name: Check release signing prerequisites
