@@ -1,3 +1,4 @@
+import { parseDocumentLibrary, type DocumentLibrary } from './documentEngine';
 import { parseInterventionTasks } from './interventionTasks';
 import { parseInterventionState, type InterventionState } from './interventions';
 import { parsePresentationLibrary, type PresentationLibrary } from "./presentations";
@@ -47,6 +48,8 @@ interface Contents {
   presentations?: PresentationLibrary;
   /** Private adult-authored educational plans, observations and reviews. */
   interventions?: InterventionState;
+  /** Same-device educational sources and immutable learner evidence. */
+  documentEngine?: DocumentLibrary;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -114,9 +117,17 @@ function validateInterventionFamily(state: InterventionState, family: Family | n
   if (state.plans.some(plan => !students.has(plan.studentId))) throw Error("Intervention history refers to a learner outside this family.");
 }
 
+function validateDocumentFamily(state: DocumentLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Document history refers to a learner outside this family.");
+}
+
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
+  const documentText = await store.loadState("document-engine");
+  const documentEngine = documentText === null ? undefined : parseDocumentLibrary(documentText);
+  if (documentEngine) validateDocumentFamily(documentEngine, family);
   const classroomText = await store.loadState("classroom-submissions");
   const classroomSubmissions = classroomText === null ? undefined : validateClassroomSubmissionState(classroomText);
   const interventionText = await store.loadState("interventions");
@@ -143,6 +154,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
     ...(presentations === undefined ? {} : { presentations }),
     ...(interventions === undefined ? {} : { interventions }),
+    ...(documentEngine === undefined ? {} : { documentEngine }),
     progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -188,6 +200,15 @@ export async function restoreContents(
   const interventionState = b.interventions === undefined ? undefined : parseInterventionState(b.interventions);
   if (interventionState) validateInterventionFamily(interventionState, b.family);
   const interventions = interventionState === undefined ? null : JSON.stringify(interventionState);
+  if (b.documentEngine === null) throw Error("Invalid document history in backup.");
+  const documentState = b.documentEngine === undefined ? undefined : parseDocumentLibrary(b.documentEngine);
+  if (documentState) validateDocumentFamily(documentState, b.family);
+  // Plaintext legacy restore is an import, not authentication of approval or feedback.
+  // Preserve exact historical snapshots, but revoke their authority for new work.
+  const documentEngine = documentState === undefined ? null : JSON.stringify(parseDocumentLibrary({
+    ...documentState, restoredAt: new Date().toISOString(),
+    pendingApproval: documentState.templates.map(t => t.id + "@" + t.revision),
+  }));
   validateProgressEvidence(b.progress);
   for (const student of Object.values(b.students)) validateProgressEvidence(student.progress);
   const courses = b.courses.map((c) => {
@@ -218,6 +239,7 @@ export async function restoreContents(
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);
   await store.saveState("interventions", interventions);
+  await store.saveState("document-engine", documentEngine);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

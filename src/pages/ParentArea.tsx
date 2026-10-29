@@ -1,3 +1,4 @@
+import DocumentEngine from "../components/DocumentEngine";
 import ContentInteroperability from "../components/ContentInteroperability";
 import LearningDiagnostics from "../components/LearningDiagnostics";
 import { useEffect, useState } from "react";
@@ -69,6 +70,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
+  | "document-cases"
   | "attendance"
   | "courses"
   | "grades"
@@ -91,6 +93,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "learning-paths", label: "Learning paths" },
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -109,6 +112,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "learning-paths", label: "Learning paths" },
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -213,6 +217,7 @@ export default function ParentArea({
           {tab === "learning-paths" && <CompetencySupervisor api={api} family={family} />}
           {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
           {tab === "interoperability" && <ContentInteroperability api={api} />}
+          {tab === "document-cases" && <DocumentEngine api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}

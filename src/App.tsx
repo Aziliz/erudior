@@ -1,3 +1,4 @@
+import { createDocumentEngineStore } from "./lib/documentEngineStore";
 import { importQtiItem, qtiChoiceToBank } from "./lib/interopQti";
 import { createInterventionStore } from "./lib/interventionStore";
 import { createInterventionTaskAccess } from "./lib/interventionTaskAccess";
@@ -132,6 +133,8 @@ export interface AppApi {
   importInterventionTask?: () => Promise<boolean>;
   exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
   importInteroperabilityBank?: (xml: string) => Promise<void>;
+  documentSupervisor?: ReturnType<typeof createDocumentEngineStore>["supervisor"];
+  documentLearner?: ReturnType<typeof createDocumentEngineStore>["learner"];
   presentationLibrary?: ReturnType<typeof createPresentationStore>;
   validatePresentation?: (deck: PresentationDeck) => Promise<string[]>;
   competencySync?: { pending: boolean; error: string };
@@ -245,6 +248,8 @@ export default function App() {
   const [studentId, setStudentId] = useState<string | null>(null);
   const [parentUnlocked, setParentUnlocked] = useState(false);
   const adultAccess = useRef({ unlocked: false, parentView: false });
+  // Bind document authority to the credential reviewed at this explicit unlock.
+  const documentUnlockedCredential = useRef<string | null>(null);
   adultAccess.current = { unlocked: parentUnlocked, parentView: view.name === "parent" };
   const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
   const [competencyRetry, setCompetencyRetry] = useState(0);
@@ -707,6 +712,23 @@ export default function App() {
     },
   });
 
+  const documentEngine = createDocumentEngineStore({
+    read: () => store.loadState("document-engine"),
+    update: change => store.updateState("document-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational documents.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen document cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening document cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
   const presentationLibrary = createPresentationStore({
     read: () => store.loadState("presentations"),
     update: change => store.updateState("presentations", change),
@@ -727,6 +749,8 @@ export default function App() {
     retryCompetencySync: () => setCompetencyRetry(n => n + 1),
     competencySupervisor,
     interventionSupervisor,
+    documentSupervisor: documentEngine.supervisor,
+    documentLearner: documentEngine.learner,
     loadInterventionTasks: () => interventionTasks.load(),
     importInterventionTask: async () => {
       const context = await interventionTasks.context();
@@ -1061,6 +1085,7 @@ export default function App() {
               setFamilyState(f);
               if (isClassroom(f)) {
                 // The teacher who just set it up goes straight to their area.
+                documentUnlockedCredential.current = JSON.stringify(f.parent.password);
                 setParentUnlocked(true);
                 api.go({ name: "parent", tab: "classes" });
                 return;
@@ -1079,7 +1104,7 @@ export default function App() {
         body = parentUnlocked ? (
           <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => api.go({ name: "library" })} />
         ) : (
-          <ParentGate api={api} family={family} onUnlock={() => { adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
+          <ParentGate api={api} family={family} onUnlock={() => { documentUnlockedCredential.current = JSON.stringify(family.parent.password); adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
       break;
   }
