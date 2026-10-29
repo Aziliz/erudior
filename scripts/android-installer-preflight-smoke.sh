@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+apk="${ANDROID_TEST_APK:?Set ANDROID_TEST_APK}"
+package=com.erudior.app
+mkdir -p android-test-evidence
+adb shell pm path "$package" | grep -F 'package:'
+# ADB launches the application, then asks Android to resolve the same ACTION_VIEW
+# used by Erudior's Kotlin bridge. This checks the platform installer path,
+# not the Tauri command invocation or user approval.
+adb shell dumpsys package "$package" > android-test-evidence/installed-package.txt
+if ! grep -F 'android.permission.REQUEST_INSTALL_PACKAGES' android-test-evidence/installed-package.txt >/dev/null; then
+  echo "::error::APK missing installation request permission"
+  exit 1
+fi
+adb shell pm resolve-activity -a android.intent.action.VIEW -t application/vnd.android.package-archive > android-test-evidence/installer-resolution.txt
+if grep -F 'No activity found' android-test-evidence/installer-resolution.txt; then
+  echo "::error::No Android APK installer activity"
+  exit 1
+fi
+echo "Installed app declares install permission; Android has an APK installer handler."
