@@ -1,0 +1,105 @@
+name: Android APK (development)
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_preview:
+        description: "Publish validated APK to public Android preview release (main branch only)"
+        type: boolean
+        required: true
+        default: false
+  pull_request:
+    paths:
+      - '.github/workflows/android.yml'
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.*'
+      - 'index.html'
+
+permissions:
+  contents: write
+
+jobs:
+  android-apk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install Android SDK and NDK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - name: Install dependencies
+        run: npm ci
+      - name: Test Android download-page contract
+        run: node --test tests/android-download-page.test.mjs
+      - name: Initialize Android project
+        run: npm run tauri android init -- --ci
+      - name: Build ARM64 APK
+        run: npm run tauri android build -- --apk --ci --target aarch64
+      - name: Validate generated APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          if [ "${#apks[@]}" -ne 1 ]; then
+            echo "::error::Expected exactly one ARM64 APK, found ${#apks[@]}"
+            exit 1
+          fi
+          apk="${apks[0]}"
+          unzip -tq "$apk"
+          badging="$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk")"
+          echo "$badging" | grep -E "^package: name='com\\.erudior\\.app'"
+          echo "$badging" | grep -E "^native-code: 'arm64-v8a'"
+          echo "Validated APK: $apk"
+          sha256sum "$apk"
+      - name: Upload installable debug-testing artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-android-arm64-apk
+          path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish public Android preview APK
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -eq 1
+          cp "${apks[0]}" Erudior-Android-arm64.apk
+          sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
+          if gh release view android-preview >/dev/null 2>&1; then
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --clobber
+          else
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
+          fi
+      - name: Verify public release download
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
+          curl --fail --location --retry 5 --retry-delay 3 --output published.apk "$url"
+          test -s published.apk
+          sha256sum --check <(sed 's/Erudior-Android-arm64.apk/published.apk/' Erudior-Android-arm64.apk.sha256)
+          echo "Public download verified: $url" >> "$GITHUB_STEP_SUMMARY"

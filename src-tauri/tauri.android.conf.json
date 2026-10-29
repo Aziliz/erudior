@@ -1,0 +1,12 @@
+{
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Erudior",
+        "width": 390,
+        "height": 844
+      }
+    ]
+  }
+}
