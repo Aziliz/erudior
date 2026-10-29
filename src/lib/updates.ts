@@ -44,9 +44,10 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
       actionLabel: "Verify and open installer",
       guidance: "Android asks you to approve the installation. Updates signed with the same certificate retain app data.",
       install: async (progress) => {
+        // A browser download is a second, unverified file. Do not present it as
+        // an install of the verified bytes. Native FileProvider handoff is required.
         await verifyAndroidApk(release, progress);
-        const { openUrl } = await import("@tauri-apps/plugin-opener");
-        await openUrl(release.apk);
+        throw new Error("APK verified, but native Android installer handoff is not yet available in this build. No installer was launched.");
       },
     };
   }
