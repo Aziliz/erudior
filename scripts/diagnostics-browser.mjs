@@ -24,6 +24,7 @@ try {
     await page.addScriptTag({content:axe});
     const results=await page.evaluate(()=>window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}}));
     assert.deepEqual(results.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)})),[],`${name}: accessibility violations`);
+    await page.screenshot({path:path.join(out,`${name.replace(/[^a-z0-9-]/gi,'-')}.png`),fullPage:true});
   };
   for(const colorScheme of ['light','dark'])for(const width of [1280,320]){
     current=`${colorScheme}-${width}`;const context=await browser.newContext({viewport:{width,height:900},colorScheme});
