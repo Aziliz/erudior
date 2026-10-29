@@ -1,3 +1,5 @@
+import { parseDocumentLibrary } from './documentEngine';
+import { deleteDocumentStudent } from './documentEngineStore';
 import { parseInterventionState } from './interventions';
 import { deleteInterventionStudent } from './interventionStore';
 /** Durable instructor-side hand-in receipt, retryable projection and review storage.
@@ -140,6 +142,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
         return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
           deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
       });
+      await io.updateState("document-engine", previous => JSON.stringify(deleteDocumentStudent(parseDocumentLibrary(previous), studentId)));
       await io.updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
       for (const prefix of ["progress", "records", "session", "portfolio"])
         await io.writeState(`${prefix}-${studentId}`, null);
