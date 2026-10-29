@@ -83,6 +83,10 @@ jobs:
           echo "$badging" | grep -E "^native-code: 'arm64-v8a'"
           echo "Validated APK: $apk"
           sha256sum "$apk"
+      - name: Verify native installer packaged in ARM64 APK
+        run: |
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          bash scripts/android-verify-installer-package.sh "$apk"
       - name: Diagnose Android package size and install requirements
         shell: bash
         run: |
