@@ -33,7 +33,7 @@ test("numeric version ordering and installed build identity", () => {
 test("Android installer never re-downloads an unverified APK", () => {
   const updates = readFileSync("src/lib/updates.ts", "utf8");
   assert.ok(!updates.includes("await openUrl(release.apk)"));
-  assert.match(updates, /System installer handoff is not yet implemented/);
+  assert.match(updates, /launch_android_installer/);
   assert.match(updates, /stage_android_update/);
 });
 
