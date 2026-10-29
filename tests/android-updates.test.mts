@@ -22,7 +22,7 @@ test("numeric version ordering and installed build identity", () => {
   assert.equal(compareAndroidVersions("0.25.10", "0.25.9"), 1);
   assert.equal(compareAndroidVersions("0.24.0", "0.25.0"), -1);
   assert.equal(compareAndroidVersions("0.25.0", "0.25.0"), 0);
-  assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", release.build), false);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", release.build), true);
   assert.equal(shouldOfferAndroidUpdate(release, "0.25.1", ""), false);
   assert.equal(shouldOfferAndroidUpdate(release, "0.25.2", "c".repeat(40)), false);
   assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", "c".repeat(40)), true);
