@@ -1,3 +1,5 @@
+import { parseTransactionLibrary } from './transactionEngine';
+import { deleteTransactionStudent } from './transactionEngineStore';
 import { parseDocumentLibrary } from './documentEngine';
 import { deleteDocumentStudent } from './documentEngineStore';
 import { parseInterventionState } from './interventions';
@@ -142,6 +144,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
         return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
           deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
       });
+      await io.updateState("transaction-engine", previous => JSON.stringify(deleteTransactionStudent(parseTransactionLibrary(previous), studentId)));
       await io.updateState("document-engine", previous => JSON.stringify(deleteDocumentStudent(parseDocumentLibrary(previous), studentId)));
       await io.updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
       for (const prefix of ["progress", "records", "session", "portfolio"])

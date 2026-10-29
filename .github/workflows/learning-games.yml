@@ -14,6 +14,7 @@ on:
       - 'scripts/diagnostics-browser.mjs'
       - 'scripts/interoperability-browser.mjs'
       - 'scripts/document-engine-browser.mjs'
+      - 'scripts/transactions-browser.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/learning-games.yml'
@@ -44,6 +45,8 @@ jobs:
         run: npm run test:interoperability-browser
       - name: Educational document authoring, evidence and review browser workflows
         run: npm run test:document-engine-browser
+      - name: Educational contract, trust-account and transaction browser workflows
+        run: npm run test:transactions-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
@@ -62,6 +65,7 @@ jobs:
             test-results/diagnostics-browser/
             test-results/interoperability-browser/
             test-results/document-engine-browser/
+            test-results/transactions-browser/
             test-results/lti-browser/
           retention-days: 14
           if-no-files-found: ignore

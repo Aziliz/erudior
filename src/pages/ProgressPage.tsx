@@ -1,3 +1,4 @@
+import LearnerTransactions from "../components/LearnerTransactions";
 import LearnerDocumentCases from "../components/LearnerDocumentCases";
 import LearnerInterventions from "../components/LearnerInterventions";
 import { useEffect, useState } from "react";
@@ -163,6 +164,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
       <LearnerInterventions api={api} />
       <LearnerDocumentCases api={api} />
+      <LearnerTransactions api={api} />
 
       <section className="panel" aria-labelledby="skill-path-title">
         <div className="panel-head"><h2 id="skill-path-title">Learning path</h2></div>

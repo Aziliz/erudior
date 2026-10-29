@@ -1,3 +1,4 @@
+import { parseTransactionLibrary, type TransactionLibrary } from './transactionEngine';
 import { parseDocumentLibrary, type DocumentLibrary } from './documentEngine';
 import { parseInterventionTasks } from './interventionTasks';
 import { parseInterventionState, type InterventionState } from './interventions';
@@ -50,6 +51,8 @@ interface Contents {
   interventions?: InterventionState;
   /** Same-device educational sources and immutable learner evidence. */
   documentEngine?: DocumentLibrary;
+  /** Private educational transaction sources, sessions and immutable evidence. */
+  transactionEngine?: TransactionLibrary;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -122,9 +125,17 @@ function validateDocumentFamily(state: DocumentLibrary, family: Family | null) {
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Document history refers to a learner outside this family.");
 }
 
+function validateTransactionFamily(state: TransactionLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Transaction history refers to a learner outside this family.");
+}
+
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
+  const transactionText = await store.loadState("transaction-engine");
+  const transactionEngine = transactionText === null ? undefined : parseTransactionLibrary(transactionText);
+  if (transactionEngine) validateTransactionFamily(transactionEngine, family);
   const documentText = await store.loadState("document-engine");
   const documentEngine = documentText === null ? undefined : parseDocumentLibrary(documentText);
   if (documentEngine) validateDocumentFamily(documentEngine, family);
@@ -155,6 +166,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(presentations === undefined ? {} : { presentations }),
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
+    ...(transactionEngine === undefined ? {} : { transactionEngine }),
     progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -200,6 +212,14 @@ export async function restoreContents(
   const interventionState = b.interventions === undefined ? undefined : parseInterventionState(b.interventions);
   if (interventionState) validateInterventionFamily(interventionState, b.family);
   const interventions = interventionState === undefined ? null : JSON.stringify(interventionState);
+  if (b.transactionEngine === null) throw Error("Invalid transaction history in backup.");
+  const transactionState = b.transactionEngine === undefined ? undefined : parseTransactionLibrary(b.transactionEngine);
+  if (transactionState) validateTransactionFamily(transactionState, b.family);
+  // Recovery preserves history, not imported claims of current local authority.
+  const transactionEngine = transactionState === undefined ? null : JSON.stringify(parseTransactionLibrary({
+    ...transactionState, restoredAt: new Date().toISOString(),
+    pendingApproval: transactionState.packs.map(pack => pack.id + "@" + pack.revision),
+  }));
   if (b.documentEngine === null) throw Error("Invalid document history in backup.");
   const documentState = b.documentEngine === undefined ? undefined : parseDocumentLibrary(b.documentEngine);
   if (documentState) validateDocumentFamily(documentState, b.family);
@@ -240,6 +260,7 @@ export async function restoreContents(
   await store.saveState("presentations", presentations);
   await store.saveState("interventions", interventions);
   await store.saveState("document-engine", documentEngine);
+  await store.saveState("transaction-engine", transactionEngine);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }
