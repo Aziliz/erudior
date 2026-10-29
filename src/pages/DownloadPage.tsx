@@ -196,7 +196,7 @@ export default function DownloadPage() {
         <div>
           <h1>Download Erudior</h1>
           <p>
-            The desktop app is free. It downloads any course from the catalog when you start it and keeps working offline after that. It also has the
+            Erudior is free. The desktop app downloads courses as you need them and keeps working offline afterward. It also has the
             homeschool and classroom tools: students, attendance, grades, report cards, transcripts, portfolios and live rooms. Everything stays on your
             computer.
           </p>
@@ -221,7 +221,7 @@ export default function DownloadPage() {
           <section key={p.id} className={`download-card${p.id === os ? " current" : ""}`} aria-labelledby={`dl-${p.id}`}>
             <h2 id={`dl-${p.id}`}>
               {p.title}
-              {p.id === os && <span className="pill neutral">Your computer</span>}
+              {p.id === os && <span className="pill neutral">Your device</span>}
             </h2>
             {p.body}
           </section>
