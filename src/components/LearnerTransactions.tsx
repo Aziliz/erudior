@@ -22,7 +22,7 @@ export default function LearnerTransactions({ api }: { api: AppApi ;}) {
   unsaved.current = docDirty || pendingNote || Object.values(dirty).some(Boolean);
   const mark = (group: string) => { setDirty(v => ({ ...v, [group]: true })); for (const key of Object.keys(eventIds.current)) if (key.startsWith(group)) delete eventIds.current[key]; setStatus(''); };
   function resetEditors() { setDirty({}); setStage('representation'); setStageNote(''); setParty('buyer'); setParentOffer(''); setClient(''); setPrice(''); setEarnest(''); setExpiry(''); setClosing(''); setOfferNote(''); setDecisionOffer(''); setDecisionNote(''); setCondition(''); setConditionNote(''); setClock(''); setClockNote(''); setFundClient(''); setAmount(''); setReference(''); setFundNote(''); setReverseId(''); setReverseReference(''); setReverseNote(''); setBank(''); setOutstanding([]); setReported({}); setReconcileNote(''); setTerminationNote(''); eventIds.current = {}; }
-  const learnerScope = JSON.stringify({ student: api.student?.id, password: api.family?.parent.password });
+  const learnerScope = JSON.stringify({ student: api.student?.id, password: api.family?.parent?.password });
   useEffect(() => {
     const g = ++generation.current; setLibrary(null); setAssignment(null); setSession(null); setRevision(null); setDocDirty(false); setPendingNote(false); setError(''); setStatus(''); setHistory(''); setBusy(false); resetEditors();
     service?.load().then(v => { if (g === generation.current) setLibrary(v); }).catch(e => { if (g === generation.current) setError(String(e)); }); return () => { generation.current++; };

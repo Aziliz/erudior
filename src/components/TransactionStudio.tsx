@@ -18,7 +18,7 @@ export default function TransactionStudio({ api }: { api: AppApi ;}) {
   const [submission, setSubmission] = useState(''), [comparison, setComparison] = useState(''), [feedback, setFeedback] = useState(''), [decision, setDecision] = useState<'reviewed' | 'needs_revision'>('reviewed');
   const generation = useRef(0), running = useRef(false), unsaved = useRef(false), assignmentId = useRef(crypto.randomUUID()), feedbackId = useRef(crypto.randomUUID());
   unsaved.current = packDirty || caseDirty || feedbackDirty;
-  const scope = JSON.stringify({ password: api.family?.parent.password, students: api.family?.students.map(s => s.id) });
+  const scope = JSON.stringify({ password: api.family?.parent?.password, students: api.family?.students?.map(s => s.id) });
   useEffect(() => {
     const g = ++generation.current;
     setLibrary(null); setSources([]); setError(''); setStatus(''); setPack(emptyTransactionPack(crypto.randomUUID()));
@@ -195,7 +195,7 @@ export default function TransactionStudio({ api }: { api: AppApi ;}) {
             <option key={a.id} value={`${a.id}@${a.revision}`}>{a.title} — revision {a.revision}</option>)}</select>
         </label>
         <label>Transaction learner<select aria-label="Transaction learner" disabled={!!selectedCase} value={student} onChange={e => { setStudent(e.target.value); setCaseDirty(true); }}>
-          <option value="">Choose learner</option>{api.family?.students.map(s =>
+          <option value="">Choose learner</option>{api.family?.students?.map(s =>
             <option key={s.id} value={s.id}>{s.name}</option>)}</select>
         </label>
         <label>Assigned rule pack<select aria-label="Assigned rule pack" value={assignedPack} onChange={e => { setAssignedPack(e.target.value); setCaseDirty(true); }}>
@@ -214,7 +214,7 @@ export default function TransactionStudio({ api }: { api: AppApi ;}) {
         <legend>Immutable transaction evidence and feedback</legend>
         <label>Transaction submission<select aria-label="Transaction submission" value={submission} onChange={e => { if (feedbackDirty && !window.confirm('Discard unsaved transaction feedback?')) return; setSubmission(e.target.value); setComparison(''); setFeedback(''); setFeedbackDirty(false); feedbackId.current = crypto.randomUUID(); }}>
           <option value="">Choose evidence</option>{library?.submissions.map(s =>
-            <option key={s.id} value={s.id}>{api.family?.students.find(x => x.id === s.studentId)?.name ?? 'Learner'} — {s.assignment.title} — {s.submittedAt}</option>)}</select>
+            <option key={s.id} value={s.id}>{api.family?.students?.find(x => x.id === s.studentId)?.name ?? 'Learner'} — {s.assignment.title} — {s.submittedAt}</option>)}</select>
         </label>
         {selected && <>
           <label>Compare transaction evidence<select aria-label="Compare transaction evidence" value={comparison} onChange={e => setComparison(e.target.value)}>

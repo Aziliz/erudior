@@ -24,6 +24,16 @@ const button=(name:string)=>{const b=[...document.querySelectorAll<HTMLButtonEle
 const click=async(name:string)=>{await React.act(async()=>{button(name).click();await wait();});};
 const input=async(label:string,value:string)=>{const el=document.querySelector(`[aria-label="${label}"]`) as HTMLInputElement;assert(el,label);await React.act(async()=>{const proto=el.tagName==='TEXTAREA'?dom.window.HTMLTextAreaElement.prototype:el.tagName==='SELECT'?dom.window.HTMLSelectElement.prototype:dom.window.HTMLInputElement.prototype;Object.getOwnPropertyDescriptor(proto,'value')!.set!.call(el,value);el.dispatchEvent(new dom.window.Event(el.tagName==='SELECT'?'change':'input',{bubbles:true}));await wait();});};
 const state=()=>parseTransactionLibrary(saved);
+// Optional transaction APIs must remain compatible with legacy partial family callers.
+const completeApi=api;
+for (const family of [undefined, {}]) {
+  api={student:{id:'alice'},family};
+  await render(Learner);
+  assert.match(document.body.textContent!,/Transaction practice is unavailable for this profile/);
+  await render(Adult);
+  assert.equal(document.querySelector('[role="alert"]'),null);
+}
+api=completeApi;
 await render(Learner);await click('Synthetic case — transaction revision 1');
 await input('Annotation note','Unposted note belonging only to first case');confirm=true;await click('Other synthetic case — transaction revision 1');assert.equal((document.querySelector('[aria-label="Annotation note"]') as HTMLTextAreaElement).value,'','Accepted discard remounts source-local annotation editor');await click('Synthetic case — transaction revision 1');confirm=false;
 await input('Reasoning','First private explanation');await input('Bounded quantity','99');await click('Save transaction documents');assert.match(document.body.textContent!,/outside its declared bounds/);assert.equal((document.querySelector('[aria-label="Bounded quantity"]') as HTMLInputElement).value,'99','Invalid draft does not crash render');await input('Bounded quantity','5');assert.equal(requestNavigation(),false);assert.equal(button('Record phase transition').closest('fieldset')!.disabled,true);
