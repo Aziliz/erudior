@@ -1,3 +1,4 @@
+import "../courseStructureEditor.css";
 import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
 import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
 import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
@@ -130,7 +131,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
   });
 
   return (
-    <div className="editor-main" style={{ height: "100%" }}>
+    <div className="editor-main course-structure-editor" style={{ height: "100%" }}>
       <div className="editor-bar">
         <button className="btn ghost sm" onClick={close}>
           ← Done
@@ -324,7 +325,7 @@ function Lessons({ draft, update }: EP) {
           <p className="muted">{draft.lessons.length ? "Choose a lesson from the list, or add another lesson." : "Add a lesson to start writing."}</p>
         ) : (
           <div className="stack">
-            <div className="form-grid" style={{ gridTemplateColumns: "2fr 1fr 100px", marginBottom: 0 }}>
+            <div className="form-grid course-lesson-settings">
               <label className="field" htmlFor={`${fieldId}-title`}>
                 <span id={`${fieldId}-title-label`}>Title</span>
                 <input id={`${fieldId}-title`} aria-labelledby={`${fieldId}-title-label`} className="input" value={current.title} onChange={(e) => setLesson(current.id, { title: e.target.value })} />

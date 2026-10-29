@@ -63,7 +63,7 @@ export default function CanonicalCommunityEditor({ api, id, initialDoc, initialM
     <p>One authoritative course payload. Community review is not official-course approval. Publishing preserves source author metadata; the community publisher is separate provenance.</p>
     {error && <p role="alert">{error}</p>}{message && <p role="status">{message}</p>}
     {readOnly && <p role="alert">Taken down: {meta.reviewNote}. Editing and publishing are disabled.</p>}
-    {view === "course" ? <fieldset disabled={busy || readOnly}><CourseEditor api={adapter} course={course} communityMode /></fieldset> : selectedBank ? <fieldset disabled={busy || readOnly}><Editor key={selectedBank.id} api={adapter} bank={selectedBank} /></fieldset> : selectedDeck ? <fieldset disabled={busy || readOnly}><DeckEditor key={selectedDeck.id} api={adapter} course={course} deck={selectedDeck} /></fieldset> : <>
+    {view === "course" ? <fieldset className="canonical-course-editor-shell" disabled={busy || readOnly}><CourseEditor api={adapter} course={course} communityMode /></fieldset> : selectedBank ? <fieldset disabled={busy || readOnly}><Editor key={selectedBank.id} api={adapter} bank={selectedBank} /></fieldset> : selectedDeck ? <fieldset disabled={busy || readOnly}><DeckEditor key={selectedDeck.id} api={adapter} course={course} deck={selectedDeck} /></fieldset> : <>
       <fieldset disabled={busy || readOnly}><legend>Community listing</legend>
         <p>Listing title follows the authored course title. Listing classifications do not rewrite source metadata.</p>
         <label className="field">Description<textarea value={doc.description} onChange={e => change({ description: e.target.value })} /></label>
