@@ -18,6 +18,8 @@ import "./scientific.css";
 import "./advanced-assessment.css";
 import "./learningGames.css";
 import "./startupSplash.css";
+// Footer styles must be in the entry CSS, including restored prerendered pages.
+import "./engineAttribution.css";
 import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismissal } from "./lib/startupSplash";
 import { claimWebAppSplash } from "./lib/startupSplashPolicy";
 
