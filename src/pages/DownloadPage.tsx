@@ -65,7 +65,7 @@ export default function DownloadPage() {
       .catch(() => { /* Keep the Android card in coming-soon state if GitHub is unavailable. */ });
   }, []);
 
-  const androidApk = androidRelease?.assets.find((a) => /\\.apk$/i.test(a.name));
+  const androidApk = androidRelease?.assets.find((a) => /\.apk$/i.test(a.name));
   const release = releases?.[0] ?? null;
   const exe = find(release, /-setup\.exe$/i) ?? find(release, /\.exe$/i);
   const msi = find(release, /\.msi$/i);
