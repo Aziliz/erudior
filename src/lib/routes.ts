@@ -87,7 +87,7 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
     case "parent":
       return "/";
     case "overview":
-      return course(v.catalogId);
+      return v.requestedPath ?? course(v.catalogId);
     case "course":
       return course(v.courseId) + (v.tab && v.tab !== "today" ? "/" + v.tab : "");
     case "lesson":
@@ -131,6 +131,9 @@ export function pageKey(v: View): string {
   const c = courseOf(v);
   if (v.name === "course" || v.name === "overview") return "course:" + c;
   if (v.name === "search") return "search";
+  if (v.name === "lesson") return `lesson:${c}:${v.lessonId}`;
+  if (v.name === "read") return `read:${c}:${v.textId}`;
+  if (v.name === "ref") return `ref:${c}:${v.refId}`;
   if (v.name === "courseActivity") return `activity:${c}:${v.kind}:${v.sourceId}`;
   return v.name + ":" + (c ?? "");
 }
@@ -138,6 +141,7 @@ export function pageKey(v: View): string {
 /** The screen for an address, or null if it can't be shown (unknown course, etc.). */
 export function pathToView(pathname: string, search: string, installed: RouteCourse[], catalog: RouteCourse[]): View | null {
   const parts = pathname.split("/").filter(Boolean);
+  try { for (const part of parts) decodeURIComponent(part); } catch { return null; }
   if (!parts.length) return { name: "library" };
   const [first, second, third] = parts;
   if (first === "courses" && !second) return { name: "library" };
@@ -152,7 +156,11 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   const have = findCourse(first, installed);
   if (!have) {
     const entry = findCourse(first, catalog);
-    return entry ? { name: "overview", catalogId: entry.id } : null;
+    if (!entry) return null;
+    if (!second) return { name: "overview", catalogId: entry.id };
+    const destination = pathToView(pathname, search, [entry], []);
+    if (!destination) return null;
+    return { name: "overview", catalogId: entry.id, requestedPath: viewToPath(destination, [...installed, ...catalog], () => undefined) };
   }
   const courseId = have.id;
   if (second === "activities") {

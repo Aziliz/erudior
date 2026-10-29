@@ -1,3 +1,4 @@
+import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
 import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
 import { createAdvancedAssessmentStore } from "./lib/advancedAssessmentStore";
 import { createScientificWorkspaceStore } from "./lib/scientificWorkspaceStore";
@@ -118,7 +119,7 @@ export type View =
   | { name: "ref"; courseId: string; refId: string }
   | { name: "read"; courseId: string; textId: string }
   | { name: "search"; q: string }
-  | { name: "overview"; catalogId: string }
+  | { name: "overview"; catalogId: string; requestedPath?: string }
   | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number }
   | { name: "who" }
   | { name: "familySetup" }
@@ -131,6 +132,8 @@ export type View =
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
+  /** Unsupervised public-browser study; never grants assignment or credit authority. */
+  publicLearning?: boolean;
   learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
   catalog: { source: CatalogSource; error?: string };
   banks: Bank[];
@@ -170,7 +173,7 @@ export interface AppApi {
   deleteBank: (bank: Bank) => Promise<void>;
   saveCourse: (course: Course) => Promise<void>;
   /** Add a catalog course to In progress (loads and stores it), then open it. */
-  addCourse: (id: string) => Promise<void>;
+  addCourse: (id: string, requestedPath?: string) => Promise<void>;
   /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
   notifyUpdate: (u: AvailableUpdate) => void;
   /** Go back from a bank: to its course if it has one, else the library. */
@@ -247,6 +250,9 @@ export default function App() {
   const [progress, setProgressState] = useState<Progress>(store.emptyProgress());
   const progressRef = useRef(progress);
   const [ready, setReady] = useState(false);
+  const [courseOpenError, setCourseOpenError] = useState<string | null>(null);
+  const courseOpening = useRef<{ view: View; profile: string | null; selection: number } | null>(null);
+  const viewRef = useRef(view); viewRef.current = view;
   const [loadError, setLoadError] = useState<string | null>(null);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [theme, setTheme] = useState<Theme>(readTheme);
@@ -274,6 +280,7 @@ export default function App() {
   const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
   const [competencyRetry, setCompetencyRetry] = useState(0);
   const student = family?.students.find((s) => s.id === studentId) ?? null;
+  const publicLearning = !store.inApp && !HOMESCHOOL && import.meta.env?.VITE_AS_DESKTOP !== "1" && !family;
 
   // Ctrl/Cmd+K jumps to search.
   useEffect(() => {
@@ -469,7 +476,7 @@ export default function App() {
   useEffect(() => {
     if (!ROUTES || !ready || pendingPath.current) return;
     const key = pageKey(view);
-    const path = viewToPath(view, routeCourses(), bankCourse);
+    const path = withGuestSession(viewToPath(view, routeCourses(), bankCourse));
     const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
     const courseTitle = id ? routeCourses().find((c) => c.id === id)?.title : null;
     const title = courseTitle ? `${courseTitle} · Erudior` : "Erudior";
@@ -492,7 +499,7 @@ export default function App() {
       const position = navigationPosition(displayedHistory.current.state) ?? newNavigationPosition();
       if (push) position.index += 1;
       try {
-        fn.call(window.history, withNavigationPosition({ erudiorView: view }, position), "", path);
+        fn.call(window.history, withNavigationPosition(TEMPORARY_GUEST ? {} : { erudiorView: view }, position), "", path);
       } catch {
         fn.call(window.history, withNavigationPosition({}, position), "", path); // retain routing position if view state can't be stored
       }
@@ -622,31 +629,45 @@ export default function App() {
   }, [view.name]);
 
   const addCourse = useCallback(
-    async (id: string) => {
+    async (id: string, requestedPath?: string) => {
+      if (courseOpening.current?.view === viewRef.current && courseOpening.current.profile === store.activeStudent() && courseOpening.current.selection === studentSelectionRequest.current) return;
       const entry = CATALOG.find((e) => e.id === id);
       if (!entry) return;
       const needs = prerequisites(entry, progressRef.current).filter((r) => !r.done);
-      if (needs.length) {
+      if (!publicLearning && needs.length) {
         toast(`Finish ${needs.map((r) => r.title).join(" and ")} first`);
         return;
       }
       const blocked = assignmentBlock(id);
-      if (blocked) {
-        toast(blocked);
-        return;
-      }
+      if (blocked) { toast(blocked); return; }
+      const initialView = viewRef.current, profile = store.activeStudent(), selection = studentSelectionRequest.current;
+      const current = () => viewRef.current === initialView && store.activeStudent() === profile && studentSelectionRequest.current === selection;
+      const request = { view: initialView, profile, selection };
+      courseOpening.current = request; setCourseOpenError(null);
       try {
-        // Another student may already have it; their copy (and any edits) is shared.
-        if (!courses.some((c) => c.id === id)) await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
+        // Only the signed catalog loader can supply an official course. A link never
+        // supplies course bytes, an approval, a learner identity or enrollment authority.
+        if (!courses.some((c) => c.id === id)) {
+          const downloaded = normalizeCourse(await loadCatalogCourse(entry));
+          if (!current()) return;
+          if (HOMESCHOOL && JSON.stringify(await loadFamily()) !== JSON.stringify(family)) throw Error("Family assignments changed. Reopen the course.");
+          if (!current()) return;
+          await store.saveCourse(downloaded);
+        }
+        if (HOMESCHOOL && JSON.stringify(await loadFamily()) !== JSON.stringify(family)) throw Error("Family assignments changed. Reopen the course.");
+        if (!current()) return;
         await enroll(id);
+        if (!current()) return;
         await reload();
-        const target = { name: "course" as const, courseId: id };
+        if (!current()) return;
+        const linked = requestedPath ? pathToView(requestedPath, "", [entry], []) : null;
+        const target = linked && "courseId" in linked && linked.courseId === id ? linked : { name: "course" as const, courseId: id };
         if (requestNavigation("app", target)) setView(target);
       } catch (e) {
-        toast(`Couldn't add "${entry.title}": ${String(e)}`);
-      }
+        if (current()) setCourseOpenError(`Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`);
+      } finally { if (courseOpening.current === request) courseOpening.current = null; }
     },
-    [reload, toast, assignmentBlock, courses, enroll],
+    [reload, toast, assignmentBlock, courses, enroll, publicLearning, family],
   );
 
   const addCommunityCourse = async (id: string) => {
@@ -888,6 +909,7 @@ export default function App() {
   });
 
   const api: AppApi = {
+    publicLearning,
     learnerPrivacy,
     catalog: catalogInfo,
     banks: allBanks,
@@ -1078,6 +1100,7 @@ export default function App() {
         <p className="notice error" style={{ marginTop: 16 }}>
           {loadError}
         </p>
+        {publicLearning && !TEMPORARY_GUEST && <p>Your saved data has not been cleared. <a href={withGuestSession(window.location.pathname + window.location.search, true)}>Continue in a temporary guest session</a> without using device learning storage.</p>}
       </div>
     );
   }
@@ -1148,7 +1171,7 @@ export default function App() {
       break;
     }
     case "overview":
-      body = <CourseOverview api={api} id={view.catalogId} />;
+      body = <CourseOverview key={view.catalogId} api={api} id={view.catalogId} requestedPath={view.requestedPath} />;
       break;
     case "course": {
       const c = courseFor(view.courseId);
@@ -1166,6 +1189,7 @@ export default function App() {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
       if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      else body = <div className="page"><h1>Lesson unavailable</h1><p role="alert">This lesson is not in the current course. The link may be outdated.</p><button className="btn" onClick={() => api.go(c ? {name:"course",courseId:c.id,tab:"lessons"} : {name:"library"})}>Browse available lessons</button></div>;
       break;
     }
     case "courseActivity": {
@@ -1279,6 +1303,10 @@ export default function App() {
   if (view.name === "review" && AUTHORING) body = <ReviewQueue api={api} />;
   if (view.name === "live" && LIVE) body = <LivePlay key={view.code ?? ""} api={api} initialCode={view.code} />;
   if (view.name === "presentation" && LIVE) body = <PresentationPlay key={view.code ?? ""} api={api} initialCode={view.code} />;
+  if (TEMPORARY_GUEST && ["create", "communityEdit", "review", "live", "presentation"].includes(view.name)) {
+    body = <div className="page"><h1>Independent guest study</h1><p>Live rooms and account-based publishing use server data, so they are not available in this temporary learning session. Use the saved-device app to access those separate workflows.</p><button className="btn" onClick={() => api.go({name:"library"})}>Browse courses</button></div>;
+    fullScreen = false;
+  }
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
@@ -1431,6 +1459,20 @@ export default function App() {
         </header>
       )}
       <main className="main" id="main" tabIndex={-1} ref={mainRef}>
+        {publicLearning && <section className="public-learning-banner" aria-label="Guest learning">
+          <div><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+            <p className="small">{TEMPORARY_GUEST ? "Learning data stays in this page's memory only. Refreshing or closing loses it. Export course progress before leaving; scratch code/workbook drafts are not in that backup. Saved device progress is untouched." : "No account needed. Progress is saved only in this browser. Use a temporary session if you do not want learning data saved on this device."} Practice is not supervised credit or certification.</p></div>
+          <div className="row">
+            <button className="btn sm" onClick={() => api.go({name:"progress"})}>Progress and export</button>
+            <button className="btn sm" onClick={() => {
+              if (!requestNavigation("app")) return;
+              if (TEMPORARY_GUEST && !window.confirm("Leave this temporary session? Its learning data will be lost. Export first if you want to keep it.")) return;
+              const url = new URL(window.location.href); if (TEMPORARY_GUEST) url.searchParams.delete("guest"); else url.searchParams.set("guest", "1");
+              window.location.assign(url.pathname + url.search);
+            }}>{TEMPORARY_GUEST ? "Use saved device progress" : "Start temporary session"}</button>
+          </div>
+        </section>}
+        {courseOpenError && <div className="notice error" role="alert">{courseOpenError} <button className="btn sm" onClick={() => setCourseOpenError(null)}>Dismiss</button></div>}
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>

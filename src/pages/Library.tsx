@@ -1,5 +1,6 @@
+import { TEMPORARY_GUEST, learningDraftStorage } from "../lib/guestSession";
 import { assertCourseImportPreservesFields } from "../lib/courseImport";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
@@ -102,7 +103,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
-          {LIVE && (
+          {LIVE && !TEMPORARY_GUEST && (
             <><button className="btn" onClick={() => api.go({ name: "live" })}>
               Join a live room
             </button>
@@ -284,7 +285,7 @@ const FILTER_KEY = "examiner.catalogFilters";
 
 function readFilters(): Filters {
   try {
-    const f = JSON.parse(localStorage.getItem(FILTER_KEY) ?? "null");
+    const f = JSON.parse(learningDraftStorage.getItem(FILTER_KEY) ?? "null");
     if (f && Array.isArray(f.subject)) return { q: "", subject: f.subject, level: f.level ?? [], type: f.type ?? [] };
   } catch {
     /* no saved filters */
@@ -305,10 +306,10 @@ function Catalog({ api }: { api: AppApi }) {
   const [f, setF] = useState<Filters>(readFilters);
   const [adding, setAdding] = useState<string | null>(null);
   const [page, setPage] = useState(0);
-  const opts = useMemo(facets, []);
+  const opts = facets();
   useEffect(() => {
     try {
-      localStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
+      learningDraftStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
     } catch {
       /* filters just won't be remembered */
     }
@@ -386,7 +387,7 @@ function Catalog({ api }: { api: AppApi }) {
         <div className="catalog-grid">
           {visible.map((e) => {
             const have = installed.has(e.id);
-            const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
+            const needs = have || api.publicLearning ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
               <div key={e.id} className="catalog-card" data-subject={subjectKey(e.subject)}>

@@ -7669,3 +7669,18 @@ button.fn-ref {
 .roadmap .roadmap-language h4 { margin: 0 0 .4rem; font-weight: 650; }
 .roadmap .roadmap-language-levels { margin-left: 1.75rem; padding-left: .5rem; }
 @media (max-width: 600px) { .roadmap .roadmap-language-levels { margin-left: .8rem; } }
+
+/* Explicit public-study storage choice, including narrow practice screens. */
+.public-learning-banner { margin: 12px auto; padding: 14px 18px; max-width: 1200px; border: 1px solid var(--border); border-radius: 8px; }
+.public-learning-banner p { margin: 5px 0 10px; }
+.public-learning-banner .row { flex-wrap: wrap; }
+
+/* Keep optional guest history legible instead of splitting every word on phones. */
+.learning-history { position: relative; min-width: 0; max-width: 100%; }
+.learning-history > .table { min-width: 640px; }
+.learning-history th, .learning-history td { overflow-wrap: normal; word-break: normal; }
+.learning-history .btn { white-space: nowrap; margin-top: 6px; }
+@media (max-width: 600px) {
+  .lesson-page > .calc-toggle { position: static; transform: none; flex-direction: row; width: max-content; margin-bottom: 12px; border-left: 1px solid var(--rule); border-radius: var(--r-md); }
+  .lesson-page > .calc-toggle span { writing-mode: horizontal-tb; transform: none; }
+}

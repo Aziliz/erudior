@@ -342,6 +342,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
         {attempts.length === 0 ? (
           <p className="muted small">No sessions yet.</p>
         ) : (
+          <div className="table-wrap learning-history" role="region" aria-label="Learning session history" tabIndex={0}>
           <table className="table">
             <thead>
               <tr>
@@ -350,7 +351,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 <th>Mode</th>
                 <th className="r">Score</th>
                 <th className="r">Time</th>
-                <th><span className="sr-only">Actions</span></th>
+                <th>Result</th>
               </tr>
             </thead>
             <tbody>
@@ -365,11 +366,13 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                   <td className="r">{formatDuration(a.durationSec)}</td>
                   <td className="r">
                     <ScorePill attempt={a} />
+                    <button className="btn sm" onClick={(event) => { event.stopPropagation(); api.go({name:"results",attemptId:a.id,back:{name:"progress"}}); }}>View result</button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </section>
 

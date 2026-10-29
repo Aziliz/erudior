@@ -1,3 +1,4 @@
+import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
@@ -419,7 +420,7 @@ export async function confirmAction(message: string, title = "Erudior"): Promise
 }
 
 export async function dataLocation(): Promise<string> {
-  return inApp ? invoke<string>("data_location") : "this browser's storage (web version; not synced with the desktop app)";
+  return inApp ? invoke<string>("data_location") : TEMPORARY_GUEST ? "this temporary page's memory (lost on refresh or close; saved device progress is untouched)" : "this browser's storage (web version; not synced with the desktop app)";
 }
 
 export interface AnonymousPrivacySnapshot {
