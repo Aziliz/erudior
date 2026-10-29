@@ -7676,6 +7676,7 @@ button.fn-ref {
 .public-learning-banner .row { flex-wrap: wrap; }
 
 /* Keep optional guest history legible instead of splitting every word on phones. */
+.learning-history { position: relative; min-width: 0; max-width: 100%; }
 .learning-history > .table { min-width: 640px; }
 .learning-history th, .learning-history td { overflow-wrap: normal; word-break: normal; }
 .learning-history .btn { white-space: nowrap; margin-top: 6px; }

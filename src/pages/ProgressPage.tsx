@@ -351,7 +351,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
                 <th>Mode</th>
                 <th className="r">Score</th>
                 <th className="r">Time</th>
-                <th><span className="sr-only">Actions</span></th>
+                <th>Result</th>
               </tr>
             </thead>
             <tbody>

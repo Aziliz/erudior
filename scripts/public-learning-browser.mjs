@@ -63,7 +63,26 @@ try {
       assert(bounds && bounds.y >= -1 && bounds.y < 900 && bounds.width > 0, name + ': intended state is in the captured viewport');
     }
     await page.evaluate(() => document.fonts.ready);
-    assert(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth <= 1), name + ': body overflow');
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    if (overflow > 1) {
+      const layout = await page.evaluate(() => {
+        const describe = element => {
+          const r = element.getBoundingClientRect(), style = getComputedStyle(element);
+          return { tag: element.tagName, id: element.id, class: typeof element.className === 'string' ? element.className : '', role: element.getAttribute('role'), label: element.getAttribute('aria-label'), x: r.x, y: r.y, width: r.width, right: r.right, height: r.height, clientWidth: element.clientWidth, scrollWidth: element.scrollWidth, scrollLeft: element.scrollLeft, position: style.position, overflowX: style.overflowX, overflowY: style.overflowY, minWidth: style.minWidth, maxWidth: style.maxWidth, display: style.display, whiteSpace: style.whiteSpace, overflowWrap: style.overflowWrap };
+        };
+        const outside = [...document.querySelectorAll('*')].filter(element => {
+          const r = element.getBoundingClientRect();
+          return r.width > 0 && (r.right > innerWidth + 1 || r.left < -1);
+        }).map(element => {
+          const ancestors = []; let parent = element.parentElement;
+          while (parent && ancestors.length < 8) { ancestors.push(describe(parent)); parent = parent.parentElement; }
+          return { element: describe(element), text: element.textContent?.trim().slice(0, 120), ancestors };
+        }).sort((a, b) => b.element.right - a.element.right).slice(0, 60);
+        return { viewport: { width: innerWidth, height: innerHeight }, document: describe(document.documentElement), body: describe(document.body), regions: [...document.querySelectorAll('.shell,.main,.page,.learning-history')].map(describe), outside };
+      });
+      await writeFile(path.join(out, name + '-layout-overflow.json'), JSON.stringify(layout, null, 2));
+    }
+    assert(overflow <= 1, name + ': body overflow');
     await page.addScriptTag({ content: axe });
     const result = await page.evaluate(() => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) })), [], name + ': accessibility');
