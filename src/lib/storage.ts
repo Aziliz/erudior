@@ -1,3 +1,4 @@
+import { parseInterventionTasks } from "./interventionTasks";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 // Storage layer. Inside the desktop app everything goes through Rust commands
@@ -142,6 +143,7 @@ function parseProgress(text: string | null): Progress {
   let p: Progress;
   try { p = JSON.parse(text) as Progress; } catch { return emptyProgress(); }
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
+  if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   return { ...emptyProgress(), ...p };
 }
 function profileName(id: string | null): string {
@@ -159,6 +161,7 @@ export async function updateProfileProgress(id: string | null, change: (current:
     if (old !== null) JSON.parse(old);
     const next = await change(parseProgress(old));
     if (next.competencies !== undefined) parseCompetencyLedger(next.competencies);
+    if (next.interventionTasks !== undefined) parseInterventionTasks(next.interventionTasks);
     return JSON.stringify(next);
   });
   return parseProgress(text);
@@ -182,11 +185,13 @@ export async function syncCompetencyState(id: string | null, graph: Competency[]
   });
 }
 /** Other learner writes must not erase newer durable evidence or adult decisions. */
-export async function saveProgress(p: Progress, options: { replaceCompetencies?: boolean } = {}): Promise<void> {
+export async function saveProgress(p: Progress, options: { replaceCompetencies?: boolean; replaceInterventionTasks?: boolean } = {}): Promise<void> {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
+  if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   const selected = student;
   await updateProfileProgress(selected, current => ({ ...p,
     ...(!options.replaceCompetencies && current.competencies !== undefined ? {competencies:current.competencies} : {}),
+    ...(!options.replaceInterventionTasks && current.interventionTasks !== undefined ? {interventionTasks:current.interventionTasks} : {}),
   }));
 }
 
@@ -274,6 +279,7 @@ export interface Backup {
 /** Save everything (courses, banks, progress) to one file the user picks. */
 export async function exportBackup(courses: Course[], banks: Bank[], progress: Progress): Promise<boolean> {
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
+  if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
   const backup: Backup = {
     format: "erudior-backup",
     version: 1,
@@ -303,6 +309,7 @@ export async function restoreBackup(
   const b = raw as Backup;
   if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
   if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
+  if (b.progress.interventionTasks !== undefined) parseInterventionTasks(b.progress.interventionTasks);
   const currentProgress = await loadProfileProgress(targetStudent);
   const importedCompetencies = importCompetencyHistory(b.progress.competencies,currentProgress.competencies);
   // Historical evidence must remain independently verifiable, including legacy

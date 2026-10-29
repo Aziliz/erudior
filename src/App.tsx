@@ -1,3 +1,8 @@
+import { createInterventionStore } from "./lib/interventionStore";
+import { createInterventionTaskAccess } from "./lib/interventionTaskAccess";
+import { taskFromPlan, parseInterventionTask, sameInterventionTask, type InterventionTask } from "./lib/interventionTasks";
+import { validateInterventionActivities, interventionStatus, type InterventionActivity } from "./lib/interventions";
+import { startPractice } from "./lib/session";
 import { validateCourseIntegrity } from "./lib/courseIntegrity";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
@@ -120,6 +125,11 @@ export interface AppApi {
   courses: Course[];
   progress: Progress;
   competencySupervisor?: CompetencySupervisorAccess;
+  interventionSupervisor?: ReturnType<typeof createInterventionStore>;
+  loadInterventionTasks?: () => Promise<InterventionTask[]>;
+  launchInterventionTask?: (task:InterventionTask, activity:InterventionActivity) => Promise<void>;
+  importInterventionTask?: () => Promise<boolean>;
+  exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
   presentationLibrary?: ReturnType<typeof createPresentationStore>;
   validatePresentation?: (deck: PresentationDeck) => Promise<string[]>;
   competencySync?: { pending: boolean; error: string };
@@ -653,6 +663,48 @@ export default function App() {
     },
   };
 
+  const interventionSupervisor = createInterventionStore({
+    read: () => store.loadState("interventions"),
+    update: change => store.updateState("interventions", change),
+    readProgress: store.loadProfileProgress,
+    readCourses: async () => (await store.listCourses()).courses,
+    now: () => new Date().toISOString(),
+    authorize: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review interventions.");
+      const current = await loadFamily();
+      if (!current || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access or learner membership changed. Reopen diagnostics.");
+      return {actorId:"local-supervising-adult",actorName:current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"),authorityKey:JSON.stringify(current.parent.password)};
+    },
+  });
+  const interventionTasks = createInterventionTaskAccess({
+    context: async () => {
+      const profileId = store.activeStudent(), current = await loadFamily();
+      if (store.activeStudent() !== profileId || (!current && profileId !== null) || (current && (!profileId || !current.students.some(s => s.id === profileId)))) throw Error("Select a current learner profile before opening support tasks.");
+      return {profileId,scope:JSON.stringify(current ? {mode:current.mode,student:current.students.find(s=>s.id===profileId),classes:current.classes,password:current.parent.password} : null)};
+    },
+    readInterventions: () => store.loadState("interventions"),
+    readProgress: store.loadProfileProgress,
+    updateProgress: store.updateProfileProgress,
+    readCourses: async () => (await store.listCourses()).courses,
+    allowed: async (courseId, context, p, installed) => {
+      const current = await loadFamily();
+      if (current && context.profileId) {
+        const learner = current.students.find(s => s.id === context.profileId);
+        if (!learner) return "This learner profile no longer exists.";
+        if (!p.enrolled?.includes(courseId)) return "Open this assigned course from the library before starting its support activity.";
+        if (isClassroom(current)) {
+          if (!classesOf(current, learner.id).some(c => c.freeChoice || c.assignments.some(a => a.courseId === courseId))) return "This course is not assigned in your class.";
+        } else {
+          const finished = (id:string) => courseFinished(id,p,installed.find(c=>c.id===id)).done;
+          if (!currentAssignments(learner,finished).has(courseId) && !finished(courseId) && !learner.freeChoice) return "This course is not currently assigned. Ask the supervising adult.";
+        }
+      }
+      const entry = CATALOG.find(c => c.id === courseId);
+      if (entry && prerequisites(entry,p).some(r => !r.done)) return "Course prerequisites are not yet satisfied. Ask the supervising adult to review them.";
+      return null;
+    },
+  });
+
   const presentationLibrary = createPresentationStore({
     read: () => store.loadState("presentations"),
     update: change => store.updateState("presentations", change),
@@ -672,6 +724,55 @@ export default function App() {
     competencySync,
     retryCompetencySync: () => setCompetencyRetry(n => n + 1),
     competencySupervisor,
+    interventionSupervisor,
+    loadInterventionTasks: () => interventionTasks.load(),
+    importInterventionTask: async () => {
+      const context = await interventionTasks.context();
+      const raw = await store.pickJsonFile(); if (raw === null) return false;
+      const task = parseInterventionTask(raw);
+      const current = await loadFamily();
+      const name = current?.students.find(s=>s.id===context.profileId)?.name ?? "this local learner";
+      if (!await store.confirmAction(`Import support instructions for ${name}? Goal: ${task.goal}. This file does not authenticate its sender or confer grades. Confirm it was intended for this learner.`, "Import learner support task")) return false;
+      await interventionTasks.install(task,context);
+      if (store.activeStudent() === context.profileId) {
+        const fresh = await store.loadProfileProgress(context.profileId);
+        if (store.activeStudent() === context.profileId) {const next={...progressRef.current,interventionTasks:fresh.interventionTasks};progressRef.current=next;setProgressState(next);}
+      }
+      return true;
+    },
+    exportInterventionTask: async (id,planId) => {
+      const state = await interventionSupervisor.load(id), plan = state.plans.find(p=>p.id===planId);
+      if (!plan || interventionStatus(state,planId) !== "active") throw Error("Only an active plan can be shared as a learner task.");
+      await validateInterventionActivities((await store.listCourses()).courses,plan.skillId,plan.activities);
+      const refreshed = await interventionSupervisor.load(id);
+      const currentPlan=refreshed.plans.find(p=>p.id===planId);
+      if (!currentPlan || interventionStatus(refreshed,planId) !== "active" || !sameInterventionTask(taskFromPlan(currentPlan),taskFromPlan(plan))) throw Error("The plan changed while preparing its handoff. Reload it.");
+      await store.exportText(JSON.stringify(taskFromPlan(currentPlan)),"erudior-support-task.json","Learner support task");
+    },
+    launchInterventionTask: async (task,activity) => {
+      const context = await interventionTasks.context();
+      if (activity.kind === "practice" && resumable && !await store.confirmAction("Starting this assigned practice replaces the unfinished session. Continue?", "Start assigned practice")) return;
+      const ready = await interventionTasks.prepare(task,activity);
+      if (ready.context.profileId !== context.profileId || ready.context.scope !== context.scope) throw Error("Learner changed while confirming the activity. Reopen it.");
+      let target: View;
+      if (activity.kind === "lesson") target={name:"lesson",courseId:activity.courseId,lessonId:activity.lessonId!};
+      else {
+        const source=ready.courses.find(c=>c.id===activity.courseId)?.banks.find(b=>b.id===activity.bankId);
+        if (!source) throw Error("The assigned practice bank is unavailable.");
+        const ids=new Set(activity.questionIds), bank={...source,questions:source.questions.filter(q=>ids.has(q.id))};
+        target={name:"run",session:{...startPractice(bank,ready.progress,{count:Math.min(10,bank.questions.length),topics:[],sections:[],filter:"all",shuffleChoices:true}),intervention:{skillId:task.skillId,baseline:ready.mastery}}};
+      }
+      if (!requestNavigation("app",target)) return;
+      if (activity.kind === "practice" && resumable) {
+        await store.saveState(context.profileId ? `session-${context.profileId}` : "session",null);
+        const current=await interventionTasks.context();
+        if (current.profileId!==context.profileId||current.scope!==context.scope) throw Error("Learner changed. The activity was not opened.");
+        // Revalidate after asynchronous session cleanup before exposing question content.
+        await interventionTasks.prepare(task,activity);
+        setResumable(null);
+      }
+      if (requestNavigation("app",target)) {adultAccess.current={unlocked:false,parentView:false};setView(target);}
+    },
     presentationLibrary,
     validatePresentation: async deck => {
       if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before delivery.");

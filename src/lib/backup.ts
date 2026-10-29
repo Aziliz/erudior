@@ -1,3 +1,5 @@
+import { parseInterventionTasks } from './interventionTasks';
+import { parseInterventionState, type InterventionState } from './interventions';
 import { parsePresentationLibrary, type PresentationLibrary } from "./presentations";
 import { parseCompetencyLedger } from "./competencyState";
 import { assertCourseImportPreservesFields } from "./courseImport";
@@ -43,6 +45,8 @@ interface Contents {
   classroomSubmissions?: ReturnType<typeof validateClassroomSubmissionState>;
   /** Adult-authored reusable teaching resources; never learner responses. */
   presentations?: PresentationLibrary;
+  /** Private adult-authored educational plans, observations and reviews. */
+  interventions?: InterventionState;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -98,10 +102,16 @@ export async function decryptText(raw: unknown, passphrase: string): Promise<str
 
 /** Historical evidence is optional for legacy progress, but never silently repaired. */
 function validateProgressEvidence(progress: Progress): Progress {
+  if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, progress.assessedWorkSubmissions);
   if (progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, progress.spreadsheetSubmissions);
   return progress;
+}
+
+function validateInterventionFamily(state: InterventionState, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.plans.some(plan => !students.has(plan.studentId))) throw Error("Intervention history refers to a learner outside this family.");
 }
 
 /** Gather everything stored on this computer. */
@@ -109,6 +119,9 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const family = await loadFamily();
   const classroomText = await store.loadState("classroom-submissions");
   const classroomSubmissions = classroomText === null ? undefined : validateClassroomSubmissionState(classroomText);
+  const interventionText = await store.loadState("interventions");
+  const interventions = interventionText === null ? undefined : parseInterventionState(interventionText);
+  if (interventions) validateInterventionFamily(interventions, family);
   const presentationText = await store.loadState("presentations");
   const presentations = presentationText === null ? undefined : parsePresentationLibrary(presentationText);
   const students: Contents["students"] = {};
@@ -129,6 +142,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     students,
     ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
     ...(presentations === undefined ? {} : { presentations }),
+    ...(interventions === undefined ? {} : { interventions }),
     progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -170,6 +184,10 @@ export async function restoreContents(
     : JSON.stringify(validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions)));
   if (b.presentations === null) throw Error("Invalid presentation library in backup.");
   const presentations = b.presentations === undefined ? null : JSON.stringify(parsePresentationLibrary(b.presentations));
+  if (b.interventions === null) throw Error("Invalid intervention history in backup.");
+  const interventionState = b.interventions === undefined ? undefined : parseInterventionState(b.interventions);
+  if (interventionState) validateInterventionFamily(interventionState, b.family);
+  const interventions = interventionState === undefined ? null : JSON.stringify(interventionState);
   validateProgressEvidence(b.progress);
   for (const student of Object.values(b.students)) validateProgressEvidence(student.progress);
   const courses = b.courses.map((c) => {
@@ -195,10 +213,11 @@ export async function restoreContents(
   }
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
-  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
+  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true }, { replaceInterventionTasks: true });
   if (b.family) await saveFamily(b.family);
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);
+  await store.saveState("interventions", interventions);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

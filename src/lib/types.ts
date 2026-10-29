@@ -220,6 +220,8 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Learner-imported support instructions only; never adult authority or assessment evidence. */
+  interventionTasks?: import("./interventionTasks").InterventionTask[];
   /** Profile-local durable skill evidence and explicit supervising-adult placement history. */
   competencies?: import("./competencyState").CompetencyLedger;
   version: 1;
