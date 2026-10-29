@@ -124,3 +124,10 @@ test("Installer preflight resolves intent using FileProvider content URI and APK
   assert.match(script, /application\/vnd\.android\.package-archive/);
   assert.match(script, /installer-resolution\.txt/);
 });
+
+test("Android update UI requires installer approval instead of promising restart", () => {
+  const app = readFileSync("src/App.tsx", "utf8");
+  assert.match(app, /Preparing verified Android update/);
+  assert.match(app, /Approve installation in Android/);
+  assert.match(app, /Android installer opened/);
+});
