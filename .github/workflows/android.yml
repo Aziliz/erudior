@@ -76,6 +76,24 @@ jobs:
           echo "$badging" | grep -E "^native-code: 'arm64-v8a'"
           echo "Validated APK: $apk"
           sha256sum "$apk"
+      - name: Diagnose Android package size and install requirements
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          echo "## Android APK package analysis" >> "$GITHUB_STEP_SUMMARY"
+          echo "- APK bytes: $(stat -c%s "$apk")" >> "$GITHUB_STEP_SUMMARY"
+          echo "- APK MiB: $(du -m "$apk" | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+          echo '### Android package metadata' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" | grep -E '^(package:|sdkVersion:|targetSdkVersion:|native-code:)' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Largest packaged entries' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          unzip -l "$apk" | sort -nr | head -25 >> "$GITHUB_STEP_SUMMARY" || true
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          echo "APK analysis complete; this does not establish device installation success."
       - name: Upload installable debug-testing artifact
         uses: actions/upload-artifact@v4
         with:
