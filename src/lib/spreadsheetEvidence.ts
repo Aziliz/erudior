@@ -1,12 +1,15 @@
 import type { SpreadsheetAssignment } from "./spreadsheetAssignments";
-import { gradeAssignmentV1 as gradeAssignment, validateAssignmentV1 as validateAssignment, validateWorkbookV1 as validateWorkbook } from "./spreadsheetGradingV1";
-import { isWorkbookRecord } from "./workbookTemplates";
+import { gradeAssignmentV1, validateAssignmentV1, validateWorkbookV1 } from "./spreadsheetGradingV1";
+import { gradeAssignment, validateAssignment, workbookMetadataSnapshot, canonicalAssignmentAddress } from "./spreadsheetAssignments";
+import { validateWorkbookMacroTrace, type WorkbookMacroTrace } from "./spreadsheetMacros";
+import { isWorkbookRecord, validateWorkbook } from "./workbookTemplates";
 import type { Workbook } from "./spreadsheet";
 
 /** Learner evidence, not an instructor attestation or an authorization token. */
 export interface SpreadsheetSubmission {
   version: 1;
-  gradingVersion: 1;
+  gradingVersion: 1 | 2;
+  macroRuns?: WorkbookMacroTrace[];
   id: string;
   submittedAt: number;
   courseId: string;
@@ -47,28 +50,34 @@ function frozenClone<T>(value: T): T {
   return clone;
 }
 
-// The version gate dispatches only to the frozen V1 evaluator and validators.
-// Future versions must dispatch separately, never replace historical semantics.
+// V1 history always dispatches to its frozen evaluator. V2 requires an explicit v2 source.
 export function validateSpreadsheetSubmission(value: unknown): string[] {
   try {
     if (!isWorkbookRecord(value)) return ["Submission must be an object"];
     if (value.version !== 1) return ["Unsupported or missing submission schema version"];
-    if (value.gradingVersion !== 1) return ["Unsupported or missing submission grading version"];
+    if (value.gradingVersion !== 1 && value.gradingVersion !== 2) return ["Unsupported or missing submission grading version"];
+    const v2 = value.gradingVersion === 2;
+    if (v2 !== (isWorkbookRecord(value.assignment) && isWorkbookRecord(value.assignment.starter) && value.assignment.starter.engineVersion === 2)) return ["Grading version does not match workbook engine version"];
+    if (!v2 && (value.macroRuns !== undefined || isWorkbookRecord(value.workbook) && value.workbook.engineVersion !== undefined)) return ["Legacy grading version cannot carry v2 simulation evidence"];
+    const checkAssignment = v2 ? validateAssignment : validateAssignmentV1;
+    const checkWorkbook = v2 ? validateWorkbook : validateWorkbookV1;
+    const grade = v2 ? gradeAssignment : gradeAssignmentV1;
     if (bytes(stableJSON(value)) > SPREADSHEET_EVIDENCE_LIMITS.submissionBytes) return ["Submission exceeds byte limit"];
     const errors: string[] = [];
     for (const field of ["id", "courseId", "lessonId", "assignmentId"])
       if (!validId(value[field])) errors.push(`Invalid submission ${field}`);
     if (!Number.isSafeInteger(value.submittedAt) || (value.submittedAt as number) < 0) errors.push("Invalid submission time");
-    const assignmentErrors = validateAssignment(value.assignment);
+    const assignmentErrors = checkAssignment(value.assignment);
     errors.push(...assignmentErrors);
     if (isWorkbookRecord(value.assignment)) {
       if (value.assignment.id !== value.assignmentId) errors.push("Assignment ID does not match snapshot");
       if (value.assignment.lessonId !== undefined && value.assignment.lessonId !== value.lessonId) errors.push("Lesson ID does not match snapshot");
     }
-    const workbookValid = validateWorkbook(value.workbook);
+    const workbookValid = checkWorkbook(value.workbook);
     if (!workbookValid) errors.push("Invalid submitted workbook");
-    if (!assignmentErrors.length && workbookValid && stableJSON(value.grade) !== stableJSON(gradeAssignment(value.assignment as unknown as SpreadsheetAssignment, value.workbook as unknown as Workbook)))
+    if (!assignmentErrors.length && workbookValid && stableJSON(value.grade) !== stableJSON(grade(value.assignment as unknown as SpreadsheetAssignment, value.workbook as unknown as Workbook)))
       errors.push("Grade does not match submitted evidence");
+    if (v2 && !assignmentErrors.length) errors.push(...validateSpreadsheetMacroRuns(value.assignment as unknown as SpreadsheetAssignment, value.macroRuns));
     return errors;
   } catch { return ["Submission must be bounded, finite, acyclic JSON evidence"]; }
 }
@@ -79,10 +88,32 @@ export function createSpreadsheetSubmission(input: Omit<SpreadsheetSubmission, "
   const assignmentErrors = validateAssignment(input.assignment);
   if (assignmentErrors.length) throw Error(assignmentErrors.join("; "));
   if (!validateWorkbook(input.workbook)) throw Error("Invalid submitted workbook");
-  const result: SpreadsheetSubmission = { ...input, version: 1, gradingVersion: 1, assignmentId: input.assignment.id, grade: gradeAssignment(input.assignment, input.workbook) };
+  const v2 = input.assignment.starter.engineVersion === 2;
+  const result: SpreadsheetSubmission = { ...input, version: 1, gradingVersion: v2 ? 2 : 1, assignmentId: input.assignment.id, grade: (v2 ? gradeAssignment : gradeAssignmentV1)(input.assignment, input.workbook) };
   const errors = validateSpreadsheetSubmission(result);
   if (errors.length) throw Error(errors.join("; "));
   return frozenClone(result);
+}
+
+/** Replayable local simulation records, not authenticated proof of who clicked Run. */
+export function validateSpreadsheetMacroRuns(assignment: SpreadsheetAssignment, value: unknown): string[] {
+  if (value === undefined) return [];
+  if (assignment.starter.engineVersion !== 2 || !Array.isArray(value) || value.length > 5) return ["Invalid simulation trace history (maximum five runs)"];
+  const errors: string[] = [];
+  for (const trace of value) {
+    errors.push(...validateWorkbookMacroTrace(trace, assignment.protectedCells));
+    if (!isWorkbookRecord(trace) || !validateWorkbook(trace.before) || !validateWorkbook(trace.after)) continue;
+    for (const book of [trace.before, trace.after]) {
+      if (workbookMetadataSnapshot(book) !== workbookMetadataSnapshot(assignment.starter)) errors.push("Simulation trace changed instructor metadata");
+      for (const authoredAddress of assignment.protectedCells) {
+        const address = canonicalAssignmentAddress(assignment.starter, authoredAddress);
+        if (!address) { errors.push("Invalid protected trace address"); continue; }
+        const cut = address.lastIndexOf("!"), sheet = address.slice(0, cut), cell = address.slice(cut + 1);
+        if (book.sheets[sheet]?.[cell] !== assignment.starter.sheets[sheet]?.[cell]) errors.push("Simulation trace changed protected cell");
+      }
+    }
+  }
+  return errors;
 }
 
 function checkedMap(value: unknown): SpreadsheetSubmissionMap {
