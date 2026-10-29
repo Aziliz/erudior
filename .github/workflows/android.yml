@@ -87,8 +87,19 @@ jobs:
           mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
           test "${#apks[@]}" -eq 1
           cp "${apks[0]}" Erudior-Android-arm64.apk
+          sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
           if gh release view android-preview >/dev/null 2>&1; then
-            gh release upload android-preview Erudior-Android-arm64.apk --clobber
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --clobber
           else
-            gh release create android-preview Erudior-Android-arm64.apk --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
           fi
+      - name: Verify public release download
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
+          curl --fail --location --retry 5 --retry-delay 3 --output published.apk "$url"
+          test -s published.apk
+          sha256sum --check <(sed 's/Erudior-Android-arm64.apk/published.apk/' Erudior-Android-arm64.apk.sha256)
+          echo "Public download verified: $url" >> "$GITHUB_STEP_SUMMARY"
