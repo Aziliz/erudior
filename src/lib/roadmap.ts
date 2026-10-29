@@ -478,7 +478,6 @@ export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
 };
 
 export const ENGINE_PLANNED = [
-  "Learning game mechanics and live quiz modes",
   "Teacher-paced and student-paced interactive presentations",
   "Learning diagnostics and targeted intervention",
   "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)",
@@ -499,6 +498,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Learning game mechanics and live quiz modes", detail: "Installed-content review boards, bingo, memory and matching; classroom timer, random picker, balanced teams, local polls, text whiteboard, exit tickets and presenter view; individual, team and cooperative live quizzes with private learner results and authoritative scoring. Full regression, browser/accessibility, live protocol, integrity and separate web/API/signed-course delivery passed in PR #77. Games do not award academic credit. Desktop installers remain deferred.", status: "done" },
   { title: "Cross-course competency graph", detail: "Complete stable skill/prerequisite pathways with exact linked assessment evidence, durable private per-learner history, revision-safe reassessment, retained prerequisites, adult placement/override/revoke history, learner and supervising-adult views, and exact-question adaptive practice. Full regression, native persistence, integrity and separate web/API/course delivery passed in PR #76. Manual placement is not assessed mastery or certification. Installers are deferred to the later consolidated release.", status: "done" },
   { title: "Shared canonical course and content model", detail: "Complete versioned model for reader/audio resources, advanced interactive content and metadata, with lossless authoring, review, publishing/install, learner persistence, revisions and encrypted recovery. Integrated tests and web/API delivery passed through PRs #73–75. Desktop installers are explicitly deferred to a later consolidated release; this does not claim desktop distribution.", status: "done" },
   { title: "Production course publishing deployment repair", detail: "Restored three stale German artifacts to exact signed-catalog bytes with verified backups. All 20 published packages authenticate; normal publication, website deployment and full regression suites passed after PRs #55–58. Bounded transfers retain exact-byte verification and fail-closed authoritative-origin recovery. Release integrity checks remain mandatory.", status: "done" },

@@ -1,6 +1,14 @@
 # Erudior Master Roadmap — 2026-10-27
 
-## Active whole-capability checkpoint — 2026-10-28
+## Active whole-capability checkpoint — 2026-10-29
+
+**Learning game mechanics and live quiz modes — Done.** PR #77 (`1c525ae6fb294c688dd1e7cc540ffc1d4879d459`) completes the original single capability with installed-content review boards, bingo, memory and matching; local timer, nickname picker, balanced teams, teacher-tallied polls, text whiteboard, exit tickets and presenter view; plus individual, team and cooperative live quiz modes.
+
+- Source eligibility/exclusions, reset/replay, keyboard use, 320/1280 light/dark layouts, overflow and axe checks passed in real Chromium. Server-authoritative phase/scoring, anonymous learner aggregates, reconnect/close recovery and stale/repeated controls passed isolated API/live integration. Games do not confer academic credit or persist classroom notes.
+- All six applicable post-merge lanes passed: full regression/build `40812211502`, browser/live `40812211375`, integrity `40812211455`, website `40812211543`, community API `40812211436`, and signed-course publication with authoritative catalog/signature readback `40812211612`.
+- Native persistence code and its workflow-trigger paths were unchanged; that lane did not rerun for this feature. Desktop packaging remains deferred. Existing Android preview work is preserved; this feature does not claim a new installer/version/tag. No new courses or split roadmap rows.
+
+## Previous whole-capability checkpoint — 2026-10-28
 
 **Cross-course competency graph — Done.** PR #76 (`dac59988ca0ff30457204344bd0890dd7d315e32`) completes the original capability without adding course content or splitting it into artificial rows.
 
@@ -23,9 +31,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 11 Done, 3 In Progress, 12 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 12 Done, 3 In Progress, 11 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Next unfinished entry in existing Lesson Engine order: Learning game mechanics and live quiz modes — Planned.** The cross-course graph is complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
+**Next unfinished entry in existing Lesson Engine order: Teacher-paced and student-paced interactive presentations — Planned.** Learning games and live quiz modes are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 
