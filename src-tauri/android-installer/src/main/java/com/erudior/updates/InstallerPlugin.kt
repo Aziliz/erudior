@@ -88,6 +88,15 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
                 if (conn.responseCode != 200 || received != args.bytes) throw IllegalStateException("APK download incomplete")
                 val actual = hash.digest().joinToString("") { "%02x".format(it) }
                 if (!actual.equals(args.expectedSha256, ignoreCase = true)) throw IllegalStateException("APK checksum mismatch")
+                // GitHub may redirect to its CDN, but never allow a downgrade to HTTP.
+                if (conn.url.protocol != "https") throw IllegalStateException("APK redirect is not HTTPS")
+                temporary.inputStream().use { stream ->
+                    val magic = ByteArray(4)
+                    if (stream.read(magic) != 4 || !magic.contentEquals(byteArrayOf(0x50, 0x4b, 0x03, 0x04))) {
+                        throw IllegalStateException("Downloaded APK is not a ZIP archive")
+                    }
+                }
+                if (target.exists() && !target.delete()) throw IllegalStateException("Cannot replace previous staged APK")
                 if (!temporary.renameTo(target)) throw IllegalStateException("Cannot stage verified APK")
                 val result = JSObject()
                 result.put("sha256", actual)
