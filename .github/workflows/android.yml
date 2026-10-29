@@ -61,6 +61,8 @@ jobs:
         run: node --test tests/android-remote-courses.test.mjs
       - name: Initialize Android project
         run: npm run tauri android init -- --ci
+      - name: Integrate Android native installer
+        run: python3 scripts/android-integrate-installer.py
       - name: Build ARM64 APK
         run: npm run tauri android build -- --apk --debug --ci --target aarch64
       - name: Validate generated APK
