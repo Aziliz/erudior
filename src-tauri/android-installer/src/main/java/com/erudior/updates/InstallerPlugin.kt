@@ -170,6 +170,15 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
         val installedSignatures = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
             installed.signingInfo?.apkContentsSigners?.map { it.toCharsString() }?.toSet()
             else installed.signatures?.map { it.toCharsString() }?.toSet()
+        // Android rejects versionCode downgrades; fail before prompting the user.
+        val incomingCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            archive.longVersionCode else @Suppress("DEPRECATION") archive.versionCode.toLong()
+        val currentCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            installed.longVersionCode else @Suppress("DEPRECATION") installed.versionCode.toLong()
+        if (incomingCode < currentCode) {
+            invoke.reject("Update APK is older than the installed version")
+            return
+        }
         if (archiveSignatures.isNullOrEmpty() || archiveSignatures != installedSignatures) {
             invoke.reject("Update APK signing certificate does not match installed Erudior")
             return
