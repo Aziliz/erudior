@@ -478,7 +478,6 @@ export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
 };
 
 export const ENGINE_PLANNED = [
-  "Teacher-paced and student-paced interactive presentations",
   "Learning diagnostics and targeted intervention",
   "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)",
   "Interactive document and case file engine",
@@ -498,6 +497,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Teacher-paced and student-paced interactive presentations", detail: "Reusable installed-source decks with authoring, save/reopen, reorder, import/export and encrypted backup; teacher-led and independent student-paced local/remote delivery; opt-in video questions with accessible transcripts and timestamp pauses. Exact source/revision checks, private learner responses, reconnect/close recovery and draft conflicts are covered. Full regression, native, browser/accessibility, live API, integrity and separate web/API/signed-course delivery passed in PR #81. No academic credit or new course content; desktop installers remain deferred.", status: "done" },
   { title: "Learning game mechanics and live quiz modes", detail: "Installed-content review boards, bingo, memory and matching; classroom timer, random picker, balanced teams, local polls, text whiteboard, exit tickets and presenter view; individual, team and cooperative live quizzes with private learner results and authoritative scoring. Full regression, browser/accessibility, live protocol, integrity and separate web/API/signed-course delivery passed in PR #77. Games do not award academic credit. Desktop installers remain deferred.", status: "done" },
   { title: "Cross-course competency graph", detail: "Complete stable skill/prerequisite pathways with exact linked assessment evidence, durable private per-learner history, revision-safe reassessment, retained prerequisites, adult placement/override/revoke history, learner and supervising-adult views, and exact-question adaptive practice. Full regression, native persistence, integrity and separate web/API/course delivery passed in PR #76. Manual placement is not assessed mastery or certification. Installers are deferred to the later consolidated release.", status: "done" },
   { title: "Shared canonical course and content model", detail: "Complete versioned model for reader/audio resources, advanced interactive content and metadata, with lossless authoring, review, publishing/install, learner persistence, revisions and encrypted recovery. Integrated tests and web/API delivery passed through PRs #73–75. Desktop installers are explicitly deferred to a later consolidated release; this does not claim desktop distribution.", status: "done" },

@@ -2,6 +2,15 @@
 
 ## Active whole-capability checkpoint — 2026-10-29
 
+**Teacher-paced and student-paced interactive presentations — Done.** PR #81 (`fde87085f2a15e06101dc2fa5b32e1cd3a2e6df1`) completes the original single presentation capability, not unrelated worksheet/lab/project generators.
+
+- Reusable decks support source-checked authoring, reorder, save/reopen, duplicate, real export/import roundtrip, encrypted backup and conflict-safe adult persistence. Exact installed source content/revision and current adult authority are rechecked before delivery, including recovered rooms and concurrent course changes.
+- Local and multi-device teacher-paced/student-paced delivery includes question/reveal controls, opt-in direct HTTPS video with transcript alternatives and timestamp pauses, private learner payloads, server-held unrevealed answers, reconnect/replaced-socket recovery and acknowledged closure. No academic evidence or course content was added.
+- Exact-head full regression/build, real Chromium 320/1280 light/dark/keyboard/axe workflows, isolated API/live integration, native persistence and Android package/emulator checks passed. All seven post-merge lanes passed: regression `40817240716`, native `40817240641`, browser/live `40817240659`, integrity `40817240673`, website `40817240652`, API `40817240639`, signed courses/readback `40817240646`. Origin catalog/signature bytes match signed artifacts; existing immutable packages verified.
+- Desktop installers remain deferred; no new version/tag or desktop release was created. Independent Android work remains preserved. Full acceptance/use notes are in `docs/INTERACTIVE_PRESENTATIONS.md`.
+
+## Previous whole-capability checkpoint — 2026-10-29
+
 **Learning game mechanics and live quiz modes — Done.** PR #77 (`1c525ae6fb294c688dd1e7cc540ffc1d4879d459`) completes the original single capability with installed-content review boards, bingo, memory and matching; local timer, nickname picker, balanced teams, teacher-tallied polls, text whiteboard, exit tickets and presenter view; plus individual, team and cooperative live quiz modes.
 
 - Source eligibility/exclusions, reset/replay, keyboard use, 320/1280 light/dark layouts, overflow and axe checks passed in real Chromium. Server-authoritative phase/scoring, anonymous learner aggregates, reconnect/close recovery and stale/repeated controls passed isolated API/live integration. Games do not confer academic credit or persist classroom notes.
@@ -31,9 +40,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 12 Done, 3 In Progress, 11 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 13 Done, 3 In Progress, 10 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Next unfinished entry in existing Lesson Engine order: Teacher-paced and student-paced interactive presentations — Planned.** Learning games and live quiz modes are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
+**Next unfinished entry in existing Lesson Engine order: Learning diagnostics and targeted intervention — In Progress.** Interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 
