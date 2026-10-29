@@ -17,4 +17,10 @@ if grep -F 'No activity found' android-test-evidence/installer-resolution.txt; t
   echo "::error::No Android APK installer activity"
   exit 1
 fi
-echo "Installed app declares install permission; Android has an APK installer handler."
+# Android's installed PackageManager state must contain our non-exported provider.
+adb shell dumpsys package "$package" > android-test-evidence/installed-package.txt
+grep -F 'com.erudior.app.erudior-updates' android-test-evidence/installed-package.txt >/dev/null || {
+  echo "::error::Installer FileProvider authority absent from installed app"; exit 1;
+}
+echo "APK install handler and Erudior FileProvider authority are registered."
+
