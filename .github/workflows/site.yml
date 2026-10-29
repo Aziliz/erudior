@@ -9,6 +9,10 @@ on:
       - ".github/workflows/site.yml"
       - "scripts/prerender.mjs"
       - "scripts/prerender-browser.mjs"
+      - "scripts/startup-splash-browser.mjs"
+      - "src/lib/startupSplash.ts"
+      - "src/startupSplash.css"
+      - "src/main.tsx"
   push:
     branches: [main]
     paths:
@@ -21,6 +25,7 @@ on:
       - "package-lock.json"
       - "scripts/prerender.mjs"
       - "scripts/prerender-browser.mjs"
+      - "scripts/startup-splash-browser.mjs"
       - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
 permissions:
@@ -54,6 +59,16 @@ jobs:
         run: |
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Review splash choreography and lifecycle in browser
+        id: splash_browser
+        run: node scripts/diagnostic-command.mjs website-splash-browser -- node scripts/startup-splash-browser.mjs
+      - name: Upload splash frame review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: startup-splash-visual-evidence
+          path: artifacts/startup-splash/
+          if-no-files-found: warn
       - name: Verify served snapshots clear startup overlays
         id: snapshot_browser
         run: node scripts/diagnostic-command.mjs website-snapshot-browser -- node scripts/prerender-browser.mjs
@@ -78,7 +93,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},splash-browser:${{ steps.splash_browser.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
