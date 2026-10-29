@@ -311,6 +311,12 @@ fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: Strin
     let staged = dir.join("verified-update.apk");
     let temp = dir.join("verified-update.part");
     fs::write(&temp, content).map_err(|e| e.to_string())?;
+    // Verify the staged bytes again, not just the IPC input, before renaming.
+    let saved = fs::read(&temp).map_err(|e| e.to_string())?;
+    if let Err(error) = verify_android_update_bytes(&saved, &hash) {
+        let _ = fs::remove_file(&temp);
+        return Err(error);
+    }
     fs::rename(&temp, &staged).map_err(|e| e.to_string())?;
     Ok(hash)
 }
