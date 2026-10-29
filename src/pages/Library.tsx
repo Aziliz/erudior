@@ -1,6 +1,6 @@
 import { TEMPORARY_GUEST, learningDraftStorage } from "../lib/guestSession";
 import { assertCourseImportPreservesFields } from "../lib/courseImport";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
