@@ -50,7 +50,14 @@ jobs:
           java-version: '17'
       - name: Install Android SDK and NDK
         run: |
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
           echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
       - name: Install dependencies
@@ -190,7 +197,14 @@ jobs:
           sudo udevadm trigger --name-match=kvm
       - name: Install Android SDK/NDK
         run: |
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
           echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
       - run: npm ci
@@ -259,7 +273,14 @@ jobs:
           java-version: '17'
       - name: Install Android SDK and NDK
         run: |
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
           echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
       - run: npm ci
