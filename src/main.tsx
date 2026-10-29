@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import { IS_SITE, siteUrl } from "./lib/site";
 
@@ -15,14 +15,10 @@ import "./branching.css";
 import "./scientific.css";
 import "./advanced-assessment.css";
 import "./learningGames.css";
-import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
+import "./startupSplash.css";
+import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismissal } from "./lib/startupSplash";
 
-// The public site and the app load separately, so erudior.com doesn't download the whole app.
-// Until the code arrives, the prerendered page (if any) stays on screen.
-// Only the public site's first visit in this browser session gets the splash.
-// Set before mount so refreshes during the animation never show it again.
-// Older cached snapshots may contain a startup overlay outside React's root.
-// Remove only those stale branding nodes before creating this page's owned splash.
+// Older cached snapshots can contain an overlay outside React's root. Always remove it.
 document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;
 if (IS_SITE) {
@@ -30,38 +26,22 @@ if (IS_SITE) {
     showSplash = sessionStorage.getItem("erudior.site.splash.seen") !== "1";
     if (showSplash) sessionStorage.setItem("erudior.site.splash.seen", "1");
   } catch {
-    // Storage denied: don't replay a blocking splash on every refresh.
+    // A failed write must not leave showSplash=true and replay it on every refresh.
+    showSplash = false;
   }
 }
 const splash = showSplash ? createStartupSplash({ kind: "official" }) : null;
-if (splash) document.body.appendChild(splash);
-const splashStartedAt = performance.now();
-// Never let a failed page import or interrupted animation trap visitors behind branding.
-if (splash) window.setTimeout(() => dismissStartupSplash(splash), 3000);
+if (splash) {
+  document.body.appendChild(splash);
+  // A single 2.8 s clock owns the animation and fade, independent of React/imports.
+  scheduleStartupSplashDismissal(splash);
+}
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 (IS_SITE ? import("./Site") : import("./App")).then(({ default: Page }) =>
-  root.render(
-    <React.StrictMode>
-      <StartupView Page={Page} />
-    </React.StrictMode>,
-  ),
+  root.render(<React.StrictMode><Page /></React.StrictMode>),
 ).catch((error) => {
   if (splash) dismissStartupSplash(splash);
   console.error("Erudior page failed to load:", error);
 });
-
-function StartupView({ Page }: { Page: React.ComponentType }) {
-  useEffect(() => {
-    if (!splash) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      dismissStartupSplash(splash);
-      return;
-    }
-    const delay = Math.max(0, 2000 - (performance.now() - splashStartedAt));
-    const timeout = window.setTimeout(() => dismissStartupSplash(splash), delay);
-    return () => window.clearTimeout(timeout);
-  }, []);
-  return <Page />;
-}
 
 import "./presentations.css";
