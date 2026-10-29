@@ -36,3 +36,16 @@ test("Android installer never re-downloads an unverified APK", () => {
   assert.match(updates, /System installer handoff is not yet implemented/);
   assert.match(updates, /stage_android_update/);
 });
+
+test("Android FileProvider bridge is limited to verified private-cache APK", () => {
+  const plugin = readFileSync("src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt", "utf8");
+  const paths = readFileSync("src-tauri/android-installer/src/main/res/xml/erudior_update_paths.xml", "utf8");
+  const manifest = readFileSync("src-tauri/android-installer/src/main/AndroidManifest.xml", "utf8");
+  assert.match(plugin, /updates\/verified-update\.apk/);
+  assert.match(plugin, /FileProvider\.getUriForFile/);
+  assert.match(plugin, /FLAG_GRANT_READ_URI_PERMISSION/);
+  assert.match(plugin, /canRequestPackageInstalls/);
+  assert.match(paths, /cache-path/);
+  assert.ok(!paths.includes("external-path"));
+  assert.match(manifest, /android:exported="false"/);
+});
