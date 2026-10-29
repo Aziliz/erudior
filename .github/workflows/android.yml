@@ -2,6 +2,12 @@ name: Android APK (development)
 
 on:
   workflow_dispatch:
+    inputs:
+      publish_preview:
+        description: "Publish validated APK to public Android preview release (main branch only)"
+        type: boolean
+        required: true
+        default: false
   pull_request:
     paths:
       - '.github/workflows/android.yml'
@@ -13,7 +19,7 @@ on:
       - 'index.html'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   android-apk:
@@ -67,5 +73,20 @@ jobs:
         with:
           name: erudior-android-arm64-apk
           path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 14
+      - name: Publish public Android preview APK
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -eq 1
+          cp "${apks[0]}" Erudior-Android-arm64.apk
+          if gh release view android-preview >/dev/null 2>&1; then
+            gh release upload android-preview Erudior-Android-arm64.apk --clobber
+          else
+            gh release create android-preview Erudior-Android-arm64.apk --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
+          fi
