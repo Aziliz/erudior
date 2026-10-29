@@ -1,9 +1,13 @@
 # Erudior Master Roadmap — 2026-10-27
 
-## Public learning access — In Progress (2026-10-29)
+## Public learning access — Done (2026-10-29)
 
-Complete public-browser course discovery, preserved lesson/activity links, independent reading/practice regardless of recommended prerequisites, explicit temporary-memory sessions, and optional local progress/export. Managed assignment/prerequisite, signing and credential authority remain unchanged. This capability is under branch validation, not yet deployed; actual course content and private source repository are unchanged. See `docs/PUBLIC_LEARNING_ACCESS.md` for boundaries and acceptance evidence.
+PR #97 (`1a1a1e815675e81b3dc98ac7f5f91cc55206c469`) completes public-browser discovery, preserved course/lesson/activity links, independent reading/practice regardless of recommended prerequisites, isolated temporary-memory sessions and optional saved-device progress/export. Managed/native assignment/prerequisite, signing, licensing and credential authority remain unchanged. No actual course content or private source repository changes. See `docs/PUBLIC_LEARNING_ACCESS.md` for boundaries.
 
+- Final feature head `44e1091a` passed full regression/build, native persistence, all Android gates and complete browser/API/D1/TLS checks. All **88 explicit viewport states** were inspected individually at native resolution across 320/1280 light/dark, including optional storage/export, signed download failures, navigation interruption, keyboard History/result access and accessibility. Local browser launch was blocked by socket permissions; authoritative GitHub CI supplied browser evidence. Narrow result-table labels still wrap, and managed-only Progress panels correctly refuse anonymous users; these are nonblocking presentation limitations.
+- All seven feature postmerge lanes passed. Signed publishing `40953848738` authenticated the previous release, verified all **21 immutable artifacts** unchanged and byte-compared authoritative R2 catalog/signature readback. No course artifacts were replaced.
+- Release inspection found a masked prerender failure on unsupported Ubuntu/Playwright. PR #98 (`bb01ca4f1331dfe6a011f6f2db53fbc5c280d625`) repaired the supported runner/locked dependency path, made snapshot failures blocking, added diagnostic visibility and read-only PR prerender validation without enabling PR deployments. Required PR regression/browser checks and postmerge full integrity/regression `40955965043` passed; production job `123736028955` built, prerendered and deployed successfully. All **27 live discovery snapshots** returned HTTP 200 with nonempty rendered roots, and deployed guest mode assets match the verified build. Live verification was read-only HTTP/asset inspection, not a new live browser run.
+- Temporary sessions disappear on refresh/close and never read or overwrite saved learning data. Explicit backups are local; scratch code/workbook drafts are not promised in course-progress backups. Public practice creates no supervised credit or certificates. Production identity/credential setup and installer release remain deferred.
 
 ## Active whole-capability checkpoint — 2026-10-29
 
