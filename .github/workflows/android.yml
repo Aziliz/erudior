@@ -394,7 +394,7 @@ jobs:
           if gh release view android-preview >/dev/null 2>&1; then
             gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --clobber
           else
-            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Optimized ARM64 Android preview. Device testing remains in progress." --prerelease
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Optimized ARM64 Android preview. Device testing remains in progress." --prerelease
           fi
       - name: Check published APK bytes
         if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true && env.RELEASE_SIGNING_READY == 'true' }}
