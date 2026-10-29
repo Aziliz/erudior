@@ -2,6 +2,17 @@
 
 ## Active whole-capability checkpoint — 2026-10-29
 
+**Jurisdiction-configurable instructional-hour and assessment evidence tracking — Done.** PR #88 (`278a8ccaf0beeaaeb9ad784adc791ccc9cb37d05`) delivers the full original requirement-to-evidence workflow. PR #89 (`66e65a921475c17bc932e3688934672d92a343f5`) repairs a pre-existing probabilistic drill-generation failure exposed by the mandatory signed-course gate; no course content or validation assertions were weakened.
+
+- Adults author/import, save/reopen and independently review versioned jurisdiction outlines, effective dates, exact installed lesson/assessment source snapshots and defensible equivalent-workload rationale. Assignments retain exact reviewed requirements; no artificial browser timers or automatic credit.
+- Learners capture immutable local observations or explicitly unverified outside attestations. Legacy lesson/attempt history does not prove historical source identity; reports disclose that limitation. Complete mapped-bank coverage and configured passing thresholds are distinct from workload minutes.
+- Human approval, rejection and revocation append with stale-review compare-and-swap protection. Bounded, nonduplicating educational totals, requirement shortfalls, source/revision comparisons and portable raw-evidence/decision audits are fully integrated. Existing grades, mastery, homeschool records and signed classroom submissions remain unchanged.
+- Fresh credential/profile/source checks, private learner projections, profile deletion and encrypted recovery are validated. Restored packs and all restored credit decisions are independently quarantined; fresh pack review records a receipt but never silently reactivates imported credit.
+- Exact-head full regression, real browser/mobile/keyboard/all-WCAG, independent visual review and all three Android gates passed for the feature and repair. Native persistence passed for the instructional integration and remains unchanged by the drill-only repair. Final repaired-main regression, browser, integrity, website, API and signed-course lanes passed; authoritative R2 catalog/signature byte comparison and all 21 immutable artifacts were verified. Live app and public API readback passed.
+- This is local educational evidence, not approved regulatory hours, identity-verified enrollment, accreditation or a qualifying certificate. No current laws, official forms, new course content or institution submissions were supplied. Separate professional enrollment/credential rows remain planned. Installers/version/tag remain deferred. Usage and limitations: `docs/INSTRUCTIONAL_EVIDENCE.md`.
+
+## Previous whole-capability checkpoint — 2026-10-29
+
 **Jurisdiction-configurable regulated transaction simulations — Done.** PR #87 (`0c7e2c92f2fe27069b817756ac1729e7c25c4fca`) completes the three original capabilities consolidated in `29486a54`: contracts/counteroffers, trust-account reconciliation and full transaction case simulations.
 
 - Adults author/import, save/reopen and explicitly review versioned educational rule packs with jurisdiction/source/effective-date metadata, exact saved document snapshots, form roles and declarative rules. Assignment retains exact reviewed sources; imports and restored backups never convey operative approval without local re-review.
@@ -79,9 +90,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 17 Done, 2 In Progress, 7 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 18 Done, 1 In Progress, 7 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Next unfinished entry in existing Lesson Engine order: Jurisdiction-configurable instructional-hour and assessment evidence tracking — In Progress.** Regulated transaction simulations, the document/case engine, content interoperability, learning diagnostics and interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
+**Next unfinished entry in existing Lesson Engine order: Spreadsheet simulator — In Progress.** Instructional-hour and assessment evidence tracking, regulated transaction simulations, the document/case engine, content interoperability, learning diagnostics and interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 

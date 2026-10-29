@@ -467,7 +467,6 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
  * Done subfeatures live in ENGINE; broad items stay in progress until fully integrated.
  */
 export const ENGINE_IN_PROGRESS = new Set<string>([
-  "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
 ]);
 
@@ -477,7 +476,6 @@ export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
 };
 
 export const ENGINE_PLANNED = [
-  "Jurisdiction-configurable instructional-hour and assessment evidence tracking",
   "Spreadsheet simulator",
   "Branching scenario and timeline engine",
   "Scientific and engineering workspaces",
@@ -492,6 +490,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Jurisdiction-configurable instructional-hour and assessment evidence tracking", detail: "Versioned jurisdiction and outline requirements mapped to exact installed lesson/assessment snapshots with defensible workload rationale; locally reviewed learner assignments, immutable observed or explicitly attested evidence, full-bank assessment gates and append-only human approval/rejection/revocation. Nonduplicating educational totals, source-history uncertainty, portable audits, fresh authority, stale-review CAS, privacy deletion and encrypted recovery with separate pack/decision quarantine and fresh review receipts. Full original workflow validated in PR #88; PR #89 repaired a pre-existing random drill exhaustion without content edits or weaker checks. Exact regression, native, Android, browser/accessibility, integrity and separate web/API/signed-course delivery/readback passed. No regulatory-credit, enrollment or credential claim; installers and new courses remain deferred.", status: "done" },
   { title: "Jurisdiction-configurable regulated transaction simulations", detail: "Reviewed, versioned educational rule packs and exact document snapshots; contracts and counteroffer lineage, fictional contingencies and deadlines; segregated exact-money client ledgers, reversals and three-way reconciliation; full successful/adverse transaction lifecycle with recoverable drafts, immutable evidence, instructor feedback and revision comparison. Same-device author/learner workflow with portable evidence, live authority, CAS, encrypted recovery and restored approval quarantine. Full regression, native, Android/emulator, browser/accessibility, integrity and separate web/API/signed-course delivery passed in PR #87. Synthetic educational engine only: no current-law claim, real money, filing, official forms, regulatory credit or new course content; installers remain deferred.", status: "done" },
   { title: "Interactive document and case file engine", detail: "Reusable versioned educational source templates with exact adult approval; multi-document cases, typed fillable fields, source-backed overlays and exact quote/region annotations; recoverable learner drafts, immutable evidence submissions, append-only instructor feedback and source/evidence revision comparisons. Explicit same-device workflow with portable source/evidence exports, live profile/authority checks, CAS conflicts, encrypted recovery and restored-approval quarantine. Full regression, native, Android/emulator, browser/accessibility, integrity and separate web/API/signed-course delivery passed in PR #86. Educational simulations only, not official forms or authenticated remote hand-ins; no new course content and desktop installers remain deferred.", status: "done" },
   { title: "Learning content interoperability (CASE, QTI, LTI and Common Cartridge)", detail: "Reviewed CASE 1.1 framework exchange and explicit skill mappings; QTI 3 choice/exact-string item exchange and no-credit preview; real Common Cartridge 1.3 static-resource ZIP exchange; isolated LTI 1.3 resource-link launch with browser binding and atomic replay protection. Supported profiles reject unsupported semantics, preserve external identities and never grant source trust, roles or grades. Full regression, Android/emulator, browser/accessibility, real D1/cross-site HTTPS integration, integrity and separate deployments passed in PR #85. LTI is disabled until separately approved platform registration; no certification or real-LMS compatibility claim. OneRoster and installers remain outside this delivery.", status: "done" },
