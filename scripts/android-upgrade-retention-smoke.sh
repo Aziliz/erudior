@@ -3,8 +3,24 @@ set -euo pipefail
 apk="${ANDROID_TEST_APK:?Signed test APK is required}"
 package="com.erudior.app"
 dir="/data/user/0/$package/files"
-adb root
-adb wait-for-device
+# Emulator startup can temporarily report "device offline" after first launch.
+# Retry the transport without accepting a missing or altered data fixture.
+ready=0
+for attempt in $(seq 1 12); do
+  if adb get-state 2>/dev/null | grep -qx device && adb shell true >/dev/null 2>&1; then
+    if adb root >/dev/null 2>&1 && adb wait-for-device >/dev/null 2>&1 && adb shell true >/dev/null 2>&1; then
+      ready=1
+      break
+    fi
+  fi
+  echo "ADB not ready for upgrade retention test (attempt $attempt/12)"
+  sleep 5
+done
+if [[ "$ready" -ne 1 ]]; then
+  echo "::error::Android emulator unavailable for upgrade retention test"
+  adb devices -l || true
+  exit 1
+fi
 adb shell pm path "$package" | grep -F 'package:'
 
 # Use app-owned fixtures with recorded hashes, never root-owned files.
