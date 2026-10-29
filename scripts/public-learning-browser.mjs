@@ -52,14 +52,22 @@ try {
   browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const button = name => page.getByRole('button', { name, exact: true });
   const heading = name => page.getByRole('heading', { name, exact: true });
-  async function audit(name) {
+  async function audit(name, target = null) {
     current = name;
+    // The application scrolls .main, not the document. Capture an explicit viewport
+    // instead of a misleading fullPage image with a giant blank nested-scroll tail.
+    await page.evaluate(() => { window.scrollTo(0, 0); const main = document.querySelector('.main'); if (main) main.scrollTop = 0; });
+    if (target) {
+      await target.evaluate(element => element.scrollIntoView({ block: 'start', inline: 'nearest' }));
+      const bounds = await target.boundingBox();
+      assert(bounds && bounds.y >= -1 && bounds.y < 900 && bounds.width > 0, name + ': intended state is in the captured viewport');
+    }
     await page.evaluate(() => document.fonts.ready);
     assert(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth <= 1), name + ': body overflow');
     await page.addScriptTag({ content: axe });
     const result = await page.evaluate(() => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) })), [], name + ': accessibility');
-    await page.screenshot({ path: path.join(out, name + '.png'), fullPage: true });
+    await page.screenshot({ path: path.join(out, name + '.png'), fullPage: false });
     screenshots.push(name + '.png');
   }
   const storage = () => page.evaluate(async () => (await import('/src/lib/webstore.ts')).webList(''));
@@ -89,6 +97,26 @@ try {
   }
   async function exportBackup(name) {
     await button('Progress and export').click();
+    await heading('Progress').waitFor();
+    await audit(name + '-progress-top');
+    const history = page.getByRole('region', { name: 'Learning session history', exact: true });
+    await history.waitFor();
+    assert.equal(await history.getAttribute('tabindex'), '0', 'history scrolling is keyboard accessible');
+    await history.evaluate(element => { element.scrollLeft = 0; });
+    await audit(name + '-history-left', history);
+    if (page.viewportSize().width < 600) {
+      const sizes = await history.evaluate(element => ({ available: element.clientWidth, content: element.scrollWidth, table: element.querySelector('table').getBoundingClientRect().width }));
+      assert(sizes.table >= 600 && sizes.content > sizes.available, 'narrow history preserves readable table columns inside its own scroll region');
+      await history.focus();
+      await page.keyboard.press('ArrowRight');
+      await page.waitForFunction(() => document.querySelector('[aria-label="Learning session history"]').scrollLeft > 0);
+      await history.evaluate(element => { element.scrollLeft = element.scrollWidth; });
+      await audit(name + '-history-right', history);
+    }
+    await button('View result').focus();
+    await page.keyboard.press('Enter');
+    await heading('Lesson complete').waitFor();
+    await button('← Progress').click();
     await heading('Progress').waitFor();
     const waiting = page.waitForEvent('download');
     await button('Back up now').click();
@@ -145,6 +173,7 @@ try {
     assert.equal(await button('Open course').isEnabled(), true);
     assert.equal(await page.locator('input[type="password"]').count(), 0, 'public discovery requests no login');
     await audit(name + '-public-overview');
+    await audit(name + '-overview-reading-access', page.getByRole('region', { name: 'Public learning access', exact: true }));
 
     // Fresh deep-link destination survives signed catalog retrieval and failed downloads.
     await page.goto(origin + lessonPath + '?app');
@@ -182,10 +211,11 @@ try {
     await launchLinked();
     assert.equal(new URL(page.url()).pathname, lessonPath);
     await audit(name + '-public-lesson');
+    await audit(name + '-lesson-quiz', page.locator('.lesson-quiz'));
     await quiz();
-    await audit(name + '-practice-result');
+    await audit(name + '-practice-result', page.locator('.score-head'));
     await exportBackup(name + '-saved');
-    await audit(name + '-saved-export');
+    await audit(name + '-saved-export', page.locator('section').filter({ has: heading('Backup') }));
 
     // Saved course and results remain available with the remote course service offline.
     fetchMode = 'offline';
@@ -211,7 +241,7 @@ try {
     await launchLinked();
     await quiz();
     await exportBackup(name + '-temporary');
-    await audit(name + '-temporary-export');
+    await audit(name + '-temporary-export', page.locator('section').filter({ has: heading('Backup') }));
     assert.equal(new URL(page.url()).searchParams.get('guest'), '1', 'navigation retains temporary context');
 
     // Reload discards memory-only practice, without carrying a completion into device data.
@@ -243,6 +273,7 @@ try {
     await page.goForward();
     await heading('Synthetic reading lesson').waitFor();
     await audit(name + '-history-reading');
+    await audit(name + '-reading-controls', page.locator('.lesson-foot'));
     observations.push({ name, courseRequests, savedAttemptCount: (await progress()).attempts.length, temporaryIsolated: true });
 
     // A denied browser learning store must offer a non-destructive temporary fallback.
@@ -261,10 +292,10 @@ try {
     await context.close();
   }
   assert.deepEqual(errors, []);
-  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, viewports: [320, 1280], themes: ['light', 'dark'], screenshots, observations, errors }, null, 2));
+  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, viewports: [320, 1280], themes: ['light', 'dark'], capture: 'Explicit viewport states within the main scroll container; not full-page coverage', screenshots, observations, errors }, null, 2));
   console.log('Public Site/App discovery, signed deep-link access, failed/hash-invalid retry, practice/export, offline saved progress and isolated temporary sessions passed.');
 } catch (error) {
   await writeFile(path.join(out, 'failure-diagnostics.json'), JSON.stringify({ current, errors, error: String(error) }, null, 2));
-  if (page) await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: true }).catch(() => {});
+  if (page) await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: false }).catch(() => {});
   throw error;
 } finally { await browser?.close(); await server?.close(); }
