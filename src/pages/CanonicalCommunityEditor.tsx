@@ -6,6 +6,7 @@ import { checkDoc, LEVELS, SUBJECTS, TYPES, type CommunityDoc } from "../lib/com
 import { canonicalAuthoringFromCourse, courseFromCanonicalAuthoring, validateCanonicalAuthoring } from "../lib/canonicalAuthoring";
 import { exportText, pickJsonFile } from "../lib/storage";
 import { registerNavigationGuard } from "../lib/navigationGuard";
+import CommunityAuthorGuide from "../components/CommunityAuthorGuide";
 import CourseEditor from "./CourseEditor";
 import Editor from "./Editor";
 import DeckEditor from "./DeckEditor";
@@ -61,6 +62,7 @@ export default function CanonicalCommunityEditor({ api, id, initialDoc, initialM
   return <div className="page">
     <h1>Canonical community course: {course.title}</h1>
     <p>One authoritative course payload. Community review is not official-course approval. Publishing preserves source author metadata; the community publisher is separate provenance.</p>
+    <CommunityAuthorGuide />
     {error && <p role="alert">{error}</p>}{message && <p role="status">{message}</p>}
     {readOnly && <p role="alert">Taken down: {meta.reviewNote}. Editing and publishing are disabled.</p>}
     {view === "course" ? <fieldset className="canonical-course-editor-shell" disabled={busy || readOnly}><CourseEditor api={adapter} course={course} communityMode /></fieldset> : selectedBank ? <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><Editor key={selectedBank.id} api={adapter} bank={selectedBank} /></fieldset> : selectedDeck ? <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><DeckEditor key={selectedDeck.id} api={adapter} course={course} deck={selectedDeck} /></fieldset> : <>

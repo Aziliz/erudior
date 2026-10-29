@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import { addCommunityLesson, deleteCommunityLesson, communityLessonDeleteProblem, reorderCommunityLesson } from "../lib/communityModules";
+import CommunityAuthorGuide from "../components/CommunityAuthorGuide";
 import CanonicalCommunityEditor from "./CanonicalCommunityEditor";
 import { confirmAction } from "../lib/storage";
 import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
@@ -234,6 +235,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         Don't put personal information in a course: no students' names, photos of students, addresses or phone numbers.
       </p>
 
+      <CommunityAuthorGuide />
       <nav className="tabs" aria-label="Course editor sections">
         {(
           [

@@ -357,3 +357,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 PR #1 merged as `1649ee2a1533e27262d16f04c16e50be24ab25e3`. Stable-ID add/reorder/reassignment, implicit legacy membership preservation, dependency-safe inline delete/cancel, accessible responsive legacy/canonical controls, and interrupted-save recovery work through save/reopen/publish/install. Repeated publication actions are serialized without a stale error.
 
 Exact-head regression, Android and browser/API checks passed; 64 editor screenshots were reviewed across light/dark and mobile/desktop. All six postmerge workflows passed: full regression, lesson-engine integrity, signed-course publishing, browser/live protocol, website deployment and community API deployment. Live homepage, roadmap and app shell matched the deployed build; fresh/reload checks found no leftover startup overlays. Public and local status are synchronized as Done. The comprehensive authoring-guide/demo capabilities remain separate and are not claimed complete.
+
+
+### Community creation guide and authoring acceptance (under validation)
+
+Shared searchable in-editor guidance is available alongside both legacy and canonical editors without changing draft/navigation state. Its repository copy is generated from the same content, with tested Markdown/math/diagram/model/question examples and explicit save, rights, migration, publication, installation and review boundaries. Synthetic real-editor browser acceptance covers keyboard/mobile/light/dark help navigation and create→preview→save→reopen→publish→install. Public Done status waits for exact-head validation and deployment; this does not claim independent content review, official promotion or a separate demo capability.
