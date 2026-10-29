@@ -288,19 +288,24 @@ fn install_kind() -> &'static str {
     }
 }
 
-/// Stage a candidate update in the application cache, not the learner data directory.
-/// No installation occurs until a separate Android FileProvider bridge is implemented.
-#[cfg(target_os = "android")]
-#[tauri::command]
-fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: String) -> Result<String, String> {
+/// Verify update bytes before any filesystem change. Never write to app_data_dir.
+fn verify_android_update_bytes(content: &[u8], expected_sha256: &str) -> Result<String, String> {
     use sha2::{Digest, Sha256};
     if content.is_empty() || content.len() > 41_943_040 { return Err("APK size outside allowed range".into()); }
     if expected_sha256.len() != 64 || !expected_sha256.bytes().all(|c| c.is_ascii_hexdigit()) {
         return Err("invalid expected SHA-256".into());
     }
-    let hash = format!("{:x}", Sha256::digest(&content));
+    let hash = format!("{:x}", Sha256::digest(content));
     if hash != expected_sha256.to_ascii_lowercase() { return Err("APK hash mismatch".into()); }
-    if !content.starts_with(b"PK\x03\x04") { return Err("APK is not a ZIP archive".into()); }
+    if !content.starts_with(b"PK\\x03\\x04") { return Err("APK is not a ZIP archive".into()); }
+    Ok(hash)
+}
+
+/// Stage only in the disposable Android cache, leaving all learner records untouched.
+#[cfg(target_os = "android")]
+#[tauri::command]
+fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: String) -> Result<String, String> {
+    let hash = verify_android_update_bytes(&content, &expected_sha256)?;
     let dir = app.path().app_cache_dir().map_err(|e| e.to_string())?.join("updates");
     fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
     let staged = dir.join("verified-update.apk");
@@ -308,6 +313,21 @@ fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: Strin
     fs::write(&temp, content).map_err(|e| e.to_string())?;
     fs::rename(&temp, &staged).map_err(|e| e.to_string())?;
     Ok(hash)
+}
+
+#[cfg(test)]
+mod android_update_integrity_tests {
+    use super::*;
+    use sha2::{Digest, Sha256};
+    #[test]
+    fn staged_payload_validation_fails_closed() {
+        let apk = b"PK\\x03\\x04mock-apk";
+        let digest = format!("{:x}", Sha256::digest(apk));
+        assert_eq!(verify_android_update_bytes(apk, &digest).unwrap(), digest);
+        assert!(verify_android_update_bytes(apk, &"0".repeat(64)).is_err());
+        assert!(verify_android_update_bytes(b"not-an-apk", &format!("{:x}", Sha256::digest(b"not-an-apk"))).is_err());
+        assert!(verify_android_update_bytes(apk, "bad").is_err());
+    }
 }
 
 #[cfg(not(target_os = "android"))]
