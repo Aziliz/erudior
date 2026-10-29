@@ -352,6 +352,8 @@ Existing working functionality documented in `src/lib/roadmap.ts` under `ENGINE`
 - **Outstanding:** Public course publishing has experienced both a German A1 digest mismatch and a later download timeout. Neither cause is fully resolved or independently verified in production. Keep production course publishing repair **In Progress**.
 - **Policy:** Roadmap edits are committed directly to main; application/engine code may use PRs. Full tests are merge-only.
 
-### Community module and lesson controls (implementation validation)
+### Community module and lesson controls — Done (October 29, 2026)
 
-PR #1 is being revalidated against current main. Predictable stable-ID add/reorder/move controls, dependency-preserving inline deletion, legacy and canonical editor coverage, and save/reopen/publish/install acceptance are under validation. The public capability remains In Progress until the complete deployment and regression checks pass. The comprehensive authoring-guide/demo capabilities remain separate.
+PR #1 merged as `1649ee2a1533e27262d16f04c16e50be24ab25e3`. Stable-ID add/reorder/reassignment, implicit legacy membership preservation, dependency-safe inline delete/cancel, accessible responsive legacy/canonical controls, and interrupted-save recovery work through save/reopen/publish/install. Repeated publication actions are serialized without a stale error.
+
+Exact-head regression, Android and browser/API checks passed; 64 editor screenshots were reviewed across light/dark and mobile/desktop. All six postmerge workflows passed: full regression, lesson-engine integrity, signed-course publishing, browser/live protocol, website deployment and community API deployment. Live homepage, roadmap and app shell matched the deployed build; fresh/reload checks found no leftover startup overlays. Public and local status are synchronized as Done. The comprehensive authoring-guide/demo capabilities remain separate and are not claimed complete.
