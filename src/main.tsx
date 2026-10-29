@@ -9,6 +9,7 @@ import "./styles.css";
 import "./diagnostics.css";
 import "./interoperability.css";
 import "./documentEngine.css";
+import "./transactions.css";
 import "./learningGames.css";
 import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 

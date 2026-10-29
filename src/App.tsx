@@ -1,3 +1,4 @@
+import { createTransactionEngineStore } from "./lib/transactionEngineStore";
 import { createDocumentEngineStore } from "./lib/documentEngineStore";
 import { importQtiItem, qtiChoiceToBank } from "./lib/interopQti";
 import { createInterventionStore } from "./lib/interventionStore";
@@ -133,6 +134,8 @@ export interface AppApi {
   importInterventionTask?: () => Promise<boolean>;
   exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
   importInteroperabilityBank?: (xml: string) => Promise<void>;
+  transactionSupervisor?: ReturnType<typeof createTransactionEngineStore>["supervisor"];
+  transactionLearner?: ReturnType<typeof createTransactionEngineStore>["learner"];
   documentSupervisor?: ReturnType<typeof createDocumentEngineStore>["supervisor"];
   documentLearner?: ReturnType<typeof createDocumentEngineStore>["learner"];
   presentationLibrary?: ReturnType<typeof createPresentationStore>;
@@ -712,6 +715,23 @@ export default function App() {
     },
   });
 
+  const transactionEngine = createTransactionEngineStore({
+    read: () => store.loadState("transaction-engine"),
+    update: change => store.updateState("transaction-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational transaction simulations.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen transaction cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening transaction cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
   const documentEngine = createDocumentEngineStore({
     read: () => store.loadState("document-engine"),
     update: change => store.updateState("document-engine", change),
@@ -749,6 +769,8 @@ export default function App() {
     retryCompetencySync: () => setCompetencyRetry(n => n + 1),
     competencySupervisor,
     interventionSupervisor,
+    transactionSupervisor: transactionEngine.supervisor,
+    transactionLearner: transactionEngine.learner,
     documentSupervisor: documentEngine.supervisor,
     documentLearner: documentEngine.learner,
     loadInterventionTasks: () => interventionTasks.load(),

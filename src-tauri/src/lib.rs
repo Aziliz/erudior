@@ -119,7 +119,7 @@ fn aux_path(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
 }
 
 fn valid_state_name(name: &str) -> bool {
-    if name == "progress" || name == "session" || name == "family" || name == "classes" || name == "classroom-submissions" || name == "presentations" || name == "interventions" || name == "document-engine" {
+    if name == "progress" || name == "session" || name == "family" || name == "classes" || name == "classroom-submissions" || name == "presentations" || name == "interventions" || name == "document-engine" || name == "transaction-engine" {
         return true;
     }
     for prefix in ["progress-", "records-", "session-", "portfolio-"] {
@@ -180,10 +180,10 @@ mod named_state_tests {
     use super::*;
     #[test]
     fn exact_classroom_state_allowlist() {
-        for name in ["document-engine", "interventions", "presentations", "classroom-submissions", "family", "classes", "session", "progress", "progress-a1", "records-a1", "session-a1", "portfolio-a1"] {
+        for name in ["transaction-engine", "document-engine", "interventions", "presentations", "classroom-submissions", "family", "classes", "session", "progress", "progress-a1", "records-a1", "session-a1", "portfolio-a1"] {
             assert!(valid_state_name(name), "{name}");
         }
-        for name in ["document-engine-extra", "../document-engine", "document-engine/other", "interventions-extra", "../interventions", "interventions/other", "presentations-extra", "../presentations", "presentations/other", "classroom-submissions-extra", "classroom-submissions/other", "../classroom-submissions", "progress-", "records-A", "progress-a/../b", "classroom-other", "progress/other"] {
+        for name in ["transaction-engine-extra", "../transaction-engine", "transaction-engine/other", "document-engine-extra", "../document-engine", "document-engine/other", "interventions-extra", "../interventions", "interventions/other", "presentations-extra", "../presentations", "presentations/other", "classroom-submissions-extra", "classroom-submissions/other", "../classroom-submissions", "progress-", "records-A", "progress-a/../b", "classroom-other", "progress/other"] {
             assert!(!valid_state_name(name), "{name}");
         }
     }
