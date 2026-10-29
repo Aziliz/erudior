@@ -77,6 +77,11 @@ jobs:
           apk="${apks[0]}"
           unzip -tq "$apk"
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$apk"
+          # Verify the installer bridge is actually packaged, not merely compiled.
+          unzip -Z1 "$apk" | grep -F 'res/xml/erudior_update_paths.xml' >/dev/null || {
+            echo "::error::Installer FileProvider XML missing from APK"
+            exit 1
+          }
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -p 4 "$apk"
           badging="$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk")"
           echo "$badging" | grep -E "^package: name='com\\.erudior\\.app'"
