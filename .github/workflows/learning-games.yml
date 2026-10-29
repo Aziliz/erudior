@@ -10,6 +10,7 @@ on:
       - 'tests/**'
       - 'worker/**'
       - 'scripts/learning-games-browser.mjs'
+      - 'scripts/presentations-browser.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/learning-games.yml'
@@ -32,6 +33,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Keyboard, responsive and accessibility game workflows
         run: npm run test:games-browser
+      - name: Interactive presentation authoring and playback browser workflows
+        run: npm run test:presentations-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
@@ -42,6 +45,8 @@ jobs:
         if: always()
         with:
           name: learning-game-browser-evidence
-          path: test-results/learning-games-browser/
+          path: |
+            test-results/learning-games-browser/
+            test-results/presentations-browser/
           retention-days: 14
           if-no-files-found: ignore

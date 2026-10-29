@@ -1,3 +1,4 @@
+import { PresentationRoom } from "./presentationLive";
 // Live room: a teacher or parent runs a quiz from the desktop app; students join in a browser
 // with a code and a nickname. One Durable Object per room, everything in memory: when the room
 // closes nothing is kept. Students see only their own result and class totals, never names.
@@ -37,6 +38,7 @@ const clean = (s: unknown, max: number) =>
     .slice(0, max);
 
 export class LiveRoom {
+  private presentation: PresentationRoom | null = null;
   private hostHash = "";
   private host: WebSocket | null = null;
   private players = new Map<string, Player>();
@@ -63,6 +65,12 @@ export class LiveRoom {
 
   async fetch(req: Request): Promise<Response> {
     const url = new URL(req.url);
+    if (url.pathname === "/presentation-init") {
+      this.presentation ??= new PresentationRoom(this.state);
+      return this.presentation.fetch(req);
+    }
+    if (this.presentation) return this.presentation.fetch(req);
+    if (url.pathname.startsWith("/presentation/")) return new Response("No such presentation room.", {status:404});
     if (url.pathname === "/init" && req.method === "POST") {
       const { tokenHash } = (await req.json()) as { tokenHash: string };
       if (this.hostHash && Date.now() - this.created < ROOM_MS) return new Response("taken", { status: 409 });
@@ -113,6 +121,7 @@ export class LiveRoom {
   }
 
   async alarm() {
+    if (this.presentation) return this.presentation.alarm();
     const expired = Date.now() - this.created >= ROOM_MS;
     const hostGone = !this.host && this.hostLeftAt && Date.now() - this.hostLeftAt >= HOST_GONE_MS;
     if (expired || hostGone) this.close("The room closed.");

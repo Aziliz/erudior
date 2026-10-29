@@ -1,3 +1,4 @@
+import { parsePresentationLibrary, type PresentationLibrary } from "./presentations";
 import { parseCompetencyLedger } from "./competencyState";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
@@ -40,6 +41,8 @@ interface Contents {
   banks: unknown[];
   /** Instructor-only receipt/review ledger, including pending import markers. */
   classroomSubmissions?: ReturnType<typeof validateClassroomSubmissionState>;
+  /** Adult-authored reusable teaching resources; never learner responses. */
+  presentations?: PresentationLibrary;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -106,6 +109,8 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const family = await loadFamily();
   const classroomText = await store.loadState("classroom-submissions");
   const classroomSubmissions = classroomText === null ? undefined : validateClassroomSubmissionState(classroomText);
+  const presentationText = await store.loadState("presentations");
+  const presentations = presentationText === null ? undefined : parsePresentationLibrary(presentationText);
   const students: Contents["students"] = {};
   for (const s of family?.students ?? []) {
     const progressText = await store.loadState(`progress-${s.id}`);
@@ -123,6 +128,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     family,
     students,
     ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
+    ...(presentations === undefined ? {} : { presentations }),
     progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -162,6 +168,8 @@ export async function restoreContents(
   // backups clear the ledger: retaining it would mix another family's evidence.
   const classroomSubmissions = b.classroomSubmissions === undefined ? null
     : JSON.stringify(validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions)));
+  if (b.presentations === null) throw Error("Invalid presentation library in backup.");
+  const presentations = b.presentations === undefined ? null : JSON.stringify(parsePresentationLibrary(b.presentations));
   validateProgressEvidence(b.progress);
   for (const student of Object.values(b.students)) validateProgressEvidence(student.progress);
   const courses = b.courses.map((c) => {
@@ -190,6 +198,7 @@ export async function restoreContents(
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, seeded: true });
   if (b.family) await saveFamily(b.family);
   else await store.saveState("family", null);
+  await store.saveState("presentations", presentations);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }
