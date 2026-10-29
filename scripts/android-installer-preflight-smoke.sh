@@ -26,10 +26,17 @@ if ! grep -F 'android.permission.REQUEST_INSTALL_PACKAGES' android-test-evidence
   echo "::error::APK missing installation request permission"
   exit 1
 fi
-adb shell pm resolve-activity -a android.intent.action.VIEW -t application/vnd.android.package-archive > android-test-evidence/installer-resolution.txt
-if grep -F 'No activity found' android-test-evidence/installer-resolution.txt; then
-  echo "::error::No Android APK installer activity"
-  exit 1
+# The system resolves APK intents using both a content URI and MIME type.
+# A MIME-only query can falsely report no handler on Android 15.
+uri="content://$package.erudior-updates/verified-update/verified-update.apk"
+adb shell pm resolve-activity -a android.intent.action.VIEW -d "$uri" -t application/vnd.android.package-archive > android-test-evidence/installer-resolution.txt || true
+if ! grep -Eq '(name=|com.android.packageinstaller|PackageInstallerActivity|InstallStart)' android-test-evidence/installer-resolution.txt; then
+  adb shell pm query-activities -a android.intent.action.VIEW -d "$uri" -t application/vnd.android.package-archive >> android-test-evidence/installer-resolution.txt 2>&1 || true
+  if ! grep -Eq '(com.android.packageinstaller|com.google.android.packageinstaller|PackageInstallerActivity|InstallStart)' android-test-evidence/installer-resolution.txt; then
+    echo "::error::No Android APK installer resolved for the real content URI"
+    cat android-test-evidence/installer-resolution.txt
+    exit 1
+  fi
 fi
 # Android's installed PackageManager state must contain our non-exported provider.
 adb shell dumpsys package "$package" > android-test-evidence/installed-package.txt
