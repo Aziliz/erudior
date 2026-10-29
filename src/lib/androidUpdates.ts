@@ -16,7 +16,7 @@ const ALLOWED_APK = "https://github.com/Aziliz/erudior/releases/download/android
 export function validateAndroidRelease(value: unknown): AndroidReleaseManifest {
   if (!value || typeof value !== "object") throw new Error("Invalid Android release manifest");
   const m = value as Partial<AndroidReleaseManifest>;
-  if (m.schema !== 1 || typeof m.version !== "string" || !/^\\d+\\.\\d+\\.\\d+/.test(m.version) ||
+  if (m.schema !== 1 || typeof m.version !== "string" || !/^\d+\.\d+\.\d+/.test(m.version) ||
       typeof m.build !== "string" || !/^[a-f0-9]{40}$/i.test(m.build) ||
       m.apk !== ALLOWED_APK || typeof m.sha256 !== "string" || !/^[a-f0-9]{64}$/i.test(m.sha256) ||
       typeof m.bytes !== "number" || !Number.isSafeInteger(m.bytes) || m.bytes < 1 || m.bytes > 41943040)
