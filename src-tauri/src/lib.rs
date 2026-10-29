@@ -379,7 +379,7 @@ pub fn run() {
             read_text_file,
             write_text_file,
             data_location,
-            install_kind
+            install_kind,
             stage_android_update
         ])
         .run(tauri::generate_context!())
