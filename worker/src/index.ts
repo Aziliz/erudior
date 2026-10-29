@@ -1,3 +1,4 @@
+import { branchingRevisionProblems } from "../../src/lib/branchingCoursePackage";
 import { handleLti } from "./lti.ts";
 // Erudior community course API (Cloudflare Worker, D1 + R2).
 //
@@ -590,6 +591,8 @@ async function route(req: Request, env: Env): Promise<Response> {
       if (checkDoc(previous, true, { communityImageOrigin: env.API_ORIGIN }).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
       const workRevisionErrors = communityWorkRevisionProblems(previous, doc, c.id, env.API_ORIGIN);
       if (workRevisionErrors.length) throw new HttpError(409, workRevisionErrors.join("; "));
+      const branchingErrors=branchingRevisionProblems(previous.canonical?.course.branchingScenarios ?? previous.branchingScenarios ?? [],doc.canonical?.course.branchingScenarios ?? doc.branchingScenarios ?? []);
+      if(branchingErrors.length)throw new HttpError(409,branchingErrors.join('; '));
       const next = new Map((doc.canonical?.course.spreadsheetAssignments ?? doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
       for (const assignment of previous.spreadsheetAssignments ?? []) {
         const current = next.get(assignment.id);

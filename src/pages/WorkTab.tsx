@@ -53,6 +53,12 @@ export default function WorkTab({ api, course }: { api: AppApi; course: Course }
           you can hand work in.
         </p>
       )}
+      {!!course.branchingScenarios?.length && <section className="panel" aria-labelledby="course-branching-title">
+        <h2 id="course-branching-title">Fictional branching scenarios</h2>
+        <p>These reusable educational scenarios use simulated time, not real-world deadlines or professional advice. A supervising adult reviews the exact source and assigns your case; your saved decisions and feedback appear on Progress.</p>
+        <ul>{course.branchingScenarios.map(s => <li key={s.id}><strong>{s.title}</strong> · revision {s.revision}{s.lessonId && <button className="btn sm ghost" onClick={() => api.go({name:"lesson",courseId:course.id,lessonId:s.lessonId!})}>Open linked lesson</button>}</li>)}</ul>
+        <button className="btn" onClick={() => api.go({name:"progress"})}>Open my branching cases</button>
+      </section>}
       {(course.spreadsheetAssignments?.length ?? 0) > 0 && <section className="panel"><h2>Spreadsheet assignments</h2>{course.spreadsheetAssignments?.map(a => <SpreadsheetCourseAssignment key={a.id} api={api} courseId={course.id} assignment={a} />)}</section>}
       {writing.length > 0 && (
         <section className="panel" aria-labelledby="wt-writing">

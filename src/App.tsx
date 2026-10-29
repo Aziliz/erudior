@@ -1,3 +1,4 @@
+import { createBranchingEngineStore } from "./lib/branchingEngineStore";
 import { createInstructionalEvidenceStore } from "./lib/instructionalEvidenceStore";
 import { createTransactionEngineStore } from "./lib/transactionEngineStore";
 import { createDocumentEngineStore } from "./lib/documentEngineStore";
@@ -137,6 +138,8 @@ export interface AppApi {
   importInteroperabilityBank?: (xml: string) => Promise<void>;
   instructionalSupervisor?: ReturnType<typeof createInstructionalEvidenceStore>["supervisor"];
   instructionalLearner?: ReturnType<typeof createInstructionalEvidenceStore>["learner"];
+  branchingSupervisor?: ReturnType<typeof createBranchingEngineStore>["supervisor"];
+  branchingLearner?: ReturnType<typeof createBranchingEngineStore>["learner"];
   transactionSupervisor?: ReturnType<typeof createTransactionEngineStore>["supervisor"];
   transactionLearner?: ReturnType<typeof createTransactionEngineStore>["learner"];
   documentSupervisor?: ReturnType<typeof createDocumentEngineStore>["supervisor"];
@@ -718,6 +721,23 @@ export default function App() {
     },
   });
 
+  const branchingEngine = createBranchingEngineStore({
+    read: () => store.loadState("branching-engine"),
+    update: change => store.updateState("branching-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review fictional branching scenarios.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen branching cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening branching cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
   const instructionalEvidence = createInstructionalEvidenceStore({
     read: () => store.loadState("instructional-evidence"),
     update: change => store.updateState("instructional-evidence", change),
@@ -797,6 +817,8 @@ export default function App() {
     interventionSupervisor,
     instructionalSupervisor: instructionalEvidence.supervisor,
     instructionalLearner: instructionalEvidence.learner,
+    branchingSupervisor: branchingEngine.supervisor,
+    branchingLearner: branchingEngine.learner,
     transactionSupervisor: transactionEngine.supervisor,
     transactionLearner: transactionEngine.learner,
     documentSupervisor: documentEngine.supervisor,

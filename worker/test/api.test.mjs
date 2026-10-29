@@ -374,6 +374,24 @@ ok("find user", users.length === 1);
 ok("ban", (await admin.call("POST", `/admin/users/${users[0].id}`, { banned: true })).status === 200);
 ok("banned user signed out", (await other.call("GET", "/me")).data.user === null);
 
+// Real isolated D1/R2 branching lifecycle independent of other fixture versions.
+const scenarioId=(await author.call("POST","/drafts")).data.id;
+const scenarioPack={format:"erudior-branching-pack",version:1,id:"project",revision:1,title:"Synthetic project",description:"Test-only fictional project",sourceNote:"Synthetic fixture",timeUnit:"ticks",maxTick:20,startNodeId:"start",variables:[],nodes:[{id:"start",title:"Outcome",text:"Synthetic outcome",terminal:"neutral",choices:[]}],milestones:[]};
+const scenarioDoc={format:"erudior-community",version:1,title:"Scenario fixture",description:"Synthetic fixture",subject:"Science",level:"Elementary School",type:"Course",lessons:[{id:"l1",title:"Fixture",blocks:[{type:"text",md:"Test-only source"}]}],decks:[],branchingScenarios:[{...scenarioPack,lessonId:"l1"}]};
+ok("branching draft save",(await author.call("PUT",`/drafts/${scenarioId}`,scenarioDoc)).status===200);
+ok("branching reopen exact",JSON.stringify((await author.call("GET",`/drafts/${scenarioId}`)).data.doc.branchingScenarios)===JSON.stringify(scenarioDoc.branchingScenarios));
+ok("branching first publication",(await author.call("POST",`/drafts/${scenarioId}/publish`)).status===200);
+ok("branching public exact source",JSON.stringify((await anon.call("GET",`/courses/${scenarioId}`)).data.doc.branchingScenarios)===JSON.stringify(scenarioDoc.branchingScenarios));
+const changedScenario=structuredClone(scenarioDoc);changedScenario.branchingScenarios[0].nodes[0].text="Changed synthetic outcome";
+await author.call("PUT",`/drafts/${scenarioId}`,changedScenario);
+ok("branching same revision rejects publication",(await author.call("POST",`/drafts/${scenarioId}/publish`)).status===409);
+ok("branching rejected publication retains source",JSON.stringify((await anon.call("GET",`/courses/${scenarioId}`)).data.doc.branchingScenarios)===JSON.stringify(scenarioDoc.branchingScenarios));
+changedScenario.branchingScenarios[0].revision=2;await author.call("PUT",`/drafts/${scenarioId}`,changedScenario);
+ok("branching explicit revision publication",(await author.call("POST",`/drafts/${scenarioId}/publish`)).status===200);
+ok("branching updated public exact",JSON.stringify((await anon.call("GET",`/courses/${scenarioId}`)).data.doc.branchingScenarios)===JSON.stringify(changedScenario.branchingScenarios));
+const invalidScenario=structuredClone(changedScenario);invalidScenario.branchingScenarios[0].nodes=[];
+ok("branching malformed draft rejected",(await author.call("PUT",`/drafts/${scenarioId}`,invalidScenario)).status===400);
+
 ok("logout", (await author.call("POST", "/auth/logout")).status === 200 && (await author.call("GET", "/me")).data.user === null);
 
 if (fails) {

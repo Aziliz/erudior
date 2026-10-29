@@ -10,6 +10,7 @@ import { confirmAction } from "../lib/storage";
 import { drillError, generate } from "../lib/drills";
 import { uid } from "../lib/util";
 import Markdown from "../components/Markdown";
+import CourseBranchingEditor from "../components/CourseBranchingEditor";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { spreadsheetReviewReport } from "../lib/spreadsheetReview";
 import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
@@ -19,7 +20,7 @@ import { workProblems } from "../lib/work";
 import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
 import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
+type Tab = "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "branching" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
 
 export default function CourseEditor({ api, course, isNew, communityMode = false }: { api: AppApi; course: Course; isNew?: boolean; communityMode?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
@@ -160,6 +161,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
               ["drills", `Math drills (${draft.drills.length})`],
               ["reading", "Reading library"],
               ["work", "Writing, labs & activities"],
+              ["branching", `Scenarios (${draft.branchingScenarios?.length ?? 0})`],
               ["spreadsheets", `Spreadsheets (${draft.spreadsheetAssignments?.length ?? 0})`],
               ...(!communityMode && draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
@@ -177,6 +179,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
         {tab === "drills" && <Drills draft={draft} update={update} />}
         {tab === "reading" && <ReaderLibraryEditor texts={draft.texts ?? []} questions={(api.courses.find(c => c.id === course.id) ?? course).banks[0]?.questions ?? []} onChange={texts => update(c => ({ ...c, texts }))} protectedTextIds={(draft.texts ?? []).filter(text => !!api.progress?.reading?.[course.id + "/" + text.id]).map(text => text.id)} protectedSectionIds={Object.fromEntries((draft.texts ?? []).map(text => { const reading = api.progress?.reading?.[course.id + "/" + text.id]; return [text.id, reading ? [...Object.keys(reading.read), reading.section] : []]; }))} />}
         {tab === "work" && <WorkResourceEditor work={{ rubrics: draft.rubrics, writing: draft.writing, labs: draft.labs, activityLog: draft.activityLog }} modules={draft.modules} lessons={draft.lessons} onChange={next => update(c => { const result = { ...c }; for (const field of ["rubrics", "writing", "labs", "activityLog"] as const) delete result[field]; return { ...result, ...next }; })} onLessonBodyChange={(id, body) => update(c => ({ ...c, lessons: c.lessons.map(lesson => lesson.id === id ? { ...lesson, body } : lesson) }))} />}
+        {tab === "branching" && <CourseBranchingEditor course={draft} update={update} onEditingChange={value=>{editingRef.current=value;setAssignmentEditing(value);}} />}
         {tab === "spreadsheets" && <CourseSpreadsheetEditor course={draft} update={update} onEditingChange={(value) => { editingRef.current = value; setAssignmentEditing(value); }} />}
         {!communityMode && tab === "spreadsheetReview" && <SpreadsheetReviewPanel course={draft} />}
       </div>
@@ -385,10 +388,10 @@ function Lessons({ draft, update }: EP) {
             <div>
               <button
                 className="btn sm ghost danger"
-                disabled={draft.spreadsheetAssignments?.some(item => item.lessonId === current.id)}
+                disabled={(draft.spreadsheetAssignments?.some(item => item.lessonId === current.id) || draft.branchingScenarios?.some(item=>item.lessonId===current.id))}
                 title="Detach lesson-linked spreadsheet assignments before deleting"
                 onClick={() => {
-                  if (draft.spreadsheetAssignments?.some(item => item.lessonId === current.id)) return;
+                  if ((draft.spreadsheetAssignments?.some(item => item.lessonId === current.id) || draft.branchingScenarios?.some(item=>item.lessonId===current.id))) return;
                   update((c) => ({ ...c, lessons: c.lessons.filter((l) => l.id !== current.id) }));
                   setSel(null);
                 }}

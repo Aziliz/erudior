@@ -5,6 +5,7 @@ import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
+import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { normalizeSpreadsheetAssignment } from "./spreadsheetAssignments";
 
 const SEP = "__";
@@ -100,6 +101,8 @@ export function normalizeCourse(raw: unknown): Course {
       return { ...assignment, lessonId: candidate.lessonId };
     });
   }
+
+  const branchingScenarios = raw.branchingScenarios === undefined ? undefined : parseCourseBranchingScenarios(raw.branchingScenarios, new Set(lessons.map(l=>l.id)));
 
   const banks: Bank[] = arr(raw.banks).map((b, i) => {
     try {
@@ -253,6 +256,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(raw.readAloud === true ? { readAloud: true } : {}),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
+    ...(branchingScenarios ? { branchingScenarios } : {}),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
 }

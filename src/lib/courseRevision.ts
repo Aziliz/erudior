@@ -1,3 +1,4 @@
+import { branchingRevisionProblems } from "./branchingCoursePackage";
 import { readerRevisionProblems } from "./readerContent";
 import type { Course } from "./types";
 import { localBankId } from "./course";
@@ -56,6 +57,8 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     if (current) compare(`texts.${text.id}.sections`, text.sections, current.sections, (section) => section.id);
   }
   for (const message of readerRevisionProblems(previous.texts ?? [], next.texts ?? [])) add("blocking", "texts", message);
+  for(const issue of branchingRevisionProblems(previous.branchingScenarios??[],next.branchingScenarios??[]))add("blocking","branchingScenarios",issue);
+  compare("branchingScenarios", previous.branchingScenarios ?? [], next.branchingScenarios ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
   compare("spreadsheetAssignments", previous.spreadsheetAssignments ?? [], next.spreadsheetAssignments ?? [],
     (assignment) => assignment.id, (assignment) => assignment.lessonId);
   for (const [i, assignment] of (next.spreadsheetAssignments ?? []).entries())

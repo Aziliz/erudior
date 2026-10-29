@@ -28,6 +28,8 @@ on:
       - "src/lib/presentationProtocol.ts"
       - "src/lib/answers.ts"
       - "src/lib/blockUtil.ts"
+      - "src/lib/branchingEngine.ts"
+      - "src/lib/branchingCoursePackage.ts"
       - "src/lib/canonicalAuthoring.ts"
       - "src/lib/code.ts"
       - "src/lib/communityFormat.ts"

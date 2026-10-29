@@ -1,3 +1,4 @@
+import BranchingStudio from "../components/BranchingStudio";
 import InstructionalStudio from "../components/InstructionalStudio";
 import TransactionStudio from "../components/TransactionStudio";
 import DocumentEngine from "../components/DocumentEngine";
@@ -72,7 +73,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
-  | "document-cases" | "transactions" | "instructional-evidence"
+  | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -96,6 +97,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
   { id: "classes", label: "Classes" },
@@ -117,6 +119,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
   { id: "attendance", label: "Attendance and hours" },
@@ -224,6 +227,7 @@ export default function ParentArea({
           {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
           {tab === "interoperability" && <ContentInteroperability api={api} />}
           {tab === "document-cases" && <DocumentEngine api={api} />}
+          {tab === "branching" && <BranchingStudio api={api} />}
           {tab === "transactions" && <TransactionStudio api={api} />}
           {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}

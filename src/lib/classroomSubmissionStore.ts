@@ -1,3 +1,5 @@
+import { parseBranchingLibrary } from './branchingEngine';
+import { deleteBranchingStudent } from './branchingEngineStore';
 import { parseInstructionalLibrary } from './instructionalEvidence';
 import { deleteInstructionalStudent } from './instructionalEvidenceStore';
 import { parseTransactionLibrary } from './transactionEngine';
@@ -147,6 +149,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
           deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
       });
       await io.updateState("instructional-evidence", previous => JSON.stringify(deleteInstructionalStudent(parseInstructionalLibrary(previous), studentId)));
+      await io.updateState("branching-engine", previous => JSON.stringify(deleteBranchingStudent(parseBranchingLibrary(previous), studentId)));
       await io.updateState("transaction-engine", previous => JSON.stringify(deleteTransactionStudent(parseTransactionLibrary(previous), studentId)));
       await io.updateState("document-engine", previous => JSON.stringify(deleteDocumentStudent(parseDocumentLibrary(previous), studentId)));
       await io.updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
