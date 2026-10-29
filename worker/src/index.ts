@@ -1,4 +1,5 @@
 import { branchingRevisionProblems } from "../../src/lib/branchingCoursePackage";
+import { scientificRevisionProblems } from "../../src/lib/scientificCoursePackage";
 import { handleLti } from "./lti.ts";
 // Erudior community course API (Cloudflare Worker, D1 + R2).
 //
@@ -592,7 +593,9 @@ async function route(req: Request, env: Env): Promise<Response> {
       const workRevisionErrors = communityWorkRevisionProblems(previous, doc, c.id, env.API_ORIGIN);
       if (workRevisionErrors.length) throw new HttpError(409, workRevisionErrors.join("; "));
       const branchingErrors=branchingRevisionProblems(previous.canonical?.course.branchingScenarios ?? previous.branchingScenarios ?? [],doc.canonical?.course.branchingScenarios ?? doc.branchingScenarios ?? []);
+      const scientificErrors=scientificRevisionProblems(previous.canonical?.course.scientificWorkspaces ?? previous.scientificWorkspaces ?? [],doc.canonical?.course.scientificWorkspaces ?? doc.scientificWorkspaces ?? []);
       if(branchingErrors.length)throw new HttpError(409,branchingErrors.join('; '));
+      if(scientificErrors.length)throw new HttpError(409,scientificErrors.join('; '));
       const next = new Map((doc.canonical?.course.spreadsheetAssignments ?? doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
       for (const assignment of previous.spreadsheetAssignments ?? []) {
         const current = next.get(assignment.id);

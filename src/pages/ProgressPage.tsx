@@ -1,3 +1,4 @@
+import LearnerScientific from "../components/LearnerScientific";
 import LearnerBranching from "../components/LearnerBranching";
 import LearnerInstructionalEvidence from "../components/LearnerInstructionalEvidence";
 import LearnerTransactions from "../components/LearnerTransactions";
@@ -166,6 +167,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
       <LearnerInterventions api={api} />
       <LearnerDocumentCases api={api} />
+      <LearnerScientific api={api} />
       <LearnerBranching api={api} />
       <LearnerTransactions api={api} />
       <LearnerInstructionalEvidence api={api} />

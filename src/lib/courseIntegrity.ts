@@ -2,6 +2,7 @@ import { validateReaderTexts } from "./readerContent";
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
 import { branchingCourseProblems, parseCourseBranchingScenarios } from "./branchingCoursePackage";
+import { scientificCourseProblems, parseCourseScientificWorkspaces } from "./scientificCoursePackage";
 import { validateAssignment } from "./spreadsheetAssignments";
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 
@@ -36,6 +37,7 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
   for (const message of validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(q => q.id) ?? [] })) report("texts", message);
 
   for(const issue of branchingCourseProblems(course.branchingScenarios,new Set(course.lessons.map(l=>l.id)))) report("branchingScenarios",issue);
+  for(const issue of scientificCourseProblems(course.scientificWorkspaces,new Set(course.lessons.map(l=>l.id)))) report("scientificWorkspaces",issue);
   if (course.spreadsheetAssignments !== undefined && !Array.isArray(course.spreadsheetAssignments)) {
     report("spreadsheetAssignments", "Must be an array");
   } else {
@@ -94,6 +96,7 @@ export function importValidatedCourseSnapshot(source: string): Course {
       throw new Error(`Invalid course references: lessons[${i}].module: ${lesson.module}`);
   }
   parseCourseBranchingScenarios(raw.branchingScenarios,new Set(rawLessons.map(l=>String(l.id))));
+  parseCourseScientificWorkspaces(raw.scientificWorkspaces,new Set(rawLessons.map(l=>String(l.id))));
   if (raw.spreadsheetAssignments !== undefined && !Array.isArray(raw.spreadsheetAssignments))
     throw new Error("Invalid spreadsheet assignments: expected an array.");
   if (Array.isArray(raw.spreadsheetAssignments)) {

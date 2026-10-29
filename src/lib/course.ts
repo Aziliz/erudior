@@ -6,6 +6,7 @@ import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
 import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
+import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
 import { normalizeSpreadsheetAssignment } from "./spreadsheetAssignments";
 
 const SEP = "__";
@@ -103,6 +104,7 @@ export function normalizeCourse(raw: unknown): Course {
   }
 
   const branchingScenarios = raw.branchingScenarios === undefined ? undefined : parseCourseBranchingScenarios(raw.branchingScenarios, new Set(lessons.map(l=>l.id)));
+  const scientificWorkspaces = raw.scientificWorkspaces === undefined ? undefined : parseCourseScientificWorkspaces(raw.scientificWorkspaces, new Set(lessons.map(l=>l.id)));
 
   const banks: Bank[] = arr(raw.banks).map((b, i) => {
     try {
@@ -257,6 +259,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
     ...(branchingScenarios ? { branchingScenarios } : {}),
+    ...(scientificWorkspaces ? { scientificWorkspaces } : {}),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
 }

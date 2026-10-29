@@ -19,6 +19,7 @@ export default function CanonicalCourseInspection({ course }: { course: Portable
     <CourseWorkInspection work={course} />
     <ReadingLibraryInspection texts={course.texts ?? []} questions={course.banks[0]?.questions ?? []} />
     <h4>Branching scenarios, state, deadlines and consequences</h4>{data(course.branchingScenarios ?? [])}
+    <h4>Scientific workspaces, measurements, uncertainty and design</h4>{data(course.scientificWorkspaces ?? [])}
     <h4>Spreadsheet starters, protection and grading criteria</h4>{data(course.spreadsheetAssignments ?? [])}
     <details><summary>Exact complete authoring course JSON</summary>{data(course)}</details>
   </section>;

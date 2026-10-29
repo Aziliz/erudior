@@ -1,3 +1,4 @@
+import ScientificStudio from "../components/ScientificStudio";
 import BranchingStudio from "../components/BranchingStudio";
 import InstructionalStudio from "../components/InstructionalStudio";
 import TransactionStudio from "../components/TransactionStudio";
@@ -73,7 +74,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
-  | "branching" | "document-cases" | "transactions" | "instructional-evidence"
+  | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -97,6 +98,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "scientific", label: "Scientific workspaces" },
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
@@ -119,6 +121,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "scientific", label: "Scientific workspaces" },
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
@@ -227,6 +230,7 @@ export default function ParentArea({
           {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
           {tab === "interoperability" && <ContentInteroperability api={api} />}
           {tab === "document-cases" && <DocumentEngine api={api} />}
+          {tab === "scientific" && <ScientificStudio api={api} />}
           {tab === "branching" && <BranchingStudio api={api} />}
           {tab === "transactions" && <TransactionStudio api={api} />}
           {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
