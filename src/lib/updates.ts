@@ -48,7 +48,8 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
         // an install of the verified bytes. Native FileProvider handoff is required.
         const bytes = await verifyAndroidApk(release, progress);
         await invoke("stage_android_update", { content: Array.from(bytes), expectedSha256: release.sha256 });
-        throw new Error("APK verified and staged in private Android cache. System installer handoff is not yet implemented; no installation was started.");
+        const launched = await invoke<boolean>("launch_android_installer");
+        if (!launched) throw new Error("Android installer was not launched.");
       },
     };
   }
