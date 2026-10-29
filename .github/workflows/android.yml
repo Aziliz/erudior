@@ -98,6 +98,20 @@ jobs:
           unzip -l "$apk" | sort -nr | head -25 >> "$GITHUB_STEP_SUMMARY" || true
           echo '~~~' >> "$GITHUB_STEP_SUMMARY"
           echo "APK analysis complete; this does not establish device installation success."
+      - name: Enforce Android APK size and packaged-course budget
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          bytes="$(stat -c%s "$apk")"
+          echo "Measured APK: $bytes bytes"
+          # Temporary development-build ceiling; tighten after release-signing and optimization.
+          test "$bytes" -lt 104857600 || { echo "::error::Android APK exceeds 100 MiB development ceiling"; exit 1; }
+          if unzip -Z1 "$apk" | grep -Ei '(^|/)(samples/(math|languages)/|colorado-broker-course\\.json|dist-courses/|courses-dev/)'; then
+            echo "::error::Course data shipped in Android package"
+            exit 1
+          fi
       - name: Upload installable debug-testing artifact
         uses: actions/upload-artifact@v4
         with:
