@@ -5,7 +5,7 @@
 
 import { invoke } from "@tauri-apps/api/core";
 import { inApp } from "./storage";
-import { fetchAndroidRelease, verifyAndroidApk } from "./androidUpdates";
+import { fetchAndroidRelease, verifyAndroidApk, shouldOfferAndroidUpdate } from "./androidUpdates";
 
 export const RELEASES_URL = "https://github.com/Aziliz/erudior/releases/latest";
 
@@ -36,10 +36,7 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
     const release = await fetchAndroidRelease();
     const currentBuild = import.meta.env.VITE_ANDROID_BUILD_SHA || "";
     const currentVersion = await appVersion();
-    const parts = (v: string) => v.split(".").slice(0, 3).map((n) => Number.parseInt(n, 10) || 0);
-    const next = parts(release.version);
-    const now = parts(currentVersion);
-    if (release.build === currentBuild || next.some((v, i) => v !== now[i] && next.slice(0, i).every((x, j) => x === now[j]) && v < now[i])) return null;
+    if (!shouldOfferAndroidUpdate(release, currentVersion, currentBuild)) return null;
     return {
       version: release.version,
       notes: release.notes,
