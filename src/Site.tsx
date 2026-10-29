@@ -6,6 +6,7 @@ import AudiencePage from "./pages/AudiencePage";
 import DownloadPage from "./pages/DownloadPage";
 import Roadmap from "./pages/Roadmap";
 import { Mark } from "./components/Mark";
+import EngineAttribution from "./components/EngineAttribution";
 import { SITE_ORIGIN, appUrl } from "./lib/site";
 import { CATALOG } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
@@ -70,71 +71,40 @@ export default function Site() {
   if (!page) return null;
   return (
     <div className="shell site">
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
+      <a className="skip-link" href="#main">Skip to content</a>
       <header className="topbar">
         <a className="brand" href="/" onClick={(e) => go(e, "home")} aria-current={page === "home" ? "page" : undefined}>
-          <Mark />
-          Erudior
+          <Mark />Erudior
         </a>
         <nav className="nav" aria-label="Main">
           <a href="/parents" onClick={(e) => go(e, "parents")} aria-current={page === "parents" ? "page" : undefined}>For parents</a>
           <a href="/live-rooms" onClick={(e) => go(e, "live-rooms")} aria-current={page === "live-rooms" ? "page" : undefined}>Live rooms</a>
           <a href="/teachers" onClick={(e) => go(e, "teachers")} aria-current={page === "teachers" ? "page" : undefined}>For teachers</a>
-          <a href="/roadmap" onClick={(e) => go(e, "roadmap")} aria-current={page === "roadmap" ? "page" : undefined}>
-            Roadmap
-          </a>
-          <a href="/download" onClick={(e) => go(e, "download")} aria-current={page === "download" ? "page" : undefined}>
-            Download
-          </a>
+          <a href="/roadmap" onClick={(e) => go(e, "roadmap")} aria-current={page === "roadmap" ? "page" : undefined}>Roadmap</a>
+          <a href="/download" onClick={(e) => go(e, "download")} aria-current={page === "download" ? "page" : undefined}>Download</a>
         </nav>
         <div className="spacer" />
-        <a className="btn primary sm" href={appUrl("/")}>
-          Open the web app
-        </a>
+        <a className="btn primary sm" href={appUrl("/")}>Open the web app</a>
       </header>
       <main id="main" className="main" tabIndex={-1}>
-        {page === "home" ? (
-          <Home />
-        ) : page === "parents" || page === "live-rooms" || page === "teachers" ? (
+        {page === "home" ? <Home /> : page === "parents" || page === "live-rooms" || page === "teachers" ? (
           <AudiencePage kind={page} />
-        ) : page === "download" ? (
-          <DownloadPage />
-        ) : page === "roadmap" ? (
-          <Roadmap />
-        ) : (
+        ) : page === "download" ? <DownloadPage /> : page === "roadmap" ? <Roadmap /> : (
           <div className="page">
-            <LegalView
-              page={page}
-              linkTo={(to, label) => (
-                <a href={`/${to}`} onClick={(e) => go(e, to)}>
-                  {label}
-                </a>
-              )}
-            />
+            <LegalView page={page} linkTo={(to, label) => <a href={`/${to}`} onClick={(e) => go(e, to)}>{label}</a>} />
           </div>
         )}
         <footer className="site-footer small muted">
+          {page === "home" && <EngineAttribution />}
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
           <a href={appUrl("/community")}>Community courses</a>
-          <a href="/download" onClick={(e) => go(e, "download")}>
-            Download
-          </a>
-          <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>
-            Roadmap
-          </a>
+          <a href="/download" onClick={(e) => go(e, "download")}>Download</a>
+          <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>Roadmap</a>
           <a href="https://github.com/Aziliz/erudior/releases">Releases</a>
-          <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>
-            Terms of Use
-          </a>
-          <a href="/privacy" onClick={(e) => go(e, "privacy")} aria-current={page === "privacy" ? "page" : undefined}>
-            Privacy Policy
-          </a>
-          <a href="/licenses" onClick={(e) => go(e, "licenses")} aria-current={page === "licenses" ? "page" : undefined}>
-            Licenses
-          </a>
+          <a href="/terms" onClick={(e) => go(e, "terms")} aria-current={page === "terms" ? "page" : undefined}>Terms of Use</a>
+          <a href="/privacy" onClick={(e) => go(e, "privacy")} aria-current={page === "privacy" ? "page" : undefined}>Privacy Policy</a>
+          <a href="/licenses" onClick={(e) => go(e, "licenses")} aria-current={page === "licenses" ? "page" : undefined}>Licenses</a>
           <p className="site-disclaimer">{GENERAL_DISCLAIMER}</p>
         </footer>
       </main>

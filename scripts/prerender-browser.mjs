@@ -13,6 +13,15 @@ mkdirSync(evidence, { recursive: true });
 const local = 'http://127.0.0.1:4175';
 const server = spawn('npx', ['vite', 'preview', '--host', '127.0.0.1', '--port', '4175', '--strictPort'], { cwd: root, stdio: 'ignore' });
 const results = [];
+// Word boundaries also match hyphens: erudior-splash-polished is not the
+// erudior-splash overlay. Keep the static safety check aligned with classList.
+function hasStartupOverlay(html) {
+  return [...html.matchAll(/\bclass\s*=\s*(["'])(.*?)\1/gs)]
+    .some(match => match[2].split(/\s+/).includes('erudior-splash'));
+}
+assert.ok(hasStartupOverlay('<div class="erudior-splash erudior-splash-polished"></div>'));
+assert.ok(hasStartupOverlay("<div class='extra erudior-splash'></div>"));
+assert.ok(!hasStartupOverlay('<div class="erudior-brand-preview erudior-splash-polished"><div class="erudior-splash-book"></div></div>'));
 let browser;
 try {
   let ready = false;
@@ -25,7 +34,7 @@ try {
   for (const width of [1280, 320]) {
     for (const pagePath of ['/', '/roadmap', '/download', '/terms', '/privacy', '/licenses']) {
       const snapshot = readFileSync(path.join(root, 'dist/__site', pagePath, 'index.html'), 'utf8');
-      assert.ok(!/class="[^"]*\berudior-splash\b/.test(snapshot), `${pagePath}: snapshot contains no startup overlay`);
+      assert.ok(!hasStartupOverlay(snapshot), `${pagePath}: snapshot contains no startup overlay`);
       const context = await browser.newContext({ viewport: { width, height: 800 } });
       const page = await context.newPage();
       const errors = [];

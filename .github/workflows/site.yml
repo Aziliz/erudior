@@ -10,8 +10,13 @@ on:
       - "scripts/prerender.mjs"
       - "scripts/prerender-browser.mjs"
       - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
       - "src/lib/startupSplash.ts"
+      - "src/lib/startupSplashPolicy.ts"
       - "src/startupSplash.css"
+      - "src/engineAttribution.css"
+      - "src/components/EngineAttribution.tsx"
+      - "src/Site.tsx"
       - "src/main.tsx"
   push:
     branches: [main]
@@ -26,6 +31,7 @@ on:
       - "scripts/prerender.mjs"
       - "scripts/prerender-browser.mjs"
       - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
       - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
 permissions:
@@ -69,6 +75,16 @@ jobs:
           name: startup-splash-visual-evidence
           path: artifacts/startup-splash/
           if-no-files-found: warn
+      - name: Verify web-app-only startup and manual footer preview
+        id: webapp_startup
+        run: node scripts/diagnostic-command.mjs webapp-startup-browser -- node scripts/webapp-startup-browser.mjs
+      - name: Upload web app startup evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webapp-startup-evidence
+          path: artifacts/webapp-startup/
+          if-no-files-found: warn
       - name: Verify served snapshots clear startup overlays
         id: snapshot_browser
         run: node scripts/diagnostic-command.mjs website-snapshot-browser -- node scripts/prerender-browser.mjs
@@ -88,12 +104,11 @@ jobs:
           VITE_COURSES_URL: ${{ vars.COURSES_URL }}
           VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
         run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
-
       - name: Write safe CI diagnostic summary
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},splash-browser:${{ steps.splash_browser.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},splash-browser:${{ steps.splash_browser.outcome }},webapp-startup:${{ steps.webapp_startup.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
@@ -103,4 +118,3 @@ jobs:
           path: ${{ runner.temp }}/erudior-ci-diagnostics/
           retention-days: 30
           if-no-files-found: warn
-
