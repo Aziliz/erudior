@@ -122,7 +122,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
       - name: Publish public Android preview APK
-        if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_preview == true)) }}
+        if: ${{ false }}
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -139,7 +139,7 @@ jobs:
             gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
           fi
       - name: Verify public release download
-        if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_preview == true)) }}
+        if: ${{ false }}
         shell: bash
         run: |
           set -euo pipefail
@@ -238,6 +238,42 @@ jobs:
         run: npm run tauri android init -- --ci
       - name: Compile optimized ARM64 Android package (no debug)
         run: npm run tauri android build -- --apk --ci --target aarch64
+      - name: Check release signing prerequisites
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$ANDROID_KEYSTORE_B64" || -z "$ANDROID_KEYSTORE_PASSWORD" || -z "$ANDROID_KEY_ALIAS" || -z "$ANDROID_KEY_PASSWORD" ]]; then
+            echo "RELEASE_SIGNING_READY=false" >> "$GITHUB_ENV"
+            echo "Release signing secrets missing; optimized package will remain unpublished." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "RELEASE_SIGNING_READY=true" >> "$GITHUB_ENV"
+      - name: Sign optimized ARM64 APK with persistent release key
+        if: env.RELEASE_SIGNING_READY == 'true'
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          umask 077
+          keystore="$(mktemp)"
+          trap 'rm -f "$keystore"' EXIT
+          printf '%s' "$ANDROID_KEYSTORE_B64" | base64 --decode > "$keystore"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk' -print -quit)"
+          test -n "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keystore" --ks-key-alias "$ANDROID_KEY_ALIAS" --ks-pass env:ANDROID_KEYSTORE_PASSWORD --key-pass env:ANDROID_KEY_PASSWORD --out Erudior-Android-arm64.apk aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
+          sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
+          echo "Optimized Android APK signed using configured persistent keystore." >> "$GITHUB_STEP_SUMMARY"
       - name: Measure optimized package without publishing
         shell: bash
         run: |
