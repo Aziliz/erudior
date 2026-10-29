@@ -26,3 +26,9 @@ test("catalog loads individual course files on demand", () => {
   assert.ok(source.includes("await fetchBytes(entry.file"));
   assert.ok(source.includes("entry.sha256"));
 });
+
+test("optimized release publication has GitHub Releases write permission", () => {
+  assert.match(workflow, /android-optimized-size:\s*\n\s*runs-on:[^\n]*\n\s*timeout-minutes:[^\n]*\n\s*permissions:\s*\n\s*contents: write/);
+  assert.ok(workflow.includes("test -s Erudior-Android-arm64.apk"));
+  assert.ok(workflow.includes("sha256sum -c Erudior-Android-arm64.apk.sha256"));
+});
