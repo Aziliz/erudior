@@ -183,17 +183,30 @@ jobs:
       - run: npm ci
       - name: Verify no bundled course content in Android build
         run: node --test tests/android-remote-courses.test.mjs
-      - name: Build x86_64 test APK with same Android app source
+      - name: Build optimized x86_64 APK for emulator
         run: |
           npm run tauri android init -- --ci
-          npm run tauri android build -- --apk --debug --ci --target x86_64
+          npm run tauri android build -- --apk --ci --target x86_64
+      - name: Sign optimized emulator APK with disposable test certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          keydir="$(mktemp -d)"
+          trap 'rm -rf "$keydir"; rm -f ci-aligned.apk' EXIT
+          keytool -genkeypair -noprompt -storetype PKCS12 -keystore "$keydir/test.jks" -storepass changeit -keypass changeit -alias ci-only -keyalg RSA -keysize 3072 -validity 1 -dname "CN=Erudior CI Test"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk' -print -quit)"
+          test -n "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keydir/test.jks" --ks-key-alias ci-only --ks-pass pass:changeit --key-pass pass:changeit --out ci-signed-optimized.apk ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose ci-signed-optimized.apk
       - name: Install on Android emulator and launch
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
-          script: bash scripts/android-install-smoke.sh
+          script: ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-install-smoke.sh
       - name: Upload emulator failure evidence
         if: failure()
         uses: actions/upload-artifact@v4
