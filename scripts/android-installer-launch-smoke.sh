@@ -29,7 +29,7 @@ sleep 2
 adb shell dumpsys activity activities > android-test-evidence/installer-foreground.txt
 if ! grep -Eiq 'packageinstaller|installstart|packageinstalleractivity|installing' android-test-evidence/installer-foreground.txt; then
   cat android-test-evidence/installer-launch.txt
-  echo "::error::Android did not display an installer activity"
+  echo "::warning::ADB-shell request did not display installer. This does not test an Erudior-origin FileProvider grant"
   exit 1
 fi
 # Do not consent to installation or clear the existing application.
