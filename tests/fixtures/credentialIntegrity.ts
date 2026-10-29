@@ -1,0 +1,21 @@
+/** Synthetic only; fresh ephemeral keys are never persisted or trusted by production. */
+import nacl from 'tweetnacl';
+import { credentialBase64,credentialHash,signCredentialEnvelope,type CredentialTrust,type CredentialEnrollment,type CredentialInstructorApproval,type CredentialIssue,type CredentialEvent,type CredentialRevocation,type CredentialStatus } from '../../src/lib/credentialIntegrity';
+import { createCredentialBundle } from '../../src/lib/credentialPdf';
+export async function credentialFixture(now=1800000000){
+ const keys={enrollment:nacl.sign.keyPair(),instructor:nacl.sign.keyPair(),issuer:nacl.sign.keyPair()};
+ const trust:CredentialTrust={version:1,audience:'https://credentials.example.test',issuerId:'synthetic-issuer',keys:Object.entries(keys).map(([purpose,k])=>({id:purpose+'-synthetic',purpose:purpose as 'enrollment'|'instructor'|'issuer',publicKey:credentialBase64(k.publicKey)})),programs:[{id:'synthetic-program',version:1,title:'Synthetic educational demonstration',approvalReference:'TEST ONLY — no real program approval',validFrom:now-1000,validThrough:now+10000,methodDigest:await credentialHash({method:'Synthetic explicit requirements',requirements:[{id:'practice',minutes:60}]}),requiredMinutes:60}]};
+ const token=credentialBase64(nacl.randomBytes(32)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,'');
+ const enrollment:CredentialEnrollment={id:'enrollment-synthetic-0001',programId:'synthetic-program',programVersion:1,subject:'subject-synthetic-000001',iat:now-20,exp:now+1000,audience:trust.audience};
+ const approval:CredentialInstructorApproval={...enrollment,id:'approval-synthetic-000001',enrollmentId:enrollment.id,evidenceDigest:await credentialHash({syntheticEvidence:true}),methodDigest:trust.programs[0].methodDigest,approvedMinutes:60,requirementsMet:true};
+ const issue:CredentialIssue={requestId:'request-issue-synthetic-0001',credentialId:'credential-synthetic-0001',lookupTokenHash:await credentialHash(new TextEncoder().encode(token)),expectedRevision:0,enrollment:signCredentialEnvelope('enrollment',enrollment,'enrollment-synthetic',keys.enrollment.secretKey),approval:signCredentialEnvelope('instructor',approval,'instructor-synthetic',keys.instructor.secretKey),iat:now,exp:now+120,audience:trust.audience};
+ const command=signCredentialEnvelope('issue',issue,'issuer-synthetic',keys.issuer.secretKey);
+ const issued:CredentialEvent={enrollmentId:enrollment.id,enrollmentDigest:await credentialHash(issue.enrollment),approvalDigest:await credentialHash(issue.approval),requestDigest:await credentialHash(command),issuerId:trust.issuerId,audience:trust.audience,credentialId:issue.credentialId,revision:1,previousDigest:null,action:'issued',at:now,programId:enrollment.programId,programVersion:1,subject:enrollment.subject,evidenceDigest:approval.evidenceDigest,methodDigest:approval.methodDigest,approvedMinutes:60,lookupTokenHash:issue.lookupTokenHash,requestId:issue.requestId};
+ const event=signCredentialEnvelope('event',issued,'issuer-synthetic',keys.issuer.secretKey);
+ const bundle=await createCredentialBundle([event],trust,'issuer-synthetic',keys.issuer.secretKey);
+ const revoke:CredentialRevocation={requestId:'request-revoke-synthetic-0001',credentialId:issue.credentialId,expectedRevision:1,reasonCode:'withdrawn',iat:now,exp:now+120,audience:trust.audience};
+ const revokeCommand=signCredentialEnvelope('revoke',revoke,'issuer-synthetic',keys.issuer.secretKey);
+ const revoked=signCredentialEnvelope('event',{...issued,requestDigest:await credentialHash(revokeCommand),revision:2,previousDigest:await credentialHash(event),action:'revoked',requestId:revoke.requestId,at:now+1} as CredentialEvent,'issuer-synthetic',keys.issuer.secretKey);
+ const status=(challenge:string,state:'issued'|'revoked'='issued',checkedAt=now)=>signCredentialEnvelope('status',{credentialId:issue.credentialId,status:state,checkedAt,expiresAt:checkedAt+60,issuerId:trust.issuerId,audience:trust.audience,challenge,lookupTokenHash:issue.lookupTokenHash} satisfies CredentialStatus,'issuer-synthetic',keys.issuer.secretKey);
+ return {now,trust,keys,token,enrollment,approval,issue,command,issued,event,bundle,revoke,revokeCommand,revoked,status};
+}

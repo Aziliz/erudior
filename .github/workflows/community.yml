@@ -19,6 +19,8 @@ on:
       - "src/lib/presentationProtocol.ts"
       - "src/lib/answers.ts"
       - "src/lib/blockUtil.ts"
+      - "src/lib/credentialIntegrity.ts"
+      - "src/lib/credentialPdf.ts"
       - "src/lib/advancedAssessment.ts"
       - "src/lib/advancedAssessmentCoursePackage.ts"
       - "src/lib/advancedAssessmentScoringV1.ts"
