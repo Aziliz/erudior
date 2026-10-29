@@ -288,6 +288,28 @@ fn install_kind() -> &'static str {
     }
 }
 
+/// Stage a candidate update in the application cache, not the learner data directory.
+/// No installation occurs until a separate Android FileProvider bridge is implemented.
+#[cfg(target_os = "android")]
+#[tauri::command]
+fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: String) -> Result<String, String> {
+    use sha2::{Digest, Sha256};
+    if content.is_empty() || content.len() > 41_943_040 { return Err("APK size outside allowed range".into()); }
+    if expected_sha256.len() != 64 || !expected_sha256.bytes().all(|c| c.is_ascii_hexdigit()) {
+        return Err("invalid expected SHA-256".into());
+    }
+    let hash = format!("{:x}", Sha256::digest(&content));
+    if hash != expected_sha256.to_ascii_lowercase() { return Err("APK hash mismatch".into()); }
+    if !content.starts_with(b"PK\\x03\\x04") { return Err("APK is not a ZIP archive".into()); }
+    let dir = app.path().app_cache_dir().map_err(|e| e.to_string())?.join("updates");
+    fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
+    let staged = dir.join("verified-update.apk");
+    let temp = dir.join("verified-update.part");
+    fs::write(&temp, content).map_err(|e| e.to_string())?;
+    fs::rename(&temp, &staged).map_err(|e| e.to_string())?;
+    Ok(hash)
+}
+
 /// True for the app's own pages (bundled UI, or the dev server in debug builds).
 fn own_page(url: &tauri::Url) -> bool {
     match url.scheme() {
@@ -352,6 +374,8 @@ pub fn run() {
             write_text_file,
             data_location,
             install_kind
+            #[cfg(target_os = "android")]
+            stage_android_update
         ])
         .run(tauri::generate_context!())
         .expect("error while running Erudior");
