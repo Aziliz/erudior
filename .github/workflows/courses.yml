@@ -24,6 +24,8 @@ on:
       - "scripts/lib/releaseTransport.ts"
       - "package.json"
       - "package-lock.json"
+      - "src/lib/presentations.ts"
+      - "src/lib/presentationProtocol.ts"
       - "src/lib/answers.ts"
       - "src/lib/blockUtil.ts"
       - "src/lib/canonicalAuthoring.ts"
