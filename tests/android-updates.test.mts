@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { validateAndroidRelease, compareAndroidVersions, shouldOfferAndroidUpdate } from "../src/lib/androidUpdates.ts";
@@ -27,4 +28,10 @@ test("numeric version ordering and installed build identity", () => {
   assert.equal(shouldOfferAndroidUpdate(release, "0.25.2", "c".repeat(40)), false);
   assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", "c".repeat(40)), true);
   assert.equal(shouldOfferAndroidUpdate(release, "0.24.9", ""), true);
+});
+
+test("Android installer never re-downloads an unverified APK", () => {
+  const updates = readFileSync("src/lib/updates.ts", "utf8");
+  assert.ok(!updates.includes("await openUrl(release.apk)"));
+  assert.match(updates, /native Android installer handoff is not yet available/);
 });
