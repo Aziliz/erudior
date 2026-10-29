@@ -298,4 +298,29 @@ jobs:
               echo "Unsigned output; MUST sign with persistent release key before distribution" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
-          echo "No APK from this job is published, uploaded, or presented as installable."
+          echo "Unsigned APK outputs remain diagnostic-only."
+      - name: Publish verified signed optimized APK
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true && env.RELEASE_SIGNING_READY == 'true' }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s Erudior-Android-arm64.apk
+          test -s Erudior-Android-arm64.apk.sha256
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
+          sha256sum -c Erudior-Android-arm64.apk.sha256
+          if gh release view android-preview >/dev/null 2>&1; then
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --clobber
+          else
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Optimized ARM64 Android preview. Device testing remains in progress." --prerelease
+          fi
+      - name: Check published APK bytes
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true && env.RELEASE_SIGNING_READY == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
+          curl --fail --location --retry 5 --retry-delay 3 --output public.apk "$url"
+          sha256sum --check <(sed 's/Erudior-Android-arm64.apk/public.apk/' Erudior-Android-arm64.apk.sha256)
+          echo "Public optimized APK verified: $url" >> "$GITHUB_STEP_SUMMARY"
