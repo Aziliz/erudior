@@ -1,0 +1,47 @@
+name: Learning games browser and live protocol
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'worker/**'
+      - 'scripts/learning-games-browser.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/learning-games.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-and-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Keyboard, responsive and accessibility game workflows
+        run: npm run test:games-browser
+      - name: Install isolated worker dependencies
+        run: npm ci --prefix worker
+      - name: Typecheck worker
+        run: worker/node_modules/.bin/tsc -p worker
+      - name: Isolated API and live protocol workflows
+        run: npm test --prefix worker
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learning-game-browser-evidence
+          path: test-results/learning-games-browser/
+          retention-days: 14
+          if-no-files-found: ignore

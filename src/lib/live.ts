@@ -2,6 +2,8 @@
 // API and run a quiz; players join in any Erudior (usually app.erudior.com) with a code and a
 // nickname. Nothing about a room is kept once it closes.
 
+import type { Course, Question } from "./types";
+import { isChoice } from "./questions";
 import { API, COMMUNITY } from "./community";
 
 export const LIVE = COMMUNITY;
@@ -12,7 +14,14 @@ export interface LiveQuestion {
   answer: number[];
 }
 
+export type LiveMode = "individual" | "teams" | "cooperative";
+export interface TeamTotal { team: number; members: number; score: number; correct: number }
+
 export interface HostState {
+  mode: LiveMode;
+  teamCount: number;
+  teams: TeamTotal[];
+  cooperative: { correct: number; answered: number };
   t: "state";
   phase: "lobby" | "question" | "reveal" | "ended";
   title: string;
@@ -23,11 +32,15 @@ export interface HostState {
   deadline: number;
   question: LiveQuestion | null;
   answered: number;
-  players: { id: string; name: string; connected: boolean; score: number; correct: number; answered: boolean }[];
+  players: { id: string; name: string; connected: boolean; score: number; correct: number; team: number; answered: boolean }[];
   history: { counts: number[]; right: number; answered: number }[];
 }
 
 export interface PlayState {
+  mode: LiveMode;
+  team: number;
+  teams: TeamTotal[];
+  cooperative?: { correct: number; answered: number };
   t: "play";
   player: string;
   name: string;
@@ -85,22 +98,25 @@ export function liveSocket(
   let timer: ReturnType<typeof setTimeout> | undefined;
   const connect = (u: string) => {
     handlers.onStatus("connecting");
-    ws = new WebSocket(u);
-    ws.onopen = () => {
+    const connection = new WebSocket(u);
+    ws = connection;
+    connection.onopen = () => {
+      if (stopped || ws !== connection) { connection.close(1000); return; }
       tries = 0;
       handlers.onStatus("open");
       const h = hello?.();
-      if (h) ws?.send(JSON.stringify(h));
+      if (h && !stopped && ws === connection) connection.send(JSON.stringify(h));
     };
-    ws.onmessage = (e) => {
+    connection.onmessage = (e) => {
+      if (stopped || ws !== connection) return;
       try {
         handlers.onMessage(JSON.parse(String(e.data)) as ServerMsg);
       } catch {
         /* ignore */
       }
     };
-    ws.onclose = (e) => {
-      if (stopped) return;
+    connection.onclose = (e) => {
+      if (stopped || ws !== connection) return;
       if (e.code >= 4000 && e.code < 4100) {
         stopped = true;
         handlers.onEnd(e.code, e.reason);
@@ -118,7 +134,10 @@ export function liveSocket(
   };
   connect(url);
   return {
-    send: (m: unknown) => ws?.readyState === WebSocket.OPEN && ws.send(JSON.stringify(m)),
+    send: (m: unknown) => {
+      if (stopped || ws?.readyState !== WebSocket.OPEN) return false;
+      try { ws.send(JSON.stringify(m)); return true; } catch { return false; }
+    },
     /** Change the URL used for reconnecting (e.g. once the player id is known). */
     setUrl: (f: () => string) => (currentUrl = f),
     stop: () => {
@@ -135,3 +154,23 @@ export const playerUrl = (code: string, player?: string) => `${wsBase()}/live/ro
 /** The room this app is hosting, kept while the app is open so the host can leave the screen and come back. */
 export let hosting: { code: string; token: string; joinUrl: string; title: string } | null = null;
 export const setHosting = (h: typeof hosting) => (hosting = h);
+
+
+/** Live games deliberately support only self-contained text choice questions. */
+export function liveQuestionUsable(q: Question): boolean {
+  const textOnly = (text: string) => !/\x60\x60\x60|!\[|\[\[|<\/?[a-z]|\]\([^)]*\)|^\s*\|/im.test(text);
+  return isChoice(q) && !q.image && !q.audio && !q.listen && !q.blend && textOnly(q.stem) && q.choices.every(textOnly) && !!q.stem?.trim() && q.stem.length <= 2000 &&
+    q.choices.length >= 2 && q.choices.length <= 8 && q.choices.every(c => !!c.trim() && c.length <= 500) &&
+    q.answer.length > 0 && new Set(q.answer).size === q.answer.length &&
+    q.answer.every(a => Number.isInteger(a) && a >= 0 && a < q.choices.length);
+}
+
+/** Ambiguous IDs fail closed instead of silently using a different bank's answer. */
+export function liveSourceQuestions(course: Course, ids?: string[]): Question[] {
+  const all = course.banks.flatMap(b => b.questions);
+  const counts = new Map<string, number>();
+  for (const q of all) counts.set(q.id, (counts.get(q.id) ?? 0) + 1);
+  const eligible = all.filter(q => counts.get(q.id) === 1 && liveQuestionUsable(q));
+  if (!ids) return eligible;
+  return [...new Set(ids)].flatMap(id => eligible.filter(q => q.id === id));
+}
