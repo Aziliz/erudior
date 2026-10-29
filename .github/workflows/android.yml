@@ -208,7 +208,9 @@ jobs:
           api-level: 35
           target: google_apis
           arch: x86_64
-          script: ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-install-smoke.sh
+          script: |
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-install-smoke.sh
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-upgrade-retention-smoke.sh
       - name: Upload emulator failure evidence
         if: failure()
         uses: actions/upload-artifact@v4
