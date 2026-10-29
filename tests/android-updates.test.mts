@@ -104,3 +104,9 @@ test("Android installer rejects APK versionCode downgrade", () => {
   assert.match(kotlin, /incomingCode < currentCode/);
   assert.match(kotlin, /older than the installed version/);
 });
+
+test("Initial Android preview release publishes manifest alongside signed APK", () => {
+  const workflow = readFileSync(".github/workflows/android.yml", "utf8");
+  assert.match(workflow, /gh release create android-preview Erudior-Android-arm64\.apk Erudior-Android-arm64\.apk\.sha256 android-update\.json/);
+  assert.match(workflow, /gh release upload android-preview Erudior-Android-arm64\.apk Erudior-Android-arm64\.apk\.sha256 android-update\.json/);
+});
