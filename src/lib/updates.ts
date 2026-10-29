@@ -5,18 +5,21 @@
 
 import { invoke } from "@tauri-apps/api/core";
 import { inApp } from "./storage";
+import { fetchAndroidRelease, verifyAndroidApk } from "./androidUpdates";
 
 export const RELEASES_URL = "https://github.com/Aziliz/erudior/releases/latest";
 
 /** On since v0.24.0 (the repo and its releases are public). */
 export const UPDATES_ENABLED = true;
 
-export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "other";
+export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "android" | "other";
 
 export interface AvailableUpdate {
   version: string;
   notes?: string;
   canInstall: boolean;
+  actionLabel?: string;
+  guidance?: string;
   install: (onProgress: (pct: number | null) => void) => Promise<void>;
 }
 
@@ -28,10 +31,28 @@ export async function appVersion(): Promise<string> {
 
 export async function checkForUpdate(): Promise<AvailableUpdate | null> {
   if (!inApp || !UPDATES_ENABLED) return null;
+  const kind = await invoke<InstallKind>("install_kind");
+  if (kind === "android") {
+    const release = await fetchAndroidRelease();
+    const currentBuild = import.meta.env.VITE_ANDROID_BUILD_SHA || "";
+    const currentVersion = await appVersion();
+    if (release.build === currentBuild || release.version < currentVersion) return null;
+    return {
+      version: release.version,
+      notes: release.notes,
+      canInstall: true,
+      actionLabel: "Verify and open installer",
+      guidance: "Android asks you to approve the installation. Updates signed with the same certificate retain app data.",
+      install: async (progress) => {
+        await verifyAndroidApk(release, progress);
+        const { openUrl } = await import("@tauri-apps/plugin-opener");
+        await openUrl(release.apk);
+      },
+    };
+  }
   const { check } = await import("@tauri-apps/plugin-updater");
   const update = await check();
   if (!update) return null;
-  const kind = await invoke<InstallKind>("install_kind");
   return {
     version: update.version,
     notes: update.body ?? undefined,
