@@ -285,8 +285,9 @@ jobs:
         run: |
           set -euo pipefail
           umask 077
-          keyfile="$(mktemp --suffix=.jks)"
-          trap 'rm -f "$keyfile" ci-aligned.apk ci-signed.apk' EXIT
+          keydir="$(mktemp -d)"
+          keyfile="$keydir/ci-test.jks"
+          trap 'rm -rf "$keydir"; rm -f ci-aligned.apk ci-signed.apk' EXIT
           # This temporary certificate tests the signing process only.
           # Never use it for public release or as an update identity.
           keytool -genkeypair -noprompt -storetype PKCS12 -keystore "$keyfile" -storepass changeit -keypass changeit -alias ci-only -keyalg RSA -keysize 3072 -validity 1 -dname "CN=Erudior CI Test"
