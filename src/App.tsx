@@ -370,6 +370,14 @@ export default function App() {
     })();
   }, [reload]);
 
+  // Recheck on a long-running Android session and when the app regains focus.
+  useEffect(() => {
+    const check = () => checkForUpdate().then((u) => { if (u) setAppUpdate(u); }, () => {});
+    const timer = window.setInterval(check, 6 * 60 * 60 * 1000);
+    window.addEventListener("focus", check);
+    return () => { window.clearInterval(timer); window.removeEventListener("focus", check); };
+  }, []);
+
   // Homeschool students each see the courses they started (course files are shared on disk).
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
   const myCourses = enrolled ? courses.filter((c) => enrolled.has(c.id)) : courses;
@@ -1132,7 +1140,7 @@ export default function App() {
                 {installing !== false
                   ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`
                   : appUpdate.canInstall
-                    ? "Install it now; your courses and progress are kept."
+                    ? appUpdate.guidance ?? "Install it now; your courses and progress are kept."
                     : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}
               </span>
             </div>
@@ -1154,7 +1162,7 @@ export default function App() {
                       }
                     }}
                   >
-                    Install and restart
+                    {appUpdate.actionLabel ?? "Install and restart"}
                   </button>
                 ) : (
                   <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>
