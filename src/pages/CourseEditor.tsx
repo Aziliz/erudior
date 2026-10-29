@@ -1,7 +1,7 @@
 import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
 import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
 import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
@@ -278,6 +278,7 @@ function useSelection<T extends { id: string }>(items: T[]) {
 }
 
 function Lessons({ draft, update }: EP) {
+  const fieldId = useId();
   const { setSel, current } = useSelection(draft.lessons);
   const [preview, setPreview] = useState(false);
   const [pendingDelete, setPendingDelete] = useState<{ id: string; snapshot: string } | null>(null);
@@ -285,19 +286,18 @@ function Lessons({ draft, update }: EP) {
     update((c) => ({ ...c, lessons: c.lessons.map((l) => (l.id === id ? { ...l, ...patch } : l)) }));
 
   function add() {
-    const l: Lesson = {
-      id: `l-${uid()}`,
-      module: current?.module ?? draft.modules[0]?.id ?? "m1",
-      title: "New lesson",
-      topics: [],
-      body: "",
-    };
-    update((c) => ({
-      ...c,
-      modules: c.modules.length ? c.modules : [{ id: l.module, title: "Module 1" }],
-      lessons: [...c.lessons, l],
-    }));
-    setSel(l.id);
+    const lessonId = `l-${uid()}`;
+    const fallbackModuleId = `m-${uid()}`;
+    const requestedModuleId = current?.module;
+    update(c => {
+      if (c.lessons.some(lesson => lesson.id === lessonId) || c.modules.some(module => module.id === lessonId)) return c;
+      const moduleId = c.modules.find(module => module.id === requestedModuleId)?.id ?? c.modules[0]?.id ?? fallbackModuleId;
+      if (!c.modules.length && c.lessons.some(lesson => lesson.id === moduleId)) return c;
+      const lesson: Lesson = { id: lessonId, module: moduleId, title: "New lesson", topics: [], body: "" };
+      return { ...c, modules: c.modules.length ? c.modules : [{ id: moduleId, title: "Module 1" }], lessons: [...c.lessons, lesson] };
+    });
+    setPendingDelete(null);
+    setSel(lessonId);
   }
 
   return (
@@ -325,13 +325,13 @@ function Lessons({ draft, update }: EP) {
         ) : (
           <div className="stack">
             <div className="form-grid" style={{ gridTemplateColumns: "2fr 1fr 100px", marginBottom: 0 }}>
-              <label className="field">
-                <span>Title</span>
-                <input className="input" value={current.title} onChange={(e) => setLesson(current.id, { title: e.target.value })} />
+              <label className="field" htmlFor={`${fieldId}-title`}>
+                <span id={`${fieldId}-title-label`}>Title</span>
+                <input id={`${fieldId}-title`} aria-labelledby={`${fieldId}-title-label`} className="input" value={current.title} onChange={(e) => setLesson(current.id, { title: e.target.value })} />
               </label>
-              <label className="field">
-                <span>Module</span>
-                <select className="select" value={current.module} onChange={(e) => update(c => assignCourseLesson(c, current.id, e.target.value))}>
+              <label className="field" htmlFor={`${fieldId}-module`}>
+                <span id={`${fieldId}-module-label`}>Module</span>
+                <select id={`${fieldId}-module`} aria-labelledby={`${fieldId}-module-label`} className="select" value={current.module} onChange={(e) => update(c => assignCourseLesson(c, current.id, e.target.value))}>
                   {draft.modules.map((m) => (
                     <option key={m.id} value={m.id}>
                       {m.title}
@@ -339,9 +339,10 @@ function Lessons({ draft, update }: EP) {
                   ))}
                 </select>
               </label>
-              <label className="field">
-                <span>Minutes</span>
+              <label className="field" htmlFor={`${fieldId}-minutes`}>
+                <span id={`${fieldId}-minutes-label`}>Minutes</span>
                 <input
+                  id={`${fieldId}-minutes`} aria-labelledby={`${fieldId}-minutes-label`}
                   className="input num"
                   type="number"
                   min={0}
@@ -350,9 +351,10 @@ function Lessons({ draft, update }: EP) {
                 />
               </label>
             </div>
-            <label className="field">
-              <span>Topics (comma-separated; links the lesson to matching questions and notecards)</span>
+            <label className="field" htmlFor={`${fieldId}-topics`}>
+              <span id={`${fieldId}-topics-label`}>Topics (comma-separated; links the lesson to matching questions and notecards)</span>
               <input
+                id={`${fieldId}-topics`} aria-labelledby={`${fieldId}-topics-label`}
                 className="input"
                 value={(current.topics ?? []).join(", ")}
                 onChange={(e) =>

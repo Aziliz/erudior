@@ -71,7 +71,7 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
           </div>
           {communityModuleDeleteProblem(doc, m.id) && <p className="small muted">{communityModuleDeleteProblem(doc, m.id)}</p>}
           <div className="panel" aria-label={`Lessons in ${m.title}`}>
-            <strong>Lessons (${lessonsIn(m.id, mi === 0).length})</strong>
+            <strong>Lessons ({lessonsIn(m.id, mi === 0).length})</strong>
             {lessonsIn(m.id, mi === 0).map((lesson) => (
               <div className="row" key={lesson.id} style={{ marginTop: 8, alignItems: "center" }}>
                 <span className="grow">{lesson.title}</span>
