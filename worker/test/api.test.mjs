@@ -392,6 +392,24 @@ ok("branching updated public exact",JSON.stringify((await anon.call("GET",`/cour
 const invalidScenario=structuredClone(changedScenario);invalidScenario.branchingScenarios[0].nodes=[];
 ok("branching malformed draft rejected",(await author.call("PUT",`/drafts/${scenarioId}`,invalidScenario)).status===400);
 
+// Real isolated D1/R2 scientific lifecycle independent of other fixture versions.
+const scienceId=(await author.call("POST","/drafts")).data.id;
+const sciencePack={"format":"erudior-scientific-pack","version":1,"id":"investigation","revision":1,"title":"Untitled educational investigation","description":"Replace with a reviewed investigation question.","sourceNote":"Author-created educational workspace. Review before assignment.","safety":"Simulation or recorded observations only. No real instrument control. Adult review is required.","assumptions":"Author-defined units and stated absolute bounds; no inferred calibration, probability or confidence level.","steps":[{"id":"observe","title":"Observe and record","instructions":"Describe the procedure and record observations.","adult":false}],"channels":[{"id":"x","title":"Independent measurement","unit":"unit","min":-1000,"max":1000,"uncertaintyMax":100},{"id":"y","title":"Dependent measurement","unit":"unit","min":-1000,"max":1000,"uncertaintyMax":100}],"graph":{"xChannelId":"x","yChannelId":"y"},"instrument":{"kind":"manual"},"design":{"brief":"Compare a design iteration against the stated criteria and explain its tradeoffs.","criteria":[{"id":"target","title":"Target interval","channelId":"y","min":0,"max":100}]}};
+const scienceDoc={format:"erudior-community",version:1,title:"Scenario fixture",description:"Synthetic fixture",subject:"Science",level:"Elementary School",type:"Course",lessons:[{id:"l1",title:"Fixture",blocks:[{type:"text",md:"Test-only source"}]}],decks:[],scientificWorkspaces:[{...sciencePack,lessonId:"l1"}]};
+ok("scientific draft save",(await author.call("PUT",`/drafts/${scienceId}`,scienceDoc)).status===200);
+ok("scientific reopen exact",JSON.stringify((await author.call("GET",`/drafts/${scienceId}`)).data.doc.scientificWorkspaces)===JSON.stringify(scienceDoc.scientificWorkspaces));
+ok("scientific first publication",(await author.call("POST",`/drafts/${scienceId}/publish`)).status===200);
+ok("scientific public exact source",JSON.stringify((await anon.call("GET",`/courses/${scienceId}`)).data.doc.scientificWorkspaces)===JSON.stringify(scienceDoc.scientificWorkspaces));
+const changedScience=structuredClone(scienceDoc);changedScience.scientificWorkspaces[0].assumptions="Changed synthetic assumptions";
+await author.call("PUT",`/drafts/${scienceId}`,changedScience);
+ok("scientific same revision rejects publication",(await author.call("POST",`/drafts/${scienceId}/publish`)).status===409);
+ok("scientific rejected publication retains source",JSON.stringify((await anon.call("GET",`/courses/${scienceId}`)).data.doc.scientificWorkspaces)===JSON.stringify(scienceDoc.scientificWorkspaces));
+changedScience.scientificWorkspaces[0].revision=2;await author.call("PUT",`/drafts/${scienceId}`,changedScience);
+ok("scientific explicit revision publication",(await author.call("POST",`/drafts/${scienceId}/publish`)).status===200);
+ok("scientific updated public exact",JSON.stringify((await anon.call("GET",`/courses/${scienceId}`)).data.doc.scientificWorkspaces)===JSON.stringify(changedScience.scientificWorkspaces));
+const invalidScience=structuredClone(changedScience);invalidScience.scientificWorkspaces[0].steps=[];
+ok("scientific malformed draft rejected",(await author.call("PUT",`/drafts/${scienceId}`,invalidScience)).status===400);
+
 ok("logout", (await author.call("POST", "/auth/logout")).status === 200 && (await author.call("GET", "/me")).data.user === null);
 
 if (fails) {

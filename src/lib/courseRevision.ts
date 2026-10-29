@@ -1,4 +1,5 @@
 import { branchingRevisionProblems } from "./branchingCoursePackage";
+import { scientificRevisionProblems } from "./scientificCoursePackage";
 import { readerRevisionProblems } from "./readerContent";
 import type { Course } from "./types";
 import { localBankId } from "./course";
@@ -58,7 +59,9 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
   }
   for (const message of readerRevisionProblems(previous.texts ?? [], next.texts ?? [])) add("blocking", "texts", message);
   for(const issue of branchingRevisionProblems(previous.branchingScenarios??[],next.branchingScenarios??[]))add("blocking","branchingScenarios",issue);
+  for(const issue of scientificRevisionProblems(previous.scientificWorkspaces??[],next.scientificWorkspaces??[]))add("blocking","scientificWorkspaces",issue);
   compare("branchingScenarios", previous.branchingScenarios ?? [], next.branchingScenarios ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
+  compare("scientificWorkspaces", previous.scientificWorkspaces ?? [], next.scientificWorkspaces ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
   compare("spreadsheetAssignments", previous.spreadsheetAssignments ?? [], next.spreadsheetAssignments ?? [],
     (assignment) => assignment.id, (assignment) => assignment.lessonId);
   for (const [i, assignment] of (next.spreadsheetAssignments ?? []).entries())

@@ -1,3 +1,4 @@
+import { parseScientificLibrary, type ScientificLibrary } from './scientificWorkspace';
 import { parseBranchingLibrary, type BranchingLibrary } from './branchingEngine';
 import { parseInstructionalLibrary, type InstructionalLibrary } from './instructionalEvidence';
 import { parseTransactionLibrary, type TransactionLibrary } from './transactionEngine';
@@ -57,6 +58,8 @@ interface Contents {
   transactionEngine?: TransactionLibrary;
   /** Private fictional scenario sources, decision timelines and immutable evidence. */
   branchingEngine?: BranchingLibrary;
+  /** Private guided labs, measurements, design iterations and immutable evidence. */
+  scientificWorkspace?: ScientificLibrary;
   /** Private requirement mappings, captured evidence and human credit review history. */
   instructionalEvidence?: InstructionalLibrary;
   /** Attached documents by file id. */
@@ -136,6 +139,11 @@ function validateBranchingFamily(state: BranchingLibrary, family: Family | null)
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Branching scenario history refers to a learner outside this family.");
 }
 
+function validateScientificFamily(state: ScientificLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Scientific workspace history refers to a learner outside this family.");
+}
+
 function validateTransactionFamily(state: TransactionLibrary, family: Family | null) {
   const students = new Set(family?.students.map(student => student.id) ?? []);
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Transaction history refers to a learner outside this family.");
@@ -152,6 +160,9 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const branchingText = await store.loadState("branching-engine");
   const branchingEngine = branchingText === null ? undefined : parseBranchingLibrary(branchingText);
   if (branchingEngine) validateBranchingFamily(branchingEngine, family);
+  const scientificText = await store.loadState("scientific-workspace");
+  const scientificWorkspace = scientificText === null ? undefined : parseScientificLibrary(scientificText);
+  if (scientificWorkspace) validateScientificFamily(scientificWorkspace, family);
   const instructionalText = await store.loadState("instructional-evidence");
   const instructionalEvidence = instructionalText === null ? undefined : parseInstructionalLibrary(instructionalText);
   if (instructionalEvidence) validateInstructionalFamily(instructionalEvidence, family);
@@ -189,6 +200,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
     ...(branchingEngine === undefined ? {} : { branchingEngine }),
+    ...(scientificWorkspace === undefined ? {} : { scientificWorkspace }),
     ...(transactionEngine === undefined ? {} : { transactionEngine }),
     ...(instructionalEvidence === undefined ? {} : { instructionalEvidence }),
     progress: baseProgress,
@@ -254,6 +266,14 @@ export async function restoreContents(
     ...branchingState, restoredAt: new Date().toISOString(),
     pendingApproval: branchingState.packs.map(pack => pack.id + "@" + pack.revision),
   }));
+  if (b.scientificWorkspace === null) throw Error("Invalid scientific workspace history in backup.");
+  const scientificState = b.scientificWorkspace === undefined ? undefined : parseScientificLibrary(b.scientificWorkspace);
+  if (scientificState) validateScientificFamily(scientificState, b.family);
+  // Imported receipts remain historical records, never current local approval.
+  const scientificWorkspace = scientificState === undefined ? null : JSON.stringify(parseScientificLibrary({
+    ...scientificState, restoredAt: new Date().toISOString(),
+    pendingApproval: scientificState.packs.map(pack => pack.id + "@" + pack.revision),
+  }));
   if (b.transactionEngine === null) throw Error("Invalid transaction history in backup.");
   const transactionState = b.transactionEngine === undefined ? undefined : parseTransactionLibrary(b.transactionEngine);
   if (transactionState) validateTransactionFamily(transactionState, b.family);
@@ -304,6 +324,7 @@ export async function restoreContents(
   await store.saveState("document-engine", documentEngine);
   await store.saveState("transaction-engine", transactionEngine);
   await store.saveState("branching-engine", branchingEngine);
+  await store.saveState("scientific-workspace", scientificWorkspace);
   await store.saveState("instructional-evidence", instructionalEvidence);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };

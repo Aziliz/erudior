@@ -1,3 +1,4 @@
+import { createScientificWorkspaceStore } from "./lib/scientificWorkspaceStore";
 import { createBranchingEngineStore } from "./lib/branchingEngineStore";
 import { createInstructionalEvidenceStore } from "./lib/instructionalEvidenceStore";
 import { createTransactionEngineStore } from "./lib/transactionEngineStore";
@@ -138,6 +139,8 @@ export interface AppApi {
   importInteroperabilityBank?: (xml: string) => Promise<void>;
   instructionalSupervisor?: ReturnType<typeof createInstructionalEvidenceStore>["supervisor"];
   instructionalLearner?: ReturnType<typeof createInstructionalEvidenceStore>["learner"];
+  scientificSupervisor?: ReturnType<typeof createScientificWorkspaceStore>["supervisor"];
+  scientificLearner?: ReturnType<typeof createScientificWorkspaceStore>["learner"];
   branchingSupervisor?: ReturnType<typeof createBranchingEngineStore>["supervisor"];
   branchingLearner?: ReturnType<typeof createBranchingEngineStore>["learner"];
   transactionSupervisor?: ReturnType<typeof createTransactionEngineStore>["supervisor"];
@@ -721,6 +724,23 @@ export default function App() {
     },
   });
 
+  const scientificWorkspace = createScientificWorkspaceStore({
+    read: () => store.loadState("scientific-workspace"),
+    update: change => store.updateState("scientific-workspace", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational scientific workspaces.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen scientific workspaces.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening scientific workspaces.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
   const branchingEngine = createBranchingEngineStore({
     read: () => store.loadState("branching-engine"),
     update: change => store.updateState("branching-engine", change),
@@ -817,6 +837,8 @@ export default function App() {
     interventionSupervisor,
     instructionalSupervisor: instructionalEvidence.supervisor,
     instructionalLearner: instructionalEvidence.learner,
+    scientificSupervisor: scientificWorkspace.supervisor,
+    scientificLearner: scientificWorkspace.learner,
     branchingSupervisor: branchingEngine.supervisor,
     branchingLearner: branchingEngine.learner,
     transactionSupervisor: transactionEngine.supervisor,
