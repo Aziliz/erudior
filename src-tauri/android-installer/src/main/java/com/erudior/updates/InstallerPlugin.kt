@@ -171,10 +171,12 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
             installed.signingInfo?.apkContentsSigners?.map { it.toCharsString() }?.toSet()
             else installed.signatures?.map { it.toCharsString() }?.toSet()
         // Android rejects versionCode downgrades; fail before prompting the user.
+        @Suppress("DEPRECATION")
         val incomingCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            archive.longVersionCode else @Suppress("DEPRECATION") archive.versionCode.toLong()
+            archive.longVersionCode else archive.versionCode.toLong()
+        @Suppress("DEPRECATION")
         val currentCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            installed.longVersionCode else @Suppress("DEPRECATION") installed.versionCode.toLong()
+            installed.longVersionCode else installed.versionCode.toLong()
         if (incomingCode < currentCode) {
             invoke.reject("Update APK is older than the installed version")
             return
