@@ -8,6 +8,10 @@ on:
         type: boolean
         required: true
         default: false
+  push:
+    branches: [main]
+    paths:
+      - '.github/android-preview-release-trigger'
   pull_request:
     paths:
       - '.github/workflows/android.yml'
@@ -78,7 +82,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
       - name: Publish public Android preview APK
-        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_preview == true)) }}
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -94,7 +98,7 @@ jobs:
             gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
           fi
       - name: Verify public release download
-        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true }}
+        if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_preview == true)) }}
         shell: bash
         run: |
           set -euo pipefail
