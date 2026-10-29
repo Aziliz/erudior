@@ -1,3 +1,4 @@
+import { parseBranchingLibrary, type BranchingLibrary } from './branchingEngine';
 import { parseInstructionalLibrary, type InstructionalLibrary } from './instructionalEvidence';
 import { parseTransactionLibrary, type TransactionLibrary } from './transactionEngine';
 import { parseDocumentLibrary, type DocumentLibrary } from './documentEngine';
@@ -54,6 +55,8 @@ interface Contents {
   documentEngine?: DocumentLibrary;
   /** Private educational transaction sources, sessions and immutable evidence. */
   transactionEngine?: TransactionLibrary;
+  /** Private fictional scenario sources, decision timelines and immutable evidence. */
+  branchingEngine?: BranchingLibrary;
   /** Private requirement mappings, captured evidence and human credit review history. */
   instructionalEvidence?: InstructionalLibrary;
   /** Attached documents by file id. */
@@ -128,6 +131,11 @@ function validateDocumentFamily(state: DocumentLibrary, family: Family | null) {
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Document history refers to a learner outside this family.");
 }
 
+function validateBranchingFamily(state: BranchingLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Branching scenario history refers to a learner outside this family.");
+}
+
 function validateTransactionFamily(state: TransactionLibrary, family: Family | null) {
   const students = new Set(family?.students.map(student => student.id) ?? []);
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Transaction history refers to a learner outside this family.");
@@ -141,6 +149,9 @@ function validateInstructionalFamily(state: InstructionalLibrary, family: Family
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
+  const branchingText = await store.loadState("branching-engine");
+  const branchingEngine = branchingText === null ? undefined : parseBranchingLibrary(branchingText);
+  if (branchingEngine) validateBranchingFamily(branchingEngine, family);
   const instructionalText = await store.loadState("instructional-evidence");
   const instructionalEvidence = instructionalText === null ? undefined : parseInstructionalLibrary(instructionalText);
   if (instructionalEvidence) validateInstructionalFamily(instructionalEvidence, family);
@@ -177,6 +188,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(presentations === undefined ? {} : { presentations }),
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
+    ...(branchingEngine === undefined ? {} : { branchingEngine }),
     ...(transactionEngine === undefined ? {} : { transactionEngine }),
     ...(instructionalEvidence === undefined ? {} : { instructionalEvidence }),
     progress: baseProgress,
@@ -234,6 +246,14 @@ export async function restoreContents(
     pendingApproval: instructionalState.packs.map(pack => pack.id + "@" + pack.revision),
     pendingDecisionIds: instructionalState.decisions.map(decision => decision.id),
   }));
+  if (b.branchingEngine === null) throw Error("Invalid branching scenario history in backup.");
+  const branchingState = b.branchingEngine === undefined ? undefined : parseBranchingLibrary(b.branchingEngine);
+  if (branchingState) validateBranchingFamily(branchingState, b.family);
+  // Imported receipts remain historical records, never current local approval.
+  const branchingEngine = branchingState === undefined ? null : JSON.stringify(parseBranchingLibrary({
+    ...branchingState, restoredAt: new Date().toISOString(),
+    pendingApproval: branchingState.packs.map(pack => pack.id + "@" + pack.revision),
+  }));
   if (b.transactionEngine === null) throw Error("Invalid transaction history in backup.");
   const transactionState = b.transactionEngine === undefined ? undefined : parseTransactionLibrary(b.transactionEngine);
   if (transactionState) validateTransactionFamily(transactionState, b.family);
@@ -283,6 +303,7 @@ export async function restoreContents(
   await store.saveState("interventions", interventions);
   await store.saveState("document-engine", documentEngine);
   await store.saveState("transaction-engine", transactionEngine);
+  await store.saveState("branching-engine", branchingEngine);
   await store.saveState("instructional-evidence", instructionalEvidence);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };

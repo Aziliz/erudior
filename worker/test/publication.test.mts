@@ -1,5 +1,8 @@
 // Deterministic failure/race boundaries; API smoke tests separately exercise real D1/R2.
 import assert from "node:assert/strict";
+import { toCourse } from "../../src/lib/communityFormat.ts";
+import { normalizeCourse } from "../../src/lib/course.ts";
+import { emptyBranchingPack } from "../../src/lib/branchingEngine.ts";
 import worker, { type Env } from "../src/index.ts";
 const doc = {
   format: "erudior-community", version: 1, title: "Observations", description: "Count observations.", subject: "Science", level: "Elementary School", type: "Course",
@@ -154,3 +157,28 @@ for (const mutation of ["version", "status", "role", "session", "ban"] as const)
   assert.equal(f.row.version, 1);
 }
 console.log("community publication continuity, concurrency and recovery tests passed");
+
+for(const change of ['remove','same-revision','decrease','valid-increase'] as const){
+ const f=fixture();
+ const source={...doc,branchingScenarios:[{...emptyBranchingPack('project'),revision:2,lessonId:'l1'}]};
+ f.objects.set('courses/course.v1.json',JSON.stringify(source));
+ const next=structuredClone(source);
+ if(change==='remove')next.branchingScenarios=[];
+ else {next.branchingScenarios[0].title+=' revised';next.branchingScenarios[0].revision=change==='decrease'?1:change==='valid-increase'?3:2;}
+ f.row.draft=JSON.stringify(next);
+ assert.equal((await worker.fetch(request(),f.env)).status,change==='valid-increase'?200:409,`branching ${change}`);
+ if(change!=='valid-increase')assert.equal(f.puts,0,'branching lineage rejection occurs before immutable upload');
+ else {
+  const published=JSON.parse(f.objects.get('courses/course.v2.json')!);
+  assert.deepEqual(published.branchingScenarios,next.branchingScenarios,'immutable publication preserves exact scenario metadata');
+  const installed=normalizeCourse(toCourse(published,{id:'course',version:2,review:'not_reviewed',author:'Fixture'} as any,()=>{throw Error('Unexpected asset');}));
+  assert.deepEqual(installed.branchingScenarios,next.branchingScenarios,'actual published artifact installation preserves exact source');
+ }
+}
+console.log('community branching source revision continuity passed');
+
+for(const malformed of [{...emptyBranchingPack('broken'),nodes:[]},{...emptyBranchingPack('broken'),approval:{actor:'Forged',at:'2026-10-29T00:00:00Z'}}]){
+ const f=fixture(0);f.row.draft=JSON.stringify({...doc,branchingScenarios:[malformed]});
+ assert.equal((await worker.fetch(request(),f.env)).status,400);
+ assert.equal(f.puts,0,'malformed or authority-bearing portable source rejected before public artifact');
+}
