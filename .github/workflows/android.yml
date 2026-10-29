@@ -202,3 +202,62 @@ jobs:
           path: android-test-evidence/
           if-no-files-found: warn
           retention-days: 7
+
+  android-optimized-size:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    permissions:
+      contents: read
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install Android SDK and NDK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - run: npm ci
+      - name: Verify remote course build contract
+        run: node --test tests/android-remote-courses.test.mjs
+      - name: Generate Android project
+        run: npm run tauri android init -- --ci
+      - name: Compile optimized ARM64 Android package (no debug)
+        run: npm run tauri android build -- --apk --ci --target aarch64
+      - name: Measure optimized package without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -ge 1
+          echo "### Optimized Android APK(s), diagnostic only" >> "$GITHUB_STEP_SUMMARY"
+          for apk in "${apks[@]}"; do
+            unzip -tq "$apk"
+            bytes="$(stat -c%s "$apk")"
+            printf -- '- %s: %s bytes\n' "$apk" "$bytes" >> "$GITHUB_STEP_SUMMARY"
+            "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" | grep -E '^(package:|sdkVersion:|targetSdkVersion:|native-code:)' >> "$GITHUB_STEP_SUMMARY"
+            if unzip -Z1 "$apk" | grep -Ei '(^|/)(samples/(math|languages)/|colorado-broker-course\\.json|dist-courses/|courses-dev/)'; then
+              echo "::error::Bundled coursework found in optimized APK"
+              exit 1
+            fi
+            if "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify "$apk"; then
+              echo "Signature valid; release key persistence NOT established" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "Unsigned output; MUST sign with persistent release key before distribution" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          echo "No APK from this job is published, uploaded, or presented as installable."
