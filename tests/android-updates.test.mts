@@ -64,3 +64,11 @@ test("installer rechecks the original release checksum rather than trusting a re
   assert.match(rust, /verify_android_update_bytes\(&bytes, &expected_sha256\)/);
   assert.match(updates, /launch_android_installer", \{ expectedSha256: release.sha256 \}/);
 });
+
+test("WebView CSP permits Android release manifest and redirected APK asset hosts", () => {
+  const config = JSON.parse(readFileSync("src-tauri/tauri.conf.json", "utf8"));
+  const connect = config.app.security.csp.split("connect-src ")[1]?.split(";")[0] ?? "";
+  assert.match(connect, /https:\/\/github\.com/);
+  assert.match(connect, /https:\/\/release-assets\.githubusercontent\.com/);
+  assert.match(connect, /https:\/\/objects\.githubusercontent\.com/);
+});
