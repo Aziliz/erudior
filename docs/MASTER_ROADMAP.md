@@ -2,6 +2,16 @@
 
 ## Active whole-capability checkpoint — 2026-10-29
 
+**Learning content interoperability (CASE, QTI, LTI and Common Cartridge) — Done.** PR #85 (`62613b9b8a1bb8e95e84aa16ba5ea0f55f2efa8f`) completes the original single standards-ready content exchange capability from `8d90b78f` / consolidation `077a9952`, with explicit supported profiles rather than a certification or universal LMS compatibility claim.
+
+- CASE 1.1 framework packages preserve external identifiers/URIs, support explicit local mapping review save/reopen and stable namespace-based skill export without modifying mastery. QTI 3 choice/exact-string item exchange includes exact no-credit preview and explicitly reviewed new native choice-bank adaptations; unsupported grading/content fails instead of silently changing semantics.
+- Actual Common Cartridge 1.3 ZIP/manifest exchange preserves accepted static resources and organization order, with safe local preview/re-export and clearly labelled selected lesson text snapshots. No active HTML or external fetch runs on import. Official CASE JSON schema, QTI 3.0.1 XSD and CC 1.3 manifest/link XSD validation passed independently of self-roundtrips.
+- Isolated LTI 1.3 OIDC resource-link handling uses pinned public keys, exact registered context/targets, browser-bound state/nonce and atomic D1 replay consumption. Real D1 and Chromium cross-site HTTPS form-post/replay/privacy tests passed. **Production LTI remains disabled until separately approved platform trust configuration and institution-specific testing.** No credentials, real LMS registration, account/role grants, grades, enrollment changes or source-signature authority were created. OneRoster remains explicitly unsupported adjacent roster/SIS work.
+- Exact-head full regression/build, Android APK/optimized-size/actual emulator and Chromium 320/1280 light/dark/keyboard/axe passed. All six applicable post-merge lanes passed: regression `40827398132`, browser/LTI `40827398179`, integrity `40827398139`, website `40827398110`, API `40827398157`, signed courses `40827398190`. Published catalog/signature exactly matched signed artifacts and unchanged immutable packages were verified. Live API shows “LTI connections are not enabled”; live app bundle hashes match the deployed build.
+- Native persistence source/trigger paths were unchanged; no extra native-state lane was triggered. Desktop installers remain deferred, with no new version/tag or course content. Full profile limits, privacy and actual activation prerequisites are documented in `docs/CONTENT_INTEROPERABILITY.md`.
+
+## Previous whole-capability checkpoint — 2026-10-29
+
 **Learning diagnostics and targeted intervention — Done.** PR #84 (`3a612bb70832d0cc801002c707128f8e62647b29`) completes the original single teacher analytics capability from `8d90b78f` / consolidation `077a9952` without duplicating the completed competency graph.
 
 - Transparent exact-source skill summaries distinguish unknown/limited evidence from demonstrated difficulty, explain repeated-response patterns without causal or clinical claims, and suggest adult-reviewed reteaching/assessment groups. Differentiated per-learner plans retain exact activities, fresh baselines, dates and explicit adult approval.
@@ -50,9 +60,9 @@
 
 Classroom history/review/recovery and community spreadsheet workflows are deployed through PR #64 (`52fef593`). Canonical/community writing, rubric, lab and activity authoring, publication/install parity, original task/response evidence, exact human rubric review and encrypted recovery are deployed through PR #71 (`b8a1c516`). All relevant post-merge full regression/build, native persistence, integrity, Pages, community API and signed-course publication checks passed. Test-only PR #69 repaired an asynchronous UI-test race without relaxing assertions. Independent release lanes from PR #70 and other website work are preserved.
 
-**Current counts:** Lesson Engine 14 Done, 2 In Progress, 10 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
+**Current counts:** Lesson Engine 15 Done, 2 In Progress, 9 Planned (26 entries). No new rows or completion-count inflation. Canonical implementation and web/API delivery are complete; installers are deliberately deferred, and the simulator retains its original unfinished scope.
 
-**Next unfinished entry in existing Lesson Engine order: Learning content interoperability (CASE, QTI, LTI and Common Cartridge) — Planned.** Learning diagnostics and interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
+**Next unfinished entry in existing Lesson Engine order: Interactive document and case file engine — Planned.** Content interoperability, learning diagnostics and interactive presentations are complete. Continue one whole capability at a time; no new course content until engine, app and website work is complete. Consolidated desktop packaging remains deferred as requested.
 
 **Spreadsheet simulator — In Progress.** Its instructor/learner/review/publishing workflow is complete. Original scope (architecture `cd9e4e11`, roadmap `7f0da7aa`, later consolidated) also includes spreadsheet functions, named ranges, validation rules and safe simulated macro teaching. Those remain unfinished. Optional Excel-compatible import/export was separate; no imported VBA or untrusted macro execution is permitted.
 
