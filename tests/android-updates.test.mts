@@ -56,3 +56,11 @@ test("Android integration leaves generated Tauri MainActivity unmodified", () =>
   assert.ok(!script.includes("registerPlugin(InstallerPlugin::class.java)"));
   assert.match(script, /InstallerPlugin\.kt/);
 });
+
+test("installer rechecks the original release checksum rather than trusting a recomputed file digest", () => {
+  const rust = readFileSync("src-tauri/src/lib.rs", "utf8");
+  const updates = readFileSync("src/lib/updates.ts", "utf8");
+  assert.match(rust, /fn launch_android_installer\(app: AppHandle, expected_sha256: String\)/);
+  assert.match(rust, /verify_android_update_bytes\(&bytes, &expected_sha256\)/);
+  assert.match(updates, /launch_android_installer", \{ expectedSha256: release.sha256 \}/);
+});
