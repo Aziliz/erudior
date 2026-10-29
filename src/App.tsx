@@ -12,7 +12,7 @@ import { taskFromPlan, parseInterventionTask, sameInterventionTask, type Interve
 import { validateInterventionActivities, interventionStatus, type InterventionActivity } from "./lib/interventions";
 import { startPractice } from "./lib/session";
 import { validateCourseIntegrity } from "./lib/courseIntegrity";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
 import type { Bank, Course, Progress } from "./lib/types";
 import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
@@ -837,7 +837,7 @@ export default function App() {
     },
   });
 
-  const learnerPrivacy = createLearnerPrivacyStore({
+  const learnerPrivacy = useMemo(() => createLearnerPrivacyStore({
     read: () => store.loadState("learner-privacy"),
     update: change => store.updateState("learner-privacy", change),
     courses: async () => (await store.listCourses()).courses,
@@ -856,7 +856,7 @@ export default function App() {
       return JSON.stringify({ password: current.parent.password, students: current.students.map(s => s.id) });
     },
     // No production remote identity provider is configured. No network call is made here.
-  });
+  }), []);
 
   const presentationLibrary = createPresentationStore({
     read: () => store.loadState("presentations"),
