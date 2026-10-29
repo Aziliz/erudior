@@ -50,6 +50,8 @@ jobs:
         run: npm run test:transactions-browser
       - name: Instructional workload evidence browser workflows
         run: npm run test:instructional-evidence-browser
+      - name: Spreadsheet simulator authoring, validation and macro evidence workflows
+        run: npm run test:spreadsheet-v2-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
@@ -71,5 +73,6 @@ jobs:
             test-results/transactions-browser/
             test-results/instructional-evidence-browser/
             test-results/lti-browser/
+            test-results/spreadsheet-v2-browser/
           retention-days: 14
           if-no-files-found: ignore

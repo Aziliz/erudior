@@ -3,8 +3,8 @@ import type { Workbook } from "../lib/spreadsheet";
 import { canonicalAssignmentAddress, validateAssignment, type SpreadsheetAssignment } from "../lib/spreadsheetAssignments";
 const KEY = "erudior.spreadsheet.author.assignment.v1";
 
-export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLabel = "Save and open assignment", onCancel }:
-  { workbook: Workbook; onUse: (assignment: SpreadsheetAssignment) => void; initialAssignment?: SpreadsheetAssignment; submitLabel?: string; onCancel?: () => void }) {
+export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLabel = "Save and open assignment", onCancel, onPendingChange }:
+  { workbook: Workbook; onUse: (assignment: SpreadsheetAssignment) => void; initialAssignment?: SpreadsheetAssignment; submitLabel?: string; onCancel?: () => void; onPendingChange?: (pending:boolean)=>void }) {
   const [title, setTitle] = useState(initialAssignment?.title ?? "My spreadsheet exercise");
   const [protectedText, setProtected] = useState(initialAssignment?.protectedCells.join(", ") ?? "");
   const [address, setAddress] = useState("");
@@ -53,7 +53,7 @@ export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLab
       onUse(structuredClone(saved));
     } catch { setMessage("Unable to restore the saved assignment."); }
   }
-  return <section className="panel" aria-label="Spreadsheet assignment author">
+  return <section className="panel" aria-label="Spreadsheet assignment author" onChange={()=>onPendingChange?.(true)}>
     <h3>{initialAssignment ? "Assignment criteria" : "Author a spreadsheet assignment"}</h3>
     <p className="small muted">Protect starter cells and specify expected calculated results. Applying an assignment does not approve or publish official course content.</p>
     <label>Assignment title <input className="input" value={title} onChange={e => setTitle(e.target.value)} /></label>
@@ -68,7 +68,7 @@ export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLab
     </div>
     {Object.entries(checks).map(([key, value]) => <p className="small" key={key}>{key}: {JSON.stringify(value)} ({typeof value}) <button className="linkish small" type="button" aria-label={"Remove criterion " + key} onClick={() => setChecks(c => { const next = { ...c }; delete next[key]; return next; })}>Remove</button></p>)}
     <label>Numeric tolerance <input className="input" inputMode="decimal" value={tolerance} onChange={e => setTolerance(e.target.value)} /></label>
-    <div className="row">
+    <div className="row" style={{flexWrap:"wrap"}}>
       <button type="button" className="btn primary sm" onClick={useAssignment}>{submitLabel}</button>
       {onCancel && <button type="button" className="btn sm" onClick={onCancel}>Cancel assignment changes</button>}
       {!initialAssignment && <button type="button" className="btn sm" onClick={restore}>Restore saved assignment</button>}

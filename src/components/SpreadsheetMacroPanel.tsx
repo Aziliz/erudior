@@ -1,0 +1,16 @@
+import { useEffect, useState } from "react";
+import type { Workbook } from "../lib/spreadsheet";
+import { applyWorkbookMacro, previewWorkbookMacro, type WorkbookMacroTrace } from "../lib/spreadsheetMacros";
+import { spreadsheetSnapshot } from "../lib/spreadsheetLearnerState";
+export function SpreadsheetMacroPanel({book,protectedCells=[],disabled=false,onApply,runs=[]}:{book:Workbook;protectedCells?:string[];disabled?:boolean;onApply:(book:Workbook,trace:WorkbookMacroTrace)=>void;runs?:WorkbookMacroTrace[]}){
+ const [preview,setPreview]=useState<ReturnType<typeof previewWorkbookMacro>|null>(null);const [consent,setConsent]=useState(false);const [error,setError]=useState("");const snapshot=spreadsheetSnapshot(book);
+ useEffect(()=>{setPreview(null);setConsent(false);setError("");},[snapshot]);
+ if(book.engineVersion!==2)return null;
+ return <section className="panel" aria-label="Safe macro simulations"><h4>Safe macro simulations</h4><p className="small">Only the displayed declarative cell changes are simulated. No VBA, JavaScript, network or external program executes. Each run needs a new preview and explicit consent. Local traces are educational evidence, not authenticated proof of who ran them.</p>
+ {(book.macroDefinitions??[]).map(m=><button type="button" className="btn sm" disabled={disabled} key={m.id} onClick={()=>{try{setPreview(previewWorkbookMacro(book,m.id,protectedCells));setConsent(false);setError("");}catch(e){setPreview(null);setError(e instanceof Error?e.message:String(e));}}}>Preview {m.title}</button>)}
+ {!book.macroDefinitions?.length&&<p>No macro demonstrations in this workbook.</p>}
+ {preview&&<div aria-label="Macro simulation preview"><h5>Preview: {preview.trace.definition.title}</h5><ol>{preview.trace.changes.map((c,i)=><li key={i}><pre style={{whiteSpace:"pre-wrap",overflowWrap:"anywhere"}}>{JSON.stringify(c)}</pre></li>)}</ol><label><input type="checkbox" checked={consent} disabled={disabled} onChange={e=>setConsent(e.target.checked)}/> I permit these simulated cell changes for this run.</label><button type="button" className="btn primary sm" disabled={disabled||!consent||runs.length>=5} onClick={()=>{try{const result=applyWorkbookMacro(book,preview,protectedCells,consent);onApply(result.workbook,result.trace);setPreview(null);setConsent(false);setError("");}catch(e){setError(e instanceof Error?e.message:String(e));}}}>Apply simulated macro</button><button type="button" className="btn sm" onClick={()=>{setPreview(null);setConsent(false);}}>Cancel macro preview</button></div>}
+ {runs.length>=5&&<p role="status">Five simulation traces are retained. Submit or export this evidence before resetting for another run.</p>}
+ <SpreadsheetMacroTraceList runs={runs}/>{error&&<p role="alert">{error}</p>}</section>;
+}
+export function SpreadsheetMacroTraceList({runs}:{runs:WorkbookMacroTrace[]}){return runs.length?<section aria-label="Simulation audit traces"><h5>Simulation audit traces</h5>{runs.map((run,i)=><details key={i}><summary>Run {i+1}: {run.definition.title} · {run.changes.length} changes</summary><p>Preserved local before/after snapshots; later manual edits do not rewrite this trace.</p><pre style={{whiteSpace:"pre-wrap",overflowWrap:"anywhere",maxHeight:320,overflow:"auto"}}>{JSON.stringify(run,null,2)}</pre></details>)}</section>:null;}
