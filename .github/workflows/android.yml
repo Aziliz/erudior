@@ -46,8 +46,23 @@ jobs:
         run: npm run tauri android init -- --ci
       - name: Build ARM64 APK
         run: npm run tauri android build -- --apk --ci --target aarch64
+      - name: Validate generated APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          if [ "${#apks[@]}" -ne 1 ]; then
+            echo "::error::Expected exactly one ARM64 APK, found ${#apks[@]}"
+            exit 1
+          fi
+          apk="${apks[0]}"
+          unzip -tq "$apk"
+          badging="$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk")"
+          echo "$badging" | grep -E "^package: name='com\\.erudior\\.app'"
+          echo "$badging" | grep -E "^native-code: 'arm64-v8a'"
+          echo "Validated APK: $apk"
+          sha256sum "$apk"
       - name: Upload installable debug-testing artifact
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: erudior-android-arm64-apk
