@@ -103,9 +103,10 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         </div>
         <div className="row">
           {LIVE && (
-            <button className="btn" onClick={() => api.go({ name: "live" })}>
+            <><button className="btn" onClick={() => api.go({ name: "live" })}>
               Join a live room
             </button>
+            <button className="btn" onClick={() => api.go({ name: "presentation" })}>Join presentation</button></>
           )}
           <button className="btn" onClick={newCourse}>
             New course

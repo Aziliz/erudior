@@ -360,7 +360,7 @@ async function log(env: Env, courseId: string, version: number, actor: string, a
 
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
-async function createRoom(req: Request, env: Env): Promise<Response> {
+async function createRoom(req: Request, env: Env, presentation = false): Promise<Response> {
   const ip = await sha256(`live:${req.headers.get("CF-Connecting-IP") ?? "local"}:${new Date().toISOString().slice(0, 10)}`);
   const hour = new Date(Date.now() - 3600_000).toISOString();
   const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM live_rooms WHERE ip_hash = ? AND created_at > ?").bind(ip, hour).first<{ n: number }>();
@@ -369,14 +369,14 @@ async function createRoom(req: Request, env: Env): Promise<Response> {
   for (let tries = 0; tries < 6; tries++) {
     const bytes = crypto.getRandomValues(new Uint8Array(6));
     const code = [...bytes].map((b) => CODE_CHARS[b % CODE_CHARS.length]).join("");
-    const res = await env.LIVE.get(env.LIVE.idFromName(code)).fetch("https://room/init", {
+    const res = await env.LIVE.get(env.LIVE.idFromName(presentation ? `presentation:${code}` : code)).fetch(presentation ? "https://room/presentation-init" : "https://room/init", {
       method: "POST",
       body: JSON.stringify({ tokenHash: await liveHash(token) }),
     });
     if (res.ok) {
       await env.DB.prepare("INSERT INTO live_rooms (ip_hash, created_at) VALUES (?, ?)").bind(ip, now()).run();
       await env.DB.prepare("DELETE FROM live_rooms WHERE created_at < ?").bind(new Date(Date.now() - 86400_000).toISOString()).run();
-      return json({ code, token, joinUrl: `${env.APP_ORIGIN}/?live=${code}` }, 201);
+      return json({ code, token, joinUrl: `${env.APP_ORIGIN}/?${presentation ? "presentation" : "live"}=${code}` }, 201);
     }
   }
   throw new HttpError(503, "Couldn't open a room; try again.");
@@ -393,6 +393,10 @@ async function route(req: Request, env: Env): Promise<Response> {
   // Signed-in, state-changing calls must come from the app (CSRF guard; JSON forces a preflight).
   // Live rooms: hosted from the desktop app (no account), joined from any browser.
   if (p === "/live/rooms" && method === "POST") return createRoom(req, env);
+  if (p === "/presentation/rooms" && method === "POST") return createRoom(req, env, true);
+  const presentationRoom = m(/^\/presentation\/rooms\/([A-Z0-9]{6})\/ws$/);
+  if (presentationRoom && method === "GET") return env.LIVE.get(env.LIVE.idFromName(`presentation:${presentationRoom[1]}`)).fetch(req);
+  if (p.startsWith("/presentation/rooms/")) throw new HttpError(404, "No presentation room with that code.");
   let lr = m(/^\/live\/rooms\/([A-Z0-9]{6})\/ws$/);
   if (lr && method === "GET") return env.LIVE.get(env.LIVE.idFromName(lr[1])).fetch(req);
   lr = m(/^\/live\/rooms\/([^/]+)\/ws$/);
@@ -798,7 +802,7 @@ async function route(req: Request, env: Env): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const p = new URL(req.url).pathname;
-    const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms";
+    const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms" || p === "/presentation/rooms";
     // WebSocket upgrades go straight to the room.
     if (req.headers.get("Upgrade") === "websocket") {
       try {

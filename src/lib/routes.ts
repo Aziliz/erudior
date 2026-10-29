@@ -77,6 +77,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return "/admin";
     case "live":
       return "/live";
+    case "presentation":
+      return "/presentation";
     case "who":
     case "familySetup":
     case "parent":
@@ -140,6 +142,7 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   if (first === "create") return second ? { name: "communityEdit", id: decodeURIComponent(second) } : { name: "create" };
   if (first === "admin" && !second) return { name: "review" };
   if (first === "live") return { name: "live" };
+  if (first === "presentation") return { name: "presentation", code: new URLSearchParams(search).get("code") ?? undefined };
   const have = findCourse(first, installed);
   if (!have) {
     const entry = findCourse(first, catalog);

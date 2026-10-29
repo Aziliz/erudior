@@ -47,3 +47,5 @@ function StartupView({ Page }: { Page: React.ComponentType }) {
   }, []);
   return <Page />;
 }
+
+import "./presentations.css";

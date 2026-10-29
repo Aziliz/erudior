@@ -53,6 +53,9 @@ import { COMMUNITY } from "./lib/community";
 import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
 import LivePlay from "./pages/LivePlay";
+import PresentationPlay from "./pages/PresentationPlay";
+import { createPresentationStore } from "./lib/presentationStore";
+import { presentationProblems, type PresentationDeck } from "./lib/presentations";
 import { LIVE } from "./lib/live";
 import { pageKey, pathToView, viewToPath, type RouteCourse } from "./lib/routes";
 import { subjectKey } from "./lib/taxonomy";
@@ -107,7 +110,8 @@ export type View =
   | { name: "create" }
   | { name: "communityEdit"; id: string }
   | { name: "review" }
-  | { name: "live"; code?: string };
+  | { name: "live"; code?: string }
+  | { name: "presentation"; code?: string };
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
@@ -116,6 +120,8 @@ export interface AppApi {
   courses: Course[];
   progress: Progress;
   competencySupervisor?: CompetencySupervisorAccess;
+  presentationLibrary?: ReturnType<typeof createPresentationStore>;
+  validatePresentation?: (deck: PresentationDeck) => Promise<string[]>;
   competencySync?: { pending: boolean; error: string };
   retryCompetencySync?: () => void;
   go: (v: View) => void;
@@ -185,6 +191,10 @@ export default function App() {
       if (AUTHORING && q.has("create")) {
         window.history.replaceState(null, "", window.location.pathname);
         return { name: "create" };
+      }
+      if (LIVE && q.has("presentation")) {
+        window.history.replaceState({}, "", window.location.pathname);
+        return { name: "presentation", code: q.get("presentation") ?? "" };
       }
       // A live room link (app.erudior.com/?live=CODE) opens the join screen.
       if (LIVE && q.has("live")) {
@@ -643,6 +653,17 @@ export default function App() {
     },
   };
 
+  const presentationLibrary = createPresentationStore({
+    read: () => store.loadState("presentations"),
+    update: change => store.updateState("presentations", change),
+    authorize: async () => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to edit presentations.");
+      const current = await loadFamily();
+      if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed. Reopen the presentation library.");
+      return JSON.stringify(current.parent.password);
+    },
+  });
+
   const api: AppApi = {
     catalog: catalogInfo,
     banks: allBanks,
@@ -651,6 +672,15 @@ export default function App() {
     competencySync,
     retryCompetencySync: () => setCompetencyRetry(n => n + 1),
     competencySupervisor,
+    presentationLibrary,
+    validatePresentation: async deck => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before delivery.");
+      const before = await loadFamily();
+      const fresh = await store.listCourses();
+      const after = await loadFamily();
+      if (!before || !after || JSON.stringify(before.parent.password) !== JSON.stringify(after.parent.password) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority changed during source verification.");
+      return presentationProblems(deck, fresh.courses);
+    },
     go: (v) => {
       if (!requestNavigation("app", v)) return;
       if (v.name !== "parent") adultAccess.current = { unlocked: false, parentView: false };
@@ -941,6 +971,7 @@ export default function App() {
   }
   if (view.name === "review" && AUTHORING) body = <ReviewQueue api={api} />;
   if (view.name === "live" && LIVE) body = <LivePlay key={view.code ?? ""} api={api} initialCode={view.code} />;
+  if (view.name === "presentation" && LIVE) body = <PresentationPlay key={view.code ?? ""} api={api} initialCode={view.code} />;
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 

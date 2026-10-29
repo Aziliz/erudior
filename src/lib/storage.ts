@@ -206,6 +206,8 @@ export async function pickJsonFile(): Promise<string | null> {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = ".json,application/json";
+    // Closing a picker must release callers' busy/navigation guards as well.
+    input.addEventListener("cancel", () => resolve(null), { once: true });
     input.onchange = () => {
       const f = input.files?.[0];
       if (!f) return resolve(null);
