@@ -49,3 +49,10 @@ test("Android FileProvider bridge is limited to verified private-cache APK", () 
   assert.ok(!paths.includes("external-path"));
   assert.match(manifest, /android:exported="false"/);
 });
+
+test("Android integration leaves generated Tauri MainActivity unmodified", () => {
+  const script = readFileSync("scripts/android-integrate-installer.py", "utf8");
+  assert.ok(!script.includes("main.write_text("));
+  assert.ok(!script.includes("registerPlugin(InstallerPlugin::class.java)"));
+  assert.match(script, /InstallerPlugin\.kt/);
+});
