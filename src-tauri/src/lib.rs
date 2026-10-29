@@ -300,7 +300,7 @@ fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: Strin
     }
     let hash = format!("{:x}", Sha256::digest(&content));
     if hash != expected_sha256.to_ascii_lowercase() { return Err("APK hash mismatch".into()); }
-    if !content.starts_with(b"PK\\x03\\x04") { return Err("APK is not a ZIP archive".into()); }
+    if !content.starts_with(b"PK\x03\x04") { return Err("APK is not a ZIP archive".into()); }
     let dir = app.path().app_cache_dir().map_err(|e| e.to_string())?.join("updates");
     fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
     let staged = dir.join("verified-update.apk");
