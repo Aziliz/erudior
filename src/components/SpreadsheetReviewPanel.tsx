@@ -70,7 +70,7 @@ export default function SpreadsheetReviewPanel({ course }: { course: Course }) {
     })}
     {report.issues.map(issue => <p role="alert" className="small" key={issue}>{issue}</p>)}
     <label>Reviewer <input className="input" value={reviewer} onChange={e => setReviewer(e.target.value)} /></label>
-    <label className="row"><input type="checkbox" checked={acknowledged} onChange={e => { setAcknowledged(e.target.checked); if (!e.target.checked) setPrepared(null); }} /> I inspected every starter, protected cell, expected result, lesson link, named range, validation rule and simulated macro definition in this course snapshot.</label>
+    <label className="row"><input style={{width:24,height:24,minWidth:24,flexShrink:0,verticalAlign:"middle"}} type="checkbox" checked={acknowledged} onChange={e => { setAcknowledged(e.target.checked); if (!e.target.checked) setPrepared(null); }} /> I inspected every starter, protected cell, expected result, lesson link, named range, validation rule and simulated macro definition in this course snapshot.</label>
     <button className="btn sm" type="button" disabled={!report.readyForHumanReview || !acknowledged || !reviewer.trim() || busy} onClick={prepare}>{busy ? "Preparing…" : "Prepare review record"}</button>
     {notice && <p role="status">{notice}</p>}
     {active && <div className="stack">
