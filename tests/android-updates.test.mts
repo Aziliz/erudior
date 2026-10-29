@@ -84,3 +84,10 @@ test("Android update downloads use native HTTP and preserve release checksum", (
   assert.match(kotlin, /HttpURLConnection/);
   assert.match(kotlin, /APK checksum mismatch/);
 });
+
+test("Native release downloader validates HTTPS redirects and APK ZIP header", () => {
+  const kotlin = readFileSync("src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt", "utf8");
+  assert.match(kotlin, /Manifest redirect is not HTTPS/);
+  assert.match(kotlin, /APK redirect is not HTTPS/);
+  assert.match(kotlin, /Downloaded APK is not a ZIP archive/);
+});
