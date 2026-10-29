@@ -1,3 +1,4 @@
+import { validateCourseActivityOrigin, type CourseActivityOrigin } from './courseActivityOrigin';
 /** Canonical ordering for exact educational source comparison. No browser or storage dependencies. */
 export function branchingJSON(value: unknown): string {
     let count = 0;
@@ -72,6 +73,7 @@ export interface BranchingMilestone {
     onMiss: BranchingEffect[];
 }
 export interface BranchingPack {
+    courseOrigin?: CourseActivityOrigin;
     format: 'erudior-branching-pack';
     version: 1;
     id: string;
@@ -258,7 +260,8 @@ function effects(v: unknown, variables: BranchingVariable[]) {
 }
 export function parseBranchingPack(input: unknown): BranchingPack {
     const v = decode(input, BRANCHING_LIMITS.packBytes);
-    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'timeUnit', 'maxTick', 'startNodeId', 'variables', 'nodes', 'milestones', 'approval'], 'pack');
+    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'timeUnit', 'maxTick', 'startNodeId', 'variables', 'nodes', 'milestones', 'approval', 'courseOrigin'], 'pack');
+    validateCourseActivityOrigin(v.courseOrigin);
     if (v.format !== 'erudior-branching-pack' || v.version !== 1)
         fail('pack format/version');
     id(v.id, 'pack');
@@ -356,8 +359,8 @@ export function parseBranchingPack(input: unknown): BranchingPack {
     return copy(v as unknown as BranchingPack);
 }
 export function emptyBranchingPack(id: string): BranchingPack { return { format: 'erudior-branching-pack', version: 1, id, revision: 0, title: 'Untitled fictional scenario', description: 'Replace this scaffold with reviewed educational instructions.', sourceNote: 'Author-created fictional practice. Review before assigning.', timeUnit: 'simulated ticks', maxTick: 100, startNodeId: 'start', variables: [], nodes: [{ id: 'start', title: 'Scenario outcome', text: 'Replace this placeholder with your fictional scenario.', terminal: 'neutral', choices: [] }], milestones: [] }; }
-export function exportBranchingPack(input: BranchingPack): string { const { approval: _, ...v } = parseBranchingPack(input); return JSON.stringify(v, null, 2); }
-export function importBranchingPack(input: unknown, newId?: string): BranchingPack { const { approval: _, ...v } = parseBranchingPack(input); return parseBranchingPack({ ...v, id: newId ?? v.id, revision: 0 }); }
+export function exportBranchingPack(input: BranchingPack): string { const { approval: _, courseOrigin: _origin, ...v } = parseBranchingPack(input); return JSON.stringify(v, null, 2); }
+export function importBranchingPack(input: unknown, newId?: string): BranchingPack { const { approval: _, courseOrigin: _origin, ...v } = parseBranchingPack(input); return parseBranchingPack({ ...v, id: newId ?? v.id, revision: 0 }); }
 export function parseBranchingAssignment(input: unknown): BranchingAssignment {
     const v = decode(input);
     obj(v, ['id', 'revision', 'studentId', 'title', 'instructions', 'startTick', 'pack', 'createdAt'], 'assignment');

@@ -12,6 +12,7 @@
 import type { View } from "../App";
 import type { CourseTab } from "../pages/CourseHome";
 import { slugify } from "./util";
+import { COURSE_ACTIVITY_KINDS, type CourseActivityKind } from "./courseActivities";
 
 export interface RouteCourse {
   id: string;
@@ -30,7 +31,8 @@ export function courseSlug(id: string, all: RouteCourse[]): string {
 }
 
 function findCourse(seg: string, all: RouteCourse[]): RouteCourse | undefined {
-  const s = decodeURIComponent(seg);
+  let s: string;
+  try { s = decodeURIComponent(seg); } catch { return undefined; }
   return all.find((x) => x.id === s) ?? all.find((x) => slugify(x.title) === s);
 }
 
@@ -40,6 +42,7 @@ function courseOf(v: View): string | null {
     case "course":
     case "courseEdit":
     case "lesson":
+    case "courseActivity":
     case "cards":
     case "deckEdit":
     case "drill":
@@ -89,6 +92,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return course(v.courseId) + (v.tab && v.tab !== "today" ? "/" + v.tab : "");
     case "lesson":
       return course(v.courseId) + "/lessons/" + encodeURIComponent(v.lessonId);
+    case "courseActivity":
+      return course(v.courseId) + "/activities/" + v.kind + "/" + encodeURIComponent(v.sourceId);
     case "work":
       return course(v.courseId) + "/work/" + encodeURIComponent(v.itemId);
     case "courseEdit":
@@ -126,6 +131,7 @@ export function pageKey(v: View): string {
   const c = courseOf(v);
   if (v.name === "course" || v.name === "overview") return "course:" + c;
   if (v.name === "search") return "search";
+  if (v.name === "courseActivity") return `activity:${c}:${v.kind}:${v.sourceId}`;
   return v.name + ":" + (c ?? "");
 }
 
@@ -149,6 +155,10 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
     return entry ? { name: "overview", catalogId: entry.id } : null;
   }
   const courseId = have.id;
+  if (second === "activities") {
+    if (parts.length !== 4 || !(COURSE_ACTIVITY_KINDS as readonly string[]).includes(third)) return null;
+    try { return {name:"courseActivity", courseId, kind:third as CourseActivityKind, sourceId:decodeURIComponent(parts[3])}; } catch { return null; }
+  }
   if (second === "lessons" && third) return { name: "lesson", courseId, lessonId: decodeURIComponent(third) };
   if (second === "reference" && third) return { name: "ref", courseId, refId: decodeURIComponent(third) };
   if (second === "work" && third) return { name: "work", courseId, itemId: decodeURIComponent(third) };

@@ -10,6 +10,7 @@ export function parseCourseScientificWorkspaces(value: unknown, lessonIds: Reado
  return value.map(item=>{
   if(!item||typeof item!=='object'||Array.isArray(item))throw Error('Invalid scientific workspace.');
   const {lessonId,...source}=item;
+  if('courseOrigin' in source)throw Error('Portable course sources cannot carry local course bindings.');
   if('approval' in source)throw Error('Portable scientific sources cannot carry local approval.');
   const pack=parseScientificPack(source);
   if(seen.has(pack.id))throw Error('Duplicate scientific workspace ID.');seen.add(pack.id);

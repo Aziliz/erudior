@@ -2,6 +2,10 @@
 
 ## Active whole-capability checkpoint — 2026-10-29
 
+**Lesson-linked activity integration — reusable app capability, separate from course adoption.** PR #96 connects authored lesson links to advanced assessments, scientific workspaces, branching scenarios and spreadsheets through discoverable cards, source-specific restorable routes and return-to-lesson navigation. Exact course/source IDs and revisions plus complete instructional-content comparison connect reviewed local assignments without relabeling historical results. Readable source inspection and comparison fingerprints support explicit supervising-adult review and assignment; opening a link grants no approval. Pending spreadsheet edits and failed saves remain navigation-protected.
+
+This uses public synthetic verification only, not new authored course activities, renewed content review, real learner pilot evidence or credential authority. Existing completed-engine counts remain unchanged. Actual course-source adoption is separate; no published course artifact is modified by this app integration.
+
 **Privacy-preserving learner data architecture — Done (reusable engine; production server identity disabled).** PR #95 (`105b496075b07f359785a9e26b01e0f09b9cdef5`) completes the original `8d90b78f` local anonymous practice, server-backed account progress, isolated credential registry, retention/deletion and recovery engine scope.
 
 - Minimized opt-in checkpoints contain only source-bound non-scoring lesson progress and aggregate practice observations, encrypted before transfer. Explicit preview, memory-only passphrases, external purpose-bound authorization, CAS conflicts, terminal erasure/expiry and staged recovery prevent silent uploads or authority/grade changes. Production identity, guardian-consent verification, separate storage/trust, monitored retention sweeps and backup/deletion reconciliation require separately authorized setup; all new production bindings remain absent. Community authors and credential issuers are not learner identity providers.

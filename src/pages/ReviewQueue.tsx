@@ -4,6 +4,7 @@ import type { AppApi } from "../App";
 import CanonicalCourseInspection from "../components/CanonicalCourseInspection";
 import { exportText } from "../lib/storage";
 import ReadingLibraryInspection from "../components/ReadingLibraryInspection";
+import CourseEngineInspection from "../components/CourseEngineInspection";
 import CourseWorkInspection from "../components/CourseWorkInspection";
 import Markdown from "../components/Markdown";
 import { API, api as community, imageUrl, resolveCommunityImageDataUrl, type CommunityEntry, type Me, type ReviewQueue as Queue } from "../lib/community";
@@ -312,6 +313,7 @@ function ReviewItemSession({ api, c, onDone }: { api: AppApi; c: CommunityEntry;
               I inspected every writing prompt, rubric level, lab safety instruction, activity log requirement, and lesson assignment link for version {readVersion}.
             </label>
           </>}
+          {!doc.canonical && <CourseEngineInspection sources={doc} includeSpreadsheets={false} />}
           {doc.spreadsheetAssignments?.map((assignment) => (
             <article key={assignment.id} aria-label={`Spreadsheet assignment: ${assignment.title}`}>
               <h4>Spreadsheet: {assignment.title}</h4>

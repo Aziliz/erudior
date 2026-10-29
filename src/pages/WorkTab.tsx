@@ -25,7 +25,7 @@ import {
   type WorkFile,
 } from "../lib/work";
 import Markdown from "../components/Markdown";
-import SpreadsheetCourseAssignment from "../components/SpreadsheetCourseAssignment";
+import CourseActivityLinks from "../components/CourseActivityLinks";
 import { StoredFile, sizeOf, storeWorkFile } from "../components/WorkParts";
 import { useWorkContext } from "./WorkView";
 import { uid } from "../lib/util";
@@ -53,25 +53,7 @@ export default function WorkTab({ api, course }: { api: AppApi; course: Course }
           you can hand work in.
         </p>
       )}
-      {!!course.advancedAssessments?.length && <section className="panel" aria-labelledby="course-advanced-assessment-title">
-        <h2 id="course-advanced-assessment-title">Advanced assessment and feedback</h2>
-        <p>Step-by-step reasoning and oral evidence with explicit question variants and human rubric review. These educational records do not certify qualifications or authenticate examinations. A supervising adult reviews the exact source before assignment; your responses and feedback are saved on Progress.</p>
-        <ul>{course.advancedAssessments.map(s => <li key={s.id}><strong>{s.title}</strong> · revision {s.revision}{s.lessonId && <button className="btn sm ghost" onClick={() => api.go({name:"lesson",courseId:course.id,lessonId:s.lessonId!})}>Open linked lesson</button>}</li>)}</ul>
-        <button className="btn" onClick={() => api.go({name:"progress"})}>Open my advanced assessments</button>
-      </section>}
-      {!!course.scientificWorkspaces?.length && <section className="panel" aria-labelledby="course-scientific-title">
-        <h2 id="course-scientific-title">Scientific and engineering workspaces</h2>
-        <p>Guided educational investigations and simulated instruments, not real equipment control or validated engineering advice. A supervising adult reviews the exact source before assignment. Measurements, design iterations and human feedback are saved on Progress.</p>
-        <ul>{course.scientificWorkspaces.map(s => <li key={s.id}><strong>{s.title}</strong> · revision {s.revision}{s.lessonId && <button className="btn sm ghost" onClick={() => api.go({name:"lesson",courseId:course.id,lessonId:s.lessonId!})}>Open linked lesson</button>}</li>)}</ul>
-        <button className="btn" onClick={() => api.go({name:"progress"})}>Open my scientific workspaces</button>
-      </section>}
-      {!!course.branchingScenarios?.length && <section className="panel" aria-labelledby="course-branching-title">
-        <h2 id="course-branching-title">Fictional branching scenarios</h2>
-        <p>These reusable educational scenarios use simulated time, not real-world deadlines or professional advice. A supervising adult reviews the exact source and assigns your case; your saved decisions and feedback appear on Progress.</p>
-        <ul>{course.branchingScenarios.map(s => <li key={s.id}><strong>{s.title}</strong> · revision {s.revision}{s.lessonId && <button className="btn sm ghost" onClick={() => api.go({name:"lesson",courseId:course.id,lessonId:s.lessonId!})}>Open linked lesson</button>}</li>)}</ul>
-        <button className="btn" onClick={() => api.go({name:"progress"})}>Open my branching cases</button>
-      </section>}
-      {(course.spreadsheetAssignments?.length ?? 0) > 0 && <section className="panel"><h2>Spreadsheet assignments</h2>{course.spreadsheetAssignments?.map(a => <SpreadsheetCourseAssignment key={a.id} api={api} courseId={course.id} assignment={a} />)}</section>}
+      <CourseActivityLinks api={api} course={course} />
       {writing.length > 0 && (
         <section className="panel" aria-labelledby="wt-writing">
           <h2 id="wt-writing">Writing</h2>

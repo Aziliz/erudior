@@ -1,3 +1,4 @@
+import { validateCourseActivityOrigin, type CourseActivityOrigin } from './courseActivityOrigin';
 /** Canonical ordering for exact educational source comparison. No browser or storage dependencies. */
 export function scientificJSON(value: unknown): string {
     let count = 0;
@@ -43,6 +44,7 @@ export interface ScientificChannel {
     uncertaintyMax: number;
 }
 export interface ScientificPack {
+    courseOrigin?: CourseActivityOrigin;
     format: 'erudior-scientific-pack';
     version: 1;
     id: string;
@@ -313,7 +315,8 @@ function readings(v: unknown, p: ScientificPack) { obj(v, p.channels.map(c => c.
 } }
 export function parseScientificPack(input: unknown): ScientificPack {
     const v = decode(input, SCIENTIFIC_LIMITS.packBytes);
-    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'safety', 'assumptions', 'steps', 'channels', 'graph', 'instrument', 'design', 'approval'], 'pack');
+    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'safety', 'assumptions', 'steps', 'channels', 'graph', 'instrument', 'design', 'approval', 'courseOrigin'], 'pack');
+    validateCourseActivityOrigin(v.courseOrigin);
     if (v.format !== 'erudior-scientific-pack' || v.version !== 1)
         fail('pack format/version');
     id(v.id, 'pack');
@@ -380,8 +383,8 @@ export function parseScientificPack(input: unknown): ScientificPack {
     return copy(v as unknown as ScientificPack);
 }
 export function emptyScientificPack(id: string): ScientificPack { return { format: 'erudior-scientific-pack', version: 1, id, revision: 0, title: 'Untitled educational investigation', description: 'Replace with a reviewed investigation question.', sourceNote: 'Author-created educational workspace. Review before assignment.', safety: 'Simulation or recorded observations only. No real instrument control. Adult review is required.', assumptions: scientificInstrumentAssumptions('manual'), steps: [{ id: 'observe', title: 'Observe and record', instructions: 'Describe the procedure and record observations.', adult: false }], channels: scientificInstrumentChannels('manual'), graph: { xChannelId: 'x', yChannelId: 'y' }, instrument: { kind: 'manual' }, design: { brief: 'Compare a design iteration against the stated criteria and explain its tradeoffs.', criteria: [{ id: 'target', title: 'Target interval', channelId: 'y', min: 0, max: 100 }] } }; }
-export function exportScientificPack(input: ScientificPack): string { const { approval: _, ...v } = parseScientificPack(input); return JSON.stringify(v, null, 2); }
-export function importScientificPack(input: unknown, newId?: string): ScientificPack { const { approval: _, ...v } = parseScientificPack(input); return parseScientificPack({ ...v, id: newId ?? v.id, revision: 0 }); }
+export function exportScientificPack(input: ScientificPack): string { const { approval: _, courseOrigin: _origin, ...v } = parseScientificPack(input); return JSON.stringify(v, null, 2); }
+export function importScientificPack(input: unknown, newId?: string): ScientificPack { const { approval: _, courseOrigin: _origin, ...v } = parseScientificPack(input); return parseScientificPack({ ...v, id: newId ?? v.id, revision: 0 }); }
 export function parseScientificAssignment(input: unknown): ScientificAssignment { const v = decode(input); obj(v, ['id', 'revision', 'studentId', 'title', 'instructions', 'pack', 'createdAt'], 'assignment'); id(v.id, 'assignment'); int(v.revision, 'assignment revision', 1); id(v.studentId, 'learner'); text(v.title, 'assignment title', 300); text(v.instructions, 'assignment instructions', 10000); stamp(v.createdAt, 'assignment'); const pack = parseScientificPack(v.pack); if (!pack.approval || Date.parse(v.createdAt) < Date.parse(pack.approval.at))
     fail('assignment requires prior exact pack review'); return { ...copy(v as unknown as ScientificAssignment), pack }; }
 export function parseScientificCommand(input: unknown, p: ScientificPack): ScientificCommand {

@@ -5,6 +5,7 @@ import { SpreadsheetMacroPanel, SpreadsheetMacroTraceList } from "./SpreadsheetM
 import type { WorkbookMacroTrace } from "../lib/spreadsheetMacros";
 import { calculateCell, validateWorkbookCellRules, type Workbook } from "../lib/spreadsheet";
 import { canonicalAssignmentAddress, gradeAssignment, validateAssignment, type SpreadsheetAssignment } from "../lib/spreadsheetAssignments";
+import { registerNavigationGuard } from "../lib/navigationGuard";
 import { activeStudent, confirmAction } from "../lib/storage";
 import {
   beginSpreadsheetGrade, confirmSpreadsheetGrade, spreadsheetGradeUnconfirmed, spreadsheetGradeRegistryVersion, subscribeSpreadsheetGrades,
@@ -45,6 +46,7 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   const [target, setTarget] = useState("");
   const [grade, setGrade] = useState<ReturnType<typeof gradeAssignment> | null>(null);
   const [busy, setBusy] = useState(false);
+  const [draftSaveFailed, setDraftSaveFailed] = useState(false);
   const [gradeSaveFailed, setGradeSaveFailed] = useState(false);
   const busyRef = useRef(false);
   const alive = useRef(true);
@@ -60,6 +62,20 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   useSyncExternalStore(subscribeSpreadsheetSubmissions, spreadsheetSubmissionRegistryVersion, spreadsheetSubmissionRegistryVersion);
   const pendingSubmission = pendingSpreadsheetSubmission(studentId, courseId, assignment.id);
   const submissionSaving = !!pendingSubmission?.saving;
+  const leaveState = useRef({ pending: false, unsaved: false, saving: false });
+  leaveState.current = { pending: !!pendingCell, unsaved: draftSaveFailed, saving: busy || submissionSaving };
+  useEffect(() => {
+    const unsafe = () => leaveState.current.pending || leaveState.current.unsaved;
+    const off = registerNavigationGuard(() => {
+      if (busyRef.current || leaveState.current.saving) return false;
+      return !unsafe() || window.confirm('Leave this spreadsheet and discard unapplied or unsaved edits? Saved drafts and historical evidence stay unchanged.');
+    });
+    const before = (event: BeforeUnloadEvent) => {
+      if (busyRef.current || leaveState.current.saving || unsafe()) { event.preventDefault(); event.returnValue = ''; }
+    };
+    window.addEventListener('beforeunload', before);
+    return () => { off(); window.removeEventListener('beforeunload', before); };
+  }, []);
   let history: SpreadsheetSubmission[] = [], historyError = "";
   try { history = Object.values(getConfirmedSpreadsheetSubmissions(api.progress, studentId)).filter(item => item.courseId === courseId && item.assignmentId === assignment.id).sort((a, b) => b.submittedAt - a.submittedAt); }
   catch { historyError = "Submission history could not be validated. Existing evidence was not changed."; }
@@ -67,8 +83,8 @@ function LearnerSession({ api, courseId, assignment }: Props) {
 
   function saveDraft(next: Workbook, runs=macroRuns) {
     if(activeStudent()!==studentId){setError("The active learner changed. This draft was not saved.");return;}
-    try { localStorage.setItem(key, serializeSpreadsheetDraft(assignment, next, runs)); setStatus("Saved locally for this learner"); }
-    catch { setStatus("Could not save this draft. Your current edits remain on screen; retry saving before leaving."); }
+    try { localStorage.setItem(key, serializeSpreadsheetDraft(assignment, next, runs)); setDraftSaveFailed(false); setStatus("Saved locally for this learner"); }
+    catch { setDraftSaveFailed(true); setStatus("Could not save this draft. Your current edits remain on screen; retry saving before leaving."); }
   }
 
   function change(cell: string, raw: string) {

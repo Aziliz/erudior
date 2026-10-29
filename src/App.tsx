@@ -32,6 +32,8 @@ import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
 import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
+import CourseActivityView from "./pages/CourseActivityView";
+import type { CourseActivityKind } from "./lib/courseActivities";
 import WorkView from "./pages/WorkView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
@@ -108,6 +110,7 @@ export type View =
   | { name: "course"; courseId: string; tab?: CourseTab }
   | { name: "courseEdit"; courseId: string; isNew?: boolean }
   | { name: "lesson"; courseId: string; lessonId: string }
+  | { name: "courseActivity"; courseId: string; kind: CourseActivityKind; sourceId: string }
   | { name: "work"; courseId: string; itemId: string }
   | { name: "cards"; courseId: string; deckIds: string[]; mode: "review" | "cram"; topics?: string[] }
   | { name: "deckEdit"; courseId: string; deckId: string }
@@ -1049,6 +1052,7 @@ export default function App() {
   const studyCourse = (() => {
     switch (view.name) {
       case "lesson":
+      case "courseActivity":
       case "vocab":
       case "cards":
       case "drill":
@@ -1162,6 +1166,11 @@ export default function App() {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
       if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      break;
+    }
+    case "courseActivity": {
+      const c = courseFor(view.courseId);
+      if (c) body = <CourseActivityView key={JSON.stringify([view, c.revision, api.student?.id])} api={api} course={c} kind={view.kind} sourceId={view.sourceId} />;
       break;
     }
     case "work": {
