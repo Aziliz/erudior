@@ -7,6 +7,7 @@ import android.os.Build
 import android.provider.Settings
 import androidx.core.content.FileProvider
 import app.tauri.annotation.Command
+import app.tauri.annotation.InvokeArg
 import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.Invoke
 import app.tauri.plugin.JSObject
@@ -18,6 +19,11 @@ import java.security.MessageDigest
  * An Android-only installer entry point. The Rust updater owns download, hash
  * verification and staging. This plugin accepts no remote URL or arbitrary path.
  */
+@InvokeArg
+internal class VerifiedApkArgs {
+    lateinit var expectedSha256: String
+}
+
 @TauriPlugin
 class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
     @Command
@@ -33,7 +39,7 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
 
         // Recheck the bytes at the final handoff, not just at Rust staging time.
         // The expected digest is recomputed from the staged file by the Rust command.
-        val expected = invoke.getString("expectedSha256")
+        val expected = invoke.parseArgs(VerifiedApkArgs::class.java).expectedSha256
         if (!Regex("^[a-fA-F0-9]{64}$").matches(expected)) {
             invoke.reject("Invalid staged APK checksum")
             return
