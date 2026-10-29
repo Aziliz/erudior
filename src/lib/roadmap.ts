@@ -466,17 +466,12 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 /** Status reflects the full deliverable, not merely the existence of foundation code.
  * Done subfeatures live in ENGINE; broad items stay in progress until fully integrated.
  */
-export const ENGINE_IN_PROGRESS = new Set<string>([
-  "Spreadsheet simulator",
-]);
+export const ENGINE_IN_PROGRESS = new Set<string>([]);
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
-export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Spreadsheet simulator": "Instructor authoring, community publishing/install, separate learner drafts, immutable submission history, exact-snapshot instructor review and encrypted recovery are deployed (PRs #57 and #64, incorporating #59). The original simulator scope still requires spreadsheet functions, named ranges, validation rules and safe simulated macro teaching; imported VBA or untrusted macros must never execute. The instructor/learner/review/publishing workflow is complete, but the whole simulator is not.",
-};
+export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {};
 
 export const ENGINE_PLANNED = [
-  "Spreadsheet simulator",
   "Branching scenario and timeline engine",
   "Scientific and engineering workspaces",
   "Advanced assessment and feedback",
@@ -490,6 +485,7 @@ export type EngineStatus = "done" | "planned";
 
 /** Lesson-engine work the new courses need, so every subject gets good lessons. */
 export const ENGINE: { title: string; detail: string; status: EngineStatus }[] = [
+  { title: "Spreadsheet simulator", detail: "Versioned reusable worksheets with bounded functions, named ranges, quoted cross-sheet references, dependency recalculation, typed validation and cell explanations; structured canonical/community authoring, exact review/publishing/install and protected learner drafts. Explicit preview/consent for declarative set/copy macro simulations, replayable audit traces, immutable versioned submissions and encrypted recovery preserve original V1 grading. Independent full-scope/security/visual review, exact full regression, all three Android gates and real 320/1280 light/dark keyboard/WCAG workflows passed in PR #90, followed by separate regression/browser/integrity/web/API/signed-course delivery and authoritative readback. No VBA or arbitrary program execution, Excel compatibility promise, regulatory credit or new course content; installers remain deferred.", status: "done" },
   { title: "Jurisdiction-configurable instructional-hour and assessment evidence tracking", detail: "Versioned jurisdiction and outline requirements mapped to exact installed lesson/assessment snapshots with defensible workload rationale; locally reviewed learner assignments, immutable observed or explicitly attested evidence, full-bank assessment gates and append-only human approval/rejection/revocation. Nonduplicating educational totals, source-history uncertainty, portable audits, fresh authority, stale-review CAS, privacy deletion and encrypted recovery with separate pack/decision quarantine and fresh review receipts. Full original workflow validated in PR #88; PR #89 repaired a pre-existing random drill exhaustion without content edits or weaker checks. Exact regression, native, Android, browser/accessibility, integrity and separate web/API/signed-course delivery/readback passed. No regulatory-credit, enrollment or credential claim; installers and new courses remain deferred.", status: "done" },
   { title: "Jurisdiction-configurable regulated transaction simulations", detail: "Reviewed, versioned educational rule packs and exact document snapshots; contracts and counteroffer lineage, fictional contingencies and deadlines; segregated exact-money client ledgers, reversals and three-way reconciliation; full successful/adverse transaction lifecycle with recoverable drafts, immutable evidence, instructor feedback and revision comparison. Same-device author/learner workflow with portable evidence, live authority, CAS, encrypted recovery and restored approval quarantine. Full regression, native, Android/emulator, browser/accessibility, integrity and separate web/API/signed-course delivery passed in PR #87. Synthetic educational engine only: no current-law claim, real money, filing, official forms, regulatory credit or new course content; installers remain deferred.", status: "done" },
   { title: "Interactive document and case file engine", detail: "Reusable versioned educational source templates with exact adult approval; multi-document cases, typed fillable fields, source-backed overlays and exact quote/region annotations; recoverable learner drafts, immutable evidence submissions, append-only instructor feedback and source/evidence revision comparisons. Explicit same-device workflow with portable source/evidence exports, live profile/authority checks, CAS conflicts, encrypted recovery and restored-approval quarantine. Full regression, native, Android/emulator, browser/accessibility, integrity and separate web/API/signed-course delivery passed in PR #86. Educational simulations only, not official forms or authenticated remote hand-ins; no new course content and desktop installers remain deferred.", status: "done" },
