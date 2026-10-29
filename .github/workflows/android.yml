@@ -28,6 +28,8 @@ permissions:
 jobs:
   android-apk:
     runs-on: ubuntu-24.04
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +56,8 @@ jobs:
         run: npm ci
       - name: Test Android download-page contract
         run: node --test tests/android-download-page.test.mjs
+      - name: Verify no bundled course content in Android build
+        run: node --test tests/android-remote-courses.test.mjs
       - name: Initialize Android project
         run: npm run tauri android init -- --ci
       - name: Build ARM64 APK
@@ -131,6 +135,8 @@ jobs:
 
   android-emulator-install:
     runs-on: ubuntu-24.04
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
@@ -159,6 +165,8 @@ jobs:
           echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
       - run: npm ci
+      - name: Verify no bundled course content in Android build
+        run: node --test tests/android-remote-courses.test.mjs
       - name: Build x86_64 test APK with same Android app source
         run: |
           npm run tauri android init -- --ci
