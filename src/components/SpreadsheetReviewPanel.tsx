@@ -75,7 +75,7 @@ export default function SpreadsheetReviewPanel({ course }: { course: Course }) {
     {notice && <p role="status">{notice}</p>}
     {active && <div className="stack">
       <p className="small muted">Course revision {active.receipt.revision}. These exact snapshot bytes are bound to the record digest. Final protected approval is not supplied by this panel.</p>
-      <label>Review record JSON<textarea className="input" readOnly rows={8} value={JSON.stringify(active.receipt, null, 2)} /></label>
+      <label>Review record JSON<textarea aria-label="Review record JSON" className="input" readOnly rows={8} value={JSON.stringify(active.receipt, null, 2)} /></label>
       <div className="row" style={{flexWrap:"wrap"}}><button type="button" className="btn sm" onClick={() => copy(JSON.stringify(active.receipt, null, 2))}>Copy review record</button><button type="button" className="btn sm" onClick={() => download(JSON.stringify(active.receipt, null, 2), "spreadsheet-review.json")}>Download review record</button></div>
       <details><summary>Exact reviewed course snapshot</summary><textarea className="input" aria-label="Reviewed course snapshot JSON" readOnly rows={12} value={active.snapshot} /></details>
       <div className="row" style={{flexWrap:"wrap"}}><button type="button" className="btn sm" onClick={() => copy(active.snapshot)}>Copy reviewed snapshot</button><button type="button" className="btn sm" onClick={() => download(active.snapshot, "reviewed-course.json")}>Download reviewed snapshot</button></div>
