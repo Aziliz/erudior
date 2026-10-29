@@ -142,6 +142,39 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
             return
         }
 
+        // Android enforces matching signatures on upgrade; reject mismatches
+        // ourselves before showing an installer prompt.
+        @Suppress("DEPRECATION")
+        val archive = activity.packageManager.getPackageArchiveInfo(
+            canonical.absolutePath,
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES
+            else android.content.pm.PackageManager.GET_SIGNATURES
+        )
+        if (archive == null || archive.packageName != activity.packageName) {
+            invoke.reject("Update APK package identity does not match Erudior")
+            return
+        }
+        @Suppress("DEPRECATION")
+        val installed = activity.packageManager.getPackageInfo(
+            activity.packageName,
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES
+            else android.content.pm.PackageManager.GET_SIGNATURES
+        )
+        @Suppress("DEPRECATION")
+        val archiveSignatures = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            archive.signingInfo?.apkContentsSigners?.map { it.toCharsString() }?.toSet()
+            else archive.signatures?.map { it.toCharsString() }?.toSet()
+        @Suppress("DEPRECATION")
+        val installedSignatures = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            installed.signingInfo?.apkContentsSigners?.map { it.toCharsString() }?.toSet()
+            else installed.signatures?.map { it.toCharsString() }?.toSet()
+        if (archiveSignatures.isNullOrEmpty() || archiveSignatures != installedSignatures) {
+            invoke.reject("Update APK signing certificate does not match installed Erudior")
+            return
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
             !activity.packageManager.canRequestPackageInstalls()) {
             val settingsIntent = Intent(
