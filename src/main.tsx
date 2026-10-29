@@ -21,6 +21,9 @@ import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 // Until the code arrives, the prerendered page (if any) stays on screen.
 // Only the public site's first visit in this browser session gets the splash.
 // Set before mount so refreshes during the animation never show it again.
+// Older cached snapshots may contain a startup overlay outside React's root.
+// Remove only those stale branding nodes before creating this page's owned splash.
+document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;
 if (IS_SITE) {
   try {
@@ -33,6 +36,8 @@ if (IS_SITE) {
 const splash = showSplash ? createStartupSplash({ kind: "official" }) : null;
 if (splash) document.body.appendChild(splash);
 const splashStartedAt = performance.now();
+// Never let a failed page import or interrupted animation trap visitors behind branding.
+if (splash) window.setTimeout(() => dismissStartupSplash(splash), 3000);
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 (IS_SITE ? import("./Site") : import("./App")).then(({ default: Page }) =>
   root.render(
@@ -40,7 +45,10 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
       <StartupView Page={Page} />
     </React.StrictMode>,
   ),
-);
+).catch((error) => {
+  if (splash) dismissStartupSplash(splash);
+  console.error("Erudior page failed to load:", error);
+});
 
 function StartupView({ Page }: { Page: React.ComponentType }) {
   useEffect(() => {
@@ -49,7 +57,7 @@ function StartupView({ Page }: { Page: React.ComponentType }) {
       dismissStartupSplash(splash);
       return;
     }
-    const delay = Math.max(0, 4800 - (performance.now() - splashStartedAt));
+    const delay = Math.max(0, 2000 - (performance.now() - splashStartedAt));
     const timeout = window.setTimeout(() => dismissStartupSplash(splash), delay);
     return () => window.clearTimeout(timeout);
   }, []);

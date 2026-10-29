@@ -8,6 +8,7 @@ on:
     paths:
       - ".github/workflows/site.yml"
       - "scripts/prerender.mjs"
+      - "scripts/prerender-browser.mjs"
   push:
     branches: [main]
     paths:
@@ -19,6 +20,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - "scripts/prerender.mjs"
+      - "scripts/prerender-browser.mjs"
       - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
 permissions:
@@ -52,6 +54,16 @@ jobs:
         run: |
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Verify served snapshots clear startup overlays
+        id: snapshot_browser
+        run: node scripts/diagnostic-command.mjs website-snapshot-browser -- node scripts/prerender-browser.mjs
+      - name: Upload snapshot browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prerender-browser-evidence
+          path: artifacts/prerender-browser/
+          if-no-files-found: warn
       - name: Deploy website to Cloudflare Pages
         id: pages_deploy
         if: github.event_name != 'pull_request'
@@ -66,7 +78,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()

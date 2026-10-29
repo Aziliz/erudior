@@ -5,6 +5,7 @@ export type SplashBrand = { kind:"official" } | { kind:"third-party"; productNam
 export function createStartupSplash(brand: SplashBrand): HTMLDivElement {
   const splash=document.createElement("div");
   splash.className="erudior-splash";
+  splash.setAttribute("data-prerender-skip", "");
   splash.setAttribute("role","status");
   splash.setAttribute("aria-label",brand.kind==="official"?"Loading Erudior":"Loading "+brand.productName);
   const book=document.createElement("div");
@@ -40,7 +41,12 @@ export function createStartupSplash(brand: SplashBrand): HTMLDivElement {
   return splash;
 }
 export function dismissStartupSplash(splash: HTMLElement) {
+  if (!splash.isConnected || splash.classList.contains("erudior-splash-exit")) return;
   splash.classList.add("erudior-splash-exit");
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches){splash.remove();return;}
-  splash.addEventListener("transitionend",()=>splash.remove(),{once:true});
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { splash.remove(); return; }
+  splash.addEventListener("transitionend", (event) => {
+    if (event.target === splash) splash.remove();
+  }, { once: true });
+  // Background tabs and reduced/disabled transitions may never emit transitionend.
+  window.setTimeout(() => splash.remove(), 400);
 }
