@@ -366,4 +366,6 @@ jobs:
           url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
           curl --fail --location --retry 5 --retry-delay 3 --output public.apk "$url"
           sha256sum --check <(sed 's/Erudior-Android-arm64.apk/public.apk/' Erudior-Android-arm64.apk.sha256)
-          echo "Public optimized APK verified: $url" >> "$GITHUB_STEP_SUMMARY"
+          curl --fail --location --retry 5 --retry-delay 3 --output published-update.json "https://github.com/Aziliz/erudior/releases/download/android-preview/android-update.json"
+          node -e 'const fs=require("fs"), c=require("crypto"); const m=JSON.parse(fs.readFileSync("published-update.json")); const b=fs.readFileSync("public.apk"); if(m.schema!==1||m.build!==process.env.GITHUB_SHA||m.bytes!==b.length||m.sha256!==c.createHash("sha256").update(b).digest("hex"))process.exit(1); console.log("Published update manifest verified")'
+          echo "Public optimized APK and update manifest verified: $url" >> "$GITHUB_STEP_SUMMARY"
