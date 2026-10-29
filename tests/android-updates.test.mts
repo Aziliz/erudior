@@ -110,3 +110,10 @@ test("Initial Android preview release publishes manifest alongside signed APK", 
   assert.match(workflow, /gh release create android-preview Erudior-Android-arm64\.apk Erudior-Android-arm64\.apk\.sha256 android-update\.json/);
   assert.match(workflow, /gh release upload android-preview Erudior-Android-arm64\.apk Erudior-Android-arm64\.apk\.sha256 android-update\.json/);
 });
+
+test("Installer emulator preflight waits for ADB before checking installed provider", () => {
+  const script = readFileSync("scripts/android-installer-preflight-smoke.sh", "utf8");
+  assert.match(script, /adb get-state/);
+  assert.match(script, /Android emulator did not become available/);
+  assert.match(script, /com\.erudior\.app\.erudior-updates/);
+});
