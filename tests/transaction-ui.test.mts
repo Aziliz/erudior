@@ -44,6 +44,16 @@ for(const stage of ['representation','pricing','offer']){await input('Next educa
 assert.equal(state().sessions[0].events.length,3);await click('Record phase transition');assert.equal(state().sessions[0].events.length,3,'unchanged repeated action is idempotent');
 await input('Offer client','fund');await input('Offer price','100.001');await input('Earnest amount','10.00');await input('Offer expiry date','2026-10-31');await input('Proposed closing date','2026-11-02');await input('Offer reasoning','Synthetic terms');await click('Record offer or counteroffer');assert.match(document.body.textContent!,/declared precision/);await input('Offer price','100.00');await click('Record offer or counteroffer');
 const offer=state().sessions[0].events.find(e=>e.command.kind==='offer')!.command as any;
+for (const label of ['Scrollable offer history','Scrollable trust register']) {
+  const region=document.querySelector(`[role="region"][aria-label="${label}"]`) as HTMLElement;
+  assert(region,`Named table region: ${label}`);
+  assert.equal(region.tabIndex,0,'Horizontal table scrolling is keyboard accessible');
+  assert(region.querySelector('table thead th'),'Semantic column headers retained');
+}
+const tableCss=await (await import('node:fs/promises')).readFile(new URL('../src/transactions.css',import.meta.url),'utf8');
+assert.match(tableCss,/\.transaction-table table\s*\{[^}]*min-width:48rem/,'Tables retain readable column layout rather than compressing into the mobile viewport');
+assert.match(tableCss,/\.transaction-table\s*\{[^}]*overflow:auto/,'Overflow remains inside the keyboard table region');
+
 await input('Offer to respond to',offer.offerId);await input('Response reasoning','Accept exact source terms');await click('Accept exact offer');
 await input('Contingency','check');await input('Condition evidence','Synthetic inspection evidence');await click('Record contingency outcome');
 await input('Trust client','fund');await input('Trust amount','10.00');await input('Trust reference','deposit-1');await input('Trust entry reason','Synthetic deposit');fail=true;await click('Post trust entry');assert.match(document.body.textContent!,/Synthetic save interruption/);await click('Post trust entry');await click('Post trust entry');assert.equal(replayTransaction(state().assignments[0],state().sessions[0].events).cashRegister,1000,'retry and repeat do not duplicate funds');

@@ -135,6 +135,15 @@ try {
     assert.equal(await page.evaluate(()=>window.transactionFixture.state().submissions.length),1,'Repeated snapshot submit is idempotent');
     await phase('representation'); await phase('pricing'); await phase('offer');
     await offer('buyer','1000.00'); await offer('seller','1100.00',true); await accept('buyer');
+    if (width === 320) {
+      const history = page.getByLabel('Scrollable offer history', {exact:true});
+      assert(await history.evaluate(el => el.scrollWidth > el.clientWidth), 'Mobile offer columns retain readable widths in a bounded scroll region');
+      await history.focus(); await page.keyboard.press('ArrowRight');
+      await page.waitForFunction(() => document.querySelector('[aria-label="Scrollable offer history"]').scrollLeft > 0);
+      await history.evaluate(el => { el.scrollLeft = el.scrollWidth; });
+      await audit(`${caseName}-offer-dates-keyboard-scroll`);
+      await history.evaluate(el => { el.scrollLeft = 0; });
+    }
     await condition('Title'); await condition('Inspection'); await condition('Financing');
     await trust('deposit','100.00','deposit-A');
     const posted=await eventCount(); await button('Post trust entry').click(); assert.equal(await eventCount(),posted,'Repeated funds posting cannot double count');

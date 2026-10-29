@@ -25,7 +25,8 @@ export default function TransactionCaseView({ assignment, session, onResponse, o
         <li key={r.documentId}>{assignment.pack.documents.find(d => d.id === r.documentId)?.title}: {r.role}</li>)}</ul>
     </details>
     <h3>Offer and counteroffer history</h3>
-    {state.offers.length === 0 ? <p>No offer has been recorded.</p> : <div className="transaction-table" tabIndex={0} aria-label="Scrollable offer history">
+    {state.offers.length > 0 && <p>Scroll the offer history horizontally to read every column. Keyboard users can focus the table region and use the arrow keys.</p>}
+    {state.offers.length === 0 ? <p>No offer has been recorded.</p> : <div className="transaction-table" role="region" tabIndex={0} aria-label="Scrollable offer history">
       <table>
         <thead>
           <tr>
@@ -54,7 +55,8 @@ export default function TransactionCaseView({ assignment, session, onResponse, o
     <ul>{assignment.pack.clients.map(c =>
       <li key={c.id}>{c.name}: {money(state.clientBalances[c.id] ?? 0)}</li>)}</ul>
     <p>Cash register balance: {money(state.cashRegister)}</p>
-    <div className="transaction-table" tabIndex={0} aria-label="Scrollable trust register">
+    <p>Scroll the trust register horizontally to read every column. Keyboard users can focus the table region and use the arrow keys.</p>
+    <div className="transaction-table" role="region" tabIndex={0} aria-label="Scrollable trust register">
       <table>
         <thead>
           <tr>

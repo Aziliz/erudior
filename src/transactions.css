@@ -12,9 +12,9 @@
 .transactions [role=alert] { border:2px solid var(--bad); padding:.75rem; }
 .transaction-grid,.transaction-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
 .transaction-compare > article { min-width:0; border:1px solid var(--rule); padding:.75rem; }
-.transaction-table { overflow:auto; max-width:100%; }
-.transaction-table table { width:100%; border-collapse:collapse; }
-.transaction-table :is(td,th) { text-align:left; padding:.4rem; border-bottom:1px solid var(--rule); }
+.transaction-table { overflow:auto; max-width:100%; min-width:0; }
+.transaction-table table { width:100%; min-width:48rem; border-collapse:collapse; }
+.transaction-table :is(td,th) { min-width:8rem; vertical-align:top; text-align:left; padding:.4rem; border-bottom:1px solid var(--rule); }
 .transaction-summary { border:1px solid var(--rule); background:var(--sheet); padding:.75rem; }
 .transactions details { margin:.75rem 0; }
 .transactions summary { cursor:pointer; padding:.4rem 0; }
