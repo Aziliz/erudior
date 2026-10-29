@@ -36,7 +36,7 @@ export async function fetchAndroidRelease(): Promise<AndroidReleaseManifest> {
   }
 }
 
-export async function verifyAndroidApk(m: AndroidReleaseManifest, progress: (pct: number | null) => void): Promise<void> {
+export async function verifyAndroidApk(m: AndroidReleaseManifest, progress: (pct: number | null) => void): Promise<Uint8Array> {
   const response = await fetch(m.apk, { cache: "no-store" });
   if (!response.ok || !response.body) throw new Error("Cannot download Android update");
   const reader = response.body.getReader();
@@ -58,6 +58,7 @@ export async function verifyAndroidApk(m: AndroidReleaseManifest, progress: (pct
     .map(n => n.toString(16).padStart(2, "0")).join("");
   if (hash !== m.sha256.toLowerCase()) throw new Error("APK checksum verification failed");
   progress(100);
+  return bytes;
 }
 
 /** Compare numeric version components, ignoring cosmetic suffixes. */
