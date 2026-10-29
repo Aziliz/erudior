@@ -1,3 +1,4 @@
+import InstructionalStudio from "../components/InstructionalStudio";
 import TransactionStudio from "../components/TransactionStudio";
 import DocumentEngine from "../components/DocumentEngine";
 import ContentInteroperability from "../components/ContentInteroperability";
@@ -71,7 +72,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
-  | "document-cases" | "transactions"
+  | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -96,6 +97,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
   { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -116,6 +118,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
   { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -222,6 +225,7 @@ export default function ParentArea({
           {tab === "interoperability" && <ContentInteroperability api={api} />}
           {tab === "document-cases" && <DocumentEngine api={api} />}
           {tab === "transactions" && <TransactionStudio api={api} />}
+          {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}

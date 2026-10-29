@@ -1,0 +1,60 @@
+import assert from 'node:assert/strict';
+const state = new Map<string,string>(), mutations:string[]=[];
+(globalThis as any).isTauri=true;
+(globalThis as any).window={__TAURI_INTERNALS__:{invoke:async(command:string,args:any)=>{
+  if(command==='load_state')return state.get(args.name)??null;
+  if(command==='save_state'){mutations.push(args.name);args.content===null?state.delete(args.name):state.set(args.name,args.content);return;}
+  if(command==='compare_and_swap_state'){if((state.get(args.name)??null)!==args.expected)return false;mutations.push(args.name);state.set(args.name,args.content);return true;}
+  if(command==='load_progress')return state.get('progress')??null;
+  if(command==='save_progress'){mutations.push('progress');state.set('progress',args.content);return;}
+  throw Error('Unexpected command '+command);
+}}};
+const {collect,restoreContents,encryptText,decryptText}=await import('../src/lib/backup.ts');
+const {createClassroomSubmissionStore}=await import('../src/lib/classroomSubmissionStore.ts');
+const {stateTransactions,validStateName}=await import('../src/lib/stateLock.ts');
+assert(validStateName('instructional-evidence'));
+for(const invalid of ['instructional-evidence-extra','../instructional-evidence','instructional-evidence/other'])assert.equal(validStateName(invalid),false);
+const {parseInstructionalLibrary,instructionalReport}=await import('../src/lib/instructionalEvidence.ts');
+const {createInstructionalEvidenceStore,deleteInstructionalStudent}=await import('../src/lib/instructionalEvidenceStore.ts');
+const family={format:'erudior-family',version:1,students:[{id:'alice',name:'Alice'},{id:'bob',name:'Bob'}]};
+state.set('family',JSON.stringify(family));
+const pack:any={format:'erudior-instructional-pack',version:1,id:'pack',revision:0,title:'Synthetic educational requirements',jurisdiction:{id:'synthetic',name:'Synthetic neutral outline',version:'1',sourceNote:'Fictional test only, not legal credit',effectiveFrom:'2026-01-01',effectiveThrough:'2027-12-31'},methodNote:'Human review of equivalent work, not elapsed time',requirements:[{id:'r',title:'Practice objective',minutes:60}],mappings:[{id:'m',requirementId:'r',title:'External learning task',minutes:60,rationale:'Explicitly reviewed workload',source:{kind:'external',courseId:'external',courseRevision:0,itemId:'task',title:'Synthetic observation',snapshot:JSON.stringify({description:'Synthetic external task'})}}]};
+const tx=stateTransactions({read:async name=>state.get(name)??null,write:async(name,value)=>{value===null?state.delete(name):state.set(name,value);}});
+let reviewer='Teacher', now='2026-10-29T00:00:00Z';
+const engine=createInstructionalEvidenceStore({read:async()=>state.get('instructional-evidence')??null,update:change=>tx.update('instructional-evidence',change),authorizeAdult:async()=>({actorId:'adult',actorName:reviewer,authorityKey:'session'}),learnerContext:async()=>({studentId:'alice',authorityKey:'alice'}),readCourses:async()=>[],readProgress:async()=>{throw Error('External evidence does not read unrelated progress');},readRecords:async()=>null,now:()=> now});
+await engine.supervisor.savePack(pack,null);
+const approved=await engine.supervisor.approvePack('pack',1);
+const assignment={id:'assignment',studentId:'alice',title:'Private educational plan',instructions:'Review exact evidence',startDate:'2026-10-29',pack:approved};
+await engine.supervisor.assign(assignment,null);
+await engine.learner.capture({id:'evidence',assignmentId:'assignment',assignmentRevision:1,mappingId:'m',note:'Private learner observation',external:{activityDate:'2026-10-29',description:'Private source observation',completed:true}});
+await engine.supervisor.decide({expectedDecisionId:null,id:'decision',evidenceId:'evidence',status:'approved',minutes:60,note:'Private reviewed workload'});
+await engine.supervisor.savePack({...approved,title:'Newer unapproved requirements'},1);
+const library=parseInstructionalLibrary(state.get('instructional-evidence'));
+assert.equal(instructionalReport(library,'assignment').approvedMinutes,60);
+const snapshot=await collect([],[]);assert.deepEqual(snapshot.instructionalEvidence,library);
+const encrypted=await encryptText(JSON.stringify(snapshot),'instructional backup test phrase');assert(!encrypted.includes('Private learner observation'));
+state.delete('instructional-evidence');await restoreContents(await decryptText(JSON.parse(encrypted),'instructional backup test phrase'),{courses:[],banks:[]});
+let restored=parseInstructionalLibrary(state.get('instructional-evidence'));
+assert(restored.restoredAt);assert.deepEqual(restored.pendingApproval,['pack@1','pack@2']);assert.deepEqual(restored.pendingDecisionIds,['decision']);assert.deepEqual(restored.evidence,library.evidence);assert.deepEqual(restored.decisions,library.decisions);
+assert.equal(instructionalReport(restored,'assignment').approvedMinutes,0,'restored claims are not operative credit');
+await assert.rejects(engine.supervisor.assign({...assignment,id:'newassignment'},null),/reviewed/);
+await assert.rejects(engine.supervisor.decide({expectedDecisionId:'decision',id:'blocked',evidenceId:'evidence',status:'approved',minutes:60,note:'Not yet reviewed'}),/fresh local review/);
+reviewer='Fresh local reviewer';now=new Date(Date.parse(restored.restoredAt!)+1000).toISOString();
+await engine.supervisor.approvePack('pack',1);
+restored=parseInstructionalLibrary(state.get('instructional-evidence'));assert.deepEqual(restored.pendingApproval,['pack@2']);assert.equal(restored.packReviews?.length,2);assert.equal(restored.packReviews?.at(-1)?.actor,'Fresh local reviewer');assert.deepEqual(restored.assignments[0].pack,library.assignments[0].pack,'fresh receipt does not rewrite historical source approval');assert.equal(instructionalReport(restored,'assignment').approvedMinutes,0,'pack re-review alone cannot authenticate prior credit');
+await engine.supervisor.decide({expectedDecisionId:'decision',id:'fresh-review',evidenceId:'evidence',status:'approved',minutes:60,note:'Explicitly re-reviewed exact recovered evidence'});
+restored=parseInstructionalLibrary(state.get('instructional-evidence'));assert.equal(instructionalReport(restored,'assignment').approvedMinutes,60);assert.deepEqual(restored.pendingDecisionIds,['decision']);assert.equal(restored.decisions.length,2,'fresh decision appends without rewriting historical authority');
+const forged=structuredClone(library);for(const value of [forged.packs[0],forged.assignments[0].pack])value.approval!.actor='External claimed authority';forged.decisions[0].actor='Fabricated reviewer';forged.pendingApproval=[];forged.pendingDecisionIds=[];
+await restoreContents(JSON.stringify({...snapshot,instructionalEvidence:forged}),{courses:[],banks:[]});
+restored=parseInstructionalLibrary(state.get('instructional-evidence'));assert.deepEqual(restored.pendingApproval,['pack@1','pack@2']);assert.deepEqual(restored.pendingDecisionIds,['decision']);assert.equal(restored.decisions[0].actor,'Fabricated reviewer');assert.equal(instructionalReport(restored,'assignment').approvedMinutes,0);
+const before=[...state];mutations.length=0;
+const foreign=structuredClone(library);foreign.assignments[0].studentId='outsider';foreign.evidence[0].studentId='outsider';
+const corrupt=structuredClone(library);corrupt.decisions[0].minutes=61;
+for(const malformed of [null,foreign,corrupt,{...library,packs:[]}]){await assert.rejects(restoreContents(JSON.stringify({...snapshot,instructionalEvidence:malformed}),{courses:[],banks:[]}));assert.deepEqual([...state],before);assert.deepEqual(mutations,[],'validation must precede any destructive restore');}
+state.set('instructional-evidence','{broken');await assert.rejects(collect([],[]));state.set('instructional-evidence',JSON.stringify(library));
+const {instructionalEvidence:_,...legacy}=snapshot;await restoreContents(JSON.stringify(legacy),{courses:[],banks:[]});assert(!state.has('instructional-evidence'),'legacy restore clears unrelated private evidence');
+state.set('instructional-evidence',JSON.stringify({...library,pendingDecisionIds:['decision']}));
+const classroom=createClassroomSubmissionStore({readState:async name=>state.get(name)??null,writeState:tx.save,updateState:tx.update,readFamily:async()=>JSON.parse(state.get('family')!),writeFamily:async value=>tx.save('family',JSON.stringify(value)),readFile:async()=>null,writeFile:async()=>{},now:()=> '2026-10-29T00:00:00Z'});
+await classroom.deleteStudent('alice',family as any);
+const removed=parseInstructionalLibrary(state.get('instructional-evidence'));assert.deepEqual(removed.deletedStudentIds,['alice']);assert.equal(removed.assignments.length,0);assert.equal(removed.evidence.length,0);assert.equal(removed.decisions.length,0);assert.deepEqual(removed.pendingDecisionIds,[]);assert.equal(removed.packs.length,2);assert(!state.get('instructional-evidence')!.includes('Private learner observation'));assert.deepEqual(deleteInstructionalStudent(removed,'alice'),removed);
+console.log('Instructional backup: encrypted exact evidence/history, pack and credit quarantine, explicit fresh decision, malformed/foreign preflight, legacy clearing and profile deletion passed');

@@ -1,3 +1,4 @@
+import { parseInstructionalLibrary, type InstructionalLibrary } from './instructionalEvidence';
 import { parseTransactionLibrary, type TransactionLibrary } from './transactionEngine';
 import { parseDocumentLibrary, type DocumentLibrary } from './documentEngine';
 import { parseInterventionTasks } from './interventionTasks';
@@ -53,6 +54,8 @@ interface Contents {
   documentEngine?: DocumentLibrary;
   /** Private educational transaction sources, sessions and immutable evidence. */
   transactionEngine?: TransactionLibrary;
+  /** Private requirement mappings, captured evidence and human credit review history. */
+  instructionalEvidence?: InstructionalLibrary;
   /** Attached documents by file id. */
   files?: Record<string, { mime: string; data: string }>;
 }
@@ -130,9 +133,17 @@ function validateTransactionFamily(state: TransactionLibrary, family: Family | n
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Transaction history refers to a learner outside this family.");
 }
 
+function validateInstructionalFamily(state: InstructionalLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Instructional evidence refers to a learner outside this family.");
+}
+
 /** Gather everything stored on this computer. */
 export async function collect(courses: Course[], banks: Bank[]): Promise<Contents> {
   const family = await loadFamily();
+  const instructionalText = await store.loadState("instructional-evidence");
+  const instructionalEvidence = instructionalText === null ? undefined : parseInstructionalLibrary(instructionalText);
+  if (instructionalEvidence) validateInstructionalFamily(instructionalEvidence, family);
   const transactionText = await store.loadState("transaction-engine");
   const transactionEngine = transactionText === null ? undefined : parseTransactionLibrary(transactionText);
   if (transactionEngine) validateTransactionFamily(transactionEngine, family);
@@ -167,6 +178,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
     ...(transactionEngine === undefined ? {} : { transactionEngine }),
+    ...(instructionalEvidence === undefined ? {} : { instructionalEvidence }),
     progress: baseProgress,
     courses: courses.map((c) => JSON.parse(serializeCourse(c))),
     banks: banks.filter((b) => !b.courseId).map((b) => JSON.parse(serializeBank(b))),
@@ -212,6 +224,16 @@ export async function restoreContents(
   const interventionState = b.interventions === undefined ? undefined : parseInterventionState(b.interventions);
   if (interventionState) validateInterventionFamily(interventionState, b.family);
   const interventions = interventionState === undefined ? null : JSON.stringify(interventionState);
+  if (b.instructionalEvidence === null) throw Error("Invalid instructional evidence history in backup.");
+  const instructionalState = b.instructionalEvidence === undefined ? undefined : parseInstructionalLibrary(b.instructionalEvidence);
+  if (instructionalState) validateInstructionalFamily(instructionalState, b.family);
+  // A backup preserves recorded history, not the authenticity of imported authority.
+  // Re-reviewing a requirement pack alone must not activate fabricated credit decisions.
+  const instructionalEvidence = instructionalState === undefined ? null : JSON.stringify(parseInstructionalLibrary({
+    ...instructionalState, restoredAt: new Date().toISOString(),
+    pendingApproval: instructionalState.packs.map(pack => pack.id + "@" + pack.revision),
+    pendingDecisionIds: instructionalState.decisions.map(decision => decision.id),
+  }));
   if (b.transactionEngine === null) throw Error("Invalid transaction history in backup.");
   const transactionState = b.transactionEngine === undefined ? undefined : parseTransactionLibrary(b.transactionEngine);
   if (transactionState) validateTransactionFamily(transactionState, b.family);
@@ -261,6 +283,7 @@ export async function restoreContents(
   await store.saveState("interventions", interventions);
   await store.saveState("document-engine", documentEngine);
   await store.saveState("transaction-engine", transactionEngine);
+  await store.saveState("instructional-evidence", instructionalEvidence);
   await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }
