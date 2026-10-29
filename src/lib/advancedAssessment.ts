@@ -1,3 +1,4 @@
+import { validateCourseActivityOrigin, type CourseActivityOrigin } from './courseActivityOrigin';
 /** Canonical ordering for exact educational source comparison. No browser or storage dependencies. */
 export function advancedAssessmentJSON(value: unknown): string {
     let count = 0;
@@ -61,6 +62,7 @@ export type AdvancedAssessmentQuestion = {
     prompt: string;
 };
 export interface AdvancedAssessmentPack {
+    courseOrigin?: CourseActivityOrigin;
     format: 'erudior-advanced-assessment-pack';
     version: 1;
     id: string;
@@ -265,7 +267,8 @@ function strings(v: unknown, at: string, max = 20) { arr(v, at, max, 1); for (co
     text(x, at, 500); unique(v as string[], at); }
 export function parseAdvancedAssessmentPack(input: unknown): AdvancedAssessmentPack {
     const v = decode(input, ADVANCED_ASSESSMENT_LIMITS.packBytes);
-    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'instructions', 'integrity', 'rubric', 'misconceptions', 'variants', 'approval'], 'pack');
+    obj(v, ['format', 'version', 'id', 'revision', 'title', 'description', 'sourceNote', 'instructions', 'integrity', 'rubric', 'misconceptions', 'variants', 'approval', 'courseOrigin'], 'pack');
+    validateCourseActivityOrigin(v.courseOrigin);
     if (v.format !== 'erudior-advanced-assessment-pack' || v.version !== 1)
         fail('pack format/version');
     id(v.id, 'pack');
@@ -379,8 +382,8 @@ export function parseAdvancedAssessmentPack(input: unknown): AdvancedAssessmentP
     return copy(v as unknown as AdvancedAssessmentPack);
 }
 export function emptyAdvancedAssessmentPack(id: string): AdvancedAssessmentPack { return { format: 'erudior-advanced-assessment-pack', version: 1, id, revision: 0, title: 'Untitled educational assessment', description: 'Replace with the assessment purpose.', sourceNote: 'Author-created educational assessment; review before assignment.', instructions: 'Explain each response and declare assistance.', integrity: 'Declare any assistance. This local record is not proctoring or identity verification.', rubric: { id: 'reasoning', revision: 1, title: 'Reasoning and communication', criteria: [{ id: 'explanation', title: 'Evidence-based explanation', levels: [{ id: 'developing', points: 0, label: 'Developing', description: 'Explanation needs clarification.' }, { id: 'supported', points: 1, label: 'Supported', description: 'Explanation supports the response.' }] }] }, misconceptions: [], variants: [{ id: 'a', title: 'Variant A', questions: [{ kind: 'math', id: 'reason', prompt: 'Show and explain the steps for an instructor-authored task.', steps: [{ id: 'first', prompt: 'Record the first step.', misconceptions: [] }, { id: 'second', prompt: 'Explain the next step.', misconceptions: [] }] }, { kind: 'oral', id: 'explain', prompt: 'Explain your reasoning aloud; provide a transcript or a transcript with optional audio.' }] }] }; }
-export function exportAdvancedAssessmentPack(p: AdvancedAssessmentPack): string { const { approval: _, ...v } = parseAdvancedAssessmentPack(p); return JSON.stringify(v, null, 2); }
-export function importAdvancedAssessmentPack(input: unknown, newId?: string): AdvancedAssessmentPack { const { approval: _, ...v } = parseAdvancedAssessmentPack(input); return parseAdvancedAssessmentPack({ ...v, id: newId ?? v.id, revision: 0 }); }
+export function exportAdvancedAssessmentPack(p: AdvancedAssessmentPack): string { const { approval: _, courseOrigin: _origin, ...v } = parseAdvancedAssessmentPack(p); return JSON.stringify(v, null, 2); }
+export function importAdvancedAssessmentPack(input: unknown, newId?: string): AdvancedAssessmentPack { const { approval: _, courseOrigin: _origin, ...v } = parseAdvancedAssessmentPack(input); return parseAdvancedAssessmentPack({ ...v, id: newId ?? v.id, revision: 0 }); }
 export function parseAdvancedAssessmentAssignment(input: unknown): AdvancedAssessmentAssignment { const v = decode(input); obj(v, ['id', 'revision', 'studentId', 'title', 'instructions', 'pack', 'variantId', 'createdAt'], 'assignment'); id(v.id, 'assignment'); int(v.revision, 'assignment revision', 1); id(v.studentId, 'learner'); text(v.title, 'assignment title', 300); text(v.instructions, 'instructions', 10000); stamp(v.createdAt, 'assignment'); const pack = parseAdvancedAssessmentPack(v.pack); if (!pack.approval || Date.parse(v.createdAt) < Date.parse(pack.approval.at))
     fail('assignment requires prior source review'); if (!pack.variants.some(x => x.id === v.variantId))
     fail('assigned variant missing'); return { ...copy(v as unknown as AdvancedAssessmentAssignment), pack }; }

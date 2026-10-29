@@ -19,6 +19,7 @@ on:
       - 'scripts/credential-browser.mjs'
       - 'scripts/learner-privacy-browser.mjs'
       - 'scripts/advanced-assessment-browser.mjs'
+      - 'scripts/course-activities-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -41,6 +42,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Lesson-linked activity discovery, exact source launch and return
+        run: npm run test:course-activities-browser
       - name: Advanced assessment, oral evidence and human rubric review
         run: npm run test:advanced-assessment-browser
       - name: Scientific investigation and engineering evidence workflows
@@ -140,3 +143,11 @@ jobs:
             test-results/learner-progress-integration/
           retention-days: 14
           if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: course-activities-browser
+          path: test-results/course-activities-browser/
+          if-no-files-found: warn
+          retention-days: 14

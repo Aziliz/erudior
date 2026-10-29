@@ -1,9 +1,17 @@
+import type { BranchingPack } from '../lib/branchingEngine';
+import { activitySourceIdentity, activitySourceMatches } from '../lib/activitySourceMatch';
 import { useEffect, useRef, useState } from 'react';
 import type { AppApi } from '../App';
 import { BRANCHING_DISCLAIMER, branchingConditionMatches, createBranchingSession, replayBranchingSession, type BranchingAssignment, type BranchingSession, type BranchingLibrary, type BranchingCommand } from '../lib/branchingEngine';
 import { registerNavigationGuard } from '../lib/navigationGuard';
 import BranchingCaseView from './BranchingCaseView';
-export default function LearnerBranching({api}:{api:AppApi}) {
+type Props = { api: AppApi; source?: BranchingPack; courseId?: string; courseRevision?: number };
+export default function LearnerBranching(props: Props) {
+ // A changed source or learner cannot expose a previous session even for one render.
+ const identity = JSON.stringify([props.api.student?.id, props.api.family?.parent?.password, props.source ? activitySourceIdentity(props.source) : null, props.courseId, props.courseRevision]);
+ return <LearnerBranchingSession key={identity} {...props} />;
+}
+function LearnerBranchingSession({api,source,courseId,courseRevision}: Props) {
  const service=api.branchingLearner;
  const [library,setLibrary]=useState<BranchingLibrary|null>(null),[assignment,setAssignment]=useState<BranchingAssignment|null>(null),[session,setSession]=useState<BranchingSession|null>(null),[revision,setRevision]=useState<number|null>(null);
  const [note,setNote]=useState(''),[clock,setClock]=useState(''),[clockNote,setClockNote]=useState(''),[dirty,setDirty]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[status,setStatus]=useState(''),[history,setHistory]=useState('');
@@ -18,12 +26,12 @@ export default function LearnerBranching({api}:{api:AppApi}) {
  const mark=(kind:string)=>{setDirty(true);setStatus('');delete eventIds.current[kind];};
  async function act(kind:string,command:BranchingCommand){if(!assignment||!service)return;eventIds.current[kind]??=crypto.randomUUID();await run(async g=>{const next=await service.command(assignment.id,assignment.revision,command,eventIds.current[kind],revision);if(g!==generation.current)return;const loaded=await service.load();if(g!==generation.current)return;setLibrary(loaded);setSession(next);setRevision(next.revision);setDirty(false);setNote('');setClock('');setClockNote('');submissionId.current=crypto.randomUUID();setStatus('Scenario event saved. Prior evidence remains unchanged.');});}
  const state=assignment&&session?replayBranchingSession(assignment,session):null,node=assignment?.pack.nodes.find(n=>n.id===state?.nodeId);
- const latest=library?.assignments.filter(a=>!library.assignments.some(b=>b.id===a.id&&b.revision>a.revision))??[],evidence=library?.submissions.filter(s=>s.caseId===assignment?.id)??[],selected=evidence.find(s=>s.id===history);
+ const latest=library?.assignments.filter(a=>!library.assignments.some(b=>b.id===a.id&&b.revision>a.revision)).filter(a=>!source||activitySourceMatches(a.pack,source,courseId,courseRevision))??[],evidence=library?.submissions.filter(s=>s.caseId===assignment?.id)??[],selected=evidence.find(s=>s.id===history);
  const quarantined=!!assignment&&!!library?.pendingApproval?.includes(`${assignment.pack.id}@${assignment.pack.revision}`),blocked=busy||quarantined||state?.outcome!=='in-progress';
  return <section className="branching"><h2>My branching scenarios</h2><p>{BRANCHING_DISCLAIMER}</p>{error&&<p role="alert">{error}</p>}{status&&<p role="status">{status}</p>}
  {!service?<p>Branching scenarios are unavailable for this profile.</p>:<><button disabled={busy} onClick={()=>{if(!discard())return;void run(async g=>{const v=await service.load();if(g!==generation.current)return;setLibrary(v);setAssignment(null);setSession(null);reset();setStatus('Scenario assignments reloaded.');});}}>Reload scenario assignments</button>
  {library?.restoredAt&&<p>Restored records are unauthenticated history. A supervising adult must re-review every quarantined source before further actions.</p>}
- <fieldset disabled={busy}><legend>Assigned fictional scenarios</legend>{latest.length===0?<p>No scenarios assigned.</p>:latest.map(a=><button key={a.id} onClick={()=>open(a)}>{a.title} — scenario revision {a.revision}</button>)}</fieldset>
+ <fieldset disabled={busy}><legend>Assigned fictional scenarios</legend>{latest.length===0?<p>{source ? 'No assignment matches this exact course source. Ask a supervising adult to review and assign this source ID, revision and content before starting.' : 'No scenarios assigned.'}</p>:latest.map(a=><button key={a.id} onClick={()=>open(a)}>{a.title} — scenario revision {a.revision}</button>)}</fieldset>
  {assignment&&session&&state&&node&&<><p>{assignment.instructions}</p>{quarantined&&<p role="alert">This source is quarantined. Ask a supervising adult to re-review its exact revision.</p>}<BranchingCaseView assignment={assignment} session={session}/>
  <fieldset disabled={blocked}><legend>Choose a consequential action</legend><label>Decision reasoning<textarea aria-label="Decision reasoning" value={note} onChange={e=>{setNote(e.target.value);mark('choice');}}/></label>{node.choices.map(c=>{const available=c.conditions.every(x=>branchingConditionMatches(state,x))&&state.tick+c.costTicks<=assignment.pack.maxTick;return <div key={c.id}><button disabled={!available||!note.trim()||!!clock.trim()||!!clockNote.trim()} onClick={()=>void act('choice',{kind:'choice',choiceId:c.id,note})}>{c.title}</button><p>Uses {c.costTicks} {assignment.pack.timeUnit}. {available?'Available now.':'Unavailable: reviewed conditions or time horizon are not met.'}</p></div>;})}</fieldset>
  <fieldset disabled={blocked}><legend>Advance simulated time</legend><p>Advancing is an explicit fictional decision. Crossing deadlines can apply irreversible educational consequences.</p><label>Next simulated tick<input aria-label="Next simulated tick" type="number" min={state.tick+1} max={assignment.pack.maxTick} value={clock} onChange={e=>{setClock(e.target.value);mark('advance');}}/></label><label>Time advancement reasoning<textarea aria-label="Time advancement reasoning" value={clockNote} onChange={e=>{setClockNote(e.target.value);mark('advance');}}/></label><button disabled={!clock||!clockNote.trim()||!!note.trim()} onClick={()=>{if(window.confirm('Advance this fictional clock? Saved decisions and missed deadlines cannot be erased.'))void act('advance',{kind:'advance',tick:Number(clock),note:clockNote});}}>Advance scenario clock</button></fieldset>
