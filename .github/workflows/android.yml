@@ -178,10 +178,7 @@ jobs:
           target: google_apis
           arch: x86_64
           script: |
-            set -e
-            apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
-            test -n "$apk"
-            adb install -r "$apk"
+            adb install -r "$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
             adb shell pm path com.erudior.app
             adb shell monkey -p com.erudior.app 1
             sleep 5
