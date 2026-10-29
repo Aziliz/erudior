@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -134,9 +135,9 @@ jobs:
           cp "${apks[0]}" Erudior-Android-arm64.apk
           sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
           if gh release view android-preview >/dev/null 2>&1; then
-            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --clobber
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --clobber
           else
-            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
           fi
       - name: Verify public release download
         if: ${{ false }}
@@ -153,6 +154,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
@@ -223,6 +225,7 @@ jobs:
       contents: write
     env:
       VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -291,6 +294,7 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keystore" --ks-key-alias "$ANDROID_KEY_ALIAS" --ks-pass env:ANDROID_KEYSTORE_PASSWORD --key-pass env:ANDROID_KEY_PASSWORD --out Erudior-Android-arm64.apk aligned.apk
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
           sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
+          node -e 'const fs=require("fs"); const p=JSON.parse(fs.readFileSync("package.json")); const apk="Erudior-Android-arm64.apk"; const hash=require("crypto").createHash("sha256").update(fs.readFileSync(apk)).digest("hex"); const m={schema:1,version:p.version,build:process.env.GITHUB_SHA,apk:"https://github.com/Aziliz/erudior/releases/download/android-preview/"+apk,sha256:hash,bytes:fs.statSync(apk).size,notes:"Android preview update"}; fs.writeFileSync("android-update.json",JSON.stringify(m)+"\\n");'
           echo "Optimized Android APK signed using configured persistent keystore." >> "$GITHUB_STEP_SUMMARY"
       - name: Test optimized APK signing mechanics with disposable CI key
         if: env.RELEASE_SIGNING_READY != 'true'
@@ -346,10 +350,11 @@ jobs:
           set -euo pipefail
           test -s Erudior-Android-arm64.apk
           test -s Erudior-Android-arm64.apk.sha256
+          test -s android-update.json
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
           sha256sum -c Erudior-Android-arm64.apk.sha256
           if gh release view android-preview >/dev/null 2>&1; then
-            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --clobber
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --clobber
           else
             gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Optimized ARM64 Android preview. Device testing remains in progress." --prerelease
           fi
