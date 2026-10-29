@@ -1138,7 +1138,9 @@ export default function App() {
               <b>Erudior {appUpdate.version} is available</b>
               <span className="small muted">
                 {installing !== false
-                  ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`
+                  ? (appUpdate.actionLabel
+                    ? "Preparing verified Android update… Approve installation in Android when prompted."
+                    : `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`)
                   : appUpdate.canInstall
                     ? appUpdate.guidance ?? "Install it now; your courses and progress are kept."
                     : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}
@@ -1156,7 +1158,10 @@ export default function App() {
                       setInstalling(null);
                       try {
                         await appUpdate.install((pct) => setInstalling(pct));
-                        if (appUpdate.actionLabel) setInstalling(false);
+                        if (appUpdate.actionLabel) {
+                          setInstalling(false);
+                          toast("Android installer opened. Approve the update to finish.");
+                        }
                       } catch (e) {
                         setInstalling(false);
                         toast(`Update failed: ${String(e)}`);
