@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { validateAndroidRelease } from "../src/lib/androidUpdates.ts";
+import { validateAndroidRelease, compareAndroidVersions, shouldOfferAndroidUpdate } from "../src/lib/androidUpdates.ts";
 
 const release = {
   schema: 1, version: "0.25.1",
@@ -16,4 +16,15 @@ test("rejects redirected download URLs and malformed hashes", () => {
   assert.throws(() => validateAndroidRelease({ ...release, sha256: "a" }));
   assert.throws(() => validateAndroidRelease({ ...release, bytes: 50000000 }));
   assert.throws(() => validateAndroidRelease({ ...release, build: "not-a-sha" }));
+});
+
+test("numeric version ordering and installed build identity", () => {
+  assert.equal(compareAndroidVersions("0.25.10", "0.25.9"), 1);
+  assert.equal(compareAndroidVersions("0.24.0", "0.25.0"), -1);
+  assert.equal(compareAndroidVersions("0.25.0", "0.25.0"), 0);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", release.build), false);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.25.1", ""), false);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.25.2", "c".repeat(40)), false);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.25.0", "c".repeat(40)), true);
+  assert.equal(shouldOfferAndroidUpdate(release, "0.24.9", ""), true);
 });
