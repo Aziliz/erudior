@@ -323,6 +323,7 @@ jobs:
             bytes="$(stat -c%s "$apk")"
             printf -- '- %s: %s bytes\n' "$apk" "$bytes" >> "$GITHUB_STEP_SUMMARY"
             echo "OPTIMIZED_APK_BYTES=$bytes"
+            test "$bytes" -lt 41943040 || { echo "::error::Optimized Android APK exceeds 40 MiB release size ceiling"; exit 1; }
             echo "OPTIMIZED_APK_MIB=$(awk -v bytes="$bytes" 'BEGIN { printf "%.2f", bytes / 1048576 }')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" | grep -E '^(package:|sdkVersion:|targetSdkVersion:|native-code:)' >> "$GITHUB_STEP_SUMMARY"
             if unzip -Z1 "$apk" | grep -Ei '(^|/)(samples/(math|languages)/|colorado-broker-course\\.json|dist-courses/|courses-dev/)'; then
