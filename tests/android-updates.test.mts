@@ -91,3 +91,10 @@ test("Native release downloader validates HTTPS redirects and APK ZIP header", (
   assert.match(kotlin, /APK redirect is not HTTPS/);
   assert.match(kotlin, /Downloaded APK is not a ZIP archive/);
 });
+
+test("Native Android installer rejects wrong package and signing certificate", () => {
+  const kotlin = readFileSync("src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt", "utf8");
+  assert.match(kotlin, /archive\.packageName != activity\.packageName/);
+  assert.match(kotlin, /archiveSignatures != installedSignatures/);
+  assert.match(kotlin, /GET_SIGNING_CERTIFICATES/);
+});
