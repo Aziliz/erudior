@@ -14,6 +14,8 @@ import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
 import java.io.File
 import java.security.MessageDigest
+import java.net.HttpURLConnection
+import java.net.URL
 
 /**
  * An Android-only installer entry point. The Rust updater owns download, hash
@@ -26,6 +28,77 @@ internal class VerifiedApkArgs {
 
 @TauriPlugin
 class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
+    @Command
+    fun fetchReleaseManifest(invoke: Invoke) {
+        Thread {
+            try {
+                val url = URL("https://github.com/Aziliz/erudior/releases/download/android-preview/android-update.json")
+                val conn = url.openConnection() as HttpURLConnection
+                conn.connectTimeout = 10000
+                conn.readTimeout = 15000
+                conn.instanceFollowRedirects = true
+                val body = conn.inputStream.use { it.readNBytes(16385) }
+                if (body.size > 16384 || conn.responseCode != 200) throw IllegalStateException("Invalid release metadata")
+                val result = JSObject()
+                result.put("json", String(body, Charsets.UTF_8))
+                invoke.resolve(result)
+            } catch (error: Exception) {
+                invoke.reject("Android update metadata request failed: " + error.message)
+            }
+        }.start()
+    }
+
+    @InvokeArg
+    class DownloadArgs {
+        lateinit var expectedSha256: String
+        var bytes: Long = 0
+    }
+
+    @Command
+    fun downloadVerifiedApk(invoke: Invoke) {
+        Thread {
+            val target = File(activity.cacheDir, "updates/verified-update.apk")
+            val temporary = File(activity.cacheDir, "updates/verified-update.part")
+            try {
+                val args = invoke.parseArgs(DownloadArgs::class.java)
+                if (!Regex("^[a-fA-F0-9]{64}$").matches(args.expectedSha256) ||
+                    args.bytes <= 0L || args.bytes > 41943040L) {
+                    throw IllegalArgumentException("Invalid Android update parameters")
+                }
+                target.parentFile?.mkdirs()
+                val url = URL("https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk")
+                val conn = url.openConnection() as HttpURLConnection
+                conn.connectTimeout = 15000
+                conn.readTimeout = 90000
+                val hash = MessageDigest.getInstance("SHA-256")
+                var received = 0L
+                conn.inputStream.use { input ->
+                    temporary.outputStream().use { output ->
+                        val buf = ByteArray(64 * 1024)
+                        while (true) {
+                            val count = input.read(buf)
+                            if (count < 0) break
+                            received += count
+                            if (received > args.bytes) throw IllegalStateException("APK exceeds manifest size")
+                            hash.update(buf, 0, count)
+                            output.write(buf, 0, count)
+                        }
+                    }
+                }
+                if (conn.responseCode != 200 || received != args.bytes) throw IllegalStateException("APK download incomplete")
+                val actual = hash.digest().joinToString("") { "%02x".format(it) }
+                if (!actual.equals(args.expectedSha256, ignoreCase = true)) throw IllegalStateException("APK checksum mismatch")
+                if (!temporary.renameTo(target)) throw IllegalStateException("Cannot stage verified APK")
+                val result = JSObject()
+                result.put("sha256", actual)
+                invoke.resolve(result)
+            } catch (error: Exception) {
+                temporary.delete()
+                invoke.reject("Android APK download failed: " + error.message)
+            }
+        }.start()
+    }
+
     @Command
     fun installVerifiedApk(invoke: Invoke) {
         val staged = File(activity.cacheDir, "updates/verified-update.apk")
