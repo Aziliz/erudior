@@ -220,7 +220,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     permissions:
-      contents: read
+      contents: write
     env:
       VITE_COURSES_URL: https://courses.erudior.com/v1/
     steps:
