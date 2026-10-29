@@ -341,6 +341,34 @@ struct AndroidInstallerHandle(tauri::plugin::PluginHandle<tauri::Wry>);
 
 #[cfg(target_os = "android")]
 #[tauri::command]
+fn android_fetch_manifest(app: AppHandle) -> Result<String, String> {
+    use tauri::Manager;
+    let handle = app.try_state::<AndroidInstallerHandle>().ok_or("Android installer missing")?;
+    let result: serde_json::Value = handle.0.run_mobile_plugin("fetchReleaseManifest", serde_json::json!({}))
+        .map_err(|e| e.to_string())?;
+    result.get("json").and_then(|v| v.as_str()).map(str::to_owned).ok_or("Invalid release manifest response".into())
+}
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn android_fetch_manifest(_app: AppHandle) -> Result<String, String> { Err("Android only".into()) }
+
+#[cfg(target_os = "android")]
+#[tauri::command]
+fn android_download_verified_apk(app: AppHandle, expected_sha256: String, bytes: u64) -> Result<String, String> {
+    use tauri::Manager;
+    if bytes == 0 || bytes > 41_943_040 || expected_sha256.len() != 64 ||
+       !expected_sha256.bytes().all(|c| c.is_ascii_hexdigit()) { return Err("Invalid update request".into()); }
+    let handle = app.try_state::<AndroidInstallerHandle>().ok_or("Android installer missing")?;
+    let result: serde_json::Value = handle.0.run_mobile_plugin("downloadVerifiedApk",
+        serde_json::json!({"expectedSha256": expected_sha256, "bytes": bytes})).map_err(|e| e.to_string())?;
+    result.get("sha256").and_then(|v| v.as_str()).map(str::to_owned).ok_or("Missing verified digest".into())
+}
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn android_download_verified_apk(_app: AppHandle, _expected_sha256: String, _bytes: u64) -> Result<String, String> { Err("Android only".into()) }
+
+#[cfg(target_os = "android")]
+#[tauri::command]
 fn launch_android_installer(app: AppHandle, expected_sha256: String) -> Result<bool, String> {
     use tauri::Manager;
     let handle = app.try_state::<AndroidInstallerHandle>()
@@ -443,7 +471,9 @@ pub fn run() {
             data_location,
             install_kind,
             stage_android_update,
-            launch_android_installer
+            launch_android_installer,
+            android_fetch_manifest,
+            android_download_verified_apk
         ])
         .run(tauri::generate_context!())
         .expect("error while running Erudior");
