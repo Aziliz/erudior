@@ -3,6 +3,11 @@ name: Deploy Erudior website
 # Website-only release: Cloudflare Pages, independent of course signing and API migrations.
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/site.yml"
+      - "scripts/prerender.mjs"
   push:
     branches: [main]
     paths:
@@ -20,14 +25,14 @@ permissions:
   contents: read
 
 concurrency:
-  group: erudior-pages-production
+  group: erudior-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
   cancel-in-progress: false
 
 jobs:
   website:
     # Website deployment is independent of slow or failing course R2 verification.
-    if: ${{ vars.PAGES_PROJECT != '' }}
-    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' || vars.PAGES_PROJECT != '' }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Verify Erudior-only product identity
@@ -43,13 +48,13 @@ jobs:
         id: website_build
         run: node scripts/diagnostic-command.mjs website-build -- npm run build
       - name: Prerender public pages
-        continue-on-error: true
+        id: website_prerender
         run: |
-          npm install --no-save playwright@1.56.0
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
       - name: Deploy website to Cloudflare Pages
         id: pages_deploy
+        if: github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -61,7 +66,7 @@ jobs:
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
