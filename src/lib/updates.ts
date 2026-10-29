@@ -46,8 +46,9 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
       install: async (progress) => {
         // A browser download is a second, unverified file. Do not present it as
         // an install of the verified bytes. Native FileProvider handoff is required.
-        await verifyAndroidApk(release, progress);
-        throw new Error("APK verified, but native Android installer handoff is not yet available in this build. No installer was launched.");
+        const bytes = await verifyAndroidApk(release, progress);
+        await invoke("stage_android_update", { content: Array.from(bytes), expectedSha256: release.sha256 });
+        throw new Error("APK verified and staged in private Android cache. System installer handoff is not yet implemented; no installation was started.");
       },
     };
   }
