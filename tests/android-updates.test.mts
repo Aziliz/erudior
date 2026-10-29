@@ -34,7 +34,7 @@ test("Android installer never re-downloads an unverified APK", () => {
   const updates = readFileSync("src/lib/updates.ts", "utf8");
   assert.ok(!updates.includes("await openUrl(release.apk)"));
   assert.match(updates, /launch_android_installer/);
-  assert.match(updates, /stage_android_update/);
+  assert.match(updates, /android_download_verified_apk/);
 });
 
 test("Android FileProvider bridge is limited to verified private-cache APK", () => {
@@ -71,4 +71,16 @@ test("WebView CSP permits Android release manifest and redirected APK asset host
   assert.match(connect, /https:\/\/github\.com/);
   assert.match(connect, /https:\/\/release-assets\.githubusercontent\.com/);
   assert.match(connect, /https:\/\/objects\.githubusercontent\.com/);
+});
+
+test("Android update downloads use native HTTP and preserve release checksum", () => {
+  const updates = readFileSync("src/lib/updates.ts", "utf8");
+  const rust = readFileSync("src-tauri/src/lib.rs", "utf8");
+  const kotlin = readFileSync("src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt", "utf8");
+  assert.match(updates, /android_fetch_manifest/);
+  assert.match(updates, /android_download_verified_apk/);
+  assert.ok(!updates.includes("fetchAndroidRelease()"));
+  assert.match(rust, /run_mobile_plugin\("downloadVerifiedApk"/);
+  assert.match(kotlin, /HttpURLConnection/);
+  assert.match(kotlin, /APK checksum mismatch/);
 });
