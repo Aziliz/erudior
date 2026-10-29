@@ -53,7 +53,7 @@ export default function CanonicalCommunityEditor({ api, id, initialDoc, initialM
     },
     go: () => { if (!lock.current) setView("home"); },
   };
-  const run = async (action: () => Promise<unknown>) => { setError(""); setMessage(""); try { await action(); } catch (e) { setError((e as Error).message); } };
+  const run = async (action: () => Promise<unknown>) => { if (lock.current) return; setError(""); setMessage(""); try { await action(); } catch (e) { setError((e as Error).message); } };
   const change = (patch: Partial<CommunityDoc>) => { const next = { ...latest.current, ...patch }; latest.current = next; setDoc(next); };
   const problems = checkDoc(doc, true, { communityImageOrigin: API || undefined });
   const selectedBank = view.startsWith("bank:") ? course.banks.find(b => b.id === view.slice(5)) : undefined;
