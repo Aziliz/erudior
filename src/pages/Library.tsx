@@ -1,3 +1,4 @@
+import { TEMPORARY_GUEST } from "../lib/guestSession";
 import { assertCourseImportPreservesFields } from "../lib/courseImport";
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
@@ -102,7 +103,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
-          {LIVE && (
+          {LIVE && !TEMPORARY_GUEST && (
             <><button className="btn" onClick={() => api.go({ name: "live" })}>
               Join a live room
             </button>
@@ -386,7 +387,7 @@ function Catalog({ api }: { api: AppApi }) {
         <div className="catalog-grid">
           {visible.map((e) => {
             const have = installed.has(e.id);
-            const needs = have ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
+            const needs = have || api.publicLearning ? [] : prerequisites(e, api.progress).filter((r) => !r.done);
             const open = () => api.go(have ? { name: "course", courseId: e.id } : { name: "overview", catalogId: e.id });
             return (
               <div key={e.id} className="catalog-card" data-subject={subjectKey(e.subject)}>

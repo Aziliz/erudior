@@ -1,3 +1,4 @@
+import { learningDraftStorage, TEMPORARY_GUEST } from "../lib/guestSession";
 import { useState } from "react";
 import type { Workbook } from "../lib/spreadsheet";
 import { canonicalAssignmentAddress, validateAssignment, type SpreadsheetAssignment } from "../lib/spreadsheetAssignments";
@@ -36,7 +37,7 @@ export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLab
     if (errors.length) return setMessage(errors.join("; "));
     // Course authoring is persisted by the course editor, not a global author draft.
     if (!initialAssignment) {
-      try { localStorage.setItem(KEY, JSON.stringify(assignment)); }
+      try { learningDraftStorage.setItem(KEY, JSON.stringify(assignment)); }
       catch { return setMessage("Unable to save assignment on this device. Your edits remain open."); }
     }
     try { onUse(assignment); setMessage("Assignment applied. Save the course to keep course changes."); }
@@ -44,8 +45,8 @@ export function AssignmentEditor({ workbook, onUse, initialAssignment, submitLab
   }
   function restore() {
     try {
-      const raw = localStorage.getItem(KEY);
-      if (!raw) return setMessage("No saved author assignment on this device.");
+      const raw = learningDraftStorage.getItem(KEY);
+      if (!raw) return setMessage(TEMPORARY_GUEST ? "No author assignment saved in this temporary visit." : "No saved author assignment on this device.");
       const saved: SpreadsheetAssignment = JSON.parse(raw);
       if (validateAssignment(saved).length) return setMessage("The saved assignment is invalid and was not loaded.");
       // Opening the saved starter together with its criteria avoids pairing a draft

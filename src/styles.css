@@ -7669,3 +7669,8 @@ button.fn-ref {
 .roadmap .roadmap-language h4 { margin: 0 0 .4rem; font-weight: 650; }
 .roadmap .roadmap-language-levels { margin-left: 1.75rem; padding-left: .5rem; }
 @media (max-width: 600px) { .roadmap .roadmap-language-levels { margin-left: .8rem; } }
+
+/* Explicit public-study storage choice, including narrow practice screens. */
+.public-learning-banner { margin: 12px auto; padding: 14px 18px; max-width: 1200px; border: 1px solid var(--border); border-radius: 8px; }
+.public-learning-banner p { margin: 5px 0 10px; }
+.public-learning-banner .row { flex-wrap: wrap; }

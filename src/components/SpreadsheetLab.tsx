@@ -1,3 +1,4 @@
+import { learningDraftStorage, TEMPORARY_GUEST } from "../lib/guestSession";
 import { useState } from "react";
 import { WORKBOOK_STORAGE_KEY, WORKBOOK_TEMPLATES, cloneTemplate, validateWorkbook } from "../lib/workbookTemplates";
 import { SpreadsheetFeaturesEditor, SpreadsheetFeatureSummary } from "./SpreadsheetFeaturesEditor";
@@ -11,10 +12,10 @@ const COLS=["A","B","C","D","E","F"];
 /** Small standalone spreadsheet training workspace using the same calculation engine as course templates. */
 export default function SpreadsheetLab(){
   const [book,setBook]=useState<Workbook>(() => {
-    try { const saved=localStorage.getItem(WORKBOOK_STORAGE_KEY);if(saved){const value=JSON.parse(saved);if(value?.version===2&&validateWorkbook(value.workbook)&&Array.isArray(value.macroRuns)&&value.macroRuns.length<=5&&value.macroRuns.every((run:unknown)=>!validateWorkbookMacroTrace(run).length))return value.workbook;if(validateWorkbook(value))return value;} }catch {}
+    try { const saved=learningDraftStorage.getItem(WORKBOOK_STORAGE_KEY);if(saved){const value=JSON.parse(saved);if(value?.version===2&&validateWorkbook(value.workbook)&&Array.isArray(value.macroRuns)&&value.macroRuns.length<=5&&value.macroRuns.every((run:unknown)=>!validateWorkbookMacroTrace(run).length))return value.workbook;if(validateWorkbook(value))return value;} }catch {}
     return cloneTemplate("Budget");
   });
-  const [macroRuns,setMacroRuns]=useState<WorkbookMacroTrace[]>(()=>{try{const value=JSON.parse(localStorage.getItem(WORKBOOK_STORAGE_KEY)??"null");return value?.version===2&&validateWorkbook(value.workbook)&&Array.isArray(value.macroRuns)&&value.macroRuns.length<=5&&value.macroRuns.every((run:unknown)=>!validateWorkbookMacroTrace(run).length)?value.macroRuns:[];}catch{return[];}});
+  const [macroRuns,setMacroRuns]=useState<WorkbookMacroTrace[]>(()=>{try{const value=JSON.parse(learningDraftStorage.getItem(WORKBOOK_STORAGE_KEY)??"null");return value?.version===2&&validateWorkbook(value.workbook)&&Array.isArray(value.macroRuns)&&value.macroRuns.length<=5&&value.macroRuns.every((run:unknown)=>!validateWorkbookMacroTrace(run).length)?value.macroRuns:[];}catch{return[];}});
   const [features,setFeatures]=useState(false);
   const [featurePending,setFeaturePending]=useState(false);
   const [featureKey,setFeatureKey]=useState(0);
@@ -26,7 +27,7 @@ export default function SpreadsheetLab(){
   const [authoring,setAuthoring]=useState(false);
   const [grade,setGrade]=useState<ReturnType<typeof gradeAssignment>|null>(null);
   function save(workbook:Workbook,runs=macroRuns){
-    try { localStorage.setItem(WORKBOOK_STORAGE_KEY,JSON.stringify(workbook.engineVersion===2?{version:2,workbook,macroRuns:runs}:workbook));setNotice("Saved on this device.");}
+    try { learningDraftStorage.setItem(WORKBOOK_STORAGE_KEY,JSON.stringify(workbook.engineVersion===2?{version:2,workbook,macroRuns:runs}:workbook));setNotice(TEMPORARY_GUEST ? "Kept for this temporary visit only." : "Saved on this device.");}
     catch {setNotice("Unable to save to device storage.");}
   }
   function mayLeaveEdit(ignoreAuthor=false){if(editing||featurePending||(!ignoreAuthor&&authorPending)){setNotice("Apply or explicitly discard pending cell, feature and assignment edits first.");return false;}return true;}
@@ -115,6 +116,6 @@ export default function SpreadsheetLab(){
     </div>
     <p className="muted small">Try <code>=B2-B3</code> or <code>=PRACTICE!B3</code>. Version 2 also supports functions and ranges such as <code>=SUM(B1:B3)</code>. Unsupported formulas and circular references display an error.</p>
     <button type="button" className="btn sm" onClick={()=>setResetPending(true)}>Reset workbook</button>
-    {resetPending&&<div role="group" aria-label="Confirm practice workbook reset"><p>Discard this workbook, pending edits and local simulation traces? Course submissions are not changed.</p><button type="button" className="btn danger sm" onClick={()=>{setBook(cloneTemplate("Budget"));setAssignment(false);setGrade(null);setMacroRuns([]);try{localStorage.removeItem(WORKBOOK_STORAGE_KEY);}catch{}setNotice("Saved workbook cleared.");setSheet("Budget");setSelected("B4");setDraft("=B2-B3");setEditing(false);setFeaturePending(false);setFeatureKey(x=>x+1);setResetPending(false);setAuthoring(false);setAuthorPending(false);setError("");}}>Confirm reset workbook</button><button type="button" className="btn sm" onClick={()=>setResetPending(false)}>Keep workbook</button></div>}
+    {resetPending&&<div role="group" aria-label="Confirm practice workbook reset"><p>Discard this workbook, pending edits and local simulation traces? Course submissions are not changed.</p><button type="button" className="btn danger sm" onClick={()=>{setBook(cloneTemplate("Budget"));setAssignment(false);setGrade(null);setMacroRuns([]);try{learningDraftStorage.removeItem(WORKBOOK_STORAGE_KEY);}catch{}setNotice(TEMPORARY_GUEST ? "Temporary workbook cleared." : "Saved workbook cleared.");setSheet("Budget");setSelected("B4");setDraft("=B2-B3");setEditing(false);setFeaturePending(false);setFeatureKey(x=>x+1);setResetPending(false);setAuthoring(false);setAuthorPending(false);setError("");}}>Confirm reset workbook</button><button type="button" className="btn sm" onClick={()=>setResetPending(false)}>Keep workbook</button></div>}
   </section>;
 }

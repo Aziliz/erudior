@@ -1,5 +1,10 @@
 # Erudior Master Roadmap — 2026-10-27
 
+## Public learning access — In Progress (2026-10-29)
+
+Complete public-browser course discovery, preserved lesson/activity links, independent reading/practice regardless of recommended prerequisites, explicit temporary-memory sessions, and optional local progress/export. Managed assignment/prerequisite, signing and credential authority remain unchanged. This capability is under branch validation, not yet deployed; actual course content and private source repository are unchanged. See `docs/PUBLIC_LEARNING_ACCESS.md` for boundaries and acceptance evidence.
+
+
 ## Active whole-capability checkpoint — 2026-10-29
 
 **Lesson-linked activity integration — reusable app capability, separate from course adoption.** PR #96 connects authored lesson links to advanced assessments, scientific workspaces, branching scenarios and spreadsheets through discoverable cards, source-specific restorable routes and return-to-lesson navigation. Exact course/source IDs and revisions plus complete instructional-content comparison connect reviewed local assignments without relabeling historical results. Readable source inspection and comparison fingerprints support explicit supervising-adult review and assignment; opening a link grants no approval. Pending spreadsheet edits and failed saves remain navigation-protected.

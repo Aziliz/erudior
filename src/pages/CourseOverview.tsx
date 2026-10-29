@@ -1,11 +1,13 @@
 import { useState } from "react";
 import type { AppApi } from "../App";
-import { catalogEntry, prerequisites } from "../lib/catalog";
+import { courseSlug } from "../lib/routes";
+import { CATALOG, catalogEntry, prerequisites } from "../lib/catalog";
 
 /** A catalog course before it's started: description, details and the lesson plan. */
-export default function CourseOverview({ api, id }: { api: AppApi; id: string }) {
+export default function CourseOverview({ api, id, requestedPath }: { api: AppApi; id: string; requestedPath?: string }) {
   const e = catalogEntry(id);
   const [adding, setAdding] = useState(false);
+  const [error, setError] = useState("");
   if (!e)
     return (
       <div className="page">
@@ -18,11 +20,13 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
 
   const started = api.courses.some((c) => c.id === e.id);
   const missing = prerequisites(e, api.progress).filter((r) => !r.done);
-  const locked = !started && missing.length > 0;
-  async function start() {
-    setAdding(true);
-    await api.addCourse(e!.id);
-    setAdding(false);
+  const locked = !api.publicLearning && !started && missing.length > 0;
+  async function start(path = requestedPath) {
+    if (adding) return;
+    setAdding(true); setError("");
+    try { await api.addCourse(e!.id, path); }
+    catch (err) { setError(`Could not open this course: ${String(err)}. Please retry.`); }
+    finally { setAdding(false); }
   }
   const lessonCount = (e.outline ?? []).reduce((s, m) => s + m.lessons.length + (m.honors?.length ?? 0), 0);
   let n = 0;
@@ -51,17 +55,24 @@ export default function CourseOverview({ api, id }: { api: AppApi; id: string })
         </div>
         <div className="row">
           {started ? (
-            <button className="btn primary" onClick={() => api.go({ name: "course", courseId: e.id })}>
+            <button className="btn primary" onClick={() => requestedPath ? start() : api.go({ name: "course", courseId: e.id })}>
               Open course
             </button>
           ) : (
-            <button className="btn primary" disabled={adding || locked} onClick={start}>
-              {locked ? "🔒 Locked" : adding ? "Adding…" : "Start course"}
+            <button className="btn primary" disabled={adding || locked} onClick={() => start()}>
+              {locked ? "🔒 Locked" : adding ? "Opening…" : requestedPath ? "Open linked activity" : api.publicLearning ? "Open course" : "Start course"}
             </button>
           )}
         </div>
       </div>
 
+      {error && <p className="notice error" role="alert">{error}</p>}
+      {api.publicLearning && <section className="panel" aria-label="Public learning access">
+        <h2 className="section-title">Read and practice freely</h2>
+        <p>No account or prerequisite completion is needed for independent study. These practice results are not supervised credit or a certificate.</p>
+        {missing.length > 0 && <p><b>Recommended background:</b> {missing.map(r => r.title).join(", ")}. You can review it first or explore this course now.</p>}
+        <button className="btn" disabled={adding} onClick={() => start(`/${courseSlug(e.id, CATALOG)}/lessons`)}>Browse lessons</button>
+      </section>}
       {locked && (
         <section className="panel locked-note" role="note">
           <h2 className="section-title">🔒 Finish {missing.map((r) => r.title).join(" and ")} first</h2>

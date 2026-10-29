@@ -1,3 +1,4 @@
+import { learningDraftStorage, TEMPORARY_GUEST } from "../lib/guestSession";
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import type { AppApi } from "../App";
 import { SpreadsheetFeatureSummary } from "./SpreadsheetFeaturesEditor";
@@ -33,7 +34,7 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   const key = spreadsheetDraftKey(api.student?.id ?? null, courseId, assignment.id);
   const assignmentSnapshot = spreadsheetSnapshot(assignment);
   const [initial] = useState(() => {
-    try { return restoreSpreadsheetDraft(localStorage.getItem(key), assignment); }
+    try { return restoreSpreadsheetDraft(learningDraftStorage.getItem(key), assignment); }
     catch { return { workbook: structuredClone(assignment.starter), message: "Storage unavailable. Changes can be practiced here but may not survive closing this page." }; }
   });
   const [book, setBook] = useState<Workbook>(initial.workbook);
@@ -83,7 +84,7 @@ function LearnerSession({ api, courseId, assignment }: Props) {
 
   function saveDraft(next: Workbook, runs=macroRuns) {
     if(activeStudent()!==studentId){setError("The active learner changed. This draft was not saved.");return;}
-    try { localStorage.setItem(key, serializeSpreadsheetDraft(assignment, next, runs)); setDraftSaveFailed(false); setStatus("Saved locally for this learner"); }
+    try { learningDraftStorage.setItem(key, serializeSpreadsheetDraft(assignment, next, runs)); setDraftSaveFailed(false); setStatus(TEMPORARY_GUEST ? "Kept for this temporary visit only" : "Saved locally for this learner"); }
     catch { setDraftSaveFailed(true); setStatus("Could not save this draft. Your current edits remain on screen; retry saving before leaving."); }
   }
 

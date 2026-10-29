@@ -20,6 +20,7 @@ on:
       - 'scripts/learner-privacy-browser.mjs'
       - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/course-activities-browser.mjs'
+      - 'scripts/public-learning-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -42,6 +43,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Public guest discovery, signed course loading, practice and optional storage
+        run: npm run test:public-learning-browser
       - name: Lesson-linked activity discovery, exact source launch and return
         run: npm run test:course-activities-browser
       - name: Advanced assessment, oral evidence and human rubric review
@@ -151,3 +154,10 @@ jobs:
           path: test-results/course-activities-browser/
           if-no-files-found: warn
           retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-learning-browser
+          path: test-results/public-learning-browser/
+          if-no-files-found: ignore
