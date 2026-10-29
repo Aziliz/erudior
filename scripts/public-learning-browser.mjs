@@ -138,8 +138,8 @@ try {
     await page.goto(origin + '/?site');
     await page.getByRole('link', { name: 'Study in your browser', exact: true }).waitFor();
     await page.getByRole('link', { name: 'Study in your browser', exact: true }).click();
-    await page.getByRole('button', { name: /Synthetic public learning: view overview/ }).waitFor();
-    await page.getByRole('button', { name: /Synthetic public learning: view overview/ }).click();
+    await page.getByRole('button', { name: /Synthetic public learning.*view overview/ }).waitFor();
+    await page.getByRole('button', { name: /Synthetic public learning.*view overview/ }).click();
     await heading(course.title).waitFor();
     await page.getByText('Recommended background:', { exact: true }).waitFor();
     assert.equal(await button('Open course').isEnabled(), true);

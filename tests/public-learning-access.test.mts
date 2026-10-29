@@ -1,12 +1,19 @@
 import assert from 'node:assert/strict';
 import { JSDOM } from 'jsdom';
-import { pathToView, viewToPath } from '../src/lib/routes.ts';
+import { pathToView, viewToPath, pageKey } from '../src/lib/routes.ts';
 import { CATALOG, setCatalog, type CatalogEntry } from '../src/lib/catalog.ts';
 
 const catalog: CatalogEntry[] = [
   { id: 'foundation', title: 'Foundation fixture', file: 'synthetic/foundation.json', revision: 1, order: 1, description: 'Synthetic foundation', subject: 'Math', level: ['High school'], type: ['Course'], lessons: 1, questions: 1, cards: 0, drills: 0, lessonIds: ['foundation-lesson'] },
   { id: 'synthetic-public-course', title: 'Public learning fixture', file: 'synthetic/public.json', revision: 1, order: 2, description: 'Synthetic advanced course', subject: 'Math', level: ['High school'], type: ['Course'], lessons: 1, questions: 1, cards: 0, drills: 0, lessonIds: ['lesson one'], requires: ['foundation'], outline: [{ title: 'Public module', lessons: ['Public lesson'] }] },
 ];
+for (const name of ['lesson', 'read', 'ref'] as const) {
+  const keyName = name === 'lesson' ? 'lessonId' : name === 'read' ? 'textId' : 'refId';
+  const one = { name, courseId: 'course', [keyName]: 'first' } as any;
+  const two = { name, courseId: 'course', [keyName]: 'second' } as any;
+  assert.notEqual(pageKey(one), pageKey(two), `${name} history distinguishes the exact source ID`);
+  assert.equal(pageKey(one), pageKey({ ...one }), `${name} same source has stable history identity`);
+}
 const entry = catalog[1];
 const slug = '/public-learning-fixture';
 for (const suffix of ['/lessons/lesson%20one', '/lessons', '/read/text', '/reference/formula', '/activities/advanced/source']) {

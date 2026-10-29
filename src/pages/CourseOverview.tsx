@@ -55,7 +55,7 @@ export default function CourseOverview({ api, id, requestedPath }: { api: AppApi
         </div>
         <div className="row">
           {started ? (
-            <button className="btn primary" onClick={() => requestedPath ? start() : api.go({ name: "course", courseId: e.id })}>
+            <button className="btn primary" disabled={adding} onClick={() => requestedPath ? start() : api.go({ name: "course", courseId: e.id })}>
               Open course
             </button>
           ) : (

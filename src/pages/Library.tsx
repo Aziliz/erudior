@@ -1,4 +1,4 @@
-import { TEMPORARY_GUEST } from "../lib/guestSession";
+import { TEMPORARY_GUEST, learningDraftStorage } from "../lib/guestSession";
 import { assertCourseImportPreservesFields } from "../lib/courseImport";
 import { useEffect, useMemo, useState } from "react";
 import type { AppApi } from "../App";
@@ -285,7 +285,7 @@ const FILTER_KEY = "examiner.catalogFilters";
 
 function readFilters(): Filters {
   try {
-    const f = JSON.parse(localStorage.getItem(FILTER_KEY) ?? "null");
+    const f = JSON.parse(learningDraftStorage.getItem(FILTER_KEY) ?? "null");
     if (f && Array.isArray(f.subject)) return { q: "", subject: f.subject, level: f.level ?? [], type: f.type ?? [] };
   } catch {
     /* no saved filters */
@@ -306,10 +306,10 @@ function Catalog({ api }: { api: AppApi }) {
   const [f, setF] = useState<Filters>(readFilters);
   const [adding, setAdding] = useState<string | null>(null);
   const [page, setPage] = useState(0);
-  const opts = useMemo(facets, []);
+  const opts = facets();
   useEffect(() => {
     try {
-      localStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
+      learningDraftStorage.setItem(FILTER_KEY, JSON.stringify({ subject: f.subject, level: f.level, type: f.type }));
     } catch {
       /* filters just won't be remembered */
     }
