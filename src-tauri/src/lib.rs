@@ -297,7 +297,7 @@ fn verify_android_update_bytes(content: &[u8], expected_sha256: &str) -> Result<
     }
     let hash = format!("{:x}", Sha256::digest(content));
     if hash != expected_sha256.to_ascii_lowercase() { return Err("APK hash mismatch".into()); }
-    if !content.starts_with(b"PK\\x03\\x04") { return Err("APK is not a ZIP archive".into()); }
+    if !content.starts_with(b"PK\x03\x04") { return Err("APK is not a ZIP archive".into()); }
     Ok(hash)
 }
 
@@ -321,7 +321,7 @@ mod android_update_integrity_tests {
     use sha2::{Digest, Sha256};
     #[test]
     fn staged_payload_validation_fails_closed() {
-        let apk = b"PK\\x03\\x04mock-apk";
+        let apk = b"PK\x03\x04mock-apk";
         let digest = format!("{:x}", Sha256::digest(apk));
         assert_eq!(verify_android_update_bytes(apk, &digest).unwrap(), digest);
         assert!(verify_android_update_bytes(apk, &"0".repeat(64)).is_err());
