@@ -60,3 +60,9 @@ await React.act(async()=>root.unmount());assert.equal(requestNavigation(),true,'
 const app=readFileSync(new URL('../src/App.tsx',import.meta.url),'utf8');const wiring=app.slice(app.indexOf('const presentationLibrary = createPresentationStore'),app.indexOf('const api: AppApi'));
 assert.match(wiring,/loadState\("presentations"\)/);assert.match(wiring,/updateState\("presentations", change\)/);assert.equal((wiring.match(/adultAccess\.current\.unlocked/g)||[]).length,2);assert.match(wiring,/await loadFamily\(\)/);
 console.log('presentation authoring UI: create/source/reorder/save/reopen/copy/delete, invalid title, stale source, video/navigation protection, failed and conflicting saves, repeated-save guard passed');
+
+// A cancelled browser picker releases the editor rather than leaving its async lock pending.
+const storage=await import('../src/lib/storage.ts');const create=document.createElement.bind(document);
+document.createElement=((tag:string,...args:any[])=>{const element=(create as any)(tag,...args);if(tag==='input')element.click=()=>element.dispatchEvent(new dom.window.Event('cancel'));return element;}) as typeof document.createElement;
+try{assert.equal(await Promise.race([storage.pickJsonFile(),new Promise(resolve=>setTimeout(()=>resolve('stuck'),100))]),null);}finally{document.createElement=create;}
+console.log('presentation import picker cancellation releases the pending action');
