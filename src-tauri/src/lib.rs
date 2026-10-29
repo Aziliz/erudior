@@ -336,6 +336,27 @@ mod android_update_integrity_tests {
     }
 }
 
+#[cfg(target_os = "android")]
+struct AndroidInstallerHandle(tauri::plugin::PluginHandle<tauri::Wry>);
+
+#[cfg(target_os = "android")]
+#[tauri::command]
+fn launch_android_installer(app: AppHandle) -> Result<bool, String> {
+    use tauri::Manager;
+    let handle = app.try_state::<AndroidInstallerHandle>()
+        .ok_or("Native Android installer plugin was not initialized")?;
+    let result: serde_json::Value = handle.0
+        .run_mobile_plugin("installVerifiedApk", serde_json::json!({}))
+        .map_err(|error| error.to_string())?;
+    Ok(result.get("installerLaunched").and_then(|value| value.as_bool()) == Some(true))
+}
+
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn launch_android_installer(_app: AppHandle) -> Result<bool, String> {
+    Err("Android system installer unavailable on this platform".into())
+}
+
 #[cfg(not(target_os = "android"))]
 #[tauri::command]
 fn stage_android_update(_app: AppHandle, _content: Vec<u8>, _expected_sha256: String) -> Result<String, String> {
@@ -387,6 +408,16 @@ pub fn run() {
             }
             _ => tauri::webview::PermissionResponse::Default,
         })
+        .plugin(tauri::plugin::Builder::<tauri::Wry>::new("erudior-installer")
+            .setup(|app, api| {
+                #[cfg(target_os = "android")]
+                {
+                    let installer = api.register_android_plugin("com.erudior.updates", "InstallerPlugin")?;
+                    app.manage(AndroidInstallerHandle(installer));
+                }
+                Ok(())
+            })
+            .build())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_process::init())
@@ -406,7 +437,8 @@ pub fn run() {
             write_text_file,
             data_location,
             install_kind,
-            stage_android_update
+            stage_android_update,
+            launch_android_installer
         ])
         .run(tauri::generate_context!())
         .expect("error while running Erudior");
