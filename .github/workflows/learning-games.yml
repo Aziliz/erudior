@@ -12,6 +12,7 @@ on:
       - 'scripts/learning-games-browser.mjs'
       - 'scripts/presentations-browser.mjs'
       - 'scripts/diagnostics-browser.mjs'
+      - 'scripts/interoperability-browser.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/learning-games.yml'
@@ -38,12 +39,16 @@ jobs:
         run: npm run test:presentations-browser
       - name: Learning diagnostics and targeted intervention browser workflows
         run: npm run test:diagnostics-browser
+      - name: Content interoperability browser workflows
+        run: npm run test:interoperability-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
         run: worker/node_modules/.bin/tsc -p worker
       - name: Isolated API and live protocol workflows
         run: npm test --prefix worker
+      - name: Isolated LTI signed launch with real D1 and cross-site HTTPS browser
+        run: npm run test:lti-browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -52,5 +57,7 @@ jobs:
             test-results/learning-games-browser/
             test-results/presentations-browser/
             test-results/diagnostics-browser/
+            test-results/interoperability-browser/
+            test-results/lti-browser/
           retention-days: 14
           if-no-files-found: ignore
