@@ -2,25 +2,55 @@
 set -euo pipefail
 apk="${ANDROID_TEST_APK:?Signed test APK is required}"
 package="com.erudior.app"
-
-# Emulator only: adb root provides controlled access to test data, never a phone.
+dir="/data/user/0/$package/files"
 adb root
 adb wait-for-device
 adb shell pm path "$package" | grep -F 'package:'
-adb shell mkdir -p "/data/user/0/$package/files"
-marker="erudior-upgrade-test-$(date +%s)"
-adb shell sh -c "echo '$marker' > '/data/user/0/$package/files/upgrade-retention-marker'"
-# Representative learner data and downloaded-course cache entries remain byte-for-byte intact.
-adb shell mkdir -p "/data/user/0/$package/files/courses"
-adb shell sh -c "printf '%s' '{\\\"lessonsDone\\\":{\\\"test/lesson-1\\\":true}}' > '/data/user/0/$package/files/progress.json'"
-adb shell sh -c "printf '%s' '{\\\"id\\\":\\\"test-course\\\",\\\"revision\\\":1}' > '/data/user/0/$package/files/courses/test-course.json'"
-progress_before="$(adb shell sha256sum "/data/user/0/$package/files/progress.json" | awk '{print $1}')"
-course_before="$(adb shell sha256sum "/data/user/0/$package/files/courses/test-course.json" | awk '{print $1}')"
-echo "Reinstalling an APK signed with the same CI test certificate..."
+
+# Use app-owned fixtures with recorded hashes, never root-owned files.
+app_uid="$(adb shell stat -c %u "/data/user/0/$package" | tr -d '\r')"
+test "$app_uid" != "0" && test -n "$app_uid"
+fixture="$(mktemp -d)"
+trap 'rm -rf "$fixture"' EXIT
+printf 'erudior-upgrade-retention-fixture\n' > "$fixture/upgrade-retention-marker"
+printf '%s' '{"lessonsDone":{"test/lesson-1":true}}' > "$fixture/progress.json"
+printf '%s' '{"id":"test-course","revision":1}' > "$fixture/test-course.json"
+
+adb shell mkdir -p "$dir/courses"
+adb push "$fixture/upgrade-retention-marker" /data/local/tmp/erudior-retention-marker >/dev/null
+adb push "$fixture/progress.json" /data/local/tmp/erudior-progress.json >/dev/null
+adb push "$fixture/test-course.json" /data/local/tmp/erudior-course.json >/dev/null
+adb shell cp /data/local/tmp/erudior-retention-marker "$dir/upgrade-retention-marker"
+adb shell cp /data/local/tmp/erudior-progress.json "$dir/progress.json"
+adb shell cp /data/local/tmp/erudior-course.json "$dir/courses/test-course.json"
+adb shell chown -R "$app_uid:$app_uid" "$dir"
+adb shell restorecon -RF "$dir" || true
+
+before_marker="$(adb shell sha256sum "$dir/upgrade-retention-marker" | awk '{print $1}')"
+before_progress="$(adb shell sha256sum "$dir/progress.json" | awk '{print $1}')"
+before_course="$(adb shell sha256sum "$dir/courses/test-course.json" | awk '{print $1}')"
+test "$before_marker" = "$(sha256sum "$fixture/upgrade-retention-marker" | awk '{print $1}')"
+test "$before_progress" = "$(sha256sum "$fixture/progress.json" | awk '{print $1}')"
+test "$before_course" = "$(sha256sum "$fixture/test-course.json" | awk '{print $1}')"
+
+echo "Reinstalling same signed APK without clearing data..."
 adb install -r "$apk"
-actual="$(adb shell cat "/data/user/0/$package/files/upgrade-retention-marker" | tr -d '\r')"
-test "$actual" = "$marker" || { echo "::error::Private app files lost after upgrade-style reinstall"; exit 1; }
-test "$(adb shell sha256sum "/data/user/0/$package/files/progress.json" | awk '{print $1}')" = "$progress_before"
-test "$(adb shell sha256sum "/data/user/0/$package/files/courses/test-course.json" | awk '{print $1}')" = "$course_before"
 adb shell pm path "$package" | grep -F 'package:'
-echo "Same-signature reinstall preserved private app files. Version-to-version migration still requires a two-version test."
+
+check_retained() {
+  local name="$1" path="$2" expected="$3" actual
+  if ! adb shell test -f "$path"; then
+    echo "::error::$name is missing after reinstall"
+    adb shell ls -la "$dir" || true
+    exit 1
+  fi
+  actual="$(adb shell sha256sum "$path" | awk '{print $1}')"
+  if [[ "$actual" != "$expected" ]]; then
+    echo "::error::$name changed after reinstall: expected $expected, got $actual"
+    exit 1
+  fi
+}
+check_retained marker "$dir/upgrade-retention-marker" "$before_marker"
+check_retained progress "$dir/progress.json" "$before_progress"
+check_retained downloaded-course "$dir/courses/test-course.json" "$before_course"
+echo "Same-signature reinstall preserved app-owned fixture bytes. Two-version upgrade and real learner-state tests still required."
