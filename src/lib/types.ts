@@ -220,6 +220,8 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Local anonymous erasure generation; never academic evidence or remote authority. */
+  anonymousGeneration?: number;
   /** Learner-imported support instructions only; never adult authority or assessment evidence. */
   interventionTasks?: import("./interventionTasks").InterventionTask[];
   /** Profile-local durable skill evidence and explicit supervising-adult placement history. */

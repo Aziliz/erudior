@@ -1,3 +1,4 @@
+import { parseLearnerPrivacyLibrary, deleteLearnerPrivacyStudent } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary } from './advancedAssessment';
 import { deleteAdvancedAssessmentStudent } from './advancedAssessmentStore';
 import { parseScientificLibrary } from './scientificWorkspace';
@@ -154,6 +155,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
       });
       await io.updateState("instructional-evidence", previous => JSON.stringify(deleteInstructionalStudent(parseInstructionalLibrary(previous), studentId)));
       await io.updateState("branching-engine", previous => JSON.stringify(deleteBranchingStudent(parseBranchingLibrary(previous), studentId)));
+      await io.updateState("learner-privacy", previous => JSON.stringify(deleteLearnerPrivacyStudent(parseLearnerPrivacyLibrary(previous), studentId)));
       await io.updateState("advanced-assessment", previous => JSON.stringify(deleteAdvancedAssessmentStudent(parseAdvancedAssessmentLibrary(previous), studentId)));
       await io.updateState("scientific-workspace", previous => JSON.stringify(deleteScientificStudent(parseScientificLibrary(previous), studentId)));
       await io.updateState("transaction-engine", previous => JSON.stringify(deleteTransactionStudent(parseTransactionLibrary(previous), studentId)));

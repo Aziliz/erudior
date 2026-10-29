@@ -1,3 +1,4 @@
+import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
 import LearnerAdvancedAssessment from "../components/LearnerAdvancedAssessment";
 import LearnerScientific from "../components/LearnerScientific";
 import LearnerBranching from "../components/LearnerBranching";
@@ -124,6 +125,7 @@ export default function ProgressPage({ api }: { api: AppApi }) {
 
   return (
     <div className="page">
+      {!api.family && <details><summary style={{minHeight:32}}>Local practice privacy and recovery</summary><LearnerPrivacyWorkspace api={api} /></details>}
       <div className="page-head">
         <div>
           <h1>Progress</h1>

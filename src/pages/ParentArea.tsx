@@ -1,3 +1,4 @@
+import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
 import CredentialWorkspace from "../components/CredentialWorkspace";
 import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
 import ScientificStudio from "../components/ScientificStudio";
@@ -72,6 +73,7 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "learner-privacy"
   | "overview"
   | "learning-paths"
   | "diagnostics"
@@ -106,6 +108,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
   { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -131,6 +134,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
   { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -242,6 +246,7 @@ export default function ParentArea({
           {tab === "transactions" && <TransactionStudio api={api} />}
           {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
           {tab === "credential-evidence" && <CredentialWorkspace api={api} />}
+          {tab === "learner-privacy" && <LearnerPrivacyWorkspace api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}
