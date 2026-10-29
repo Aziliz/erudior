@@ -15,6 +15,7 @@ import { splitMath } from "./mathSplit";
 import { readSpec, targetProblems, type ManipSpec, type ManipTarget } from "./manip";
 import { parseCourseBranchingScenarios, branchingCourseProblems, type CourseBranchingScenario } from "./branchingCoursePackage";
 import { parseCourseScientificWorkspaces, scientificCourseProblems, type CourseScientificWorkspace } from "./scientificCoursePackage";
+import { parseCourseAdvancedAssessments, advancedAssessmentCourseProblems, type CourseAdvancedAssessment } from "./advancedAssessmentCoursePackage";
 import { normalizeSpreadsheetAssignment, validateAssignment, type SpreadsheetAssignment } from "./spreadsheetAssignments";
 import { courseWorkRevisionProblems, validateCourseWork, type CourseWork } from "./courseWork";
 import { validateReaderTexts, normalizeValidatedReaderTexts, readerRevisionProblems, type ReaderText } from "./readerContent";
@@ -200,6 +201,7 @@ export interface CommunityDoc extends CourseWork {
   /** Canonical, lesson-linked spreadsheet exercises; community publication is not official approval. */
   branchingScenarios?: CourseBranchingScenario[];
   scientificWorkspaces?: CourseScientificWorkspace[];
+  advancedAssessments?: CourseAdvancedAssessment[];
   spreadsheetAssignments?: Array<SpreadsheetAssignment & { lessonId: string }>;
 }
 
@@ -534,7 +536,7 @@ export function checkDoc(raw: unknown, strict: boolean, context: { communityImag
     if (l.drills !== undefined && (!strList(l.drills, LIMITS.drills, 40) || l.drills.some((x) => !drillIds.has(x)))) errs.push(`${where}: lists a drill that doesn't exist.`);
     if (l.refs !== undefined && (!strList(l.refs, LIMITS.references, 40) || l.refs.some((x) => !refIds.has(x)))) errs.push(`${where}: lists a reference sheet that doesn't exist.`);
     if (l.blocks.length > LIMITS.blocksPerLesson) errs.push(`${where}: at most ${LIMITS.blocksPerLesson} blocks.`);
-    if (strict && !l.blocks.some((b) => b.type !== "question" && !(b.type === "text" && !b.md.trim())) && !(Array.isArray(d.branchingScenarios) && d.branchingScenarios.some(s=>s && s.lessonId===l.id)) && !(Array.isArray(d.scientificWorkspaces) && d.scientificWorkspaces.some(s=>s && s.lessonId===l.id))) errs.push(`${where}: has no content.`);
+    if (strict && !l.blocks.some((b) => b.type !== "question" && !(b.type === "text" && !b.md.trim())) && !(Array.isArray(d.branchingScenarios) && d.branchingScenarios.some(s=>s && s.lessonId===l.id)) && !(Array.isArray(d.scientificWorkspaces) && d.scientificWorkspaces.some(s=>s && s.lessonId===l.id)) && !(Array.isArray(d.advancedAssessments) && d.advancedAssessments.some(s=>s && s.lessonId===l.id))) errs.push(`${where}: has no content.`);
     l.blocks.forEach((b, j) => {
       const at = `${where}, block ${j + 1}`;
       switch (b?.type) {
@@ -609,6 +611,7 @@ export function checkDoc(raw: unknown, strict: boolean, context: { communityImag
   errs.push(...validateCourseWork(d, { strict, moduleIds: [...mids] }));
   errs.push(...branchingCourseProblems(d.branchingScenarios, ids));
   errs.push(...scientificCourseProblems(d.scientificWorkspaces, ids));
+  errs.push(...advancedAssessmentCourseProblems(d.advancedAssessments, ids));
   errs.push(...checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments, ids));
   if (images > LIMITS.images) errs.push(`At most ${LIMITS.images} images per course.`);
 
@@ -864,6 +867,7 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
 function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string, communityOrigin: string | undefined, preserveSourceMedia: boolean): Record<string, unknown> {
   if (d.canonical === undefined) parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id)));
   if (d.canonical === undefined) parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id)));
+  if (d.canonical === undefined) parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id)));
   if (d.canonical !== undefined) {
     const errors = checkDoc(d, true, { communityImageOrigin: communityOrigin });
     if (errors.length) throw Error(errors.join("; "));
@@ -991,6 +995,7 @@ function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: 
     calculator,
     ...(d.branchingScenarios === undefined ? {} : { branchingScenarios: parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id))) }),
     ...(d.scientificWorkspaces === undefined ? {} : { scientificWorkspaces: parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id))) }),
+    ...(d.advancedAssessments === undefined ? {} : { advancedAssessments: parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id))) }),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
     ...work,
     ...(texts === undefined ? {} : { texts }),

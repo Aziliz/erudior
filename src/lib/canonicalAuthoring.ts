@@ -9,6 +9,7 @@ import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems, normalize
 import { readerRevisionProblems, normalizeValidatedReaderTexts, validateReaderTexts } from "./readerContent";
 import { branchingCourseProblems, branchingRevisionProblems } from "./branchingCoursePackage";
 import { scientificCourseProblems, scientificRevisionProblems } from "./scientificCoursePackage";
+import { advancedAssessmentCourseProblems, advancedAssessmentRevisionProblems } from "./advancedAssessmentCoursePackage";
 import { validateAssignment } from "./spreadsheetAssignments";
 import { drillError } from "./drills";
 export type PortableAuthoredBank = Omit<Bank, "courseId">;
@@ -134,7 +135,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
     function glossary(v: unknown, path: string) { objects(v, path, ['term', 'definition', 'aliases', 'topic'], (g, p) => { str(g.term, p + '.term', true); str(g.definition, p + '.definition', true); optionalStr(g, ['topic'], p); if (g.aliases !== undefined)
         strings(g.aliases, p + '.aliases'); }); }
-    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'branchingScenarios', 'scientificWorkspaces'];
+    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
     if (!shape(raw, ['format', 'version', 'course'], 'payload'))
         return errors;
     if (raw.format !== 'erudior-canonical-authoring' || raw.version !== 1)
@@ -173,7 +174,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             || Array.isArray(c.decks) && c.decks.some(deck => isObject(deck) && nonempty(deck.cards));
         if (!hasContent) add('course','publication requires learner content');
         if (Array.isArray(c.lessons)) for (const lesson of c.lessons) if (isObject(lesson) && !(typeof lesson.body === 'string' && lesson.body.trim()) && !nonempty(lesson.quiz)
-            && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
+            && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.advancedAssessments) && c.advancedAssessments.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
     }
     const context: CanonicalValidationContext = { strict, course: c as unknown as PortableAuthoredCourse, mode: options.mode, communityImageOrigin: options.communityImageOrigin };
     const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio'];
@@ -417,6 +418,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         add('texts', e);
     for (const issue of branchingCourseProblems(c.branchingScenarios, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('branchingScenarios',issue);
     for (const issue of scientificCourseProblems(c.scientificWorkspaces, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('scientificWorkspaces',issue);
+    for (const issue of advancedAssessmentCourseProblems(c.advancedAssessments, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('advancedAssessments',issue);
     if (c.spreadsheetAssignments !== undefined && array(c.spreadsheetAssignments, 'spreadsheetAssignments')) {
         const seen = new Set<string>();
         for (const a of c.spreadsheetAssignments) {
@@ -561,8 +563,10 @@ export function canonicalRevisionProblems(previous: CanonicalAuthoringPayload, n
     retain(a.vocab ?? [], b.vocab ?? [], 'vocab');
     errors.push(...branchingRevisionProblems(a.branchingScenarios ?? [], b.branchingScenarios ?? []));
     errors.push(...scientificRevisionProblems(a.scientificWorkspaces ?? [], b.scientificWorkspaces ?? []));
+    errors.push(...advancedAssessmentRevisionProblems(a.advancedAssessments ?? [], b.advancedAssessments ?? []));
     for(const old of a.branchingScenarios ?? []) { const next=b.branchingScenarios?.find(n=>n.id===old.id); if(next && next.lessonId!==old.lessonId) errors.push('branchingScenarios: published lesson reference changed'); }
     for(const old of a.scientificWorkspaces ?? []) { const next=b.scientificWorkspaces?.find(n=>n.id===old.id); if(next && next.lessonId!==old.lessonId) errors.push('scientificWorkspaces: published lesson reference changed'); }
+    for(const old of a.advancedAssessments ?? []) { const next=b.advancedAssessments?.find(n=>n.id===old.id); if(next && next.lessonId!==old.lessonId) errors.push('advancedAssessments: published lesson reference changed'); }
     retain(a.spreadsheetAssignments ?? [], b.spreadsheetAssignments ?? [], 'spreadsheetAssignments');
     for (const old of a.modules) {
         const current = b.modules.find(n => n.id === old.id);

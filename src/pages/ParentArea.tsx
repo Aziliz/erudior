@@ -1,3 +1,4 @@
+import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
 import ScientificStudio from "../components/ScientificStudio";
 import BranchingStudio from "../components/BranchingStudio";
 import InstructionalStudio from "../components/InstructionalStudio";
@@ -74,7 +75,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
-  | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
+  | "advanced-assessment" | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -98,6 +99,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
   { id: "scientific", label: "Scientific workspaces" },
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
@@ -121,6 +123,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
   { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
   { id: "scientific", label: "Scientific workspaces" },
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
@@ -230,6 +233,7 @@ export default function ParentArea({
           {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
           {tab === "interoperability" && <ContentInteroperability api={api} />}
           {tab === "document-cases" && <DocumentEngine api={api} />}
+          {tab === "advanced-assessment" && <AdvancedAssessmentStudio api={api} />}
           {tab === "scientific" && <ScientificStudio api={api} />}
           {tab === "branching" && <BranchingStudio api={api} />}
           {tab === "transactions" && <TransactionStudio api={api} />}

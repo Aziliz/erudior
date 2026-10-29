@@ -410,6 +410,24 @@ ok("scientific updated public exact",JSON.stringify((await anon.call("GET",`/cou
 const invalidScience=structuredClone(changedScience);invalidScience.scientificWorkspaces[0].steps=[];
 ok("scientific malformed draft rejected",(await author.call("PUT",`/drafts/${scienceId}`,invalidScience)).status===400);
 
+// Real isolated D1/R2 advanced assessment lifecycle independent of other fixture versions.
+const assessmentId=(await author.call("POST","/drafts")).data.id;
+const assessmentPack={"format":"erudior-advanced-assessment-pack","version":1,"id":"assessment-fixture","revision":1,"title":"Untitled educational assessment","description":"Replace with the assessment purpose.","sourceNote":"Author-created educational assessment; review before assignment.","instructions":"Explain each response and declare assistance.","integrity":"Declare any assistance. This local record is not proctoring or identity verification.","rubric":{"id":"reasoning","revision":1,"title":"Reasoning and communication","criteria":[{"id":"explanation","title":"Evidence-based explanation","levels":[{"id":"developing","points":0,"label":"Developing","description":"Explanation needs clarification."},{"id":"supported","points":1,"label":"Supported","description":"Explanation supports the response."}]}]},"misconceptions":[],"variants":[{"id":"a","title":"Variant A","questions":[{"kind":"math","id":"reason","prompt":"Show and explain the steps for an instructor-authored task.","steps":[{"id":"first","prompt":"Record the first step.","misconceptions":[]},{"id":"second","prompt":"Explain the next step.","misconceptions":[]}]},{"kind":"oral","id":"explain","prompt":"Explain your reasoning aloud; provide a transcript or a transcript with optional audio."}]}]};
+const assessmentDoc={format:"erudior-community",version:1,title:"Scenario fixture",description:"Synthetic fixture",subject:"Science",level:"Elementary School",type:"Course",lessons:[{id:"l1",title:"Fixture",blocks:[{type:"text",md:"Test-only source"}]}],decks:[],advancedAssessments:[{...assessmentPack,lessonId:"l1"}]};
+ok("advanced assessment draft save",(await author.call("PUT",`/drafts/${assessmentId}`,assessmentDoc)).status===200);
+ok("advanced assessment reopen exact",JSON.stringify((await author.call("GET",`/drafts/${assessmentId}`)).data.doc.advancedAssessments)===JSON.stringify(assessmentDoc.advancedAssessments));
+ok("advanced assessment first publication",(await author.call("POST",`/drafts/${assessmentId}/publish`)).status===200);
+ok("advanced assessment public exact source",JSON.stringify((await anon.call("GET",`/courses/${assessmentId}`)).data.doc.advancedAssessments)===JSON.stringify(assessmentDoc.advancedAssessments));
+const changedAssessment=structuredClone(assessmentDoc);changedAssessment.advancedAssessments[0].instructions="Changed synthetic assumptions";
+await author.call("PUT",`/drafts/${assessmentId}`,changedAssessment);
+ok("advanced assessment same revision rejects publication",(await author.call("POST",`/drafts/${assessmentId}/publish`)).status===409);
+ok("advanced assessment rejected publication retains source",JSON.stringify((await anon.call("GET",`/courses/${assessmentId}`)).data.doc.advancedAssessments)===JSON.stringify(assessmentDoc.advancedAssessments));
+changedAssessment.advancedAssessments[0].revision=2;await author.call("PUT",`/drafts/${assessmentId}`,changedAssessment);
+ok("advanced assessment explicit revision publication",(await author.call("POST",`/drafts/${assessmentId}/publish`)).status===200);
+ok("advanced assessment updated public exact",JSON.stringify((await anon.call("GET",`/courses/${assessmentId}`)).data.doc.advancedAssessments)===JSON.stringify(changedAssessment.advancedAssessments));
+const invalidAssessment=structuredClone(changedAssessment);invalidAssessment.advancedAssessments[0].variants=[];
+ok("advanced assessment malformed draft rejected",(await author.call("PUT",`/drafts/${assessmentId}`,invalidAssessment)).status===400);
+
 ok("logout", (await author.call("POST", "/auth/logout")).status === 200 && (await author.call("GET", "/me")).data.user === null);
 
 if (fails) {

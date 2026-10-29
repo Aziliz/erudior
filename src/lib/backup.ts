@@ -1,3 +1,4 @@
+import { parseAdvancedAssessmentLibrary, type AdvancedAssessmentLibrary } from './advancedAssessment';
 import { parseScientificLibrary, type ScientificLibrary } from './scientificWorkspace';
 import { parseBranchingLibrary, type BranchingLibrary } from './branchingEngine';
 import { parseInstructionalLibrary, type InstructionalLibrary } from './instructionalEvidence';
@@ -59,6 +60,7 @@ interface Contents {
   /** Private fictional scenario sources, decision timelines and immutable evidence. */
   branchingEngine?: BranchingLibrary;
   /** Private guided labs, measurements, design iterations and immutable evidence. */
+  advancedAssessment?: AdvancedAssessmentLibrary;
   scientificWorkspace?: ScientificLibrary;
   /** Private requirement mappings, captured evidence and human credit review history. */
   instructionalEvidence?: InstructionalLibrary;
@@ -139,6 +141,11 @@ function validateBranchingFamily(state: BranchingLibrary, family: Family | null)
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Branching scenario history refers to a learner outside this family.");
 }
 
+function validateAdvancedAssessmentFamily(state: AdvancedAssessmentLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Advanced assessment history refers to a learner outside this family.");
+}
+
 function validateScientificFamily(state: ScientificLibrary, family: Family | null) {
   const students = new Set(family?.students.map(student => student.id) ?? []);
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Scientific workspace history refers to a learner outside this family.");
@@ -160,6 +167,9 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const branchingText = await store.loadState("branching-engine");
   const branchingEngine = branchingText === null ? undefined : parseBranchingLibrary(branchingText);
   if (branchingEngine) validateBranchingFamily(branchingEngine, family);
+  const advancedText = await store.loadState("advanced-assessment");
+  const advancedAssessment = advancedText === null ? undefined : parseAdvancedAssessmentLibrary(advancedText);
+  if (advancedAssessment) validateAdvancedAssessmentFamily(advancedAssessment, family);
   const scientificText = await store.loadState("scientific-workspace");
   const scientificWorkspace = scientificText === null ? undefined : parseScientificLibrary(scientificText);
   if (scientificWorkspace) validateScientificFamily(scientificWorkspace, family);
@@ -200,6 +210,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
     ...(branchingEngine === undefined ? {} : { branchingEngine }),
+    ...(advancedAssessment === undefined ? {} : { advancedAssessment }),
     ...(scientificWorkspace === undefined ? {} : { scientificWorkspace }),
     ...(transactionEngine === undefined ? {} : { transactionEngine }),
     ...(instructionalEvidence === undefined ? {} : { instructionalEvidence }),
@@ -266,6 +277,15 @@ export async function restoreContents(
     ...branchingState, restoredAt: new Date().toISOString(),
     pendingApproval: branchingState.packs.map(pack => pack.id + "@" + pack.revision),
   }));
+  if (b.advancedAssessment === null) throw Error("Invalid advanced assessment history in backup.");
+  const advancedState = b.advancedAssessment === undefined ? undefined : parseAdvancedAssessmentLibrary(b.advancedAssessment);
+  if (advancedState) validateAdvancedAssessmentFamily(advancedState, b.family);
+  // Imported receipts remain historical records, never current local approval.
+  const advancedAssessment = advancedState === undefined ? null : JSON.stringify(parseAdvancedAssessmentLibrary({
+    ...advancedState, restoredAt: new Date().toISOString(),
+    pendingApproval: advancedState.packs.map(pack => pack.id + "@" + pack.revision),
+    pendingReviewIds: advancedState.feedback.map(review => review.id),
+  }));
   if (b.scientificWorkspace === null) throw Error("Invalid scientific workspace history in backup.");
   const scientificState = b.scientificWorkspace === undefined ? undefined : parseScientificLibrary(b.scientificWorkspace);
   if (scientificState) validateScientificFamily(scientificState, b.family);
@@ -324,6 +344,7 @@ export async function restoreContents(
   await store.saveState("document-engine", documentEngine);
   await store.saveState("transaction-engine", transactionEngine);
   await store.saveState("branching-engine", branchingEngine);
+  await store.saveState("advanced-assessment", advancedAssessment);
   await store.saveState("scientific-workspace", scientificWorkspace);
   await store.saveState("instructional-evidence", instructionalEvidence);
   await store.saveState("classroom-submissions", classroomSubmissions);
