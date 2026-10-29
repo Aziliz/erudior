@@ -16,6 +16,7 @@ on:
       - 'scripts/document-engine-browser.mjs'
       - 'scripts/transactions-browser.mjs'
       - 'scripts/instructional-evidence-browser.mjs'
+      - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -38,6 +39,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Advanced assessment, oral evidence and human rubric review
+        run: npm run test:advanced-assessment-browser
       - name: Scientific investigation and engineering evidence workflows
         run: npm run test:scientific-browser
       - name: Fictional branching decisions, deadlines and evidence workflows
@@ -100,5 +103,12 @@ jobs:
         with:
           name: scientific-workspace-browser-evidence
           path: test-results/scientific-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: advanced-assessment-browser-evidence
+          path: test-results/advanced-assessment-browser/
           retention-days: 14
           if-no-files-found: ignore

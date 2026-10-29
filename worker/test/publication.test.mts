@@ -1,3 +1,4 @@
+import { emptyAdvancedAssessmentPack } from "../../src/lib/advancedAssessment.ts";
 // Deterministic failure/race boundaries; API smoke tests separately exercise real D1/R2.
 import assert from "node:assert/strict";
 import { toCourse } from "../../src/lib/communityFormat.ts";
@@ -207,4 +208,32 @@ for(const malformed of [{...emptyScientificPack('broken'),steps:[]},{...emptySci
  const f=fixture(0);f.row.draft=JSON.stringify({...doc,scientificWorkspaces:[malformed]});
  assert.equal((await worker.fetch(request(),f.env)).status,400);
  assert.equal(f.puts,0,'malformed or authority-bearing portable source rejected before public artifact');
+}
+
+for(const change of ['remove','same-revision','decrease','valid-increase'] as const){
+ const f=fixture();
+ const source={...doc,advancedAssessments:[{...emptyAdvancedAssessmentPack('project'),revision:2,lessonId:'l1'}]};
+ f.objects.set('courses/course.v1.json',JSON.stringify(source));
+ const next=structuredClone(source);
+ if(change==='remove')next.advancedAssessments=[];
+ else {next.advancedAssessments[0].title+=' revised';next.advancedAssessments[0].revision=change==='decrease'?1:change==='valid-increase'?3:2;}
+ f.row.draft=JSON.stringify(next);
+ assert.equal((await worker.fetch(request(),f.env)).status,change==='valid-increase'?200:409,`advanced assessment ${change}`);
+ if(change!=='valid-increase')assert.equal(f.puts,0,'advanced assessment lineage rejection occurs before immutable upload');
+ else {
+  const published=JSON.parse(f.objects.get('courses/course.v2.json')!);
+  assert.deepEqual(published.advancedAssessments,next.advancedAssessments,'immutable publication preserves exact scenario metadata');
+  const installed=normalizeCourse(toCourse(published,{id:'course',version:2,review:'not_reviewed',author:'Fixture'} as any,()=>{throw Error('Unexpected asset');}));
+  assert.deepEqual(installed.advancedAssessments,next.advancedAssessments,'actual published artifact installation preserves exact source');
+ }
+}
+console.log('community advanced assessment source revision continuity passed');
+
+for(const malformed of [{...emptyAdvancedAssessmentPack('broken'),variants:[]},{...emptyAdvancedAssessmentPack('broken'),approval:{actor:'Forged',at:'2026-10-29T00:00:00Z'}}]){
+ const f=fixture(0);f.row.draft=JSON.stringify({...doc,advancedAssessments:[malformed]});
+ assert.equal((await worker.fetch(request(),f.env)).status,400);
+ assert.equal(f.puts,0,'malformed or authority-bearing portable source rejected before public artifact');
+}
+for(const bump of [false,true]){
+ const f=fixture();const source={...doc,advancedAssessments:[{...emptyAdvancedAssessmentPack('rubric-lineage'),revision:1,lessonId:'l1'}]};f.objects.set('courses/course.v1.json',JSON.stringify(source));const next=structuredClone(source);next.advancedAssessments[0].revision=2;next.advancedAssessments[0].rubric.criteria[0].levels[0].description+=' revised';if(bump)next.advancedAssessments[0].rubric.revision++;f.row.draft=JSON.stringify(next);assert.equal((await worker.fetch(request(),f.env)).status,bump?200:409,'changed rubric needs its own explicit revision, not just source revision');if(!bump)assert.equal(f.puts,0);
 }

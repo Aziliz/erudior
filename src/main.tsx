@@ -13,6 +13,7 @@ import "./transactions.css";
 import "./instructionalEvidence.css";
 import "./branching.css";
 import "./scientific.css";
+import "./advanced-assessment.css";
 import "./learningGames.css";
 import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 

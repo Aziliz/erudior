@@ -9,6 +9,7 @@ import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
 import WorkResourceEditor from "../components/WorkResourceEditor";
 import { validateCourseWork, type CourseWork } from "../lib/courseWork";
 import CourseBranchingEditor from "../components/CourseBranchingEditor";
+import CourseAdvancedAssessmentEditor from "../components/CourseAdvancedAssessmentEditor";
 import CourseScientificEditor from "../components/CourseScientificEditor";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { registerNavigationGuard } from "../lib/navigationGuard";
@@ -26,7 +27,7 @@ import { Drills, Glossary, Language, Modules, References, newId } from "./Commun
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "branching" | "scientific" | "spreadsheets" | "work" | "reader" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "branching" | "scientific" | "advanced" | "spreadsheets" | "work" | "reader" | "publish";
 
 const BLOCK_LABEL: Record<Block["type"], string> = {
   assignment: "Assessed work link",
@@ -60,6 +61,7 @@ function spreadsheetCourse(doc: CommunityDoc, id: string): Course {
     banks: [], decks: [], glossary: [], references: [], drills: [],
     branchingScenarios: structuredClone(doc.branchingScenarios ?? []),
     scientificWorkspaces: structuredClone(doc.scientificWorkspaces ?? []),
+    advancedAssessments: structuredClone(doc.advancedAssessments ?? []),
     spreadsheetAssignments: structuredClone(doc.spreadsheetAssignments ?? []),
   };
 }
@@ -245,6 +247,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
             ["work", "Writing, labs and activities"],
             ["branching", `Scenarios (${doc.branchingScenarios?.length ?? 0})`],
             ["scientific", `Science (${doc.scientificWorkspaces?.length ?? 0})`],
+            ["advanced", `Assessment (${doc.advancedAssessments?.length ?? 0})`],
             ["spreadsheets", `Spreadsheets (${doc.spreadsheetAssignments?.length ?? 0})`],
             ["publish", "Publish"],
           ] as [Tab, string][]
@@ -289,6 +292,12 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         {tab === "scientific" && <CourseScientificEditor course={spreadsheetCourse(doc,id)} onEditingChange={editingChanged} update={change=>update(current=>{
           const changed=change(spreadsheetCourse(current,id));
           const next={...current,scientificWorkspaces:structuredClone(changed.scientificWorkspaces??[])};
+          if(new TextEncoder().encode(JSON.stringify(next)).length>LIMITS.docBytes)throw Error("Course exceeds community document size limit.");
+          return next;
+        })}/>}
+        {tab === "advanced" && <CourseAdvancedAssessmentEditor course={spreadsheetCourse(doc,id)} onEditingChange={editingChanged} update={change=>update(current=>{
+          const changed=change(spreadsheetCourse(current,id));
+          const next={...current,advancedAssessments:structuredClone(changed.advancedAssessments??[])};
           if(new TextEncoder().encode(JSON.stringify(next)).length>LIMITS.docBytes)throw Error("Course exceeds community document size limit.");
           return next;
         })}/>}
@@ -487,10 +496,10 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
               </button>
               <button
                 className="btn sm ghost danger"
-                disabled={doc.lessons.length === 1 || (doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id))}
-                title={(doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id)) ? "Move or remove workspaces and assignments linked to this lesson first." : undefined}
+                disabled={doc.lessons.length === 1 || (doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id))}
+                title={(doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id)) ? "Move or remove workspaces and assignments linked to this lesson first." : undefined}
                 onClick={() => {
-                  if ((doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id))) { api.toast("Move or remove linked workspaces and assignments before deleting this lesson."); return; }
+                  if ((doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) || doc.branchingScenarios?.some(a=>a.lessonId===lesson.id) || doc.scientificWorkspaces?.some(a=>a.lessonId===lesson.id) || doc.advancedAssessments?.some(a=>a.lessonId===lesson.id))) { api.toast("Move or remove linked workspaces and assignments before deleting this lesson."); return; }
                   if (!window.confirm(`Delete the lesson "${lesson.title}"?`)) return;
                   update((d) => ({ ...d, lessons: d.lessons.filter((_, i) => i !== ix) }));
                   setIx(Math.max(0, ix - 1));
