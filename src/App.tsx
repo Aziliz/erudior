@@ -1156,6 +1156,7 @@ export default function App() {
                       setInstalling(null);
                       try {
                         await appUpdate.install((pct) => setInstalling(pct));
+                        if (appUpdate.actionLabel) setInstalling(false);
                       } catch (e) {
                         setInstalling(false);
                         toast(`Update failed: ${String(e)}`);
