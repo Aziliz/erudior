@@ -27,7 +27,7 @@
     "test:credential-browser": "node scripts/credential-browser.mjs",
     "test:credential-integration": "node --import ./node_modules/tsx/dist/loader.mjs worker/test/run-credential-integration.mjs",
     "test:learner-privacy-browser": "node scripts/learner-privacy-browser.mjs",
-    "test:learner-progress-integration": "node worker/test/run-learner-progress-integration.mjs"
+    "test:learner-progress-integration": "node --import tsx worker/test/run-learner-progress-integration.mjs"
   },
   "dependencies": {
     "@codemirror/autocomplete": "6.20.3",
