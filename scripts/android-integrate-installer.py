@@ -7,20 +7,9 @@ root = Path("src-tauri/gen/android/app/src/main")
 main = root / "java/com/erudior/app/MainActivity.kt"
 if not main.exists():
     raise SystemExit(f"Missing generated Tauri Android MainActivity: {main}")
-source = main.read_text()
-if "registerPlugin(InstallerPlugin::class.java)" not in source:
-    source = source.replace("import app.tauri", "import com.erudior.updates.InstallerPlugin\nimport app.tauri", 1)
-    if "class MainActivity : TauriActivity()" not in source:
-        raise SystemExit("Unrecognized Tauri MainActivity template; refusing blind modification")
-    source = source.replace(
-        "class MainActivity : TauriActivity()",
-        "class MainActivity : TauriActivity() {\n"
-        "  override fun onCreate(savedInstanceState: android.os.Bundle?) {\n"
-        "    registerPlugin(InstallerPlugin::class.java)\n"
-        "    super.onCreate(savedInstanceState)\n"
-        "  }\n}",
-    )
-    main.write_text(source)
+# Keep Tauri's generated MainActivity intact. Plugin registration belongs in
+# the Rust mobile plugin lifecycle; rewriting the activity broke Kotlin builds.
+# Kotlin source and FileProvider resources are integrated independently.
 
 plugin_root = Path("src-tauri/android-installer/src/main")
 target = root / "java/com/erudior/updates/InstallerPlugin.kt"
