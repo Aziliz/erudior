@@ -98,3 +98,9 @@ test("Native Android installer rejects wrong package and signing certificate", (
   assert.match(kotlin, /archiveSignatures != installedSignatures/);
   assert.match(kotlin, /GET_SIGNING_CERTIFICATES/);
 });
+
+test("Android installer rejects APK versionCode downgrade", () => {
+  const kotlin = readFileSync("src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt", "utf8");
+  assert.match(kotlin, /incomingCode < currentCode/);
+  assert.match(kotlin, /older than the installed version/);
+});
