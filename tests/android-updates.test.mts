@@ -117,3 +117,10 @@ test("Installer emulator preflight waits for ADB before checking installed provi
   assert.match(script, /Android emulator did not become available/);
   assert.match(script, /com\.erudior\.app\.erudior-updates/);
 });
+
+test("Installer preflight resolves intent using FileProvider content URI and APK MIME", () => {
+  const script = readFileSync("scripts/android-installer-preflight-smoke.sh", "utf8");
+  assert.match(script, /content:\/\/\$package\.erudior-updates\/verified-update\/verified-update\.apk/);
+  assert.match(script, /application\/vnd\.android\.package-archive/);
+  assert.match(script, /installer-resolution\.txt/);
+});
