@@ -1,3 +1,4 @@
+import { createInstructionalEvidenceStore } from "./lib/instructionalEvidenceStore";
 import { createTransactionEngineStore } from "./lib/transactionEngineStore";
 import { createDocumentEngineStore } from "./lib/documentEngineStore";
 import { importQtiItem, qtiChoiceToBank } from "./lib/interopQti";
@@ -134,6 +135,8 @@ export interface AppApi {
   importInterventionTask?: () => Promise<boolean>;
   exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
   importInteroperabilityBank?: (xml: string) => Promise<void>;
+  instructionalSupervisor?: ReturnType<typeof createInstructionalEvidenceStore>["supervisor"];
+  instructionalLearner?: ReturnType<typeof createInstructionalEvidenceStore>["learner"];
   transactionSupervisor?: ReturnType<typeof createTransactionEngineStore>["supervisor"];
   transactionLearner?: ReturnType<typeof createTransactionEngineStore>["learner"];
   documentSupervisor?: ReturnType<typeof createDocumentEngineStore>["supervisor"];
@@ -715,6 +718,29 @@ export default function App() {
     },
   });
 
+  const instructionalEvidence = createInstructionalEvidenceStore({
+    read: () => store.loadState("instructional-evidence"),
+    update: change => store.updateState("instructional-evidence", change),
+    readCourses: async () => (await store.listCourses()).courses,
+    readProgress: async id => {
+      const raw = await store.loadState(`progress-${id}`);
+      return raw === null ? store.emptyProgress() : { ...store.emptyProgress(), ...JSON.parse(raw) };
+    },
+    readRecords: id => store.loadState(`records-${id}`),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review instructional workload evidence.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen instructional evidence.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening instructional evidence.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
   const transactionEngine = createTransactionEngineStore({
     read: () => store.loadState("transaction-engine"),
     update: change => store.updateState("transaction-engine", change),
@@ -769,6 +795,8 @@ export default function App() {
     retryCompetencySync: () => setCompetencyRetry(n => n + 1),
     competencySupervisor,
     interventionSupervisor,
+    instructionalSupervisor: instructionalEvidence.supervisor,
+    instructionalLearner: instructionalEvidence.learner,
     transactionSupervisor: transactionEngine.supervisor,
     transactionLearner: transactionEngine.learner,
     documentSupervisor: documentEngine.supervisor,
