@@ -345,8 +345,14 @@ fn launch_android_installer(app: AppHandle) -> Result<bool, String> {
     use tauri::Manager;
     let handle = app.try_state::<AndroidInstallerHandle>()
         .ok_or("Native Android installer plugin was not initialized")?;
+    use sha2::{Digest, Sha256};
+    let staged = app.path().app_cache_dir().map_err(|e| e.to_string())?
+        .join("updates/verified-update.apk");
+    let bytes = fs::read(&staged).map_err(|e| e.to_string())?;
+    let expected = format!("{:x}", Sha256::digest(&bytes));
+    verify_android_update_bytes(&bytes, &expected)?;
     let result: serde_json::Value = handle.0
-        .run_mobile_plugin("installVerifiedApk", serde_json::json!({}))
+        .run_mobile_plugin("installVerifiedApk", serde_json::json!({"expectedSha256": expected}))
         .map_err(|error| error.to_string())?;
     Ok(result.get("installerLaunched").and_then(|value| value.as_bool()) == Some(true))
 }
