@@ -310,6 +310,12 @@ fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: Strin
     Ok(hash)
 }
 
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn stage_android_update(_app: AppHandle, _content: Vec<u8>, _expected_sha256: String) -> Result<String, String> {
+    Err("Android APK staging is unavailable on this platform".into())
+}
+
 /// True for the app's own pages (bundled UI, or the dev server in debug builds).
 fn own_page(url: &tauri::Url) -> bool {
     match url.scheme() {
@@ -374,7 +380,6 @@ pub fn run() {
             write_text_file,
             data_location,
             install_kind
-            #[cfg(target_os = "android")]
             stage_android_update
         ])
         .run(tauri::generate_context!())
