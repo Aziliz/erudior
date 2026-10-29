@@ -59,3 +59,24 @@ export async function verifyAndroidApk(m: AndroidReleaseManifest, progress: (pct
   if (hash !== m.sha256.toLowerCase()) throw new Error("APK checksum verification failed");
   progress(100);
 }
+
+/** Compare numeric version components, ignoring cosmetic suffixes. */
+export function compareAndroidVersions(left: string, right: string): number {
+  const parts = (v: string) => v.split(".").slice(0, 3).map((n) => Number.parseInt(n, 10) || 0);
+  const a = parts(left);
+  const b = parts(right);
+  for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return a[i] > b[i] ? 1 : -1;
+  return 0;
+}
+
+/** Same-version preview builds may differ by source commit. */
+export function shouldOfferAndroidUpdate(
+  release: AndroidReleaseManifest, installedVersion: string, installedBuild: string,
+): boolean {
+  const comparison = compareAndroidVersions(release.version, installedVersion);
+  if (comparison < 0) return false;
+  if (comparison > 0) return true;
+  // Without an embedded build ID, do not repeatedly prompt an existing install.
+  if (!installedBuild) return false;
+  return release.build !== installedBuild;
+}
