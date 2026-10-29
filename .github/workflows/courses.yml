@@ -55,6 +55,7 @@ on:
       - "src/lib/sims.ts"
       - "src/lib/spreadsheet.ts"
       - "src/lib/spreadsheetAssignments.ts"
+      - "src/lib/spreadsheetGradingV1.ts"
       - "src/lib/stats.ts"
       - "src/lib/taxonomy.ts"
       - "src/lib/timelineSpec.ts"
