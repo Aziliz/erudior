@@ -271,7 +271,9 @@ fn data_location(app: AppHandle) -> Result<String, String> {
 /// .deb or .rpm installed through the system package manager.
 #[tauri::command]
 fn install_kind() -> &'static str {
-    if cfg!(target_os = "windows") {
+    if cfg!(target_os = "android") {
+        "android"
+    } else if cfg!(target_os = "windows") {
         "windows"
     } else if cfg!(target_os = "macos") {
         "macos"
