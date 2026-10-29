@@ -12,6 +12,7 @@ import app.tauri.plugin.Invoke
 import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
 import java.io.File
+import java.security.MessageDigest
 
 /**
  * An Android-only installer entry point. The Rust updater owns download, hash
@@ -27,6 +28,28 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
         if (!canonical.path.startsWith(cacheRoot.path + File.separator) ||
             !canonical.isFile || canonical.length() <= 0L) {
             invoke.reject("Verified APK was not staged in the private cache")
+            return
+        }
+
+        // Recheck the bytes at the final handoff, not just at Rust staging time.
+        // The expected digest is recomputed from the staged file by the Rust command.
+        val expected = invoke.getString("expectedSha256")
+        if (!Regex("^[a-fA-F0-9]{64}$").matches(expected)) {
+            invoke.reject("Invalid staged APK checksum")
+            return
+        }
+        val digest = MessageDigest.getInstance("SHA-256")
+        canonical.inputStream().use { stream ->
+            val buffer = ByteArray(64 * 1024)
+            while (true) {
+                val count = stream.read(buffer)
+                if (count < 0) break
+                digest.update(buffer, 0, count)
+            }
+        }
+        val actual = digest.digest().joinToString("") { "%02x".format(it) }
+        if (!actual.equals(expected, ignoreCase = true)) {
+            invoke.reject("Staged APK changed since verification")
             return
         }
 
