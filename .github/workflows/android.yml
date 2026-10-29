@@ -245,9 +245,14 @@ jobs:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          PUBLISH_PREVIEW: ${{ inputs.publish_preview }}
         run: |
           set -euo pipefail
           if [[ -z "$ANDROID_KEYSTORE_B64" || -z "$ANDROID_KEYSTORE_PASSWORD" || -z "$ANDROID_KEY_ALIAS" || -z "$ANDROID_KEY_PASSWORD" ]]; then
+            if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "$GITHUB_REF" == "refs/heads/main" && "${PUBLISH_PREVIEW:-false}" == "true" ]]; then
+              echo "::error::Android publication blocked: persistent signing secrets missing"
+              exit 1
+            fi
             echo "RELEASE_SIGNING_READY=false" >> "$GITHUB_ENV"
             echo "Release signing secrets missing; optimized package will remain unpublished." >> "$GITHUB_STEP_SUMMARY"
             exit 0
