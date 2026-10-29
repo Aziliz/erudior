@@ -17,6 +17,7 @@ on:
       - 'scripts/transactions-browser.mjs'
       - 'scripts/instructional-evidence-browser.mjs'
       - 'scripts/credential-browser.mjs'
+      - 'scripts/learner-privacy-browser.mjs'
       - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
@@ -64,6 +65,8 @@ jobs:
         run: npm run test:instructional-evidence-browser
       - name: Credential evidence and artifact verification browser workflows
         run: npm run test:credential-browser
+      - name: Learner privacy, encrypted practice and recovery browser workflows
+        run: npm run test:learner-privacy-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
@@ -74,6 +77,8 @@ jobs:
         run: npm run test:lti-browser
       - name: Isolated synthetic credential issuance and revocation with real D1 and HTTPS
         run: npm run test:credential-integration
+      - name: Isolated learner progress with real D1 and HTTPS
+        run: npm run test:learner-progress-integration
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -124,5 +129,14 @@ jobs:
           path: |
             test-results/credential-browser/
             test-results/credential-integration/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learner-privacy-browser-evidence
+          path: |
+            test-results/learner-privacy-browser/
+            test-results/learner-progress-integration/
           retention-days: 14
           if-no-files-found: ignore

@@ -1,3 +1,4 @@
+import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
 import { createAdvancedAssessmentStore } from "./lib/advancedAssessmentStore";
 import { createScientificWorkspaceStore } from "./lib/scientificWorkspaceStore";
 import { createBranchingEngineStore } from "./lib/branchingEngineStore";
@@ -127,6 +128,7 @@ export type View =
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
+  learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
   catalog: { source: CatalogSource; error?: string };
   banks: Bank[];
   courses: Course[];
@@ -835,6 +837,27 @@ export default function App() {
     },
   });
 
+  const learnerPrivacy = createLearnerPrivacyStore({
+    read: () => store.loadState("learner-privacy"),
+    update: change => store.updateState("learner-privacy", change),
+    courses: async () => (await store.listCourses()).courses,
+    progress: id => store.loadProfileProgress(id),
+    updateProgress: (id, change) => store.updateProfileProgress(id, change),
+    authorize: async id => {
+      // Anonymous practice has no account or upload identity. Family privacy actions require
+      // the current unlocked adult, never a learner selection or a community author cookie.
+      const current = await loadFamily();
+      if (id === null) {
+        if (current || store.activeStudent() !== null) throw Error("Anonymous practice scope changed.");
+        return "anonymous-local-device";
+      }
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area for learner privacy controls.");
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !current.students.some(s => s.id === id) || !await store.competencyProfileExists(id) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Reopen privacy controls.");
+      return JSON.stringify({ password: current.parent.password, students: current.students.map(s => s.id) });
+    },
+    // No production remote identity provider is configured. No network call is made here.
+  });
+
   const presentationLibrary = createPresentationStore({
     read: () => store.loadState("presentations"),
     update: change => store.updateState("presentations", change),
@@ -847,6 +870,7 @@ export default function App() {
   });
 
   const api: AppApi = {
+    learnerPrivacy,
     catalog: catalogInfo,
     banks: allBanks,
     courses: myCourses,

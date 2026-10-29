@@ -3,6 +3,7 @@ import { scientificRevisionProblems } from "../../src/lib/scientificCoursePackag
 import { advancedAssessmentRevisionProblems } from "../../src/lib/advancedAssessmentCoursePackage";
 import { handleLti } from "./lti.ts";
 import { handleCredentials, type CredentialEnv } from "./credentials.ts";
+import { handleLearnerProgress, type LearnerProgressEnv } from "./learnerProgress.ts";
 // Erudior community course API (Cloudflare Worker, D1 + R2).
 //
 // Public:   GET /catalog, GET /courses/:id, GET /images/:id, POST /courses/:id/report
@@ -25,7 +26,7 @@ import { normalizeLevel, normalizeSubject, normalizeType } from "../../src/lib/t
 export { LiveRoom } from "./live.ts";
 import { sha256 as liveHash } from "./live.ts";
 
-export interface Env extends CredentialEnv {
+export interface Env extends CredentialEnv, LearnerProgressEnv {
   LIVE: DurableObjectNamespace;
   DB: D1Database;
   FILES: R2Bucket;
@@ -815,6 +816,7 @@ async function route(req: Request, env: Env): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const p = new URL(req.url).pathname;
+    if (p.startsWith("/learner-progress/")) return handleLearnerProgress(req, env);
     // Separate disabled-by-default credential registry; community roles confer no authority.
     if (p.startsWith("/credentials/")) return handleCredentials(req, env);
     // Isolated OIDC form_post handler; never relax community CSRF or identity rules.

@@ -4,7 +4,7 @@ import ts from 'typescript';
 // Exercise the actual App adapter in isolation, not a second copied authorization implementation.
 const app=await readFile(new URL('../src/App.tsx',import.meta.url),'utf8');
 const start=app.indexOf('  const documentEngine = createDocumentEngineStore({');
-const end=app.indexOf('  const presentationLibrary =',start);
+const end=app.indexOf('  const learnerPrivacy =',start);
 assert(start>=0&&end>start,'Document adapter remains an explicit narrow App boundary');
 const adapter=ts.transpileModule(app.slice(start,end)+'\nreturn documentEngine;', {compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.None}}).outputText;
 let family:any={parent:{password:{hash:'first'}},students:[{id:'alice',name:'Alice'}],school:{administrator:'Teacher'}};

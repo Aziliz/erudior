@@ -1,3 +1,4 @@
+import { parseLearnerPrivacyLibrary, restoreLearnerPrivacyLibrary, type LearnerPrivacyLibrary } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary, type AdvancedAssessmentLibrary } from './advancedAssessment';
 import { parseScientificLibrary, type ScientificLibrary } from './scientificWorkspace';
 import { parseBranchingLibrary, type BranchingLibrary } from './branchingEngine';
@@ -61,6 +62,8 @@ interface Contents {
   branchingEngine?: BranchingLibrary;
   /** Private guided labs, measurements, design iterations and immutable evidence. */
   advancedAssessment?: AdvancedAssessmentLibrary;
+  /** Local opt-in metadata; restore never activates consent, bindings or queued transfers. */
+  learnerPrivacy?: LearnerPrivacyLibrary;
   scientificWorkspace?: ScientificLibrary;
   /** Private requirement mappings, captured evidence and human credit review history. */
   instructionalEvidence?: InstructionalLibrary;
@@ -141,6 +144,11 @@ function validateBranchingFamily(state: BranchingLibrary, family: Family | null)
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Branching scenario history refers to a learner outside this family.");
 }
 
+function validateLearnerPrivacyFamily(state: LearnerPrivacyLibrary, family: Family | null) {
+  const students = new Set(family?.students.map(student => student.id) ?? []);
+  if (state.profiles.some(profile => profile.studentId !== null && !students.has(profile.studentId))) throw Error("Learner privacy state refers to a learner outside this family.");
+}
+
 function validateAdvancedAssessmentFamily(state: AdvancedAssessmentLibrary, family: Family | null) {
   const students = new Set(family?.students.map(student => student.id) ?? []);
   if (state.assignments.some(a => !students.has(a.studentId))) throw Error("Advanced assessment history refers to a learner outside this family.");
@@ -167,6 +175,9 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const branchingText = await store.loadState("branching-engine");
   const branchingEngine = branchingText === null ? undefined : parseBranchingLibrary(branchingText);
   if (branchingEngine) validateBranchingFamily(branchingEngine, family);
+  const privacyText = await store.loadState("learner-privacy");
+  const learnerPrivacy = privacyText === null ? undefined : parseLearnerPrivacyLibrary(privacyText);
+  if (learnerPrivacy) validateLearnerPrivacyFamily(learnerPrivacy, family);
   const advancedText = await store.loadState("advanced-assessment");
   const advancedAssessment = advancedText === null ? undefined : parseAdvancedAssessmentLibrary(advancedText);
   if (advancedAssessment) validateAdvancedAssessmentFamily(advancedAssessment, family);
@@ -210,6 +221,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
     ...(branchingEngine === undefined ? {} : { branchingEngine }),
+    ...(learnerPrivacy === undefined ? {} : { learnerPrivacy }),
     ...(advancedAssessment === undefined ? {} : { advancedAssessment }),
     ...(scientificWorkspace === undefined ? {} : { scientificWorkspace }),
     ...(transactionEngine === undefined ? {} : { transactionEngine }),
@@ -277,6 +289,11 @@ export async function restoreContents(
     ...branchingState, restoredAt: new Date().toISOString(),
     pendingApproval: branchingState.packs.map(pack => pack.id + "@" + pack.revision),
   }));
+  if (b.learnerPrivacy === null) throw Error("Invalid learner privacy state in backup.");
+  const privacyState = parseLearnerPrivacyLibrary(b.learnerPrivacy ?? null);
+  validateLearnerPrivacyFamily(privacyState, b.family);
+  // Validate current state before any writes; re-read under the write lock below.
+  restoreLearnerPrivacyLibrary(privacyState, parseLearnerPrivacyLibrary(await store.loadState("learner-privacy")));
   if (b.advancedAssessment === null) throw Error("Invalid advanced assessment history in backup.");
   const advancedState = b.advancedAssessment === undefined ? undefined : parseAdvancedAssessmentLibrary(b.advancedAssessment);
   if (advancedState) validateAdvancedAssessmentFamily(advancedState, b.family);
@@ -344,6 +361,7 @@ export async function restoreContents(
   await store.saveState("document-engine", documentEngine);
   await store.saveState("transaction-engine", transactionEngine);
   await store.saveState("branching-engine", branchingEngine);
+  await store.updateState("learner-privacy", current => JSON.stringify(restoreLearnerPrivacyLibrary(privacyState, parseLearnerPrivacyLibrary(current))));
   await store.saveState("advanced-assessment", advancedAssessment);
   await store.saveState("scientific-workspace", scientificWorkspace);
   await store.saveState("instructional-evidence", instructionalEvidence);
