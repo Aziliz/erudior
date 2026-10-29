@@ -38,6 +38,7 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
                 conn.readTimeout = 15000
                 conn.instanceFollowRedirects = true
                 val body = conn.inputStream.use { it.readNBytes(16385) }
+                if (conn.url.protocol != "https") throw IllegalStateException("Manifest redirect is not HTTPS")
                 if (body.size > 16384 || conn.responseCode != 200) throw IllegalStateException("Invalid release metadata")
                 val result = JSObject()
                 result.put("json", String(body, Charsets.UTF_8))
