@@ -53,4 +53,15 @@ check_retained() {
 check_retained marker "$dir/upgrade-retention-marker" "$before_marker"
 check_retained progress "$dir/progress.json" "$before_progress"
 check_retained downloaded-course "$dir/courses/test-course.json" "$before_course"
-echo "Same-signature reinstall preserved app-owned fixture bytes. Two-version upgrade and real learner-state tests still required."
+echo "Relaunching application after same-signature reinstall..."
+adb shell am force-stop "$package"
+adb shell monkey -p "$package" 1 | tee android-test-evidence/upgrade-relaunch.txt
+grep -F 'Events injected: 1' android-test-evidence/upgrade-relaunch.txt
+sleep 5
+if adb logcat -d -s AndroidRuntime:E | grep -F 'FATAL EXCEPTION'; then
+  echo "::error::AndroidRuntime crash after reinstall"
+  exit 1
+fi
+check_retained progress "$dir/progress.json" "$before_progress"
+check_retained downloaded-course "$dir/courses/test-course.json" "$before_course"
+echo "Same-signature reinstall, app relaunch, and retained fixture bytes passed. Two-version upgrade and real learner-state tests still required."
