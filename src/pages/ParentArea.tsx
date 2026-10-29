@@ -1,3 +1,4 @@
+import CredentialWorkspace from "../components/CredentialWorkspace";
 import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
 import ScientificStudio from "../components/ScientificStudio";
 import BranchingStudio from "../components/BranchingStudio";
@@ -75,7 +76,7 @@ export type ParentTab =
   | "learning-paths"
   | "diagnostics"
   | "interoperability"
-  | "advanced-assessment" | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
+  | "credential-evidence" | "advanced-assessment" | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -104,6 +105,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
   { id: "classes", label: "Classes" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
@@ -128,6 +130,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "branching", label: "Branching scenarios" },
   { id: "transactions", label: "Transaction practice" },
   { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -238,6 +241,7 @@ export default function ParentArea({
           {tab === "branching" && <BranchingStudio api={api} />}
           {tab === "transactions" && <TransactionStudio api={api} />}
           {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
+          {tab === "credential-evidence" && <CredentialWorkspace api={api} />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}

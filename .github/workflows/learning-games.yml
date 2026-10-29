@@ -16,6 +16,7 @@ on:
       - 'scripts/document-engine-browser.mjs'
       - 'scripts/transactions-browser.mjs'
       - 'scripts/instructional-evidence-browser.mjs'
+      - 'scripts/credential-browser.mjs'
       - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
@@ -61,6 +62,8 @@ jobs:
         run: npm run test:transactions-browser
       - name: Instructional workload evidence browser workflows
         run: npm run test:instructional-evidence-browser
+      - name: Credential evidence and artifact verification browser workflows
+        run: npm run test:credential-browser
       - name: Install isolated worker dependencies
         run: npm ci --prefix worker
       - name: Typecheck worker
@@ -69,6 +72,8 @@ jobs:
         run: npm test --prefix worker
       - name: Isolated LTI signed launch with real D1 and cross-site HTTPS browser
         run: npm run test:lti-browser
+      - name: Isolated synthetic credential issuance and revocation with real D1 and HTTPS
+        run: npm run test:credential-integration
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -110,5 +115,14 @@ jobs:
         with:
           name: advanced-assessment-browser-evidence
           path: test-results/advanced-assessment-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: credential-integrity-browser-evidence
+          path: |
+            test-results/credential-browser/
+            test-results/credential-integration/
           retention-days: 14
           if-no-files-found: ignore
