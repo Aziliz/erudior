@@ -21,6 +21,9 @@ import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 // Until the code arrives, the prerendered page (if any) stays on screen.
 // Only the public site's first visit in this browser session gets the splash.
 // Set before mount so refreshes during the animation never show it again.
+// Older cached snapshots may contain a startup overlay outside React's root.
+// Remove only those stale branding nodes before creating this page's owned splash.
+document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;
 if (IS_SITE) {
   try {

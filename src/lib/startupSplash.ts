@@ -5,6 +5,7 @@ export type SplashBrand = { kind:"official" } | { kind:"third-party"; productNam
 export function createStartupSplash(brand: SplashBrand): HTMLDivElement {
   const splash=document.createElement("div");
   splash.className="erudior-splash";
+  splash.setAttribute("data-prerender-skip", "");
   splash.setAttribute("role","status");
   splash.setAttribute("aria-label",brand.kind==="official"?"Loading Erudior":"Loading "+brand.productName);
   const book=document.createElement("div");

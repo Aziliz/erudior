@@ -61,7 +61,7 @@ try {
       await page.waitForTimeout(500);
       const html = await page.evaluate(() => {
         // Runtime-only bits that shouldn't be frozen into the file.
-        document.querySelectorAll("[data-prerender-skip], .toast").forEach((el) => el.remove());
+        document.querySelectorAll("[data-prerender-skip], .erudior-splash, .toast").forEach((el) => el.remove());
         return "<!doctype html>\n" + document.documentElement.outerHTML;
       });
       const file = path.join(dist, p.out.endsWith("/") ? p.out : p.out + "/", "index.html");
