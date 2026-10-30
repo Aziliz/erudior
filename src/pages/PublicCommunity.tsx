@@ -78,8 +78,8 @@ export default function PublicCommunity({ id, onNavigate, onStart, appContext = 
     {current.list && <section data-prerender-skip aria-label="Community course catalog">
       <div className="catalog-filters">
         <label className="field"><span>Search community courses</span><input className="input" type="search" value={query} onChange={e => { setQuery(e.target.value); setShown(12); }} /></label>
-        <label className="field"><span>Subject</span><select className="select" value={subject} onChange={e => { setSubject(e.target.value); setShown(12); }}><option value="">All subjects</option>{options.subjects.map(value => <option key={value}>{value}</option>)}</select></label>
-        <label className="field"><span>Level</span><select className="select" value={level} onChange={e => { setLevel(e.target.value); setShown(12); }}><option value="">All levels</option>{options.levels.map(value => <option key={value}>{value}</option>)}</select></label>
+        <label className="field"><span>Subject</span><select className="select" aria-label="Subject" value={subject} onChange={e => { setSubject(e.target.value); setShown(12); }}><option value="">All subjects</option>{options.subjects.map(value => <option key={value}>{value}</option>)}</select></label>
+        <label className="field"><span>Level</span><select className="select" aria-label="Level" value={level} onChange={e => { setLevel(e.target.value); setShown(12); }}><option value="">All levels</option>{options.levels.map(value => <option key={value}>{value}</option>)}</select></label>
         <label className="check"><input type="checkbox" checked={reviewed} onChange={e => { setReviewed(e.target.checked); setShown(12); }} />Reviewed only</label>
       </div>
       <p className="small muted" role="status">{filtered.length} of {list.length} community courses</p>
