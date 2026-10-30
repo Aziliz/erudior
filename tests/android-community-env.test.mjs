@@ -9,13 +9,14 @@ import { ANDROID_COMMUNITY_ORIGIN as origin, validateAndroidCommunityEnvironment
 const csp = `default-src 'self'; connect-src 'self' ${origin}; img-src 'self' data:`;
 
 test('accepts only the approved public Community origin with explicit native CSP permission', () => {
-  for (const value of [origin, origin + '/', ' ' + origin + ' ']) {
+  for (const value of [origin, origin + '/', ' ' + origin + ' ', ' ' + origin + '/ ']) {
     assert.equal(validateAndroidCommunityEnvironment(value, csp), origin);
   }
 });
 
 test('rejects absent, insecure, relative, credential-bearing and wrong API origins', () => {
-  for (const value of [undefined, null, 7, '', '/api', 'http://api.erudior.com',
+  for (const value of [undefined, null, 7, 42, '', ' ', '/api', 'http://api.erudior.com',
+    'https://localhost', 'https://other.example',
     'https://api.erudior.com.evil.test', 'https://u:p@api.erudior.com',
     origin + '/catalog', origin + '?x=1', origin + '#fragment']) {
     assert.throws(() => validateAndroidCommunityEnvironment(value, csp));
@@ -23,7 +24,8 @@ test('rejects absent, insecure, relative, credential-bearing and wrong API origi
 });
 
 test('requires connect-src rather than accepting broad or unrelated CSP directives', () => {
-  for (const value of [undefined, `default-src ${origin}`, `img-src ${origin}`, "connect-src *", "connect-src 'self'"]) {
+  for (const value of [undefined, {}, '', "default-src *", `default-src ${origin}`, `img-src ${origin}`,
+    "connect-src *", "connect-src 'self'", 'connect-src https://api.erudior.com.evil.example']) {
     assert.throws(() => validateAndroidCommunityEnvironment(origin, value));
   }
 });
@@ -66,6 +68,10 @@ test('compiled check fails closed for absent assets and records minifier-indepen
     assert.deepEqual(result.assets, ['community.js']);
     assert.deepEqual(result.evidence, [{ asset: 'community.js', literalKinds: ['static-template'], legacyQuotedMatch: false }]);
     assert.match(result.scope, /not device\/network acceptance/);
+    await writeFile(path.join(dist, 'assets/community.js'), `const api=${JSON.stringify(origin)};`);
+    const quoted = await verifyCompiledCommunityOrigin(dist, origin);
+    assert.deepEqual(quoted.assets, ['community.js']);
+    assert.equal(quoted.evidence[0].legacyQuotedMatch, true);
     await assert.rejects(verifyCompiledCommunityOrigin(dist, 'https://wrong.test'), /Unapproved/);
   } finally { await rm(dist, { recursive: true, force: true }); }
 });
@@ -80,8 +86,12 @@ test('release compiles the real frontend on PRs and verifies again before signin
   assert.match(contract, /node scripts\/check-android-community-env\.mjs --dist dist/);
   const signed = workflow.split('  signed-arm64:')[1].split('  publish-preview:')[0];
   assert.match(signed, /VITE_COMMUNITY_API: https:\/\/api\.erudior\.com/);
-  assert.ok(signed.indexOf('node scripts/check-android-community-env.mjs\n') < signed.indexOf('npm run tauri android build'));
-  assert.ok(signed.indexOf('node scripts/check-android-community-env.mjs --dist dist') > signed.indexOf('npm run tauri android build'));
-  assert.ok(signed.indexOf('node scripts/check-android-community-env.mjs --dist dist') < signed.indexOf('name: Sign with persistent release identity'));
+  const preflight = signed.indexOf('node scripts/check-android-community-env.mjs\n');
+  const build = signed.indexOf('npm run tauri android build -- --apk --ci --target aarch64');
+  const compiled = signed.indexOf('node scripts/check-android-community-env.mjs --dist dist');
+  const sign = signed.indexOf('name: Sign with persistent release identity');
+  assert.ok(preflight >= 0 && preflight < build && build < compiled && compiled < sign);
+  assert.match(workflow, /node --test tests\/android-community-env\.test\.mjs/);
+  assert.match(workflow, /'scripts\/check-android-community-env\.mjs'/);
   assert.match(workflow, /'tests\/android-community-env\.test\.mjs'/);
 });
