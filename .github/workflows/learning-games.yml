@@ -23,6 +23,7 @@ on:
       - 'scripts/public-learning-browser.mjs'
       - 'scripts/community-controls-browser.mjs'
       - 'scripts/community-guide-browser.mjs'
+      - 'scripts/community-resources-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -45,6 +46,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Visual audio, reading and assignment resource lifecycle
+        run: npm run test:community-resources-browser
       - name: In-editor authoring guide and documented create-publish-install walkthrough
         run: npm run test:community-guide-browser
       - name: Community module controls, persistence and publication
@@ -91,6 +94,11 @@ jobs:
         run: npm run test:credential-integration
       - name: Isolated learner progress with real D1 and HTTPS
         run: npm run test:learner-progress-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-resources-browser
+          path: test-results/community-resources-browser/
       - uses: actions/upload-artifact@v4
         if: always()
         with:

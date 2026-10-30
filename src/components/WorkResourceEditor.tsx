@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ASSIGN_BLOCK, parseAssignBlock, workProblems, type CourseWork, type Rubric, type WritingTask, type Lab, type ActivityLogSpec } from "../lib/work";
 import { validateCourseWork } from "../lib/courseWork";
 import { uid } from "../lib/util";
+import TextResourceFileInput from "./TextResourceFileInput";
+import WorkResourcePreview from "./WorkResourcePreview";
 
 type Kind = "rubric" | "writing" | "lab" | "log";
 type LinkKind = Exclude<Kind, "rubric">;
@@ -39,6 +41,7 @@ function Check({ label, checked, onChange }: { label: string; checked: boolean; 
 export default function WorkResourceEditor({ work, modules, lessons, onChange, onLessonBodyChange, onAssignmentAttachmentChange }: WorkResourceEditorProps) {
   const [selected, setSelected] = useState<{ kind: Kind; id: string } | null>(null);
   const [error, setError] = useState("");
+  const [pendingRemoval, setPendingRemoval] = useState<{ kind: Kind; id: string; snapshot: string } | null>(null);
   const writing = work.writing ?? [], labs = work.labs ?? [], rubrics = work.rubrics ?? [];
   const putRubric = (value: Rubric) => onChange({ ...work, rubrics: rubrics.map(item => item.id === value.id ? value : item) });
   const putWriting = (value: WritingTask) => onChange({ ...work, writing: writing.map(item => item.id === value.id ? value : item) });
@@ -50,7 +53,7 @@ export default function WorkResourceEditor({ work, modules, lessons, onChange, o
     if (kind === "writing") onChange({ ...work, writing: [...writing, { id, title: "New writing task", kind: "short", prompt: "", selfCheck: true }] });
     if (kind === "lab") onChange({ ...work, labs: [...labs, { id, title: "New lab", adult: false, safety: [], materials: [], steps: [], tables: [], questions: [] }] });
     if (kind === "log") onChange({ ...work, activityLog: { title: "Activity log", types: [], uploads: true } });
-    setSelected({ kind, id: kind === "log" ? "log" : id }); setError("");
+    setSelected({ kind, id: kind === "log" ? "log" : id }); setError(""); setPendingRemoval(null);
   }
   const malformedLinks = lessons.some(lesson => {
     const blocks = [...lesson.body.matchAll(ASSIGN_BLOCK)];
@@ -61,13 +64,15 @@ export default function WorkResourceEditor({ work, modules, lessons, onChange, o
     if (malformedLinks) return "Repair malformed lesson assignment blocks before removing resources.";
     return lessons.some(lesson => lessonReferencesWork(lesson.body, kind, id)) ? "Detach this resource from its lessons first." : "";
   }
+  const resource = (kind: Kind, id: string) => kind === "rubric" ? rubrics.find(x => x.id === id) : kind === "writing" ? writing.find(x => x.id === id) : kind === "lab" ? labs.find(x => x.id === id) : work.activityLog;
   function remove(kind: Kind, id: string) {
+    if (!pendingRemoval || pendingRemoval.kind !== kind || pendingRemoval.id !== id || JSON.stringify(resource(kind, id)) !== pendingRemoval.snapshot) { setPendingRemoval(null); setError("The resource changed. Review it before deleting."); return; }
     const reason = removalReason(kind, id); if (reason) { setError(reason); return; }
     if (kind === "rubric") onChange({ ...work, rubrics: rubrics.filter(item => item.id !== id) });
     if (kind === "writing") onChange({ ...work, writing: writing.filter(item => item.id !== id) });
     if (kind === "lab") onChange({ ...work, labs: labs.filter(item => item.id !== id) });
     if (kind === "log") { const next = { ...work }; delete next.activityLog; onChange(next); }
-    setSelected(null); setError("");
+    setSelected(null); setError(""); setPendingRemoval(null);
   }
   const rubric = selected?.kind === "rubric" ? rubrics.find(item => item.id === selected.id) : undefined;
   const task = selected?.kind === "writing" ? writing.find(item => item.id === selected.id) : undefined;
@@ -81,10 +86,10 @@ export default function WorkResourceEditor({ work, modules, lessons, onChange, o
     <Check label="Offer rubric self-check" checked={item.selfCheck !== false} onChange={selfCheck => update({ ...item, selfCheck })} />
   </>;
   const problems = [...validateCourseWork(work, { moduleIds: modules.map(module => module.id) }), ...workProblems({ ...work, modules, lessons: lessons.map(lesson => ({ ...lesson, module: "" })) })];
-  return <section aria-label="Work resources" className="stack">
+  return <section aria-label="Work resources" className="stack visual-work-resources">
     <p>Structured writing, rubric, lab and activity resources. Changes belong to the course draft; stable resource IDs are retained when editing.</p>
     <div className="row"><button type="button" onClick={() => add("rubric")}>Add rubric</button><button type="button" onClick={() => add("writing")}>Add writing task</button><button type="button" onClick={() => add("lab")}>Add lab</button><button type="button" disabled={!!work.activityLog} onClick={() => add("log")}>Add activity log</button></div>
-    <nav aria-label="Work resource list">{([...rubrics.map(item => ({ kind: "rubric" as const, id: item.id, title: item.title })), ...writing.map(item => ({ ...item, kind: "writing" as const })), ...labs.map(item => ({ ...item, kind: "lab" as const })), ...(work.activityLog ? [{ kind: "log" as const, id: "log", title: work.activityLog.title }] : [])]).map(item => <button type="button" key={item.kind + item.id} onClick={() => { setSelected(item); setError(""); }}>Edit {item.title || item.id}</button>)}</nav>
+    <nav aria-label="Work resource list">{([...rubrics.map(item => ({ kind: "rubric" as const, id: item.id, title: item.title })), ...writing.map(item => ({ ...item, kind: "writing" as const })), ...labs.map(item => ({ ...item, kind: "lab" as const })), ...(work.activityLog ? [{ kind: "log" as const, id: "log", title: work.activityLog.title }] : [])]).map(item => <button type="button" key={item.kind + item.id} onClick={() => { setSelected(item); setError(""); setPendingRemoval(null); }}>Edit {item.title || item.id}</button>)}</nav>
     {rubric && <fieldset><legend>Rubric</legend><Text label="Rubric title" value={rubric.title} onChange={title => putRubric({ ...rubric, title })} />
       {rubric.criteria.map((criterion, i) => <fieldset key={criterion.id}><legend>Criterion {i + 1}</legend>
         <Text label={`Criterion ${i + 1} name`} value={criterion.name} onChange={name => putRubric({ ...rubric, criteria: rubric.criteria.map((c, j) => j === i ? { ...c, name } : c) })} />
@@ -96,10 +101,12 @@ export default function WorkResourceEditor({ work, modules, lessons, onChange, o
     {task && <fieldset><legend>Writing task</legend>{common(task, putWriting)}
       <label className="field"><span>Writing format</span><select value={task.kind} onChange={e => putWriting({ ...task, kind: e.target.value as WritingTask["kind"] })}><option value="short">Short response</option><option value="essay">Essay</option></select></label>
       <Text label="Writing prompt" value={task.prompt} multiline onChange={prompt => putWriting({ ...task, prompt })} />
+      <TextResourceFileInput key={task.id} label="Writing prompt" value={task.prompt} onApply={prompt => putWriting({ ...task, prompt })} />
       {(["min", "max"] as const).map(key => <NumberField key={key} label={key === "min" ? "Minimum words" : "Maximum words"} value={task.words?.[key]} onChange={value => { const words = { ...task.words }; if (value === undefined) delete words[key]; else words[key] = value; const next = { ...task }; if (Object.keys(words).length) next.words = words; else delete next.words; putWriting(next); }} />)}
     </fieldset>}
     {lab && <fieldset><legend>Lab</legend>{common(lab, putLab)}
       <Text label="Lab introduction" value={lab.intro} multiline onChange={intro => putLab({ ...lab, intro })} />
+      <TextResourceFileInput key={lab.id} label="Lab introduction" value={lab.intro ?? ""} onApply={intro => putLab({ ...lab, intro })} />
       <Check label="Adult supervision required" checked={lab.adult} onChange={adult => putLab({ ...lab, adult })} />
       <Text label="Safety notes (one per line)" value={lab.safety.join("\n")} multiline onChange={value => putLab({ ...lab, safety: lines(value) })} />
       <Text label="Materials (one per line)" value={lab.materials.join("\n")} multiline onChange={value => putLab({ ...lab, materials: lines(value) })} />
@@ -112,9 +119,11 @@ export default function WorkResourceEditor({ work, modules, lessons, onChange, o
       <Text label="Photo prompt" value={lab.photos} multiline onChange={photos => putLab({ ...lab, photos })} />
     </fieldset>}
     {log && <fieldset><legend>Activity log</legend><Text label="Activity log title" value={log.title} onChange={title => putLog({ ...log, title })} /><Text label="Activity types (one per line)" value={log.types.join("\n")} multiline onChange={value => putLog({ ...log, types: lines(value) })} /><Text label="Activity prompt" value={log.prompt} multiline onChange={prompt => putLog({ ...log, prompt })} /><NumberField label="Weekly minutes target" value={log.weeklyMinutes} onChange={weeklyMinutes => { const next = { ...log }; if (weeklyMinutes === undefined) delete next.weeklyMinutes; else next.weeklyMinutes = weeklyMinutes; putLog(next); }} /><NumberField label="Weekly active days target" value={log.weeklyDays} max={7} onChange={weeklyDays => { const next = { ...log }; if (weeklyDays === undefined) delete next.weeklyDays; else next.weeklyDays = weeklyDays; putLog(next); }} /><Check label="Allow activity uploads" checked={log.uploads} onChange={uploads => putLog({ ...log, uploads })} /></fieldset>}
+    {selected && <WorkResourcePreview key={selected.kind + selected.id} rubric={rubric ?? rubrics.find(r => r.id === (task?.rubric ?? lab?.rubric))} task={task} lab={lab} log={log} />}
     {selected && selected.kind !== "rubric" && <fieldset><legend>Lesson attachments</legend>{lessons.map(lesson => <Check key={lesson.id} label={`Attach to ${lesson.title}`} checked={lessonReferencesWork(lesson.body, selected.kind as LinkKind, selected.id)} onChange={attached => { if (malformedLinks) { setError("Repair malformed assignment blocks before changing attachments."); return; } if (onAssignmentAttachmentChange) onAssignmentAttachmentChange(lesson.id, { kind: selected.kind as LinkKind, ...(selected.kind === "log" ? {} : { id: selected.id }) }, attached);
       else onLessonBodyChange?.(lesson.id, linkLessonWork(lesson.body, selected.kind as LinkKind, selected.id, attached)); }} />)}</fieldset>}
-    {selected && <><p className="small">Stable resource ID: {selected.id}</p><button type="button" disabled={!!removalReason(selected.kind, selected.id)} title={removalReason(selected.kind, selected.id)} onClick={() => remove(selected.kind, selected.id)}>Remove selected resource</button>{removalReason(selected.kind, selected.id) && <p>{removalReason(selected.kind, selected.id)}</p>}</>}
+    {selected && <><p className="small">Stable resource ID: {selected.id}</p><button type="button" disabled={!!removalReason(selected.kind, selected.id)} title={removalReason(selected.kind, selected.id)} onClick={() => setPendingRemoval({ ...selected, snapshot: JSON.stringify(resource(selected.kind, selected.id)) })}>Remove selected resource</button>{removalReason(selected.kind, selected.id) && <p>{removalReason(selected.kind, selected.id)}</p>}</>}
+    {pendingRemoval && <div role="alert"><p>Remove this resource from the draft? Existing learner records are not erased. Attached resources cannot be removed.</p><button type="button" className="btn" onClick={() => remove(pendingRemoval.kind, pendingRemoval.id)}>Confirm resource removal</button><button type="button" className="btn" onClick={() => setPendingRemoval(null)}>Keep resource</button></div>}
     {error && <p role="alert">{error}</p>}{problems.length > 0 && <div role="status"><strong>Resolve before publishing:</strong><ul>{problems.map((problem, i) => <li key={i}>{problem}</li>)}</ul></div>}
   </section>;
 }
