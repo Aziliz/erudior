@@ -42,7 +42,7 @@ export default function EngineAttribution() {
         <p>The draft also covers sharing distributed or publicly hosted Engine modifications. Independent courses
           and learner records are not assigned to Erudior merely by using the Engine.</p>
         <div className="engine-attribution-links">
-          <a href="https://github.com/Aziliz/erudior/blob/legal/erudior-engine-license/LICENSE">Read the draft Engine license</a>
+          <a href="/engine-license">Read the draft Engine license</a>
           <a href="https://github.com/Aziliz/erudior/blob/main/docs/SPLASH_AND_CONTRIBUTION_TERMS_DRAFT.md">Animation and attribution guide</a>
           <a href="/licenses">Third-party software licenses</a>
         </div>

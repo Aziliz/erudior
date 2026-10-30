@@ -2,12 +2,14 @@
 // (erudior.com/terms, /privacy) and the app (/terms, /privacy, /licenses on app.erudior.com and in
 // the desktop app, so they work offline). Courses that need more (professional, exam-prep and AP
 // courses) carry their own `disclaimer`. Not reviewed by a lawyer yet.
-import { useEffect, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
+
+const EngineLicenseText = lazy(() => import("./EngineLicenseText"));
 
 export const TERMS_UPDATED = "October 24, 2026";
 export const LEGAL_EMAIL = "legal@erudior.com";
 
-export type LegalPage = "terms" | "privacy" | "licenses";
+export type LegalPage = "terms" | "privacy" | "licenses" | "engine-license";
 
 /** One line shown in the site footer and the app. */
 export const GENERAL_DISCLAIMER =
@@ -229,9 +231,22 @@ export function ThirdPartyLicenses() {
   );
 }
 
-/** The right page for a legal page name. */
-export function LegalView({ page, linkTo }: { page: LegalPage; linkTo: LinkTo }) {
-  return page === "terms" ? <TermsOfUse linkTo={linkTo} /> : page === "privacy" ? <PrivacyPolicy linkTo={linkTo} /> : <ThirdPartyLicenses />;
+/** Proposed Engine license, clearly distinguished from an adopted software license. */
+export function EngineLicenseDraft() {
+  return <article className="prose terms-of-use">
+    <h1>Erudior Engine license proposal</h1>
+    <p><strong>Nonbinding draft for rights-holder and legal review. Not adopted and not effective.</strong></p>
+    <p>Publication grants no permissions and imposes no obligations. Using Erudior or displaying a splash does not accept or activate this proposal. Adoption requires a separate approved change.</p>
+    <p>This proposed custom source-available license outlines Engine reuse, startup attribution, and sharing modifications to distributed or publicly hosted versions. It is not an OSI-approved open-source license. Independent course content and learner records are excluded from its contribution-back requirement.</p>
+    <p>Read the <a href="https://github.com/Aziliz/erudior/blob/main/LICENSE-DRAFT.md">draft in the GitHub repository</a> and the <a href="https://github.com/Aziliz/erudior/blob/main/docs/ENGINE_LICENSING.md">licensing explanation</a>. Read the separate <a href="/licenses">third-party software notices</a>; those materials retain their own terms. The licensing explanation lists the remaining ownership, contributor, trademark, compatibility and legal decisions.</p>
+    <p><a href="/engine-license-draft.txt" download>Download the nonbinding draft text</a></p>
+    <Suspense fallback={<p className="muted">Loading proposed license…</p>}><EngineLicenseText /></Suspense>
+  </article>;
 }
 
-export const LEGAL_TITLES: Record<LegalPage, string> = { terms: "Terms of Use", privacy: "Privacy Policy", licenses: "Third-party licenses" };
+/** The right page for a legal page name. */
+export function LegalView({ page, linkTo }: { page: LegalPage; linkTo: LinkTo }) {
+  return page === "terms" ? <TermsOfUse linkTo={linkTo} /> : page === "privacy" ? <PrivacyPolicy linkTo={linkTo} /> : page === "engine-license" ? <EngineLicenseDraft /> : <ThirdPartyLicenses />;
+}
+
+export const LEGAL_TITLES: Record<LegalPage, string> = { terms: "Terms of Use", privacy: "Privacy Policy", licenses: "Third-party licenses", "engine-license": "Erudior Engine license proposal" };

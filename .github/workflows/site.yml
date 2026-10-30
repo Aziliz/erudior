@@ -18,6 +18,10 @@ on:
       - "src/startupSplash.css"
       - "src/engineAttribution.css"
       - "src/components/EngineAttribution.tsx"
+      - "LICENSE-DRAFT.md"
+      - "public/engine-license-draft.txt"
+      - "src/components/Terms.tsx"
+      - "tests/engine-license.test.mts"
       - "src/Site.tsx"
       - "src/main.tsx"
       - "src/App.tsx"
@@ -71,6 +75,7 @@ jobs:
       - name: Build website
         id: website_build
         run: |
+          node --import tsx tests/engine-license.test.mts
           node --test tests/website-community-env.test.mjs
           node scripts/check-website-community-env.mjs
           node scripts/diagnostic-command.mjs website-build -- npm run build
