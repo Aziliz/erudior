@@ -54,7 +54,7 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - name: Local academic records, portability, privacy and accessibility
-        run: npm run test:academic-records-browser
+        run: node scripts/diagnostic-command.mjs academic-records-browser -- npm run test:academic-records-browser
       - name: Private student workspace, persistence and accessibility
         run: npm run test:student-workspace-browser
       - name: Enrolled courses, pathway persistence and course progress
@@ -264,5 +264,13 @@ jobs:
         with:
           name: academic-records-browser
           path: test-results/academic-records-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-diagnostics
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
           if-no-files-found: warn
           retention-days: 14
