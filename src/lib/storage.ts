@@ -1,5 +1,6 @@
 import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
+import { parseStudentWorkspace } from "./studentWorkspace";
 import { parseLearningPathways } from "./learningPathways";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
@@ -184,6 +185,7 @@ function parseProgress(text: string | null): Progress {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
+  if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   if (p.anonymousGeneration !== undefined) anonymousGeneration(text);
   return { ...emptyProgress(), ...p };
 }
@@ -206,6 +208,7 @@ export async function updateProfileProgress(id: string | null, change: (current:
     if (next.competencies !== undefined) parseCompetencyLedger(next.competencies);
     if (next.interventionTasks !== undefined) parseInterventionTasks(next.interventionTasks);
     if (next.learningPathways !== undefined) parseLearningPathways(next.learningPathways);
+    if (next.studentWorkspace !== undefined) parseStudentWorkspace(next.studentWorkspace);
     return JSON.stringify(next);
   });
   return parseProgress(text);
@@ -233,6 +236,7 @@ interface SaveProgressOptions {
   replaceCompetencies?: boolean;
   replaceInterventionTasks?: boolean;
   replaceLearningPathways?: boolean;
+  replaceStudentWorkspace?: boolean;
 }
 
 function mergeSavedProgress(p: Progress, current: Progress, options: SaveProgressOptions): Progress {
@@ -242,6 +246,7 @@ function mergeSavedProgress(p: Progress, current: Progress, options: SaveProgres
     // Pathway edits use the profile CAS updater. Unrelated activity saves cannot erase a
     // newer plan or resurrect one that the learner has removed, including absent legacy state.
     ...(!options.replaceLearningPathways ? { learningPathways: current.learningPathways } : {}),
+    ...(!options.replaceStudentWorkspace ? { studentWorkspace: current.studentWorkspace } : {}),
   };
 }
 
@@ -249,6 +254,7 @@ export async function saveProgress(p: Progress, options: SaveProgressOptions = {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
+  if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   const selected = student;
   await updateProfileProgress(selected, current => mergeSavedProgress(p, current, options));
 }
@@ -339,6 +345,7 @@ export async function exportBackup(courses: Course[], banks: Bank[], progress: P
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
   if (progress.learningPathways !== undefined) parseLearningPathways(progress.learningPathways);
+  if (progress.studentWorkspace !== undefined) parseStudentWorkspace(progress.studentWorkspace);
   const backup: Backup = {
     format: "erudior-backup",
     version: 1,
@@ -371,6 +378,7 @@ export async function restoreBackup(
   if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
   if (b.progress.interventionTasks !== undefined) parseInterventionTasks(b.progress.interventionTasks);
   if (b.progress.learningPathways !== undefined) parseLearningPathways(b.progress.learningPathways);
+  if (b.progress.studentWorkspace !== undefined) parseStudentWorkspace(b.progress.studentWorkspace);
   const currentProgress = await loadProfileProgress(targetStudent);
   const importedCompetencies = importCompetencyHistory(b.progress.competencies,currentProgress.competencies);
   // Historical evidence must remain independently verifiable, including legacy
@@ -406,7 +414,7 @@ export async function restoreBackup(
     return mergeSavedProgress(
       {...emptyProgress(), ...b.progress, ...(targetStudent===null?{anonymousGeneration:current.anonymousGeneration??0}:{}), competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true},
       current,
-      {replaceCompetencies:true, replaceInterventionTasks:true, replaceLearningPathways:true},
+      {replaceCompetencies:true, replaceInterventionTasks:true, replaceLearningPathways:true, replaceStudentWorkspace:true},
     );
   });
   return { courses: courses.length, banks: banks.length };
