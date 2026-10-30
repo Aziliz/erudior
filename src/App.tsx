@@ -79,6 +79,7 @@ import { siteUrl } from "./lib/site";
 
 /** The website keeps the address bar in step with the screen; the desktop app has no address bar. */
 // (VITE_AS_DESKTOP=1 makes a browser build look like the desktop app, for screenshots.)
+const ANDROID_NATIVE = store.inApp && typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent);
 const ROUTES = !store.inApp && typeof window !== "undefined" && import.meta.env?.VITE_AS_DESKTOP !== "1";
 
 /** Screens that hold an activity's in-memory state; going back to one reopens its course instead. */
@@ -1329,7 +1330,7 @@ export default function App() {
   const showCommunity = COMMUNITY && !family;
 
   return (
-    <div className="shell">
+    <div className={ANDROID_NATIVE ? "shell erudior-android-shell" : "shell"}>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -1575,6 +1576,20 @@ export default function App() {
         )}
         {body}
       </main>
+      {ANDROID_NATIVE && !fullScreen && (
+        <nav className="android-bottom-nav" aria-label="Phone navigation">
+          <button type="button" aria-current={navCurrent === "library" ? "page" : undefined}
+            onClick={() => api.go({ name: "library" })}><span aria-hidden="true">⌂</span><span>Home</span></button>
+          {showCommunity && <button type="button" aria-current={navCurrent === "community" ? "page" : undefined}
+            onClick={() => api.go({ name: "community" })}><span aria-hidden="true">◫</span><span>Community</span></button>}
+          <button type="button" aria-current={navCurrent === "progress" ? "page" : undefined}
+            onClick={() => api.go({ name: "progress" })}><span aria-hidden="true">◉</span><span>Progress</span></button>
+          <button type="button" aria-current={view.name === "search" ? "page" : undefined}
+            onClick={() => api.go({ name: "search", q: "" })}><span aria-hidden="true">⌕</span><span>Search</span></button>
+          {HOMESCHOOL && <button type="button" aria-current={view.name === "parent" ? "page" : undefined}
+            onClick={() => api.go(family ? { name: "parent" } : { name: "familySetup" })}><span aria-hidden="true">♙</span><span>Family</span></button>}
+        </nav>
+      )}
       {/* Always mounted so screen readers announce new messages. */}
       <div className={toastMsg ? "toast" : "sr-only"} role="status" aria-live="polite">
         {toastMsg}
