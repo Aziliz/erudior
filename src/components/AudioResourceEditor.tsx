@@ -77,7 +77,7 @@ export function AudioResourceEditor({ audio, onChange, onPendingChange }: { audi
       if (update(next)) { setSelectedKey(newKey); setNewKey(''); }
     }}>Add audio entry</button>
     {key !== undefined && <div className="stack">
-      <label className="field">Audio entry<select className="select" value={key} disabled={busy} onChange={e => select(e.target.value)}>{keys.map(k => <option key={k} value={k}>{k}</option>)}</select></label>
+      <label className="field">Audio entry<select aria-label="Audio entry" className="select" value={key} disabled={busy} onChange={e => select(e.target.value)}>{keys.map(k => <option key={k} value={k}>{k}</option>)}</select></label>
       <p>Entry {selected + 1} of {keys.length}: {key}</p>
       <div className="row"><button className="btn" type="button" disabled={busy || selected <= 0} onClick={() => select(keys[selected - 1])}>Previous audio entry</button><button className="btn" type="button" disabled={busy || selected === keys.length - 1} onClick={() => select(keys[selected + 1])}>Next audio entry</button></div>
       <label className="field">Clip key<input className="input" disabled={busy} value={key} onChange={e => {
@@ -86,7 +86,7 @@ export function AudioResourceEditor({ audio, onChange, onPendingChange }: { audi
         const next = Object.fromEntries(Object.entries(audio!).map(([k, v]) => [k === key ? e.target.value : k, v]));
         if (update(next)) setSelectedKey(e.target.value);
       }} /></label>
-      <label className="field">Spoken replacement<textarea className="textarea" disabled={busy} value={value && /^say:/i.test(value) ? value.slice(4) : ''} onChange={e => update({ ...audio, [key]: `say:${e.target.value}` })} /></label>
+      <label className="field">Spoken replacement<textarea aria-label="Spoken replacement" className="textarea" disabled={busy} value={value && /^say:/i.test(value) ? value.slice(4) : ''} onChange={e => update({ ...audio, [key]: `say:${e.target.value}` })} /></label>
       <p className="small">Entering a spoken replacement replaces this entry's recording. Keep a separate entry when you need both.</p>
       <EmbeddedAudioInput key={key} label="Library recording" sourceVersion={value} value={value && /^say:/i.test(value) ? undefined : value} onPendingChange={v => { uploading.current = v; setBusy(v); onPendingChange?.(v); }} onChange={v => {
         if (v) update({ ...latest.current, [key]: v });
