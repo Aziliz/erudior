@@ -36,7 +36,7 @@ try {
     if(mode==='legacy') {
       await button('Publish').click();
       await page.getByRole('heading',{name:'Publish',exact:true}).waitFor();
-      await page.locator('section.panel').getByRole('button',{name:'Publish',exact:true}).click();
+      await page.locator('section.panel').getByRole('button',{name:version===1?'Publish':`Publish version ${version}`,exact:true}).click();
       await page.getByText(`Published version ${version}`,{exact:true}).first().waitFor();
     } else {
       await button(`Publish canonical version ${version}`).click();
@@ -156,12 +156,12 @@ try {
         await page.evaluate(()=>window.communityKDemoFixture.failSaves(false));
         await saved(mode,id);assert.equal((await source()).description,changed);
         await page.evaluate(()=>window.communityKDemoFixture.failPublish(true));
-        if(mode==='legacy') {await button('Publish').click();await page.getByRole('heading',{name:'Publish',exact:true}).waitFor();await page.locator('section.panel').getByRole('button',{name:'Publish',exact:true}).click();}
+        if(mode==='legacy') {await button('Publish').click();await page.getByRole('heading',{name:'Publish',exact:true}).waitFor();await page.locator('section.panel').getByRole('button',{name:'Publish version 2',exact:true}).click();}
         else await button('Publish canonical version 2').click();
         await page.getByText('Synthetic publication interrupted; no version created.',{exact:false}).first().waitFor();
         assert.deepEqual((await record(id)).published,[versionOne]);
         await page.evaluate(()=>window.communityKDemoFixture.failPublish(false));
-        if(mode==='legacy') {await page.locator('section.panel').getByRole('button',{name:'Publish',exact:true}).click();await page.getByText('Published version 2',{exact:true}).first().waitFor();}
+        if(mode==='legacy') {await page.locator('section.panel').getByRole('button',{name:'Publish version 2',exact:true}).click();await page.getByText('Published version 2',{exact:true}).first().waitFor();}
         else await publish(mode,2);
         const updated=await record(id);assert.equal(updated.publishes,2);assert.equal(updated.published.length,2);assert.deepEqual(updated.published[0],versionOne,'New publication retains immutable version one');
         assert.equal(updated.published[1].description,changed);
