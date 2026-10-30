@@ -53,12 +53,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Private student workspace, persistence and accessibility
-        run: npm run test:student-workspace-browser
-      - name: Enrolled courses, pathway persistence and course progress
-        run: npm run test:learning-progress-browser
-      - name: Courses navigation and local family or classroom gates
-        run: npm run test:role-navigation-browser
       - name: Private offline course export, import and rendering
         run: npm run test:offline-course-browser
       - name: Public community discovery, details and exact learning handoff
@@ -225,6 +219,60 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-course-browser
+          path: test-results/offline-course-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+
+
+  application-workflows:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Local academic records, portability, privacy and accessibility
+        run: node scripts/diagnostic-command.mjs academic-records-browser -- npm run test:academic-records-browser
+      - name: Private student workspace, persistence and accessibility
+        run: npm run test:student-workspace-browser
+      - name: Enrolled courses, pathway persistence and course progress
+        run: npm run test:learning-progress-browser
+      - name: Courses navigation and local family or classroom gates
+        run: npm run test:role-navigation-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-browser
+          path: test-results/academic-records-browser/
+          if-no-files-found: warn
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-diagnostics
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: student-workspace-browser
+          path: test-results/student-workspace-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -238,50 +286,5 @@ jobs:
         with:
           name: role-navigation-browser
           path: test-results/role-navigation-browser/
-          if-no-files-found: warn
-          retention-days: 14
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: offline-course-browser
-          path: test-results/offline-course-browser/
-          if-no-files-found: warn
-          retention-days: 14
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: student-workspace-browser
-          path: test-results/student-workspace-browser/
-          if-no-files-found: warn
-          retention-days: 14
-
-
-  academic-records:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - name: Local academic records, portability, privacy and accessibility
-        run: node scripts/diagnostic-command.mjs academic-records-browser -- npm run test:academic-records-browser
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: academic-records-browser
-          path: test-results/academic-records-browser/
-          if-no-files-found: warn
-          retention-days: 14
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: academic-records-diagnostics
-          path: ${{ runner.temp }}/erudior-ci-diagnostics/
           if-no-files-found: warn
           retention-days: 14
