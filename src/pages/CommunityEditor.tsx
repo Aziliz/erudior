@@ -1,7 +1,7 @@
 // Block editor for community courses (website only). Saves the draft as you type; Publish
 // checks it and makes a new public version, tagged Not reviewed until a reviewer looks.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import { addCommunityLesson, deleteCommunityLesson, communityLessonDeleteProblem, reorderCommunityLesson } from "../lib/communityModules";
 import CommunityAuthorGuide from "../components/CommunityAuthorGuide";
@@ -339,6 +339,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
 type Update = (fn: (d: CommunityDoc) => CommunityDoc) => void;
 
 function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
+  const descriptionId = useId();
   return (
     <section className="panel form-grid">
       <label className="field span-2">
@@ -346,8 +347,8 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         <input className="input" value={doc.title} maxLength={LIMITS.title} onChange={(e) => update((d) => ({ ...d, title: e.target.value }))} />
       </label>
       <label className="field span-2">
-        <span>Description (what learners will get out of it)</span>
-        <textarea className="textarea" value={doc.description} maxLength={LIMITS.description} onChange={(e) => update((d) => ({ ...d, description: e.target.value }))} />
+        <span id={`${descriptionId}-label`}>Description (what learners will get out of it)</span>
+        <textarea aria-labelledby={`${descriptionId}-label`} className="textarea" value={doc.description} maxLength={LIMITS.description} onChange={(e) => update((d) => ({ ...d, description: e.target.value }))} />
       </label>
       <label className="field">
         <span>Subject</span>

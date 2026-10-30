@@ -130,6 +130,11 @@ try {
       assert.equal(await renderedBody(),sourceText,'Same learner renderer and authored body after install');
       assert(await page.getByRole('heading',{name:'End-of-lesson quiz',exact:true}).count()>0,'Question links survive installation');
       assert.equal(await page.locator('audio[autoplay]').count(),0,'No automatic media playback');
+      if(index===0) {
+        const skip=button('Skip');
+        if(await skip.count())await skip.click();
+        assert(Object.keys((await page.evaluate(()=>window.communityKDemoFixture.progress())).pretests).length>0,'Real warmup skip records isolated demo progress');
+      }
       await audit(name+'-installed-lesson',page.locator('.lesson-body'));
       // Returning and reopening goes through the real author list, not a fixture shortcut editor.
       await button('Demo course list').click();
@@ -172,12 +177,33 @@ try {
     await audit(group+'-eight-subjects',page.getByRole('heading',{name:'Your community courses',exact:true}));
     await page.reload();await page.getByRole('heading',{name:'Your community courses',exact:true}).waitFor();
     assert.deepEqual((await state()).drafts,complete.drafts,'All eight independently persisted drafts survive reload');
+    // Reopening an unrelated list entry must update the source/install subject, not keep a stale selector.
+    await page.getByLabel('Synthetic subject',{exact:true}).selectOption(subjectOptions.at(-1).id);
+    await page.getByRole('button',{name:'Edit Synthetic K Math',exact:true}).click();
+    await description(mode).waitFor();
+    assert.equal(await page.evaluate(()=>window.communityKDemoFixture.selectedId()),`${mode}-math`);
+    await button('Install published demo').click();
+    await page.waitForFunction(()=>window.communityKDemoFixture.installed()?.revision===2);
+    assert.equal((await page.evaluate(()=>window.communityKDemoFixture.installed())).id,`community-${mode}-math`,'Cross-subject reopen installs the intended source');
+    // Progress is intentionally ephemeral; populate it through the actual learner UI after reload.
+    await button('View installed lesson').click();
+    await renderedBody();
+    await button('Skip').click();
+    await button('Demo course list').click();
+    await page.getByRole('heading',{name:'Your community courses',exact:true}).waitFor();
     // Reset confirmation protects the demo registry; reset never touches unrelated browser data.
     await page.evaluate(()=>{localStorage.setItem('unrelated-course-sentinel','keep');sessionStorage.setItem('unrelated-session-sentinel','keep');});
+    const progressBeforeReset=await page.evaluate(()=>window.communityKDemoFixture.progress());
+    assert(Object.keys(progressBeforeReset.pretests).length>0);
     await button('Reset synthetic demo').click();await button('Keep synthetic demo').click();
     assert.deepEqual((await state()).drafts,complete.drafts);
+    assert.deepEqual(await page.evaluate(()=>window.communityKDemoFixture.progress()),progressBeforeReset,'Canceled reset keeps demo progress');
+    await page.evaluate(()=>{window.communityKDemoFixture.failSaves(true);window.communityKDemoFixture.failPublish(true);window.communityKDemoFixture.delay(10);});
     await button('Reset synthetic demo').click();await button('Confirm demo reset').click();
     await page.getByRole('heading',{name:'No courses yet',exact:true}).waitFor();assert.equal(Object.keys((await state()).drafts).length,0);
+    assert.deepEqual(await page.evaluate(()=>window.communityKDemoFixture.faults()),{failSaves:false,failPublish:false,delay:0},'Reset clears demo fault injection');
+    const progressAfterReset=await page.evaluate(()=>window.communityKDemoFixture.progress());
+    assert.deepEqual(progressAfterReset,{attempts:[],lessonsDone:{},pretests:{},work:{},activities:[]},'Reset clears all isolated demo progress');
     assert.deepEqual(await page.evaluate(()=>[localStorage.getItem('unrelated-course-sentinel'),sessionStorage.getItem('unrelated-session-sentinel')]),['keep','keep']);
     await page.reload();await page.getByRole('heading',{name:'No courses yet',exact:true}).waitFor();assert.equal(Object.keys((await state()).drafts).length,0);
     assert.deepEqual(outside,[],'Demo cannot contact outside services');
