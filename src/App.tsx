@@ -463,6 +463,7 @@ export default function App() {
   const pendingPath = useRef<string | null>(
     ROUTES && window.location.pathname !== "/" ? window.location.pathname + window.location.search : null,
   );
+  const skipResolvingPathWrite = useRef(false);
   const fromPop = useRef(false);
   const displayedHistory = useRef<DisplayedHistory>({ url: window.location.pathname + window.location.search + window.location.hash, state: window.history.state });
   const restoringHistory = useRef(false);
@@ -481,14 +482,23 @@ export default function App() {
     const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
     if (v || catalogTried) {
       pendingPath.current = null;
-      if (v && view.name === "library") setView(v);
-      else setView((cur) => ({ ...cur })); // write the address for the screen we're on
+      if (v && view.name === "library") {
+        // The route writer below runs in this same effect cycle with the old
+        // library view. Wait for this state update before writing history, so
+        // loading/reloading a deep link replaces its own entry, not a fake "/".
+        skipResolvingPathWrite.current = true;
+        setView(v);
+      } else setView((cur) => ({ ...cur })); // write the address for the screen we're on
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, catalogTried, courses]);
 
   useEffect(() => {
     if (!ROUTES || !ready || pendingPath.current) return;
+    if (skipResolvingPathWrite.current) {
+      skipResolvingPathWrite.current = false;
+      return;
+    }
     const key = pageKey(view);
     const path = withGuestSession(viewToPath(view, routeCourses(), bankCourse));
     const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
