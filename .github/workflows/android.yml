@@ -354,6 +354,15 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs ci-signed.apk
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -p 4 ci-signed.apk
           echo "Optimized APK signing mechanism passed with throwaway CI certificate; APK NOT distributed." >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify optimized signed ARM64 APK and updater resource
+        if: env.RELEASE_SIGNING_READY == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s Erudior-Android-arm64.apk
+          test -s android-update.json
+          version="$(node -p 'JSON.parse(require("fs").readFileSync("package.json")).version')"
+          python3 scripts/android-release-verify.py Erudior-Android-arm64.apk --version "$version" --build "$GITHUB_SHA" --manifest android-update.json --evidence optimized-verification.json
       - name: Measure optimized package without publishing
         shell: bash
         run: |
