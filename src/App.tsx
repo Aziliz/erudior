@@ -65,6 +65,7 @@ import { resolveCompetencyEvidence } from "./lib/competencyEvidence";
 import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/community";
 import CreateHome from "./pages/CreateHome";
 import CommunityPage from "./pages/CommunityPage";
+import PublicCommunity from "./pages/PublicCommunity";
 import { COMMUNITY } from "./lib/community";
 import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
@@ -102,6 +103,7 @@ function restorable(v: View): View {
 
 export type View =
   | { name: "community" }
+  | { name: "communityCourse"; id: string }
   | { name: "library" }
   | { name: "progress" }
   | { name: "legal"; page: LegalPage }
@@ -495,6 +497,7 @@ export default function App() {
     if (entry) setSeo({ title, description: entry.description, url: courseUrl(entry.title), jsonLd: view.name === "overview" ? courseJsonLd(entry) : undefined });
     else if (view.name === "library")
       setSeo({ title: "Free courses · Erudior", description: `Free courses: ${CATALOG.map((e) => e.title).join(", ")}.`, url: APP_ORIGIN + "/" });
+    else if (view.name === "communityCourse") setSeo({ title: "Community course · Erudior", description: "Read a community course and start learning without an account.", url: APP_ORIGIN + "/community/" + encodeURIComponent(view.id) });
     else if (view.name === "community") setSeo({ title: "Community courses · Erudior", description: "Free courses written by people who use Erudior.", url: APP_ORIGIN + "/community" });
     else if (view.name === "legal") setSeo({ title: `${LEGAL_TITLES[view.page]} · Erudior`, url: `${SITE_ORIGIN}/${view.page}` });
     else setSeo({ title, noindex: true });
@@ -679,15 +682,30 @@ export default function App() {
     [reload, toast, assignmentBlock, courses, enroll, publicLearning, family],
   );
 
-  const addCommunityCourse = async (id: string) => {
+  const addCommunityCourse = async (id: string, throwOnError = false) => {
+    // A public detail link is discovery, never enrollment or family approval.
+    // Do not let an in-flight download install into a newly selected profile.
+    if (family) { toast("Review community courses with the supervising adult before adding them to a learning plan."); return; }
+    const initialView = viewRef.current, profile = store.activeStudent(), selection = studentSelectionRequest.current;
+    const current = () => viewRef.current === initialView && store.activeStudent() === profile && studentSelectionRequest.current === selection;
+    if (courseOpening.current?.view === initialView) return;
+    const request = { view: initialView, profile, selection };
+    courseOpening.current = request;
     try {
       const course = normalizeCourse(await downloadCommunityCourse(id));
+      if (!current()) return;
+      if (HOMESCHOOL && await loadFamily()) throw Error("Family access changed. Reopen the course with the supervising adult.");
+      if (!current()) return;
       await saveCourse(course);
+      if (!current()) return;
       const target = { name: "course" as const, courseId: course.id };
       if (requestNavigation("app", target)) setView(target);
     } catch (e) {
-      toast(`Couldn't add the course: ${(e as Error).message}`);
-    }
+      if (current()) {
+        toast(`Couldn't add the course: ${(e as Error).message}`);
+        if (throwOnError) throw e;
+      }
+    } finally { if (courseOpening.current === request) courseOpening.current = null; }
   };
 
   const competencyAdultStore = createCompetencyStore({
@@ -1125,8 +1143,11 @@ export default function App() {
     case "library":
       break;
     case "community":
-      // Homeschool families use approved core courses only; community courses are for free learning.
-      if (COMMUNITY && !family) body = <CommunityPage api={api} />;
+      // Browsing is public. Family course approval/assignment remains a separate adult action.
+      if (COMMUNITY) body = family ? <PublicCommunity appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} /> : <CommunityPage api={api} />;
+      break;
+    case "communityCourse":
+      if (COMMUNITY) body = <PublicCommunity id={view.id} appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} onStart={family ? undefined : (id) => addCommunityCourse(id, true)} />;
       break;
 
     case "progress":
@@ -1322,12 +1343,12 @@ export default function App() {
   const navCurrent =
     view.name === "progress"
       ? "progress"
-      : view.name === "community" || view.name === "create" || view.name === "communityEdit"
+      : view.name === "community" || view.name === "communityCourse" || view.name === "create" || view.name === "communityEdit"
             ? "community"
             : view.name === "parent" || view.name === "who" || view.name === "familySetup"
               ? null
               : "library";
-  const showCommunity = COMMUNITY && !family;
+  const showCommunity = COMMUNITY;
 
   return (
     <div className={ANDROID_NATIVE ? "shell erudior-android-shell" : "shell"}>

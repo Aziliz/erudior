@@ -21,6 +21,7 @@ on:
       - 'scripts/advanced-assessment-browser.mjs'
       - 'scripts/course-activities-browser.mjs'
       - 'scripts/public-learning-browser.mjs'
+      - 'scripts/public-community-browser.mjs'
       - 'scripts/community-controls-browser.mjs'
       - 'scripts/community-guide-browser.mjs'
       - 'scripts/community-resources-browser.mjs'
@@ -47,6 +48,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Public community discovery, details and exact learning handoff
+        run: npm run test:public-community-browser
       - name: Eight-subject synthetic kindergarten authoring and runtime parity
         run: npm run test:community-k-demo-browser
       - name: Visual audio, reading and assignment resource lifecycle
@@ -198,5 +201,13 @@ jobs:
         with:
           name: community-guide-browser
           path: test-results/community-guide-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-community-browser
+          path: test-results/public-community-browser/
           if-no-files-found: warn
           retention-days: 14

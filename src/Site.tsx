@@ -1,10 +1,11 @@
 // erudior.com: the public site (home page and downloads). The app itself is app.erudior.com;
-// any other address here (erudior.com/algebra-1, /community …) is sent there.
+// Community discovery stays public here; learning routes open the separate web app.
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import AudiencePage from "./pages/AudiencePage";
 import DownloadPage from "./pages/DownloadPage";
 import Roadmap from "./pages/Roadmap";
+import PublicCommunity from "./pages/PublicCommunity";
 import { Mark } from "./components/Mark";
 import EngineAttribution from "./components/EngineAttribution";
 import { SITE_ORIGIN, appUrl } from "./lib/site";
@@ -12,15 +13,22 @@ import { CATALOG } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
-type Page = "home" | "parents" | "live-rooms" | "teachers" | "download" | "roadmap" | LegalPage;
+type Page = "home" | "parents" | "live-rooms" | "teachers" | "download" | "roadmap" | "community" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/parents" ? "parents" : p === "/live-rooms" ? "live-rooms" : p === "/teachers" ? "teachers" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
+  return /^\/community(?:\/[^/]+)?$/.test(p) ? "community" : p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/parents" ? "parents" : p === "/live-rooms" ? "live-rooms" : p === "/teachers" ? "teachers" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : null;
 }
 
 export default function Site() {
-  const [page, setPage] = useState<Page | null>(() => pageFor(window.location.pathname));
+  const [path, setPath] = useState(() => window.location.pathname);
+  const page = pageFor(path);
+  const communityId = page === "community" ? path.replace(/\/+$/, "").split("/")[2] : undefined;
+  const goCommunity = (id?: string) => {
+    const next = id ? `/community/${encodeURIComponent(id)}` : "/community";
+    window.history.pushState(null, "", next);
+    setPath(next);
+  };
 
   useEffect(() => {
     if (page === null) window.location.replace(appUrl(window.location.pathname + window.location.search.replace(/[?&]site\b/, "")));
@@ -32,6 +40,8 @@ export default function Site() {
     if (page === "home" || !page) setSeo({ title: DEFAULT_TITLE, url: SITE_ORIGIN + "/", jsonLd: homeJsonLd(CATALOG) });
     else if (page === "parents" || page === "live-rooms" || page === "teachers")
       setSeo({ title: `${page === "parents" ? "For Parents" : page === "teachers" ? "For Teachers" : "Live Rooms"} · Erudior`, description: page === "parents" ? "Explore Erudior homeschool planning, records, attendance and learning tools for families." : page === "teachers" ? "Learn about Erudior classrooms, assignments, hand-ins, gradebooks and group activities." : "Explore Erudior live quiz rooms, joining with a code and host-led sessions.", url: `${SITE_ORIGIN}/${page}` });
+    else if (page === "community")
+      setSeo({ title: "Community courses · Erudior", description: "Browse free community courses without an account. Read course details and choose what to learn.", url: SITE_ORIGIN + path });
     else if (page === "roadmap")
       setSeo({
         title: "Road to version 1.0 · Erudior",
@@ -52,20 +62,20 @@ export default function Site() {
         url: `${SITE_ORIGIN}/${page}`,
       });
     window.scrollTo({ top: 0 });
-  }, [page]);
+  }, [page, path]);
 
   useEffect(() => {
-    const onPop = () => setPage(pageFor(window.location.pathname));
+    const onPop = () => setPath(window.location.pathname);
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
   // Links between the site's own pages stay in the page (no reload).
   const go = (e: React.MouseEvent<HTMLAnchorElement>, to: Page) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     e.preventDefault();
     window.history.pushState(null, "", to === "home" ? "/" : `/${to}`);
-    setPage(to);
+    setPath(to === "home" ? "/" : `/${to}`);
   };
 
   if (!page) return null;
@@ -77,6 +87,7 @@ export default function Site() {
           <Mark />Erudior
         </a>
         <nav className="nav" aria-label="Main">
+          <a href="/community" onClick={(e) => go(e, "community")} aria-current={page === "community" ? "page" : undefined}>Community</a>
           <a href="/parents" onClick={(e) => go(e, "parents")} aria-current={page === "parents" ? "page" : undefined}>For parents</a>
           <a href="/live-rooms" onClick={(e) => go(e, "live-rooms")} aria-current={page === "live-rooms" ? "page" : undefined}>Live rooms</a>
           <a href="/teachers" onClick={(e) => go(e, "teachers")} aria-current={page === "teachers" ? "page" : undefined}>For teachers</a>
@@ -87,7 +98,7 @@ export default function Site() {
         <a className="btn primary sm" href={appUrl("/")}>Open the web app</a>
       </header>
       <main id="main" className="main" tabIndex={-1}>
-        {page === "home" ? <Home /> : page === "parents" || page === "live-rooms" || page === "teachers" ? (
+        {page === "community" ? <PublicCommunity id={communityId} onNavigate={goCommunity} /> : page === "home" ? <Home /> : page === "parents" || page === "live-rooms" || page === "teachers" ? (
           <AudiencePage kind={page} />
         ) : page === "download" ? <DownloadPage /> : page === "roadmap" ? <Roadmap /> : (
           <div className="page">
@@ -98,7 +109,7 @@ export default function Site() {
           {page === "home" && <EngineAttribution />}
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
-          <a href={appUrl("/community")}>Community courses</a>
+          <a href="/community" onClick={(e) => go(e, "community")}>Community courses</a>
           <a href="/download" onClick={(e) => go(e, "download")}>Download</a>
           <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>Roadmap</a>
           <a href="https://github.com/Aziliz/erudior/releases">Releases</a>

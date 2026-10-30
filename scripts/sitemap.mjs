@@ -14,7 +14,7 @@ const slug = (t) =>
     .replace(/^-+|-+$/g, "")
     .slice(0, 60) || "bank";
 const urls = [
-  ...["/", "/roadmap", "/download", "/terms", "/privacy"].map((p) => `https://erudior.com${p}`),
+  ...["/", "/community", "/roadmap", "/download", "/terms", "/privacy"].map((p) => `https://erudior.com${p}`),
   ...catalog.map((e) => `https://app.erudior.com/${slug(e.title)}`),
 ];
 writeFileSync(
