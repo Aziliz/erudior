@@ -7789,8 +7789,10 @@ button.fn-ref {
   .erudior-android-shell .topbar .nav,
   .erudior-android-shell .topbar .top-search,
   .erudior-android-shell .topbar .family-nav,
-  .erudior-android-shell .topbar > .btn,
-  .erudior-android-shell .topbar .display-menu { display: none; }
+  .erudior-android-shell .topbar > .btn { display: none; }
+  /* Keep real accessibility/preferences controls reachable in the compact header. */
+  .erudior-android-shell .topbar .display-menu { margin-left: auto; }
+  .erudior-android-shell .topbar .display-menu > .btn { min-height: 42px; }
   .erudior-android-shell .main {
     width: 100%;
     max-width: 100%;
