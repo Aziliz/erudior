@@ -37,6 +37,43 @@ const INFO: Record<Audience, { title: string; intro: string; image: string; alt:
   },
 };
 
+
+type TabGuide = { tab: string; description: string; image?: string; alt?: string };
+const TAB_GUIDES: Record<Audience, TabGuide[]> = {
+  parents: [
+    { tab: "Overview", description: "Review school-year progress, student attendance, accumulated study hours and reminders.", image: "/shots/parent-overview.png", alt: "Actual Erudior parent overview showing attendance and school-year progress." },
+    { tab: "Attendance and hours", description: "Review proposed school days, confirm attendance, record additional time and compare study totals against the selected jurisdiction's requirements." },
+    { tab: "Courses", description: "Assign courses to individual children and track progress through lessons." },
+    { tab: "Grades", description: "Review assessments and manually graded work using the family's grading setup." },
+    { tab: "Student work", description: "Inspect writing, assignments and other submitted learning evidence." },
+    { tab: "Reading and activities", description: "Record reading, physical education, arts and other educational activities." },
+    { tab: "Documents", description: "Organize supporting documents and portfolio evidence." },
+    { tab: "Reports", description: "Prepare school records, progress reports, report cards and transcripts." },
+    { tab: "Students", description: "Manage each student's profile and course access." },
+    { tab: "State rules", description: "Review location-specific homeschooling requirements and configuration; requirements must be verified independently." },
+    { tab: "Live room", description: "Host an interactive course-based quiz session when live rooms are enabled.", image: "/shots/live-host.png", alt: "Actual Erudior live quiz host screenshot." },
+    { tab: "Settings and backup", description: "Manage family settings, access controls, backups and recovery." },
+  ],
+  teachers: [
+    { tab: "Overview", description: "Review classroom activity and school information." },
+    { tab: "Classes", description: "Create class rosters, add learners and set course assignments and due dates." },
+    { tab: "Gradebook", description: "Review learners and assigned courses together, see results and export gradebook data.", image: "/shots/gradebook.png", alt: "Actual Erudior classroom gradebook screenshot." },
+    { tab: "Hand-ins", description: "Import student hand-in files, verify classroom assignment and review submitted progress. Submission history and review workflows are evolving." },
+    { tab: "Student work", description: "Inspect evidence and activity records associated with learners' work." },
+    { tab: "Grades", description: "Review graded results and teacher-assessed work." },
+    { tab: "Reports", description: "Generate classroom reports using available student records." },
+    { tab: "Students", description: "Maintain classroom learner profiles and roster details." },
+    { tab: "Live room", description: "Host course review games with join codes and question pacing.", image: "/shots/live-host.png", alt: "Actual Erudior live room host screenshot." },
+    { tab: "Settings and backup", description: "Configure classroom information and export or restore local records." },
+  ],
+  "live-rooms": [
+    { tab: "Host / Create room", description: "Choose course material, open a live session and share its join code.", image: "/shots/live-host.png", alt: "Actual Erudior host live room and join code screenshot." },
+    { tab: "Join room", description: "Learners join from a separate device using the supplied code, without a student account.", image: "/shots/live-player.png", alt: "Actual Erudior learner live quiz screenshot." },
+    { tab: "Questions and pacing", description: "Advance questions at the host's pace or run a timed game." },
+    { tab: "Answers and results", description: "View answer counts at the host screen; learners see only their own responses and results." },
+  ],
+};
+
 export default function AudiencePage({ kind }: { kind: Audience }) {
   const info = INFO[kind];
   return <div className="page home audience-page">
@@ -59,6 +96,17 @@ export default function AudiencePage({ kind }: { kind: Audience }) {
         <ul>{section.points.map(point => <li key={point}>{point}</li>)}</ul>
       </div>
     </section>)}
+    <section className="roadmap-group audience-tab-guide" aria-labelledby="audience-tabs">
+      <h2 id="audience-tabs">{kind === "live-rooms" ? "Live room walkthrough" : "Explore every tab"}</h2>
+      <p className="muted">Tab labels and behavior are based on the current Erudior desktop application source. Pictures are existing genuine Erudior screenshots; tabs without a picture are documented without a simulated image.</p>
+      {TAB_GUIDES[kind].map((item, index) => <article key={item.tab} className="home-feature-row audience-section">
+        <div className="home-feature-text">
+          <p className="home-kicker">{kind === "live-rooms" ? "Step" : "Tab"} {index + 1}</p>
+          <h3>{item.tab}</h3><p>{item.description}</p>
+        </div>
+        {item.image && <div className="home-shot"><img src={item.image} alt={item.alt || item.tab} loading="lazy" width={1280} height={800}/></div>}
+      </article>)}
+    </section>
     <section className="home-final"><h2>Explore more Erudior tools</h2><p><a href="/roadmap">Read the development roadmap</a> to see what is complete and what remains in progress.</p></section>
   </div>;
 }
