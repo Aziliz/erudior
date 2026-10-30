@@ -596,6 +596,7 @@ export default function App() {
         displayedHistory.current = restored.displayed;
         return;
       }
+      pendingPath.current = null;
       displayedHistory.current = { url: window.location.pathname + window.location.search + window.location.hash, state: e.state };
       const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
       const v = saved
@@ -1098,6 +1099,7 @@ export default function App() {
     },
     go: (v) => {
       if (!requestNavigation("app", v)) return;
+      pendingPath.current = null;
       if (v.name !== "parent") adultAccess.current = { unlocked: false, parentView: false };
       // Starting a new session replaces the saved one, so ask first.
       if (v.name === "run" && !v.initial && resumable) {

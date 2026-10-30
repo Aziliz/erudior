@@ -13,6 +13,9 @@ const out = process.env.BROWSER_ARTIFACTS || path.join(root, 'test-results', 'ho
 await mkdir(out, { recursive: true });
 const axe = await readFile(new URL('../node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
 const password = 'Synthetic academic test password 2026';
+const communityOrigin = 'https://community.synthetic.invalid';
+const remoteEntry = {id:'synthetic-remote-plan',title:'Synthetic remote science',description:'Synthetic remote parent-review fixture, not curriculum.',subject:'Science',level:'High School',type:'Course',author:'Synthetic remote author',version:1,review:'not_reviewed',counts:{lessons:1,questions:0,cards:0},updated:'2026-10-30T00:00:00Z'};
+const remoteDocument = version => ({format:'erudior-community',version:1,title:remoteEntry.title,description:remoteEntry.description,subject:remoteEntry.subject,level:remoteEntry.level,type:remoteEntry.type,lessons:[{id:'remote-read',title:'Synthetic remote reviewed lesson',blocks:[{type:'text',md:`Synthetic remote source version ${version}; personally reviewed before learner use.`}]}],decks:[]});
 let server, builtServer, builtDirectory, browser, page, current = 'startup';
 const checks = [], screenshots = [], errors = [];
 const button = name => page.getByRole('button', {name,exact:true});
@@ -69,11 +72,21 @@ async function seed(){return page.evaluate(async password=>{
  return {alice:family.students[0].id,bob:family.students[1].id,courseId:course.id};
 },password);}
 try {
- server=await createServer({root,configFile:false,plugins:[react()],server:{host:'127.0.0.1',port:0},define:{__DEV_COURSE_KEY__:JSON.stringify(''),'import.meta.env.VITE_HOMESCHOOL':JSON.stringify('1'),'import.meta.env.VITE_AS_DESKTOP':JSON.stringify(''),'import.meta.env.VITE_COURSES_URL':JSON.stringify(''),'import.meta.env.VITE_COMMUNITY_API':JSON.stringify('')},logLevel:'warn'});
+ server=await createServer({root,configFile:false,plugins:[react()],server:{host:'127.0.0.1',port:0},define:{__DEV_COURSE_KEY__:JSON.stringify(''),'import.meta.env.VITE_HOMESCHOOL':JSON.stringify('1'),'import.meta.env.VITE_AS_DESKTOP':JSON.stringify(''),'import.meta.env.VITE_COURSES_URL':JSON.stringify(''),'import.meta.env.VITE_COMMUNITY_API':JSON.stringify(communityOrigin)},logLevel:'warn'});
  await server.listen();const origin=`http://127.0.0.1:${server.httpServer.address().port}`;browser=await chromium.launch(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH,args:['--no-sandbox']}:{});
  for(const {width,theme} of [{width:1280,theme:'light'},{width:320,theme:'dark'}]) {
   const prefix=`${theme}-${width}`;current=prefix+'-setup';const context=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce'});
-  await context.route('**/*',route=>{const u=new URL(route.request().url());return u.origin===origin||['data:','blob:'].includes(u.protocol)?route.continue():route.abort();});
+  let remoteVersion=1;const remoteRequests=[],unexpectedRemote=[];
+  await context.route('**/*',route=>{
+    const request=route.request(),u=new URL(request.url());
+    if(u.origin===communityOrigin){
+      remoteRequests.push({method:request.method(),path:u.pathname,cookie:request.headers().cookie??'',authorization:request.headers().authorization??''});
+      if(request.method()!=='GET'||!['/catalog','/courses/'+remoteEntry.id].includes(u.pathname)){unexpectedRemote.push(`${request.method()} ${u.pathname}`);return route.fulfill({status:403,contentType:'application/json',body:JSON.stringify({error:'Synthetic fixture forbids identity and mutation APIs.'})});}
+      const entry={...remoteEntry,version:remoteVersion};
+      return route.fulfill({status:200,contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify(u.pathname==='/catalog'?{courses:[entry]}:{...entry,doc:remoteDocument(remoteVersion)})});
+    }
+    return u.origin===origin||['data:','blob:'].includes(u.protocol)?route.continue():route.abort();
+  });
   page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));page.on('dialog',dialog=>dialog.accept());
   await page.goto(origin+'/parent/planning');await heading('Parent homeschool planning').waitFor();await button('Set up Family or Classroom').waitFor();await audit(prefix+'-no-family',heading('Parent homeschool planning'));assert.equal(await family(),null);
   await button('Browse courses').click();await heading('Library').waitFor();const ids=await seed();await page.reload();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await heading('Library').waitFor();
@@ -98,7 +111,40 @@ try {
   const lessonUrl=page.url();await button('Student: Synthetic Alice. Switch student').click();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Bob'}).click();await heading('Library').waitFor();await page.goto(lessonUrl);await selectReloadedLearner('Synthetic Bob');await page.getByText(/Parent review required for this exact community version/).first().waitFor();assert.equal(await page.getByText('This exact synthetic lesson is available after personal parent review.',{exact:true}).count(),0,'Alice approval cannot authorize Bob');await button('Student: Synthetic Bob. Switch student').click();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await heading('Library').waitFor();await page.goto(lessonUrl);await selectReloadedLearner('Synthetic Alice');await heading('Synthetic reviewed lesson').waitFor();
   current=prefix+'-version-change';await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');const c=(await s.listCourses()).courses.find(c=>c.id===id);if(!c)throw Error('Synthetic course missing');await s.saveCourse({...c,community:{...c.community,version:2},lessons:c.lessons.map(l=>({...l,body:'Changed synthetic version requires a new review.'}))});},ids.courseId);await page.reload();await selectReloadedLearner('Synthetic Alice');await page.getByText(/Parent review required for this exact community version/).first().waitFor();assert.equal(await page.getByText('Changed synthetic version requires a new review.',{exact:true}).count(),0,'Unreviewed new content not shown');await audit(prefix+'-new-version-blocked',page.getByText(/Parent review required for this exact community version/).first());
   await parent('Courses');await downloadedReview();await approve();assert.equal((await family()).students[0].assigned[0].communityReview.version,2);const beforeRevoke=await progress(ids.alice);await page.locator('.assign-list li').filter({hasText:'Synthetic community science'}).getByRole('button',{name:/Remove/}).click();assert.equal((await family()).students[0].assigned.length,0);assert.deepEqual(await progress(ids.alice),beforeRevoke,'Revocation preserves progress');await library();assert.equal(await page.locator('.assigned-row').filter({hasText:'Synthetic community science'}).count(),0);await page.goto(lessonUrl);await selectReloadedLearner('Synthetic Alice');await page.getByText(/Parent review required for this exact community version/).first().waitFor();assert.equal(await page.getByText('Changed synthetic version requires a new review.',{exact:true}).count(),0,'Revoked approval blocks deep-linked content');await audit(prefix+'-revoked',page.getByText(/Parent review required for this exact community version/).first());
-  checks.push({width,theme,workflow:'parent gate; placement/year/fouryear/material/trip CRUD; portfolio; cancel; CAS error; offline/reload/history; crossprofile; exact community review/cancel/repeat/assignment; learner content; changed version blocked/reviewed; revocation preserves progress'});await context.close();
+  current=prefix+'-remote-preview';await parent('Courses');
+  const remoteId='community-'+remoteEntry.id;
+  const remoteStored=()=>page.evaluate(async id=>(await import('/src/lib/storage.ts')).loadStoredCourseSnapshot(id),remoteId);
+  const priorRemoteFamily=await family(),priorRemoteProgress=await progress(ids.alice);
+  await page.getByRole('link',{name:'View course: '+remoteEntry.title,exact:true}).click();await heading(remoteEntry.title).waitFor();
+  assert.equal(await remoteStored(),null,'Remote catalogue/detail is discovery, not installation');
+  await button('Load full private review').click();await heading('Reviewing Synthetic remote science for Synthetic Alice').waitFor();
+  await page.getByRole('region',{name:'Readable private course preview',exact:true}).getByText('Lessons (1)',{exact:true}).click();
+  await page.getByRole('region',{name:'Readable private course preview',exact:true}).getByText('Synthetic remote source version 1; personally reviewed before learner use.',{exact:true}).waitFor();
+  assert.equal(await remoteStored(),null,'Full private preview must not install downloaded source');assert.deepEqual(await family(),priorRemoteFamily);assert.deepEqual(await progress(ids.alice),priorRemoteProgress);
+  await audit(prefix+'-remote-private-preview',heading('Reviewing Synthetic remote science for Synthetic Alice'));
+  remoteVersion=2;await page.getByLabel(/I reviewed this exact source/).check();await button('Approve this version and assign').click();
+  await page.getByRole('alert').filter({hasText:'Published version changed during review.'}).waitFor();
+  assert.equal(await remoteStored(),null,'Changed remote version rejected before source installation');assert.deepEqual(await family(),priorRemoteFamily);assert.deepEqual(await progress(ids.alice),priorRemoteProgress);
+  assert.equal(await button('Approve this version and assign').isEnabled(),false,'Failed preview cannot be blindly resubmitted');
+  await audit(prefix+'-remote-version-conflict',page.getByRole('alert').filter({hasText:'Published version changed during review.'}));
+  await button('Cancel review').click();await button('Load full private review').click();await heading('Reviewing Synthetic remote science for Synthetic Alice').waitFor();
+  await page.getByRole('region',{name:'Readable private course preview',exact:true}).getByText('Lessons (1)',{exact:true}).click();
+  await page.getByRole('region',{name:'Readable private course preview',exact:true}).getByText('Synthetic remote source version 2; personally reviewed before learner use.',{exact:true}).waitFor();
+  assert.equal(await remoteStored(),null);await approve();assert.equal((await remoteStored()).course.community.version,2);
+  const remoteAssignment=(await family()).students[0].assigned.find(a=>a.courseId===remoteId);assert.equal(remoteAssignment.communityReview.version,2);assert.deepEqual(await progress(ids.alice),priorRemoteProgress,'Remote approval does not enroll or modify progress');
+  assert.equal((await family()).students[1].assigned.some(a=>a.courseId===remoteId),false);
+  await library();await page.locator('.assigned-row').filter({hasText:remoteEntry.title}).getByRole('button',{name:'Start',exact:true}).click();await heading(remoteEntry.title).waitFor();
+  assert((await progress(ids.alice)).enrolled.includes(remoteId),'Explicit learner Start enrolls the reviewed source');
+  await page.locator('.lesson-row').getByRole('button',{name:/Synthetic remote reviewed lesson/}).click();await heading('Synthetic remote reviewed lesson').waitFor();await page.getByText('Synthetic remote source version 2; personally reviewed before learner use.',{exact:true}).waitFor();await audit(prefix+'-remote-learner-content',heading('Synthetic remote reviewed lesson'));
+  // A separate local writer replaces bytes after preview. The approval CAS must not overwrite it.
+  current=prefix+'-remote-local-cas';await parent('Courses');await page.getByRole('link',{name:'View course: '+remoteEntry.title,exact:true}).click();await heading(remoteEntry.title).waitFor();await button('Load full private review').click();await heading('Reviewing Synthetic remote science for Synthetic Alice').waitFor();
+  const beforeLocalConflictFamily=await family(),beforeLocalConflictProgress=await progress(ids.alice);
+  await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');const snap=await s.loadStoredCourseSnapshot(id);await s.saveCourse({...snap.course,community:{...snap.course.community,version:3},lessons:snap.course.lessons.map(l=>({...l,body:'Synthetic concurrent local source must be preserved.'}))});},remoteId);
+  const changedLocal=await remoteStored();await page.getByLabel(/I reviewed this exact source/).check();await button('Approve this version and assign').click();
+  await page.getByRole('alert').filter({hasText:'Installed source changed during review.'}).waitFor();assert.deepEqual(await remoteStored(),changedLocal,'CAS rejection preserves concurrent local course bytes');assert.deepEqual(await family(),beforeLocalConflictFamily);assert.deepEqual(await progress(ids.alice),beforeLocalConflictProgress);
+  await audit(prefix+'-remote-local-conflict',page.getByRole('alert').filter({hasText:'Installed source changed during review.'}));await button('Cancel review').click();
+  assert.deepEqual(unexpectedRemote,[],'Only anonymous synthetic public GET endpoints were used');assert(remoteRequests.filter(r=>r.path==='/courses/'+remoteEntry.id).length>=6,'Preview and approval revalidate the synthetic remote source');assert(remoteRequests.every(r=>!r.cookie&&!r.authorization),'Personal review never calls publishing identity APIs');
+  checks.push({width,theme,workflow:'parent gate; placement/year/fouryear/material/trip CRUD; portfolio; cancel; CAS error; offline/reload/history; crossprofile; exact community review/cancel/repeat/assignment; learner content; changed version blocked/reviewed; revocation preserves progress; synthetic remote catalogue/detail/read-only preview; changed published source rejection; fresh source approval and explicit learner use; concurrent local CAS rejection'});await context.close();
  }
   // The public web build intentionally does not expose local-family management.
   // Exercise emitted production assets, not the HOMESCHOOL-enabled source server.

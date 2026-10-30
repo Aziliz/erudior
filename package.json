@@ -38,9 +38,10 @@
     "test:learning-progress-browser": "node scripts/learning-progress-browser.mjs",
     "test:role-navigation-browser": "node scripts/role-navigation-browser.mjs",
     "test:offline-course-browser": "node scripts/offline-course-browser.mjs",
-    "test:accounts": "tsc --project account-service/tsconfig.json && node --import tsx account-service/test/model.test.mts && node --import tsx account-service/test/authorization.test.mts && node --import tsx account-service/test/lifecycle.test.mts && node --import tsx account-service/test/security-acceptance.test.mts",
+    "test:accounts": "tsc --project account-service/tsconfig.json && node --import tsx account-service/test/model.test.mts && node --import tsx account-service/test/authorization.test.mts && node --import tsx account-service/test/lifecycle.test.mts && node --import tsx account-service/test/security-acceptance.test.mts && node --import tsx account-service/test/oidc.test.mts && node --import tsx account-service/test/http-contract.test.mts",
     "test:student-workspace-browser": "node scripts/student-workspace-browser.mjs",
     "test:academic-records-browser": "node scripts/academic-records-browser.mjs",
+    "test:accounts:integration": "node --import tsx account-service/test/store-postgres.test.mts && node --import tsx account-service/test/service-security.test.mts",
     "test:homeschool-planning-browser": "node scripts/homeschool-planning-browser.mjs"
   },
   "dependencies": {
@@ -88,5 +89,8 @@
     "tsx": "4.20.6",
     "typescript": "^5.9.0",
     "vite": "^8.0.0"
-  }
+  },
+  "workspaces": [
+    "account-service"
+  ]
 }
