@@ -73,7 +73,7 @@ Use explicit entities with bounded purposes:
 | Class/teaching assignment | Which staff members can act on which classes, for which term and operations. |
 | Enrollment | Learner membership in a school/class/course and its effective dates. Keep school-scoped identifiers separate from the private global learner mapping. |
 | Consent/authority receipt | Versioned purpose, responsible party, verification method, notice version, authorization dates, withdrawal and expiry. A checkbox is not proof of guardianship. |
-| Device session | Account or restricted learner principal, device, active context, privileges, expiry, revocation and permission version. |
+| Device session | Account or restricted learner principal, device, authentication source, permitted contexts, active context, privileges, expiry, revocation and permission version. |
 | Learning record | Learner, record category, source/revision, personal/family/school domain, authoritative owner or custodian, provenance and retention class. |
 | Deletion job | Verified requester, precise scope, basis, deadlines, permitted exceptions, per-store progress and a minimal completion receipt. |
 
@@ -112,6 +112,8 @@ A teacher may create a personal account, but selecting Teacher does not grant st
 Verify a new institution and its authorized administrator before accepting a school agreement or provisioning real rosters. Support a second authorized administrator so staff departure does not strand the institution. The school owns its workspace; an individual teacher's personal account does not own all school records.
 
 Support school identity providers through OIDC or SAML where the chosen service supports them. Authentication must still be followed by current school membership and class authorization. Account linking should survive school email changes without allowing a reassigned mailbox to inherit a former teacher's access.
+
+Linking personal and institutional sign-in methods does not make their authentication or recovery authority interchangeable. School-controlled sign-in, credential resets and recovery authorize only that institution's workspace. Entering Personal or Family requires fresh authentication with a separately verified personal method; its recovery must not depend solely on a school-controlled mailbox, credential or administrator. A school-only session cannot replace personal authenticators or recovery methods, link an identity into an existing Personal/Family context, approve family devices, or authorize account-wide deletion. Linking contexts requires fresh proof from each affected authentication authority. Conversely, entering a school from a personal session must satisfy that school's current sign-in and access policies. Preserve authentication source and permitted contexts in server-side session state, and enforce them during context switches, linking, recovery and sensitive changes. School administrators cannot reset family credentials.
 
 ### Recovery and sensitive changes
 
@@ -282,6 +284,8 @@ Build this as one account program with staged internal milestones. No milestone 
 5. **Operational acceptance.** Exercise real infrastructure with synthetic records: tenant isolation, role changes, pairing, lost devices, offline conflicts, restored backups, deletion/withdrawal, school termination and incident recovery. Complete independent security/privacy review and controlled user acceptance before allowing real records.
 
 Required negative cases include School A versus School B; teacher versus an unassigned class; guardian versus an unrelated child; a teacher-parent switching workspaces; revoked staff/device sessions; expired or replayed invitations; child attempts at adult actions; private file/export access; an offline queue after deletion; and a backup restore after a withdrawal.
+
+Also test a school administrator resetting a linked teacher/guardian's institutional credentials: that sign-in cannot read Family records, change personal recovery methods, approve a child's device, or delete the whole person account. Personal authentication must not bypass the school's own sign-in policy.
 
 Keep existing release signing, course integrity, credential authority, local CAS/tombstone protections and immutable assessment evidence. A new account must never grant professional credit, reviewed publishing status or issuer authority automatically.
 
