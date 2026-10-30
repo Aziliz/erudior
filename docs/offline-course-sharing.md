@@ -14,7 +14,9 @@ Community publishing remains a separate authenticated, adult-only workflow.
    warning and choose **Import as local copy**. Cancel writes nothing.
 5. Each import gets a fresh course namespace. Internal lesson/question/module
    IDs and authored attribution remain; existing courses and learner history
-   are not overwritten. Review content before assigning it to a learner.
+   are not overwritten. Imports enter the existing shared device course library,
+   not a private per-learner store, and do not automatically enroll a learner.
+   Review content before assigning it to a learner.
 
 The existing **Export source JSON** option remains useful for editing; unlike the
 new package it does not bundle linked media. A course file is not an app backup.

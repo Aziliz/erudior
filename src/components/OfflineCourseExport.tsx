@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Course } from "../lib/types";
+import { MAX_AUDIO_CLIP_BYTES } from "../lib/courseAudio";
 import { createOfflineCoursePackage, inspectOfflineCourse } from "../lib/offlineCourse";
 import { exportPortableCourseText } from "../lib/storage";
 
@@ -43,9 +44,9 @@ export default function OfflineCourseExport({ course, onClose, saveFile = export
     setReplacements(old => { const next = { ...old }; delete next[source]; return next; });
     setFileNames(old => { const next = { ...old }; delete next[source]; return next; });
     setError(""); setStatus("");
-    const limit = kind === "image" ? 2 * 1024 * 1024 : 400 * 1024;
+    const limit = kind === "image" ? 2 * 1024 * 1024 : MAX_AUDIO_CLIP_BYTES;
     if (file.size > limit || file.size === 0) {
-      setError(`${file.name}: choose a nonempty ${kind} no larger than ${kind === "image" ? "2 MiB" : "400 KiB"}.`);
+      setError(`${file.name}: choose a nonempty ${kind} no larger than ${kind === "image" ? "2 MiB" : "400,000 bytes"}.`);
       setReading(readers.current.size); return;
     }
     const reader = new FileReader();
@@ -95,7 +96,7 @@ export default function OfflineCourseExport({ course, onClose, saveFile = export
       {report.inspection.warnings.length > 0 && <ul>{report.inspection.warnings.map((warning, index) => <li key={index}>{warning}</li>)}</ul>}
       {report.inspection.assets.map((asset, index) => <div key={asset.source} style={{ marginBottom: 16 }}>
         <label htmlFor={`offline-asset-${index}`}>Local {asset.kind} for <code style={{ overflowWrap: "anywhere" }}>{asset.source.length > 180 ? asset.source.slice(0, 180) + "…" : asset.source}</code></label>
-        <input id={`offline-asset-${index}`} type="file" style={{ maxWidth: "100%" }} accept={asset.kind === "image" ? "image/png,image/jpeg,image/gif,image/webp,image/svg+xml" : "audio/mpeg,audio/wav,audio/ogg,audio/mp4,audio/webm"} disabled={busy} onChange={event => { chooseFile(asset.source, asset.kind, event.target.files?.[0]); event.target.value = ""; }} />
+        <input id={`offline-asset-${index}`} type="file" style={{ maxWidth: "100%" }} accept={asset.kind === "image" ? "image/png,image/jpeg,image/gif,image/webp,image/svg+xml" : "audio/mpeg,audio/mp3,audio/mp4,audio/aac,audio/x-m4a,audio/ogg,audio/opus,audio/wav,audio/x-wav,audio/wave,audio/webm,audio/flac,.mp3,.m4a,.mp4,.ogg,.oga,.opus,.wav,.wave,.webm,.aac,.flac"} disabled={busy} onChange={event => { chooseFile(asset.source, asset.kind, event.target.files?.[0]); event.target.value = ""; }} />
         {fileNames[asset.source] && <p className="muted">Selected: {fileNames[asset.source]}</p>}
       </div>)}
     </>}

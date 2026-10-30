@@ -8,7 +8,7 @@ class PortableNativeContract(unittest.TestCase):
         kotlin = (ROOT / 'src-tauri/android-portable-files/src/main/java/com/erudior/files/PortableFilesPlugin.kt').read_text()
         for expected in ['Intent.ACTION_OPEN_DOCUMENT', 'Intent.ACTION_CREATE_DOCUMENT', 'result.data?.data',
                          'contentResolver.openInputStream(uri)', 'contentResolver.openOutputStream(uri, "wt")',
-                         'readNBytes(maxBytes + 1)', 'CodingErrorAction.REPORT', 'AtomicBoolean(false)',
+                         'maxBytes + 1 - output.size()', 'readBounded(it)', 'CodingErrorAction.REPORT', 'AtomicBoolean(false)',
                          'Activity.RESULT_CANCELED']:
             self.assertIn(expected, kotlin)
         for forbidden in ['takePersistableUriPermission', 'Uri.parse(', 'READ_EXTERNAL_STORAGE',

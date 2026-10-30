@@ -47,7 +47,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
     const generation = importGeneration.current;
     try {
       if (!currentImport(generation)) return;
-      await api.saveCourse(offlineImport);
+      await api.saveCourse(offlineImport, { enroll: false });
       if (!currentImport(generation)) return;
       api.toast(`Imported "${offlineImport.title}" as a separate local copy. No existing course or learner history was replaced.`);
       setOfflineImport(null);
@@ -177,7 +177,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         <h2 id="offline-import-title" ref={offlineImportHeading} tabIndex={-1}>Import offline course</h2>
         <p><b>{offlineImport.title}</b> — {courseCounts(offlineImport).lessons} lessons, {courseCounts(offlineImport).questions} questions, {courseCounts(offlineImport).cards} cards.</p>
         <p>This shared file is untrusted content. Its integrity checksum detects changes; it is not an author signature or an official review. Review its content before assigning it to a learner.</p>
-        <p>Import creates your own separate local copy, without replacing an existing course or importing learner records. Original attribution and license terms still apply. External links, device speech and Python's first-use runtime may need internet access.</p>
+        <p>Import creates a separate copy in this device’s shared course library, without replacing an existing course, importing learner records or enrolling a learner. Original attribution and license terms still apply. External links, device speech and Python's first-use runtime may need internet access.</p>
         <div className="row">
           <button className="btn primary" onClick={confirmOfflineImport} disabled={importBusy}>{importBusy ? "Saving…" : "Import as local copy"}</button>
           <button className="btn ghost" onClick={() => setOfflineImport(null)} disabled={importBusy}>Cancel import</button>

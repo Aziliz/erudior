@@ -14,6 +14,7 @@ let holdPicker = false, finishPicker: ((text:string|null)=>void) | undefined;
 const {createElement,act}=await import('react');
 const {createRoot}=await import('react-dom/client');
 const {emptyCourse}=await import('../src/lib/course.ts');
+const {MAX_AUDIO_CLIP_BYTES}=await import('../src/lib/courseAudio.ts');
 const {emptyProgress}=await import('../src/lib/storage.ts');
 const {createOfflineCoursePackage,importOfflineCoursePackage}=await import('../src/lib/offlineCourse.ts');
 const {default:Export}=await import('../src/components/OfflineCourseExport.tsx');
@@ -65,8 +66,20 @@ assert(button('Save offline package').disabled);await click('Cancel');assert(del
 await act(async()=>delayedReader.onload());assert.equal(document.body.textContent,'');
 (globalThis as any).FileReader=originalReader;
 
+const withAudio=structuredClone(course);withAudio.audio={clip:'audio/clip.wav'};
+await renderExport(withAudio);
+for(const mime of ['audio/mpeg','audio/mp3','audio/mp4','audio/aac','audio/x-m4a','audio/ogg','audio/opus','audio/wav','audio/x-wav','audio/wave','audio/webm','audio/flac'])assert(input().accept.split(',').includes(mime),mime);
+for(const ext of ['.mp3','.m4a','.ogg','.oga','.opus','.wav','.webm','.aac','.flac'])assert(input().accept.split(',').includes(ext),ext);
+await select(new dom.window.File([new Uint8Array(MAX_AUDIO_CLIP_BYTES+1)],'oversize.wav',{type:'audio/wav'}) as any);
+assert.match(document.querySelector('[role="alert"]')!.textContent!,/400,000 bytes/);assert(button('Save offline package').disabled);
+const wav=Buffer.alloc(MAX_AUDIO_CLIP_BYTES);wav.write('RIFF',0);wav.writeUInt32LE(MAX_AUDIO_CLIP_BYTES-8,4);wav.write('WAVE',8);
+await select(new dom.window.File([wav],'boundary.wav',{type:'audio/wav'}) as any);await until(()=>!button('Save offline package').disabled);
+await click('Save offline package');await until(()=>document.body.textContent!.includes('Offline package saved'));
+assert.match(JSON.stringify((await importOfflineCoursePackage(content)).audio),/data:audio\/wav;base64,/);
+await click('Cancel');
+
 const notices:string[]=[];const saved:any[]=[];let fail=false;
-const api:any={courses:[course],allCourses:[course],progress:emptyProgress(),family:{mode:'family',students:[]},student:null,catalog:{source:'website'},assignmentBlock:()=>null,toast:(s:string)=>notices.push(s),saveCourse:async(c:any)=>{if(fail)throw new Error('Storage unavailable');saved.push(c);},go:()=>{}};
+const api:any={courses:[course],allCourses:[course],progress:emptyProgress(),family:{mode:'family',students:[]},student:null,catalog:{source:'website'},assignmentBlock:()=>null,toast:(s:string)=>notices.push(s),saveCourse:async(c:any,options:any)=>{assert.deepEqual(options,{enroll:false},'offline imports do not enroll current learner');if(fail)throw new Error('Storage unavailable');saved.push(c);},go:()=>{}};
 await act(async()=>root.render(createElement(Library,{api,broken:[],standalone:[]})));
 picked=null;await click('Import');await until(()=>!button('Import').disabled);assert.equal(saved.length,0);
 picked=await createOfflineCoursePackage(course,{});await click('Import');await until(()=>!!document.getElementById('offline-import-title'));

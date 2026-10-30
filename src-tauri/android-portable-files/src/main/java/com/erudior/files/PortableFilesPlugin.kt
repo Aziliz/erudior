@@ -10,6 +10,8 @@ import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.Invoke
 import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.charset.CodingErrorAction
 import java.util.concurrent.atomic.AtomicBoolean
@@ -27,6 +29,22 @@ class PortableFilesPlugin(private val activity: Activity) : Plugin(activity) {
     private val busy = AtomicBoolean(false)
     private val maxBytes = 24 * 1024 * 1024
     private var pendingBytes: ByteArray? = null
+
+    // InputStream.readNBytes requires Android API 33; retain the app's older-device support.
+    private fun readBounded(input: InputStream): ByteArray {
+        val output = ByteArrayOutputStream()
+        val buffer = ByteArray(8192)
+        while (output.size() <= maxBytes) {
+            val count = input.read(buffer, 0, minOf(buffer.size, maxBytes + 1 - output.size()))
+            if (count < 0) break
+            if (count == 0) {
+                val byte = input.read()
+                if (byte < 0) break
+                output.write(byte)
+            } else output.write(buffer, 0, count)
+        }
+        return output.toByteArray()
+    }
 
     private fun begin(invoke: Invoke): Boolean {
         if (!busy.compareAndSet(false, true)) {
@@ -71,7 +89,7 @@ class PortableFilesPlugin(private val activity: Activity) : Plugin(activity) {
         Thread {
             try {
                 // The bound applies to actual bytes read, never provider metadata.
-                val bytes = activity.contentResolver.openInputStream(uri)?.use { it.readNBytes(maxBytes + 1) }
+                val bytes = activity.contentResolver.openInputStream(uri)?.use { readBounded(it) }
                     ?: throw IllegalArgumentException("Cannot open course document")
                 require(bytes.isNotEmpty()) { "Course file is empty" }
                 require(bytes.size <= maxBytes) { "Course file exceeds 24 MiB" }
