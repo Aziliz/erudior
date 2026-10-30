@@ -35,7 +35,7 @@ jobs:
         ports:
           - 5432:5432
         options: >-
-          --health-cmd 'pg_isready -U erudior_test_admin -d postgres'
+          --health-cmd "pg_isready -U erudior_test_admin -d postgres"
           --health-interval 5s
           --health-timeout 5s
           --health-retries 10
@@ -59,7 +59,12 @@ jobs:
         env:
           ERUDIOR_DIAG_JOB: private-account-acceptance
           ERUDIOR_DIAG_STAGES: 'protocol:${{ steps.protocol.outcome }},database:${{ steps.database.outcome }}'
-        run: node scripts/ci-diagnostics.mjs
+        run: |
+          if [ -f scripts/ci-diagnostics.mjs ]; then
+            node scripts/ci-diagnostics.mjs
+          else
+            printf '%s\n' 'Private account CI stopped before repository checkout. See the container initialization log; no account tests ran.' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
