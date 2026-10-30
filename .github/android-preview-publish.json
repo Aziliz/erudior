@@ -2,5 +2,5 @@
   "schema": 1,
   "publish": true,
   "version": "0.25.0",
-  "request": "native-updater-bootstrap-after-PR-83"
+  "request": "signed-android-native-updater-after-provider-optimization-fix-16288fc"
 }
