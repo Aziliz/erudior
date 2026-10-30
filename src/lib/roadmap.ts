@@ -509,8 +509,9 @@ export const ENGINE: { title: string; detail: string; status: EngineStatus }[] =
   { title: "Classroom teaching and live sessions", detail: "Classroom assignments, due dates, gradebook and live quizzes, with immutable hand-in history, exact-snapshot instructor decisions, interrupted-import recovery and encrypted backup.", status: "done" },
 ];
 
-/** Planned work beyond the existing course catalog, organized by delivery surface.
- * "in_progress" is used only for source changes known to be in a draft PR; not deployed.
+/** Work beyond the existing course catalog, organized by delivery surface.
+ * "in_progress" covers active implementation and delivered foundations; it does
+ * not claim that the complete user workflow is available.
  */
 export type UpdateStatus = "done" | "in_progress" | "planned";
 export type UpdateItem = { title: string; detail: string; status: UpdateStatus; phase: "1.0" | "Later" };
@@ -543,7 +544,7 @@ export const UPDATES: UpdateArea[] = [
     items: [
       { title: "Official Erudior application splash and motto", detail: "Accessible official opening-book loading splash shared with the public website (PR #39).", status: "done", phase: "1.0" },
       { title: "Course and pathway progress", detail: "The main Courses page shows enrolled courses, average course progress and next steps. Progress inside each course shows lesson completion, module quizzes, scores, skills and session history. Follow the seven-course Math foundations or German A1–B1 starters, or create and reorder a pathway from available courses. Each learner's plans persist through backup and restore; courses are started explicitly. Configured local homeschool and teacher workspaces show Family or Classroom navigation with the existing adult password gate; these destinations stay hidden until setup. Delivered in PRs #111 and #113.", status: "done", phase: "1.0" },
-      planned("Safe authentication and family accounts", "Account design documented in PR #113: one learner identity through age transitions, guardian-managed child access, named school and class memberships, device pairing, scoped sharing, recovery, retention and deletion. Production application accounts, family-to-school connections and multi-device sync remain planned; no learner accounts on the public website."),
+      { title: "Safe authentication and family accounts", detail: "Private account foundations implemented in PR #117: scoped Personal, Family and School access, stable learner identity contracts, separate privacy-request authority, and account closure/retention planning. Managed sign-in, recovery, verified guardian and school connections, secure devices, export/deletion execution and multi-device sync remain under development. Production online accounts and new learner-data collection are not enabled.", status: "in_progress", phase: "1.0" },
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
       planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),
       planned("Parent dashboard PIN protection and child account switching", "Restricted child profiles, parent reauthentication and shared-device role switching."),
