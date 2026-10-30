@@ -62,7 +62,7 @@ async function attach() {
   page=await view.page(); page.setDefaultTimeout(20000);
   page.on('console', msg=>{ if(msg.type()==='error') console.error('WEBVIEW:',msg.text()); });
   await page.waitForFunction(()=>Boolean(window.__erudiorUpgradeE2E));
-  await page.locator('.shell').waitFor();
+  await page.locator('.catalog').waitFor({state:'visible',timeout:45000});
   return page;
 }
 async function launch() {
@@ -96,6 +96,7 @@ try {
   adb('shell','appops','set',pkg,'REQUEST_INSTALL_PACKAGES','deny');
   await launch();
   assert.equal(await page.evaluate(()=>window.__erudiorUpgradeE2E.version()),'0.25.1');
+  await page.getByRole('button',{name:'Verify and open installer',exact:true}).waitFor({timeout:45000});
   const seeded=await page.evaluate(()=>window.__erudiorUpgradeE2E.seed());
   assert.equal(seeded.course?.revision,7);
   assert.equal(seeded.lessonsDone['upgrade-proof-course/lesson'],'2026-10-01');
@@ -139,6 +140,9 @@ try {
   assert.equal(await page.evaluate(()=>window.__erudiorUpgradeE2E.version()),'0.25.2');
   const after=await snapshot();writeFileSync(path.join(out,'records-after.json'),JSON.stringify(after,null,2));
   assert.deepEqual(after,before,'Version B must reload the exact saved learner records');
+  assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+  assert.equal(await page.locator('html').getAttribute('data-width'),'comfortable');
+  assert.equal(after.displayPreferences.textSize,'115');
   await page.getByText('Upgrade persistence proof',{exact:true}).first().waitFor();
   screenshot('06-retained-course-visible');
   await sleep(2500);

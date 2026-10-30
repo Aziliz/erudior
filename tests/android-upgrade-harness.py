@@ -48,6 +48,7 @@ class UpgradeHarnessTests(unittest.TestCase):
             self.assertEqual(manifest.getroot().find('application').get('{'+module.ANDROID+'}networkSecurityConfig'),'@xml/erudior_upgrade_test_network')
             network=ET.parse(root/'src-tauri/gen/android/app/src/main/res/xml/erudior_upgrade_test_network.xml')
             self.assertEqual(network.find('domain-config/domain').text,'127.0.0.1')
+            self.assertEqual(network.find('domain-config/domain').get('includeSubdomains'),'false')
             self.assertEqual(network.find('domain-config').get('cleartextTrafficPermitted'),'false')
             for variant,version in [('a',250001),('b',250002)]:
                 self.assertEqual(json.loads((root/f'src-tauri/ci-upgrade-{variant}.json').read_text())['bundle']['android']['versionCode'],version)
@@ -63,6 +64,11 @@ class UpgradeHarnessTests(unittest.TestCase):
             with patch.dict(os.environ, {'GITHUB_ACTIONS':'true','ERUDIOR_UPGRADE_E2E':'1'}):
                 with self.assertRaises(RuntimeError):module.prepare(root)
             self.assertEqual(plugin.read_text(),before)
+
+    def test_mobile_bridge_commands_do_not_block_main_thread(self):
+        source=(ROOT/'src-tauri/src/lib.rs').read_text()
+        for name in ['android_fetch_manifest','android_download_verified_apk','launch_android_installer']:
+            self.assertIn('#[tauri::command(async)]\nfn '+name+'(app:',source)
 
     def test_upgrade_runner_never_uses_adb_reinstall_or_clear(self):
         source=(ROOT/'scripts/android-upgrade/run.mjs').read_text()

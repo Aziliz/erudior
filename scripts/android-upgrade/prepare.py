@@ -45,7 +45,7 @@ def prepare(root: Path) -> None:
 <network-security-config>
   <base-config cleartextTrafficPermitted="false"><trust-anchors><certificates src="system" /></trust-anchors></base-config>
   <domain-config cleartextTrafficPermitted="false">
-    <domain>127.0.0.1</domain>
+    <domain includeSubdomains="false">127.0.0.1</domain>
     <trust-anchors><certificates src="@raw/erudior_upgrade_test_ca" /></trust-anchors>
   </domain-config>
 </network-security-config>

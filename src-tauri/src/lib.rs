@@ -339,8 +339,9 @@ mod android_update_integrity_tests {
 #[cfg(target_os = "android")]
 struct AndroidInstallerHandle(tauri::plugin::PluginHandle<tauri::Wry>);
 
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
 #[cfg(target_os = "android")]
-#[tauri::command]
+#[tauri::command(async)]
 fn android_fetch_manifest(app: AppHandle) -> Result<String, String> {
     use tauri::Manager;
     let handle = app.try_state::<AndroidInstallerHandle>().ok_or("Android installer missing")?;
@@ -352,8 +353,9 @@ fn android_fetch_manifest(app: AppHandle) -> Result<String, String> {
 #[tauri::command]
 fn android_fetch_manifest(_app: AppHandle) -> Result<String, String> { Err("Android only".into()) }
 
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
 #[cfg(target_os = "android")]
-#[tauri::command]
+#[tauri::command(async)]
 fn android_download_verified_apk(app: AppHandle, expected_sha256: String, bytes: u64) -> Result<String, String> {
     use tauri::Manager;
     if bytes == 0 || bytes > 41_943_040 || expected_sha256.len() != 64 ||
@@ -367,8 +369,9 @@ fn android_download_verified_apk(app: AppHandle, expected_sha256: String, bytes:
 #[tauri::command]
 fn android_download_verified_apk(_app: AppHandle, _expected_sha256: String, _bytes: u64) -> Result<String, String> { Err("Android only".into()) }
 
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
 #[cfg(target_os = "android")]
-#[tauri::command]
+#[tauri::command(async)]
 fn launch_android_installer(app: AppHandle, expected_sha256: String) -> Result<bool, String> {
     use tauri::Manager;
     let handle = app.try_state::<AndroidInstallerHandle>()

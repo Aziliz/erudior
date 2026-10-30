@@ -32,6 +32,8 @@ async function snapshot() {
     course: courses.courses.find(c => c.id === course.id) ?? null,
     lessonsDone: p.lessonsDone, cards: p.cards, plans: p.plans,
     theme: p.theme, study: p.study,
+    displayPreferences: { theme: localStorage.getItem("examiner.theme"),
+      width: localStorage.getItem("examiner.width"), textSize: localStorage.getItem("examiner.textSize") },
     profileLessons: profile.lessonsDone,
   };
 }
@@ -42,6 +44,9 @@ Object.assign(window, { __erudiorUpgradeE2E: {
     if (!inApp) throw new Error("Acceptance fixtures require the real native persistence backend");
     await saveCourse(course);
     await saveProgress(progress);
+    localStorage.setItem("examiner.theme", "dark");
+    localStorage.setItem("examiner.width", "comfortable");
+    localStorage.setItem("examiner.textSize", "115");
     await updateProfileProgress("upgradetest", old => ({ ...old,
       lessonsDone: { "upgrade-proof-course/lesson": "2026-10-02" },
     }));
