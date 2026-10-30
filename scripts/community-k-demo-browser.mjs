@@ -81,6 +81,7 @@ try {
       await page.getByLabel('Synthetic subject',{exact:true}).selectOption(subject.id);
       await button('New course').click();
       await description(mode).waitFor();
+      assert.equal(await page.getByRole('status').filter({hasText:/Published version/}).count(),0,'New subject cannot inherit another course publication notice');
       const id=await page.evaluate(()=>window.communityKDemoFixture.selectedId());
       assert.equal(id,`${mode}-${subject.id}`);
       assert.equal(Object.keys((await state()).drafts).length,index+1);
