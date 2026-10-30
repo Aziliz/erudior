@@ -24,6 +24,7 @@ on:
       - 'scripts/community-controls-browser.mjs'
       - 'scripts/community-guide-browser.mjs'
       - 'scripts/community-resources-browser.mjs'
+      - 'scripts/community-k-demo-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -46,6 +47,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Eight-subject synthetic kindergarten authoring and runtime parity
+        run: npm run test:community-k-demo-browser
       - name: Visual audio, reading and assignment resource lifecycle
         run: npm run test:community-resources-browser
       - name: In-editor authoring guide and documented create-publish-install walkthrough
@@ -94,6 +97,12 @@ jobs:
         run: npm run test:credential-integration
       - name: Isolated learner progress with real D1 and HTTPS
         run: npm run test:learner-progress-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-k-demo-browser
+          path: test-results/community-k-demo-browser/
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
