@@ -58,7 +58,9 @@ jobs:
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
       - run: npm ci
       - name: Test isolated harness configuration
-        run: python3 tests/android-upgrade-harness.py -v
+        run: |
+          python3 tests/android-upgrade-harness.py -v
+          python3 tests/android-installer-integration.py -v
       - name: Build two separately versioned optimized test APKs
         run: bash scripts/android-upgrade/build.sh
       - name: Real in-app download, permission, cancel, approval and retained-state checks

@@ -1,10 +1,10 @@
 // Acceptance is driven through the real App update button and Android approval UI.
 // ADB installs ONLY the baseline; it never installs the upgrade or clears app data.
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { createServer } from 'node:https';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { _android as android } from 'playwright';
 
@@ -48,7 +48,28 @@ async function tapNative(predicate, label) {
   assert.ok(b,'control bounds');
   adb('shell','input','tap',String(Math.round((+b[1]+ +b[3])/2)),String(Math.round((+b[2]+ +b[4])/2)));
 }
-let mode='good', device, page, server;
+let mode='good', device, page, server, logStream, logFd;
+// Capture continuously: a last-1500-lines tail lost staging errors amid emulator boot logs.
+function startEvidenceLog() {
+  logFd=openSync(path.join(out,'logcat-live.txt'),'w');
+  logStream=spawn('adb',['-s',serial,'logcat','-v','threadtime'],{stdio:['ignore',logFd,logFd]});
+}
+async function waitForApproval() {
+  const end=Date.now()+30000;
+  while(Date.now()<end) {
+    const screen=nodes();
+    const error=screen.find(n=>/problem parsing|app not installed|package appears to be invalid|can't install|couldn't install/i.test(n.text??''));
+    if(error) {
+      screenshot('installer-error');
+      throw new Error('Android system installer rejected staged APK: '+error.text);
+    }
+    if(screen.some(n=>/Erudior/i.test(n.text??'')) &&
+       screen.some(n=>n.enabled==='true' && /^(update|install)$/i.test(n.text??''))) return;
+    await sleep(500);
+  }
+  throw new Error('Installer never reached the Erudior approval prompt after staging');
+}
+
 const apk=readFileSync(path.join(root,'b.apk'));
 const manifest={schema:1,version:'0.25.2',build:'b'.repeat(40),
   apk:'https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk',
@@ -120,6 +141,8 @@ try {
   adb('shell','input','keyevent','KEYCODE_HOME');await sleep(2000);
   adb('shell','am','force-stop',pkg);await launch();
   const before=await snapshot();assert.deepEqual(before,seeded,'Baseline survives a real process restart');
+  writeFileSync(path.join(out,'installed-package.txt'),adb('shell','dumpsys','package',pkg));
+  startEvidenceLog();
   writeFileSync(path.join(out,'records-before.json'),JSON.stringify(before,null,2));
   passed('Version A stores and reloads valid course, profile progress, study settings and review records');
 
@@ -138,8 +161,8 @@ try {
 
   await clickUpdate();
   await until(()=>/packageinstaller/i.test(foreground()),'App-origin FileProvider grant did not open Android installer');
+  await waitForApproval();
   screenshot('03-update-approval');
-  const approval=nodes();assert.ok(approval.some(n=>/Erudior/i.test(n.text)),'Installer identifies Erudior');
   await tapNative(n=>/^cancel$/i.test(n.text),'Cancel');
   await until(()=>/com\.erudior\.app/.test(foreground()),'App did not resume after cancellation');
   assert.equal(versionCode(),250001);assert.deepEqual(await snapshot(),before);
@@ -147,6 +170,7 @@ try {
 
   await clickUpdate();
   await until(()=>/packageinstaller/i.test(foreground()),'Installer did not reopen');
+  await waitForApproval();
   screenshot('04-before-approval');
   await tapNative(n=>/^(update|install)$/i.test(n.text),'Approve update');
   await until(()=>versionCode()===250002,'Android did not replace version A with version B',60000);
@@ -172,7 +196,12 @@ try {
   try{screenshot('failure');writeFileSync(path.join(out,'foreground.txt'),foreground());}catch{}
   throw error;
 } finally {
-  try {writeFileSync(path.join(out,'logcat.txt'),adb('logcat','-d','-t','1500'));}catch{}
+  try {writeFileSync(path.join(out,'logcat.txt'),adb('logcat','-d'));}catch{}
+  if(logStream) {
+    const stopped=new Promise(resolve=>logStream.once('close',resolve));
+    logStream.kill();await stopped;
+  }
+  if(logFd!==undefined) closeSync(logFd);
   await device?.close().catch(()=>{});
   if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
   try{adb('reverse','--remove','tcp:38473');}catch{}
