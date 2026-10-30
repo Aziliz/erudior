@@ -7,6 +7,7 @@ if (!IS_SITE && typeof window !== "undefined" && /^\/download\/?$/.test(window.l
 import "katex/dist/katex.min.css";
 import "./styles.css";
 import "./learningGames.css";
+import "./androidUpdateLayout.css";
 import { createStartupSplash, dismissStartupSplash } from "./lib/startupSplash";
 
 // The public site and the app load separately, so erudior.com doesn't download the whole app.

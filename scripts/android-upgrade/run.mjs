@@ -107,6 +107,10 @@ try {
   await page.getByLabel('Theme',{exact:false}).selectOption('dark');
   await page.getByLabel('Reading width',{exact:false}).selectOption('comfortable');
   await page.getByLabel('Text size',{exact:false}).selectOption('115');
+  const panel=await page.locator('#display-panel').boundingBox();
+  const viewportWidth=await page.evaluate(()=>innerWidth);
+  assert.ok(panel.x>=0 && panel.x+panel.width<=viewportWidth+1,'Display panel must fit the phone viewport');
+  screenshot('00-display-controls');
   await page.getByRole('button',{name:'Done',exact:true}).click();
   await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark' &&
     document.documentElement.dataset.width==='comfortable' && localStorage.getItem('examiner.textSize')==='115');
