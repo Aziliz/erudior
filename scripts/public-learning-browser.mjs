@@ -118,6 +118,8 @@ try {
     await button('Progress and export').click();
     await heading('Progress').waitFor();
     await audit(name + '-progress-top');
+    await page.getByText('Study tools, skill evidence, and data', { exact: true }).click();
+    await heading('Practice tools and data').waitFor();
     const history = page.getByRole('region', { name: 'Learning session history', exact: true });
     await history.waitFor();
     assert.equal(await history.getAttribute('tabindex'), '0', 'history scrolling is keyboard accessible');

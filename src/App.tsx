@@ -28,6 +28,7 @@ import Runner from "./pages/Runner";
 import Results from "./pages/Results";
 import Editor from "./pages/Editor";
 import ProgressPage from "./pages/ProgressPage";
+import { parseLearningPathways, type LearningPathway } from "./lib/learningPathways";
 import { LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
 import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
@@ -105,7 +106,7 @@ export type View =
   | { name: "community" }
   | { name: "communityCourse"; id: string }
   | { name: "library" }
-  | { name: "progress" }
+  | { name: "progress"; tools?: boolean }
   | { name: "legal"; page: LegalPage }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
@@ -171,6 +172,8 @@ export interface AppApi {
   setProgress: (p: Progress) => Promise<void>;
   /** Functional update against the latest progress (safe for rapid successive writes). */
   updateProgress: (fn: (p: Progress) => Progress) => Promise<void>;
+  /** Persist pathway edits against the latest state of the captured learner profile. */
+  updateLearningPathways: (fn: (paths: LearningPathway[]) => LearningPathway[]) => Promise<void>;
   /** Saves a standalone bank, or writes the bank back into its course. */
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
@@ -1041,6 +1044,28 @@ export default function App() {
     reload,
     setProgress,
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
+    updateLearningPathways: async (fn) => {
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const assertProfile = async () => {
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the pathway.");
+        if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+      };
+      await assertProfile();
+      const fresh = await store.updateProfileProgress(selected, async current => {
+        await assertProfile();
+        if (selected === null && (current.anonymousGeneration ?? 0) !== generation) throw Error("Local learning data changed. Reload before editing a pathway.");
+        const paths = parseLearningPathways(fn(parseLearningPathways(current.learningPathways)));
+        return { ...current, learningPathways: paths };
+      });
+      if (store.activeStudent() === selected && studentSelectionRequest.current === selection
+          && (selected !== null || (progressRef.current.anonymousGeneration ?? 0) === generation)) {
+        const merged = { ...progressRef.current, learningPathways: fresh.learningPathways };
+        progressRef.current = merged;
+        setProgressState(merged);
+      }
+    },
     saveCourse,
     addCourse,
     importInteroperabilityBank: async (xml) => {
@@ -1151,7 +1176,7 @@ export default function App() {
       break;
 
     case "progress":
-      body = <ProgressPage api={api} />;
+      body = <ProgressPage key={studentId === null ? "independent" : `student:${studentId}`} api={api} initialToolsOpen={view.tools} />;
       break;
     case "legal":
       body = (

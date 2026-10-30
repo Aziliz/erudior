@@ -27,11 +27,13 @@ import { VocabTab, ReadingTab } from "./VocabTabs";
 import WorkTab from "./WorkTab";
 import { hasWork } from "../lib/work";
 import { courseActivities } from "../lib/courseActivities";
+import CourseProgress from "./CourseProgress";
 
-export type CourseTab = "today" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
+export type CourseTab = "today" | "progress" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
 
 const TABS: { id: CourseTab; label: string; show: (c: Course) => boolean }[] = [
   { id: "today", label: "Today", show: () => true },
+  { id: "progress", label: "Progress", show: () => true },
   { id: "lessons", label: "Lessons", show: (c) => c.lessons.length > 0 },
   { id: "work", label: "Assignments", show: (c) => hasWork(c) || courseActivities(c).length > 0 },
   { id: "banks", label: "Questions", show: () => true },
@@ -122,6 +124,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
       </nav>
 
       {tab === "today" && <TodayTab api={api} course={course} />}
+      {tab === "progress" && <CourseProgress api={api} course={course} />}
       {tab === "lessons" && <LessonsTab api={api} course={course} />}
       {tab === "work" && (hasWork(course) || courseActivities(course).length > 0) && <WorkTab api={api} course={course} />}
       {tab === "banks" && <BanksTab api={api} course={course} />}

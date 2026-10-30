@@ -17,6 +17,7 @@ import "./branching.css";
 import "./scientific.css";
 import "./advanced-assessment.css";
 import "./learningGames.css";
+import "./learningProgress.css";
 import "./startupSplash.css";
 // Footer styles must be in the entry CSS, including restored prerendered pages.
 import "./engineAttribution.css";

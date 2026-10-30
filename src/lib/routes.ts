@@ -19,7 +19,7 @@ export interface RouteCourse {
   title: string;
 }
 
-const TABS: CourseTab[] = ["today", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
+const TABS: CourseTab[] = ["today", "progress", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
 
 /** The address part for a course: its title as a slug, unless another course has the same slug. */
 export function courseSlug(id: string, all: RouteCourse[]): string {
