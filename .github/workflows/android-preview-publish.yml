@@ -33,11 +33,17 @@ jobs:
   release-contract:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COMMUNITY_API: https://api.erudior.com
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
+      - run: npm ci
       - name: Test release verification and publication boundaries
         run: |
           python3 tests/android-release-publish.py -v
@@ -54,6 +60,21 @@ jobs:
           assert request['version'] == package['version']
           assert isinstance(request['request'], str) and request['request'].strip()
           PY
+      - name: Verify actual optimized frontend before native packaging
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/check-android-community-env.mjs
+          npm run build
+          node scripts/check-android-community-env.mjs --dist dist | tee community-compiled-evidence.json
+      - name: Preserve non-secret compiled configuration evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-community-compiled-evidence
+          path: community-compiled-evidence.json
+          if-no-files-found: warn
+          retention-days: 14
 
   upgrade-acceptance:
     needs: release-contract
