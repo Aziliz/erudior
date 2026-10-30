@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ASSIGN_BLOCK, parseAssignBlock, workProblems, type CourseWork, type Rubric, type WritingTask, type Lab, type ActivityLogSpec } from "../lib/work";
 import { validateCourseWork } from "../lib/courseWork";
 import { uid } from "../lib/util";
@@ -30,7 +30,8 @@ export function linkLessonWork(body: string, kind: LinkKind, id: string, attache
 }
 const lines = (value: string) => value.split("\n");
 function Text({ label, value, onChange, multiline = false }: { label: string; value?: string; onChange: (value: string) => void; multiline?: boolean }) {
-  return <label className="field"><span>{label}</span>{multiline ? <textarea className="textarea" value={value ?? ""} onChange={e => onChange(e.target.value)} /> : <input className="input" value={value ?? ""} onChange={e => onChange(e.target.value)} />}</label>;
+  const id = useId();
+  return <label className="field" htmlFor={id}><span id={`${id}-label`}>{label}</span>{multiline ? <textarea id={id} aria-labelledby={`${id}-label`} className="textarea" value={value ?? ""} onChange={e => onChange(e.target.value)} /> : <input id={id} aria-labelledby={`${id}-label`} className="input" value={value ?? ""} onChange={e => onChange(e.target.value)} />}</label>;
 }
 function NumberField({ label, value, onChange, max }: { label: string; value?: number; onChange: (value: number | undefined) => void; max?: number }) {
   return <label className="field"><span>{label}</span><input className="input" type="number" min={0} max={max} step={1} value={value ?? ""} onChange={e => onChange(e.target.value === "" ? undefined : Number(e.target.value))} /></label>;

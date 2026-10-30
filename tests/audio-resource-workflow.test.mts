@@ -44,5 +44,26 @@ await click('Remove audio entry'); await click('Confirm audio entry removal'); a
 // Invalid/unresolved sources never become media URLs even when supplied externally.
 await act(async () => root.render(createElement(EmbeddedAudioInput, { label: 'Unsafe', value: 'https://example.test/private.mp3', onChange: () => {} })));
 assert.equal(document.querySelector('audio'), null); assert.equal([...document.querySelectorAll('button')].some(n => n.textContent?.startsWith('Preview')), false);
+// Removing the entire question audio wrapper must cancel a pending src read even
+// when src was undefined before AND after removal (including an empty wrapper).
+const { QuestionAudioEditor } = await import('../src/components/QuestionAudioEditor.tsx');
+let question: any = { id: 'q', topic: 'Topic', stem: 'Prompt', audio: { text: 'Transcript' } };
+const questionPending: boolean[] = [];
+const renderQuestion = () => root.render(createElement(QuestionAudioEditor, { question, onPendingChange: v => questionPending.push(v), onChange: next => { question = next; renderQuestion(); } }));
+await act(async () => renderQuestion());
+await upload(); const firstReader = reader; await click('Remove question audio');
+assert.equal(question.audio, undefined); assert.equal(questionPending.at(-1), false);
+await act(async () => firstReader.onload()); assert.equal(question.audio, undefined, 'removed text-only audio never resurrected by older read');
+await upload(); const emptyReader = reader; await click('Remove question audio');
+await act(async () => emptyReader.onload()); assert.equal(question.audio, undefined, 'explicit remove cancels even originally absent audio');
+await upload(); const changedReader = reader; await fill('Transcript or spoken text', 'New transcript');
+await act(async () => changedReader.onload()); assert.deepEqual(question.audio, { text: 'New transcript' }, 'newer transcript is not accompanied by stale recording');
+const { CourseMetadataEditor } = await import('../src/components/CourseMetadataEditor.tsx');
+const { emptyCourse } = await import('../src/lib/course.ts');
+let course = emptyCourse('Audio'); course.vocab = [{ id: 'v', lesson: 'l', term: 'Original', meanings: ['Meaning'] }];
+const renderCourse = () => root.render(createElement(CourseMetadataEditor, { course, onChange: next => { course = next; renderCourse(); } }));
+await act(async () => renderCourse()); await upload(); const vocabReader = reader;
+course = { ...course, vocab: [{ ...course.vocab![0], term: 'Newer term' }] }; await act(async () => renderCourse());
+await act(async () => vocabReader.onload()); assert.equal(course.vocab![0].audio, undefined, 'external vocabulary replacement cancels older audio read');
 await act(async () => root.unmount()); dom.window.close();
 console.log('audio resource workflow: explicit embedded preview, identity selection, guarded removal, late reads and external changes passed');

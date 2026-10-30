@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { ReaderText, ReaderSection } from "../lib/types";
 import { validateReaderTexts } from "../lib/readerContent";
 import { uid } from "../lib/util";
@@ -13,7 +13,8 @@ export type ReaderLibraryEditorProps = {
   protectedSectionIds?: Record<string, readonly string[]>;
 };
 function Field({ label, value, change, multiline = false }: { label: string; value?: string; change: (value: string) => void; multiline?: boolean }) {
-  return <label className="field"><span>{label}</span>{multiline ? <textarea className="textarea" rows={label === "Section body" ? 16 : 3} value={value ?? ""} onChange={e => change(e.target.value)} /> : <input className="input" value={value ?? ""} onChange={e => change(e.target.value)} />}</label>;
+  const id = useId();
+  return <label className="field" htmlFor={id}><span id={`${id}-label`}>{label}</span>{multiline ? <textarea id={id} aria-labelledby={`${id}-label`} className="textarea" rows={label === "Section body" ? 16 : 3} value={value ?? ""} onChange={e => change(e.target.value)} /> : <input id={id} aria-labelledby={`${id}-label`} className="input" value={value ?? ""} onChange={e => change(e.target.value)} />}</label>;
 }
 export default function ReaderLibraryEditor({ texts, questions, onChange, protectedTextIds = [], protectedSectionIds = {} }: ReaderLibraryEditorProps) {
   const [textId, setTextId] = useState<string | null>(null);
