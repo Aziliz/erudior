@@ -3,6 +3,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import ts from 'typescript';
 
 export const ANDROID_COMMUNITY_ORIGIN = 'https://api.erudior.com';
 
@@ -23,18 +24,45 @@ export function validateAndroidCommunityEnvironment(value, csp) {
   return url.origin;
 }
 
+// Read literal values, not a minifier's choice of quote characters. Parsing is
+// inert: no generated code is imported or evaluated. Comments, regexp patterns,
+// larger strings, tagged templates and interpolated templates are not evidence.
+export function compiledOriginLiterals(source, filename, origin) {
+  if (origin !== ANDROID_COMMUNITY_ORIGIN) throw Error('Unapproved Community origin.');
+  const file = ts.createSourceFile(filename, source, ts.ScriptTarget.Latest, false, ts.ScriptKind.JS);
+  if (file.parseDiagnostics.length) throw Error(`Invalid compiled JavaScript: ${filename}`);
+  const kinds = new Set();
+  const pending = [file];
+  while (pending.length) {
+    const node = pending.pop();
+    if ((ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) && node.text === origin) {
+      kinds.add(ts.isStringLiteral(node) ? 'string' : 'static-template');
+    }
+    // A tagged template may have custom semantics; its raw text is not a URL value.
+    if (!ts.isTaggedTemplateExpression(node)) ts.forEachChild(node, child => { pending.push(child); });
+  }
+  return [...kinds].sort();
+}
+
 export async function verifyCompiledCommunityOrigin(dist, origin) {
   if (origin !== ANDROID_COMMUNITY_ORIGIN) throw Error('Unapproved Community origin.');
   const assets = path.join(dist, 'assets');
-  const names = (await readdir(assets)).filter(name => name.endsWith('.js'));
+  const names = (await readdir(assets)).filter(name => name.endsWith('.js')).sort();
   if (!names.length) throw Error('No compiled JavaScript assets found.');
   const matched = [];
+  const evidence = [];
   for (const name of names) {
     const source = await readFile(path.join(assets, name), 'utf8');
-    if (source.includes(JSON.stringify(origin)) || source.includes("'" + origin + "'")) matched.push(name);
+    const literalKinds = compiledOriginLiterals(source, name, origin);
+    if (literalKinds.length) {
+      matched.push(name);
+      evidence.push({ asset: name, literalKinds,
+        legacyQuotedMatch: source.includes(JSON.stringify(origin)) || source.includes("'" + origin + "'") });
+    }
   }
   if (!matched.length) throw Error('Community API origin is missing from the compiled Android frontend.');
-  return { origin, assets: matched, scope: 'configuration and compiled-origin presence; not device/network acceptance' };
+  return { origin, assets: matched, evidence,
+    scope: 'configuration and compiled-origin presence; not device/network acceptance' };
 }
 
 async function main() {
