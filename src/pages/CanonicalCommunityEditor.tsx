@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import type { Course, Bank } from "../lib/types";
 import { API, api as community } from "../lib/community";
@@ -6,6 +6,7 @@ import { checkDoc, LEVELS, SUBJECTS, TYPES, type CommunityDoc } from "../lib/com
 import { canonicalAuthoringFromCourse, courseFromCanonicalAuthoring, validateCanonicalAuthoring } from "../lib/canonicalAuthoring";
 import { exportText, pickJsonFile } from "../lib/storage";
 import { registerNavigationGuard } from "../lib/navigationGuard";
+import CommunityAuthorGuide from "../components/CommunityAuthorGuide";
 import CourseEditor from "./CourseEditor";
 import Editor from "./Editor";
 import DeckEditor from "./DeckEditor";
@@ -13,6 +14,7 @@ import DeckEditor from "./DeckEditor";
 type Meta = { status: string; version: number; review: string; reviewNote: string | null };
 /** A community persistence adapter around the same canonical editors used by the app. */
 export default function CanonicalCommunityEditor({ api, id, initialDoc, initialMeta }: { api: AppApi; id: string; initialDoc: CommunityDoc; initialMeta: Meta }) {
+  const fieldId = useId();
   const [doc, setDoc] = useState(initialDoc);
   const latest = useRef(initialDoc);
   const persisted = useRef(initialDoc);
@@ -61,13 +63,14 @@ export default function CanonicalCommunityEditor({ api, id, initialDoc, initialM
   return <div className="page">
     <h1>Canonical community course: {course.title}</h1>
     <p>One authoritative course payload. Community review is not official-course approval. Publishing preserves source author metadata; the community publisher is separate provenance.</p>
+    <CommunityAuthorGuide />
     {error && <p role="alert">{error}</p>}{message && <p role="status">{message}</p>}
     {readOnly && <p role="alert">Taken down: {meta.reviewNote}. Editing and publishing are disabled.</p>}
     {view === "course" ? <fieldset className="canonical-course-editor-shell" disabled={busy || readOnly}><CourseEditor api={adapter} course={course} communityMode /></fieldset> : selectedBank ? <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><Editor key={selectedBank.id} api={adapter} bank={selectedBank} /></fieldset> : selectedDeck ? <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><DeckEditor key={selectedDeck.id} api={adapter} course={course} deck={selectedDeck} /></fieldset> : <>
       <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><legend>Community listing</legend>
         <p>Listing title follows the authored course title. Listing classifications do not rewrite source metadata.</p>
-        <label className="field">Description<textarea className="textarea" value={doc.description} onChange={e => change({ description: e.target.value })} /></label>
-        {([['subject', SUBJECTS], ['level', LEVELS], ['type', TYPES]] as const).map(([key, choices]) => <label className="field" key={key}>{key}<select className="select" value={doc[key] ?? "Course"} onChange={e => change({ [key]: e.target.value })}>{choices.map(value => <option key={value}>{value}</option>)}</select></label>)}
+        <label className="field" htmlFor={`${fieldId}-description`}><span id={`${fieldId}-description-label`}>Description</span><textarea id={`${fieldId}-description`} aria-labelledby={`${fieldId}-description-label`} className="textarea" value={doc.description} onChange={e => change({ description: e.target.value })} /></label>
+        {([['subject', SUBJECTS], ['level', LEVELS], ['type', TYPES]] as const).map(([key, choices]) => <label className="field" key={key} htmlFor={`${fieldId}-${key}`}><span id={`${fieldId}-${key}-label`}>{key}</span><select id={`${fieldId}-${key}`} aria-labelledby={`${fieldId}-${key}-label`} className="select" value={doc[key] ?? "Course"} onChange={e => change({ [key]: e.target.value })}>{choices.map(value => <option key={value}>{value}</option>)}</select></label>)}
         <button className="btn" onClick={() => run(() => save(latest.current))}>Save listing draft</button>
       </fieldset>
       <fieldset className="canonical-listing-fieldset" disabled={busy || readOnly}><legend>Canonical authoring</legend>

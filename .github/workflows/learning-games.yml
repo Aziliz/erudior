@@ -22,6 +22,7 @@ on:
       - 'scripts/course-activities-browser.mjs'
       - 'scripts/public-learning-browser.mjs'
       - 'scripts/community-controls-browser.mjs'
+      - 'scripts/community-guide-browser.mjs'
       - 'scripts/scientific-browser.mjs'
       - 'scripts/branching-browser.mjs'
       - 'package.json'
@@ -35,7 +36,7 @@ permissions:
 jobs:
   browser-and-live:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -44,6 +45,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: In-editor authoring guide and documented create-publish-install walkthrough
+        run: npm run test:community-guide-browser
       - name: Community module controls, persistence and publication
         run: npm run test:community-controls-browser
       - name: Public guest discovery, signed course loading, practice and optional storage
@@ -170,5 +173,13 @@ jobs:
         with:
           name: community-controls-browser
           path: test-results/community-controls-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-guide-browser
+          path: test-results/community-guide-browser/
           if-no-files-found: warn
           retention-days: 14
