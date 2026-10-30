@@ -20,6 +20,10 @@ on:
       - "src/components/EngineAttribution.tsx"
       - "src/Site.tsx"
       - "src/main.tsx"
+      - "src/App.tsx"
+      - "src/pages/Library.tsx"
+      - "src/pages/ProgressPage.tsx"
+      - "src/components/PhoneNavigation.tsx"
   push:
     branches: [main]
     paths:

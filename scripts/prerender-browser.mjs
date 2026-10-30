@@ -173,18 +173,20 @@ try {
       assert.equal(page.url(), appDetailUrl, 'Forward after repeated reloads preserves exact app preview');
       await start.waitFor();
       // The bootstrap guard must not suppress genuine user navigation pushes.
-      await page.getByRole('button', { name: 'Courses', exact: true }).click();
-      await heading('Courses').waitFor();
-      assert.equal(page.url(), 'https://app.erudior.com/', 'user Courses navigation reaches the app library');
-      await page.goBack({ waitUntil: 'networkidle' });
-      assert.equal(page.url(), appDetailUrl, 'user navigation pushes a real entry; Back restores preview');
-      await start.waitFor();
-      await page.goForward({ waitUntil: 'networkidle' });
-      assert.equal(page.url(), 'https://app.erudior.com/', 'Forward restores the user-selected library');
-      await heading('Courses').waitFor();
-      await page.goBack({ waitUntil: 'networkidle' });
-      assert.equal(page.url(), appDetailUrl);
-      await start.waitFor();
+      for (const [destination, url] of [['Library', 'https://app.erudior.com/'], ['Courses', 'https://app.erudior.com/progress']]) {
+        await page.getByRole('navigation', { name: 'Main', exact: true }).getByRole('button', { name: destination, exact: true }).click();
+        await heading(destination).waitFor();
+        assert.equal(page.url(), url, `user ${destination} navigation reaches its exact destination`);
+        await page.goBack({ waitUntil: 'networkidle' });
+        assert.equal(page.url(), appDetailUrl, `${destination} navigation pushes a real entry; Back restores preview`);
+        await start.waitFor();
+        await page.goForward({ waitUntil: 'networkidle' });
+        assert.equal(page.url(), url, `Forward restores the user-selected ${destination} destination`);
+        await heading(destination).waitFor();
+        await page.goBack({ waitUntil: 'networkidle' });
+        assert.equal(page.url(), appDetailUrl);
+        await start.waitFor();
+      }
       // Course storage is IndexedDB; inspect without writing or importing source.
       const installed = await page.evaluate(async () => {
         const names = await indexedDB.databases();
@@ -206,7 +208,7 @@ try {
       assert.ok(requests.every(request => request.method === 'GET' && ['/catalog', `/courses/${fixture.id}`].includes(request.path) && !request.cookie && !request.authorization), 'only cookie-free public GETs; no identity or author APIs');
       assert.deepEqual(unexpected, [], 'no relative fallback API requests or mutations');
       assert.deepEqual(errors, [], 'no uncaught production-bundle errors');
-      results.push({ label, fresh: true, repeat: true, publicApiOrigin: communityApi.origin, requests, exactAppPreview: true, crossOriginHistory: true, repeatedReloadHistory: true, userNavigationHistory: true, installed: false });
+      results.push({ label, fresh: true, repeat: true, publicApiOrigin: communityApi.origin, requests, exactAppPreview: true, crossOriginHistory: true, repeatedReloadHistory: true, userNavigationHistory: true, userNavigationDestinations: ['Library', 'Courses'], installed: false });
     } catch (error) {
       await page.screenshot({ path: path.join(evidence, `${label}-failure.png`) }).catch(() => {});
       writeFileSync(path.join(evidence, `${label}-failure.json`), JSON.stringify({ error: String(error), requests, errors, unexpected, url: page.url() }, null, 2));
