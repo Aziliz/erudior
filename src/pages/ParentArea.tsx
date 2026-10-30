@@ -1,3 +1,5 @@
+import HomeschoolPlanningWorkspace from "../components/HomeschoolPlanningWorkspace";
+import ParentCommunityReview from "../components/ParentCommunityReview";
 import AcademicRecordsWorkspace from "../components/AcademicRecordsWorkspace";
 import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
 import CredentialWorkspace from "../components/CredentialWorkspace";
@@ -74,6 +76,7 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "planning"
   | "academic-records"
   | "learner-privacy"
   | "overview"
@@ -127,6 +130,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "planning", label: "Homeschool planning" },
   { id: "learning-paths", label: "Learning paths" },
   { id: "diagnostics", label: "Learning diagnostics" },
   { id: "interoperability", label: "Content exchange" },
@@ -239,7 +243,11 @@ export default function ParentArea({
           </button>
         ))}
       </nav>
-      {!records ? (
+      {/* These workspaces own their guarded storage lifecycle. Attendance reloads
+          must not discard an in-flight review or its saved confirmation. */}
+      {tab === "courses" && <Courses api={api} family={family} />}
+      {tab === "planning" && !classroom && <HomeschoolPlanningWorkspace api={api} family={family} />}
+      {tab !== "courses" && tab !== "planning" && (!records ? (
         <p className="muted">Loading records…</p>
       ) : (
         <>
@@ -275,7 +283,6 @@ export default function ParentArea({
               saveRec={saveRec}
             />
           )}
-          {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
           {tab === "academic-records" && <AcademicRecordsWorkspace api={api} family={family} />}
@@ -285,7 +292,7 @@ export default function ParentArea({
           {tab === "state" && <StateTab api={api} family={family} />}
           {tab === "settings" && <Settings api={api} family={family} />}
         </>
-      )}
+      ))}
     </div>
   );
 }
@@ -924,14 +931,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
                   </button>
                   <button
                     className="btn sm ghost"
-                    onClick={() =>
-                      update({
-                        ...s,
-                        assigned: s.assigned.filter(
-                          (x) => x.courseId !== a.courseId,
-                        ),
-                      })
-                    }
+                    onClick={() => void api.removeParentAssignment?.(s.id, a.courseId).catch(e => api.toast((e as Error).message))}
                   >
                     Remove<span className="sr-only">: {title(a.courseId)}</span>
                   </button>
@@ -996,6 +996,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
           {s.name} may also start courses that aren't assigned
         </label>
       </section>
+      {!isClassroom(family) && <ParentCommunityReview api={api} family={family} />}
     </>
   );
 }

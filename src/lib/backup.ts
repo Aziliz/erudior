@@ -19,6 +19,7 @@ import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 
 import type { Bank, Course, Progress } from "./types";
 import { loadFamily, saveFamily, type Family } from "./family";
+import { withoutParentCourseReviews } from "./parentCourseReview";
 import { loadRecords, parseRecords, restoredRecords, type Records } from "./records";
 import { loadPhotos, savePhotos } from "./portfolio";
 import { loadFile, putFile } from "./documents";
@@ -266,6 +267,8 @@ export async function restoreContents(
   const b = JSON.parse(text) as Contents;
   if (b.format !== "examiner-family-backup") throw new Error("This backup's contents weren't recognized.");
   if (!b.students || typeof b.students !== "object" || Array.isArray(b.students)) throw Error("Invalid student records in backup.");
+  // Validate and strip imported parental authority before any restore mutation.
+  const restoredFamily = b.family ? withoutParentCourseReviews(b.family) : null;
   const currentDeletedIds = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
   for (const [id, student] of Object.entries(b.students)) {
     if (!/^[a-z0-9]{1,24}$/.test(id) || !b.family?.students.some(s => s.id === id)) throw Error("Backup records do not belong to a learner in this family.");
@@ -380,7 +383,7 @@ export async function restoreContents(
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true });
-  if (b.family) await saveFamily(b.family);
+  if (restoredFamily) await saveFamily(restoredFamily);
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);
   await store.saveState("interventions", interventions);

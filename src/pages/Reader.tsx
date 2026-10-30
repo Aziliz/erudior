@@ -251,7 +251,9 @@ function ReaderSession({ api, course, text, controller }: { api: AppApi; course:
       controller.questions[section.id]={session,initial:{index:0,answers:{},flags,checked:{},blockIdx:0,blockUsed:session.blocks?.map(()=>0)??[0]}};
     }
     const {session,initial}=controller.questions[section.id];
-    await saveSessionState(serializeRun(session,initial));
+    if(api.saveLearnerSession) await api.saveLearnerSession(serializeRun(session,initial));
+    else if(api.family) throw Error("Learner session authorization is unavailable. Reopen the app.");
+    else await saveSessionState(serializeRun(session,initial));
     if(!allowed())return;
     delete controller.questions[section.id];api.go({name:"run",session,initial});
   });}

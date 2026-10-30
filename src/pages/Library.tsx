@@ -326,13 +326,13 @@ function Assigned({ api }: { api: AppApi }) {
               <span className="pill neutral">{a.subject}</span>
               <b>{title(a.courseId)}</b>
               <span className="small muted">{done ? "Finished" : now ? "Current" : blocked ?? "Up next"}</span>
-              {now &&
+              {blocked ? <span className="small muted">{blocked}</span> : now &&
                 (have.has(a.courseId) ? (
                   <button className="btn sm" onClick={() => api.go({ name: "course", courseId: a.courseId })}>
                     Open
                   </button>
                 ) : (
-                  <button className="btn sm primary" onClick={() => api.addCourse(a.courseId)}>
+                  <button className="btn sm primary" onClick={() => api.startAssignedCourse ? api.startAssignedCourse(a.courseId) : api.addCourse(a.courseId)}>
                     Start
                   </button>
                 ))}
