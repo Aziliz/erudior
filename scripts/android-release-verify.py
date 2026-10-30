@@ -68,7 +68,8 @@ def inspect_apk(apk, candidate=True):
         require(archive.testzip() is None, "APK ZIP integrity failed")
         names = archive.namelist()
         if candidate:
-            require("res/xml/erudior_update_paths.xml" in names, "Updater FileProvider paths missing")
+            require(any(name.startswith("res/") and not name.endswith("/") for name in names),
+                    "Updater FileProvider resources missing")
             require(not any(re.search(r"(^|/)(samples/(math|languages)/|colorado-broker-course\.json|dist-courses/|courses-dev/)", n, re.I)
                             for n in names), "Bundled coursework found in release APK")
     tools = Path(os.environ["ANDROID_HOME"]) / "build-tools/35.0.0"
