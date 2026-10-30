@@ -160,6 +160,16 @@ async function needUser(req: Request, env: Env, accepted = true): Promise<User> 
   return u;
 }
 
+// Evaluated by D1 inside the mutation, not before an asynchronous body/R2 read.
+// Session timestamps use the same UTC millisecond ISO format as SQLite here.
+const communityCommitActor = `SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id
+  WHERE actor.id = ? AND actor.banned = 0
+  AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ?
+  AND session.token_hash = ? AND session.expires_at > strftime('%Y-%m-%dT%H:%M:%fZ', 'now')`;
+const communityCommitEditor = `${communityCommitActor}
+  AND (courses.owner_id = actor.id OR actor.role = 'admin' OR EXISTS
+    (SELECT 1 FROM course_editors editor WHERE editor.course_id = courses.id AND editor.user_id = actor.id))`;
+
 function needRole(u: User, ...roles: Role[]) {
   if (!roles.includes(u.role)) throw new HttpError(403, "Not allowed.");
 }
@@ -436,6 +446,10 @@ async function route(req: Request, env: Env): Promise<Response> {
   }
   r = m(/^\/images\/([\w-]+)$/);
   if (method === "GET" && r) {
+    // R2 writes precede D1 authorization commits. Never expose an uncommitted
+    // upload, including an orphan whose best-effort cleanup failed. Reads remain public.
+    const image = await env.DB.prepare("SELECT id FROM images WHERE id = ?").bind(r[1]).first();
+    if (!image) throw new HttpError(404, "Not found.");
     const obj = await env.FILES.get(`images/${r[1]}`);
     if (!obj) throw new HttpError(404, "Not found.");
     return new Response(obj.body, {
@@ -528,9 +542,12 @@ async function route(req: Request, env: Env): Promise<Response> {
     if ((n?.n ?? 0) >= 50) throw new HttpError(429, "You have 50 courses; delete one first.");
     const id = rid(10).toLowerCase();
     const doc = emptyDoc();
-    await env.DB.prepare("INSERT INTO courses (id, owner_id, draft, title, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)")
-      .bind(id, u.id, JSON.stringify(doc), doc.title, now(), now())
+    const committed = await env.DB.prepare(`INSERT INTO courses (id, owner_id, draft, title, created_at, updated_at)
+      SELECT ?, ?, ?, ?, ?, ? WHERE EXISTS (${communityCommitActor})
+      AND (SELECT COUNT(*) FROM courses WHERE owner_id = ?) < 50`)
+      .bind(id, u.id, JSON.stringify(doc), doc.title, now(), now(), u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), u.id)
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "Your access or course limit changed. Reload before creating a course.");
     return json({ id }, 201);
   }
   r = m(/^\/drafts\/([\w-]+)$/);
@@ -554,9 +571,13 @@ async function route(req: Request, env: Env): Promise<Response> {
     const doc = upgradeDoc(await readJson<CommunityDoc>(req));
     const errs = checkDoc(doc, false, { communityImageOrigin: env.API_ORIGIN });
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
-    await env.DB.prepare("UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ? WHERE id = ?")
-      .bind(JSON.stringify(doc), doc.title.trim() || "Untitled course", now(), c.id)
+    const committed = await env.DB.prepare(`UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ?
+      WHERE id = ? AND version = ? AND draft = ? AND status = ? AND owner_id = ?
+      AND EXISTS (${communityCommitEditor})`)
+      .bind(JSON.stringify(doc), doc.title.trim() || "Untitled course", now(), c.id, c.version, c.draft, c.status, c.owner_id,
+        u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]))
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "The course or your access changed while saving. Reload before saving again.");
     return json({ ok: true });
   }
   if (r && method === "DELETE") {
@@ -704,8 +725,22 @@ async function route(req: Request, env: Env): Promise<Response> {
     const mime = sniff(bytes);
     if (!mime || !IMAGE_TYPES.includes(mime)) throw new HttpError(415, "Use a PNG, JPEG, WebP or GIF image.");
     const id = rid(12).toLowerCase();
-    await env.FILES.put(`images/${id}`, bytes, { httpMetadata: { contentType: mime } });
-    await env.DB.prepare("INSERT INTO images (id, owner_id, mime, bytes, created_at) VALUES (?, ?, ?, ?, ?)").bind(id, u.id, mime, bytes.length, now()).run();
+    const key = `images/${id}`;
+    const written = await env.FILES.put(key, bytes, {
+      onlyIf: new Headers({ "If-None-Match": "*" }),
+      httpMetadata: { contentType: mime },
+    });
+    if (!written) throw new HttpError(409, "Image upload conflicted. Try again.");
+    const committed = await env.DB.prepare(`INSERT INTO images (id, owner_id, mime, bytes, created_at)
+      SELECT ?, ?, ?, ?, ? WHERE EXISTS (${communityCommitActor})
+      AND (SELECT COUNT(*) FROM images WHERE owner_id = ?) < 500`)
+      .bind(id, u.id, mime, bytes.length, now(), u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), u.id).run();
+    if (committed.meta.changes !== 1) {
+      // Only delete our uniquely-created, definitely uncommitted object. On an
+      // uncertain D1 exception leave it alone: metadata gates all public reads.
+      try { await env.FILES.delete(key); } catch { /* Inaccessible orphan; cleanup can be retried operationally. */ }
+      throw new HttpError(409, "Your access or image limit changed. Reload before uploading again.");
+    }
     return json({ id, url: `${env.API_ORIGIN}/images/${id}` }, 201);
   }
 
