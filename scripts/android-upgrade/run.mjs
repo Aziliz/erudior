@@ -7,6 +7,7 @@ import { createServer } from 'node:https';
 import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { _android as android } from 'playwright';
+import { verifyPortableFiles } from './portable-files.mjs';
 
 assert.equal(process.env.GITHUB_ACTIONS, 'true');
 assert.equal(process.env.ERUDIOR_UPGRADE_E2E, '1');
@@ -145,6 +146,8 @@ try {
   startEvidenceLog();
   writeFileSync(path.join(out,'records-before.json'),JSON.stringify(before,null,2));
   passed('Version A stores and reloads valid course, profile progress, study settings and review records');
+
+  await verifyPortableFiles({ page, adb, nodes, tapNative, until, screenshot, passed });
 
   mode='corrupt';await clickUpdate();
   await page.getByText(/APK checksum mismatch|Native APK checksum mismatch/).first().waitFor({state:'visible',timeout:45000});

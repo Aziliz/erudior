@@ -1,5 +1,5 @@
 import { catalogEntry, isPublishedCourse } from "../lib/catalog";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
 import { ReportForm, ReviewPill } from "../components/CommunityCatalog";
@@ -28,6 +28,7 @@ import WorkTab from "./WorkTab";
 import { hasWork } from "../lib/work";
 import { courseActivities } from "../lib/courseActivities";
 import CourseProgress from "./CourseProgress";
+import OfflineCourseExport from "../components/OfflineCourseExport";
 
 export type CourseTab = "today" | "progress" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
 
@@ -53,6 +54,8 @@ export function mainBank(c: Course): Bank | undefined {
 export default function CourseHome({ api, course, tab }: { api: AppApi; course: Course; tab: CourseTab }) {
   const setTab = (t: CourseTab) => api.go({ name: "course", courseId: course.id, tab: t });
 
+  const [offlineExport, setOfflineExport] = useState(false);
+  const offlineExportButton = useRef<HTMLButtonElement>(null);
   const fromCatalog = !!catalogEntry(course.id) || !!course.community;
 
   async function onDelete() {
@@ -106,15 +109,17 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
               Edit course
             </button>
           )}
-          <button className="btn" onClick={onExport}>
-            Export
+          <button className="btn" title="Editable source JSON; linked media is not bundled. Use Share offline for a self-contained package." onClick={onExport}>
+            Export source JSON
           </button>
+          <button className="btn" ref={offlineExportButton} onClick={() => setOfflineExport(true)}>Share offline</button>
           <button className="btn danger ghost" onClick={onDelete}>
             {fromCatalog ? "Remove" : "Delete"}
           </button>
         </div>
       </div>
 
+      {offlineExport && <OfflineCourseExport key={course.id} course={course} onClose={() => { setOfflineExport(false); offlineExportButton.current?.focus(); }} />}
       <nav className="tabs" aria-label="Course sections">
         {TABS.filter((t) => t.show(course)).map((t) => (
           <button key={t.id} aria-current={tab === t.id ? "page" : undefined} onClick={() => setTab(t.id)}>
