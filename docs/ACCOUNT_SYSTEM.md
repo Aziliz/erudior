@@ -1,6 +1,6 @@
 # Erudior accounts, access, and data lifecycle
 
-Design date: 2026-10-30. Status: proposed architecture and implementation contract. The navigation changes accompanying this document do not create production learner accounts, school identity, or cloud synchronization.
+Design date: 2026-10-30. Status: architecture and implementation contract, with the first internal [account foundation](ACCOUNT_FOUNDATION.md) implemented as isolated server-domain code. Production learner accounts, school identity, and cloud synchronization remain unavailable.
 
 ## Decisions and scope
 
@@ -289,6 +289,10 @@ Also test a school administrator resetting a linked teacher/guardian's instituti
 
 Keep existing release signing, course integrity, credential authority, local CAS/tombstone protections and immutable assessment evidence. A new account must never grant professional credit, reviewed publishing status or issuer authority automatically.
 
-## What the accompanying change delivers
+## Delivered slices and remaining integration
 
-The code change renames the global Progress destination to Courses, retains in-course Progress, and adjusts the visible Family/Classroom navigation using the local workspace that exists today. The account, organization, school-link, secure-device and lifecycle design in this document remains to be implemented and accepted as a complete service.
+PR #113 renamed the global Progress destination to Courses, retained in-course Progress, and adjusted the visible Family/Classroom navigation using the local workspace that exists today.
+
+The next slice adds the isolated `account-service/` foundation: validated account/learner/workspace contracts, current scoped authorization decisions, account closure and data-erasure planning, retention deadlines, and deletion/replay fences with synthetic security acceptance tests. See [Private account foundation](ACCOUNT_FOUNDATION.md) for its exact scope and trust requirements. A structurally valid snapshot is not proof of identity, and a generated lifecycle plan does not execute deletion.
+
+Managed identity, verified authority collection, database policies, private API routes, secure device sessions, export/deletion execution, recovery, account UI, school linking, and synchronization still need to be integrated and accepted as a complete service. No production account endpoint or automatic local-data upload is introduced by this foundation.
