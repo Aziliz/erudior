@@ -19,6 +19,8 @@ let active=true;const capture=await loadRecords("child",second.io);active=false;
 await assert.rejects(saveRecords("child",capture,{guard:()=>{if(!active)throw Error("Profile changed");}},second.io),/Profile changed/);
 const bad=fixture();bad.state.set("records-child","{broken");await assert.rejects(loadRecords("child",bad.io),/quarantined/);await assert.rejects(saveRecords("child",emptyRecords(),{},bad.io),/quarantined/);assert.equal(bad.state.get("records-child"),"{broken");
 for(const invalid of [{...emptyRecords(),manual:{}},{...emptyRecords(),time:{today:{math:-2}}},{...emptyRecords(),courses:{math:{credits:Infinity}}},{...emptyRecords(),days:{today:"false"}},JSON.parse('{"format":"erudior-records","version":1,"__proto__":{"polluted":true}}')]) assert.throws(()=>parseRecords(invalid),/damaged/);
+// A historical test fixture used a Progress-style finished field; that was never a valid BookEntry.
+assert.throws(()=>parseRecords({...emptyRecords(),reading:[{id:'book',title:'Book',author:'Author',finished:'2026-10-27',minutes:1}]}),/damaged/);
 const absent=fixture();absent.deleted();await assert.rejects(saveRecords("child",emptyRecords(),{},absent.io),/deleted/);assert.equal(absent.state.size,0);
 const crossing=fixture();crossing.after(crossing.deleted);await assert.rejects(saveRecords("child",emptyRecords(),{},crossing.io),/deleted/);assert.equal(crossing.state.size,0);
 let bounded=emptyRecords();for(let i=0;i<MAX_RECORDS_AUDIT+5;i++)bounded=recordsMutation(bounded,{...bounded,days:{}},"Edit");assert.equal(bounded.audit?.length,MAX_RECORDS_AUDIT);assert.equal(bounded.revision,MAX_RECORDS_AUDIT+5);

@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import type { BookEntry, Records } from '../src/lib/records.ts';
 // Production collect/restore and installed-course serialization at an isolated native
 // boundary. No real profiles, credentials, filesystem, or network are used.
 const state = new Map<string, string>();
@@ -45,7 +46,8 @@ state.set('family', JSON.stringify(family));
 state.set('progress', JSON.stringify(base));
 for (const [id, progress] of [['alice', alice], ['bob', bob]] as const) {
   state.set(`progress-${id}`, JSON.stringify(progress));
-  state.set(`records-${id}`, JSON.stringify({ ...emptyRecords(), reading: id === 'alice' ? [{ id: 'original-book-record', title: 'Original book', author: 'Original author', finished: '2026-10-27', minutes: 1 }] : [] }));
+  const book: BookEntry = { id: 'original-book-record', title: 'Original book', author: 'Original author', date: '2026-10-27', subject: 'Languages', note: 'Original completed reading', minutes: 1 };
+  state.set(`records-${id}`, JSON.stringify({ ...emptyRecords(), reading: id === 'alice' ? [book] : [] }));
 }
 useStudentFiles('bob');
 const backup = await collect([course], []);
@@ -63,13 +65,22 @@ const restoredAlice = JSON.parse(state.get('progress-alice')!);
 const replayed = applyReaderWrite(restoredAlice, 'reading-course', changedText as any, changedRevision, { writer: 'writer-a', time: { '2026-10-27': 85 }, read: {} });
 assert.equal(replayed.reading!['reading-course/book'].seconds, 85, 'restored receipts suppress replay credit');
 assert.equal(replayed.activity['2026-10-27'].readingSec, 85);
-assert.deepEqual(JSON.parse(state.get('records-alice')!), backup.students.alice.records);
-assert.deepEqual(JSON.parse(state.get('records-bob')!), backup.students.bob.records);
+// Restore keeps academic content exactly, while stamping the new local revision and
+// identifying imported history. A backup is not proof of local authorship.
+const recordPayload = ({ revision: _revision, audit: _audit, restoredAt: _restoredAt, ...payload }: Records) => payload;
+const verifiedRestoredStudents = Object.fromEntries(Object.entries(backup.students).map(([id, student]) => {
+  const records: Records = JSON.parse(state.get(`records-${id}`)!);
+  assert.deepEqual(recordPayload(records), recordPayload(student.records), `${id}: academic payload preserved exactly`);
+  assert.equal(records.revision, (student.records.revision ?? 0) + 1, 'restore invalidates open editors');
+  assert.ok(records.restoredAt && Number.isFinite(Date.parse(records.restoredAt)), 'restore origin stamped');
+  assert.deepEqual(records.audit, (student.records.audit ?? []).map(entry => ({...entry,origin:'imported'})));
+  return [id, {...student,records}];
+}));
 assert.deepEqual(JSON.parse(state.get('family')!), backup.family);
 const installed = await listCourses();
 assert.deepEqual(installed.broken, []);
 assert.deepEqual(JSON.parse(exportCourseSnapshot(installed.courses[0])), source);
-assert.deepEqual((await collect(installed.courses, [])).students, backup.students, 'second collect retains distinct histories and counter receipts exactly');
+assert.deepEqual((await collect(installed.courses, [])).students, verifiedRestoredStudents, 'second collect retains distinct histories, counter receipts and restore provenance exactly');
 
 const envelope = canonicalAuthoringFromCourse(source as any);
 await restoreContents(JSON.stringify({ ...backup, courses: [envelope] }), { courses: [], banks: [] });
