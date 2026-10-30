@@ -2,6 +2,8 @@
 
 Open **Family / Classroom → Academic records** after the existing adult gate. Select the learner before editing. This is a local planning tool, not a legal graduation determination, accredited transcript, institutional transfer-credit verification or credential issuer.
 
+The public website remains account-free and does not enable local Family/Classroom management. Opening `/parent/academic-records` there shows an explicit local-app availability screen, not a learner editor or a silently substituted Library. In a supported local app without a workspace, the same entry offers existing workspace setup; configured workspaces still require the adult gate. Temporary guest sessions do not create persistent workspaces. Native source ships with the next app version, not automatically with a website deployment.
+
 ## Planning and review
 
 Configure your own total-credit goal and subject requirements; no state or jurisdiction is preselected. A subject can require an evidence description. Existing completed local course records contribute to the plan; parent-entered outside coursework needs explicit review. Add supplemental transfer/local statements, review them, correct them or remove them. Linking a correction to an existing source replaces its planning contribution rather than counting twice; the original transcript and course grades are not changed. Evidence descriptions and parent review do not authenticate an institution or issuer.
