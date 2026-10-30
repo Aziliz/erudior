@@ -83,6 +83,10 @@ for (const [kind, section] of kinds) {
   await click(`Add ${kind}`);
   assert.equal(document.activeElement, field('Title'), 'new editor focuses title');
   assert.equal(field('Title').maxLength, 160);
+  for (const name of ['Status', 'Link installed resource (optional)', 'Show entries']) {
+    assert.equal(field(name).getAttribute('aria-label'), name, 'select name stays concise rather than including every option');
+  }
+  assert.equal(field('Notes').getAttribute('aria-label'), 'Notes', 'textarea name stays independent of saved contents');
   await fill('Title', `Synthetic ${kind}`);
   await fill('Notes', `First line\nSecond line <img src=x onerror="globalThis.injected=1">`);
   await fill('Status', 'active');
