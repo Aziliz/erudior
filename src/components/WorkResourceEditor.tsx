@@ -37,7 +37,7 @@ function NumberField({ label, value, onChange, max }: { label: string; value?: n
   return <label className="field"><span>{label}</span><input className="input" type="number" min={0} max={max} step={1} value={value ?? ""} onChange={e => onChange(e.target.value === "" ? undefined : Number(e.target.value))} /></label>;
 }
 function Check({ label, checked, onChange }: { label: string; checked: boolean; onChange: (value: boolean) => void }) {
-  return <label className="row"><input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} />{label}</label>;
+  return <label className="row" style={{ minHeight: 40, gap: 8 }}><input type="checkbox" style={{ width: 24, height: 24, flexShrink: 0 }} checked={checked} onChange={e => onChange(e.target.checked)} />{label}</label>;
 }
 export default function WorkResourceEditor({ work, modules, lessons, onChange, onLessonBodyChange, onAssignmentAttachmentChange }: WorkResourceEditorProps) {
   const [selected, setSelected] = useState<{ kind: Kind; id: string } | null>(null);
