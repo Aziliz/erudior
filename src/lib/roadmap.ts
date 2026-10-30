@@ -542,6 +542,7 @@ export const UPDATES: UpdateArea[] = [
     intro: "Signed-in student, parent, teacher and professional learner workflows, including desktop and multi-device use.",
     items: [
       { title: "Official Erudior application splash and motto", detail: "Accessible official opening-book loading splash shared with the public website (PR #39).", status: "done", phase: "1.0" },
+      { title: "Course and pathway progress", detail: "Enrolled-course overview with average course progress and next steps, plus a Progress tab inside each course for lesson completion, module quizzes, scores, skills and session history. Follow the seven-course Math foundations or German A1–B1 starters, or create and reorder a pathway from available courses. Each learner's plans persist through backup and restore; courses are started explicitly. Implemented in PR #111.", status: "done", phase: "1.0" },
       planned("Safe authentication and family accounts", "App-only student and guardian profiles, consent, device pairing and age transitions; no public website accounts."),
       planned("Student dashboard and notebook", "Daily plan, independent notebook, reading shelf, goals, skill map, portfolio, student-directed projects and accessible options."),
       planned("Parent homeschool planning", "Subject-specific placement, grade/course customization, four-year high-school plans, graduation credit audit, transfer credit, materials lists, field trips and portfolio evidence."),

@@ -214,11 +214,12 @@ All courses are free to read without accounts. Homeschool learners follow grade-
 - Professional-only credentials: verified enrollment, official issuer, signed PDF, unguessable ID, public privacy-preserving lookup and revocation. No claim of state credit without authorization.
 
 ## Application update
+- **Course and pathway progress — Done (PR #111).** The main Progress page lists the active learner's enrolled courses, average course progress and next steps. Each course has a dedicated Progress tab for its lessons, module quizzes, scores, practice coverage, relevant skills and session history. Learners can follow the seven-course Math foundations or German A1–B1 starters, or create, reorder, edit and remove their own pathways from available courses. Pathway choices persist per learner with concurrent-edit protection and backup/recovery support. Following a pathway saves a plan; each course is started explicitly. See [Course and pathway progress](LEARNING_PROGRESS.md).
 - Multi-child family dashboard; grade-level core assignments with parent-added electives and variable subject-level placement.
 - Student own device support: parent-provisioned restricted student login under 13; optional teen independent credentials at 13; unchanged student ID; adult control transition at 18.
 - Multi-device sync, interrupted exercise recovery, local drafts, conflict handling; no duplicated credit.
 - Graduation planner, transcript/GPA and credit audit, report cards, attendance, state reports, subject standards mapping, transfer credit and portfolio.
-- Student workspace: daily plan, notebook, reading shelf, progress/skill map, projects, goals and optional achievement badges.
+- Remaining student workspace: daily plan, notebook, reading shelf, skill map, projects, goals and optional achievement badges.
 - Course material inventory, field trip and off-platform activity capture, parent guides, accommodations and independent study.
 - Consent, privacy/retention operations, audit logs, least privilege, encryption, backup restoration and WCAG testing.
 - Interoperability: CASE, QTI, LTI, OneRoster and Common Cartridge as future-ready design goals.
