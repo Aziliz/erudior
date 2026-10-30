@@ -66,6 +66,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return "/";
     case "community":
       return "/community";
+    case "communityCourse":
+      return "/community/" + encodeURIComponent(v.id);
     case "progress":
       return "/progress";
     case "legal":
@@ -130,6 +132,7 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
 export function pageKey(v: View): string {
   const c = courseOf(v);
   if (v.name === "course" || v.name === "overview") return "course:" + c;
+  if (v.name === "communityCourse") return "community:" + v.id;
   if (v.name === "search") return "search";
   if (v.name === "lesson") return `lesson:${c}:${v.lessonId}`;
   if (v.name === "read") return `read:${c}:${v.textId}`;
@@ -145,7 +148,11 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   if (!parts.length) return { name: "library" };
   const [first, second, third] = parts;
   if (first === "courses" && !second) return { name: "library" };
-  if (first === "community" && !second) return { name: "community" };
+  if (first === "community") {
+    if (parts.length === 1) return { name: "community" };
+    if (parts.length === 2 && /^[A-Za-z0-9_-]{1,100}$/.test(second)) return { name: "communityCourse", id: second };
+    return null;
+  }
   if (first === "progress") return { name: "progress" };
   if (first === "terms" || first === "privacy" || first === "licenses") return { name: "legal", page: first };
   if (first === "search") return { name: "search", q: new URLSearchParams(search).get("q") ?? "" };
