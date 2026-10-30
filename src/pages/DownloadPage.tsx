@@ -3,6 +3,9 @@ import { appUrl } from "../lib/site";
 
 const REPO = "Aziliz/erudior";
 const RELEASES = `https://github.com/${REPO}/releases`;
+// This exact release asset is published and stable. Keep the button available
+// even when GitHub\'s API is temporarily unavailable to the visitor.
+export const ANDROID_PREVIEW_DOWNLOAD = `${RELEASES}/download/android-preview/Erudior-Android-arm64.apk`;
 export const BREW = "brew install --cask aziliz/erudior/erudior";
 
 interface Asset {
@@ -106,11 +109,16 @@ export default function DownloadPage() {
       title: "Android (early preview)",
       body: (
         <>
-          <div className="row">{link(androidApk, "Download Android APK", os === "android")}</div>
-          <p className="small muted">ARM64 Android phones. This is a testing preview, not a production-ready release.</p>
+          <div className="row">{androidApk
+            ? link(androidApk, "Download Android APK", os === "android")
+            : <a className={`btn${os === "android" ? " primary" : ""}`} href={ANDROID_PREVIEW_DOWNLOAD}>
+                Download Android APK <span className="small">(GitHub preview)</span>
+              </a>}</div>
+          <p className="small muted">ARM64 Android phones. This is an early testing preview with verified in-app update support, not a production-ready release.</p>
           <ol className="small install-steps">
             <li>Download the APK directly to your phone; no GitHub sign-in is needed.</li>
             <li>Open the APK in your Files app.</li>
+            <li>If Erudior is already installed, install over the existing app—do not uninstall it first. Android preserves existing data when it accepts the signed update.</li>
             <li>If prompted, allow installing from your browser or Files app, then install Erudior.</li>
             <li>Turn off that installation permission afterward.</li>
           </ol>
@@ -256,7 +264,7 @@ export default function DownloadPage() {
           <summary>How do updates work?</summary>
           <p>
             On Windows, macOS and the AppImage, the app checks for a new version when it starts and offers to install it. With Homebrew, run{" "}
-            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update.
+            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update. On Android, Erudior can check for a verified APK update and opens the Android installer for your approval.
           </p>
         </details>
         <details>
