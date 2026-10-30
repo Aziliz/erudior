@@ -117,9 +117,16 @@ try {
   }
   // Expiry is fixed before preflight; only elapsed DB queue time changes authorization.
   await reset();
-  await run('UPDATE sessions SET expires_at = ?', new Date(Date.now() + 1000).toISOString());
-  beforeCommit(/INSERT INTO courses/i, () => new Promise(resolve => setTimeout(resolve, 1200)));
-  await denied(await call('POST', '/drafts'), 'session expires while commit is queued');
+  await run('UPDATE sessions SET expires_at = ?', new Date(Date.now() + 3000).toISOString());
+  let reachedCommit = false;
+  beforeCommit(/INSERT INTO courses/i, async () => {
+    reachedCommit = true;
+    await new Promise(resolve => setTimeout(resolve, 3200));
+  });
+  const queuedExpiry = await call('POST', '/drafts');
+  assert.equal(reachedCommit, true, 'expiry test must pass preflight and reach the commit queue');
+  assert.equal(queuedExpiry.status, 409, 'expiry must be rejected at commit, not merely at preflight');
+  await denied(queuedExpiry, 'session expires while commit is queued');
   assert.equal(await count('courses'), 1);
   await reset(); await run("UPDATE users SET accepted_at = NULL, terms_version = 0 WHERE id = 'actor'");
   assert.equal((await call('POST', '/drafts')).status, 403, 'no adult/current-terms attestation cannot create');
