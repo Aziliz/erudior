@@ -49,3 +49,7 @@ await fill('Remove planning entries before','2026-01-01');await click('Preview l
 // Damaged JSON is preserved, not converted into an empty editable profile.
 await store.saveState(`records-${bob}`,'{synthetic damaged');await fill('Student',bob);assert.match(document.querySelector('[role=alert]')!.textContent!,/quarantin/i);assert.equal(await store.loadState(`records-${bob}`),'{synthetic damaged');assert.equal([...document.querySelectorAll('button')].some(b=>b.textContent==='Add transfer or local credit'),false);await click('Reload records');assert.equal(await store.loadState(`records-${bob}`),'{synthetic damaged');
 await React.act(async()=>root.unmount());console.log('Academic records UI: policy, reviewed credit corrections, cancel, export preview, CAS conflict, profile isolation, explicit retention and malformed quarantine passed.');
+
+const { pathToView, viewToPath } = await import('../src/lib/routes.ts');
+assert.deepEqual(pathToView('/parent/academic-records','',[],[]),{name:'parent',tab:'academic-records'});
+assert.equal(viewToPath({name:'parent',tab:'academic-records'},[],()=>undefined),'/parent/academic-records');

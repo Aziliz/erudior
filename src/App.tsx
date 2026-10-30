@@ -491,9 +491,11 @@ export default function App() {
     const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
     if (v || catalogTried) {
       pendingPath.current = null;
-      if (v && view.name === "library") {
+      if (v && (view.name === "library" || (v.name === "parent" && view.name === "who"))) {
+        // A direct adult-area link may open the existing password gate without
+        // selecting a child first. It never unlocks the adult area.
         // The route writer below runs in this same effect cycle with the old
-        // library view. Wait for this state update before writing history, so
+        // startup view. Wait for this state update before writing history, so
         // loading/reloading a deep link replaces its own entry, not a fake "/".
         skipResolvingPathWrite.current = true;
         setView(v);
