@@ -1,0 +1,38 @@
+name: Android shell layout and homeschool access
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/android-shell-layout.yml'
+      - 'src/**'
+      - 'scripts/android-shell-browser.mjs'
+      - 'tests/fixtures/android-shell.html'
+      - 'package.json'
+      - 'package-lock.json'
+permissions:
+  contents: read
+concurrency:
+  group: android-shell-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  layout:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Check native shell layout and retained homeschool controls
+        run: node scripts/android-shell-browser.mjs
+      - name: Save layout evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-shell-layout-evidence
+          path: android-shell-evidence/
+          if-no-files-found: warn
+          retention-days: 14
