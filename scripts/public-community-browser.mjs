@@ -227,6 +227,7 @@ try {
     const readsBeforeStart = requests.filter(request => request.path === '/courses/public-one').length;
     await button('Start or open course').evaluate(element => { element.click(); element.click(); });
     await heading(first.title).waitFor();
+    await page.getByRole('navigation', { name: 'Course sections' }).getByRole('button', { name: 'Lessons', exact: true }).click();
     await page.getByRole('button', { name: /Synthetic community lesson/ }).waitFor();
     assert(await installed(), 'explicit Start installed selected synthetic course');
     assert.equal(requests.filter(request => request.path === '/courses/public-one').length, readsBeforeStart + 1, 'repeated Start downloads once');
