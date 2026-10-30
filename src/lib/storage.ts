@@ -1,6 +1,6 @@
 import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
-import { parseStudentWorkspace } from "./studentWorkspace";
+import { parseStudentWorkspace, type StudentWorkspace } from "./studentWorkspace";
 import { parseLearningPathways } from "./learningPathways";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
@@ -223,6 +223,34 @@ export async function competencyProfileExists(id: string): Promise<boolean> {
   const text = await loadState("family"), family = text ? JSON.parse(text) : null;
   return Array.isArray(family?.students) && family.students.some((s: {id?:unknown}) => s.id === id);
 }
+/** Workspace-only writes retain their captured learner and cannot recreate erased profiles.
+ * The post-CAS check covers an absent progress file: deletion can leave CAS's expected
+ * null unchanged. Monotonic profile tombstones make cleanup safe for this exact ID.
+ */
+export async function updateStudentWorkspaceProfile(
+  id: string | null,
+  change: (workspace: StudentWorkspace) => StudentWorkspace,
+  guard?: (current?: Progress) => void | Promise<void>,
+): Promise<Progress> {
+  const assertScope = async (current?: Progress) => {
+    await guard?.(current);
+    if (id !== null && !await competencyProfileExists(id)) throw Error("This learner profile was deleted or no longer exists.");
+    await guard?.(current);
+  };
+  await assertScope();
+  const fresh = await updateProfileProgress(id, async current => {
+    await assertScope(current);
+    return { ...current, studentWorkspace: parseStudentWorkspace(change(parseStudentWorkspace(current.studentWorkspace))) };
+  });
+  // Do not use the UI guard before this check: switching views must not skip privacy cleanup.
+  if (id !== null && !await competencyProfileExists(id)) {
+    await saveState(`progress-${id}`, null);
+    throw Error("This learner profile was deleted during the workspace save; its progress was removed.");
+  }
+  await guard?.();
+  return fresh;
+}
+
 export async function syncCompetencyState(id: string | null, graph: Competency[], courses: Course[]): Promise<Progress> {
   const exists = async () => { if (id !== null && !await competencyProfileExists(id)) throw Error("This learner profile was deleted or no longer exists."); };
   await exists();

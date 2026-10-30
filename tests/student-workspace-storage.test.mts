@@ -3,10 +3,12 @@ import type { Course } from "../src/lib/types";
 // Exercise the production profile and backup boundaries with isolated synthetic state.
 const state = new Map<string, string>();
 const writes: string[] = [];
+let beforeCas: (() => void) | undefined;
 (globalThis as any).isTauri = true;
 (globalThis as any).window = { __TAURI_INTERNALS__: { invoke: async (command: string, args: any) => {
   if (command === "load_state") return state.get(args.name) ?? null;
   if (command === "compare_and_swap_state") {
+    const hook=beforeCas;beforeCas=undefined;hook?.();
     if ((state.get(args.name) ?? null) !== args.expected) return false;
     state.set(args.name, args.content); writes.push(args.name); return true;
   }
@@ -78,4 +80,29 @@ await store.updateProfileProgress('alice',current=>({...current,studentWorkspace
 const afterTask=await store.loadProfileProgress('alice');
 assert.deepEqual(afterTask.spreadsheetGrades,authoritative.spreadsheetGrades);assert.deepEqual(afterTask.lessonsDone,authoritative.lessonsDone);
 assert.deepEqual(JSON.parse(state.get('family')!).students[0].assigned,[],'self-directed completion never assigns parent work');
+// Deleting an empty learner between validation and null-CAS must not resurrect private notes.
+state.delete('progress-alice');
+state.set('progress-bob',JSON.stringify({...stale,studentWorkspace:workspace}));
+const bobBefore=state.get('progress-bob');
+beforeCas=()=>{
+ state.set('classroom-submissions',JSON.stringify({version:1,records:[],complete:[],deletedStudentIds:['alice']}));
+ state.delete('progress-alice');
+ const family=JSON.parse(state.get('family')!);family.students=family.students.filter((s:any)=>s.id!=='alice');state.set('family',JSON.stringify(family));
+};
+await assert.rejects(store.updateStudentWorkspaceProfile('alice',current=>upsertWorkspaceEntry(current,entry,null)),/deleted during the workspace save/);
+assert.equal(state.has('progress-alice'),false,'post-CAS cleanup removes null-CAS resurrection');
+assert.equal(state.get('progress-bob'),bobBefore,'cleanup never touches another learner');
+await assert.rejects(store.updateStudentWorkspaceProfile('alice',()=>workspace),/deleted/);
+assert.equal(state.has('progress-alice'),false);
+let guardCalls=0;
+await assert.rejects(store.updateStudentWorkspaceProfile('bob',()=>workspace,()=>{if(++guardCalls===2)throw Error('selection changed');}),/selection changed/);
+assert.equal(state.get('progress-bob'),bobBefore,'selection changed during existence await aborts before write');
+guardCalls=0;
+await assert.rejects(store.updateStudentWorkspaceProfile('bob',()=>({version:1,entries:[]}),()=>{if(++guardCalls===5)throw Error('late selection changed');}),/late selection changed/);
+assert.deepEqual((await store.loadProfileProgress('bob')).studentWorkspace,{version:1,entries:[]},'late UI selection rejection must not delete a valid learner');
+const anonymousBefore=state.get('progress');
+let sawCurrent=false;
+const capturedGeneration=(JSON.parse(anonymousBefore??'{}').anonymousGeneration??0)+1;
+await assert.rejects(store.updateStudentWorkspaceProfile(null,()=>workspace,current=>{if(current){sawCurrent=true;if((current.anonymousGeneration??0)!==capturedGeneration)throw Error('captured anonymous generation changed');}}),/captured anonymous generation changed/);
+assert(sawCurrent,'generation guard receives the current CAS progress');assert.equal(state.get('progress'),anonymousBefore);
 console.log('Student workspace storage: learner scope, CAS concurrency, stale saves, plain/encrypted/anonymous recovery and malformed archive preflight passed.');

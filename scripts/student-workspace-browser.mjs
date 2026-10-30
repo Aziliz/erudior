@@ -115,8 +115,9 @@ try {
     assert.deepEqual(unchanged, original, 'personal planning does not mutate learning progress or authority');
     assert.equal(after.studentWorkspace.entries.length,5);
     await entry('Synthetic project').getByRole('button',{name:'Mark done',exact:true}).click();
-    await page.locator('#student-portfolio-title').waitFor();
-    assert.equal(await page.locator('section[aria-labelledby="student-portfolio-title"]').getByText('Synthetic project',{exact:true}).count(),1);
+    const completedProject = page.locator('section[aria-labelledby="student-portfolio-title"]').getByText('Synthetic project',{exact:true});
+    await completedProject.waitFor();
+    assert.equal(await completedProject.count(),1);
     await audit(`${theme}-${width}-projects-and-portfolio`);
     await button('Notebook').click();
     await entry('Synthetic note').getByRole('button',{name:'Edit note',exact:true}).click();

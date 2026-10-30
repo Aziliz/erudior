@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
 import { JSDOM } from 'jsdom';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+const guestMode = process.argv.includes('--guest-workspace');
 import type { AppApi, View } from '../src/App';
 import type { Progress } from '../src/lib/types';
 import type { StudentWorkspace } from '../src/lib/studentWorkspace';
 
 // Real component, synthetic profile store implementing the persisted AppApi contract.
-const dom = new JSDOM('<!doctype html><div id="root"></div>', { url: 'https://example.test/workspace' });
+const dom = new JSDOM('<!doctype html><div id="root"></div>', { url: 'https://example.test/workspace' + (guestMode ? '?guest=1' : '') });
 Object.assign(globalThis, { window: dom.window, document: dom.window.document, HTMLElement: dom.window.HTMLElement,
   HTMLInputElement: dom.window.HTMLInputElement, HTMLSelectElement: dom.window.HTMLSelectElement,
   HTMLTextAreaElement: dom.window.HTMLTextAreaElement, localStorage: dom.window.localStorage,
@@ -50,6 +53,7 @@ function makeApi(id: string): AppApi {
   } as unknown as AppApi;
 }
 api = makeApi('alice');
+if (guestMode) api = { ...api, student: null, family: null };
 function button(label: string, scope: ParentNode = document): HTMLButtonElement {
   const result = [...scope.querySelectorAll<HTMLButtonElement>('button')].find(node => node.textContent?.trim() === label || node.getAttribute('aria-label') === label);
   assert(result, `Missing button: ${label}`); return result;
@@ -75,6 +79,14 @@ const entries = () => stored.get(selected)!.studentWorkspace?.entries ?? [];
 await mount();
 assert.equal(document.querySelector('h1')?.textContent, 'Student dashboard and notebook');
 
+if (guestMode) {
+  assert.match(document.body.textContent!, /temporary/i);
+  assert.match(document.body.textContent!, /refresh|close/i);
+  assert.doesNotMatch(document.body.textContent!, /Your plans and ideas, saved on this device/);
+  await click('Notebook'); await click('Add note'); await fill('Title', 'Temporary synthetic note'); await click('Save entry');
+  assert.equal(notices.at(-1), 'Workspace kept for this temporary visit only');
+  assert.equal(entries()[0].title, 'Temporary synthetic note');
+} else {
 assert.match(document.body.textContent!, /does not complete lessons, award credit/);
 const preserved = structuredClone(initial);
 const kinds = [ ['task', 'Daily plan'], ['note', 'Notebook'], ['reading', 'Reading shelf'], ['goal', 'Goals'], ['project', 'Projects'] ];
@@ -170,6 +182,11 @@ selected = 'alice'; generation++; api = makeApi('alice'); await mount();
 assert.doesNotMatch(document.body.textContent!, /Bob only/);
 assert.equal(entries().length, 4);
 
+}
 await React.act(async () => root.unmount());
 dom.window.close();
-console.log('Student workspace UI tests passed');
+if (!guestMode) {
+  const child = spawnSync(process.execPath, ['--import', 'tsx', fileURLToPath(import.meta.url), '--guest-workspace'], {encoding:'utf8'});
+  assert.equal(child.status, 0, child.stdout + child.stderr);
+}
+console.log(guestMode ? 'Temporary workspace wording tests passed' : 'Student workspace UI tests passed (including temporary guest wording)');

@@ -1104,17 +1104,16 @@ export default function App() {
       const selected = studentId;
       const selection = studentSelectionRequest.current;
       const generation = progressRef.current.anonymousGeneration ?? 0;
-      const assertProfile = async () => {
-        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+      const assertProfile = async (current?: Progress) => {
+        const assertSelection = () => {
+          if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+          if (selected === null && ((progressRef.current.anonymousGeneration ?? 0) !== generation || current && (current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload before editing a workspace.");
+        };
+        assertSelection();
         if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+        assertSelection();
       };
-      await assertProfile();
-      const fresh = await store.updateProfileProgress(selected, async current => {
-        await assertProfile();
-        if (selected === null && (current.anonymousGeneration ?? 0) !== generation) throw Error("Local learning data changed. Reload before editing a workspace.");
-        const workspace = parseStudentWorkspace(fn(parseStudentWorkspace(current.studentWorkspace)));
-        return { ...current, studentWorkspace: workspace };
-      });
+      const fresh = await store.updateStudentWorkspaceProfile(selected, fn, assertProfile);
       if (store.activeStudent() === selected && studentSelectionRequest.current === selection
           && (selected !== null || (progressRef.current.anonymousGeneration ?? 0) === generation)) {
         const merged = { ...progressRef.current, studentWorkspace: fresh.studentWorkspace };

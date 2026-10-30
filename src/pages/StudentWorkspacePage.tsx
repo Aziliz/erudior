@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { AppApi, View } from "../App";
 import type { Course } from "../lib/types";
+import { TEMPORARY_GUEST } from "../lib/guestSession";
 import { registerNavigationGuard } from "../lib/navigationGuard";
 import { confirmAction } from "../lib/storage";
 import { STUDENT_WORKSPACE_LIMITS, parseStudentWorkspace, removeWorkspaceEntry, upsertWorkspaceEntry, type WorkspaceEntry } from "../lib/studentWorkspace";
@@ -85,7 +86,7 @@ export default function StudentWorkspacePage({ api }: { api: AppApi }) {
         if (activeScope.current !== requestedScope) throw Error("The learner changed. Reopen the entry before saving.");
         return upsertWorkspaceEntry(current, next, original);
       });
-      if (activeScope.current === requestedScope) { finishEdit(); api.toast("Workspace saved on this device"); }
+      if (activeScope.current === requestedScope) { finishEdit(); api.toast(TEMPORARY_GUEST ? "Workspace kept for this temporary visit only" : "Workspace saved on this device"); }
     } catch (problem) { if (activeScope.current === requestedScope) setError(problem instanceof Error ? problem.message : String(problem)); }
     finally { if (activeScope.current === requestedScope) { busyRef.current = false; setBusy(false); } }
   }
@@ -119,7 +120,7 @@ export default function StudentWorkspacePage({ api }: { api: AppApi }) {
   function submit(event: FormEvent) { event.preventDefault(); if (draft) void saveEntry(draft.entry, draft.original); }
 
   return <div className={`page student-workspace${large ? " student-workspace-large" : ""}`}>
-    <header className="page-head"><div><p className="muted small">{api.student ? `${api.student.name}'s workspace` : "Your workspace"}</p><h1>Student dashboard and notebook</h1><p className="muted">Your plans and ideas, saved on this device. Works offline with installed resources.</p></div>
+    <header className="page-head"><div><p className="muted small">{api.student ? `${api.student.name}'s workspace` : "Your workspace"}</p><h1>Student dashboard and notebook</h1><p className="muted">{TEMPORARY_GUEST ? "Temporary visit: your plans and ideas stay only in this page’s memory. Refreshing or closing the page loses them. Export a backup before leaving if you want to keep them." : "Your plans and ideas, saved on this device. Works offline with installed resources."}</p></div>
       <div className="row"><button className="btn" onClick={() => api.go({ name: "progress", tools: true })}>Courses, skills and progress</button><button className="btn" disabled={busy || !!draft} onClick={() => void refresh()}>Refresh saved workspace</button></div></header>
     <p className="notice small">This is your personal workspace, not an assignment or grading system. Marking an item done does not complete lessons, award credit or change an adult's assignments.</p>
     <div className="workspace-summary" aria-label="Workspace overview">{SECTIONS.map(item => <div key={item.kind}><strong>{workspace.entries.filter(entry => entry.kind === item.kind).length}</strong><span>{item.title}</span></div>)}</div>
