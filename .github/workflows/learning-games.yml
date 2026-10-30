@@ -12,6 +12,7 @@ on:
       - 'scripts/learning-games-browser.mjs'
       - 'scripts/learning-progress-browser.mjs'
       - 'scripts/student-workspace-browser.mjs'
+      - 'scripts/academic-records-browser.mjs'
       - 'scripts/role-navigation-browser.mjs'
       - 'scripts/presentations-browser.mjs'
       - 'scripts/diagnostics-browser.mjs'
@@ -52,6 +53,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Local academic records, portability, privacy and accessibility
+        run: npm run test:academic-records-browser
       - name: Private student workspace, persistence and accessibility
         run: npm run test:student-workspace-browser
       - name: Enrolled courses, pathway persistence and course progress
@@ -253,5 +256,13 @@ jobs:
         with:
           name: student-workspace-browser
           path: test-results/student-workspace-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-browser
+          path: test-results/academic-records-browser/
           if-no-files-found: warn
           retention-days: 14

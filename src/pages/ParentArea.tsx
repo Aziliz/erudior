@@ -1,3 +1,4 @@
+import AcademicRecordsWorkspace from "../components/AcademicRecordsWorkspace";
 import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
 import CredentialWorkspace from "../components/CredentialWorkspace";
 import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
@@ -8,7 +9,7 @@ import TransactionStudio from "../components/TransactionStudio";
 import DocumentEngine from "../components/DocumentEngine";
 import ContentInteroperability from "../components/ContentInteroperability";
 import LearningDiagnostics from "../components/LearningDiagnostics";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CompetencySupervisor from "../components/CompetencySupervisor";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished } from "../lib/catalog";
@@ -73,6 +74,7 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "academic-records"
   | "learner-privacy"
   | "overview"
   | "learning-paths"
@@ -115,6 +117,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "work", label: "Student work" },
   { id: "grades", label: "Grades" },
   { id: "reports", label: "Reports" },
+  { id: "academic-records", label: "Academic records" },
   { id: "students", label: "Students" },
   { id: "games", label: "Learning games" },
   { id: "presentations", label: "Interactive presentations" },
@@ -142,6 +145,7 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "reading", label: "Reading and activities" },
   { id: "documents", label: "Documents" },
   { id: "reports", label: "Reports" },
+  { id: "academic-records", label: "Academic records" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
   { id: "games", label: "Learning games" },
@@ -178,23 +182,32 @@ export default function ParentArea({
   onLock: () => void;
 }) {
   const [records, setRecords] = useState<RecordsMap | null>(null);
+  const [recordsError, setRecordsError] = useState("");
+  const [recordsReload, setRecordsReload] = useState(0);
+  const mounted = useRef(true);
+  const familyRef = useRef(family); familyRef.current = family;
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   const classroom = isClassroom(family);
-
   useEffect(() => {
-    (async () => {
+    let live = true; setRecords(null); setRecordsError("");
+    (async () => { try {
       const out: RecordsMap = {};
       for (const s of family.students) out[s.id] = await loadRecords(s.id);
-      setRecords(out);
-    })();
-  }, [family.students]);
-
-  const saveRec = async (id: string, r: Records) => {
-    await saveRecords(id, r);
-    setRecords((m) => ({ ...(m ?? {}), [id]: r }));
+      if (live) setRecords(out);
+    } catch (e) { if (live) setRecordsError((e as Error).message); } })();
+    return () => { live = false; };
+  }, [family.students, recordsReload]);
+  const saveRec = async (id: string, r: Records): Promise<boolean> => {
+    try {
+      const guard = async () => { if (!mounted.current || !familyRef.current.students.some(s => s.id === id)) throw Error("Learner changed. Reload records before saving."); if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable."); await api.authorizeAcademicRecords(id); };
+      const saved = await saveRecords(id, r, { guard, action: "Adult attendance edit" });
+      await guard(); setRecords((m) => ({ ...(m ?? {}), [id]: saved })); setRecordsError(""); return true;
+    } catch (e) { const message = (e as Error).message; setRecordsError(message); api.toast(message); return false; }
   };
 
   return (
     <div className="page">
+      {recordsError && <div className="notice" role="alert"><p>{recordsError} Stored records were not replaced.</p><button className="btn" onClick={() => setRecordsReload(n => n + 1)}>Reload attendance records</button></div>}
       <div className="page-head no-print">
         <div>
           <h1>{adultLabel(family)} area</h1>
@@ -265,6 +278,7 @@ export default function ParentArea({
           {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
+          {tab === "academic-records" && <AcademicRecordsWorkspace api={api} family={family} />}
           {tab === "reading" && <ReadingTab api={api} family={family} />}
           {tab === "documents" && <DocumentsTab api={api} family={family} />}
           {tab === "students" && <Students api={api} family={family} />}
@@ -517,7 +531,7 @@ function Attendance({
   api: AppApi;
   family: Family;
   records: RecordsMap;
-  saveRec: (id: string, r: Records) => Promise<void>;
+  saveRec: (id: string, r: Records) => Promise<boolean>;
 }) {
   const [sid, setSid] = useState(family.students[0].id);
   const s = family.students.find((x) => x.id === sid) ?? family.students[0];
@@ -602,7 +616,7 @@ function Attendance({
             className="btn primary"
             disabled={!proposed}
             onClick={() =>
-              saveRec(s.id, confirmProposed(r, family)).then(() =>
+              saveRec(s.id, confirmProposed(r, family)).then((saved) => saved &&
                 api.toast(
                   `Confirmed ${proposed} day${proposed === 1 ? "" : "s"}`,
                 ),
@@ -626,10 +640,10 @@ function Attendance({
           onSubmit={async (e) => {
             e.preventDefault();
             if (form.minutes <= 0) return;
-            await saveRec(
+            if (!await saveRec(
               s.id,
               addManual(r, { ...form, note: form.note.trim() }),
-            );
+            )) return;
             setForm((f) => ({ ...f, note: "" }));
             api.toast("Time added");
           }}

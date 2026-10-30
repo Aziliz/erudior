@@ -3,34 +3,19 @@
 // minutes; otherwise it pauses. Saved to the student's records about once a minute.
 
 import { useEffect } from "react";
-import { addTime, adjustTime, loadRecords, saveRecords, type Records } from "./records";
+import { addTime, adjustTime, updateRecordsAtomic, type Records } from "./records";
 import { today } from "./srs";
 
 export const IDLE_MS = 3 * 60_000;
 const TICK_MS = 5_000;
 const FLUSH_MS = 60_000;
 
-// Writes to one records file go one at a time.
-let chain: Promise<unknown> = Promise.resolve();
-/** Change a student's records file, queued behind any other write (the timer saves every minute). */
-export function updateRecords(studentId: string, change: (r: Records) => Records): Promise<void> {
-  const next = chain.then(async () => {
-    const r = await loadRecords(studentId);
-    const out = change(r);
-    if (out !== r) await saveRecords(studentId, out);
-  });
-  chain = next.catch(() => {});
-  return next;
+/** Atomic latest-record mutation; preserves concurrent parent edits and timer increments. */
+export async function updateRecords(studentId: string, change: (r: Records) => Records): Promise<void> {
+  await updateRecordsAtomic(studentId, change, { action: "Learning activity updated" });
 }
-
-/** Logged minutes (activity logs) added or taken back; same write queue as tracked time. */
-export function adjustLogged(studentId: string, courseId: string, date: string, seconds: number): Promise<void> {
-  const next = chain.then(async () => {
-    if (!seconds) return;
-    await saveRecords(studentId, adjustTime(await loadRecords(studentId), date, courseId, seconds));
-  });
-  chain = next.catch(() => {});
-  return next;
+export async function adjustLogged(studentId: string, courseId: string, date: string, seconds: number): Promise<void> {
+  if (seconds) await updateRecords(studentId, r => adjustTime(r, date, courseId, seconds));
 }
 
 export function creditTime(studentId: string, courseId: string, seconds: number, date = today()): Promise<void> {

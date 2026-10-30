@@ -21,29 +21,60 @@ import { loadPhotos, newPhoto, savePhotos, shrinkImage } from "../lib/portfolio"
 import { today } from "../lib/srs";
 import * as store from "../lib/storage";
 import { uid } from "../lib/util";
-import type { Progress } from "../lib/types";
 import { ComplianceDoc, PortfolioDoc, ReportCardDoc, TranscriptDoc, clampPeriod, fmtDate } from "../components/ReportDocs";
 
 export function useStudentData(api: AppApi, family: Family, sid: string) {
   const [data, setData] = useState<StudentData | null>(null);
+  const [error, setError] = useState("");
+  const [reload, setReload] = useState(0);
+  const scope = useRef(sid); scope.current = sid;
+  const mounted = useRef(true);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   useEffect(() => {
     let live = true;
+    setData(null); setError("");
     (async () => {
-      const text = await store.loadState(`progress-${sid}`);
-      const progress: Progress = text ? { ...store.emptyProgress(), ...(JSON.parse(text) as Progress) } : store.emptyProgress();
-      const records = await loadRecords(sid);
-      const student = family.students.find((s) => s.id === sid)!;
-      if (live) setData({ family, student, progress, records, courses: api.allCourses });
+      try {
+        if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable.");
+        await api.authorizeAcademicRecords(sid);
+        const progress = await store.loadProfileProgress(sid);
+        const records = await loadRecords(sid);
+        const student = family.students.find((s) => s.id === sid);
+        if (!student) throw Error("This learner is no longer available.");
+        await api.authorizeAcademicRecords(sid);
+        if (live) setData({ family, student, progress, records, courses: api.allCourses });
+      } catch (e) { if (live) setError((e as Error).message); }
     })();
-    return () => {
-      live = false;
-    };
-  }, [api.allCourses, family, sid]);
-  const setRecords = async (r: Records) => {
-    await saveRecords(sid, r);
-    setData((d) => (d ? { ...d, records: r } : d));
+    return () => { live = false; };
+  }, [api.allCourses, family, sid, reload]);
+  const setRecords = async (r: Records): Promise<boolean> => {
+    const captured = sid;
+    const guard = async () => { if (!mounted.current || scope.current !== captured) throw Error("Learner changed. Reopen these records before saving."); if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable."); await api.authorizeAcademicRecords(captured); if (!mounted.current || scope.current !== captured) throw Error("Learner changed. Reopen these records before saving."); };
+    try {
+      await guard();
+      const saved = await saveRecords(captured, r, { guard, action: "Adult record edit" });
+      await guard(); setData((d) => d?.student.id === captured ? { ...d, records: saved } : d);
+      setError(""); return true;
+    } catch (e) { const message = (e as Error).message; if (mounted.current && scope.current === captured) setError(message); api.toast(message); return false; }
   };
-  return { data, setRecords };
+  return { data: data?.student.id === sid ? data : null, setRecords, error, retry: () => setReload(n => n + 1) };
+}
+
+export function RecordsStatus({ error, retry, sid, api }: { error: string; retry: () => void; sid: string; api: AppApi }) {
+  return <div className="notice" role={error ? "alert" : "status"}>
+    <p>{error || "Loading records…"}</p>
+    {error && <><p>No damaged records have been replaced. Reload to inspect the latest saved version before retrying. Downloaded recovery files may contain private learner information.</p>
+      <button className="btn" onClick={retry}>Reload records</button>{" "}
+      <button className="btn" onClick={async () => {
+        try {
+          if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable.");
+          await api.authorizeAcademicRecords(sid);
+          const raw = await store.loadState(`records-${sid}`);
+          await api.authorizeAcademicRecords(sid);
+          if (raw !== null) await store.exportText(raw, "academic-records-recovery.json", "Private records recovery");
+        } catch (e) { api.toast((e as Error).message); }
+      }}>Download stored recovery copy</button></>}
+  </div>;
 }
 
 export function StudentPicker({ family, sid, setSid }: { family: Family; sid: string; setSid: (s: string) => void }) {
@@ -67,10 +98,10 @@ const yearOptions = (d: StudentData) => recordYears(d).map((y) => ({ value: y, l
 
 export function GradesTab({ api, family }: { api: AppApi; family: Family }) {
   const [sid, setSid] = useState(family.students[0].id);
-  const { data, setRecords } = useStudentData(api, family, sid);
+  const { data, setRecords, error, retry } = useStudentData(api, family, sid);
   const [year, setYear] = useState(family.year.start);
   const [editing, setEditing] = useState<string | null>(null);
-  if (!data) return <p className="muted">Loading…</p>;
+  if (!data) return <RecordsStatus api={api} error={error} retry={retry} sid={sid} />;
   const r = data.records;
   const rows = coursesInYear(data, year);
   const { cutoffs } = gradingOf(family);
@@ -79,6 +110,7 @@ export function GradesTab({ api, family }: { api: AppApi; family: Family }) {
 
   return (
     <>
+      {error && <RecordsStatus api={api} error={error} retry={retry} sid={sid} />}
       <div className="row" style={{ marginBottom: 16, alignItems: "flex-end" }}>
         <StudentPicker family={family} sid={sid} setSid={(s) => (setSid(s), setEditing(null))} />
         <label className="field">
@@ -171,7 +203,7 @@ export function GradesTab({ api, family }: { api: AppApi; family: Family }) {
             rec={r.courses[editing] ?? {}}
             row={rows.find((x) => x.courseId === editing)!}
             onSave={async (rec) => {
-              await setCourse(editing, rec);
+              if (!await setCourse(editing, rec)) return;
               setEditing(null);
               api.toast("Saved");
             }}
@@ -287,7 +319,7 @@ function CourseEditor({
   );
 }
 
-type Setter = (r: Records) => Promise<void>;
+type Setter = (r: Records) => Promise<boolean>;
 
 function ParentGrades({ api, data, setRecords, courseIds }: { api: AppApi; data: StudentData; setRecords: Setter; courseIds: string[] }) {
   const r = data.records;
@@ -308,7 +340,7 @@ function ParentGrades({ api, data, setRecords, courseIds }: { api: AppApi; data:
             e.preventDefault();
             const p = Number(f.percent);
             if (!f.title.trim() || !(p >= 0 && p <= 100) || f.percent === "") return api.toast("Give it a name and a percent from 0 to 100.");
-            await setRecords({ ...r, grades: [...r.grades, { id: uid("g"), courseId: f.courseId || courseIds[0], title: f.title.trim(), date: f.date, percent: p }] });
+            if (!await setRecords({ ...r, grades: [...r.grades, { id: uid("g"), courseId: f.courseId || courseIds[0], title: f.title.trim(), date: f.date, percent: p }] })) return;
             setF({ ...f, title: "", percent: "" });
             api.toast("Grade added");
           }}
@@ -379,10 +411,10 @@ function OutsideCourses({ api, data, setRecords }: { api: AppApi; data: StudentD
           const c = Number(f.credits);
           if (!f.title.trim() || (p !== undefined && !(p >= 0 && p <= 100)) || !(c >= 0 && c <= 5)) return api.toast("Check the course name, percent and credits.");
           const yearStart = `${f.year}-${fam.year.start.slice(5)}`;
-          await setRecords({
+          if (!await setRecords({
             ...r,
             outside: [...r.outside, { id: uid("o"), title: f.title.trim(), subject: f.subject, yearStart, gradeLevel: f.grade, percent: p, credits: c, level: f.level, where: f.where.trim() }],
-          });
+          })) return;
           setF(blank);
           api.toast("Course added to the transcript");
         }}
@@ -475,7 +507,7 @@ function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setR
         onSubmit={async (e) => {
           e.preventDefault();
           if (!f.name.trim() || !f.result.trim()) return api.toast("Enter the test and the result.");
-          await setRecords({ ...r, tests: [...r.tests, { id: uid("t"), date: f.date, name: f.name.trim(), result: f.result.trim(), notes: f.notes.trim() }] });
+          if (!await setRecords({ ...r, tests: [...r.tests, { id: uid("t"), date: f.date, name: f.name.trim(), result: f.result.trim(), notes: f.notes.trim() }] })) return;
           setF(blank);
           api.toast("Result added");
         }}
@@ -551,7 +583,7 @@ body{margin:0;background:#fff;color:#111}</style></head><body data-theme="light"
 
 export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
   const [sid, setSid] = useState(family.students[0].id);
-  const { data, setRecords } = useStudentData(api, family, sid);
+  const { data, setRecords, error, retry } = useStudentData(api, family, sid);
   const [kind, setKind] = useState<Kind>("card");
   const [year, setYear] = useState(family.year.start);
   const [periodId, setPeriodId] = useState("year");
@@ -559,10 +591,12 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
   const docRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    loadPhotos(sid).then(setPhotos, () => setPhotos([]));
+    let live = true; setPhotos([]);
+    loadPhotos(sid).then(value => { if (live) setPhotos(value); }, () => { if (live) setPhotos([]); });
+    return () => { live = false; };
   }, [sid]);
 
-  if (!data) return <p className="muted">Loading…</p>;
+  if (!data) return <RecordsStatus api={api} error={error} retry={retry} sid={sid} />;
   const now = today();
   const qs = quarters(family);
   const period: Period =
@@ -580,6 +614,7 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
 
   return (
     <>
+      {error && <RecordsStatus api={api} error={error} retry={retry} sid={sid} />}
       <div className="row no-print" style={{ marginBottom: 16, alignItems: "flex-end" }}>
         <StudentPicker family={family} sid={sid} setSid={setSid} />
         <label className="field">

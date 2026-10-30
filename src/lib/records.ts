@@ -1,11 +1,12 @@
 // A student's school records: time spent learning (tracked in the app and entered by hand),
 // and attendance the parent confirmed. One file per student: records-<id>.
 
+import { parseAcademicRecords, restoreAcademicRecords, type AcademicRecords } from "./academicRecords";
 import { CATALOG } from "./catalog";
 import type { Family, Student } from "./family";
 import { addDays, daysBetween, today } from "./srs";
 import { hoursFor, stateInfo, type StateInfo } from "./states";
-import { loadState, saveState } from "./storage";
+import { loadState, saveState, updateState, competencyProfileExists } from "./storage";
 import { uid } from "./util";
 import type { CourseRecord, OutsideCourse, ParentGrade } from "./grades";
 import type { DocumentRef } from "./documents";
@@ -74,6 +75,13 @@ export interface ManualEntry {
 export interface Records {
   format: "erudior-records";
   version: 1;
+  /** Local optimistic revision; imported revisions never establish authority. */
+  revision?: number;
+  academic?: AcademicRecords;
+  /** Bounded local change journal, not a signed or tamper-proof institutional audit. */
+  audit?: RecordsAuditEntry[];
+  /** Imported history is preserved as historical claims, not authenticated authorship. */
+  restoredAt?: string;
   /** Seconds of active study, by day and course id. */
   time: Record<string, Record<string, number>>;
   /** Learning away from the app (field trips, reading, sports…). */
@@ -114,18 +122,136 @@ export const emptyRecords = (): Records => ({
   activities: [],
 });
 
-export async function loadRecords(studentId: string): Promise<Records> {
-  const text = await loadState(`records-${studentId}`);
-  if (!text) return emptyRecords();
-  try {
-    return { ...emptyRecords(), ...(JSON.parse(text) as Records) };
-  } catch {
-    return emptyRecords();
+export interface RecordsAuditEntry {
+  revision: number;
+  at: string;
+  action: string;
+  fields: string[];
+  origin: "local" | "imported";
+}
+export const MAX_RECORDS_BYTES = 8 * 1024 * 1024;
+export const MAX_RECORDS_AUDIT = 1000;
+const recordError = () => Error("Academic records are damaged or unsupported. They are quarantined in place and were not replaced. Export the damaged source for recovery before repairing or restoring a backup.");
+const object = (v: unknown): v is Record<string, any> => !!v && typeof v === "object" && !Array.isArray(v);
+function assertObject(v: unknown): asserts v is Record<string, any> { if (!object(v)) throw recordError(); }
+const string = (v: unknown, max = 10000) => { if (typeof v !== "string" || v.length > max) throw recordError(); };
+const number = (v: unknown, max = 1e12, min = 0) => { if (typeof v !== "number" || !Number.isFinite(v) || v < min || v > max) throw recordError(); };
+const array = (v: unknown): any[] => { if (!Array.isArray(v) || v.length > 50000) throw recordError(); return v; };
+const strings = (v: Record<string, any>, keys: string[]) => keys.forEach(k => string(v[k]));
+function safeTree(value: unknown, depth = 0, budget = { n: 0 }): void {
+  if (++budget.n > 250000 || depth > 24) throw recordError();
+  if (typeof value === "number" && !Number.isFinite(value)) throw recordError();
+  if (typeof value === "string" && value.length > 250000) throw recordError();
+  if (value && typeof value === "object") for (const [key, child] of Object.entries(value)) {
+    if (["__proto__", "prototype", "constructor"].includes(key)) throw recordError();
+    safeTree(child, depth + 1, budget);
   }
 }
-
-export async function saveRecords(studentId: string, r: Records): Promise<void> {
-  await saveState(`records-${studentId}`, JSON.stringify(r));
+/** Legacy fields are retained; malformed input is never projected as an empty record. */
+export function parseRecords(value: unknown): Records {
+  if (typeof value === "string") {
+    if (new TextEncoder().encode(value).length > MAX_RECORDS_BYTES) throw recordError();
+    try { value = JSON.parse(value); } catch { throw recordError(); }
+  }
+  assertObject(value); safeTree(value);
+  if (value.format !== "erudior-records" || value.version !== 1) throw recordError();
+  const r = { ...emptyRecords(), ...value } as Records;
+  for (const name of ["time", "days", "courses", "narratives"] as const) assertObject(r[name]);
+  for (const day of Object.values(r.time)) { assertObject(day); Object.values(day).forEach(v => number(v)); }
+  if (Object.values(r.days).some(v => v !== "present" && v !== "absent")) throw recordError();
+  for (const c of Object.values(r.courses)) {
+    assertObject(c);
+    for (const k of ["credits", "percentOverride", "gradeLevel"] as const) if (c[k] !== undefined) number(c[k], k === "percentOverride" ? 100 : 1000, k === "gradeLevel" ? -1 : 0);
+    for (const k of ["overrideNote", "comment", "yearStart"] as const) if (c[k] !== undefined) string(c[k]);
+    if (c.level !== undefined && !["regular", "honors", "ap"].includes(c.level)) throw recordError();
+  }
+  for (const map of Object.values(r.narratives)) { assertObject(map); Object.values(map).forEach(v => string(v)); }
+  const required: Record<string,string[]> = {
+    manual:["id","date","subject","note"], grades:["id","courseId","date","title"],
+    outside:["id","title","subject","yearStart","level","where"], tests:["id","date","name","result","notes"],
+    documents:["id","fileId","name","mime","kind","date","note"], reading:["id","date","title","author","subject","note"],
+    activities:["id","kind","name","role","from","to","note"],
+  };
+  for (const [field, keys] of Object.entries(required)) {
+    const rows = array((r as any)[field]); const ids = new Set<string>();
+    for (const row of rows) {
+      assertObject(row); strings(row, keys);
+      if (!row.id || ids.has(row.id)) throw recordError(); ids.add(row.id);
+      for (const k of ["minutes", "hours", "credits", "bytes", "percent", "gradeLevel"]) if (row[k] !== undefined) number(row[k], k === "percent" ? 100 : 1e12, k === "gradeLevel" ? -1 : 0);
+      if (field === "manual" && row.minutes === undefined || field === "grades" && row.percent === undefined || field === "outside" && row.credits === undefined || field === "documents" && row.bytes === undefined || field === "activities" && row.hours === undefined) throw recordError();
+      if (field === "outside" && !["regular", "honors", "ap"].includes(row.level)) throw recordError();
+      if (row.textKey !== undefined) string(row.textKey);
+    }
+  }
+  if (r.reviews !== undefined) {
+    assertObject(r.reviews);
+    for (const reviews of Object.values(r.reviews)) for (const review of array(reviews)) {
+      assertObject(review); strings(review,["at","by","forSubmitted","comment"]); assertObject(review.levels);
+      Object.values(review.levels).forEach(v => number(v));
+      if (review.notes !== undefined) { assertObject(review.notes); Object.values(review.notes).forEach(v => string(v)); }
+      for (const k of ["points","outOf","percent"]) if (review[k] !== undefined) number(review[k]);
+      if (review.revise !== undefined && typeof review.revise !== "boolean") throw recordError();
+    }
+  }
+  if (r.academic !== undefined) r.academic = parseAcademicRecords(r.academic);
+  if (r.revision !== undefined && (!Number.isSafeInteger(r.revision) || r.revision < 0)) throw recordError();
+  if (r.restoredAt !== undefined) string(r.restoredAt);
+  if (r.audit !== undefined) {
+    if (array(r.audit).length > MAX_RECORDS_AUDIT) throw recordError();
+    for (const entry of r.audit) {
+      assertObject(entry); strings(entry,["at","action"]); number(entry.revision,Number.MAX_SAFE_INTEGER);
+      array(entry.fields).forEach(v => string(v,100));
+      if (!["local","imported"].includes(entry.origin)) throw recordError();
+    }
+  }
+  if (new TextEncoder().encode(JSON.stringify(r)).length > MAX_RECORDS_BYTES) throw recordError();
+  return r;
+}
+export function recordsMutation(current: Records, next: Records, action = "Records updated", now = new Date().toISOString()): Records {
+  const checked = parseRecords(next), revision = (current.revision ?? 0) + 1;
+  if (!Number.isSafeInteger(revision)) throw Error("Academic record revision limit reached.");
+  const fields = Object.keys(checked).filter(k => !["revision","audit"].includes(k) && JSON.stringify((current as any)[k]) !== JSON.stringify((checked as any)[k]));
+  return parseRecords({ ...checked, revision, audit: [...(current.audit ?? []), {revision,at:now,action:action.slice(0,200),fields,origin:"local"}].slice(-MAX_RECORDS_AUDIT) });
+}
+export interface RecordsIO {
+  read(name: string): Promise<string | null>;
+  update(name: string, change: (old: string | null) => string | Promise<string>): Promise<string>;
+  remove(name: string): Promise<void>;
+  exists(id: string): Promise<boolean>;
+}
+const recordsIO: RecordsIO = {read:loadState,update:updateState,remove:name=>saveState(name,null),exists:competencyProfileExists};
+const recordKey = (id: string) => { if (!/^[a-z0-9]{1,24}$/.test(id)) throw Error("Invalid learner profile."); return `records-${id}`; };
+export async function loadRecords(studentId: string, io: RecordsIO = recordsIO): Promise<Records> {
+  const text = await io.read(recordKey(studentId));
+  return text === null ? emptyRecords() : parseRecords(text);
+}
+export interface RecordsSaveOptions { action?: string; guard?: () => void | Promise<void> }
+/** Pure changes can be retried by CAS. Timers/reader updates must use this instead of a stale snapshot. */
+export async function updateRecordsAtomic(studentId: string, change: (r: Records) => Records, options: RecordsSaveOptions = {}, io: RecordsIO = recordsIO): Promise<Records> {
+  const key = recordKey(studentId);
+  const assertScope = async () => { await options.guard?.(); if (!await io.exists(studentId)) throw Error("This learner profile was deleted or no longer exists."); await options.guard?.(); };
+  await assertScope();
+  const text = await io.update(key, async old => {
+    await assertScope();
+    const current = old === null ? emptyRecords() : parseRecords(old), next = change(current);
+    await assertScope();
+    return JSON.stringify(next === current ? current : recordsMutation(current,next,options.action));
+  });
+  if (!await io.exists(studentId)) { await io.remove(key); throw Error("This learner profile was deleted during saving; its records were removed."); }
+  await options.guard?.();
+  return parseRecords(text);
+}
+export async function saveRecords(studentId: string, r: Records, options: RecordsSaveOptions = {}, io: RecordsIO = recordsIO): Promise<Records> {
+  const snapshot = parseRecords(r);
+  return updateRecordsAtomic(studentId, current => {
+    if ((current.revision ?? 0) !== (snapshot.revision ?? 0)) throw Error("Academic records changed in another view. Reload records before saving; your changes were not written.");
+    return snapshot;
+  }, options, io);
+}
+/** Explicit full-backup restore: history is not authenticated by encryption or import. */
+export function restoredRecords(value: unknown): Records {
+  const r = parseRecords(value);
+  return parseRecords({ ...r, ...(r.academic === undefined ? {} : {academic: restoreAcademicRecords(r.academic)}), restoredAt: new Date().toISOString(), audit: (r.audit ?? []).map(entry => ({...entry,origin:"imported"})) });
 }
 
 export function addTime(r: Records, date: string, courseId: string, seconds: number): Records {

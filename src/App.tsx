@@ -144,6 +144,7 @@ export interface AppApi {
   /** Unsupervised public-browser study; never grants assignment or credit authority. */
   publicLearning?: boolean;
   learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
+  authorizeAcademicRecords?: (id: string) => Promise<void>;
   catalog: { source: CatalogSource; error?: string };
   banks: Bank[];
   courses: Course[];
@@ -1172,6 +1173,11 @@ export default function App() {
       await reload();
     },
     chooseStudent,
+    authorizeAcademicRecords: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before opening academic records.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !current.students.some(s => s.id === id) || !await store.competencyProfileExists(id) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen academic records.");
+    },
     allCourses: courses,
     assignmentBlock,
     addCommunityCourse,
