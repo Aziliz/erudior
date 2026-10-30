@@ -20,7 +20,7 @@ type State={drafts:Record<string,Draft>,selected:KDemoId,installed:Record<string
 const initial=():State=>({drafts:{},selected:K_DEMO_SUBJECTS[0].id,installed:{},requests:[]});
 let state:State=JSON.parse(sessionStorage.getItem(key)||'null')||initial();
 let failSaves=false,failPublish=false,delay=0;
-const persist=()=>sessionStorage.setItem(key,JSON.stringify(state));
+const persist=()=>{sessionStorage.setItem(key,JSON.stringify(state));window.dispatchEvent(new Event('synthetic-k-demo-change'));};
 const originalFetch=window.fetch.bind(window);
 const emptyProgress=()=>({...initialProgress(),pretests:{},work:{}});
 const selectedId=()=>`${mode}-${state.selected}`;
@@ -56,6 +56,8 @@ window.fetch=async(input,init)=>{
  throw Error('Unexpected synthetic method: '+method+' '+route);
 };
 function Fixture(){
+ const[,render]=useState(0);
+ useEffect(()=>{const changed=()=>render(n=>n+1);window.addEventListener('synthetic-k-demo-change',changed);return()=>window.removeEventListener('synthetic-k-demo-change',changed);},[]);
  const[notice,setNotice]=useState(''),[selected,setSelected]=useState(state.selected),[view,setView]=useState<'list'|'editor'|'installed'|'source'>(()=>JSON.parse(sessionStorage.getItem(routeKey)||'null')?.view||'list'),[id,setId]=useState(()=>JSON.parse(sessionStorage.getItem(routeKey)||'null')?.id||''),[epoch,setEpoch]=useState(0),[reset,setReset]=useState(false),[progress,setProgress]=useState<any>(emptyProgress);
  useEffect(()=>{sessionStorage.setItem(routeKey,JSON.stringify({view,id}));},[view,id]);
  const go=(route:any)=>{if(!requestNavigation('app',route))return;if(route.name==='communityEdit'){const subject=K_DEMO_SUBJECTS.find(s=>`${mode}-${s.id}`===route.id);if(!subject){setNotice('Unknown synthetic subject route.');return;}state.selected=subject.id;persist();setSelected(subject.id);setId(route.id);setView('editor');}else{setView('list');setEpoch(n=>n+1);}};
