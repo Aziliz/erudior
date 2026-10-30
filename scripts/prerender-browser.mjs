@@ -148,6 +148,43 @@ try {
       await page.reload({ waitUntil: 'networkidle' });
       await start.waitFor();
       await capture('app-preview-reload', start);
+      // Reloading the app must not insert a phantom app-root history entry.
+      // Cross-host browser navigation is exercised through the real dist shell.
+      const publicDetailUrl = `https://erudior.com/community/${fixture.id}`;
+      const appDetailUrl = `https://app.erudior.com/community/${fixture.id}`;
+      await page.goBack({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), publicDetailUrl, 'Back after app reload returns directly to the public course');
+      await heading(fixture.title).waitFor();
+      await learn.waitFor();
+      await capture('handoff-back', learn);
+      await page.goForward({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), appDetailUrl, 'Forward returns to the exact app course preview');
+      await start.waitFor();
+      await capture('handoff-forward', start);
+      await page.reload({ waitUntil: 'networkidle' });
+      await start.waitFor();
+      await page.reload({ waitUntil: 'networkidle' });
+      await start.waitFor();
+      await page.goBack({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), publicDetailUrl, 'repeated app reloads still leave public detail as the previous entry');
+      await learn.waitFor();
+      await capture('handoff-repeated-reload-back', learn);
+      await page.goForward({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), appDetailUrl, 'Forward after repeated reloads preserves exact app preview');
+      await start.waitFor();
+      // The bootstrap guard must not suppress genuine user navigation pushes.
+      await page.getByRole('button', { name: 'Courses', exact: true }).click();
+      await heading('Courses').waitFor();
+      assert.equal(page.url(), 'https://app.erudior.com/', 'user Courses navigation reaches the app library');
+      await page.goBack({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), appDetailUrl, 'user navigation pushes a real entry; Back restores preview');
+      await start.waitFor();
+      await page.goForward({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), 'https://app.erudior.com/', 'Forward restores the user-selected library');
+      await heading('Courses').waitFor();
+      await page.goBack({ waitUntil: 'networkidle' });
+      assert.equal(page.url(), appDetailUrl);
+      await start.waitFor();
       // Course storage is IndexedDB; inspect without writing or importing source.
       const installed = await page.evaluate(async () => {
         const names = await indexedDB.databases();
@@ -169,7 +206,7 @@ try {
       assert.ok(requests.every(request => request.method === 'GET' && ['/catalog', `/courses/${fixture.id}`].includes(request.path) && !request.cookie && !request.authorization), 'only cookie-free public GETs; no identity or author APIs');
       assert.deepEqual(unexpected, [], 'no relative fallback API requests or mutations');
       assert.deepEqual(errors, [], 'no uncaught production-bundle errors');
-      results.push({ label, fresh: true, repeat: true, publicApiOrigin: communityApi.origin, requests, exactAppPreview: true, installed: false });
+      results.push({ label, fresh: true, repeat: true, publicApiOrigin: communityApi.origin, requests, exactAppPreview: true, crossOriginHistory: true, repeatedReloadHistory: true, userNavigationHistory: true, installed: false });
     } catch (error) {
       await page.screenshot({ path: path.join(evidence, `${label}-failure.png`) }).catch(() => {});
       writeFileSync(path.join(evidence, `${label}-failure.json`), JSON.stringify({ error: String(error), requests, errors, unexpected, url: page.url() }, null, 2));
