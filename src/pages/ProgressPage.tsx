@@ -100,6 +100,8 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
       <button className="btn" onClick={createPathway} disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}>Create a pathway</button>
     </header>
 
+    <section className="panel" aria-label="Personal learning workspace"><h2>Your workspace</h2><p className="muted">Plan your day, keep private notes, track reading, and build your own goals and projects.</p><button className="btn primary" onClick={() => api.go({ name: "workspace" })}>Open student workspace</button></section>
+
     <section className="progress-summary" aria-label="Enrollment overview">
       <div><span>Enrolled courses</span><strong className="num">{summary.enrolledCourses}</strong><small>{summary.inProgressCourses} in progress</small></div>
       <div><span>Completed courses</span><strong className="num">{summary.completedCourses}<small> / {summary.enrolledCourses}</small></strong><small>{summary.lessonsDone} core lessons completed</small></div>

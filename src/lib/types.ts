@@ -236,6 +236,8 @@ export interface Progress {
   enrolled?: string[];
   /** Learner-owned ordered course plans, kept with this profile's progress and recovery. */
   learningPathways?: import("./learningPathways").LearningPathway[];
+  /** Private learner-owned planning; never authoritative assignments or grades. */
+  studentWorkspace?: import("./studentWorkspace").StudentWorkspace;
   theme?: "light" | "dark" | "system";
   /** Course spreadsheet assignment grading history, keyed by course/assignment ID. */
   /** Immutable learner-submitted spreadsheet evidence; practice scores remain separate. */

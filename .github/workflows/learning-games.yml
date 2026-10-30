@@ -11,6 +11,7 @@ on:
       - 'worker/**'
       - 'scripts/learning-games-browser.mjs'
       - 'scripts/learning-progress-browser.mjs'
+      - 'scripts/student-workspace-browser.mjs'
       - 'scripts/role-navigation-browser.mjs'
       - 'scripts/presentations-browser.mjs'
       - 'scripts/diagnostics-browser.mjs'
@@ -51,6 +52,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Private student workspace, persistence and accessibility
+        run: npm run test:student-workspace-browser
       - name: Enrolled courses, pathway persistence and course progress
         run: npm run test:learning-progress-browser
       - name: Courses navigation and local family or classroom gates
@@ -242,5 +245,13 @@ jobs:
         with:
           name: offline-course-browser
           path: test-results/offline-course-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: student-workspace-browser
+          path: test-results/student-workspace-browser/
           if-no-files-found: warn
           retention-days: 14

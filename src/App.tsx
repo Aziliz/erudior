@@ -28,6 +28,9 @@ import Runner from "./pages/Runner";
 import Results from "./pages/Results";
 import Editor from "./pages/Editor";
 import ProgressPage from "./pages/ProgressPage";
+import StudentWorkspacePage from "./pages/StudentWorkspacePage";
+import "./student-workspace.css";
+import { parseStudentWorkspace, type StudentWorkspace } from "./lib/studentWorkspace";
 import { parseLearningPathways, type LearningPathway } from "./lib/learningPathways";
 import { LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
@@ -108,6 +111,7 @@ export type View =
   | { name: "communityCourse"; id: string }
   | { name: "library" }
   | { name: "progress"; tools?: boolean }
+  | { name: "workspace" }
   | { name: "legal"; page: LegalPage }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
@@ -175,6 +179,9 @@ export interface AppApi {
   updateProgress: (fn: (p: Progress) => Progress) => Promise<void>;
   /** Persist pathway edits against the latest state of the captured learner profile. */
   updateLearningPathways: (fn: (paths: LearningPathway[]) => LearningPathway[]) => Promise<void>;
+  /** Private self-directed plans; never modifies assignments, assessment evidence or credentials. */
+  updateStudentWorkspace: (fn: (workspace: StudentWorkspace) => StudentWorkspace) => Promise<void>;
+  refreshStudentWorkspace: () => Promise<void>;
   /** Saves a standalone bank, or writes the bank back into its course. */
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
@@ -1078,6 +1085,42 @@ export default function App() {
         setProgressState(merged);
       }
     },
+    refreshStudentWorkspace: async () => {
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const priorWorkspace = JSON.stringify(progressRef.current.studentWorkspace);
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const fresh = await store.loadProfileProgress(selected);
+      if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+      if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+      if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+      if (selected === null && ((fresh.anonymousGeneration ?? 0) !== generation || (progressRef.current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload the app before continuing.");
+      if (JSON.stringify(progressRef.current.studentWorkspace) !== priorWorkspace) throw Error("Workspace changed while refreshing. Try again.");
+      const merged = { ...progressRef.current, studentWorkspace: parseStudentWorkspace(fresh.studentWorkspace) };
+      progressRef.current = merged;
+      setProgressState(merged);
+    },
+    updateStudentWorkspace: async (fn) => {
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const assertProfile = async (current?: Progress) => {
+        const assertSelection = () => {
+          if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+          if (selected === null && ((progressRef.current.anonymousGeneration ?? 0) !== generation || current && (current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload before editing a workspace.");
+        };
+        assertSelection();
+        if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+        assertSelection();
+      };
+      const fresh = await store.updateStudentWorkspaceProfile(selected, fn, assertProfile);
+      if (store.activeStudent() === selected && studentSelectionRequest.current === selection
+          && (selected !== null || (progressRef.current.anonymousGeneration ?? 0) === generation)) {
+        const merged = { ...progressRef.current, studentWorkspace: fresh.studentWorkspace };
+        progressRef.current = merged;
+        setProgressState(merged);
+      }
+    },
     saveCourse,
     addCourse,
     importInteroperabilityBank: async (xml) => {
@@ -1187,6 +1230,9 @@ export default function App() {
       if (COMMUNITY) body = <PublicCommunity id={view.id} appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} onStart={family ? undefined : (id) => addCommunityCourse(id, true)} />;
       break;
 
+    case "workspace":
+      body = <StudentWorkspacePage key={studentId === null ? "independent" : `student:${studentId}`} api={api} />;
+      break;
     case "progress":
       body = <ProgressPage key={studentId === null ? "independent" : `student:${studentId}`} api={api} initialToolsOpen={view.tools} />;
       break;
@@ -1378,7 +1424,7 @@ export default function App() {
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
   const navCurrent =
-    view.name === "progress"
+    view.name === "progress" || view.name === "workspace"
       ? "progress"
       : view.name === "community" || view.name === "communityCourse" || view.name === "create" || view.name === "communityEdit"
             ? "community"

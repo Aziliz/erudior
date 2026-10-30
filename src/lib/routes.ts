@@ -68,6 +68,8 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return "/community";
     case "communityCourse":
       return "/community/" + encodeURIComponent(v.id);
+    case "workspace":
+      return "/workspace";
     case "progress":
       return "/progress";
     case "legal":
@@ -153,6 +155,7 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
     if (parts.length === 2 && /^[A-Za-z0-9_-]{1,100}$/.test(second)) return { name: "communityCourse", id: second };
     return null;
   }
+  if (first === "workspace" && parts.length === 1) return { name: "workspace" };
   if (first === "progress") return { name: "progress" };
   if (first === "terms" || first === "privacy" || first === "licenses") return { name: "legal", page: first };
   if (first === "search") return { name: "search", q: new URLSearchParams(search).get("q") ?? "" };

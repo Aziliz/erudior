@@ -6,6 +6,7 @@ import { parseInstructionalLibrary, type InstructionalLibrary } from './instruct
 import { parseTransactionLibrary, type TransactionLibrary } from './transactionEngine';
 import { parseDocumentLibrary, type DocumentLibrary } from './documentEngine';
 import { parseInterventionTasks } from './interventionTasks';
+import { parseStudentWorkspace } from './studentWorkspace';
 import { parseLearningPathways } from './learningPathways';
 import { parseInterventionState, type InterventionState } from './interventions';
 import { parsePresentationLibrary, type PresentationLibrary } from "./presentations";
@@ -125,6 +126,7 @@ export async function decryptText(raw: unknown, passphrase: string): Promise<str
 function validateProgressEvidence(progress: Progress): Progress {
   if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
   if (progress.learningPathways !== undefined) parseLearningPathways(progress.learningPathways);
+  if (progress.studentWorkspace !== undefined) parseStudentWorkspace(progress.studentWorkspace);
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, progress.assessedWorkSubmissions);
   if (progress.spreadsheetSubmissions !== undefined) mergeSpreadsheetSubmissions({}, progress.spreadsheetSubmissions);
@@ -356,7 +358,7 @@ export async function restoreContents(
   }
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
-  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true });
+  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true });
   if (b.family) await saveFamily(b.family);
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);
