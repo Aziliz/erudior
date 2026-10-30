@@ -47,7 +47,7 @@ try {
   assert.ok(ready, 'preview server starts');
   browser = await chromium.launch();
   for (const width of [1280, 320]) {
-    for (const pagePath of ['/', '/community', '/roadmap', '/download', '/terms', '/privacy', '/licenses']) {
+    for (const pagePath of ['/', '/community', '/roadmap', '/download', '/engine-license', '/terms', '/privacy', '/licenses']) {
       const snapshot = readFileSync(path.join(root, 'dist/__site', pagePath, 'index.html'), 'utf8');
       assert.ok(!hasStartupOverlay(snapshot), `${pagePath}: snapshot contains no startup overlay`);
       const context = await browser.newContext({ viewport: { width, height: 800 } });

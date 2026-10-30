@@ -1,4 +1,4 @@
-import { parentCourseDigest, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
+import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
 import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
 import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
 import { createAdvancedAssessmentStore } from "./lib/advancedAssessmentStore";
@@ -372,10 +372,20 @@ export default function App() {
   }, []);
 
   const setProgress = useCallback(async (p: Progress) => {
+    const profile = store.activeStudent();
+    const courseId = "courseId" in view ? view.courseId : view.name === "run" ? courses.find(c => c.banks.some(b => b.id === view.session.bankId))?.id : "bankId" in view ? courses.find(c => c.banks.some(b => b.id === view.bankId))?.id : undefined;
+    const source = courseId ? courses.find(c => c.id === courseId) : undefined;
+    const digest = family && !isClassroom(family) && profile && source?.community ? await parentCourseDigest(source) : undefined;
+    const guard = async () => {
+      if (store.activeStudent() !== profile) throw Error("Learner changed before saving. The newer learner's progress was not changed.");
+      if (digest && profile && courseId) await assertCurrentParentCourseAccess(profile,courseId,digest);
+    };
+    await guard();
+    await store.saveProgress(p,{guard});
+    await guard();
     progressRef.current = p;
     setProgressState(p);
-    await store.saveProgress(p);
-  }, []);
+  }, [family,courses,view]);
 
   useEffect(() => {
     (async () => {
@@ -588,6 +598,9 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, view, banksKey, studentId]);
 
+  const [reviewDigests, setReviewDigests] = useState<Map<Course, string>>(new Map());
+  useEffect(() => { let live = true; Promise.all(courses.filter(c => c.community).map(async c => [c, await parentCourseDigest(c)] as const)).then(entries => { if (live) setReviewDigests(new Map(entries)); }).catch(() => { if (live) setReviewDigests(new Map()); }); return () => { live = false; }; }, [courses]);
+
   const enroll = useCallback(
     async (id: string) => {
       const p = progressRef.current;
@@ -611,8 +624,6 @@ export default function App() {
     [reload, enroll],
   );
 
-  const [reviewDigests, setReviewDigests] = useState<Map<Course, string>>(new Map());
-  useEffect(() => { let live = true; Promise.all(courses.filter(c => c.community).map(async c => [c, await parentCourseDigest(c)] as const)).then(entries => { if (live) setReviewDigests(new Map(entries)); }).catch(() => { if (live) setReviewDigests(new Map()); }); return () => { live = false; }; }, [courses]);
   const assignmentBlock = useCallback(
     (courseId: string): string | null => {
       if (!student) return null;
@@ -649,14 +660,11 @@ export default function App() {
       const request = ++studentSelectionRequest.current;
       if (!await store.competencyProfileExists(id)) throw Error("This learner no longer exists.");
       // Read the selected files without changing the active student's storage context.
-      const raw = await store.loadState(`progress-${id}`);
-      let p = store.emptyProgress();
-      try { if (raw) p = { ...p, ...JSON.parse(raw) }; } catch { /* Match storage's corrupt-file fallback. */ }
-      const migrated = migrateVocabKeys(p, courses);
-      if (migrated !== p) {
-        p = migrated;
-        await store.saveState(`progress-${id}`, JSON.stringify(p));
-      }
+      const guard = async () => { if (request !== studentSelectionRequest.current || !await store.competencyProfileExists(id)) throw Error("Learner changed or was deleted during selection."); };
+      await guard();
+      let p = await store.loadProfileProgress(id);
+      if (migrateVocabKeys(p,courses) !== p) p = await store.updateProfileProgress(id,async current => { await guard(); return migrateVocabKeys(current,courses); });
+      await guard();
       if (request !== studentSelectionRequest.current || !requestNavigation("app", target)) return;
       store.useStudentFiles(id);
       progressRef.current = p;
@@ -1262,15 +1270,16 @@ export default function App() {
   const [communityRoute, setCommunityRoute] = useState<{view: View; student: string | null; course: Course; error: string} | null>(null);
   useEffect(() => {
     if (!family || isClassroom(family) || !studentId || !routedCommunity) return;
-    let live = true;
+    let live = true, ticket = 0;
     const check = async () => {
+      const request = ++ticket;
       try {
         const fresh = await loadFamily(), saved = await store.loadStoredCourseSnapshot(routedCommunity.id);
         const child = fresh?.students.find(s => s.id === studentId);
         if (!child || !saved || !await store.competencyProfileExists(studentId) || !hasParentCourseReview(studentId,saved.course,await parentCourseDigest(saved.course),child.assigned.find(a => a.courseId === saved.course.id)?.communityReview) || await parentCourseDigest(saved.course) !== await parentCourseDigest(routedCommunity)) throw Error("Parent review required for this exact community version. Return to Family to review or restore the assignment. Prior progress is preserved.");
         const reason = assignmentBlock(saved.course.id); if (reason) throw Error(reason);
-        if (live) setCommunityRoute({view,student:studentId,course:routedCommunity,error:""});
-      } catch(e) { if (live) setCommunityRoute({view,student:studentId,course:routedCommunity,error:(e as Error).message}); }
+        if (live && request === ticket) setCommunityRoute({view,student:studentId,course:routedCommunity,error:""});
+      } catch(e) { if (live && request === ticket) setCommunityRoute({view,student:studentId,course:routedCommunity,error:(e as Error).message}); }
     };
     void check();
     const focus = () => { setCommunityRoute(null); void check(); };

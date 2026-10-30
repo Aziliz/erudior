@@ -1,9 +1,9 @@
 /** Private local parental suitability decisions, never publication approval or verified credit. */
-import type { Assignment, Family } from "./family";
+import { loadFamily, type Assignment, type Family } from "./family";
 import type { Course } from "./types";
 import { exportCourseSnapshot, normalizeCourse } from "./course";
 import { sha256Hex } from "./courseSign";
-import { competencyProfileExists, updateState } from "./storage";
+import { competencyProfileExists, loadStoredCourseSnapshot, updateState } from "./storage";
 export interface ParentCourseReview { learnerId: string; communityId: string; version: number; contentDigest: string; reviewedAt: string }
 const digestPattern = /^[a-f0-9]{64}$/;
 const learnerPattern = /^[a-z0-9]{1,24}$/;
@@ -68,4 +68,23 @@ export async function saveParentCourseAssignment(expected: Family, learnerId: st
   }
   // A failure here is an uncertain UI outcome; reload instead of blindly repeating the write.
   await guard(); return JSON.parse(text) as Family;
+}
+
+export interface ParentCourseAccessIO {
+  family(): Promise<Family | null>;
+  course(id: string): Promise<{ course: Course; raw: string } | null>;
+  exists(id: string): Promise<boolean>;
+}
+const accessIO: ParentCourseAccessIO = { family: loadFamily, course: loadStoredCourseSnapshot, exists: competencyProfileExists };
+/** Fresh persisted authority, reusable at activity write boundaries as well as route entry. */
+export async function assertCurrentParentCourseAccess(learnerId: string, courseId: string, expectedDigest?: string, io: ParentCourseAccessIO = accessIO): Promise<void> {
+  const denied = () => Error("Parent review required for this exact community version. Reopen the learning plan; prior progress is preserved.");
+  if (!learnerPattern.test(learnerId)) throw denied();
+  const family = await io.family(), source = await io.course(courseId);
+  if (!family || family.mode === "classroom" || !source || source.course.id !== courseId || !source.course.community || !await io.exists(learnerId)) throw denied();
+  const digest = await parentCourseDigest(source.course);
+  if (expectedDigest !== undefined && digest !== expectedDigest) throw denied();
+  const current = await io.family(), stored = await io.course(courseId);
+  const student = current?.students.find(s => s.id === learnerId);
+  if (!current || current.mode === "classroom" || !student || !stored || stored.raw !== source.raw || !hasParentCourseReview(learnerId,source.course,digest,student.assigned.find(a => a.courseId === courseId)?.communityReview) || !await io.exists(learnerId)) throw denied();
 }

@@ -274,7 +274,9 @@ export async function syncCompetencyState(id: string | null, graph: Competency[]
   });
 }
 /** Other learner writes must not erase newer durable evidence or adult decisions. */
-interface SaveProgressOptions {
+export interface SaveProgressOptions {
+  /** Rechecked inside the profile CAS callback before each attempted write. */
+  guard?: () => void | Promise<void>;
   replaceCompetencies?: boolean;
   replaceInterventionTasks?: boolean;
   replaceLearningPathways?: boolean;
@@ -298,7 +300,12 @@ export async function saveProgress(p: Progress, options: SaveProgressOptions = {
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
   if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   const selected = student;
-  await updateProfileProgress(selected, current => mergeSavedProgress(p, current, options));
+  await updateProfileProgress(selected, async current => {
+    await options.guard?.();
+    const merged = mergeSavedProgress(p, current, options);
+    await options.guard?.();
+    return merged;
+  });
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { emptyCourse, normalizeCourse, serializeCourse } from '../src/lib/course.ts';
-import { hasParentCourseReview, makeParentCourseReview, parentCourseDigest, saveParentCourseAssignment, withoutParentCourseReviews, type ParentAssignmentIO } from '../src/lib/parentCourseReview.ts';
+import { assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, parentCourseDigest, saveParentCourseAssignment, withoutParentCourseReviews, type ParentAssignmentIO } from '../src/lib/parentCourseReview.ts';
 import type { Family } from '../src/lib/family.ts';
 import { stateTransactions } from '../src/lib/stateLock.ts';
 const course={...emptyCourse('Synthetic review fixture'),community:{id:'fixture',version:1,author:'Synthetic',review:'not_reviewed' as const}};
@@ -45,3 +45,17 @@ const lockedIO:ParentAssignmentIO={update:fn=>transactions.update('family',fn),e
 await saveParentCourseAssignment(family,'child',course.id,assignment,async()=>{assert(JSON.parse((await backend.read())!).parent.password);},lockedIO);
 assert.equal(JSON.parse(transactionRaw!).students[0].assigned.length,1);
 console.log('Parent review content/version/profile, pending digest, CAS, revocation, deletion, backup and nested authorization-read tests passed.');
+
+let accessFamily=assigned,accessSource={course,raw:serializeCourse(course)},accessExists=true;
+const accessIO={family:async()=>accessFamily,course:async()=>accessSource,exists:async()=>accessExists};
+await assertCurrentParentCourseAccess('child',course.id,digest,accessIO);
+await assert.rejects(assertCurrentParentCourseAccess('sibling',course.id,digest,accessIO),/Parent review required/);
+accessFamily=withoutParentCourseReviews(assigned);
+await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,accessIO),/Parent review required/);
+accessFamily=assigned;accessExists=false;
+await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,accessIO),/Parent review required/);
+accessExists=true;accessSource={course:{...course,title:'Changed content'},raw:'changed'};
+await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,accessIO),/Parent review required/);
+accessSource={course,raw:serializeCourse(course)};let familyReads=0;
+await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,{...accessIO,family:async()=>++familyReads===1?assigned:withoutParentCourseReviews(assigned)}),/Parent review required/);
+console.log('Fresh parent course access rejects revoked, cross-profile, changed source and during-hash revocation.');

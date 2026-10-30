@@ -28,3 +28,19 @@ const native=fs.readFileSync('src-tauri/src/lib.rs','utf8');
 assert.match(native,/fn compare_and_swap_course[\s\S]*?item_path\(&app, "courses", &id\)[\s\S]*?NAMED_STATE_LOCK.lock\(\)[\s\S]*?compare_and_swap_course_path\(&path, &id, expected.as_deref\(\), &content\)/);
 assert.match(native,/save_item,\s+compare_and_swap_course,/);
 console.log('Parent course storage exact-byte CAS, competing writers, stale/absent previews, formatting and path safety passed.');
+
+const {saveProgress,emptyProgress,useStudentFiles}=await import('../src/lib/storage.ts');
+useStudentFiles('child');
+const initial=emptyProgress();values.set('erudior.progress-child',JSON.stringify(initial));
+await assert.rejects(saveProgress({...initial,enrolled:['synthetic-cas']},{guard:()=>{throw Error('Review revoked');}}),/Review revoked/);
+assert.equal(values.get('erudior.progress-child'),JSON.stringify(initial),'revoked activity cannot write progress');
+let guards=0;await assert.rejects(saveProgress({...initial,enrolled:['synthetic-cas']},{guard:()=>{if(++guards===2)throw Error('Revoked during save');}}),/Revoked during save/);
+assert.equal(values.get('erudior.progress-child'),JSON.stringify(initial));
+// A concurrent profile write forces the CAS updater to reauthorize, never reuse a previous guard.
+let attempts=0;
+await assert.rejects(saveProgress({...initial,enrolled:['synthetic-cas']},{guard:()=>{
+  attempts++;if(attempts===2)values.set('erudior.progress-child',JSON.stringify({...initial,enrolled:['other']}));
+  if(attempts===3)throw Error('Revoked on CAS retry');
+}}),/Revoked on CAS retry/);
+assert.deepEqual(JSON.parse(values.get('erudior.progress-child')!).enrolled,['other']);
+console.log('Activity progress guards block revoked and retry-raced authorization without clobbering newer progress.');
