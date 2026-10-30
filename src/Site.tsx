@@ -51,8 +51,8 @@ export default function Site() {
       });
     else if (page === "download")
       setSeo({
-        title: "Download Erudior for Windows, macOS and Linux",
-        description: "Download the free Erudior desktop app for Windows, macOS and Linux: every course offline, plus homeschool records, transcripts, classroom mode and live rooms.",
+        title: "Download Erudior for Android, Windows, macOS and Linux",
+        description: "Download Erudior for Android (ARM64 preview), Windows, macOS and Linux. The Android APK supports verified in-app updates with your approval.",
         url: SITE_ORIGIN + "/download",
       });
     else

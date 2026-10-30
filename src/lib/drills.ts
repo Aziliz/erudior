@@ -122,7 +122,12 @@ function fill(text: string, values: Record<string, number | string>, labels: Rec
   const val = (name: string, fmt?: string) => (name in values ? formatNum(values[name], fmt) : null);
   // Tidy math that a value of 1 or 2 makes awkward: b^{1} -> b, \sqrt[2]{x} -> \sqrt{x}.
   text = text
-    .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt?: string) => (val(name, fmt) === "1" ? "" : m))
+    .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt: string | undefined, at: number) => {
+      if (val(name, fmt) !== "1") return m;
+      // Removing the exponent must not join a TeX control word to the next
+      // letter: \lambda^{1}e must become \lambda{}e, never \lambdae.
+      return /\\[A-Za-z]+$/.test(text.slice(0, at)) && /^[A-Za-z]/.test(text.slice(at + m.length)) ? "{}" : "";
+    })
     .replace(/\\sqrt\[\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\]/g, (m, name: string, fmt?: string) => (val(name, fmt) === "2" ? "\\sqrt" : m));
   const math = mathMask(text);
   return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}/g, (m, name: string, fmt: string | undefined, at: number) => {

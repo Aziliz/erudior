@@ -15,3 +15,16 @@ test("Android public download uses a release asset rather than a workflow artifa
   assert.match(source, /!r\.draft/);
   assert.match(source, /coming soon/);
 });
+
+test("published Android download stays clickable when GitHub's release API is unavailable", () => {
+  assert.match(source, /ANDROID_PREVIEW_DOWNLOAD = `\$\{RELEASES\}\/download\/android-preview\/Erudior-Android-arm64\.apk`/);
+  assert.match(source, /androidApk\s*\? link\(androidApk, "Download Android APK"/);
+  assert.match(source, /href=\{ANDROID_PREVIEW_DOWNLOAD\}/);
+  assert.match(source, /install over the existing app/);
+  assert.match(source, /do not uninstall it first/);
+});
+
+test("download page metadata identifies Android alongside desktop", () => {
+  const site = readFileSync(new URL("../src/Site.tsx", import.meta.url), "utf8");
+  assert.match(site, /Download Erudior for Android, Windows, macOS and Linux/);
+});
