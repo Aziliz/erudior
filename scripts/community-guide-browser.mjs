@@ -40,7 +40,7 @@ try{
   await audit(name+'-guide-open',guide);
   const sections=guide.getByRole('navigation',{name:'Authoring guide sections'}).getByRole('button');const titles=await sections.allTextContents();assert(titles.length>=8,'comprehensive section navigation');
   // Every section is reachable by an actual button, not merely present in hidden markup.
-  for(const [index,title] of titles.entries()){await guide.getByRole('button',{name:title,exact:true}).click();await guide.getByRole('heading',{level:3}).waitFor();if(name.endsWith('-legacy'))await audit(name+'-guide-section-'+String(index+1).padStart(2,'0'),guide.getByRole('heading',{level:3}));}
+  for(const [index,title] of titles.entries()){await guide.getByRole('button',{name:title,exact:true}).click();await guide.getByRole('heading',{level:3}).waitFor();if(name.endsWith('-legacy')){await audit(name+'-guide-section-'+String(index+1).padStart(2,'0'),guide.getByRole('heading',{level:3}));await audit(name+'-guide-section-'+String(index+1).padStart(2,'0')+'-end',guide.locator('article').locator('li').last());if(await guide.locator('pre').count())await audit(name+'-guide-section-'+String(index+1).padStart(2,'0')+'-example',guide.locator('pre'));}}
   const search=page.getByLabel('Search authoring guide',{exact:true});await search.fill('spreadsheet');assert(await sections.count()>0);await audit(name+'-guide-search',guide);
   await search.fill('zzzz-no-authoring-topic');assert.equal(await sections.count(),0);await audit(name+'-guide-no-results',guide);await search.fill('');
   await summary.focus();await page.keyboard.press('Enter');await guide.waitFor({state:'hidden'});
