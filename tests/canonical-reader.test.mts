@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {validateReaderTexts,normalizeValidatedReaderTexts,readerRevisionProblems,READER_LIMITS,type ReaderText} from '../src/lib/readerContent.ts';
+import {normalizeTexts} from '../src/lib/reader.ts';
+import {emptyCourse,normalizeCourse,exportCourseSnapshot} from '../src/lib/course.ts';
+import {validateCourseIntegrity,importValidatedCourseSnapshot} from '../src/lib/courseIntegrity.ts';
+import {compareCourseRevisions} from '../src/lib/courseRevision.ts';
+const texts:ReaderText[]=[{id:'book',title:' Book ',author:' Author ',date:'c. 1600',kind:'prose',lang:'en-US',subject:'Reading',about:' **Intro** ',source:' Original source ',lineNumbers:0,glossary:[{term:'Word',definition:' Definition ',aliases:[],topic:'Topic'}],sections:[{id:'one',title:' One ',body:'Text.[^a]\n\n[^a]: Note.',questions:['q1']},{id:'two',title:'Two',body:'Other',questions:[]}]}];
+assert.deepEqual(validateReaderTexts(texts,{questionIds:['q1']}),[]);
+const clone=normalizeValidatedReaderTexts(texts);assert.deepEqual(clone,texts);clone[0].sections[0].body='Changed';assert.notEqual(clone[0].sections[0].body,texts[0].sections[0].body);
+assert.deepEqual(normalizeTexts(texts),texts,'canonical explicit defaults and whitespace preserved');
+assert.deepEqual(normalizeCourse({...emptyCourse(),texts}).texts,texts);
+const demo=JSON.parse(readFileSync('samples/demo-reader.json','utf8'));
+assert.deepEqual(validateReaderTexts(demo.texts,{legacy:true}),[]);
+const base=()=>structuredClone(texts);
+const mutations:Array<(t:any)=>void>=[t=>t[0].id='__proto__',t=>t[0].sections[0].id='constructor',t=>t[0].sections[0].questions=['prototype'],t=>t[0].kind=['prose'],t=>t[0].lang=42,t=>t[0].lineNumbers='5',t=>t[0].lineNumbers=-1,t=>t[0].unknown='lost',t=>t[0].sections[0].extra=true,t=>t.push(t[0]),t=>t[0].sections.push(t[0].sections[0]),t=>t[0].sections[0].questions=['q1','q1'],t=>t[0].sections[0].questions=['missing'],t=>t[0].sections[0].body='Missing[^x]',t=>t[0].sections[0].body='No ref\n[^x]: Unused',t=>t[0].sections[0].body='[^x]\n[^x]: One\n[^x]: Two',t=>t[0].sections=[null],t=>t[0].glossary=[{term:'',definition:7}],t=>t[0].sections[0].body='x'.repeat(READER_LIMITS.body+1)];
+for(const mutate of mutations){const value=base();mutate(value);assert.ok(validateReaderTexts(value,{questionIds:['q1']}).length);assert.throws(()=>normalizeValidatedReaderTexts(value,{questionIds:['q1']}));}
+for(const raw of [null,{},[null],JSON.parse('[{"__proto__":{}}]')])assert.ok(validateReaderTexts(raw).length);
+const cyclic:any=[];cyclic.push(cyclic);assert.ok(validateReaderTexts(cyclic).length);
+assert.deepEqual(validateReaderTexts([{id:'draft',title:'',sections:[]}],{strict:false}),[]);
+assert.ok(validateReaderTexts([{id:'draft',title:'',sections:[]}]).length);
+const legacy=[{id:'old',sections:[{id:'one',body:'Text'}]}];assert.ok(validateReaderTexts(legacy).length);assert.deepEqual(normalizeValidatedReaderTexts(legacy,{legacy:true}),[{id:'old',title:'Text 1',sections:[{id:'one',title:'Part 1',body:'Text'}]}]);
+const course={...emptyCourse('Reader'),revision:1,texts};
+const secondBankCourse={...course,banks:[{id:'main',questions:[]},{id:'second',questions:[{id:'q1'}]}] as any};
+assert.ok(validateCourseIntegrity(secondBankCourse).some(e=>e.message.includes('first bank')),'reader cannot resolve question from second bank');
+assert.throws(()=>importValidatedCourseSnapshot(JSON.stringify({...course,texts:[null]})),/reading library/);
+const noQuestions=base();noQuestions[0].sections[0].questions=[];
+assert.ok(readerRevisionProblems(texts,noQuestions).some(e=>e.includes('question q1')));
+assert.ok(compareCourseRevisions(course,{...course,revision:2,texts:noQuestions}).some(e=>e.severity==='blocking'&&e.path==='texts'));
+const moved=base();moved[0].sections[0].questions=[];moved[0].sections[1].questions=['q1'];assert.ok(readerRevisionProblems(texts,moved).length);
+const edited=base();edited[0].sections.reverse();edited[0].title='Clarified';assert.deepEqual(readerRevisionProblems(texts,edited),[]);
+const portable={...course,texts:base()};portable.texts[0].sections[0].questions=[];assert.deepEqual(importValidatedCourseSnapshot(exportCourseSnapshot(portable)).texts,portable.texts);
+
+const legacyExact:any=base();delete legacyExact[0].title;delete legacyExact[0].sections[0].title;
+assert.deepEqual(normalizeTexts(legacyExact),normalizeValidatedReaderTexts(legacyExact,{legacy:true}),"legacy defaulting preserves all other fields exactly");
+console.log('canonical reader: exact metadata/default/order roundtrip, raw rejection, legacy defaults, first-bank refs and revision continuity passed');

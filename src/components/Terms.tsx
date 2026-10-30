@@ -2,7 +2,9 @@
 // (erudior.com/terms, /privacy) and the app (/terms, /privacy, /licenses on app.erudior.com and in
 // the desktop app, so they work offline). Courses that need more (professional, exam-prep and AP
 // courses) carry their own `disclaimer`. Not reviewed by a lawyer yet.
-import { useEffect, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
+
+const EngineLicenseText = lazy(() => import("./EngineLicenseText"));
 
 export const TERMS_UPDATED = "October 24, 2026";
 export const LEGAL_EMAIL = "legal@erudior.com";
@@ -197,7 +199,7 @@ export function PrivacyPolicy({ linkTo }: { linkTo: LinkTo }) {
 
       <h2>Your choices</h2>
       <p>
-        You can erase your progress in the app at any time (Progress page), or delete the app's data folder or your browser's site data. Community
+        You can erase your progress in the app at any time (Courses → Study tools, skill evidence, and data), or delete the app's data folder or your browser's site data. Community
         authors can delete their courses, and can ask us to delete their account by emailing {mail}.
       </p>
 
@@ -231,18 +233,14 @@ export function ThirdPartyLicenses() {
 
 /** Proposed Engine license, clearly distinguished from an adopted software license. */
 export function EngineLicenseDraft() {
-  const [text, setText] = useState<string | null>(null);
-  useEffect(() => {
-    fetch("/engine-license-draft.txt").then(
-      r => r.ok ? r.text() : Promise.reject(new Error(String(r.status))),
-    ).then(setText, () => setText("The proposed license could not be loaded."));
-  }, []);
   return <article className="prose terms-of-use">
     <h1>Erudior Engine license proposal</h1>
-    <p><strong>Draft for rights-holder and legal review. Not yet adopted as the repository's effective license.</strong></p>
+    <p><strong>Nonbinding draft for rights-holder and legal review. Not adopted and not effective.</strong></p>
+    <p>Publication grants no permissions and imposes no obligations. Using Erudior or displaying a splash does not accept or activate this proposal. Adoption requires a separate approved change.</p>
     <p>This proposed custom source-available license outlines Engine reuse, startup attribution, and sharing modifications to distributed or publicly hosted versions. It is not an OSI-approved open-source license. Independent course content and learner records are excluded from its contribution-back requirement.</p>
-    <p>Read the <a href="https://github.com/Aziliz/erudior/blob/main/LICENSE-DRAFT.md">draft in the GitHub repository</a> and the <a href="https://github.com/Aziliz/erudior/blob/main/docs/ENGINE_LICENSING.md">licensing explanation</a>. Third-party dependencies retain their own separate license terms.</p>
-    {text === null ? <p className="muted">Loading proposed license…</p> : <pre className="licenses-text" tabIndex={0}>{text}</pre>}
+    <p>Read the <a href="https://github.com/Aziliz/erudior/blob/main/LICENSE-DRAFT.md">draft in the GitHub repository</a> and the <a href="https://github.com/Aziliz/erudior/blob/main/docs/ENGINE_LICENSING.md">licensing explanation</a>. Read the separate <a href="/licenses">third-party software notices</a>; those materials retain their own terms. The licensing explanation lists the remaining ownership, contributor, trademark, compatibility and legal decisions.</p>
+    <p><a href="/engine-license-draft.txt" download>Download the nonbinding draft text</a></p>
+    <Suspense fallback={<p className="muted">Loading proposed license…</p>}><EngineLicenseText /></Suspense>
   </article>;
 }
 

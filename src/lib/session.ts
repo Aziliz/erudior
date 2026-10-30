@@ -1,3 +1,5 @@
+import nacl from 'tweetnacl';
+import {learnerCanonical} from './learnerPrivacy';
 import type { Attempt, Bank, Chosen, LessonRef, ModuleRef, Mode, Progress, Question, Tally } from "./types";
 import { shuffle, uid } from "./util";
 import { isAnswered, isCorrect, qtype } from "./questions";
@@ -21,6 +23,9 @@ export interface Block {
 }
 
 export interface Session {
+  /** Local anonymous recovery source guard, not authentication or grading authority.
+   * Persisted by serializeRun and rechecked at every actual resume. Legacy sessions omit it. */
+  anonymousRecoverySourceDigest?: string;
   intervention?: { skillId: string; baseline: number | null };
   id: string;
   bankId: string;
@@ -120,8 +125,8 @@ export function drawExamQuestions(bank: Bank, count: number): Question[] {
 
 /** One block per quota section when every drawn question belongs to a timed section. */
 function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[] {
-  const quotas = Object.keys(bank.exam.sectionQuotas ?? {});
-  const mins = opts.sectionMinutes;
+  const quotas = Object.entries(bank.exam.sectionQuotas ?? {}).filter(([, count]) => count > 0).map(([id]) => id);
+  const mins = positiveSectionMinutes(opts.sectionMinutes);
   const split =
     mins && quotas.length > 1 && quotas.every((s) => mins[s] > 0) && items.every((it) => quotas.includes(it.q.section ?? ""));
   if (!split) return [{ start: 0, end: items.length, timeLimitSec: Math.round(opts.minutes * 60) }];
@@ -141,9 +146,15 @@ function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[
   return blocks;
 }
 
+/** Empty/zero authored timing maps mean no section override, without rewriting source. */
+export function positiveSectionMinutes(value?: Record<string, number>): Record<string, number> | undefined {
+  const entries = Object.entries(value ?? {}).filter(([, minutes]) => Number.isFinite(minutes) && minutes > 0);
+  return entries.length ? Object.fromEntries(entries) : undefined;
+}
+
 /** The bank's default exam settings, including split timers when it has them. */
 export function defaultExamOptions(bank: Bank): ExamOptions {
-  const split = bank.exam.sectionTimeLimits;
+  const split = positiveSectionMinutes(bank.exam.sectionTimeLimits);
   const minutes = split ? Object.values(split).reduce((a, b) => a + b, 0) : bank.exam.timeLimitMinutes;
   return { count: bank.exam.questionCount, minutes, shuffleChoices: true, sectionMinutes: split };
 }
@@ -493,6 +504,11 @@ export interface Resumable {
   savedAt: string;
 }
 
+/** Synchronous exact-source guard for recovered sessions. No signature/identity claim. */
+export function anonymousRecoveryBankDigest(bank: Bank): string {
+  return Array.from(nacl.hash(new TextEncoder().encode(learnerCanonical(bank))), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
 /** Rebuild a saved session against the current bank. Null if it can't be restored. */
 export function restoreRun(text: string, banks: Bank[]): Resumable | null {
   try {
@@ -500,6 +516,9 @@ export function restoreRun(text: string, banks: Bank[]): Resumable | null {
     if (saved.version !== 1) return null;
     const bank = banks.find((b) => b.id === saved.session.bankId);
     if (!bank) return null;
+    const recoveredDigest = saved.session.anonymousRecoverySourceDigest;
+    if (recoveredDigest !== undefined && (typeof recoveredDigest !== 'string' || !/^[a-f0-9]{128}$/.test(recoveredDigest)
+      || banks.filter(candidate => candidate.id === bank.id).some(candidate => anonymousRecoveryBankDigest(candidate) !== recoveredDigest))) return null;
     const byId = new Map(bank.questions.map((q) => [q.id, q]));
     const items: SessionItem[] = [];
     for (const it of saved.session.items) {

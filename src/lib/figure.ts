@@ -2,7 +2,7 @@
 // drills (the drill's `figure`) and lessons (```plot or ```figure code blocks).
 // Any number in a spec may be an expression using the drill's values and functions.
 
-import type { FigureSpec } from "./types";
+import type { FigureSpec } from "./exerciseTypes";
 import { derivAt as deriv1, evalNode, parse, type UserFn } from "./expr";
 
 
@@ -40,8 +40,15 @@ class Placer {
     private H: number,
   ) {}
   line(ax: number, ay: number, bx: number, by: number) {
-    const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4));
-    for (let k = 0; k <= n; k++) this.pts.push([ax + ((bx - ax) * k) / n, ay + ((by - ay) * k) / n]);
+    // Label-placement heuristics must not allocate in proportion to untrusted
+    // off-screen coordinates (or divide by tiny authored axis ranges).
+    if (![ax, ay, bx, by].every(Number.isFinite) || this.pts.length >= 8192) return;
+    const n = Math.min(1024, 8191 - this.pts.length, Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4)));
+    for (let k = 0; k <= n; k++) {
+      const t = n ? k / n : 0;
+      const x = ax * (1 - t) + bx * t, y = ay * (1 - t) + by * t;
+      if (Number.isFinite(x) && Number.isFinite(y)) this.pts.push([x, y]);
+    }
   }
   score(b: Box): number {
     let c = 0;
@@ -506,7 +513,7 @@ export function fillFigureText(spec: FigureSpec, fill: (s: string) => string): F
 /** For Markdown: render ```plot / ```figure JSON blocks as SVG, slotted back in after Markdown. */
 export function protectFigures(md: string, scope: Record<string, number> = {}): { text: string; restore: (html: string) => string } {
   const rendered: string[] = [];
-  const text = md.replace(/```(plot|figure|shape|numberline)\s*\n([\s\S]*?)```/g, (_m, kind: string, body: string) => {
+  const text = md.replace(/^```(plot|figure|shape|numberline)[ \t]*\r?\n([\s\S]*?)^```[ \t]*$/gm, (_m, kind: string, body: string) => {
     let html: string;
     try {
       const spec = JSON.parse(body) as FigureSpec;

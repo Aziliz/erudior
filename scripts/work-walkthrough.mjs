@@ -160,7 +160,7 @@ await audit("log");
 
 if (mode === "home") {
   // Hours: the log's minutes are on the student's records.
-  await btn(/^Parent$/).click();
+  await btn(/^Family$/).click();
   await pg.waitForTimeout(300);
   await pg.getByLabel(/password/i).first().fill("correct horse");
   await btn(/^Open$/).click();

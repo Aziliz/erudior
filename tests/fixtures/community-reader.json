@@ -1,0 +1,10 @@
+[
+  {
+    "id":"observation-poem","title":"An observation poem","author":"Test fixture author","date":"2026","kind":"poem","lang":"en-US","subject":"English language arts","about":"A **test-only** reading sample.","source":"Original test fixture; no external publication.","lineNumbers":2,
+    "glossary":[{"term":"observe","definition":"To notice carefully.","aliases":["observing"],"topic":"Reading"}],
+    "sections":[
+      {"id":"opening","title":"Opening lines","body":"I observe the quiet sky.\nA bird passes by.[^1]\n\n[^1]: A fictional observation.","questions":["l1-q1"]},
+      {"id":"closing","title":"Closing lines","body":"I write what I can see.\nThe notes remain with me.","questions":["m1-mq1"]}
+    ]
+  }
+]

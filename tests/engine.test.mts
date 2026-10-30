@@ -92,6 +92,37 @@ const third = { id: "t", title: "Third", vars: { a: { choices: [7] } }, calc: { 
   answers: [{ name: "r", format: "num2", tolerance: 0.0001 }], solution: "" };
 { const g = generate(third as any); const ok = checkAll(g, ["2.33"])[0].ok, bad = checkAll(g, ["2.34"])[0].ok;
   if (!ok || bad) { fails++; console.log("FAIL shown value", g.parts[0].display, ok, bad); } }
+// Exact fraction cancellation must not be confused with intentionally tiny values.
+// This fixed tuple reproduces the former random precalculus recurrence failure.
+{
+  const recurrence = { id: "fraction-zero", title: "Exact recurrence", vars: { rat: { choices: [-2] }, add: { choices: [8] }, st: { choices: [3] }, m: { choices: [3] } },
+    calc: { fix: "add/(1-rat)", gap: "st-fix", am: "fix+gap*rat^m" }, prompt: "", answer: "am", format: "number", solution: "",
+    answers: [{ name: "fix", kind: "fraction" }, { name: "am", kind: "fraction" }] };
+  const authoredBefore = JSON.stringify(recurrence);
+  const g = generate(recurrence as any);
+  if (JSON.stringify(recurrence) !== authoredBefore) { fails++; console.log("FAIL zero proof changed authored drill"); }
+  if (g.values.am === 0 || g.parts[1].target !== 0 || !checkAll(g, ["8/3", "0"]).every(r => r.ok) || checkAll(g, ["8/3", "1/1000000"])[1].ok) {
+    fails++; console.log("FAIL exact cancellation proof", g.values, g.parts, checkAll(g, ["8/3", "0"]));
+  }
+  for (const [label, calc, answers, vars] of [
+    ["tiny fraction", { am: "1e-20" }, [{ name: "am", kind: "fraction" }], {}],
+    ["tiny numeric", { am: "1e-20" }, [{ name: "am", kind: "number", format: "sci" }], {}],
+    ["unsupported function", { am: "sin(pi)" }, [{ name: "am", kind: "fraction" }], {}],
+    ["overwritten sampled input", { am: "am/3" }, [{ name: "am", kind: "fraction" }], { am: { choices: [1e-20] } }],
+    ["explicit relative tolerance", { am: "1e-20" }, [{ name: "am", kind: "fraction", relTolerance: 0.01 }], {}],
+    ["bounded large power", { am: "2^-80" }, [{ name: "am", kind: "fraction" }], {}],
+  ] as const) {
+    const tiny = generate({ ...recurrence, vars, calc, answers } as any);
+    if (tiny.parts[0].target === 0 || checkAll(tiny, ["0"])[0].ok) { fails++; console.log("FAIL zero proof refuses " + label, tiny.parts[0]); }
+  }
+  // Proof bounds are conservative: exceeding them never snaps an unproven float.
+  const oversized = generate({ ...recurrence, calc: { ...Object.fromEntries(Array.from({ length: 129 }, (_, i) => [`extra${i}`, i])), ...recurrence.calc } } as any);
+  if (oversized.parts[1].target === 0 || checkAll(oversized, ["8/3", "0"])[1].ok) { fails++; console.log("FAIL bounded zero proof"); }
+  const exhausted = generate({ ...recurrence, calc: { ...Object.fromEntries(Array.from({ length: 64 }, (_, i) => [`extra${i}`, "1+2+3"])), ...recurrence.calc } } as any);
+  if (exhausted.parts[1].target === 0 || checkAll(exhausted, ["8/3", "0"])[1].ok) { fails++; console.log("FAIL zero proof operation budget"); }
+  const permissive = generate({ ...recurrence, vars: {}, calc: { am: "1e-20" }, answers: [{ name: "am", kind: "fraction", tolerance: 1e-10 }] } as any);
+  if (!checkAll(permissive, ["0"])[0].ok) { fails++; console.log("FAIL explicit fraction tolerance preserved"); }
+}
 // Numbers filled into TeX keep a tight thousands separator; plain text keeps the comma.
 { const d = { id: "c", title: "Commas", vars: { n: { choices: [5000] } }, calc: {}, prompt: "Text {n} and $x = {n}$ and $$y={n:int}$$ then {n}", answer: "n", format: "number", solution: "" };
   const g = generate(d as any);
@@ -115,3 +146,5 @@ for (const [v, f, want] of [[1.8, "sig3", "1.80"], [12345, "sig3", "12300"], [0.
   const g = generate(d as any);
   if (g.prompt !== "$y = x + -t$, $2^1x$, $1(3)$, 1x") { fails++; console.log("FAIL coef 1", g.prompt); } }
 console.log(fails ? `${fails} FAILURES` : "all engine tests passed");
+
+if (fails) process.exitCode = 1;

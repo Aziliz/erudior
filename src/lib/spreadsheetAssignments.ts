@@ -1,10 +1,18 @@
-import { calculateCell, type Workbook } from "./spreadsheet";
+import { createWorkbookCalculator, validateWorkbookCellRules, type Workbook } from "./spreadsheet";
 import { isWorkbookCellAddress, isWorkbookRecord, validateWorkbook } from "./workbookTemplates";
 
 export interface SpreadsheetAssignment {
   id: string; title: string; starter: Workbook;
   protectedCells: string[]; answers: Record<string, number | string>;
   tolerance?: number;
+}
+
+/** Metadata is instructor-authored, not learner-editable. Exact content survives transport key order. */
+export function workbookMetadataSnapshot(workbook: Workbook): string {
+  const stable = (value: unknown): unknown => Array.isArray(value) ? value.map(stable)
+    : value && typeof value === "object" ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable((value as Record<string, unknown>)[key])])) : value;
+  const { sheets: _sheets, ...metadata } = workbook;
+  return JSON.stringify(stable({ metadata, sheetNames: Object.keys(workbook.sheets).sort() }));
 }
 
 /** Resolve an authored address without changing the worksheet's display spelling. */
@@ -66,11 +74,14 @@ export function normalizeSpreadsheetAssignment(value: unknown): SpreadsheetAssig
 export function gradeAssignment(value: SpreadsheetAssignment, learner: Workbook) {
   const assignment = normalizeSpreadsheetAssignment(value);
   if (!validateWorkbook(learner)) throw Error("Invalid learner workbook");
-  const feedback = Object.entries(assignment.answers).map(([address, expected]) => {
+  if (learner.engineVersion !== assignment.starter.engineVersion || assignment.starter.engineVersion === 2 && workbookMetadataSnapshot(learner) !== workbookMetadataSnapshot(assignment.starter)) throw Error("Instructor workbook metadata changed");
+  const validationIssues = assignment.starter.engineVersion === 2 ? validateWorkbookCellRules(learner) : [];
+  const calculate = createWorkbookCalculator(learner);
+  const feedback = Object.entries(assignment.answers).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0).map(([address, expected]) => {
     const cut = address.lastIndexOf("!"), sheet = address.slice(0, cut), cell = address.slice(cut + 1);
     let actual: number | string | undefined; let passed = false;
     try {
-      actual = calculateCell(learner, sheet, cell);
+      actual = calculate(sheet, cell);
       passed = typeof expected === "number" && typeof actual === "number"
         ? Math.abs(expected - actual) <= (assignment.tolerance ?? 0) : actual === expected;
     } catch { /* Formula errors remain failed criteria, never a passing blank value. */ }
@@ -83,7 +94,7 @@ export function gradeAssignment(value: SpreadsheetAssignment, learner: Workbook)
     const learnerSheet = learnerAddress.slice(0, learnerAddress.lastIndexOf("!"));
     return learner.sheets[learnerSheet][cell] !== assignment.starter.sheets[sheet][cell];
   });
-  return { score: locked.length ? 0 : feedback.filter(f => f.passed).length / feedback.length, feedback, protectedChanges: locked };
+  return { score: locked.length || validationIssues.length ? 0 : feedback.filter(f => f.passed).length / feedback.length, feedback, protectedChanges: locked, ...(assignment.starter.engineVersion === 2 ? { validationIssues } : {}) };
 }
 
 export const SAMPLE_ASSIGNMENT: SpreadsheetAssignment = {

@@ -93,6 +93,7 @@ export default function Home() {
             Study in your browser
           </a>
         </div>
+        <p className="small"><a href={appUrl("/courses?guest=1")}>Explore without saving learning data</a>. No account required; optional local progress and export are available in the browser.</p>
         <p className="notice dev-notice small" role="note">
           <b>Early version:</b> Erudior is still being built and tested. Don't use it to replace homeschool or regular school yet; it's fine as extra
           practice. <a href="/roadmap">See what's left before version 1.0.</a>
@@ -113,6 +114,7 @@ export default function Home() {
                 <li key={p}>{p}</li>
               ))}
             </ul>
+            {(f.id === "parents" || f.id === "live" || f.id === "classroom") && <p><a className="btn" href={f.id === "parents" ? "/parents" : f.id === "live" ? "/live-rooms" : "/teachers"}>Learn more about {f.kicker.toLowerCase()}</a></p>}
           </div>
           <div className={`home-shot${f.extra ? " with-phone" : ""}`}>
             <img src={f.shot} alt={f.alt} loading="lazy" width={1280} height={800} />

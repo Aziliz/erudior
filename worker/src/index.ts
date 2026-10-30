@@ -1,3 +1,9 @@
+import { branchingRevisionProblems } from "../../src/lib/branchingCoursePackage";
+import { scientificRevisionProblems } from "../../src/lib/scientificCoursePackage";
+import { advancedAssessmentRevisionProblems } from "../../src/lib/advancedAssessmentCoursePackage";
+import { handleLti } from "./lti.ts";
+import { handleCredentials, type CredentialEnv } from "./credentials.ts";
+import { handleLearnerProgress, type LearnerProgressEnv } from "./learnerProgress.ts";
 // Erudior community course API (Cloudflare Worker, D1 + R2).
 //
 // Public:   GET /catalog, GET /courses/:id, GET /images/:id, POST /courses/:id/report
@@ -14,13 +20,13 @@
 // adds, and admins can change them. If the owner hasn't been seen for a year (CLAIM_DAYS), any
 // author can take the course over (the old owner stays on as an editor).
 
-import { LIMITS, IMAGE_TYPES, checkDoc, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
+import { LIMITS, IMAGE_TYPES, checkDoc, communityWorkRevisionProblems, emptyDoc, imageIds, upgradeDoc, type CommunityDoc } from "../../src/lib/communityFormat.ts";
 import { normalizeLevel, normalizeSubject, normalizeType } from "../../src/lib/taxonomy.ts";
 
 export { LiveRoom } from "./live.ts";
 import { sha256 as liveHash } from "./live.ts";
 
-export interface Env {
+export interface Env extends CredentialEnv, LearnerProgressEnv {
   LIVE: DurableObjectNamespace;
   DB: D1Database;
   FILES: R2Bucket;
@@ -33,6 +39,8 @@ export interface Env {
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET?: string;
   DEV_LOGIN?: string;
+  /** Absent by default. Real platform trust configuration needs explicit approval. */
+  LTI_REGISTRATIONS?: string;
 }
 
 type Role = "author" | "reviewer" | "admin";
@@ -151,6 +159,16 @@ async function needUser(req: Request, env: Env, accepted = true): Promise<User> 
     throw new HttpError(403, u.accepted_at ? "The community terms changed; accept the new terms first." : "Confirm you're 18 or older and accept the terms first.");
   return u;
 }
+
+// Evaluated by D1 inside the mutation, not before an asynchronous body/R2 read.
+// Session timestamps use the same UTC millisecond ISO format as SQLite here.
+const communityCommitActor = `SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id
+  WHERE actor.id = ? AND actor.banned = 0
+  AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ?
+  AND session.token_hash = ? AND session.expires_at > strftime('%Y-%m-%dT%H:%M:%fZ', 'now')`;
+const communityCommitEditor = `${communityCommitActor}
+  AND (courses.owner_id = actor.id OR actor.role = 'admin' OR EXISTS
+    (SELECT 1 FROM course_editors editor WHERE editor.course_id = courses.id AND editor.user_id = actor.id))`;
 
 function needRole(u: User, ...roles: Role[]) {
   if (!roles.includes(u.role)) throw new HttpError(403, "Not allowed.");
@@ -290,9 +308,9 @@ async function devLogin(req: Request, env: Env): Promise<Response> {
 // ---------- courses ----------
 
 const counts = (d: CommunityDoc) => ({
-  lessons: d.lessons.length,
-  questions: d.lessons.reduce((s, l) => s + l.blocks.filter((b) => b.type === "question").length, 0),
-  cards: d.decks.reduce((s, k) => s + k.cards.length, 0),
+  lessons: d.canonical ? d.canonical.course.lessons.length : d.lessons.length,
+  questions: d.canonical ? d.canonical.course.banks.reduce((n, b) => n + b.questions.length, 0) : d.lessons.reduce((s, l) => s + l.blocks.filter((b) => b.type === "question").length, 0) + (d.modules ?? []).reduce((s, m) => s + (m.quiz?.length ?? 0), 0),
+  cards: d.canonical ? d.canonical.course.decks.reduce((n, d) => n + d.cards.length, 0) : d.decks.reduce((s, k) => s + k.cards.length, 0),
 });
 
 const tag = (c: { version: number; reviewed_version: number }) => (c.version > 0 && c.reviewed_version === c.version ? "reviewed" : "not_reviewed");
@@ -360,7 +378,7 @@ async function log(env: Env, courseId: string, version: number, actor: string, a
 
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
-async function createRoom(req: Request, env: Env): Promise<Response> {
+async function createRoom(req: Request, env: Env, presentation = false): Promise<Response> {
   const ip = await sha256(`live:${req.headers.get("CF-Connecting-IP") ?? "local"}:${new Date().toISOString().slice(0, 10)}`);
   const hour = new Date(Date.now() - 3600_000).toISOString();
   const n = await env.DB.prepare("SELECT COUNT(*) AS n FROM live_rooms WHERE ip_hash = ? AND created_at > ?").bind(ip, hour).first<{ n: number }>();
@@ -369,14 +387,14 @@ async function createRoom(req: Request, env: Env): Promise<Response> {
   for (let tries = 0; tries < 6; tries++) {
     const bytes = crypto.getRandomValues(new Uint8Array(6));
     const code = [...bytes].map((b) => CODE_CHARS[b % CODE_CHARS.length]).join("");
-    const res = await env.LIVE.get(env.LIVE.idFromName(code)).fetch("https://room/init", {
+    const res = await env.LIVE.get(env.LIVE.idFromName(presentation ? `presentation:${code}` : code)).fetch(presentation ? "https://room/presentation-init" : "https://room/init", {
       method: "POST",
       body: JSON.stringify({ tokenHash: await liveHash(token) }),
     });
     if (res.ok) {
       await env.DB.prepare("INSERT INTO live_rooms (ip_hash, created_at) VALUES (?, ?)").bind(ip, now()).run();
       await env.DB.prepare("DELETE FROM live_rooms WHERE created_at < ?").bind(new Date(Date.now() - 86400_000).toISOString()).run();
-      return json({ code, token, joinUrl: `${env.APP_ORIGIN}/?live=${code}` }, 201);
+      return json({ code, token, joinUrl: `${env.APP_ORIGIN}/?${presentation ? "presentation" : "live"}=${code}` }, 201);
     }
   }
   throw new HttpError(503, "Couldn't open a room; try again.");
@@ -393,6 +411,10 @@ async function route(req: Request, env: Env): Promise<Response> {
   // Signed-in, state-changing calls must come from the app (CSRF guard; JSON forces a preflight).
   // Live rooms: hosted from the desktop app (no account), joined from any browser.
   if (p === "/live/rooms" && method === "POST") return createRoom(req, env);
+  if (p === "/presentation/rooms" && method === "POST") return createRoom(req, env, true);
+  const presentationRoom = m(/^\/presentation\/rooms\/([A-Z0-9]{6})\/ws$/);
+  if (presentationRoom && method === "GET") return env.LIVE.get(env.LIVE.idFromName(`presentation:${presentationRoom[1]}`)).fetch(req);
+  if (p.startsWith("/presentation/rooms/")) throw new HttpError(404, "No presentation room with that code.");
   let lr = m(/^\/live\/rooms\/([A-Z0-9]{6})\/ws$/);
   if (lr && method === "GET") return env.LIVE.get(env.LIVE.idFromName(lr[1])).fetch(req);
   lr = m(/^\/live\/rooms\/([^/]+)\/ws$/);
@@ -424,6 +446,10 @@ async function route(req: Request, env: Env): Promise<Response> {
   }
   r = m(/^\/images\/([\w-]+)$/);
   if (method === "GET" && r) {
+    // R2 writes precede D1 authorization commits. Never expose an uncommitted
+    // upload, including an orphan whose best-effort cleanup failed. Reads remain public.
+    const image = await env.DB.prepare("SELECT id FROM images WHERE id = ?").bind(r[1]).first();
+    if (!image) throw new HttpError(404, "Not found.");
     const obj = await env.FILES.get(`images/${r[1]}`);
     if (!obj) throw new HttpError(404, "Not found.");
     return new Response(obj.body, {
@@ -516,9 +542,12 @@ async function route(req: Request, env: Env): Promise<Response> {
     if ((n?.n ?? 0) >= 50) throw new HttpError(429, "You have 50 courses; delete one first.");
     const id = rid(10).toLowerCase();
     const doc = emptyDoc();
-    await env.DB.prepare("INSERT INTO courses (id, owner_id, draft, title, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)")
-      .bind(id, u.id, JSON.stringify(doc), doc.title, now(), now())
+    const committed = await env.DB.prepare(`INSERT INTO courses (id, owner_id, draft, title, created_at, updated_at)
+      SELECT ?, ?, ?, ?, ?, ? WHERE EXISTS (${communityCommitActor})
+      AND (SELECT COUNT(*) FROM courses WHERE owner_id = ?) < 50`)
+      .bind(id, u.id, JSON.stringify(doc), doc.title, now(), now(), u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), u.id)
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "Your access or course limit changed. Reload before creating a course.");
     return json({ id }, 201);
   }
   r = m(/^\/drafts\/([\w-]+)$/);
@@ -540,11 +569,15 @@ async function route(req: Request, env: Env): Promise<Response> {
     const c = await ownCourse(env, u, r[1]);
     if (c.status === "removed") throw new HttpError(403, "This course was taken down; contact the reviewers.");
     const doc = upgradeDoc(await readJson<CommunityDoc>(req));
-    const errs = checkDoc(doc, false);
+    const errs = checkDoc(doc, false, { communityImageOrigin: env.API_ORIGIN });
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
-    await env.DB.prepare("UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ? WHERE id = ?")
-      .bind(JSON.stringify(doc), doc.title.trim() || "Untitled course", now(), c.id)
+    const committed = await env.DB.prepare(`UPDATE courses SET draft = ?, title = CASE WHEN version = 0 THEN ? ELSE title END, updated_at = ?
+      WHERE id = ? AND version = ? AND draft = ? AND status = ? AND owner_id = ?
+      AND EXISTS (${communityCommitEditor})`)
+      .bind(JSON.stringify(doc), doc.title.trim() || "Untitled course", now(), c.id, c.version, c.draft, c.status, c.owner_id,
+        u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]))
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "The course or your access changed while saving. Reload before saving again.");
     return json({ ok: true });
   }
   if (r && method === "DELETE") {
@@ -563,22 +596,68 @@ async function route(req: Request, env: Env): Promise<Response> {
       return json({ ok: true });
     }
     const doc = upgradeDoc(JSON.parse(c.draft) as CommunityDoc);
-    const errs = checkDoc(doc, true);
+    const errs = checkDoc(doc, true, { communityImageOrigin: env.API_ORIGIN });
     if (errs.length) return json({ error: errs[0], errors: errs }, 400);
-    const ids = imageIds(doc);
+    const ids = imageIds(doc, env.API_ORIGIN);
     for (const id of ids) {
       const img = await env.DB.prepare("SELECT owner_id FROM images WHERE id = ?").bind(id).first<{ owner_id: string }>();
       // Pictures can come from the owner, any editor, or whoever is publishing.
       const fromTeam = img && (img.owner_id === c.owner_id || img.owner_id === u.id || (await isEditor(env, c.id, img.owner_id)));
       if (!fromTeam) return json({ error: "An image in this course is missing; upload it again." }, 400);
     }
-    const version = c.version + 1;
-    await env.FILES.put(`courses/${c.id}.v${version}.json`, JSON.stringify(doc), { httpMetadata: { contentType: "application/json" } });
-    await env.DB.prepare(
-      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, kind = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ?",
+    // Continuity is checked against the actual immutable published snapshot, never
+    // the editable draft. Missing/corrupt release data must fail closed.
+    if (c.version > 0) {
+      const previousObject = await env.FILES.get(`courses/${c.id}.v${c.version}.json`);
+      if (!previousObject) throw new HttpError(409, "The previous published version is unavailable; contact the administrators.");
+      let previous: CommunityDoc;
+      try { previous = upgradeDoc(await previousObject.json<CommunityDoc>()); }
+      catch { throw new HttpError(409, "The previous published version is invalid; contact the administrators."); }
+      if (checkDoc(previous, true, { communityImageOrigin: env.API_ORIGIN }).length) throw new HttpError(409, "The previous published version is invalid; contact the administrators.");
+      const workRevisionErrors = communityWorkRevisionProblems(previous, doc, c.id, env.API_ORIGIN);
+      if (workRevisionErrors.length) throw new HttpError(409, workRevisionErrors.join("; "));
+      const branchingErrors=branchingRevisionProblems(previous.canonical?.course.branchingScenarios ?? previous.branchingScenarios ?? [],doc.canonical?.course.branchingScenarios ?? doc.branchingScenarios ?? []);
+      const scientificErrors=scientificRevisionProblems(previous.canonical?.course.scientificWorkspaces ?? previous.scientificWorkspaces ?? [],doc.canonical?.course.scientificWorkspaces ?? doc.scientificWorkspaces ?? []);
+      const advancedAssessmentErrors=advancedAssessmentRevisionProblems(previous.canonical?.course.advancedAssessments ?? previous.advancedAssessments ?? [],doc.canonical?.course.advancedAssessments ?? doc.advancedAssessments ?? []);
+      if(branchingErrors.length)throw new HttpError(409,branchingErrors.join('; '));
+      if(scientificErrors.length)throw new HttpError(409,scientificErrors.join('; '));
+      if(advancedAssessmentErrors.length)throw new HttpError(409,advancedAssessmentErrors.join('; '));
+      const next = new Map((doc.canonical?.course.spreadsheetAssignments ?? doc.spreadsheetAssignments ?? []).map(assignment => [assignment.id, assignment]));
+      for (const assignment of previous.spreadsheetAssignments ?? []) {
+        const current = next.get(assignment.id);
+        if (!current || current.lessonId !== assignment.lessonId)
+          throw new HttpError(409, "Published spreadsheet assignments cannot be removed or reassigned to another lesson.");
+      }
+    }
+    const serialized = JSON.stringify(doc);
+    let version = c.version + 1;
+    // R2 evaluates If-None-Match atomically. Never overwrite (or delete) an
+    // immutable object, including an orphan left by a failed D1 commit. Identical
+    // bytes can be retried safely; differing orphan bytes consume a version slot.
+    // Bounded contention fails explicitly rather than weakening the precondition.
+    for (let attempt = 0; ; attempt++, version++) {
+      if (attempt === 16) throw new HttpError(409, "Publication is busy; retry shortly.");
+      const key = `courses/${c.id}.v${version}.json`;
+      const written = await env.FILES.put(key, serialized, {
+        onlyIf: new Headers({ "If-None-Match": "*" }),
+        httpMetadata: { contentType: "application/json" },
+      });
+      if (written) break;
+      const existing = await env.FILES.get(key);
+      if (existing && await existing.text() === serialized) break;
+    }
+    // D1 commits only the snapshot we validated, and only if publication,
+    // moderation, ownership and draft content have not changed in the meantime.
+    // Recheck current account/session/role/editor access atomically as well: an
+    // authorization snapshot taken before an R2 await may already be revoked.
+    // A losing request leaves a recoverable unreferenced R2 object, not a corrupt
+    // public version. Never reset review metadata on an unsuccessful commit.
+    const committed = await env.DB.prepare(
+      "UPDATE courses SET status = 'published', version = ?, title = ?, description = ?, subject = ?, level = ?, kind = ?, counts = ?, published_at = ?, updated_at = ? WHERE id = ? AND version = ? AND draft = ? AND status = ? AND owner_id = ? AND EXISTS (SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id WHERE actor.id = ? AND actor.banned = 0 AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ? AND session.token_hash = ? AND session.expires_at > ? AND (courses.owner_id = actor.id OR actor.role = 'admin' OR EXISTS (SELECT 1 FROM course_editors editor WHERE editor.course_id = courses.id AND editor.user_id = actor.id)))",
     )
-      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, doc.type ?? "Course", JSON.stringify(counts(doc)), now(), now(), c.id)
+      .bind(version, doc.title.trim(), doc.description.trim(), doc.subject, doc.level, doc.type ?? "Course", JSON.stringify(counts(doc)), now(), now(), c.id, c.version, c.draft, c.status, c.owner_id, u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), now())
       .run();
+    if (committed.meta.changes !== 1) throw new HttpError(409, "The course changed during publication. Reload and publish the saved draft again.");
     return json({ ok: true, version });
   }
   // Editors: the owner (or an admin) chooses who else may change the course.
@@ -646,8 +725,22 @@ async function route(req: Request, env: Env): Promise<Response> {
     const mime = sniff(bytes);
     if (!mime || !IMAGE_TYPES.includes(mime)) throw new HttpError(415, "Use a PNG, JPEG, WebP or GIF image.");
     const id = rid(12).toLowerCase();
-    await env.FILES.put(`images/${id}`, bytes, { httpMetadata: { contentType: mime } });
-    await env.DB.prepare("INSERT INTO images (id, owner_id, mime, bytes, created_at) VALUES (?, ?, ?, ?, ?)").bind(id, u.id, mime, bytes.length, now()).run();
+    const key = `images/${id}`;
+    const written = await env.FILES.put(key, bytes, {
+      onlyIf: new Headers({ "If-None-Match": "*" }),
+      httpMetadata: { contentType: mime },
+    });
+    if (!written) throw new HttpError(409, "Image upload conflicted. Try again.");
+    const committed = await env.DB.prepare(`INSERT INTO images (id, owner_id, mime, bytes, created_at)
+      SELECT ?, ?, ?, ?, ? WHERE EXISTS (${communityCommitActor})
+      AND (SELECT COUNT(*) FROM images WHERE owner_id = ?) < 500`)
+      .bind(id, u.id, mime, bytes.length, now(), u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), u.id).run();
+    if (committed.meta.changes !== 1) {
+      // Only delete our uniquely-created, definitely uncommitted object. On an
+      // uncertain D1 exception leave it alone: metadata gates all public reads.
+      try { await env.FILES.delete(key); } catch { /* Inaccessible orphan; cleanup can be retried operationally. */ }
+      throw new HttpError(409, "Your access or image limit changed. Reload before uploading again.");
+    }
     return json({ id, url: `${env.API_ORIGIN}/images/${id}` }, 201);
   }
 
@@ -682,17 +775,20 @@ async function route(req: Request, env: Env): Promise<Response> {
   if (r && method === "POST") {
     const u = await needUser(req, env);
     needRole(u, "reviewer", "admin");
-    const body = await readJson<{ action?: string; note?: string }>(req, 4000);
+    const body = await readJson<{ action?: string; note?: string; version?: number }>(req, 4000);
     const c = await env.DB.prepare("SELECT * FROM courses WHERE id = ?").bind(r[1]).first<CourseRow>();
     if (!c) throw new HttpError(404, "Course not found.");
     const note = (body.note ?? "").slice(0, 1000);
     switch (body.action) {
-      case "reviewed":
-        if (c.status !== "published") throw new HttpError(400, "Only published courses can be marked reviewed.");
-        await env.DB.prepare("UPDATE courses SET reviewed_version = version, reviewed_by = ?, reviewed_at = ?, review_note = ? WHERE id = ?")
-          .bind(u.id, now(), note || null, c.id)
+      case "reviewed": {
+        if (!Number.isSafeInteger(body.version) || body.version! < 1) throw new HttpError(400, "Specify the published version you reviewed.");
+        if (c.status !== "published" || body.version !== c.version) throw new HttpError(409, "The published version changed; reload and review it again.");
+        const reviewed = await env.DB.prepare("UPDATE courses SET reviewed_version = ?, reviewed_by = ?, reviewed_at = ?, review_note = ? WHERE id = ? AND version = ? AND status = 'published' AND EXISTS (SELECT 1 FROM users actor JOIN sessions session ON session.user_id = actor.id WHERE actor.id = ? AND actor.banned = 0 AND actor.accepted_at IS NOT NULL AND actor.accepted_at != '' AND actor.terms_version >= ? AND actor.role IN ('reviewer', 'admin') AND session.token_hash = ? AND session.expires_at > ?)")
+          .bind(body.version, u.id, now(), note || null, c.id, body.version, u.id, TERMS_VERSION, await sha256(cookies(req)[SESSION_COOKIE]), now())
           .run();
+        if (reviewed.meta.changes !== 1) throw new HttpError(409, "The course or your review access changed; reload before reviewing again.");
         break;
+      }
       case "not_reviewed":
         await env.DB.prepare("UPDATE courses SET reviewed_version = 0, review_note = ? WHERE id = ?").bind(note || null, c.id).run();
         break;
@@ -755,7 +851,12 @@ async function route(req: Request, env: Env): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const p = new URL(req.url).pathname;
-    const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms";
+    if (p.startsWith("/learner-progress/")) return handleLearnerProgress(req, env);
+    // Separate disabled-by-default credential registry; community roles confer no authority.
+    if (p.startsWith("/credentials/")) return handleCredentials(req, env);
+    // Isolated OIDC form_post handler; never relax community CSRF or identity rules.
+    if (p === "/lti/login" || p === "/lti/launch") return handleLti(req, env);
+    const pub = (req.method === "GET" && (p === "/catalog" || p.startsWith("/courses/") || p.startsWith("/images/"))) || p === "/live/rooms" || p === "/presentation/rooms";
     // WebSocket upgrades go straight to the room.
     if (req.headers.get("Upgrade") === "websocket") {
       try {

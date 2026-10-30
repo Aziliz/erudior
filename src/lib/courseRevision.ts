@@ -1,5 +1,10 @@
+import { branchingRevisionProblems } from "./branchingCoursePackage";
+import { scientificRevisionProblems } from "./scientificCoursePackage";
+import { advancedAssessmentRevisionProblems } from "./advancedAssessmentCoursePackage";
+import { readerRevisionProblems } from "./readerContent";
 import type { Course } from "./types";
 import { localBankId } from "./course";
+import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems } from "./courseWork";
 
 export interface CourseRevisionIssue {
   severity: "blocking" | "warning";
@@ -32,6 +37,8 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     }
   };
 
+  for (const message of [...courseWorkRevisionProblems(previous, next), ...courseWorkLessonRevisionProblems(previous.lessons, next.lessons)]) add("blocking", "work", message);
+
   compare("modules", previous.modules, next.modules, (m) => m.id);
   compare("lessons", previous.lessons, next.lessons, (l) => l.id, (l) => l.module);
   compare("banks", previous.banks, next.banks, localBankId);
@@ -51,6 +58,13 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     const current = (next.texts ?? []).find((t) => t.id === text.id);
     if (current) compare(`texts.${text.id}.sections`, text.sections, current.sections, (section) => section.id);
   }
+  for (const message of readerRevisionProblems(previous.texts ?? [], next.texts ?? [])) add("blocking", "texts", message);
+  for(const issue of branchingRevisionProblems(previous.branchingScenarios??[],next.branchingScenarios??[]))add("blocking","branchingScenarios",issue);
+  for(const issue of scientificRevisionProblems(previous.scientificWorkspaces??[],next.scientificWorkspaces??[]))add("blocking","scientificWorkspaces",issue);
+  for(const issue of advancedAssessmentRevisionProblems(previous.advancedAssessments??[],next.advancedAssessments??[]))add("blocking","advancedAssessments",issue);
+  compare("branchingScenarios", previous.branchingScenarios ?? [], next.branchingScenarios ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
+  compare("scientificWorkspaces", previous.scientificWorkspaces ?? [], next.scientificWorkspaces ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
+  compare("advancedAssessments", previous.advancedAssessments ?? [], next.advancedAssessments ?? [], scenario=>scenario.id, scenario=>scenario.lessonId ?? "");
   compare("spreadsheetAssignments", previous.spreadsheetAssignments ?? [], next.spreadsheetAssignments ?? [],
     (assignment) => assignment.id, (assignment) => assignment.lessonId);
   for (const [i, assignment] of (next.spreadsheetAssignments ?? []).entries())

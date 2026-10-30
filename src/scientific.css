@@ -1,0 +1,28 @@
+.scientific { max-width:100%; min-width:0; }
+.scientific label { display:block; margin:.75rem 0; }
+.scientific :is(input:not([type=checkbox]),textarea,select) { display:block; width:100%; max-width:100%; box-sizing:border-box; }
+.scientific :is(button,input:not([type=checkbox]),textarea,select) { background:var(--surface); color:var(--ink); border:1px solid var(--field); border-radius:var(--r-sm); padding:8px 10px; min-height:36px; font:inherit; }
+.scientific input[type=checkbox] { width:24px; height:24px; vertical-align:middle; margin-right:.5rem; }
+.scientific button { margin:.25rem; max-width:100%; white-space:normal; cursor:pointer; }
+.scientific button:disabled { opacity:.65; cursor:not-allowed; }
+.scientific textarea { min-height:5rem; }
+.scientific fieldset { min-width:0; margin:1rem 0; border:1px solid var(--rule); }
+.scientific :is(p,li,h3,h4,dd,pre,legend) { overflow-wrap:anywhere; }
+.scientific pre { white-space:pre-wrap; }
+.scientific :is(button,input,textarea,select,summary,[tabindex="0"]):focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.scientific [role=alert] { border:2px solid var(--bad); padding:.75rem; }
+.scientific-summary,.scientific-timeline > li { border:1px solid var(--rule); background:var(--sheet); padding:.75rem; margin:.5rem 0; }
+.scientific-timeline { padding-inline-start:1.5rem; }
+.scientific-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.scientific-compare > article { min-width:0; border:1px solid var(--rule); padding:.75rem; }
+.scientific details { margin:.75rem 0; }
+.scientific summary { cursor:pointer; padding:.5rem 0; }
+@media(max-width:700px) { .scientific-compare { grid-template-columns:1fr; } .scientific fieldset { padding:.5rem; } }
+
+.scientific-table-scroll { overflow:auto; max-width:100%; position:relative; margin-block:1rem; }
+.scientific table { width:100%; min-width:640px; border-collapse:collapse; }
+.scientific th,.scientific td { text-align:left; border:1px solid var(--rule); padding:.65rem; min-width:7rem; vertical-align:top; overflow-wrap:normal; }
+.scientific th { white-space:nowrap; }
+.scientific figure { margin:1rem 0; min-width:0; }
+.scientific svg { display:block; max-width:100%; height:auto; background:var(--sheet); border:1px solid var(--rule); }
+.scientific .scientific-safety { border:2px solid var(--focus); padding:.75rem; }

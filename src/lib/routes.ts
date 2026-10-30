@@ -12,13 +12,14 @@
 import type { View } from "../App";
 import type { CourseTab } from "../pages/CourseHome";
 import { slugify } from "./util";
+import { COURSE_ACTIVITY_KINDS, type CourseActivityKind } from "./courseActivities";
 
 export interface RouteCourse {
   id: string;
   title: string;
 }
 
-const TABS: CourseTab[] = ["today", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
+const TABS: CourseTab[] = ["today", "progress", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
 
 /** The address part for a course: its title as a slug, unless another course has the same slug. */
 export function courseSlug(id: string, all: RouteCourse[]): string {
@@ -30,7 +31,8 @@ export function courseSlug(id: string, all: RouteCourse[]): string {
 }
 
 function findCourse(seg: string, all: RouteCourse[]): RouteCourse | undefined {
-  const s = decodeURIComponent(seg);
+  let s: string;
+  try { s = decodeURIComponent(seg); } catch { return undefined; }
   return all.find((x) => x.id === s) ?? all.find((x) => slugify(x.title) === s);
 }
 
@@ -40,6 +42,7 @@ function courseOf(v: View): string | null {
     case "course":
     case "courseEdit":
     case "lesson":
+    case "courseActivity":
     case "cards":
     case "deckEdit":
     case "drill":
@@ -63,6 +66,10 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return "/";
     case "community":
       return "/community";
+    case "communityCourse":
+      return "/community/" + encodeURIComponent(v.id);
+    case "workspace":
+      return "/workspace";
     case "progress":
       return "/progress";
     case "legal":
@@ -77,16 +84,21 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
       return "/admin";
     case "live":
       return "/live";
+    case "presentation":
+      return "/presentation";
     case "who":
     case "familySetup":
-    case "parent":
       return "/";
+    case "parent":
+      return v.tab === "academic-records" ? "/parent/academic-records" : "/";
     case "overview":
-      return course(v.catalogId);
+      return v.requestedPath ?? course(v.catalogId);
     case "course":
       return course(v.courseId) + (v.tab && v.tab !== "today" ? "/" + v.tab : "");
     case "lesson":
       return course(v.courseId) + "/lessons/" + encodeURIComponent(v.lessonId);
+    case "courseActivity":
+      return course(v.courseId) + "/activities/" + v.kind + "/" + encodeURIComponent(v.sourceId);
     case "work":
       return course(v.courseId) + "/work/" + encodeURIComponent(v.itemId);
     case "courseEdit":
@@ -123,29 +135,50 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
 export function pageKey(v: View): string {
   const c = courseOf(v);
   if (v.name === "course" || v.name === "overview") return "course:" + c;
+  if (v.name === "communityCourse") return "community:" + v.id;
   if (v.name === "search") return "search";
+  if (v.name === "lesson") return `lesson:${c}:${v.lessonId}`;
+  if (v.name === "read") return `read:${c}:${v.textId}`;
+  if (v.name === "ref") return `ref:${c}:${v.refId}`;
+  if (v.name === "courseActivity") return `activity:${c}:${v.kind}:${v.sourceId}`;
   return v.name + ":" + (c ?? "");
 }
 
 /** The screen for an address, or null if it can't be shown (unknown course, etc.). */
 export function pathToView(pathname: string, search: string, installed: RouteCourse[], catalog: RouteCourse[]): View | null {
   const parts = pathname.split("/").filter(Boolean);
+  try { for (const part of parts) decodeURIComponent(part); } catch { return null; }
   if (!parts.length) return { name: "library" };
   const [first, second, third] = parts;
   if (first === "courses" && !second) return { name: "library" };
-  if (first === "community" && !second) return { name: "community" };
+  if (first === "community") {
+    if (parts.length === 1) return { name: "community" };
+    if (parts.length === 2 && /^[A-Za-z0-9_-]{1,100}$/.test(second)) return { name: "communityCourse", id: second };
+    return null;
+  }
+  if (first === "parent" && second === "academic-records" && parts.length === 2) return { name: "parent", tab: "academic-records" };
+  if (first === "workspace" && parts.length === 1) return { name: "workspace" };
   if (first === "progress") return { name: "progress" };
   if (first === "terms" || first === "privacy" || first === "licenses") return { name: "legal", page: first };
   if (first === "search") return { name: "search", q: new URLSearchParams(search).get("q") ?? "" };
   if (first === "create") return second ? { name: "communityEdit", id: decodeURIComponent(second) } : { name: "create" };
   if (first === "admin" && !second) return { name: "review" };
   if (first === "live") return { name: "live" };
+  if (first === "presentation") return { name: "presentation", code: new URLSearchParams(search).get("code") ?? undefined };
   const have = findCourse(first, installed);
   if (!have) {
     const entry = findCourse(first, catalog);
-    return entry ? { name: "overview", catalogId: entry.id } : null;
+    if (!entry) return null;
+    if (!second) return { name: "overview", catalogId: entry.id };
+    const destination = pathToView(pathname, search, [entry], []);
+    if (!destination) return null;
+    return { name: "overview", catalogId: entry.id, requestedPath: viewToPath(destination, [...installed, ...catalog], () => undefined) };
   }
   const courseId = have.id;
+  if (second === "activities") {
+    if (parts.length !== 4 || !(COURSE_ACTIVITY_KINDS as readonly string[]).includes(third)) return null;
+    try { return {name:"courseActivity", courseId, kind:third as CourseActivityKind, sourceId:decodeURIComponent(parts[3])}; } catch { return null; }
+  }
   if (second === "lessons" && third) return { name: "lesson", courseId, lessonId: decodeURIComponent(third) };
   if (second === "reference" && third) return { name: "ref", courseId, refId: decodeURIComponent(third) };
   if (second === "work" && third) return { name: "work", courseId, itemId: decodeURIComponent(third) };

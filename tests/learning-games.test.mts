@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {gamePairs,bingoLines,resolveReview,makeTeams,shuffled} from "../src/lib/learningGames.ts";
+import {emptyCourse} from "../src/lib/course.ts";
+const c=emptyCourse("Synthetic game test");c.id="test";
+c.banks=[{id:"bank",title:"Bank",questions:[{id:"a",stem:"First?",choices:["One","Two"],answer:[0],topic:"Topic"},{id:"b",stem:"Listen?",choices:["Yes","No"],answer:[0],topic:"Topic",listen:"sound"},{id:"c",stem:"Multi?",choices:["A","B"],answer:[0,1],topic:"Topic"},{id:"d",stem:"Invalid?",choices:["A","B"],answer:[9],topic:"Topic"}]} as any];
+assert.equal(gamePairs(c,"questions").pairs.length,1);assert.equal(gamePairs(c,"questions").excluded,3);assert.match(gamePairs(c,"questions").pairs[0].source,/Bank · a/);
+c.banks[0].questions.push({...c.banks[0].questions[0],id:"ambiguous",choices:["Other","Two"]});assert.equal(gamePairs(c,"questions").pairs.length,0,"ambiguous prompt excludes both candidates");
+c.decks=[{id:"deck",title:"Deck",cards:[{id:"a",front:"Q",back:"A"},{id:"b",front:"Image ![x](data:image/png...)",back:"B"}]}];assert.equal(gamePairs(c,"cards").pairs.length,1);
+c.glossary=[{term:"Term",definition:"Definition"},{term:"Other",definition:"![picture](x)"}];assert.equal(gamePairs(c,"glossary").pairs.length,1);
+const original=JSON.stringify(c);gamePairs(c,"questions");assert.equal(JSON.stringify(c),original);
+assert.equal(bingoLines([0,1,2]),1);assert.equal(bingoLines([0,4,8]),1);assert.equal(bingoLines([0,3,6]),1);assert.equal(bingoLines([0,1,2,3,4,5,6,7,8]),8);assert.equal(bingoLines([0,0,0]),0);
+let score=resolveReview({resolved:{},points:0},"a",true);assert.equal(score.points,100);assert.equal(resolveReview(score,"a",true),score);assert.equal(resolveReview(score,"a",false),score);assert.equal(resolveReview(score,"b",false).points,100);
+const teams=makeTeams(["A","B","C","D"," A "],2,()=>0);assert.deepEqual(teams.map(t=>t.length),[2,2]);assert.equal(new Set(teams.flat()).size,4);assert.deepEqual(shuffled([1,2,3],()=>0),[2,3,1]);
+console.log("learning games: source filtering/provenance, ambiguous pairs, no mutation, bingo, idempotent review, balanced teams passed");

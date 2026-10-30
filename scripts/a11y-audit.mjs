@@ -59,7 +59,7 @@ await click("button", "Questions"); await audit("questions-tab");
 await pg.getByRole("button", { name: /Practice|Start practice/ }).first().click().catch(()=>{}); await audit("practice-runner");
 await click("button", "Notecards"); await audit("cards-tab").catch(()=>{});
 await pg.goto(B); await pg.waitForTimeout(1200);
-await click("button", "Progress"); await audit("progress");
+await click("button", "Courses"); await audit("progress");
 await pg.fill('[aria-label="Search everything"]', "slope"); await pg.keyboard.press("Enter"); await audit("search");
 const out = Object.entries(results).map(([k, v]) => `${k} — ${v.help}\n  pages: ${[...v.pages].join(", ")}\n  ${v.samples.join("\n  ")}`).join("\n\n");
 console.log(out || "no violations");

@@ -5,6 +5,7 @@ import { isPublishedCourse } from "../lib/catalog";
 import * as store from "../lib/storage";
 import {
   bankCoverage,
+  positiveSectionMinutes,
   practicePool,
   startExam,
   startPractice,
@@ -35,11 +36,12 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   // Exam settings start from the bank's defaults but can be changed per run.
   const [examCount, setExamCount] = useState(Math.min(bank.exam.questionCount, total));
   const [examMinutes, setExamMinutes] = useState(bank.exam.timeLimitMinutes);
-  const splitSections = bank.exam.sectionTimeLimits
-    ? bank.sections.filter((s) => bank.exam.sectionQuotas?.[s.id] && bank.exam.sectionTimeLimits?.[s.id])
+  const authoredSectionMinutes = positiveSectionMinutes(bank.exam.sectionTimeLimits);
+  const splitSections = authoredSectionMinutes
+    ? bank.sections.filter((s) => (bank.exam.sectionQuotas?.[s.id] ?? 0) > 0 && authoredSectionMinutes[s.id])
     : [];
   const isSplit = splitSections.length > 1;
-  const [sectionMinutes, setSectionMinutes] = useState<Record<string, number>>(bank.exam.sectionTimeLimits ?? {});
+  const [sectionMinutes, setSectionMinutes] = useState<Record<string, number>>(authoredSectionMinutes ?? {});
   const [shuffleChoices, setShuffleChoices] = useState(true);
 
   const topics = useMemo(() => [...new Set(bank.questions.map((q) => q.topic))].sort(), [bank]);

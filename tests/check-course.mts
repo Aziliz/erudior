@@ -291,7 +291,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     for (const q of b.questions) {
       if (!q.audio) continue;
       if (q.audio.src && big(q.audio.src)) say(`question ${q.id}: the audio clip is over 400 KB`);
-      if (!q.audio.src && !q.audio.lang) say(`question ${q.id}: audio with only "text" needs a "lang" (or a course "language") for the voice`);
+      if (!q.audio.src && !(q.audio.lang ?? c.language?.tts ?? c.language?.code)) say(`question ${q.id}: audio with only "text" needs a "lang" (or a course "language") for the voice`);
       if (!q.audio.text) say(`question ${q.id}: audio needs "text" (the words said), shown after answering and to anyone who can't play it`);
     }
 

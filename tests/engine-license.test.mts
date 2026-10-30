@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
+
+const read = (file: string) => readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
+const draft = read('LICENSE-DRAFT.md');
+assert.match(draft, /NONBINDING PROPOSAL: NOT ADOPTED AND NOT EFFECTIVE/);
+assert.match(draft, /This draft grants no permissions and imposes no obligations/);
+assert.equal(read('public/engine-license-draft.txt'), draft, 'download must match the canonical proposal exactly');
+assert.equal(existsSync(new URL('../LICENSE', import.meta.url)), false, 'draft publication must not adopt a root license');
+assert.match(draft, /Independent courses, textbooks, exam questions, user data, student records/);
+assert.match(draft, /Third-Party Materials remain governed by their original licenses/);
+const page = read('src/components/Terms.tsx');
+const text = read('src/components/EngineLicenseText.tsx');
+assert.match(text, /import engineLicenseDraft from "\.\.\/\.\.\/LICENSE-DRAFT.md\?raw"/);
+assert.match(page, /Not adopted and not effective/);
+assert.match(text, /\{engineLicenseDraft\}/, 'render canonical text without a network dependency');
+assert.match(page, /href="\/licenses"/);
+const footer = read('src/components/EngineAttribution.tsx');
+assert.match(footer, /href="\/engine-license"/);
+assert.doesNotMatch(footer, /legal\/erudior-engine-license\/LICENSE/);
+assert.match(read('scripts/prerender.mjs'), /"\/engine-license"/);
+assert.match(read('scripts/sitemap.mjs'), /"\/engine-license"/);
+assert.match(read('docs/ENGINE_LICENSING.md'), /Decisions required before a separate adoption PR/);
+console.log('Engine license publication: nonbinding status, canonical text, exclusions, notices and discovery passed');

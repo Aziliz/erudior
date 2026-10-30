@@ -15,6 +15,7 @@ import {
   callLabel,
   makeStamp,
   normalizeOutput,
+  normalizeCodeSpec,
   readStamp,
   readsInput,
   testCall,
@@ -71,7 +72,8 @@ function OutPre({ label, text }: { label: string; text: string }) {
 }
 
 export default function CodeExercise({ q, chosen, onChange, reveal, review, disabled, exam, draftKey }: Props) {
-  const spec = q.code!;
+  // Runtime defaults/aliases are derived without rewriting the authored payload.
+  const spec = useMemo(() => normalizeCodeSpec(q.code), [q.code]);
   const lang = spec.language;
   const locked = !!(reveal || review || disabled);
   const uid = useId();

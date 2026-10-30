@@ -25,7 +25,7 @@ const slug = (t) =>
 const catalog = JSON.parse(readFileSync(path.join(root, "samples", "catalog.json"), "utf8"));
 
 const pages = [
-  ...["/", "/roadmap", "/download", "/terms", "/privacy", "/licenses"].map((p) => ({ url: `https://erudior.com${p}`, out: `__site${p}`, wait: "main h1" })),
+  ...["/", "/community", "/roadmap", "/download", "/engine-license", "/terms", "/privacy", "/licenses"].map((p) => ({ url: `https://erudior.com${p}`, out: `__site${p}`, wait: "main h1" })),
   { url: "https://app.erudior.com/", out: "__app/", wait: ".catalog" },
   ...catalog.map((e) => ({ url: `https://app.erudior.com/${slug(e.title)}`, out: `__app/${slug(e.title)}`, wait: ".overview-about" })),
 ];
@@ -58,10 +58,11 @@ try {
     try {
       await page.goto(p.url, { waitUntil: "networkidle", timeout: 60000 });
       await page.waitForSelector(p.wait, { timeout: 30000 });
+      if (p.url.endsWith("/engine-license")) await page.waitForSelector('pre[aria-label="Nonbinding proposed license text"]', { timeout: 30000 });
       await page.waitForTimeout(500);
       const html = await page.evaluate(() => {
         // Runtime-only bits that shouldn't be frozen into the file.
-        document.querySelectorAll("[data-prerender-skip], .toast").forEach((el) => el.remove());
+        document.querySelectorAll("[data-prerender-skip], .erudior-splash, .toast").forEach((el) => el.remove());
         return "<!doctype html>\n" + document.documentElement.outerHTML;
       });
       const file = path.join(dist, p.out.endsWith("/") ? p.out : p.out + "/", "index.html");
@@ -78,5 +79,8 @@ try {
 } finally {
   server.kill();
 }
-// A missing snapshot only means that page is served the plain way; don't block the deploy.
-if (failed) console.error(`${failed} page(s) not prerendered`);
+// Public discovery snapshots are part of website release validation.
+if (failed) {
+  console.error(`${failed} page(s) not prerendered`);
+  process.exitCode = 1;
+}

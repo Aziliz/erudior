@@ -9,6 +9,59 @@ on:
     paths:
       - "worker/**"
       - "src/lib/communityFormat.ts"
+      - "src/lib/courseWork.ts"
+      - "src/lib/exerciseTypes.ts"
+      - "src/lib/spreadsheet*.ts"
+      - "src/lib/workbookTemplates.ts"
+      - "package.json"
+      - "package-lock.json"
+      - "src/lib/presentations.ts"
+      - "src/lib/presentationProtocol.ts"
+      - "src/lib/answers.ts"
+      - "src/lib/blockUtil.ts"
+      - "src/lib/learnerPrivacy.ts"
+      - "src/lib/credentialIntegrity.ts"
+      - "src/lib/credentialPdf.ts"
+      - "src/lib/courseActivityOrigin.ts"
+      - "src/lib/advancedAssessment.ts"
+      - "src/lib/advancedAssessmentCoursePackage.ts"
+      - "src/lib/advancedAssessmentScoringV1.ts"
+      - "src/lib/scientificWorkspace.ts"
+      - "src/lib/scientificCoursePackage.ts"
+      - "src/lib/scientificInstrumentV1.ts"
+      - "src/lib/branchingEngine.ts"
+      - "src/lib/branchingCoursePackage.ts"
+      - "src/lib/canonicalAuthoring.ts"
+      - "src/lib/code.ts"
+      - "src/lib/courseAudio.ts"
+      - "src/lib/courseContentTypes.ts"
+      - "src/lib/diagram.ts"
+      - "src/lib/dialogueContent.ts"
+      - "src/lib/drills.ts"
+      - "src/lib/exampleSpec.ts"
+      - "src/lib/expr.ts"
+      - "src/lib/figure.ts"
+      - "src/lib/handwriting.ts"
+      - "src/lib/imageAssets.ts"
+      - "src/lib/interactiveContent.ts"
+      - "src/lib/lessonFences.ts"
+      - "src/lib/lessonSource.ts"
+      - "src/lib/manip.ts"
+      - "src/lib/mapNames.ts"
+      - "src/lib/mapSpec.ts"
+      - "src/lib/mathSplit.ts"
+      - "src/lib/phonicsSpec.ts"
+      - "src/lib/readerContent.ts"
+      - "src/lib/sims.ts"
+      - "src/lib/spreadsheet.ts"
+      - "src/lib/spreadsheetAssignments.ts"
+      - "src/lib/stats.ts"
+      - "src/lib/taxonomy.ts"
+      - "src/lib/timelineSpec.ts"
+      - "src/lib/canonicalAssets.ts"
+      - "src/lib/markdownAssets.ts"
+      - "src/lib/widgetMarkdown.ts"
+      - "src/lib/readerMarkdownAssets.ts"
       - ".github/workflows/community.yml"
 
 permissions:
@@ -37,11 +90,23 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install shared canonical validator dependencies
+        working-directory: .
+        run: npm ci
+
       - run: npm ci
 
       - name: Typecheck
         id: typecheck
         run: node ../scripts/diagnostic-command.mjs community-typecheck -- npx tsc -p .
+
+      - name: Validate local community publishing workflows
+        timeout-minutes: 8
+        env:
+          CLOUDFLARE_API_TOKEN: ""
+          CLOUDFLARE_ACCOUNT_ID: ""
+          WRANGLER_SEND_METRICS: "false"
+        run: npm test
 
       - name: Point wrangler.toml at the real database
         run: sed -i 's/00000000-0000-0000-0000-000000000000/${{ vars.D1_DATABASE_ID }}/' wrangler.toml

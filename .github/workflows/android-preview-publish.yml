@@ -1,0 +1,221 @@
+name: Publish verified Android preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_preview:
+        description: Publish the permanent-key-signed Android preview after acceptance
+        type: boolean
+        required: true
+        default: false
+  push:
+    branches: [main]
+    paths: ['.github/android-preview-publish.json']
+  pull_request:
+    paths:
+      - '.github/workflows/android-preview-publish.yml'
+      - '.github/android-preview-publish.json'
+      - 'scripts/android-release-verify.py'
+      - 'scripts/android-apk-fileprovider-check.py'
+      - 'scripts/android-verify-installer-package.sh'
+      - 'tests/android-apk-fileprovider.py'
+      - 'tests/android-release-publish.py'
+
+permissions:
+  contents: read
+concurrency:
+  group: erudior-android-preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test release verification and publication boundaries
+        run: |
+          python3 tests/android-release-publish.py -v
+          python3 tests/android-apk-fileprovider.py -v
+      - name: Validate explicit release request
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          request = json.loads(Path('.github/android-preview-publish.json').read_text())
+          package = json.loads(Path('package.json').read_text())
+          assert request['schema'] == 1 and request['publish'] is True
+          assert request['version'] == package['version']
+          assert isinstance(request['request'], str) and request['request'].strip()
+          PY
+
+  upgrade-acceptance:
+    needs: release-contract
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.publish_preview == true)
+    uses: ./.github/workflows/android-upgrade.yml
+    # Deliberately do not inherit release signing secrets into the test fixture.
+
+  signed-arm64:
+    needs: release-contract
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.publish_preview == true)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install Android build tools
+        run: |
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'platforms;android-35' 'build-tools;35.0.0' 'ndk;27.0.12077973'; then break; fi
+            test "$attempt" -lt 3 || exit 1
+            sleep 15
+          done
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - run: npm ci
+      - name: Verify production update and packaging contracts
+        run: |
+          node --test tests/android-download-page.test.mjs tests/android-release-manifest.test.mjs tests/android-remote-courses.test.mjs
+          npx tsx --test tests/android-updates.test.mts
+          python3 tests/android-installer-integration.py -v
+      - name: Build optimized production ARM64 APK
+        run: |
+          npm run tauri android init -- --ci
+          python3 scripts/android-integrate-installer.py
+          npm run tauri android build -- --apk --ci --target aarch64
+      - name: Sign with persistent release identity
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          : "${ANDROID_KEYSTORE_B64:?Persistent signing key missing}"
+          : "${ANDROID_KEYSTORE_PASSWORD:?Keystore password missing}"
+          : "${ANDROID_KEY_ALIAS:?Key alias missing}"
+          : "${ANDROID_KEY_PASSWORD:?Key password missing}"
+          umask 077
+          keydir="$(mktemp -d)"
+          trap 'rm -rf "$keydir"' EXIT
+          printf '%s' "$ANDROID_KEYSTORE_B64" | base64 --decode > "$keydir/release.jks"
+          mapfile -t apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk')
+          test "${#apks[@]}" -eq 1
+          mkdir -p candidate
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "${apks[0]}" "$keydir/aligned.apk"
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keydir/release.jks" --ks-key-alias "$ANDROID_KEY_ALIAS" --ks-pass env:ANDROID_KEYSTORE_PASSWORD --key-pass env:ANDROID_KEY_PASSWORD --out candidate/Erudior-Android-arm64.apk "$keydir/aligned.apk"
+      - name: Verify exact signed candidate and create manifest
+        run: |
+          version="$(node -p 'JSON.parse(require("fs").readFileSync("package.json")).version')"
+          python3 scripts/android-release-verify.py candidate/Erudior-Android-arm64.apk --version "$version" --build "$GITHUB_SHA" --manifest candidate/android-update.json --create-manifest --evidence candidate/verification.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-preview-signed-candidate
+          path: |
+            candidate/Erudior-Android-arm64.apk
+            candidate/Erudior-Android-arm64.apk.sha256
+            candidate/android-update.json
+            candidate/verification.json
+          if-no-files-found: error
+          retention-days: 14
+
+  publish-preview:
+    needs: [release-contract, upgrade-acceptance, signed-arm64]
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.publish_preview == true)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: android-preview-signed-candidate
+          path: candidate
+      - name: Install signature verification tools
+        run: '"$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;35.0.0"'
+      - name: Download and verify current public predecessor
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p baseline public
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/android-preview" > baseline/release.json
+          base='https://github.com/Aziliz/erudior/releases/download/android-preview'
+          curl --fail --location --retry 5 --retry-delay 3 --max-time 180 --proto '=https' --proto-redir '=https' "$base/Erudior-Android-arm64.apk" -o baseline/previous.apk
+          previous_manifest=()
+          if python3 -c 'import json; d=json.load(open("baseline/release.json")); raise SystemExit(0 if any(a["name"]=="android-update.json" for a in d["assets"]) else 1)'; then
+            curl --fail --location --retry 5 --max-time 60 --proto '=https' --proto-redir '=https' "$base/android-update.json" -o baseline/android-update.json
+            previous_manifest=(--baseline-manifest baseline/android-update.json)
+          fi
+          version="$(python3 -c 'import json;print(json.load(open("package.json"))["version"])')"
+          python3 scripts/android-release-verify.py candidate/Erudior-Android-arm64.apk --version "$version" --build "$GITHUB_SHA" --manifest candidate/android-update.json --baseline baseline/previous.apk --baseline-metadata baseline/release.json "${previous_manifest[@]}" --evidence public/verification.json
+      - name: Publish APK first and manifest only after public bytes match
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://github.com/Aziliz/erudior/releases/download/android-preview'
+          # Never publish an update manifest pointing at APK bytes we have not verified.
+          gh release upload android-preview candidate/Erudior-Android-arm64.apk candidate/Erudior-Android-arm64.apk.sha256 --clobber
+          fetch_exact() {
+            local name="$1"
+            for attempt in 1 2 3 4 5; do
+              if curl --fail --location --max-time 180 --proto '=https' --proto-redir '=https' "$base/$name" -o "public/$name" && cmp "candidate/$name" "public/$name"; then return 0; fi
+              sleep 3
+            done
+            echo "::error::Public $name does not match the verified candidate"
+            return 1
+          }
+          fetch_exact Erudior-Android-arm64.apk
+          fetch_exact Erudior-Android-arm64.apk.sha256
+          gh release upload android-preview candidate/android-update.json --clobber
+          fetch_exact android-update.json
+          (cd public && sha256sum -c Erudior-Android-arm64.apk.sha256)
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose public/Erudior-Android-arm64.apk
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path('public/verification.json')
+          result = json.loads(path.read_text())
+          result['publicTransportVerified'] = True
+          result['acceptanceRun'] = os.environ['GITHUB_RUN_ID']
+          path.write_text(json.dumps(result, indent=2) + '\n')
+          Path('public/release-notes.md').write_text(
+              'Optimized ARM64 Android preview with verified native in-app updates.\n\n'
+              'Source commit: ' + os.environ['GITHUB_SHA'] + '\n\n'
+              'Same-commit two-version Android emulator acceptance passed. Public APK bytes, '
+              'SHA-256, manifest, signing identity and non-downgrade compatibility were verified. '
+              'Physical-phone testing remains separate. Install over the previous preview; do not clear app data.\n')
+          PY
+          gh release edit android-preview --title 'Erudior Android preview — verified native updater' --notes-file public/release-notes.md
+          echo '### Android public preview verified' >> "$GITHUB_STEP_SUMMARY"
+          cat public/verification.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve public verification evidence without keys
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-preview-public-verification
+          path: public/
+          if-no-files-found: warn
+          retention-days: 14

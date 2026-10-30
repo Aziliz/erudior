@@ -40,7 +40,7 @@ export async function storeWorkFile(file: File, caption = ""): Promise<WorkFile>
       const fileId = uid("f").toLowerCase();
       const data = url.slice(url.indexOf(",") + 1);
       await putFile(fileId, { mime: "image/jpeg", data });
-      return { ...base, fileId, name: file.name.replace(/\.[^.]+$/, "") + ".jpg", mime: "image/jpeg", bytes: Math.round((data.length * 3) / 4) };
+      return { ...base, fileId, name: file.name.replace(/\.[^.]+$/, "") + ".jpg", mime: "image/jpeg", bytes: atob(data).length };
     } catch {
       // A picture the browser can't decode (e.g. HEIC) is kept as a plain file below.
     }

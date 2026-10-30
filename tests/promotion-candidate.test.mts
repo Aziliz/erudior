@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import { emptyCourse } from '../src/lib/course.ts';
+import { canonicalAuthoringFromCourse } from '../src/lib/canonicalAuthoring.ts';
+import { preparePromotionCandidate } from '../src/lib/promotionCandidate.ts';
+const authored = { ...emptyCourse(' Original title '), id: 'authored-id', author: 'Author', revision: 3, updated: '2020-01-02', changelog: 'Original', description: ' Exact description ', lessons: [{id:'original-lesson',module:'m1',title:'Original lesson',body:'Original learner content.'}] };
+const payload = canonicalAuthoringFromCourse(authored);
+const input = { payload, communityId: 'publication-id', publishedVersion: 19 };
+const candidate = await preparePromotionCandidate(input);
+assert.deepEqual(candidate.course, authored);
+assert.deepEqual(candidate.source, payload);
+assert.equal(candidate.provenance.status, 'unapproved-candidate');
+assert.equal(candidate.provenance.publishedVersion, 19);
+assert.equal(candidate.course.revision, 3);
+assert.equal(candidate.course.id, 'authored-id');
+assert.equal('community' in candidate.course, false);
+assert.deepEqual(await preparePromotionCandidate(input), candidate, 'deterministic preparation');
+assert.equal(candidate.provenance.transformations.length, 0);
+const origin = 'https://community.example.test';
+const svg = 'data:image/svg+xml;base64,' + btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><rect width="1" height="1"/></svg>');
+const remote = structuredClone(payload);
+remote.course.lessons = [{ id: 'lesson', title: 'Image', module: authored.modules[0].id, body: `![Example](${origin}/images/image1)` }];
+let fetched: string[] = [];
+const resolved = await preparePromotionCandidate({ ...input, payload: remote, communityImageOrigin: origin }, async id => { fetched.push(id); return svg; });
+assert.deepEqual(fetched, ['image1']);
+assert.equal(resolved.course.lessons[0].body, `![Example](${svg})`);
+assert.deepEqual(resolved.source, remote, 'original publication preserved separately');
+assert.equal(resolved.provenance.transformations[0].imageId, 'image1');
+assert.notEqual(resolved.provenance.courseSha256, candidate.provenance.courseSha256);
+assert.equal(remote.course.lessons[0].body.includes('/images/image1'), true, 'no input mutation');
+await assert.rejects(preparePromotionCandidate({ ...input, payload: remote, communityImageOrigin: origin }), /resolver/);
+await assert.rejects(preparePromotionCandidate({ ...input, payload: remote, communityImageOrigin: origin }, async () => 'data:image/svg+xml;base64,' + btoa('<svg xmlns="http://www.w3.org/2000/svg"><script/></svg>')), /Invalid promotion image/);
+for (const bad of [{ ...payload, version: 2 }, { ...payload, course: { ...authored, community: { review: 'reviewed' } } }, { ...remote, course: { ...remote.course, lessons: [{ ...remote.course.lessons[0], body: '![X](https://evil.example/images/image1)' }] } }]) {
+  fetched = [];
+  await assert.rejects(preparePromotionCandidate({ ...input, payload: bad, communityImageOrigin: origin }, async id => { fetched.push(id); return svg; }));
+  assert.deepEqual(fetched, [], 'invalid source rejected before media access');
+}
+console.log('promotion candidate: exact authored identities/metadata, separate deterministic provenance, bounded owned-media embedding, no authority grants, malformed/hostile source rejection passed');

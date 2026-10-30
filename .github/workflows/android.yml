@@ -1,0 +1,420 @@
+name: Android APK (development)
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_preview:
+        description: "Publish validated APK to public Android preview release (main branch only)"
+        type: boolean
+        required: true
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - '.github/android-preview-release-trigger'
+  pull_request:
+    paths:
+      - '.github/workflows/android.yml'
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.*'
+      - 'index.html'
+
+permissions:
+  contents: write
+
+jobs:
+  android-apk:
+    runs-on: ubuntu-24.04
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install Android SDK and NDK
+        run: |
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - name: Install dependencies
+        run: npm ci
+      - name: Test Android download-page contract
+        run: node --test tests/android-download-page.test.mjs tests/android-release-manifest.test.mjs && npx tsx --test tests/android-updates.test.mts
+      - name: Verify no bundled course content in Android build
+        run: node --test tests/android-remote-courses.test.mjs
+      - name: Initialize Android project
+        run: npm run tauri android init -- --ci
+      - name: Integrate Android native installer
+        run: python3 scripts/android-integrate-installer.py
+      - name: Build ARM64 APK
+        run: npm run tauri android build -- --apk --debug --ci --target aarch64
+      - name: Validate generated APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          if [ "${#apks[@]}" -ne 1 ]; then
+            echo "::error::Expected exactly one ARM64 APK, found ${#apks[@]}"
+            exit 1
+          fi
+          apk="${apks[0]}"
+          unzip -tq "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$apk"
+          # Verify the installer bridge is actually packaged, not merely compiled.
+          unzip -Z1 "$apk" | grep -F 'res/xml/erudior_update_paths.xml' >/dev/null || {
+            echo "::error::Installer FileProvider XML missing from APK"
+            exit 1
+          }
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -p 4 "$apk"
+          badging="$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk")"
+          echo "$badging" | grep -E "^package: name='com\\.erudior\\.app'"
+          echo "$badging" | grep -E "^native-code: 'arm64-v8a'"
+          echo "Validated APK: $apk"
+          sha256sum "$apk"
+      - name: Verify native installer packaged in ARM64 APK
+        run: |
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          bash scripts/android-verify-installer-package.sh "$apk"
+      - name: Diagnose Android package size and install requirements
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          echo "## Android APK package analysis" >> "$GITHUB_STEP_SUMMARY"
+          echo "- APK bytes: $(stat -c%s "$apk")" >> "$GITHUB_STEP_SUMMARY"
+          echo "- APK MiB: $(du -m "$apk" | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+          echo '### Android package metadata' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" | grep -E '^(package:|sdkVersion:|targetSdkVersion:|native-code:)' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Largest packaged entries' >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          unzip -l "$apk" | sort -nr | head -25 >> "$GITHUB_STEP_SUMMARY" || true
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          echo "APK analysis complete; this does not establish device installation success."
+      - name: Enforce Android APK size and packaged-course budget
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          test -n "$apk"
+          bytes="$(stat -c%s "$apk")"
+          echo "Measured APK: $bytes bytes"
+          # Debug builds retain Rust debug symbols; they are diagnostic only.
+          # A separate optimized release size budget must be enforced before publication.
+          echo "Debug APK size (bytes): $bytes" >> "$GITHUB_STEP_SUMMARY"
+          test "$bytes" -lt 209715200 || { echo "::error::Android debug APK exceeds 200 MiB diagnostic ceiling"; exit 1; }
+          if unzip -Z1 "$apk" | grep -Ei '(^|/)(samples/(math|languages)/|colorado-broker-course\\.json|dist-courses/|courses-dev/)'; then
+            echo "::error::Course data shipped in Android package"
+            exit 1
+          fi
+      - name: Upload installable debug-testing artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: erudior-android-arm64-apk
+          path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish public Android preview APK
+        if: ${{ false }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -eq 1
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose "${apks[0]}"
+          cp "${apks[0]}" Erudior-Android-arm64.apk
+          sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
+          if gh release view android-preview >/dev/null 2>&1; then
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --clobber
+          else
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Early ARM64 Android test build. Not production ready; device testing still required." --prerelease
+          fi
+      - name: Verify public release download
+        if: ${{ false }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
+          curl --fail --location --retry 5 --retry-delay 3 --output published.apk "$url"
+          test -s published.apk
+          sha256sum --check <(sed 's/Erudior-Android-arm64.apk/published.apk/' Erudior-Android-arm64.apk.sha256)
+          echo "Public download verified: $url" >> "$GITHUB_STEP_SUMMARY"
+
+  android-emulator-install:
+    runs-on: ubuntu-24.04
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Enable KVM for emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install Android SDK/NDK
+        run: |
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - run: npm ci
+      - name: Verify no bundled course content in Android build
+        run: node --test tests/android-remote-courses.test.mjs
+      - name: Build optimized x86_64 APK for emulator
+        run: |
+          npm run tauri android init -- --ci
+          python3 scripts/android-integrate-installer.py
+          npm run tauri android build -- --apk --ci --target x86_64
+      - name: Sign optimized emulator APK with disposable test certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          keydir="$(mktemp -d)"
+          trap 'rm -rf "$keydir"; rm -f ci-aligned.apk' EXIT
+          keytool -genkeypair -noprompt -storetype PKCS12 -keystore "$keydir/test.jks" -storepass changeit -keypass changeit -alias ci-only -keyalg RSA -keysize 3072 -validity 1 -dname "CN=Erudior CI Test"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk' -print -quit)"
+          test -n "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keydir/test.jks" --ks-key-alias ci-only --ks-pass pass:changeit --key-pass pass:changeit --out ci-signed-optimized.apk ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose ci-signed-optimized.apk
+      - name: Install on Android emulator and launch
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          script: |
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-install-smoke.sh
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-installer-preflight-smoke.sh
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-upgrade-retention-smoke.sh
+            ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-installer-launch-smoke.sh || echo "::warning::Shell-origin installer launch is diagnostic only; in-app invocation remains unverified"
+      - name: Upload emulator diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-emulator-failure-evidence
+          path: android-test-evidence/
+          if-no-files-found: warn
+          retention-days: 7
+
+  android-optimized-size:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    permissions:
+      contents: write
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install Android SDK and NDK
+        run: |
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then echo "::error::Android SDK setup failed after 3 attempts"; exit 1; fi
+            echo "::warning::Android SDK download failed (attempt $attempt); retrying"
+            sleep 15
+          done
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - run: npm ci
+      - name: Verify remote course build contract
+        run: node --test tests/android-remote-courses.test.mjs
+      - name: Generate Android project
+        run: npm run tauri android init -- --ci
+      - name: Integrate Android native installer
+        run: python3 scripts/android-integrate-installer.py
+      - name: Compile optimized ARM64 Android package (no debug)
+        run: npm run tauri android build -- --apk --ci --target aarch64
+      - name: Check release signing prerequisites
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          PUBLISH_PREVIEW: ${{ inputs.publish_preview }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$ANDROID_KEYSTORE_B64" || -z "$ANDROID_KEYSTORE_PASSWORD" || -z "$ANDROID_KEY_ALIAS" || -z "$ANDROID_KEY_PASSWORD" ]]; then
+            if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "$GITHUB_REF" == "refs/heads/main" && "${PUBLISH_PREVIEW:-false}" == "true" ]]; then
+              echo "::error::Android publication blocked: persistent signing secrets missing"
+              exit 1
+            fi
+            echo "RELEASE_SIGNING_READY=false" >> "$GITHUB_ENV"
+            echo "Release signing secrets missing; optimized package will remain unpublished." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "RELEASE_SIGNING_READY=true" >> "$GITHUB_ENV"
+      - name: Sign optimized ARM64 APK with persistent release key
+        if: env.RELEASE_SIGNING_READY == 'true'
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          umask 077
+          keystore="$(mktemp)"
+          trap 'rm -rf "$keystore"' EXIT
+          printf '%s' "$ANDROID_KEYSTORE_B64" | base64 --decode > "$keystore"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk' -print -quit)"
+          test -n "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keystore" --ks-key-alias "$ANDROID_KEY_ALIAS" --ks-pass env:ANDROID_KEYSTORE_PASSWORD --key-pass env:ANDROID_KEY_PASSWORD --out Erudior-Android-arm64.apk aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
+          sha256sum Erudior-Android-arm64.apk > Erudior-Android-arm64.apk.sha256
+          node -e 'const fs=require("fs"); const p=JSON.parse(fs.readFileSync("package.json")); const apk="Erudior-Android-arm64.apk"; const hash=require("crypto").createHash("sha256").update(fs.readFileSync(apk)).digest("hex"); const m={schema:1,version:p.version,build:process.env.GITHUB_SHA,apk:"https://github.com/Aziliz/erudior/releases/download/android-preview/"+apk,sha256:hash,bytes:fs.statSync(apk).size,notes:"Android preview update"}; fs.writeFileSync("android-update.json",JSON.stringify(m)+"\n");'
+          echo "Optimized Android APK signed using configured persistent keystore." >> "$GITHUB_STEP_SUMMARY"
+      - name: Test optimized APK signing mechanics with disposable CI key
+        if: env.RELEASE_SIGNING_READY != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          keydir="$(mktemp -d)"
+          keyfile="$keydir/ci-test.jks"
+          trap 'rm -rf "$keydir"; rm -f ci-aligned.apk ci-signed.apk' EXIT
+          # This temporary certificate tests the signing process only.
+          # Never use it for public release or as an update identity.
+          keytool -genkeypair -noprompt -storetype PKCS12 -keystore "$keyfile" -storepass changeit -keypass changeit -alias ci-only -keyalg RSA -keysize 3072 -validity 1 -dname "CN=Erudior CI Test"
+          apk="$(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*release-unsigned.apk' -print -quit)"
+          test -n "$apk"
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keyfile" --ks-key-alias ci-only --ks-pass pass:changeit --key-pass pass:changeit --out ci-signed.apk ci-aligned.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs ci-signed.apk
+          "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -p 4 ci-signed.apk
+          echo "Optimized APK signing mechanism passed with throwaway CI certificate; APK NOT distributed." >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify optimized signed ARM64 APK and updater resource
+        if: env.RELEASE_SIGNING_READY == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s Erudior-Android-arm64.apk
+          test -s android-update.json
+          version="$(node -p 'JSON.parse(require("fs").readFileSync("package.json")).version')"
+          python3 scripts/android-release-verify.py Erudior-Android-arm64.apk --version "$version" --build "$GITHUB_SHA" --manifest android-update.json --evidence optimized-verification.json
+      - name: Measure optimized package without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' apks < <(find src-tauri/gen/android/app/build/outputs/apk -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -ge 1
+          echo "### Optimized Android APK(s), diagnostic only" >> "$GITHUB_STEP_SUMMARY"
+          for apk in "${apks[@]}"; do
+            unzip -tq "$apk"
+            bytes="$(stat -c%s "$apk")"
+            printf -- '- %s: %s bytes\n' "$apk" "$bytes" >> "$GITHUB_STEP_SUMMARY"
+            echo "OPTIMIZED_APK_BYTES=$bytes"
+            test "$bytes" -lt 41943040 || { echo "::error::Optimized Android APK exceeds 40 MiB release size ceiling"; exit 1; }
+            echo "OPTIMIZED_APK_MIB=$(awk -v bytes="$bytes" 'BEGIN { printf "%.2f", bytes / 1048576 }')"
+            "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$apk" | grep -E '^(package:|sdkVersion:|targetSdkVersion:|native-code:)' >> "$GITHUB_STEP_SUMMARY"
+            if unzip -Z1 "$apk" | grep -Ei '(^|/)(samples/(math|languages)/|colorado-broker-course\\.json|dist-courses/|courses-dev/)'; then
+              echo "::error::Bundled coursework found in optimized APK"
+              exit 1
+            fi
+            if "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify "$apk"; then
+              echo "Signature valid; release key persistence NOT established" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "Unsigned output; MUST sign with persistent release key before distribution" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          echo "Unsigned APK outputs remain diagnostic-only."
+      - name: Publish verified signed optimized APK
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true && env.RELEASE_SIGNING_READY == 'true' }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s Erudior-Android-arm64.apk
+          test -s Erudior-Android-arm64.apk.sha256
+          test -s android-update.json
+          node -e 'JSON.parse(require("fs").readFileSync("android-update.json", "utf8"))'
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose Erudior-Android-arm64.apk
+          sha256sum -c Erudior-Android-arm64.apk.sha256
+          if gh release view android-preview >/dev/null 2>&1; then
+            gh release upload android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --clobber
+          else
+            gh release create android-preview Erudior-Android-arm64.apk Erudior-Android-arm64.apk.sha256 android-update.json --target "$GITHUB_SHA" --title "Erudior Android early preview" --notes "Optimized ARM64 Android preview. Device testing remains in progress." --prerelease
+          fi
+      - name: Check published APK bytes
+        if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.publish_preview == true && env.RELEASE_SIGNING_READY == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk"
+          curl --fail --location --retry 5 --retry-delay 3 --output public.apk "$url"
+          sha256sum --check <(sed 's/Erudior-Android-arm64.apk/public.apk/' Erudior-Android-arm64.apk.sha256)
+          curl --fail --location --retry 5 --retry-delay 3 --output published-update.json "https://github.com/Aziliz/erudior/releases/download/android-preview/android-update.json"
+          node -e 'const fs=require("fs"), c=require("crypto"); const m=JSON.parse(fs.readFileSync("published-update.json")); const b=fs.readFileSync("public.apk"); if(m.schema!==1||m.build!==process.env.GITHUB_SHA||m.bytes!==b.length||m.sha256!==c.createHash("sha256").update(b).digest("hex"))process.exit(1); console.log("Published update manifest verified")'
+          echo "Public optimized APK and update manifest verified: $url" >> "$GITHUB_STEP_SUMMARY"

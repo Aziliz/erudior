@@ -1,13 +1,26 @@
+import { validateImageAsset } from "./imageAssets";
+import { markdownImageAssets, transformMarkdownImages } from "./markdownAssets";
+import { validateMarkdownAssets } from "./lessonSource";
+import { readerMarkdownImageAssets, transformReaderMarkdownImages, validateReaderMarkdownAssets } from "./readerMarkdownAssets";
+import { canonicalAssetSources, transformCanonicalAssets } from "./canonicalAssets";
 // Community courses: the block-only format people write on the website, its limits and checks
 // (shared by the editor, the API worker and the app), and conversion to an app course.
 // No DOM or Node APIs here: the worker bundles this file too.
 
 import { LEVELS, SUBJECTS, TYPES, calculatorForSubject, knownSubject, normalizeLevels } from "./taxonomy";
-import type { Drill, FigureSpec } from "./types";
+import type { Drill, FigureSpec } from "./exerciseTypes";
 import { drillError } from "./drills";
 import { renderFigure } from "./figure";
 import { splitMath } from "./mathSplit";
 import { readSpec, targetProblems, type ManipSpec, type ManipTarget } from "./manip";
+import { parseCourseBranchingScenarios, branchingCourseProblems, type CourseBranchingScenario } from "./branchingCoursePackage";
+import { parseCourseScientificWorkspaces, scientificCourseProblems, type CourseScientificWorkspace } from "./scientificCoursePackage";
+import { parseCourseAdvancedAssessments, advancedAssessmentCourseProblems, type CourseAdvancedAssessment } from "./advancedAssessmentCoursePackage";
+import { normalizeSpreadsheetAssignment, validateAssignment, type SpreadsheetAssignment } from "./spreadsheetAssignments";
+import { courseWorkRevisionProblems, validateCourseWork, type CourseWork } from "./courseWork";
+import { validateReaderTexts, normalizeValidatedReaderTexts, readerRevisionProblems, type ReaderText } from "./readerContent";
+import { validateCanonicalAuthoring, demoteRuntimeCourse, runtimeCourseFromCanonicalAuthoring, canonicalRevisionProblems, type CanonicalAuthoringPayload } from "./canonicalAuthoring";
+import type { Course } from "./courseContentTypes";
 export { LEVELS, SUBJECTS, TYPES };
 
 export type QKind = "choice" | "text" | "match" | "label" | "order" | "model";
@@ -47,6 +60,8 @@ export interface CQuestion {
 export type CalloutKind = "tip" | "warning" | "rule";
 
 export type Block =
+  | { type: "assignment"; kind: "writing" | "lab"; id: string }
+  | { type: "assignment"; kind: "log" }
   | { type: "heading"; text: string; /** 2 = section (default), 3 = subsection. */ level?: 2 | 3 }
   | { type: "text"; md: string }
   | { type: "list"; ordered: boolean; items: string[] }
@@ -154,7 +169,11 @@ export interface CExam {
 export type CalcChoice = "basic" | "scientific" | "graphing" | "none";
 export const CALCULATORS: CalcChoice[] = ["basic", "scientific", "graphing", "none"];
 
-export interface CommunityDoc {
+export interface CommunityDoc extends CourseWork {
+  /** Authoritative full-course mode. Legacy authored mirrors must be absent. */
+  canonical?: CanonicalAuthoringPayload;
+  /** Canonical reader content; question links use installed first-bank IDs. */
+  texts?: ReaderText[];
   format: "erudior-community";
   version: 1;
   title: string;
@@ -179,6 +198,11 @@ export interface CommunityDoc {
   language?: CLanguage;
   vocab?: CVocab[];
   readingList?: CReading[];
+  /** Canonical, lesson-linked spreadsheet exercises; community publication is not official approval. */
+  branchingScenarios?: CourseBranchingScenario[];
+  scientificWorkspaces?: CourseScientificWorkspace[];
+  advancedAssessments?: CourseAdvancedAssessment[];
+  spreadsheetAssignments?: Array<SpreadsheetAssignment & { lessonId: string }>;
 }
 
 export const LIMITS = {
@@ -209,6 +233,9 @@ export const LIMITS = {
   drillBytes: 12000,
   vocab: 3000,
   readingList: 60,
+  spreadsheetAssignments: 60,
+  /** One complete spreadsheet assignment, including its starter and grading criteria. */
+  spreadsheetAssignmentBytes: 128 * 1024,
   minutes: 600,
 };
 
@@ -332,15 +359,112 @@ const diagramBody = (code: string) =>
     .join("\n")
     .trim();
 
+/** Shared server/editor boundary. Drafts may omit exercises, but attached exercises
+ * must be structurally valid so saving or installation cannot discard their data. */
+export function checkCommunitySpreadsheetAssignments(value: unknown, lessonIds: ReadonlySet<string>): string[] {
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) return ["Spreadsheet assignments must be an array."];
+  if (value.length > LIMITS.spreadsheetAssignments) return [`At most ${LIMITS.spreadsheetAssignments} spreadsheet assignments.`];
+  const errors: string[] = [];
+  const seen = new Set<string>();
+  for (const [index, assignment] of value.entries()) {
+    const at = `Spreadsheet assignment ${index + 1}`;
+    // Test serializability before traversing nested author data. Worker inputs are
+    // JSON, while the editor can also pass incomplete in-memory drafts here.
+    try {
+      const serialized = JSON.stringify(assignment);
+      if (serialized === undefined || new TextEncoder().encode(serialized).byteLength > LIMITS.spreadsheetAssignmentBytes) {
+        errors.push(`${at}: exceeds the ${LIMITS.spreadsheetAssignmentBytes} byte limit.`);
+        continue;
+      }
+    } catch {
+      errors.push(`${at}: must contain JSON data only.`);
+      continue;
+    }
+    const problems = validateAssignment(assignment);
+    errors.push(...problems.map(problem => `${at}: ${problem}.`));
+    if (!isObj(assignment)) continue;
+    if (typeof assignment.id === "string") {
+      if (seen.has(assignment.id)) errors.push(`${at}: repeated assignment id.`);
+      seen.add(assignment.id);
+    }
+    if (!isStr(assignment.lessonId) || !lessonIds.has(assignment.lessonId))
+      errors.push(`${at}: its lesson doesn't exist.`);
+    if (typeof assignment.title === "string" && assignment.title.length > LIMITS.title)
+      errors.push(`${at}: keep the title under ${LIMITS.title} characters.`);
+  }
+  return errors;
+}
+
+/** Exactly the IDs emitted by toCourse into its first and only question bank. */
+export function communityReaderQuestions(d: CommunityDoc): Array<{ id: string; stem: string }> {
+  return [
+    ...(Array.isArray(d.lessons) ? d.lessons : []).flatMap(lesson => (Array.isArray(lesson?.blocks) ? lesson.blocks : []).flatMap(block => block?.type === "question" ? [{ id: `${lesson.id}-${block.id}`, stem: block.stem }] : [])),
+    ...(Array.isArray(d.modules) ? d.modules : []).flatMap(module => (Array.isArray(module?.quiz) ? module.quiz : []).map(question => ({ id: `${module.id}-${question?.id}`, stem: question?.stem }))),
+  ];
+}
+/** The reader renders these fields as Markdown; use the same traversal at every boundary. */
+function visitReaderMarkdown(texts: unknown, visit: (owner: Record<string, unknown>, key: string, kind?: string) => void): void {
+  if (!Array.isArray(texts)) return;
+  for (const text of texts) if (isObj(text)) {
+    if (typeof text.about === "string") visit(text, "about");
+    for (const [list, key] of [[text.sections, "body"]] as const)
+      if (Array.isArray(list)) for (const item of list) if (isObj(item) && typeof item[key] === "string") visit(item, key, typeof text.kind === "string" ? text.kind : undefined);
+  }
+}
+export function checkCommunityReaderTexts(d: CommunityDoc, strict: boolean, context: { communityImageOrigin?: string } = {}): string[] {
+  const ids = communityReaderQuestions(d).map(q => q.id);
+  const errors = validateReaderTexts(d.texts, { strict, questionIds: ids });
+  visitReaderMarkdown(d.texts, (owner, key, kind) => errors.push(...(key === "body" ? validateReaderMarkdownAssets(owner[key] as string, { ...context, kind }) : validateMarkdownAssets(owner[key], context)).map(error => `Reading library ${key}: ${error}`)));
+  if (d.texts?.length && new Set(ids).size !== ids.length) errors.push("Reading library: generated question IDs are ambiguous; rename conflicting lesson/module question IDs.");
+  return errors;
+}
+
+/** Assignment directives are typed references, never arbitrary Markdown/source. */
+export function checkCommunityAssignmentReferences(d: CommunityDoc): string[] {
+  const errors: string[] = [];
+  for (const lesson of Array.isArray(d.lessons) ? d.lessons : []) for (const block of Array.isArray(lesson?.blocks) ? lesson.blocks : []) {
+    if (block?.type !== "assignment") continue;
+    if (block.kind === "log") {
+      if (!d.activityLog || Object.keys(block).some(key => !["type", "kind"].includes(key))) errors.push(`Lesson ${lesson.id}: invalid activity log reference.`);
+    } else if (block.kind === "writing" || block.kind === "lab") {
+      const resources = block.kind === "writing" ? d.writing : d.labs;
+      if (typeof block.id !== "string" || !/^[A-Za-z0-9_-]{1,100}$/.test(block.id) || !Array.isArray(resources) || !resources.some(resource => resource?.id === block.id) || Object.keys(block).some(key => !["type", "kind", "id"].includes(key))) errors.push(`Lesson ${lesson.id}: invalid ${block.kind} reference.`);
+    } else errors.push(`Lesson ${lesson.id}: unknown assignment kind.`);
+  }
+  return errors;
+}
+/** Match immutable publication identities, independent of draft/UI state. */
+export function communityWorkRevisionProblems(previous: CommunityDoc, next: CommunityDoc, communityId?: string, communityImageOrigin?: string): string[] {
+  if (previous.canonical) return next.canonical ? canonicalRevisionProblems(previous.canonical, next.canonical) : ["Canonical publications cannot downgrade to legacy blocks."];
+  if (next.canonical) {
+    if (!communityId) return ["A verified community identity is required for migration."];
+    try { return canonicalRevisionProblems(migrateCommunityDocToCanonical(previous, communityId, id => `${communityImageOrigin ?? ""}/images/${id}`, communityImageOrigin).canonical!, next.canonical); }
+    catch { return ["The previous publication could not be migrated losslessly."]; }
+  }
+  const errors = [...courseWorkRevisionProblems(previous, next), ...readerRevisionProblems(previous.texts ?? [], next.texts ?? [])];
+  for (const lesson of previous.lessons) for (const block of lesson.blocks) {
+    if (block.type !== "assignment") continue;
+    const replacement = next.lessons.find(l => l.id === lesson.id)?.blocks.some(b => b.type === "assignment" && b.kind === block.kind && (b.kind === "log" || block.kind !== "log" && b.id === block.id));
+    if (!replacement) errors.push(`Published lesson ${lesson.id}: assessed-work references cannot be removed or reassigned.`);
+  }
+  return errors;
+}
+
 /**
  * Problems that stop publishing (an empty list means it's fine). Drafts may be incomplete;
  * `strict` adds the checks for publishing (no empty lessons, questions answerable, etc.).
  */
-export function checkDoc(raw: unknown, strict: boolean): string[] {
+export function checkDoc(raw: unknown, strict: boolean, context: { communityImageOrigin?: string } = {}): string[] {
   const errs: string[] = [];
   const d = raw as CommunityDoc;
   if (!d || typeof d !== "object" || d.format !== "erudior-community" || d.version !== 1) return ["Not a community course document."];
-  if (JSON.stringify(d).length > LIMITS.docBytes) errs.push("The course is too large. Split it into two courses.");
+  try {
+    if (new TextEncoder().encode(JSON.stringify(d)).byteLength > LIMITS.docBytes)
+      return ["The course is too large. Split it into two courses."];
+  } catch {
+    return ["The course must contain JSON data only."];
+  }
   if (!isStr(d.title) || !d.title.trim()) errs.push("Give the course a title.");
   else if (d.title.length > LIMITS.title) errs.push(`Keep the title under ${LIMITS.title} characters.`);
   if (!isStr(d.description) || d.description.length > LIMITS.description) errs.push(`Keep the description under ${LIMITS.description} characters.`);
@@ -348,6 +472,14 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
   if (!SUBJECTS.includes(d.subject as (typeof SUBJECTS)[number])) errs.push("Choose a subject.");
   if (!LEVELS.includes(d.level as (typeof LEVELS)[number])) errs.push("Choose a level.");
   if (d.type !== undefined && !TYPES.includes(d.type as (typeof TYPES)[number])) errs.push("Choose a type.");
+  if (d.canonical !== undefined) {
+    const allowed = new Set(["format", "version", "title", "description", "subject", "level", "type", "lessons", "decks", "canonical"]);
+    for (const key of Object.keys(d)) if (!allowed.has(key)) errs.push(`Canonical mode cannot contain legacy or unknown field ${key}.`);
+    if (!Array.isArray(d.lessons) || d.lessons.length || !Array.isArray(d.decks) || d.decks.length) errs.push("Canonical mode requires empty legacy lessons and decks.");
+    errs.push(...validateCanonicalAuthoring(d.canonical, { strict, maxBytes: LIMITS.docBytes, ...context }));
+    if (d.canonical?.course?.title !== d.title) errs.push("Listing title must match the canonical course title.");
+    return errs;
+  }
   if (d.calculator !== undefined && !CALCULATORS.includes(d.calculator)) errs.push("Choose a calculator.");
   if (d.exam !== undefined) {
     const e = d.exam;
@@ -404,10 +536,12 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
     if (l.drills !== undefined && (!strList(l.drills, LIMITS.drills, 40) || l.drills.some((x) => !drillIds.has(x)))) errs.push(`${where}: lists a drill that doesn't exist.`);
     if (l.refs !== undefined && (!strList(l.refs, LIMITS.references, 40) || l.refs.some((x) => !refIds.has(x)))) errs.push(`${where}: lists a reference sheet that doesn't exist.`);
     if (l.blocks.length > LIMITS.blocksPerLesson) errs.push(`${where}: at most ${LIMITS.blocksPerLesson} blocks.`);
-    if (strict && !l.blocks.some((b) => b.type !== "question" && !(b.type === "text" && !b.md.trim()))) errs.push(`${where}: has no content.`);
+    if (strict && !l.blocks.some((b) => b.type !== "question" && !(b.type === "text" && !b.md.trim())) && !(Array.isArray(d.branchingScenarios) && d.branchingScenarios.some(s=>s && s.lessonId===l.id)) && !(Array.isArray(d.scientificWorkspaces) && d.scientificWorkspaces.some(s=>s && s.lessonId===l.id)) && !(Array.isArray(d.advancedAssessments) && d.advancedAssessments.some(s=>s && s.lessonId===l.id))) errs.push(`${where}: has no content.`);
     l.blocks.forEach((b, j) => {
       const at = `${where}, block ${j + 1}`;
       switch (b?.type) {
+        case "assignment":
+          break;
         case "heading":
           if (!isStr(b.text) || b.text.length > LIMITS.short) errs.push(`${at}: heading too long.`);
           if (b.level !== undefined && b.level !== 2 && b.level !== 3) errs.push(`${at}: bad heading size.`);
@@ -472,6 +606,13 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
       }
     });
   });
+  errs.push(...checkCommunityReaderTexts(d, strict, context));
+  errs.push(...checkCommunityAssignmentReferences(d));
+  errs.push(...validateCourseWork(d, { strict, moduleIds: [...mids] }));
+  errs.push(...branchingCourseProblems(d.branchingScenarios, ids));
+  errs.push(...scientificCourseProblems(d.scientificWorkspaces, ids));
+  errs.push(...advancedAssessmentCourseProblems(d.advancedAssessments, ids));
+  errs.push(...checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments, ids));
   if (images > LIMITS.images) errs.push(`At most ${LIMITS.images} images per course.`);
 
   // Notecards
@@ -597,7 +738,27 @@ export function checkDoc(raw: unknown, strict: boolean): string[] {
 }
 
 /** Image ids a document uses. */
-export const imageIds = (d: CommunityDoc): string[] => [
+function communityImageId(source:string, origin?:string):string|undefined {
+  try { const base=new URL(origin || "https://community.invalid"), url=new URL(source);
+    if(url.protocol!=="https:"||url.origin!==base.origin||url.username||url.password||url.search||url.hash)return;
+    const route=/^\/images\/([A-Za-z0-9_-]+)$/.exec(url.pathname);return route?.[1];
+  }catch{return;}
+}
+function canonicalImageIds(doc:CommunityDoc, communityOrigin?:string):string[]{
+  return doc.canonical?[...new Set(canonicalAssetSources(doc.canonical.course).flatMap(src=>{const id=communityImageId(src,communityOrigin);return id?[id]:[];}))]:[];
+}
+function readerImageIds(d: CommunityDoc, communityOrigin?: string): string[] {
+  const ids = new Set<string>();
+  visitReaderMarkdown(d.texts, (owner, key, kind) => {
+    const parsed = (key === "body" ? readerMarkdownImageAssets(owner[key] as string, kind) : markdownImageAssets(owner[key] as string));
+    if (parsed.errors.length) throw Error(parsed.errors.join("; "));
+    for (const asset of parsed.assets) { const id = communityImageId(asset.src, communityOrigin); if (id) ids.add(id); }
+  });
+  return [...ids];
+}
+export const imageIds = (d: CommunityDoc, communityOrigin?: string): string[] => [
+  ...readerImageIds(d, communityOrigin),
+  ...canonicalImageIds(d, communityOrigin),
   ...new Set([
     ...d.lessons.flatMap((l) => l.blocks.flatMap((b) => (b.type === "image" ? [b.imageId] : b.type === "question" && b.imageId ? [b.imageId] : []))),
     ...(d.modules ?? []).flatMap((m) => (m.quiz ?? []).flatMap((q) => (q.imageId ? [q.imageId] : []))),
@@ -640,6 +801,8 @@ export interface CommunityMeta {
 /** One block as lesson Markdown. */
 function blockMd(b: Block, imageSrc: (id: string) => string): string {
   switch (b.type) {
+    case "assignment":
+      return "```assignment\n" + (b.kind === "log" ? "log" : `${b.kind}: ${b.id}`) + "\n```";
     case "heading":
       return `${b.level === 3 ? "###" : "##"} ${oneLine(b.text)}`;
     case "text":
@@ -697,7 +860,55 @@ function blockMd(b: Block, imageSrc: (id: string) => string): string {
  * Build an app course. `imageSrc` turns an image id into a URL or data URL (the app embeds
  * images when it installs a course, so it works offline).
  */
-export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string): Record<string, unknown> {
+export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string, communityOrigin?: string): Record<string, unknown> {
+  return convertCommunityCourse(d, meta, imageSrc, communityOrigin, false);
+}
+/** Migration retains validated source URLs; only installation embeds remote media. */
+function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: string) => string, communityOrigin: string | undefined, preserveSourceMedia: boolean): Record<string, unknown> {
+  if (d.canonical === undefined) parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id)));
+  if (d.canonical === undefined) parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id)));
+  if (d.canonical === undefined) parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id)));
+  if (d.canonical !== undefined) {
+    const errors = checkDoc(d, true, { communityImageOrigin: communityOrigin });
+    if (errors.length) throw Error(errors.join("; "));
+    const runtime = runtimeCourseFromCanonicalAuthoring(d.canonical, { id: `community-${meta.id}`, revision: meta.version, community: meta }, { communityImageOrigin: communityOrigin });
+    // Installation-only offline embedding. The immutable authored payload is never changed.
+    if (communityOrigin !== undefined) {
+      return transformCanonicalAssets(runtime, source => {
+        const id=communityImageId(source,communityOrigin);if(!id)return source;
+        const embedded=imageSrc(id);if(!embedded)throw Error("A required community image could not be embedded.");const errors=validateImageAsset(embedded);if(errors.length)throw Error("A downloaded community image is invalid: "+errors.join("; "));return embedded;
+      }) as unknown as Record<string,unknown>;
+    }
+    return runtime as unknown as Record<string, unknown>;
+  }
+  const readerProblems = checkCommunityReaderTexts(d, true, { communityImageOrigin: communityOrigin });
+  if (readerProblems.length) throw new Error("Cannot install reading library: " + readerProblems.join("; "));
+  const texts = d.texts === undefined ? undefined : normalizeValidatedReaderTexts(d.texts, { questionIds: communityReaderQuestions(d).map(q => q.id) });
+  // Normalize clones the immutable published reader data; only the installed copy is embedded.
+  let readerBytes = new TextEncoder().encode(JSON.stringify(texts ?? [])).length;
+  visitReaderMarkdown(texts, (owner, key, kind) => {
+    owner[key] = (key === "body" ? transformReaderMarkdownImages : transformMarkdownImages)(owner[key] as string, source => {
+      const id = communityImageId(source, communityOrigin);
+      if (!id || preserveSourceMedia) return source;
+      const embedded = imageSrc(id);
+      if (!embedded) throw Error("A required community reader image could not be embedded.");
+      const errors = validateImageAsset(embedded);
+      if (errors.length) throw Error("A downloaded community reader image is invalid: " + errors.join("; "));
+      return embedded;
+    }, (previous, next) => {
+      readerBytes += new TextEncoder().encode(JSON.stringify(next)).length - new TextEncoder().encode(JSON.stringify(previous)).length;
+      if (readerBytes > 32 * 1024 * 1024) throw Error("Reader asset expansion exceeds total byte limit");
+    }, kind);
+  });
+  const workProblems = [...validateCourseWork(d, { moduleIds: d.modules?.map(m => m.id) ?? [] }), ...checkCommunityAssignmentReferences(d)];
+  if (workProblems.length) throw new Error("Cannot install assessed work: " + workProblems.join("; "));
+  const work = Object.fromEntries((["rubrics", "writing", "labs", "activityLog"] as const).filter(key => d[key] !== undefined).map(key => [key, structuredClone(d[key])]));
+  const spreadsheetProblems = checkCommunitySpreadsheetAssignments(d.spreadsheetAssignments,
+    new Set(d.lessons.filter(lesson => lesson && typeof lesson.id === "string").map(lesson => lesson.id)));
+  if (spreadsheetProblems.length) throw new Error("Cannot install spreadsheet assignments: " + spreadsheetProblems.join("; "));
+  const spreadsheetAssignments = d.spreadsheetAssignments?.map(assignment => ({
+    ...normalizeSpreadsheetAssignment(assignment), lessonId: assignment.lessonId,
+  }));
   const title = d.title.trim();
   const modules = d.modules?.length ? d.modules : [{ id: "m1", title }];
   const moduleOf = (l: CLesson) => (l.module && modules.some((m) => m.id === l.module) ? l.module : modules[0].id);
@@ -782,6 +993,12 @@ export function toCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: (id: st
     ...(d.language && d.vocab?.length ? { vocab: d.vocab.filter((v) => v.term.trim() && v.meanings.some((m) => m.trim())).map((v) => ({ ...v, meanings: v.meanings.filter((m) => m.trim()) })) } : {}),
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
     calculator,
+    ...(d.branchingScenarios === undefined ? {} : { branchingScenarios: parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id))) }),
+    ...(d.scientificWorkspaces === undefined ? {} : { scientificWorkspaces: parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id))) }),
+    ...(d.advancedAssessments === undefined ? {} : { advancedAssessments: parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id))) }),
+    ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
+    ...work,
+    ...(texts === undefined ? {} : { texts }),
     community: meta,
   };
 }
@@ -794,4 +1011,17 @@ export function upgradeDoc(d: CommunityDoc): CommunityDoc {
   const level = typeof d.level === "string" ? (normalizeLevels([d.level])[0] ?? d.level) : d.level;
   const type = d.type ?? "Course";
   return subject === d.subject && level === d.level && type === d.type ? d : { ...d, subject, level, type };
+}
+
+/** Explicit migration; the immutable old release remains intact. No reverse block conversion. */
+export function migrateCommunityDocToCanonical(doc: CommunityDoc, communityId: string, imageSrc: (id: string) => string = id => `/images/${id}`, communityImageOrigin?: string): CommunityDoc {
+  const errors = checkDoc(doc, true, { communityImageOrigin });
+  if (errors.length) throw Error(errors.join("; "));
+  if (doc.canonical) return structuredClone(doc);
+  const runtime = convertCommunityCourse(doc, { id: communityId, version: 1, review: "not_reviewed", author: "" }, imageSrc, communityImageOrigin, true) as unknown as Course;
+  // Legacy conversion creates bank data, not complete portable bank envelopes.
+  // These are documented generated markers, never inferred publication authority.
+  runtime.banks = runtime.banks.map(bank => ({ ...bank, format: "examiner-bank", version: 1 }));
+  const { payload } = demoteRuntimeCourse(runtime, { communityImageOrigin });
+  return { format: "erudior-community", version: 1, title: payload.course.title, description: doc.description, subject: doc.subject, level: doc.level, type: doc.type ?? "Course", lessons: [], decks: [], canonical: payload };
 }

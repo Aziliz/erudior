@@ -1,9 +1,13 @@
+import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
+import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
+import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
+import { parseCourseAdvancedAssessments } from "./advancedAssessmentCoursePackage";
 import { normalizeSpreadsheetAssignment } from "./spreadsheetAssignments";
 
 const SEP = "__";
@@ -20,11 +24,38 @@ const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : []);
 const safeId = (v: unknown, fallback: string) => (/^[A-Za-z0-9_-]{1,100}$/.test(str(v)) ? str(v) : fallback);
 
 export function looksLikeCourse(raw: unknown): boolean {
-  return isObj(raw) && (raw.format === "examiner-course" || Array.isArray(raw.lessons) || Array.isArray(raw.decks));
+  return isObj(raw) && (raw.format === "examiner-course" || raw.format === "erudior-canonical-authoring" || Array.isArray(raw.lessons) || Array.isArray(raw.decks));
 }
 
 export function normalizeCourse(raw: unknown): Course {
   if (!isObj(raw)) throw new BankError("The course must be a JSON object.");
+  // Canonical envelopes never fall back to legacy normalization: malformed authored
+  // fields must remain visible failures. Local source packages use their own size
+  // acquisition limits, not the smaller community transport budget.
+  const canonicalOptions = { strict: false, maxBytes: Number.MAX_SAFE_INTEGER, mode: "source" as const };
+  if (raw.format === "erudior-canonical-authoring") {
+    const source = courseFromCanonicalAuthoring(raw, { ...canonicalOptions, strict: true });
+    return { ...source, banks: source.banks.map(bank => ({ ...bank, id: bankKey(source.id, bank.id), courseId: source.id })) };
+  }
+  if (raw.format === "examiner-course" && raw.version === 1) {
+    try {
+      const { payload } = demoteRuntimeCourse(raw as unknown as Course, canonicalOptions);
+      const source = payload.course;
+      return { ...source, banks: source.banks.map(bank => ({ ...bank, id: bankKey(source.id, bank.id), courseId: source.id })), ...(community(raw.community) ? { community: community(raw.community)! } : {}) };
+    } catch {
+      // Existing incomplete legacy course files retain their explicit migration path.
+      // Public ingestion validates their raw resources before reaching this function.
+    }
+  }
+  if (raw.format === "examiner-course" && raw.version === 1 && raw.community === undefined && Array.isArray(raw.banks) && raw.banks.every(bank => isObj(bank) && bank.courseId === undefined)) {
+    try {
+      const source = migrateLegacyCourseToCanonical(raw, canonicalOptions).payload.course;
+      return { ...source, banks: source.banks.map(bank => ({ ...bank, id: bankKey(source.id, bank.id), courseId: source.id })) };
+    } catch {
+      // Legacy recovery remains available for incomplete pre-canonical local files.
+      // Explicit canonical migration/import APIs do not swallow these errors.
+    }
+  }
   const title = str(raw.title).trim();
   if (!title) throw new BankError('The course needs a "title".');
   const id = safeId(raw.id, slugify(title));
@@ -72,6 +103,10 @@ export function normalizeCourse(raw: unknown): Course {
       return { ...assignment, lessonId: candidate.lessonId };
     });
   }
+
+  const branchingScenarios = raw.branchingScenarios === undefined ? undefined : parseCourseBranchingScenarios(raw.branchingScenarios, new Set(lessons.map(l=>l.id)));
+  const scientificWorkspaces = raw.scientificWorkspaces === undefined ? undefined : parseCourseScientificWorkspaces(raw.scientificWorkspaces, new Set(lessons.map(l=>l.id)));
+  const advancedAssessments = raw.advancedAssessments === undefined ? undefined : parseCourseAdvancedAssessments(raw.advancedAssessments, new Set(lessons.map(l=>l.id)));
 
   const banks: Bank[] = arr(raw.banks).map((b, i) => {
     try {
@@ -225,6 +260,9 @@ export function normalizeCourse(raw: unknown): Course {
     ...(raw.readAloud === true ? { readAloud: true } : {}),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
+    ...(branchingScenarios ? { branchingScenarios } : {}),
+    ...(scientificWorkspaces ? { scientificWorkspaces } : {}),
+    ...(advancedAssessments ? { advancedAssessments } : {}),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
 }
@@ -266,6 +304,7 @@ export function exportCourseSnapshot(course: Course): string {
  */
 export function importCourseSnapshot(source: string): Course {
   const raw: unknown = JSON.parse(source);
+  if (isObj(raw) && raw.format === "erudior-canonical-authoring") return normalizeCourse(raw);
   if (!isObj(raw) || raw.format !== "examiner-course" || raw.version !== 1)
     throw new BankError("Expected examiner-course version 1.");
   const imported = normalizeCourse(raw);
@@ -276,7 +315,8 @@ export function importCourseSnapshot(source: string): Course {
 export function serializeCourse(course: Course): string {
   const out = {
     ...course,
-    updated: new Date().toISOString(),
+    // Authored timestamps are content metadata, not export-time bookkeeping.
+    // Preserve them exactly across saves and portable exports.
     banks: course.banks.map((b) => {
       const { courseId: _c, ...rest } = b;
       return { ...rest, id: localBankId(b) };

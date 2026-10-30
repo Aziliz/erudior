@@ -7,6 +7,9 @@ on:
     branches: [main]
     paths:
       - "src/**"
+      - "account-service/**"
+      - "package.json"
+      - "package-lock.json"
       - "src-tauri/**"
       - "tests/**"
       - "scripts/check-product-identity.mjs"
@@ -28,12 +31,54 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Classify changed paths
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Default to full regression when a reliable PR diff is unavailable.
+          if [ "$EVENT_NAME" != "pull_request" ] || [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
+            echo "site_only=false" >> "$GITHUB_OUTPUT"
+          else
+            git diff --name-only "$BASE_SHA" "$HEAD_SHA" > /tmp/erudior-changed-files
+            node --input-type=module <<'NODE'
+          import {readFileSync, appendFileSync} from 'node:fs';
+          const files = readFileSync('/tmp/erudior-changed-files','utf8').trim().split('\n').filter(Boolean);
+          const exact = new Set(['src/Site.tsx','src/pages/Home.tsx','src/pages/AudiencePage.tsx','src/pages/Roadmap.tsx','src/pages/DownloadPage.tsx','src/components/Terms.tsx','src/components/Mark.tsx','src/lib/startupSplash.ts','src/lib/roadmap.ts','src/lib/seo.ts','src/main.tsx','src/styles.css','index.html','scripts/prerender.mjs','scripts/sitemap.mjs']);
+          const siteOnly = files.length > 0 && files.every(f => exact.has(f) || f.startsWith('public/'));
+          appendFileSync(process.env.GITHUB_OUTPUT, 'site_only=' + siteOnly + '\n');
+          console.log('Site-only change:',siteOnly,'files:',files.length);
+          NODE
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
       - name: Full regression suite
-        run: npm test
+        id: regression
+        if: steps.scope.outputs.site_only != 'true'
+        run: node scripts/diagnostic-command.mjs pr-regression -- npm test
       - name: Production web build
-        run: npm run build
+        id: build
+        run: node scripts/diagnostic-command.mjs pr-build -- npm run build
+
+      - name: Write safe diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: regression
+          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},build:${{ steps.build.outcome }}"
+        run: node scripts/ci-diagnostics.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: erudior-diagnostics-regression
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          retention-days: 30
+          if-no-files-found: warn

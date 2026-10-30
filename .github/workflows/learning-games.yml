@@ -1,0 +1,290 @@
+name: Learning games browser and live protocol
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'worker/**'
+      - 'scripts/learning-games-browser.mjs'
+      - 'scripts/learning-progress-browser.mjs'
+      - 'scripts/student-workspace-browser.mjs'
+      - 'scripts/academic-records-browser.mjs'
+      - 'scripts/role-navigation-browser.mjs'
+      - 'scripts/presentations-browser.mjs'
+      - 'scripts/diagnostics-browser.mjs'
+      - 'scripts/interoperability-browser.mjs'
+      - 'scripts/document-engine-browser.mjs'
+      - 'scripts/transactions-browser.mjs'
+      - 'scripts/instructional-evidence-browser.mjs'
+      - 'scripts/credential-browser.mjs'
+      - 'scripts/learner-privacy-browser.mjs'
+      - 'scripts/advanced-assessment-browser.mjs'
+      - 'scripts/course-activities-browser.mjs'
+      - 'scripts/public-learning-browser.mjs'
+      - 'scripts/public-community-browser.mjs'
+      - 'scripts/offline-course-browser.mjs'
+      - 'scripts/community-controls-browser.mjs'
+      - 'scripts/community-guide-browser.mjs'
+      - 'scripts/community-resources-browser.mjs'
+      - 'scripts/community-k-demo-browser.mjs'
+      - 'scripts/scientific-browser.mjs'
+      - 'scripts/branching-browser.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/learning-games.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-and-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Private offline course export, import and rendering
+        run: npm run test:offline-course-browser
+      - name: Public community discovery, details and exact learning handoff
+        run: npm run test:public-community-browser
+      - name: Eight-subject synthetic kindergarten authoring and runtime parity
+        run: npm run test:community-k-demo-browser
+      - name: Visual audio, reading and assignment resource lifecycle
+        run: npm run test:community-resources-browser
+      - name: In-editor authoring guide and documented create-publish-install walkthrough
+        run: npm run test:community-guide-browser
+      - name: Community module controls, persistence and publication
+        run: npm run test:community-controls-browser
+      - name: Public guest discovery, signed course loading, practice and optional storage
+        run: npm run test:public-learning-browser
+      - name: Lesson-linked activity discovery, exact source launch and return
+        run: npm run test:course-activities-browser
+      - name: Advanced assessment, oral evidence and human rubric review
+        run: npm run test:advanced-assessment-browser
+      - name: Scientific investigation and engineering evidence workflows
+        run: npm run test:scientific-browser
+      - name: Fictional branching decisions, deadlines and evidence workflows
+        run: npm run test:branching-browser
+      - name: Spreadsheet simulator authoring, validation and macro evidence workflows
+        run: npm run test:spreadsheet-v2-browser
+      - name: Keyboard, responsive and accessibility game workflows
+        run: npm run test:games-browser
+      - name: Interactive presentation authoring and playback browser workflows
+        run: npm run test:presentations-browser
+      - name: Learning diagnostics and targeted intervention browser workflows
+        run: npm run test:diagnostics-browser
+      - name: Content interoperability browser workflows
+        run: npm run test:interoperability-browser
+      - name: Educational document authoring, evidence and review browser workflows
+        run: npm run test:document-engine-browser
+      - name: Educational contract, trust-account and transaction browser workflows
+        run: npm run test:transactions-browser
+      - name: Instructional workload evidence browser workflows
+        run: npm run test:instructional-evidence-browser
+      - name: Credential evidence and artifact verification browser workflows
+        run: npm run test:credential-browser
+      - name: Learner privacy, encrypted practice and recovery browser workflows
+        run: npm run test:learner-privacy-browser
+      - name: Install isolated worker dependencies
+        run: npm ci --prefix worker
+      - name: Typecheck worker
+        run: worker/node_modules/.bin/tsc -p worker
+      - name: Isolated API and live protocol workflows
+        run: npm test --prefix worker
+      - name: Isolated LTI signed launch with real D1 and cross-site HTTPS browser
+        run: npm run test:lti-browser
+      - name: Isolated synthetic credential issuance and revocation with real D1 and HTTPS
+        run: npm run test:credential-integration
+      - name: Isolated learner progress with real D1 and HTTPS
+        run: npm run test:learner-progress-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-k-demo-browser
+          path: test-results/community-k-demo-browser/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-resources-browser
+          path: test-results/community-resources-browser/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learning-game-browser-evidence
+          path: |
+            test-results/learning-games-browser/
+            test-results/presentations-browser/
+            test-results/diagnostics-browser/
+            test-results/interoperability-browser/
+            test-results/document-engine-browser/
+            test-results/transactions-browser/
+            test-results/instructional-evidence-browser/
+            test-results/lti-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spreadsheet-simulator-browser-evidence
+          path: test-results/spreadsheet-v2-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: branching-browser-evidence
+          path: test-results/branching-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scientific-workspace-browser-evidence
+          path: test-results/scientific-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: advanced-assessment-browser-evidence
+          path: test-results/advanced-assessment-browser/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: credential-integrity-browser-evidence
+          path: |
+            test-results/credential-browser/
+            test-results/credential-integration/
+          retention-days: 14
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learner-privacy-browser-evidence
+          path: |
+            test-results/learner-privacy-browser/
+            test-results/learner-progress-integration/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: course-activities-browser
+          path: test-results/course-activities-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-learning-browser
+          path: test-results/public-learning-browser/
+          if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-controls-browser
+          path: test-results/community-controls-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-guide-browser
+          path: test-results/community-guide-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-community-browser
+          path: test-results/public-community-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-course-browser
+          path: test-results/offline-course-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+
+
+  application-workflows:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Local academic records, portability, privacy and accessibility
+        run: node scripts/diagnostic-command.mjs academic-records-browser -- npm run test:academic-records-browser
+      - name: Private student workspace, persistence and accessibility
+        run: npm run test:student-workspace-browser
+      - name: Enrolled courses, pathway persistence and course progress
+        run: npm run test:learning-progress-browser
+      - name: Courses navigation and local family or classroom gates
+        run: npm run test:role-navigation-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-browser
+          path: test-results/academic-records-browser/
+          if-no-files-found: warn
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: academic-records-diagnostics
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: student-workspace-browser
+          path: test-results/student-workspace-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learning-progress-browser
+          path: test-results/learning-progress-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: role-navigation-browser
+          path: test-results/role-navigation-browser/
+          if-no-files-found: warn
+          retention-days: 14

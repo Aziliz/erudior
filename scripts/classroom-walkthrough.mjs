@@ -102,7 +102,7 @@ const badPath = `${handPath}.bad.json`;
 fs.writeFileSync(badPath, JSON.stringify(bad));
 
 // ---------- teacher imports ----------
-await btn(t, /^Teacher$/).click(); await t.waitForTimeout(300);
+await btn(t, /^Classroom$/).click(); await t.waitForTimeout(300);
 await t.getByLabel("Teacher password").fill("teacher pass"); await btn(t, /^Open$/).click(); await t.waitForTimeout(1200);
 await btn(t, /^Hand-ins$/).click(); await t.waitForTimeout(300);
 for (const p of [badPath, handPath]) {

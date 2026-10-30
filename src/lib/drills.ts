@@ -1,4 +1,4 @@
-import type { Drill, FigureSpec, NumFormat } from "./types";
+import type { Drill, FigureSpec, NumFormat } from "./exerciseTypes";
 import { fillFigureText } from "./figure";
 import { compileFuncs, evaluate, type UserFn } from "./expr";
 import {
@@ -27,14 +27,20 @@ export interface DrillInstance {
   answer: number;
 }
 
-function pick(v: Drill["vars"][string]): number | string | { label: string; value: number } {
+type PickedValue = number | string | { label: string; value: number };
+
+function rangeValue(min: number, step: number, index: number): number {
+  const raw = min + index * step;
+  // Match random-roll rounding exactly, including fractional steps.
+  const dec = (String(step).split(".")[1] ?? "").length;
+  return Number(raw.toFixed(dec));
+}
+
+function pick(v: Drill["vars"][string]): PickedValue {
   if ("choices" in v) return v.choices[Math.floor(Math.random() * v.choices.length)];
   const step = v.step && v.step > 0 ? v.step : 1;
   const n = Math.floor((v.max - v.min) / step);
-  const raw = v.min + Math.floor(Math.random() * (n + 1)) * step;
-  // Avoid float noise like 0.30000000000000004 from fractional steps.
-  const dec = (String(step).split(".")[1] ?? "").length;
-  return Number(raw.toFixed(dec));
+  return rangeValue(v.min, step, Math.floor(Math.random() * (n + 1)));
 }
 
 const MONTHS = [
@@ -116,7 +122,12 @@ function fill(text: string, values: Record<string, number | string>, labels: Rec
   const val = (name: string, fmt?: string) => (name in values ? formatNum(values[name], fmt) : null);
   // Tidy math that a value of 1 or 2 makes awkward: b^{1} -> b, \sqrt[2]{x} -> \sqrt{x}.
   text = text
-    .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt?: string) => (val(name, fmt) === "1" ? "" : m))
+    .replace(/\^\{\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\}/g, (m, name: string, fmt: string | undefined, at: number) => {
+      if (val(name, fmt) !== "1") return m;
+      // Removing the exponent must not join a TeX control word to the next
+      // letter: \lambda^{1}e must become \lambda{}e, never \lambdae.
+      return /\\[A-Za-z]+$/.test(text.slice(0, at)) && /^[A-Za-z]/.test(text.slice(at + m.length)) ? "{}" : "";
+    })
     .replace(/\\sqrt\[\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}\]/g, (m, name: string, fmt?: string) => (val(name, fmt) === "2" ? "\\sqrt" : m));
   const math = mathMask(text);
   return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)(?::([a-z0-9]+))?\}/g, (m, name: string, fmt: string | undefined, at: number) => {
@@ -161,6 +172,38 @@ export function defaultTolerance(fmt: NumFormat): number {
 /** How many times to re-roll inputs looking for a problem that meets `where`. */
 const MAX_TRIES = 500;
 
+/** Recovery only: never replace the ordinary random distribution with enumeration. */
+const MAX_FINITE_COMBINATIONS = 10000;
+function finiteDomains(vars: Drill["vars"]): PickedValue[][] | null {
+  const entries = Object.values(vars);
+  // Bound bookkeeping as well as the Cartesian search; malformed huge templates
+  // must not turn the recovery path into unbounded work.
+  if (entries.length > 100) return null;
+  let combinations = 1;
+  const domains: PickedValue[][] = [];
+  for (const variable of entries) {
+    let count: number;
+    let domain: PickedValue[];
+    if ("choices" in variable) {
+      count = variable.choices.length;
+      domain = variable.choices;
+    } else {
+      const step = variable.step && variable.step > 0 ? variable.step : 1;
+      const n = Math.floor((variable.max - variable.min) / step);
+      if (!Number.isFinite(variable.min) || !Number.isFinite(variable.max) || !Number.isFinite(step) || !Number.isSafeInteger(n) || n < 0) return null;
+      count = n + 1;
+      // Check before allocation. The same rounding as pick() is intentional.
+      if (count > MAX_FINITE_COMBINATIONS / combinations) return null;
+      domain = Array.from({length: count}, (_, index) => rangeValue(variable.min, step, index));
+      if (domain.some(value => typeof value !== "number" || !Number.isFinite(value))) return null;
+    }
+    if (count < 1 || count > MAX_FINITE_COMBINATIONS / combinations) return null;
+    combinations *= count;
+    domains.push(domain);
+  }
+  return domains;
+}
+
 /** Generate one problem. Throws if the template is broken. */
 export function generate(drill: Drill): DrillInstance {
   let funcs: Record<string, UserFn>;
@@ -173,12 +216,12 @@ export function generate(drill: Drill): DrillInstance {
   let labels: Record<string, string> = {};
   const numeric = () =>
     Object.fromEntries(Object.entries(values).filter(([, v]) => typeof v === "number")) as Record<string, number>;
-  let ok = false;
-  for (let attempt = 0; attempt < MAX_TRIES && !ok; attempt++) {
+  const entries = Object.entries(drill.vars);
+  const candidate = (chosen?: PickedValue[]): boolean => {
     values = {};
     labels = {};
-    for (const [k, v] of Object.entries(drill.vars)) {
-      const got = pick(v);
+    for (const [index, [k, v]] of entries.entries()) {
+      const got = chosen ? chosen[index] : pick(v);
       if (typeof got === "object") {
         values[k] = got.value;
         labels[k] = got.label;
@@ -198,8 +241,8 @@ export function generate(drill: Drill): DrillInstance {
         throw new Error(`${drill.title}: ${k} = ${ex}: ${(e as Error).message}`);
       }
     }
-    if (calcFailed) continue;
-    ok = (drill.where ?? []).every((cond) => {
+    if (calcFailed) return false;
+    return (drill.where ?? []).every((cond) => {
       try {
         return evaluate(cond, numeric(), funcs) !== 0;
       } catch (e) {
@@ -208,6 +251,23 @@ export function generate(drill: Drill): DrillInstance {
         return false;
       }
     });
+  };
+  let ok = false;
+  for (let attempt = 0; attempt < MAX_TRIES && !ok; attempt++) ok = candidate();
+  if (!ok) {
+    const domains = finiteDomains(drill.vars);
+    if (domains) {
+      const count = domains.reduce((total, domain) => total * domain.length, 1);
+      for (let index = 0; index < count && !ok; index++) {
+        let remainder = index;
+        const chosen: PickedValue[] = new Array(domains.length);
+        for (let variable = domains.length - 1; variable >= 0; variable--) {
+          chosen[variable] = domains[variable][remainder % domains[variable].length];
+          remainder = Math.floor(remainder / domains[variable].length);
+        }
+        ok = candidate(chosen);
+      }
+    }
   }
   if (!ok) throw new Error(`${drill.title}: no inputs met the "where" conditions after ${MAX_TRIES} tries`);
   const parts = resolveParts(drill, values, funcs, (t) => fill(t, values, labels), formatNum).map((p) =>

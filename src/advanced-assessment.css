@@ -1,0 +1,29 @@
+.advanced-assessment { max-width:100%; min-width:0; }
+.advanced-assessment label { display:block; margin:.75rem 0; }
+.advanced-assessment :is(input:not([type=checkbox]),textarea,select) { display:block; width:100%; max-width:100%; box-sizing:border-box; }
+.advanced-assessment :is(button,input:not([type=checkbox]),textarea,select) { background:var(--surface); color:var(--ink); border:1px solid var(--field); border-radius:var(--r-sm); padding:8px 10px; min-height:36px; font:inherit; }
+.advanced-assessment input[type=checkbox] { width:24px; height:24px; vertical-align:middle; margin-right:.5rem; }
+.advanced-assessment button { margin:.25rem; max-width:100%; white-space:normal; cursor:pointer; }
+.advanced-assessment button:disabled { opacity:.65; cursor:not-allowed; }
+.advanced-assessment textarea { min-height:5rem; }
+.advanced-assessment fieldset { min-width:0; margin:1rem 0; border:1px solid var(--rule); }
+.advanced-assessment :is(p,li,h3,h4,dd,pre,legend) { overflow-wrap:anywhere; }
+.advanced-assessment pre { white-space:pre-wrap; }
+.advanced-assessment :is(button,input,textarea,select,summary,[tabindex="0"]):focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.advanced-assessment [role=alert] { border:2px solid var(--bad); padding:.75rem; }
+.advanced-assessment-summary,.advanced-assessment-timeline > li { border:1px solid var(--rule); background:var(--sheet); padding:.75rem; margin:.5rem 0; }
+.advanced-assessment-timeline { padding-inline-start:1.5rem; }
+.advanced-assessment-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.advanced-assessment-compare > article { min-width:0; border:1px solid var(--rule); padding:.75rem; }
+.advanced-assessment details { margin:.75rem 0; }
+.advanced-assessment summary { cursor:pointer; padding:.5rem 0; }
+@media(max-width:700px) { .advanced-assessment-compare { grid-template-columns:1fr; } .advanced-assessment fieldset { padding:.5rem; } }
+
+.advanced-assessment-table-scroll { overflow:auto; max-width:100%; position:relative; margin-block:1rem; }
+.advanced-assessment table { width:100%; min-width:640px; border-collapse:collapse; }
+.advanced-assessment th,.advanced-assessment td { text-align:left; border:1px solid var(--rule); padding:.65rem; min-width:7rem; vertical-align:top; overflow-wrap:normal; }
+.advanced-assessment th { white-space:nowrap; }
+.advanced-assessment figure { margin:1rem 0; min-width:0; }
+.advanced-assessment svg { display:block; max-width:100%; height:auto; background:var(--sheet); border:1px solid var(--rule); }
+.advanced-assessment .advanced-assessment-safety { border:2px solid var(--focus); padding:.75rem; }
+.advanced-assessment audio { display:block; width:100%; max-width:100%; min-width:0; }

@@ -1,8 +1,11 @@
 ERUDIOR ENGINE SOURCE-AVAILABLE LICENSE — PROPOSED TEXT, NOT YET ADOPTED
-Draft Version 0.1 — October 2026
+Draft Version 0.2 — October 2026
+
+NONBINDING PROPOSAL: NOT ADOPTED AND NOT EFFECTIVE.
+Publication, review, use of Erudior, or display of a splash does not accept or activate these proposed terms. This draft grants no permissions and imposes no obligations. It does not replace any existing rights or third-party terms. Sections 1–10 below describe a possible future license only; adoption requires a separate rights-holder-approved, legally reviewed change identifying the covered materials, version and effective date.
 
 IMPORTANT: This is a custom license, not an OSI-approved open-source license.
-Legal review and confirmation of all copyright holders' rights are recommended before adoption.
+Legal review and confirmation of all copyright holders' rights are required before adoption.
 
 1. DEFINITIONS
 "Licensor" means the copyright holder(s) who authorize this License for their contributions to the Erudior Engine, as identified in applicable copyright notices.
@@ -13,7 +16,7 @@ Legal review and confirmation of all copyright holders' rights are recommended b
 "Third-Party Materials" means components, dependencies, media or other materials licensed by someone other than the Licensor under their own terms.
 
 2. PERMISSION
-Subject to compliance with this License, the Licensor grants a worldwide, nonexclusive, royalty-free, revocable-on-breach license to use, copy, modify and redistribute the Engine and make Covered Products, in source and binary form. This license grants no ownership of the Engine, no patent rights beyond any rights required by applicable law, and no rights in Third-Party Materials.
+Subject to compliance with this License, the Licensor grants a worldwide, nonexclusive, royalty-free license subject to section 7 to use, copy, modify and redistribute the Engine and make Covered Products, in source and binary form. This license grants no ownership of the Engine, no patent rights beyond any rights required by applicable law, and no rights in Third-Party Materials.
 
 3. REQUIRED STARTUP SPLASH AND ATTRIBUTION
 Official Erudior releases display the opening-book and teal star-bookmark splash, the ERUDIOR name, and "Learn without limits." on startup.
@@ -23,7 +26,7 @@ Independent Covered Products with graphical startup experiences must display an 
 The splash must respect reduced-motion accessibility and must not impose an artificial minimum wait before access to the product. Maintain required copyright and third-party notices. The illustrated variants and implementation guidance are documented in docs/SPLASH_AND_CONTRIBUTION_TERMS_DRAFT.md; visual implementation is not a substitute for these obligations.
 
 4. ENGINE MODIFICATIONS MUST BE RETURNED
-If you distribute a Covered Product containing an Engine Modification, or make it available for interaction by users over a network, you must:
+If you distribute a Covered Product containing an Engine Modification, or make it publicly accessible for interaction by users over a network, you must:
 (a) make the complete corresponding source code of your Engine Modifications available under this License, including the changes and build instructions necessary to reproduce those modifications;
 (b) submit those Engine Modifications to the Main Engine Repository through a pull request or, where pull requests are unavailable, through a publicly accessible source repository and a notice to the Maintainers describing the changes;
 (c) make the submission no later than the first distribution or publicly accessible deployment and keep the corresponding source available while that modified version remains offered.

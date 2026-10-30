@@ -1,0 +1,18 @@
+// Isolated original synthetic engine fixtures, never real learner or jurisdiction records.
+import React,{useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import InstructionalStudio from '../../src/components/InstructionalStudio';
+import LearnerInstructionalEvidence from '../../src/components/LearnerInstructionalEvidence';
+import {createInstructionalEvidenceStore} from '../../src/lib/instructionalEvidenceStore';
+import {parseInstructionalLibrary} from '../../src/lib/instructionalEvidence';
+import {requestNavigation} from '../../src/lib/navigationGuard';
+import '../../src/styles.css';
+import '../../src/instructionalEvidence.css';
+export const course:any={format:'examiner-course',version:1,id:'synthetic',revision:1,title:'Synthetic curriculum',modules:[{id:'module',title:'Synthetic module'}],lessons:[{id:'lesson',module:'module',title:'Synthetic lesson',body:'Original synthetic test material, not a real course.'}],banks:[{id:'bank',title:'Synthetic assessment',questions:[{id:'q',topic:'Synthetic',stem:'Synthetic test question',choices:['A','B'],answer:[0]}]}],decks:[],glossary:[],references:[],drills:[]};
+export const progress:any={lessonsDone:{'synthetic/lesson':'2026-10-29'},attempts:[{id:'attempt',bankId:'bank',bankTitle:'Synthetic assessment',mode:'exam',startedAt:'2026-10-29T09:00:00Z',finishedAt:'2026-10-29T09:05:00Z',durationSec:300,total:1,answered:1,correct:1,answers:[{qid:'q',chosen:[0],correct:true}],byTopic:{},bySection:{}}]};
+const family:any={parent:{password:null},mode:'classroom',school:{name:'Synthetic school',administrator:'Teacher'},students:[{id:'alice',name:'Alice'},{id:'bob',name:'Bob'}]};
+let saved=localStorage.getItem('synthetic-instructional-state'),active='alice',adult=true,fail=false,tick=0;
+const store=createInstructionalEvidenceStore({read:async()=>saved,update:async change=>{if(fail){fail=false;throw Error('Synthetic interrupted save; retry safely.');}saved=await change(saved);localStorage.setItem('synthetic-instructional-state',saved);return saved;},authorizeAdult:async id=>{if(!adult||id&&!family.students.some((s:any)=>s.id===id))throw Error('Synthetic adult access denied.');return {actorId:'teacher',actorName:'Teacher',authorityKey:'synthetic-adult'};},learnerContext:async()=>({studentId:active,authorityKey:'synthetic-'+active}),readCourses:async()=>[course],readProgress:async()=>progress,readRecords:async()=>JSON.stringify({time:{'2026-10-29':{synthetic:37}},reading:[]}),now:()=>new Date(Date.UTC(2026,9,29,12,0,tick++)).toISOString()});
+Object.assign(window,{instructionalFixture:{state:()=>parseInstructionalLibrary(saved),failNextSave:()=>{fail=true;}}});
+function Fixture(){const [mode,setMode]=useState<'adult'|'learner'>('adult'),[student,setStudent]=useState('alice');active=student;adult=mode==='adult';const api:any={family,courses:[course],student:family.students.find((s:any)=>s.id===student),instructionalSupervisor:store.supervisor,instructionalLearner:store.learner};return <><div className="row"><button className="btn" onClick={()=>{if(requestNavigation())setMode('adult');}}>Fixture adult area</button><button className="btn" onClick={()=>{if(requestNavigation())setMode('learner');}}>Fixture learner area</button></div>{mode==='adult'?<InstructionalStudio api={api}/>:<><label>Fixture learner<select className="select" aria-label="Fixture learner" value={student} onChange={e=>{if(requestNavigation())setStudent(e.target.value);}}><option value="alice">Alice</option><option value="bob">Bob</option></select></label><LearnerInstructionalEvidence api={api}/></>}</>;}
+createRoot(document.getElementById('root')!).render(<React.StrictMode><Fixture/></React.StrictMode>);

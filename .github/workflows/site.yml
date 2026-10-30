@@ -1,43 +1,66 @@
-name: Publish website and courses
+name: Deploy Erudior website
 
-# Publishes the course packages to Cloudflare R2 and the web app (free learning) to
-# Cloudflare Pages. One-time setup: docs/HOSTING.md. Runs only once the COURSES_URL
-# repository variable is set, so it stays idle until hosting exists.
+# Website-only release: Cloudflare Pages, independent of course signing and API migrations.
 on:
   workflow_dispatch:
-    inputs:
-      bootstrap_first_release:
-        description: "Initialize first release only if no remote catalog exists"
-        type: boolean
-        required: true
-        default: false
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/site.yml"
+      - "scripts/prerender.mjs"
+      - "scripts/prerender-browser.mjs"
+      - "scripts/check-website-community-env.mjs"
+      - "tests/website-community-env.test.mjs"
+      - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
+      - "src/lib/startupSplash.ts"
+      - "src/lib/startupSplashPolicy.ts"
+      - "src/startupSplash.css"
+      - "src/engineAttribution.css"
+      - "src/components/EngineAttribution.tsx"
+      - "LICENSE-DRAFT.md"
+      - "public/engine-license-draft.txt"
+      - "src/components/Terms.tsx"
+      - "tests/engine-license.test.mts"
+      - "src/Site.tsx"
+      - "src/main.tsx"
+      - "src/App.tsx"
+      - "src/pages/Library.tsx"
+      - "src/pages/ProgressPage.tsx"
+      - "src/components/PhoneNavigation.tsx"
   push:
     branches: [main]
     paths:
-      - "samples/**"
       - "src/**"
       - "index.html"
-      - "package.json"
-      - "package-lock.json"
-      - "vite.config.ts"
       - "public/**"
       - "functions/**"
+      - "vite.config.ts"
+      - "package.json"
+      - "package-lock.json"
       - "scripts/prerender.mjs"
-      - "scripts/publish-courses.ts"
-      - "scripts/fetch-previous-courses.ts"
-      - "scripts/recheck-course-catalog.ts"
-      - "scripts/verify-immutable-release.sh"
-      - "scripts/lib/releaseTransport.ts"
+      - "scripts/prerender-browser.mjs"
+      - "scripts/check-website-community-env.mjs"
+      - "tests/website-community-env.test.mjs"
+      - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
+      - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
-
 permissions:
   contents: read
+
+concurrency:
+  group: erudior-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: false
 
 jobs:
   website:
     # Website deployment is independent of slow or failing course R2 verification.
-    if: ${{ vars.PAGES_PROJECT != '' }}
-    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' || vars.PAGES_PROJECT != '' }}
+    runs-on: ubuntu-24.04
+    # Vite embeds public endpoints at compilation, not during the later Pages upload.
+    env:
+      VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API || 'https://api.erudior.com' }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify Erudior-only product identity
@@ -51,172 +74,65 @@ jobs:
         run: node scripts/sitemap.mjs
       - name: Build website
         id: website_build
-        run: node scripts/diagnostic-command.mjs website-build -- npm run build
-      - name: Prerender public pages
-        continue-on-error: true
         run: |
-          npm install --no-save playwright@1.56.0
+          node --import tsx tests/engine-license.test.mts
+          node --test tests/website-community-env.test.mjs
+          node scripts/check-website-community-env.mjs
+          node scripts/diagnostic-command.mjs website-build -- npm run build
+      - name: Prerender public pages
+        id: website_prerender
+        run: |
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Review splash choreography and lifecycle in browser
+        id: splash_browser
+        run: node scripts/diagnostic-command.mjs website-splash-browser -- node scripts/startup-splash-browser.mjs
+      - name: Upload splash frame review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: startup-splash-visual-evidence
+          path: artifacts/startup-splash/
+          if-no-files-found: warn
+      - name: Verify web-app-only startup and manual footer preview
+        id: webapp_startup
+        run: node scripts/diagnostic-command.mjs webapp-startup-browser -- node scripts/webapp-startup-browser.mjs
+      - name: Upload web app startup evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webapp-startup-evidence
+          path: artifacts/webapp-startup/
+          if-no-files-found: warn
+      - name: Verify served snapshots clear startup overlays
+        id: snapshot_browser
+        run: node scripts/diagnostic-command.mjs website-snapshot-browser -- node scripts/prerender-browser.mjs
+      - name: Upload snapshot browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prerender-browser-evidence
+          path: artifacts/prerender-browser/
+          if-no-files-found: warn
       - name: Deploy website to Cloudflare Pages
         id: pages_deploy
+        if: github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           VITE_COURSES_URL: ${{ vars.COURSES_URL }}
-          VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
         run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
-
       - name: Write safe CI diagnostic summary
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},splash-browser:${{ steps.splash_browser.outcome }},webapp-startup:${{ steps.webapp_startup.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: erudior-diagnostics-website
-          path: ${{ runner.temp }}/erudior-ci-diagnostics/
-          retention-days: 30
-          if-no-files-found: warn
-
-  publish:
-    concurrency:
-      group: courses-publish
-      cancel-in-progress: false
-    if: ${{ vars.COURSES_URL != '' }}
-    runs-on: ubuntu-latest
-    env:
-      VITE_COURSES_URL: ${{ vars.COURSES_URL }}
-      VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - run: npm ci
-      - name: Full regression suite (merge-only, bounded)
-        id: regression
-        timeout-minutes: 15
-        run: npm test
-
-      - name: Check the signing key matches the app
-        run: npx tsx scripts/check-signing-key.ts
-
-      - name: Fetch and authenticate previous release
-        id: previous_release
-        timeout-minutes: 15
-        env:
-          COURSE_PREVIOUS_R2_BUCKET: ${{ vars.R2_BUCKET }}
-          COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL }}
-          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
-          COURSE_BOOTSTRAP_FIRST_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}
-          COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
-        run: npx tsx scripts/fetch-previous-courses.ts
-
-      - name: Build and sign course packages
-        id: course_build
-        env:
-          COURSE_PREVIOUS_RELEASE_DIR: .course-previous
-        run: npm run courses:publish
-
-      # Course files are immutable (named by revision): upload only new ones, then the
-      # catalog last, so a catalog never points at a file that isn't there yet.
-      - name: Reject superseded website release
-        shell: bash
-        run: |
-          set -euo pipefail
-          latest=$(git ls-remote origin refs/heads/main | cut -f1)
-          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
-            echo "::error::This deployment is no longer the latest main commit; refusing stale catalog publication."
-            exit 1
-          fi
-
-      - name: Upload course packages to R2
-        id: r2_upload
-        timeout-minutes: 15
-        working-directory: dist-courses/v1
-        run: |
-          set -euo pipefail
-          for f in *.r*.json states.*.json; do
-            # Immutable filenames must never point to different bytes on a later release.
-            if bash ../../scripts/verify-immutable-release.sh "$f" "${{ vars.R2_BUCKET }}" "$VITE_COURSES_URL"; then
-              continue
-            else
-              result=$?
-              if [ "$result" != 10 ]; then exit "$result"; fi
-            fi
-            npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/$f" --file "$f" \
-              --content-type application/json --cache-control "public, max-age=31536000, immutable"
-          done
-          # GitHub serializes our own publishers; re-check main after potentially
-          # slow immutable file uploads so an old run cannot overwrite a newer release.
-          latest=$(git ls-remote origin refs/heads/main | cut -f1)
-          if [ -z "$latest" ] || [ "$latest" != "$GITHUB_SHA" ]; then
-            echo "::error::New main revision appeared during uploads; refusing stale catalog publication."
-            exit 1
-          fi
-          # Re-check the exact authenticated baseline just before committing a new catalog.
-          # GitHub's site concurrency group serializes our own publishers; this also
-          # detects most out-of-band writes, but is not atomic compare-and-swap.
-          COURSE_PREVIOUS_URL="${VITE_COURSES_URL}" \
-          COURSE_PREVIOUS_RELEASE_DIR="../../.course-previous" \
-          COURSE_BOOTSTRAP_FIRST_RELEASE="${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap_first_release && 'true' || 'false' }}" \
-          npx tsx ../../scripts/recheck-course-catalog.ts
-          npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json" --file catalog.json \
-            --content-type application/json --cache-control "public, max-age=300"
-          npx --yes wrangler@3.114.0 r2 object put "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file catalog.json.sig \
-            --content-type text/plain --cache-control "public, max-age=300"
-
-      - name: Verify published catalog and signature
-        id: catalog_verify
-        working-directory: dist-courses/v1
-        shell: bash
-        run: |
-          set -euo pipefail
-          # Read back the authoritative objects from R2 rather than cached CDN responses.
-          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json" --file /tmp/erudior-published-catalog.json
-          npx --yes wrangler@3.114.0 r2 object get "${{ vars.R2_BUCKET }}/v1/catalog.json.sig" --file /tmp/erudior-published-catalog.json.sig
-          cmp catalog.json /tmp/erudior-published-catalog.json
-          cmp catalog.json.sig /tmp/erudior-published-catalog.json.sig
-          echo "Published catalog and signature match signed release artifacts."
-
-      - name: Course publishing diagnostics
-        if: always()
-        env:
-          FETCH_RESULT: ${{ steps.previous_release.outcome }}
-          UPLOAD_RESULT: ${{ steps.r2_upload.outcome }}
-        run: |
-          {
-            echo "### Course publishing diagnostics"
-            echo "- Run: $GITHUB_RUN_ID (attempt $GITHUB_RUN_ATTEMPT)"
-            echo "- Commit: $GITHUB_SHA"
-            echo "- Previous signed release: $FETCH_RESULT"
-            echo "- Immutable R2 verification/upload: $UPLOAD_RESULT"
-            echo "- GitHub runner OS: $RUNNER_OS"
-            echo "- Fail-closed checks remain mandatory."
-            echo "- For per-artifact timing, HTTP status, origin checks and SHA-256 mismatch, expand the R2 upload step logs."
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Write safe CI diagnostic summary
-        if: always()
-        env:
-          ERUDIOR_DIAG_JOB: course-publish
-          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},previous_release:${{ steps.previous_release.outcome }},course_build:${{ steps.course_build.outcome }},upload:${{ steps.r2_upload.outcome }},catalog_verify:${{ steps.catalog_verify.outcome }}"
-        run: node scripts/ci-diagnostics.mjs
-      - name: Upload diagnostic report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: erudior-diagnostics-course-publish
           path: ${{ runner.temp }}/erudior-ci-diagnostics/
           retention-days: 30
           if-no-files-found: warn
