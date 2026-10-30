@@ -79,6 +79,13 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   // The clock only runs while this screen is open; time away isn't counted.
   const activeSince = useRef(Date.now());
   const finishing = useRef(false);
+  const [saveError,setSaveError]=useState("");
+  const sessionScope = useRef({save:api.saveLearnerSession,family:!!api.family});
+  const saveScopedSession = useCallback(async (content: string | null) => {
+    if(sessionScope.current.save) return sessionScope.current.save(content);
+    if(sessionScope.current.family) throw Error("Learner session authorization is unavailable. Reopen the app.");
+    return saveSessionState(content);
+  }, []);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const block = blocks[blockIdx];
@@ -139,8 +146,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
   const save = useCallback(() => {
     if (finishing.current) return;
-    saveSessionState(serializeRun(session, snapshot())).catch(() => {});
-  }, [session, snapshot]);
+    saveScopedSession(serializeRun(session, snapshot())).then(()=>setSaveError("")).catch(e=>setSaveError((e as Error).message));
+  }, [session, snapshot, saveScopedSession]);
 
   // Save on every change, and every 15 seconds so the clock is kept.
   useEffect(() => {
@@ -158,7 +165,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const finish = useCallback(async () => {
     if (finishing.current) return;
     finishing.current = true;
-    await saveSessionState(null).catch(() => {});
+    try {
+    await saveScopedSession(null);
     const used = totalUsed();
     const preview = finishSession(session, answers, flags, api.progress, bank, used, confidence);
     if (preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0)) {
@@ -174,8 +182,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       return;
     }
     api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
+    } catch(e) { finishing.current=false; setSaveError((e as Error).message); api.toast(`Session was not finished: ${(e as Error).message}`); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence]);
+  }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence, saveScopedSession]);
 
   const nextBlock = useCallback(() => {
     if (lastBlock) return finish();
@@ -390,6 +399,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     <div className={`runner${readAloud ? " ra-course" : ""}`}>
       <CalcDock kind={calcKind(course)} />
       <div className="runner-main">
+        {saveError && <p className="notice error" role="alert">Session could not be saved: {saveError} Your prior saved progress is preserved. Return to the learning plan to restore access before retrying.</p>}
         <div className="runner-bar">
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
             Save &amp; exit

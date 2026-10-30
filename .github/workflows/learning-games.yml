@@ -13,6 +13,7 @@ on:
       - 'scripts/learning-progress-browser.mjs'
       - 'scripts/student-workspace-browser.mjs'
       - 'scripts/academic-records-browser.mjs'
+      - 'scripts/homeschool-planning-browser.mjs'
       - 'scripts/role-navigation-browser.mjs'
       - 'scripts/presentations-browser.mjs'
       - 'scripts/diagnostics-browser.mjs'
@@ -286,5 +287,33 @@ jobs:
         with:
           name: role-navigation-browser
           path: test-results/role-navigation-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+  homeschool-planning:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Complete local parent planning and exact-source community assignment
+        run: node scripts/diagnostic-command.mjs homeschool-planning-browser -- npm run test:homeschool-planning-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: homeschool-planning-browser
+          path: test-results/homeschool-planning-browser/
+          if-no-files-found: warn
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: homeschool-planning-diagnostics
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
           if-no-files-found: warn
           retention-days: 14

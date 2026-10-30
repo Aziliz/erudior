@@ -84,6 +84,23 @@ fn save_item(app: AppHandle, kind: String, id: String, content: String, anonymou
     write_atomic(&item_path(&app, &kind, &id)?, &content)
 }
 
+/// Exact-byte replacement for reviewed courses, serialized with all item saves/deletes.
+#[tauri::command]
+fn compare_and_swap_course(app: AppHandle, id: String, expected: Option<String>, content: String) -> Result<bool, String> {
+    let path = item_path(&app, "courses", &id)?;
+    let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
+    compare_and_swap_course_path(&path, &id, expected.as_deref(), &content)
+}
+
+fn compare_and_swap_course_path(path: &PathBuf, id: &str, expected: Option<&str>, content: &str) -> Result<bool, String> {
+    let course: serde_json::Value = serde_json::from_str(content)
+        .map_err(|e| format!("content is not valid JSON: {e}"))?;
+    if course.get("id").and_then(|value| value.as_str()) != Some(id) {
+        return Err("course content ID does not match its destination".to_string());
+    }
+    compare_and_swap_path(path, expected, content)
+}
+
 #[tauri::command]
 fn delete_item(app: AppHandle, kind: String, id: String, anonymous_generation: Option<u64>) -> Result<(), String> {
     let _guard = NAMED_STATE_LOCK.lock().map_err(|_| "state lock unavailable".to_string())?;
@@ -292,6 +309,23 @@ mod named_state_tests {
             assert!(!valid_state_name(name), "{name}");
         }
     }
+    #[test]
+    fn reviewed_course_cas_preserves_changed_content() {
+        let dir = std::env::temp_dir().join(format!("erudior-reviewed-course-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
+        fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("synthetic.json");
+        let original = r#"{"id":"synthetic","title":"Original"}"#;
+        let changed = r#"{"id":"synthetic","title":"New version"}"#;
+        assert!(compare_and_swap_course_path(&path, "synthetic", None, original).unwrap());
+        assert!(compare_and_swap_course_path(&path, "synthetic", Some(original), changed).unwrap());
+        assert!(!compare_and_swap_course_path(&path, "synthetic", Some(original), original).unwrap());
+        assert!(!compare_and_swap_course_path(&path, "synthetic", None, original).unwrap());
+        assert!(compare_and_swap_course_path(&path, "synthetic", Some(changed), "broken JSON").is_err());
+        assert!(compare_and_swap_course_path(&path, "synthetic", Some(changed), r#"{"id":"other"}"#).is_err());
+        assert_eq!(fs::read_to_string(&path).unwrap(), changed);
+        fs::remove_dir_all(dir).unwrap();
+    }
+
     #[test]
     fn stale_native_cas_does_not_replace_current_bytes() {
         let dir = std::env::temp_dir().join(format!("erudior-state-test-{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()));
@@ -578,6 +612,7 @@ pub fn run() {
             portable_files::export_portable_course,
             list_items,
             save_item,
+            compare_and_swap_course,
             delete_item,
             load_item,
             write_base64_file,

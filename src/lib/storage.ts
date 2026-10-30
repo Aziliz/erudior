@@ -63,6 +63,20 @@ export async function saveCourse(course: Course): Promise<void> {
   else await webSet(LS_COURSE + course.id, content);
 }
 
+/** Exact stored bytes captured during review; formatting matters to CAS, not the digest. */
+export async function loadStoredCourseSnapshot(id: string): Promise<{ course: Course; raw: string } | null> {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(id)) throw Error("Invalid course ID.");
+  const raw = inApp ? await invoke<string | null>("load_item", { kind: "courses", id }) : await webGet(LS_COURSE + id);
+  return raw === null ? null : { course: normalizeCourse(JSON.parse(raw)), raw };
+}
+/** Never overwrite content installed after the parent's captured review. */
+export async function compareAndSwapCourse(expectedRaw: string | null, course: Course): Promise<boolean> {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(course.id)) throw Error("Invalid course ID.");
+  const content = serializeCourse(course);
+  if (inApp) return invoke<boolean>("compare_and_swap_course", { id: course.id, expected: expectedRaw, content });
+  return webCompareAndSwap(LS_COURSE + course.id, expectedRaw, content);
+}
+
 export async function deleteCourse(id: string): Promise<void> {
   if (inApp) await invoke("delete_item", { kind: "courses", id });
   else await webDelete(LS_COURSE + id);
@@ -260,7 +274,9 @@ export async function syncCompetencyState(id: string | null, graph: Competency[]
   });
 }
 /** Other learner writes must not erase newer durable evidence or adult decisions. */
-interface SaveProgressOptions {
+export interface SaveProgressOptions {
+  /** Rechecked inside the profile CAS callback before each attempted write. */
+  guard?: () => void | Promise<void>;
   replaceCompetencies?: boolean;
   replaceInterventionTasks?: boolean;
   replaceLearningPathways?: boolean;
@@ -284,7 +300,20 @@ export async function saveProgress(p: Progress, options: SaveProgressOptions = {
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
   if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   const selected = student;
-  await updateProfileProgress(selected, current => mergeSavedProgress(p, current, options));
+  await updateProfileProgress(selected, async current => {
+    await options.guard?.();
+    const merged = mergeSavedProgress(p, current, options);
+    await options.guard?.();
+    return merged;
+  });
+  // An initially absent progress file can still match null after profile erasure.
+  // Monotonic deletion tombstones make cleanup safe for this captured ID only;
+  // never follow a later active-student switch when removing the orphan write.
+  if (selected !== null && !await competencyProfileExists(selected)) {
+    await saveState(`progress-${selected}`, null);
+    throw Error("This learner was deleted during saving; their progress was removed.");
+  }
+  await options.guard?.();
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
@@ -450,7 +479,7 @@ export async function restoreBackup(
 
 /** The in-progress session (exam or practice), or null. */
 export async function loadSessionState(): Promise<string | null> {
-  if (student) return loadState(`session-${student}`);
+  if (student) return (await loadState(`session-${student}`)) || null;
   const epoch = await anonymousEpoch();
   return unwrapAnonymousSession(await loadState("session"),epoch);
 }
@@ -464,6 +493,26 @@ async function saveAnonymousSession(content:string|null):Promise<void> {
   const epoch=await anonymousEpoch(), wrapped=JSON.stringify({format:"erudior-anonymous-session",version:1,generation:epoch,content});
   for(let retry=0;retry<16;retry++) { const old=await loadState("session"); if(await guardedAnonymousCas("session",old,wrapped,epoch)) return; }
   throw Error("Anonymous session changed repeatedly.");
+}
+
+/** Explicit profile-scoped session write. Empty string is the atomic cleared-session marker. */
+export async function saveProfileSessionState(id: string | null, content: string | null, guard: () => void | Promise<void>): Promise<void> {
+  if (id !== null && !/^[a-z0-9]{1,24}$/.test(id)) throw Error("Invalid learner profile.");
+  if (typeof guard !== "function") throw Error("Session authorization is required.");
+  const name = id ? `session-${id}` : "session";
+  const generation = id === null ? await anonymousEpoch() : undefined;
+  const assertScope = async () => { await guard(); if (id !== null && !await competencyProfileExists(id)) throw Error("This learner was deleted; session was not saved."); if (id === null && await anonymousEpoch() !== generation) throw Error("Anonymous session generation changed. Reload before saving."); await guard(); };
+  await assertScope();
+  await updateState(name, async () => {
+    await assertScope();
+    const next = id === null ? JSON.stringify({format:"erudior-anonymous-session",version:1,generation,content}) : content ?? "";
+    await assertScope(); return next;
+  });
+  if (id !== null && !await competencyProfileExists(id)) {
+    await saveState(name,null);
+    throw Error("This learner was deleted during saving; their session was removed.");
+  }
+  await guard();
 }
 
 export async function saveSessionState(content: string | null): Promise<void> {
