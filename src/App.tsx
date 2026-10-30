@@ -177,6 +177,8 @@ export interface AppApi {
   toast: (msg: string) => void;
   reload: () => Promise<void>;
   setProgress: (p: Progress) => Promise<void>;
+  /** Session writes remain scoped to the learner and reviewed source that opened this view. */
+  saveLearnerSession?: (content: string | null) => Promise<void>;
   /** Functional update against the latest progress (safe for rapid successive writes). */
   updateProgress: (fn: (p: Progress) => Progress) => Promise<void>;
   /** Persist pathway edits against the latest state of the captured learner profile. */
@@ -371,21 +373,38 @@ export default function App() {
     setBroken([...c.broken, ...b.broken]);
   }, []);
 
+  const studentSelectionRequest = useRef(0);
+  const progressSelectionGeneration = studentSelectionRequest.current;
   const setProgress = useCallback(async (p: Progress) => {
-    const profile = store.activeStudent();
+    const profile = studentId;
+    const assertProfile = () => { if (store.activeStudent() !== profile || studentSelectionRequest.current !== progressSelectionGeneration) throw Error("Learner changed before saving. The newer learner's progress was not changed."); };
+    assertProfile();
     const courseId = "courseId" in view ? view.courseId : view.name === "run" ? courses.find(c => c.banks.some(b => b.id === view.session.bankId))?.id : "bankId" in view ? courses.find(c => c.banks.some(b => b.id === view.bankId))?.id : undefined;
     const source = courseId ? courses.find(c => c.id === courseId) : undefined;
     const digest = family && !isClassroom(family) && profile && source?.community ? await parentCourseDigest(source) : undefined;
     const guard = async () => {
-      if (store.activeStudent() !== profile) throw Error("Learner changed before saving. The newer learner's progress was not changed.");
+      assertProfile();
+      if (profile && !await store.competencyProfileExists(profile)) throw Error("Learner was deleted. Progress was not saved.");
       if (digest && profile && courseId) await assertCurrentParentCourseAccess(profile,courseId,digest);
+      assertProfile();
     };
     await guard();
     await store.saveProgress(p,{guard});
     await guard();
     progressRef.current = p;
     setProgressState(p);
-  }, [family,courses,view]);
+  }, [family,courses,view,studentId,progressSelectionGeneration]);
+
+  const saveLearnerSession = useCallback(async (content: string | null) => {
+    const profile = studentId;
+    const assertProfile = () => { if (store.activeStudent() !== profile || studentSelectionRequest.current !== progressSelectionGeneration) throw Error("Learner changed. The session was not saved to another profile."); };
+    assertProfile();
+    const courseId = "courseId" in view ? view.courseId : view.name === "run" ? courses.find(c => c.banks.some(b => b.id === view.session.bankId))?.id : "bankId" in view ? courses.find(c => c.banks.some(b => b.id === view.bankId))?.id : undefined;
+    const source = courseId ? courses.find(c => c.id === courseId) : undefined;
+    const digest = family && !isClassroom(family) && profile && source?.community ? await parentCourseDigest(source) : undefined;
+    const guard = async () => { assertProfile(); if (profile && !await store.competencyProfileExists(profile)) throw Error("Learner was deleted. The session was not saved."); if (digest && profile && courseId) await assertCurrentParentCourseAccess(profile,courseId,digest); assertProfile(); };
+    await guard(); await store.saveProfileSessionState(profile,content,guard); await guard();
+  }, [family,courses,view,studentId,progressSelectionGeneration]);
 
   useEffect(() => {
     (async () => {
@@ -503,6 +522,9 @@ export default function App() {
     if (!ROUTES || !ready || !pendingPath.current) return;
     const url = new URL(pendingPath.current, window.location.origin);
     const v = pathToView(url.pathname, url.search, family ? courses : myCourses, CATALOG);
+    // A shared-device deep link waits for explicit learner selection; never select
+    // a child from the URL or discard the requested reviewed-content destination.
+    if (family && !studentId && view.name === "who" && v && v.name !== "parent") return;
     if (v || catalogTried) {
       pendingPath.current = null;
       if (v && (view.name === "library" || (v.name === "parent" && view.name === "who"))) {
@@ -516,7 +538,7 @@ export default function App() {
       } else setView((cur) => ({ ...cur })); // write the address for the screen we're on
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, catalogTried, courses]);
+  }, [ready, catalogTried, courses, studentId, family]);
 
   useEffect(() => {
     if (!ROUTES || !ready || pendingPath.current) return;
@@ -651,7 +673,6 @@ export default function App() {
     [student, courses, family, reviewDigests],
   );
 
-  const studentSelectionRequest = useRef(0);
   const chooseStudent = useCallback(
     async (id: string) => {
       const target = { name: "library" as const };
@@ -1089,10 +1110,10 @@ export default function App() {
           )
           .then(async (ok) => {
             if (!ok || !requestNavigation("app", v)) return;
-            await store.saveSessionState(null);
+            await saveLearnerSession(null);
             setResumable(null);
             if (requestNavigation("app", v)) setView(v);
-          });
+          }).catch(e => toast((e as Error).message));
         return;
       }
       setView(v);
@@ -1101,6 +1122,7 @@ export default function App() {
     reload,
     setProgress,
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
+    saveLearnerSession,
     updateLearningPathways: async (fn) => {
       const selected = studentId;
       const selection = studentSelectionRequest.current;
@@ -1505,8 +1527,12 @@ export default function App() {
               await chooseStudent(f.students[0].id);
               if (store.activeStudent() !== f.students[0].id || !requestNavigation("app", { name: "library" })) return;
               // Courses already on this computer stay in the first student's list.
-              const p = progressRef.current;
-              await setProgress({ ...p, enrolled: courses.map((c) => c.id) });
+              const selected = f.students[0].id, selection = studentSelectionRequest.current;
+              const p = await store.updateProfileProgress(selected,async current => {
+                if (store.activeStudent() !== selected || selection !== studentSelectionRequest.current || !await store.competencyProfileExists(selected)) throw Error("Learner changed during setup. Existing progress was preserved.");
+                return {...current,enrolled:courses.map(c=>c.id)};
+              });
+              if (store.activeStudent() === selected && selection === studentSelectionRequest.current) { progressRef.current=p; setProgressState(p); }
             }}
           />
         );
@@ -1798,8 +1824,8 @@ export default function App() {
                   "Discard",
                 )
               ) {
-                await store.saveSessionState(null);
-                setResumable(null);
+                try { await saveLearnerSession(null); setResumable(null); }
+                catch(e) { toast((e as Error).message); }
               }
             }}
           />

@@ -471,7 +471,7 @@ export async function restoreBackup(
 
 /** The in-progress session (exam or practice), or null. */
 export async function loadSessionState(): Promise<string | null> {
-  if (student) return loadState(`session-${student}`);
+  if (student) return (await loadState(`session-${student}`)) || null;
   const epoch = await anonymousEpoch();
   return unwrapAnonymousSession(await loadState("session"),epoch);
 }
@@ -485,6 +485,26 @@ async function saveAnonymousSession(content:string|null):Promise<void> {
   const epoch=await anonymousEpoch(), wrapped=JSON.stringify({format:"erudior-anonymous-session",version:1,generation:epoch,content});
   for(let retry=0;retry<16;retry++) { const old=await loadState("session"); if(await guardedAnonymousCas("session",old,wrapped,epoch)) return; }
   throw Error("Anonymous session changed repeatedly.");
+}
+
+/** Explicit profile-scoped session write. Empty string is the atomic cleared-session marker. */
+export async function saveProfileSessionState(id: string | null, content: string | null, guard: () => void | Promise<void>): Promise<void> {
+  if (id !== null && !/^[a-z0-9]{1,24}$/.test(id)) throw Error("Invalid learner profile.");
+  if (typeof guard !== "function") throw Error("Session authorization is required.");
+  const name = id ? `session-${id}` : "session";
+  const generation = id === null ? await anonymousEpoch() : undefined;
+  const assertScope = async () => { await guard(); if (id !== null && !await competencyProfileExists(id)) throw Error("This learner was deleted; session was not saved."); if (id === null && await anonymousEpoch() !== generation) throw Error("Anonymous session generation changed. Reload before saving."); await guard(); };
+  await assertScope();
+  await updateState(name, async () => {
+    await assertScope();
+    const next = id === null ? JSON.stringify({format:"erudior-anonymous-session",version:1,generation,content}) : content ?? "";
+    await assertScope(); return next;
+  });
+  if (id !== null && !await competencyProfileExists(id)) {
+    await saveState(name,null);
+    throw Error("This learner was deleted during saving; their session was removed.");
+  }
+  await guard();
 }
 
 export async function saveSessionState(content: string | null): Promise<void> {

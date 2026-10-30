@@ -16,13 +16,14 @@ let gate:Promise<void>|undefined,release:(()=>void)|undefined,writeError:Error|u
 const saved=new Map<string,unknown>();const progressRef={current:structuredClone(progress.get(selected))};
 const store={
  activeStudent:()=>selected,
+ competencyProfileExists:async()=>true,
  saveCourse:async(course:any)=>{persistenceWrites++;if(gate)await gate;if(writeError)throw writeError;saved.set(course.id,structuredClone(course));},
  saveProgress:async(value:any)=>{progressWrites++;progress.set(selected,structuredClone(value));},
  listBanks:async()=>({banks:[],broken:[]}),
  listCourses:async()=>{reloads++;return {courses:[...saved.values()],broken:[]};},
 };
-const create=()=>new Function('useCallback','store','setStandalone','setCourses','setBroken','progressRef','setProgressState','family','studentId','validateCourseIntegrity','courses','view','isClassroom',compiled)(
- (callback:any)=>callback,store,()=>{},()=>{},()=>{},progressRef,()=>{stateUpdates++;},{students:[{id:'alice'},{id:'bob'}]},selected,validateCourseIntegrity,[],{name:"library"},isClassroom,
+const create=()=>new Function('useCallback','store','setStandalone','setCourses','setBroken','progressRef','setProgressState','family','studentId','validateCourseIntegrity','courses','view','isClassroom','useRef',compiled)(
+ (callback:any)=>callback,store,()=>{},()=>{},()=>{},progressRef,()=>{stateUpdates++;},{students:[{id:'alice'},{id:'bob'}]},selected,validateCourseIntegrity,[],{name:"library"},isClassroom,(value:any)=>({current:value}),
 );
 function switchProfile(id:string){selected=id;progressRef.current=structuredClone(progress.get(id));}
 const original=structuredClone([...progress]);

@@ -37,7 +37,7 @@ const concurrent=fixture();concurrent.set({...family,students:family.students.ma
 const dead=fixture();dead.remove();await assert.rejects(saveParentCourseAssignment(family,'child',course.id,assignment,()=>{},dead.io),/deleted/);
 const race=fixture();race.after(race.remove);await assert.rejects(saveParentCourseAssignment(family,'child',course.id,assignment,()=>{},race.io),/deleted/);assert(!race.get().students.some(s=>s.id==='child'));assert.equal(race.get().students[0].id,'sibling');
 const restored=withoutParentCourseReviews(assigned);assert.equal(restored.students[0].assigned[0].communityReview,undefined);assert.equal(restored.students[0].assigned[0].courseId,course.id);assert(assigned.students[0].assigned[0].communityReview);
-assert.match(fs.readFileSync('src/lib/backup.ts','utf8'),/saveFamily\(withoutParentCourseReviews\(b.family\)\)/);
+assert.match(fs.readFileSync('src/lib/backup.ts','utf8'),/const restoredFamily = b.family \? withoutParentCourseReviews\(b.family\)/);
 let transactionRaw:string|null=JSON.stringify(family);
 const backend={read:async()=>transactionRaw,write:async(_name:string,value:string|null)=>{transactionRaw=value;},compareAndSwap:async(_name:string,expected:string|null,value:string)=>{if(transactionRaw!==expected)return false;transactionRaw=value;return true;}};
 const transactions=stateTransactions(backend);
@@ -59,3 +59,7 @@ await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,ac
 accessSource={course,raw:serializeCourse(course)};let familyReads=0;
 await assert.rejects(assertCurrentParentCourseAccess('child',course.id,digest,{...accessIO,family:async()=>++familyReads===1?assigned:withoutParentCourseReviews(assigned)}),/Parent review required/);
 console.log('Fresh parent course access rejects revoked, cross-profile, changed source and during-hash revocation.');
+
+const legacyFamily={...family,students:[{id:'child',name:'Legacy'}]} as unknown as Family;
+assert.deepEqual(withoutParentCourseReviews(legacyFamily).students[0].assigned,[]);
+for(const assigned of [null,{},'broken',[null],[{courseId:'x',subject:5}]])assert.throws(()=>withoutParentCourseReviews({...family,students:[{...family.students[0],assigned}]} as any),/Invalid family assignments/);

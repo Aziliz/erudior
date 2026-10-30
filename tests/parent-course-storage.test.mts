@@ -44,3 +44,23 @@ await assert.rejects(saveProgress({...initial,enrolled:['synthetic-cas']},{guard
 }}),/Revoked on CAS retry/);
 assert.deepEqual(JSON.parse(values.get('erudior.progress-child')!).enrolled,['other']);
 console.log('Activity progress guards block revoked and retry-raced authorization without clobbering newer progress.');
+
+const {saveProfileSessionState,loadSessionState}=await import('../src/lib/storage.ts');
+values.set('erudior.family',JSON.stringify({students:[{id:'child'},{id:'sibling'}]}));
+await saveProfileSessionState('child','original-session',()=>{});
+useStudentFiles('sibling');
+await saveProfileSessionState('child','explicit-child-session',()=>{});
+assert.equal(values.get('erudior.session-child'),'explicit-child-session');assert(!values.has('erudior.session-sibling'));
+await assert.rejects(saveProfileSessionState('child','revoked',()=>{throw Error('Review revoked');}),/revoked/);
+assert.equal(values.get('erudior.session-child'),'explicit-child-session');
+await saveProfileSessionState('child',null,()=>{});useStudentFiles('child');assert.equal(await loadSessionState(),null);
+values.set('erudior.classroom-submissions',JSON.stringify({deletedStudentIds:['child']}));
+await assert.rejects(saveProfileSessionState('child','resurrect',()=>{}),/deleted/);assert.equal(await loadSessionState(),null);
+console.log('Scoped session storage: fixed destination, revoked-write rejection, atomic clear and erased-profile rejection passed.');
+
+useStudentFiles(null);values.set('erudior.progress',JSON.stringify({...emptyProgress(),anonymousGeneration:0}));
+await saveProfileSessionState(null,'anonymous-session',()=>{});
+const oldAnonymousSession=values.get('erudior.session');let erase=true;
+await assert.rejects(saveProfileSessionState(null,'erased-stale-session',()=>{if(erase){erase=false;values.set('erudior.progress',JSON.stringify({...emptyProgress(),anonymousGeneration:1}));}}),/erased|recovered|generation/i);
+assert.equal(values.get('erudior.session'),oldAnonymousSession,'erasure never persists a stale generation wrapper');
+console.log('Scoped anonymous session also rejects changed erasure generation before persistence.');

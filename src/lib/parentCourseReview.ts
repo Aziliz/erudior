@@ -27,7 +27,17 @@ export function hasParentCourseReview(learnerId: string, course: Course, content
 }
 /** Encrypted/imported backups preserve history, not permission to review for a child. */
 export function withoutParentCourseReviews(family: Family): Family {
-  return { ...family, students: family.students.map(student => ({ ...student, assigned: student.assigned.map(({ communityReview: _untrusted, ...assignment }) => assignment) })) };
+  if (!family || !Array.isArray(family.students)) throw Error("Invalid family assignments in backup.");
+  return { ...family, students: family.students.map(student => {
+    if (!student || typeof student !== "object" || (student.assigned !== undefined && !Array.isArray(student.assigned))) throw Error("Invalid family assignments in backup.");
+    // Legacy minimal families had no assigned field: no assignments means no review authority.
+    const assigned = (student.assigned ?? []).map(assignment => {
+      if (!assignment || typeof assignment !== "object" || typeof assignment.courseId !== "string" || typeof assignment.subject !== "string") throw Error("Invalid family assignments in backup.");
+      const { communityReview: _untrusted, ...historical } = assignment;
+      return historical;
+    });
+    return { ...student, assigned };
+  }) };
 }
 export interface ParentAssignmentIO {
   update(change: (old: string | null) => string | Promise<string>): Promise<string>;
