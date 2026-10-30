@@ -374,7 +374,9 @@ fn data_location(app: AppHandle) -> Result<String, String> {
 /// .deb or .rpm installed through the system package manager.
 #[tauri::command]
 fn install_kind() -> &'static str {
-    if cfg!(target_os = "windows") {
+    if cfg!(target_os = "android") {
+        "android"
+    } else if cfg!(target_os = "windows") {
         "windows"
     } else if cfg!(target_os = "macos") {
         "macos"
@@ -387,6 +389,117 @@ fn install_kind() -> &'static str {
     } else {
         "other"
     }
+}
+
+/// Verify update bytes before any filesystem change. Never write to app_data_dir.
+fn verify_android_update_bytes(content: &[u8], expected_sha256: &str) -> Result<String, String> {
+    use sha2::{Digest, Sha256};
+    if content.is_empty() || content.len() > 41_943_040 { return Err("APK size outside allowed range".into()); }
+    if expected_sha256.len() != 64 || !expected_sha256.bytes().all(|c| c.is_ascii_hexdigit()) {
+        return Err("invalid expected SHA-256".into());
+    }
+    let hash = format!("{:x}", Sha256::digest(content));
+    if hash != expected_sha256.to_ascii_lowercase() { return Err("APK hash mismatch".into()); }
+    if !content.starts_with(b"PK\x03\x04") { return Err("APK is not a ZIP archive".into()); }
+    Ok(hash)
+}
+
+/// Stage only in the disposable Android cache, leaving all learner records untouched.
+#[cfg(target_os = "android")]
+#[tauri::command]
+fn stage_android_update(app: AppHandle, content: Vec<u8>, expected_sha256: String) -> Result<String, String> {
+    let hash = verify_android_update_bytes(&content, &expected_sha256)?;
+    let dir = app.path().app_cache_dir().map_err(|e| e.to_string())?.join("updates");
+    fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
+    let staged = dir.join("verified-update.apk");
+    let temp = dir.join("verified-update.part");
+    fs::write(&temp, content).map_err(|e| e.to_string())?;
+    // Verify the staged bytes again, not just the IPC input, before renaming.
+    let saved = fs::read(&temp).map_err(|e| e.to_string())?;
+    if let Err(error) = verify_android_update_bytes(&saved, &hash) {
+        let _ = fs::remove_file(&temp);
+        return Err(error);
+    }
+    fs::rename(&temp, &staged).map_err(|e| e.to_string())?;
+    Ok(hash)
+}
+
+#[cfg(test)]
+mod android_update_integrity_tests {
+    use super::*;
+    use sha2::{Digest, Sha256};
+    #[test]
+    fn staged_payload_validation_fails_closed() {
+        let apk = b"PK\x03\x04mock-apk";
+        let digest = format!("{:x}", Sha256::digest(apk));
+        assert_eq!(verify_android_update_bytes(apk, &digest).unwrap(), digest);
+        assert!(verify_android_update_bytes(apk, &"0".repeat(64)).is_err());
+        assert!(verify_android_update_bytes(b"not-an-apk", &format!("{:x}", Sha256::digest(b"not-an-apk"))).is_err());
+        assert!(verify_android_update_bytes(apk, "bad").is_err());
+    }
+}
+
+#[cfg(target_os = "android")]
+struct AndroidInstallerHandle(tauri::plugin::PluginHandle<tauri::Wry>);
+
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
+#[cfg(target_os = "android")]
+#[tauri::command(async)]
+fn android_fetch_manifest(app: AppHandle) -> Result<String, String> {
+    use tauri::Manager;
+    let handle = app.try_state::<AndroidInstallerHandle>().ok_or("Android installer missing")?;
+    let result: serde_json::Value = handle.0.run_mobile_plugin("fetchReleaseManifest", serde_json::json!({}))
+        .map_err(|e| e.to_string())?;
+    result.get("json").and_then(|v| v.as_str()).map(str::to_owned).ok_or("Invalid release manifest response".into())
+}
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn android_fetch_manifest(_app: AppHandle) -> Result<String, String> { Err("Android only".into()) }
+
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
+#[cfg(target_os = "android")]
+#[tauri::command(async)]
+fn android_download_verified_apk(app: AppHandle, expected_sha256: String, bytes: u64) -> Result<String, String> {
+    use tauri::Manager;
+    if bytes == 0 || bytes > 41_943_040 || expected_sha256.len() != 64 ||
+       !expected_sha256.bytes().all(|c| c.is_ascii_hexdigit()) { return Err("Invalid update request".into()); }
+    let handle = app.try_state::<AndroidInstallerHandle>().ok_or("Android installer missing")?;
+    let result: serde_json::Value = handle.0.run_mobile_plugin("downloadVerifiedApk",
+        serde_json::json!({"expectedSha256": expected_sha256, "bytes": bytes})).map_err(|e| e.to_string())?;
+    result.get("sha256").and_then(|v| v.as_str()).map(str::to_owned).ok_or("Missing verified digest".into())
+}
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn android_download_verified_apk(_app: AppHandle, _expected_sha256: String, _bytes: u64) -> Result<String, String> { Err("Android only".into()) }
+
+// Mobile plugin replies need the main thread; dispatch this blocking bridge off it.
+#[cfg(target_os = "android")]
+#[tauri::command(async)]
+fn launch_android_installer(app: AppHandle, expected_sha256: String) -> Result<bool, String> {
+    use tauri::Manager;
+    let handle = app.try_state::<AndroidInstallerHandle>()
+        .ok_or("Native Android installer plugin was not initialized")?;
+    use sha2::{Digest, Sha256};
+    let staged = app.path().app_cache_dir().map_err(|e| e.to_string())?
+        .join("updates/verified-update.apk");
+    let bytes = fs::read(&staged).map_err(|e| e.to_string())?;
+    let expected = verify_android_update_bytes(&bytes, &expected_sha256)?;
+    let result: serde_json::Value = handle.0
+        .run_mobile_plugin("installVerifiedApk", serde_json::json!({"expectedSha256": expected}))
+        .map_err(|error| error.to_string())?;
+    Ok(result.get("installerLaunched").and_then(|value| value.as_bool()) == Some(true))
+}
+
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn launch_android_installer(_app: AppHandle, _expected_sha256: String) -> Result<bool, String> {
+    Err("Android system installer unavailable on this platform".into())
+}
+
+#[cfg(not(target_os = "android"))]
+#[tauri::command]
+fn stage_android_update(_app: AppHandle, _content: Vec<u8>, _expected_sha256: String) -> Result<String, String> {
+    Err("Android APK staging is unavailable on this platform".into())
 }
 
 /// True for the app's own pages (bundled UI, or the dev server in debug builds).
@@ -434,6 +547,16 @@ pub fn run() {
             }
             _ => tauri::webview::PermissionResponse::Default,
         })
+        .plugin(tauri::plugin::Builder::<tauri::Wry>::new("erudior-installer")
+            .setup(|app, api| {
+                #[cfg(target_os = "android")]
+                {
+                    let installer = api.register_android_plugin("com.erudior.updates", "InstallerPlugin")?;
+                    app.manage(AndroidInstallerHandle(installer));
+                }
+                Ok(())
+            })
+            .build())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_process::init())
@@ -453,7 +576,11 @@ pub fn run() {
             read_text_file,
             write_text_file,
             data_location,
-            install_kind
+            install_kind,
+            stage_android_update,
+            launch_android_installer,
+            android_fetch_manifest,
+            android_download_verified_apk
         ])
         .run(tauri::generate_context!())
         .expect("error while running Erudior");
