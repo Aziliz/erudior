@@ -1,3 +1,7 @@
+## Parent homeschool planning — In Progress (2026-10-30)
+
+One local capability: subject-specific placement and course customization, yearly/four-year plans, materials, field trips and portfolio evidence; reuse existing academic-record credit audits and transfer-credit workflows. Private adult review will bind community course content/version to one learner before assignment and use; new content and restored approvals require review again. Public reading remains account-free; local creation/export stays unrestricted and community publishing remains signed-in 18+. No online identity work, curriculum changes, new installer, or claim of completion. Implementation and exact-head validation are in progress.
+
 # Erudior Master Roadmap — 2026-10-27
 
 ## Offline course sharing — Done (2026-10-30)
