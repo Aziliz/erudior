@@ -19,6 +19,7 @@ import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 
 import type { Bank, Course, Progress } from "./types";
 import { loadFamily, saveFamily, type Family } from "./family";
+import { withoutParentCourseReviews } from "./parentCourseReview";
 import { loadRecords, parseRecords, restoredRecords, type Records } from "./records";
 import { loadPhotos, savePhotos } from "./portfolio";
 import { loadFile, putFile } from "./documents";
@@ -380,7 +381,7 @@ export async function restoreContents(
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
   store.useStudentFiles(null);
   await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true });
-  if (b.family) await saveFamily(b.family);
+  if (b.family) await saveFamily(withoutParentCourseReviews(b.family));
   else await store.saveState("family", null);
   await store.saveState("presentations", presentations);
   await store.saveState("interventions", interventions);

@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {pathToView,viewToPath,pageKey} from '../src/lib/routes';
+assert.deepEqual(pathToView('/parent/planning','',[],[]),{name:'parent',tab:'planning'});
+assert.equal(viewToPath({name:'parent',tab:'planning'},[],()=>undefined),'/parent/planning');
+assert.equal(pageKey({name:'parent',tab:'planning'}),'parent:');
+assert.deepEqual(pathToView('/parent/academic-records','',[],[]),{name:'parent',tab:'academic-records'});
+assert.equal(pathToView('/parent/planning/unexpected','',[],[]),null);
+execFileSync(process.execPath,['--check',fileURLToPath(new URL('../scripts/homeschool-planning-browser.mjs',import.meta.url))]);
+console.log('Parent planning route roundtrip and browser script syntax passed.');

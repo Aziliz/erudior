@@ -1,3 +1,4 @@
+import { parentCourseDigest, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
 import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
 import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
 import { createAdvancedAssessmentStore } from "./lib/advancedAssessmentStore";
@@ -55,7 +56,7 @@ import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
 import PhoneNavigation from "./components/PhoneNavigation";
-import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
+import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, type Family, type Student } from "./lib/family";
 import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
 import { useStudyTimer } from "./lib/timer";
@@ -210,6 +211,9 @@ export interface AppApi {
   assignmentBlock: (courseId: string) => string | null;
   /** Download (or update) a community course and open it. */
   addCommunityCourse: (id: string) => Promise<void>;
+  startAssignedCourse?: (id: string) => Promise<void>;
+  assignReviewedCommunityCourse?: (learnerId: string, course: Course, digest: string, subject: string, scope: () => void, installedRaw: string | null, remote: boolean) => Promise<void>;
+  removeParentAssignment?: (learnerId: string, courseId: string) => Promise<void>;
 }
 
 type Theme = "system" | "light" | "dark" | "sepia" | "dim" | "contrast";
@@ -488,7 +492,7 @@ export default function App() {
   useEffect(() => {
     if (!ROUTES || !ready || !pendingPath.current) return;
     const url = new URL(pendingPath.current, window.location.origin);
-    const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
+    const v = pathToView(url.pathname, url.search, family ? courses : myCourses, CATALOG);
     if (v || catalogTried) {
       pendingPath.current = null;
       if (v && (view.name === "library" || (v.name === "parent" && view.name === "who"))) {
@@ -564,7 +568,7 @@ export default function App() {
       const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
       const v = saved
         ? restorable(saved)
-        : pathToView(window.location.pathname, window.location.search, myCourses, CATALOG) ?? { name: "library" };
+        : pathToView(window.location.pathname, window.location.search, family ? courses : myCourses, CATALOG) ?? { name: "library" };
       fromPop.current = true;
       setView(v);
     };
@@ -607,9 +611,16 @@ export default function App() {
     [reload, enroll],
   );
 
+  const [reviewDigests, setReviewDigests] = useState<Map<Course, string>>(new Map());
+  useEffect(() => { let live = true; Promise.all(courses.filter(c => c.community).map(async c => [c, await parentCourseDigest(c)] as const)).then(entries => { if (live) setReviewDigests(new Map(entries)); }).catch(() => { if (live) setReviewDigests(new Map()); }); return () => { live = false; }; }, [courses]);
   const assignmentBlock = useCallback(
     (courseId: string): string | null => {
       if (!student) return null;
+      const source = courses.find(c => c.id === courseId);
+      if (!isClassroom(family) && (source?.community || courseId.startsWith("community-"))) {
+        const assignment = student.assigned.find(a => a.courseId === courseId);
+        if (!source || !hasParentCourseReview(student.id, source, reviewDigests.get(source), assignment?.communityReview)) return "Parent review required for this exact community version";
+      }
       if (isClassroom(family)) {
         const mine = classesOf(family!, student.id);
         if (mine.some((c) => c.assignments.some((a) => a.courseId === courseId) || c.freeChoice)) return null;
@@ -626,7 +637,7 @@ export default function App() {
       }
       return student.freeChoice ? null : "Not assigned yet; ask a parent";
     },
-    [student, courses, family],
+    [student, courses, family, reviewDigests],
   );
 
   const studentSelectionRequest = useRef(0);
@@ -634,7 +645,9 @@ export default function App() {
     async (id: string) => {
       const target = { name: "library" as const };
       if (!requestNavigation("app", target)) return;
+      adultAccess.current = {unlocked:false,parentView:false}; setParentUnlocked(false);
       const request = ++studentSelectionRequest.current;
+      if (!await store.competencyProfileExists(id)) throw Error("This learner no longer exists.");
       // Read the selected files without changing the active student's storage context.
       const raw = await store.loadState(`progress-${id}`);
       let p = store.emptyProgress();
@@ -656,9 +669,23 @@ export default function App() {
   );
 
   const setFamily = useCallback(async (f: Family) => {
-    await saveFamily(f);
+    const expected = family;
+    if (!expected) throw Error("Family changed. Reopen the workspace.");
+    const wasUnlocked = adultAccess.current.unlocked;
+    const assertScope = () => {
+      if (viewRef.current.name !== "parent") throw Error("Reopen the supervising-adult area before changing family settings.");
+      if (wasUnlocked && (!adultAccess.current.unlocked || !adultAccess.current.parentView || documentUnlockedCredential.current !== JSON.stringify(expected.parent.password))) throw Error("Adult access changed. Lock and reopen Family.");
+      if (!wasUnlocked && JSON.stringify({...f,parent:expected.parent}) !== JSON.stringify(expected)) throw Error("Unlock Family before changing learner plans.");
+    };
+    assertScope();
+    await store.updateState("family", old => {
+      assertScope();
+      const current = old ? JSON.parse(old) as Family : null;
+      if (!current || JSON.stringify({...current,reminders:current.reminders ?? [],done:current.done ?? []}) !== JSON.stringify(expected)) throw Error("Family changed in another view. Reload before saving; your changes were not written.");
+      return JSON.stringify(f);
+    });
     setFamilyState(f);
-  }, []);
+  }, [family]);
 
   // Leaving the parent area locks it again.
   useEffect(() => {
@@ -1182,8 +1209,75 @@ export default function App() {
     },
     allCourses: courses,
     assignmentBlock,
+    startAssignedCourse: async id => {
+      const course = courses.find(c => c.id === id);
+      if (!course || CATALOG.some(c => c.id === id)) { await addCourse(id); return; }
+      const selected = store.activeStudent(), capturedFamily = family, selectedRequest = studentSelectionRequest.current;
+      const guard = async () => {
+        if (!selected || store.activeStudent() !== selected || selectedRequest !== studentSelectionRequest.current) throw Error("Learner changed. Reopen the assigned course.");
+        const fresh = await loadFamily();
+        if (!fresh || JSON.stringify(fresh) !== JSON.stringify(capturedFamily) || !await store.competencyProfileExists(selected)) throw Error("Assignments changed. Reload Family before starting.");
+        const reason = assignmentBlock(id); if (reason) throw Error(reason);
+        const saved = await store.loadStoredCourseSnapshot(id);
+        if (!saved || await parentCourseDigest(saved.course) !== await parentCourseDigest(course)) throw Error("Course changed. Ask the parent to review the current version.");
+        if (store.activeStudent() !== selected || selectedRequest !== studentSelectionRequest.current) throw Error("Learner changed. Reopen the assigned course.");
+      };
+      try {
+        await guard();
+        await store.updateProfileProgress(selected, async p => { await guard(); return {...p,enrolled:[...new Set([...(p.enrolled ?? []),id])]}; });
+        await guard();
+        const p = await store.loadProfileProgress(selected); await guard(); progressRef.current=p; setProgressState(p);
+        if (requestNavigation("app",{name:"course",courseId:id})) setView({name:"course",courseId:id});
+      } catch(e) { toast((e as Error).message); }
+    },
+    assignReviewedCommunityCourse: async (learnerId, course, digest, subject, scope, installedRaw, remote) => {
+      if (!family || isClassroom(family)) throw Error("Open the local Family workspace to assign a personally reviewed course.");
+      const expected = family;
+      const authorize = async () => { scope(); await api.authorizeAcademicRecords!(learnerId); scope(); };
+      await authorize();
+      if (JSON.stringify(await loadFamily()) !== JSON.stringify(expected)) throw Error("Family changed. Reload and review again.");
+      if (!course.community || await parentCourseDigest(course) !== digest) throw Error("Review content changed. Load the review again.");
+      if (remote) {
+        const latest = normalizeCourse(await downloadCommunityCourse(course.community.id));
+        if (await parentCourseDigest(latest) !== digest) throw Error("Published version changed during review. Cancel and load the current source.");
+      }
+      const issues = validateCourseIntegrity(course); if (issues.length) throw Error("This course has invalid content references and cannot be assigned.");
+      await authorize();
+      if (!await store.compareAndSwapCourse(installedRaw,course)) throw Error("Installed source changed during review. Cancel and review the current source; no course was overwritten.");
+      const guard = async () => { await authorize(); const stored = await store.loadStoredCourseSnapshot(course.id); if (!stored || await parentCourseDigest(stored.course) !== digest) throw Error("Installed source changed. Review the current source again."); await authorize(); };
+      const next = await saveParentCourseAssignment(expected,learnerId,course.id,{courseId:course.id,subject,communityReview:makeParentCourseReview(learnerId,course,digest)},guard);
+      setFamilyState(next); await reload();
+    },
+    removeParentAssignment: async (learnerId, courseId) => {
+      if (!family) throw Error("Family is unavailable.");
+      const next = await saveParentCourseAssignment(family,learnerId,courseId,null,async () => { await api.authorizeAcademicRecords!(learnerId); });
+      setFamilyState(next);
+    },
     addCommunityCourse,
   };
+
+  // Persisted personal suitability authorization applies to deep links and resumed bank work.
+  const routedCourseId = "courseId" in view ? view.courseId : view.name === "run" ? allBanks.find(b => b.id === view.session.bankId)?.courseId : "bankId" in view ? allBanks.find(b => b.id === view.bankId)?.courseId : undefined;
+  const routedCommunity = routedCourseId ? courses.find(c => c.id === routedCourseId && c.community) : undefined;
+  const [communityRoute, setCommunityRoute] = useState<{view: View; student: string | null; course: Course; error: string} | null>(null);
+  useEffect(() => {
+    if (!family || isClassroom(family) || !studentId || !routedCommunity) return;
+    let live = true;
+    const check = async () => {
+      try {
+        const fresh = await loadFamily(), saved = await store.loadStoredCourseSnapshot(routedCommunity.id);
+        const child = fresh?.students.find(s => s.id === studentId);
+        if (!child || !saved || !await store.competencyProfileExists(studentId) || !hasParentCourseReview(studentId,saved.course,await parentCourseDigest(saved.course),child.assigned.find(a => a.courseId === saved.course.id)?.communityReview) || await parentCourseDigest(saved.course) !== await parentCourseDigest(routedCommunity)) throw Error("Parent review required for this exact community version. Return to Family to review or restore the assignment. Prior progress is preserved.");
+        const reason = assignmentBlock(saved.course.id); if (reason) throw Error(reason);
+        if (live) setCommunityRoute({view,student:studentId,course:routedCommunity,error:""});
+      } catch(e) { if (live) setCommunityRoute({view,student:studentId,course:routedCommunity,error:(e as Error).message}); }
+    };
+    void check();
+    const focus = () => { setCommunityRoute(null); void check(); };
+    window.addEventListener("focus",focus);
+    const interval = window.setInterval(check,2000);
+    return () => {live=false;window.removeEventListener("focus",focus);window.clearInterval(interval);};
+  }, [view,studentId,family,routedCommunity,assignmentBlock]);
 
   // Active study time for the student's records.
   const studyCourse = (() => {
@@ -1415,14 +1509,14 @@ export default function App() {
         ) : (
           <ParentGate api={api} family={family} onUnlock={() => { documentUnlockedCredential.current = JSON.stringify(family.parent.password); adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
-      else if (view.tab === "academic-records")
+      else if (view.tab === "academic-records" || view.tab === "planning")
         body = <div className="page">
-          <h1>Academic records and portability</h1>
+          <h1>{view.tab === "planning" ? "Parent homeschool planning" : "Academic records and portability"}</h1>
           {HOMESCHOOL && !TEMPORARY_GUEST ? <>
             <p>Set up a local Family or Classroom workspace before opening learner records. Existing workspaces require the supervising adult's password; this link does not unlock records.</p>
             <button className="btn" onClick={() => api.go({ name: "familySetup" })}>Set up Family or Classroom</button>
           </> : <>
-            <p>Academic records are available in the local app with a configured Family or Classroom workspace. They are not part of account-free public learning.</p>
+            <p>{view.tab === "planning" ? "Parent homeschool planning is available in the local app with a configured Family workspace. It is not part of account-free public learning." : "Academic records are available in the local app with a configured Family or Classroom workspace. They are not part of account-free public learning."}</p>
             <p>This academic planning update ships with the next app version. An older installed version may not include it yet.</p>
             {TEMPORARY_GUEST && <p>This temporary guest session cannot create or open a persistent learner workspace. Saved device records have not been opened or changed.</p>}
             <a className="btn" href={siteUrl("/download")}>Download app</a>
@@ -1454,6 +1548,10 @@ export default function App() {
             : view.name === "parent" || view.name === "who" || view.name === "familySetup"
               ? null
               : "library";
+  if (family && !isClassroom(family) && studentId && routedCommunity) {
+    const authorized = communityRoute?.view === view && communityRoute.student === studentId && communityRoute.course === routedCommunity;
+    if (!authorized || communityRoute.error) { fullScreen=false; body=<div className="page"><h1>Community learning plan</h1><p role="status">{authorized ? communityRoute.error : "Checking this learner's reviewed course version…"}</p><button className="btn" onClick={() => api.go({name:"library"})}>Back to Library</button></div>; }
+  }
   const showCommunity = COMMUNITY;
   // This describes the existing local workspace. Opening it still requires the adult gate.
   const managementLabel = HOMESCHOOL && family ? (isClassroom(family) ? "Classroom" : "Family") : null;

@@ -63,6 +63,20 @@ export async function saveCourse(course: Course): Promise<void> {
   else await webSet(LS_COURSE + course.id, content);
 }
 
+/** Exact stored bytes captured during review; formatting matters to CAS, not the digest. */
+export async function loadStoredCourseSnapshot(id: string): Promise<{ course: Course; raw: string } | null> {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(id)) throw Error("Invalid course ID.");
+  const raw = inApp ? await invoke<string | null>("load_item", { kind: "courses", id }) : await webGet(LS_COURSE + id);
+  return raw === null ? null : { course: normalizeCourse(JSON.parse(raw)), raw };
+}
+/** Never overwrite content installed after the parent's captured review. */
+export async function compareAndSwapCourse(expectedRaw: string | null, course: Course): Promise<boolean> {
+  if (!/^[A-Za-z0-9_-]{1,100}$/.test(course.id)) throw Error("Invalid course ID.");
+  const content = serializeCourse(course);
+  if (inApp) return invoke<boolean>("compare_and_swap_course", { id: course.id, expected: expectedRaw, content });
+  return webCompareAndSwap(LS_COURSE + course.id, expectedRaw, content);
+}
+
 export async function deleteCourse(id: string): Promise<void> {
   if (inApp) await invoke("delete_item", { kind: "courses", id });
   else await webDelete(LS_COURSE + id);

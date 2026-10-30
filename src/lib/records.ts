@@ -1,6 +1,7 @@
 // A student's school records: time spent learning (tracked in the app and entered by hand),
 // and attendance the parent confirmed. One file per student: records-<id>.
 
+import { parseHomeschoolPlanning, restoreHomeschoolPlanning, type HomeschoolPlanning } from "./homeschoolPlanning";
 import { parseAcademicRecords, restoreAcademicRecords, type AcademicRecords } from "./academicRecords";
 import { CATALOG } from "./catalog";
 import type { Family, Student } from "./family";
@@ -78,6 +79,8 @@ export interface Records {
   /** Local optimistic revision; imported revisions never establish authority. */
   revision?: number;
   academic?: AcademicRecords;
+  /** Private parent planning notes, never enrollment approval or earned credit. */
+  planning?: HomeschoolPlanning;
   /** Bounded local change journal, not a signed or tamper-proof institutional audit. */
   audit?: RecordsAuditEntry[];
   /** Imported history is preserved as historical claims, not authenticated authorship. */
@@ -194,6 +197,7 @@ export function parseRecords(value: unknown): Records {
     }
   }
   if (r.academic !== undefined) r.academic = parseAcademicRecords(r.academic);
+  if (r.planning !== undefined) r.planning = parseHomeschoolPlanning(r.planning);
   if (r.revision !== undefined && (!Number.isSafeInteger(r.revision) || r.revision < 0)) throw recordError();
   if (r.restoredAt !== undefined) string(r.restoredAt);
   if (r.audit !== undefined) {
@@ -251,7 +255,7 @@ export async function saveRecords(studentId: string, r: Records, options: Record
 /** Explicit full-backup restore: history is not authenticated by encryption or import. */
 export function restoredRecords(value: unknown): Records {
   const r = parseRecords(value);
-  return parseRecords({ ...r, ...(r.academic === undefined ? {} : {academic: restoreAcademicRecords(r.academic)}), restoredAt: new Date().toISOString(), audit: (r.audit ?? []).map(entry => ({...entry,origin:"imported"})) });
+  return parseRecords({ ...r, ...(r.planning === undefined ? {} : {planning: restoreHomeschoolPlanning(r.planning)}), ...(r.academic === undefined ? {} : {academic: restoreAcademicRecords(r.academic)}), restoredAt: new Date().toISOString(), audit: (r.audit ?? []).map(entry => ({...entry,origin:"imported"})) });
 }
 
 export function addTime(r: Records, date: string, courseId: string, seconds: number): Records {
