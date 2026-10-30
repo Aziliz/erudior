@@ -1,6 +1,6 @@
 # Local parent homeschool planning
 
-In development on the parent planning branch. Public roadmap remains In Progress until the complete capability is validated.
+Completed local-app capability in PR #122, merged as `9831c9db3aa3b16f38dc30c4d5e33c9591754d4b`. Public/local roadmap delivery is Done after exact-head and postmerge validation; native installer delivery remains the next app release.
 
 ## Scope and access
 
@@ -24,4 +24,4 @@ External downloads, backups and copies are not erased by local planning removal.
 
 ## Acceptance
 
-Focused model/storage/authority/UI tests and a synthetic real-App browser suite cover scope changes, cancellation, history, offline/reload, repeated operations, conflicts, malformed records, changed course versions, revocation, mobile accessibility and public entry. Final exact-head CI, native/browser artifact review, postmerge regression and deployment evidence must be recorded before marking this capability Done.
+Focused model/storage/authority/UI tests and a synthetic real-App browser suite cover scope changes, cancellation, history, offline/reload, repeated operations, conflicts, malformed records, changed course versions, revocation, mobile accessibility and public entry. Final exact-head checks and all eight postmerge regression, browser, native, integrity, signing and deployment workflows passed. All 32 desktop/narrow-viewport/public-entry screenshots were inspected at original resolution; safe live regular/guest navigation matched the deployed build. This is synthetic browser/emulator validation, not physical-device or real-learner pilot testing. Detailed run IDs and delivery limits are recorded in `MASTER_ROADMAP.md`.
