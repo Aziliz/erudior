@@ -243,7 +243,11 @@ export default function ParentArea({
           </button>
         ))}
       </nav>
-      {!records ? (
+      {/* These workspaces own their guarded storage lifecycle. Attendance reloads
+          must not discard an in-flight review or its saved confirmation. */}
+      {tab === "courses" && <Courses api={api} family={family} />}
+      {tab === "planning" && !classroom && <HomeschoolPlanningWorkspace api={api} family={family} />}
+      {tab !== "courses" && tab !== "planning" && (!records ? (
         <p className="muted">Loading records…</p>
       ) : (
         <>
@@ -279,10 +283,8 @@ export default function ParentArea({
               saveRec={saveRec}
             />
           )}
-          {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
-          {tab === "planning" && !classroom && <HomeschoolPlanningWorkspace api={api} family={family} />}
           {tab === "academic-records" && <AcademicRecordsWorkspace api={api} family={family} />}
           {tab === "reading" && <ReadingTab api={api} family={family} />}
           {tab === "documents" && <DocumentsTab api={api} family={family} />}
@@ -290,7 +292,7 @@ export default function ParentArea({
           {tab === "state" && <StateTab api={api} family={family} />}
           {tab === "settings" && <Settings api={api} family={family} />}
         </>
-      )}
+      ))}
     </div>
   );
 }

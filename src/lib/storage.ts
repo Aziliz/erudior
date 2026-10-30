@@ -306,6 +306,14 @@ export async function saveProgress(p: Progress, options: SaveProgressOptions = {
     await options.guard?.();
     return merged;
   });
+  // An initially absent progress file can still match null after profile erasure.
+  // Monotonic deletion tombstones make cleanup safe for this captured ID only;
+  // never follow a later active-student switch when removing the orphan write.
+  if (selected !== null && !await competencyProfileExists(selected)) {
+    await saveState(`progress-${selected}`, null);
+    throw Error("This learner was deleted during saving; their progress was removed.");
+  }
+  await options.guard?.();
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
