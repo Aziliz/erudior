@@ -1,3 +1,7 @@
+## Parent dashboard PIN protection and child account switching — In Progress (2026-10-30)
+
+Draft PR #126 is implementing restricted memory-only learner sessions, explicit adult authorization for learner selection, safe shared-device locking and fresh sensitive-action reauthentication. Existing password/PIN/recovery remains the local boundary; no new unknown child secret is introduced. This is not encryption at rest, verified guardianship or online account authority. Public account-free learning and separate community publishing permissions are unchanged. Implementation and end-to-end validation are unfinished; no installer release or completion is claimed.
+
 ## Parent homeschool planning — Done (2026-10-30)
 
 PR #122 merged as `9831c9db3aa3b16f38dc30c4d5e33c9591754d4b`: completed local-app capability. Subject-specific placement, grade/course customization, yearly/four-year plans, materials, field trips and portfolio evidence reuse existing academic credit/evidence audits and transfer review. These remain family intentions and observations, not earned credit or a legal graduation determination.
