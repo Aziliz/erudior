@@ -6,7 +6,7 @@ Object.assign(globalThis,{window:dom.window,document:dom.window.document,localSt
 Object.defineProperty(globalThis,'navigator',{configurable:true,value:dom.window.navigator});
 let picked='';const mutations:string[]=[];
 (window as any).__TAURI_INTERNALS__={invoke:async(command:string,args:any)=>{
- if(command==='plugin:dialog|open')return '/test/course.json';
+ if(command==='pick_portable_course')return picked;
  if(command==='read_text_file')return picked;
  if(command==='load_state')return null;
  mutations.push(command);return;

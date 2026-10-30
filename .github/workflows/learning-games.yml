@@ -24,6 +24,7 @@ on:
       - 'scripts/course-activities-browser.mjs'
       - 'scripts/public-learning-browser.mjs'
       - 'scripts/public-community-browser.mjs'
+      - 'scripts/offline-course-browser.mjs'
       - 'scripts/community-controls-browser.mjs'
       - 'scripts/community-guide-browser.mjs'
       - 'scripts/community-resources-browser.mjs'
@@ -54,6 +55,8 @@ jobs:
         run: npm run test:learning-progress-browser
       - name: Courses navigation and local family or classroom gates
         run: npm run test:role-navigation-browser
+      - name: Private offline course export, import and rendering
+        run: npm run test:offline-course-browser
       - name: Public community discovery, details and exact learning handoff
         run: npm run test:public-community-browser
       - name: Eight-subject synthetic kindergarten authoring and runtime parity
@@ -231,5 +234,13 @@ jobs:
         with:
           name: role-navigation-browser
           path: test-results/role-navigation-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-course-browser
+          path: test-results/offline-course-browser/
           if-no-files-found: warn
           retention-days: 14

@@ -484,3 +484,28 @@ export async function recoverAnonymousPrivacy(expected:AnonymousPrivacyExpected,
  // The backend preflights every attachment and commits bytes with the scoped replacement.
  return replaceAnonymous(expected,progress,session,anonymousFileIds(current.progress).filter(id=>!ids.has(id)),guard,files);
 }
+
+/** User-picked course files only; Android uses scoped ContentResolver rather than filesystem URI guessing. */
+export async function pickPortableCourseFile(): Promise<string | null> {
+  if (inApp) return invoke<string | null>('pick_portable_course');
+  return new Promise((resolve, reject) => {
+    const input = document.createElement('input');
+    input.type = 'file'; input.accept = '.json,application/json';
+    input.addEventListener('cancel', () => resolve(null), { once: true });
+    input.onchange = () => {
+      const file = input.files?.[0];
+      if (!file) return resolve(null);
+      if (file.size > 24 * 1024 * 1024) return reject(Error('Course file exceeds the 24 MiB limit.'));
+      file.arrayBuffer().then(buffer => {
+        try { resolve(new TextDecoder('utf-8', { fatal: true }).decode(buffer)); }
+        catch { reject(Error('Course file must be valid UTF-8.')); }
+      }, reject);
+    };
+    input.click();
+  });
+}
+export async function exportPortableCourseText(content: string, name: string, _label = 'Erudior offline course'): Promise<boolean> {
+  if (new TextEncoder().encode(content).length > 24 * 1024 * 1024) throw Error('Course package exceeds the 24 MiB limit.');
+  if (inApp) return invoke<boolean>('export_portable_course', { content, name });
+  return exportText(content, name, 'Erudior offline course');
+}

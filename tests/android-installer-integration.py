@@ -28,6 +28,9 @@ class InstallerIntegrationTests(unittest.TestCase):
             "res/xml/erudior_update_paths.xml": '<paths><cache-path name="verified-update" path="updates/" /></paths>',
         }.items():
             p=source/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(content)
+        portable = root / "src-tauri/android-portable-files/src/main/java/com/erudior/files/PortableFilesPlugin.kt"
+        portable.parent.mkdir(parents=True)
+        portable.write_text("// isolated document picker fixture\n")
         return generated, activity
 
     def test_provider_identity_is_distinct_and_integration_idempotent(self):
@@ -50,6 +53,7 @@ class InstallerIntegrationTests(unittest.TestCase):
             self.assertEqual(update.get(NS+'grantUriPermissions'),'true')
             self.assertEqual(update.find('meta-data').get(NS+'resource'),'@xml/erudior_update_paths')
             self.assertEqual(len(doc.findall('uses-permission')),1)
+            self.assertTrue((generated/'java/com/erudior/files/PortableFilesPlugin.kt').is_file())
             self.assertTrue((generated/'java/com/erudior/updates/ErudiorUpdateFileProvider.kt').is_file())
 
     def test_legacy_duplicate_class_is_migrated_without_touching_tauri(self):
