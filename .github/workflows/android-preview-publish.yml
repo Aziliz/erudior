@@ -18,6 +18,8 @@ on:
       - 'scripts/android-release-verify.py'
       - 'scripts/android-apk-fileprovider-check.py'
       - 'scripts/android-verify-installer-package.sh'
+      - 'scripts/check-android-community-env.mjs'
+      - 'tests/android-community-env.test.mjs'
       - 'tests/android-apk-fileprovider.py'
       - 'tests/android-release-publish.py'
 
@@ -33,10 +35,14 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Test release verification and publication boundaries
         run: |
           python3 tests/android-release-publish.py -v
           python3 tests/android-apk-fileprovider.py -v
+          node --test tests/android-community-env.test.mjs
       - name: Validate explicit release request
         run: |
           python3 - <<'PY'
@@ -62,6 +68,7 @@ jobs:
     timeout-minutes: 60
     env:
       VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COMMUNITY_API: https://api.erudior.com
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
@@ -91,7 +98,8 @@ jobs:
       - run: npm ci
       - name: Verify production update and packaging contracts
         run: |
-          node --test tests/android-download-page.test.mjs tests/android-release-manifest.test.mjs tests/android-remote-courses.test.mjs
+          node --test tests/android-download-page.test.mjs tests/android-release-manifest.test.mjs tests/android-remote-courses.test.mjs tests/android-community-env.test.mjs
+          node scripts/check-android-community-env.mjs
           npx tsx --test tests/android-updates.test.mts
           python3 tests/android-installer-integration.py -v
       - name: Build optimized production ARM64 APK
@@ -99,6 +107,8 @@ jobs:
           npm run tauri android init -- --ci
           python3 scripts/android-integrate-installer.py
           npm run tauri android build -- --apk --ci --target aarch64
+      - name: Verify Community configuration in compiled Android frontend
+        run: node scripts/check-android-community-env.mjs --dist dist
       - name: Sign with persistent release identity
         shell: bash
         env:
