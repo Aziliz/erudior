@@ -97,11 +97,23 @@ try {
   await launch();
   assert.equal(await page.evaluate(()=>window.__erudiorUpgradeE2E.version()),'0.25.1');
   await page.getByRole('button',{name:'Verify and open installer',exact:true}).waitFor({timeout:45000});
-  const seeded=await page.evaluate(()=>window.__erudiorUpgradeE2E.seed());
-  assert.equal(seeded.course?.revision,7);
-  assert.equal(seeded.lessonsDone['upgrade-proof-course/lesson'],'2026-10-01');
-  assert.equal(seeded.profileLessons['upgrade-proof-course/lesson'],'2026-10-02');
-  assert.equal(seeded.theme,'dark');
+  const records=await page.evaluate(()=>window.__erudiorUpgradeE2E.seed());
+  assert.equal(records.course?.revision,7);
+  assert.equal(records.lessonsDone['upgrade-proof-course/lesson'],'2026-10-01');
+  assert.equal(records.profileLessons['upgrade-proof-course/lesson'],'2026-10-02');
+  assert.equal(records.theme,'dark');
+  // Set preferences through React's real controls, not out-of-band localStorage writes.
+  await page.getByRole('button',{name:'Display',exact:true}).click();
+  await page.getByLabel('Theme',{exact:true}).selectOption('dark');
+  await page.getByLabel('Reading width',{exact:true}).selectOption('comfortable');
+  await page.getByLabel('Text size',{exact:true}).selectOption('115');
+  await page.getByRole('button',{name:'Done',exact:true}).click();
+  await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark' &&
+    document.documentElement.dataset.width==='comfortable' && localStorage.getItem('examiner.textSize')==='115');
+  const seeded=await snapshot();
+  assert.deepEqual(seeded.displayPreferences,{theme:'dark',width:'comfortable',textSize:'115'});
+  // Normal backgrounding lets WebView finish its asynchronous preference commit.
+  adb('shell','input','keyevent','KEYCODE_HOME');await sleep(2000);
   adb('shell','am','force-stop',pkg);await launch();
   const before=await snapshot();assert.deepEqual(before,seeded,'Baseline survives a real process restart');
   writeFileSync(path.join(out,'records-before.json'),JSON.stringify(before,null,2));

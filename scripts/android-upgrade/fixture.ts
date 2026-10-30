@@ -44,9 +44,6 @@ Object.assign(window, { __erudiorUpgradeE2E: {
     if (!inApp) throw new Error("Acceptance fixtures require the real native persistence backend");
     await saveCourse(course);
     await saveProgress(progress);
-    localStorage.setItem("examiner.theme", "dark");
-    localStorage.setItem("examiner.width", "comfortable");
-    localStorage.setItem("examiner.textSize", "115");
     await updateProfileProgress("upgradetest", old => ({ ...old,
       lessonsDone: { "upgrade-proof-course/lesson": "2026-10-02" },
     }));

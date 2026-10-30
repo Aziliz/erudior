@@ -70,6 +70,14 @@ class UpgradeHarnessTests(unittest.TestCase):
         for name in ['android_fetch_manifest','android_download_verified_apk','launch_android_installer']:
             self.assertIn('#[tauri::command(async)]\nfn '+name+'(app:',source)
 
+    def test_display_preferences_use_real_controls(self):
+        fixture=(ROOT/'scripts/android-upgrade/fixture.ts').read_text()
+        runner=(ROOT/'scripts/android-upgrade/run.mjs').read_text()
+        self.assertNotIn('localStorage.setItem',fixture)
+        for label in ['Theme','Reading width','Text size']:
+            self.assertIn("getByLabel('"+label+"'",runner)
+        self.assertIn("KEYCODE_HOME",runner)
+
     def test_upgrade_runner_never_uses_adb_reinstall_or_clear(self):
         source=(ROOT/'scripts/android-upgrade/run.mjs').read_text()
         self.assertEqual(source.count("adb('install'"),1)
