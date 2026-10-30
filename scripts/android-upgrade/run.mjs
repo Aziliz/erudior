@@ -104,9 +104,9 @@ try {
   assert.equal(records.theme,'dark');
   // Set preferences through React's real controls, not out-of-band localStorage writes.
   await page.getByRole('button',{name:'Display',exact:true}).click();
-  await page.getByLabel('Theme',{exact:true}).selectOption('dark');
-  await page.getByLabel('Reading width',{exact:true}).selectOption('comfortable');
-  await page.getByLabel('Text size',{exact:true}).selectOption('115');
+  await page.getByLabel('Theme',{exact:false}).selectOption('dark');
+  await page.getByLabel('Reading width',{exact:false}).selectOption('comfortable');
+  await page.getByLabel('Text size',{exact:false}).selectOption('115');
   await page.getByRole('button',{name:'Done',exact:true}).click();
   await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark' &&
     document.documentElement.dataset.width==='comfortable' && localStorage.getItem('examiner.textSize')==='115');
