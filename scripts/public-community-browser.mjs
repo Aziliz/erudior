@@ -40,12 +40,13 @@ try {
   const link = name => page.getByRole('link', { name, exact: true });
   async function audit(name, target) {
     current = name;
+    // Audit the usable page, after the real startup lifecycle (never hide its overlay).
+    await page.waitForFunction(() => document.querySelectorAll('.erudior-splash').length === 0, null, { timeout: 10000 });
+    assert.equal(await page.locator('.erudior-splash').count(), 0, `${name}: no persistent startup overlay`);
     await page.evaluate(() => { window.scrollTo(0, 0); const main = document.querySelector('.main'); if (main) main.scrollTop = 0; });
     if (target) await target.evaluate(el => el.scrollIntoView({ block: 'start', inline: 'nearest' }));
     await page.evaluate(() => document.fonts.ready);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${name}: no horizontal page overflow`);
-    await page.waitForFunction(() => document.querySelectorAll('.erudior-splash').length === 0, null, { timeout: 10000 });
-    assert.equal(await page.locator('.erudior-splash').count(), 0, `${name}: no persistent startup overlay`);
     await page.addScriptTag({ content: axe });
     const result = await page.evaluate(() => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) })), [], `${name}: accessibility`);
@@ -245,7 +246,18 @@ try {
   await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, screenshots, observations, errors, capture: 'Viewport states, desktop/mobile, light/dark; synthetic API only.' }, null, 2));
   console.log('Public Community discovery, read-only details, error/stale safety, exact app handoff and explicit synthetic learning passed.');
 } catch (error) {
-  await writeFile(path.join(out, 'failure-diagnostics.json'), JSON.stringify({ current, error: String(error), errors }, null, 2));
+  const layout = page ? await page.evaluate(() => ({
+    viewport: { width: innerWidth, height: innerHeight },
+    documentWidth: document.documentElement.scrollWidth,
+    bodyWidth: document.body.scrollWidth,
+    splashCount: document.querySelectorAll('.erudior-splash').length,
+    overflowElements: Array.from(document.querySelectorAll('body *')).flatMap(element => {
+      const rect = element.getBoundingClientRect(), style = getComputedStyle(element);
+      if (!rect.width || !rect.height || style.display === 'none' || style.visibility === 'hidden' || (rect.left >= -1 && rect.right <= innerWidth + 1)) return [];
+      return [{ tag: element.tagName, id: element.id, className: element.getAttribute('class'), role: element.getAttribute('role'), text: element.textContent?.trim().slice(0, 120), rect: { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, width: rect.width, height: rect.height }, position: style.position, overflowX: style.overflowX, transform: style.transform }];
+    }).slice(0, 100),
+  })).catch(error => ({ diagnosticError: String(error) })) : null;
+  await writeFile(path.join(out, 'failure-diagnostics.json'), JSON.stringify({ current, error: String(error), errors, layout }, null, 2));
   if (page) await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: false }).catch(() => {});
   throw error;
 } finally { await browser?.close(); await server?.close(); }
