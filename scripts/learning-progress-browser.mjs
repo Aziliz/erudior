@@ -33,7 +33,7 @@ try {
   const heading = name => page.getByRole('heading', { name, exact: true });
   const readProgress = () => page.evaluate(async () => (await import('/src/lib/storage.ts')).loadProgress());
   const navigateProgress = async () => {
-    await page.locator('header.topbar').getByRole('button', { name: 'Progress', exact: true }).click();
+    await page.locator('header.topbar').getByRole('button', { name: 'Courses', exact: true }).click();
     await heading('Your courses').waitFor();
   };
   const waitForPathway = title => page.getByRole('article', { name: `${title} pathway`, exact: true }).waitFor();

@@ -67,7 +67,7 @@ await pg.goto(B + "#");
 await btn(/^Library$/).click().catch(() => {}); await pg.waitForTimeout(800);
 
 // Parent area: wrong PIN, then right PIN.
-await btn(/^Parent$/).click(); await pg.waitForTimeout(300);
+await btn(/^Family$/).click(); await pg.waitForTimeout(300);
 await audit("gate");
 await pg.getByLabel("PIN").fill("1111"); await btn(/^Open$/).click(); await pg.waitForTimeout(800);
 check("wrong PIN message", (await pg.getByRole("alert").textContent())?.includes("isn't right"));
@@ -93,7 +93,7 @@ await btn("Download attendance (CSV)").click();
 const csv = fs.readFileSync(await (await dl).path(), "utf8");
 check("csv has museum note", csv.includes("Museum trip") && csv.startsWith("Date,Minutes,Status"));
 
-await btn(/^Courses$/).click(); await pg.waitForTimeout(500);
+await pg.getByRole("navigation", { name: "Parent sections", exact: true }).getByRole("button", { name: "Courses", exact: true }).click(); await pg.waitForTimeout(500);
 await pg.locator("main").getByLabel(/^Student/).selectOption({ label: "Ben" }); await pg.waitForTimeout(300);
 for (const id of ["math-prealgebra", "math-algebra1"]) {
   await pg.getByLabel(/^Course/).selectOption(id);

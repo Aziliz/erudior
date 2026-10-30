@@ -211,8 +211,8 @@ try {
     const startDownload = new Promise(resolve => { delayedStart = resolve; });
     await button('Start or open course').click();
     await startDownload;
-    await button('Courses').click();
-    await heading('Courses').waitFor();
+    await button('Library').click();
+    await heading('Library').waitFor();
     const downloadFinished = page.waitForEvent('requestfinished', request => request.url() === apiOrigin + '/courses/public-one');
     await releaseDetail();
     await downloadFinished;

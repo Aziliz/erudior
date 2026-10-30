@@ -1,6 +1,12 @@
 # Course and pathway progress
 
-The main **Progress** page summarizes the active learner's enrolled courses and saved course pathways. Each course has its own **Progress** tab with lesson completion, module quiz results, course-specific scores, practice coverage, relevant skills, and session history.
+The main **Courses** page summarizes the active learner's enrolled courses and saved course pathways. Each course has its own **Progress** tab with lesson completion, module quiz results, course-specific scores, practice coverage, relevant skills, and session history. Existing `/progress` links continue to open the Courses overview.
+
+## Navigation and local workspaces
+
+The main navigation shows **Library**, **Community** when enabled, and **Courses**. An independent learner has no family or classroom management item. An existing local homeschool workspace adds **Family**; an existing local classroom workspace adds **Classroom**. Both open the existing password-protected adult area. These labels describe the saved local workspace mode, not a verified online account role or institutional membership.
+
+Local family/classroom setup remains available as a secondary action in **Library** when the build supports it. Search and the web download link remain accessible as utilities. This navigation change does not introduce accounts, school connections, family invitations, or new permissions.
 
 ## What the percentages mean
 
@@ -29,10 +35,12 @@ Pathway edits use a captured-profile compare-and-swap update. An editor checks i
 
 Ordinary progress saves preserve the latest pathway list, including its absence, so stale activity cannot erase or resurrect a pathway. Backup restoration explicitly replaces pathways. Ordinary backups, family backups, and anonymous recovery preserve the validated choices. These preferences are not academic evidence or adult authority.
 
-The previous advanced practice tools, cross-course skill evidence, session history, privacy controls, and backups remain available under **Study tools, skill evidence, and data** on the overview.
+The previous advanced practice tools, cross-course skill evidence, session history, privacy controls, and backups remain available under **Courses → Study tools, skill evidence, and data**.
 
 ## Verification and review images
 
 Run `npm run test:learning-progress-browser` for the real-app enrollment, pathway persistence, course navigation, keyboard/accessibility, and responsive workflow. The script uses real bundled course definitions with clearly synthetic local activity and blocks external requests. It writes screenshots and results to `test-results/learning-progress-browser`; GitHub Actions retains them as the `learning-progress-browser` artifact.
+
+Run `npm run test:role-navigation-browser` for independent, local homeschool, and local classroom navigation, the existing adult password gates, per-course Progress, public URL compatibility, and responsive accessibility. Its actual-App browser screenshots use isolated synthetic local workspace data and are written to `test-results/role-navigation-browser`; they do not represent authenticated production accounts.
 
 Model, persistence, recovery, course isolation, and UI regressions also run as part of `npm test`. Browser images are source-rendered app previews. They do not claim native Android system-bar or keyboard verification.

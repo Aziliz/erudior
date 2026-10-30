@@ -81,6 +81,7 @@ assert.equal(progressTab.getAttribute("aria-current"), "page");
 await React.act(async () => progressTab.click());
 assert.deepEqual(routes.pop(), { name: "course", courseId: "alpha", tab: "progress" });
 const addresses = [course, foreign].map(({ id, title }) => ({ id, title }));
+assert.deepEqual(pathToView("/progress", "", addresses, []), { name: "progress" }, "existing global progress links remain compatible after the Courses rename");
 assert.equal(viewToPath({ name: "course", courseId: "alpha", tab: "progress" }, addresses, () => undefined), "/course-alpha/progress");
 assert.deepEqual(pathToView("/course-alpha/progress", "", addresses, []), { name: "course", courseId: "alpha", tab: "progress" });
 assert.deepEqual(pathToView("/course-alpha/progress", "", [], addresses), { name: "overview", catalogId: "alpha", requestedPath: "/course-alpha/progress" });

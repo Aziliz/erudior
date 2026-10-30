@@ -51,7 +51,8 @@ import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
-import { HOMESCHOOL, adultLabel, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
+import PhoneNavigation from "./components/PhoneNavigation";
+import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
 import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
 import { useStudyTimer } from "./lib/timer";
@@ -1384,6 +1385,8 @@ export default function App() {
               ? null
               : "library";
   const showCommunity = COMMUNITY;
+  // This describes the existing local workspace. Opening it still requires the adult gate.
+  const managementLabel = HOMESCHOOL && family ? (isClassroom(family) ? "Classroom" : "Family") : null;
 
   return (
     <div className={ANDROID_NATIVE ? "shell erudior-android-shell" : "shell"}>
@@ -1408,7 +1411,7 @@ export default function App() {
               aria-current={navCurrent === "library" ? "page" : undefined}
               onClick={() => api.go({ name: "library" })}
             >
-              {ROUTES ? "Courses" : "Library"}
+              Library
             </button>
             {showCommunity && (
               <button
@@ -1422,31 +1425,25 @@ export default function App() {
               aria-current={navCurrent === "progress" ? "page" : undefined}
               onClick={() => api.go({ name: "progress" })}
             >
-              Progress
+              Courses
             </button>
-            {ROUTES && <a href={siteUrl("/download")}>Download</a>}
-          </nav>
-          <div className="spacer" />
-          {HOMESCHOOL && family && (
-            <div className="row family-nav">
-              {student && (
-                <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
-                  Student: {student.name}
-                </button>
-              )}
+            {managementLabel && (
               <button
-                className="btn sm"
                 aria-current={view.name === "parent" ? "page" : undefined}
                 onClick={() => api.go({ name: "parent" })}
               >
-                {adultLabel(family)}
+                {managementLabel}
+              </button>
+            )}
+          </nav>
+          <div className="spacer" />
+          {ROUTES && <a className="btn sm" href={siteUrl("/download")}>Download</a>}
+          {HOMESCHOOL && family && student && (
+            <div className="row family-nav">
+              <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
+                Student: {student.name}
               </button>
             </div>
-          )}
-          {HOMESCHOOL && !family && (
-            <button className="btn sm" onClick={() => api.go({ name: "familySetup" })}>
-              Homeschool or classroom
-            </button>
           )}
           <form
             className="top-search"
@@ -1528,7 +1525,7 @@ export default function App() {
           <div><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
             <p className="small">{TEMPORARY_GUEST ? "Learning data stays in this page's memory only. Refreshing or closing loses it. Export course progress before leaving; scratch code/workbook drafts are not in that backup. Saved device progress is untouched." : "No account needed. Progress is saved only in this browser. Use a temporary session if you do not want learning data saved on this device."} Practice is not supervised credit or certification.</p></div>
           <div className="row">
-            <button className="btn sm" onClick={() => api.go({name:"progress"})}>Progress and export</button>
+            <button className="btn sm" onClick={() => api.go({name:"progress"})}>Courses and export</button>
             <button className="btn sm" onClick={() => {
               if (!requestNavigation("app")) return;
               if (TEMPORARY_GUEST && !window.confirm("Leave this temporary session? Its learning data will be lost. Export first if you want to keep it.")) return;
@@ -1633,18 +1630,8 @@ export default function App() {
         {body}
       </main>
       {ANDROID_NATIVE && !fullScreen && (
-        <nav className="android-bottom-nav" aria-label="Phone navigation">
-          <button type="button" aria-current={navCurrent === "library" ? "page" : undefined}
-            onClick={() => api.go({ name: "library" })}><span aria-hidden="true">⌂</span><span>Home</span></button>
-          {showCommunity && <button type="button" aria-current={navCurrent === "community" ? "page" : undefined}
-            onClick={() => api.go({ name: "community" })}><span aria-hidden="true">◫</span><span>Community</span></button>}
-          <button type="button" aria-current={navCurrent === "progress" ? "page" : undefined}
-            onClick={() => api.go({ name: "progress" })}><span aria-hidden="true">◉</span><span>Progress</span></button>
-          <button type="button" aria-current={view.name === "search" ? "page" : undefined}
-            onClick={() => api.go({ name: "search", q: "" })}><span aria-hidden="true">⌕</span><span>Search</span></button>
-          {HOMESCHOOL && <button type="button" aria-current={view.name === "parent" ? "page" : undefined}
-            onClick={() => api.go(family ? { name: "parent" } : { name: "familySetup" })}><span aria-hidden="true">♙</span><span>Family</span></button>}
-        </nav>
+        <PhoneNavigation current={navCurrent} currentView={view.name} showCommunity={showCommunity}
+          managementLabel={managementLabel} go={api.go} />
       )}
       {/* Always mounted so screen readers announce new messages. */}
       <div className={toastMsg ? "toast" : "sr-only"} role="status" aria-live="polite">
