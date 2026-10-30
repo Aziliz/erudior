@@ -1415,6 +1415,21 @@ export default function App() {
         ) : (
           <ParentGate api={api} family={family} onUnlock={() => { documentUnlockedCredential.current = JSON.stringify(family.parent.password); adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
+      else if (view.tab === "academic-records")
+        body = <div className="page">
+          <h1>Academic records and portability</h1>
+          {HOMESCHOOL && !TEMPORARY_GUEST ? <>
+            <p>Set up a local Family or Classroom workspace before opening learner records. Existing workspaces require the supervising adult's password; this link does not unlock records.</p>
+            <button className="btn" onClick={() => api.go({ name: "familySetup" })}>Set up Family or Classroom</button>
+          </> : <>
+            <p>Academic records are available in the local app with a configured Family or Classroom workspace. They are not part of account-free public learning.</p>
+            <p>This academic planning update ships with the next app version. An older installed version may not include it yet.</p>
+            {TEMPORARY_GUEST && <p>This temporary guest session cannot create or open a persistent learner workspace. Saved device records have not been opened or changed.</p>}
+            <a className="btn" href={siteUrl("/download")}>Download app</a>
+          </>}
+          <p>No learner records have been opened. Academic planning is not institutional verification or a legal graduation determination.</p>
+          <button className="btn" onClick={() => api.go({ name: "library" })}>Browse courses</button>
+        </div>;
       break;
   }
   if (view.name === "create" && AUTHORING) body = <CreateHome api={api} />;

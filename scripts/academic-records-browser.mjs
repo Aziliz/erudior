@@ -1,9 +1,10 @@
 // Real App/IndexedDB acceptance; synthetic local learners, all external network blocked.
 import assert from 'node:assert/strict';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createServer } from 'vite';
+import { build, createServer, preview as serveBuild } from 'vite';
 import react from '@vitejs/plugin-react';
 const pw = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const chromium = pw.chromium || pw.default.chromium;
@@ -12,7 +13,7 @@ const out = process.env.BROWSER_ARTIFACTS || path.join(root, 'test-results', 'ac
 await mkdir(out, { recursive: true });
 const axe = await readFile(new URL('../node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
 const password = 'Synthetic academic test password 2026';
-let server, browser, page, current = 'startup';
+let server, builtServer, builtDirectory, browser, page, current = 'startup';
 const checks = [], screenshots = [], errors = [];
 const button = name => page.getByRole('button', {name,exact:true});
 const heading = name => page.getByRole('heading', {name,exact:true});
@@ -76,7 +77,17 @@ try {
     const context=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce',acceptDownloads:true});
     await context.route('**/*',route=>{const u=new URL(route.request().url());return u.origin===origin||['data:','blob:'].includes(u.protocol)?route.continue():route.abort();});
     page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));page.on('dialog',dialog=>dialog.accept());
-    await page.goto(origin+'/?app');await heading('Library').waitFor();
+    current=prefix+'-no-family-supported';
+    await page.goto(origin+'/parent/academic-records');await heading('Academic records and portability').waitFor();
+    await button('Set up Family or Classroom').waitFor();assert.equal(await button('Edit planning policy').count(),0);
+    assert.equal(await page.evaluate(async()=>(await import('/src/lib/storage.ts')).loadState('family')),null);
+    await audit(prefix+'-no-family-supported',heading('Academic records and portability'));
+    await button('Set up Family or Classroom').click();await heading('Set up homeschool or a classroom').waitFor();
+    assert.equal(await page.evaluate(async()=>(await import('/src/lib/storage.ts')).loadState('family')),null,'Opening setup does not create a family');
+    await button('← Library').click();await heading('Library').waitFor();
+    await page.goto(origin+'/parent/academic-records');await heading('Academic records and portability').waitFor();await page.reload();await heading('Academic records and portability').waitFor();
+    await button('Browse courses').click();await heading('Library').waitFor();await page.goBack();await heading('Academic records and portability').waitFor();
+    await button('Browse courses').click();await heading('Library').waitFor();
     const ids=await page.evaluate(async password=>{
       const store=await import('/src/lib/storage.ts');const {createFamily}=await import('/src/lib/family.ts');
       const {family}=await createFamily({mode:'homeschool',state:'',route:'Synthetic state-neutral plan',year:{start:'2026-08-01',end:'2027-07-31'},dailyMinutes:180,password,students:[{name:'Synthetic Alice',grade:10},{name:'Synthetic Bob',grade:9}]});
@@ -130,6 +141,50 @@ try {
     assert.equal(await page.evaluate(async id=>(await import('/src/lib/storage.ts')).loadState(`records-${id}`),ids.bob),'{damaged-synthetic-records');
     checks.push({width,theme,workflow:'real adult gate; policy/credit CRUD; keyboard; export/import/cancel/untrusted/repeat/errors; cleanup; CAS conflict; offline save/reload; history; delayed import profile isolation; malformed quarantine'});await context.close();
   }
+  // The public web build intentionally does not expose local-family management.
+  // Exercise emitted production assets, not the HOMESCHOOL-enabled source server.
+  current='public-build';
+  builtDirectory=await mkdtemp(path.join(tmpdir(),'erudior-academic-entry-'));
+  await build({root,configFile:false,plugins:[react()],resolve:{alias:[{find:'./bundledCourses',replacement:path.join(root,'src/lib/bundledCourses.remote.ts')}]},define:{__DEV_COURSE_KEY__:JSON.stringify(''),'import.meta.env.VITE_HOMESCHOOL':JSON.stringify(''),'import.meta.env.VITE_AS_DESKTOP':JSON.stringify(''),'import.meta.env.VITE_COURSES_URL':JSON.stringify('https://courses.synthetic.invalid/v1/'),'import.meta.env.VITE_COMMUNITY_API':JSON.stringify('')},worker:{format:'es'},build:{outDir:builtDirectory,emptyOutDir:true,target:'es2021'},logLevel:'warn'});
+  builtServer=await serveBuild({root,configFile:false,build:{outDir:builtDirectory},preview:{host:'127.0.0.1',port:0},logLevel:'warn'});
+  const publicOrigin=`http://127.0.0.1:${builtServer.httpServer.address().port}`;
+  for(const {width,theme} of [{width:1280,theme:'light'},{width:320,theme:'dark'}])for(const guest of [false,true]) {
+    current=`public-${theme}-${width}-${guest?'guest':'saved'}-no-family`;
+    const context=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce'});
+    const sourceRequests=[];
+    await context.route('**/*',route=>{const u=new URL(route.request().url());if(u.pathname.startsWith('/src/')||u.pathname.startsWith('/@vite/'))sourceRequests.push(u.pathname);return u.origin===publicOrigin||['data:','blob:'].includes(u.protocol)?route.continue():route.abort();});
+    page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));
+    const target=publicOrigin+'/parent/academic-records'+(guest?'?guest=1':'');
+    // storage.ts delegates named records to webstore.ts: DB erudior, store kv, erudior.* keys.
+    const noRecords=async()=>{
+      const keys=await page.evaluate(async()=>{
+        const databases=await indexedDB.databases();if(!databases.some(db=>db.name==='erudior'))return [];
+        return new Promise((resolve,reject)=>{const open=indexedDB.open('erudior');open.onerror=()=>reject(open.error);open.onsuccess=()=>{const db=open.result;const tx=db.transaction('kv','readonly');const req=tx.objectStore('kv').getAllKeys();req.onsuccess=()=>resolve(req.result.filter(key=>typeof key==='string'&&(key==='erudior.family'||key.startsWith('erudior.records-'))));req.onerror=()=>reject(req.error);tx.oncomplete=()=>db.close();};});
+      });
+      assert.deepEqual(keys,[],'Visiting the public entry never creates family or academic records');
+    };
+    const assertPublicEntry=async()=>{
+      await heading('Academic records and portability').waitFor();
+      await page.getByText('Academic records are available in the local app with a configured Family or Classroom workspace.',{exact:false}).waitFor();
+      await page.getByText('This academic planning update ships with the next app version.',{exact:false}).waitFor();
+      const downloadUrl=new URL(await page.getByRole('link',{name:'Download app',exact:true}).getAttribute('href'),publicOrigin);
+      assert.equal(downloadUrl.origin,publicOrigin);assert.equal(downloadUrl.pathname,'/download');assert(downloadUrl.searchParams.has('site'),'Local deployment link selects the public site');
+      assert.equal(await button('Set up Family or Classroom').count(),0);
+      assert.equal(await button('Edit planning policy').count(),0);
+      assert.equal(await page.getByLabel('Parent password',{exact:true}).count(),0);
+      assert.equal(new URL(page.url()).pathname,'/parent/academic-records');
+      if(guest)await page.getByText('This temporary guest session cannot create or open a persistent learner workspace.',{exact:false}).waitFor();
+      await noRecords();
+    };
+    await page.goto(target);await assertPublicEntry();await audit(current,heading('Academic records and portability'));
+    await page.reload();await assertPublicEntry();
+    await button('Browse courses').click();await heading('Library').waitFor();
+    await page.goBack();await assertPublicEntry();await page.goForward();await heading('Library').waitFor();
+    if(guest)assert.equal(new URL(page.url()).searchParams.get('guest'),'1','Guest mode survives the exit and history traversal');
+    await noRecords();assert.deepEqual(sourceRequests,[],'Production acceptance uses emitted assets rather than Vite source modules');
+    checks.push({width,theme,guest,workflow:'served production build; explicit unsupported academic entry; no family/records authority; reload; Browse courses; Back/Forward; guest isolation'});
+    await context.close();
+  }
   assert.deepEqual(errors,[],'No browser runtime errors');await writeFile(path.join(out,'result.json'),JSON.stringify({passed:true,data:'synthetic isolated local learners',externalNetwork:'blocked',checks,screenshots,errors},null,2));console.log('Academic records browser acceptance passed.');
  } catch(error) {
   const diagnostic = page ? await page.evaluate(() => ({
@@ -141,4 +196,4 @@ try {
   await writeFile(path.join(out,'failure.json'),JSON.stringify({current,error:String(error),checks,screenshots,errors,diagnostic},null,2));
   if(page)await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});throw error;
 }
-finally {await browser?.close();await server?.close();}
+finally {await browser?.close();await server?.close();await new Promise(resolve=>builtServer?.httpServer?builtServer.httpServer.close(resolve):resolve());if(builtDirectory)await rm(builtDirectory,{recursive:true,force:true});}
