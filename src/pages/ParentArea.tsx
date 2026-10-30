@@ -1006,6 +1006,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
 function Students({ api, family }: { api: AppApi; family: Family }) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState(1);
+  const removing = useRef(false);
   const update = (st: Student) =>
     api.setFamily({
       ...family,
@@ -1015,22 +1016,29 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
   async function remove(st: Student) {
     if (family.students.length === 1)
       return api.toast("A family needs at least one student.");
-    const ok = await store.confirmAction(
-      `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
-      "Remove student",
-    );
-    if (!ok) return;
+    if (removing.current) return;
+    removing.current = true;
     try {
-      const updated = await deleteStudentWithSubmissionHistory(st.id, family);
+      const ok = await store.confirmAction(
+        `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
+        "Remove student",
+      );
+      if (!ok) return;
+      if (!api.reauthenticateAdult) throw Error("Reopen the app to authenticate student removal.");
+      const authorize = await api.reauthenticateAdult();
+      if (!authorize) { api.toast("Authentication canceled. The student was not removed."); return; }
+      authorize();
+      const updated = await deleteStudentWithSubmissionHistory(st.id, family, authorize);
+      authorize();
       // Never leave future saves pointed at a profile whose state was deleted.
       if (store.activeStudent() === st.id) store.useStudentFiles(null);
       if (api.reloadClassroomState) await api.reloadClassroomState();
-      else await api.setFamily(updated);
+      else await api.setFamily(updated, authorize);
       if (api.student?.id === st.id) await api.chooseStudent(updated.students[0].id);
       api.toast(`Removed ${st.name}, including saved hand-ins and review history`);
     } catch (error) {
       api.toast(`Student deletion did not finish: ${error instanceof Error ? error.message : String(error)}. Reload and retry removal; some data may already be deleted.`);
-    }
+    } finally { removing.current = false; }
   }
 
   return (
@@ -1291,6 +1299,21 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
   const [rpass, setRpass] = useState("");
   const [msg, setMsg] = useState("");
 
+  const sensitiveWorking = useRef(false);
+  const [sensitiveBusy, setSensitiveBusy] = useState(false);
+  async function sensitive(action: (authorize: () => void) => Promise<void>) {
+    if (sensitiveWorking.current) return;
+    sensitiveWorking.current = true; setSensitiveBusy(true); setMsg("");
+    try {
+      if (!api.reauthenticateAdult) throw Error("Reopen the app to authenticate this sensitive action.");
+      const authorize = await api.reauthenticateAdult();
+      if (!authorize) { setMsg("Authentication canceled. No sensitive action was started."); return; }
+      authorize();
+      await action(authorize);
+    } catch (err) { setMsg(err instanceof Error ? err.message : String(err)); }
+    finally { sensitiveWorking.current = false; setSensitiveBusy(false); }
+  }
+
   async function saveYear(e: React.FormEvent) {
     e.preventDefault();
     if (end <= start)
@@ -1333,40 +1356,38 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
 
   async function backup(e: React.FormEvent) {
     e.preventDefault();
-    if (bpass.length < 8)
-      return setMsg("Use a backup passphrase of at least 8 characters.");
-    setMsg("");
-    try {
-      if (await exportEncrypted(api.allCourses, api.banks, bpass))
-        api.toast("Encrypted backup saved");
+    if (bpass.length < 8) return setMsg("Use a backup passphrase of at least 8 characters.");
+    await sensitive(async authorize => {
+      if (await exportEncrypted(api.allCourses, api.banks, bpass, authorize)) api.toast("Encrypted backup saved");
       setBpass("");
-    } catch (err) {
-      setMsg(`Backup failed: ${String(err)}`);
-    }
+    });
   }
 
   async function restore(e: React.FormEvent) {
     e.preventDefault();
-    try {
-      const text = await store.pickJsonFile();
-      if (text === null) return;
-      const raw = JSON.parse(text);
-      if (!isEncryptedBackup(raw))
-        return setMsg("That file isn't an encrypted Erudior family backup.");
-      const plain = await decryptText(raw, rpass);
-      const ok = await store.confirmAction(
-        "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
-        "Restore backup",
-      );
-      if (!ok) return;
-      await restoreContents(plain, {
-        courses: api.allCourses,
-        banks: api.banks,
-      });
-      window.location.reload();
-    } catch (err) {
-      setMsg((err as Error).message ?? String(err));
-    }
+    await sensitive(async authorize => {
+      let started = false;
+      try {
+        const text = await store.pickJsonFile();
+        authorize();
+        if (text === null) return;
+        const raw = JSON.parse(text);
+        if (!isEncryptedBackup(raw)) throw Error("That file isn't an encrypted Erudior family backup.");
+        const plain = await decryptText(raw, rpass);
+        authorize();
+        const ok = await store.confirmAction(
+          "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
+          "Restore backup",
+        );
+        authorize();
+        if (!ok) return;
+        started = true;
+        await restoreContents(plain, { courses: api.allCourses, banks: api.banks }, authorize);
+        window.location.reload();
+      } catch (err) {
+        throw Error(`${err instanceof Error ? err.message : String(err)}${started ? " Restore did not finish; some files may already have changed. Unlock, reload saved Family and explicitly retry the same backup." : ""}`);
+      }
+    });
   }
 
   return (
@@ -1432,12 +1453,11 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = passwordProblem(pw);
             if (p) return api.toast(p);
-            await api.setFamily({
-              ...family,
-              parent: { ...family.parent, password: await makeSecret(pw) },
+            await sensitive(async authorize => {
+              const password = await makeSecret(pw); authorize();
+              await api.setFamily({ ...family, parent: { ...family.parent, password } }, authorize);
+              setPw(""); api.toast("Password changed");
             });
-            setPw("");
-            api.toast("Password changed");
           }}
         >
           <label className="field grow">
@@ -1450,7 +1470,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setPw(e.target.value)}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             Change password
           </button>
         </form>
@@ -1461,12 +1481,11 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = pinProblem(pin);
             if (p) return api.toast(p);
-            await api.setFamily({
-              ...family,
-              parent: { ...family.parent, pin: await makeSecret(pin) },
+            await sensitive(async authorize => {
+              const savedPin = await makeSecret(pin); authorize();
+              await api.setFamily({ ...family, parent: { ...family.parent, pin: savedPin } }, authorize);
+              setPin(""); api.toast("PIN saved");
             });
-            setPin("");
-            api.toast("PIN saved");
           }}
         >
           <label className="field grow">
@@ -1484,21 +1503,18 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             {family.parent.pin ? "Change PIN" : "Turn on PIN"}
           </button>
           {family.parent.pin && (
             <button
               className="btn ghost"
               type="button"
-              onClick={() =>
-                api
-                  .setFamily({
-                    ...family,
-                    parent: { ...family.parent, pin: undefined },
-                  })
-                  .then(() => api.toast("PIN turned off"))
-              }
+              disabled={sensitiveBusy}
+              onClick={() => sensitive(async authorize => {
+                await api.setFamily({ ...family, parent: { ...family.parent, pin: undefined } }, authorize);
+                api.toast("PIN turned off");
+              })}
             >
               Turn off PIN
             </button>
@@ -1531,7 +1547,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setBpass(e.target.value)}
             />
           </label>
-          <button className="btn primary" type="submit">
+          <button className="btn primary" type="submit" disabled={sensitiveBusy}>
             Back up now
           </button>
         </form>
@@ -1550,7 +1566,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setRpass(e.target.value)}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             Restore from backup…
           </button>
         </form>

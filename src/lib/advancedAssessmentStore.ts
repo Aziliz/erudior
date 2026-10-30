@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { advancedAssessmentJSON as documentJSON } from './advancedAssessment';
 import {
   parseAdvancedAssessmentPack, parseAdvancedAssessmentLibrary, parseAdvancedAssessmentAssignment,
@@ -82,6 +83,7 @@ export function deleteAdvancedAssessmentStudent(input: AdvancedAssessmentLibrary
 
 /** Independent whole-pack approval is local authority; imported labels are historical data only. */
 export function createAdvancedAssessmentStore(io: AdvancedAssessmentEngineIO) {
+  io = bindLocalSessionAuthority(io);
   const adult = async (id?: string) => {
     if (id) validStudent(id);
     const context = await io.authorizeAdult(id);

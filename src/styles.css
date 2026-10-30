@@ -7861,3 +7861,8 @@ button.fn-ref {
 .academic-records .btn { white-space: normal; min-height: 44px; margin-top: 6px; }
 .academic-records p + p { margin-top: 8px; }
 .academic-records pre { max-width: 100%; }
+
+/* Keep mounted drafts while excluding locked content from layout, focus and print. */
+.shell[hidden] { display: none !important; }
+.local-session-lock { max-width: 52rem; margin: 2rem auto; padding: 1rem; }
+.local-session-lock .page { padding-inline: 0; }

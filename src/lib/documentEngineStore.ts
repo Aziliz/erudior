@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { documentJSON, parseDocumentTemplate, parseDocumentLibrary, parseCaseAssignment, parseDocumentDraft, parseDocumentFeedback, parseDocumentResponse, makeDocumentSubmission, type DocumentTemplate, type DocumentLibrary, type CaseAssignment, type DocumentResponse, type DocumentFeedback } from './documentEngine';
 
 export interface DocumentAdult { actorId: string; actorName: string; authorityKey: string }
@@ -32,6 +33,7 @@ export function deleteDocumentStudent(state:DocumentLibrary,studentId:string):Do
  * source authority until an adult explicitly reviews that exact revision locally.
  */
 export function createDocumentEngineStore(io:DocumentEngineIO) {
+  io = bindLocalSessionAuthority(io);
  const adult=async(id?:string)=>{if(id)student(id);const a=await io.authorizeAdult(id);if(!a.actorId.trim()||!a.actorName.trim()||!a.authorityKey.trim())throw Error('Fresh adult authorization is required.');return a;};
  const learner=async()=>{const a=await io.learnerContext();student(a.studentId);if(!a.authorityKey.trim())throw Error('Fresh learner context is required.');return a;};
  const checkAdult=async(a:DocumentAdult,id?:string)=>{if(!equal(a,await adult(id)))throw Error('Adult authority changed. Reload before continuing.');};

@@ -99,6 +99,13 @@ try {
       await heading('Library').waitFor();
       await seed(mode);
       await page.reload();
+      if (label) {
+        await heading("Who's learning?").waitFor();
+        await page.locator('.who-card').filter({hasText:'Demo learner'}).click();
+        await page.getByLabel(`${adult} password`, {exact:true}).fill(password);
+        await page.getByRole('button', {name:'Open',exact:true}).click();
+        await heading('Shared device locked').waitFor({state:'hidden'});
+      }
       await heading('Library').waitFor();
       await checkNavigation(label);
       if (!label) {

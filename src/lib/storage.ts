@@ -1,3 +1,4 @@
+import { captureLocalSession, assertLocalLearner, assertLocalSessionCredential, localSessionEnabled } from "./localSession";
 import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
 import { parseStudentWorkspace, type StudentWorkspace } from "./studentWorkspace";
@@ -170,8 +171,21 @@ const namedState = stateTransactions({
     : webCompareAndSwap(`erudior.${name}`, expected, content),
 });
 
+/** Authentication-only CAS. This cannot change profiles/plans and does not grant access.
+ * Call only from the currently mounted password/PIN/recovery gate. */
+export async function updateFamilyAuthentication(expected: import("./family").Family, next: import("./family").Family, guard: () => void): Promise<void> {
+  if (JSON.stringify({...next,parent:expected.parent}) !== JSON.stringify(expected)) throw Error("Authentication cannot change Family settings.");
+  await namedState.update("family", raw => {
+    guard();
+    const value=raw ? JSON.parse(raw) : null;
+    const normalized=value ? {...value,reminders:value.reminders ?? [],done:value.done ?? []} : null;
+    if(JSON.stringify(normalized)!==JSON.stringify(expected)) throw Error("Family changed. Reload before authenticating.");
+    return JSON.stringify(next);
+  }, guard);
+}
+
 /** Write/delete a named state file, serialized with updateState callers. */
-export const saveState = (name: string, content: string | null): Promise<void> => name === "progress" || name === "session" ? saveAnonymousState(name, content) : namedState.save(name, content);
+export const saveState = (name: string, content: string | null): Promise<void> => name === "progress" || name === "session" ? saveAnonymousState(name, content) : namedState.save(name, content, captureLocalSession());
 async function saveAnonymousState(name:"progress"|"session",content:string|null):Promise<void>{
   if(name === "session")return saveAnonymousSession(content);
   await updateState(name,()=>content??JSON.stringify(emptyProgress()));
@@ -181,7 +195,15 @@ async function saveAnonymousState(name:"progress"|"session",content:string|null)
  * may be retried on contention, and must not call saveState/updateState.
  * Browser CAS uses one IndexedDB transaction across tabs, even without Web Locks.
  * Native CAS protects webviews in one app process, not separate app processes. */
-export const updateState = (name: string, updater: (old: string | null) => string | Promise<string>): Promise<string> => name === "progress" || name === "session" ? updateAnonymousState(name,updater) : namedState.update(name,updater);
+export const updateState = (name: string, updater: (old: string | null) => string | Promise<string>): Promise<string> => {
+  const lease=captureLocalSession();
+  const guarded=async(old:string|null)=>{
+    lease();
+    if(localSessionEnabled()) { const raw=await loadState("family"); lease(); if(!raw)throw Error("Family was removed. Reopen the app."); assertLocalSessionCredential(JSON.parse(raw).parent); }
+    const result=await updater(old); lease(); return result;
+  };
+  return name === "progress" || name === "session" ? updateAnonymousState(name,guarded) : namedState.update(name,guarded,lease);
+};
 async function updateAnonymousState(name:"progress"|"session",updater:(old:string|null)=>string|Promise<string>):Promise<string>{
   const epoch = await anonymousEpoch();
   for (let retry=0;retry<16;retry++) {
@@ -214,6 +236,7 @@ export async function loadProfileProgress(id: string | null): Promise<Progress> 
   return parseProgress(raw);
 }
 export async function updateProfileProgress(id: string | null, change: (current: Progress) => Progress | Promise<Progress>): Promise<Progress> {
+  if(id) assertLocalLearner(id);
   const name = profileName(id);
   const text = await updateState(name, async old => {
     // Refuse damaged JSON rather than overwriting it through an empty fallback.

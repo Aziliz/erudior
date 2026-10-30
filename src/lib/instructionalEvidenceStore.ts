@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { documentJSON } from './documentEngine';
 import { parseInstructionalPack, parseInstructionalAssignment, parseInstructionalEvidence, parseInstructionalDecision, parseInstructionalLibrary, type InstructionalPack, type InstructionalAssignment, type InstructionalEvidence, type InstructionalDecision, type InstructionalLibrary, type InstructionalSource } from './instructionalEvidence';
 import type { Course, Progress } from './types';
@@ -44,6 +45,7 @@ export function instructionalSources(courses:Course[]):InstructionalSource[] {
  ]);
 }
 export function createInstructionalEvidenceStore(io:InstructionalEvidenceIO){
+  io = bindLocalSessionAuthority(io);
  const adult=async(id?:string)=>{const c=await io.authorizeAdult(id);if(!c.actorId.trim()||!c.actorName.trim()||!c.authorityKey.trim())throw Error('Fresh adult authorization required.');return c;};
  const learnerContext=async()=>{const c=await io.learnerContext();if(!/^[a-z0-9]{1,24}$/.test(c.studentId)||!c.authorityKey.trim())throw Error('Fresh learner context required.');return c;};
  const checkAdult=async(c:InstructionalAdult,id?:string)=>{if(!equal(c,await adult(id)))throw Error('Adult authority changed. Reload before continuing.');};

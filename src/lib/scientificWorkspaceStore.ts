@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { scientificJSON as documentJSON } from './scientificWorkspace';
 import {
   parseScientificPack, parseScientificLibrary, parseScientificAssignment,
@@ -79,6 +80,7 @@ export function deleteScientificStudent(input: ScientificLibrary, studentId: str
 
 /** Independent whole-pack approval is local authority; imported labels are historical data only. */
 export function createScientificWorkspaceStore(io: ScientificEngineIO) {
+  io = bindLocalSessionAuthority(io);
   const adult = async (id?: string) => {
     if (id) validStudent(id);
     const context = await io.authorizeAdult(id);

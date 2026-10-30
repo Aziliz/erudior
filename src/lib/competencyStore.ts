@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 /** Adult-only persistence boundary. App supplies a live unlock/selected-profile authority check. */
 import type { Course, Progress } from './types';
 import type { Competency } from './competencies';
@@ -12,6 +13,7 @@ export interface CompetencyStoreIO {
 }
 const validStudent = (id:string) => /^[a-z0-9]{1,24}$/.test(id);
 export function createCompetencyStore(io: CompetencyStoreIO) {
+  io = bindLocalSessionAuthority(io);
   const check = async (studentId:string) => {
     if (!validStudent(studentId) || !await io.studentExists(studentId)) throw Error('This learner profile no longer exists.');
     return io.authorize(studentId);
