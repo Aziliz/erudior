@@ -46,7 +46,7 @@ export default function AcademicRecordsWorkspace({ api, family }: { api: AppApi;
     try { if (!await setRecords({ ...data.records, academic: next })) return false; setMessage(success); return true; }
     finally { if (alive.current) setBusy(false); }
   };
-  const perform = async (work: () => void | Promise<void>) => { try { await work(); } catch (e) { if (alive.current) setMessage((e as Error).message); } };
+  const perform = async (work: () => void | Promise<void>) => { try { await work(); } catch (e) { if (alive.current) { setMessage((e as Error).message); api.toast((e as Error).message); } } };
   const summary = JSON.stringify({
     description: "Historical local statements only; not verified records or restored assessment authority. Attachment files and learner/account identifiers are excluded.",
     attendance: Object.entries(data.records.days).map(([date, status]) => ({ date, status })),
