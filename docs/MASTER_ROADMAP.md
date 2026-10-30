@@ -240,7 +240,7 @@ All courses are free to read without accounts. Homeschool learners follow grade-
 - Student own device support: parent-provisioned restricted student login under 13; optional teen independent credentials at 13; unchanged student ID; adult control transition at 18.
 - Multi-device sync, interrupted exercise recovery, local drafts, conflict handling; no duplicated credit.
 - Graduation planner, transcript/GPA and credit audit, report cards, attendance, state reports, subject standards mapping, transfer credit and portfolio.
-- Remaining student workspace: daily plan, notebook, reading shelf, skill map, projects, goals and optional achievement badges.
+- **Student dashboard and notebook — In Progress.** Completing private local daily plans, independent notebook, reading shelf, goals and student-directed projects, with optional installed lesson/resource links and existing skill evidence/portfolio access. Learner-isolated persistence, conflict protection, backup/recovery and accessible real-app workflows are under development. Self-directed plans never award assessed credit or replace parent assignments. Optional achievement badges are not required for this capability.
 - Course material inventory, field trip and off-platform activity capture, parent guides, accommodations and independent study.
 - Consent, privacy/retention operations, audit logs, least privilege, encryption, backup restoration and WCAG testing.
 - Interoperability: CASE, QTI, LTI, OneRoster and Common Cartridge as future-ready design goals.
