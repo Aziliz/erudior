@@ -44,7 +44,7 @@ await btn(h, "I've written it down").click(); await h.waitForTimeout(1000);
 await h.fill('[aria-label="Search courses"]', "Algebra 1"); await h.waitForTimeout(300);
 await h.getByRole("button", { name: /Algebra 1\b.*view overview/ }).first().click(); await h.waitForTimeout(300);
 await btn(h, "Start course").click(); await h.waitForTimeout(1500);
-await btn(h, /^Parent$/).click(); await h.waitForTimeout(300);
+await btn(h, /^Family$/).click(); await h.waitForTimeout(300);
 await h.getByLabel("Parent password").fill("parent pass"); await btn(h, /^Open$/).click(); await h.waitForTimeout(1200);
 await btn(h, /^Live room$/).click(); await h.waitForTimeout(500);
 await h.getByLabel(/^How many/).fill("2");

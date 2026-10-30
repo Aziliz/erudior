@@ -99,10 +99,15 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
     <div className="page">
       <div className="page-head">
         <div>
-          <h1>{store.inApp || import.meta.env?.VITE_AS_DESKTOP === "1" ? "Library" : "Courses"}</h1>
+          <h1>Library</h1>
           <p className="muted">Each course keeps its own lessons, questions, notecards and progress.</p>
         </div>
         <div className="row">
+          {api.homeschool && !api.family && (
+            <button className="btn ghost" onClick={() => api.go({ name: "familySetup" })}>
+              Homeschool or classroom
+            </button>
+          )}
           {LIVE && !TEMPORARY_GUEST && (
             <><button className="btn" onClick={() => api.go({ name: "live" })}>
               Join a live room

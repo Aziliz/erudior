@@ -115,8 +115,8 @@ try {
     assert.equal(p.lessonsDone['synthetic-foundation/foundation'], undefined, 'public practice never fabricates prerequisite completion');
   }
   async function exportBackup(name) {
-    await button('Progress and export').click();
-    await heading('Progress').waitFor();
+    await button('Courses and export').click();
+    await heading('Courses').waitFor();
     await audit(name + '-progress-top');
     await page.getByText('Study tools, skill evidence, and data', { exact: true }).click();
     await heading('Practice tools and data').waitFor();
@@ -137,8 +137,8 @@ try {
     await button('View result').focus();
     await page.keyboard.press('Enter');
     await heading('Lesson complete').waitFor();
-    await button('← Progress').click();
-    await heading('Progress').waitFor();
+    await button('← Courses').click();
+    await heading('Courses').waitFor();
     const waiting = page.waitForEvent('download');
     await button('Back up now').click();
     const download = await waiting;
@@ -205,8 +205,8 @@ try {
     await button('Open linked activity').evaluate(element => { element.click(); element.click(); });
     await downloadStarted;
     assert.equal(courseRequests, requestsBefore + 1, 'repeated start produces one in-flight download');
-    await button('Courses').click();
-    await heading('Courses').waitFor();
+    await button('Library').click();
+    await heading('Library').waitFor();
     const finished = page.waitForEvent('requestfinished', request => request.url().endsWith('/test-courses/public.r1.json'));
     await releaseDownload();
     await finished;
@@ -246,8 +246,8 @@ try {
     assert.equal((await progress()).attempts.length, 1);
     await audit(name + '-saved-offline');
     fetchMode = 'ok';
-    await button('Progress and export').click();
-    await heading('Progress').waitFor();
+    await button('Courses and export').click();
+    await heading('Courses').waitFor();
     await page.getByRole('status').filter({ hasText: 'Updating the private learning path' }).waitFor({ state: 'hidden' });
     await page.goBack();
     await heading('Synthetic practice lesson').waitFor();
@@ -278,8 +278,8 @@ try {
     await button('Use saved device progress').click();
     await heading('Synthetic practice lesson').waitFor();
     assert.equal(new URL(page.url()).searchParams.has('guest'), false);
-    await button('Progress and export').click();
-    await heading('Progress').waitFor();
+    await button('Courses and export').click();
+    await heading('Courses').waitFor();
     await page.getByRole('status').filter({ hasText: 'Updating the private learning path' }).waitFor({ state: 'hidden' });
     await page.goBack();
     await heading('Synthetic practice lesson').waitFor();

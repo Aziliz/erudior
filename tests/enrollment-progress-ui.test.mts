@@ -108,6 +108,7 @@ const unchangedWork = (value: Progress) => { const { learningPathways: _paths, .
 const baseWork = structuredClone(unchangedWork(initial));
 
 await mount();
+assert.equal(document.querySelector("h1")?.textContent, "Courses", "the global enrollment overview is named Courses");
 assert.deepEqual(visibleCourses(), [alpha.title, beta.title], "only the active learner's enrolled courses appear");
 assert.equal(document.querySelectorAll(".progress-summary > div")[0].querySelector("strong")?.textContent, "2");
 assert.equal(document.querySelectorAll(".progress-summary > div")[2].querySelector("strong")?.textContent, "75%");

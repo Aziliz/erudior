@@ -96,7 +96,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
   return <div className="page progress-overview">
     <header className="page-head">
       <div><p className="progress-eyebrow">{api.student ? `${api.student.name}'s learning` : "Your learning"}</p>
-        <h1>Progress</h1><p className="muted">Your enrolled courses, the paths you're following, and what comes next.</p></div>
+        <h1>Courses</h1><p className="muted">Your enrolled courses, the paths you're following, and what comes next.</p></div>
       <button className="btn" onClick={createPathway} disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}>Create a pathway</button>
     </header>
 

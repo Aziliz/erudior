@@ -123,7 +123,7 @@ export default function Results({
   return (
     <div className="page">
       <button className="back" onClick={() => api.go(back)}>
-        ← {back.name === "progress" ? "Progress" : back.name === "lesson" && quizLesson ? quizLesson.title : quizModule ? "Lessons" : attempt.bankTitle}
+        ← {back.name === "progress" ? "Courses" : back.name === "lesson" && quizLesson ? quizLesson.title : quizModule ? "Lessons" : attempt.bankTitle}
       </button>
 
       <div className="score-head">

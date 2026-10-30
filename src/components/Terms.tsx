@@ -197,7 +197,7 @@ export function PrivacyPolicy({ linkTo }: { linkTo: LinkTo }) {
 
       <h2>Your choices</h2>
       <p>
-        You can erase your progress in the app at any time (Progress page), or delete the app's data folder or your browser's site data. Community
+        You can erase your progress in the app at any time (Courses → Study tools, skill evidence, and data), or delete the app's data folder or your browser's site data. Community
         authors can delete their courses, and can ask us to delete their account by emailing {mail}.
       </p>
 

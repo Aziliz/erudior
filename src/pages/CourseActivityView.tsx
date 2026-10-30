@@ -25,13 +25,13 @@ export default function CourseActivityView({api, course, kind, sourceId}: {api: 
       {lesson && <button style={{whiteSpace:"normal",maxWidth:"100%",overflowWrap:"anywhere"}} className="back" onClick={() => api.go({name:'lesson',courseId:course.id,lessonId:lesson.id})}>← Return to lesson: {lesson.title}</button>}
       <button style={{whiteSpace:"normal",maxWidth:"100%",overflowWrap:"anywhere"}} className="btn ghost" onClick={() => api.go({name:'course',courseId:course.id,tab:'work'})}>All course activities</button>
     </div>
-    {!source ? <p role="alert">This activity source is no longer in the installed course. Nothing was assigned or changed. Historical results remain on Progress.</p> : <>
+    {!source ? <p role="alert">This activity source is no longer in the installed course. Nothing was assigned or changed. Historical results remain in your learning history.</p> : <>
       <h1>{source.title}</h1>
       <p>{activityLabels[kind]} · Course {course.title} (<code>{course.id}</code>), revision {course.revision ?? 'unversioned'} · Source <code>{source.id}</code>{'revision' in source ? `, revision ${source.revision}` : ''}</p>
       {!spreadsheet && <section className="notice" aria-label="Adult review and assignment handoff">
         <h2>Review and assignment handoff</h2>
         <p>Only assignments bound to this exact course source appear below. A supervising adult must open the matching installed course source in the appropriate studio, save it locally, review its exact content and permissions, then explicitly select the learner and assign it. For assessments, select the intended question variant as well.</p>
-        <p>A course update or edited local copy does not replace old evidence. Older assignments remain on Progress; they are not silently relabeled as this source. Local review is separate from publication review.</p>
+        <p>A course update or edited local copy does not replace old evidence. Older assignments remain in your learning history; they are not silently relabeled as this source. Local review is separate from publication review.</p>
         {api.family && <button style={{whiteSpace:"normal",maxWidth:"100%",overflowWrap:"anywhere"}} className="btn" onClick={() => api.go({name:'parent',tab:kind === 'advanced' ? 'advanced-assessment' : kind === 'scientific' ? 'scientific' : 'branching'})}>Open supervising-adult studio (unlock required)</button>}
         {!api.family && <p>Set up or select a family learner and supervising adult to assign these activities. You can inspect the source without creating a profile.</p>}
       </section>}
