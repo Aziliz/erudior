@@ -10,6 +10,7 @@ on:
       - 'tests/**'
       - 'worker/**'
       - 'scripts/learning-games-browser.mjs'
+      - 'scripts/learning-progress-browser.mjs'
       - 'scripts/presentations-browser.mjs'
       - 'scripts/diagnostics-browser.mjs'
       - 'scripts/interoperability-browser.mjs'
@@ -48,6 +49,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Enrolled courses, pathway persistence and course progress
+        run: npm run test:learning-progress-browser
       - name: Public community discovery, details and exact learning handoff
         run: npm run test:public-community-browser
       - name: Eight-subject synthetic kindergarten authoring and runtime parity
@@ -209,5 +212,13 @@ jobs:
         with:
           name: public-community-browser
           path: test-results/public-community-browser/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learning-progress-browser
+          path: test-results/learning-progress-browser/
           if-no-files-found: warn
           retention-days: 14

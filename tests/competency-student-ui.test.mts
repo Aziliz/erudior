@@ -4,7 +4,7 @@ const dom=new JSDOM('<!doctype html><div id="root"></div>',{url:"https://example
 Object.assign(globalThis,{window:dom.window,document:dom.window.document,HTMLElement:dom.window.HTMLElement,localStorage:dom.window.localStorage,IS_REACT_ACT_ENVIRONMENT:true});
 Object.defineProperty(globalThis,"navigator",{configurable:true,value:dom.window.navigator});
 const React=await import("react");const {createRoot}=await import("react-dom/client");
-const {default:ProgressPage}=await import("../src/pages/ProgressPage.tsx");
+const {default:ProgressPage}=await import("../src/pages/ProgressTools.tsx");
 const {emptyProgress}=await import("../src/lib/storage.ts");
 const {emptyCourse}=await import("../src/lib/course.ts");
 const {FOUNDATION_COMPETENCIES}=await import("../src/lib/competencyCatalog.ts");

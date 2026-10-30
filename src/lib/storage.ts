@@ -1,5 +1,6 @@
 import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
+import { parseLearningPathways } from "./learningPathways";
 import { assertCourseImportPreservesFields } from "./courseImport";
 import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 // Storage layer. Inside the desktop app everything goes through Rust commands
@@ -182,6 +183,7 @@ function parseProgress(text: string | null): Progress {
   try { p = JSON.parse(text) as Progress; } catch { return emptyProgress(); }
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
+  if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
   if (p.anonymousGeneration !== undefined) anonymousGeneration(text);
   return { ...emptyProgress(), ...p };
 }
@@ -203,6 +205,7 @@ export async function updateProfileProgress(id: string | null, change: (current:
     const next = await change(parseProgress(old));
     if (next.competencies !== undefined) parseCompetencyLedger(next.competencies);
     if (next.interventionTasks !== undefined) parseInterventionTasks(next.interventionTasks);
+    if (next.learningPathways !== undefined) parseLearningPathways(next.learningPathways);
     return JSON.stringify(next);
   });
   return parseProgress(text);
@@ -226,14 +229,28 @@ export async function syncCompetencyState(id: string | null, graph: Competency[]
   });
 }
 /** Other learner writes must not erase newer durable evidence or adult decisions. */
-export async function saveProgress(p: Progress, options: { replaceCompetencies?: boolean; replaceInterventionTasks?: boolean } = {}): Promise<void> {
+interface SaveProgressOptions {
+  replaceCompetencies?: boolean;
+  replaceInterventionTasks?: boolean;
+  replaceLearningPathways?: boolean;
+}
+
+function mergeSavedProgress(p: Progress, current: Progress, options: SaveProgressOptions): Progress {
+  return { ...p,
+    ...(!options.replaceCompetencies && current.competencies !== undefined ? { competencies: current.competencies } : {}),
+    ...(!options.replaceInterventionTasks && current.interventionTasks !== undefined ? { interventionTasks: current.interventionTasks } : {}),
+    // Pathway edits use the profile CAS updater. Unrelated activity saves cannot erase a
+    // newer plan or resurrect one that the learner has removed, including absent legacy state.
+    ...(!options.replaceLearningPathways ? { learningPathways: current.learningPathways } : {}),
+  };
+}
+
+export async function saveProgress(p: Progress, options: SaveProgressOptions = {}): Promise<void> {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
+  if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
   const selected = student;
-  await updateProfileProgress(selected, current => ({ ...p,
-    ...(!options.replaceCompetencies && current.competencies !== undefined ? {competencies:current.competencies} : {}),
-    ...(!options.replaceInterventionTasks && current.interventionTasks !== undefined ? {interventionTasks:current.interventionTasks} : {}),
-  }));
+  await updateProfileProgress(selected, current => mergeSavedProgress(p, current, options));
 }
 
 /** Ask the user for a bank or course file. Returns its text, or null if cancelled. */
@@ -321,6 +338,7 @@ export interface Backup {
 export async function exportBackup(courses: Course[], banks: Bank[], progress: Progress): Promise<boolean> {
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
+  if (progress.learningPathways !== undefined) parseLearningPathways(progress.learningPathways);
   const backup: Backup = {
     format: "erudior-backup",
     version: 1,
@@ -352,6 +370,7 @@ export async function restoreBackup(
   if (!b || b.format !== "erudior-backup" || !b.progress) throw new Error("This isn't an Erudior backup file.");
   if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
   if (b.progress.interventionTasks !== undefined) parseInterventionTasks(b.progress.interventionTasks);
+  if (b.progress.learningPathways !== undefined) parseLearningPathways(b.progress.learningPathways);
   const currentProgress = await loadProfileProgress(targetStudent);
   const importedCompetencies = importCompetencyHistory(b.progress.competencies,currentProgress.competencies);
   // Historical evidence must remain independently verifiable, including legacy
@@ -384,7 +403,11 @@ export async function restoreBackup(
   }
   await updateProfileProgress(targetStudent, async current => {
     if(targetStudent !== null && !await competencyProfileExists(targetStudent))throw Error("This learner profile no longer exists.");
-    return {...emptyProgress(), ...b.progress, ...(targetStudent===null?{anonymousGeneration:current.anonymousGeneration??0}:{}), competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true};
+    return mergeSavedProgress(
+      {...emptyProgress(), ...b.progress, ...(targetStudent===null?{anonymousGeneration:current.anonymousGeneration??0}:{}), competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true},
+      current,
+      {replaceCompetencies:true, replaceInterventionTasks:true, replaceLearningPathways:true},
+    );
   });
   return { courses: courses.length, banks: banks.length };
 }
