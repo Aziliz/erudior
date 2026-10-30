@@ -22,6 +22,10 @@ def integrate(project: Path) -> None:
         target = root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(plugin_root / relative, target)
+    # Independent document picker: no manifest entries or additional permissions.
+    portable = Path("java/com/erudior/files/PortableFilesPlugin.kt")
+    (root / portable).parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(project / "src-tauri/android-portable-files/src/main" / portable, root / portable)
     relative = Path("res/xml/erudior_update_paths.xml")
     (root / relative).parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(plugin_root / relative, root / relative)

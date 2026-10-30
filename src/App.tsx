@@ -178,7 +178,7 @@ export interface AppApi {
   /** Saves a standalone bank, or writes the bank back into its course. */
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
-  saveCourse: (course: Course) => Promise<void>;
+  saveCourse: (course: Course, options?: { enroll?: boolean }) => Promise<void>;
   /** Add a catalog course to In progress (loads and stores it), then open it. */
   addCourse: (id: string, requestedPath?: string) => Promise<void>;
   /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
@@ -584,13 +584,14 @@ export default function App() {
   );
 
   const saveCourse = useCallback(
-    async (course: Course) => {
+    async (course: Course, options?: { enroll?: boolean }) => {
       // Bank/deck editors share this boundary: no alternate editor may persist
       // deletion of a question still used by a lesson or reading section.
       const issues = validateCourseIntegrity(course);
       if (issues.length) throw Error("Cannot save course: " + issues.map(issue => `${issue.path}: ${issue.message}`).join("; "));
       await store.saveCourse(course);
-      await enroll(course.id);
+      // Shared authored imports must not mutate whichever learner switches in while I/O is pending.
+      if (options?.enroll !== false) await enroll(course.id);
       await reload();
     },
     [reload, enroll],

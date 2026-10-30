@@ -1,6 +1,7 @@
 import { TEMPORARY_GUEST, learningDraftStorage } from "../lib/guestSession";
 import { assertCourseImportPreservesFields } from "../lib/courseImport";
-import { useEffect, useState } from "react";
+import { importOfflineCoursePackage, isOfflineCoursePackage } from "../lib/offlineCourse";
+import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
@@ -8,7 +9,7 @@ import { ClassAssignments, MyClasses } from "../components/ClassViews";
 import { LIVE } from "../lib/live";
 import { ReviewPill } from "../components/CommunityCatalog";
 import { REMOTE } from "../lib/courseSource";
-import type { Bank } from "../lib/types";
+import type { Bank, Course } from "../lib/types";
 import * as store from "../lib/storage";
 import { BankError, emptyBank, normalizeBank } from "../lib/validate";
 import { courseCounts, emptyCourse, exportCourseSnapshot, looksLikeCourse, normalizeCourse } from "../lib/course";
@@ -25,21 +26,66 @@ import { GENERAL_DISCLAIMER } from "../components/Terms";
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
 
+  const [offlineImport, setOfflineImport] = useState<Course | null>(null);
+  const [importBusy, setImportBusy] = useState(false);
+  const offlineImportHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { if (offlineImport) offlineImportHeading.current?.focus(); }, [offlineImport]);
+  const importing = useRef(false);
+  const mounted = useRef(true);
+  const importGeneration = useRef(0);
+  // Family has no stable ID: a replacement family object is a conservative scope boundary.
+  useEffect(() => {
+    mounted.current = true; importGeneration.current++;
+    importing.current = false; setImportBusy(false); setOfflineImport(null);
+    return () => { mounted.current = false; importGeneration.current++; };
+  }, [api.family, api.student?.id, api.publicLearning]);
+  const currentImport = (generation: number) => mounted.current && generation === importGeneration.current;
+
+  async function confirmOfflineImport() {
+    if (!offlineImport || importing.current) return;
+    importing.current = true; setImportBusy(true);
+    const generation = importGeneration.current;
+    try {
+      if (!currentImport(generation)) return;
+      await api.saveCourse(offlineImport, { enroll: false });
+      if (!currentImport(generation)) return;
+      api.toast(`Imported "${offlineImport.title}" as a separate local copy. No existing course or learner history was replaced.`);
+      setOfflineImport(null);
+    } catch (error) {
+      if (currentImport(generation)) api.toast(`Import failed: ${String(error)}. You can retry or cancel.`);
+    } finally {
+      if (currentImport(generation)) { importing.current = false; setImportBusy(false); }
+    }
+  }
+
   async function importFile() {
+    if (importing.current || offlineImport) return;
+    importing.current = true; setImportBusy(true);
+    const generation = importGeneration.current;
+    try { await readImportFile(generation); }
+    finally { if (currentImport(generation)) { importing.current = false; setImportBusy(false); } }
+  }
+
+  async function readImportFile(generation: number) {
     let text: string | null;
     try {
-      text = await store.pickJsonFile();
+      text = await store.pickPortableCourseFile();
     } catch (e) {
-      api.toast(`Couldn't open the file: ${String(e)}`);
+      if (currentImport(generation)) api.toast(`Couldn't open the file: ${String(e)}`);
       return;
     }
-    if (text === null) return;
+    if (text === null || !currentImport(generation)) return;
     try {
       let raw: unknown;
       try {
         raw = JSON.parse(text);
       } catch (e) {
         throw new BankError(`This file isn't valid JSON: ${(e as Error).message}`);
+      }
+      if (isOfflineCoursePackage(raw)) {
+        const course = await importOfflineCoursePackage(text);
+        if (currentImport(generation)) setOfflineImport(course);
+        return;
       }
       if (looksLikeCourse(raw)) {
         const source = (raw as { format?: string }).format === "erudior-canonical-authoring"
@@ -61,7 +107,9 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           );
           if (!replace) course = normalizeCourse({ ...JSON.parse(exportCourseSnapshot(course)), id: `${course.id}-${uid()}`, title: `${course.title} (copy)` });
         }
+        if (!currentImport(generation)) return;
         await api.saveCourse(course);
+        if (!currentImport(generation)) return;
         const n = courseCounts(course);
         api.toast(`Imported "${course.title}": ${n.lessons} lessons, ${n.questions} questions, ${n.cards} cards`);
         return;
@@ -74,10 +122,12 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         );
         if (!replace) bank = { ...bank, id: `${bank.id}-${uid()}`, title: `${bank.title} (copy)` };
       }
+      if (!currentImport(generation)) return;
       await api.saveBank(bank);
+      if (!currentImport(generation)) return;
       api.toast(`Imported "${bank.title}" with ${bank.questions.length} questions`);
     } catch (e) {
-      api.toast(e instanceof BankError ? e.message : `Import failed: ${String(e)}`);
+      if (currentImport(generation)) api.toast(e instanceof BankError ? e.message : `Import failed: ${String(e)}`);
     }
   }
 
@@ -117,11 +167,22 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <button className="btn" onClick={newCourse}>
             New course
           </button>
-          <button className="btn primary" onClick={importFile}>
-            Import
+          <button className="btn primary" onClick={importFile} disabled={importBusy || !!offlineImport}>
+            {importBusy ? "Importing…" : "Import"}
           </button>
         </div>
       </div>
+
+      {offlineImport && <section className="panel" aria-labelledby="offline-import-title" aria-busy={importBusy} style={{ marginBottom: 20, padding: 20 }}>
+        <h2 id="offline-import-title" ref={offlineImportHeading} tabIndex={-1}>Import offline course</h2>
+        <p><b>{offlineImport.title}</b> — {courseCounts(offlineImport).lessons} lessons, {courseCounts(offlineImport).questions} questions, {courseCounts(offlineImport).cards} cards.</p>
+        <p>This shared file is untrusted content. Its integrity checksum detects changes; it is not an author signature or an official review. Review its content before assigning it to a learner.</p>
+        <p>Import creates a separate copy in this device’s shared course library, without replacing an existing course, importing learner records or enrolling a learner. Original attribution and license terms still apply. External links, device speech and Python's first-use runtime may need internet access.</p>
+        <div className="row">
+          <button className="btn primary" onClick={confirmOfflineImport} disabled={importBusy}>{importBusy ? "Saving…" : "Import as local copy"}</button>
+          <button className="btn ghost" onClick={() => setOfflineImport(null)} disabled={importBusy}>Cancel import</button>
+        </div>
+      </section>}
 
       {broken.length > 0 && (
         <div style={{ marginBottom: 16 }}>

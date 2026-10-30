@@ -2,6 +2,8 @@
 //! per-user app data directory, and reads/writes files the user picks for
 //! import/export.
 
+mod portable_files;
+
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
@@ -557,11 +559,23 @@ pub fn run() {
                 Ok(())
             })
             .build())
+        .plugin(tauri::plugin::Builder::<tauri::Wry>::new("erudior-portable-files")
+            .setup(|app, api| {
+                #[cfg(target_os = "android")]
+                {
+                    let files = api.register_android_plugin("com.erudior.files", "PortableFilesPlugin")?;
+                    app.manage(portable_files::PortableFilesHandle(files));
+                }
+                Ok(())
+            })
+            .build())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
+            portable_files::pick_portable_course,
+            portable_files::export_portable_course,
             list_items,
             save_item,
             delete_item,
