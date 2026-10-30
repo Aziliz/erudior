@@ -1,5 +1,9 @@
 # Erudior Master Roadmap — 2026-10-27
 
+## Offline course sharing — In Progress (2026-10-30)
+
+User-requested private course export/import/sharing is being implemented as bounded canonical JSON with explicitly selected embedded media, checksum corruption detection and fresh untrusted local copies. No account/age gate for private authoring or sharing; community publishing remains authenticated and 18+. No learner records, official signatures or approval authority are transferred. Browser rendering and scoped Android/native picker acceptance remain pending; physical-device proof is not claimed. Python runtime downloads, device voices, external links and prerequisite courses are disclosed dependencies. This is separate from multi-device identity/sync and academic-record portability.
+
 ## Public learning access — Done (2026-10-29)
 
 PR #97 (`1a1a1e815675e81b3dc98ac7f5f91cc55206c469`) completes public-browser discovery, preserved course/lesson/activity links, independent reading/practice regardless of recommended prerequisites, isolated temporary-memory sessions and optional saved-device progress/export. Managed/native assignment/prerequisite, signing, licensing and credential authority remain unchanged. No actual course content or private source repository changes. See `docs/PUBLIC_LEARNING_ACCESS.md` for boundaries.
