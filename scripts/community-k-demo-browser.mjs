@@ -194,6 +194,13 @@ try {
     await page.waitForFunction(()=>Object.keys(window.communityKDemoFixture.progress().pretests).length>0);
     await button('Demo course list').click();
     await page.getByRole('heading',{name:'Your community courses',exact:true}).waitFor();
+    // A delayed install remains bound to its requested subject, not the currently selected one.
+    const artBeforeInstall=(await state()).installed[`${mode}-art`];
+    await page.evaluate(()=>{window.communityKDemoFixture.delay(200);window.pendingDemoInstall=window.communityKDemoFixture.install();});
+    await page.getByLabel('Synthetic subject',{exact:true}).selectOption('art');
+    await page.evaluate(async()=>{await window.pendingDemoInstall;window.communityKDemoFixture.delay(0);});
+    assert.deepEqual((await state()).installed[`${mode}-art`],artBeforeInstall,'Pending Math install cannot overwrite Art');
+    await page.getByLabel('Synthetic subject',{exact:true}).selectOption('math');
     // Reset confirmation protects the demo registry; reset never touches unrelated browser data.
     await page.evaluate(()=>{localStorage.setItem('unrelated-course-sentinel','keep');sessionStorage.setItem('unrelated-session-sentinel','keep');});
     const progressBeforeReset=await page.evaluate(()=>window.communityKDemoFixture.progress());
@@ -201,9 +208,11 @@ try {
     await button('Reset synthetic demo').click();await button('Keep synthetic demo').click();
     assert.deepEqual((await state()).drafts,complete.drafts);
     assert.deepEqual(await page.evaluate(()=>window.communityKDemoFixture.progress()),progressBeforeReset,'Canceled reset keeps demo progress');
-    await page.evaluate(()=>{window.communityKDemoFixture.failSaves(true);window.communityKDemoFixture.failPublish(true);window.communityKDemoFixture.delay(10);});
+    await page.evaluate(()=>{window.communityKDemoFixture.failSaves(true);window.communityKDemoFixture.failPublish(true);window.communityKDemoFixture.delay(500);window.pendingDemoInstall=window.communityKDemoFixture.install();});
     await button('Reset synthetic demo').click();await button('Confirm demo reset').click();
     await page.getByRole('heading',{name:'No courses yet',exact:true}).waitFor();assert.equal(Object.keys((await state()).drafts).length,0);
+    await page.evaluate(async()=>await window.pendingDemoInstall);
+    assert.deepEqual((await state()).installed,{},'Reset cannot be repopulated by an in-flight install');
     assert.deepEqual(await page.evaluate(()=>window.communityKDemoFixture.faults()),{failSaves:false,failPublish:false,delay:0},'Reset clears demo fault injection');
     const progressAfterReset=await page.evaluate(()=>window.communityKDemoFixture.progress());
     assert.deepEqual(progressAfterReset,emptyProgress,'Reset clears all isolated demo progress');
