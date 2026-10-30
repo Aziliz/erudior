@@ -35,6 +35,6 @@ await upload(new dom.window.File([new Uint8Array([0])],'tiny.wav',{type:'audio/w
 // A slow read cannot overwrite a subsequent removal or unmounted editor.
 let pending:{result:string;onload:()=>void}|undefined;
 class DeferredReader{result='data:audio/wav;base64,AQ==';onload=()=>{};onerror=()=>{};readAsDataURL(){pending=this;}}
-Object.assign(globalThis,{FileReader:DeferredReader});await upload(new dom.window.File(['x'],'slow.wav',{type:'audio/wav'}));await click('Remove Test audio');const after=callbacks;await act(async()=>pending!.onload());assert.equal(callbacks,after);assert.equal(current,undefined);
+Object.assign(globalThis,{FileReader:DeferredReader});await upload(new dom.window.File(['x'],'slow.wav',{type:'audio/wav'}));await click('Remove Test audio');await click('Confirm removal of Test audio');const after=callbacks;await act(async()=>pending!.onload());assert.equal(callbacks,after);assert.equal(current,undefined);
 await upload(new dom.window.File(['x'],'slow.wav',{type:'audio/wav'}));await act(async()=>root.unmount());await act(async()=>pending!.onload());assert.equal(callbacks,after);
 dom.window.close();console.log('metadata/audio editors: exact fields, bounded DOM, collisions, local upload safety, stale read guards passed');

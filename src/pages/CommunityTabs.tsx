@@ -582,6 +582,7 @@ export function Language({ doc, update }: { doc: CommunityDoc; update: Update })
     <>
       <section className="panel">
         <h2>Language course</h2>
+        <p className="small">Recorded audio files use the canonical editor. Save this draft, then choose About → Migrate to full canonical editor to preserve its content and add recordings in Metadata &amp; audio. This migration is one-way; already published versions stay unchanged.</p>
         <p className="small muted">
           For courses that teach a language: learners review each lesson's words with typed cards (meaning and recall), and the app can read words
           aloud.

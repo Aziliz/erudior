@@ -109,13 +109,19 @@ Create typed resources, then attach them to valid lessons.
 
 1. Use Notecards, Glossary, Reference sheets and Drills for their supported resources. Language and reading manages vocabulary; Reading library manages texts/sections and valid question links.
 
-2. Writing, labs and activities manages rubrics and assessed work. Create the resource before attaching its link to a lesson. Removing a link is different from removing its resource or learner evidence.
+2. Reading library accepts local UTF-8 TXT/Markdown files with a bounded plain-text preview. Add as a new text or append a new section; existing text and section IDs are not replaced. PDF, Word and HTML conversion is not supported. Record source/rights attribution and cancel a preview to leave the draft unchanged.
 
-3. Spreadsheets, Scenarios, Science and Assessment have dedicated editors. Select the intended lesson, set IDs/revisions and complete required fields. Apply or cancel pending activity edits before saving or switching away.
+3. Canonical Edit full course → Metadata & audio offers recorded audio upload, a clip selector and explicit preview controls. No recording plays automatically. Save or cancel a pending upload first. Legacy drafts must migrate to the canonical editor to add audio files; their published versions stay unchanged.
 
-4. Preview and validate the exact source. Spreadsheet publication approval must match the exact supported source revision; editing it can invalidate the approval. Never invent approval receipts or lower release checks.
+4. Writing prompts and lab introductions accept local TXT/Markdown file previews with explicit replacement. If the destination changes, choose the file again. Preview selected resource is a read-only literal-text overview, not a learner submission or grade.
 
-5. Lesson links can open matching local assignments or show an explicit adult handoff. Publishing a course does not silently approve an assignment, authenticate an instructor, create a credential or migrate historical learner evidence.
+5. Writing, labs and activities manages rubrics and assessed work. Create the resource before attaching its link to a lesson. Removing a link is different from removing its resource or learner evidence.
+
+6. Spreadsheets, Scenarios, Science and Assessment have dedicated editors. Select the intended lesson, set IDs/revisions and complete required fields. Apply or cancel pending activity edits before saving or switching away.
+
+7. Preview and validate the exact source. Spreadsheet publication approval must match the exact supported source revision; editing it can invalidate the approval. Never invent approval receipts or lower release checks.
+
+8. Lesson links can open matching local assignments or show an explicit adult handoff. Publishing a course does not silently approve an assignment, authenticate an instructor, create a credential or migrate historical learner evidence.
 
 **Important:** Scientific and regulated-work simulations are educational models, not real equipment control, legal advice, accreditation or professional certification.
 

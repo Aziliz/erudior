@@ -7754,3 +7754,16 @@ button.fn-ref {
 .author-guide li { margin-bottom: 12px; }
 .author-guide pre { max-width: 100%; overflow-x: auto; padding: 12px; border: 1px solid var(--rule); border-radius: 6px; }
 @media (max-width: 700px) { .author-guide-layout { grid-template-columns: minmax(0, 1fr); } .author-guide nav { max-height: 240px; overflow-y: auto; padding: 3px; } }
+
+/* Shared visual resource authoring keeps long author text bounded on narrow screens. */
+.resource-text-preview { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 24rem; overflow: auto; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; }
+.text-resource-import { min-width: 0; }
+.visual-work-resources, .visual-work-resources fieldset { min-width: 0; }
+.visual-work-resources nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+.visual-work-resources button { min-height: 36px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.visual-work-resources select { max-width: 100%; min-height: 36px; }
+[aria-label="Embedded reading library editor"], [aria-label="Audio resource library"],
+[aria-label="Embedded reading library editor"] fieldset, [aria-label="Audio resource library"] fieldset { min-width: 0; }
+[aria-label="Embedded reading library editor"] nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+[aria-label="Embedded reading library editor"] button { min-height: 36px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+[aria-label="Embedded reading library editor"] select, [aria-label="Embedded reading library editor"] input[type="file"] { min-height: 36px; max-width: 100%; }
