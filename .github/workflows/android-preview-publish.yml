@@ -16,6 +16,9 @@ on:
       - '.github/workflows/android-preview-publish.yml'
       - '.github/android-preview-publish.json'
       - 'scripts/android-release-verify.py'
+      - 'scripts/android-apk-fileprovider-check.py'
+      - 'scripts/android-verify-installer-package.sh'
+      - 'tests/android-apk-fileprovider.py'
       - 'tests/android-release-publish.py'
 
 permissions:
@@ -31,7 +34,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test release verification and publication boundaries
-        run: python3 tests/android-release-publish.py -v
+        run: |
+          python3 tests/android-release-publish.py -v
+          python3 tests/android-apk-fileprovider.py -v
       - name: Validate explicit release request
         run: |
           python3 - <<'PY'
