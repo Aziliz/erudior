@@ -58,9 +58,9 @@ export default function PublicCommunity({ id, onNavigate, onStart, appContext = 
     catch (error) { if (token === generation.current) setOpenError(error instanceof Error ? error.message : 'The course could not be opened. Please retry.'); }
     finally { if (token === generation.current) { openingRef.current = false; setOpening(false); } }
   }
-  return <div className="page public-community">
+  return <div className="page public-community" style={{ overflowWrap: 'anywhere' }}>
     {id !== undefined && <a className="back" href="/community" onClick={event => navigate(event)}>← Community courses</a>}
-    <div className="page-head"><h1>{current.detail?.entry.title ?? (id === undefined ? 'Community courses' : 'Community course')}</h1></div>
+    <div className="page-head"><h1 style={{ minWidth: 0, maxWidth: '100%' }}>{current.detail?.entry.title ?? (id === undefined ? 'Community courses' : 'Community course')}</h1></div>
     <p className="muted">Free courses made by the community. Browse and learn without an account. Community creation and uploads require a signed-in adult aged 18 or older in the app.</p>
     <p className="small muted">A review label applies only to the published version shown. It is not accreditation or approval for a particular learner; parents can inspect the content for suitability.</p>
     {current.error ? <div data-prerender-skip className="notice" role="alert"><p>{current.error}</p><button className="btn" onClick={() => setRetry(value => value + 1)}>Retry loading courses</button></div> : !current.list && !current.detail ? <p role="status">Loading community courses…</p> : null}

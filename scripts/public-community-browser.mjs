@@ -47,6 +47,10 @@ try {
     if (target) await target.evaluate(el => el.scrollIntoView({ block: 'start', inline: 'nearest' }));
     await page.evaluate(() => document.fonts.ready);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${name}: no horizontal page overflow`);
+    assert(await page.evaluate(() => [...document.querySelectorAll('.public-community h1, .public-community h2')].every(heading => {
+      const range = document.createRange(); range.selectNodeContents(heading);
+      return [...range.getClientRects()].every(rect => rect.left >= -1 && rect.right <= innerWidth + 1);
+    })), `${name}: complete community headings stay visible without clipping`);
     await page.addScriptTag({ content: axe });
     const result = await page.evaluate(() => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) })), [], `${name}: accessibility`);
