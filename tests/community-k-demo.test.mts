@@ -30,8 +30,8 @@ try {
   assert.equal(installed.revision,1);assert.equal(installed.community?.review,'not_reviewed');
   assert.deepEqual(installed.modules.map(m=>m.id),['explore']);
   assert.deepEqual(installed.lessons.map(l=>l.id),['observe']);
-  assert.deepEqual(installed.banks.flatMap(b=>b.questions.map(q=>q.id)),['observe-notice','explore-recall']);
-  assert.deepEqual(installed.lessons[0].quiz,['observe-notice']);
+  assert.deepEqual(installed.banks.flatMap(b=>b.questions.map(q=>q.id)),['observe-notice','observe-notice-again','explore-recall']);
+  assert.deepEqual(installed.lessons[0].quiz,['observe-notice','observe-notice-again']);
   assert.deepEqual(installed.modules[0].quiz,['explore-recall']);
   assert.deepEqual(installed.decks[0].cards.map(c=>c.id),['card']);
   assert.equal(installed.glossary[0].term,'synthetic');

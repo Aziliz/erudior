@@ -34,6 +34,7 @@ export function createKDemoDoc(id: KDemoId, mode: KDemoMode='legacy'): Community
   {type:'heading',text:'Synthetic example',level:2},
   {type:'text',md:`${K_DEMO_NOTICE}\n\nOur example answer is **${subject.answer}**.`},
   {type:'question',...question},
+  {type:'question',...question,id:'notice-again',stem:`Which answer matches the example we just described? ${subject.lessonTitle}.`},
  ]}];
  doc.decks=[{id:'remember',title:'Synthetic reminder',cards:[{id:'card',front:subject.questionStem,back:subject.answer}]}];
  doc.glossary=[{term:'synthetic',definition:'An original example created to test the software.',aliases:['test example']}];

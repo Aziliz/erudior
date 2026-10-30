@@ -133,7 +133,8 @@ try {
       assert.equal(await page.locator('audio[autoplay]').count(),0,'No automatic media playback');
       if(index===0) {
         const skip=button('Skip');
-        if(await skip.count())await skip.click();
+        await skip.waitFor();await skip.click();
+        await page.waitForFunction(()=>Object.keys(window.communityKDemoFixture.progress().pretests).length>0);
         assert(Object.keys((await page.evaluate(()=>window.communityKDemoFixture.progress())).pretests).length>0,'Real warmup skip records isolated demo progress');
       }
       await audit(name+'-installed-lesson',page.locator('.lesson-body'));
@@ -189,7 +190,8 @@ try {
     // Progress is intentionally ephemeral; populate it through the actual learner UI after reload.
     await button('View installed lesson').click();
     await renderedBody();
-    await button('Skip').click();
+    await button('Skip').waitFor();await button('Skip').click();
+    await page.waitForFunction(()=>Object.keys(window.communityKDemoFixture.progress().pretests).length>0);
     await button('Demo course list').click();
     await page.getByRole('heading',{name:'Your community courses',exact:true}).waitFor();
     // Reset confirmation protects the demo registry; reset never touches unrelated browser data.
