@@ -7,6 +7,7 @@ import LessonView from '../../src/pages/LessonView';
 import {checkDoc,type CommunityDoc} from '../../src/lib/communityFormat';
 import {downloadCommunityCourse} from '../../src/lib/community';
 import {normalizeCourse} from '../../src/lib/course';
+import {emptyProgress as initialProgress} from '../../src/lib/storage';
 import {requestNavigation} from '../../src/lib/navigationGuard';
 import {K_DEMO_SUBJECTS,createKDemoDoc,demoCourseMeta,demoRuntimeManifest,demoSourceCourse,type KDemoId} from './community-k-demo-data';
 import type {Course} from '../../src/lib/types';
@@ -21,7 +22,7 @@ let state:State=JSON.parse(sessionStorage.getItem(key)||'null')||initial();
 let failSaves=false,failPublish=false,delay=0;
 const persist=()=>sessionStorage.setItem(key,JSON.stringify(state));
 const originalFetch=window.fetch.bind(window);
-const emptyProgress=()=>({attempts:[],lessonsDone:{},pretests:{},work:{},activities:[]});
+const emptyProgress=()=>({...initialProgress(),pretests:{},work:{}});
 const selectedId=()=>`${mode}-${state.selected}`;
 function expected(){const d=state.drafts[selectedId()];return demoSourceCourse(d.doc,state.selected);}
 window.fetch=async(input,init)=>{

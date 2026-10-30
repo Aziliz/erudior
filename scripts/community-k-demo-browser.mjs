@@ -72,6 +72,7 @@ try {
     page.on('dialog',dialog=>dialog.dismiss());
     await page.goto(origin+`/tests/fixtures/community-k-demo.html?mode=${mode}`);
     await page.getByRole('heading',{name:'Your community courses',exact:true}).waitFor();
+    const emptyProgress=await page.evaluate(()=>window.communityKDemoFixture.progress());
     const subjectOptions=await page.getByLabel('Synthetic subject',{exact:true}).locator('option').evaluateAll(options=>options.map(option=>({id:option.value,title:option.textContent})));
     assert.equal(subjectOptions.length,8,'Exactly eight synthetic subjects');
     assert.equal(new Set(subjectOptions.map(s=>s.id)).size,8);
@@ -203,7 +204,7 @@ try {
     await page.getByRole('heading',{name:'No courses yet',exact:true}).waitFor();assert.equal(Object.keys((await state()).drafts).length,0);
     assert.deepEqual(await page.evaluate(()=>window.communityKDemoFixture.faults()),{failSaves:false,failPublish:false,delay:0},'Reset clears demo fault injection');
     const progressAfterReset=await page.evaluate(()=>window.communityKDemoFixture.progress());
-    assert.deepEqual(progressAfterReset,{attempts:[],lessonsDone:{},pretests:{},work:{},activities:[]},'Reset clears all isolated demo progress');
+    assert.deepEqual(progressAfterReset,emptyProgress,'Reset clears all isolated demo progress');
     assert.deepEqual(await page.evaluate(()=>[localStorage.getItem('unrelated-course-sentinel'),sessionStorage.getItem('unrelated-session-sentinel')]),['keep','keep']);
     await page.reload();await page.getByRole('heading',{name:'No courses yet',exact:true}).waitFor();assert.equal(Object.keys((await state()).drafts).length,0);
     assert.deepEqual(outside,[],'Demo cannot contact outside services');
