@@ -19,7 +19,7 @@ Legal review and confirmation of all copyright holders' rights are required befo
 Subject to compliance with this License, the Licensor grants a worldwide, nonexclusive, royalty-free license subject to section 7 to use, copy, modify and redistribute the Engine and make Covered Products, in source and binary form. This license grants no ownership of the Engine, no patent rights beyond any rights required by applicable law, and no rights in Third-Party Materials.
 
 3. REQUIRED STARTUP SPLASH AND ATTRIBUTION
-Official Erudior releases display the opening-book and teal star-bookmark splash, the ERUDIOR name, and "Learn without limits." on startup.
+For official Erudior releases, the proposed branding is the opening-book and teal star-bookmark splash, the ERUDIOR name, and "Learn without limits." Playback surfaces and timing follow the platform and accessibility guidance; this proposal does not require replay on every navigation or refresh.
 
 Independent Covered Products with graphical startup experiences must display an accessible version of the same opening-book and teal star-bookmark motif, the independent product's own name, a readable "Powered by Erudior" credit linking to https://erudior.com, and a clear statement that the product is independent and is not affiliated with or endorsed by Erudior. They must not use the official motto or presentation to suggest official status. Equivalent attribution in --about output or accompanying startup documentation applies to headless products.
 
