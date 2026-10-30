@@ -4,12 +4,12 @@
 import { useRef, useState } from "react";
 import type { AppApi } from "../App";
 import { SUBJECTS, type Family } from "../lib/family";
-import { ACTIVITY_KINDS, bookMinutes, loadRecords, saveRecords, type Records } from "../lib/records";
+import { ACTIVITY_KINDS, bookMinutes, loadRecords, updateRecordsAtomic, type Records } from "../lib/records";
 import { DOC_KINDS, deleteFile, newDocRef, saveCopy, storeFile } from "../lib/documents";
 import { today } from "../lib/srs";
 import { uid } from "../lib/util";
 import * as store from "../lib/storage";
-import { StudentPicker, useStudentData } from "./ParentRecords";
+import { RecordsStatus, StudentPicker, useStudentData } from "./ParentRecords";
 import { fmtDate } from "../components/ReportDocs";
 
 const sizeOf = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1e3))} KB`);
@@ -18,12 +18,13 @@ const sizeOf = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)} MB` : `${Math
 
 export function ReadingTab({ api, family }: { api: AppApi; family: Family }) {
   const [sid, setSid] = useState(family.students[0].id);
-  const { data, setRecords } = useStudentData(api, family, sid);
-  if (!data) return <p className="muted">Loading…</p>;
+  const { data, setRecords, error, retry } = useStudentData(api, family, sid);
+  if (!data) return <RecordsStatus api={api} error={error} retry={retry} sid={sid} />;
   return (
     <>
       <div className="row" style={{ marginBottom: 16 }}>
-        <StudentPicker family={family} sid={sid} setSid={setSid} />
+        {error && <RecordsStatus api={api} error={error} retry={retry} sid={sid} />}
+      <StudentPicker family={family} sid={sid} setSid={setSid} />
       </div>
       <Books api={api} r={data.records} setRecords={setRecords} name={data.student.name} />
       <Activities api={api} r={data.records} setRecords={setRecords} name={data.student.name} />
@@ -31,7 +32,7 @@ export function ReadingTab({ api, family }: { api: AppApi; family: Family }) {
   );
 }
 
-type Setter = (r: Records) => Promise<void>;
+type Setter = (r: Records) => Promise<boolean>;
 
 function Books({ api, r, setRecords, name }: { api: AppApi; r: Records; setRecords: Setter; name: string }) {
   const blank = { date: today(), title: "", author: "", subject: "English language arts", note: "" };
@@ -48,7 +49,7 @@ function Books({ api, r, setRecords, name }: { api: AppApi; r: Records; setRecor
         onSubmit={async (e) => {
           e.preventDefault();
           if (!f.title.trim()) return api.toast("Enter the book's title.");
-          await setRecords({ ...r, reading: [...r.reading, { id: uid("b"), ...f, title: f.title.trim(), author: f.author.trim(), note: f.note.trim() }] });
+          if (!await setRecords({ ...r, reading: [...r.reading, { id: uid("b"), ...f, title: f.title.trim(), author: f.author.trim(), note: f.note.trim() }] })) return;
           setF({ ...blank, subject: f.subject });
           api.toast("Book added");
         }}
@@ -129,10 +130,10 @@ function Activities({ api, r, setRecords, name }: { api: AppApi; r: Records; set
           if (!f.name.trim()) return api.toast("Name the activity.");
           if (!(hours >= 0 && hours < 10000)) return api.toast("Hours should be a number.");
           if (f.to && f.to < f.from) return api.toast("The end date is before the start date.");
-          await setRecords({
+          if (!await setRecords({
             ...r,
             activities: [...r.activities, { id: uid("v"), kind: f.kind, name: f.name.trim(), role: f.role.trim(), from: f.from, to: f.to, hours, note: f.note.trim() }],
-          });
+          })) return;
           setF({ ...blank, kind: f.kind });
           api.toast("Activity added");
         }}
@@ -204,14 +205,15 @@ function Activities({ api, r, setRecords, name }: { api: AppApi; r: Records; set
 
 export function DocumentsTab({ api, family }: { api: AppApi; family: Family }) {
   const [sid, setSid] = useState(family.students[0].id);
-  const { data, setRecords } = useStudentData(api, family, sid);
+  const { data, setRecords, error, retry } = useStudentData(api, family, sid);
+  const scope = useRef(sid); scope.current = sid;
   const [kind, setKind] = useState<string>(DOC_KINDS[0]);
   const [date, setDate] = useState(today());
   const [note, setNote] = useState("");
   const [everyone, setEveryone] = useState(false);
   const [busy, setBusy] = useState(false);
   const file = useRef<HTMLInputElement>(null);
-  if (!data) return <p className="muted">Loading…</p>;
+  if (!data) return <RecordsStatus api={api} error={error} retry={retry} sid={sid} />;
   const r = data.records;
   const docs = [...r.documents].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -223,12 +225,12 @@ export function DocumentsTab({ api, family }: { api: AppApi; family: Family }) {
     try {
       const refs = [];
       for (const f of files) refs.push(newDocRef({ ...(await storeFile(f)), kind, date, note: note.trim() }));
-      await setRecords({ ...r, documents: [...r.documents, ...refs] });
+      if (!await setRecords({ ...r, documents: [...r.documents, ...refs] })) return;
       if (everyone)
         for (const st of family.students)
           if (st.id !== sid) {
-            const other = await loadRecords(st.id);
-            await saveRecords(st.id, { ...other, documents: [...other.documents, ...refs.map((x) => ({ ...x, id: uid("d") }))] });
+            const additions = refs.map(x => ({ ...x, id: uid("d") }));
+            await updateRecordsAtomic(st.id, other => ({ ...other, documents: [...other.documents, ...additions] }), { action: "Adult shared document attachment", guard: async () => { if (scope.current !== sid) throw Error("Learner changed. Reopen documents before continuing."); if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable."); await api.authorizeAcademicRecords(st.id); if (scope.current !== sid) throw Error("Learner changed. Reopen documents before continuing."); } });
           }
       setNote("");
       if (file.current) file.current.value = "";
@@ -243,7 +245,7 @@ export function DocumentsTab({ api, family }: { api: AppApi; family: Family }) {
   async function remove(id: string) {
     const ref = r.documents.find((x) => x.id === id)!;
     if (!(await store.confirmAction(`Remove "${ref.name}" from ${data!.student.name}'s records?`, "Remove document"))) return;
-    await setRecords({ ...r, documents: r.documents.filter((x) => x.id !== id) });
+    if (!await setRecords({ ...r, documents: r.documents.filter((x) => x.id !== id) })) return;
     // Delete the file once no student refers to it.
     let used = false;
     for (const st of family.students) if (st.id !== sid && (await loadRecords(st.id)).documents.some((x) => x.fileId === ref.fileId)) used = true;
@@ -254,7 +256,8 @@ export function DocumentsTab({ api, family }: { api: AppApi; family: Family }) {
   return (
     <>
       <div className="row" style={{ marginBottom: 16 }}>
-        <StudentPicker family={family} sid={sid} setSid={setSid} />
+        {error && <RecordsStatus api={api} error={error} retry={retry} sid={sid} />}
+      <StudentPicker family={family} sid={sid} setSid={setSid} />
       </div>
       <section className="panel">
         <div className="panel-head">

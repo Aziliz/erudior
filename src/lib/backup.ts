@@ -19,7 +19,7 @@ import { courseFromCanonicalAuthoring } from "./canonicalAuthoring";
 
 import type { Bank, Course, Progress } from "./types";
 import { loadFamily, saveFamily, type Family } from "./family";
-import { loadRecords, saveRecords, type Records } from "./records";
+import { loadRecords, parseRecords, restoredRecords, type Records } from "./records";
 import { loadPhotos, savePhotos } from "./portfolio";
 import { loadFile, putFile } from "./documents";
 import type { PortfolioPhoto } from "./reports";
@@ -265,10 +265,20 @@ export async function restoreContents(
 ): Promise<{ students: number; courses: number }> {
   const b = JSON.parse(text) as Contents;
   if (b.format !== "examiner-family-backup") throw new Error("This backup's contents weren't recognized.");
+  if (!b.students || typeof b.students !== "object" || Array.isArray(b.students)) throw Error("Invalid student records in backup.");
+  const currentDeletedIds = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+  for (const [id, student] of Object.entries(b.students)) {
+    if (!/^[a-z0-9]{1,24}$/.test(id) || !b.family?.students.some(s => s.id === id)) throw Error("Backup records do not belong to a learner in this family.");
+    if (currentDeletedIds.includes(id)) throw Error("This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.");
+    student.records = restoredRecords(student.records);
+  }
   // Validate evidence before deleting/replacing any existing family data. Legacy full
   // backups clear the ledger: retaining it would mix another family's evidence.
-  const classroomSubmissions = b.classroomSubmissions === undefined ? null
-    : JSON.stringify(validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions)));
+  const importedClassroom = b.classroomSubmissions === undefined ? null : validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions));
+  const deletedIds = [...new Set([...currentDeletedIds, ...(importedClassroom?.deletedStudentIds ?? [])])];
+  if (deletedIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("Backup contains records for a deleted learner.");
+  const classroomSubmissions = importedClassroom === null && deletedIds.length === 0 ? null
+    : JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...importedClassroom ?? {version:1,records:[],complete:[]}, ...(deletedIds.length ? {deletedStudentIds:deletedIds} : {})})));
   if (b.presentations === null) throw Error("Invalid presentation library in backup.");
   const presentations = b.presentations === undefined ? null : JSON.stringify(parsePresentationLibrary(b.presentations));
   if (b.interventions === null) throw Error("Invalid intervention history in backup.");
@@ -353,7 +363,18 @@ export async function restoreContents(
   for (const x of banks) await store.saveBank(x);
   for (const [id, s] of Object.entries(b.students)) {
     await store.saveState(`progress-${id}`, JSON.stringify(s.progress));
-    await saveRecords(id, s.records);
+    await store.updateState(`records-${id}`, async old => {
+      const deleted = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+      if (deleted.includes(id)) throw Error("A learner was deleted during backup restore; their records were not restored.");
+      // Explicit backup recovery may repair quarantined records, but must invalidate open editors.
+      let previousRevision = 0;
+      if (old !== null) { try { previousRevision = parseRecords(old).revision ?? 0; } catch { /* explicit recovery */ } }
+      return JSON.stringify(parseRecords({...s.records, revision: Math.max(previousRevision, s.records.revision ?? 0) + 1}));
+    });
+    if ((validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? []).includes(id)) {
+      await store.saveState(`records-${id}`, null);
+      throw Error("A learner was deleted during backup restore; their records were removed.");
+    }
     await savePhotos(id, s.photos ?? []);
   }
   for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
@@ -370,6 +391,14 @@ export async function restoreContents(
   await store.saveState("advanced-assessment", advancedAssessment);
   await store.saveState("scientific-workspace", scientificWorkspace);
   await store.saveState("instructional-evidence", instructionalEvidence);
-  await store.saveState("classroom-submissions", classroomSubmissions);
+  // Preserve erasure tombstones even when a legacy backup carries no receipt ledger.
+  const latestClassroom = validateClassroomSubmissionState(await store.loadState("classroom-submissions"));
+  if (latestClassroom.deletedStudentIds?.length || deletedIds.length) {
+    await store.updateState("classroom-submissions", old => {
+      const current = validateClassroomSubmissionState(old), imported = validateClassroomSubmissionState(classroomSubmissions);
+      const deletedStudentIds = [...new Set([...(current.deletedStudentIds ?? []), ...deletedIds])];
+      return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported,deletedStudentIds})));
+    });
+  } else await store.saveState("classroom-submissions", classroomSubmissions);
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

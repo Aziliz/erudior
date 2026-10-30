@@ -7851,3 +7851,13 @@ button.fn-ref {
     outline-offset: -2px;
   }
 }
+
+/* Private academic planning controls retain full touch/keyboard targets at 320px. */
+.academic-records .field { display: grid; gap: 6px; margin: 10px 0; min-width: 0; }
+.academic-records fieldset { min-width: 0; border: 1px solid var(--field); border-radius: var(--r-sm); margin: 12px 0; }
+.academic-records input:not([type="checkbox"]), .academic-records textarea, .academic-records select { min-width: 0; max-width: 100%; }
+.academic-records input[type="file"] { width: 100%; min-height: 44px; padding: 8px 0; }
+.academic-records summary { min-height: 44px; padding: 10px 0; cursor: pointer; }
+.academic-records .btn { white-space: normal; min-height: 44px; margin-top: 6px; }
+.academic-records p + p { margin-top: 8px; }
+.academic-records pre { max-width: 100%; }
