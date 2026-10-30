@@ -88,7 +88,7 @@ export default function PublicCommunity({ id, onNavigate, onStart, appContext = 
         <h2 style={{ fontSize: '1.2rem' }}><a href={`/community/${c.id}`} onClick={e => navigate(e, c.id)}>{c.title}</a></h2>
         <p className="small muted">By {c.author} · Version {c.version}</p><p>{c.description}</p>
         <p className="small muted">{c.counts.lessons} lessons · {c.counts.questions} questions · {c.counts.cards} cards</p>
-        <a className="btn sm" href={`/community/${c.id}`} onClick={e => navigate(e, c.id)}>View course<span className="sr-only">: {c.title}</span></a>
+        <a className="btn sm" href={`/community/${c.id}`} aria-label={`View course: ${c.title}`} onClick={e => navigate(e, c.id)}>View course</a>
       </article>)}</div>}
       {filtered.length > shown && <button className="btn" onClick={() => setShown(count => count + 12)}>Show more courses</button>}
     </section>}
