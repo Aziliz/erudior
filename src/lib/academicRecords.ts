@@ -91,12 +91,22 @@ export function auditAcademicRecords(state: AcademicRecords, existing: AcademicC
   return { totalCredits, requiredCredits: s.policy.totalCredits, totalRemaining, planningRequirementsMet: totalRemaining === 0 && requirements.every(r => r.remaining === 0), requirements, entries, notice: ACADEMIC_NOTICE };
 }
 export interface AcademicImportPreview { fingerprint: string; exportedAt: string; label: string; policy: GraduationPolicy; claims: CreditClaim[]; summary: string; archives: { label: string; importedAt: string; summary: string }[]; notice: string }
+/** One exact flattening rule for export, preview and persistence, including provenance headers. */
+function archiveSummary(summary: string, archives: AcademicImportPreview["archives"]): string {
+  const combined = [summary, ...archives.map(a => `Prior unverified archive: ${a.label} (imported ${a.importedAt})\n${a.summary}`)].filter(Boolean).join("\n\n");
+  if (combined.length > 200000) throw Error("Combined historical summary exceeds 200,000 characters including archive provenance. Use Reports for separate records or a private backup for complete recovery.");
+  return combined;
+}
 /** Portable planning claims intentionally exclude learner identifiers, authority, progress and attachment paths. */
 export function exportAcademicRecords(state: AcademicRecords, now: string, label = "Local academic planning records", existingCandidates: AcademicCandidate[] = [], historicalSummary = ""): string {
   const s = parseAcademicRecords(state), linked = new Set(s.claims.map(c => c.sourceKey));
   const claims = [...s.claims, ...existingCandidates.filter(c => !linked.has(c.key)).map((c,i): CreditClaim => ({ id: `export-candidate-${i}`, title: c.title, subject: c.subject, date: c.date ?? now.slice(0,10), credits: c.credits, evidence: c.evidence, note: c.eligible ? "Existing local report entry; not independently verified." : "Existing incomplete or unreviewed local report entry.", sourceKey: c.key, origin: "local", reviewed: false, provenance: c.provenance, updatedAt: now }))];
   list(claims,2000).forEach(claim); unique(claims.map(c => c.id));
-  const text = JSON.stringify({ format: "erudior-academic-planning", version: 1, exportedAt: timestamp(now), label: str(label, 300, true), policy: s.policy, claims, summary: str(historicalSummary, 200000), archives: s.imports.filter(i => i.summary).map(i => ({ label: i.label, importedAt: i.importedAt, summary: i.summary! })), notice: ACADEMIC_NOTICE }, null, 2);
+  // Do not write a packet that the import duplicate guard necessarily rejects.
+  unique(claims.map(identity)); unique(claims.map(entryIdentity));
+  const summary = str(historicalSummary, 200000), archives = s.imports.filter(i => i.summary).map(i => ({ label: i.label, importedAt: i.importedAt, summary: i.summary! }));
+  archiveSummary(summary, archives);
+  const text = JSON.stringify({ format: "erudior-academic-planning", version: 1, exportedAt: timestamp(now), label: str(label, 300, true), policy: s.policy, claims, summary, archives, notice: ACADEMIC_NOTICE }, null, 2);
   if (new TextEncoder().encode(text).length > MAX_ACADEMIC_BYTES) throw Error("Academic export exceeds 2 MiB. Export fewer planning claims.");
   return text;
 }
@@ -108,7 +118,7 @@ export async function previewAcademicImport(text: string): Promise<AcademicImpor
   // Fingerprint content, not whitespace/export time, so exporting the same claims twice cannot double count them.
   const summary = o.summary === undefined ? "" : str(o.summary,200000);
   const archives = list(o.archives ?? [],2000).map(value => { const a = object(value); return { label: str(a.label,300,true), importedAt: timestamp(a.importedAt), summary: str(a.summary,200000) }; });
-  if (summary.length + archives.reduce((n,a) => n+a.summary.length+a.label.length+100,0) > 200000) throw Error("Combined historical summary exceeds the archive limit.");
+  archiveSummary(summary, archives);
   const canonical = JSON.stringify({ policy, claims, summary, archives });
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical));
   const fingerprint = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,"0")).join("");
@@ -126,7 +136,7 @@ export function applyAcademicImport(state: AcademicRecords, preview: AcademicImp
     known.add(identity(c)); knownEntries.add(entryIdentity(c));
     return { ...c, id: idFactory(), origin: "imported" as const, reviewed: false, provenance: `Unverified import: ${preview.label}. Original statement: ${c.provenance}`.slice(0,1000), updatedAt: now };
   });
-  return parseAcademicRecords({ ...s, claims: [...s.claims,...added], imports: [...s.imports,{ fingerprint: preview.fingerprint, importedAt: now, label: preview.label, summary: [preview.summary, ...preview.archives.map(a => `Prior unverified archive: ${a.label} (imported ${a.importedAt})\n${a.summary}`)].filter(Boolean).join("\n\n") }] });
+  return parseAcademicRecords({ ...s, claims: [...s.claims,...added], imports: [...s.imports,{ fingerprint: preview.fingerprint, importedAt: now, label: preview.label, summary: archiveSummary(preview.summary, preview.archives) }] });
 }
 export interface AcademicRetentionPreview { before: string; ids: string[]; snapshot: string; notice: string }
 export function previewAcademicRetention(state: AcademicRecords, before: string): AcademicRetentionPreview {

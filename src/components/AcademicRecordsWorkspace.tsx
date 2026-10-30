@@ -99,8 +99,8 @@ export default function AcademicRecordsWorkspace({ api, family }: { api: AppApi;
         <label className="field">Credit subject<input className="input" required maxLength={100} value={claim.subject} onChange={e => setClaim({ ...claim, subject: e.target.value })} /></label>
         <label className="field">Completion date<input className="input" type="date" required value={claim.date} onChange={e => setClaim({ ...claim, date: e.target.value })} /></label>
         <label className="field">Planning credits<input className="input" type="number" required min="0" max="100" step="0.01" value={claim.credits} onChange={e => setClaim({ ...claim, credits: e.target.valueAsNumber })} /></label>
-        <label className="field">Evidence reference<textarea className="input" maxLength={2000} value={claim.evidence} onChange={e => setClaim({ ...claim, evidence: e.target.value })} /></label>
-        <label className="field">Correction or review note<textarea className="input" maxLength={4000} value={claim.note} onChange={e => setClaim({ ...claim, note: e.target.value })} /></label>
+        <label className="field">Evidence reference<textarea aria-label="Evidence reference" className="input" maxLength={2000} value={claim.evidence} onChange={e => setClaim({ ...claim, evidence: e.target.value })} /></label>
+        <label className="field">Correction or review note<textarea aria-label="Correction or review note" className="input" maxLength={4000} value={claim.note} onChange={e => setClaim({ ...claim, note: e.target.value })} /></label>
         <label><input type="checkbox" checked={claim.reviewed} onChange={e => setClaim({ ...claim, reviewed: e.target.checked })} /> I reviewed this statement for my local plan; this does not verify the issuer or award official credit.</label>
         <div className="row"><button className="btn primary" disabled={busy}>Save credit statement</button><button className="btn" type="button" onClick={() => setClaim(null)}>Cancel credit changes</button></div>
       </form>}

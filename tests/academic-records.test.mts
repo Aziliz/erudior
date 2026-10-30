@@ -63,4 +63,20 @@ assert.equal(restoredAudit.entries[1].claimId,'one');
 await assert.rejects(()=>previewAcademicImport('x'.repeat(2*1024*1024+1)),/2 MiB/);
 await assert.rejects(()=>previewAcademicImport(JSON.stringify({format:'other',version:1})),/Choose/);
 assert.throws(()=>applyAcademicImport(state,preview,now,()=>`new${++seq}`),/already recorded/);
+assert.throws(()=>exportAcademicRecords(emptyAcademicRecords(),now,'Duplicate source',[candidate,candidate]),/Duplicate/);
+// The exact same provenance/header budget is enforced before export, preview and apply.
+const archiveLabel='Boundary archive', currentSummary='Current report';
+const header=`Prior unverified archive: ${archiveLabel} (imported ${now})\n`;
+const boundaryState=emptyAcademicRecords();
+boundaryState.imports=[{fingerprint:'a'.repeat(64),importedAt:now,label:archiveLabel,summary:'x'.repeat(200000-currentSummary.length-2-header.length)}];
+const boundaryText=exportAcademicRecords(boundaryState,now,'Boundary',[],currentSummary);
+const boundaryPreview=await previewAcademicImport(boundaryText);
+const boundaryImported=applyAcademicImport(emptyAcademicRecords(),boundaryPreview,now,()=>`boundary${++seq}`);
+assert.equal(boundaryImported.imports[0].summary!.length,200000);
+assert.throws(()=>exportAcademicRecords(boundaryState,now,'Boundary',[],currentSummary+'x'),/Combined historical summary/);
+const hostileBoundary=JSON.parse(boundaryText); hostileBoundary.summary+='x';
+await assert.rejects(()=>previewAcademicImport(JSON.stringify(hostileBoundary)),/Combined historical summary/);
+assert.throws(()=>applyAcademicImport(emptyAcademicRecords(),{...boundaryPreview,summary:currentSummary+'x'},now,()=>`boundary${++seq}`),/Combined historical summary/);
+// Individual archive limits alone are insufficient: the accumulated export must fail first.
+assert.throws(()=>exportAcademicRecords(boundaryState,now,'Boundary',[],'y'.repeat(200000)),/Combined historical summary/);
 console.log('Academic planning policy, evidence, duplicate/correction, provenance, portable import and retention tests passed.');

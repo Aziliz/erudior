@@ -75,23 +75,30 @@ try {
     await button('Remove planning entry Synthetic transfer').click();await button('Cancel removal').click();assert.equal((await records(ids.alice)).academic.claims.length,1);
     await button('Preview records export').click();await heading('Export preview').waitFor();await audit(prefix+'-export-preview');await button('Cancel export').click();
     await button('Preview records export').click();const dl=page.waitForEvent('download');await button('Save private records export').click();const download=await dl;const file=path.join(out,prefix+'-records.json');await download.saveAs(file);const exported=JSON.parse(await readFile(file,'utf8'));assert.equal(exported.format,'erudior-academic-planning');assert(!JSON.stringify(exported).includes(ids.alice));
+    current=prefix+'-switch-import-target';
     await page.getByLabel('Student',{exact:true}).selectOption(ids.bob);await button('Edit planning policy').waitFor();assert.equal(await claim('Synthetic transfer').count(),0);
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles(file);await heading('Review import before saving').waitFor();await audit(prefix+'-import-preview');await button('Cancel import').click();assert.equal((await records(ids.bob)).academic,undefined);
+    current=prefix+'-import-unverified';
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles(file);await button('Import unverified statements').click();await claim('Synthetic transfer').getByText(/Needs parent review/).waitFor();const imported=(await records(ids.bob)).academic;assert.equal(imported.claims[0].reviewed,false);assert.equal(imported.claims[0].origin,'imported');assert.equal(imported.policy.totalCredits,0);
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles(file);await button('Import unverified statements').click();await status(/already been imported/).waitFor();assert.equal((await records(ids.bob)).academic.claims.length,1);await button('Cancel import').click();
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{broken')});await status(/JSON|property|Unexpected/).waitFor();
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles({name:'oversized.json',mimeType:'application/json',buffer:Buffer.alloc(2*1024*1024+1,32)});await status(/exceeds 2 MiB/).waitFor();await audit(prefix+'-import-error');
+    current=prefix+'-review-import';
     await button('Review or correct Synthetic transfer').click();await page.getByLabel(/I reviewed this statement/).check();await button('Save credit statement').click();await claim('Synthetic transfer').getByText(/Counted for this local plan/).waitFor();assert.match((await records(ids.bob)).academic.claims[0].provenance,/Unverified import/);
     await page.getByLabel('Remove planning entries before',{exact:true}).fill('2026-01-01');await button('Preview local cleanup').click();await audit(prefix+'-cleanup-preview');await button('Cancel cleanup').click();assert.equal((await records(ids.bob)).academic.claims.length,1);
     await button('Preview local cleanup').click();await button('Confirm local cleanup').click();await status(/Selected local planning entries removed/).waitFor();assert.equal((await records(ids.bob)).academic.claims.length,0);assert.equal((await records(ids.bob)).academic.imports.length,1);
+    current=prefix+'-stale-editor';
     await page.getByLabel('Student',{exact:true}).selectOption(ids.alice);await claim('Synthetic transfer').waitFor();
     await button('Review or correct Synthetic transfer').click();await page.getByLabel('Correction or review note',{exact:true}).fill('Stale draft');
     await page.evaluate(async id=>{const r=await import('/src/lib/records.ts');await r.updateRecordsAtomic(id,current=>({...current,manual:[...current.manual,{id:'concurrent',date:'2026-10-30',minutes:3,subject:'Science',note:'Other writer'}]}));},ids.alice);
     await button('Save credit statement').click();await page.getByRole('alert').filter({hasText:/changed|conflict|reload/i}).waitFor();assert.equal(await page.getByLabel('Correction or review note',{exact:true}).inputValue(),'Stale draft');assert.equal((await records(ids.alice)).manual.length,1);await audit(prefix+'-conflict');
     await button('Cancel credit changes').click();await button('Reload records').click();await claim('Synthetic transfer').waitFor();
+    current=prefix+'-offline-and-history';
     await context.setOffline(true);await addCredit('Offline synthetic credit','2026-10-30');await context.setOffline(false);
     await page.getByRole('navigation',{name:'Main',exact:true}).getByRole('button',{name:'Courses',exact:true}).click();await heading('Courses').waitFor();await page.goBack();await unlockParent();await heading('Academic records and portability').waitFor();await page.goForward();await heading('Courses').waitFor();await openRecords();await claim('Offline synthetic credit').waitFor();
-    await page.reload();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await heading('Library').waitFor();await openRecords();await claim('Offline synthetic credit').waitFor();
+    current=prefix+'-route-reload';assert.equal(new URL(page.url()).pathname,'/parent/academic-records');
+    await page.reload();await unlockParent();await heading('Academic records and portability').waitFor();await claim('Offline synthetic credit').waitFor();
+    current=prefix+'-delayed-import';
     // A delayed file read cannot leak a previous learner's import into a new profile.
     await page.evaluate(()=>{window.originalFileText=File.prototype.text;File.prototype.text=function(){return new Promise(resolve=>{window.releaseAcademicFile=()=>window.originalFileText.call(this).then(resolve);});};});
     await page.getByLabel('Choose academic records file',{exact:true}).setInputFiles(file);await page.waitForFunction(()=>typeof window.releaseAcademicFile==='function');await page.getByLabel('Student',{exact:true}).selectOption(ids.bob);assert.equal(await page.getByLabel('Student',{exact:true}).inputValue(),ids.alice);await page.evaluate(()=>{window.releaseAcademicFile();File.prototype.text=window.originalFileText;});await button('Edit planning policy').waitFor();await page.waitForFunction(()=>!document.querySelector('.academic-records input[type=file]').disabled);await heading('Review import before saving').waitFor();await button('Cancel import').click();await page.getByLabel('Student',{exact:true}).selectOption(ids.bob);await button('Edit planning policy').waitFor();
@@ -103,5 +110,14 @@ try {
     checks.push({width,theme,workflow:'real adult gate; policy/credit CRUD; keyboard; export/import/cancel/untrusted/repeat/errors; cleanup; CAS conflict; offline save/reload; history; delayed import profile isolation; malformed quarantine'});await context.close();
   }
   assert.deepEqual(errors,[],'No browser runtime errors');await writeFile(path.join(out,'result.json'),JSON.stringify({passed:true,data:'synthetic isolated local learners',externalNetwork:'blocked',checks,screenshots,errors},null,2));console.log('Academic records browser acceptance passed.');
-} catch(error) {await writeFile(path.join(out,'failure.json'),JSON.stringify({current,error:String(error),checks,screenshots,errors},null,2));if(page)await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});throw error;}
+ } catch(error) {
+  const diagnostic = page ? await page.evaluate(() => ({
+    url: location.href, title: document.title,
+    headings: [...document.querySelectorAll('h1,h2,h3,h4')].map(n=>n.textContent),
+    controls: [...document.querySelectorAll('button,input,select,textarea')].map(n=>({tag:n.tagName,type:n.getAttribute('type'),ariaLabel:n.getAttribute('aria-label'),label:n.closest('label')?.textContent?.slice(0,200),text:n.tagName==='BUTTON'?n.textContent?.slice(0,200):undefined,disabled:n.disabled})),
+    notices: [...document.querySelectorAll('[role=alert],[role=status]')].map(n=>n.textContent?.slice(0,1000)),
+  })).catch(e=>({unavailable:String(e)})) : null;
+  await writeFile(path.join(out,'failure.json'),JSON.stringify({current,error:String(error),checks,screenshots,errors,diagnostic},null,2));
+  if(page)await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});throw error;
+}
 finally {await browser?.close();await server?.close();}

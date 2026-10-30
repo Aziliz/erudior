@@ -81,7 +81,7 @@ export function StudentPicker({ family, sid, setSid }: { family: Family; sid: st
   return (
     <label className="field">
       <span>Student</span>
-      <select className="select" value={sid} onChange={(e) => setSid(e.target.value)}>
+      <select className="select" aria-label="Student" value={sid} onChange={(e) => setSid(e.target.value)}>
         {family.students.map((x) => (
           <option key={x.id} value={x.id}>
             {x.name}
