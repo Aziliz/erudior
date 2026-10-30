@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "publish": true,
+  "version": "0.25.0",
+  "request": "native-updater-bootstrap-after-PR-83"
+}
