@@ -76,6 +76,9 @@ try{
    page=await context.newPage();await page.clock.install();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));page.on('dialog',dialog=>acceptDialogs?dialog.accept():dialog.dismiss());
    await page.goto(origin);await heading('Library').waitFor();activePassword=password;acceptDialogs=false;const {ids,recoveryCode}=await seed(count);await page.reload();
    await heading("Who's learning?").waitFor();assert.equal(await heading('Library').count(),0,'startup never enters a learner, even the only learner');
+   await page.clock.fastForward(6_000);
+   assert.equal(await heading("Who's learning?").isVisible(),true,"a chooser without a grant stays available while credential polling is idle");
+   assert.equal(await locked().count(),0,"initial authentication is not trapped behind a phantom session lock");
    await audit(`${prefix}-${count}-guarded-chooser`);
    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await locked().waitFor();
    await authenticate('Wrong synthetic password');await page.getByRole('alert').filter({hasText:"password isn't right"}).waitFor();

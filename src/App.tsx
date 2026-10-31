@@ -1,4 +1,4 @@
-import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
+import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionLocked, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
 import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
 import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
 import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
@@ -791,7 +791,7 @@ export default function App() {
   }, [!!family, studentId, parentUnlocked, sessionEpoch, lockWorkspace]);
 
   useEffect(() => {
-    if (!family || localLocked || gate) return;
+    if (!family || localLocked || gate || localSessionLocked()) return;
     let alive=true, checking=false;
     const check=async()=>{
       if(checking)return;checking=true;
@@ -807,7 +807,7 @@ export default function App() {
     const timer=window.setInterval(()=>void check(),5000);
     window.addEventListener("focus",check);
     return()=>{alive=false;window.clearInterval(timer);window.removeEventListener("focus",check);};
-  }, [family,studentId,localLocked,gate,lockWorkspace]);
+  }, [family,studentId,localLocked,gate,sessionEpoch,lockWorkspace]);
 
   const setFamily = useCallback(async (f: Family, authorization?: () => void) => {
     let expected = family;
