@@ -1,0 +1,27 @@
+name: Integrate exact-source sidebar branch
+on:
+  push:
+    branches: [feature/logo-navigation-sidebar-20261030]
+    paths: [scripts/app-sidebar-apply.py]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    if: github.repository == 'Aziliz/erudior' && github.ref == 'refs/heads/feature/logo-navigation-sidebar-20261030'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Apply only the inspected logo integration and remove bootstrap files
+        run: |
+          python3 scripts/app-sidebar-apply.py
+          git diff --check
+          git diff -- src/App.tsx
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/App.tsx scripts/app-sidebar-apply.py .github/workflows/app-sidebar-bootstrap.yml
+          git commit -m 'feat(app): connect logo sidebar to guarded native app navigation'
+          git push origin HEAD:refs/heads/feature/logo-navigation-sidebar-20261030
