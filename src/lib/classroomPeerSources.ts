@@ -7,7 +7,7 @@ export interface ClassroomPeerSourceOption extends WorkflowSource {
   key: string; label: string; classId: string; courseId: string;
 }
 /** Select complete immutable writing/lab evidence, never notebook, grades, attachments or whole progress.
- * Source version binds the signed receipt and exact work key. Oversized work is omitted rather than truncated.
+ * The source selection binds the signed receipt MAC and exact work key. Oversized work is omitted rather than truncated.
  */
 export function classroomPeerSourceOptions(family: Family, classId: string, receipts: StoredSubmissionRecord[]): ClassroomPeerSourceOption[] {
   const cls = family.mode === 'classroom' ? family.classes?.find(c => c.id === classId) : undefined;
@@ -20,8 +20,7 @@ export function classroomPeerSourceOptions(family: Family, classId: string, rece
       if (!courseId || !receipt.courses.includes(courseId) || !work.submitted) continue;
       const text = work.text;
       if (!text?.trim() || text.length > 20000) continue;
-      const version = `${receipt.snapshot.mac}:${workKey}`;
-      if (version.length > 200) continue;
+      const version = receipt.snapshot.mac;
       out.push({key: `${receipt.id}:${workKey}`,label: `${receipt.studentName} · ${workKey} · ${receipt.submittedAt}`,classId,courseId,studentId:receipt.studentId,receiptId:receipt.id,version,text});
     }
   }
