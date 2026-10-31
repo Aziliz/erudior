@@ -130,7 +130,7 @@ try{
    await page.getByRole('article',{name:/Synthetic private draft$/}).waitFor();
    const saved=await page.evaluate(async ids=>{const s=await import('/src/lib/storage.ts');return Promise.all(ids.map(id=>s.loadProfileProgress(id)));},ids);
    assert.equal(saved[0].syntheticLateWrite,undefined);assert.equal(saved[0].studentWorkspace.entries[0].body,'Unsaved Alice-only text survives locking');assert.equal(saved[1].studentWorkspace?.entries?.length??0,0);
-   await audit(`${prefix}-resumed-private-note`);
+   await page.clock.fastForward(3_000);await page.getByRole('article',{name:/Synthetic private draft$/}).scrollIntoViewIfNeeded();await audit(`${prefix}-resumed-private-note`);
    // Virtual time drives the real idle timer, without a production/test backdoor.
    await page.clock.fastForward(10*60_000+2_000);await locked().waitFor();
    await audit(`${prefix}-idle-locked`);await button('Unlock device').click();await authenticate();
@@ -191,7 +191,7 @@ try{
    // Repeated wrong PIN attempts persist, including after a full document reload.
    await page.goto(origin+'/parent/planning');await page.getByLabel('PIN',{exact:true}).waitFor();
    for(let n=1;n<=5;n++){await page.getByLabel('PIN',{exact:true}).fill('0000');await button('Open').click();await waitForPersisted(async expected=>(await(await import('/src/lib/family.ts')).loadFamily()).parent.failures===expected,n);}
-   assert(await button('Open').isDisabled());await page.reload();await page.getByLabel('PIN',{exact:true}).waitFor();assert(await button('Open').isDisabled(),'PIN cooldown survives reload');await audit(`${prefix}-pin-lockout`);
+   assert(await button('Open').isDisabled());await page.reload();await page.getByLabel('PIN',{exact:true}).waitFor();assert(await button('Open').isDisabled(),'PIN cooldown survives reload');assert(await page.getByRole('alert').filter({hasText:/Locked for .* more seconds/}).isVisible(),'persisted cooldown explanation stays visible');await audit(`${prefix}-pin-lockout`);
    await page.clock.fastForward(61_000);await page.waitForFunction(()=>!document.querySelector('button[type=submit]')?.disabled);await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
    // Correct PIN really opens a restricted learner, not the adult workspace.
    await page.goto(origin);await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await page.getByLabel('PIN',{exact:true}).fill('7319');await button('Open').click();await heading('Library').waitFor();assert.equal(await page.getByRole('navigation',{name:'Parent sections',exact:true}).count(),0);
@@ -212,7 +212,7 @@ try{
    await restoreBackup(true);
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Students',exact:true}).click();acceptDialogs=true;await button('Remove Synthetic Bob').click();await authenticate();await waitForPersisted(async id=>!(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]);acceptDialogs=false;
    const tombstone=await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');return {deleted:JSON.parse(await s.loadState('classroom-submissions')).deletedStudentIds.includes(id),progress:await s.loadState('progress-'+id)};},ids[1]);assert.equal(tombstone.deleted,true);assert.equal(tombstone.progress,null);
-   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();await restoreBackup(false);await audit(`${prefix}-deleted-backup-rejected`);
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();await restoreBackup(false);await page.clock.fastForward(3_000);await page.getByRole('alert').filter({hasText:'This backup contains a deleted learner.'}).scrollIntoViewIfNeeded();await audit(`${prefix}-deleted-backup-rejected`);
    assert.equal(await page.evaluate(async id=>(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]),false,'backup cannot resurrect erased learner');
    assert.equal(await page.evaluate(async id=>(await import('/src/lib/storage.ts')).loadState('progress-'+id),ids[1]),null,'rejected backup leaves erased progress absent');
    checks.push({width,theme,workflow:'two learners; explicit same/sibling authorization; private notebook; preserved unsaved draft; lock/history concealment; delayed pre-lock mutation rejected after reauthentication; idle timeout; simulated background visibility handler; sensitive settings cancellation; reload original credential; PIN setup/cooldown/fallback; cross-tab credential invalidation; recovery rotation; actual encrypted backup/download/restore; deletion/tombstone stale backup rejection'});

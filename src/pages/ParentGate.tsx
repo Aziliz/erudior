@@ -62,7 +62,7 @@ export default function ParentGate({ api, family, onUnlock }: { api: AppApi; fam
           aria-describedby="gate-msg"
         />
       </label>
-      <p id="gate-msg" className={msg ? "notice error" : "sr-only"} role="alert" style={{ marginTop: 12, maxWidth: 480 }}>
+      <p id="gate-msg" className={msg || wait > 0 ? "notice error" : "sr-only"} role="alert" style={{ marginTop: 12, maxWidth: 480 }}>
         {wait ? `Locked for ${Math.ceil(wait / 1000)} more seconds.` : msg}
       </p>
       <div className="row" style={{ marginTop: 16 }}>
