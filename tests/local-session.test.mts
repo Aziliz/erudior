@@ -61,3 +61,16 @@ unlockLocalLearner('alice');
 await assert.rejects(currentEngine.load(), /session changed/);
 configureLocalSession(false);
 console.log('Real presentation service rejects pre-lock callbacks after reauthentication');
+
+// Native monotonic absence still revokes when WebView pause/timers never ran.
+const { applyNativeLifecycle } = await import('../src/lib/nativeLifecycle.ts');
+const lifecycleCalls:string[]=[];
+const lifecycleHandlers={conceal:()=>lifecycleCalls.push('conceal'),reveal:()=>lifecycleCalls.push('reveal'),lock:()=>lifecycleCalls.push('lock')};
+for(const detail of [null,{}, {paused:'true',backgroundMs:0},{paused:false,backgroundMs:NaN},{paused:false,backgroundMs:-1}])applyNativeLifecycle(detail,lifecycleHandlers);
+assert.deepEqual(lifecycleCalls,[]);
+applyNativeLifecycle({paused:true,backgroundMs:0},lifecycleHandlers);
+applyNativeLifecycle({paused:false,backgroundMs:500},lifecycleHandlers);
+assert.deepEqual(lifecycleCalls,['conceal','reveal']);lifecycleCalls.length=0;
+applyNativeLifecycle({paused:false,backgroundMs:30_000},lifecycleHandlers);
+assert.deepEqual(lifecycleCalls,['lock','reveal'],'missed native pause still locks before showing UI');
+console.log('Native monotonic lifecycle signal validation and revoke-before-reveal passed');

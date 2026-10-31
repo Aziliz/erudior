@@ -15,6 +15,7 @@ spec.loader.exec_module(module)
 class UpgradeHarnessTests(unittest.TestCase):
     def fixture(self, root):
         plugin = 'package com.erudior.updates\nclass InstallerPlugin(private val activity: Activity) : Plugin(activity) {\n'
+        plugin += '    override fun load(webView: WebView) {\n        lifecycleWebView = webView\n    }\n'
         plugin += '\n'.join('val url = URL("' + module.PREFIX + name + '")' for name in ['android-update.json','Erudior-Android-arm64.apk'])+'\n}\n'
         files = {
           'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt': plugin,
@@ -44,6 +45,8 @@ class UpgradeHarnessTests(unittest.TestCase):
             generated=(root/'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
             self.assertEqual(generated.count(module.ORIGIN),2)
             self.assertIn('setWebContentsDebuggingEnabled(true)',generated)
+            self.assertEqual(generated.count('override fun load(webView: WebView)'),1)
+            self.assertIn('lifecycleWebView = webView',generated)
             manifest=ET.parse(root/'src-tauri/gen/android/app/src/main/AndroidManifest.xml')
             self.assertEqual(manifest.getroot().find('application').get('{'+module.ANDROID+'}networkSecurityConfig'),'@xml/erudior_upgrade_test_network')
             network=ET.parse(root/'src-tauri/gen/android/app/src/main/res/xml/erudior_upgrade_test_network.xml')
@@ -64,6 +67,22 @@ class UpgradeHarnessTests(unittest.TestCase):
             with patch.dict(os.environ, {'GITHUB_ACTIONS':'true','ERUDIOR_UPGRADE_E2E':'1'}):
                 with self.assertRaises(RuntimeError):module.prepare(root)
             self.assertEqual(plugin.read_text(),before)
+
+    def test_lifecycle_bridge_preserves_native_monotonic_duration(self):
+        source=(ROOT/'src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
+        lifecycle=source[source.index('    private var lifecycleWebView'):source.index('    @Command')]
+        self.assertIn('override fun onPause(activity: AppCompatActivity)',lifecycle)
+        self.assertIn('override fun onResume(activity: AppCompatActivity)',lifecycle)
+        self.assertIn('if (backgroundAt == null) backgroundAt = SystemClock.elapsedRealtime()',lifecycle)
+        self.assertIn('(SystemClock.elapsedRealtime() - it).coerceAtLeast(0L)',lifecycle)
+        self.assertIn('notifyLifecycle(true, 0L)',lifecycle)
+        self.assertIn('notifyLifecycle(false, elapsed)',lifecycle)
+        self.assertIn("new CustomEvent('erudior-native-lifecycle'",lifecycle)
+        self.assertIn('activity.runOnUiThread',lifecycle)
+        self.assertIn('lifecycleWebView === webView',lifecycle)
+        self.assertNotIn('currentTimeMillis',lifecycle)
+        self.assertNotIn('unlock',lifecycle)
+        self.assertNotIn('setWebContentsDebuggingEnabled',source)
 
     def test_mobile_bridge_commands_do_not_block_main_thread(self):
         source=(ROOT/'src-tauri/src/lib.rs').read_text()

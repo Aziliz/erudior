@@ -143,6 +143,11 @@ try{
    await locked().waitFor();await audit(`${prefix}-background-locked`);
    await button('Unlock device').click();await authenticate();
    await page.getByRole('article',{name:/Synthetic private draft$/}).waitFor();
+   // Native bridge resume carries monotonic absence even if the WebView never
+   // delivered DOM visibility/pause events. Actual HOME delivery is tested on Android.
+   await page.evaluate(()=>window.dispatchEvent(new CustomEvent('erudior-native-lifecycle',{detail:{paused:false,backgroundMs:32_000}})));
+   await locked().waitFor();assert.equal(await page.getByRole('article',{name:/Synthetic private draft$/}).isVisible(),false);
+   await button('Unlock device').click();await authenticate();await page.getByRole('article',{name:/Synthetic private draft$/}).waitFor();
    // Sensitive settings require a new credential check, not just an open Parent tab.
    await page.getByRole('navigation',{name:'Main',exact:true}).getByRole('button',{name:'Family',exact:true}).click();await authenticate();
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();
