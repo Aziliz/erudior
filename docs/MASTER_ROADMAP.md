@@ -1,3 +1,7 @@
+## Classroom and teacher workflows — In Progress (2026-10-31)
+
+Completing local teacher-to-learner loops for moderated exact-submission peer feedback, group projects and milestones, conferences and actions, class notices and acknowledgments, and field-trip reflections. Reuses existing classes, assignments, hand-in history, gradebook and live games. Shared-device authorization, conflict-safe persistence, encrypted recovery and deletion protection remain required. No remote messaging, video calls, online school identity or automatic academic credit is implied. Full implementation and validation are in progress; no completed-feature or installer release claim.
+
 ## Parent dashboard PIN protection and child account switching — Done (2026-10-31)
 
 PR #126 merged as `7486fbb7de6598ee5cd9995e3f2f81fbb298099c`: completed local-app capability. An adult authorizes each learner with the existing password/PIN/recovery flow. Memory-only, credential-bound grants do not survive reload, role switching or backup restoration. This is a local interface boundary, not encryption at rest, verified guardianship or online account authority.
