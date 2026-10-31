@@ -18,8 +18,8 @@ export function classroomPeerSourceOptions(family: Family, classId: string, rece
     for (const [workKey, work] of Object.entries(receipt.snapshot.progress.work ?? {})) {
       const courseId = cls.assignments.find(a => workKey.startsWith(a.courseId + '/'))?.courseId;
       if (!courseId || !receipt.courses.includes(courseId) || !work.submitted) continue;
-      const text = work.text?.trim();
-      if (!text || text.length > 20000) continue;
+      const text = work.text;
+      if (!text?.trim() || text.length > 20000) continue;
       const version = `${receipt.snapshot.mac}:${workKey}`;
       if (version.length > 200) continue;
       out.push({key: `${receipt.id}:${workKey}`,label: `${receipt.studentName} · ${workKey} · ${receipt.submittedAt}`,classId,courseId,studentId:receipt.studentId,receiptId:receipt.id,version,text});

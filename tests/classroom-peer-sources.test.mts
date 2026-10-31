@@ -12,4 +12,6 @@ const unassigned=structuredClone(family);unassigned.classes![0].assignments=[];a
 const oversized=structuredClone(receipt);oversized.snapshot.progress.work!['science/report'].text='x'.repeat(20001);assert.deepEqual(classroomPeerSourceOptions(family,'class1',[oversized]),[]);
 const changed=structuredClone(receipt);changed.snapshot.mac='different-version';assert.notEqual(classroomPeerSourceOptions(family,'class1',[changed])[0].version,options[0].version);
 assert.throws(()=>classroomPeerSourceOptions({...family,mode:'homeschool'},'class1',[receipt]),/current local/);
+
+const spaced=structuredClone(receipt);spaced.snapshot.progress.work!['science/report'].text='  exact submitted whitespace\n';assert.equal(classroomPeerSourceOptions(family,'class1',[spaced])[0].text,'  exact submitted whitespace\n');
 console.log('Classroom peer sources: exact complete submitted text only; roster/course scope, privacy, size and version bounds passed.');

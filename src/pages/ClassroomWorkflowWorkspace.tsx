@@ -64,7 +64,7 @@ function ClassroomWorkspace({api,teacher=false,family:providedFamily}:{api:AppAp
     finally {if(activeScope.current===requested&&token===loadRequest.current)setLoading(false);}
   }
   useEffect(()=>{setData(emptyClassroomWorkflowState());setSources([]);setDraft(null);setGroupDraft(null);setFormDirty({});setResponseDrafts({});setError("");setNotice("");void reload();return()=>{loadRequest.current++;};},[scope]);
-  useEffect(()=>{void reload();},[epoch]);
+  useEffect(()=>{setNotice("");void reload();},[epoch]);
   useEffect(()=>{editor.current?.querySelector<HTMLElement>("input,select,textarea")?.focus();},[draft?.input.id,groupDraft?.group.id]);
   useEffect(()=>registerNavigationGuard(()=>{if(!guard.current)return true;api.toast("Save or cancel your classroom changes before leaving.");return false;}),[api.toast]);
   useEffect(()=>{const unload=(event:BeforeUnloadEvent)=>{if(guard.current){event.preventDefault();event.returnValue="";}};window.addEventListener("beforeunload",unload);return()=>window.removeEventListener("beforeunload",unload);},[]);
@@ -99,13 +99,13 @@ function ClassroomWorkspace({api,teacher=false,family:providedFamily}:{api:AppAp
   }
   const updateDraft=(patch:Partial<WorkflowItemInput>)=>setDraft(old=>old?{...old,input:{...old.input,...patch}}:old);
   const assignedCourses=selected?.assignments??[];
-  if(!api.homeschool||!family||!isClassroom(family)||!service)return <section className="panel"><h1>Classroom collaboration</h1><p>These private local workflows require a configured Classroom in the app. Public learning remains account-free. No learner records are opened here.</p><a className="btn" href={siteUrl("/download")}>Download app</a></section>;
-  return <div className="classroom-workflows">
+  if(!api.homeschool||!family||!isClassroom(family)||!service)return <section className="page panel"><h1>Classroom collaboration</h1><p>These private local workflows require a configured Classroom in the app. Public learning remains account-free. No learner records are opened here.</p><a className="btn" href={siteUrl("/download")}>Download app</a></section>;
+  return <div className={teacher?"classroom-workflows":"page classroom-workflows"}>
     <h1>{teacher?"Class collaboration":"My classroom"}</h1>
     <p className="cw-notice">Saved on this device for the selected classroom. Notices and conference plans are not remote messages or video calls. Project work and field-trip participation do not automatically add grades, credit or attendance.</p>
     {teacher&&<nav aria-label="Existing classroom tools" className="cw-toolbar">{[{tab:"classes",label:"Classes and assignments"},{tab:"handins",label:"Hand-ins"},{tab:"gradebook",label:"Gradebook"},{tab:"games",label:"Learning games"},{tab:"live",label:"Live room"}].filter(link=>link.tab!=="live"||LIVE).map(link=><button key={link.tab} className="btn ghost sm" onClick={()=>api.go({name:"parent",tab:link.tab as "classes"})}>{link.label}</button>)}</nav>}
     {!classes.length?<p>No classes are available. {teacher?"Create a class and add learners in Classes and assignments.":"Ask your teacher to add you to a local class."}</p>:<>
-      <div className="cw-toolbar"><label className="field"><span>Class</span><select aria-label="Class" className="select" value={cid} disabled={guard.current} onChange={e=>setClassId(e.target.value)}>{classes.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label><button className="btn" disabled={busy||loading} onClick={()=>{setError("");void reload();}}>Refresh classroom</button></div>
+      <div className="cw-toolbar"><label className="field"><span>Class</span><select aria-label="Class" className="select" value={cid} disabled={guard.current} onChange={e=>setClassId(e.target.value)}>{classes.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label><button className="btn" disabled={busy||loading} onClick={()=>{setError("");setNotice("");void reload();}}>Refresh classroom</button></div>
       <nav aria-label="Classroom collaboration sections" className="cw-tabs">{SECTIONS.filter(s=>teacher||s.id!=="groups").map(s=><button className="btn" key={s.id} aria-pressed={s.id===section} onClick={()=>changeSection(s.id)}>{s.label}</button>)}</nav>
       <div role="status" aria-live="polite">{loading?"Loading classroom…":notice}</div>
       {error&&<div className="panel" role="alert"><strong>Changes were not confirmed.</strong><p>{error}</p><p>Your open draft is retained. Refresh to inspect current records. If the saved revision changed, copy any text you need, cancel the stale draft and reopen the current item before editing. Refresh never silently retargets your work.</p></div>}
