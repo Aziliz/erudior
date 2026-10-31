@@ -1,0 +1,58 @@
+name: Recover verified Android preview manifest
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/android-preview-recovery.yml'
+      - 'scripts/android-preview-recover.py'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/android-preview-recovery.yml'
+      - 'scripts/android-preview-recover.py'
+
+permissions:
+  contents: read
+concurrency:
+  # Serialize with the ordinary rolling-preview publisher, including retries.
+  group: erudior-android-preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  recovery-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test exact-run, artifact, current-state and manifest-only boundaries
+        run: |
+          python3 scripts/android-preview-recover.py --self-test
+          python3 tests/android-release-publish.py -v
+          python3 tests/android-apk-fileprovider.py -v
+
+  recover-manifest:
+    needs: recovery-contract
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install signature inspection tools
+        run: '"$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;35.0.0"'
+      - name: Reverify pinned successful gates and finish exact manifest publication
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/android-preview-recover.py
+      - name: Preserve public readback and recovery evidence without credentials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-preview-recovered-verification-${{ github.run_attempt }}
+          path: .release-recovery/public/
+          if-no-files-found: warn
+          retention-days: 14
