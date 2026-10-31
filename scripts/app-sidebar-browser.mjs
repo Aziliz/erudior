@@ -67,6 +67,9 @@ async function audit(name) {
   await page.screenshot({ path: path.join(out, name + '.png') });
   screenshots.push(name + '.png');
 }
+async function nativeLifecycle(paused, backgroundMs) {
+  await page.evaluate(detail => window.dispatchEvent(new CustomEvent('erudior-native-lifecycle', { detail })), { paused, backgroundMs });
+}
 try {
   browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox'] } : {});
   const origin = await startServer(true);
@@ -84,10 +87,11 @@ try {
       assert.equal(labels.some(text => text.startsWith('Family')), label === 'Family');
       assert.equal(labels.some(text => text.startsWith('Classroom')), label === 'Classroom');
       await audit(`${mode}-${width}-navigation`);
-      // The modal owns keyboard focus; underlying page navigation cannot receive Tab.
-      for (let i = 0; i < 18; i++) {
-        await page.keyboard.press(i % 2 ? 'Tab' : 'Shift+Tab');
-        assert(await page.evaluate(() => !!document.activeElement?.closest('dialog')), 'Keyboard stays in modal');
+      // Traverse every control and wrap in both directions, not merely one pair.
+      for (const key of ['Shift+Tab', 'Tab']) for (let i = 0; i < 18; i++) {
+        await page.keyboard.press(key);
+        const focus = await page.evaluate(() => ({ inside: !!document.activeElement?.closest('dialog'), tag: document.activeElement?.tagName, label: document.activeElement?.getAttribute('aria-label') }));
+        assert(focus.inside, `Keyboard stays in modal: ${key} ${i} ${JSON.stringify(focus)}`);
       }
       await page.keyboard.press('Escape');
       await drawer().waitFor({ state: 'hidden' });
@@ -101,8 +105,7 @@ try {
       await drawer().waitFor({ state: 'hidden' });
       await openMenu();
       assert.equal(await drawer().getByRole('button', { name: /^Courses/ }).getAttribute('aria-current'), 'page');
-      // Logo is now a menu, not a route change back to Library.
-      assert.equal(await page.locator('main h1').textContent(), 'Courses');
+      assert.equal(await page.locator('main h1').textContent(), 'Courses', 'Logo opens a menu without navigating away');
       await page.keyboard.press('Escape');
       await page.evaluate(async () => { const mod = await import('/src/lib/navigationGuard.ts'); window.sidebarGuardOff = mod.registerNavigationGuard(() => false); });
       await openMenu();
@@ -126,9 +129,18 @@ try {
       await audit(`${mode}-${width}-display-large`);
       await drawer().getByLabel('Text size', { exact: true }).selectOption('100');
       await drawer().getByLabel('Theme', { exact: true }).selectOption('system');
-      await page.keyboard.press('Escape');
+      await clickMenu('Close navigation');
+      await drawer().waitFor({ state: 'hidden' });
       if (label) {
         const adult = mode === 'classroom' ? 'Teacher' : 'Parent';
+        // A top-layer dialog must not survive app concealment or resurrect on resume.
+        await openMenu();
+        await drawer().getByRole('button', { name: /^Account management/ }).click();
+        await nativeLifecycle(true, 0);
+        assert.equal(await drawer().count(), 0, 'Open account drawer removed during native pause');
+        await nativeLifecycle(false, 500);
+        await logo().waitFor();
+        assert.equal(await logo().getAttribute('aria-expanded'), 'false', 'Resume does not reopen private menu state');
         await openMenu();
         await drawer().getByRole('button', { name: /^Account management/ }).click();
         await drawer().getByRole('button', { name: /^Manage learner profiles/ }).click();
@@ -139,7 +151,8 @@ try {
         await page.getByRole('button', { name: 'Open', exact: true }).click();
         await sections.waitFor();
         await openMenu();
-        await clickMenu('Lock device');
+        if (width === 1280) await clickMenu('Lock device');
+        else { await nativeLifecycle(true, 0); await nativeLifecycle(false, 31000); }
         await heading('Shared device locked').waitFor();
         assert.equal(await drawer().count(), 0, 'No stale top-layer dialog over locked shared device');
       } else {
@@ -148,7 +161,7 @@ try {
         await clickMenu('Set up Family or Classroom');
         await heading('Set up homeschool or a classroom').waitFor();
       }
-      checks.push({ mode, width, status: 'passed', keyboard: 'contained', dismissal: 'Escape, button, backdrop', routeGuard: 'veto retained', managedAuthority: label ? 'adult gate and lock verified' : 'local setup only' });
+      checks.push({ mode, width, status: 'passed', keyboard: 'full forward/reverse traversal', dismissal: 'Escape, button, backdrop', routeGuard: 'veto retained', managedAuthority: label ? 'adult gate, native conceal/resume and lock verified' : 'local setup only' });
       await context.close();
     }
   }
@@ -161,7 +174,7 @@ try {
   await page.getByRole('link', { name: 'Erudior home page', exact: true }).waitFor();
   await context.close();
   assert.deepEqual(errors, [], 'No page errors');
-  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, scope: 'actual App in browser native-look harness; synthetic local profiles, not physical Android acceptance', checks, screenshots, errors, publicWebsite: 'unchanged account-free brand link' }, null, 2));
+  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, scope: 'actual App in browser native-look harness; synthetic local profiles and native lifecycle signals, not physical Android acceptance', checks, screenshots, errors, publicWebsite: 'unchanged account-free brand link' }, null, 2));
 } catch (error) {
   await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, screenshots, errors }, null, 2));
   await page?.screenshot({ path: path.join(out, 'failure.png') }).catch(() => {});
