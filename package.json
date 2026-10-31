@@ -44,7 +44,7 @@
     "test:accounts:integration": "node --import tsx account-service/test/store-postgres.test.mts && node --import tsx account-service/test/service-security.test.mts",
     "test:shared-device-browser": "node scripts/shared-device-browser.mjs",
     "test:homeschool-planning-browser": "node scripts/homeschool-planning-browser.mjs",
-    "test:admin-studio": "tsx tests/admin-studio.test.mts"
+    "test:admin-studio": "tsx tests/admin-studio.test.mts && tsx tests/admin-studio-render.test.mts"
   },
   "dependencies": {
     "@codemirror/autocomplete": "6.20.3",

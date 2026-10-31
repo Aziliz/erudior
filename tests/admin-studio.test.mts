@@ -71,3 +71,24 @@ console.log('Admin Studio host-neutral model: all eight builders, exact source/r
 assert.throws(()=>buildStudioDocument('quiz','copy','Quiz',[{source:inventory[0].source,key:'missing'}],inventory));
 assert.throws(()=>buildStudioDocument('quiz','copy','Quiz',[{source:inventory[0].source,key:'lab/lab'}],inventory));
 assert(lab.blocks.some(b=>b.label==='Evidence'&&b.text.includes('1: Included')),'source rubric preserved with lab');
+// Exact structured semantics survive adaptation, even when a flattened preview looks identical.
+for(const mutate of [
+  (c:typeof course)=>{c.writing![0].kind='essay';},
+  (c:typeof course)=>{c.writing![0].selfCheck=true;},
+  (c:typeof course)=>{c.labs![0].selfCheck=true;},
+  (c:typeof course)=>{c.labs![0].questions[0].id='another-id';},
+]) {
+  const changed=structuredClone(inventory);mutate(changed[0].course);
+  assert.notDeepEqual(studioResources(changed).resources,pool.resources);
+}
+const tableA=structuredClone(inventory),tableB=structuredClone(inventory);
+tableA[0].course.labs![0].tables[0].columns=['A | B','C'];tableB[0].course.labs![0].tables[0].columns=['A','B | C'];
+assert.notDeepEqual(studioResources(tableA).resources,studioResources(tableB).resources,'canonical columns cannot collide through text joining');
+const cards=structuredClone(inventory);cards[0].course.decks=[{id:'cards',title:'Synthetic cards',cards:[{id:'card',front:'Visible prompt',back:'PRIVATE_CARD_ANSWER_724'}]}];
+for(const kind of ['worksheet','discussion','presentation','study-guide'] as const) {
+  const doc=buildStudioDocument(kind,'card-test','Card material',studioChoices(kind,cards).map(r=>({source:r.source,key:r.key})),cards);
+  assert(JSON.stringify(doc).includes('PRIVATE_CARD_ANSWER_724'));
+  assert(!JSON.stringify(studioLearnerView(doc)).includes('PRIVATE_CARD_ANSWER_724'));
+  assert(!JSON.stringify(studioLearnerView(doc)).includes('answerText'));
+}
+console.log('Independent audit regressions: canonical kind/self-check/IDs/table structure preserved; flashcard backs excluded from learner material.');
