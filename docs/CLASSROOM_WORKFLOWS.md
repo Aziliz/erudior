@@ -1,6 +1,6 @@
 # Local Classroom and teacher workflows
 
-Status: In Progress. This branch completes the existing classroom roadmap capability, not online school identity or multi-device synchronization.
+Status: Done for the local/shared-device capability. PR #129 merged as `9c8a8d96de0a85f4b22e280d2fd6cb7b0f6a8265`. Online school identity, independent-device synchronization and remote delivery remain separate capabilities.
 
 ## Acceptance boundary
 
@@ -26,10 +26,18 @@ Synthetic teacher-to-learner-to-review workflows across all five item types; unr
 4. The teacher reviews dated immutable responses. **Save review (private)** does not expose feedback. **Release review** gives teacher notes only to the response author; approved project contribution text may reach selected project peers, and approved peer-feedback text reaches the original source author. **Needs revision** does not share a contribution with peers. Withdraw/revoke controls remove current learner access without rewriting history.
 5. Refresh after conflicts; an old draft cannot overwrite another writer. Copy/cancel/reopen a changed draft rather than silently rebasing it. A withdrawn item conceals its source but preserves only the learner's own unsent text for copying/discarding. Lock/resume retains drafts; a full process reload loses unsaved in-memory text.
 
-Peer-review source selection currently uses exact submitted writing/lab text from a complete current-class hand-in, bounded to20,000characters. It preserves original whitespace and receipt/work identity. No grade, attachment, notebook or whole progress record is shared. Other assessment evidence remains available through the existing instructor hand-in review rather than being automatically exposed to peers.
+Peer-review source selection currently uses exact submitted writing/lab text from a complete current-class hand-in, bounded to 20,000 characters. It preserves original whitespace and receipt/work identity. No grade, attachment, notebook or whole progress record is shared. Other assessment evidence remains available through the existing instructor hand-in review rather than being automatically exposed to peers.
 
 This ledger does not travel in legacy class/hand-in exchange files. Its workflows are local/shared-device; encrypted full Family backup is recovery, not cross-device messaging. Current production online school accounts, independent learner devices, video conferencing and notification delivery remain outside this capability.
 
-## Validation progress
+## Validation evidence
 
-The actual-App browser suite passed all five loops at candidate5c64c75d on1280px light and320px dark with keyboard/accessibility checks, offline persistence, role/class privacy, cancellation, revision conflicts and withdrawal. All24screenshots were retained for original-resolution review. The Windows exact-state allowlist/native persistence suite passed. Actual Android acceptance, exact final-head regression and postmerge checks remain required; these preliminary results are not a merge or release claim.
+Exact feature head `78415126a0e1a57965cefbb5fc29a9778a154e38` passed all eight workflows. Actual-App acceptance covers all five teacher → learner → review loops at 1280px light and 320px dark, with no runtime errors, blocked external networking, keyboard/overflow/accessibility checks, cancellation, immutable source selection, conflicts, class/role isolation, private moderation/release/revocation, authenticated reload and offline persistence. All 24 original-resolution browser screenshots were inspected. Some mobile conflict/history content is outside the captured viewport; DOM assertions establish those outcomes.
+
+Actual Android emulator run `41162632137` passed all 12 stages, including the existing installer permission/cancel/approval, corrupted-download rejection, SAF roundtrip, shared-device HOME lock and process restart. The new classroom flow proves a teacher's Bob-only notice, learner acknowledgment, released review and exact ledger persistence through process restart. Three native feature screenshots were inspected; the final review is below the captured fold and verified through DOM and ledger equality. Windows native persistence also passed. No physical-device or newly released installer claim is made.
+
+All nine exact-merge push workflows passed: regression/identity `41163922628`, browser/live/D1/HTTPS `41163922541`, classroom acceptance `41163922534`, native persistence `41163922544`, private-account acceptance `41163922433`, integrity `41163922434`, website deployment `41163922630`, community API deployment `41163922528` and signed publishing `41163922472`. Publishing authenticated the prior catalog, verified unchanged immutable artifacts and byte-compared authoritative R2 catalog/signature readback at 03:29:28 UTC on 2026-10-31.
+
+CI repairs retained all security gates: exact accessible field labels, existing source-test isolation, established erased-profile diagnostics, atomic compare-and-swap preservation of first concurrent deletion markers, the precise synthetic native fixture's default homeschool mode, and awaiting intentional deep-link restoration only after explicit learner authorization. No check was bypassed.
+
+Read-only production verification at 03:38 UTC confirmed `/classroom-workflows` and `/parent/classroom-workflows` in regular and guest modes, including reload, show the configured-local-Classroom boundary and account-free public-learning guidance. Courses/Library guest navigation remained usable. Served asset `index-DikR45Wo.js` matches the merge deployment. No Family, account or learner records were created or opened; private workflows were exercised only with synthetic CI data.
