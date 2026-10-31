@@ -13,7 +13,7 @@ await mkdir(out,{recursive:true});
 const axe=await readFile(new URL('../node_modules/axe-core/axe.min.js',import.meta.url),'utf8');
 const password='Synthetic shared device password 2026';
 let activePassword=password,acceptDialogs=false;
-let server,browser,page,current='startup';
+let server,browser,page,current='startup',lastCredentialDiagnostic=null;
 const errors=[],checks=[],screenshots=[];
 const heading=name=>page.getByRole('heading',{name,exact:true});
 const button=name=>page.getByRole('button',{name,exact:true});
@@ -126,13 +126,37 @@ try{
    const mainPage=page,second=await context.newPage();page=second;await page.clock.install();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));
    await page.goto(origin);await select('Synthetic Alice');await workspace();await button('Add note').click();
    await page.getByRole('form',{name:'Add note',exact:true}).getByLabel('Title',{exact:true}).fill('Rejected stale tab note');
+   const beforeCredential=await second.evaluate(async()=>{
+    const session=await import('/src/lib/localSession.ts'),store=await import('/src/lib/storage.ts'),family=await(await import('/src/lib/family.ts')).loadFamily();
+    window.syntheticCredentialBefore=JSON.stringify({password:family.parent.password,pin:family.parent.pin,recovery:family.parent.recovery});
+    return {enabled:session.localSessionEnabled(),locked:session.localSessionLocked(),learner:store.activeStudent(),hasPin:!!family.parent.pin};
+   });
+   assert.deepEqual(beforeCredential,{enabled:true,locked:false,learner:ids[0],hasPin:false},'second App has a bound live learner session before credential rotation');
    page=mainPage;await page.bringToFront();
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();
    await page.getByLabel('PIN for quicker sign-in (optional, 4 to 8 digits)',{exact:true}).fill('7319');await button('Turn on PIN').click();await authenticate();
    await page.waitForFunction(async()=>!!(await(await import('/src/lib/family.ts')).loadFamily()).parent.pin);
+   const credentialDiagnostic=await second.evaluate(async()=>{
+    const session=await import('/src/lib/localSession.ts'),family=await(await import('/src/lib/family.ts')).loadFamily();
+    let rejected=false,oldRejected=false;try{session.assertLocalSessionCredential(family.parent);}catch{rejected=true;}try{session.assertLocalSessionCredential(JSON.parse(window.syntheticCredentialBefore));}catch{oldRejected=true;}
+    return {enabled:session.localSessionEnabled(),locked:session.localSessionLocked(),epoch:session.localSessionEpoch(),oldRejected,changed:window.syntheticCredentialBefore!==JSON.stringify({password:family.parent.password,pin:family.parent.pin,recovery:family.parent.recovery}),hasPin:!!family.parent.pin,rejected};
+   });
+   lastCredentialDiagnostic=credentialDiagnostic;console.log('Cross-tab credential diagnostic',JSON.stringify(credentialDiagnostic));
+   assert.equal(credentialDiagnostic.changed,true,'second tab reads the newly persisted credential');
+   assert.equal(credentialDiagnostic.rejected,true,'second tab credential binding rejects the newly persisted credential');
    const staleTabResult=await second.evaluate(async id=>{try{await(await import('/src/lib/storage.ts')).updateProfileProgress(id,p=>({...p,staleTabMutation:true}));return 'unexpected success';}catch(e){return e.message;}},ids[0]);
    assert.match(staleTabResult,/credential|session|lock|authority/i,'changed PIN invalidates another tab write grant');
-   await second.bringToFront();await second.evaluate(()=>window.dispatchEvent(new Event('focus')));await second.getByRole('region',{name:'Locked shared device',exact:true}).waitFor();await second.close();await page.bringToFront();
+   await second.bringToFront();await second.evaluate(()=>window.dispatchEvent(new Event('focus')));
+   // The lock region can also be the temporary background concealment screen.
+   // Prove authority was actually revoked, independently of its visibility.
+   await second.waitForFunction(async()=>(await import('/src/lib/localSession.ts')).localSessionLocked());
+   assert.equal(await second.evaluate(async id=>(await(await import('/src/lib/storage.ts')).loadProfileProgress(id)).staleTabMutation,ids[0]),undefined);
+   await second.getByRole('region',{name:'Locked shared device',exact:true}).waitFor();
+   page=second;await button('Unlock device').click();await page.getByLabel('PIN',{exact:true}).fill('7319');await button('Open').click();
+   await page.getByRole('form',{name:'Add note',exact:true}).waitFor();
+   assert.equal(await page.getByRole('form',{name:'Add note',exact:true}).getByLabel('Title',{exact:true}).inputValue(),'Rejected stale tab note','new credential resumes the preserved draft');
+   assert.equal(await page.evaluate(async()=>(await import('/src/lib/localSession.ts')).localSessionLocked()),false);
+   await audit(`${prefix}-new-pin-resumes-other-tab`);await second.close();page=mainPage;await page.bringToFront();
    // Repeated wrong PIN attempts persist, including after a full document reload.
    await page.goto(origin+'/parent/planning');await page.getByLabel('PIN',{exact:true}).waitFor();
    for(let n=1;n<=5;n++){await page.getByLabel('PIN',{exact:true}).fill('0000');await button('Open').click();await page.waitForFunction(async expected=>(await(await import('/src/lib/family.ts')).loadFamily()).parent.failures===expected,n);}
@@ -174,5 +198,5 @@ try{
  console.log('Shared-device real-App acceptance passed');
 }catch(error){
  const diagnostic=page?await page.evaluate(()=>({url:location.href,headings:[...document.querySelectorAll('h1,h2')].map(n=>n.textContent),notices:[...document.querySelectorAll('[role=alert],[role=status]')].map(n=>n.textContent)})).catch(()=>null):null;
- await writeFile(path.join(out,'failure.json'),JSON.stringify({current,error:String(error),checks,screenshots,errors,diagnostic},null,2));if(page)await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});throw error;
+ await writeFile(path.join(out,'failure.json'),JSON.stringify({current,error:String(error),checks,screenshots,errors,diagnostic,lastCredentialDiagnostic},null,2));if(page)await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});throw error;
 }finally{await browser?.close();await server?.close();}

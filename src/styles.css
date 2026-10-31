@@ -7866,3 +7866,6 @@ button.fn-ref {
 .shell[hidden] { display: none !important; }
 .local-session-lock { max-width: 52rem; margin: 2rem auto; padding: 1rem; }
 .local-session-lock .page { padding-inline: 0; }
+
+.shared-device-toolbar { display: flex; flex-wrap: wrap; gap: .5rem; padding: .5rem 1rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
+.shared-device-toolbar .btn { min-height: 44px; overflow-wrap: anywhere; white-space: normal; }

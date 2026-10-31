@@ -38,7 +38,7 @@ assert.throws(()=>assertLocalSessionCredential({...parent,pin:undefined}),/crede
 lockLocalSession();assert.throws(()=>assertLocalSessionCredential({...parent,pin:undefined}),/credentials changed/i,'lock must not clear credential binding');
 unlockLocalAdult();bindLocalSessionCredential({...parent,pin:undefined});assert.doesNotThrow(()=>assertLocalSessionCredential({...parent,pin:undefined}));
 configureLocalSession(false);configureLocalSession(true);unlockLocalAdult();
-assert.doesNotThrow(()=>assertLocalSessionCredential(parent),'fresh configure clears binding for standalone fixtures until explicitly bound');
+assert.throws(()=>assertLocalSessionCredential(parent),/credentials changed/i,'a configured workspace without an explicit credential binding fails closed');
 configureLocalSession(false);
 console.log('shared-device storage: queued saves/updates, lock during updater, fresh success and password/PIN/recovery binding passed');
 

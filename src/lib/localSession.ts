@@ -16,7 +16,7 @@ export function bindLocalSessionCredential(parent: LocalParentCredential): void 
   credentialFingerprint = credentialKey(parent);
 }
 export function assertLocalSessionCredential(parent: LocalParentCredential): void {
-  if (enabled && credentialFingerprint !== null && credentialFingerprint !== credentialKey(parent))
+  if (enabled && (credentialFingerprint === null || credentialFingerprint !== credentialKey(parent)))
     throw Error('Local adult credentials changed. Lock and authenticate again.');
 }
 

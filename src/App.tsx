@@ -1788,7 +1788,7 @@ export default function App() {
           </nav>
           <div className="spacer" />
           {ROUTES && <a className="btn sm" href={siteUrl("/download")}>Download</a>}
-          {HOMESCHOOL && family && student && (
+          {HOMESCHOOL && family && student && !ANDROID_NATIVE && (
             <div className="row family-nav">
               <button className="btn sm" onClick={lockWorkspace}>Lock device</button>
               <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
@@ -1870,6 +1870,12 @@ export default function App() {
             )}
           </div>
         </header>
+      )}
+      {HOMESCHOOL && family && (ANDROID_NATIVE || fullScreen) && (student || parentUnlocked) && (
+        <section className="shared-device-toolbar" aria-label="Shared device controls">
+          <button className="btn sm" onClick={lockWorkspace}>Lock device</button>
+          {student && <button className="btn sm ghost" onClick={()=>api.go({name:"who"})} aria-label={`Student: ${student.name}. Switch student`}>Student: {student.name}</button>}
+        </section>
       )}
       <main className="main" id="main" tabIndex={-1} ref={mainRef}>
         {publicLearning && <section className="public-learning-banner" aria-label="Guest learning">
