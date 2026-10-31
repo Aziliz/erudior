@@ -18,6 +18,13 @@ const errors=[],checks=[],screenshots=[];
 const heading=name=>page.getByRole('heading',{name,exact:true});
 const button=name=>page.getByRole('button',{name,exact:true});
 const locked=()=>page.getByRole('region',{name:'Locked shared device',exact:true});
+// Playwright's waitForFunction treats a Promise as truthy before it resolves.
+// Await persistence predicates in the host and only accept a literal true.
+async function waitForPersisted(predicate,arg,target=page){
+ const deadline=Date.now()+15_000;let actual;
+ do{actual=await target.evaluate(predicate,arg);if(actual===true)return;await new Promise(resolve=>setTimeout(resolve,50));}while(Date.now()<deadline);
+ assert.equal(actual,true,'durable state did not reach the expected condition within 15 seconds');
+}
 async function authenticate(value=activePassword){
  if(await button('Use password instead').count())await button('Use password instead').click();
  await page.getByLabel(/^(Parent|Teacher) password$/).fill(value);
@@ -135,7 +142,7 @@ try{
    page=mainPage;await page.bringToFront();
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();
    await page.getByLabel('PIN for quicker sign-in (optional, 4 to 8 digits)',{exact:true}).fill('7319');await button('Turn on PIN').click();await authenticate();
-   await page.waitForFunction(async()=>!!(await(await import('/src/lib/family.ts')).loadFamily()).parent.pin);
+   await waitForPersisted(async()=>!!(await(await import('/src/lib/family.ts')).loadFamily()).parent.pin);
    const credentialDiagnostic=await second.evaluate(async()=>{
     const session=await import('/src/lib/localSession.ts'),family=await(await import('/src/lib/family.ts')).loadFamily();
     let rejected=false,oldRejected=false;try{session.assertLocalSessionCredential(family.parent);}catch{rejected=true;}try{session.assertLocalSessionCredential(JSON.parse(window.syntheticCredentialBefore));}catch{oldRejected=true;}
@@ -149,7 +156,7 @@ try{
    await second.bringToFront();await second.evaluate(()=>window.dispatchEvent(new Event('focus')));
    // The lock region can also be the temporary background concealment screen.
    // Prove authority was actually revoked, independently of its visibility.
-   await second.waitForFunction(async()=>(await import('/src/lib/localSession.ts')).localSessionLocked());
+   await waitForPersisted(async()=>(await import('/src/lib/localSession.ts')).localSessionLocked(),undefined,second);
    assert.equal(await second.evaluate(async id=>(await(await import('/src/lib/storage.ts')).loadProfileProgress(id)).staleTabMutation,ids[0]),undefined);
    await second.getByRole('region',{name:'Locked shared device',exact:true}).waitFor();
    page=second;await button('Unlock device').click();await page.getByLabel('PIN',{exact:true}).fill('7319');await button('Open').click();
@@ -159,7 +166,7 @@ try{
    await audit(`${prefix}-new-pin-resumes-other-tab`);await second.close();page=mainPage;await page.bringToFront();
    // Repeated wrong PIN attempts persist, including after a full document reload.
    await page.goto(origin+'/parent/planning');await page.getByLabel('PIN',{exact:true}).waitFor();
-   for(let n=1;n<=5;n++){await page.getByLabel('PIN',{exact:true}).fill('0000');await button('Open').click();await page.waitForFunction(async expected=>(await(await import('/src/lib/family.ts')).loadFamily()).parent.failures===expected,n);}
+   for(let n=1;n<=5;n++){await page.getByLabel('PIN',{exact:true}).fill('0000');await button('Open').click();await waitForPersisted(async expected=>(await(await import('/src/lib/family.ts')).loadFamily()).parent.failures===expected,n);}
    assert(await button('Open').isDisabled());await page.reload();await page.getByLabel('PIN',{exact:true}).waitFor();assert(await button('Open').isDisabled(),'PIN cooldown survives reload');await audit(`${prefix}-pin-lockout`);
    await page.clock.fastForward(61_000);await page.waitForFunction(()=>!document.querySelector('button[type=submit]')?.disabled);await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
    // Correct PIN really opens a restricted learner, not the adult workspace.
@@ -179,7 +186,7 @@ try{
     acceptDialogs=false;
    }
    await restoreBackup(true);
-   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Students',exact:true}).click();acceptDialogs=true;await button('Remove Synthetic Bob').click();await authenticate();await page.waitForFunction(async id=>!(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]);acceptDialogs=false;
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Students',exact:true}).click();acceptDialogs=true;await button('Remove Synthetic Bob').click();await authenticate();await waitForPersisted(async id=>!(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]);acceptDialogs=false;
    const tombstone=await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');return {deleted:JSON.parse(await s.loadState('classroom-submissions')).deletedStudentIds.includes(id),progress:await s.loadState('progress-'+id)};},ids[1]);assert.equal(tombstone.deleted,true);assert.equal(tombstone.progress,null);
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();await restoreBackup(false);await audit(`${prefix}-deleted-backup-rejected`);
    assert.equal(await page.evaluate(async id=>(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]),false,'backup cannot resurrect erased learner');

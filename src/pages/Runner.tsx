@@ -80,12 +80,16 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const activeSince = useRef(Date.now());
   const finishing = useRef(false);
   const [saveError,setSaveError]=useState("");
-  const sessionScope = useRef({save:api.saveLearnerSession,family:!!api.family});
+  // Locking keeps this draft mounted. A fresh authorization may replace its writer,
+  // but never its original learner; older callbacks retain their original API lease.
+  const sessionScope = useRef({profile:api.student?.id ?? null,family:!!api.family});
   const saveScopedSession = useCallback(async (content: string | null) => {
-    if(sessionScope.current.save) return sessionScope.current.save(content);
+    if(sessionScope.current.profile !== (api.student?.id ?? null) || sessionScope.current.family !== !!api.family)
+      throw Error("Learner changed. Reopen this session for its original learner.");
+    if(api.saveLearnerSession) return api.saveLearnerSession(content);
     if(sessionScope.current.family) throw Error("Learner session authorization is unavailable. Reopen the app.");
     return saveSessionState(content);
-  }, []);
+  }, [api.saveLearnerSession, api.student?.id, !!api.family]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const block = blocks[blockIdx];

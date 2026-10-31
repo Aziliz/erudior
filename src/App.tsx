@@ -786,7 +786,8 @@ export default function App() {
         const current=await loadFamily();
         if(!alive)return;
         if(!current || (studentId && (!current.students.some(s=>s.id===studentId) || !await store.competencyProfileExists(studentId)))) { lockWorkspace(); return; }
-        assertLocalSessionCredential(current.parent);
+        try { assertLocalSessionCredential(current.parent); }
+        catch { setFamilyState(current); lockWorkspace(); }
       } catch { if(alive)lockWorkspace(); }
       finally {checking=false;}
     };
@@ -1219,7 +1220,7 @@ export default function App() {
         if (studentId) unlockLocalLearner(studentId); else lockLocalSession();
         refreshLocalSession(x=>x+1);
       }
-      if (v.name !== "parent") adultAccess.current = { unlocked: false, parentView: false };
+      if (v.name !== "parent") { adultAccess.current = { unlocked: false, parentView: false }; setParentUnlocked(false); }
       // Starting a new session replaces the saved one, so ask first.
       if (v.name === "run" && !v.initial && resumable) {
         const s = runSummary(resumable);
@@ -1995,13 +1996,15 @@ export default function App() {
         {toastMsg}
       </div>
     </div>
-    {(localLocked || gate || concealed) && family && <div className="local-session-lock" role="region" aria-label="Locked shared device">
+    {(localLocked || gate || concealed) && family && <div className="local-session-lock" role="region" aria-label="Locked shared device" onKeyDown={e=>e.stopPropagation()} onKeyUp={e=>e.stopPropagation()}>
       <h1>Shared device locked</h1>
       <p>Your work is kept on this screen. Ask the {isClassroom(family) ? "teacher" : "parent"} to unlock it. This local lock does not encrypt device files.</p>
       {gate ? <>
         <p role="status">{gate.kind === "learner" ? `Authorize ${family.students.find(s=>s.id===gate.id)?.name ?? "learner"} to learn on this device.` : gate.kind === "sensitive" ? "Confirm adult access for this sensitive action." : "Confirm adult access to resume your work."}</p>
         <ParentGate key={gate.kind+":"+(gate.id ?? "")} family={family} api={{...api,setFamily:persistGateFamily,go:()=>{sensitiveResolver.current?.(null);sensitiveResolver.current=null;setGate(null);if(!studentId && view.name!=="parent"){lockedRef.current=false;setLocalLocked(false);}}}} onUnlock={f=>void finishGate(f)} />
       </> : <button className="btn primary" onClick={()=>setGate({kind:"resume",id:studentId ?? undefined})}>Unlock device</button>}
+      <p className="small muted">If this learner was removed or Family was restored elsewhere, reload the saved workspace. Saved records are kept; unsaved work on this screen will be discarded.</p>
+      <button className="btn ghost" onClick={async()=>{ if(await store.confirmAction("Reload saved Family and discard unsaved work on this screen? Saved records are kept.","Reload locked workspace"))window.location.reload(); }}>Reload locked workspace</button>
     </div>}
     </>
   );
