@@ -1,4 +1,4 @@
-# Local shared-device sessions — implementation in progress
+# Local shared-device sessions
 
 Scope: the existing **Parent dashboard PIN protection and child account switching** roadmap capability. This is a local interface boundary, not encryption at rest, verified guardianship, online authentication, or protection from an operating-system administrator/devtools. Public account-free learning is unchanged.
 
@@ -11,7 +11,7 @@ Scope: the existing **Parent dashboard PIN protection and child account switchin
 - Homeschool and classroom roles, progress isolation, course-review receipts/revocation, CAS/tombstone safety, offline authoring/export, and academic evidence semantics are preserved.
 - Synthetic real-App browser coverage includes startup/reload, sibling selection, wrong PIN/recovery/cancel, history, late callbacks, idle/background, drafts, backup restore, deletion, and desktop/mobile/light/dark accessibility. Native lifecycle behavior is separately verified where supported.
 
-Implementation and verification are unfinished. Do not mark Done or publish an installer based on this checkpoint.
+Implemented in PR #126, merged as `7486fbb7`. The complete local workflow passed exact-head browser/native acceptance and all eight postmerge validation/deployment workflows. Installer delivery remains separate.
 
 ## Current implementation and recovery behavior
 
@@ -23,6 +23,8 @@ Credential material is bound to the local session. Changes from another app view
 
 Full backup restoration spans multiple files, not a single database transaction. Every stage checks its originating authorization, credentials are installed last, and imported approvals/session grants do not become authority. If interrupted, the UI reports that some files may already have changed and asks for an explicit authenticated retry. Learner-deletion tombstones continue to reject resurrection from old backups. Device disk encryption, separate OS accounts and secure handling of exported backups remain separate protections.
 
-## Validation still required
+## Validation and delivery evidence
 
-The real-App browser and isolated Android emulator suites are required before this capability is marked Done. The Android harness uses the actual App/WebView and native storage on a disposable emulator, after the existing updater-retention assertions, without changing production updater endpoints, trust or signing. Simulated browser visibility events alone are not evidence of native lifecycle behavior. No physical-device result or new installer release is implied.
+The real-App browser and isolated Android emulator suites passed at feature head `e26f2710`. Android run `41154119977` proves real HOME for 32 seconds returns locked, fresh adult unlock, force-stop/restart guarded selection and persisted notebook, alongside unchanged updater/SAF checks. Desktop/light and 320px/dark browser acceptance proves startup, sibling isolation, stale writes, drafts, PIN cooldown, cross-tab revocation, recovery, backup/deletion, keyboard and accessibility behavior. All eight exact-merge checks passed, including full regression, browser/live protocols, integrity, native persistence, signing and deployments. The Android harness uses the actual App/WebView and native storage on a disposable emulator, after the existing updater-retention assertions, without changing production updater endpoints, trust or signing. Simulated browser visibility events alone are not evidence of native lifecycle behavior. No physical-device result or new installer release is implied.
+
+Read-only live public startup, Community and regular/guest parent planning guidance were verified against `index-B8yzTSKB.js` without creating accounts, Family/PIN settings or learner records. Public Android preview 0.25.0/build `7717d984` predates this capability; a future app release must carry it. Native saved-note screenshots frame the workspace chrome rather than the below-fold note; actual DOM and process-restart assertions prove saved-note persistence.
