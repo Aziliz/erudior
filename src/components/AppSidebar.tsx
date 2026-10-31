@@ -15,8 +15,8 @@ export interface SidebarPreferences {
 }
 
 /** Navigation only: authority remains in App.go and the existing adult/session gates.
- * A native modal dialog provides focus containment and makes the page underneath
- * inert. It is removed synchronously when the shared-device surface is concealed.
+ * The native modal makes underlying content inert. Explicit Tab wrapping also
+ * prevents focus escaping to browser chrome at either end of the drawer.
  */
 export default function AppSidebar({ api, current, managementLabel, showCommunity, blocked,
   preferences, onLock, onOpen }: {
@@ -53,6 +53,22 @@ export default function AppSidebar({ api, current, managementLabel, showCommunit
       (panel === "navigation" ? closeButton.current : title.current)?.focus();
     } else if (modal.open) modal.close();
   }, [open, panel, blocked]);
+  useLayoutEffect(() => {
+    if (!open || blocked) return;
+    const trap = (event: KeyboardEvent) => {
+      const modal = dialog.current;
+      if (event.key !== "Tab" || !modal?.open) return;
+      const items = [...modal.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        .filter(node => node.getClientRects().length > 0 && !node.closest("[hidden], [inert]"));
+      const index = items.indexOf(document.activeElement as HTMLElement);
+      if (index < 0 || (event.shiftKey ? index === 0 : index === items.length - 1)) {
+        event.preventDefault();
+        (event.shiftKey ? items[items.length - 1] : items[0])?.focus();
+      }
+    };
+    window.addEventListener("keydown", trap, true);
+    return () => window.removeEventListener("keydown", trap, true);
+  }, [open, blocked]);
   // A route change, including an external Back action, never leaves stale menu UI.
   useLayoutEffect(() => { dismiss(); }, [current]);
   useLayoutEffect(() => {
