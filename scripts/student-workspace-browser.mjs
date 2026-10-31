@@ -161,15 +161,15 @@ try {
     await entry('Synthetic note').getByText('Offline persisted note',{exact:true}).waitFor();
     await context.setOffline(false); await page.reload();
     await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();
-    await heading('Library').waitFor(); await workspace(); await button('Notebook').click();
+    await heading('Student dashboard and notebook').waitFor(); await button('Notebook').click();
     await entry('Synthetic note').getByText('Offline persisted note',{exact:true}).waitFor();
     await audit(`${theme}-${width}-notebook-reloaded`);
 
     // Link targets can disappear, but the student's independent note remains useful.
     await page.evaluate(async id => (await import('/src/lib/storage.ts')).deleteCourse(id),ids.courseId);
     await page.reload(); await heading("Who's learning?").waitFor();
-    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner(); await heading('Library').waitFor();
-    await workspace(); await button('Notebook').click();
+    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();
+    await heading('Student dashboard and notebook').waitFor(); await button('Notebook').click();
     await entry('Synthetic note').getByText('Linked resource is not installed. Your entry is kept.',{exact:true}).waitFor();
     assert.equal(await entry('Synthetic note').getByRole('button',{name:/^Open linked resource:/}).count(),0);
     // Switching local profiles never displays or carries Alice's notebook into Bob's.

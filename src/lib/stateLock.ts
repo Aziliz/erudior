@@ -33,19 +33,19 @@ export interface StateBackend {
 
 export function stateTransactions(backend: StateBackend) {
   return {
-    save(name: string, value: string | null, guard: () => void = () => {}): Promise<void> {
-      return withStateLock(name, () => { guard(); return backend.write(name, value); });
+    save(name: string, value: string | null, guard: () => void | Promise<void> = () => {}): Promise<void> {
+      return withStateLock(name, async () => { await guard(); return backend.write(name, value); });
     },
     /** Updaters must be pure and must not call named-state mutations. Native CAS
      * contention may rerun the updater with newer content. Read/write helpers are
      * deliberately unlocked here: reacquiring this lock would deadlock. */
-    update(name: string, updater: (old: string | null) => string | Promise<string>, guard: () => void = () => {}): Promise<string> {
+    update(name: string, updater: (old: string | null) => string | Promise<string>, guard: () => void | Promise<void> = () => {}): Promise<string> {
       return withStateLock(name, async () => {
         for (let attempt = 0; attempt < 16; attempt++) {
-          guard();
+          await guard();
           const old = await backend.read(name);
           const value = await updater(old);
-          guard();
+          await guard();
           if (typeof value !== "string") throw Error("State updater must return text");
           if (backend.compareAndSwap) {
             if (!await backend.compareAndSwap(name, old, value)) continue;

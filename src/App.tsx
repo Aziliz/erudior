@@ -645,16 +645,18 @@ export default function App() {
 
   const saveCourse = useCallback(
     async (course: Course, options?: { enroll?: boolean }) => {
+      renderSessionGuard();
       // Bank/deck editors share this boundary: no alternate editor may persist
       // deletion of a question still used by a lesson or reading section.
       const issues = validateCourseIntegrity(course);
       if (issues.length) throw Error("Cannot save course: " + issues.map(issue => `${issue.path}: ${issue.message}`).join("; "));
       await store.saveCourse(course);
+      renderSessionGuard();
       // Shared authored imports must not mutate whichever learner switches in while I/O is pending.
       if (options?.enroll !== false) await enroll(course.id);
       await reload();
     },
-    [reload, enroll],
+    [reload, enroll, sessionEpoch],
   );
 
   const assignmentBlock = useCallback(
@@ -765,11 +767,14 @@ export default function App() {
     if (!family || (!studentId && !parentUnlocked)) return;
     let lastActivity=Date.now(), hiddenAt:number|null=null;
     const activity=()=>{ if (!document.hidden && !lockedRef.current) lastActivity=Date.now(); };
-    const visibility=()=>{ setConcealed(document.hidden); if(document.hidden) hiddenAt=Date.now(); else { if(hiddenAt!==null && Date.now()-hiddenAt>=30_000) lockWorkspace(); hiddenAt=null; } };
+    const conceal=()=>{ setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
+    const reveal=()=>{ if(document.hidden)return; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
+    const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
     const tick=window.setInterval(()=>{ if(lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lastActivity>=10*60_000)lockWorkspace(); },1000);
     document.addEventListener("visibilitychange",visibility);
+    window.addEventListener("blur",conceal); window.addEventListener("focus",reveal);
     for(const name of ["pointerdown","keydown","touchstart"])document.addEventListener(name,activity,{passive:true});
-    return()=>{window.clearInterval(tick);document.removeEventListener("visibilitychange",visibility);for(const name of ["pointerdown","keydown","touchstart"])document.removeEventListener(name,activity);};
+    return()=>{window.clearInterval(tick);document.removeEventListener("visibilitychange",visibility);window.removeEventListener("blur",conceal);window.removeEventListener("focus",reveal);for(const name of ["pointerdown","keydown","touchstart"])document.removeEventListener(name,activity);};
   }, [!!family, studentId, parentUnlocked, sessionEpoch, lockWorkspace]);
 
   useEffect(() => {
@@ -795,7 +800,7 @@ export default function App() {
     if (!expected) throw Error("Family changed. Reopen the workspace.");
     if (authorization) {
       authorization(); const fresh = await loadFamily(); authorization();
-      if (!fresh || JSON.stringify({...fresh,parent:expected.parent}) !== JSON.stringify(expected) || JSON.stringify(fresh.parent.password) !== JSON.stringify(expected!.parent.password) || JSON.stringify(fresh.parent.pin) !== JSON.stringify(expected.parent.pin)) throw Error("Family changed during authentication. Reopen settings.");
+      if (!fresh || JSON.stringify({...fresh,parent:expected.parent}) !== JSON.stringify(expected) || JSON.stringify(fresh.parent.password) !== JSON.stringify(expected!.parent.password) || JSON.stringify(fresh.parent.pin) !== JSON.stringify(expected.parent.pin) || JSON.stringify(fresh.parent.recovery) !== JSON.stringify(expected.parent.recovery)) throw Error("Family changed during authentication. Reopen settings.");
       const requestedParent = f.parent;
       f = {...f,parent:{...fresh.parent,...requestedParent,failures:fresh.parent.failures,lockedUntil:fresh.parent.lockedUntil}};
       expected=fresh;
@@ -1147,6 +1152,7 @@ export default function App() {
     documentLearner: documentEngine.learner,
     loadInterventionTasks: () => interventionTasks.load(),
     importInterventionTask: async () => {
+      renderSessionGuard();
       const context = await interventionTasks.context();
       const raw = await store.pickJsonFile(); if (raw === null) return false;
       const task = parseInterventionTask(raw);
@@ -1161,6 +1167,7 @@ export default function App() {
       return true;
     },
     exportInterventionTask: async (id,planId) => {
+      renderSessionGuard();
       const state = await interventionSupervisor.load(id), plan = state.plans.find(p=>p.id===planId);
       if (!plan || interventionStatus(state,planId) !== "active") throw Error("Only an active plan can be shared as a learner task.");
       await validateInterventionActivities((await store.listCourses()).courses,plan.skillId,plan.activities);
@@ -1170,6 +1177,7 @@ export default function App() {
       await store.exportText(JSON.stringify(taskFromPlan(currentPlan)),"erudior-support-task.json","Learner support task");
     },
     launchInterventionTask: async (task,activity) => {
+      renderSessionGuard();
       const context = await interventionTasks.context();
       if (activity.kind === "practice" && resumable && !await store.confirmAction("Starting this assigned practice replaces the unfinished session. Continue?", "Start assigned practice")) return;
       const ready = await interventionTasks.prepare(task,activity);
@@ -1195,6 +1203,7 @@ export default function App() {
     },
     presentationLibrary,
     validatePresentation: async deck => {
+      renderSessionGuard();
       if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before delivery.");
       const before = await loadFamily();
       const fresh = await store.listCourses();
@@ -1236,10 +1245,12 @@ export default function App() {
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
     saveLearnerSession,
     updateLearningPathways: async (fn) => {
+      renderSessionGuard();
       const selected = studentId;
       const selection = studentSelectionRequest.current;
       const generation = progressRef.current.anonymousGeneration ?? 0;
       const assertProfile = async () => {
+        renderSessionGuard();
         if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the pathway.");
         if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
       };
@@ -1258,13 +1269,16 @@ export default function App() {
       }
     },
     refreshStudentWorkspace: async () => {
+      renderSessionGuard();
       const selected = studentId;
       const selection = studentSelectionRequest.current;
       const priorWorkspace = JSON.stringify(progressRef.current.studentWorkspace);
       const generation = progressRef.current.anonymousGeneration ?? 0;
       const fresh = await store.loadProfileProgress(selected);
+      renderSessionGuard();
       if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
       if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+      renderSessionGuard();
       if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
       if (selected === null && ((fresh.anonymousGeneration ?? 0) !== generation || (progressRef.current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload the app before continuing.");
       if (JSON.stringify(progressRef.current.studentWorkspace) !== priorWorkspace) throw Error("Workspace changed while refreshing. Try again.");
@@ -1273,12 +1287,14 @@ export default function App() {
       setProgressState(merged);
     },
     updateStudentWorkspace: async (fn) => {
+      renderSessionGuard();
       const selected = studentId;
       const selection = studentSelectionRequest.current;
       const generation = progressRef.current.anonymousGeneration ?? 0;
       const assertProfile = async (current?: Progress) => {
         const assertSelection = () => {
-          if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+          renderSessionGuard();
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
           if (selected === null && ((progressRef.current.anonymousGeneration ?? 0) !== generation || current && (current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload before editing a workspace.");
         };
         assertSelection();
@@ -1296,8 +1312,10 @@ export default function App() {
     saveCourse,
     addCourse,
     importInteroperabilityBank: async (xml) => {
+      renderSessionGuard();
       // A file never carries adult authority, a published source identity, or credit.
       const assertAdult = async () => {
+        renderSessionGuard(); assertLocalAdult();
         if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area before importing content.");
         const current = await loadFamily();
         if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed; reopen content exchange.");
@@ -1311,6 +1329,7 @@ export default function App() {
       try { await reload(); } catch { toast("The new bank was saved. Reopen the library to refresh its listing."); }
     },
     saveBank: async (bank) => {
+      renderSessionGuard();
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);
         if (!course) throw new Error("This bank's course is missing.");
@@ -1321,6 +1340,7 @@ export default function App() {
       }
     },
     deleteBank: async (bank) => {
+      renderSessionGuard();
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);
         if (course) await saveCourse({ ...course, banks: course.banks.filter((b) => b.id !== bank.id) });
@@ -1355,10 +1375,12 @@ export default function App() {
     allCourses: courses,
     assignmentBlock,
     startAssignedCourse: async id => {
+      renderSessionGuard();
       const course = courses.find(c => c.id === id);
       if (!course || CATALOG.some(c => c.id === id)) { await addCourse(id); return; }
       const selected = store.activeStudent(), capturedFamily = family, selectedRequest = studentSelectionRequest.current;
       const guard = async () => {
+        renderSessionGuard();
         if (!selected || store.activeStudent() !== selected || selectedRequest !== studentSelectionRequest.current) throw Error("Learner changed. Reopen the assigned course.");
         const fresh = await loadFamily();
         if (!fresh || JSON.stringify(fresh) !== JSON.stringify(capturedFamily) || !await store.competencyProfileExists(selected)) throw Error("Assignments changed. Reload Family before starting.");
@@ -1376,6 +1398,7 @@ export default function App() {
       } catch(e) { toast((e as Error).message); }
     },
     assignReviewedCommunityCourse: async (learnerId, course, digest, subject, scope, installedRaw, remote) => {
+      renderSessionGuard();
       if (!family || isClassroom(family)) throw Error("Open the local Family workspace to assign a personally reviewed course.");
       const expected = family;
       const authorize = async () => { scope(); await api.authorizeAcademicRecords!(learnerId); scope(); };
@@ -1389,11 +1412,13 @@ export default function App() {
       const issues = validateCourseIntegrity(course); if (issues.length) throw Error("This course has invalid content references and cannot be assigned.");
       await authorize();
       if (!await store.compareAndSwapCourse(installedRaw,course)) throw Error("Installed source changed during review. Cancel and review the current source; no course was overwritten.");
-      const guard = async () => { await authorize(); const stored = await store.loadStoredCourseSnapshot(course.id); if (!stored || await parentCourseDigest(stored.course) !== digest) throw Error("Installed source changed. Review the current source again."); await authorize(); };
+      const guard = async () => {
+        renderSessionGuard(); await authorize(); const stored = await store.loadStoredCourseSnapshot(course.id); if (!stored || await parentCourseDigest(stored.course) !== digest) throw Error("Installed source changed. Review the current source again."); await authorize(); };
       const next = await saveParentCourseAssignment(expected,learnerId,course.id,{courseId:course.id,subject,communityReview:makeParentCourseReview(learnerId,course,digest)},guard);
       setFamilyState(next); await reload();
     },
     removeParentAssignment: async (learnerId, courseId) => {
+      renderSessionGuard();
       if (!family) throw Error("Family is unavailable.");
       const next = await saveParentCourseAssignment(family,learnerId,courseId,null,async () => { await api.authorizeAcademicRecords!(learnerId); });
       setFamilyState(next);

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { configureLocalSession, unlockLocalAdult, unlockLocalLearner, lockLocalSession } from '../src/lib/localSession.ts';
+import { configureLocalSession, unlockLocalAdult, unlockLocalLearner, lockLocalSession, bindLocalSessionCredential, assertLocalSessionCredential } from '../src/lib/localSession.ts';
 const data = new Map<string,string>(), writes: string[] = [];
 let afterWrite: (()=>void) | undefined;
 (globalThis as any).isTauri = true;
@@ -51,3 +51,19 @@ await assert.rejects(deletion.deleteStudent('bob',family),/adult/i);
 assert.deepEqual(removed,[]);
 configureLocalSession(false);
 console.log('shared-device deletion: stale queued auth and learner attempt rejected before tombstone/data writes');
+
+// Different restored credentials cannot interrupt earlier evidence transactions.
+const oldParent={password:{salt:'synthetic',hash:'old',iterations:1},recovery:{salt:'synthetic',hash:'recovery-old',iterations:1}};
+const nextParent={password:{salt:'synthetic',hash:'new',iterations:1},pin:{salt:'synthetic',hash:'new-pin',iterations:1},recovery:{salt:'synthetic',hash:'recovery-new',iterations:1}};
+const oldFamily={format:'erudior-family',version:1,students:[],parent:oldParent,reminders:[],done:[]};
+data.clear();writes.length=0;data.set('family',JSON.stringify(oldFamily));
+configureLocalSession(true);unlockLocalAdult();bindLocalSessionCredential(oldParent);
+const restored=await restoreContents(JSON.stringify({...JSON.parse(backup),family:{...oldFamily,parent:nextParent}}),{courses:[],banks:[]});
+assert.deepEqual(restored,{students:0,courses:0});
+assert.deepEqual(JSON.parse(data.get('family')!).parent,nextParent);
+assert.equal(writes.at(-1),'family');
+assert(writes.indexOf('learner-privacy')>=0 && writes.indexOf('learner-privacy')<writes.lastIndexOf('family'));
+assert(writes.indexOf('classroom-submissions')<writes.lastIndexOf('family'));
+assert.throws(()=>assertLocalSessionCredential(nextParent),/credentials changed/i,'restoring credentials must not authenticate imported authority');
+configureLocalSession(false);
+console.log('shared-device restore: different credentials installed last after all evidence; restored credentials do not carry session authority');

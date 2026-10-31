@@ -410,8 +410,6 @@ export async function restoreContents(
   authorize();
   store.useStudentFiles(null);
   await checked(() => store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true, guard: authorize }));
-  if (restoredFamily) await checked(() => saveFamily(restoredFamily));
-  else await writeState("family", null);
   await writeState("presentations", presentations);
   await writeState("interventions", interventions);
   await writeState("document-engine", documentEngine);
@@ -430,6 +428,11 @@ export async function restoreContents(
       return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported,deletedStudentIds})));
     });
   } else await writeState("classroom-submissions", classroomSubmissions);
+  // Install credentials last. Every earlier restore write is authorized against
+  // the currently authenticated Family, never credentials imported by a backup.
+  // The caller reloads immediately after success; imported bytes grant no session.
+  if (restoredFamily) await checked(() => saveFamily(restoredFamily));
+  else await writeState("family", null);
   authorize();
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

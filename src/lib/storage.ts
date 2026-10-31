@@ -185,7 +185,18 @@ export async function updateFamilyAuthentication(expected: import("./family").Fa
 }
 
 /** Write/delete a named state file, serialized with updateState callers. */
-export const saveState = (name: string, content: string | null): Promise<void> => name === "progress" || name === "session" ? saveAnonymousState(name, content) : namedState.save(name, content, captureLocalSession());
+async function assertStoredSession(lease: () => void): Promise<void> {
+  lease();
+  if(localSessionEnabled()) {
+    const raw=await loadState("family"); lease();
+    if(!raw)throw Error("Family was removed. Reopen the app.");
+    assertLocalSessionCredential(JSON.parse(raw).parent);
+  }
+}
+export const saveState = (name: string, content: string | null): Promise<void> => {
+  const lease=captureLocalSession();
+  return name === "progress" || name === "session" ? saveAnonymousState(name, content) : namedState.save(name, content, () => assertStoredSession(lease));
+};
 async function saveAnonymousState(name:"progress"|"session",content:string|null):Promise<void>{
   if(name === "session")return saveAnonymousSession(content);
   await updateState(name,()=>content??JSON.stringify(emptyProgress()));
@@ -199,8 +210,8 @@ export const updateState = (name: string, updater: (old: string | null) => strin
   const lease=captureLocalSession();
   const guarded=async(old:string|null)=>{
     lease();
-    if(localSessionEnabled()) { const raw=await loadState("family"); lease(); if(!raw)throw Error("Family was removed. Reopen the app."); assertLocalSessionCredential(JSON.parse(raw).parent); }
-    const result=await updater(old); lease(); return result;
+    await assertStoredSession(lease);
+    const result=await updater(old); await assertStoredSession(lease); return result;
   };
   return name === "progress" || name === "session" ? updateAnonymousState(name,guarded) : namedState.update(name,guarded,lease);
 };

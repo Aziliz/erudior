@@ -5,7 +5,7 @@ import { adultLabel, classesOf, gradeLabel, isClassroom, type Family, type Stude
 export default function WhoPage({ api, family }: { api: AppApi; family: Family }) {
   const card = (s: Student) => (
     <li key={s.id}>
-      <button className="who-card" aria-current={api.student?.id === s.id ? "true" : undefined} onClick={() => api.chooseStudent(s.id)}>
+      <button className="who-card" aria-current={api.student?.id === s.id ? "true" : undefined} onClick={() => void api.chooseStudent(s.id).catch(e=>api.toast((e as Error).message))}>
         <span className="who-initial" aria-hidden="true">
           {s.name.slice(0, 1).toUpperCase()}
         </span>

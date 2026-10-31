@@ -12,13 +12,15 @@ const out=process.env.BROWSER_ARTIFACTS || path.join(root,'test-results','shared
 await mkdir(out,{recursive:true});
 const axe=await readFile(new URL('../node_modules/axe-core/axe.min.js',import.meta.url),'utf8');
 const password='Synthetic shared device password 2026';
+let activePassword=password,acceptDialogs=false;
 let server,browser,page,current='startup';
 const errors=[],checks=[],screenshots=[];
 const heading=name=>page.getByRole('heading',{name,exact:true});
 const button=name=>page.getByRole('button',{name,exact:true});
 const locked=()=>page.getByRole('region',{name:'Locked shared device',exact:true});
-async function authenticate(value=password){
- await page.getByLabel('Parent password',{exact:true}).fill(value);
+async function authenticate(value=activePassword){
+ if(await button('Use password instead').count())await button('Use password instead').click();
+ await page.getByLabel(/^(Parent|Teacher) password$/).fill(value);
  await button('Open').click();
 }
 async function select(name){
@@ -28,12 +30,12 @@ async function select(name){
  await page.getByRole('status').filter({hasText:`Authorize ${name} to learn`}).waitFor();
  await authenticate(); await heading('Library').waitFor();
 }
-async function seed(count){return page.evaluate(async({password,count})=>{
+async function seed(count,mode='homeschool'){return page.evaluate(async({password,count,mode})=>{
  const store=await import('/src/lib/storage.ts'),{createFamily}=await import('/src/lib/family.ts');
- const {family}=await createFamily({mode:'homeschool',state:'',route:'Synthetic local acceptance',year:{start:'2026-08-01',end:'2027-07-31'},dailyMinutes:180,password,students:[{name:'Synthetic Alice',grade:7},{name:'Synthetic Bob',grade:6}].slice(0,count)});
+ const {family,recoveryCode}=await createFamily({mode,className:'Synthetic classroom',state:'',route:'Synthetic local acceptance',year:{start:'2026-08-01',end:'2027-07-31'},dailyMinutes:180,password,students:[{name:'Synthetic Alice',grade:7},{name:'Synthetic Bob',grade:6}].slice(0,count)});
  for(const s of family.students)await store.updateProfileProgress(s.id,()=>({...store.emptyProgress(),catalogV1:true,enrolled:[]}));
- return family.students.map(s=>s.id);
-},{password,count});}
+ return {ids:family.students.map(s=>s.id),recoveryCode};
+},{password,count,mode});}
 async function audit(name){
  current=name;await page.evaluate(()=>document.fonts.ready);
  assert(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)<=1,`${name}: body overflow`);
@@ -58,8 +60,8 @@ try{
    current=`${prefix}-${count}-startup`;
    const context=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce'});
    await context.route('**/*',route=>{const u=new URL(route.request().url());return u.origin===origin||['data:','blob:'].includes(u.protocol)?route.continue():route.abort();});
-   page=await context.newPage();await page.clock.install();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));page.on('dialog',dialog=>dialog.dismiss());
-   await page.goto(origin);await heading('Library').waitFor();const ids=await seed(count);await page.reload();
+   page=await context.newPage();await page.clock.install();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));page.on('dialog',dialog=>acceptDialogs?dialog.accept():dialog.dismiss());
+   await page.goto(origin);await heading('Library').waitFor();activePassword=password;acceptDialogs=false;const {ids,recoveryCode}=await seed(count);await page.reload();
    await heading("Who's learning?").waitFor();assert.equal(await heading('Library').count(),0,'startup never enters a learner, even the only learner');
    await audit(`${prefix}-${count}-guarded-chooser`);
    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await locked().waitFor();
@@ -119,10 +121,53 @@ try{
    assert.equal(await page.getByLabel('New password',{exact:true}).inputValue(),'Synthetic replacement never submitted','canceled reauth preserves unsaved settings');
    await page.reload();await heading("Who's learning?").or(heading('Parent area')).waitFor();
    // Direct parent route must still require the original credential after cancellation.
-   await page.goto(origin+'/parent');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
-   checks.push({width,theme,workflow:'two learners; explicit same/sibling authorization; private notebook; preserved unsaved draft; lock/history concealment; delayed pre-lock mutation rejected after reauthentication; idle timeout; simulated background visibility handler; sensitive settings cancellation; reload original credential'});
+   await page.goto(origin+'/parent/planning');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
+   // A second real App tab holds a learner grant before credentials change.
+   const mainPage=page,second=await context.newPage();page=second;await page.clock.install();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(`${current}: ${e.message}`));
+   await page.goto(origin);await select('Synthetic Alice');await workspace();await button('Add note').click();
+   await page.getByRole('form',{name:'Add note',exact:true}).getByLabel('Title',{exact:true}).fill('Rejected stale tab note');
+   page=mainPage;await page.bringToFront();
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();
+   await page.getByLabel('PIN for quicker sign-in (optional, 4 to 8 digits)',{exact:true}).fill('7319');await button('Turn on PIN').click();await authenticate();
+   await page.waitForFunction(async()=>!!(await(await import('/src/lib/family.ts')).loadFamily()).parent.pin);
+   const staleTabResult=await second.evaluate(async id=>{try{await(await import('/src/lib/storage.ts')).updateProfileProgress(id,p=>({...p,staleTabMutation:true}));return 'unexpected success';}catch(e){return e.message;}},ids[0]);
+   assert.match(staleTabResult,/credential|session|lock|authority/i,'changed PIN invalidates another tab write grant');
+   await second.bringToFront();await second.evaluate(()=>window.dispatchEvent(new Event('focus')));await second.getByRole('region',{name:'Locked shared device',exact:true}).waitFor();await second.close();await page.bringToFront();
+   // Repeated wrong PIN attempts persist, including after a full document reload.
+   await page.goto(origin+'/parent/planning');await page.getByLabel('PIN',{exact:true}).waitFor();
+   for(let n=1;n<=5;n++){await page.getByLabel('PIN',{exact:true}).fill('0000');await button('Open').click();await page.waitForFunction(async expected=>(await(await import('/src/lib/family.ts')).loadFamily()).parent.failures===expected,n);}
+   assert(await button('Open').isDisabled());await page.reload();await page.getByLabel('PIN',{exact:true}).waitFor();assert(await button('Open').isDisabled(),'PIN cooldown survives reload');await audit(`${prefix}-pin-lockout`);
+   await page.clock.fastForward(61_000);await page.waitForFunction(()=>!document.querySelector('button[type=submit]')?.disabled);await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
+   // Correct PIN really opens a restricted learner, not the adult workspace.
+   await page.goto(origin);await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await page.getByLabel('PIN',{exact:true}).fill('7319');await button('Open').click();await heading('Library').waitFor();assert.equal(await page.getByRole('navigation',{name:'Parent sections',exact:true}).count(),0);
+   await page.goto(origin+'/parent/planning');await button('Forgot the password?').click();await page.getByLabel('Recovery code',{exact:true}).fill(recoveryCode);activePassword='Recovered synthetic password 2026';await page.getByLabel('New password (8 characters or more)',{exact:true}).fill(activePassword);await button('Reset password').click();await heading('Password changed').waitFor();
+   const replacementCode=(await page.locator('.recovery-code').innerText()).trim();assert.notEqual(replacementCode,recoveryCode);const recovered=await page.evaluate(async()=>(await import('/src/lib/family.ts')).loadFamily());assert.equal(recovered.parent.pin,undefined,'recovery removes PIN');await audit(`${prefix}-recovery-rotates-code`);await button('Open the area').click();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
+   await page.goto(origin+'/parent/planning');await button('Forgot the password?').click();await page.getByLabel('Recovery code',{exact:true}).fill(recoveryCode);await page.getByLabel('New password (8 characters or more)',{exact:true}).fill('Must not replace recovered password');await button('Reset password').click();await page.getByRole('alert').filter({hasText:"recovery code isn't right"}).waitFor();await button('Back').click();await authenticate();
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();
+   // Export through the actual download and restore through the actual file picker.
+   const backupPass='Synthetic encrypted backup passphrase',backupPath=path.join(out,`${prefix}-synthetic-backup.json`);
+   await page.getByLabel('Backup passphrase',{exact:true}).fill(backupPass);const downloaded=page.waitForEvent('download');await button('Back up now').click();await authenticate();const download=await downloaded;await download.saveAs(backupPath);
+   const envelope=JSON.parse(await readFile(backupPath,'utf8'));assert.equal(envelope.format,'examiner-backup-encrypted');assert.equal(JSON.stringify(envelope).includes('Synthetic Alice'),false,'backup output is encrypted');
+   async function restoreBackup(expectSuccess){
+    await page.getByLabel('Passphrase of the backup to restore',{exact:true}).fill(backupPass);const picker=page.waitForEvent('filechooser');await button('Restore from backup…').click();await authenticate();const chooser=await picker;acceptDialogs=true;const restored=expectSuccess?page.waitForEvent('load'):null;await chooser.setFiles(backupPath);
+    if(expectSuccess){await restored;await page.goto(origin+'/parent/planning');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();}
+    else await page.getByRole('alert').filter({hasText:'Backup contains records for a deleted learner.'}).waitFor();
+    acceptDialogs=false;
+   }
+   await restoreBackup(true);
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Students',exact:true}).click();acceptDialogs=true;await button('Remove Synthetic Bob').click();await authenticate();await page.waitForFunction(async id=>!(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]);acceptDialogs=false;
+   const tombstone=await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');return {deleted:JSON.parse(await s.loadState('classroom-submissions')).deletedStudentIds.includes(id),progress:await s.loadState('progress-'+id)};},ids[1]);assert.equal(tombstone.deleted,true);assert.equal(tombstone.progress,null);
+   await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();await restoreBackup(false);await audit(`${prefix}-deleted-backup-rejected`);
+   assert.equal(await page.evaluate(async id=>(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]),false,'backup cannot resurrect erased learner');
+   checks.push({width,theme,workflow:'two learners; explicit same/sibling authorization; private notebook; preserved unsaved draft; lock/history concealment; delayed pre-lock mutation rejected after reauthentication; idle timeout; simulated background visibility handler; sensitive settings cancellation; reload original credential; PIN setup/cooldown/fallback; cross-tab credential invalidation; recovery rotation; actual encrypted backup/download/restore; deletion/tombstone stale backup rejection'});
    await context.close();
   }
+  const classroomContext=await browser.newContext({viewport:{width,height:1000},colorScheme:theme,reducedMotion:'reduce'});
+  await classroomContext.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort());
+  page=await classroomContext.newPage();page.setDefaultTimeout(15000);activePassword=password;await page.goto(origin);await heading('Library').waitFor();await seed(1,'classroom');await page.reload();await heading("Who's learning?").waitFor();
+  await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await page.getByLabel('Teacher password',{exact:true}).waitFor();await authenticate();await heading('Library').waitFor();
+  await page.getByRole('navigation',{name:'Main',exact:true}).getByRole('button',{name:'Classroom',exact:true}).click();await page.getByLabel('Teacher password',{exact:true}).waitFor();await authenticate();await page.getByRole('navigation',{name:'Teacher sections',exact:true}).waitFor();await audit(`${prefix}-classroom-teacher`);
+  checks.push({width,theme,workflow:'classroom sole learner requires teacher authorization; entering Teacher area requires fresh authentication'});await classroomContext.close();
  }
  assert.deepEqual(errors,[],'No browser runtime errors');
  await writeFile(path.join(out,'result.json'),JSON.stringify({passed:true,data:'synthetic isolated local families',externalNetwork:'blocked',checks,screenshots,errors},null,2));

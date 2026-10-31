@@ -31,7 +31,8 @@ await assert.rejects(decryptText(JSON.parse(encrypted),"wrong passphrase"),/Wron
 state.set("classroom-submissions",JSON.stringify({version:1,records:[],complete:[]}));
 await restoreContents(await decryptText(JSON.parse(encrypted),"test-only passphrase"),{courses:[],banks:[]});
 assert.deepEqual(JSON.parse(state.get("classroom-submissions")!),ledger);
-assert.equal(mutations.at(-1),"classroom-submissions");
+assert.equal(mutations.at(-1),"family", "Family credentials are installed only after all restored evidence");
+assert(mutations.lastIndexOf("classroom-submissions") < mutations.lastIndexOf("family"));
 for (const invalid of [null,{}, {...ledger,complete:["missing"]}, {...ledger,records:Array(SUBMISSION_LIMITS.records+1).fill(records[0])}, {...ledger,records:[{...records[0],snapshot:{...handin,progress:{...handin.progress,spreadsheetSubmissions:{attempt1:{...evidence,grade:{...evidence.grade,score:1}}}}}}]}]) {
  const before = [...state]; mutations.length=0;
  await assert.rejects(restoreContents(JSON.stringify({...backup,classroomSubmissions:invalid}),{courses:[{id:"would-delete"} as any],banks:[]}));
