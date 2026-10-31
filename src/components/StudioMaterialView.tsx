@@ -19,7 +19,7 @@ function WorkView({work}:{work:CourseWork}) {
       {lab.minutes!==undefined&&<p>Suggested time: {lab.minutes} minutes</p>}
       <h4>Materials</h4><ul>{lab.materials.map((text,i)=><li key={i}>{text}</li>)}</ul>
       <h4>Steps</h4><ol>{lab.steps.map((step,i)=><li key={i}>{step.adult&&<strong>Adult supervision required. </strong>}{step.text}</li>)}</ol>
-      {lab.tables.map(table=><div key={table.id} style={{overflowX:'auto'}}><table><caption>{table.title??table.id}</caption><thead><tr>{table.columns.map((column,i)=><th scope="col" key={i}>{column}</th>)}</tr></thead><tbody>{Array.from({length:table.rows},(_,row)=><tr key={row}>{table.columns.map((_column,col)=>col===0?<th key={col} scope="row">{table.rowLabels?.[row]??`Row ${row+1}`}</th>:<td key={col}><span aria-label={`Blank response row ${row+1} column ${col+1}`}>________</span></td>)}</tr>)}</tbody></table></div>)}
+      {lab.tables.map(table=><div key={table.id} style={{overflowX:'auto'}}><table><caption>{table.title??table.id}</caption><thead><tr>{table.columns.map((column,i)=><th scope="col" key={i}>{column}</th>)}</tr></thead><tbody>{Array.from({length:table.rows},(_,row)=><tr key={row}>{table.columns.map((_column,col)=>col===0&&table.rowLabels?.[row]!==undefined?<th key={col} scope="row">{table.rowLabels[row]}</th>:<td key={col}><span aria-label={`Blank response row ${row+1} column ${col+1}`}>________</span></td>)}</tr>)}</tbody></table></div>)}
       {lab.questions.map(question=><section key={question.id}><h4>{question.kind==='observation'?'Observation':'Conclusion'}</h4><p>{question.prompt}</p></section>)}
       {lab.photos&&<p>Photo prompt: {lab.photos}</p>}
       {lab.rubric&&lab.selfCheck!==false&&<p>Check your observations against the source rubric before handing them in.</p>}

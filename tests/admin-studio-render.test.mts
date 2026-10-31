@@ -25,3 +25,13 @@ for(const kind of STUDIO_KINDS) {
 const badTitle={kind:'worksheet' as const,title:'<script>unsafe</script>',instructions:'<img src=x onerror=alert(1)>',resources:[]};
 const escaped=renderToStaticMarkup(React.createElement(View,{view:badTitle}));assert(escaped.includes('&lt;script&gt;'));assert(!escaped.includes('<script>'));assert(!escaped.includes('<img'));
 console.log('Studio unmounted learner renderer: eight material views, structured safety/rubric/tables, answer exclusion and inert rendering passed; no browser/admin E2E claim.');
+
+for(const partial of [false,true]) {
+  const changed=structuredClone(inventory);
+  changed[0].course.labs![0].tables=[{id:'one-column',columns:['Observation'],rows:2,...(partial?{rowLabels:['Fixed label']}: {})}];
+  const doc=buildStudioDocument('lab','lab-tables','Lab tables',studioChoices('lab',changed).map(r=>({source:r.source,key:r.key})),changed);
+  const html=renderToStaticMarkup(React.createElement(View,{view:studioLearnerView(doc)}));
+  assert.equal((html.match(/<td>/g)??[]).length,partial?1:2,'unlabeled first-column cells must remain blank learner response cells');
+  assert.equal((html.match(/scope="row"/g)??[]).length,partial?1:0);
+  assert(html.includes('Blank response row 2 column 1'));
+}
