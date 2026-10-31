@@ -26,9 +26,15 @@ async function waitForPersisted(predicate,arg,target=page){
  assert.equal(actual,true,'durable state did not reach the expected condition within 15 seconds');
 }
 async function authenticate(value=activePassword){
- if(await button('Use password instead').count())await button('Use password instead').click();
- await page.getByLabel(/^(Parent|Teacher) password$/).fill(value);
- await button('Open').click();
+ // Navigation can mount a PIN-first gate after this helper is called. Wait for
+ // its visible credential field before deciding whether password fallback exists.
+ const credential=page.getByLabel(/^(PIN|Parent password|Teacher password)$/).filter({visible:true});
+ await credential.first().waitFor();
+ const gate=credential.first().locator('xpath=ancestor::form[1]');
+ const fallback=gate.getByRole('button',{name:'Use password instead',exact:true});
+ if(await fallback.isVisible())await fallback.click();
+ await gate.getByLabel(/^(Parent|Teacher) password$/).fill(value);
+ await gate.getByRole('button',{name:'Open',exact:true}).click();
 }
 async function select(name){
  await heading("Who's learning?").waitFor();
@@ -96,9 +102,24 @@ try{
    await page.waitForFunction(()=>window.syntheticStarted);
    await button('Lock device').click();await locked().waitFor();
    assert.equal(await form.isVisible(),false,'draft text is concealed from locked UI');
+   // Actual keyboard events cannot reach window-bubbling shortcuts in the
+   // preserved hidden Runner/reader, including when focus starts outside the lock.
+   await page.evaluate(()=>{
+    window.syntheticBubbledKeys=[];
+    window.syntheticKeyListener=event=>window.syntheticBubbledKeys.push(event.type+':'+event.key);
+    window.addEventListener('keydown',window.syntheticKeyListener);window.addEventListener('keyup',window.syntheticKeyListener);
+    document.body.setAttribute('tabindex','-1');document.body.focus();
+   });
+   await page.keyboard.press('a');await page.keyboard.press('ArrowRight');await page.keyboard.press('Control+k');await page.keyboard.press('Tab');
+   assert.deepEqual(await page.evaluate(()=>window.syntheticBubbledKeys),[],'locked outside-target keyboard events do not reach hidden screen handlers');
+   assert(await page.evaluate(()=>!!document.activeElement?.closest('.local-session-lock')),'Tab outside the lock focuses a lock control');
    const lockedUrl=page.url();await page.goBack();await page.waitForFunction(url=>location.href===url,lockedUrl);await locked().waitFor();await page.goForward();await page.waitForFunction(url=>location.href===url,lockedUrl);await locked().waitFor();
    await audit(`${prefix}-locked-draft`);
-   await button('Unlock device').click();await authenticate();await form.waitFor();
+   await button('Unlock device').click();
+   await locked().getByLabel('Parent password',{exact:true}).pressSequentially(activePassword);
+   assert.deepEqual(await page.evaluate(()=>window.syntheticBubbledKeys),[],'typing the credential remains local to the lock overlay');
+   await page.evaluate(()=>{window.removeEventListener('keydown',window.syntheticKeyListener);window.removeEventListener('keyup',window.syntheticKeyListener);document.body.removeAttribute('tabindex');});
+   await locked().getByRole('button',{name:'Open',exact:true}).click();await form.waitFor();
    assert.equal(await form.getByLabel('Notes',{exact:true}).inputValue(),'Unsaved Alice-only text survives locking');
    const late=await page.evaluate(async()=>{window.syntheticRelease();return window.syntheticPending;});assert.equal(late.ok,false,'pre-lock write cannot borrow fresh authorization');
    assert.match(late.message,/session|lock|learner|authority/i);
@@ -182,7 +203,7 @@ try{
    async function restoreBackup(expectSuccess){
     await page.getByLabel('Passphrase of the backup to restore',{exact:true}).fill(backupPass);const picker=page.waitForEvent('filechooser');await button('Restore from backup…').click();await authenticate();const chooser=await picker;acceptDialogs=true;const restored=expectSuccess?page.waitForEvent('load'):null;await chooser.setFiles(backupPath);
     if(expectSuccess){await restored;await page.goto(origin+'/parent/planning');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();}
-    else await page.getByRole('alert').filter({hasText:'Backup contains records for a deleted learner.'}).waitFor();
+    else await page.getByRole('alert').filter({hasText:'This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.'}).waitFor();
     acceptDialogs=false;
    }
    await restoreBackup(true);
@@ -190,6 +211,7 @@ try{
    const tombstone=await page.evaluate(async id=>{const s=await import('/src/lib/storage.ts');return {deleted:JSON.parse(await s.loadState('classroom-submissions')).deletedStudentIds.includes(id),progress:await s.loadState('progress-'+id)};},ids[1]);assert.equal(tombstone.deleted,true);assert.equal(tombstone.progress,null);
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Settings and backup',exact:true}).click();await restoreBackup(false);await audit(`${prefix}-deleted-backup-rejected`);
    assert.equal(await page.evaluate(async id=>(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]),false,'backup cannot resurrect erased learner');
+   assert.equal(await page.evaluate(async id=>(await import('/src/lib/storage.ts')).loadState('progress-'+id),ids[1]),null,'rejected backup leaves erased progress absent');
    checks.push({width,theme,workflow:'two learners; explicit same/sibling authorization; private notebook; preserved unsaved draft; lock/history concealment; delayed pre-lock mutation rejected after reauthentication; idle timeout; simulated background visibility handler; sensitive settings cancellation; reload original credential; PIN setup/cooldown/fallback; cross-tab credential invalidation; recovery rotation; actual encrypted backup/download/restore; deletion/tombstone stale backup rejection'});
    await context.close();
   }

@@ -298,6 +298,7 @@ export default function App() {
   const [parentUnlocked, setParentUnlocked] = useState(false);
   const [localLocked, setLocalLocked] = useState(false);
   const [concealed, setConcealed] = useState(false);
+  const concealedRef=useRef(false); concealedRef.current=concealed;
   const [gate, setGate] = useState<{ kind: "learner" | "resume" | "sensitive"; id?: string } | null>(null);
   const gateRef = useRef(gate); gateRef.current = gate;
   const lockedRef = useRef(localLocked); lockedRef.current = localLocked;
@@ -763,12 +764,24 @@ export default function App() {
   };
   useEffect(()=>{ if(localLocked && !gate) document.querySelector<HTMLButtonElement>(".local-session-lock button")?.focus(); },[localLocked,gate]);
   useEffect(() => registerNavigationGuard(() => !lockedRef.current && !gateRef.current), []);
+  useEffect(()=>{
+    const protectHiddenShortcuts=(event:KeyboardEvent)=>{
+      if(!lockedRef.current && !gateRef.current && !concealedRef.current)return;
+      if(event.target instanceof Element && event.target.closest(".local-session-lock"))return;
+      event.preventDefault(); event.stopImmediatePropagation();
+      if(event.key==="Tab")document.querySelector<HTMLElement>(".local-session-lock input:not([disabled]), .local-session-lock button:not([disabled])")?.focus();
+    };
+    window.addEventListener("keydown",protectHiddenShortcuts,true);
+    window.addEventListener("keyup",protectHiddenShortcuts,true);
+    return()=>{window.removeEventListener("keydown",protectHiddenShortcuts,true);window.removeEventListener("keyup",protectHiddenShortcuts,true);};
+  }, []);
+
   useEffect(() => {
     if (!family || (!studentId && !parentUnlocked)) return;
     let lastActivity=Date.now(), hiddenAt:number|null=null;
     const activity=()=>{ if (!document.hidden && !lockedRef.current) lastActivity=Date.now(); };
-    const conceal=()=>{ setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
-    const reveal=()=>{ if(document.hidden)return; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
+    const conceal=()=>{ concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
+    const reveal=()=>{ if(document.hidden)return; concealedRef.current=false; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
     const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
     const tick=window.setInterval(()=>{ if(lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lastActivity>=10*60_000)lockWorkspace(); },1000);
     document.addEventListener("visibilitychange",visibility);
