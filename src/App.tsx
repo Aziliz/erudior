@@ -58,6 +58,7 @@ import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
 import PhoneNavigation from "./components/PhoneNavigation";
+import AppSidebar from "./components/AppSidebar";
 import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, type Family, type Student } from "./lib/family";
 import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
@@ -1768,10 +1769,10 @@ export default function App() {
               Erudior
             </a>
           ) : (
-            <button className="brand" onClick={() => api.go({ name: "library" })} aria-label="Erudior: library">
-              <Mark />
-              Erudior
-            </button>
+            <AppSidebar key={sessionEpoch} api={api} current={view} managementLabel={managementLabel}
+              showCommunity={showCommunity} blocked={localLocked || !!gate || concealed}
+              preferences={{ theme, width, textSize, setTheme, setWidth, setTextSize }}
+              onLock={lockWorkspace} onOpen={() => setDisplayOpen(false)} />
           )}
           <nav className="nav" aria-label="Main">
             <button
