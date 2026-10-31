@@ -1,0 +1,33 @@
+.classroom-workflows { min-width: 0; }
+.classroom-workflows .cw-toolbar { display: flex; flex-wrap: wrap; gap: .65rem; align-items: end; margin: 1rem 0; }
+.classroom-workflows .cw-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+.classroom-workflows .cw-tabs button[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: 2px; font-weight: 700; }
+.classroom-workflows .cw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
+.classroom-workflows .cw-card { min-width: 0; overflow-wrap: anywhere; }
+.classroom-workflows .cw-card h3 { margin: 0; }
+.classroom-workflows .cw-card-head { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: .6rem; }
+.classroom-workflows .cw-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.classroom-workflows .cw-source { margin: 1rem 0; padding: .75rem; border: 1px solid var(--line, #888); border-radius: .5rem; max-height: 20rem; overflow-y: auto; }
+.classroom-workflows .cw-source:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.classroom-workflows .cw-editor { margin: 1rem 0; scroll-margin-top: 5rem; }
+.classroom-workflows fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.classroom-workflows fieldset.cw-members { border: 1px solid var(--line, #888); border-radius: .5rem; padding: .75rem; margin: .75rem 0; }
+.classroom-workflows .cw-members legend { font-weight: 600; padding: 0 .3rem; }
+.classroom-workflows .cw-members-list { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; }
+.classroom-workflows .cw-members-list label { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; }
+.classroom-workflows .cw-editor .field, .classroom-workflows .cw-response .field { margin: .75rem 0; }
+.classroom-workflows .cw-editor textarea, .classroom-workflows .cw-response textarea { min-height: 7rem; resize: vertical; width: 100%; }
+.classroom-workflows .cw-response { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line, #888); }
+.classroom-workflows .cw-history { padding-left: 1.2rem; }
+.classroom-workflows .cw-history > li { margin: .75rem 0; padding-left: .2rem; }
+.classroom-workflows .cw-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.classroom-workflows .cw-badge { font-size: .8rem; padding: .15rem .45rem; border: 1px solid currentColor; border-radius: .4rem; }
+.classroom-workflows input, .classroom-workflows select, .classroom-workflows textarea { max-width: 100%; box-sizing: border-box; }
+.classroom-workflows .cw-notice { border-left: 3px solid currentColor; padding-left: .75rem; }
+@media (max-width: 480px) {
+  .classroom-workflows .cw-toolbar > .field { width: 100%; }
+  .classroom-workflows .btn, .classroom-workflows .input, .classroom-workflows .select { min-height: 2.75rem; }
+  .classroom-workflows .cw-tabs .btn { flex: 1 1 8rem; }
+  .classroom-workflows .cw-card { padding: .85rem; }
+  .classroom-workflows .cw-actions > .btn { flex: 1 1 auto; }
+}

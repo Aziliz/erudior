@@ -1,3 +1,4 @@
+import { parseClassroomWorkflowState, restoreClassroomWorkflowState, validateClassroomWorkflowFamily } from "./classroomWorkflows";
 import { assertLocalAdult, captureLocalSession } from "./localSession";
 import { parseLearnerPrivacyLibrary, restoreLearnerPrivacyLibrary, type LearnerPrivacyLibrary } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary, type AdvancedAssessmentLibrary } from './advancedAssessment';
@@ -54,6 +55,8 @@ interface Contents {
   banks: unknown[];
   /** Instructor-only receipt/review ledger, including pending import markers. */
   classroomSubmissions?: ReturnType<typeof validateClassroomSubmissionState>;
+  /** Private local classroom collaboration; restored sharing always needs fresh teacher release. */
+  classroomWorkflows?: ReturnType<typeof parseClassroomWorkflowState>;
   /** Adult-authored reusable teaching resources; never learner responses. */
   presentations?: PresentationLibrary;
   /** Private adult-authored educational plans, observations and reviews. */
@@ -199,6 +202,9 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
   const documentText = await store.loadState("document-engine");
   const documentEngine = documentText === null ? undefined : parseDocumentLibrary(documentText);
   if (documentEngine) validateDocumentFamily(documentEngine, family);
+  const workflowText = await store.loadState("classroom-workflows");
+  const classroomWorkflows = workflowText === null ? undefined : parseClassroomWorkflowState(workflowText);
+  if (classroomWorkflows) validateClassroomWorkflowFamily(classroomWorkflows, family ?? {students:[]});
   const classroomText = await store.loadState("classroom-submissions");
   const classroomSubmissions = classroomText === null ? undefined : validateClassroomSubmissionState(classroomText);
   const interventionText = await store.loadState("interventions");
@@ -223,6 +229,7 @@ export async function collect(courses: Course[], banks: Bank[]): Promise<Content
     family,
     students,
     ...(classroomSubmissions === undefined ? {} : { classroomSubmissions }),
+    ...(classroomWorkflows === undefined ? {} : { classroomWorkflows }),
     ...(presentations === undefined ? {} : { presentations }),
     ...(interventions === undefined ? {} : { interventions }),
     ...(documentEngine === undefined ? {} : { documentEngine }),
@@ -295,7 +302,16 @@ export async function restoreContents(
   if (!b.students || typeof b.students !== "object" || Array.isArray(b.students)) throw Error("Invalid student records in backup.");
   // Validate and strip imported parental authority before any restore mutation.
   const restoredFamily = b.family ? withoutParentCourseReviews(b.family) : null;
-  const currentDeletedIds = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+  const currentWorkflow = parseClassroomWorkflowState(await store.loadState("classroom-workflows"));
+  const currentDeletedIds = [...new Set([...(validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? []), ...currentWorkflow.deletedStudentIds])];
+  if (b.classroomWorkflows === null) throw Error("Invalid classroom workflows in backup.");
+  const importedWorkflow = parseClassroomWorkflowState(b.classroomWorkflows === undefined ? null : JSON.stringify(b.classroomWorkflows));
+  validateClassroomWorkflowFamily(importedWorkflow, b.family ?? {students:[]});
+  const workflowDeletedIds = [...new Set([...currentDeletedIds, ...importedWorkflow.deletedStudentIds])];
+  if (workflowDeletedIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("Backup contains classroom data for a deleted learner.");
+  const workflowPreflight = restoreClassroomWorkflowState(importedWorkflow, workflowDeletedIds);
+  // Bound the invalidating revision before any destructive recovery writes.
+  parseClassroomWorkflowState({...workflowPreflight, revision: Math.max(workflowPreflight.revision, currentWorkflow.revision + 1)});
   for (const [id, student] of Object.entries(b.students)) {
     if (!/^[a-z0-9]{1,24}$/.test(id) || !b.family?.students.some(s => s.id === id)) throw Error("Backup records do not belong to a learner in this family.");
     if (currentDeletedIds.includes(id)) throw Error("This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.");
@@ -304,7 +320,7 @@ export async function restoreContents(
   // Validate evidence before deleting/replacing any existing family data. Legacy full
   // backups clear the ledger: retaining it would mix another family's evidence.
   const importedClassroom = b.classroomSubmissions === undefined ? null : validateClassroomSubmissionState(JSON.stringify(b.classroomSubmissions));
-  const deletedIds = [...new Set([...currentDeletedIds, ...(importedClassroom?.deletedStudentIds ?? [])])];
+  const deletedIds = [...new Set([...workflowDeletedIds, ...(importedClassroom?.deletedStudentIds ?? [])])];
   if (deletedIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("Backup contains records for a deleted learner.");
   const classroomSubmissions = importedClassroom === null && deletedIds.length === 0 ? null
     : JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...importedClassroom ?? {version:1,records:[],complete:[]}, ...(deletedIds.length ? {deletedStudentIds:deletedIds} : {})})));
@@ -428,6 +444,16 @@ export async function restoreContents(
       return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported,deletedStudentIds})));
     });
   } else await writeState("classroom-submissions", classroomSubmissions);
+  // Even legacy backups clear unrelated classroom content without erasing deletion markers.
+  // Re-read the shared deletion ledger inside CAS so an intervening erasure cannot resurrect data.
+  await updateState("classroom-workflows", async old => {
+    const currentWorkflows = parseClassroomWorkflowState(old);
+    const latestDeleted = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+    const deleted = [...new Set([...deletedIds, ...currentWorkflows.deletedStudentIds, ...latestDeleted])];
+    if (deleted.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("A learner was deleted during restore; classroom data was not restored.");
+    const restored = restoreClassroomWorkflowState(importedWorkflow, deleted);
+    return JSON.stringify(parseClassroomWorkflowState({...restored, revision: Math.max(restored.revision, currentWorkflows.revision + 1)}));
+  });
   // Install credentials last. Every earlier restore write is authorized against
   // the currently authenticated Family, never credentials imported by a backup.
   // The caller reloads immediately after success; imported bytes grant no session.

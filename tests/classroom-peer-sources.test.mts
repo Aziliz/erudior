@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { classroomPeerSourceOptions,resolveClassroomPeerSource } from '../src/lib/classroomPeerSources.ts';
+import type { Family } from '../src/lib/family.ts';
+import type { StoredSubmissionRecord } from '../src/lib/classroomSubmissionStore.ts';
+const family={mode:'classroom',students:[{id:'alice'}],classes:[{id:'class1',students:['alice'],assignments:[{courseId:'science'}]}]} as Family;
+const receipt={id:'receipt1',classId:'class1',studentId:'alice',studentName:'Synthetic Alice',submittedAt:'2026-10-31T00:00:00Z',importComplete:true,courses:['science'],snapshot:{mac:'signed-receipt',progress:{work:{'science/report':{kind:'writing',submitted:'2026-10-31',text:'Original selected text',photos:[{name:'PRIVATE PHOTO'}]},'science/private-draft':{text:'PRIVATE DRAFT'},'other/report':{submitted:'2026-10-31',text:'UNASSIGNED'}},attempts:[{secret:'PRIVATE GRADE'}],studentWorkspace:{note:'PRIVATE NOTE'}}}} as unknown as StoredSubmissionRecord;
+const options=classroomPeerSourceOptions(family,'class1',[receipt]);assert.equal(options.length,1);assert.equal(options[0].text,'Original selected text');assert(!JSON.stringify(options).includes('PRIVATE'));assert(!JSON.stringify(options).includes('UNASSIGNED'));
+assert.equal(resolveClassroomPeerSource(options,options[0].key),options[0]);assert.throws(()=>resolveClassroomPeerSource(options,'unknown'),/no longer available/);
+for(const override of [{importComplete:false},{studentId:'outsider'},{classId:'class2'},{courses:['other']}])assert.deepEqual(classroomPeerSourceOptions(family,'class1',[{...receipt,...override}]),[]);
+const removed=structuredClone(family);removed.classes![0].students=[];assert.deepEqual(classroomPeerSourceOptions(removed,'class1',[receipt]),[]);
+const unassigned=structuredClone(family);unassigned.classes![0].assignments=[];assert.deepEqual(classroomPeerSourceOptions(unassigned,'class1',[receipt]),[]);
+const oversized=structuredClone(receipt);oversized.snapshot.progress.work!['science/report'].text='x'.repeat(20001);assert.deepEqual(classroomPeerSourceOptions(family,'class1',[oversized]),[]);
+const changed=structuredClone(receipt);changed.snapshot.mac='different-version';assert.notEqual(classroomPeerSourceOptions(family,'class1',[changed])[0].version,options[0].version);
+assert.throws(()=>classroomPeerSourceOptions({...family,mode:'homeschool'},'class1',[receipt]),/current local/);
+console.log('Classroom peer sources: exact complete submitted text only; roster/course scope, privacy, size and version bounds passed.');
