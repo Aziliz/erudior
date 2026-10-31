@@ -215,6 +215,18 @@ try {
     await chooseTab('Projects');await context.setOffline(true);
     await respond('Synthetic plant project','Synthetic offline explanation persisted.','Milestone','Explain result');
     await context.setOffline(false);await audit(`${prefix}-offline-project-response`,card('Synthetic plant project'));
+    const pending=card('Synthetic plant project').getByRole('form',{name:'Respond to Synthetic plant project',exact:true});
+    await pending.getByLabel('Milestone',{exact:true}).selectOption({label:'Explain result'});
+    await pending.getByLabel('Response text',{exact:true}).fill('Synthetic unsent draft retained after withdrawal.');
+    // Another local teacher view withdraws the activity while this learner is editing.
+    await page.evaluate(async()=>{const s=await import('/src/lib/storage.ts');await s.updateState('classroom-workflows',raw=>{const value=JSON.parse(raw);const item=value.items.filter(i=>i.title==='Synthetic plant project').at(-1);item.published=false;value.revision++;return JSON.stringify(value);});});
+    await button('Refresh classroom').click();await settled();
+    const retainedDraft=page.getByRole('region',{name:'Retained response draft',exact:true});
+    await retainedDraft.waitFor();assert.equal(await retainedDraft.getByLabel('Retained response text',{exact:true}).inputValue(),'Synthetic unsent draft retained after withdrawal.');
+    assert.equal(await card('Synthetic plant project').count(),0,'withdrawal does not retain the old assignment snapshot');
+    await audit(`${prefix}-withdrawal-retains-own-draft`,retainedDraft);
+    await retainedDraft.getByRole('button',{name:'Discard unavailable response',exact:true}).click();
+    await openTeacher();await chooseTab('Projects');await card('Synthetic plant project').getByRole('button',{name:'Publish',exact:true}).click();await settled();
     await switchLearner('Synthetic Outsider');
     assert.deepEqual(await page.getByLabel('Class',{exact:true}).locator('option').allTextContents(),['Synthetic other class']);
     for(const tab of ['Projects','Peer review','Conferences','Notices','Field trips']) {await chooseTab(tab);assert.equal(await page.getByText(/Synthetic (plant project|peer discussion|learner conference|class notice|garden visit)/).count(),0,'other class sees no activity');}
