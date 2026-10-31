@@ -97,6 +97,12 @@ class UpgradeHarnessTests(unittest.TestCase):
             self.assertIn("getByLabel('"+label+"'",runner)
         self.assertIn("KEYCODE_HOME",runner)
 
+    def test_emulator_partition_is_bounded_without_skipping_acceptance(self):
+        workflow=(ROOT/'.github/workflows/android-upgrade.yml').read_text()
+        self.assertIn('disk-size: 2048M',workflow)
+        self.assertIn('script: node scripts/android-upgrade/run.mjs',workflow)
+        self.assertNotIn('continue-on-error',workflow)
+
     def test_upgrade_runner_never_uses_adb_reinstall_or_clear(self):
         source=(ROOT/'scripts/android-upgrade/run.mjs').read_text()
         self.assertEqual(source.count("adb('install'"),1)

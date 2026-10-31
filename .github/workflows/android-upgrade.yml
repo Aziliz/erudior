@@ -71,6 +71,10 @@ jobs:
           api-level: 35
           target: google_apis
           arch: x86_64
+          # The synthetic fixtures use tens of MiB; avoid the image default 7 GiB
+          # userdata reservation exhausting the hosted runner after two builds.
+          disk-size: 2048M
+          pre-emulator-launch-script: df -h . "$HOME/.android/avd"
           disable-animations: true
           script: node scripts/android-upgrade/run.mjs
       - name: Upload acceptance evidence (never keys or fixture APKs)
