@@ -26,11 +26,15 @@ async function authenticate() {
   await form.getByLabel('Teacher password', {exact:true}).fill(password);
   await form.getByRole('button', {name:'Open',exact:true}).click();
 }
-async function select(name) {
+async function select(name, expectedHeading = 'Library') {
   await heading("Who's learning?").waitFor();
   await page.locator('.who-card').filter({hasText:name}).click();
   await heading('Shared device locked').waitFor();
-  await authenticate(); await heading('Library').waitFor();
+  assert.equal(await heading('My classroom').isVisible(),false,'no classroom is visible before adult authorization');
+  await authenticate();
+  await heading('Shared device locked').waitFor({state:'hidden'});
+  await button(`Student: ${name}. Switch student`).waitFor();
+  await heading(expectedHeading).waitFor();
 }
 async function settled() {
   const refresh=button('Refresh classroom');
@@ -206,7 +210,7 @@ try {
     await heading('Courses').waitFor();await page.goBack();await heading('My classroom').waitFor();
     await page.goForward();await heading('Courses').waitFor();await button('Open my classroom').click();await heading('My classroom').waitFor();
     // Reload revokes the memory-only grant, but retains committed work.
-    await page.reload();await select('Synthetic Alice');await openLearner();await chooseTab('Peer review');
+    await page.reload();await select('Synthetic Alice','My classroom');await openLearner();await chooseTab('Peer review');
     await card('Synthetic peer discussion').getByText('Synthetic peer feedback: explain how you measured the light.',{exact:true}).waitFor();
     assert.equal(await card('Synthetic peer discussion').getByText('Synthetic moderated feedback is constructive.',{exact:true}).count(),0,'teacher review note is private to the response author');
     // Offline interaction uses already loaded local App modules and persists a real response.
