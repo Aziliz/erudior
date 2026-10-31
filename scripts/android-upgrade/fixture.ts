@@ -6,8 +6,15 @@ import { emptyProgress, inApp, saveCourse, listCourses, saveProgress,
   loadProgress, updateProfileProgress, loadProfileProgress, loadState } from "./lib/storage";
 import { emptyCourse } from "./lib/course";
 import { createOfflineCoursePackage, importOfflineCoursePackage } from "./lib/offlineCourse";
-import { createFamily, loadFamily, saveFamily, newClass } from "./lib/family";
+import { createFamily, loadFamily, saveFamily, newClass, type Family } from "./lib/family";
 import type { Course } from "./lib/types";
+
+// createFamily deliberately omits mode for homeschool. Accept that representation,
+// but only for the exact two synthetic learners produced by this isolated harness.
+const isSyntheticSharedDeviceFamily = (family: Family | null): family is Family =>
+  !!family && (family.mode ?? "homeschool") === "homeschool" && Array.isArray(family.students) &&
+  family.students.length === 2 && family.students[0].name === "Synthetic Android Alice" &&
+  family.students[1].name === "Synthetic Android Bob";
 
 const course: Course = {
   format: "examiner-course", version: 1, id: "upgrade-proof-course",
@@ -70,8 +77,7 @@ Object.assign(window, { __erudiorUpgradeE2E: {
   async prepareSyntheticClassroom() {
     if (!inApp) throw Error("Classroom acceptance requires native persistence");
     const family = await loadFamily();
-    if (!family || family.mode !== "homeschool" || family.students.length !== 2 ||
-        family.students.some(s => !s.name.startsWith("Synthetic Android ")))
+    if (!isSyntheticSharedDeviceFamily(family))
       throw Error("Classroom fixture requires the completed synthetic shared-device fixture");
     // Called only after the actual parent gate and all shared-device assertions.
     // No credentials/grants are changed or manufactured by this fixture setup.

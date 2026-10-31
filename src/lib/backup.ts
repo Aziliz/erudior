@@ -308,7 +308,7 @@ export async function restoreContents(
   const importedWorkflow = parseClassroomWorkflowState(b.classroomWorkflows === undefined ? null : JSON.stringify(b.classroomWorkflows));
   validateClassroomWorkflowFamily(importedWorkflow, b.family ?? {students:[]});
   const workflowDeletedIds = [...new Set([...currentDeletedIds, ...importedWorkflow.deletedStudentIds])];
-  if (workflowDeletedIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("Backup contains classroom data for a deleted learner.");
+  if (workflowDeletedIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id])) throw Error("This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.");
   const workflowPreflight = restoreClassroomWorkflowState(importedWorkflow, workflowDeletedIds);
   // Bound the invalidating revision before any destructive recovery writes.
   parseClassroomWorkflowState({...workflowPreflight, revision: Math.max(workflowPreflight.revision, currentWorkflow.revision + 1)});
@@ -435,15 +435,16 @@ export async function restoreContents(
   await writeState("advanced-assessment", advancedAssessment);
   await writeState("scientific-workspace", scientificWorkspace);
   await writeState("instructional-evidence", instructionalEvidence);
-  // Preserve erasure tombstones even when a legacy backup carries no receipt ledger.
-  const latestClassroom = validateClassroomSubmissionState(await store.loadState("classroom-submissions"));
-  if (latestClassroom.deletedStudentIds?.length || deletedIds.length) {
-    await updateState("classroom-submissions", old => {
-      const current = validateClassroomSubmissionState(old), imported = validateClassroomSubmissionState(classroomSubmissions);
-      const deletedStudentIds = [...new Set([...(current.deletedStudentIds ?? []), ...deletedIds])];
-      return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported,deletedStudentIds})));
-    });
-  } else await writeState("classroom-submissions", classroomSubmissions);
+  // Always merge under CAS, including the first concurrent erasure marker.
+  // A read-then-replacement-save could otherwise erase a tombstone written after
+  // an empty preflight read. Legacy backups clear evidence, not erasure history.
+  await updateState("classroom-submissions", old => {
+    const current = validateClassroomSubmissionState(old), imported = validateClassroomSubmissionState(classroomSubmissions);
+    const deletedStudentIds = [...new Set([...(current.deletedStudentIds ?? []), ...deletedIds])];
+    if (deletedStudentIds.some(id => b.family?.students.some(s => s.id === id) || b.students[id]))
+      throw Error("This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.");
+    return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported, ...(deletedStudentIds.length ? {deletedStudentIds} : {})})));
+  });
   // Even legacy backups clear unrelated classroom content without erasing deletion markers.
   // Re-read the shared deletion ledger inside CAS so an intervening erasure cannot resurrect data.
   await updateState("classroom-workflows", async old => {

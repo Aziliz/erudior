@@ -42,8 +42,8 @@ state.set("classroom-submissions","{damaged"); await assert.rejects(collect([],[
 state.set("classroom-submissions",JSON.stringify(ledger));
 const {classroomSubmissions:_,...legacy}=backup;
 await restoreContents(JSON.stringify(legacy),{courses:[],banks:[]});
-assert.equal(state.has("classroom-submissions"),false);
-assert.equal((await collect([],[])).classroomSubmissions,undefined);
+assert.deepEqual(JSON.parse(state.get("classroom-submissions")!),{version:1,records:[],complete:[]}, "legacy restore CAS-clears evidence instead of non-atomically deleting the ledger");
+assert.deepEqual((await collect([],[])).classroomSubmissions,{version:1,records:[],complete:[]});
 console.log("classroom backup: encrypted snapshot/review/pending roundtrip, wrong passphrase, preflight tampering/count rejection, damaged collect and legacy clear passed");
 
 // Optional assessed-work evidence is validated even without an instructor receipt.
