@@ -154,13 +154,13 @@ export default function AppSidebar({ api, current, managementLabel, showCommunit
           <p className="app-sidebar-note">Opening this menu does not unlock records, change profiles or upload learning data. Deletion and recovery stay in their existing protected workflows.</p>
         </>}
         {panel === "display" && <div className="app-sidebar-preferences">
-          <label className="field"><span>Theme</span><select className="select" value={preferences.theme} onChange={event => preferences.setTheme(event.target.value as SidebarTheme)}>
+          <label className="field"><span>Theme</span><select className="select" aria-label="Theme" value={preferences.theme} onChange={event => preferences.setTheme(event.target.value as SidebarTheme)}>
             <option value="system">System (light or dark)</option><option value="light">Light</option><option value="sepia">Sepia (warm paper)</option><option value="dim">Dim (soft dark)</option><option value="dark">Dark</option><option value="contrast">High contrast</option>
           </select></label>
-          <label className="field"><span>Reading width</span><select className="select" value={preferences.width} onChange={event => preferences.setWidth(event.target.value as SidebarPreferences["width"])}>
+          <label className="field"><span>Reading width</span><select className="select" aria-label="Reading width" value={preferences.width} onChange={event => preferences.setWidth(event.target.value as SidebarPreferences["width"])}>
             <option value="full">Full</option><option value="comfortable">Comfortable</option>
           </select></label>
-          <label className="field"><span>Text size</span><select className="select" value={preferences.textSize} onChange={event => preferences.setTextSize(event.target.value as SidebarPreferences["textSize"])}>
+          <label className="field"><span>Text size</span><select className="select" aria-label="Text size" value={preferences.textSize} onChange={event => preferences.setTextSize(event.target.value as SidebarPreferences["textSize"])}>
             <option value="100">Normal</option><option value="115">Large</option><option value="130">Larger</option>
           </select></label>
           <p className="app-sidebar-note">Display preferences apply to this device. Your courses and progress are unchanged.</p>
