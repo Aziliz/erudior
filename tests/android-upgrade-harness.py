@@ -1,6 +1,7 @@
 import importlib.util
 import json
 import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -102,6 +103,31 @@ class UpgradeHarnessTests(unittest.TestCase):
         self.assertIn('disk-size: 2048M',workflow)
         self.assertIn('script: node scripts/android-upgrade/run.mjs',workflow)
         self.assertNotIn('continue-on-error',workflow)
+
+    def test_classroom_fixture_accepts_real_homeschool_encoding_only_for_exact_synthetic_family(self):
+        fixture=(ROOT/'scripts/android-upgrade/fixture.ts').read_text()
+        # Evaluate the actual fixture predicate, removing only its TypeScript signature.
+        start=fixture.index('const isSyntheticSharedDeviceFamily = ')
+        predicate=fixture[start:fixture.index(';',start)+1].replace(
+            '(family: Family | null): family is Family =>', '(family) =>')
+        script=predicate+"""
+const students=[{name:'Synthetic Android Alice'},{name:'Synthetic Android Bob'}];
+const cases=[
+  [{students},true], [{mode:'homeschool',students},true],
+  [{mode:'classroom',students},false], [{mode:'unexpected',students},false],
+  [null,false], [{students:[]},false], [{students:[...students,{name:'Other'}]},false],
+  [{students:[{name:'Private Alice'},students[1]]},false],
+  [{students:[students[0],{name:'Synthetic Android Other'}]},false],
+];
+for(const [family,want] of cases) {
+  if(isSyntheticSharedDeviceFamily(family)!==want)throw Error('Synthetic fixture guard mismatch');
+}
+"""
+        subprocess.run(['node','--input-type=module','-e',script],check=True,capture_output=True,text=True)
+        self.assertIn('if (!inApp) throw Error("Classroom acceptance requires native persistence")',fixture)
+        self.assertIn('if (!isSyntheticSharedDeviceFamily(family))',fixture)
+        acceptance=(ROOT/'scripts/android-upgrade/classroom-workflows.mjs').read_text()
+        self.assertLess(acceptance.index("await auth('Parent password')"),acceptance.index('prepareSyntheticClassroom()'))
 
     def test_upgrade_runner_never_uses_adb_reinstall_or_clear(self):
         source=(ROOT/'scripts/android-upgrade/run.mjs').read_text()

@@ -1,3 +1,8 @@
+import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
+import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomPeerSourceOption } from "./lib/classroomPeerSources";
+import { loadClassroomSubmissions, validateClassroomSubmissionState } from "./lib/classroomSubmissionStore";
+import ClassroomWorkflowWorkspace from "./pages/ClassroomWorkflowWorkspace";
+import "./classroom-workflows.css";
 import { applyNativeLifecycle } from "./lib/nativeLifecycle";
 import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionLocked, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
 import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
@@ -115,6 +120,7 @@ export type View =
   | { name: "library" }
   | { name: "progress"; tools?: boolean }
   | { name: "workspace" }
+  | { name: "classroom-workflows" }
   | { name: "legal"; page: LegalPage }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
@@ -146,6 +152,8 @@ export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
   /** Unsupervised public-browser study; never grants assignment or credit authority. */
   publicLearning?: boolean;
+  classroomWorkflows?: ReturnType<typeof createClassroomWorkflowStore>;
+  classroomPeerSources?: (classId: string) => Promise<ClassroomPeerSourceOption[]>;
   learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
   authorizeAcademicRecords?: (id: string) => Promise<void>;
   catalog: { source: CatalogSource; error?: string };
@@ -917,6 +925,64 @@ export default function App() {
     } finally { if (courseOpening.current === request) courseOpening.current = null; }
   };
 
+  const classroomAccess = useMemo(() => {
+    const guard = captureLocalSession();
+    const selected = studentId, selection = studentSelectionRequest.current;
+    const currentFamily = async () => {
+      guard();
+      if (!HOMESCHOOL || TEMPORARY_GUEST) throw Error("Classroom collaboration is available in the configured local app.");
+      const current = await loadFamily();
+      guard();
+      if (!current || !isClassroom(current)) throw Error("Open a configured local Classroom workspace.");
+      assertLocalSessionCredential(current.parent);
+      const deleted = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+      guard();
+      if (current.students.some(s => deleted.includes(s.id))) throw Error("Learner removal is still in progress. Finish removal before reopening class collaboration.");
+      return current;
+    };
+    const authorizeAdult = async () => {
+      guard(); assertLocalAdult();
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the teacher area before opening class collaboration.");
+      const current = await currentFamily();
+      if (documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Teacher credentials changed. Lock and reopen Classroom.");
+      guard(); assertLocalAdult();
+      return {authorityKey: JSON.stringify(current.parent)};
+    };
+    const peerSources = async (classId: string) => {
+      await authorizeAdult();
+      const current = await currentFamily(), receipts = await loadClassroomSubmissions();
+      await authorizeAdult();
+      if (JSON.stringify(current) !== JSON.stringify(await currentFamily())) throw Error("Class membership changed. Reload the source selection.");
+      return classroomPeerSourceOptions(current,classId,receipts);
+    };
+    const workflows = createClassroomWorkflowStore({
+      read: () => store.loadState("classroom-workflows"),
+      update: change => store.updateState("classroom-workflows",change),
+      family: currentFamily,
+      authorizeAdult,
+      learnerContext: async () => {
+        guard(); assertLocalLearner(selected);
+        if (!selected || store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("Learner changed. Reopen My classroom.");
+        const current = await currentFamily();
+        if (!current.students.some(s => s.id === selected) || !await store.competencyProfileExists(selected)) throw Error("This learner is no longer available.");
+        guard(); assertLocalLearner(selected);
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("Learner changed. Reopen My classroom.");
+        return {studentId:selected};
+      },
+      resolvePeerSource: async (classId,key) => resolveClassroomPeerSource(await peerSources(classId),key),
+      peerSourceCurrent: async (classId,source) => {
+        const current = await currentFamily();
+        const receipts = await loadClassroomSubmissions();
+        guard();
+        if (JSON.stringify(current) !== JSON.stringify(await currentFamily())) return false;
+        const exact = classroomPeerSourceOptions(current,classId,receipts).find(o => o.key === source.key);
+        return !!exact && exact.studentId === source.studentId && exact.receiptId === source.receiptId && exact.version === source.version && exact.text === source.text;
+      },
+      now: () => new Date().toISOString(),
+    });
+    return {workflows,peerSources};
+  }, [studentId, sessionEpoch]);
+
   const competencyAdultStore = createCompetencyStore({
     readProgress: store.loadProfileProgress,
     updateProgress: store.updateProfileProgress,
@@ -1146,6 +1212,8 @@ export default function App() {
 
   const api: AppApi = {
     publicLearning,
+    classroomWorkflows: classroomAccess.workflows,
+    classroomPeerSources: classroomAccess.peerSources,
     learnerPrivacy,
     catalog: catalogInfo,
     banks: allBanks,
@@ -1520,6 +1588,9 @@ export default function App() {
       if (COMMUNITY) body = <PublicCommunity id={view.id} appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} onStart={family ? undefined : (id) => addCommunityCourse(id, true)} />;
       break;
 
+    case "classroom-workflows":
+      body = <ClassroomWorkflowWorkspace key={studentId ?? "unconfigured"} api={api} />;
+      break;
     case "workspace":
       body = <StudentWorkspacePage key={studentId === null ? "independent" : `student:${studentId}`} api={api} />;
       break;
@@ -1707,6 +1778,8 @@ export default function App() {
           <ParentGate api={{...api, setFamily: persistGateFamily}} family={family} onUnlock={f => { unlockLocalAdult(); refreshLocalSession(x=>x+1); bindLocalSessionCredential(f.parent);
       documentUnlockedCredential.current = JSON.stringify(f.parent.password); adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
+      else if (view.tab === "classroom-workflows")
+        body = <ClassroomWorkflowWorkspace api={api} teacher />;
       else if (view.tab === "academic-records" || view.tab === "planning")
         body = <div className="page">
           <h1>{view.tab === "planning" ? "Parent homeschool planning" : "Academic records and portability"}</h1>
@@ -1739,7 +1812,7 @@ export default function App() {
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
   const navCurrent =
-    view.name === "progress" || view.name === "workspace"
+    view.name === "progress" || view.name === "workspace" || view.name === "classroom-workflows"
       ? "progress"
       : view.name === "community" || view.name === "communityCourse" || view.name === "create" || view.name === "communityEdit"
             ? "community"

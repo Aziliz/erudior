@@ -1,3 +1,4 @@
+import ClassroomWorkflowWorkspace from "./ClassroomWorkflowWorkspace";
 import HomeschoolPlanningWorkspace from "../components/HomeschoolPlanningWorkspace";
 import ParentCommunityReview from "../components/ParentCommunityReview";
 import AcademicRecordsWorkspace from "../components/AcademicRecordsWorkspace";
@@ -76,6 +77,7 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "classroom-workflows"
   | "planning"
   | "academic-records"
   | "learner-privacy"
@@ -115,6 +117,7 @@ const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "credential-evidence", label: "Credential evidence" },
   { id: "learner-privacy", label: "Learner privacy" },
   { id: "classes", label: "Classes" },
+  { id: "classroom-workflows", label: "Class collaboration" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
   { id: "work", label: "Student work" },
@@ -268,6 +271,7 @@ export default function ParentArea({
           {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
           {tab === "credential-evidence" && <CredentialWorkspace api={api} />}
           {tab === "learner-privacy" && <LearnerPrivacyWorkspace api={api} />}
+          {tab === "classroom-workflows" && classroom && <ClassroomWorkflowWorkspace api={api} teacher />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}
@@ -1020,7 +1024,7 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
     removing.current = true;
     try {
       const ok = await store.confirmAction(
-        `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
+        `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. Shared collaboration items involving this learner and their dependent group contributions are also removed to avoid retaining private identifying text; unrelated class work remains. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
         "Remove student",
       );
       if (!ok) return;

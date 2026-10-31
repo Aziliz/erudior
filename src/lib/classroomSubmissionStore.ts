@@ -1,3 +1,4 @@
+import { parseClassroomWorkflowState, deleteClassroomWorkflowStudent } from "./classroomWorkflows";
 import { assertLocalAdult, captureLocalSession } from "./localSession";
 import { parseLearnerPrivacyLibrary, deleteLearnerPrivacyStudent } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary } from './advancedAssessment';
@@ -165,6 +166,7 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
           return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
             deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
         });
+        await updateState("classroom-workflows", previous => JSON.stringify(deleteClassroomWorkflowStudent(parseClassroomWorkflowState(previous), studentId)));
         await updateState("instructional-evidence", previous => JSON.stringify(deleteInstructionalStudent(parseInstructionalLibrary(previous), studentId)));
         await updateState("branching-engine", previous => JSON.stringify(deleteBranchingStudent(parseBranchingLibrary(previous), studentId)));
         await updateState("learner-privacy", previous => JSON.stringify(deleteLearnerPrivacyStudent(parseLearnerPrivacyLibrary(previous), studentId)));

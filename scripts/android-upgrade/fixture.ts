@@ -3,11 +3,18 @@
 import { invoke } from "@tauri-apps/api/core";
 import { getVersion } from "@tauri-apps/api/app";
 import { emptyProgress, inApp, saveCourse, listCourses, saveProgress,
-  loadProgress, updateProfileProgress, loadProfileProgress } from "./lib/storage";
+  loadProgress, updateProfileProgress, loadProfileProgress, loadState } from "./lib/storage";
 import { emptyCourse } from "./lib/course";
 import { createOfflineCoursePackage, importOfflineCoursePackage } from "./lib/offlineCourse";
-import { createFamily, loadFamily } from "./lib/family";
+import { createFamily, loadFamily, saveFamily, newClass, type Family } from "./lib/family";
 import type { Course } from "./lib/types";
+
+// createFamily deliberately omits mode for homeschool. Accept that representation,
+// but only for the exact two synthetic learners produced by this isolated harness.
+const isSyntheticSharedDeviceFamily = (family: Family | null): family is Family =>
+  !!family && (family.mode ?? "homeschool") === "homeschool" && Array.isArray(family.students) &&
+  family.students.length === 2 && family.students[0].name === "Synthetic Android Alice" &&
+  family.students[1].name === "Synthetic Android Bob";
 
 const course: Course = {
   format: "examiner-course", version: 1, id: "upgrade-proof-course",
@@ -66,6 +73,25 @@ Object.assign(window, { __erudiorUpgradeE2E: {
       ...emptyProgress(), seeded: true, catalogV1: true, enrolled: [course.id],
     }));
     return { password, learners: family.students.map(({ id, name }) => ({ id, name })) };
+  },
+  async prepareSyntheticClassroom() {
+    if (!inApp) throw Error("Classroom acceptance requires native persistence");
+    const family = await loadFamily();
+    if (!isSyntheticSharedDeviceFamily(family))
+      throw Error("Classroom fixture requires the completed synthetic shared-device fixture");
+    // Called only after the actual parent gate and all shared-device assertions.
+    // No credentials/grants are changed or manufactured by this fixture setup.
+    family.mode = "classroom";
+    family.classes = [newClass("Synthetic Android classroom", family.students.map(s => s.id))];
+    await saveFamily(family);
+    return { learners: family.students.map(({id,name}) => ({id,name})),
+      password: "Synthetic Android shared device password 2026" };
+  },
+  async classroomSnapshot() {
+    const family = await loadFamily();
+    if (!inApp || family?.mode !== "classroom" || family.students.some(s => !s.name.startsWith("Synthetic Android ")))
+      throw Error("Classroom snapshot is restricted to the synthetic acceptance fixture");
+    return JSON.parse(await loadState("classroom-workflows") || "null");
   },
   async seed() {
     if (!inApp) throw new Error("Acceptance fixtures require the real native persistence backend");
