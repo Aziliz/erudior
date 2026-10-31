@@ -6,6 +6,7 @@ import { emptyProgress, inApp, saveCourse, listCourses, saveProgress,
   loadProgress, updateProfileProgress, loadProfileProgress } from "./lib/storage";
 import { emptyCourse } from "./lib/course";
 import { createOfflineCoursePackage, importOfflineCoursePackage } from "./lib/offlineCourse";
+import { createFamily, loadFamily } from "./lib/family";
 import type { Course } from "./lib/types";
 
 const course: Course = {
@@ -55,6 +56,17 @@ Object.assign(window, { __erudiorUpgradeE2E: {
   parsePortable: (content: string) => importOfflineCoursePackage(content),
   exportPortable: (content: string, name: string) => invoke<boolean>("export_portable_course", { content, name }),
   snapshot,
+  async seedSyntheticFamily() {
+    if (!inApp || await loadFamily()) throw new Error("Shared-device fixture requires an empty disposable native Family workspace");
+    const password = "Synthetic Android shared device password 2026";
+    const { family } = await createFamily({ mode: "homeschool", state: "", route: "Synthetic acceptance only",
+      year: { start: "2026-08-01", end: "2027-07-31" }, dailyMinutes: 180, password,
+      students: [{ name: "Synthetic Android Alice", grade: 8 }, { name: "Synthetic Android Bob", grade: 6 }] });
+    for (const learner of family.students) await updateProfileProgress(learner.id, () => ({
+      ...emptyProgress(), seeded: true, catalogV1: true, enrolled: [course.id],
+    }));
+    return { password, learners: family.students.map(({ id, name }) => ({ id, name })) };
+  },
   async seed() {
     if (!inApp) throw new Error("Acceptance fixtures require the real native persistence backend");
     await saveCourse(course);

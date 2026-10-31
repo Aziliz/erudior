@@ -56,8 +56,12 @@ assert.match(rust, /fn save_state[\s\S]*?NAMED_STATE_LOCK\.lock\(\)/);
 assert.match(rust, /fn compare_and_swap_state[\s\S]*?NAMED_STATE_LOCK\.lock\(\)/);
 assert.match(rust, /save_state,\s+compare_and_swap_state,/);
 const storage = await readFile(new URL("../src/lib/storage.ts", import.meta.url), "utf8");
-assert.match(storage, /saveState = [^\n]*namedState\.save/);
-assert.match(storage, /updateState = [^\n]*namedState\.update/);
+const saveBoundary = storage.match(/export const saveState = [\s\S]*?\n};/)?.[0] ?? "";
+assert.match(saveBoundary, /namedState\.save\(name, content, \(\) => assertStoredSession\(lease\)\)/);
+assert.match(saveBoundary, /captureLocalSession\(\)/);
+const updateBoundary = storage.match(/export const updateState = [\s\S]*?\n};/)?.[0] ?? "";
+assert.match(updateBoundary, /namedState\.update\(name,guarded,lease\)/);
+assert.match(updateBoundary, /await assertStoredSession\(lease\)/);
 console.log("named state serialization, CAS, allowlist and lock tests passed");
 
 await Promise.all(Array.from({length:8},()=>a.update("progress",old=>String(Number(old??"0")+1))));

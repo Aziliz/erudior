@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { branchingJSON as documentJSON } from './branchingEngine';
 import {
   parseBranchingPack, parseBranchingLibrary, parseBranchingAssignment,
@@ -80,6 +81,7 @@ export function deleteBranchingStudent(input: BranchingLibrary, studentId: strin
 
 /** Independent whole-pack approval is local authority; imported labels are historical data only. */
 export function createBranchingEngineStore(io: BranchingEngineIO) {
+  io = bindLocalSessionAuthority(io);
   const adult = async (id?: string) => {
     if (id) validStudent(id);
     const context = await io.authorizeAdult(id);

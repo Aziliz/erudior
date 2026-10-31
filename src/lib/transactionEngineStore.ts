@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { documentJSON, type DocumentResponse } from './documentEngine';
 import {
   parseTransactionPack, parseTransactionLibrary, parseTransactionAssignment,
@@ -79,6 +80,7 @@ export function deleteTransactionStudent(input: TransactionLibrary, studentId: s
 
 /** Independent whole-pack approval is local authority; imported labels are historical data only. */
 export function createTransactionEngineStore(io: TransactionEngineIO) {
+  io = bindLocalSessionAuthority(io);
   const adult = async (id?: string) => {
     if (id) validStudent(id);
     const context = await io.authorizeAdult(id);

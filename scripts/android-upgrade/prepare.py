@@ -27,14 +27,12 @@ def prepare(root: Path) -> None:
         if source.count(old) != 1:
             raise RuntimeError(f"Expected exactly one fixed native endpoint: {name}")
         source = source.replace(old, ORIGIN + "/" + name)
-    anchor = "class InstallerPlugin(private val activity: Activity) : Plugin(activity) {"
+    anchor = "    override fun load(webView: WebView) {"
     if source.count(anchor) != 1:
-        raise RuntimeError("Unknown plugin declaration; refusing an unverified rewrite")
-    # Playwright attaches to the actual app WebView, not a browser mock.
+        raise RuntimeError("Unknown plugin load lifecycle; refusing an unverified rewrite")
+    # Preserve the production lifecycle bridge; only generated CI copies enable inspection.
     source = source.replace(anchor, anchor + "\n" + MARKER + "\n"
-        "    override fun load(webView: android.webkit.WebView) {\n"
-        "        android.webkit.WebView.setWebContentsDebuggingEnabled(true)\n"
-        "    }\n")
+        "        android.webkit.WebView.setWebContentsDebuggingEnabled(true)\n")
     plugin.write_text(source)
     raw = generated / "res/raw"
     raw.mkdir(parents=True, exist_ok=True)

@@ -3,6 +3,9 @@ package com.erudior.updates
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.SystemClock
+import android.webkit.WebView
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Build
 import android.provider.Settings
 import androidx.core.content.FileProvider
@@ -28,6 +31,46 @@ internal class VerifiedApkArgs {
 
 @TauriPlugin
 class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
+    // Activity lifecycle is authoritative for background duration: Android WebView
+    // does not consistently emit DOM blur/visibility events when HOME is pressed.
+    // These notifications carry no identity or authorization, and never unlock.
+    private var lifecycleWebView: WebView? = null
+    private var backgroundAt: Long? = null
+
+    override fun load(webView: WebView) {
+        lifecycleWebView = webView
+    }
+
+    private fun notifyLifecycle(paused: Boolean, backgroundMs: Long) {
+        val payload = JSObject()
+        payload.put("paused", paused)
+        payload.put("backgroundMs", backgroundMs)
+        val webView = lifecycleWebView ?: return
+        activity.runOnUiThread {
+            if (lifecycleWebView === webView) webView.evaluateJavascript(
+                "window.dispatchEvent(new CustomEvent('erudior-native-lifecycle',{detail:" + payload.toString() + "}));",
+                null
+            )
+        }
+    }
+
+    override fun onPause(activity: AppCompatActivity) {
+        if (backgroundAt == null) backgroundAt = SystemClock.elapsedRealtime()
+        notifyLifecycle(true, 0L)
+    }
+
+    override fun onResume(activity: AppCompatActivity) {
+        val elapsed = backgroundAt?.let { (SystemClock.elapsedRealtime() - it).coerceAtLeast(0L) } ?: 0L
+        backgroundAt = null
+        // Include elapsed native monotonic time even when JS was fully suspended.
+        notifyLifecycle(false, elapsed)
+    }
+
+    override fun onDestroy(activity: AppCompatActivity) {
+        lifecycleWebView = null
+        backgroundAt = null
+    }
+
     @Command
     fun fetchReleaseManifest(invoke: Invoke) {
         Thread {

@@ -18,6 +18,12 @@ const heading = text => page.getByRole('heading', { name: text, exact: true });
 const button = text => page.getByRole('button', { name: text, exact: true });
 const entry = title => page.getByRole('article', { name: new RegExp(': ' + title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$') });
 const readProgress = () => page.evaluate(async () => (await import('/src/lib/storage.ts')).loadProgress());
+// Learner grants are explicit, memory-only and require the actual supervising-adult gate.
+async function unlockSelectedLearner() {
+  await page.getByLabel('Parent password', {exact:true}).fill('Synthetic test password only');
+  await page.getByRole('button', {name:'Open',exact:true}).click();
+  await page.getByRole('heading', {name:'Shared device locked',exact:true}).waitFor({state:'hidden'});
+}
 async function workspace() {
   await page.locator('header.topbar').getByRole('button', { name: 'Courses', exact: true }).click();
   await heading('Courses').waitFor();
@@ -73,7 +79,7 @@ try {
     await page.goto(origin + '/?app'); await heading('Library').waitFor();
     const ids = await seed();
     await page.reload(); await heading("Who's learning?").waitFor();
-    await page.locator('.who-card').filter({ hasText: 'Synthetic Alice' }).click(); await heading('Library').waitFor();
+    await page.locator('.who-card').filter({ hasText: 'Synthetic Alice' }).click();await unlockSelectedLearner(); await heading('Library').waitFor();
     await workspace();
     assert.equal(new URL(page.url()).pathname, '/workspace');
 
@@ -154,21 +160,21 @@ try {
     await page.getByLabel('Notes',{exact:true}).fill('Offline persisted note'); await button('Save entry').click();
     await entry('Synthetic note').getByText('Offline persisted note',{exact:true}).waitFor();
     await context.setOffline(false); await page.reload();
-    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();
-    await heading('Library').waitFor(); await workspace(); await button('Notebook').click();
+    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();
+    await heading('Student dashboard and notebook').waitFor(); await button('Notebook').click();
     await entry('Synthetic note').getByText('Offline persisted note',{exact:true}).waitFor();
     await audit(`${theme}-${width}-notebook-reloaded`);
 
     // Link targets can disappear, but the student's independent note remains useful.
     await page.evaluate(async id => (await import('/src/lib/storage.ts')).deleteCourse(id),ids.courseId);
     await page.reload(); await heading("Who's learning?").waitFor();
-    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click(); await heading('Library').waitFor();
-    await workspace(); await button('Notebook').click();
+    await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();
+    await heading('Student dashboard and notebook').waitFor(); await button('Notebook').click();
     await entry('Synthetic note').getByText('Linked resource is not installed. Your entry is kept.',{exact:true}).waitFor();
     assert.equal(await entry('Synthetic note').getByRole('button',{name:/^Open linked resource:/}).count(),0);
     // Switching local profiles never displays or carries Alice's notebook into Bob's.
     await page.getByRole('button',{name:'Student: Synthetic Alice. Switch student',exact:true}).click();
-    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Bob'}).click();
+    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Bob'}).click();await unlockSelectedLearner();
     await heading('Library').waitFor(); await workspace();
 
     await page.getByRole('alert').filter({hasText:/unsupported format/}).waitFor();
@@ -185,7 +191,7 @@ try {
     await entry('Bob private task').waitFor({state:'detached'});
     assert.equal((await readProgress()).studentWorkspace.entries.length,0);
     await page.getByRole('button',{name:'Student: Synthetic Bob. Switch student',exact:true}).click();
-    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();
+    await heading("Who's learning?").waitFor(); await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();
     await heading('Library').waitFor(); await workspace();
     assert.equal((await readProgress()).studentWorkspace.entries.length,5,'Alice workspace preserved across Bob edits');
     checks.push({workflow:'create/edit/cancel/status/delete; keyboard; Back/Forward; real CAS conflict; offline save/reload; missing resource; profile isolation', entries:5});

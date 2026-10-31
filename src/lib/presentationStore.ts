@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import { parsePresentation, parsePresentationLibrary, type PresentationDeck, type PresentationLibrary } from './presentations';
 
 /** The app supplies serialized storage and a live, adult-only authority check. */
@@ -8,6 +9,7 @@ export interface PresentationStoreIO {
   authorize(): Promise<string>;
 }
 export function createPresentationStore(io:PresentationStoreIO) {
+  io = bindLocalSessionAuthority(io);
   const authority=async()=>{const actor=await io.authorize();if(!actor)throw Error('Unlock the adult area first.');return actor;};
   const recheck=async(actor:string)=>{if(await authority()!==actor)throw Error('Adult access changed. Reopen the presentation library.');};
   return {

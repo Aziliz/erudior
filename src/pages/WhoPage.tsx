@@ -1,11 +1,11 @@
 import type { AppApi } from "../App";
 import { adultLabel, classesOf, gradeLabel, isClassroom, type Family, type Student } from "../lib/family";
 
-/** "Who's learning?" Students go straight in; the parent or teacher area asks for the password. */
+/** The adult authorizes a memory-only learner session; cards never grant access. */
 export default function WhoPage({ api, family }: { api: AppApi; family: Family }) {
   const card = (s: Student) => (
     <li key={s.id}>
-      <button className="who-card" aria-current={api.student?.id === s.id ? "true" : undefined} onClick={() => api.chooseStudent(s.id)}>
+      <button className="who-card" aria-current={api.student?.id === s.id ? "true" : undefined} onClick={() => void api.chooseStudent(s.id).catch(e=>api.toast((e as Error).message))}>
         <span className="who-initial" aria-hidden="true">
           {s.name.slice(0, 1).toUpperCase()}
         </span>
@@ -19,6 +19,7 @@ export default function WhoPage({ api, family }: { api: AppApi; family: Family }
   return (
     <div className="page">
       <h1>Who's learning?</h1>
+      <p className="muted">Choose a learner, then ask the {adultLabel(family).toLowerCase()} to authorize this session with their password or PIN. Reloading or locking this shared device requires authorization again.</p>
       {isClassroom(family) ? (
         <>
           {classes.map((c) => (

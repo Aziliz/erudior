@@ -15,6 +15,7 @@ spec.loader.exec_module(module)
 class UpgradeHarnessTests(unittest.TestCase):
     def fixture(self, root):
         plugin = 'package com.erudior.updates\nclass InstallerPlugin(private val activity: Activity) : Plugin(activity) {\n'
+        plugin += '    override fun load(webView: WebView) {\n        lifecycleWebView = webView\n    }\n'
         plugin += '\n'.join('val url = URL("' + module.PREFIX + name + '")' for name in ['android-update.json','Erudior-Android-arm64.apk'])+'\n}\n'
         files = {
           'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt': plugin,
@@ -44,6 +45,8 @@ class UpgradeHarnessTests(unittest.TestCase):
             generated=(root/'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
             self.assertEqual(generated.count(module.ORIGIN),2)
             self.assertIn('setWebContentsDebuggingEnabled(true)',generated)
+            self.assertEqual(generated.count('override fun load(webView: WebView)'),1)
+            self.assertIn('lifecycleWebView = webView',generated)
             manifest=ET.parse(root/'src-tauri/gen/android/app/src/main/AndroidManifest.xml')
             self.assertEqual(manifest.getroot().find('application').get('{'+module.ANDROID+'}networkSecurityConfig'),'@xml/erudior_upgrade_test_network')
             network=ET.parse(root/'src-tauri/gen/android/app/src/main/res/xml/erudior_upgrade_test_network.xml')
@@ -65,6 +68,22 @@ class UpgradeHarnessTests(unittest.TestCase):
                 with self.assertRaises(RuntimeError):module.prepare(root)
             self.assertEqual(plugin.read_text(),before)
 
+    def test_lifecycle_bridge_preserves_native_monotonic_duration(self):
+        source=(ROOT/'src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
+        lifecycle=source[source.index('    private var lifecycleWebView'):source.index('    @Command')]
+        self.assertIn('override fun onPause(activity: AppCompatActivity)',lifecycle)
+        self.assertIn('override fun onResume(activity: AppCompatActivity)',lifecycle)
+        self.assertIn('if (backgroundAt == null) backgroundAt = SystemClock.elapsedRealtime()',lifecycle)
+        self.assertIn('(SystemClock.elapsedRealtime() - it).coerceAtLeast(0L)',lifecycle)
+        self.assertIn('notifyLifecycle(true, 0L)',lifecycle)
+        self.assertIn('notifyLifecycle(false, elapsed)',lifecycle)
+        self.assertIn("new CustomEvent('erudior-native-lifecycle'",lifecycle)
+        self.assertIn('activity.runOnUiThread',lifecycle)
+        self.assertIn('lifecycleWebView === webView',lifecycle)
+        self.assertNotIn('currentTimeMillis',lifecycle)
+        self.assertNotIn('unlock',lifecycle)
+        self.assertNotIn('setWebContentsDebuggingEnabled',source)
+
     def test_mobile_bridge_commands_do_not_block_main_thread(self):
         source=(ROOT/'src-tauri/src/lib.rs').read_text()
         for name in ['android_fetch_manifest','android_download_verified_apk','launch_android_installer']:
@@ -77,6 +96,12 @@ class UpgradeHarnessTests(unittest.TestCase):
         for label in ['Theme','Reading width','Text size']:
             self.assertIn("getByLabel('"+label+"'",runner)
         self.assertIn("KEYCODE_HOME",runner)
+
+    def test_emulator_partition_is_bounded_without_skipping_acceptance(self):
+        workflow=(ROOT/'.github/workflows/android-upgrade.yml').read_text()
+        self.assertIn('disk-size: 2048M',workflow)
+        self.assertIn('script: node scripts/android-upgrade/run.mjs',workflow)
+        self.assertNotIn('continue-on-error',workflow)
 
     def test_upgrade_runner_never_uses_adb_reinstall_or_clear(self):
         source=(ROOT/'scripts/android-upgrade/run.mjs').read_text()

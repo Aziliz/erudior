@@ -3,7 +3,7 @@ import type { AppApi } from "../App";
 import { adultLabel, isClassroom, lockedFor, passwordProblem, resetWithRecovery, unlockParent, type Family } from "../lib/family";
 
 /** Password (or PIN, if the parent turned it on) before the parent area opens. */
-export default function ParentGate({ api, family, onUnlock }: { api: AppApi; family: Family; onUnlock: () => void }) {
+export default function ParentGate({ api, family, onUnlock }: { api: AppApi; family: Family; onUnlock: (family: Family) => void }) {
   const hasPin = !!family.parent.pin;
   const [kind, setKind] = useState<"password" | "pin">(hasPin ? "pin" : "password");
   const [value, setValue] = useState("");
@@ -35,7 +35,7 @@ export default function ParentGate({ api, family, onUnlock }: { api: AppApi; fam
       await api.setFamily(next);
       if (!alive.current) return;
       setValue(""); setNow(Date.now());
-      if (ok) { onUnlock(); return; }
+      if (ok) { onUnlock(next); return; }
       const left = lockedFor(next);
       setMsg(left ? `Too many wrong tries. Try again in ${Math.ceil(left / 60000)} minute${left > 60000 ? "s" : ""}.` : `That ${kind === "pin" ? "PIN" : "password"} isn't right.`);
     } catch (error) { if (alive.current) setMsg(`${(error as Error).message} Reload saved Family before trying again.`); }
@@ -62,7 +62,7 @@ export default function ParentGate({ api, family, onUnlock }: { api: AppApi; fam
           aria-describedby="gate-msg"
         />
       </label>
-      <p id="gate-msg" className={msg ? "notice error" : "sr-only"} role="alert" style={{ marginTop: 12, maxWidth: 480 }}>
+      <p id="gate-msg" className={msg || wait > 0 ? "notice error" : "sr-only"} role="alert" style={{ marginTop: 12, maxWidth: 480 }}>
         {wait ? `Locked for ${Math.ceil(wait / 1000)} more seconds.` : msg}
       </p>
       <div className="row" style={{ marginTop: 16 }}>
@@ -90,11 +90,12 @@ export default function ParentGate({ api, family, onUnlock }: { api: AppApi; fam
   );
 }
 
-function Recovery({ api, family, onBack, onUnlock }: { api: AppApi; family: Family; onBack: () => void; onUnlock: () => void }) {
+function Recovery({ api, family, onBack, onUnlock }: { api: AppApi; family: Family; onBack: () => void; onUnlock: (family: Family) => void }) {
   const [code, setCode] = useState("");
   const [pw, setPw] = useState("");
   const [msg, setMsg] = useState("");
   const [newCode, setNewCode] = useState("");
+  const recoveredFamily = useRef<Family | null>(null);
   const [busy,setBusy]=useState(false);
   const working=useRef(false),alive=useRef(true);
   useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
@@ -110,7 +111,7 @@ function Recovery({ api, family, onBack, onUnlock }: { api: AppApi; family: Fami
       if(!alive.current)return;
       if (!r) { setMsg("That recovery code isn't right."); return; }
       await api.setFamily(r.family);
-      if(alive.current){setNewCode(r.recoveryCode);setCode("");setPw("");}
+      if(alive.current){recoveredFamily.current = r.family;setNewCode(r.recoveryCode);setCode("");setPw("");}
     } catch(e){if(alive.current)setMsg(`${(e as Error).message} Reload saved Family before retrying recovery.`);}
     finally{working.current=false;if(alive.current)setBusy(false);}
   }
@@ -121,7 +122,7 @@ function Recovery({ api, family, onBack, onUnlock }: { api: AppApi; family: Fami
         <h1>Password changed</h1>
         <p>Your old recovery code no longer works. Here's the new one; write it down. The PIN was turned off; you can set a new one in Settings.</p>
         <p className="recovery-code">{newCode}</p>
-        <button className="btn primary" onClick={onUnlock}>
+        <button className="btn primary" onClick={() => onUnlock(recoveredFamily.current ?? family)}>
           Open the area
         </button>
       </div>

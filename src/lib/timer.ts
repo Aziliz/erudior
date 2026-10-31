@@ -1,3 +1,4 @@
+import { captureLocalSession, assertLocalLearner } from "./localSession";
 // Active study time for homeschool records. Counts while a study screen is open, the window is
 // visible, and the student did something (typed, clicked, scrolled, touched) in the last few
 // minutes; otherwise it pauses. Saved to the student's records about once a minute.
@@ -57,13 +58,14 @@ export class ActiveClock {
 export function useStudyTimer(studentId: string | null, courseId: string | null) {
   useEffect(() => {
     if (!studentId || !courseId) return;
+    const authorize=captureLocalSession();
     const clock = new ActiveClock(Date.now());
     const visible = () => document.visibilityState === "visible";
     const onInput = () => clock.input(Date.now());
     const events = ["keydown", "pointerdown", "pointermove", "wheel", "touchstart", "scroll"] as const;
     for (const e of events) window.addEventListener(e, onInput, { passive: true, capture: true });
     const tick = window.setInterval(() => clock.tick(Date.now(), visible()), TICK_MS);
-    const flush = () => creditTime(studentId, courseId, clock.take()).catch(() => {});
+    const flush = () => { const seconds=clock.take(); try { authorize(); assertLocalLearner(studentId); void creditTime(studentId, courseId, seconds).catch(() => {}); } catch { /* Locked time never borrows a new session. */ } };
     const saver = window.setInterval(flush, FLUSH_MS);
     return () => {
       clock.tick(Date.now(), visible());

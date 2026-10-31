@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 import type {Course,Progress} from './types';
 import {parseInterventionState,interventionStatus,type InterventionActivity} from './interventions';
 import {parseInterventionTask,parseInterventionTasks,taskFromPlan,addInterventionTask,sameInterventionTask,validateTaskActivity,type InterventionTask} from './interventionTasks';
@@ -15,6 +16,7 @@ export interface InterventionTaskIO {
   allowed(courseId:string,context:TaskContext,progress:Progress,courses:Course[]):Promise<string|null>;
 }
 export function createInterventionTaskAccess(io:InterventionTaskIO){
+  io = bindLocalSessionAuthority(io);
   const check=async(expected:TaskContext)=>{const next=await io.context();if(next.profileId!==expected.profileId||next.scope!==expected.scope)throw Error('Learner or permissions changed. Reopen the support task.');};
   const load=async(expected?:TaskContext):Promise<InterventionTask[]>=>{
     const context=expected??await io.context();await check(context);

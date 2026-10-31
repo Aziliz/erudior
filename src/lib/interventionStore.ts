@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 /** Adult-owned educational follow-up ledger. UI input never supplies authority or mastery. */
 import type { Course, Progress } from './types';
 import { diagnoseLearning } from './learningDiagnostics';
@@ -29,6 +30,7 @@ export function deleteInterventionStudent(state:InterventionState,studentId:stri
 const canonical=(v:unknown):string=>Array.isArray(v)?'['+v.map(canonical).join(',')+']':v&&typeof v==='object'?'{'+Object.entries(v).filter(([,value])=>value!==undefined).sort(([a],[b])=>a.localeCompare(b)).map(([key,value])=>JSON.stringify(key)+':'+canonical(value)).join(',')+'}':JSON.stringify(v);
 const same=(a:unknown,b:unknown)=>canonical(a)===canonical(b);
 export function createInterventionStore(io:InterventionStoreIO) {
+  io = bindLocalSessionAuthority(io);
   const check=async(studentId?:string)=>{
     if(studentId!==undefined&&!/^[a-z0-9]{1,24}$/.test(studentId))throw Error('Invalid learner profile.');
     const actor=await io.authorize(studentId);

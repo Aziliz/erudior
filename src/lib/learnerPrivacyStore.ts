@@ -1,3 +1,4 @@
+import { bindLocalSessionAuthority } from './localSession';
 /** Explicit, scoped practice portability. No automatic network activity or authority imports. */
 import type {Course,Progress} from './types';
 import {createAnonymousPrivacyService,type AnonymousPrivacyService,type AnonymousPrivacyIO} from './anonymousPrivacyService';
@@ -28,7 +29,8 @@ export function deleteLearnerPrivacyStudent(input:LearnerPrivacyLibrary,studentI
 export function restoreLearnerPrivacyLibrary(input:unknown,current?:unknown):LearnerPrivacyLibrary {const a=parseLearnerPrivacyLibrary(input),b=parseLearnerPrivacyLibrary(current);return parseLearnerPrivacyLibrary({...emptyLearnerPrivacyLibrary(),revision:Math.max(a.revision,b.revision)+1,deletedStudentIds:[...new Set([...a.deletedStudentIds,...b.deletedStudentIds])]});}
 const fresh=(studentId:string|null):PrivacyProfile=>({studentId,consent:false,binding:null,remoteRevision:0,status:'local',retentionDays:7,pending:null});
 const localBinding=(studentId:string|null):LearnerBinding=>({namespace:'local-practice',account:'local-device',profile:studentId===null?'anonymous-practice':`profile-${studentId}`,schemaVersion:1});
-export function createLearnerPrivacyStore(io:PrivacyIO){return {forProfile(studentId:string|null):PrivacyService{
+export function createLearnerPrivacyStore(io:PrivacyIO){
+  io = bindLocalSessionAuthority(io);return {forProfile(studentId:string|null):PrivacyService{
  if(studentId!==null&&!id(studentId))bad();
  let privateEpoch=0;
  const nowSeconds=()=>Math.floor(Date.parse(io.now?.()??new Date().toISOString())/1000);

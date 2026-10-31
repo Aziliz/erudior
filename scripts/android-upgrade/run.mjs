@@ -8,6 +8,7 @@ import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'nod
 import path from 'node:path';
 import { _android as android } from 'playwright';
 import { verifyPortableFiles } from './portable-files.mjs';
+import { verifySharedDevice } from './shared-device.mjs';
 
 assert.equal(process.env.GITHUB_ACTIONS, 'true');
 assert.equal(process.env.ERUDIOR_UPGRADE_E2E, '1');
@@ -76,7 +77,7 @@ const manifest={schema:1,version:'0.25.2',build:'b'.repeat(40),
   apk:'https://github.com/Aziliz/erudior/releases/download/android-preview/Erudior-Android-arm64.apk',
   sha256:createHash('sha256').update(apk).digest('hex'),bytes:apk.length,notes:'Disposable upgrade acceptance fixture'};
 assert.ok(apk.length<41943040,'Fixture must pass the unchanged native size limit');
-async function attach() {
+async function attach({ sharedDevice = false } = {}) {
   await device?.close().catch(()=>{});
   device=(await android.devices()).find(d=>d.serial()===serial);
   assert.ok(device,'emulator visible to Playwright');
@@ -84,12 +85,13 @@ async function attach() {
   page=await view.page(); page.setDefaultTimeout(20000);
   page.on('console', msg=>{ if(msg.type()==='error') console.error('WEBVIEW:',msg.text()); });
   await page.waitForFunction(()=>Boolean(window.__erudiorUpgradeE2E));
-  await page.locator('.catalog').waitFor({state:'visible',timeout:45000});
+  if (sharedDevice) await page.getByRole('heading',{name:"Who's learning?",exact:true}).waitFor({timeout:45000});
+  else await page.locator('.catalog').waitFor({state:'visible',timeout:45000});
   return page;
 }
-async function launch() {
+async function launch(options) {
   adb('shell','monkey','-p',pkg,'-c','android.intent.category.LAUNCHER','1');
-  return attach();
+  return attach(options);
 }
 async function clickUpdate() {
   const button=page.getByRole('button',{name:'Verify and open installer',exact:true});
@@ -193,6 +195,9 @@ try {
   assert.ok(results.requests.filter(r=>r.path==='/android-update.json').length>0);
   assert.ok(results.requests.filter(r=>r.path==='/Erudior-Android-arm64.apk').length>=4);
   passed('Version B reopens stored course and all saved records; no repeated same-build offer');
+  // Only after every version-B retention assertion: exercise a new synthetic Family.
+  await verifySharedDevice({ page, adb, pkg, sleep, screenshot, passed,
+    restart: () => launch({ sharedDevice: true }) });
   results.ok=true;report();
 } catch(error) {
   results.error=error.stack??String(error);report();

@@ -19,6 +19,12 @@ const button = name => page.getByRole('button', {name,exact:true});
 const heading = name => page.getByRole('heading', {name,exact:true});
 const claim = name => page.getByRole('article', {name:`Credit: ${name}`,exact:true});
 const status = text => page.locator('.academic-records [role="status"]').filter({hasText:text});
+// Learner grants are explicit, memory-only and require the actual supervising-adult gate.
+async function unlockSelectedLearner() {
+  await page.getByLabel('Parent password', {exact:true}).fill(password);
+  await page.getByRole('button', {name:'Open',exact:true}).click();
+  await page.getByRole('heading', {name:'Shared device locked',exact:true}).waitFor({state:'hidden'});
+}
 async function audit(name, target) {
   current = name; await page.evaluate(() => document.fonts.ready);
   assert(await page.evaluate(() => document.documentElement.scrollWidth-innerWidth)<=1,`${name}: body overflow`);
@@ -94,7 +100,7 @@ try {
       for(const s of family.students)await store.updateProfileProgress(s.id,()=>({...store.emptyProgress(),catalogV1:true,enrolled:[]}));
       return {alice:family.students[0].id,bob:family.students[1].id};
     },password);
-    await page.reload();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await heading('Library').waitFor();
+    await page.reload();await heading("Who's learning?").waitFor();await page.locator('.who-card').filter({hasText:'Synthetic Alice'}).click();await unlockSelectedLearner();await heading('Library').waitFor();
     await openRecords();await audit(prefix+'-empty',heading('Academic records and portability'));
     await button('Edit planning policy').click();await page.getByLabel('Policy name',{exact:true}).fill('Synthetic graduation goals');await page.getByLabel('Total credits required',{exact:true}).fill('2');
     await button('Add subject requirement').click();await page.getByLabel('Subject',{exact:true}).fill('Science');await page.getByLabel('Required credits',{exact:true}).fill('2');

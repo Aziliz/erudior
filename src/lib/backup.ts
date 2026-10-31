@@ -1,3 +1,4 @@
+import { assertLocalAdult, captureLocalSession } from "./localSession";
 import { parseLearnerPrivacyLibrary, restoreLearnerPrivacyLibrary, type LearnerPrivacyLibrary } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary, type AdvancedAssessmentLibrary } from './advancedAssessment';
 import { parseScientificLibrary, type ScientificLibrary } from './scientificWorkspace';
@@ -253,8 +254,14 @@ async function gatherFiles(students: Contents["students"], base: Progress): Prom
   return files;
 }
 
-export async function exportEncrypted(courses: Course[], banks: Bank[], passphrase: string): Promise<boolean> {
-  const text = await encryptText(JSON.stringify(await collect(courses, banks)), passphrase);
+export async function exportEncrypted(courses: Course[], banks: Bank[], passphrase: string, authorization: () => void = () => {}): Promise<boolean> {
+  const session = captureLocalSession();
+  const authorize = () => { session(); assertLocalAdult(); authorization(); };
+  authorize();
+  const contents = await collect(courses, banks);
+  authorize();
+  const text = await encryptText(JSON.stringify(contents), passphrase);
+  authorize();
   const day = new Date().toISOString().slice(0, 10);
   return store.exportText(text, `erudior-family-backup-${day}.json`, "Erudior encrypted backup");
 }
@@ -263,7 +270,26 @@ export async function exportEncrypted(courses: Course[], banks: Bank[], passphra
 export async function restoreContents(
   text: string,
   current: { courses: Course[]; banks: Bank[] },
+  authorization: () => void = () => {},
 ): Promise<{ students: number; courses: number }> {
+  const session = captureLocalSession();
+  const authorize = () => { session(); assertLocalAdult(); authorization(); };
+  // Recovery spans several files, not one database transaction. Stop on revoked
+  // authority; callers must report a partial restore and allow explicit retry.
+  const checked = async <T,>(operation: () => Promise<T>): Promise<T> => {
+    authorize();
+    const result = await operation();
+    authorize();
+    return result;
+  };
+  authorize();
+  const writeState = (...args: Parameters<typeof store.saveState>) => checked(() => store.saveState(...args));
+  const updateState: typeof store.updateState = (name, updater) => checked(() => store.updateState(name, async old => {
+    authorize();
+    const next = await updater(old);
+    authorize();
+    return next;
+  }));
   const b = JSON.parse(text) as Contents;
   if (b.format !== "examiner-family-backup") throw new Error("This backup's contents weren't recognized.");
   if (!b.students || typeof b.students !== "object" || Array.isArray(b.students)) throw Error("Invalid student records in backup.");
@@ -360,13 +386,13 @@ export async function restoreContents(
   });
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   const anonymousGeneration = await store.assertAnonymousWriteLease();
-  for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await store.deleteCourse(c.id);
-  for (const x of current.banks.filter((y) => !y.courseId)) if (!banks.some((y) => y.id === x.id)) await store.deleteBank(x.id);
-  for (const c of courses) await store.saveCourse(c);
-  for (const x of banks) await store.saveBank(x);
+  for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await checked(() => store.deleteCourse(c.id));
+  for (const x of current.banks.filter((y) => !y.courseId)) if (!banks.some((y) => y.id === x.id)) await checked(() => store.deleteBank(x.id));
+  for (const c of courses) await checked(() => store.saveCourse(c));
+  for (const x of banks) await checked(() => store.saveBank(x));
   for (const [id, s] of Object.entries(b.students)) {
-    await store.saveState(`progress-${id}`, JSON.stringify(s.progress));
-    await store.updateState(`records-${id}`, async old => {
+    await writeState(`progress-${id}`, JSON.stringify(s.progress));
+    await updateState(`records-${id}`, async old => {
       const deleted = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
       if (deleted.includes(id)) throw Error("A learner was deleted during backup restore; their records were not restored.");
       // Explicit backup recovery may repair quarantined records, but must invalidate open editors.
@@ -375,33 +401,38 @@ export async function restoreContents(
       return JSON.stringify(parseRecords({...s.records, revision: Math.max(previousRevision, s.records.revision ?? 0) + 1}));
     });
     if ((validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? []).includes(id)) {
-      await store.saveState(`records-${id}`, null);
+      await writeState(`records-${id}`, null);
       throw Error("A learner was deleted during backup restore; their records were removed.");
     }
-    await savePhotos(id, s.photos ?? []);
+    await checked(() => savePhotos(id, s.photos ?? []));
   }
-  for (const [fileId, f] of Object.entries(b.files ?? {})) await putFile(fileId, f);
+  for (const [fileId, f] of Object.entries(b.files ?? {})) await checked(() => putFile(fileId, f));
+  authorize();
   store.useStudentFiles(null);
-  await store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true });
-  if (restoredFamily) await saveFamily(restoredFamily);
-  else await store.saveState("family", null);
-  await store.saveState("presentations", presentations);
-  await store.saveState("interventions", interventions);
-  await store.saveState("document-engine", documentEngine);
-  await store.saveState("transaction-engine", transactionEngine);
-  await store.saveState("branching-engine", branchingEngine);
-  await store.updateState("learner-privacy", current => JSON.stringify(restoreLearnerPrivacyLibrary(privacyState, parseLearnerPrivacyLibrary(current))));
-  await store.saveState("advanced-assessment", advancedAssessment);
-  await store.saveState("scientific-workspace", scientificWorkspace);
-  await store.saveState("instructional-evidence", instructionalEvidence);
+  await checked(() => store.saveProgress({ ...store.emptyProgress(), ...b.progress, anonymousGeneration, seeded: true }, { replaceInterventionTasks: true, replaceLearningPathways: true, replaceStudentWorkspace: true, guard: authorize }));
+  await writeState("presentations", presentations);
+  await writeState("interventions", interventions);
+  await writeState("document-engine", documentEngine);
+  await writeState("transaction-engine", transactionEngine);
+  await writeState("branching-engine", branchingEngine);
+  await updateState("learner-privacy", current => JSON.stringify(restoreLearnerPrivacyLibrary(privacyState, parseLearnerPrivacyLibrary(current))));
+  await writeState("advanced-assessment", advancedAssessment);
+  await writeState("scientific-workspace", scientificWorkspace);
+  await writeState("instructional-evidence", instructionalEvidence);
   // Preserve erasure tombstones even when a legacy backup carries no receipt ledger.
   const latestClassroom = validateClassroomSubmissionState(await store.loadState("classroom-submissions"));
   if (latestClassroom.deletedStudentIds?.length || deletedIds.length) {
-    await store.updateState("classroom-submissions", old => {
+    await updateState("classroom-submissions", old => {
       const current = validateClassroomSubmissionState(old), imported = validateClassroomSubmissionState(classroomSubmissions);
       const deletedStudentIds = [...new Set([...(current.deletedStudentIds ?? []), ...deletedIds])];
       return JSON.stringify(validateClassroomSubmissionState(JSON.stringify({...imported,deletedStudentIds})));
     });
-  } else await store.saveState("classroom-submissions", classroomSubmissions);
+  } else await writeState("classroom-submissions", classroomSubmissions);
+  // Install credentials last. Every earlier restore write is authorized against
+  // the currently authenticated Family, never credentials imported by a backup.
+  // The caller reloads immediately after success; imported bytes grant no session.
+  if (restoredFamily) await checked(() => saveFamily(restoredFamily));
+  else await writeState("family", null);
+  authorize();
   return { students: Object.keys(b.students).length, courses: courses.length };
 }

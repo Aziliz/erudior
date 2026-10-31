@@ -1,3 +1,4 @@
+import { assertLocalAdult, captureLocalSession } from "./localSession";
 import { parseLearnerPrivacyLibrary, deleteLearnerPrivacyStudent } from "./learnerPrivacyStore";
 import { parseAdvancedAssessmentLibrary } from './advancedAssessment';
 import { deleteAdvancedAssessmentStudent } from './advancedAssessmentStore';
@@ -142,37 +143,50 @@ export function createClassroomSubmissionStore(io: ClassroomSubmissionIO) {
      * Keep the profile visible until every cleanup succeeds so failures are retryable.
      * ID-only tombstones prevent old hand-ins from recreating deleted personal data.
      */
-    deleteStudent: (studentId: string, expectedFamily: Family): Promise<Family> => serial(async () => {
-      if (!/^[a-z0-9]{1,24}$/.test(studentId) || !expectedFamily.students.some(s => s.id === studentId)) throw Error("Select the student profile to delete.");
-      const family = await io.readFamily();
-      if (!family || family.mode !== expectedFamily.mode) throw Error("The current family changed. Reload before deleting.");
-      if (family.students.some(s => s.id === studentId) && family.students.length < 2) throw Error("A family needs at least one student.");
-      await mutate(current => {
-        const records = current.records.filter(r => r.studentId !== studentId);
-        const kept = new Set(records.map(r => r.id));
-        return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
-          deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
+    deleteStudent: (studentId: string, expectedFamily: Family, authorize: () => void = () => {}): Promise<Family> => {
+      const session = captureLocalSession();
+      const guard = () => { session(); assertLocalAdult(); authorize(); };
+      const checked = async <T,>(operation: () => Promise<T>): Promise<T> => {
+        guard(); const result = await operation(); guard(); return result;
+      };
+      const updateState: typeof io.updateState = (name, updater) => checked(() => io.updateState(name, async old => {
+        guard(); const next = await updater(old); guard(); return next;
+      }));
+      return serial(async () => {
+        guard();
+        if (!/^[a-z0-9]{1,24}$/.test(studentId) || !expectedFamily.students.some(s => s.id === studentId)) throw Error("Select the student profile to delete.");
+        const family = await io.readFamily();
+        if (!family || family.mode !== expectedFamily.mode) throw Error("The current family changed. Reload before deleting.");
+        if (family.students.some(s => s.id === studentId) && family.students.length < 2) throw Error("A family needs at least one student.");
+        await mutate(current => {
+          guard();
+          const records = current.records.filter(r => r.studentId !== studentId);
+          const kept = new Set(records.map(r => r.id));
+          return { ...current, records, complete: current.complete.filter(id => kept.has(id)),
+            deletedStudentIds: [...new Set([...(current.deletedStudentIds ?? []), studentId])] };
+        });
+        await updateState("instructional-evidence", previous => JSON.stringify(deleteInstructionalStudent(parseInstructionalLibrary(previous), studentId)));
+        await updateState("branching-engine", previous => JSON.stringify(deleteBranchingStudent(parseBranchingLibrary(previous), studentId)));
+        await updateState("learner-privacy", previous => JSON.stringify(deleteLearnerPrivacyStudent(parseLearnerPrivacyLibrary(previous), studentId)));
+        await updateState("advanced-assessment", previous => JSON.stringify(deleteAdvancedAssessmentStudent(parseAdvancedAssessmentLibrary(previous), studentId)));
+        await updateState("scientific-workspace", previous => JSON.stringify(deleteScientificStudent(parseScientificLibrary(previous), studentId)));
+        await updateState("transaction-engine", previous => JSON.stringify(deleteTransactionStudent(parseTransactionLibrary(previous), studentId)));
+        await updateState("document-engine", previous => JSON.stringify(deleteDocumentStudent(parseDocumentLibrary(previous), studentId)));
+        await updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
+        for (const prefix of ["progress", "records", "session", "portfolio"])
+          await checked(() => io.writeState(`${prefix}-${studentId}`, null));
+        const text = await updateState("family", previous => {
+          const latest: Family | null = previous === null ? null : JSON.parse(previous);
+          if (!latest || latest.mode !== expectedFamily.mode) throw Error("The current family changed during deletion. Reload and retry cleanup.");
+          if (latest.students.some(s => s.id === studentId) && latest.students.length < 2) throw Error("A family needs at least one student.");
+          return JSON.stringify({ ...latest, students: latest.students.filter(s => s.id !== studentId),
+            classes: latest.classes?.map(c => ({ ...c, students: c.students.filter(id => id !== studentId),
+              handins: Object.fromEntries(Object.entries(c.handins ?? {}).filter(([id]) => id !== studentId)) })) });
+        });
+        guard();
+        return JSON.parse(text) as Family;
       });
-      await io.updateState("instructional-evidence", previous => JSON.stringify(deleteInstructionalStudent(parseInstructionalLibrary(previous), studentId)));
-      await io.updateState("branching-engine", previous => JSON.stringify(deleteBranchingStudent(parseBranchingLibrary(previous), studentId)));
-      await io.updateState("learner-privacy", previous => JSON.stringify(deleteLearnerPrivacyStudent(parseLearnerPrivacyLibrary(previous), studentId)));
-      await io.updateState("advanced-assessment", previous => JSON.stringify(deleteAdvancedAssessmentStudent(parseAdvancedAssessmentLibrary(previous), studentId)));
-      await io.updateState("scientific-workspace", previous => JSON.stringify(deleteScientificStudent(parseScientificLibrary(previous), studentId)));
-      await io.updateState("transaction-engine", previous => JSON.stringify(deleteTransactionStudent(parseTransactionLibrary(previous), studentId)));
-      await io.updateState("document-engine", previous => JSON.stringify(deleteDocumentStudent(parseDocumentLibrary(previous), studentId)));
-      await io.updateState("interventions", previous => JSON.stringify(deleteInterventionStudent(parseInterventionState(previous), studentId)));
-      for (const prefix of ["progress", "records", "session", "portfolio"])
-        await io.writeState(`${prefix}-${studentId}`, null);
-      const text = await io.updateState("family", previous => {
-        const latest: Family | null = previous === null ? null : JSON.parse(previous);
-        if (!latest || latest.mode !== expectedFamily.mode) throw Error("The current family changed during deletion. Reload and retry cleanup.");
-        if (latest.students.some(s => s.id === studentId) && latest.students.length < 2) throw Error("A family needs at least one student.");
-        return JSON.stringify({ ...latest, students: latest.students.filter(s => s.id !== studentId),
-          classes: latest.classes?.map(c => ({ ...c, students: c.students.filter(id => id !== studentId),
-            handins: Object.fromEntries(Object.entries(c.handins ?? {}).filter(([id]) => id !== studentId)) })) });
-      });
-      return JSON.parse(text) as Family;
-    }),
+    },
     review: (input: ClassroomReviewInput, expectedFamily: Family): Promise<StoredSubmissionRecord[]> => serial(async () => {
       const family = await currentFamily(expectedFamily);
       const state = await read();
