@@ -10,8 +10,10 @@
 //                90 = down, -90 = up). Rising angles turn clockwise on screen, falling
 //                angles counterclockwise ("circle back" letters such as c, a, o).
 //   D x y        a dot (i, j): a tap
+//   C x1 y1 x2 y2 x y   a cubic curve to x y (used by the kana in kanaStrokes.ts)
 // An E that starts a stroke starts at its own first point.
 
+import { kanaStrokes } from "./kanaStrokes";
 export type Pt = [number, number];
 
 const S: Record<string, string[]> = {
@@ -96,6 +98,17 @@ export function strokePoints(cmds: string): Pt[] {
       if (!pts.length) pts.push(at(a0));
       else lineTo(...at(a0));
       for (let k = 1; k <= steps; k++) pts.push(at(a0 + ((a1 - a0) * k) / steps));
+    } else if (c === "C") {
+      // Cubic Bézier from the current point.
+      const p0 = pts[pts.length - 1] ?? [0, 0];
+      const [x1, y1, x2, y2, x, y] = [num(), num(), num(), num(), num(), num()];
+      const at = (t: number): Pt => {
+        const u = 1 - t;
+        return [u * u * u * p0[0] + 3 * u * u * t * x1 + 3 * u * t * t * x2 + t * t * t * x, u * u * u * p0[1] + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t * t * t * y];
+      };
+      const rough = Math.hypot(x1 - p0[0], y1 - p0[1]) + Math.hypot(x2 - x1, y2 - y1) + Math.hypot(x - x2, y - y2);
+      const steps = Math.max(2, Math.ceil(rough));
+      for (let k = 1; k <= steps; k++) pts.push(at(k / steps));
     } else throw new Error(`unknown stroke command "${c}"`);
   }
   return pts;
@@ -103,17 +116,26 @@ export function strokePoints(cmds: string): Pt[] {
 
 export interface LetterGuide {
   char: string;
-  /** Strokes in writing order, shifted so the letter starts at x = 0. */
+  /** Strokes in writing order, shifted so the letter starts at x = 0. Kana keep their place in
+   * the 0–100 square instead. */
   strokes: Pt[][];
   width: number;
+  /** A Japanese kana, drawn in a square box rather than on writing lines. */
+  kana?: boolean;
 }
 
 const cache = new Map<string, LetterGuide>();
 
 export function letterGuide(ch: string): LetterGuide | undefined {
-  if (!S[ch]) return undefined;
   const hit = cache.get(ch);
   if (hit) return hit;
+  if (!S[ch]) {
+    const k = kanaStrokes(ch);
+    if (!k) return undefined;
+    const g = { char: ch, strokes: k.map(strokePoints), width: 100, kana: true };
+    cache.set(ch, g);
+    return g;
+  }
   const raw = S[ch].map(strokePoints);
   const xs = raw.flat().map((p) => p[0]);
   const min = Math.min(...xs);

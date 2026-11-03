@@ -19,7 +19,7 @@ g.document = dom.window.document;
 
 const { parseSounds, parseBlend, parseTrace, phonicsProblems, protectPhonics, renderSounds, renderBlend, renderTrace, handlePhonicsClick, hydratePhonics, soundKey, parseUnits, phonicsKeys } =
   await import("../src/lib/phonics.ts");
-const { letterGuide, TRACE_LETTERS, checkStroke, TOLERANCE, resample } = await import("../src/lib/handwriting.ts");
+const { letterGuide, TRACE_LETTERS, checkStroke, TOLERANCE, resample, pathLength } = await import("../src/lib/handwriting.ts");
 type Pt = [number, number];
 
 // --- sounds ------------------------------------------------------------------------------
@@ -132,6 +132,54 @@ for (const ch of "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
     }
   }
 }
+// --- Kana ------------------------------------------------------------------------------------
+const { TRACE_KANA, KANA_STROKES } = await import("../src/lib/kanaStrokes.ts");
+const { kanaRomaji } = await import("../src/lib/kana.ts");
+const { letterName, renderPad } = await import("../src/lib/phonics.ts");
+const STROKE_COUNTS =
+  "あ3い2う2え2お3か3き4く1け3こ2さ3し1す2せ3そ1た4ち2つ1て1と2な4に3ぬ2ね2の1は3ひ1ふ4へ1ほ4ま3み2む3め2も3や3ゆ2よ2ら2り2る1れ2ろ1わ2を3ん1" +
+  "ア2イ2ウ3エ3オ3カ2キ3ク2ケ3コ2サ3シ3ス2セ2ソ2タ3チ3ツ3テ3ト2ナ2ニ2ヌ2ネ4ノ1ハ2ヒ2フ1ヘ1ホ4マ2ミ3ム2メ2モ3ヤ2ユ2ヨ3ラ2リ2ル2レ1ロ3ワ2ヲ3ン2";
+const counts = new Map([...STROKE_COUNTS.matchAll(/(\D)(\d)/g)].map((m) => [m[1], Number(m[2])]));
+ok("92 basic kana", Object.keys(KANA_STROKES).length === 92 && counts.size === 92);
+ok("voiced kana traceable", TRACE_KANA.length === 92 + 25 + 26, TRACE_KANA.length);
+for (const ch of TRACE_KANA) {
+  const lg = letterGuide(ch);
+  if (!lg || !lg.kana) {
+    ok(`kana ${ch}`, false);
+    continue;
+  }
+  const base = KANA_STROKES[ch] ? ch : undefined;
+  if (base) ok(`${ch}: ${counts.get(ch)} strokes`, lg.strokes.length === counts.get(ch), lg.strokes.length);
+  else ok(`${ch}: base + ゛/゜`, lg.strokes.length >= 2);
+  const all = lg.strokes.flat();
+  ok(`${ch}: inside the box`, all.every(([x, y]) => x >= 0 && x <= 100 && y >= 0 && y <= 100));
+  ok(`${ch}: has a name`, !!kanaRomaji(ch) && /^(hiragana|katakana) [a-z]+$/.test(letterName(ch)), letterName(ch));
+  for (const [i, st] of lg.strokes.entries()) {
+    const name = `${ch} stroke ${i + 1}`;
+    ok(`${name}: tracing the guide passes`, checkStroke(st, st).ok);
+    const wobble = st.map(([x, y], k): Pt => [x + 4 * Math.sin(k / 4), y + 3]);
+    ok(`${name}: a wobbly tracing within tolerance passes`, checkStroke(st, wobble).ok);
+    // Short strokes (ticks, ゛) are covered by half a tracing anyway, so only longer ones.
+    if (st.length > 2 && pathLength(st) > 3 * TOLERANCE.normal) {
+      const a = st[0];
+      const z = st[st.length - 1];
+      if (Math.hypot(z[0] - a[0], z[1] - a[1]) > 10) ok(`${name}: backwards fails`, !checkStroke(st, st.slice().reverse()).ok);
+      if (Math.hypot(z[0] - a[0], z[1] - a[1]) > 10) {
+        const part = checkStroke(st, st.slice(0, Math.floor(st.length / 3)));
+        ok(`${name}: a third is "keep going", not done`, !part.ok && part.partial, part);
+      }
+    }
+  }
+}
+ok("dakuten after the base", letterGuide("が")!.strokes.length === 5 && letterGuide("パ")!.strokes.length === 3 && letterGuide("ヴ")!.strokes.length === 5);
+ok("kana names", letterName("し") === "hiragana shi" && letterName("ツ") === "katakana tsu" && letterName("ぢ") === "hiragana ji" && letterName("ヲ") === "katakana wo" && letterName("a") === "small letter a");
+ok("small kana not traceable", !letterGuide("ゃ") && !letterGuide("ッ") && parseTrace("", "ゃ").problems.some((x) => x.includes("not small kana")));
+const kt = parseTrace("", "あ ア が");
+ok("trace kana", kt.letters.join("") === "あアが" && !kt.problems.length, kt);
+const kpad = renderPad("ね", TOLERANCE.normal);
+ok("kana pad is a square box", kpad.includes('class="trace-pad is-kana"') && kpad.includes('viewBox="-12 -12 124 124"') && kpad.includes("Trace the hiragana ne: 2 strokes"), kpad.slice(0, 200));
+ok("kana kicker", renderTrace(kt).includes("Trace the kana"));
+
 // Two goes at one stroke (pen lifted part way) add up.
 const line = letterGuide("l")!.strokes[0];
 const first = line.slice(0, 50);
