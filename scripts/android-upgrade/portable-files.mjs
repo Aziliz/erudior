@@ -34,19 +34,31 @@ export async function verifyPortableFiles({ page, adb, nodes, tapNative, until, 
   await until(() => nodes().some(n => /documentsui/.test(n.package ?? '')), 'Create document picker');
   adb('shell', 'input', 'keyevent', 'KEYCODE_BACK');
   assert.equal(await result(), false);
-  // Provider length metadata is not trusted: actual bounded read must reject.
-  adb('shell', 'mkdir', '-p', '/sdcard/Download');
-  adb('shell', 'dd if=/dev/zero of=/sdcard/Download/erudior-too-large.json bs=1048576 count=25');
-  adb('shell', "printf '\\377' > /sdcard/Download/erudior-invalid-utf8.json");
-  adb('shell', 'touch', '/sdcard/Download/erudior-empty.json');
+  // Create each fixture through SAF so Downloads has a provider entry. Raw ADB
+  // writes alone can leave DocumentsUI empty until a later indexing pass.
+  // Then overwrite only these disposable files; bounded reads must inspect the
+  // actual contents even if the provider still reports the original length.
   for (const [filename, expected] of [
     ['erudior-too-large.json', /24 MiB/],
     ['erudior-invalid-utf8.json', /UTF-8/],
     ['erudior-empty.json', /empty/],
   ]) {
+    await start('export', filename);
+    await downloads();
+    await tapNative(n => /^(save)$/i.test(n.text ?? '') && /button/.test(n['resource-id'] ?? ''), 'Save rejection fixture');
+    assert.equal(await result(), true, `Create provider-backed fixture: ${filename}`);
+    const file = `/sdcard/Download/${filename}`;
+    adb('shell', 'test', '-f', file);
+    if (filename === 'erudior-too-large.json') {
+      adb('shell', 'dd', 'if=/dev/zero', `of=${file}`, 'bs=1048576', 'count=25');
+    } else if (filename === 'erudior-invalid-utf8.json') {
+      adb('shell', `printf '\\377' > ${file}`);
+    } else {
+      adb('shell', `: > ${file}`);
+    }
     await start('import');
     await downloads();
-    await tapNative(n => n.text === filename, 'Invalid course fixture');
+    await tapNative(n => n.text === filename, `Invalid course fixture: ${filename}`);
     await until(() => page.evaluate(() => !window.__portableResult.pending), 'Invalid course rejection');
     const rejected = await page.evaluate(() => window.__portableResult);
     assert.match(rejected.error ?? '', expected);
