@@ -1,46 +1,35 @@
-# Teacher Content Studio — implementation checkpoint
+# Teacher Content Studio
 
-Status: **In Progress**, existing Later roadmap capability. This checkpoint is not a complete feature and must not be merged/deployed as if it were.
+Status: **In Progress** until the complete PR, browser acceptance, deployment and live-gate checks pass. This implements the existing roadmap capability, not a separate curriculum or course-publishing system.
 
-## Hosting decision still pending
+## Approved hosting boundary
 
-The public roadmap specifies admin-panel-only website authoring/review. Current community authentication, credentialed CORS, CSRF and OAuth return routing trust `https://app.erudior.com`, not the public `https://erudior.com` origin. `worker/wrangler.toml` leaves additional allowed origins empty, and the deployment workflow does not override them.
+The dedicated administrator panel is `https://app.erudior.com/admin/studio`, linked from the public website. The user approved this existing trusted host on November 3, 2026. Credentialed CORS, CSRF, identity providers, role assignments and trusted signing keys are unchanged. Public reading remains account-free.
 
-A dedicated server-admin panel on the already trusted app host, linked from the public website, avoids a new origin grant. If the panel must instead run on erudior.com, explicit authorization and a reviewed scoped authentication/origin design are needed first. No origin, identity provider, role promotion, credential, secret or production data has been changed. Teacher/learner accounts stay in the application; public reading remains account-free.
+## Authoring and delivery
 
-## Host-neutral model checkpoint
+The eight builders create worksheets, quizzes, rubrics, discussions, projects, labs, presentations and study guides from selected verified canonical resources. Selection order and source provenance are retained. Assessed-work snapshots preserve IDs, writing kinds, self-check settings, table structure, lab supervision/safety/questions and referenced rubric criteria. Unsupported media and rich blocks are visibly reported rather than loaded or silently fabricated.
 
-`src/lib/adminStudio.ts` provides deterministic resource selection for worksheet, quiz, rubric, discussion, project, lab, presentation and study-guide material. It reuses canonical presentation source extraction and assessed-work validators. It does not invent curriculum or answers. Source IDs, revisions and immutable package digests bind selected resources; exact current source comparison detects deletion, source changes and tampering. Canonical assessed-work snapshots preserve IDs, writing kinds, self-check settings, table structure, lab supervision/safety/questions and referenced rubric criteria. The unmounted learner renderer uses that structured data rather than lossy joined table text. Flashcard backs and choice answers are explicitly teacher-only, separate from learner prompts. Unsupported media/rich blocks are visibly countable exclusions, not remotely loaded content.
+The private library supports create, reopen, edit, copy, archive/restore, explicit backup export and bounded import. Imports are untrusted copies with new identities and no inherited review. Conflicts preserve the in-memory draft; retries after unknown network or server outcomes retain the same request identity. Cancel and navigation protection keep unsaved work under explicit user control. Teacher content is not automatically persisted in browser storage.
 
-The model is not a trust verifier. Its inventory must come from a server-side verified loader. User-provided imports cannot authorize their own source claims. Model-level approval comparison is not authorization: current server admin role, session, terms and exact atomic persistence guards are still required.
+A separate explicit human review binds the saved revision and exact content digest. Edits invalidate review. Teacher presentation, answer-free learner presentation and exports revalidate current authority and source state. Learner DOM contains only the constructed projection, never a hidden answer key. Switching material, session or identity clears private views and stale request results. A failed learner check remains a neutral learner screen rather than exposing the teacher editor.
 
-Bounded imports carry only material content, never approval/account/official-publication metadata. Copies receive a fresh identity and revision zero. Learner projection is constructed without teacher notes or question answers. Any title/instruction/teacher-note/source/revision edit invalidates the exact content digest used by human approval.
+Studio does not generate curriculum, record learner responses or grades, publish official courses, grant credit, issue credentials, or substitute for independent content review.
 
-## Remaining completion gates
+## Server trust and persistence
 
-- Resolve hosting boundary; implement a dedicated server-admin-only panel, not the local adult-gated editor or reviewer queue.
-- Server-private persistence, versioned list/read/save/duplicate/delete/export, bounded current verified-source loader and current-admin/session/CSRF checks on every access.
-- Atomic revision and source/current-authority checks after asynchronous work; source deletion or review invalidation must immediately block delivery.
-- Eight usable builder interfaces, review of the exact saved revision, instructor and answer-free learner presenter, reopen/conflicts/retry/cancel/recovery/import/export.
-- No local persistent teacher secrets or student records; no automatic AI content, course publication, official approval or credential issuance.
-- Real synthetic admin/browser integration; denial for anonymous, author and reviewer; revoked sessions/roles during requests; unsafe media; stale/deleted sources; answer leakage; import limits; mobile/a11y and screenshot inspection.
-- Exact-head required CI before normal merge, full regression after merge, signed-course/integrity/publishing/API/site checks, then safe live unauthenticated gate verification. No real production admin writes.
+Migration `0006_admin_studio.sql` adds private materials, exact reviews, source registrations and idempotency journal tables. Every endpoint checks a live current administrator session, terms and ban state. Mutations retain the existing CSRF/origin boundary; private responses use `no-store`. The nonauthorizing UI session fingerprint is not a credential.
 
-## Focused verification
+D1 mutation guards atomically compare current administrator/session authority, material revision and registered source state after asynchronous work. Reviewed community sources must match immutable package bytes and their current publication/review state. Reads and delivery recheck authority and source state before returning private content. Library review records are not represented as current delivery approval until validation occurs.
 
-`npm run test:admin-studio` runs synthetic host-neutral model/security and inert renderer tests. The renderer is not mounted on any route; server authorization and browser delivery remain pending. Passing it does not establish server authorization, UI completeness, production deployment or independent content review.
+Official sources use existing trusted Ed25519 keys and the fixed public signed catalog. The server verifies bounded catalog/package bytes and exact identity, revision, size and digest, rejects redirects, and has no browser-cache, unsigned or development-key fallback. It fetches the signed manifest again before mutation or delivery and fails closed when it changed. This is an optimistic cross-system freshness check, consistent with release catalog rechecks: an external CDN publication cannot be atomic with a D1 transaction. Community-state and administrator/material guards remain atomic in D1.
 
-## Proposed server/controller contracts (not implemented)
+Seventeen current repository courses migrate through the canonical adapter. Existing malformed blocks in `math-geometry` (flashcard references), `math-linear-algebra` (code block) and `science-biology` (C4/CAM block) fail visibly instead of being stripped or silently accepted. Studio does not modify those courses.
 
-The API/controller split remains host-neutral while the hosting decision is pending:
+## Verification and operations
 
-- The server, not an imported document or local course cache, resolves the source inventory. Official sources require existing signed-catalog/package verification; community sources require exact immutable published/reviewed versions and canonical structural validation. Source type and authorization must be explicit. A structurally valid client-supplied `StudioInventory` is never proof of trust.
-- The private library uses bounded pagination and current server-admin authorization. Private responses use `no-store`; no anonymous/catalog path may expose materials, answer keys, private metadata or review notes. Public reading remains unchanged.
-- Every create/save/duplicate/delete carries an expected material revision and idempotency identity. Conflicts must preserve the user's unsaved in-memory draft and offer explicit reload/copy choices; automatic overwrite is prohibited. Unknown network outcomes are reconciled using the same request identity before retrying, never a blind new create.
-- Approval is a separate explicit human operation on a saved exact revision and content digest, with source references verified again. Any edit invalidates approval. The current approved digest/source state is checked again at presentation/export; approval is never an official course publication or academic-credit grant.
-- Current admin role, live session, ban/terms state and expected source state must be tested atomically at each D1 mutation after all asynchronous source/hash work. Reads/exports recheck current authority after asynchronous work before returning private material. Tests must revoke role/session and change/delete sources at those await boundaries, not merely before entering the handler.
-- User-facing import is an untrusted copy: fresh server identity, revision zero and no approval. The server reconstructs source snapshots from its current verified inventory before accepting deliverable material. Unsupported/missing sources may be shown as actionable errors, never silently substituted.
-- Editor controllers clear private view/preview data and cancel or ignore all stale request results when identity/session/navigation changes. Failed save, Cancel, Back, reload and second-tab conflicts preserve explicit user control. Recovery reopens a server-saved revision or an explicitly exported local copy; this does not authorize unencrypted automatic localStorage persistence of private teacher answers.
-- The learner renderer receives only a constructed projection. It has no grading, network media, response persistence, publisher or account authority. Teacher answer reveal is a distinct admin-only presentation surface, never a hidden DOM/CSS pane inside a learner view.
+`npm run test:admin-studio` covers the deterministic model, inert rendering, real React controller flows, dedicated route boundary, signed official-source loader, and 57 SQLite/HTTP authorization, race, replay, recovery and leakage checks. Worker and application TypeScript checks and production builds are required.
 
-These contracts do not create a server endpoint, migrate storage, grant a security origin or enable a feature. Backend, editor, authentication integration and actual browser/end-to-end acceptance are still outstanding.
+`.github/workflows/admin-studio.yml` runs the real isolated Worker, D1 and R2 acceptance fixture. `scripts/admin-studio-browser.mjs` uses disposable synthetic accounts and canonical resources, exercises all eight builders at desktop and narrow widths, captures editor/learner screenshots, and verifies review invalidation, conflicts, retries, import/export, archive/restore and revoked access/source state. It never performs production admin writes.
+
+Completion requires exact-head CI including browser acceptance and screenshot inspection, followed by merge regression, migrations/API/site deployment and safe unauthenticated live-gate checks. Focused tests alone do not establish deployment or browser acceptance.

@@ -287,7 +287,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   }
 
   async function endPractice() {
-    const n = Object.keys(checked).length;
+    const n = isQuiz(session) ? answeredCount : Object.keys(checked).length;
     if (n < items.length) {
       const ok = await confirmAction(
         isQuiz(session)

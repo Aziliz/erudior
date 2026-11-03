@@ -1,3 +1,4 @@
+import { handleAdminStudio } from "./adminStudio";
 import { branchingRevisionProblems } from "../../src/lib/branchingCoursePackage";
 import { scientificRevisionProblems } from "../../src/lib/scientificCoursePackage";
 import { advancedAssessmentRevisionProblems } from "../../src/lib/advancedAssessmentCoursePackage";
@@ -424,6 +425,8 @@ async function route(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get("Origin") ?? "";
     if (!origins(env).includes(origin)) throw new HttpError(403, "Bad origin.");
   }
+
+  if (p.startsWith("/admin/studio/")) return handleAdminStudio(req, env);
 
   // Public
   if (method === "GET" && p === "/catalog") {

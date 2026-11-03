@@ -1,0 +1,35 @@
+name: App sidebar navigation acceptance
+on:
+  pull_request:
+    branches: [main]
+    paths: ['src/**', 'scripts/app-sidebar-browser.mjs', 'tests/app-sidebar.test.mjs', '.github/workflows/app-sidebar.yml', 'package*.json']
+  push:
+    branches: [main]
+    paths: ['src/**', 'scripts/app-sidebar-browser.mjs', 'tests/app-sidebar.test.mjs', '.github/workflows/app-sidebar.yml', 'package*.json']
+permissions:
+  contents: read
+concurrency:
+  group: app-sidebar-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sidebar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/app-sidebar.test.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/app-sidebar-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: app-sidebar-browser
+          path: test-results/app-sidebar/
+          if-no-files-found: warn
+          retention-days: 14

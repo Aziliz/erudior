@@ -25,7 +25,7 @@ export function TallyTable({ title, data }: { title: string; data: Record<string
   );
   if (!rows.length) return null;
   return (
-    <table className="table">
+    <table className="table tally-table">
       <thead>
         <tr>
           <th>{title}</th>
@@ -61,7 +61,7 @@ export function ScorePill({ attempt }: { attempt: Attempt }) {
 export function SectionTable({ data, marks }: { data: Record<string, Tally>; marks?: Record<string, number> }) {
   const rows = Object.entries(data);
   return (
-    <table className="table">
+    <table className="table tally-table">
       <thead>
         <tr>
           <th>Section</th>
