@@ -615,6 +615,13 @@ button.brand:hover {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+.tally-table td.r,
+.tally-table th.r {
+  white-space: nowrap;
+}
+.tally-table .bar {
+  min-width: 0;
+}
 .table tr.click {
   cursor: pointer;
 }
