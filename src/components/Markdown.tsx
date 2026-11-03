@@ -19,6 +19,7 @@ import { saveBlob } from "../lib/storage";
 import { protectLessonBlocks } from "../lib/lessonBlocks";
 import { hydrateTimelines } from "../lib/timeline";
 import { protectCode } from "../lib/code";
+import { rubyHtml } from "../lib/kana";
 import { scanLessonFences } from "../lib/lessonFences";
 
 marked.setOptions({ gfm: true, breaks: false });
@@ -85,7 +86,8 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   // Code (```code blocks, other fences, `spans`) is set aside before math, since code is never math.
   const code = protectCode(figs.text);
   const math = protectMath(code.text);
-  const html = diags.restore(code.restore(math.restore(figs.restore(marked.parse(linkTerms(math.text), { async: false }) as string))));
+  // Furigana ({漢字|かんじ} → <ruby>) runs after code and math are set aside, so braces there stay.
+  const html = diags.restore(code.restore(math.restore(figs.restore(marked.parse(linkTerms(rubyHtml(math.text)), { async: false }) as string))));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
   const tidy = html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>");
   const clean = DOMPurify.sanitize(tidy, {

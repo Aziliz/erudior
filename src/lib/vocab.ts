@@ -11,6 +11,8 @@
 
 import type { Course, Progress, VocabDirection, VocabItem, VocabState } from "./types";
 import { today } from "./srs";
+import { hasKanji, hasRomaji, normJa, stripRuby, toHiragana } from "./kana";
+export { normJa } from "./kana";
 
 export const STAGES = ["Novice", "Beginner", "Advanced", "Expert"] as const;
 export const PER_STAGE = 5;
@@ -220,8 +222,40 @@ export function checkMeaning(item: VocabItem, typed: string): Verdict {
   return { ok: false };
 }
 
+
+/**
+ * Japanese: the written form (kanji, from an OS Japanese keyboard) or its kana reading counts.
+ * Hiragana for a katakana word (or the reverse) and leftover romaji get another try, not a miss.
+ */
+export function checkRecallJa(item: VocabItem, typed: string): Verdict {
+  const t = normJa(typed);
+  if (!t) return { ok: false, retry: true, note: "Type an answer." };
+  const written = [item.term, ...(item.alt ?? [])].map(normJa);
+  const reading = item.reading ? normJa(item.reading) : undefined;
+  if (written.includes(t)) return { ok: true };
+  if (reading && t === reading) {
+    const term = stripRuby(item.term);
+    return hasKanji(term) ? { ok: true, note: `Written with kanji: ${term}` } : { ok: true };
+  }
+  if (hasRomaji(t))
+    return { ok: false, retry: true, note: "Some letters didn't become kana. Finish the syllable (e.g. n → nn for ん)." };
+  const kanaForms = [...written, ...(reading ? [reading] : [])].filter((w) => !hasKanji(w));
+  if (kanaForms.some((w) => toHiragana(w) === toHiragana(t) && w !== t)) {
+    const wantsKata = kanaForms.some((w) => w !== toHiragana(w));
+    return {
+      ok: false,
+      retry: true,
+      note: wantsKata
+        ? "This word is written in katakana. Type in CAPITALS or switch to カタカナ."
+        : "This word is written in hiragana.",
+    };
+  }
+  return { ok: false };
+}
+
 /** Typed word for an English prompt: exact spelling; nouns need their article. */
 export function checkRecall(item: VocabItem, typed: string, lang = "de"): Verdict {
+  if (lang === "ja") return checkRecallJa(item, typed);
   const t = normTerm(typed);
   if (!t) return { ok: false, retry: true, note: "Type an answer." };
   const wants = [item.term, ...(item.alt ?? [])].map(normTerm);

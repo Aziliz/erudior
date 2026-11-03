@@ -19,7 +19,8 @@ import {
 import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
 import { playClip } from "../lib/audio";
-import { imeFor } from "../lib/ime";
+import { composing, imeFor } from "../lib/ime";
+import { FuriganaToggle, RubyText } from "../components/Ruby";
 import { confirmAction } from "../lib/storage";
 
 export type VocabMode = "review" | "practice";
@@ -49,11 +50,13 @@ interface Shown {
 /** A noun's article, e.g. "der Hund" -> "der". */
 const articleOf = (term: string) => (/^(der|die|das) /.exec(term) || [])[1];
 
-export function PosHint({ item }: { item: VocabItem }) {
+export function PosHint({ item, lang = "de" }: { item: VocabItem; lang?: string }) {
   const bits: string[] = [];
   if (item.pos) bits.push(item.pos);
-  if (item.pos === "noun" || articleOf(item.term))
+  if (lang === "de" && (item.pos === "noun" || articleOf(item.term)))
     bits.push("with der/die/das");
+  // Japanese: say which script the answer is written in, since katakana words need CAPITALS.
+  if (lang === "ja" && /^[\u30a0-\u30ff]+$/.test(item.term)) bits.push("katakana");
   return bits.length ? (
     <span className="muted vocab-pos">{bits.join(" · ")}</span>
   ) : null;
@@ -96,6 +99,9 @@ export default function VocabRunner({
 }: Props) {
   const lang = course.language;
   const ime = imeFor(lang);
+  const ja = lang?.code === "ja";
+  // Japanese: type katakana instead of hiragana (CAPITALS also give katakana).
+  const [katakana, setKatakana] = useState(false);
   const initial = useMemo<QItem[]>(() => {
     if (mode === "review")
       return reviewBatch(course, api.progress).map((c) => ({
@@ -129,7 +135,9 @@ export default function VocabRunner({
 
   async function submit() {
     if (!card || shown) return;
-    const v = checkAnswer(card, typed, lang?.code);
+    const finalTyped = ime && card.dir === "recall" ? ime(typed, { final: true, katakana }) : typed;
+    if (finalTyped !== typed) setTyped(finalTyped);
+    const v = checkAnswer(card, finalTyped, lang?.code);
     if (!v.ok && v.retry) {
       setHint(v.note);
       return;
@@ -163,7 +171,7 @@ export default function VocabRunner({
       right: s.right + (v.ok ? 1 : 0),
       wrong: s.wrong + (v.ok ? 0 : 1),
     }));
-    setShown({ verdict: v, typed, change });
+    setShown({ verdict: v, typed: finalTyped, change });
     if (card.dir === "recall" && card.item.audio) playClip({ src: card.item.audio });
     else if (card.dir === "recall" && lang?.tts) speak(card.item.term, lang.tts);
   }
@@ -284,6 +292,7 @@ export default function VocabRunner({
         <button className="back" onClick={quit}>
           ← End
         </button>
+        {ja && <FuriganaToggle />}
         <span className="muted">
           {mode === "review" ? "Review" : "Extra practice"} · {done}/
           {initial.length}
@@ -311,7 +320,9 @@ export default function VocabRunner({
 
         {dir === "meaning" ? (
           <div className="vocab-prompt" lang={lang?.code}>
-            <span>{item.term}</span>
+            <span>
+              <RubyText text={item.term} reading={item.reading} lang={lang?.code} />
+            </span>
             <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />
           </div>
         ) : (
@@ -321,9 +332,9 @@ export default function VocabRunner({
         )}
         <div className="vocab-sub">
           {dir === "recall" ? (
-            <PosHint item={item} />
+            <PosHint item={item} lang={lang?.code} />
           ) : (
-            item.reading && <span className="muted">{item.reading}</span>
+            item.reading && !ja && <span className="muted">{item.reading}</span>
           )}
         </div>
 
@@ -358,10 +369,36 @@ export default function VocabRunner({
             onChange={(e) => {
               setHint(undefined);
               setTyped(
-                ime && dir === "recall" ? ime(e.target.value) : e.target.value,
+                ime && dir === "recall" && !composing(e)
+                  ? ime(e.target.value, { katakana })
+                  : e.target.value,
               );
             }}
+            onCompositionEnd={(e) => {
+              // An OS Japanese keyboard just finished: tidy any romaji left around it.
+              if (ime && dir === "recall") setTyped(ime(e.currentTarget.value, { katakana }));
+            }}
           />
+          {dir === "recall" && ja && !shown && (
+            <div className="ime-help row">
+              <span className="small muted">
+                Type romaji: <code>neko</code> → ねこ. CAPITALS or the switch give katakana. Answers in kana
+                are fine.
+              </span>
+              <button
+                type="button"
+                className="btn sm"
+                aria-pressed={katakana}
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  setKatakana((k) => !k);
+                  input.current?.focus();
+                }}
+              >
+                <span lang="ja">{katakana ? "カタカナ" : "ひらがな"}</span>
+              </button>
+            </div>
+          )}
           {dir === "recall" && !!lang?.keys?.length && !shown && (
             <div className="char-keys" aria-label="Special characters">
               {lang.keys.map((k) => (
@@ -393,20 +430,34 @@ export default function VocabRunner({
               {shown.change && <span className="muted"> · {shown.change}</span>}
             </p>
             <p className="vocab-answer" lang={lang?.code}>
-              <span>{item.term}</span>
+              <span>
+                <RubyText text={item.term} reading={item.reading} lang={lang?.code} />
+              </span>
+              {ja && item.reading && item.reading !== item.term && (
+                <span className="muted" lang="ja">
+                  {" "}
+                  ({item.reading})
+                </span>
+              )}
               <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />
               <span className="muted"> — {item.meanings.join("; ")}</span>
             </p>
             {item.plural && <p className="muted">Plural: {item.plural}</p>}
             {item.example && (
               <p className="vocab-example">
-                <span lang={lang?.code}>{item.example}</span>
+                <span lang={lang?.code}>
+                  <RubyText text={item.example} lang={lang?.code} />
+                </span>
                 {item.exampleEn && (
                   <span className="muted"> — {item.exampleEn}</span>
                 )}
               </p>
             )}
-            {item.note && <p className="muted">{item.note}</p>}
+            {item.note && (
+              <p className="muted">
+                <RubyText text={item.note} lang={lang?.code} />
+              </p>
+            )}
           </div>
         )}
       </section>
