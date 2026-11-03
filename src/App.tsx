@@ -1,3 +1,4 @@
+import { flushSync } from "react-dom";
 import { applyNativeLifecycle } from "./lib/nativeLifecycle";
 import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionLocked, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
 import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
@@ -785,7 +786,9 @@ export default function App() {
     const conceal=()=>{ concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
     const reveal=()=>{ if(document.hidden)return; concealedRef.current=false; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
     const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
-    const nativeLifecycle=(event:Event)=>applyNativeLifecycle((event as CustomEvent).detail,{conceal,reveal,lock:()=>{if(!lockedRef.current)lockWorkspace();}});
+    // Native callbacks are outside React events. Commit concealment before returning
+    // so top-layer dialogs cannot remain above the hidden shared-device shell.
+    const nativeLifecycle=(event:Event)=>flushSync(()=>applyNativeLifecycle((event as CustomEvent).detail,{conceal,reveal,lock:()=>{if(!lockedRef.current)lockWorkspace();}}));
     window.addEventListener("erudior-native-lifecycle",nativeLifecycle);
     const tick=window.setInterval(()=>{ if(lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lastActivity>=10*60_000)lockWorkspace(); },1000);
     document.addEventListener("visibilitychange",visibility);

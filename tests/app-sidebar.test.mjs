@@ -30,3 +30,8 @@ test('modal lifecycle, dismissal and device concealment remain explicit', () => 
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /100dvh/);
 });
+
+test('native lifecycle commits React concealment before returning to the host', () => {
+  assert.match(app, /import \{ flushSync \} from "react-dom"/);
+  assert.match(app, /const nativeLifecycle=\(event:Event\)=>flushSync\(\(\)=>applyNativeLifecycle/);
+});
