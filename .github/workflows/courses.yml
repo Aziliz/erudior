@@ -46,6 +46,7 @@ on:
       - "src/lib/communityFormat.ts"
       - "src/lib/courseAudio.ts"
       - "src/lib/courseContentTypes.ts"
+      - "src/lib/assessmentPresentation.ts"
       - "src/lib/courseWork.ts"
       - "src/lib/diagram.ts"
       - "src/lib/dialogueContent.ts"
@@ -221,4 +222,3 @@ jobs:
           path: ${{ runner.temp }}/erudior-ci-diagnostics/
           retention-days: 30
           if-no-files-found: warn
-
