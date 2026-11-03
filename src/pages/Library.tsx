@@ -22,6 +22,7 @@ import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
 import { GENERAL_DISCLAIMER } from "../components/Terms";
+import { STUDY_PROGRAMS, programCourses } from "../lib/studyPrograms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
@@ -252,6 +253,34 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           })}
         </div>
       )}
+
+      <section className="program-catalog" aria-labelledby="program-catalog-title">
+        <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
+          <h2 className="section-title" id="program-catalog-title" style={{ margin: 0 }}>Program catalog</h2>
+          <span className="small muted">{STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
+        </div>
+        <p className="muted small" style={{ marginBottom: 16 }}>Follow a pathway of courses toward a larger learning goal. Explore its stages, recommended prerequisites and course outlines.</p>
+        <div className="catalog-grid">
+          {STUDY_PROGRAMS.map(program => {
+            const planned = programCourses(program);
+            const available = planned.filter(course => CATALOG.some(entry => entry.id === course.courseId)).length;
+            const following = progress.learningPathways?.some(path => path.id === program.id);
+            return <article className="catalog-card" key={program.id} aria-label={`${program.title} catalog entry`}>
+              <div className="catalog-tags"><span className="pill neutral">Program</span>
+                {following && <span className="pill neutral">Following</span>}</div>
+              <h3><button className="card-link" onClick={() => api.go({ name: "progress" })}>
+                {program.title}<span className="sr-only">: explore pathway</span>
+              </button></h3>
+              <p className="muted small clamp3">{program.description}</p>
+              <p className="meta small muted">{program.stages.length} stages · {planned.length} courses</p>
+              <p className="small muted">{available} available · {planned.length - available} planned</p>
+              <button className="btn sm primary" onClick={() => api.go({ name: "progress" })}>
+                {following ? "View my pathway" : "Explore pathway"}
+              </button>
+            </article>;
+          })}
+        </div>
+      </section>
 
       <Catalog api={api} />
 
