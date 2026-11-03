@@ -1,36 +1,38 @@
 # Erudior: handoff
 
-State as of 2026-10-23, v0.21.0. Read this first in a new chat.
-
-## What it is
-
-Erudior is Jon's desktop study app for licensing exams. It runs on Linux (.deb, .rpm, AppImage) and Windows (NSIS .exe, .msi).
-
-- **Stack:** Tauri 2 (Rust) with React 19, TypeScript and Vite.
-- **Repo:** GitHub `Aziliz/erudior`. The app ID is `com.erudior.app`.
-- **First course:** "Colorado Real Estate Broker", bundled with the app and installed on first launch.
-- **Later:** a CCNA course, which must stay separate from the Colorado content. That separation is why the app organizes content into courses.
+Refreshed 2026-11-03 (app v0.25.0, `main` 76bee840). Read this first in a new chat. Sections below "Current state" are a running log, newest features first; older numbered versions are kept for history.
 
 Jon prefers terse answers and wants clarifying questions asked rather than assumptions made.
 
+## Current state (2026-11-03)
+
+- **What it is:** Erudior (formerly Examiner) — a free study platform. Goal: a free K–12 homeschool app (Jon controls core courses) plus professional exam prep (Colorado real estate). Website erudior.com (marketing, download, roadmap), web app app.erudior.com (account-free public learning), desktop app (Windows .exe/.msi, macOS .dmg + Homebrew, Linux .deb/.rpm/AppImage; in-app auto-updates on) and an Android preview APK (GitHub release `android-preview`). Stays on 0.x until ready for homeschool families and teachers.
+- **Repos:** app/engine/site/worker **Aziliz/erudior** (public; renamed from Aziliz/examiner 2026-10-26 — never create a repo named examiner). Course sources **Aziliz/erudior-courses** (private). Clone both side by side (`../erudior` from the courses repo); see erudior-courses `README.md` for the work loop (`content/math/build.py`, `build_course.py`, `check-module.sh`, `scripts/sync-to-app.sh`).
+- **Where the newest status lives:** `docs/MASTER_ROADMAP.md` (Done/In-progress capabilities with PRs, CI runs and live checks, newest at top), `WORK_SESSION_HANDOFF.md` (Oct 28 overnight session), per-feature docs in `docs/` (ACCOUNT_*, ADMIN_CONTENT_STUDIO, ANDROID_*, CLASSROOM_WORKFLOWS, PARENT_PLANNING, ACADEMIC_RECORDS, STUDENT_WORKSPACE, APP_SIDEBAR, RELEASE_LANES, LANGUAGE_PROFICIENCY_TRACKS, …).
+- **Done since v0.24.0 (Oct 26 – Nov 3, ~400 commits, PRs #55–#132):** canonical content model + signed release integrity; spreadsheet, document, transaction, branching, scientific and advanced-assessment engines; competency graph and diagnostics; interactive presentations, learning games and live-room modes; interop (CASE/QTI/LTI/Common Cartridge scaffolding); learner privacy and credential integrity; community creator parity with official courses (modules, controls, audio/reader/assignment authoring, spreadsheet workflows, author guide, K demo); public learning access (account-free, optional guest progress); offline course sharing; course and pathway progress (Math foundations, German A1–B1 pathways); student workspace/notebook; local academic records; parent homeschool planning; parent PIN + child switching (shared-device isolation); classroom/teacher workflows (groups, peer feedback, conferences, notices); logo navigation sidebar; Android preview pipeline.
+- **In progress:** accounts (private OIDC/PostgreSQL foundation in `account-service/`, not deployed; public learning stays account-free); Teacher Content Studio at app.erudior.com/admin/studio (PR #131 merged 2026-11-03; marked In Progress until browser acceptance, deploy and live checks).
+- **Courses shipping:** 15 math/science (Pre-algebra → University Physics II), Biology, German A1/A2/B1, Colorado Real Estate Broker (revision 15+). Every school course has honors lessons, pictures and the new question kinds. Roadmap next: Chemistry, English 9–12, histories, Government; K–8; Spanish; **Japanese JLPT N5–N1** (listed in `src/lib/roadmap.ts`, `docs/LANGUAGE_PROFICIENCY_TRACKS.md`).
+- **Active work (2026-11-03):** Japanese JLPT N5 course — see the "Japanese N5" section when it exists; `src/lib/ime.ts` is still an empty registry (romaji → kana input not built yet).
+- **Van Ed:** Jon is still taking the Van Ed Colorado pre-license course; the text comparison stalled at gated knowledge checks (details under "Content pipeline").
+
+## What it was (history)
+
+Started 2026-10-12 as "Examiner", a VCE-like desktop exam simulator (Tauri 2 + React 19 + TypeScript + Vite) with the Colorado broker course. App id now `com.erudior.app`. A CCNA course was once mentioned; not planned now.
 
 ## Course sources are private (2026-10-26)
 - Course sources (content/math, content/languages, the Colorado course parts, quizzes, refs, build.py, build_course.py, check-module.sh, AUTHORING/ROUND2 briefs, NOTES/REVIEW files, research) moved to the **private repo Aziliz/erudior-courses** (cloned at /home/claude/erudior-courses). Paths inside it are unchanged (`content/...`, built files in its `samples/`, committed so card ids stay stable). Its CI ("Check courses") checks out this public repo as `app/`, builds every course, fails if `samples/` isn't committed current, and runs `tests/check-course.mts` on everything.
 - Work loop: edit and build in the course repo (`python3 content/math/build.py`, `python3 content/build_course.py`, `content/math/check-module.sh` finds this repo via `ERUDIOR_APP`, `../erudior` or `./app`), then `scripts/sync-to-app.sh` copies `samples/math`, `samples/languages`, the Colorado JSON and `catalog.json` here and regenerates `public/sitemap.xml` (`scripts/sitemap.mjs`, also run in the site deploy). Commit both repos; this repo's deploy signs and publishes the courses as before.
 - Still here: `content/states` (state rules) and `content/math-sampler` (drill demo). Older notes below that mention `content/...` course paths now mean the course repo. The sources remain in this public repo's git history.
 
-## Project files
+## Project files (claude.ai project "Erudior")
 
 | File | Contents |
 |---|---|
-| `claude/HANDOFF.md` | This doc |
-| `claude/erudior-source.md` | Every source file in the repo, concatenated, with paths |
-| `claude/colorado-broker-course.json` | The built course pack (`samples/colorado-broker-course.json` in the repo) |
-| `claude/research-notes.md` | The content writers' verified Colorado facts, with source URLs |
+| `claude/HANDOFF.md` | This doc (same as `HANDOFF.md` in Aziliz/erudior) |
 
-The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushed 2026-10-12). To keep working with code, attach that repo to the chat. The Claude GitHub App has push access.
+Attach Aziliz/erudior (and Aziliz/erudior-courses for course work) to a chat with push access; the Claude GitHub App is installed on the Aziliz org.
 
-## Features (v0.3.0)
+## Features as of v0.3.0 (history; everything below still exists, much extended)
 
 - **Library:** organized by course; standalone question banks are still supported.
 - **Import and export:** courses and banks are plain JSON. Formats are in `docs/COURSE_FORMAT.md` and `docs/BANK_FORMAT.md`.
@@ -63,7 +65,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 - **Editors:** a question bank editor, a course editor (details, modules, lessons, glossary, reference sheets, drill JSON with a live sample), and a deck editor.
 - **Progress page:** history, score trend, weakest topics, backup and restore (one JSON file), and a "Check for updates" link.
 - **Course updates:** each course has a `revision` number. A newer bundled revision is offered in-app and keeps progress, because progress is keyed by ids.
-- **App updates:** built in but turned off while the repo is private (see Releases).
+- **App updates:** see Releases.
 - **Theme:** light, dark or system. The answer-sheet design uses Public Sans and Source Serif 4, bundled via `fontsource`.
 
 ## Live hosting and web addresses (2026-10-24)
@@ -384,7 +386,7 @@ The code is on GitHub at https://github.com/Aziliz/erudior (branch `main`, pushe
 | `src/lib/mastery.ts` | Adaptive engine: topic mastery, smart practice order, in-session swaps, focus areas after an exam |
 | `src/lib/planner.ts` | Activity log, streak, course numbers, readiness, `planToday` |
 | `src/lib/drills.ts`, `src/lib/expr.ts` | The drill engine |
-| `src/lib/updates.ts` | The updater wrapper (currently disabled by `UPDATES_ENABLED`) |
+| `src/lib/updates.ts` | The updater wrapper (`UPDATES_ENABLED`) |
 | `src/lib/vocab.ts` | Language vocabulary reviews: unlocking, due cards, stage ladder (`applyAnswer`), typed-answer checking (`checkMeaning`, `checkRecall`) |
 | `src/lib/speech.ts`, `src/lib/ime.ts` | Device text-to-speech and the app-wide read-aloud queue (`speaker`); input-converter registry for non-Roman scripts (empty until Japanese/Chinese) |
 | `src/lib/readAloud.ts`, `src/components/ReadAloud.tsx` | Read-aloud: math to words, page text to words, audio library, lesson read units; SayButton, ReadAloudBar, PhonicsPrompt |
@@ -462,7 +464,7 @@ There are also 453 cards in 8 decks, 365 glossary terms, 7 reference sheets and 
 This answers the questions a new chat would ask before starting the Van Ed pass. Jon confirmed these on 2026-10-12.
 
 **1. What exists and where it is**
-- **The material** is the "Colorado Real Estate Broker" course pack in this repo, `Aziliz/erudior`. It's also attached to this project as `claude/colorado-broker-course.json`.
+- **The material** is the "Colorado Real Estate Broker" course: sources in Aziliz/erudior-courses, built file `samples/colorado-broker-course.json` (synced into the app repo).
 - **Edit the sources, not the built file.** The sources are in `content/` (`content/parts/n1–n4.json` national, `content/parts/s1–s4.json` Colorado, `content/refs/*.md`, `content/drills.json`). Rebuild with `python3 content/build_course.py`.
 - **Earlier research** checked every Colorado fact against primary sources: C.R.S. Title 12 Article 10 and others, Commission rules 4 CCR 725-1, the dre.colorado.gov pages and 2026 Commission forms, and the PSI candidate bulletin.
   - The bulletin gives the exam structure: national 80 questions / 120 min / 60 to pass; state 74 / 110 / 53 to pass. It also gives the outline weights the bank follows.
@@ -478,7 +480,7 @@ This answers the questions a new chat would ask before starting the Van Ed pass.
 - That means all 8 modules, national (n1–n4) and Colorado (s1–s4).
 
 **4. Where it ends up and copyright**
-- **The repo is going private.** Jon chose private; until he changes it in GitHub settings it may still be public, so check before assuming.
+- **The app repo is public; course sources are in the private Aziliz/erudior-courses.** The Colorado sources moved there (`content/parts`, `quizzes`, `refs`, `build_course.py`).
 - **Write original material regardless.** Van Ed's lessons and quizzes are copyrighted, so use them to learn what to cover and how much weight to give it, then write original questions and explanations from the underlying concepts. Never copy or closely paraphrase their text or reuse their quiz questions.
 - **Keep the existing standards** in `content/SPEC.md` and `content/REVIEW.md`:
   - verify Colorado facts against primary sources
@@ -491,29 +493,19 @@ This answers the questions a new chat would ask before starting the Van Ed pass.
 
 ## Storage (per-user app data)
 
-Data lives in `~/.local/share/com.aziliz.erudior/` on Linux and `%APPDATA%\com.aziliz.erudior\` on Windows:
-- `courses/<id>.json` and `banks/<id>.json`
-- `progress.json`: attempts, question stats, card states, completed lessons, plans, activity, drill stats, flags and notes, and `seededCourses`
-- `session.json`: the unfinished exam or practice session
+Data lives in `~/.local/share/com.erudior.app/` (Linux), `%APPDATA%\com.erudior.app\` (Windows) and the macOS equivalent; first start copies data from the old `com.aziliz.examiner` folder. The web app uses IndexedDB (`src/lib/webstore.ts`).
+- `courses/<id>.json`, `banks/<id>.json`, `documents/<fileId>.json`
+- `progress.json`, `session.json`; homeschool/classroom: `family.json` and per student `progress-<id>.json`, `session-<id>.json`, `records-<id>.json`, `portfolio-<id>.json`, plus newer per-learner stores (workspace, planning, academic records, classroom submissions) described in their docs.
+- Internal format strings (`examiner-course`, `examiner-bank`, …) are unchanged on purpose so old files load.
 
-- Homeschool families: `family.json`, and per student `progress-<id>.json`, `session-<id>.json`, `records-<id>.json`, `portfolio-<id>.json` (ids lowercase letters/digits, ≤24)
+## Releases
 
-Rust commands: `list_items`, `save_item`, `delete_item` (for kinds `banks` and `courses`), `load_progress`, `save_progress`, `load_state`, `save_state` (`session`, `family`, `progress-<id>`, `session-<id>`, `records-<id>`, `portfolio-<id>`; checked by `valid_state_name`), `read_text_file`, `write_text_file`, `data_location`, `install_kind`.
-
-## Releases (updates are off)
-
-- **The repo is private by Jon's choice**, to protect course content written alongside his Van Ed studies. Jon flips the visibility himself in GitHub settings, because this proxy can't change repo settings.
-- **App self-updates are therefore off.** Installed copies can't read a private repo's releases.
-  - `UPDATES_ENABLED = false` in `src/lib/updates.ts` hides the check.
-  - `bundle.createUpdaterArtifacts` is `false`, so builds don't need the signing key.
-  - CI no longer uses the signing secret, and `includeUpdaterJson` is `false`.
-  - The updater code, plugin config and public key are all still in place.
-- **Turning updates back on later:** publish releases to a public repo (e.g. `Aziliz/erudior-releases`, via tauri-action's `owner`/`repo` inputs with a token secret). Then point the endpoint there, set the two flags back to true, and add `TAURI_SIGNING_PRIVATE_KEY`. Jon has the private key file `erudior-updater-PRIVATE.key`; no other copy exists.
-- **CI:** `.github/workflows/release.yml` uses `tauri-action`.
-  - On Ubuntu 22.04 it builds .deb, .rpm and AppImage; on Windows it builds the NSIS .exe and .msi.
-  - Pushing a `v*` tag creates a draft release with the installers. Jon downloads them and installs by hand.
-- **Course updates still work.** They ship inside the app, so a newer bundled `revision` is offered in-app.
-- **Bumping the version:** change `package.json`, `src-tauri/tauri.conf.json` and `src-tauri/Cargo.toml`.
+- Repo is **public** (Jon's choice for free Actions minutes). `.github/workflows/release.yml`: a `v*` tag builds and **publishes** Windows (.exe/.msi), macOS universal .dmg (+ app bundle for updates; ad-hoc signed, not notarized), Linux .deb/.rpm/AppImage, signed updater artifacts and `latest.json`.
+- In-app auto-updates are **on** (`UPDATES_ENABLED = true`); the updater key's private half is the GitHub secret `TAURI_SIGNING_PRIVATE_KEY` (Jon keeps a copy). .deb/.rpm installs get a notice; others self-update.
+- Homebrew: tap Aziliz/homebrew-erudior (`brew install --cask aziliz/erudior/erudior`); edit it on github.com (Claude sessions can't push there).
+- Android preview: `Android APK (development)` workflow with `publish_preview` → release `android-preview` (see `docs/ANDROID_DOWNLOAD.md`).
+- Website + signed courses publish from the "Publish website and courses" workflow (Cloudflare Pages + R2 courses.erudior.com).
+- Bump versions in `package.json`, `src-tauri/tauri.conf.json`, `src-tauri/Cargo.toml`.
 
 ## Building
 
@@ -528,6 +520,8 @@ Fedora prerequisites: `webkit2gtk4.1-devel openssl-devel curl wget file libappin
 To test the UI without Tauri, run `npm run build && npx vite preview`; data then goes to localStorage. Playwright with Chromium works for headless walkthroughs.
 
 ## Version history
+
+- **v0.25.0 (package version; next release):** everything in "Current state" since v0.24.0 that ships in the app.
 
 - **Never above v1.0** (Jon): stay on 0.x until Erudior is ready to support homeschooling families and teachers. The website says it's an early version not to be used in place of homeschool or school yet (home page and Download page).
 
