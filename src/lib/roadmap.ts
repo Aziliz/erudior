@@ -1,3 +1,5 @@
+import { JD_PROGRAM } from "./jdProgram";
+
 // What Erudior needs before version 1.0 (ready to be a family's whole homeschool program or a
 // teacher's course set): the K–12 course map from Jon's homeschool roadmap, and the lesson-engine
 // work those courses need. Shown at erudior.com/roadmap. A course counts as available when the
@@ -449,6 +451,12 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Computer Science" },
     ],
   },
+  ...JD_PROGRAM.stages.map((stage, index) => ({
+    id: `jd-${stage.id}`,
+    title: `J.D. preparation — stage ${index + 1}: ${stage.title}`,
+    note: "Independent study program; planned course outlines, not a degree or university credit. Explore the full program at /programs.",
+    courses: stage.courses.map(course => ({ title: course.title, covers: course.modules.join("; ") })),
+  })),
   { id: "professional-real-estate", title: "Professional education — state-configurable real estate licensing", courses: [
     { title: "Real Estate law and practice — jurisdiction-specific hours" },
     { title: "State contracts and regulations — jurisdiction-specific hours" },
@@ -559,4 +567,3 @@ export const UPDATES: UpdateArea[] = [
     ],
   },
 ];
-

@@ -1,3 +1,4 @@
+import { plannedProgramCourse } from "./studyPrograms";
 import { CATALOG, type CatalogEntry } from "./catalog";
 import { courseProgress } from "./learningProgress";
 import type { Course, Progress } from "./types";
@@ -129,7 +130,7 @@ export function pathwayProgress(
     completedShares += summary.fraction;
     return {
       courseId,
-      title: course?.title ?? entry?.title ?? courseId,
+      title: course?.title ?? entry?.title ?? plannedProgramCourse(courseId)?.title ?? courseId,
       available: !!course || !!entry,
       enrolled: enrolled.has(courseId),
       complete: summary.complete,

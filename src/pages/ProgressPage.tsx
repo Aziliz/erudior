@@ -4,6 +4,9 @@ import { CATALOG } from "../lib/catalog";
 import { enrollmentProgress, type CourseProgressSummary } from "../lib/learningProgress";
 import { LEARNING_PATHWAY_LIMITS, parseLearningPathways, pathwayProgress, starterPathways, type LearningPathway } from "../lib/learningPathways";
 
+import StudyProgramCard from "../components/StudyProgramCard";
+import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway } from "../lib/studyPrograms";
+
 const ProgressTools = lazy(() => import("./ProgressTools"));
 type PathDraft = { pathway: LearningPathway; original: string | null };
 
@@ -36,6 +39,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
   const options = new Map<string, { id: string; title: string }>();
   for (const entry of CATALOG) options.set(entry.id, entry);
   for (const course of api.courses) options.set(course.id, course);
+  const availableProgramIds = new Set([...CATALOG.map(entry => entry.id), ...api.courses.map(course => course.id)]);
   const suggestions = starterPathways(CATALOG).filter(path => !pathways.some(mine => mine.id === path.id));
   const visibleCourses = summary.courses.filter(course => filter === "all"
     || (filter === "complete" ? course.complete : !course.complete));
@@ -110,7 +114,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
     </section>
 
     {error && <p role="alert" className="notice">{error}</p>}
-    {draft && <PathwayEditor key={draft.pathway.id} draft={draft} options={[...options.values()]}
+    {draft && <PathwayEditor key={draft.pathway.id} draft={draft} options={[...options.values(), ...STUDY_PROGRAMS.flatMap(programCourses).filter(course => draft.pathway.courseIds.includes(course.courseId) && !options.has(course.courseId)).map(course => ({ id: course.courseId, title: course.title + " (planned)" }))]}
       busy={busy} onCancel={() => setDraft(null)} onSave={pathway => void savePathway(pathway, draft.original)} />}
 
     <section aria-labelledby="enrolled-courses-title" className="progress-section">
@@ -140,25 +144,42 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
       <div className="learning-pathway-list">{pathways.map(pathway => {
         const model = pathwayProgress(pathway, api.courses, api.progress, CATALOG);
         const next = model.steps.find(step => step.courseId === model.nextCourseId);
+        const program = matchingProgram(pathway);
         return <article className="panel learning-pathway-card" key={pathway.id} aria-label={`${pathway.title} pathway`}>
           <div className="progress-section-heading"><div><h3>{pathway.title}</h3><p className="small muted">{model.completedCourses} of {model.totalCourses} courses completed</p></div>
             <div className="row"><button className="btn sm" disabled={busy} onClick={() => { setError(""); setDraft({ pathway: { ...pathway, courseIds: [...pathway.courseIds] }, original: JSON.stringify(pathway) }); }}>Edit pathway</button>
               <button className="btn sm ghost" disabled={busy} onClick={() => void removePathway(pathway)}>Stop following</button></div></div>
           <ProgressMeter value={model.percent} label={`${pathway.title} pathway progress`} />
-          <div className="pathway-next"><span className="small"><strong>{next ? "Up next: " : "Pathway complete"}</strong>{next?.title}{next && !next.available && " · Course unavailable"}</span>
+          <div className="pathway-next"><span className="small"><strong>{next ? "Up next: " : "Pathway complete"}</strong>{next?.title}{next && !next.available && (program ? " · Planned; not yet published" : " · Course unavailable")}</span>
             {next?.available && <button className="btn sm primary" onClick={() => {
               const course = summary.courses.find(item => item.courseId === next.courseId);
               if (course) continueCourse(course); else viewStep(next.courseId, next.enrolled);
             }}>{next.enrolled ? "Continue course" : "View next course"}</button>}
           </div>
+          {program && <StudyProgramCard program={program} availableIds={availableProgramIds}
+            onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
+            summaries={program.stages.map(stage => pathwayProgress({ id: stage.id, title: stage.title, courseIds: stage.courses.map(course => course.courseId) }, api.courses, api.progress, CATALOG))} />}
           <details className="pathway-sequence"><summary>View course sequence ({model.totalCourses})</summary><ol>{model.steps.map((step, index) => <li key={step.courseId} className={step.complete ? "pathway-step complete" : "pathway-step"}>
-            <span className="pathway-step-number" aria-hidden="true">{step.complete ? "✓" : index + 1}</span><div><strong>{step.title}</strong><span className="small muted">{step.completionBasis === "exam" ? "Completed by exam" : step.complete ? "Complete" : !step.available ? "Course unavailable" : step.enrolled ? `${step.percent ?? 0}% complete` : step.percent ? `${step.percent}% saved · not enrolled` : "Not enrolled"}</span></div>
+            <span className="pathway-step-number" aria-hidden="true">{step.complete ? "✓" : index + 1}</span><div><strong>{step.title}</strong><span className="small muted">{step.completionBasis === "exam" ? "Completed by exam" : step.complete ? "Complete" : !step.available ? (program ? "Planned; not yet published" : "Course unavailable") : step.enrolled ? `${step.percent ?? 0}% complete` : step.percent ? `${step.percent}% saved · not enrolled` : "Not enrolled"}</span></div>
             {step.available && <button className="btn sm ghost" onClick={() => viewStep(step.courseId, step.enrolled)}>{step.enrolled ? "View progress" : "View course"}</button>}
           </li>)}</ol></details>
         </article>;
       })}</div>
       {!pathways.length && <p className="muted">Choose a starter pathway below, or create your own from available courses. Following a pathway saves your plan; you choose when to start each course.</p>}
       {suggestions.length > 0 && <div className="pathway-suggestions">{suggestions.map(pathway => <article className="pathway-suggestion" key={pathway.id}><div><h3>{pathway.title}</h3><p className="small muted">{pathway.courseIds.length} courses · {options.get(pathway.courseIds[0])?.title} to {options.get(pathway.courseIds.at(-1)!)?.title}</p></div><button className="btn sm" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways} onClick={() => void savePathway(pathway)}>Follow pathway<span className="sr-only">: {pathway.title}</span></button></article>)}</div>}
+    </section>
+
+    <section className="progress-section" aria-labelledby="study-programs-title">
+      <h2 id="study-programs-title">Explore programs</h2>
+      <p className="muted">A program groups courses into stages with learning outcomes and portfolio milestones. You can save a plan before all its courses are published.</p>
+      {STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id)).map(program => {
+        const existing = pathways.find(path => path.id === program.id);
+        return <StudyProgramCard key={program.id} program={program} availableIds={availableProgramIds}
+          onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
+          action={existing ? <p className="small muted">You are following a customized version. Your saved course order is preserved.</p> :
+            <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
+              onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
+      })}
     </section>
 
     <details className="progress-tools-disclosure" open={toolsOpen} onToggle={event => setToolsOpen(event.currentTarget.open)}>
