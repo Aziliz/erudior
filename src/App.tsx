@@ -1,3 +1,4 @@
+import { flushSync } from "react-dom";
 import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
 import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomPeerSourceOption } from "./lib/classroomPeerSources";
 import { loadClassroomSubmissions, validateClassroomSubmissionState } from "./lib/classroomSubmissionStore";
@@ -63,6 +64,7 @@ import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
 import PhoneNavigation from "./components/PhoneNavigation";
+import AppSidebar from "./components/AppSidebar";
 import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, type Family, type Student } from "./lib/family";
 import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
@@ -792,7 +794,9 @@ export default function App() {
     const conceal=()=>{ concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
     const reveal=()=>{ if(document.hidden)return; concealedRef.current=false; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
     const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
-    const nativeLifecycle=(event:Event)=>applyNativeLifecycle((event as CustomEvent).detail,{conceal,reveal,lock:()=>{if(!lockedRef.current)lockWorkspace();}});
+    // Native callbacks are outside React events. Commit concealment before returning
+    // so top-layer dialogs cannot remain above the hidden shared-device shell.
+    const nativeLifecycle=(event:Event)=>flushSync(()=>applyNativeLifecycle((event as CustomEvent).detail,{conceal,reveal,lock:()=>{if(!lockedRef.current)lockWorkspace();}}));
     window.addEventListener("erudior-native-lifecycle",nativeLifecycle);
     const tick=window.setInterval(()=>{ if(lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lastActivity>=10*60_000)lockWorkspace(); },1000);
     document.addEventListener("visibilitychange",visibility);
@@ -1841,10 +1845,10 @@ export default function App() {
               Erudior
             </a>
           ) : (
-            <button className="brand" onClick={() => api.go({ name: "library" })} aria-label="Erudior: library">
-              <Mark />
-              Erudior
-            </button>
+            <AppSidebar key={sessionEpoch} api={api} current={view} managementLabel={managementLabel}
+              showCommunity={showCommunity} blocked={localLocked || !!gate || concealed}
+              preferences={{ theme, width, textSize, setTheme, setWidth, setTextSize }}
+              onLock={lockWorkspace} onOpen={() => setDisplayOpen(false)} />
           )}
           <nav className="nav" aria-label="Main">
             <button
