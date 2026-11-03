@@ -1,0 +1,58 @@
+name: Local classroom workflow acceptance
+
+# Synthetic, local-only validation. This workflow never publishes or deploys.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/classroom-workflows-browser.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/classroom-workflows.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/classroom-workflows-browser.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/classroom-workflows.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  classroom-workflows:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Complete local teacher and learner workflows
+        id: acceptance
+        run: node scripts/diagnostic-command.mjs classroom-workflows-browser -- node scripts/classroom-workflows-browser.mjs
+      - name: Write safe diagnostic summary
+        if: always()
+        env:
+          ERUDIOR_DIAG_JOB: classroom-workflows
+          ERUDIOR_DIAG_STAGES: 'acceptance:${{ steps.acceptance.outcome }}'
+        run: node scripts/ci-diagnostics.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: classroom-workflows-browser
+          path: test-results/classroom-workflows-browser/
+          if-no-files-found: warn
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: classroom-workflows-diagnostics
+          path: ${{ runner.temp }}/erudior-ci-diagnostics/
+          if-no-files-found: warn
+          retention-days: 14

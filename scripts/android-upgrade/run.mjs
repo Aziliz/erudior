@@ -9,6 +9,7 @@ import path from 'node:path';
 import { _android as android } from 'playwright';
 import { verifyPortableFiles } from './portable-files.mjs';
 import { verifySharedDevice } from './shared-device.mjs';
+import { verifyClassroomWorkflows } from './classroom-workflows.mjs';
 
 assert.equal(process.env.GITHUB_ACTIONS, 'true');
 assert.equal(process.env.ERUDIOR_UPGRADE_E2E, '1');
@@ -197,6 +198,8 @@ try {
   passed('Version B reopens stored course and all saved records; no repeated same-build offer');
   // Only after every version-B retention assertion: exercise a new synthetic Family.
   await verifySharedDevice({ page, adb, pkg, sleep, screenshot, passed,
+    restart: () => launch({ sharedDevice: true }) });
+  await verifyClassroomWorkflows({ page, adb, pkg, screenshot, passed,
     restart: () => launch({ sharedDevice: true }) });
   results.ok=true;report();
 } catch(error) {
