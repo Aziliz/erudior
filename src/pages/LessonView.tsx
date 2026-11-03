@@ -1,3 +1,4 @@
+import { isGuidedPractice } from "../lib/assessmentPresentation";
 import type { AppApi } from "../App";
 import { isHonorsLesson } from "../lib/course";
 import type { Course, Lesson } from "../lib/types";
@@ -17,6 +18,7 @@ import { calcKind } from "../lib/calcKind";
 import { useAssignmentLinks } from "./WorkView";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
+  const guided = isGuidedPractice(course);
   const key = lessonKey(course.id, lesson.id);
   const done = !!api.progress.lessonsDone[key];
   const ordered = orderedLessons(course);
@@ -187,15 +189,14 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
 
       {hasQuiz && (
         <section className="panel lesson-quiz">
-          <h2>End-of-lesson quiz</h2>
+          <h2>{guided ? "Try what you learned" : "End-of-lesson quiz"}</h2>
           <p className="muted" style={{ marginTop: 6 }}>
-            {quizQs.length} question{quizQs.length === 1 ? "" : "s"} on this lesson. Get {needed} right to complete it; you see
-            the answer and explanation after each one.
+            {guided ? `${quizQs.length} practice questions. Take your time and look at the explanation after each answer. The app marks this lesson complete after ${needed} answers match; that is a practice checkpoint, not a grade-placement decision.` : <>{quizQs.length} question{quizQs.length === 1 ? "" : "s"} on this lesson. Get {needed} right to complete it; you see the answer and explanation after each one.</>}
             {best && ` Best so far: ${best.correct} of ${best.total}.`}
           </p>
           <div className="row" style={{ marginTop: 10 }}>
             <button className={done ? "btn" : "btn primary"} onClick={takeQuiz}>
-              {best ? "Retake the quiz" : "Take the quiz"}
+              {guided ? best ? "Practice again" : "Start lesson practice" : best ? "Retake the quiz" : "Take the quiz"}
             </button>
             {done && <span className="pill pass">Complete</span>}
           </div>
@@ -239,13 +240,13 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
         <button className="btn" disabled={!prev} onClick={() => prev && goLesson(prev.id)}>
           Previous
         </button>
-        <label className="check" title={hasQuiz && !done ? "Pass the end-of-lesson quiz to complete this lesson" : undefined}>
+        <label className="check" title={hasQuiz && !done ? guided ? "Complete the lesson practice checkpoint to mark this lesson complete" : "Pass the end-of-lesson quiz to complete this lesson" : undefined}>
           <input type="checkbox" checked={done} onChange={toggleDone} disabled={hasQuiz && !done} />
           Lesson complete
         </label>
         <button className="btn primary" onClick={completeAndNext}>
           {!done && hasQuiz
-            ? "Take the quiz"
+            ? guided ? "Start lesson practice" : "Take the quiz"
             : next
               ? done
                 ? "Next lesson"

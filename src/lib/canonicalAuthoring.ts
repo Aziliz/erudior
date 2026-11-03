@@ -1,3 +1,4 @@
+import { parseAssessmentPresentation } from "./assessmentPresentation";
 import { validateReaderMarkdownAssets, readerMarkdownParts } from './readerMarkdownAssets';
 import { validateImageAsset } from "./imageAssets";
 import { validateLessonSource, validateInteractiveQuestion, validateFigureSpec } from "./lessonSource";
@@ -135,7 +136,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
     function glossary(v: unknown, path: string) { objects(v, path, ['term', 'definition', 'aliases', 'topic'], (g, p) => { str(g.term, p + '.term', true); str(g.definition, p + '.definition', true); optionalStr(g, ['topic'], p); if (g.aliases !== undefined)
         strings(g.aliases, p + '.aliases'); }); }
-    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
+    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'assessmentPresentation', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
     if (!shape(raw, ['format', 'version', 'course'], 'payload'))
         return errors;
     if (raw.format !== 'erudior-canonical-authoring' || raw.version !== 1)
@@ -154,6 +155,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
     if (c.calculator !== undefined && !['basic', 'scientific', 'graphing', 'none'].includes(c.calculator as string))
         add('course.calculator', 'unknown calculator');
     boolean(c, ['readAloud'], 'course');
+    try { parseAssessmentPresentation(c.assessmentPresentation); } catch { add('course.assessmentPresentation', 'unknown assessment presentation'); }
     const moduleIds = new Set<string>();
     const lessonIds = new Set<string>();
     const firstQuestions = new Set<string>();

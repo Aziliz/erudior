@@ -1,3 +1,5 @@
+import { isGuidedPractice } from "../lib/assessmentPresentation";
+import { GuidedBankPractice } from "./GuidedPractice";
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Bank } from "../lib/types";
@@ -28,6 +30,12 @@ const FILTERS: { id: PracticeFilter; label: string }[] = [
 ];
 
 export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
+  const course = api.courses.find(c => c.banks.some(b => b.id === bank.id));
+  return course && isGuidedPractice(course)
+    ? <GuidedBankPractice key={bank.id} api={api} course={course} bank={bank} />
+    : <StandardBankHome key={bank.id} api={api} bank={bank} />;
+}
+function StandardBankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   const { progress } = api;
   const total = bank.questions.length;
   // Banks in Erudior's or community courses are read-only here (see isPublishedCourse).

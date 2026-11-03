@@ -1,3 +1,4 @@
+import { isGuidedPractice } from "../lib/assessmentPresentation";
 import { useState } from "react";
 import MathText from "../components/MathText";
 import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
@@ -36,6 +37,7 @@ export default function Results({
 
   const qById = new Map(bank?.questions.map((q) => [q.id, q]) ?? []);
   const course = bank?.courseId ? api.courses.find((c) => c.id === bank.courseId) : undefined;
+  const guided = isGuidedPractice(course);
   const [noteFor, setNoteFor] = useState<string | null>(null);
   const all = api.progress.qmeta ?? {};
   const meta = Object.fromEntries(attempt.answers.map((a) => [a.qid, all[`${attempt.bankId}/${a.qid}`]]));
@@ -86,7 +88,7 @@ export default function Results({
 
   // Weak spots from this attempt and your recent history (not for lesson and module quizzes,
   // which already send you back to their lesson).
-  const showFocus = !quizLesson && !quizModule && !attempt.lesson && !attempt.module && attempt.answers.length >= 5 && !!bank;
+  const showFocus = !guided && !quizLesson && !quizModule && !attempt.lesson && !attempt.module && attempt.answers.length >= 5 && !!bank;
   const focus = showFocus
     ? focusAreas(attempt.byTopic, topicMastery(api.progress, [bank!]))
     : [];
@@ -110,7 +112,7 @@ export default function Results({
     api.go({
       name: "run",
       session: startPractice(bank, api.progress, {
-        count: wrong.length,
+        count: guided ? Math.min(5, wrong.length) : wrong.length,
         topics: [],
         sections: [],
         filter: "all",
@@ -127,13 +129,13 @@ export default function Results({
       </button>
 
       <div className="score-head">
-        <div className="score-big">
+{!guided && (        <div className="score-big">
           {pct}
           <small>%</small>
-        </div>
+        </div>)}
         <div>
           <h1>
-            {quizLesson || quizModule
+            {guided ? "Let’s look at your practice" : quizLesson || quizModule
               ? passed
                 ? quizModule
                   ? "Module complete"
@@ -147,7 +149,12 @@ export default function Results({
                   : "Not passed yet"
               : "Practice complete"}
           </h1>
-          <p className="muted" style={{ marginTop: 6 }}>
+          {guided ? <div className="stack" style={{ gap: 8, marginTop: 6 }}>
+            <p>{attempt.correct} of {attempt.total} answers matched. Use the explanations below to choose what to practice next.</p>
+            {(quizLesson || quizModule) && <p>{passed ? "This practice checkpoint is complete." : "This checkpoint needs more practice before the app marks it complete. You can revisit the lesson and try again."}</p>}
+            <p className="small muted">An adult can also watch you try a new example with objects, drawings, or speech. These answers do not decide grade placement or show how independently you worked.</p>
+            <details><summary>Session details</summary><p className="small muted">{pct}% correct · {formatDuration(attempt.durationSec)} recorded · {formatDateTime(attempt.finishedAt)}{isExam ? " · Earlier timed session" : ""}</p></details>
+          </div> : <p className="muted" style={{ marginTop: 6 }}>
             {attempt.correct} of {attempt.total} correct
             {(quizLesson || quizModule) &&
               `, ${lessonQuizNeeded(attempt.total)} needed to complete “${(quizLesson ?? quizModule)!.title}”`}
@@ -157,7 +164,7 @@ export default function Results({
             {attempt.timeLimitSec ? ` of ${formatDuration(attempt.timeLimitSec)}` : ""} on{" "}
             {formatDateTime(attempt.finishedAt)}.
             {isExam && attempt.answered < attempt.total && ` ${attempt.total - attempt.answered} left blank.`}
-          </p>
+          </p>}
           {quizModule ? (
             <div className="row" style={{ marginTop: 14 }}>
               {passed ? (
@@ -172,7 +179,7 @@ export default function Results({
                 )
               ) : (
                 <button className="btn primary" onClick={retakeQuiz}>
-                  Retake the module quiz
+                  {guided ? "Practice the unit again" : "Retake the module quiz"}
                 </button>
               )}
               {!passed && (
@@ -186,7 +193,7 @@ export default function Results({
               {passed ? (
                 moduleNext ? (
                   <button className="btn primary" onClick={takeModuleQuiz}>
-                    Module quiz: {moduleNext.title}
+                    {guided ? "Unit practice" : "Module quiz"}: {moduleNext.title}
                   </button>
                 ) : nextLesson ? (
                   <button className="btn primary" onClick={() => goLesson(nextLesson.id)}>
@@ -199,7 +206,7 @@ export default function Results({
                 )
               ) : (
                 <button className="btn primary" onClick={retakeQuiz}>
-                  Retake the quiz
+                  {guided ? "Practice the lesson again" : "Retake the quiz"}
                 </button>
               )}
               <button className="btn" onClick={() => goLesson(quizLesson.id)}>
@@ -210,7 +217,7 @@ export default function Results({
           <div className="row" style={{ marginTop: 14 }}>
             {bank && wrong.length > 0 && (
               <button className="btn primary" onClick={practiceMissed}>
-                Practice the {wrong.length} I missed
+                {guided ? `Practice up to ${Math.min(5, wrong.length)} again` : `Practice the ${wrong.length} I missed`}
               </button>
             )}
             {bank && (
