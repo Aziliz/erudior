@@ -6,7 +6,7 @@ export const JD_PROGRAM: StudyProgram = {
   "version": 1,
   "title": "J.D. Preparation",
   "description": "A three-stage program connecting legal study skills, foundational law and upper-level subjects into one reusable learning pathway.",
-  "notice": "Independent preparation, not a J.D. degree, university credit, bar eligibility or legal advice. Course outlines are planned; lessons become available only after separate authoring, review and publication.",
+  "notice": "Independent preparation, not a J.D. degree, university credit, bar eligibility or legal advice. Availability is shown for each course; planned courses become available after authoring, review and publication.",
   "stages": [
     {
       "id": "readiness",
