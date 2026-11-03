@@ -1,0 +1,38 @@
+name: Prepare isolated guided-practice validation workspace
+on:
+  push:
+    branches: [work/guided-practice-20261103]
+    paths: [.github/workflows/guided-practice-workspace.yml]
+permissions:
+  contents: read
+jobs:
+  workspace:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 9ab137b1b587bc012f554dc9727b9f4e52213c90
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Package public source and locked development dependencies only
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/guided-workspace
+          git archive HEAD | tar -x -C /tmp/guided-workspace
+          cp -a node_modules /tmp/guided-workspace/
+          git rev-parse HEAD > /tmp/guided-workspace/SOURCE_COMMIT
+          git ls-tree -r HEAD > /tmp/guided-workspace/SOURCE_TREE
+          tar -czf /tmp/guided-workspace.tgz -C /tmp/guided-workspace .
+          sha256sum /tmp/guided-workspace.tgz > /tmp/guided-workspace.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guided-practice-public-workspace
+          path: |
+            /tmp/guided-workspace.tgz
+            /tmp/guided-workspace.sha256
+          retention-days: 1
+          if-no-files-found: error
