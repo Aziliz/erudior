@@ -1,0 +1,48 @@
+import assert from 'node:assert/strict';
+import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse } from '../src/lib/studyPrograms';
+import { parseLearningPathways, pathwayProgress, starterPathways } from '../src/lib/learningPathways';
+import { emptyCourse } from '../src/lib/course';
+import { emptyProgress } from '../src/lib/storage';
+import { CATALOG } from '../src/lib/catalog';
+import type { CatalogEntry } from '../src/lib/catalog';
+
+const jd = STUDY_PROGRAMS.find(p => p.id === 'jd-preparation')!;
+assert(jd);
+assert.deepEqual(jd.stages.map(s => s.courses.length), [5, 10, 9]);
+const courses = programCourses(jd), path = programPathway(jd);
+assert.equal(courses.length, 24);
+assert.deepEqual(parseLearningPathways([path]), [path]);
+assert.equal(new Set(courses.map(c => c.courseId)).size, courses.length);
+const earlier = new Set<string>();
+for (const course of courses) {
+  assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30);
+  for (const id of course.recommendedBefore) assert(earlier.has(id), `${course.courseId} has a dangling, cyclic or out-of-order prerequisite ${id}`);
+  earlier.add(course.courseId);
+}
+assert.equal(matchingProgram(path), jd);
+assert.equal(matchingProgram({...path, title:'My law studies'}), jd);
+assert.equal(matchingProgram({...path, courseIds:[...path.courseIds].reverse()}), undefined);
+assert.equal(matchingProgram({...path, courseIds:path.courseIds.slice(1)}), undefined);
+assert.equal(matchingProgram({...path, id:'custom'}), undefined);
+const copy = programPathway(jd);copy.courseIds.reverse();assert.equal(programPathway(jd).courseIds[0], courses[0].courseId);
+assert.equal(plannedProgramCourse('unrecognized'), undefined);
+assert(!starterPathways().some(p => p.id === jd.id), 'planned program is separate from available-course starters');
+assert(!courses.some(c => CATALOG.some(e => e.id === c.courseId)), 'this release adds outlines, not phantom catalog courses');
+const p = emptyProgress();
+p.lessonsDone[`${courses[0].courseId}/obsolete`] = '2026-11-03';
+const blank = pathwayProgress(path, [], p, []);
+assert.equal(blank.percent, 0);assert.equal(blank.completedCourses, 0);
+assert.equal(blank.nextCourseId, courses[0].courseId);
+assert(blank.steps.every(s => !s.available && s.percent === null));
+assert.equal(blank.steps[0].title, courses[0].title);
+const published: CatalogEntry = {...CATALOG[0], id:courses[0].courseId, title:courses[0].title, lessons:1, lessonIds:['intro'], requires:[]};
+p.lessonsDone[`${published.id}/intro`] = '2026-11-03';
+const partial = pathwayProgress(path, [], p, [published]);
+assert.equal(partial.completedCourses, 1);assert.equal(partial.percent, 4);
+assert.equal(partial.nextCourseId, courses[1].courseId);
+const stage = pathwayProgress({id:'readiness',title:'Readiness',courseIds:path.courseIds.slice(0,5)},[],p,[published]);
+assert.equal(stage.percent, 20);
+const installed = {...emptyCourse(published.title),id:published.id,modules:[{id:'main',title:'Main'}],lessons:[{id:'intro',module:'main',title:'Intro',body:'Synthetic content.'},{id:'new',module:'main',title:'New',body:'Synthetic content.'}]};
+assert.equal(pathwayProgress(path,[installed],p,[published]).completedCourses,0,'current installed content takes precedence over older catalog checkpoints');
+assert.equal(pathwayProgress(path,[],emptyProgress(),[published]).percent,0,'a different learner receives no inherited completion');
+console.log('Study programs: complete three-stage outline, valid ordered dependencies, snapshot matching, honest availability and equal-course/stage progress passed.');

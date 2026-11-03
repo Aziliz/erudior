@@ -107,3 +107,12 @@
   .course-progress .stats-strip b { font-size: 1.1rem; overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { .learning-progress-meter progress { transition: none; } }
+
+/* Staged programs share the pathway layout without inheriting its unnumbered steps. */
+.study-program { overflow-wrap: anywhere; }
+.study-program .pathway-sequence ol { list-style: decimal; padding-left: 1.5rem; }
+.study-program .pathway-sequence li { margin-block: .65rem; }
+.study-program li > details > summary { cursor: pointer; min-height: 44px; padding-block: .65rem; }
+.study-program h4 { margin-block: 1rem .5rem; }
+.study-program .progress-section-heading > div { flex: 1 1 260px; min-width: 0; }
+.study-program .progress-section-heading > .btn { flex-shrink: 0; }

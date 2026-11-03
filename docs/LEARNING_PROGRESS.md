@@ -44,3 +44,17 @@ Run `npm run test:learning-progress-browser` for the real-app enrollment, pathwa
 Run `npm run test:role-navigation-browser` for independent, local homeschool, and local classroom navigation, the existing adult password gates, per-course Progress, public URL compatibility, and responsive accessibility. Its actual-App browser screenshots use isolated synthetic local workspace data and are written to `test-results/role-navigation-browser`; they do not represent authenticated production accounts.
 
 Model, persistence, recovery, course isolation, and UI regressions also run as part of `npm test`. Browser images are source-rendered app previews. They do not claim native Android system-bar or keyboard verification.
+
+## Staged programs
+
+**Programs** on the public site (`/programs`) exposes account-free curriculum outlines. **Courses → Explore programs** in the app lets the learner explicitly follow J.D. Preparation. Its 24 courses span readiness (5), core J.D. preparation (10) and upper-level preparation (9). Each includes four module outlines, two learning outcomes, recommended prerequisites and a planned assignment; each stage has a portfolio milestone.
+
+Definitions in `studyPrograms.ts` and `jdProgram.ts` are editorial plans, separate from the signed course catalog. They do not manufacture course packages, enrollment, completion, graded assignments, credentials or university equivalence. All 24 course packages remain planned in this release. Course authoring, substantive legal review, current primary-source verification and signed publication are subsequent work in the private course repository. References reflect curriculum research reviewed November 3, 2026; course authors must check current law when writing lessons.
+
+Following saves the existing three-field `LearningPathway` snapshot. Existing profile CAS, backup/recovery, deletion and conflict protections apply. Programs remain visible even before publication; unavailable courses contribute zero to the full denominator and cannot launch. Stage progress uses the same equal-course calculation as pathways. Portfolio milestones are recommendations, not additional automatic completion gates. Opening a published course continues through the existing catalog, assignment and prerequisite controls.
+
+Canonical stages attach only when the saved program ID and exact ordered course IDs match. Renaming preserves stage display; reordering, adding or removing a course makes it a custom pathway. Later editorial changes cannot silently rewrite a learner's saved sequence. The original outline remains explorable without overwriting that custom plan. This first version does not support arbitrary program authoring or migrate program versions automatically.
+
+The roadmap's three J.D. course groups derive from the same definition. The scope is national U.S. legal preparation with clearly identified jurisdiction differences, not a Hawaiʻi-only curriculum. LSAT preparation and specialized real-estate electives remain outside these three stages.
+
+Verification: `tests/study-programs.test.mts` checks curriculum completeness, prerequisites, snapshot matching, publication boundaries and stage/course progress. `tests/enrollment-progress-ui.test.mts` also exercises follow, remount, edit, remove, planned-course labels, absent launch actions and learner-switch cancellation for this program.

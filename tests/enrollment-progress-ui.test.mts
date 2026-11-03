@@ -226,5 +226,40 @@ assert.equal(document.querySelectorAll(".progress-summary > div")[2].querySelect
 await click("Browse courses");
 assert.deepEqual(routes.pop(), { name: "library" });
 
+// The planned JD program follows the same explicit, profile-scoped lifecycle.
+const { STUDY_PROGRAMS, programPathway } = await import("../src/lib/studyPrograms");
+const jd = STUDY_PROGRAMS[0];
+const programCard = () => document.querySelector<HTMLElement>('article[aria-label="J.D. Preparation program"]')!;
+assert.match(programCard().textContent!, /24 courses/);
+assert.match(programCard().textContent!, /0 of 24 courses available/);
+assert.equal(programCard().querySelectorAll('button').length, 1, "planned courses have no launch action");
+await click(programCard().querySelector('button')!);
+assert.deepEqual(stored.get('bob')!.learningPathways, [programPathway(jd)]);
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0);
+const jdPath = pathway(jd.title);
+assert.match(jdPath.textContent!, /Introduction to the U.S. Legal System/);
+assert.match(jdPath.textContent!, /Planned; not yet published/);
+assert.equal(jdPath.querySelector('progress')?.value, 0);
+assert.equal(jdPath.querySelectorAll('.study-program progress').length, 3, "each stage has its own progress");
+assert.equal([...jdPath.querySelectorAll('button')].some(b => /Continue course|View next course|View course/.test(b.textContent ?? '')), false);
+api = makeApi('bob', []);await mount();
+assert.equal(pathway(jd.title).querySelector('progress')?.value, 0, "saved program survives remount");
+await click('Edit pathway', pathway(jd.title));
+assert.match(document.querySelector('.pathway-editor')!.textContent!, /Introduction to the U.S. Legal System \(planned\)/);
+await click('Move Legal Writing II: Persuasion and Advocacy (planned) up');
+await click('Save pathway');
+assert.equal(pathway(jd.title).querySelector('.study-program'), null, "custom course order does not inherit canonical stage progress");
+assert.match(programCard().textContent!, /customized version/);
+await click('Stop following', pathway(jd.title));
+assert.deepEqual(stored.get('bob')!.learningPathways, []);
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0);
+// A delayed program save is cancelled when the selected profile changes.
+pauseNextWrite = new Promise<void>(resolve => { release = resolve; });
+await click(programCard().querySelector('button')!);
+selected = 'alice'; selection++; api = makeApi('alice', [alpha,beta]); await mount();
+await React.act(async () => { release(); await Promise.resolve(); });
+assert.deepEqual(stored.get('bob')!.learningPathways, []);
+assert.deepEqual(stored.get('alice')!.learningPathways, []);
+
 await React.act(async () => root.unmount());
 console.log("Enrollment Progress UI: learner-scoped courses and averages, navigation and filters, explicit ordered pathway lifecycle, fresh-state edit conflicts, unavailable content, profile-switch guards and empty states passed.");

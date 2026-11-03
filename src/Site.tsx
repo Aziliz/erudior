@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import AudiencePage from "./pages/AudiencePage";
 import DownloadPage from "./pages/DownloadPage";
+import Programs from "./pages/Programs";
 import Roadmap from "./pages/Roadmap";
 import PublicCommunity from "./pages/PublicCommunity";
 import { Mark } from "./components/Mark";
@@ -13,11 +14,11 @@ import { CATALOG } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
-type Page = "home" | "parents" | "live-rooms" | "teachers" | "download" | "roadmap" | "community" | LegalPage;
+type Page = "programs" | "home" | "parents" | "live-rooms" | "teachers" | "download" | "roadmap" | "community" | LegalPage;
 
 function pageFor(path: string): Page | null {
   const p = path.replace(/\/+$/, "") || "/";
-  return /^\/community(?:\/[^/]+)?$/.test(p) ? "community" : p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/parents" ? "parents" : p === "/live-rooms" ? "live-rooms" : p === "/teachers" ? "teachers" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : p === "/engine-license" ? "engine-license" : null;
+  return p === "/programs" ? "programs" : /^\/community(?:\/[^/]+)?$/.test(p) ? "community" : p === "/" ? "home" : p === "/download" ? "download" : p === "/roadmap" ? "roadmap" : p === "/parents" ? "parents" : p === "/live-rooms" ? "live-rooms" : p === "/teachers" ? "teachers" : p === "/terms" ? "terms" : p === "/privacy" ? "privacy" : p === "/licenses" ? "licenses" : p === "/engine-license" ? "engine-license" : null;
 }
 
 export default function Site() {
@@ -40,6 +41,8 @@ export default function Site() {
     if (page === "home" || !page) setSeo({ title: DEFAULT_TITLE, url: SITE_ORIGIN + "/", jsonLd: homeJsonLd(CATALOG) });
     else if (page === "parents" || page === "live-rooms" || page === "teachers")
       setSeo({ title: `${page === "parents" ? "For Parents" : page === "teachers" ? "For Teachers" : "Live Rooms"} · Erudior`, description: page === "parents" ? "Explore Erudior homeschool planning, records, attendance and learning tools for families." : page === "teachers" ? "Learn about Erudior classrooms, assignments, hand-ins, gradebooks and group activities." : "Explore Erudior live quiz rooms, joining with a code and host-led sessions.", url: `${SITE_ORIGIN}/${page}` });
+    else if (page === "programs")
+      setSeo({ title: "Programs · Erudior", description: "Explore staged learning pathways, including J.D. preparation with course outlines and recommended prerequisites.", url: SITE_ORIGIN + "/programs" });
     else if (page === "community")
       setSeo({ title: "Community courses · Erudior", description: "Browse free community courses without an account. Read course details and choose what to learn.", url: SITE_ORIGIN + path });
     else if (page === "roadmap")
@@ -87,6 +90,7 @@ export default function Site() {
           <Mark />Erudior
         </a>
         <nav className="nav" aria-label="Main">
+          <a href="/programs" onClick={(e) => go(e, "programs")} aria-current={page === "programs" ? "page" : undefined}>Programs</a>
           <a href="/community" onClick={(e) => go(e, "community")} aria-current={page === "community" ? "page" : undefined}>Community</a>
           <a href="/parents" onClick={(e) => go(e, "parents")} aria-current={page === "parents" ? "page" : undefined}>For parents</a>
           <a href="/live-rooms" onClick={(e) => go(e, "live-rooms")} aria-current={page === "live-rooms" ? "page" : undefined}>Live rooms</a>
@@ -98,7 +102,7 @@ export default function Site() {
         <a className="btn primary sm" href={appUrl("/")}>Open the web app</a>
       </header>
       <main id="main" className="main" tabIndex={-1}>
-        {page === "community" ? <PublicCommunity id={communityId} onNavigate={goCommunity} /> : page === "home" ? <Home /> : page === "parents" || page === "live-rooms" || page === "teachers" ? (
+        {page === "programs" ? <Programs /> : page === "community" ? <PublicCommunity id={communityId} onNavigate={goCommunity} /> : page === "home" ? <Home /> : page === "parents" || page === "live-rooms" || page === "teachers" ? (
           <AudiencePage kind={page} />
         ) : page === "download" ? <DownloadPage /> : page === "roadmap" ? <Roadmap /> : (
           <div className="page">
