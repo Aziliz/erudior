@@ -64,6 +64,25 @@ jobs:
           python3 tests/android-installer-integration.py -v
       - name: Build two separately versioned optimized test APKs
         run: bash scripts/android-upgrade/build.sh
+      - name: Reclaim disposable build space after fixture verification
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_ACTIONS" = true && "$ERUDIOR_UPGRADE_E2E" = 1 && "$RUNNER_ENVIRONMENT" = github-hosted ]]
+          # build.sh already verified both signed, separately versioned APKs.
+          # The runner below only needs these copies and the ephemeral HTTPS pair.
+          fixtures=(.android-upgrade/{a.apk,b.apk,ca.pem,tls-key.pem})
+          for fixture in "${fixtures[@]}"; do
+            [[ -s "$fixture" && ! -L "$fixture" ]]
+          done
+          sha256sum "${fixtures[@]}" > "$RUNNER_TEMP/android-upgrade-fixtures.sha256"
+          disposable=(src-tauri/target src-tauri/gen/android/app/build src-tauri/gen/android/.gradle "$HOME/.gradle/caches" "$HOME/.gradle/wrapper/dists")
+          df -h .
+          for directory in "${disposable[@]}"; do
+            if [[ -d "$directory" ]]; then du -sh "$directory"; fi
+          done
+          rm -rf -- "${disposable[@]}"
+          sha256sum --check "$RUNNER_TEMP/android-upgrade-fixtures.sha256"
+          df -h .
       - name: Real in-app download, permission, cancel, approval and retained-state checks
         timeout-minutes: 15
         uses: reactivecircus/android-emulator-runner@v2
@@ -71,8 +90,8 @@ jobs:
           api-level: 35
           target: google_apis
           arch: x86_64
-          # The synthetic fixtures use tens of MiB; avoid the image default 7 GiB
-          # userdata reservation exhausting the hosted runner after two builds.
+          # Request modest userdata, but modern images enforce a 6 GiB minimum
+          # plus free-space headroom. Reclaim completed build outputs above.
           disk-size: 2048M
           pre-emulator-launch-script: df -h . "$HOME/.android/avd"
           disable-animations: true

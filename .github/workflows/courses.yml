@@ -24,6 +24,7 @@ on:
       - "scripts/lib/releaseTransport.ts"
       - "package.json"
       - "package-lock.json"
+      - "src/lib/adminStudio.ts"
       - "src/lib/presentations.ts"
       - "src/lib/presentationProtocol.ts"
       - "src/lib/answers.ts"

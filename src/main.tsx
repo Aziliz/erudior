@@ -25,7 +25,10 @@ import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismiss
 import { claimWebAppSplash } from "./lib/startupSplashPolicy";
 
 // Start fetching application code NOW, never from an animation callback or timer.
-const pageModule = IS_SITE ? import("./Site") : import("./App");
+// Studio stays on the existing trusted web-app origin, never inside a native
+// learner workspace. Server authorization remains required for all private data.
+const studioRoute = !IS_SITE && !inApp && /^\/admin\/studio\/?$/.test(window.location.pathname);
+const pageModule = studioRoute ? import("./pages/AdminStudio") : IS_SITE ? import("./Site") : import("./App");
 // Older cached snapshots can contain an overlay outside React's root. Always remove it.
 document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;
