@@ -25,7 +25,7 @@ const base = '/admin/promotions';
 const title = 'Synthetic full canonical promotion source';
 const secret = 'SECRET_PROMOTION_TEACHER_821';
 const orderSecret = 'SECRET_PROMOTION_ORDER_821';
-const checks = [], screenshots = [], errors = [], deniedNetwork = [];
+const checks = [], screenshots = [], errors = [], deniedNetwork = [], blockedDevelopmentSockets = [];
 await mkdir(out, { recursive: true });
 for (const name of ['failure.json', 'failure.png', 'failure.html', 'failure-fields.json', 'result.json', 'bootstrap.json']) await rm(path.join(out, name), { force: true });
 const temporary = await mkdtemp(path.join(os.tmpdir(), 'erudior-promotion-browser-'));
@@ -291,7 +291,9 @@ async function contextFor(identity, width, colorScheme = 'light') {
   // HMR is not part of document acceptance, and no virtual-domain socket may escape.
   await context.routeWebSocket('**/*', socket => {
     const target = new URL(socket.url());
-    if (target.hostname !== new URL(origin).hostname) deniedNetwork.push({ current, origin: target.origin });
+    if (target.hostname === new URL(origin).hostname || target.origin === 'wss://127.0.0.1:0') {
+      blockedDevelopmentSockets.push({ current, origin: target.origin });
+    } else deniedNetwork.push({ current, origin: target.origin });
     socket.close();
   });
   if (identity?.cookie) {
@@ -331,12 +333,17 @@ async function uncheckedReview() {
   assert.equal(await button('Record review for handoff').isEnabled(), false, 'unchecked form cannot approve');
 }
 async function cancelBackNavigation() {
-  const before = page.url(); let dismissed = false;
-  page.once('dialog', async dialog => { assert.equal(dialog.type(), 'beforeunload'); dismissed = true; await dialog.dismiss(); });
-  try { await page.goBack({ waitUntil: 'commit', timeout: 10000 }); }
-  catch (error) { assert(/ERR_ABORTED|Navigation.*(?:cancel|interrupt)/i.test(String(error)), String(error)); }
-  assert(dismissed, 'dirty document Back presents a beforeunload confirmation');
-  assert.equal(page.url(), before); assert.equal(await notes().inputValue(), 'Unsaved review must survive cancelled navigation.');
+  const before = page.url(); current += ' then dirty Back cancellation';
+  const confirmation = page.waitForEvent('dialog');
+  // page.goBack waits for a document commit that must not happen after dismissal.
+  // Invoke the same browser history action, then explicitly observe its guard.
+  await page.evaluate(() => history.back());
+  const dialog = await confirmation;
+  assert.equal(dialog.type(), 'beforeunload', 'dirty document Back requires explicit confirmation');
+  await dialog.dismiss();
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  assert.equal(page.url(), before);
+  assert.equal(await notes().inputValue(), 'Unsaved review must survive cancelled navigation.');
 }
 async function fillReview(note = 'Synthetic review exercise only. This is not publisher authorization or a determination of real rights.') {
   for (const label of checklistLabels) await page.getByLabel(label, { exact: true }).check();
@@ -550,6 +557,7 @@ async function runAcceptance(fixture) {
     await page.goBack(); await heading('Reviewed community sources').waitFor(); await settled();
     assert(page.url().includes('history=before'));
     await page.goForward(); await heading('Reviewed community sources').waitFor(); await settled();
+    assert.equal(page.url(), origin + '/admin/promotions?app', 'Forward commits back to the current candidate document');
     await click(`Open candidate ${source.document.title}`); assert.equal(await button('Export reviewed handoff').isEnabled(), true, 'Back/Forward reopens only current server state');
     await click('Open learner-safe preview'); await heading('Learner-safe candidate preview').waitFor();
     assert.equal(await button('Export reviewed handoff').count(), 0, 'private admin controls physically removed');
@@ -584,7 +592,7 @@ async function runAcceptance(fixture) {
     assert.equal((await admin.call('GET', `${base}/candidates/${saved.id}/export`)).status, 409, 'retained approval never restores server export');
     await audit(name + '-revoked-history');
     assert(!(await page.evaluate(() => JSON.stringify([Object.entries(localStorage), Object.entries(sessionStorage)]))).includes(secret), 'private source and review stay out of browser persistence');
-    checks.push(`${name}: explicit source/parity inspection, unchecked review + evidence clicks, dirty cancel/close/leave, persistence/reopen, exact transport, learner-safe DOM including ordering-key exclusion, revoke/cancel, both historical evidence records and terminal export denial`);
+    checks.push(`${name}: explicit source/parity inspection, unchecked review + evidence clicks, dirty cancel/close/leave/Back, clean Back/Forward commits, persistence/reopen, exact transport, learner-safe DOM including ordering-key exclusion, revoke/cancel, both historical evidence records and terminal export denial`);
     if (name === '1280-light') await conflictAndRejection(fixture);
     last = { context, saved: revoked };
     if (name !== '320-dark') await context.close();
@@ -619,11 +627,11 @@ try {
     assert.deepEqual(deniedNetwork, [], 'no attempted external browser requests');
     await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true,
       scope: 'Real isolated Worker/D1/R2 and browser; synthetic review actions only. No official publisher decision or publication.',
-      checks, screenshots, errors, deniedNetwork }, null, 2));
+      checks, screenshots, errors, deniedNetwork, blockedDevelopmentSockets }, null, 2));
     console.log('Promotion acceptance passed using disposable local-only identities, Worker/D1/R2 and browser.');
   }
 } catch (error) {
-  await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, screenshots, errors, deniedNetwork }, null, 2));
+  await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, screenshots, errors, deniedNetwork, blockedDevelopmentSockets }, null, 2));
   await page?.screenshot({ path: path.join(out, 'failure.png'), fullPage: true }).catch(() => {});
   if (page) {
     await writeFile(path.join(out, 'failure.html'), await page.content()).catch(() => {});
