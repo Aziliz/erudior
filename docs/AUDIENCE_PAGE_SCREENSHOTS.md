@@ -6,7 +6,7 @@ The capture harness enables the existing `VITE_HOMESCHOOL=1` application feature
 
 ## Reproduction and provenance
 
-Run `node scripts/audience-app-capture.mjs` in the supported browser environment. Desktop screenshots are intended for the public pages; phone screenshots are verification evidence. Retain the generated manifest with its exact source commit, feature flags, synthetic fixture notice, tab labels, screenshot paths and hashes. Deploy only captures reviewed against that manifest. WebP files are encoded copies of the captured PNGs, not redrawn or generated images.
+Run `node scripts/audience-app-capture.mjs` in the supported browser environment. Desktop screenshots are intended for the public pages; phone screenshots are verification evidence. Retain the generated manifest with its exact source commit, feature flags, synthetic fixture notice, tab labels, screenshot paths and hashes. Deploy only captures reviewed against that manifest. Review every desktop and phone capture for wrong-tab states, loading placeholders and visible application errors; passing page-error checks alone is insufficient. The harness rejects visible Error-prefixed alerts. WebP files are encoded copies of the captured PNGs, not redrawn or generated images.
 
 The dedicated Actions workflow retains full evidence and validates the three real public routes at desktop/phone widths and light/dark modes. Public-site tests verify image delivery, text enlargement, accessibility, disclosure interactions, navigation and reload behavior. Full repository checks remain required before merging.
 
