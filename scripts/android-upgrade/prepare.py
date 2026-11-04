@@ -33,6 +33,25 @@ def prepare(root: Path) -> None:
     # Preserve the production lifecycle bridge; only generated CI copies enable inspection.
     source = source.replace(anchor, anchor + "\n" + MARKER + "\n"
         "        android.webkit.WebView.setWebContentsDebuggingEnabled(true)\n")
+    # Read-only diagnostics in the disposable copy only. Do not log identities,
+    # credentials, storage, or learner content, and do not change event delivery.
+    diagnostics = {
+        "    private fun notifyLifecycle(paused: Boolean, backgroundMs: Long) {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "notify paused=$paused backgroundMs=$backgroundMs webView=${lifecycleWebView != null}")',
+        "    override fun load(webView: WebView) {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "load")',
+        "    override fun onDestroy(activity: AppCompatActivity) {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "destroy")',
+    }
+    for anchor, diagnostic in diagnostics.items():
+        if source.count(anchor) != 1:
+            raise RuntimeError("Unknown native lifecycle diagnostic anchor; refusing rewrite")
+        source = source.replace(anchor, anchor + diagnostic)
+    evaluation = '"window.dispatchEvent(new CustomEvent(\'erudior-native-lifecycle\',{detail:" + payload.toString() + "}));",\n                null'
+    if source.count(evaluation) != 1:
+        raise RuntimeError("Unknown lifecycle evaluation; refusing diagnostic rewrite")
+    source = source.replace(evaluation, evaluation[:-4] +
+        '{ result -> android.util.Log.i("ErudiorLifecycleE2E", "evaluated paused=$paused backgroundMs=$backgroundMs result=$result") }')
     plugin.write_text(source)
     raw = generated / "res/raw"
     raw.mkdir(parents=True, exist_ok=True)

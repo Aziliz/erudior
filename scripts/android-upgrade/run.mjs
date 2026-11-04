@@ -20,6 +20,16 @@ mkdirSync(out, { recursive: true });
 const results = { ok: false, steps: [], requests: [], error: null };
 function report() { writeFileSync(path.join(out, 'results.json'), JSON.stringify(results, null, 2)); }
 function passed(name, details = {}) { results.steps.push({ name, ...details }); report(); console.log('PASS:', name); }
+const lifecycleObservations = [];
+function lifecycleEvidence(phase, observation) {
+  const entry = { phase, at: Date.now(), observation: typeof observation === 'string'
+    ? observation.split('\n').filter(line => /mResumedActivity|topResumedActivity/.test(line)).join('\n')
+    : observation };
+  lifecycleObservations.push(entry);
+  writeFileSync(path.join(out, 'lifecycle-evidence.json'), JSON.stringify(lifecycleObservations, null, 2));
+  console.log('LIFECYCLE:', JSON.stringify(entry));
+}
+
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const serials = execFileSync('adb', ['devices'], { encoding:'utf8' }).split('\n')
   .map(line => line.match(/^(emulator-\d+)\s+device$/)?.[1]).filter(Boolean);
@@ -84,7 +94,13 @@ async function attach({ sharedDevice = false } = {}) {
   assert.ok(device,'emulator visible to Playwright');
   const view=await device.webView({pkg},{timeout:45000});
   page=await view.page(); page.setDefaultTimeout(20000);
-  page.on('console', msg=>{ if(msg.type()==='error') console.error('WEBVIEW:',msg.text()); });
+  page.on('console', msg=>{
+    if(msg.type()==='error') console.error('WEBVIEW:',msg.text());
+    if(msg.type()==='info' && msg.text().startsWith('ERUDIOR_LIFECYCLE_E2E ')) {
+      try { lifecycleEvidence('webview', JSON.parse(msg.text().slice('ERUDIOR_LIFECYCLE_E2E '.length))); }
+      catch { console.error('Invalid lifecycle diagnostic'); }
+    }
+  });
   await page.waitForFunction(()=>Boolean(window.__erudiorUpgradeE2E));
   if (sharedDevice) await page.getByRole('heading',{name:"Who's learning?",exact:true}).waitFor({timeout:45000});
   else await page.locator('.catalog').waitFor({state:'visible',timeout:45000});
@@ -197,7 +213,7 @@ try {
   assert.ok(results.requests.filter(r=>r.path==='/Erudior-Android-arm64.apk').length>=4);
   passed('Version B reopens stored course and all saved records; no repeated same-build offer');
   // Only after every version-B retention assertion: exercise a new synthetic Family.
-  await verifySharedDevice({ page, adb, pkg, sleep, screenshot, passed,
+  await verifySharedDevice({ page, adb, pkg, sleep, screenshot, passed, lifecycleEvidence,
     restart: () => launch({ sharedDevice: true }) });
   await verifyClassroomWorkflows({ page, adb, pkg, screenshot, passed,
     restart: () => launch({ sharedDevice: true }) });

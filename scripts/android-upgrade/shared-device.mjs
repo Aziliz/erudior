@@ -1,7 +1,7 @@
 // Real App/WebView lifecycle on the same disposable emulator as the upgrade test.
 // No second install, data clearing, production permissions, or authentication hook.
 import assert from 'node:assert/strict';
-export async function verifySharedDevice({ page: initialPage, adb, pkg, sleep, screenshot, passed, restart }) {
+export async function verifySharedDevice({ page: initialPage, adb, pkg, sleep, screenshot, passed, restart, lifecycleEvidence }) {
   let page = initialPage;
   const fixture = await page.evaluate(() => window.__erudiorUpgradeE2E.seedSyntheticFamily());
   const [alice, bob] = fixture.learners;
@@ -46,11 +46,42 @@ export async function verifySharedDevice({ page: initialPage, adb, pkg, sleep, s
   screenshot('09-shared-device-sibling-isolation');
   passed('Native sibling selection requires adult authentication and keeps learner notebook isolated');
 
+  // Read-only diagnostics: observe real delivery without changing clocks, native
+  // state, grants, focus, or visibility. Only timing and booleans leave the page.
+  await page.evaluate(() => {
+    const snapshot = (phase, detail) => {
+      const state = { phase, at: Date.now(), hidden: document.hidden,
+        focused: document.hasFocus(), shellHidden: !!document.querySelector('.shell')?.hidden,
+        lockMounted: !!document.querySelector('.local-session-lock') };
+      if (detail && typeof detail.paused === 'boolean' && typeof detail.backgroundMs === 'number') {
+        state.paused = detail.paused; state.backgroundMs = detail.backgroundMs;
+      }
+      console.info('ERUDIOR_LIFECYCLE_E2E ' + JSON.stringify(state));
+    };
+    window.addEventListener('erudior-native-lifecycle', event => snapshot('native-received', event.detail));
+    document.addEventListener('visibilitychange', () => snapshot('visibilitychange'));
+    window.addEventListener('blur', () => snapshot('blur'));
+    window.addEventListener('focus', () => snapshot('focus'));
+    snapshot('before-home');
+  });
   // Actual Android HOME/foreground, not synthetic visibility events or changed clocks.
   adb('shell','input','keyevent','KEYCODE_HOME');
+  lifecycleEvidence('after-home', adb('shell','dumpsys','activity','activities'));
   await sleep(32000);
   adb('shell','monkey','-p',pkg,'-c','android.intent.category.LAUNCHER','1');
-  await heading('Shared device locked').waitFor({timeout:45000});
+  lifecycleEvidence('after-foreground', adb('shell','dumpsys','activity','activities'));
+  try {
+    await heading('Shared device locked').waitFor({timeout:45000});
+  } finally {
+    // Keep the original assertion/timeout authoritative even when evidence fails.
+    try {
+      lifecycleEvidence('lock-assertion-state', await page.evaluate(() => ({
+        hidden: document.hidden, focused: document.hasFocus(),
+        shellHidden: !!document.querySelector('.shell')?.hidden,
+        lockMounted: !!document.querySelector('.local-session-lock'),
+      })));
+    } catch (error) { console.error('Lifecycle snapshot unavailable:', error.message); }
+  }
   assert.equal(await heading('Student dashboard and notebook').isVisible(),false);
   screenshot('10-shared-device-background-locked');
   await button('Unlock device').click(); await authenticate();

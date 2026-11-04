@@ -16,9 +16,7 @@ spec.loader.exec_module(module)
 
 class UpgradeHarnessTests(unittest.TestCase):
     def fixture(self, root):
-        plugin = 'package com.erudior.updates\nclass InstallerPlugin(private val activity: Activity) : Plugin(activity) {\n'
-        plugin += '    override fun load(webView: WebView) {\n        lifecycleWebView = webView\n    }\n'
-        plugin += '\n'.join('val url = URL("' + module.PREFIX + name + '")' for name in ['android-update.json','Erudior-Android-arm64.apk'])+'\n}\n'
+        plugin = (ROOT/'src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
         files = {
           'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt': plugin,
           'src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt': plugin,
@@ -49,6 +47,10 @@ class UpgradeHarnessTests(unittest.TestCase):
             self.assertIn('setWebContentsDebuggingEnabled(true)',generated)
             self.assertEqual(generated.count('override fun load(webView: WebView)'),1)
             self.assertIn('lifecycleWebView = webView',generated)
+            self.assertIn('ErudiorLifecycleE2E',generated)
+            self.assertIn('evaluated paused=$paused backgroundMs=$backgroundMs result=$result',generated)
+            self.assertNotIn('ErudiorLifecycleE2E',files[production])
+
             manifest=ET.parse(root/'src-tauri/gen/android/app/src/main/AndroidManifest.xml')
             self.assertEqual(manifest.getroot().find('application').get('{'+module.ANDROID+'}networkSecurityConfig'),'@xml/erudior_upgrade_test_network')
             network=ET.parse(root/'src-tauri/gen/android/app/src/main/res/xml/erudior_upgrade_test_network.xml')
@@ -70,6 +72,16 @@ class UpgradeHarnessTests(unittest.TestCase):
                 with self.assertRaises(RuntimeError):module.prepare(root)
             self.assertEqual(plugin.read_text(),before)
 
+    def test_unknown_lifecycle_evaluation_fails_without_mutation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);self.fixture(root)
+            plugin=root/'src-tauri/gen/android/app/src/main/java/com/erudior/updates/InstallerPlugin.kt'
+            plugin.write_text(plugin.read_text().replace('window.dispatchEvent', 'window.unknownDispatch'))
+            before=plugin.read_text()
+            with patch.dict(os.environ, {'GITHUB_ACTIONS':'true','ERUDIOR_UPGRADE_E2E':'1'}):
+                with self.assertRaises(RuntimeError):module.prepare(root)
+            self.assertEqual(plugin.read_text(),before)
+
     def test_lifecycle_bridge_preserves_native_monotonic_duration(self):
         source=(ROOT/'src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt').read_text()
         lifecycle=source[source.index('    private var lifecycleWebView'):source.index('    @Command')]
@@ -85,6 +97,21 @@ class UpgradeHarnessTests(unittest.TestCase):
         self.assertNotIn('currentTimeMillis',lifecycle)
         self.assertNotIn('unlock',lifecycle)
         self.assertNotIn('setWebContentsDebuggingEnabled',source)
+
+    def test_lifecycle_diagnostics_preserve_real_acceptance(self):
+        shared=(ROOT/'scripts/android-upgrade/shared-device.mjs').read_text()
+        runner=(ROOT/'scripts/android-upgrade/run.mjs').read_text()
+        self.assertIn("await heading('Shared device locked').waitFor({timeout:45000})", shared)
+        self.assertIn('await sleep(32000)', shared)
+        self.assertIn("adb('shell','input','keyevent','KEYCODE_HOME')", shared)
+        self.assertIn("adb('shell','monkey','-p',pkg", shared)
+        self.assertIn("'after-home'", shared)
+        self.assertIn("'after-foreground'", shared)
+        self.assertIn("'native-received'", shared)
+        self.assertIn("'lifecycle-evidence.json'", runner)
+        self.assertNotIn('dispatchEvent', shared)
+        self.assertNotIn('Date.now =', shared)
+        self.assertNotIn('localStorage', shared)
 
     def test_mobile_bridge_commands_do_not_block_main_thread(self):
         source=(ROOT/'src-tauri/src/lib.rs').read_text()
