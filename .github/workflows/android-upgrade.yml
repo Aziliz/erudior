@@ -61,6 +61,7 @@ jobs:
       - name: Test isolated harness configuration
         run: |
           python3 tests/android-upgrade-harness.py -v
+          python3 tests/android-upgrade-lifecycle.py
           python3 tests/android-installer-integration.py -v
       - name: Build two separately versioned optimized test APKs
         run: bash scripts/android-upgrade/build.sh

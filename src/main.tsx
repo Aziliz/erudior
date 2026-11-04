@@ -28,7 +28,8 @@ import { claimWebAppSplash } from "./lib/startupSplashPolicy";
 // Studio stays on the existing trusted web-app origin, never inside a native
 // learner workspace. Server authorization remains required for all private data.
 const studioRoute = !IS_SITE && !inApp && /^\/admin\/studio\/?$/.test(window.location.pathname);
-const pageModule = studioRoute ? import("./pages/AdminStudio") : IS_SITE ? import("./Site") : import("./App");
+const promotionRoute = !IS_SITE && !inApp && /^\/admin\/promotions\/?$/.test(window.location.pathname);
+const pageModule = studioRoute ? import("./pages/AdminStudio") : promotionRoute ? import("./pages/AdminPromotions") : IS_SITE ? import("./Site") : import("./App");
 // Older cached snapshots can contain an overlay outside React's root. Always remove it.
 document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;

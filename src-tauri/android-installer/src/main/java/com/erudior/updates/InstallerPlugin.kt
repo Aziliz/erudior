@@ -4,6 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.SystemClock
+import android.os.Handler
+import android.os.Looper
+import android.view.View
+import java.util.UUID
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Build
@@ -35,40 +39,95 @@ class InstallerPlugin(private val activity: Activity) : Plugin(activity) {
     // does not consistently emit DOM blur/visibility events when HOME is pressed.
     // These notifications carry no identity or authorization, and never unlock.
     private var lifecycleWebView: WebView? = null
-    private var backgroundAt: Long? = null
+    private val lifecycleState = NativeLifecycleState()
+    private val lifecycleId = UUID.randomUUID().toString()
+    private val lifecycleHandler = Handler(Looper.getMainLooper())
+    private var lifecycleRetry: Runnable? = null
+    private var lifecycleDestroyed = false
 
-    override fun load(webView: WebView) {
-        lifecycleWebView = webView
+    private fun cancelLifecycleRetry() {
+        lifecycleRetry?.let { lifecycleHandler.removeCallbacks(it) }
+        lifecycleRetry = null
     }
 
-    private fun notifyLifecycle(paused: Boolean, backgroundMs: Long) {
-        val payload = JSObject()
-        payload.put("paused", paused)
-        payload.put("backgroundMs", backgroundMs)
-        val webView = lifecycleWebView ?: return
+    override fun load(webView: WebView) {
         activity.runOnUiThread {
-            if (lifecycleWebView === webView) webView.evaluateJavascript(
-                "window.dispatchEvent(new CustomEvent('erudior-native-lifecycle',{detail:" + payload.toString() + "}));",
-                null
+            if (lifecycleDestroyed) return@runOnUiThread
+            if (lifecycleWebView === webView && !lifecycleState.pending()) return@runOnUiThread
+            cancelLifecycleRetry()
+            if (lifecycleWebView !== webView) lifecycleState.replayForNewWebView()
+            lifecycleWebView = webView
+            webView.visibility = View.INVISIBLE
+            notifyLifecycle()
+        }
+    }
+
+    private fun notifyLifecycle() {
+        if (lifecycleDestroyed) return
+        val webView = lifecycleWebView ?: return
+        val sequence = lifecycleState.sequence()
+        val revocation = lifecycleState.revocation()
+        val payload = JSObject()
+        payload.put("bridgeId", lifecycleId)
+        payload.put("sequence", sequence)
+        payload.put("revocation", revocation)
+        payload.put("paused", lifecycleState.paused())
+        payload.put("backgroundMs", lifecycleState.backgroundMs())
+        activity.runOnUiThread {
+            if (lifecycleWebView !== webView || lifecycleState.sequence() != sequence || !lifecycleState.pending()) return@runOnUiThread
+            // dispatchEvent returns false only after the consumer cancels the event.
+            // Its handler acknowledges after synchronous conceal/revocation commits.
+            webView.evaluateJavascript(
+                "window.dispatchEvent(new CustomEvent('erudior-native-lifecycle',{cancelable:true,detail:" + payload.toString() + "}));",
+                { result ->
+                    if (lifecycleWebView !== webView || lifecycleState.sequence() != sequence) return@evaluateJavascript
+                    if (result == "false" && lifecycleState.acknowledge(sequence, revocation)) {
+                        cancelLifecycleRetry()
+                        if (!lifecycleState.paused()) webView.postVisualStateCallback(sequence, object : WebView.VisualStateCallback() {
+                            override fun onComplete(requestId: Long) {
+                                // DOM ACK is not a paint fence. Do not display a stale
+                                // private compositor frame or reveal after another pause.
+                                if (requestId == sequence && lifecycleWebView === webView &&
+                                    lifecycleState.sequence() == sequence && !lifecycleState.paused() && !lifecycleState.pending()) {
+                                    webView.visibility = View.VISIBLE
+                                }
+                            }
+                        })
+                    }
+                }
             )
+            // One scheduled retry, only while foregrounded. Native concealment never
+            // times out open, including absent listeners or lost evaluation callbacks.
+            if (!lifecycleState.paused() && lifecycleState.pending() && lifecycleRetry == null) {
+                val retry = Runnable {
+                    lifecycleRetry = null
+                    if (lifecycleWebView === webView && lifecycleState.sequence() == sequence && lifecycleState.pending()) notifyLifecycle()
+                }
+                lifecycleRetry = retry
+                lifecycleHandler.postDelayed(retry, 250L)
+            }
         }
     }
 
     override fun onPause(activity: AppCompatActivity) {
-        if (backgroundAt == null) backgroundAt = SystemClock.elapsedRealtime()
-        notifyLifecycle(true, 0L)
+        cancelLifecycleRetry()
+        lifecycleWebView?.visibility = View.INVISIBLE
+        lifecycleState.pause(SystemClock.elapsedRealtime())
+        notifyLifecycle()
     }
 
     override fun onResume(activity: AppCompatActivity) {
-        val elapsed = backgroundAt?.let { (SystemClock.elapsedRealtime() - it).coerceAtLeast(0L) } ?: 0L
-        backgroundAt = null
-        // Include elapsed native monotonic time even when JS was fully suspended.
-        notifyLifecycle(false, elapsed)
+        cancelLifecycleRetry()
+        lifecycleWebView?.visibility = View.INVISIBLE
+        lifecycleState.resume(SystemClock.elapsedRealtime())
+        notifyLifecycle()
     }
 
     override fun onDestroy(activity: AppCompatActivity) {
+        lifecycleDestroyed = true
+        cancelLifecycleRetry()
+        lifecycleWebView?.visibility = View.INVISIBLE
         lifecycleWebView = null
-        backgroundAt = null
     }
 
     @Command

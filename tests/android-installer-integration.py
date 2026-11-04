@@ -24,6 +24,7 @@ class InstallerIntegrationTests(unittest.TestCase):
         source = root / "src-tauri/android-installer/src/main"
         for path, content in {
             "java/com/erudior/updates/InstallerPlugin.kt": "// fixture plugin\n",
+            "java/com/erudior/updates/NativeLifecycleState.java": "// fixture lifecycle state\n",
             "java/com/erudior/updates/ErudiorUpdateFileProvider.kt": "class ErudiorUpdateFileProvider : FileProvider()\n",
             "res/xml/erudior_update_paths.xml": '<paths><cache-path name="verified-update" path="updates/" /></paths>',
         }.items():

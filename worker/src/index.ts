@@ -1,3 +1,4 @@
+import { handlePromotionReview } from "./promotionReview";
 import { handleAdminStudio } from "./adminStudio";
 import { branchingRevisionProblems } from "../../src/lib/branchingCoursePackage";
 import { scientificRevisionProblems } from "../../src/lib/scientificCoursePackage";
@@ -427,6 +428,7 @@ async function route(req: Request, env: Env): Promise<Response> {
   }
 
   if (p.startsWith("/admin/studio/")) return handleAdminStudio(req, env);
+  if (p === "/admin/promotions" || p.startsWith("/admin/promotions/")) return handlePromotionReview(req, env);
 
   // Public
   if (method === "GET" && p === "/catalog") {
