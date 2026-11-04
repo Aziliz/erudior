@@ -40,9 +40,24 @@ await test('durable explicit private record exports on real PostgreSQL', async t
       const download = await restarted.downloadRecordExport(a.tokenHash, jobs[0].id); assert.ok(download);
       assert.equal(download.artifact.format, 'erudior-record-export-v1');
       assert.equal(download.artifact.workspaceId, ids.family);
-      assert.deepEqual(download.artifact.records, [...request.records].sort((a,b) => a.id.localeCompare(b.id)).map(r => ({ ...r, category: r.id === ids.familyNote ? 'family-note' : 'practice', visibility: r.id === ids.familyNote ? 'private' : 'released', payload: { synthetic: true, record: r.id, unicode: 'é漢字' } })));
+      assert.deepEqual(download.artifact.records, [...request.records].sort((a,b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0).map(r => ({ ...r, category: r.id === ids.familyNote ? 'family-note' : 'practice', visibility: r.id === ids.familyNote ? 'private' : 'released', payload: { synthetic: true, record: r.id, unicode: 'é漢字' } })));
       assert.equal(await store.requestRecordExport(a.tokenHash, a.csrfHash, { ...request, records: [request.records[0]!] }), null);
       assert.equal(Number((await h.admin.query('SELECT count(*) FROM erudior_private.record_exports')).rows[0].count), 1);
+    });
+    await t.test('mixed-case opaque IDs use locale-independent ordinal order across retry and restart', async () => {
+      const graph = await reset();
+      const template = graph.records.find(r => r.id === ids.familyRecord)!;
+      const upper = 'Z_record____________________', lower = 'a_record____________________';
+      graph.records.push({ ...template, id: upper }, { ...template, id: lower });
+      await h.replaceGraph(graph, { [upper]: { synthetic: upper }, [lower]: { synthetic: lower } });
+      const a = await signIn(), request = { ...input(), records: [{ id: lower, version: 1 }, { id: upper, version: 1 }] };
+      const job = await store.requestRecordExport(a.tokenHash, a.csrfHash, request); assert.ok(job);
+      const restarted = new PostgresAccountStore(h.runtime, options);
+      assert.deepEqual(await restarted.requestRecordExport(a.tokenHash, a.csrfHash, { ...request, records: [...request.records].reverse() }), job);
+      const download = await restarted.downloadRecordExport(a.tokenHash, job.id); assert.ok(download);
+      assert.deepEqual(download.artifact.records.map(r => r.id), [upper, lower]);
+      assert.deepEqual((await h.admin.query('SELECT scope FROM erudior_private.record_exports WHERE export_id=$1', [job.id])).rows[0].scope,
+        [{ id: upper, version: 1 }, { id: lower, version: 1 }]);
     });
     await t.test('RLS denies unscoped and wrong owner/session/workspace access and source writes', async () => {
       await reset(); const a = await signIn(), b = await signIn(); const job = await store.requestRecordExport(a.tokenHash, a.csrfHash, input()); assert.ok(job);

@@ -330,7 +330,7 @@ export class PostgresAccountStore {
    * the originating session expires. Context rotation cannot revive artifacts. */
   async requestRecordExport(tokenHash: string, csrfHash: string, input: RecordExportRequest): Promise<RecordExportStatus | null> {
     if (this.#exportTtlSeconds === null || !scalar(tokenHash) || !scalar(csrfHash) || !exactKeys(input, ['workspaceId', 'requestId', 'records']) || !isAccountId(input.workspaceId) || !isAccountId(input.requestId) || !Array.isArray(input.records) || input.records.length < 1 || input.records.length > 32 || !input.records.every(r => exactKeys(r, ['id','version']) && isAccountId(r.id) && maxSafe(r.version)) || new Set(input.records.map(r => r.id)).size !== input.records.length) return null;
-    const records = input.records.map(r => ({ id: r.id, version: r.version })).sort((a, b) => a.id.localeCompare(b.id));
+    const records = input.records.map(r => ({ id: r.id, version: r.version })).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
     return this.#authorized(async client => {
       const graph = await this.#graph(client, await this.#now(client));
       const row = await this.#session(client, tokenHash);
