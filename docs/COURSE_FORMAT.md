@@ -189,10 +189,11 @@ a b c A B C
 ```
 ````
 
-- Lists the letters to trace (a–z, A–Z; spaces optional). One writing pad at a time with **Next letter**; printing shows them all as a tracing worksheet.
+- Lists the letters to trace (a–z, A–Z; spaces optional). One writing pad at a time with **Next letter** (**Next kana**); printing shows them all as a tracing worksheet.
 - The pad shows the writing lines (top, dashed middle, baseline, tail line), the letter as a lane with a dashed center line, a numbered dot where each stroke starts and an arrow for its direction, in manuscript (ball-and-stick print) style.
 - The child traces with a finger, pen or mouse. Each stroke is checked when the pen lifts: it must start near its number, go the way of the arrow, stay inside the lane and cover at least three quarters of it (reaching its end). A stroke can be finished in more than one go. The next number lights up after each stroke; a stroke that goes off the path is erased with a hint ("Start at number 2", "Follow the arrow"). **Show me** moves a dot along the stroke; **Start over** clears the pad. Feedback is spoken too when the device has a voice.
 - `tolerance=` `loose`, `normal` (default) or `tight`: how far from the center line a tracing may wander.
+- Kana trace too: the 46 basic hiragana and 46 basic katakana and their ゛/゜ forms (が, ぱ, ガ, パ, ヴ…), e.g. `` ```trace `` with `あいうえお`. A kana pad is a square box with a dashed cross (like Japanese practice paper) instead of writing lines, the strokes follow standard school stroke order, and ゛/゜ are the last strokes, at the top right. The pad is labeled "hiragana ne" / "katakana ne"; feedback is written only, and the finished kana is said aloud in Japanese when the device has a Japanese voice. Small kana (ゃ, っ) can't be traced.
 
 ### Questions with sounds
 
