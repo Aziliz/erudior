@@ -324,6 +324,8 @@ export default function App() {
   const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
   const [competencyRetry, setCompetencyRetry] = useState(0);
   const student = family?.students.find((s) => s.id === studentId) ?? null;
+  // Visit-only UI preference: never persist guest-session data.
+  const [learningNoticeDismissed, setLearningNoticeDismissed] = useState(false);
   const publicLearning = !store.inApp && !HOMESCHOOL && import.meta.env?.VITE_AS_DESKTOP !== "1" && !family;
 
   // Ctrl/Cmd+K jumps to search.
@@ -1985,8 +1987,10 @@ export default function App() {
         </section>
       )}
       <main className="main" id="main" tabIndex={-1} ref={mainRef}>
-        {publicLearning && <section className="public-learning-banner" aria-label="Guest learning">
-          <div><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+        {publicLearning && !learningNoticeDismissed && <section className="public-learning-banner" aria-label="Guest learning">
+          <div className="public-learning-banner-heading"><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+            <button type="button" className="btn sm ghost public-learning-banner-close" aria-label="Close learning notice" onClick={() => { setLearningNoticeDismissed(true); mainRef.current?.focus({ preventScroll: true }); }}>Close <span aria-hidden="true">×</span></button></div>
+          <div>
             <p className="small">{TEMPORARY_GUEST ? "Learning data stays in this page's memory only. Refreshing or closing loses it. Export course progress before leaving; scratch code/workbook drafts are not in that backup. Saved device progress is untouched." : "No account needed. Progress is saved only in this browser. Use a temporary session if you do not want learning data saved on this device."} Practice is not supervised credit or certification.</p></div>
           <div className="row">
             <button className="btn sm" onClick={() => api.go({name:"progress"})}>Courses and export</button>
