@@ -3810,6 +3810,207 @@
   ]
  },
  {
+  "id": "lsat-180-mastery",
+  "file": "math/lsat-180-mastery.json",
+  "order": 90,
+  "title": "LSAT 180 Mastery",
+  "description": "A twelve-module, year-long LSAT preparation pathway. Develop diagnostic review, argument analysis, formal logic, assumptions, evidence evaluation, flaw diagnosis, inference, principles, advanced reading, argumentative writing, pacing, full-simulation planning, targeted error repair, rare-error refinement, and test readiness with original practice. A 180 is an aspirational target, not a guaranteed outcome.",
+  "revision": 1,
+  "disclaimer": "Original Erudior preparation, independent of LSAC. This course is not an official LSAT practice test or a validated score predictor. Its original baseline reports raw results only. The app's generic bank timer and completion threshold are not LSAT timing or an LSAT passing score.",
+  "subject": "Test prep",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Course",
+   "Exam prep"
+  ],
+  "lessons": 58,
+  "questions": 712,
+  "cards": 352,
+  "drills": 0,
+  "lessonIds": [
+   "lsat-orientation-baseline",
+   "lsat-arguments-intro",
+   "lsat-baseline-diagnostic",
+   "lsat-reading-structure",
+   "lsat-conclusions",
+   "lsat-background-views",
+   "lsat-arguments-explanations",
+   "lsat-linked-support",
+   "lsat-conditions",
+   "lsat-contraposition",
+   "lsat-conditional-language",
+   "lsat-quantifiers",
+   "lsat-rule-chains",
+   "lsat-necessary-assumptions",
+   "lsat-negation-checks",
+   "lsat-sufficient-assumptions",
+   "lsat-assumption-roles",
+   "lsat-gap-matching",
+   "lsat-evidence-effects",
+   "lsat-causal-evidence",
+   "lsat-sampling-comparisons",
+   "lsat-plan-evaluation",
+   "lsat-evaluate-questions",
+   "lsat-flaw-diagnosis",
+   "lsat-conditional-flaws",
+   "lsat-quantitative-flaws",
+   "lsat-paradox-resolution",
+   "lsat-explanation-comparison",
+   "lsat-inference-standards",
+   "lsat-principle-application",
+   "lsat-parallel-reasoning",
+   "lsat-method-roles",
+   "lsat-mixed-reasoning",
+   "lsat-passage-structure",
+   "lsat-reading-viewpoints",
+   "lsat-reading-purpose",
+   "lsat-reading-evidence",
+   "lsat-reading-integration",
+   "lsat-dense-arguments",
+   "lsat-technical-reading",
+   "lsat-comparative-claims",
+   "lsat-comparative-integration",
+   "lsat-argumentative-writing",
+   "lsat-skips-returns",
+   "lsat-time-observation",
+   "lsat-confidence-review",
+   "lsat-timed-sections",
+   "lsat-timed-writing",
+   "lsat-simulation-design",
+   "lsat-session-continuity",
+   "lsat-simulation-records",
+   "lsat-error-repair",
+   "lsat-writing-evidence",
+   "lsat-rare-error-audit",
+   "lsat-refinement-priorities",
+   "lsat-readiness-evidence",
+   "lsat-administration-check",
+   "lsat-maintenance-plan"
+  ],
+  "outline": [
+   {
+    "title": "Orientation and diagnostic reasoning",
+    "lessons": [
+     "Start here — reasoning baseline in the app",
+     "Recognizing arguments and evidence",
+     "Establishing your diagnostic baseline and error log",
+     "Reading for structure instead of memorizing details"
+    ]
+   },
+   {
+    "title": "Arguments, conclusions, and premises",
+    "lessons": [
+     "Main and intermediate conclusions",
+     "Background, concessions, and opposing views",
+     "Arguments and causal explanations",
+     "Linked and independent support"
+    ]
+   },
+   {
+    "title": "Conditional and formal logic",
+    "lessons": [
+     "Sufficient and necessary conditions",
+     "Contraposition and precise negation",
+     "Translating conditional language",
+     "Quantifiers and group overlap",
+     "Rule chains and mixed inferences"
+    ]
+   },
+   {
+    "title": "Assumptions and argument gaps",
+    "lessons": [
+     "Necessary assumptions",
+     "Negation checks and their limits",
+     "Sufficient assumptions",
+     "Bridge and defender roles",
+     "Matching assumptions to the exact gap"
+    ]
+   },
+   {
+    "title": "Strengthen, weaken, and evaluate",
+    "lessons": [
+     "Strengthen and weaken the exact inference",
+     "Causal claims and alternative explanations",
+     "Sampling, comparisons, and quantitative evidence",
+     "Evaluating plans and intended outcomes",
+     "Evaluating arguments with opposing answers"
+    ]
+   },
+   {
+    "title": "Flaws, paradoxes, and explanations",
+    "lessons": [
+     "Identifying the actual reasoning flaw",
+     "Conditional and comparison flaws",
+     "Percentage, rate, and total errors",
+     "Resolving apparent paradoxes",
+     "Comparing explanatory hypotheses"
+    ]
+   },
+   {
+    "title": "Inference, principle, and method",
+    "lessons": [
+     "Must-follow and best-supported inferences",
+     "Applying principles and exceptions",
+     "Matching parallel reasoning and flaws",
+     "Describing methods and statement roles",
+     "Mixed untimed reasoning and review"
+    ]
+   },
+   {
+    "title": "Reading comprehension fundamentals",
+    "lessons": [
+     "Mapping passages and paragraph functions",
+     "Tracking author and reported viewpoints",
+     "Identifying main point, purpose, and tone",
+     "Locating details and supporting inferences",
+     "Integrating reading skills in untimed sets"
+    ]
+   },
+   {
+    "title": "Advanced reading and comparative passages",
+    "lessons": [
+     "Reconstructing dense passage arguments",
+     "Reading technical language in context",
+     "Comparing agreement, disagreement, and silence",
+     "Integrating advanced and comparative reading",
+     "Developing and revising an argumentative position"
+    ]
+   },
+   {
+    "title": "Accuracy, pacing, and timed sections",
+    "lessons": [
+     "Choosing deliberate skips and planned returns",
+     "Observing and testing time allocation",
+     "Calibrating confidence and reviewing answers",
+     "Running timed sections and reviewing the evidence",
+     "Planning and drafting under time"
+    ]
+   },
+   {
+    "title": "Full-length simulation and error analysis",
+    "lessons": [
+     "Selecting and designing full simulations",
+     "Endurance, intermissions, and session continuity",
+     "Preserving simulation and review records",
+     "Interpreting results and testing repairs",
+     "Integrating writing and draft review"
+    ]
+   },
+   {
+    "title": "Elite-score refinement and test readiness",
+    "lessons": [
+     "Auditing rare errors and response decisions",
+     "Choosing focused refinements",
+     "Evaluating readiness evidence",
+     "Checking administration and writing requirements",
+     "Maintaining and adapting readiness"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a1",
   "file": "languages/lang-german-a1.json",
   "order": 100,
