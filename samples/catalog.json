@@ -4636,5 +4636,95 @@
     "isHonors": true
    }
   ]
+ },
+ {
+  "id": "lang-japanese-kana",
+  "file": "languages/lang-japanese-kana.json",
+  "order": 120,
+  "title": "Japanese: Hiragana and Katakana",
+  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards. This course comes before Japanese N5.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 15,
+  "honors": 3,
+  "questions": 339,
+  "cards": 0,
+  "drills": 0,
+  "words": 286,
+  "lessonIds": [
+   "kana-intro",
+   "kana-k-s",
+   "kana-t-n",
+   "kana-h-m",
+   "kana-y-r-w",
+   "kana-dakuten",
+   "kana-yoon",
+   "kata-a-so",
+   "kata-ta-ho",
+   "kata-ma-n",
+   "kata-voiced",
+   "kata-loan",
+   "kana-particles",
+   "kana-punctuation",
+   "kana-first-words"
+  ],
+  "honorsLessonIds": [
+   "kana-h-history",
+   "kana-h-typing",
+   "kana-h-handwriting"
+  ],
+  "honorsModuleIds": [
+   "kana-h1"
+  ],
+  "outline": [
+   {
+    "title": "Hiragana",
+    "lessons": [
+     "How Japanese is written; あいうえお",
+     "The か and さ rows",
+     "The た and な rows",
+     "The は and ま rows",
+     "The や, ら and わ rows, を and ん",
+     "Voiced sounds: ゛ and ゜",
+     "Combinations, small っ and long vowels"
+    ]
+   },
+   {
+    "title": "Katakana",
+    "lessons": [
+     "Katakana ア to ソ",
+     "Katakana タ to ホ",
+     "Katakana マ to ン",
+     "Voiced katakana, ー and small ッ",
+     "Sounds for foreign words"
+    ]
+   },
+   {
+    "title": "Using kana",
+    "lessons": [
+     "は, へ and を as particles",
+     "Punctuation and vertical text",
+     "First words and greetings"
+    ]
+   },
+   {
+    "title": "Honors: Kana in depth",
+    "lessons": [],
+    "honors": [
+     "Where kana came from",
+     "Typing Japanese on phones and computers",
+     "Kana in print and handwriting"
+    ],
+    "isHonors": true
+   }
+  ]
  }
 ]
