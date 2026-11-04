@@ -76,6 +76,22 @@ for (const k of Object.keys(TABLE)) for (let i = 1; i < k.length; i++) PREFIXES.
 const isLetter = (c: string) => /[a-zA-Z]/.test(c);
 const isConsonant = (c: string) => /[b-df-hj-np-tv-z]/i.test(c);
 
+// Hepburn spellings where the table lists a Kunrei-style key first.
+const HEPBURN: Record<string, string> = { し: "shi", じ: "ji", ち: "chi", つ: "tsu", ふ: "fu", ぢ: "ji", づ: "zu", ん: "n", っ: "small tsu", ー: "long vowel mark" };
+const ROMAJI = new Map<string, string>();
+for (const [k, v] of Object.entries(TABLE)) if (/^[a-z]+$/.test(k) && !/^[xl]/.test(k) && !ROMAJI.has(v)) ROMAJI.set(v, k);
+
+/** The Hepburn romaji for one kana (hiragana or katakana): "shi" for し or シ, "ga" for が.
+ * Small kana are "small ya" and so on. Undefined if it isn't a kana. */
+export function kanaRomaji(ch: string): string | undefined {
+  const h = toHiragana(ch);
+  if (HEPBURN[h]) return HEPBURN[h];
+  if (ROMAJI.has(h)) return ROMAJI.get(h);
+  const big = "ぁぃぅぇぉゃゅょゎゕゖ".indexOf(h);
+  if (big >= 0) return `small ${ROMAJI.get("あいうえおやゆよわかけ"[big])}`;
+  return undefined;
+}
+
 /** Katakana for hiragana (other characters unchanged). */
 export function toKatakana(s: string): string {
   return s.replace(/[ぁ-ゖゝゞ]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 0x60));

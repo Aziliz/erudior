@@ -47,6 +47,8 @@ on:
       - "src/lib/expr.ts"
       - "src/lib/figure.ts"
       - "src/lib/handwriting.ts"
+      - "src/lib/kanaStrokes.ts"
+      - "src/lib/kana.ts"
       - "src/lib/imageAssets.ts"
       - "src/lib/interactiveContent.ts"
       - "src/lib/lessonFences.ts"
