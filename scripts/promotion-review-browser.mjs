@@ -324,12 +324,14 @@ const checklistLabels = [
   'I reviewed evidence of rights to distribute the source content.',
   'I reviewed evidence of rights to distribute all included media (or verified there is no media).',
 ];
-// React updates textarea.defaultValue, so its text becomes part of the wrapping
-// label's textContent. Use its semantic role/name, not exact raw label text.
-const notes = () => page.getByRole('textbox', { name: /^Review notes and limitations\b/ });
+// Raw wrapping-label text includes select options and React textarea.defaultValue.
+// Their computed accessible names exclude the labelled control itself. Keep exact
+// semantic names so filled values do not change which control the test targets.
+const notes = () => page.getByRole('textbox', { name: 'Review notes and limitations', exact: true });
+const reviewCheck = label => page.getByRole('checkbox', { name: label, exact: true });
 async function uncheckedReview() {
   await click('Begin exact revision review');
-  for (const label of checklistLabels) assert.equal(await page.getByLabel(label, { exact: true }).isChecked(), false, label + ' starts unchecked');
+  for (const label of checklistLabels) assert.equal(await reviewCheck(label).isChecked(), false, label + ' starts unchecked');
   assert.equal(await button('Record review for handoff').isEnabled(), false, 'unchecked form cannot approve');
 }
 async function cancelBackNavigation() {
@@ -346,15 +348,23 @@ async function cancelBackNavigation() {
   assert.equal(await notes().inputValue(), 'Unsaved review must survive cancelled navigation.');
 }
 async function fillReview(note = 'Synthetic review exercise only. This is not publisher authorization or a determination of real rights.') {
-  for (const label of checklistLabels) await page.getByLabel(label, { exact: true }).check();
+  current += ' then fill explicit review and retained evidence';
+  for (const label of checklistLabels) await reviewCheck(label).check();
   for (const [index, kind] of ['content', 'rights', 'media-rights'].entries()) {
     await click('Add evidence');
-    await page.getByLabel(`Evidence ${index + 1} kind`, { exact: true }).selectOption(kind);
-    await page.getByLabel(`Evidence ${index + 1} reference`, { exact: true }).fill(`Synthetic acceptance fixture ${kind}; retained only inside isolated test state`);
-    await page.getByLabel(`Evidence ${index + 1} retained text`, { exact: true }).fill(
-      `${kind} test statement. Disposable fixture authored for software validation. No real publication, adoption, external license, or official publisher decision is asserted.`);
+    const selectedKind = page.getByRole('combobox', { name: `Evidence ${index + 1} kind`, exact: true });
+    const reference = page.getByRole('textbox', { name: `Evidence ${index + 1} reference`, exact: true });
+    const retainedText = page.getByRole('textbox', { name: `Evidence ${index + 1} retained text`, exact: true });
+    const expectedReference = `Synthetic acceptance fixture ${kind}; retained only inside isolated test state`;
+    const expectedText = `${kind} test statement. Disposable fixture authored for software validation. No real publication, adoption, external license, or official publisher decision is asserted.`;
+    await selectedKind.selectOption(kind); await reference.fill(expectedReference); await retainedText.fill(expectedText);
+    assert.equal(await selectedKind.inputValue(), kind);
+    assert.equal(await reference.inputValue(), expectedReference);
+    assert.equal(await retainedText.inputValue(), expectedText);
   }
   await notes().fill(note);
+  assert.equal(await notes().inputValue(), note);
+  for (const label of checklistLabels) assert.equal(await reviewCheck(label).isChecked(), true);
 }
 async function withLostResponse(routePath, action, status) {
   const url = mediaOrigin + routePath, ids = [], bodies = [];
@@ -482,7 +492,7 @@ async function conflictAndRejection(fixture) {
   await click('Record review for handoff');
   await page.getByText(/Your in-memory review notes and checklist are preserved/).waitFor();
   assert.equal(await notes().inputValue(), 'Preserved draft after a concurrent exact-revision decision.');
-  for (const label of checklistLabels) assert.equal(await page.getByLabel(label, { exact: true }).isChecked(), true);
+  for (const label of checklistLabels) assert.equal(await reviewCheck(label).isChecked(), true);
   page.once('dialog', dialog => dialog.dismiss()); await click('Reload saved candidate');
   assert.equal(await notes().inputValue(), 'Preserved draft after a concurrent exact-revision decision.');
   page.once('dialog', dialog => dialog.accept()); await click('Reload saved candidate');
