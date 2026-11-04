@@ -83,5 +83,51 @@ await test('durable explicit private record exports on real PostgreSQL', async t
       assert.equal(await store.requestRecordExport(a.tokenHash, a.csrfHash, input()), null);
       assert.equal(Number((await h.admin.query('SELECT count(*) FROM erudior_private.record_exports')).rows[0].count), 16);
     });
+    await t.test('oversized exact multi-record artifact creates no job and leaves sources intact', async () => {
+      let graph = await reset();
+      const template = graph.records.find(r => r.id === ids.familyRecord)!;
+      const records = Array.from({ length: 5 }, (_, i) => ({ ...template, id: ('large_record_' + i).padEnd(28, '_') }));
+      graph.records.push(...records);
+      graph = await h.replaceGraph(graph, Object.fromEntries(records.map(r => [r.id, { synthetic: 'x'.repeat(220_000) }])));
+      const a = await signIn();
+      assert.equal(await store.requestRecordExport(a.tokenHash, a.csrfHash, { ...input(), records: records.map(r => ({ id: r.id, version: r.version })) }), null);
+      assert.equal(Number((await h.admin.query('SELECT count(*) FROM erudior_private.record_exports')).rows[0].count), 0);
+      assert.equal((await store.readRecord({ tokenHash: a.tokenHash, workspaceId: ids.family, recordId: records[0]!.id }))?.id, records[0]!.id);
+    });
+    await t.test('database independently rejects an artifact over its byte cap', async () => {
+      await reset(); const a = await signIn(); const job = await store.requestRecordExport(a.tokenHash, a.csrfHash, input()); assert.ok(job);
+      const before = await store.downloadRecordExport(a.tokenHash, job.id);
+      await assert.rejects(h.admin.query('UPDATE erudior_private.record_exports SET artifact=$1::jsonb WHERE export_id=$2', [JSON.stringify({ synthetic: 'x'.repeat(2 * 1024 * 1024) }), job.id]), { code: '23514' });
+      assert.deepEqual(await store.downloadRecordExport(a.tokenHash, job.id), before);
+    });
+    await t.test('concurrent creators share the final global capacity slot', async () => {
+      await reset(); const a = await signIn(), b = await signIn();
+      // Synthetic terminal metadata deliberately fills global capacity without
+      // artifact bytes or active credentials. It remains subject to the cap.
+      await h.admin.query(`INSERT INTO erudior_private.record_exports
+        (export_id,session_id,session_version,delete_after,owner_account_id,workspace_id,request_id,scope,state,created_at,expires_at,artifact)
+        SELECT 'seed_export_' || i, 'seed_session_' || i, 1, $1::bigint + 600, $2, $3, 'seed_request_' || i, $4::jsonb, 'cancelled', $1::bigint, $1::bigint + 120, NULL
+        FROM generate_series(1,255) AS i`, [now(), ids.adult, ids.family, JSON.stringify(input().records)]);
+      const jobs = await Promise.all([store.requestRecordExport(a.tokenHash, a.csrfHash, input()), store.requestRecordExport(b.tokenHash, b.csrfHash, input())]);
+      assert.equal(jobs.filter(Boolean).length, 1);
+      assert.equal(Number((await h.admin.query('SELECT count(*) FROM erudior_private.record_exports')).rows[0].count), 256);
+      assert.equal(await store.requestRecordExport(a.tokenHash, a.csrfHash, input()), null);
+    });
+    await t.test('validated TTL is immutable and artifacts cannot outlive the original session', async () => {
+      await reset(); const a = await signIn();
+      const mutable = { providers: options.providers, exports: { artifactTtlSeconds: 60 } };
+      const fixed = new PostgresAccountStore(h.runtime, mutable);
+      mutable.exports.artifactTtlSeconds = 86401;
+      const job = await fixed.requestRecordExport(a.tokenHash, a.csrfHash, input()); assert.ok(job);
+      assert.equal(job.expiresAt - job.createdAt, 60);
+      const short = new PostgresAccountStore(h.runtime, { ...options, sessionSeconds: 60, idleSeconds: 30 });
+      const secret = credential();
+      const session = await short.establishSession({ ...secret, configurationHash: provider.configurationHash, workspaceId: ids.family, identity: { providerId: provider.id, providerVersion: provider.version, configurationHash: provider.configurationHash, issuer: provider.issuer, subject: 'synthetic-person', authenticatedAt: now() - 10, assurance: 'mfa' } });
+      assert.ok(session);
+      const clipped = await short.requestRecordExport(secret.tokenHash, secret.csrfHash, input()); assert.ok(clipped);
+      assert.equal(clipped.expiresAt, session.session.expiresAt);
+      assert.ok(clipped.expiresAt - clipped.createdAt <= 60);
+      assert.equal(Number((await h.admin.query('SELECT delete_after FROM erudior_private.record_exports WHERE export_id=$1', [clipped.id])).rows[0].delete_after), session.session.expiresAt);
+    });
   } finally { await h.close(); }
 });
