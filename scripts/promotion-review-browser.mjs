@@ -16,7 +16,10 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const worker = path.join(root, 'worker');
 const out = path.resolve(process.env.BROWSER_ARTIFACTS || path.join(root, 'test-results/promotion-review'));
 const bootstrapOnly = process.argv.includes('--bootstrap-only');
-const mediaOrigin = 'https://community.example.test'; // Identifier only. Never contacted.
+// Virtual same-site HTTPS origins are routed only to real loopback servers.
+// This exercises browser cookie/CORS semantics, not production DNS/TLS or a deployment.
+const mediaOrigin = 'https://community.example.test';
+const appOrigin = 'https://app.example.test';
 const bucket = 'erudior-promotion-test';
 const base = '/admin/promotions';
 const title = 'Synthetic full canonical promotion source';
@@ -24,7 +27,7 @@ const secret = 'SECRET_PROMOTION_TEACHER_821';
 const orderSecret = 'SECRET_PROMOTION_ORDER_821';
 const checks = [], screenshots = [], errors = [], deniedNetwork = [];
 await mkdir(out, { recursive: true });
-for (const name of ['failure.json', 'failure.png', 'result.json', 'bootstrap.json']) await rm(path.join(out, name), { force: true });
+for (const name of ['failure.json', 'failure.png', 'failure.html', 'failure-fields.json', 'result.json', 'bootstrap.json']) await rm(path.join(out, name), { force: true });
 const temporary = await mkdtemp(path.join(os.tmpdir(), 'erudior-promotion-browser-'));
 const children = new Set();
 // Never inherit Cloudflare credentials, proxies, repository .dev.vars, or login state.
@@ -35,7 +38,8 @@ Object.assign(env, { HOME: temporary, USERPROFILE: temporary, XDG_CONFIG_HOME: t
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const sha256 = text => createHash('sha256').update(text).digest('hex');
 const clone = value => structuredClone(value);
-let server, browser, page, apiServer, origin, api, common, wrangler, current = 'startup';
+let server, browser, page, apiServer, appServerOrigin, api, common, wrangler, current = 'startup';
+const origin = appOrigin;
 
 function launch(args, extraEnv = {}) {
   const child = spawn(process.execPath, args, { cwd: temporary, env: { ...env, ...extraEnv },
@@ -146,10 +150,10 @@ async function bootstrap() {
   current = 'isolated Worker/D1/R2 bootstrap';
   const port = await freePort(); api = `http://127.0.0.1:${port}`;
   server = await createServer({ root, configFile: false, plugins: [react()],
-    define: { __DEV_COURSE_KEY__: JSON.stringify(''), 'import.meta.env.VITE_COMMUNITY_API': JSON.stringify('/api'),
+    define: { __DEV_COURSE_KEY__: JSON.stringify(''), 'import.meta.env.VITE_COMMUNITY_API': JSON.stringify(mediaOrigin),
       'import.meta.env.VITE_COURSES_URL': JSON.stringify(''), 'import.meta.env.VITE_HOMESCHOOL': JSON.stringify(''), 'import.meta.env.VITE_AS_DESKTOP': JSON.stringify('') },
-    server: { host: '127.0.0.1', port: 0, proxy: { '/api': { target: api, changeOrigin: false, rewrite: value => value.replace(/^\/api/, '') } } }, logLevel: 'warn' });
-  await server.listen(); origin = `http://127.0.0.1:${server.httpServer.address().port}`;
+    server: { host: '127.0.0.1', port: 0, hmr: false }, logLevel: 'warn' });
+  await server.listen(); appServerOrigin = `http://127.0.0.1:${server.httpServer.address().port}`;
   const config = path.join(temporary, 'wrangler.toml');
   await writeFile(config, `name = "erudior-promotion-test"
 main = ${JSON.stringify(path.join(worker, 'src/index.ts'))}
@@ -273,14 +277,26 @@ async function click(name) { await button(name).click(); await settled(); }
 async function contextFor(identity, width, colorScheme = 'light') {
   const context = await browser.newContext({ viewport: { width, height: 1000 }, colorScheme,
     reducedMotion: 'reduce', acceptDownloads: true });
-  await context.route('**/*', route => {
+  await context.route('**/*', async route => {
     const target = new URL(route.request().url());
-    if (target.origin === origin || ['data:', 'blob:'].includes(target.protocol)) return route.continue();
-    deniedNetwork.push({ current, origin: target.origin }); return route.abort();
+    if (['data:', 'blob:'].includes(target.protocol)) return route.continue();
+    const upstream = target.origin === origin ? appServerOrigin : target.origin === mediaOrigin ? api : null;
+    if (!upstream) { deniedNetwork.push({ current, origin: target.origin }); return route.abort(); }
+    // Forward real browser cookies, Origin, preflight and request bodies unchanged.
+    // Only the socket destination and Host are mapped to disposable local servers.
+    const headers = await route.request().allHeaders(); delete headers.host;
+    const response = await route.fetch({ url: upstream + target.pathname + target.search, headers, maxRedirects: 0 });
+    await route.fulfill({ response });
+  });
+  // HMR is not part of document acceptance, and no virtual-domain socket may escape.
+  await context.routeWebSocket('**/*', socket => {
+    const target = new URL(socket.url());
+    if (target.hostname !== new URL(origin).hostname) deniedNetwork.push({ current, origin: target.origin });
+    socket.close();
   });
   if (identity?.cookie) {
     const [name, ...value] = identity.cookie.split('=');
-    await context.addCookies([{ name, value: value.join('='), url: origin, httpOnly: true, sameSite: 'Lax' }]);
+    await context.addCookies([{ name, value: value.join('='), url: mediaOrigin, httpOnly: true, secure: true, sameSite: 'Lax' }]);
   }
   page = await context.newPage(); page.setDefaultTimeout(20000);
   page.on('pageerror', error => errors.push({ current, message: error.message }));
@@ -306,7 +322,9 @@ const checklistLabels = [
   'I reviewed evidence of rights to distribute the source content.',
   'I reviewed evidence of rights to distribute all included media (or verified there is no media).',
 ];
-const notes = () => page.getByLabel('Review notes and limitations', { exact: true });
+// React updates textarea.defaultValue, so its text becomes part of the wrapping
+// label's textContent. Use its semantic role/name, not exact raw label text.
+const notes = () => page.getByRole('textbox', { name: /^Review notes and limitations\b/ });
 async function uncheckedReview() {
   await click('Begin exact revision review');
   for (const label of checklistLabels) assert.equal(await page.getByLabel(label, { exact: true }).isChecked(), false, label + ' starts unchecked');
@@ -332,17 +350,18 @@ async function fillReview(note = 'Synthetic review exercise only. This is not pu
   await notes().fill(note);
 }
 async function withLostResponse(routePath, action, status) {
-  const url = origin + '/api' + routePath, ids = [], bodies = [];
+  const url = mediaOrigin + routePath, ids = [], bodies = [];
   let first = true, committed;
   const intercept = async route => {
-    if (route.request().method() !== 'POST') return route.continue();
+    if (route.request().method() !== 'POST') return route.fallback();
     const body = route.request().postDataJSON(); ids.push(body.requestId); bodies.push(body);
     if (first) {
-      first = false; const response = await route.fetch();
+      first = false; const headers = await route.request().allHeaders(); delete headers.host;
+      const response = await route.fetch({ url: api + routePath, headers, maxRedirects: 0 });
       assert.equal(response.status(), status, await response.text()); committed = await response.json();
       return route.abort('failed'); // Commit is confirmed; only the browser response is lost.
     }
-    return route.continue();
+    return route.fallback();
   };
   await page.route(url, intercept);
   try {
@@ -356,7 +375,7 @@ async function withLostResponse(routePath, action, status) {
   } finally { await page.unroute(url, intercept); }
 }
 async function mutationResponse(routePath, buttonName) {
-  const response = page.waitForResponse(response => response.url() === origin + '/api' + routePath && response.request().method() === 'POST');
+  const response = page.waitForResponse(response => response.url() === mediaOrigin + routePath && response.request().method() === 'POST');
   await click(buttonName);
   const received = await response;
   assert([200, 201].includes(received.status()), await received.text());
@@ -508,7 +527,9 @@ async function runAcceptance(fixture) {
     assert.equal(ok(await admin.call('GET', `${base}/candidates/${saved.id}`)).revision, 1, 'save response-loss retry did not duplicate');
     await uncheckedReview(); await notes().fill('Unsaved review must survive cancelled navigation.');
     for (const action of ['Cancel review', 'Close candidate', 'Leave promotions']) {
-      const before = page.url(); page.once('dialog', dialog => dialog.dismiss()); await click(action);
+      current = `${name} dirty ${action} cancellation`;
+      const before = page.url(); const dialog = page.waitForEvent('dialog'); const actionClick = click(action);
+      const confirmation = await dialog; assert.equal(confirmation.type(), 'confirm'); await confirmation.dismiss(); await actionClick;
       assert.equal(page.url(), before); assert.equal(await notes().inputValue(), 'Unsaved review must survive cancelled navigation.');
     }
     await cancelBackNavigation();
@@ -604,6 +625,11 @@ try {
 } catch (error) {
   await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, screenshots, errors, deniedNetwork }, null, 2));
   await page?.screenshot({ path: path.join(out, 'failure.png'), fullPage: true }).catch(() => {});
+  if (page) {
+    await writeFile(path.join(out, 'failure.html'), await page.content()).catch(() => {});
+    const fields = await page.locator('textarea').evaluateAll(nodes => nodes.map(node => ({ value: node.value, labelText: node.closest('label')?.textContent, ariaLabel: node.getAttribute('aria-label') }))).catch(() => []);
+    await writeFile(path.join(out, 'failure-fields.json'), JSON.stringify(fields, null, 2));
+  }
   if (apiServer) console.error(apiServer.log);
   throw error;
 } finally {
