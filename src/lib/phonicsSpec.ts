@@ -118,7 +118,7 @@ export function parseTrace(info: string, body: string): TraceSpec {
   const letters: string[] = [];
   for (const ch of body.replace(/\s+/g, "")) {
     if (letterGuide(ch)) letters.push(ch);
-    else problems.push(`"${ch}" can't be traced (letters a–z and A–Z only)`);
+    else problems.push(`"${ch}" can't be traced (letters a–z and A–Z, or hiragana and katakana with ゛ ゜ — not small kana)`);
   }
   if (!letters.length) problems.push("no letters to trace");
   return { letters, tolerance, problems };

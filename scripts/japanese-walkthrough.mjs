@@ -84,6 +84,32 @@ await btn(/Furigana off/).click();
 await pg.waitForTimeout(200);
 check("furigana back", (await rtVisible()) === "visible");
 
+// Kana tracing: a square pad, kana names, tracing ね stroke by stroke with the mouse.
+const pad = pg.locator(".ph-trace-item:not([hidden]) .trace-pad");
+check("kana pad", (await pg.locator(".trace-pad.is-kana").count()) === 3);
+check("kana pad label", ((await pad.getAttribute("aria-label")) ?? "").startsWith("Trace the hiragana ne: 2 strokes"));
+check("kana kicker", ((await pg.locator(".ph-trace .ph-kicker").textContent()) ?? "").startsWith("Trace the kana"));
+await pad.scrollIntoViewIfNeeded();
+const strokes = await pad.evaluate((svg) => {
+  const m = svg.getScreenCTM();
+  return [...svg.querySelectorAll(".tr-center")].map((pl) =>
+    pl.getAttribute("points").trim().split(/\s+/).map((xy) => {
+      const [x, y] = xy.split(",").map(Number);
+      return [m.a * x + m.c * y + m.e, m.b * x + m.d * y + m.f];
+    }),
+  );
+});
+for (const s of strokes) {
+  await pg.mouse.move(s[0][0], s[0][1]);
+  await pg.mouse.down();
+  for (const [x, y] of s.filter((_, k) => k % 3 === 0).concat([s[s.length - 1]])) await pg.mouse.move(x, y);
+  await pg.mouse.up();
+  await pg.waitForTimeout(150);
+}
+const status = (await pg.locator(".ph-trace-item:not([hidden]) .tr-status").textContent()) ?? "";
+check(`traced ね (${status})`, status.includes("You traced the hiragana ne"));
+await audit("lesson-trace");
+
 // Quiz: choice + typed kana answers.
 await btn(/Take the quiz/).click();
 await pg.waitForTimeout(800);
