@@ -5,8 +5,8 @@
  "title": "German A2",
  "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
  "author": "Erudior",
- "revision": 2,
- "changelog": "Honors lessons with longer texts and culture, pictures and diagrams in every lesson, new question types and vocabulary; corrections from a second full review.",
+ "revision": 3,
+ "changelog": "Fixed vocabulary cards whose English prompt was cut off at a comma (and stray answer fragments that were accepted).",
  "modules": [
   {
    "id": "de2-m1",
@@ -27944,8 +27944,7 @@
    "term": "Grüezi",
    "pos": "interjection",
    "meanings": [
-    "hello (in Switzerland",
-    "formal)",
+    "hello (in Switzerland, formal)",
     "hello",
     "good day"
    ],
@@ -28188,8 +28187,7 @@
    "lesson": "de1-m1-h-numbers-life",
    "term": "Mathe",
    "meanings": [
-    "maths (school subject",
-    "informal)",
+    "maths (school subject, informal)",
     "maths",
     "math",
     "mathematics"
@@ -28812,8 +28810,7 @@
     "Ich hätte gerne"
    ],
    "meanings": [
-    "I'd like (polite",
-    "when ordering)",
+    "I'd like (polite, when ordering)",
     "I would like",
     "I'd like"
    ],
@@ -30327,8 +30324,7 @@
    "term": "erst",
    "pos": "adverb",
    "meanings": [
-    "only (not before",
-    "not until)",
+    "only (not before, not until)",
     "not until",
     "only"
    ],
@@ -32256,8 +32252,7 @@
    "pos": "verb",
    "meanings": [
     "to say thank you",
-    "to thank (someone",
-    "reflexive)",
+    "to thank (someone, reflexive)",
     "to express thanks"
    ],
    "example": "Ich möchte mich bei Ihnen bedanken.",
@@ -34860,8 +34855,7 @@
    "pos": "noun",
    "plural": "die Nebenkosten (plural only)",
    "meanings": [
-    "additional costs (heating",
-    "water etc. on top of rent)",
+    "additional costs (heating, water etc. on top of rent)",
     "additional costs",
     "extra costs",
     "utilities",
@@ -38744,8 +38738,7 @@
    "term": "herzlich",
    "pos": "adjective",
    "meanings": [
-    "warm (friendly",
-    "heartfelt)",
+    "warm (friendly, heartfelt)",
     "warm",
     "warmly",
     "cordial",
@@ -40118,8 +40111,7 @@
    "term": "sich anschauen",
    "pos": "verb",
    "meanings": [
-    "to take a look at (southern German",
-    "Austrian)",
+    "to take a look at (southern German, Austrian)",
     "to have a look at",
     "to look at",
     "to watch"
@@ -40181,8 +40173,7 @@
    "pos": "verb",
    "meanings": [
     "to sprain",
-    "to twist (an ankle",
-    "a wrist)"
+    "to twist (an ankle, a wrist)"
    ],
    "example": "Er hat sich beim Joggen den Fuß verstaucht.",
    "exampleEn": "He sprained his ankle jogging.",
@@ -40276,8 +40267,7 @@
    "term": "einfallen",
    "pos": "verb",
    "meanings": [
-    "to occur to (an idea",
-    "a name)",
+    "to occur to (an idea, a name)",
     "to think of",
     "to come to mind",
     "to remember"
@@ -40445,8 +40435,7 @@
     "liebhaben"
    ],
    "meanings": [
-    "to love (family",
-    "friends; not romantic)",
+    "to love (family, friends; not romantic)",
     "to love",
     "to be fond of",
     "to care about"
@@ -40540,8 +40529,7 @@
    "term": "fließend",
    "pos": "adjective",
    "meanings": [
-    "fluent (also running",
-    "of water)",
+    "fluent (also running, of water)",
     "fluent",
     "fluently",
     "running",
@@ -41046,8 +41034,7 @@
    "term": "deutlich",
    "pos": "adjective",
    "meanings": [
-    "clear (distinct",
-    "noticeable)",
+    "clear (distinct, noticeable)",
     "clearly",
     "noticeably",
     "distinct",
