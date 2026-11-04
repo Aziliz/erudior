@@ -71,8 +71,9 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     if (!next.lessons.some(lesson => lesson.id === assignment.lessonId))
       add("blocking", `spreadsheetAssignments[${i}].lessonId`, `Assignment refers to unknown lesson: ${assignment.lessonId}`);
   compare("vocab", previous.vocab ?? [], next.vocab ?? [], (word) => word.id, (word) => word.lesson);
+  // Words carried from an earlier course (`from`, e.g. A1 words inside A2) point at that course's lessons.
   for (const [i, word] of (next.vocab ?? []).entries())
-    if (!next.lessons.some((lesson) => lesson.id === word.lesson))
+    if (!word.from && !next.lessons.some((lesson) => lesson.id === word.lesson))
       add("blocking", `vocab[${i}].lesson`, `Vocabulary refers to unknown lesson: ${word.lesson}`);
   return issues;
 }
