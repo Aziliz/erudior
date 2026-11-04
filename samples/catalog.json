@@ -3973,6 +3973,66 @@
   ]
  },
  {
+  "id": "law-us-legal-system",
+  "file": "math/law-us-legal-system.json",
+  "order": 100,
+  "title": "Introduction to the U.S. Legal System",
+  "description": "Learn to identify legal sources, map federal and state courts, evaluate authority, and follow a fictional civil dispute from intake through appeal. First course in the J.D. Preparation pathway. Independent educational preparation, not degree credit.",
+  "revision": 1,
+  "disclaimer": "Educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Jurisdiction-specific rules must be researched.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 77,
+  "drills": 0,
+  "lessonIds": [
+   "lus-sources",
+   "lus-institutions",
+   "lus-courts",
+   "lus-jurisdiction",
+   "lus-precedent",
+   "lus-reading",
+   "lus-litigation",
+   "lus-appeal"
+  ],
+  "outline": [
+   {
+    "title": "Sources of law and legal institutions",
+    "lessons": [
+     "Recognizing sources of law",
+     "Institutions, powers and legal conflicts"
+    ]
+   },
+   {
+    "title": "Federal and state court structures",
+    "lessons": [
+     "Mapping trial and appellate courts",
+     "Separating jurisdiction, venue and governing law"
+    ]
+   },
+   {
+    "title": "Precedent, jurisdiction and authority",
+    "lessons": [
+     "Deciding which authority controls",
+     "Reading a rule and applying it to changed facts"
+    ]
+   },
+   {
+    "title": "From client problem to judicial decision",
+    "lessons": [
+     "From intake to a trial-court judgment",
+     "Review a judgment and complete the case map"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a2",
   "file": "languages/lang-german-a2.json",
   "order": 101,

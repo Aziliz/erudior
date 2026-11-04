@@ -36,7 +36,7 @@ try {
   await page.goto(origin+'/programs?site');
   await page.getByRole('heading',{name:'Programs',exact:true}).waitFor();
   const card=page.getByRole('article',{name:'J.D. Preparation program',exact:true});
-  assert.match(await card.innerText(),/0 of 24 courses available/);
+  assert.match(await card.innerText(),/1 of 24 courses available/);
   // Native details must expand with keyboard, including nested course outlines.
   await card.locator(':scope > details > summary').first().focus();await page.keyboard.press('Enter');
   await card.locator('li details summary').first().focus();await page.keyboard.press('Enter');
@@ -49,20 +49,36 @@ try {
   await page.getByRole('button',{name:/^Follow program/}).click();
   const saved=page.getByRole('article',{name:'J.D. Preparation pathway',exact:true});await saved.waitFor();
   const read=()=>page.evaluate(async()=>(await import('/src/lib/storage.ts')).loadProgress());
+  const installed=()=>page.evaluate(async()=>(await (await import('/src/lib/storage.ts')).listCourses()).courses.map(c=>c.id));
   assert.equal((await read()).learningPathways.find(p=>p.id==='jd-preparation').courseIds.length,24);
   assert.equal((await read()).enrolled?.length??0,0);
-  assert.equal(await saved.getByRole('button',{name:/Continue course|View next course|View course/}).count(),0);
+  assert.deepEqual(await installed(),[], 'following the program does not install courses');
+  assert.equal(await saved.getByRole('button',{name:'View next course',exact:true}).count(),1);
+  assert.equal(await saved.locator('.pathway-step button').count(),1, 'only the published course has a launch action');
   assert.equal(await saved.locator('.study-program progress').count(),3);
   await saved.locator('.study-program > details > summary').first().click();
   await saved.scrollIntoViewIfNeeded();await audit('saved-program');
+  await saved.getByRole('button',{name:'View next course',exact:true}).click();
+  await page.getByRole('heading',{name:'Introduction to the U.S. Legal System',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'Overview',exact:true}).waitFor();
+  assert.equal((await read()).enrolled?.length??0,0);
+  await audit('course-overview');
+  await page.getByRole('button',{name:'Start course',exact:true}).click();
+  await page.locator('.overview').waitFor({state:'detached'});
+  assert.deepEqual(await installed(),['law-us-legal-system']);
+  await page.getByRole('button',{name:'Lessons',exact:true}).click();
+  await page.locator('.lesson-row > button:first-child').first().click();
+  await page.locator('.lesson-body').waitFor();
+  await audit('published-lesson');
+  await page.goto(origin+'/?app');
   await page.reload();await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
   await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();await saved.waitFor();
   await saved.getByRole('button',{name:'Stop following',exact:true}).click();await saved.waitFor({state:'detached'});
   assert.equal((await read()).learningPathways?.length??0,0);
-  assert.equal((await read()).enrolled?.length??0,0);
+  assert.deepEqual(await installed(),['law-us-legal-system'], 'stopping the program preserves the explicitly started course');
   await ctx.close();
  }
  assert.deepEqual(errors,[]);
  await writeFile(path.join(out,'results.json'),JSON.stringify({checks,errors},null,2));
- console.log('Public/app JD program: keyboard outlines, follow, persistence, removal, no enrollment, planned-course launch prevention and 8 responsive/accessibility states passed.');
+ console.log('Public/app JD program: keyboard outlines, follow, persistence, removal, explicit enrollment, published course navigation, planned-course launch prevention and 16 responsive/accessibility states passed.');
 } finally {await browser?.close();await server.close();}
