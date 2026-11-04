@@ -6,6 +6,7 @@
 // followed by a digit. "$250,000 and $3,000" stays text; "$2x + 1$" is math.
 
 import katex from "katex";
+import { rubyHtml } from "./kana";
 
 import { splitMath } from "./mathSplit";
 export { splitMath, type MathSeg } from "./mathSplit";
@@ -28,7 +29,7 @@ const escapeHtml = (s: string) =>
 /** Plain text with math rendered (for question stems, choices and other non-Markdown text). */
 export function renderMathText(src: string): string {
   return splitMath(src)
-    .map((s) => (s.math ? (s.display ? renderTex(s.text, true) : `<span class="math-inline">${renderTex(s.text, false)}</span>`) : escapeHtml(s.text)))
+    .map((s) => (s.math ? (s.display ? renderTex(s.text, true) : `<span class="math-inline">${renderTex(s.text, false)}</span>`) : rubyHtml(escapeHtml(s.text), false)))
     .join("");
 }
 

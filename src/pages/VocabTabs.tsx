@@ -6,6 +6,7 @@ import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
+import { RubyText } from "../components/Ruby";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
@@ -116,7 +117,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                   {items.map((v) => (
                     <tr key={v.id}>
                       <td lang={lang?.code}>
-                        <span className="vocab-term">{v.term}</span>
+                        <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} /></span>
                         <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                         {v.plural && <div className="muted small">pl. {v.plural}</div>}
                       </td>

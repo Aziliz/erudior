@@ -3,6 +3,7 @@
 // wrong and shows the correct answer.
 
 import { Fragment, lazy, Suspense, useEffect, useRef, useState } from "react";
+import { composing, type Ime } from "../lib/ime";
 import MathText from "./MathText";
 import TimelineStrip from "./TimelineStrip";
 import { canPlay, playClip, stopAudio } from "../lib/audio";
@@ -51,6 +52,8 @@ interface Props {
   draftKey?: string;
   /** Early-reader courses: a read button beside every choice and item (`lib`: recorded audio). */
   read?: { lib?: AudioLib };
+  /** Language courses with an input converter (Japanese: romaji → kana) for typed answers. */
+  ime?: Ime;
 }
 
 /** A small button that reads one choice or item aloud. */
@@ -168,7 +171,7 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const off = disabled || reveal;
@@ -200,14 +203,38 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                     autoComplete="off"
                     autoCapitalize="off"
                     spellCheck={false}
+                    lang={ime ? "ja" : undefined}
                     onChange={(e) => {
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
-                      next[i] = e.target.value;
+                      next[i] = ime && !composing(e) ? ime(e.target.value) : e.target.value;
+                      onChange?.(next);
+                    }}
+                    onCompositionEnd={(e) => {
+                      if (!ime) return;
+                      const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
+                      next[i] = ime(e.currentTarget.value);
+                      onChange?.(next);
+                    }}
+                    onBlur={(e) => {
+                      // Finish a trailing "n" → ん when the learner leaves the box.
+                      if (!ime) return;
+                      const done = ime(e.currentTarget.value, { final: true });
+                      if (done === e.currentTarget.value) return;
+                      const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
+                      next[i] = done;
                       onChange?.(next);
                     }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
                         e.preventDefault();
+                        if (ime) {
+                          const done = ime(e.currentTarget.value, { final: true });
+                          if (done !== e.currentTarget.value) {
+                            const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
+                            next[i] = done;
+                            onChange?.(next);
+                          }
+                        }
                         onEnter?.();
                       }
                     }}

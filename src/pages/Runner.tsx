@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { imeFor } from "../lib/ime";
+import { FuriganaToggle } from "../components/Ruby";
 import MathText from "../components/MathText";
 import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
 import type { AppApi, View } from "../App";
@@ -416,6 +418,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </span>
           )}
           <div className="spacer" />
+          {course?.language?.code === "ja" && <FuriganaToggle />}
           {readAloud && tts && (
             <button type="button" className="btn ghost sm auto-read" aria-pressed={autoRead} onClick={toggleAutoRead}>
               Read questions to me: {autoRead ? "on" : "off"}
@@ -476,6 +479,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               onEnter={() => (!isExam && !isChecked ? check() : undefined)}
               reveal={isChecked}
               read={readAloud ? { lib } : undefined}
+              ime={imeFor(course?.language)}
               exam={isExam}
               draftKey={metaKey(session.bankId, q.id)}
             />
