@@ -2,10 +2,10 @@ name: Guided-practice course presentation acceptance
 on:
   pull_request:
     branches: [main]
-    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
+    paths: ['src/**', 'tests/guided-practice.test.mts', 'tests/model-narration.test.mts', 'scripts/model-narration-browser.mjs', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
   push:
     branches: [main]
-    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
+    paths: ['src/**', 'tests/guided-practice.test.mts', 'tests/model-narration.test.mts', 'scripts/model-narration-browser.mjs', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
 permissions:
   contents: read
 concurrency:
@@ -23,11 +23,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --import tsx --test tests/guided-practice.test.mts
+      - run: node --import tsx --test tests/model-narration.test.mts
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: node scripts/guided-practice-browser.mjs
       - name: Reference text reflow without clipping or source-link changes
         run: node scripts/reference-reflow-browser.mjs
+      - name: Current model state without toolbar narration
+        run: node scripts/model-narration-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -35,5 +38,6 @@ jobs:
           path: |
             test-results/guided-practice/
             test-results/reference-reflow/
+            test-results/model-narration/
           retention-days: 14
           if-no-files-found: warn
