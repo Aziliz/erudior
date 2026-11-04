@@ -304,15 +304,68 @@ async function contextFor(identity, width, colorScheme = 'light') {
   page.on('pageerror', error => errors.push({ current, message: error.message }));
   return context;
 }
+function inventoryGeometry(columnGap) {
+  const overlaps = [], inventories = [];
+  for (const list of document.querySelectorAll('.promotion-inventory')) {
+    const previous = list.style.columnGap;
+    if (columnGap !== undefined) list.style.columnGap = columnGap + 'px';
+    try {
+      const items = [...list.children].map(item => {
+        const style = getComputedStyle(item);
+        if (!item.childNodes.length || [...item.childNodes].some(node => node.nodeType !== Node.TEXT_NODE)) {
+          throw Error('Inventory text structure changed; update complete text geometry coverage');
+        }
+        // React renders name, colon and count as separate text nodes. Include every
+        // fragment, particularly the colon where the observed collision occurred.
+        const range = document.createRange(); range.selectNodeContents(item);
+        const rects = [...range.getClientRects()].filter(rect => rect.width && rect.height)
+          .map(({ left, right, top, bottom }) => ({ left, right, top, bottom }));
+        let markerAdvance = 0;
+        if (rects.length && style.listStylePosition === 'outside' && style.listStyleType !== 'none') {
+          // Outside markers have no DOM rectangle. Measure the same native marker
+          // inside an offscreen list, where its advance is exposed by a text Range.
+          const probeList = document.createElement('ul'), probe = document.createElement('li');
+          probeList.style.cssText = 'position:fixed;left:-10000px;top:0;display:block;visibility:hidden;margin:0;padding:0;width:1000px;pointer-events:none';
+          Object.assign(probe.style, { display: 'list-item', margin: '0', padding: '0', font: style.font,
+            lineHeight: style.lineHeight, letterSpacing: style.letterSpacing, listStyleType: style.listStyleType, listStylePosition: 'inside' });
+          probe.textContent = 'M'; probeList.append(probe); document.body.append(probeList);
+          try {
+            const text = document.createRange(); text.selectNodeContents(probe.firstChild);
+            markerAdvance = text.getBoundingClientRect().left - probe.getBoundingClientRect().left;
+          } finally { probeList.remove(); }
+          if (!(markerAdvance > 0)) throw Error('Native inventory marker could not be measured');
+        }
+        return { text: item.textContent, rects, markerAdvance };
+      });
+      for (const left of items) for (const right of items) {
+        if (!left.rects.length || !right.rects.length || left.rects[0].left >= right.rects[0].left) continue;
+        for (const a of left.rects) for (const [index, b] of right.rects.entries()) {
+          if (a.top >= b.bottom - 1 || b.top >= a.bottom - 1) continue;
+          const reservedLeft = b.left - (index === 0 ? right.markerAdvance : 0);
+          if (a.right > reservedLeft + 0.5) overlaps.push({ left: left.text, right: right.text,
+            textRight: a.right, neighborReservedLeft: reservedLeft, markerAdvance: index === 0 ? right.markerAdvance : 0 });
+        }
+      }
+      inventories.push({ columnGap: getComputedStyle(list).columnGap, items });
+    } finally { list.style.columnGap = previous; }
+  }
+  return { inventories, overlaps };
+}
 async function audit(name) {
   current = name; await page.evaluate(() => document.fonts.ready);
   assert(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth) <= 1, name + ' horizontal overflow');
+  const inventory = await page.evaluate(inventoryGeometry);
+  // Prove the guard catches the observed six-pixel-gap regression without keeping
+  // any altered styles, then capture and assess the actual production stylesheet.
+  const narrowGapRegression = name === '1280-light-source-parity' ? await page.evaluate(inventoryGeometry, 6) : null;
   await page.addScriptTag({ content: await readFile(path.join(root, 'node_modules/axe-core/axe.min.js'), 'utf8') });
   const violations = await page.evaluate(async () => (await window.axe.run(document, {
     runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] },
   })).violations.map(item => ({ id: item.id, targets: item.nodes.map(node => ({ target: node.target, summary: node.failureSummary })) })));
-  await writeFile(path.join(out, name + '-accessibility.json'), JSON.stringify({ violations }, null, 2));
+  await writeFile(path.join(out, name + '-accessibility.json'), JSON.stringify({ violations, inventory, narrowGapRegression }, null, 2));
   await page.screenshot({ path: path.join(out, name + '.png'), fullPage: true }); screenshots.push(name + '.png');
+  assert.deepEqual(inventory.overlaps, [], name + ' inventory text must not enter neighboring text or native-marker space');
+  if (narrowGapRegression) assert(narrowGapRegression.overlaps.length > 0, 'inventory guard detects the original narrow-gap marker collision');
   assert.deepEqual(violations, [], name + ' WCAG 2.2 AA automated checks');
 }
 
