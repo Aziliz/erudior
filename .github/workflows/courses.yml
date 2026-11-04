@@ -25,6 +25,8 @@ on:
       - "package.json"
       - "package-lock.json"
       - "src/lib/adminStudio.ts"
+      - "src/lib/promotionReview.ts"
+      - "src/lib/promotionCandidate.ts"
       - "src/lib/presentations.ts"
       - "src/lib/presentationProtocol.ts"
       - "src/lib/answers.ts"

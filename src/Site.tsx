@@ -114,6 +114,7 @@ export default function Site() {
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
           <a href={appUrl("/admin/studio")}>Admin Studio</a>
+          <a href={appUrl("/admin/promotions")}>Promotion review</a>
           <a href="/community" onClick={(e) => go(e, "community")}>Community courses</a>
           <a href="/download" onClick={(e) => go(e, "download")}>Download</a>
           <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>Roadmap</a>
