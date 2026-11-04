@@ -26,6 +26,12 @@ Data lives in the per-user app data folder. The path is shown at the bottom of t
 - Linux: `~/.local/share/com.erudior.app/`
 - Windows: `%APPDATA%\com.erudior.app\`
 
+## Engine license proposal
+
+The [custom source-available license proposal](LICENSE-DRAFT.md) is **nonbinding, not adopted and not effective**. It grants no permissions and imposes no obligations; publishing it does not license the Engine or accept the proposed terms. It is not an OSI-approved open-source license.
+
+The proposal discusses third-party startup attribution and return of distributed or publicly deployed Engine modifications, while excluding independent educational content and learner records. See the [licensing guide and unresolved adoption decisions](docs/ENGINE_LICENSING.md), the [public draft page](https://erudior.com/engine-license), and the separate [third-party notices](public/third-party-licenses.txt). Adoption of an effective root license requires a separate rights-holder-approved, legally reviewed change.
+
 ## Keyboard
 
 | Key | Action |

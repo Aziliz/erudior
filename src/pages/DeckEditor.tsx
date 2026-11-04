@@ -27,9 +27,11 @@ export default function DeckEditor({ api, course, deck }: { api: AppApi; course:
   async function save() {
     if (!draft.title.trim()) return api.toast("Give the deck a name.");
     if (incomplete) return api.toast(`${incomplete} card${incomplete === 1 ? " is" : "s are"} missing a front or back.`);
-    await api.saveCourse(withDeck(course, draft));
-    setDirty(false);
-    api.toast("Deck saved");
+    try {
+      await api.saveCourse(withDeck(course, draft));
+      setDirty(false);
+      api.toast("Deck saved");
+    } catch (error) { api.toast(`Deck could not be saved: ${(error as Error).message}`); }
   }
 
   async function close() {

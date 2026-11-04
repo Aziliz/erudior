@@ -46,7 +46,7 @@ export interface MapSpec {
 
 export const MAP_BLOCK = /^```map\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
-const KEYS = ["base", "title", "caption", "view", "projection", "region", "regions", "point", "route", "line", "label", "labels", "geojson", "svg"];
+export const MAP_FIELD_KEYS = ["base", "title", "caption", "view", "projection", "region", "regions", "point", "route", "line", "label", "labels", "geojson", "svg"];
 const PROJECTIONS: Projection[] = ["equal-earth", "mercator", "albers-usa", "plain"];
 
 /** "39.74, -104.99", "39.74N, 104.99W" (lat, lon) or "x, y" (plain). */
@@ -69,7 +69,7 @@ const list = (s: string) =>
     .filter(Boolean);
 
 export function parseMapSpec(body: string): MapSpec {
-  const { fields, problems } = readFields(body, KEYS, ["geojson", "svg", "caption"]);
+  const { fields, problems } = readFields(body, MAP_FIELD_KEYS, ["geojson", "svg", "caption"]);
   const spec: MapSpec = { base: "world", regions: [], points: [], routes: [], labels: [], showLabels: false, groups: [], problems };
   let baseSet = false;
   const group = (g: string | undefined) => {

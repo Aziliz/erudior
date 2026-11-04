@@ -67,6 +67,19 @@ p.vocab["de:hund/meaning"] = { stage: 0, streak: 1, last: "2026-10-02" };
 ok("once a day", dueCards(c, p, "2026-10-02").length === 1 && dueCards(c, p, "2026-10-03").length === 2);
 ok("summary", vocabSummary(c, p, "2026-10-02").unlocked === 1);
 
+// Empty authored directions have the same runtime defaults as omission, not mastery.
+{
+  const source = structuredClone(c);
+  source.vocab![0].directions = [];
+  const before = JSON.stringify(source);
+  const fresh: any = { lessonsDone: { "de-a1/l1": "2026-10-01" }, vocab: {} };
+  ok("empty directions generates both review cards", dueCards(source, fresh, "2026-10-02").length === 2);
+  ok("empty directions cannot create learned credit", vocabSummary(source, fresh, "2026-10-02").learned === 0);
+  ok("review defaults preserve authored empty directions", JSON.stringify(source) === before);
+  source.vocab![0].directions = ["meaning"];
+  ok("explicit single direction is retained", dueCards(source, fresh, "2026-10-02").length === 1);
+}
+
 console.log(fails ? `${fails} FAILURES` : "all vocab tests passed");
 if (fails) process.exit(1);
 

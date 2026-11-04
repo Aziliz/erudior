@@ -1,5 +1,29 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
+import { flushSync } from "react-dom";
+import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
+import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomPeerSourceOption } from "./lib/classroomPeerSources";
+import { loadClassroomSubmissions, validateClassroomSubmissionState } from "./lib/classroomSubmissionStore";
+import ClassroomWorkflowWorkspace from "./pages/ClassroomWorkflowWorkspace";
+import "./classroom-workflows.css";
+import { createNativeLifecycleConsumer } from "./lib/nativeLifecycle";
+import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionLocked, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
+import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
+import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
+import { createLearnerPrivacyStore } from "./lib/learnerPrivacyStore";
+import { createAdvancedAssessmentStore } from "./lib/advancedAssessmentStore";
+import { createScientificWorkspaceStore } from "./lib/scientificWorkspaceStore";
+import { createBranchingEngineStore } from "./lib/branchingEngineStore";
+import { createInstructionalEvidenceStore } from "./lib/instructionalEvidenceStore";
+import { createTransactionEngineStore } from "./lib/transactionEngineStore";
+import { createDocumentEngineStore } from "./lib/documentEngineStore";
+import { importQtiItem, qtiChoiceToBank } from "./lib/interopQti";
+import { createInterventionStore } from "./lib/interventionStore";
+import { createInterventionTaskAccess } from "./lib/interventionTaskAccess";
+import { taskFromPlan, parseInterventionTask, sameInterventionTask, type InterventionTask } from "./lib/interventionTasks";
+import { validateInterventionActivities, interventionStatus, type InterventionActivity } from "./lib/interventions";
+import { startPractice } from "./lib/session";
+import { validateCourseIntegrity } from "./lib/courseIntegrity";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { registerNavigationGuard, requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
 import type { Bank, Course, Progress } from "./lib/types";
 import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
 import { formatClock } from "./lib/util";
@@ -13,11 +37,17 @@ import Runner from "./pages/Runner";
 import Results from "./pages/Results";
 import Editor from "./pages/Editor";
 import ProgressPage from "./pages/ProgressPage";
+import StudentWorkspacePage from "./pages/StudentWorkspacePage";
+import "./student-workspace.css";
+import { parseStudentWorkspace, type StudentWorkspace } from "./lib/studentWorkspace";
+import { parseLearningPathways, type LearningPathway } from "./lib/learningPathways";
 import { LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
 import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
+import CourseActivityView from "./pages/CourseActivityView";
+import type { CourseActivityKind } from "./lib/courseActivities";
 import WorkView from "./pages/WorkView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
@@ -33,7 +63,9 @@ import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
 import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
 import { Mark } from "./components/Mark";
-import { HOMESCHOOL, adultLabel, classesOf, isClassroom, currentAssignments, loadFamily, saveFamily, type Family, type Student } from "./lib/family";
+import PhoneNavigation from "./components/PhoneNavigation";
+import AppSidebar from "./components/AppSidebar";
+import { HOMESCHOOL, classesOf, isClassroom, currentAssignments, loadFamily, type Family, type Student } from "./lib/family";
 import { courseFinished, isPublishedCourse } from "./lib/catalog";
 import { refreshStates } from "./lib/states";
 import { useStudyTimer } from "./lib/timer";
@@ -41,13 +73,21 @@ import FamilySetup from "./pages/FamilySetup";
 import WhoPage from "./pages/WhoPage";
 import ParentArea, { type ParentTab } from "./pages/ParentArea";
 import ParentGate from "./pages/ParentGate";
+import type { CompetencySupervisorAccess } from "./components/CompetencySupervisor";
+import { createCompetencyStore } from "./lib/competencyStore";
+import { FOUNDATION_COMPETENCIES } from "./lib/competencyCatalog";
+import { resolveCompetencyEvidence } from "./lib/competencyEvidence";
 import { AUTHORING, downloadCommunityCourse, isCommunityId } from "./lib/community";
 import CreateHome from "./pages/CreateHome";
 import CommunityPage from "./pages/CommunityPage";
+import PublicCommunity from "./pages/PublicCommunity";
 import { COMMUNITY } from "./lib/community";
 import CommunityEditor from "./pages/CommunityEditor";
 import ReviewQueue from "./pages/ReviewQueue";
 import LivePlay from "./pages/LivePlay";
+import PresentationPlay from "./pages/PresentationPlay";
+import { createPresentationStore } from "./lib/presentationStore";
+import { presentationProblems, type PresentationDeck } from "./lib/presentations";
 import { LIVE } from "./lib/live";
 import { pageKey, pathToView, viewToPath, type RouteCourse } from "./lib/routes";
 import { subjectKey } from "./lib/taxonomy";
@@ -55,6 +95,7 @@ import { siteUrl } from "./lib/site";
 
 /** The website keeps the address bar in step with the screen; the desktop app has no address bar. */
 // (VITE_AS_DESKTOP=1 makes a browser build look like the desktop app, for screenshots.)
+const ANDROID_NATIVE = store.inApp && typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent);
 const ROUTES = !store.inApp && typeof window !== "undefined" && import.meta.env?.VITE_AS_DESKTOP !== "1";
 
 /** Screens that hold an activity's in-memory state; going back to one reopens its course instead. */
@@ -77,8 +118,11 @@ function restorable(v: View): View {
 
 export type View =
   | { name: "community" }
+  | { name: "communityCourse"; id: string }
   | { name: "library" }
-  | { name: "progress" }
+  | { name: "progress"; tools?: boolean }
+  | { name: "workspace" }
+  | { name: "classroom-workflows" }
   | { name: "legal"; page: LegalPage }
   | { name: "bank"; bankId: string }
   | { name: "editor"; bankId: string; isNew?: boolean }
@@ -87,6 +131,7 @@ export type View =
   | { name: "course"; courseId: string; tab?: CourseTab }
   | { name: "courseEdit"; courseId: string; isNew?: boolean }
   | { name: "lesson"; courseId: string; lessonId: string }
+  | { name: "courseActivity"; courseId: string; kind: CourseActivityKind; sourceId: string }
   | { name: "work"; courseId: string; itemId: string }
   | { name: "cards"; courseId: string; deckIds: string[]; mode: "review" | "cram"; topics?: string[] }
   | { name: "deckEdit"; courseId: string; deckId: string }
@@ -94,7 +139,7 @@ export type View =
   | { name: "ref"; courseId: string; refId: string }
   | { name: "read"; courseId: string; textId: string }
   | { name: "search"; q: string }
-  | { name: "overview"; catalogId: string }
+  | { name: "overview"; catalogId: string; requestedPath?: string }
   | { name: "vocab"; courseId: string; mode: VocabMode; lessonIds?: string[]; count?: number; batch?: number }
   | { name: "who" }
   | { name: "familySetup" }
@@ -102,26 +147,63 @@ export type View =
   | { name: "create" }
   | { name: "communityEdit"; id: string }
   | { name: "review" }
-  | { name: "live"; code?: string };
+  | { name: "live"; code?: string }
+  | { name: "presentation"; code?: string };
 
 export interface AppApi {
   /** Where the course catalog came from: the website, the copy saved on this device, or the build. */
+  /** Unsupervised public-browser study; never grants assignment or credit authority. */
+  publicLearning?: boolean;
+  classroomWorkflows?: ReturnType<typeof createClassroomWorkflowStore>;
+  classroomPeerSources?: (classId: string) => Promise<ClassroomPeerSourceOption[]>;
+  learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
+  authorizeAcademicRecords?: (id: string) => Promise<void>;
   catalog: { source: CatalogSource; error?: string };
   banks: Bank[];
   courses: Course[];
   progress: Progress;
+  competencySupervisor?: CompetencySupervisorAccess;
+  interventionSupervisor?: ReturnType<typeof createInterventionStore>;
+  loadInterventionTasks?: () => Promise<InterventionTask[]>;
+  launchInterventionTask?: (task:InterventionTask, activity:InterventionActivity) => Promise<void>;
+  importInterventionTask?: () => Promise<boolean>;
+  exportInterventionTask?: (studentId:string, planId:string) => Promise<void>;
+  importInteroperabilityBank?: (xml: string) => Promise<void>;
+  instructionalSupervisor?: ReturnType<typeof createInstructionalEvidenceStore>["supervisor"];
+  instructionalLearner?: ReturnType<typeof createInstructionalEvidenceStore>["learner"];
+  advancedAssessmentSupervisor?: ReturnType<typeof createAdvancedAssessmentStore>["supervisor"];
+  advancedAssessmentLearner?: ReturnType<typeof createAdvancedAssessmentStore>["learner"];
+  scientificSupervisor?: ReturnType<typeof createScientificWorkspaceStore>["supervisor"];
+  scientificLearner?: ReturnType<typeof createScientificWorkspaceStore>["learner"];
+  branchingSupervisor?: ReturnType<typeof createBranchingEngineStore>["supervisor"];
+  branchingLearner?: ReturnType<typeof createBranchingEngineStore>["learner"];
+  transactionSupervisor?: ReturnType<typeof createTransactionEngineStore>["supervisor"];
+  transactionLearner?: ReturnType<typeof createTransactionEngineStore>["learner"];
+  documentSupervisor?: ReturnType<typeof createDocumentEngineStore>["supervisor"];
+  documentLearner?: ReturnType<typeof createDocumentEngineStore>["learner"];
+  presentationLibrary?: ReturnType<typeof createPresentationStore>;
+  validatePresentation?: (deck: PresentationDeck) => Promise<string[]>;
+  competencySync?: { pending: boolean; error: string };
+  retryCompetencySync?: () => void;
   go: (v: View) => void;
   toast: (msg: string) => void;
   reload: () => Promise<void>;
   setProgress: (p: Progress) => Promise<void>;
+  /** Session writes remain scoped to the learner and reviewed source that opened this view. */
+  saveLearnerSession?: (content: string | null) => Promise<void>;
   /** Functional update against the latest progress (safe for rapid successive writes). */
   updateProgress: (fn: (p: Progress) => Progress) => Promise<void>;
+  /** Persist pathway edits against the latest state of the captured learner profile. */
+  updateLearningPathways: (fn: (paths: LearningPathway[]) => LearningPathway[]) => Promise<void>;
+  /** Private self-directed plans; never modifies assignments, assessment evidence or credentials. */
+  updateStudentWorkspace: (fn: (workspace: StudentWorkspace) => StudentWorkspace) => Promise<void>;
+  refreshStudentWorkspace: () => Promise<void>;
   /** Saves a standalone bank, or writes the bank back into its course. */
   saveBank: (bank: Bank) => Promise<void>;
   deleteBank: (bank: Bank) => Promise<void>;
-  saveCourse: (course: Course) => Promise<void>;
+  saveCourse: (course: Course, options?: { enroll?: boolean }) => Promise<void>;
   /** Add a catalog course to In progress (loads and stores it), then open it. */
-  addCourse: (id: string) => Promise<void>;
+  addCourse: (id: string, requestedPath?: string) => Promise<void>;
   /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
   notifyUpdate: (u: AvailableUpdate) => void;
   /** Go back from a bank: to its course if it has one, else the library. */
@@ -132,7 +214,8 @@ export interface AppApi {
   family: Family | null;
   /** The student using the app (homeschool families). */
   student: Student | null;
-  setFamily: (f: Family) => Promise<void>;
+  setFamily: (f: Family, authorization?: () => void) => Promise<void>;
+  reauthenticateAdult?: () => Promise<(() => void) | null>;
   /** Refresh imported classroom state without rewriting a stale in-memory snapshot. */
   reloadClassroomState?: () => Promise<void>;
   /** Switch to a student's progress and open their library. */
@@ -143,6 +226,9 @@ export interface AppApi {
   assignmentBlock: (courseId: string) => string | null;
   /** Download (or update) a community course and open it. */
   addCommunityCourse: (id: string) => Promise<void>;
+  startAssignedCourse?: (id: string) => Promise<void>;
+  assignReviewedCommunityCourse?: (learnerId: string, course: Course, digest: string, subject: string, scope: () => void, installedRaw: string | null, remote: boolean) => Promise<void>;
+  removeParentAssignment?: (learnerId: string, courseId: string) => Promise<void>;
 }
 
 type Theme = "system" | "light" | "dark" | "sepia" | "dim" | "contrast";
@@ -178,6 +264,10 @@ export default function App() {
         window.history.replaceState(null, "", window.location.pathname);
         return { name: "create" };
       }
+      if (LIVE && q.has("presentation")) {
+        window.history.replaceState({}, "", window.location.pathname);
+        return { name: "presentation", code: q.get("presentation") ?? "" };
+      }
       // A live room link (app.erudior.com/?live=CODE) opens the join screen.
       if (LIVE && q.has("live")) {
         window.history.replaceState(null, "", window.location.pathname);
@@ -194,6 +284,9 @@ export default function App() {
   const [progress, setProgressState] = useState<Progress>(store.emptyProgress());
   const progressRef = useRef(progress);
   const [ready, setReady] = useState(false);
+  const [courseOpenError, setCourseOpenError] = useState<string | null>(null);
+  const courseOpening = useRef<{ view: View; profile: string | null; selection: number } | null>(null);
+  const viewRef = useRef(view); viewRef.current = view;
   const [loadError, setLoadError] = useState<string | null>(null);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [theme, setTheme] = useState<Theme>(readTheme);
@@ -214,7 +307,24 @@ export default function App() {
   const [family, setFamilyState] = useState<Family | null>(null);
   const [studentId, setStudentId] = useState<string | null>(null);
   const [parentUnlocked, setParentUnlocked] = useState(false);
+  const [localLocked, setLocalLocked] = useState(false);
+  const [concealed, setConcealed] = useState(false);
+  const concealedRef=useRef(false); concealedRef.current=concealed;
+  const [gate, setGate] = useState<{ kind: "learner" | "resume" | "sensitive"; id?: string } | null>(null);
+  const gateRef = useRef(gate); gateRef.current = gate;
+  const lockedRef = useRef(localLocked); lockedRef.current = localLocked;
+  const sensitiveResolver = useRef<((guard: (() => void) | null) => void) | null>(null);
+  const [, refreshLocalSession] = useState(0);
+  const sessionEpoch = localSessionEpoch();
+  const renderSessionGuard = captureLocalSession();
+  const adultAccess = useRef({ unlocked: false, parentView: false });
+  // Bind document authority to the credential reviewed at this explicit unlock.
+  const documentUnlockedCredential = useRef<string | null>(null);
+  adultAccess.current = { unlocked: parentUnlocked && !localLocked && !gate, parentView: view.name === "parent" && !localLocked && !gate };
+  const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
+  const [competencyRetry, setCompetencyRetry] = useState(0);
   const student = family?.students.find((s) => s.id === studentId) ?? null;
+  const publicLearning = !store.inApp && !HOMESCHOOL && import.meta.env?.VITE_AS_DESKTOP !== "1" && !family;
 
   // Ctrl/Cmd+K jumps to search.
   useEffect(() => {
@@ -286,11 +396,38 @@ export default function App() {
     setBroken([...c.broken, ...b.broken]);
   }, []);
 
+  const studentSelectionRequest = useRef(0);
+  const progressSelectionGeneration = studentSelectionRequest.current;
   const setProgress = useCallback(async (p: Progress) => {
+    const profile = studentId;
+    const assertProfile = () => { renderSessionGuard(); if (profile) assertLocalLearner(profile); if (store.activeStudent() !== profile || studentSelectionRequest.current !== progressSelectionGeneration) throw Error("Learner changed before saving. The newer learner's progress was not changed."); };
+    assertProfile();
+    const courseId = "courseId" in view ? view.courseId : view.name === "run" ? courses.find(c => c.banks.some(b => b.id === view.session.bankId))?.id : "bankId" in view ? courses.find(c => c.banks.some(b => b.id === view.bankId))?.id : undefined;
+    const source = courseId ? courses.find(c => c.id === courseId) : undefined;
+    const digest = family && !isClassroom(family) && profile && source?.community ? await parentCourseDigest(source) : undefined;
+    const guard = async () => {
+      assertProfile();
+      if (profile && !await store.competencyProfileExists(profile)) throw Error("Learner was deleted. Progress was not saved.");
+      if (digest && profile && courseId) await assertCurrentParentCourseAccess(profile,courseId,digest);
+      assertProfile();
+    };
+    await guard();
+    await store.saveProgress(p,{guard});
+    await guard();
     progressRef.current = p;
     setProgressState(p);
-    await store.saveProgress(p);
-  }, []);
+  }, [family,courses,view,studentId,progressSelectionGeneration,sessionEpoch]);
+
+  const saveLearnerSession = useCallback(async (content: string | null) => {
+    const profile = studentId;
+    const assertProfile = () => { renderSessionGuard(); if (profile) assertLocalLearner(profile); if (store.activeStudent() !== profile || studentSelectionRequest.current !== progressSelectionGeneration) throw Error("Learner changed. The session was not saved to another profile."); };
+    assertProfile();
+    const courseId = "courseId" in view ? view.courseId : view.name === "run" ? courses.find(c => c.banks.some(b => b.id === view.session.bankId))?.id : "bankId" in view ? courses.find(c => c.banks.some(b => b.id === view.bankId))?.id : undefined;
+    const source = courseId ? courses.find(c => c.id === courseId) : undefined;
+    const digest = family && !isClassroom(family) && profile && source?.community ? await parentCourseDigest(source) : undefined;
+    const guard = async () => { assertProfile(); if (profile && !await store.competencyProfileExists(profile)) throw Error("Learner was deleted. The session was not saved."); if (digest && profile && courseId) await assertCurrentParentCourseAccess(profile,courseId,digest); assertProfile(); };
+    await guard(); await store.saveProfileSessionState(profile,content,guard); await guard();
+  }, [family,courses,view,studentId,progressSelectionGeneration,sessionEpoch]);
 
   useEffect(() => {
     (async () => {
@@ -298,12 +435,11 @@ export default function App() {
         const fam = HOMESCHOOL ? await loadFamily() : null;
         if (fam) {
           setFamilyState(fam);
-          if (fam.students.length === 1) {
-            store.useStudentFiles(fam.students[0].id);
-            setStudentId(fam.students[0].id);
-          } else setView({ name: "who" });
+          configureLocalSession(true);
+          store.useStudentFiles(null);
+          setView({ name: "who" });
         }
-        let p = await store.loadProgress();
+        let p = fam ? store.emptyProgress() : await store.loadProgress();
         // Courses are added from the catalog when someone starts them. Older versions
         // installed every bundled course up front; once, remove the ones never used
         // (progress is kept regardless, and they can be added again).
@@ -316,7 +452,7 @@ export default function App() {
         }
         // Vocabulary progress moved from per-course to per-language keys (v0.11).
         const migrated = migrateVocabKeys(p, (await store.listCourses()).courses);
-        if (migrated !== p) {
+        if (!fam && migrated !== p) {
           p = migrated;
           await store.saveProgress(p);
         }
@@ -348,16 +484,50 @@ export default function App() {
     })();
   }, [reload]);
 
+  // Recheck on a long-running Android session and when the app regains focus.
+  useEffect(() => {
+    const check = () => checkForUpdate().then((u) => { if (u) setAppUpdate(u); }, () => {});
+    const timer = window.setInterval(check, 6 * 60 * 60 * 1000);
+    window.addEventListener("focus", check);
+    return () => { window.clearInterval(timer); window.removeEventListener("focus", check); };
+  }, []);
+
   // Homeschool students each see the courses they started (course files are shared on disk).
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
   const myCourses = enrolled ? courses.filter((c) => enrolled.has(c.id)) : courses;
   const allBanks = [...myCourses.flatMap((c) => c.banks), ...standalone];
+
+  // Capture from the live persisted profile under CAS; stale async results never replace
+  // another learner or a newer answer. Ledger updates merge independently of raw progress.
+  const competencyEvidenceVersion = JSON.stringify([progress.attempts, progress.stats, progress.enrolled]);
+  useEffect(() => {
+    if (!ready || (family && !studentId)) return;
+    const selected = store.activeStudent();
+    let active = true;
+    setCompetencySync({ pending: true, error: "" });
+    Promise.resolve().then(() => {
+      const graph = resolveCompetencyEvidence(FOUNDATION_COMPETENCIES, courses, { allowMissingCourses: true });
+      return store.syncCompetencyState(selected, graph, courses);
+    }).then(fresh => {
+      if (!active || store.activeStudent() !== selected) return;
+      if (JSON.stringify(progressRef.current.competencies) !== JSON.stringify(fresh.competencies)) {
+        const merged = { ...progressRef.current, competencies: fresh.competencies };
+        progressRef.current = merged; setProgressState(merged);
+      }
+      setCompetencySync({ pending: false, error: "" });
+    }, error => {
+      if (active && store.activeStudent() === selected) setCompetencySync({ pending: false, error: error instanceof Error ? error.message : String(error) });
+    });
+    return () => { active = false; };
+  }, [ready, courses, studentId, competencyEvidenceVersion, !!family, competencyRetry]);
+
 
   // Website addresses: app.erudior.com/<course>, /<course>/lessons/<id>, … (see lib/routes.ts).
   // An address typed or reloaded is opened once the courses (and the catalog) are known.
   const pendingPath = useRef<string | null>(
     ROUTES && window.location.pathname !== "/" ? window.location.pathname + window.location.search : null,
   );
+  const skipResolvingPathWrite = useRef(false);
   const fromPop = useRef(false);
   const displayedHistory = useRef<DisplayedHistory>({ url: window.location.pathname + window.location.search + window.location.hash, state: window.history.state });
   const restoringHistory = useRef(false);
@@ -373,19 +543,33 @@ export default function App() {
   useEffect(() => {
     if (!ROUTES || !ready || !pendingPath.current) return;
     const url = new URL(pendingPath.current, window.location.origin);
-    const v = pathToView(url.pathname, url.search, myCourses, CATALOG);
+    const v = pathToView(url.pathname, url.search, family ? courses : myCourses, CATALOG);
+    // A shared-device deep link waits for explicit learner selection; never select
+    // a child from the URL or discard the requested reviewed-content destination.
+    if (family && !studentId && view.name === "who" && v && v.name !== "parent") return;
     if (v || catalogTried) {
       pendingPath.current = null;
-      if (v && view.name === "library") setView(v);
-      else setView((cur) => ({ ...cur })); // write the address for the screen we're on
+      if (v && (view.name === "library" || (v.name === "parent" && view.name === "who"))) {
+        // A direct adult-area link may open the existing password gate without
+        // selecting a child first. It never unlocks the adult area.
+        // The route writer below runs in this same effect cycle with the old
+        // startup view. Wait for this state update before writing history, so
+        // loading/reloading a deep link replaces its own entry, not a fake "/".
+        skipResolvingPathWrite.current = true;
+        setView(v);
+      } else setView((cur) => ({ ...cur })); // write the address for the screen we're on
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, catalogTried, courses]);
+  }, [ready, catalogTried, courses, studentId, family]);
 
   useEffect(() => {
     if (!ROUTES || !ready || pendingPath.current) return;
+    if (skipResolvingPathWrite.current) {
+      skipResolvingPathWrite.current = false;
+      return;
+    }
     const key = pageKey(view);
-    const path = viewToPath(view, routeCourses(), bankCourse);
+    const path = withGuestSession(viewToPath(view, routeCourses(), bankCourse));
     const id = "courseId" in view ? view.courseId : view.name === "overview" ? view.catalogId : null;
     const courseTitle = id ? routeCourses().find((c) => c.id === id)?.title : null;
     const title = courseTitle ? `${courseTitle} · Erudior` : "Erudior";
@@ -395,6 +579,7 @@ export default function App() {
     if (entry) setSeo({ title, description: entry.description, url: courseUrl(entry.title), jsonLd: view.name === "overview" ? courseJsonLd(entry) : undefined });
     else if (view.name === "library")
       setSeo({ title: "Free courses · Erudior", description: `Free courses: ${CATALOG.map((e) => e.title).join(", ")}.`, url: APP_ORIGIN + "/" });
+    else if (view.name === "communityCourse") setSeo({ title: "Community course · Erudior", description: "Read a community course and start learning without an account.", url: APP_ORIGIN + "/community/" + encodeURIComponent(view.id) });
     else if (view.name === "community") setSeo({ title: "Community courses · Erudior", description: "Free courses written by people who use Erudior.", url: APP_ORIGIN + "/community" });
     else if (view.name === "legal") setSeo({ title: `${LEGAL_TITLES[view.page]} · Erudior`, url: `${SITE_ORIGIN}/${view.page}` });
     else setSeo({ title, noindex: true });
@@ -408,7 +593,7 @@ export default function App() {
       const position = navigationPosition(displayedHistory.current.state) ?? newNavigationPosition();
       if (push) position.index += 1;
       try {
-        fn.call(window.history, withNavigationPosition({ erudiorView: view }, position), "", path);
+        fn.call(window.history, withNavigationPosition(TEMPORARY_GUEST ? {} : { erudiorView: view }, position), "", path);
       } catch {
         fn.call(window.history, withNavigationPosition({}, position), "", path); // retain routing position if view state can't be stored
       }
@@ -433,11 +618,12 @@ export default function App() {
         displayedHistory.current = restored.displayed;
         return;
       }
+      pendingPath.current = null;
       displayedHistory.current = { url: window.location.pathname + window.location.search + window.location.hash, state: e.state };
       const saved = (e.state as { erudiorView?: View } | null)?.erudiorView;
       const v = saved
         ? restorable(saved)
-        : pathToView(window.location.pathname, window.location.search, myCourses, CATALOG) ?? { name: "library" };
+        : pathToView(window.location.pathname, window.location.search, family ? courses : myCourses, CATALOG) ?? { name: "library" };
       fromPop.current = true;
       setView(v);
     };
@@ -457,6 +643,9 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, view, banksKey, studentId]);
 
+  const [reviewDigests, setReviewDigests] = useState<Map<Course, string>>(new Map());
+  useEffect(() => { let live = true; Promise.all(courses.filter(c => c.community).map(async c => [c, await parentCourseDigest(c)] as const)).then(entries => { if (live) setReviewDigests(new Map(entries)); }).catch(() => { if (live) setReviewDigests(new Map()); }); return () => { live = false; }; }, [courses]);
+
   const enroll = useCallback(
     async (id: string) => {
       const p = progressRef.current;
@@ -467,17 +656,29 @@ export default function App() {
   );
 
   const saveCourse = useCallback(
-    async (course: Course) => {
+    async (course: Course, options?: { enroll?: boolean }) => {
+      renderSessionGuard();
+      // Bank/deck editors share this boundary: no alternate editor may persist
+      // deletion of a question still used by a lesson or reading section.
+      const issues = validateCourseIntegrity(course);
+      if (issues.length) throw Error("Cannot save course: " + issues.map(issue => `${issue.path}: ${issue.message}`).join("; "));
       await store.saveCourse(course);
-      await enroll(course.id);
+      renderSessionGuard();
+      // Shared authored imports must not mutate whichever learner switches in while I/O is pending.
+      if (options?.enroll !== false) await enroll(course.id);
       await reload();
     },
-    [reload, enroll],
+    [reload, enroll, sessionEpoch],
   );
 
   const assignmentBlock = useCallback(
     (courseId: string): string | null => {
       if (!student) return null;
+      const source = courses.find(c => c.id === courseId);
+      if (!isClassroom(family) && (source?.community || courseId.startsWith("community-"))) {
+        const assignment = student.assigned.find(a => a.courseId === courseId);
+        if (!source || !hasParentCourseReview(student.id, source, reviewDigests.get(source), assignment?.communityReview)) return "Parent review required for this exact community version";
+      }
       if (isClassroom(family)) {
         const mine = classesOf(family!, student.id);
         if (mine.some((c) => c.assignments.some((a) => a.courseId === courseId) || c.freeChoice)) return null;
@@ -494,25 +695,23 @@ export default function App() {
       }
       return student.freeChoice ? null : "Not assigned yet; ask a parent";
     },
-    [student, courses, family],
+    [student, courses, family, reviewDigests],
   );
 
-  const studentSelectionRequest = useRef(0);
-  const chooseStudent = useCallback(
+  const openAuthorizedStudent = useCallback(
     async (id: string) => {
-      const target = { name: "library" as const };
-      if (!requestNavigation("app", target)) return;
+      assertLocalLearner(id);
+      const lease = captureLocalSession();
+      adultAccess.current = {unlocked:false,parentView:false}; setParentUnlocked(false);
       const request = ++studentSelectionRequest.current;
+      if (!await store.competencyProfileExists(id)) throw Error("This learner no longer exists.");
       // Read the selected files without changing the active student's storage context.
-      const raw = await store.loadState(`progress-${id}`);
-      let p = store.emptyProgress();
-      try { if (raw) p = { ...p, ...JSON.parse(raw) }; } catch { /* Match storage's corrupt-file fallback. */ }
-      const migrated = migrateVocabKeys(p, courses);
-      if (migrated !== p) {
-        p = migrated;
-        await store.saveState(`progress-${id}`, JSON.stringify(p));
-      }
-      if (request !== studentSelectionRequest.current || !requestNavigation("app", target)) return;
+      const guard = async () => { lease(); assertLocalLearner(id); if (request !== studentSelectionRequest.current || !await store.competencyProfileExists(id)) throw Error("Learner changed or was deleted during selection."); };
+      await guard();
+      let p = await store.loadProfileProgress(id);
+      if (migrateVocabKeys(p,courses) !== p) p = await store.updateProfileProgress(id,async current => { await guard(); return migrateVocabKeys(current,courses); });
+      await guard();
+      if (request !== studentSelectionRequest.current) return;
       store.useStudentFiles(id);
       progressRef.current = p;
       setProgressState(p);
@@ -523,62 +722,606 @@ export default function App() {
     [courses],
   );
 
-  const setFamily = useCallback(async (f: Family) => {
-    await saveFamily(f);
-    setFamilyState(f);
+  const persistGateFamily = async (next: Family) => {
+    const expected = family;
+    if (!expected || (!gateRef.current && (viewRef.current.name !== "parent" || adultAccess.current.unlocked))) throw Error("Authentication screen changed. Try again.");
+    if (JSON.stringify({...next,parent:expected.parent}) !== JSON.stringify(expected)) throw Error("Authentication cannot change learner settings.");
+    const currentGate = gateRef.current;
+    await store.updateFamilyAuthentication(expected,next,()=>{
+      if(currentGate !== gateRef.current || (!currentGate && (viewRef.current.name !== "parent" || adultAccess.current.unlocked))) throw Error("Authentication screen changed. Try again.");
+    });
+    setFamilyState(next);
+  };
+  const lockWorkspace = useCallback(() => {
+    lockLocalSession(); ++studentSelectionRequest.current;
+    adultAccess.current = {unlocked:false,parentView:false};
+    documentUnlockedCredential.current = null;
+    lockedRef.current = true; setLocalLocked(true);
+    sensitiveResolver.current?.(null); sensitiveResolver.current=null;
+    setGate(null); refreshLocalSession(x=>x+1);
   }, []);
+  const chooseStudent = async (id: string) => {
+    if (!family?.students.some(s=>s.id===id)) throw Error("This learner no longer exists.");
+    if (!requestNavigation("app", {name:"library"})) return;
+    lockWorkspace(); setGate({kind:"learner",id});
+  };
+  const reauthenticateAdult = (): Promise<(() => void) | null> => {
+    if (!family || !adultAccess.current.unlocked || !adultAccess.current.parentView || sensitiveResolver.current) return Promise.resolve(null);
+    lockWorkspace(); setGate({kind:"sensitive"});
+    return new Promise(resolve => { sensitiveResolver.current=resolve; });
+  };
+  const finishGate = async (f: Family) => {
+    const requested = gateRef.current;
+    if (!requested) return;
+    try {
+      const fresh = await loadFamily();
+      if (!fresh || JSON.stringify(fresh.parent) !== JSON.stringify(f.parent)) throw Error("Family changed. Authenticate again.");
+      if (requested !== gateRef.current) return;
+      bindLocalSessionCredential(f.parent);
+      documentUnlockedCredential.current = JSON.stringify(f.parent.password);
+      if (requested.kind === "sensitive" || (requested.kind === "resume" && viewRef.current.name === "parent")) {
+        unlockLocalAdult(); adultAccess.current={unlocked:true,parentView:true}; setParentUnlocked(true);
+      } else {
+        const id = requested.id ?? studentId;
+        if (!id || !fresh.students.some(s=>s.id===id) || !await store.competencyProfileExists(id)) throw Error("Learner no longer exists. Reload Family.");
+        if (requested !== gateRef.current) return;
+        unlockLocalLearner(id); setParentUnlocked(false);
+        if (requested.kind === "learner") await openAuthorizedStudent(id);
+      }
+      lockedRef.current=false; setLocalLocked(false); setGate(null); refreshLocalSession(x=>x+1);
+      const resolve=sensitiveResolver.current; sensitiveResolver.current=null;
+      resolve?.(captureLocalSession());
+    } catch(e) { toast((e as Error).message); lockWorkspace(); }
+  };
+  useEffect(()=>{ if(localLocked && !gate) document.querySelector<HTMLButtonElement>(".local-session-lock button")?.focus(); },[localLocked,gate]);
+  useEffect(() => registerNavigationGuard(() => !lockedRef.current && !gateRef.current), []);
+  useEffect(()=>{
+    const protectHiddenShortcuts=(event:KeyboardEvent)=>{
+      if(!lockedRef.current && !gateRef.current && !concealedRef.current)return;
+      if(event.target instanceof Element && event.target.closest(".local-session-lock"))return;
+      event.preventDefault(); event.stopImmediatePropagation();
+      if(event.key==="Tab")document.querySelector<HTMLElement>(".local-session-lock input:not([disabled]), .local-session-lock button:not([disabled])")?.focus();
+    };
+    window.addEventListener("keydown",protectHiddenShortcuts,true);
+    window.addEventListener("keyup",protectHiddenShortcuts,true);
+    return()=>{window.removeEventListener("keydown",protectHiddenShortcuts,true);window.removeEventListener("keyup",protectHiddenShortcuts,true);};
+  }, []);
+
+  const lifecycleContext = useRef({family: !!family, active: !!studentId || parentUnlocked});
+  lifecycleContext.current = {family: !!family, active: !!studentId || parentUnlocked};
+  const nativeLifecycleConsumer = useRef(createNativeLifecycleConsumer());
+  const lifecycleActivityAt = useRef(Date.now());
+  useEffect(() => { lifecycleActivityAt.current = Date.now(); }, [sessionEpoch]);
+  useEffect(() => {
+    let hiddenAt:number|null=null, nativePaused=false;
+    const relevant=()=>lifecycleContext.current.family && lifecycleContext.current.active;
+    const activity=()=>{ if (!document.hidden && !lockedRef.current) lifecycleActivityAt.current=Date.now(); };
+    const conceal=()=>{ if(!relevant())return; concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
+    const reveal=()=>{ if(document.hidden || nativePaused)return; if(relevant() && hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; concealedRef.current=false; setConcealed(false); };
+    const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
+    // Stable across auth/learner renders. Cancel only after flushSync commits the
+    // validated event, so native can safely remove its own concealment shield.
+    const nativeLifecycle=(event:Event)=>{
+      if(!event.cancelable)return;
+      const detail=(event as CustomEvent).detail;
+      if(nativeLifecycleConsumer.current(detail,{
+        conceal:()=>{nativePaused=true;conceal();},
+        reveal:()=>{nativePaused=false;reveal();},
+        lock:()=>{if(lifecycleContext.current.family && !lockedRef.current)lockWorkspace();},
+      },flushSync))event.preventDefault();
+    };
+    window.addEventListener("erudior-native-lifecycle",nativeLifecycle);
+    const tick=window.setInterval(()=>{ if(!relevant() || lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lifecycleActivityAt.current>=10*60_000)lockWorkspace(); },1000);
+    document.addEventListener("visibilitychange",visibility);
+    window.addEventListener("blur",conceal); window.addEventListener("focus",reveal);
+    for(const name of ["pointerdown","keydown","touchstart"])document.addEventListener(name,activity,{passive:true});
+    return()=>{window.removeEventListener("erudior-native-lifecycle",nativeLifecycle);window.clearInterval(tick);document.removeEventListener("visibilitychange",visibility);window.removeEventListener("blur",conceal);window.removeEventListener("focus",reveal);for(const name of ["pointerdown","keydown","touchstart"])document.removeEventListener(name,activity);};
+  }, [lockWorkspace]);
+
+  useEffect(() => {
+    if (!family || localLocked || gate || localSessionLocked()) return;
+    let alive=true, checking=false;
+    const check=async()=>{
+      if(checking)return;checking=true;
+      try {
+        const current=await loadFamily();
+        if(!alive)return;
+        if(!current || (studentId && (!current.students.some(s=>s.id===studentId) || !await store.competencyProfileExists(studentId)))) { lockWorkspace(); return; }
+        try { assertLocalSessionCredential(current.parent); }
+        catch { setFamilyState(current); lockWorkspace(); }
+      } catch { if(alive)lockWorkspace(); }
+      finally {checking=false;}
+    };
+    const timer=window.setInterval(()=>void check(),5000);
+    window.addEventListener("focus",check);
+    return()=>{alive=false;window.clearInterval(timer);window.removeEventListener("focus",check);};
+  }, [family,studentId,localLocked,gate,sessionEpoch,lockWorkspace]);
+
+  const setFamily = useCallback(async (f: Family, authorization?: () => void) => {
+    let expected = family;
+    if (!expected) throw Error("Family changed. Reopen the workspace.");
+    if (authorization) {
+      authorization(); const fresh = await loadFamily(); authorization();
+      if (!fresh || JSON.stringify({...fresh,parent:expected.parent}) !== JSON.stringify(expected) || JSON.stringify(fresh.parent.password) !== JSON.stringify(expected!.parent.password) || JSON.stringify(fresh.parent.pin) !== JSON.stringify(expected.parent.pin) || JSON.stringify(fresh.parent.recovery) !== JSON.stringify(expected.parent.recovery)) throw Error("Family changed during authentication. Reopen settings.");
+      const requestedParent = f.parent;
+      f = {...f,parent:{...fresh.parent,...requestedParent,failures:fresh.parent.failures,lockedUntil:fresh.parent.lockedUntil}};
+      expected=fresh;
+    }
+    const wasUnlocked = adultAccess.current.unlocked;
+    const lease = authorization ?? renderSessionGuard;
+    const assertScope = () => {
+      lease(); assertLocalAdult();
+      if (viewRef.current.name !== "parent") throw Error("Reopen the supervising-adult area before changing family settings.");
+      if (wasUnlocked && (!adultAccess.current.unlocked || !adultAccess.current.parentView || documentUnlockedCredential.current !== JSON.stringify(expected!.parent.password))) throw Error("Adult access changed. Lock and reopen Family.");
+      if (!wasUnlocked && JSON.stringify({...f,parent:expected!.parent}) !== JSON.stringify(expected)) throw Error("Unlock Family before changing learner plans.");
+    };
+    assertScope();
+    await store.updateState("family", old => {
+      assertScope();
+      const current = old ? JSON.parse(old) as Family : null;
+      if (!current || JSON.stringify({...current,reminders:current.reminders ?? [],done:current.done ?? []}) !== JSON.stringify(expected)) throw Error("Family changed in another view. Reload before saving; your changes were not written.");
+      return JSON.stringify(f);
+    });
+    setFamilyState(f);
+    if (JSON.stringify(f.parent.password)!==JSON.stringify(expected.parent.password) || JSON.stringify(f.parent.pin)!==JSON.stringify(expected.parent.pin)) lockWorkspace();
+  }, [family, sessionEpoch, lockWorkspace]);
 
   // Leaving the parent area locks it again.
   useEffect(() => {
-    if (view.name !== "parent") setParentUnlocked(false);
-  }, [view.name]);
+    if (view.name !== "parent" && parentUnlocked && !localLocked) {
+      if(studentId) unlockLocalLearner(studentId); else lockLocalSession();
+      setParentUnlocked(false); refreshLocalSession(x=>x+1);
+    }
+  }, [view.name, parentUnlocked, localLocked, studentId]);
 
   const addCourse = useCallback(
-    async (id: string) => {
+    async (id: string, requestedPath?: string) => {
+      if (courseOpening.current?.view === viewRef.current && courseOpening.current.profile === store.activeStudent() && courseOpening.current.selection === studentSelectionRequest.current) return;
       const entry = CATALOG.find((e) => e.id === id);
       if (!entry) return;
       const needs = prerequisites(entry, progressRef.current).filter((r) => !r.done);
-      if (needs.length) {
+      if (!publicLearning && needs.length) {
         toast(`Finish ${needs.map((r) => r.title).join(" and ")} first`);
         return;
       }
       const blocked = assignmentBlock(id);
-      if (blocked) {
-        toast(blocked);
-        return;
-      }
+      if (blocked) { toast(blocked); return; }
+      const initialView = viewRef.current, profile = store.activeStudent(), selection = studentSelectionRequest.current;
+      const current = () => viewRef.current === initialView && store.activeStudent() === profile && studentSelectionRequest.current === selection;
+      const request = { view: initialView, profile, selection };
+      courseOpening.current = request; setCourseOpenError(null);
       try {
-        // Another student may already have it; their copy (and any edits) is shared.
-        if (!courses.some((c) => c.id === id)) await store.saveCourse(normalizeCourse(await loadCatalogCourse(entry)));
+        // Only the signed catalog loader can supply an official course. A link never
+        // supplies course bytes, an approval, a learner identity or enrollment authority.
+        if (!courses.some((c) => c.id === id)) {
+          const downloaded = normalizeCourse(await loadCatalogCourse(entry));
+          if (!current()) return;
+          if (HOMESCHOOL && JSON.stringify(await loadFamily()) !== JSON.stringify(family)) throw Error("Family assignments changed. Reopen the course.");
+          if (!current()) return;
+          await store.saveCourse(downloaded);
+        }
+        if (HOMESCHOOL && JSON.stringify(await loadFamily()) !== JSON.stringify(family)) throw Error("Family assignments changed. Reopen the course.");
+        if (!current()) return;
         await enroll(id);
+        if (!current()) return;
         await reload();
-        const target = { name: "course" as const, courseId: id };
+        if (!current()) return;
+        const linked = requestedPath ? pathToView(requestedPath, "", [entry], []) : null;
+        const target = linked && "courseId" in linked && linked.courseId === id ? linked : { name: "course" as const, courseId: id };
         if (requestNavigation("app", target)) setView(target);
       } catch (e) {
-        toast(`Couldn't add "${entry.title}": ${String(e)}`);
-      }
+        if (current()) setCourseOpenError(`Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`);
+      } finally { if (courseOpening.current === request) courseOpening.current = null; }
     },
-    [reload, toast, assignmentBlock, courses, enroll],
+    [reload, toast, assignmentBlock, courses, enroll, publicLearning, family],
   );
 
-  const addCommunityCourse = async (id: string) => {
+  const addCommunityCourse = async (id: string, throwOnError = false) => {
+    // A public detail link is discovery, never enrollment or family approval.
+    // Do not let an in-flight download install into a newly selected profile.
+    if (family) { toast("Review community courses with the supervising adult before adding them to a learning plan."); return; }
+    const initialView = viewRef.current, profile = store.activeStudent(), selection = studentSelectionRequest.current;
+    const current = () => viewRef.current === initialView && store.activeStudent() === profile && studentSelectionRequest.current === selection;
+    if (courseOpening.current?.view === initialView) return;
+    const request = { view: initialView, profile, selection };
+    courseOpening.current = request;
     try {
       const course = normalizeCourse(await downloadCommunityCourse(id));
+      if (!current()) return;
+      if (HOMESCHOOL && await loadFamily()) throw Error("Family access changed. Reopen the course with the supervising adult.");
+      if (!current()) return;
       await saveCourse(course);
+      if (!current()) return;
       const target = { name: "course" as const, courseId: course.id };
       if (requestNavigation("app", target)) setView(target);
     } catch (e) {
-      toast(`Couldn't add the course: ${(e as Error).message}`);
-    }
+      if (current()) {
+        toast(`Couldn't add the course: ${(e as Error).message}`);
+        if (throwOnError) throw e;
+      }
+    } finally { if (courseOpening.current === request) courseOpening.current = null; }
   };
 
+  const classroomAccess = useMemo(() => {
+    const guard = captureLocalSession();
+    const selected = studentId, selection = studentSelectionRequest.current;
+    const currentFamily = async () => {
+      guard();
+      if (!HOMESCHOOL || TEMPORARY_GUEST) throw Error("Classroom collaboration is available in the configured local app.");
+      const current = await loadFamily();
+      guard();
+      if (!current || !isClassroom(current)) throw Error("Open a configured local Classroom workspace.");
+      assertLocalSessionCredential(current.parent);
+      const deleted = validateClassroomSubmissionState(await store.loadState("classroom-submissions")).deletedStudentIds ?? [];
+      guard();
+      if (current.students.some(s => deleted.includes(s.id))) throw Error("Learner removal is still in progress. Finish removal before reopening class collaboration.");
+      return current;
+    };
+    const authorizeAdult = async () => {
+      guard(); assertLocalAdult();
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the teacher area before opening class collaboration.");
+      const current = await currentFamily();
+      if (documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Teacher credentials changed. Lock and reopen Classroom.");
+      guard(); assertLocalAdult();
+      return {authorityKey: JSON.stringify(current.parent)};
+    };
+    const peerSources = async (classId: string) => {
+      await authorizeAdult();
+      const current = await currentFamily(), receipts = await loadClassroomSubmissions();
+      await authorizeAdult();
+      if (JSON.stringify(current) !== JSON.stringify(await currentFamily())) throw Error("Class membership changed. Reload the source selection.");
+      return classroomPeerSourceOptions(current,classId,receipts);
+    };
+    const workflows = createClassroomWorkflowStore({
+      read: () => store.loadState("classroom-workflows"),
+      update: change => store.updateState("classroom-workflows",change),
+      family: currentFamily,
+      authorizeAdult,
+      learnerContext: async () => {
+        guard(); assertLocalLearner(selected);
+        if (!selected || store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("Learner changed. Reopen My classroom.");
+        const current = await currentFamily();
+        if (!current.students.some(s => s.id === selected) || !await store.competencyProfileExists(selected)) throw Error("This learner is no longer available.");
+        guard(); assertLocalLearner(selected);
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("Learner changed. Reopen My classroom.");
+        return {studentId:selected};
+      },
+      resolvePeerSource: async (classId,key) => resolveClassroomPeerSource(await peerSources(classId),key),
+      peerSourceCurrent: async (classId,source) => {
+        const current = await currentFamily();
+        const receipts = await loadClassroomSubmissions();
+        guard();
+        if (JSON.stringify(current) !== JSON.stringify(await currentFamily())) return false;
+        const exact = classroomPeerSourceOptions(current,classId,receipts).find(o => o.key === source.key);
+        return !!exact && exact.studentId === source.studentId && exact.receiptId === source.receiptId && exact.version === source.version && exact.text === source.text;
+      },
+      now: () => new Date().toISOString(),
+    });
+    return {workflows,peerSources};
+  }, [studentId, sessionEpoch]);
+
+  const competencyAdultStore = createCompetencyStore({
+    readProgress: store.loadProfileProgress,
+    updateProgress: store.updateProfileProgress,
+    studentExists: store.competencyProfileExists,
+    authorize: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review learning paths.");
+      const current = await loadFamily();
+      if (!current || !current.students.some(s => s.id === id) || !adultAccess.current.unlocked || !adultAccess.current.parentView)
+        throw Error("Adult access or learner membership changed; reopen the learning path.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent") };
+    },
+    now: () => new Date().toISOString(),
+  });
+  const competencySupervisor: CompetencySupervisorAccess = {
+    load: async id => {
+      const graph = resolveCompetencyEvidence(FOUNDATION_COMPETENCIES, courses, { allowMissingCourses: true });
+      await competencyAdultStore.sync(id, graph, courses);
+      return competencyAdultStore.load(id);
+    },
+    decide: async (id, input) => {
+      if (!FOUNDATION_COMPETENCIES.some(s => s.id === input.skillId)) throw Error("Unknown skill.");
+      const fresh = await competencyAdultStore.decide(id, input);
+      if (store.activeStudent() === id) {
+        const merged = { ...progressRef.current, competencies: fresh.competencies };
+        progressRef.current = merged; setProgressState(merged);
+      }
+      return fresh;
+    },
+  };
+
+  const interventionSupervisor = createInterventionStore({
+    read: () => store.loadState("interventions"),
+    update: change => store.updateState("interventions", change),
+    readProgress: store.loadProfileProgress,
+    readCourses: async () => (await store.listCourses()).courses,
+    now: () => new Date().toISOString(),
+    authorize: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review interventions.");
+      const current = await loadFamily();
+      if (!current || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access or learner membership changed. Reopen diagnostics.");
+      return {actorId:"local-supervising-adult",actorName:current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"),authorityKey:JSON.stringify(current.parent.password)};
+    },
+  });
+  const interventionTasks = createInterventionTaskAccess({
+    context: async () => {
+      const profileId = store.activeStudent(), current = await loadFamily();
+      if (store.activeStudent() !== profileId || (!current && profileId !== null) || (current && (!profileId || !current.students.some(s => s.id === profileId)))) throw Error("Select a current learner profile before opening support tasks.");
+      return {profileId,scope:JSON.stringify(current ? {mode:current.mode,student:current.students.find(s=>s.id===profileId),classes:current.classes,password:current.parent.password} : null)};
+    },
+    readInterventions: () => store.loadState("interventions"),
+    readProgress: store.loadProfileProgress,
+    updateProgress: store.updateProfileProgress,
+    readCourses: async () => (await store.listCourses()).courses,
+    allowed: async (courseId, context, p, installed) => {
+      const current = await loadFamily();
+      if (current && context.profileId) {
+        const learner = current.students.find(s => s.id === context.profileId);
+        if (!learner) return "This learner profile no longer exists.";
+        if (!p.enrolled?.includes(courseId)) return "Open this assigned course from the library before starting its support activity.";
+        if (isClassroom(current)) {
+          if (!classesOf(current, learner.id).some(c => c.freeChoice || c.assignments.some(a => a.courseId === courseId))) return "This course is not assigned in your class.";
+        } else {
+          const finished = (id:string) => courseFinished(id,p,installed.find(c=>c.id===id)).done;
+          if (!currentAssignments(learner,finished).has(courseId) && !finished(courseId) && !learner.freeChoice) return "This course is not currently assigned. Ask the supervising adult.";
+        }
+      }
+      const entry = CATALOG.find(c => c.id === courseId);
+      if (entry && prerequisites(entry,p).some(r => !r.done)) return "Course prerequisites are not yet satisfied. Ask the supervising adult to review them.";
+      return null;
+    },
+  });
+
+  const advancedAssessment = createAdvancedAssessmentStore({
+    read: () => store.loadState("advanced-assessment"),
+    update: change => store.updateState("advanced-assessment", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational advanced assessments.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen advanced assessments.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening advanced assessments.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const scientificWorkspace = createScientificWorkspaceStore({
+    read: () => store.loadState("scientific-workspace"),
+    update: change => store.updateState("scientific-workspace", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational scientific workspaces.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen scientific workspaces.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening scientific workspaces.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const branchingEngine = createBranchingEngineStore({
+    read: () => store.loadState("branching-engine"),
+    update: change => store.updateState("branching-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review fictional branching scenarios.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen branching cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening branching cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const instructionalEvidence = createInstructionalEvidenceStore({
+    read: () => store.loadState("instructional-evidence"),
+    update: change => store.updateState("instructional-evidence", change),
+    readCourses: async () => (await store.listCourses()).courses,
+    readProgress: async id => {
+      const raw = await store.loadState(`progress-${id}`);
+      return raw === null ? store.emptyProgress() : { ...store.emptyProgress(), ...JSON.parse(raw) };
+    },
+    readRecords: id => store.loadState(`records-${id}`),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review instructional workload evidence.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen instructional evidence.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening instructional evidence.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const transactionEngine = createTransactionEngineStore({
+    read: () => store.loadState("transaction-engine"),
+    update: change => store.updateState("transaction-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational transaction simulations.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen transaction cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening transaction cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const documentEngine = createDocumentEngineStore({
+    read: () => store.loadState("document-engine"),
+    update: change => store.updateState("document-engine", change),
+    now: () => new Date().toISOString(),
+    authorizeAdult: async id => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to review educational documents.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || (id && !current.students.some(s => s.id === id)) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen document cases.");
+      return { actorId: "local-supervising-adult", actorName: current.school?.administrator?.trim() || (isClassroom(current) ? "Teacher" : "Parent"), authorityKey: JSON.stringify({password: current.parent.password, students: current.students.map(s => s.id)}) };
+    },
+    learnerContext: async () => {
+      const selected = store.activeStudent(), current = await loadFamily();
+      if (!selected || !current || !current.students.some(s => s.id === selected) || store.activeStudent() !== selected) throw Error("Select a current learner profile before opening document cases.");
+      return { studentId: selected, authorityKey: JSON.stringify({student: current.students.find(s => s.id === selected), password: current.parent.password}) };
+    },
+  });
+
+  const learnerPrivacy = useMemo(() => createLearnerPrivacyStore({
+    read: () => store.loadState("learner-privacy"),
+    update: change => store.updateState("learner-privacy", change),
+    courses: async () => (await store.listCourses()).courses,
+    progress: id => store.loadProfileProgress(id),
+    updateProgress: (id, change) => store.updateProfileProgress(id, change),
+    anonymous: {
+      read: () => store.readAnonymousPrivacy(),
+      erase: (expected, guard) => store.eraseAnonymousPrivacy(expected, guard),
+      recover: (expected, progress, session, files, guard) => store.recoverAnonymousPrivacy(expected, progress, session, files, guard),
+      sources: async () => {
+        const [courses, banks] = await Promise.all([store.listCourses(), store.listBanks()]);
+        return { courses: courses.courses, banks: [...banks.banks, ...courses.courses.flatMap(course => course.banks)] };
+      },
+      changed: async progress => {
+        // Display only: deletion invalidates this realm's write lease until explicit reload.
+        if (store.activeStudent() === null && !await loadFamily()) {
+          progressRef.current = progress; setProgressState(progress); setResumable(null);
+        }
+      },
+    },
+    authorize: async id => {
+      // Anonymous practice has no account or upload identity. Family privacy actions require
+      // the current unlocked adult, never a learner selection or a community author cookie.
+      const current = await loadFamily();
+      if (id === null) {
+        if (current || store.activeStudent() !== null) throw Error("Anonymous practice scope changed.");
+        return "anonymous-local-device";
+      }
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area for learner privacy controls.");
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !current.students.some(s => s.id === id) || !await store.competencyProfileExists(id) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Reopen privacy controls.");
+      return JSON.stringify({ password: current.parent.password, students: current.students.map(s => s.id) });
+    },
+    // No production remote identity provider is configured. No network call is made here.
+  }), [sessionEpoch]);
+
+  const presentationLibrary = createPresentationStore({
+    read: () => store.loadState("presentations"),
+    update: change => store.updateState("presentations", change),
+    authorize: async () => {
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area to edit presentations.");
+      const current = await loadFamily();
+      if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed. Reopen the presentation library.");
+      return JSON.stringify(current.parent.password);
+    },
+  });
+
   const api: AppApi = {
+    publicLearning,
+    classroomWorkflows: classroomAccess.workflows,
+    classroomPeerSources: classroomAccess.peerSources,
+    learnerPrivacy,
     catalog: catalogInfo,
     banks: allBanks,
     courses: myCourses,
     progress,
+    competencySync,
+    retryCompetencySync: () => setCompetencyRetry(n => n + 1),
+    competencySupervisor,
+    interventionSupervisor,
+    instructionalSupervisor: instructionalEvidence.supervisor,
+    instructionalLearner: instructionalEvidence.learner,
+    advancedAssessmentSupervisor: advancedAssessment.supervisor,
+    advancedAssessmentLearner: advancedAssessment.learner,
+    scientificSupervisor: scientificWorkspace.supervisor,
+    scientificLearner: scientificWorkspace.learner,
+    branchingSupervisor: branchingEngine.supervisor,
+    branchingLearner: branchingEngine.learner,
+    transactionSupervisor: transactionEngine.supervisor,
+    transactionLearner: transactionEngine.learner,
+    documentSupervisor: documentEngine.supervisor,
+    documentLearner: documentEngine.learner,
+    loadInterventionTasks: () => interventionTasks.load(),
+    importInterventionTask: async () => {
+      renderSessionGuard();
+      const context = await interventionTasks.context();
+      const raw = await store.pickJsonFile(); if (raw === null) return false;
+      const task = parseInterventionTask(raw);
+      const current = await loadFamily();
+      const name = current?.students.find(s=>s.id===context.profileId)?.name ?? "this local learner";
+      if (!await store.confirmAction(`Import support instructions for ${name}? Goal: ${task.goal}. This file does not authenticate its sender or confer grades. Confirm it was intended for this learner.`, "Import learner support task")) return false;
+      await interventionTasks.install(task,context);
+      if (store.activeStudent() === context.profileId) {
+        const fresh = await store.loadProfileProgress(context.profileId);
+        if (store.activeStudent() === context.profileId) {const next={...progressRef.current,interventionTasks:fresh.interventionTasks};progressRef.current=next;setProgressState(next);}
+      }
+      return true;
+    },
+    exportInterventionTask: async (id,planId) => {
+      renderSessionGuard();
+      const state = await interventionSupervisor.load(id), plan = state.plans.find(p=>p.id===planId);
+      if (!plan || interventionStatus(state,planId) !== "active") throw Error("Only an active plan can be shared as a learner task.");
+      await validateInterventionActivities((await store.listCourses()).courses,plan.skillId,plan.activities);
+      const refreshed = await interventionSupervisor.load(id);
+      const currentPlan=refreshed.plans.find(p=>p.id===planId);
+      if (!currentPlan || interventionStatus(refreshed,planId) !== "active" || !sameInterventionTask(taskFromPlan(currentPlan),taskFromPlan(plan))) throw Error("The plan changed while preparing its handoff. Reload it.");
+      await store.exportText(JSON.stringify(taskFromPlan(currentPlan)),"erudior-support-task.json","Learner support task");
+    },
+    launchInterventionTask: async (task,activity) => {
+      renderSessionGuard();
+      const context = await interventionTasks.context();
+      if (activity.kind === "practice" && resumable && !await store.confirmAction("Starting this assigned practice replaces the unfinished session. Continue?", "Start assigned practice")) return;
+      const ready = await interventionTasks.prepare(task,activity);
+      if (ready.context.profileId !== context.profileId || ready.context.scope !== context.scope) throw Error("Learner changed while confirming the activity. Reopen it.");
+      let target: View;
+      if (activity.kind === "lesson") target={name:"lesson",courseId:activity.courseId,lessonId:activity.lessonId!};
+      else {
+        const source=ready.courses.find(c=>c.id===activity.courseId)?.banks.find(b=>b.id===activity.bankId);
+        if (!source) throw Error("The assigned practice bank is unavailable.");
+        const ids=new Set(activity.questionIds), bank={...source,questions:source.questions.filter(q=>ids.has(q.id))};
+        target={name:"run",session:{...startPractice(bank,ready.progress,{count:Math.min(10,bank.questions.length),topics:[],sections:[],filter:"all",shuffleChoices:true}),intervention:{skillId:task.skillId,baseline:ready.mastery}}};
+      }
+      if (!requestNavigation("app",target)) return;
+      if (activity.kind === "practice" && resumable) {
+        await store.saveState(context.profileId ? `session-${context.profileId}` : "session",null);
+        const current=await interventionTasks.context();
+        if (current.profileId!==context.profileId||current.scope!==context.scope) throw Error("Learner changed. The activity was not opened.");
+        // Revalidate after asynchronous session cleanup before exposing question content.
+        await interventionTasks.prepare(task,activity);
+        setResumable(null);
+      }
+      if (requestNavigation("app",target)) {adultAccess.current={unlocked:false,parentView:false};setView(target);}
+    },
+    presentationLibrary,
+    validatePresentation: async deck => {
+      renderSessionGuard();
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before delivery.");
+      const before = await loadFamily();
+      const fresh = await store.listCourses();
+      const after = await loadFamily();
+      if (!before || !after || JSON.stringify(before.parent.password) !== JSON.stringify(after.parent.password) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority changed during source verification.");
+      return presentationProblems(deck, fresh.courses);
+    },
     go: (v) => {
+      if (lockedRef.current || gateRef.current) return;
       if (!requestNavigation("app", v)) return;
+      pendingPath.current = null;
+      if (family && v.name !== "parent" && adultAccess.current.unlocked) {
+        if (studentId) unlockLocalLearner(studentId); else lockLocalSession();
+        refreshLocalSession(x=>x+1);
+      }
+      if (v.name !== "parent") { adultAccess.current = { unlocked: false, parentView: false }; setParentUnlocked(false); }
       // Starting a new session replaces the saved one, so ask first.
       if (v.name === "run" && !v.initial && resumable) {
         const s = runSummary(resumable);
@@ -590,10 +1333,10 @@ export default function App() {
           )
           .then(async (ok) => {
             if (!ok || !requestNavigation("app", v)) return;
-            await store.saveSessionState(null);
+            await saveLearnerSession(null);
             setResumable(null);
             if (requestNavigation("app", v)) setView(v);
-          });
+          }).catch(e => toast((e as Error).message));
         return;
       }
       setView(v);
@@ -602,9 +1345,93 @@ export default function App() {
     reload,
     setProgress,
     updateProgress: (fn) => setProgress(fn(progressRef.current)),
+    saveLearnerSession,
+    updateLearningPathways: async (fn) => {
+      renderSessionGuard();
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const assertProfile = async () => {
+        renderSessionGuard();
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the pathway.");
+        if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+      };
+      await assertProfile();
+      const fresh = await store.updateProfileProgress(selected, async current => {
+        await assertProfile();
+        if (selected === null && (current.anonymousGeneration ?? 0) !== generation) throw Error("Local learning data changed. Reload before editing a pathway.");
+        const paths = parseLearningPathways(fn(parseLearningPathways(current.learningPathways)));
+        return { ...current, learningPathways: paths };
+      });
+      if (store.activeStudent() === selected && studentSelectionRequest.current === selection
+          && (selected !== null || (progressRef.current.anonymousGeneration ?? 0) === generation)) {
+        const merged = { ...progressRef.current, learningPathways: fresh.learningPathways };
+        progressRef.current = merged;
+        setProgressState(merged);
+      }
+    },
+    refreshStudentWorkspace: async () => {
+      renderSessionGuard();
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const priorWorkspace = JSON.stringify(progressRef.current.studentWorkspace);
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const fresh = await store.loadProfileProgress(selected);
+      renderSessionGuard();
+      if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+      if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+      renderSessionGuard();
+      if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+      if (selected === null && ((fresh.anonymousGeneration ?? 0) !== generation || (progressRef.current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload the app before continuing.");
+      if (JSON.stringify(progressRef.current.studentWorkspace) !== priorWorkspace) throw Error("Workspace changed while refreshing. Try again.");
+      const merged = { ...progressRef.current, studentWorkspace: parseStudentWorkspace(fresh.studentWorkspace) };
+      progressRef.current = merged;
+      setProgressState(merged);
+    },
+    updateStudentWorkspace: async (fn) => {
+      renderSessionGuard();
+      const selected = studentId;
+      const selection = studentSelectionRequest.current;
+      const generation = progressRef.current.anonymousGeneration ?? 0;
+      const assertProfile = async (current?: Progress) => {
+        const assertSelection = () => {
+          renderSessionGuard();
+        if (store.activeStudent() !== selected || studentSelectionRequest.current !== selection) throw Error("The learner changed. Reopen the workspace.");
+          if (selected === null && ((progressRef.current.anonymousGeneration ?? 0) !== generation || current && (current.anonymousGeneration ?? 0) !== generation)) throw Error("Local learning data changed. Reload before editing a workspace.");
+        };
+        assertSelection();
+        if (selected !== null && !await store.competencyProfileExists(selected)) throw Error("This learner profile no longer exists.");
+        assertSelection();
+      };
+      const fresh = await store.updateStudentWorkspaceProfile(selected, fn, assertProfile);
+      if (store.activeStudent() === selected && studentSelectionRequest.current === selection
+          && (selected !== null || (progressRef.current.anonymousGeneration ?? 0) === generation)) {
+        const merged = { ...progressRef.current, studentWorkspace: fresh.studentWorkspace };
+        progressRef.current = merged;
+        setProgressState(merged);
+      }
+    },
     saveCourse,
     addCourse,
+    importInteroperabilityBank: async (xml) => {
+      renderSessionGuard();
+      // A file never carries adult authority, a published source identity, or credit.
+      const assertAdult = async () => {
+        renderSessionGuard(); assertLocalAdult();
+        if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the supervising-adult area before importing content.");
+        const current = await loadFamily();
+        if (!current || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult access changed; reopen content exchange.");
+        return JSON.stringify(current.parent.password);
+      };
+      const authority = await assertAdult();
+      const bank = qtiChoiceToBank(importQtiItem(xml), `qti-${crypto.randomUUID()}`);
+      if (await assertAdult() !== authority) throw Error("Supervising adult changed; review the import again.");
+      await store.saveBank(bank); // New random standalone ID only; never replaces an installed source.
+      // A refresh failure must not misreport a completed save and invite a duplicate retry.
+      try { await reload(); } catch { toast("The new bank was saved. Reopen the library to refresh its listing."); }
+    },
     saveBank: async (bank) => {
+      renderSessionGuard();
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);
         if (!course) throw new Error("This bank's course is missing.");
@@ -615,6 +1442,7 @@ export default function App() {
       }
     },
     deleteBank: async (bank) => {
+      renderSessionGuard();
       if (bank.courseId) {
         const course = courses.find((c) => c.id === bank.courseId);
         if (course) await saveCourse({ ...course, banks: course.banks.filter((b) => b.id !== bank.id) });
@@ -638,15 +1466,97 @@ export default function App() {
       await reload();
     },
     chooseStudent,
+    reauthenticateAdult,
+    authorizeAcademicRecords: async id => {
+      renderSessionGuard(); assertLocalAdult();
+      if (!adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Unlock the adult area before opening academic records.");
+      const current = await loadFamily();
+      if (!current || documentUnlockedCredential.current !== JSON.stringify(current.parent.password) || !current.students.some(s => s.id === id) || !await store.competencyProfileExists(id) || !adultAccess.current.unlocked || !adultAccess.current.parentView) throw Error("Adult authority or learner membership changed. Lock and reopen academic records.");
+      renderSessionGuard(); assertLocalAdult();
+    },
     allCourses: courses,
     assignmentBlock,
+    startAssignedCourse: async id => {
+      renderSessionGuard();
+      const course = courses.find(c => c.id === id);
+      if (!course || CATALOG.some(c => c.id === id)) { await addCourse(id); return; }
+      const selected = store.activeStudent(), capturedFamily = family, selectedRequest = studentSelectionRequest.current;
+      const guard = async () => {
+        renderSessionGuard();
+        if (!selected || store.activeStudent() !== selected || selectedRequest !== studentSelectionRequest.current) throw Error("Learner changed. Reopen the assigned course.");
+        const fresh = await loadFamily();
+        if (!fresh || JSON.stringify(fresh) !== JSON.stringify(capturedFamily) || !await store.competencyProfileExists(selected)) throw Error("Assignments changed. Reload Family before starting.");
+        const reason = assignmentBlock(id); if (reason) throw Error(reason);
+        const saved = await store.loadStoredCourseSnapshot(id);
+        if (!saved || await parentCourseDigest(saved.course) !== await parentCourseDigest(course)) throw Error("Course changed. Ask the parent to review the current version.");
+        if (store.activeStudent() !== selected || selectedRequest !== studentSelectionRequest.current) throw Error("Learner changed. Reopen the assigned course.");
+      };
+      try {
+        await guard();
+        await store.updateProfileProgress(selected, async p => { await guard(); return {...p,enrolled:[...new Set([...(p.enrolled ?? []),id])]}; });
+        await guard();
+        const p = await store.loadProfileProgress(selected); await guard(); progressRef.current=p; setProgressState(p);
+        if (requestNavigation("app",{name:"course",courseId:id})) setView({name:"course",courseId:id});
+      } catch(e) { toast((e as Error).message); }
+    },
+    assignReviewedCommunityCourse: async (learnerId, course, digest, subject, scope, installedRaw, remote) => {
+      renderSessionGuard();
+      if (!family || isClassroom(family)) throw Error("Open the local Family workspace to assign a personally reviewed course.");
+      const expected = family;
+      const authorize = async () => { scope(); await api.authorizeAcademicRecords!(learnerId); scope(); };
+      await authorize();
+      if (JSON.stringify(await loadFamily()) !== JSON.stringify(expected)) throw Error("Family changed. Reload and review again.");
+      if (!course.community || await parentCourseDigest(course) !== digest) throw Error("Review content changed. Load the review again.");
+      if (remote) {
+        const latest = normalizeCourse(await downloadCommunityCourse(course.community.id));
+        if (await parentCourseDigest(latest) !== digest) throw Error("Published version changed during review. Cancel and load the current source.");
+      }
+      const issues = validateCourseIntegrity(course); if (issues.length) throw Error("This course has invalid content references and cannot be assigned.");
+      await authorize();
+      if (!await store.compareAndSwapCourse(installedRaw,course)) throw Error("Installed source changed during review. Cancel and review the current source; no course was overwritten.");
+      const guard = async () => {
+        renderSessionGuard(); await authorize(); const stored = await store.loadStoredCourseSnapshot(course.id); if (!stored || await parentCourseDigest(stored.course) !== digest) throw Error("Installed source changed. Review the current source again."); await authorize(); };
+      const next = await saveParentCourseAssignment(expected,learnerId,course.id,{courseId:course.id,subject,communityReview:makeParentCourseReview(learnerId,course,digest)},guard);
+      setFamilyState(next); await reload();
+    },
+    removeParentAssignment: async (learnerId, courseId) => {
+      renderSessionGuard();
+      if (!family) throw Error("Family is unavailable.");
+      const next = await saveParentCourseAssignment(family,learnerId,courseId,null,async () => { await api.authorizeAcademicRecords!(learnerId); });
+      setFamilyState(next);
+    },
     addCommunityCourse,
   };
+
+  // Persisted personal suitability authorization applies to deep links and resumed bank work.
+  const routedCourseId = "courseId" in view ? view.courseId : view.name === "run" ? allBanks.find(b => b.id === view.session.bankId)?.courseId : "bankId" in view ? allBanks.find(b => b.id === view.bankId)?.courseId : undefined;
+  const routedCommunity = routedCourseId ? courses.find(c => c.id === routedCourseId && c.community) : undefined;
+  const [communityRoute, setCommunityRoute] = useState<{view: View; student: string | null; course: Course; error: string} | null>(null);
+  useEffect(() => {
+    if (!family || isClassroom(family) || !studentId || !routedCommunity) return;
+    let live = true, ticket = 0;
+    const check = async () => {
+      const request = ++ticket;
+      try {
+        const fresh = await loadFamily(), saved = await store.loadStoredCourseSnapshot(routedCommunity.id);
+        const child = fresh?.students.find(s => s.id === studentId);
+        if (!child || !saved || !await store.competencyProfileExists(studentId) || !hasParentCourseReview(studentId,saved.course,await parentCourseDigest(saved.course),child.assigned.find(a => a.courseId === saved.course.id)?.communityReview) || await parentCourseDigest(saved.course) !== await parentCourseDigest(routedCommunity)) throw Error("Parent review required for this exact community version. Return to Family to review or restore the assignment. Prior progress is preserved.");
+        const reason = assignmentBlock(saved.course.id); if (reason) throw Error(reason);
+        if (live && request === ticket) setCommunityRoute({view,student:studentId,course:routedCommunity,error:""});
+      } catch(e) { if (live && request === ticket) setCommunityRoute({view,student:studentId,course:routedCommunity,error:(e as Error).message}); }
+    };
+    void check();
+    const focus = () => { setCommunityRoute(null); void check(); };
+    window.addEventListener("focus",focus);
+    const interval = window.setInterval(check,2000);
+    return () => {live=false;window.removeEventListener("focus",focus);window.clearInterval(interval);};
+  }, [view,studentId,family,routedCommunity,assignmentBlock]);
 
   // Active study time for the student's records.
   const studyCourse = (() => {
     switch (view.name) {
       case "lesson":
+      case "courseActivity":
       case "vocab":
       case "cards":
       case "drill":
@@ -663,7 +1573,7 @@ export default function App() {
     }
   })();
   // Community courses are free learning only: their time isn't recorded.
-  useStudyTimer(family ? studentId : null, studyCourse && !isCommunityId(studyCourse) ? studyCourse : null);
+  useStudyTimer(family && !localLocked && !gate && !concealed ? studentId : null, studyCourse && !isCommunityId(studyCourse) ? studyCourse : null);
 
   if (loadError) {
     return (
@@ -672,6 +1582,7 @@ export default function App() {
         <p className="notice error" style={{ marginTop: 16 }}>
           {loadError}
         </p>
+        {publicLearning && !TEMPORARY_GUEST && <p>Your saved data has not been cleared. <a href={withGuestSession(window.location.pathname + window.location.search, true)}>Continue in a temporary guest session</a> without using device learning storage.</p>}
       </div>
     );
   }
@@ -687,12 +1598,21 @@ export default function App() {
     case "library":
       break;
     case "community":
-      // Homeschool families use approved core courses only; community courses are for free learning.
-      if (COMMUNITY && !family) body = <CommunityPage api={api} />;
+      // Browsing is public. Family course approval/assignment remains a separate adult action.
+      if (COMMUNITY) body = family ? <PublicCommunity appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} /> : <CommunityPage api={api} />;
+      break;
+    case "communityCourse":
+      if (COMMUNITY) body = <PublicCommunity id={view.id} appContext onNavigate={(id) => api.go(id ? { name: "communityCourse", id } : { name: "community" })} onStart={family ? undefined : (id) => addCommunityCourse(id, true)} />;
       break;
 
+    case "classroom-workflows":
+      body = <ClassroomWorkflowWorkspace key={studentId ?? "unconfigured"} api={api} />;
+      break;
+    case "workspace":
+      body = <StudentWorkspacePage key={studentId === null ? "independent" : `student:${studentId}`} api={api} />;
+      break;
     case "progress":
-      body = <ProgressPage api={api} />;
+      body = <ProgressPage key={studentId === null ? "independent" : `student:${studentId}`} api={api} initialToolsOpen={view.tools} />;
       break;
     case "legal":
       body = (
@@ -742,7 +1662,7 @@ export default function App() {
       break;
     }
     case "overview":
-      body = <CourseOverview api={api} id={view.catalogId} />;
+      body = <CourseOverview key={view.catalogId} api={api} id={view.catalogId} requestedPath={view.requestedPath} />;
       break;
     case "course": {
       const c = courseFor(view.courseId);
@@ -760,6 +1680,12 @@ export default function App() {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
       if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      else body = <div className="page"><h1>Lesson unavailable</h1><p role="alert">This lesson is not in the current course. The link may be outdated.</p><button className="btn" onClick={() => api.go(c ? {name:"course",courseId:c.id,tab:"lessons"} : {name:"library"})}>Browse available lessons</button></div>;
+      break;
+    }
+    case "courseActivity": {
+      const c = courseFor(view.courseId);
+      if (c) body = <CourseActivityView key={JSON.stringify([view, c.revision, api.student?.id])} api={api} course={c} kind={view.kind} sourceId={view.sourceId} />;
       break;
     }
     case "work": {
@@ -836,17 +1762,27 @@ export default function App() {
             onDone={async (f) => {
               if (!requestNavigation("app", { name: isClassroom(f) ? "parent" : "library" })) return;
               setFamilyState(f);
+              configureLocalSession(true);
+              bindLocalSessionCredential(f.parent);
+              unlockLocalAdult(); refreshLocalSession(x=>x+1);
               if (isClassroom(f)) {
                 // The teacher who just set it up goes straight to their area.
+                bindLocalSessionCredential(f.parent);
+      documentUnlockedCredential.current = JSON.stringify(f.parent.password);
                 setParentUnlocked(true);
                 api.go({ name: "parent", tab: "classes" });
                 return;
               }
-              await chooseStudent(f.students[0].id);
+              unlockLocalLearner(f.students[0].id);
+              await openAuthorizedStudent(f.students[0].id);
               if (store.activeStudent() !== f.students[0].id || !requestNavigation("app", { name: "library" })) return;
               // Courses already on this computer stay in the first student's list.
-              const p = progressRef.current;
-              await setProgress({ ...p, enrolled: courses.map((c) => c.id) });
+              const selected = f.students[0].id, selection = studentSelectionRequest.current;
+              const p = await store.updateProfileProgress(selected,async current => {
+                if (store.activeStudent() !== selected || selection !== studentSelectionRequest.current || !await store.competencyProfileExists(selected)) throw Error("Learner changed during setup. Existing progress was preserved.");
+                return {...current,enrolled:courses.map(c=>c.id)};
+              });
+              if (store.activeStudent() === selected && selection === studentSelectionRequest.current) { progressRef.current=p; setProgressState(p); }
             }}
           />
         );
@@ -856,8 +1792,26 @@ export default function App() {
         body = parentUnlocked ? (
           <ParentArea api={api} family={family} tab={view.tab ?? "overview"} onLock={() => api.go({ name: "library" })} />
         ) : (
-          <ParentGate api={api} family={family} onUnlock={() => setParentUnlocked(true)} />
+          <ParentGate api={{...api, setFamily: persistGateFamily}} family={family} onUnlock={f => { unlockLocalAdult(); refreshLocalSession(x=>x+1); bindLocalSessionCredential(f.parent);
+      documentUnlockedCredential.current = JSON.stringify(f.parent.password); adultAccess.current = { unlocked: true, parentView: true }; setParentUnlocked(true); }} />
         );
+      else if (view.tab === "classroom-workflows")
+        body = <ClassroomWorkflowWorkspace api={api} teacher />;
+      else if (view.tab === "academic-records" || view.tab === "planning")
+        body = <div className="page">
+          <h1>{view.tab === "planning" ? "Parent homeschool planning" : "Academic records and portability"}</h1>
+          {HOMESCHOOL && !TEMPORARY_GUEST ? <>
+            <p>Set up a local Family or Classroom workspace before opening learner records. Existing workspaces require the supervising adult's password; this link does not unlock records.</p>
+            <button className="btn" onClick={() => api.go({ name: "familySetup" })}>Set up Family or Classroom</button>
+          </> : <>
+            <p>{view.tab === "planning" ? "Parent homeschool planning is available in the local app with a configured Family workspace. It is not part of account-free public learning." : "Academic records are available in the local app with a configured Family or Classroom workspace. They are not part of account-free public learning."}</p>
+            <p>This academic planning update ships with the next app version. An older installed version may not include it yet.</p>
+            {TEMPORARY_GUEST && <p>This temporary guest session cannot create or open a persistent learner workspace. Saved device records have not been opened or changed.</p>}
+            <a className="btn" href={siteUrl("/download")}>Download app</a>
+          </>}
+          <p>No learner records have been opened. Academic planning is not institutional verification or a legal graduation determination.</p>
+          <button className="btn" onClick={() => api.go({ name: "library" })}>Browse courses</button>
+        </div>;
       break;
   }
   if (view.name === "create" && AUTHORING) body = <CreateHome api={api} />;
@@ -866,21 +1820,33 @@ export default function App() {
   }
   if (view.name === "review" && AUTHORING) body = <ReviewQueue api={api} />;
   if (view.name === "live" && LIVE) body = <LivePlay key={view.code ?? ""} api={api} initialCode={view.code} />;
+  if (view.name === "presentation" && LIVE) body = <PresentationPlay key={view.code ?? ""} api={api} initialCode={view.code} />;
+  if (TEMPORARY_GUEST && ["create", "communityEdit", "review", "live", "presentation"].includes(view.name)) {
+    body = <div className="page"><h1>Independent guest study</h1><p>Live rooms and account-based publishing use server data, so they are not available in this temporary learning session. Use the saved-device app to access those separate workflows.</p><button className="btn" onClick={() => api.go({name:"library"})}>Browse courses</button></div>;
+    fullScreen = false;
+  }
   // Students pick who they are before anything else.
   if (family && !studentId && view.name !== "parent") body = <WhoPage api={api} family={family} />;
 
   const navCurrent =
-    view.name === "progress"
+    view.name === "progress" || view.name === "workspace" || view.name === "classroom-workflows"
       ? "progress"
-      : view.name === "community" || view.name === "create" || view.name === "communityEdit"
+      : view.name === "community" || view.name === "communityCourse" || view.name === "create" || view.name === "communityEdit"
             ? "community"
             : view.name === "parent" || view.name === "who" || view.name === "familySetup"
               ? null
               : "library";
-  const showCommunity = COMMUNITY && !family;
+  if (family && !isClassroom(family) && studentId && routedCommunity) {
+    const authorized = communityRoute?.view === view && communityRoute.student === studentId && communityRoute.course === routedCommunity;
+    if (!authorized || communityRoute.error) { fullScreen=false; body=<div className="page"><h1>Community learning plan</h1><p role="status">{authorized ? communityRoute.error : "Checking this learner's reviewed course version…"}</p><button className="btn" onClick={() => api.go({name:"library"})}>Back to Library</button></div>; }
+  }
+  const showCommunity = COMMUNITY;
+  // This describes the existing local workspace. Opening it still requires the adult gate.
+  const managementLabel = HOMESCHOOL && family ? (isClassroom(family) ? "Classroom" : "Family") : null;
 
   return (
-    <div className="shell">
+    <>
+    <div hidden={localLocked || !!gate || concealed} inert={localLocked || !!gate || concealed} className={ANDROID_NATIVE ? "shell erudior-android-shell" : "shell"}>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -892,17 +1858,17 @@ export default function App() {
               Erudior
             </a>
           ) : (
-            <button className="brand" onClick={() => api.go({ name: "library" })} aria-label="Erudior: library">
-              <Mark />
-              Erudior
-            </button>
+            <AppSidebar key={sessionEpoch} api={api} current={view} managementLabel={managementLabel}
+              showCommunity={showCommunity} blocked={localLocked || !!gate || concealed}
+              preferences={{ theme, width, textSize, setTheme, setWidth, setTextSize }}
+              onLock={lockWorkspace} onOpen={() => setDisplayOpen(false)} />
           )}
           <nav className="nav" aria-label="Main">
             <button
               aria-current={navCurrent === "library" ? "page" : undefined}
               onClick={() => api.go({ name: "library" })}
             >
-              {ROUTES ? "Courses" : "Library"}
+              Library
             </button>
             {showCommunity && (
               <button
@@ -916,31 +1882,26 @@ export default function App() {
               aria-current={navCurrent === "progress" ? "page" : undefined}
               onClick={() => api.go({ name: "progress" })}
             >
-              Progress
+              Courses
             </button>
-            {ROUTES && <a href={siteUrl("/download")}>Download</a>}
-          </nav>
-          <div className="spacer" />
-          {HOMESCHOOL && family && (
-            <div className="row family-nav">
-              {student && (
-                <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
-                  Student: {student.name}
-                </button>
-              )}
+            {managementLabel && (
               <button
-                className="btn sm"
                 aria-current={view.name === "parent" ? "page" : undefined}
                 onClick={() => api.go({ name: "parent" })}
               >
-                {adultLabel(family)}
+                {managementLabel}
+              </button>
+            )}
+          </nav>
+          <div className="spacer" />
+          {ROUTES && <a className="btn sm" href={siteUrl("/download")}>Download</a>}
+          {HOMESCHOOL && family && student && !ANDROID_NATIVE && (
+            <div className="row family-nav">
+              <button className="btn sm" onClick={lockWorkspace}>Lock device</button>
+              <button className="btn sm ghost" onClick={() => api.go({ name: "who" })} aria-label={`Student: ${student.name}. Switch student`}>
+                Student: {student.name}
               </button>
             </div>
-          )}
-          {HOMESCHOOL && !family && (
-            <button className="btn sm" onClick={() => api.go({ name: "familySetup" })}>
-              Homeschool or classroom
-            </button>
           )}
           <form
             className="top-search"
@@ -1017,16 +1978,38 @@ export default function App() {
           </div>
         </header>
       )}
+      {HOMESCHOOL && family && (ANDROID_NATIVE || fullScreen) && (student || parentUnlocked) && (
+        <section className="shared-device-toolbar" aria-label="Shared device controls">
+          <button className="btn sm" onClick={lockWorkspace}>Lock device</button>
+          {student && <button className="btn sm ghost" onClick={()=>api.go({name:"who"})} aria-label={`Student: ${student.name}. Switch student`}>Student: {student.name}</button>}
+        </section>
+      )}
       <main className="main" id="main" tabIndex={-1} ref={mainRef}>
+        {publicLearning && <section className="public-learning-banner" aria-label="Guest learning">
+          <div><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+            <p className="small">{TEMPORARY_GUEST ? "Learning data stays in this page's memory only. Refreshing or closing loses it. Export course progress before leaving; scratch code/workbook drafts are not in that backup. Saved device progress is untouched." : "No account needed. Progress is saved only in this browser. Use a temporary session if you do not want learning data saved on this device."} Practice is not supervised credit or certification.</p></div>
+          <div className="row">
+            <button className="btn sm" onClick={() => api.go({name:"progress"})}>Courses and export</button>
+            <button className="btn sm" onClick={() => {
+              if (!requestNavigation("app")) return;
+              if (TEMPORARY_GUEST && !window.confirm("Leave this temporary session? Its learning data will be lost. Export first if you want to keep it.")) return;
+              const url = new URL(window.location.href); if (TEMPORARY_GUEST) url.searchParams.delete("guest"); else url.searchParams.set("guest", "1");
+              window.location.assign(url.pathname + url.search);
+            }}>{TEMPORARY_GUEST ? "Use saved device progress" : "Start temporary session"}</button>
+          </div>
+        </section>}
+        {courseOpenError && <div className="notice error" role="alert">{courseOpenError} <button className="btn sm" onClick={() => setCourseOpenError(null)}>Dismiss</button></div>}
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>
               <b>Erudior {appUpdate.version} is available</b>
               <span className="small muted">
                 {installing !== false
-                  ? `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`
+                  ? (appUpdate.actionLabel
+                    ? "Preparing verified Android update… Approve installation in Android when prompted."
+                    : `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`)
                   : appUpdate.canInstall
-                    ? "Install it now; your courses and progress are kept."
+                    ? appUpdate.guidance ?? "Install it now; your courses and progress are kept."
                     : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}
               </span>
             </div>
@@ -1042,13 +2025,17 @@ export default function App() {
                       setInstalling(null);
                       try {
                         await appUpdate.install((pct) => setInstalling(pct));
+                        if (appUpdate.actionLabel) {
+                          setInstalling(false);
+                          toast("Android installer opened. Approve the update to finish.");
+                        }
                       } catch (e) {
                         setInstalling(false);
                         toast(`Update failed: ${String(e)}`);
                       }
                     }}
                   >
-                    Install and restart
+                    {appUpdate.actionLabel ?? "Install and restart"}
                   </button>
                 ) : (
                   <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>
@@ -1098,19 +2085,34 @@ export default function App() {
                   "Discard",
                 )
               ) {
-                await store.saveSessionState(null);
-                setResumable(null);
+                try { await saveLearnerSession(null); setResumable(null); }
+                catch(e) { toast((e as Error).message); }
               }
             }}
           />
         )}
         {body}
       </main>
+      {ANDROID_NATIVE && !fullScreen && (
+        <PhoneNavigation current={navCurrent} currentView={view.name} showCommunity={showCommunity}
+          managementLabel={managementLabel} go={api.go} />
+      )}
       {/* Always mounted so screen readers announce new messages. */}
       <div className={toastMsg ? "toast" : "sr-only"} role="status" aria-live="polite">
         {toastMsg}
       </div>
     </div>
+    {(localLocked || gate || concealed) && family && <div className="local-session-lock" role="region" aria-label="Locked shared device" onKeyDown={e=>e.stopPropagation()} onKeyUp={e=>e.stopPropagation()}>
+      <h1>Shared device locked</h1>
+      <p>Your work is kept on this screen. Ask the {isClassroom(family) ? "teacher" : "parent"} to unlock it. This local lock does not encrypt device files.</p>
+      {gate ? <>
+        <p role="status">{gate.kind === "learner" ? `Authorize ${family.students.find(s=>s.id===gate.id)?.name ?? "learner"} to learn on this device.` : gate.kind === "sensitive" ? "Confirm adult access for this sensitive action." : "Confirm adult access to resume your work."}</p>
+        <ParentGate key={gate.kind+":"+(gate.id ?? "")} family={family} api={{...api,setFamily:persistGateFamily,go:()=>{sensitiveResolver.current?.(null);sensitiveResolver.current=null;setGate(null);if(!studentId && view.name!=="parent"){lockedRef.current=false;setLocalLocked(false);}}}} onUnlock={f=>void finishGate(f)} />
+      </> : <button className="btn primary" onClick={()=>setGate({kind:"resume",id:studentId ?? undefined})}>Unlock device</button>}
+      <p className="small muted">If this learner was removed or Family was restored elsewhere, reload the saved workspace. Saved records are kept; unsaved work on this screen will be discarded.</p>
+      <button className="btn ghost" onClick={async()=>{ if(await store.confirmAction("Reload saved Family and discard unsaved work on this screen? Saved records are kept.","Reload locked workspace"))window.location.reload(); }}>Reload locked workspace</button>
+    </div>}
+    </>
   );
 }
 

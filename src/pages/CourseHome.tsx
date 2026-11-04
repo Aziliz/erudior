@@ -1,5 +1,5 @@
 import { catalogEntry, isPublishedCourse } from "../lib/catalog";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
 import { ReportForm, ReviewPill } from "../components/CommunityCatalog";
@@ -26,13 +26,17 @@ import { AccuracyBar } from "../components/Bars";
 import { VocabTab, ReadingTab } from "./VocabTabs";
 import WorkTab from "./WorkTab";
 import { hasWork } from "../lib/work";
+import { courseActivities } from "../lib/courseActivities";
+import CourseProgress from "./CourseProgress";
+import OfflineCourseExport from "../components/OfflineCourseExport";
 
-export type CourseTab = "today" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
+export type CourseTab = "today" | "progress" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
 
 const TABS: { id: CourseTab; label: string; show: (c: Course) => boolean }[] = [
   { id: "today", label: "Today", show: () => true },
+  { id: "progress", label: "Progress", show: () => true },
   { id: "lessons", label: "Lessons", show: (c) => c.lessons.length > 0 },
-  { id: "work", label: "Assignments", show: (c) => hasWork(c) || !!c.spreadsheetAssignments?.length },
+  { id: "work", label: "Assignments", show: (c) => hasWork(c) || courseActivities(c).length > 0 },
   { id: "banks", label: "Questions", show: () => true },
   { id: "vocab", label: "Vocabulary", show: (c) => !!c.vocab?.length },
   { id: "cards", label: "Notecards", show: (c) => !c.language || c.decks.length > 0 },
@@ -50,6 +54,8 @@ export function mainBank(c: Course): Bank | undefined {
 export default function CourseHome({ api, course, tab }: { api: AppApi; course: Course; tab: CourseTab }) {
   const setTab = (t: CourseTab) => api.go({ name: "course", courseId: course.id, tab: t });
 
+  const [offlineExport, setOfflineExport] = useState(false);
+  const offlineExportButton = useRef<HTMLButtonElement>(null);
   const fromCatalog = !!catalogEntry(course.id) || !!course.community;
 
   async function onDelete() {
@@ -103,15 +109,17 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
               Edit course
             </button>
           )}
-          <button className="btn" onClick={onExport}>
-            Export
+          <button className="btn" title="Editable source JSON; linked media is not bundled. Use Share offline for a self-contained package." onClick={onExport}>
+            Export source JSON
           </button>
+          <button className="btn" ref={offlineExportButton} onClick={() => setOfflineExport(true)}>Share offline</button>
           <button className="btn danger ghost" onClick={onDelete}>
             {fromCatalog ? "Remove" : "Delete"}
           </button>
         </div>
       </div>
 
+      {offlineExport && <OfflineCourseExport key={course.id} course={course} onClose={() => { setOfflineExport(false); offlineExportButton.current?.focus(); }} />}
       <nav className="tabs" aria-label="Course sections">
         {TABS.filter((t) => t.show(course)).map((t) => (
           <button key={t.id} aria-current={tab === t.id ? "page" : undefined} onClick={() => setTab(t.id)}>
@@ -121,8 +129,9 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
       </nav>
 
       {tab === "today" && <TodayTab api={api} course={course} />}
+      {tab === "progress" && <CourseProgress api={api} course={course} />}
       {tab === "lessons" && <LessonsTab api={api} course={course} />}
-      {tab === "work" && (hasWork(course) || !!course.spreadsheetAssignments?.length) && <WorkTab api={api} course={course} />}
+      {tab === "work" && (hasWork(course) || courseActivities(course).length > 0) && <WorkTab api={api} course={course} />}
       {tab === "banks" && <BanksTab api={api} course={course} />}
       {tab === "cards" && <CardsTab api={api} course={course} />}
       {tab === "vocab" && <VocabTab api={api} course={course} />}

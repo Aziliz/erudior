@@ -1,6 +1,11 @@
+import { validateReaderTexts } from "./readerContent";
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
+import { branchingCourseProblems, parseCourseBranchingScenarios } from "./branchingCoursePackage";
+import { scientificCourseProblems, parseCourseScientificWorkspaces } from "./scientificCoursePackage";
+import { advancedAssessmentCourseProblems, parseCourseAdvancedAssessments } from "./advancedAssessmentCoursePackage";
 import { validateAssignment } from "./spreadsheetAssignments";
+import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 
 /** Structural issues that must be fixed before a course is approved for publication. */
 export interface CourseIntegrityIssue {
@@ -21,14 +26,20 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
     }
   };
 
+  for (const message of validateCourseWork(course, { moduleIds: course.modules.map(m => m.id) })) report("work", message);
+  for (const message of validateWorkLessonReferences(course, course.lessons)) report("work", message);
+
   unique(course.modules.map((m) => m.id), "modules");
   unique(course.lessons.map((l) => l.id), "lessons");
   unique(course.banks.map(localBankId), "banks");
   unique(course.decks.map((d) => d.id), "decks");
   unique(course.references.map((r) => r.id), "references");
   unique(course.drills.map((d) => d.id), "drills");
-  if (course.texts) unique(course.texts.map((t) => t.id), "texts");
+  for (const message of validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(q => q.id) ?? [] })) report("texts", message);
 
+  for(const issue of branchingCourseProblems(course.branchingScenarios,new Set(course.lessons.map(l=>l.id)))) report("branchingScenarios",issue);
+  for(const issue of scientificCourseProblems(course.scientificWorkspaces,new Set(course.lessons.map(l=>l.id)))) report("scientificWorkspaces",issue);
+  for(const issue of advancedAssessmentCourseProblems(course.advancedAssessments,new Set(course.lessons.map(l=>l.id)))) report("advancedAssessments",issue);
   if (course.spreadsheetAssignments !== undefined && !Array.isArray(course.spreadsheetAssignments)) {
     report("spreadsheetAssignments", "Must be an array");
   } else {
@@ -68,11 +79,6 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
         report(`lessons[${i}].refs[${j}]`, `Unknown reference: ${id}`);
   }
 
-  for (const [i, text] of (course.texts ?? []).entries()) {
-    unique(text.sections.map((section) => section.id), `texts[${i}].sections`);
-    for (const [j, section] of text.sections.entries())
-      checkQuiz(section.questions, `texts[${i}].sections[${j}].questions`);
-  }
   return issues;
 }
 
@@ -81,6 +87,8 @@ export function importValidatedCourseSnapshot(source: string): Course {
   const parsed: unknown = JSON.parse(source);
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("Course must be an object.");
   const raw = parsed as Record<string, unknown>;
+  const readerErrors = validateReaderTexts(raw.texts, { legacy: true });
+  if (readerErrors.length) throw Error("Invalid reading library: " + readerErrors.join("; "));
   // Detect invalid IDs and dangling references before normalization can repair or discard them.
   const rawModules = Array.isArray(raw.modules) ? raw.modules.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];
   const rawLessons = Array.isArray(raw.lessons) ? raw.lessons.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x)) : [];
@@ -89,6 +97,9 @@ export function importValidatedCourseSnapshot(source: string): Course {
     if (typeof lesson.module === "string" && !ids.has(lesson.module))
       throw new Error(`Invalid course references: lessons[${i}].module: ${lesson.module}`);
   }
+  parseCourseBranchingScenarios(raw.branchingScenarios,new Set(rawLessons.map(l=>String(l.id))));
+  parseCourseScientificWorkspaces(raw.scientificWorkspaces,new Set(rawLessons.map(l=>String(l.id))));
+  parseCourseAdvancedAssessments(raw.advancedAssessments,new Set(rawLessons.map(l=>String(l.id))));
   if (raw.spreadsheetAssignments !== undefined && !Array.isArray(raw.spreadsheetAssignments))
     throw new Error("Invalid spreadsheet assignments: expected an array.");
   if (Array.isArray(raw.spreadsheetAssignments)) {
@@ -106,6 +117,8 @@ export function importValidatedCourseSnapshot(source: string): Course {
         throw new Error(`Invalid spreadsheet lesson reference at index ${i}`);
     }
   }
+  const workErrors = validateCourseWork(raw, { legacy: true, moduleIds: rawModules.map(m => String(m.id)) });
+  if (workErrors.length) throw new Error("Invalid course work: " + workErrors.join("; "));
   const course = importCourseSnapshot(source);
   const errors = validateCourseIntegrity(course);
   if (errors.length) {

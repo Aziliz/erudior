@@ -115,7 +115,7 @@ export function QuestionImage({ q, numbered }: { q: Question; numbered?: boolean
  * Listening questions: play the clip (or the device's voice) before answering. The words
  * (transcript) appear only once the answer is checked, or when this device can't play the sound.
  */
-export function QuestionAudio({ q, revealed }: { q: Question; revealed?: boolean }) {
+export function QuestionAudio({ q, revealed, fallbackLang }: { q: Question; revealed?: boolean; fallbackLang?: string }) {
   const [, tick] = useState(0);
   const [playing, setPlaying] = useState<"normal" | "slow" | null>(null);
   const [showWords, setShowWords] = useState(false);
@@ -127,11 +127,11 @@ export function QuestionAudio({ q, revealed }: { q: Question; revealed?: boolean
   }, [q.id]);
   const a = q.audio;
   if (!a) return null;
-  const ok = canPlay(a);
-  const lang = a.lang?.split(/[-_]/)[0];
+  const ok = canPlay(a, fallbackLang);
+  const lang = (a.lang ?? fallbackLang)?.split(/[-_]/)[0];
   const play = (how: "normal" | "slow") => {
     setPlaying(how);
-    playClip(a, { rate: how === "slow" ? 0.7 : 1 }).finally(() => setPlaying((p) => (p === how ? null : p)));
+    playClip(a, { rate: how === "slow" ? 0.7 : 1, fallbackLang }).finally(() => setPlaying((p) => (p === how ? null : p)));
   };
   return (
     <div className="q-audio">

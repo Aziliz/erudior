@@ -3,7 +3,7 @@
 // the Markdown component then draws it with mermaid (loaded only when a page has one), in the
 // app's colors for the current theme.
 
-export const MERMAID_BLOCK = /```mermaid[ \t]*\r?\n([\s\S]*?)```/g;
+export const MERMAID_BLOCK = /^```mermaid[ \t]*\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
 /** The diagram's accTitle and accDescr (single-line or { … } block). */
 export function mermaidA11y(src: string): {

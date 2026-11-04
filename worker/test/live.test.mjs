@@ -99,6 +99,19 @@ await sleep(300);
 ok("ended", a2.last("play").phase === "ended" && host.last("state").phase === "ended");
 ok("host sees scores", host.last("state").players.find((p) => p.name === "Ana").correct === 2);
 
+// Replacing the host closes the old controller without changing results.
+const replacement = connect(`${base}?role=host&token=${created.token}`);
+await replacement.open;
+await sleep(300);
+ok("old host is replaced", host.closed.code === 4000);
+ok("replacement host retains ended results", replacement.last("state")?.phase === "ended" && replacement.last("state").players.find(p => p.name === "Ana").correct === 2);
+replacement.send({ t: "show", index: 1 });
+replacement.send({ t: "end", index: 1 });
+await sleep(200);
+ok("ended game cannot restart or double score", replacement.last("state").phase === "ended" && replacement.last("state").players.find(p => p.name === "Ana").correct === 2);
+replacement.send({ t: "close" });
+await sleep(200);
+
 // Timed room: speed points and auto reveal.
 const t = await fetch(`${API}/live/rooms`, { method: "POST" }).then((r) => r.json());
 const th = connect(`${WS}/live/rooms/${t.code}/ws?role=host&token=${t.token}`);

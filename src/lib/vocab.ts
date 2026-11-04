@@ -28,7 +28,7 @@ export interface VocabCard {
 export const vocabKey = (course: Course, itemId: string, dir: VocabDirection) =>
   `${course.language?.code ?? course.id}:${itemId}/${dir}`;
 
-export const directions = (item: VocabItem): VocabDirection[] => item.directions ?? ["meaning", "recall"];
+export const directions = (item: VocabItem): VocabDirection[] => item.directions?.length ? item.directions : ["meaning", "recall"];
 
 export function stateOf(p: Progress, key: string): VocabState {
   return p.vocab?.[key] ?? { stage: 0, streak: 0 };

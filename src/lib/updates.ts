@@ -5,18 +5,21 @@
 
 import { invoke } from "@tauri-apps/api/core";
 import { inApp } from "./storage";
+import { validateAndroidRelease, shouldOfferAndroidUpdate } from "./androidUpdates";
 
 export const RELEASES_URL = "https://github.com/Aziliz/erudior/releases/latest";
 
 /** On since v0.24.0 (the repo and its releases are public). */
 export const UPDATES_ENABLED = true;
 
-export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "other";
+export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "android" | "other";
 
 export interface AvailableUpdate {
   version: string;
   notes?: string;
   canInstall: boolean;
+  actionLabel?: string;
+  guidance?: string;
   install: (onProgress: (pct: number | null) => void) => Promise<void>;
 }
 
@@ -28,10 +31,33 @@ export async function appVersion(): Promise<string> {
 
 export async function checkForUpdate(): Promise<AvailableUpdate | null> {
   if (!inApp || !UPDATES_ENABLED) return null;
+  const kind = await invoke<InstallKind>("install_kind");
+  if (kind === "android") {
+    const release = validateAndroidRelease(JSON.parse(await invoke<string>("android_fetch_manifest")));
+    const currentBuild = import.meta.env.VITE_ANDROID_BUILD_SHA || "";
+    const currentVersion = await appVersion();
+    if (!shouldOfferAndroidUpdate(release, currentVersion, currentBuild)) return null;
+    return {
+      version: release.version,
+      notes: release.notes,
+      canInstall: true,
+      actionLabel: "Verify and open installer",
+      guidance: "Android asks you to approve the installation. Updates signed with the same certificate retain app data.",
+      install: async (progress) => {
+        // A browser download is a second, unverified file. Do not present it as
+        // an install of the verified bytes. Native FileProvider handoff is required.
+        progress(null);
+        const verified = await invoke<string>("android_download_verified_apk", { expectedSha256: release.sha256, bytes: release.bytes });
+        if (verified.toLowerCase() !== release.sha256.toLowerCase()) throw new Error("Native APK checksum mismatch");
+        progress(100);
+        const launched = await invoke<boolean>("launch_android_installer", { expectedSha256: release.sha256 });
+        if (!launched) throw new Error("Android installer was not launched.");
+      },
+    };
+  }
   const { check } = await import("@tauri-apps/plugin-updater");
   const update = await check();
   if (!update) return null;
-  const kind = await invoke<InstallKind>("install_kind");
   return {
     version: update.version,
     notes: update.body ?? undefined,

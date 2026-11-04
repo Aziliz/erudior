@@ -21,7 +21,12 @@ function findPkg(name, from) {
 
 const licenseText = (dir) => {
   const f = readdirSync(dir).find((n) => /^(licen[cs]e|copying)(\.|$)/i.test(n));
-  return f ? readFileSync(path.join(dir, f), "utf8").trim() : null;
+  if (f) return readFileSync(path.join(dir, f), "utf8").trim();
+  // Some published npm archives omit their upstream license file. Keep the
+  // exact tagged upstream notice locally rather than shipping only an SPDX label.
+  const pkg = pkgJson(dir);
+  const bundled = path.join(root, "scripts", "licenses", `${pkg.name.replaceAll("/", "-")}-${pkg.version}-LICENSE.txt`);
+  return existsSync(bundled) ? readFileSync(bundled, "utf8").trim() : null;
 };
 
 // JavaScript

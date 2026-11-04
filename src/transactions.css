@@ -1,0 +1,21 @@
+.transactions { max-width:100%; min-width:0; }
+.transactions label { display:block; margin:.75rem 0; }
+.transactions :is(input:not([type=checkbox]),textarea,select) { display:block; width:100%; max-width:100%; box-sizing:border-box; }
+.transactions :is(button,input:not([type=checkbox]),textarea,select) { background:var(--surface); color:var(--ink); border:1px solid var(--field); border-radius:var(--r-sm); padding:8px 10px; min-height:36px; font:inherit; }
+.transactions button { margin:.25rem; max-width:100%; white-space:normal; cursor:pointer; }
+.transactions button:disabled { opacity:.65; cursor:not-allowed; }
+.transactions textarea { min-height:5rem; }
+.transactions fieldset { min-width:0; margin:1rem 0; border:1px solid var(--rule); }
+.transactions :is(p,li,h3,h4,td,th,pre,legend) { overflow-wrap:anywhere; }
+.transactions pre { white-space:pre-wrap; }
+.transactions :is(button,input,textarea,select,[tabindex="0"]):focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.transactions [role=alert] { border:2px solid var(--bad); padding:.75rem; }
+.transaction-grid,.transaction-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.transaction-compare > article { min-width:0; border:1px solid var(--rule); padding:.75rem; }
+.transaction-table { overflow:auto; max-width:100%; min-width:0; }
+.transaction-table table { width:100%; min-width:48rem; border-collapse:collapse; }
+.transaction-table :is(td,th) { min-width:8rem; vertical-align:top; text-align:left; padding:.4rem; border-bottom:1px solid var(--rule); }
+.transaction-summary { border:1px solid var(--rule); background:var(--sheet); padding:.75rem; }
+.transactions details { margin:.75rem 0; }
+.transactions summary { cursor:pointer; padding:.4rem 0; }
+@media(max-width:700px) { .transaction-grid,.transaction-compare { grid-template-columns:1fr; } .transactions fieldset { padding:.5rem; } }

@@ -1,0 +1,110 @@
+name: Android in-app upgrade acceptance
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'scripts/android-*'
+      - 'scripts/android-upgrade/**'
+      - 'tests/android-upgrade-*'
+      - '.github/workflows/android-upgrade.yml'
+      - 'package*.json'
+
+permissions:
+  contents: read
+concurrency:
+  group: android-upgrade-acceptance-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  in-app-upgrade:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      ERUDIOR_UPGRADE_E2E: '1'
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-linux-android
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+          cache-on-failure: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install Android tools
+        run: |
+          for attempt in 1 2 3; do
+            if "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"; then break; fi
+            test "$attempt" -lt 3 || exit 1
+            sleep 15
+          done
+          echo "NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> "$GITHUB_ENV"
+      - run: npm ci
+      - name: Test isolated harness configuration
+        run: |
+          python3 tests/android-upgrade-harness.py -v
+          python3 tests/android-upgrade-lifecycle.py
+          python3 tests/android-installer-integration.py -v
+      - name: Build two separately versioned optimized test APKs
+        run: bash scripts/android-upgrade/build.sh
+      - name: Reclaim disposable build space after fixture verification
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_ACTIONS" = true && "$ERUDIOR_UPGRADE_E2E" = 1 && "$RUNNER_ENVIRONMENT" = github-hosted ]]
+          # build.sh already verified both signed, separately versioned APKs.
+          # The runner below only needs these copies and the ephemeral HTTPS pair.
+          fixtures=(.android-upgrade/{a.apk,b.apk,ca.pem,tls-key.pem})
+          for fixture in "${fixtures[@]}"; do
+            [[ -s "$fixture" && ! -L "$fixture" ]]
+          done
+          sha256sum "${fixtures[@]}" > "$RUNNER_TEMP/android-upgrade-fixtures.sha256"
+          disposable=(src-tauri/target src-tauri/gen/android/app/build src-tauri/gen/android/.gradle "$HOME/.gradle/caches" "$HOME/.gradle/wrapper/dists")
+          df -h .
+          for directory in "${disposable[@]}"; do
+            if [[ -d "$directory" ]]; then du -sh "$directory"; fi
+          done
+          rm -rf -- "${disposable[@]}"
+          sha256sum --check "$RUNNER_TEMP/android-upgrade-fixtures.sha256"
+          df -h .
+      - name: Real in-app download, permission, cancel, approval and retained-state checks
+        timeout-minutes: 15
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          # Request modest userdata, but modern images enforce a 6 GiB minimum
+          # plus free-space headroom. Reclaim completed build outputs above.
+          disk-size: 2048M
+          pre-emulator-launch-script: df -h . "$HOME/.android/avd"
+          disable-animations: true
+          script: node scripts/android-upgrade/run.mjs
+      - name: Upload acceptance evidence (never keys or fixture APKs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-in-app-upgrade-evidence
+          path: artifacts/android-upgrade/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Remove disposable test material
+        if: always()
+        run: rm -rf .android-upgrade

@@ -2,13 +2,11 @@
 // show the code, and run the quiz. The host sees nicknames (to remove anyone) and scores;
 // students see only their own result and class totals. Nothing is saved.
 
-import { isChoice } from "../lib/questions";
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
 import MathText from "../components/MathText";
 import { Totals } from "./LivePlay";
-import { hostUrl, hosting, liveSocket, openRoom, setHosting, type HostState, type LiveQuestion } from "../lib/live";
-import { lessonQuizQuestions } from "../lib/session";
+import { hostUrl, liveSourceQuestions, hosting, liveSocket, openRoom, setHosting, type HostState, type LiveQuestion, type LiveMode } from "../lib/live";
 import type { Course, Question } from "../lib/types";
 import * as store from "../lib/storage";
 
@@ -26,7 +24,7 @@ function shuffle<T>(xs: T[]): T[] {
 const toLive = (q: Question): LiveQuestion => ({ stem: q.stem, choices: q.choices, answer: q.answer });
 /** Live rooms use multiple-choice questions without pictures (other kinds need the full app). */
 // Live rooms show the question on each device as text: no pictures or sound.
-const liveable = (q: Question) => isChoice(q) && !q.image && !q.audio;
+
 
 export default function LiveHost({ api }: { api: AppApi }) {
   const [room, setRoom] = useState(hosting);
@@ -51,6 +49,8 @@ interface Opened {
   questions?: LiveQuestion[];
   timed?: boolean;
   seconds?: number;
+  mode?: LiveMode;
+  teamCount?: number;
 }
 
 function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
@@ -59,11 +59,15 @@ function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
   const course: Course | undefined = courses.find((c) => c.id === courseId);
   const [source, setSource] = useState("random");
   const [count, setCount] = useState(10);
+  const [mode, setMode] = useState<LiveMode>("individual");
+  const [teamCount, setTeamCount] = useState(2);
   const [timed, setTimed] = useState(false);
   const [seconds, setSeconds] = useState(20);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const bank = course?.banks[0];
+  const alive = useRef(true);
+  const opening = useRef(false);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
   const quizzes = course
     ? [
         ...course.modules.filter((m) => m.quiz?.length).map((m) => ({ id: `m:${m.id}`, label: `Module test: ${m.title}`, ids: m.quiz! })),
@@ -72,13 +76,13 @@ function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
     : [];
 
   function pickQuestions(): LiveQuestion[] {
-    if (!course || !bank) return [];
+    if (!course) return [];
     if (source === "random") {
-      const all = course.banks.flatMap((b) => b.questions).filter(liveable);
+      const all = liveSourceQuestions(course);
       return shuffle(all).slice(0, count).map(toLive);
     }
     const q = quizzes.find((x) => x.id === source);
-    return lessonQuizQuestions(bank, q?.ids).filter(liveable).map(toLive);
+    return liveSourceQuestions(course, q?.ids ?? []).slice(0, 100).map(toLive);
   }
 
   if (!courses.length) return <p className="muted">Start a course with questions first; the live room uses its questions.</p>;
@@ -87,25 +91,38 @@ function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
     <section className="panel">
       <h2>Run a live quiz</h2>
       <p className="muted small" style={{ marginBottom: 12 }}>
-        Students join at app.erudior.com with a code and a nickname, on any phone, tablet or computer. You pace the questions; they see their own result and how
+        Text-only choice questions are supported; media and ambiguous question IDs are excluded. Lesson/module sets are limited to 100 questions. Students join at app.erudior.com with a code and a nickname, on any phone, tablet or computer. You pace the questions; they see their own result and how
         the room answered, never other students' names. Nothing is saved after the room closes. Needs an internet connection.
       </p>
       <form
         className="form-grid"
         onSubmit={async (e) => {
           e.preventDefault();
+          if (opening.current) return;
           const questions = pickQuestions();
           if (!questions.length) return setError("No questions there; pick another set.");
+          opening.current = true;
           setBusy(true);
           setError("");
           try {
             const r = await openRoom();
+            if (!alive.current) {
+              // A navigated-away setup must not attach a newly opened room to another screen.
+              let cleanup: ReturnType<typeof liveSocket> | undefined;
+              cleanup = liveSocket(hostUrl(r.code, r.token), {
+                onMessage: m => { if (m.t === "state") { cleanup?.send({ t: "close" }); cleanup?.stop(); } },
+                onStatus() {}, onEnd() { cleanup?.stop(); },
+              });
+              setTimeout(() => cleanup?.stop(), 15_000);
+              return;
+            }
             const label = source === "random" ? course!.title : (quizzes.find((x) => x.id === source)?.label ?? course!.title);
-            onOpen({ ...r, title: label, questions, timed, seconds });
+            onOpen({ ...r, title: label, questions, timed, seconds, mode, teamCount });
           } catch (err) {
-            setError((err as Error).message);
+            if (alive.current) setError((err as Error).message);
           } finally {
-            setBusy(false);
+            opening.current = false;
+            if (alive.current) setBusy(false);
           }
         }}
       >
@@ -136,6 +153,15 @@ function Setup({ api, onOpen }: { api: AppApi; onOpen: (r: Opened) => void }) {
             <input className="input" type="number" min={1} max={50} value={count} onChange={(e) => setCount(Math.max(1, Math.min(50, Number(e.target.value) || 1)))} />
           </label>
         )}
+        <label className="field"><span>Game mode</span>
+          <select className="select" value={mode} onChange={e => setMode(e.target.value as LiveMode)}>
+            <option value="individual">Individual quiz battle</option>
+            <option value="teams">Team quiz battle</option>
+            <option value="cooperative">Cooperative class challenge</option>
+          </select>
+        </label>
+        {mode === "teams" && <label className="field"><span>Number of teams</span><input className="input" type="number" min={2} max={8} value={teamCount} onChange={e => setTeamCount(Math.max(2, Math.min(8, Number(e.target.value) || 2)))} /></label>}
+        <p className="small muted span-2">Team scores are sums of individual points; balance teams in the lobby. Cooperative play celebrates the class's total correct answers, without a leaderboard. These games do not award grades or mastery.</p>
         <fieldset className="plain-fieldset span-2">
           <legend className="small">Pace</legend>
           <label className="check">
@@ -172,22 +198,37 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
   const [left, setLeft] = useState<number | null>(null);
   const sock = useRef<ReturnType<typeof liveSocket> | null>(null);
   const setupSent = useRef(false);
+  const closeRequested = useRef(false);
+  const [closing, setClosing] = useState(false);
+  const [connectionError, setConnectionError] = useState("");
+  const [connectionAttempt, setConnectionAttempt] = useState(0);
 
   useEffect(() => {
+    setupSent.current = false;
+    setConnectionError("");
     const k = liveSocket(
       hostUrl(room.code, room.token),
       {
         onMessage: (m) => {
+          if (m.t === "error") { api.toast(m.message); return; }
           if (m.t !== "state") return;
           setS(m);
+          if (closeRequested.current) { k.send({ t: "close" }); return; }
           // First connection: send the questions (they stay on the server only while the room is open).
           if (!setupSent.current && room.questions && m.phase === "lobby" && m.total === 0) {
             setupSent.current = true;
-            k.send({ t: "setup", title: room.title, questions: room.questions, timed: room.timed, seconds: room.seconds });
+            k.send({ t: "setup", title: room.title, questions: room.questions, timed: room.timed, seconds: room.seconds, mode: room.mode, teamCount: room.teamCount });
           }
         },
-        onStatus: setStatus,
+        onStatus: status => { if (status !== "open") setupSent.current = false; setStatus(status); },
         onEnd: (code, reason) => {
+          if (code === 0) {
+            setStatus("lost");
+            setConnectionError(closeRequested.current
+              ? "Connection lost. Room closure is not confirmed. Reconnect to retry closing it."
+              : "Connection lost. The room may still be open. Reconnect to resume control.");
+            return;
+          }
           api.toast(code === 4000 ? "The room was opened in another window." : reason || "The room closed.");
           onClosed();
         },
@@ -196,7 +237,7 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
     sock.current = k;
     return () => k.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [room.code]);
+  }, [room.code, connectionAttempt]);
 
   useEffect(() => {
     if (!s || s.phase !== "question" || !s.timed) return setLeft(null);
@@ -212,6 +253,11 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
 
   return (
     <div className="live-host">
+      {connectionError && <section className="notice error" role="alert"><p>{connectionError}</p><button className="btn" onClick={() => setConnectionAttempt(n => n + 1)}>Reconnect to room</button> <button className="btn ghost danger" onClick={async () => {
+        if (!(await store.confirmAction("Forget this room on this device? This does not close the server room. It may remain open until its inactivity or four-hour expiry limit. You will lose the host credential and cannot control it again.", "Forget room locally"))) return;
+        sock.current?.stop();
+        onClosed();
+      }}>Forget room on this device</button></section>}
       <section className="panel live-code-panel">
         <div>
           <p className="small muted">Join at {joinHost || "the Erudior website"} → Join a live room, code:</p>
@@ -226,13 +272,15 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
         <div className="row">
           <button
             className="btn ghost danger"
+            disabled={closing}
             onClick={async () => {
               if (!(await store.confirmAction("Close the room? Everyone is disconnected and nothing is kept.", "Close room"))) return;
+              closeRequested.current = true;
+              setClosing(true);
               send({ t: "close" });
-              onClosed();
             }}
           >
-            Close room
+            {closing ? "Closing room — reconnecting if needed…" : "Close room"}
           </button>
         </div>
       </section>
@@ -244,7 +292,7 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
               <h2>
                 {players.length} joined · {s.total} questions ready
               </h2>
-              <button className="btn primary" disabled={!players.length || !s.total} onClick={() => send({ t: "show" })}>
+              <button className="btn primary" disabled={status !== "open" || !players.some(p => p.connected) || !s.total} onClick={() => send({ t: "show", index: s.index })}>
                 Start with question 1
               </button>
             </>
@@ -269,17 +317,17 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
               )}
               <div className="row" style={{ marginTop: 12 }}>
                 {s.phase === "question" && (
-                  <button className="btn primary" onClick={() => send({ t: "reveal" })}>
+                  <button className="btn primary" disabled={status !== "open"} onClick={() => send({ t: "reveal", index: s.index })}>
                     Show answers
                   </button>
                 )}
                 {s.phase === "reveal" && s.index + 1 < s.total && (
-                  <button className="btn primary" onClick={() => send({ t: "show" })}>
+                  <button className="btn primary" disabled={status !== "open"} onClick={() => send({ t: "show", index: s.index })}>
                     Next question
                   </button>
                 )}
                 {(s.phase === "reveal" || s.index + 1 >= s.total) && (
-                  <button className="btn" onClick={() => send({ t: "end" })}>
+                  <button className="btn" onClick={() => send({ t: "end", index: s.index })}>
                     Finish the quiz
                   </button>
                 )}
@@ -290,6 +338,11 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
         </section>
       )}
 
+      {s?.mode === "teams" && <section className="panel"><h2>Team battle</h2><p className="small muted">Players see only numbered teams and aggregate scores, never other nicknames.</p>
+        {s.phase === "lobby" && <button className="btn" disabled={status !== "open"} onClick={() => send({ t: "shuffleTeams" })}>Randomize balanced teams</button>}
+        <ul>{s.teams.map(t => <li key={t.team}>Team {t.team + 1}: {t.members} players · {t.score} points · {t.correct} correct</li>)}</ul>
+      </section>}
+      {s?.mode === "cooperative" && <section className="panel"><h2>Class challenge</h2><p>{s.cooperative.correct} correct answers together from {s.cooperative.answered} submitted answers. Every contribution counts.</p></section>}
       <section className="panel">
         <h2>In the room ({players.length})</h2>
         <p className="small muted">Only you see names. Remove anyone with an unsuitable nickname; they can rejoin with another.</p>
@@ -301,6 +354,7 @@ function Run({ api, room, onClosed }: { api: AppApi; room: Opened; onClosed: () 
                 {!p.connected && <span className="small muted"> (disconnected)</span>}
                 {s?.phase === "question" && p.answered && <span className="small muted"> · answered</span>}
               </span>
+              {s?.mode === "teams" && <label className="field"><span className="sr-only">Team for {p.name}</span><select className="select" aria-label={`Team for ${p.name}`} disabled={s.phase !== "lobby" || status !== "open"} value={p.team} onChange={e => send({ t: "assign", player: p.id, team: Number(e.target.value) })}>{s.teams.map(t => <option key={t.team} value={t.team}>Team {t.team + 1}</option>)}</select></label>}
               <button className="btn sm ghost" onClick={() => send({ t: "remove", player: p.id })}>
                 Remove<span className="sr-only"> {p.name}</span>
               </button>

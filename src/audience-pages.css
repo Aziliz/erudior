@@ -1,0 +1,15 @@
+/* Public walkthroughs: preserve readable, keyboard-operable native disclosures. */
+.audience-page .home-shot { margin: 0; min-width: 0; }
+.audience-page figcaption { margin-top: .8rem; line-height: 1.55; overflow-wrap: anywhere; }
+.audience-page .audience-section { margin-bottom: 2rem; }
+.audience-page .audience-tab-details { border: 1px solid var(--rule); border-radius: var(--r-md); margin: .8rem 0; background: var(--surface); }
+.audience-page .audience-tab-details > summary { cursor: pointer; padding: 1rem 1.25rem; min-height: 48px; font-weight: 650; overflow-wrap: anywhere; }
+.audience-page .audience-tab-details > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.audience-page .audience-tab-details[open] > summary { border-bottom: 1px solid var(--rule); }
+.audience-page .audience-tab-details .home-feature-row { padding: 1.25rem; margin: 0; gap: 1.5rem; align-items: start; }
+.audience-page .audience-tab-details h3 { margin-top: 0; }
+@media (max-width: 680px) {
+  .audience-page .audience-tab-details .home-feature-row { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+  .audience-page .audience-tab-details > summary { padding: 1rem; }
+}
+@media print { .audience-page .audience-tab-details { break-inside: avoid; } }

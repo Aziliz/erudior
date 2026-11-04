@@ -1,15 +1,25 @@
 // Block editor for community courses (website only). Saves the draft as you type; Publish
 // checks it and makes a new public version, tagged Not reviewed until a reviewer looks.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { AppApi } from "../App";
+import { addCommunityLesson, deleteCommunityLesson, communityLessonDeleteProblem, reorderCommunityLesson } from "../lib/communityModules";
+import CommunityAuthorGuide from "../components/CommunityAuthorGuide";
+import CanonicalCommunityEditor from "./CanonicalCommunityEditor";
+import { confirmAction } from "../lib/storage";
+import ReaderLibraryEditor from "../components/ReaderLibraryEditor";
+import WorkResourceEditor from "../components/WorkResourceEditor";
+import { validateCourseWork, type CourseWork } from "../lib/courseWork";
+import CourseBranchingEditor from "../components/CourseBranchingEditor";
+import CourseAdvancedAssessmentEditor from "../components/CourseAdvancedAssessmentEditor";
+import CourseScientificEditor from "../components/CourseScientificEditor";
 import CourseSpreadsheetEditor from "../components/CourseSpreadsheetEditor";
 import { registerNavigationGuard } from "../lib/navigationGuard";
 import type { Course } from "../lib/types";
 import Markdown from "../components/Markdown";
 import { ReviewPill } from "../components/CommunityCatalog";
-import { api as community, imageUrl, type Editors, type Review } from "../lib/community";
-import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, checkCommunitySpreadsheetAssignments, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
+import { API, api as community, imageUrl, type Editors, type Review } from "../lib/community";
+import { CALCULATORS, LEVELS, LIMITS, SUBJECTS, TYPES, checkDoc, migrateCommunityDocToCanonical, communityReaderQuestions, checkCommunityReaderTexts, checkCommunitySpreadsheetAssignments, readFigure, toCourse, upgradeDoc, type Block, type CalcChoice, type CommunityDoc } from "../lib/communityFormat";
 import { calculatorForSubject } from "../lib/taxonomy";
 import { renderFigure } from "../lib/figure";
 import { readSpec } from "../lib/manip";
@@ -19,9 +29,10 @@ import { Drills, Glossary, Language, Modules, References, newId } from "./Commun
 import { ImagePicker, QuestionEditor, Q_KIND_LABEL, newQuestion } from "./CommunityQuestion";
 
 type Save = "saved" | "saving" | "unsaved" | "error";
-type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "spreadsheets" | "publish";
+type Tab = "about" | "modules" | "lessons" | "cards" | "glossary" | "refs" | "drills" | "language" | "branching" | "scientific" | "advanced" | "spreadsheets" | "work" | "reader" | "publish";
 
 const BLOCK_LABEL: Record<Block["type"], string> = {
+  assignment: "Assessed work link",
   heading: "Heading",
   text: "Text",
   list: "List",
@@ -50,6 +61,9 @@ function spreadsheetCourse(doc: CommunityDoc, id: string): Course {
     modules: modules.map(m => ({ id: m.id, title: m.title })),
     lessons: doc.lessons.map(l => ({ id: l.id, module: l.module ?? modules[0].id, title: l.title, body: "" })),
     banks: [], decks: [], glossary: [], references: [], drills: [],
+    branchingScenarios: structuredClone(doc.branchingScenarios ?? []),
+    scientificWorkspaces: structuredClone(doc.scientificWorkspaces ?? []),
+    advancedAssessments: structuredClone(doc.advancedAssessments ?? []),
     spreadsheetAssignments: structuredClone(doc.spreadsheetAssignments ?? []),
   };
 }
@@ -122,6 +136,16 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   const update = (fn: (d: CommunityDoc) => CommunityDoc) => {
     if (!latest.current || publicationBusy.current) return;
     const next = fn(latest.current);
+    if (next === latest.current) return;
+    const previousQuestionIds = new Set(communityReaderQuestions(latest.current).map(q => q.id));
+    const nextQuestionIds = new Set(communityReaderQuestions(next).map(q => q.id));
+    if (next.texts?.some(text => text.sections.some(section => section.questions?.some(id => previousQuestionIds.has(id) && !nextQuestionIds.has(id))))) {
+      api.toast("Unlink reading questions from the library before deleting their question, lesson, or module."); return;
+    }
+    const moduleIds = new Set((next.modules ?? []).map(m => m.id));
+    if ([...(next.writing ?? []), ...(next.labs ?? [])].some(resource => resource.module && !moduleIds.has(resource.module))) {
+      api.toast("Move assessed work to another module before deleting its module."); return;
+    }
     latest.current = next;
     setDoc(next);
     setSave("unsaved");
@@ -169,6 +193,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
   if (!doc || !meta) return <div className="page muted">Loading…</div>;
   const readOnly = meta.status === "removed";
 
+  if (doc.canonical) return <CanonicalCommunityEditor api={api} id={id} initialDoc={doc} initialMeta={meta} />;
   return (
     <div className="page community-editor">
       <button className="back" onClick={async () => { if (canNavigate() && await flush() && canNavigate()) api.go({ name: "create" }); }}>
@@ -191,6 +216,17 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         <p className="small muted save-state" role="status">
           {pendingAssignment ? "Unapplied assignment changes" : save === "saved" ? "All changes saved" : save === "saving" ? "Saving…" : save === "unsaved" ? "Unsaved changes" : `Not saved: ${saveError}`}
         </p>
+        <button type="button" className="btn sm" disabled={readOnly || pendingAssignment || publishing || save === "saving"} onClick={async () => {
+          if (!(await confirmAction("Migrate this draft to the full canonical editor? This is one-way for this draft; existing published versions remain unchanged. All authored lesson blocks and resources will be converted to their existing app representation."))) return;
+          if (publicationBusy.current || !(await flush()) || !latest.current) return;
+          publicationBusy.current = true; setPublishing(true);
+          try {
+            const canonicalDoc = migrateCommunityDocToCanonical(latest.current, id, imageUrl, API || undefined);
+            await community.save(id, canonicalDoc);
+            latest.current = canonicalDoc; persisted.current = canonicalDoc; setDoc(canonicalDoc); setSave("saved");
+          } catch (error) { api.toast((error as Error).message); }
+          finally { publicationBusy.current = false; setPublishing(false); }
+        }}>Migrate to full canonical editor</button>
         <button type="button" className="btn sm" disabled={readOnly || pendingAssignment || publishing || save === "saving"} onClick={() => void flush()}>Save draft</button>
       </div>
       {readOnly && <p className="notice error">A reviewer took this course down: {meta.reviewNote}. It can't be edited or published again unless they restore it.</p>}
@@ -199,6 +235,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         Don't put personal information in a course: no students' names, photos of students, addresses or phone numbers.
       </p>
 
+      <CommunityAuthorGuide />
       <nav className="tabs" aria-label="Course editor sections">
         {(
           [
@@ -210,6 +247,11 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
             ["refs", `Reference sheets (${doc.references?.length ?? 0})`],
             ["drills", `Drills (${doc.drills?.length ?? 0})`],
             ["language", "Language and reading"],
+            ["reader", `Reading library (${doc.texts?.length ?? 0})`],
+            ["work", "Writing, labs and activities"],
+            ["branching", `Scenarios (${doc.branchingScenarios?.length ?? 0})`],
+            ["scientific", `Science (${doc.scientificWorkspaces?.length ?? 0})`],
+            ["advanced", `Assessment (${doc.advancedAssessments?.length ?? 0})`],
             ["spreadsheets", `Spreadsheets (${doc.spreadsheetAssignments?.length ?? 0})`],
             ["publish", "Publish"],
           ] as [Tab, string][]
@@ -229,6 +271,40 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
         {tab === "refs" && <References doc={doc} update={update} />}
         {tab === "drills" && <Drills doc={doc} update={update} />}
         {tab === "language" && <Language doc={doc} update={update} />}
+        {tab === "reader" && <ReaderLibraryEditor texts={doc.texts ?? []} questions={communityReaderQuestions(doc)} onChange={texts => update(current => ({ ...current, texts: structuredClone(texts) }))} />}
+        {tab === "work" && <WorkResourceEditor
+          work={doc}
+          modules={doc.modules ?? []}
+          lessons={doc.lessons.map(lesson => ({ id: lesson.id, title: lesson.title, body: lesson.blocks.filter(b => b.type === "assignment").map(b => "```assignment\n" + (b.kind === "log" ? "log" : `${b.kind}: ${b.id}`) + "\n```").join("\n\n") }))}
+          onChange={(work: CourseWork) => update(current => ({ ...current, rubrics: work.rubrics, writing: work.writing, labs: work.labs, activityLog: work.activityLog }))}
+          onAssignmentAttachmentChange={(lessonId, reference, attached) => update(current => ({ ...current, lessons: current.lessons.map(lesson => {
+            if (lesson.id !== lessonId) return lesson;
+            const matches = (b: Block) => b.type === "assignment" && b.kind === reference.kind && (b.kind === "log" || b.id === reference.id);
+            if (!attached) return { ...lesson, blocks: lesson.blocks.filter(b => !matches(b)) };
+            if (lesson.blocks.some(matches)) return lesson;
+            if (lesson.blocks.length >= LIMITS.blocksPerLesson) { api.toast("This lesson has reached its block limit."); return lesson; }
+            const block: Block = reference.kind === "log" ? { type: "assignment", kind: "log" } : { type: "assignment", kind: reference.kind, id: reference.id! };
+            return { ...lesson, blocks: [...lesson.blocks, block] };
+          }) }))}
+        />}
+        {tab === "branching" && <CourseBranchingEditor course={spreadsheetCourse(doc,id)} onEditingChange={editingChanged} update={change=>update(current=>{
+          const changed=change(spreadsheetCourse(current,id));
+          const next={...current,branchingScenarios:structuredClone(changed.branchingScenarios??[])};
+          if(new TextEncoder().encode(JSON.stringify(next)).length>LIMITS.docBytes)throw Error("Course exceeds community document size limit.");
+          return next;
+        })}/>}
+        {tab === "scientific" && <CourseScientificEditor course={spreadsheetCourse(doc,id)} onEditingChange={editingChanged} update={change=>update(current=>{
+          const changed=change(spreadsheetCourse(current,id));
+          const next={...current,scientificWorkspaces:structuredClone(changed.scientificWorkspaces??[])};
+          if(new TextEncoder().encode(JSON.stringify(next)).length>LIMITS.docBytes)throw Error("Course exceeds community document size limit.");
+          return next;
+        })}/>}
+        {tab === "advanced" && <CourseAdvancedAssessmentEditor course={spreadsheetCourse(doc,id)} onEditingChange={editingChanged} update={change=>update(current=>{
+          const changed=change(spreadsheetCourse(current,id));
+          const next={...current,advancedAssessments:structuredClone(changed.advancedAssessments??[])};
+          if(new TextEncoder().encode(JSON.stringify(next)).length>LIMITS.docBytes)throw Error("Course exceeds community document size limit.");
+          return next;
+        })}/>}
         {tab === "spreadsheets" && <CourseSpreadsheetEditor
           course={spreadsheetCourse(doc, id)}
           onEditingChange={editingChanged}
@@ -263,6 +339,7 @@ function CommunityEditorSession({ api, id }: { api: AppApi; id: string }) {
 type Update = (fn: (d: CommunityDoc) => CommunityDoc) => void;
 
 function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
+  const descriptionId = useId();
   return (
     <section className="panel form-grid">
       <label className="field span-2">
@@ -270,8 +347,8 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         <input className="input" value={doc.title} maxLength={LIMITS.title} onChange={(e) => update((d) => ({ ...d, title: e.target.value }))} />
       </label>
       <label className="field span-2">
-        <span>Description (what learners will get out of it)</span>
-        <textarea className="textarea" value={doc.description} maxLength={LIMITS.description} onChange={(e) => update((d) => ({ ...d, description: e.target.value }))} />
+        <span id={`${descriptionId}-label`}>Description (what learners will get out of it)</span>
+        <textarea aria-labelledby={`${descriptionId}-label`} className="textarea" value={doc.description} maxLength={LIMITS.description} onChange={(e) => update((d) => ({ ...d, description: e.target.value }))} />
       </label>
       <label className="field">
         <span>Subject</span>
@@ -356,13 +433,15 @@ function move<T>(xs: T[], i: number, d: number): T[] {
 
 function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityDoc; update: Update; ix: number; setIx: (n: number) => void }) {
   const [preview, setPreview] = useState(false);
+  const [deletePending, setDeletePending] = useState<{ id: string; snapshot: string } | null>(null);
   const lesson = doc.lessons[ix];
   const setLesson = (fn: (l: CommunityDoc["lessons"][number]) => CommunityDoc["lessons"][number]) =>
-    update((d) => ({ ...d, lessons: d.lessons.map((l, i) => (i === ix ? fn(l) : l)) }));
+    update((d) => ({ ...d, lessons: d.lessons.map((l) => (l.id === lesson?.id ? fn(l) : l)) }));
   const setBlocks = (fn: (b: Block[]) => Block[]) => setLesson((l) => ({ ...l, blocks: fn(l.blocks) }));
   const addBlock = (type: Block["type"]) => {
     const qids = doc.lessons.flatMap((l) => l.blocks.flatMap((b) => (b.type === "question" ? [b.id] : [])));
     const blank: Record<Block["type"], () => Block> = {
+      assignment: () => ({ type: "assignment", kind: "log" }),
       heading: () => ({ type: "heading", text: "" }),
       text: () => ({ type: "text", md: "" }),
       list: () => ({ type: "list", ordered: false, items: [""] }),
@@ -394,8 +473,7 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
           className="btn sm"
           disabled={doc.lessons.length >= LIMITS.lessons}
           onClick={() => {
-            const lid = newId("l", doc.lessons.map((l) => l.id));
-            update((d) => ({ ...d, lessons: [...d.lessons, { id: lid, title: `Lesson ${d.lessons.length + 1}`, blocks: [{ type: "text", md: "" }] }] }));
+            update((d) => addCommunityLesson(d, lesson?.module ?? d.modules?.[0]?.id));
             setIx(doc.lessons.length);
           }}
         >
@@ -411,33 +489,39 @@ function Lessons({ api, doc, update, ix, setIx }: { api: AppApi; doc: CommunityD
                 <span>Lesson title</span>
                 <input className="input" value={lesson.title} maxLength={LIMITS.title} onChange={(e) => setLesson((l) => ({ ...l, title: e.target.value }))} />
               </label>
-              <button className="btn sm ghost" disabled={ix === 0} onClick={() => (update((d) => ({ ...d, lessons: move(d.lessons, ix, -1) })), setIx(ix - 1))}>
+              <button className="btn sm ghost" disabled={ix === 0} onClick={() => (update((d) => reorderCommunityLesson(d, lesson.id, -1)), setIx(ix - 1))}>
                 Move lesson up
               </button>
               <button
                 className="btn sm ghost"
                 disabled={ix === doc.lessons.length - 1}
-                onClick={() => (update((d) => ({ ...d, lessons: move(d.lessons, ix, 1) })), setIx(ix + 1))}
+                onClick={() => (update((d) => reorderCommunityLesson(d, lesson.id, 1)), setIx(ix + 1))}
               >
                 Move lesson down
               </button>
-              <button
-                className="btn sm ghost danger"
-                disabled={doc.lessons.length === 1 || doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id)}
-                title={doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id) ? "Move or remove spreadsheet assignments linked to this lesson first." : undefined}
-                onClick={() => {
-                  if (doc.spreadsheetAssignments?.some(a => a.lessonId === lesson.id)) { api.toast("Move or remove linked spreadsheet assignments before deleting this lesson."); return; }
-                  if (!window.confirm(`Delete the lesson "${lesson.title}"?`)) return;
-                  update((d) => ({ ...d, lessons: d.lessons.filter((_, i) => i !== ix) }));
-                  setIx(Math.max(0, ix - 1));
-                }}
-              >
+              <button className="btn sm ghost danger" disabled={!!communityLessonDeleteProblem(doc, lesson.id)}
+                onClick={() => setDeletePending({ id: lesson.id, snapshot: JSON.stringify(lesson) })}>
                 Delete lesson
               </button>
               <button className="btn sm" aria-pressed={preview} onClick={() => setPreview((p) => !p)}>
                 {preview ? "Edit" : "Preview"}
               </button>
             </div>
+            {communityLessonDeleteProblem(doc, lesson.id) && <p className="small muted">{communityLessonDeleteProblem(doc, lesson.id)}</p>}
+            {deletePending?.id === lesson.id && <div className="notice" role="group" aria-label="Confirm lesson deletion">
+              <p>Delete “{lesson.title}” and its content? This does not delete already published versions.</p>
+              <button className="btn danger" onClick={() => {
+                update(d => {
+                  const current = d.lessons.find(l => l.id === deletePending.id);
+                  if (!current || JSON.stringify(current) !== deletePending.snapshot) { api.toast("The lesson changed. Review it before deleting."); return d; }
+                  const problem = communityLessonDeleteProblem(d, current.id);
+                  if (problem) { api.toast(problem); return d; }
+                  return deleteCommunityLesson(d, current.id);
+                });
+                setDeletePending(null); setIx(Math.max(0, ix - 1));
+              }}>Confirm delete lesson</button>
+              <button className="btn ghost" onClick={() => setDeletePending(null)}>Cancel lesson deletion</button>
+            </div>}
             <LessonSettings doc={doc} lesson={lesson} setLesson={setLesson} />
           </div>
 
@@ -490,8 +574,8 @@ function LessonSettings({
     return next.length ? next : undefined;
   };
   return (
-    <details className="lesson-settings">
-      <summary>Lesson settings{lesson.honors ? " · honors" : ""}</summary>
+    <div className="lesson-settings">
+      <p className="small muted">Lesson settings{lesson.honors ? " · honors" : ""}</p>
       <div className="form-grid">
         {modules.length > 0 && (
           <label className="field">
@@ -543,7 +627,7 @@ function LessonSettings({
           </fieldset>
         )}
       </div>
-    </details>
+    </div>
   );
 }
 
@@ -579,6 +663,7 @@ function BlockEditor({
           Delete<span className="sr-only">: {label}</span>
         </button>
       </div>
+      {b.type === "assignment" && <p>Linked {b.kind}: {b.kind === "log" ? "Activity log" : b.id}. Edit the resource or its lesson attachments in Writing, labs and activities.</p>}
       {b.type === "heading" && (
         <div className="row" style={{ alignItems: "flex-end" }}>
           <label className="field grow">
@@ -747,6 +832,8 @@ function FigureFields({ b, onChange }: { b: Extract<Block, { type: "figure" }>; 
 }
 
 function LessonPreview({ doc, ix }: { doc: CommunityDoc; ix: number }) {
+  const workProblems = [...validateCourseWork(doc, { moduleIds: doc.modules?.map(m => m.id) ?? [] }), ...checkCommunityReaderTexts(doc, true)];
+  if (workProblems.length) return <p role="alert">Finish assessed work before previewing: {workProblems.join("; ")}</p>;
   const course = toCourse(doc, { id: "preview", version: 0, review: "not_reviewed", author: "" }, imageUrl) as {
     lessons: { body: string; title: string; quiz?: string[] }[];
     banks: { questions: { id: string; type?: string; stem: string; choices: string[]; answer: number[]; left?: string[]; accept?: string[][] }[] }[];
@@ -897,7 +984,7 @@ function Publish({
   onBusyChange: (busy: boolean) => void;
   onChange: (m: { status?: string; version?: number; review?: Review }) => void;
 }) {
-  const problems = checkDoc(doc, true);
+  const problems = checkDoc(doc, true, { communityImageOrigin: API || undefined });
   const [errors, setErrors] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const busyRef = useRef(false);

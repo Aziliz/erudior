@@ -1,4 +1,19 @@
-import { useEffect, useState } from "react";
+import ClassroomWorkflowWorkspace from "./ClassroomWorkflowWorkspace";
+import HomeschoolPlanningWorkspace from "../components/HomeschoolPlanningWorkspace";
+import ParentCommunityReview from "../components/ParentCommunityReview";
+import AcademicRecordsWorkspace from "../components/AcademicRecordsWorkspace";
+import LearnerPrivacyWorkspace from "../components/LearnerPrivacyWorkspace";
+import CredentialWorkspace from "../components/CredentialWorkspace";
+import AdvancedAssessmentStudio from "../components/AdvancedAssessmentStudio";
+import ScientificStudio from "../components/ScientificStudio";
+import BranchingStudio from "../components/BranchingStudio";
+import InstructionalStudio from "../components/InstructionalStudio";
+import TransactionStudio from "../components/TransactionStudio";
+import DocumentEngine from "../components/DocumentEngine";
+import ContentInteroperability from "../components/ContentInteroperability";
+import LearningDiagnostics from "../components/LearningDiagnostics";
+import { useEffect, useRef, useState } from "react";
+import CompetencySupervisor from "../components/CompetencySupervisor";
 import type { AppApi } from "../App";
 import { CATALOG, courseFinished } from "../lib/catalog";
 import {
@@ -48,6 +63,8 @@ import {
   HandinsTab,
 } from "./TeacherTabs";
 import LiveHost from "./LiveHost";
+import LearningGames from "./LearningGames";
+import Presentations from "./Presentations";
 import { LIVE } from "../lib/live";
 import { DocumentsTab, ReadingTab } from "./ParentFiles";
 import { StudentWorkTab } from "./StudentWork";
@@ -60,7 +77,15 @@ import {
 } from "../lib/grades";
 
 export type ParentTab =
+  | "classroom-workflows"
+  | "planning"
+  | "academic-records"
+  | "learner-privacy"
   | "overview"
+  | "learning-paths"
+  | "diagnostics"
+  | "interoperability"
+  | "credential-evidence" | "advanced-assessment" | "scientific" | "branching" | "document-cases" | "transactions" | "instructional-evidence"
   | "attendance"
   | "courses"
   | "grades"
@@ -74,23 +99,52 @@ export type ParentTab =
   | "gradebook"
   | "handins"
   | "work"
-  | "live";
+  | "live"
+  | "games"
+  | "presentations";
 
 const CLASS_TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "learning-paths", label: "Learning paths" },
+  { id: "diagnostics", label: "Learning diagnostics" },
+  { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
+  { id: "scientific", label: "Scientific workspaces" },
+  { id: "branching", label: "Branching scenarios" },
+  { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "classes", label: "Classes" },
+  { id: "classroom-workflows", label: "Class collaboration" },
   { id: "gradebook", label: "Gradebook" },
   { id: "handins", label: "Hand-ins" },
   { id: "work", label: "Student work" },
   { id: "grades", label: "Grades" },
   { id: "reports", label: "Reports" },
+  { id: "academic-records", label: "Academic records" },
   { id: "students", label: "Students" },
+  { id: "games", label: "Learning games" },
+  { id: "presentations", label: "Interactive presentations" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
 
 const TABS: { id: ParentTab; label: string }[] = [
   { id: "overview", label: "Overview" },
+  { id: "planning", label: "Homeschool planning" },
+  { id: "learning-paths", label: "Learning paths" },
+  { id: "diagnostics", label: "Learning diagnostics" },
+  { id: "interoperability", label: "Content exchange" },
+  { id: "document-cases", label: "Document cases" },
+  { id: "advanced-assessment", label: "Advanced assessment" },
+  { id: "scientific", label: "Scientific workspaces" },
+  { id: "branching", label: "Branching scenarios" },
+  { id: "transactions", label: "Transaction practice" },
+  { id: "instructional-evidence", label: "Workload evidence" },
+  { id: "credential-evidence", label: "Credential evidence" },
+  { id: "learner-privacy", label: "Learner privacy" },
   { id: "attendance", label: "Attendance and hours" },
   { id: "courses", label: "Courses" },
   { id: "grades", label: "Grades" },
@@ -98,8 +152,11 @@ const TABS: { id: ParentTab; label: string }[] = [
   { id: "reading", label: "Reading and activities" },
   { id: "documents", label: "Documents" },
   { id: "reports", label: "Reports" },
+  { id: "academic-records", label: "Academic records" },
   { id: "students", label: "Students" },
   { id: "state", label: "State rules" },
+  { id: "games", label: "Learning games" },
+  { id: "presentations", label: "Interactive presentations" },
   ...(LIVE ? [{ id: "live" as const, label: "Live room" }] : []),
   { id: "settings", label: "Settings and backup" },
 ];
@@ -132,23 +189,32 @@ export default function ParentArea({
   onLock: () => void;
 }) {
   const [records, setRecords] = useState<RecordsMap | null>(null);
+  const [recordsError, setRecordsError] = useState("");
+  const [recordsReload, setRecordsReload] = useState(0);
+  const mounted = useRef(true);
+  const familyRef = useRef(family); familyRef.current = family;
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   const classroom = isClassroom(family);
-
   useEffect(() => {
-    (async () => {
+    let live = true; setRecords(null); setRecordsError("");
+    (async () => { try {
       const out: RecordsMap = {};
       for (const s of family.students) out[s.id] = await loadRecords(s.id);
-      setRecords(out);
-    })();
-  }, [family.students]);
-
-  const saveRec = async (id: string, r: Records) => {
-    await saveRecords(id, r);
-    setRecords((m) => ({ ...(m ?? {}), [id]: r }));
+      if (live) setRecords(out);
+    } catch (e) { if (live) setRecordsError((e as Error).message); } })();
+    return () => { live = false; };
+  }, [family.students, recordsReload]);
+  const saveRec = async (id: string, r: Records): Promise<boolean> => {
+    try {
+      const guard = async () => { if (!mounted.current || !familyRef.current.students.some(s => s.id === id)) throw Error("Learner changed. Reload records before saving."); if (!api.authorizeAcademicRecords) throw Error("Academic records authorization is unavailable."); await api.authorizeAcademicRecords(id); };
+      const saved = await saveRecords(id, r, { guard, action: "Adult attendance edit" });
+      await guard(); setRecords((m) => ({ ...(m ?? {}), [id]: saved })); setRecordsError(""); return true;
+    } catch (e) { const message = (e as Error).message; setRecordsError(message); api.toast(message); return false; }
   };
 
   return (
     <div className="page">
+      {recordsError && <div className="notice" role="alert"><p>{recordsError} Stored records were not replaced.</p><button className="btn" onClick={() => setRecordsReload(n => n + 1)}>Reload attendance records</button></div>}
       <div className="page-head no-print">
         <div>
           <h1>{adultLabel(family)} area</h1>
@@ -180,7 +246,11 @@ export default function ParentArea({
           </button>
         ))}
       </nav>
-      {!records ? (
+      {/* These workspaces own their guarded storage lifecycle. Attendance reloads
+          must not discard an in-flight review or its saved confirmation. */}
+      {tab === "courses" && <Courses api={api} family={family} />}
+      {tab === "planning" && !classroom && <HomeschoolPlanningWorkspace api={api} family={family} />}
+      {tab !== "courses" && tab !== "planning" && (!records ? (
         <p className="muted">Loading records…</p>
       ) : (
         <>
@@ -190,11 +260,25 @@ export default function ParentArea({
             ) : (
               <Overview api={api} family={family} records={records} />
             ))}
+          {tab === "learning-paths" && <CompetencySupervisor api={api} family={family} />}
+          {tab === "diagnostics" && <LearningDiagnostics api={api} family={family} />}
+          {tab === "interoperability" && <ContentInteroperability api={api} />}
+          {tab === "document-cases" && <DocumentEngine api={api} />}
+          {tab === "advanced-assessment" && <AdvancedAssessmentStudio api={api} />}
+          {tab === "scientific" && <ScientificStudio api={api} />}
+          {tab === "branching" && <BranchingStudio api={api} />}
+          {tab === "transactions" && <TransactionStudio api={api} />}
+          {tab === "instructional-evidence" && <InstructionalStudio api={api} />}
+          {tab === "credential-evidence" && <CredentialWorkspace api={api} />}
+          {tab === "learner-privacy" && <LearnerPrivacyWorkspace api={api} />}
+          {tab === "classroom-workflows" && classroom && <ClassroomWorkflowWorkspace api={api} teacher />}
           {tab === "classes" && <ClassesTab api={api} family={family} />}
           {tab === "gradebook" && <GradebookTab api={api} family={family} />}
           {tab === "handins" && <HandinsTab api={api} family={family} />}
           {tab === "work" && <StudentWorkTab api={api} family={family} />}
           {tab === "live" && LIVE && <LiveHost api={api} />}
+          {tab === "games" && <LearningGames api={api} />}
+          {tab === "presentations" && <Presentations api={api} />}
           {tab === "attendance" && (
             <Attendance
               api={api}
@@ -203,16 +287,16 @@ export default function ParentArea({
               saveRec={saveRec}
             />
           )}
-          {tab === "courses" && <Courses api={api} family={family} />}
           {tab === "grades" && <GradesTab api={api} family={family} />}
           {tab === "reports" && <ReportsTab api={api} family={family} />}
+          {tab === "academic-records" && <AcademicRecordsWorkspace api={api} family={family} />}
           {tab === "reading" && <ReadingTab api={api} family={family} />}
           {tab === "documents" && <DocumentsTab api={api} family={family} />}
           {tab === "students" && <Students api={api} family={family} />}
           {tab === "state" && <StateTab api={api} family={family} />}
           {tab === "settings" && <Settings api={api} family={family} />}
         </>
-      )}
+      ))}
     </div>
   );
 }
@@ -458,7 +542,7 @@ function Attendance({
   api: AppApi;
   family: Family;
   records: RecordsMap;
-  saveRec: (id: string, r: Records) => Promise<void>;
+  saveRec: (id: string, r: Records) => Promise<boolean>;
 }) {
   const [sid, setSid] = useState(family.students[0].id);
   const s = family.students.find((x) => x.id === sid) ?? family.students[0];
@@ -543,7 +627,7 @@ function Attendance({
             className="btn primary"
             disabled={!proposed}
             onClick={() =>
-              saveRec(s.id, confirmProposed(r, family)).then(() =>
+              saveRec(s.id, confirmProposed(r, family)).then((saved) => saved &&
                 api.toast(
                   `Confirmed ${proposed} day${proposed === 1 ? "" : "s"}`,
                 ),
@@ -567,10 +651,10 @@ function Attendance({
           onSubmit={async (e) => {
             e.preventDefault();
             if (form.minutes <= 0) return;
-            await saveRec(
+            if (!await saveRec(
               s.id,
               addManual(r, { ...form, note: form.note.trim() }),
-            );
+            )) return;
             setForm((f) => ({ ...f, note: "" }));
             api.toast("Time added");
           }}
@@ -851,14 +935,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
                   </button>
                   <button
                     className="btn sm ghost"
-                    onClick={() =>
-                      update({
-                        ...s,
-                        assigned: s.assigned.filter(
-                          (x) => x.courseId !== a.courseId,
-                        ),
-                      })
-                    }
+                    onClick={() => void api.removeParentAssignment?.(s.id, a.courseId).catch(e => api.toast((e as Error).message))}
                   >
                     Remove<span className="sr-only">: {title(a.courseId)}</span>
                   </button>
@@ -923,6 +1000,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
           {s.name} may also start courses that aren't assigned
         </label>
       </section>
+      {!isClassroom(family) && <ParentCommunityReview api={api} family={family} />}
     </>
   );
 }
@@ -932,6 +1010,7 @@ function Courses({ api, family }: { api: AppApi; family: Family }) {
 function Students({ api, family }: { api: AppApi; family: Family }) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState(1);
+  const removing = useRef(false);
   const update = (st: Student) =>
     api.setFamily({
       ...family,
@@ -941,22 +1020,29 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
   async function remove(st: Student) {
     if (family.students.length === 1)
       return api.toast("A family needs at least one student.");
-    const ok = await store.confirmAction(
-      `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
-      "Remove student",
-    );
-    if (!ok) return;
+    if (removing.current) return;
+    removing.current = true;
     try {
-      const updated = await deleteStudentWithSubmissionHistory(st.id, family);
+      const ok = await store.confirmAction(
+        `Remove ${st.name}? Their progress, attendance records, saved classroom hand-ins and review history are deleted from this computer. Class roster references are removed. Shared collaboration items involving this learner and their dependent group contributions are also removed to avoid retaining private identifying text; unrelated class work remains. An ID-only deletion marker prevents old hand-ins from recreating the profile. Back up first; existing backups, exported files and shared attachment storage are not deleted.`,
+        "Remove student",
+      );
+      if (!ok) return;
+      if (!api.reauthenticateAdult) throw Error("Reopen the app to authenticate student removal.");
+      const authorize = await api.reauthenticateAdult();
+      if (!authorize) { api.toast("Authentication canceled. The student was not removed."); return; }
+      authorize();
+      const updated = await deleteStudentWithSubmissionHistory(st.id, family, authorize);
+      authorize();
       // Never leave future saves pointed at a profile whose state was deleted.
       if (store.activeStudent() === st.id) store.useStudentFiles(null);
       if (api.reloadClassroomState) await api.reloadClassroomState();
-      else await api.setFamily(updated);
+      else await api.setFamily(updated, authorize);
       if (api.student?.id === st.id) await api.chooseStudent(updated.students[0].id);
       api.toast(`Removed ${st.name}, including saved hand-ins and review history`);
     } catch (error) {
       api.toast(`Student deletion did not finish: ${error instanceof Error ? error.message : String(error)}. Reload and retry removal; some data may already be deleted.`);
-    }
+    } finally { removing.current = false; }
   }
 
   return (
@@ -1217,6 +1303,21 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
   const [rpass, setRpass] = useState("");
   const [msg, setMsg] = useState("");
 
+  const sensitiveWorking = useRef(false);
+  const [sensitiveBusy, setSensitiveBusy] = useState(false);
+  async function sensitive(action: (authorize: () => void) => Promise<void>) {
+    if (sensitiveWorking.current) return;
+    sensitiveWorking.current = true; setSensitiveBusy(true); setMsg("");
+    try {
+      if (!api.reauthenticateAdult) throw Error("Reopen the app to authenticate this sensitive action.");
+      const authorize = await api.reauthenticateAdult();
+      if (!authorize) { setMsg("Authentication canceled. No sensitive action was started."); return; }
+      authorize();
+      await action(authorize);
+    } catch (err) { setMsg(err instanceof Error ? err.message : String(err)); }
+    finally { sensitiveWorking.current = false; setSensitiveBusy(false); }
+  }
+
   async function saveYear(e: React.FormEvent) {
     e.preventDefault();
     if (end <= start)
@@ -1259,40 +1360,38 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
 
   async function backup(e: React.FormEvent) {
     e.preventDefault();
-    if (bpass.length < 8)
-      return setMsg("Use a backup passphrase of at least 8 characters.");
-    setMsg("");
-    try {
-      if (await exportEncrypted(api.allCourses, api.banks, bpass))
-        api.toast("Encrypted backup saved");
+    if (bpass.length < 8) return setMsg("Use a backup passphrase of at least 8 characters.");
+    await sensitive(async authorize => {
+      if (await exportEncrypted(api.allCourses, api.banks, bpass, authorize)) api.toast("Encrypted backup saved");
       setBpass("");
-    } catch (err) {
-      setMsg(`Backup failed: ${String(err)}`);
-    }
+    });
   }
 
   async function restore(e: React.FormEvent) {
     e.preventDefault();
-    try {
-      const text = await store.pickJsonFile();
-      if (text === null) return;
-      const raw = JSON.parse(text);
-      if (!isEncryptedBackup(raw))
-        return setMsg("That file isn't an encrypted Erudior family backup.");
-      const plain = await decryptText(raw, rpass);
-      const ok = await store.confirmAction(
-        "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
-        "Restore backup",
-      );
-      if (!ok) return;
-      await restoreContents(plain, {
-        courses: api.allCourses,
-        banks: api.banks,
-      });
-      window.location.reload();
-    } catch (err) {
-      setMsg((err as Error).message ?? String(err));
-    }
+    await sensitive(async authorize => {
+      let started = false;
+      try {
+        const text = await store.pickJsonFile();
+        authorize();
+        if (text === null) return;
+        const raw = JSON.parse(text);
+        if (!isEncryptedBackup(raw)) throw Error("That file isn't an encrypted Erudior family backup.");
+        const plain = await decryptText(raw, rpass);
+        authorize();
+        const ok = await store.confirmAction(
+          "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
+          "Restore backup",
+        );
+        authorize();
+        if (!ok) return;
+        started = true;
+        await restoreContents(plain, { courses: api.allCourses, banks: api.banks }, authorize);
+        window.location.reload();
+      } catch (err) {
+        throw Error(`${err instanceof Error ? err.message : String(err)}${started ? " Restore did not finish; some files may already have changed. Unlock, reload saved Family and explicitly retry the same backup." : ""}`);
+      }
+    });
   }
 
   return (
@@ -1358,12 +1457,11 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = passwordProblem(pw);
             if (p) return api.toast(p);
-            await api.setFamily({
-              ...family,
-              parent: { ...family.parent, password: await makeSecret(pw) },
+            await sensitive(async authorize => {
+              const password = await makeSecret(pw); authorize();
+              await api.setFamily({ ...family, parent: { ...family.parent, password } }, authorize);
+              setPw(""); api.toast("Password changed");
             });
-            setPw("");
-            api.toast("Password changed");
           }}
         >
           <label className="field grow">
@@ -1376,7 +1474,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setPw(e.target.value)}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             Change password
           </button>
         </form>
@@ -1387,12 +1485,11 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             e.preventDefault();
             const p = pinProblem(pin);
             if (p) return api.toast(p);
-            await api.setFamily({
-              ...family,
-              parent: { ...family.parent, pin: await makeSecret(pin) },
+            await sensitive(async authorize => {
+              const savedPin = await makeSecret(pin); authorize();
+              await api.setFamily({ ...family, parent: { ...family.parent, pin: savedPin } }, authorize);
+              setPin(""); api.toast("PIN saved");
             });
-            setPin("");
-            api.toast("PIN saved");
           }}
         >
           <label className="field grow">
@@ -1410,21 +1507,18 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             {family.parent.pin ? "Change PIN" : "Turn on PIN"}
           </button>
           {family.parent.pin && (
             <button
               className="btn ghost"
               type="button"
-              onClick={() =>
-                api
-                  .setFamily({
-                    ...family,
-                    parent: { ...family.parent, pin: undefined },
-                  })
-                  .then(() => api.toast("PIN turned off"))
-              }
+              disabled={sensitiveBusy}
+              onClick={() => sensitive(async authorize => {
+                await api.setFamily({ ...family, parent: { ...family.parent, pin: undefined } }, authorize);
+                api.toast("PIN turned off");
+              })}
             >
               Turn off PIN
             </button>
@@ -1457,7 +1551,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setBpass(e.target.value)}
             />
           </label>
-          <button className="btn primary" type="submit">
+          <button className="btn primary" type="submit" disabled={sensitiveBusy}>
             Back up now
           </button>
         </form>
@@ -1476,7 +1570,7 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
               onChange={(e) => setRpass(e.target.value)}
             />
           </label>
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={sensitiveBusy}>
             Restore from backup…
           </button>
         </form>

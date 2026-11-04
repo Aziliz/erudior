@@ -156,7 +156,7 @@ await shot(h, "lesson");
 await h.locator(".calc-head button").click();
 
 // Parent area.
-await btn(h, /^Parent$/).click();
+await btn(h, /^Family$/).click();
 await h.waitForTimeout(300);
 await h.getByLabel("Parent password").fill("parent pass");
 await btn(h, /^Open$/).click();
@@ -238,7 +238,7 @@ const names = ["Ana Torres", "Ben Okafor", "Chloe Park", "Diego Ramos", "Ella No
 await seed(t, Object.fromEntries(names.map((n, i) => [n, { "math-algebra1": counts[i][0], "math-prealgebra": counts[i][1] }])));
 await t.goto(B);
 await t.waitForTimeout(2000);
-await btn(t, /^Teacher$/).click();
+await btn(t, /^Classroom$/).click();
 await t.waitForTimeout(300);
 await t.getByLabel("Teacher password").fill("teacher pass");
 await btn(t, /^Open$/).click();

@@ -1,0 +1,72 @@
+import assert from 'node:assert/strict';
+const state = new Map<string,string>(), mutations:string[]=[];
+(globalThis as any).isTauri=true;
+(globalThis as any).window={__TAURI_INTERNALS__:{invoke:async(command:string,args:any)=>{
+  if(command==='load_state')return state.get(args.name)??null;
+  if(command==='save_state'){mutations.push(args.name);args.content===null?state.delete(args.name):state.set(args.name,args.content);return;}
+  if(command==='compare_and_swap_state'){if((state.get(args.name)??null)!==args.expected)return false;mutations.push(args.name);state.set(args.name,args.content);return true;}
+  if(command==='load_progress')return state.get('progress')??null;
+  if(command==='save_progress'){mutations.push('progress');state.set('progress',args.content);return;}
+  throw Error('Unexpected command '+command);
+}}};
+const {collect,restoreContents,encryptText,decryptText}=await import('../src/lib/backup.ts');
+const {createClassroomSubmissionStore}=await import('../src/lib/classroomSubmissionStore.ts');
+const {stateTransactions,validStateName}=await import('../src/lib/stateLock.ts');
+const {parseAdvancedAssessmentLibrary}=await import('../src/lib/advancedAssessment.ts');
+assert(validStateName('advanced-assessment'));
+for(const bad of ['../advanced-assessment','advanced-assessment/other','advanced-assessment-extra'])assert(!validStateName(bad));
+const {createAdvancedAssessmentStore,deleteAdvancedAssessmentStudent}=await import('../src/lib/advancedAssessmentStore.ts');
+const family={format:'erudior-family',version:1,students:[{id:'alice',name:'Alice'},{id:'bob',name:'Bob'}]};
+state.set('family',JSON.stringify(family));
+const {emptyAdvancedAssessmentPack}=await import('../src/lib/advancedAssessment.ts');
+const pack=emptyAdvancedAssessmentPack('pack');
+const tx=stateTransactions({read:async name=>state.get(name)??null,write:async(name,value)=>{value===null?state.delete(name):state.set(name,value);}});
+let reviewer='Teacher';
+const engine=createAdvancedAssessmentStore({read:async()=>state.get('advanced-assessment')??null,update:change=>tx.update('advanced-assessment',change),authorizeAdult:async()=>({actorId:'adult',actorName:reviewer,authorityKey:'session'}),learnerContext:async()=>({studentId:'alice',authorityKey:'alice'}),now:()=> '2026-10-29T00:00:00Z'});
+await engine.supervisor.savePack(pack,null);
+const approved=await engine.supervisor.approvePack('pack',1);
+const assignment={id:'case',studentId:'alice',title:'Fictional case',instructions:'Private educational practice',pack:approved,variantId:'a'};
+await engine.supervisor.assign(assignment,null);
+const audio={mime:'audio/wav',data:Buffer.from('RIFF0000WAVEfmt ').toString('base64'),seconds:1};
+await engine.learner.command('case',1,{kind:'math',questionId:'reason',stepId:'first',answer:'Private answer',reasoning:'Private step reasoning'},'math',null);
+await engine.learner.command('case',1,{kind:'oral',questionId:'explain',transcript:'Private oral transcript',audio},'oral',1);
+await engine.learner.command('case',1,{kind:'assistance',text:'Private assistance disclosure'},'assistance',2);
+await engine.learner.submit('case',1,'evidence',3);
+const review={id:'feedback',submissionId:'evidence',status:'reviewed' as const,note:'Private adult feedback',previousReviewId:null,rubricRatings:[{criterionId:'explanation',levelId:'supported',note:'Private rubric rationale'}],misconceptions:[]};
+await engine.supervisor.review(review);
+await engine.supervisor.savePack({...approved,title:'Newer unapproved rules'},1);
+const library=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));
+const snapshot=await collect([],[]);assert.deepEqual(snapshot.advancedAssessment,library);
+const encrypted=await encryptText(JSON.stringify(snapshot),'advanced-assessment backup test phrase');assert(!encrypted.includes('Private simulated decision'));
+state.delete('advanced-assessment');await restoreContents(await decryptText(JSON.parse(encrypted),'advanced-assessment backup test phrase'),{courses:[],banks:[]});
+let restored=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));
+assert(restored.restoredAt);assert.deepEqual(restored.pendingReviewIds,['feedback']);assert.deepEqual(restored.pendingApproval,['pack@1','pack@2']);assert.deepEqual(restored.submissions,library.submissions);assert.deepEqual(restored.feedback,library.feedback);
+await assert.rejects(engine.supervisor.assign({...assignment,id:'newcase'},null),/approved/);
+await assert.rejects(engine.learner.command('case',1,{kind:'assistance',text:'New'},'blocked',3),/fresh adult review/);
+reviewer='Fresh local reviewer';
+await engine.supervisor.approvePack('pack',1);
+restored=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));assert.deepEqual(restored.pendingApproval,['pack@2'],'old assigned exact pack can be re-reviewed while newer revision stays quarantined');
+assert.equal(restored.packReviews.at(-1)?.actor,'Fresh local reviewer');
+assert.equal(restored.packReviews.length,library.packReviews.length+1);
+assert.deepEqual(restored.assignments[0].pack,library.assignments[0].pack);assert.deepEqual(restored.pendingReviewIds,['feedback'],'source reapproval does not authenticate imported rubric reviews');
+await engine.supervisor.review({...review,id:'localreview',previousReviewId:'feedback',note:'Fresh local assessment'});
+restored=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));assert.deepEqual(restored.pendingReviewIds,['feedback']);assert.equal(restored.feedback.at(-1)?.actor,'Fresh local reviewer');
+await engine.supervisor.assign({...assignment,id:'newcase'},null);
+const forged=structuredClone(library);for(const value of [forged.packs[0],forged.assignments[0].pack,forged.submissions[0].assignment.pack])value.approval.actor='External claimed authority';forged.feedback[0].actor='Fabricated reviewer';forged.pendingApproval=[];forged.pendingReviewIds=[];
+await restoreContents(JSON.stringify({...snapshot,advancedAssessment:forged}),{courses:[],banks:[]});
+restored=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));assert.deepEqual(restored.pendingApproval,['pack@1','pack@2']);assert.deepEqual(restored.pendingReviewIds,['feedback']);assert.equal(restored.feedback[0].actor,'Fabricated reviewer','retained history is not authenticated authority');
+await assert.rejects(engine.supervisor.assign({...assignment,id:'forged',pack:forged.packs[0]},null),/approved/);
+const before=[...state];mutations.length=0;
+const foreign=structuredClone(library);foreign.assignments[0].studentId='outsider';foreign.submissions[0].studentId='outsider';foreign.submissions[0].assignment.studentId='outsider';
+const corrupt=structuredClone(library);(corrupt.sessions[0].events[0].command as any).stepId='unsupported';
+for(const malformed of [null,foreign,corrupt,{...library,packs:[]},{...library,sessions:[]}]){
+  await assert.rejects(restoreContents(JSON.stringify({...snapshot,advancedAssessment:malformed}),{courses:[],banks:[]}));
+  assert.deepEqual([...state],before);assert.deepEqual(mutations,[],'all advanced assessment validation precedes destructive restore');
+}
+state.set('advanced-assessment','{broken');await assert.rejects(collect([],[]));state.set('advanced-assessment',JSON.stringify(library));
+const {advancedAssessment:_,...legacy}=snapshot;await restoreContents(JSON.stringify(legacy),{courses:[],banks:[]});assert(!state.has('advanced-assessment'),'legacy restore clears unrelated private state');
+state.set('advanced-assessment',JSON.stringify(library));
+const classroom=createClassroomSubmissionStore({readState:async name=>state.get(name)??null,writeState:tx.save,updateState:tx.update,readFamily:async()=>JSON.parse(state.get('family')!),writeFamily:async value=>tx.save('family',JSON.stringify(value)),readFile:async()=>null,writeFile:async()=>{},now:()=> '2026-10-29T00:00:00Z'});
+await classroom.deleteStudent('alice',family as any);
+const removed=parseAdvancedAssessmentLibrary(state.get('advanced-assessment'));assert.deepEqual(removed.deletedStudentIds,['alice']);assert.equal(removed.assignments.length,0);assert.equal(removed.sessions.length,0);assert.equal(removed.submissions.length,0);assert.equal(removed.feedback.length,0);for(const privateText of ['Private answer','Private step reasoning','Private oral transcript','Private assistance disclosure','Private adult feedback','Private rubric rationale',audio.data])assert(!state.get('advanced-assessment')!.includes(privateText));assert.equal(removed.packs.length,2);await assert.rejects(engine.learner.submit('case',1,'stale',1),/deleted/);assert.deepEqual(deleteAdvancedAssessmentStudent(removed,'alice'),removed);
+console.log('AdvancedAssessment backup: encrypted exact history, forged-approval quarantine, old-pack re-review, preflight isolation and profile cleanup passed');

@@ -3,9 +3,16 @@
 // the teacher's classroom state after verifying the hand-in HMAC.
 import { parseHandIn, stableJson, type HandIn } from "./classroom";
 
+import type { AssessedWorkSubmission } from "./assessedWorkEvidence";
+
+export interface SubmissionAssessment {
+  version: 1; workSubmissionId: string; levels: Record<string, number>; criterionNotes?: Record<string, string>;
+}
 export type ReviewState = "pending" | "reviewed" | "needs_revision";
 export interface SubmissionReviewEvent {
   id: string; submissionId: string; status: Exclude<ReviewState, "pending">; reviewedAt: string; note: string;
+  /** Instructor-only decision on one immutable item inside this receipt. */
+  assessment?: SubmissionAssessment;
 }
 export interface SubmissionRecord {
   /** Exact signed evidence, not normalized or merged student progress. */
@@ -86,25 +93,57 @@ export function recordHandIn(
   return { records: parseSubmissionHistory([...history, record].sort(newest)), inserted: true };
 }
 
+/** Validate instructor selections against the exact saved rubric, not a live course.
+ * v1 score semantics: sum selected points / sum each criterion's maximum level.
+ * No score is persisted or projected into academic grades or activity credit.
+ */
+export function validateSubmissionAssessment(snapshot: HandIn, raw: unknown, status: Exclude<ReviewState, "pending">): asserts raw is SubmissionAssessment {
+  if (!plain(raw) || raw.version !== 1 || !text(raw.workSubmissionId, 200) || !plain(raw.levels) ||
+      Object.keys(raw).some(k => !["version", "workSubmissionId", "levels", "criterionNotes"].includes(k))) throw Error("Invalid instructor assessment.");
+  const submission = snapshot.progress.assessedWorkSubmissions?.[raw.workSubmissionId];
+  if (!submission) throw Error("Assessment must target evidence in this exact hand-in.");
+  const criteria = submission.rubric?.criteria ?? [];
+  const byId = new Map(criteria.map(c => [c.id, c]));
+  if (byId.size !== criteria.length) throw Error("Ambiguous saved rubric criterion IDs.");
+  for (const [id, points] of Object.entries(raw.levels)) {
+    const criterion = byId.get(id);
+    if (!criterion || typeof points !== "number" || !Number.isFinite(points) || !criterion.levels.some(l => l.points === points))
+      throw Error("Select only exact levels from the original rubric.");
+  }
+  if (status === "reviewed" && criteria.some(c => !Object.prototype.hasOwnProperty.call(raw.levels, c.id))) throw Error("Assess every original rubric criterion before marking this work reviewed.");
+  if (raw.criterionNotes !== undefined && (!plain(raw.criterionNotes) || Object.entries(raw.criterionNotes).some(([id, note]) => !byId.has(id) || typeof note !== "string" || note.length > 2000)))
+    throw Error("Invalid criterion notes.");
+}
+export function assessedReviewScore(submission: AssessedWorkSubmission, assessment: SubmissionAssessment): { points: number; outOf: number; percent: number } | null {
+  if (assessment.version !== 1 || assessment.workSubmissionId !== submission.id || !submission.rubric?.criteria.length) return null;
+  const criteria = submission.rubric.criteria;
+  if (criteria.some(c => !Object.prototype.hasOwnProperty.call(assessment.levels, c.id) || !c.levels.some(l => l.points === assessment.levels[c.id]))) return null;
+  const points = criteria.reduce((sum, c) => sum + assessment.levels[c.id], 0);
+  const outOf = criteria.reduce((sum, c) => sum + Math.max(...c.levels.map(l => l.points)), 0);
+  return outOf > 0 && Number.isFinite(points) && Number.isFinite(outOf) ? { points, outOf, percent: points / outOf * 100 } : null;
+}
+
 /** Teacher decisions affect the chosen submission only, never prior reviews. */
 export function reviewHandIn(
   history: readonly SubmissionRecord[], id: string,
-  status: Exclude<ReviewState, "pending">, reviewedAt: string, note = "", eventId: string = crypto.randomUUID(),
+  status: Exclude<ReviewState, "pending">, reviewedAt: string, note = "", eventId: string = crypto.randomUUID(), assessment?: SubmissionAssessment,
 ): SubmissionRecord[] {
   if (status !== "reviewed" && status !== "needs_revision")
     throw new Error("A valid instructor decision and review timestamp are required.");
   history = parseSubmissionHistory(history);
   reviewedAt = timestamp(reviewedAt);
-  if (!history.some(x => x.id === id)) throw new Error("Submission not found.");
+  const record = history.find(x => x.id === id);
+  if (!record) throw new Error("Submission not found.");
+  if (assessment !== undefined) validateSubmissionAssessment(record.snapshot, assessment, status);
   if (typeof note !== "string" || note.length > 2000) throw new Error("Review note is too long.");
   if (!text(eventId, 200)) throw Error("Invalid review event ID.");
-  const event: SubmissionReviewEvent = { id: eventId, submissionId: id, status, reviewedAt, note: note.trim() };
+  const event: SubmissionReviewEvent = { id: eventId, submissionId: id, status, reviewedAt, note: note.trim(), ...(assessment === undefined ? {} : { assessment: structuredClone(assessment) }) };
   const prior = history.flatMap(x => x.reviewEvents).find(e => e.id === eventId);
   if (prior) {
     if (stableJson(prior) !== stableJson(event)) throw Error("Review event ID already belongs to a different decision.");
     return parseSubmissionHistory(history);
   }
-  return parseSubmissionHistory(history.map(x => x.id === id ? { ...x, status, reviewedAt, reviewNote: event.note, reviewEvents: [...x.reviewEvents, event] } : x));
+  return parseSubmissionHistory(history.map(x => x.id === id ? { ...x, ...(assessment === undefined ? { status, reviewedAt, reviewNote: event.note } : {}), reviewEvents: [...x.reviewEvents, event] } : x));
 }
 
 /** Status per learner is derived from their newest received hand-in, not merged work. */
@@ -141,14 +180,15 @@ export function parseSubmissionHistory(raw: unknown): SubmissionRecord[] {
       if (!plain(event) || !text(event.id, 200) || eventIds.has(event.id) || event.submissionId !== id ||
           event.status !== "reviewed" && event.status !== "needs_revision" || event.reviewedAt !== timestamp(event.reviewedAt) ||
           typeof event.note !== "string" || event.note.length > 2000 || event.note !== event.note.trim()) throw Error("Invalid or duplicated review event.");
+      if (event.assessment !== undefined) validateSubmissionAssessment(h, event.assessment, event.status);
       eventIds.add(event.id);
     }
-    const last = record.reviewEvents.at(-1);
+    const last = record.reviewEvents.filter(e => e.assessment === undefined).at(-1);
     if (record.status !== (last?.status ?? "pending") || record.reviewedAt !== last?.reviewedAt || record.reviewNote !== last?.note)
       throw Error("Submission status does not match its review events.");
     // Unknown schema extensions need explicit migration, never silent evidence loss.
     const keys = ["snapshot", "reviewEvents", "id", "classId", "studentId", "studentName", "submittedAt", "receivedAt", "courses", "attemptCount", "status", "reviewedAt", "reviewNote"];
-    if (Object.keys(record).some(k => !keys.includes(k)) || record.reviewEvents.some(e => Object.keys(e).some(k => !["id", "submissionId", "status", "reviewedAt", "note"].includes(k)))) throw Error("Unknown submission history fields.");
+    if (Object.keys(record).some(k => !keys.includes(k)) || record.reviewEvents.some(e => Object.keys(e).some(k => !["id", "submissionId", "status", "reviewedAt", "note", "assessment"].includes(k)))) throw Error("Unknown submission history fields.");
     bytes += new TextEncoder().encode(JSON.stringify(record)).byteLength + 1;
     if (bytes > SUBMISSION_LIMITS.historyBytes) throw Error("Submission history storage limit reached; no evidence was removed.");
   }

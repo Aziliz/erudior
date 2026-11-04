@@ -40,6 +40,8 @@ import {
 import Markdown from "../components/Markdown";
 import { RubricPicker, RubricTable, ReviewNote, StoredFile, WritingText, sizeOf, storeWorkFile } from "../components/WorkParts";
 import { studentHtml } from "../lib/work";
+import { uid } from "../lib/util";
+import { AssessedWorkHistory, useAssessedWorkSubmission } from "../components/AssessedWorkSubmission";
 
 // ---------- who reviews, and their feedback ----------
 
@@ -114,18 +116,31 @@ function useWorkRecord(api: AppApi, key: string, kind: WorkRecord["kind"]) {
   const recRef = useRef<WorkRecord | undefined>(rec);
   const timer = useRef<number | undefined>(undefined);
 
-  const flush = useCallback(async () => {
+  const flushing = useRef<Promise<boolean> | null>(null);
+  const flush = useCallback((): Promise<boolean> => {
     window.clearTimeout(timer.current);
-    const r = pending.current;
-    if (!r) return;
-    pending.current = null;
-    setSave({ saving: true });
-    try {
-      await apiRef.current.updateProgress((p) => ({ ...p, work: { ...(p.work ?? {}), [key]: r } }));
-      setSave({ saving: false, at: new Date() });
-    } catch (e) {
-      setSave({ saving: false, error: `Couldn't save: ${(e as Error).message}` });
-    }
+    if (flushing.current) return flushing.current;
+    const run = async () => {
+      while (pending.current) {
+        const r = pending.current;
+        pending.current = null;
+        setSave({saving:true});
+        try {
+          if (store.activeStudent() !== (apiRef.current.student?.id ?? null)) throw Error("The learner changed before saving.");
+          await apiRef.current.updateProgress(p => ({...p,work:{...p.work,[key]:r}}));
+          setSave({saving:false,at:new Date()});
+        } catch(e) {
+          if (!pending.current) pending.current=r;
+          setSave({saving:false,error:`Couldn't save: ${(e as Error).message}`});
+          return false;
+        }
+      }
+      return true;
+    };
+    const promise=run();
+    flushing.current=promise;
+    void promise.finally(()=>{if(flushing.current===promise)flushing.current=null;});
+    return promise;
   }, [key]);
 
   /** Change the record; saved after a short pause (or at once). */
@@ -144,9 +159,11 @@ function useWorkRecord(api: AppApi, key: string, kind: WorkRecord["kind"]) {
     [kind, flush],
   );
 
+  useEffect(() => { if (!pending.current && !flushing.current) { recRef.current = api.progress.work?.[key]; setRec(recRef.current); } }, [api.progress.work, key]);
+
   // Leaving the screen saves whatever is waiting.
   useEffect(() => () => void flush(), [flush]);
-  return { rec, change, save, flush };
+  return { rec, change, save, flush, current: () => recRef.current };
 }
 
 function SaveLine({ save }: { save: SaveState }) {
@@ -173,17 +190,20 @@ export default function WorkView({ api, course, itemId }: { api: AppApi; course:
         <p className="muted">This course doesn't have that assignment any more.</p>
       </div>
     );
-  return <WorkScreen key={itemId} api={api} course={course} kind={found.kind} item={found.item} />;
+  return <WorkScreen key={JSON.stringify([api.student?.id ?? null,course.id,itemId,found.item])} api={api} course={course} kind={found.kind} item={found.item} />;
 }
 
 function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; kind: "writing" | "lab"; item: WritingTask | Lab }) {
   const key = workKey(course.id, item.id);
   const ctx = useWorkContext(api, course.id);
-  const { rec, change, save, flush } = useWorkRecord(api, key, kind);
+  const { rec, change, save, flush, current } = useWorkRecord(api, key, kind);
   const reviews = ctx.reviews[key];
-  const status = workStatus(rec, reviews);
+  const submission = useAssessedWorkSubmission(api,course.id,item.id,kind);
+  const status = submission.pending ? "draft" : workStatus(rec, reviews);
   const review = currentReview(rec, reviews);
-  const canEdit = editable(status);
+  const submitting = useRef(false);
+  const [handSubmitting,setHandSubmitting] = useState(false);
+  const canEdit = editable(status) && !submission.busy && !submission.pending && !handSubmitting;
   const rubric = rubricOf(course, item.rubric);
   const selfCheck = offersSelfCheck(course, item);
   const h1 = useRef<HTMLHeadingElement>(null);
@@ -194,9 +214,16 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
   }, [save.error]);
 
   /** A content edit. Work sent back for another draft becomes a draft again on the first edit. */
-  const edit = (fn: (w: WorkRecord) => WorkRecord) => change((w) => fn(w.submitted && status === "revise" ? reopenWork(w) : w));
+  const edit = (fn: (w: WorkRecord) => WorkRecord) => { if(!submitting.current) change((w) => fn(w.submitted && status === "revise" ? reopenWork(w) : w)); };
 
   async function handIn() {
+    if (submission.busy || submitting.current) return;
+    submitting.current=true;setHandSubmitting(true);
+    try {
+    if (submission.pending) {
+      if (await submission.submit(submission.pending.submission)) api.toast("Original submission confirmed saved.");
+      return;
+    }
     if (kind === "writing") {
       const t = item as WritingTask;
       const n = wordCount(rec?.text ?? "");
@@ -206,8 +233,11 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
       const lab = item as Lab;
       if ((rec?.done?.length ?? 0) < lab.steps.length && !(await store.confirmAction("Some steps aren't checked off yet. Hand in the lab anyway?"))) return;
     }
-    change((w) => submitWork(w), true);
-    await flush();
+    if (!(await flush())) return;
+    const now = Date.now();
+    const response = submitWork(current() ?? {kind,started:new Date(now).toISOString(),updated:new Date(now).toISOString()},new Date(now).toISOString());
+    const confirmed = await submission.submit({id:uid("work"),submittedAt:now,courseId:course.id,assignmentId:item.id,kind,task:item,...(rubric?{rubric}:{}),response});
+    if (!confirmed) return;
     api.toast(
       ctx.viaFile
         ? "Handed in. Now choose Hand in work under your class on the Courses page, and give that file to your teacher."
@@ -216,9 +246,11 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
           : "Marked as finished.",
     );
     h1.current?.focus();
+    } finally {submitting.current=false;setHandSubmitting(false);}
   }
 
   function takeBack() {
+    if(submitting.current || submission.pending) return;
     change((w) => reopenWork(w), true);
     api.toast("You can keep working on it.");
   }
@@ -244,6 +276,7 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
         </p>
       </header>
 
+      <AssessedWorkHistory entries={submission.history}/>
       {review && <ReviewNote review={review} rubric={rubric} title={review.revise ? "Feedback: make another draft" : "Your grade"} />}
 
       {kind === "writing" ? (
@@ -277,6 +310,9 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
 
       <section className="panel work-actions no-print" aria-label="Hand in">
         <SaveLine save={save} />
+        {submission.error && <p role="alert">{submission.error}</p>}
+        {submission.pending && <p role="status">This original snapshot is not confirmed saved. It will not be included in a hand-in until its save succeeds.</p>}
+        {submission.pending && <button className="btn primary" disabled={submission.busy || handSubmitting} onClick={handIn}>{submission.busy ? "Saving…" : "Retry original submission"}</button>}
         {canEdit && (
           <>
             {!ctx.adult && (

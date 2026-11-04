@@ -1,8 +1,8 @@
 import type { Course, Progress } from "./types";
 import type { AuthoredCompetency } from "./competencyCatalog";
 import { resolveCompetencyEvidence } from "./competencyEvidence";
-import { courseMastery } from "./mastery";
-import { evaluateCompetencies, recommendedCompetencies, type Competency, type CompetencyState, type CourseTopicEvidence } from "./competencies";
+import { courseMastery, masteryFrom, STRONG } from "./mastery";
+import { competencyEvidenceKey, evaluateCompetencies, recommendedCompetencies, type Competency, type CompetencyState, type CourseTopicEvidence } from "./competencies";
 
 /** Bridge saved student answers to the cross-course graph without changing Progress storage. */
 export function collectCompetencyEvidence(
@@ -11,7 +11,7 @@ export function collectCompetencyEvidence(
   graph: Competency[],
 ): CourseTopicEvidence {
   const relevant = new Map<string, Set<string>>();
-  for (const skill of graph)
+  for (const skill of graph.filter(s => s.assessments === undefined))
     for (const [id, topics] of Object.entries(skill.evidence)) {
       const existing = relevant.get(id) ?? new Set<string>();
       for (const topic of topics) existing.add(topic);
@@ -28,6 +28,43 @@ export function collectCompetencyEvidence(
       if (score && score.n > 0) entries[topic] = { mastery: score.mastery, confidence: score.confidence, n: score.n };
     }
     result[course.id] = entries;
+  }
+  // A resolved graph never broadens a lesson question to other questions/drills
+  // sharing its topic. Stored sources retain exact course/bank/question identity.
+  const uniqueBanks = new Map<string, number>();
+  for (const course of courses) for (const bank of course.banks) uniqueBanks.set(bank.id, (uniqueBanks.get(bank.id) ?? 0) + 1);
+  for (const skill of graph) for (const mapping of skill.assessments ?? []) {
+    const course = courses.find(c => c.id === mapping.courseId);
+    const bank = course?.banks.find(b => b.id === mapping.bankId);
+    if (!bank || uniqueBanks.get(bank.id) !== 1) continue;
+    const entries = result[mapping.courseId] ??= {};
+    for (const qid of mapping.questionIds) {
+      if (bank.questions.filter(q => q.id === qid).length !== 1) continue;
+      const key = competencyEvidenceKey(bank.id, qid);
+      if (Object.prototype.hasOwnProperty.call(entries, key)) continue;
+      const history: number[] = [], rightDays = new Set<string>(), seenAttempts = new Set<string>();
+      const attempts = progress.attempts.filter(a => a.bankId === bank.id && a.kind !== "pretest" && Number.isFinite(Date.parse(a.finishedAt)))
+        .slice().sort((a,b) => Date.parse(b.finishedAt)-Date.parse(a.finishedAt) || a.id.localeCompare(b.id));
+      for (const attempt of attempts) {
+        if (seenAttempts.has(attempt.id)) continue;
+        seenAttempts.add(attempt.id);
+        const answers = attempt.answers.filter(a => a.qid === qid);
+        if (answers.length !== 1 || typeof answers[0].correct !== "boolean" || !Array.isArray(answers[0].chosen) || !answers[0].chosen.length) continue;
+        const answer = answers[0];
+        const value = answer.correct ? (answer.confidence === "guess" ? 0.5 : 1) : 0;
+        if (history.length < 30) {
+          history.push(value);
+          if (value === 1) rightDays.add(new Date(attempt.finishedAt).toISOString().slice(0,10));
+        }
+      }
+      const stat = progress.stats[bank.id]?.[qid];
+      const validStat = stat && Number.isSafeInteger(stat.seen) && stat.seen > 0 && stat.seen <= 1_000_000 &&
+        Number.isSafeInteger(stat.correct) && stat.correct >= 0 && stat.correct <= stat.seen;
+      // Totals are used only without retained history; never count the same answers twice.
+      const score = masteryFrom(history, !history.length && validStat ? {seen:stat.seen,correct:stat.correct} : undefined);
+      if (history.length && rightDays.size < 3) score.mastery = Math.min(score.mastery, STRONG - 0.01);
+      if (score.n) entries[key] = score;
+    }
   }
   return result;
 }

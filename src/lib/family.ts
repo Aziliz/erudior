@@ -4,6 +4,7 @@
 
 import { inApp, loadBaseProgress, loadState, saveState, loadSessionState } from "./storage";
 import { uid } from "./util";
+import type { ParentCourseReview } from "./parentCourseReview";
 import { DEFAULT_WEIGHTS, MIN_CUTOFFS, type Cutoffs, type Weights } from "./grades";
 
 /** Homeschool features are for the desktop app (VITE_HOMESCHOOL=1 turns them on in a browser for testing). */
@@ -27,6 +28,8 @@ export interface Assignment {
   /** Catalog id (or a course id from the library). */
   courseId: string;
   subject: string;
+  /** Exact local parental review, never authority restored from backup. */
+  communityReview?: ParentCourseReview;
 }
 
 export interface Student {

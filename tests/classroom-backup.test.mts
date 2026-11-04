@@ -5,6 +5,7 @@ const state = new Map<string, string>(); const mutations: string[] = [];
 (globalThis as any).isTauri = true;
 (globalThis as any).window = { __TAURI_INTERNALS__: { invoke: async (command: string, args: any) => {
  if (command === "load_state") return state.get(args.name) ?? null;
+ if (command === "compare_and_swap_state") { if((state.get(args.name) ?? null)!==args.expected)return false; mutations.push(args.name); state.set(args.name,args.content); return true; }
  if (command === "save_state") { mutations.push(args.name); if(args.content === null) state.delete(args.name); else state.set(args.name,args.content); return; }
  if (command === "load_progress") return state.get("progress") ?? null;
  if (command === "save_progress") { mutations.push("progress"); state.set("progress",args.content); return; }
@@ -30,7 +31,8 @@ await assert.rejects(decryptText(JSON.parse(encrypted),"wrong passphrase"),/Wron
 state.set("classroom-submissions",JSON.stringify({version:1,records:[],complete:[]}));
 await restoreContents(await decryptText(JSON.parse(encrypted),"test-only passphrase"),{courses:[],banks:[]});
 assert.deepEqual(JSON.parse(state.get("classroom-submissions")!),ledger);
-assert.equal(mutations.at(-1),"classroom-submissions");
+assert.equal(mutations.at(-1),"family", "Family credentials are installed only after all restored evidence");
+assert(mutations.lastIndexOf("classroom-submissions") < mutations.lastIndexOf("family"));
 for (const invalid of [null,{}, {...ledger,complete:["missing"]}, {...ledger,records:Array(SUBMISSION_LIMITS.records+1).fill(records[0])}, {...ledger,records:[{...records[0],snapshot:{...handin,progress:{...handin.progress,spreadsheetSubmissions:{attempt1:{...evidence,grade:{...evidence.grade,score:1}}}}}}]}]) {
  const before = [...state]; mutations.length=0;
  await assert.rejects(restoreContents(JSON.stringify({...backup,classroomSubmissions:invalid}),{courses:[{id:"would-delete"} as any],banks:[]}));
@@ -40,6 +42,39 @@ state.set("classroom-submissions","{damaged"); await assert.rejects(collect([],[
 state.set("classroom-submissions",JSON.stringify(ledger));
 const {classroomSubmissions:_,...legacy}=backup;
 await restoreContents(JSON.stringify(legacy),{courses:[],banks:[]});
-assert.equal(state.has("classroom-submissions"),false);
-assert.equal((await collect([],[])).classroomSubmissions,undefined);
+assert.deepEqual(JSON.parse(state.get("classroom-submissions")!),{version:1,records:[],complete:[]}, "legacy restore CAS-clears evidence instead of non-atomically deleting the ledger");
+assert.deepEqual((await collect([],[])).classroomSubmissions,{version:1,records:[],complete:[]});
 console.log("classroom backup: encrypted snapshot/review/pending roundtrip, wrong passphrase, preflight tampering/count rejection, damaged collect and legacy clear passed");
+
+// Optional assessed-work evidence is validated even without an instructor receipt.
+const {createAssessedWorkSubmission}=await import('../src/lib/assessedWorkEvidence.ts');
+const at='2026-10-28T12:00:00Z';
+const workEvidence=createAssessedWorkSubmission({id:'writing1',submittedAt:Date.parse(at),courseId:'writing',assignmentId:'essay',kind:'writing',task:{id:'essay',title:'Original task',kind:'short',prompt:'Original prompt'},response:{kind:'writing',started:at,updated:at,submitted:at,rounds:1,text:'Original answer',photos:[{id:'p1',fileId:'f1',name:'evidence.txt',mime:'text/plain',bytes:3,caption:'Original',date:'2026-10-28'}]},files:{f1:{mime:'text/plain',data:'AQID'}}});
+const withWork={...backup,classroomSubmissions:undefined,progress:{...backup.progress,assessedWorkSubmissions:{writing1:workEvidence}}};
+await restoreContents(await decryptText(JSON.parse(await encryptText(JSON.stringify(withWork),'another test passphrase')),'another test passphrase'),{courses:[],banks:[]});
+assert.deepEqual(JSON.parse(state.get('progress')!).assessedWorkSubmissions,{writing1:workEvidence});
+assert.deepEqual((await collect([],[])).progress.assessedWorkSubmissions,{writing1:workEvidence});
+for(const invalid of [{...workEvidence,task:{...workEvidence.task,id:'different'}},{...workEvidence,files:{f1:{mime:'text/plain',data:'AQI='}}}]) {
+ const damaged={...withWork,progress:{...withWork.progress,assessedWorkSubmissions:{writing1:invalid}}};
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify(damaged),{courses:[{id:'never-delete'} as any],banks:[]}));
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[],'malformed assessed evidence rejected before any restore mutation');
+}
+state.set('progress',JSON.stringify({...withWork.progress,assessedWorkSubmissions:{writing1:{...workEvidence,version:2}}}));
+await assert.rejects(collect([],[]));
+console.log('assessed-work backup: encrypted original task/response/file roundtrip and collect/restore preflight passed');
+const {emptyCourse}=await import('../src/lib/course.ts');
+const validCourse=emptyCourse('Backup work course');
+for(const course of [{...validCourse,writing:[null]},{...validCourse,writing:[{id:'essay',title:'Essay',kind:'short',prompt:'Prompt',module:'missing'}]},{...validCourse,lessons:[{id:'lesson',module:validCourse.modules[0].id,title:'Lesson',body:'```assignment\nwriting: missing\n```'}]}]) {
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify({...withWork,courses:[course]}),{courses:[{id:'never-delete'} as any],banks:[]}),/Invalid backup course work/);
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[]);
+}
+console.log('encrypted course backup: malformed raw work and dangling module/lesson references rejected before writes');
+
+for(const texts of [[null],[{id:'reading',title:'Read',sections:[{id:'section',title:'Part',body:'Text',questions:['missing']}]}]]) {
+ const before=[...state];mutations.length=0;
+ await assert.rejects(restoreContents(JSON.stringify({...withWork,courses:[{...validCourse,texts}]}),{courses:[{id:'never-delete'} as any],banks:[]}),/Invalid backup course work/);
+ assert.deepEqual([...state],before);assert.deepEqual(mutations,[]);
+}
+console.log('reader backup: malformed or dangling reader resources fail before restore writes');

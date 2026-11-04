@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {gradeAssignment,SAMPLE_ASSIGNMENT,type SpreadsheetAssignment} from '../src/lib/spreadsheetAssignments.ts';
+import {createSpreadsheetSubmission,validateSpreadsheetSubmission,appendSpreadsheetSubmission,validateSpreadsheetMacroRuns} from '../src/lib/spreadsheetEvidence.ts';
+import {previewWorkbookMacro,applyWorkbookMacro} from '../src/lib/spreadsheetMacros.ts';
+import {serializeSpreadsheetDraft,restoreSpreadsheetDraft,learnerWorkbookProblems} from '../src/lib/spreadsheetLearnerState.ts';
+const assignment:SpreadsheetAssignment={id:'synthetic',title:'Synthetic v2',starter:{engineVersion:2,sheets:{Data:{A1:2,A2:3,B1:''}},namedRanges:{Inputs:{sheet:'Data',range:'A1:A2'}},validationRules:[{sheet:'Data',range:'B1',kind:'number',min:0,max:10,allowBlank:true}],cellExplanations:{'Data!B1':'Sum the two synthetic inputs.'},macroDefinitions:[{id:'sum',title:'Set sum formula',steps:[{op:'set',target:'Data!B1',value:'=SUM(Inputs)'}]}]},protectedCells:['Data!A1','Data!A2'],answers:{'Data!B1':5}};
+const before=structuredClone(assignment.starter),preview=previewWorkbookMacro(before,'sum',assignment.protectedCells);
+const applied=applyWorkbookMacro(before,preview,assignment.protectedCells,true);
+// apply returns the preview-compatible result or workbook; engine contract is checked below.
+const book=preview.workbook;
+assert.deepEqual(gradeAssignment(assignment,book).score,1);
+const input={id:'new',submittedAt:1,courseId:'course',lessonId:'lesson',assignment,workbook:book,macroRuns:[preview.trace]};
+const entry=createSpreadsheetSubmission(input);assert.equal(entry.gradingVersion,2);assert.deepEqual(validateSpreadsheetSubmission(entry),[]);assert(Object.isFrozen(entry.macroRuns?.[0]));
+assert.deepEqual(validateSpreadsheetSubmission(JSON.parse(JSON.stringify(entry))),[]);
+assert.deepEqual(appendSpreadsheetSubmission({new:entry},entry),{new:entry});
+const raw=serializeSpreadsheetDraft(assignment,book,[preview.trace]),restored=restoreSpreadsheetDraft(raw,assignment);assert.deepEqual(restored.workbook,book);assert.deepEqual(restored.macroRuns,[preview.trace]);
+for(const field of ['namedRanges','validationRules','cellExplanations','macroDefinitions','engineVersion'] as const){const tampered:any=structuredClone(book);delete tampered[field];assert(learnerWorkbookProblems(assignment,tampered).length,field);assert.throws(()=>createSpreadsheetSubmission({...input,workbook:tampered}));}
+const changedTrace:any=structuredClone(preview.trace);changedTrace.after.sheets.Data.B1=9;assert(validateSpreadsheetMacroRuns(assignment,[changedTrace]).length);assert.throws(()=>createSpreadsheetSubmission({...input,macroRuns:[changedTrace]}));
+assert(validateSpreadsheetMacroRuns(assignment,Array(6).fill(preview.trace)).length);
+const forgedDraft=JSON.parse(raw);forgedDraft.macroRuns=[changedTrace];assert.deepEqual(restoreSpreadsheetDraft(JSON.stringify(forgedDraft),assignment).workbook,assignment.starter);
+const aliases=structuredClone(assignment);aliases.protectedCells=['data!a1','data!a2'];
+const forgedBaseline=structuredClone(aliases.starter);forgedBaseline.sheets.Data.A1=7;
+const forgedPreview=previewWorkbookMacro(forgedBaseline,'sum',aliases.protectedCells);
+assert(validateSpreadsheetMacroRuns(aliases,[forgedPreview.trace]).some(e=>/protected/.test(e)),'case aliases cannot conceal a tampered protected trace baseline');
+const foreignSheet=structuredClone(assignment.starter);foreignSheet.sheets.Private={A1:'Unrelated'};
+const foreignTrace=previewWorkbookMacro(foreignSheet,'sum',assignment.protectedCells);
+assert(validateSpreadsheetMacroRuns(assignment,[foreignTrace.trace]).length,'trace cannot add foreign worksheets');
+assert.throws(()=>createSpreadsheetSubmission({...input,workbook:foreignTrace.workbook}));
+const invalid=structuredClone(book);invalid.sheets.Data.B1=11;assert.equal(gradeAssignment(assignment,invalid).score,0);assert(gradeAssignment(assignment,invalid).validationIssues?.length);
+const old=createSpreadsheetSubmission({id:'old',submittedAt:0,courseId:'course',lessonId:'lesson',assignment:SAMPLE_ASSIGNMENT,workbook:structuredClone(SAMPLE_ASSIGNMENT.starter)});assert.equal(old.gradingVersion,1);assert.deepEqual(validateSpreadsheetSubmission(old),[]);
+assert(validateSpreadsheetSubmission({...entry,gradingVersion:1}).length);assert(validateSpreadsheetSubmission({...old,gradingVersion:2}).length);assert(validateSpreadsheetSubmission({...old,macroRuns:[]}).length);
+const legacy=structuredClone(SAMPLE_ASSIGNMENT);legacy.starter.sheets.Budget.B3='=SUM(B1:B2)';assert.equal(createSpreadsheetSubmission({id:'legacy',submittedAt:0,courseId:'course',lessonId:'lesson',assignment:legacy,workbook:legacy.starter}).grade.score,0);
+console.log('Spreadsheet V2 evidence: version dispatch, exact metadata, immutable replay traces, draft recovery, validation grading and historical V1 semantics passed');

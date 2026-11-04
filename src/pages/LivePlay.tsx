@@ -36,6 +36,8 @@ export default function LivePlay({ api, initialCode }: { api: AppApi; initialCod
 
   function join(e: React.FormEvent) {
     e.preventDefault();
+    if (joining) return;
+    sock.current?.stop();
     const c = normCode(code);
     if (!codeOk(c)) return setError("Room codes are 6 letters and numbers.");
     if (!name.trim()) return setError("Enter a nickname.");
@@ -51,13 +53,14 @@ export default function LivePlay({ api, initialCode }: { api: AppApi; initialCod
       playerUrl(c, me || undefined),
       {
         onMessage: (m) => {
+          if (m.t === "hello" && me) { me = ""; sock.current?.send({ t: "join", name: name.trim() }); }
           if (m.t === "error") {
             setError(m.message);
             setJoining(false);
           } else if (m.t === "play") {
             setPlay(m);
             setJoining(false);
-            if (!me) {
+            if (me !== m.player) {
               me = m.player;
               try {
                 sessionStorage.setItem(`erudior.live.${c}`, me);
@@ -80,7 +83,7 @@ export default function LivePlay({ api, initialCode }: { api: AppApi; initialCod
   }
 
   const answer = (choices: number[]) => {
-    if (!play || !choices.length) return;
+    if (!play || !choices.length || status !== "open" || play.answered || play.phase !== "question") return;
     sock.current?.send({ t: "answer", index: play.index, choices });
     setPicked(choices);
   };
@@ -144,6 +147,8 @@ export default function LivePlay({ api, initialCode }: { api: AppApi; initialCod
           {status === "lost" && " · reconnecting…"}
         </span>
       </div>
+      {play.mode === "teams" && <section className="panel" aria-label="Team battle scores"><h2>Your team: Team {play.team + 1}</h2><ul>{play.teams.map(t => <li key={t.team}>Team {t.team + 1}: {t.score} points · {t.correct} correct</li>)}</ul></section>}
+      {play.mode === "cooperative" && <p className="notice" role="status">Class challenge: {play.cooperative?.correct ?? 0} correct answers together from {play.cooperative?.answered ?? 0} submitted answers.</p>}
       <div aria-live="polite" className="live-stage">
         {play.phase === "lobby" && <p className="live-big">You're in. Waiting for the host to start…</p>}
 
@@ -167,14 +172,14 @@ export default function LivePlay({ api, initialCode }: { api: AppApi; initialCod
                     </label>
                   ))}
                 </div>
-                <button className="btn primary" disabled={!picked.length} onClick={() => answer(picked)} style={{ marginTop: 12 }}>
+                <button className="btn primary" disabled={!picked.length || status !== "open"} onClick={() => answer(picked)} style={{ marginTop: 12 }}>
                   Send answer
                 </button>
               </fieldset>
             ) : (
               <div className="live-choices" role="group" aria-label="Choices">
                 {play.choices.map((c, i) => (
-                  <button key={i} className="live-choice" aria-label={`${LETTERS[i]}: ${spoken(c)}`} onClick={() => answer([i])}>
+                  <button key={i} className="live-choice" disabled={status !== "open"} aria-label={`${LETTERS[i]}: ${spoken(c)}`} onClick={() => answer([i])}>
                     <b aria-hidden="true">{LETTERS[i]}</b> <MathText text={c} />
                   </button>
                 ))}

@@ -1,5 +1,6 @@
 // Every bundled course must pass the full course check (drills, figures, notation),
 // and dollar amounts in the real estate course must never be read as math. Run: npm test
+import "./drill-tex-boundaries.test.mts";
 import { readFileSync, readdirSync } from "node:fs";
 import { normalizeCourse } from "../src/lib/course.ts";
 import { splitMath } from "../src/lib/math.ts";

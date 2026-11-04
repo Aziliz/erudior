@@ -3,6 +3,31 @@ name: Deploy Erudior website
 # Website-only release: Cloudflare Pages, independent of course signing and API migrations.
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/site.yml"
+      - "scripts/prerender.mjs"
+      - "scripts/prerender-browser.mjs"
+      - "scripts/check-website-community-env.mjs"
+      - "tests/website-community-env.test.mjs"
+      - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
+      - "src/lib/startupSplash.ts"
+      - "src/lib/startupSplashPolicy.ts"
+      - "src/startupSplash.css"
+      - "src/engineAttribution.css"
+      - "src/components/EngineAttribution.tsx"
+      - "LICENSE-DRAFT.md"
+      - "public/engine-license-draft.txt"
+      - "src/components/Terms.tsx"
+      - "tests/engine-license.test.mts"
+      - "src/Site.tsx"
+      - "src/main.tsx"
+      - "src/App.tsx"
+      - "src/pages/Library.tsx"
+      - "src/pages/ProgressPage.tsx"
+      - "src/components/PhoneNavigation.tsx"
   push:
     branches: [main]
     paths:
@@ -14,20 +39,28 @@ on:
       - "package.json"
       - "package-lock.json"
       - "scripts/prerender.mjs"
+      - "scripts/prerender-browser.mjs"
+      - "scripts/check-website-community-env.mjs"
+      - "tests/website-community-env.test.mjs"
+      - "scripts/startup-splash-browser.mjs"
+      - "scripts/webapp-startup-browser.mjs"
       - "scripts/sitemap.mjs"
       - ".github/workflows/site.yml"
 permissions:
   contents: read
 
 concurrency:
-  group: erudior-pages-production
+  group: erudior-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
   cancel-in-progress: false
 
 jobs:
   website:
     # Website deployment is independent of slow or failing course R2 verification.
-    if: ${{ vars.PAGES_PROJECT != '' }}
-    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' || vars.PAGES_PROJECT != '' }}
+    runs-on: ubuntu-24.04
+    # Vite embeds public endpoints at compilation, not during the later Pages upload.
+    env:
+      VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API || 'https://api.erudior.com' }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify Erudior-only product identity
@@ -41,27 +74,59 @@ jobs:
         run: node scripts/sitemap.mjs
       - name: Build website
         id: website_build
-        run: node scripts/diagnostic-command.mjs website-build -- npm run build
-      - name: Prerender public pages
-        continue-on-error: true
         run: |
-          npm install --no-save playwright@1.56.0
+          node --import tsx tests/engine-license.test.mts
+          node --test tests/website-community-env.test.mjs
+          node scripts/check-website-community-env.mjs
+          node scripts/diagnostic-command.mjs website-build -- npm run build
+      - name: Prerender public pages
+        id: website_prerender
+        run: |
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Review splash choreography and lifecycle in browser
+        id: splash_browser
+        run: node scripts/diagnostic-command.mjs website-splash-browser -- node scripts/startup-splash-browser.mjs
+      - name: Upload splash frame review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: startup-splash-visual-evidence
+          path: artifacts/startup-splash/
+          if-no-files-found: warn
+      - name: Verify web-app-only startup and manual footer preview
+        id: webapp_startup
+        run: node scripts/diagnostic-command.mjs webapp-startup-browser -- node scripts/webapp-startup-browser.mjs
+      - name: Upload web app startup evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webapp-startup-evidence
+          path: artifacts/webapp-startup/
+          if-no-files-found: warn
+      - name: Verify served snapshots clear startup overlays
+        id: snapshot_browser
+        run: node scripts/diagnostic-command.mjs website-snapshot-browser -- node scripts/prerender-browser.mjs
+      - name: Upload snapshot browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prerender-browser-evidence
+          path: artifacts/prerender-browser/
+          if-no-files-found: warn
       - name: Deploy website to Cloudflare Pages
         id: pages_deploy
+        if: github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           VITE_COURSES_URL: ${{ vars.COURSES_URL }}
-          VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
         run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
-
       - name: Write safe CI diagnostic summary
         if: always()
         env:
           ERUDIOR_DIAG_JOB: website
-          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
+          ERUDIOR_DIAG_STAGES: "build:${{ steps.website_build.outcome }},prerender:${{ steps.website_prerender.outcome }},splash-browser:${{ steps.splash_browser.outcome }},webapp-startup:${{ steps.webapp_startup.outcome }},snapshot-browser:${{ steps.snapshot_browser.outcome }},deploy:${{ steps.pages_deploy.outcome }}"
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
         if: always()
@@ -71,4 +136,3 @@ jobs:
           path: ${{ runner.temp }}/erudior-ci-diagnostics/
           retention-days: 30
           if-no-files-found: warn
-

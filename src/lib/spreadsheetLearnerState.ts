@@ -1,5 +1,7 @@
-import type { Workbook } from "./spreadsheet";
-import { type SpreadsheetAssignment, canonicalAssignmentAddress, validateAssignment } from "./spreadsheetAssignments";
+import { type Workbook } from "./spreadsheet";
+import { validateSpreadsheetMacroRuns } from "./spreadsheetEvidence";
+import type { WorkbookMacroTrace } from "./spreadsheetMacros";
+import { type SpreadsheetAssignment, canonicalAssignmentAddress, validateAssignment, workbookMetadataSnapshot } from "./spreadsheetAssignments";
 import { isWorkbookCellAddress, validateWorkbook } from "./workbookTemplates";
 
 export const SPREADSHEET_VIEW_ROWS = 10;
@@ -26,6 +28,7 @@ export function learnerWorkbookProblems(assignment: SpreadsheetAssignment, workb
   if (!validateWorkbook(workbook)) return ["Invalid learner workbook"];
   if (Object.keys(workbook.sheets).sort().join("\0") !== Object.keys(assignment.starter.sheets).sort().join("\0"))
     return ["The draft worksheets do not match this assignment"];
+  if (workbookMetadataSnapshot(workbook) !== workbookMetadataSnapshot(assignment.starter)) problems.push("Instructor workbook metadata changed");
   for (const reference of assignment.protectedCells) {
     const canonical = canonicalAssignmentAddress(assignment.starter, reference);
     if (!canonical) return ["Invalid protected cell"];
@@ -35,7 +38,7 @@ export function learnerWorkbookProblems(assignment: SpreadsheetAssignment, workb
   return problems;
 }
 
-export type SpreadsheetDraftResult = { workbook: Workbook; message: string };
+export type SpreadsheetDraftResult = { workbook: Workbook; message: string; macroRuns?: WorkbookMacroTrace[] };
 export function restoreSpreadsheetDraft(raw: string | null, assignment: SpreadsheetAssignment): SpreadsheetDraftResult {
   const starter = () => structuredClone(assignment.starter);
   if (!raw) return { workbook: starter(), message: "" };
@@ -43,18 +46,18 @@ export function restoreSpreadsheetDraft(raw: string | null, assignment: Spreadsh
     const draft = JSON.parse(raw);
     if (!draft || draft.version !== 2 || draft.assignmentSnapshot !== spreadsheetSnapshot(assignment))
       return { workbook: starter(), message: "This assignment changed. Started a fresh workbook; the earlier draft was not reused." };
-    if (learnerWorkbookProblems(assignment, draft.workbook).length)
+    if (learnerWorkbookProblems(assignment, draft.workbook).length || validateSpreadsheetMacroRuns(assignment, draft.macroRuns).length)
       return { workbook: starter(), message: "The saved draft was invalid or changed protected cells. Started from the assignment instead." };
-    return { workbook: structuredClone(draft.workbook), message: "Restored your saved workbook" };
+    return { workbook: structuredClone(draft.workbook), message: "Restored your saved workbook", ...(draft.macroRuns ? { macroRuns: structuredClone(draft.macroRuns) } : {}) };
   } catch {
     return { workbook: starter(), message: "The saved draft could not be read. Started from the assignment instead." };
   }
 }
 
-export function serializeSpreadsheetDraft(assignment: SpreadsheetAssignment, workbook: Workbook): string {
-  const problems = learnerWorkbookProblems(assignment, workbook);
+export function serializeSpreadsheetDraft(assignment: SpreadsheetAssignment, workbook: Workbook, macroRuns: WorkbookMacroTrace[] = []): string {
+  const problems = [...learnerWorkbookProblems(assignment, workbook), ...validateSpreadsheetMacroRuns(assignment, macroRuns.length ? macroRuns : undefined)];
   if (problems.length) throw Error(problems.join("; "));
-  return JSON.stringify({ version: 2, assignmentSnapshot: spreadsheetSnapshot(assignment), workbook });
+  return JSON.stringify({ version: 2, assignmentSnapshot: spreadsheetSnapshot(assignment), workbook, ...(macroRuns.length ? { macroRuns } : {}) });
 }
 
 export function spreadsheetColumnName(index: number): string {

@@ -1,0 +1,10 @@
+.learning-diagnostics, .learner-interventions { min-width: 0; overflow-wrap: anywhere; }
+.learning-diagnostics .diagnostic-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,20rem),1fr)); gap: 1rem; }
+.learning-diagnostics fieldset { min-width: 0; padding: .75rem; margin: .75rem 0; }
+.learning-diagnostics .field, .learning-diagnostics .input, .learning-diagnostics .select { max-width: 100%; min-width: 0; }
+.learning-diagnostics .diagnostic-choice { display: flex; align-items: center; gap: .5rem; min-height: 44px; }
+.learning-diagnostics button, .learner-interventions button { min-height: 44px; white-space: normal; }
+.learning-diagnostics summary, .learner-interventions summary { min-height: 44px; padding: .65rem 0; cursor: pointer; }
+.learning-diagnostics pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.learning-diagnostics ul, .learner-interventions ul { padding-inline-start: 1.25rem; }
+.learning-diagnostics .diagnostic-history > li { margin-block: .75rem; }

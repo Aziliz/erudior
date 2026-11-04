@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { answerText, blankCount, chosenText, isAnswered, isComplete, isCorrect, normText, normalizeQuestionKind, partsCorrect, textMatches } from "../src/lib/questions.ts";
 import { normalizeBank } from "../src/lib/validate.ts";
-import { drawExamQuestions, finishSession, practicePool, startPractice } from "../src/lib/session.ts";
+import { defaultExamOptions, startExam, drawExamQuestions, finishSession, practicePool, startPractice } from "../src/lib/session.ts";
 import { coreLessons, isHonorsLesson, moduleCoreLessons, normalizeCourse } from "../src/lib/course.ts";
 import { moduleLessonsDone } from "../src/lib/quiz.ts";
 import { courseNumbers, planToday } from "../src/lib/planner.ts";
@@ -174,6 +174,26 @@ t("lowest terms", () => {
   const q = { id: "lt", type: "text", stem: "Simplify 6/8: ___", choices: [], answer: [], accept: [["3/4"]], lowestTerms: true } as Question;
   assert.equal(isCorrect(q, ["6/8"]), false);
   assert.equal(isCorrect(q, ["3/4"]), true);
+});
+
+t("canonical authored timing maps retain safe runtime defaults", () => {
+  const bank = normalizeBank({ title: "Timed", sections: [{ id: "a", name: "A" }, { id: "b", name: "B" }],
+    questions: [{ ...multi, id: "a1", section: "a" }, { ...multi, id: "b1", section: "b" }],
+    exam: { questionCount: 2, timeLimitMinutes: 45, passingPercent: 75, sectionQuotas: { a: 1, b: 1 } } });
+  for (const timings of [{}, { a: 0, b: 0 }, { a: -1, b: Number.NaN }]) {
+    bank.exam.sectionTimeLimits = timings;
+    const before = structuredClone(bank);
+    const options = defaultExamOptions(bank);
+    assert.equal(options.minutes, 45);
+    assert.equal(options.sectionMinutes, undefined);
+    assert.equal(startExam(bank, options).timeLimitSec, 45 * 60);
+    assert.deepEqual(bank, before, "derived timing defaults never mutate authored maps");
+  }
+  bank.exam.sectionTimeLimits = { a: 10, b: 20 };
+  const session = startExam(bank, defaultExamOptions(bank));
+  assert.equal(session.timeLimitSec, 30 * 60);
+  assert.deepEqual(session.blocks.map(block => block.timeLimitSec), [600, 1200]);
+  assert.deepEqual(bank.exam.sectionTimeLimits, { a: 10, b: 20 });
 });
 
 console.log(`questions: ${n} groups passed`);

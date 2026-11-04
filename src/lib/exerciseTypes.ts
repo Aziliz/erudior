@@ -6,7 +6,7 @@ export type DrillChoice = number | string | { label: string; value: number };
 
 export type DrillVar = { min: number; max: number; step?: number } | { choices: DrillChoice[] };
 
-export type NumFormat = "money" | "money0" | "percent" | "number" | "integer" | "fraction" | "sci";
+export type NumFormat = "money" | "money0" | "percent" | "number" | "integer" | "fraction" | "sci" | "num1" | "num2" | "num4" | "pct1" | "int" | "month" | "frac" | "texfrac" | "texsci" | "deg" | "coef" | "signed" | "signedcoef" | `dp${0|1|2|3|4|5|6|7|8|9}` | `sig${1|2|3|4|5|6|7|8|9}`;
 
 /**
  * One answer box. A drill has either the classic single `answer` + `format`, or a list
@@ -34,7 +34,8 @@ export interface AnswerPart {
   /** Fractions must be in lowest terms. */
   lowestTerms?: boolean;
   /** Accepted units and their factor to the answer's unit: { "m/s": 1, "km/h": 0.27778 }. The first is shown. */
-  units?: Record<string, number>;
+  /** Numeric-string factors are a supported legacy portable spelling (for example "1e-9"). */
+  units?: Record<string, number | `${number}`>;
   /** Expression kind: the correct expression, e.g. "3*a*x^2 - 2" or "deriv(f, x)". */
   expression?: string;
   /** Expression kind: the variables the answer may use. Default ["x"]. */

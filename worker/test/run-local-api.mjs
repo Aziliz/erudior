@@ -100,7 +100,7 @@ routes = []
 [env.dev.vars]
 APP_ORIGIN = "http://localhost:5181"
 ALLOWED_ORIGINS = "http://localhost:5181"
-API_ORIGIN = ${JSON.stringify(api)}
+API_ORIGIN = "https://community.test"
 ADMIN_EMAILS = "admin@example.test"
 GOOGLE_CLIENT_ID = ""
 GITHUB_CLIENT_ID = ""
@@ -131,7 +131,9 @@ bucket_name = "erudior-local-test"
     await delay(250);
   }
   await bounded(launch([path.join(worker, "test/api.test.mjs")], { API: api }), 120_000, "Local API regression");
-  console.log("Local API regression passed using isolated D1/R2 state.");
+  await bounded(launch([path.join(worker, "test/live.test.mjs")], { API: api }), 120_000, "Local live-room protocol regression");
+  await bounded(launch([path.join(worker, "test/presentation-live.test.mjs")], { API: api }), 120_000, "Local presentation protocol regression");
+  console.log("Local API and live-room regressions passed using isolated D1/R2 state.");
 } catch (error) {
   if (server) process.stderr.write(server.log);
   console.error(error);

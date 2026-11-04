@@ -2,6 +2,7 @@ import type { AppApi } from "../App";
 import { isHonorsLesson } from "../lib/course";
 import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
+import CourseActivityLinks from "../components/CourseActivityLinks";
 import { lessonKey, logActivity, orderedLessons } from "../lib/planner";
 import { today } from "../lib/srs";
 import { lessonQuizNeeded, lessonQuizQuestions, pretestQuestions, startLessonQuiz, startPretest } from "../lib/session";
@@ -140,6 +141,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
       />
 
       <article className="lesson-body">
+        <CourseActivityLinks api={api} course={course} lessonId={lesson.id} />
         <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
       </article>
 

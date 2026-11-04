@@ -3,6 +3,9 @@ import { appUrl } from "../lib/site";
 
 const REPO = "Aziliz/erudior";
 const RELEASES = `https://github.com/${REPO}/releases`;
+// This exact release asset is published and stable. Keep the button available
+// even when GitHub\'s API is temporarily unavailable to the visitor.
+export const ANDROID_PREVIEW_DOWNLOAD = `${RELEASES}/download/android-preview/Erudior-Android-arm64.apk`;
 export const BREW = "brew install --cask aziliz/erudior/erudior";
 
 interface Asset {
@@ -22,10 +25,11 @@ interface Release {
   assets: Asset[];
 }
 
-type Os = "windows" | "mac" | "linux" | "other";
+type Os = "windows" | "mac" | "linux" | "android" | "other";
 
 function detectOs(): Os {
   const ua = navigator.userAgent;
+  if (/Android/i.test(ua)) return "android";
   if (/Windows/i.test(ua)) return "windows";
   if (/Macintosh|Mac OS X/i.test(ua) && !/iPhone|iPad/i.test(ua)) return "mac";
   if (/Linux|X11/i.test(ua) && !/Android/i.test(ua)) return "linux";
@@ -39,6 +43,7 @@ const version = (r: Release) => r.tag_name.replace(/^v/, "");
 /** Downloads, install steps and answers (erudior.com/download). */
 export default function DownloadPage() {
   const [releases, setReleases] = useState<Release[] | null>(null);
+  const [androidRelease, setAndroidRelease] = useState<Release | null>(null);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState("");
   const os = detectOs();
@@ -54,6 +59,16 @@ export default function DownloadPage() {
       .catch((e) => setError((e as Error).message));
   }, []);
 
+  // Android previews are intentionally separate from stable desktop releases.
+  // Only a published release with a real APK asset is shown as downloadable.
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/${REPO}/releases/tags/android-preview`, { headers: { Accept: "application/vnd.github+json" } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((r: Release | null) => { if (r && !r.draft && r.assets?.length) setAndroidRelease(r); })
+      .catch(() => { /* Keep the Android card in coming-soon state if GitHub is unavailable. */ });
+  }, []);
+
+  const androidApk = androidRelease?.assets.find((a) => /\.apk$/i.test(a.name));
   const release = releases?.[0] ?? null;
   const exe = find(release, /-setup\.exe$/i) ?? find(release, /\.exe$/i);
   const msi = find(release, /\.msi$/i);
@@ -89,6 +104,28 @@ export default function DownloadPage() {
   );
 
   const platforms: { id: Os; title: string; body: React.ReactNode }[] = [
+    {
+      id: "android",
+      title: "Android (early preview)",
+      body: (
+        <>
+          <div className="row">{androidApk
+            ? link(androidApk, "Download Android APK", os === "android")
+            : <a className={`btn${os === "android" ? " primary" : ""}`} href={ANDROID_PREVIEW_DOWNLOAD}>
+                Download Android APK <span className="small">(GitHub preview)</span>
+              </a>}</div>
+          <p className="small muted">ARM64 Android phones. This is an early testing preview with verified in-app update support, not a production-ready release.</p>
+          <ol className="small install-steps">
+            <li>Download the APK directly to your phone; no GitHub sign-in is needed.</li>
+            <li>Open the APK in your Files app.</li>
+            <li>If Erudior is already installed, install over the existing app—do not uninstall it first. Android preserves existing data when it accepts the signed update.</li>
+            <li>If prompted, allow installing from your browser or Files app, then install Erudior.</li>
+            <li>Turn off that installation permission afterward.</li>
+          </ol>
+          {androidRelease && <p className="small"><a href={androidRelease.html_url}>Android preview release notes</a></p>}
+        </>
+      ),
+    },
     {
       id: "windows",
       title: "Windows",
@@ -167,7 +204,7 @@ export default function DownloadPage() {
         <div>
           <h1>Download Erudior</h1>
           <p>
-            The desktop app is free. It downloads any course from the catalog when you start it and keeps working offline after that. It also has the
+            Erudior is free. The desktop app downloads courses as you need them and keeps working offline afterward. It also has the
             homeschool and classroom tools: students, attendance, grades, report cards, transcripts, portfolios and live rooms. Everything stays on your
             computer.
           </p>
@@ -192,7 +229,7 @@ export default function DownloadPage() {
           <section key={p.id} className={`download-card${p.id === os ? " current" : ""}`} aria-labelledby={`dl-${p.id}`}>
             <h2 id={`dl-${p.id}`}>
               {p.title}
-              {p.id === os && <span className="pill neutral">Your computer</span>}
+              {p.id === os && <span className="pill neutral">Your device</span>}
             </h2>
             {p.body}
           </section>
@@ -227,7 +264,7 @@ export default function DownloadPage() {
           <summary>How do updates work?</summary>
           <p>
             On Windows, macOS and the AppImage, the app checks for a new version when it starts and offers to install it. With Homebrew, run{" "}
-            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update.
+            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update. On Android, Erudior can check for a verified APK update and opens the Android installer for your approval.
           </p>
         </details>
         <details>

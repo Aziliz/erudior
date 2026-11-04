@@ -1,0 +1,15 @@
+.interop { min-width: 0; }
+.interop .panel { margin-block: 1rem; min-width: 0; }
+.interop .field { display: flex; flex-direction: column; gap: .4rem; margin-block: .7rem; min-width: 0; }
+.interop .input, .interop .select, .interop input[type=file] { max-width: 100%; min-width: 0; width: 100%; box-sizing: border-box; }
+.interop .btn { white-space: normal; overflow-wrap: anywhere; }
+.interop-tabs { flex-wrap: wrap; }
+.interop-text { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.interop-uri, .interop p, .interop small, .interop li { overflow-wrap: anywhere; }
+.interop-option { display: flex; align-items: flex-start; gap: .6rem; padding-block: .55rem; overflow-wrap: anywhere; }
+.interop-option input { flex: 0 0 auto; margin-top: .2rem; }
+.interop fieldset { min-width: 0; margin-block: .8rem; border: 1px solid var(--border, #888); border-radius: .5rem; }
+.interop-mapping { padding-block: .75rem; border-bottom: 1px solid var(--border, #888); }
+.interop-mapping small { display: block; margin-top: .4rem; }
+.interop-scroll { max-height: 34rem; overflow: auto; padding-inline: .25rem; }
+@media (min-width: 800px) { .interop-mapping { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; } }

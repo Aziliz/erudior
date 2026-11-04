@@ -123,7 +123,7 @@ export default function Results({
   return (
     <div className="page">
       <button className="back" onClick={() => api.go(back)}>
-        ← {back.name === "progress" ? "Progress" : back.name === "lesson" && quizLesson ? quizLesson.title : quizModule ? "Lessons" : attempt.bankTitle}
+        ← {back.name === "progress" ? "Courses" : back.name === "lesson" && quizLesson ? quizLesson.title : quizModule ? "Lessons" : attempt.bankTitle}
       </button>
 
       <div className="score-head">
@@ -324,7 +324,7 @@ export default function Results({
               </div>
               <QuestionStem q={q} />
               {qtype(q) !== "label" && <QuestionImage q={q} />}
-              <QuestionAudio q={q} revealed />
+              <QuestionAudio q={q} revealed fallbackLang={course?.language?.tts ?? course?.language?.code} />
               {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
               {!isChoice(q) ? (
                 <QuestionBody q={q} order={q.choices.map((_, i) => i)} chosen={rec.chosen} reveal review />

@@ -20,7 +20,11 @@ function fixture(f = family) {
 const f=fixture();const receipt=await f.store.import(h,family);await f.store.import(other,family);
 await f.store.review({submissionId:receipt.record.id,eventId:"decision",status:"reviewed",reviewedAt:"2026-10-28T12:30:00Z",note:"Personal note"},family);
 for(const prefix of ["records","session","portfolio"]) f.data.set(`${prefix}-${a.id}`,"personal data");
+const workspace={version:1,entries:[{id:"private-note",kind:"note",title:"Private notebook",body:"Private student notes",status:"active",createdAt:"2026-10-30T10:00:00.000Z",updatedAt:"2026-10-30T10:00:00.000Z"}]};
+f.data.set(`progress-${a.id}`,JSON.stringify({...emptyProgress(),studentWorkspace:workspace}));
+f.data.set(`progress-${b.id}`,JSON.stringify({...emptyProgress(),studentWorkspace:workspace}));
 const updated=await f.store.deleteStudent(a.id,family);
+assert.deepEqual(JSON.parse(f.data.get(`progress-${b.id}`)!).studentWorkspace,workspace,"deletion preserves the other learner workspace");
 assert.deepEqual(updated.students.map(s=>s.id),[b.id]);assert.deepEqual(updated.classes![0].students,[b.id]);assert.equal(updated.classes![0].handins[a.id],undefined);
 for(const prefix of ["progress","records","session","portfolio"]) assert.equal(f.data.has(`${prefix}-${a.id}`),false);
 const ledger=validateClassroomSubmissionState(f.data.get("classroom-submissions")!);

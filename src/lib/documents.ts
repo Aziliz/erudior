@@ -3,8 +3,8 @@
 // documents/<fileId>.json; each student's records list the documents that apply to them.
 
 import { invoke } from "@tauri-apps/api/core";
-import { inApp } from "./storage";
-import { webDelete, webGet, webSet } from "./webstore";
+import { anonymousDocumentGeneration, inApp } from "./storage";
+import { webAnonymousDocument, webDelete, webGet, webSet } from "./webstore";
 import { uid } from "./util";
 
 export const DOC_KINDS = [
@@ -107,11 +107,15 @@ export function documentTransactions(backend: DocumentBackend) {
 const rawDocumentBackend: DocumentBackend = {
   read: id => inApp ? invoke<string | null>("load_item", { kind: "documents", id }) : webGet(WEB_KEY + id),
   async write(id, content) {
-    if (inApp) await invoke("save_item", { kind: "documents", id, content });
+    const anonymousGeneration=await anonymousDocumentGeneration();
+    if (inApp) await invoke("save_item", { kind: "documents", id, content, anonymousGeneration });
+    else if(anonymousGeneration!==undefined)await webAnonymousDocument(WEB_KEY+id,content,anonymousGeneration);
     else await webSet(WEB_KEY + id, content);
   },
   async remove(id) {
-    if (inApp) await invoke("delete_item", { kind: "documents", id });
+    const anonymousGeneration=await anonymousDocumentGeneration();
+    if (inApp) await invoke("delete_item", { kind: "documents", id, anonymousGeneration });
+    else if(anonymousGeneration!==undefined)await webAnonymousDocument(WEB_KEY+id,null,anonymousGeneration);
     else await webDelete(WEB_KEY + id);
   },
 };

@@ -9,6 +9,8 @@
 
 import type { GlossaryEntry, Progress, ReaderSection, ReaderText, ReadingState } from "./types";
 import { today } from "./srs";
+import { validateReaderTexts, normalizeValidatedReaderTexts } from "./readerContent";
+export { validateReaderTexts, normalizeValidatedReaderTexts, readerRevisionProblems, READER_LIMITS } from "./readerContent";
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const str = (v: unknown) => (typeof v === "string" ? v : "");
@@ -18,6 +20,10 @@ const KINDS = ["prose", "poem", "play", "document"] as const;
 
 /** Read the `texts` field of a course file. Texts without sections are dropped. */
 export function normalizeTexts(raw: unknown): ReaderText[] {
+  // Valid canonical data is lossless. Legacy recovery remains for old local data;
+  // public import/publication boundaries must call the strict raw validator first.
+  if (!validateReaderTexts(raw, { strict: false }).length) return normalizeValidatedReaderTexts(raw, { strict: false });
+  if (!validateReaderTexts(raw, { strict: false, legacy: true }).length) return normalizeValidatedReaderTexts(raw, { strict: false, legacy: true });
   const seen = new Set<string>();
   return arr(raw)
     .filter(isObj)

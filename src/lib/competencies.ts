@@ -9,7 +9,12 @@ export interface Competency {
   prerequisites: string[];
   /** Course ID -> existing question/drill topic labels that provide evidence. */
   evidence: Record<string, string[]>;
+  /** Exact assessment identity. Present (even empty) on resolved authored graphs. */
+  assessments?: CompetencyAssessment[];
 }
+export interface CompetencyAssessment { courseId: string; bankId: string; questionIds: string[] }
+/** A collision-free key within one course's evidence, never a human topic label. */
+export const competencyEvidenceKey = (bankId: string, questionId: string): string => JSON.stringify([bankId, questionId]);
 export interface SkillEvidence { mastery: number; confidence: number; n: number }
 export interface CompetencyState {
   id: string;
@@ -31,8 +36,18 @@ export function validateCompetencies(skills: Competency[]): string[] {
     if (lookup.has(s.id)) errors.push(`Duplicate skill ID: ${s.id}`);
     lookup.set(s.id, s);
     if (!s.title.trim()) errors.push(`Missing title: ${s.id}`);
+    if (new Set(s.prerequisites).size !== s.prerequisites.length) errors.push(`Duplicate prerequisite: ${s.id}`);
+    const references = new Set<string>();
+    for (const a of s.assessments ?? []) {
+      if (!a.courseId.trim() || !a.bankId.trim() || !a.questionIds.length || a.questionIds.some(id => !id.trim())) errors.push(`Invalid assessment mapping: ${s.id}`);
+      for (const id of a.questionIds) {
+        const key = JSON.stringify([a.courseId, a.bankId, id]);
+        if (references.has(key)) errors.push(`Duplicate assessment mapping: ${s.id}`);
+        references.add(key);
+      }
+    }
     for (const [courseId, topics] of Object.entries(s.evidence)) {
-      if (!courseId.trim() || !topics.length || topics.some(t => !t.trim()))
+      if (!courseId.trim() || topics.some(t => !t.trim()) || new Set(topics).size !== topics.length)
         errors.push(`Invalid evidence mapping: ${s.id}/${courseId}`);
     }
   }
@@ -68,10 +83,13 @@ export function evaluateCompetencies(
   const values = new Map<string, {mastery:number|null;confidence:number;attempts:number;mastered:boolean}>();
   for (const skill of skills) {
     const evidence: SkillEvidence[] = [];
-    for (const [courseId, topics] of Object.entries(skill.evidence))
+    const mappings: [string, string[]][] = skill.assessments !== undefined
+      ? skill.assessments.map(a => [a.courseId, a.questionIds.map(id => competencyEvidenceKey(a.bankId, id))])
+      : Object.entries(skill.evidence);
+    for (const [courseId, topics] of mappings)
       for (const topic of topics) {
         const entry = sources[courseId]?.[topic];
-        if (entry && Number.isFinite(entry.n) && entry.n > 0 && entry.mastery >= 0 && entry.mastery <= 1 && entry.confidence >= 0 && entry.confidence <= 1 && Number.isFinite(entry.mastery) && Number.isFinite(entry.confidence))
+        if (entry && Number.isSafeInteger(entry.n) && entry.n > 0 && entry.n <= 1_000_000 && entry.mastery >= 0 && entry.mastery <= 1 && entry.confidence >= 0 && entry.confidence <= 1 && Number.isFinite(entry.mastery) && Number.isFinite(entry.confidence))
           evidence.push(entry);
       }
     const attempts = evidence.reduce((sum,e) => sum + Math.max(0,e.n), 0);
@@ -89,6 +107,6 @@ export function evaluateCompetencies(
 /** Prioritize immediately teachable skills before skills requiring prerequisites. */
 export function recommendedCompetencies(states: CompetencyState[], limit = 5): CompetencyState[] {
   return states.filter(s => s.ready && !s.mastered)
-    .sort((a,b) => (a.mastery === null ? -1 : b.mastery === null ? 1 : a.mastery-b.mastery) || a.id.localeCompare(b.id))
+    .sort((a,b) => (a.mastery === null && b.mastery !== null ? -1 : b.mastery === null && a.mastery !== null ? 1 : (a.mastery ?? 0)-(b.mastery ?? 0)) || a.id.localeCompare(b.id))
     .slice(0,Math.max(0,limit));
 }

@@ -1,0 +1,50 @@
+import assert from 'node:assert/strict';
+import {webcrypto} from 'node:crypto';
+if(!globalThis.crypto)Object.defineProperty(globalThis,'crypto',{value:webcrypto});
+import {credentialFixture} from './fixtures/credentialIntegrity';
+import {parseCredentialTrust,validateCredentialAudit,validateCredentialIssue,validateCredentialRevocation,verifyCredentialChain,verifyCredentialStatus,signCredentialEnvelope,credentialHash,credentialCanonical} from '../src/lib/credentialIntegrity';
+import {verifyCredentialBundle,createCredentialBundle} from '../src/lib/credentialPdf';
+const f=await credentialFixture();
+assert.equal(validateCredentialIssue(f.command,f.trust,f.now).credentialId,f.issue.credentialId);
+assert.equal(validateCredentialRevocation(f.revokeCommand,f.trust,f.now).expectedRevision,1);
+assert.equal((await verifyCredentialChain([f.event,f.revoked],f.trust))[1].action,'revoked');
+assert.equal((await verifyCredentialBundle(f.bundle,f.trust)).currentStatus,'unknown');
+assert.equal((await verifyCredentialBundle(await createCredentialBundle([f.event,f.revoked],f.trust,'issuer-synthetic',f.keys.issuer.secretKey),f.trust)).historicalStatus,'revoked');
+const challenge='C'.repeat(43);assert.equal(verifyCredentialStatus(f.status(challenge),f.trust,f.issue.credentialId,f.now,challenge,f.issue.lookupTokenHash).status,'issued');
+assert.throws(()=>verifyCredentialStatus(f.status(challenge),f.trust,f.issue.credentialId,f.now,'challenge-other-000001',f.issue.lookupTokenHash));
+assert.throws(()=>verifyCredentialStatus(f.status(challenge),f.trust,f.issue.credentialId,f.now+61,challenge,f.issue.lookupTokenHash));
+for(const mutate of [(x:any)=>x.programs.splice(0),(x:any)=>x.programs[0].validThrough=f.now-1,(x:any)=>x.programs[0].methodDigest='a'.repeat(64),(x:any)=>x.programs[0].requiredMinutes=100]){const trust=structuredClone(f.trust);mutate(trust);assert.throws(()=>validateCredentialIssue(f.command,trust,f.now));}
+for(const mutate of [(x:any)=>x.audience='wrong',(x:any)=>x.exp=f.now,(x:any)=>x.expectedRevision=1,(x:any)=>x.unexpected=true,(x:any)=>x.lookupTokenHash='bad']){const v=structuredClone(f.issue);mutate(v);assert.throws(()=>validateCredentialIssue(signCredentialEnvelope('issue',v,'issuer-synthetic',f.keys.issuer.secretKey),f.trust,f.now));}
+for(const mutate of [(x:any)=>x.subject='different-subject-0001',(x:any)=>x.enrollmentId='different-enrollment-0001',(x:any)=>x.requirementsMet=false,(x:any)=>x.approvedMinutes=0]){const a=structuredClone(f.approval);mutate(a);const v={...f.issue,approval:signCredentialEnvelope('instructor',a,'instructor-synthetic',f.keys.instructor.secretKey)};assert.throws(()=>validateCredentialIssue(signCredentialEnvelope('issue',v,'issuer-synthetic',f.keys.issuer.secretKey),f.trust,f.now));}
+assert.throws(()=>validateCredentialIssue({...f.command,purpose:'revoke'},f.trust,f.now));
+assert.throws(()=>validateCredentialIssue({...f.command,payload:{...f.issue,credentialId:'changed-credential-0001'}},f.trust,f.now));
+assert.throws(()=>parseCredentialTrust({...f.trust,unexpected:true}));
+const reused=structuredClone(f.trust);reused.keys[1].publicKey=reused.keys[0].publicKey;assert.throws(()=>parseCredentialTrust(reused));
+await assert.rejects(()=>verifyCredentialChain([f.revoked],f.trust));
+await assert.rejects(()=>verifyCredentialChain([f.event,f.revoked,f.revoked],f.trust));
+await assert.rejects(()=>verifyCredentialChain([{...f.event,payload:{...f.issued,approvedMinutes:100}}],f.trust));
+await assert.rejects(()=>verifyCredentialBundle({...f.bundle,pdfBase64:f.bundle.pdfBase64.slice(0,-4)+'AAAA'},f.trust));
+await assert.rejects(()=>verifyCredentialBundle({...f.bundle,events:[f.revoked]},f.trust));
+assert.equal(await credentialHash({b:2,a:1}),await credentialHash({a:1,b:2}));
+assert.throws(()=>credentialCanonical({bad:undefined}));
+console.log('Credential V1 signed qualification, strict trust, exact PDF bytes, tamper rejection, terminal revocation and fresh status passed.');
+const crossIssuer={...f.trust,issuerId:'another-issuer'};await assert.rejects(()=>verifyCredentialBundle(f.bundle,crossIssuer));
+const crossAudience={...f.trust,audience:'https://other.example.test'};await assert.rejects(()=>verifyCredentialBundle(f.bundle,crossAudience));
+assert.throws(()=>verifyCredentialStatus(f.status(challenge),crossAudience,f.issue.credentialId,f.now,challenge,f.issue.lookupTokenHash));
+assert.throws(()=>verifyCredentialStatus(f.status(challenge),f.trust,f.issue.credentialId,NaN,challenge,f.issue.lookupTokenHash));
+const invalidEvent=signCredentialEnvelope('event',{...f.issued,approvedMinutes:0},'issuer-synthetic',f.keys.issuer.secretKey);await assert.rejects(()=>verifyCredentialChain([invalidEvent],f.trust));
+const earlyEvent=signCredentialEnvelope('event',{...f.issued,at:f.trust.programs[0].validFrom-1},'issuer-synthetic',f.keys.issuer.secretKey);await assert.rejects(()=>verifyCredentialChain([earlyEvent],f.trust));
+const outOfOrder=signCredentialEnvelope('event',{...f.revoked.payload,at:f.now-1},'issuer-synthetic',f.keys.issuer.secretKey);await assert.rejects(()=>verifyCredentialChain([f.event,outOfOrder],f.trust));
+const activePdf=structuredClone(f.bundle);const unsafe=new TextEncoder().encode('%PDF-1.4 /JavaScript /JS (alert)');activePdf.pdfBase64=Buffer.from(unsafe).toString('base64');activePdf.manifest=signCredentialEnvelope('pdf',{...activePdf.manifest.payload,pdfDigest:await credentialHash(unsafe)},'issuer-synthetic',f.keys.issuer.secretKey);await assert.rejects(()=>verifyCredentialBundle(activePdf,f.trust));
+console.log('Cross-issuer/audience, invalid signed output, freshness and signed active-content PDF rejection passed.');
+const longest=signCredentialEnvelope('event',{...f.issued,credentialId:'C'.repeat(128),subject:'S'.repeat(128)},'issuer-synthetic',f.keys.issuer.secretKey);const maxBundle=await createCredentialBundle([longest],f.trust,'issuer-synthetic',f.keys.issuer.secretKey);assert.equal((await verifyCredentialBundle(maxBundle,f.trust)).events[0].subject.length,128);const maxPdf=Buffer.from(maxBundle.pdfBase64,'base64').toString();assert(maxPdf.includes('(CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC)')===false);assert(!maxPdf.includes('S'.repeat(81)));
+
+const audit={requestId:'request-audit-synthetic-0001',credentialId:f.issue.credentialId,iat:f.now,exp:f.now+120,audience:f.trust.audience};
+const auditCommand=signCredentialEnvelope('audit',audit,'issuer-synthetic',f.keys.issuer.secretKey);
+assert.equal(validateCredentialAudit(auditCommand,f.trust,f.now).credentialId,f.issue.credentialId);
+assert.throws(()=>validateCredentialAudit(f.command,f.trust,f.now));
+assert.throws(()=>validateCredentialAudit(signCredentialEnvelope('audit',audit,'instructor-synthetic',f.keys.instructor.secretKey),f.trust,f.now));
+assert.throws(()=>validateCredentialAudit(signCredentialEnvelope('audit',{...audit,audience:'wrong'},'issuer-synthetic',f.keys.issuer.secretKey),f.trust,f.now));
+assert.throws(()=>validateCredentialAudit(auditCommand,f.trust,f.now+121));
+assert.throws(()=>validateCredentialAudit(signCredentialEnvelope('audit',{...audit,exp:f.now+301},'issuer-synthetic',f.keys.issuer.secretKey),f.trust,f.now));
+console.log('Fresh issuer-only read-only audit authorization passed.');

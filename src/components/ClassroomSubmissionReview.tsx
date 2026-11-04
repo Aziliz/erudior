@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { AssessedWorkSubmission } from "../lib/assessedWorkEvidence";
+import type { Lab, WritingTask, ActivityLogSpec, WorkRecord, LogEntry } from "../lib/work";
+import { assessedReviewScore, type SubmissionAssessment } from "../lib/submissionHistory";
 import type { Workbook } from "../lib/spreadsheet";
 import { calculateCellV1 } from "../lib/spreadsheetGradingV1";
 import type { SpreadsheetSubmission } from "../lib/spreadsheetEvidence";
@@ -121,10 +124,11 @@ function Receipt({ record, busy, save, retryImport, canReview }: { record: Store
     <p>This is the exact saved hand-in, not the student’s current or merged progress. Later imports do not change this evidence.</p>
     <p>Courses: {snapshot.courses.join(", ")}</p>
     <Evidence title="Quiz and exam attempts" value={snapshot.progress.attempts} />
-    <Evidence title="Writing, lab work, and submitted drafts" value={snapshot.progress.work} />
+    <AssessedWorkInspection record={record} disabled={reviewDisabled} save={save} />
+    <LegacyWorkInspection work={snapshot.progress.work} logs={snapshot.progress.logs} />
     <SpreadsheetEvidence submissions={Object.values(snapshot.progress.spreadsheetSubmissions ?? {})} />
     <details><summary>All submitted progress (exact JSON)</summary><Evidence title="Submitted progress" value={snapshot.progress} /></details>
-    <Evidence title="Activity logs" value={snapshot.progress.logs} />
+
     <h3>Attached files from this receipt</h3>
     {Object.entries(snapshot.files ?? {}).map(([id, file]) => <div key={id}>
       <p>{id} · {file.mime}</p>
@@ -133,9 +137,10 @@ function Receipt({ record, busy, save, retryImport, canReview }: { record: Store
     </div>)}
     <details><summary>Exact signed receipt JSON (including attachment payloads)</summary><Evidence title="Signed receipt" value={snapshot} /></details>
     <h3>Review history</h3>
-    {!record.reviewEvents.length ? <p>No instructor reviews yet.</p> : <ol>{record.reviewEvents.map(event => <li key={event.id}><strong>{statusLabel(event.status)}</strong> · {event.reviewedAt}<p style={{ whiteSpace: "pre-wrap" }}>{event.note || "No note."}</p></li>)}</ol>}
+    {!record.reviewEvents.length ? <p>No instructor reviews yet.</p> : <ol>{record.reviewEvents.map(event => <li key={event.id}><strong>{statusLabel(event.status)}</strong> · {event.assessment ? `Assessed work ${event.assessment.workSubmissionId}` : "Receipt-wide decision"} · {event.reviewedAt}<p style={{ whiteSpace: "pre-wrap" }}>{event.note || "No note."}</p></li>)}</ol>}
     {!record.importComplete && <div role="status"><p>Received, import incomplete. The signed receipt is saved, but its files or progress still need importing. Review is disabled until completion.</p><button className="btn" disabled={busy || !canReview} onClick={retryImport}>Retry saved import</button></div>}
-    <h3>Add instructor review</h3>
+    <h3>Add receipt-wide instructor review</h3>
+    <p>This separate receipt decision is not a rubric assessment of every item and does not create an academic grade or activity credit.</p>
     <label className="field">Decision<select disabled={reviewDisabled} value={status} onChange={e => setStatus(e.target.value as typeof status)}><option value="reviewed">Reviewed</option><option value="needs_revision">Needs revision</option></select></label>
     <label className="field">Review note<textarea disabled={reviewDisabled} maxLength={2000} value={note} onChange={e => setNote(e.target.value)} /></label>
     <p className="muted small">Each saved decision is appended. Prior decisions and submitted work are never overwritten.</p>
@@ -197,5 +202,133 @@ function SpreadsheetEvidence({ submissions }: { submissions: SpreadsheetSubmissi
       <WorkbookInspection title="Submitted cells" workbook={submission.workbook} />
       <PagedRows title="Saved automatic feedback" rows={submission.grade.feedback} headers={["Cell", "Expected", "Actual", "Result"]} render={f => <><th scope="row">{f.address}</th><td>{String(f.expected)}</td><td>{f.actual === null ? "Calculation failed" : String(f.actual)}</td><td>{f.passed ? "Passed" : "Not passed"}</td></>} />
     </article>
+  </section>;
+}
+
+function LegacyWorkInspection({ work, logs }: { work?: Record<string, WorkRecord>; logs?: LogEntry[] }) {
+  const [selected, setSelected] = useState("");
+  const entries = Object.entries(work ?? {});
+  const current = entries.find(([id]) => id === selected) ?? entries[0];
+  if (!entries.length && !logs?.length) return null;
+  return <section aria-label="Legacy or current work payloads"><h3>Writing, lab work, and submitted drafts</h3>
+    <p>These ordinary progress payloads do not carry a verifiable original task or rubric. Original requirements are unknown; no rubric is inferred from the current course. Exact assessed submissions, when available, are shown separately above.</p>
+    {!!entries.length && <label className="field">Inspect legacy work<select value={current?.[0] ?? ""} onChange={e => setSelected(e.target.value)}>{entries.map(([id]) => <option key={id} value={id}>{id}</option>)}</select></label>}
+    {(current ? [current] : []).map(([key, response]) => <article key={key}><h4>{key}</h4>
+      <p>Submitted: {response.submitted ?? "Draft — no submission timestamp"}</p>
+      {response.text !== undefined && <p style={{ whiteSpace: "pre-wrap" }}>{response.text}</p>}
+      {Object.entries(response.answers ?? {}).map(([id, answer]) => <p key={id}><strong>Answer {id} (original question unknown): </strong>{answer}</p>)}
+      <LegacyTables tables={response.tables ?? {}} />
+      <details><summary>Exact legacy work fields</summary><Evidence title={key} value={response} /></details>
+    </article>)}
+    {!!logs?.length && <PagedRows title="Activity logs (original task unknown)" rows={logs} headers={["Date", "Activity", "Minutes", "Note"]} render={entry => <><td>{entry.date}</td><td>{entry.type}</td><td>{entry.minutes}</td><td>{entry.note}</td></>} />}
+  </section>;
+}
+function AssessedWorkInspection({ record, disabled, save }: { record: StoredSubmissionRecord; disabled: boolean; save: (event: ledger.ClassroomReviewInput) => Promise<void> }) {
+  const entries = Object.values(record.snapshot.progress.assessedWorkSubmissions ?? {});
+  const [selected, setSelected] = useState("");
+  const entry = entries.find(e => e.id === selected) ?? entries[0];
+  if (!entry) return <section><h3>Assessed writing, lab and activity submissions</h3><p>No original-task assessed submissions in this receipt. Legacy work is not silently promoted to verified task evidence.</p></section>;
+  return <section aria-label="Assessed work inspection"><h3>Assessed writing, lab and activity submissions ({entries.length})</h3>
+    <label className="field">Inspect assessed work<select value={entry.id} onChange={e => setSelected(e.target.value)}>{entries.map(e => <option key={e.id} value={e.id}>{e.task.title} · {savedTime(e.submittedAt)} · {e.id}</option>)}</select></label>
+    <AssessedWorkItem key={entry.id} entry={entry} record={record} disabled={disabled} save={save} />
+  </section>;
+}
+function AssessedWorkItem({ entry, record, disabled, save }: { entry: AssessedWorkSubmission; record: StoredSubmissionRecord; disabled: boolean; save: (event: ledger.ClassroomReviewInput) => Promise<void> }) {
+  const [levels, setLevels] = useState<Record<string, number>>({});
+  const [criterionNotes, setCriterionNotes] = useState<Record<string, string>>({});
+  const [note, setNote] = useState("");
+  const [status, setStatus] = useState<"reviewed" | "needs_revision">("reviewed");
+  const retry = useRef<ledger.ClassroomReviewInput | null>(null);
+  const events = record.reviewEvents.filter(e => e.assessment?.workSubmissionId === entry.id);
+  const criteria = entry.rubric?.criteria ?? [];
+  const complete = criteria.every(c => Object.prototype.hasOwnProperty.call(levels, c.id));
+  const assessment: SubmissionAssessment = { version: 1, workSubmissionId: entry.id, levels, criterionNotes };
+  const score = assessedReviewScore(entry, assessment);
+  return <article aria-label={`Original assessed submission ${entry.id}`}>
+    <h4>{entry.task.title}</h4><p>Kind: {entry.kind} · Course: {entry.courseId} · Assignment: {entry.assignmentId}</p>
+    <p>Evidence ID: {entry.id} · Submitted: {savedTime(entry.submittedAt)} · Receipt: {record.id}</p>
+    <p>The following task, rubric, response and files are the exact saved snapshot. Changes to the installed course do not alter this evidence.</p>
+    <AssessedTaskResponse entry={entry} />
+    <h4>Original rubric</h4>
+    {!criteria.length ? <p>No original rubric was supplied. Review may include a decision and feedback, but no rubric score can be invented.</p> : criteria.map(c => <section key={c.id}>
+      <h5>{c.name} ({c.id})</h5>{c.description && <p>{c.description}</p>}
+      <ul>{c.levels.map((level, i) => <li key={i}>{level.points} points — {level.label}{level.description && `: ${level.description}`}</li>)}</ul>
+    </section>)}
+    <h4>Files inside this assessed submission</h4>
+    {!Object.keys(entry.files).length && <p>No attached files.</p>}
+    {Object.entries(entry.files).map(([id, file]) => <p key={id}>{id} · {file.mime} <a href={`data:application/octet-stream;base64,${file.data}`} download={`${id}.bin`}>Download assessed attachment {id}</a></p>)}
+    <details><summary>Exact assessed submission JSON</summary><Evidence title="Original assessed evidence" value={entry} /></details>
+    <h4>Decisions for this exact assessed submission</h4>
+    {!events.length ? <p>Not assessed yet.</p> : <ol>{events.map(event => {
+      const savedScore = assessedReviewScore(entry, event.assessment!);
+      return <li key={event.id}><strong>{statusLabel(event.status)}</strong> · {event.reviewedAt}
+        <p>{event.note || "No overall feedback."}</p>
+        {savedScore && <p>Original-rubric result: {savedScore.points} / {savedScore.outOf} ({Math.round(savedScore.percent * 100) / 100}%) — not an academic grade.</p>}
+        <ul>{criteria.map(c => <li key={c.id}>{c.name}: {Object.prototype.hasOwnProperty.call(event.assessment!.levels, c.id) ? `${event.assessment!.levels[c.id]} points` : "Not assessed"}{event.assessment!.criterionNotes?.[c.id] && <p>{event.assessment!.criterionNotes[c.id]}</p>}</li>)}</ul>
+      </li>;
+    })}</ol>}
+    <fieldset disabled={disabled} className="plain-fieldset"><legend>Add assessment for this saved item</legend>
+      <label className="field">Assessed-work decision<select value={status} onChange={e => setStatus(e.target.value as typeof status)}><option value="reviewed">Reviewed</option><option value="needs_revision">Needs revision</option></select></label>
+      {criteria.map(c => <div key={c.id}>
+        <label className="field">Level for {c.name}<select value={Object.prototype.hasOwnProperty.call(levels, c.id) ? String(levels[c.id]) : ""} onChange={e => setLevels(old => { const next = { ...old }; if (e.target.value === "") delete next[c.id]; else next[c.id] = Number(e.target.value); return next; })}>
+          <option value="">Not assessed</option>{c.levels.map((l, i) => <option key={i} value={l.points}>{l.label} — {l.points} points</option>)}
+        </select></label>
+        <label className="field">Feedback for {c.name}<textarea maxLength={2000} value={criterionNotes[c.id] ?? ""} onChange={e => setCriterionNotes(old => ({ ...old, [c.id]: e.target.value }))} /></label>
+      </div>)}
+      <label className="field">Assessed-work feedback<textarea maxLength={2000} value={note} onChange={e => setNote(e.target.value)} /></label>
+      {score && <p>Preview: {score.points} / {score.outOf} ({Math.round(score.percent * 100) / 100}%). No academic grade or activity credit will be written.</p>}
+      {status === "reviewed" && !complete && <p>Select a level for every original rubric criterion before marking this item reviewed.</p>}
+      <button className="btn primary" disabled={disabled || status === "reviewed" && !complete} onClick={() => {
+        if (disabled || status === "reviewed" && !complete) return;
+        if (!retry.current || retry.current.status !== status || retry.current.note !== note || JSON.stringify(retry.current.assessment) !== JSON.stringify(assessment) || events.some(e => e.id === retry.current!.eventId))
+          retry.current = { submissionId: record.id, eventId: crypto.randomUUID(), status, reviewedAt: new Date().toISOString(), note, assessment: structuredClone(assessment) };
+        void save(retry.current);
+      }}>Save assessed-work decision</button>
+    </fieldset>
+  </article>;
+}
+function AssessedTaskResponse({ entry }: { entry: AssessedWorkSubmission }) {
+  if (entry.kind === "writing") {
+    const task = entry.task as WritingTask, response = entry.response as WorkRecord;
+    return <section><h4>Original writing prompt</h4><p style={{ whiteSpace: "pre-wrap" }}>{task.prompt}</p>
+      <p>Format: {task.kind}{task.words && ` · Target words: ${task.words.min ?? "unspecified"}–${task.words.max ?? "unspecified"}`}</p>
+      <h4>Submitted writing</h4><p style={{ whiteSpace: "pre-wrap" }}>{response.text || "No text supplied."}</p>
+      <p>Self-check (learner claim, not instructor scoring): {JSON.stringify(response.self ?? {})}</p>
+    </section>;
+  }
+  if (entry.kind === "lab") {
+    const task = entry.task as Lab, response = entry.response as WorkRecord;
+    return <section><h4>Original lab instructions</h4>{task.intro && <p style={{ whiteSpace: "pre-wrap" }}>{task.intro}</p>}
+      <p>Adult supervision required: {task.adult ? "Yes" : "No"}</p><h5>Safety</h5><ul>{task.safety.map((line, i) => <li key={i}>{line}</li>)}</ul>
+      <h5>Materials and learner checklist</h5><ul>{task.materials.map((line, i) => <li key={i}>{response.have?.includes(i) ? "Marked ready" : "Not marked ready"}: {line}</li>)}</ul>
+      <h5>Steps and learner checklist</h5><ol>{task.steps.map((step, i) => <li key={i}>{step.text}{step.adult && " (adult)"} — {response.done?.includes(i) ? "Marked done" : "Not marked done"}</li>)}</ol>
+      <LabResponseTables task={task} response={response} />
+      <h5>Original questions and submitted answers</h5>{task.questions.map(q => <div key={q.id}><p><strong>{q.prompt}</strong> ({q.kind})</p><p style={{ whiteSpace: "pre-wrap" }}>{response.answers?.[q.id] || "No answer supplied."}</p></div>)}
+      {task.photos && <p>Original photo request: {task.photos}</p>}
+    </section>;
+  }
+  const task = entry.task as ActivityLogSpec, response = entry.response as LogEntry[];
+  return <section><h4>Original activity specification</h4><p style={{ whiteSpace: "pre-wrap" }}>{task.prompt ?? "No original activity prompt supplied."}</p>
+    <p>Activity choices: {task.types.join(", ")} · Weekly target: {task.weeklyMinutes ?? "unspecified"} minutes, {task.weeklyDays ?? "unspecified"} days</p>
+    <PagedRows title="Submitted activity entries" rows={response} headers={["Date", "Activity", "Minutes", "Learner note"]} render={log => <><td>{log.date}</td><td>{log.type}</td><td>{log.minutes}</td><td>{log.note}</td></>} />
+    <p>These entries are evidence only. This review does not add attendance minutes or duplicate credit.</p>
+  </section>;
+}
+
+/** Select one table before paginating rows: many original tables never multiply the DOM. */
+function LabResponseTables({ task, response }: { task: Lab; response: WorkRecord }) {
+  const [selection, setSelection] = useState("");
+  const table = task.tables.find(t => t.id === selection) ?? task.tables[0];
+  if (!table) return <p>No original lab tables.</p>;
+  return <section><label className="field">Inspect original lab table<select value={table.id} onChange={e => setSelection(e.target.value)}>{task.tables.map(t => <option key={t.id} value={t.id}>{t.title ?? t.id}</option>)}</select></label>
+    <PagedRows key={table.id} title={table.title ?? table.id} rows={response.tables?.[table.id] ?? []} headers={table.columns} render={row => <>{row.map((cell, i) => <td key={i}>{cell}</td>)}</>} />
+  </section>;
+}
+function LegacyTables({ tables }: { tables: Record<string, string[][]> }) {
+  const [selection, setSelection] = useState("");
+  const ids = Object.keys(tables), id = ids.includes(selection) ? selection : ids[0];
+  if (!id) return null;
+  return <section><label className="field">Inspect legacy table<select value={id} onChange={e => setSelection(e.target.value)}>{ids.map(key => <option key={key}>{key}</option>)}</select></label>
+    <PagedRows key={id} title={`Legacy table ${id} (original columns unknown)`} rows={tables[id]} headers={["Submitted cells"]} render={row => <td>{row.join(" | ")}</td>} />
   </section>;
 }

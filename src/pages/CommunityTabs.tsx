@@ -3,6 +3,7 @@
 // Together they give community courses everything official courses have.
 
 import { useState } from "react";
+import { addCommunityLesson, addCommunityModule, deleteCommunityModule, moveCommunityLesson, reorderCommunityModule, communityModuleDeleteProblem } from "../lib/communityModules";
 import type { AppApi } from "../App";
 import Markdown from "../components/Markdown";
 import { LIMITS, type CGlossary, type CModule, type CommunityDoc, type CReading, type CReference, type CVocab } from "../lib/communityFormat";
@@ -31,7 +32,8 @@ const lines = (s: string, max: number) => s.split("\n").slice(0, max);
 export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; update: Update }) {
   const modules = doc.modules ?? [];
   const [open, setOpen] = useState<string | null>(null);
-  const setModule = (mi: number, fn: (m: CModule) => CModule) => update((d) => ({ ...d, modules: (d.modules ?? []).map((m, i) => (i === mi ? fn(m) : m)) }));
+  const [deletePending, setDeletePending] = useState<{ id: string; snapshot: string } | null>(null);
+  const setModule = (mi: number, fn: (m: CModule) => CModule) => update((d) => ({ ...d, modules: (d.modules ?? []).map((m) => (m.id === modules[mi]?.id ? fn(m) : m)) }));
   const lessonsIn = (id: string, first: boolean) => doc.lessons.filter((l) => l.module === id || (first && !l.module));
   return (
     <>
@@ -51,31 +53,39 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
               <input type="checkbox" checked={!!m.honors} onChange={(e) => setModule(mi, (x) => ({ ...x, honors: e.target.checked || undefined }))} />
               Honors module
             </label>
-            <button className="btn sm ghost" disabled={mi === 0} onClick={() => update((d) => ({ ...d, modules: move(d.modules ?? [], mi, -1) }))}>
+            <button className="btn sm ghost" disabled={mi === 0} onClick={() => update((d) => reorderCommunityModule(d, m.id, -1))}>
               Up<span className="sr-only">: module {mi + 1}</span>
             </button>
-            <button className="btn sm ghost" disabled={mi === modules.length - 1} onClick={() => update((d) => ({ ...d, modules: move(d.modules ?? [], mi, 1) }))}>
+            <button className="btn sm ghost" disabled={mi === modules.length - 1} onClick={() => update((d) => reorderCommunityModule(d, m.id, 1))}>
               Down<span className="sr-only">: module {mi + 1}</span>
             </button>
-            <button
-              className="btn sm ghost danger"
-              onClick={() => {
-                if (!window.confirm(`Delete the module "${m.title}"? Its lessons move to the first module.`)) return;
-                update((d) => {
-                  const rest = (d.modules ?? []).filter((_, i) => i !== mi);
-                  return { ...d, modules: rest.length ? rest : undefined, lessons: d.lessons.map((l) => (l.module === m.id ? { ...l, module: rest[0]?.id } : l)) };
-                });
-              }}
-            >
-              Delete module
-            </button>
+            {deletePending?.id === m.id ? (
+              <span className="row">
+                <span className="small" role="status">Delete “{m.title}” and its {m.quiz?.length ?? 0} quiz questions? Its lessons move to the first remaining module{modules.length === 1 ? " (the implicit course module)" : ""}.</span>
+                <button className="btn sm danger" onClick={() => { update((d) => { if (JSON.stringify(d.modules?.find(current => current.id === m.id)) !== deletePending.snapshot) { api.toast("The module changed. Review it before deleting."); return d; } const problem = communityModuleDeleteProblem(d, m.id); if (problem) { api.toast(problem); return d; } return deleteCommunityModule(d, m.id); }); setDeletePending(null); }}>Confirm delete</button>
+                <button className="btn sm ghost" onClick={() => setDeletePending(null)}>Cancel</button>
+              </span>
+            ) : (
+              <button className="btn sm ghost danger" disabled={!!communityModuleDeleteProblem(doc, m.id)} onClick={() => setDeletePending({ id: m.id, snapshot: JSON.stringify(m) })}>Delete module<span className="sr-only">: {m.title}</span></button>
+            )}
           </div>
-          <p className="small muted">
-            Lessons:{" "}
-            {lessonsIn(m.id, mi === 0)
-              .map((l) => l.title)
-              .join(", ") || "none yet (choose the module on each lesson's settings)"}
-          </p>
+          {communityModuleDeleteProblem(doc, m.id) && <p className="small muted">{communityModuleDeleteProblem(doc, m.id)}</p>}
+          <div className="panel" aria-label={`Lessons in ${m.title}`}>
+            <strong>Lessons ({lessonsIn(m.id, mi === 0).length})</strong>
+            {lessonsIn(m.id, mi === 0).map((lesson) => (
+              <div className="row" key={lesson.id} style={{ marginTop: 8, alignItems: "center" }}>
+                <span className="grow">{lesson.title}</span>
+                <label className="field">
+                  <span className="sr-only">{`Move ${lesson.title} to module`}</span>
+                  <select className="select" value={m.id} onChange={(event) => update((d) => moveCommunityLesson(d, lesson.id, event.target.value))}>
+                    {modules.map((destination) => <option key={destination.id} value={destination.id}>{destination.title}</option>)}
+                  </select>
+                </label>
+              </div>
+            ))}
+            {!lessonsIn(m.id, mi === 0).length && <p className="small muted">No lessons assigned. Add or move a lesson here from the Lessons tab.</p>}
+            <button className="btn sm" disabled={doc.lessons.length >= LIMITS.lessons} onClick={() => update((d) => addCommunityLesson(d, m.id))}>Add lesson to this module</button>
+          </div>
           <details open={open === m.id} onToggle={(e) => (e.currentTarget.open ? setOpen(m.id) : open === m.id && setOpen(null))}>
             <summary>Module quiz ({m.quiz?.length ?? 0} questions)</summary>
             {(m.quiz ?? []).map((q, qi) => (
@@ -106,20 +116,8 @@ export function Modules({ api, doc, update }: { api: AppApi; doc: CommunityDoc; 
       ))}
       <button
         className="btn"
-        disabled={modules.length >= LIMITS.modules}
-        onClick={() =>
-          update((d) => {
-            const taken = [...(d.modules ?? []).map((m) => m.id), ...d.lessons.map((l) => l.id)];
-            const existing = d.modules ?? [];
-            // The first time, the lessons go into module 1 and a second module is added.
-            if (!existing.length) {
-              const a = newId("m", taken);
-              const b = newId("m", [...taken, a]);
-              return { ...d, modules: [{ id: a, title: d.title || "Module 1" }, { id: b, title: "Module 2" }], lessons: d.lessons.map((l) => ({ ...l, module: a })) };
-            }
-            return { ...d, modules: [...existing, { id: newId("m", taken), title: `Module ${existing.length + 1}` }] };
-          })
-        }
+        disabled={modules.length >= LIMITS.modules - (modules.length ? 0 : 1)}
+        onClick={() => update((d) => addCommunityModule(d))}
       >
         Add a module
       </button>
@@ -584,6 +582,7 @@ export function Language({ doc, update }: { doc: CommunityDoc; update: Update })
     <>
       <section className="panel">
         <h2>Language course</h2>
+        <p className="small">Recorded audio files use the canonical editor. Save this draft, then choose About → Migrate to full canonical editor to preserve its content and add recordings in Metadata &amp; audio. This migration is one-way; already published versions stay unchanged.</p>
         <p className="small muted">
           For courses that teach a language: learners review each lesson's words with typed cards (meaning and recall), and the app can read words
           aloud.

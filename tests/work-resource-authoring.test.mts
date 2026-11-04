@@ -1,0 +1,44 @@
+import assert from "node:assert/strict";
+import { JSDOM } from "jsdom";
+import { emptyCourse } from "../src/lib/course.ts";
+import type { Course } from "../src/lib/types.ts";
+import type { AppApi } from "../src/App.tsx";
+import { validateCourseWork } from "../src/lib/courseWork.ts";
+import { requestNavigation } from "../src/lib/navigationGuard.ts";
+const dom = new JSDOM("<!doctype html><div id='root'></div>", {url:"https://example.test"});
+Object.assign(globalThis, {window:dom.window,document:dom.window.document,localStorage:dom.window.localStorage,HTMLElement:dom.window.HTMLElement,IS_REACT_ACT_ENVIRONMENT:true});
+Object.defineProperty(globalThis,"navigator",{configurable:true,value:dom.window.navigator});
+const {createElement,act}=await import("react");
+const {createRoot}=await import("react-dom/client");
+const {default:CourseEditor}=await import("../src/pages/CourseEditor.tsx");
+const {linkLessonWork}=await import("../src/components/WorkResourceEditor.tsx");
+const root=createRoot(document.getElementById("root")!);
+const course=emptyCourse("Canonical workshop");
+course.lessons=[{id:"lesson",title:"Practice",module:course.modules[0].id,body:"Keep **all** lesson prose.\n"}];
+let saved:Course|undefined;let saves=0;const notices:string[]=[];
+const api={courses:[course],toast:(s:string)=>notices.push(s),saveCourse:async(c:Course)=>{saves++;saved=structuredClone(c);},go:()=>{}} as unknown as AppApi;
+const button=(text:string)=>{const el=[...document.querySelectorAll("button")].find(e=>e.textContent?.trim()===text);assert.ok(el,text);return el;};
+const field=(text:string)=>{const label=[...document.querySelectorAll("label")].find(e=>e.firstChild?.textContent===text);assert.ok(label,text);const el=label.querySelector("input,textarea,select");assert.ok(el,text);return el as HTMLInputElement;};
+async function click(text:string){await act(async()=>button(text).click());}
+async function fill(text:string,value:string){const el=field(text);const prototype=el.tagName==="SELECT"?dom.window.HTMLSelectElement.prototype:el.tagName==="TEXTAREA"?dom.window.HTMLTextAreaElement.prototype:dom.window.HTMLInputElement.prototype;await act(async()=>{Object.getOwnPropertyDescriptor(prototype,"value")!.set!.call(el,value);el.dispatchEvent(new dom.window.Event(el.tagName==="SELECT"?"change":"input",{bubbles:true}));});}
+async function check(text:string){const label=[...document.querySelectorAll("label")].find(e=>e.textContent===text);assert.ok(label,text);await act(async()=>label.querySelector<HTMLInputElement>('input[type="checkbox"]')!.click());}
+await act(async()=>root.render(createElement(CourseEditor,{api,course})));
+await click("Writing, labs & activities");
+await click("Add rubric");await fill("Rubric title","Reasoning rubric");await fill("Criterion 1 name","Evidence");await fill("Criterion 1 description","Use observations");await fill("Criterion 1 level 1 points","4");await fill("Criterion 1 level 1 description","Clear support");
+await click("Add criterion");await fill("Criterion 2 name","Clarity");
+await click("Add writing task");await fill("Resource title","Explanation");await fill("Writing prompt","Explain an observation with evidence.");await fill("Writing format","essay");await fill("Minimum words","50");await fill("Maximum words","100");await fill("Estimated minutes","15");await fill("Resource module",course.modules[0].id);
+const rubricId=[...field("Resource rubric").querySelectorAll("option")][1].value;
+await fill("Resource rubric",rubricId);await check("Offer rubric self-check");await check("Attach to Practice");
+assert.equal(button("Remove selected resource").disabled,true,"lesson reference guards task deletion");
+assert.equal(requestNavigation(),false,"all structured edits participate in existing dirty guard");
+await click("Edit Reasoning rubric");assert.equal(button("Remove selected resource").disabled,true,"task reference guards rubric deletion");
+await click("Add lab");await fill("Resource title","Observation lab");await fill("Lab introduction","Compare two observations.");await fill("Resource rubric",rubricId);await fill("Safety notes (one per line)","Follow adult instructions\nKeep workspace clear");await fill("Materials (one per line)","Paper\nPencil");await click("Add step");await fill("Step 1 instructions","Record observations.");await check("Step 1 requires an adult");await click("Add data table");await fill("Table 1 title","Results");await fill("Table 1 columns (one per line)","Trial\nObservation");await fill("Table 1 starting rows","2");await fill("Table 1 row labels (one per line)","First\nSecond");await click("Add question");await fill("Question 1 prompt","What changed?");await fill("Question 1 kind","conclusion");await fill("Photo prompt","Optional setup photo");await check("Attach to Practice");
+await click("Add activity log");await fill("Activity log title","Practice log");await fill("Activity types (one per line)","Sketching\nMusic");await fill("Activity prompt","Describe your practice.");await fill("Weekly minutes target","90");await fill("Weekly active days target","3");await check("Allow activity uploads");await check("Attach to Practice");await click("Save course");
+assert.equal(saves,1,notices.join("\n"));assert.ok(saved);assert.deepEqual(validateCourseWork(saved),[]);
+assert.equal(saved.writing![0].selfCheck,false);assert.equal(saved.labs![0].adult,true);assert.equal(saved.labs![0].steps[0].adult,true);assert.deepEqual(saved.labs![0].tables[0].rowLabels,["First","Second"]);assert.equal(saved.activityLog!.uploads,false);assert.ok(saved.lessons[0].body.startsWith(course.lessons[0].body));
+const savedIds={writing:saved.writing![0].id,lab:saved.labs![0].id,table:saved.labs![0].tables[0].id,question:saved.labs![0].questions[0].id,criterion:saved.rubrics![0].criteria[0].id};
+await act(async()=>root.render(createElement(CourseEditor,{key:"reopen",api:{...api,courses:[saved!]},course:saved!})));
+await click("Writing, labs & activities");await click("Edit Explanation");assert.equal(field("Minimum words").value,"50");await fill("Resource title","Reopened explanation");await fill("Minimum words","101");await click("Save course");assert.equal(saves,1,"invalid word range cannot save");await fill("Minimum words","50");await click("Save course");assert.equal(saves,2);assert.equal(saved!.writing![0].id,savedIds.writing);assert.equal(saved!.labs![0].id,savedIds.lab);assert.equal(saved!.labs![0].tables[0].id,savedIds.table);assert.equal(saved!.labs![0].questions[0].id,savedIds.question);assert.equal(saved!.rubrics![0].criteria[0].id,savedIds.criterion);
+await check("Attach to Practice");assert.equal(button("Remove selected resource").disabled,false);await click("Remove selected resource");await click("Keep resource");assert.equal(saved!.writing!.length,1);await click("Remove selected resource");await click("Confirm resource removal");await click("Save course");assert.equal(saved!.writing!.length,0);assert.ok(saved!.lessons[0].body.includes(`lab: ${savedIds.lab}`));assert.ok(saved!.lessons[0].body.includes("\nlog\n"));
+const original="Before\r\n```assignment\r\nwriting: a\r\nlab: b\r\n```\r\nAfter";const unlinked=linkLessonWork(original,"writing","a",false);assert.equal(unlinked,"Before\r\n```assignment\r\nlab: b\r\n```\r\nAfter","unlink preserves all unrelated lesson bytes");
+await act(async()=>root.unmount());dom.window.close();console.log("structured work authoring: full writing/rubric/lab/activity controls, save/reopen IDs, validation, lesson links and deletion guards passed");

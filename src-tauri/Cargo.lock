@@ -953,8 +953,9 @@ dependencies = [
 
 [[package]]
 name = "erudior"
-version = "0.24.0"
+version = "0.25.0"
 dependencies = [
+ "sha2",
  "serde",
  "serde_json",
  "tauri",

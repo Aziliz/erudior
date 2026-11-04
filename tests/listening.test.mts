@@ -6,7 +6,7 @@ import { JSDOM } from "jsdom";
 import { findMedia, mediaProblems, parseMedia, prepareMedia, mediaClick, releaseMedia, renderMedia } from "../src/lib/dialogue.ts";
 import { AUDIO_SRC, audioBytes, isAudioSrc } from "../src/lib/audio.ts";
 import { micError, recordingExt } from "../src/lib/recorder.ts";
-import { normalizeCourse } from "../src/lib/course.ts";
+import { normalizeCourse, exportCourseSnapshot } from "../src/lib/course.ts";
 import { isCorrect } from "../src/lib/questions.ts";
 import { checkCourse } from "./check-course.mts";
 
@@ -124,7 +124,38 @@ const course = normalizeCourse(JSON.parse(readFileSync("samples/demo-listening.j
 ok("word clips kept", course.vocab!.filter((v) => v.audio).length === 2);
 const qs = course.banks[0].questions;
 ok("question clip and transcript", !!qs[0].audio?.src && qs[0].audio?.text === "Guten Tag! Was möchten Sie trinken?");
-ok("voice-only question gets the course's voice", qs[3].audio?.lang === "de-DE" && !qs[3].audio?.src, qs[3].audio);
+ok("voice-only authored question retains omitted language", qs[3].audio?.lang === undefined && !qs[3].audio?.src, qs[3].audio);
+// Voice inheritance belongs to playback, not the portable authored object. Exercise
+// the actual learner component with the same course fallback Runner/Results supply.
+{
+  const { createElement, act } = await import("react");
+  const { createRoot } = await import("react-dom/client");
+  const { QuestionAudio } = await import("../src/components/QuestionBody.tsx");
+  Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true });
+  const spoken: { text: string; lang: string; onend?: () => void }[] = [];
+  class Utterance { lang = ""; rate = 1; voice: unknown; onend?: () => void; onerror?: () => void; constructor(public text: string) {} }
+  Object.assign(globalThis, { SpeechSynthesisUtterance: Utterance });
+  Object.defineProperty(dom.window, "speechSynthesis", { configurable: true, value: {
+    getVoices: () => [{ lang: "de-DE" }, { lang: "en-US" }], cancel: () => {},
+    addEventListener: () => {}, removeEventListener: () => {},
+    speak: (u: Utterance) => { spoken.push(u); queueMicrotask(() => u.onend?.()); },
+  } });
+  const container = document.createElement("div"); document.body.append(container);
+  const audioRoot = createRoot(container);
+  const sourceBefore = exportCourseSnapshot(course);
+  await act(async () => audioRoot.render(createElement(QuestionAudio, { q: qs[3], fallbackLang: course.language?.tts ?? course.language?.code, revealed: true })));
+  ok("course voice makes listening button available", container.querySelectorAll("button").length === 2, container.textContent);
+  await act(async () => (container.querySelector("button") as HTMLButtonElement).click());
+  ok("voice-only question plays in course voice", spoken.at(-1)?.lang === "de-DE" && spoken.at(-1)?.text === qs[3].audio?.text, spoken);
+  ok("inherited transcript has language", container.querySelector("[lang]")?.getAttribute("lang") === "de");
+  const explicit = { ...qs[3], audio: { ...qs[3].audio, lang: "en-US" } };
+  await act(async () => audioRoot.render(createElement(QuestionAudio, { q: explicit, fallbackLang: "de-DE", revealed: true })));
+  await act(async () => (container.querySelector("button") as HTMLButtonElement).click());
+  ok("explicit question voice wins over course fallback", spoken.at(-1)?.lang === "en-US", spoken);
+  ok("playback does not persist derived voice metadata", exportCourseSnapshot(course) === sourceBefore && qs[3].audio?.lang === undefined);
+  await act(async () => audioRoot.unmount()); container.remove();
+  delete (dom.window as any).speechSynthesis;
+}
 ok("dictation accepts the sentence without its period", isCorrect(qs[2], ["ich trinke gern tee"]));
 const bad = () =>
   normalizeCourse({ title: "x", banks: [{ title: "b", questions: [{ id: "q", stem: "s", choices: ["a", "b"], answer: 0, audio: { src: "https://x/a.mp3" } }] }] });

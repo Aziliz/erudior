@@ -19,6 +19,7 @@ import { saveBlob } from "../lib/storage";
 import { protectLessonBlocks } from "../lib/lessonBlocks";
 import { hydrateTimelines } from "../lib/timeline";
 import { protectCode } from "../lib/code";
+import { scanLessonFences } from "../lib/lessonFences";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -45,6 +46,22 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
 }
 
 export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined): string {
+  // Shield ordinary fences before *any* interactive parser. A literal tutorial
+  // containing nested widget fences must remain code, including longer/tilde
+  // fences that the legacy widget regular expressions do not understand.
+  let token = "ERUDIORINERTFENCE";
+  while (md.includes(token)) token += "X";
+  const inert: string[] = [];
+  const fences = scanLessonFences(md).filter(fence => !fence.interactive || fence.kind === "code");
+  for (const fence of fences.reverse()) {
+    const original = md.slice(fence.start, fence.end);
+    const code = fence.interactive ? protectCode(original) : undefined;
+    const rendered = code ? code.restore(code.text) : marked.parse(original, { async: false }) as string;
+    const index = inert.push(DOMPurify.sanitize(rendered)) - 1;
+    md = md.slice(0, fence.start) + `\n\n${token}${index}END\n\n` + md.slice(fence.end);
+  }
+  const restoreInert = (html: string) => html.replace(new RegExp(`<p>${token}(\\d+)END</p>|${token}(\\d+)END`, "g"),
+    (_match, paragraph, inline) => inert[Number(paragraph ?? inline)]);
   // Assignment links (```assignment blocks) become cards with an Open button.
   const assigns = protectAssignments(md, assign);
   md = assigns.text;
@@ -75,7 +92,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return blocks.restore(phonics.restore(assigns.restore(examples.restore(media.restore(manips.restore(mathHeaders(clean)))))));
+  return restoreInert(blocks.restore(phonics.restore(assigns.restore(examples.restore(media.restore(manips.restore(mathHeaders(clean))))))));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
