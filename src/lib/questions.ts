@@ -2,6 +2,7 @@
 // See QuestionType in types.ts for how each kind stores its answer.
 
 import type { AudioClip, Chosen, Question, QuestionImage, QuestionType } from "./types";
+import { hasJapanese, normJa } from "./kana";
 import { sameSet } from "./util";
 import { actionLabel, describe, manipCorrect, readSpec, stateOr, targetProblems, targetText, validState } from "./manip";
 import { isAudioSrc } from "./audio";
@@ -35,6 +36,8 @@ export function blankCount(q: Pick<Question, "stem" | "accept">): number {
 
 /** Text answers compare without regard to spacing, curly quotes, dashes or a final period. */
 export function normText(s: string, caseSensitive = false): string {
+  // Japanese answers: no spaces between words, Japanese punctuation, furigana markup ignored.
+  if (hasJapanese(s)) return normJa(s);
   let t = s
     .normalize("NFKC")
     .replace(/[‘’ʼ]/g, "'")

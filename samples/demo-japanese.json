@@ -1,0 +1,149 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "demo-japanese",
+ "title": "Japanese demo",
+ "revision": 1,
+ "description": "Sample of Japanese support: furigana, romaji typing, kana answers.",
+ "language": {
+  "code": "ja",
+  "name": "Japanese",
+  "tts": "ja-JP",
+  "ime": "ja",
+  "level": "JLPT N5"
+ },
+ "modules": [
+  {
+   "id": "m1",
+   "title": "First words"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "ja-l1",
+   "module": "m1",
+   "title": "Cats and tea",
+   "minutes": 10,
+   "topics": [
+    "Nouns"
+   ],
+   "quiz": [
+    "q1",
+    "q2",
+    "q3"
+   ],
+   "body": "## Words with kanji\n\nKanji often carry a reading above them, called **furigana**: {猫|ねこ} (cat), {お茶|おちゃ} (tea), {日本語|にほんご} (Japanese).\n\n> *{猫|ねこ}が すきです。* — I like cats.\n\n| Kanji | Reading | Meaning |\n|---|---|---|\n| {水|みず} | みず | water |\n| {食|た}べる | たべる | to eat |\n\nKatakana is for loanwords: *タクシー* (taxi), *コーヒー* (coffee).\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson."
+  }
+ ],
+ "banks": [
+  {
+   "id": "main",
+   "title": "Questions",
+   "sections": [],
+   "exam": {
+    "questionCount": 3,
+    "timeLimitMinutes": 5,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "topic": "Nouns",
+     "stem": "What does {猫|ねこ} mean?",
+     "choices": [
+      "cat",
+      "dog",
+      "tea",
+      "water"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "{猫|ねこ} is cat."
+    },
+    {
+     "id": "q2",
+     "topic": "Nouns",
+     "type": "text",
+     "stem": "Type “water” in Japanese: ___",
+     "accept": [
+      [
+       "みず",
+       "水"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "explanation": "{水|みず}."
+    },
+    {
+     "id": "q3",
+     "topic": "Nouns",
+     "type": "text",
+     "stem": "Type “taxi” in katakana: ___",
+     "accept": [
+      [
+       "タクシー"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "explanation": "タクシー"
+    }
+   ]
+  }
+ ],
+ "decks": [],
+ "glossary": [
+  {
+   "term": "furigana",
+   "definition": "Small kana printed above kanji to show how they're read."
+  }
+ ],
+ "references": [],
+ "drills": [],
+ "vocab": [
+  {
+   "id": "neko",
+   "lesson": "ja-l1",
+   "term": "猫",
+   "reading": "ねこ",
+   "pos": "noun",
+   "meanings": [
+    "cat"
+   ],
+   "example": "{猫|ねこ}が すきです。",
+   "exampleEn": "I like cats."
+  },
+  {
+   "id": "ocha",
+   "lesson": "ja-l1",
+   "term": "お茶",
+   "reading": "おちゃ",
+   "pos": "noun",
+   "meanings": [
+    "tea",
+    "green tea"
+   ]
+  },
+  {
+   "id": "taberu",
+   "lesson": "ja-l1",
+   "term": "食べる",
+   "reading": "たべる",
+   "pos": "verb",
+   "meanings": [
+    "to eat"
+   ]
+  },
+  {
+   "id": "takushii",
+   "lesson": "ja-l1",
+   "term": "タクシー",
+   "pos": "noun",
+   "meanings": [
+    "taxi"
+   ]
+  }
+ ]
+}

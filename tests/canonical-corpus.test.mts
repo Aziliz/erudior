@@ -4,7 +4,7 @@ import {normalizeCourse,exportCourseSnapshot,serializeCourse} from '../src/lib/c
 import {canonicalAuthoringFromCourse,courseFromCanonicalAuthoring,migrateLegacyCourseToCanonical} from '../src/lib/canonicalAuthoring.ts';
 const options={mode:'source' as const,maxBytes:Number.MAX_SAFE_INTEGER};
 const catalog=JSON.parse(readFileSync('samples/catalog.json','utf8')) as {file:string}[];
-const fixtures=['demo-code-course.json','demo-listening.json','demo-maps-timelines-sims.json','demo-reader.json','demo-student-work.json','early-readers-demo.json','manipulatives-demo.json','math-sampler-course.json'];
+const fixtures=['demo-code-course.json','demo-japanese.json','demo-listening.json','demo-maps-timelines-sims.json','demo-reader.json','demo-student-work.json','early-readers-demo.json','manipulatives-demo.json','math-sampler-course.json'];
 const covered=new Set<string>();
 const defects:Record<string,string[]>={
  'math/math-geometry.json':['decks[0].cards[234].E: unsupported or authority/runtime field','decks[0].cards[234].F): unsupported or authority/runtime field'],

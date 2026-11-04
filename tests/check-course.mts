@@ -34,6 +34,8 @@ import vm from "node:vm";
 import { DEFAULT_TIME_LIMIT, codeBlockProblems, findCodeBlocks, judge, testCall, type CodeLang } from "../src/lib/code.ts";
 import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
+import { hasKanji, isKanaOnly, normJa, rubyProblems } from "../src/lib/kana.ts";
+import { checkRecallJa } from "../src/lib/vocab.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -101,8 +103,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   const codeChecks: { where: string; lang: CodeLang; code: string }[] = [];
 
   // --- Notation -----------------------------------------------------------------
+  const japanese = c.language?.code === "ja";
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
+    // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
+    if (japanese) for (const p of rubyProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
     let t = text;
     if (allowFigures) {
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
@@ -279,6 +284,20 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     for (const g of t.glossary ?? []) checkText(`text ${t.id} glossary ${g.term}`, g.definition);
     for (const s of t.sections) checkText(`text ${t.id} section ${s.id}`, s.body, true);
   }
+
+  // --- Japanese vocabulary --------------------------------------------------------------
+  if (japanese)
+    for (const v of c.vocab ?? []) {
+      const where = `word ${v.id}`;
+      if (hasKanji(v.term) && !v.reading) say(`${where}: "${v.term}" has kanji, so it needs a kana "reading"`);
+      if (v.reading && !isKanaOnly(normJa(v.reading))) say(`${where}: "reading" must be kana only (got "${v.reading}")`);
+      if (/[a-zA-Z]/.test(v.term)) say(`${where}: "term" has Latin letters; Japanese terms are kana/kanji`);
+      if (/[{}|]/.test(v.term)) say(`${where}: "term" must be plain text (put the reading in "reading", not furigana markup)`);
+      const typed = v.reading ?? v.term;
+      if ((v.directions ?? ["meaning", "recall"]).includes("recall") && !checkRecallJa(v, typed).ok)
+        say(`${where}: typing its reading "${typed}" isn't accepted`);
+      for (const x of [v.example, v.note]) if (x) for (const p of rubyProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
+    }
 
   // --- Sound -----------------------------------------------------------------------------
   const big = (src: string) => audioBytes(src) > 400_000;
