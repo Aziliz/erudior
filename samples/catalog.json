@@ -4726,5 +4726,165 @@
     "isHonors": true
    }
   ]
+ },
+ {
+  "id": "lang-japanese-n5",
+  "file": "languages/lang-japanese-n5.json",
+  "order": 121,
+  "title": "Japanese N5",
+  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), about 100 kanji through notecards and inside words, with furigana you can turn off. Requires Japanese: Hiragana and Katakana.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 102,
+  "drills": 0,
+  "words": 1086,
+  "carried": 286,
+  "requires": [
+   "lang-japanese-kana"
+  ],
+  "lessonIds": [
+   "n5-desu",
+   "n5-kosoado",
+   "n5-numbers",
+   "n5-shopping",
+   "n5-places",
+   "n5-time",
+   "n5-masu",
+   "n5-going",
+   "n5-dates",
+   "n5-invite",
+   "n5-i-adj",
+   "n5-na-adj",
+   "n5-adj-past",
+   "n5-compare",
+   "n5-family",
+   "n5-te-form",
+   "n5-te-iru",
+   "n5-te-sequence",
+   "n5-permission",
+   "n5-want",
+   "n5-dict-form",
+   "n5-nai",
+   "n5-ta",
+   "n5-plain-speech",
+   "n5-noun-mod",
+   "n5-reasons-change",
+   "n5-directions",
+   "n5-reading",
+   "n5-listening",
+   "n5-exam"
+  ],
+  "honorsLessonIds": [
+   "n5-names",
+   "n5-numbers-culture",
+   "n5-trains",
+   "n5-calendar",
+   "n5-seasons",
+   "n5-people",
+   "n5-food",
+   "n5-home",
+   "n5-speech-styles",
+   "n5-onomatopoeia",
+   "n5-story",
+   "n5-writing"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "First sentences",
+    "lessons": [
+     "Introducing yourself: は and です",
+     "This, that, which: こそあど and の",
+     "Numbers, prices and age",
+     "Shopping: を ください",
+     "Where things are: あります, います"
+    ],
+    "honors": [
+     "Names, titles and seals",
+     "Numbers in daily life"
+    ]
+   },
+   {
+    "title": "Daily life and time",
+    "lessons": [
+     "Telling time",
+     "Verbs: ます, ません, ました",
+     "Going places",
+     "Days, dates and weeks",
+     "Inviting and suggesting"
+    ],
+    "honors": [
+     "Getting around by train",
+     "The Japanese calendar"
+    ]
+   },
+   {
+    "title": "Describing things",
+    "lessons": [
+     "い-adjectives",
+     "な-adjectives and likes",
+     "The past of adjectives; weather and seasons",
+     "Comparing",
+     "Family"
+    ],
+    "honors": [
+     "Seasons and nature in Japan",
+     "Talking about people"
+    ]
+   },
+   {
+    "title": "The て form",
+    "lessons": [
+     "The て form and requests",
+     "〜ています",
+     "Doing things in order",
+     "Permission, rules and the body",
+     "Wanting and going to do"
+    ],
+    "honors": [
+     "Eating out",
+     "Japanese homes"
+    ]
+   },
+   {
+    "title": "Plain forms",
+    "lessons": [
+     "The dictionary form",
+     "The ない form",
+     "The た form: past and experiences",
+     "Casual speech",
+     "Describing nouns with verbs; とき"
+    ],
+    "honors": [
+     "Polite, casual and respectful",
+     "Sound and feeling words"
+    ]
+   },
+   {
+    "title": "Putting it together",
+    "lessons": [
+     "Reasons and changes",
+     "Asking the way",
+     "Reading practice",
+     "Listening and conversation",
+     "The JLPT N5 and review"
+    ],
+    "honors": [
+     "A longer story",
+     "Writing messages"
+    ]
+   }
+  ]
  }
 ]
