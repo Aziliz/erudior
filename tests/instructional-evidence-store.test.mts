@@ -65,3 +65,33 @@ const oldRetry=await supervisor.decide({...review,id:'outside-review',evidenceId
 const reviewReceipts=(await supervisor.load()).packReviews??[];assert(reviewReceipts.filter(r=>r.packKey==='pack@2').length===2,'initial plus post-restore review receipts');const receiptCount=reviewReceipts.length;await supervisor.approvePack('external',1);assert.equal((await supervisor.load()).packReviews?.length,receiptCount,'idempotent approval does not append receipt');
 const concurrent=await Promise.allSettled([supervisor.savePack({...externalApproved,title:'First edit'},1),supervisor.savePack({...externalApproved,title:'Conflicting edit'},1)]);assert.equal(concurrent.filter(x=>x.status==='fulfilled').length,1,'CAS retains one revision and rejects stale competing edit');
 console.log('Instructional evidence store: real sources/progress/records, retries/CAS, immutable history, no raw-record mutations, assessment gates, global duplicate prevention, restored authority quarantine, privacy, races and deletion passed');
+
+// Installed courses use the real storage codec, which materializes optional
+// undefined fields. These are absent fields, not corrupt authored evidence.
+const {emptyCourse,serializeCourse,normalizeCourse}=await import('../src/lib/course');
+const {instructionalCourseSnapshot,instructionalSourceFromCourse}=await import('../src/lib/instructionalEvidence');
+const {documentJSON}=await import('../src/lib/documentEngine');
+const installedFixture=emptyCourse('Synthetic installed workload source');
+installedFixture.id='workload-roundtrip';
+installedFixture.lessons=[{id:'observe',module:'main',title:'Observe',body:'Describe observations.',topics:['Observation']}];
+installedFixture.banks=[{...structuredClone(bank),courseId:installedFixture.id,id:installedFixture.id+'__bank',questions:[{...bank.questions[0],choices:['Yes','No']}]} as any];
+const restoredCourse=normalizeCourse(JSON.parse(serializeCourse(installedFixture)));
+assert(Object.values(restoredCourse.lessons[0]).includes(undefined),'normalization materializes absent optionals');
+assert.throws(()=>documentJSON(restoredCourse.lessons[0]),/plain JSON/,'regression exercises the former snapshot failure');
+const installedSources=instructionalSources([restoredCourse]);
+assert.equal(installedSources.length,2);
+for(const source of installedSources) {
+ assert.deepEqual(source,instructionalSourceFromCourse(restoredCourse,source.kind as 'lesson'|'assessment',source.itemId));
+ const item=source.kind==='lesson'?restoredCourse.lessons[0]:restoredCourse.banks[0];
+ assert.equal(source.snapshot,documentJSON(JSON.parse(JSON.stringify(item))));
+}
+assert.equal(instructionalCourseSnapshot({optional:undefined,nested:{missing:undefined,present:null},list:[{optional:undefined,value:0}]}),'{"list":[{"value":0}],"nested":{"present":null}}');
+assert.throws(()=>documentJSON({optional:undefined}),/plain JSON/,'strict evidence validator is unchanged');
+const circular:any={};circular.self=circular;
+const sparse=new Array(1),decorated:any[]=[];Object.assign(decorated,{extra:true});
+for(const invalid of [NaN,Infinity,()=>0,undefined,new Date(),new Map(),circular,[undefined],sparse,decorated,{value:NaN},{value:()=>0},Object.assign(Object.create({}),{value:1}),JSON.parse('{"__proto__":null}')]) {
+ assert.throws(()=>instructionalCourseSnapshot(invalid),'invalid source must never be silently coerced');
+}
+const changed=structuredClone(restoredCourse);changed.lessons[0].body='Changed after review';
+assert.notEqual(instructionalSources([changed])[0].snapshot,installedSources[0].snapshot,'content changes remain visible to exact source authority checks');
+console.log('instructional normalized installed-course snapshot regression passed');
