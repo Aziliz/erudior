@@ -1,0 +1,95 @@
+name: Audience page app captures and acceptance
+
+# Disposable local App/Worker data only. No remote API calls, publication, or credentials.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/shots/audience/**'
+      - 'scripts/audience-*.mjs'
+      - 'tests/audience-pages.test.mts'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/audience-pages.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/pages/AudiencePage.tsx'
+      - 'public/shots/audience/**'
+      - 'scripts/audience-*.mjs'
+      - 'tests/audience-pages.test.mts'
+      - '.github/workflows/audience-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audience-pages:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm ci --prefix worker
+      - run: npx playwright install --with-deps chromium
+      - name: Capture real App views with isolated synthetic data
+        id: capture
+        run: node scripts/diagnostic-command.mjs audience-app-capture -- node scripts/audience-app-capture.mjs
+      - name: Prepare clearly identified preview images or verify committed assets
+        run: |
+          python3 -m pip install --user Pillow==11.3.0
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          from PIL import Image
+          out = Path('test-results/audience-app-capture')
+          target = Path('public/shots/audience')
+          target.mkdir(parents=True, exist_ok=True)
+          manifest = json.loads((out / 'manifest.json').read_text())
+          prepared = out / 'deployment-preview'
+          prepared.mkdir(exist_ok=True)
+          for shot in manifest['captures']:
+              if shot['width'] != 1280:
+                  continue
+              source = out / shot['file']
+              assert hashlib.sha256(source.read_bytes()).hexdigest() == shot['sha256']
+              name = Path(shot['file']).stem + '.webp'
+              image = Image.open(source).convert('RGB')
+              shot['imageWidth'], shot['imageHeight'] = image.size
+              image.save(prepared / name, 'WEBP', quality=88, method=6)
+              shot['publicFile'] = '/shots/audience/' + name
+              shot['publicSha256'] = hashlib.sha256((prepared / name).read_bytes()).hexdigest()
+          (prepared / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+          committed = target / 'manifest.json'
+          if committed.exists():
+              saved = json.loads(committed.read_text())
+              for shot in saved['captures']:
+                  if 'publicFile' in shot:
+                      asset = Path('public') / shot['publicFile'].removeprefix('/')
+                      assert asset.exists(), str(asset)
+                      assert hashlib.sha256(asset.read_bytes()).hexdigest() == shot['publicSha256'], str(asset)
+              print('Website acceptance uses committed images. New captures remain evidence only.')
+          else:
+              # First checkpoint: visual preview only. This does not publish or commit assets.
+              import shutil
+              for asset in prepared.iterdir():
+                  shutil.copy2(asset, target / asset.name)
+              print('PREVIEW ONLY: generated current App captures temporarily copied for website acceptance.')
+          PY
+      - name: Verify audience-page source and image contract
+        run: node --import tsx tests/audience-pages.test.mts
+      - name: Verify actual public audience pages
+        run: node scripts/diagnostic-command.mjs audience-pages-browser -- node scripts/audience-pages-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audience-app-captures-and-pages
+          path: |
+            test-results/audience-app-capture/
+            test-results/audience-pages/
+          if-no-files-found: warn
+          retention-days: 14

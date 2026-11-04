@@ -27,7 +27,35 @@ function rawJSON(v:unknown,where:string,max=INSTRUCTIONAL_LIMITS.sourceBytes):as
 export const instructionalKey=(v:{id:string;revision:number})=>v.id+'@'+v.revision;
 export function parseInstructionalSource(input:unknown):InstructionalSource{const v=decode(input,INSTRUCTIONAL_LIMITS.sourceBytes+2000);object(v,['kind','courseId','courseRevision','itemId','title','snapshot'],'source');if(!['lesson','assessment','external'].includes(String(v.kind)))fail('source kind');id(v.courseId,'course');id(v.itemId,'item');integer(v.courseRevision,'source revision');text(v.title,'source title',300);rawJSON(v.snapshot,'exact source');const raw=JSON.parse(v.snapshot);if(v.kind==='external'){object(raw,['description'],'external source');text(raw.description,'external description');if(v.courseRevision!==0)fail('external revision');}else{if(!raw||typeof raw!=='object'||raw.id!==v.itemId)fail('source snapshot identity');if(v.kind==='lesson'&&(typeof raw.body!=='string'||typeof raw.module!=='string'||typeof raw.title!=='string'))fail('lesson source snapshot');if(v.kind==='assessment'&&(!Array.isArray(raw.questions)||!raw.questions.length||raw.questions.length>1000||raw.questions.some((q:unknown)=>!q||typeof q!=='object'||typeof (q as {id?:unknown}).id!=='string')))fail('assessment source snapshot');if(v.kind==='assessment'){text(raw.title,'bank title',300);unique(raw.questions.map((q:{id:string})=>q.id),'question');for(const q of raw.questions){id(q.id,'question');text(q.stem,'question stem',50000);if(typeof q.topic!=='string'||!Array.isArray(q.choices)||q.choices.some((x:unknown)=>typeof x!=='string')||!Array.isArray(q.answer)||q.answer.some((x:unknown)=>!Number.isSafeInteger(x)||Number(x)<0))fail('question source structure');}}}return clone(v as unknown as InstructionalSource);}
 /** Snapshot selected installed source, never a claim about an old attempt's source. */
-export function instructionalSourceFromCourse(course:Course,kind:'lesson'|'assessment',itemId:string):InstructionalSource{const item=kind==='lesson'?course.lessons.find(x=>x.id===itemId):course.banks.find(x=>x.id===itemId);if(!item)fail('installed source unavailable');return parseInstructionalSource({kind,courseId:course.id,courseRevision:course.revision??0,itemId,title:`${course.title} — ${item.title}`,snapshot:documentJSON(item)});}
+/** Runtime course normalization uses undefined for absent optional object fields.
+ * Omit only those fields before canonical snapshotting; do not coerce invalid JSON
+ * values (as JSON.stringify would for NaN, dates, functions or array holes).
+ */
+export function instructionalCourseSnapshot(value:unknown):string {
+ const active=new Set<object>();let nodes=0;
+ function visit(v:unknown,depth:number):unknown {
+  if(++nodes>250000||depth>32)fail('installed source structure limit');
+  if(v===null||typeof v!=='object'){documentJSON(v);return v;}
+  if(active.has(v))fail('installed source cycle');
+  if(!Array.isArray(v)&&![Object.prototype,null].includes(Object.getPrototypeOf(v)))fail('installed source must be plain JSON');
+  active.add(v);
+  try {
+   if(Array.isArray(v)) {
+    if(Object.keys(v).length!==v.length||Array.from({length:v.length},(_,i)=>i).some(i=>!Object.hasOwnProperty.call(v,i)))fail('installed source sparse or decorated list');
+    return v.map(item=>visit(item,depth+1));
+   }
+   const result:Record<string,unknown>=Object.create(null);
+   for(const key of Object.keys(v)) {
+    if(['__proto__','constructor','prototype'].includes(key))fail('installed source unsafe property');
+    const item=(v as Record<string,unknown>)[key];
+    if(item!==undefined)result[key]=visit(item,depth+1);
+   }
+   return result;
+  } finally {active.delete(v);}
+ }
+ return documentJSON(visit(value,0));
+}
+export function instructionalSourceFromCourse(course:Course,kind:'lesson'|'assessment',itemId:string):InstructionalSource{const item=kind==='lesson'?course.lessons.find(x=>x.id===itemId):course.banks.find(x=>x.id===itemId);if(!item)fail('installed source unavailable');return parseInstructionalSource({kind,courseId:course.id,courseRevision:course.revision??0,itemId,title:`${course.title} — ${item.title}`,snapshot:instructionalCourseSnapshot(item)});}
 export function parseInstructionalPack(input:unknown):InstructionalPack{const v=decode(input,INSTRUCTIONAL_LIMITS.packBytes);object(v,['format','version','id','revision','title','jurisdiction','methodNote','requirements','mappings','approval'],'pack');if(v.format!=='erudior-instructional-pack'||v.version!==1)fail('pack format/version');id(v.id,'pack');integer(v.revision,'pack revision');text(v.title,'pack title',300);text(v.methodNote,'equivalence method');object(v.jurisdiction,['id','name','version','sourceNote','effectiveFrom','effectiveThrough'],'jurisdiction');id(v.jurisdiction.id,'jurisdiction');text(v.jurisdiction.name,'jurisdiction name',300);text(v.jurisdiction.version,'jurisdiction version',100);text(v.jurisdiction.sourceNote,'jurisdiction source');day(v.jurisdiction.effectiveFrom,'effective start');day(v.jurisdiction.effectiveThrough,'effective end');if(v.jurisdiction.effectiveFrom>v.jurisdiction.effectiveThrough)fail('effective interval');array(v.requirements,'requirements',100,1);for(const r of v.requirements){object(r,['id','title','minutes','minimumAssessmentPercent'],'requirement');id(r.id,'requirement');text(r.title,'requirement title',300);integer(r.minutes,'required minutes',1);if(r.minimumAssessmentPercent!==undefined)integer(r.minimumAssessmentPercent,'assessment threshold',0,100);}unique(v.requirements.map(r=>(r as InstructionalRequirement).id),'requirement');array(v.mappings,'mappings',300,1);for(const m of v.mappings){object(m,['id','requirementId','title','minutes','rationale','source'],'mapping');id(m.id,'mapping');id(m.requirementId,'requirement reference');text(m.title,'mapping title',300);text(m.rationale,'workload rationale');integer(m.minutes,'equivalent minutes',0);parseInstructionalSource(m.source);if(!v.requirements.some(r=>(r as InstructionalRequirement).id===m.requirementId))fail('unknown requirement');}unique(v.mappings.map(m=>(m as InstructionalMapping).id),'mapping');unique(v.mappings.map(m=>{const s=(m as InstructionalMapping).source;return s.kind+'/'+s.courseId+'/'+s.itemId;}),'mapped source');for(const r of v.requirements as unknown as InstructionalRequirement[]){const ms=(v.mappings as unknown as InstructionalMapping[]).filter(m=>m.requirementId===r.id);if(ms.reduce((n,m)=>n+m.minutes,0)<r.minutes)fail('mapping workload does not cover requirement');if(r.minimumAssessmentPercent!==undefined&&!ms.some(m=>m.source.kind==='assessment'))fail('assessment threshold needs mapped assessment');}if(v.approval!==undefined){object(v.approval,['at','actor'],'approval');stamp(v.approval.at,'approval');text(v.approval.actor,'approver',300);if(v.revision<1)fail('unsaved pack approval');}return clone(v as unknown as InstructionalPack);}
 export function emptyInstructionalPack(idValue:string):InstructionalPack{return {format:'erudior-instructional-pack',version:1,id:idValue,revision:0,title:'',jurisdiction:{id:'',name:'',version:'',sourceNote:'',effectiveFrom:'',effectiveThrough:''},methodNote:'',requirements:[],mappings:[]};}
 export function exportInstructionalPack(input:InstructionalPack):string{const {approval:_,...v}=parseInstructionalPack(input);return JSON.stringify(v,null,2);}
