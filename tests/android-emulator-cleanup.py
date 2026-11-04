@@ -17,6 +17,9 @@ class EmulatorCleanupTests(unittest.TestCase):
         self.assertIn('run: python3 tests/android-emulator-cleanup.py -v', source[:start])
         for command in ['android-install-smoke.sh', 'android-installer-preflight-smoke.sh', 'android-upgrade-retention-smoke.sh', 'android-installer-launch-smoke.sh']:
             self.assertIn('ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/' + command, source[end:])
+        emulator = source[end:source.index('      - name: Upload emulator diagnostic evidence', end)]
+        self.assertIn('uses: reactivecircus/android-emulator-runner@v2', emulator)
+        self.assertIn('          disk-size: 2048M', emulator)
         return textwrap.dedent(source[start:end].split('        run: |\n', 1)[1])
 
     def fixture(self, root):
