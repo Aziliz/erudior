@@ -4234,6 +4234,66 @@
   ]
  },
  {
+  "id": "law-case-reading",
+  "file": "math/law-case-reading.json",
+  "order": 101,
+  "title": "Case Reading and Legal Reasoning",
+  "description": "Read judicial opinions with attention to procedural posture, identify holdings and reasoning, synthesize rules across cases, and analyze changed facts. Second course in the J.D. Preparation pathway; includes an original three-opinion practice packet.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Alder law and opinions are fictional teaching materials. Research current jurisdiction-specific law for real matters.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "lcr-opinion-map",
+   "lcr-posture",
+   "lcr-holding",
+   "lcr-reasoning",
+   "lcr-synthesis",
+   "lcr-analogy",
+   "lcr-interpretation",
+   "lcr-capstone"
+  ],
+  "outline": [
+   {
+    "title": "Reading an opinion and procedural posture",
+    "lessons": [
+     "Finding your way through a judicial opinion",
+     "Procedural posture, fact status and the record"
+    ]
+   },
+   {
+    "title": "Issues, holdings, reasoning and dicta",
+    "lessons": [
+     "Framing the issue and stating a bounded holding",
+     "Explaining reasoning and reading separate opinions fairly"
+    ]
+   },
+   {
+    "title": "Rule synthesis, analogy and distinction",
+    "lessons": [
+     "Synthesizing a rule from several decisions",
+     "Using analogy and distinction on a new fact pattern"
+    ]
+   },
+   {
+    "title": "Statutory interpretation and changed facts",
+    "lessons": [
+     "Interpreting statutory text in context",
+     "Three briefs, a synthesis memo and changed facts"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a2",
   "file": "languages/lang-german-a2.json",
   "order": 101,
