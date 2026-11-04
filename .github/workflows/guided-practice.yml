@@ -2,10 +2,10 @@ name: Guided-practice course presentation acceptance
 on:
   pull_request:
     branches: [main]
-    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
+    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
   push:
     branches: [main]
-    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
+    paths: ['src/**', 'tests/guided-practice.test.mts', 'scripts/guided-practice-browser.mjs', 'scripts/reference-reflow-browser.mjs', 'package*.json', '.github/workflows/guided-practice.yml']
 permissions:
   contents: read
 concurrency:
@@ -26,10 +26,14 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: node scripts/guided-practice-browser.mjs
+      - name: Reference text reflow without clipping or source-link changes
+        run: node scripts/reference-reflow-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: guided-practice-browser
-          path: test-results/guided-practice/
+          path: |
+            test-results/guided-practice/
+            test-results/reference-reflow/
           retention-days: 14
           if-no-files-found: warn
