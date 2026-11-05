@@ -429,7 +429,6 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 add('spreadsheetAssignments', e);
             if (isObject(a)) {
                 shape(a, ['id', 'title', 'starter', 'protectedCells', 'answers', 'tolerance', 'directions', 'lessonId'], 'spreadsheetAssignments');
-                // validateAssignment enforces the versioned workbook schema, including unknown-field rejection.
                 identity(a.id, 'spreadsheetAssignments.id', seen);
                 if (!lessonIds.has(a.lessonId as string))
                     add('spreadsheetAssignments.lessonId', 'unknown lesson');
