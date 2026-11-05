@@ -3,10 +3,10 @@
  "version": 1,
  "id": "colorado-broker",
  "title": "Colorado Real Estate Broker",
- "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 818-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
+ "description": "Independent prep for the national and Colorado portions of the PSI broker exam. Includes 828 practice questions, timed mock exams, notecards, math drills, contract and closing-document review, graded closing and trust-account workbooks, and transaction scenarios. Check current laws and Commission forms.",
  "author": "Erudior",
- "revision": 16,
- "changelog": "Clearer debits and credits: Prorations and settlement math now explains debits and credits in plain words, gives a three-question test and a flowchart for which column an item goes in, and adds nine practice questions (including matching and ordering). The closing worksheet lesson points to it. Also adds a disclaimer: this course is for education only, isn't professional advice, and isn't an approved pre-licensing course.",
+ "revision": 17,
+ "changelog": "Adds interactive contract and closing-document reviews, a branching deadline case, a supervised transaction simulation, two graded spreadsheet workbooks, an optional supervised assessment, and new exam questions using the same fictional transaction.",
  "disclaimer": "The information in this course is for educational and informational purposes only and should not be used to replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent study material, not affiliated with PSI, the Colorado Division of Real Estate or any school. It is not an approved pre-licensing course and does not count toward the education hours required for a Colorado license. Laws, rules and Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes no liability for the use or misuse of the information in it.",
  "modules": [
   {
@@ -765,7 +765,8 @@
     "f1-034",
     "h2-037",
     "h2-038",
-    "n2-028"
+    "n2-028",
+    "co17-hoa"
    ],
    "drills": [
     "x-commission",
@@ -900,7 +901,8 @@
     "h3-008",
     "h3-009",
     "n3-019",
-    "n3-018"
+    "n3-018",
+    "co17-counter"
    ]
   },
   {
@@ -1476,7 +1478,7 @@
    "topics": [
     "Trust accounts and records"
    ],
-   "body": "## Money belonging to others\n\nAny money a broker receives that belongs to someone else (earnest money, rents, tenant security deposits, money collected in advance for services) is **[[money belonging to others]]**. It never belongs to the broker or the firm, and Colorado treats mishandling it as one of the most serious license violations. The statute lists as grounds for discipline: failing to account for or remit others' money within a reasonable time, [[commingling]] it with the broker's own money, converting it, and failing to keep it in a proper escrow or trust account.\n\n## Account requirements\n\nA broker's [[trust account]] (the rules say \"trust or escrow account\") must:\n\n- be **separate** from the broker's and firm's own money;\n- be held at a [[recognized depository]] **in Colorado**: a bank, savings and loan or credit union whose deposits are insured by the FDIC or NCUA (the statute requires a depository \"in this state\" insured by a federal agency);\n- be identified as a fiduciary account in the bank's deposit agreement by using the word **\"trust\" or \"escrow\"** plus its purpose, for example \"sales escrow,\" \"rental escrow\" or \"security deposit escrow.\" The firm keeps a copy of each signed deposit agreement for Commission inspection;\n- be in the **firm's name**: an LLC, corporation or partnership uses the entity's name; a sole proprietorship uses the employing broker's name. The employing broker must have authority to withdraw funds. Others may be authorized to sign, but that doesn't shift the employing broker's responsibility;\n- keep funds **available immediately without penalty**. No CDs or other fixed-term or early-withdrawal-penalty investments unless the parties agree otherwise in writing.\n\nA properly set-up fiduciary account protects the funds from the broker's creditors: garnishments, lawsuits, bankruptcy and bank setoffs against the broker should not reach them. A firm may have any number of trust accounts, including **zero** if it never holds others' money (for example, when a title company always holds earnest money).\n\n### Property management: two kinds of accounts\n\nA firm that does property management must keep **rents** and **[[security deposits]]** in separate trust accounts: at least one account for rental receipts and at least one for security deposits.\n\n### Interest-bearing accounts\n\nTrust funds may be in an interest-bearing account, as long as they stay available immediately without penalty. The Commission's position is that, absent a specific written agreement to the contrary, interest earned on a trust account does **not** belong to the brokerage firm. The purchase contract should say which party gets interest on earnest money, and the management agreement and lease should say who gets interest on rents and security deposits. Keeping it without agreement would be undisclosed compensation.\n\n## Deposit deadlines\n\n| Type of money | Deposit deadline |\n|---|---|\n| Property management funds (rents, security deposits) | Within **5 business days** after receipt or after the lease is mutually executed, whichever is **later** |\n| All other money belonging to others, including [[earnest money]] the firm holds | Within **3 business days** after receipt or after the contract is mutually executed, whichever is **later** |\n\n**Example:** A purchase contract is mutually executed Monday. The buyer hands the listing firm the earnest money check Tuesday. The later event is Tuesday, so the firm must deposit by Friday (3 business days, assuming no holidays).\n\nAn associate broker who receives money must turn it over to the employing broker as soon as practicably possible.\n\n> **Exam tip:** 3 business days for sales/earnest money; 5 business days for property management money. Both run from receipt or mutual execution, *whichever is later*.\n\n## Earnest money\n\nThe purchase contract names the **[[earnest money holder]]**: usually the listing brokerage or a title (closing) company.\n\n- A broker who receives earnest money must deliver it to the earnest money holder named in the contract and get a **dated, signed receipt**.\n- If the brokerage firm is the holder, it deposits the money in its trust account within the 3-business-day rule.\n- The firm may later transfer the earnest money to the closing company or attorney handling the closing, again getting a dated, signed receipt.\n- If a promissory note is accepted as earnest money, the seller must be told when the note is due. If it isn't paid when due, the broker must promptly tell the seller and give the seller the original note.\n\n### Releasing earnest money and disputes\n\nThe Commission's position: when the parties agree on how earnest money should be paid out, the holder should disburse it as they direct without unnecessary delay. The Commission does not itself require signatures from both parties on a release. If one party authorizes in writing that the money go to the other, that's enough. The firm may not demand a release that holds it harmless or waives its liability; the Commission's rules prohibit such exculpatory terms.\n\nWhen the parties disagree, the brokerage follows the contract. The Commission won't discipline a firm for holding disputed funds as the contract directs. The current residential contract lets the holder keep holding the money, file an [[interpleader]] action asking a court to decide, or (after written notice and no lawsuit within the contract's waiting period) return it to the buyer. If the title company or attorney holds the earnest money, the brokerage is not responsible for how that holder disposes of it. If the party entitled to the funds can't be found, the money may eventually go to the State Treasurer under the Unclaimed Property Act.\n\n> **Exam tip:** A broker who keeps disputed earnest money \"as a commission,\" or releases it to one side because they think that side is right, is wrong. Follow the contract.\n\n## Commingling and conversion\n\n- **[[Commingling]]**: mixing the broker's or firm's own money with money belonging to others.\n- **[[Conversion]]** / diversion: using one beneficiary's money for another beneficiary, or for the broker or firm.\n\nLimited situations where firm money may be in the account:\n\n- the firm may deposit its own funds to cover **bank charges** on the account (recorded in the records);\n- the firm may advance its own money for a client (for example, to pay a repair bill) if it is labeled as an advance and recorded.\n\nMoney that becomes payable to the firm (earned commissions or management fees) must be **withdrawn monthly**. Fees are earned only when the contracted services are complete and nobody can still claim the money, unless a written agreement says otherwise.\n\n## Security deposit transfers\n\nWhen a property's management changes firms, the new firm must disclose the status of the security deposits to the owner and tenant in writing within 30 days, and the prior firm must transfer the deposits within 60 days. A firm may hand a security deposit to the owner only if the lease authorizes it in writing or the tenant gets written notice of who holds it.\n\n## Reconciliation and reports\n\nEach trust account needs a **[[journal]]** (chronological record of all receipts and disbursements) and a **[[ledger]]** for each beneficiary. No ledger may show a negative balance, and the ledger total must equal the journal after each posting. Every month the firm performs a [[three-way reconciliation]]: on the same date, the **journal balance**, the **total of all ledger balances**, and the **[[Reconciled bank balance|reconciled bank balance]]** must agree. The firm keeps a written monthly reconciliation report.\n\nProperty management firms report to owners as their management agreement says. If it's silent, reports are due within 30 days after the end of the month in which money was received or paid out. Each branch office with its own trust account needs its own records, and the employing broker is jointly responsible with the firm for all of it.",
+   "body": "## Money belonging to others\n\nAny money a broker receives that belongs to someone else (earnest money, rents, tenant security deposits, money collected in advance for services) is **[[money belonging to others]]**. It never belongs to the broker or the firm, and Colorado treats mishandling it as one of the most serious license violations. The statute lists as grounds for discipline: failing to account for or remit others' money within a reasonable time, [[commingling]] it with the broker's own money, converting it, and failing to keep it in a proper escrow or trust account.\n\n## Account requirements\n\nA broker's [[trust account]] (the rules say \"trust or escrow account\") must:\n\n- be **separate** from the broker's and firm's own money;\n- be held at a [[recognized depository]] **in Colorado**: a bank, savings and loan or credit union whose deposits are insured by the FDIC or NCUA (the statute requires a depository \"in this state\" insured by a federal agency);\n- be identified as a fiduciary account in the bank's deposit agreement by using the word **\"trust\" or \"escrow\"** plus its purpose, for example \"sales escrow,\" \"rental escrow\" or \"security deposit escrow.\" The firm keeps a copy of each signed deposit agreement for Commission inspection;\n- be in the **firm's name**: an LLC, corporation or partnership uses the entity's name; a sole proprietorship uses the employing broker's name. The employing broker must have authority to withdraw funds. Others may be authorized to sign, but that doesn't shift the employing broker's responsibility;\n- keep funds **available immediately without penalty**. No CDs or other fixed-term or early-withdrawal-penalty investments unless the parties agree otherwise in writing.\n\nA properly set-up fiduciary account protects the funds from the broker's creditors: garnishments, lawsuits, bankruptcy and bank setoffs against the broker should not reach them. A firm may have any number of trust accounts, including **zero** if it never holds others' money (for example, when a title company always holds earnest money).\n\n### Property management: two kinds of accounts\n\nA firm that does property management must keep **rents** and **[[security deposits]]** in separate trust accounts: at least one account for rental receipts and at least one for security deposits.\n\n### Interest-bearing accounts\n\nTrust funds may be in an interest-bearing account, as long as they stay available immediately without penalty. The Commission's position is that, absent a specific written agreement to the contrary, interest earned on a trust account does **not** belong to the brokerage firm. The purchase contract should say which party gets interest on earnest money, and the management agreement and lease should say who gets interest on rents and security deposits. Keeping it without agreement would be undisclosed compensation.\n\n## Deposit deadlines\n\n| Type of money | Deposit deadline |\n|---|---|\n| Property management funds (rents, security deposits) | Within **5 business days** after receipt or after the lease is mutually executed, whichever is **later** |\n| All other money belonging to others, including [[earnest money]] the firm holds | Within **3 business days** after receipt or after the contract is mutually executed, whichever is **later** |\n\n**Example:** A purchase contract is mutually executed Monday. The buyer hands the listing firm the earnest money check Tuesday. The later event is Tuesday, so the firm must deposit by Friday (3 business days, assuming no holidays).\n\nAn associate broker who receives money must turn it over to the employing broker as soon as practicably possible.\n\n> **Exam tip:** 3 business days for sales/earnest money; 5 business days for property management money. Both run from receipt or mutual execution, *whichever is later*.\n\n## Earnest money\n\nThe purchase contract names the **[[earnest money holder]]**: usually the listing brokerage or a title (closing) company.\n\n- A broker who receives earnest money must deliver it to the earnest money holder named in the contract and get a **dated, signed receipt**.\n- If the brokerage firm is the holder, it deposits the money in its trust account within the 3-business-day rule.\n- The firm may later transfer the earnest money to the closing company or attorney handling the closing, again getting a dated, signed receipt.\n- If a promissory note is accepted as earnest money, the seller must be told when the note is due. If it isn't paid when due, the broker must promptly tell the seller and give the seller the original note.\n\n### Releasing earnest money and disputes\n\nThe Commission's position: when the parties agree on how earnest money should be paid out, the holder should disburse it as they direct without unnecessary delay. The Commission does not itself require signatures from both parties on a release. If one party authorizes in writing that the money go to the other, that's enough. The firm may not demand a release that holds it harmless or waives its liability; the Commission's rules prohibit such exculpatory terms.\n\nWhen the parties disagree, the brokerage follows the contract. The Commission won't discipline a firm for holding disputed funds as the contract directs. The current residential contract lets the holder keep holding the money, file an [[interpleader]] action asking a court to decide, or (after written notice and no lawsuit within the contract's waiting period) return it to the buyer. If the title company or attorney holds the earnest money, the brokerage is not responsible for how that holder disposes of it. If the party entitled to the funds can't be found, the money may eventually go to the State Treasurer under the Unclaimed Property Act.\n\n> **Exam tip:** A broker who keeps disputed earnest money \"as a commission,\" or releases it to one side because they think that side is right, is wrong. Follow the contract.\n\n## Commingling and conversion\n\n- **[[Commingling]]**: mixing the broker's or firm's own money with money belonging to others.\n- **[[Conversion]]** / diversion: using one beneficiary's money for another beneficiary, or for the broker or firm.\n\nLimited situations where firm money may be in the account:\n\n- the firm may deposit its own funds to cover **bank charges** on the account (recorded in the records);\n- the firm may advance its own money for a client (for example, to pay a repair bill) if it is labeled as an advance and recorded.\n\nMoney that becomes payable to the firm (earned commissions or management fees) must be **withdrawn monthly**. Fees are earned only when the contracted services are complete and nobody can still claim the money, unless a written agreement says otherwise.\n\n## Security deposit transfers\n\nWhen a property's management changes firms, the new firm must disclose the status of the security deposits to the owner and tenant in writing within 30 days, and the prior firm must transfer the deposits within 60 days. A firm may hand a security deposit to the owner only if the lease authorizes it in writing or the tenant gets written notice of who holds it.\n\n## Reconciliation and reports\n\nEach trust account needs a **[[journal]]** (chronological record of all receipts and disbursements) and a **[[ledger]]** for each beneficiary. No ledger may show a negative balance, and the ledger total must equal the journal after each posting. Every month the firm performs a [[three-way reconciliation]]: on the same date, the **journal balance**, the **total of all ledger balances**, and the **[[Reconciled bank balance|reconciled bank balance]]** must agree. The firm keeps a written monthly reconciliation report.\n\nProperty management firms report to owners as their management agreement says. If it's silent, reports are due within 30 days after the end of the month in which money was received or paid out. Each branch office with its own trust account needs its own records, and the employing broker is jointly responsible with the firm for all of it.\n\n## Juniper Court trust workbook\nOpen the linked workbook. Calculate adjusted bank balance in B5, client-ledger total in B11 and the two differences in B13 and B14. The Cedar refund was recorded in the journal and its client ledger but has not cleared the bank. Use the same cutoff for all balances. Compare the three balances with the [Division’s reconciliation template](https://dre.colorado.gov/sites/dre/files/documents/Reconciliation%20Template%20%282023-12%29.pdf) and check [the current rules](https://dre.colorado.gov/sites/dre/files/documents/2026_CREM_Ch%2002.pdf).",
    "quiz": [
     "s2-022",
     "h6-015",
@@ -1494,7 +1496,9 @@
     "h6-021",
     "s2-024",
     "g5-013",
-    "h6-022"
+    "h6-022",
+    "co17-reconcile",
+    "co17-ledgers"
    ],
    "refs": [
     "co-numbers"
@@ -1634,7 +1638,7 @@
    "topics": [
     "Colorado contracts and forms"
    ],
-   "body": "## Title: record and off-record\n\n### Title insurance\n\n- If neither box is checked, the **seller selects the title company and pays for the owner's policy**. The buyer may be the one to select instead, at the buyer's expense, if that option is chosen.\n- [[Owner's Extended Coverage]] (OEC) is optional. It removes the standard exceptions for unrecorded matters such as parties in possession, unrecorded easements, survey matters and unrecorded mechanics' liens. The contract states who pays any added premium.\n\n### Record title\n\nBy the **[[Record Title Deadline]]**, the seller delivers the title commitment and copies of the recorded exception documents. The buyer reviews them for [[record title]] problems and may object by the **[[Record Title Objection Deadline]]**. If documents arrive late or new exceptions appear, the buyer has until the earlier of closing or 10 days after receiving them. **A buyer who doesn't object accepts title as shown.**\n\n### Off-record title\n\nBy the **[[Off-Record Title Deadline]]**, the seller delivers existing surveys and discloses known [[off-record title]] matters, such as unrecorded easements, boundary disputes and parties in possession. The buyer may inspect the property for these matters and object by the **[[Off-Record Title Objection Deadline]]**.\n\n### Title resolution\n\nIf a title objection isn't resolved in writing by the **[[Title Resolution Deadline]]**, the contract terminates unless the buyer withdraws the objection in writing before the deadline.\n\n### New ILC or survey\n\nThe contract states who orders and who pays for an [[Improvement Location Certificate]] (ILC) or survey. The buyer may terminate or object by the New ILC or New Survey Objection Deadline. If the objection isn't resolved, the contract terminates unless the buyer withdraws it.\n\n## Owners' association\n\n- At the seller's expense, by the Association Documents Deadline, the seller provides the [[association documents]]: governing documents, the list of insurance policies, assessments, financial documents and recent construction-defect notices.\n- The buyer may terminate by the **[[Association Documents Termination Deadline]]**. If the documents are delivered late, the buyer gets 10 days after receipt.\n- The seller requests the association [[status letter]] at least 14 days before closing and pays the status letter fee. The contract allocates other association fees, such as record-change fees and working-capital contributions, by checkbox.\n\n## Seller disclosures\n\n- **[[Seller's Property Disclosure]]:** the seller delivers the current Commission form by the Seller's Property Disclosure Deadline. The seller completes it from **[[Current actual knowledge|current actual knowledge]]**. It is not a warranty, and the form itself says the seller fills it out, not the broker.\n- **The duty is continuing.** The seller must disclose newly discovered adverse material facts. After such a disclosure, the buyer may terminate by the earlier of closing or 5 days after receiving it.\n- **[[Lead-based paint]]:** required for dwellings built (or with a building permit issued) before January 1, 1978, with its own disclosure and termination deadlines.\n- **[[Methamphetamine disclosure|Methamphetamine]]:** the seller discloses known manufacture, use or storage, unless the property was remediated to state standards.\n- **[[Radon]]:** the contract includes a state health department advisory that strongly recommends a radon test before buying, and the seller must provide any radon test results the seller knows of.\n- **[[Source of water disclosure|Source of water]]:** the buyer acknowledges receiving the water source information, and well permit information if there's a well.\n- **[[Carbon monoxide alarm|Carbon monoxide alarms]]:** if the home has a fuel-fired heater or appliance, a fireplace or an attached garage, plus a bedroom, Colorado law requires an operational alarm within 15 feet of each bedroom entrance (or where the building code requires).\n\n## Inspection and objection/resolution\n\nInspection is the core due-diligence step. It has three deadlines that work together:\n\n1. **[[Inspection Termination Deadline]]:** the buyer may simply terminate over any unsatisfactory condition, as long as the buyer hasn't already delivered an Inspection Objection.\n2. **[[Inspection Objection Deadline]]:** the buyer delivers an [[Inspection Objection Notice]] listing the unsatisfactory items and the corrections requested.\n3. **[[Inspection Resolution Deadline]]:** if the parties haven't signed a written agreement, usually the [[Inspection Resolution]] form, by this deadline, **the contract terminates**. The only way to avoid that is for the buyer to withdraw the objection in writing before the deadline.\n\nThe buyer pays for inspections, must repair any damage the inspections cause, and indemnifies the seller. These obligations survive termination.\n\n> **Exam tip:** The resolution step works the opposite way from what students expect. **Silence kills the deal.** If nothing is agreed and the buyer doesn't withdraw the objection, the contract ends automatically at the Inspection Resolution Deadline.\n\n### Other due-diligence items\n\n- **[[Due diligence documents]]** (leases, leased-item and encumbered-inclusion documents, a septic permit if required) have their own delivery and objection deadlines.\n- A **[[Conditional sale|conditional sale]]** contingency makes the purchase depend on the buyer selling the property named in the contract. The buyer must terminate by the Conditional Sale Deadline or lose that right.\n\n## Closing, deed and possession\n\n- Closing happens on the Closing Date, or earlier by mutual agreement. The closing company prepares and delivers the closing documents under the Closing Instructions.\n- **[[Deed]]:** if no other deed type is selected, the seller delivers a **[[Special warranty deed|special warranty deed]]**.\n- **[[Possession]]** is delivered on the Possession Date and Time. A seller who holds over is subject to eviction and owes the per-day amount set in the contract plus actual damages. If the seller will stay after closing, a Post-Closing Occupancy Agreement controls possession.\n- **Damage before closing:** if fire or another casualty damages the property and the damage is more than 10% of the purchase price, or the property isn't repaired before the Closing Date, the buyer may terminate. The buyer may walk through the property before closing.\n\n## Prorations\n\nTaxes, rents, water and sewer charges, propane and similar items are **prorated to the Closing Date**. For taxes, the parties choose the proration basis on the form, such as the prior calendar year's taxes or the most recent mill levy and assessed valuation. The basis can be adjusted for a qualifying seniors' or disabled-veteran exemption.\n\nRents are prorated on rents actually received. Security deposits transfer to the buyer. **Prorations are final** unless the Additional Provisions say otherwise.\n\n> **Exam tip:** Colorado property taxes are paid in arrears. At closing, the seller gives the buyer a credit for the part of the year the seller owned the property, because the buyer will pay that year's bill the following year.\n\n## Default and remedies\n\n[[Time is of the essence]] for every deadline.\n\n**If the buyer defaults**, the remedy depends on the specific performance checkbox:\n- **Box not checked (the default):** [[liquidated damages]] apply. The seller keeps the earnest money as the seller's **only remedy**. The indemnity obligations (for inspection damage, for example) and attorney fees are the only exceptions.\n- **Box checked:** the seller may cancel, keep the earnest money and recover other proper damages, **or** treat the contract as still in force and sue for [[specific performance]] and/or damages.\n\n**If the seller defaults**, the buyer may:\n- cancel, get the earnest money back and sue for damages, or\n- sue for specific performance and/or damages.\n\nThe prevailing party in arbitration or litigation recovers reasonable costs and attorney fees.\n\n## Mediation and earnest money disputes\n\n- **[[Mediation]]** is required before arbitration or litigation. The parties choose the mediator together, split the cost equally, and the mediator's decision is not binding. The duty to mediate ends if the dispute isn't resolved within **30 days** of the written mediation request.\n- **Earnest money dispute:** the Earnest Money Holder may hold the money until the dispute is settled or decided, interplead it into court, or notify the parties that it will return the money to the buyer unless it receives a court case number within **120 days**. The parties' duty to mediate still applies.\n\n## Termination\n\nA termination is effective when the other party **receives** a written [[Notice to Terminate]] by the applicable deadline. A late notice is ineffective, and that termination right is waived. When the contract terminates, the earnest money goes back to the buyer, unless the buyer is in default.\n",
+   "body": "## Title: record and off-record\n\n### Title insurance\n\n- If neither box is checked, the **seller selects the title company and pays for the owner's policy**. The buyer may be the one to select instead, at the buyer's expense, if that option is chosen.\n- [[Owner's Extended Coverage]] (OEC) is optional. It removes the standard exceptions for unrecorded matters such as parties in possession, unrecorded easements, survey matters and unrecorded mechanics' liens. The contract states who pays any added premium.\n\n### Record title\n\nBy the **[[Record Title Deadline]]**, the seller delivers the title commitment and copies of the recorded exception documents. The buyer reviews them for [[record title]] problems and may object by the **[[Record Title Objection Deadline]]**. If documents arrive late or new exceptions appear, the buyer has until the earlier of closing or 10 days after receiving them. **A buyer who doesn't object accepts title as shown.**\n\n### Off-record title\n\nBy the **[[Off-Record Title Deadline]]**, the seller delivers existing surveys and discloses known [[off-record title]] matters, such as unrecorded easements, boundary disputes and parties in possession. The buyer may inspect the property for these matters and object by the **[[Off-Record Title Objection Deadline]]**.\n\n### Title resolution\n\nIf a title objection isn't resolved in writing by the **[[Title Resolution Deadline]]**, the contract terminates unless the buyer withdraws the objection in writing before the deadline.\n\n### New ILC or survey\n\nThe contract states who orders and who pays for an [[Improvement Location Certificate]] (ILC) or survey. The buyer may terminate or object by the New ILC or New Survey Objection Deadline. If the objection isn't resolved, the contract terminates unless the buyer withdraws it.\n\n## Owners' association\n\n- At the seller's expense, by the Association Documents Deadline, the seller provides the [[association documents]]: governing documents, the list of insurance policies, assessments, financial documents and recent construction-defect notices.\n- The buyer may terminate by the **[[Association Documents Termination Deadline]]**. If the documents are delivered late, the buyer gets 10 days after receipt.\n- The seller requests the association [[status letter]] at least 14 days before closing and pays the status letter fee. The contract allocates other association fees, such as record-change fees and working-capital contributions, by checkbox.\n\n## Seller disclosures\n\n- **[[Seller's Property Disclosure]]:** the seller delivers the current Commission form by the Seller's Property Disclosure Deadline. The seller completes it from **[[Current actual knowledge|current actual knowledge]]**. It is not a warranty, and the form itself says the seller fills it out, not the broker.\n- **The duty is continuing.** The seller must disclose newly discovered adverse material facts. After such a disclosure, the buyer may terminate by the earlier of closing or 5 days after receiving it.\n- **[[Lead-based paint]]:** required for dwellings built (or with a building permit issued) before January 1, 1978, with its own disclosure and termination deadlines.\n- **[[Methamphetamine disclosure|Methamphetamine]]:** the seller discloses known manufacture, use or storage, unless the property was remediated to state standards.\n- **[[Radon]]:** the contract includes a state health department advisory that strongly recommends a radon test before buying, and the seller must provide any radon test results the seller knows of.\n- **[[Source of water disclosure|Source of water]]:** the buyer acknowledges receiving the water source information, and well permit information if there's a well.\n- **[[Carbon monoxide alarm|Carbon monoxide alarms]]:** if the home has a fuel-fired heater or appliance, a fireplace or an attached garage, plus a bedroom, Colorado law requires an operational alarm within 15 feet of each bedroom entrance (or where the building code requires).\n\n## Inspection and objection/resolution\n\nInspection is the core due-diligence step. It has three deadlines that work together:\n\n1. **[[Inspection Termination Deadline]]:** the buyer may simply terminate over any unsatisfactory condition, as long as the buyer hasn't already delivered an Inspection Objection.\n2. **[[Inspection Objection Deadline]]:** the buyer delivers an [[Inspection Objection Notice]] listing the unsatisfactory items and the corrections requested.\n3. **[[Inspection Resolution Deadline]]:** if the parties haven't signed a written agreement, usually the [[Inspection Resolution]] form, by this deadline, **the contract terminates**. The only way to avoid that is for the buyer to withdraw the objection in writing before the deadline.\n\nThe buyer pays for inspections, must repair any damage the inspections cause, and indemnifies the seller. These obligations survive termination.\n\n> **Exam tip:** The resolution step works the opposite way from what students expect. **Silence kills the deal.** If nothing is agreed and the buyer doesn't withdraw the objection, the contract ends automatically at the Inspection Resolution Deadline.\n\n### Other due-diligence items\n\n- **[[Due diligence documents]]** (leases, leased-item and encumbered-inclusion documents, a septic permit if required) have their own delivery and objection deadlines.\n- A **[[Conditional sale|conditional sale]]** contingency makes the purchase depend on the buyer selling the property named in the contract. The buyer must terminate by the Conditional Sale Deadline or lose that right.\n\n## Closing, deed and possession\n\n- Closing happens on the Closing Date, or earlier by mutual agreement. The closing company prepares and delivers the closing documents under the Closing Instructions.\n- **[[Deed]]:** if no other deed type is selected, the seller delivers a **[[Special warranty deed|special warranty deed]]**.\n- **[[Possession]]** is delivered on the Possession Date and Time. A seller who holds over is subject to eviction and owes the per-day amount set in the contract plus actual damages. If the seller will stay after closing, a Post-Closing Occupancy Agreement controls possession.\n- **Damage before closing:** if fire or another casualty damages the property and the damage is more than 10% of the purchase price, or the property isn't repaired before the Closing Date, the buyer may terminate. The buyer may walk through the property before closing.\n\n## Prorations\n\nTaxes, rents, water and sewer charges, propane and similar items are **prorated to the Closing Date**. For taxes, the parties choose the proration basis on the form, such as the prior calendar year's taxes or the most recent mill levy and assessed valuation. The basis can be adjusted for a qualifying seniors' or disabled-veteran exemption.\n\nRents are prorated on rents actually received. Security deposits transfer to the buyer. **Prorations are final** unless the Additional Provisions say otherwise.\n\n> **Exam tip:** Colorado property taxes are paid in arrears. At closing, the seller gives the buyer a credit for the part of the year the seller owned the property, because the buyer will pay that year's bill the following year.\n\n## Default and remedies\n\n[[Time is of the essence]] for every deadline.\n\n**If the buyer defaults**, the remedy depends on the specific performance checkbox:\n- **Box not checked (the default):** [[liquidated damages]] apply. The seller keeps the earnest money as the seller's **only remedy**. The indemnity obligations (for inspection damage, for example) and attorney fees are the only exceptions.\n- **Box checked:** the seller may cancel, keep the earnest money and recover other proper damages, **or** treat the contract as still in force and sue for [[specific performance]] and/or damages.\n\n**If the seller defaults**, the buyer may:\n- cancel, get the earnest money back and sue for damages, or\n- sue for specific performance and/or damages.\n\nThe prevailing party in arbitration or litigation recovers reasonable costs and attorney fees.\n\n## Mediation and earnest money disputes\n\n- **[[Mediation]]** is required before arbitration or litigation. The parties choose the mediator together, split the cost equally, and the mediator's decision is not binding. The duty to mediate ends if the dispute isn't resolved within **30 days** of the written mediation request.\n- **Earnest money dispute:** the Earnest Money Holder may hold the money until the dispute is settled or decided, interplead it into court, or notify the parties that it will return the money to the buyer unless it receives a court case number within **120 days**. The parties' duty to mediate still applies.\n\n## Termination\n\nA termination is effective when the other party **receives** a written [[Notice to Terminate]] by the applicable deadline. A late notice is ineffective, and that termination right is waived. When the contract terminates, the earnest money goes back to the buyer, unless the buyer is in default.\n\n\n## Practice with the Juniper Court case\nOpen the linked document review to compare the executed agreement with an unsigned proposed extension. Use the [Commission’s current forms index](https://dre.colorado.gov/real-estate-broker-contracts-and-forms) to compare the actual forms with the exercise’s original fictional summaries.",
    "quiz": [
     "s3-016",
     "f4-014",
@@ -1664,7 +1668,8 @@
     "s3-024",
     "s3-025",
     "s3-027",
-    "h7-028"
+    "h7-028",
+    "co17-extension"
    ],
    "refs": [
     "forms",
@@ -1679,7 +1684,7 @@
    "topics": [
     "Colorado contracts and forms"
    ],
-   "body": "## Counterproposal\n\nWhen a seller wants different terms, the broker doesn't mark up the buyer's contract. The seller uses the Commission's **[[Counterproposal]]** form.\n\n- The form references the proposed contract and lists only the changes: deadlines, price and financing terms, and \"other changes.\"\n- In the tables, a blank or \"No Change\" leaves a term as it was. \"Deleted\" removes the provision.\n- **All other terms stay the same.**\n- A new counterproposal **supersedes and replaces** any earlier one. The parties don't stack them.\n- **[[Acceptance]]:** both parties sign, and the **offering party must receive notice of acceptance** by the deadline in the counterproposal. If that doesn't happen, the counterproposal expires.\n- The form states that the party initiating the counterproposal does not sign the original contract itself.\n\nUnder general contract law, a counteroffer rejects the original offer. If the counterproposal expires, the buyer can't go back and accept the original offer, because that offer is gone.\n\n> **Exam tip:** Who has to *receive* notice of acceptance? The party who made the latest offer or counterproposal. A counterproposal that is signed but never communicated hasn't been accepted.\n\n## Agreement to Amend/Extend Contract\n\nAfter the contract is signed, changes to it require the **[[Agreement to Amend/Extend]]**.\n\n- Both parties sign. A broker can't change a deadline on their own authority.\n- The form's table lists the contract's deadlines (new date, \"No Change\" or \"Deleted\"), with room for other amendments.\n- All other terms remain the same.\n- Like a counterproposal, it has an acceptance deadline. It expires if notice of acceptance isn't received in time.\n\n**Typical uses:**\n- Moving the closing date because the lender needs more time.\n- Changing the price after an appraisal negotiation.\n- Extending the Inspection Resolution Deadline while the parties keep negotiating. This has to be signed **before** the deadline passes, or the contract may already have terminated.\n\n### Related forms new for 2026\n\n- **[[Agreement to Revive Contract]]:** brings back a contract that has already terminated. The parties state the termination date, ratify the contract, and set new deadlines. The seller represents that no other sale contract is in effect.\n- **[[Extension or Termination of Contract]]:** one party proposes extending deadlines in Part I. If both parties don't sign Part I and receive notice of acceptance in time, Part II works as the requesting party's notice to terminate, based on the contract provisions checked.\n\n> **Exam tip:** A contract terminated at the Inspection Resolution Deadline can't be amended, because there's nothing left to amend. The parties use the Agreement to Revive Contract or write a new contract.\n\n## Inspection, title and appraisal notices\n\nThe Commission publishes notice forms so that deadline-driven steps are in writing:\n\n| Form | Who sends it | Purpose |\n|---|---|---|\n| Inspection Objection Notice | Buyer | Lists unsatisfactory items and corrections wanted |\n| Inspection Resolution | Buyer and seller sign | Seller agrees to specific corrections at seller's expense. Amends the contract. |\n| Title-Related Objection Notice (renamed Title, Survey and Due Diligence-Related Objection Notice in the 2027 version) | Buyer | Objects to record title, off-record title, ILC/survey or due diligence document matters |\n| Appraised Value Objection Notice | Buyer | Objects to a low or missing appraisal |\n| Notice to Terminate | Either party | Ends the contract under a specific provision |\n| Earnest Money Release | Buyer and seller sign | Directs the holder how to pay out the earnest money and mutually releases the parties |\n\nThe buyer should give a copy of an Inspection Resolution to the lender. Repairs or credits can change the loan.\n\n## Notice and delivery\n\n- Notices must be **in writing**.\n- A notice is effective when **received**, not when sent.\n- Delivery to the party's broker or brokerage firm counts as delivery to the party, **except** notices after closing, which must be received by the party. For electronic notice, the form adds notices after cancellation or termination to that exception.\n- **[[Electronic notice]]** is allowed through the methods the parties list, such as email or fax.\n- **[[Electronic delivery]]** of documents is allowed by email, by a link or website, or by fax.\n- The contract may be signed in **[[Counterparts|counterparts]]**. Each party may sign a separate copy.\n- Colorado law governs the contract.\n\n> **Exam tip:** The buyer emails a Notice to Terminate at 11:50 p.m. on the deadline, and it reaches the seller's broker's inbox at 11:52 p.m. Mountain Time. It's timely, because receipt by the broker counts. If the contract has a 5:00 p.m. Time of Day Deadline, the same email is late.\n\n## Multiple offers in Colorado practice\n\nColorado has no special multiple-offer form. The rules come from agency duties and the listing contract:\n\n- **Present every offer.** A seller's agent must present all offers to and from the seller in a timely manner, **even when the property is already under contract** (C.R.S. 12-10-404). The Division has warned that a listing broker can't refuse to present an offer just because the buyer's broker uses different contract software, and it has flagged reports of offers going unpresented because the buyer's broker uses a different compensation model.\n- **Limits must be in writing.** A listing broker may limit which offers are presented only after explaining the pros and cons to the seller, and the limit has to be written into the listing contract.\n- **If the listing broker won't respond:** the buyer's broker goes to the listing broker's employing broker, and only after that fails, to the seller directly.\n- **Disclosing other offers:** the Exclusive Right-to-Sell contract has a box for whether the seller **does or does not** consent to disclosing that other offers exist. **If neither box is checked, there is no consent.** Disclosing the **terms** of an offer always requires the seller's written consent.\n- **Confidential:** without the seller's informed consent, the seller's agent may not disclose that the seller would take less than the asking price, or the seller's motivations.\n- **Under contract:** once the property is under contract, the listing broker doesn't have to keep looking for offers, but still presents any that come in. A seller who accepts a second offer should make it a backup offer that depends on the first contract terminating. Otherwise the seller risks two binding contracts.\n\n### Running a multiple-offer round\n\n1. Confirm the seller's instructions about disclosing that other offers exist.\n2. Treat all buyers' brokers the same way, for example the same \"highest and best by Friday at 5 p.m.\" message.\n3. Present every offer to the seller.\n4. Use a Counterproposal to respond to one offer. Countering several buyers at once can create more than one binding contract if more than one accepts, so that strategy needs care and usually a lawyer.\n",
+   "body": "## Counterproposal\n\nWhen a seller wants different terms, the broker doesn't mark up the buyer's contract. The seller uses the Commission's **[[Counterproposal]]** form.\n\n- The form references the proposed contract and lists only the changes: deadlines, price and financing terms, and \"other changes.\"\n- In the tables, a blank or \"No Change\" leaves a term as it was. \"Deleted\" removes the provision.\n- **All other terms stay the same.**\n- A new counterproposal **supersedes and replaces** any earlier one. The parties don't stack them.\n- **[[Acceptance]]:** both parties sign, and the **offering party must receive notice of acceptance** by the deadline in the counterproposal. If that doesn't happen, the counterproposal expires.\n- The form states that the party initiating the counterproposal does not sign the original contract itself.\n\nUnder general contract law, a counteroffer rejects the original offer. If the counterproposal expires, the buyer can't go back and accept the original offer, because that offer is gone.\n\n> **Exam tip:** Who has to *receive* notice of acceptance? The party who made the latest offer or counterproposal. A counterproposal that is signed but never communicated hasn't been accepted.\n\n## Agreement to Amend/Extend Contract\n\nAfter the contract is signed, changes to it require the **[[Agreement to Amend/Extend]]**.\n\n- Both parties sign. A broker can't change a deadline on their own authority.\n- The form's table lists the contract's deadlines (new date, \"No Change\" or \"Deleted\"), with room for other amendments.\n- All other terms remain the same.\n- Like a counterproposal, it has an acceptance deadline. It expires if notice of acceptance isn't received in time.\n\n**Typical uses:**\n- Moving the closing date because the lender needs more time.\n- Changing the price after an appraisal negotiation.\n- Extending the Inspection Resolution Deadline while the parties keep negotiating. This has to be signed **before** the deadline passes, or the contract may already have terminated.\n\n### Related forms new for 2026\n\n- **[[Agreement to Revive Contract]]:** brings back a contract that has already terminated. The parties state the termination date, ratify the contract, and set new deadlines. The seller represents that no other sale contract is in effect.\n- **[[Extension or Termination of Contract]]:** one party proposes extending deadlines in Part I. If both parties don't sign Part I and receive notice of acceptance in time, Part II works as the requesting party's notice to terminate, based on the contract provisions checked.\n\n> **Exam tip:** A contract terminated at the Inspection Resolution Deadline can't be amended, because there's nothing left to amend. The parties use the Agreement to Revive Contract or write a new contract.\n\n## Inspection, title and appraisal notices\n\nThe Commission publishes notice forms so that deadline-driven steps are in writing:\n\n| Form | Who sends it | Purpose |\n|---|---|---|\n| Inspection Objection Notice | Buyer | Lists unsatisfactory items and corrections wanted |\n| Inspection Resolution | Buyer and seller sign | Seller agrees to specific corrections at seller's expense. Amends the contract. |\n| Title-Related Objection Notice (renamed Title, Survey and Due Diligence-Related Objection Notice in the 2027 version) | Buyer | Objects to record title, off-record title, ILC/survey or due diligence document matters |\n| Appraised Value Objection Notice | Buyer | Objects to a low or missing appraisal |\n| Notice to Terminate | Either party | Ends the contract under a specific provision |\n| Earnest Money Release | Buyer and seller sign | Directs the holder how to pay out the earnest money and mutually releases the parties |\n\nThe buyer should give a copy of an Inspection Resolution to the lender. Repairs or credits can change the loan.\n\n## Notice and delivery\n\n- Notices must be **in writing**.\n- A notice is effective when **received**, not when sent.\n- Delivery to the party's broker or brokerage firm counts as delivery to the party, **except** notices after closing, which must be received by the party. For electronic notice, the form adds notices after cancellation or termination to that exception.\n- **[[Electronic notice]]** is allowed through the methods the parties list, such as email or fax.\n- **[[Electronic delivery]]** of documents is allowed by email, by a link or website, or by fax.\n- The contract may be signed in **[[Counterparts|counterparts]]**. Each party may sign a separate copy.\n- Colorado law governs the contract.\n\n> **Exam tip:** The buyer emails a Notice to Terminate at 11:50 p.m. on the deadline, and it reaches the seller's broker's inbox at 11:52 p.m. Mountain Time. It's timely, because receipt by the broker counts. If the contract has a 5:00 p.m. Time of Day Deadline, the same email is late.\n\n## Multiple offers in Colorado practice\n\nColorado has no special multiple-offer form. The rules come from agency duties and the listing contract:\n\n- **Present every offer.** A seller's agent must present all offers to and from the seller in a timely manner, **even when the property is already under contract** (C.R.S. 12-10-404). The Division has warned that a listing broker can't refuse to present an offer just because the buyer's broker uses different contract software, and it has flagged reports of offers going unpresented because the buyer's broker uses a different compensation model.\n- **Limits must be in writing.** A listing broker may limit which offers are presented only after explaining the pros and cons to the seller, and the limit has to be written into the listing contract.\n- **If the listing broker won't respond:** the buyer's broker goes to the listing broker's employing broker, and only after that fails, to the seller directly.\n- **Disclosing other offers:** the Exclusive Right-to-Sell contract has a box for whether the seller **does or does not** consent to disclosing that other offers exist. **If neither box is checked, there is no consent.** Disclosing the **terms** of an offer always requires the seller's written consent.\n- **Confidential:** without the seller's informed consent, the seller's agent may not disclose that the seller would take less than the asking price, or the seller's motivations.\n- **Under contract:** once the property is under contract, the listing broker doesn't have to keep looking for offers, but still presents any that come in. A seller who accepts a second offer should make it a backup offer that depends on the first contract terminating. Otherwise the seller risks two binding contracts.\n\n### Running a multiple-offer round\n\n1. Confirm the seller's instructions about disclosing that other offers exist.\n2. Treat all buyers' brokers the same way, for example the same \"highest and best by Friday at 5 p.m.\" message.\n3. Present every offer to the seller.\n4. Use a Counterproposal to respond to one offer. Countering several buyers at once can create more than one binding contract if more than one accepts, so that strategy needs care and usually a lawyer.\n\n\n## Practice with the Juniper Court case\nReview the title exception and the buyer’s planned workshop. Then run the timed-decision scenario twice to compare a timely objection with a late response. Use the dates and notice assumptions in the file.",
    "quiz": [
     "h7-029",
     "s3-009",
@@ -1697,7 +1702,8 @@
     "s3-032",
     "s2-007",
     "f4-006",
-    "h7-034"
+    "h7-034",
+    "co17-title"
    ],
    "refs": [
     "forms"
@@ -1821,7 +1827,7 @@
    "topics": [
     "Closing and settlement"
    ],
-   "body": "## Who is responsible for a Colorado closing?\n\nIn most Colorado transactions a title company (the [[closing company]]) actually runs the closing: it prepares the settlement figures, collects funds, records documents, and disburses money. That does **not** take the broker off the hook. The Commission's rule on closing responsibility puts it this way:\n\n- A broker who has a brokerage relationship with a buyer or seller (as an agent or transaction-broker) is **responsible for the proper closing** of the transaction.\n- That broker must make sure the consumer receives an **accurate, complete and detailed [[closing statement]] that is signed by the broker**.\n- The broker must **review the closing documents** and **attend the closing or be reasonably available**. If the broker can't, another broker designated by the brokerage firm may step in — and that substitute broker then shares responsibility for the accuracy, completeness and delivery of the signed statement.\n- Closing statements and other closing documents go to the **brokerage firm** right after closing for the transaction file, and the employing broker's supervisory duties still apply.\n- A broker who prepares and closes the documents personally is responsible for their accuracy and completeness.\n\nThe license law backs this up: failing to give the buyer and the seller a closing statement is a ground for discipline (C.R.S. 12-10-217(1)(j)), as is failing to account for or remit other people's money within a reasonable time.\n\n> **Exam tip:** \"The title company prepared it, so it isn't my problem\" is always the wrong answer. Hiring a closing company delegates the *work*, not the broker's *responsibility* to check the statement and see that the parties receive it.\n\n## Closing instructions\n\nThe Commission-approved **[[Closing Instructions]]** form is the engagement agreement between the parties and the closing company. Key points:\n\n- It is signed by the **buyer, the seller and the closing company**. The brokers are not parties to it, although they receive copies of required documents and statements.\n- The closing company agrees to prepare closing statements, deliver and record documents, and disburse funds (including commissions) according to the contract.\n- If party instructions conflict with the contract, the buyer and seller must sign an amendment (Agreement to Amend/Extend Contract).\n- The closing company may not release signed documents or things of value until **[[good funds]]** are received and disbursed.\n- The contract has a checkbox showing whether Closing Instructions are signed with the contract or later.\n\n## Good funds\n\nColorado's good funds law (C.R.S. 38-35-125) says a closing or settlement provider may not disburse until the funds have been received and are **available for immediate withdrawal** — wire transfers and certified, cashier's or teller's checks qualify. A personal check for a large down payment does not. The provider may advance a small amount (up to $500) for incidental items such as tax certificates and recording fees. The Commission's closing rule repeats this: a broker or firm may not disburse, or authorize disbursement, before the funds are good.\n\n## Closing statement vs. Closing Disclosure\n\n| | Closing statement (settlement statement) | [[Closing Disclosure]] |\n|---|---|---|\n| Source | Commission-approved form or closing company's statement | Federal TRID rule (CFPB) |\n| Required by | Colorado license law and Commission rule | Federal law for most consumer mortgage loans |\n| Covers | Every transaction, cash or financed | Loan terms and costs for the borrower |\n| Broker duty | Ensure it is accurate, complete, signed by the broker and delivered | Not the broker's form, but review for consistency |\n\nA cash sale has no Closing Disclosure, but it still needs a closing statement. The Commission's closing statement uses **[[debits]]** and **[[credits]]** for each party, a line for each common charge (documentary fee, recording, title premiums, taxes, HOA items, rents and security deposits, Colorado withholding, FIRPTA), and signature lines for the buyer, seller and broker.\n\n## Delivering documents\n\nColorado brokers must give **copies (duplicates) of every document they prepare** to the consumers involved when the document is prepared, and the parties must get a signed copy of the listing contract and the contract of sale. After closing, the firm keeps the closing statement and closing documents in its transaction file.\n\n## Recording\n\nColorado is a **[[race-notice]]** state (C.R.S. 38-35-109): an unrecorded deed or other instrument isn't valid against a later buyer who records first without notice of it. That is why the closing company records the deed (and the buyer's deed of trust) with the **[[County clerk and recorder|county clerk and recorder]]** right away. Two items usually travel with the deed:\n\n- **[[Documentary fee]]** — a state fee collected by the clerk and recorder when the deed is recorded: **one cent per $100 of consideration** (a \"major fraction\" of $100 counts as a full $100), with no fee when consideration is $500 or less (C.R.S. 39-13-102). On a $400,000 sale that's $40. The contract doesn't assign it to a party, so check the closing statement and local practice; don't confuse it with *local* transfer taxes, which some home-rule cities charge and which the contract lets the parties allocate.\n- **[[Real property transfer declaration]]** (form TD-1000) — filed with the deed so the assessor learns the sale price. The clerk sends it to the assessor; it is not a public record. If the grantee doesn't file it after notice, the assessor can charge a penalty.\n\n## Title insurance customs in Colorado\n\nThe contract (section 8) handles title:\n\n- If neither box is checked, the **seller selects the title company and pays for the [[owner's title insurance policy]]**, furnishing a title commitment for the purchase price.\n- The parties may instead check that the buyer selects the title company and pays for the owner's policy.\n- The buyer's lender requires a **[[lender's policy]]**, which the buyer normally pays for as a loan cost.\n- **[[Owner's extended coverage]] (OEC)** removes the standard exceptions (such as unrecorded mechanics' liens and matters a survey would show). The contract says whether OEC will be provided and who pays the extra premium; the title company may require a new survey or improvement location certificate.\n- The title company typically gets a **[[Certificate of taxes due|certificate of taxes due]]** from the county treasurer, and the contract says who pays for it.\n\n> **Exam tip:** In Colorado, a seller paying for the buyer's owner's policy is the contract default — the reverse of many other states. Remember \"seller selects, seller pays\" unless the contract says otherwise.\n\n## Withholding at closing\n\nThe closing company also handles two kinds of tax withholding from the seller's proceeds when required: federal **[[FIRPTA]]** withholding if the seller is a foreign person, and Colorado **[[Colorado nonresident withholding|nonresident withholding]]** (covered in the taxes lesson). The contract authorizes the closing company to withhold and remit.\n\n## Quick checklist for the broker\n\n1. Review the Closing Instructions and make sure they match the contract.\n2. Send the closing company accurate figures and any amendments in writing.\n3. Review the draft closing statement line by line against the contract (price, earnest money, concessions, prorations, who pays which fee).\n4. Attend closing or be reasonably available; sign the closing statement.\n5. Get the signed statement and documents to your brokerage firm right after closing.\n",
+   "body": "## Who is responsible for a Colorado closing?\n\nIn most Colorado transactions a title company (the [[closing company]]) actually runs the closing: it prepares the settlement figures, collects funds, records documents, and disburses money. That does **not** take the broker off the hook. The Commission's rule on closing responsibility puts it this way:\n\n- A broker who has a brokerage relationship with a buyer or seller (as an agent or transaction-broker) is **responsible for the proper closing** of the transaction.\n- That broker must make sure the consumer receives an **accurate, complete and detailed [[closing statement]] that is signed by the broker**.\n- The broker must **review the closing documents** and **attend the closing or be reasonably available**. If the broker can't, another broker designated by the brokerage firm may step in — and that substitute broker then shares responsibility for the accuracy, completeness and delivery of the signed statement.\n- Closing statements and other closing documents go to the **brokerage firm** right after closing for the transaction file, and the employing broker's supervisory duties still apply.\n- A broker who prepares and closes the documents personally is responsible for their accuracy and completeness.\n\nThe license law backs this up: failing to give the buyer and the seller a closing statement is a ground for discipline (C.R.S. 12-10-217(1)(j)), as is failing to account for or remit other people's money within a reasonable time.\n\n> **Exam tip:** \"The title company prepared it, so it isn't my problem\" is always the wrong answer. Hiring a closing company delegates the *work*, not the broker's *responsibility* to check the statement and see that the parties receive it.\n\n## Closing instructions\n\nThe Commission-approved **[[Closing Instructions]]** form is the engagement agreement between the parties and the closing company. Key points:\n\n- It is signed by the **buyer, the seller and the closing company**. The brokers are not parties to it, although they receive copies of required documents and statements.\n- The closing company agrees to prepare closing statements, deliver and record documents, and disburse funds (including commissions) according to the contract.\n- If party instructions conflict with the contract, the buyer and seller must sign an amendment (Agreement to Amend/Extend Contract).\n- The closing company may not release signed documents or things of value until **[[good funds]]** are received and disbursed.\n- The contract has a checkbox showing whether Closing Instructions are signed with the contract or later.\n\n## Good funds\n\nColorado's good funds law (C.R.S. 38-35-125) says a closing or settlement provider may not disburse until the funds have been received and are **available for immediate withdrawal** — wire transfers and certified, cashier's or teller's checks qualify. A personal check for a large down payment does not. The provider may advance a small amount (up to $500) for incidental items such as tax certificates and recording fees. The Commission's closing rule repeats this: a broker or firm may not disburse, or authorize disbursement, before the funds are good.\n\n## Closing statement vs. Closing Disclosure\n\n| | Closing statement (settlement statement) | [[Closing Disclosure]] |\n|---|---|---|\n| Source | Commission-approved form or closing company's statement | Federal TRID rule (CFPB) |\n| Required by | Colorado license law and Commission rule | Federal law for most consumer mortgage loans |\n| Covers | Every transaction, cash or financed | Loan terms and costs for the borrower |\n| Broker duty | Ensure it is accurate, complete, signed by the broker and delivered | Not the broker's form, but review for consistency |\n\nA cash sale has no Closing Disclosure, but it still needs a closing statement. The Commission's closing statement uses **[[debits]]** and **[[credits]]** for each party, a line for each common charge (documentary fee, recording, title premiums, taxes, HOA items, rents and security deposits, Colorado withholding, FIRPTA), and signature lines for the buyer, seller and broker.\n\n## Delivering documents\n\nColorado brokers must give **copies (duplicates) of every document they prepare** to the consumers involved when the document is prepared, and the parties must get a signed copy of the listing contract and the contract of sale. After closing, the firm keeps the closing statement and closing documents in its transaction file.\n\n## Recording\n\nColorado is a **[[race-notice]]** state (C.R.S. 38-35-109): an unrecorded deed or other instrument isn't valid against a later buyer who records first without notice of it. That is why the closing company records the deed (and the buyer's deed of trust) with the **[[County clerk and recorder|county clerk and recorder]]** right away. Two items usually travel with the deed:\n\n- **[[Documentary fee]]** — a state fee collected by the clerk and recorder when the deed is recorded: **one cent per $100 of consideration** (a \"major fraction\" of $100 counts as a full $100), with no fee when consideration is $500 or less (C.R.S. 39-13-102). On a $400,000 sale that's $40. The contract doesn't assign it to a party, so check the closing statement and local practice; don't confuse it with *local* transfer taxes, which some home-rule cities charge and which the contract lets the parties allocate.\n- **[[Real property transfer declaration]]** (form TD-1000) — filed with the deed so the assessor learns the sale price. The clerk sends it to the assessor; it is not a public record. If the grantee doesn't file it after notice, the assessor can charge a penalty.\n\n## Title insurance customs in Colorado\n\nThe contract (section 8) handles title:\n\n- If neither box is checked, the **seller selects the title company and pays for the [[owner's title insurance policy]]**, furnishing a title commitment for the purchase price.\n- The parties may instead check that the buyer selects the title company and pays for the owner's policy.\n- The buyer's lender requires a **[[lender's policy]]**, which the buyer normally pays for as a loan cost.\n- **[[Owner's extended coverage]] (OEC)** removes the standard exceptions (such as unrecorded mechanics' liens and matters a survey would show). The contract says whether OEC will be provided and who pays the extra premium; the title company may require a new survey or improvement location certificate.\n- The title company typically gets a **[[Certificate of taxes due|certificate of taxes due]]** from the county treasurer, and the contract says who pays for it.\n\n> **Exam tip:** In Colorado, a seller paying for the buyer's owner's policy is the contract default — the reverse of many other states. Remember \"seller selects, seller pays\" unless the contract says otherwise.\n\n## Withholding at closing\n\nThe closing company also handles two kinds of tax withholding from the seller's proceeds when required: federal **[[FIRPTA]]** withholding if the seller is a foreign person, and Colorado **[[Colorado nonresident withholding|nonresident withholding]]** (covered in the taxes lesson). The contract authorizes the closing company to withhold and remit.\n\n## Quick checklist for the broker\n\n1. Review the Closing Instructions and make sure they match the contract.\n2. Send the closing company accurate figures and any amendments in writing.\n3. Review the draft closing statement line by line against the contract (price, earnest money, concessions, prorations, who pays which fee).\n4. Attend closing or be reasonably available; sign the closing statement.\n5. Get the signed statement and documents to your brokerage firm right after closing.\n\n\n## Practice with the Juniper Court case\nAudit the draft against the source figures. When you finish, open the six-column workbook in *The Colorado closing worksheet* to post the corrected amounts and check that cash balances.",
    "quiz": [
     "s4-001",
     "s4-002",
@@ -1878,7 +1884,8 @@
     "s4-036",
     "s4-034",
     "s4-031",
-    "s4-032"
+    "s4-032",
+    "co17-proration"
    ],
    "drills": [
     "x-taxprorate",
@@ -2008,7 +2015,7 @@
    "topics": [
     "Closing and settlement"
    ],
-   "body": "## Why a worksheet?\n\nThe [[closing statement]] each party signs is the finished product. Before it exists, someone has to lay every number from the contract side by side and prove that the money adds up. That is the job of the **[[settlement worksheet]]** (also called a closing worksheet). The Division's outline for the 24-hour Closings course includes a **[[six-column worksheet]]**, and the Commission publishes a worksheet form with exactly that layout. On the state exam you'll get roughly ten closing and settlement questions, and most of them come down to two skills: putting an item in the right column, and doing the arithmetic.\n\n## The layout\n\nThe Commission's worksheet has a line for each item (price, earnest money, loans, payoffs, taxes, title, recording, documentary fee, HOA items, rents, deposits, withholding, brokerage fee and so on) and **three pairs of columns**:\n\n| Column pair | Debit means… | Credit means… |\n|---|---|---|\n| **Seller** | a charge that reduces what the seller walks away with | money in the seller's favor |\n| **Buyer** | a charge that increases what the buyer must bring | money or value in the buyer's favor |\n| **Broker** (reconciliation, or \"cash\") | money **received** into the closing | money **paid out** of the closing |\n\nThe broker pair is the reconciliation side. It tracks the actual cash: every check or wire that comes into the closing (earnest money, loan funds, the buyer's final payment) is a broker **[[debit]]**, and every check that goes out (loan payoffs, title premiums, recording, the brokerage fee, the seller's proceeds) is a broker **[[credit]]**. Some textbooks label this pair \"cash\" or \"closing entity,\" and you may see worksheet versions that add a separate lender pair to track loan funds and loan charges; the logic is the same.\n\n> **Exam tip:** In the broker (cash) column, think \"debit = in, credit = out.\" That's the reverse of how most people think about their own bank account, which is why it trips students up.\n\n## Double entries and single entries\n\nEvery line on the worksheet is one of two kinds.\n\n**[[Double entry]]** items move value **between the buyer and the seller**. One party is debited and the other credited by the same amount:\n\n| Item | Seller | Buyer |\n|---|---|---|\n| Purchase price | Credit | Debit |\n| Current-year taxes not yet paid ([[paid in arrears]]) | Debit | Credit |\n| Prepaid items the buyer takes over (HOA dues, fuel, lender escrow reserve on an assumed loan) | Credit | Debit |\n| Rent the seller collected for the buyer's days | Debit | Credit |\n| Tenant security deposits transferred | Debit | Credit |\n| Seller concession toward buyer's costs | Debit | Credit |\n| [[Assumed loan]] balance | Debit | Credit |\n| Accrued interest on an assumed loan | Debit | Credit |\n| [[Seller carry-back]] note | Debit | Credit |\n\nDouble entries have **no broker entry** of their own — no cash changes hands on that line; the parties are just settling up with each other. (The cash to pay the price arrives through other lines: earnest money, loan funds and the buyer's final payment.)\n\n**[[Single entry]]** items involve **one party and an outsider** (a lender, the county, the title company, a brokerage). They show up in one party's column plus the broker column when money is collected or paid:\n\n| Item | Party entry | Broker entry |\n|---|---|---|\n| Earnest money | Buyer credit | Debit (received) |\n| New loan from a lender | Buyer credit | Debit (received) |\n| [[Payoff]] of the seller's loan | Seller debit | Credit (paid out) |\n| Brokerage fee paid by seller | Seller debit | Credit |\n| Owner's title policy (contract default) | Seller debit | Credit |\n| Buyer's loan costs, lender's policy, recording the buyer's deed of trust | Buyer debit | Credit |\n| [[Documentary fee]] | Debit to whichever party pays it (see below) | Credit |\n\n> **Exam tip:** Earnest money is **never** a seller entry. The seller already gets full credit for the price; the deposit is simply part of how the buyer pays it.\n\nNot sure where an item goes? Ask **who owes whom**: the party who owes is debited, the party who is owed is credited. If the other side of the deal is an outsider, it's a single entry; if it's the other party, it's a double entry. The lesson *Prorations and settlement math* walks through this with a flowchart, including which way each kind of proration goes.\n\n### Why the new loan and the payoff are single entries\n\nThe buyer's new loan comes from a lender, not from the seller, so it's a buyer credit only. The seller's old loan is paid to the seller's lender, so it's a seller debit only. Two different loans, two different parties — no double entry.\n\nCompare that with an **[[assumption]]** or a **[[carry-back]]**. In both, the seller accepts something other than cash for part of the price — the buyer's promise to keep paying the seller's lender, or the buyer's note payable to the seller. That reduces the cash the seller receives (seller debit) and reduces the cash the buyer must bring (buyer credit). No money moves, so there's no broker entry.\n\n## Who pays what in Colorado\n\nThe contract and closing instructions control. Absent other terms, these are the Colorado points worth knowing:\n\n- **[[Owner's title insurance policy|Owner's title policy]]:** under the Commission's residential contract, if neither box is checked, the **seller** selects the title company and pays for the [[owner's title insurance policy]]. The buyer pays for the lender's policy as a loan cost.\n- **[[Documentary fee]]:** state law imposes the fee on the person who offers the deed for recording — one cent per $100 of consideration (a major fraction of $100 counts as $100), with nothing due at $500 or less. The Commission's contract doesn't assign it to either party, and the worksheet form only gives it a line. Practice varies, so a well-written problem tells you who pays; debit that party and credit the cash column.\n- **[[Property tax|Property taxes]]:** Colorado taxes are **[[paid in arrears]]** — a year's taxes come due January 1 of the next year. At most closings the current year is unpaid, so the seller's share is a **seller debit, buyer credit**. Any unpaid *prior*-year taxes are a seller debit paid to the county treasurer (broker credit).\n- **[[Closing fee]]:** the contract has the parties choose buyer, seller, or a split.\n- **[[Status letter]] fee:** the seller pays it under the contract.\n- **[[Brokerage fee|Brokerage fees]]:** paid as the listing contract and the contract direct.\n\n## Making it balance\n\nWhen every line is entered:\n\n1. Total the **seller** debits and credits. Credits minus debits = **[[balance due to seller]]**. Enter that figure as a **seller debit** (so the seller columns balance) and a **broker credit** (the closing pays it out).\n2. Total the **buyer** debits and credits. Debits minus credits = **[[balance due from buyer]]** (cash to close). Enter it as a **buyer credit** and a **broker debit** (the closing receives it).\n3. Now each pair must balance: seller debits = seller credits, buyer debits = buyer credits, and broker receipts = broker disbursements.\n\nIf the broker column doesn't balance, something was posted to a party but not to cash (or the reverse). Common culprits: forgetting the earnest money as a receipt, or entering a payoff as a seller debit but not as a disbursement.\n\n> **Exam tip:** The broker column can't balance unless every dollar received has a matching dollar paid out. A gap equal to one line item usually means that line is missing its broker entry.\n\n## The worksheet and the Closing Disclosure\n\nOn a financed home purchase, the lender's [[Closing Disclosure]] (the federal TRID form) also shows the buyer's costs, and a seller's version shows the seller's costs. It does **not** replace the Colorado closing statement:\n\n- The Closing Disclosure covers the **loan** and is driven by federal lending rules. A cash sale has no Closing Disclosure, but still needs a Colorado closing statement.\n- Colorado license law requires the purchaser and seller to get a closing statement (C.R.S. 12-10-217), and Commission rules make the broker who works with a party responsible for seeing that the party gets an accurate, complete and detailed closing statement **signed by the broker**. Nothing in those rules lets the lender's Closing Disclosure stand in for it.\n- In practice you compare them: loan amount, lender charges, cash to close and the seller credits on the Closing Disclosure should match the closing statement. A mismatch is a red flag to resolve before closing.\n\n## Quick check\n\n- Same amount on both parties' sides → double entry, usually no cash entry.\n- One party plus an outside payee or source → single entry, with a broker entry.\n- Balance due to seller: seller debit + broker credit.\n- Balance due from buyer: buyer credit + broker debit.\n",
+   "body": "## Why a worksheet?\n\nThe [[closing statement]] each party signs is the finished product. Before it exists, someone has to lay every number from the contract side by side and prove that the money adds up. That is the job of the **[[settlement worksheet]]** (also called a closing worksheet). The Division's outline for the 24-hour Closings course includes a **[[six-column worksheet]]**, and the Commission publishes a worksheet form with exactly that layout. On the state exam you'll get roughly ten closing and settlement questions, and most of them come down to two skills: putting an item in the right column, and doing the arithmetic.\n\n## The layout\n\nThe Commission's worksheet has a line for each item (price, earnest money, loans, payoffs, taxes, title, recording, documentary fee, HOA items, rents, deposits, withholding, brokerage fee and so on) and **three pairs of columns**:\n\n| Column pair | Debit means… | Credit means… |\n|---|---|---|\n| **Seller** | a charge that reduces what the seller walks away with | money in the seller's favor |\n| **Buyer** | a charge that increases what the buyer must bring | money or value in the buyer's favor |\n| **Broker** (reconciliation, or \"cash\") | money **received** into the closing | money **paid out** of the closing |\n\nThe broker pair is the reconciliation side. It tracks the actual cash: every check or wire that comes into the closing (earnest money, loan funds, the buyer's final payment) is a broker **[[debit]]**, and every check that goes out (loan payoffs, title premiums, recording, the brokerage fee, the seller's proceeds) is a broker **[[credit]]**. Some textbooks label this pair \"cash\" or \"closing entity,\" and you may see worksheet versions that add a separate lender pair to track loan funds and loan charges; the logic is the same.\n\n> **Exam tip:** In the broker (cash) column, think \"debit = in, credit = out.\" That's the reverse of how most people think about their own bank account, which is why it trips students up.\n\n## Double entries and single entries\n\nEvery line on the worksheet is one of two kinds.\n\n**[[Double entry]]** items move value **between the buyer and the seller**. One party is debited and the other credited by the same amount:\n\n| Item | Seller | Buyer |\n|---|---|---|\n| Purchase price | Credit | Debit |\n| Current-year taxes not yet paid ([[paid in arrears]]) | Debit | Credit |\n| Prepaid items the buyer takes over (HOA dues, fuel, lender escrow reserve on an assumed loan) | Credit | Debit |\n| Rent the seller collected for the buyer's days | Debit | Credit |\n| Tenant security deposits transferred | Debit | Credit |\n| Seller concession toward buyer's costs | Debit | Credit |\n| [[Assumed loan]] balance | Debit | Credit |\n| Accrued interest on an assumed loan | Debit | Credit |\n| [[Seller carry-back]] note | Debit | Credit |\n\nDouble entries have **no broker entry** of their own — no cash changes hands on that line; the parties are just settling up with each other. (The cash to pay the price arrives through other lines: earnest money, loan funds and the buyer's final payment.)\n\n**[[Single entry]]** items involve **one party and an outsider** (a lender, the county, the title company, a brokerage). They show up in one party's column plus the broker column when money is collected or paid:\n\n| Item | Party entry | Broker entry |\n|---|---|---|\n| Earnest money | Buyer credit | Debit (received) |\n| New loan from a lender | Buyer credit | Debit (received) |\n| [[Payoff]] of the seller's loan | Seller debit | Credit (paid out) |\n| Brokerage fee paid by seller | Seller debit | Credit |\n| Owner's title policy (contract default) | Seller debit | Credit |\n| Buyer's loan costs, lender's policy, recording the buyer's deed of trust | Buyer debit | Credit |\n| [[Documentary fee]] | Debit to whichever party pays it (see below) | Credit |\n\n> **Exam tip:** Earnest money is **never** a seller entry. The seller already gets full credit for the price; the deposit is simply part of how the buyer pays it.\n\nNot sure where an item goes? Ask **who owes whom**: the party who owes is debited, the party who is owed is credited. If the other side of the deal is an outsider, it's a single entry; if it's the other party, it's a double entry. The lesson *Prorations and settlement math* walks through this with a flowchart, including which way each kind of proration goes.\n\n### Why the new loan and the payoff are single entries\n\nThe buyer's new loan comes from a lender, not from the seller, so it's a buyer credit only. The seller's old loan is paid to the seller's lender, so it's a seller debit only. Two different loans, two different parties — no double entry.\n\nCompare that with an **[[assumption]]** or a **[[carry-back]]**. In both, the seller accepts something other than cash for part of the price — the buyer's promise to keep paying the seller's lender, or the buyer's note payable to the seller. That reduces the cash the seller receives (seller debit) and reduces the cash the buyer must bring (buyer credit). No money moves, so there's no broker entry.\n\n## Who pays what in Colorado\n\nThe contract and closing instructions control. Absent other terms, these are the Colorado points worth knowing:\n\n- **[[Owner's title insurance policy|Owner's title policy]]:** under the Commission's residential contract, if neither box is checked, the **seller** selects the title company and pays for the [[owner's title insurance policy]]. The buyer pays for the lender's policy as a loan cost.\n- **[[Documentary fee]]:** state law imposes the fee on the person who offers the deed for recording — one cent per $100 of consideration (a major fraction of $100 counts as $100), with nothing due at $500 or less. The Commission's contract doesn't assign it to either party, and the worksheet form only gives it a line. Practice varies, so a well-written problem tells you who pays; debit that party and credit the cash column.\n- **[[Property tax|Property taxes]]:** Colorado taxes are **[[paid in arrears]]** — a year's taxes come due January 1 of the next year. At most closings the current year is unpaid, so the seller's share is a **seller debit, buyer credit**. Any unpaid *prior*-year taxes are a seller debit paid to the county treasurer (broker credit).\n- **[[Closing fee]]:** the contract has the parties choose buyer, seller, or a split.\n- **[[Status letter]] fee:** the seller pays it under the contract.\n- **[[Brokerage fee|Brokerage fees]]:** paid as the listing contract and the contract direct.\n\n## Making it balance\n\nWhen every line is entered:\n\n1. Total the **seller** debits and credits. Credits minus debits = **[[balance due to seller]]**. Enter that figure as a **seller debit** (so the seller columns balance) and a **broker credit** (the closing pays it out).\n2. Total the **buyer** debits and credits. Debits minus credits = **[[balance due from buyer]]** (cash to close). Enter it as a **buyer credit** and a **broker debit** (the closing receives it).\n3. Now each pair must balance: seller debits = seller credits, buyer debits = buyer credits, and broker receipts = broker disbursements.\n\nIf the broker column doesn't balance, something was posted to a party but not to cash (or the reverse). Common culprits: forgetting the earnest money as a receipt, or entering a payoff as a seller debit but not as a disbursement.\n\n> **Exam tip:** The broker column can't balance unless every dollar received has a matching dollar paid out. A gap equal to one line item usually means that line is missing its broker entry.\n\n## The worksheet and the Closing Disclosure\n\nOn a financed home purchase, the lender's [[Closing Disclosure]] (the federal TRID form) also shows the buyer's costs, and a seller's version shows the seller's costs. It does **not** replace the Colorado closing statement:\n\n- The Closing Disclosure covers the **loan** and is driven by federal lending rules. A cash sale has no Closing Disclosure, but still needs a Colorado closing statement.\n- Colorado license law requires the purchaser and seller to get a closing statement (C.R.S. 12-10-217), and Commission rules make the broker who works with a party responsible for seeing that the party gets an accurate, complete and detailed closing statement **signed by the broker**. Nothing in those rules lets the lender's Closing Disclosure stand in for it.\n- In practice you compare them: loan amount, lender charges, cash to close and the seller credits on the Closing Disclosure should match the closing statement. A mismatch is a red flag to resolve before closing.\n\n## Quick check\n\n- Same amount on both parties' sides → double entry, usually no cash entry.\n- One party plus an outside payee or source → single entry, with a broker entry.\n- Balance due to seller: seller debit + broker credit.\n- Balance due from buyer: buyer credit + broker debit.\n\n\n## Juniper Court workbook\nOpen the linked workbook. The protected source figures are in rows 17–27. Work across the seller, buyer and broker pairs in rows 2–12. Use references or named ranges for formulas. Leave unused posting cells blank. In row 13, total each column. In B14, D14 and F14, calculate each pair’s debit less credit. Use **Grade assignment** to check the workbook. Amounts are fictional dollars.",
    "quiz": [
     "g3-002",
     "g3-005",
@@ -2025,7 +2032,9 @@
     "g3-014",
     "g3-015",
     "g3-022",
-    "g3-024"
+    "g3-024",
+    "co17-earnest",
+    "co17-cash"
    ],
    "drills": [
     "g3-x-buyer-cash-newloan",
@@ -2045,7 +2054,7 @@
    "topics": [
     "Closing and settlement"
    ],
-   "body": "## How to read these examples\n\nEach example is a full six-column [[settlement worksheet]]. Conventions, unless a problem says otherwise:\n\n- The **buyer owns the day of closing**. The Colorado contract prorates to the closing date; exam problems will tell you which party gets the closing day, so read for it.\n- Taxes are prorated on **last year's bill** and a **365-day year**; Colorado taxes are [[paid in arrears]], so the seller's share is a seller debit and buyer credit.\n- Rents, HOA dues and loan interest use a **30-day month**.\n- The broker pair is the cash column: **debit = money in, credit = money out**.\n- Figures are made up for practice. Fee amounts are round illustrations, not current Colorado prices.\n\n## Example A: Conventional sale with a new loan\n\n**Facts.** Price $450,000; closing June 15 (not a leap year). Buyer deposited $10,000 [[earnest money]] and gets a new 80% loan of $360,000. Seller's [[payoff]] is $212,400. Last year's taxes were $2,920. The seller prepaid June HOA dues of $270. Brokerage fee 5% paid by the seller; owner's title policy $1,450 (seller, contract default); closing fee $600 split; recording $80 and lender charges and prepaids $6,150 paid by the buyer; [[documentary fee]] charged to the buyer.\n\n**Calculations.**\n\n- Taxes: $2,920 ÷ 365 = $8.00 a day. Seller owns January 1–June 14 = 165 days. 165 × $8 = **$1,320** (debit seller, credit buyer).\n- HOA: $270 ÷ 30 = $9 a day. Buyer owns June 15–30 = 16 days. 16 × $9 = **$144** (credit seller, debit buyer).\n- Brokerage fee: $450,000 × 5% = **$22,500**. Documentary fee: 4,500 × $0.01 = **$45**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $450,000 | $450,000 |  |  |  |\n| Earnest money |  |  |  | $10,000 | $10,000 |  |\n| New first loan |  |  |  | $360,000 | $360,000 |  |\n| Payoff of seller's loan | $212,400 |  |  |  |  | $212,400 |\n| Current-year taxes (seller's 165 days) | $1,320 |  |  | $1,320 |  |  |\n| HOA dues prepaid by seller (16 days) |  | $144 | $144 |  |  |  |\n| Brokerage fee (5%) | $22,500 |  |  |  |  | $22,500 |\n| Owner's title policy | $1,450 |  |  |  |  | $1,450 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $45 |  |  | $45 |\n| Recording (deed and deed of trust) |  |  | $80 |  |  | $80 |\n| Lender's charges and prepaids |  |  | $6,150 |  |  | $6,150 |\n| **[[Balance due to seller]]** | $212,174 |  |  |  |  | $212,174 |\n| **[[Balance due from buyer]]** |  |  |  | $85,399 | $85,399 |  |\n| **Totals** | **$450,144** | **$450,144** | **$456,719** | **$456,719** | **$455,399** | **$455,399** |\n\n**Check.** Seller credits $450,144 − seller debits $237,970 = **$212,174 to the seller**. Buyer debits $456,719 − buyer credits $371,320 = **$85,399 due from the buyer**. Cash in: $10,000 + $360,000 + $85,399 = $455,399; cash out adds to the same $455,399. Every pair balances.\n\n> **Exam tip:** The loan payoff and the new loan never appear on the same party's side. The payoff is seller-only; the new loan is buyer-only.\n\n## Example B: Sale with a [[loan assumption]]\n\n**Facts.** Price $380,000; closing September 11. Buyer deposited $15,000 and assumes the seller's loan, which has a balance of $228,000 at 4.5% after the September 1 payment. Interest is **[[paid in arrears]]**: the September 1 payment covered August's interest, so September's interest will be paid by the buyer on October 1. The seller's lender escrow account holds $1,860, which transfers to the buyer. Last year's taxes $3,285. Buyer pays a $900 assumption fee; brokerage fee 5% (seller); owner's policy $1,300 (seller); closing fee $500 split; recording $40 and documentary fee charged to the buyer.\n\n**Calculations.**\n\n- Assumed loan: **$228,000** debit seller, credit buyer. No cash moves.\n- Interest: $228,000 × 4.5% ÷ 12 = $855 a month; ÷ 30 = $28.50 a day. Seller owns September 1–10 = 10 days → **$285** (debit seller, credit buyer — the buyer will pay the seller's 10 days on October 1).\n- Escrow reserve: **$1,860** credit seller, debit buyer (the seller funded it; the buyer gets the benefit).\n- Taxes: $3,285 ÷ 365 = $9 a day. Seller owns January 1–September 10 = 253 days → **$2,277** (debit seller, credit buyer).\n- Brokerage fee $19,000; documentary fee 3,800 × $0.01 = **$38**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $380,000 | $380,000 |  |  |  |\n| Earnest money |  |  |  | $15,000 | $15,000 |  |\n| Loan assumed by buyer | $228,000 |  |  | $228,000 |  |  |\n| Interest on assumed loan, Sept. 1-10 | $285 |  |  | $285 |  |  |\n| Lender's escrow reserve transferred |  | $1,860 | $1,860 |  |  |  |\n| Current-year taxes (seller's 253 days) | $2,277 |  |  | $2,277 |  |  |\n| Assumption fee to lender |  |  | $900 |  |  | $900 |\n| Brokerage fee (5%) | $19,000 |  |  |  |  | $19,000 |\n| Owner's title policy | $1,300 |  |  |  |  | $1,300 |\n| Closing fee (split) | $250 |  | $250 |  |  | $500 |\n| Documentary fee |  |  | $38 |  |  | $38 |\n| Recording (deed) |  |  | $40 |  |  | $40 |\n| **[[Balance due to seller]]** | $130,748 |  |  |  |  | $130,748 |\n| **[[Balance due from buyer]]** |  |  |  | $137,526 | $137,526 |  |\n| **Totals** | **$381,860** | **$381,860** | **$383,088** | **$383,088** | **$152,526** | **$152,526** |\n\n**Check.** Seller: $381,860 − $251,112 = **$130,748 to the seller**. Buyer: $383,088 − $245,562 = **$137,526 due from the buyer**. Cash in: $15,000 + $137,526 = $152,526, matching total cash out.\n\nNotice how small the cash flow is compared with the price. Because the buyer takes over the loan instead of paying it off, $228,000 of the price is settled by a double entry with no money moving.\n\n> **Exam tip:** Accrued interest on an assumed loan works like taxes in arrears: the seller used the money, the buyer will pay the bill, so **debit seller, credit buyer**.\n\n## Example C: New loan plus a [[seller carry-back]]\n\n**Facts.** A rental home sells for $520,000; closing April 20. Buyer deposited $20,000, gets a new first loan of $416,000 (80%), and the seller carries back a second-lien note of $52,000 (10%). Seller's payoff is $180,000. Last year's taxes $4,380. The seller collected April's rent of $2,400 and holds a $2,400 security deposit; the lease is assigned to the buyer. Brokerage fee 5% (seller); owner's policy $1,600 (seller); closing fee $600 split; buyer pays recording of $95, lender charges and prepaids of $7,400, and the documentary fee.\n\n**Calculations.**\n\n- Carry-back note: **$52,000** debit seller, credit buyer. The seller takes a note instead of cash.\n- Taxes: $4,380 ÷ 365 = $12 a day. Seller owns January 1–April 19 = 109 days → **$1,308** (debit seller, credit buyer).\n- Rent: $2,400 ÷ 30 = $80 a day. Buyer owns April 20–30 = 11 days → **$880** (debit seller, credit buyer).\n- Security deposit: transferred in full, **$2,400** debit seller, credit buyer — it isn't prorated.\n- Brokerage fee $26,000; documentary fee 5,200 × $0.01 = **$52** (on the full price, not the cash).\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $520,000 | $520,000 |  |  |  |\n| Earnest money |  |  |  | $20,000 | $20,000 |  |\n| New first loan (80%) |  |  |  | $416,000 | $416,000 |  |\n| Seller carry-back note (10%) | $52,000 |  |  | $52,000 |  |  |\n| Payoff of seller's loan | $180,000 |  |  |  |  | $180,000 |\n| Current-year taxes (seller's 109 days) | $1,308 |  |  | $1,308 |  |  |\n| April rent collected by seller (11 days) | $880 |  |  | $880 |  |  |\n| Tenant's security deposit | $2,400 |  |  | $2,400 |  |  |\n| Brokerage fee (5%) | $26,000 |  |  |  |  | $26,000 |\n| Owner's title policy | $1,600 |  |  |  |  | $1,600 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $52 |  |  | $52 |\n| Recording (deed and two deeds of trust) |  |  | $95 |  |  | $95 |\n| Lender's charges and prepaids |  |  | $7,400 |  |  | $7,400 |\n| **[[Balance due to seller]]** | $255,512 |  |  |  |  | $255,512 |\n| **[[Balance due from buyer]]** |  |  |  | $35,259 | $35,259 |  |\n| **Totals** | **$520,000** | **$520,000** | **$527,847** | **$527,847** | **$471,259** | **$471,259** |\n\n**Check.** Seller: $520,000 − $264,488 = **$255,512 to the seller**. Buyer: $527,847 − $492,588 = **$35,259 due from the buyer**. Cash in: $20,000 + $416,000 + $35,259 = $471,259, matching cash out.\n\nThe seller's total benefit is the $255,512 in cash **plus** a $52,000 note that pays over time. Only the cash shows up as proceeds at closing.\n\n## A five-step method for any problem\n\n1. **List every item** in the facts, including ones that are easy to overlook (earnest money, the price, and the documentary fee charged to whichever party the problem names).\n2. **Classify** each: between the parties (double entry) or with an outsider (single entry)?\n3. **Compute** prorations with the day count and closing-day rule the question gives you.\n4. **Total each party's side** and find the balance due to seller and from buyer.\n5. **Check the cash column.** Receipts must equal disbursements. If they don't, look for a line missing its broker entry.\n\n> **Exam tip:** Many exam questions only ask for one number, such as cash to close. You don't need the whole worksheet: buyer's debits minus buyer's credits gives the buyer's cash, and seller's credits minus seller's debits gives the seller's net. Just don't miss a line.\n",
+   "body": "## How to read these examples\n\nEach example is a full six-column [[settlement worksheet]]. Conventions, unless a problem says otherwise:\n\n- The **buyer owns the day of closing**. The Colorado contract prorates to the closing date; exam problems will tell you which party gets the closing day, so read for it.\n- Taxes are prorated on **last year's bill** and a **365-day year**; Colorado taxes are [[paid in arrears]], so the seller's share is a seller debit and buyer credit.\n- Rents, HOA dues and loan interest use a **30-day month**.\n- The broker pair is the cash column: **debit = money in, credit = money out**.\n- Figures are made up for practice. Fee amounts are round illustrations, not current Colorado prices.\n\n## Example A: Conventional sale with a new loan\n\n**Facts.** Price $450,000; closing June 15 (not a leap year). Buyer deposited $10,000 [[earnest money]] and gets a new 80% loan of $360,000. Seller's [[payoff]] is $212,400. Last year's taxes were $2,920. The seller prepaid June HOA dues of $270. Brokerage fee 5% paid by the seller; owner's title policy $1,450 (seller, contract default); closing fee $600 split; recording $80 and lender charges and prepaids $6,150 paid by the buyer; [[documentary fee]] charged to the buyer.\n\n**Calculations.**\n\n- Taxes: $2,920 ÷ 365 = $8.00 a day. Seller owns January 1–June 14 = 165 days. 165 × $8 = **$1,320** (debit seller, credit buyer).\n- HOA: $270 ÷ 30 = $9 a day. Buyer owns June 15–30 = 16 days. 16 × $9 = **$144** (credit seller, debit buyer).\n- Brokerage fee: $450,000 × 5% = **$22,500**. Documentary fee: 4,500 × $0.01 = **$45**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $450,000 | $450,000 |  |  |  |\n| Earnest money |  |  |  | $10,000 | $10,000 |  |\n| New first loan |  |  |  | $360,000 | $360,000 |  |\n| Payoff of seller's loan | $212,400 |  |  |  |  | $212,400 |\n| Current-year taxes (seller's 165 days) | $1,320 |  |  | $1,320 |  |  |\n| HOA dues prepaid by seller (16 days) |  | $144 | $144 |  |  |  |\n| Brokerage fee (5%) | $22,500 |  |  |  |  | $22,500 |\n| Owner's title policy | $1,450 |  |  |  |  | $1,450 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $45 |  |  | $45 |\n| Recording (deed and deed of trust) |  |  | $80 |  |  | $80 |\n| Lender's charges and prepaids |  |  | $6,150 |  |  | $6,150 |\n| **[[Balance due to seller]]** | $212,174 |  |  |  |  | $212,174 |\n| **[[Balance due from buyer]]** |  |  |  | $85,399 | $85,399 |  |\n| **Totals** | **$450,144** | **$450,144** | **$456,719** | **$456,719** | **$455,399** | **$455,399** |\n\n**Check.** Seller credits $450,144 − seller debits $237,970 = **$212,174 to the seller**. Buyer debits $456,719 − buyer credits $371,320 = **$85,399 due from the buyer**. Cash in: $10,000 + $360,000 + $85,399 = $455,399; cash out adds to the same $455,399. Every pair balances.\n\n> **Exam tip:** The loan payoff and the new loan never appear on the same party's side. The payoff is seller-only; the new loan is buyer-only.\n\n## Example B: Sale with a [[loan assumption]]\n\n**Facts.** Price $380,000; closing September 11. Buyer deposited $15,000 and assumes the seller's loan, which has a balance of $228,000 at 4.5% after the September 1 payment. Interest is **[[paid in arrears]]**: the September 1 payment covered August's interest, so September's interest will be paid by the buyer on October 1. The seller's lender escrow account holds $1,860, which transfers to the buyer. Last year's taxes $3,285. Buyer pays a $900 assumption fee; brokerage fee 5% (seller); owner's policy $1,300 (seller); closing fee $500 split; recording $40 and documentary fee charged to the buyer.\n\n**Calculations.**\n\n- Assumed loan: **$228,000** debit seller, credit buyer. No cash moves.\n- Interest: $228,000 × 4.5% ÷ 12 = $855 a month; ÷ 30 = $28.50 a day. Seller owns September 1–10 = 10 days → **$285** (debit seller, credit buyer — the buyer will pay the seller's 10 days on October 1).\n- Escrow reserve: **$1,860** credit seller, debit buyer (the seller funded it; the buyer gets the benefit).\n- Taxes: $3,285 ÷ 365 = $9 a day. Seller owns January 1–September 10 = 253 days → **$2,277** (debit seller, credit buyer).\n- Brokerage fee $19,000; documentary fee 3,800 × $0.01 = **$38**.\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $380,000 | $380,000 |  |  |  |\n| Earnest money |  |  |  | $15,000 | $15,000 |  |\n| Loan assumed by buyer | $228,000 |  |  | $228,000 |  |  |\n| Interest on assumed loan, Sept. 1-10 | $285 |  |  | $285 |  |  |\n| Lender's escrow reserve transferred |  | $1,860 | $1,860 |  |  |  |\n| Current-year taxes (seller's 253 days) | $2,277 |  |  | $2,277 |  |  |\n| Assumption fee to lender |  |  | $900 |  |  | $900 |\n| Brokerage fee (5%) | $19,000 |  |  |  |  | $19,000 |\n| Owner's title policy | $1,300 |  |  |  |  | $1,300 |\n| Closing fee (split) | $250 |  | $250 |  |  | $500 |\n| Documentary fee |  |  | $38 |  |  | $38 |\n| Recording (deed) |  |  | $40 |  |  | $40 |\n| **[[Balance due to seller]]** | $130,748 |  |  |  |  | $130,748 |\n| **[[Balance due from buyer]]** |  |  |  | $137,526 | $137,526 |  |\n| **Totals** | **$381,860** | **$381,860** | **$383,088** | **$383,088** | **$152,526** | **$152,526** |\n\n**Check.** Seller: $381,860 − $251,112 = **$130,748 to the seller**. Buyer: $383,088 − $245,562 = **$137,526 due from the buyer**. Cash in: $15,000 + $137,526 = $152,526, matching total cash out.\n\nNotice how small the cash flow is compared with the price. Because the buyer takes over the loan instead of paying it off, $228,000 of the price is settled by a double entry with no money moving.\n\n> **Exam tip:** Accrued interest on an assumed loan works like taxes in arrears: the seller used the money, the buyer will pay the bill, so **debit seller, credit buyer**.\n\n## Example C: New loan plus a [[seller carry-back]]\n\n**Facts.** A rental home sells for $520,000; closing April 20. Buyer deposited $20,000, gets a new first loan of $416,000 (80%), and the seller carries back a second-lien note of $52,000 (10%). Seller's payoff is $180,000. Last year's taxes $4,380. The seller collected April's rent of $2,400 and holds a $2,400 security deposit; the lease is assigned to the buyer. Brokerage fee 5% (seller); owner's policy $1,600 (seller); closing fee $600 split; buyer pays recording of $95, lender charges and prepaids of $7,400, and the documentary fee.\n\n**Calculations.**\n\n- Carry-back note: **$52,000** debit seller, credit buyer. The seller takes a note instead of cash.\n- Taxes: $4,380 ÷ 365 = $12 a day. Seller owns January 1–April 19 = 109 days → **$1,308** (debit seller, credit buyer).\n- Rent: $2,400 ÷ 30 = $80 a day. Buyer owns April 20–30 = 11 days → **$880** (debit seller, credit buyer).\n- Security deposit: transferred in full, **$2,400** debit seller, credit buyer — it isn't prorated.\n- Brokerage fee $26,000; documentary fee 5,200 × $0.01 = **$52** (on the full price, not the cash).\n\n| Line | Seller debit | Seller credit | Buyer debit | Buyer credit | Broker debit (in) | Broker credit (out) |\n|---|---:|---:|---:|---:|---:|---:|\n| Purchase price |  | $520,000 | $520,000 |  |  |  |\n| Earnest money |  |  |  | $20,000 | $20,000 |  |\n| New first loan (80%) |  |  |  | $416,000 | $416,000 |  |\n| Seller carry-back note (10%) | $52,000 |  |  | $52,000 |  |  |\n| Payoff of seller's loan | $180,000 |  |  |  |  | $180,000 |\n| Current-year taxes (seller's 109 days) | $1,308 |  |  | $1,308 |  |  |\n| April rent collected by seller (11 days) | $880 |  |  | $880 |  |  |\n| Tenant's security deposit | $2,400 |  |  | $2,400 |  |  |\n| Brokerage fee (5%) | $26,000 |  |  |  |  | $26,000 |\n| Owner's title policy | $1,600 |  |  |  |  | $1,600 |\n| Closing fee (split) | $300 |  | $300 |  |  | $600 |\n| Documentary fee |  |  | $52 |  |  | $52 |\n| Recording (deed and two deeds of trust) |  |  | $95 |  |  | $95 |\n| Lender's charges and prepaids |  |  | $7,400 |  |  | $7,400 |\n| **[[Balance due to seller]]** | $255,512 |  |  |  |  | $255,512 |\n| **[[Balance due from buyer]]** |  |  |  | $35,259 | $35,259 |  |\n| **Totals** | **$520,000** | **$520,000** | **$527,847** | **$527,847** | **$471,259** | **$471,259** |\n\n**Check.** Seller: $520,000 − $264,488 = **$255,512 to the seller**. Buyer: $527,847 − $492,588 = **$35,259 due from the buyer**. Cash in: $20,000 + $416,000 + $35,259 = $471,259, matching cash out.\n\nThe seller's total benefit is the $255,512 in cash **plus** a $52,000 note that pays over time. Only the cash shows up as proceeds at closing.\n\n## A five-step method for any problem\n\n1. **List every item** in the facts, including ones that are easy to overlook (earnest money, the price, and the documentary fee charged to whichever party the problem names).\n2. **Classify** each: between the parties (double entry) or with an outsider (single entry)?\n3. **Compute** prorations with the day count and closing-day rule the question gives you.\n4. **Total each party's side** and find the balance due to seller and from buyer.\n5. **Check the cash column.** Receipts must equal disbursements. If they don't, look for a line missing its broker entry.\n\n> **Exam tip:** Many exam questions only ask for one number, such as cash to close. You don't need the whole worksheet: buyer's debits minus buyer's credits gives the buyer's cash, and seller's credits minus seller's debits gives the seller's net. Just don't miss a line.\n\n\n## Explain a closing review\nIf studying with a supervising adult, ask them to assign one version of the linked closing review assessment. Show the buyer totals and explain the cash entries using the supplied case facts. The written or spoken explanation is reviewed separately from the timed mock exam.",
    "quiz": [
     "g3-010",
     "g3-013",
@@ -2055,7 +2064,8 @@
     "g3-019",
     "g3-020",
     "g3-021",
-    "h8-006"
+    "h8-006",
+    "co17-payoff"
    ],
    "drills": [
     "g3-x-buyer-cash-newloan",
@@ -15206,6 +15216,166 @@
       2
      ],
      "explanation": "Colorado withholds the lesser of 2% of the price ($6,000) or the seller's net proceeds ($4,500), so $4,500, not the sum of the two. U.S. citizenship matters for FIRPTA, not Colorado withholding, which turns on residency."
+    },
+    {
+     "id": "co17-extension",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "The executed Juniper Court agreement sets inspection objection for April 13. A draft extension proposes April 17 and has no signatures. There is no other agreement to extend. Which date should the broker track as operative?",
+     "choices": [
+      "April 17, because it is the latest draft",
+      "April 13, as stated in the executed agreement",
+      "April 16, the inspection resolution deadline",
+      "May 1, the closing date"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The executed agreement controls under these facts. The unsigned proposal does not extend the objection deadline."
+    },
+    {
+     "id": "co17-title",
+     "section": "state",
+     "topic": "Colorado contracts and forms",
+     "stem": "The Juniper Court file states a title objection cutoff of April 15. An unsigned draft extends only inspection dates. A recorded easement may affect the buyer’s proposed workshop. What is the appropriate next step?",
+     "choices": [
+      "Assume the inspection draft also extends title",
+      "Confirm the workshop will be allowed from the buyer’s sketch",
+      "Flag the April 15 cutoff, obtain the easement instrument and confirm the buyer’s directions",
+      "Wait until closing to review the recorded instrument"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Title and inspection use separate deadlines under the agreement. The broker should flag the issue and verify sources before the existing title cutoff."
+    },
+    {
+     "id": "co17-proration",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "Juniper Court closes May 1 in a 365-day year. Buyer owns the closing day, the seller’s share spans 120 days, and unpaid annual tax is $3,650. How should the $1,200 proration be posted?",
+     "choices": [
+      "Buyer debit and seller credit",
+      "Seller debit and broker cash credit",
+      "Buyer credit and broker cash debit",
+      "Seller debit and buyer credit"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The seller owes 120 × ($3,650 ÷ 365) = $1,200. The adjustment transfers value from seller to buyer, with no broker cash movement on that row."
+    },
+    {
+     "id": "co17-earnest",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "At Juniper Court closing, $12,000 held in trust is transferred into closing for the buyer. Which entries post the deposit?",
+     "choices": [
+      "Seller credit and buyer debit",
+      "Buyer credit and broker cash debit",
+      "Buyer debit and broker cash credit",
+      "Seller debit and broker cash debit"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The buyer gets credit for funds already deposited. Closing receives the transferred cash, a broker cash debit in this worksheet."
+    },
+    {
+     "id": "co17-cash",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "Juniper Court buyer debits before the final payment total $482,060 and buyer credits total $397,200. What should be posted for the buyer’s final payment?",
+     "choices": [
+      "$84,860 buyer credit and broker cash debit",
+      "$84,860 buyer debit and broker cash credit",
+      "$84,860 seller credit and broker cash debit",
+      "$879,260 buyer credit and broker cash debit"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Debits less credits gives $84,860 due from the buyer. The balancing entry credits the buyer and records the cash receipt."
+    },
+    {
+     "id": "co17-reconcile",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "The bank statement shows $6,500, a $12,000 deposit is in transit, and a $2,000 refund check is outstanding. What adjusted bank balance should be compared with the trust journal and client ledgers?",
+     "choices": [
+      "$4,500",
+      "$16,500",
+      "$18,500",
+      "$20,500"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Add the uncleared deposit and subtract the outstanding check. The result is $6,500 + $12,000 − $2,000 = $16,500."
+    },
+    {
+     "id": "co17-ledgers",
+     "section": "state",
+     "topic": "Trust accounts and records",
+     "stem": "The adjusted bank balance and trust journal each show $16,500. The two recorded client ledgers total $16,400. What does the three-way reconciliation show?",
+     "choices": [
+      "It balances because the bank and journal agree",
+      "It balances because the difference is below $500",
+      "It is $100 out of balance and the ledger difference must be traced",
+      "Add a $100 entry without identifying a source"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "All three balances must agree on the same date. Compare the transaction details to find the $100 discrepancy and record any supported correction."
+    },
+    {
+     "id": "co17-hoa",
+     "section": "national",
+     "topic": "Real estate math",
+     "stem": "A seller prepaid $310 for the month of May. The buyer owns the property for all of May under the exercise terms and reimburses the seller at closing. What is the adjustment?",
+     "choices": [
+      "$310 buyer debit and seller credit",
+      "$310 seller debit and buyer credit",
+      "$155 buyer debit and seller credit",
+      "No adjustment because the dues were paid"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The buyer owes the seller for the full prepaid period assigned to the buyer."
+    },
+    {
+     "id": "co17-counter",
+     "section": "national",
+     "topic": "Contracts",
+     "stem": "A seller responds to a buyer’s $480,000 offer by proposing $490,000 and changing the closing date. The buyer has not accepted the changes. How should this response be classified for the exercise?",
+     "choices": [
+      "Acceptance of the original offer",
+      "A counteroffer requiring acceptance",
+      "A completed amendment to an existing purchase contract",
+      "A notice that the original contract closed"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The seller proposed different price and timing terms. The buyer must accept the counteroffer before those proposed terms bind the parties under the supplied facts."
+    },
+    {
+     "id": "co17-payoff",
+     "section": "state",
+     "topic": "Closing and settlement",
+     "stem": "Juniper Court’s seller has a $268,000 existing loan payoff sent to the seller’s lender at closing. How does that payment appear on the worksheet?",
+     "choices": [
+      "Seller debit and broker cash credit",
+      "Seller credit and buyer debit",
+      "Buyer credit and broker cash debit",
+      "Buyer debit and seller credit"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The payoff reduces seller proceeds and leaves the closing account as a cash disbursement to the lender."
     }
    ]
   }
@@ -24535,6 +24705,756 @@
    "format": "money",
    "tolerance": 0.02,
    "solution": "Interest: {bal:money0} × {rate}% ÷ 12 = {monthly:money} a month. The seller owns days 1–{days}, so accrued interest = {monthly:money} ÷ 30 × {days} = {interest:money} (debit seller, credit buyer — the buyer's next payment covers it).\nBuyer debits: price + reserve + fee = {debits:money}.\nBuyer credits: earnest money + assumed balance + interest = {credits:money}.\nCash due = **{cash:money}**."
+  }
+ ],
+ "documentReviews": [
+  {
+   "id": "co-inspection-contract-review",
+   "revision": 1,
+   "lessonId": "co-cbs1-part2",
+   "title": "Review the agreement and draft extension",
+   "instructions": "Compare both documents in the source selector. Enter the controlling inspection objection date, explain the draft’s status, and anchor an annotation to a signature line or a controlling deadline.",
+   "documents": [
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-agreement",
+     "revision": 1,
+     "title": "Executed purchase agreement summary",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Executed purchase agreement summary",
+       "text": "JUNIPER COURT • FICTIONAL TRANSACTION\nStatus: Executed by both parties on April 6, 2026.\nPurchase price: $480,000. Earnest money: $12,000.\nInspection objection due April 13, 2026 at 5:00 p.m. Mountain.\nInspection resolution due April 16, 2026 at 5:00 p.m. Mountain.\nTitle objection due April 15, 2026 at 5:00 p.m. Mountain.\nClosing: May 1, 2026.\nThe exercise assumes all times and delivery channels are expressly stated in the case file."
+      }
+     ],
+     "fields": [
+      {
+       "id": "deadline",
+       "pageId": "page",
+       "label": "Enter the operative inspection objection date",
+       "kind": "date",
+       "required": true
+      }
+     ]
+    },
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-draft-extension",
+     "revision": 1,
+     "title": "Draft extension received from seller",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Draft extension received from seller",
+       "text": "JUNIPER COURT • FICTIONAL DRAFT\nDraft circulated April 10, 2026.\nProposed inspection objection deadline: April 17 at 5:00 p.m. Mountain.\nProposed inspection resolution deadline: April 20 at 5:00 p.m. Mountain.\nBuyer signature: blank. Seller signature: blank.\nThe file contains no other agreement to extend either deadline."
+      }
+     ],
+     "fields": [
+      {
+       "id": "file-note",
+       "pageId": "page",
+       "label": "Explain whether the draft changes the dates and what you would document next",
+       "kind": "longtext",
+       "required": true,
+       "maxLength": 1200
+      }
+     ]
+    }
+   ],
+   "debrief": [
+    "April 13 at 5:00 p.m. Mountain controls the inspection objection. April 16 at 5:00 p.m. remains the inspection resolution cutoff.",
+    "The unsigned April 10 draft does not change those dates under the supplied facts. Flag the pending request and confirm whether an executed amendment exists.",
+    "Alert the buyer to the existing cutoff and record the buyer’s direction and any timely delivery evidence. The separate April 15 title cutoff still applies in this file."
+   ]
+  },
+  {
+   "id": "co-title-review",
+   "revision": 1,
+   "lessonId": "co-counterproposals-amend-notices",
+   "title": "Review a title exception and buyer request",
+   "instructions": "Read the title commitment and buyer notes. Record what to request and what to tell the buyer. Anchor your annotation to the title exception or the relevant buyer note.",
+   "documents": [
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-title-commitment",
+     "revision": 1,
+     "title": "Title commitment excerpt",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Title commitment excerpt",
+       "text": "JUNIPER COURT • FICTIONAL TITLE COMMITMENT\nSchedule B exceptions for this exercise:\n1. Utility easement recorded across the rear eight feet of the lot.\n2. Recorded declaration and restrictions affecting the property.\nBuyer plans a detached workshop near the rear property line.\nTitle objection cutoff in the executed agreement: April 15, 2026 at 5:00 p.m. Mountain."
+      }
+     ],
+     "fields": [
+      {
+       "id": "title-risk",
+       "pageId": "page",
+       "label": "Identify the document and location information needed to evaluate the workshop issue",
+       "kind": "longtext",
+       "required": true,
+       "maxLength": 1200
+      }
+     ]
+    },
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-site-sketch",
+     "revision": 1,
+     "title": "Buyer’s site sketch and instructions",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Buyer’s site sketch and instructions",
+       "text": "JUNIPER COURT • FICTIONAL BUYER NOTES\nApril 14, 2026.\nThe buyer’s rough sketch places the proposed workshop four feet from the rear lot line. The sketch has no surveyor certification or scale.\nThe buyer asks whether the broker can confirm that the workshop will be permitted."
+      }
+     ],
+     "fields": [
+      {
+       "id": "buyer-response",
+       "pageId": "page",
+       "label": "Record a response to the buyer and the deadline you would track",
+       "kind": "longtext",
+       "required": true,
+       "maxLength": 1200
+      }
+     ]
+    }
+   ],
+   "debrief": [
+    "The rear-eight-foot recorded easement and the four-foot location suggested by the sketch raise a potential conflict. Retrieve the recorded instrument, obtain reliable boundary and location information, and refer the permitting and legal questions to the appropriate authorities or professionals.",
+    "Flag April 15 at 5:00 p.m. Mountain as the title objection cutoff under the supplied agreement. Record the buyer’s instruction and delivery details if directed to act."
+   ]
+  },
+  {
+   "id": "co-closing-document-review",
+   "revision": 1,
+   "lessonId": "co-closings",
+   "title": "Audit a draft closing worksheet against source documents",
+   "instructions": "Compare the signed instructions and draft entries. Complete the review fields and annotate the draft at a discrepancy.",
+   "documents": [
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-closing-instructions",
+     "revision": 1,
+     "title": "Executed closing instructions and source figures",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Executed closing instructions and source figures",
+       "text": "JUNIPER COURT • FICTIONAL CLOSING SOURCES\nMay 1, 2026. Use an actual-day, 365-day year. Buyer owns the closing day.\nPrice $480,000. New lender funds $384,000. Earnest money held and transferred to closing $12,000.\nAnnual unpaid property taxes $3,650. Seller prepaid May HOA dues of $310 and is reimbursed for all of May.\nSeller payoff $268,000. Seller brokerage fee $14,400. Seller outside closing charges $950.\nBuyer outside closing charges $1,750. No additional items are included."
+      }
+     ],
+     "fields": [
+      {
+       "id": "tax-treatment",
+       "pageId": "page",
+       "label": "Identify the seller and buyer entries for current-year tax",
+       "kind": "longtext",
+       "required": true,
+       "maxLength": 1200
+      }
+     ]
+    },
+    {
+     "format": "erudior-document-template",
+     "version": 1,
+     "id": "juniper-closing-draft",
+     "revision": 1,
+     "title": "Draft closing worksheet exception report",
+     "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. Official reference for independent comparison: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+     "licenseNote": "Original Erudior instructional text. This excerpt is a fictional classroom document.",
+     "pages": [
+      {
+       "id": "page",
+       "title": "Draft closing worksheet exception report",
+       "text": "JUNIPER COURT • FICTIONAL DRAFT\nCurrent-year tax adjustment $1,200: seller credit, buyer debit.\nEarnest money $12,000: buyer credit, no cash receipt shown.\nMay HOA adjustment $310: seller credit, buyer debit.\nPayoff $268,000: seller debit, broker cash credit.\nStatus: Pre-closing review. Neither party has approved the draft."
+      }
+     ],
+     "fields": [
+      {
+       "id": "correction",
+       "pageId": "page",
+       "label": "Record the two errors and describe the corrected cash treatment",
+       "kind": "longtext",
+       "required": true,
+       "maxLength": 1200
+      }
+     ]
+    }
+   ],
+   "debrief": [
+    "The unpaid property tax entry is reversed. The seller owned the property for 120 days at $10 per day. Post a $1,200 seller debit and buyer credit, with no cash entry on that line.",
+    "The earnest money buyer credit is correct. Add a $12,000 broker cash debit because the held earnest money is transferred into this closing.",
+    "The HOA and payoff entries match the supplied terms. Correct the draft before relying on the balances. Use the six-column workbook to reconcile the corrected cash flow."
+   ],
+   "transaction": {
+    "startDate": "2026-04-06",
+    "instructions": "Run a simulated purchase from representation to archive. Use the Juniper file’s $480,000 accepted price, $12,000 earnest money and May 1 closing. For the simulation, enter an April 6 offer expiry and accept that day. Post a Juniper deposit of $12,000 and a Cedar deposit of $6,500. Post a $2,000 Cedar refund check. Reconcile against $6,500 on the bank statement, marking the Juniper deposit and Cedar refund check outstanding. Resolve inspection and title under the case assumptions, complete the review fields, and advance to May 1. Assume the initial outstanding entries have cleared by then and reconcile the $16,500 bank balance before closing. After closing, post supported disbursements for both remaining balances and reconcile again once both disbursements have cleared before archive. The source dates and rules are fictional exercise inputs.",
+    "pack": {
+     "format": "erudior-transaction-pack",
+     "version": 1,
+     "id": "co-juniper-transaction",
+     "revision": 1,
+     "title": "Juniper Court purchase and trust ledger",
+     "jurisdiction": {
+      "id": "co-juniper-fiction",
+      "name": "Colorado fictional training case",
+      "version": "Juniper Court r1",
+      "sourceNote": "Original Erudior practice. Dates, financial amounts and engine rules are scenario assumptions. See the Colorado Division of Real Estate for current official requirements.",
+      "effectiveFrom": "2026-04-06",
+      "effectiveThrough": "2026-05-31"
+     },
+     "currency": "USD",
+     "minorUnitDigits": 2,
+     "formRoles": [
+      {
+       "documentId": "juniper-closing-instructions",
+       "role": "Executed closing sources"
+      },
+      {
+       "documentId": "juniper-closing-draft",
+       "role": "Draft entries to review"
+      }
+     ],
+     "clients": [
+      {
+       "id": "juniper",
+       "name": "Juniper buyer"
+      },
+      {
+       "id": "cedar",
+       "name": "Cedar client"
+      }
+     ],
+     "contingencies": [
+      {
+       "id": "inspection",
+       "title": "Inspection objection track",
+       "category": "inspection",
+       "dueDays": 7,
+       "required": true,
+       "allowWaiver": false
+      },
+      {
+       "id": "title",
+       "title": "Title objection track",
+       "category": "title",
+       "dueDays": 9,
+       "required": true,
+       "allowWaiver": false
+      }
+     ],
+     "rules": {
+      "requireRepresentation": true,
+      "requireDocumentsForClose": true,
+      "requireReconciliationForClose": true,
+      "requireZeroTrustForArchive": true,
+      "minEarnestBasisPoints": 0,
+      "depositDueDays": 3
+     }
+    }
+   }
+  }
+ ],
+ "branchingScenarios": [
+  {
+   "format": "erudior-branching-pack",
+   "version": 1,
+   "id": "co-inspection-deadline-case",
+   "revision": 1,
+   "lessonId": "co-counterproposals-amend-notices",
+   "selfStudy": true,
+   "title": "Keep a purchase under contract through inspection",
+   "description": "Use the file at Juniper Court to decide how to handle a defect, a draft extension and a separate title issue. The scenario starts two hours before the inspection objection cutoff.",
+   "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions. See the Commission forms index for official documents: https://dre.colorado.gov/real-estate-broker-contracts-and-forms",
+   "timeUnit": "simulated hours",
+   "maxTick": 8,
+   "startNodeId": "inspection",
+   "variables": [],
+   "nodes": [
+    {
+     "id": "inspection",
+     "title": "Two hours until the inspection cutoff",
+     "text": "At 3 p.m. Mountain on April 13, the buyer authorizes an inspection objection after receiving a roof report. A draft extension is still unsigned.",
+     "choices": [
+      {
+       "id": "send",
+       "title": "Verify the executed dates and deliver the authorized objection using the agreed channel",
+       "to": "delivered",
+       "costTicks": 1,
+       "conditions": [],
+       "effects": [],
+       "consequence": "The objection is delivered and timestamped under the fictional agreement."
+      },
+      {
+       "id": "wait",
+       "title": "Wait three hours for the draft extension to come back",
+       "to": "delivered",
+       "costTicks": 3,
+       "conditions": [],
+       "effects": [],
+       "consequence": "The extension remains unsigned. Check the timeline for the effect on the objection."
+      },
+      {
+       "id": "assume",
+       "title": "Treat the proposed dates as operative and set the report aside",
+       "to": "lapse",
+       "costTicks": 3,
+       "conditions": [],
+       "effects": [],
+       "consequence": "No signed change or timely objection is documented."
+      }
+     ]
+    },
+    {
+     "id": "delivered",
+     "title": "A separate title issue surfaces",
+     "text": "The buyer also wants to build near a recorded rear easement. Choose how to record the issue and handle the independent April 15 title cutoff.",
+     "choices": [
+      {
+       "id": "verify",
+       "title": "Flag the recorded easement, request the underlying documents and confirm the buyer’s directions",
+       "to": "protect",
+       "costTicks": 1,
+       "conditions": [],
+       "effects": [],
+       "consequence": "The file distinguishes title review from the inspection track."
+      },
+      {
+       "id": "promise",
+       "title": "Assure the buyer that the workshop can be built and close the title follow-up",
+       "to": "lapse",
+       "costTicks": 1,
+       "conditions": [],
+       "effects": [],
+       "consequence": "The file contains no support for the assurance."
+      }
+     ]
+    },
+    {
+     "id": "protect",
+     "title": "Documented follow-up",
+     "text": "Review the timeline. Sound follow-up cannot cure a missed inspection objection in this exercise.",
+     "choices": [],
+     "terminal": "success"
+    },
+    {
+     "id": "lapse",
+     "title": "Unresolved file risk",
+     "text": "Review the operative documents, distinguish the two deadlines and identify what should be escalated.",
+     "choices": [],
+     "terminal": "adverse"
+    }
+   ],
+   "milestones": [
+    {
+     "id": "timely-objection",
+     "title": "Inspection objection delivered",
+     "nodeId": "delivered",
+     "deadlineTick": 2,
+     "required": true,
+     "consequence": "The original inspection objection cutoff passed without timely delivery.",
+     "onMiss": []
+    }
+   ]
+  }
+ ],
+ "spreadsheetAssignments": [
+  {
+   "id": "co-six-column-closing",
+   "title": "Complete and balance a six-column closing worksheet",
+   "lessonId": "g3-closing-worksheet",
+   "starter": {
+    "engineVersion": 2,
+    "sheets": {
+     "Closing": {
+      "A1": "Item",
+      "B1": "Seller debit",
+      "C1": "Seller credit",
+      "D1": "Buyer debit",
+      "E1": "Buyer credit",
+      "F1": "Broker cash in",
+      "G1": "Broker cash out",
+      "A2": "Purchase price",
+      "A3": "New loan funds",
+      "A4": "Earnest money",
+      "A5": "Unpaid current-year tax",
+      "A6": "Prepaid May HOA dues",
+      "A7": "Seller payoff",
+      "A8": "Seller brokerage fee",
+      "A9": "Seller outside charges",
+      "A10": "Buyer outside charges",
+      "A11": "Buyer cash due",
+      "A12": "Seller proceeds",
+      "A13": "Column totals",
+      "A14": "Pair differences",
+      "A16": "Source figures",
+      "A17": "Price",
+      "B17": 480000,
+      "A18": "New loan",
+      "B18": 384000,
+      "A19": "Earnest money",
+      "B19": 12000,
+      "A20": "Annual tax",
+      "B20": 3650,
+      "A21": "Seller days",
+      "B21": 120,
+      "A22": "Days in year",
+      "B22": 365,
+      "A23": "Prepaid HOA",
+      "B23": 310,
+      "A24": "Seller payoff",
+      "B24": 268000,
+      "A25": "Seller brokerage fee",
+      "B25": 14400,
+      "A26": "Seller outside charges",
+      "B26": 950,
+      "A27": "Buyer outside charges",
+      "B27": 1750,
+      "A15": "Posting count",
+      "B15": "=COUNT(B2:G12)"
+     }
+    },
+    "cellExplanations": {
+     "Closing!A5": "Annual tax × seller days ÷ days in year. The buyer owns the closing day.",
+     "Closing!A11": "Buyer debits minus buyer credits before the buyer cash entry.",
+     "Closing!A12": "Seller credits minus seller debits before the seller proceeds entry.",
+     "Closing!A14": "Enter debit minus credit for each pair in B14, D14 and F14.",
+     "Closing!B15": "Automatic check for missing or extra numeric postings in rows 2–12."
+    },
+    "namedRanges": {
+     "SalePrice": {
+      "sheet": "Closing",
+      "range": "B17"
+     },
+     "AnnualTax": {
+      "sheet": "Closing",
+      "range": "B20"
+     },
+     "SellerDays": {
+      "sheet": "Closing",
+      "range": "B21"
+     },
+     "DaysInYear": {
+      "sheet": "Closing",
+      "range": "B22"
+     }
+    }
+   },
+   "protectedCells": [
+    "Closing!A1",
+    "Closing!B1",
+    "Closing!C1",
+    "Closing!D1",
+    "Closing!E1",
+    "Closing!F1",
+    "Closing!G1",
+    "Closing!A2",
+    "Closing!A3",
+    "Closing!A4",
+    "Closing!A5",
+    "Closing!A6",
+    "Closing!A7",
+    "Closing!A8",
+    "Closing!A9",
+    "Closing!A10",
+    "Closing!A11",
+    "Closing!A12",
+    "Closing!A13",
+    "Closing!A14",
+    "Closing!A16",
+    "Closing!A17",
+    "Closing!B17",
+    "Closing!A18",
+    "Closing!B18",
+    "Closing!A19",
+    "Closing!B19",
+    "Closing!A20",
+    "Closing!B20",
+    "Closing!A21",
+    "Closing!B21",
+    "Closing!A22",
+    "Closing!B22",
+    "Closing!A23",
+    "Closing!B23",
+    "Closing!A24",
+    "Closing!B24",
+    "Closing!A25",
+    "Closing!B25",
+    "Closing!A26",
+    "Closing!B26",
+    "Closing!A27",
+    "Closing!B27",
+    "Closing!A15",
+    "Closing!B15"
+   ],
+   "answers": {
+    "Closing!C2": 480000,
+    "Closing!D2": 480000,
+    "Closing!E3": 384000,
+    "Closing!F3": 384000,
+    "Closing!E4": 12000,
+    "Closing!F4": 12000,
+    "Closing!B5": 1200,
+    "Closing!E5": 1200,
+    "Closing!C6": 310,
+    "Closing!D6": 310,
+    "Closing!B7": 268000,
+    "Closing!G7": 268000,
+    "Closing!B8": 14400,
+    "Closing!G8": 14400,
+    "Closing!B9": 950,
+    "Closing!G9": 950,
+    "Closing!D10": 1750,
+    "Closing!G10": 1750,
+    "Closing!E11": 84860,
+    "Closing!F11": 84860,
+    "Closing!B12": 195760,
+    "Closing!G12": 195760,
+    "Closing!B13": 480310,
+    "Closing!C13": 480310,
+    "Closing!D13": 482060,
+    "Closing!E13": 482060,
+    "Closing!F13": 480860,
+    "Closing!G13": 480860,
+    "Closing!B14": 0,
+    "Closing!D14": 0,
+    "Closing!F14": 0,
+    "Closing!B15": 22
+   },
+   "tolerance": 0.005
+  },
+  {
+   "id": "co-trust-three-way",
+   "title": "Reconcile an earnest-money trust account",
+   "lessonId": "co-trust-accounts",
+   "starter": {
+    "engineVersion": 2,
+    "sheets": {
+     "Trust": {
+      "A1": "Same-date source and reconciliation",
+      "B1": "Amount ($)",
+      "A2": "Bank statement balance",
+      "B2": 6500,
+      "A3": "Outstanding Juniper deposit",
+      "B3": 12000,
+      "A4": "Outstanding Cedar refund check",
+      "B4": 2000,
+      "A5": "Adjusted bank balance",
+      "A7": "Recorded journal balance",
+      "B7": 16500,
+      "A9": "Juniper ledger",
+      "B9": 12000,
+      "A10": "Cedar ledger",
+      "B10": 4500,
+      "A11": "Sum of ledgers",
+      "A13": "Adjusted bank less journal",
+      "A14": "Journal less summed ledgers"
+     }
+    },
+    "cellExplanations": {
+     "Trust!A5": "Add deposits in transit and subtract outstanding checks.",
+     "Trust!A11": "Sum the two client ledgers at the same cutoff date.",
+     "Trust!A14": "Zero means the journal and the ledger total agree."
+    },
+    "namedRanges": {
+     "JournalBalance": {
+      "sheet": "Trust",
+      "range": "B7"
+     },
+     "ClientLedgers": {
+      "sheet": "Trust",
+      "range": "B9:B10"
+     }
+    }
+   },
+   "protectedCells": [
+    "Trust!A1",
+    "Trust!B1",
+    "Trust!A2",
+    "Trust!B2",
+    "Trust!A3",
+    "Trust!B3",
+    "Trust!A4",
+    "Trust!B4",
+    "Trust!A5",
+    "Trust!A7",
+    "Trust!B7",
+    "Trust!A9",
+    "Trust!B9",
+    "Trust!A10",
+    "Trust!B10",
+    "Trust!A11",
+    "Trust!A13",
+    "Trust!A14"
+   ],
+   "answers": {
+    "Trust!B5": 16500,
+    "Trust!B11": 16500,
+    "Trust!B13": 0,
+    "Trust!B14": 0
+   },
+   "tolerance": 0.005
+  }
+ ],
+ "advancedAssessments": [
+  {
+   "format": "erudior-advanced-assessment-pack",
+   "version": 1,
+   "id": "co-closing-defense",
+   "revision": 1,
+   "lessonId": "g3-worked-closings",
+   "title": "Explain and defend a closing review",
+   "description": "Optional supervised practice with worked steps and a written or spoken explanation.",
+   "sourceNote": "Original fictional Erudior teaching materials. Figures and deadlines are exercise assumptions.",
+   "instructions": "Show the intermediate buyer totals. Explain the source and cash treatment using the fictional file.",
+   "integrity": "Declare assistance. Use fictional details throughout. The explanation requires human review.",
+   "rubric": {
+    "id": "closing-review",
+    "revision": 1,
+    "title": "Closing review reasoning",
+    "criteria": [
+     {
+      "id": "source-and-postings",
+      "title": "Source control and cash postings",
+      "levels": [
+       {
+        "id": "revise",
+        "points": 0,
+        "label": "Revise",
+        "description": "Controlling source or cash treatment is missing or incorrect."
+       },
+       {
+        "id": "partial",
+        "points": 1,
+        "label": "Partial",
+        "description": "Identifies the controlling source and explains one cash treatment correctly."
+       },
+       {
+        "id": "supported",
+        "points": 2,
+        "label": "Supported",
+        "description": "Explains the controlling source, earnest money receipt and the absence of cash movement on the tax proration."
+       }
+      ]
+     }
+    ]
+   },
+   "misconceptions": [],
+   "variants": [
+    {
+     "id": "a",
+     "title": "Juniper Court variation A",
+     "questions": [
+      {
+       "kind": "math",
+       "id": "cash-a",
+       "prompt": "Purchase price is $480,000. New loan: $384,000. Earnest money: $12,000. Buyer’s outside charges: $1,750. Buyer receives an unpaid property-tax credit of $1,200. No other entries apply.",
+       "steps": [
+        {
+         "id": "debits",
+         "prompt": "Enter total buyer debits before cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 481750,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        },
+        {
+         "id": "credits",
+         "prompt": "Enter total buyer credits before cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 397200,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        },
+        {
+         "id": "cash",
+         "prompt": "Enter buyer cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 84550,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        }
+       ]
+      },
+      {
+       "kind": "oral",
+       "id": "explain-a",
+       "prompt": "Explain which source controls if the draft worksheet and executed instructions conflict. Describe the broker cash entries for earnest money and current-year unpaid tax. Provide a transcript or a transcript with optional audio."
+      }
+     ]
+    },
+    {
+     "id": "b",
+     "title": "Juniper Court variation B",
+     "questions": [
+      {
+       "kind": "math",
+       "id": "cash-b",
+       "prompt": "Purchase price is $480,000. New loan: $360,000. Earnest money: $10,000. Buyer’s outside charges: $2,100. Buyer receives an unpaid property-tax credit of $900. No other entries apply.",
+       "steps": [
+        {
+         "id": "debits",
+         "prompt": "Enter total buyer debits before cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 482100,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        },
+        {
+         "id": "credits",
+         "prompt": "Enter total buyer credits before cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 370900,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        },
+        {
+         "id": "cash",
+         "prompt": "Enter buyer cash to close, in dollars.",
+         "expected": {
+          "kind": "number",
+          "value": 111200,
+          "tolerance": 0.005
+         },
+         "misconceptions": []
+        }
+       ]
+      },
+      {
+       "kind": "oral",
+       "id": "explain-b",
+       "prompt": "Explain which source controls if the draft worksheet and executed instructions conflict. Describe the broker cash entries for earnest money and current-year unpaid tax. Provide a transcript or a transcript with optional audio."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
