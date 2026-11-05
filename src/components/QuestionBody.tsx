@@ -41,7 +41,7 @@ interface Props {
   /** Other kinds: the whole new answer. */
   onChange?: (next: Chosen) => void;
   /** Enter in a text box (e.g. to check the answer). */
-  onEnter?: () => void;
+  onEnter?: (finalAnswer?: Chosen) => void;
   reveal?: boolean;
   disabled?: boolean;
   /** Review screens: smaller, no inputs. */
@@ -225,17 +225,19 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                       onChange?.(next);
                     }}
                     onKeyDown={(e) => {
-                      if (e.key === "Enter") {
+                      if (e.key === "Enter" && !composing(e) && !e.repeat && !e.altKey && !e.ctrlKey && !e.metaKey) {
                         e.preventDefault();
+                        let finalAnswer: Chosen | undefined;
                         if (ime) {
                           const done = ime(e.currentTarget.value, { final: true });
                           if (done !== e.currentTarget.value) {
                             const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
                             next[i] = done;
                             onChange?.(next);
+                            finalAnswer = next;
                           }
                         }
-                        onEnter?.();
+                        onEnter?.(finalAnswer);
                       }
                     }}
                   />
