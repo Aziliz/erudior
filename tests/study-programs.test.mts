@@ -59,6 +59,17 @@ assert.equal(firstTwoComplete.steps[2].available, true);
 const thirdRelease = CATALOG.find(e => e.id === courses[2].courseId)!;
 assert.equal(thirdRelease.lessons, 8); assert.equal(thirdRelease.questions, 80); assert.equal(thirdRelease.cards, 64);
 assert.deepEqual(thirdRelease.outline?.map(m => m.title), courses[2].modules);
+const researchRelease = CATALOG.find(e => e.id === courses[3].courseId)!;
+assert.equal(researchRelease.id, 'law-legal-research');
+assert.equal(researchRelease.lessons, 8); assert.equal(researchRelease.questions, 80); assert.equal(researchRelease.cards, 64);
+assert.deepEqual(researchRelease.outline?.map(m => m.title), courses[3].modules);
+assert.deepEqual(courses[3].recommendedBefore, [thirdRelease.id]);
+for (const id of thirdRelease.lessonIds!) firstComplete.lessonsDone[`${thirdRelease.id}/${id}`] = '2026-11-05';
+const readyForResearch = pathwayProgress(path, [], firstComplete, CATALOG);
+assert.equal(readyForResearch.completedCourses, 3);
+assert.equal(readyForResearch.nextCourseId, researchRelease.id);
+assert.equal(readyForResearch.steps[3].available, true);
+assert.equal(readyForResearch.steps[3].enrolled, false, 'research is not enrolled automatically');
 const publishedCourses = courses.filter(c => CATALOG.some(e => e.id === c.courseId));
 const allAvailableComplete = emptyProgress();
 for (const course of publishedCourses) {

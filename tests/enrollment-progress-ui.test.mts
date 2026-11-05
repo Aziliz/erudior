@@ -253,12 +253,16 @@ assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-us-legal-syst
 await click(jdPath.querySelectorAll<HTMLButtonElement>('.study-program button')[2]);
 assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-case-reading' });
 assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing the second course does not enroll');
+await click(jdPath.querySelectorAll<HTMLButtonElement>('.study-program button')[3]);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-legal-research' });
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing research does not enroll');
 api = makeApi('bob', []);await mount();
 assert.equal(pathway(jd.title).querySelector('progress')?.value, 0, "saved program survives remount");
 await click('Edit pathway', pathway(jd.title));
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /LSAT 180 Mastery \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Introduction to the U.S. Legal System \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Case Reading and Legal Reasoning \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Legal Research and Citation \(planned\)/);
 assert.match(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing I: Objective Analysis \(planned\)/);
 await click('Move Legal Writing II: Persuasion and Advocacy (planned) up');
 await click('Save pathway');
