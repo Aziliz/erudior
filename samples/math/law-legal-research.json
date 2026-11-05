@@ -1,0 +1,2396 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "law-legal-research",
+ "title": "Legal Research and Citation",
+ "description": "Plan legal research, locate and compare primary sources, check authority and currency, and create traceable citations and research logs. Third course in the J.D. Preparation pathway; includes an original, self-contained research packet.",
+ "author": "Erudior",
+ "revision": 1,
+ "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. All Larch and Maren materials are fictional. Exercises use a fixed teaching snapshot; real matters require current jurisdiction-specific research.",
+ "modules": [
+  {
+   "id": "lrc-m1",
+   "title": "Research plans and secondary sources",
+   "quiz": [
+    "lrc-q1-02",
+    "lrc-q1-06",
+    "lrc-q1-09",
+    "lrc-q1-10",
+    "lrc-q2-02",
+    "lrc-q2-06",
+    "lrc-q2-09",
+    "lrc-q2-10"
+   ]
+  },
+  {
+   "id": "lrc-m2",
+   "title": "Cases, statutes and regulations",
+   "quiz": [
+    "lrc-q3-02",
+    "lrc-q3-06",
+    "lrc-q3-09",
+    "lrc-q3-10",
+    "lrc-q4-02",
+    "lrc-q4-06",
+    "lrc-q4-09",
+    "lrc-q4-10"
+   ]
+  },
+  {
+   "id": "lrc-m3",
+   "title": "Updating authority and jurisdiction checks",
+   "quiz": [
+    "lrc-q5-02",
+    "lrc-q5-06",
+    "lrc-q5-09",
+    "lrc-q5-10",
+    "lrc-q6-02",
+    "lrc-q6-06",
+    "lrc-q6-09",
+    "lrc-q6-10"
+   ]
+  },
+  {
+   "id": "lrc-m4",
+   "title": "Citation, quotations and research logs",
+   "quiz": [
+    "lrc-q7-02",
+    "lrc-q7-06",
+    "lrc-q7-09",
+    "lrc-q7-10",
+    "lrc-q8-02",
+    "lrc-q8-06",
+    "lrc-q8-09",
+    "lrc-q8-10"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lrc-research-plan",
+   "module": "lrc-m1",
+   "title": "Turn a problem into a research plan",
+   "minutes": 30,
+   "topics": [
+    "Research planning"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## Research starts before the search box\n\nA case-reading course teaches you to understand an opinion already in front of you.\nResearch adds a different problem: deciding which documents you need, locating them,\nand explaining how far your investigation supports a conclusion. A persuasive-looking\nresult can be irrelevant to your forum, superseded, or based on a different statutory\nversion. Finding a sentence that sounds useful is only the beginning.\n\nA **[[research plan]]** is a written account of the question, scope, available sources and\nnext actions. It need not be long. Its purpose is to prevent aimless searching and\nmake your assumptions visible. This course uses an original fictional Larch packet\nso that every required exercise can be completed offline. Open the Larch research\npacket reference. Its dates and institutions are invented; do not search for these\ncases on the public web or treat them as legal authority outside the exercise.\n\n## Define the decision you need to support\n\nAn **[[issue statement]]** turns a story into a bounded question. “Research room law”\nis too broad. “Which decision period applies to a complete town-room application\nreceived June 25, Year 5?” identifies both the event and the legal issue. The\n**[[forum]]** is the tribunal in which the question would be decided. Here P1 specifies\na Larch trial court. That matters because P2 defines which courts supply binding\nholdings for that tribunal.\n\nRecord the **[[relevant date]]** of the event as well as the research date. Noor's\nreceipt date is June 25; the research snapshot is August 20. These dates do different\njobs. The first helps select the applicable law; the second tells another researcher\nhow current your inquiry intends to be. An amended statute may govern some new\napplications without governing older ones still pending. A timestamp saying you\nopened a page today cannot answer that transition question.\n\nSeparate established facts, assumptions and unknowns. The packet stipulates\ncompleteness and delivery for the capstone. In a real assignment you might need to\nrequest those facts. An **[[assumption]]** fills a gap provisionally; it must be labelled\nand tested if it could change the analysis. Do not convert “I do not know when the\napplication arrived” into “it probably arrived before the amendment.”\n\n## Map the work into answerable branches\n\nA **[[research scope]]** describes the issues, jurisdictions, periods and collections\nyou will investigate. For the Larch problem, create branches for the statute and\namendment, implementing regulation, relevant cases, later treatment and unresolved\ncoverage. The plan should include potentially adverse sources. If you search only\nfor support for ten days, you may miss both Cedar's fifteen-day proposition and the\nlegislation introducing fourteen days.\n\nA research budget allocates time or resources among those branches. Budgeting\ndoes not guarantee completeness. It helps you decide which uncertainty to resolve\nfirst and what to report if access runs out. Give priority to controlling text and\nits transition rule before spending time reading a distant jurisdiction's analogous\ncase. Keep a place for promising leads without letting each new link replace the\nassignment's central question.\n\nYour **[[deliverable]]** is the product the assignment requires. Here it is an authority\ntable, research log and explanatory note. Those products require more than a list of\nlinks. You need source identity, propositions, dates, treatment and reproducible\nsearch steps. Start collecting that information while you work; reconstructing it\nfrom memory later is unreliable. The Research workbench supplies reusable fields.\n\n### Example 1: turn Noor's story into a plan\n\nNoor says, “They took too long to answer my room request.” First identify the actor\nand covered activity: the Town Room Office and a town-operated study room. Act section\n1 establishes that this kind of application falls within the packet's scope.\nSecond, record receipt on June 25 and the decision sent July 8; do not use the date\nof the requested room reservation to select the decision period.\n\nThird, formulate the question: under the version applicable to a complete application\nreceived June 25, was the July 8 decision timely? Fourth, list sources needed: Act\nsections 2–4, Amendment A, Rule 8 and relevant cases. Fifth, reserve a separate line\nfor remedies. The assignment supplies no remedy rule, so even a late decision cannot\nsupport an invented damages award. This plan is useful because each listed source\nanswers a specific question rather than merely adding reading volume.\n\n### Example 2: distinguish a completed check from a planned check\n\nA researcher writes, “Check all later cases through August 20.” The packet's case\nindex actually ends August 15. Rewrite the plan in two parts. Completed within this\nexercise: read IDX1–IDX2 and the later authority they identify. Planned but unavailable:\nsearch a current relevant court collection or citator for August 16–20 and assess\nany pertinent material outside this index's coverage.\n\nDo not write “current through August 20” merely because that is the desired date.\nThe plan's target and the source's coverage are different. The legislative change\nregister does cover August 20, but that does not extend the judicial index. A strong\nhandoff explains this exact gap so the next researcher knows what to do.\n\n## Practice with feedback\n\nDraft a four-line plan for Ivo's July 3 application: forum and issue; event and\nresearch dates; first sources; unresolved coverage. Compare your draft with this\nmodel: “Larch trial court; timely written decision on a complete application.\nReceipt July 3, decision July 18, research snapshot August 20, Year 5. Start with\nsection 2 and A1, then Rule 8 and Birch. Case-index coverage ends August 15; later\njudicial developments remain unchecked.” Your wording may differ if each distinction\nis preserved.\n\nNow change one fact: the application might omit the requested room. Add a branch\nfor Rule 8.1 and the missing fact. Do not count from the first contact until you know\nwhen a complete application was received. This adjustment shows why planning is\niterative. New facts can change the question and the order of work without making\nthe original plan useless.\n\n## Common mistakes\n\nStarting with a conclusion encourages selective searching. Starting with every\npossible legal issue makes the task unmanageable. Use the assigned issue, identify\nwhat could change it, and state exclusions. Confusing a research date with a source\ncutoff creates false assurance. Confusing a deadline rule with a remedy creates a\nclaim the sources never supported. Finally, do not record an intended search as\ncompleted simply because you know how you would perform it.\n\n## Key points\n\n- State the forum, issue, relevant events and research date before searching.\n- Separate supplied facts, assumptions and unknowns.\n- Tie each source branch to a question and a deliverable.\n- Keep completed work and unavailable follow-up visibly distinct.\n",
+   "quiz": [
+    "lrc-q1-01",
+    "lrc-q1-02",
+    "lrc-q1-03",
+    "lrc-q1-04",
+    "lrc-q1-05",
+    "lrc-q1-06",
+    "lrc-q1-07",
+    "lrc-q1-08",
+    "lrc-q1-09",
+    "lrc-q1-10"
+   ]
+  },
+  {
+   "id": "lrc-secondary-sources",
+   "module": "lrc-m1",
+   "title": "Use secondary sources and improve a search",
+   "minutes": 30,
+   "topics": [
+    "Search and secondary sources"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## A helpful explanation is a starting point\n\nA **[[secondary source]]** explains, organizes or comments on law without itself being\nthe relevant enacted text or judicial decision. Guides can introduce vocabulary,\nidentify issues and point you toward primary sources. This is valuable when you do\nnot yet know the terminology a statute or court uses. But usefulness as a guide does\nnot make commentary binding in the forum. The Larch packet deliberately includes\ntwo editions of a guide that lead to different next steps.\n\nA **[[primary source]]** is the lawmaking or adjudicative material itself, such as a\nstatute, regulation or opinion. Classification and authority are separate questions.\nCedar is a primary judicial source even though Birch overrules its fifteen-day\nproposition. Elm is also primary, but its Maren court and statute do not govern the\nLarch deadline. Start by classifying the source, then ask what it can establish.\n\n## Read the source's credentials and boundaries\n\nCheck author, publisher, edition, date, subject and jurisdiction. **[[Source provenance]]**\nis the account of where a document came from and who issued it. A clinic's name on\na guide does not turn it into a court opinion. A copy of an opinion on a private\nwebsite can still reproduce primary material, but you must verify identity, text\nand status rather than infer them from an attractive page design.\n\nAn **[[edition]]** identifies a particular version of a work. G1 is January Year 5;\nG2 is May Year 5. The January guide predates Birch. The May guide incorporates Birch\nbut predates Amendment A. Neither is automatically current for an August inquiry.\nPublication dates help you identify what to update; they do not replace reading the\nsources cited or checking developments after publication.\n\nTreat a useful citation or keyword as a **[[research lead]]**: a direction to investigate,\nnot a conclusion already established. Read G2's reference to B2, then open Birch\nand inspect its precise proposition. Following a lead should leave a record of what\nyou actually found. If the promised support is absent, log that mismatch and revise\nthe analysis. Do not keep the guide's conclusion merely because it was your first hit.\n\n## Search words, fields and collections deliberately\n\nA **[[search query]]** is the request submitted to a collection. Its meaning includes\nthe searched field and active filters, not just the words. “Study room” in case\ntitles is different from “complete application” across full text. A **[[search filter]]**\nlimits the collection by a property such as court, date or document type. Filters\nhelp focus results, but an incorrect filter can hide the very authority you need.\n\nBegin with ordinary language, then add statutory phrases and institutional names\nfound in reliable sources. Try variants of the concept without assuming every\nservice handles quotation marks, plurals or connectors identically. Consult that\nservice's search help when exact syntax matters. In our offline exercise, IDX1\nstipulates results so that no platform account or live search is necessary.\n\nA zero-result query means the specified search found nothing in its specified\ncollection. It does not establish that no law exists. Check spelling, fields,\nfilters, date coverage and alternate vocabulary before making a negative inference.\nRecord the unsuccessful attempt because it explains why your next query changed.\nA log containing only successful searches can hide the boundaries of your method.\n\n### Example 1: repair an unproductive query\n\nYou search case titles for “study room” and get zero results under IDX1. First state\nthe actual inference: no supplied caption matched that phrase in this index. Second,\ninspect the packet's institutional vocabulary: the opinions use “Town Room Office.”\nThird, revise the query to “complete application” in full text. IDX1 supplies three\nhits: Rowan, Cedar and Birch.\n\nFourth, open those documents. A hit is not yet a relevant holding. Rowan concerns an\nelectronic decision, Cedar supports fifteen days, and Birch rejects that proposition.\nRecord the exact field change and which passages mattered. A weaker log saying\n“searched online; found three cases” would not explain how the initial failure was\ncorrected or allow another researcher to reproduce it.\n\n### Example 2: use two guide editions responsibly\n\nG1 says fifteen days under Cedar. First record that G1 is commentary dated January\nYear 5. Next open C2 to confirm that Cedar actually made that statement. Then search\nfor later treatment rather than stopping at confirmation. IDX2 directs you to B2,\nwhere the higher court overrules that point.\n\nG2 says Birch rejects fifteen days and directs you to the ten-day statute. That is\na better lead for Birch's rule, but it is still a May edition. Checking legislation\nfinds A1, which introduces fourteen days for applications received on or after July\n1. The correct workflow preserves the useful parts of each lead while updating the\nproposition. You do not simply choose whichever guide is newer and treat it as final.\n\n## Practice with feedback\n\nA classmate writes, “The May guide is the newest guide in our packet, so its ten-day\nstatement settles Ivo's July application.” Identify the missing step. Feedback:\ncheck primary statutory text and amendments after the guide's publication, including\nA1's receipt-date rule. Ivo's July 3 receipt falls into A1's fourteen-day category.\nThe guide's relative newness does not freeze legislation at May.\n\nNext, label these items: the Act, G1 and M1. The Act is primary legislation. G1 is\nsecondary commentary. M1 is a nonbinding agency staff direction under P3, not an\namendment or a controlling interpretation. Agency material can have several forms;\nread what the document is and the authority under which it was issued rather than\nusing its logo to decide its legal effect.\n\nFinally, write a follow-up for a guide citation whose full text you cannot access.\nA sound answer says the lead remains unverified, records the missing document and\nexplains how to obtain or replace it. It does not invent the holding from the title\nor silently convert an inaccessible source into a completed review.\n\n## Common mistakes\n\nEquating “found on a government site” with “binding for this proposition” skips source\nclassification. Equating “published recently” with “fully updated” skips version and\ntreatment checks. Copying a summary's citation without opening the cited text risks\nrepeating somebody else's error. Searching only a single phrase in a single field\ncan turn a vocabulary mismatch into a false claim that the law is silent.\n\n## Key points\n\n- Use commentary to learn vocabulary and find primary-source leads.\n- Record edition, provenance and jurisdiction before relying on an explanation.\n- Change queries deliberately and log fields, filters and coverage.\n- Update the cited primary sources even when the guide seems recent.\n",
+   "quiz": [
+    "lrc-q2-01",
+    "lrc-q2-02",
+    "lrc-q2-03",
+    "lrc-q2-04",
+    "lrc-q2-05",
+    "lrc-q2-06",
+    "lrc-q2-07",
+    "lrc-q2-08",
+    "lrc-q2-09",
+    "lrc-q2-10"
+   ]
+  },
+  {
+   "id": "lrc-statutes-rules",
+   "module": "lrc-m2",
+   "title": "Find the applicable statute and regulation",
+   "minutes": 30,
+   "topics": [
+    "Statutes and regulations"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## The right words in the wrong version are still a problem\n\nA statutory section may look like a complete answer because it is concise and comes\nfrom an authoritative publisher. Yet the operative rule can depend on definitions,\namendments, effective dates and related sections. Read the section in its context\nand identify which version governs the event. In the Larch packet, ten, fourteen\nand fifteen days all appear in official-looking documents. Locating the numbers is\neasy; explaining which one applies is the research task.\n\n**[[Codification]]** organizes statutory law by subject in a code. A **[[session law]]**\nis an enacted law as published in the sequence of enactments. These forms answer\nrelated but different research needs: a subject arrangement helps find provisions,\nwhile an enactment can disclose the precise change and its timing. Do not assume\nthat the current text displayed in a compilation answers every historical question.\nOur packet supplies an original Act and a separate amendment so that the transition\nis visible without requiring an outside database.\n\n## Read amendments as instructions, not just new numbers\n\nAn **[[amendment]]** changes an existing legal text. First identify exactly what it\nchanges. Amendment A replaces ten with fourteen in section 2 for a defined class\nof applications. A2 leaves sections 1, 3, 4 and 5 unchanged. It would be a mistake\nto infer that the amendment also changes what counts as writing, permits longer\nagency extensions, or creates a damages remedy.\n\nAn **[[effective date]]** is when a provision takes legal effect under its terms. It\nmay differ from the date of enactment. A was enacted June 10 but takes effect July\n1, Year 5. More importantly, its **[[transition provision]]** tells you which events\nreceive the new rule. A1 uses receipt of a complete application on or after July 1.\nThe provision expressly preserves ten days for earlier receipts even if a deadline\nfalls in July. Read that full sentence before counting days.\n\nBuild a small event record: receipt, applicable version, day zero, counted days and\ndecision date. Counting cannot repair a version error. If you choose fourteen days\nfor Noor because the decision was sent in July, an impeccable calendar calculation\nstill applies the wrong rule. The date relevant to the transition is receipt, not\nthe date you research or the date the Office chooses to respond.\n\n## Connect a regulation to its statutory authority\n\nA **[[delegation]]** gives another institution authority to act within specified bounds.\nA **[[regulation]]** is an agency rule; its legal effect requires attention to the\napplicable legal system and its source of authority. For this exercise, P3 supplies\nthe hierarchy and Act section 4 permits application forms and identifying information\nbut forbids lengthening the decision period. That limit is part of the research,\nnot an optional policy consideration.\n\nRule 8.1 identifies completeness, and Rule 8.2 explains day zero. Rule 8.3 purports\nto permit fifteen days. Compare it with section 4 and Birch B2 before using it. A\ncompiled regulation can remain visible after a court rejects its use. Textual\npresence does not establish validity for every proposition. Record both that the\nrule register shows no textual amendment and that judicial treatment changes how\n8.3 may be used.\n\nFor real federal research, the Office of the Law Revision Counsel explains where\nto inspect Code currency and classification information. The eCFR's own reader\naids explain the compilation's legal status and verification directions. Use those\npublishers' current explanations rather than assuming that every government search\npage is an official, fully current legal compilation. The Citation and currency\nreference links the sources; the packet exercises require no live lookup.\n\n### Example 1: a deadline crossing the amendment date\n\nNoor's complete application arrives June 25. First apply A1's trigger: June 25 is\nbefore July 1, so the original ten-day period applies. Second use P4 and Rule 8.2:\nJune 25 is day zero; June 26 is day one. Third count through June 30, day five,\nand continue through July 5, day ten. The statutory deadline is July 5.\n\nThe Office sends its decision July 8, day thirteen. Within the supplied materials,\nthat is late. The crossing into July does not restart the clock or switch the period\nto fourteen days. Section 5 separately prevents an inference that silence approved\nthe application. Your research note should cite both the original section 2 and A1,\nbecause the transition provision explains why the older number remains applicable.\n\n### Example 2: a rule that cannot lengthen the statute\n\nIvo's complete application arrives July 3. A1 selects fourteen days. July 4 is day\none and July 17 is day fourteen. The Office invokes Rule 8.3 and sends a paper\ndecision July 18, day fifteen.\n\nTrace the claimed authority rather than accepting the agency's preferred number.\nSection 4 forbids a rule from lengthening section 2. Birch B2 rejects 8.3's fifteen-day\nproposition under the earlier ten-day text; A1 now sets fourteen but leaves section\n4 unchanged. Nothing supplied revives a fifteen-day allowance. Explain both the\ncurrent statutory text and the continuing delegation limit. Paper form does not\ncure a late decision, just as an electronic form does not itself make one late.\n\n## Practice with feedback\n\nAn application is received June 30. Which period applies if its deadline is in July?\nFeedback: ten days, because A1 selects by receipt date and preserves the earlier\nperiod. Under P4, July 1 is day one and July 10 is day ten. Do not use the date of\nthe eventual deadline as the transition trigger.\n\nNow suppose a researcher cites M1's instruction to use fourteen days for every\npending application. Identify the source conflict. Feedback: M1 is nonbinding staff\nguidance; it uses pending status instead of A1's receipt-date boundary. Read A1 as\nthe controlling transition text under P3. Record M1 as a rejected lead so a reviewer\ncan see that you encountered and resolved the inconsistency.\n\n## Common mistakes\n\nReading only a section heading can hide definitions and transition language. Using\nthe enactment date as the effective date ignores the law's own timing. Treating\nunchanged regulatory text as unaffected authority ignores judicial treatment.\nFinally, do not import real-world counting rules into this fictional exercise. P4\nexpressly supplies the calculation rules; a real matter would require researching\nthe relevant jurisdiction's actual time-computation and service provisions.\n\n## Key points\n\n- Locate both the operative text and the provisions choosing its application.\n- Separate enactment, effectiveness, receipt and research dates.\n- Read a regulation with its delegation and later judicial treatment.\n- State what the sources establish without inventing a remedy.\n",
+   "quiz": [
+    "lrc-q3-01",
+    "lrc-q3-02",
+    "lrc-q3-03",
+    "lrc-q3-04",
+    "lrc-q3-05",
+    "lrc-q3-06",
+    "lrc-q3-07",
+    "lrc-q3-08",
+    "lrc-q3-09",
+    "lrc-q3-10"
+   ]
+  },
+  {
+   "id": "lrc-cases-passages",
+   "module": "lrc-m2",
+   "title": "Locate cases and verify the passage you need",
+   "minutes": 30,
+   "topics": [
+    "Cases and passages"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## Retrieval is not interpretation\n\nFinding a case with the right keywords does not show that the court adopted the\nproposition you want. You must identify the document, understand the court's task\nand locate the relevant language in its context. This lesson connects the earlier\nCase Reading course to research: read enough of each retrieved source to decide\nwhether it answers your issue and what further checking it requires.\n\nA **[[caption]]** identifies a case by its named parties. It is useful for retrieval,\nbut it does not establish the governing issue or the result by itself. In IDX1,\nsearching for “study room” in captions misses all three Larch cases even though each\nconcerns room applications. Their captions name the Town Room Office. The failure\nillustrates a field mismatch, not the absence of relevant law.\n\n## Identify the court's task and voice\n\n**[[Procedural posture]]** describes how the dispute reached the deciding court and\nwhat ruling it is reviewing. Rowan reverses a trial court's objection to electronic\nform. Birch reverses a timeliness ruling and remands. A remand is not a damages award.\nIf you retrieve only a sentence announcing reversal, you still need to know which\nruling was reversed and what remained unresolved.\n\nAn **[[opinion type]]** identifies the kind of judicial writing, such as a majority,\nconcurrence or dissent. P2 makes published majority holdings relevant to binding\nforce in this packet. A search excerpt that does not identify its speaker cannot\nbe assumed to state the court's governing rule. Our supplied opinions are expressly\nlabelled published majorities so the exercise can focus on the next distinctions.\nReal searches require verifying those labels rather than assuming them.\n\nA **[[holding]]** is a proposition the court decides as necessary to its resolution of\nthe issue before it. A **[[dictum]]** is judicial language beyond what is necessary to\nthat decision. Classifying a statement requires context and can itself involve\nargument. Avoid treating the most general sentence as the holding simply because\nit is easy to quote. Rowan R2 resolves the specified savable message; R3 explicitly\nleaves unsavable messages and late-decision remedies open.\n\n## Read the source instead of the search wrapper\n\nAn **[[editorial summary]]** is a publisher's description of a case. It can point to an\nissue, but it is not judicial language merely because it appears beside an opinion.\nH1 intentionally says that electronic messages always satisfy writing requirements.\nR2–R3 support a narrower result about the savable message at issue and reserve an\nunsavable-message question. Attribute the claim to the source that actually made it.\n\nA **[[pinpoint locator]]** identifies the specific part of a source supporting a\nproposition. Here the stable paragraph labels R2 or B2 serve that purpose. A citation\nto the entire packet makes a reader hunt through unrelated sources. A precise\nlocator both helps retrieval and forces you to check that the cited passage really\nsupports the sentence. In a real document, the appropriate locator may be a page,\nparagraph, section or other unit required by the applicable citation convention.\n\nKeep the source's pagination or paragraph system separate from a viewer's screen\nposition. “PDF page 3” may be a cover page or a differently numbered page. Preserve\nthe official or otherwise appropriate locator while noting the local file and\nversion in your research log. Do not invent a reporter citation when the source\nprovides only a slip opinion or another supported form.\n\n### Example 1: test a broad electronic-message claim\n\nA draft says, “Rowan proves that any electronic message is legally sufficient.”\nFirst find the decisive passage: R2 refers to section 3 and a savable message.\nSecond read the facts: delivery and completeness are agreed in R1. Third read the\nreservation in R3: the court does not decide the unsavable-message situation.\n\nRewrite the claim: “Under the packet's section 3, Rowan accepted the delivered,\nsavable electronic decision before it; it left unsavable messages unresolved.”\nCite R1–R3 as needed, with R2 for the central holding and R3 for the limitation.\nThe word “savable” is legally significant because the statute uses it and the court\nrelies on it. Omitting it would broaden the proposition beyond the supplied support.\n\n### Example 2: distinguish what Cedar said from what governs now\n\nC2 plainly endorses a fifteen-day period. It would be inaccurate to rewrite Cedar\nas if it originally required ten days. Research preserves what the historical case\nsaid while separately recording later treatment. First identify C2 as the original\nsupporting passage. Then use IDX2 to locate Birch B2, which overrules that point.\n\nThe resulting entry says: “Cedar adopted the fifteen-day reading; Birch later\nrejected it.” Cedar may be useful for explaining a legal development, but it cannot\nsupply the operative fifteen-day rule in the packet's later snapshot. B3 also\nreserves remedies, so Birch's reversal does not let you promise a particular award.\nSource identity, proposition, later treatment and disposition belong in separate\nfields because each answers a different question.\n\n## Practice with feedback\n\nWhich passage best supports the statement that Birch leaves Rowan's electronic-message\nholding undisturbed? Feedback: B3 expressly says so. R2 establishes the original\nholding; B3 establishes the later court's treatment of it. A citation to C3 only\nshows that Cedar did not discuss electronic form. Silence in one case is not the\nsame as an express statement in another.\n\nNow compare “Rowan, R2” with “search results, first hit.” The former locates a stable\nsource passage in this exercise; the latter depends on a changing display and does\nnot identify the source. A good research note can include both the search step and\nthe stable source citation, but they serve different purposes. The search record\nexplains discovery; the citation supports the legal proposition.\n\nFinally, test the claim “Birch awarded a room to the applicant.” Feedback: B3 reverses\nand remands the timeliness ruling and does not decide a remedy. Neither the case\nnor section 5 supports the claim. An outcome word such as “reversed” must be read\nwith its object and the relief actually ordered.\n\n## Common mistakes\n\nDo not attribute a guide, headnote or search excerpt to a judge without checking\nthe opinion. Do not confuse a party's contention with an adopted holding. Do not\nuse an exact quotation as a substitute for understanding its limiting context.\nAnd do not erase historical propositions when updating a case; explain how later\nsources change their permissible use.\n\n## Key points\n\n- Verify court, opinion type, posture and precise proposition after retrieval.\n- Use the opinion's text to check editorial summaries.\n- Record stable pinpoint locators and source versions.\n- Keep original holdings and later treatment distinct.\n",
+   "quiz": [
+    "lrc-q4-01",
+    "lrc-q4-02",
+    "lrc-q4-03",
+    "lrc-q4-04",
+    "lrc-q4-05",
+    "lrc-q4-06",
+    "lrc-q4-07",
+    "lrc-q4-08",
+    "lrc-q4-09",
+    "lrc-q4-10"
+   ]
+  },
+  {
+   "id": "lrc-currency",
+   "module": "lrc-m3",
+   "title": "Update authority and disclose coverage gaps",
+   "minutes": 30,
+   "topics": [
+    "Updating authority"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## Updating is a chain of supported checks\n\nA **[[currency check]]** investigates changes or later treatment that may affect a\nsource's use for your question. It is not satisfied by noting the date you opened\nthe document. An old opinion can remain important, a recently accessed guide can\nbe outdated, and a newly amended statute can preserve the old rule for earlier\nevents. Updating connects the source, the proposition, the relevant date and the\ncoverage of the tools you actually used.\n\nKeep legislative, regulatory and judicial checks separate. AR1 covers legislative\nchanges through August 20. The Rule 8 register covers textual amendments through\nthe same date. IDX1–IDX2 cover specified published Larch opinions only through\nAugust 15. Combining those records into one statement that “all law is current\nthrough August 20” would overstate the evidence. The shorter judicial coverage is\nnot repaired by the longer legislative record.\n\n## Use updating tools as leads to actual documents\n\nA **[[citator]]** is a research tool that helps locate later history or treatment of\nauthorities. Its coverage and signals depend on the service and collection. A flag\ncan direct attention to a problem, but reading the later document is necessary to\nunderstand its scope. The packet's small treatment record simulates that reasoning;\nit is not a complete commercial citator or a claim that a live check occurred.\n\n**[[Subsequent history]]** describes later proceedings in the same litigation, such\nas a later appellate disposition. Later treatment can also come from a different\ncase citing the earlier case. Birch and Cedar are separately named disputes here;\nB2's overruling is later treatment of Cedar, not a supplied later stage of Cedar's\nown litigation. Keep these categories distinct so your note accurately describes\nwhat happened rather than attaching a generic “appealed” label to every change.\n\n**[[Negative treatment]]** is later authority that criticizes, limits, rejects or\notherwise undermines an earlier proposition in a legally relevant way. Those actions\ndo not all have the same effect. Read the later court's words, hierarchy and issue.\nB2 expressly overrules Cedar's fifteen-day point. B3 expressly leaves Rowan's\nmessage-form holding undisturbed. The presence of both case names in Birch does\nnot mean both suffered the same treatment.\n\n## Update propositions, not just case names\n\n**[[Proposition-specific analysis]]** asks how a later development affects the exact\nclaim for which you intend to use a source. A case may address several issues.\nDo not turn a warning about one proposition into a claim that every sentence is\nunusable, or turn a favorable reference to one proposition into a warranty about\nevery other issue. Cedar remains a historical document even though its deadline\nproposition cannot control the later Larch analysis.\n\nStatutory change needs the same precision. A1 changes the decision period for a\ndefinitionally selected group of applications. It does not make Birch's account of\nthe old text historically false, and it does not change Rowan's analysis of savable\nelectronic form. Your entry can preserve the old holding while explaining the new\nstatutory context. “Overruled” and “amended” describe different mechanisms and should\nnot be used interchangeably.\n\nA **[[coverage cutoff]]** is the date through which a source says its collection or\nupdates extend. A **[[research gap]]** is an unresolved portion of the investigation.\nThe August 16–20 judicial interval is a concrete gap, not a vague disclaimer. Specify\nthe source you would need next and how the uncertainty limits the conclusion. Avoid\nclaiming that no later case exists merely because no later case is supplied.\n\n### Example 1: follow a warning to its scope\n\nStart with Cedar C2, the fifteen-day proposition. IDX2 points to Birch B2. First\nconfirm that the later source is a published majority of Larch's highest court\nunder P2. Second read B2's reason: sections 2 and 4 do not permit the agency to\nlengthen the period. Third record the express overruling of Cedar on that point.\n\nNow inspect B3 instead of assuming every earlier case is rejected. B3 preserves\nRowan's electronic-message holding. Your authority entries therefore differ:\nCedar's fifteen-day proposition is displaced; Rowan's supplied form holding remains\nusable within the packet, subject to the stated updating limits. This conclusion\ncomes from the later text, not from the color or existence of a treatment flag.\n\n### Example 2: a truthful statement of incomplete currency\n\nA researcher writes, “Checked today; all cases good through August 20.” Replace\nthat with a traceable statement: “Reviewed IDX2, covering the specified published\nLarch courts through August 15. Read Birch B2–B3. Cedar's fifteen-day point is\noverruled; Birch expressly leaves Rowan's form holding undisturbed. No check for\nAugust 16–20, unpublished material or a full docket was possible under ACCESS1.”\n\nThen state the next action: search an appropriately current court collection or\ncitator for later developments and inspect any relevant documents. This is a plan,\nnot a completed check. You can still answer the bounded exercise using the supplied\nauthorities, as long as you do not present the answer as a complete real-world\ncurrency determination. Accuracy includes the limits of your work.\n\n## Practice with feedback\n\nSuppose the rule register lists no amendment to 8.3. Can you use its fifteen-day\ntext without further checking? Feedback: no. Absence of a textual amendment answers\none question; Birch B2's treatment and section 4's hierarchy answer another. The\ncompiled words can remain unchanged while their use is legally displaced.\n\nNext, the legislative register is complete through August 20. Does that close the\ncase-index gap? Feedback: no. The registers cover different kinds of developments.\nA complete amendment check cannot establish the absence of later judicial\ninterpretations. State each completed check with its own scope.\n\nFinally, imagine an index shows a case was “distinguished.” What should you do?\nRead the later decision to identify the issue, factual distinction, court and effect\non your proposition. Do not automatically equate distinction with overruling. The\npacket supplies an express overruling for Cedar; real labels require comparable\nattention to what the underlying source actually says.\n\n## Common mistakes\n\nA recent access date is not a coverage date. No recorded negative treatment is not\na guarantee of validity. A case name appearing in another opinion does not tell you\nwhether it was followed, limited, criticized or mentioned for background. Treating\nall sources as having one shared cutoff hides gaps. Finally, do not report that a\npaid tool or docket was checked when the exercise makes it unavailable.\n\n## Key points\n\n- Read the later source and record treatment of the exact proposition.\n- Separate subsequent history, later treatment and statutory amendment.\n- Record collection scope and coverage cutoff for each check.\n- Explain unresolved gaps and the specific follow-up they require.\n",
+   "quiz": [
+    "lrc-q5-01",
+    "lrc-q5-02",
+    "lrc-q5-03",
+    "lrc-q5-04",
+    "lrc-q5-05",
+    "lrc-q5-06",
+    "lrc-q5-07",
+    "lrc-q5-08",
+    "lrc-q5-09",
+    "lrc-q5-10"
+   ]
+  },
+  {
+   "id": "lrc-authority-fit",
+   "module": "lrc-m3",
+   "title": "Check jurisdiction, hierarchy and source reliability",
+   "minutes": 30,
+   "topics": [
+    "Authority and source reliability"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## Four questions that should not collapse into one\n\nA research result can be genuine, current and still wrong for your question. Ask\nseparately where it comes from, whether the copy is reliable, how current the\nresearch is, and whether the proposition applies in the forum. A document's official\nappearance cannot answer all four. This lesson uses the Larch and Maren materials\nto practice keeping those questions distinct.\n\n**[[Jurisdiction]]** here identifies the legal system whose authority is relevant; the\nword can also concern a tribunal's power, which would require its own analysis in\na real matter. Our packet stipulates the Larch forum and supplies no federal issue.\nDo not invent a jurisdictional dispute or import a real state's hierarchy. Use P2–P3\nfor this exercise, and research the actual rules separately when transferring the\nmethod to a real assignment.\n\n## Explain why an authority binds\n\n**[[Binding authority]]** is authority the deciding forum must follow for the relevant\nproposition under the applicable legal system. **[[Persuasive authority]]** may inform\nreasoning without requiring that result. These labels are relational. They depend\non forum, source, proposition and status; they are not permanent badges attached\nto every document from an institution.\n\nA **[[hierarchy]]** orders institutions or sources for resolving conflicts under the\napplicable rules. P2 gives Larch Supreme Court holdings priority over inconsistent\nCourt of Appeals holdings. P3 gives the statute priority over an inconsistent\nagency regulation. The date of a source is relevant, but “newest document wins”\nis not a general hierarchy rule. A recent staff memo does not amend a statute.\nA recent Maren decision does not replace the Larch legislature's deadline.\n\n**[[Applicability]]** asks whether the particular rule and version address these facts,\nthis issue and this forum. Even a binding institution's decision can concern a\ndifferent statutory text or leave the question open. Rowan helps with savable\nmessages, not an unspecified damages remedy. A1 chooses the period by receipt\ndate, so two pending applications can lawfully fall under different versions.\n\n## Verify the document without overstating verification\n\n**[[Authentication]]** concerns evidence that a document is what it purports to be and\ncomes from the identified source. **[[Integrity]]** concerns whether the content has\nbeen changed from the verified version. GPO's authentication explanation describes\ndigital signatures for evidence of authenticity and integrity in its PDFs. Such\nevidence does not establish that later legislation or decisions have left the legal\nrule unchanged. An authentic old law can still need updating.\n\nA visible seal or a downloaded file is not itself proof that you performed a\nsignature validation. Record the verification method actually used and any limits.\nThe fictional packet is authored teaching material; it contains no real judicial\ncertificates or digital signatures. Its stable labels support the exercise, but do\nnot claim official authenticity for Larch institutions that do not exist.\n\nFor outside research, prefer an identifiable issuing institution or reliable\npublisher and keep document metadata. Compare suspicious discrepancies with an\nauthoritative copy and investigate version differences. Avoid casually merging two\nversions because their titles match. A typographical correction, amended opinion\nor different effective version can matter. If verification is incomplete, record\nthat fact instead of substituting confidence for evidence.\n\n### Example 1: the highest court of the wrong jurisdiction\n\nElm is a published majority of Maren's Supreme Court, dated June 1, Year 5. A student\nargues that it must control because it comes from a supreme court and is newer than\nBirch. Start with P2: Maren is a different jurisdiction and its decisions do not bind\nLarch trial courts. Next read E1–E2: the result follows a separate twenty-day statute.\n\nElm might be recorded as comparative background, but it does not supply the Larch\ndeadline. Neither its date nor its court's rank within Maren changes that mismatch.\nA good authority entry explains the reason for exclusion: foreign jurisdiction and\ndifferent operative text. Merely marking it “bad source” would lose the distinction\nbetween a valid document and an inapplicable proposition.\n\n### Example 2: the newest agency document is not an amendment\n\nM1 is a June 20 staff memo, later than Birch and later than A's enactment. It says\nto use fourteen days for every application still pending July 1. First classify it:\nnonbinding staff guidance under P3. Second compare its rule with A1, which selects\nby receipt date and expressly preserves ten days for earlier receipts.\n\nThird apply the conflict to Noor. Receipt June 25 places Noor in the older category,\neven though the application remains pending in July. M1 does not override A1.\nRecord M1 as a rejected lead and explain the discrepancy. The reasoning depends on\nsource authority and text, not on speculation that staff acted dishonestly or on a\nblanket claim that agency publications are never useful.\n\n## Practice with feedback\n\nClassify three propositions for a Larch trial court within the packet: Birch rejects\nCedar's fifteen-day rule; Elm permits twenty days under Maren's statute; G2 explains\nBirch for students. Feedback: Birch's relevant published majority holding binds\nunder P2; Elm's foreign holding does not bind Larch and concerns different text;\nG2 is secondary explanatory material whose leads require primary-source checking.\nEach classification should include its reason, not just a one-word label.\n\nNow suppose an authentic copy of the January guide is found on its publisher's site.\nDoes authenticity establish that fifteen days governs Ivo? Feedback: no. Provenance\nand integrity concern the copy. Currency and applicability require Birch, A1 and\nthe receipt date. The guide remains a real copy of an outdated explanation within\nthe fictional scenario.\n\nFinally, consider Rule 8.1 and Rule 8.3. Both come from the same regulation. Do they\nnecessarily have the same usable authority? Feedback: no. The packet provides\ncompleteness requirements in 8.1, while 8.3 conflicts with section 4 and is rejected\nin Birch. Evaluate each proposition rather than assigning one undifferentiated\nstatus to every sentence in a document.\n\n## Common mistakes\n\n“Supreme Court” without a jurisdiction can conceal a forum mismatch. “Government\npublication” without document type can conceal the difference between legislation\nand guidance. “Digitally authenticated” without an update check can conceal obsolete\nlaw. “Primary source” without hierarchy or applicability can conceal an unusable\nproposition. These distinctions are tools for explaining a conclusion, not boxes\nto tick without reading.\n\n## Key points\n\n- State the forum and the supplied hierarchy before ranking sources.\n- Explain binding or persuasive status for the particular proposition.\n- Keep authenticity and integrity separate from currency and applicability.\n- Resolve source conflicts using their authority, text and relevant dates.\n",
+   "quiz": [
+    "lrc-q6-01",
+    "lrc-q6-02",
+    "lrc-q6-03",
+    "lrc-q6-04",
+    "lrc-q6-05",
+    "lrc-q6-06",
+    "lrc-q6-07",
+    "lrc-q6-08",
+    "lrc-q6-09",
+    "lrc-q6-10"
+   ]
+  },
+  {
+   "id": "lrc-citation",
+   "module": "lrc-m4",
+   "title": "Cite precisely and preserve a source’s meaning",
+   "minutes": 30,
+   "topics": [
+    "Citation and quotation"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## A citation is part of the reasoning\n\nA **[[citation]]** identifies the source supporting a statement and directs the reader\nto the relevant location. It is more than a formatting exercise. If a reader follows\nyour reference, the cited passage should support the proposition at the level of\ngenerality you claimed. An elegant citation cannot repair an irrelevant source or\na misquoted sentence. This lesson practices traceability using the packet's stable\nlabels, then explains how to transfer the method to an assigned citation system.\n\nFor this course, use the teaching convention in the Citation and currency reference.\nA full case reference can be “Birch, B2 (Larch Supreme Court, April 15, Year 5).”\nFor statutes, identify the section and version or amendment. These are exercise\nlocators, not fictional reporter volumes presented as genuine citations. In actual\ncoursework or litigation, follow the relevant assignment instructions, court rules\nand citation guide rather than assuming this simplified format is sufficient.\n\n## Give the reader source identity and a precise location\n\n**[[Attribution]]** assigns words or ideas to the person or institution that expressed\nthem. H1 is an editorial summary, not Rowan's judicial holding. M1 is a staff memo,\nnot the legislature's transition provision. A citation to the correct document with\nthe wrong speaker attribution can still mislead. Before formatting, ask who said\nit, in which document, and with what authority.\n\nA useful source record preserves title or case name, issuer, date or applicable\nversion, and a pinpoint locator. A URL can help retrieval but should not be the\nonly identity information when a fuller citation is required. Links can change;\nsource identity and stable locators help another reader recover the document.\nYour private research log can retain filenames, access dates and navigation steps\nwithout forcing every working note into the final citation.\n\nA **[[short form]]** is a shortened citation used after the source is clearly identified.\nIn this exercise, “Birch, B2” is adequate after an unambiguous full reference. “Id.”\nor a bare page number can become confusing when paragraphs are rearranged or several\nsources intervene. Do not use a shorthand you cannot verify in its current context.\nThe appropriate short-form rules for real work depend on the governing style.\n\n## Quote words exactly and paraphrase ideas accurately\n\nA **[[quotation]]** reproduces source language as such. A **[[paraphrase]]** restates a\nsource's idea in your own words. Both require accurate attribution and support.\nRemoving quotation marks does not free you to broaden the proposition, and changing\na few words does not eliminate the need to cite the source. Compare your sentence\nagainst the original passage and its surrounding qualifications.\n\nAn **[[ellipsis]]** marks omitted material under the applicable style. A **[[bracketed alteration]]** visibly marks an insertion or change within quoted material when the\nstyle permits it. These devices can improve readability, but they must not distort\nmeaning. Preserve limiting words, conditions and exceptions. If a short quote would\nrequire confusing surgery, use an accurate paraphrase with a precise citation instead.\n\nCheck the actual source version, not a cached snippet or your earlier notes. Copying\nfrom a summary can silently convert the editor's interpretation into judicial text.\nQuotation review also includes speaker, context and scope: who is being quoted within\nthe opinion, whether the court adopts the proposition, and whether a later passage\nlimits it. Exact words can still be misleading when detached from those features.\n\n### Example 1: fix an altered quotation\n\nA draft states: “Section 3 allows an ‘electronic message,’ so even an unsavable chat\nis sufficient.” The source actually permits a “savable electronic message.” First\nrestore the limiting word. Second check Rowan R3, which expressly leaves unsavable\nmessages unresolved. Third revise the conclusion rather than simply repairing the\nquotation marks.\n\nA supported version is: “Section 3 permits a ‘savable electronic message’; Rowan\naccepted the specified savable message and reserved the unsavable-message question\n(Act section 3; Rowan, R2–R3).” The revised statement separates statutory wording\nfrom the case's application and limitation. It does not infer a rule about an\nunresolved factual situation. Citation accuracy and substantive accuracy work together.\n\n### Example 2: cite the transition rule that does the work\n\nA note says, “Noor has ten days, Act section 2.” That identifies the old number,\nbut an August reader might reasonably ask why the fourteen-day amendment does not\napply. Add the source that resolves the issue: Amendment A, A1, which preserves\nten days for applications received before July 1.\n\nA fuller explanation is: “Because Noor's complete application was received June 25,\nA1 preserves the original section 2's ten-day period even though the deadline falls\nin July.” Cite both provisions with the original version and amendment dates in\nthe initial references. The citation now shows the legal path from fact to rule.\nBy contrast, citing M1 would point to a conflicting nonbinding instruction rather\nthan the controlling transition text.\n\n## Practice with feedback\n\nRewrite “H1 says all electronic messages count, therefore Rowan held that all\nmessages count.” Feedback: identify H1 as editorial, then state R2's narrower\nsavable-message result and R3's reservation. You may cite H1 when criticizing the\nsummary, but cite Rowan for the court's actual position. Do not silently assign\nthe editor's words to the judges.\n\nNext, inspect this reference: “Source: page 2.” What is missing? Feedback: source\nidentity, version or date, issuer when needed, and a meaningful location system.\nA viewer page alone does not distinguish the Act from an opinion or different\neditions. In the packet, stable labels such as A1 and B2 are clearer.\n\nFinally, paraphrase B2 without using a direct quotation. A sound version is: “Birch\nrejected the agency's fifteen-day allowance because sections 2 and 4 did not authorize\nit, and overruled Cedar on that point.” Cite B2. The paraphrase preserves the source's\nscope and reason. It does not claim that Birch ruled on Amendment A, which did not\nyet exist, or on remedies, which B3 reserves.\n\n## Common mistakes\n\nDo not fabricate missing reporter, docket or page information. Locate it or use an\nappropriate available citation form. Do not assume every source requires the same\nkind of date. A version date can matter more than an access date for selecting\nhistorical law. Do not use an ellipsis to remove a condition that defeats your\nargument. And do not treat proofreading punctuation as the end of citation review;\nverify that each passage supports the sentence beside it.\n\n## Key points\n\n- Identify the source, applicable version and precise supporting passage.\n- Attribute language to the correct speaker or institution.\n- Preserve conditions and limitations in quotations and paraphrases.\n- Apply the assigned citation rules; never invent missing citation data.\n",
+   "quiz": [
+    "lrc-q7-01",
+    "lrc-q7-02",
+    "lrc-q7-03",
+    "lrc-q7-04",
+    "lrc-q7-05",
+    "lrc-q7-06",
+    "lrc-q7-07",
+    "lrc-q7-08",
+    "lrc-q7-09",
+    "lrc-q7-10"
+   ]
+  },
+  {
+   "id": "lrc-portfolio",
+   "module": "lrc-m4",
+   "title": "Build a reproducible research portfolio",
+   "minutes": 30,
+   "topics": [
+    "Research portfolio"
+   ],
+   "refs": [
+    "lrc-ref-packet",
+    "lrc-ref-workbench",
+    "lrc-ref-citation",
+    "lrc-ref-capstone"
+   ],
+   "body": "## Turn your work into something another reader can inspect\n\nThe final product of research is not a collection of open tabs. It is an explanation\nof what supports the answer, how you found and checked it, and what remains unresolved.\nA **[[research log]]** records the questions, collections, queries, results, passages\nand next actions used during the investigation. An **[[authority table]]** organizes\nthe sources by the propositions they support, their status, versions and limitations.\nThese products complement each other: the log documents the process, while the table\nmakes the source analysis easy to compare.\n\nOn a phone, a table can be a sequence of labelled entries using the same fields.\nThe educational goal is not a wide grid. It is a complete record that another\nresearcher can follow. Use the Research workbench template and the Research portfolio\nreference. All required research occurs within the supplied fictional packet; an\noptional external orientation exercise is separate from the scored questions.\n\n## Preserve an honest trail of completed work\n\nAn **[[audit trail]]** is the traceable record connecting inputs, actions and conclusions.\nFor research, it includes exact queries or navigation paths, active fields and\nfilters, collection scope, document versions and the passages examined. A list of\nURLs is incomplete because it does not reveal which proposition was tested or what\nthe search excluded. Record unsuccessful searches as well as useful results.\n\nDistinguish three statuses in your notes: performed and supported; performed but\nunresolved; planned but not performed. This prevents a polished final document from\nconcealing uncertainty. An **[[access limitation]]** is a barrier to examining a needed\nsource or collection. ACCESS1 supplies several: no live database, paid citator or\nfull docket is available, and the packet cannot fill the August 16–20 judicial gap.\nDo not claim those checks happened because they would be normal in another setting.\n\nA **[[stopping rule]]** specifies when to pause research and report the bounded result.\nIt can depend on resolving the assigned issues, reviewing necessary sources, checking\ncontradictions and identifying remaining gaps. It is not “stop when the first source\nagrees” or “keep searching until certainty is absolute.” Time and access constraints\ncan require a qualified conclusion. State the consequence of the missing work so\nreaders know how much weight to put on the result.\n\n## Explain the result at the level your evidence supports\n\nA **[[handoff]]** gives another researcher the findings, open questions and concrete next\nsteps needed to continue. “Research more” is too vague. “Check post-August-15 Larch\njudicial developments for treatment of the deadline and form propositions, using\nan appropriately current court collection or citator” identifies a source category,\nperiod and issue. Do not pretend a negative search will necessarily prove that no\nunseen authority exists; assess its coverage too.\n\n**[[Self-assessment]]** uses stated criteria to identify strengths and revisions in your\nown work. The portfolio rubric has six categories, each scored zero to two. It is\na learning aid, not faculty grading, credit or certification. The objective quizzes\ncan check a bounded answer, such as the receipt-date trigger. They cannot automatically\nevaluate the completeness or persuasive quality of your whole research portfolio.\n\nFor the capstone, prepare at least seven primary-source entries plus evaluated guide\nand memo leads, six log entries and a 450–650-word explanatory note. Answer both\nNoor and Ivo. Include a faithful quotation, precise locators, rejected competing\nrules and the coverage limits. Keep the source table and log outside the note's\nword target so that concision does not force you to omit essential records.\n\n### Example 1: a log entry that someone can reproduce\n\nWeak entry: “Found that Cedar is wrong.” Replace it step by step. Identify the task:\ncheck the fifteen-day proposition. Identify the collection: IDX1, specified published\nLarch opinions through August 15. Record the query: Cedar in full text. Record the\nsupplied hits: Cedar and Birch. Record passages opened: C2 and B2.\n\nThen state the finding: Birch expressly overrules the fifteen-day point under the\nhierarchy in P2. Finally, state the unresolved follow-up for August 16–20 and other\nmaterial outside the index's scope. Label the whole entry a packet exercise. This\nrecord supports reproduction without claiming a live database search or relying on\nyour memory of what the search screen once showed.\n\n### Example 2: a conclusion with a specific limit\n\nWithin the supplied authorities, Noor's June 25 receipt uses ten days and produces\na July 5 deadline. The July 8 decision is late. Ivo's July 3 receipt uses fourteen\ndays and produces a July 17 deadline. The July 18 decision is also late. Cite the\noriginal section 2, A1 and P4 or Rule 8.2 for the reasoning.\n\nNow add what the conclusion does not resolve: later judicial developments after\nAugust 15 were not checked, no remedy rule is supplied, and silence is not approval\nunder section 5. These qualifications are tied to concrete source boundaries. They\ndo not erase the supported exercise answer, and they do not claim that unknown\nlater authority definitely changes it. The conclusion distinguishes known support\nfrom unfinished inquiry.\n\n## Practice with feedback\n\nDraft one authority entry for Rule 8. A strong entry separates its parts: 8.1 supplies\ncompleteness requirements; 8.2 supplies day-zero counting; 8.3's fifteen-day allowance\nconflicts with section 4 and is rejected by Birch B2. Record the unchanged regulatory\ntext and judicial treatment as different facts. A single “valid/invalid” label for\nthe entire rule loses this useful precision.\n\nNext, write a one-sentence next action for the case-law gap. Feedback: name the dates,\nrelevant courts or collection, propositions and need to inspect any found authorities.\n“Check the internet” is not reproducible. Do not report the proposed action as a\ncompleted search in the next line of your log.\n\nFinally, use the rubric on your note before consulting the model. If you selected\nthe correct deadlines but omitted the research gap, that is a substantive revision\nneed, not a cosmetic issue. If your citations are immaculate but M1 controls your\ntransition analysis, revisit hierarchy and A1. Each criterion tests a different\npart of the research process.\n\n## Common mistakes\n\nDo not replace analysis with the number of sources collected. Do not omit adverse\nleads because the final answer rejects them; explaining rejection makes the work\nreviewable. Do not call every check “complete” when different collections have\ndifferent cutoffs. And do not treat a high self-score as approval by a university\nor lawyer. The portfolio demonstrates practice in a bounded fictional setting.\n\n## Key points\n\n- Use a log for process and an authority table for source analysis.\n- Separate completed, unresolved and planned work.\n- Give a bounded answer with specific gaps and follow-up actions.\n- Revise against the rubric; objective quizzes do not grade the portfolio.\n",
+   "quiz": [
+    "lrc-q8-01",
+    "lrc-q8-02",
+    "lrc-q8-03",
+    "lrc-q8-04",
+    "lrc-q8-05",
+    "lrc-q8-06",
+    "lrc-q8-07",
+    "lrc-q8-08",
+    "lrc-q8-09",
+    "lrc-q8-10"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "law-legal-research-bank",
+   "title": "Legal Research and Citation questions",
+   "sections": [
+    {
+     "id": "lrc-m1",
+     "name": "Research plans and secondary sources"
+    },
+    {
+     "id": "lrc-m2",
+     "name": "Cases, statutes and regulations"
+    },
+    {
+     "id": "lrc-m3",
+     "name": "Updating authority and jurisdiction checks"
+    },
+    {
+     "id": "lrc-m4",
+     "name": "Citation, quotations and research logs"
+    }
+   ],
+   "exam": {
+    "questionCount": 50,
+    "timeLimitMinutes": 90,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "lrc-q1-01",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Which issue statement best defines the assigned research for Noor?",
+     "choices": [
+      "Was a savable electronic decision sufficient without considering when it was sent?",
+      "What remedy follows from the delay if timeliness and relief are treated as one issue?",
+      "Which deadline applies to a complete application using the decision date as the transition trigger?",
+      "Was the July 8 decision timely for a complete Larch application received June 25?"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The assigned question is whether the July 8 decision was timely for the June 25 complete receipt in Larch. Form alone, the wrong transition event and an assumed remedy do not define that issue."
+    },
+    {
+     "id": "lrc-q1-02",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Which date selects Noor’s statutory period under A1?",
+     "choices": [
+      "July 1, when the new rule first took effect for eligible receipts",
+      "June 25, when the complete application was received",
+      "August 20, when the research snapshot is set",
+      "July 8, when the Office sent its decision"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A1 classifies applications by their complete-application receipt date. Its July 1 boundary matters, but the relevant event to compare against it is Noor’s June 25 receipt."
+    },
+    {
+     "id": "lrc-q1-03",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "The packet’s judicial index ends August 15, but the assignment asks for research as of August 20. What belongs in the plan?",
+     "choices": [
+      "A completed August 20 case-law check based on the assignment’s requested date",
+      "A completed August 20 case-law check based on the legislative register’s date",
+      "A completed packet check plus a separately identified August 16–20 follow-up",
+      "An instruction to omit the cutoff because it is close to the requested date"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The target date does not extend the index’s coverage. Identify the performed check and the unavailable judicial follow-up separately; legislative coverage concerns a different source type."
+    },
+    {
+     "id": "lrc-q1-04",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "The application may omit the requested room, and completeness is not stipulated in this variant. What should the researcher do first?",
+     "choices": [
+      "Identify the missing fact and consult Rule 8.1 before choosing the clock’s start",
+      "Start the clock at the first contact regardless of the missing information",
+      "Treat uncertainty about completeness as proof that no deadline applies",
+      "Assume completeness because the Office eventually issued a decision"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Rule 8.1 specifies the completeness items. Uncertainty calls for a fact inquiry; it supports neither presumed completeness nor a final conclusion that the deadline never applies."
+    },
+    {
+     "id": "lrc-q1-05",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Why does the research plan name a Larch trial court as the forum?",
+     "choices": [
+      "P2 ties the binding force of judicial holdings to that forum",
+      "P2 makes a case binding based on its caption rather than its relevant holding",
+      "P2 gives agency guidance the same force as the forum’s judicial holdings",
+      "P2 makes the most recent decision binding without comparing its jurisdiction"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "P2 states which courts bind the Larch trial court. Naming the forum does not erase hierarchy, source distinctions or temporal applicability."
+    },
+    {
+     "id": "lrc-q1-06",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Which planning choice best manages a limited research budget?",
+     "choices": [
+      "Prioritize convenient guide summaries, then defer checking their primary citations",
+      "Prioritize collecting more sources, then reconstruct their versions and coverage at the end",
+      "Prioritize the governing text, transition and adverse leads, then record unresolved work",
+      "Prioritize sources supporting the proposed answer, then treat agreement as a stopping point"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A budget should prioritize questions that can change the answer and preserve an honest handoff. It does not justify selective searching or concealing missing checks."
+    },
+    {
+     "id": "lrc-q1-07",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "A researcher concludes that a late decision automatically awards a room. Which planning omission caused the overreach?",
+     "choices": [
+      "Failing to distinguish the date the amendment was enacted from its effective date",
+      "Failing to distinguish a savable electronic decision from an unsavable electronic message",
+      "Failing to distinguish the date of receipt from the date the written decision was sent",
+      "Failing to separate the timeliness issue from the unsupplied remedy question"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The error is moving from lateness to entitlement without a remedy rule. Section 5 rejects approval by silence. Receipt, form and enactment/effectiveness distinctions matter elsewhere, but do not supply the missing remedy."
+    },
+    {
+     "id": "lrc-q1-08",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Which note accurately labels a planned search that ACCESS1 prevents?",
+     "choices": [
+      "Complete: access limits make the later judicial interval immaterial",
+      "Not performed: search later judicial developments for August 16–20",
+      "Performed: the legislative register also cleared the later judicial interval",
+      "Performed: no later judicial developments exist for August 16–20"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "An unperformed search must stay a planned action. Neither a legislative register nor lack of access proves the absence or irrelevance of later judicial developments."
+    },
+    {
+     "id": "lrc-q1-09",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "Match each item in the research plan to its distinct role.",
+     "type": "match",
+     "left": [
+      "June 25 receipt",
+      "Larch trial court",
+      "August 20 snapshot",
+      "Table, log and note"
+     ],
+     "choices": [
+      "Receipt-date trigger",
+      "Deciding forum",
+      "Research target date",
+      "Required output"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "The event date selects the applicable period, the forum frames authority, the snapshot sets the desired research date, and the table/log/note specify the product."
+    },
+    {
+     "id": "lrc-q1-10",
+     "section": "lrc-m1",
+     "topic": "Research planning",
+     "stem": "A provisional statement filling a missing factual gap, which must be labelled and tested, is an ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "assumption",
+       "explicit assumption",
+       "provisional assumption"
+      ]
+     ],
+     "explanation": "An assumption is provisional, not a supplied fact. Identify it and investigate it when it can change the result."
+    },
+    {
+     "id": "lrc-q2-01",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "What is the best use of G2, the May guide, in an August inquiry?",
+     "choices": [
+      "Confirm its quotations of Birch and treat that confirmation as an August update",
+      "Compare its edition with G1 and choose its conclusions without opening the cited text",
+      "Follow its case citations but treat its statutory account as settled for July receipts",
+      "Follow its primary-source leads and check developments after the guide’s date"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "G2 is a useful secondary lead that incorporates Birch but predates A1. Its sources and later changes still require checking; relative newness is not final currency."
+    },
+    {
+     "id": "lrc-q2-02",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "Which classification correctly describes Cedar after Birch overrules its fifteen-day point?",
+     "choices": [
+      "A binding current deadline rule because primary sources cannot be displaced",
+      "A regulation because it discussed the Office’s fifteen-day rule",
+      "A primary judicial source whose deadline proposition has been displaced",
+      "A secondary source because a later court rejected its deadline proposition"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Primary/secondary classification describes the source’s nature. Later treatment changes the use of its proposition without turning an opinion into commentary or regulation."
+    },
+    {
+     "id": "lrc-q2-03",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "IDX1 gives zero hits for “study room” in case titles. Which next step best addresses the likely search problem?",
+     "choices": [
+      "Search “complete application” in full text and examine the supplied hits",
+      "Repeat the same title query and report it as a complete treatment check",
+      "Conclude that no Larch opinion concerns room applications",
+      "Use the zero result to disregard the cases named in the packet"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The captions use Town Room Office. A full-text query using the operative phrase returns Rowan, Cedar and Birch; zero title hits do not prove an absence of law."
+    },
+    {
+     "id": "lrc-q2-04",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "Which information is essential to make a search query reproducible?",
+     "choices": [
+      "The query and result count, with the service’s default fields and filters left unspecified",
+      "The topic and conclusions, with the actual query and searched collection left unspecified",
+      "The final sources and access date, with unsuccessful queries and coverage left unspecified",
+      "The query, searched field, active filters and collection coverage"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Reproduction requires the actual query, field, active filters and collection coverage. A result count, access date or conclusion without those settings can hide a different search scope."
+    },
+    {
+     "id": "lrc-q2-05",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "G1 cites Cedar for fifteen days. What should a researcher do after confirming C2?",
+     "choices": [
+      "Record C2’s wording as verified and treat verification as sufficient to use fifteen days",
+      "Use G1’s publication date as the end date of the necessary later-case inquiry",
+      "Look for later treatment and read Birch’s relevant passages",
+      "Check only for amendments to Rule 8.3 before deciding whether Cedar still supports fifteen days"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Confirmation establishes what Cedar said, not its later status. IDX2 leads to B2’s overruling; preserve the history while updating the proposition."
+    },
+    {
+     "id": "lrc-q2-06",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "Why does G2’s May publication date matter for Ivo’s July application?",
+     "choices": [
+      "It precedes Amendment A and prompts a later-legislation check",
+      "It supplies the relevant event date for selecting the statutory version for Ivo",
+      "It establishes that the ten-day rule remains applicable to every pending July application",
+      "It establishes Birch’s treatment and therefore also completes the later-legislation check"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "G2 predates the amendment enacted June 10 and effective July 1. A1 and Ivo’s July 3 receipt, not the guide’s publication date alone, select the applicable period."
+    },
+    {
+     "id": "lrc-q2-07",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "A guide cites an inaccessible case. Which entry is accurate?",
+     "choices": [
+      "Verified absence: inaccessible cases cannot affect the assigned issue",
+      "Unverified lead: obtain the full case before attributing its holding",
+      "Completed search: infer the case’s reasoning from its title and date",
+      "Verified holding: the guide’s description substitutes for the unavailable case"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A missing full source remains an unverified lead. Record the access problem and next action rather than inventing reasoning or treating inaccessibility as irrelevance."
+    },
+    {
+     "id": "lrc-q2-08",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "How should a researcher transfer a query between two search services?",
+     "choices": [
+      "Keep the same words but omit filters from the research record",
+      "Check each service’s syntax and fields before assuming the same behavior",
+      "Treat matching result counts as proof that the collections are identical",
+      "Assume quotation marks and proximity connectors always work identically"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Syntax, fields, filters and coverage can differ. Consult the service’s instructions and document the actual query; equal counts do not establish equal content."
+    },
+    {
+     "id": "lrc-q2-09",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "Match each packet source to its stated source category.",
+     "type": "match",
+     "left": [
+      "Act section 2",
+      "G1 clinic guide",
+      "Cedar C2",
+      "M1 staff memo"
+     ],
+     "choices": [
+      "Legislation",
+      "Commentary",
+      "Judicial opinion",
+      "Staff guidance"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "The Act is legislation, Cedar is an opinion, G1 is commentary and M1 is nonbinding staff guidance. Category does not by itself settle currency or applicability."
+    },
+    {
+     "id": "lrc-q2-10",
+     "section": "lrc-m1",
+     "topic": "Search and secondary sources",
+     "stem": "A guide’s citation that points toward a source still needing examination is a research ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "lead",
+       "research lead"
+      ]
+     ],
+     "explanation": "A lead is a direction for further inquiry, not a verified holding or completed currency check."
+    },
+    {
+     "id": "lrc-q3-01",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "A was enacted June 10 and became effective July 1. A complete application arrived June 20. Which period does A1 select?",
+     "choices": [
+      "Twenty days, because Elm was already decided",
+      "Ten days, because receipt preceded July 1",
+      "Fourteen days, because receipt followed enactment",
+      "Fifteen days, because Rule 8.3 remains printed"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A1 uses receipt on or after its July 1 boundary, not the June 10 enactment date. This earlier receipt retains ten days under the original section 2."
+    },
+    {
+     "id": "lrc-q3-02",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Noor’s complete application arrived June 25. What is the deadline under P4 and A1?",
+     "choices": [
+      "July 10, applying Rule 8.3’s fifteen-day period",
+      "July 5, using ten days with receipt as day zero",
+      "July 9, applying fourteen days because the deadline is in July",
+      "July 4, including the receipt day as day one"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A1 preserves ten days for June 25 receipt. June 26–30 are days one to five; July 1–5 are days six to ten. Receipt is day zero, and 8.3 cannot extend the statute."
+    },
+    {
+     "id": "lrc-q3-03",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Which source directly resolves whether an application pending July 1 keeps the old period?",
+     "choices": [
+      "M1’s staff direction keyed to whether an application is still pending",
+      "G2’s May explanation without checking later legislation",
+      "A1’s transition provision keyed to complete-application receipt",
+      "Elm’s discussion of Maren’s twenty-day text"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A1 expressly preserves ten days for receipts before July 1. M1 conflicts with that criterion; G2 predates A and Elm concerns another jurisdiction."
+    },
+    {
+     "id": "lrc-q3-04",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "What remains unchanged under A2?",
+     "choices": [
+      "Sections 1, 2, 4 and 5 remain unchanged for all complete applications",
+      "Sections 1, 3 and 5 remain unchanged, but section 4 now permits fifteen-day rules",
+      "Sections 1, 3 and 4 remain unchanged, but section 5 now makes silence approval",
+      "Sections 1, 3, 4 and 5 of the Act"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A2 expressly leaves sections 1, 3, 4 and 5 unchanged. Section 2 changes for eligible receipts. There is no new fifteen-day exception in section 4 or approval-by-silence rule in section 5."
+    },
+    {
+     "id": "lrc-q3-05",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Why does section 4 matter when evaluating Rule 8.3?",
+     "choices": [
+      "It limits the agency’s delegated power and forbids lengthening the period",
+      "It authorizes the agency to select the decision period when prescribing application forms",
+      "It permits the agency to extend the period for applications with all required information",
+      "It leaves a timing exception for an agency rule issued after the original statute’s enactment"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Section 4 delegates forms and identifying information but expressly forbids a longer decision period. Specificity, staff authorship and completeness do not create an exception."
+    },
+    {
+     "id": "lrc-q3-06",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Ivo’s complete application arrived July 3 and a paper decision was sent July 18. Which analysis follows the packet?",
+     "choices": [
+      "Rule 8.3 allows fifteen days, ending July 18; the decision is timely",
+      "Paper form eliminates the need to apply a decision deadline",
+      "The original Act always allows ten days, ending July 13; A1 is irrelevant",
+      "A1 allows fourteen days, ending July 17; the decision is late"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Receipt on July 3 triggers A1. July 4 is day one and July 17 day fourteen. Section 4 and Birch reject using 8.3 to lengthen the period; paper form is a separate issue."
+    },
+    {
+     "id": "lrc-q3-07",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "The rule register reports no textual amendment to 8.3. What follows?",
+     "choices": [
+      "Birch has no effect until the agency physically deletes the rule’s text",
+      "Its fifteen-day allowance must govern because the compiler retained the words",
+      "Its wording is unchanged, but its usable authority still requires judicial and statutory checks",
+      "The absence of an amendment establishes the absence of later case law"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Textual currency is one check. The statute’s delegation limit and Birch’s treatment can defeat the fifteen-day proposition even while the regulation remains reproduced."
+    },
+    {
+     "id": "lrc-q3-08",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "What does this packet establish about a remedy for a late decision?",
+     "choices": [
+      "No remedy rule is supplied, and silence does not approve an application",
+      "A late decision establishes a damages right, while the amount remains outside the packet",
+      "A late decision establishes a right to the room, while only damages require further research",
+      "A late decision establishes an appeal right, while the filing deadline remains outside the packet"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Section 5 expressly rejects approval by silence and supplies no rule for remedies or appeal deadlines. A timeliness conclusion cannot fill those omissions."
+    },
+    {
+     "id": "lrc-q3-09",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Match each date to its role in selecting and calculating Noor’s deadline.",
+     "type": "match",
+     "left": [
+      "June 10, Year 5",
+      "July 1, Year 5",
+      "June 25, Year 5",
+      "July 5, Year 5"
+     ],
+     "choices": [
+      "Enactment date",
+      "Effective boundary",
+      "Receipt date",
+      "Decision deadline"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Enactment, effectiveness, event and deadline are separate. A1 selects the period by receipt, and P4 then calculates the deadline."
+    },
+    {
+     "id": "lrc-q3-10",
+     "section": "lrc-m2",
+     "topic": "Statutes and regulations",
+     "stem": "Under P4 and Rule 8.2, the receipt date is day ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "zero",
+       "0",
+       "day zero",
+       "day 0"
+      ]
+     ],
+     "explanation": "The following day is day one. Counting receipt as day one would shorten the supplied statutory period by a day."
+    },
+    {
+     "id": "lrc-q4-01",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "What proposition does Rowan R2 support?",
+     "choices": [
+      "A delivered electronic decision satisfies section 3 without checking whether it is savable",
+      "A savable electronic decision satisfies section 3 even if the required delivery never occurred",
+      "The specified savable electronic decision satisfies the packet’s writing requirement",
+      "A savable electronic decision satisfies the deadline whenever it meets section 3’s form rule"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "R2 applies section 3 to the savable message described in R1. R3 reserves unsavable messages and remedies; form compliance does not eliminate the deadline."
+    },
+    {
+     "id": "lrc-q4-02",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Why is H1 insufficient to establish Rowan’s holding?",
+     "choices": [
+      "Its placement with the opinion makes it judicial language unless the court expressly disclaims it",
+      "It is an editorial summary whose breadth must be checked against R2–R3",
+      "Its wording may be attributed to the court once the case name and decision date are verified",
+      "Its description of the outcome can substitute for checking the qualifications in R2–R3"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "H1 is not judicial language and overstates the supplied result. Read and attribute R2–R3 rather than transferring the editor’s words to the court."
+    },
+    {
+     "id": "lrc-q4-03",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Which passage directly records Birch’s treatment of Rowan’s form holding?",
+     "choices": [
+      "G1, which summarizes Cedar before Birch existed",
+      "E1, which applies a separate twenty-day statute",
+      "B3, which expressly leaves that holding undisturbed",
+      "C2, which endorses a fifteen-day decision period"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "B3 expressly addresses Rowan. C2 and E1 concern different propositions, and G1 predates Birch; none substitutes for the later court’s statement."
+    },
+    {
+     "id": "lrc-q4-04",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "What does Birch’s disposition establish in this packet?",
+     "choices": [
+      "The timeliness ruling is affirmed on the view that Rule 8.3 permits the delay",
+      "The timeliness ruling is reversed and the room is awarded, while damages remain open",
+      "The timeliness ruling is reversed and damages are established, with only their amount remanded",
+      "The timeliness ruling is reversed and remanded without a decided remedy"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "B3 reverses the timeliness ruling, remands and reserves remedies. It also preserves Rowan’s form holding. Reversal must be read with the specific ruling and relief addressed."
+    },
+    {
+     "id": "lrc-q4-05",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Which is a useful pinpoint locator for the overruling of Cedar’s fifteen-day point?",
+     "choices": [
+      "Cedar, C2",
+      "Birch, B4",
+      "Birch, B1",
+      "Birch, B2"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "B2 expressly overrules Cedar’s fifteen-day proposition. B1 describes the dispute; C2 states Cedar’s original rule; B4 confines Birch to the old text and directs attention to later legislation."
+    },
+    {
+     "id": "lrc-q4-06",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Which entry preserves both Cedar’s original proposition and its later treatment?",
+     "choices": [
+      "C2 originally required ten days because B2 now says so",
+      "C2 adopted fifteen days; B2 later overruled that point",
+      "C2 remains controlling because a later decision cannot change its printed words",
+      "C2 became secondary commentary when Birch rejected its reasoning"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Record historical content and later legal effect separately. Overruling does not rewrite Cedar’s text or change an opinion’s classification into commentary."
+    },
+    {
+     "id": "lrc-q4-07",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Why should a researcher record opinion type and procedural posture?",
+     "choices": [
+      "They help identify the authoritative voice and the issue the court actually resolved",
+      "They establish the case’s outcome and therefore identify the remedy without reading the disposition",
+      "They establish publication and court level and therefore make every passage equally binding",
+      "They establish the source’s procedural identity and therefore complete the later-treatment check"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Type and posture orient the reader to the speaker, task and result. They do not make every sentence binding, replace updating or determine relief from the caption."
+    },
+    {
+     "id": "lrc-q4-08",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "A claim concerns an unsavable message. How should Rowan R3 affect the analysis?",
+     "choices": [
+      "Record that Rowan reserved that question rather than claiming it decided the result",
+      "Omit R3 because it qualifies the broader language of the editorial summary",
+      "Treat the reservation as an affirmative holding that unsavable messages qualify",
+      "Treat the reservation as an affirmative holding that unsavable messages fail"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "R3 expressly leaves the question unresolved. A reservation is neither approval nor rejection; report the boundary rather than inventing a holding."
+    },
+    {
+     "id": "lrc-q4-09",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "Match each passage label to the kind of support or limitation it supplies.",
+     "type": "match",
+     "left": [
+      "R2",
+      "R3",
+      "B2",
+      "H1"
+     ],
+     "choices": [
+      "Savable-message holding",
+      "Reserved questions",
+      "Overruling of Cedar",
+      "Editorial summary"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "R2 states the application to a savable message, R3 limits the decision, B2 supplies later treatment of Cedar, and H1 is editorial rather than judicial language."
+    },
+    {
+     "id": "lrc-q4-10",
+     "section": "lrc-m2",
+     "topic": "Cases and passages",
+     "stem": "The statement of what ruling a court is reviewing and how the case reached it is its procedural ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "posture",
+       "procedural posture"
+      ]
+     ],
+     "explanation": "Procedural posture identifies the court’s task and the ruling under review; it helps keep reversal separate from a final merits remedy."
+    },
+    {
+     "id": "lrc-q5-01",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "What is the most accurate description of Birch’s relationship to Cedar?",
+     "choices": [
+      "A later, separate case overruling Cedar’s fifteen-day proposition",
+      "A supplied later appellate stage within Cedar’s own litigation",
+      "A guide revision that changes Cedar from primary to secondary material",
+      "An amendment enacted by the legislature to replace Cedar’s text"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "B2 supplies later treatment in a separately named dispute. The packet does not present Birch as subsequent proceedings in Cedar itself, legislation or commentary."
+    },
+    {
+     "id": "lrc-q5-02",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "IDX2 flags Cedar’s fifteen-day proposition. What must the researcher do next?",
+     "choices": [
+      "Apply the warning to every source Birch cites without comparing the individual passages",
+      "Record the warning against Cedar without checking whether the relevant proposition is affected",
+      "Treat the index’s warning as resolving both the original rule and the later amendment",
+      "Read Birch B2 and assess its court, reasoning and stated scope"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An updating signal leads to the actual later source. B2 identifies the proposition, reason and express overruling; the index’s August 15 cutoff still limits the check."
+    },
+    {
+     "id": "lrc-q5-03",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "Which statement describes the supplied case-index coverage accurately?",
+     "choices": [
+      "Specified published Larch opinions through August 15, with August 16–20 unchecked",
+      "All published and unpublished proceedings through August 15 including a full docket",
+      "All judicial developments through August 20 because AR1 reaches that date",
+      "Every Larch legal source through August 20 because that is the research date"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "IDX1 specifies the courts, publication scope and August 15 cutoff. ACCESS1 denies a full-docket and later-interval check; legislative coverage cannot extend it."
+    },
+    {
+     "id": "lrc-q5-04",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "Why does no recorded amendment to Rule 8.3 fail to settle its usability?",
+     "choices": [
+      "Only a formal regulatory amendment can change which period the unchanged text authorizes",
+      "Judicial treatment and the statutory delegation can defeat the unchanged proposition",
+      "The rule register’s current date makes a separate judicial-treatment check unnecessary",
+      "The absence of a textual amendment restores the period after a later statute changes section 2"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "B2 rejects the fifteen-day proposition and section 4 forbids extending the statutory period. Textual amendment and judicial treatment are distinct checks; mere mention does not automatically invalidate a rule."
+    },
+    {
+     "id": "lrc-q5-05",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "How does A1 affect the research use of Birch’s discussion of ten days?",
+     "choices": [
+      "Assume A1 also rejects Rowan’s separate electronic-form holding",
+      "Treat Birch’s historical explanation as false because legislation later changed",
+      "Preserve Birch’s old-text analysis while applying A1’s new period to eligible receipts",
+      "Rewrite Birch as if it had decided the later fourteen-day amendment"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "B4 confines Birch to the original text. A1 changes the period for defined receipts and A2 leaves section 3 unchanged; the later amendment neither rewrites history nor decides electronic-form issues."
+    },
+    {
+     "id": "lrc-q5-06",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "Which update note is supported by IDX2?",
+     "choices": [
+      "B2 replaces Cedar’s timing point and also rejects Rowan’s earlier electronic-form holding",
+      "B3 preserves Rowan and thereby preserves Cedar’s separate fifteen-day proposition as well",
+      "B2 criticizes Cedar’s timing point but leaves it binding because the regulation is still printed",
+      "B2 overrules Cedar’s timing point; B3 leaves Rowan’s form holding undisturbed"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Treatment must be read proposition by proposition. The two passages explicitly assign different effects; citation, index inclusion and case-name presence alone do not show the treatment."
+    },
+    {
+     "id": "lrc-q5-07",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "A service labels a later case as distinguishing an earlier case. What should a researcher infer before reading it?",
+     "choices": [
+      "The earlier case has necessarily been overruled for every proposition",
+      "There is a lead requiring examination of the issue and factual distinction",
+      "The later case can be ignored because distinction never matters",
+      "The earlier case is necessarily binding on the new facts without analysis"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A label signals an inquiry. Read the later reasoning, facts, court and proposition before deciding whether the distinction affects your use of the earlier case."
+    },
+    {
+     "id": "lrc-q5-08",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "Which is the best handoff for the August 16–20 gap?",
+     "choices": [
+      "Write “no cases found” without performing a search of that interval",
+      "State that lack of access proves later cases would not change the conclusion",
+      "Identify the unsearched interval and relevant propositions for a current court or citator check",
+      "Extend IDX2’s coverage to the assignment date in the final table"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The handoff should name the gap and a specific next source/action. An unperformed check supports no negative finding or invented extension of coverage."
+    },
+    {
+     "id": "lrc-q5-09",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "Match each updating record to its actual coverage or limit.",
+     "type": "match",
+     "left": [
+      "AR1",
+      "Rule 8 register note",
+      "IDX2",
+      "ACCESS1"
+     ],
+     "choices": [
+      "Statute changes: Aug 20",
+      "Rule edits: Aug 20",
+      "Case treatment: Aug 15",
+      "Unavailable checks"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "The records cover different materials and dates. AR1 and the rule note cannot fill IDX2’s judicial gap; ACCESS1 identifies unperformed work."
+    },
+    {
+     "id": "lrc-q5-10",
+     "section": "lrc-m3",
+     "topic": "Updating authority",
+     "stem": "The date through which an index says its updates extend is its coverage ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "cutoff",
+       "cut-off",
+       "cut off",
+       "coverage cutoff"
+      ]
+     ],
+     "explanation": "The cutoff describes the source’s update boundary. It is not automatically the date on which you accessed or used the index."
+    },
+    {
+     "id": "lrc-q6-01",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Why does Elm’s June decision not supply the Larch deadline?",
+     "choices": [
+      "It applies Maren’s different statute and does not bind the Larch forum under P2",
+      "Its later date makes its twenty-day rule controlling unless Larch expressly rejects Elm by name",
+      "Its supreme-court status controls the deadline despite the different statutory wording",
+      "Its foreign origin changes the decision into secondary commentary rather than judicial material"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "P2 makes Maren foreign to the Larch forum, and E1–E2 apply different twenty-day text. Elm remains a primary judicial source; neither its later date nor its court’s rank within Maren makes it binding in Larch."
+    },
+    {
+     "id": "lrc-q6-02",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Why does M1 fail to control Noor’s pending application?",
+     "choices": [
+      "Its later date makes it an application of A1 that the court must follow without comparing the text",
+      "Its pending-status criterion matches A1 because the relevant event is the July decision date",
+      "Nonbinding staff guidance conflicts with A1’s receipt-date transition",
+      "Its guidance is invalid solely because staff issued it, regardless of its consistency with A1"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "P3 classifies M1 as nonbinding and A1 expressly preserves ten days for pre-July receipts. M1 instead uses pending status; its more recent issuance does not amend the statute."
+    },
+    {
+     "id": "lrc-q6-03",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "An old statute is obtained as a verified, unaltered copy from its issuer. What does that check establish by itself?",
+     "choices": [
+      "That the same statutory version governs every earlier and later event",
+      "That its legal coverage necessarily extends through the date of download",
+      "That no amendment has been enacted since that version was issued",
+      "The verified copy’s identity and integrity, with later legal developments still needing review"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Verifying the copy addresses identity and alteration. It does not prove the absence of amendments, establish applicability to every event or extend the source’s currency to the access date."
+    },
+    {
+     "id": "lrc-q6-04",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "What does “primary source” establish about a case by itself?",
+     "choices": [
+      "Its formal issuance by a court, which alone settles binding force in the present forum",
+      "Its nature as judicial material, not automatic binding force for the present proposition",
+      "Its historical content, which alone establishes that later courts have left it unchanged",
+      "Its document type, which alone verifies the accuracy of every copy and quoted excerpt"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Primary classification does not decide hierarchy, forum relationship, current status or the reliability of a particular copy. Cedar and Elm illustrate different additional inquiries."
+    },
+    {
+     "id": "lrc-q6-05",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Which assessment of Rule 8 is most precise?",
+     "choices": [
+      "Use 8.1 for completeness, 8.2 for counting, and separately address 8.3’s conflict",
+      "Accept all subsections because they appear in a single regulation",
+      "Reject every subsection merely because Birch rejects the fifteen-day point",
+      "Treat its staff origin as permission to override every statutory condition"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The packet supplies 8.1 and 8.2 for distinct tasks. B2 and section 4 reject the longer-period proposition; that does not erase every other part of the regulation."
+    },
+    {
+     "id": "lrc-q6-06",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "A verified old copy of G1 is obtained. What additional inquiry matters for Ivo’s deadline?",
+     "choices": [
+      "Use the guide’s cited case after confirming its original wording, without checking later treatment",
+      "Check the guide’s issuer and copy integrity again, treating that as sufficient for current use",
+      "Check later primary developments and whether their versions apply to July 3 receipt",
+      "Compare the guide’s publication date with receipt, without reading later primary developments"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Source verification concerns the copy. Birch, A1 and the event date determine later legal use; a genuine old guide can still contain an outdated explanation."
+    },
+    {
+     "id": "lrc-q6-07",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Which statement correctly describes the Larch packet’s authority?",
+     "choices": [
+      "Its stable paragraph labels establish legal validity outside the course",
+      "It supplies fictional rules for a bounded exercise, not authentic real court documents",
+      "Its official-looking labels certify that real Larch courts issued the opinions",
+      "Its original authorship substitutes for a real-world signature or docket check"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The reference explicitly labels every institution and document fictional. Stable teaching labels enable retrieval and practice, not real-world authentication or legal authority."
+    },
+    {
+     "id": "lrc-q6-08",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "What should an authority-table entry explain when labelling Birch binding?",
+     "choices": [
+      "Its highest-court title and publication date without identifying the jurisdiction and relevant issue",
+      "Its agreement with the intended result without identifying the rule that gives it binding force",
+      "Its primary-source classification without identifying which holding applies in the stated forum",
+      "Its relevant published majority holding and the Larch hierarchy supplied by P2"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Binding force is relational: identify forum, deciding institution, opinion type and relevant holding under P2. An institution label without jurisdiction, date alone or agreement with a desired result is insufficient."
+    },
+    {
+     "id": "lrc-q6-09",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Match each verification question to the distinct concept it tests.",
+     "type": "match",
+     "left": [
+      "Same verified document, unaltered copy",
+      "Source is what it purports to be",
+      "Later developments have been checked",
+      "Rule fits this forum, event and issue"
+     ],
+     "choices": [
+      "Integrity",
+      "Authentication",
+      "Currency",
+      "Applicability"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Integrity concerns alteration, authentication concerns source identity, currency concerns later developments, and applicability concerns fit. Passing one does not prove the others."
+    },
+    {
+     "id": "lrc-q6-10",
+     "section": "lrc-m3",
+     "topic": "Authority and source reliability",
+     "stem": "Authority that may inform a court’s reasoning without requiring its result is ___ authority.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "persuasive",
+       "persuasive authority"
+      ]
+     ],
+     "explanation": "Persuasive authority may be considered without binding the forum. Its weight still depends on the proposition, reasoning and context."
+    },
+    {
+     "id": "lrc-q7-01",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "Which quotation-based statement preserves section 3’s meaning?",
+     "choices": [
+      "It permits an “electronic message,” so savability is legally irrelevant",
+      "It permits a “savable electronic message,” so every such message is automatically timely",
+      "It permits a “savable electronic message,” subject to the stated application and limits",
+      "It permits a “savable electronic message,” so a late decision necessarily earns damages"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Preserve the limiting word and separate form from timing and remedies. Exact quoted words do not support additional propositions the source never states."
+    },
+    {
+     "id": "lrc-q7-02",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "A note explains why Noor keeps ten days despite a July deadline. Which citations best support that reasoning?",
+     "choices": [
+      "Elm E1 and its twenty-day Maren statute",
+      "Original Act section 2 and Amendment A, A1",
+      "M1’s pending-application direction and G1’s Cedar summary",
+      "Rowan R3 alone, which reserves unsavable messages and remedies"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Section 2 supplies ten days and A1 preserves that period for pre-July receipts. The other sources conflict, address another jurisdiction, or do not resolve the transition."
+    },
+    {
+     "id": "lrc-q7-03",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "Which statement correctly attributes H1?",
+     "choices": [
+      "The editor’s wording can be attributed to the court once its described outcome matches the disposition",
+      "The court adopted the summary’s words because it appears with the opinion’s identifying heading",
+      "The summary is part of R2’s holding because it discusses the same electronic-message issue",
+      "An editor broadly summarized Rowan; the opinion’s narrower text must be checked"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "H1 is expressly editorial and broader than R2–R3. Placement beside a primary source does not make it judicial, legislative or regulatory language."
+    },
+    {
+     "id": "lrc-q7-04",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "When is “Birch, B2” an acceptable short reference under this course’s convention?",
+     "choices": [
+      "After Birch has been clearly identified and the reference is unambiguous",
+      "After placing Birch in a source list, even if the text uses an ambiguous shortened reference",
+      "After identifying Birch, even if B2 is replaced with an unexplained viewer page number",
+      "After any earlier mention of a Larch case, even if Birch has not been identified"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A short form must point unambiguously to a source already identified and retain a useful locator. Mentioning another Larch case, using an unexplained viewer page or relying on an ambiguous source-list reference does not suffice."
+    },
+    {
+     "id": "lrc-q7-05",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "What should a researcher do when the source lacks an expected reporter volume?",
+     "choices": [
+      "Find the information or use an appropriate available citation form without inventing it",
+      "Use another case’s reporter information if the parties have similar names",
+      "Delete the source identity and retain only a generic “online opinion” label",
+      "Invent a plausible volume so the citation resembles familiar examples"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Missing citation data requires retrieval or an appropriate supported form. Fabricated or borrowed details obstruct verification, and a generic label loses source identity."
+    },
+    {
+     "id": "lrc-q7-06",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "Which paraphrase accurately represents Birch B2?",
+     "choices": [
+      "Birch decides that all late applicants receive their requested rooms",
+      "Birch rejects the unauthorized fifteen-day rule and overrules Cedar on that point",
+      "Birch interprets Amendment A to give every pending application fourteen days",
+      "Birch rejects all agency rules, including completeness and day-zero counting"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "B2 addresses the original deadline and section 4’s limit. A had not yet been enacted, and the packet does not support eliminating all regulations or awarding a remedy."
+    },
+    {
+     "id": "lrc-q7-07",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "What is wrong with removing “savable” from a quotation to make the rule cover unsavable chats?",
+     "choices": [
+      "The change is acceptable whenever the writer prefers the broader interpretation",
+      "Every shortened quotation is forbidden even when its meaning remains intact",
+      "Only the absence of a URL matters; the omitted condition has no effect",
+      "The omission changes a material condition instead of preserving the source’s meaning"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An omission must not distort meaning. Here savability is expressly required and R3 reserves the unsavable-message question. Not all shortening is impermissible, but this one alters the rule."
+    },
+    {
+     "id": "lrc-q7-08",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "Why does a paraphrase of a source still need a citation?",
+     "choices": [
+      "It requires a citation only if it retains the source’s distinctive wording rather than the underlying idea",
+      "It requires a citation only if the paraphrase expresses uncertainty about the source’s meaning",
+      "It attributes the underlying idea and lets the reader check its support",
+      "It can cite a search summary as the opinion’s reasoning without inspecting the source passage"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Paraphrases must represent and attribute the source accurately. Changing wording does not eliminate the need to verify and cite the supporting passage."
+    },
+    {
+     "id": "lrc-q7-09",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "Match each writing device to its function, keeping accuracy and attribution requirements in mind.",
+     "type": "match",
+     "left": [
+      "Quotation",
+      "Paraphrase",
+      "Ellipsis",
+      "Bracketed alteration"
+     ],
+     "choices": [
+      "Exact source words",
+      "Idea in new wording",
+      "Omission marker",
+      "Visible quoted edit"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Quotations and paraphrases both need support. Ellipses and brackets disclose permitted changes; they do not authorize distortion of the original meaning."
+    },
+    {
+     "id": "lrc-q7-10",
+     "section": "lrc-m4",
+     "topic": "Citation and quotation",
+     "stem": "A reference that identifies the exact supporting paragraph, page or section is a ___ locator.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "pinpoint",
+       "pinpoint locator"
+      ]
+     ],
+     "explanation": "A pinpoint directs the reader to the supporting passage. In this course B2 and A1 are stable teaching locators, not invented reporter page numbers."
+    },
+    {
+     "id": "lrc-q8-01",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "What is the main difference between a research log and an authority table?",
+     "choices": [
+      "The log records the investigation; the table organizes sources, propositions and status",
+      "The log organizes source holdings; the table records queries and search-filter changes",
+      "The log records access dates; the table treats those dates as proof that updating is complete",
+      "The log records only successful searches; the table records the rest without their coverage"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The log records the search process, including unsuccessful searches and scope. The authority table organizes sources, propositions and status. Reversing those roles or treating access dates as completed updates defeats their purposes."
+    },
+    {
+     "id": "lrc-q8-02",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "Which log entry is reproducible for the Cedar update exercise?",
+     "choices": [
+      "IDX1; Cedar in full text; hits Cedar/Birch; result recorded as current through August 20 without a later check",
+      "G1 cited Cedar; C2 confirmed; later treatment recorded as checked without opening Birch or IDX2",
+      "IDX1 through August 15; Cedar/Birch; no field, passage or follow-up recorded for the treatment conclusion",
+      "IDX1 through August 15; Cedar in full text; hits Cedar/Birch; read C2/B2; later interval unsearched"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Only the complete entry identifies IDX1’s cutoff, full-text query, hits, examined passages and open interval. The alternatives extend coverage, omit reproducible steps or claim a later check that was not done."
+    },
+    {
+     "id": "lrc-q8-03",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "What conclusion follows for both capstone files within the supplied authorities?",
+     "choices": [
+      "Both decisions are timely because 8.3 permits fifteen days for every application",
+      "Both applicants automatically receive rooms because the decisions were late",
+      "Both decisions are late; neither automatic approval nor a remedy follows from the packet",
+      "Noor’s July deadline switches that application to fourteen days; Noor is timely and Ivo is late"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Noor’s deadline is July 5 and Ivo’s July 17; their decisions follow those dates. A1 preserves Noor’s old period, 8.3 cannot extend the statute, and section 5 prevents approval by silence."
+    },
+    {
+     "id": "lrc-q8-04",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "Which stopping rule best fits the portfolio assignment?",
+     "choices": [
+      "Resolve the main calculation and omit the remaining coverage gaps because they cannot be closed",
+      "Resolve every imaginable issue before reporting, even where the assignment supplies no applicable rule",
+      "Resolve the supplied issues and contradictions, document gaps, and specify the remaining checks",
+      "Resolve the issue using the first primary source and stop before checking competing authority"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The assignment calls for a supported, bounded answer and honest handoff. Source count, confirmation alone and impossible absolute certainty are not suitable completion criteria."
+    },
+    {
+     "id": "lrc-q8-05",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "What should the authority entry for Rule 8 explain?",
+     "choices": [
+      "The rule’s current wording and effective date, omitting judicial treatment from its authority entry",
+      "Different uses of 8.1 and 8.2, plus the conflict and treatment affecting 8.3",
+      "The adverse treatment of 8.3, treating that as rejection of the entire regulation including 8.1–8.2",
+      "The common publisher and unchanged text, treating all subsections as equally usable for the deadline"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The subsections answer different questions. Record completeness and counting separately from the invalid longer-period proposition, with section 4 and B2 explaining the conflict."
+    },
+    {
+     "id": "lrc-q8-06",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "The portfolio has accurate deadlines but claims a live paid-citator check that never occurred. What revision is required?",
+     "choices": [
+      "Remove the false completion claim and state the actual packet check and access limits",
+      "Retain the completion label but add a general access disclaimer without identifying the unperformed check",
+      "Replace the citator name with “later treatment reviewed” while still including August 16–20 as checked",
+      "Record the index review as a full-docket check because both would investigate judicial developments"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Correct results do not justify false process claims. The log must describe performed work and identify unavailable checks without disguising them."
+    },
+    {
+     "id": "lrc-q8-07",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "What does a high portfolio self-assessment score establish?",
+     "choices": [
+      "A completed substantive assessment of the portfolio by the app’s objective-question grader",
+      "A finding that the research meets external law-school standards without further review",
+      "A completed currency check for the underlying sources through the learner’s scoring date",
+      "A learner’s rubric-based review to guide revision, not faculty grading or credit"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The rubric is the learner’s review to guide revision. It is not the app’s automatic grading of the portfolio, external school assessment or a completed update of the underlying sources."
+    },
+    {
+     "id": "lrc-q8-08",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "Which final note most accurately states the currency limitation?",
+     "choices": [
+      "The judicial gap can be omitted because the requested note has a word target",
+      "Legislative/rule registers reach August 20; the case index stops August 15, leaving later judicial checks open",
+      "No later cases exist because none appears after the case index’s cutoff",
+      "All law is current through August 20 because one register reaches that date"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "State source-specific coverage. A note’s word target does not justify concealing an unresolved judicial interval; neither a legislative register nor index silence proves it closed."
+    },
+    {
+     "id": "lrc-q8-09",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "Match each portfolio component to its distinct function.",
+     "type": "match",
+     "left": [
+      "Query, field, filters and results",
+      "Source, proposition, status and version",
+      "Unperformed August 16–20 case check",
+      "Rubric score followed by revisions"
+     ],
+     "choices": [
+      "Search-process record",
+      "Source analysis",
+      "Open research gap",
+      "Learner self-review"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Process, source analysis, limitations and self-review play different roles. Together they support a reproducible, bounded conclusion without claiming outside approval."
+    },
+    {
+     "id": "lrc-q8-10",
+     "section": "lrc-m4",
+     "topic": "Research portfolio",
+     "stem": "The product that records queries, collections, results and next actions as research proceeds is a research ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "log",
+       "research log"
+      ]
+     ],
+     "explanation": "A research log records the investigation. An authority table complements it by organizing the sources and their support, status and limits."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "law-legal-research-cards",
+   "title": "Legal Research and Citation notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "What belongs in a research plan?",
+     "back": "A written account of the issue, forum, facts, scope, sources and next actions that will guide an investigation.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c2",
+     "front": "How does an issue statement improve on “research room law”?",
+     "back": "It replaces a broad topic with a question tied to the forum, event dates and disputed rule. For Noor, ask whether the July 8 decision was timely for a complete application received June 25.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c3",
+     "front": "Why identify the forum before ranking cases?",
+     "back": "The tribunal or setting in which the legal issue would be decided; it affects which authority binds.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c4",
+     "front": "Why record receipt date separately from research date?",
+     "back": "Receipt selects the applicable statutory period under A1. The research date sets the intended update horizon. One date cannot substitute for the other.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c5",
+     "front": "How should a missing fact be handled provisionally?",
+     "back": "A provisional statement used to fill a missing fact, which should be labelled and tested if it can affect the answer.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c6",
+     "front": "What does research scope make explicit?",
+     "back": "The issues, jurisdictions, periods and collections included in an investigation, together with its stated boundaries.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c7",
+     "front": "How does the deliverable affect what you record while researching?",
+     "back": "The requested product determines what evidence you must preserve. A log needs queries and coverage; an authority table needs propositions, versions and treatment; a note needs traceable support and limits.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c8",
+     "front": "Noor: what dates and forum belong in the plan?",
+     "back": "Larch trial court; receipt June 25, decision July 8 and research snapshot August 20, Year 5. The case index covers only through August 15.",
+     "topic": "Research planning"
+    },
+    {
+     "id": "c9",
+     "front": "What can a secondary source contribute before primary-source checking?",
+     "back": "It can introduce terminology, organize issues and point to primary sources. Follow and update those leads instead of treating the explanation as binding law.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c10",
+     "front": "Why can an overruled case still be a primary source?",
+     "back": "It remains the court’s historical opinion. Overruling changes the use of the affected proposition, not the document’s primary-source classification; Cedar C2 and Birch B2 illustrate this.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c11",
+     "front": "What should you record to establish source provenance?",
+     "back": "Information about where a document came from, who issued it and which version or publication is being examined.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c12",
+     "front": "Why record a guide’s edition as well as its title?",
+     "back": "An identified version of a work, useful for determining which developments its account could include.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c13",
+     "front": "What is the difference between a lead and a verified proposition?",
+     "back": "A lead points toward something to check. A verified proposition has been examined in the relevant source and still needs appropriate currency and applicability checks.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c14",
+     "front": "Why are search words alone an incomplete query record?",
+     "back": "The request submitted to a collection, understood with its words, searched fields, syntax and active filters.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c15",
+     "front": "How can a filter both help and hinder research?",
+     "back": "A restriction on a search collection, such as court, date, field or document type, which can focus results or exclude needed material.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c16",
+     "front": "Why does the zero-hit title search not prove no room cases exist?",
+     "back": "IDX1 titles use Town Room Office. A full-text search for complete application returns Rowan, Cedar and Birch. Record the field and coverage of both queries.",
+     "topic": "Search and secondary sources"
+    },
+    {
+     "id": "c17",
+     "front": "Why might a code section need additional enactment history?",
+     "back": "A subject-arranged section may omit the context needed to select an older version or apply a transition. Read the relevant enactments and amendment provisions before applying it to the event.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c18",
+     "front": "What is a session law?",
+     "back": "An enacted law as published in the sequence of enactments, distinct from its later placement in a subject-arranged code.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c19",
+     "front": "What three things should you check in an amendment?",
+     "back": "A legal change to existing text, whose exact scope, effective date and application must be read rather than inferred.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c20",
+     "front": "How can enactment and effectiveness differ?",
+     "back": "A law can be enacted on one date but take effect later. Amendment A was enacted June 10 and takes effect July 1, with receipt on or after July 1 selecting its fourteen-day period.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c21",
+     "front": "Why must a researcher read the transition provision before counting days?",
+     "back": "The transition provision selects which period applies before arithmetic begins. A1 preserves ten days for pre-July receipts even when their deadline falls in July.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c22",
+     "front": "What does a delegation check ask about an agency rule?",
+     "back": "Ask what power the statute grants and what limits it imposes. Section 4 permits forms and identifying information but forbids extending the statutory decision period.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c23",
+     "front": "Why is a regulation’s presence in a compilation insufficient by itself?",
+     "back": "Printed text can remain unchanged despite an adverse court decision. Compare the rule with its statutory authority and later treatment; Birch B2 rejects Rule 8.3’s fifteen-day proposition.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c24",
+     "front": "What deadlines apply to Noor and Ivo under P4 and A1?",
+     "back": "Noor: June 25 receipt keeps ten days, ending July 5. Ivo: July 3 receipt gets fourteen days, ending July 17. Receipt is day zero.",
+     "topic": "Statutes and regulations"
+    },
+    {
+     "id": "c25",
+     "front": "What does a case caption help identify, and what does it not settle?",
+     "back": "The identifying heading of a case, including named parties; it does not by itself establish the issue, procedural roles or result.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c26",
+     "front": "Why read procedural posture before describing the result?",
+     "back": "It identifies the ruling under review and the court’s task. Birch reverses a timeliness ruling and remands; that does not establish a damages award or right to a room.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c27",
+     "front": "Why identify an opinion’s type and speaker?",
+     "back": "The kind of judicial writing, such as majority, concurrence or dissent; identifying it helps determine whose position is expressed.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c28",
+     "front": "How should a researcher identify the scope of a holding?",
+     "back": "A proposition decided as necessary to resolve the issue before the court; its scope requires reading the facts, task and reasoning.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c29",
+     "front": "How does dictum differ from a holding?",
+     "back": "Judicial language beyond what is necessary to the decision; its classification and persuasive significance require context.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c30",
+     "front": "Why must a search summary be checked against the opinion?",
+     "back": "A publisher’s description of an authority, which may aid discovery but is not the issuing court’s language merely because it accompanies the opinion.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c31",
+     "front": "What does B2 add to a citation to Birch?",
+     "back": "B2 directs the reader to the specific passage that rejects the fifteen-day rule and overrules Cedar on that point, rather than requiring a search of the whole case.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c32",
+     "front": "Which passage prevents reading Rowan as a decision about every electronic message?",
+     "back": "R3 expressly reserves unsavable messages. R2 accepts the supplied savable message under section 3; H1’s broader summary overstates that result.",
+     "topic": "Cases and passages"
+    },
+    {
+     "id": "c33",
+     "front": "Why is an access date not a completed currency check?",
+     "back": "Access records when you opened a source. Currency requires examining later changes or treatment and stating the collection’s coverage; opening an August-15 index on August 20 does not extend it.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c34",
+     "front": "What should follow a citator signal?",
+     "back": "Open the later authority and inspect the court, issue, reasoning and scope of treatment. Record the tool’s coverage; the signal alone does not establish the result.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c35",
+     "front": "How does subsequent history differ from a separate case citing an opinion?",
+     "back": "Later proceedings in the same litigation, distinct from treatment of an authority by a separate later case.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c36",
+     "front": "Why does negative treatment require proposition-level reading?",
+     "back": "Later authority that criticizes, limits, rejects or otherwise undermines an earlier proposition; the precise effect depends on the later text and authority.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c37",
+     "front": "Why should updating focus on propositions rather than case names alone?",
+     "back": "Different propositions can receive different treatment. Birch B2 overrules Cedar’s timing point while B3 leaves Rowan’s message-form holding undisturbed.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c38",
+     "front": "Which date limits what an updating index can establish?",
+     "back": "The date through which a collection or updating record states that its coverage extends.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c39",
+     "front": "How should an unresolved research gap appear in the final handoff?",
+     "back": "Name the missing issue, period or collection, explain its effect on the conclusion, and specify a next action. Do not describe an unavailable search as completed.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c40",
+     "front": "What remains open after reading the packet’s August records?",
+     "back": "Legislation and rule text are covered through August 20. The case index stops August 15, so later judicial developments for August 16–20 remain unchecked, as do materials outside its collection.",
+     "topic": "Updating authority"
+    },
+    {
+     "id": "c41",
+     "front": "What does jurisdiction identify when comparing Larch and Maren?",
+     "back": "In this course’s authority analysis, the relevant legal system; in other contexts the term also concerns a tribunal’s legal power.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c42",
+     "front": "What makes authority binding in a stated forum?",
+     "back": "Authority the deciding forum must follow for the relevant proposition under the applicable hierarchy and other legal rules.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c43",
+     "front": "What does persuasive authority permit without compelling?",
+     "back": "Authority that may inform reasoning without requiring the deciding forum to adopt the result.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c44",
+     "front": "Why is “newest document wins” an inadequate hierarchy rule?",
+     "back": "Authority depends on the legal system’s hierarchy, the proposition and its applicability. A newer staff memo cannot override A1, and a newer Maren decision does not bind Larch.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c45",
+     "front": "What does applicability check beyond source classification?",
+     "back": "The fit between a rule or version and the particular forum, issue, facts and relevant event date.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c46",
+     "front": "What does authentication concern?",
+     "back": "Evidence that a document is what it purports to be and comes from the identified source, distinct from whether its law is current.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c47",
+     "front": "Why can an unaltered old document still require updating?",
+     "back": "Whether content has been altered from the verified version; this does not establish the absence of later legal changes.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c48",
+     "front": "Why do neither Elm nor M1 control the Larch transition?",
+     "back": "Elm applies a different jurisdiction’s twenty-day law. M1 is nonbinding staff guidance inconsistent with A1’s receipt-date rule. Identify both conflicts, not merely the documents’ dates.",
+     "topic": "Authority and source reliability"
+    },
+    {
+     "id": "c49",
+     "front": "What must a useful citation let a reader do?",
+     "back": "A reference identifying a supporting source and directing the reader to relevant material under the applicable citation convention.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c50",
+     "front": "Why distinguish H1’s editor from Rowan’s judges?",
+     "back": "H1 is editorial language, whereas R2–R3 state the judges’ decision and limits. Attributing H1’s broader words to the judges would misrepresent their holding.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c51",
+     "front": "When can a short citation remain traceable?",
+     "back": "A shortened citation used after the source has been clearly identified, subject to the governing style and continuing clarity.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c52",
+     "front": "What must be checked beyond the spelling of a quotation?",
+     "back": "Source language reproduced as such, with accurate wording, attribution and context preserved.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c53",
+     "front": "Why does a paraphrase still need a citation?",
+     "back": "An attributed restatement of a source’s idea in new wording, still requiring support and an accurate representation of scope.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c54",
+     "front": "When does shortening a quotation become misleading?",
+     "back": "When the shortening removes a condition or qualification that changes the source’s meaning. Dropping “savable” makes section 3 appear to answer a question Rowan R3 reserves.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c55",
+     "front": "What does a bracketed alteration disclose?",
+     "back": "A visibly marked insertion or change inside quoted material when allowed by the applicable style, without distorting the source’s meaning.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c56",
+     "front": "Which references support Noor’s retained ten-day period?",
+     "back": "Original Act section 2 supplies ten days; A1 preserves it for complete applications received before July 1, including Noor’s June 25 receipt.",
+     "topic": "Citation and quotation"
+    },
+    {
+     "id": "c57",
+     "front": "How does a research log differ from a list of links?",
+     "back": "A record of questions, source collections, queries, results, passages examined, conclusions and next actions during an investigation.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c58",
+     "front": "What belongs in an authority table?",
+     "back": "An organized set of source entries showing propositions, status, versions, treatment and limits; labelled entries can serve the same function as rows.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c59",
+     "front": "What makes a research trail auditable?",
+     "back": "A traceable record connecting research inputs, actions and conclusions so another person can inspect and reproduce the work.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c60",
+     "front": "How should unavailable database or docket access be recorded?",
+     "back": "Identify the unavailable source or collection, the question it prevents you from resolving, and the next step needed. Record the check as unperformed, not merely “no results.”",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c61",
+     "front": "What is a useful stopping rule for a bounded assignment?",
+     "back": "Pause after resolving the assigned issues and contradictions within available sources, while documenting exact gaps and follow-up. Do not stop at agreement alone or pretend every uncertainty is closed.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c62",
+     "front": "What makes a handoff more useful than “research more”?",
+     "back": "A transfer of findings, unresolved questions and concrete next actions so another researcher can continue the work.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c63",
+     "front": "What does the portfolio rubric establish and what does it not establish?",
+     "back": "A learner’s review of work against stated criteria to guide revision; it is not external grading, credit or certification.",
+     "topic": "Research portfolio"
+    },
+    {
+     "id": "c64",
+     "front": "What is the bounded capstone conclusion?",
+     "back": "Within the supplied authorities both decisions are late. Case-law coverage after August 15 remains open, no remedy is supplied, and silence does not approve an application under section 5.",
+     "topic": "Research portfolio"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "research plan",
+   "definition": "A written account of the issue, forum, facts, scope, sources and next actions that will guide an investigation.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "issue statement",
+   "definition": "A bounded question connecting the legal problem to relevant facts, dates and the decision to be supported.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "forum",
+   "definition": "The tribunal or setting in which the legal issue would be decided; it affects which authority binds.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "relevant date",
+   "definition": "An event date that matters to selecting or applying a legal rule; distinct from the date research is performed.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "assumption",
+   "definition": "A provisional statement used to fill a missing fact, which should be labelled and tested if it can affect the answer.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "research scope",
+   "definition": "The issues, jurisdictions, periods and collections included in an investigation, together with its stated boundaries.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "deliverable",
+   "definition": "The product an assignment requires, such as an authority table, research log or explanatory memorandum.",
+   "topic": "Research planning"
+  },
+  {
+   "term": "secondary source",
+   "definition": "Material explaining or organizing law rather than the relevant enacted text or judicial decision itself, such as a guide or commentary.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "primary source",
+   "definition": "The relevant lawmaking or adjudicative material itself, such as a statute, regulation or opinion; classification alone does not establish binding force.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "source provenance",
+   "definition": "Information about where a document came from, who issued it and which version or publication is being examined.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "edition",
+   "definition": "An identified version of a work, useful for determining which developments its account could include.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "research lead",
+   "definition": "A citation, term or other clue pointing toward material that still needs examination and verification.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "search query",
+   "definition": "The request submitted to a collection, understood with its words, searched fields, syntax and active filters.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "search filter",
+   "definition": "A restriction on a search collection, such as court, date, field or document type, which can focus results or exclude needed material.",
+   "topic": "Search and secondary sources"
+  },
+  {
+   "term": "codification",
+   "definition": "The organization of statutory law into a code arranged by subject; the resulting text may need enactment and amendment history to resolve a version question.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "session law",
+   "definition": "An enacted law as published in the sequence of enactments, distinct from its later placement in a subject-arranged code.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "amendment",
+   "definition": "A legal change to existing text, whose exact scope, effective date and application must be read rather than inferred.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "effective date",
+   "definition": "The date a legal provision takes effect under its terms, which can differ from enactment and from the event selecting its application.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "transition provision",
+   "definition": "Language specifying how a new rule applies across old and new events or matters, such as A1’s receipt-date boundary.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "delegation",
+   "definition": "A grant of authority to another institution to act within stated limits; a rule must be evaluated against those limits.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "regulation",
+   "definition": "An agency rule whose legal effect depends on the applicable legal system, delegated authority, text, version and relevant treatment.",
+   "topic": "Statutes and regulations"
+  },
+  {
+   "term": "caption",
+   "definition": "The identifying heading of a case, including named parties; it does not by itself establish the issue, procedural roles or result.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "procedural posture",
+   "definition": "The stage and route by which a dispute reaches the deciding court and the ruling or question the court is reviewing.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "opinion type",
+   "definition": "The kind of judicial writing, such as majority, concurrence or dissent; identifying it helps determine whose position is expressed.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "holding",
+   "definition": "A proposition decided as necessary to resolve the issue before the court; its scope requires reading the facts, task and reasoning.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "dictum",
+   "definition": "Judicial language beyond what is necessary to the decision; its classification and persuasive significance require context.",
+   "topic": "Cases and passages",
+   "aliases": [
+    "dicta"
+   ]
+  },
+  {
+   "term": "editorial summary",
+   "definition": "A publisher’s description of an authority, which may aid discovery but is not the issuing court’s language merely because it accompanies the opinion.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "pinpoint locator",
+   "definition": "A reference to the exact supporting page, paragraph, section or other stable unit within a source.",
+   "topic": "Cases and passages"
+  },
+  {
+   "term": "currency check",
+   "definition": "An investigation of changes or later treatment that may affect the use of a source for a particular proposition and event, with coverage recorded.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "citator",
+   "definition": "A research tool that helps locate later history or treatment of authorities; its signals and coverage require inspection of the underlying documents.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "subsequent history",
+   "definition": "Later proceedings in the same litigation, distinct from treatment of an authority by a separate later case.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "negative treatment",
+   "definition": "Later authority that criticizes, limits, rejects or otherwise undermines an earlier proposition; the precise effect depends on the later text and authority.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "proposition-specific analysis",
+   "definition": "Evaluation of how an authority or later development affects the exact claim for which a source is used.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "coverage cutoff",
+   "definition": "The date through which a collection or updating record states that its coverage extends.",
+   "topic": "Updating authority",
+   "aliases": [
+    "coverage cut-off"
+   ]
+  },
+  {
+   "term": "research gap",
+   "definition": "An unresolved part of the inquiry caused by limited coverage, access, facts or unperformed work, which should be stated specifically.",
+   "topic": "Updating authority"
+  },
+  {
+   "term": "jurisdiction",
+   "definition": "In this course’s authority analysis, the relevant legal system; in other contexts the term also concerns a tribunal’s legal power.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "binding authority",
+   "definition": "Authority the deciding forum must follow for the relevant proposition under the applicable hierarchy and other legal rules.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "persuasive authority",
+   "definition": "Authority that may inform reasoning without requiring the deciding forum to adopt the result.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "hierarchy",
+   "definition": "The ordering of institutions or sources used to resolve conflicts under the applicable legal system.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "applicability",
+   "definition": "The fit between a rule or version and the particular forum, issue, facts and relevant event date.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "authentication",
+   "definition": "Evidence that a document is what it purports to be and comes from the identified source, distinct from whether its law is current.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "integrity",
+   "definition": "Whether content has been altered from the verified version; this does not establish the absence of later legal changes.",
+   "topic": "Authority and source reliability"
+  },
+  {
+   "term": "citation",
+   "definition": "A reference identifying a supporting source and directing the reader to relevant material under the applicable citation convention.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "attribution",
+   "definition": "Assignment of words or ideas to the person, institution or source that actually expressed them.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "short form",
+   "definition": "A shortened citation used after the source has been clearly identified, subject to the governing style and continuing clarity.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "quotation",
+   "definition": "Source language reproduced as such, with accurate wording, attribution and context preserved.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "paraphrase",
+   "definition": "An attributed restatement of a source’s idea in new wording, still requiring support and an accurate representation of scope.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "ellipsis",
+   "definition": "A mark indicating omitted material under the applicable style; it must not disguise a meaning-changing omission.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "bracketed alteration",
+   "definition": "A visibly marked insertion or change inside quoted material when allowed by the applicable style, without distorting the source’s meaning.",
+   "topic": "Citation and quotation"
+  },
+  {
+   "term": "research log",
+   "definition": "A record of questions, source collections, queries, results, passages examined, conclusions and next actions during an investigation.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "authority table",
+   "definition": "An organized set of source entries showing propositions, status, versions, treatment and limits; labelled entries can serve the same function as rows.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "audit trail",
+   "definition": "A traceable record connecting research inputs, actions and conclusions so another person can inspect and reproduce the work.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "access limitation",
+   "definition": "A barrier to examining a needed source or collection, which should be disclosed with its effect on the inquiry.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "stopping rule",
+   "definition": "A reasoned criterion for pausing research and reporting supported findings and open questions, rather than claiming unlimited completeness.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "handoff",
+   "definition": "A transfer of findings, unresolved questions and concrete next actions so another researcher can continue the work.",
+   "topic": "Research portfolio"
+  },
+  {
+   "term": "self-assessment",
+   "definition": "A learner’s review of work against stated criteria to guide revision; it is not external grading, credit or certification.",
+   "topic": "Research portfolio",
+   "aliases": [
+    "self assessment"
+   ]
+  }
+ ],
+ "references": [
+  {
+   "id": "lrc-ref-packet",
+   "title": "Larch research packet — sources, versions and coverage",
+   "body": "# Original fictional research collection\n\nAll institutions, laws, cases, quotations, dates and search results below are invented.\nThey are not real authority. Year 4 and Year 5 are exercise years, not calendar years.\nThis collection is separate from the Alder cases in the previous course. Use only\nthis collection for scored exercises. Stable labels identify passages; no invented\nreporter citation is presented as genuine.\n\n## Assignment and authority rules\n\nP1. Advise a student researcher preparing an educational memo for a fictional Larch\ntrial court. The topic is the deadline for the Town Room Office to send a written\ndecision on a complete application for a town-operated study room. The research\nsnapshot is August 20, Year 5. No actual filing or legal advice is involved.\n\nP2. Larch's Supreme Court is its highest court. Its published majority holdings bind\nLarch trial courts. Published Larch Court of Appeals holdings also bind those courts\nunless displaced by the Supreme Court or applicable legislation. Maren is a different\njurisdiction; its decisions do not bind Larch courts. Primary source status alone\ndoes not establish binding force. The packet supplies no federal issue.\n\nP3. The statute controls over an inconsistent agency regulation. The agency may make\nrules within the authority delegated by the statute. Agency staff memoranda are\nnonbinding guidance. Commentary and editorial summaries are secondary sources.\nThese are stipulated exercise rules, not a complete account of real legal systems.\n\nP4. Count calendar days with receipt as day zero. The next day is day one. June has\n30 days; July and August have 31. No weekend, holiday, extension or service adjustment\napplies in this packet. A complete application contains all items in Rule 8.1.\nNo other requirements or grounds for delay may be invented.\n\n## Larch Community Study Rooms Act — original version\n\nPublisher: fictional Larch Legislature. Enacted December 1, Year 3; effective\nJanuary 1, Year 4. Stable locator: Act, sections 1–5 (original version).\n\nSection 1. This Act applies to applications to use a town-operated study room.\n\nSection 2. The Town Room Office must send a written decision within ten calendar\ndays after receipt of a complete application.\n\nSection 3. A written decision may be delivered on paper or in a savable electronic\nmessage.\n\nSection 4. The Office may prescribe application forms and required identifying\ninformation by rule. A rule may not lengthen the decision period in section 2.\n\nSection 5. Silence does not approve an application. This packet supplies no rule\nspecifying damages, judicial remedies, appeal deadlines or entitlement to a room.\n\n## Amendment A — transition matters\n\nPublisher: fictional Larch Legislature. Enacted June 10, Year 5. Effective July 1,\nYear 5. Stable locator: Amendment A, sections A1–A2.\n\nA1. In section 2, replace “ten” with “fourteen” for complete applications received\non or after July 1, Year 5. Applications received before July 1 remain governed by\nthe ten-day period, even when their decision deadline falls in July.\n\nA2. Sections 1, 3, 4 and 5 are unchanged.\n\nRegister note AR1. The supplied legislative change register is complete for this\nAct through August 20, Year 5. Amendment A is the only change recorded through that\ndate. This completeness stipulation covers legislation only, not judicial decisions.\n\n## Rule 8 — agency regulation\n\nPublisher: fictional Town Room Office. Issued December 15, Year 3; effective\nJanuary 1, Year 4. Stable locator: Rule 8, subsections 8.1–8.3.\nThe supplied rule register is complete through August 20, Year 5 and lists no amendment.\n\n8.1. An application is complete when it states the applicant's name, the requested\nroom and the requested date of use.\n\n8.2. For computing the decision period, receipt is day zero and the following day\nis day one.\n\n8.3. The Office may send its decision within fifteen calendar days after receipt\nof a complete application.\n\nThe presence of 8.3 in this reproduced text is not proof that it remains legally\nusable. Compare the statute and Birch below; the regulation has not been textually\nremoved from the packet's compilation.\n\n## Rowan v. Town Room Office — Larch Supreme Court\n\nPublished majority opinion, February 2, Year 4. Stable paragraphs R1–R3.\n\nR1. The Office received Rowan's complete application on January 5, Year 4. It sent\na savable electronic decision on January 14. The parties agree that the message\nwas delivered and that the application was complete. The trial court rejected the\nmessage solely because it was electronic.\n\nR2. Section 3 expressly permits a savable electronic message. This message meets\nthat requirement. The original section 2 uses a ten-calendar-day period. The\nJanuary 14 decision was sent within that period; the form objection fails.\n\nR3. We reverse the trial court's form ruling. We do not decide what happens when\nan agency sends a message that cannot be saved. We do not decide any remedy for\nan untimely decision.\n\n## Cedar v. Town Room Office — Larch Court of Appeals\n\nPublished majority opinion, November 8, Year 4. Stable paragraphs C1–C3.\n\nC1. The Office sent Cedar a paper decision thirteen calendar days after receiving\na complete application. Cedar challenged its timeliness under section 2.\n\nC2. We read Rule 8.3 as allowing fifteen days and treat the Office's decision as\ntimely. We therefore reject Cedar's timeliness argument.\n\nC3. We affirm the trial court's timeliness ruling. This decision says nothing\nabout whether an electronic message qualifies as written.\n\n## Birch v. Town Room Office — Larch Supreme Court\n\nPublished majority opinion, April 15, Year 5. Stable paragraphs B1–B4.\n\nB1. Birch challenges a decision sent twelve calendar days after the Office received\na complete application. The trial court followed Cedar and treated it as timely.\n\nB2. Sections 2 and 4 leave the Office no power to lengthen the ten-day period then\napplicable. Rule 8.3 conflicts with those sections and cannot supply a fifteen-day\nperiod. Cedar is overruled on that point.\n\nB3. We reverse the timeliness ruling and remand. We do not alter Rowan's holding\nabout a savable electronic message. We do not decide a remedy for the late decision.\n\nB4. This opinion addresses the original statutory text. Whether later legislation\nchanges the time allowed must be determined from that legislation and its\ntransition provisions.\n\n## Elm v. Maren Study Office — Maren Supreme Court\n\nPublished majority opinion, June 1, Year 5. Stable paragraphs E1–E2.\n\nE1. Maren's separate statute allows twenty calendar days for the application at\nissue. The Office sent a decision after eighteen days, which is timely under that\nstatute.\n\nE2. We apply Maren's twenty-day language. We express no view about Larch's statute.\n\n## Nonbinding materials and leads\n\nG1. Study Rooms Guide, edition January Year 5, page 4, by the fictional Larch Study\nClinic: “The Office has fifteen days to respond under Cedar.” This is commentary\npublished before Birch and Amendment A. The clinic is not a court or legislature.\n\nG2. Study Rooms Guide, edition May Year 5, page 6, by the same clinic: “Birch rejects\nthe fifteen-day rule; consult sections 2 and 4 for the ten-day period.” This edition\npostdates Birch but predates Amendment A. It links to B2 and the original Act.\n\nM1. Office staff memo, June 20, Year 5, paragraph 1: “Use fourteen days for every\napplication still pending on July 1.” This nonbinding staff direction does not\naccurately describe A1's receipt-date transition rule. Do not substitute it for A1.\n\nH1. Editorial search summary attached to Rowan: “Electronic messages always satisfy\nwriting requirements.” This is a publisher's summary, not judicial language. Its\nbreadth exceeds R2–R3. The summary intentionally illustrates a research error.\n\n## Searchable collection and treatment record\n\nIDX1. The packet's case index covers published opinions of Larch's Supreme Court\nand Court of Appeals through August 15, Year 5. It contains Rowan, Cedar and Birch.\nA title search for “study room” has no hits because their captions use “Town Room\nOffice.” Searching full text for “complete application” returns all three. Searching\n“Cedar” across full text returns Cedar and Birch. These are stipulated search\nresults for practicing a log, not a claim about any live search service.\n\nIDX2. Treatment entries through August 15: Birch cites and overrules Cedar's\nfifteen-day proposition (B2); Birch expressly leaves Rowan's electronic-message\nholding undisturbed (B3). No other treatment is recorded in this supplied index.\nIt does not cover opinions issued August 16–20 or unpublished materials. Its\nsilence is not proof of no later treatment or completeness for other collections.\n\nACCESS1. For this exercise, no live database, paid citator or full court docket is\navailable. You cannot close the August 16–20 case-law gap from the packet. Record\nit and describe the next search you would need. The legislative and rule-register\ncoverage in AR1 and the Rule 8 note does not fill that judicial coverage gap.\n\n## Reading the packet responsibly\n\nA successful answer identifies the best-supported result within these supplied\nmaterials, distinguishes closed checks from open checks, and explains what remains\nunverified. It does not assert that an invented case is “good law today,” promise\ncomplete real-world research, or derive a remedy from a deadline alone.\n"
+  },
+  {
+   "id": "lrc-ref-workbench",
+   "title": "Research workbench — plan, queries and authority entries",
+   "body": "## Start with a bounded question\n\nWrite the decision to be supported, forum, legal issue, relevant event dates,\nresearch date, known facts, unknown facts and desired deliverable. Separate facts\nfrom assumptions. Record what the available collection covers before searching.\n\nFor this packet: determine the decision period for a complete town-room application\nunder Larch law, as of August 20, Year 5, with case-index coverage only through\nAugust 15. Distinguish the application receipt date from the eventual deadline.\n\n## Query ladder\n\n1. Start with the institution and problem: Town Room Office; application; decision.\n2. Add variants: complete application; written decision; electronic message.\n3. Search full text as well as titles, recording which field was used.\n4. Follow citations to the Act, Rule 8, Rowan, Cedar and Birch.\n5. Search for later citing material and legislative changes separately.\n6. Reassess coverage and unresolved questions before stopping.\n\nUse a platform's help for its exact search syntax. Quotation marks, connectors,\nstemming and proximity functions do not behave identically everywhere. In the\npacket, IDX1 supplies the search results; no software syntax is needed.\n\n## Research log entry template\n\n- Entry label and research date/time:\n- Question being investigated:\n- Source collection and coverage cutoff:\n- Exact query or navigation path, including field and filters:\n- Result count or specific result supplied:\n- Document and passage opened; version and publisher:\n- Proposition supported or rejected, with reasoning:\n- Follow-up action; completion or unresolved limitation:\n\nAn unexecuted query belongs in a “planned next action” field. Do not list it as a\ncompleted search. A query returning zero results still belongs in the log with its\ncoverage, because the zero means little without that scope.\n\n## Authority entry template\n\nUse labelled entries on a small screen; a spreadsheet may use the same fields as\ncolumns. A filled entry is an authority-table row regardless of visual layout.\n\n- Source identity and stable locator:\n- Issuing institution; jurisdiction; source type:\n- Proposition relevant to this issue:\n- Authority in the stated forum, with the reason:\n- Applicable version and event date:\n- Later treatment or amendment checked:\n- Coverage and unresolved limits:\n- Intended use, or reason excluded:\n\nExample: Cedar, C2 (Larch Court of Appeals, November 8, Year 4); published primary\njudicial source; supports a fifteen-day period in its original text. Birch B2\nsubsequently overrules that proposition. Cite Cedar to explain history, not as the\ncurrent supporting rule for fifteen days. IDX2 covers treatment only through\nAugust 15, Year 5; no claim of a completed real citator check is made.\n\n## Stop and hand off\n\nStop when the assignment's necessary sources and contradictions have been examined,\nremaining gaps are explicit, and another researcher can reproduce what you did.\nA time budget can justify a bounded handoff; it cannot turn an incomplete check into\na completed one. Record the next source, the unresolved question and the consequence\nof not answering it. Do not use the number of tabs opened as a quality measure.\n"
+  },
+  {
+   "id": "lrc-ref-citation",
+   "title": "Citation and currency — a working checklist",
+   "body": "## Course citation convention\n\nThese fictional teaching citations identify the source, issuing institution or\nversion, and exact passage. They are not a universal court citation style.\nFor real work, consult the assignment's instructions and the relevant court's\ncurrent rules and applicable citation guide.\n\n- Case: Birch, B2 (Larch Supreme Court, April 15, Year 5).\n- Original statute: Larch Community Study Rooms Act, section 2 (original version,\n  effective January 1, Year 4).\n- Amendment: Amendment A, section A1 (effective July 1, Year 5).\n- Regulation: Rule 8, subsection 8.1 (effective January 1, Year 4).\n- Commentary: Study Rooms Guide, May Year 5 edition, page 6 (G2).\n\nIn a document with a clear first citation, a short reference such as “Birch, B2”\nmay work for this exercise. A bare “page 2” cannot distinguish a case from a PDF\nviewer page, and a broken link alone cannot identify a source. Preserve identity\nand a stable locator even when also storing a URL or local filename.\n\n## Quotation check\n\nRead the original passage and surrounding qualifications. Compare every quoted\nword, punctuation mark and omission with that version. Attribute language to the\nright speaker. Use quotation marks for exact wording; cite paraphrases as well.\nWhen brackets or ellipses are permitted by the applicable style, disclose changes\nwithout altering meaning. Never remove a limiting word such as “savable” to make\nan authority support a broader proposition.\n\nCourse example: Section 3 allows a “savable electronic message.” The phrase is\nquoted from the invented Act. H1's broader editorial summary is not a substitute\nfor the statute or Rowan. The short quote does not establish whether a particular\nmessage was delivered, retained or timely; those are separate questions.\n\n## Updating by source type\n\nCase: identify the deciding court, opinion type, proposition and later treatment;\nopen the later authority and read its scope. A negative treatment flag is a lead,\nnot a substitute for reading. A positive or absent flag is not a warranty.\n\nStatute: identify the applicable version and event date; read amendments, effective\ndates and transition provisions; record the update coverage. Enactment and effective\ndates can differ. Do not assume the page accessed today governs an earlier event.\n\nRegulation: check its text and amendments, statutory authority, effective date and\njudicial treatment. A regulation can remain printed even when a court has rejected\nits use for a particular proposition.\n\nSecondary source: record author, edition/date, jurisdiction and references. Follow\nits leads to primary sources and update those sources. An attractive explanation\nor recent access date does not establish current authority.\n\n## Four separate checks\n\n- Identity: Is this the document and issuing body I think it is?\n- Integrity: Has the copy been altered since its verified issuance?\n- Currency: What changes and treatment have been checked, through which date?\n- Applicability: Does this version and proposition govern this issue and forum?\n\nAn authentic old document may be outdated. A current foreign decision may not bind\nthe forum. A perfect citation may point to a passage that does not support the claim.\n\n## Optional real-source orientation\n\nThese are navigation exercises, not prerequisites for the packet quizzes. Record\nwhat you actually observe at the time you visit; page layouts and coverage change.\n\n- [Office of the Law Revision Counsel — Currency and Updating](https://uscode.house.gov/currency.html): locate the currency information and classification tables, then inspect a chosen section's version and notes. Do not infer an effective date from the date you opened the page.\n- [GPO — Authentication](https://www.govinfo.gov/about/authentication): distinguish authenticity and integrity evidence from a later-law check. Opening a PDF in a browser is not by itself evidence that a signature was validated.\n- [eCFR — What is the eCFR?](https://www.ecfr.gov/reader-aids/understanding-the-ecfr/what-is-the-ecfr): read its legal-status explanation and verification directions before describing what the publication establishes.\n- [Cornell Legal Information Institute — Basic Legal Citation](https://www.law.cornell.edu/citation/): compare the guide's approach with any applicable assignment or court rule. Do not invent a reporter volume or page number to complete a citation.\n\nThese official publisher explanations and the original citation guide were consulted\nNovember 3, 2026 (America/Denver). Their contents are background for research method,\nnot evidence of current Larch law; Larch is entirely fictional.\n"
+  },
+  {
+   "id": "lrc-ref-capstone",
+   "title": "Research portfolio — assignment, model and self-review rubric",
+   "body": "## The task\n\nResearch as of August 20, Year 5 for a fictional Larch trial court. Use the packet,\nincluding all supplied update records. Prepare an authority table, a reproducible\nresearch log and a 450–650-word explanatory note. The note must explain the applicable\ndeadline, rejected sources, currency checks and access limitations. This is an\neducational exercise, not a filing or legal advice. No paid database is required.\n\nFile A: Noor's complete application for a town-operated study room was received\nJune 25, Year 5. The Office sent a savable electronic decision July 8. Delivery and\nall completeness items are stipulated. The parties dispute only timeliness.\n\nFile B: Ivo's complete application was received July 3, Year 5. The Office sent a\npaper decision July 18. Completeness and delivery are stipulated. The parties\ndispute only timeliness.\n\nP4 supplies all counting rules. Do not add holidays, extensions, retroactivity,\nautomatic approval, damages or a right to a room. No remedy rule is supplied.\n\n## Portfolio contents\n\nUse at least seven authority entries: original Act and Amendment A (separate entries),\nRule 8, Rowan, Cedar, Birch and Elm. Add the guide editions and M1 as evaluated leads.\nEach entry should contain the fields in the Research workbench reference. Distinguish\nsource classification from its present use for a particular proposition.\n\nInclude at least six log entries: initial scope, a narrow query with zero results,\na revised query, following Cedar to Birch, checking Amendment A and its transition,\nand a final coverage/gap assessment. IDX1 supplies the simulated search results.\nMark these as packet exercises; do not imply that you searched a live database.\n\nYour note should answer both files and explain why the older fifteen-day rule,\nM1's transition statement and Maren's twenty-day rule do not control. Include at\nleast one accurate quotation and precise passage locators for decisive propositions.\nDo not claim an unperformed signature, citator or full-docket check.\n\n## Worked model — compare after drafting\n\nFile A uses the original ten-day period. A1 chooses the application receipt date,\nnot the deadline date, and expressly preserves the old period for pre-July receipts.\nJune 25 is day zero; June 26–30 are days one through five; July 1–5 are days six\nthrough ten. Deadline: July 5. July 8 is day thirteen, so the supplied authorities\nsupport a late decision. Electronic form is separately permitted by section 3 and\nRowan R2; acceptable form does not make the decision timely.\n\nFile B uses fourteen days under A1 because receipt was July 3. July 4 is day one\nand July 17 is day fourteen. The July 18 decision is day fifteen and late within\nthe supplied materials. Rule 8.3 supplies no valid extension: section 4 forbids\none and Birch B2 rejects the contrary fifteen-day proposition. A1 changes the\nstatutory period to fourteen, not fifteen.\n\nCedar remains a historical primary source but cannot support its overruled fifteen-day\nrule. Birch B3 leaves Rowan's electronic-message holding undisturbed. Elm applies a\ndifferent jurisdiction's twenty-day statute. M1 conflicts with A1 by using the set\nof pending applications instead of the date of receipt. The January guide predates\nBirch; the May guide predates Amendment A. Both require primary-source follow-up.\n\nA bounded conclusion is: “The supplied authorities support treating both decisions\nas late. The legislative and rule registers cover August 20, but the supplied case\nindex ends August 15. I have not checked later judicial developments for August\n16–20, unpublished materials or a full docket. A real matter would require those\nchecks as appropriate to its forum and issue. No remedy or automatic approval\nfollows from this packet; section 5 expressly rejects approval by silence.”\n\nA model log entry: “Packet exercise, August 20, Year 5. Collection: IDX1, published\nLarch Supreme Court and Court of Appeals opinions through August 15. Query: Cedar,\nfull text. Supplied hits: Cedar and Birch. Opened C2 and B2; Birch expressly overrules\nthe fifteen-day proposition. Follow-up: check post-August-15 decisions using a\ncurrent court collection or citator; unavailable under ACCESS1.” This records the\nactual exercise and the unexecuted next step separately.\n\n## Complete model portfolio — compare after your own attempt\n\nThis model is a packet exercise as of August 20, Year 5. It reports supplied search\nresults, not live searches. The following entries use labelled fields so they remain\nreadable on a phone. Their coverage statements apply only to the stipulated collections.\nThe explanatory note has its own word target; the table and log are separate.\n\n### Authority entry 1 — original Act\n\nIdentity and source: Larch Community Study Rooms Act, sections 1–5; Larch Legislature;\nprimary legislation, effective January 1, Year 4. Proposition and use: section 2\nprovides ten days; section 3 permits a savable message; sections 4–5 limit agency\npower and conclusions about relief. Status: governing statutory text under P3,\nwith A1 preserving ten days for Noor's June 25 receipt. Updating: read A1–A2 and\nAR1 through August 20. Judicial coverage remains limited to IDX2 through August 15.\n\n### Authority entry 2 — Amendment A\n\nIdentity and source: Amendment A, A1–A2; Larch Legislature; primary legislation,\nenacted June 10 and effective July 1, Year 5. Proposition and use: fourteen days\nfor complete receipts on or after July 1, ten for earlier receipts. Status: the\ncontrolling transition text under P3; selects Ivo's fourteen-day period. Updating:\nAR1 lists this as the only Act change through August 20. Later judicial developments\noutside IDX2's coverage remain unchecked.\n\n### Authority entry 3 — Rule 8\n\nIdentity and source: Rule 8.1–8.3; Town Room Office; agency regulation effective\nJanuary 1, Year 4. Proposition and use: 8.1 supplies completeness and 8.2 supplies\nday-zero counting. Reject 8.3's fifteen-day allowance because section 4 forbids an\nextension and B2 rejects that proposition. Updating: the rule register reports no\ntextual amendment through August 20; that does not erase adverse judicial treatment.\nIDX2's judicial cutoff remains August 15.\n\n### Authority entry 4 — Rowan\n\nIdentity and source: Rowan, R1–R3; Larch Supreme Court published majority, February 2,\nYear 4; primary judicial material. Proposition and use: the specified savable electronic\nmessage meets section 3; cite R2 for Noor's form question and R3 for reserved issues.\nStatus: its relevant holding binds under P2 within the supplied authorities. Updating:\nBirch B3 expressly preserves that holding; IDX2 records treatment through August 15.\nUnsavable messages and remedies are not decided; later judicial checks remain open.\n\n### Authority entry 5 — Cedar\n\nIdentity and source: Cedar, C1–C3; Larch Court of Appeals published majority, November\n8, Year 4; primary judicial material. Proposition: C2 treated thirteen days as timely\nunder a fifteen-day allowance. Current use: explain the rejected historical rule;\ndo not rely on it to extend either capstone deadline. Updating: Birch B2 expressly\noverrules that point under P2's hierarchy. IDX2 covers treatment through August 15;\nthe remaining judicial interval is unsearched.\n\n### Authority entry 6 — Birch\n\nIdentity and source: Birch, B1–B4; Larch Supreme Court published majority, April 15,\nYear 5; primary judicial material. Proposition and status: B2's rejection of the\nunauthorized fifteen-day allowance and overruling of Cedar bind under P2. Use with\nsection 4, the original section 2 and A1; do not claim Birch interpreted the later\namendment. B3 reserves remedies and preserves Rowan. Updating: A1 changes the statutory\nperiod for eligible receipts; IDX2's later-treatment coverage ends August 15.\n\n### Authority entry 7 — Elm\n\nIdentity and source: Elm, E1–E2; Maren Supreme Court published majority, June 1,\nYear 5; primary judicial material applying Maren's twenty-day statute. Status and\nuse: foreign to the Larch forum under P2 and based on different text; exclude it as\na controlling deadline rule. It could serve as comparative background, not Larch\nsupport. Updating limit: the supplied Larch index does not provide a Maren treatment\ncheck. No claim that Elm is current in Maren is made.\n\n### Evaluated lead 8 — January guide\n\nIdentity and source: Larch Study Clinic, Study Rooms Guide, January Year 5 edition,\npage 4 (G1); secondary commentary. Proposition: fifteen days under Cedar. Use: a\nlead to C2 and its later treatment, not binding support. Updating: B2 displaces the\ncited proposition; G1 also predates A1. Checking the guide's own later editions cannot\nreplace the primary-source checks or close IDX2's coverage gap.\n\n### Evaluated lead 9 — May guide\n\nIdentity and source: same clinic, Study Rooms Guide, May Year 5 edition, page 6 (G2);\nsecondary commentary. Proposition: Birch rejects fifteen days under the original\nstatute. Use: a useful lead to B2 and sections 2/4, not a complete answer for July\nreceipts. Updating: it predates Amendment A; read A1 rather than treating the newest\nsupplied guide as current through August. The judicial gap remains open.\n\n### Evaluated lead 10 — staff memo\n\nIdentity and source: Town Room Office staff memo, June 20, Year 5, paragraph 1 (M1);\nnonbinding guidance under P3. Proposition: fourteen days for every application pending\nJuly 1. Use: reject that transition statement because A1 uses receipt date and\npreserves the older period for earlier receipts. Updating/limits: compare the supplied\nmemo with A1 and AR1; no broader or later staff-memo collection has been searched.\nA memo's date and official source do not turn it into an amendment.\n\n## Model research log\n\nAll entries are simulated packet work on August 20, Year 5. No clock time or actual\nonline session is invented. Each entry records the available collection or navigation,\nwhat was examined, the result and a next action or limit.\n\n### Log 1 — scope and collection\n\nQuestion: which period and timeliness result apply to files A and B in a Larch trial\ncourt? Navigation: P1–P4, files A/B, AR1, the Rule 8 note and IDX1. Result: receipts\nJune 25 and July 3; legislative/rule coverage through August 20; specified published\nLarch case coverage through August 15. Completeness and delivery are stipulated.\nNext: compare versions and cases; keep remedies and missing judicial coverage separate.\n\n### Log 2 — unsuccessful title query\n\nQuestion: locate relevant Larch room decisions. Collection: IDX1, specified published\nLarch courts through August 15. Query and field: “study room” in titles; no additional\nfilter supplied. Result: zero hits under IDX1. Inference: this title query found no\nmatching captions, not that no law exists. Next: revise vocabulary and search full\ntext, retaining this failed query in the record.\n\n### Log 3 — revised full-text query\n\nSame collection and cutoff. Query and field: “complete application” in full text.\nSupplied hits: Rowan, Cedar and Birch. Opened R1–R3, C1–C3 and B1–B4. Result: a savable\nform holding, an older fifteen-day position and its later rejection. Next: trace\nCedar's treatment expressly and compare the applicable statutory version. These hits\ndo not establish completeness outside IDX1's courts, publication scope or cutoff.\n\n### Log 4 — later treatment\n\nQuestion: can Cedar support fifteen days? Collection: IDX1–IDX2 through August 15.\nQuery: “Cedar” in full text. Supplied hits: Cedar and Birch. Examined C2 and B2–B3.\nResult: B2 overrules the fifteen-day point; B3 leaves Rowan's form holding undisturbed.\nNext: a post-August-15 judicial search is needed but unavailable under ACCESS1.\nDo not report a paid-citator or full-docket check as performed.\n\n### Log 5 — legislation and transition\n\nQuestion: which statutory version governs each receipt? Navigation: original Act\nsections 2–5, Amendment A, A1–A2, and AR1; this is a supplied-document review, not a\nlive query. Result: ten days for June 25, fourteen for July 3; AR1 lists no other\nAct change through August 20. M1's pending-status criterion conflicts with A1.\nNext: compute under P4 and examine the implementing regulation separately.\n\n### Log 6 — regulation and counting\n\nQuestion: does Rule 8 extend either period? Navigation: 8.1–8.3, the rule register\nthrough August 20, section 4 and B2. Result: completeness is stipulated; receipt is\nday zero; no valid fifteen-day extension follows. Noor's day ten is July 5; Ivo's\nday fourteen is July 17. Next: distinguish acceptable form from lateness and refrain\nfrom deriving a remedy that section 5 does not supply.\n\n### Log 7 — gaps and handoff\n\nQuestion: what remains unverified at the August 20 snapshot? Reviewed the coverage\nnotes and ACCESS1. Result: the legislative and rule-text checks reach August 20,\nbut judicial developments August 16–20, unpublished material and a full docket are\nnot checked; no Maren updating or broader memo collection was reviewed. Planned\nfollow-up: use appropriately current court collections or a citator for the relevant\nLarch propositions and inspect discovered authorities. Status: planned, not performed.\n\n## Model explanatory note\n\nThis educational analysis addresses whether the Town Room Office sent timely written\ndecisions for Noor and Ivo in the fictional Larch trial-court setting. Both applications\nwere complete and their decisions delivered, as stipulated in files A and B. The\nresearch snapshot is August 20, Year 5. The conclusions below are limited to the\nsupplied packet and its expressly stated coverage; they are not real-world legal advice.\n\nNoor's June 25 receipt selects ten days. The original Larch Community Study Rooms Act,\nsection 2 (effective January 1, Year 4), supplies that period. Amendment A, A1 (effective\nJuly 1, Year 5), preserves it for complete applications received before July 1 even\nwhen their deadlines fall in July. Under P4 and Rule 8.2, June 25 is day zero. June\n26–30 are days one through five, and July 1–5 are days six through ten. The deadline\nis July 5; the July 8 decision, on day thirteen, is late within the supplied authorities.\n\nIvo's July 3 receipt selects fourteen days under A1. July 4 is day one and July 17 is\nday fourteen. The July 18 decision is therefore one day late. Its paper form does not\nextend the period. Likewise, Noor's electronic form is a separate issue from timeliness.\nSection 3 permits a “savable electronic message,” and Rowan, R2–R3 (Larch Supreme Court,\nFebruary 2, Year 4), accepts the specified savable message while reserving other questions.\nNoor's stipulated savable decision does not become timely merely because its form qualifies.\n\nRule 8.3's printed fifteen-day language does not authorize either delay. Section 4\nforbids a regulation from lengthening the statutory period. Birch, B2–B4 (Larch Supreme\nCourt, April 15, Year 5), rejects that allowance and overrules Cedar's contrary point.\nBirch addresses the original text; A1 supplies the later fourteen-day period while A2\nleaves section 4 unchanged. Cedar, C2 (Larch Court of Appeals, November 8, Year 4), is\nuseful history but cannot support the displaced rule. Elm, E1–E2 (Maren Supreme Court,\nJune 1, Year 5), concerns another jurisdiction's twenty-day statute and does not bind\nthis forum under P2.\n\nThe guides and memo require similar care. G1 predates Birch; G2 incorporates Birch\nbut predates Amendment A. Their citations are research leads. M1's direction to give\nfourteen days to every application pending July 1 conflicts with A1's receipt-date\nboundary. Nonbinding staff guidance cannot replace that transition text under P3.\n\nThe legislative and rule-text registers cover August 20, but IDX1–IDX2 cover specified\npublished Larch decisions only through August 15. Judicial developments for August\n16–20, unpublished materials and a full docket remain unchecked under ACCESS1. A\ncurrent court-collection or citator inquiry into the relevant propositions is a next\naction, not a completed search. These limits prevent a claim of complete current-law\nverification. Finally, lateness does not establish an award or automatic approval:\nsection 5 expressly rejects approval by silence and supplies no remedy rule. The\nsupported conclusion is that both decisions are late within the supplied authorities,\nwith the stated research limits preserved.\n\n## Self-assessment — 0 to 2 per category\n\n1. Scope and facts: 2 identifies forum, issue, both receipt dates and research date;\n   1 omits one; 0 applies an unstated forum or substitutes an invented fact.\n2. Authority: 2 classifies sources and explains hierarchy, treatment and relevance;\n   1 identifies the best source without fully resolving rivals; 0 treats Cedar,\n   M1 or Elm as controlling the disputed Larch deadline.\n3. Version and application: 2 uses A1 correctly and computes July 5/July 17;\n   1 selects correct versions but makes one counting error; 0 applies the wrong\n   transition rule or fifteen/twenty days.\n4. Currency and limits: 2 distinguishes legislative coverage, rule coverage and the\n   case-law gap and specifies a next check; 1 mentions incomplete research vaguely;\n   0 claims complete currency or an unperformed check.\n5. Citation and quotation: 2 gives accurate source/version/passage references and a\n   faithful quote; 1 has a traceable but imprecise locator; 0 invents a citation or\n   changes the source's meaning.\n6. Reproducibility and clarity: 2 supplies the requested entries and log fields with\n   completed and planned work distinct; 1 leaves a follow-up hard to reproduce;\n   0 offers only a source list or unsupported conclusion.\n\nRecord your score out of 12 and revise every category below 2. A score is a learning\naid, not faculty assessment or credit. Objective quizzes check bounded concepts;\nthey do not automatically grade your portfolio or certify research competence.\n"
+  }
+ ],
+ "drills": []
+}

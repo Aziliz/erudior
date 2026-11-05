@@ -4638,6 +4638,66 @@
   ]
  },
  {
+  "id": "law-legal-research",
+  "file": "math/law-legal-research.json",
+  "order": 102,
+  "title": "Legal Research and Citation",
+  "description": "Plan legal research, locate and compare primary sources, check authority and currency, and create traceable citations and research logs. Third course in the J.D. Preparation pathway; includes an original, self-contained research packet.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. All Larch and Maren materials are fictional. Exercises use a fixed teaching snapshot; real matters require current jurisdiction-specific research.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "lrc-research-plan",
+   "lrc-secondary-sources",
+   "lrc-statutes-rules",
+   "lrc-cases-passages",
+   "lrc-currency",
+   "lrc-authority-fit",
+   "lrc-citation",
+   "lrc-portfolio"
+  ],
+  "outline": [
+   {
+    "title": "Research plans and secondary sources",
+    "lessons": [
+     "Turn a problem into a research plan",
+     "Use secondary sources and improve a search"
+    ]
+   },
+   {
+    "title": "Cases, statutes and regulations",
+    "lessons": [
+     "Find the applicable statute and regulation",
+     "Locate cases and verify the passage you need"
+    ]
+   },
+   {
+    "title": "Updating authority and jurisdiction checks",
+    "lessons": [
+     "Update authority and disclose coverage gaps",
+     "Check jurisdiction, hierarchy and source reliability"
+    ]
+   },
+   {
+    "title": "Citation, quotations and research logs",
+    "lessons": [
+     "Cite precisely and preserve a source’s meaning",
+     "Build a reproducible research portfolio"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-japanese-kana",
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
