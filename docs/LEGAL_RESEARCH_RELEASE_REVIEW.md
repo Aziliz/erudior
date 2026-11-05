@@ -1,9 +1,10 @@
 # Legal Research and Citation — release candidate
 
 Prepared November 5, 2026 against app main
-`b9a96edba067b3687e92bd46d40cdbec92060883`. **Draft; not merged or published.**
-The candidate adds course 3 to the existing 24-course J.D. Preparation pathway,
-showing 3 available and 21 planned. Following the program still enrolls no courses;
+`5c55c198809399358836cb4d57a723bc530f7586`. **Draft; not merged or published.**
+The candidate adds Legal Research and Citation to the LSAT-first 25-course J.D.
+Preparation pathway, showing four available and 21 planned. New plans follow that
+order; existing saved 24-course plans remain intact as custom plans. Following the program still enrolls no courses;
 viewing each overview also leaves enrollment unchanged. Start course is explicit.
 
 ## Package and preservation
@@ -13,10 +14,12 @@ entries and four references. The original fictional research packet supports an
 authority table, research log and self-assessed explanatory note. It is independent
 preparation, without degree credit or automatic assessment of the portfolio prose.
 
-Course SHA-256: `78b31a37bfe5402f6198cbbe53ed2af88395d8d5a2acc42dd9ee0826463d76fa` (193,030 bytes),
-byte-identical to the separately validated private source draft. The source release
-flag changes its output destination; it does not alter instructional content or keys.
-Candidate source catalog SHA-256: `3e71d2828a674a118d46d28913d17ddfa4b870541ec5e57abb5e27b91e944324`.
+Course SHA-256: `7324211b85de82cc66bb1f94fac0be9a9a27b0a40502c15b47696b2a59bfee36` (193,022 bytes).
+Only description metadata differs from the separately validated private draft: it
+removes the obsolete 'Third course' ordinal after LSAT became the first program
+course. All other fields, including lessons, answer keys, IDs and revision, are
+identical. The original validated digest remains in the historical evidence.
+Candidate source catalog SHA-256: `203e8433210b95e83fc20a3c27c1b9599ded69c1864479669c31105309f4737b`.
 
 All 25 pre-existing repository packages and catalog entries retain their exact bytes
 and values. The sitemap preserves 33 URLs and adds the canonical course overview.
@@ -28,18 +31,22 @@ No learner engine, workflow, billing, signing-key or publication-control change 
 
 ## Executed integration checks
 
-- Both complete source builders and the unchanged checker pass all 26 packages.
+- Both complete source builders and the unchanged checker passed all 26 packages
+  before the metadata-only edit; the final course was then rebuilt and rechecked.
+  The checker, dependencies and other 25 packages are unchanged.
 - Current app answer engine: 80 keys, 392 negative cases, 63 text variants and 40 partial/empty cases pass.
 - Program model, pathway, rendered enrollment and existing Runner keyboard tests pass.
 - TypeScript/production Vite build passes.
-- Actual public/app navigation passes 32 accessibility/layout states at 320px and
-  1280px in light/dark Chromium 153. All three course overviews and first lessons open;
+- Actual public/app navigation passes 40 accessibility/layout states at 320px and
+  1280px in light/dark Chromium 153. All four course overviews and first lessons open;
   only explicit Start installs each course; reload preserves the saved plan; stopping
-  the plan preserves the three started courses. Planned courses have no launch action.
+  the plan preserves the four started courses. Planned courses have no launch action.
 - Representative public count, course overview and phone lesson screenshots were inspected.
 
 The earlier full content/browser validation remains scoped to its original app pin;
-this release slice verifies unchanged course bytes and the current integration above.
+this release slice verifies preserved instructional fields and the current integration
+above. Targeted tests/build ran after integrating main 6428d4; main 5c55 changes
+only a browser assertion, and the final browser run preserves that correction.
 Hosted/full-regression results belong to the exact PR head and are not replaced by
 local success. This is assistant review, not faculty or university approval.
 
@@ -67,3 +74,6 @@ Resolve both prerequisites and verify exact-head source/app checks before mergin
 Then use the existing full regression, authenticated baseline, revision compatibility,
 immutable-object, fresh-main/baseline, catalog-last upload and authoritative-readback
 controls. This candidate does not establish a production release.
+
+Merge integration also preserves the subsequent documentation-only main commit
+`ef8fa47cb390c27ca4f0a67c9bdebce11f1a1582`; it changes no tested app/course bytes.
