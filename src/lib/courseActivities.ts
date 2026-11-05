@@ -1,6 +1,6 @@
 import type { Course } from './types';
 
-export const COURSE_ACTIVITY_KINDS = ['advanced', 'scientific', 'branching', 'spreadsheet'] as const;
+export const COURSE_ACTIVITY_KINDS = ['advanced', 'scientific', 'branching', 'spreadsheet', 'document'] as const;
 export type CourseActivityKind = typeof COURSE_ACTIVITY_KINDS[number];
 export type CourseActivity = {
   kind: CourseActivityKind;
@@ -10,13 +10,14 @@ export type CourseActivity = {
   revision?: number;
 };
 export const activityLabels: Record<CourseActivityKind, string> = {
+  document: 'Document review',
   advanced: 'Advanced assessment', scientific: 'Scientific workspace',
   branching: 'Branching scenario', spreadsheet: 'Spreadsheet assignment',
 };
 /** Discover authored links only. This does not assign work or confer approval. */
 export function courseActivities(course: Course, lessonId?: string): CourseActivity[] {
   const groups = [
-    ['advanced', course.advancedAssessments], ['scientific', course.scientificWorkspaces],
+    ['document', course.documentReviews], ['advanced', course.advancedAssessments], ['scientific', course.scientificWorkspaces],
     ['branching', course.branchingScenarios], ['spreadsheet', course.spreadsheetAssignments],
   ] as const;
   return groups.flatMap(([kind, sources]) => (sources ?? []).map(source => ({

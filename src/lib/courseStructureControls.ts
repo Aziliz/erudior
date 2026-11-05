@@ -18,7 +18,7 @@ export function courseModuleDeleteReason(course: Course, id: string): string | n
 }
 
 export function courseLessonDeleteReason(course: Course, id: string): string | null {
-  if ([...(course.spreadsheetAssignments ?? []), ...(course.branchingScenarios ?? []), ...(course.scientificWorkspaces ?? []), ...(course.advancedAssessments ?? [])].some(item => item.lessonId === id)) return "Move or remove linked workspaces and assignments first.";
+  if ([...(course.documentReviews ?? []), ...(course.spreadsheetAssignments ?? []), ...(course.branchingScenarios ?? []), ...(course.scientificWorkspaces ?? []), ...(course.advancedAssessments ?? [])].some(item => item.lessonId === id)) return "Move or remove linked workspaces and assignments first.";
   if (course.vocab?.some(word => word.lesson === id && (!word.from || word.from === course.id))) return "Move or remove vocabulary linked to this lesson first.";
   return null;
 }

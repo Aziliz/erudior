@@ -1,79 +1,85 @@
 # Legal Research and Citation — release candidate
 
-Prepared November 5, 2026 against app main
-`5c55c198809399358836cb4d57a723bc530f7586`. **Draft; not merged or published.**
-The candidate adds Legal Research and Citation to the LSAT-first 25-course J.D.
-Preparation pathway, showing four available and 21 planned. New plans follow that
-order; existing saved 24-course plans remain intact as custom plans. Following the program still enrolls no courses;
-viewing each overview also leaves enrollment unchanged. Start course is explicit.
+Updated November 5, 2026 against app main 58b83b9759fe504bb8713b3e075dc0c0e4bc5629.
+**Draft, unmerged and unpublished.** The LSAT-first J.D. Preparation program has
+25 courses; this candidate offers four, with 21 planned. Existing saved 24-course
+plans remain intact as custom plans. Following or viewing the program installs no
+course; each course has an explicit Start action.
 
-## Package and preservation
+## Content and preservation
 
-Revision 1 has four modules, eight lessons, 80 questions, 64 cards, 56 glossary
-entries and four references. The original fictional research packet supports an
+Revision 1 contains four modules, eight lessons, 80 questions, 64 cards, 56 glossary
+entries and four references. The fictional research packet includes a model
 authority table, research log and self-assessed explanatory note. It is independent
-preparation, without degree credit or automatic assessment of the portfolio prose.
+preparation; the objective quizzes do not grade the portfolio prose or grant credit.
 
-Course SHA-256: `7324211b85de82cc66bb1f94fac0be9a9a27b0a40502c15b47696b2a59bfee36` (193,022 bytes).
-Only description metadata differs from the separately validated private draft: it
-removes the obsolete 'Third course' ordinal after LSAT became the first program
-course. All other fields, including lessons, answer keys, IDs and revision, are
-identical. The original validated digest remains in the historical evidence.
-Candidate source catalog SHA-256: `203e8433210b95e83fc20a3c27c1b9599ded69c1864479669c31105309f4737b`.
+Runtime SHA-256: 7324211b85de82cc66bb1f94fac0be9a9a27b0a40502c15b47696b2a59bfee36 (193,022 bytes).
+Only description metadata differs from the earlier separately validated draft:
+the obsolete “Third course” ordinal was removed when LSAT moved first. Every other
+runtime field and instructional key is identical. Historical validation retains its
+original digest and app pin; it is not represented as a new full-content review.
 
-All 25 pre-existing repository packages and catalog entries retain their exact bytes
-and values. The sitemap preserves 33 URLs and adds the canonical course overview.
-The private source candidate restores three previously supported builder lines for
-calculator enum validation/output: without them a full rebuild drops LSAT's existing
-calculator:none field. All four valid modes pass, six invalid values fail, and absent
-metadata preserves output bytes. Both full builders now reproduce every prior package.
-No learner engine, workflow, billing, signing-key or publication-control change is included.
+Current app candidate catalog SHA-256: 31651fd0f1d927811d220ebce3660399e62634b651f84ab2aa29697c0e04c416.
+All 25 current-main packages and their catalog entries are preserved, including
+Colorado broker r18 and the pending language revisions. All 33 existing sitemap
+URLs remain, with the Legal Research overview added. The private source PR's
+generated catalog belongs to source main 12122c5; it must not overwrite newer,
+unrelated app catalog entries when this course is integrated.
 
-## Executed integration checks
+## Executed checks
 
-- Both complete source builders and the unchanged checker passed all 26 packages
-  before the metadata-only edit; the final course was then rebuilt and rechecked.
-  The checker, dependencies and other 25 packages are unchanged.
-- Current app answer engine: 80 keys, 392 negative cases, 63 text variants and 40 partial/empty cases pass.
-- Program model, pathway, rendered enrollment and existing Runner keyboard tests pass.
-- TypeScript/production Vite build passes.
-- Actual public/app navigation passes 40 accessibility/layout states at 320px and
-  1280px in light/dark Chromium 153. All four course overviews and first lessons open;
-  only explicit Start installs each course; reload preserves the saved plan; stopping
-  the plan preserves the four started courses. Planned courses have no launch action.
-- Representative public count, course overview and phone lesson screenshots were inspected.
+- The four-module draft's earlier complete review passed all 80 keys, 392 negative
+  cases, 63 accepted text variants and 40 partial/empty cases. Those answer checks
+  were also rerun against the final description-adjusted runtime in the prior slice.
+- Current program model, learning pathways, rendered enrollment and Legal Research
+  package checks pass. TypeScript and production build pass.
+- Final Chromium 153 public/app navigation passes 40 accessibility/layout states:
+  320px and 1280px, light and dark. All four course overviews and first lessons open;
+  explicit Start installs only the selected course, reload retains the plan and
+  stopping the plan preserves the four started courses. No page errors.
+- Read-only comparison of all 26 candidate packages against the authenticated
+  24-course production baseline finds no identity/revision compatibility issues,
+  no removed courses and 3001 valid carried-vocabulary source-lesson references.
+  Signature and package hashes were checked against the app-pinned key.
+- The normal production publisher remains stopped at the approval gate described
+  below. The read-only comparison is narrower evidence and does not replace it.
 
-The earlier full content/browser validation remains scoped to its original app pin;
-this release slice verifies preserved instructional fields and the current integration
-above. Targeted tests/build ran after integrating main 6428d4; main 5c55 changes
-only a browser assertion, and the final browser run preserves that correction.
-Hosted/full-regression results belong to the exact PR head and are not replaced by
-local success. This is assistant review, not faculty or university approval.
+The signed baseline catalog SHA-256 is
+13315e2ea68091a982ac1bae0358725dddfadd8fee1abf64b83c906af0726ea1.
+Since that baseline, main contains German A1–B1 revisions, Japanese N5 and Colorado
+broker r18; this candidate preserves them and adds Legal Research.
 
-## Verified release blockers
+## Compatibility repairs and remaining gates
 
-The production catalog signature and all 24 package hashes verify against the pinned
-app key. Baseline catalog SHA-256:
-`13315e2ea68091a982ac1bae0358725dddfadd8fee1abf64b83c906af0726ea1`.
-Current main already contains three pending German revisions (A1 r4, A2/B1 r3) and
-Japanese N5 r1 beyond this signed baseline. This candidate preserves those changes.
-Its own additional package is Legal Research and Citation r1.
+Main 54ef815 fixes the carried-vocabulary namespace error and validates external
+source lessons in the publisher. Main 58b83b9 removes a duplicate v1-only canonical
+workbook shape check, retaining the strict versioned workbook validator. Both
+concurrent repairs are preserved exactly here. PR 146 now adds regression tests
+for full v2 metadata roundtrip, inert macros and 12 invalid/authority-bearing inputs.
+Its local official-source test passes 22 course migrations with the same three
+documented unrelated source-format exceptions.
 
-The unchanged publisher's local compatibility pass fails on 924 inherited vocabulary
-lesson references in German A2. It fails before loading a signing key or writing
-publication output. Existing [PR 146](https://github.com/Aziliz/erudior/pull/146)
-addresses that issue; do not weaken the gate or revert language packages here.
+The current production publisher fails on **Colorado r18 approval snapshot digest
+mismatch**. Its existing receipt binds
+4e617115bdb8490ca7fce47a7cfa306c100df36b59b10322a6e2eb7846c372d5;
+the repaired import produces
+3f24507ceebc49585fffb68c443703ceefa3da0472af07a488996a87ef0de926.
+A read-only old/new comparison finds four answer-array entries for ordering question
+s4-034 (previously empty, now 0/1/2/3) and 654 omitted-versus-empty glossary alias
+fields. The package bytes themselves are unchanged. This is not treated as a pure
+formatting change: the resulting snapshot needs review and a valid approval record.
+No reviewer identity, approval digest or review date was changed in this work.
 
-Private source [run 42104620055](https://github.com/Aziliz/erudior-courses/actions/runs/42104620055),
-attempt 2, was confirmed from GitHub's workflow annotation to be prevented from
-starting by failed account payments or a spending limit. Account-owner action in
-GitHub Billing & plans is needed, followed by a normal rerun. No billing changes
-were made. Source PR 7 and this app PR remain draft.
+Private source PR 7 remains blocked by GitHub's confirmed failed-payment/spending
+restriction. Its check on source commit 32a108c, run 42110405714/job 127536133913, failed before
+steps ran. Account-owner action is needed, followed by normal hosted validation.
 
-Resolve both prerequisites and verify exact-head source/app checks before merging.
-Then use the existing full regression, authenticated baseline, revision compatibility,
-immutable-object, fresh-main/baseline, catalog-last upload and authoritative-readback
-controls. This candidate does not establish a production release.
+Keep this PR draft. Resolve the approval binding and private runner prerequisite;
+require passing checks on the current source/app commits, then use the unchanged
+signed baseline, immutable-object checks, fresh-main/baseline guards, catalog-last
+upload and authoritative readback. No billing, workflow, signing, review or trust
+guard is weakened. Local success does not establish hosted success or publication.
 
-Merge integration also preserves the subsequent documentation-only main commit
-`ef8fa47cb390c27ca4f0a67c9bdebce11f1a1582`; it changes no tested app/course bytes.
+Merge integration preserves subsequent main 97764d1a2a88ce20b9114c5309265dfe04be395d,
+which only adds document/transaction validator paths to existing release workflows.
+No tested application or course bytes changed in that concurrent commit.

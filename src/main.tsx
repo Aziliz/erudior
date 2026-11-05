@@ -11,6 +11,7 @@ import "./styles.css";
 import "./diagnostics.css";
 import "./interoperability.css";
 import "./documentEngine.css";
+import "./courseActivities.css";
 import "./transactions.css";
 import "./instructionalEvidence.css";
 import "./branching.css";

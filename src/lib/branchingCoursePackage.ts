@@ -1,6 +1,9 @@
 import { parseBranchingPack, type BranchingPack } from './branchingEngine';
 import type { Course } from './courseContentTypes';
-export type CourseBranchingScenario = BranchingPack & { lessonId?: string };
+export type CourseBranchingScenario = BranchingPack & { lessonId?: string; selfStudy?: boolean };
+export function courseBranchingPack({lessonId: _lessonId, selfStudy: _selfStudy, ...pack}: CourseBranchingScenario): BranchingPack {
+ return pack;
+}
 /** Portable sources never carry local review authority. */
 export function parseCourseBranchingScenarios(value: unknown, lessonIds: ReadonlySet<string>): CourseBranchingScenario[] {
  if(value===undefined)return [];
@@ -8,13 +11,14 @@ export function parseCourseBranchingScenarios(value: unknown, lessonIds: Readonl
  const seen=new Set<string>();
  return value.map(item=>{
   if(!item||typeof item!=='object'||Array.isArray(item))throw Error('Invalid branching scenario.');
-  const {lessonId,...source}=item;
+  const {lessonId,selfStudy,...source}=item;
+  if(selfStudy!==undefined&&typeof selfStudy!=='boolean')throw Error('Invalid branching self-study setting.');
   if('courseOrigin' in source)throw Error('Portable course sources cannot carry local course bindings.');
   if('approval' in source)throw Error('Portable branching sources cannot carry local approval.');
   const pack=parseBranchingPack(source);
   if(seen.has(pack.id))throw Error('Duplicate branching scenario ID.');seen.add(pack.id);
   if(lessonId!==undefined&&(typeof lessonId!=='string'||!lessonIds.has(lessonId)))throw Error('Unknown branching scenario lesson.');
-  return {...pack,...(lessonId===undefined?{}:{lessonId})};
+  return {...pack,...(lessonId===undefined?{}:{lessonId}),...(selfStudy===undefined?{}:{selfStudy})};
  });
 }
 export function branchingCourseProblems(value:unknown,lessonIds:ReadonlySet<string>):string[]{try{parseCourseBranchingScenarios(value,lessonIds);return [];}catch(e){return [(e as Error).message];}}
