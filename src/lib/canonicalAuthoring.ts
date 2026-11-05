@@ -428,7 +428,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             for (const e of validateAssignment(a))
                 add('spreadsheetAssignments', e);
             if (isObject(a)) {
-                shape(a, ['id', 'title', 'starter', 'protectedCells', 'answers', 'tolerance', 'lessonId'], 'spreadsheetAssignments');
+                shape(a, ['id', 'title', 'starter', 'protectedCells', 'answers', 'tolerance', 'directions', 'lessonId'], 'spreadsheetAssignments');
                 if (isObject(a.starter))
                     shape(a.starter, ['sheets'], 'spreadsheetAssignments.starter');
                 identity(a.id, 'spreadsheetAssignments.id', seen);

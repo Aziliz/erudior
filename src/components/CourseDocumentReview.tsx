@@ -33,7 +33,13 @@ export default function CourseDocumentReview({ review }: { review: Review }) {
     }
   }
   return <section className="document-engine" aria-label="Self-study document review">
+    <h2>What to do</h2>
     <p>{review.instructions}</p>
+    <ol>
+      <li>Read the first source and fill in its response fields. If there are other sources, use the Document menu to open each one and fill in its fields.</li>
+      <li>Highlight a line that supports your answer. Choose <strong>Use highlighted text</strong>, write a short note about why it matters, then choose <strong>Add annotation</strong>.</li>
+      <li>Choose <strong>Show model review</strong> to compare your reasoning with the sample response.</li>
+    </ol>
     <p>{DOCUMENT_DISCLAIMER} Responses last while this activity is open.</p>
     <DocumentCaseView assignment={review} response={response} onChange={setResponse} onPending={setPending} />
     <button className="btn" disabled={pending} onClick={checkReview}>Show model review</button>

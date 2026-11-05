@@ -182,6 +182,10 @@ function LearnerSession({ api, courseId, assignment }: Props) {
   return <section className="panel" aria-label={assignment.title}>
     <h3>{assignment.title}</h3>
     <p className="small muted">Lesson: {assignment.lessonId}. This learner's edits save locally for this assignment version. Protected cells are read-only.</p>
+    {assignment.directions && <section aria-label="Assignment directions">
+      <h4>What to do</h4>
+      <ol>{assignment.directions.map((step, index) => <li key={index}>{step}</li>)}</ol>
+    </section>}
     <SpreadsheetFeatureSummary book={book}/>
     {book.engineVersion===2&&<p className="small">Edit a cell, then press Enter or Apply cell edit. Escape discards the pending edit. Alt + arrow keys move between cells.</p>}
     {pendingCell&&<div role="group" aria-label="Pending cell edit"><p>Pending: {pendingCell.sheet}!{pendingCell.cell}</p><button type="button" className="btn sm" onClick={()=>change(pendingCell.cell,pendingCell.raw)}>Apply cell edit</button><button type="button" className="btn sm" onClick={()=>setPendingCell(null)}>Discard cell edit</button></div>}

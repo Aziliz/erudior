@@ -24713,7 +24713,7 @@
    "revision": 1,
    "lessonId": "co-cbs1-part2",
    "title": "Review the agreement and draft extension",
-   "instructions": "Compare both documents in the source selector. Enter the controlling inspection objection date, explain the draft’s status, and anchor an annotation to a signature line or a controlling deadline.",
+   "instructions": "You are reviewing the file before the inspection cutoff. Use the signed agreement to find the date you should track. Then read the proposed extension and explain whether it changes that date and what you would do next.",
    "documents": [
     {
      "format": "erudior-document-template",
@@ -24778,7 +24778,7 @@
    "revision": 1,
    "lessonId": "co-counterproposals-amend-notices",
    "title": "Review a title exception and buyer request",
-   "instructions": "Read the title commitment and buyer notes. Record what to request and what to tell the buyer. Anchor your annotation to the title exception or the relevant buyer note.",
+   "instructions": "The buyer wants a workshop near the back of the lot. Compare the recorded easement with the buyer’s sketch. Explain what you would check, what you would tell the buyer, and which deadline you would track.",
    "documents": [
     {
      "format": "erudior-document-template",
@@ -24843,7 +24843,7 @@
    "revision": 1,
    "lessonId": "co-closings",
    "title": "Audit a draft closing worksheet against source documents",
-   "instructions": "Compare the signed instructions and draft entries. Complete the review fields and annotate the draft at a discrepancy.",
+   "instructions": "You are checking the draft before anyone approves it. Compare the closing source figures with the draft. Explain how to post the tax adjustment and what entry is missing for the earnest money.",
    "documents": [
     {
      "format": "erudior-document-template",
@@ -25238,7 +25238,14 @@
     "Closing!F14": 0,
     "Closing!B15": 22
    },
-   "tolerance": 0.005
+   "tolerance": 0.005,
+   "directions": [
+    "Your job is to work out what the buyer brings, what the seller receives, and whether closing cash balances. The source amounts are in rows 17–27. Use Go to cell with B17 to jump to them.",
+    "Start with the purchase price in row 2. Put it in C2 (seller credit) and D2 (buyer debit), using =B17 in each. This is a transfer between the parties, so leave the broker cash cells blank on that row.",
+    "Work through rows 3–10. Put charges in the charged party’s debit column and amounts in their favor in their credit column. For outside money, use F for cash received and G for cash paid out. Leave unused cells blank. For the tax line, multiply annual tax by seller days and divide by days in the year.",
+    "In row 11, post buyer debits minus buyer credits before the cash payment. Record that amount as a buyer credit and cash received. In row 12, post seller credits minus seller debits before the payout. Record that amount as a seller debit and cash paid out.",
+    "Total columns B through G in row 13. In B14, D14 and F14, subtract the matching credit total from each debit total. Each difference should be zero. Select Grade assignment to see which cells to revisit."
+   ]
   },
   {
    "id": "co-trust-three-way",
@@ -25310,7 +25317,13 @@
     "Trust!B13": 0,
     "Trust!B14": 0
    },
-   "tolerance": 0.005
+   "tolerance": 0.005,
+   "directions": [
+    "Your job is to check whether the bank, the journal, and the two client ledgers agree at the same cutoff. Enter formulas in column B and press Enter after each edit.",
+    "In B5, start with the bank balance in B2. Add the deposit in B3 and subtract the check in B4 because neither has cleared the bank.",
+    "In B11, add the two client balances in B9 and B10. Compare that total and the adjusted bank balance with the recorded journal balance in B7.",
+    "In B13, subtract the journal from the adjusted bank balance. In B14, subtract the combined client ledgers from the journal. Both differences should be zero. Select Grade assignment to check your work."
+   ]
   }
  ],
  "advancedAssessments": [

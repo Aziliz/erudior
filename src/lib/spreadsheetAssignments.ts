@@ -5,6 +5,7 @@ export interface SpreadsheetAssignment {
   id: string; title: string; starter: Workbook;
   protectedCells: string[]; answers: Record<string, number | string>;
   tolerance?: number;
+  directions?: string[];
 }
 
 /** Metadata is instructor-authored, not learner-editable. Exact content survives transport key order. */
@@ -30,6 +31,9 @@ export function validateAssignment(value: unknown): string[] {
   const errors: string[] = [];
   if (typeof value.id !== "string" || !/^[A-Za-z0-9_-]{1,100}$/.test(value.id)) errors.push("Invalid assignment ID");
   if (typeof value.title !== "string" || !value.title.trim()) errors.push("Assignment title required");
+  if (value.directions !== undefined && (!Array.isArray(value.directions) || !value.directions.length || value.directions.length > 12 ||
+      Array.from(value.directions).some(step => typeof step !== "string" || !step.trim() || step.length > 600)))
+    errors.push("Directions must contain 1–12 short steps");
   const workbookValid = validateWorkbook(value.starter);
   if (!workbookValid) errors.push("Invalid assignment workbook");
   if (value.tolerance !== undefined && (typeof value.tolerance !== "number" || !Number.isFinite(value.tolerance) || value.tolerance < 0))

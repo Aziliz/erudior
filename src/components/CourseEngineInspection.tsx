@@ -68,6 +68,7 @@ export default function CourseEngineInspection({ sources, includeSpreadsheets = 
     </Source>)}
     {includeSpreadsheets && sources.spreadsheetAssignments?.map(p => <Source key={p.id} source={p} kind="Spreadsheet">
       <p>Engine version: {p.starter.engineVersion ?? 1} · Numeric tolerance: {p.tolerance ?? 0}</p>
+      {p.directions && <><h5>Learner directions</h5><ol>{p.directions.map((step, index) => <li key={index}>{step}</li>)}</ol></>}
       <h5>Starter values and formulas (not executed)</h5>{Object.entries(p.starter.sheets).map(([name, cells]) => <section key={name}><h6>{name}</h6><ul>{Object.entries(cells).map(([address, value]) => <li key={address}><code>{name}!{address}</code>: <code>{String(value)}</code>{p.starter.cellExplanations?.[`${name}!${address}`] && <p>{p.starter.cellExplanations[`${name}!${address}`]}</p>}</li>)}</ul></section>)}
       <h5>Protection and expected values</h5><p>Protected cells: {p.protectedCells.join(', ') || 'None'}</p><ul>{Object.entries(p.answers).map(([address, value]) => <li key={address}>{address}: {String(value)}</li>)}</ul>
       <h5>Named ranges</h5><ul>{Object.entries(p.starter.namedRanges ?? {}).map(([name, range]) => <li key={name}>{name}: {range.sheet}!{range.range}</li>)}</ul>

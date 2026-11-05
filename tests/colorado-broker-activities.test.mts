@@ -52,6 +52,8 @@ assert.equal(late.milestones['timely-objection'], 'missed');
 assert.throws(() => replayBranchingPractice(branch, ['verify']), /unavailable/);
 
 const [closing, trust] = course.spreadsheetAssignments!;
+assert(closing.directions?.some(step => step.includes('C2') && step.includes('D2')));
+assert(trust.directions?.some(step => step.includes('B13') && step.includes('B14')));
 const closingBook = structuredClone(closing.starter);
 Object.assign(closingBook.sheets.Closing, {
   C2: '=SalePrice', D2: '=B17', E3: '=B18', F3: '=E3', E4: '=B19', F4: '=E4',
