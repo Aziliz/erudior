@@ -1,23 +1,35 @@
 // Real Android DocumentsUI round trip on the existing disposable emulator.
 // No private data, arbitrary URI bridge, additional grants, or ADB app-state writes.
 import assert from 'node:assert/strict';
+import { randomUUID } from 'node:crypto';
+import { bounded, disconnected, readOperation } from './harness.mjs';
 
-export async function verifyPortableFiles({ page, adb, nodes, tapNative, until, screenshot, passed }) {
-  const fixture = await page.evaluate(() => window.__erudiorUpgradeE2E.portableFixture());
+export async function verifyPortableFiles({ getPage, reattach, adb, nodes, tapNative, until, screenshot, passed }) {
+  const fixture = await bounded(() => getPage().evaluate(() => window.__erudiorUpgradeE2E.portableFixture()), 20000, 'Read portable fixture');
   const { content } = fixture;
   const importedIds = new Set();
+  let token;
   async function start(kind, name) {
-    await page.evaluate(({ kind, content, name }) => {
-      window.__portableResult = { pending: true };
-      const fixture = window.__erudiorUpgradeE2E;
-      (kind === 'export' ? fixture.exportPortable(content, name) : fixture.pickPortable()).then(
-        value => { window.__portableResult = { value }; },
-        error => { window.__portableResult = { error: String(error) }; });
-    }, { kind, content, name });
+    token = randomUUID();
+    try {
+      await bounded(() => getPage().evaluate(({ kind, content, name, token }) => {
+        window.__portableResult = { token, pending: true };
+        const fixture = window.__erudiorUpgradeE2E;
+        (kind === 'export' ? fixture.exportPortable(content, name) : fixture.pickPortable()).then(
+          value => { window.__portableResult = { token, pending: false, value }; },
+          error => { window.__portableResult = { token, pending: false, error: String(error) }; });
+      }, { kind, content, name, token }), 20000, 'Start native operation');
+    } catch (error) {
+      // Never repeat the mutation after an ambiguous transport failure.
+      if (!disconnected(error)) throw error;
+      // The picker may own the foreground and hide the CDP target. Finish only
+      // the expected native picker interaction, then settled() reconnects and
+      // requires this exact token. A missing operation fails rather than retries.
+    }
   }
+  async function settled() { return readOperation({ getPage, reattach, token }); }
   async function result() {
-    await until(() => page.evaluate(() => !window.__portableResult.pending), 'Native file operation did not settle');
-    const value = await page.evaluate(() => window.__portableResult);
+    const value = await settled();
     assert.equal(value.error, undefined, `Native transfer error: ${value.error}`);
     return value.value;
   }
@@ -59,8 +71,7 @@ export async function verifyPortableFiles({ page, adb, nodes, tapNative, until, 
     await start('import');
     await downloads();
     await tapNative(n => n.text === filename, `Invalid course fixture: ${filename}`);
-    await until(() => page.evaluate(() => !window.__portableResult.pending), 'Invalid course rejection');
-    const rejected = await page.evaluate(() => window.__portableResult);
+    const rejected = await settled();
     assert.match(rejected.error ?? '', expected);
     assert.equal(rejected.value, undefined);
   }
@@ -75,7 +86,7 @@ export async function verifyPortableFiles({ page, adb, nodes, tapNative, until, 
     await tapNative(n => n.text === filename, 'Saved course document');
     const returned = await result();
     assert.equal(returned, content, 'UTF-8 JSON and embedded asset bytes survive SAF export/import');
-    const parsed = await page.evaluate(text => window.__erudiorUpgradeE2E.parsePortable(text), returned);
+    const parsed = await bounded(() => getPage().evaluate(text => window.__erudiorUpgradeE2E.parsePortable(text), returned), 20000, 'Parse portable course');
     assert.notEqual(parsed.id, fixture.sourceId, 'Private imports do not overwrite the original course');
     assert.ok(!importedIds.has(parsed.id), 'Repeated imports are isolated local copies');
     importedIds.add(parsed.id);
@@ -84,10 +95,10 @@ export async function verifyPortableFiles({ page, adb, nodes, tapNative, until, 
     assert.equal(parsed.official, undefined);
     assert.equal(parsed.signature, undefined);
     assert.equal(parsed.community, undefined);
-    const dimensions = await page.evaluate(async source => {
+    const dimensions = await bounded(() => getPage().evaluate(async source => {
       const image = new Image(); image.src = source; await image.decode();
       return [image.naturalWidth, image.naturalHeight];
-    }, fixture.image);
+    }, fixture.image), 20000, 'Decode portable image');
     assert.deepEqual(dimensions, [1, 1], 'Embedded media actually decodes in the Android WebView without a URL fetch');
   }
   passed('Android SAF portable course model export/import, isolated IDs, UTF-8 and inline asset round trip, cancel/repeat, oversized/empty/invalid UTF-8 rejection');
