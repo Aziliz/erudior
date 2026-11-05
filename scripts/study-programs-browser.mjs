@@ -80,12 +80,14 @@ try {
   await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
   await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();await saved.waitFor();
   assert.equal((await read()).learningPathways.find(p=>p.id==='jd-preparation').courseIds[0],'lsat-180-mastery');
+  const enrolledBeforeLawOverview = (await read()).enrolled ?? [];
   await saved.locator('.study-program > details > summary').first().click();
   await saved.locator('.study-program li details > summary').nth(1).click();
   await saved.locator('.study-program li details').nth(1).getByRole('button',{name:/^View course/}).click();
   await page.getByRole('heading',{name:'Introduction to the U.S. Legal System',exact:true}).waitFor();
   await page.getByRole('heading',{name:'Overview',exact:true}).waitFor();
-  assert.equal((await read()).enrolled?.length??0,1);
+  assert.deepEqual((await read()).enrolled ?? [], enrolledBeforeLawOverview, 'viewing the law overview preserves explicit enrollment records');
+  assert.deepEqual(await installed(),['lsat-180-mastery'], 'viewing the law overview does not install it');
   await audit('course-overview');
   await page.getByRole('button',{name:'Start course',exact:true}).click();
   await page.locator('.overview').waitFor({state:'detached'});
