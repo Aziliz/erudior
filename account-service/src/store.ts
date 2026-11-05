@@ -14,6 +14,8 @@ export interface StoreOptions {
   idleSeconds?: number;
   /** Explicit operator-selected artifact lifetime. Omitted means exports disabled. */
   exports?: { artifactTtlSeconds: number };
+  /** Separate operator opt-in; no production device endpoint is enabled here. */
+  devices?: boolean;
 }
 export interface StoredLogin { transaction: OidcTransaction; workspaceId: string | null; replacesTokenHash?: string; replacesCsrfHash?: string }
 export interface StoredSession {
@@ -21,6 +23,9 @@ export interface StoredSession {
   /** Internal comparison only. Never serialize this value in an HTTP response. */
   csrfHash: string;
   availableContexts: { workspaceId: string; kind: Workspace['kind'] }[];
+}
+export interface DeviceSessionSummary {
+  id: string; current: boolean; issuedAt: number; lastUsedAt: number; expiresAt: number;
 }
 export interface PrivateRecord {
   id: string; version: number; category: AccountSnapshot['records'][number]['category'];
@@ -64,6 +69,7 @@ export class PostgresAccountStore {
     if (!maxSafe(this.#sessionSeconds) || this.#sessionSeconds > ACCOUNT_POLICY.authenticationMaxAgeSeconds || !maxSafe(this.#idleSeconds) || this.#idleSeconds > this.#sessionSeconds || typeof options.providers !== 'function') throw new Error('Invalid private account store configuration');
     if (options.exports !== undefined && (!options.exports || !maxSafe(options.exports.artifactTtlSeconds) || options.exports.artifactTtlSeconds > 86400)) throw new Error('Invalid private export configuration');
     this.#exportTtlSeconds = options.exports?.artifactTtlSeconds ?? null;
+    if (options.devices !== undefined && typeof options.devices !== 'boolean') throw new Error('Invalid private device configuration');
   }
 
   async ready(): Promise<void> {
@@ -90,7 +96,7 @@ export class PostgresAccountStore {
       await this.#checkRole(client);
       await client.query('BEGIN ISOLATION LEVEL READ COMMITTED');
       await client.query("SET LOCAL statement_timeout = '5s'; SET LOCAL lock_timeout = '5s'; SET LOCAL idle_in_transaction_session_timeout = '5s'");
-      await this.#scope(client, { token_hash: '', next_token_hash: '', flow_hash: '', binding_hash: '', record_id: '', record_version: '', workspace_id: '', learner_id: '', graph_revision: '', session_id: '', session_version: '', owner_account_id: '' });
+      await this.#scope(client, { token_hash: '', next_token_hash: '', flow_hash: '', binding_hash: '', record_id: '', record_version: '', workspace_id: '', learner_id: '', graph_revision: '', session_id: '', session_version: '', owner_account_id: '', device_owner_id: '' });
       const value = await fn(client);
       await client.query('COMMIT');
       return value;
@@ -282,6 +288,65 @@ export class PostgresAccountStore {
       if (!row || !equalHash(row.csrf_hash, input.csrfHash)) return false;
       await client.query('UPDATE erudior_private.device_sessions SET body=$1 WHERE token_hash=$2', [{ ...row.body, version: row.body.version + 1, status: 'revoked' }, input.tokenHash]);
       return true;
+    });
+  }
+  #devicesAllowed(graph: AccountSnapshot, row: SessionRow, now: number): boolean {
+    graph.capturedAt = now;
+    const state = this.#validateSession(graph, row, now);
+    const auth = state?.session.authentication;
+    // School-controlled and restricted credentials never manage account-wide
+    // personal sessions, even when identities share an account.
+    return !!state && auth?.kind === 'personal' && auth.assurance === 'mfa'
+      && auth.authenticatedAt + ACCOUNT_POLICY.sensitiveAuthenticationAgeSeconds > now;
+  }
+  async #deviceRows(client: PoolClient, graph: AccountSnapshot, row: SessionRow): Promise<SessionRow[]> {
+    await this.#scope(client, { device_owner_id: row.body.principal.id, graph_revision: String(graph.revision) });
+    return (await client.query<SessionRow>(`SELECT token_hash, csrf_hash, provider_id, provider_version,
+      configuration_hash, body, last_used_at, idle_seconds FROM erudior_private.device_sessions
+      WHERE body->'principal'->>'kind' = 'account' AND body->'principal'->>'id' = $1
+      AND body->>'status' = 'active' AND expires_at > erudior_private.now_seconds()
+      AND last_used_at + idle_seconds > erudior_private.now_seconds()
+      ORDER BY session_id LIMIT 33 FOR UPDATE`, [row.body.principal.id])).rows;
+  }
+  async listDeviceSessions(tokenHash: string): Promise<DeviceSessionSummary[] | null> {
+    if (this.#options.devices !== true || !scalar(tokenHash)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      // Share the creation lock before any row lock: concurrent sign-in and
+      // revoke-all have a definite ordering and two managers cannot deadlock.
+      await client.query('SELECT pg_advisory_xact_lock(192733, 2)');
+      const row = await this.#session(client, tokenHash);
+      if (!row || !this.#devicesAllowed(graph, row, await this.#now(client))) return null;
+      const rows = await this.#deviceRows(client, graph, row);
+      if (rows.length > 32) throw new Error('Invalid private session inventory');
+      const now = await this.#now(client);
+      if (!this.#devicesAllowed(graph, row, now)) throw new TransactionAuthorizationExpired();
+      return rows.filter(r => r.body.expiresAt > now && Number(r.last_used_at) + r.idle_seconds > now).map(r => ({ id: r.body.id, current: r.body.id === row.body.id, issuedAt: r.body.issuedAt,
+        lastUsedAt: Number(r.last_used_at), expiresAt: Math.min(r.body.expiresAt, Number(r.last_used_at) + r.idle_seconds) }));
+    });
+  }
+  async revokeDeviceSessions(input: { tokenHash: string; csrfHash: string; sessionId?: string }): Promise<{ revoked: number; currentRevoked: boolean } | null> {
+    if (this.#options.devices !== true || !scalar(input.tokenHash) || !scalar(input.csrfHash)
+      || input.sessionId !== undefined && !isAccountId(input.sessionId)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      await client.query('SELECT pg_advisory_xact_lock(192733, 2)');
+      const row = await this.#session(client, input.tokenHash);
+      if (!row || !equalHash(row.csrf_hash, input.csrfHash) || !this.#devicesAllowed(graph, row, await this.#now(client))) return null;
+      const rows = await this.#deviceRows(client, graph, row);
+      if (rows.length > 32) throw new Error('Invalid private session inventory');
+      const now = await this.#now(client);
+      const live = rows.filter(r => r.body.expiresAt > now && Number(r.last_used_at) + r.idle_seconds > now);
+      const selected = input.sessionId === undefined ? live : live.filter(r => r.body.id === input.sessionId);
+      if (!selected.length) return null;
+      for (const target of selected) {
+        await client.query('UPDATE erudior_private.device_sessions SET body=$1 WHERE session_id=$2',
+          [{ ...target.body, version: target.body.version + 1, status: 'revoked' }, target.body.id]);
+      }
+      // The pre-mutation actor snapshot remains locked. Recheck time/provider
+      // validity after every write, rolling back all revocations on expiry.
+      if (!this.#devicesAllowed(graph, row, await this.#now(client))) throw new TransactionAuthorizationExpired();
+      return { revoked: selected.length, currentRevoked: selected.some(r => r.body.id === row.body.id) };
     });
   }
   async readRecord(input: { tokenHash: string; workspaceId: string; recordId: string }): Promise<PrivateRecord | null> {
