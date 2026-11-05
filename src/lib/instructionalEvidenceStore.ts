@@ -1,6 +1,6 @@
 import { bindLocalSessionAuthority } from './localSession';
 import { documentJSON } from './documentEngine';
-import { parseInstructionalPack, parseInstructionalAssignment, parseInstructionalEvidence, parseInstructionalDecision, parseInstructionalLibrary, type InstructionalPack, type InstructionalAssignment, type InstructionalEvidence, type InstructionalDecision, type InstructionalLibrary, type InstructionalSource } from './instructionalEvidence';
+import { instructionalCourseSnapshot, parseInstructionalPack, parseInstructionalAssignment, parseInstructionalEvidence, parseInstructionalDecision, parseInstructionalLibrary, type InstructionalPack, type InstructionalAssignment, type InstructionalEvidence, type InstructionalDecision, type InstructionalLibrary, type InstructionalSource } from './instructionalEvidence';
 import type { Course, Progress } from './types';
 
 export interface InstructionalAdult {actorId:string;actorName:string;authorityKey:string}
@@ -40,8 +40,8 @@ export function instructionalSources(courses:Course[]):InstructionalSource[] {
  if(new Set(official.map(c=>c.id)).size!==official.length)throw Error('Installed course identities are ambiguous.');
  for(const c of official)if(new Set(c.lessons.map(l=>l.id)).size!==c.lessons.length||new Set(c.banks.map(b=>b.id)).size!==c.banks.length)throw Error('Installed lesson or bank identities are ambiguous.');
  return official.flatMap(c=>[
-  ...c.lessons.map(lesson=>({kind:'lesson' as const,courseId:c.id,courseRevision:c.revision??0,itemId:lesson.id,title:`${c.title} — ${lesson.title}`,snapshot:documentJSON(lesson)})),
-  ...c.banks.map(bank=>({kind:'assessment' as const,courseId:c.id,courseRevision:c.revision??0,itemId:bank.id,title:`${c.title} — ${bank.title}`,snapshot:documentJSON(bank)})),
+  ...c.lessons.map(lesson=>({kind:'lesson' as const,courseId:c.id,courseRevision:c.revision??0,itemId:lesson.id,title:`${c.title} — ${lesson.title}`,snapshot:instructionalCourseSnapshot(lesson)})),
+  ...c.banks.map(bank=>({kind:'assessment' as const,courseId:c.id,courseRevision:c.revision??0,itemId:bank.id,title:`${c.title} — ${bank.title}`,snapshot:instructionalCourseSnapshot(bank)})),
  ]);
 }
 export function createInstructionalEvidenceStore(io:InstructionalEvidenceIO){

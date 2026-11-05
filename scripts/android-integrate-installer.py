@@ -17,7 +17,7 @@ def integrate(project: Path) -> None:
         raise RuntimeError(f"Missing generated Tauri Android MainActivity: {main}")
     # Never rewrite Tauri's activity. Register the plugin through the Rust lifecycle.
     plugin_root = project / "src-tauri/android-installer/src/main"
-    for name in ["InstallerPlugin.kt", "ErudiorUpdateFileProvider.kt"]:
+    for name in ["InstallerPlugin.kt", "ErudiorUpdateFileProvider.kt", "NativeLifecycleState.java"]:
         relative = Path("java/com/erudior/updates") / name
         target = root / relative
         target.parent.mkdir(parents=True, exist_ok=True)

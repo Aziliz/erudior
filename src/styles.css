@@ -7876,3 +7876,44 @@ button.fn-ref {
 
 .shared-device-toolbar { display: flex; flex-wrap: wrap; gap: .5rem; padding: .5rem 1rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
 .shared-device-toolbar .btn { min-height: 44px; overflow-wrap: anywhere; white-space: normal; }
+
+/* ---- Japanese ----------------------------------------------------------------
+   Japanese text uses the device's Japanese fonts (no bundled CJK font: it would add
+   megabytes); the Latin fonts come first so English inside Japanese lessons is unchanged. */
+:lang(ja) {
+  font-family: var(--sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic",
+    "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", "Source Han Sans JP", "IPAexGothic", sans-serif;
+  font-style: normal; /* italics don't suit kana and kanji; course italics mark the language */
+  line-break: strict;
+}
+ruby {
+  ruby-position: over;
+}
+rt {
+  font-size: 0.55em;
+  font-weight: 400;
+  color: var(--ink-2);
+  letter-spacing: 0;
+}
+/* Furigana switched off: the reading keeps its space so lines don't jump, but isn't shown. */
+html.furigana-off rt {
+  visibility: hidden;
+}
+.prose :lang(ja),
+.prose em:lang(ja) {
+  line-height: 2.1; /* room for furigana */
+}
+.vocab-prompt:lang(ja) rt {
+  font-size: 0.42em;
+}
+.ime-help {
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+html .furigana-toggle rt {
+  visibility: visible;
+}
+
+.public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.public-learning-banner-close { flex-shrink: 0; min-width: 44px; min-height: 44px; }

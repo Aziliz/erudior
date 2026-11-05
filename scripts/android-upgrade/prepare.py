@@ -33,6 +33,64 @@ def prepare(root: Path) -> None:
     # Preserve the production lifecycle bridge; only generated CI copies enable inspection.
     source = source.replace(anchor, anchor + "\n" + MARKER + "\n"
         "        android.webkit.WebView.setWebContentsDebuggingEnabled(true)\n")
+    # Diagnostics/fault injection exist only in this disposable copy. Production
+    # callbacks, state reducer, timing, authorization and endpoints stay untouched.
+    diagnostics = {
+        "    private fun notifyLifecycle() {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "notify sequence=${lifecycleState.sequence()} paused=${lifecycleState.paused()} backgroundMs=${lifecycleState.backgroundMs()} webView=${lifecycleWebView != null} revocation=${lifecycleState.revocation()}")',
+        "    override fun load(webView: WebView) {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "load")',
+        "    override fun onDestroy(activity: AppCompatActivity) {":
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "destroy")',
+        "                                    webView.visibility = View.VISIBLE":
+            '\n                                    android.util.Log.i("ErudiorLifecycleE2E", "visible sequence=$sequence")',
+        "                { result ->":
+            '\n                    android.util.Log.i("ErudiorLifecycleE2E", "evaluated sequence=$sequence result=$result")',
+        "        lifecycleState.pause(SystemClock.elapsedRealtime())":
+            '\n        if (lifecycleLongResumes == 1 && !lifecyclePauseDropDone) lifecyclePauseDropSequence = lifecycleState.sequence()',
+        "        lifecycleState.resume(SystemClock.elapsedRealtime())":
+            '\n        if (lifecycleState.backgroundMs() >= 30_000L) lifecycleLongResumes++\n'
+            '        if (lifecycleLongResumes == 2 && lifecycleState.backgroundMs() >= 30_000L) lifecycleDropSequence = lifecycleState.sequence()',
+    }
+    for anchor, diagnostic in diagnostics.items():
+        if source.count(anchor) != 1:
+            raise RuntimeError("Unknown native lifecycle diagnostic anchor; refusing rewrite")
+        source = source.replace(anchor, anchor + diagnostic)
+    anchor = "    private var lifecycleWebView: WebView? = null"
+    if source.count(anchor) != 1:
+        raise RuntimeError("Unknown lifecycle fields; refusing diagnostic rewrite")
+    source = source.replace(anchor, anchor + '\n    private var lifecycleLongResumes = 0\n'
+        '    private var lifecycleDropSequence = -1L\n    private var lifecycleDropDone = false\n'
+        '    private var lifecyclePauseDropSequence = -1L\n    private var lifecyclePauseDropDone = false\n'
+        '    private var lifecycleNativePauseDropDone = false')
+    # The third HOME omits the native callback itself, reproducing an unpaired
+    # resume rather than the second case's lost JavaScript evaluation. Do not set
+    # clocks, revocation tokens, DOM locks, or authorization in this fault fixture.
+    anchor = "    override fun onPause(activity: AppCompatActivity) {"
+    if source.count(anchor) != 1:
+        raise RuntimeError("Unknown native pause callback; refusing fault injection")
+    source = source.replace(anchor, anchor + '\n'
+        '        if (lifecycleLongResumes == 2 && lifecyclePauseDropDone && lifecycleDropDone && !lifecycleNativePauseDropDone) {\n'
+        '            check(!lifecycleState.paused() && !lifecycleState.pending() && lifecycleState.revocation() == 0L) { "Missing-pause fixture requires consumed foreground state" }\n'
+        '            lifecycleNativePauseDropDone = true\n'
+        '            android.util.Log.i("ErudiorLifecycleE2E", "drop-native-pause sequence=${lifecycleState.sequence()}")\n'
+        '            return\n'
+        '        }')
+    evaluation = "            webView.evaluateJavascript("
+    if source.count(evaluation) != 1:
+        raise RuntimeError("Unknown lifecycle evaluation; refusing diagnostic rewrite")
+    # Drop the second HOME pause and first evaluation of its qualifying resume.
+    # The unchanged production retry must deliver it; no JS lock event is injected.
+    source = source.replace(evaluation,
+        '            if (sequence == lifecyclePauseDropSequence && !lifecyclePauseDropDone) {\n'
+        '                check(webView.visibility == View.INVISIBLE) { "Lost pause must remain natively concealed" }\n'
+        '                lifecyclePauseDropDone = true\n'
+        '                android.util.Log.i("ErudiorLifecycleE2E", "drop-pause sequence=$sequence")\n'
+        '            } else if (sequence == lifecycleDropSequence && !lifecycleDropDone) {\n'
+        '                check(webView.visibility == View.INVISIBLE) { "Lost resume must remain natively concealed" }\n'
+        '                lifecycleDropDone = true\n'
+        '                android.util.Log.i("ErudiorLifecycleE2E", "drop-resume sequence=$sequence")\n'
+        '            } else webView.evaluateJavascript(')
     plugin.write_text(source)
     raw = generated / "res/raw"
     raw.mkdir(parents=True, exist_ok=True)

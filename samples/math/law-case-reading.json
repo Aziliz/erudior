@@ -1,0 +1,2387 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "law-case-reading",
+ "title": "Case Reading and Legal Reasoning",
+ "description": "Read judicial opinions with attention to procedural posture, identify holdings and reasoning, synthesize rules across cases, and analyze changed facts. Second course in the J.D. Preparation pathway; includes an original three-opinion practice packet.",
+ "author": "Erudior",
+ "revision": 1,
+ "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Alder law and opinions are fictional teaching materials. Research current jurisdiction-specific law for real matters.",
+ "modules": [
+  {
+   "id": "lcr-m1",
+   "title": "Reading an opinion and procedural posture",
+   "quiz": [
+    "lcr-q1-02",
+    "lcr-q1-05",
+    "lcr-q1-08",
+    "lcr-q1-09",
+    "lcr-q2-02",
+    "lcr-q2-05",
+    "lcr-q2-08",
+    "lcr-q2-09"
+   ]
+  },
+  {
+   "id": "lcr-m2",
+   "title": "Issues, holdings, reasoning and dicta",
+   "quiz": [
+    "lcr-q3-02",
+    "lcr-q3-05",
+    "lcr-q3-08",
+    "lcr-q3-09",
+    "lcr-q4-02",
+    "lcr-q4-05",
+    "lcr-q4-08",
+    "lcr-q4-09"
+   ]
+  },
+  {
+   "id": "lcr-m3",
+   "title": "Rule synthesis, analogy and distinction",
+   "quiz": [
+    "lcr-q5-02",
+    "lcr-q5-05",
+    "lcr-q5-08",
+    "lcr-q5-09",
+    "lcr-q6-02",
+    "lcr-q6-05",
+    "lcr-q6-08",
+    "lcr-q6-09"
+   ]
+  },
+  {
+   "id": "lcr-m4",
+   "title": "Statutory interpretation and changed facts",
+   "quiz": [
+    "lcr-q7-02",
+    "lcr-q7-05",
+    "lcr-q7-08",
+    "lcr-q7-09",
+    "lcr-q8-02",
+    "lcr-q8-05",
+    "lcr-q8-08",
+    "lcr-q8-09"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lcr-opinion-map",
+   "module": "lcr-m1",
+   "title": "Finding your way through a judicial opinion",
+   "minutes": 45,
+   "topics": [
+    "Opinion structure"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-brief"
+   ],
+   "body": "## Start with a question, not a highlighter\n\nIntroduction to the U.S. Legal System introduced courts and authority. This course\nchanges the task: you will read what a court actually decided, explain how it got\nthere, and use that reasoning on a different problem. By the end of this lesson,\nyou should be able to make an opinion map that separates the court's work from\nthe parties' stories. Keep the Alder practice packet open beside you. All its law,\njudges and cases are original fiction for learning; they are not legal authority.\n\nA judicial **[[opinion]]** explains a court's decision and reasoning. It is not a neutral\nencyclopedia entry about every possible rule. The writer selects facts and arguments\nrelevant to a particular dispute at a particular stage. Your first question is therefore\nnot “What is the law about equipment?” It is “What was this court being asked to do?”\nThat question keeps a narrow ruling from becoming an invented universal rule.\n\nThe **[[caption]]** identifies the case and its parties. It is a useful starting point,\nbut does not alone tell you who is appealing or which party won below. A **[[citation]]**\nhelps another reader locate the decision. Actual citations may identify a reporter,\nvolume and opening page or an electronic source. Our labels H1, I3 and S4 locate\nparagraphs inside a fictional packet; do not present them as real reporter citations.\n\n## Build an opinion map\n\nRead in three passes. First, orient yourself: identify the court, date, dispute,\ndecision under review, and final instructions. Second, follow the reasoning slowly,\nmarking the legal question, decisive facts, rule and explanation. Third, compress\nyour understanding into a short study brief and test it against the opinion's words.\nThis is a reading technique, not a requirement that every court organize its writing\nin the same order. A long opinion may answer several issues in separate sections.\n\n### Heading and opening\n\n- *Question to answer:* Which court and which dispute?\n- *Note to record:* Identity and procedural setting\n\n### Facts and history\n\n- *Question to answer:* What happened, and what did the lower court do?\n- *Note to record:* Separate event and litigation timelines\n\n### Analysis\n\n- *Question to answer:* What question does the court resolve, and why?\n- *Note to record:* Rule, application and important qualifications\n\n### Ending\n\n- *Question to answer:* What happens to the challenged judgment?\n- *Note to record:* Exact disposition and instructions\n\n### Separate writing\n\n- *Question to answer:* Who agrees with which parts?\n- *Note to record:* Author and whether the reasoning commands a majority\n\nDo not assume every sentence in the document is the deciding court speaking. An\nopinion can quote a party, describe a lower court's mistake, summarize a precedent,\nor present a dissent after the majority's conclusion. Write the speaker in your margin.\nThat small habit prevents one of the largest beginner errors: treating an argument\nthe court rejected as the rule the court adopted.\n\n## The opinion and its surrounding material\n\nA **[[syllabus]]** or editorial summary can help you orient yourself, but it is not a\nsubstitute for the court's reasoning. The Supreme Court explains that its published\nopinions are accompanied by a syllabus prepared by the Reporter of Decisions.\nRead the actual opinion for the proposition you intend to use, and check the document's\nown explanation of the summary's status. Commercial headnotes are also navigation\naids; do not silently attribute an editor's wording to a judge.\n\nA **[[majority opinion]]** expresses reasoning joined by a majority of the deciding\njudges. A **[[dissent]]** disagrees with the court's result; a **[[concurrence]]** agrees with\nthe result but may offer different or additional reasoning. Agreement with the judgment\ndoes not automatically mean agreement with every sentence in the lead opinion.\nFragmented decisions can require more advanced analysis; this packet identifies the\njoins expressly so you can practice voice attribution without guessing.\n\n### Example 1: Map Hale before briefing it\n\nRead H1 and H6, then H2–H5. Step one: identify the parties' roles. Hale is the borrower\nwho alleged an unlawful deduction; Moss is the lender who sought dismissal. Step two:\nidentify the lower decision. The trial court dismissed Hale's claim because it accepted\nMoss's argument that actual knowledge was enough. That is background, not the appellate\ncourt's own conclusion. Step three: locate the reviewing court's task. It asks whether\noral disclosure alone can satisfy the written-notice requirement at this pleading stage.\n\nStep four: read the explanation in H3. Knowing terms and possessing a written record\nare different things. Step five: record the ending accurately. H6 reverses dismissal\nand sends the case back; it does not order Moss to repay 30 credits. Your map now tells\nyou what to study on the second pass. Without the map, you might write “Hale recovered\n30 credits,” even though the court expressly leaves proof and repayment unresolved.\n\n### Example 2: Keep Iman's voices separate\n\nRead I1–I6 and ID1–ID2. First, identify the trial findings: a PDF was received, opened\nbefore possession, and could be saved or printed. Second, mark the majority's answer:\nthat record satisfies the statute on these findings. Third, mark the dissent's alternative:\nJudge Ortiz would require a physical document. Finally, inspect the vote line. Two judges\njoin the majority; the physical-paper position is a dissent, not the court's holding.\n\nA sentence such as “Iman requires paper to protect borrowers” fails twice. It attributes\nthe dissent's view to the majority and omits the result. Repair it: “The Iman majority\naccepted this retainable PDF; the dissent preferred a paper requirement.” Both views\nare worth understanding, but they have different roles in later reasoning.\n\n## Practice with feedback\n\nBefore continuing, make a five-line map of Sol: court; lower ruling; issue; voices;\ndisposition. Use S1–S6 and SC1 rather than the lesson's earlier examples. Then check:\nthe trial court permitted a deduction despite a sole-cause closure finding; the majority\napplies section 3 independently of notice; the concurrence agrees with return of the\ndeduction but does not join that statutory reasoning. The appellate directions concern\n20 credits, not every possible loss. If your map says only “borrower wins,” expand it\nuntil a reader can tell what was decided and on which record.\n\nKeep a separate list of unfamiliar words. Look up words necessary to understand the\ncurrent issue, then resume reading; do not turn every first pass into an unlimited\nresearch project. If the opinion leaves a question open, mark it as open rather than\nfilling the gap from memory. That restraint will become essential during synthesis.\n\n## Common mistakes\n\nHighlighting nearly every line hides the structure you need. Copying a summary\nwithout checking the opinion risks importing an editor's simplification. Reading only\nthe final sentence loses the explanation. Reading only the explanation loses what\nthe court actually ordered. Treating all judges as one voice loses the distinction\nbetween a binding majority rationale and a separate argument.\n\n## Key points\n\n- Identify the court's task and ending before compressing the reasoning.\n- Track the speaker of each important proposition.\n- Use summaries to navigate, then verify propositions in the opinion itself.\n- A study brief must preserve both reasoning and procedural result.\n\nSource for the actual Court's document structure: [Supreme Court, Opinions](https://www.supremecourt.gov/opinions/opinions.aspx). The worked decisions in this lesson are fictional.\n",
+   "quiz": [
+    "lcr-q1-01",
+    "lcr-q1-02",
+    "lcr-q1-03",
+    "lcr-q1-04",
+    "lcr-q1-05",
+    "lcr-q1-06",
+    "lcr-q1-07",
+    "lcr-q1-08",
+    "lcr-q1-09",
+    "lcr-q1-10"
+   ]
+  },
+  {
+   "id": "lcr-posture",
+   "module": "lcr-m1",
+   "title": "Procedural posture, fact status and the record",
+   "minutes": 45,
+   "topics": [
+    "Procedural posture"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-brief"
+   ],
+   "body": "## The same event can support different procedural statements\n\nYou now know how to locate an opinion's parts. Next, learn why a court's account of\nfacts is not always a finding that those events occurred. **[[Procedural posture]]** means\nthe stage and setting in which the court decides an issue: for example, reviewing\na dismissal or a judgment after trial. It limits the question the court answers.\nBefore writing that a court “found” anything, identify what materials and assumptions\nthe court was permitted to use.\n\nAn **[[allegation]]** is a party's assertion. A **[[finding of fact]]** is a determination by\nthe relevant factfinder. A **[[stipulation]]** is an agreed proposition for the proceeding.\nAn **[[inference]]** is a conclusion drawn from other facts. These categories describe\ndifferent reasons a proposition appears in the opinion; they are not interchangeable.\nThe sentence “Hale received no writing” needs a qualifier when the opinion merely\nassumes Hale's pleaded facts for a motion.\n\nThe **[[record]]** consists of the materials available for the court's decision under\nthe applicable procedure. Appellate courts generally review what happened below\ninstead of holding a new trial. That does not mean every fact question receives the\nsame review. Identify the particular ruling and its **[[standard of review]]**: the rule\ngoverning how the reviewing court assesses that kind of decision. This course uses\nexpress packet rules so that you need not invent jurisdiction-specific standards.\n\n## Two timelines, not one\n\nDraw the event timeline separately from the litigation timeline. In Hale, the alleged\noral disclosure, possession, late return and deduction form the first. Filing the\nclaim, moving to dismiss, dismissal and appeal form the second. Combining them into\none loose narrative makes it easy to treat a litigation assumption as historical proof.\nFor each material event, label its status and location in the opinion.\n\n### No written notice in Hale\n\n- *Status:* Alleged and assumed under P1\n- *Safe phrasing:* Hale alleges no writing; the court assumes that for this motion\n\n### PDF opened before possession in Iman\n\n- *Status:* Unchallenged trial finding\n- *Safe phrasing:* The trial court found timely opening; that finding is not challenged\n\n### Desk closure solely caused Sol's delay\n\n- *Status:* Unchallenged trial finding\n- *Safe phrasing:* The appeal accepts the sole-cause finding\n\n### An unopened email counts as delivery\n\n- *Status:* Reserved, not decided\n- *Safe phrasing:* Iman leaves that question open\n\nThese labels affect the strength of your later application. An assumed fact can be\nenough to explain why a complaint survives; it is not enough to announce a final\nfactual victory. An expressly reserved question cannot become an answer merely\nbecause you would prefer one side's argument.\n\n## Read the packet's procedure before applying it\n\nP1 tells you to accept well-pleaded factual allegations and reasonable inferences\nfor the borrower on the specified dismissal motion. It does not tell you to accept\nevery legal label. “The lender broke the Act” is a conclusion; “the clerk spoke the\nterms but gave me no written record” supplies facts that can be tested against the\nAct. The legal question is whether those assumed facts would establish a violation.\n\nP2 supplies a different task after a bench trial: accept expressly unchallenged\nfindings and independently evaluate statutory meaning. **[[De novo review]]** is the\nusual name for independent reconsideration of a legal question. It does not mean\nthe appeal is a new trial with new witnesses. In this packet, the factual premises\nremain those supplied. Real cases require checking the applicable procedural rule,\nthe precise issue, and whether it was preserved; P1–P3 are teaching stipulations.\n\n### Example 1: Fix a premature victory statement\n\nA draft brief says, “Hale proved Moss failed to give notice, so the appeals court\nawarded a refund.” Step one: compare “proved” with H1 and P1. H1 reports allegations,\nnot evidence resolved after trial. Replace it with “alleged.” Step two: ask what the\ncourt decided. H4 says those allegations state a violation because oral disclosure\nalone does not satisfy the statute. Step three: inspect H6. The court reverses the\ndismissal and remands without ordering repayment.\n\nThe repaired statement is: “Accepting Hale's alleged absence of any written record\nunder P1, the appellate court held the claim legally sufficient, reversed dismissal,\nand remanded for further proceedings.” This does not make the ruling trivial. It\nremoves the legal reason the trial court used to stop the claim, while leaving proof\nfor later proceedings. Precision describes the actual achievement instead of inflating it.\n\n### Example 2: Apply P2 without retrying Sol\n\nSuppose a reader dislikes the finding that closure solely caused Sol's delay and\nsuggests that Sol probably stopped for dinner. First, inspect S1: the sole-cause\nfinding is expressly unchallenged. Second, inspect the record: it contains no dinner\nstop. Third, identify the legal issue: whether valid notice defeats section 3's\nindependent prohibition. The proposed dinner fact cannot be used to answer this appeal.\n\nNow change the exercise explicitly: assume a different trial found both a borrower\ndelay and a lender closure contributed. That is a legitimate hypothetical, but it\nis not a reinterpretation of Sol's record. Label it a new set of facts and analyze\nthe sole-cause requirement separately. A good reader can explore alternatives\nwithout silently changing what the earlier court decided.\n\n## Disposition is a procedural instruction\n\nThe **[[disposition]]** tells you what the reviewing court does with the challenged\ndecision. To **[[affirm]]** is to leave that decision standing; to **[[reverse]]** is to\nreject it; to **[[vacate]]** is to set it aside. A **[[remand]]** sends a matter back for\nfurther proceedings. These words can occur together, and the accompanying directions\nmatter. Do not infer that remand always means a completely new trial or that reversal\nalways awards the ultimate remedy a party requested.\n\nCompare our cases. Hale reverses a dismissal and leaves proof open. Iman reverses\na repayment judgment with directions for judgment on the claim. Sol reverses and\ndirects return of a specified deduction. Each has an appellate winner, but the\ninstructions and remaining work differ. Keep that difference in your study brief.\n\n## Practice with feedback\n\nWrite two sentences about Iman: one describing fact status and one describing the\nlegal question. A sound answer says the PDF's receipt, opening, timing and retainability\nwere unchallenged findings; the appellate court independently decided whether that\nrecord satisfied the statutory notice requirement. “The appeal proved email delivery”\nmisstates the task. “The trial findings forced a paper requirement” confuses facts\nwith the legal interpretation under review.\n\nNext, imagine only a statement that a notice was sent. List what you still need:\nwhen it was received, whether its content could be retained, what the trial court\nfound, and which issue is contested. An unknown fact is a question for investigation,\nnot permission to assume the version that makes your preferred conclusion easier.\n\n## Common mistakes\n\nAvoid turning allegations into findings, importing evidence not supplied, and treating\nindependent legal review as unrestricted factfinding. Also avoid copying “affirmed”\nwithout identifying what was affirmed. A precise procedural sentence often corrects\nan entire mistaken brief before you reach the substantive rule.\n\n## Key points\n\n- Label each material proposition by its factual status.\n- Identify the ruling and review standard separately.\n- Read remand instructions instead of guessing the remaining proceedings.\n- Keep changed-fact exercises distinct from the earlier case's record.\n\nBackground: [U.S. Courts, About the U.S. Courts of Appeals](https://www.uscourts.gov/about-federal-courts/court-role-and-structure/about-us-courts-appeals). Alder procedure is supplied fiction, not a statement of all federal or state rules.\n",
+   "quiz": [
+    "lcr-q2-01",
+    "lcr-q2-02",
+    "lcr-q2-03",
+    "lcr-q2-04",
+    "lcr-q2-05",
+    "lcr-q2-06",
+    "lcr-q2-07",
+    "lcr-q2-08",
+    "lcr-q2-09",
+    "lcr-q2-10"
+   ]
+  },
+  {
+   "id": "lcr-holding",
+   "module": "lcr-m2",
+   "title": "Framing the issue and stating a bounded holding",
+   "minutes": 45,
+   "topics": [
+    "Issues and holdings"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-brief"
+   ],
+   "body": "## Turn your map into a legal question\n\nYou can now identify a court's task and the status of its facts. The next step is to\nstate the **[[issue]]**: the legal question the court must answer in the setting before\nit. A useful issue statement connects a rule, decisive facts and procedural context.\n“Who should win?” is too broad to reveal the legal problem. “Does a blue drill count\nas equipment?” is irrelevant to Hale because nobody disputes that element.\n\nTry a three-part question: under this rule, do these material facts produce this legal\nconsequence at this stage? You do not need to force every sentence into an identical\ntemplate. The point is to preserve the connection between law and fact. For Hale:\nunder the Act's written-record condition, does a borrower state a violation by alleging\nthat the lender deducted a late charge after giving only oral disclosure? That question\nidentifies both the substantive disagreement and the limited pleading posture.\n\nA **[[holding]]** is the court's answer necessary to decide the issue before it. Formulating\nholdings can be contested, especially where a decision has several grounds or a\nfragmented vote. Here, the packet deliberately identifies the issue, majority and\nreserved questions. Use those signals together. The word “hold” is useful evidence,\nbut neither its presence nor absence relieves you from reading the reasoning and result.\n\n## Find the right level of generality\n\nA holding can be stated too broadly or too narrowly. “Lenders must always use paper”\noverreads Hale because H4–H5 reserve electronic records. “Hale may continue this one\nlawsuit involving this particular drill” underreads its legal reasoning because the\nopinion explains why oral disclosure alone fails the written-record condition.\nThe useful middle level captures the rule the court applied and the conditions that\nmade it relevant without treating incidental details as legal requirements.\n\n### Every informed borrower owes the charge\n\n- *Problem:* Adopts Moss's rejected theory\n- *Better direction:* Keep knowledge separate from the required record\n\n### All notices must be paper\n\n- *Problem:* Decides a reserved question\n- *Better direction:* Limit Hale to oral disclosure alone\n\n### Only Hale can use this rule\n\n- *Problem:* Erases the stated legal principle\n- *Better direction:* Describe the statutory condition, not just the name\n\n### Hale automatically receives every requested remedy\n\n- *Problem:* Exceeds the posture and disposition\n- *Better direction:* Preserve the remand and open proof question\n\nThe best holding statement also tracks the question that matters to your later task.\nFor a pleading comparison, include legal sufficiency. For a medium-of-notice comparison,\nhighlight the absence of any written record. Neither formulation may omit a qualification\nthat would change the proposition being used. Keep paragraph references beside each version.\n\n## Holding, rule, reasoning and result\n\nThe statute's condition is a **[[rule]]** supplied before the court decides the case. The\nholding interprets and applies that rule to an issue. The **[[reasoning]]** explains why\nthe interpretation and application follow. The disposition tells what the court orders.\nThese parts support one another, but are not synonyms. “Reversed” is a result, not\na full legal rule; quoting section 2 is not yet an explanation of why oral knowledge\ncannot satisfy it.\n\n**[[Dicta]]** are statements not necessary to the decision of the issue before the court.\nThey can be thoughtful and persuasive. Calling a statement dictum does not mean it\nis false or useless. It means you should not assign it the force of a holding merely\nbecause it appears in an opinion. In difficult cases, explain why you classify a\nstatement that way rather than relying on a mechanical word test.\n\n### Example 1: A worked Hale brief\n\nFirst, collect the decisive facts and posture. Second, frame the issue. Third, write\nthe holding, reasons and disposition separately. Here is a model study brief:\n\nHale v. Moss Tools is a fictional Alder Court of Appeals decision in Year 1. Hale\nalleged that Moss deducted a 30-credit late-return charge after providing only oral\nterms and no written record. The trial court dismissed the claim because it treated\nactual knowledge as sufficient. On appeal, P1 requires accepting the well-pleaded\nfacts for this motion, not finding them proved. The issue is whether oral disclosure\nalone satisfies sections 1 and 2 so that Hale's allegations fail to state a violation.\nThe court holds that it does not: the Act requires a delivered written record the\nborrower can retain. Actual knowledge cannot replace that condition without making\nthe written-record requirement ineffective. Hale therefore states a legally sufficient\nclaim on the assumed facts. H4 expressly leaves proof open and does not address\nelectronic records. H5 suggests a possible uniform paper form but does not require\none; that suggestion is not the holding. The court reverses the dismissal and remands\nwithout ordering repayment. The brief's central limit is procedural: overcoming the\nstated legal objection is not a final finding that Moss violated the Act. Relevant\npinpoints are H1–H4 for posture and reasoning, H5 for the reserved paper question,\nand H6 for the disposition.\n\nNotice what was omitted: an invented account of Hale's honesty, a general theory of\nconsumer protection, and damages the packet does not supply. Compression should\nremove unnecessary narrative, not limitations that keep a proposition accurate.\n\n### Example 2: Test the paper-form sentence\n\nTake H5's suggestion that a uniform paper form might help. Ask first whether the\nappeal could reach the same result without that suggestion. Yes: H3–H4 establish\nthat oral disclosure alone lacks the required written record. Ask next whether the\ncourt expressly resolves paper versus electronic records. No: it expressly reserves\nthat question. Finally, compare the disposition: the court reverses dismissal without\nordering lenders to use a new form. These clues support treating the suggestion as\ndictum rather than as a paper-only holding.\n\nThis removal test is a reading aid, not a universal formula. Some courts state alternative\ngrounds, and their precedential treatment can depend on jurisdiction. Do not erase\nan adopted ground solely because you think the other would have sufficed. Our easy\nexample combines nonessential discussion with an express reservation and clear issue.\n\n## Practice with feedback\n\nDraft Sol's issue in one sentence, then its holding in another. A sound issue asks\nwhether compliant notice allows a late charge despite an unchallenged finding that\nthe lender's unavailable return point solely caused delay. A sound holding says that\nsection 3 independently bars the charge on those findings. “Closed desks always\nrequire refunds” omits sole causation and the agreed return point. “Notice is invalid”\nmisstates the case: Sol's notice is compliant; a different statutory condition controls.\n\nThen identify one question Sol leaves open. Mixed causes of delay is a good answer\nbecause S5 expressly reserves it. Do not describe a reserved question as an implied\nexception already decided. A later problem may let you reason about that boundary,\nbut the reasoning will be yours, supported or constrained by the earlier opinion.\n\n## Common mistakes\n\nAvoid writing an issue so broadly that it cannot be answered by this opinion. Avoid\nusing a party's requested outcome as the holding. Do not strip conditions from a\nholding to make it shorter, or label all background reasoning dicta. The required\nclassification depends on what the court actually decided and why.\n\n## Key points\n\n- Frame issues with the rule, legally decisive facts and posture.\n- State holdings at a useful but bounded level of generality.\n- Separate holding, reasoning, disposition and reserved questions.\n- Support classifications with paragraphs, not just labels.\n",
+   "quiz": [
+    "lcr-q3-01",
+    "lcr-q3-02",
+    "lcr-q3-03",
+    "lcr-q3-04",
+    "lcr-q3-05",
+    "lcr-q3-06",
+    "lcr-q3-07",
+    "lcr-q3-08",
+    "lcr-q3-09",
+    "lcr-q3-10"
+   ]
+  },
+  {
+   "id": "lcr-reasoning",
+   "module": "lcr-m2",
+   "title": "Explaining reasoning and reading separate opinions fairly",
+   "minutes": 45,
+   "topics": [
+    "Reasoning and judicial voices"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-brief"
+   ],
+   "body": "## Explain the bridge between rule and outcome\n\nA correct holding is only the beginning of a useful case brief. You also need to\nexplain the **[[rationale]]**: the reasons connecting the rule to the outcome. If your\nsummary jumps from “the statute requires writing” to “the lender loses,” it leaves\nout the contested step. What qualifies as writing? Which fact satisfies or fails the\ncondition? Why does the competing interpretation not persuade this court?\n\nBuild a reasoning chain in four parts. State the legal premise, identify the factual\npremise and its status, explain the connecting inference, and state the limited\nconclusion. For Hale, the statute requires a written record; the complaint alleges\nonly an oral conversation; oral knowledge is not a written record; therefore the\nallegations describe a failure of the notice condition if proved. The final qualification\npreserves the posture instead of turning the analysis into a finding after trial.\n\nThis chain also exposes missing steps. “The lender is unfair” may express a reaction,\nbut it does not identify the condition the lender failed. “The borrower received an\nemail” may identify a medium without explaining whether the content was retainable,\ntimely or delivered. A well-written paragraph makes the legally relevant connection\nvisible enough that another reader can challenge it.\n\n## Types of reasons can work together\n\nA **[[textual argument]]** focuses on the enacted language. A **[[structural argument]]**\nreads provisions in relation to one another. A **[[policy argument]]** discusses practical\nconsequences or underlying goals. These are descriptions of reasoning, not automatic\nrankings that decide every dispute. Ask how the court uses each argument and whether\nit treats an argument as necessary, supporting, or insufficient to overcome the text.\n\n### A conversation is not a written record\n\n- *Function:* Connects ordinary characteristics to section 2\n- *Limit:* Does not decide every digital format\n\n### Notice cannot erase section 3\n\n- *Function:* Reads separate conditions together\n- *Limit:* Does not resolve mixed causation\n\n### Paper might be easier to administer\n\n- *Function:* Suggests a practical benefit\n- *Limit:* Does not create a paper-only requirement\n\n### A saved PDF contains retainable words\n\n- *Function:* Applies statutory qualities to found facts\n- *Limit:* Does not establish delivery of every sent message\n\nThe relationship between reasons matters more than counting them. Five policy\nsentences do not outweigh one binding condition simply because there are more of\nthem. Conversely, a single word should not be detached from the provision that gives\nit meaning. Explain how the opinion moves between text, facts and consequences.\n\n## Read the losing argument in its strongest fair form\n\nA **[[counterargument]]** is a reason supporting the competing conclusion. A **[[response]]**\nexplains why that reason does not defeat your conclusion, or why it changes your\nconfidence. Fair treatment means presenting an argument its proponent would recognize.\nIt does not mean pretending the competing views have identical precedential force.\nDistinguish “this judge's argument deserves consideration” from “this is the rule\nthe court adopted.”\n\nA separate opinion can reveal a disagreement that a quick majority summary hides.\nAsk whether the judges disagree about the record, the rule's interpretation, the\napplication, or the remedy. In Iman, the dissent accepts receipt and retainability\nbut favors a physical-document requirement. In Sol, the concurrence agrees with the\nrepayment result but offers its own fairness rationale. Different types of agreement\nand disagreement require different descriptions in your brief.\n\n### Example 1: Reconstruct Iman without caricature\n\nStart with the shared facts: the borrower selected the address, received and opened\nthe PDF before possession, and could save or print it. Next, state the majority's\nlegal premise: section 2 identifies qualities of a record without naming paper as\nthe exclusive medium. Connect those premises: this PDF has written content that\ncan be retained, and its delivery is established on the findings. Therefore it\nsatisfies the disputed notice requirement.\n\nNow state the dissent fairly. Judge Ortiz accepts those facts but would read written\nrecord as requiring a physical document, favoring protection for borrowers lacking\nreliable electronic storage. Do not say the dissent thinks PDFs contain no words;\nthat is not its position. A majority-oriented response is that this borrower could\nretain the delivered record and the text does not impose paper. The disagreement\nis over interpretation and protection, not a factual dispute about opening the email.\n\nFinally, distinguish legal force. The majority's bounded holding governs Alder trial\ncourts under P3. The dissent may help test a later argument but does not reverse\nthat hierarchy. A student can criticize the majority while still describing accurately\nwhat the court decided. Evaluation and attribution are separate intellectual tasks.\n\n### Example 2: Read Sol's concurrence without adding a rule\n\nThe vote line says Judges Vale and Lin join the majority, while Ortiz concurs in\nthe judgment. Step one: identify the shared result—return of 20 credits. Step two:\nidentify the majority's premise—section 3 bars a charge on a sole-cause finding.\nStep three: inspect SC1—Ortiz proposes a general fairness explanation and expressly\ndoes not join the statutory analysis. Step four: formulate the court's binding\nproposition from the two-judge majority, not by blending all three judges' words.\n\nA blended statement such as “Sol forbids every unfair charge” cannot be traced to\nthe majority. It would also erase the statute's sole-cause limitation. The corrected\nbrief says the majority applied section 3 on the unchallenged findings, while the\nconcurrence favored the same judgment for a different reason. This keeps disagreement\navailable for discussion without turning it into an additional enacted condition.\n\n## Evaluate an argument without inventing support\n\nAsk three questions of a paragraph: Is its premise supported? Does its inference\nfollow? Is its conclusion broader than its premises? For example, Iman's premise\nsupports the possibility that some electronic records qualify. It does not establish\nthat every emailed link qualifies. The missing facts concern content, retainability\nand delivery. Marking that gap is a substantive critique, not indecision.\n\nBe equally careful with quoted language. Record the speaker, surrounding qualification\nand pinpoint. An opinion can quote a proposition to reject it in the next sentence.\nA phrase removed from that setting may say the opposite of the court's reasoning.\nWhen paraphrasing, preserve negations and conditions rather than replacing them\nwith a broad slogan that sounds easier to remember.\n\n## Practice with feedback\n\nWrite a rule–fact–reason–result paragraph explaining Sol. Then write the strongest\nargument for Northbank from the supplied trial ruling. Northbank relies on compliant\nnotice as authorization. The majority responds that notice is a necessary condition\nand section 3 independently bars this deduction. A response attacking Northbank's\nmotives does not answer its statutory argument. A response claiming notice was absent\ncontradicts the record.\n\nNow revise your paragraph so it contains one express limitation. Suitable limitations\ninclude sole causation, the agreed return point, or the absence of a ruling on extra\ndamages. Compare your revised sentence with S3–S5 to see whether the qualification\nmatches the reason the court gave.\n\n## Common mistakes\n\nDo not count votes for a result as votes for every rationale. Do not make a dissent\nlook foolish by changing its premises. Do not treat a policy concern as a statutory\namendment. And do not confuse your criticism of an opinion with the proposition\nthat a lower court is permitted to disregard its holding.\n\n## Key points\n\n- Explain the connection between legal premise, fact and conclusion.\n- Identify the exact point of disagreement between opinions.\n- Address counterarguments fairly, then explain the response.\n- Keep your evaluation separate from accurate attribution and authority.\n",
+   "quiz": [
+    "lcr-q4-01",
+    "lcr-q4-02",
+    "lcr-q4-03",
+    "lcr-q4-04",
+    "lcr-q4-05",
+    "lcr-q4-06",
+    "lcr-q4-07",
+    "lcr-q4-08",
+    "lcr-q4-09",
+    "lcr-q4-10"
+   ]
+  },
+  {
+   "id": "lcr-synthesis",
+   "module": "lcr-m3",
+   "title": "Synthesizing a rule from several decisions",
+   "minutes": 50,
+   "topics": [
+    "Rule synthesis"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-synthesis"
+   ],
+   "body": "## A stack of summaries is not yet a rule\n\nYou have practiced describing each opinion accurately. **[[Rule synthesis]]** is the\nnext step: explaining how several authorities fit together into a usable, bounded\nstatement. Three separate paragraphs saying “Hale won, Harbor won, Sol won” tell\na reader the results, but not which conditions explain them. Synthesis identifies\nthe common framework, the distinct questions each case answers, and the boundaries\nthat remain unsettled.\n\nBegin with the governing text, then add what the cases actually decide. In our packet,\nsections 1 and 2 concern timely delivery of a retainable written notice specifying\nthe charge and deadline. Section 3 imposes a separate restriction based on the cause\nof delay. Section 4 supplies a limited recovery. A synthesis that discusses only the\nnotice medium misses part of the statute even if its summary of Hale and Iman is correct.\n\nBefore comparing facts, check authority. P3 makes these published majority holdings\nbinding on Alder trial courts. The packet supplies no conflicting higher authority\nor later treatment. That is a stipulation for this exercise, not a general rule that\nany three decisions you find online can be combined as equally authoritative. In\nreal research, court hierarchy, jurisdiction, date, publication status and subsequent\ntreatment all affect which propositions you may safely use.\n\n## Construct a structured comparison\n\nMake each case entry do the same work. Record posture, material facts, issue, holding and\nlimits. Parallel entries make differences visible; inconsistent entries can create a\nfalse conflict by comparing one case's facts with another case's dicta.\n\n### Hale H1–H4\n\n- *Relevant premise:* Oral terms only, assumed under P1\n- *Question resolved:* Does oral knowledge satisfy written notice?\n- *Contribution to the combined rule:* Oral disclosure alone fails the notice condition\n\n### Iman I1–I4\n\n- *Relevant premise:* Timely delivered PDF, retainable on unchallenged findings\n- *Question resolved:* Must this written record be paper?\n- *Contribution to the combined rule:* This retainable PDF qualifies; Hale did not require paper\n\n### Sol S1–S4\n\n- *Relevant premise:* Valid notice, sole lender-caused delay\n- *Question resolved:* Is valid notice enough despite section 3?\n- *Contribution to the combined rule:* Notice does not eliminate the independent sole-cause bar\n\nRead each case entry in full before comparing the same fields across cases. That ensures\nyou understand each holding in its own posture. Then ask which factual differences\nexplain the outcomes. The presence of a retainable record explains Hale versus Iman.\nThe independent cause-of-delay provision explains why compliant notice in Sol does\nnot end the analysis. No contradiction is needed to account for those results.\n\n## Necessary conditions are not complete permission\n\nA **[[necessary condition]]** must be present for a result to be allowed. A\n**[[sufficient condition]]** is enough to produce a specified result within the relevant framework.\nThe phrase “only if” in section 1 makes notice necessary for the deduction. It does\nnot say that notice by itself makes every deduction permissible. Section 3 supplies\nan additional restriction, and the description late-return charge presupposes a\nlate return. Keep these logical relationships visible rather than memorizing slogans.\n\nThe distinction matters whenever a learner says, “The PDF is valid, therefore the\nlender wins.” Iman reaches its result on findings that also establish late return,\navailability of the return point and no other asserted violation. Moving that result\ninto Sol while discarding those premises changes the argument. A precedent is not\na button that produces the same outcome every time one fact looks similar.\n\n### Example 1: Build a supported synthesis\n\nStart with the enacted conditions. Add Hale's negative boundary: oral disclosure\nalone is insufficient. Add Iman's positive application: a PDF actually received,\nopened before possession, and available to save or print satisfies the written-record\ncondition on those findings. Add Sol's independent limit: compliant notice does not\nauthorize a charge for delay caused solely by the lender's unavailable agreed return point.\n\nNow write the synthesis: “Under Alder Act sections 1–3, a lender must timely deliver\na notice stating the charge and deadline in a retainable written record before it\nmay deduct a late-return charge. Oral knowledge alone does not satisfy that requirement\n(Hale H3–H4). A delivered, retainable PDF can satisfy it on the findings in Iman\n(I1–I4); a paper-only requirement does not follow from Hale. Even compliant notice\ndoes not permit a deduction where the lender's failure to provide the agreed return\npoint solely caused delay (Sol S3–S4).”\n\nFinally, attach the limits. The packet does not decide whether an unopened message\nor a changing link establishes delivery and retainability. Sol does not decide all\nmixed-cause disputes. Section 4 addresses recovery of the deducted portion rather\nthan every imaginable loss. These limits are part of a useful synthesis, not clutter\nto remove when shortening it for an outline.\n\n### Example 2: Diagnose an apparent conflict\n\nA student writes, “Hale requires paper, but Iman permits PDFs, so the later case\noverrules the earlier case.” Step one: locate the supposed paper holding. It comes\nfrom H5's discussion of a possible form, which expressly reserves electronic records.\nStep two: identify Hale's actual issue: oral disclosure without any writing. Step\nthree: read I2's treatment of Hale. Iman distinguishes the question it answers rather\nthan rejecting Hale's oral-disclosure holding. The conflict disappears once the\nearlier proposition is stated accurately.\n\nNow consider a genuinely different hypothetical: a later published opinion expressly\nsays oral knowledge alone is enough under the unchanged Act. You could not reconcile\nthat by calling an oral conversation a PDF. You would need to investigate authority,\nwhether an authorized court overruled the earlier holding, and whether the law or\nissue changed. Do not manufacture harmony where a material contradiction remains.\n\n## Deal with uncertainty honestly\n\nA **[[reserved question]]** is a matter a court expressly leaves undecided. It gives\nyou a boundary, not an implied answer for the next dispute. A factual gap and a\nlegal gap also differ. Whether a borrower saved a file is a factual question. Whether\na file that cannot be saved satisfies the statute is an interpretive question. Your\nmemo should identify which kind of uncertainty limits the prediction.\n\nA synthesis can be provisional. Write the strongest supported generalization, then\nstate what additional facts or authority could change it. Avoid claiming a broad\nrule merely because no contrary case appears in a small packet. The absence of a\nsupplied restriction does not establish what every jurisdiction permits, especially\nwhen the packet expressly limits its remedial and procedural coverage.\n\n## Practice with feedback\n\nRevise this outline entry: “Notice equals permission. Hale bans digital notice.\nSol adds an unfairness exception.” A sound revision replaces the first sentence\nwith notice as a necessary condition, the second with the oral-only holding, and\nthe third with the specific sole-cause rule. Add Iman's retainable-PDF application.\nCheck each proposition against a numbered paragraph rather than relying on which\ncase name sounds familiar.\n\nThen write one sentence explaining why Iman and Sol produce different outcomes\ndespite valid notices in both. The answer should identify the cause of delay and\nthe independent section 3 restriction. “The judges favored different borrowers”\ndoes not explain the rule and is unsupported by the packet.\n\n## Common mistakes\n\nDo not combine a majority holding with a dissent and call the mixture settled law.\nDo not average inconsistent outcomes into a vague compromise. Do not confuse a\nlater decision's date with authority to overrule. And do not drop statutory conditions\nthat were undisputed in one case but decisive in another.\n\n## Key points\n\n- Synthesis explains relationships, not just a sequence of case summaries.\n- Compare like categories and preserve each opinion's posture.\n- Necessary conditions may coexist with independent restrictions.\n- Identify genuine conflicts and open boundaries instead of hiding them.\n",
+   "quiz": [
+    "lcr-q5-01",
+    "lcr-q5-02",
+    "lcr-q5-03",
+    "lcr-q5-04",
+    "lcr-q5-05",
+    "lcr-q5-06",
+    "lcr-q5-07",
+    "lcr-q5-08",
+    "lcr-q5-09",
+    "lcr-q5-10"
+   ]
+  },
+  {
+   "id": "lcr-analogy",
+   "module": "lcr-m3",
+   "title": "Using analogy and distinction on a new fact pattern",
+   "minutes": 50,
+   "topics": [
+    "Analogy and distinction"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-synthesis"
+   ],
+   "body": "## Similarity matters only through a reason\n\nOnce you have a bounded rule, you can apply it to facts the earlier courts did not\ndecide. An **[[analogy]]** argues that legally relevant similarities support comparable\ntreatment. A **[[distinction]]** argues that a legally relevant difference limits that\ncomparison. Neither succeeds by listing surface details. Both require a bridge\nbetween the fact and a condition or reason in the earlier case.\n\nSuppose a new borrower rented a red camera while Iman rented a black camera. The\ncolor difference does not affect written content, delivery, timing or retainability\non the supplied facts. Now suppose the new borrower received only a link to a page\nthat disappeared after five minutes. That difference could affect whether the\nborrower received a written record they could retain. The second comparison identifies\na statutory reason; the first merely identifies a difference.\n\nA **[[material fact]]** matters because it can affect the analysis under the governing\nrule. Materiality is therefore question-dependent. The kind of equipment might be\nirrelevant to a notice-medium issue but important under a different statute defining\ncovered equipment. Do not declare a fact universally irrelevant. Explain its relevance\nor lack of relevance to the issue you are actually analyzing.\n\n## Use a four-part comparison\n\nName the earlier holding, identify the relevant fact there, compare the new fact,\nand explain why the difference or similarity matters. Finish with a prediction\nbounded by the record and the authority. For example: “Like Iman's saved PDF, this\ndownloaded notice contains the terms in a record the borrower can retain. That\nsupports the section 2 condition because the majority focused on those qualities\nrather than paper. Delivery and timing still require their own findings.”\n\n### Identify authority\n\n- *Weak version:* Iman is about email\n- *Stronger version:* Iman accepts the delivered, retainable PDF on its findings\n\n### Compare fact\n\n- *Weak version:* Both involve computers\n- *Stronger version:* Both provide a file the borrower can save before possession\n\n### Explain relevance\n\n- *Weak version:* They look alike\n- *Stronger version:* Retention and timing address sections 1 and 2\n\n### Bound prediction\n\n- *Weak version:* Therefore the lender always wins\n- *Stronger version:* Notice likely qualifies if delivery and the remaining conditions are established\n\nThis method is especially helpful when facts point in different directions. Rather\nthan counting similarities, rank them by legal significance. One decisive failure\nof a required condition may matter more than ten matching background details.\nThe question is whether the earlier reason applies, not how many nouns match.\n\n### Example 1: A changing link is not automatically a PDF\n\nConsider fictional Dana, who clicks a lender's link before possession. The page\nshows the charge and deadline but changes later. The supplied facts do not say\nwhether Dana could save or print the original content. First, identify the favorable\ncomparison: Dana saw written terms before taking the equipment. Second, identify\nthe gap: Iman relied on a record that could be retained, not merely information that\nwas briefly visible. Third, connect the gap to section 2.\n\nThe lender's strongest argument is that the page functioned as a written record and\ncould perhaps be preserved. Dana's strongest response is that viewing changeable\ncontent does not establish possession of a retainable record. Do not decide the\nmissing technical fact by assuming every web page can be saved or that none can.\nAsk for evidence of the delivered content, any available save or print method, and\nwhat the trial court found about retaining the original terms.\n\nA bounded conclusion is: “Iman supports a functional inquiry into retainable writing,\nbut expressly leaves changing links open. If Dana could retain the delivered terms,\nthe analogy strengthens; if the content could not be retained, the statutory argument\nagainst compliance strengthens.” This is more useful than “Iman controls because\nboth notices are digital.” It also avoids claiming that an open question has no\nreasoned answer; you can analyze it without pretending a precedent already decided it.\n\n### Example 2: A closed desk with a different causal record\n\nConsider fictional Leon. The lender closed the agreed desk early, as in Sol, but\nLeon was still using the tool after the return deadline. The trial court expressly\nfinds both events caused delay. First, identify the similarity: the lender failed\nto keep the agreed point available. Second, identify the difference: Sol accepted\na finding that closure was the sole cause. Third, connect that difference to the\nword solely in section 3.\n\nLeon's argument is that the closure made timely return impossible regardless of the\ncontinued use. The lender responds that the supplied finding attributes delay to\nboth causes, while section 3 requires sole causation. Under P2, the reader cannot\ndiscard the unchallenged finding to improve Leon's position. On this record, Sol's\nholding does not establish the section 3 bar. That is a distinction, not a claim\nthat Sol was wrongly decided or no longer governs cases with its conditions.\n\nNotice the limit: saying that this particular bar is not established does not prove\nevery possible deduction lawful. You must still analyze notice, late return and\nany other supplied grounds. If the exercise stipulates all remaining conditions\nand asserts no other violation, say so expressly when giving the narrower conclusion.\n\n## Test one change at a time\n\nA **[[changed-fact hypothetical]]** alters identified facts to reveal how the rule works.\nStart from a clear baseline. Change one material fact or a specified group, keep\nthe rest fixed, and trace the consequence. If you change delivery time, notice medium,\nreturn availability and remedy simultaneously, you may reach a different result\nwithout knowing which change caused it.\n\nWrite independent scenarios separately. “Version A has late receipt; version B\nrestores timely receipt but changes causation.” Do not accidentally carry A's timing\ninto B. This discipline is useful beyond exams: it exposes which missing facts a\nresearcher or interviewer would need to investigate first.\n\nUse **[[conditional analysis]]** when a material premise is unresolved: if fact X is\nestablished, one argument follows; if fact Y is established, the other strengthens.\nState what evidence could resolve the condition. A conditional prediction should\nnot be a vague “anything could happen.” It should show exactly which uncertainty\nmatters and how the possible answers affect the legal reasoning.\n\n## Practice with feedback\n\nChoose the stronger distinction from Iman: the new transaction occurred on Tuesday,\nor the record arrived only after possession. Timing is stronger because section 1\nrequires delivery before possession. Tuesday has no supplied legal significance.\nNow explain the strongest response if the lender sent the message before possession\nbut receipt occurred later. The response concerns the meaning of delivery; Iman\ndoes not settle the transmission-versus-receipt boundary. Separate that interpretive\nissue from the known timestamps.\n\nWrite a two-sided paragraph for Dana or Leon, then underline the sentence connecting\nfacts to law. If no sentence can be underlined, you have probably written a narrative\nor a conclusion rather than an analysis. Add the bridge and one limitation.\n\n## Common mistakes\n\nAvoid similarity counting, treating every difference as material, and declaring a\ndistinction without naming the earlier reason it affects. Do not invent missing\nevidence. Do not call a case overruled merely because it does not decide a new set\nof facts. And do not let one successful analogy end analysis of independent conditions.\n\n## Key points\n\n- Connect every important comparison to a rule or rationale.\n- Present the other side's strongest relevant comparison.\n- Keep independent hypothetical changes separate.\n- Tie uncertainty to specific evidence or an identified legal boundary.\n",
+   "quiz": [
+    "lcr-q6-01",
+    "lcr-q6-02",
+    "lcr-q6-03",
+    "lcr-q6-04",
+    "lcr-q6-05",
+    "lcr-q6-06",
+    "lcr-q6-07",
+    "lcr-q6-08",
+    "lcr-q6-09",
+    "lcr-q6-10"
+   ]
+  },
+  {
+   "id": "lcr-interpretation",
+   "module": "lcr-m4",
+   "title": "Interpreting statutory text in context",
+   "minutes": 50,
+   "topics": [
+    "Statutory interpretation"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-synthesis"
+   ],
+   "body": "## Begin with the enacted question\n\nCases do not operate in a vacuum. Our three opinions interpret an enacted text,\nso an application needs both the case holdings and the statute they address.\n**[[Statutory interpretation]]** is the process of determining the meaning and operation\nof legislation. A reader should begin by identifying the disputed words, the surrounding\nprovisions, any definitions, and the version of the law relevant to the problem.\nStarting with a desired outcome and searching for a convenient phrase reverses that task.\n\nRead the entire short Alder Act again. Section 1 connects delivery, content and timing\nto permission to deduct. Section 2 defines notice. Section 3 adds a causal restriction.\nSection 4 addresses recovery. A sentence from any one section can be accurate yet\nmisleading if presented as the complete framework. Your job is to explain how the\nparts work together rather than selecting the provision that favors one party.\n\nA **[[statutory definition]]** supplies a meaning for a term in the enactment. Check its\nscope rather than assuming a familiar everyday meaning controls. **[[Ordinary meaning]]**\nconcerns how language is normally understood in the relevant context; it is not\nnecessarily the broadest meaning a dictionary can list. An **[[ambiguity]]** exists\nwhen competing plausible readings remain in context, not merely whenever opposing\nparties announce different preferences.\n\n## Examine grammar, definitions and structure\n\nPay attention to conditions, exceptions, conjunctions and modifiers. The words only if\nmake timely notice a prerequisite in section 1. The word solely in section 3 limits\nthe causal prohibition. Removing either changes the statute. Likewise, “before the\nborrower takes possession” connects the notice requirement to a specific event,\nnot simply to some point before the lender deducts the charge.\n\n**[[Whole-text reasoning]]** reads a provision with the rest of the enactment. An\n**[[anti-surplusage argument]]** prefers, where appropriate, a reading that gives work\nto each provision rather than making words ineffective. Such interpretive principles,\noften called **[[canons]]**, are tools of reasoning, not buttons that mechanically resolve\nevery case. Their force and interaction depend on the legal system, issue and text.\nWhen using one, explain what words would lose their function under the competing view.\n\n### Is a term defined?\n\n- *Alder application:* Notice means a retainable written record\n- *Error to avoid:* Replacing the definition with actual awareness\n\n### Which modifier matters?\n\n- *Alder application:* Solely limits the cause of delay\n- *Error to avoid:* Treating any contribution as sufficient\n\n### Do provisions operate together?\n\n- *Alder application:* Section 3 can bar a charge despite notice\n- *Error to avoid:* Treating section 1 as the whole Act\n\n### Has the text changed?\n\n- *Alder application:* Exercises use version 1 unless stated\n- *Error to avoid:* Importing a hypothetical amendment into the baseline\n\nPurpose and practical consequences can test readings. A retainable notice may help\npeople check terms later; a paper-only rule might exclude useful electronic records.\nBut a sensible goal does not by itself authorize rewriting an explicit condition.\nState whether you are interpreting existing words or recommending a different law.\nThose are distinct tasks even when the same policy concern motivates both.\n\n### Example 1: Read the independent restriction\n\nNorthbank argues that section 1 permits its deduction because Sol received compliant\nnotice. First, quote or paraphrase the conditional structure accurately: a lender\nmay deduct only if the notice requirements are met. Second, read section 3, which\nseparately forbids deductions for specified lender-caused delay. Third, test Northbank's\nreading against the whole text. If valid notice were always conclusive, section 3\nwould do no work in cases where a lender gave notice and then closed the agreed desk.\n\nThe majority's response in S3 avoids that problem by treating notice as necessary\nand section 3 as an independent restriction. The facts then matter: S1 supplies an\nunchallenged sole-cause finding. The conclusion follows from text, structure and\nrecord together. It does not require a general judicial power to cancel any charge\nthat feels unfair. The separate concurrence's fairness argument remains a different voice.\n\nNow imagine a hypothetical amendment deleting solely from section 3 and explicitly\napplying the new text to a new transaction. The causal inquiry would change because\nthe legislature changed the language. You could compare Sol's reasoning, but you\ncould not treat its old-text holding as an answer that ignores the amendment. Conversely,\ndo not assume an amendment applies to an earlier event without a supplied timing rule.\n\n### Example 2: Transfer the method to an actual opinion\n\nRead [Taniguchi v. Kan Pacific Saipan, Ltd., 566 U.S. 560 (2012), official U.S. Reports PDF](https://www.govinfo.gov/content/pkg/USREPORTS-566/pdf/USREPORTS-566-560.pdf).\nUse printed reporter pages, which differ from the PDF viewer's page numbers.\n\nThe dispute concerned whether the federal cost category for compensation of interpreters\ncovered translating written documents. The majority excluded those translation costs\nfrom that category, emphasizing ordinary meaning and statutory context. The dissent\nfavored a broader reading and stressed usage, court practice and access to translated\nmaterial. The Court vacated and remanded the lower decision. It did not decide that\nwritten translation is unimportant or forbidden. See the majority at pages 564–575\nand the dissent at pages 575–582.\n\nMake two columns: majority and dissent. In each, record one textual reason and one\ncontextual reason with a page reference. Explain the point of disagreement before\nevaluating it. This is a historical opinion-reading exercise, not a check of present\ncost-recovery law. The packet quizzes remain answerable offline from the supplied\nAlder materials; the external opinion is a transfer activity, not a hidden prerequisite.\n\n## Compare plausible readings without pretending they tie\n\nReturn to Alder's delivery requirement. A lender sends a notice before possession,\nbut the borrower receives it afterward. A transmission reading emphasizes the\nlender's completed sending act. A receipt reading emphasizes delivery to the borrower\nand the opportunity to retain terms before taking possession. The statute and packet\nopinions do not expressly resolve that boundary. Iman supplies facts satisfying both\ntimely sending and timely receipt, so its outcome cannot choose between them.\n\nYou can still assess which reading the text and reasoning better support. Explain\neach premise, identify the open point, and make a qualified prediction if asked.\nDo not invent an Alder electronic-transactions statute, an email-service rule, or\na court decision to make the answer more definite. Further research in a real\njurisdiction might supply such authority; this closed packet deliberately does not.\n\n## Practice with feedback\n\nReview this proposed synthesis: “Written record means paper because paper best\nprotects borrowers.” Identify the missing steps. It does not explain why the text\nexcludes retainable digital words, and it ignores Iman's majority holding under P3.\nIt resembles the dissent's view. You may present it as criticism or a proposal for\namendment, but cannot describe it as the packet's controlling notice rule.\n\nNext, write a sentence explaining why mixed causes matter under version 1. Your\nsentence should connect the finding to solely, rather than simply saying Sol looks\ndifferent. If a new hypothetical expressly changes that word, label which version\nyou are applying before discussing the result.\n\n## Common mistakes\n\nAvoid dictionary shopping for the largest conceivable meaning, reading one clause\nwithout its definition, and using purpose to erase inconvenient words. Do not treat\na canon as universal proof. Do not confuse a historical reading exercise with verified\ncurrent authority, or a legislative proposal with law already in force.\n\n## Key points\n\n- Read the relevant version, definitions, conditions and neighboring provisions.\n- Explain what each competing interpretation does to the text.\n- Use interpretive tools as reasons, with their limits exposed.\n- Distinguish interpreting current text from proposing different text.\n",
+   "quiz": [
+    "lcr-q7-01",
+    "lcr-q7-02",
+    "lcr-q7-03",
+    "lcr-q7-04",
+    "lcr-q7-05",
+    "lcr-q7-06",
+    "lcr-q7-07",
+    "lcr-q7-08",
+    "lcr-q7-09",
+    "lcr-q7-10"
+   ]
+  },
+  {
+   "id": "lcr-capstone",
+   "module": "lcr-m4",
+   "title": "Three briefs, a synthesis memo and changed facts",
+   "minutes": 90,
+   "topics": [
+    "Case-reading capstone"
+   ],
+   "refs": [
+    "lcr-ref-packet",
+    "lcr-ref-brief",
+    "lcr-ref-synthesis",
+    "lcr-ref-capstone"
+   ],
+   "body": "## Put the reading skills together\n\nThe capstone asks you to produce a small portfolio, not merely select an answer.\nYou will brief three opinions, synthesize their rules, analyze a new record, and\ntest two independent changes. The objective quiz checks concepts used in that work.\nIt does not automatically evaluate the quality of your written legal analysis.\nUse the supplied rubric for self-review or discuss the work with a qualified instructor.\n\nOpen the Alder packet, brief template, synthesis worksheet and Juno file. Read all\ninstructions before consulting the worked feedback below. Everything about Alder\nremains fictional. No research outside the packet is necessary for this assignment,\nand outside law should not be imported as if it governed Juno. The real-opinion\ntransfer activity in the previous lesson is separate from this closed-packet task.\n\n## Your deliverables\n\nWrite a 200–250-word study brief for each of Hale, Iman and Sol. Include posture,\nfact status, issue, bounded holding, reasoning, disposition and a useful limit.\nIdentify separate opinions where relevant. Use the packet's paragraph labels so\nanother reader can find the propositions without searching the whole document.\nThese are study briefs, not court filings, and the labels are not real reporter citations.\n\nThen write a 550–750-word **[[analysis memo]]** that synthesizes the three opinions and\napplies the Act to original Juno and both changed-fact versions. The total target\nis 1,150–1,500 words. An **[[IRAC]]** structure—issue, rule, application, conclusion—can\nhelp organize a paragraph. A **[[CREAC]]** structure starts with a conclusion and then\ngives rule, explanation, application and conclusion. Either can work; labels alone\ndo not supply reasoning or correct a mistaken rule.\n\nAllocate most of the memo to application. A reader needs to see why specific facts\nsatisfy or fail conditions, not just a long quotation of the statute followed by\n“therefore Juno wins.” Address the strongest competing argument, state the response,\nand preserve any unresolved point. Keep the two variants independent as instructed.\n\n## Plan before drafting\n\nFirst, mark the source of each premise. In original Juno, F1 establishes timely\nreceipt, opening and saving of the PDF; F2 identifies closure of the agreed desk;\nF3 supplies the sole-cause finding and the trial court's legal rationale. Second,\nidentify the appellate task under P2. Third, list notice and causation separately.\nFourth, match each issue to the relevant opinion and statute before writing a conclusion.\n\n### Notice\n\n- *Evidence to include:* Sections 1–2; I1–I4; F1\n- *Revision question:* Did I preserve delivery, timing and retainability?\n\n### Cause of delay\n\n- *Evidence to include:* Section 3; S1–S4; F2–F3\n- *Revision question:* Did I explain why notice is not conclusive?\n\n### Remedy and result\n\n- *Evidence to include:* Section 4; requested relief; posture\n- *Revision question:* Did I invent extra recovery or ignore appellate instructions?\n\n### Variants\n\n- *Evidence to include:* Each replacement fact and restored baseline\n- *Revision question:* Did I accidentally combine A and B?\n\nWrite your first draft before reading the next sections. The feedback describes\nreasoning a strong answer should contain; it is not a passage to copy into your\nsubmission. You may reach a different qualified prediction on an expressly open\nissue if you state the premise, acknowledge contrary reasoning and respect the record.\n\n### Example 1: Worked feedback on original Juno\n\nBegin with notice. Juno selected the address, received and saved the written terms\nbefore possession, and knew the stated charge and deadline. Those findings closely\nmatch Iman's accepted PDF. Hale does not add a paper requirement. Accordingly, the\nnotice objection is weak under the supplied majority holdings. State that result\nwithout treating it as the answer to the entire case.\n\nNext, apply section 3. Cedar closed the agreed desk before the deadline; no alternative\nwas agreed; the unchallenged finding identifies closure as the sole cause of delay.\nThose features match Sol's material reasoning. Cedar's strongest supplied argument,\naccepted below, is that valid notice authorizes the deduction. Sol answers that\nnotice is only one condition and does not eliminate section 3. The statutory bar\ntherefore applies on the original record.\n\nFinally, connect violation to the requested relief. Juno seeks the deducted 25 credits\nunder section 4. The packet supports reversal of the legal ruling allowing that\ndeduction and recovery of the deducted portion, following Sol's approach. It supplies\nno basis to add emotional-distress damages, punitive damages or attorney fees. Do\nnot reclassify these unchallenged trial findings as allegations on Hale's P1 motion.\nSimilar substantive rules can appear in different procedural settings.\n\n### Example 2: Analyze each change independently\n\nIn version A, transmission remains at 09:00 but receipt, opening and saving occur\nat 09:25, after possession at 09:20. Iman does not decide whether sending alone\nestablishes timely delivery. Explain the transmission and receipt readings, with\nthe textual and practical reasons for each. The new timing makes the notice issue\nless certain; it does not require pretending the record supplies an authoritative\nanswer to that interpretive boundary.\n\nThen check the rest of the file. F2 and F3 remain unchanged, so section 3 still\nindependently bars the deduction on the sole-cause finding. Even if Cedar wins the\ndelivery argument, that success does not remove the separate reason for recovery.\nA good answer can identify a genuinely open issue while explaining why resolving\nit is unnecessary to this particular outcome under the packet.\n\nIn version B, restore original timely receipt and saving. The new findings say\nJuno's continued use after 18:00 and the closure both caused delay. Sol expressly\ndid not decide mixed causes, and section 3 requires sole causation. On the supplied\nunchallenged finding, that condition is absent. With the original compliant notice,\nlate return and no other asserted statutory violation, the packet does not establish\na section 4 right to recover this deduction. Do not invent another claim or replace\nthe finding with your preferred causal story.\n\n## Check your briefs before scoring the memo\n\nHale should preserve assumed allegations, the oral-only holding and remand without\nrepayment. Iman should preserve the retainable-PDF findings, the majority's medium\nanalysis, its limited directions and the separate dissent. Sol should preserve valid\nnotice, sole causation, the independent prohibition, specified recovery and the\nconcurrence's different rationale. If any brief fails those checks, repair it before\nusing it as a premise in the memo.\n\nNow score each of the six rubric criteria from 0 to 2: posture and facts; issues and\nholdings; reasoning and voice; synthesis; application; disposition and uncertainty.\nThe maximum is 12. This is a revision guide, not a university grading scheme or an\nexternal pass mark. Give a paragraph reference as evidence for each 2. Revise every\n0 and explain one meaningful improvement made in response to a counterargument.\n\n## Common mistakes\n\nDo not copy the model feedback and call it independent analysis. Do not carry version\nA's late receipt into version B. Do not stop after finding notice valid. Do not turn\nan open issue into a guess presented as a holding. A longer memo is not better if\nit introduces facts, remedies or doctrines the assignment does not supply.\n\n## Key points\n\n- A complete analysis integrates accurate briefs, synthesis and application.\n- Independent conditions can make one disputed issue unnecessary to the outcome.\n- Keep each hypothetical's record and law explicit.\n- Use the rubric to revise reasoning, not to claim automatic legal competence.\n",
+   "quiz": [
+    "lcr-q8-01",
+    "lcr-q8-02",
+    "lcr-q8-03",
+    "lcr-q8-04",
+    "lcr-q8-05",
+    "lcr-q8-06",
+    "lcr-q8-07",
+    "lcr-q8-08",
+    "lcr-q8-09",
+    "lcr-q8-10"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "law-case-reading-bank",
+   "title": "Case Reading and Legal Reasoning questions",
+   "sections": [
+    {
+     "id": "lcr-m1",
+     "name": "Reading an opinion and procedural posture"
+    },
+    {
+     "id": "lcr-m2",
+     "name": "Issues, holdings, reasoning and dicta"
+    },
+    {
+     "id": "lcr-m3",
+     "name": "Rule synthesis, analogy and distinction"
+    },
+    {
+     "id": "lcr-m4",
+     "name": "Statutory interpretation and changed facts"
+    }
+   ],
+   "exam": {
+    "questionCount": 50,
+    "timeLimitMinutes": 90,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "lcr-q1-01",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "What is the best first-pass question when opening Hale?",
+     "choices": [
+      "Which facts will I include in a final merits judgment?",
+      "What ruling is this court reviewing and what does it order?",
+      "Which general rule can I extract before checking the court’s task?",
+      "Which party’s requested relief should I treat as the disposition?"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A first pass establishes the ruling under review and the court’s instructions. Preparing a final merits judgment, extracting an unbounded rule, or adopting requested relief would skip that orientation."
+    },
+    {
+     "id": "lcr-q1-02",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "H1 describes the trial court treating actual knowledge as sufficient notice. Whose position is being described at that point?",
+     "choices": [
+      "The appellate majority’s final interpretation of section 2",
+      "The lower court’s rationale, which the appeal reviews",
+      "The legislature’s binding definition of actual knowledge",
+      "Hale’s requested ruling rather than the lower court’s decision"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "H1 describes the trial court’s actual-knowledge rationale. The appellate court reviews and rejects that theory; it is neither a statutory definition nor merely Hale’s requested ruling."
+    },
+    {
+     "id": "lcr-q1-03",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "A prefatory summary describes a case. What should a reader do before attributing its proposition to the deciding court?",
+     "choices": [
+      "Locate and check the proposition in the opinion itself",
+      "Attribute it to the court if the summary appears beside the opinion",
+      "Use it as the holding unless a dissent repeats different language",
+      "Check only that its outcome matches the final disposition"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Check the actual opinion’s proposition, speaker and qualifications. Placement beside an opinion and agreement about the outcome do not establish that the judges adopted the summary’s wording."
+    },
+    {
+     "id": "lcr-q1-04",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "Which description correctly separates the voices in Iman?",
+     "choices": [
+      "The majority and dissent agree the PDF fails, but disagree about relief",
+      "The majority accepts this PDF; the dissent favors a physical-document requirement",
+      "The majority accepts the PDF, and the dissent disputes its receipt",
+      "The majority requires paper, while the dissent accepts the retainable PDF"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "I3–I4 accept this delivered, retainable PDF. ID1–ID2 accept the relevant factual findings but favor a physical-document interpretation. The disagreement is about the medium requirement, not receipt or remedy alone."
+    },
+    {
+     "id": "lcr-q1-05",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "What does the caption alone usually fail to establish for a case reader?",
+     "choices": [
+      "Which party seeks review and what ruling is under review",
+      "The names of the parties identified in that caption",
+      "The text printed in the case’s identifying heading",
+      "Whether the document includes names on opposing sides"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The caption identifies the case, but procedural roles and the challenged ruling need to be checked in the opinion. Do not infer them solely from name order."
+    },
+    {
+     "id": "lcr-q1-06",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "Which note accurately records Hale’s ending?",
+     "choices": [
+      "Dismissal reversed with an immediate order returning 30 credits",
+      "Dismissal affirmed, but lenders instructed to use writing in future",
+      "Judgment vacated with a finding that Moss proved valid notice",
+      "Dismissal reversed and remanded; repayment not ordered"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "H6 reverses dismissal and remands without repayment. It neither establishes final liability nor affirms the oral-notice theory, and it does not find that Moss proved compliance."
+    },
+    {
+     "id": "lcr-q1-07",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "How should H3 be used during the second reading pass?",
+     "choices": [
+      "To trace why oral knowledge does not satisfy the written-record condition",
+      "To identify the final monetary relief ordered for Hale",
+      "To establish which factual allegations the appellate court proved",
+      "To determine the electronic-record rule expressly adopted in Hale"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "H3 explains why oral knowledge cannot replace the required written record. It does not determine final relief, prove the pleaded facts, or adopt a rule for electronic records."
+    },
+    {
+     "id": "lcr-q1-08",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "What are H1, I3 and S4 in this course?",
+     "choices": [
+      "Labels for separately numbered statutory sections in the packet",
+      "Page references to a published Alder reporter volume",
+      "Identifiers for motions filed by the fictional parties",
+      "Paragraph labels locating material in the fictional packet"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "H1, I3 and S4 are stable paragraph labels in invented opinions. They are not numbered statutory sections, actual reporter pages or motion identifiers."
+    },
+    {
+     "id": "lcr-q1-09",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "Match each opinion component or judicial voice to its role.",
+     "type": "match",
+     "left": [
+      "Caption",
+      "Disposition",
+      "Dissent",
+      "Reasoning"
+     ],
+     "choices": [
+      "Identifies the case and parties",
+      "States what the court orders",
+      "Presents disagreement with the court’s result",
+      "Explains the connection to the outcome"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Caption: Identifies the case and parties; Disposition: States what the court orders; Dissent: Presents disagreement with the court’s result; Reasoning: Explains the connection to the outcome. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q1-10",
+     "section": "lcr-m1",
+     "topic": "Opinion structure",
+     "stem": "Use the lesson’s one-word label for the Reporter of Decisions’ prefatory summary: ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "syllabus"
+      ]
+     ],
+     "explanation": "A syllabus is a prefatory summary. It helps orient the reader but should not replace checking the reasoning in the opinion."
+    },
+    {
+     "id": "lcr-q2-01",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Under packet rule P1, how should Hale’s statement that no writing was delivered be described?",
+     "choices": [
+      "An allegation assumed for the legal-sufficiency motion",
+      "A finding made after weighing the borrower’s and lender’s evidence",
+      "An agreed stipulation removing the notice issue from dispute",
+      "A legal conclusion accepted without supporting factual allegations"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "P1 assumes well-pleaded factual allegations for the specified motion. That is different from weighing evidence, accepting an agreement between the parties, or assuming a bare legal conclusion."
+    },
+    {
+     "id": "lcr-q2-02",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Which statement supplies a factual allegation rather than only a legal conclusion?",
+     "choices": [
+      "The lender’s conduct satisfies the legal elements of liability",
+      "The deduction violates the statutory notice requirement",
+      "Section 4 entitles me to recover the challenged deduction",
+      "The clerk stated the terms orally and gave me no written record"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The clerk’s actions describe events to test against the statute. Liability, illegality and entitlement to recovery are legal conclusions that need support from facts and the governing rule."
+    },
+    {
+     "id": "lcr-q2-03",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "In Iman, the receipt and opening of the PDF are expressly unchallenged trial findings. Under P2, what is the appeal’s task on those facts?",
+     "choices": [
+      "Reassess whether the borrower is credible before reaching the legal question",
+      "Accept the factual findings and defer to the trial court’s statutory meaning",
+      "Accept the findings and independently assess the statutory meaning",
+      "Treat the paper requirement as a factual finding beyond review"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "P2 accepts the unchallenged findings while independently reviewing statutory meaning. A paper-only interpretation is a legal conclusion, not an insulated fact, and the appeal does not retry credibility."
+    },
+    {
+     "id": "lcr-q2-04",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "A reader adds an unmentioned dinner stop to Sol’s facts. What is the problem?",
+     "choices": [
+      "The reader has identified a fact the appellate court necessarily inferred",
+      "The reader has converted the concurrence’s rationale into an accepted finding",
+      "The reader has introduced evidence outside the supplied record",
+      "The reader has supplied a fact that P2 permits the appellate court to find"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The proposed dinner stop is outside the supplied record. Neither an inference actually drawn by the court nor a concurrence supplies it, and P2 does not authorize adding evidence on appeal."
+    },
+    {
+     "id": "lcr-q2-05",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "What does independent, or de novo, review of a legal question mean in this packet?",
+     "choices": [
+      "Reconsidering both the legal meaning and every unchallenged factual finding",
+      "Reconsidering the legal meaning without retrying the supplied facts",
+      "Accepting the trial court’s statutory reading unless it is clearly unreasonable",
+      "Reviewing only the remedy while leaving statutory meaning to the trial court"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Independent legal review reconsiders statutory meaning, while P2 preserves the unchallenged facts. It is not a new trial, deferential review of the legal reading, or review limited to remedy."
+    },
+    {
+     "id": "lcr-q2-06",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Why keep the event timeline separate from the litigation timeline?",
+     "choices": [
+      "To treat events before the complaint as proved and later events as alleged",
+      "To infer that a procedural ruling resolves every earlier factual dispute",
+      "To avoid confusing alleged events with procedural assumptions and rulings",
+      "To omit the motion stage once the underlying events have been arranged"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Separate timelines distinguish alleged events from the motions, assumptions and rulings concerning them. Date order does not establish proof or justify omitting the procedural stage."
+    },
+    {
+     "id": "lcr-q2-07",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Which comparison of the three dispositions is accurate?",
+     "choices": [
+      "Hale and Sol both remand without directing any repayment",
+      "Iman directs a new factual trial, while Hale directs judgment for the borrower",
+      "Hale leaves proof open, while Iman and Sol include specific judgment directions",
+      "All three reversals establish a final repayment obligation to the borrower"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "H6 leaves proof and repayment open. I4 directs judgment for Harbor, while S4 directs return of 20 credits. A reversal does not always require either a new trial or repayment."
+    },
+    {
+     "id": "lcr-q2-08",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "A new exercise says a court found two causes of delay. How should it be compared with Sol?",
+     "choices": [
+      "As a new interpretation of the unchanged sole-cause finding in Sol",
+      "As a changed factual record, not a correction of Sol’s supplied finding",
+      "As a reason to replace the new finding with the facts from Sol",
+      "As a later legal holding that rejects Sol’s statutory interpretation"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The hypothetical changes the accepted record. It does not correct Sol’s existing finding, permit disregarding the new finding, or supply a later opinion overruling Sol."
+    },
+    {
+     "id": "lcr-q2-09",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Match each factual or issue-status label to its meaning.",
+     "type": "match",
+     "left": [
+      "Allegation",
+      "Finding of fact",
+      "Stipulation",
+      "Reserved question"
+     ],
+     "choices": [
+      "A party’s assertion",
+      "A factfinder’s determination",
+      "An agreed proposition",
+      "An issue left undecided"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Allegation: A party’s assertion; Finding of fact: A factfinder’s determination; Stipulation: An agreed proposition; Reserved question: An issue left undecided. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q2-10",
+     "section": "lcr-m1",
+     "topic": "Procedural posture",
+     "stem": "Give the lesson’s one-word procedural term for sending a matter back for further proceedings: ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "remand"
+      ]
+     ],
+     "explanation": "A remand sends the matter back. Its directions determine what further work remains; it does not necessarily require a complete new trial."
+    },
+    {
+     "id": "lcr-q3-01",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Which issue statement best fits Hale?",
+     "choices": [
+      "Whether Hale proved a notice violation and established the amount owed",
+      "Whether alleged oral-only disclosure satisfies the Act’s written-notice condition on this motion",
+      "Whether oral notice may substitute for paper because no PDF was offered",
+      "Whether a failure to use a uniform form requires dismissal of a lender’s defense"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Hale tests whether the pleaded oral-only notice states a violation on P1’s assumptions. It does not decide final proof, require paper instead of every electronic medium, or mandate a uniform form."
+    },
+    {
+     "id": "lcr-q3-02",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Which proposed holding overstates Hale?",
+     "choices": [
+      "Oral disclosure alone does not satisfy sections 1 and 2",
+      "Hale’s alleged absence of a written record states a violation if proved",
+      "Every compliant notice must be printed on paper",
+      "Actual knowledge does not replace the required written record"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "H4–H5 expressly leave electronic records open. The paper-only proposition converts a nonbinding suggestion into a holding, while the other propositions track the reasoning."
+    },
+    {
+     "id": "lcr-q3-03",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Why is “reversed” not a complete holding statement?",
+     "choices": [
+      "It identifies the winning party but also establishes every requested remedy",
+      "It gives a procedural result without identifying the legal question and answer",
+      "It supplies the applicable rule only when the lower decision followed trial",
+      "It establishes that the lower court’s factual findings were all incorrect"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A disposition identifies the procedural action but not the legal answer and its conditions. Reversal does not automatically award all requested relief or reject every factual finding."
+    },
+    {
+     "id": "lcr-q3-04",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Why is H5’s suggestion about a uniform paper form treated as dictum in the lesson?",
+     "choices": [
+      "The suggestion appears after the rule analysis rather than in the opening paragraph",
+      "The suggestion concerns policy, and policy reasons cannot support a holding",
+      "The suggestion favors lenders, while the court ultimately rules for a borrower",
+      "The oral-only issue is resolved without it, and electronic records are expressly reserved"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "H3–H4 resolve oral-only notice without H5’s form suggestion, and H5 expressly reserves electronic records. Location, policy subject matter and which party benefits do not by themselves classify a statement as dictum."
+    },
+    {
+     "id": "lcr-q3-05",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Which statement preserves Sol’s holding at a useful level of generality?",
+     "choices": [
+      "Section 3 bars deductions whenever closure contributes to any part of a delay",
+      "Section 3 bars the deduction on the accepted finding that the unavailable agreed desk solely caused delay",
+      "Compliant notice becomes invalid whenever an agreed return point closes early",
+      "A borrower receives repayment whenever no alternative return point was agreed"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "S3–S4 rely on the agreed return point and the accepted sole-cause finding. Closure as one contributing cause is not that condition, and section 3 does not retroactively invalidate an otherwise compliant notice."
+    },
+    {
+     "id": "lcr-q3-06",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "What should a brief do with an expressly reserved question?",
+     "choices": [
+      "Identify it as undecided instead of supplying an implied holding",
+      "Infer the answer from which party prevailed on the decided issue",
+      "Treat the reservation as an exception to the rule the court adopted",
+      "Use the separate opinion’s answer as the court’s default resolution"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An express reservation leaves a question undecided. The winner, a supposed implied exception or a separate opinion does not supply the missing majority holding."
+    },
+    {
+     "id": "lcr-q3-07",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "A brief states only the statute and the word “reversed.” Which important component is missing?",
+     "choices": [
+      "The parties’ allegations restated as final factual findings",
+      "The separate opinion’s rationale substituted for the majority’s explanation",
+      "The requested remedy stated as though the court had ordered it",
+      "The court’s reasoning connecting the rule and material facts"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The brief needs the court’s connection between the rule and material facts. Turning allegations into findings, substituting a separate opinion or treating requested relief as ordered would introduce errors instead."
+    },
+    {
+     "id": "lcr-q3-08",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "What is a limit on the “remove the sentence” test for identifying dicta?",
+     "choices": [
+      "A proposition becomes binding whenever its removal shortens the opinion",
+      "A reserved issue becomes decided if discussing it supports the opinion’s theme",
+      "Two stated grounds make both grounds unnecessary and therefore nonbinding",
+      "Alternative grounds may need jurisdiction-specific analysis rather than automatic deletion"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The removal test is a clue rather than a universal rule. Treatment of adopted alternative grounds can depend on jurisdiction; shortening a sentence, mentioning a reserved issue or stating two reasons does not mechanically settle its status."
+    },
+    {
+     "id": "lcr-q3-09",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Match each case-brief component to the question it answers.",
+     "type": "match",
+     "left": [
+      "Issue",
+      "Holding",
+      "Reasoning",
+      "Disposition"
+     ],
+     "choices": [
+      "The legal question to be answered",
+      "The bounded answer necessary to decide the issue",
+      "The explanation supporting the answer",
+      "The action taken on the challenged decision"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Issue: The legal question to be answered; Holding: The bounded answer necessary to decide the issue; Reasoning: The explanation supporting the answer; Disposition: The action taken on the challenged decision. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q3-10",
+     "section": "lcr-m2",
+     "topic": "Issues and holdings",
+     "stem": "Use the lesson’s term for statements not necessary to deciding the issue before the court: ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "dicta",
+       "dictum",
+       "obiter dicta",
+       "obiter dictum"
+      ]
+     ],
+     "explanation": "Dictum is singular and dicta plural. Such statements can be persuasive, but their presence in an opinion does not automatically make them its binding holding."
+    },
+    {
+     "id": "lcr-q4-01",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Which sentence supplies the reasoning bridge in Hale?",
+     "choices": [
+      "Oral knowledge cannot replace a written record without removing section 2’s condition",
+      "The statute governs deposits, and Hale’s dispute concerns a deposit",
+      "Hale alleges a 30-credit deduction and asks to recover that amount",
+      "The trial court dismissed the claim, and Hale seeks reversal of that ruling"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "H3 connects section 2 to the alleged oral-only disclosure: knowledge cannot substitute for a retainable written record. Topic, amount and procedural history alone do not explain that inference."
+    },
+    {
+     "id": "lcr-q4-02",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Where does the Iman dissent differ from the majority on the supplied account?",
+     "choices": [
+      "Whether the PDF was received before the borrower took possession",
+      "Whether the borrower had a practical ability to save or print the PDF",
+      "Whether the equipment was returned after the stated deadline",
+      "The interpretation of the medium requirement, while accepting the relevant findings"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "ID1 accepts receipt and retainability but reads the statute to require physical paper. The disagreement is not about the established timing, save/print ability or late return."
+    },
+    {
+     "id": "lcr-q4-03",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "What does concurring in the judgment establish about Judge Ortiz in Sol?",
+     "choices": [
+      "Agreement with the statutory rationale as well as the repayment result",
+      "Agreement with the result, without necessarily joining the majority’s reasoning",
+      "Agreement with the rationale but disagreement with the ordered repayment",
+      "Agreement that the majority adopted the concurrence’s general fairness rationale"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "SC1 agrees that 20 credits must be returned but declines to join the majority’s statutory analysis. Agreement with the judgment neither adopts every rationale nor makes the concurrence’s reasoning the majority rule."
+    },
+    {
+     "id": "lcr-q4-04",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Which response fairly addresses Northbank’s notice argument?",
+     "choices": [
+      "Section 3 independently limits deductions even when notice complies",
+      "A valid notice excuses the closure because section 1 appears before section 3",
+      "Section 3 makes the earlier paper notice invalid rather than separately restricting deduction",
+      "The concurrence’s rationale replaces the need to establish sole causation"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "S3 treats section 3 as an independent restriction alongside valid notice. Section order does not excuse closure, closure does not erase the prior notice, and the concurrence does not remove the causal condition."
+    },
+    {
+     "id": "lcr-q4-05",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "What is wrong with stating “Sol forbids all unfair charges” as the majority’s rule?",
+     "choices": [
+      "It understates the majority’s rule because every lender-caused delay qualifies",
+      "It preserves the majority’s rule because fairness replaces the sole-cause finding",
+      "It blends a separate fairness view into a broader rule the majority did not adopt",
+      "It identifies the enacted test because the concurrence agreed with repayment"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The broad fairness statement substitutes the concurrence’s rationale for the majority’s bounded statutory rule. It omits sole causation, which is not replaced by fairness or by agreement on repayment."
+    },
+    {
+     "id": "lcr-q4-06",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "An opinion quotes a party’s theory and then rejects it. How should a reader use the quoted theory?",
+     "choices": [
+      "Attribute it to the court because the court chose to quote the language",
+      "Attribute it to the party and preserve the court’s rejection",
+      "Treat it as an alternative holding even though the court rejects it",
+      "Use it as the rule if its wording is clearer than the court’s response"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Preserve the party attribution and the court’s rejection. A quotation’s appearance, clarity or usefulness does not turn an expressly rejected proposition into an adopted or alternative holding."
+    },
+    {
+     "id": "lcr-q4-07",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Which question best tests the scope of an argument?",
+     "choices": [
+      "Does the conclusion match the requested remedy of the party I favor?",
+      "Does the argument contain more supporting quotations than its opponent?",
+      "Does the opinion discuss a factual similarity without stating a limiting condition?",
+      "Is the conclusion broader than the supported legal and factual premises?"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An argument’s scope depends on what its legal and factual premises support. Matching preferred relief, counting quotations or merely mentioning a similarity does not establish that the conclusion follows."
+    },
+    {
+     "id": "lcr-q4-08",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "A student finds Iman’s dissent more persuasive. What remains necessary in the student’s case brief?",
+     "choices": [
+      "Describe the dissent’s reasoning as controlling because it is more persuasive",
+      "Combine the dissent’s reasoning with the majority’s disposition as one holding",
+      "Report the vote as agreement with the result but omit the separate disagreement",
+      "Accurately describe the majority’s holding and the dissent’s separate status"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A brief must report the actual majority holding and separate dissent accurately. A preference for the dissent cannot make it controlling, blend its reasoning into the majority, or erase its disagreement with the result."
+    },
+    {
+     "id": "lcr-q4-09",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Match each kind of argument to its function in the reasoning.",
+     "type": "match",
+     "left": [
+      "Textual argument",
+      "Structural argument",
+      "Policy argument",
+      "Counterargument"
+     ],
+     "choices": [
+      "Focuses on enacted wording",
+      "Reads provisions in relation to each other",
+      "Examines goals or practical consequences",
+      "Supports the competing conclusion"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Textual argument: Focuses on enacted wording; Structural argument: Reads provisions in relation to each other; Policy argument: Examines goals or practical consequences; Counterargument: Supports the competing conclusion. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q4-10",
+     "section": "lcr-m2",
+     "topic": "Reasoning and judicial voices",
+     "stem": "Use the lesson’s term for a reason supporting the competing conclusion: ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "counterargument",
+       "counter-argument",
+       "counter argument",
+       "opposing argument"
+      ]
+     ],
+     "explanation": "A counterargument should be presented fairly before a response explains why it does or does not change the analysis."
+    },
+    {
+     "id": "lcr-q5-01",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Which product is a rule synthesis rather than only a list of case summaries?",
+     "choices": [
+      "A chronological account of each case’s facts and winning party",
+      "A compilation of broad quotations without reconciling their qualifications",
+      "An explanation of how the holdings fit together, with their conditions and limits",
+      "A statement drawn from the newest opinion without checking the earlier holdings"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A synthesis explains relationships, conditions and limits that account for the outcomes. Chronology, broad quotations and the newest case considered alone do not perform that task."
+    },
+    {
+     "id": "lcr-q5-02",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "What does the phrase “only if” in section 1 establish about compliant notice?",
+     "choices": [
+      "It is necessary for the deduction, but does not eliminate section 3",
+      "It makes notice sufficient whenever the borrower returns equipment late",
+      "It creates an exception to section 3 whenever the notice lists the deadline",
+      "It requires paper notice whenever the lender intends to deduct a charge"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Only if establishes a prerequisite. It does not make notice sufficient despite section 3, create a closure exception, or add a paper requirement absent from the majority holdings."
+    },
+    {
+     "id": "lcr-q5-03",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Why do Hale and Iman not conflict on paper versus electronic records?",
+     "choices": [
+      "Iman overrules Hale’s paper-only holding because it was decided later",
+      "Hale’s paper suggestion binds trial courts but not the Iman borrower",
+      "The different procedural postures make their substantive holdings incomparable",
+      "Hale rejects oral-only notice and expressly leaves electronic records undecided"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Hale rejects oral-only notice and reserves electronic records. Iman addresses a different medium question without overruling a paper holding; procedural differences do not make comparison of their substantive reasoning impossible."
+    },
+    {
+     "id": "lcr-q5-04",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Why can valid notice coexist with repayment in Sol?",
+     "choices": [
+      "The desk closure retroactively makes Sol’s written notice fail section 2",
+      "The concurrence changes the notice rule by adopting a fairness exception",
+      "The sole lender-caused delay triggers an independent statutory prohibition",
+      "Section 4 authorizes repayment whenever the borrower requests it"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Sol accepts compliant notice but applies the independent sole-cause prohibition. Section 3 does not retroactively invalidate notice, the concurrence does not legislate, and section 4 still requires an unlawful deduction."
+    },
+    {
+     "id": "lcr-q5-05",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Before combining actual cases, which inquiry matters to their legal force?",
+     "choices": [
+      "Whether the decisions reach the same result for parties with similar facts",
+      "Their jurisdiction, hierarchy, publication status and subsequent treatment",
+      "Whether the latest summary describes the earlier cases in favorable language",
+      "Whether the broadest proposition appears in the longest of the opinions"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Legal force depends on jurisdiction, hierarchy, publication and treatment. Similar outcomes, favorable summaries or the length of a proposition’s discussion do not establish authority."
+    },
+    {
+     "id": "lcr-q5-06",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Which is a factual gap rather than an interpretive gap?",
+     "choices": [
+      "Whether the word delivery legally includes sending without receipt",
+      "Whether section 2 should be read as requiring paper in all cases",
+      "Whether the sole-cause provision is independent of the notice condition",
+      "Whether the borrower actually received the notice before possession"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Receipt timing asks what occurred. The other options concern the meaning or interaction of legal rules, even when factual evidence informs their application."
+    },
+    {
+     "id": "lcr-q5-07",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "A genuinely later opinion expressly contradicts an earlier holding under unchanged text. What is the sound next step?",
+     "choices": [
+      "Follow the later opinion solely because its date is more recent",
+      "Investigate authority and treatment instead of inventing a reconciliation",
+      "Treat both rules as optional alternatives without resolving their authority",
+      "Narrow the earlier rule until no contradiction remains, even without textual support"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A genuine contradiction requires investigating which court had authority and what later treatment shows. Recency alone, optional competing rules or unsupported narrowing cannot resolve it."
+    },
+    {
+     "id": "lcr-q5-08",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Which limit belongs in a synthesis of Iman?",
+     "choices": [
+      "Its holding requires proof of paper delivery whenever digital terms are disputed",
+      "Its holding treats all sent messages as timely delivered even without receipt",
+      "It does not decide unopened messages or links to changing pages",
+      "Its holding supplies the rule for electronic service of litigation documents"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "I3 and I6 reserve unopened messages, changing links and technical delivery failures. The holding neither requires paper in all contested cases nor establishes sending alone or litigation-service rules."
+    },
+    {
+     "id": "lcr-q5-09",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Match each Alder opinion or provision to its contribution to the synthesis.",
+     "type": "match",
+     "left": [
+      "Hale",
+      "Iman",
+      "Sol",
+      "Section 4"
+     ],
+     "choices": [
+      "Oral disclosure alone fails written notice",
+      "The delivered retainable PDF satisfies notice",
+      "Sole lender-caused delay independently bars deduction",
+      "Supplies recovery of the unlawfully deducted portion"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Hale: Oral disclosure alone fails written notice; Iman: The delivered retainable PDF satisfies notice; Sol: Sole lender-caused delay independently bars deduction; Section 4: Supplies recovery of the unlawfully deducted portion. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q5-10",
+     "section": "lcr-m3",
+     "topic": "Rule synthesis",
+     "stem": "Complete the course term for combining case holdings into a bounded framework: rule ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "synthesis"
+      ]
+     ],
+     "explanation": "Rule synthesis explains how the authorities fit together, including distinctions and open boundaries; it is more than a chronological list of summaries."
+    },
+    {
+     "id": "lcr-q6-01",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Which comparison to Iman most directly supports the written-record condition?",
+     "choices": [
+      "Both borrowers saw terms orally explained before taking possession",
+      "Both borrowers could save the delivered terms before possession",
+      "Both borrowers eventually learned the charge before the deduction occurred",
+      "Both borrowers received a digital link whose original content could not be retained"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The saved delivered terms directly match Iman’s retainable written record before possession. Oral explanation, knowledge only before deduction or an unretainable link omit a relevant condition."
+    },
+    {
+     "id": "lcr-q6-02",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Dana views a changing page, but the facts do not say whether its original content could be saved. What should the analysis do?",
+     "choices": [
+      "Assume every changing page is retainable because it is digital",
+      "Assume no page can ever be retained because it is online",
+      "Identify the retainability gap and explain how evidence could affect the comparison",
+      "Treat Iman as expressly deciding the changing-link question"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Iman reserves changing links, and the technical fact is missing. Conditional analysis connects that gap to section 2 rather than inventing a fact or a holding."
+    },
+    {
+     "id": "lcr-q6-03",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Leon’s continued use and the desk closure both caused delay on the accepted findings. Which distinction from Sol matters?",
+     "choices": [
+      "The later return means Sol’s return-point requirement no longer matters",
+      "The lender’s closure alone establishes that it was the only cause of delay",
+      "The different equipment makes the statutory causation condition inapplicable",
+      "The record lacks Sol’s sole lender-cause finding"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An accepted mixed-cause finding differs from Sol’s sole-cause premise. Closure does not itself establish that it alone caused delay, and equipment type or eventual return date does not replace the causal inquiry."
+    },
+    {
+     "id": "lcr-q6-04",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "What must a persuasive distinction explain?",
+     "choices": [
+      "Why the different fact affects the governing rule or earlier rationale",
+      "Why the new case has more factual differences than similarities overall",
+      "Why the earlier holding should be rejected whenever the new outcome seems unfair",
+      "Why a different fact automatically prevents the earlier rule from applying"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A persuasive distinction explains how the different fact affects the rule or rationale. Counting differences, preferring a different outcome or treating any difference as decisive omits that connection."
+    },
+    {
+     "id": "lcr-q6-05",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Version A changes receipt timing; version B restores timing and changes causation. What is the correct method?",
+     "choices": [
+      "Analyze each version using its own stated replacements and baseline facts",
+      "Carry A’s late receipt into B without acknowledging the instruction",
+      "Combine all changed facts and call the combination both versions",
+      "Ignore the baseline because any hypothetical removes all earlier facts"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Independent variants isolate different legal effects. Carrying a change across versions silently creates a third problem and obscures what each supplied change does."
+    },
+    {
+     "id": "lcr-q6-06",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Which statement is a useful conditional prediction for Dana?",
+     "choices": [
+      "If the delivered original terms could be retained, the analogy to Iman strengthens",
+      "If Dana saw the terms, retainability is established regardless of available evidence",
+      "If the lender used a link, Iman’s PDF holding necessarily requires repayment",
+      "If the page later changed, the delivered original could not have been retained"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The conditional ties a specific unresolved fact to section 2. Viewing terms does not establish retainability, and using or changing a link alone does not resolve whether original content could be retained."
+    },
+    {
+     "id": "lcr-q6-07",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "What does distinguishing Sol on mixed causes mean?",
+     "choices": [
+      "Its holding may not establish the section 3 bar on the different record",
+      "Sol’s causal requirement becomes optional whenever more than one cause is found",
+      "The difference establishes the entire deduction’s legality without analyzing notice",
+      "Sol’s holding no longer applies even to later cases with a sole-cause finding"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The different causal record limits Sol’s application without overruling it. Other conditions still matter, and the sole-cause holding remains applicable when its conditions are present."
+    },
+    {
+     "id": "lcr-q6-08",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "A lender sent a notice before possession, but it arrived later. What boundary does Iman leave open?",
+     "choices": [
+      "Whether the PDF in Iman contained written words",
+      "Whether the Iman findings included timely receipt",
+      "Whether sending alone constitutes timely delivery under the Act",
+      "Whether Hale involved oral disclosure rather than a PDF"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Iman’s facts include both timely sending and receipt. Its holding therefore does not select between transmission and receipt on this new timing pattern."
+    },
+    {
+     "id": "lcr-q6-09",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Match each comparison technique to its analytical task.",
+     "type": "match",
+     "left": [
+      "Analogy",
+      "Distinction",
+      "Conditional analysis",
+      "Changed-fact hypothetical"
+     ],
+     "choices": [
+      "Argues from legally significant similarities",
+      "Explains a legally significant difference",
+      "Shows how an unresolved premise changes the reasoning",
+      "Explicitly alters specified baseline facts"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Analogy: Argues from legally significant similarities; Distinction: Explains a legally significant difference; Conditional analysis: Shows how an unresolved premise changes the reasoning; Changed-fact hypothetical: Explicitly alters specified baseline facts. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q6-10",
+     "section": "lcr-m3",
+     "topic": "Analogy and distinction",
+     "stem": "Use the lesson’s term: a fact that can affect the analysis under the governing rule is a ___ fact.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "material"
+      ]
+     ],
+     "explanation": "A material fact matters through the rule or issue being analyzed. A difference is not material merely because it can be described."
+    },
+    {
+     "id": "lcr-q7-01",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "What should a reader check before substituting an everyday meaning for a statutory term?",
+     "choices": [
+      "Whether one dictionary lists a broader meaning favorable to the desired result",
+      "Whether the latest case paraphrases the word without discussing its definition",
+      "Whether a policy goal could be served by disregarding the defined scope",
+      "Whether the enactment supplies a definition applicable to that term"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Check whether an applicable enacted definition supplies the meaning. A favorable dictionary sense, an unexplained case paraphrase or a policy preference cannot justify skipping that definition."
+    },
+    {
+     "id": "lcr-q7-02",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "Which reading makes section 3 lose its independent function in the Alder Act?",
+     "choices": [
+      "Treating valid notice as conclusive permission for every late-return deduction",
+      "Treating notice as necessary while also checking the cause-of-delay restriction",
+      "Applying the sole-cause finding after identifying the agreed return point",
+      "Separating the recovery provision from unrelated unprovided remedies"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "If notice always authorizes deduction, the independent section 3 prohibition does no work. Sol rejects that approach by reading the provisions together."
+    },
+    {
+     "id": "lcr-q7-03",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "What is the sound use of an anti-surplusage argument here?",
+     "choices": [
+      "Declare that one canon mechanically resolves every possible statutory dispute",
+      "Replace inconvenient words with the writer’s preferred policy",
+      "Ignore all neighboring sections once one useful phrase appears",
+      "Explain which words or provision a competing interpretation would make ineffective"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The argument gains force from showing the text’s operation. It is an interpretive tool, not a universal command to ignore context or rewrite the enactment."
+    },
+    {
+     "id": "lcr-q7-04",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "If an exercise expressly changes the statute for a new transaction, how should an older case be used?",
+     "choices": [
+      "Treat the old holding as controlling without comparing its statutory premise",
+      "Assume the amendment applies to earlier events even without an applicability rule",
+      "Treat any amended provision as eliminating every insight from the earlier reasoning",
+      "Compare its reasoning while accounting for the changed governing text"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Compare the older reasoning to the changed text and its stated applicability. Do not ignore the amendment, assume retroactive reach, or conclude that every part of the older reasoning has become useless."
+    },
+    {
+     "id": "lcr-q7-05",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "What is wrong with using the broadest dictionary meaning as the automatic statutory answer?",
+     "choices": [
+      "A possible meaning may not be the ordinary or intended contextual meaning",
+      "Dictionaries can never provide useful evidence about language",
+      "The first listed definition always overrides an enacted definition",
+      "Every party disagreement necessarily proves equally plausible readings"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Interpretation requires context, definitions and structure. A dictionary’s range of possible uses is informative but does not itself select the meaning governing the provision."
+    },
+    {
+     "id": "lcr-q7-06",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "Which statement correctly describes the external Taniguchi activity’s purpose?",
+     "choices": [
+      "Historical practice reading reasoning and separate opinions with page references",
+      "Verification that the opinion remains controlling on every related issue today",
+      "Application of federal cost-recovery law to the fictional Alder deduction",
+      "A rule that the majority’s reading of one word determines all statutory definitions"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The optional activity practices reading an actual historical opinion and attributing its reasoning. It neither verifies current treatment nor imports federal cost law into Alder or establishes a universal interpretation rule."
+    },
+    {
+     "id": "lcr-q7-07",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "A writer argues paper would better protect borrowers. How can that be used consistently with the packet?",
+     "choices": [
+      "As a paper-only rule already established by Hale’s form suggestion",
+      "As an exception to Iman that follows from finding the dissent more persuasive",
+      "As criticism or a proposal while accurately identifying Iman’s majority rule",
+      "As proof that the majority’s retained-PDF findings must be rejected"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The policy view can support criticism or a proposed amendment. Hale’s suggestion and Iman’s dissent do not establish a paper rule, and disagreement with interpretation does not negate accepted facts."
+    },
+    {
+     "id": "lcr-q7-08",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "Why does Iman not resolve the sending-versus-receipt timing dispute?",
+     "choices": [
+      "Its accepted facts establish both before possession, so that boundary was not decided",
+      "Its majority makes actual knowledge sufficient regardless of delivery time",
+      "Its dissent’s physical-paper theory establishes a binding receipt-time rule",
+      "Its statutory analysis treats the transmission timestamp as the only material fact"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Iman establishes timely sending and receipt on its findings. It does not choose between those events when they diverge, make knowledge sufficient, or adopt a binding timing rule from the dissent."
+    },
+    {
+     "id": "lcr-q7-09",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "Match each interpretive concept to its meaning.",
+     "type": "match",
+     "left": [
+      "Statutory definition",
+      "Whole-text reasoning",
+      "Policy proposal",
+      "Ambiguity"
+     ],
+     "choices": [
+      "An enacted meaning for a term",
+      "Reading provisions in their statutory context",
+      "A recommendation to change the law",
+      "Competing plausible readings remaining in context"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Statutory definition: An enacted meaning for a term; Whole-text reasoning: Reading provisions in their statutory context; Policy proposal: A recommendation to change the law; Ambiguity: Competing plausible readings remaining in context. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q7-10",
+     "section": "lcr-m4",
+     "topic": "Statutory interpretation",
+     "stem": "Supply the exact missing word from fictional section 3: delay caused ___ by the lender’s failure to make the agreed return point available.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "solely"
+      ]
+     ],
+     "explanation": "Solely is the packet’s causal limit. A mixed-cause finding therefore differs from the unchallenged sole-cause finding in Sol."
+    },
+    {
+     "id": "lcr-q8-01",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Which finding most strongly connects original Juno’s notice to Iman?",
+     "choices": [
+      "Juno knew the amount before deduction, regardless of when any notice arrived",
+      "Cedar sent the PDF before possession, with receipt and retention left unknown",
+      "Juno received, opened and saved the terms before taking possession",
+      "Juno could eventually download terms after returning the equipment"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "F1 supplies the delivery, timely opening and retention that closely match Iman. Knowledge only before deduction, sending with receipt unknown, or later access to terms omits those premises."
+    },
+    {
+     "id": "lcr-q8-02",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Why does valid notice not end original Juno’s analysis?",
+     "choices": [
+      "A return-point closure automatically invalidates a previously compliant notice",
+      "The majority in Hale requires paper even where a PDF can be retained",
+      "The accepted sole-cause closure finding independently triggers section 3",
+      "Section 4 allows recovery without identifying any violation of sections 1–3"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "F2–F3 establish sole lender-caused delay under section 3 despite compliant notice. Closure does not invalidate the PDF, Hale does not require paper, and section 4 requires a violation."
+    },
+    {
+     "id": "lcr-q8-03",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "What remains true in changed-fact version A even if Cedar wins its delivery argument?",
+     "choices": [
+      "The notice issue necessarily eliminates all causation analysis",
+      "The court’s findings change from sole cause to mixed causes",
+      "The unchanged sole-cause finding still supplies the section 3 bar",
+      "Juno loses the ability to identify any statutory ground for recovery"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Version A changes receipt timing only. F2–F3 remain intact, so the open delivery question need not determine the ultimate packet result."
+    },
+    {
+     "id": "lcr-q8-04",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Which premise must be restored before analyzing changed-fact version B?",
+     "choices": [
+      "Version A’s late receipt while retaining original sole causation",
+      "Original F1’s timely receipt, opening and saving of the notice",
+      "Original timely receipt while retaining F3’s sole-cause finding unchanged",
+      "Original timely receipt plus a newly agreed alternative return point"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Version B restores original timely receipt, opening and saving, then changes the causal findings. It does not retain version A’s timing, retain original sole causation, or add an alternative return point."
+    },
+    {
+     "id": "lcr-q8-05",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "What follows from version B’s accepted finding of two causes, under the supplied claims and original compliant notice?",
+     "choices": [
+      "Sol establishes section 3 whenever lender closure is one contributing cause",
+      "The appellate court must replace mixed causation with the sole-cause finding in Sol",
+      "Valid notice becomes insufficient under section 2 whenever mixed causes are found",
+      "The packet does not establish section 3’s sole-cause bar or a section 4 recovery on that ground"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Version B’s accepted mixed-cause finding fails the sole-cause condition, with original notice and no other asserted violation. Closure as one cause is insufficient; the appeal cannot replace the finding or treat it as a notice defect."
+    },
+    {
+     "id": "lcr-q8-06",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Which requested recovery is supported for original Juno by the supplied Act and record?",
+     "choices": [
+      "The whole original deposit, whether or not that amount was deducted unlawfully",
+      "The 25-credit portion deducted in violation of the Act",
+      "The deduction plus attorney fees inferred from the existence of a statutory violation",
+      "An additional inconvenience award inferred from the requirement of timely notice"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Section 4 supports the unlawfully deducted 25-credit portion. It does not supply return of an undeducted balance, attorney fees or an additional inconvenience award."
+    },
+    {
+     "id": "lcr-q8-07",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "What does a score of 12 on the capstone rubric represent?",
+     "choices": [
+      "An externally approved law-school grade recorded by a university",
+      "Automatic confirmation that current law in every jurisdiction was checked",
+      "The maximum self-review score, not university credit or certified legal competence",
+      "Permission to describe the fictional opinions as actual precedent"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The six 0–2 criteria guide revision. They neither award external credit nor replace legal research, independent review or accurate identification of fictional sources."
+    },
+    {
+     "id": "lcr-q8-08",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Which revision best improves a memo containing only rule quotations and a conclusion?",
+     "choices": [
+      "Expand the rule quotations while keeping the application as a single conclusion",
+      "Add fact-to-rule reasoning, the strongest counterargument and a supported response",
+      "Replace the majority’s conditions with a broader rule drawn from the concurrence",
+      "Remove open questions rather than explaining whether they affect the outcome"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Add an explicit connection between facts and rules, a fair competing argument and a response. More quotations, a broader concurrence-based rule or deletion of uncertainty does not supply supported application."
+    },
+    {
+     "id": "lcr-q8-09",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "Match each capstone document to the features it must preserve.",
+     "type": "match",
+     "left": [
+      "Hale brief",
+      "Iman brief",
+      "Sol brief",
+      "Juno memo"
+     ],
+     "choices": [
+      "Preserves assumed allegations and remand without repayment",
+      "Preserves the retainable-PDF holding and separate dissent",
+      "Preserves sole causation and the independent statutory bar",
+      "Applies the synthesis to the baseline and independent variants"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Hale brief: Preserves assumed allegations and remand without repayment; Iman brief: Preserves the retainable-PDF holding and separate dissent; Sol brief: Preserves sole causation and the independent statutory bar; Juno memo: Applies the synthesis to the baseline and independent variants. Keep these roles distinct when reading and applying an opinion."
+    },
+    {
+     "id": "lcr-q8-10",
+     "section": "lcr-m4",
+     "topic": "Case-reading capstone",
+     "stem": "The capstone rubric has six criteria worth at most two points each. Enter only the maximum total: ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "12",
+       "twelve"
+      ]
+     ],
+     "explanation": "Six criteria times two points gives 12. This total is a self-review guide, not an external passing standard."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "law-case-reading-cards",
+   "title": "Case Reading and Legal Reasoning notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "First pass through an opinion",
+     "back": "Identify the court, procedural task and disposition before compressing the reasoning.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c2",
+     "front": "Why label the speaker?",
+     "back": "A passage may describe a party, lower court, majority or separate opinion; appearing in the document does not make it the court’s adopted rule.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c3",
+     "front": "Syllabus versus opinion",
+     "back": "Use a prefatory summary to navigate, then check the proposition and qualifications in the actual opinion.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c4",
+     "front": "Caption versus procedural roles",
+     "back": "The caption identifies parties; the opinion establishes who seeks review and what ruling is challenged.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c5",
+     "front": "Three reading passes",
+     "back": "Orient to task and outcome; trace the reasoning; compress and check a study brief.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c6",
+     "front": "Hale’s first-pass result",
+     "back": "Dismissal reversed and remanded without ordering repayment. Proof remains open.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c7",
+     "front": "Iman’s distinct voices",
+     "back": "The majority accepts the retainable PDF on the findings; the dissent favors physical paper.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c8",
+     "front": "Packet paragraph references",
+     "back": "H1, I3 and S4 locate original fictional paragraphs. They are not actual reporter citations.",
+     "topic": "Opinion structure"
+    },
+    {
+     "id": "c9",
+     "front": "Hale’s fact status",
+     "back": "Its well-pleaded facts are assumed for the P1 legal-sufficiency motion, not found after trial.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c10",
+     "front": "Iman and Sol under P2",
+     "back": "Accept the expressly unchallenged trial findings and independently assess statutory meaning.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c11",
+     "front": "De novo is not a new trial",
+     "back": "Independent legal review does not authorize new evidence or replacing the packet’s accepted findings.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c12",
+     "front": "Two timelines",
+     "back": "Separate underlying events from complaint, motion, ruling and appeal; label fact status on the event timeline.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c13",
+     "front": "Factual allegation versus legal conclusion",
+     "back": "“The clerk gave no writing” describes an event; “the lender violated the Act” states a legal conclusion requiring support.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c14",
+     "front": "Read remand directions",
+     "back": "A remand sends the matter back; its directions determine remaining proceedings and do not always require a complete new trial.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c15",
+     "front": "Record discipline",
+     "back": "Do not add an unmentioned fact to explain an opinion. Label a changed premise as a new hypothetical.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c16",
+     "front": "Three different reversals",
+     "back": "Hale leaves proof open; Iman directs judgment for Harbor; Sol directs return of the specified deduction.",
+     "topic": "Procedural posture"
+    },
+    {
+     "id": "c17",
+     "front": "A useful issue statement",
+     "back": "Connect the governing rule, decisive facts and procedural setting to the question actually answered.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c18",
+     "front": "A bounded holding",
+     "back": "State the court’s legal answer with the conditions and limits that made it necessary to the decision.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c19",
+     "front": "Hale’s medium limit",
+     "back": "Oral disclosure alone is insufficient; the opinion expressly does not decide electronic records.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c20",
+     "front": "Why H5 is dictum",
+     "back": "The paper-form suggestion is unnecessary to resolve oral-only notice and expressly does not impose that form.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c21",
+     "front": "Disposition is not the whole holding",
+     "back": "“Reversed” states the action on the decision, but omits the legal question, answer and reasoning.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c22",
+     "front": "Sol’s bounded proposition",
+     "back": "Section 3 bars the deduction on the accepted finding of sole lender-caused unavailability of the agreed return point.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c23",
+     "front": "A reserved question",
+     "back": "It remains undecided; neither party receives an implied holding merely because the opinion mentions the subject.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c24",
+     "front": "Alternative grounds caution",
+     "back": "A sentence-removal test is only a clue; adopted alternative grounds may require jurisdiction-specific precedential analysis.",
+     "topic": "Issues and holdings"
+    },
+    {
+     "id": "c25",
+     "front": "Reasoning chain",
+     "back": "Legal premise → relevant fact and its status → explained inference → bounded conclusion.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c26",
+     "front": "Text, structure and policy",
+     "back": "Identify the role each reason plays; counting policy sentences does not establish their legal force.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c27",
+     "front": "Fair counterargument",
+     "back": "Present the competing premise accurately, then explain your response instead of attacking a caricature.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c28",
+     "front": "Iman’s actual disagreement",
+     "back": "The dissent accepts receipt and retainability but interprets the statute as requiring a physical document.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c29",
+     "front": "Sol’s concurrence",
+     "back": "It agrees with return of 20 credits but offers a different rationale; it does not join the majority’s statutory analysis.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c30",
+     "front": "Agreement with judgment",
+     "back": "Agreement with the result does not establish agreement with every reason in the lead opinion.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c31",
+     "front": "Quotation context",
+     "back": "Preserve speaker, conditions and the surrounding response; a rejected party quotation is not an adopted holding.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c32",
+     "front": "Criticism versus attribution",
+     "back": "You may favor a dissent while accurately reporting which majority holding governs under the packet’s authority rule.",
+     "topic": "Reasoning and judicial voices"
+    },
+    {
+     "id": "c33",
+     "front": "Beyond case summaries",
+     "back": "Explain how the holdings fit together and account for different results, including their boundaries.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c34",
+     "front": "Hale plus Iman",
+     "back": "A written record is required, but paper is not exclusive; Iman’s retainable PDF is distinct from Hale’s oral-only notice.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c35",
+     "front": "Iman plus Sol",
+     "back": "Compliant notice does not eliminate the independent restriction on sole lender-caused delay.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c36",
+     "front": "Only if",
+     "back": "A prerequisite is necessary, not necessarily sufficient permission to ignore other conditions.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c37",
+     "front": "Authority before synthesis",
+     "back": "Check hierarchy, jurisdiction, publication and treatment. P3 supplies that framework only for the fictional packet.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c38",
+     "front": "Comparison matrix",
+     "back": "Use parallel categories: posture, material facts, issue, holding and limits, each with a pinpoint.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c39",
+     "front": "Factual versus legal gap",
+     "back": "Receipt time asks what happened; whether sending alone is delivery asks what the rule means.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c40",
+     "front": "Genuine conflict",
+     "back": "Investigate authority and treatment rather than averaging contradictory rules or assuming later always controls.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c41",
+     "front": "A strong analogy",
+     "back": "Identify the earlier reason, the matching material fact and why it supports similar treatment.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c42",
+     "front": "A strong distinction",
+     "back": "Connect a different fact to a condition or rationale; naming any difference is insufficient.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c43",
+     "front": "Materiality depends on the issue",
+     "back": "Equipment color has no supplied role in the notice question; timing and retainability do.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c44",
+     "front": "Dana’s changing page",
+     "back": "Iman leaves changing links open. Ask whether the borrower could retain the original delivered terms rather than guessing.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c45",
+     "front": "Leon’s mixed causes",
+     "back": "An accepted mixed-cause finding differs from Sol’s sole-cause premise; do not replace the record.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c46",
+     "front": "Distinguishing is not overruling",
+     "back": "A holding can remain valid while not deciding a materially different record.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c47",
+     "front": "Independent variants",
+     "back": "Restore the stated baseline before applying the next change; do not accidentally combine separate hypothetical versions.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c48",
+     "front": "Useful conditional analysis",
+     "back": "Identify the uncertain premise, explain each consequence, and name evidence or authority that could resolve it.",
+     "topic": "Analogy and distinction"
+    },
+    {
+     "id": "c49",
+     "front": "Start with the text",
+     "back": "Identify the disputed words, applicable definition, neighboring provisions and relevant statutory version.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c50",
+     "front": "Ordinary meaning",
+     "back": "Context determines which plausible meaning fits; the broadest dictionary possibility does not automatically govern.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c51",
+     "front": "Section 1 and section 3",
+     "back": "Read notice as necessary and the sole-cause restriction as independent, preserving both provisions.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c52",
+     "front": "Anti-surplusage reasoning",
+     "back": "Show which words would become ineffective under the competing reading; do not invoke a canon as a universal shortcut.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c53",
+     "front": "Purpose versus rewriting",
+     "back": "A practical goal may support interpretation, but does not itself remove an express condition or amend enacted text.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c54",
+     "front": "Changed statutory wording",
+     "back": "An older case must be considered in light of the new text and supplied applicability rules.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c55",
+     "front": "Sending versus receipt",
+     "back": "Iman satisfies both before possession and therefore does not decide the boundary when they diverge.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c56",
+     "front": "Historical opinion transfer",
+     "back": "Use the official opinion to practice attribution and reasoning. The exercise is not a current-law or subsequent-treatment certification.",
+     "topic": "Statutory interpretation"
+    },
+    {
+     "id": "c57",
+     "front": "Capstone outputs",
+     "back": "Three briefs of 200–250 words and a 550–750-word synthesis/application memo; total target 1,150–1,500 words.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c58",
+     "front": "Original Juno: notice",
+     "back": "F1 closely matches Iman: timely receipt, opening and retention of written terms before possession.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c59",
+     "front": "Original Juno: section 3",
+     "back": "The agreed desk’s closure solely caused delay on unchallenged findings, matching Sol’s independent bar.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c60",
+     "front": "Version A: independent ground",
+     "back": "Receipt timing creates an open delivery question, but unchanged sole-cause findings still establish the section 3 bar.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c61",
+     "front": "Version B: restore baseline",
+     "back": "Original compliant notice returns; mixed causes replace sole causation, so the supplied section 3 condition is absent.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c62",
+     "front": "Juno’s limited recovery",
+     "back": "Section 4 supports recovery of the unlawful 25-credit deduction in the baseline; the packet supplies no extra damages or fee rule.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c63",
+     "front": "Rubric use",
+     "back": "Six criteria scored 0–2 give a maximum 12. It is a revision guide, not university credit or automated legal-writing certification.",
+     "topic": "Case-reading capstone"
+    },
+    {
+     "id": "c64",
+     "front": "Revision priority",
+     "back": "Repair fact status and holdings first, then add explicit application, a fair counterargument, a response and a bounded conclusion.",
+     "topic": "Case-reading capstone"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "opinion",
+   "definition": "A court’s written explanation of its decision and reasons.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "caption",
+   "definition": "The heading identifying a case and its parties; read further to establish procedural roles.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "citation",
+   "definition": "Information locating an authority or document, often including a reporter, volume and page.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "syllabus",
+   "definition": "A prefatory summary; for Supreme Court opinions, prepared by the Reporter of Decisions rather than serving as a substitute for the opinion.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "majority opinion",
+   "definition": "Reasoning joined by a majority of the deciding judges; identify precisely which portions they join.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "dissent",
+   "definition": "A separate opinion disagreeing with the court’s result, in whole or part.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "concurrence",
+   "definition": "A separate opinion agreeing with the result while adding to or differing from the majority’s reasoning.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "case brief",
+   "definition": "A structured study summary of an opinion’s facts, posture, issue, holding, reasoning and disposition. Distinct from a filed advocacy brief.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "pinpoint",
+   "definition": "A page or paragraph reference that locates a particular proposition within a source.",
+   "topic": "Opinion structure"
+  },
+  {
+   "term": "procedural posture",
+   "definition": "The stage and setting in which the court considers an issue, including the ruling or motion under review.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "allegation",
+   "definition": "A party’s assertion, which must not automatically be described as a proved fact.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "finding of fact",
+   "definition": "A determination of fact by the relevant factfinder under the governing procedure.",
+   "topic": "Procedural posture",
+   "aliases": [
+    "findings of fact"
+   ]
+  },
+  {
+   "term": "stipulation",
+   "definition": "An agreement treating a proposition as accepted for a proceeding or exercise.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "inference",
+   "definition": "A conclusion drawn from other facts; distinguish it from the facts on which it rests.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "record",
+   "definition": "The materials available to the court for decision under the governing procedure.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "standard of review",
+   "definition": "The rule governing how a reviewing court assesses a particular kind of lower-court decision.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "de novo review",
+   "definition": "Independent reconsideration of the question under review; legal review does not itself authorize a new factual trial.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "disposition",
+   "definition": "The court’s action on the matter or challenged decision, including any instructions for further proceedings.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "affirm",
+   "definition": "To leave the challenged decision standing, subject to the court’s stated scope.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "reverse",
+   "definition": "To reject the challenged decision; read the accompanying instructions to determine what follows.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "vacate",
+   "definition": "To set aside a decision or judgment, with further consequences determined by the court’s order.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "remand",
+   "definition": "To send a matter back for further proceedings under the reviewing court’s instructions.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "legal sufficiency",
+   "definition": "Whether the pleaded facts, treated according to the specified procedure, would satisfy the governing legal requirements.",
+   "topic": "Procedural posture"
+  },
+  {
+   "term": "issue",
+   "definition": "The legal question a court must answer in the factual and procedural setting presented.",
+   "topic": "Issues and holdings"
+  },
+  {
+   "term": "holding",
+   "definition": "The court’s bounded answer necessary to decide the issue before it; its precise scope may require careful analysis.",
+   "topic": "Issues and holdings"
+  },
+  {
+   "term": "rule",
+   "definition": "A governing legal proposition, such as a statutory condition or a principle established by authority.",
+   "topic": "Issues and holdings"
+  },
+  {
+   "term": "reasoning",
+   "definition": "The explanation linking legal premises, relevant facts and the court’s conclusion.",
+   "topic": "Issues and holdings"
+  },
+  {
+   "term": "dicta",
+   "definition": "Statements not necessary to deciding the issue before the court; they may persuade without being the holding.",
+   "topic": "Issues and holdings",
+   "aliases": [
+    "dictum",
+    "obiter dicta",
+    "obiter dictum"
+   ]
+  },
+  {
+   "term": "rationale",
+   "definition": "The reasons supporting a decision or conclusion.",
+   "topic": "Reasoning and judicial voices"
+  },
+  {
+   "term": "textual argument",
+   "definition": "An argument grounded in enacted wording and its meaning in context.",
+   "topic": "Reasoning and judicial voices"
+  },
+  {
+   "term": "structural argument",
+   "definition": "An argument based on how legal provisions relate to one another.",
+   "topic": "Reasoning and judicial voices"
+  },
+  {
+   "term": "policy argument",
+   "definition": "An argument about goals, practical consequences or institutional concerns.",
+   "topic": "Reasoning and judicial voices"
+  },
+  {
+   "term": "counterargument",
+   "definition": "A reason supporting a competing conclusion, which should be stated fairly before it is answered.",
+   "topic": "Reasoning and judicial voices",
+   "aliases": [
+    "counter-argument"
+   ]
+  },
+  {
+   "term": "response",
+   "definition": "An explanation of why a competing argument does or does not change the analysis.",
+   "topic": "Reasoning and judicial voices"
+  },
+  {
+   "term": "rule synthesis",
+   "definition": "An account of how several authorities combine into a supported framework, including conditions, distinctions and limits.",
+   "topic": "Rule synthesis",
+   "aliases": [
+    "synthesis"
+   ]
+  },
+  {
+   "term": "necessary condition",
+   "definition": "A condition that must be present for a specified result; it may not alone establish that result.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "sufficient condition",
+   "definition": "A condition or set of conditions enough to produce a specified result within the governing framework.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "reserved question",
+   "definition": "A matter a court expressly leaves undecided; the reservation does not imply an answer.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "binding authority",
+   "definition": "Authority the deciding court must follow on the relevant issue under the applicable hierarchy and rules.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "persuasive authority",
+   "definition": "Authority that can inform a decision without controlling it under the applicable legal hierarchy.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "analogy",
+   "definition": "Reasoning that connects legally significant similarities to comparable treatment.",
+   "topic": "Analogy and distinction"
+  },
+  {
+   "term": "distinction",
+   "definition": "A legally significant difference that limits a comparison with an earlier case without necessarily rejecting its holding.",
+   "topic": "Analogy and distinction"
+  },
+  {
+   "term": "material fact",
+   "definition": "A fact capable of affecting analysis under the governing rule or issue.",
+   "topic": "Analogy and distinction",
+   "aliases": [
+    "material facts"
+   ]
+  },
+  {
+   "term": "changed-fact hypothetical",
+   "definition": "An exercise that explicitly alters specified facts while preserving the stated baseline for comparison.",
+   "topic": "Analogy and distinction"
+  },
+  {
+   "term": "conditional analysis",
+   "definition": "Reasoning that explains how different answers to an unresolved premise would affect the result.",
+   "topic": "Analogy and distinction"
+  },
+  {
+   "term": "statutory interpretation",
+   "definition": "Determining how enacted language means and operates in its legal and factual context.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "statutory definition",
+   "definition": "A meaning assigned to a term by an enactment, subject to the definition’s stated scope.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "ordinary meaning",
+   "definition": "How language is normally understood in the relevant context, not necessarily every possible dictionary sense.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "ambiguity",
+   "definition": "The presence of competing plausible readings that remain when the language is considered in context.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "whole-text reasoning",
+   "definition": "Interpreting a provision together with definitions and related provisions of the enactment.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "anti-surplusage argument",
+   "definition": "An interpretive argument favoring a reading that gives operative effect to words and provisions instead of making them ineffective.",
+   "topic": "Statutory interpretation"
+  },
+  {
+   "term": "canons",
+   "definition": "Interpretive principles used as reasoning tools; their force and interaction require analysis, not mechanical counting.",
+   "topic": "Statutory interpretation",
+   "aliases": [
+    "canon"
+   ]
+  },
+  {
+   "term": "analysis memo",
+   "definition": "A written explanation of issues, governing rules, application, counterarguments, conclusions and limits.",
+   "topic": "Case-reading capstone"
+  },
+  {
+   "term": "IRAC",
+   "definition": "Issue, rule, application, conclusion: one organizational pattern for legal analysis.",
+   "topic": "Case-reading capstone"
+  },
+  {
+   "term": "CREAC",
+   "definition": "Conclusion, rule, explanation, application, conclusion: another organizational pattern for legal analysis.",
+   "topic": "Case-reading capstone"
+  },
+  {
+   "term": "sole causation",
+   "definition": "In this fictional Act, causation attributable only to the specified lender failure; distinct from an accepted mixed-cause finding.",
+   "topic": "Case-reading capstone"
+  }
+ ],
+ "references": [
+  {
+   "id": "lcr-ref-packet",
+   "title": "Alder practice packet — statute, procedure and three opinions",
+   "body": "# Original fictional teaching materials\n\nEvery Alder institution, statute, case, quotation and paragraph below was invented for\nthis course. None is real authority. The packet is separate from the fictional repair\nrules in Introduction to the U.S. Legal System. Use only this packet for Alder exercises.\n\n## Alder Equipment Deposit Act — version 1\n\nSection 1. A lender may deduct a late-return charge from an equipment deposit only if,\nbefore the borrower takes possession, the lender delivers to the borrower a notice\nstating the charge and the return deadline.\n\nSection 2. A notice is a written record the borrower can retain.\n\nSection 3. No late-return charge may be deducted for a delay caused solely by the\nlender's failure to make the agreed return point available.\n\nSection 4. A borrower may recover the portion of a deposit deducted in violation of\nthis Act. This packet supplies no rule about other damages, interest or attorney fees.\n\n## Stipulated procedure and authority\n\nP1. On the packet's motion to dismiss for legal insufficiency, accept well-pleaded\nfactual allegations as true and draw reasonable inferences for the borrower. Do not\nassume unsupported legal conclusions. Decide whether the allegations, if proved,\nwould establish a violation. This does not decide whether the allegations are true.\n\nP2. In appeals following a bench trial in this packet, accept expressly unchallenged\ntrial findings; review statutory meaning independently. Do not add evidence on appeal.\n\nP3. Each appeal below is properly before the Alder Court of Appeals; jurisdiction,\npreservation, and timeliness are stipulated. Published majority holdings of that court\nbind Alder trial courts in this packet. No later contrary authority is supplied.\nDicta and separate opinions may persuade but do not replace a majority holding.\n\n## Hale v. Moss Tools — Alder Court of Appeals, Year 1\n\nMajority opinion by Judge Vale, joined by Judges Lin and Ortiz. Teaching citation:\nHale, paragraphs H1–H6. These are stable exercise labels, not reporter citations.\n\nH1. Borrower Hale alleges that Moss deducted 30 credits from an equipment deposit\nfor late return. Before handing over the drill, a clerk orally stated the charge and\ndeadline. Hale alleges that no written record was delivered. Moss moved to dismiss,\narguing that actual knowledge satisfied the Act. The trial court granted the motion.\nHale appeals. We apply P1.\n\nH2. The issue is whether oral disclosure alone satisfies sections 1 and 2, so that\nHale's alleged absence of a written record fails to state a violation. The legislature\nspecified both delivery of a notice and a notice the borrower can retain in written form.\n\nH3. Knowing the terms is not the same as possessing the required record. A spoken\nconversation is not a written record. Treating actual knowledge as sufficient would\nremove the written-record condition from section 2. On the allegations before us,\nthe lender has not satisfied the notice condition for deducting the charge.\n\nH4. We hold that oral disclosure alone does not satisfy sections 1 and 2. Hale has\nalleged a deduction without the required notice. Whether Hale can prove those\nallegations remains open. No question about the form of an electronic record is presented.\n\nH5. A uniform paper form might make transactions easier for both sides. The legislature\nmay wish to consider one. We do not require that form or decide whether electronic\nrecords can satisfy the Act.\n\nH6. The dismissal is reversed and the case remanded for further proceedings. We do\nnot order repayment on this motion.\n\n## Iman v. Harbor Gear — Alder Court of Appeals, Year 2\n\nMajority opinion by Judge Lin, joined by Judge Vale; Judge Ortiz dissents.\nTeaching citation: Iman, paragraphs I1–I6; dissent ID1–ID2.\n\nI1. Following a bench trial, the court found that Harbor emailed Iman a PDF stating\nthe charge and deadline before Iman took possession of a camera. Iman had selected\nthat email address for the transaction, received the PDF, opened it before taking\npossession, and could save or print it. Iman returned the camera late. The agreed\nreturn point remained available, and no other statutory violation is asserted.\nThese findings are unchallenged. The trial court nevertheless ordered repayment\nbecause it understood Hale to require paper. Harbor appeals under P2.\n\nI2. We decide whether the delivered, retainable PDF in these findings qualifies as\na written record under section 2. Hale addressed an oral conversation without any\nwritten record; its discussion of a possible paper form did not resolve this issue.\n\nI3. A saved PDF contains written words and can be retained. Section 2 specifies a\nrecord's qualities, not paper as its exclusive medium. The actual receipt, timely\nopening and ability to save or print establish delivery and retainability here.\nWe do not decide how the Act applies to an unopened message or a link to a changing page.\n\nI4. We hold that this delivered, retainable PDF satisfies sections 1 and 2. With late\nreturn and the remaining statutory conditions undisputed, the challenged deduction\ndoes not violate the Act. The repayment judgment is reversed, with directions to\nenter judgment for Harbor on this claim.\n\nI5. Although durable digital receipts can be convenient, convenience alone cannot\nreplace the statute's conditions. An interface that labels a message “notice” would\nnot establish that a borrower can retain its content.\n\nI6. Nothing in this decision creates a general electronic-service rule or resolves\nthe treatment of technical delivery failures.\n\nID1. Judge Ortiz, dissenting. I agree that the PDF was received and could be retained.\nI would read written record to require a physical document handed over in this\ntransaction. In my view, that reading better protects borrowers without reliable\naccess to electronic storage.\n\nID2. I would affirm the repayment judgment. The majority's reading of the medium\nrequirement, rather than our account of the trial findings, separates us.\n\n## Sol v. Northbank Rentals — Alder Court of Appeals, Year 3\n\nMajority opinion by Judge Vale, joined by Judge Lin. Judge Ortiz concurs in the judgment.\nTeaching citation: Sol, paragraphs S1–S6; concurrence SC1.\n\nS1. After a bench trial, the court found that Northbank delivered a compliant paper\nnotice before Sol took possession of a projector. The notice required return by\n18:00 to Northbank's staffed desk. Sol reached that desk at 17:40, but Northbank had\nclosed it at 17:00. No alternative return point had been agreed. Sol waited, called,\nand returned the projector when the desk next opened. The trial court expressly\nfound the closure was the sole cause of delay. Those findings are unchallenged.\n\nS2. The trial court nevertheless permitted Northbank to retain a 20-credit late-return\ncharge, reasoning that a valid notice under sections 1 and 2 authorized it. Sol appeals.\nWe review statutory meaning independently under P2.\n\nS3. Notice is a necessary condition, not sufficient permission to ignore section 3.\nSection 3 independently prohibits a charge for a delay caused solely by the lender's\nfailure to make the agreed return point available. Reading timely notice as conclusive\nwould eliminate that separate protection.\n\nS4. On the unchallenged sole-cause finding, section 3 bars the deduction. Section 4\npermits recovery of the deducted portion. We reverse and direct entry of a judgment\nreturning the 20-credit deduction. We decide no claim for additional monetary relief.\n\nS5. The record does not present mixed causes of delay, a borrower arriving after the\ndeadline, or a previously agreed alternative return point. We express no view on those\nfacts. Clearer return instructions may prevent disputes, but we impose no separate\ninstruction rule beyond the supplied Act.\n\nS6. Hale and Iman concern the notice condition. Our decision applies an additional\ncondition and does not reject either case's notice holding.\n\nSC1. Judge Ortiz, concurring in the judgment. I agree that the 20 credits must be\nreturned. I would rely on the lender's inability to demand a timely return at a desk\nit chose to close. I do not join the majority's statutory analysis. My general fairness\nview is not an additional rule adopted by the majority.\n"
+  },
+  {
+   "id": "lcr-ref-brief",
+   "title": "Opinion map and case-brief worksheet",
+   "body": "Use this worksheet with the Alder packet or an actual opinion. A study case brief is\nyour reading aid; it is not a lawyer's filed appellate brief.\n\n## Opinion map fields\n\n### Identity\n\n- *Record:* Case, court, date, citation and version\n- *Check:* Real authority or fictional exercise?\n\n### Voice\n\n- *Record:* Majority, concurrence, dissent, party, editor\n- *Check:* Who adopted the proposition?\n\n### Posture\n\n- *Record:* Motion or judgment below; who seeks review\n- *Check:* What can this court decide now?\n\n### Facts\n\n- *Record:* Legally relevant facts with status\n- *Check:* Alleged, found, stipulated, disputed or unknown?\n\n### Issue\n\n- *Record:* Rule question plus decisive facts and posture\n- *Check:* Does the opinion actually answer it?\n\n### Holding\n\n- *Record:* Answer necessary to resolve that issue\n- *Check:* Have you included its limiting conditions?\n\n### Reasoning\n\n- *Record:* Rule → fact → explanation → result\n- *Check:* Where is the inferential step?\n\n### Disposition\n\n- *Record:* Affirm, reverse, vacate, remand; instructions\n- *Check:* Has the whole dispute ended?\n\n### Limits\n\n- *Record:* Reserved questions and unsupported remedies\n- *Check:* What remains undecided?\n\n### Retrieval\n\n- *Record:* Paragraph/page for each key proposition\n- *Check:* Could another reader find it?\n\nFor an actual case, check subsequent history, treatment, jurisdiction, publication\nstatus and the applicable version of the law before using it as present authority.\nThis course practices reading; it does not supply a citator or certify current validity.\n\n## First brief practice\n\nWrite a 200–250-word brief of Hale using H1–H6. Identify the procedural result\nseparately from any eventual right to repayment. Compare with lesson 3's worked brief.\nThen write Iman and Sol briefs before consulting the capstone feedback in lesson 8.\n"
+  },
+  {
+   "id": "lcr-ref-synthesis",
+   "title": "Synthesis and analogy worksheet",
+   "body": "## Fill this before drafting your rule\n\n### Hale\n\n- *Fact status and posture:* Add your notes.\n- *Issue decided:* Add your notes.\n- *Necessary conditions:* Add your notes.\n- *Result and limits:* Add your notes.\n\n### Iman\n\n- *Fact status and posture:* Add your notes.\n- *Issue decided:* Add your notes.\n- *Necessary conditions:* Add your notes.\n- *Result and limits:* Add your notes.\n\n### Sol\n\n- *Fact status and posture:* Add your notes.\n- *Issue decided:* Add your notes.\n- *Necessary conditions:* Add your notes.\n- *Result and limits:* Add your notes.\n\nKeep each case entry's paragraph references. A sequence of case summaries is only the first\nstep. Synthesis explains how the cases fit together, identifies apparent tension,\nand gives a bounded rule that accounts for their different results.\n\n## Compare a new case\n\n### Strongest similarity\n\n- *Earlier fact:* Add your notes.\n- *New fact:* Add your notes.\n- *Why it matters under the rule:* Add your notes.\n- *Other side's response:* Add your notes.\n\n### Strongest difference\n\n- *Earlier fact:* Add your notes.\n- *New fact:* Add your notes.\n- *Why it matters under the rule:* Add your notes.\n- *Other side's response:* Add your notes.\n\n### Unresolved fact\n\n- *Earlier fact:* Add your notes.\n- *New fact:* Add your notes.\n- *Why it matters under the rule:* Add your notes.\n- *Other side's response:* Add your notes.\n\nWrite: “Like/unlike [case, paragraph], [new fact] affects [condition] because [reason].”\nThen state a conditional prediction, its confidence, and what evidence could change it.\nDo not turn a distinction into an overruling, or a fact difference into a legal difference\nwithout explaining its connection to the rule.\n"
+  },
+  {
+   "id": "lcr-ref-capstone",
+   "title": "Juno file and capstone rubric",
+   "body": "## Fictional Juno v. Cedar Hire — supplied record\n\nUse only Alder Act version 1, P1–P3, and Hale, Iman and Sol in the practice packet.\nJuno seeks return of a 25-credit late-return deduction under section 4. After a bench\ntrial, the court allowed the deduction. Juno appeals. The following trial findings\nare unchallenged; do not invent additional findings.\n\nF1. Cedar sent Juno a PDF stating the 25-credit charge and the 18:00 return deadline\nto Juno's selected email address at 09:00. Juno received, opened and saved it at 09:05,\nthen took possession of a tile cutter at 09:20. The agreed return point was Cedar's desk.\n\nF2. Cedar closed that desk at 17:00. No alternative return point had been agreed.\nJuno arrived at 17:45, called Cedar, and returned the tool when the desk next opened.\n\nF3. The court found that closure was the sole cause of delay, but held that valid\nnotice made the deduction lawful. No other statutory violation or remedy is asserted.\n\n## Changed fact A — timing\n\nReplace only F1's receipt, opening and saving time with 09:25, after possession at\n09:20. The transmission was still at 09:00. The packet does not say why receipt was\ndelayed or decide whether sending alone is delivery. Identify the competing readings\nof delivery; do not invent a binding answer. F2 and F3 stay unchanged.\n\n## Changed fact B — causation\n\nRestore original F1. Replace F2–F3 with these findings: Juno finished using the tool\nat 18:20 and arrived at 18:30. The desk closed at 17:00; there was no agreed alternative.\nThe court found that Juno's continued use and the closure both caused delay. Analyze\nthe supplied sole-cause condition; do not treat Sol as deciding every closed-desk case.\nThe requested recovery remains the 25-credit deduction under section 4, and no other\nstatutory violation is asserted. Apply version B independently of version A.\n\n## Deliverable and self-review\n\nWrite three briefs of 200–250 words each, one for each packet opinion. Add a\n550–750-word synthesis and application memo addressing original Juno and both\nindependent changes. Total target: 1,150–1,500 words. Use paragraph and F-number\nreferences. Work before reading lesson 8's feedback. These are self-assessed writing\nactivities; no automatic legal-writing grade or university credit is awarded.\n\n### Posture and facts\n\n- *0 — revise:* Treats allegations as findings\n- *1 — developing:* Identifies posture, misses a fact status\n- *2 — supported:* Keeps posture, record and fact status accurate\n\n### Issues and holdings\n\n- *0 — revise:* Announces unbounded outcomes\n- *1 — developing:* Mostly accurate with omitted condition\n- *2 — supported:* States bounded issues/holdings with pinpoint support\n\n### Reasoning and voice\n\n- *0 — revise:* Uses a dissent as the court's rule\n- *1 — developing:* Names voices but misses a reasoning step\n- *2 — supported:* Explains majority reasoning and separate views\n\n### Synthesis\n\n- *0 — revise:* Lists results or merges incompatible propositions\n- *1 — developing:* Connects some cases\n- *2 — supported:* Accounts for all three and their limits\n\n### Application\n\n- *0 — revise:* Gives only conclusions\n- *1 — developing:* Addresses one side or one variant\n- *2 — supported:* Explains both sides, independent conditions and variants\n\n### Disposition and uncertainty\n\n- *0 — revise:* Invents relief or resolves unknown facts\n- *1 — developing:* Notes limits incompletely\n- *2 — supported:* Distinguishes remedy, procedural result and open questions\n\nScore each criterion 0–2, maximum 12. This is a revision guide, not an external passing\nstandard. Revise every 0; explain one change prompted by a counterargument. Even a\n12 does not establish that real-world advice is accurate or that a degree requirement\nhas been completed.\n"
+  }
+ ],
+ "drills": []
+}

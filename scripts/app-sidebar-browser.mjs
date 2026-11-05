@@ -68,7 +68,13 @@ async function audit(name) {
   screenshots.push(name + '.png');
 }
 async function nativeLifecycle(paused, backgroundMs) {
-  await page.evaluate(detail => window.dispatchEvent(new CustomEvent('erudior-native-lifecycle', { detail })), { paused, backgroundMs });
+  await page.evaluate(detail => {
+    const sequence = (window.__sidebarLifecycleSequence ?? 0) + 1;
+    window.__sidebarLifecycleSequence = sequence;
+    return window.dispatchEvent(new CustomEvent('erudior-native-lifecycle', { cancelable: true,
+      detail: { ...detail, bridgeId: 'sidebar-browser-probe', sequence,
+        revocation: detail.backgroundMs >= 30_000 ? sequence : 0 } }));
+  }, { paused, backgroundMs });
 }
 try {
   browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox'] } : {});

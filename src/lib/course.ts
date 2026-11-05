@@ -6,6 +6,7 @@ import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
+import { parseCourseDocumentReviews } from "./documentCoursePackage";
 import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
 import { parseCourseAdvancedAssessments } from "./advancedAssessmentCoursePackage";
@@ -107,6 +108,7 @@ export function normalizeCourse(raw: unknown): Course {
     });
   }
 
+  const documentReviews = raw.documentReviews === undefined ? undefined : parseCourseDocumentReviews(raw.documentReviews, new Set(lessons.map(l => l.id)));
   const branchingScenarios = raw.branchingScenarios === undefined ? undefined : parseCourseBranchingScenarios(raw.branchingScenarios, new Set(lessons.map(l=>l.id)));
   const scientificWorkspaces = raw.scientificWorkspaces === undefined ? undefined : parseCourseScientificWorkspaces(raw.scientificWorkspaces, new Set(lessons.map(l=>l.id)));
   const advancedAssessments = raw.advancedAssessments === undefined ? undefined : parseCourseAdvancedAssessments(raw.advancedAssessments, new Set(lessons.map(l=>l.id)));
@@ -264,6 +266,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(assessmentPresentation === undefined ? {} : { assessmentPresentation }),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
+    ...(documentReviews ? { documentReviews } : {}),
     ...(branchingScenarios ? { branchingScenarios } : {}),
     ...(scientificWorkspaces ? { scientificWorkspaces } : {}),
     ...(advancedAssessments ? { advancedAssessments } : {}),

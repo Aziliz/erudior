@@ -228,12 +228,34 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -f -p 4 "$apk" ci-aligned.apk
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign --ks "$keydir/test.jks" --ks-key-alias ci-only --ks-pass pass:changeit --key-pass pass:changeit --out ci-signed-optimized.apk ci-aligned.apk
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose ci-signed-optimized.apk
+      - name: Test emulator build-space cleanup contract
+        run: python3 tests/android-emulator-cleanup.py -v
+      - name: Reclaim disposable build space after signed APK verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_ACTIONS" = true && "$RUNNER_ENVIRONMENT" = github-hosted ]]
+          [[ -s ci-signed-optimized.apk && ! -L ci-signed-optimized.apk ]]
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose ci-signed-optimized.apk
+          sha256sum ci-signed-optimized.apk > "$RUNNER_TEMP/android-emulator-fixture.sha256"
+          # All following acceptance commands use this signed root-level copy.
+          # Keep the SDK, NDK, emulator, source, dependencies and evidence intact.
+          disposable=(src-tauri/target src-tauri/gen/android/app/build src-tauri/gen/android/.gradle "$HOME/.gradle/caches" "$HOME/.gradle/wrapper/dists")
+          df -h .
+          for directory in "${disposable[@]}"; do
+            if [[ -d "$directory" ]]; then du -sh "$directory"; fi
+          done
+          rm -rf -- "${disposable[@]}"
+          sha256sum --check "$RUNNER_TEMP/android-emulator-fixture.sha256"
+          df -h .
       - name: Install on Android emulator and launch
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
+          # Match the upgrade-device fixture: bound userdata instead of the 7GB SDK default.
+          disk-size: 2048M
           script: |
             ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-install-smoke.sh
             ANDROID_TEST_APK=ci-signed-optimized.apk bash scripts/android-installer-preflight-smoke.sh

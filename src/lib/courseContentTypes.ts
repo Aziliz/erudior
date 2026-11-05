@@ -228,6 +228,7 @@ export interface Course {
     labs?: Lab[];
     activityLog?: ActivityLogSpec;
     /** Course-authored spreadsheet exercises; lessonId attaches each assignment to a lesson. */
+    documentReviews?: import("./documentCoursePackage").CourseDocumentReview[];
     branchingScenarios?: import("./branchingCoursePackage").CourseBranchingScenario[];
     scientificWorkspaces?: import("./scientificCoursePackage").CourseScientificWorkspace[];
     advancedAssessments?: import("./advancedAssessmentCoursePackage").CourseAdvancedAssessment[];

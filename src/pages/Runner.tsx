@@ -1,5 +1,7 @@
 import { guidedSessionProblem, isGuidedPractice } from "../lib/assessmentPresentation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
+import { imeFor } from "../lib/ime";
+import { FuriganaToggle } from "../components/Ruby";
 import MathText from "../components/MathText";
 import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
 import type { AppApi, View } from "../App";
@@ -44,6 +46,8 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   const [session, setSession] = useState<Session>(started);
   const [adaptNote, setAdaptNote] = useState<{ qid: string; text: string } | null>(null);
   const isExam = session.mode === "exam";
+  const isBankPractice = !isExam && !isQuiz(session) && !session.kind && !session.reading && !session.intervention;
+  const enterAdvances = isExam || isBankPractice;
   const items = session.items;
   // Lesson quizzes return to their lesson, module quizzes to the lesson list, everything else to the bank.
   const backLesson = session.lesson ?? session.pretestLesson;
@@ -87,6 +91,7 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   // The clock only runs while this screen is open; time away isn't counted.
   const activeSince = useRef(Date.now());
   const finishing = useRef(false);
+  const pendingSubmit = useRef<symbol | null>(null);
   const [saveError,setSaveError]=useState("");
   // Locking keeps this draft mounted. A fresh authorization may replace its writer,
   // but never its original learner; older callbacks retain their original API lease.
@@ -99,6 +104,7 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
     return saveSessionState(content);
   }, [api.saveLearnerSession, api.student?.id, !!api.family]);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const runnerRef = useRef<HTMLDivElement>(null);
 
   const block = blocks[blockIdx];
   const item = items[index];
@@ -116,6 +122,7 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   const blockAnswered = blockItems.filter((it) => isAnswered(it.q, answers[it.q.id])).length;
   const blockFlagged = blockItems.filter((it) => flags[it.q.id]).length;
   const lastBlock = blockIdx === blocks.length - 1;
+  const atBlockEnd = index === block.end - 1;
 
   const usedNow = Math.max(0, (now - activeSince.current) / 1000);
   const blockElapsed = Math.floor((blockUsed[blockIdx] ?? 0) + usedNow);
@@ -174,20 +181,20 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   useEffect(() => () => saveRef.current(), []);
 
   // ---- Finishing ----------------------------------------------------------
-  const finish = useCallback(async () => {
+  const finish = useCallback(async (finalAnswers = answers) => {
     if (finishing.current) return;
     finishing.current = true;
     try {
     await saveScopedSession(null);
     const used = totalUsed();
-    const preview = finishSession(session, answers, flags, api.progress, bank, used, confidence);
+    const preview = finishSession(session, finalAnswers, flags, api.progress, bank, used, confidence);
     if (preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0)) {
       api.toast("Session ended. No questions were answered, so nothing was recorded.");
       api.go(exitView);
       return;
     }
     // Apply against the latest progress so flag/note writes made during the session aren't lost.
-    await api.updateProgress((p) => recordSession(p, session, answers, flags, bank, used, confidence).progress);
+    await api.updateProgress((p) => recordSession(p, session, finalAnswers, flags, bank, used, confidence).progress);
     if (session.kind === "pretest") {
       api.toast("Now read the lesson. The answers to the warm-up are in it.");
       api.go(exitView);
@@ -198,8 +205,9 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence, saveScopedSession]);
 
-  const nextBlock = useCallback(() => {
-    if (lastBlock) return finish();
+  const nextBlock = useCallback((finalAnswers?: Record<string, Chosen>) => {
+    pendingSubmit.current = null;
+    if (lastBlock) return finish(finalAnswers);
     setBlockUsed((u) => {
       const next = u.slice();
       next[blockIdx] = (next[blockIdx] ?? 0) + Math.max(0, (Date.now() - activeSince.current) / 1000);
@@ -215,13 +223,15 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
     if (remaining !== undefined && remaining <= 0 && !finishing.current) {
       if (lastBlock) {
         api.toast("Time's up. Your exam was submitted.");
-        finish();
+        nextBlock();
       } else {
         api.toast(`Time's up for ${block.name ?? "this section"}. On to ${blocks[blockIdx + 1].name ?? "the next section"}.`);
         nextBlock();
       }
     }
-  }, [remaining, lastBlock, finish, nextBlock, api, block, blocks, blockIdx]);
+  }, [remaining, lastBlock, nextBlock, api, block, blocks, blockIdx]);
+
+  useEffect(() => () => { pendingSubmit.current = null; }, []);
 
   // ---- Answering ----------------------------------------------------------
   const choose = useCallback(
@@ -282,25 +292,43 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
     }));
   };
 
-  async function submitBlock() {
-    const unanswered = blockItems.length - blockAnswered;
+  async function submitBlock(finalAnswers = answers) {
+    if (finishing.current || pendingSubmit.current) return;
+    const unanswered = blockItems.filter(({ q }) => !isAnswered(q, finalAnswers[q.id])).length;
     const parts = [];
     if (unanswered) parts.push(`${unanswered} question${unanswered === 1 ? " is" : "s are"} unanswered and will be marked wrong.`);
     if (blockFlagged) parts.push(`${blockFlagged} question${blockFlagged === 1 ? " is" : "s are"} flagged.`);
     const what = lastBlock
       ? "Submit your exam now?"
       : `Finish ${block.name ?? "this section"}? You can't come back to it after you move on.`;
-    const ok = await confirmAction([...parts, what].join("\n\n"), lastBlock ? "Submit exam" : "Finish section");
-    if (ok) nextBlock();
+    const request = Symbol();
+    pendingSubmit.current = request;
+    try {
+      const ok = await confirmAction([...parts, what].join("\n\n"), lastBlock ? "Submit exam" : "Finish section");
+      if (ok && pendingSubmit.current === request) await nextBlock(finalAnswers);
+    } finally {
+      if (pendingSubmit.current === request) pendingSubmit.current = null;
+    }
+  }
+
+  function advance(finalChoice?: Chosen) {
+    if (finishing.current || pendingSubmit.current) return;
+    if (!atBlockEnd) {
+      go(index + 1);
+      return;
+    }
+    const finalAnswers = finalChoice ? { ...answers, [q.id]: finalChoice } : answers;
+    if (isExam) void submitBlock(finalAnswers);
+    else void finish(finalAnswers);
   }
 
   async function endPractice() {
-    const n = isQuiz(session) ? answeredCount : Object.keys(checked).length;
+    const n = isQuiz(session) || isBankPractice ? answeredCount : Object.keys(checked).length;
     if (n < items.length) {
       const ok = await confirmAction(
         isQuiz(session)
           ? `You've answered ${n} of ${items.length} questions. Unanswered questions count as wrong. Finish the quiz?`
-          : `You've checked ${n} of ${items.length} questions. End the session and see your results?`,
+          : `You've ${isBankPractice ? "answered" : "checked"} ${n} of ${items.length} questions. End the session and see your results?`,
         isQuiz(session) ? "Finish quiz" : "End practice",
       );
       if (!ok) return;
@@ -361,43 +389,56 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   const toggleAutoRead = () =>
     api.updateProgress((p) => ({ ...p, study: { ...(p.study ?? {}), autoRead: p.study?.autoRead === false } }));
 
-  // Keyboard: letters/numbers pick, arrows move, F flags, Enter checks/advances.
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
-      // Math models use arrows (sliders) and Enter (their buttons) themselves; a code exercise has
-      // its own editor and buttons: keys there are for typing and pressing.
-      if (e.defaultPrevented || (e.target as HTMLElement)?.closest?.(".mp, .code-ex")) return;
-      const k = e.key.toLowerCase();
-      const n = item.order.length;
-      let pos = -1;
-      if (/^[1-9]$/.test(k)) pos = Number(k) - 1;
-      else if (k.length === 1 && LETTERS.toLowerCase().indexOf(k) > -1 && k !== "f") pos = LETTERS.toLowerCase().indexOf(k);
-      if (choicesHidden && (k === "enter" || k === " ")) {
-        e.preventDefault();
-        setShownChoices((m) => ({ ...m, [q.id]: true }));
-        return;
-      }
-      if (choiceQ && pos >= 0 && pos < n && !choicesHidden) {
-        e.preventDefault();
-        choose(item.order[pos]);
-      } else if (k === "arrowright") {
-        go(index + 1);
-      } else if (k === "arrowleft") {
-        go(index - 1);
-      } else if (k === "f") {
-        toggleFlag();
-      } else if (k === "enter" && !isExam) {
-        e.preventDefault();
-        if (!isChecked) check();
-        else if (explHidden) setShownExpl((m) => ({ ...m, [q.id]: true }));
-        else if (index < items.length - 1) go(index + 1);
-      }
+  // Keep typing and interactive widgets local. Answer choices use Space to activate
+  // a focused option, so Enter can advance even after clicking a choice.
+  const onRunnerKey = useEffectEvent((e: KeyboardEvent) => {
+    const target = e.target instanceof Element ? e.target : null;
+    if (e.defaultPrevented || e.isComposing || e.metaKey || e.ctrlKey || e.altKey) return;
+    const runner = runnerRef.current;
+    if (target && runner && !runner.contains(target) && !target.contains(runner)) return;
+    if (target?.closest("input, textarea, select, [contenteditable], .mp, .code-ex, .map-canvas")) return;
+    const k = e.key.toLowerCase();
+    if (e.repeat && k !== "arrowright" && k !== "arrowleft") {
+      if (k === "enter") e.preventDefault();
+      return;
     }
+    if (choicesHidden && (k === " " || (k === "enter" && !enterAdvances))) {
+      e.preventDefault();
+      setShownChoices((m) => ({ ...m, [q.id]: true }));
+      return;
+    }
+    if (k === "f" && e.shiftKey) {
+      e.preventDefault();
+      toggleFlag();
+      return;
+    }
+    const pos = /^[1-9]$/.test(k) ? Number(k) - 1 : k.length === 1 ? LETTERS.toLowerCase().indexOf(k) : -1;
+    if (choiceQ && pos >= 0 && pos < item.order.length && !choicesHidden && !isChecked) {
+      e.preventDefault();
+      choose(item.order[pos]);
+    } else if (k === "arrowright" || k === "arrowleft") {
+      e.preventDefault();
+      go(index + (k === "arrowright" ? 1 : -1));
+    } else if (k === "enter") {
+      const control = target?.closest("button, a[href], summary, [role=button]");
+      if (control && !control.hasAttribute("data-choice")) return;
+      e.preventDefault();
+      if (enterAdvances) advance();
+      else if (!isChecked) void check();
+      else if (explHidden) setShownExpl((m) => ({ ...m, [q.id]: true }));
+      else advance();
+    }
+  });
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => onRunnerKey(event);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [item, index, items.length, choose, go, check, isChecked, isExam, toggleFlag, choiceQ, choicesHidden, explHidden, q.id]);
+  }, []);
+
+  const advanceLabel = !atBlockEnd ? "Next" : !isExam ? "See results" : lastBlock ? "Submit exam" : "Finish section";
+  const enterLabel = enterAdvances ? advanceLabel : choicesHidden ? "Show choices"
+    : !isExam && !isChecked ? "Check answer"
+      : explHidden ? "Show explanation" : advanceLabel;
 
   const sectionName = q.section ? (bank?.sections.find((s) => s.id === q.section)?.name ?? q.section) : undefined;
   const clockClass =
@@ -405,10 +446,9 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
   const correctNow = isChecked && isCorrect(q, chosen);
   const note = qmeta[metaKey(session.bankId, q.id)]?.note ?? "";
   const lessons = isChecked ? relatedLessons(q.topic) : [];
-  const atBlockEnd = index === block.end - 1;
 
   return (
-    <div className={`runner${readAloud ? " ra-course" : ""}`}>
+    <div className={`runner${readAloud ? " ra-course" : ""}`} ref={runnerRef}>
       <CalcDock kind={calcKind(course)} />
       <div className="runner-main">
         {saveError && <p className="notice error" role="alert">Session could not be saved: {saveError} Your prior saved progress is preserved. Return to the learning plan to restore access before retrying.</p>}
@@ -424,6 +464,7 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
             </span>
           )}
           <div className="spacer" />
+          {course?.language?.code === "ja" && <FuriganaToggle />}
           {readAloud && tts && (
             <button type="button" className="btn ghost sm auto-read" aria-pressed={autoRead} onClick={toggleAutoRead}>
               Read questions to me: {autoRead ? "on" : "off"}
@@ -481,9 +522,10 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
               chosen={chosen}
               onChoose={choose}
               onChange={setAnswer}
-              onEnter={() => (!isExam && !isChecked ? check() : undefined)}
+              onEnter={enterAdvances ? advance : () => { if (!isChecked) void check(); }}
               reveal={isChecked}
               read={readAloud ? { lib } : undefined}
+              ime={imeFor(course?.language)}
               exam={isExam}
               draftKey={metaKey(session.bankId, q.id)}
             />
@@ -604,23 +646,19 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
           </button>
           <div className="spacer" />
           <span className="kbd">
-            {choiceQ ? `A–${LETTERS[item.order.length - 1]} choose, ` : ""}← → move, F flag{!isExam && ", Enter check"}
+            {choiceQ && !choicesHidden && !isChecked && (
+              <>A–{LETTERS[Math.min(item.order.length, LETTERS.length) - 1]} or 1–{Math.min(item.order.length, 9)} choose, </>
+            )}
+            ← → move, Shift+F flag, Enter {enterLabel.toLowerCase()}
           </span>
-          {!isExam && !isChecked ? (
-            <button className="btn primary" onClick={check} disabled={!answeredNow}>
+          {!isExam && !isChecked && !choicesHidden && (
+            <button className={isBankPractice ? "btn" : "btn primary"} onClick={check} disabled={!answeredNow}>
               Check answer
             </button>
-          ) : !atBlockEnd ? (
-            <button className="btn primary" onClick={() => go(index + 1)}>
-              Next
-            </button>
-          ) : isExam ? (
-            <button className="btn primary" onClick={submitBlock}>
-              {lastBlock ? "Submit exam" : "Finish section"}
-            </button>
-          ) : (
-            <button className="btn primary" onClick={finish}>
-              See results
+          )}
+          {(enterAdvances || isChecked) && (
+            <button className="btn primary" onClick={() => advance()}>
+              {advanceLabel}
             </button>
           )}
         </div>
@@ -690,7 +728,7 @@ function ActiveRunner({ api, session: started, bank, initial }: Props) {
         </div>
         <div className="sheet-foot">
           {isExam ? (
-            <button className="btn primary" onClick={submitBlock}>
+            <button className="btn primary" onClick={() => void submitBlock()}>
               {lastBlock ? "Submit exam" : `Finish ${block.name ?? "section"}`}
             </button>
           ) : (

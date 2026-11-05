@@ -49,7 +49,7 @@ export default function Site() {
       setSeo({
         title: "Road to version 1.0 · Erudior",
         description:
-          "Every course and feature Erudior needs before version 1.0: a complete free homeschool program from kindergarten through high school, with what's available today.",
+          "Erudior’s pre-K through grade 12 course roadmap, languages at every proficiency level, and website, app and lesson-engine progress.",
         url: SITE_ORIGIN + "/roadmap",
       });
     else if (page === "download")
@@ -114,6 +114,7 @@ export default function Site() {
           <span>Erudior · free courses and homeschool records</span>
           <a href={appUrl("/")}>Web app</a>
           <a href={appUrl("/admin/studio")}>Admin Studio</a>
+          <a href={appUrl("/admin/promotions")}>Promotion review</a>
           <a href="/community" onClick={(e) => go(e, "community")}>Community courses</a>
           <a href="/download" onClick={(e) => go(e, "download")}>Download</a>
           <a href="/roadmap" onClick={(e) => go(e, "roadmap")}>Roadmap</a>

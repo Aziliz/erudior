@@ -2,10 +2,10 @@ name: Study programs acceptance
 on:
   pull_request:
     branches: [main]
-    paths: ['src/lib/studyPrograms.ts', 'src/lib/jdProgram.ts', 'src/lib/learningPathways.ts', 'src/components/StudyProgramCard.tsx', 'src/pages/Programs.tsx', 'src/pages/ProgressPage.tsx', 'src/Site.tsx', 'src/learningProgress.css', 'tests/study-programs.test.mts', 'tests/enrollment-progress-ui.test.mts', 'scripts/study-programs-browser.mjs', '.github/workflows/study-programs.yml']
+    paths: ['samples/catalog.json', 'samples/math/law-*.json', 'src/lib/studyPrograms.ts', 'src/lib/jdProgram.ts', 'src/lib/learningPathways.ts', 'src/components/StudyProgramCard.tsx', 'src/pages/Programs.tsx', 'src/pages/ProgressPage.tsx', 'src/Site.tsx', 'src/learningProgress.css', 'tests/study-programs.test.mts', 'tests/enrollment-progress-ui.test.mts', 'scripts/study-programs-browser.mjs', '.github/workflows/study-programs.yml']
   push:
     branches: [main]
-    paths: ['src/lib/studyPrograms.ts', 'src/lib/jdProgram.ts', 'src/lib/learningPathways.ts', 'src/components/StudyProgramCard.tsx', 'src/pages/Programs.tsx', 'src/pages/ProgressPage.tsx', 'src/Site.tsx', 'src/learningProgress.css', 'tests/study-programs.test.mts', 'tests/enrollment-progress-ui.test.mts', 'scripts/study-programs-browser.mjs', '.github/workflows/study-programs.yml']
+    paths: ['samples/catalog.json', 'samples/math/law-*.json', 'src/lib/studyPrograms.ts', 'src/lib/jdProgram.ts', 'src/lib/learningPathways.ts', 'src/components/StudyProgramCard.tsx', 'src/pages/Programs.tsx', 'src/pages/ProgressPage.tsx', 'src/Site.tsx', 'src/learningProgress.css', 'tests/study-programs.test.mts', 'tests/enrollment-progress-ui.test.mts', 'scripts/study-programs-browser.mjs', '.github/workflows/study-programs.yml']
 permissions:
   contents: read
 jobs:

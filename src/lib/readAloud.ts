@@ -12,6 +12,7 @@
 import type { Course } from "./types";
 import type { SayItem } from "./speech";
 import { splitMath } from "./mathSplit";
+import { stripRuby } from "./kana";
 
 export type AudioLib = Map<string, string>;
 
@@ -182,7 +183,7 @@ export function texToSpeech(tex: string): string {
 
 /** Words for a plain string that may hold $math$ (question stems, choices, explanations). */
 export function mathTextSpeech(s: string): string {
-  return splitMath(s)
+  return splitMath(stripRuby(s))
     .map((seg) => (seg.math ? ` ${texToSpeech(seg.text)} ` : seg.text))
     .join("")
     .replace(/_{3,}/g, " blank ")
@@ -196,7 +197,8 @@ export function mathTextSpeech(s: string): string {
 const BLOCKS = new Set(["P", "LI", "DIV", "H1", "H2", "H3", "H4", "H5", "H6", "TR", "FIGCAPTION", "BLOCKQUOTE", "SECTION", "UL", "OL", "TABLE", "FIGURE", "DT", "DD"]);
 
 function skipEl(el: Element): boolean {
-  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select")) return true;
+  // rt/rp: furigana readings; the voice reads the kanji they sit on.
+  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select, rt, rp")) return true;
   if ((el as HTMLElement).hidden) return true;
   return el.getAttribute("aria-hidden") === "true" && !el.classList.contains("katex");
 }

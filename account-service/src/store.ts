@@ -12,6 +12,10 @@ export interface StoreOptions {
   providers: () => readonly StoreProviderPolicy[];
   sessionSeconds?: number;
   idleSeconds?: number;
+  /** Explicit operator-selected artifact lifetime. Omitted means exports disabled. */
+  exports?: { artifactTtlSeconds: number };
+  /** Separate operator opt-in; no production device endpoint is enabled here. */
+  devices?: boolean;
 }
 export interface StoredLogin { transaction: OidcTransaction; workspaceId: string | null; replacesTokenHash?: string; replacesCsrfHash?: string }
 export interface StoredSession {
@@ -20,10 +24,19 @@ export interface StoredSession {
   csrfHash: string;
   availableContexts: { workspaceId: string; kind: Workspace['kind'] }[];
 }
+export interface DeviceSessionSummary {
+  id: string; current: boolean; issuedAt: number; lastUsedAt: number; expiresAt: number;
+}
 export interface PrivateRecord {
   id: string; version: number; category: AccountSnapshot['records'][number]['category'];
   visibility: 'private' | 'released'; payload: unknown;
 }
+export interface RecordExportRequest { workspaceId: string; requestId: string; records: { id: string; version: number }[] }
+export interface RecordExportStatus { id: string; workspaceId: string; state: 'ready' | 'cancelled' | 'expired'; createdAt: number; expiresAt: number; recordCount: number }
+export interface RecordExportArtifact { format: 'erudior-record-export-v1'; workspaceId: string; records: PrivateRecord[] }
+interface ExportRow { export_id: string; workspace_id: string; scope: RecordExportRequest['records']; state: RecordExportStatus['state']; created_at: string; expires_at: string; artifact: RecordExportArtifact | null }
+const exportStatus = (job: ExportRow): RecordExportStatus => ({ id: job.export_id, workspaceId: job.workspace_id, state: job.state, createdAt: Number(job.created_at), expiresAt: Number(job.expires_at), recordCount: job.scope.length });
+const exactKeys = (value: unknown, keys: string[]): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === keys.length && keys.every(k => Object.hasOwn(value, k));
 interface SessionRow {
   token_hash: string; csrf_hash: string; provider_id: string; provider_version: number;
   configuration_hash: string; body: DeviceSession; last_used_at: string; idle_seconds: number;
@@ -48,11 +61,15 @@ export class PostgresAccountStore {
   readonly #options: StoreOptions;
   readonly #sessionSeconds: number;
   readonly #idleSeconds: number;
+  readonly #exportTtlSeconds: number | null;
   constructor(pool: Pool, options: StoreOptions) {
     this.#pool = pool; this.#options = options;
     this.#sessionSeconds = options.sessionSeconds ?? 28_800;
     this.#idleSeconds = options.idleSeconds ?? 1800;
     if (!maxSafe(this.#sessionSeconds) || this.#sessionSeconds > ACCOUNT_POLICY.authenticationMaxAgeSeconds || !maxSafe(this.#idleSeconds) || this.#idleSeconds > this.#sessionSeconds || typeof options.providers !== 'function') throw new Error('Invalid private account store configuration');
+    if (options.exports !== undefined && (!options.exports || !maxSafe(options.exports.artifactTtlSeconds) || options.exports.artifactTtlSeconds > 86400)) throw new Error('Invalid private export configuration');
+    this.#exportTtlSeconds = options.exports?.artifactTtlSeconds ?? null;
+    if (options.devices !== undefined && typeof options.devices !== 'boolean') throw new Error('Invalid private device configuration');
   }
 
   async ready(): Promise<void> {
@@ -79,7 +96,7 @@ export class PostgresAccountStore {
       await this.#checkRole(client);
       await client.query('BEGIN ISOLATION LEVEL READ COMMITTED');
       await client.query("SET LOCAL statement_timeout = '5s'; SET LOCAL lock_timeout = '5s'; SET LOCAL idle_in_transaction_session_timeout = '5s'");
-      await this.#scope(client, { token_hash: '', next_token_hash: '', flow_hash: '', binding_hash: '', record_id: '', record_version: '', workspace_id: '', learner_id: '', graph_revision: '', session_id: '', session_version: '' });
+      await this.#scope(client, { token_hash: '', next_token_hash: '', flow_hash: '', binding_hash: '', record_id: '', record_version: '', workspace_id: '', learner_id: '', graph_revision: '', session_id: '', session_version: '', owner_account_id: '', device_owner_id: '' });
       const value = await fn(client);
       await client.query('COMMIT');
       return value;
@@ -273,6 +290,65 @@ export class PostgresAccountStore {
       return true;
     });
   }
+  #devicesAllowed(graph: AccountSnapshot, row: SessionRow, now: number): boolean {
+    graph.capturedAt = now;
+    const state = this.#validateSession(graph, row, now);
+    const auth = state?.session.authentication;
+    // School-controlled and restricted credentials never manage account-wide
+    // personal sessions, even when identities share an account.
+    return !!state && auth?.kind === 'personal' && auth.assurance === 'mfa'
+      && auth.authenticatedAt + ACCOUNT_POLICY.sensitiveAuthenticationAgeSeconds > now;
+  }
+  async #deviceRows(client: PoolClient, graph: AccountSnapshot, row: SessionRow): Promise<SessionRow[]> {
+    await this.#scope(client, { device_owner_id: row.body.principal.id, graph_revision: String(graph.revision) });
+    return (await client.query<SessionRow>(`SELECT token_hash, csrf_hash, provider_id, provider_version,
+      configuration_hash, body, last_used_at, idle_seconds FROM erudior_private.device_sessions
+      WHERE body->'principal'->>'kind' = 'account' AND body->'principal'->>'id' = $1
+      AND body->>'status' = 'active' AND expires_at > erudior_private.now_seconds()
+      AND last_used_at + idle_seconds > erudior_private.now_seconds()
+      ORDER BY session_id LIMIT 33 FOR UPDATE`, [row.body.principal.id])).rows;
+  }
+  async listDeviceSessions(tokenHash: string): Promise<DeviceSessionSummary[] | null> {
+    if (this.#options.devices !== true || !scalar(tokenHash)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      // Share the creation lock before any row lock: concurrent sign-in and
+      // revoke-all have a definite ordering and two managers cannot deadlock.
+      await client.query('SELECT pg_advisory_xact_lock(192733, 2)');
+      const row = await this.#session(client, tokenHash);
+      if (!row || !this.#devicesAllowed(graph, row, await this.#now(client))) return null;
+      const rows = await this.#deviceRows(client, graph, row);
+      if (rows.length > 32) throw new Error('Invalid private session inventory');
+      const now = await this.#now(client);
+      if (!this.#devicesAllowed(graph, row, now)) throw new TransactionAuthorizationExpired();
+      return rows.filter(r => r.body.expiresAt > now && Number(r.last_used_at) + r.idle_seconds > now).map(r => ({ id: r.body.id, current: r.body.id === row.body.id, issuedAt: r.body.issuedAt,
+        lastUsedAt: Number(r.last_used_at), expiresAt: Math.min(r.body.expiresAt, Number(r.last_used_at) + r.idle_seconds) }));
+    });
+  }
+  async revokeDeviceSessions(input: { tokenHash: string; csrfHash: string; sessionId?: string }): Promise<{ revoked: number; currentRevoked: boolean } | null> {
+    if (this.#options.devices !== true || !scalar(input.tokenHash) || !scalar(input.csrfHash)
+      || input.sessionId !== undefined && !isAccountId(input.sessionId)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      await client.query('SELECT pg_advisory_xact_lock(192733, 2)');
+      const row = await this.#session(client, input.tokenHash);
+      if (!row || !equalHash(row.csrf_hash, input.csrfHash) || !this.#devicesAllowed(graph, row, await this.#now(client))) return null;
+      const rows = await this.#deviceRows(client, graph, row);
+      if (rows.length > 32) throw new Error('Invalid private session inventory');
+      const now = await this.#now(client);
+      const live = rows.filter(r => r.body.expiresAt > now && Number(r.last_used_at) + r.idle_seconds > now);
+      const selected = input.sessionId === undefined ? live : live.filter(r => r.body.id === input.sessionId);
+      if (!selected.length) return null;
+      for (const target of selected) {
+        await client.query('UPDATE erudior_private.device_sessions SET body=$1 WHERE session_id=$2',
+          [{ ...target.body, version: target.body.version + 1, status: 'revoked' }, target.body.id]);
+      }
+      // The pre-mutation actor snapshot remains locked. Recheck time/provider
+      // validity after every write, rolling back all revocations on expiry.
+      if (!this.#devicesAllowed(graph, row, await this.#now(client))) throw new TransactionAuthorizationExpired();
+      return { revoked: selected.length, currentRevoked: selected.some(r => r.body.id === row.body.id) };
+    });
+  }
   async readRecord(input: { tokenHash: string; workspaceId: string; recordId: string }): Promise<PrivateRecord | null> {
     if (!scalar(input.tokenHash) || !isAccountId(input.workspaceId) || !isAccountId(input.recordId)) return null;
     return this.#authorized(async client => {
@@ -300,11 +376,105 @@ export class PostgresAccountStore {
       return { id: metadata.id, version: metadata.version, category: metadata.category, visibility: metadata.visibility, payload: payload.payload };
     });
   }
-  /** Removes only expired login material and expired/revoked session credentials.
-   * It never deletes learner identity, authority, or record payloads. */
+  #exportAllowed(graph: AccountSnapshot, row: SessionRow, workspaceId: string, records: RecordExportRequest['records'], now: number): boolean {
+    graph.capturedAt = now;
+    const state = this.#validateSession(graph, row, now);
+    if (!state || state.session.activeWorkspaceId !== workspaceId) return false;
+    graph.sessions = [state.session];
+    return records.every(record => {
+      const metadata = graph.records.find(r => r.id === record.id && r.version === record.version && r.workspaceId === workspaceId);
+      return !!metadata && authorizeAccountOperation(graph, { sessionId: row.body.id, sessionVersion: row.body.version, snapshotRevision: graph.revision, workspaceId, action: 'record.export', target: { kind: 'record', ...record } }, now).allowed;
+    });
+  }
+  async #exportScope(client: PoolClient, row: SessionRow): Promise<void> {
+    await this.#scope(client, { session_id: row.body.id, session_version: String(row.body.version), owner_account_id: row.body.principal.id, workspace_id: row.body.activeWorkspaceId });
+  }
+  /** Bounded synchronous preparation is atomic with authorization and insertion.
+   * A retry is bound to the exact canonical record/version set for this session.
+   * Artifact expiry clears bytes; terminal idempotency metadata lasts only until
+   * the originating session expires. Context rotation cannot revive artifacts. */
+  async requestRecordExport(tokenHash: string, csrfHash: string, input: RecordExportRequest): Promise<RecordExportStatus | null> {
+    if (this.#exportTtlSeconds === null || !scalar(tokenHash) || !scalar(csrfHash) || !exactKeys(input, ['workspaceId', 'requestId', 'records']) || !isAccountId(input.workspaceId) || !isAccountId(input.requestId) || !Array.isArray(input.records) || input.records.length < 1 || input.records.length > 32 || !input.records.every(r => exactKeys(r, ['id','version']) && isAccountId(r.id) && maxSafe(r.version)) || new Set(input.records.map(r => r.id)).size !== input.records.length) return null;
+    const records = input.records.map(r => ({ id: r.id, version: r.version })).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      const row = await this.#session(client, tokenHash);
+      if (!row || !equalHash(row.csrf_hash, csrfHash) || !this.#exportAllowed(graph, row, input.workspaceId, records, await this.#now(client))) return null;
+      await this.#exportScope(client, row);
+      // All creators share this lock: global and per-session caps are race-safe.
+      await client.query('SELECT pg_advisory_xact_lock(192733, 3)');
+      await client.query('SELECT erudior_private.purge_expired_exports()');
+      const existing = (await client.query<ExportRow>('SELECT * FROM erudior_private.record_exports WHERE session_id=$1 AND request_id=$2 FOR UPDATE', [row.body.id, input.requestId])).rows[0];
+      if (existing) {
+        if (existing.workspace_id !== input.workspaceId || !existing.scope.every((r, i) => r.id === records[i]?.id && r.version === records[i]?.version) || existing.scope.length !== records.length) return null;
+        const finalNow = await this.#now(client);
+        if (!this.#exportAllowed(graph, row, input.workspaceId, records, finalNow) || existing.state === 'ready' && finalNow >= Number(existing.expires_at)) throw new TransactionAuthorizationExpired();
+        return exportStatus(existing);
+      }
+      const total = Number((await client.query<{ count: string }>('SELECT erudior_private.export_count() AS count')).rows[0]!.count);
+      const own = Number((await client.query<{ count: string }>('SELECT erudior_private.session_export_count($1) AS count', [row.body.id])).rows[0]!.count);
+      if (total >= 256 || own >= 16) return null;
+      const values: PrivateRecord[] = [];
+      for (const record of records) {
+        const metadata = graph.records.find(r => r.id === record.id)!;
+        await this.#scope(client, { record_id: record.id, record_version: String(record.version), learner_id: metadata.learnerId, graph_revision: String(graph.revision) });
+        const payload = (await client.query<{ payload: unknown }>('SELECT payload FROM erudior_private.record_payloads WHERE record_id=$1 AND record_version=$2', [record.id, record.version])).rows[0];
+        if (!payload) return null;
+        values.push({ id: metadata.id, version: metadata.version, category: metadata.category, visibility: metadata.visibility, payload: payload.payload });
+      }
+      const artifact: RecordExportArtifact = { format: 'erudior-record-export-v1', workspaceId: input.workspaceId, records: values };
+      // Leave room for PostgreSQL jsonb whitespace in its independent byte cap.
+      if (Buffer.byteLength(JSON.stringify(artifact), 'utf8') > 1024 * 1024) return null;
+      const now = await this.#now(client);
+      if (!this.#exportAllowed(graph, row, input.workspaceId, records, now)) throw new TransactionAuthorizationExpired();
+      const job = (await client.query<ExportRow>(`INSERT INTO erudior_private.record_exports(export_id,session_id,owner_account_id,workspace_id,request_id,scope,state,created_at,expires_at,artifact,session_version,delete_after)
+        VALUES($1,$2,$3,$4,$5,$6::jsonb,'ready',$7,$8,$9::jsonb,$10,$11) ON CONFLICT(session_id,request_id) DO NOTHING RETURNING *`, ['export_' + randomBytes(24).toString('hex'), row.body.id, row.body.principal.id, input.workspaceId, input.requestId, JSON.stringify(records), now, Math.min(now + this.#exportTtlSeconds!, row.body.expiresAt), JSON.stringify(artifact), row.body.version, row.body.expiresAt])).rows[0];
+      if (!job) return null;
+      await this.#touch(client, row, now);
+      const finalNow = await this.#now(client);
+      if (finalNow >= Number(job.expires_at) || !this.#exportAllowed(graph, row, input.workspaceId, records, finalNow)) throw new TransactionAuthorizationExpired();
+      return exportStatus(job);
+    });
+  }
+  async #accessExport(tokenHash: string, exportId: string, mode: 'status' | 'download' | 'cancel', csrfHash?: string): Promise<{ export: RecordExportStatus; artifact: RecordExportArtifact | null } | null> {
+    if (this.#exportTtlSeconds === null || !scalar(tokenHash) || !isAccountId(exportId) || mode === 'cancel' && !scalar(csrfHash)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      const row = await this.#session(client, tokenHash);
+      if (!row || !this.#validateSession(graph, row, await this.#now(client)) || mode === 'cancel' && !equalHash(row.csrf_hash, csrfHash!)) return null;
+      await this.#exportScope(client, row);
+      const job = (await client.query<ExportRow>('SELECT * FROM erudior_private.record_exports WHERE export_id=$1 FOR UPDATE', [exportId])).rows[0];
+      if (!job || mode !== 'cancel' && !this.#exportAllowed(graph, row, job.workspace_id, job.scope, await this.#now(client))) return null;
+      const now = await this.#now(client);
+      if (now >= Number(job.expires_at) || mode === 'cancel') {
+        job.state = now >= Number(job.expires_at) ? 'expired' : 'cancelled'; job.artifact = null;
+        await client.query('UPDATE erudior_private.record_exports SET state=$1, artifact=NULL WHERE export_id=$2', [job.state, exportId]);
+      }
+      await this.#touch(client, row, now);
+      const finalNow = await this.#now(client);
+      if (!this.#validateSession(graph, row, finalNow) || mode !== 'cancel' && !this.#exportAllowed(graph, row, job.workspace_id, job.scope, finalNow)) throw new TransactionAuthorizationExpired();
+      // Expiry during a blocked touch must never release artifact bytes.
+      if (job.state === 'ready' && finalNow >= Number(job.expires_at)) throw new TransactionAuthorizationExpired();
+      return { export: exportStatus(job), artifact: mode === 'download' && job.state === 'ready' ? job.artifact : null };
+    });
+  }
+  async getRecordExport(tokenHash: string, exportId: string): Promise<RecordExportStatus | null> {
+    return (await this.#accessExport(tokenHash, exportId, 'status'))?.export ?? null;
+  }
+  async downloadRecordExport(tokenHash: string, exportId: string): Promise<{ export: RecordExportStatus; artifact: RecordExportArtifact } | null> {
+    const result = await this.#accessExport(tokenHash, exportId, 'download');
+    return result?.artifact ? { export: result.export, artifact: result.artifact } : null;
+  }
+  async cancelRecordExport(tokenHash: string, csrfHash: string, exportId: string): Promise<RecordExportStatus | null> {
+    return (await this.#accessExport(tokenHash, exportId, 'cancel', csrfHash))?.export ?? null;
+  }
+  /** Removes expired login/session credentials and, when enabled, expired export
+   * bytes and session-expired export metadata. Never deletes source records,
+   * learner identity, or authority. Call periodically for timely physical cleanup. */
   async purgeExpired(): Promise<{ flows: number; sessions: number }> {
     return this.#transaction(async client => {
       const row = (await client.query<{ flows: number; sessions: number }>('SELECT * FROM erudior_private.purge_expired_credentials()')).rows[0]!;
+      if (this.#exportTtlSeconds !== null) await client.query('SELECT erudior_private.purge_expired_exports()');
       return row;
     });
   }

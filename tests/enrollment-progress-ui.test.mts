@@ -16,6 +16,7 @@ const { createRoot } = await import("react-dom/client");
 const { default: ProgressPage } = await import("../src/pages/ProgressPage.tsx");
 const { emptyProgress } = await import("../src/lib/storage.ts");
 const { emptyCourse } = await import("../src/lib/course.ts");
+const { CATALOG } = await import("../src/lib/catalog.ts");
 const { parseLearningPathways, LEARNING_PATHWAY_LIMITS } = await import("../src/lib/learningPathways.ts");
 
 function course(id: string, title: string, count: number): Course {
@@ -226,26 +227,39 @@ assert.equal(document.querySelectorAll(".progress-summary > div")[2].querySelect
 await click("Browse courses");
 assert.deepEqual(routes.pop(), { name: "library" });
 
-// The planned JD program follows the same explicit, profile-scoped lifecycle.
+// The partially released JD program follows the same explicit, profile-scoped lifecycle.
 const { STUDY_PROGRAMS, programPathway } = await import("../src/lib/studyPrograms");
 const jd = STUDY_PROGRAMS[0];
+const availableProgramCount = programPathway(jd).courseIds.filter(id => CATALOG.some(c => c.id === id)).length;
 const programCard = () => document.querySelector<HTMLElement>('article[aria-label="J.D. Preparation program"]')!;
-assert.match(programCard().textContent!, /24 courses/);
-assert.match(programCard().textContent!, /0 of 24 courses available/);
-assert.equal(programCard().querySelectorAll('button').length, 1, "planned courses have no launch action");
+assert.match(programCard().textContent!, /25 courses/);
+assert(programCard().textContent!.includes(`${availableProgramCount} of 25 courses available`));
+assert.equal(programCard().querySelectorAll('button').length, availableProgramCount + 1, "follow plus released course actions");
 await click(programCard().querySelector('button')!);
 assert.deepEqual(stored.get('bob')!.learningPathways, [programPathway(jd)]);
 assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0);
 const jdPath = pathway(jd.title);
-assert.match(jdPath.textContent!, /Introduction to the U.S. Legal System/);
+assert.match(jdPath.textContent!, /LSAT 180 Mastery/);
 assert.match(jdPath.textContent!, /Planned; not yet published/);
 assert.equal(jdPath.querySelector('progress')?.value, 0);
 assert.equal(jdPath.querySelectorAll('.study-program progress').length, 3, "each stage has its own progress");
-assert.equal([...jdPath.querySelectorAll('button')].some(b => /Continue course|View next course|View course/.test(b.textContent ?? '')), false);
+assert.equal(jdPath.querySelectorAll('.pathway-step button').length, availableProgramCount, 'only released steps can be opened');
+assert.equal([...jdPath.querySelectorAll('.study-program button')].length, availableProgramCount, 'planned outlines have no course action');
+await click('View next course', jdPath);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'lsat-180-mastery' });
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing a course does not enroll');
+await click(jdPath.querySelectorAll<HTMLButtonElement>('.study-program button')[1]);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-us-legal-system' });
+await click(jdPath.querySelectorAll<HTMLButtonElement>('.study-program button')[2]);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-case-reading' });
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing the second course does not enroll');
 api = makeApi('bob', []);await mount();
 assert.equal(pathway(jd.title).querySelector('progress')?.value, 0, "saved program survives remount");
 await click('Edit pathway', pathway(jd.title));
-assert.match(document.querySelector('.pathway-editor')!.textContent!, /Introduction to the U.S. Legal System \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /LSAT 180 Mastery \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Introduction to the U.S. Legal System \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Case Reading and Legal Reasoning \(planned\)/);
+assert.match(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing I: Objective Analysis \(planned\)/);
 await click('Move Legal Writing II: Persuasion and Advocacy (planned) up');
 await click('Save pathway');
 assert.equal(pathway(jd.title).querySelector('.study-program'), null, "custom course order does not inherit canonical stage progress");

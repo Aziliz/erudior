@@ -11,6 +11,7 @@ import "./styles.css";
 import "./diagnostics.css";
 import "./interoperability.css";
 import "./documentEngine.css";
+import "./courseActivities.css";
 import "./transactions.css";
 import "./instructionalEvidence.css";
 import "./branching.css";
@@ -19,6 +20,9 @@ import "./advanced-assessment.css";
 import "./learningGames.css";
 import "./learningProgress.css";
 import "./startupSplash.css";
+import { applyFurigana } from "./components/Ruby";
+// Furigana on/off (Japanese courses) is a per-device display setting.
+applyFurigana();
 // Footer styles must be in the entry CSS, including restored prerendered pages.
 import "./engineAttribution.css";
 import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismissal } from "./lib/startupSplash";
@@ -28,7 +32,8 @@ import { claimWebAppSplash } from "./lib/startupSplashPolicy";
 // Studio stays on the existing trusted web-app origin, never inside a native
 // learner workspace. Server authorization remains required for all private data.
 const studioRoute = !IS_SITE && !inApp && /^\/admin\/studio\/?$/.test(window.location.pathname);
-const pageModule = studioRoute ? import("./pages/AdminStudio") : IS_SITE ? import("./Site") : import("./App");
+const promotionRoute = !IS_SITE && !inApp && /^\/admin\/promotions\/?$/.test(window.location.pathname);
+const pageModule = studioRoute ? import("./pages/AdminStudio") : promotionRoute ? import("./pages/AdminPromotions") : IS_SITE ? import("./Site") : import("./App");
 // Older cached snapshots can contain an overlay outside React's root. Always remove it.
 document.querySelectorAll(".erudior-splash").forEach(element => element.remove());
 let showSplash = false;

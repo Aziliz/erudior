@@ -1,23 +1,47 @@
 import type { StudyProgram } from "./studyPrograms";
 
-/** Reserved curriculum outlines, not published course packages. */
+/** Preparation sequence; course availability comes from the published catalog. */
 export const JD_PROGRAM: StudyProgram = {
   "id": "jd-preparation",
-  "version": 1,
+  "version": 2,
   "title": "J.D. Preparation",
-  "description": "A three-stage program connecting legal study skills, foundational law and upper-level subjects into one reusable learning pathway.",
-  "notice": "Independent preparation, not a J.D. degree, university credit, bar eligibility or legal advice. Course outlines are planned; lessons become available only after separate authoring, review and publication.",
+  "description": "A three-stage program beginning with LSAT preparation, then connecting legal study skills, foundational law and upper-level subjects into one reusable learning pathway.",
+  "notice": "Independent preparation, not a J.D. degree, university credit, bar eligibility or legal advice. Availability is shown for each course; planned courses become available after authoring, review and publication.",
   "stages": [
     {
       "id": "readiness",
       "title": "Law-school readiness",
-      "summary": "Learn how lawyers read, research and explain a legal problem before studying the doctrinal subjects.",
-      "milestone": "Build a research portfolio: three case briefs, an authority table, an objective memo and a revised persuasive brief. Use a rubric for accuracy, authority, application, counterarguments and clarity.",
+      "summary": "Begin with LSAT reasoning, reading and writing preparation, then learn how lawyers read, research and explain a legal problem before studying the doctrinal subjects.",
+      "milestone": "Build an LSAT practice and error-review plan, then a research portfolio: three case briefs, an authority table, an objective memo and a revised persuasive brief. Use a rubric for accuracy, authority, application, counterarguments and clarity.",
       "courses": [
+        {
+          "courseId": "lsat-180-mastery",
+          "title": "LSAT 180 Mastery",
+          "recommendedBefore": [],
+          "modules": [
+            "Orientation and diagnostic reasoning",
+            "Arguments, conclusions, and premises",
+            "Conditional and formal logic",
+            "Assumptions and argument gaps",
+            "Strengthen, weaken, and evaluate",
+            "Flaws, paradoxes, and explanations",
+            "Inference, principle, and method",
+            "Reading comprehension fundamentals",
+            "Advanced reading and comparative passages",
+            "Accuracy, pacing, and timed sections",
+            "Full-length simulation and error analysis",
+            "Elite-score refinement and test readiness"
+          ],
+          "outcomes": [
+            "Analyze arguments, assumptions and evidence, and support reading-comprehension answers with the passage.",
+            "Use original practice, writing and error-review records to plan focused preparation without treating raw results as an official LSAT score."
+          ],
+          "assignment": "Complete the original reasoning baseline, maintain an error log, revise an argumentative writing sample and build a timed-practice and readiness plan."
+        },
         {
           "courseId": "law-us-legal-system",
           "title": "Introduction to the U.S. Legal System",
-          "recommendedBefore": [],
+          "recommendedBefore": ["lsat-180-mastery"],
           "modules": [
             "Sources of law and legal institutions",
             "Federal and state court structures",
@@ -495,5 +519,5 @@ export const JD_PROGRAM: StudyProgram = {
       "url": "https://bulletin.case.edu/law/programs/law-jd-online/"
     }
   ],
-  "reviewedOn": "2026-11-03"
+  "reviewedOn": "2026-11-05"
 };

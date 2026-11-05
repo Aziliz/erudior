@@ -17,7 +17,8 @@ python3 scripts/android-integrate-installer.py
 python3 scripts/android-upgrade/prepare.py
 # This assertion deliberately excludes main.tsx: it receives the CI-only data helper import.
 git diff --exit-code -- src/lib/updates.ts src/lib/androidUpdates.ts src/lib/storage.ts \
-  src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt
+  src-tauri/android-installer/src/main/java/com/erudior/updates/InstallerPlugin.kt \
+  src-tauri/android-installer/src/main/java/com/erudior/updates/NativeLifecycleState.java
 bt="$ANDROID_HOME/build-tools/35.0.0"
 for variant in a b; do
   export VITE_ANDROID_BUILD_SHA

@@ -189,10 +189,11 @@ a b c A B C
 ```
 ````
 
-- Lists the letters to trace (a–z, A–Z; spaces optional). One writing pad at a time with **Next letter**; printing shows them all as a tracing worksheet.
+- Lists the letters to trace (a–z, A–Z; spaces optional). One writing pad at a time with **Next letter** (**Next kana**); printing shows them all as a tracing worksheet.
 - The pad shows the writing lines (top, dashed middle, baseline, tail line), the letter as a lane with a dashed center line, a numbered dot where each stroke starts and an arrow for its direction, in manuscript (ball-and-stick print) style.
 - The child traces with a finger, pen or mouse. Each stroke is checked when the pen lifts: it must start near its number, go the way of the arrow, stay inside the lane and cover at least three quarters of it (reaching its end). A stroke can be finished in more than one go. The next number lights up after each stroke; a stroke that goes off the path is erased with a hint ("Start at number 2", "Follow the arrow"). **Show me** moves a dot along the stroke; **Start over** clears the pad. Feedback is spoken too when the device has a voice.
 - `tolerance=` `loose`, `normal` (default) or `tight`: how far from the center line a tracing may wander.
+- Kana trace too: the 46 basic hiragana and 46 basic katakana and their ゛/゜ forms (が, ぱ, ガ, パ, ヴ…), e.g. `` ```trace `` with `あいうえお`. A kana pad is a square box with a dashed cross (like Japanese practice paper) instead of writing lines, the strokes follow standard school stroke order, and ゛/゜ are the last strokes, at the top right. The pad is labeled "hiragana ne" / "katakana ne"; feedback is written only, and the finished kana is said aloud in Japanese when the device has a Japanese voice. Small kana (ゃ, っ) can't be traced.
 
 ### Questions with sounds
 
@@ -517,6 +518,16 @@ Wie heißt du?
 **Listening questions:** any question can have `audio` (see BANK_FORMAT.md): "pick what you heard" (choice) or dictation (`text`).
 
 Without JavaScript (printing, prerendered pages) dialogues and phrases show as text with their translations. The course checker reports unknown options, lines without a speaker, translations or audio before the first line, repeated translations, audio that isn't an embedded `data:audio` URL, clips over 400 KB, empty and unclosed blocks, and listening questions without `text` (or without a voice language). `samples/demo-listening.json` shows all of it (its clips are made with a computer voice, espeak-ng; real courses should use recordings of native speakers).
+
+## Japanese
+
+Language courses with `"language": { "code": "ja", "tts": "ja-JP", "ime": "ja", … }` get Japanese support (demo: `samples/demo-japanese.json`; walkthrough `scripts/japanese-walkthrough.mjs`).
+
+- **Typing.** `"ime": "ja"` turns on the built-in romaji → kana converter wherever the learner types Japanese (vocabulary recall cards and `text` question blanks): `neko` → ねこ, `kippu` → きっぷ, `nn` or `n'` → ん (a trailing `n` becomes ん on Enter or when leaving the box), `-` → ー, `,` `.` → 、。, `xtu`/`ltu` → っ and `xa`, `xya`… → small kana. Capital letters give katakana (`TAKUSHI-` → タクシー), as does the ひらがな/カタカナ switch on vocabulary cards. A Japanese keyboard on the learner's device still works (the converter leaves kana and kanji alone and waits while the keyboard is composing).
+- **Furigana.** Write `{漢字|かんじ}` anywhere in lesson text, reference sheets, notecards, question stems, choices and explanations, and vocabulary examples and notes. It becomes `<ruby>` with the reading above the kanji. The base must contain a kanji and the reading must be kana (the checker enforces both in Japanese courses); other braces, such as set notation, are left alone. Put furigana only over the kanji: `{食|た}べる`, `お{茶|ちゃ}`. A **Furigana on/off** switch on Japanese lessons, quizzes and vocabulary hides every reading (the setting is per device); hidden readings keep their space so lines don't jump. Read-aloud reads the kanji, not the reading.
+- **Vocabulary.** `term` is the word as normally written (kanji where the level expects it, else kana; plain text, no furigana markup). `reading` is its kana reading, required when `term` has kanji. Vocabulary cards put the reading over the kanji automatically. On English → Japanese cards both the written form (typed with a device keyboard) and the kana reading are accepted; typing the reading of a kanji word shows "Written with kanji: …". Hiragana for a katakana word, or the reverse, and leftover romaji get another try instead of a miss. Use `"directions": ["meaning"]` for items that make no sense to type from English (single kana: the converter would type them for the learner).
+- **Answers in `text` questions.** When an accepted answer is Japanese, spaces, Japanese punctuation (。、「」・), full-width/half-width differences and furigana markup are ignored when comparing. List every acceptable written form (`["みず", "水"]`).
+- **Fonts.** Japanese uses the device's Japanese fonts (Hiragino, Yu Gothic, Meiryo, Noto Sans CJK…); no CJK font is bundled. Japanese text is never italicized, even when it's in `*italics*` to mark the language.
 
 ## Math drills
 

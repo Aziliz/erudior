@@ -16,6 +16,7 @@ import { SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
 import { useAssignmentLinks } from "./WorkView";
+import { FuriganaToggle, RubyText } from "../components/Ruby";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const guided = isGuidedPractice(course);
@@ -102,6 +103,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1 data-ra="title">{lesson.title}</h1>
+        {course.language?.code === "ja" && <FuriganaToggle />}
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}
@@ -158,7 +160,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
               {words.map((v) => (
                 <tr key={v.id}>
                   <td lang={lang?.code}>
-                    <span className="vocab-term">{v.term}</span>
+                    <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} /></span>
                     <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                     {v.plural && <div className="muted small">pl. {v.plural}</div>}
                   </td>
@@ -166,7 +168,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
                     {v.meanings.join("; ")}
                     {v.example && (
                       <div className="muted small">
-                        <span lang={lang?.code}>{v.example}</span>
+                        <span lang={lang?.code}><RubyText text={v.example} lang={lang?.code} /></span>
                         {v.exampleEn && ` — ${v.exampleEn}`}
                       </div>
                     )}

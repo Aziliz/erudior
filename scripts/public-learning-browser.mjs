@@ -233,8 +233,19 @@ try {
     assert.equal(new URL(page.url()).pathname, lessonPath);
     await audit(name + '-public-lesson');
     await audit(name + '-lesson-quiz', page.locator('.lesson-quiz'));
+    const beforeDismiss = await storage();
+    await button('Close learning notice').focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.getByRole('region', { name: 'Guest learning' }).count(), 0, 'notice closes');
+    assert.equal(await page.locator('#main').evaluate(el => el === document.activeElement), true, 'dismissal restores content focus');
+    assert.deepEqual(await storage(), beforeDismiss, 'dismissal does not change learning storage');
+    await audit(name + '-notice-dismissed', heading('Synthetic practice lesson'));
     await quiz();
+    assert.equal(await button('Close learning notice').count(), 0, 'dismissal persists across practice navigation');
     await audit(name + '-practice-result', page.locator('.score-head'));
+    await page.goto(origin + lessonPath);
+    await heading('Synthetic practice lesson').waitFor();
+    await button('Courses and export').waitFor();
     await exportBackup(name + '-saved');
     await audit(name + '-saved-export', page.locator('section').filter({ has: heading('Backup') }));
 
@@ -264,6 +275,12 @@ try {
     await exportBackup(name + '-temporary');
     await audit(name + '-temporary-export', page.locator('section').filter({ has: heading('Backup') }));
     assert.equal(new URL(page.url()).searchParams.get('guest'), '1', 'navigation retains temporary context');
+
+    const temporaryBeforeDismiss = await storage();
+    await button('Close learning notice').click();
+    assert.equal(await button('Close learning notice').count(), 0);
+    assert.equal((await progress()).attempts.length, 1, 'temporary dismissal preserves in-memory practice');
+    assert.deepEqual(await storage(), temporaryBeforeDismiss, 'temporary dismissal preserves memory-only data');
 
     // Reload discards memory-only practice, without carrying a completion into device data.
     await page.goto(origin + lessonPath + '?guest=1');

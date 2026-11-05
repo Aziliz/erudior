@@ -1,6 +1,6 @@
 # Private account service
 
-This directory contains Erudior's account-domain contracts, browser OIDC adapter, opaque device sessions, PostgreSQL store, and read-only private HTTP boundary. It is a separate server component, not part of the public website, application bundle, or community API.
+This directory contains Erudior's account-domain contracts, browser OIDC adapter, opaque device sessions, PostgreSQL store, and opt-in private HTTP capabilities. It is a separate server component, not part of the public website, application bundle, or community API.
 
 The HTTP handler accepts only identities already provisioned in trusted server state. A verified provider identity does not create an account, prove guardianship, or grant a school role. This implementation has no production endpoint, deployment configuration, signup, native authentication, local-record upload, or deletion executor. Tests use synthetic identities and records.
 
@@ -32,3 +32,5 @@ Authorization decisions and lifecycle plans are short-lived transaction inputs, 
 Keep this package outside `src/`, the public community `worker/`, and existing local learner-privacy checkpoint grants. Future deployment needs a separate private service and bindings, a selected/configured managed identity provider and storage region, verified authority provisioning, tested browser/native clients, and recovery/export/deletion execution. Do not introduce real learner collection through a demonstration or test adapter.
 
 See [the account design](../docs/ACCOUNT_SYSTEM.md) for the full product and security contract, [the foundation delivery](../docs/ACCOUNT_FOUNDATION.md) for the domain rules, and [the service integration](../docs/ACCOUNT_SERVICE.md) for the current implementation and remaining work.
+
+The separate [device-session management capability](../docs/PRIVATE_DEVICE_SESSIONS.md) lists minimal owned-session metadata and revokes one or all sessions. Both store and host must explicitly enable it; fresh personal MFA is required and no production service or settings UI is activated.

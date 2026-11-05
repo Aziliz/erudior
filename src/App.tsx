@@ -5,7 +5,7 @@ import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomP
 import { loadClassroomSubmissions, validateClassroomSubmissionState } from "./lib/classroomSubmissionStore";
 import ClassroomWorkflowWorkspace from "./pages/ClassroomWorkflowWorkspace";
 import "./classroom-workflows.css";
-import { applyNativeLifecycle } from "./lib/nativeLifecycle";
+import { createNativeLifecycleConsumer } from "./lib/nativeLifecycle";
 import { configureLocalSession, bindLocalSessionCredential, assertLocalSessionCredential, localSessionLocked, localSessionEpoch, unlockLocalLearner, unlockLocalAdult, lockLocalSession, assertLocalLearner, assertLocalAdult, captureLocalSession } from "./lib/localSession";
 import { parentCourseDigest, assertCurrentParentCourseAccess, hasParentCourseReview, makeParentCourseReview, saveParentCourseAssignment } from "./lib/parentCourseReview";
 import { TEMPORARY_GUEST, withGuestSession } from "./lib/guestSession";
@@ -325,6 +325,8 @@ export default function App() {
   const [competencySync, setCompetencySync] = useState({ pending: false, error: "" });
   const [competencyRetry, setCompetencyRetry] = useState(0);
   const student = family?.students.find((s) => s.id === studentId) ?? null;
+  // Visit-only UI preference: never persist guest-session data.
+  const [learningNoticeDismissed, setLearningNoticeDismissed] = useState(false);
   const publicLearning = !store.inApp && !HOMESCHOOL && import.meta.env?.VITE_AS_DESKTOP !== "1" && !family;
 
   // Ctrl/Cmd+K jumps to search.
@@ -788,23 +790,36 @@ export default function App() {
     return()=>{window.removeEventListener("keydown",protectHiddenShortcuts,true);window.removeEventListener("keyup",protectHiddenShortcuts,true);};
   }, []);
 
+  const lifecycleContext = useRef({family: !!family, active: !!studentId || parentUnlocked});
+  lifecycleContext.current = {family: !!family, active: !!studentId || parentUnlocked};
+  const nativeLifecycleConsumer = useRef(createNativeLifecycleConsumer());
+  const lifecycleActivityAt = useRef(Date.now());
+  useEffect(() => { lifecycleActivityAt.current = Date.now(); }, [sessionEpoch]);
   useEffect(() => {
-    if (!family || (!studentId && !parentUnlocked)) return;
-    let lastActivity=Date.now(), hiddenAt:number|null=null;
-    const activity=()=>{ if (!document.hidden && !lockedRef.current) lastActivity=Date.now(); };
-    const conceal=()=>{ concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
-    const reveal=()=>{ if(document.hidden)return; concealedRef.current=false; setConcealed(false); if(hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; };
+    let hiddenAt:number|null=null, nativePaused=false;
+    const relevant=()=>lifecycleContext.current.family && lifecycleContext.current.active;
+    const activity=()=>{ if (!document.hidden && !lockedRef.current) lifecycleActivityAt.current=Date.now(); };
+    const conceal=()=>{ if(!relevant())return; concealedRef.current=true; setConcealed(true); if(hiddenAt===null)hiddenAt=Date.now(); };
+    const reveal=()=>{ if(document.hidden || nativePaused)return; if(relevant() && hiddenAt!==null && Date.now()-hiddenAt>=30_000)lockWorkspace(); hiddenAt=null; concealedRef.current=false; setConcealed(false); };
     const visibility=()=>{ if(document.hidden)conceal(); else reveal(); };
-    // Native callbacks are outside React events. Commit concealment before returning
-    // so top-layer dialogs cannot remain above the hidden shared-device shell.
-    const nativeLifecycle=(event:Event)=>flushSync(()=>applyNativeLifecycle((event as CustomEvent).detail,{conceal,reveal,lock:()=>{if(!lockedRef.current)lockWorkspace();}}));
+    // Stable across auth/learner renders. Cancel only after flushSync commits the
+    // validated event, so native can safely remove its own concealment shield.
+    const nativeLifecycle=(event:Event)=>{
+      if(!event.cancelable)return;
+      const detail=(event as CustomEvent).detail;
+      if(nativeLifecycleConsumer.current(detail,{
+        conceal:()=>{nativePaused=true;conceal();},
+        reveal:()=>{nativePaused=false;reveal();},
+        lock:()=>{if(lifecycleContext.current.family && !lockedRef.current)lockWorkspace();},
+      },flushSync))event.preventDefault();
+    };
     window.addEventListener("erudior-native-lifecycle",nativeLifecycle);
-    const tick=window.setInterval(()=>{ if(lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lastActivity>=10*60_000)lockWorkspace(); },1000);
+    const tick=window.setInterval(()=>{ if(!relevant() || lockedRef.current)return; if((hiddenAt!==null && Date.now()-hiddenAt>=30_000) || Date.now()-lifecycleActivityAt.current>=10*60_000)lockWorkspace(); },1000);
     document.addEventListener("visibilitychange",visibility);
     window.addEventListener("blur",conceal); window.addEventListener("focus",reveal);
     for(const name of ["pointerdown","keydown","touchstart"])document.addEventListener(name,activity,{passive:true});
     return()=>{window.removeEventListener("erudior-native-lifecycle",nativeLifecycle);window.clearInterval(tick);document.removeEventListener("visibilitychange",visibility);window.removeEventListener("blur",conceal);window.removeEventListener("focus",reveal);for(const name of ["pointerdown","keydown","touchstart"])document.removeEventListener(name,activity);};
-  }, [!!family, studentId, parentUnlocked, sessionEpoch, lockWorkspace]);
+  }, [lockWorkspace]);
 
   useEffect(() => {
     if (!family || localLocked || gate || localSessionLocked()) return;
@@ -1978,8 +1993,10 @@ export default function App() {
         </section>
       )}
       <main className="main" id="main" tabIndex={-1} ref={mainRef}>
-        {publicLearning && <section className="public-learning-banner" aria-label="Guest learning">
-          <div><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+        {publicLearning && !learningNoticeDismissed && <section className="public-learning-banner" aria-label="Guest learning">
+          <div className="public-learning-banner-heading"><b>{TEMPORARY_GUEST ? "Temporary guest session" : "Free independent study"}</b>
+            <button type="button" className="btn sm ghost public-learning-banner-close" aria-label="Close learning notice" onClick={() => { setLearningNoticeDismissed(true); mainRef.current?.focus({ preventScroll: true }); }}>Close <span aria-hidden="true">×</span></button></div>
+          <div>
             <p className="small">{TEMPORARY_GUEST ? "Learning data stays in this page's memory only. Refreshing or closing loses it. Export course progress before leaving; scratch code/workbook drafts are not in that backup. Saved device progress is untouched." : "No account needed. Progress is saved only in this browser. Use a temporary session if you do not want learning data saved on this device."} Practice is not supervised credit or certification.</p></div>
           <div className="row">
             <button className="btn sm" onClick={() => api.go({name:"progress"})}>Courses and export</button>

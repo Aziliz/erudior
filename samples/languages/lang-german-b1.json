@@ -5,8 +5,8 @@
  "title": "German B1",
  "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Unlocks when German A2 is complete.",
  "author": "Erudior",
- "revision": 2,
- "changelog": "Honors lessons with longer texts and culture, pictures and diagrams in every lesson, new question types and vocabulary; corrections from a second full review.",
+ "revision": 3,
+ "changelog": "Fixed vocabulary cards whose English prompt was cut off at a comma (and stray answer fragments that were accepted).",
  "modules": [
   {
    "id": "de3-m1",
@@ -30173,8 +30173,7 @@
    "term": "Grüezi",
    "pos": "interjection",
    "meanings": [
-    "hello (in Switzerland",
-    "formal)",
+    "hello (in Switzerland, formal)",
     "hello",
     "good day"
    ],
@@ -30417,8 +30416,7 @@
    "lesson": "de1-m1-h-numbers-life",
    "term": "Mathe",
    "meanings": [
-    "maths (school subject",
-    "informal)",
+    "maths (school subject, informal)",
     "maths",
     "math",
     "mathematics"
@@ -31041,8 +31039,7 @@
     "Ich hätte gerne"
    ],
    "meanings": [
-    "I'd like (polite",
-    "when ordering)",
+    "I'd like (polite, when ordering)",
     "I would like",
     "I'd like"
    ],
@@ -32578,8 +32575,7 @@
    "term": "erst",
    "pos": "adverb",
    "meanings": [
-    "only (not before",
-    "not until)",
+    "only (not before, not until)",
     "not until",
     "only"
    ],
@@ -34650,8 +34646,7 @@
    "pos": "verb",
    "meanings": [
     "to say thank you",
-    "to thank (someone",
-    "reflexive)",
+    "to thank (someone, reflexive)",
     "to express thanks"
    ],
    "example": "Ich möchte mich bei Ihnen bedanken.",
@@ -37450,8 +37445,7 @@
    "pos": "noun",
    "plural": "die Nebenkosten (plural only)",
    "meanings": [
-    "additional costs (heating",
-    "water etc. on top of rent)",
+    "additional costs (heating, water etc. on top of rent)",
     "additional costs",
     "extra costs",
     "utilities",
@@ -41609,8 +41603,7 @@
    "term": "herzlich",
    "pos": "adjective",
    "meanings": [
-    "warm (friendly",
-    "heartfelt)",
+    "warm (friendly, heartfelt)",
     "warm",
     "warmly",
     "cordial",
@@ -43078,8 +43071,7 @@
    "term": "sich anschauen",
    "pos": "verb",
    "meanings": [
-    "to take a look at (southern German",
-    "Austrian)",
+    "to take a look at (southern German, Austrian)",
     "to have a look at",
     "to look at",
     "to watch"
@@ -43145,8 +43137,7 @@
    "pos": "verb",
    "meanings": [
     "to sprain",
-    "to twist (an ankle",
-    "a wrist)"
+    "to twist (an ankle, a wrist)"
    ],
    "example": "Er hat sich beim Joggen den Fuß verstaucht.",
    "exampleEn": "He sprained his ankle jogging.",
@@ -43247,8 +43238,7 @@
    "term": "einfallen",
    "pos": "verb",
    "meanings": [
-    "to occur to (an idea",
-    "a name)",
+    "to occur to (an idea, a name)",
     "to think of",
     "to come to mind",
     "to remember"
@@ -43427,8 +43417,7 @@
     "liebhaben"
    ],
    "meanings": [
-    "to love (family",
-    "friends; not romantic)",
+    "to love (family, friends; not romantic)",
     "to love",
     "to be fond of",
     "to care about"
@@ -43528,8 +43517,7 @@
    "term": "fließend",
    "pos": "adjective",
    "meanings": [
-    "fluent (also running",
-    "of water)",
+    "fluent (also running, of water)",
     "fluent",
     "fluently",
     "running",
@@ -44071,8 +44059,7 @@
    "term": "deutlich",
    "pos": "adjective",
    "meanings": [
-    "clear (distinct",
-    "noticeable)",
+    "clear (distinct, noticeable)",
     "clearly",
     "noticeably",
     "distinct",
@@ -48458,8 +48445,7 @@
    "pos": "noun",
    "plural": "die Kenntnisse",
    "meanings": [
-    "knowledge (of a subject",
-    "mostly plural)",
+    "knowledge (of a subject, mostly plural)",
     "knowledge",
     "skills",
     "skill"
@@ -51160,8 +51146,7 @@
    "pos": "verb",
    "meanings": [
     "to hand down",
-    "to pass down (traditions",
-    "stories)"
+    "to pass down (traditions, stories)"
    ],
    "example": "Das Rezept wurde von Generation zu Generation überliefert.",
    "exampleEn": "The recipe was handed down from generation to generation.",
@@ -51334,8 +51319,7 @@
    "pos": "noun",
    "plural": "die Ausfälle",
    "meanings": [
-    "cancellation (of a train",
-    "class…)",
+    "cancellation (of a train, class…)",
     "failure",
     "breakdown (of a system)"
    ],
@@ -51467,8 +51451,7 @@
    "term": "gesperrt",
    "pos": "adjective",
    "meanings": [
-    "closed (road",
-    "route)",
+    "closed (road, route)",
     "blocked"
    ],
    "example": "Die Straße ist bis Freitag gesperrt.",
@@ -51576,8 +51559,7 @@
    "term": "verpassen",
    "pos": "verb",
    "meanings": [
-    "to miss (a train",
-    "chance)",
+    "to miss (a train, chance)",
     "to miss"
    ],
    "example": "Beeil dich, sonst verpassen wir den Bus!",
@@ -54538,8 +54520,7 @@
    "pos": "noun",
    "plural": "die Aussteiger",
    "meanings": [
-    "dropout (male",
-    "someone who leaves normal working life)",
+    "dropout (male, someone who leaves normal working life)",
     "dropout",
     "drop-out"
    ],
@@ -54554,8 +54535,7 @@
    "pos": "noun",
    "plural": "die Aussteigerinnen",
    "meanings": [
-    "dropout (female",
-    "someone who leaves normal working life)",
+    "dropout (female, someone who leaves normal working life)",
     "dropout",
     "drop-out"
    ],
@@ -55208,8 +55188,7 @@
    "pos": "noun",
    "plural": "die Konsequenzen",
    "meanings": [
-    "consequence (loanword",
-    "not Folge)",
+    "consequence (loanword, not Folge)",
     "consequence",
     "consequences"
    ],
@@ -56383,8 +56362,7 @@
    "pos": "noun",
    "plural": "die Arbeitnehmer",
    "meanings": [
-    "employee (male",
-    "as opposed to employer)",
+    "employee (male, as opposed to employer)",
     "employee",
     "worker"
    ],
@@ -56398,8 +56376,7 @@
    "pos": "noun",
    "plural": "die Arbeitnehmerinnen",
    "meanings": [
-    "employee (female",
-    "as opposed to employer)",
+    "employee (female, as opposed to employer)",
     "employee",
     "worker"
    ],
@@ -56666,8 +56643,7 @@
    "term": "leiten",
    "pos": "verb",
    "meanings": [
-    "to manage (lead",
-    "run)",
+    "to manage (lead, run)",
     "to manage",
     "to lead",
     "to run",
@@ -57537,8 +57513,7 @@
    "term": "ausleihen",
    "pos": "verb",
    "meanings": [
-    "to borrow (take out",
-    "e.g. from a library)",
+    "to borrow (take out, e.g. from a library)",
     "to borrow",
     "to lend",
     "to lend out",
@@ -58044,9 +58019,7 @@
    "pos": "noun",
    "plural": "die Saisons",
    "meanings": [
-    "season (for tourism",
-    "sport",
-    "fashion)",
+    "season (for tourism, sport, fashion)",
     "season"
    ],
    "example": "Die Saison beginnt im Dezember.",
@@ -60839,8 +60812,7 @@
    "pos": "noun",
    "plural": "die Funde",
    "meanings": [
-    "find (noun",
-    "something found)",
+    "find (noun, something found)",
     "find",
     "discovery"
    ],
@@ -61395,8 +61367,7 @@
    "pos": "noun",
    "plural": "die Einsprüche",
    "meanings": [
-    "objection (formal",
-    "e.g. to a law)",
+    "objection (formal, e.g. to a law)",
     "objection",
     "protest"
    ],

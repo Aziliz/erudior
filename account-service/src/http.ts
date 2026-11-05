@@ -7,9 +7,17 @@ import type { PostgresAccountStore, StoredSession } from './store.ts';
 export type PrivateAccountStore = Pick<PostgresAccountStore,
   'beginLogin' | 'consumeLogin' | 'establishSession' | 'getSession' | 'switchContext' | 'revokeSession' | 'readRecord'>;
 
+/** Opt-in capability; omitting it leaves every export route unavailable. */
+export type PrivateAccountExportStore = Pick<PostgresAccountStore,
+  'requestRecordExport' | 'getRecordExport' | 'downloadRecordExport' | 'cancelRecordExport'>;
+
+/** Explicit private host capability; absent means device management is unavailable. */
+export type PrivateAccountDeviceStore = Pick<PostgresAccountStore,
+  'listDeviceSessions' | 'revokeDeviceSessions'>;
+
 export interface PrivateAccountAuditEvent {
   requestId: string;
-  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'request';
+  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'export.request' | 'export.status' | 'export.download' | 'export.cancel' | 'devices.list' | 'devices.revoke' | 'request';
   outcome: 'success' | 'denied' | 'error';
 }
 export interface PrivateAccountHttpConfig {
@@ -19,6 +27,10 @@ export interface PrivateAccountHttpConfig {
   returnPath: string;
   providers: readonly OidcClient[];
   store: PrivateAccountStore;
+  /** Explicit host opt-in, separate from session/read access. No public export endpoints. */
+  exports?: PrivateAccountExportStore;
+  /** Separate opt-in; never mounted by the public application. */
+  devices?: PrivateAccountDeviceStore;
   /** Separate, server-owned secret. Rotation requires session invalidation/relogin. */
   csrfKey: Uint8Array;
   /** Trusted server clock, injectable only by the host/test harness. Never request data. */
@@ -177,8 +189,12 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       if (/%|\\|\/\//.test(path)) bad();
       const callbackMatch = /^\/v1\/auth\/callback\/([a-z][a-z0-9_-]{0,47})$/.exec(path);
       const recordMatch = /^\/v1\/workspaces\/([A-Za-z0-9_-]+)\/records\/([A-Za-z0-9_-]+)$/.exec(path);
+      const exportMatch = config.exports ? /^\/v1\/exports\/([A-Za-z0-9_-]+)(?:\/(download|cancel))?$/.exec(path) : null;
+      const exportCreate = !!config.exports && path === '/v1/exports';
+      const devicesList = !!config.devices && path === '/v1/devices';
+      const devicesRevoke = !!config.devices && path === '/v1/devices/revoke';
       if (!callbackMatch && url.search) bad();
-      const method = path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
+      const method = devicesRevoke || exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : devicesList || exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
         : ['/v1/auth/start', '/v1/session/context', '/v1/session/logout'].includes(path) ? 'POST' : null;
       if (!method) return response(404, { error: 'not_found' });
       if (request.method !== method) return response(405, { error: 'invalid_request' }, [['Allow', method]]);
@@ -245,6 +261,63 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       if (method === 'POST') {
         const supplied = request.headers.get(CSRF_HEADER);
         if (!supplied || !TOKEN.test(supplied) || !equal(supplied, csrf(opaque))) denied();
+      }
+      if (devicesList) {
+        operation = 'devices.list';
+        const devices = await config.devices!.listDeviceSessions(digest(opaque));
+        if (!devices) return response(404, { error: 'not_found' });
+        return response(200, { devices });
+      }
+      if (devicesRevoke) {
+        operation = 'devices.revoke';
+        const body = await jsonBody(request, [], ['sessionId']);
+        if (Object.hasOwn(body, 'sessionId') && !isAccountId(body.sessionId)) bad();
+        const result = await config.devices!.revokeDeviceSessions({
+          tokenHash: digest(opaque), csrfHash: digest(csrf(opaque)),
+          ...(typeof body.sessionId === 'string' ? { sessionId: body.sessionId } : {}),
+        });
+        if (!result) return response(404, { error: 'not_found' });
+        return response(200, result, result.currentRevoked ? [['Set-Cookie', clearSessionCookie()]] : []);
+      }
+      if (exportCreate) {
+        operation = 'export.request';
+        const body = await jsonBody(request, ['workspaceId', 'records', 'requestId']);
+        if (!isAccountId(body.workspaceId) || !isAccountId(body.requestId) || !Array.isArray(body.records) || body.records.length < 1 || body.records.length > 32) bad();
+        const records: { id: string; version: number }[] = [];
+        const seen = new Set<string>();
+        for (const item of body.records) {
+          if (!item || typeof item !== 'object' || Array.isArray(item) || Object.keys(item).sort().join(',') !== 'id,version') bad();
+          const record = item as Record<string, unknown>;
+          if (!isAccountId(record.id) || typeof record.version !== 'number' || !Number.isSafeInteger(record.version) || record.version < 1 || seen.has(record.id)) bad();
+          seen.add(record.id);
+          records.push({ id: record.id, version: record.version });
+        }
+        const result = await config.exports!.requestRecordExport(digest(opaque), digest(csrf(opaque)), {
+          workspaceId: body.workspaceId, requestId: body.requestId, records,
+        });
+        if (!result) return response(404, { error: 'not_found' });
+        return response(200, { export: result });
+      }
+      if (exportMatch) {
+        const exportId = exportMatch[1], action = exportMatch[2];
+        if (!isAccountId(exportId)) bad();
+        if (action === 'download') {
+          operation = 'export.download';
+          const result = await config.exports!.downloadRecordExport(digest(opaque), exportId);
+          if (!result) return response(404, { error: 'not_found' });
+          return response(200, result.artifact, [['Content-Disposition', 'attachment; filename="erudior-record-export.json"']]);
+        }
+        if (action === 'cancel') {
+          operation = 'export.cancel';
+          await jsonBody(request, []);
+          const result = await config.exports!.cancelRecordExport(digest(opaque), digest(csrf(opaque)), exportId);
+          if (!result) return response(404, { error: 'not_found' });
+          return response(200, { export: result });
+        }
+        operation = 'export.status';
+        const result = await config.exports!.getRecordExport(digest(opaque), exportId);
+        if (!result) return response(404, { error: 'not_found' });
+        return response(200, { export: result });
       }
       if (path === '/v1/session') {
         operation = 'session.read';

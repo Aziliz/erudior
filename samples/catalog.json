@@ -4,8 +4,8 @@
   "file": "colorado-broker-course.json",
   "order": 0,
   "title": "Colorado Real Estate Broker",
-  "description": "Prep for the PSI Colorado broker exam: lessons for the national and Colorado state portions, a 818-question bank with timed exams scored like the real thing, notecards, math drills, a glossary and quick-reference sheets. Independent study material, not affiliated with PSI, the Division of Real Estate or any school. Laws and Commission forms change; check current sources.",
-  "revision": 16,
+  "description": "Independent prep for the national and Colorado portions of the PSI broker exam. Includes 828 practice questions, timed mock exams, notecards, math drills, contract and closing-document review, graded closing and trust-account workbooks, and transaction scenarios. Check current laws and Commission forms.",
+  "revision": 18,
   "disclaimer": "The information in this course is for educational and informational purposes only and should not be used to replace professional advice, including legal, tax, financial or real estate brokerage advice. It is independent study material, not affiliated with PSI, the Colorado Division of Real Estate or any school. It is not an approved pre-licensing course and does not count toward the education hours required for a Colorado license. Laws, rules and Commission forms change. Students are responsible for how they choose to use this content, and Erudior assumes no liability for the use or misuse of the information in it.",
   "subject": "Real estate",
   "level": [
@@ -15,7 +15,7 @@
    "Exam prep"
   ],
   "lessons": 48,
-  "questions": 818,
+  "questions": 828,
   "cards": 594,
   "drills": 25,
   "lessonIds": [
@@ -3810,12 +3810,213 @@
   ]
  },
  {
+  "id": "lsat-180-mastery",
+  "file": "math/lsat-180-mastery.json",
+  "order": 90,
+  "title": "LSAT 180 Mastery",
+  "description": "A twelve-module, year-long LSAT preparation pathway. Develop diagnostic review, argument analysis, formal logic, assumptions, evidence evaluation, flaw diagnosis, inference, principles, advanced reading, argumentative writing, pacing, full-simulation planning, targeted error repair, rare-error refinement, and test readiness with original practice. A 180 is an aspirational target, not a guaranteed outcome.",
+  "revision": 1,
+  "disclaimer": "Original Erudior preparation, independent of LSAC. This course is not an official LSAT practice test or a validated score predictor. Its original baseline reports raw results only. The app's generic bank timer and completion threshold are not LSAT timing or an LSAT passing score.",
+  "subject": "Test prep",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Course",
+   "Exam prep"
+  ],
+  "lessons": 58,
+  "questions": 712,
+  "cards": 352,
+  "drills": 0,
+  "lessonIds": [
+   "lsat-orientation-baseline",
+   "lsat-arguments-intro",
+   "lsat-baseline-diagnostic",
+   "lsat-reading-structure",
+   "lsat-conclusions",
+   "lsat-background-views",
+   "lsat-arguments-explanations",
+   "lsat-linked-support",
+   "lsat-conditions",
+   "lsat-contraposition",
+   "lsat-conditional-language",
+   "lsat-quantifiers",
+   "lsat-rule-chains",
+   "lsat-necessary-assumptions",
+   "lsat-negation-checks",
+   "lsat-sufficient-assumptions",
+   "lsat-assumption-roles",
+   "lsat-gap-matching",
+   "lsat-evidence-effects",
+   "lsat-causal-evidence",
+   "lsat-sampling-comparisons",
+   "lsat-plan-evaluation",
+   "lsat-evaluate-questions",
+   "lsat-flaw-diagnosis",
+   "lsat-conditional-flaws",
+   "lsat-quantitative-flaws",
+   "lsat-paradox-resolution",
+   "lsat-explanation-comparison",
+   "lsat-inference-standards",
+   "lsat-principle-application",
+   "lsat-parallel-reasoning",
+   "lsat-method-roles",
+   "lsat-mixed-reasoning",
+   "lsat-passage-structure",
+   "lsat-reading-viewpoints",
+   "lsat-reading-purpose",
+   "lsat-reading-evidence",
+   "lsat-reading-integration",
+   "lsat-dense-arguments",
+   "lsat-technical-reading",
+   "lsat-comparative-claims",
+   "lsat-comparative-integration",
+   "lsat-argumentative-writing",
+   "lsat-skips-returns",
+   "lsat-time-observation",
+   "lsat-confidence-review",
+   "lsat-timed-sections",
+   "lsat-timed-writing",
+   "lsat-simulation-design",
+   "lsat-session-continuity",
+   "lsat-simulation-records",
+   "lsat-error-repair",
+   "lsat-writing-evidence",
+   "lsat-rare-error-audit",
+   "lsat-refinement-priorities",
+   "lsat-readiness-evidence",
+   "lsat-administration-check",
+   "lsat-maintenance-plan"
+  ],
+  "outline": [
+   {
+    "title": "Orientation and diagnostic reasoning",
+    "lessons": [
+     "Start here — reasoning baseline in the app",
+     "Recognizing arguments and evidence",
+     "Establishing your diagnostic baseline and error log",
+     "Reading for structure instead of memorizing details"
+    ]
+   },
+   {
+    "title": "Arguments, conclusions, and premises",
+    "lessons": [
+     "Main and intermediate conclusions",
+     "Background, concessions, and opposing views",
+     "Arguments and causal explanations",
+     "Linked and independent support"
+    ]
+   },
+   {
+    "title": "Conditional and formal logic",
+    "lessons": [
+     "Sufficient and necessary conditions",
+     "Contraposition and precise negation",
+     "Translating conditional language",
+     "Quantifiers and group overlap",
+     "Rule chains and mixed inferences"
+    ]
+   },
+   {
+    "title": "Assumptions and argument gaps",
+    "lessons": [
+     "Necessary assumptions",
+     "Negation checks and their limits",
+     "Sufficient assumptions",
+     "Bridge and defender roles",
+     "Matching assumptions to the exact gap"
+    ]
+   },
+   {
+    "title": "Strengthen, weaken, and evaluate",
+    "lessons": [
+     "Strengthen and weaken the exact inference",
+     "Causal claims and alternative explanations",
+     "Sampling, comparisons, and quantitative evidence",
+     "Evaluating plans and intended outcomes",
+     "Evaluating arguments with opposing answers"
+    ]
+   },
+   {
+    "title": "Flaws, paradoxes, and explanations",
+    "lessons": [
+     "Identifying the actual reasoning flaw",
+     "Conditional and comparison flaws",
+     "Percentage, rate, and total errors",
+     "Resolving apparent paradoxes",
+     "Comparing explanatory hypotheses"
+    ]
+   },
+   {
+    "title": "Inference, principle, and method",
+    "lessons": [
+     "Must-follow and best-supported inferences",
+     "Applying principles and exceptions",
+     "Matching parallel reasoning and flaws",
+     "Describing methods and statement roles",
+     "Mixed untimed reasoning and review"
+    ]
+   },
+   {
+    "title": "Reading comprehension fundamentals",
+    "lessons": [
+     "Mapping passages and paragraph functions",
+     "Tracking author and reported viewpoints",
+     "Identifying main point, purpose, and tone",
+     "Locating details and supporting inferences",
+     "Integrating reading skills in untimed sets"
+    ]
+   },
+   {
+    "title": "Advanced reading and comparative passages",
+    "lessons": [
+     "Reconstructing dense passage arguments",
+     "Reading technical language in context",
+     "Comparing agreement, disagreement, and silence",
+     "Integrating advanced and comparative reading",
+     "Developing and revising an argumentative position"
+    ]
+   },
+   {
+    "title": "Accuracy, pacing, and timed sections",
+    "lessons": [
+     "Choosing deliberate skips and planned returns",
+     "Observing and testing time allocation",
+     "Calibrating confidence and reviewing answers",
+     "Running timed sections and reviewing the evidence",
+     "Planning and drafting under time"
+    ]
+   },
+   {
+    "title": "Full-length simulation and error analysis",
+    "lessons": [
+     "Selecting and designing full simulations",
+     "Endurance, intermissions, and session continuity",
+     "Preserving simulation and review records",
+     "Interpreting results and testing repairs",
+     "Integrating writing and draft review"
+    ]
+   },
+   {
+    "title": "Elite-score refinement and test readiness",
+    "lessons": [
+     "Auditing rare errors and response decisions",
+     "Choosing focused refinements",
+     "Evaluating readiness evidence",
+     "Checking administration and writing requirements",
+     "Maintaining and adapting readiness"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a1",
   "file": "languages/lang-german-a1.json",
   "order": 100,
   "title": "German A1",
   "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Languages",
   "level": [
    "High School",
@@ -3973,12 +4174,132 @@
   ]
  },
  {
+  "id": "law-us-legal-system",
+  "file": "math/law-us-legal-system.json",
+  "order": 100,
+  "title": "Introduction to the U.S. Legal System",
+  "description": "Learn to identify legal sources, map federal and state courts, evaluate authority, and follow a fictional civil dispute from intake through appeal. First course in the J.D. Preparation pathway. Independent educational preparation, not degree credit.",
+  "revision": 1,
+  "disclaimer": "Educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Jurisdiction-specific rules must be researched.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 77,
+  "drills": 0,
+  "lessonIds": [
+   "lus-sources",
+   "lus-institutions",
+   "lus-courts",
+   "lus-jurisdiction",
+   "lus-precedent",
+   "lus-reading",
+   "lus-litigation",
+   "lus-appeal"
+  ],
+  "outline": [
+   {
+    "title": "Sources of law and legal institutions",
+    "lessons": [
+     "Recognizing sources of law",
+     "Institutions, powers and legal conflicts"
+    ]
+   },
+   {
+    "title": "Federal and state court structures",
+    "lessons": [
+     "Mapping trial and appellate courts",
+     "Separating jurisdiction, venue and governing law"
+    ]
+   },
+   {
+    "title": "Precedent, jurisdiction and authority",
+    "lessons": [
+     "Deciding which authority controls",
+     "Reading a rule and applying it to changed facts"
+    ]
+   },
+   {
+    "title": "From client problem to judicial decision",
+    "lessons": [
+     "From intake to a trial-court judgment",
+     "Review a judgment and complete the case map"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "law-case-reading",
+  "file": "math/law-case-reading.json",
+  "order": 101,
+  "title": "Case Reading and Legal Reasoning",
+  "description": "Read judicial opinions with attention to procedural posture, identify holdings and reasoning, synthesize rules across cases, and analyze changed facts. Second course in the J.D. Preparation pathway; includes an original three-opinion practice packet.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Alder law and opinions are fictional teaching materials. Research current jurisdiction-specific law for real matters.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "lcr-opinion-map",
+   "lcr-posture",
+   "lcr-holding",
+   "lcr-reasoning",
+   "lcr-synthesis",
+   "lcr-analogy",
+   "lcr-interpretation",
+   "lcr-capstone"
+  ],
+  "outline": [
+   {
+    "title": "Reading an opinion and procedural posture",
+    "lessons": [
+     "Finding your way through a judicial opinion",
+     "Procedural posture, fact status and the record"
+    ]
+   },
+   {
+    "title": "Issues, holdings, reasoning and dicta",
+    "lessons": [
+     "Framing the issue and stating a bounded holding",
+     "Explaining reasoning and reading separate opinions fairly"
+    ]
+   },
+   {
+    "title": "Rule synthesis, analogy and distinction",
+    "lessons": [
+     "Synthesizing a rule from several decisions",
+     "Using analogy and distinction on a new fact pattern"
+    ]
+   },
+   {
+    "title": "Statutory interpretation and changed facts",
+    "lessons": [
+     "Interpreting statutory text in context",
+     "Three briefs, a synthesis memo and changed facts"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-german-a2",
   "file": "languages/lang-german-a2.json",
   "order": 101,
   "title": "German A2",
   "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4145,7 +4466,7 @@
   "order": 102,
   "title": "German B1",
   "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Unlocks when German A2 is complete.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4313,6 +4634,256 @@
      "Ein Einwanderungsland: migration history and describing statistics"
     ],
     "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-kana",
+  "file": "languages/lang-japanese-kana.json",
+  "order": 120,
+  "title": "Japanese: Hiragana and Katakana",
+  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards. This course comes before Japanese N5.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 15,
+  "honors": 3,
+  "questions": 339,
+  "cards": 0,
+  "drills": 0,
+  "words": 286,
+  "lessonIds": [
+   "kana-intro",
+   "kana-k-s",
+   "kana-t-n",
+   "kana-h-m",
+   "kana-y-r-w",
+   "kana-dakuten",
+   "kana-yoon",
+   "kata-a-so",
+   "kata-ta-ho",
+   "kata-ma-n",
+   "kata-voiced",
+   "kata-loan",
+   "kana-particles",
+   "kana-punctuation",
+   "kana-first-words"
+  ],
+  "honorsLessonIds": [
+   "kana-h-history",
+   "kana-h-typing",
+   "kana-h-handwriting"
+  ],
+  "honorsModuleIds": [
+   "kana-h1"
+  ],
+  "outline": [
+   {
+    "title": "Hiragana",
+    "lessons": [
+     "How Japanese is written; あいうえお",
+     "The か and さ rows",
+     "The た and な rows",
+     "The は and ま rows",
+     "The や, ら and わ rows, を and ん",
+     "Voiced sounds: ゛ and ゜",
+     "Combinations, small っ and long vowels"
+    ]
+   },
+   {
+    "title": "Katakana",
+    "lessons": [
+     "Katakana ア to ソ",
+     "Katakana タ to ホ",
+     "Katakana マ to ン",
+     "Voiced katakana, ー and small ッ",
+     "Sounds for foreign words"
+    ]
+   },
+   {
+    "title": "Using kana",
+    "lessons": [
+     "は, へ and を as particles",
+     "Punctuation and vertical text",
+     "First words and greetings"
+    ]
+   },
+   {
+    "title": "Honors: Kana in depth",
+    "lessons": [],
+    "honors": [
+     "Where kana came from",
+     "Typing Japanese on phones and computers",
+     "Kana in print and handwriting"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n5",
+  "file": "languages/lang-japanese-n5.json",
+  "order": 121,
+  "title": "Japanese N5",
+  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), about 100 kanji through notecards and inside words, with furigana you can turn off. Requires Japanese: Hiragana and Katakana.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 102,
+  "drills": 0,
+  "words": 1086,
+  "carried": 286,
+  "requires": [
+   "lang-japanese-kana"
+  ],
+  "lessonIds": [
+   "n5-desu",
+   "n5-kosoado",
+   "n5-numbers",
+   "n5-shopping",
+   "n5-places",
+   "n5-time",
+   "n5-masu",
+   "n5-going",
+   "n5-dates",
+   "n5-invite",
+   "n5-i-adj",
+   "n5-na-adj",
+   "n5-adj-past",
+   "n5-compare",
+   "n5-family",
+   "n5-te-form",
+   "n5-te-iru",
+   "n5-te-sequence",
+   "n5-permission",
+   "n5-want",
+   "n5-dict-form",
+   "n5-nai",
+   "n5-ta",
+   "n5-plain-speech",
+   "n5-noun-mod",
+   "n5-reasons-change",
+   "n5-directions",
+   "n5-reading",
+   "n5-listening",
+   "n5-exam"
+  ],
+  "honorsLessonIds": [
+   "n5-names",
+   "n5-numbers-culture",
+   "n5-trains",
+   "n5-calendar",
+   "n5-seasons",
+   "n5-people",
+   "n5-food",
+   "n5-home",
+   "n5-speech-styles",
+   "n5-onomatopoeia",
+   "n5-story",
+   "n5-writing"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "First sentences",
+    "lessons": [
+     "Introducing yourself: は and です",
+     "This, that, which: こそあど and の",
+     "Numbers, prices and age",
+     "Shopping: を ください",
+     "Where things are: あります, います"
+    ],
+    "honors": [
+     "Names, titles and seals",
+     "Numbers in daily life"
+    ]
+   },
+   {
+    "title": "Daily life and time",
+    "lessons": [
+     "Telling time",
+     "Verbs: ます, ません, ました",
+     "Going places",
+     "Days, dates and weeks",
+     "Inviting and suggesting"
+    ],
+    "honors": [
+     "Getting around by train",
+     "The Japanese calendar"
+    ]
+   },
+   {
+    "title": "Describing things",
+    "lessons": [
+     "い-adjectives",
+     "な-adjectives and likes",
+     "The past of adjectives; weather and seasons",
+     "Comparing",
+     "Family"
+    ],
+    "honors": [
+     "Seasons and nature in Japan",
+     "Talking about people"
+    ]
+   },
+   {
+    "title": "The て form",
+    "lessons": [
+     "The て form and requests",
+     "〜ています",
+     "Doing things in order",
+     "Permission, rules and the body",
+     "Wanting and going to do"
+    ],
+    "honors": [
+     "Eating out",
+     "Japanese homes"
+    ]
+   },
+   {
+    "title": "Plain forms",
+    "lessons": [
+     "The dictionary form",
+     "The ない form",
+     "The た form: past and experiences",
+     "Casual speech",
+     "Describing nouns with verbs; とき"
+    ],
+    "honors": [
+     "Polite, casual and respectful",
+     "Sound and feeling words"
+    ]
+   },
+   {
+    "title": "Putting it together",
+    "lessons": [
+     "Reasons and changes",
+     "Asking the way",
+     "Reading practice",
+     "Listening and conversation",
+     "The JLPT N5 and review"
+    ],
+    "honors": [
+     "A longer story",
+     "Writing messages"
+    ]
    }
   ]
  }

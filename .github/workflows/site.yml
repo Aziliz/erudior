@@ -75,6 +75,7 @@ jobs:
       - name: Build website
         id: website_build
         run: |
+          node --import tsx tests/public-roadmap.test.mts
           node --import tsx tests/engine-license.test.mts
           node --test tests/website-community-env.test.mjs
           node scripts/check-website-community-env.mjs
