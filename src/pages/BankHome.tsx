@@ -31,7 +31,9 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
   const { progress } = api;
   const total = bank.questions.length;
   // Banks in Erudior's or community courses are read-only here (see isPublishedCourse).
-  const locked = !!bank.courseId && isPublishedCourse(api.courses.find((c) => c.id === bank.courseId));
+  const course = api.courses.find(c => c.id === bank.courseId);
+  const locked = !!bank.courseId && isPublishedCourse(course);
+  const hasAppliedPractice = !!course?.documentReviews?.length;
 
   // Exam settings start from the bank's defaults but can be changed per run.
   const [examCount, setExamCount] = useState(Math.min(bank.exam.questionCount, total));
@@ -214,6 +216,10 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
                   .join(", ")}. You must pass every section.`
               : `Passing score ${bank.exam.passingPercent}%.`}
           </p>
+          {hasAppliedPractice && course && <p className="small">
+            <button className="btn sm" onClick={() => api.go({ name: "course", courseId: course.id, tab: "work" })}>Open applied practice</button>
+            {" "}Use the course activities to prepare for this timed mock exam. Activity scores are separate.
+          </p>}
           <button
             className="btn primary lg"
             disabled={!total}

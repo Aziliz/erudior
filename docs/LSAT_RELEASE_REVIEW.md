@@ -1,5 +1,15 @@
 # LSAT 180 Mastery — revision 1 candidate review
 
+## Current status — November 5, 2026
+
+LSAT revision 1 is published. Signed-course run `41781329850`, job `126413312120`, verified the existing `lsat-180-mastery.r1.json` immutable object and completed authoritative catalog/signature readback. Run `42105174413`, job `127517967178`, authenticated the previous 24-course release on November 5 and downloaded that LSAT package successfully (2,482,431 bytes). Its later failure concerns carried German A2 vocabulary and does not revoke the existing LSAT release.
+
+The user now requested LSAT as the first course in J.D. Preparation. Program version 2 places the unchanged published LSAT package before Introduction to the U.S. Legal System, followed by the existing law sequence: 25 courses in stages of 6, 10 and 9. Availability still comes from the catalog. Existing saved/customized pathway snapshots and learner progress are preserved; newly followed programs use the updated sequence. No course revision or package change is needed.
+
+The source/package hash remains `5bfd58b7ae7eea80eadde241b2a26e1f04d975427a08cfd97801eee62b33edd9`. The sections below retain the original release preparation evidence and its then-current program boundary; the current placement supersedes the earlier decision to keep LSAT separate. See `docs/LSAT_AND_BAR_HANDOFF.md` for takeover and continuation details.
+
+## Original release review
+
 Prepared November 3, 2026, America/Denver (November 4 UTC). The user subsequently authorized merging the source and app PRs. This review preserves the original candidate evidence and identifies the refreshed integration below. Production availability is established by the normal signed-course workflow and its readback.
 
 ## Authorized merge and current-main refresh

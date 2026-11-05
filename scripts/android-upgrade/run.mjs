@@ -7,6 +7,7 @@ import { createServer } from 'node:https';
 import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { _android as android } from 'playwright';
+import { bounded, cleanupStep } from './harness.mjs';
 import { verifyPortableFiles } from './portable-files.mjs';
 import { verifySharedDevice } from './shared-device.mjs';
 import { verifyClassroomWorkflows } from './classroom-workflows.mjs';
@@ -39,7 +40,7 @@ function adb(...args) { return execFileSync('adb', ['-s',serial,...args], { enco
 assert.equal(adb('shell','getprop','ro.kernel.qemu'), '1', 'Never run this on a physical phone');
 async function until(fn, message, timeout=45000) {
   const end = Date.now()+timeout; let last;
-  while (Date.now()<end) { try { const value=await fn(); if(value) return value; } catch(e) {last=e;} await sleep(500); }
+  while (Date.now()<end) { try { const value=await bounded(fn, Math.max(1,end-Date.now()), message); if(value) return value; } catch(e) {last=e;} await sleep(500); }
   throw new Error(`${message}${last ? ': '+last.message : ''}`);
 }
 function versionCode() { return Number(adb('shell','dumpsys','package',pkg).match(/versionCode=(\d+)/)?.[1]); }
@@ -89,11 +90,11 @@ const manifest={schema:1,version:'0.25.2',build:'b'.repeat(40),
   sha256:createHash('sha256').update(apk).digest('hex'),bytes:apk.length,notes:'Disposable upgrade acceptance fixture'};
 assert.ok(apk.length<41943040,'Fixture must pass the unchanged native size limit');
 async function attach({ sharedDevice = false } = {}) {
-  await device?.close().catch(()=>{});
-  device=(await android.devices()).find(d=>d.serial()===serial);
+  await cleanupStep(() => device?.close(), 'Close previous Android transport');
+  device=(await bounded(() => android.devices(), 20000, 'Discover Android transport')).find(d=>d.serial()===serial);
   assert.ok(device,'emulator visible to Playwright');
   const view=await device.webView({pkg},{timeout:45000});
-  page=await view.page(); page.setDefaultTimeout(20000);
+  page=await bounded(() => view.page(), 20000, 'Attach Android WebView'); page.setDefaultTimeout(20000);
   page.on('console', msg=>{
     if(msg.type()==='error') console.error('WEBVIEW:',msg.text());
     if(msg.type()==='info' && msg.text().startsWith('ERUDIOR_LIFECYCLE_E2E ')) {
@@ -166,7 +167,7 @@ try {
   writeFileSync(path.join(out,'records-before.json'),JSON.stringify(before,null,2));
   passed('Version A stores and reloads valid course, profile progress, study settings and review records');
 
-  await verifyPortableFiles({ page, adb, nodes, tapNative, until, screenshot, passed });
+  await verifyPortableFiles({ getPage: () => page, reattach: () => attach(), adb, nodes, tapNative, until, screenshot, passed });
 
   mode='corrupt';await clickUpdate();
   await page.getByText(/APK checksum mismatch|Native APK checksum mismatch/).first().waitFor({state:'visible',timeout:45000});
@@ -219,6 +220,7 @@ try {
     restart: () => launch({ sharedDevice: true }) });
   results.ok=true;report();
 } catch(error) {
+  process.exitCode=1;
   results.error=error.stack??String(error);report();
   try{screenshot('failure');writeFileSync(path.join(out,'foreground.txt'),foreground());}catch{}
   throw error;
@@ -226,10 +228,17 @@ try {
   try {writeFileSync(path.join(out,'logcat.txt'),adb('logcat','-d'));}catch{}
   if(logStream) {
     const stopped=new Promise(resolve=>logStream.once('close',resolve));
-    logStream.kill();await stopped;
+    await cleanupStep(() => { logStream.kill(); return stopped; }, 'Stop log stream');
   }
-  if(logFd!==undefined) closeSync(logFd);
-  await device?.close().catch(()=>{});
-  if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
+  if(logFd!==undefined) await cleanupStep(() => closeSync(logFd), 'Close log file');
+  await cleanupStep(() => device?.close(), 'Close previous Android transport');
+  if(server) await cleanupStep(() => { server.closeAllConnections(); return new Promise(resolve=>server.close(resolve)); }, 'Close fixture server');
   try{adb('reverse','--remove','tcp:38473');}catch{}
+  // A timed-out transport close can leave a live socket. Healthy runs exit
+  // naturally; an orphaned handle must fail promptly, never occupy CI forever.
+  setTimeout(() => {
+    const message='Android harness cleanup left active handles';
+    results.ok=false;results.error ??= message;report();
+    console.error(message);process.exit(1);
+  }, 5000).unref();
 }

@@ -1,13 +1,13 @@
-// erudior.com/roadmap: every course and engine feature Erudior needs before version 1.0.
+// erudior.com/roadmap: school courses, all language levels, and product progress.
 import { CATALOG } from "../lib/catalog";
-import { ELECTIVES, ENGINE, ENGINE_IN_PROGRESS, ENGINE_PROGRESS_DETAILS, ENGINE_PLANNED, ROADMAP, UPDATES } from "../lib/roadmap";
+import { ENGINE, ENGINE_IN_PROGRESS, ENGINE_PROGRESS_DETAILS, ENGINE_PLANNED, PUBLIC_ROADMAP, UPDATES } from "../lib/roadmap";
 import { appUrl } from "../lib/site";
 import { slugify } from "../lib/util";
 
 const byTitle = new Map(CATALOG.map((e) => [e.title.toLowerCase(), e]));
 
 export default function Roadmap() {
-  const rows = ROADMAP.map((g) => ({ ...g, courses: g.courses.map((c) => ({ ...c, entry: byTitle.get((c.catalog ?? c.title).toLowerCase()) })) }));
+  const rows = PUBLIC_ROADMAP.map((g) => ({ ...g, courses: g.courses.map((c) => ({ ...c, entry: byTitle.get((c.catalog ?? c.title).toLowerCase()) })) }));
   const all = rows.flatMap((g) => g.courses);
   const languages = rows.filter((g) => g.id.startsWith("language-"));
   const languageAvailable = languages.reduce((n, g) => n + g.courses.filter((course) => course.entry).length, 0);
@@ -46,6 +46,7 @@ export default function Roadmap() {
 
       <section id="course-updates" className="roadmap-group" aria-labelledby="h-course-updates">
         <h2 id="h-course-updates">Course update</h2>
+        <p className="small muted">Pre-K through grade 12, plus languages at every proficiency level. Currently listed school courses begin with kindergarten.</p>
         {rows.filter((g) => !g.id.startsWith("language-")).map((g) => {
           const n = g.courses.filter((c) => c.entry).length;
           return (
@@ -84,16 +85,6 @@ export default function Roadmap() {
             </div>
           ))}
         </div>
-        <h3>Advanced college electives</h3>
-        <ul className="roadmap-list">
-          {ELECTIVES.map((title) => {
-            const entry = byTitle.get(title.toLowerCase());
-            return <li key={title} className={entry ? "is-done" : ""}>
-              <span className={`pill ${entry ? "pass" : ""}`}>{entry ? "Available" : "Planned"}</span>
-              <span className="roadmap-name">{entry ? <a href={appUrl("/" + slugify(entry.title))}>{title}</a> : title}</span>
-            </li>;
-          })}
-        </ul>
       </section>
 
       {extraAreas.map((area) => (

@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
+import type { CourseDocumentReview } from '../lib/documentCoursePackage';
 import type { CourseBranchingScenario } from '../lib/branchingCoursePackage';
 import type { CourseScientificWorkspace } from '../lib/scientificCoursePackage';
 import type { CourseAdvancedAssessment } from '../lib/advancedAssessmentCoursePackage';
@@ -6,6 +7,7 @@ import type { SpreadsheetAssignment } from '../lib/spreadsheetAssignments';
 import { sha256Hex } from '../lib/courseSign';
 
 export interface EngineSources {
+  documentReviews?: CourseDocumentReview[];
   branchingScenarios?: CourseBranchingScenario[];
   scientificWorkspaces?: CourseScientificWorkspace[];
   advancedAssessments?: CourseAdvancedAssessment[];
@@ -37,11 +39,14 @@ function Source({ source, kind, children }: { source: { id: string; title: strin
 const effects = (items: Array<{ variable: string; op: string; value: unknown }>) => items.length ? items.map(x => `${x.variable} ${x.op} ${String(x.value)}`).join('; ') : 'None';
 /** Read-only: no source execution, local approval, learner assignment, or history writes. */
 export default function CourseEngineInspection({ sources, includeSpreadsheets = true }: { sources: EngineSources; includeSpreadsheets?: boolean }) {
-  if (![sources.branchingScenarios, sources.scientificWorkspaces, sources.advancedAssessments, includeSpreadsheets ? sources.spreadsheetAssignments : []].some(x => x?.length)) return null;
+  if (![sources.documentReviews, sources.branchingScenarios, sources.scientificWorkspaces, sources.advancedAssessments, includeSpreadsheets ? sources.spreadsheetAssignments : []].some(x => x?.length)) return null;
   return <section aria-label="Engine source inspection">
     <h3>Lesson-linked engine sources</h3>
     <p>Inspect the linked lesson, exact source ID and revision, and complete source below. The inspection SHA-256 hashes stable authored JSON including the lesson link; it is not the signed package digest, proof of permissions, or approval.</p>
     <p>Adult handoff: after installation, unlock the supervising-adult area, open the matching engine studio, and choose this installed course and exact source revision. Copy it for local review, save and review the exact local revision, then explicitly select a learner and assign it. Local copies receive independent IDs and revisions. Publication review never substitutes for local review or assigns work automatically. Spreadsheet activities use the existing course assignment workflow.</p>
+    {sources.documentReviews?.map(review => <Source key={review.id} source={review} kind="Document review">
+      <p>{review.instructions}</p><ul>{review.documents.map(doc => <li key={doc.id}>{doc.title} · revision {doc.revision}. {doc.sourceNote}</li>)}</ul>
+    </Source>)}
     {sources.branchingScenarios?.map(p => <Source key={p.id} source={p} kind="Branching scenario">
       <p>{p.description}</p><p>Source and permissions: {p.sourceNote}</p>
       <p>Start node: {p.startNodeId} · Time limit: {p.maxTick} {p.timeUnit}</p>
@@ -63,6 +68,7 @@ export default function CourseEngineInspection({ sources, includeSpreadsheets = 
     </Source>)}
     {includeSpreadsheets && sources.spreadsheetAssignments?.map(p => <Source key={p.id} source={p} kind="Spreadsheet">
       <p>Engine version: {p.starter.engineVersion ?? 1} · Numeric tolerance: {p.tolerance ?? 0}</p>
+      {p.directions && <><h5>Learner directions</h5><ol>{p.directions.map((step, index) => <li key={index}>{step}</li>)}</ol></>}
       <h5>Starter values and formulas (not executed)</h5>{Object.entries(p.starter.sheets).map(([name, cells]) => <section key={name}><h6>{name}</h6><ul>{Object.entries(cells).map(([address, value]) => <li key={address}><code>{name}!{address}</code>: <code>{String(value)}</code>{p.starter.cellExplanations?.[`${name}!${address}`] && <p>{p.starter.cellExplanations[`${name}!${address}`]}</p>}</li>)}</ul></section>)}
       <h5>Protection and expected values</h5><p>Protected cells: {p.protectedCells.join(', ') || 'None'}</p><ul>{Object.entries(p.answers).map(([address, value]) => <li key={address}>{address}: {String(value)}</li>)}</ul>
       <h5>Named ranges</h5><ul>{Object.entries(p.starter.namedRanges ?? {}).map(([name, range]) => <li key={name}>{name}: {range.sheet}!{range.range}</li>)}</ul>

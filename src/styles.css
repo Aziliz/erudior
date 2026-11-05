@@ -7914,3 +7914,6 @@ html.furigana-off rt {
 html .furigana-toggle rt {
   visibility: visible;
 }
+
+.public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.public-learning-banner-close { flex-shrink: 0; min-width: 44px; min-height: 44px; }

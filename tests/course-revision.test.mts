@@ -31,4 +31,15 @@ withVocab.vocab = [{ id: "word1", lesson: "intro", term: "bonjour", meanings: ["
 check("removed vocabulary ID blocks revision", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [] }).some(i => i.path === "vocab.word1" && i.severity === "blocking"));
 check("reassigned vocabulary warns", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, lessons: [...withVocab.lessons, { ...withVocab.lessons[0], id: "newlesson" }], vocab: [{ ...withVocab.vocab[0], lesson: "newlesson" }] }).some(i => i.path === "vocab.word1" && i.severity === "warning"));
 check("vocabulary cannot reference unknown lesson", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [{ ...withVocab.vocab[0], lesson: "no-such-lesson" }] }).some(i => i.path === "vocab[0].lesson" && i.severity === "blocking"));
-check("carried vocabulary may reference the earlier course's lessons", !compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [{ ...withVocab.vocab[0], lesson: "a1-lesson", from: "earlier-course" }] }).some(i => i.path === "vocab[0].lesson"));
+
+const withCarriedVocab = structuredClone(original);
+withCarriedVocab.vocab = [{ id: "prior-word", lesson: "a1-intro", from: "earlier-course", term: "bonjour", meanings: ["hello"] }];
+const carriedRevision = { ...withCarriedVocab, revision: 2 };
+check("unchanged carried vocabulary can reference its earlier course lesson", compareCourseRevisions(withCarriedVocab, carriedRevision).length === 0);
+check("adding carried vocabulary preserves local vocabulary identities", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [...withVocab.vocab!, ...withCarriedVocab.vocab!] }).length === 0);
+check("removed carried vocabulary still blocks revision", compareCourseRevisions(withCarriedVocab, { ...carriedRevision, vocab: [] }).some(i => i.path === "vocab.prior-word" && i.severity === "blocking"));
+check("moving a carried word to another source lesson still warns", compareCourseRevisions(withCarriedVocab, { ...carriedRevision, vocab: [{ ...withCarriedVocab.vocab![0], lesson: "a1-other" }] }).some(i => i.path === "vocab.prior-word" && i.severity === "warning"));
+for (const from of [undefined, "", withVocab.id]) {
+  check("missing local lesson blocks even with empty or self source: " + String(from), compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [{ ...withVocab.vocab![0], lesson: "missing", from }] }).some(i => i.path === "vocab[0].lesson" && i.severity === "blocking"));
+}
+check("an explicit self source may reference a real local lesson", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [{ ...withVocab.vocab![0], from: withVocab.id }] }).length === 0);

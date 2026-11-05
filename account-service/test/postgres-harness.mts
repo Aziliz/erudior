@@ -60,6 +60,8 @@ export async function createPostgresHarness(): Promise<PostgresTestHarness> {
     closeAdmin = trackPoolClose(admin);
     const migration = await readFile(new URL('../sql/001_private_accounts.sql', import.meta.url), 'utf8');
     await admin.query(migration);
+    await admin.query(await readFile(new URL('../sql/002_private_record_exports.sql', import.meta.url), 'utf8'));
+    await admin.query(await readFile(new URL('../sql/003_private_device_sessions.sql', import.meta.url), 'utf8'));
     await bootstrap.query('CREATE ROLE ' + quote(runtimeRole) + ' LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION NOBYPASSRLS PASSWORD ' + literal(password)); createdRole = true;
     await bootstrap.query('GRANT erudior_account_runtime TO ' + quote(runtimeRole));
     const runtimeAddress = new URL(adminAddress); runtimeAddress.username = runtimeRole; runtimeAddress.password = password;

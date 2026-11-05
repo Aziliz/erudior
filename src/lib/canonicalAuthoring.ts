@@ -7,6 +7,7 @@ import type { Drill } from "./exerciseTypes";
 import type { Course, Bank } from "./courseContentTypes";
 import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems, normalizeValidatedCourseWork, validateCourseWork } from "./courseWork";
 import { readerRevisionProblems, normalizeValidatedReaderTexts, validateReaderTexts } from "./readerContent";
+import { documentCourseProblems, documentReviewRevisionProblems } from "./documentCoursePackage";
 import { branchingCourseProblems, branchingRevisionProblems } from "./branchingCoursePackage";
 import { scientificCourseProblems, scientificRevisionProblems } from "./scientificCoursePackage";
 import { advancedAssessmentCourseProblems, advancedAssessmentRevisionProblems } from "./advancedAssessmentCoursePackage";
@@ -135,7 +136,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
     function glossary(v: unknown, path: string) { objects(v, path, ['term', 'definition', 'aliases', 'topic'], (g, p) => { str(g.term, p + '.term', true); str(g.definition, p + '.definition', true); optionalStr(g, ['topic'], p); if (g.aliases !== undefined)
         strings(g.aliases, p + '.aliases'); }); }
-    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
+    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'documentReviews', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
     if (!shape(raw, ['format', 'version', 'course'], 'payload'))
         return errors;
     if (raw.format !== 'erudior-canonical-authoring' || raw.version !== 1)
@@ -174,6 +175,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             || Array.isArray(c.decks) && c.decks.some(deck => isObject(deck) && nonempty(deck.cards));
         if (!hasContent) add('course','publication requires learner content');
         if (Array.isArray(c.lessons)) for (const lesson of c.lessons) if (isObject(lesson) && !(typeof lesson.body === 'string' && lesson.body.trim()) && !nonempty(lesson.quiz)
+            && !(Array.isArray(c.documentReviews) && c.documentReviews.some(a => isObject(a) && a.lessonId === lesson.id))
             && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.advancedAssessments) && c.advancedAssessments.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
     }
     const context: CanonicalValidationContext = { strict, course: c as unknown as PortableAuthoredCourse, mode: options.mode, communityImageOrigin: options.communityImageOrigin };
@@ -416,6 +418,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         add('work', e);
     for (const e of validateReaderTexts(c.texts, { strict, questionIds: [...firstQuestions] }))
         add('texts', e);
+    for (const issue of documentCourseProblems(c.documentReviews, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l => String(l.id)) : []))) add("documentReviews", issue);
     for (const issue of branchingCourseProblems(c.branchingScenarios, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('branchingScenarios',issue);
     for (const issue of scientificCourseProblems(c.scientificWorkspaces, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('scientificWorkspaces',issue);
     for (const issue of advancedAssessmentCourseProblems(c.advancedAssessments, new Set(Array.isArray(c.lessons) ? c.lessons.filter(isObject).map(l=>String(l.id)) : []))) add('advancedAssessments',issue);
@@ -425,7 +428,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             for (const e of validateAssignment(a))
                 add('spreadsheetAssignments', e);
             if (isObject(a)) {
-                shape(a, ['id', 'title', 'starter', 'protectedCells', 'answers', 'tolerance', 'lessonId'], 'spreadsheetAssignments');
+                shape(a, ['id', 'title', 'starter', 'protectedCells', 'answers', 'tolerance', 'directions', 'lessonId'], 'spreadsheetAssignments');
                 if (isObject(a.starter))
                     shape(a.starter, ['sheets'], 'spreadsheetAssignments.starter');
                 identity(a.id, 'spreadsheetAssignments.id', seen);
@@ -561,6 +564,7 @@ export function canonicalRevisionProblems(previous: CanonicalAuthoringPayload, n
     retain(a.references, b.references, 'references');
     retain(a.drills, b.drills, 'drills');
     retain(a.vocab ?? [], b.vocab ?? [], 'vocab');
+    errors.push(...documentReviewRevisionProblems(a.documentReviews ?? [], b.documentReviews ?? []));
     errors.push(...branchingRevisionProblems(a.branchingScenarios ?? [], b.branchingScenarios ?? []));
     errors.push(...scientificRevisionProblems(a.scientificWorkspaces ?? [], b.scientificWorkspaces ?? []));
     errors.push(...advancedAssessmentRevisionProblems(a.advancedAssessments ?? [], b.advancedAssessments ?? []));
