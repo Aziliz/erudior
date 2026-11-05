@@ -129,7 +129,7 @@ await test('private owned-device management on real PostgreSQL', async t => {
         const pending = store.revokeDeviceSessions({ ...actor, sessionId: target.id });
         let waiting = false;
         for (let attempt = 0; attempt < 100; attempt++) {
-          const result = await h.admin.query("SELECT EXISTS(SELECT FROM pg_stat_activity WHERE datname=$1 AND usename=$2 AND wait_event_type='Lock' AND query LIKE '%ORDER BY session_id FOR UPDATE%') AS blocked", [h.databaseName, h.runtimeRole]);
+          const result = await h.admin.query("SELECT EXISTS(SELECT FROM pg_stat_activity WHERE datname=$1 AND usename=$2 AND wait_event_type='Lock' AND query LIKE '%ORDER BY session_id%FOR UPDATE%') AS blocked", [h.databaseName, h.runtimeRole]);
           if (result.rows[0].blocked) { waiting = true; break; }
           await delay(20);
         }
