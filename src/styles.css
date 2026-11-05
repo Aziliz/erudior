@@ -7686,8 +7686,9 @@ button.fn-ref {
 .learning-history th, .learning-history td { overflow-wrap: normal; word-break: normal; }
 .learning-history .btn { white-space: nowrap; margin-top: 6px; }
 @media (max-width: 600px) {
-  .lesson-page > .calc-toggle { position: static; transform: none; flex-direction: row; width: max-content; margin-bottom: 12px; border-left: 1px solid var(--rule); border-radius: var(--r-md); }
-  .lesson-page > .calc-toggle span { writing-mode: horizontal-tb; transform: none; }
+  .lesson-page > .calc-toggle, .runner-main > .calc-toggle { position: static; transform: none; flex-direction: row; width: max-content; margin-bottom: 12px; border-left: 1px solid var(--rule); border-radius: var(--r-md); }
+  .runner-main > .calc-toggle { margin: 12px; flex-shrink: 0; }
+  .lesson-page > .calc-toggle span, .runner-main > .calc-toggle span { writing-mode: horizontal-tb; transform: none; }
 }
 
 /* Native and canonical community course structure controls share one bounded layout. */

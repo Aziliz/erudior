@@ -160,6 +160,133 @@
   ]
  },
  {
+  "id": "math-6",
+  "file": "math/math-6.json",
+  "order": 0.6,
+  "title": "Math 6",
+  "description": "Grade 6 mathematics in eight modules: ratios and rates, percents and measurement, number operations, rational numbers, expressions, equations and relationships, geometry and measurement, and statistical thinking. Learn with 32 step-by-step lessons, worked examples, practice quizzes, generated math drills, study cards, and reference sheets.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "Middle School"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 32,
+  "questions": 328,
+  "cards": 152,
+  "drills": 66,
+  "lessonIds": [
+   "m6-ratio-language",
+   "m6-equivalent-ratios",
+   "m6-unit-rates",
+   "m6-compare-rates",
+   "m6-percent-hundred",
+   "m6-percent-part",
+   "m6-percent-whole",
+   "m6-unit-conversions",
+   "m6-multi-digit-division",
+   "m6-decimal-operations",
+   "m6-fraction-division",
+   "m6-factors-multiples",
+   "m6-signed-quantities",
+   "m6-order-absolute-value",
+   "m6-four-quadrant-coordinates",
+   "m6-coordinate-distances",
+   "m6-exponents-order",
+   "m6-write-evaluate-expressions",
+   "m6-equivalent-expressions",
+   "m6-common-factors-expressions",
+   "m6-equality-solutions",
+   "m6-one-step-equations",
+   "m6-inequalities-solution-sets",
+   "m6-dependent-independent",
+   "m6-triangle-quadrilateral-area",
+   "m6-coordinate-polygons",
+   "m6-nets-surface-area",
+   "m6-fractional-edge-volume",
+   "m6-statistical-questions",
+   "m6-dot-plots-histograms",
+   "m6-center-variability",
+   "m6-data-investigation"
+  ],
+  "outline": [
+   {
+    "title": "Ratios and rates",
+    "lessons": [
+     "Describing ratios",
+     "Equivalent ratios and tables",
+     "Unit rates and their units",
+     "Compare rates and solve problems"
+    ]
+   },
+   {
+    "title": "Percents and measurement",
+    "lessons": [
+     "Percent as a rate per hundred",
+     "Find a part",
+     "Find a whole and a percent",
+     "Convert measurement units"
+    ]
+   },
+   {
+    "title": "Number operations",
+    "lessons": [
+     "Multi-digit division",
+     "Decimal operations",
+     "Divide fractions using models",
+     "Factors, multiples and distributive reasoning"
+    ]
+   },
+   {
+    "title": "Rational numbers",
+    "lessons": [
+     "Signed quantities and opposites",
+     "Order and absolute value",
+     "Four-quadrant coordinates",
+     "Coordinate distances and contexts"
+    ]
+   },
+   {
+    "title": "Expressions",
+    "lessons": [
+     "Exponents and operation order",
+     "Write and evaluate expressions",
+     "Equivalent expressions and distribution",
+     "Common factors in expressions"
+    ]
+   },
+   {
+    "title": "Equations and relationships",
+    "lessons": [
+     "Equality and solutions",
+     "One-step equations",
+     "Inequalities and solution sets",
+     "Dependent and independent quantities"
+    ]
+   },
+   {
+    "title": "Geometry and measurement",
+    "lessons": [
+     "Area of triangles and quadrilaterals",
+     "Polygons on coordinates",
+     "Nets and surface area",
+     "Volume with fractional edge lengths"
+    ]
+   },
+   {
+    "title": "Statistical thinking",
+    "lessons": [
+     "Statistical questions and distributions",
+     "Dot plots and histograms",
+     "Center and variability",
+     "Data investigation and cumulative application"
+    ]
+   }
+  ]
+ },
+ {
   "id": "math-prealgebra",
   "file": "math/math-prealgebra.json",
   "order": 1,

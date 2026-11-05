@@ -9,6 +9,7 @@ import { isAnswered, isChoice, isComplete, qtype, typeLabel } from "../lib/quest
 import { finishSession, isCorrect, isQuiz, serializeRun, type RunState, type Session } from "../lib/session";
 import { confirmAction, saveSessionState } from "../lib/storage";
 import { recordSession } from "../lib/quiz";
+import { createRunPersistence } from "../lib/runPersistence";
 import { adaptAfterCheck, topicMastery } from "../lib/mastery";
 import type { Confidence } from "../lib/review";
 import { LETTERS, formatClock } from "../lib/util";
@@ -83,6 +84,11 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   // The clock only runs while this screen is open; time away isn't counted.
   const activeSince = useRef(Date.now());
   const finishing = useRef(false);
+  const persistence = useRef(createRunPersistence());
+  const [operationPending, setOperationPending] = useState(false);
+  const [submissionCommitted, setSubmissionCommitted] = useState(false);
+  const [failedOperation, setFailedOperation] = useState<"finish" | "leave" | null>(null);
+  const timedOutBlocks = useRef(new Set<number>());
   const pendingSubmit = useRef<symbol | null>(null);
   const [saveError,setSaveError]=useState("");
   // Locking keeps this draft mounted. A fresh authorization may replace its writer,
@@ -119,6 +125,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const usedNow = Math.max(0, (now - activeSince.current) / 1000);
   const blockElapsed = Math.floor((blockUsed[blockIdx] ?? 0) + usedNow);
   const remaining = block.timeLimitSec !== undefined ? block.timeLimitSec - blockElapsed : undefined;
+  const expired = remaining !== undefined && remaining <= 0;
   const totalUsed = () =>
     Math.round(blockUsed.reduce((s, x) => s + x, 0) + Math.max(0, (Date.now() - activeSince.current) / 1000));
 
@@ -156,8 +163,10 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   }, [index, answers, flags, checked, blockIdx, blockUsed, confidence]);
 
   const save = useCallback(() => {
-    if (finishing.current) return;
-    saveScopedSession(serializeRun(session, snapshot())).then(()=>setSaveError("")).catch(e=>setSaveError((e as Error).message));
+    if (persistence.current.locked) return;
+    persistence.current.save(saveScopedSession, serializeRun(session, snapshot()))
+      .then(() => { if (!persistence.current.locked) setSaveError(""); })
+      .catch(e => { if (!persistence.current.locked) setSaveError((e as Error).message); });
   }, [session, snapshot, saveScopedSession]);
 
   // Save on every change, and every 15 seconds so the clock is kept.
@@ -174,28 +183,40 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
   // ---- Finishing ----------------------------------------------------------
   const finish = useCallback(async (finalAnswers = answers) => {
-    if (finishing.current) return;
+    if (persistence.current.busy || persistence.current.closed) return;
     finishing.current = true;
+    setOperationPending(true);
+    setSaveError("");
+    setFailedOperation(null);
     try {
-    await saveScopedSession(null);
-    const used = totalUsed();
-    const preview = finishSession(session, finalAnswers, flags, api.progress, bank, used, confidence);
-    if (preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0)) {
-      api.toast("Session ended. No questions were answered, so nothing was recorded.");
-      api.go(exitView);
-      return;
+      const used = totalUsed();
+      const preview = finishSession(session, finalAnswers, flags, api.progress, bank, used, confidence);
+      const empty = preview.attempt.total === 0 || (isQuiz(session) && preview.attempt.answered === 0);
+      const finished = await persistence.current.finish(saveScopedSession, serializeRun(session, { ...snapshot(), answers: finalAnswers }), async () => {
+        // Use latest progress; recordSession makes a recovered committed attempt idempotent.
+        if (!empty) await api.updateProgress(p => recordSession(p, session, finalAnswers, flags, bank, used, confidence).progress);
+      });
+      if (!finished) return;
+      if (empty) {
+        api.toast("Session ended. No questions were answered, so nothing was recorded.");
+        api.go(exitView);
+      } else if (session.kind === "pretest") {
+        api.toast("Now read the lesson. The answers to the warm-up are in it.");
+        api.go(exitView);
+      } else {
+        api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
+      }
+    } catch(e) {
+      setFailedOperation("finish");
+      setSaveError((e as Error).message);
+      api.toast(persistence.current.committed ? "Your result is saved. Retry finishing to clear the recovery draft." : `Session was not finished: ${(e as Error).message}`);
+    } finally {
+      finishing.current = persistence.current.locked;
+      setSubmissionCommitted(persistence.current.committed);
+      setOperationPending(false);
     }
-    // Apply against the latest progress so flag/note writes made during the session aren't lost.
-    await api.updateProgress((p) => recordSession(p, session, finalAnswers, flags, bank, used, confidence).progress);
-    if (session.kind === "pretest") {
-      api.toast("Now read the lesson. The answers to the warm-up are in it.");
-      api.go(exitView);
-      return;
-    }
-    api.go({ name: "results", attemptId: preview.attempt.id, back: exitView });
-    } catch(e) { finishing.current=false; setSaveError((e as Error).message); api.toast(`Session was not finished: ${(e as Error).message}`); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence, saveScopedSession]);
+  }, [session, answers, flags, api, bank, blockUsed, blockIdx, confidence, saveScopedSession, snapshot]);
 
   const nextBlock = useCallback((finalAnswers?: Record<string, Chosen>) => {
     pendingSubmit.current = null;
@@ -212,9 +233,10 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
   // Time's up for this block: move on, or submit if it was the last one.
   useEffect(() => {
-    if (remaining !== undefined && remaining <= 0 && !finishing.current) {
+    if (remaining !== undefined && remaining <= 0 && !finishing.current && !timedOutBlocks.current.has(blockIdx)) {
+      timedOutBlocks.current.add(blockIdx);
       if (lastBlock) {
-        api.toast("Time's up. Your exam was submitted.");
+        api.toast("Time's up. Saving your exam.");
         nextBlock();
       } else {
         api.toast(`Time's up for ${block.name ?? "this section"}. On to ${blocks[blockIdx + 1].name ?? "the next section"}.`);
@@ -228,7 +250,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   // ---- Answering ----------------------------------------------------------
   const choose = useCallback(
     (original: number) => {
-      if (isChecked) return;
+      if (isChecked || finishing.current || expired) return;
       setAnswers((prev) => {
         const cur = (prev[q.id] ?? []) as number[];
         let next: number[];
@@ -237,24 +259,24 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
         return { ...prev, [q.id]: next };
       });
     },
-    [q.id, multi, isChecked, isExam],
+    [q.id, multi, isChecked, isExam, expired],
   );
 
   const go = useCallback(
-    (i: number) => setIndex(Math.max(block.start, Math.min(block.end - 1, i))),
-    [block.start, block.end],
+    (i: number) => { if (!finishing.current && !expired) setIndex(Math.max(block.start, Math.min(block.end - 1, i))); },
+    [block.start, block.end, expired],
   );
 
   const setAnswer = useCallback(
     (next: Chosen) => {
-      if (isChecked) return;
+      if (isChecked || finishing.current || expired) return;
       setAnswers((prev) => ({ ...prev, [q.id]: next }));
     },
-    [q.id, isChecked],
+    [q.id, isChecked, expired],
   );
 
   const check = useCallback(async () => {
-    if (!answeredNow) return;
+    if (!answeredNow || finishing.current || expired) return;
     if (!isComplete(q, chosen) && !(await confirmAction("Some parts are still empty and will count as wrong. Check your answer anyway?", "Check answer")))
       return;
     const nowChecked = { ...checked, [q.id]: true };
@@ -267,16 +289,18 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
         setAdaptNote({ qid: q.id, text: r.note });
       }
     }
-  }, [answeredNow, q, chosen, checked, session, bank, index, answers, api.progress, confidence]);
+  }, [answeredNow, q, chosen, checked, session, bank, index, answers, api.progress, confidence, expired]);
 
   const toggleFlag = useCallback(() => {
+    if (finishing.current || expired) return;
     const on = !flags[q.id];
     setFlags((f) => ({ ...f, [q.id]: on }));
     const key = metaKey(session.bankId, q.id);
     api.updateProgress((p) => ({ ...p, qmeta: { ...(p.qmeta ?? {}), [key]: { ...(p.qmeta?.[key] ?? {}), flag: on || undefined } } }));
-  }, [flags, q.id, session.bankId, api]);
+  }, [flags, q.id, session.bankId, api, expired]);
 
   const setNote = (text: string) => {
+    if (finishing.current || expired) return;
     const key = metaKey(session.bankId, q.id);
     api.updateProgress((p) => ({
       ...p,
@@ -328,10 +352,24 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     finish();
   }
 
-  function saveAndExit() {
-    save();
-    api.toast(isExam ? "Exam saved. Resume it from the banner when you're ready." : "Session saved.");
-    api.go(exitView);
+  async function saveAndExit() {
+    if (persistence.current.locked) return;
+    finishing.current = true;
+    setOperationPending(true);
+    setSaveError("");
+    setFailedOperation(null);
+    try {
+      if (!await persistence.current.leave(saveScopedSession, serializeRun(session, snapshot()))) return;
+      api.toast(isExam ? "Exam saved. Resume it from the banner when you're ready." : "Session saved.");
+      api.go(exitView);
+    } catch(e) {
+      setFailedOperation("leave");
+      setSaveError((e as Error).message);
+      api.toast(`Session was not saved: ${(e as Error).message}`);
+    } finally {
+      finishing.current = persistence.current.locked;
+      setOperationPending(false);
+    }
   }
 
   // ---- Reading aloud -------------------------------------------------------
@@ -384,6 +422,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   // Keep typing and interactive widgets local. Answer choices use Space to activate
   // a focused option, so Enter can advance even after clicking a choice.
   const onRunnerKey = useEffectEvent((e: KeyboardEvent) => {
+    if (finishing.current || expired) return;
     const target = e.target instanceof Element ? e.target : null;
     if (e.defaultPrevented || e.isComposing || e.metaKey || e.ctrlKey || e.altKey) return;
     const runner = runnerRef.current;
@@ -440,10 +479,17 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const lessons = isChecked ? relatedLessons(q.topic) : [];
 
   return (
-    <div className={`runner${readAloud ? " ra-course" : ""}`} ref={runnerRef}>
-      <CalcDock kind={calcKind(course)} />
+    <div className={`runner${readAloud ? " ra-course" : ""}`} ref={runnerRef} aria-busy={operationPending}>
       <div className="runner-main">
-        {saveError && <p className="notice error" role="alert">Session could not be saved: {saveError} Your prior saved progress is preserved. Return to the learning plan to restore access before retrying.</p>}
+      <CalcDock kind={calcKind(course)} />
+      {(saveError || failedOperation) && <div className="notice error" role="alert">
+        {submissionCommitted ? "Your result is saved, but the recovery draft could not be cleared. " : "Session could not be saved. Your quiz is still here. "}
+        {saveError}
+        {failedOperation && <button className="btn" onClick={() => void (failedOperation === "finish" ? finish() : saveAndExit())} disabled={operationPending} style={{ marginLeft: 12 }}>
+          {submissionCommitted ? "Finish saving" : failedOperation === "finish" ? "Retry submission" : "Retry save and exit"}
+        </button>}
+      </div>}
+      <div style={{ display: "contents" }} inert={operationPending || submissionCommitted || expired}>
         <div className="runner-bar">
           <button className="btn ghost sm" onClick={saveAndExit} title="Your place and time are saved">
             Save &amp; exit
@@ -656,7 +702,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
         </div>
       </div>
 
-      <aside className="sheet-side" aria-label="Answer sheet">
+      </div>
+      <aside className="sheet-side" aria-label="Answer sheet" inert={operationPending || submissionCommitted || expired}>
         <div className="sheet-head">
           <h2 className="sheet-title">{blocks.length > 1 ? block.name : "Answer sheet"}</h2>
           <div className="legend">

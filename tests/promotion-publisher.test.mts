@@ -5,7 +5,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { newKeyPair, signBytes, sha256Hex, verifySignature, b64 } from '../src/lib/courseSign.ts';
-import { exportCourseSnapshot } from '../src/lib/course.ts';
+import { emptyCourse, exportCourseSnapshot } from '../src/lib/course.ts';
 import { importValidatedCourseSnapshot } from '../src/lib/courseIntegrity.ts';
 import { verifyPromotionHandoff, type PromotionHandoff } from '../src/lib/promotionReview.ts';
 import { promotionFixture, promotionOrigin } from './helpers/promotion-fixture.ts';
@@ -54,7 +54,25 @@ try {
       sourceEvidence: 'Synthetic exact transport and captured evidence verified by this fixture.',
     };
     write('publisher.json', independent);
-    write('samples/catalog.json', [{ id: value.candidate.course.id, revision: value.candidate.course.revision ?? 1, file: 'candidate.json' }]);
+    const catalog = [{ id: value.candidate.course.id, revision: value.candidate.course.revision ?? 1, file: 'candidate.json' }];
+    // The exported fixture carries vocabulary from another course. Supply that
+    // explicit prerequisite inside this disposable test catalog, without editing
+    // candidate bytes or weakening the production cross-course reference check.
+    const sources = new Map<string, Set<string>>();
+    for (const word of value.candidate.course.vocab ?? []) {
+      if (!word.from || word.from === value.candidate.course.id) continue;
+      const lessons = sources.get(word.from) ?? new Set<string>();
+      if (word.lesson) lessons.add(word.lesson);
+      sources.set(word.from, lessons);
+    }
+    for (const [id, lessons] of sources) {
+      const file = `prerequisite-${catalog.length}.json`;
+      const course = { ...emptyCourse('Synthetic vocabulary prerequisite'), id, revision: 1,
+        lessons: [...lessons].map(id => ({ id, module: 'm1', title: 'Synthetic source lesson', body: 'Disposable vocabulary source fixture.' })) };
+      write('samples/' + file, course);
+      catalog.push({ id, revision: 1, file });
+    }
+    write('samples/catalog.json', catalog);
     write('samples/candidate.json', value.candidate.course);
     write('samples/states.json', { format: 'examiner-states', version: 'test-only', states: [] });
     return independent;
@@ -86,6 +104,14 @@ try {
   }
   const report = pass(); assert.equal(report.handoffSha256, imported ? expectedExternal : fixture.handoff.handoffSha256);
   assert.equal(fs.existsSync(path.join(temp, 'dist-courses')), false, 'Verifier never publishes.');
+  const fixtureCatalog = JSON.parse(fs.readFileSync(path.join(temp, 'samples/catalog.json'), 'utf8'));
+  if (fixtureCatalog.length > 1) {
+    write('samples/catalog.json', [fixtureCatalog[0]]);
+    const missingPrerequisite = run('publish-courses.ts', ['--previous-dir', path.join(temp, 'previous')]);
+    assert.notEqual(missingPrerequisite.status, 0);
+    assert.match(missingPrerequisite.stderr, /Carried vocabulary .* unknown source lesson/); checks++;
+    write('samples/catalog.json', fixtureCatalog);
+  }
   const published = run('publish-courses.ts', ['--previous-dir', path.join(temp, 'previous')]);
   assert.equal(published.status, 0, published.stderr + published.stdout);
   const publishedCatalogBytes = fs.readFileSync(path.join(temp, 'dist-courses/v1/catalog.json'));

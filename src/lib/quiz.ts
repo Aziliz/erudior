@@ -18,6 +18,9 @@ export function recordSession(
   usedSec?: number,
   confidence: Record<string, Confidence> = {},
 ): { progress: Progress; attempt: Attempt } {
+  // Cleanup can fail after a commit, leaving a draft that resumes the already recorded run.
+  const recorded = p.attempts.find(a => a.id === session.id && a.bankId === session.bankId);
+  if (recorded) return { progress: p, attempt: recorded };
   const { attempt, progress } = finishSession(session, answers, flags, p, bank, usedSec, confidence);
   let next = logActivity(progress, "questions", attempt.answered);
   if (session.lesson && attemptPassed(attempt)) {
