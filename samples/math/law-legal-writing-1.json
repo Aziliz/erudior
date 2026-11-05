@@ -1,0 +1,2372 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "law-legal-writing-1",
+ "title": "Legal Writing I: Objective Analysis",
+ "description": "Frame legal issues, synthesize rules, compare facts, and write a balanced objective memorandum. Part of the J.D. Preparation pathway; includes an original case and statute packet, a complete model memorandum, and a revision assignment.",
+ "author": "Erudior",
+ "revision": 1,
+ "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Kestrel law, opinions, people and records are fictional teaching materials. Real matters require current jurisdiction-specific research.",
+ "modules": [
+  {
+   "id": "lwo-m1",
+   "title": "Issue framing and rule statements",
+   "quiz": [
+    "lwo-q1-02",
+    "lwo-q1-05",
+    "lwo-q1-08",
+    "lwo-q1-09",
+    "lwo-q2-02",
+    "lwo-q2-05",
+    "lwo-q2-08",
+    "lwo-q2-09"
+   ]
+  },
+  {
+   "id": "lwo-m2",
+   "title": "IRAC and CREAC organization",
+   "quiz": [
+    "lwo-q3-02",
+    "lwo-q3-05",
+    "lwo-q3-08",
+    "lwo-q3-09",
+    "lwo-q4-02",
+    "lwo-q4-05",
+    "lwo-q4-08",
+    "lwo-q4-09"
+   ]
+  },
+  {
+   "id": "lwo-m3",
+   "title": "Fact-based application and counteranalysis",
+   "quiz": [
+    "lwo-q5-02",
+    "lwo-q5-05",
+    "lwo-q5-08",
+    "lwo-q5-09",
+    "lwo-q6-02",
+    "lwo-q6-05",
+    "lwo-q6-08",
+    "lwo-q6-09"
+   ]
+  },
+  {
+   "id": "lwo-m4",
+   "title": "Objective memoranda and revision",
+   "quiz": [
+    "lwo-q7-02",
+    "lwo-q7-05",
+    "lwo-q7-08",
+    "lwo-q7-09",
+    "lwo-q8-02",
+    "lwo-q8-05",
+    "lwo-q8-08",
+    "lwo-q8-09"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lwo-issues",
+   "module": "lwo-m1",
+   "title": "Frame the assignment and the legal issues",
+   "minutes": 35,
+   "topics": [
+    "Issue framing"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Start with the decision the reader needs\n\nAn **[[objective memorandum]]** explains a legal problem and predicts a supported outcome for a reader who needs a candid assessment. It presents favorable and unfavorable material. It does not promise certainty that the record cannot support. Your task in this course is to assess reimbursement for Rin Patel using the fictional Kestrel packet. The practical skill is transferable: give a reader enough structure to understand what is known, what follows from it, and what could change the answer.\n\nBefore drafting, identify the reader, requested product, governing materials, factual record and boundaries. The **[[assignment scope]]** sets what you must decide and what you should leave open. Here, the reader is a supervising attorney, the product is a predictive memo, and the scope is the Kestrel Community Room Act. Other possible legal claims are outside the assignment. Saying that they are outside scope is different from declaring that none could exist.\n\nAn **[[issue statement]]** connects a legal question to facts that make it disputed. “Room cancellation” names a topic. “Can Rin recover preparation expenses under the Act despite an admission-approval notice and a vendor credit?” identifies a decision and its complications. The final question presented may be more precise, but this first version directs your reading toward reliance and recoverable value.\n\n## Sort the record before choosing an answer\n\nA **[[material fact]]** matters because changing it could change an element, inference or amount. The confirmation names the event, room and date; these details satisfy identification requirements. The approved proof's payment language matters because it could make the admission condition applicable. The color of the flyer, which the record does not supply, is neither available evidence nor necessary to the assigned analysis.\n\nDistinguish established events from disputed descriptions. Both payments preceded cancellation. Rin reports that contributions were optional. The center described the event as fee-based. A **[[factual uncertainty]]** concerns what happened or what the evidence establishes. A **[[legal uncertainty]]** concerns the rule's meaning or application. Whether entry would require payment is factual; how § 4 treats this restricted credit presents a legal application question informed by additional facts about usability.\n\nAn **[[assumption]]** is a provisional premise, not evidence. If you assume entry was free to explore one branch, label that branch and examine the alternative. Do not introduce a missing manager approval simply because it would simplify the analysis. A memo can be useful while leaving a disputed fact unresolved: it can explain why that fact matters and what to obtain next.\n\n## Worked example 1: Repair an overbroad question\n\nDraft question: “Was the center unfair to Rin?” First identify the requested remedy: reimbursement of two preparation expenses. Next identify the governing test: §§ 1–4 require a covered booking, center cancellation, reasonable reliance and nonrecoverable value. Then identify the disputed conditions: the admission notice may have applied, and the supply vendor offered a restricted credit. Fairness alone does not express that test.\n\nRevised question: “Under the KCRA, may Rin recover printing and supply expenses after a confirmed booking was canceled, where a prepayment notice required approval for fee-based events and the supply payment carries a restricted credit?” This version names the law, relief, triggering event and main complications. It does not answer whether payment was mandatory. It also does not cram every invoice detail into the opening question.\n\nNow divide the work. Treat covered reservation and cancellation briefly because the identified writing and cancellation are supplied. Give sustained attention to reasonable reliance and the separately recoverable amount of each expense. The division follows legal significance, not the number of documents mentioning each subject. A short statutory issue can deserve more attention than a long but irrelevant email.\n\n## Worked example 2: Build an evidence row\n\nTake the proposition “Rin knew approval was required.” That sentence is incomplete. F2 proves receipt and reading of a notice requiring approval for events charging admission, while preserving confirmation for free-entry events. Whether that condition applied to Repair Circle depends on the entry arrangements. F3 supports optional contributions; F4's approved “$5 at door” proof supports a contrary inference.\n\nWrite the row this way: issue, applicability of the approval condition; legal source, § 3 and Reed ¶¶ 3–5; supporting record for free entry, F1 and F3; adverse record, F2 and F4; missing evidence, final publicity and instructions about admitting nonpaying participants. The provisional conclusion is conditional: reliance becomes harder to defend if payment was required. This is more informative than marking the row “client wins” or “client loses.”\n\nCheck what the row does not establish. F7 confirms cancellation and the center's characterization, not a judicial finding about admission. F3 predates payment, which helps identify the organizer's stated plan, but its date does not independently verify actual intended entry requirements. Preserve both limitations when turning the row into prose.\n\n## Practice and feedback\n\nDraft two subquestions: one about reliance and one about the deposit. For reliance, include the warning's timing and applicability. For the deposit, ask what value remains usable under § 4. “Was the deposit refundable?” is incomplete because the statute also addresses reuse and credit. “Did Rin receive any warning?” is incomplete because § 3 asks about a relevant warning, and Moss distinguishes notices by their subject.\n\nNext write one follow-up request for each subquestion. Seek final publicity or organizer instructions for admission; seek evidence of future purchases and credit restrictions for value. Explain which result each item could change. A request for “more information” does not tell a supervising reader what work is useful. Keep the evidence list manageable by prioritizing information that could change the prediction or amount.\n\n## Common mistakes\n\nDo not let a client's desired outcome define the legal question. Do not label a disputed inference as a stipulated fact. Do not treat an omitted fact as proof of its opposite. Avoid asking a question so broad that it invites unrelated legal research, or so narrow that it suppresses the strongest adverse evidence. A well-framed issue remains open to either supported answer.\n\n## Key points\n\nAn effective issue identifies law, decision and material facts. A useful evidence matrix records both sides and missing information. The boundary between a fact, an inference and an assumption must remain visible. Carry these distinctions into the next lesson, where you will turn the authority packet into rule statements precise enough to apply.\n",
+   "quiz": [
+    "lwo-q1-01",
+    "lwo-q1-02",
+    "lwo-q1-03",
+    "lwo-q1-04",
+    "lwo-q1-05",
+    "lwo-q1-06",
+    "lwo-q1-07",
+    "lwo-q1-08",
+    "lwo-q1-09",
+    "lwo-q1-10"
+   ]
+  },
+  {
+   "id": "lwo-rules",
+   "module": "lwo-m1",
+   "title": "Synthesize rules without losing their limits",
+   "minutes": 35,
+   "topics": [
+    "Rule synthesis"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Build a rule the reader can use\n\nA **[[rule statement]]** expresses a legal requirement or standard with enough precision to support analysis. It must retain conditions, exceptions and limits that matter. Under KCRA § 2, reimbursement requires a covered reservation, center cancellation, reasonable reliance and a nonrecoverable preparation expense paid before cancellation. A statement that the Act “pays people when events are canceled” drops most of that work. It sounds approachable but would direct the reader toward the wrong answer.\n\nAn **[[element]]** is a required component of the test. A **[[factor]]** is a consideration used in evaluating a standard. The Act requires reasonable reliance as an element. Section 3 identifies confirmation specificity, relevant prepayment warnings and the expense's connection to the event as factors. Do not say that every factor must independently be satisfied as a separate checkbox. The packet expressly says no single factor automatically resolves every case.\n\n**[[Rule synthesis]]** combines relevant legal propositions into a coherent account. Start with the statute, then use the opinions to explain how its standards operate. A synthesized rule is not an average of case outcomes. Two reimbursements and one denial do not create a two-thirds probability of recovery. Ask instead which legally significant facts explain the decisions and how those principles fit the statutory text.\n\n## Distinguish decisions from open questions\n\nA **[[holding]]** is the court's decision of a legal issue necessary to its result on the facts before it. **[[Dictum]]** describes a judicial observation beyond what is necessary to resolve that issue. Do not mechanically classify every sentence outside a final paragraph as dictum; reasoning can explain the scope of a holding. Read what the court decided, why it did so and what it expressly left undecided.\n\nA **[[reserved question]]** is an issue the source expressly leaves open. Hale ¶ 5 reserves restricted credits. That reservation is valuable information about the opinion's limits, but it does not itself establish a rule that all restricted credits are worthless. Section 4 still requires an inquiry into actual recoverable value. The absence of a decisive case does not remove the statute from the analysis.\n\nThe packet assigns all three opinions binding status in the hypothetical trial court. That status does not make every statement in each opinion dispositive of every problem. Moss's room-change warning differs from Reed's unfulfilled approval condition. Hale's reliance concession means the court did not decide how to resolve a contested reliance issue like Rin's. Use each opinion for the proposition it actually supports.\n\n## Worked example 1: Synthesize Moss and Reed\n\nWeak draft: “A written reservation makes reliance reasonable unless any warning appears.” This rule simultaneously overstates the effect of a writing and the effect of a warning. Reed ¶ 3 separates covered reservation from reliance. Moss ¶¶ 3–4 allows recovery despite a general room-change notice. The proposed rule cannot explain both outcomes accurately.\n\nStart with § 3: assess the confirmation's specificity, relevant prepayment warnings and connection to the event. Add Moss: a general warning about room reassignment did not condition approval of that event. Add Reed: an applicable safety-approval condition known and unsatisfied before payment made reliance unreasonable on that record. Then formulate the synthesis: the significance of a warning turns on what commitment it qualifies, whether it applies, and whether it was communicated before the expense.\n\nThis synthesis preserves both decisions without claiming that they supply a universal formula. Cite § 3 for the standard and Moss ¶¶ 3–5 and Reed ¶¶ 3–5 for the contrast. Do not include Rin's payment-language dispute in the rule paragraph. That dispute belongs in application, where you will explain which side of the contrast better fits the available facts.\n\n## Worked example 2: Preserve the credit limitation\n\nDraft: “Hale requires denial whenever a vendor offers credit.” Read Hale ¶ 2: the credit was unrestricted, had no expiration or minimum order, and was fully usable for already planned purchases. Read ¶ 3: retained usable value explains the denial. Read ¶ 5: restricted credits were expressly reserved. Those details are not decorative; they mark the supported proposition's reach.\n\nRevised rule: “Under § 4, reimbursement excludes value recoverable through a usable credit. Hale denied a claim where the full credit could be used for planned purchases, but left restricted credits unresolved. Hale ¶¶ 2–5.” This tells the reader what is settled and what remains to analyze. It supports asking about Rin's future needs without pretending the case already answers that question.\n\nNow separate amounts. Hale allowed 40 dollars for date-specific labels while denying the separate supply expense. That illustrates expense-by-expense analysis under § 4. The rule does not become “printing always qualifies.” Printing still must satisfy § 2's timing and reliance requirements. A familiar product category cannot replace the statutory test.\n\n## Practice and feedback\n\nRewrite “Nonrefundable expenses are reimbursed.” A complete revision should include all § 2 requirements and § 4's other ways of retaining value. One option is: “An expense qualifies only if the reservation and cancellation requirements are met, reliance was reasonable, payment preceded cancellation, and the claimed amount cannot be recovered through refund, reuse or usable credit.” Cite §§ 2–4. If your version omits timing, test it against an expense paid after cancellation to see why the omission matters.\n\nThen underline every word that broadens scope: all, always, never, any and automatically. These words are not forbidden, but each requires support. Compare “no refund” with “no recoverable value.” The second requires more evidence because the statute recognizes more ways to recover value. Precision often depends on retaining one small qualification rather than adding a long disclaimer at the end.\n\n## Common mistakes\n\nAvoid presenting each case as an isolated rule with no relationship to the statute. Avoid replacing a multi-factor standard with an invented bright line. Do not use a court's express reservation as a holding in your preferred direction. Distinguish a concession from a decided issue, and a statutory exclusion from a conclusion about every possible legal remedy.\n\n## Key points\n\nRules must retain their elements and qualifications. Synthesis explains how authorities fit together; it does not erase differences. A good rule paragraph gives the reader a reliable test before applying client facts. Keep source locators beside propositions while drafting so that later revision does not detach the rule from the passage that supports it.\n",
+   "quiz": [
+    "lwo-q2-01",
+    "lwo-q2-02",
+    "lwo-q2-03",
+    "lwo-q2-04",
+    "lwo-q2-05",
+    "lwo-q2-06",
+    "lwo-q2-07",
+    "lwo-q2-08",
+    "lwo-q2-09",
+    "lwo-q2-10"
+   ]
+  },
+  {
+   "id": "lwo-organization",
+   "module": "lwo-m2",
+   "title": "Organize analysis with IRAC and CREAC",
+   "minutes": 35,
+   "topics": [
+    "Analytical organization"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Give each part a job\n\n**[[IRAC]]** names a common analytical sequence: issue, rule, application and conclusion. **[[CREAC]]** names conclusion, rule, explanation, application and conclusion. These are organizing aids. A well-reasoned paragraph matters more than displaying the letters, and a complex issue can require several paragraphs. Follow the assigned format when a teacher or workplace specifies one. In this course, use the labels while planning, then write connected prose under useful substantive headings.\n\n**[[Rule explanation]]** shows how authorities establish and illustrate the governing standard before the writer applies it to the present record. **[[Application]]** connects that standard and its illustrations to the client's facts. The distinction lets a reader check two different steps: whether the writer understands the law, and whether the writer has used it persuasively and candidly on this problem. Mixing those steps can conceal a gap in either one.\n\nA **[[roadmap]]** previews the discussion's analytical order. For Rin, a short opening can identify the clear reservation, cancellation and timing requirements, then announce the disputed reliance and retained-value questions. This keeps the reader oriented without retelling every case or repeating the whole brief answer. The roadmap should match the discussion that follows; revise it if you reorganize the analysis.\n\n## Organize by question rather than source\n\nAn **[[analytical unit]]** is a coherent treatment of one legal question or requirement. It should end with a supported result for that question. The unit on reasonable reliance can use both Moss and Reed. The unit on supply value can use § 4 and Hale. Putting all of Moss in one section and all of Reed in another forces the reader to assemble the governing contrast without your help.\n\nA **[[point heading]]** states an issue or a supported analytical proposition. “Cases” tells the reader little. “Reasonable reliance turns on whether entry required payment” identifies the unresolved relationship between law and fact. Avoid a heading that promises more than the paragraph proves, such as “The confirmation guarantees recovery.” A conditional heading can be precise and useful when the uncertainty is real.\n\nSpend space in proportion to difficulty. You need not devote five equal paragraphs to five requirements. One sentence can explain why the event, room and date satisfy § 1. The conflict between F3 and F4 deserves more. Concision means compressing what is straightforward while preserving the reasoning needed to understand what is disputed. It does not mean skipping the adverse evidence to save words.\n\n## Worked example 1: Expand a bare IRAC\n\nBare draft: “The issue is reliance. Section 3 requires reasonable reliance. Rin had a confirmation. Therefore Rin wins.” The rule restates the issue without explaining its factors, the application ignores the warning, and the conclusion leaps from one favorable fact to the entire claim. Adding the labels has not supplied the missing reasoning.\n\nRepair the rule by naming confirmation specificity, relevant prepayment warnings and event connection. Explain that Moss distinguished room reassignment from event approval, while Reed enforced an applicable approval condition known before payment. Apply those principles to F1's free-entry confirmation and F2's admission notice. Then address F3's optional-contribution account and F4's payment language. Conclude that reliance is supportable if entry was free, but materially weaker if payment was required.\n\nThat is a complete analytical path even if it takes several paragraphs. It also remains limited to reliance. A separate unit must analyze printing loss and the supply credit before the memo predicts an amount. “Rin wins” was defective partly because it skipped those other requirements. Match each conclusion's scope to the work that precedes it.\n\n## Worked example 2: Plan a CREAC on credit value\n\nBegin with a qualified conclusion: the supply claim's amount cannot be fixed from the present record. State § 4's rule excluding recoverable value and requiring proof of a nonrecoverable portion. Explain Hale using the full-value, unrestricted credit and its express reservation of restricted credits. Keep Rin out of this explanation paragraph so the reader sees what the precedent itself establishes.\n\nNow apply: Rin's credit expires in one year and requires a future order of at least 100 dollars, unlike Hale's unrestricted credit usable for planned purchases. Those differences make practical usability uncertain. They do not establish that the credit is worthless. Identify missing facts about future purchases and transfer rights, then close with a limited conclusion: further value evidence is necessary before assigning a recoverable portion of the 60-dollar payment.\n\nThe opening and closing conclusions are consistent but need not repeat identical words. The opening tells the reader where the analysis is going. The closing states what the reasoning has established and what remains unresolved. Do not add a new fact or authority only in the closing sentence; the reader should already have the basis for that result.\n\n## Practice and feedback\n\nSort these three sentences by function. “Hale denied the supply claim because its full credit value remained usable” explains authority. “Rin's credit expires and requires a minimum purchase” introduces client facts for application. “The restrictions justify further valuation inquiry but do not prove total loss” draws a qualified inference from law and facts. If your outline places all three under “rule,” revise the labels to reveal the transition.\n\nNext draft a two-section roadmap. A workable version says the memo first evaluates whether the admission condition defeated reasonable reliance, then examines the amount of each expense that remains nonrecoverable. The short § 5 exclusion can appear after those core issues. A roadmap listing Moss, Reed and Hale instead of questions describes your reading order, not the reader's decision path.\n\n## Common mistakes\n\nDo not make CREAC a five-sentence quota. Do not insert an issue label before every sentence or repeat the entire rule in each paragraph. Avoid explaining authorities only after making unsupported comparisons. Keep the facts section separate from legal argument, but bring material facts back into application where the reader needs them. Organization should reduce the reader's work without hiding analytical complexity.\n\n## Key points\n\nIRAC and CREAC help expose the route from law to result. Each analytical unit should answer one bounded question with adequate explanation and application. Roadmaps and headings must reflect the final reasoning. When the order is sound, a reader can tell where the law ends, where the factual comparison begins, and why the conclusion follows.\n",
+   "quiz": [
+    "lwo-q3-01",
+    "lwo-q3-02",
+    "lwo-q3-03",
+    "lwo-q3-04",
+    "lwo-q3-05",
+    "lwo-q3-06",
+    "lwo-q3-07",
+    "lwo-q3-08",
+    "lwo-q3-09",
+    "lwo-q3-10"
+   ]
+  },
+  {
+   "id": "lwo-explanations",
+   "module": "lwo-m2",
+   "title": "Explain authorities with accurate case illustrations",
+   "minutes": 35,
+   "topics": [
+    "Authority explanation"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Select details for a reason\n\nA **[[case illustration]]** explains a legal proposition through a prior decision's relevant facts, holding and reasoning. It is narrower than a full case brief. Your reader needs the information that makes the proposition understandable and useful for the comparison ahead. A long procedural history can be accurate yet unnecessary if it does not illuminate the issue your paragraph addresses.\n\n**[[Legally significant facts]]** are the facts that matter to the court's reasoning on the proposition being discussed. In Moss, the warning concerned room reassignment rather than pending event approval. In Reed, the organizer knew a specific safety-approval condition remained unsatisfied before paying. Those details explain the different results. Both organizers having a named room is relevant background, but that shared feature alone does not explain the outcomes.\n\nA **[[rationale]]** is the reason supporting a decision or proposition. Hale's result was not based merely on the presence of the word credit. Its rationale concerned retained usable value. Explain that connection before comparing Rin's restricted credit. Otherwise the reader may infer a categorical rule that the opinion expressly declined to decide. Accurate selection is therefore part of legal analysis, not merely a technique for making prose shorter.\n\n## Keep support close to the claim\n\nA **[[proposition]]** is a claim the sentence asks the reader to accept. A **[[pinpoint citation]]** identifies the precise section or paragraph supporting it. “Reed ¶ 3” is more useful here than a citation to the entire opinion because it directs the reader to the distinction between identification and reliance. The packet uses short locators rather than real reporter citations; follow that convention consistently.\n\nA **[[paraphrase]]** restates a source in your own words while preserving its substance and limitations. A **[[quotation]]** reproduces the source's words. Use quotation marks only for exact language. If the source says a condition was known before payment, do not paraphrase it as a condition communicated at any time. Removing the temporal limit changes the proposition even though most words still seem similar.\n\nWhen a sentence contains two claims, check both. “Hale rejected all supply claims and guaranteed printing reimbursement” has no adequate supporting pinpoint because neither broad proposition is correct. Adding a citation cannot cure overstatement. Revise the sentence first: Hale denied the fully usable credit expense and allowed a separate nonrecoverable label expense on a record where the other requirements were conceded.\n\n## Worked example 1: Compress Moss without distorting it\n\nStart with the legal point: a general room-reassignment warning need not condition event approval. Select the facts that explain that point: written confirmation naming event, room and date; a footer about possible room changes; no approval condition; event-specific printing. State the result and reason: reliance was reasonable because the footer did not withdraw or condition approval of the event. Cite Moss ¶¶ 1, 3–4.\n\nA usable illustration is: “Moss allowed an event-specific printing expense after a definite confirmation, despite a footer warning that rooms might change. The court treated that notice as addressing room reassignment, not pending approval of the event. Moss ¶¶ 1, 3–4.” The example is compact but still lets the reader see why the warning mattered in a particular way.\n\nNow add the limitation if your surrounding argument might otherwise overread it: Moss expressly left specific applicable approval conditions undecided. Moss ¶ 5. You do not need to reproduce every word of that paragraph, but the limitation becomes important when Reed supplies the contrasting rule illustration. A focused explanation prepares the comparison without yet mentioning Rin's disputed entry arrangements.\n\n## Worked example 2: Correct a misleading Hale illustration\n\nDraft: “In Hale, a refund was refused, so the organizer recovered the cost of supplies.” Read the packet carefully. The cash refund was refused, but an unrestricted credit remained fully usable for planned purchases. The supply claim was denied. A separate 40-dollar label expense was allowed. The draft has combined one expense's facts with another expense's result.\n\nRepair by tracking each item separately. The supplies retained full credit value, so that payment was not nonrecoverable. The labels had no refund, reuse or credit, so that distinct expense qualified. Hale ¶¶ 2–4. Explain that the other requirements, including reasonable reliance, were conceded in this case. Hale ¶ 1. The opinion therefore cannot establish that every organizer with printed materials reasonably relied.\n\nFinally preserve ¶ 5's reservation about restricted credits. A correct illustration can support comparing Rin's one-year minimum-order credit while admitting that Hale does not fix its value. This is stronger legal writing than pretending the case gives a ready-made answer: it lets the reader distinguish a direct holding from the writer's next inference under the statute.\n\n## Practice and feedback\n\nTake the claim “Reed defeats Rin's claim.” Break it into explanation and application. The explanation should state that Reed found reliance unreasonable where an applicable approval condition was known and unsatisfied before payment. The application should ask whether Rin's event was fee-based and therefore subject to the communicated condition. If you cannot write the first sentence without using Rin's name, you may be mixing the source's holding with your prediction.\n\nThen audit the phrase “the court said.” Identify which court, which paragraph and whether the sentence describes a holding, reasoning or a reservation. Vague attribution makes it harder to detect when a writer shifts from source description to inference. Clear attribution helps a reader disagree with your application without having to reconstruct what the precedent actually decided.\n\n## Common mistakes\n\nDo not copy an opinion's chronology when your paragraph needs a rule illustration. Do not omit the adverse feature that explains a denial. Avoid mixing parties, expenses or amounts across cases and the client record. Cite a source for the proposition it supports, not merely because its topic sounds similar. Never invent a reporter number to make fictional authority look more formal.\n\n## Key points\n\nUseful illustrations connect selected facts, a result and a reason. Accurate paraphrase preserves qualifiers; exact quotations preserve words. Pinpoints make propositions traceable but cannot rescue unsupported claims. Build the explanation first, then use its legally significant features as the comparison points for the client's application.\n",
+   "quiz": [
+    "lwo-q4-01",
+    "lwo-q4-02",
+    "lwo-q4-03",
+    "lwo-q4-04",
+    "lwo-q4-05",
+    "lwo-q4-06",
+    "lwo-q4-07",
+    "lwo-q4-08",
+    "lwo-q4-09",
+    "lwo-q4-10"
+   ]
+  },
+  {
+   "id": "lwo-application",
+   "module": "lwo-m3",
+   "title": "Connect facts to rules through comparison",
+   "minutes": 35,
+   "topics": [
+    "Fact-based application"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Show why the resemblance matters\n\nAn **[[analogy]]** reasons from a legally significant similarity between the present problem and a prior example. A **[[distinction]]** explains why a difference matters to the rule or rationale. Neither is complete when it merely says two cases are alike or different. You must connect the compared facts to the legal reason that makes the similarity or difference consequential.\n\nAn **[[inference]]** is a conclusion drawn from evidence rather than directly stated by it. F4's “$5 at door” wording supports an inference of required payment. It does not conclusively establish the entry arrangement in a record that also includes F3's optional-contribution note. The strength of an inference depends on the evidence and competing explanations. Attribute what the document says before explaining what you infer from it.\n\nA useful comparison has four parts: the present fact, the precedent fact, their significant relationship, and the consequence for the issue. This course calls the connecting explanation a **[[reasoning bridge]]**. The bridge does the work between “Rin has a warning” and “reliance was unreasonable.” Because Moss and Reed both involved warnings with different effects, merely naming the shared category is not enough.\n\n## Use the statutory test as a relevance filter\n\nA **[[comparison point]]** is a feature selected because the rule or rationale makes it significant. Ask which feature each rule makes important. Section 3 directs attention to specific confirmation, relevant warnings before payment and event connection. Section 4 directs attention to refund, reuse and usable credit. The same fact may matter to more than one requirement, but explain its separate function. Event-specific flyers show connection to the booking and may also be unusable afterward; those are related but distinct propositions.\n\nA **[[factual premise]]** is a fact on which your reasoning depends. Verify it before building a paragraph around it. The record establishes that Rin read the admission notice before paying. It does not establish a manager's approval or what the final distributed flyer said. You may describe what those missing facts would change, but you cannot supply them as if an interview had occurred.\n\nA **[[conditional analysis]]** explains the result under explicitly stated factual possibilities. It is useful when a pivotal premise remains unresolved. If entry required payment, the warning likely applied. If entry was free with optional contributions, its express free-entry language supports a different inference. Conditional analysis should identify which account the current record supports and what evidence could resolve the difference; it should not become a list of every imaginable scenario.\n\n## Worked example 1: Compare the warnings\n\nWeak application: “Rin is like Moss because both received confirmations.” This identifies a real similarity but ignores Reed, whose writing also identified the reservation. To improve it, identify the disputed characteristic: whether a known warning conditioned event approval. Moss's notice addressed room changes; Reed's required approval before the event was final.\n\nApply the contrast. F1 specifically confirms a free-entry event, and F2 preserves confirmation for free-entry events. If F3 accurately describes the planned entry arrangement, Rin can argue that the approval condition did not apply, leaving a commitment closer to Moss. But F4's approved payment wording supports the center's argument that the event was fee-based. If that inference is accepted, the condition resembles Reed's known and unsatisfied approval requirement.\n\nFinish with the bridge: the entry arrangement matters because it determines whether the notice qualified the commitment on which Rin relied before payment. Without that sentence, the paragraph risks sounding like a contest between labels, “free-entry” and “fee-based.” The legally relevant question is what commitment the organizer reasonably understood from the confirmation and applicable notice, considered with the record.\n\n## Worked example 2: Compare credits without assuming value\n\nWeak application: “Rin's credit has an expiration, so Rin recovers 60 dollars.” This identifies a difference from Hale but supplies no reasoning about actual value. A one-year credit might be fully usable by a person planning a qualifying purchase, partly useful in another situation, or practically unusable in another. The record does not tell us which description fits Rin.\n\nStart with Hale's relevant facts: no expiration, no minimum order, full value usable for planned purchases. Compare F6: one-year expiration, at least a 100-dollar future order, no supplied future-needs evidence. The restrictions could reduce practical value because using a 60-dollar credit requires a qualifying purchase and may require additional spending within the allowed time. That is a reason to inquire, not proof of a particular loss amount.\n\nA sound result is: “Unlike Hale's fully usable credit, Rin's credit carries restrictions whose practical effect is not established. Section 4 therefore requires evidence of usable value before a nonrecoverable portion can be assigned.” This respects Hale's reservation and keeps the statutory requirement in view. It neither assumes full recovery nor treats any credit as a complete defense.\n\n## Practice and feedback\n\nWrite a comparison for the printing expense. The record supplies a 90-dollar payment before cancellation, no refund, no reuse and no credit. Moss involved 80-dollar event-specific flyers; Hale allowed a separate 40-dollar label expense. Explain that the different amounts do not undermine the retained-value comparison. Then preserve the dependency: Rin still must establish reasonable reliance, which was not contested in Hale.\n\nNow test a changed fact. Suppose a separate hypothetical organizer, Dana, has an unrestricted credit fully usable for an already planned purchase. Under § 4 and Hale, the payment retains recoverable value even if no cash refund is available. Dana's facts do not alter Rin's record. Keeping transfer examples separate prevents a convenient teaching variation from quietly becoming invented client evidence.\n\n## Common mistakes\n\nAvoid similarities without a legal reason, differences without consequences, and consequences without a supporting premise. Do not use a source citation as a substitute for explaining the comparison. Do not call the credit worthless merely because it is inconvenient. Do not infer a final outcome for every element from a successful analogy on only one element.\n\n## Key points\n\nApplication connects specific facts through a rule's rationale. Strong comparisons explain why the relationship matters and how far it supports a result. Conditional analysis is useful when its branches track a real evidentiary dispute. The best paragraph lets a reader identify the precise premise that would need to change for the prediction to change.\n",
+   "quiz": [
+    "lwo-q5-01",
+    "lwo-q5-02",
+    "lwo-q5-03",
+    "lwo-q5-04",
+    "lwo-q5-05",
+    "lwo-q5-06",
+    "lwo-q5-07",
+    "lwo-q5-08",
+    "lwo-q5-09",
+    "lwo-q5-10"
+   ]
+  },
+  {
+   "id": "lwo-counteranalysis",
+   "module": "lwo-m3",
+   "title": "Test counterarguments and calibrate predictions",
+   "minutes": 35,
+   "topics": [
+    "Counteranalysis and prediction"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench"
+   ],
+   "body": "## Give the strongest objection its proper weight\n\n**[[Counteranalysis]]** examines a supported competing interpretation and evaluates its effect on the prediction. In an objective memorandum, this work helps the reader understand risk and uncertainty. It should address the strongest relevant objection, not an implausible position that is easy to dismiss. The center's best reliance argument combines the approved payment language, the prepayment notice and the absence of required approval if the event was fee-based.\n\n**[[Adverse evidence]]** supports an inference unfavorable to your tentative conclusion. **[[Adverse authority]]** supplies a legal principle or comparison that could support a contrary result. F4 is adverse evidence for Rin's claim of free entry; Reed is potentially adverse authority on reliance. They serve different roles. Reed cannot establish what Rin planned, and F4 cannot by itself state the legal effect of an approval condition.\n\nA **[[response]]** evaluates the objection using law and evidence. It may explain a distinction, identify a weakness in the factual premise, concede part of the objection, or narrow the prediction. A useful response need not eliminate all uncertainty. If the evidence remains genuinely divided, acknowledging the unresolved point is a better response than adding confident adjectives.\n\n## Calibrate confidence to the actual support\n\nA **[[prediction]]** estimates the likely legal result on the supplied law and facts. A **[[confidence qualifier]]** expresses the degree or condition of support: likely, plausible, uncertain, or dependent on a specified fact. These words should follow analysis rather than replace it. “Probably” with no explanation leaves the reader guessing what makes the result probable and what could undermine it.\n\nDo not assign invented numerical odds. The packet supplies no data supporting a percentage probability of recovery. Instead identify which requirements are straightforward, which turn on disputed evidence, and which require further legal application. Rin's printing amount is established as a loss, but its reimbursement depends on reasonable reliance. The supply amount has an additional retained-value uncertainty. One overall confidence label may conceal that difference.\n\nAn **[[unresolved issue]]** remains open after the available analysis. State what is unresolved and why. “More research is needed” is too vague for a closed-universe assignment. You have the assigned legal materials; the central next steps are evidence about entry arrangements and credit usability. Explain the legal gap around restricted credits without pretending to locate an opinion that is absent from the packet.\n\n## Worked example 1: Strengthen and answer an objection\n\nWeak objection: “The center might dislike Rin.” Nothing in the record makes dislike legally relevant. Strong objection: “The approved proof says ‘$5 at door,’ suggesting an admission charge. Rin read the manager-approval notice before paying, and the record contains no approval for a fee-based event. If payment was required, Reed supports finding reliance unreasonable.” Each part now has a source and a legal function.\n\nA fair response begins with what supports Rin: the confirmation described free entry, the notice preserved free-entry approval, and the prepayment note described optional contributions without exclusion. F1–F3. Explain why that could distinguish Reed: an approval condition for fee-based events may not apply to a genuinely free-entry event. Do not say the personal note conclusively overrides the approved flyer proof.\n\nClose by narrowing the prediction. The claim is plausible on Rin's account, but the approved proof creates a substantial contrary inference. Final publicity and entry instructions could resolve the factual premise. This response survives even if the reader ultimately assigns the evidence different weight, because the competing routes are visible and neither side's material evidence has been concealed.\n\n## Worked example 2: Revise an overconfident conclusion\n\nDraft conclusion: “Rin will recover 150 dollars because both payments were nonrefundable.” First identify the missing requirements. Reasonable reliance remains contested. Second identify the conflated concepts. Nonrefundable does not mean no usable credit under § 4. Third identify the separate claims. The printing loss is documented; the supply loss depends on practical credit value.\n\nRevised conclusion: “Rin has a plausible claim for the 90-dollar printing expense if the evidence establishes reasonable reliance on a free-entry confirmation. The approved payment wording creates a significant risk under Reed. The supply claim requires additional evidence of credit usability before any nonrecoverable portion of the 60-dollar payment can be predicted.” This gives a decision-maker more useful information than a single inflated total.\n\nNow consider an opposite overstatement: “Rin recovers nothing because a credit exists.” The same separation corrects it. The credit concerns the supply deposit, not the printing expense; Hale permits separate analysis. The credit's restrictions also matter to its practical value. Objective writing corrects overstatement in either direction, including a pessimistic conclusion that sounds cautious but is not supported.\n\n## Practice and feedback\n\nWrite the strongest argument against your tentative treatment of the supply claim. One supported objection is that restrictions do not prove unusability: Rin might already need a qualifying order within the year. A fair response concedes that possibility and identifies the absent evidence. Do not invent a planned purchase to make the objection conclusive. The result is uncertainty about amount, not automatic denial or full reimbursement.\n\nThen remove every adjective such as obvious, certain or indisputable from a draft paragraph. Replace only those that the source and record justify. Explain the basis for the remaining confidence with a concrete fact-rule connection. For example, payment timing is undisputed because F5–F7 place both payments before cancellation; reasonable reliance is not undisputed because the competing entry arrangements remain unresolved.\n\n## Common mistakes\n\nAvoid straw objections, selective facts and responses that merely repeat the original conclusion. Do not treat every uncertainty as equally significant or use so many qualifiers that no prediction remains. Never call a claim certain merely because one element is clear. Keep the distinction between factual follow-up and legal analysis visible, especially when an opinion reserves a question.\n\n## Key points\n\nCounteranalysis tests the strongest supported alternative and improves the prediction's honesty. Calibrate confidence separately where requirements or expenses have different support. A useful conclusion names the most important dependency and the next evidence needed. It equips the reader to act on a bounded assessment while understanding what could change it.\n",
+   "quiz": [
+    "lwo-q6-01",
+    "lwo-q6-02",
+    "lwo-q6-03",
+    "lwo-q6-04",
+    "lwo-q6-05",
+    "lwo-q6-06",
+    "lwo-q6-07",
+    "lwo-q6-08",
+    "lwo-q6-09",
+    "lwo-q6-10"
+   ]
+  },
+  {
+   "id": "lwo-memorandum",
+   "module": "lwo-m4",
+   "title": "Assemble a complete objective memorandum",
+   "minutes": 40,
+   "topics": [
+    "Memorandum drafting"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench",
+    "lwo-ref-model"
+   ],
+   "body": "## Turn component analysis into a useful document\n\nAn objective memo needs consistency across its sections. The **[[question presented]]** states the bounded legal question with enough material facts to make the dispute clear. The **[[brief answer]]** gives a concise prediction and its principal reasons and qualifications. The **[[statement of facts]]** presents relevant background and evidence neutrally. The **[[discussion]]** develops the legal analysis. The conclusion brings the result and useful next steps together without introducing new arguments.\n\nUse a memo header identifying the reader, writer, date and subject. For this exercise, the date is March 10 in the teaching year, and the reader is a supervising attorney. These are fictional assignment details, not a claim that a real attorney-client relationship exists. The memorandum belongs in your own notes or document; the app does not collect or automatically grade the extended writing assignment.\n\n**[[Factual neutrality]]** means describing the record accurately without turning disputed inferences into established events or using loaded labels. It does not require omitting harmful evidence. The approved proof is material and belongs in the facts even if your prediction favors Rin. Likewise, the optional-contribution note belongs there even if you think the center has the stronger argument. Balanced facts enable candid analysis.\n\n## Draft in a sequence that supports accuracy\n\nYou may write the discussion before the brief answer. That sequence lets the summary reflect the analysis you actually completed. Start with the issue-and-evidence matrix, outline the discussion by legal question, then draft the factual account and the analysis. Write or revise the brief answer after resolving what you can and identifying what remains uncertain. Revisit the question presented if it no longer captures the central dispute.\n\nA **[[scope statement]]** identifies the legal and factual boundaries of the document. Here, assess the Act on the supplied packet. Section 5 excludes planning time and anticipated profit from this remedy; Rin's expected contributions are not qualifying preparation expenses. Do not extend that exclusion into an unsupported statement that no other legal claim could ever exist. A short scope sentence is enough; repeated disclaimers can distract from the actual analysis.\n\n**[[Internal consistency]]** means that statements across sections agree about the same facts, rules and degree of confidence. If the discussion says the credit's practical value is unknown, the brief answer cannot promise an additional 60 dollars. If the facts call admission disputed, the conclusion cannot describe mandatory entry payment as established without explaining new evidence. Revision often requires changing several sections together.\n\n## Worked example 1: Write a neutral facts paragraph\n\nWeak draft: “Rin honestly planned a free event, but the center falsely called it fee-based and refused to honor its promise.” The record supports neither a finding about honesty nor a finding that the center's characterization was false. The language also suppresses the approved flyer proof, which a reader needs to understand the center's argument.\n\nRevised paragraph: “The center confirmed a free-entry Repair Circle event on March 2. A March 3 notice required manager approval for events charging admission while preserving confirmation for free-entry events. Rin's March 4 planning note described optional contributions and no exclusion for nonpayment, while an approved printer proof stated ‘$5 at door.’ The final distributed wording and entry arrangements are not established in the available record. F1–F4.”\n\nThis version does not decide the dispute prematurely. It attributes the competing descriptions, supplies timing and identifies the information gap. The application can then explain their significance under § 3. Notice that neutrality requires including the contradiction, not draining the paragraph of useful detail. A vague statement that “communications occurred” would be accurate but inadequate for the reader's decision.\n\n## Worked example 2: Align the brief answer and discussion\n\nSuppose your discussion finds a plausible printing claim conditional on free entry, a serious Reed objection, and unresolved credit value. Draft brief answer: “Yes, Rin can recover because there was a written confirmation.” That answer omits every important qualification developed in the discussion. It may mislead a busy reader who relies on the summary before reading the details.\n\nRevise it to: “Rin has a plausible claim for the 90-dollar printing expense if reasonable reliance is established. The free-entry confirmation supports that claim, but the approved payment wording creates a substantial risk that the unfulfilled admission-approval condition applied. The additional supply amount depends on practical credit value and cannot be fixed from this record.” Add the § 5 exclusion in a short sentence if the question presented includes the other requested amounts.\n\nCheck each phrase against the discussion. The printing amount comes from F5, the uncertainty from F2–F4, and the credit limitation from § 4, Hale and F6. The brief answer need not retell each case, but its compressed reasoning must still be traceable. A summary should reduce detail while preserving the distinctions that affect the result.\n\n## Practice and feedback\n\nOutline your memo using the workbench assignment. Reserve the largest portion for discussion, particularly the entry-condition dispute and the supply-credit comparison. Keep the facts long enough to orient a reader who has not opened F1–F7. Avoid reproducing the full packet or filling the memo with generic definitions of IRAC. The audience needs an assessment of Rin's problem, not a description of your writing process.\n\nNow draft a conclusion with two concrete next steps. One should seek evidence about final publicity or entry instructions; the other should seek evidence of practical credit use. Explain the significance of each. A conclusion that merely says “investigate further” loses an opportunity to guide useful work. A conclusion that announces a new legal theory exceeds this assignment's scope.\n\n## Common mistakes\n\nDo not make the facts section an argument disguised as chronology. Do not let the short answer become more certain than the discussion. Avoid case-by-case headings when the problem turns on legal requirements. Never imply that finishing the quiz submits the memo to an instructor. The writing exercise is a separate self-assessment activity supported by a model and rubric.\n\n## Key points\n\nEach memo section serves a distinct reader need, and all must reflect the same analysis. Neutral facts include material adverse evidence. A candid brief answer preserves decisive qualifications. Draft the complete document before using the model, then compare reasoning and source support rather than trying to imitate every sentence.\n",
+   "quiz": [
+    "lwo-q7-01",
+    "lwo-q7-02",
+    "lwo-q7-03",
+    "lwo-q7-04",
+    "lwo-q7-05",
+    "lwo-q7-06",
+    "lwo-q7-07",
+    "lwo-q7-08",
+    "lwo-q7-09",
+    "lwo-q7-10"
+   ]
+  },
+  {
+   "id": "lwo-revision",
+   "module": "lwo-m4",
+   "title": "Revise, audit and complete the memorandum",
+   "minutes": 45,
+   "topics": [
+    "Revision and source audit"
+   ],
+   "refs": [
+    "lwo-ref-authorities",
+    "lwo-ref-record",
+    "lwo-ref-workbench",
+    "lwo-ref-model"
+   ],
+   "body": "## Revise reasoning before polishing sentences\n\nA **[[reverse outline]]** records what each existing paragraph actually does. It differs from your original plan because it exposes the document you wrote, including repetition and gaps. Label each paragraph with a short function: states the reliance rule, explains Reed, compares the entry evidence, or identifies missing credit-value facts. If a paragraph needs three unrelated labels, divide or reorganize it.\n\n**[[Substantive revision]]** improves the analysis, organization or support. **[[Line editing]]** improves sentence-level clarity and expression. Both matter, but fixing a comma cannot correct a rule that says any credit defeats reimbursement. Work from larger problems to smaller ones: scope and structure, rule accuracy, application and counteranalysis, citations, then prose. Otherwise you may spend time polishing a paragraph you later need to replace.\n\nA **[[source audit]]** checks each material proposition against the actual supporting passage. Open the cited section, opinion paragraph or record item. Check not only that the general topic appears, but that the passage supports the precise actor, action, condition, amount and qualification in your sentence. A citation can be formatted correctly while pointing to a source that contradicts the claim.\n\n## Make the audit visible\n\nUse a **[[proposition-source ledger]]** with a row for the draft claim, its locator, what the source establishes, and any revision needed. Include legal and factual claims. “Rin paid 80 dollars for flyers” might accidentally borrow Moss's amount; F5 establishes 90 dollars. “Hale decided restricted credits are worthless” contradicts ¶ 5's express reservation. The ledger makes these errors easier to detect than a general impression that the memo sounds plausible.\n\n**[[Citation accuracy]]** includes source identity, location and proposition fit. Check quotations word for word and distinguish your inference from the source's own conclusion. If you write that F4 establishes mandatory admission, revise it to say the approved wording supports that inference while F3 points the other way. The problem is substantive attribution, not a missing punctuation mark.\n\nA **[[revision log]]** records the changes you made and why. The capstone requires at least three substantive entries. Each should preserve the old proposition, revised proposition, supporting source and analytical improvement. “Improved wording” is too vague. “Replaced a guaranteed 150-dollar award with separate conditional assessments because reliance and credit value remain unresolved” identifies an actual reasoning change.\n\n## Worked example 1: Audit an inaccurate rule and amount\n\nDraft: “Hale held that any nonrefundable payment is recoverable, so Rin will receive 150 dollars.” First open Hale ¶¶ 2–4. The court denied the supply claim because full credit value remained usable despite the denied refund. It allowed only the separate label expense. Next open § 2: reasonable reliance remains required. Finally open F6: Rin's credit restrictions are known, but practical usability is not.\n\nRevised proposition: “A denied refund alone does not establish nonrecoverable value. Hale ¶¶ 2–4. Rin's printing loss is documented, but reimbursement depends on reasonable reliance, and the supply credit requires further value evidence. KCRA §§ 2–4; F5–F6.” This revision corrects the rule, separates expenses and narrows the prediction. It is substantive even if it adds words.\n\nNow update related sections. Remove the guaranteed amount from the brief answer, revise any heading promising full recovery, and align the conclusion with the unresolved value question. A corrected discussion can still leave a misleading document if its summary retains the old claim. The reverse outline helps locate sections that depend on the proposition you changed.\n\n## Worked example 2: Repair organization and a missing response\n\nSuppose your draft has three paragraphs titled Moss, Reed and Hale, followed by “Rin should recover.” The reverse outline shows source summaries but no application. Reorganize around reliance and retained value. Place Moss and Reed in the reliance explanation, then compare F1–F4. Put Hale in the value explanation, then analyze F5 and F6 separately.\n\nThe new reliance application says only that the free-entry note favors Rin. Add the strongest objection: the approved proof suggests required payment, and Rin read the approval notice before paying. Respond with the record supporting optional contributions, then preserve the unresolved factual issue. The resulting unit now contains law, comparison, counteranalysis and a qualified conclusion rather than a sequence of case summaries.\n\nRecord two distinct changes in the log if both occurred: reorganization by legal question, and addition of the payment-language counteranalysis. Cite the passages supporting each. Do not count moving a heading and changing its font as two substantive revisions. The log should show how your reasoning became more reliable, not merely how many editing actions you performed.\n\n## Complete the capstone\n\nWrite the 900–1,100-word memorandum described in the workbench, along with the evidence matrix, first draft, revised draft, source audit and revision log. Use the complete packet and all three opinions where relevant. Address time and expected contributions under § 5 without expanding into other legal claims. Check the workbench's word-count convention before trimming a necessary qualification to meet the range.\n\nAfter your first draft, open the model. Compare its treatment of the admission condition, the printing expense and the restricted credit with yours. You may reasonably assign different weight to competing evidence, but your analysis must preserve the record's uncertainty and the authorities' limits. Use the 100-point rubric for feedback. A high self-score does not turn this preparation exercise into university credit or certify professional competence.\n\n## Practice and feedback\n\nChoose one sentence from each memo section and trace it to sources. If a sentence is your prediction, trace its underlying premises rather than looking for a source that states the prediction verbatim. Mark unsupported premises for removal or qualification. Then read the document once for consistency alone: same amounts, dates, entry uncertainty and credit limitations throughout. This focused pass catches errors that ordinary proofreading can miss.\n\n## Common mistakes and key points\n\nDo not equate proofreading with validation of reasoning. Do not leave superseded conclusions in summaries, or treat model wording as the only acceptable answer. Effective revision makes the chain from source to proposition to prediction easier to inspect. Finish with an honest account of what the record supports and what further information would change the assessment.\n",
+   "quiz": [
+    "lwo-q8-01",
+    "lwo-q8-02",
+    "lwo-q8-03",
+    "lwo-q8-04",
+    "lwo-q8-05",
+    "lwo-q8-06",
+    "lwo-q8-07",
+    "lwo-q8-08",
+    "lwo-q8-09",
+    "lwo-q8-10"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "law-legal-writing-1-bank",
+   "title": "Legal Writing I: Objective Analysis questions",
+   "sections": [
+    {
+     "id": "lwo-m1",
+     "name": "Issue framing and rule statements"
+    },
+    {
+     "id": "lwo-m2",
+     "name": "IRAC and CREAC organization"
+    },
+    {
+     "id": "lwo-m3",
+     "name": "Fact-based application and counteranalysis"
+    },
+    {
+     "id": "lwo-m4",
+     "name": "Objective memoranda and revision"
+    }
+   ],
+   "exam": {
+    "questionCount": 50,
+    "timeLimitMinutes": 90,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "lwo-q1-01",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "The assignment asks for reimbursement analysis under the KCRA using a supplied record. Which opening question best frames that task?",
+     "choices": [
+      "Can Rin establish every possible claim arising from all community-center operations?",
+      "Should an organizer always receive payment whenever an event cannot proceed?",
+      "Can Rin recover preparation expenses despite a potentially applicable approval condition and restricted credit?",
+      "Was the center generally fair to every organizer whose booking was canceled?"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A useful issue ties the requested reimbursement to the governing law and the material complications. Fairness alone, universal rules and unrelated claims do not define the assigned analysis."
+    },
+    {
+     "id": "lwo-q1-02",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "F3 says contributions were optional; an approved proof in F4 says \"$5 at door.\" What is the most accurate record description?",
+     "choices": [
+      "The planning note establishes free entry conclusively because it is dated.",
+      "The materials support competing inferences about whether entry required payment.",
+      "The proof establishes required payment conclusively despite the contrary note.",
+      "The conflict establishes that neither document can be discussed in the memo."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The record does not resolve entry requirements. Preserve both sources, attribute their contents, and explain why the conflict matters instead of silently selecting one as established fact."
+    },
+    {
+     "id": "lwo-q1-03",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "KCRA § 3 considers relevant warnings communicated before payment. Which missing fact would most directly clarify whether the admission-approval warning applied?",
+     "choices": [
+      "Whether the printer would provide a refund after cancellation.",
+      "Whether the supply credit could be transferred to another organizer.",
+      "Whether participants would have been admitted without paying.",
+      "Whether either preparation expense was paid after cancellation."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Whether entry required payment determines the relevance of the fee-based approval condition. The other details do not address that condition on the supplied rule."
+    },
+    {
+     "id": "lwo-q1-04",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "A memo says, \"Assuming entry was free, the fee-based approval condition may not apply.\" What must the writer do with that assumption?",
+     "choices": [
+      "Label it as provisional and analyze the material alternative if payment was required.",
+      "Add a manager approval to the record so the assumption cannot affect the result.",
+      "Omit all adverse facts once the favorable assumption is stated clearly.",
+      "Treat it as established evidence because the sentence uses the word assuming."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An assumption supports a conditional branch, not a new fact. The competing payment-required branch matters and must remain visible."
+    },
+    {
+     "id": "lwo-q1-05",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "The assignment covers only KCRA reimbursement. Section 5 excludes planning time from that remedy. Which scope statement is sound?",
+     "choices": [
+      "Planning time must be analyzed under every possible legal theory before this memo can be drafted.",
+      "Planning time is reimbursable whenever the writer labels the assignment objective.",
+      "Planning time is excluded under the Act, proving no other legal remedy could exist.",
+      "Planning time is excluded under the Act; possible claims under other law are outside this assignment."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A statutory exclusion from the assigned remedy does not decide unexamined claims under other law. State the boundary without expanding or overclaiming."
+    },
+    {
+     "id": "lwo-q1-06",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "F5–F7 establish that both payments preceded the center’s cancellation. The entry arrangements remain disputed. How should the outline allocate attention?",
+     "choices": [
+      "Explain timing briefly and devote more analysis to the disputed reliance premise.",
+      "Discuss timing at length while leaving the admission dispute for the reader to resolve.",
+      "Give every fact exactly the same word count regardless of its legal significance.",
+      "Omit payment timing entirely because it is straightforward and therefore irrelevant."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Straightforward elements still need treatment, but disputed material issues deserve more analytical space. Equal length is not the measure of adequate analysis."
+    },
+    {
+     "id": "lwo-q1-07",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "Which question concerns a factual uncertainty rather than the meaning or application of the legal standard?",
+     "choices": [
+      "What principle explains the difference between Moss and Reed?",
+      "How does § 4 treat a credit with materially restrictive conditions?",
+      "Does the Act distinguish usable credit value from a cash refund?",
+      "What entry instructions did organizers give to prospective participants?"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Entry instructions are an evidentiary question. The other questions ask how legal text or precedent operates, though answering them may require additional facts."
+    },
+    {
+     "id": "lwo-q1-08",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "A draft matrix labels the supply row \"good for client.\" Which replacement most improves its usefulness?",
+     "choices": [
+      "List the deposit amount and refund denial, treating both as conclusive proof of loss.",
+      "List § 4, the credit restrictions, missing usability evidence, and their effect on the claimed amount.",
+      "List Hale’s result without noting its unrestricted credit or reserved question.",
+      "List only favorable facts so the matrix remains consistent with the desired result."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A working matrix connects requirements, sources, favorable and adverse facts, and missing evidence. An outcome label or unconnected source list does not show the reasoning task."
+    },
+    {
+     "id": "lwo-q1-09",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "Match each planning item to its role.",
+     "type": "match",
+     "left": [
+      "Scope",
+      "Issue",
+      "Assumption",
+      "Material fact"
+     ],
+     "choices": [
+      "Work boundary",
+      "Legal question",
+      "Provisional premise",
+      "Result-relevant detail"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Scope bounds the work; an issue asks the legal question; an assumption is provisional; a material fact can affect the analysis."
+    },
+    {
+     "id": "lwo-q1-10",
+     "section": "lwo-m1",
+     "topic": "Issue framing",
+     "stem": "A provisional premise used to explore a branch without claiming it is established evidence is an ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "assumption"
+      ]
+     ],
+     "explanation": "An assumption must be labeled and tested when it can affect the result."
+    },
+    {
+     "id": "lwo-q2-01",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Section 2 requires covered reservation, cancellation, reasonable reliance and nonrecoverable expense paid before cancellation. Section 3 gives considerations for reliance. Which classification is accurate?",
+     "choices": [
+      "Every Section 3 consideration is a separate absolute requirement with no balancing.",
+      "Confirmation specificity replaces all of Section 2’s other requirements.",
+      "Reasonable reliance is optional whenever cancellation is established.",
+      "Reasonable reliance is an element; confirmation specificity is a factor in evaluating it."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The required component is reasonable reliance. Section 3’s considerations help evaluate that component and do not eliminate the other Section 2 requirements."
+    },
+    {
+     "id": "lwo-q2-02",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Moss allowed recovery despite a room-change notice; Reed denied it after a known, unsatisfied approval condition. Which synthesis fits both?",
+     "choices": [
+      "The later opinion eliminates all need to consider what the earlier notice actually said.",
+      "A warning’s subject, applicability and timing matter to whether it qualifies event approval.",
+      "Every writing headed reservation establishes reasonable reliance despite its conditions.",
+      "Every warning defeats reliance even when it concerns only room reassignment."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The cases differ in what their warnings communicated about approval. Their outcomes cannot be synthesized into either an all-writings or all-warnings rule."
+    },
+    {
+     "id": "lwo-q2-03",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Hale denied an expense covered by a fully usable unrestricted credit and expressly reserved restricted credits. What does the reservation establish?",
+     "choices": [
+      "The opinion does not decide the treatment of restricted credits; § 4 still governs their value inquiry.",
+      "The opinion establishes that every restricted credit retains its entire face value.",
+      "The opinion establishes that every restricted credit has zero recoverable value.",
+      "The opinion removes restricted-credit disputes from the statutory requirements entirely."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An express reservation identifies an undecided issue. It supplies neither categorical outcome and does not displace the statute."
+    },
+    {
+     "id": "lwo-q2-04",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Section 4 considers refund, reuse and usable credit. Which revision repairs \"Every nonrefundable expense qualifies\"?",
+     "choices": [
+      "A denied refund establishes reasonable reliance regardless of any known condition.",
+      "A denied refund establishes the loss even when the same value remains usable as credit.",
+      "A denied refund is insufficient if value remains recoverable through reuse or usable credit.",
+      "A denied refund removes the need to examine whether payment preceded cancellation."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Nonrefundable describes only one possible route to recover value. Other Section 2 requirements also remain necessary; refund denial does not establish reliance or timing."
+    },
+    {
+     "id": "lwo-q2-05",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Hale’s parties conceded reasonable reliance, and the court decided retained value. For which proposition is Hale best used?",
+     "choices": [
+      "Every community-center organizer reasonably relies whenever supplies are purchased.",
+      "A fully usable credit can preserve value despite the denial of a cash refund.",
+      "The existence of labels automatically resolves every disputed approval condition.",
+      "A concession in one case decides all future factual disputes about reasonable reliance."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Hale decided the value issue on a record where reliance was conceded. A concession is not a holding deciding contested reliance in another case."
+    },
+    {
+     "id": "lwo-q2-06",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Moss expressly left specific approval conditions open; Reed later decided one involving a safety review. How should a writer use them?",
+     "choices": [
+      "Ignore the statute because two judicial opinions make statutory requirements unnecessary.",
+      "Treat Moss as establishing the result for every approval condition it expressly left open.",
+      "Treat Reed as overruling Moss solely because it reached a different result on different facts.",
+      "Read their actual holdings together to explain the distinction between general notices and applicable conditions."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Different outcomes can coexist where legally significant facts differ. The packet states neither opinion is overruled, and both interpret the statutory standard."
+    },
+    {
+     "id": "lwo-q2-07",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Which sentence keeps rule explanation separate from client application?",
+     "choices": [
+      "Rin’s credit restrictions leave its practical usability uncertain on this record.",
+      "Rin’s free-entry note may distinguish the event from Reed’s conditional booking.",
+      "Under § 3, assess confirmation specificity, relevant prepayment warnings and event connection.",
+      "Rin’s approved proof supports an inference that the admission condition applied."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The Section 3 sentence states the general standard without using client facts. The other sentences apply that standard to Rin’s record."
+    },
+    {
+     "id": "lwo-q2-08",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "A writer says two favorable cases and one adverse case imply a two-thirds chance of recovery. What is the central defect?",
+     "choices": [
+      "Counting outcomes does not account for the legally significant facts and rules explaining them.",
+      "Case outcomes can never be discussed in an objective memorandum.",
+      "Any later case automatically controls every issue regardless of what it decided.",
+      "A numerical probability becomes reliable if it is placed in a point heading."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Rule synthesis explains relationships among legal principles and material facts. The packet provides no statistical basis for converting a case count into odds."
+    },
+    {
+     "id": "lwo-q2-09",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "Match each rule-reading label to its meaning.",
+     "type": "match",
+     "left": [
+      "Element",
+      "Factor",
+      "Holding",
+      "Reserved question"
+     ],
+     "choices": [
+      "Required component",
+      "Evaluative consideration",
+      "Decided legal issue",
+      "Expressly left open"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Elements are required components; factors guide evaluation; holdings decide issues on the case’s facts; reserved questions remain undecided."
+    },
+    {
+     "id": "lwo-q2-10",
+     "section": "lwo-m1",
+     "topic": "Rule synthesis",
+     "stem": "The process of combining relevant legal propositions into a coherent account is rule ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "synthesis"
+      ]
+     ],
+     "explanation": "Rule synthesis preserves conditions and explains how authorities fit together."
+    },
+    {
+     "id": "lwo-q3-01",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "What does the E in CREAC ask the writer to supply?",
+     "choices": [
+      "Explanation of the client’s factual comparison before introducing the governing authorities.",
+      "Evaluation of the requested remedy without explaining how the governing cases apply the rule.",
+      "Evidence from the client record presented as if it were part of the precedent’s facts.",
+      "Explanation of the rule through relevant authorities before applying it to the client."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The explanation develops what the authorities establish. Application then uses that legal account on the present facts."
+    },
+    {
+     "id": "lwo-q3-02",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "A memo has sections titled Moss, Reed and Hale, with no comparison to the client record. What organizational repair best addresses the gap?",
+     "choices": [
+      "Keep the case headings and add a longer list of citations after the final conclusion.",
+      "Write the conclusion more confidently without adding application to the discussion.",
+      "Replace the facts section with the full text of every case in alphabetical order.",
+      "Organize around reliance and retained value, then integrate relevant authorities and client comparisons."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Organizing by the legal questions helps connect cases to the decision the reader needs. Source summaries alone leave the application undone."
+    },
+    {
+     "id": "lwo-q3-03",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "Which heading best fits a section that finds the admission arrangement unresolved?",
+     "choices": [
+      "The written confirmation settles reliance despite the later admission notice.",
+      "The approved proof establishes mandatory entry payment despite the competing note.",
+      "Reasonable reliance turns on whether entry required payment.",
+      "Payment before cancellation alone establishes reasonable reliance."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The first heading names the controlling uncertainty. The other headings overstate, obscure, or confuse the section’s actual analysis."
+    },
+    {
+     "id": "lwo-q3-04",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "A roadmap says the memo first analyzes reliance and then each expense’s retained value. What should the finished discussion do?",
+     "choices": [
+      "Repeat the roadmap at the start of every sentence instead of developing analysis.",
+      "Follow that order or revise the roadmap to match the final organization.",
+      "Use any unrelated order because the roadmap has no relationship to reader expectations.",
+      "Discuss only the first issue because announcing the second completes its analysis."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The roadmap previews the actual decision path. If the organization changes, update the preview rather than leaving a misleading guide."
+    },
+    {
+     "id": "lwo-q3-05",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "An IRAC draft states a rule, notes a confirmation and concludes \"Rin wins,\" ignoring warnings and credit. What is missing?",
+     "choices": [
+      "Application of material adverse facts and analysis of the other required components.",
+      "A declaration that favorable facts always override disputed ones.",
+      "A rule requiring every paragraph to contain exactly four sentences.",
+      "A longer spelling of the IRAC acronym in the conclusion."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Labels do not supply reasoning. The draft skips the reliance complication and the value requirements needed for a complete reimbursement prediction."
+    },
+    {
+     "id": "lwo-q3-06",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "Where does \"Hale’s unrestricted credit was fully usable for planned purchases\" belong in a CREAC unit?",
+     "choices": [
+      "Only in the client facts section as if it described Rin’s future plans.",
+      "In the assignment header as the identity of the memo’s reader.",
+      "In the explanation of what the authority decided and why.",
+      "Only in the conclusion as a new fact never previously explained."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "This describes a precedent’s legally significant facts, so it belongs in authority explanation. Do not transfer Hale’s purchase plans into Rin’s record."
+    },
+    {
+     "id": "lwo-q3-07",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "A closing sentence predicts the supply claim amount is unresolved. What should support that sentence?",
+     "choices": [
+      "A citation unrelated to credits but containing the word reimbursement.",
+      "Earlier rule, authority explanation and application addressing practical credit value.",
+      "The writer’s preference for a short conclusion regardless of the preceding analysis.",
+      "An unsupported new fact introduced for the first time in the closing sentence."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A unit’s conclusion should follow from the reasoning already developed. New unsupported premises cannot substitute for that chain."
+    },
+    {
+     "id": "lwo-q3-08",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "The covered-reservation requirement is clear, but reliance is contested. Which use of CREAC is appropriate?",
+     "choices": [
+      "Treat the clear requirement briefly and develop the disputed reliance question in several paragraphs.",
+      "Expand case summaries until the application can be omitted for lack of space.",
+      "Give every requirement exactly five sentences regardless of complexity.",
+      "Omit the clear requirement so the reader cannot check whether it was considered."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "CREAC is a reasoning aid rather than a sentence quota. Allocate detail according to the analytical work required while addressing each necessary component."
+    },
+    {
+     "id": "lwo-q3-09",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "Match each CREAC function to its task.",
+     "type": "match",
+     "left": [
+      "Conclusion",
+      "Rule",
+      "Explanation",
+      "Application"
+     ],
+     "choices": [
+      "State supported result",
+      "Give governing standard",
+      "Develop authority",
+      "Connect client facts"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "CREAC separates the result, standard, authority explanation and client application; the closing conclusion follows that reasoning."
+    },
+    {
+     "id": "lwo-q3-10",
+     "section": "lwo-m2",
+     "topic": "Analytical organization",
+     "stem": "In CREAC, the A stands for ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "application"
+      ]
+     ],
+     "explanation": "Application connects the explained rule and authorities to the client’s facts."
+    },
+    {
+     "id": "lwo-q4-01",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "Which details belong in a focused illustration of Reed’s reliance holding?",
+     "choices": [
+      "Every incidental background detail while omitting the condition’s timing.",
+      "Rin’s current credit terms as if they appeared in Reed’s record.",
+      "The known, applicable approval condition, its unsatisfied status before payment, and the court’s reason for denial.",
+      "A fictional reporter number that makes the case appear to be real authority."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Select the facts, holding and reasoning that explain the relevant proposition. Avoid irrelevant detail, mixed records and fabricated citations."
+    },
+    {
+     "id": "lwo-q4-02",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "Moss ¶ 4 decides the general room-change notice did not condition event approval. Which paraphrase preserves that scope?",
+     "choices": [
+      "Moss held that every notice is irrelevant to reliance in every canceled booking.",
+      "Moss decided restricted vendor credits must be treated as having no value.",
+      "Moss found reliance reasonable on that confirmation despite a notice about room reassignment.",
+      "Moss held that a specific pending approval condition can always be ignored."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The accurate paraphrase preserves the kind of notice and the case’s limited holding. The broader statements or unrelated credit proposition are unsupported."
+    },
+    {
+     "id": "lwo-q4-03",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "A sentence says Hale allowed the supply expense because the vendor denied a refund. What correction is needed?",
+     "choices": [
+      "Attribute the supply result to Moss without checking either opinion’s facts.",
+      "Change the supply amount but keep the statement that refund denial required reimbursement.",
+      "Delete the citation while preserving the incorrect account of the holding.",
+      "Hale denied that expense because full credit value was usable, while allowing a separate label expense."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The draft combines one fact with the wrong result. Hale separated the fully usable supply credit from the nonrecoverable labels."
+    },
+    {
+     "id": "lwo-q4-04",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "A sentence cites Reed ¶ 3 for the proposition that a named reservation alone settles reasonable reliance. What should the audit find?",
+     "choices": [
+      "The cited paragraph contradicts that proposition by separating identification from reliance.",
+      "The proposition becomes accurate if the citation is moved into a footnote.",
+      "The locator’s presence makes the proposition supported even if the source says otherwise.",
+      "Any paragraph in a case supports every proposition about the case’s general topic."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Citation accuracy requires proposition fit. Reed ¶ 3 expressly distinguishes Section 1 identification from Section 3 reliance."
+    },
+    {
+     "id": "lwo-q4-05",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "A source explains that an applicable approval condition was known and remained unsatisfied when the organizer paid, which made reliance unreasonable. Which paraphrase changes that rule’s material scope?",
+     "choices": [
+      "The prepayment knowledge of the unresolved condition mattered to the result.",
+      "A condition communicated at any time necessarily defeats reimbursement.",
+      "The organizer knew the applicable condition before paying the expense.",
+      "The court examined an applicable condition still unsatisfied when the organizer paid."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The any-time formulation removes the timing limit and turns a contextual holding into an absolute rule. The other formulations retain the known, unsatisfied prepayment condition."
+    },
+    {
+     "id": "lwo-q4-06",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "Why should a case illustration explain the rationale as well as the result?",
+     "choices": [
+      "The rationale permits the writer to replace missing client facts with precedent facts.",
+      "The rationale eliminates the need to state any governing statutory requirement.",
+      "The rationale makes every sentence in the opinion a holding on every future issue.",
+      "The reason identifies which similarities or differences matter in later application."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Knowing why the court reached its result supports meaningful comparison. It does not supply missing evidence or erase the statute’s separate requirements."
+    },
+    {
+     "id": "lwo-q4-07",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "Which citation convention is appropriate for this fictional packet?",
+     "choices": [
+      "Use stable section and paragraph locators such as KCRA § 3 and Reed ¶ 4.",
+      "Cite only an unrelated law-school writing guide as the governing Kestrel authority.",
+      "Invent a real-looking reporter citation to suggest the opinion was actually published.",
+      "Omit all locators because fictional teaching materials cannot be referenced accurately."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The packet provides stable internal locators. These enable traceability without pretending the fictional authorities are real decisions."
+    },
+    {
+     "id": "lwo-q4-08",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "An explanation paragraph starts discussing what Rin’s proof means before explaining Reed’s holding. What revision best clarifies the reasoning?",
+     "choices": [
+      "Treat Rin’s proof as part of Reed’s judicial record to shorten the paragraph.",
+      "Explain Reed’s relevant facts and holding first, then move Rin’s comparison into application.",
+      "Remove Reed’s limiting facts so the comparison appears more conclusive.",
+      "Move every authority discussion into the facts section without distinguishing sources."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Separate the source’s proposition from the present inference. The reader can then assess both the legal explanation and the client comparison."
+    },
+    {
+     "id": "lwo-q4-09",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "Match each source-writing term to its function.",
+     "type": "match",
+     "left": [
+      "Quotation",
+      "Paraphrase",
+      "Pinpoint",
+      "Rationale"
+     ],
+     "choices": [
+      "Exact source words",
+      "Faithful restatement",
+      "Precise source location",
+      "Reason for decision"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Exact quotation and faithful paraphrase are different uses of source language. A pinpoint locates support; a rationale explains the result."
+    },
+    {
+     "id": "lwo-q4-10",
+     "section": "lwo-m2",
+     "topic": "Authority explanation",
+     "stem": "A precise section or paragraph locator is a ___ citation.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "pinpoint",
+       "pinpoint citation"
+      ]
+     ],
+     "explanation": "A pinpoint citation helps the reader verify the exact proposition in its source."
+    },
+    {
+     "id": "lwo-q5-01",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Both Moss and Rin received written confirmations. Why is that similarity alone insufficient to resolve reliance?",
+     "choices": [
+      "The similarity automatically establishes all other reimbursement requirements.",
+      "Reed also had an identified reservation, so the applicable warning and its timing still matter.",
+      "A shared fact can never contribute to an analogy under any circumstances.",
+      "The fact that Moss involved printing decides the value of Rin’s supply credit."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The comparison needs the feature that explains approval and reliance, not merely a shared reservation category. The warning may change the result."
+    },
+    {
+     "id": "lwo-q5-02",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Rin read a notice conditioning fee-based events before payment. What reasoning bridge connects the disputed entry arrangements to reliance?",
+     "choices": [
+      "Whether entry required payment determines whether the known approval condition applied to this event.",
+      "Whether entry required payment determines the nonrecoverable value of the printing expense.",
+      "Whether entry required payment determines whether the written booking identified the room and date.",
+      "Whether entry required payment determines the supply credit’s actual usability."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The admission arrangement matters because it selects whether the warning qualified event approval. It does not directly establish unrelated facts or eliminate other elements."
+    },
+    {
+     "id": "lwo-q5-03",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Hale had a fully usable unrestricted credit; Rin has a one-year credit requiring a 100-dollar order. What follows from the difference?",
+     "choices": [
+      "The full 60-dollar deposit is automatically lost whenever a credit expires someday.",
+      "The printing expense becomes unrecoverable because the supply vendor offered credit.",
+      "The full credit value is automatically usable because both cases contain the word credit.",
+      "Practical usability needs evidence; the restrictions alone do not establish a specific loss amount."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The restrictions are legally relevant but do not prove their actual economic effect on this record. Analyze the expenses separately and seek usability facts."
+    },
+    {
+     "id": "lwo-q5-04",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Which sentence is an inference rather than a direct report of what F4 says?",
+     "choices": [
+      "The approved payment wording suggests entrants may have been required to pay.",
+      "The proof contains the words \"$5 at door.\"",
+      "The proof identifies Repair Circle, Room B and March 20.",
+      "Rin approved the proof on March 4."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Saying the wording suggests required payment draws an inference. The other sentences directly describe the proof’s contents or its approval."
+    },
+    {
+     "id": "lwo-q5-05",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "F5 establishes no refund, reuse or credit for Rin’s 90-dollar flyers. What limitation belongs in an analogy to reimbursed printing expenses?",
+     "choices": [
+      "The comparison establishes that the supply deposit lacks any credit value.",
+      "The loss comparison supports value analysis, but Rin must still establish reasonable reliance.",
+      "The difference between 90 dollars and other case amounts bars any useful analogy.",
+      "The comparison proves the center never communicated an admission condition."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A sound analogy on retained value does not decide every element. Different amounts do not erase the shared no-value rationale."
+    },
+    {
+     "id": "lwo-q5-06",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "A paragraph says \"Rin obtained manager approval\" although the packet contains no such approval. What should the writer do?",
+     "choices": [
+      "Cite Reed’s approval condition as proof of Rin’s manager approval.",
+      "Move the premise to a heading so it no longer requires factual support.",
+      "Remove the unsupported premise and state the record’s actual approval gap.",
+      "Keep the premise because it makes the application easier to follow."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Application must use the actual record. A convenient invented fact cannot be repaired by relocation or a citation to another matter."
+    },
+    {
+     "id": "lwo-q5-07",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "In a separate hypothetical, Dana has an unrestricted credit fully usable for an already planned purchase. Under § 4 and Hale, how should that payment be treated?",
+     "choices": [
+      "It establishes that Rin also has a planned purchase, even though Rin’s record is silent.",
+      "It automatically proves reasonable reliance regardless of any approval condition.",
+      "It is a total loss solely because the vendor refused cash.",
+      "It retains recoverable value despite the lack of a cash refund."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Dana’s supplied facts match Hale’s retained-value rationale. They do not alter Rin’s facts or settle a separate reliance issue."
+    },
+    {
+     "id": "lwo-q5-08",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Which comparison includes a legally significant reason rather than only a label?",
+     "choices": [
+      "Rin and Hale both received credits, so the same full-value result follows without examining their terms.",
+      "Moss and Rin both bought flyers, so Rin need not separately establish reasonable reliance.",
+      "Unlike Hale’s fully usable credit, Rin’s minimum-order credit may require unwanted spending, so usability needs evidence.",
+      "Reed and Rin both received warnings, so the warnings must have the same effect regardless of applicability."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The minimum-order comparison connects a credit restriction to practical recoverable value. The alternatives jump from a shared category to a result while skipping a material requirement or difference."
+    },
+    {
+     "id": "lwo-q5-09",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Match each comparison term to its meaning.",
+     "type": "match",
+     "left": [
+      "Analogy",
+      "Distinction",
+      "Inference",
+      "Premise"
+     ],
+     "choices": [
+      "Significant similarity",
+      "Significant difference",
+      "Conclusion from evidence",
+      "Starting fact or claim"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Analogy and distinction require legal significance; an inference follows from evidence, while a premise is a starting proposition that needs support."
+    },
+    {
+     "id": "lwo-q5-10",
+     "section": "lwo-m3",
+     "topic": "Fact-based application",
+     "stem": "Reasoning from a legally significant similarity to a prior case is an ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "analogy"
+      ]
+     ],
+     "explanation": "An analogy explains why the similarity matters under the rule or rationale."
+    },
+    {
+     "id": "lwo-q6-01",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Which is the strongest supported objection to Rin’s reliance claim?",
+     "choices": [
+      "The supply vendor offered a credit, which by itself establishes that reliance on the booking was unreasonable.",
+      "Reed involved a conditional booking, which means no written reservation can support reasonable reliance.",
+      "The approved payment wording suggests a fee-based event subject to a known, unsatisfied approval condition.",
+      "The center canceled after payment, which by itself proves the earlier reliance was unreasonable."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The payment wording and notice connect record evidence to Reed’s approval-condition reasoning. The other objections lack a material supported premise."
+    },
+    {
+     "id": "lwo-q6-02",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Which response fairly addresses the approved \"$5 at door\" wording?",
+     "choices": [
+      "Treat the client’s account as a judicial finding that conclusively defeats the proof.",
+      "Point to the optional-contribution note while acknowledging that the final entry arrangements remain unresolved.",
+      "Invent a later correction that the packet does not contain.",
+      "Declare the proof irrelevant because it is unfavorable to the client."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A response should evaluate competing evidence and retain a real uncertainty. Ignoring adverse facts or inventing a correction does not answer the objection."
+    },
+    {
+     "id": "lwo-q6-03",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "A memo predicts exactly a 73 percent chance of recovery based only on the packet. What is the problem?",
+     "choices": [
+      "A prediction is forbidden whenever the case has any disputed fact.",
+      "A larger percentage would be justified because the client wants reimbursement.",
+      "Numerical odds become reliable if every case name is cited nearby.",
+      "The packet supplies no evidentiary basis for that numerical probability."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Calibrate confidence through reasons and dependencies. No supplied data support a precise probability, though a reasoned qualitative prediction is appropriate."
+    },
+    {
+     "id": "lwo-q6-04",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "What is the difference between F4’s payment wording and Reed’s approval-condition holding?",
+     "choices": [
+      "F4 supplies adverse evidence about facts; Reed supplies potentially adverse legal authority.",
+      "Neither source can be discussed in an objective memorandum because it may hurt the claim.",
+      "F4 is binding law while Reed is an invoice establishing Rin’s payment amount.",
+      "Both sources conclusively establish the exact same event in Rin’s record."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Evidence informs what happened; authority informs the legal consequence. Their roles differ, and both may be material to candid analysis."
+    },
+    {
+     "id": "lwo-q6-05",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Which conclusion properly separates Rin’s expenses?",
+     "choices": [
+      "Neither expense can be analyzed until every imaginable fact is known.",
+      "The printing loss is documented but depends on reliance; the supply amount also depends on usable credit value.",
+      "The supply credit proves the separate printing expense has retained value.",
+      "Both payments were nonrefundable, so a 150-dollar award is certain."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The expenses have different value evidence, while both still require reasonable reliance. A single unconditional total obscures those dependencies."
+    },
+    {
+     "id": "lwo-q6-06",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Which response to \"the restrictions prove the credit is worthless\" is best supported?",
+     "choices": [
+      "The existence of any restriction makes Section 4 inapplicable.",
+      "The writer may assume a future purchase exists because that would make the answer definite.",
+      "Rin might be able to use a qualifying order; the record needs evidence about practical use before assigning loss.",
+      "Every restricted credit necessarily retains full face value regardless of its terms."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A restriction does not prove zero value. Preserve the possible usefulness as an unresolved factual inquiry, without inventing a purchase or assuming full value."
+    },
+    {
+     "id": "lwo-q6-07",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Which issue has the clearest support on the supplied record: F5–F6 show March 5 payments and F7 shows March 7 cancellation, while entry and credit usability remain unresolved?",
+     "choices": [
+      "Both payments occurred before cancellation.",
+      "The event unquestionably required payment for entry.",
+      "The organizer unquestionably satisfied reasonable reliance.",
+      "The supply credit unquestionably has no usable value."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The dates establish timing. The other options erase express uncertainties about entry arrangements, value and resulting reliance."
+    },
+    {
+     "id": "lwo-q6-08",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "A revised response concedes that mandatory admission would make Reed a strong obstacle. What effect should that have on a favorable prediction?",
+     "choices": [
+      "Treat the concession as proof that mandatory admission actually occurred.",
+      "Remove all predictions because conceding any point makes analysis impossible.",
+      "Repeat the original unconditional conclusion without mentioning the concession.",
+      "Qualify the prediction by the unresolved admission premise and identify evidence that could resolve it."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A candid concession can narrow a prediction. It does not establish the hypothetical premise or prevent a useful conditional assessment."
+    },
+    {
+     "id": "lwo-q6-09",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "Match each counteranalysis component to its role.",
+     "type": "match",
+     "left": [
+      "Adverse fact",
+      "Adverse authority",
+      "Response",
+      "Qualifier"
+     ],
+     "choices": [
+      "Unfavorable evidence",
+      "Contrary legal support",
+      "Evaluate objection",
+      "Calibrate confidence"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Counteranalysis distinguishes evidentiary and legal objections, evaluates them, and uses an appropriate qualifier for the supported prediction."
+    },
+    {
+     "id": "lwo-q6-10",
+     "section": "lwo-m3",
+     "topic": "Counteranalysis and prediction",
+     "stem": "The process of testing a supported competing interpretation is ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "counteranalysis",
+       "counter-analysis",
+       "counter analysis"
+      ]
+     ],
+     "explanation": "Counteranalysis evaluates the strongest supported objection and its effect on the prediction."
+    },
+    {
+     "id": "lwo-q7-01",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "Which section should concisely state the outcome and its decisive qualifications?",
+     "choices": [
+      "The statement of facts, with the prediction embedded as an established event.",
+      "The question presented, with the disputed premise already resolved in its wording.",
+      "The brief answer.",
+      "The memo header, with the outcome substituted for the subject description."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The brief answer gives a reader the assessment and its main reasons. The header identifies the document, and supporting work products do not replace that summary."
+    },
+    {
+     "id": "lwo-q7-02",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "Which facts sentence is neutral on this record?",
+     "choices": [
+      "Rin’s note described optional contributions, while the approved proof stated \"$5 at door.\"",
+      "The center’s fee-based label establishes the disputed entry arrangement conclusively.",
+      "Rin honestly planned free entry, and the center knowingly lied about the event.",
+      "The proof can be omitted because an objective writer should avoid contradictions."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Attribute both supplied descriptions without unsupported judgments about honesty or intent. The contradiction is material and belongs in the factual account."
+    },
+    {
+     "id": "lwo-q7-03",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "The discussion says credit usability is unknown, but the brief answer promises a 150-dollar award. What must change?",
+     "choices": [
+      "Revise the summary to preserve the discussion’s uncertainty and separate expense assessments.",
+      "Delete the discussion’s support so it cannot contradict the promised amount.",
+      "Keep both because different sections may use different facts without explanation.",
+      "Move the guaranteed amount to the conclusion so it is no longer a summary."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Internal consistency requires the brief answer and conclusion to reflect the actual reasoning, including unresolved reliance and credit value."
+    },
+    {
+     "id": "lwo-q7-04",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "What is a practical reason to draft or revise the brief answer after developing the discussion?",
+     "choices": [
+      "A late summary automatically resolves every factual dispute in the packet.",
+      "The summary can reflect the analysis and qualifications actually supported by the completed reasoning.",
+      "The order makes citations unnecessary in the rest of the memorandum.",
+      "Writing the summary last permits unsupported facts to be added without review."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Drafting sequence can help align summary and reasoning. It does not remove the need for support or resolve missing facts by itself."
+    },
+    {
+     "id": "lwo-q7-05",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "The assignment is an objective memo about KCRA reimbursement. Which conclusion supplies useful next steps?",
+     "choices": [
+      "Recommend an unrelated legal theory without examining its governing law.",
+      "Promise full reimbursement because a concrete total sounds useful to the reader.",
+      "State only \"more work is needed\" without identifying any material question.",
+      "Seek final publicity and entry instructions, and investigate practical use of the restricted credit."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The specified inquiries address the two material uncertainties. Useful next steps connect evidence requests to the prediction they could change."
+    },
+    {
+     "id": "lwo-q7-06",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "How is the extended memorandum assignment completed in this course?",
+     "choices": [
+      "Selecting the course awards university credit for the memorandum.",
+      "Finishing any quiz automatically submits the memo to a university instructor.",
+      "The app automatically grades the legal merits of an essay that has not been submitted.",
+      "Write it in your own document or notes and use the supplied model and rubric for self-assessment."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The course provides a separate writing exercise, model and rubric. It does not collect or automatically grade the memorandum or award university credit."
+    },
+    {
+     "id": "lwo-q7-07",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "Which statement correctly treats planning time and expected contributions under the supplied assignment?",
+     "choices": [
+      "They should replace the printing expense because anticipated revenue is simpler to calculate.",
+      "They are outside the Act’s qualifying preparation-expense remedy; other legal claims remain outside scope.",
+      "Their exclusion proves that no legal claim under any other law could ever exist.",
+      "They are included whenever the organizer has a confirmed reservation."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Section 5 limits this remedy, while the assignment does not resolve other claims. Do not expand an exclusion beyond its source."
+    },
+    {
+     "id": "lwo-q7-08",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "A facts section states \"communications occurred\" but omits the approval notice and conflicting entry descriptions. What is the defect?",
+     "choices": [
+      "A facts section must argue for the client rather than give useful factual detail.",
+      "Every communication must be reproduced verbatim regardless of relevance.",
+      "It lacks material detail needed to understand the dispute even if the vague sentence is technically true.",
+      "A neutral facts section cannot mention any evidence that points in competing directions."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Neutrality requires accurate, material detail. Vague truth is insufficient when the omitted communications determine the central reliance issue."
+    },
+    {
+     "id": "lwo-q7-09",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "Match each memo section to its reader function.",
+     "type": "match",
+     "left": [
+      "Question presented",
+      "Brief answer",
+      "Facts",
+      "Discussion"
+     ],
+     "choices": [
+      "Frame the dispute",
+      "Summarize prediction",
+      "Describe relevant record",
+      "Develop legal analysis"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "The sections work together but serve distinct functions: question, assessment, record and developed reasoning."
+    },
+    {
+     "id": "lwo-q7-10",
+     "section": "lwo-m4",
+     "topic": "Memorandum drafting",
+     "stem": "The memo section giving a concise prediction and its principal qualifications is the ___ answer.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "brief",
+       "short"
+      ]
+     ],
+     "explanation": "The brief answer, also called a short answer, must match the discussion’s degree of confidence."
+    },
+    {
+     "id": "lwo-q8-01",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "What does a reverse outline record?",
+     "choices": [
+      "The function each paragraph in the existing draft actually performs.",
+      "Only the headings planned before any drafting began.",
+      "The desired result without checking the discussion’s organization.",
+      "A list of every punctuation mark changed during proofreading."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A reverse outline maps the document as written, exposing gaps and repetition that the original plan may not reveal."
+    },
+    {
+     "id": "lwo-q8-02",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "Which change is substantive revision rather than only line editing?",
+     "choices": [
+      "Change one comma while leaving the same unsupported legal proposition intact.",
+      "Replace an unconditional 150-dollar award with separate assessments tied to reliance and credit value.",
+      "Adjust paragraph spacing without changing analytical relationships.",
+      "Replace a font while leaving all facts, rules and predictions unchanged."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Separating the expenses and qualifying the prediction corrects the reasoning. Punctuation, spacing or font changes alone do not repair the unsupported award."
+    },
+    {
+     "id": "lwo-q8-03",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "A draft says Rin paid 80 dollars for flyers. F5 says 90 dollars; Moss paid 80. What should a source audit do?",
+     "choices": [
+      "Keep 80 dollars because that amount appears somewhere in the authority packet.",
+      "Remove F5 from the record so it no longer conflicts with the draft.",
+      "Average the two amounts because both sources discuss printing.",
+      "Correct the client amount to 90 dollars and check summaries for the same cross-record error."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Source identity matters. Moss’s facts do not establish Rin’s amount, and a correction must reach every dependent section."
+    },
+    {
+     "id": "lwo-q8-04",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "A revised discussion recognizes an unresolved credit value, but the old guaranteed total remains in the conclusion. What is needed?",
+     "choices": [
+      "Leave the conclusion because the reader should prefer whichever section is newer.",
+      "Delete the credit’s actual restrictions to restore the original guaranteed result.",
+      "Update dependent sections so the final document states a consistent prediction.",
+      "Treat the contradiction as useful evidence that two outcomes are equally certain."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Substantive revisions often propagate across the document. The conclusion must follow the revised reasoning rather than preserve a superseded prediction."
+    },
+    {
+     "id": "lwo-q8-05",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "Which revision-log entry is sufficiently informative?",
+     "choices": [
+      "Reviewed everything and concluded that it felt correct.",
+      "Made the paragraph look more professional.",
+      "Improved the memo in various unspecified ways.",
+      "Changed \"any credit bars recovery\" to a usable-value inquiry, citing § 4 and Hale ¶ 5’s reserved issue."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A useful entry identifies the old claim, new claim, supporting source and analytical improvement. General impressions do not document a substantive revision."
+    },
+    {
+     "id": "lwo-q8-06",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "The model uses a different confidence qualifier from a student’s memo. How should self-assessment proceed?",
+     "choices": [
+      "Assume any different prediction earns full credit without checking sources.",
+      "Copy the model and describe it as the original first draft.",
+      "Compare the reasons, factual support and preserved uncertainties rather than demand identical wording.",
+      "Mark every different sentence incorrect regardless of its supporting analysis."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A supported degree of confidence may differ, but the record and source limits must remain accurate. The model is an analytical example, not an exclusive script."
+    },
+    {
+     "id": "lwo-q8-07",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "Which audit entry best distinguishes prediction from source description?",
+     "choices": [
+      "State the predicted result, then identify the legal and factual premises that support that inference.",
+      "Omit all citations because predictions never depend on sources.",
+      "Treat the writer’s conclusion as a quotation from Hale without checking the opinion.",
+      "Search for a packet sentence that literally predicts Rin’s result and invent one if absent."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A prediction is the writer’s inference. Audit its premises and reasoning instead of falsely attributing the final prediction to a source."
+    },
+    {
+     "id": "lwo-q8-08",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "Which set matches the capstone workbench deliverables?",
+     "choices": [
+      "Only a completed multiple-choice quiz and an assumed automatic essay grade.",
+      "Evidence matrix, first draft, revised memo, substantive revision log and source audit.",
+      "Only a case list without facts, discussion or a prediction.",
+      "Only a polished conclusion without the analysis on which it depends."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The capstone makes drafting and revision visible through the listed work products. Quizzes test component skills but do not replace the memorandum."
+    },
+    {
+     "id": "lwo-q8-09",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "Match each revision tool to its purpose.",
+     "type": "match",
+     "left": [
+      "Reverse outline",
+      "Source audit",
+      "Revision log",
+      "Line edit"
+     ],
+     "choices": [
+      "Map paragraph functions",
+      "Verify support",
+      "Explain changes",
+      "Improve sentence clarity"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "These tools address organization, accuracy, documented changes and prose. Sentence editing alone does not validate the reasoning."
+    },
+    {
+     "id": "lwo-q8-10",
+     "section": "lwo-m4",
+     "topic": "Revision and source audit",
+     "stem": "An outline made from the paragraph functions of an already written draft is a ___ outline.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "reverse"
+      ]
+     ],
+     "explanation": "A reverse outline examines the document as written rather than merely repeating the original plan."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "law-legal-writing-1-cards",
+   "title": "Legal Writing I: Objective Analysis notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "What does an objective memo give its reader?",
+     "back": "A candid prediction with the supporting law, material facts, strongest contrary analysis and important uncertainties.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c2",
+     "front": "How does a legal issue differ from a broad topic?",
+     "back": "An issue connects a decision and governing law to material facts. “Room cancellation” is a topic; reimbursement despite an approval condition and credit is an issue.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c3",
+     "front": "Why is the entry-payment arrangement material for Rin?",
+     "back": "It determines whether F2’s fee-based approval condition applied before payment. F3 and F4 support competing inferences.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c4",
+     "front": "What is established by F7’s cancellation label?",
+     "back": "The center described the event as fee-based and canceled it. The label does not conclusively establish what entrants would have had to pay.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c5",
+     "front": "What should an evidence-matrix row contain?",
+     "back": "The requirement or question, legal source, favorable and adverse record facts, missing evidence and the provisional analytical consequence.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c6",
+     "front": "How should an assumption about free entry be used?",
+     "back": "Label it as provisional, explain that branch’s result, and analyze the material alternative that payment was required.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c7",
+     "front": "What is a useful follow-up about the supply deposit?",
+     "back": "Seek evidence of practical credit use, such as future qualifying purchases and transfer rights, because § 4 concerns recoverable value.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c8",
+     "front": "Does excluding planning time under § 5 resolve all other legal remedies?",
+     "back": "No. It resolves the Act’s remedy within this assignment; unexamined claims under other law remain outside scope.",
+     "topic": "Issue framing"
+    },
+    {
+     "id": "c9",
+     "front": "What are the KCRA § 2 requirements?",
+     "back": "Covered reservation, center cancellation, reasonable reliance, and a nonrecoverable preparation expense paid before cancellation. Analyze each expense separately.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c10",
+     "front": "How do an element and a factor differ here?",
+     "back": "Reasonable reliance is required; confirmation specificity, relevant prepayment warnings and event connection are considerations for evaluating it under § 3.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c11",
+     "front": "What distinction reconciles Moss and Reed?",
+     "back": "Moss’s notice concerned room reassignment; Reed’s known, applicable condition left event approval pending before payment.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c12",
+     "front": "What does Hale establish about a denied refund?",
+     "back": "No cash refund does not establish a loss if usable credit preserves the value. Hale’s full credit was usable for planned purchases.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c13",
+     "front": "What does Hale leave unresolved?",
+     "back": "The treatment and valuation of restricted credits. Section 4 still requires evidence about actual recoverable value.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c14",
+     "front": "Why is Hale not a holding resolving Rin’s disputed reliance?",
+     "back": "Reasonable reliance was conceded in Hale. Its decided question concerned retained value, so that concession does not decide Rin’s contested premise.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c15",
+     "front": "What should a rule synthesis preserve?",
+     "back": "Statutory requirements, relevant case reasoning, factual conditions and express limits. It should explain relationships rather than count outcomes.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c16",
+     "front": "Why is “printing always qualifies” an overstatement?",
+     "back": "A printing expense still must satisfy every § 2 requirement, including reasonable reliance and payment timing, as well as lack of recoverable value.",
+     "topic": "Rule synthesis"
+    },
+    {
+     "id": "c17",
+     "front": "Expand IRAC.",
+     "back": "Issue, rule, application, conclusion. The labels expose a reasoning sequence but do not supply missing analysis.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c18",
+     "front": "Expand CREAC.",
+     "back": "Conclusion, rule, explanation, application, conclusion. Complex questions may require several paragraphs rather than five sentences.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c19",
+     "front": "What belongs in explanation rather than application?",
+     "back": "What the authorities decided and why, using their relevant facts. Rin’s comparisons belong in application.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c20",
+     "front": "Why organize by reliance and value instead of case names?",
+     "back": "The reader needs answers to legal questions. Multiple authorities can explain one question, and one authority can inform more than one analytical unit.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c21",
+     "front": "What makes a point heading useful?",
+     "back": "It identifies an issue or supported proposition, such as reliance turning on whether entry required payment, without promising an unsupported result.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c22",
+     "front": "What must a roadmap match?",
+     "back": "The final discussion’s actual order and questions. Update it when the organization changes.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c23",
+     "front": "How much space should clear requirements receive?",
+     "back": "Enough to show they were considered and why they are met. Reserve fuller explanation for disputed requirements needing reasoning.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c24",
+     "front": "What should a unit’s closing conclusion do?",
+     "back": "State the result supported by the preceding rule, explanation and application, preserving uncertainty without introducing a new unsupported premise.",
+     "topic": "Analytical organization"
+    },
+    {
+     "id": "c25",
+     "front": "What are the core parts of a case illustration?",
+     "back": "Relevant facts, holding and reasoning, selected to explain the proposition the paragraph addresses.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c26",
+     "front": "Which Moss facts matter to the warning comparison?",
+     "back": "A specific confirmation, a notice limited to room reassignment, no approval condition and an event-connected printing expense.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c27",
+     "front": "Which Reed facts explain denial?",
+     "back": "An applicable safety-approval condition was known before payment and remained unsatisfied; the reservation heading did not erase it.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c28",
+     "front": "How did Hale treat its two expenses?",
+     "back": "It denied the supplies covered by a fully usable unrestricted credit and allowed the separate 40-dollar nonrecoverable label expense.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c29",
+     "front": "What does a pinpoint citation add?",
+     "back": "A precise route to the supporting paragraph or section, enabling the reader to verify the particular proposition rather than merely its topic.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c30",
+     "front": "What makes a paraphrase inaccurate even when its topic is right?",
+     "back": "Dropping or changing a material qualification, such as prepayment knowledge, can broaden the claim beyond the source.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c31",
+     "front": "When should wording be placed in quotation marks?",
+     "back": "When reproducing the source’s actual words. Check them exactly; do not label a loose paraphrase as a quotation.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c32",
+     "front": "Can a correct citation format cure an unsupported proposition?",
+     "back": "No. Source identity, location and proposition fit must all be accurate. Revise the claim if the cited passage does not support it.",
+     "topic": "Authority explanation"
+    },
+    {
+     "id": "c33",
+     "front": "What four parts make a comparison useful?",
+     "back": "Present fact, precedent fact, legally significant relationship, and consequence for the issue.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c34",
+     "front": "Why is “both received warnings” incomplete?",
+     "back": "Moss and Reed show that a warning’s subject, applicability and timing matter. The shared label does not establish its legal effect.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c35",
+     "front": "What is the reasoning bridge for Rin’s entry dispute?",
+     "back": "The entry arrangement determines whether the known fee-based approval condition qualified the confirmation before the expenses were paid.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c36",
+     "front": "What inference can F4 support?",
+     "back": "Its approved “$5 at door” wording suggests required payment, but the competing optional-contribution account prevents treating that inference as conclusively established.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c37",
+     "front": "What distinguishes Rin’s credit from Hale’s?",
+     "back": "A one-year expiration and a 100-dollar minimum order, with no supplied evidence of practical usability. Those differences justify inquiry, not an assumed loss amount.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c38",
+     "front": "Why do different printing amounts not defeat the value analogy?",
+     "back": "The relevant feature is absence of refund, reuse or credit. Rin’s 90-dollar amount differs from precedent amounts without changing that feature.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c39",
+     "front": "What remains after a successful printing-loss comparison?",
+     "back": "Rin still must establish reasonable reliance and the other § 2 requirements; one element’s analogy does not decide the entire claim.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c40",
+     "front": "How should a transfer example be kept separate?",
+     "back": "Use its expressly supplied facts only for that hypothetical. Dana’s planned purchases do not become evidence that Rin has a usable credit.",
+     "topic": "Fact-based application"
+    },
+    {
+     "id": "c41",
+     "front": "What is the strongest reliance objection in Rin’s record?",
+     "back": "The approved payment wording suggests a fee-based event, Rin knew the prepayment approval notice, and no required approval appears if that condition applied.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c42",
+     "front": "What is the supported response to that objection?",
+     "back": "The free-entry confirmation and optional-contribution note support a different arrangement, but do not conclusively resolve the conflict with the proof.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c43",
+     "front": "How do adverse evidence and adverse authority differ?",
+     "back": "Evidence bears on what happened; authority supplies the legal principle or comparison. F4 and Reed perform those different roles.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c44",
+     "front": "Does a fair response have to eliminate all uncertainty?",
+     "back": "No. It may concede a material point and narrow the prediction while identifying evidence that could resolve the remaining premise.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c45",
+     "front": "Why avoid a precise percentage chance of recovery here?",
+     "back": "The packet provides no data supporting numerical odds. Explain confidence through concrete reasons and dependencies instead.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c46",
+     "front": "How should confidence differ across Rin’s expenses?",
+     "back": "Printing loss is documented but depends on reliance. The supply claim has the additional uncertainty of usable credit value.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c47",
+     "front": "Why is “no recovery because a credit exists” overbroad?",
+     "back": "The credit concerns only supplies, its practical value is unresolved, and the separate printing expense has no credit. Hale supports separate expense analysis.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c48",
+     "front": "What should an unresolved issue statement identify?",
+     "back": "The exact open question, why the available record or authority does not settle it, its effect on the prediction and the evidence that would help.",
+     "topic": "Counteranalysis and prediction"
+    },
+    {
+     "id": "c49",
+     "front": "What belongs in the question presented?",
+     "back": "The bounded legal question and material facts that make the dispute understandable, without resolving disputed premises silently.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c50",
+     "front": "What belongs in the brief answer?",
+     "back": "A concise prediction, principal reasons and decisive qualifications consistent with the developed discussion.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c51",
+     "front": "How do you present F3 and F4 neutrally?",
+     "back": "Attribute the note’s optional-contribution account and the proof’s payment wording, then identify the unresolved entry arrangement without unsupported honesty judgments.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c52",
+     "front": "Why draft or revise the brief answer after discussion?",
+     "back": "It helps the summary reflect the analysis actually supported rather than an early assumption that later reasoning changed.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c53",
+     "front": "What is the memo’s scope here?",
+     "back": "KCRA reimbursement on the fictional packet, including the § 5 exclusion. Other legal theories are unexamined rather than adjudged meritless.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c54",
+     "front": "What reveals internal inconsistency?",
+     "back": "For example, the discussion leaves credit value open while the brief answer promises a guaranteed 150-dollar award.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c55",
+     "front": "What concrete next steps belong in the conclusion?",
+     "back": "Obtain final publicity or entry instructions and investigate practical credit use, explaining how those facts could change reliance or the recoverable amount.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c56",
+     "front": "Where is the extended memo completed and assessed?",
+     "back": "In the learner’s own document or notes, using the model and rubric for self-assessment. Quiz completion does not submit or automatically grade the memo.",
+     "topic": "Memorandum drafting"
+    },
+    {
+     "id": "c57",
+     "front": "What does a reverse outline reveal?",
+     "back": "What each written paragraph actually does, including repetition, missing application and paragraphs with unrelated functions.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c58",
+     "front": "What should be revised before sentence polish?",
+     "back": "Scope, structure, rule accuracy, factual support, application and counteranalysis. A polished sentence can still contain a substantive error.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c59",
+     "front": "What should a proposition-source ledger record?",
+     "back": "The draft claim, precise locator, source’s actual support and limitations, and any needed correction.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c60",
+     "front": "How do you audit a prediction rather than a quoted rule?",
+     "back": "Check its legal and factual premises and the inference connecting them. Do not attribute the writer’s prediction to a source that never stated it.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c61",
+     "front": "What cross-record amount error should be caught?",
+     "back": "Moss paid 80 dollars for flyers; Rin paid 90. Use F5 for Rin and update dependent summaries if the wrong amount spread.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c62",
+     "front": "What makes a revision-log entry substantive?",
+     "back": "It identifies the old claim, the corrected claim, the supporting source and why the change improves analysis, rather than merely noting formatting edits.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c63",
+     "front": "How should the model memo be used?",
+     "back": "Read it after the first draft, compare reasoning and source limits, and use the rubric. Supported differences in confidence are possible; identical wording is unnecessary.",
+     "topic": "Revision and source audit"
+    },
+    {
+     "id": "c64",
+     "front": "What are the capstone deliverables?",
+     "back": "An evidence matrix, first draft, revised 900–1,100-word memo, at least three substantive revision entries and a source audit as specified in the workbench.",
+     "topic": "Revision and source audit"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "objective memorandum",
+   "definition": "A document that explains a legal problem and gives a candid, supported prediction, including material uncertainty and contrary evidence.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "assignment scope",
+   "definition": "The defined legal, factual and product boundaries of the work requested.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "issue statement",
+   "definition": "A bounded legal question connected to facts that make the decision disputed.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "material fact",
+   "definition": "A fact whose change could affect a legal requirement, inference or amount.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "factual uncertainty",
+   "definition": "An unresolved question about what happened or what the available evidence establishes.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "legal uncertainty",
+   "definition": "An unresolved question about a rule’s meaning or its application to a problem.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "assumption",
+   "definition": "A labeled provisional premise used for analysis rather than treated as established evidence.",
+   "topic": "Issue framing"
+  },
+  {
+   "term": "rule statement",
+   "definition": "An expression of a legal requirement or standard that preserves its material conditions and limits.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "element",
+   "definition": "A required component of a legal test.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "factor",
+   "definition": "A consideration used to evaluate a legal standard, rather than necessarily a separate absolute requirement.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "rule synthesis",
+   "definition": "Combining relevant legal propositions into a coherent account while preserving their conditions and differences.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "holding",
+   "definition": "The court’s decision of a legal issue necessary to its result on the facts before it.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "dictum",
+   "definition": "A judicial observation beyond what is necessary to resolve the issue before the court.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "reserved question",
+   "definition": "An issue that an authority expressly leaves undecided.",
+   "topic": "Rule synthesis"
+  },
+  {
+   "term": "IRAC",
+   "definition": "An organizing sequence of issue, rule, application and conclusion.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "CREAC",
+   "definition": "An organizing sequence of conclusion, rule, explanation, application and conclusion.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "rule explanation",
+   "definition": "Development of what relevant authorities establish and illustrate before applying them to the client’s record.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "application",
+   "definition": "Analysis connecting the governing rule and authorities to the client’s facts.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "roadmap",
+   "definition": "A preview of the discussion’s analytical order that matches the organization actually used.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "analytical unit",
+   "definition": "A coherent treatment of one legal question or requirement ending in a supported result for that question.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "point heading",
+   "definition": "A heading identifying an issue or a supported analytical proposition.",
+   "topic": "Analytical organization"
+  },
+  {
+   "term": "case illustration",
+   "definition": "A focused explanation of a legal proposition through a decision’s relevant facts, holding and reasoning.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "legally significant facts",
+   "definition": "Facts that matter to the legal reasoning on the proposition being discussed.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "rationale",
+   "definition": "The reason supporting a legal decision or proposition.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "proposition",
+   "definition": "A claim that a sentence or passage asks the reader to accept.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "pinpoint citation",
+   "definition": "A citation identifying the precise source section, paragraph or other location supporting a proposition.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "paraphrase",
+   "definition": "A restatement in the writer’s own words that preserves the source’s substance and material limitations.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "quotation",
+   "definition": "An exact reproduction of source language, identified as quoted words.",
+   "topic": "Authority explanation"
+  },
+  {
+   "term": "analogy",
+   "definition": "Reasoning from a legally significant similarity between the present problem and a prior example.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "distinction",
+   "definition": "An explanation of why a difference matters under the governing rule or rationale.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "inference",
+   "definition": "A conclusion drawn from evidence rather than directly stated by it.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "reasoning bridge",
+   "definition": "The explanation connecting compared facts to their significance under the legal rule.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "factual premise",
+   "definition": "A fact on which an analytical conclusion depends and whose support must be checked.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "conditional analysis",
+   "definition": "Analysis of explicitly stated factual possibilities that can materially change the result.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "comparison point",
+   "definition": "A feature selected for comparison because the governing rule or rationale makes it significant.",
+   "topic": "Fact-based application"
+  },
+  {
+   "term": "counteranalysis",
+   "definition": "Examination and evaluation of a supported competing interpretation and its effect on a prediction.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "adverse evidence",
+   "definition": "Evidence supporting an inference unfavorable to a tentative conclusion.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "adverse authority",
+   "definition": "Legal authority supplying a principle or comparison that could support a contrary result.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "response",
+   "definition": "An evaluation of an objection through law and evidence, which may distinguish, concede or narrow the prediction.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "prediction",
+   "definition": "A reasoned assessment of the likely legal result on the supplied law and facts.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "confidence qualifier",
+   "definition": "Language indicating the degree or condition of support for a prediction.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "unresolved issue",
+   "definition": "A question that remains open after analysis of the available materials, with its significance and limits identified.",
+   "topic": "Counteranalysis and prediction"
+  },
+  {
+   "term": "question presented",
+   "definition": "The memo’s statement of the bounded legal question with material facts giving context to the dispute.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "brief answer",
+   "definition": "A concise prediction with its principal reasons and qualifications, consistent with the discussion.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "statement of facts",
+   "definition": "A neutral account of relevant background and evidence needed to understand the analysis.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "discussion",
+   "definition": "The memorandum section developing the governing law, application, counteranalysis and supported conclusions.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "factual neutrality",
+   "definition": "Accurate presentation of the record without loaded labels or conversion of disputed inferences into established facts.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "scope statement",
+   "definition": "A statement identifying the legal and factual boundaries of a document’s analysis.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "internal consistency",
+   "definition": "Agreement across sections about facts, rules and the degree of confidence supported by the analysis.",
+   "topic": "Memorandum drafting"
+  },
+  {
+   "term": "reverse outline",
+   "definition": "An outline of the functions performed by paragraphs in an already written draft.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "substantive revision",
+   "definition": "Revision improving analysis, organization or support rather than only surface expression.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "line editing",
+   "definition": "Sentence-level revision for clarity, grammar and expression.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "source audit",
+   "definition": "Verification of material propositions against the actual supporting legal and factual sources.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "proposition-source ledger",
+   "definition": "A record connecting draft claims to precise source support, limitations and needed revisions.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "citation accuracy",
+   "definition": "Correct source identity and location together with a genuine fit between the source and the cited proposition.",
+   "topic": "Revision and source audit"
+  },
+  {
+   "term": "revision log",
+   "definition": "A record of changes explaining the old claim, revised claim, supporting source and analytical improvement.",
+   "topic": "Revision and source audit"
+  }
+ ],
+ "references": [
+  {
+   "id": "lwo-ref-authorities",
+   "title": "Kestrel authority packet",
+   "body": "These are original fictional materials created for this course. They are not accounts of real statutes or decisions. Use the text below as the complete legal universe for the writing assignment. No outside research is required. The hypothetical forum is a Kestrel trial court. The three Court of Appeals opinions are binding in that forum on the issues they decide. None has been overruled in this teaching universe. The opinions apply the same version of the statute reproduced here; their dates do not imply different statutory versions. A question left open by an opinion remains open in the packet.\n\nUse citations such as “KCRA § 3,” “Moss ¶ 4,” and “Hale ¶ 5.” These are packet locators, not representations of a real citation system. Cite the client record separately as F1–F7. Cite quoted words exactly; a paraphrase must preserve the source's conditions and limitations. Numbered paragraphs below are stable locators.\n\n## Kestrel Community Room Act (KCRA)\n\n### Section 1 — Covered reservation\n\nA covered reservation is a community-center booking identified by event, room and date in a written confirmation sent by the center to the organizer. A confirmation may state a condition of approval. The existence of a covered reservation does not itself establish that reliance on it was reasonable.\n\n### Section 2 — Reimbursement requirements\n\nAn organizer may recover a preparation expense if the organizer establishes all of the following: a covered reservation; cancellation of that reservation by the center; reasonable reliance on the reservation when incurring the expense; and a nonrecoverable preparation expense paid before the center's cancellation. Satisfaction of one requirement does not substitute for another. Analyze each claimed expense separately.\n\n### Section 3 — Reasonable reliance\n\nIn deciding whether reliance was reasonable, consider the specificity of the center's confirmation, any relevant warning communicated to the organizer before payment, and the connection between the expense and the booked event. A warning is relevant to the extent that it concerns a condition applicable to that event or otherwise qualifies the commitment on which the organizer relied. No one factor automatically decides every case.\n\n### Section 4 — Recoverable value\n\nAn expense is nonrecoverable to the extent that the organizer cannot obtain a refund, reuse the purchased item, or use an available vendor credit to recover its value. A separately identifiable nonrecoverable portion may qualify even when another portion retains value. The organizer must establish the amount that is nonrecoverable. The existence of a vendor credit requires inquiry into whether and to what extent it can actually recover value; its label alone does not settle that question.\n\n### Section 5 — Scope of this remedy\n\nOnly qualifying preparation expenses are recoverable under this Act. Anticipated profit, the organizer's time, and inconvenience are excluded from this remedy. This Act and packet do not resolve possible claims under other law.\n\n## Moss v. Civic Center (Kestrel Court of Appeals, 2022)\n\n**¶ 1.** Moss received a written confirmation naming a community workshop, room and date. A footer stated that room assignments might change. The document contained no approval condition. Moss then paid 80 dollars for printed flyers naming that room and date. The center canceled the reservation before the workshop.\n\n**¶ 2.** The parties agreed that the flyers were not refundable or reusable and that the expense was paid before cancellation. They disputed whether the footer made reliance unreasonable under KCRA § 3. The trial court denied reimbursement solely because the footer warned of possible changes.\n\n**¶ 3.** The specificity of the confirmation and the warning's subject must be considered together. A notice about room reassignment does not, without more, communicate that the event itself awaits approval. The flyers were directly connected to the event identified in the confirmation.\n\n**¶ 4.** Moss reasonably relied on the confirmation for this printing expense. The general room-reassignment notice did not withdraw or condition approval of the event. The court reversed the denial and directed reimbursement of 80 dollars under §§ 2–4.\n\n**¶ 5.** The court did not decide the effect of a specific, applicable approval condition communicated before payment. Its decision addresses the notice and expense in this record, not every kind of warning or every preparation cost.\n\n## Reed v. Civic Center (Kestrel Court of Appeals, 2023)\n\n**¶ 1.** Reed received a writing headed “Reservation” that named a performance, room and date. The body expressly stated that approval depended on the manager's safety review. Reed acknowledged the condition by email before paying a nonrefundable equipment deposit. The manager had not approved the event when Reed paid.\n\n**¶ 2.** The center later canceled the booking. Reed sought the deposit under KCRA § 2, arguing that the heading and named room created a sufficiently definite commitment. The parties did not dispute that the expense was connected to the performance and had been paid before cancellation.\n\n**¶ 3.** The writing met § 1's identification requirements, but that did not settle § 3. The specific, applicable condition communicated before payment made reliance on final approval unreasonable on this record. The heading could not erase the express condition in the body.\n\n**¶ 4.** The court affirmed denial of reimbursement because the reasonable-reliance requirement was not established. A nonrefundable expenditure does not itself prove reasonable reliance. The court distinguished Moss: its warning concerned a possible room change, not pending approval of the event.\n\n**¶ 5.** The court did not hold that every warning defeats reasonable reliance. Its decision concerns an applicable approval condition known before payment and still unsatisfied when the expense was incurred. It did not decide a warning delivered only after payment or a condition unrelated to the event.\n\n## Hale v. Civic Center (Kestrel Court of Appeals, 2024)\n\n**¶ 1.** Hale received an unconditional written confirmation for a community meeting and reasonably relied on it. Before the center canceled, Hale paid a vendor 100 dollars for supplies and paid a printer 40 dollars for date-specific labels. All requirements other than nonrecoverable value were conceded.\n\n**¶ 2.** The supply vendor denied a cash refund but provided an unrestricted credit for the full 100 dollars. The credit had no expiration or minimum order, and the record established that Hale could use its entire value for already planned purchases. The labels were nonrefundable, could not be reused, and carried no credit.\n\n**¶ 3.** Section 4 concerns recoverable value, not only recovery in cash. Because Hale could use the credit's full value, the supply payment was not a nonrecoverable expense. Calling the payment a deposit and showing a denied refund did not change that result.\n\n**¶ 4.** The court allowed the separate 40-dollar label expense and denied the 100-dollar supply claim. The two expenses required separate analysis; retained value in one did not defeat reimbursement of a distinct qualifying loss in the other.\n\n**¶ 5.** The court expressly reserved credits with expiration dates, minimum orders, transfer restrictions, or other limitations affecting practical use. It did not prescribe a valuation formula for restricted credits. Such a claim requires evidence about available value under § 4; the presence or absence of full value cannot be assumed from this opinion alone.\n\n## Reading boundaries\n\nMoss and Reed can be read together because their warnings differ in legal significance. Hale addresses recoverable value on a record where reasonable reliance was conceded. Do not turn that concession into a holding about how reliance should be decided. Do not treat Hale's reserved issue as either a categorical exception or a categorical bar. For this assignment, explain the gap, apply § 4, identify facts that would matter, and make a conditional prediction. External sources are optional background for writing skills, never additional Kestrel authority.\n"
+  },
+  {
+   "id": "lwo-ref-record",
+   "title": "Rin Patel client record",
+   "body": "All dates below fall in the same fictional year, after all three packet opinions. The planned event date is March 20. The writing assignment takes place on March 10, after cancellation but before the planned event. These seven items are the complete available record. Do not invent interviews, publicity, communications, invoices, approval or actual attendance. “Not established” means absent from this record, not proven false.\n\n## F1 — March 2 confirmation\n\nThe Kestrel Civic Center emailed Rin Patel: “Confirmed: Repair Circle, Room B, March 20. Event description: free-entry neighborhood repair demonstration.” The email names Rin as organizer. It contains no other approval language. Receipt is undisputed.\n\n## F2 — March 3 notice\n\nRin received a center email stating: “Events charging admission remain provisional until manager approval. Free-entry events are confirmed.” Rin read this notice on March 3. No manager approval for a fee-based Repair Circle event appears in the record. The notice says nothing about voluntary contributions.\n\n## F3 — March 4 planning note\n\nRin's dated planning note states: “Ask for optional contributions to supplies. No one excluded for declining.” Rin supplied this note during intake and says this was the plan throughout. There is no statement from another organizer or would-be attendee confirming the entry arrangements. The note predates both expenses, but it is an organizer's account, not a center approval or a judicial finding.\n\n## F4 — March 4 printer proof\n\nA proof for the Repair Circle flyer says “Repair Circle — Room B — March 20 — $5 at door.” Rin approved printing the proof on March 4. The available record does not show the final distributed flyer or any later clarification of that wording. The phrase could support an inference of required payment; F3 and Rin's account support a competing inference of optional contributions. The record does not resolve what entrants would have been required to pay.\n\n## F5 — March 5 printing payment\n\nRin paid 90 dollars for flyers specific to the confirmed event, room and date. The invoice and printer's written terms establish that the payment is nonrefundable, the flyers cannot be reused, and no credit is available. The expense was incurred and paid on March 5, before the cancellation. Do not substitute Moss's 80-dollar amount for Rin's 90 dollars.\n\n## F6 — March 5 supply deposit and March 8 credit terms\n\nRin incurred and paid a 60-dollar deposit for event supplies on March 5. Following cancellation, the vendor denied a cash refund and offered a 60-dollar credit valid for one year, usable only on a future order of at least 100 dollars. The record contains no evidence of Rin's future supply needs, other usable purchases, transfer rights, or what portion of the credit Rin could practically use. No additional money has been spent to redeem the credit. The deposit's face amount is not automatically its nonrecoverable amount.\n\n## F7 — March 7 cancellation and March 10 intake\n\nThe center canceled the reservation on March 7, writing: “Fee-based event not approved.” The cancellation itself is undisputed. Rin contests that characterization and says admission would have been free. The event has not taken place. Rin seeks reimbursement of the 90-dollar printing payment and 60-dollar supply deposit. Rin also asks whether time spent planning or expected contributions can be recovered. No court has ruled on any claim, and no other procedural event is supplied.\n\n## Working convention\n\nAttribute disputed assertions: “Rin reports” or “the planning note states.” Describe what documents say without converting an inference into an established fact. Separate a fact question, such as entry requirements, from a legal question, such as whether the communicated condition made reliance unreasonable. Cite F1–F7 after factual propositions. These record labels are sufficient for the course; they are not court docket or evidence designations.\n"
+  },
+  {
+   "id": "lwo-ref-workbench",
+   "title": "Memo assignment and revision workbench",
+   "body": "## Assignment\n\nPrepare a 900–1,100-word objective memorandum to a supervising attorney assessing Rin Patel's potential reimbursement under KCRA §§ 1–5 on the supplied record. Use the fictional trial-court forum and complete authority packet. Analyze reasonable reliance and the recoverable amount for each expense, and address the requested time and expected contributions under § 5. Use all three opinions where relevant. Do not research other legal claims. Explain that those claims fall outside the assignment without predicting their merits.\n\nWrite in your own document or notes. This course does not collect or automatically grade a memorandum. The quizzes check component skills. Use the rubric below for self-assessment; a human reviewer may apply it if available. Open the model memorandum after completing your first draft. A sound, supported prediction may differ from the model's degree of confidence.\n\n## Deliverables\n\n1. An issue-and-evidence matrix connecting each requirement to authority, favorable facts, adverse facts and missing information.\n2. A first draft with a memo header, question presented, brief answer, statement of facts, discussion and conclusion.\n3. A revised memorandum within the word range, including citations. Do not count the header or the separate revision log toward the word range.\n4. A short revision log identifying at least three substantive changes. For each, give the old proposition, the revised proposition, the supporting source and why the change improves the analysis. Grammar-only changes do not satisfy these three entries.\n5. A source audit with at least one verified proposition from each of §§ 1–5, Moss, Reed, Hale and F1–F7. Preserve paragraph or section locators. These audit entries are separate from the memorandum's word count.\n\n## Suggested working sequence\n\nRead the entire packet. Mark statutes, holdings and express limitations. Build the matrix before composing polished sentences. Outline by legal requirement and disputed question, not by a sequence of case names. Draft the discussion and facts, then write a brief answer that reflects the actual analysis. Revise the question presented if your first version omitted a central uncertainty. Keep the conclusion, discussion and brief answer consistent after each substantive revision.\n\n## Matrix example\n\n| Requirement or question | Legal source | Record | Analysis task |\n| --- | --- | --- | --- |\n| Covered reservation | § 1; Reed ¶ 3 | F1 | Separate identification from reasonable reliance |\n| Reliance on event approval | § 3; Moss ¶¶ 3–5; Reed ¶¶ 3–5 | F1–F4, F7 | Explain whether admission warning applied before payment |\n| Printing loss | §§ 2, 4; Moss ¶ 4 | F5 | Establish timing and absence of retained value |\n| Supply loss | § 4; Hale ¶¶ 2–5 | F6 | Examine practical credit value; avoid assumed total loss |\n| Other requests | § 5 | F7 | Exclude time and expected contributions from this remedy |\n\nThis matrix is a starting structure. Add competing inferences and follow-up evidence. A cell containing only “good” or “bad” does not explain what a fact proves.\n\n## Self-assessment rubric — 100 points\n\n| Criterion | Points | Full-credit evidence |\n| --- | --- | --- |\n| Issue and scope | 10 | Bounded reimbursement question, relevant uncertainty, packet-only scope |\n| Rules and authorities | 20 | All statutory requirements; accurate Moss/Reed distinction; Hale reservation preserved |\n| Application | 25 | Specific comparisons and reasons; each expense analyzed; no invented facts |\n| Counteranalysis and prediction | 15 | Strong admission-fee objection; response tied to F3/F4; conditional credit assessment |\n| Memo organization and tone | 10 | Consistent answer, useful headings, neutral facts, connected analysis |\n| Citation and traceability | 10 | Each material legal and factual proposition has accurate support |\n| Substantive revision | 10 | Three documented changes, source audit, unresolved questions honestly retained |\n\nAward partial credit for work present but incomplete. A score is feedback about this exercise, not a university grade or credential. Revisit any unsupported legal proposition or invented fact even if the numerical total is high.\n\n## Revision passes\n\n**Structure:** Give each paragraph a one-line purpose. Move unrelated claims into separate analytical units. Check that each heading tells the reader the issue or supported prediction.\n\n**Substance:** Trace every inference from evidence to rule to result. Add the strongest supported objection and answer it without changing the record. Separate confidence about printing from confidence about the credit.\n\n**Sources:** Open each cited section or paragraph. Verify the actor, condition, date, amount and scope. Check quotations word for word. A nearby citation does not support every sentence in its paragraph automatically.\n\n**Language:** Replace unsupported certainty, ambiguous pronouns and unnecessary nominalizations. Preserve legally important qualifiers. Read for factual neutrality and accessible sentences.\n\n**Final comparison:** Compare the question presented, brief answer, discussion and conclusion. A new qualification about mandatory admission or credit usability must reach every section that otherwise overstates the answer.\n"
+  },
+  {
+   "id": "lwo-ref-model",
+   "title": "Model objective memorandum and annotations",
+   "body": "Read after drafting. This is one supported approach to an unresolved record, not an exclusive answer or a prediction about real law. The memorandum uses only the fictional packet.\n\n**To:** Supervising attorney  \n**From:** Student analyst  \n**Date:** March 10, teaching year  \n**Re:** Rin Patel — canceled Repair Circle reservation\n\n## Question presented\n\nUnder the Kestrel Community Room Act, can Rin recover preparation expenses after the center canceled an identified, confirmed event, where a prepayment notice made fee-based events conditional on approval, the entry-payment arrangements are disputed, and one vendor offered a restricted credit?\n\n## Brief answer\n\nRin has a plausible claim for the 90-dollar printing expense, but recovery depends on establishing reasonable reliance. If entry was genuinely free, the express confirmation and notice preserving free-entry approval support recovery. The approved flyer proof's “$5 at door” language creates a substantial contrary inference that the event required approval. The additional 60-dollar supply claim depends on practical credit value as well as reasonable reliance. Its amount cannot be fixed from this record. Time and expected contributions are outside the Act's preparation-expense remedy. KCRA §§ 2–5.\n\n## Statement of facts\n\nOn March 2, the center confirmed Repair Circle for Room B on March 20, identifying it as a free-entry demonstration. On March 3, Rin received and read a notice requiring manager approval for events charging admission while confirming free-entry events. F1–F2. Rin's March 4 note described optional contributions and no exclusion for nonpayment. A printer proof approved that day stated “$5 at door”; the final distributed wording and entry arrangements are unavailable. F3–F4. Rin paid 90 dollars for nonrefundable, unusable event-specific flyers and a 60-dollar supply deposit on March 5. F5–F6. The center canceled March 7, characterizing the event as fee-based and unapproved. Rin disputes that characterization. After cancellation, the supply vendor offered a one-year credit requiring a future order of at least 100 dollars. The record does not establish whether Rin could use its value. F6–F7.\n\n## Discussion\n\nThe Act requires a covered reservation, center cancellation, reasonable reliance and a nonrecoverable preparation expense paid before cancellation. KCRA § 2. The named event, room and date satisfy § 1; the center canceled, and both payments preceded cancellation. F1, F5–F7. Those circumstances do not themselves resolve reliance or retained value. Reed ¶ 3. The principal questions are whether the admission condition applied when Rin paid and how much of each payment remains unrecoverable.\n\n### I. Reasonable reliance turns on the event's entry arrangements\n\nRin's reliance is supportable if the planned event remained free-entry, but the contrary evidence prevents an unconditional prediction. Section 3 considers confirmation specificity, relevant prepayment warnings and the expense's connection to the event. In Moss, a general room-change footer did not condition event approval; the court allowed event-specific printing costs. Moss ¶¶ 1, 3–4. In Reed, an acknowledged safety-approval condition remained unsatisfied before payment. The court denied reimbursement despite a writing headed “Reservation.” Reed ¶¶ 1, 3–4. The decisions distinguish a notice's effect on event approval, rather than treating every warning alike.\n\nRin's confirmation specifically identified a free-entry event, and the later notice expressly preserved confirmation for that category. F1–F2. If contributions were optional as the planning note states, the manager-approval condition may not have applied. F3. That would make the booking's commitment closer to Moss's approved event than Reed's expressly conditional event. The flyers' event, room and date also connect that expense to the confirmed reservation. F5; KCRA § 3. The confirmation is therefore meaningful support, although it is not conclusive proof of reasonable reliance.\n\nThe center has a substantial response: the approved proof's “$5 at door” wording suggests an admission charge, and Rin had read the approval notice before paying. F2, F4. If payment was required for entry, Reed strongly supports finding reliance unreasonable because the applicable condition remained unsatisfied. No such approval appears in the record. F2; Reed ¶¶ 3–5. Rin can point to the earlier optional-contribution note, but that account does not establish what entrants would actually have been required to pay. F3–F4. Conversely, the center's cancellation label does not establish the disputed arrangement by itself. F7. The final publicity and instructions to other organizers could materially strengthen one account. On the present record, the printing claim is plausible but exposed to this factual dispute.\n\n### II. Printing has an established loss; the supply credit needs valuation\n\nIf reasonable reliance is established, the 90-dollar printing expense appears recoverable. Section 4 excludes recoverable value, while allowing an identifiable nonrecoverable portion. The printing terms establish no refund, reuse or credit, and payment preceded cancellation. F5. These features resemble the event-specific flyers reimbursed in Moss and the separate labels allowed in Hale. Moss ¶ 4; Hale ¶¶ 2, 4. Their different amounts do not change why the expenses qualify. No additional uncertainty about retained printing value appears in this record.\n\nThe supply deposit cannot simply be added as another 60-dollar loss. Hale denied a supply claim where an unrestricted credit's full value was usable for planned purchases, even though the vendor denied a cash refund. Hale ¶¶ 2–3. Rin likewise has a credit, but it expires in one year and requires an order of at least 100 dollars. F6. Those limits differ from Hale's fully usable credit, and Hale expressly left restricted credits unresolved. Hale ¶ 5. The restrictions support investigating reduced usable value; they do not prove that all value is lost. Evidence of future supply needs, alternative purchases and transfer rights would help determine the nonrecoverable portion under § 4. Without that evidence, neither zero loss nor a full 60-dollar loss is established.\n\n## Conclusion\n\nThe strongest quantified claim is the 90-dollar printing expense, conditional on reasonable reliance. Obtain final publicity and entry instructions to assess whether admission required payment. Investigate practical use of the supply credit before assigning a recoverable amount. Evaluate that expense separately rather than promising a 150-dollar award. Rin's planning time and anticipated contributions are excluded from this remedy; possible claims under other law remain outside this assignment. KCRA § 5; F7.\n\n## Annotations outside the memorandum\n\nThe memo separates law, record and prediction. It does not silently accept either the client's preferred label or the center's cancellation label. It explains the reason Moss and Reed differ, rather than counting favorable and adverse cases. Its Hale comparison preserves the court's reserved issue. Its conclusion identifies evidence that could change the answer.\n\nA stronger or weaker overall prediction can earn full rubric credit if supported and calibrated to this record. An unconditional reimbursement prediction cannot be justified merely by the existence of a confirmation or a nonrefundable payment. A categorical denial based only on the existence of any credit also misstates § 4 and Hale.\n"
+  }
+ ],
+ "drills": []
+}

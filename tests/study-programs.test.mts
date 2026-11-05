@@ -59,6 +59,14 @@ assert.equal(firstTwoComplete.steps[2].available, true);
 const thirdRelease = CATALOG.find(e => e.id === courses[2].courseId)!;
 assert.equal(thirdRelease.lessons, 8); assert.equal(thirdRelease.questions, 80); assert.equal(thirdRelease.cards, 64);
 assert.deepEqual(thirdRelease.outline?.map(m => m.title), courses[2].modules);
+const writing = CATALOG.find(e => e.id === 'law-legal-writing-1')!;
+assert(writing, 'Legal Writing I is available in the existing program');
+assert.equal(writing.lessons, 8); assert.equal(writing.questions, 80); assert.equal(writing.cards, 64);
+const writingPlan = courses.find(c => c.courseId === writing.id)!;
+assert.deepEqual(writing.outline?.map(m => m.title), writingPlan.modules);
+assert.deepEqual(writingPlan.recommendedBefore, ['law-case-reading', 'law-legal-research']);
+const writingStep = pathwayProgress(path, [], emptyProgress(), CATALOG).steps.find(s => s.courseId === writing.id)!;
+assert.equal(writingStep.available, true); assert.equal(writingStep.enrolled, false);
 const publishedCourses = courses.filter(c => CATALOG.some(e => e.id === c.courseId));
 const allAvailableComplete = emptyProgress();
 for (const course of publishedCourses) {
