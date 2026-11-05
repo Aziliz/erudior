@@ -467,6 +467,15 @@ export const ROADMAP: RoadmapGroup[] = [
   ] },
 ];
 
+/** Public course scope: pre-K–12 and every language proficiency level.
+ * Keep professional programs and college electives in the internal data/catalog.
+ */
+export const PUBLIC_ROADMAP = ROADMAP.filter((group) =>
+  group.id.startsWith("k8-") || group.id.startsWith("hs-") || group.id.startsWith("language-"),
+).map((group) => group.id === "hs-programming"
+  ? { ...group, title: "Programming and web development — high school" }
+  : group);
+
 /** Already in the catalog and kept as advanced electives; not needed for 1.0. */
 export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Differential Equations", "Probability and Statistics", "University Physics I", "University Physics II"];
 
