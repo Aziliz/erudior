@@ -426,7 +426,7 @@ function milestones(s: BranchingState, p: BranchingPack) {
     s.terminalOutcome = node.terminal;
     s.outcome = node.terminal ? (p.milestones.some(m => m.required && s.milestones[m.id] !== 'completed') ? 'incomplete' : node.terminal) : (s.tick >= p.maxTick ? 'incomplete' : 'in-progress');
 }
-function initial(a: BranchingAssignment): BranchingState { const p = a.pack; const s: BranchingState = { nodeId: p.startNodeId, tick: a.startTick, values: Object.fromEntries(p.variables.map(v => [v.id, v.initial])), visited: [p.startNodeId], milestones: Object.fromEntries(p.milestones.map(m => [m.id, 'pending'])), timeline: [{ tick: a.startTick, kind: 'start', text: p.nodes.find(n => n.id === p.startNodeId)!.title }], outcome: 'in-progress' }; milestones(s, p); return s; }
+function initial(a: Pick<BranchingAssignment, 'pack' | 'startTick'>): BranchingState { const p = a.pack; const s: BranchingState = { nodeId: p.startNodeId, tick: a.startTick, values: Object.fromEntries(p.variables.map(v => [v.id, v.initial])), visited: [p.startNodeId], milestones: Object.fromEntries(p.milestones.map(m => [m.id, 'pending'])), timeline: [{ tick: a.startTick, kind: 'start', text: p.nodes.find(n => n.id === p.startNodeId)!.title }], outcome: 'in-progress' }; milestones(s, p); return s; }
 /** A choice tests pre-action conditions, consumes its declared ticks, applies its
  * effects, moves to the destination, then resolves overdue/milestone effects.
  * Any rejected effect aborts the whole candidate journal before it is persisted. */
@@ -453,6 +453,14 @@ function command(s: BranchingState, p: BranchingPack, c: BranchingCommand) {
     s.visited.push(choice.to);
     s.timeline.push({ tick: s.tick, kind: 'choice', text: `${choice.title}: ${choice.consequence}\n${c.note}` });
     milestones(s, p);
+}
+/** Replay a disposable self-study run without creating an assignment or evidence. */
+export function replayBranchingPractice(input: BranchingPack, choices: readonly string[]): BranchingState {
+    const pack = parseBranchingPack(input);
+    if (choices.length > BRANCHING_LIMITS.events) fail('practice choice limit');
+    const state = initial({ pack, startTick: 0 });
+    for (const choiceId of choices) command(state, pack, { kind: 'choice', choiceId, note: 'Self-study' });
+    return state;
 }
 export function createBranchingSession(a: BranchingAssignment, at = a.createdAt): BranchingSession { return { caseId: a.id, caseRevision: a.revision, revision: 0, events: [], updatedAt: at }; }
 export function parseBranchingSession(input: unknown, assignment: BranchingAssignment): BranchingSession {

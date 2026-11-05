@@ -1,6 +1,7 @@
 import { validateReaderTexts } from "./readerContent";
 import type { Course } from "./types";
 import { importCourseSnapshot, localBankId } from "./course";
+import { documentCourseProblems } from "./documentCoursePackage";
 import { branchingCourseProblems, parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { scientificCourseProblems, parseCourseScientificWorkspaces } from "./scientificCoursePackage";
 import { advancedAssessmentCourseProblems, parseCourseAdvancedAssessments } from "./advancedAssessmentCoursePackage";
@@ -37,6 +38,7 @@ export function validateCourseIntegrity(course: Course): CourseIntegrityIssue[] 
   unique(course.drills.map((d) => d.id), "drills");
   for (const message of validateReaderTexts(course.texts, { questionIds: course.banks[0]?.questions.map(q => q.id) ?? [] })) report("texts", message);
 
+  for (const issue of documentCourseProblems(course.documentReviews, new Set(course.lessons.map(l => l.id)))) report("documentReviews", issue);
   for(const issue of branchingCourseProblems(course.branchingScenarios,new Set(course.lessons.map(l=>l.id)))) report("branchingScenarios",issue);
   for(const issue of scientificCourseProblems(course.scientificWorkspaces,new Set(course.lessons.map(l=>l.id)))) report("scientificWorkspaces",issue);
   for(const issue of advancedAssessmentCourseProblems(course.advancedAssessments,new Set(course.lessons.map(l=>l.id)))) report("advancedAssessments",issue);
