@@ -19,13 +19,15 @@ export default function CourseBranchingPractice({ source: pack }: { source: Bran
   }
 
   return <section className="branching panel" aria-label="Self-study scenario">
-    <h2>Try the scenario</h2>
-    <p>{pack.description}</p>
-    <p>Choose one action at a time. Each action uses the time shown on its button. Read the decision timeline to see what happened, then restart to try a different path.</p>
+    <div className="activity-directions scenario-directions">
+      <h2>Try the scenario</h2>
+      <p>{pack.description}</p>
+      <p>Choose one action at a time. Each action uses the time shown on its button. Read the decision timeline to see what happened, then restart to try a different path.</p>
+    </div>
     <p>{BRANCHING_DISCLAIMER} This run lasts while the activity is open.</p>
     <h3>{node.title}</h3>
     <p>{node.text}</p>
-    <p role="status">Elapsed {pack.timeUnit}: {state.tick}. Outcome: {state.outcome}.</p>
+    <p role="status" className="activity-outcome" data-outcome={state.outcome}>Elapsed {pack.timeUnit}: {state.tick}. Outcome: {state.outcome}.</p>
     {state.outcome === 'in-progress' && <ul>{node.choices.map(choice => <li key={choice.id}>
       <button className="btn" style={{ whiteSpace: 'normal', maxWidth: '100%' }} disabled={state.tick + choice.costTicks > pack.maxTick ||
         !choice.conditions.every(condition => branchingConditionMatches(state, condition))}

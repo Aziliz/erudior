@@ -179,23 +179,26 @@ function LearnerSession({ api, courseId, assignment }: Props) {
     finally { busyRef.current = false; if (alive.current) setBusy(false); }
   }
 
-  return <section className="panel" aria-label={assignment.title}>
+  return <section className="panel course-workbook" aria-label={assignment.title}>
     <h3>{assignment.title}</h3>
-    <p className="small muted">Lesson: {assignment.lessonId}. This learner's edits save locally for this assignment version. Protected cells are read-only.</p>
-    {assignment.directions && <section aria-label="Assignment directions">
+    {assignment.directions && <section className="activity-directions" aria-label="Assignment directions">
       <h4>What to do</h4>
       <ol>{assignment.directions.map((step, index) => <li key={index}>{step}</li>)}</ol>
     </section>}
-    <SpreadsheetFeatureSummary book={book}/>
-    {book.engineVersion===2&&<p className="small">Edit a cell, then press Enter or Apply cell edit. Escape discards the pending edit. Alt + arrow keys move between cells.</p>}
-    {pendingCell&&<div role="group" aria-label="Pending cell edit"><p>Pending: {pendingCell.sheet}!{pendingCell.cell}</p><button type="button" className="btn sm" onClick={()=>change(pendingCell.cell,pendingCell.raw)}>Apply cell edit</button><button type="button" className="btn sm" onClick={()=>setPendingCell(null)}>Discard cell edit</button></div>}
-    <div className="row" style={{flexWrap:"wrap"}} role="group" aria-label="Assignment worksheets">
-      {Object.keys(book.sheets).map(name => <button type="button" key={name} disabled={!!pendingCell} aria-pressed={name === sheet} className={name === sheet ? "btn primary sm" : "btn sm"} onClick={() => { setSheet(name); setPosition({ row: 1, column: 1 }); }}>{name}</button>)}
+    <p>Enter your answers in the editable cells. Type a number or start with <strong>=</strong> to enter a formula.{book.engineVersion === 2 && <> Press <strong>Enter</strong> after each edit.</>}</p>
+    <div className="workbook-key" aria-label="Cell color key">
+      <span className="editable-key">Editable · enter your answers</span>
+      <span className="protected-key">Read-only · provided information</span>
     </div>
-    <form className="row" style={{flexWrap:"wrap"}} onSubmit={event => { event.preventDefault(); goToCell(target); }}>
+    {pendingCell&&<div className="activity-outcome" role="group" aria-label="Pending cell edit"><p>Pending: {pendingCell.sheet}!{pendingCell.cell}</p><button type="button" className="btn sm" onClick={()=>change(pendingCell.cell,pendingCell.raw)}>Apply cell edit</button><button type="button" className="btn sm" onClick={()=>setPendingCell(null)}>Discard cell edit</button></div>}
+    {Object.keys(book.sheets).length > 1 && <div className="row" style={{flexWrap:"wrap"}} role="group" aria-label="Assignment worksheets">
+      {Object.keys(book.sheets).map(name => <button type="button" key={name} disabled={!!pendingCell} aria-pressed={name === sheet} className={name === sheet ? "btn primary sm" : "btn sm"} onClick={() => { setSheet(name); setPosition({ row: 1, column: 1 }); }}>{name}</button>)}
+    </div>}
+    <form className="row workbook-jump" style={{flexWrap:"wrap"}} onSubmit={event => { event.preventDefault(); goToCell(target); }}>
       <label htmlFor={prefix + "-jump"}>Go to cell</label>
-      <input className="input" id={prefix + "-jump"} value={target} placeholder="AA12 or Budget!AA12" onChange={event => setTarget(event.target.value)} />
+      <input className="input" id={prefix + "-jump"} value={target} placeholder="e.g. B5" onChange={event => setTarget(event.target.value)} />
       <button className="btn sm" type="submit">Go</button>
+      <span className="small muted">Optional shortcut to a specific cell.</span>
     </form>
     <div className="row" style={{flexWrap:"wrap"}} role="group" aria-label="Spreadsheet viewport">
       <button className="btn sm" type="button" disabled={viewport.column === 1} onClick={() => setPosition(p => ({ ...p, column: Math.max(1, p.column - SPREADSHEET_VIEW_COLUMNS) }))}>Previous columns</button>
@@ -204,30 +207,36 @@ function LearnerSession({ api, courseId, assignment }: Props) {
       <button className="btn sm" type="button" disabled={!viewport.hasNextRows} onClick={() => setPosition(p => ({ ...p, row: p.row + SPREADSHEET_VIEW_ROWS }))}>Next rows</button>
       <span className="small">{sheet}!{viewport.columns[0]}{viewport.rows[0]}–{viewport.columns[viewport.columns.length - 1]}{viewport.rows[viewport.rows.length - 1]}</span>
     </div>
-    <div style={{ overflowX: "auto", position: "relative" }} role="region" aria-label="Scrollable assignment workbook" tabIndex={0}><table className="table" style={{minWidth:820}}><caption className="sr-only">{sheet} assignment workbook</caption><thead><tr><th scope="col" style={{minWidth:40,whiteSpace:"nowrap"}}>Row</th>{viewport.columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>
+    <div className="workbook-grid" role="region" aria-label="Scrollable assignment workbook" tabIndex={0}><table className="table" style={{minWidth:820}}><caption className="sr-only">{sheet} assignment workbook</caption><thead><tr><th scope="col" style={{minWidth:40,whiteSpace:"nowrap"}}>Row</th>{viewport.columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead><tbody>
       {viewport.rows.map(row => <tr key={row}><th scope="row" style={{whiteSpace:"nowrap"}}>{row}</th>{viewport.columns.map(column => {
         const cell = column + row, locked = protectedSet.has(sheet + "!" + cell), raw = book.sheets[sheet]?.[cell] ?? "";
         let calculated = ""; try { calculated = String(calculateCell(book, sheet, cell)); } catch { calculated = "Formula error"; }
         const inputId = prefix + "-" + cell;
-        return <td key={cell} style={{position:"relative"}}><label className="sr-only" htmlFor={inputId}>{sheet}!{cell}{locked ? " (protected)" : ""}</label>
+        return <td key={cell} data-protected={locked}><label className="sr-only" htmlFor={inputId}>{sheet}!{cell}{locked ? " (protected)" : ""}</label>
           <input id={inputId} className="input" style={{ minWidth: 85, width: 105 }} maxLength={2048} value={pendingCell?.sheet===sheet&&pendingCell.cell===cell?pendingCell.raw:String(raw)} readOnly={locked} disabled={busy || submissionSaving} aria-readonly={locked} aria-describedby={typeof raw === "string" && raw.startsWith("=") ? inputId + "-result" : undefined} onChange={event => {if(book.engineVersion===2){if(pendingCell&&pendingCell.cell!==cell){setError("Apply or discard the pending cell edit first.");return;}setPendingCell({sheet,cell,raw:event.target.value});setError("");}else change(cell,event.target.value);}} onKeyDown={event=>{if(event.key==="Enter"&&pendingCell?.cell===cell){event.preventDefault();change(cell,pendingCell.raw);}if(event.key==="Escape")setPendingCell(null);if(event.altKey&&["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(event.key)){event.preventDefault();const inputs=Array.from(event.currentTarget.closest("table")!.querySelectorAll<HTMLInputElement>("input"));const index=inputs.indexOf(event.currentTarget);const offset=event.key==="ArrowRight"?1:event.key==="ArrowLeft"?-1:event.key==="ArrowDown"?viewport.columns.length:-viewport.columns.length;inputs[index+offset]?.focus();}}} />
-          {typeof raw === "string" && raw.startsWith("=") && <div id={inputId + "-result"} className="small">Result: {calculated}</div>}
+          {typeof raw === "string" && raw.startsWith("=") && <div id={inputId + "-result"} className="small workbook-formula-result">Result: {calculated}</div>}
         </td>;
       })}</tr>)}
     </tbody></table></div>
-    <SpreadsheetMacroPanel book={book} protectedCells={assignment.protectedCells} disabled={busy||submissionSaving||!!pendingCell} runs={macroRuns} onApply={(next,trace)=>{if(activeStudent()!==studentId)throw Error("The active learner changed.");const problems=learnerWorkbookProblems(assignment,next);if(problems.length)throw Error(problems.join("; "));const runs=[...macroRuns,trace];serializeSpreadsheetDraft(assignment,next,runs);setBook(next);setMacroRuns(runs);setGrade(null);saveDraft(next,runs);}}/>
+    {!!book.macroDefinitions?.length && <SpreadsheetMacroPanel book={book} protectedCells={assignment.protectedCells} disabled={busy||submissionSaving||!!pendingCell} runs={macroRuns} onApply={(next,trace)=>{if(activeStudent()!==studentId)throw Error("The active learner changed.");const problems=learnerWorkbookProblems(assignment,next);if(problems.length)throw Error(problems.join("; "));const runs=[...macroRuns,trace];serializeSpreadsheetDraft(assignment,next,runs);setBook(next);setMacroRuns(runs);setGrade(null);saveDraft(next,runs);}}/>}
     <div className="row" style={{flexWrap:"wrap"}}>
-      <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={gradePractice}>{busy ? "Please wait…" : "Grade assignment"}</button>
-      <button className="btn primary sm" type="button" disabled={busy || submissionSaving || !!historyError} onClick={submitForReview}>{pendingSubmission ? "Retry submission save" : "Submit for instructor review"}</button>
+      <button className="btn primary sm" type="button" disabled={busy || submissionSaving} onClick={gradePractice}>{busy ? "Please wait…" : "Grade assignment"}</button>
+      <button className="btn sm" type="button" disabled={busy || submissionSaving || !!historyError} onClick={submitForReview}>{pendingSubmission ? "Retry submission save" : "Submit for instructor review"}</button>
       <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={() => saveDraft(book)}>Retry save</button>
       <button className="btn sm" type="button" disabled={busy || submissionSaving} onClick={reset}>Reset workbook</button>
     </div>
     {currentGrade && !busy && !gradeSaveFailed && !unconfirmedGrade && <p className="small muted">{currentGrade.workbookSnapshot === currentWorkbookSnapshot ? "Saved practice grade" : "Earlier practice grade"}: {Math.round(currentGrade.score * 100)}% · {currentGrade.revision} grading attempt(s). {currentGrade.workbookSnapshot !== currentWorkbookSnapshot && "Grade again to assess current edits."}</p>}
     {savedGrade && !currentGrade && !busy && !gradeSaveFailed && !unconfirmedGrade && <p className="small muted">An earlier grade belongs to an older or unverified assignment version and is not applied to this workbook.</p>}
     {unconfirmedGrade && !busy && !gradeSaveFailed && <p role="status">A grade submission has not been confirmed saved. Grade again to retry.</p>}
-    {grade && <div role="status"><strong>{Math.round(grade.score * 100)}% correct</strong>
-      {grade.feedback.map(feedback => <p className="small" key={feedback.address}><button className="btn ghost sm" type="button" onClick={() => goToCell(feedback.address)}>{feedback.address}</button>: {feedback.passed ? "Correct" : "Revise"} (calculated {String(feedback.actual)})</p>)}
+    {grade && <div className="workbook-grade" role="status"><strong>{Math.round(grade.score * 100)}% correct</strong>
+      {grade.feedback.map(feedback => <p className="small workbook-grade-cell" data-passed={feedback.passed} key={feedback.address}><button className="btn ghost sm" type="button" onClick={() => goToCell(feedback.address)}>{feedback.address}</button>: {feedback.passed ? "Correct" : "Revise"} (calculated {String(feedback.actual)})</p>)}
     </div>}
+    {book.engineVersion === 2 && <details className="workbook-reference">
+      <summary>Optional formula shortcuts and cell notes</summary>
+      <p>A named range is a shortcut for a cell or group of cells. You can use the cell addresses shown in the directions instead.</p>
+      <SpreadsheetFeatureSummary book={book} showTechnicalIntro={false}/>
+      <p>While editing, Escape discards the pending edit. Alt + arrow keys move between cells.</p>
+    </details>}
     <section aria-label="Submission history">
       <h4>Submissions for instructor review</h4>
       <p className="small muted">Grading is practice. Submit explicitly to save immutable evidence for review. Later edits do not change an earlier submission.</p>
