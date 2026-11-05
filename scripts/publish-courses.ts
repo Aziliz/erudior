@@ -87,11 +87,18 @@ if (previousCatalog) {
 }
 
 // Validate every source before touching the output directory or loading a signing key.
+const lessonIdsByCourse = new Map<string, Set<string>>();
+const carriedVocabulary: { courseId: string; sourceId: string; lessonId: string }[] = [];
 for (const entry of entries) {
   const source = fs.readFileSync(path.join(root, "samples", entry.file), "utf8");
   const course = importValidatedCourseSnapshot(source);
   if (course.id !== entry.id || (course.revision ?? 1) !== entry.revision)
     throw new Error(`Catalog identity/revision mismatch for ${entry.file}: expected ${entry.id} r${entry.revision}`);
+  lessonIdsByCourse.set(course.id, new Set(course.lessons.map(lesson => lesson.id)));
+  for (const word of course.vocab ?? []) {
+    if (word.from && word.from !== course.id)
+      carriedVocabulary.push({ courseId: course.id, sourceId: word.from, lessonId: word.lesson });
+  }
   if (!dev && course.spreadsheetAssignments?.length) {
     const approvalFile = path.join(root, "samples", "reviews", entry.id + ".json");
     const approval = fs.existsSync(approvalFile)
@@ -126,6 +133,10 @@ for (const entry of entries) {
     const issues = compareCourseRevisions(previous, course);
     if (issues.length) throw new Error(`Revision compatibility issue in ${entry.id}: ${issues.map((i) => `${i.severity} ${i.path}: ${i.message}`).join("; ")}`);
   }
+}
+for (const { courseId, sourceId, lessonId } of carriedVocabulary) {
+  if (!lessonIdsByCourse.get(sourceId)?.has(lessonId))
+    throw new Error(`Carried vocabulary in ${courseId} refers to unknown source lesson ${sourceId}/${lessonId}.`);
 }
 const key = secretKey();
 fs.rmSync(out, { recursive: true, force: true });

@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { pathToView, viewToPath, pageKey } from '../src/lib/routes.ts';
 import { requestNavigation } from '../src/lib/navigationGuard.ts';
 const installed = [{ id: 'course', title: 'Synthetic course' }];
-for (const kind of ['advanced', 'scientific', 'branching', 'spreadsheet'] as const) {
+for (const kind of ['advanced', 'scientific', 'branching', 'spreadsheet', 'document'] as const) {
   const view = { name: 'courseActivity' as const, courseId: 'course', kind, sourceId: 'source / ?%' };
   assert.deepEqual(pathToView(viewToPath(view, installed, () => undefined), '', installed, []), view);
   assert.notEqual(pageKey(view), pageKey({ ...view, sourceId: 'other' }));

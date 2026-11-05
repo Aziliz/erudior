@@ -1,0 +1,130 @@
+.course-activity-card.work-row {
+  margin-block: 8px;
+  padding: 12px;
+  border: 1px solid var(--rule);
+  border-inline-start: 4px solid var(--activity-color, var(--accent));
+  border-radius: var(--r-sm);
+  background: var(--surface);
+}
+.course-activity-card[data-activity-kind="spreadsheet"] {
+  --activity-color: var(--ok);
+  --activity-tint: var(--ok-soft);
+}
+.course-activity-card[data-activity-kind="branching"] {
+  --activity-color: var(--flag);
+  --activity-tint: var(--flag-soft);
+}
+.activity-type {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  background: var(--activity-tint, var(--accent-soft));
+  color: var(--activity-color, var(--accent));
+  font-weight: 600;
+}
+.activity-directions,
+.activity-model-review,
+.activity-outcome {
+  margin-block: 12px;
+  padding: 12px 16px;
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.activity-directions :is(h2, h4),
+.activity-model-review h3 {
+  margin-top: 0;
+}
+.activity-directions ol,
+.activity-model-review ul {
+  margin-bottom: 0;
+  padding-inline-start: 1.4rem;
+}
+.activity-directions li + li,
+.activity-model-review li + li {
+  margin-top: .55rem;
+}
+.scenario-directions,
+.activity-outcome:not([data-outcome="success"]) {
+  border-inline-start-color: var(--flag);
+  background: var(--flag-soft);
+}
+.activity-model-review,
+.activity-outcome[data-outcome="success"] {
+  border-inline-start-color: var(--ok);
+  background: var(--ok-soft);
+}
+.document-engine .document-review-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.workbook-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 12px;
+}
+.workbook-key span {
+  padding: 4px 8px;
+  border-radius: var(--r-sm);
+  font-size: .875rem;
+}
+.editable-key,
+.workbook-grid td[data-protected="false"] .input {
+  background: var(--ok-soft);
+  color: var(--ink);
+}
+.protected-key,
+.workbook-grid td[data-protected="true"] .input {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.workbook-jump .input {
+  width: min(100%, 10rem);
+}
+.workbook-grid {
+  position: relative;
+  overflow-x: auto;
+  margin-block: 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+}
+.workbook-grid :is(thead th, tbody th) {
+  padding: 8px 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.workbook-grid tbody tr:nth-child(even) {
+  background: var(--paper);
+}
+.workbook-grid td {
+  position: relative;
+  padding: 5px;
+}
+.workbook-grid td .input {
+  font-variant-numeric: tabular-nums;
+}
+.workbook-formula-result {
+  margin-top: 3px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.workbook-reference {
+  margin-block: 12px;
+}
+.workbook-grade {
+  margin-block: 12px;
+}
+.workbook-grade-cell {
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+.workbook-grade-cell[data-passed="true"] {
+  background: var(--ok-soft);
+  color: var(--ok);
+}

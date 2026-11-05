@@ -1,3 +1,4 @@
+import { documentReviewRevisionProblems } from "./documentCoursePackage";
 import { branchingRevisionProblems } from "./branchingCoursePackage";
 import { scientificRevisionProblems } from "./scientificCoursePackage";
 import { advancedAssessmentRevisionProblems } from "./advancedAssessmentCoursePackage";
@@ -59,6 +60,7 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     if (current) compare(`texts.${text.id}.sections`, text.sections, current.sections, (section) => section.id);
   }
   for (const message of readerRevisionProblems(previous.texts ?? [], next.texts ?? [])) add("blocking", "texts", message);
+  for (const issue of documentReviewRevisionProblems(previous.documentReviews ?? [], next.documentReviews ?? [])) add("blocking", "documentReviews", issue);
   for(const issue of branchingRevisionProblems(previous.branchingScenarios??[],next.branchingScenarios??[]))add("blocking","branchingScenarios",issue);
   for(const issue of scientificRevisionProblems(previous.scientificWorkspaces??[],next.scientificWorkspaces??[]))add("blocking","scientificWorkspaces",issue);
   for(const issue of advancedAssessmentRevisionProblems(previous.advancedAssessments??[],next.advancedAssessments??[]))add("blocking","advancedAssessments",issue);
@@ -72,7 +74,7 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
       add("blocking", `spreadsheetAssignments[${i}].lessonId`, `Assignment refers to unknown lesson: ${assignment.lessonId}`);
   compare("vocab", previous.vocab ?? [], next.vocab ?? [], (word) => word.id, (word) => word.lesson);
   for (const [i, word] of (next.vocab ?? []).entries())
-    if (!next.lessons.some((lesson) => lesson.id === word.lesson))
+    if ((!word.from || word.from === next.id) && !next.lessons.some((lesson) => lesson.id === word.lesson))
       add("blocking", `vocab[${i}].lesson`, `Vocabulary refers to unknown lesson: ${word.lesson}`);
   return issues;
 }
