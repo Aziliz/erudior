@@ -40,6 +40,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   const [session, setSession] = useState<Session>(started);
   const [adaptNote, setAdaptNote] = useState<{ qid: string; text: string } | null>(null);
   const isExam = session.mode === "exam";
+  const isBankPractice = !isExam && !isQuiz(session) && !session.kind && !session.reading && !session.intervention;
+  const enterAdvances = isExam || isBankPractice;
   const items = session.items;
   // Lesson quizzes return to their lesson, module quizzes to the lesson list, everything else to the bank.
   const backLesson = session.lesson ?? session.pretestLesson;
@@ -327,18 +329,22 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
   function advance(finalChoice?: Chosen) {
     if (finishing.current || pendingSubmit.current) return;
-    if (!atBlockEnd) go(index + 1);
-    else if (isExam) void submitBlock(finalChoice ? { ...answers, [q.id]: finalChoice } : answers);
-    else void finish();
+    if (!atBlockEnd) {
+      go(index + 1);
+      return;
+    }
+    const finalAnswers = finalChoice ? { ...answers, [q.id]: finalChoice } : answers;
+    if (isExam) void submitBlock(finalAnswers);
+    else void finish(finalAnswers);
   }
 
   async function endPractice() {
-    const n = isQuiz(session) ? answeredCount : Object.keys(checked).length;
+    const n = isQuiz(session) || isBankPractice ? answeredCount : Object.keys(checked).length;
     if (n < items.length) {
       const ok = await confirmAction(
         isQuiz(session)
           ? `You've answered ${n} of ${items.length} questions. Unanswered questions count as wrong. Finish the quiz?`
-          : `You've checked ${n} of ${items.length} questions. End the session and see your results?`,
+          : `You've ${isBankPractice ? "answered" : "checked"} ${n} of ${items.length} questions. End the session and see your results?`,
         isQuiz(session) ? "Finish quiz" : "End practice",
       );
       if (!ok) return;
@@ -427,7 +433,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       if (k === "enter") e.preventDefault();
       return;
     }
-    if (choicesHidden && (k === "enter" || k === " ")) {
+    if (choicesHidden && (k === " " || (k === "enter" && !enterAdvances))) {
       e.preventDefault();
       setShownChoices((m) => ({ ...m, [q.id]: true }));
       return;
@@ -448,7 +454,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
       const control = target?.closest("button, a[href], summary, [role=button]");
       if (control && !control.hasAttribute("data-choice")) return;
       e.preventDefault();
-      if (!isExam && !isChecked) void check();
+      if (enterAdvances) advance();
+      else if (!isChecked) void check();
       else if (explHidden) setShownExpl((m) => ({ ...m, [q.id]: true }));
       else advance();
     }
@@ -460,7 +467,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   }, []);
 
   const advanceLabel = !atBlockEnd ? "Next" : !isExam ? "See results" : lastBlock ? "Submit exam" : "Finish section";
-  const enterLabel = choicesHidden ? "Show choices"
+  const enterLabel = enterAdvances ? advanceLabel : choicesHidden ? "Show choices"
     : !isExam && !isChecked ? "Check answer"
       : explHidden ? "Show explanation" : advanceLabel;
 
@@ -473,8 +480,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
 
   return (
     <div className={`runner${readAloud ? " ra-course" : ""}`} ref={runnerRef} aria-busy={operationPending}>
-      <CalcDock kind={calcKind(course)} />
       <div className="runner-main">
+      <CalcDock kind={calcKind(course)} />
       {(saveError || failedOperation) && <div className="notice error" role="alert">
         {submissionCommitted ? "Your result is saved, but the recovery draft could not be cleared. " : "Session could not be saved. Your quiz is still here. "}
         {saveError}
@@ -553,7 +560,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               chosen={chosen}
               onChoose={choose}
               onChange={setAnswer}
-              onEnter={isExam ? advance : () => { if (!isChecked) void check(); }}
+              onEnter={enterAdvances ? advance : () => { if (!isChecked) void check(); }}
               reveal={isChecked}
               read={readAloud ? { lib } : undefined}
               ime={imeFor(course?.language)}
@@ -682,11 +689,12 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             )}
             ← → move, Shift+F flag, Enter {enterLabel.toLowerCase()}
           </span>
-          {!isExam && !isChecked ? (
-            <button className="btn primary" onClick={check} disabled={!answeredNow}>
+          {!isExam && !isChecked && !choicesHidden && (
+            <button className={isBankPractice ? "btn" : "btn primary"} onClick={check} disabled={!answeredNow}>
               Check answer
             </button>
-          ) : (
+          )}
+          {(enterAdvances || isChecked) && (
             <button className="btn primary" onClick={() => advance()}>
               {advanceLabel}
             </button>

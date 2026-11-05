@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { JSDOM } from "jsdom";
-import type { AppApi } from "../src/App";
+import type { AppApi, View } from "../src/App";
 import type { Session } from "../src/lib/session";
 import type { Course, Question } from "../src/lib/types";
 
@@ -20,6 +21,9 @@ dom.window.HTMLElement.prototype.scrollTo = () => {};
 const { act, createElement } = await import("react");
 const { createRoot } = await import("react-dom/client");
 const { default: Runner } = await import("../src/pages/Runner");
+const { default: BankHome } = await import("../src/pages/BankHome");
+const { normalizeCourse } = await import("../src/lib/course");
+const { isChoice } = await import("../src/lib/questions");
 const { emptyProgress } = await import("../src/lib/storage");
 
 const root = createRoot(document.getElementById("root")!);
@@ -46,7 +50,7 @@ const exam: Session = {
 };
 const course = { id: "course", language: { code: "ja", ime: "ja" }, lessons: [] } as unknown as Course;
 const bank = { id: "bank", courseId: course.id, sections: [] } as unknown as NonNullable<Parameters<typeof Runner>[0]["bank"]>;
-const routes: unknown[] = [];
+const routes: View[] = [];
 const confirmations: string[] = [];
 let confirm = false;
 dom.window.confirm = (message) => { confirmations.push(message); return confirm; };
@@ -54,7 +58,7 @@ let progress = emptyProgress();
 const api = {
   get progress() { return progress; },
   courses: [course],
-  go: (route: unknown) => routes.push(route),
+  go: (route: View) => routes.push(route),
   toast: () => {},
   saveLearnerSession: async () => {},
   updateProgress: async (update: (value: typeof progress) => typeof progress) => { progress = update(progress); },
@@ -134,7 +138,66 @@ try {
   await press("Enter");
   assert.equal(attempt().correct, 1, "Enter on the final checked quiz question opens results");
   assert.equal((routes[1] as { name: string }).name, "results");
-  console.log("Runner keyboard shortcuts passed for shuffled choices, split exams, typed answers, and quizzes.");
+  const colorado = normalizeCourse(JSON.parse(readFileSync(new URL("../samples/colorado-broker-course.json", import.meta.url), "utf8")));
+  const coloradoBank = colorado.banks[0];
+  const coloradoApi = { ...api, get progress() { return progress; }, courses: [colorado] };
+  const button = (label: string) => Array.from(document.querySelectorAll("button")).find(button => button.textContent?.trim() === label)!;
+  const click = (button: HTMLButtonElement) => act(async () => button.click());
+  const questionNumber = () => document.querySelector(".qnum")!.textContent?.trim();
+  const focusRunner = () => document.querySelector("main")!.focus();
+  const jumpTo = async (indexInSection: number) => {
+    await click(document.querySelectorAll<HTMLButtonElement>(".sheet-grid button")[indexInSection]);
+    focusRunner();
+  };
+
+  for (const mode of ["exam", "practice"] as const) {
+    progress = emptyProgress();
+    await act(async () => root.render(createElement(BankHome, { api: coloradoApi, bank: coloradoBank })));
+    await click(button(mode === "exam" ? "Start exam" : "Start practice"));
+    const route = routes.at(-1);
+    assert(route?.name === "run");
+    const { session } = route;
+    assert.equal(session.mode, mode);
+    await act(async () => root.render(createElement(Runner, { key: session.id, api: coloradoApi, bank: coloradoBank, session })));
+
+    const firstBlock = session.blocks[0];
+    const firstChoice = session.items.findIndex(({ q }, index) => index < firstBlock.end - 1 && isChoice(q));
+    assert(firstChoice >= 0);
+    await jumpTo(firstChoice);
+    const item = session.items[firstChoice];
+    await press("2");
+    assert(checked(item.order[1]));
+    await press("a");
+    assert(checked(item.order[0]));
+    await press("F", { shiftKey: true });
+    assert.equal(flag(), "true");
+    choice(item.order[0]).focus();
+    const before = questionNumber();
+    await press("Enter");
+    assert.notEqual(questionNumber(), before, `Colorado ${mode} advances without a separate answer check`);
+    await press("ArrowLeft");
+    assert.equal(questionNumber(), before);
+    assert(checked(item.order[0]));
+
+    if (mode === "practice") {
+      await click(button("Check answer"));
+      assert(document.querySelector(".verdict"), "Colorado practice still offers feedback on demand");
+      await press("Enter");
+      assert.notEqual(questionNumber(), before, "feedback does not block the practice navigation shortcut");
+    }
+
+    const priorConfirmations = confirmations.length;
+    for (const block of session.blocks) {
+      await jumpTo(block.end - block.start - 1);
+      await press("Enter");
+    }
+    assert.equal(routes.at(-1)?.name, "results", `Colorado ${mode} finishes via Enter`);
+    assert.equal(attempt().mode, mode);
+    assert.equal(attempt().answered, 1);
+    assert.equal(confirmations.length - priorConfirmations, mode === "exam" ? session.blocks.length : 0);
+  }
+
+  console.log("Runner keyboard shortcuts passed for shuffled choices, split exams, typed answers, quizzes, and both Colorado broker launch paths.");
 } finally {
   await act(async () => root.unmount());
   dom.window.close();
