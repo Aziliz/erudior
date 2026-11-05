@@ -69,3 +69,45 @@ assert.ok(validateCanonicalAuthoring(vocabularyDraft).some(e => e.includes('at l
 assert.deepEqual(vocabularyDraft, vocabularyBefore, 'validation never deletes or repairs authored vocabulary');
 vocabularyDraft.course.vocab[0].meanings = ['Meaning'];
 assert.deepEqual(validateCanonicalAuthoring(vocabularyDraft), []);
+
+const workbookDraft = structuredClone(withQuestion);
+workbookDraft.course.lessons = [{ id: 'workbook-lesson', module: course.modules[0].id, title: 'Workbook', body: 'Add the two inputs.' }];
+workbookDraft.course.spreadsheetAssignments = [{
+ id: 'workbook-v2', lessonId: 'workbook-lesson', title: 'Bounded workbook',
+ directions: ['Use the named input range to calculate the total.'],
+ starter: {
+  engineVersion: 2, sheets: { Data: { A1: 2, A2: 3, B1: '' } },
+  namedRanges: { Inputs: { sheet: 'Data', range: 'A1:A2' } },
+  validationRules: [{ sheet: 'Data', range: 'B1', kind: 'number', min: 0, max: 10, allowBlank: true }],
+  cellExplanations: { 'Data!B1': 'Add the two input cells.' },
+  macroDefinitions: [{ id: 'sum', title: 'Insert a sum formula', steps: [{ op: 'set', target: 'Data!B1', value: '=SUM(Inputs)' }] }],
+ },
+ protectedCells: ['Data!A1', 'Data!A2'], answers: { 'Data!B1': 5 },
+}];
+const workbookBefore = structuredClone(workbookDraft);
+assert.deepEqual(validateCanonicalAuthoring(workbookDraft), [], 'supported v2 workbook metadata is valid canonical content');
+const workbookRoundtrip = canonicalAuthoringFromCourse(courseFromCanonicalAuthoring(workbookDraft));
+assert.deepEqual(workbookRoundtrip.course.spreadsheetAssignments, workbookDraft.course.spreadsheetAssignments, 'all v2 metadata, protection, directions and grading criteria survive');
+assert.equal(workbookRoundtrip.course.spreadsheetAssignments![0].starter.sheets.Data.B1, '', 'importing a macro definition never runs it');
+assert.deepEqual(workbookDraft, workbookBefore, 'workbook conversion does not mutate its input');
+const workbookRejections: [string, (assignment: any) => void][] = [
+ ['unknown starter field', a => { a.starter.approved = true; }],
+ ['unknown assignment field', a => { a.reviewerId = 'owner'; }],
+ ['unsupported engine version', a => { a.starter.engineVersion = 3; }],
+ ['metadata without v2 marker', a => { delete a.starter.engineVersion; }],
+ ['missing source sheet', a => { a.starter.namedRanges.Inputs.sheet = 'Missing'; }],
+ ['extra named-range authority', a => { a.starter.namedRanges.Inputs.approved = true; }],
+ ['invalid validation bounds', a => { a.starter.validationRules[0].min = 11; }],
+ ['unknown rule field', a => { a.starter.validationRules[0].receipt = 'trusted'; }],
+ ['unknown explanation cell', a => { a.starter.cellExplanations = { 'Missing!B1': 'Text' }; }],
+ ['oversized explanation', a => { a.starter.cellExplanations['Data!B1'] = 'x'.repeat(2049); }],
+ ['executable macro operation', a => { a.starter.macroDefinitions[0].steps[0] = { op: 'execute', target: 'Data!B1', code: 'throw 1' }; }],
+ ['unknown macro field', a => { a.starter.macroDefinitions[0].url = 'https://example.invalid/run'; }],
+];
+for (const [label, mutate] of workbookRejections) {
+ const bad = structuredClone(workbookDraft);
+ mutate(bad.course.spreadsheetAssignments[0]);
+ assert.ok(validateCanonicalAuthoring(bad).length, label);
+ assert.throws(() => courseFromCanonicalAuthoring(bad), undefined, label);
+}
+console.log('Canonical workbook v2: exact metadata roundtrip, inert macros, and 12 malformed/authority-bearing payloads rejected.');

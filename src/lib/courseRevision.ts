@@ -73,7 +73,6 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
     if (!next.lessons.some(lesson => lesson.id === assignment.lessonId))
       add("blocking", `spreadsheetAssignments[${i}].lessonId`, `Assignment refers to unknown lesson: ${assignment.lessonId}`);
   compare("vocab", previous.vocab ?? [], next.vocab ?? [], (word) => word.id, (word) => word.lesson);
-  // Carried vocabulary belongs to its source course; only local lessons are available here.
   for (const [i, word] of (next.vocab ?? []).entries())
     if ((!word.from || word.from === next.id) && !next.lessons.some((lesson) => lesson.id === word.lesson))
       add("blocking", `vocab[${i}].lesson`, `Vocabulary refers to unknown lesson: ${word.lesson}`);
