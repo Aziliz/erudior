@@ -11,9 +11,13 @@ export type PrivateAccountStore = Pick<PostgresAccountStore,
 export type PrivateAccountExportStore = Pick<PostgresAccountStore,
   'requestRecordExport' | 'getRecordExport' | 'downloadRecordExport' | 'cancelRecordExport'>;
 
+/** Explicit private host capability; absent means device management is unavailable. */
+export type PrivateAccountDeviceStore = Pick<PostgresAccountStore,
+  'listDeviceSessions' | 'revokeDeviceSessions'>;
+
 export interface PrivateAccountAuditEvent {
   requestId: string;
-  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'export.request' | 'export.status' | 'export.download' | 'export.cancel' | 'request';
+  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'export.request' | 'export.status' | 'export.download' | 'export.cancel' | 'devices.list' | 'devices.revoke' | 'request';
   outcome: 'success' | 'denied' | 'error';
 }
 export interface PrivateAccountHttpConfig {
@@ -25,6 +29,8 @@ export interface PrivateAccountHttpConfig {
   store: PrivateAccountStore;
   /** Explicit host opt-in, separate from session/read access. No public export endpoints. */
   exports?: PrivateAccountExportStore;
+  /** Separate opt-in; never mounted by the public application. */
+  devices?: PrivateAccountDeviceStore;
   /** Separate, server-owned secret. Rotation requires session invalidation/relogin. */
   csrfKey: Uint8Array;
   /** Trusted server clock, injectable only by the host/test harness. Never request data. */
@@ -185,8 +191,10 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       const recordMatch = /^\/v1\/workspaces\/([A-Za-z0-9_-]+)\/records\/([A-Za-z0-9_-]+)$/.exec(path);
       const exportMatch = config.exports ? /^\/v1\/exports\/([A-Za-z0-9_-]+)(?:\/(download|cancel))?$/.exec(path) : null;
       const exportCreate = !!config.exports && path === '/v1/exports';
+      const devicesList = !!config.devices && path === '/v1/devices';
+      const devicesRevoke = !!config.devices && path === '/v1/devices/revoke';
       if (!callbackMatch && url.search) bad();
-      const method = exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
+      const method = devicesRevoke || exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : devicesList || exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
         : ['/v1/auth/start', '/v1/session/context', '/v1/session/logout'].includes(path) ? 'POST' : null;
       if (!method) return response(404, { error: 'not_found' });
       if (request.method !== method) return response(405, { error: 'invalid_request' }, [['Allow', method]]);
@@ -253,6 +261,23 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       if (method === 'POST') {
         const supplied = request.headers.get(CSRF_HEADER);
         if (!supplied || !TOKEN.test(supplied) || !equal(supplied, csrf(opaque))) denied();
+      }
+      if (devicesList) {
+        operation = 'devices.list';
+        const devices = await config.devices!.listDeviceSessions(digest(opaque));
+        if (!devices) return response(404, { error: 'not_found' });
+        return response(200, { devices });
+      }
+      if (devicesRevoke) {
+        operation = 'devices.revoke';
+        const body = await jsonBody(request, [], ['sessionId']);
+        if (Object.hasOwn(body, 'sessionId') && !isAccountId(body.sessionId)) bad();
+        const result = await config.devices!.revokeDeviceSessions({
+          tokenHash: digest(opaque), csrfHash: digest(csrf(opaque)),
+          ...(typeof body.sessionId === 'string' ? { sessionId: body.sessionId } : {}),
+        });
+        if (!result) return response(404, { error: 'not_found' });
+        return response(200, result, result.currentRevoked ? [['Set-Cookie', clearSessionCookie()]] : []);
       }
       if (exportCreate) {
         operation = 'export.request';
