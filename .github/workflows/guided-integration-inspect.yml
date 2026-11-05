@@ -15,7 +15,7 @@ jobs:
           ref: 58b83b9759fe504bb8713b3e075dc0c0e4bc5629
           fetch-depth: 0
           persist-credentials: false
-      - name: Reproduce reviewed integration and upload Git tree objects only
+      - name: Reproduce reviewed integration and upload source-only Git objects
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,29 +75,38 @@ jobs:
               subprocess.run(['git','update-index','--cacheinfo','100644,'+blob+','+name],check=True)
           resolved=git('write-tree')
           assert resolved==expected,(resolved,expected)
-          # Only materialize Git data objects. This job never creates or updates
-          # commits, branches, tags, pull requests, releases or deployment state.
+          # Actions credentials do not modify workflows. Leave every workflow
+          # byte on main unchanged; the separately authorized connector handles
+          # the reviewed workflow changes. This job creates no refs or releases.
           names=git('diff-tree','--no-commit-id','--name-only','-r',main,resolved).splitlines()
           assert 1<=len(names)<=50
-          entries=[]
+          entries=[];deferred=[]
           for name in names:
               assert '..' not in name.split('/') and not name.startswith(('/', 'samples/', 'account-service/', 'public/'))
               mode,kind,sha=git('ls-tree',resolved,'--',name).split('\t')[0].split()
               assert kind=='blob' and mode in ('100644','100755')
+              if name.startswith('.github/workflows/'):
+                  deferred.append({'path':name,'sha':sha})
+                  continue
               source=subprocess.check_output(['git','show',resolved+':'+name]).decode('utf-8')
               entries.append({'path':name,'mode':mode,'type':'blob','content':source})
-          payload=out/'tree-payload.json'
+          assert {e['path'] for e in deferred}=={'.github/workflows/community.yml','.github/workflows/courses.yml','.github/workflows/guided-practice.yml'}
+          payload=out/'source-tree-payload.json'
           payload.write_text(json.dumps({'base_tree':git('rev-parse',main+'^{tree}'),'tree':entries}))
           response=json.loads(subprocess.check_output(['gh','api','--method','POST','repos/Aziliz/erudior/git/trees','--input',str(payload)],text=True))
-          assert response['sha']==expected
           payload.unlink()
-          (out/'remote-tree.json').write_text(json.dumps({'scope':'reviewed public-source integration; Git objects only, not acceptance or publication','main':main,'nativeGuard':guard,'guided':guided,'tree':response['sha'],'resolvedBlobs':expected_blobs,'changedPaths':names,'refsModified':False,'published':False},indent=2)+'\n')
-          print('Verified remote Git tree:',response['sha'])
+          (out/'remote-tree.json').write_text(json.dumps({'scope':'reviewed public-source objects only, workflows unchanged; not acceptance or publication','main':main,'nativeGuard':guard,'guided':guided,'sourceOnlyTree':response['sha'],'locallyResolvedTree':resolved,'resolvedBlobs':expected_blobs,'changedPaths':[e['path'] for e in entries],'deferredWorkflows':deferred,'refsModified':False,'published':False},indent=2)+'\n')
+          print('Source-only remote tree:',response['sha'])
           PY
           (cd "$EVIDENCE" && sha256sum remote-tree.json guided-merge.txt guard-merge.txt > SHA256SUMS)
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: guided-integration-inspection
-          path: ${{ runner.temp }}/guided-integration/
+          path: |
+            ${{ runner.temp }}/guided-integration/remote-tree.json
+            ${{ runner.temp }}/guided-integration/guided-merge.txt
+            ${{ runner.temp }}/guided-integration/guard-merge.txt
+            ${{ runner.temp }}/guided-integration/SHA256SUMS
           retention-days: 7
-          if-no-files-found: error
+          if-no-files-found: warn
