@@ -1,6 +1,6 @@
 # LSAT and bar course handoff
 
-Updated November 5, 2026 (America/Denver). User request: take over both courses, publish LSAT if complete and place it first in J.D. Preparation.
+Updated November 6, 2026 (UTC). User request: take over both courses, publish LSAT if complete and place it first in J.D. Preparation.
 
 ## LSAT — Done
 
@@ -26,17 +26,29 @@ Full regression/identity run `42107518928` passed: job `127526142598` completed 
 
 ## U.S. Bar Exam Preparation — In Progress
 
-Continue the existing private source branch `course/bar-exam-foundations-20261103`, draft PR [#5](https://github.com/Aziliz/erudior-courses/pull/5). The Contracts and Sales validation checkpoint is `448945a781f08f329e1a8d2650a4c44478cce160`. Course ID `us-bar-exam-preparation`; source `content/math/bar-exam`; `released:false`.
+Continue private branch `course/bar-exam-foundations-20261103`, draft PR [#5](https://github.com/Aziliz/erudior-courses/pull/5). Current Real Property authoring checkpoint: `4933e94e751a6f1e2658c94a30eb2b51a71ef2a4`, following Torts review `e71362c4c83a85202b9bfc9ef5082612e2030d9f`. Course `us-bar-exam-preparation`, source `content/math/bar-exam`, remains `released:false`.
 
-Three authored cores: foundations, federal civil procedure, contracts and sales. Totals remain 30 lessons, 360 questions, 240 cards, 226 glossary terms, 29 references and four manual case-file tasks with separate models. The 120 module-review selections reuse bank questions. Thirteen other modules remain planned; this is not a completed bar course.
+The **complete Real Property core authoring slice is finished**. Five cores now contain 63 lessons, 789 questions (752 single-answer, 37 multiple-response), 504 cards, 427 terms, 48 references, and six manual case files. The 252 module-review selections reuse bank items; the separate twelve-item starting baseline is unchanged. Eleven further modules remain planned, not empty runtime modules.
 
-The Contracts and Sales assistant validation is complete for lessons 20–30: 22 worked examples, 132 questions and alternatives, 88 cards, 103 terms, nine references, and the Harbor Lantern file/model with both variations. Fifteen question entries were clarified or strengthened without changing identities, answer positions, lesson links, or review selections. Timing and installment qualifications were clarified in teaching materials. The private review records exact corrections and all 132 individual answer rationales.
+Real Property adds eighteen lessons (46–63), 234 original questions, 144 cards, 108 terms, ten references, and 36 worked examples. Coverage runs through estates, future interests, cotenancy, leasing and housing rights, easements and covenants, land sales, adverse possession, deeds and recording, mortgages and foreclosure. Lessons have 1,078–1,227 whitespace-counted body words. PROPERTY-COVERAGE.md identifies depth limits and advanced variants; this is not a completed examination-coverage claim.
 
-The unchanged targeted builder, production course checker, strict import, canonical roundtrip, and all 5,760 grading subsets pass locally. Production components passed 40 desktop/narrow reading states and 35 answer/feedback states, plus glossary interactions. These are isolated component checks, not full-App learner acceptance or independent academic review. Full import/navigation/progress, card interaction, and native-device testing remain outstanding. App helpers are pinned to `ef8fa47cb390c27ca4f0a67c9bdebce11f1a1582`; corrected private runtime SHA-256 is `8c4a029decda15869ebe3eb06c6ed17cfd55d38fe5344581a2d117f91d66d25c`.
+The original Alder Court file supplies fictional rules and documents, a 700–1,000-word assignment, separate 745-word model memorandum, and a 30-point manual rubric. It asks for a conditional closing recommendation, a lawful resolution of a valid tenancy, mortgage release documents, a cure calendar, preservation of access rights, and separate money ledgers. Buyer cash is $73,800; seller net is $139,200; total cash sources and uses are $361,800. A separate foreclosure comparison produces a $20,000 surplus. These are exercise assumptions, not a real closing opinion or an automatic essay score.
 
-Next slice: **author Torts through its complete core sequence**, followed by its separate validation slice. Read current private `PROGRESS.md`, `OUTLINE.md`, `CONTRACTS-COVERAGE.md`, and `validation/REVIEW-CONTRACTS.md` before editing. Civil procedure and contracts remain In Progress with depth work and independent qualified review open.
+Authoring checks pass: preserved earlier source bytes, unique IDs/links/topics, lesson structure, balanced answer positions, eleven independent numeric keys, cash reconciliations and deterministic targeted build. The unchanged production course checker, field-preservation preflight, strict source importer, canonical validation/roundtrip, normalizer, and grader pass all 12,624 selection subsets, 789 unanswered cases, and four malformed controls.
 
-Remote [Check courses run 42114296294](https://github.com/Aziliz/erudior-courses/actions/runs/42114296294) belongs to the validation commit; its latest observed status is recorded on the PR. Do not infer remote CI success from local checks. The prior run failed without reported job steps or an available log, and its immediate cause was unconfirmed. Keep the bar draft unpublished until its intended scope and release acceptance are complete.
+The existing **24 MiB local-source acquisition policy** supports the 1,619,242-byte draft; compact JSON is 1,495,894 bytes. The separate **900 KiB default route** still rejects it as expected. No app source, production limit, validator, shared builder, workflow, signing, or publication control changed. Community transport and release acceptance are not claimed.
+
+App pin: `ef8fa47cb390c27ca4f0a67c9bdebce11f1a1582`. Runtime SHA-256: `62730675f4cb168858799253751d3969b921d8d91d6a38498d051047e6c48168`. All 45 saved blobs match local bytes; 5,184 other repository blobs remain unchanged, including 27 historical validation files not materialized locally. No deletions or private changes outside this course. The generated runtime remains in the draft build lane and is not a public package.
+
+Eighteen primary downloads succeeded. The actual NCBE PDF is dated November 4, 2026 and covers July 2026–February 2028 despite older URL/search labels; it expressly excludes perpetuities from this property scope. New York statutes and California instructions are labeled local examples. Read RESEARCH-PROPERTY.md and the retrieval manifest for scope and authority limits.
+
+**Next slice: detailed Real Property content validation.** Re-solve all 234 keys; review every distractor, example, card, term, reference and the Alder model/rubric; renew material sources; and exercise learner reading and grading. Strictly longest correct options occur in 82/216 new single-answer items, a review diagnostic rather than a quality pass. This authoring slice did not claim semantic re-solve, browser testing, full-App import/navigation, cards/progress persistence, native acceptance, or qualified independent legal review.
+
+Earlier Torts assistant review and browser evidence remain preserved at their original package hash. The glossary Close button worked, but Escape did not dismiss it; that app-acceptance issue remains open. Civil Procedure, Contracts, Torts, and Real Property remain In Progress for documented depth and independent review. After Real Property validation, the next planned authoring core is Evidence.
+
+Read private PROGRESS.md, OUTLINE.md, PROPERTY-COVERAGE.md, RESEARCH-PROPERTY.md, validation/AUTHORING-PROPERTY.md and the property source/runtime manifests. Keep the bar course private and outside the J.D. pathway until its intended scope and release acceptance are complete. LSAT remains separately published and first in that program.
+
+Remote [Check courses run 42137689405](https://github.com/Aziliz/erudior-courses/actions/runs/42137689405) failed for this authoring checkpoint. Job `127629894776` reports no steps; its log endpoint returns 404 BlobNotFound. The immediate cause is unconfirmed. Local checks do not imply remote CI success; controls were not bypassed.
 
 ## Concurrent work and publication
 
