@@ -66,3 +66,4 @@ pageModule.then(({ default: Page }) =>
 
 import "./presentations.css";
 import "./androidUpdateLayout.css";
+import "./androidApp.css";

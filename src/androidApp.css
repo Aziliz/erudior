@@ -1,0 +1,203 @@
+/* Native Android presentation only. Permissions and route guards remain in App.
+   Load after styles.css and androidUpdateLayout.css. Do not hide capabilities
+   to make the phone layout fit. Wide Android windows retain the full top nav. */
+.erudior-android-shell .android-bottom-nav { display: none; }
+
+@media screen and (max-width: 760px) {
+  .erudior-android-shell {
+    --phone-nav-space: calc(92px + env(safe-area-inset-bottom, 0px));
+    --r-md: 16px;
+    min-height: 100dvh;
+  }
+  .erudior-android-shell .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 12px;
+    padding: max(10px, env(safe-area-inset-top, 0px)) 16px 10px;
+    padding-inline-start: max(16px, env(safe-area-inset-left, 0px));
+    padding-inline-end: max(16px, env(safe-area-inset-right, 0px));
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: none;
+  }
+  .erudior-android-shell .topbar .brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 48px;
+    justify-self: start;
+    letter-spacing: -.025em;
+    font-size: 1.25rem;
+  }
+  .erudior-android-shell .topbar > .spacer { display: none; }
+  /* Restore controls hidden by the initial phone shell. Existing actions and
+     parent authentication are reused; this stylesheet grants no authority. */
+  .erudior-android-shell .topbar .display-menu {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+  .erudior-android-shell .topbar .display-menu > button {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 12px;
+  }
+  .erudior-android-shell .topbar .family-nav {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .erudior-android-shell .topbar .family-nav .btn {
+    min-width: 0;
+    min-height: 48px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .erudior-android-shell .topbar > .btn {
+    display: inline-flex;
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    justify-content: center;
+    min-height: 48px;
+    white-space: normal;
+  }
+  .erudior-android-shell .display-menu .display-panel {
+    position: fixed;
+    inset: calc(env(safe-area-inset-top, 0px) + 4.75rem) 12px auto;
+    width: auto;
+    min-width: 0;
+    max-width: 30rem;
+    max-height: min(70dvh, 32rem);
+    margin-inline: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    box-sizing: border-box;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 18px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+  }
+  .erudior-android-shell .display-panel :is(.field, .select) {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .erudior-android-shell .display-panel :is(.select, .btn) { min-height: 48px; }
+  .erudior-android-shell .main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 20px 16px var(--phone-nav-space);
+    padding-inline-start: max(16px, env(safe-area-inset-left, 0px));
+    padding-inline-end: max(16px, env(safe-area-inset-right, 0px));
+  }
+  /* Fullscreen lessons and activities intentionally have no bottom bar. */
+  .erudior-android-shell:not(:has(> .android-bottom-nav)) .main { padding-bottom: 24px; }
+  .erudior-android-shell .main > .page { margin: 0; padding-inline: 0; }
+  .erudior-android-shell .page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .erudior-android-shell .page-head > div { min-width: 0; flex: 1 1 14rem; }
+  .erudior-android-shell .page-head h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -.025em;
+    overflow-wrap: anywhere;
+  }
+  .erudior-android-shell .page-head p { margin: 0; line-height: 1.5; }
+  .erudior-android-shell .main :is(.btn, .input, .select) { min-height: 48px; }
+  .erudior-android-shell .main :is(.input, .select, .textarea) { max-width: 100%; box-sizing: border-box; }
+  /* Every parent/teacher section stays present. Overflow is local to the
+     navigation row instead of pushing the entire screen sideways. */
+  .erudior-android-shell .main .tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 6px 2px 12px;
+    margin-bottom: 20px;
+    scroll-padding-inline: 8px;
+    scrollbar-width: thin;
+  }
+  .erudior-android-shell .main .tabs > button {
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 10px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    white-space: nowrap;
+    background: var(--surface);
+    color: var(--ink-2);
+  }
+  .erudior-android-shell .main .tabs > button[aria-current="page"] {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+  .erudior-android-shell .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .erudior-android-shell .form-grid > *,
+  .erudior-android-shell .field { min-width: 0; }
+  .erudior-android-shell .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    border-radius: 12px;
+  }
+  .erudior-android-shell .android-bottom-nav {
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    padding: 8px max(8px, env(safe-area-inset-right, 0px)) max(8px, env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px));
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    box-shadow: none;
+  }
+  .erudior-android-shell .android-bottom-nav button {
+    flex: 1 1 auto;
+    min-height: 64px;
+    min-width: 48px;
+    padding: 6px 2px;
+    gap: 5px;
+    border-radius: 14px;
+    font: 600 .75rem/1.25 var(--sans);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    transition: background-color 120ms ease, color 120ms ease;
+    touch-action: manipulation;
+  }
+  .erudior-android-shell .android-bottom-nav button[aria-current="page"] { font-weight: 750; }
+  .erudior-android-shell .toast { bottom: var(--phone-nav-space); max-width: calc(100% - 32px); }
+  .erudior-android-shell :is(button, a, input, select, textarea):focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .erudior-android-shell .android-bottom-nav button { transition: none; }
+}
+@media print {
+  .erudior-android-shell .android-bottom-nav,
+  .erudior-android-shell .topbar { display: none !important; }
+  .erudior-android-shell .main { padding: 0; }
+}
