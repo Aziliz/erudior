@@ -45,7 +45,7 @@ const handle = createPrivateAccountHandler({ origin: ORIGIN, returnPath: '/accou
   csrfKey: randomBytes(32), browserUI: { providers: providers.map((provider, index) => ({ id: provider.config.id, label: index ? 'School test provider' : 'Personal test provider', authorizationEndpoint: provider.config.authorizationEndpoint })) } });
 const server = await listenHttp(handle, ORIGIN);
 const origins = new Map([[ORIGIN, server.origin], ...providers.map(provider => [new URL(provider.config.issuer).origin, provider.networkOrigin] as [string, string])]);
-interface Actor { attach?: (page: Page) => Promise<void>; context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
+interface Actor { expectedCancellation?: (request: ObservedRequest) => boolean; cancelled?: (request: ObservedRequest) => void; attach?: (page: Page) => Promise<void>; context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
   before?: (request: ObservedRequest) => Promise<'abort' | void>; after?: (request: ObservedRequest, response: ForwardedResponse) => Promise<'abort' | void> }
 const actors: Actor[] = [];
 async function actor() {
@@ -62,6 +62,8 @@ async function actor() {
   });
   value.attach = await installTransport(context, origins, {
     failure: path => { transportFailures.push(path); },
+    expectedCancellation: request => value.expectedCancellation?.(request) === true,
+    cancelled: request => value.cancelled?.(request),
     before: async request => {
       const provider = providers.find(provider => request.url.origin === new URL(provider.config.issuer).origin);
       if (provider) assert.equal(request.headers.cookie, undefined, 'Erudior cookies must never reach the provider site');
@@ -443,18 +445,28 @@ try {
     assert.ok(!(await exportList()).body.exports.some((item: any) => item.id === own.id));
   });
   await test('delayed export download is suppressed after lifecycle concealment', async () => {
-    const job = await createExport(); let downloads = 0;
+    const job = await createExport(); let downloads = 0, concealmentRequested = false;
+    let markCancelled!: () => void;
+    const cancelled = new Promise<void>(resolve => { markCancelled = resolve; });
+    e.expectedCancellation = request => concealmentRequested && request.method === 'GET' && request.url.pathname === '/v1/exports/' + job.id + '/download';
+    e.cancelled = () => { markCancelled(); };
     e.page.on('download', () => { downloads++; });
     let release!: () => void, entered!: () => void;
     const gate = new Promise<void>(resolve => { release = resolve; });
     const reached = new Promise<void>(resolve => { entered = resolve; });
     e.after = async request => { if (request.url.pathname === '/v1/exports/' + job.id + '/download') { entered(); await gate; } };
     await e.page.getByRole('button', { name: 'Prepare download ' + job.id, exact: true }).click(); await reached;
+    concealmentRequested = true;
     await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}))");
     assert.equal(await e.page.getByRole('region', { name: 'Private record exports', exact: true }).count(), 0);
     release(); e.after = undefined;
     await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}))");
     await e.page.getByRole('region', { name: 'Private record exports', exact: true }).waitFor();
+    // Chromium must confirm cancellation of this exact fetch; unrelated
+    // transport failures remain fatal. Bound the wait so a missing event fails.
+    let timeout!: ReturnType<typeof setTimeout>;
+    try { await Promise.race([cancelled, new Promise<never>((_, reject) => { timeout = setTimeout(() => reject(new Error('Expected browser cancellation was not observed')), 5000); })]); }
+    finally { clearTimeout(timeout); e.expectedCancellation = undefined; e.cancelled = undefined; }
     assert.equal(downloads, 0, 'a concealed in-flight result must not trigger a browser download');
     assert.equal(await e.page.getByRole('link', { name: 'Save private export JSON', exact: true }).count(), 0, 'late bytes must not restore a Blob download link');
   });
@@ -506,6 +518,10 @@ try {
     }
   });
 } catch (error) {
+  const locations = error instanceof Error ? [...(error.stack ?? '').matchAll(/(?:browser-acceptance|browser-transport)\.mts:\d+:\d+/g)].map(match => match[0]) : [];
+  const safeLabels = ['synthetic transport must complete every paused request', 'a concealed in-flight result must not trigger a browser download', 'late bytes must not restore a Blob download link', 'Expected browser cancellation was not observed'];
+  const assertionLabel = error instanceof Error ? safeLabels.find(label => error.message.startsWith(label)) ?? null : null;
+  const diagnostic = { locations: [...new Set(locations)], assertionLabel };
   const states = [];
   for (const [index, actor] of actors.entries()) {
     states.push({ actor: index, pathname: new URL(actor.page.url()).pathname,
@@ -513,11 +529,11 @@ try {
     // Screenshots show document content only, never the browser address bar.
     await actor.page.screenshot({ path: `${OUT}/failure-${index}.png`, fullPage: true, timeout: 5000 }).catch(() => {});
   }
-  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, states, exchanges: exchangeSummary, transportFailures, consoleCategories }, null, 2));
-  console.error(JSON.stringify({ failedCase: currentCase, states, exchanges: exchangeSummary.slice(-20), transportFailures, consoleCategories }));
+  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, diagnostic, states, exchanges: exchangeSummary, transportFailures, consoleCategories }, null, 2));
+  console.error(JSON.stringify({ failedCase: currentCase, diagnostic, states, exchanges: exchangeSummary.slice(-20), transportFailures, consoleCategories }));
   // Playwright errors can include full callback URLs. Keep the original error
   // class but do not print the credential-bearing navigation log.
-  throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}); see sanitized failure.json and screenshots`);
+  throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}; ${diagnostic.locations.join(', ') || 'location unavailable'}${assertionLabel ? '; ' + assertionLabel : ''}); see sanitized failure.json and screenshots`);
 } finally {
   await writeFile(OUT + '/summary.json', JSON.stringify({ completed, passed: completed.length, freshCrossSiteCallbacks, transport: 'Synthetic HTTPS origins forwarded to real loopback HTTP. No production DNS/TLS proof.', browserCookieInjection: false, authorizationMocks: false }, null, 2));
   for (const actor of actors) await actor.context.close();
