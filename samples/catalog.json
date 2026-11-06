@@ -4080,6 +4080,146 @@
   ]
  },
  {
+  "id": "language-arts-6",
+  "title": "Language Arts 6",
+  "description": "Grade 6 reading, writing, language, research, and speaking. Study a complete novel and original stories, informational texts, poems, and drama; build a portfolio of evidence-based, revised writing.",
+  "revision": 1,
+  "order": 21.6,
+  "subject": "Language Arts",
+  "level": [
+   "Middle School"
+  ],
+  "type": [
+   "Course"
+  ],
+  "file": "math/language-arts-6.json",
+  "lessons": 36,
+  "questions": 396,
+  "cards": 180,
+  "drills": 0,
+  "lessonIds": [
+   "la6-evidence",
+   "la6-inference",
+   "la6-summary",
+   "la6-context",
+   "la6-plot",
+   "la6-character",
+   "la6-narrator",
+   "la6-theme",
+   "la6-central-idea",
+   "la6-structure",
+   "la6-purpose",
+   "la6-compare-media",
+   "la6-narrative-plan",
+   "la6-scene-dialogue",
+   "la6-pacing",
+   "la6-narrative-revision",
+   "la6-claim-reasons",
+   "la6-evidence-reasoning",
+   "la6-other-position",
+   "la6-argument-revision",
+   "la6-imagery-sound",
+   "la6-figurative-language",
+   "la6-poetic-structure",
+   "la6-drama",
+   "la6-research-question",
+   "la6-notes-citations",
+   "la6-research-draft",
+   "la6-research-revision",
+   "la6-sentences",
+   "la6-pronouns",
+   "la6-conventions",
+   "la6-style",
+   "la6-discussion",
+   "la6-presentation",
+   "la6-visual-information",
+   "la6-portfolio"
+  ],
+  "outline": [
+   {
+    "title": "Reading closely",
+    "lessons": [
+     "Evidence and quotations",
+     "Making supported inferences",
+     "Summarizing without judging",
+     "Vocabulary in context"
+    ]
+   },
+   {
+    "title": "A complete novel",
+    "lessons": [
+     "Plot, setting, and conflict",
+     "Character choices and change",
+     "Narrator and point of view",
+     "Theme across a whole novel"
+    ]
+   },
+   {
+    "title": "Informational reading",
+    "lessons": [
+     "Central ideas and supporting details",
+     "How text structure develops ideas",
+     "Purpose, perspective, and claims",
+     "Comparing texts and media"
+    ]
+   },
+   {
+    "title": "Narrative writing",
+    "lessons": [
+     "Planning a meaningful narrative",
+     "Scenes, description, and dialogue",
+     "Pacing, transitions, and endings",
+     "Revising a narrative for readers"
+    ]
+   },
+   {
+    "title": "Argument writing",
+    "lessons": [
+     "A debatable claim and focused reasons",
+     "Evidence and the reasoning bridge",
+     "Considering another position fairly",
+     "Drafting and revising an argument"
+    ]
+   },
+   {
+    "title": "Poetry and drama",
+    "lessons": [
+     "Imagery, sound, and the speaker",
+     "Figurative language and word choice",
+     "Lines, stanzas, and poetic meaning",
+     "Drama and adapting a scene"
+    ]
+   },
+   {
+    "title": "Research and informational writing",
+    "lessons": [
+     "Focused questions and useful sources",
+     "Notes, paraphrases, and citations",
+     "Organizing a researched explanation",
+     "Revising and sharing research"
+    ]
+   },
+   {
+    "title": "Grammar and effective style",
+    "lessons": [
+     "Sentences and meaningful combinations",
+     "Pronoun case, clarity, and emphasis",
+     "Punctuation, spelling, and consistency",
+     "Style, register, and precise language"
+    ]
+   },
+   {
+    "title": "Speaking, listening, and a portfolio",
+    "lessons": [
+     "Prepared discussion and active listening",
+     "A clear evidence-based presentation",
+     "Visual and spoken information",
+     "A portfolio of growth and revision"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lsat-180-mastery",
   "file": "math/lsat-180-mastery.json",
   "order": 90,
