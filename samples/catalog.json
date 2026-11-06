@@ -5168,6 +5168,66 @@
   ]
  },
  {
+  "id": "law-contracts-1",
+  "file": "math/law-contracts-1.json",
+  "order": 105,
+  "title": "Contracts I: Formation and Interpretation",
+  "description": "Analyze disputed agreements through offer, acceptance, consideration, reliance, formation defenses, writing requirements and interpretation. Four modules include original problems, a goods-and-services comparison and a complete disputed-agreement capstone.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree or a determination of bar eligibility. Exercise rules are expressly simplified teaching assumptions, not the law of a particular jurisdiction. Original fictional facts and self-assessed writing exercises support introductory U.S. contracts study.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "ct1-assent-and-offers",
+   "ct1-acceptance-and-timing",
+   "ct1-bargained-exchange",
+   "ct1-reliance-and-alternatives",
+   "ct1-defective-consent",
+   "ct1-writing-and-enforceability",
+   "ct1-meaning-and-integration",
+   "ct1-sales-and-capstone"
+  ],
+  "outline": [
+   {
+    "title": "Offer and acceptance",
+    "lessons": [
+     "Identify the governing framework and a real offer",
+     "Trace acceptance, revocation and protected offers"
+    ]
+   },
+   {
+    "title": "Consideration and reliance",
+    "lessons": [
+     "Find consideration and test changes to the bargain",
+     "Analyze reliance without inventing a bargain"
+    ]
+   },
+   {
+    "title": "Formation defenses and enforceability",
+    "lessons": [
+     "Evaluate capacity, pressured consent and mistake",
+     "Apply writing requirements and their limited exceptions"
+    ]
+   },
+   {
+    "title": "Interpretation and introductory sales-law distinctions",
+    "lessons": [
+     "Interpret the agreement and evaluate earlier statements",
+     "Compare sales formation and write the disputed-agreement analysis"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-japanese-kana",
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
