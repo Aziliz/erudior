@@ -37,7 +37,9 @@ export function mountAccountSettings({ root, window: win, fetch: request = win.f
       element('p', `Session: ${session.id}`, overview);
       element('p', `Expires: ${date(session.expiresAt)}`, overview);
       const label = element('label', 'Active context', overview);
-      const select = element('select', undefined, label);
+      label.htmlFor = 'account-active-context';
+      const select = element('select', undefined, overview);
+      select.id = 'account-active-context';
       select.disabled = busy;
       for (const context of session.contexts) {
         const option = element('option', `${context.kind}: ${context.workspaceId}`, select);

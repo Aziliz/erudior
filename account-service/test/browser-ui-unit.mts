@@ -43,6 +43,9 @@ async function fixture() {
 {
   const f = await fixture();
   assert.match(f.root.textContent!, /<img src=x onerror=alert\(1\)>/); assert.equal(f.root.querySelector('img'), null);
+  const contextLabel = f.root.querySelector('label[for="account-active-context"]')!;
+  assert.equal(contextLabel.textContent, 'Active context');
+  assert.equal(f.root.querySelector('#account-active-context')?.tagName, 'SELECT');
   assert.equal(f.dom.window.localStorage.length, 0); assert.equal(f.dom.window.sessionStorage.length, 0);
   f.button('Revoke session session_other').click(); assert.equal(f.calls.filter(c => c.path.endsWith('/revoke')).length, 0);
   assert.equal(f.root.querySelector('[aria-label="Confirm session revocation"] h2'), f.dom.window.document.activeElement);

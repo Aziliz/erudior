@@ -17,10 +17,12 @@ The configured provider has no restricted-learner login endpoint. This browser s
 
 ## Transport boundary
 
-Public Chromium CDPSession Fetch interception forwards only the three exact synthetic HTTPS origins to real loopback HTTP servers. Method, body, Origin, Fetch Metadata and browser-computed Cookie headers are forwarded unchanged; status, body and Set-Cookie responses come from those servers. Unknown origins are blocked. It does not use `ignoreHTTPSErrors`, install certificates, disable certificate verification or change real browser trust settings.
+Public Chromium CDPSession Fetch interception forwards only the three exact synthetic HTTPS origins to real loopback HTTP servers. Method, body, Origin and browser-computed Cookie headers are forwarded unchanged; status, body and Set-Cookie responses come from those servers. Unknown origins are blocked. It does not use `ignoreHTTPSErrors`, install certificates, disable certificate verification or change real browser trust settings.
 
 This synthetic transport makes browser site/cookie semantics testable without taking over DNS or TLS trust. It is **not production DNS, certificate, TLS termination or deployment evidence**. Those checks remain a separate deployment gate.
 
 CI retains the existing protocol and real PostgreSQL suites, then installs Chromium and runs this browser suite. Screenshots and a completed-case summary are uploaded. Screenshots still need human visual review; an axe pass is not a visual-review claim. A local Chromium launch can be blocked by the execution sandbox's socket policy; do not work around that restriction or report screenshots as generated when they were not.
 
 The transport intentionally uses `Fetch.requestPaused` for every navigation hop rather than `BrowserContext.route`. In Playwright 1.57's `playwright-core/lib/server/chromium/crNetworkManager.js`, `_onRequest` calls `Fetch.continueRequest` when `redirectedFrom` is present instead of creating a user route. High-level routing therefore lets the OIDC redirect escape synthetic forwarding. The CDP transport preserves each paused request's own browser-computed headers and keeps each Set-Cookie response header separate. It never constructs a Cookie header from a cookie jar. Sanitized failure artifacts contain only pathnames, status codes, cookie names/attributes, Fetch Metadata and DOM screenshots, not credential values or callback query strings.
+
+Chromium 143 CDP Fetch interception reports no Sec-Fetch-Site header for these requests. The helper does not synthesize missing browser headers. Consequently this suite proves the observed browser cookie/Origin behavior, but does not prove on-wire Fetch Metadata generation; the independent HTTP tests enforce rejection of hostile Fetch Metadata values.
