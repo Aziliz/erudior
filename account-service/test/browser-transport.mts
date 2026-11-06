@@ -28,6 +28,23 @@ export async function listenHttp(handler: (request: Request) => Promise<Response
     close: async () => { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); } };
 }
 
+/** A network terminal event may arrive before or after Fetch fulfillment.
+ * Keep the observation alive until that event, not just until CDP send resolves.
+ * Exported only for deterministic test-helper ordering tests. */
+export function browserCancellationObservation() {
+  let complete!: (cancelled: boolean) => void;
+  const terminal = new Promise<boolean>(resolve => { complete = resolve; });
+  return {
+    complete,
+    async wait(timeoutMs = 5000): Promise<boolean> {
+      let timeout!: ReturnType<typeof setTimeout>;
+      try {
+        return await Promise.race([terminal, new Promise<boolean>(resolve => { timeout = setTimeout(() => resolve(false), timeoutMs); })]);
+      } finally { clearTimeout(timeout); }
+    },
+  };
+}
+
 export interface ObservedRequest { url: URL; method: string; headers: Record<string, string>; body: Buffer | null }
 export interface ForwardedResponse { status: number; headers: Record<string, string>; body: Buffer }
 export async function installTransport(context: BrowserContext, origins: ReadonlyMap<string, string>, hooks: {
@@ -46,15 +63,16 @@ export async function installTransport(context: BrowserContext, origins: Readonl
     const existing = attached.get(page); if (existing) return existing;
     const ready = (async () => {
       const cdp = await context.newCDPSession(page);
-      const pending = new Map<string, { request?: ObservedRequest; cancelled: boolean }>();
+      const pending = new Map<string, ReturnType<typeof browserCancellationObservation>>();
       cdp.on('Network.loadingFailed', event => {
-        const state = pending.get(event.requestId);
-        if (state && event.canceled === true) state.cancelled = true;
+        pending.get(event.requestId)?.complete(event.canceled === true);
       });
+      cdp.on('Network.loadingFinished', event => { pending.get(event.requestId)?.complete(false); });
       await cdp.send('Network.enable');
       cdp.on('Fetch.requestPaused', event => {
-        const state: { request?: ObservedRequest; cancelled: boolean; fulfilling: boolean } = { cancelled: false, fulfilling: false };
-        if (event.networkId) pending.set(event.networkId, state);
+        const observation = browserCancellationObservation();
+        const state: { request?: ObservedRequest; fulfilling: boolean } = { fulfilling: false };
+        if (event.networkId) pending.set(event.networkId, observation);
         void (async () => {
           const url = new URL(event.request.url), target = origins.get(url.origin);
           if (!target) { await cdp.send('Fetch.failRequest', { requestId: event.requestId, errorReason: 'BlockedByClient' }); return; }
@@ -84,7 +102,9 @@ export async function installTransport(context: BrowserContext, origins: Readonl
           await cdp.send('Fetch.fulfillRequest', { requestId: event.requestId, responseCode: forwarded.status,
             responseHeaders: Object.entries(forwarded.headers).flatMap(([name, value]) => value.split('\n').map(value => ({ name, value }))),
             body: forwarded.body.toString('base64') });
-          if (state.cancelled && hooks.expectedCancellation?.(observed)) hooks.cancelled?.(observed);
+          // Keep this exact network ID registered until its terminal event,
+          // even when CDP fulfillment succeeds before cancellation is reported.
+          if (hooks.expectedCancellation?.(observed) && await observation.wait()) hooks.cancelled?.(observed);
         })().catch(async () => {
           // Do not serialize an exception that may contain a callback URL or
           // request credentials. The acceptance test records only this path.
@@ -92,7 +112,7 @@ export async function installTransport(context: BrowserContext, origins: Readonl
           // deliberately held by a test. Never infer cancellation from an error
           // string: require Chromium's matching network ID/canceled event AND
           // an explicit expectation for this one request.
-          if (state.fulfilling && state.cancelled && state.request && hooks.expectedCancellation?.(state.request)) {
+          if (state.fulfilling && state.request && hooks.expectedCancellation?.(state.request) && await observation.wait()) {
             hooks.cancelled?.(state.request); return;
           }
           hooks.failure?.(new URL(event.request.url).pathname);
