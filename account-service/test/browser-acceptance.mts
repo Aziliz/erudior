@@ -231,10 +231,29 @@ try {
   });
   await test('expired and stale server sessions clear private DOM on refresh', async () => {
     const c = await actor(); await signIn(c); const current = (await session(c)).session.id;
-    await database.admin.query("UPDATE erudior_private.device_sessions SET body=jsonb_set(body,'{expiresAt}',to_jsonb($1::bigint)) WHERE session_id=$2", [Math.floor(Date.now() / 1000) - 1, current]);
+    // Age the already authenticated synthetic session consistently. The physical
+    // expires_at column must equal body.expiresAt; issuance/authentication stay
+    // before last use and expiry, so this proves expiry rather than malformed data.
+    const expiredAt = Math.floor(Date.now() / 1000) - 1;
+    const expired = await database.admin.query(`UPDATE erudior_private.device_sessions
+      SET expires_at=$1, last_used_at=$1-60,
+          body=body || jsonb_build_object('issuedAt',$1::bigint-120,'expiresAt',$1::bigint,
+            'authentication',(body->'authentication') || jsonb_build_object('authenticatedAt',$1::bigint-120))
+      WHERE session_id=$2 RETURNING expires_at=(body->>'expiresAt')::bigint AS consistent,
+        (body->>'issuedAt')::bigint < expires_at AS ordered,
+        last_used_at+idle_seconds > erudior_private.now_seconds() AS not_idle`, [expiredAt, current]);
+    assert.deepEqual(expired.rows, [{ consistent: true, ordered: true, not_idle: true }]);
     await refresh(c); await signedOut(c);
     await signIn(c); const second = (await session(c)).session.id;
-    await database.admin.query('UPDATE erudior_private.device_sessions SET last_used_at=$1 WHERE session_id=$2', [Math.floor(Date.now() / 1000) - 5000, second]);
+    const idle = await database.admin.query(`UPDATE erudior_private.device_sessions
+      SET last_used_at=$1::bigint-idle_seconds-1,
+          body=body || jsonb_build_object('issuedAt',$1::bigint-idle_seconds-61,
+            'authentication',(body->'authentication') || jsonb_build_object('authenticatedAt',$1::bigint-idle_seconds-61))
+      WHERE session_id=$2 RETURNING expires_at=(body->>'expiresAt')::bigint AS consistent,
+        (body->>'issuedAt')::bigint <= last_used_at AS ordered,
+        expires_at > erudior_private.now_seconds() AS not_expired,
+        last_used_at+idle_seconds <= erudior_private.now_seconds() AS idle`, [Math.floor(Date.now() / 1000), second]);
+    assert.deepEqual(idle.rows, [{ consistent: true, ordered: true, not_expired: true, idle: true }]);
     await refresh(c); await signedOut(c);
   });
   await test('interrupted and lost mutation responses reconcile without retry or stale success', async () => {
