@@ -236,7 +236,7 @@ try {
     // before last use and expiry, so this proves expiry rather than malformed data.
     const expiredAt = Math.floor(Date.now() / 1000) - 1;
     const expired = await database.admin.query(`UPDATE erudior_private.device_sessions
-      SET expires_at=$1, last_used_at=$1-60,
+      SET expires_at=$1::bigint, last_used_at=$1::bigint-60,
           body=body || jsonb_build_object('issuedAt',$1::bigint-120,'expiresAt',$1::bigint,
             'authentication',(body->'authentication') || jsonb_build_object('authenticatedAt',$1::bigint-120))
       WHERE session_id=$2 RETURNING expires_at=(body->>'expiresAt')::bigint AS consistent,
