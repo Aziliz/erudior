@@ -24,3 +24,7 @@ li { padding-block: .5rem; border-bottom: 1px solid #a5b1c0; }
 }
 @media (max-width: 30rem) { button { width: 100%; margin-inline: 0; } section { padding: 1rem; } }
 @media (forced-colors: active) { button, select, section { border: 1px solid CanvasText; } }
+.record-choice { display: flex; align-items: flex-start; gap: .75rem; margin: 0; }
+.record-choice input { flex: 0 0 auto; width: 1.35rem; height: 1.35rem; margin-top: .2rem; accent-color: #153f72; }
+.record-choice span { min-width: 0; }
+a[download] { display: inline-block; padding: .75rem; color: inherit; font-weight: 650; }

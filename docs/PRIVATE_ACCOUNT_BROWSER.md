@@ -1,6 +1,6 @@
 # Private account browser settings
 
-The separate account service now has an opt-in browser client for already-provisioned identities. This is a private-service foundation, not a production account launch. It does not add sign-up, recovery, school provisioning, local-record upload, record exports, or a public website login.
+The separate account service now has an opt-in browser client for already-provisioned identities. This is a private-service foundation, not a production account launch. It does not add sign-up, recovery, school provisioning, local-record upload, a public website login.
 
 ## Host configuration
 
@@ -27,3 +27,8 @@ Session projections and CSRF values live only in memory. The client does not use
 Browser acceptance uses distinct synthetic HTTPS sites, browser-managed cookies, a real signing/PKCE provider and a real PostgreSQL runtime role. A narrow browser transport forwards only those fixture sites to loopback services; it does not inject cookies or replace authorization. This verifies browser request and SameSite behavior, not production DNS, TLS termination or a real provider integration. Those remain deployment requirements.
 
 Production identity-provider selection, hosting and storage region, operational key management, authority provisioning, native authentication and recovery still require their own release work. No production service or identity configuration is enabled by this change.
+
+
+## Optional selected-record exports
+
+When the host separately provides the complete export capability, the browser supports authorized metadata discovery, exact-version selection/review, explicit artifact creation, saved-job refresh, bounded authenticated download and confirmed cancellation. See [Private record exports](PRIVATE_RECORD_EXPORTS.md) for scope, pagination and lifecycle rules. Existing export handlers remain usable without the browser client. The public application and production account deployment remain unchanged.

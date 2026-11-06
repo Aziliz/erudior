@@ -36,3 +36,6 @@ See [the account design](../docs/ACCOUNT_SYSTEM.md) for the full product and sec
 The separate [device-session management capability](../docs/PRIVATE_DEVICE_SESSIONS.md) lists minimal owned-session metadata and revokes one or all sessions. Both store and host must explicitly enable it; fresh personal MFA is required and no production service or settings UI is activated.
 
 The optional [private browser settings client](../docs/PRIVATE_ACCOUNT_BROWSER.md) adds configured-provider sign-in, context switching, logout and confirmed session revocation at the private host's fixed return path. It is disabled by default and remains outside public bundles. Chromium acceptance uses `npm run test:accounts:browser` with the same disposable PostgreSQL configuration; the dedicated workflow runs it after protocol and database acceptance.
+
+
+The private browser may also expose the explicitly enabled [selected-record export workflow](../docs/PRIVATE_RECORD_EXPORTS.md): minimal authorized discovery, exact-version selection/review, creation, saved-job refresh, authenticated download and cancellation. No record payload preview, public account interface or production binding is added.

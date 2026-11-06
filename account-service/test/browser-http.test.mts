@@ -36,7 +36,7 @@ for (const [path, type] of [['/v1/ui/settings.js', 'text/javascript'], ['/v1/ui/
 }
 const bootstrap = await request('/v1/ui/config', { headers });
 assert.equal(bootstrap.status, 200);
-assert.deepEqual(await bootstrap.json(), { providers: browserUI.providers, devicesEnabled: false });
+assert.deepEqual(await bootstrap.json(), { providers: browserUI.providers, devicesEnabled: false, exportsEnabled: false });
 for (const path of [config.returnPath, '/v1/ui/settings.js', '/v1/ui/config']) {
   assert.equal((await request(path + '?code=secret')).status, 400);
   assert.equal((await request(path, { method: 'POST' })).status, 405);
