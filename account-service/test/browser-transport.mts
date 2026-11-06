@@ -34,6 +34,9 @@ export async function installTransport(context: BrowserContext, origins: Readonl
   before?: (request: ObservedRequest) => Promise<'abort' | void>;
   after?: (request: ObservedRequest, response: ForwardedResponse) => Promise<'abort' | void>;
   failure?: (path: string) => void;
+  // Opt-in per-request expectation; only Chromium-confirmed cancellation counts.
+  expectedCancellation?: (request: ObservedRequest) => boolean;
+  cancelled?: (request: ObservedRequest) => void;
 } = {}) {
   // Playwright's high-level route handler deliberately skips redirect hops.
   // Intercept with the public Chromium CDP session API instead so every hop is
@@ -43,13 +46,22 @@ export async function installTransport(context: BrowserContext, origins: Readonl
     const existing = attached.get(page); if (existing) return existing;
     const ready = (async () => {
       const cdp = await context.newCDPSession(page);
+      const pending = new Map<string, { request?: ObservedRequest; cancelled: boolean }>();
+      cdp.on('Network.loadingFailed', event => {
+        const state = pending.get(event.requestId);
+        if (state && event.canceled === true) state.cancelled = true;
+      });
+      await cdp.send('Network.enable');
       cdp.on('Fetch.requestPaused', event => {
+        const state: { request?: ObservedRequest; cancelled: boolean; fulfilling: boolean } = { cancelled: false, fulfilling: false };
+        if (event.networkId) pending.set(event.networkId, state);
         void (async () => {
           const url = new URL(event.request.url), target = origins.get(url.origin);
           if (!target) { await cdp.send('Fetch.failRequest', { requestId: event.requestId, errorReason: 'BlockedByClient' }); return; }
           const headers = Object.fromEntries(Object.entries(event.request.headers).map(([key, value]) => [key.toLowerCase(), String(value)]));
           const observed: ObservedRequest = { url, method: event.request.method, headers,
             body: event.request.postData === undefined ? null : Buffer.from(event.request.postData) };
+          state.request = observed;
           const abort = () => cdp.send('Fetch.failRequest', { requestId: event.requestId, errorReason: 'Failed' });
           if (await hooks.before?.(observed) === 'abort') { await abort(); return; }
           const forwarded = await new Promise<ForwardedResponse>((resolve, reject) => {
@@ -68,15 +80,24 @@ export async function installTransport(context: BrowserContext, origins: Readonl
             upstream.end(observed.body ?? undefined);
           });
           if (await hooks.after?.(observed, forwarded) === 'abort') { await abort(); return; }
+          state.fulfilling = true;
           await cdp.send('Fetch.fulfillRequest', { requestId: event.requestId, responseCode: forwarded.status,
             responseHeaders: Object.entries(forwarded.headers).flatMap(([name, value]) => value.split('\n').map(value => ({ name, value }))),
             body: forwarded.body.toString('base64') });
+          if (state.cancelled && hooks.expectedCancellation?.(observed)) hooks.cancelled?.(observed);
         })().catch(async () => {
           // Do not serialize an exception that may contain a callback URL or
           // request credentials. The acceptance test records only this path.
+          // Concealment may abort an in-flight fetch while its real response is
+          // deliberately held by a test. Never infer cancellation from an error
+          // string: require Chromium's matching network ID/canceled event AND
+          // an explicit expectation for this one request.
+          if (state.fulfilling && state.cancelled && state.request && hooks.expectedCancellation?.(state.request)) {
+            hooks.cancelled?.(state.request); return;
+          }
           hooks.failure?.(new URL(event.request.url).pathname);
           await cdp.send('Fetch.failRequest', { requestId: event.requestId, errorReason: 'Failed' }).catch(() => {});
-        });
+        }).finally(() => { if (event.networkId) pending.delete(event.networkId); });
       });
       await cdp.send('Fetch.enable', { patterns: [{ urlPattern: '*', requestStage: 'Request' }] });
     })();

@@ -36,16 +36,16 @@ const providers = [personal, school];
 const clients = providers.map(provider => createOidcClient(provider.config, { transport: provider.transport }));
 const policies: StoreProviderPolicy[] = clients.map((client, index) => ({ id: client.providerId, version: client.providerVersion,
   configurationHash: client.configurationHash, issuer: providers[index]!.config.issuer, trust: index ? 'school' : 'personal', schoolId: index ? ids.school : null }));
-const store = new PostgresAccountStore(database.runtime, { providers: () => policies, devices: true });
+const store = new PostgresAccountStore(database.runtime, { providers: () => policies, devices: true, exports: { artifactTtlSeconds: 120 } });
 await store.ready();
-const graph = accountFixture(Math.floor(Date.now() / 1000)); graph.sessions = [];
+let graph = accountFixture(Math.floor(Date.now() / 1000)); graph.sessions = [];
 for (const identity of graph.identities) identity.issuer = identity.trust === 'personal' ? personal.config.issuer : school.config.issuer;
-await database.seed(graph);
-const handle = createPrivateAccountHandler({ origin: ORIGIN, returnPath: '/account', store, devices: store, providers: clients,
+graph = await database.seed(graph, Object.fromEntries(graph.records.map(record => [record.id, { synthetic: true, record: record.id, unicode: 'é漢字' }])));
+const handle = createPrivateAccountHandler({ origin: ORIGIN, returnPath: '/account', store, devices: store, exports: store, providers: clients,
   csrfKey: randomBytes(32), browserUI: { providers: providers.map((provider, index) => ({ id: provider.config.id, label: index ? 'School test provider' : 'Personal test provider', authorizationEndpoint: provider.config.authorizationEndpoint })) } });
 const server = await listenHttp(handle, ORIGIN);
 const origins = new Map([[ORIGIN, server.origin], ...providers.map(provider => [new URL(provider.config.issuer).origin, provider.networkOrigin] as [string, string])]);
-interface Actor { attach?: (page: Page) => Promise<void>; context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
+interface Actor { expectedCancellation?: (request: ObservedRequest) => boolean; cancelled?: (request: ObservedRequest) => void; attach?: (page: Page) => Promise<void>; context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
   before?: (request: ObservedRequest) => Promise<'abort' | void>; after?: (request: ObservedRequest, response: ForwardedResponse) => Promise<'abort' | void> }
 const actors: Actor[] = [];
 async function actor() {
@@ -62,6 +62,8 @@ async function actor() {
   });
   value.attach = await installTransport(context, origins, {
     failure: path => { transportFailures.push(path); },
+    expectedCancellation: request => value.expectedCancellation?.(request) === true,
+    cancelled: request => value.cancelled?.(request),
     before: async request => {
       const provider = providers.find(provider => request.url.origin === new URL(provider.config.issuer).origin);
       if (provider) assert.equal(request.headers.cookie, undefined, 'Erudior cookies must never reach the provider site');
@@ -303,6 +305,200 @@ try {
     await a.page.getByRole('region', { name: 'Current session', exact: true }).waitFor();
     assert.equal((await session(a)).session.activeWorkspaceId, ids.family);
   });
+  // Exports remain opt-in only in this synthetic host, with a fixed 120-second
+  // artifact lifetime. All credentials still originate in real OIDC navigation.
+  const e = await actor(); await signIn(e);
+  async function familyContext() {
+    await e.page.getByLabel('Active context', { exact: true }).selectOption(ids.family);
+    await e.page.getByRole('button', { name: 'Switch context', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: 'Context request completed.' }).waitFor();
+  }
+  await familyContext();
+  async function browserRead(path: string, who = e): Promise<{ status: number; body: any }> {
+    return who.page.evaluate(`(async()=>{const response=await fetch(${JSON.stringify(path)},{headers:{'X-Erudior-Request':'1'},cache:'no-store'});return {status:response.status,body:await response.json()};})()`);
+  }
+  const exportList = () => browserRead('/v1/exports?workspaceId=' + ids.family + '&limit=32');
+  async function reviewExport(recordIds = [ids.familyRecord]) {
+    for (const id of recordIds) await e.page.getByRole('checkbox', { name: new RegExp('^' + id + ' · version ') }).check();
+    await e.page.getByRole('button', { name: 'Review selected versions', exact: true }).click();
+    await e.page.getByRole('button', { name: 'Confirm create export', exact: true }).waitFor();
+  }
+  async function createExport(recordIds = [ids.familyRecord]) {
+    const before = new Set((await exportList()).body.exports.map((job: any) => job.id));
+    await reviewExport(recordIds);
+    await e.page.getByRole('button', { name: 'Confirm create export', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: 'Export created.' }).waitFor();
+    const jobs = (await exportList()).body.exports.filter((job: any) => !before.has(job.id));
+    assert.equal(jobs.length, 1, 'one explicit confirmation must create exactly one artifact');
+    return jobs[0] as { id: string; state: string };
+  }
+  await test('export discovery exposes only authorized metadata and exact reviewed download bytes', async () => {
+    const discovery = await browserRead('/v1/exports/records?workspaceId=' + ids.family + '&limit=32');
+    assert.equal(discovery.status, 200);
+    assert.deepEqual(discovery.body.records.map((record: any) => record.id).sort(), [ids.familyNote, ids.familyRecord].sort());
+    for (const record of discovery.body.records) assert.deepEqual(Object.keys(record).sort(), ['category', 'id', 'version', 'visibility']);
+    assert.doesNotMatch(JSON.stringify(discovery.body), /synthetic|unicode|learnerId|authorityId/);
+    const region = e.page.getByRole('region', { name: 'Private record exports', exact: true });
+    assert.doesNotMatch(await region.innerText(), new RegExp([ids.personalRecord, ids.grade, ids.foreignGrade, ids.schoolAssignment].join('|')));
+    const job = await createExport([ids.familyRecord]);
+    await e.page.getByRole('button', { name: 'Check export ' + job.id, exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: 'Export status checked.' }).waitFor();
+    await e.page.getByRole('button', { name: 'Prepare download ' + job.id, exact: true }).click();
+    const downloadEvent = e.page.waitForEvent('download');
+    await e.page.getByRole('link', { name: 'Save private export JSON', exact: true }).click();
+    const download = await downloadEvent;
+    assert.equal(download.suggestedFilename(), 'erudior-record-export.json');
+    const path = await download.path(); assert.ok(path);
+    const artifact = JSON.parse(await readFile(path, 'utf8'));
+    assert.equal(artifact.format, 'erudior-record-export-v1'); assert.equal(artifact.workspaceId, ids.family);
+    assert.deepEqual(artifact.records, [ids.familyRecord].map(id => ({ id, version: 1,
+      category: id === ids.familyNote ? 'family-note' : 'practice', visibility: id === ids.familyNote ? 'private' : 'released',
+      payload: { synthetic: true, record: id, unicode: 'é漢字' } })));
+    assert.equal((await database.runtime.query('SELECT export_id FROM erudior_private.record_exports')).rowCount, 0);
+    assert.equal((await database.runtime.query('SELECT record_id FROM erudior_private.record_payloads')).rowCount, 0);
+    await download.delete();
+  });
+  await test('same-session reload resumes exports and cancellation scrubs service bytes only', async () => {
+    const previousSession = (await session(e)).session.id;
+    const jobs = (await exportList()).body.exports; assert.equal(jobs.length, 1); const job = jobs[0];
+    await e.page.reload();
+    await e.page.getByRole('button', { name: 'Prepare download ' + job.id, exact: true }).waitFor();
+    assert.equal((await session(e)).session.id, previousSession);
+    await e.page.getByRole('button', { name: 'Cancel export ' + job.id, exact: true }).click();
+    await e.page.getByRole('button', { name: 'Confirm cancel export', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: /cancel/i }).waitFor();
+    const result = await browserRead('/v1/exports/' + job.id); assert.equal(result.body.export.state, 'cancelled');
+    assert.equal((await browserRead('/v1/exports/' + job.id + '/download')).status, 404);
+    assert.equal((await database.admin.query('SELECT artifact FROM erudior_private.record_exports WHERE export_id=$1', [job.id])).rows[0].artifact, null);
+    const payloads = (await database.admin.query('SELECT record_id,payload FROM erudior_private.record_payloads WHERE record_id=ANY($1::text[]) ORDER BY record_id', [[ids.familyRecord, ids.familyNote]])).rows;
+    assert.equal(payloads.length, 2);
+    for (const row of payloads) assert.deepEqual(row.payload, { synthetic: true, record: row.record_id, unicode: 'é漢字' });
+  });
+  await test('lost export create response is reconciled read-only without duplicate submission', async () => {
+    const before = new Set((await exportList()).body.exports.map((job: any) => job.id));
+    let writes = 0;
+    e.after = async request => { if (request.url.pathname === '/v1/exports' && request.method === 'POST') { writes++; return 'abort'; } };
+    await reviewExport();
+    await e.page.getByRole('button', { name: 'Confirm create export', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: /could not be confirmed/ }).waitFor();
+    e.after = undefined;
+    const jobs = (await exportList()).body.exports.filter((job: any) => !before.has(job.id)); assert.equal(jobs.length, 1);
+    e.before = async request => { if (request.url.pathname === '/v1/exports' && request.method === 'POST') writes++; };
+    await e.page.reload();
+    await e.page.getByRole('button', { name: 'Prepare download ' + jobs[0].id, exact: true }).waitFor();
+    await refresh(e); await refresh(e);
+    assert.equal(writes, 1); e.before = undefined;
+    assert.equal((await exportList()).body.exports.filter((job: any) => !before.has(job.id)).length, 1);
+  });
+  await test('interrupted export create never silently retries or invents success', async () => {
+    const before = (await exportList()).body.exports.length; let writes = 0;
+    e.before = async request => { if (request.url.pathname === '/v1/exports' && request.method === 'POST') { writes++; return 'abort'; } };
+    await reviewExport(); await e.page.getByRole('button', { name: 'Confirm create export', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: /could not be confirmed/ }).waitFor();
+    e.before = undefined;
+    await e.page.getByRole('button', { name: 'Refresh saved exports', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: 'Saved exports refreshed.' }).waitFor();
+    assert.equal(writes, 1); assert.equal((await exportList()).body.exports.length, before);
+    assert.equal(await e.page.getByRole('link', { name: 'Save private export JSON', exact: true }).count(), 0);
+  });
+  await test('expired artifacts remain unavailable and service bytes are cleared', async () => {
+    const job = await createExport(); const expiredAt = Math.floor(Date.now() / 1000) - 1;
+    await database.admin.query('UPDATE erudior_private.record_exports SET created_at=$1::bigint-120,expires_at=$1::bigint WHERE export_id=$2', [expiredAt, job.id]);
+    await e.page.reload(); await e.page.getByRole('region', { name: 'Private record exports', exact: true }).waitFor();
+    assert.equal((await browserRead('/v1/exports/' + job.id + '/download')).status, 404);
+    assert.equal((await browserRead('/v1/exports/' + job.id)).body.export.state, 'expired');
+    assert.equal((await database.admin.query('SELECT artifact FROM erudior_private.record_exports WHERE export_id=$1', [job.id])).rows[0].artifact, null);
+    assert.equal(await e.page.getByRole('button', { name: 'Prepare download ' + job.id, exact: true }).count(), 0);
+  });
+  await test('changed record versions and authority deny export metadata and bytes', async () => {
+    const versionJob = await createExport();
+    const record = graph.records.find(record => record.id === ids.familyRecord)!; record.version++;
+    graph = await database.replaceGraph(graph, { [record.id]: { synthetic: true, record: record.id, unicode: 'é漢字' } });
+    assert.equal((await browserRead('/v1/exports/' + versionJob.id)).status, 404);
+    assert.equal((await browserRead('/v1/exports/' + versionJob.id + '/download')).status, 404);
+    await refresh(e);
+    const authorityJob = await createExport();
+    const guardian = graph.guardians.find(guardian => guardian.id === ids.guardian)!;
+    guardian.version++; guardian.status = 'revoked'; graph = await database.replaceGraph(graph);
+    assert.equal((await browserRead('/v1/exports/' + authorityJob.id)).status, 404);
+    assert.equal((await browserRead('/v1/exports/' + authorityJob.id + '/download')).status, 404);
+    const denied = await browserRead('/v1/exports/records?workspaceId=' + ids.family + '&limit=32');
+    assert.equal(denied.status, 200); assert.deepEqual(denied.body.records, []);
+    const restoredGuardian = graph.guardians.find(guardian => guardian.id === ids.guardian)!;
+    restoredGuardian.version++; restoredGuardian.status = 'active'; graph = await database.replaceGraph(graph);
+    await refresh(e);
+  });
+  await test('context rotation and fresh session cannot resume prior export artifacts', async () => {
+    const job = await createExport();
+    await e.page.getByLabel('Active context', { exact: true }).selectOption(ids.personal);
+    await e.page.getByRole('button', { name: 'Switch context', exact: true }).click();
+    await e.page.getByRole('status').filter({ hasText: 'Context request completed.' }).waitFor();
+    assert.equal((await browserRead('/v1/exports/' + job.id)).status, 404);
+    assert.equal((await browserRead('/v1/exports/' + job.id + '/download')).status, 404);
+    await familyContext();
+    assert.equal((await browserRead('/v1/exports/' + job.id)).status, 404, 'switching back does not restore the old session version');
+    const own = await createExport(); const oldSession = (await session(e)).session.id;
+    await signIn(e); await familyContext();
+    assert.notEqual((await session(e)).session.id, oldSession);
+    assert.equal((await browserRead('/v1/exports/' + own.id)).status, 404);
+    assert.equal((await browserRead('/v1/exports/' + own.id + '/download')).status, 404);
+    assert.ok(!(await exportList()).body.exports.some((item: any) => item.id === own.id));
+  });
+  await test('delayed export download is suppressed after lifecycle concealment', async () => {
+    const job = await createExport(); let downloads = 0, concealmentRequested = false;
+    let markCancelled!: () => void;
+    const cancelled = new Promise<void>(resolve => { markCancelled = resolve; });
+    e.expectedCancellation = request => concealmentRequested && request.method === 'GET' && request.url.pathname === '/v1/exports/' + job.id + '/download';
+    e.cancelled = () => { markCancelled(); };
+    e.page.on('download', () => { downloads++; });
+    let release!: () => void, entered!: () => void;
+    const gate = new Promise<void>(resolve => { release = resolve; });
+    const reached = new Promise<void>(resolve => { entered = resolve; });
+    e.after = async request => { if (request.url.pathname === '/v1/exports/' + job.id + '/download') { entered(); await gate; } };
+    await e.page.getByRole('button', { name: 'Prepare download ' + job.id, exact: true }).click(); await reached;
+    concealmentRequested = true;
+    await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}))");
+    assert.equal(await e.page.getByRole('region', { name: 'Private record exports', exact: true }).count(), 0);
+    release(); e.after = undefined;
+    await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}))");
+    await e.page.getByRole('region', { name: 'Private record exports', exact: true }).waitFor();
+    // Chromium must confirm cancellation of this exact fetch; unrelated
+    // transport failures remain fatal. Bound the wait so a missing event fails.
+    let timeout!: ReturnType<typeof setTimeout>;
+    try { await Promise.race([cancelled, new Promise<never>((_, reject) => { timeout = setTimeout(() => reject(new Error('Expected browser cancellation was not observed')), 5000); })]); }
+    finally { clearTimeout(timeout); e.expectedCancellation = undefined; e.cancelled = undefined; }
+    assert.equal(downloads, 0, 'a concealed in-flight result must not trigger a browser download');
+    assert.equal(await e.page.getByRole('link', { name: 'Save private export JSON', exact: true }).count(), 0, 'late bytes must not restore a Blob download link');
+  });
+  await test('delayed export discovery cannot restore metadata after lifecycle concealment', async () => {
+    let release!: () => void, entered!: () => void;
+    const gate = new Promise<void>(resolve => { release = resolve; });
+    const reached = new Promise<void>(resolve => { entered = resolve; });
+    e.after = async request => { if (request.url.pathname === '/v1/exports/records') { entered(); await gate; } };
+    await e.page.getByRole('button', { name: 'Refresh available records', exact: true }).click(); await reached;
+    await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}))");
+    assert.equal(await e.page.getByRole('region', { name: 'Private record exports', exact: true }).count(), 0);
+    assert.doesNotMatch(await e.page.locator('body').innerText(), new RegExp(ids.familyRecord));
+    release(); e.after = undefined;
+    // A real browser turn after releasing the response must still leave the
+    // hidden page empty. This is an event-driven lifecycle proof, not OS hiding.
+    await e.page.evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
+    assert.equal(await e.page.getByRole('region', { name: 'Private record exports', exact: true }).count(), 0);
+    await e.page.evaluate("dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}))");
+    await e.page.getByRole('region', { name: 'Private record exports', exact: true }).waitFor();
+  });
+  await test('exports leave no persistent browser data and pass responsive accessible review', async () => {
+    assert.deepEqual(await e.page.evaluate(`(async()=>({local:localStorage.length,session:sessionStorage.length,databases:(await indexedDB.databases()).length,workers:(await navigator.serviceWorker.getRegistrations()).length,cookie:document.cookie}))()`), { local: 0, session: 0, databases: 0, workers: 0, cookie: '' });
+    for (const width of [1280, 320]) for (const colorScheme of ['light', 'dark'] as const) {
+      await e.page.setViewportSize({ width, height: 900 }); await e.page.emulateMedia({ colorScheme }); await refresh(e);
+      await reviewExport(); await e.page.evaluate(axeSource);
+      const violations = await e.page.evaluate(`axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}}).then(r=>r.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.length})))`);
+      assert.deepEqual(violations, [], `export review axe ${width} ${colorScheme}`);
+      assert.equal(await e.page.evaluate('document.documentElement.scrollWidth <= innerWidth'), true);
+      await e.page.screenshot({ path: `${OUT}/export-review-${width}-${colorScheme}.png`, fullPage: true });
+      await e.page.reload(); await e.page.getByRole('region', { name: 'Private record exports', exact: true }).waitFor();
+    }
+  });
   await test('no local/session storage, IndexedDB, service worker or script-readable credentials', async () => {
     assert.deepEqual(await a.page.evaluate(`(async()=>({local:localStorage.length,session:sessionStorage.length,databases:(await indexedDB.databases()).length,workers:(await navigator.serviceWorker.getRegistrations()).length,cookie:document.cookie}))()`), { local: 0, session: 0, databases: 0, workers: 0, cookie: '' });
     const source = await readFile(new URL('../browser/settings.js', import.meta.url), 'utf8');
@@ -322,6 +518,10 @@ try {
     }
   });
 } catch (error) {
+  const locations = error instanceof Error ? [...(error.stack ?? '').matchAll(/(?:browser-acceptance|browser-transport)\.mts:\d+:\d+/g)].map(match => match[0]) : [];
+  const safeLabels = ['synthetic transport must complete every paused request', 'a concealed in-flight result must not trigger a browser download', 'late bytes must not restore a Blob download link', 'Expected browser cancellation was not observed'];
+  const assertionLabel = error instanceof Error ? safeLabels.find(label => error.message.startsWith(label)) ?? null : null;
+  const diagnostic = { locations: [...new Set(locations)], assertionLabel };
   const states = [];
   for (const [index, actor] of actors.entries()) {
     states.push({ actor: index, pathname: new URL(actor.page.url()).pathname,
@@ -329,11 +529,11 @@ try {
     // Screenshots show document content only, never the browser address bar.
     await actor.page.screenshot({ path: `${OUT}/failure-${index}.png`, fullPage: true, timeout: 5000 }).catch(() => {});
   }
-  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, states, exchanges: exchangeSummary, transportFailures, consoleCategories }, null, 2));
-  console.error(JSON.stringify({ failedCase: currentCase, states, exchanges: exchangeSummary.slice(-20), transportFailures, consoleCategories }));
+  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, diagnostic, states, exchanges: exchangeSummary, transportFailures, consoleCategories }, null, 2));
+  console.error(JSON.stringify({ failedCase: currentCase, diagnostic, states, exchanges: exchangeSummary.slice(-20), transportFailures, consoleCategories }));
   // Playwright errors can include full callback URLs. Keep the original error
   // class but do not print the credential-bearing navigation log.
-  throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}); see sanitized failure.json and screenshots`);
+  throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}; ${diagnostic.locations.join(', ') || 'location unavailable'}${assertionLabel ? '; ' + assertionLabel : ''}); see sanitized failure.json and screenshots`);
 } finally {
   await writeFile(OUT + '/summary.json', JSON.stringify({ completed, passed: completed.length, freshCrossSiteCallbacks, transport: 'Synthetic HTTPS origins forwarded to real loopback HTTP. No production DNS/TLS proof.', browserCookieInjection: false, authorizationMocks: false }, null, 2));
   for (const actor of actors) await actor.context.close();

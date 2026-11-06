@@ -11,7 +11,7 @@ const ASSETS = new Map([
 ]);
 export const PRIVATE_ACCOUNT_UI_CSP = "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'";
 
-export function createPrivateAccountBrowserUi(config: PrivateAccountBrowserUiConfig, providerIds: readonly string[], returnPath: string, devicesEnabled: boolean) {
+export function createPrivateAccountBrowserUi(config: PrivateAccountBrowserUiConfig, providerIds: readonly string[], returnPath: string, devicesEnabled: boolean, exportsEnabled = false) {
   if (returnPath === '/health' || returnPath.startsWith('/health/') || returnPath === '/v1' || returnPath.startsWith('/v1/') || /\/\//.test(returnPath)) throw new Error('Reserved private browser return path');
   if (!Array.isArray(config.providers) || config.providers.length !== providerIds.length) throw new Error('Invalid private browser providers');
   const seen = new Set<string>();
@@ -22,7 +22,7 @@ export function createPrivateAccountBrowserUi(config: PrivateAccountBrowserUiCon
     if (endpoint.protocol !== 'https:' || endpoint.username || endpoint.password || endpoint.hash || endpoint.search || endpoint.href !== provider.authorizationEndpoint) throw new Error('Invalid private browser authorization endpoint');
     return { id: provider.id, label: provider.label.trim(), authorizationEndpoint: endpoint.href };
   });
-  const publicConfig = JSON.stringify({ providers, devicesEnabled });
+  const publicConfig = JSON.stringify({ providers, devicesEnabled, exportsEnabled });
   return {
     config: (): string => publicConfig,
     matches: (path: string): boolean => path === returnPath || ASSETS.has(path),

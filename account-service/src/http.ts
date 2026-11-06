@@ -10,7 +10,7 @@ export type PrivateAccountStore = Pick<PostgresAccountStore,
 
 /** Opt-in capability; omitting it leaves every export route unavailable. */
 export type PrivateAccountExportStore = Pick<PostgresAccountStore,
-  'requestRecordExport' | 'getRecordExport' | 'downloadRecordExport' | 'cancelRecordExport'>;
+  'requestRecordExport' | 'getRecordExport' | 'downloadRecordExport' | 'cancelRecordExport'> & Partial<Pick<PostgresAccountStore, 'listExportableRecords' | 'listRecordExports'>>;
 
 /** Explicit private host capability; absent means device management is unavailable. */
 export type PrivateAccountDeviceStore = Pick<PostgresAccountStore,
@@ -18,7 +18,7 @@ export type PrivateAccountDeviceStore = Pick<PostgresAccountStore,
 
 export interface PrivateAccountAuditEvent {
   requestId: string;
-  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'export.request' | 'export.status' | 'export.download' | 'export.cancel' | 'devices.list' | 'devices.revoke' | 'request';
+  operation: 'login.start' | 'login.complete' | 'session.read' | 'session.switch' | 'session.logout' | 'record.read' | 'export.request' | 'export.status' | 'export.download' | 'export.cancel' | 'export.records' | 'export.list' | 'devices.list' | 'devices.revoke' | 'request';
   outcome: 'success' | 'denied' | 'error';
 }
 export interface PrivateAccountHttpConfig {
@@ -143,7 +143,7 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
     providers.set(client.providerId, client);
   }
   if (!providers.size) throw new Error('Private account provider required');
-  const browserUI = config.browserUI ? createPrivateAccountBrowserUi(config.browserUI, [...providers.keys()], returnPath, !!config.devices) : null;
+  const browserUI = config.browserUI ? createPrivateAccountBrowserUi(config.browserUI, [...providers.keys()], returnPath, !!config.devices, !!config.exports && ['requestRecordExport', 'getRecordExport', 'downloadRecordExport', 'cancelRecordExport', 'listExportableRecords', 'listRecordExports'].every(name => typeof (config.exports as unknown as Record<string, unknown>)[name] === 'function')) : null;
   const now = (): number => {
     const value = config.clock ? config.clock() : Math.floor(Date.now() / 1000);
     if (!isAccountTimestamp(value)) throw new Error('Invalid private account clock');
@@ -205,11 +205,13 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       if (request.headers.has('authorization') || request.headers.has('x-http-method-override')) bad();
       const jar = cookies(request);
       const recordMatch = /^\/v1\/workspaces\/([A-Za-z0-9_-]+)\/records\/([A-Za-z0-9_-]+)$/.exec(path);
-      const exportMatch = config.exports ? /^\/v1\/exports\/([A-Za-z0-9_-]+)(?:\/(download|cancel))?$/.exec(path) : null;
-      const exportCreate = !!config.exports && path === '/v1/exports';
+      const exportRecords = typeof config.exports?.listExportableRecords === 'function' && path === '/v1/exports/records';
+      const exportList = typeof config.exports?.listRecordExports === 'function' && path === '/v1/exports' && request.method === 'GET';
+      const exportMatch = config.exports && path !== '/v1/exports/records' ? /^\/v1\/exports\/([A-Za-z0-9_-]+)(?:\/(download|cancel))?$/.exec(path) : null;
+      const exportCreate = !!config.exports && path === '/v1/exports' && !exportList;
       const devicesList = !!config.devices && path === '/v1/devices';
       const devicesRevoke = !!config.devices && path === '/v1/devices/revoke';
-      if (!callbackMatch && url.search) bad();
+      if (!callbackMatch && !exportRecords && !exportList && url.search) bad();
       if (browserUI && (browserUI.matches(path) || path === PRIVATE_ACCOUNT_UI_CONFIG_PATH)) {
         if (request.method !== 'GET') return response(405, { error: 'invalid_request' }, [['Allow', 'GET']]);
         if (request.body !== null || request.headers.has('content-length') && request.headers.get('content-length') !== '0') bad();
@@ -230,7 +232,7 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
         const content = browserUI.content(path);
         return response(200, content.body, [], content.type);
       }
-      const method = devicesRevoke || exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : devicesList || exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
+      const method = exportRecords || exportList ? 'GET' : devicesRevoke || exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : devicesList || exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
         : ['/v1/auth/start', '/v1/session/context', '/v1/session/logout'].includes(path) ? 'POST' : null;
       if (!method) return response(404, { error: 'not_found' });
       if (request.method !== method) return response(405, { error: 'invalid_request' }, [['Allow', method]]);
@@ -314,6 +316,17 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
         });
         if (!result) return response(404, { error: 'not_found' });
         return response(200, result, result.currentRevoked ? [['Set-Cookie', clearSessionCookie()]] : []);
+      }
+      if (exportRecords || exportList) {
+        operation = exportRecords ? 'export.records' : 'export.list';
+        const params = url.searchParams;
+        if ([...params.keys()].some(k => !['workspaceId', 'limit', 'cursor'].includes(k) || params.getAll(k).length !== 1)) bad();
+        const workspaceId = params.get('workspaceId'), limitText = params.get('limit'), cursor = params.get('cursor');
+        if (!isAccountId(workspaceId) || limitText !== null && (!/^[1-9][0-9]?$/.test(limitText) || Number(limitText) > 32) || cursor !== null && (cursor.length > 2048 || !/^[A-Za-z0-9_-]+\.[a-f0-9]{64}$/.test(cursor))) bad();
+        const input = { workspaceId, ...(limitText === null ? {} : { limit: Number(limitText) }), ...(cursor === null ? {} : { cursor }) };
+        const result = exportRecords ? await config.exports!.listExportableRecords!(digest(opaque), input) : await config.exports!.listRecordExports!(digest(opaque), input);
+        if (!result) return response(404, { error: 'not_found' });
+        return response(200, result);
       }
       if (exportCreate) {
         operation = 'export.request';

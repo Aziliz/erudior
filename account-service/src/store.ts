@@ -1,4 +1,4 @@
-import { randomBytes, timingSafeEqual } from 'node:crypto';
+import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import type { Pool, PoolClient } from 'pg';
 import { authorizeAccountOperation } from './authorization.js';
 import { ACCOUNT_POLICY, isAccountId, validateAccountSnapshot, type AccountSnapshot, type DeviceSession, type ExternalIdentity, type SessionContext, type Workspace } from './model.js';
@@ -33,6 +33,10 @@ export interface PrivateRecord {
 }
 export interface RecordExportRequest { workspaceId: string; requestId: string; records: { id: string; version: number }[] }
 export interface RecordExportStatus { id: string; workspaceId: string; state: 'ready' | 'cancelled' | 'expired'; createdAt: number; expiresAt: number; recordCount: number }
+export interface ExportListInput { workspaceId: string; limit?: number; cursor?: string }
+export type ExportableRecord = Omit<PrivateRecord, 'payload'>;
+export interface ExportableRecordPage { records: ExportableRecord[]; nextCursor: string | null }
+export interface RecordExportPage { exports: RecordExportStatus[]; nextCursor: string | null }
 export interface RecordExportArtifact { format: 'erudior-record-export-v1'; workspaceId: string; records: PrivateRecord[] }
 interface ExportRow { export_id: string; workspace_id: string; scope: RecordExportRequest['records']; state: RecordExportStatus['state']; created_at: string; expires_at: string; artifact: RecordExportArtifact | null }
 const exportStatus = (job: ExportRow): RecordExportStatus => ({ id: job.export_id, workspaceId: job.workspace_id, state: job.state, createdAt: Number(job.created_at), expiresAt: Number(job.expires_at), recordCount: job.scope.length });
@@ -388,6 +392,80 @@ export class PostgresAccountStore {
   }
   async #exportScope(client: PoolClient, row: SessionRow): Promise<void> {
     await this.#scope(client, { session_id: row.body.id, session_version: String(row.body.version), owner_account_id: row.body.principal.id, workspace_id: row.body.activeWorkspaceId });
+  }
+  #listInput(input: ExportListInput): boolean {
+    return !!input && typeof input === 'object' && !Array.isArray(input) && Object.keys(input).every(k => ['workspaceId', 'limit', 'cursor'].includes(k)) && isAccountId(input.workspaceId)
+      && (input.limit === undefined || maxSafe(input.limit) && input.limit <= 32)
+      && (input.cursor === undefined || typeof input.cursor === 'string' && input.cursor.length <= 2048 && /^[A-Za-z0-9_-]+\.[a-f0-9]{64}$/.test(input.cursor));
+  }
+  // Cursor is continuity data, never authority. Every scope value and result is
+  // checked again against locked state even when a caller can construct a cursor.
+  #cursor(tokenHash: string, kind: string, graph: AccountSnapshot, row: SessionRow, after: string): string {
+    const body = Buffer.from(JSON.stringify([kind, row.body.id, row.body.version, row.body.activeWorkspaceId, graph.revision, after])).toString('base64url');
+    return body + '.' + createHmac('sha256', tokenHash).update('export-list:v1:' + body).digest('hex');
+  }
+  #after(tokenHash: string, kind: string, graph: AccountSnapshot, row: SessionRow, cursor?: string): string | null {
+    if (cursor === undefined) return '';
+    try {
+      const [body, signature] = cursor.split('.');
+      if (!equalHash(signature, createHmac('sha256', tokenHash).update('export-list:v1:' + body).digest('hex'))) return null;
+      const data = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
+      if (!Array.isArray(data) || data.length !== 6 || !isAccountId(data[5]) || this.#cursor(tokenHash, kind, graph, row, data[5]) !== cursor) return null;
+      return data[5];
+    } catch { return null; }
+  }
+  /** Inventory is metadata only, not read permission or an authority grant. */
+  async listExportableRecords(tokenHash: string, input: ExportListInput): Promise<ExportableRecordPage | null> {
+    if (this.#exportTtlSeconds === null || !scalar(tokenHash) || !this.#listInput(input)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      const row = await this.#session(client, tokenHash);
+      if (!row || !this.#exportAllowed(graph, row, input.workspaceId, [], await this.#now(client))) return null;
+      const after = this.#after(tokenHash, 'records', graph, row, input.cursor);
+      if (after === null) return null;
+      const now = await this.#now(client), limit = input.limit ?? 32;
+      const candidates = graph.records.filter(r => r.workspaceId === input.workspaceId && r.id > after)
+        .sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+      const allowed: AccountSnapshot['records'] = [];
+      for (const record of candidates) {
+        if (this.#exportAllowed(graph, row, input.workspaceId, [{ id: record.id, version: record.version }], now)) allowed.push(record);
+        if (allowed.length > limit) break;
+      }
+      await this.#touch(client, row, now);
+      if (!this.#exportAllowed(graph, row, input.workspaceId, allowed.map(r => ({ id: r.id, version: r.version })), await this.#now(client))) throw new TransactionAuthorizationExpired();
+      const records = allowed.slice(0, limit).map(({ id, version, category, visibility }) => ({ id, version, category, visibility }));
+      return { records, nextCursor: allowed.length > limit ? this.#cursor(tokenHash, 'records', graph, row, records.at(-1)!.id) : null };
+    });
+  }
+  /** Only jobs visible to existing status authorization in this exact session. */
+  async listRecordExports(tokenHash: string, input: ExportListInput): Promise<RecordExportPage | null> {
+    if (this.#exportTtlSeconds === null || !scalar(tokenHash) || !this.#listInput(input)) return null;
+    return this.#authorized(async client => {
+      const graph = await this.#graph(client, await this.#now(client));
+      const row = await this.#session(client, tokenHash);
+      if (!row || !this.#exportAllowed(graph, row, input.workspaceId, [], await this.#now(client))) return null;
+      const after = this.#after(tokenHash, 'exports', graph, row, input.cursor);
+      if (after === null) return null;
+      await this.#exportScope(client, row);
+      // Existing creation cap is 16 jobs per session, including tombstones.
+      // Select no artifact bytes and retain RLS plus explicit exact-scope predicates.
+      const jobs = (await client.query<ExportRow>(`SELECT export_id,workspace_id,scope,state,created_at,expires_at FROM erudior_private.record_exports
+        WHERE session_id=$1 AND session_version=$2 AND workspace_id=$3 AND export_id COLLATE "C">$4
+        ORDER BY export_id COLLATE "C" LIMIT 16 FOR UPDATE`, [row.body.id, row.body.version, input.workspaceId, after])).rows;
+      const now = await this.#now(client), limit = input.limit ?? 32;
+      const allowed = jobs.filter(j => this.#exportAllowed(graph, row, input.workspaceId, j.scope, now)).slice(0, limit + 1);
+      for (const job of allowed) {
+        if (now >= Number(job.expires_at)) {
+          job.state = 'expired';
+          await client.query('UPDATE erudior_private.record_exports SET state=$1, artifact=NULL WHERE export_id=$2', [job.state, job.export_id]);
+        }
+      }
+      await this.#touch(client, row, now);
+      const finalNow = await this.#now(client);
+      if (!this.#exportAllowed(graph, row, input.workspaceId, [], finalNow) || allowed.some(j => !this.#exportAllowed(graph, row, input.workspaceId, j.scope, finalNow) || j.state === 'ready' && finalNow >= Number(j.expires_at))) throw new TransactionAuthorizationExpired();
+      const exports = allowed.slice(0, limit).map(exportStatus);
+      return { exports, nextCursor: allowed.length > limit ? this.#cursor(tokenHash, 'exports', graph, row, exports.at(-1)!.id) : null };
+    });
   }
   /** Bounded synchronous preparation is atomic with authorization and insertion.
    * A retry is bound to the exact canonical record/version set for this session.

@@ -1,6 +1,6 @@
 # Private record exports
 
-This service capability exports an explicitly selected set of existing private records. It has no production bindings or public website interface. Account closure, learner erasure, identity verification, recovery, external processor cleanup and complete account-data access requests remain separate work.
+This service capability exports an explicitly selected set of existing private records. It has no production bindings or public website interface. An explicitly enabled private browser client can discover eligible record metadata, review exact selections and manage the originating session’s export artifacts. Account closure, learner erasure, identity verification, recovery, external processor cleanup and complete account-data access requests remain separate work.
 
 ## Enablement boundary
 
@@ -36,3 +36,18 @@ Forced RLS binds artifacts to owner, workspace, session ID and session version. 
 `npm run test:accounts` includes the strict service typecheck and export HTTP contract cases. `npm run test:accounts:integration` includes real PostgreSQL output, scope, role, concurrency and lifecycle tests, independent adversarial race tests, and a full HTTP login/export/retry/cancel flow backed by signed synthetic OIDC and PostgreSQL.
 
 The dedicated private-account workflow supplies a disposable PostgreSQL service. Missing local database configuration fails explicitly. No real learner records, production credentials or provider registration are used. Complete CI acceptance is required before describing this implementation as validated; protocol/database acceptance does not substitute for production activation or a client UI.
+
+
+## Private selection and download client
+
+The private host may expose two bounded discovery methods alongside its existing export capability. `GET /v1/exports/records` lists only minimal record ID, version, category and visibility for records currently authorized for `record.export`. `GET /v1/exports` lists only statuses the current creating session/version may already retrieve. Both require the exact active `workspaceId`; optional `limit` is 1–32 and `cursor` is opaque. They return `nextCursor` without totals or identifiers for hidden records. They never return payloads or the authority graph.
+
+Inventory is a new narrowly scoped disclosure surface, not an authority grant. Every selected record is still independently authorized when creating and downloading an export. Pagination is invalidated by graph revision, session version or workspace changes. The store retains the trusted graph/session locks and checks authorization and time after waits. Source-record payload permissions and RLS are not weakened for listing.
+
+The browser enables the export section only when the host provides the complete listing and existing export capabilities. Users select at most 32 exact record versions, review the selection, and explicitly create an artifact. Saved jobs are rediscovered only for the same authorized session and context, including after reload. A lost creation response is reported as unknown; read-only refresh can find saved jobs without silently repeating creation.
+
+Download is an explicit authenticated request, not a bearer URL. The client bounds the returned bytes, keeps them in memory only and releases its object URL when no longer needed or when the private page is hidden. The downloaded JSON is an unsigned data copy, not official credit or issuer verification. The user controls any file saved outside the app.
+
+Cancellation requires confirmation and deletes only the service artifact. Original records and already downloaded files remain. Identity/context changes, revocation, expiry and stale responses clear private selections, inventories and download state. The client does not use browser persistence or automatically upload local learner records.
+
+This completes a selected-record export workflow, not account-wide data access, legal privacy-request fulfillment, deletion execution, production identity or cloud synchronization. Production activation remains subject to the separate account-service release prerequisites.
