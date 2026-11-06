@@ -260,6 +260,10 @@ const advocacySection = [...jdPath.querySelectorAll<HTMLElement>('.study-program
 assert(advocacySection, 'advocacy course remains in the program outline');
 await click(advocacySection.querySelector('button')!);
 assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-legal-writing-2' });
+const contractsSection = [...jdPath.querySelectorAll<HTMLElement>('.study-program details')].find(e => e.querySelector('summary')?.textContent?.includes('Contracts I: Formation and Interpretation'));
+assert(contractsSection, 'Contracts I remains in the Stage 2 outline');
+await click(contractsSection.querySelector('button')!);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-contracts-1' });
 assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing the second course does not enroll');
 api = makeApi('bob', []);await mount();
 assert.equal(pathway(jd.title).querySelector('progress')?.value, 0, "saved program survives remount");
@@ -269,7 +273,8 @@ assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /In
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Case Reading and Legal Reasoning \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing I: Objective Analysis \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing II: Persuasion and Advocacy \(planned\)/);
-assert.match(document.querySelector('.pathway-editor')!.textContent!, /Contracts I: Formation and Interpretation \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Contracts I: Formation and Interpretation \(planned\)/);
+assert.match(document.querySelector('.pathway-editor')!.textContent!, /Contracts II: Performance, Breach and Remedies \(planned\)/);
 await click('Move Legal Writing II: Persuasion and Advocacy up');
 await click('Save pathway');
 assert.equal(pathway(jd.title).querySelector('.study-program'), null, "custom course order does not inherit canonical stage progress");
