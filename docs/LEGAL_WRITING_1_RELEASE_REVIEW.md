@@ -1,6 +1,6 @@
 # Legal Writing I release review
 
-Updated November 5, 2026. Revision 1 is a validated release candidate; publication is not established by this document alone. The final course workflow must pass and the signed release must contain the reviewed bytes.
+Published November 6, 2026. App PR #154 merged at `5c507671af19d78d5512a67c875528ec11672830` after all normal PR checks passed. Merge-triggered course publishing run `42169598325` and website deployment `42169598355` succeeded. Live read-back verified the pinned-key catalog signature, exact runtime digest/length below, all 26 prior course digests and concurrent Math 7 (28 courses total). The remaining notes retain the validation and release-candidate history.
 
 ## Candidate
 

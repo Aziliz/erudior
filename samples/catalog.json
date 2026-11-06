@@ -4968,6 +4968,66 @@
   ]
  },
  {
+  "id": "law-legal-writing-2",
+  "file": "math/law-legal-writing-2.json",
+  "order": 104,
+  "title": "Legal Writing II: Persuasion and Advocacy",
+  "description": "Build a supported motion argument, present disputed facts accurately, address adverse authority, and revise a persuasive brief and oral explanation. Includes a complete fictional legal packet, model opposition, revision workbench and oral-argument practice.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree or a determination of bar eligibility. Kestrel law, procedure, opinions and records are fictional teaching materials. The drafting and oral exercises are self-assessed, not a substitute for jurisdiction-specific professional instruction.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "lwp-audience",
+   "lwp-organization",
+   "lwp-facts",
+   "lwp-headings",
+   "lwp-adverse",
+   "lwp-candor",
+   "lwp-revision",
+   "lwp-oral"
+  ],
+  "outline": [
+   {
+    "title": "Audience, relief and persuasive organization",
+    "lessons": [
+     "Identify the audience, posture and available relief",
+     "Build a decision-focused argument and roadmap"
+    ]
+   },
+   {
+    "title": "Fact statements and argument headings",
+    "lessons": [
+     "Present a persuasive and faithful factual narrative",
+     "Write point headings and supported analytical paragraphs"
+    ]
+   },
+   {
+    "title": "Adverse authority and ethical advocacy",
+    "lessons": [
+     "Address adverse authority and the strongest counterargument",
+     "Audit sources and preserve candor in persuasive writing"
+    ]
+   },
+   {
+    "title": "Brief revision and oral explanation",
+    "lessons": [
+     "Revise the complete brief for reasoning and consistency",
+     "Explain the argument orally and answer difficult questions"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-japanese-kana",
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
