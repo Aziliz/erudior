@@ -1,0 +1,26 @@
+:root { color-scheme: light dark; font: 100%/1.55 system-ui, sans-serif; background: #f4f6f9; color: #19283a; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(1rem, 4vw, 3rem); }
+main { max-width: 54rem; margin: auto; overflow-wrap: anywhere; }
+h1 { font-size: clamp(1.65rem, 5vw, 2.3rem); line-height: 1.2; }
+h2 { font-size: 1.2rem; }
+section { background: #fff; border: 1px solid #a5b1c0; border-radius: .75rem; padding: 1.25rem; margin: 1.25rem 0; }
+p { margin: .6rem 0; }
+button, select { font: inherit; min-height: 2.75rem; border: 1px solid #687b90; border-radius: .4rem; padding: .55rem .8rem; max-width: 100%; }
+button { background: #153f72; color: #fff; margin: .5rem .6rem .5rem 0; cursor: pointer; }
+button:disabled, select:disabled { opacity: .65; cursor: wait; }
+:focus-visible { outline: 3px solid #bd6200; outline-offset: 4px; }
+label { display: grid; gap: .4rem; margin: 1rem 0; }
+select { width: 100%; background: #fff; color: #19283a; }
+ul { padding-inline-start: 1.25rem; }
+li { padding-block: .5rem; border-bottom: 1px solid #a5b1c0; }
+[role=status] { min-height: 1.55em; }
+@media (prefers-color-scheme: dark) {
+  :root { background: #101923; color: #edf3fa; }
+  section { background: #1b2938; border-color: #6e8299; }
+  select { background: #101923; color: #edf3fa; }
+  button { background: #afcef7; color: #102c4e; }
+  :focus-visible { outline-color: #ffc46b; }
+}
+@media (max-width: 30rem) { button { width: 100%; margin-inline: 0; } section { padding: 1rem; } }
+@media (forced-colors: active) { button, select, section { border: 1px solid CanvasText; } }

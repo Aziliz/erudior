@@ -38,7 +38,7 @@
     "test:learning-progress-browser": "node scripts/learning-progress-browser.mjs",
     "test:role-navigation-browser": "node scripts/role-navigation-browser.mjs",
     "test:offline-course-browser": "node scripts/offline-course-browser.mjs",
-    "test:accounts": "tsc --project account-service/tsconfig.json && node --import tsx account-service/test/model.test.mts && node --import tsx account-service/test/authorization.test.mts && node --import tsx account-service/test/lifecycle.test.mts && node --import tsx account-service/test/security-acceptance.test.mts && node --import tsx account-service/test/oidc.test.mts && node --import tsx account-service/test/http-contract.test.mts && node --import tsx account-service/test/export-http.test.mts && node --import tsx account-service/test/device-http.test.mts",
+    "test:accounts": "tsc --project account-service/tsconfig.json && node --import tsx account-service/test/model.test.mts && node --import tsx account-service/test/authorization.test.mts && node --import tsx account-service/test/lifecycle.test.mts && node --import tsx account-service/test/security-acceptance.test.mts && node --import tsx account-service/test/oidc.test.mts && node --import tsx account-service/test/http-contract.test.mts && node --import tsx account-service/test/export-http.test.mts && node --import tsx account-service/test/device-http.test.mts && node --import tsx account-service/test/browser-ui-unit.mts && node --import tsx account-service/test/browser-http.test.mts && node --import tsx account-service/test/public-browser-boundary.test.mts",
     "test:student-workspace-browser": "node scripts/student-workspace-browser.mjs",
     "test:academic-records-browser": "node scripts/academic-records-browser.mjs",
     "test:accounts:integration": "node --import tsx account-service/test/store-postgres.test.mts && node --import tsx account-service/test/service-security.test.mts && node --import tsx account-service/test/exports-postgres.test.mts && node --import tsx account-service/test/export-security-postgres.test.mts && node --import tsx account-service/test/export-service-security.test.mts && node --import tsx account-service/test/devices-postgres.test.mts",
@@ -48,7 +48,8 @@
     "test:promotion-review": "node --import tsx tests/promotion-review.test.mts && node --import tsx tests/promotion-publisher.test.mts && node --import tsx tests/admin-promotions-ui.test.mts && node --import tsx tests/promotion-api.test.mts && node --test tests/promotion-review-route.test.mjs && node --import tsx worker/test/promotion-review.test.mts",
     "promotion:verify": "tsx scripts/verify-promotion-handoff.ts",
     "test:promotion-browser": "node scripts/promotion-review-browser.mjs",
-    "test:audience-pages": "node --import tsx tests/audience-pages.test.mts"
+    "test:audience-pages": "node --import tsx tests/audience-pages.test.mts",
+    "test:accounts:browser": "node --import tsx account-service/test/browser-acceptance.mts"
   },
   "dependencies": {
     "@codemirror/autocomplete": "6.20.3",

@@ -168,7 +168,11 @@ export async function createSyntheticOidcProvider(options: SyntheticProviderOpti
     return fetch(networkOrigin + url.pathname + url.search, { ...init, redirect: 'manual' });
   };
   return {
-    config, transport, stats,
+    config, transport, stats, networkOrigin,
+    /** Configure the next browser-driven authorization without issuing it in Node. */
+    chooseAuthorization(state: string, choice: SyntheticAuthorizationOptions = {}) {
+      choices.set(state, structuredClone(choice));
+    },
     async authorize(authorizationUrl: string, choice: SyntheticAuthorizationOptions = {}): Promise<string> {
       const url = new URL(authorizationUrl);
       choices.set(url.searchParams.get('state') ?? '', structuredClone(choice));
