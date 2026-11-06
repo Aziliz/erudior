@@ -21,6 +21,7 @@ const require = createRequire(import.meta.url);
 const axeSource = await readFile(require.resolve('axe-core/axe.min.js'), 'utf8');
 const completed: string[] = [];
 const transportFailures: string[] = [];
+const consoleCategories: { actor: number; category: string }[] = [];
 const exchangeSummary: { path: string; method: string; status: number; cookieNames: string[]; setCookieNames: string[]; fetchSite: string | null }[] = [];
 const cookieNames = (header: string | undefined) => (header ?? '').split(';').map(part => part.trim().split('=')[0]!).filter(name => name.startsWith('__Host-erudior-'));
 let currentCase = 'initialization';
@@ -51,6 +52,14 @@ async function actor() {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, serviceWorkers: 'block' });
   const page = await context.newPage();
   const value: Actor = { context, page, choice: {}, callbacks: [] }; actors.push(value);
+  const actorIndex = actors.length - 1;
+  page.on('console', message => {
+    if (message.type() !== 'error' && message.type() !== 'warning') return;
+    const text = message.text();
+    // Classify locally; never retain raw console text or credential-bearing URLs.
+    const category = /form-action/i.test(text) ? 'csp-form-action' : /content security policy/i.test(text) ? 'csp-other' : /cors/i.test(text) ? 'cors' : 'browser-warning-or-error';
+    consoleCategories.push({ actor: actorIndex, category });
+  });
   value.attach = await installTransport(context, origins, {
     failure: path => { transportFailures.push(path); },
     before: async request => {
@@ -301,8 +310,8 @@ try {
     // Screenshots show document content only, never the browser address bar.
     await actor.page.screenshot({ path: `${OUT}/failure-${index}.png`, fullPage: true, timeout: 5000 }).catch(() => {});
   }
-  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, states, exchanges: exchangeSummary, transportFailures }, null, 2));
-  console.error(JSON.stringify({ failedCase: currentCase, states, exchanges: exchangeSummary.slice(-20), transportFailures }));
+  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, states, exchanges: exchangeSummary, transportFailures, consoleCategories }, null, 2));
+  console.error(JSON.stringify({ failedCase: currentCase, states, exchanges: exchangeSummary.slice(-20), transportFailures, consoleCategories }));
   // Playwright errors can include full callback URLs. Keep the original error
   // class but do not print the credential-bearing navigation log.
   throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}); see sanitized failure.json and screenshots`);

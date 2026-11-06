@@ -40,6 +40,7 @@ try {
         interactive.chooseAuthorization(url.searchParams.get('state')!, cancelled ? { error: 'access_denied' } : { subject: 'browser-fixture-subject' });
         const document = await fetch(interactive.networkOrigin + url.pathname + url.search, { redirect: 'manual' });
         assert.equal(document.status, 200);
+        assert.equal(document.headers.get('content-security-policy'), `default-src 'none'; form-action 'self' ${interactive.config.redirectUri}; frame-ancestors 'none'; base-uri 'none'`);
         assert.equal(document.headers.get('location'), null, 'initial provider navigation must commit rather than redirect');
         assert.match(await document.text(), /<form method="get" action="\/authorize\/continue">/);
         const continued = await fetch(interactive.networkOrigin + '/authorize/continue' + url.search, { redirect: 'manual' });

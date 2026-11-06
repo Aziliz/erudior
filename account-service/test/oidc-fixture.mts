@@ -94,7 +94,7 @@ export async function createSyntheticOidcProvider(options: SyntheticProviderOpti
           const escape = (value: string) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
           const inputs = [...q].map(([name, value]) => `<input type="hidden" name="${escape(name)}" value="${escape(value)}">`).join('');
           response.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer',
-            'content-security-policy': "default-src 'none'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'" });
+            'content-security-policy': `default-src 'none'; form-action 'self' ${config.redirectUri}; frame-ancestors 'none'; base-uri 'none'` });
           response.end(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Synthetic identity provider</title></head><body><main><h1>Synthetic identity provider</h1><p>Test-only sign-in. Continue to return to Erudior.</p><form method="get" action="${paths.authorize}/continue">${inputs}<button type="submit">Continue to Erudior</button></form></main></body></html>`);
           return;
         }
