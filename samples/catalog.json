@@ -287,6 +287,149 @@
   ]
  },
  {
+  "id": "math-7",
+  "file": "math/math-7.json",
+  "order": 0.7,
+  "title": "Math 7",
+  "description": "Grade 7 mathematics through rational numbers, proportional relationships, percents, expressions and equations, geometry, statistics, and probability. Learn with worked examples, original diagrams, lesson quizzes, generated practice, study cards, and reference sheets.",
+  "revision": 1,
+  "subject": "Math",
+  "level": [
+   "Middle School"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 36,
+  "questions": 432,
+  "cards": 180,
+  "drills": 72,
+  "requires": [
+   "math-6"
+  ],
+  "lessonIds": [
+   "m7-signed-sums",
+   "m7-differences-distance",
+   "m7-signed-products-quotients",
+   "m7-fractions-decimals",
+   "m7-fraction-unit-rates",
+   "m7-recognize-proportions",
+   "m7-proportional-graphs",
+   "m7-scale-drawings",
+   "m7-percent-change-error",
+   "m7-markups-discounts-tax",
+   "m7-simple-interest-fees",
+   "m7-reverse-percent",
+   "m7-combine-like-terms",
+   "m7-expand-factor",
+   "m7-equivalent-contexts",
+   "m7-multi-step-rational",
+   "m7-two-step-equations",
+   "m7-grouped-equations",
+   "m7-inequalities-negative",
+   "m7-modeling-constraints",
+   "m7-angle-relationships",
+   "m7-triangle-constructions",
+   "m7-circle-measurement",
+   "m7-composite-area",
+   "m7-cross-sections",
+   "m7-prism-volume",
+   "m7-nets-surface-area",
+   "m7-composite-solids",
+   "m7-random-samples",
+   "m7-population-estimates",
+   "m7-compare-distributions",
+   "m7-sampling-variation",
+   "m7-probability-models",
+   "m7-experimental-probability",
+   "m7-compound-events",
+   "m7-simulations-capstone"
+  ],
+  "outline": [
+   {
+    "title": "Rational numbers",
+    "lessons": [
+     "Add signed numbers",
+     "Subtract and measure distance",
+     "Multiply and divide signed numbers",
+     "Fractions, terminating decimals, and repeating decimals"
+    ]
+   },
+   {
+    "title": "Proportional relationships",
+    "lessons": [
+     "Unit rates with fractions",
+     "Recognize proportional relationships",
+     "Proportional equations and graphs",
+     "Scale drawings and changing scale"
+    ]
+   },
+   {
+    "title": "Percent applications",
+    "lessons": [
+     "Percent change and percent error",
+     "Markups, discounts, and sales tax",
+     "Simple interest, tips, and commissions",
+     "Find an original amount and compare percent changes"
+    ]
+   },
+   {
+    "title": "Expressions and numerical reasoning",
+    "lessons": [
+     "Combine terms with rational coefficients",
+     "Expand and factor linear expressions",
+     "Choose useful equivalent expressions",
+     "Plan and check multistep calculations"
+    ]
+   },
+   {
+    "title": "Equations and inequalities",
+    "lessons": [
+     "Solve two-step equations",
+     "Solve equations with grouped quantities",
+     "Solve and graph inequalities",
+     "Model constraints and interpret solutions"
+    ]
+   },
+   {
+    "title": "Plane geometry",
+    "lessons": [
+     "Use angle relationships",
+     "Construct triangles from given conditions",
+     "Circumference and area of circles",
+     "Area and perimeter of composite figures"
+    ]
+   },
+   {
+    "title": "Solids and measurement",
+    "lessons": [
+     "Describe cross-sections of solids",
+     "Find volumes of right prisms",
+     "Use nets to find surface area",
+     "Measure composite solids and scale effects"
+    ]
+   },
+   {
+    "title": "Samples and statistical comparisons",
+    "lessons": [
+     "Design random samples",
+     "Use samples to estimate population quantities",
+     "Compare centers, variability, and overlap",
+     "Investigate variation across samples"
+    ]
+   },
+   {
+    "title": "Probability and simulation",
+    "lessons": [
+     "Build probability models",
+     "Compare experiments with probability models",
+     "Organize compound-event sample spaces",
+     "Design simulations and evaluate a complete model"
+    ]
+   }
+  ]
+ },
+ {
   "id": "math-prealgebra",
   "file": "math/math-prealgebra.json",
   "order": 1,
