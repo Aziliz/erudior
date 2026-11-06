@@ -24,12 +24,13 @@ const transportFailures: string[] = [];
 const exchangeSummary: { path: string; method: string; status: number; cookieNames: string[]; setCookieNames: string[]; fetchSite: string | null }[] = [];
 const cookieNames = (header: string | undefined) => (header ?? '').split(';').map(part => part.trim().split('=')[0]!).filter(name => name.startsWith('__Host-erudior-'));
 let currentCase = 'initialization';
+let freshCrossSiteCallbacks = 0;
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ headless: true,
   ...(process.env.ERUDIOR_BROWSER_EXECUTABLE ? { executablePath: process.env.ERUDIOR_BROWSER_EXECUTABLE } : {}) });
 const database = await createPostgresHarness().catch(async error => { await browser.close(); throw error; });
-const personal = await createSyntheticOidcProvider({ id: 'browser-personal', issuer: 'https://personal.identity.invalid', redirectUri: ORIGIN + '/v1/auth/callback/browser-personal' });
-const school = await createSyntheticOidcProvider({ id: 'browser-school', issuer: 'https://school.identity.invalid', redirectUri: ORIGIN + '/v1/auth/callback/browser-school' });
+const personal = await createSyntheticOidcProvider({ browserInteraction: true, id: 'browser-personal', issuer: 'https://personal.identity.invalid', redirectUri: ORIGIN + '/v1/auth/callback/browser-personal' });
+const school = await createSyntheticOidcProvider({ browserInteraction: true, id: 'browser-school', issuer: 'https://school.identity.invalid', redirectUri: ORIGIN + '/v1/auth/callback/browser-school' });
 const providers = [personal, school];
 const clients = providers.map(provider => createOidcClient(provider.config, { transport: provider.transport }));
 const policies: StoreProviderPolicy[] = clients.map((client, index) => ({ id: client.providerId, version: client.providerVersion,
@@ -54,6 +55,7 @@ async function actor() {
     failure: path => { transportFailures.push(path); },
     before: async request => {
       const provider = providers.find(provider => request.url.origin === new URL(provider.config.issuer).origin);
+      if (provider) assert.equal(request.headers.cookie, undefined, 'Erudior cookies must never reach the provider site');
       if (provider && request.url.pathname === '/authorize') {
         assert.equal(request.method, 'GET');
         assert.equal(request.headers.cookie, undefined, 'Erudior cookies must not reach the external provider');
@@ -74,16 +76,24 @@ async function actor() {
   await page.getByRole('button', { name: 'Sign in with Personal test provider', exact: true }).waitFor();
   return value;
 }
+async function continueAtProvider(a: Actor) {
+  await a.page.getByRole('heading', { name: 'Synthetic identity provider', exact: true }).waitFor();
+  assert.ok(providers.some(provider => new URL(provider.config.issuer).origin === new URL(a.page.url()).origin), 'a cross-site provider document must be committed before returning');
+  await a.page.getByRole('button', { name: 'Continue to Erudior', exact: true }).click();
+}
 async function signIn(a: Actor, kind: 'Personal' | 'School' = 'Personal', choice: SyntheticAuthorizationOptions = {}) {
+  const hadSessionCookie = (await a.context.cookies(ORIGIN)).some(cookie => cookie.name === PRIVATE_ACCOUNT_SESSION_COOKIE);
   a.choice = choice;
   const name = new RegExp(`^(?:Fresh sign-in|Sign in) with ${kind} test provider$`);
   await a.page.getByRole('button', { name }).click();
+  await continueAtProvider(a);
   await a.page.getByRole('region', { name: 'Current session', exact: true }).waitFor();
   assert.equal(new URL(a.page.url()).pathname, '/account');
   const callback = a.callbacks.at(-1)!;
   assert.match(callback.headers.cookie ?? '', new RegExp(PRIVATE_ACCOUNT_LOGIN_COOKIE + '='));
   assert.equal(callback.headers.referer, undefined, 'callback navigation must not disclose a referrer');
   assert.ok(!(callback.headers.cookie ?? '').includes(PRIVATE_ACCOUNT_SESSION_COOKIE + '='), 'Strict session cookie must be withheld on cross-site callback');
+  if (hadSessionCookie) freshCrossSiteCallbacks++;
   const cookies = await a.context.cookies(ORIGIN);
   const session = cookies.find(cookie => cookie.name === PRIVATE_ACCOUNT_SESSION_COOKIE)!;
   assert.ok(session?.secure && session.httpOnly); assert.equal(session.sameSite, 'Strict'); assert.equal(session.path, '/');
@@ -139,6 +149,7 @@ try {
     await a.page.getByLabel('Active context', { exact: true }).waitFor();
     assert.equal(await a.page.getByLabel('Active context', { exact: true }).inputValue(), ids.family);
     await signIn(a);
+    assert.ok(freshCrossSiteCallbacks > 0, 'Strict withholding must be proven with an existing account cookie');
   });
   await test('confirmation cancel, remote revocation and current revocation across two browser contexts', async () => {
     await refresh(a);
@@ -163,6 +174,7 @@ try {
     for (const choice of [{ error: 'access_denied' }, { tokenMode: 'wrong-signature' as const }]) {
       c.choice = choice;
       await c.page.getByRole('button', { name: 'Sign in with Personal test provider', exact: true }).click();
+      await continueAtProvider(c);
       await c.page.getByRole('status').filter({ hasText: 'Sign-in was not completed.' }).waitFor(); await signedOut(c);
       assert.equal(c.page.url(), ORIGIN + '/account');
       assert.doesNotMatch(await c.page.locator('body').innerText(), /[?&](?:code|state|iss)=/);
@@ -295,7 +307,7 @@ try {
   // class but do not print the credential-bearing navigation log.
   throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}); see sanitized failure.json and screenshots`);
 } finally {
-  await writeFile(OUT + '/summary.json', JSON.stringify({ completed, passed: completed.length, transport: 'Synthetic HTTPS origins forwarded to real loopback HTTP. No production DNS/TLS proof.', browserCookieInjection: false, authorizationMocks: false }, null, 2));
+  await writeFile(OUT + '/summary.json', JSON.stringify({ completed, passed: completed.length, freshCrossSiteCallbacks, transport: 'Synthetic HTTPS origins forwarded to real loopback HTTP. No production DNS/TLS proof.', browserCookieInjection: false, authorizationMocks: false }, null, 2));
   for (const actor of actors) await actor.context.close();
   await browser.close(); await server.close(); await personal.close(); await school.close(); await database.close();
 }
