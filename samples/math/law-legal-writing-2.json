@@ -1,0 +1,2381 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "law-legal-writing-2",
+ "title": "Legal Writing II: Persuasion and Advocacy",
+ "description": "Build a supported motion argument, present disputed facts accurately, address adverse authority, and revise a persuasive brief and oral explanation. Includes a complete fictional legal packet, model opposition, revision workbench and oral-argument practice.",
+ "author": "Erudior",
+ "revision": 1,
+ "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree or a determination of bar eligibility. Kestrel law, procedure, opinions and records are fictional teaching materials. The drafting and oral exercises are self-assessed, not a substitute for jurisdiction-specific professional instruction.",
+ "modules": [
+  {
+   "id": "lwp-m1",
+   "title": "Audience, relief and persuasive organization",
+   "quiz": [
+    "lwp-q1-02",
+    "lwp-q1-05",
+    "lwp-q1-08",
+    "lwp-q1-09",
+    "lwp-q2-02",
+    "lwp-q2-05",
+    "lwp-q2-08",
+    "lwp-q2-09"
+   ]
+  },
+  {
+   "id": "lwp-m2",
+   "title": "Fact statements and argument headings",
+   "quiz": [
+    "lwp-q3-02",
+    "lwp-q3-05",
+    "lwp-q3-08",
+    "lwp-q3-09",
+    "lwp-q4-02",
+    "lwp-q4-05",
+    "lwp-q4-08",
+    "lwp-q4-09"
+   ]
+  },
+  {
+   "id": "lwp-m3",
+   "title": "Adverse authority and ethical advocacy",
+   "quiz": [
+    "lwp-q5-02",
+    "lwp-q5-05",
+    "lwp-q5-08",
+    "lwp-q5-09",
+    "lwp-q6-02",
+    "lwp-q6-05",
+    "lwp-q6-08",
+    "lwp-q6-09"
+   ]
+  },
+  {
+   "id": "lwp-m4",
+   "title": "Brief revision and oral explanation",
+   "quiz": [
+    "lwp-q7-02",
+    "lwp-q7-05",
+    "lwp-q7-08",
+    "lwp-q7-09",
+    "lwp-q8-02",
+    "lwp-q8-05",
+    "lwp-q8-08",
+    "lwp-q8-09"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lwp-audience",
+   "module": "lwp-m1",
+   "title": "Identify the audience, posture and available relief",
+   "minutes": 35,
+   "topics": [
+    "Audience and relief"
+   ],
+   "refs": [
+    "lwp-ref-procedure",
+    "lwp-ref-record",
+    "lwp-ref-authorities",
+    "lwp-ref-workbench"
+   ],
+   "body": "Objective writing asks what result the law and record support. Persuasive writing asks a decision-maker to take a supported action for a party. The shift changes emphasis and organization, but it does not change the sources or permit a false premise. Before writing a forceful opening, identify the decision that is actually available. A well-supported argument for the wrong procedural action can still fail its assignment.\n\nThis course continues Rin's fictional reimbursement dispute. Read the authority packet, F1–F7, P1–P4 and Rule S before drafting. The entire exercise is supplied in this course. Nothing requires a court filing, outside legal research or contact with an actual lawyer. You will prepare the opposition in your own document, assess it with a rubric, and practice an oral explanation privately.\n\n## Write for the decision-maker's task\n\nYour **[[audience]]** is the reader whose task determines what information the document must make usable. Here it is a trial judge deciding a particular motion. The judge needs the requested order, the governing standard, the facts that matter to that standard and an explanation connecting them. A client asking whether a lawsuit is worthwhile needs a different document. A public speech about community fairness would also serve a different task.\n\nIdentify **[[procedural posture]]** before choosing your claims. It describes where the dispute stands and what decision is pending. P1 supplies an existing action; P2 supplies the center's motion; P3 supplies an opposition and no cross-motion. The court is not conducting a trial, hearing an appeal or deciding an emergency request without the other side. Do not add those events because they would make an argument more dramatic.\n\n**[[Relief]]** is the action you ask the court to take. For this assignment, Rin seeks denial of the center's motion. That request should appear early and remain consistent through the conclusion. Denial preserves claims for later determination under Rule S3. It does not award 150 dollars, establish reasonable reliance for every purpose, or declare the supply credit worthless.\n\n## Distinguish the two burdens\n\nThe **[[moving party]]** asks the court to make the procedural disposition. The center must satisfy Rule S1 on the grounds it has noticed. The **[[opposing party]]** answers that request. Rin must identify specific record support rather than merely insist that the center is wrong. Rule S2 permits reasonable supported inferences for Rin; it does not require the judge to accept speculation or invented evidence.\n\nThe **[[ultimate burden]]** is the obligation to establish a claim at its later merits determination. Under KCRA §§ 2 and 4, Rin must establish reasonable reliance and the amount that is nonrecoverable. That obligation survives a successful opposition. A writer therefore can argue that a categorical credit rule is legally wrong while acknowledging that Rin has not yet established a particular recoverable supply amount.\n\nKeep a two-column note: “What must be shown for this motion?” and “What remains for later proof?” Put Rule S and P2 in the first column. Put the KCRA requirements and unresolved amount in the second. Some facts appear in both columns, but their function differs. F3 matters now because it supports an inference about free entry; later its credibility and weight may still matter.\n\n### Example 1: Repair an overbroad request\n\nA draft begins: “The court should reimburse Rin 150 dollars because the center confirmed the event.” First identify the procedural defect: P3 supplies no cross-motion, and Rule S3 separates denying the motion from granting an award. Second identify the substantive defects: a covered reservation does not establish reasonable reliance, and the deposit's nonrecoverable portion is unresolved. Third replace the requested action with one the record and posture support.\n\nA usable opening is: “The court should deny the center's motion. The record supports a dispute about whether the admission condition applied, and the existence of a restricted credit does not establish that the entire deposit retained usable value.” Add the specific rule and record support in the body. This formulation does not promise ultimate success. Its strength comes from identifying why the requested disposition is unavailable on the center's stated grounds.\n\nCheck the revision against two questions. Could the judge implement the requested action without inventing a new motion? Yes. Does the sentence quietly treat an unresolved factual premise as established? No: it identifies a dispute and rejects a categorical credit proposition. A persuasive opening can be direct while preserving uncertainty at the correct level.\n\n### Example 2: Build a precise fallback\n\nSuppose the judge rejects Rin's response about the supply credit. A vague request to “grant whatever is fair” gives no decision path. A **[[fallback request]]** states a narrower action if the court rejects a specified part of the primary argument. Here it can ask the court, if it disposes of the supply claim, to preserve the separate printing claim unless the court also resolves a noticed reliance ground against Rin under Rule S1.\n\nWork through the separation. F5 establishes no printing refund, reuse or credit. Hale ¶ 4 treats distinct expenses separately. Thus a ruling about usable supply value does not itself eliminate the printing claim. But reliance is a shared requirement: if a proper ruling establishes that reliance fails for both expenses, the absence of printing value cannot rescue the claim. State that limit instead of presenting separateness as automatic victory.\n\nThe fallback is conditional, not a concession that the supply argument loses. It is also narrower than the main request. Write it as one sentence after explaining the separate expenses, then check that the conclusion preserves the same sequence.\n\n## Guided practice\n\nPrepare a posture sheet with six entries: audience; moving party; opposing party; pending request; available response; matters reserved for later proof. Use P1–P4 and Rule S. Then revise this sentence: “Because Rin disputes the motion, the judge must believe everything Rin says.”\n\nFeedback: the judge draws reasonable supported inferences for Rin without deciding credibility. Rin must identify evidence, such as F3's dated account, and connect it to a material requirement. Disagreement alone is not enough. A corrected sentence should mention both support and materiality rather than simply replace “everything” with “most things.”\n\n## Common mistakes\n\nDo not confuse a motion's legal assertion with evidence, or treat the center's statement that an event was fee-based as an adjudicated fact. Do not call this an appeal because the packet includes appellate opinions. Those opinions supply substantive authority for a trial-court motion. Do not import real summary-judgment rules: the exercise's Rule S controls its procedural questions.\n\n## Key points\n\n- State the available requested order before building the argument.\n- Separate the moving party's procedural showing from Rin's ultimate KCRA burden.\n- Identify specific record support and the requirement it affects.\n- Make a fallback conditional, narrow and consistent with the shared reliance issue.\n",
+   "quiz": [
+    "lwp-q1-01",
+    "lwp-q1-02",
+    "lwp-q1-03",
+    "lwp-q1-04",
+    "lwp-q1-05",
+    "lwp-q1-06",
+    "lwp-q1-07",
+    "lwp-q1-08",
+    "lwp-q1-09",
+    "lwp-q1-10"
+   ]
+  },
+  {
+   "id": "lwp-organization",
+   "module": "lwp-m1",
+   "title": "Build a decision-focused argument and roadmap",
+   "minutes": 35,
+   "topics": [
+    "Persuasive organization"
+   ],
+   "refs": [
+    "lwp-ref-procedure",
+    "lwp-ref-record",
+    "lwp-ref-authorities",
+    "lwp-ref-workbench"
+   ],
+   "body": "After identifying the available relief, decide how the reader can reach it. A pile of accurate quotations is not yet an argument. Your brief needs an order that reveals which propositions matter, how the record bears on them, and what action follows. This lesson turns the posture sheet into a usable plan for Rin's opposition. Keep the two motion grounds visible while drafting; they prevent a persuasive theme from expanding into an unrelated fairness essay.\n\n## Choose a theory that explains the requested decision\n\nA **[[theory of the case]]** is the coherent account linking the governing law, significant facts and requested outcome. Here the account can be modest: the center's categorical propositions exceed what the statute and record support. The free-entry evidence matters to whether approval was conditional, and restricted credit requires a practical-value inquiry. Under Rule S, neither noticed proposition justifies the requested complete disposition on this record.\n\nCompare that theory with “the center behaved badly.” The second may express frustration, but it does not identify an element or explain why the motion fails. Also avoid “Rin deserves every dollar.” It skips both the motion standard and the unresolved supply amount. A useful theory controls what belongs in the brief; it is not a slogan placed above an otherwise unrelated discussion.\n\nAn **[[argument map]]** lays out the propositions needed to support the request. Write the requested order at the top. Beneath it, put the two grounds: reliance and credit. Under each ground, list the controlling text, the relevant case comparison, the record support, the strongest objection and the limited response. Attach a locator to each factual or legal premise. A missing locator reveals a research or reasoning gap before polished prose hides it.\n\n## Resolve the questions in a useful order\n\nA **[[threshold question]]** must be answered before another issue can be resolved usefully. The motion standard is a threshold here because it explains why a supported factual conflict matters. Put Rule S before evaluating whether the judge should accept the center's preferred inference. Otherwise the reader may assume the task is to decide ultimate credibility.\n\nReliance also affects both expense claims. It belongs before the supply-specific credit argument. This order does not make the credit issue unimportant. It tells the reader how the issues relate. Finish with relief that matches those relationships, including a properly limited printing fallback if needed. Do not repeat the same confirmation chronology independently under every subheading when a concise shared fact statement can supply it once.\n\nA **[[roadmap]]** previews the analytical route. It should name the actual grounds, not announce that the brief will be “clear and persuasive.” For example: “The motion should be denied because the record supports a material dispute about the admission condition, and because a restricted credit's existence does not establish full usable value.” Each promised point needs a corresponding section. A roadmap that promises an argument absent from the body creates confusion rather than guidance.\n\n## Carry objective analysis into an advocacy structure\n\n**[[Rule synthesis]]** combines the relevant legal propositions while preserving their limits. KCRA § 3, Moss and Reed do not become three unrelated stories. Together they focus attention on confirmation specificity and the communicated warning's application to the event. The advocacy task is to show why that synthesis, under Rule S, supports denying this motion. Your emphasis changes; the rule's conditions remain.\n\nAn **[[alternative argument]]** supplies another supported route if an identified premise is rejected. For example, a separate printing analysis matters if the court rules adversely on supply value. Mark the condition clearly. Avoid presenting inconsistent factual stories as if both were established. An advocate may argue that the proof is not conclusive while acknowledging what would follow if required admission were established.\n\nA **[[limiting principle]]** explains where your proposed reasoning stops. “The existence of any warning cannot automatically defeat reliance” does not mean “warnings never matter.” Reed shows that an applicable, known and unsatisfied approval condition can be decisive. Stating the boundary makes your argument easier to assess and harder to misread.\n\n### Example 1: Convert a source list into a map\n\nA student outlines “Moss, Reed, Hale, facts, fairness.” First identify the problem: the list follows source names instead of the court's decision. Second group the propositions by issue. Moss and Reed belong together under reliance; Hale and § 4 belong under retained value. Third insert the motion standard before both groups and the relief request after them.\n\nThe revised plan is: introduction and request; short fact statement; Rule S; reliance argument comparing Moss and Reed with F1–F4; credit argument using § 4, Hale and F6; separate-expense limit; conclusion. The cases still receive careful explanation, but each appears where it does work. A reader can now locate the reason each source matters without reconstructing the outline.\n\nTest the map by removing a heading temporarily. If the remaining text still clearly explains the requested disposition, the organization is probably carrying substance. If a case appears only because the assignment names it, ask which proposition it supports or limits. Coverage is necessary, but purposeful use is the goal.\n\n### Example 2: Repair a false alternative\n\nA draft says: “The event was free; alternatively, Rin obtained approval for a paid event.” The second proposition is unsupported. No approval appears in F2, and no new evidence may be added under P3. Calling it an alternative does not supply the missing fact.\n\nA defensible alternative works at a supported legal level: “Even if the supply argument fails, retained supply value does not by itself defeat the separate printing claim.” This uses Hale ¶ 4 and Rule S5. Add the limit that the printing claim still depends on reasonable reliance. The alternative now helps the judge make a narrower decision without inventing a second factual universe.\n\n## Guided practice\n\nMake a five-column map: proposition, authority, record, objection and response. Fill one row for F3/F4 and another for the restricted credit. Write a two-sentence roadmap from those rows. Then ask whether each sentence describes what the center has actually moved to establish in P2.\n\nFeedback: the reliance row should connect conflicting entry evidence to the approval condition. The credit row should challenge automatic full value while acknowledging missing valuation proof. If your roadmap says missing evidence always prevents judgment, revise it using Rule S4's distinction between this categorical motion and an unraised sufficiency ground.\n\n## Common mistakes\n\nDo not organize by citation count, bury the standard after the merits, or use a theme to erase adverse evidence. Avoid stacking every possible claim in the conclusion. The assignment supplies a bounded opposition, not permission to request new remedies. A roadmap is a promise about the brief's structure; revise it whenever the argument changes.\n\n## Key points\n\n- Organize around the court's decision and the motion's two grounds.\n- Give each source a specific analytical job.\n- Preserve limiting principles and the conditions of alternative arguments.\n- Make the roadmap, headings and requested order tell the same story.\n",
+   "quiz": [
+    "lwp-q2-01",
+    "lwp-q2-02",
+    "lwp-q2-03",
+    "lwp-q2-04",
+    "lwp-q2-05",
+    "lwp-q2-06",
+    "lwp-q2-07",
+    "lwp-q2-08",
+    "lwp-q2-09",
+    "lwp-q2-10"
+   ]
+  },
+  {
+   "id": "lwp-facts",
+   "module": "lwp-m2",
+   "title": "Present a persuasive and faithful factual narrative",
+   "minutes": 35,
+   "topics": [
+    "Persuasive fact statements"
+   ],
+   "refs": [
+    "lwp-ref-record",
+    "lwp-ref-procedure",
+    "lwp-ref-workbench",
+    "lwp-ref-model"
+   ],
+   "body": "A judge should understand the dispute before reaching the argument. An advocate can choose a useful order, emphasize legally significant details and write readable sentences. Those choices do not permit changing what the record establishes. In Rin's opposition, the main factual challenge is to present evidence of free entry while confronting the approved proof that says \"$5 at door.\" The supply credit creates a second challenge: its restrictions are known, but its practical value is not.\n\n## Select facts for the decision\n\nA **[[factual narrative]]** is an organized account of relevant events. Start with the decision the judge must make, then choose the facts needed to understand it. Here a short chronology works: confirmation, communicated condition, conflicting entry materials, payment, cancellation and credit. The procedural history can follow in a brief paragraph. A different case might require an issue-based arrangement, but this record does not need repeated timelines under separate labels.\n\nA **[[material fact]]** can affect a legal requirement, inference or amount. F2 matters because the approval condition applies to admission charges. F3 and F4 matter because they support different inferences about whether that condition applied. F5 and F6 distinguish the expenses. Include the dates necessary to show payment preceded cancellation; do not devote equal space to every detail merely because it appears in the packet.\n\nThe factual section should be intelligible without argument headings. A reader should know whose document contains each important statement. If you omit the credit entirely, the reader cannot understand the second motion ground. If you omit the approved proof, the favorable planning note appears much more decisive than the record permits. Selection is useful only while the account remains materially fair.\n\n## Distinguish the event from the source's account\n\nA **[[record citation]]** identifies the item supporting a factual proposition. In this exercise, use F1–F7 and P1–P4, with a specific item beside the supported sentence. Do not invent page numbers, transcripts or exhibit labels. A citation to F3 supports what Rin's planning note says; it does not turn the note into an adjudicated fact about every participant's entry conditions.\n\n**[[Attribution]]** identifies who said, recorded or alleged a proposition. Compare “Admission was free” with “Rin's planning note describes optional contributions and admission without payment (F3).” The second accurately presents favorable evidence without deciding credibility. Pair it with the approved proof's contrary language in F4. You can later explain why the competing materials support a genuine dispute under Rule S2.\n\nAn **[[inference]]** is a conclusion drawn from evidence. “The proof supports an inference of required payment” is different from “the proof conclusively establishes required payment.” The approved wording is strong evidence against Rin, but the record does not supply the final distributed flyer or actual entry instructions. Conversely, the absence of those materials does not prove that the proof was corrected. A missing document limits what can be established; it is not a blank space in which to invent helpful events.\n\n## Give adverse facts a fair place\n\nAn **[[adverse fact]]** materially weakens your requested conclusion or supports the opponent. Present it accurately near the related favorable facts. Do not hide F4 in a parenthetical about supplies or replace its exact wording with “a minor printing issue.” The wording concerns admission, the core reliance issue. It deserves clear treatment even though Rin has an answer about its significance at this procedural stage.\n\nA **[[factual concession]]** accepts a supported fact without necessarily accepting the opponent's legal conclusion. Rin can concede reading F2 and approving the F4 proof. That does not concede that entry would necessarily require payment or that every warning defeats reliance. A careful concession reduces needless dispute while preserving the real analytical question. Do not concede a new fact merely to make the writing sound balanced.\n\n### Example 1: Repair a favorable but misleading sentence\n\nThe draft says: “Rin offered a free event, and a printer mistakenly added an admission charge.” First, identify the support problem. F3 records Rin's intended optional contributions, while F4 records Rin's approval of the \"$5 at door\" proof. Nothing attributes the wording to a printer's mistake. Second, remove the invented cause. Third, show both items with appropriate attribution.\n\nA repair is: “Rin's March 4 planning note describes optional contributions and admission without payment (F3). Rin also approved a proof that day stating '$5 at door'; the packet contains no final distributed flyer or entry instructions (F4).” In the argument, explain that these items support competing inferences. The revision remains useful to Rin because it exposes a record-supported conflict without concealing the strongest contrary evidence.\n\nNotice the cost of the original sentence. It did more than use an assertive tone: it introduced a new actor's error and made the admission issue appear resolved. Adding F3 after that sentence would not repair the unsupported printer accusation. Citation review must examine each proposition, not merely whether the sentence has a citation somewhere.\n\n### Example 2: Describe the credit without valuing it prematurely\n\nThe draft says: “Rin lost the entire $60 deposit because the vendor refused a refund.” F6 also records a credit, so the sentence omits material retained-value evidence. Replace it with the known terms: “The vendor denied a cash refund but offered a $60 credit expiring in one year, usable only on a future order of at least $100 (F6).” Add that the record does not establish qualifying future needs or practical usability.\n\nDo not say the minimum order proves a $40 loss or forces an additional $40 expenditure. Rin has not made a future purchase, and neither § 4 nor Hale supplies that formula. The restrictions distinguish the credit from Hale's fully usable credit. They do not independently determine the recoverable amount. Keep that distinction visible in both the narrative and the later argument.\n\n## Guided practice\n\nWrite a 180–250-word fact statement using F1–F7, then add a separate two-sentence procedural summary using P1–P3. Underline each factual proposition and attach its record item. Label each proposition as established packet information, attributed account or inference. Delete any statement that fits none of those categories.\n\nFeedback: your statement should include confirmation, the read approval condition, both entry materials, both payments, cancellation and the restricted credit. Your procedural summary should identify the center's two categorical grounds and Rin's opposition. It should not announce that Rin already won, that credibility has been decided, or that the court has been asked to award $150 on a cross-motion.\n\n## Common mistakes\n\nAvoid unsupported motive words such as “retaliated” or “tricked.” Do not call an unfavorable document irrelevant merely because another item supports your account. Avoid repeated argument words in the factual section when accurate selection and attribution can do the work. Finally, do not treat an admitted document's contents as necessarily true: P1 permits use of the packet but does not stipulate the truth of F3.\n\n## Key points\n\n- Present a coherent chronology with every materially adverse item visible.\n- Attribute disputed accounts and distinguish evidence from inferences.\n- Cite the proposition actually supported by each record item.\n- State credit terms without inventing a value calculation.\n",
+   "quiz": [
+    "lwp-q3-01",
+    "lwp-q3-02",
+    "lwp-q3-03",
+    "lwp-q3-04",
+    "lwp-q3-05",
+    "lwp-q3-06",
+    "lwp-q3-07",
+    "lwp-q3-08",
+    "lwp-q3-09",
+    "lwp-q3-10"
+   ]
+  },
+  {
+   "id": "lwp-headings",
+   "module": "lwp-m2",
+   "title": "Write point headings and supported analytical paragraphs",
+   "minutes": 35,
+   "topics": [
+    "Headings and analytical paragraphs"
+   ],
+   "refs": [
+    "lwp-ref-authorities",
+    "lwp-ref-record",
+    "lwp-ref-procedure",
+    "lwp-ref-model"
+   ],
+   "body": "Headings let a busy reader see the proposed decision before reading every paragraph. Paragraphs then earn the conclusions those headings announce. Strong advocacy requires both levels to agree. A polished heading cannot cure an unsupported premise, and a sound paragraph becomes harder to use when its heading promises something different. This lesson builds a heading tree and two analytical paragraphs for Rin's opposition.\n\n## Make headings express reasons\n\nA **[[point heading]]** states an argumentative proposition supported by the section below it. “Reasonable reliance” identifies a topic. “Conflicting entry evidence prevents the center from treating its approval warning as dispositive” states a proposed conclusion and its reason. The latter helps the judge identify both the relevant dispute and the relief it supports. It remains bounded to this motion rather than promising a final award.\n\nUse headings that are accurate when read alone. “Rin unquestionably acted reasonably” overstates the record and asks the judge to resolve a disputed premise. “Any warning is irrelevant” contradicts Reed and § 3. A useful heading can favor Rin while acknowledging the applicable standard: the center has not established its categorical proposition on the supplied record. Strong does not have to mean absolute.\n\n**[[Parallel structure]]** uses a consistent grammatical and conceptual pattern across related headings. One major heading might address why the approval warning does not require disposition; the next addresses why the restricted credit does not establish full retained value. Both should describe grounds for denying this motion. Do not make one a legal conclusion and the other a vague source label such as “Discussion of Hale.” Parallel structure makes the relationship between the sections easier to follow.\n\n## Give each paragraph a distinct job\n\nA **[[thesis sentence]]** states the paragraph's main analytical point. It should be narrower than the major heading when that heading covers several steps. For example, “Reed makes the warning's applicability central” prepares a paragraph explaining the case and its limit. A later paragraph can address why Rin's entry materials leave that applicability disputed. Separating those jobs prevents a long paragraph from switching silently between source explanation and record application.\n\nAn **[[analytical paragraph]]** connects a legal proposition, supporting authority, relevant facts and a reasoned consequence. It is not simply a quotation followed by “therefore Rin wins.” The reader needs to see why the case's decisive feature corresponds to, or differs from, the current record. End with the consequence appropriate to the posture: a supported dispute prevents this noticed ground from establishing entitlement under Rule S.\n\nA **[[reasoning bridge]]** explains that connection explicitly. “Reed denied recovery; Rin should prevail” supplies two results but no bridge. A bridge would identify Reed's known, applicable and unsatisfied approval condition, then explain why F3/F4 leave application of Rin's admission-based condition disputed. The difference matters because § 3 focuses on relevant communicated warnings, not the mere existence of any warning.\n\n## Use citations and supporting detail deliberately\n\nA **[[parenthetical]]** is a brief explanatory phrase accompanying a citation. In this exercise, “Reed ¶¶ 2–4 (addressing a known, applicable safety-approval condition)” can identify the feature being used. It cannot substitute for explaining how the feature matters to Rin. Verify every compressed description against the actual packet; compression often drops a condition that the source treated as essential.\n\nA **[[revision test]]** is a focused question used to assess a draft. For headings, ask: does the section actually prove the heading at the stated level of certainty? For paragraphs, ask: could a skeptical reader identify the rule, record support and connecting reason? If you cannot answer, do not add stronger adjectives. Supply the missing analysis or narrow the claim.\n\n### Example 1: Repair an overbroad heading tree\n\nThe draft's major headings are “I. Rin deserves payment” and “II. The vendor caused the loss.” First compare them with P2. Neither directly answers the center's two motion grounds. The first also seeks a merits result without a cross-motion, while the second introduces a causal dispute outside the assignment.\n\nReplace them with “I. The record supports a dispute about whether the admission-approval condition applied” and “II. The restricted credit does not automatically establish full retained value.” Under I, use a subheading about the law's distinction between applicable and unrelated warnings, then one about F3/F4. Under II, explain Hale's fully usable credit, then Rin's restrictions and missing valuation proof. The hierarchy now follows the motion while preserving the limits of each argument.\n\nRead those headings with the introduction and conclusion only. They should tell a consistent short story: deny the two categorical grounds, leave ultimate proof for later and do not award damages now. If the conclusion suddenly asks for $150, the heading audit has found a substantive inconsistency, not merely a formatting problem.\n\n### Example 2: Add the missing bridge in a credit paragraph\n\nThe draft says: “Hale involved a credit. Rin has a credit. Hale does not apply.” Start by identifying the legally significant comparison. Hale's credit was unrestricted and fully usable for planned purchases; Rin's credit expires and requires a minimum future order. The important distinction concerns practical retained value, not simply different names or dates.\n\nA fuller paragraph can say: “Hale treated an unrestricted credit as preserving value because the organizer could use it for planned purchases (Hale ¶¶ 2–3). Rin's credit expires after one year and requires a future order of at least $100, while the record supplies no qualifying needs or usability evidence (F6). Those differences prevent the credit's mere existence from establishing full retained value. They also leave the amount of any nonrecoverable portion unproved; Rin must still establish that amount under § 4.”\n\nThen connect the paragraph to P2 and Rule S4. The noticed motion asserts automatic full value, not a separate insufficiency ground after an opportunity for proof. The paragraph challenges the former without claiming missing evidence always defeats a motion. That final connection makes the paragraph useful to this court at this stage.\n\n## Guided practice\n\nDraft two major headings and one 130–180-word paragraph under each. Give each paragraph a thesis, source explanation, record comparison and bounded consequence. Mark the sentence that supplies the reasoning bridge. If no sentence does so, revise before checking punctuation.\n\nFeedback: a sound reliance paragraph confronts F4 and Reed instead of skipping them. A sound credit paragraph acknowledges the proof gap instead of treating restrictions as proof of zero value. Both conclude with a motion-level consequence. Your headings should survive those qualifications without needing the word “always.”\n\n## Common mistakes\n\nAvoid headings that announce certainty the body withdraws. Do not use a string of case names as the outline or substitute parentheticals for application. Keep related headings parallel, but do not force unrelated issues into identical sentence lengths. Visual symmetry is useful only when it reflects the reasoning.\n\n## Key points\n\n- State a supported reason in each point heading.\n- Give each paragraph one identifiable analytical job.\n- Explain the connection between the source and the record.\n- Test headings against both their sections and the requested order.\n",
+   "quiz": [
+    "lwp-q4-01",
+    "lwp-q4-02",
+    "lwp-q4-03",
+    "lwp-q4-04",
+    "lwp-q4-05",
+    "lwp-q4-06",
+    "lwp-q4-07",
+    "lwp-q4-08",
+    "lwp-q4-09",
+    "lwp-q4-10"
+   ]
+  },
+  {
+   "id": "lwp-adverse",
+   "module": "lwp-m3",
+   "title": "Address adverse authority and the strongest counterargument",
+   "minutes": 40,
+   "topics": [
+    "Adverse authority"
+   ],
+   "refs": [
+    "lwp-ref-authorities",
+    "lwp-ref-record",
+    "lwp-ref-procedure",
+    "lwp-ref-model"
+   ],
+   "body": "A persuasive brief must remain convincing after the judge reads the other side's best argument. You cannot achieve that by describing only favorable cases or by reducing a serious objection to an easy target. In Rin's case, Reed is important because Rin read an approval warning before paying and approved a proof suggesting an admission charge. Hale is important because a credit can preserve value even when a cash refund is unavailable.\n\n## Identify what is actually adverse\n\n**[[Adverse authority]]** is legal material that supports a proposition unfavorable to your position. Its significance depends on what it decided and how that reasoning connects to the current question. A case with an unfavorable result is not necessarily adverse on every issue. Conversely, a case with a favorable overall result can contain a proposition limiting your argument. Read the whole supplied opinion rather than sorting cases into permanent “good” and “bad” bins.\n\nA **[[holding]]** is the resolution of a legal issue necessary to the result on the case's facts. Reed's result rests on a known, applicable approval condition that remained unsatisfied before payment. The opinion does not hold that every warning defeats reliance. Hale's treatment of the supply credit rests on full practical usability; reasonable reliance was conceded there. Do not turn that concession into a holding that resolves Rin's disputed reliance.\n\nA **[[reserved question]]** is an issue the authority expressly leaves undecided. Moss reserves applicable approval conditions. Hale reserves treatment of restricted credits and supplies no valuation formula for them. A reservation prevents overclaiming what the case establishes. It does not automatically decide the reserved question in your favor. You must return to the statutory text, the record and the present procedural standard.\n\n## Distinguish on a legally significant feature\n\nA **[[distinction]]** identifies a difference that matters under the authority's reasoning. Reed concerned a known safety-approval requirement that applied to the planned event. Rin's known condition concerns admission charges, and the evidence conflicts about whether entry required payment. That difference is legally meaningful because it bears on the condition's application. The fact that the events occurred in different months would not by itself explain a different result.\n\nA **[[concession]]** accepts a supported proposition while preserving a separate dispute. Concede that Rin read F2 and approved F4; both are in the record. Concede that an applicable, unsatisfied approval condition can matter substantially under Reed. Then identify the unresolved premise: whether the planned event required admission payment. The concession narrows the argument to a credible point instead of making the judge correct avoidable overstatements.\n\nDo not label F4 “irrelevant” to distinguish Reed. It is exactly why the objection is serious. Explain instead why F3 provides contrary record support and Rule S2 prevents choosing between supported inferences on this motion. If the prompt changes so required payment is established, acknowledge that the distinction weakens. Advocacy depends on the supplied facts; it does not entitle you to keep the same conclusion after a material premise changes.\n\n## Answer the strongest version of the objection\n\nA **[[counterargument]]** is the opposing position you need to address. State it as a careful opponent would: Rin read an admission-approval warning, approved \"$5 at door\" wording, lacked approval and then incurred the expenses. Under Reed, those facts strongly support the center if admission payment was required. That version is more demanding than “the center dislikes optional donations,” which omits its best evidence.\n\nA **[[rebuttal]]** explains why the objection does not justify the requested result under the governing standard. Here the rebuttal combines F3's contrary account, the conditional nature of F2, Reed's actual reasoning and Rule S. It does not assert that F4 is false or that Rin has proved free entry conclusively. Your goal is to defeat the center's noticed categorical ground, while preserving Rin's ultimate burden for later.\n\n### Example 1: Turn evasion into a complete Reed analysis\n\nThe draft says: “Reed is different because this case involves a community event.” First find the missing legal connection. Both cases involve preparation expenses, and the social description does not explain the approval condition. Second state Reed fairly: the organizer knew an applicable approval condition remained unsatisfied before paying. Third compare the record features that determine applicability.\n\nA repair is: “Reed is the center's strongest reliance authority because Rin read F2 and approved the '$5 at door' proof in F4. But Reed's approval condition indisputably applied, whereas F3 supplies evidence of optional contributions and entry without payment here. If payment was required, Reed would substantially strengthen the center's position. Rule S2 nevertheless bars choosing that inference over the supported contrary account on this limited motion.”\n\nThe repair concedes an uncomfortable similarity and identifies a meaningful difference. It also states what would change the analysis. That limit improves precision. It does not promise victory at trial or suggest that describing a disagreement is enough without record support.\n\n### Example 2: Handle Hale without inventing the opposite holding\n\nThe draft says: “Hale reserved restricted credits, so restricted credits are worthless.” The conclusion does not follow. An undecided question remains undecided; it does not reverse the decided rule. Start again with § 4's focus on nonrecoverable value. Explain Hale's fully usable credit and compare F6's expiry, minimum order and absent usability information.\n\nThe resulting argument is narrower: credit existence alone does not establish full value on these facts. Rin must still prove the nonrecoverable portion. Under P2 and Rule S4, the court is deciding the center's automatic-value theory, not an unraised insufficiency motion. This respects Hale while answering the actual noticed ground. Add the separate-expense point only with its limit: supply value does not itself defeat printing, but a shared reliance failure could defeat both.\n\n## Guided practice\n\nWrite a four-sentence objection-and-response block about Reed: the strongest objection, your concession, the legally significant distinction and the motion-level consequence. Then write two sentences explaining what Hale leaves unresolved and what § 4 still requires Rin to prove.\n\nFeedback: if your Reed block never mentions F4, it probably understates the objection. If it says F3 conclusively establishes free entry, it overstates the response. If your Hale block awards $60 merely because the credit is restricted, it converts an unresolved issue into an unsupported conclusion. Use the actual record and preserve the proof burden.\n\n## Common mistakes\n\nDo not omit adverse authority because the opponent already cited it; exercise C1 requires fair treatment of all three supplied cases. Do not distinguish on irrelevant details, call every unfavorable sentence dictum, or treat a reserved question as a favorable holding. A concession should be precise enough that the reader can see exactly what remains disputed.\n\n## Key points\n\n- Describe the adverse proposition before answering it.\n- Distinguish using a feature tied to the source's reasoning.\n- Preserve the difference between a holding, a concession and a reservation.\n- Let material changes in the hypothetical change your answer.\n",
+   "quiz": [
+    "lwp-q5-01",
+    "lwp-q5-02",
+    "lwp-q5-03",
+    "lwp-q5-04",
+    "lwp-q5-05",
+    "lwp-q5-06",
+    "lwp-q5-07",
+    "lwp-q5-08",
+    "lwp-q5-09",
+    "lwp-q5-10"
+   ]
+  },
+  {
+   "id": "lwp-candor",
+   "module": "lwp-m3",
+   "title": "Audit sources and preserve candor in persuasive writing",
+   "minutes": 40,
+   "topics": [
+    "Candor and source verification"
+   ],
+   "refs": [
+    "lwp-ref-authorities",
+    "lwp-ref-record",
+    "lwp-ref-procedure",
+    "lwp-ref-workbench"
+   ],
+   "body": "The more polished a draft becomes, the easier it is to overlook a premise that never had support. A source audit interrupts that process. It asks whether every material legal and factual claim says what its source actually permits. This exercise uses fictional candor requirements C1–C4. Read them alongside the limited real-world orientation in the motion-rules reference; do not treat the exercise as a complete statement of professional obligations in any jurisdiction.\n\n## Separate advocacy from source accuracy\n\n**[[Candor]]** means truthful, fair treatment of material law and facts within the applicable duties and assignment. Advocacy permits emphasis, argument and supported inferences. It does not permit invented holdings, altered quotations or omission of facts that makes the presentation materially misleading. Here C1 also requires fair treatment of all three supplied cases, even if the opponent has already discussed one.\n\nA **[[scope limitation]]** states what a document or rule does not decide. The KCRA packet addresses one fictional reimbursement remedy; § 5 does not eliminate every possible claim under other law. The briefing order permits only this packet. The real ABA Model Rule discussed in the orientation is a model with specific conditions, not automatically the adopted rule in a learner's jurisdiction. Accurate scope statements prevent useful teaching shortcuts from becoming false universal propositions.\n\nThe assignment's broad treatment requirement must remain distinct from the Model Rule's particular adverse-authority provision. Do not write that real professional rules universally require citing every unfavorable source in every filing. Instead follow C1 for this exercise and understand that actual duties require checking applicable law and rules. Nothing in this lesson substitutes for that jurisdiction-specific inquiry.\n\n## Trace propositions back to their sources\n\nA **[[source audit]]** systematically checks claims against their actual authority or record support. Start with outcome-driving statements: the standard, the adverse case rule, the factual conflict, the credit treatment and the requested relief. Then check the remaining details. A citation's presence is only a starting point; it may identify a real source while attributing a proposition that source never states.\n\nA **[[source ledger]]** records the claim, source locator, support or limitation and revision needed. For this course, use KCRA section numbers, case paragraphs, F/P items and Rule S/C provisions. If a draft says “Hale resolved all reliance disputes,” the ledger should mark that Hale involved conceded reliance rather than a holding on that issue. The repair may affect several paragraphs and the conclusion, not merely the citation.\n\nA **[[quotation]]** reproduces exact source words. Check wording, punctuation and the context needed to avoid changing meaning. In this exercise, quote short language such as F4's \"$5 at door\" accurately, with its locator. Do not add “optional” inside the quotation. If you summarize the intended contribution arrangement from F3, do so separately with clear attribution.\n\nA **[[paraphrase]]** restates a source in your own words while preserving its substance and limits. Reed can be paraphrased as addressing a known, applicable and unsatisfied approval condition. Replacing that with “any warning bars recovery” is not a harmless simplification. The omitted applicability condition drives the comparison with Rin. Paraphrases require the same source checking as quotations.\n\n## Correct claims that change the analysis\n\nA **[[material misstatement]]** is an inaccurate assertion capable of affecting the analysis or decision. Invented approval, false entry certainty, a fabricated valuation formula or the wrong requested order can each be material here. By contrast, a harmless spelling error may require correction without changing the legal analysis. Both deserve attention, but fix the substantive problem first.\n\nWhen you discover a material problem, trace its consequences. An unsupported claim that Rin has no future supply needs may have shaped the fact statement, Hale distinction, amount request and oral outline. Correct all affected places. A clean sentence left in one section can still conflict with an old overstatement elsewhere. The ledger makes that propagation visible.\n\n### Example 1: Audit a plausible-looking citation\n\nThe draft says: “Hale requires subtracting the $100 minimum order from the $60 credit to establish a $40 loss (Hale ¶ 3).” First open Hale ¶ 3. It concerns the fully usable credit in that case, not a minimum-order formula. Second check F6. It records the minimum future order but no later expenditure or established usability. Third identify the unsupported operation and remove it.\n\nThe corrected proposition is: “Hale evaluates retained value through actual usability; F6's restrictions require further attention, but the record does not establish a recoverable amount.” Update the conclusion if it had requested a fixed supply award. The presence of a precise paragraph number did not make the original assertion reliable. This is why auditing must compare source content with the whole proposition.\n\n### Example 2: Repair a misleading quotation and its consequences\n\nA draft quotes F4 as “optional $5 at door.” The original proof contains no “optional.” The writer may have blended F3's planning note with F4's proof, but the resulting quote changes the strongest adverse evidence. Restore the exact wording and identify the two sources separately.\n\nNext review the reliance argument. A sentence asserting that every document describes voluntary contributions is now plainly wrong. Replace it with a discussion of conflicting evidence and Rule S2. Review the headings and oral answers as well. If the speaker still says “all documents agree,” the written correction has not solved the substantive problem. Record the correction and its downstream effects in the revision log.\n\n## Guided practice\n\nCreate ledger rows for six claims: the Rule S standard; Reed's decisive feature; what F3 says; what F4 says; Hale's credit treatment; and the available relief. Include a locator and one sentence stating the source's limit. Then audit a paragraph of your own draft without looking at the model brief first.\n\nFeedback: a sound relief row points to P3 and S3 and records that no cross-motion seeks an award. A sound F3 row distinguishes a planning account from stipulated truth. A sound Hale row preserves both its practical-usability reasoning and reserved question. Mark unsupported claims for correction rather than filling the ledger with invented locators.\n\n## Common mistakes\n\nDo not use search snippets, generated text or memory as substitutes for checking the supplied source. Do not assume an exact-looking citation is correct. Avoid fixing a quotation while leaving its false inference intact. Finally, keep the fictional exercise requirements and real-world model-rule orientation clearly labeled; they serve different purposes and have different scope.\n\n## Key points\n\n- Verify the substance of every material proposition against its source.\n- Preserve conditions when quoting or paraphrasing.\n- Correct downstream reasoning when a premise changes.\n- Follow the exercise's candor requirements without presenting them as universal law.\n",
+   "quiz": [
+    "lwp-q6-01",
+    "lwp-q6-02",
+    "lwp-q6-03",
+    "lwp-q6-04",
+    "lwp-q6-05",
+    "lwp-q6-06",
+    "lwp-q6-07",
+    "lwp-q6-08",
+    "lwp-q6-09",
+    "lwp-q6-10"
+   ]
+  },
+  {
+   "id": "lwp-revision",
+   "module": "lwp-m4",
+   "title": "Revise the complete brief for reasoning and consistency",
+   "minutes": 45,
+   "topics": [
+    "Brief revision"
+   ],
+   "refs": [
+    "lwp-ref-workbench",
+    "lwp-ref-model",
+    "lwp-ref-procedure",
+    "lwp-ref-authorities",
+    "lwp-ref-record"
+   ],
+   "body": "Revision begins after the draft has something complete to revise. Assemble the required introduction, fact statement, standard, argument and conclusion before perfecting individual sentences. The workbench asks for a 1,000–1,300-word opposition, followed by at least six substantive changes. Complete the writing in your own document or notes. The course quizzes test selected concepts; they do not automatically evaluate your brief or certify legal-writing competence.\n\n## Diagnose the draft as a whole\n\nA **[[reverse outline]]** records what each existing paragraph actually does. Write a short description beside every paragraph after drafting: request, chronology, standard, rule explanation, comparison, objection, response or conclusion. Unlike a planned outline, this reflects the text you produced. It exposes paragraphs doing several incompatible jobs, repeated case summaries and promises in the introduction that never receive analysis.\n\nRead the reverse outline without the prose. Does it answer both noticed grounds? Does Reed appear where the reliance objection is addressed? Does the supply section acknowledge missing valuation proof? Does the conclusion request denial rather than an award? If the outline cannot answer those questions, rearrange or add analysis before spending time on elegant transitions.\n\nA **[[claim audit]]** checks important assertions for support, certainty and consequence. Select every sentence containing “establishes,” “requires,” “always,” “never,” “undisputed” or a money amount. Those words are not necessarily wrong, but they often reveal the most consequential claims. Compare each with the authority packet, record and procedural rules. Then check whether the conclusion follows at the correct stage of the case.\n\n## Revise substance before polishing\n\nA **[[substantive revision]]** changes reasoning, support, scope, organization or an important conclusion. Replacing “Rin wins $150” with a supported denial request is substantive. Adding the missing Reed comparison is substantive. Moving Rule S before the discussion of factual conflict can also be substantive because it changes how the reader understands that conflict. Changing font size alone does not meet the assignment's six-change requirement.\n\nA **[[consistency check]]** compares repeated propositions across the document. The introduction, headings, argument and conclusion should use the same relief and level of certainty. If the fact section describes competing entry evidence but the oral outline says free entry is undisputed, one of them needs correction. Check numbers and dates too: $90 printing and a $60 deposit are separate amounts; the $100 minimum order is a condition of future credit use, not an incurred third expense.\n\n**[[Proofreading]]** addresses surface correctness after substantive changes: grammar, spelling, punctuation, locator format and layout. It matters because avoidable errors distract the reader and can obscure meaning. But a perfectly punctuated false rule remains false. Schedule proofreading last, then perform a brief final support check in case a polishing change accidentally removed an important qualification.\n\n## Use the rubric as a diagnostic tool\n\nA **[[rubric]]** identifies assessment criteria and their relative weight. The workbench allocates 20 points each to posture, law and facts; 15 to adverse analysis; 10 each to organization and revision; and 5 to compliance. Use those categories to find the next improvement, not to create a claim of official proficiency. The 80-point self-review target is a practice aid only.\n\nSome defects demand correction regardless of the total. Invented authority, materially misleading omissions and requests outside the supplied posture undermine the work even if other categories score well. A rubric helps organize judgment; it cannot make an unsupported proposition acceptable by averaging it with strong punctuation. Read the workbench's repair requirements before deciding the draft is ready.\n\nA **[[revision log]]** records what changed, why it changed and what source or reasoning supports the repair. Include a short before-and-after excerpt when useful. Six entries should identify six meaningful improvements, not divide one spelling correction into six lines. The log also prepares you to explain your reasoning orally: you will know which claims required the most careful qualification.\n\n### Example 1: Turn a sentence edit into a complete repair\n\nThe introduction asks the court to award $150, while the conclusion asks only to deny the motion. The writer changes the introduction's verb from “award” to “grant.” The inconsistency remains because the object is still the full amount. A substantive repair begins with P3 and Rule S3: no cross-motion is before the court, and denial preserves claims without deciding damages.\n\nReplace the request with denial of the two categorical grounds. Search the draft for every amount-based demand, including headings and proposed oral opening. Explain the remaining burden to prove nonrecoverable supply value. Log the change as a posture-and-relief correction with P3/S3 support. The improvement is broader than word choice because it aligns the document with the decision actually available.\n\n### Example 2: Repair an apparently complete credit section\n\nThe section accurately quotes Hale and lists F6's restrictions but concludes, “The absence of valuation proof requires denial.” The section sounds careful yet misses Rule S4's limit. Missing proof does not always defeat a motion; the noticed ground and opportunity for proof matter. P2 expressly confines this motion to an automatic-value theory and excludes a separate sufficiency challenge.\n\nRevise the section to identify that ground, explain why credit existence does not establish full usable value, and acknowledge Rin's remaining proof burden. Add a sentence explaining that a properly noticed later sufficiency challenge would present a different question. Keep the separate printing fallback conditional on reliance surviving. The revision improves the reasoning rather than merely appending a caution at the end.\n\n## Guided practice\n\nComplete the first brief before opening the model. Make a reverse outline, score each rubric category and identify the six highest-value changes. Revise the brief, then compare it with the model for method: organization, attribution, adverse treatment, procedural limits and relief. Different wording or a different supported structure can be sound.\n\nFeedback: your revision log should include at least one improvement to posture, one to source accuracy, one to factual treatment and one to the adverse argument. Other changes can address organization or clarity. If all six entries concern punctuation, return to the reasoning. If you simply copy the model, the exercise no longer reveals whether you can build and audit an argument yourself.\n\n## Common mistakes\n\nDo not revise only the opening paragraph or stop after reaching a numerical self-score. Avoid adding qualifications in footnote-like asides while leaving categorical headings unchanged. Do not treat a model as the only acceptable answer. Its purpose is to illustrate a defensible method under this fictional packet, including uncertainty and limits.\n\n## Key points\n\n- Diagnose the complete draft before polishing individual sentences.\n- Trace substantive corrections through every affected section.\n- Use the rubric and revision log to make improvements explainable.\n- Keep the final brief within the assigned word count, sources and relief.\n",
+   "quiz": [
+    "lwp-q7-01",
+    "lwp-q7-02",
+    "lwp-q7-03",
+    "lwp-q7-04",
+    "lwp-q7-05",
+    "lwp-q7-06",
+    "lwp-q7-07",
+    "lwp-q7-08",
+    "lwp-q7-09",
+    "lwp-q7-10"
+   ]
+  },
+  {
+   "id": "lwp-oral",
+   "module": "lwp-m4",
+   "title": "Explain the argument orally and answer difficult questions",
+   "minutes": 40,
+   "topics": [
+    "Oral explanation"
+   ],
+   "refs": [
+    "lwp-ref-workbench",
+    "lwp-ref-model",
+    "lwp-ref-procedure",
+    "lwp-ref-record",
+    "lwp-ref-authorities"
+   ],
+   "body": "Oral explanation tests whether you understand the argument well enough to adapt it. Reading the brief aloud usually fails that test: it consumes time, hides the requested order and makes questions feel like interruptions. In this exercise you have five minutes including the judge's questions. Use a one-page outline in your own notes, complete two timed practice rounds and revise the outline after the first. The app does not record or evaluate your speech.\n\n## Open with the requested decision\n\n**[[Oral argument]]** is a structured spoken explanation directed to the decision-maker's questions and available relief. Here begin by identifying Rin's opposition and asking the court to deny the center's two categorical grounds. Do not begin with a long history or a demand for $150. The judge needs to know the decision you seek before hearing why the record supports it.\n\nAn **[[oral roadmap]]** is a short preview of the main reasons. For example: “The approval condition's application remains disputed, and the restricted credit's existence does not establish full usable value.” Follow that with the governing Rule S standard as needed. The roadmap should fit in a few sentences and match the brief. If the judge immediately asks about F4, answer the question rather than insisting on completing the planned introduction first.\n\nA **[[time budget]]** allocates the available minutes while leaving room for questions. For the five-minute exercise, plan a brief opening, roughly a minute on each principal ground, and a short closing, with the remaining time available for questions. Treat those allocations as flexible. If questioning consumes the middle of the argument, preserve a concise final request rather than racing through every unused sentence.\n\n## Answer before returning to the outline\n\nA **[[responsive answer]]** addresses the question actually asked. When asked whether Rin approved the \"$5 at door\" proof, start with yes. Then identify the legal significance and the supported limit: F3 supplies contrary entry evidence, and Rule S2 prevents resolving that conflict on this motion. A long answer about community benefits avoids the question and leaves the adverse fact unanswered.\n\nA **[[pivot]]** is a transparent transition from the answer back to a relevant point in the argument. It is not a device for replacing the question with a more comfortable one. After acknowledging F4, you might say, “That is why the entry dispute matters under Rule S.” The transition connects the judge's concern to your analysis. If the question requires a concession, make it before moving on.\n\nUse short answers with source locators you can find quickly. Your outline can place F3/F4 beside the entry issue, Reed beside the approval condition, F6/Hale beside credit and P3/S3 beside relief. Do not fill the page with complete paragraphs so dense that locating a source becomes slower than recalling it. The outline is a navigation aid, not a second brief in tiny type.\n\n## Treat changed premises honestly\n\nA **[[hypothetical question]]** changes or isolates a premise to test the argument. “Assume entry definitely required payment” removes the central factual uncertainty. Answer on that assumption: Reed then strongly supports the center because Rin knew the applicable approval condition remained unsatisfied. Explain that the actual packet still contains conflicting evidence, but do not refuse to engage the hypothetical.\n\nSeparate a changed premise from an invitation to add new evidence. The judge's question does not authorize claiming that Rin later obtained approval or that the credit was transferred. P3/P4 keep the evidentiary packet fixed. If a question cannot be answered from the record, state what is unknown and how it affects the analysis. “The packet does not establish that” is more accurate than a plausible invention.\n\nA **[[closing request]]** states the precise action sought at the end. Return to denial of the noticed categorical grounds. If discussing the fallback, state its condition: an adverse supply-value ruling alone does not dispose of printing, but a reliance failure may affect both claims. Do not broaden the requested order because the judge seems sympathetic or because time is running out.\n\n### Example 1: Answer the hardest reliance question\n\nJudge: “Your client read the condition and approved '$5 at door.' Why doesn't Reed end the case?” A weak answer says the center was unfair. A stronger answer begins with the objection: “Those facts strongly support the center if entry required payment. Reed involved a condition that indisputably applied. Here F3 describes optional contributions and admission without payment, while F4 supports the opposite inference. Under Rule S2, that supported conflict cannot be resolved by choosing the center's account on this motion.”\n\nThe answer concedes the force of the adverse evidence, distinguishes the decisive premise and returns to the procedural standard. It does not claim that Rin has already established free entry. Practice delivering it in your own words, then shorten it if the judge asks a narrower question. Responsiveness matters more than reciting a memorized paragraph perfectly.\n\n### Example 2: Answer the missing-proof question\n\nJudge: “You cannot tell me the credit's value. Why should the supply claim survive?” Begin by acknowledging the gap: “Rin must still prove the nonrecoverable portion; this record does not establish the amount.” Then identify the noticed ground: “The center moved on the categorical theory that any credit establishes full retained value. P2 excludes a separate insufficiency ground, and Rule S4 confines today's decision to the noticed theory.”\n\nAdd the factual distinction only as needed: the expiry and minimum-order condition differ from Hale's fully usable credit. Do not say uncertainty always protects a claim. If the judge asks about a later properly noticed sufficiency motion, acknowledge that it would require its own analysis and that Rin's proof burden remains. This answer preserves a narrow position without overstating what the record can support.\n\n## Guided practice\n\nPrepare the one-page outline and answer the six workbench questions aloud. Complete a five-minute round with three questions inserted at unpredictable points by a partner or from shuffled notes. If practicing alone, stop at three chosen times and draw the next question. Record your own observations in notes; no recording equipment is required.\n\nFeedback: after round one, identify one delayed answer, one overstatement and one place where the requested relief became unclear. Revise the outline and repeat. In round two, answer directly, give the relevant support and stop once the point is clear. A useful improvement is a shorter, more accurate answer, not simply faster speech.\n\n## Common mistakes\n\nDo not evade concessions, argue with the hypothetical's premise or invent facts to fill a gap. Avoid spending all five minutes on an uninterrupted speech. Do not promise that a favorable denial awards damages. Finally, do not treat confidence or fluent delivery as a substitute for accurate law, record support and a bounded request.\n\n## Key points\n\n- State the requested order and two reasons early.\n- Answer questions directly before returning to the outline.\n- Let changed premises change the analysis.\n- Reserve time for a precise closing request and a second practice round.\n",
+   "quiz": [
+    "lwp-q8-01",
+    "lwp-q8-02",
+    "lwp-q8-03",
+    "lwp-q8-04",
+    "lwp-q8-05",
+    "lwp-q8-06",
+    "lwp-q8-07",
+    "lwp-q8-08",
+    "lwp-q8-09",
+    "lwp-q8-10"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "law-legal-writing-2-bank",
+   "title": "Legal Writing II: Persuasion and Advocacy questions",
+   "sections": [
+    {
+     "id": "lwp-m1",
+     "name": "Audience, relief and persuasive organization"
+    },
+    {
+     "id": "lwp-m2",
+     "name": "Fact statements and argument headings"
+    },
+    {
+     "id": "lwp-m3",
+     "name": "Adverse authority and ethical advocacy"
+    },
+    {
+     "id": "lwp-m4",
+     "name": "Brief revision and oral explanation"
+    }
+   ],
+   "exam": {
+    "questionCount": 50,
+    "timeLimitMinutes": 90,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "lwp-q1-01",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "Rin is responding to the center’s limited summary-disposition motion and filed no cross-motion. Which request fits the assignment?",
+     "choices": [
+      "Award all $150 because an opposition automatically requests judgment for Rin.",
+      "Dismiss every possible claim under every body of law governing the center.",
+      "Deny the two noticed grounds while leaving ultimate recovery and amount unresolved.",
+      "Determine the truth of F3 by choosing it over F4 at the briefing stage."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "P3 and Rule S3 permit an opposition seeking denial. Denial preserves claims; it does not establish damages or decide credibility."
+    },
+    {
+     "id": "lwp-q1-02",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "Which fact identifies the procedural posture rather than a substantive reimbursement element?",
+     "choices": [
+      "Rin paid printing expenses before the cancellation.",
+      "The center moved on two categorical grounds and Rin is filing an opposition.",
+      "The supply vendor offered a credit with restrictions.",
+      "The confirmation distinguished admission charges from free entry."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Procedural posture describes the case’s current stage and pending decision. The other facts concern substantive requirements or evidence."
+    },
+    {
+     "id": "lwp-q1-03",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "The judge denies the center’s motion. What follows under Rule S3?",
+     "choices": [
+      "Rin automatically receives $90 printing plus the entire $60 deposit.",
+      "All disputed factual allegations become binding findings for later proceedings.",
+      "Rin’s claims survive the noticed grounds, but Rin still must establish the requirements for recovery.",
+      "The center can no longer contest any element of either expense claim."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Denial is not an affirmative merits award. The ultimate burden remains with Rin, including proof of nonrecoverable supply value."
+    },
+    {
+     "id": "lwp-q1-04",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "The court rejects Rin’s supply-value argument but does not resolve reliance. Which fallback is appropriately limited?",
+     "choices": [
+      "Supply value alone does not defeat the separate printing claim, which still depends on reasonable reliance.",
+      "Printing must be awarded regardless of whether reliance was reasonable.",
+      "Both claims must fail because every expense has the same retained value.",
+      "The court must add a new claim for planning time to replace the supply claim."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Rule S5 separates expense-specific value from shared reliance. Printing is not automatically rescued if the reliance element fails."
+    },
+    {
+     "id": "lwp-q1-05",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "Which audience-centered opening best serves the judge deciding this motion?",
+     "choices": [
+      "Summarize the three opinions in date order and reserve the requested order for the final paragraph.",
+      "Lead with the entire payment chronology and omit the motion standard until the oral presentation.",
+      "Present the requested dollar amount as the opening issue without distinguishing denial from an award.",
+      "Identify the requested denial, the Rule S standard and the two reasons tied to the noticed grounds."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The judge needs the decision, governing standard and relevant reasons. Background matters when it supports that task."
+    },
+    {
+     "id": "lwp-q1-06",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "The center is the moving party. Which statement correctly separates motion burden from ultimate burden?",
+     "choices": [
+      "The center must justify disposition on its noticed grounds; Rin retains the ultimate burden on the KCRA claim.",
+      "The center’s motion permanently transfers Rin’s ultimate proof burden to the center.",
+      "Rin must obtain an immediate damages award to defeat any motion ground.",
+      "Neither side has any burden because the packet includes disputed documents."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Rule S governs the movant’s present showing without eliminating Rin’s later obligation to establish the substantive claim."
+    },
+    {
+     "id": "lwp-q1-07",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "P2 excludes a separate challenge based on insufficient valuation proof after an opportunity to produce it. How should Rin address the missing value evidence?",
+     "choices": [
+      "Assert that missing proof always guarantees denial of every summary motion.",
+      "Invent a future purchase so the packet appears to establish practical usability.",
+      "Concede that a credit’s existence proves full value without considering restrictions.",
+      "Acknowledge the gap and distinguish the noticed automatic-value theory from that unraised sufficiency ground."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Rule S4 limits this decision to noticed grounds. The narrow procedural answer does not eliminate the proof gap or resolve a later properly noticed challenge."
+    },
+    {
+     "id": "lwp-q1-08",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "Which statement belongs on Rin’s posture sheet as a boundary of the assignment?",
+     "choices": [
+      "The center has admitted that Rin’s planning note is true in every respect.",
+      "No new evidence, outside authority or cross-motion is supplied for this opposition.",
+      "The judge has already determined that the entire deposit is nonrecoverable.",
+      "The parties have stipulated that no approval condition applied to the event."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "P1 permits use of the packet without stipulating the truth of every account; P3 fixes the source and relief boundaries."
+    },
+    {
+     "id": "lwp-q1-09",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "Match each concept to its role in audience and relief.",
+     "type": "match",
+     "left": [
+      "Moving party",
+      "Opposing party",
+      "Ultimate burden",
+      "Relief"
+     ],
+     "choices": [
+      "Requests disposition",
+      "Resists the motion",
+      "Proof obligation on the claim",
+      "Requested court action"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Moving party: requests disposition; Opposing party: resists the motion; Ultimate burden: proof obligation on the claim; Relief: requested court action."
+    },
+    {
+     "id": "lwp-q1-10",
+     "section": "lwp-m1",
+     "topic": "Audience and relief",
+     "stem": "The case’s current stage and pending decision together describe its procedural ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "posture"
+      ]
+     ],
+     "explanation": "Procedural posture determines the question the court can decide now."
+    },
+    {
+     "id": "lwp-q2-01",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Which theory of the case best explains Rin’s requested decision?",
+     "choices": [
+      "The center’s categorical theories exceed what the law and disputed record establish on this motion.",
+      "The original confirmation settles reasonable reliance, so later approval language needs no analysis.",
+      "The absence of a refund establishes both expenses as complete losses, making credit terms immaterial.",
+      "Rin’s favorable entry evidence establishes final entitlement, allowing the opposition to request payment."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A useful theory links law, significant facts and available relief. This theory answers P2 without claiming an immediate damages award."
+    },
+    {
+     "id": "lwp-q2-02",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Why should the Rule S discussion precede the detailed comparison of F3 and F4?",
+     "choices": [
+      "It permits the writer to omit F4 once a standard has been stated.",
+      "It proves that the factual account favoring Rin is necessarily true.",
+      "It replaces the need to discuss the substantive reliance requirement.",
+      "It explains why supported competing inferences matter at this procedural stage."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The procedural standard gives the conflict its motion-level significance; it neither resolves truth nor replaces substantive law."
+    },
+    {
+     "id": "lwp-q2-03",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "An outline lists “Moss, Reed, Hale, facts, fairness.” Which revision most improves its analytical organization?",
+     "choices": [
+      "Retain one section per case and attach the same complete chronology to each without identifying motion grounds.",
+      "Group Moss and Reed under reliance, Hale under retained value, and connect both to Rule S and the requested order.",
+      "Place Reed after the conclusion and rely on the reader to connect its condition to the earlier reliance section.",
+      "Group all favorable passages first and all adverse passages second without explaining their relationship."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Issue-based organization gives each authority a role in the court’s decision. A source list alone does not show the relationships."
+    },
+    {
+     "id": "lwp-q2-04",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Which roadmap accurately previews the two principal arguments?",
+     "choices": [
+      "The confirmation establishes reliance conclusively, and the credit’s restrictions establish the full deposit loss.",
+      "Moss and Reed concern notices, while Hale concerns credits; the brief leaves the requested order unstated.",
+      "The entry evidence leaves the approval condition disputed, and restricted credit does not automatically establish full value.",
+      "The entry issue can be reserved because nonrefundable printing independently satisfies the entire claim."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The roadmap names the actual grounds and their limits. It should match the sections that follow."
+    },
+    {
+     "id": "lwp-q2-05",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Which proposed alternative argument lacks record support?",
+     "choices": [
+      "Supply value alone does not resolve the separate printing claim.",
+      "Rin obtained approval for a paid event even if entry was not free.",
+      "If required payment were established, Reed would strengthen the center’s position.",
+      "A denial would leave ultimate damages proof for later proceedings."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The packet supplies no approval for a paid event. Calling a proposition an alternative does not create evidence."
+    },
+    {
+     "id": "lwp-q2-06",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Which limiting principle preserves Reed while supporting Rin’s argument?",
+     "choices": [
+      "No warning can ever affect reliance if a reservation was initially confirmed.",
+      "Any warning about any subject automatically defeats reliance in every event.",
+      "A warning matters only if the advocate chooses to quote it in the brief.",
+      "An applicable, known and unsatisfied approval condition can defeat reliance; the condition’s application is disputed here."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The distinction concerns applicability, not a universal rule that warnings always or never matter."
+    },
+    {
+     "id": "lwp-q2-07",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Why should reliance generally be addressed before the supply-credit issue in this brief?",
+     "choices": [
+      "Reliance affects both expense claims, while the credit question concerns the supply expense specifically.",
+      "Reliance follows the first case alphabetically, which determines issue order even without a logical dependency.",
+      "Reliance should come first because a loss on credit value would otherwise establish reliance automatically.",
+      "Reliance must be addressed first because the judge cannot consider two alternative motion grounds."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "This order shows the shared requirement before the expense-specific issue. Organization should reveal how the questions depend on one another."
+    },
+    {
+     "id": "lwp-q2-08",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "An argument-map row contains a proposition and citation but no explanation of the strongest objection. What should be added?",
+     "choices": [
+      "Another favorable citation, leaving the opponent’s contrary record premise outside the map.",
+      "A summary of the desired outcome, postponing analysis of the strongest objection until after submission.",
+      "The adverse evidence or authority and a supported, limited response.",
+      "A longer quotation from the existing source without identifying or responding to the adverse premise."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A complete map anticipates the serious objection and identifies the reasoning needed to answer it."
+    },
+    {
+     "id": "lwp-q2-09",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "Match each concept to its role in persuasive organization.",
+     "type": "match",
+     "left": [
+      "Argument map",
+      "Roadmap",
+      "Threshold question",
+      "Limiting principle"
+     ],
+     "choices": [
+      "Propositions and support",
+      "Preview of the route",
+      "Issue logically addressed first",
+      "Boundary of the reasoning"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Argument map: propositions and support; Roadmap: preview of the route; Threshold question: issue logically addressed first; Limiting principle: boundary of the reasoning."
+    },
+    {
+     "id": "lwp-q2-10",
+     "section": "lwp-m1",
+     "topic": "Persuasive organization",
+     "stem": "A coherent account linking law, significant facts and the requested outcome is a theory of the ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "case"
+      ]
+     ],
+     "explanation": "The theory of the case organizes the argument around the decision sought."
+    },
+    {
+     "id": "lwp-q3-01",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which description of F3 and F4 is accurate and useful in the fact statement?",
+     "choices": [
+      "Every supplied document conclusively establishes entry without payment.",
+      "The planning note describes optional contributions, while Rin approved a proof stating “$5 at door.”",
+      "A printer added a charge against Rin’s instructions and later corrected it.",
+      "F4 is irrelevant because Rin’s planning note has a favorable account."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Attribute both materials accurately. The record supplies no printer mistake or correction and does not resolve the entry conflict."
+    },
+    {
+     "id": "lwp-q3-02",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which proposed factual sentence introduces an unsupported inference as fact?",
+     "choices": [
+      "The credit expires after one year and required a minimum future order of $100.",
+      "The record does not establish qualifying future needs or practical credit usability.",
+      "Rin had no future supply needs, so the credit could never be used.",
+      "The vendor denied a cash refund but offered a restricted credit."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "F6 does not establish the absence of future needs. Unknown usability cannot be converted into a factual claim of zero value."
+    },
+    {
+     "id": "lwp-q3-03",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "What does citing F3 after “Rin’s planning note describes admission without payment” accomplish?",
+     "choices": [
+      "It supports the attributed account without making that account an adjudicated fact.",
+      "It establishes that F4 was false and can be omitted.",
+      "It turns every future assertion about the event into stipulated evidence.",
+      "It proves the final distributed flyer used the same language."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A record citation supports the proposition the item actually contains. F3 does not supply a final flyer or a credibility determination."
+    },
+    {
+     "id": "lwp-q3-04",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which treatment of the adverse approved proof is materially fair?",
+     "choices": [
+      "Mention that a proof exists but omit its charge wording because the full document is available in the packet.",
+      "Describe the proof only as evidence of optional contributions, combining it with the separate planning note.",
+      "Quote the proof in isolation and describe required payment as established despite the planning note.",
+      "State its wording near the related entry evidence and explain its legal significance in the argument."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "F4 bears directly on the approval condition. Accurate placement and description allow the reader to assess the real dispute."
+    },
+    {
+     "id": "lwp-q3-05",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which concession accepts a record fact without conceding the entire reliance issue?",
+     "choices": [
+      "Rin necessarily required payment because every approved proof establishes final practice.",
+      "Rin knowingly violated every condition in the reservation contract.",
+      "Rin read the approval condition and approved the proof, while the entry arrangement remains disputed.",
+      "Rin cannot dispute any inference once a document is admitted for consideration."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Reading and approval are supported facts. Their significance remains subject to the conflicting evidence and Rule S standard."
+    },
+    {
+     "id": "lwp-q3-06",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which credit description avoids an unsupported valuation?",
+     "choices": [
+      "The credit has a one-year expiry and $100 minimum future order; practical usability is not established.",
+      "The minimum order proves Rin already incurred an additional $40 loss.",
+      "The $60 credit necessarily has $60 of practical value despite its conditions.",
+      "The existence of restrictions proves the entire $60 is nonrecoverable."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Known conditions can distinguish Hale without fixing an amount. No further purchase or valuation formula is supplied."
+    },
+    {
+     "id": "lwp-q3-07",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "P1 permits the F1–F7 packet to be considered. What does that permission establish?",
+     "choices": [
+      "Every statement in every document is conclusively true.",
+      "The documents may be used under the exercise rules, but the truth of F3 is not stipulated.",
+      "The center’s cancellation label resolves whether payment was required.",
+      "The judge must exclude both conflicting entry documents."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Permitted record use and the truth of disputed contents are different. Rule S still governs supported competing inferences."
+    },
+    {
+     "id": "lwp-q3-08",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Which record fact most directly establishes the payment timing required by KCRA § 2?",
+     "choices": [
+      "Rin read the admission-approval notice on March 3.",
+      "Rin approved the flyer proof on March 4.",
+      "The written confirmation identified March 20 as the planned event date.",
+      "Both preparation payments preceded the center’s cancellation."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "F5–F7 place both payments on March 5 and cancellation on March 7. The notice, proof and event dates do not by themselves establish when the expenses were paid."
+    },
+    {
+     "id": "lwp-q3-09",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "Match each concept to its role in persuasive fact statements.",
+     "type": "match",
+     "left": [
+      "Attribution",
+      "Inference",
+      "Record citation",
+      "Adverse fact"
+     ],
+     "choices": [
+      "Identifies the speaker or document",
+      "Conclusion drawn from evidence",
+      "Locator supporting a fact",
+      "Detail weakening the position"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Attribution: identifies the speaker or document; Inference: conclusion drawn from evidence; Record citation: locator supporting a fact; Adverse fact: detail weakening the position."
+    },
+    {
+     "id": "lwp-q3-10",
+     "section": "lwp-m2",
+     "topic": "Persuasive fact statements",
+     "stem": "An organized account of relevant events is a factual ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "narrative"
+      ]
+     ],
+     "explanation": "A factual narrative uses accurate selection, sequence and attribution to make the record understandable."
+    },
+    {
+     "id": "lwp-q4-01",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Which point heading best fits the reliance section?",
+     "choices": [
+      "Rin unquestionably deserves all requested damages now.",
+      "Reed, Moss and several other topics.",
+      "Approval warnings never affect reasonable reliance.",
+      "The record supports a dispute about whether the admission-approval condition applied."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A point heading states a supported reason for the requested disposition at the correct level of certainty."
+    },
+    {
+     "id": "lwp-q4-02",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "A paragraph says “Reed denied recovery; Rin should prevail” without explaining a comparison. What is missing?",
+     "choices": [
+      "A reasoning bridge linking the case’s decisive feature to Rin’s record and the motion standard.",
+      "A fuller account of Reed’s procedural history without comparing its decisive condition to Rin’s evidence.",
+      "An additional statement of the desired outcome before the same two disconnected case results.",
+      "A longer citation parenthetical repeating the result without explaining why the factual difference matters."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The reader needs to understand why a meaningful similarity or difference changes the consequence. Results alone do not supply that connection."
+    },
+    {
+     "id": "lwp-q4-03",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Which parenthetical accurately compresses Reed’s relevant feature?",
+     "choices": [
+      "Holding that any warning defeats every reimbursement claim.",
+      "Establishing that free-entry events always require safety approval.",
+      "Addressing a known, applicable approval condition that remained unsatisfied before payment.",
+      "Deciding that restricted supply credits are worth their face amount."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A parenthetical must preserve the source’s conditions. Reed concerns an applicable approval condition, not universal warnings or supply valuation."
+    },
+    {
+     "id": "lwp-q4-04",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Why should a thesis sentence be narrower than a major heading when the section contains several analytical steps?",
+     "choices": [
+      "It allows the paragraph to contradict the heading without explanation.",
+      "It identifies the particular job of that paragraph within the larger argument.",
+      "It eliminates the need for legal authority in the section.",
+      "It requires every paragraph to repeat the full introduction word for word."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A focused thesis gives the paragraph a distinct role, such as explaining a rule or applying it to the record."
+    },
+    {
+     "id": "lwp-q4-05",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Which pair of major headings states a supported reason to deny each of the two noticed grounds?",
+     "choices": [
+      "The entry evidence leaves the approval condition disputed; the restricted credit does not establish full retained value.",
+      "The original confirmation conclusively establishes reliance; the credit’s restrictions establish a full loss.",
+      "Rin’s entry evidence warrants an immediate award; the absence of a cash refund proves all supply damages.",
+      "The printing loss independently establishes reliance; any unresolved valuation proof guarantees denial."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Both headings state bounded reasons tied to P2. The other pairs overstate confirmation, nonrefundability, restricted credit or the effect of missing proof."
+    },
+    {
+     "id": "lwp-q4-06",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Which feature supplies the legally relevant bridge between Hale and F6?",
+     "choices": [
+      "Hale and Rin both lacked a cash refund, which by itself makes their practical retained value identical.",
+      "Hale’s credit had a larger face amount, so Rin’s smaller deposit necessarily has a lower usable percentage.",
+      "Hale’s credit was fully usable for planned purchases, while F6 has restrictions and unresolved usability.",
+      "Rin calls the payment a deposit, so the payment label alone removes it from Hale’s retained-value reasoning."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Section 4 concerns retained value. Practical usability is relevant; superficial differences do not explain the legal consequence."
+    },
+    {
+     "id": "lwp-q4-07",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "The heading promises that Rin has proved the entire $60 loss, but the body acknowledges missing valuation evidence. What is the best repair?",
+     "choices": [
+      "Delete the acknowledgment so the unsupported heading appears consistent.",
+      "Repeat the heading more often to make its conclusion sound stronger.",
+      "Invent a valuation calculation not supplied by the statute or cases.",
+      "Narrow the heading to challenge automatic full value and preserve the remaining proof burden."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Revise the claim to fit the evidence. Consistency should come from accurate reasoning, not removing necessary limits."
+    },
+    {
+     "id": "lwp-q4-08",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Which revision test best checks an analytical paragraph?",
+     "choices": [
+      "Does the paragraph reproduce a complete case summary even if it leaves the current record comparison implicit?",
+      "Can a skeptical reader identify its rule, record support and reason connecting them to the conclusion?",
+      "Does every legal sentence carry a citation even if that source does not support the asserted proposition?",
+      "Does the paragraph announce the preferred outcome consistently even if its material premise remains unsupported?"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The test targets reasoning and support rather than length, selective omission or visual symmetry."
+    },
+    {
+     "id": "lwp-q4-09",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "Match each concept to its role in headings and analytical paragraphs.",
+     "type": "match",
+     "left": [
+      "Point heading",
+      "Thesis sentence",
+      "Parenthetical",
+      "Reasoning bridge"
+     ],
+     "choices": [
+      "Section’s supported proposition",
+      "Paragraph’s main point",
+      "Brief explanation beside a citation",
+      "Connection between rule and facts"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Point heading: section’s supported proposition; Thesis sentence: paragraph’s main point; Parenthetical: brief explanation beside a citation; Reasoning bridge: connection between rule and facts."
+    },
+    {
+     "id": "lwp-q4-10",
+     "section": "lwp-m2",
+     "topic": "Headings and analytical paragraphs",
+     "stem": "A consistent grammatical and conceptual pattern across related headings is parallel ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "structure"
+      ]
+     ],
+     "explanation": "Parallel structure helps readers see related reasons for the same requested decision."
+    },
+    {
+     "id": "lwp-q5-01",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Which version states the center’s strongest reliance argument fairly?",
+     "choices": [
+      "The center dislikes all voluntary donations for personal reasons.",
+      "The center has no evidence connecting the event to an admission charge.",
+      "Rin read the approval warning, approved “$5 at door,” lacked approval and then paid the expenses.",
+      "Reed is irrelevant merely because the organizer’s name differs."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A fair counterargument includes F2 and F4 and explains why Reed matters if the condition applied."
+    },
+    {
+     "id": "lwp-q5-02",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Which distinction from Reed is legally significant on this record?",
+     "choices": [
+      "Reed’s condition indisputably applied; the evidence conflicts about whether Rin’s admission-based condition applied.",
+      "Reed involved equipment while Rin paid for printing and supplies, so no approval condition can affect Rin.",
+      "Reed’s writing used the heading Reservation while Rin’s used Confirmed, so the later notice cannot matter.",
+      "Reed concerned a safety condition while Rin’s concerns admission, so the condition’s applicability need not be examined."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Applicability matters under § 3 and Reed’s reasoning. Superficial differences and preferred outcomes do not supply a distinction."
+    },
+    {
+     "id": "lwp-q5-03",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Hale expressly reserves treatment of restricted credits. What follows?",
+     "choices": [
+      "Every restricted credit is automatically worthless.",
+      "Every restricted credit is automatically worth its face amount.",
+      "Restricted credits can never be mentioned in a later case.",
+      "Hale does not decide their treatment, so § 4 and the record still require analysis."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A reserved question remains unresolved; it is not an opposite holding or a ban on analysis."
+    },
+    {
+     "id": "lwp-q5-04",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Which statement correctly describes Hale’s treatment of reliance?",
+     "choices": [
+      "Hale held that all confirmed reservations establish reasonable reliance.",
+      "Reliance was conceded there, so Hale does not decide Rin’s contested reliance premise.",
+      "Hale held that all printing expenses fail for lack of reliance.",
+      "Hale’s credit ruling eliminates the reliance requirement in every case."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A conceded premise is not a holding resolving that issue in a later disputed record."
+    },
+    {
+     "id": "lwp-q5-05",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "If a hypothetical establishes that entry required payment and no approval was obtained, how should Rin’s advocate respond?",
+     "choices": [
+      "Insist the changed premise has no effect on the reliance argument.",
+      "Invent approval so the advocate can preserve the original result.",
+      "Say hypothetical questions are never relevant to legal reasoning.",
+      "Acknowledge that Reed then strongly supports the center because the known condition applied."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A material change in applicability changes the force of the precedent. Answer the assumption honestly before distinguishing the actual record."
+    },
+    {
+     "id": "lwp-q5-06",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Which response rebuts the center’s inference without claiming a credibility victory?",
+     "choices": [
+      "F4 must be false because Rin wants to recover the expenses.",
+      "F3 supplies contrary entry evidence, and Rule S2 prevents choosing between supported competing inferences here.",
+      "F3 is conclusively true because Rin wrote it before cancellation.",
+      "The court should ignore all adverse documents in an opposition."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The rebuttal relies on record support and posture. It does not decide which account ultimately deserves belief."
+    },
+    {
+     "id": "lwp-q5-07",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Under exercise C1, may Rin omit Reed solely because the center already cited it?",
+     "choices": [
+      "Yes; an opponent’s citation makes a source disappear from the assignment.",
+      "Yes; persuasive briefs contain only authorities with favorable results.",
+      "No; the assignment requires fair treatment of all three supplied cases, including adverse authority.",
+      "No; because C1 proves every jurisdiction has exactly the same disclosure rule."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "C1 is the exercise’s broader treatment requirement. Apply it without misrepresenting it as universal professional law."
+    },
+    {
+     "id": "lwp-q5-08",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Which concession narrows the dispute without abandoning Rin’s supported position?",
+     "choices": [
+      "An applicable unsatisfied approval condition can be decisive, but its application is disputed here.",
+      "Every known warning necessarily defeats reliance regardless of its subject.",
+      "The entire supply deposit has been proved nonrecoverable.",
+      "Rin received manager approval even though the record contains none."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A precise concession accepts the valid legal principle while identifying the unresolved material premise."
+    },
+    {
+     "id": "lwp-q5-09",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "Match each concept to its role in adverse authority.",
+     "type": "match",
+     "left": [
+      "Holding",
+      "Reserved question",
+      "Distinction",
+      "Rebuttal"
+     ],
+     "choices": [
+      "Necessary resolution on the case’s facts",
+      "Issue expressly left undecided",
+      "Legally meaningful difference",
+      "Supported answer to an objection"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Holding: necessary resolution on the case’s facts; Reserved question: issue expressly left undecided; Distinction: legally meaningful difference; Rebuttal: supported answer to an objection."
+    },
+    {
+     "id": "lwp-q5-10",
+     "section": "lwp-m3",
+     "topic": "Adverse authority",
+     "stem": "A supported acceptance of one proposition while preserving a separate dispute is a ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "concession"
+      ]
+     ],
+     "explanation": "A precise concession can narrow an argument without accepting the opponent’s entire conclusion."
+    },
+    {
+     "id": "lwp-q6-01",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "A draft attributes a restricted-credit valuation formula to Hale ¶ 3. What should the source audit do first?",
+     "choices": [
+      "Accept the attribution because the draft includes a precise paragraph locator and a plausible calculation.",
+      "Compare the asserted formula with the actual paragraph and identify whether it supports the proposition.",
+      "Apply the formula to Rin’s figures before checking whether the cited source actually supplies that formula.",
+      "Replace the locator with a citation to the entire opinion without checking the asserted formula."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Citation presence is not source support. Hale supplies no formula for Rin’s restricted credit."
+    },
+    {
+     "id": "lwp-q6-02",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "The draft quotes F4 as “optional $5 at door.” Which repair is necessary?",
+     "choices": [
+      "Keep “optional” because it reflects the advocate’s preferred inference.",
+      "Delete F4 and assert that all documents agree on free admission.",
+      "Add an invented printer affidavit confirming the altered quotation.",
+      "Restore F4’s exact wording and discuss F3’s optional-contribution account separately with attribution."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Blending F3 into F4 changes the adverse evidence. Correct the quotation and every conclusion that relied on it."
+    },
+    {
+     "id": "lwp-q6-03",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Which paraphrase preserves Reed’s important conditions?",
+     "choices": [
+      "A known, applicable approval condition remained unsatisfied before the organizer paid.",
+      "Any warning about any subject permanently defeats reimbursement.",
+      "Confirmation always overrides all approval conditions.",
+      "The court decided the value of every restricted credit."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A paraphrase must retain the conditions that explain the source’s reasoning, especially applicability and timing."
+    },
+    {
+     "id": "lwp-q6-04",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Which statement accurately distinguishes C1 from the real-world model-rule orientation?",
+     "choices": [
+      "C1 establishes the binding law of every jurisdiction for all court filings.",
+      "The ABA Model Rule automatically becomes local law without adoption or interpretation.",
+      "C1 requires discussion of all supplied cases for this exercise; actual professional duties depend on applicable rules and their conditions.",
+      "Because this is a teaching exercise, false quotations become acceptable advocacy."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Keep the fictional assignment requirement separate from the limited orientation to a real model rule."
+    },
+    {
+     "id": "lwp-q6-05",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "An unsupported claim that Rin had no future supply needs appears in the facts, argument and oral outline. What correction is complete?",
+     "choices": [
+      "Remove or qualify it in every affected location and revise the valuation reasoning that depended on it.",
+      "Delete the phrase once from the facts and leave the conclusions unchanged.",
+      "Retain it in oral argument because spoken claims need no support.",
+      "Add a citation to F6 without checking what F6 actually establishes."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A material premise can affect multiple conclusions. Source correction must propagate through the full work product."
+    },
+    {
+     "id": "lwp-q6-06",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Which ledger entry best supports an audit?",
+     "choices": [
+      "Case name, result and favorable passages, without recording the draft proposition or the source’s limits.",
+      "Draft proposition and confidence rating, without a locator that permits checking the supporting source.",
+      "Claim, exact source locator, supported proposition, source limit and needed revision.",
+      "Paragraph number and completion checkmark, without comparing the source’s content to the asserted claim."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The ledger must let the writer trace the whole proposition and its limits, not merely count citations."
+    },
+    {
+     "id": "lwp-q6-07",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Which source should verify the quoted admission wording in this assignment?",
+     "choices": [
+      "A generated summary that blends several record items.",
+      "The supplied F4 record item itself.",
+      "Memory of the phrase after reading it once.",
+      "A search snippet about unrelated real events."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Check quotations against the actual supplied source. Summaries, memory and unrelated snippets are not substitutes."
+    },
+    {
+     "id": "lwp-q6-08",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Which scope statement is accurate?",
+     "choices": [
+      "Section 5 abolishes all legal remedies for every canceled event.",
+      "The packet proves the law governing all real university programs.",
+      "The assignment authorizes adding new causes of action to Rin’s opposition.",
+      "The KCRA analysis concerns the fictional remedy; § 5 does not decide every possible claim under other law."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A source’s boundary must be preserved. An exclusion within the fictional Act does not decide unexamined law or expand the briefing order."
+    },
+    {
+     "id": "lwp-q6-09",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "Match each concept to its role in candor and source verification.",
+     "type": "match",
+     "left": [
+      "Quotation",
+      "Paraphrase",
+      "Source ledger",
+      "Material misstatement"
+     ],
+     "choices": [
+      "Exact source wording",
+      "Restatement preserving substance",
+      "Record of claims and support",
+      "Error capable of affecting analysis"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Quotation: exact source wording; Paraphrase: restatement preserving substance; Source ledger: record of claims and support; Material misstatement: error capable of affecting analysis."
+    },
+    {
+     "id": "lwp-q6-10",
+     "section": "lwp-m3",
+     "topic": "Candor and source verification",
+     "stem": "A systematic comparison of draft claims with their actual sources is a source ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "audit"
+      ]
+     ],
+     "explanation": "A source audit checks substance and limits, not just whether a citation exists."
+    },
+    {
+     "id": "lwp-q7-01",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "What does a reverse outline record?",
+     "choices": [
+      "What each paragraph in the existing draft actually does.",
+      "The order of topics in the original plan, without comparing them with the paragraphs actually drafted.",
+      "Only the headings as printed, without checking the analytical function of the paragraphs beneath them.",
+      "A list of citations sorted by date, without showing which proposition each draft paragraph advances."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A reverse outline diagnoses the produced text and can reveal gaps, repetition and misplaced analysis."
+    },
+    {
+     "id": "lwp-q7-02",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "Which change qualifies as a substantive revision?",
+     "choices": [
+      "Change the typeface without changing any reasoning.",
+      "Correct one harmless extra space in a heading.",
+      "Replace an unsupported immediate-award request with a supported denial request and revise affected sections.",
+      "Rename the document file while leaving the content untouched."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Substantive revision changes reasoning, support, scope, organization or a significant conclusion."
+    },
+    {
+     "id": "lwp-q7-03",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "The introduction requests $150, but the conclusion requests denial. What should the consistency check do?",
+     "choices": [
+      "Keep both requests because inconsistency makes the argument flexible.",
+      "Align all relief statements with P3 and S3, including headings and the oral outline.",
+      "Assume the last sentence silently corrects every earlier demand.",
+      "Delete all references to the motion so the conflict is less visible."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The entire work product should seek the action available in the supplied posture. A correct conclusion does not cure conflicting earlier claims."
+    },
+    {
+     "id": "lwp-q7-04",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "A credit section says missing value evidence always requires denial. Which revision addresses the substantive defect?",
+     "choices": [
+      "Replace always with generally while retaining the same conclusion without examining the noticed ground.",
+      "Move the proof gap to the fact section and leave the argument’s categorical rule unchanged.",
+      "Distinguish Hale by credit amount alone and omit the relationship between Rule S4 and P2.",
+      "Explain the limited noticed ground under P2/S4 while preserving Rin’s remaining proof burden."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The narrow procedural point concerns the automatic-value theory, not a universal rule that missing proof defeats every motion."
+    },
+    {
+     "id": "lwp-q7-05",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "Which sequence makes the best use of revision time?",
+     "choices": [
+      "Proofread repeatedly while leaving known unsupported premises untouched.",
+      "Check reasoning and support, repair organization and consistency, then proofread and recheck material claims.",
+      "Stop after formatting the headings because appearance determines legal accuracy.",
+      "Copy the model verbatim before attempting any independent draft."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Surface polishing is useful after substantive defects are repaired. Final polishing should not remove necessary qualifications."
+    },
+    {
+     "id": "lwp-q7-06",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "A self-scored brief reaches 82/100 but invents a manager approval. What should the learner do?",
+     "choices": [
+      "Treat the score as overriding the unsupported factual claim.",
+      "Publish the invention because it improves the desired result.",
+      "Claim official professional competence based on the practice score.",
+      "Correct the invented fact and affected analysis regardless of the numerical score."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The rubric is a diagnostic aid. Materially unsupported content requires repair even when other categories score well."
+    },
+    {
+     "id": "lwp-q7-07",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "Which revision-log entry is most useful?",
+     "choices": [
+      "Identify the before-and-after claim, why it changed and the source or reasoning supporting the repair.",
+      "List the edited paragraph numbers and label each improved, without identifying the reasoning change.",
+      "Count every altered sentence separately, even when the changes only implement one punctuation correction.",
+      "Record the new self-score alone, without identifying what changed or why the new proposition is supported."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "An explanatory log makes each substantive improvement traceable and helps prepare for oral questions."
+    },
+    {
+     "id": "lwp-q7-08",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "How should the learner use the complete model opposition?",
+     "choices": [
+      "Assume every acceptable brief must use exactly the same sentences.",
+      "Copy it before attempting the assignment and call that independent analysis.",
+      "Compare methods and limits after drafting independently, recognizing that other supported wording and structures may work.",
+      "Treat its outcome as a real court decision binding in all jurisdictions."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The model illustrates a defensible response to a fictional packet; it is a learning aid rather than the only acceptable text or real authority."
+    },
+    {
+     "id": "lwp-q7-09",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "Match each concept to its role in brief revision.",
+     "type": "match",
+     "left": [
+      "Reverse outline",
+      "Substantive revision",
+      "Proofreading",
+      "Revision log"
+     ],
+     "choices": [
+      "Diagnosis of existing paragraphs",
+      "Change to reasoning or support",
+      "Surface-error correction",
+      "Explanation of meaningful changes"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Reverse outline: diagnosis of existing paragraphs; Substantive revision: change to reasoning or support; Proofreading: surface-error correction; Revision log: explanation of meaningful changes."
+    },
+    {
+     "id": "lwp-q7-10",
+     "section": "lwp-m4",
+     "topic": "Brief revision",
+     "stem": "The weighted criteria used to diagnose and self-assess a draft form a ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "rubric"
+      ]
+     ],
+     "explanation": "The rubric organizes review; it does not certify professional competence or excuse material defects."
+    },
+    {
+     "id": "lwp-q8-01",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "Which opening best fits Rin’s five-minute oral argument?",
+     "choices": [
+      "Read the entire factual history before identifying any requested order.",
+      "Ask for an immediate $150 award because oral argument creates a cross-motion.",
+      "Begin by accusing the center of motives unsupported by the record.",
+      "Ask for denial and preview the disputed approval condition and automatic-credit-value grounds."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A concise opening identifies the decision and reasons. Oral presentation does not expand the supplied posture or evidence."
+    },
+    {
+     "id": "lwp-q8-02",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "The judge asks, “Did Rin approve the $5 at door proof?” Which response is most direct and accurate?",
+     "choices": [
+      "The event benefited the community, so approval need not be discussed.",
+      "Yes; F4 records approval, while F3 supplies contrary entry evidence relevant under Rule S2.",
+      "No, because the advocate believes contributions were intended to be optional.",
+      "The judge should ask a different question about supplies instead."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Answer the factual question directly, then explain the supported legal significance without evasion or invention."
+    },
+    {
+     "id": "lwp-q8-03",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "The judge assumes entry definitely required payment. What should the advocate do?",
+     "choices": [
+      "Reject the premise without answering because it is unfavorable.",
+      "Insist that the same reliance analysis holds regardless of entry conditions.",
+      "Accept the hypothetical and explain that Reed then strongly supports the center, while distinguishing the actual record.",
+      "Invent a later approval to avoid the hypothetical’s consequence."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A hypothetical tests the effect of a changed premise. Respond honestly before explaining how the actual packet differs."
+    },
+    {
+     "id": "lwp-q8-04",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "Why does the oral time budget reserve space for questions?",
+     "choices": [
+      "The five-minute limit includes questions, so an uninterrupted five-minute script would crowd out responsive analysis.",
+      "Questions are always optional and never count against the exercise time.",
+      "The advocate can automatically extend the hearing by speaking faster.",
+      "The brief’s word count determines an unlimited oral presentation length."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "P4 includes questions within the five minutes. Flexible planning preserves time for responses and a precise closing."
+    },
+    {
+     "id": "lwp-q8-05",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "The judge asks why the supply claim survives without a proved credit value. Which answer preserves the correct limit?",
+     "choices": [
+      "State that missing evidence always prevents summary disposition in every case.",
+      "Claim the restricted credit must have zero value without further proof.",
+      "Acknowledge the gap, identify the noticed automatic-value theory and preserve Rin’s ultimate proof burden.",
+      "Say a denied cash refund necessarily establishes the entire deposit loss."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The answer depends on P2 and S4’s narrow ground. It does not establish an amount or resolve a later sufficiency challenge."
+    },
+    {
+     "id": "lwp-q8-06",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "Which transition is a proper pivot after answering about F4?",
+     "choices": [
+      "That approved wording is why the supported entry conflict matters under Rule S2.",
+      "The proof concerns reliance, but I will discuss credit first and leave the requested answer for my closing.",
+      "The planning note is favorable, so I will proceed as if the approved proof were not part of the record.",
+      "The proof is one document among several, so its actual wording need not affect the argument."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A pivot connects a direct answer to relevant analysis. It must not replace the answer or invent a different record."
+    },
+    {
+     "id": "lwp-q8-07",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "Which closing request preserves the printing fallback’s condition?",
+     "choices": [
+      "Award printing even if the court finds the shared reliance requirement unsatisfied.",
+      "Award all $150 because the judge asked several questions.",
+      "Dismiss the entire case solely because the credit has an expiry date.",
+      "Deny the noticed grounds; a supply-value ruling alone does not defeat printing, which still depends on reliance."
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Expense-specific retained value is separate, but a shared reliance failure can affect both claims. The fallback must keep that limit."
+    },
+    {
+     "id": "lwp-q8-08",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "After the first timed round, what is the most useful next step?",
+     "choices": [
+      "Keep the same outline and focus on fitting every prepared sentence into five minutes, leaving questions until afterward.",
+      "Identify delayed answers, overstatements and unclear relief, revise the outline, then complete a second round.",
+      "Remove adverse points from the outline so the second round can proceed without difficult interruptions.",
+      "Treat a fluent first delivery as sufficient and skip checking whether the requested order and concessions were accurate."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The exercise tests responsive reasoning and accurate support, not speed or confidence alone."
+    },
+    {
+     "id": "lwp-q8-09",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "Match each concept to its role in oral explanation.",
+     "type": "match",
+     "left": [
+      "Responsive answer",
+      "Pivot",
+      "Hypothetical question",
+      "Closing request"
+     ],
+     "choices": [
+      "Addresses the question directly",
+      "Connects an answer to relevant analysis",
+      "Tests a changed premise",
+      "States the precise action sought"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Responsive answer: addresses the question directly; Pivot: connects an answer to relevant analysis; Hypothetical question: tests a changed premise; Closing request: states the precise action sought."
+    },
+    {
+     "id": "lwp-q8-10",
+     "section": "lwp-m4",
+     "topic": "Oral explanation",
+     "stem": "A short spoken preview of the principal reasons is an oral ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "roadmap"
+      ]
+     ],
+     "explanation": "The oral roadmap guides the listener and must remain flexible when questions arise."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "law-legal-writing-2-cards",
+   "title": "Legal Writing II: Persuasion and Advocacy notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "What does the judge need early in Rin’s opposition?",
+     "back": "The requested denial, the governing motion standard and the two reasons connected to the center’s noticed grounds.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c2",
+     "front": "How does the current posture limit Rin’s brief?",
+     "back": "Rin opposes a limited summary-disposition motion without a cross-motion. The brief seeks denial, not an affirmative damages award.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c3",
+     "front": "What relief does the model opposition seek?",
+     "back": "Denial of the two categorical grounds, preserving the claims and Rin’s remaining proof obligations.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c4",
+     "front": "What must the center show under Rule S1?",
+     "back": "No genuine material dispute and entitlement on the noticed grounds; unsupported assertion alone does not establish that showing.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c5",
+     "front": "What is Rin’s role in the supplied proceeding?",
+     "back": "Rin opposes the center’s two grounds using the permitted record and authorities, without adding evidence or seeking judgment by cross-motion.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c6",
+     "front": "Does denial establish Rin’s recoverable supply amount?",
+     "back": "No. Rin still must establish the KCRA requirements and the nonrecoverable portion of the supply expense.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c7",
+     "front": "What condition belongs in the printing fallback?",
+     "back": "An adverse supply-value ruling alone does not dispose of printing, but printing still depends on reasonable reliance.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c8",
+     "front": "Why is the missing supply valuation not ignored in the opposition?",
+     "back": "It remains a proof gap. P2/S4 distinguish this automatic-value motion from an unraised sufficiency challenge; they do not eliminate Rin’s burden.",
+     "topic": "Audience and relief"
+    },
+    {
+     "id": "c9",
+     "front": "What is a useful theory for Rin’s opposition?",
+     "back": "The center’s categorical propositions exceed what the law and disputed record establish on this limited motion.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c10",
+     "front": "What belongs in each argument-map row?",
+     "back": "The proposition, authority, record support, strongest objection and bounded response.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c11",
+     "front": "Why discuss Rule S before choosing between entry inferences?",
+     "back": "Rule S explains that the court assesses supported disputes at this stage rather than selecting a preferred account’s credibility.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c12",
+     "front": "What two points should Rin’s roadmap preview?",
+     "back": "The dispute about the admission-approval condition and the failure of credit existence alone to establish full retained value.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c13",
+     "front": "How do Moss and Reed work together in the reliance synthesis?",
+     "back": "They distinguish an unrelated reassignment notice from a known, applicable approval condition; applicability matters under § 3.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c14",
+     "front": "Why is “Rin obtained approval” not a valid alternative here?",
+     "back": "The packet contains no approval for a paid event. An alternative label cannot supply a missing fact.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c15",
+     "front": "What limit prevents Rin’s warning argument from contradicting Reed?",
+     "back": "Rin disputes automatic effect from any warning, while recognizing that an applicable, known and unsatisfied approval condition can be decisive.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c16",
+     "front": "Why organize by issues rather than by case names?",
+     "back": "The judge must decide motion grounds. Sources should appear where their propositions support or limit the reasoning for each ground.",
+     "topic": "Persuasive organization"
+    },
+    {
+     "id": "c17",
+     "front": "What chronology makes Rin’s record understandable?",
+     "back": "Confirmation, communicated condition, conflicting entry materials, payments, cancellation and restricted credit, followed by the current procedure.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c18",
+     "front": "What locator format does this exercise supply for facts?",
+     "back": "F1–F7 for the original record and P1–P4 for procedural additions. Do not invent transcript pages or exhibit labels.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c19",
+     "front": "How should the favorable planning note be described?",
+     "back": "Say the note describes optional contributions and admission without payment, citing F3; do not present its truth as stipulated.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c20",
+     "front": "What does F4 support without conclusively deciding?",
+     "back": "The approved “$5 at door” proof supports required admission payment, but F3 provides a contrary account and the final entry materials are absent.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c21",
+     "front": "Why is the entry arrangement material?",
+     "back": "It determines whether the communicated admission-charge approval condition applied before Rin paid the expenses.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c22",
+     "front": "Where should the approved proof appear?",
+     "back": "Near the related entry evidence, accurately described; its significance should be confronted in the reliance argument.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c23",
+     "front": "What can Rin concede about F2 and F4?",
+     "back": "Rin read the condition and approved the proof. Those facts do not by themselves resolve the competing entry evidence under Rule S.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c24",
+     "front": "Why does a $100 minimum future order not prove a $40 loss?",
+     "back": "No additional purchase is established, and the packet supplies no such valuation formula. Restrictions and actual nonrecoverable value require separate analysis.",
+     "topic": "Persuasive fact statements"
+    },
+    {
+     "id": "c25",
+     "front": "How does a point heading differ from “Reasonable reliance”?",
+     "back": "It states a reason for the requested decision, such as a supported dispute about whether the approval condition applied.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c26",
+     "front": "What should a thesis sentence do within a multi-step section?",
+     "back": "Identify the paragraph’s distinct task, such as explaining Reed’s decisive feature before a later paragraph applies it.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c27",
+     "front": "What makes a paragraph analytical rather than a source summary?",
+     "back": "It explains how the law and current record connect to a bounded conclusion, instead of merely reporting case results.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c28",
+     "front": "What bridge is needed between Reed and Rin?",
+     "back": "Connect Reed’s applicable condition to the disputed application of Rin’s admission-based condition, then explain Rule S’s effect on that dispute.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c29",
+     "front": "What must a Reed parenthetical preserve?",
+     "back": "Its known, applicable and unsatisfied approval condition; a compressed description must not become an any-warning rule.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c30",
+     "front": "What should parallel major headings have in common here?",
+     "back": "Each should state a reason for denying a noticed motion ground, rather than mixing a proposition with a vague case-name label.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c31",
+     "front": "What is a useful heading revision test?",
+     "back": "Does the section actually support the heading at the stated level of certainty and in the correct procedural posture?",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c32",
+     "front": "What comparison makes the Hale paragraph useful?",
+     "back": "Hale’s credit was fully usable for planned purchases; F6 imposes restrictions and leaves usability unresolved. That defeats automatic full-value reasoning without proving an amount.",
+     "topic": "Headings and analytical paragraphs"
+    },
+    {
+     "id": "c33",
+     "front": "Why is Reed serious adverse authority for Rin?",
+     "back": "Rin read an approval condition and approved admission-charge wording, making Reed powerful if the condition applied.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c34",
+     "front": "What does Reed’s holding not establish?",
+     "back": "It does not establish that every warning defeats reliance, regardless of the warning’s subject or applicability.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c35",
+     "front": "Which difference from Reed matters most here?",
+     "back": "Reed’s condition indisputably applied, while the packet supports conflicting inferences about whether Rin’s event required admission payment.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c36",
+     "front": "What does Hale reserve, and what does that mean?",
+     "back": "Restricted-credit treatment remains undecided. The reservation supplies neither a zero-value rule nor a full-value rule for F6.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c37",
+     "front": "What legal concession strengthens an accurate response to Reed?",
+     "back": "An applicable, known and unsatisfied approval condition can be decisive; the disputed premise here is applicability.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c38",
+     "front": "What must the strongest reliance counterargument include?",
+     "back": "F2’s read condition, F4’s approved wording, the absence of approval, the timing of payment and Reed’s relevance if entry required payment.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c39",
+     "front": "How does Rin rebut the categorical reliance ground without deciding credibility?",
+     "back": "Use F3’s contrary account and Rule S2 to show a supported material conflict while acknowledging F4’s force.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c40",
+     "front": "Why does Hale not decide Rin’s reliance issue?",
+     "back": "Reliance was conceded in Hale, not adjudicated as a disputed issue. Its retained-value reasoning cannot erase Rin’s separate reliance requirement.",
+     "topic": "Adverse authority"
+    },
+    {
+     "id": "c41",
+     "front": "What does persuasive emphasis never authorize in this exercise?",
+     "back": "Invented holdings, altered quotations, unsupported facts or omissions that make the material account misleading.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c42",
+     "front": "What must an audit check beyond a citation’s presence?",
+     "back": "Whether the source supports the whole proposition and whether the draft preserves its important conditions and limits.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c43",
+     "front": "Why is “optional $5 at door” not an accurate F4 quotation?",
+     "back": "F4 does not include “optional.” That word improperly blends F3’s account into the adverse proof.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c44",
+     "front": "Why is “any warning bars recovery” a defective paraphrase of Reed?",
+     "back": "It drops the condition’s applicability and other decisive qualifications that matter to comparing Rin’s record.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c45",
+     "front": "What must happen after discovering an invented no-future-needs claim?",
+     "back": "Correct the facts, valuation reasoning, conclusion and oral outline wherever they depend on the unsupported premise.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c46",
+     "front": "How should C1 and the real Model Rule orientation be distinguished?",
+     "back": "C1 sets this exercise’s broader treatment requirement. Actual professional duties depend on applicable rules and their specific conditions.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c47",
+     "front": "What makes a source-ledger row useful for Hale?",
+     "back": "It identifies the exact paragraph, the practical-usability proposition, the reserved restricted-credit question and any needed narrowing.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c48",
+     "front": "Why is an exact-looking citation not enough to support a formula?",
+     "back": "A real locator can still accompany a false attribution. Open the source and compare the asserted calculation; Hale contains no formula for F6.",
+     "topic": "Candor and source verification"
+    },
+    {
+     "id": "c49",
+     "front": "What can a reverse outline reveal that a planned outline misses?",
+     "back": "What the writer actually produced: repetition, gaps, misplaced standards and paragraphs performing too many jobs.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c50",
+     "front": "What distinguishes the required six revisions from six formatting edits?",
+     "back": "Each must meaningfully improve the analysis or its organization and support, with an explanation of why the change matters.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c51",
+     "front": "Which words can help locate high-impact claims to audit?",
+     "back": "Words such as establishes, requires, always, never and undisputed, plus money amounts; check each against the packet and posture.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c52",
+     "front": "Which parts must agree about relief?",
+     "back": "The introduction, headings, argument, conclusion and oral outline must all respect the limited opposition and absence of a cross-motion.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c53",
+     "front": "When should proofreading occur?",
+     "back": "After substantive repairs, followed by a brief support check to ensure polishing did not remove a necessary qualification.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c54",
+     "front": "Does an 80-point self-review score establish professional competence?",
+     "back": "No. It is a practice target only, and material errors require repair regardless of the total.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c55",
+     "front": "What should a revision-log entry contain?",
+     "back": "The old and new claim or structure, why it changed, and the authority, record item or reasoning supporting the repair.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c56",
+     "front": "What should comparing with the model accomplish?",
+     "back": "Evaluate method, source accuracy, adverse treatment and procedural limits after an independent draft; different supported language and organization can be sound.",
+     "topic": "Brief revision"
+    },
+    {
+     "id": "c57",
+     "front": "What should Rin’s oral opening establish?",
+     "back": "The requested denial and the two main reasons, within the same procedural and evidentiary boundaries as the brief.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c58",
+     "front": "Must the speaker finish a roadmap before answering a question?",
+     "back": "No. Answer the question directly and then connect it to the relevant argument.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c59",
+     "front": "How should the speaker answer whether Rin approved the proof?",
+     "back": "Begin yes, identify F4, then explain F3’s contrary evidence and Rule S2’s significance without denying the adverse fact.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c60",
+     "front": "How does a useful pivot differ from evasion?",
+     "back": "It follows a real answer and shows the connection to the analysis; it does not substitute a more comfortable question.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c61",
+     "front": "What changes if required admission payment is assumed established?",
+     "back": "The approval condition applies, making Reed substantially stronger for the center; acknowledge that effect before returning to the actual conflicting record.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c62",
+     "front": "What is included in the five-minute exercise limit?",
+     "back": "The opening, both grounds, questions and closing. Leave room for questions rather than preparing five uninterrupted minutes of speech.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c63",
+     "front": "What must the closing avoid?",
+     "back": "An unrequested damages award or an unconditional printing fallback that ignores the shared reliance requirement.",
+     "topic": "Oral explanation"
+    },
+    {
+     "id": "c64",
+     "front": "What should improve between the two timed rounds?",
+     "back": "Directness, accurate concessions, source access and clarity of relief. Revise delayed answers and overstatements rather than merely speaking faster.",
+     "topic": "Oral explanation"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "audience",
+   "definition": "The intended reader or listener whose decision and information needs shape the presentation.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "procedural posture",
+   "definition": "The case’s current stage, pending request and decision available to the court.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "relief",
+   "definition": "The specific action a party asks the court to take.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "moving party",
+   "definition": "The party requesting the court’s action on a motion.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "opposing party",
+   "definition": "The party responding to and resisting the requested action on a motion.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "ultimate burden",
+   "definition": "The obligation to establish the substantive requirements of a claim, distinct from a particular motion showing.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "fallback request",
+   "definition": "A narrower, supported request offered if the court rejects an identified part of the primary position.",
+   "topic": "Audience and relief"
+  },
+  {
+   "term": "theory of the case",
+   "definition": "A coherent account linking governing law, significant facts and the requested outcome.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "argument map",
+   "definition": "A structured plan connecting the requested decision to propositions, sources, objections and responses.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "threshold question",
+   "definition": "A question that must be addressed before a dependent issue can be resolved usefully.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "roadmap",
+   "definition": "A concise preview of the argument’s main route and reasons.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "rule synthesis",
+   "definition": "A combined account of relevant legal propositions that preserves their conditions and limits.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "alternative argument",
+   "definition": "A supported route offered on a clearly identified different premise or if another argument fails.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "limiting principle",
+   "definition": "A stated boundary explaining where an argument’s reasoning stops.",
+   "topic": "Persuasive organization"
+  },
+  {
+   "term": "factual narrative",
+   "definition": "An organized account of relevant events presented with accurate selection and attribution.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "record citation",
+   "definition": "A locator identifying the record item supporting a factual proposition.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "attribution",
+   "definition": "Identification of the person or document making a statement or recording an account.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "inference",
+   "definition": "A conclusion drawn from evidence rather than the evidence itself.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "material fact",
+   "definition": "A fact capable of affecting a legal requirement, inference or amount.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "adverse fact",
+   "definition": "A material detail that weakens the advocated position or supports the opponent.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "factual concession",
+   "definition": "Acceptance of a supported factual proposition without necessarily accepting a broader legal conclusion.",
+   "topic": "Persuasive fact statements"
+  },
+  {
+   "term": "point heading",
+   "definition": "A heading stating the supported argumentative proposition developed by its section.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "thesis sentence",
+   "definition": "A sentence expressing a paragraph’s main analytical point.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "analytical paragraph",
+   "definition": "A paragraph connecting a legal proposition, authority, relevant facts and a reasoned consequence.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "reasoning bridge",
+   "definition": "An explanation of why a rule or source comparison supports the proposed consequence on the current facts.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "parenthetical",
+   "definition": "A short explanatory phrase accompanying a citation.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "parallel structure",
+   "definition": "A consistent grammatical and conceptual pattern across related parts of a document.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "revision test",
+   "definition": "A focused question used to assess whether a draft component performs its intended job.",
+   "topic": "Headings and analytical paragraphs"
+  },
+  {
+   "term": "adverse authority",
+   "definition": "Legal material supporting a proposition unfavorable to the advocated position.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "holding",
+   "definition": "A legal issue’s resolution necessary to the result on the facts before the deciding court.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "distinction",
+   "definition": "A difference between an authority and the present matter that matters under the authority’s reasoning.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "reserved question",
+   "definition": "An issue an authority expressly leaves undecided.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "concession",
+   "definition": "Acceptance of a supported proposition while preserving a separate issue or conclusion in dispute.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "counterargument",
+   "definition": "The opposing position that challenges the proposed conclusion.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "rebuttal",
+   "definition": "A supported response explaining why an objection does not justify the requested adverse conclusion.",
+   "topic": "Adverse authority"
+  },
+  {
+   "term": "candor",
+   "definition": "Truthful, fair treatment of material law and facts within the applicable duties and assignment.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "source audit",
+   "definition": "A systematic comparison of draft claims with the actual sources offered to support them.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "quotation",
+   "definition": "A reproduction of exact source wording with context sufficient to avoid changing its meaning.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "paraphrase",
+   "definition": "A restatement in new words that preserves the source’s substance and material qualifications.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "material misstatement",
+   "definition": "An inaccurate assertion capable of affecting the analysis or decision.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "scope limitation",
+   "definition": "A statement defining what a source, rule or document does not address or decide.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "source ledger",
+   "definition": "A record connecting claims to locators, supported propositions, source limits and needed corrections.",
+   "topic": "Candor and source verification"
+  },
+  {
+   "term": "reverse outline",
+   "definition": "An outline describing the actual function of each paragraph in an existing draft.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "substantive revision",
+   "definition": "A change to reasoning, support, scope, organization or an important conclusion.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "claim audit",
+   "definition": "A focused review of assertions for support, level of certainty and analytical consequence.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "consistency check",
+   "definition": "A comparison of repeated propositions across a work product to identify contradictions or incompatible certainty.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "proofreading",
+   "definition": "Correction of surface errors in language, punctuation, locators and presentation.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "rubric",
+   "definition": "A set of weighted criteria used to assess work and identify improvements.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "revision log",
+   "definition": "A record explaining meaningful changes and their supporting sources or reasoning.",
+   "topic": "Brief revision"
+  },
+  {
+   "term": "oral argument",
+   "definition": "A structured spoken explanation responsive to the decision-maker’s questions and available relief.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "oral roadmap",
+   "definition": "A short spoken preview of the principal reasons supporting the requested action.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "responsive answer",
+   "definition": "An answer that directly addresses the question actually asked before adding necessary explanation.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "pivot",
+   "definition": "A transparent transition from a direct answer to a related argument point.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "hypothetical question",
+   "definition": "A question that changes or isolates a premise to test the reasoning.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "time budget",
+   "definition": "An allocation of available presentation time that accounts for questions and a closing.",
+   "topic": "Oral explanation"
+  },
+  {
+   "term": "closing request",
+   "definition": "A final statement of the precise court action sought.",
+   "topic": "Oral explanation"
+  }
+ ],
+ "references": [
+  {
+   "id": "lwp-ref-authorities",
+   "title": "Kestrel authority packet",
+   "body": "These are original fictional materials created for this course. They are not accounts of real statutes or decisions. Use the text below as the complete substantive law for the writing assignment; the separate motion-rules reference supplies Rule S and advocacy conventions C1–C4. No outside research is required. The hypothetical forum is a Kestrel trial court. The three Court of Appeals opinions are binding in that forum on the issues they decide. None has been overruled in this teaching universe. The opinions apply the same version of the statute reproduced here; their dates do not imply different statutory versions. A question left open by an opinion remains open in the packet.\n\nUse citations such as “KCRA § 3,” “Moss ¶ 4,” and “Hale ¶ 5.” These are packet locators, not representations of a real citation system. Cite the client record separately as F1–F7. Cite quoted words exactly; a paraphrase must preserve the source's conditions and limitations. Numbered paragraphs below are stable locators.\n\n## Kestrel Community Room Act (KCRA)\n\n### Section 1 — Covered reservation\n\nA covered reservation is a community-center booking identified by event, room and date in a written confirmation sent by the center to the organizer. A confirmation may state a condition of approval. The existence of a covered reservation does not itself establish that reliance on it was reasonable.\n\n### Section 2 — Reimbursement requirements\n\nAn organizer may recover a preparation expense if the organizer establishes all of the following: a covered reservation; cancellation of that reservation by the center; reasonable reliance on the reservation when incurring the expense; and a nonrecoverable preparation expense paid before the center's cancellation. Satisfaction of one requirement does not substitute for another. Analyze each claimed expense separately.\n\n### Section 3 — Reasonable reliance\n\nIn deciding whether reliance was reasonable, consider the specificity of the center's confirmation, any relevant warning communicated to the organizer before payment, and the connection between the expense and the booked event. A warning is relevant to the extent that it concerns a condition applicable to that event or otherwise qualifies the commitment on which the organizer relied. No one factor automatically decides every case.\n\n### Section 4 — Recoverable value\n\nAn expense is nonrecoverable to the extent that the organizer cannot obtain a refund, reuse the purchased item, or use an available vendor credit to recover its value. A separately identifiable nonrecoverable portion may qualify even when another portion retains value. The organizer must establish the amount that is nonrecoverable. The existence of a vendor credit requires inquiry into whether and to what extent it can actually recover value; its label alone does not settle that question.\n\n### Section 5 — Scope of this remedy\n\nOnly qualifying preparation expenses are recoverable under this Act. Anticipated profit, the organizer's time, and inconvenience are excluded from this remedy. This Act and packet do not resolve possible claims under other law.\n\n## Moss v. Civic Center (Kestrel Court of Appeals, 2022)\n\n**¶ 1.** Moss received a written confirmation naming a community workshop, room and date. A footer stated that room assignments might change. The document contained no approval condition. Moss then paid 80 dollars for printed flyers naming that room and date. The center canceled the reservation before the workshop.\n\n**¶ 2.** The parties agreed that the flyers were not refundable or reusable and that the expense was paid before cancellation. They disputed whether the footer made reliance unreasonable under KCRA § 3. The trial court denied reimbursement solely because the footer warned of possible changes.\n\n**¶ 3.** The specificity of the confirmation and the warning's subject must be considered together. A notice about room reassignment does not, without more, communicate that the event itself awaits approval. The flyers were directly connected to the event identified in the confirmation.\n\n**¶ 4.** Moss reasonably relied on the confirmation for this printing expense. The general room-reassignment notice did not withdraw or condition approval of the event. The court reversed the denial and directed reimbursement of 80 dollars under §§ 2–4.\n\n**¶ 5.** The court did not decide the effect of a specific, applicable approval condition communicated before payment. Its decision addresses the notice and expense in this record, not every kind of warning or every preparation cost.\n\n## Reed v. Civic Center (Kestrel Court of Appeals, 2023)\n\n**¶ 1.** Reed received a writing headed “Reservation” that named a performance, room and date. The body expressly stated that approval depended on the manager's safety review. Reed acknowledged the condition by email before paying a nonrefundable equipment deposit. The manager had not approved the event when Reed paid.\n\n**¶ 2.** The center later canceled the booking. Reed sought the deposit under KCRA § 2, arguing that the heading and named room created a sufficiently definite commitment. The parties did not dispute that the expense was connected to the performance and had been paid before cancellation.\n\n**¶ 3.** The writing met § 1's identification requirements, but that did not settle § 3. The specific, applicable condition communicated before payment made reliance on final approval unreasonable on this record. The heading could not erase the express condition in the body.\n\n**¶ 4.** The court affirmed denial of reimbursement because the reasonable-reliance requirement was not established. A nonrefundable expenditure does not itself prove reasonable reliance. The court distinguished Moss: its warning concerned a possible room change, not pending approval of the event.\n\n**¶ 5.** The court did not hold that every warning defeats reasonable reliance. Its decision concerns an applicable approval condition known before payment and still unsatisfied when the expense was incurred. It did not decide a warning delivered only after payment or a condition unrelated to the event.\n\n## Hale v. Civic Center (Kestrel Court of Appeals, 2024)\n\n**¶ 1.** Hale received an unconditional written confirmation for a community meeting and reasonably relied on it. Before the center canceled, Hale paid a vendor 100 dollars for supplies and paid a printer 40 dollars for date-specific labels. All requirements other than nonrecoverable value were conceded.\n\n**¶ 2.** The supply vendor denied a cash refund but provided an unrestricted credit for the full 100 dollars. The credit had no expiration or minimum order, and the record established that Hale could use its entire value for already planned purchases. The labels were nonrefundable, could not be reused, and carried no credit.\n\n**¶ 3.** Section 4 concerns recoverable value, not only recovery in cash. Because Hale could use the credit's full value, the supply payment was not a nonrecoverable expense. Calling the payment a deposit and showing a denied refund did not change that result.\n\n**¶ 4.** The court allowed the separate 40-dollar label expense and denied the 100-dollar supply claim. The two expenses required separate analysis; retained value in one did not defeat reimbursement of a distinct qualifying loss in the other.\n\n**¶ 5.** The court expressly reserved credits with expiration dates, minimum orders, transfer restrictions, or other limitations affecting practical use. It did not prescribe a valuation formula for restricted credits. Such a claim requires evidence about available value under § 4; the presence or absence of full value cannot be assumed from this opinion alone.\n\n## Reading boundaries\n\nMoss and Reed can be read together because their warnings differ in legal significance. Hale addresses recoverable value on a record where reasonable reliance was conceded. Do not turn that concession into a holding about how reliance should be decided. Do not treat Hale's reserved issue as either a categorical exception or a categorical bar. For this opposition, explain the gap, apply § 4 and Rule S to the noticed grounds, and preserve Rin's remaining proof burden. Any prediction of eventual recovery remains conditional. External sources are optional background for writing skills, never additional Kestrel authority.\n"
+  },
+  {
+   "id": "lwp-ref-record",
+   "title": "Rin Patel record and motion posture",
+   "body": "The F1–F7 portion preserves the March 10 record from Legal Writing I. The P1–P4 supplement below advances the exercise to March 16; it adds procedural stipulations, not new evidence of the event arrangements or credit value. Read F7's procedural statement as of March 10.\n\nAll dates below fall in the same fictional year, after all three packet opinions. The planned event date is March 20. The earlier Legal Writing I intake snapshot was March 10; this course's opposition and oral exercise take place on March 16 under P3–P4. Both dates are after cancellation and before the planned event. F1–F7 supply the complete substantive factual record, while P1–P4 supply the later litigation posture. Do not invent interviews, publicity, communications, invoices, approval or actual attendance. “Not established” means absent from this record, not proven false.\n\n## F1 — March 2 confirmation\n\nThe Kestrel Civic Center emailed Rin Patel: “Confirmed: Repair Circle, Room B, March 20. Event description: free-entry neighborhood repair demonstration.” The email names Rin as organizer. It contains no other approval language. Receipt is undisputed.\n\n## F2 — March 3 notice\n\nRin received a center email stating: “Events charging admission remain provisional until manager approval. Free-entry events are confirmed.” Rin read this notice on March 3. No manager approval for a fee-based Repair Circle event appears in the record. The notice says nothing about voluntary contributions.\n\n## F3 — March 4 planning note\n\nRin's dated planning note states: “Ask for optional contributions to supplies. No one excluded for declining.” Rin supplied this note during intake and says this was the plan throughout. There is no statement from another organizer or would-be attendee confirming the entry arrangements. The note predates both expenses, but it is an organizer's account, not a center approval or a judicial finding.\n\n## F4 — March 4 printer proof\n\nA proof for the Repair Circle flyer says “Repair Circle — Room B — March 20 — $5 at door.” Rin approved printing the proof on March 4. The available record does not show the final distributed flyer or any later clarification of that wording. The phrase could support an inference of required payment; F3 and Rin's account support a competing inference of optional contributions. The record does not resolve what entrants would have been required to pay.\n\n## F5 — March 5 printing payment\n\nRin paid 90 dollars for flyers specific to the confirmed event, room and date. The invoice and printer's written terms establish that the payment is nonrefundable, the flyers cannot be reused, and no credit is available. The expense was incurred and paid on March 5, before the cancellation. Do not substitute Moss's 80-dollar amount for Rin's 90 dollars.\n\n## F6 — March 5 supply deposit and March 8 credit terms\n\nRin incurred and paid a 60-dollar deposit for event supplies on March 5. Following cancellation, the vendor denied a cash refund and offered a 60-dollar credit valid for one year, usable only on a future order of at least 100 dollars. The record contains no evidence of Rin's future supply needs, other usable purchases, transfer rights, or what portion of the credit Rin could practically use. No additional money has been spent to redeem the credit. The deposit's face amount is not automatically its nonrecoverable amount.\n\n## F7 — March 7 cancellation and March 10 intake\n\nThe center canceled the reservation on March 7, writing: “Fee-based event not approved.” The cancellation itself is undisputed. Rin contests that characterization and says admission would have been free. The event has not taken place. Rin seeks reimbursement of the 90-dollar printing payment and 60-dollar supply deposit. Rin also asks whether time spent planning or expected contributions can be recovered. No court has ruled on any claim, and no other procedural event is supplied.\n\n## Working convention\n\nAttribute disputed assertions: “Rin reports” or “the planning note states.” Describe what documents say without converting an inference into an established fact. Separate a fact question, such as entry requirements, from a legal question, such as whether the communicated condition made reliance unreasonable. Cite F1–F7 after factual propositions. These record labels are sufficient for the course; they are not court docket or evidence designations.\n\n## P1 — March 12 filing and stipulated scope\n\nRin filed a KCRA claim in Kestrel Trial Court against Kestrel Civic Center for the 90-dollar printing payment and the nonrecoverable portion, if any, of the 60-dollar supply deposit. The court accepted the filing. All parties have appeared and received the motion papers. This is an ordinary opposed proceeding, not an appeal or an ex parte application. Rin does not request planning time or anticipated contributions in this action. The parties stipulate that F1–F7 may be considered under Rule S, with no authentication, hearsay or discovery dispute for this exercise. F3 and Rin's account may support a factual inference; their truth is not stipulated.\n\n## P2 — March 13 center motion\n\nThe center moves for summary disposition of both remaining expense claims. It argues that any warning about approval defeats reasonable reliance as a matter of law, pointing to F2, F4 and Reed. Separately, it argues that the mere existence of a vendor credit defeats the entire supply claim as a matter of law, pointing to F6 and Hale. It calls the approved proof strong evidence of an admission charge, but offers no new record item. The motion does not assert that the record lacks sufficient evidence of the amount of any nonrecoverable credit value after a full opportunity for proof. That distinct sufficiency ground is outside the noticed motion under Rule S4. The motion does not challenge covered reservation, cancellation, expense connection or pre-cancellation payment. Those concessions apply to this motion only.\n\n## P3 — March 14 briefing order\n\nRin must file an opposition on March 16. The court will decide only the grounds in P2 under the fictional Rule S in the motion-practice reference. Rin has filed no cross-motion. The court asks the opposition to state its requested disposition, relevant facts, governing standard, separate arguments on reliance and credit, and a concise conclusion. No affidavit, new exhibit, live witness or outside authority may be added in this closed-universe assignment. Do not invent a docket number, service certificate, judicial signature or jurisdictional history.\n\n## P4 — March 16 oral explanation\n\nAfter submitting the brief, prepare a five-minute oral explanation to the same trial judge. Questions may interrupt the presentation. The time limit includes questions and answers. The judge may ask about F4, Reed, the supply proof gap, the absence of a cross-motion and the exact relief requested. Oral explanation does not add evidence or amend the motion's scope. A fallback request may preserve the printing claim if the court rejects the supply argument; it must not concede that disputed reliance is resolved against Rin.\n"
+  },
+  {
+   "id": "lwp-ref-procedure",
+   "title": "Motion standard and advocacy conventions",
+   "body": "This is an original, simplified procedural universe for this course. Rule S and the advocacy conventions below are fictional. They are not Federal Rule 56, a state procedural rule, a complete professional-conduct code or instructions for an actual filing. Their narrow scope makes the writing problem manageable. Real proceedings require current rules, orders, law and ethical guidance for the actual forum.\n\n## Rule S — Limited summary disposition\n\n**S1 — The moving party's task.** The court may dispose of a claim without a hearing on contested facts only if the moving party shows, on the permitted record, both an absence of a genuine dispute about facts material to the stated ground and entitlement to that disposition under the governing law. A fact is material when changing it could change application of a requirement relevant to that ground. A genuine dispute has specific record support from which a reasonable factfinder could reach a contrary finding; disagreement in a brief alone is insufficient.\n\n**S2 — Treatment of the record.** The court draws reasonable, record-supported inferences for the party opposing the motion. It does not choose credibility, count documents as votes, or resolve a genuine conflict by declaring one account more persuasive. The opposing party must identify the particular record support and explain why it matters. The court need not accept speculation, invented facts or an interpretation the record cannot reasonably support. Admission of a document for consideration does not establish the truth of every assertion within it.\n\n**S3 — Merits remain distinct.** Denial of this motion leaves unresolved claims for later determination. It does not establish the opposing party's ultimate entitlement or shift the organizer's KCRA burden to establish reasonable reliance and the nonrecoverable amount. Without a cross-motion, this assignment offers no procedural basis to award Rin damages. A successful opposition can preserve a claim whose eventual proof still needs work.\n\n**S4 — Notice and scope.** Decide only the grounds identified in the motion and briefing order. An unraised theory that a claimant lacks enough evidence after an opportunity for proof is distinct from a claim that a category of expense is barred as a matter of law. The court must give notice and a reasonable opportunity to respond before resolving the motion on such a new ground. Do not assume that every evidentiary gap defeats a motion, or that every gap authorizes judgment. Identify the actual ground first.\n\n**S5 — Separate claims and limited disposition.** Analyze the printing expense and supply deposit separately. A reason for disposing of one does not by itself decide the other. A fallback request must identify the claim to preserve and the premise on which it matters. Arguments about credit value do not resolve whether reliance was reasonable. The court may deny the motion in full or, when Rule S1 is satisfied for a separate claim on a noticed ground, dispose of that claim alone. Do not request relief beyond the motion and assignment.\n\n**S6 — Legal propositions are not evidence.** A statement in a party's motion establishes that the party made that argument, not that its premise is true. A substantive case's outcome does not settle the procedural treatment of disputed evidence unless it decided that issue. Moss, Reed and Hale address the merits described in their opinions; Rule S supplies the standard for the present motion. Do not invent a fourth case about summary disposition.\n\n## Advocacy conventions for this assignment\n\n**C1 — Law and candor.** Use all three packet opinions where material, including directly adverse reasoning, even if the opponent already mentions them. That is this assignment's affirmative coverage requirement. State their holdings and limits accurately. Do not knowingly present a false legal proposition or leave a discovered material misstatement in the brief. A legally significant distinction explains why a difference changes application of a rule; an inconvenient result is not a reason to hide a case.\n\n**C2 — Facts and sources.** Attribute disputed assertions, keep a claim tied to its record locator, and distinguish evidence from inference. Do not knowingly invent a source, quote, fact, stipulation or procedural event. A draft may emphasize favorable supported facts, but it must disclose material unfavorable facts needed to understand the dispute. In this exercise, F2 and F4 cannot be omitted from a meaningful reliance argument. If a quotation or material factual statement is wrong, correct it and every downstream conclusion before submitting. A practice draft is not a filed document; real remedial duties after a filing require the applicable rules and facts.\n\n**C3 — Independent source verification.** A search snippet, memory, automated summary or generated citation is not the packet source. Verify each material assertion against the actual section or paragraph. The course uses simple locators: KCRA § 3; Reed ¶¶ 3–5; F4; P2; Rule S2; C1. These forms are sufficient here and do not teach a complete citation manual. External writing guides provide optional background, never additional Kestrel authority.\n\n**C4 — Fair and useful argument.** Address the strongest relevant version of the opposing position. Explain why it fails under the motion standard instead of attacking the opponent's motives. A concession should identify exactly what is accepted and what remains disputed. It should never be hidden in vague wording. Alternatives must be explicitly conditional so they do not contradict the primary request or quietly abandon an element.\n\n## Real-world orientation, outside the fictional rule set\n\nABA Model Rule 3.3 addresses knowing misstatements, false evidence and candor to tribunals. Its adverse-authority provision includes specific knowledge, jurisdiction and prior-disclosure conditions; it is not a command to list every unfavorable publication. Actual jurisdictions adopt and may modify conduct rules, so the ABA model text alone does not establish a local lawyer's complete duties. The course's C1 coverage requirement is deliberately broader as a teaching task. The [ABA's primary model text](https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_3_3_candor_toward_the_tribunal/) is optional online background, not an extra Kestrel rule or professional-conduct advice. All material needed for this exercise is embedded above.\n"
+  },
+  {
+   "id": "lwp-ref-workbench",
+   "title": "Brief assignment, revision rubric and oral workbench",
+   "body": "## Your assignment\n\nAct as a student advocate preparing Rin's opposition under P1–P4 and Rule S. Use only the embedded Kestrel packet. Write in your own document or notes; this course does not collect briefs, evaluate legal essays automatically, record speech or issue professional credit. The quizzes check concepts and short applications, while the extended work is self-assessed with the rubric below.\n\nPrepare a 1,000–1,300-word opposition. Count words from the introduction through the conclusion, including section headings. Exclude the caption, author/date labels, optional source ledger, revision log and oral outline. The model is one supported response, not a mandatory wording template. A different organization or narrower supported position may earn full credit. Do not read the model until you have a complete first draft.\n\nYour brief must include the requested order, relevant factual narrative with F/P locators, Rule S standard, separate reliance and credit arguments, meaningful treatment of Moss, Reed and Hale, the limits of the requested disposition, and a concise conclusion. Explain the strongest adverse inference from F4. Preserve Rin's ultimate proof burden and distinguish the unraised sufficiency ground identified in P2. Do not request an immediate damages award.\n\n## Deliverables in sequence\n\n1. A one-page posture sheet: audience, parties, motion, permitted record, requested relief, ultimate burden and matters excluded.\n2. An argument map with authority, record, objection and response columns for each motion ground.\n3. A 180–250-word fact statement, supported by locators and checked for attribution.\n4. A heading tree and two complete analytical paragraphs, including one addressing Reed.\n5. A complete first brief, followed by a source ledger for every material legal and factual proposition.\n6. A revised brief and revision log with at least six substantive changes. Explain each change's effect on support, scope or reasoning; punctuation-only changes do not satisfy this requirement.\n7. A one-page oral outline and two timed five-minute practice rounds. Record your own notes about questions, direct answers, unsupported assertions and the final relief request. An audio recording is optional and remains in your own tools.\n\n## Source ledger template\n\n| Draft claim | Exact source | Source's actual support | Qualification or correction |\n| --- | --- | --- | --- |\n| The March 4 note supports free entry | F3 | Optional contributions and no exclusion are described | The truth of the account remains disputed under P1 |\n| Any credit establishes full value | KCRA § 4; Hale ¶¶ 2–5 | Practical usability matters; Hale reserved restricted credits | Reject the categorical formulation; do not infer zero value |\n| Rin should receive money on this motion | P3; Rule S3 | There is no cross-motion; denial does not award damages | Ask for denial and preserve later proof |\n\n## Written rubric — 100 points\n\n| Criterion | Points | Evidence of strong work |\n| --- | ---: | --- |\n| Posture, standard and relief | 20 | Correct Rule S task, specific denial request, no invented cross-motion, accurate motion scope |\n| Law and authority | 20 | Accurate KCRA synthesis; all three opinions used for their actual holdings and limits |\n| Facts and application | 20 | Precise F/P support; genuine F3/F4 conflict explained; concrete comparison rather than labels |\n| Adverse arguments and candor | 15 | Reed and F4 treated fairly; credit uncertainty and ultimate burden preserved; no misleading quotation |\n| Organization and readability | 10 | Useful headings, coherent sequence, connected analytical paragraphs, appropriate tone |\n| Revision and source audit | 10 | Complete ledger, at least six substantive logged changes, consistent final brief |\n| Assignment compliance | 5 | Word range, required sections, supplied universe and usable citation locators |\n\nScore each row from zero to its maximum and explain the evidence for that score. Do not infer a validated pass standard from the total. Use 80/100 as a personal revision target only, not a course credential or a prediction of law-school performance. Any invented authority, knowingly inaccurate quotation, omitted material contradiction or unsupported request for an award requires revision regardless of the numerical total.\n\n## Revision passes\n\nFirst audit the requested decision and scope. Second check each authority's actual support. Third check record assertions and adverse facts. Fourth read only headings and paragraph openings to test organization. Fifth compare introduction, argument and conclusion for incompatible claims. Finally proofread grammar, names, dates, amounts and locators. Work from substantive problems toward surface corrections so you do not polish text that must be removed.\n\nFor each logged change, retain the earlier wording, revised wording, source locator and reason. Example: replace “Hale holds all credits valueless when they expire” with a statement that Hale reserved restricted credits and § 4 requires usable-value evidence. The improvement is legal accuracy, not just softer tone.\n\n## Oral practice — five minutes including questions\n\nPrepare a short opening with the requested denial and two reasons, not a script that occupies the full five minutes. Keep a source map with F4, Reed ¶¶ 3–5, Hale ¶ 5, Rule S3 and S4 immediately available. Reserve time for questions and a final sentence naming the requested action. A practical rehearsal plan is 30 seconds for opening, two minutes for the main points, two minutes for interruptions, and 30 seconds for closing; actual questions may change the allocation.\n\nIn round one, pause at three points and answer the questions below aloud. In round two, change their order and shorten one answer to two sentences. Stop when the five-minute limit expires. Self-review whether you answered before returning to your planned points.\n\n- Does “$5 at door” not show an admission charge?\n- Why does Reed not decide this case against Rin?\n- What evidence proves the supply credit is worthless?\n- Are you asking me to award 150 dollars today?\n- What changes if required admission is established later?\n- What exactly should I do if I disagree about the supply claim?\n\nEvaluate each answer for directness, source support, concession precision, connection to the pending decision and length. Mark each as ready, revise or unsupported. A fluent unsupported answer is not ready. Explain what is unknown when the packet does not supply an answer; do not invent testimony to fill a silence.\n"
+  },
+  {
+   "id": "lwp-ref-model",
+   "title": "Model opposition, annotations and oral outline",
+   "body": "Read after drafting. This original model uses only the fictional packet. It illustrates one supported approach to the noticed motion; it does not establish how a real court would rule. The brief begins with Introduction and ends with Conclusion. The notes and oral outline are outside the assigned word count.\n\nKestrel Trial Court  \nRin Patel v. Kestrel Civic Center  \nRin's opposition to the center's limited summary-disposition motion  \nMarch 16, teaching year\n\n## Introduction\n\nThe court should deny the center's motion because its two categorical propositions do not justify disposing of Rin's claims on the supplied record. The approval notice distinguishes free-entry events from events charging admission. A dated planning note supports free entry, although an approved printer proof supports the center's contrary inference. The court must evaluate that conflict under Rule S rather than decide which account is more credible. The supply credit also presents a different situation from the fully usable credit in Hale. Its existence does not itself establish full retained value. Rin seeks denial of the motion, not an immediate award, and retains the burden of establishing the claims and any recoverable amount later. Rule S1–S4; P2–P3.\n\n## Relevant facts\n\nThe center confirmed Repair Circle for Room B on March 20, describing a free-entry neighborhood demonstration. The next day's notice required manager approval for events charging admission but preserved confirmation for free-entry events. Rin received and read it before paying either expense. F1–F2. Rin's March 4 planning note states that contributions would be optional and no one excluded for declining. An approved proof from the same day says “$5 at door.” The record does not supply the final distributed flyer or establish the actual entry instructions. F3–F4.\n\nOn March 5, Rin incurred and paid 90 dollars for event-specific printing and a 60-dollar supply deposit. The printing cannot be refunded, reused or credited. F5–F6. The center canceled March 7, describing the event as fee-based and unapproved; Rin disputes that characterization. After cancellation, the supplier offered a one-year credit requiring a future order of at least 100 dollars. No evidence establishes what portion Rin can practically use. F6–F7. The parties permit consideration of these record items without stipulating the truth of disputed assertions. The motion challenges reliance through a categorical warning rule and supply value through a categorical credit rule. P1–P2.\n\n## Governing standard\n\nRule S1 requires the center to establish both the absence of a genuine material factual dispute and entitlement to disposition on its noticed grounds. Rin must identify specific supporting evidence; disagreement alone is insufficient. Rule S2 requires reasonable supported inferences for Rin and prevents credibility findings to resolve a genuine conflict. Under Rule S4, an unraised sufficiency theory requires notice and an opportunity to respond. Denial does not establish Rin's ultimate KCRA entitlement or authorize a monetary award without a cross-motion. Rule S3; P3.\n\n## I. The record supports a material dispute about whether the approval condition applied\n\nThe center's proposed rule that any approval warning defeats reliance is broader than KCRA § 3 and the packet opinions. Section 3 considers the confirmation's specificity, relevant prepayment warnings and the expense's connection to the event. The warning's application to the event matters. Moss allowed event-specific printing costs because a room-reassignment notice did not condition event approval. Moss ¶¶ 3–5. Reed denied reimbursement where a known, applicable safety-approval condition remained unsatisfied before payment. Reed ¶¶ 3–5. The distinction is the warning's effect on the commitment, not the mere presence of a warning.\n\nThe center's notice expressly confirms free-entry events. F2. Rin's confirmation describes that category, and the dated planning note states that nobody would be excluded for declining a contribution. F1, F3. Those specific items support a reasonable inference that the admission condition did not apply. Their significance follows directly from § 3: if entry did not require payment, the notice did not make this category of event provisional. The court need not find Rin's account ultimately true to recognize the material conflict under Rule S1–S2.\n\nThe approved proof is important adverse evidence. Its “$5 at door” wording supports the center's inference that admission required payment, and Rin had read the approval notice before incurring the expenses. F2, F4–F6. If required admission were established, Reed would strongly support the center because no applicable manager approval appears. But the proof does not eliminate F3's contrary account by itself. Under P1, both may be considered; under Rule S2, the court cannot resolve the genuine conflict merely by choosing the center's interpretation as more credible. Reed decided reliance on an applicable condition; it did not decide how Rule S treats this conflicting entry evidence.\n\nRin therefore asks the court to reject the categorical warning ground and preserve the reliance question. The record's disagreement concerns a statutory condition, not an immaterial detail. This argument neither treats every contribution as free admission nor claims that the original confirmation overrides any later notice. It applies the notice's own distinction to the particular evidence and leaves ultimate factfinding for the appropriate stage.\n\n## II. The restricted credit does not establish full retained value merely by existing\n\nSection 4 asks whether and to what extent an organizer can recover an expense's value through refund, reuse or usable credit. In Hale, the unrestricted credit had no expiration or minimum order, and the record established full usability for planned purchases. The court denied the supply claim on that basis, while allowing a separate label expense. Hale ¶¶ 2–4. It expressly reserved restricted credits and supplied no universal valuation formula. Hale ¶ 5.\n\nRin's credit expires after one year and requires an order of at least 100 dollars. F6. Those restrictions place its actual usable value outside the established premises of Hale. They do not prove that the credit is worthless. Nor does the denied cash refund alone establish a loss. The center nevertheless has not shown that the credit's existence automatically defeats the whole deposit claim under § 4. Its categorical legal proposition should be rejected.\n\nThe missing evidence about future needs and practical use remains a problem for Rin's eventual proof. Rin does not ask the court to assume a full 60-dollar loss. P2 expressly excludes an after-opportunity sufficiency ground from this motion, however, and Rule S4 prevents substituting that distinct ground without notice and response. The requested denial therefore preserves a valuation question; it does not resolve that question in Rin's favor.\n\nThe printing expense must also remain separate. F5 establishes no refund, reuse or credit for that 90-dollar payment, and Hale ¶ 4 treats distinct losses separately. If the court rules against the supply claim on its noticed credit ground, that ruling alone does not defeat printing. The printing claim still depends on reasonable reliance; Rin preserves the first argument rather than treating an established printing loss as a substitute for that requirement. KCRA § 2; Rule S5.\n\n## Conclusion\n\nDeny the center's motion on both noticed grounds. Alternatively, if the court disposes of the supply claim on the credit ground, preserve the separate printing claim subject to the reliance analysis. Rin seeks no damages award on this opposition and acknowledges the continuing burden to establish reasonable reliance and any nonrecoverable amount. P2–P3; Rule S3–S5.\n\n## Annotations outside the brief\n\nThe opening and conclusion request the same order. The facts identify F4 without turning the approved proof into a final distributed flyer. The reliance argument concedes what Reed would mean if its relevant factual premise were established, while distinguishing the current procedural decision. The credit argument does not convert a lack of valuation evidence into automatic success; P2 and Rule S4 supply the narrow motion-scope explanation. A merits factfinder could later reject Rin's claims without contradicting the argument for denying this particular motion.\n\n## One-page oral outline\n\n- Request: deny both noticed grounds; no monetary award requested today.\n- First reason: F3 and F4 support conflicting reasonable inferences about entry. Under Rule S2, the court does not choose credibility. The condition's application matters under KCRA § 3.\n- Adverse point: acknowledge F4 immediately when asked. Reed would be significant if required admission and the unsatisfied condition were established; do not call Reed irrelevant.\n- Second reason: Hale's fully usable credit is not a rule that every credit retains full value. Cite § 4 and Hale ¶ 5. The expiration and minimum order matter to inquiry, not an automatic zero valuation.\n- Proof-gap response: no supplied evidence proves zero usable value. Rin retains the ultimate burden. P2 excludes a sufficiency ground, and Rule S4 requires notice and response before it is used.\n- Fallback: supply value alone does not defeat printing; printing still depends on reliance.\n- Close: ask for denial and reserve later merits proof. Stop when time expires.\n\n## Two sample exchanges\n\nJudge: Does the approved proof not support the center? Advocate: “Yes. F4 supports an inference of required payment. F3 supports a contrary account of optional contributions, and Rule S2 prevents resolving that material conflict through a credibility choice on this motion.”\n\nJudge: Are you saying the credit is worthless? Advocate: “No. F6 does not establish that. The argument is that its existence does not prove full retained value as a matter of law, while Rin's ultimate valuation burden remains under § 4 and Rule S3.”\n"
+  }
+ ],
+ "drills": []
+}
