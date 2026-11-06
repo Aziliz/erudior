@@ -9,6 +9,7 @@ import {importValidatedCourseSnapshot} from '../../src/lib/courseIntegrity';
 import {emptyProgress,useStudentFiles} from '../../src/lib/storage';
 import {requestNavigation} from '../../src/lib/navigationGuard';
 import '../../src/styles.css';
+import '../../src/courseActivities.css';
 const initial=emptyCourse('Synthetic spreadsheet course');initial.id='spreadsheet-fixture';initial.lessons=[{id:'lesson',module:initial.modules[0].id,title:'Synthetic work',body:'Synthetic engine regression only.'}];
 let course=localStorage.getItem('spreadsheet-fixture-course')?importValidatedCourseSnapshot(localStorage.getItem('spreadsheet-fixture-course')!):initial;
 const histories:Record<string,any>=JSON.parse(localStorage.getItem('spreadsheet-fixture-progress')||'{}');let fail=false;
