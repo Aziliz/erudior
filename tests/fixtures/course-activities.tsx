@@ -16,6 +16,7 @@ import {SAMPLE_ASSIGNMENT} from '../../src/lib/spreadsheetAssignments';
 import {requestNavigation} from '../../src/lib/navigationGuard';
 import {viewToPath,pathToView} from '../../src/lib/routes';
 import '../../src/styles.css';
+import '../../src/courseActivities.css';
 import '../../src/advanced-assessment.css';
 import '../../src/scientific.css';
 import '../../src/branching.css';
