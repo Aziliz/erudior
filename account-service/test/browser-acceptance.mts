@@ -20,6 +20,10 @@ const OUT = process.env.ERUDIOR_BROWSER_ARTIFACT_DIR ?? 'artifacts/private-accou
 const require = createRequire(import.meta.url);
 const axeSource = await readFile(require.resolve('axe-core/axe.min.js'), 'utf8');
 const completed: string[] = [];
+const transportFailures: string[] = [];
+const exchangeSummary: { path: string; method: string; status: number; cookieNames: string[]; setCookieNames: string[]; fetchSite: string | null }[] = [];
+const cookieNames = (header: string | undefined) => (header ?? '').split(';').map(part => part.trim().split('=')[0]!).filter(name => name.startsWith('__Host-erudior-'));
+let currentCase = 'initialization';
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ headless: true,
   ...(process.env.ERUDIOR_BROWSER_EXECUTABLE ? { executablePath: process.env.ERUDIOR_BROWSER_EXECUTABLE } : {}) });
@@ -39,14 +43,15 @@ const handle = createPrivateAccountHandler({ origin: ORIGIN, returnPath: '/accou
   csrfKey: randomBytes(32), browserUI: { providers: providers.map((provider, index) => ({ id: provider.config.id, label: index ? 'School test provider' : 'Personal test provider', authorizationEndpoint: provider.config.authorizationEndpoint })) } });
 const server = await listenHttp(handle, ORIGIN);
 const origins = new Map([[ORIGIN, server.origin], ...providers.map(provider => [new URL(provider.config.issuer).origin, provider.networkOrigin] as [string, string])]);
-interface Actor { context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
+interface Actor { attach?: (page: Page) => Promise<void>; context: BrowserContext; page: Page; choice: SyntheticAuthorizationOptions; callbacks: ObservedRequest[];
   before?: (request: ObservedRequest) => Promise<'abort' | void>; after?: (request: ObservedRequest, response: ForwardedResponse) => Promise<'abort' | void> }
 const actors: Actor[] = [];
 async function actor() {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, serviceWorkers: 'block' });
   const page = await context.newPage();
   const value: Actor = { context, page, choice: {}, callbacks: [] }; actors.push(value);
-  await installTransport(context, origins, {
+  value.attach = await installTransport(context, origins, {
+    failure: path => { transportFailures.push(path); },
     before: async request => {
       const provider = providers.find(provider => request.url.origin === new URL(provider.config.issuer).origin);
       if (provider && request.url.pathname === '/authorize') {
@@ -59,6 +64,8 @@ async function actor() {
       return value.before?.(request);
     },
     after: async (request, response) => {
+      exchangeSummary.push({ path: request.url.pathname, method: request.method, status: response.status, cookieNames: cookieNames(request.headers.cookie),
+        setCookieNames: (response.headers['set-cookie'] ?? '').split('\n').map(line => line.split('=')[0]!).filter(Boolean), fetchSite: request.headers['sec-fetch-site'] ?? null });
       if (request.url.origin === ORIGIN) assert.match(response.headers['cache-control'] ?? '', /no-store/);
       return value.after?.(request, response);
     },
@@ -100,7 +107,7 @@ async function revoke(a: Actor, name: string) {
   await a.page.getByRole('button', { name: 'Confirm revocation', exact: true }).click();
   await a.page.getByRole('status').filter({ hasText: /completed|could not be confirmed/ }).waitFor();
 }
-async function test(name: string, run: () => Promise<void>) { await run(); completed.push(name); console.log('PASS ' + name); }
+async function test(name: string, run: () => Promise<void>) { currentCase = name; await run(); assert.deepEqual(transportFailures, [], 'synthetic transport must complete every paused request'); completed.push(name); console.log('PASS ' + name); }
 try {
   const a = await actor(), b = await actor();
   await test('real cross-site OIDC navigation, PKCE/signatures and browser-managed Secure cookies', async () => {
@@ -178,6 +185,7 @@ try {
       assert.equal(response.status, 403); assert.ok(!(request.headers.cookie ?? '').includes(PRIVATE_ACCOUNT_SESSION_COOKIE)); foreignDenied = true;
     } };
     const foreign = await a.context.newPage();
+    await a.attach!(foreign);
     await foreign.goto(personal.config.issuer + '/jwks');
     const failure = await foreign.evaluate(`fetch('${ORIGIN}/v1/devices/revoke',{method:'POST',credentials:'include',headers:{'Content-Type':'text/plain'},body:'{}'}).then(r=>r.status).catch(()=>0)`);
     assert.equal(failure, 0, 'no cross-origin response is exposed');
@@ -273,6 +281,19 @@ try {
       await a.page.getByRole('button', { name: 'Cancel revocation', exact: true }).click();
     }
   });
+} catch (error) {
+  const states = [];
+  for (const [index, actor] of actors.entries()) {
+    states.push({ actor: index, pathname: new URL(actor.page.url()).pathname,
+      cookies: (await actor.context.cookies(ORIGIN)).map(({ name, secure, httpOnly, sameSite }) => ({ name, secure, httpOnly, sameSite })) });
+    // Screenshots show document content only, never the browser address bar.
+    await actor.page.screenshot({ path: `${OUT}/failure-${index}.png`, fullPage: true, timeout: 5000 }).catch(() => {});
+  }
+  await writeFile(OUT + '/failure.json', JSON.stringify({ currentCase, states, exchanges: exchangeSummary, transportFailures }, null, 2));
+  console.error(JSON.stringify({ failedCase: currentCase, states, exchanges: exchangeSummary.slice(-20), transportFailures }));
+  // Playwright errors can include full callback URLs. Keep the original error
+  // class but do not print the credential-bearing navigation log.
+  throw new Error(`Browser acceptance failed in ${currentCase} (${error instanceof Error ? error.name : 'unknown error'}); see sanitized failure.json and screenshots`);
 } finally {
   await writeFile(OUT + '/summary.json', JSON.stringify({ completed, passed: completed.length, transport: 'Synthetic HTTPS origins forwarded to real loopback HTTP. No production DNS/TLS proof.', browserCookieInjection: false, authorizationMocks: false }, null, 2));
   for (const actor of actors) await actor.context.close();
