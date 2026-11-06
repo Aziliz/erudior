@@ -1,6 +1,6 @@
 # Language Arts 6 revision 1 — validation and release
 
-Content and learner validation completed November 6, 2026. This is slice 2 of the user's two-slice workflow. Signed publication and live verification are in progress; the package is not called live until a verified release receipt is appended.
+Content and learner validation completed November 6, 2026. This is slice 2 of the user's two-slice workflow. Signed publication and live verification completed through the normal release pipeline; the receipt appears below.
 
 ## Complete course
 
@@ -39,3 +39,14 @@ The first browser harness mistakenly treated an asynchronous predicate's Promise
 Build with `python3 content/math/language-arts-6/build.py`; the shared builder alone omits reader/work fields. Run `validation/check_creation.py` and `validation/check-content-consistency.py`. From the app checkout, run `node --import tsx tests/check-course.mts <package>`, then `ERUDIOR_APP=. node --import tsx <course>/validation/check-course-review.mjs <package>` and `check-rendering.mjs`. Run `check-browser.mjs` with `ERUDIOR_APP`, `CHROMIUM_PATH`, `LA6_COURSE_FILE`, `LA6_BROWSER_OUT`, and `ERUDIOR_APP_COMMIT` as needed.
 
 Add only this course to the latest private/public catalogs and generated sitemap. Preserve all other packages and catalog rows, including concurrent legal-course work. Use the normal publisher's full merge regression, pinned signing key, previous-catalog authentication, immutable package upload, current-main/baseline guards, catalog-last commit and authoritative readback. No publication check is disabled. Source PR: https://github.com/Aziliz/erudior-courses/pull/14.
+
+## Published release — November 6, 2026 UTC
+
+Language Arts 6 revision 1 is live at https://app.erudior.com/language-arts-6. All nine modules are complete. The signed catalog contains 30 courses; its Ed25519 signature verifies against the app's pinned public key. The immutable downloaded course is exactly 909,630 bytes with SHA-256 `7e8452c7dd29e7afe29abcf79443ea6a30f99c5ab7c8d4ff524ac09ece25cc7a` and is byte-for-byte identical to the validated release package.
+
+- Source PR #14 merged as `6df9c7f1c08c9c5d122a898aac6252c018c15e2a`; public PR #158 merged as `8ac3bf95999d14a1af17e77b56264e6fde3073b0`.
+- [Signed publisher 42184607500](https://github.com/Aziliz/erudior/actions/runs/42184607500) passed, retaining full regression, key pin, authenticated previous catalog, immutable package checks, current-main/baseline guards and authoritative readback.
+- [Website deployment 42184607314](https://github.com/Aziliz/erudior/actions/runs/42184607314) passed. Live browser checks opened the overview, all 36 lesson controls, the first lesson and linked writing/rubric, chapter 24 of the complete novel, and the play's nine speaker labels and four stage directions. The live UI check used cloud Chrome and a disposable temporary guest session and submitted no learner work. Mobile coverage was completed in the local full-app acceptance run; the live viewport was desktop. The standalone live browser script was blocked by the local network/TLS environment, so its failed attempt is not counted as a passing test; certificate verification remained enabled.
+- Other public workflow outcomes are recorded in `validation/publication.json`. The private course check reported failure before any job steps and had no retrievable log; it was retried and is not represented as a hosted pass. The exact package's executed local checks and public publisher regression are recorded separately.
+
+Creation and validation/publication slices are both **Done**. Publication and receipt recording do not change instructional content, learner IDs, or the published revision. Reproducible verification scripts and machine-readable receipts are in `validation/`.

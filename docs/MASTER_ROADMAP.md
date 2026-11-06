@@ -242,7 +242,7 @@ All courses are free to read without accounts. Homeschool learners follow grade-
 - World History, US History, Government/Civics, Economics; source analysis, geography and document annotation.
 - Health, PE, art, music, personal finance, computer science.
 ### P1 / K–8
-- **Language Arts 6 — In Progress (validated release candidate).** All nine modules, 36 lessons and writing workshops, full novel and original texts are complete and validated; signed publication/live verification is in progress. See [release review](LANGUAGE_ARTS_6_RELEASE_REVIEW.md).
+- **Language Arts 6 — Done.** All nine modules, 36 lessons and writing workshops, 396 questions, full novel and original reader texts are validated, signed, published and live-verified at [Language Arts 6](https://app.erudior.com/language-arts-6). See [release review](LANGUAGE_ARTS_6_RELEASE_REVIEW.md).
 - Kindergarten–Grade 5 Math, Language Arts, Science and Social Studies, with art/music/health/PE. Systematic phonemic awareness, phonics, fluency, writing, reading comprehension, numbers and data.
 - Grade 6–8 core, interdisciplinary science, geography and algebra preparation.
 - Spanish 1–2 (listening/speaking), expand German B2 and other languages later.
