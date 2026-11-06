@@ -73,6 +73,9 @@ Object.assign(trustBook.sheets.Trust, { B5: '=B2+B3-B4', B11: '=SUM(ClientLedger
 const trustGrade = gradeAssignment(trust, trustBook);
 assert.equal(trustGrade.score, 1, JSON.stringify(trustGrade.feedback.filter(cell => !cell.passed)));
 assert.deepEqual(await validateSpreadsheetReleaseApproval(course, undefined), ['Spreadsheet approval missing']);
+const approval = JSON.parse(readFileSync(new URL('../samples/reviews/colorado-broker.json', import.meta.url), 'utf8'));
+assert.deepEqual(await validateSpreadsheetReleaseApproval(course, approval), []);
+
 
 const closingReview = course.documentReviews!.find(item => item.transaction)!;
 const sim = closingReview.transaction!;
