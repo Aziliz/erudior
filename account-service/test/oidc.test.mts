@@ -30,6 +30,29 @@ async function denyClaims(name: string, choice: () => SyntheticAuthorizationOpti
 }
 
 try {
+  await check('browser fixture commits a provider document before signed callback issuance', async () => {
+    const interactive = await createSyntheticOidcProvider({ browserInteraction: true });
+    try {
+      const browserClient = createOidcClient(interactive.config, { transport: interactive.transport });
+      for (const cancelled of [false, true]) {
+        const started = await browserClient.begin(now());
+        const url = new URL(started.authorizationUrl);
+        interactive.chooseAuthorization(url.searchParams.get('state')!, cancelled ? { error: 'access_denied' } : { subject: 'browser-fixture-subject' });
+        const document = await fetch(interactive.networkOrigin + url.pathname + url.search, { redirect: 'manual' });
+        assert.equal(document.status, 200);
+        assert.equal(document.headers.get('content-security-policy'), `default-src 'none'; form-action 'self' ${interactive.config.redirectUri}; frame-ancestors 'none'; base-uri 'none'`);
+        assert.equal(document.headers.get('location'), null, 'initial provider navigation must commit rather than redirect');
+        assert.match(await document.text(), /<form method="get" action="\/authorize\/continue">/);
+        const continued = await fetch(interactive.networkOrigin + '/authorize/continue' + url.search, { redirect: 'manual' });
+        assert.equal(continued.status, 302);
+        const callback = continued.headers.get('location')!;
+        if (cancelled) { assert.equal(new URL(callback).searchParams.get('error'), 'access_denied'); assert.equal(new URL(callback).searchParams.has('code'), false); }
+        else assert.equal((await browserClient.complete(callback, started.transaction, now())).subject, 'browser-fixture-subject');
+        await continued.body?.cancel();
+      }
+      assert.equal(interactive.stats.rejectedPkce, 0);
+    } finally { await interactive.close(); }
+  });
   await check('confidential code+PKCE+signed JWKS identity; no provider token or role leakage', async () => {
     const started = await flow({ claims: { email: 'admin@example.invalid', email_verified: true, roles: ['administrator'], school: 'other-school' } });
     const url = new URL(started.authorizationUrl);

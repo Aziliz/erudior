@@ -77,3 +77,7 @@ A fresh CI run is required for the recovered branch. Historical local results fr
 Select and review the managed identity provider, launch jurisdictions, hosting region and processor agreements. Provision separate private infrastructure and narrowly scoped operational identities. Implement verified authority collection, consent withdrawal, recovery, export, deletion execution, institutional record custody, device management and explicit local-data migration. Add real browser and native-client acceptance, deployment TLS/proxy/logging/rate-limit checks, incident response, operational monitoring, backup/restore reconciliation and retention drills.
 
 Until these are complete, retain the absent production bindings and signup routes. Do not advertise this internal slice as live accounts, cloud synchronization, verified guardianship, institutional approval or a completed account lifecycle.
+
+## Optional private browser settings
+
+See [Private account browser settings](PRIVATE_ACCOUNT_BROWSER.md) for the explicit `browserUI` host option, fixed landing route, provider endpoint allowlist, privacy lifecycle and real-browser acceptance. This client is disabled by default, remains separate from the public app and does not create a production account service or change server authorization.

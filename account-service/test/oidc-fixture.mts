@@ -19,6 +19,8 @@ export interface SyntheticProviderOptions {
   issuer?: string;
   redirectUri?: string;
   signingAlgorithm?: 'RS256' | 'ES256';
+  /** Commit a provider document before issuing the cross-site callback. */
+  browserInteraction?: boolean;
 }
 
 /**
@@ -79,17 +81,25 @@ export async function createSyntheticOidcProvider(options: SyntheticProviderOpti
   const server = createServer((request, response) => {
     void (async () => {
       const url = new URL(request.url ?? '/', 'http://127.0.0.1');
-      if (url.pathname === paths.authorize && request.method === 'GET') {
+      if ((url.pathname === paths.authorize || options.browserInteraction && url.pathname === paths.authorize + '/continue') && request.method === 'GET') {
         stats.authorizationRequests++;
         const q = url.searchParams;
         const state = q.get('state') ?? '';
-        const choice = choices.get(state) ?? {};
-        choices.delete(state);
         if (q.get('client_id') !== config.clientId || q.get('redirect_uri') !== config.redirectUri ||
             q.get('response_type') !== 'code' || q.get('response_mode') !== 'query' || q.get('scope') !== 'openid' ||
             q.get('code_challenge_method') !== 'S256' || !q.get('nonce') || !q.get('code_challenge')) {
           json(response, { error: 'invalid_request' }, 400); return;
         }
+        if (options.browserInteraction && url.pathname === paths.authorize) {
+          const escape = (value: string) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+          const inputs = [...q].map(([name, value]) => `<input type="hidden" name="${escape(name)}" value="${escape(value)}">`).join('');
+          response.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer',
+            'content-security-policy': `default-src 'none'; form-action 'self' ${config.redirectUri}; frame-ancestors 'none'; base-uri 'none'` });
+          response.end(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Synthetic identity provider</title></head><body><main><h1>Synthetic identity provider</h1><p>Test-only sign-in. Continue to return to Erudior.</p><form method="get" action="${paths.authorize}/continue">${inputs}<button type="submit">Continue to Erudior</button></form></main></body></html>`);
+          return;
+        }
+        const choice = choices.get(state) ?? {};
+        choices.delete(state);
         const callback = new URL(config.redirectUri);
         callback.searchParams.set('state', state);
         callback.searchParams.set('iss', config.issuer);
@@ -168,7 +178,11 @@ export async function createSyntheticOidcProvider(options: SyntheticProviderOpti
     return fetch(networkOrigin + url.pathname + url.search, { ...init, redirect: 'manual' });
   };
   return {
-    config, transport, stats,
+    config, transport, stats, networkOrigin,
+    /** Configure the next browser-driven authorization without issuing it in Node. */
+    chooseAuthorization(state: string, choice: SyntheticAuthorizationOptions = {}) {
+      choices.set(state, structuredClone(choice));
+    },
     async authorize(authorizationUrl: string, choice: SyntheticAuthorizationOptions = {}): Promise<string> {
       const url = new URL(authorizationUrl);
       choices.set(url.searchParams.get('state') ?? '', structuredClone(choice));

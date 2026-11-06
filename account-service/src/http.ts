@@ -1,4 +1,5 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
+import { createPrivateAccountBrowserUi, PRIVATE_ACCOUNT_UI_CONFIG_PATH, PRIVATE_ACCOUNT_UI_CSP, type PrivateAccountBrowserUiConfig } from './browserUi.ts';
 import { isAccountId, isAccountTimestamp } from './model.ts';
 import type { OidcClient } from './oidc.ts';
 import type { PostgresAccountStore, StoredSession } from './store.ts';
@@ -33,6 +34,8 @@ export interface PrivateAccountHttpConfig {
   devices?: PrivateAccountDeviceStore;
   /** Separate, server-owned secret. Rotation requires session invalidation/relogin. */
   csrfKey: Uint8Array;
+  /** Explicit private-only UI opt-in. Omitted by default; no public host wiring. */
+  browserUI?: PrivateAccountBrowserUiConfig;
   /** Trusted server clock, injectable only by the host/test harness. Never request data. */
   clock?: () => number;
   /** Deliberately excludes URLs, cookies, provider claims, identifiers and record content. */
@@ -133,13 +136,14 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
   if (!/^\/[A-Za-z0-9/_-]*$/.test(config.returnPath) || config.returnPath.startsWith('//')) throw new Error('Invalid private account return path');
   if (!(config.csrfKey instanceof Uint8Array) || config.csrfKey.byteLength < 32 || config.csrfKey.byteLength > 128) throw new Error('Invalid private account CSRF key');
   const key = Buffer.from(config.csrfKey);
-  const origin = config.origin, returnUrl = new URL(config.returnPath, origin).href;
+  const origin = config.origin, returnPath = config.returnPath, returnUrl = new URL(returnPath, origin).href;
   const providers = new Map<string, OidcClient>();
   for (const client of config.providers) {
     if (!PROVIDER_ID.test(client.providerId) || providers.has(client.providerId) || client.redirectUri !== `${origin}/v1/auth/callback/${client.providerId}`) throw new Error('Invalid private account provider registration');
     providers.set(client.providerId, client);
   }
   if (!providers.size) throw new Error('Private account provider required');
+  const browserUI = config.browserUI ? createPrivateAccountBrowserUi(config.browserUI, [...providers.keys()], returnPath, !!config.devices) : null;
   const now = (): number => {
     const value = config.clock ? config.clock() : Math.floor(Date.now() / 1000);
     if (!isAccountTimestamp(value)) throw new Error('Invalid private account clock');
@@ -166,7 +170,7 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
     const requestId = randomBytes(16).toString('hex');
     let operation: PrivateAccountAuditEvent['operation'] = 'request';
     let callback = false;
-    const response = (status: number, value: unknown = null, additions: [string, string][] = []): Response => {
+    const response = (status: number, value: unknown = null, additions: [string, string][] = [], rawType?: string): Response => {
       const headers = new Headers({
         'Cache-Control': 'no-store, max-age=0', Pragma: 'no-cache', 'Referrer-Policy': 'no-referrer',
         'X-Content-Type-Options': 'nosniff', 'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
@@ -175,25 +179,57 @@ export function createPrivateAccountHandler(config: PrivateAccountHttpConfig): (
       for (const [name, item] of additions) headers.append(name, item);
       if (callback && !additions.some(([name, item]) => name.toLowerCase() === 'set-cookie' && item.startsWith(`${PRIVATE_ACCOUNT_LOGIN_COOKIE}=`))) headers.append('Set-Cookie', clearLoginCookie());
       try { config.audit?.({ requestId, operation, outcome: status < 400 ? 'success' : status >= 500 ? 'error' : 'denied' }); } catch { /* diagnostics cannot alter access decisions */ }
+      if (callback && browserUI && status >= 400) {
+        headers.set('Location', `${returnUrl}#sign-in-failed`);
+        return new Response(null, { status: 303, headers });
+      }
+      if (rawType) {
+        headers.set('Content-Type', rawType);
+        headers.set('Content-Security-Policy', PRIVATE_ACCOUNT_UI_CSP);
+        return new Response(String(value), { status, headers });
+      }
       if (status === 204 || status === 303) return new Response(null, { status, headers });
       headers.set('Content-Type', 'application/json; charset=utf-8');
       return new Response(JSON.stringify(value), { status, headers });
     };
     try {
-      if (request.url.length > MAX_URL_LENGTH) bad();
       const url = new URL(request.url);
       if (url.origin !== origin || url.username || url.password || url.hash) bad();
-      if (request.headers.has('authorization') || request.headers.has('x-http-method-override')) bad();
-      const jar = cookies(request);
       const path = url.pathname;
       if (/%|\\|\/\//.test(path)) bad();
       const callbackMatch = /^\/v1\/auth\/callback\/([a-z][a-z0-9_-]{0,47})$/.exec(path);
+      // Identify only a validated exact-origin callback route before rejecting malformed input.
+      // Opt-in failures then leave no provider values on the private landing URL.
+      if (callbackMatch && browserUI) { callback = true; operation = 'login.complete'; }
+      if (request.url.length > MAX_URL_LENGTH) bad();
+      if (request.headers.has('authorization') || request.headers.has('x-http-method-override')) bad();
+      const jar = cookies(request);
       const recordMatch = /^\/v1\/workspaces\/([A-Za-z0-9_-]+)\/records\/([A-Za-z0-9_-]+)$/.exec(path);
       const exportMatch = config.exports ? /^\/v1\/exports\/([A-Za-z0-9_-]+)(?:\/(download|cancel))?$/.exec(path) : null;
       const exportCreate = !!config.exports && path === '/v1/exports';
       const devicesList = !!config.devices && path === '/v1/devices';
       const devicesRevoke = !!config.devices && path === '/v1/devices/revoke';
       if (!callbackMatch && url.search) bad();
+      if (browserUI && (browserUI.matches(path) || path === PRIVATE_ACCOUNT_UI_CONFIG_PATH)) {
+        if (request.method !== 'GET') return response(405, { error: 'invalid_request' }, [['Allow', 'GET']]);
+        if (request.body !== null || request.headers.has('content-length') && request.headers.get('content-length') !== '0') bad();
+        if (path === PRIVATE_ACCOUNT_UI_CONFIG_PATH) {
+          requireBrowserRequest(request);
+          return response(200, JSON.parse(browserUI.config()));
+        }
+        const source = request.headers.get('origin');
+        if (source !== null && source !== origin) denied();
+        const site = request.headers.get('sec-fetch-site');
+        const mode = request.headers.get('sec-fetch-mode');
+        const destination = request.headers.get('sec-fetch-dest');
+        if (path === returnPath) {
+          // Top-level navigation is allowed after an external IdP redirect. No account data is in the shell.
+          if (mode !== null && mode !== 'navigate' || destination !== null && destination !== 'document') denied();
+          if (site !== null && !['same-origin', 'none', 'cross-site', 'same-site'].includes(site)) denied();
+        } else if (site !== null && site !== 'same-origin') denied();
+        const content = browserUI.content(path);
+        return response(200, content.body, [], content.type);
+      }
       const method = devicesRevoke || exportCreate || exportMatch?.[2] === 'cancel' ? 'POST' : devicesList || exportMatch ? 'GET' : path === '/health' || path === '/v1/session' || callbackMatch || recordMatch ? 'GET'
         : ['/v1/auth/start', '/v1/session/context', '/v1/session/logout'].includes(path) ? 'POST' : null;
       if (!method) return response(404, { error: 'not_found' });

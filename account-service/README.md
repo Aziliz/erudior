@@ -34,3 +34,5 @@ Keep this package outside `src/`, the public community `worker/`, and existing l
 See [the account design](../docs/ACCOUNT_SYSTEM.md) for the full product and security contract, [the foundation delivery](../docs/ACCOUNT_FOUNDATION.md) for the domain rules, and [the service integration](../docs/ACCOUNT_SERVICE.md) for the current implementation and remaining work.
 
 The separate [device-session management capability](../docs/PRIVATE_DEVICE_SESSIONS.md) lists minimal owned-session metadata and revokes one or all sessions. Both store and host must explicitly enable it; fresh personal MFA is required and no production service or settings UI is activated.
+
+The optional [private browser settings client](../docs/PRIVATE_ACCOUNT_BROWSER.md) adds configured-provider sign-in, context switching, logout and confirmed session revocation at the private host's fixed return path. It is disabled by default and remains outside public bundles. Chromium acceptance uses `npm run test:accounts:browser` with the same disposable PostgreSQL configuration; the dedicated workflow runs it after protocol and database acceptance.
