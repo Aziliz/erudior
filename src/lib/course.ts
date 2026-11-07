@@ -1,3 +1,4 @@
+import { parseAssessmentPresentation } from "./assessmentPresentation";
 import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
@@ -30,6 +31,8 @@ export function looksLikeCourse(raw: unknown): boolean {
 
 export function normalizeCourse(raw: unknown): Course {
   if (!isObj(raw)) throw new BankError("The course must be a JSON object.");
+  // Validate before legacy fallback so an invalid setting cannot silently enable exams.
+  const assessmentPresentation = parseAssessmentPresentation(raw.assessmentPresentation);
   // Canonical envelopes never fall back to legacy normalization: malformed authored
   // fields must remain visible failures. Local source packages use their own size
   // acquisition limits, not the smaller community transport budget.
@@ -260,6 +263,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
     ...(raw.readAloud === true ? { readAloud: true } : {}),
+    ...(assessmentPresentation === undefined ? {} : { assessmentPresentation }),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
     ...(documentReviews ? { documentReviews } : {}),

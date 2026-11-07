@@ -1,3 +1,4 @@
+import { parseAssessmentPresentation, type AssessmentPresentation } from "./assessmentPresentation";
 import { validateImageAsset } from "./imageAssets";
 import { markdownImageAssets, transformMarkdownImages } from "./markdownAssets";
 import { validateMarkdownAssets } from "./lessonSource";
@@ -184,6 +185,8 @@ export interface CommunityDoc extends CourseWork {
   type?: string;
   /** The calculator learners get (missing: chosen from the subject, like official courses). */
   calculator?: CalcChoice;
+  /** Legacy block-mode setting; canonical courses store it inside canonical.course. */
+  assessmentPresentation?: AssessmentPresentation;
   /** The practice exam (missing: up to 50 questions, 1.5 minutes each, 70% to pass). */
   exam?: CExam;
   /** Missing or empty: one module named after the course. */
@@ -481,6 +484,7 @@ export function checkDoc(raw: unknown, strict: boolean, context: { communityImag
     return errs;
   }
   if (d.calculator !== undefined && !CALCULATORS.includes(d.calculator)) errs.push("Choose a calculator.");
+  try { parseAssessmentPresentation(d.assessmentPresentation); } catch { errs.push("Choose a valid assessment presentation."); }
   if (d.exam !== undefined) {
     const e = d.exam;
     const n = (v: unknown, lo: number, hi: number) => v === undefined || (Number.isInteger(v) && (v as number) >= lo && (v as number) <= hi);
@@ -909,6 +913,7 @@ function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: 
   const spreadsheetAssignments = d.spreadsheetAssignments?.map(assignment => ({
     ...normalizeSpreadsheetAssignment(assignment), lessonId: assignment.lessonId,
   }));
+  const assessmentPresentation = parseAssessmentPresentation(d.assessmentPresentation);
   const title = d.title.trim();
   const modules = d.modules?.length ? d.modules : [{ id: "m1", title }];
   const moduleOf = (l: CLesson) => (l.module && modules.some((m) => m.id === l.module) ? l.module : modules[0].id);
@@ -964,6 +969,7 @@ function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: 
     description: d.description.trim(),
     author: meta.author,
     revision: meta.version,
+    ...(assessmentPresentation === undefined ? {} : { assessmentPresentation }),
     modules: appModules,
     lessons,
     banks: questions.length

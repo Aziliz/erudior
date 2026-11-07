@@ -1,6 +1,7 @@
 """Compile and execute the actual Android-independent production reducer, no model copy."""
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,3 +10,6 @@ with tempfile.TemporaryDirectory() as output:
         str(ROOT/'src-tauri/android-installer/src/main/java/com/erudior/updates/NativeLifecycleState.java'),
         str(ROOT/'tests/android-lifecycle/NativeLifecycleStateTest.java')], check=True)
     subprocess.run(['java', '-cp', output, 'com.erudior.updates.NativeLifecycleStateTest'], check=True)
+
+# Also verify the isolated native-callback fault fixture and strict evidence reader.
+subprocess.run([sys.executable, str(ROOT/"tests/android-native-gap-harness.py"), "-v"], check=True)

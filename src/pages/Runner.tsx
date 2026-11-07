@@ -1,3 +1,4 @@
+import { guidedSessionProblem, isGuidedPractice } from "../lib/assessmentPresentation";
 import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { imeFor } from "../lib/ime";
 import { FuriganaToggle } from "../components/Ruby";
@@ -35,7 +36,13 @@ const CONFIDENCE: { id: Confidence; label: string }[] = [
 
 export const metaKey = (bankId: string, qid: string) => `${bankId}/${qid}`;
 
-export default function Runner({ api, session: started, bank, initial }: Props) {
+export default function Runner(props: Props) {
+  const course = props.api.courses.find(c => c.banks.some(b => b.id === props.session.bankId));
+  const problem = guidedSessionProblem(course, props.session);
+  if (problem) return <section className="page panel"><h1>Choose an untimed activity</h1><p>{problem}</p><button className="btn primary" onClick={() => props.api.go(course ? { name: "course", courseId: course.id } : { name: "library" })}>Back to learning</button></section>;
+  return <ActiveRunner {...props} />;
+}
+function ActiveRunner({ api, session: started, bank, initial }: Props) {
   // Smart practice can swap upcoming questions, so the session lives in state.
   const [session, setSession] = useState<Session>(started);
   const [adaptNote, setAdaptNote] = useState<{ qid: string; text: string } | null>(null);
@@ -68,7 +75,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   // Confidence is asked in practice and quizzes, not exams or warm-ups (those are guesses by design).
   // Early readers (read-aloud courses) skip the reading-heavy extras: confidence ratings,
   // explain-it-yourself and covered choices.
-  const earlyReader = !!(bank?.courseId && api.courses.find((c) => c.id === bank.courseId)?.readAloud);
+  const guided = isGuidedPractice(api.courses.find(c => c.banks.some(b => b.id === started.bankId)));
+  const earlyReader = guided || !!(bank?.courseId && api.courses.find((c) => c.id === bank.courseId)?.readAloud);
   const askConfidence = !isExam && session.kind !== "pretest" && !earlyReader;
   // Study habits (BankHome): explain it yourself before reading the explanation; recall before seeing choices.
   const study = api.progress.study ?? {};
@@ -495,7 +503,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             Save &amp; exit
           </button>
           <h1 className="title">{quizLesson?.title ?? quizModule?.title ?? session.bankTitle}</h1>
-          <span className="pill neutral">{isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.kind === "pretest" ? "Warm-up" : session.kind === "weekly" ? "Weekly review" : session.reading ? "Reading questions" : session.adaptive ? "Smart practice" : "Practice"}</span>
+          <span className="pill neutral">{guided ? quizLesson ? "Lesson practice" : quizModule ? "Unit practice" : "Practice together" : isExam ? "Exam" : quizLesson ? "Lesson quiz" : quizModule ? "Module quiz" : session.kind === "pretest" ? "Warm-up" : session.kind === "weekly" ? "Weekly review" : session.reading ? "Reading questions" : session.adaptive ? "Smart practice" : "Practice"}</span>
           {blocks.length > 1 && (
             <span className="small muted">
               Part {blockIdx + 1} of {blocks.length}: {block.name}
@@ -511,9 +519,9 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
           <span className="small muted num">
             {blocks.length > 1 ? `${blockAnswered}/${blockItems.length}` : `${answeredCount}/${items.length}`} answered
           </span>
-          <span className={clockClass} aria-label={remaining !== undefined ? "Time remaining" : "Time elapsed"}>
+{guided ? <span className="small muted">Take your time. You can save and take a break.</span> : (          <span className={clockClass} aria-label={remaining !== undefined ? "Time remaining" : "Time elapsed"}>
             {formatClock(remaining ?? blockElapsed)}
-          </span>
+          </span>)}
         </div>
         <div className="progress-line">
           <i style={{ width: `${((index - block.start + 1) / blockItems.length) * 100}%` }} />

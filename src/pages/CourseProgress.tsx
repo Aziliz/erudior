@@ -1,3 +1,4 @@
+import { isGuidedPractice } from "../lib/assessmentPresentation";
 import { useEffect, useId, useState } from "react";
 import type { AppApi } from "../App";
 import type { Attempt, Course } from "../lib/types";
@@ -13,6 +14,7 @@ import { formatDateTime, formatDuration, percent } from "../lib/util";
 /** The learner's detailed record for one course. Enrollment rollups live in ProgressPage. */
 export default function CourseProgress({ api, course }: { api: AppApi; course: Course }) {
   const headingId = useId();
+  const guided = isGuidedPractice(course);
   const { progress } = api;
   const summary = courseProgress(course, progress);
   const coverage = courseNumbers(course, progress);
@@ -52,7 +54,7 @@ export default function CourseProgress({ api, course }: { api: AppApi; course: C
         <p className="small muted" style={{ marginTop: 10 }}>Lesson completion, assessment scores, and skill mastery are shown separately. Optional honors lessons do not reduce core lesson progress.</p>
         <div className="stats-strip">
           <div><b>{summary.lessonsDone}/{summary.lessonsTotal}</b><span>core lessons</span></div>
-          <div><b>{summary.moduleQuizzesDone}/{summary.moduleQuizzesTotal}</b><span>module quizzes passed</span></div>
+          <div><b>{summary.moduleQuizzesDone}/{summary.moduleQuizzesTotal}</b><span>{guided ? "unit practice checkpoints" : "module quizzes passed"}</span></div>
           <div><b>{summary.questionsAnswered}</b><span>questions answered</span></div>
           <div><b>{summary.accuracy === null ? "No scores yet" : `${Math.round(summary.accuracy * 100)}%`}</b><span>answer accuracy</span></div>
           <div><b>{formatDuration(summary.studySeconds)}</b><span>recorded session time</span></div>
@@ -64,8 +66,8 @@ export default function CourseProgress({ api, course }: { api: AppApi; course: C
           </div>
         ) : nextModule ? (
           <div className="row" style={{ justifyContent: "space-between" }}>
-            <p className="muted">Next module quiz: <strong style={{ color: "var(--ink)" }}>{nextModule.title}</strong></p>
-            <button className="btn primary" onClick={() => api.go({ name: "course", courseId: course.id, tab: "lessons" })}>Open module quizzes</button>
+            <p className="muted">Next {guided ? "unit practice" : "module quiz"}: <strong style={{ color: "var(--ink)" }}>{nextModule.title}</strong></p>
+            <button className="btn primary" onClick={() => api.go({ name: "course", courseId: course.id, tab: "lessons" })}>{guided ? "Open unit practice" : "Open module quizzes"}</button>
           </div>
         ) : summary.complete ? (
           <p>Core course progress is complete. You can review lessons or continue practicing.</p>
@@ -99,13 +101,14 @@ export default function CourseProgress({ api, course }: { api: AppApi; course: C
 
       <CourseSkills api={api} course={course} />
 
-      <section className="panel" aria-label="Course exam scores">
+      {!guided && <section className="panel" aria-label="Course exam scores">
         <div className="panel-head"><h2>Exam scores</h2></div>
         {exams.length ? <>
           <p className="muted small">The latest {Math.min(exams.length, 20)} exam{exams.length === 1 ? "" : "s"} in this course. Select a session below to see its answers.</p>
           <ScoreTrend courseTitle={course.title} attempts={exams.slice(0, 20).reverse()} />
         </> : <p className="muted small">Complete an exam in this course to see its score history.</p>}
-      </section>
+      </section>}
+      {guided && <p className="notice">Practice records show answers and app checkpoints, not grade placement or independent performance. Use a fresh hands-on example with a supervising adult to gather that evidence.</p>}
 
       <section className="panel" aria-label="Course session history">
         <div className="panel-head"><h2>Session history</h2><span className="small muted">{summary.attempts.length} session{summary.attempts.length === 1 ? "" : "s"}</span></div>
@@ -120,7 +123,7 @@ export default function CourseProgress({ api, course }: { api: AppApi; course: C
                 <td>{attempt.mode === "exam" ? "Exam" : "Practice"}</td>
                 <td className="r">{attempt.correct}/{attempt.total} ({percent(attempt.correct, attempt.total)}%)</td>
                 <td className="r">{formatDuration(attempt.durationSec)}</td>
-                <td><ScorePill attempt={attempt} /> <button className="btn sm" onClick={() => openResult(attempt.id)} aria-label={`View result for ${attempt.bankTitle} on ${formatDateTime(attempt.finishedAt)}`}>View result</button></td>
+                <td>{!guided && <ScorePill attempt={attempt} />} <button className="btn sm" onClick={() => openResult(attempt.id)} aria-label={`View result for ${attempt.bankTitle} on ${formatDateTime(attempt.finishedAt)}`}>View result</button></td>
               </tr>)}</tbody>
             </table>
           </div>

@@ -50,6 +50,8 @@ const exam: Session = {
 };
 const course = { id: "course", language: { code: "ja", ime: "ja" }, lessons: [] } as unknown as Course;
 const bank = { id: "bank", courseId: course.id, sections: [] } as unknown as NonNullable<Parameters<typeof Runner>[0]["bank"]>;
+// The synthetic course owns its bank, just as normalized app courses do.
+course.banks = [bank];
 const routes: View[] = [];
 const confirmations: string[] = [];
 let confirm = false;

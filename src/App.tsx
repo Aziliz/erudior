@@ -1,3 +1,4 @@
+import { guidedSessionProblem } from "./lib/assessmentPresentation";
 import { flushSync } from "react-dom";
 import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
 import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomPeerSourceOption } from "./lib/classroomPeerSources";
@@ -1317,6 +1318,11 @@ export default function App() {
     },
     go: (v) => {
       if (lockedRef.current || gateRef.current) return;
+      if (v.name === "run") {
+        const owner = courses.find(c => c.banks.some(b => b.id === v.session.bankId));
+        const problem = guidedSessionProblem(owner, v.session);
+        if (problem) { toast(problem); return; }
+      }
       if (!requestNavigation("app", v)) return;
       pendingPath.current = null;
       if (family && v.name !== "parent" && adultAccess.current.unlocked) {
