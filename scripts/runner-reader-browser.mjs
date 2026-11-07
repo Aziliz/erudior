@@ -16,7 +16,7 @@ const bundle = await build({
 });
 const js = bundle.outputFiles.find(f => f.path.endsWith('.js')).text;
 const css = bundle.outputFiles.find(f => f.path.endsWith('.css')).text;
-const checks = [], errors = [], requests = [];
+const checks = [], errors = [], requests = [], layouts = [];
 let browser, page, current = 'startup';
 try {
   browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -98,7 +98,24 @@ try {
       await page.waitForFunction(calls => window.readerVoice.calls > calls, calls);
       await page.keyboard.press('Space');
       assert.equal(await reader.getAttribute('aria-pressed'), 'false');
-      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${current}: horizontal overflow`);
+      // Keep document overflow strict. Also record the production scroll container
+      // and footer: an existing intermediate-width footer issue must not disappear
+      // from the evidence just because the real App contains its horizontal scroll.
+      const layout = await page.evaluate(() => {
+        const size = selector => {
+          const node = document.querySelector(selector);
+          return { clientWidth: node.clientWidth, scrollWidth: node.scrollWidth,
+            right: node.getBoundingClientRect().right };
+        };
+        return { viewport: innerWidth, document: size('html'), main: size('.main'),
+          question: size('.q-scroll'), footer: size('.runner-foot') };
+      });
+      layouts.push({ current, ...layout });
+      assert(layout.document.scrollWidth <= width + 1, `${current}: horizontal document overflow`);
+      assert(layout.question.scrollWidth <= layout.question.clientWidth + 1, `${current}: horizontal question overflow`);
+      if (width === 320 || width === 1280) {
+        assert(layout.main.scrollWidth <= layout.main.clientWidth + 1, `${current}: horizontal main overflow`);
+      }
       await reader.scrollIntoViewIfNeeded();
       await page.screenshot({ path: path.join(out, `${current}.png`) });
       checks.push({ width, kind, textGap: geometry.textGap, boxGap: geometry.boxGap, bottomTouch: true, keyboard: true });
@@ -110,10 +127,10 @@ try {
     await context.close();
   }
   assert.deepEqual(errors, []); assert.deepEqual(requests, []);
-  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, scope: 'Production Runner, synthetic fixtures, instrumented speech', checks, errors, requests }, null, 2));
+  await writeFile(path.join(out, 'result.json'), JSON.stringify({ passed: true, scope: 'Production Runner, synthetic fixtures, instrumented speech', checks, layouts, errors, requests }, null, 2));
   console.log(`Reader layout: ${checks.length} scenarios passed.`);
 } catch (error) {
   await page?.screenshot({ path: path.join(out, 'failure.png') }).catch(() => {});
-  await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, errors, requests }, null, 2));
+  await writeFile(path.join(out, 'failure.json'), JSON.stringify({ current, error: String(error), checks, layouts, errors, requests }, null, 2));
   throw error;
 } finally { await browser?.close(); }
