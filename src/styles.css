@@ -5175,6 +5175,11 @@ figure.manip {
   flex: none;
   margin-top: 2px;
 }
+/* The reader can wrap below the stem at any container width or text size.
+   Do not pull the following instruction over its bottom edge. */
+.ra-course .q-stem-row ~ .q-type {
+  margin-top: 4px;
+}
 .choice-row {
   display: flex;
   align-items: stretch;

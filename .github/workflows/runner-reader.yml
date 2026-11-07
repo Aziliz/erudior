@@ -1,0 +1,78 @@
+name: Runner reader layout acceptance
+on:
+  pull_request:
+    branches: [main]
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader.tsx', '.github/workflows/runner-reader.yml', 'package*.json']
+  push:
+    branches: [main]
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader.tsx', '.github/workflows/runner-reader.yml', 'package*.json']
+permissions:
+  contents: read
+concurrency:
+  group: runner-reader-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reader-layout:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/runner-reader-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: runner-reader-browser
+          path: test-results/runner-reader/
+          if-no-files-found: warn
+          retention-days: 14
+  guided-practice-integration:
+    name: Pinned PR 138 synthetic integration (not course validation)
+    # Evidence only: this checkout is never pushed or merged into the fix.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 20a2f693c7b9e1f621af67563905129f848150aa
+          path: guided-integration
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: guided-integration/package-lock.json
+      - name: Apply only the spacing rule and synthetic regression to pinned PR 138
+        run: |
+          cp scripts/runner-reader-browser.mjs guided-integration/scripts/
+          cp tests/fixtures/runner-reader.tsx guided-integration/tests/fixtures/
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path('src/styles.css').read_text()
+          selector = '.ra-course .q-stem-row ~ .q-type {'
+          assert source.count(selector) == 1
+          rule = selector + source.split(selector, 1)[1].split('}', 1)[0] + '}'
+          target = Path('guided-integration/src/styles.css')
+          css = target.read_text()
+          assert selector not in css
+          target.write_text(css + '\n' + rule + '\n')
+          PY
+      - run: npm ci
+        working-directory: guided-integration
+      - run: npx playwright install --with-deps chromium
+        working-directory: guided-integration
+      - run: node scripts/runner-reader-browser.mjs
+        working-directory: guided-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: runner-reader-guided-integration
+          path: guided-integration/test-results/runner-reader/
+          if-no-files-found: warn
+          retention-days: 14
