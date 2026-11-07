@@ -46,7 +46,7 @@ try {
       await page.evaluate(index => window.readerFixture.show(index), index);
       await page.waitForFunction(kind => document.querySelector('main')?.dataset.question === kind, kind);
       if (kind !== 'text') {
-        const model = page.locator(`.model-answer .mp-${kind}`);
+        const model = page.locator(`.model-answer .mp.mp-${kind}`);
         await model.waitFor();
         assert(await model.locator('svg').count() > 0, `${current}: production model picture renders`);
         assert(await model.locator('button:not(:disabled):not([aria-disabled="true"])').count() > 0, `${current}: enabled model controls render`);

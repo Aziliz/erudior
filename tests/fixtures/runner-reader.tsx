@@ -37,7 +37,7 @@ function Fixture() {
   progress.study = { autoRead: false, explainFirst: false };
   const api = { progress, courses: [course], go: () => {}, toast: () => {}, saveLearnerSession: async () => {} } as unknown as AppApi;
   const q = questions[selection.index];
-  const session = { id: `synthetic-${q.id}`, bankId: bank.id, bankTitle: bank.title, mode: 'practice', startedAt: Date.now(), items: [{ q, order: [] }] } as Session;
+  const session: Session = { id: `synthetic-${q.id}`, bankId: bank.id, bankTitle: bank.title, mode: 'practice', startedAt: Date.now(), items: [{ q, order: [] }], blocks: [{ start: 0, end: 1 }] };
   Object.assign(window, { readerFixture: { show(index: number, readAloud = true) { speaker.stop(); setSelection({ index, readAloud }); } } });
   return <main data-question={q.id} data-read-aloud={selection.readAloud}><Runner key={`${q.id}-${selection.readAloud}`} api={api} bank={bank} session={session}/></main>;
 }

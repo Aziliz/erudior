@@ -2,10 +2,10 @@ name: Runner reader layout acceptance
 on:
   pull_request:
     branches: [main]
-    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader.tsx', '.github/workflows/runner-reader.yml', 'package*.json']
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
   push:
     branches: [main]
-    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader.tsx', '.github/workflows/runner-reader.yml', 'package*.json']
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
 permissions:
   contents: read
 concurrency:
@@ -22,6 +22,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - run: npx tsc --project tests/fixtures/runner-reader.tsconfig.json
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: node scripts/runner-reader-browser.mjs
@@ -51,7 +52,7 @@ jobs:
       - name: Apply only the spacing rule and synthetic regression to pinned PR 138
         run: |
           cp scripts/runner-reader-browser.mjs guided-integration/scripts/
-          cp tests/fixtures/runner-reader.tsx guided-integration/tests/fixtures/
+          cp tests/fixtures/runner-reader.tsx tests/fixtures/runner-reader.tsconfig.json guided-integration/tests/fixtures/
           python3 - <<'PY'
           from pathlib import Path
           source = Path('src/styles.css').read_text()
@@ -64,6 +65,8 @@ jobs:
           target.write_text(css + '\n' + rule + '\n')
           PY
       - run: npm ci
+        working-directory: guided-integration
+      - run: npx tsc --project tests/fixtures/runner-reader.tsconfig.json
         working-directory: guided-integration
       - run: npx playwright install --with-deps chromium
         working-directory: guided-integration
