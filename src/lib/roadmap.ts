@@ -711,7 +711,7 @@ export const ROADMAP: RoadmapGroup[] = [
   {
     id: "college-written",
     title: "College core — written and oral communication (GT-CO)",
-    note: "College general education built on Colorado's GT Pathways, so it lines up with what most degrees require. Each course is a full college-level course and also prepares for its CLEP exam where one exists. Independent study: credit comes from CLEP or from the college that accepts it, and the GT code is the area a course is written to, not a transfer guarantee.",
+    note: "The common courses nearly every degree requires, organized as areas to choose from in the College Core program. Each area's minimum follows the strictest state requirement for it; the GT codes come from Colorado's GT Pathways, the base. Each course is a full college-level course and also prepares for its CLEP exam where one exists. Independent study, not a college or degree.",
     courses: [
       { title: "English Composition I", covers: "Academic essays, critical reading, the writing process. GT-CO1; CLEP College Composition" },
       { title: "English Composition II", covers: "Argument, research, sources and citation. GT-CO2; CLEP College Composition" },
@@ -751,7 +751,7 @@ export const ROADMAP: RoadmapGroup[] = [
   {
     id: "college-humanities",
     title: "College core — arts and humanities (GT-AH)",
-    note: "World language (GT-AH4): two semesters are taken as the A1 and A2 courses of a language above; French, German and Spanish also prepare for their CLEP exams.",
+    note: "World language (GT-AH4): two levels, taken as the A1 and A2 courses of one language above; French, German and Spanish also prepare for their CLEP exams.",
     courses: [
       { title: "Art Appreciation", covers: "Visual elements, media and art across cultures. GT-AH1" },
       { title: "Art History I", covers: "Prehistoric through Gothic. GT-AH1" },
@@ -771,6 +771,7 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Ethics", covers: "Moral theories and contemporary ethical issues. GT-AH3" },
       { title: "Introduction to Logic", covers: "Arguments, fallacies, categorical and propositional logic. GT-AH3" },
       { title: "Introduction to World Religions", covers: "Academic survey of the major world religions. GT-AH3" },
+      { title: "Critical Thinking", covers: "Claims and evidence, argument mapping, fallacies and biases, evaluating media. GT-AH3" },
     ],
   },
   {
@@ -801,6 +802,8 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Cultural Anthropology", covers: "Culture, kinship, economy, belief and fieldwork. GT-SS3" },
       { title: "Human Growth and Development", covers: "Lifespan development from conception to old age. GT-SS3; CLEP Human Growth and Development" },
       { title: "Introduction to Ethnic Studies", covers: "Race, ethnicity and the experiences of US ethnic groups. Required for California transfer" },
+      { title: "Environment and Society", covers: "How societies use and depend on the environment, environmental justice and policy. GT-SS3" },
+      { title: "Global Issues", covers: "Globalization, development, health, conflict, human rights and climate. GT-SS1" },
     ],
   },
   {

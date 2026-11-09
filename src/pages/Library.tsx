@@ -22,7 +22,7 @@ import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
 import { GENERAL_DISCLAIMER } from "../components/Terms";
-import { STUDY_PROGRAMS, programCourses } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, programCourseIds, programCourses } from "../lib/studyPrograms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
@@ -263,7 +263,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
         <div className="catalog-grid">
           {STUDY_PROGRAMS.map(program => {
             const planned = programCourses(program);
-            const available = planned.filter(course => CATALOG.some(entry => entry.id === course.courseId)).length;
+            const ids = program.pools?.length ? programCourseIds(program) : planned.map(course => course.courseId);
+            const available = ids.filter(id => CATALOG.some(entry => entry.id === id)).length;
             const following = progress.learningPathways?.some(path => path.id === program.id);
             return <article className="catalog-card" key={program.id} aria-label={`${program.title} catalog entry`}>
               <div className="catalog-tags"><span className="pill neutral">Program</span>
@@ -272,8 +273,8 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
                 {program.title}<span className="sr-only">: explore pathway</span>
               </button></h3>
               <p className="muted small clamp3">{program.description}</p>
-              <p className="meta small muted">{program.stages.length} stages · {planned.length} courses</p>
-              <p className="small muted">{available} available · {planned.length - available} planned</p>
+              <p className="meta small muted">{program.pools?.length ? `${program.pools.length} areas · ${programCourseIds(program).length} courses to choose from` : `${program.stages.length} stages · ${planned.length} courses`}</p>
+              <p className="small muted">{available} available · {ids.length - available} planned</p>
               <button className="btn sm primary" onClick={() => api.go({ name: "progress" })}>
                 {following ? "View my pathway" : "Explore pathway"}
               </button>

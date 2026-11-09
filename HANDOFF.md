@@ -15,6 +15,14 @@ Jon prefers terse answers and wants clarifying questions asked rather than assum
 - **Japanese (2026-11-04):** engine support (#134), kana tracing (#136), kana course (#143) and N5 (see "Japanese" below). Next on the track: N4.
 - **Van Ed:** Jon is still taking the Van Ed Colorado pre-license course; the text comparison stalled at gated knowledge checks (details under "Content pipeline").
 
+## Roadmap gaps and College Core (2026-11-09, branch roadmap/k12-gaps)
+
+- **Roadmap (`src/lib/roadmap.ts`):** pre-K, K–5 Spanish/German/Latin, geography and state history, more K–8 language arts/social studies/science, HS electives (English, social studies, science, arts, logic, driver ed), all 39 AP courses, test prep (PSAT/SAT/ACT/CLEP/GED), career and technical education, ASL, Ancient Greek, Latin I–IV, Modern Hebrew, and a public college core (`college-*` groups; `PUBLIC_ROADMAP` now includes `prek` and `college-`). Titles must stay unique: availability matches catalog titles.
+- **Jon's decisions:** college programs are general learning guides structured like a college program, not degrees; no credits or AA/AS. Every core course is a full course that also prepares for its CLEP exam where one exists. Base is Colorado's GT Pathways; each area's minimum is the strictest state requirement for that area (all 50 states + DC checked; notes and sources in `src/lib/collegeCoreProgram.ts`). Only World Religions for religion.
+- **Engine:** study programs gained `pools` ("choose at least N" areas, optional `requirements` such as ≥1 arts and ≥1 literature, `theme` areas met by courses counted elsewhere, `defaults`) and `courseOutlines` (`studyPrograms.ts`: `programCourseIds`, `poolStatus`, `programPoolProblems`; `matchingProgram` accepts any selection from the program's courses). `StudyProgramCard` shows areas and per-area progress; the pathway editor offers every course in a followed program's areas.
+- **College Core program:** 16 areas, 25-course minimum (themes shared), 72 courses to choose from incl. existing catalog math/physics/German. Tests: `tests/study-programs.test.mts`; browser: `scripts/college-core-browser.mjs` (`CHROMIUM_PATH=/usr/bin/google-chrome` here). `scripts/study-programs-browser.mjs` now scopes its follow click to the J.D. program.
+- **Next:** degree-path programs (core + path courses); Jon to choose which first.
+
 ## Japanese (2026-11-04)
 
 - Jon's decisions: a separate kana course ("Japanese: Hiragana and Katakana", `lang-japanese-kana`) with N5 locked behind it (`requires`); built-in romaji → kana typing; furigana with a learner on/off switch; stroke tracing for kana only (stroke data drawn from scratch, no KanjiVG); romaji only in the kana course; the device's ja-JP voice (no bundled clips). N5: ~30 lessons in 6 modules, kanji as notecards plus inside words, furigana always (toggle), spaces after particles in modules 1–2 only.

@@ -118,3 +118,44 @@ const installed = {...emptyCourse(published.title),id:published.id,modules:[{id:
 assert.equal(pathwayProgress(path,[installed],p,[published]).completedCourses,0,'current installed content takes precedence over older catalog checkpoints');
 assert.equal(pathwayProgress(path,[],emptyProgress(),[published]).percent,0,'a different learner receives no inherited completion');
 console.log('Study programs: complete three-stage outline, valid ordered dependencies, snapshot matching, honest availability and equal-course/stage progress passed.');
+
+// College core: "choose at least N" areas built on the strictest state minimum per area.
+{
+  const { poolStatus, programCourseIds, programPoolProblems } = await import('../src/lib/studyPrograms');
+  const core = STUDY_PROGRAMS.find(p => p.id === 'college-core')!;
+  assert(core && core.pools?.length, 'college core program is listed');
+  assert.deepEqual(programPoolProblems(core, new Set(CATALOG.map(e => e.id))), []);
+  const minimums = Object.fromEntries(core.pools!.map(pool => [pool.id, pool.minimum]));
+  assert.deepEqual(minimums, {
+    'written-communication': 3, 'oral-communication': 1, mathematics: 2, 'natural-sciences': 3, 'arts-humanities': 4,
+    history: 2, government: 2, 'social-behavioral': 3, 'world-language': 2, 'diversity-global': 2, 'critical-thinking': 2,
+    'ethics-civic': 1, 'people-environment': 1, 'computer-literacy': 1, 'college-success': 1, 'health-wellness': 1,
+  });
+  const subject = core.pools!.filter(pool => !pool.theme);
+  assert.equal(subject.reduce((n, pool) => n + pool.minimum, 0), 25);
+  const subjectIds = new Set(subject.flatMap(pool => pool.courseIds));
+  for (const pool of core.pools!.filter(p => p.theme)) for (const id of pool.courseIds) assert(subjectIds.has(id), `${pool.id}: ${id} also counts in a subject area`);
+  const outlineIds = new Set(programCourses(core).map(c => c.courseId));
+  for (const course of programCourses(core)) {
+    assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30, course.courseId);
+    for (const id of course.recommendedBefore) assert(outlineIds.has(id), `${course.courseId} recommends unknown ${id}`);
+  }
+  const allIds = STUDY_PROGRAMS.flatMap(programCourses).map(c => c.courseId);
+  assert.equal(new Set(allIds).size, allIds.length, 'course outlines are unique across programs');
+  const plan = programPathway(core);
+  assert.equal(plan.courseIds.length, 25, 'default picks meet every area at the minimum');
+  assert.deepEqual(parseLearningPathways([plan]), [plan]);
+  assert.equal(matchingProgram(plan), core);
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds].reverse() }), core, 'any order of choices still follows the program');
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds, 'college-mythology'] }), core, 'extra courses are allowed');
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds, 'law-torts'] }), undefined, 'courses outside the program make it a custom plan');
+  const arts = core.pools!.find(p => p.id === 'arts-humanities')!;
+  const litOnly = poolStatus(arts, ['college-introduction-to-literature', 'college-mythology', 'college-ethics', 'college-introduction-to-logic'], new Set());
+  assert(!litOnly.planned, 'four courses without an arts course do not meet the area');
+  const done = poolStatus(arts, arts.defaults, new Set(arts.defaults));
+  assert(done.planned && done.met);
+  assert(programCourseIds(core).includes('math-calculus'), 'existing catalog courses can be chosen');
+  assert(!plannedProgramCourse('math-calculus'), 'catalog courses need no planned outline');
+  assert.equal(plannedProgramCourse('college-ethics')?.title, 'Ethics');
+}
+console.log('College core areas passed.');
