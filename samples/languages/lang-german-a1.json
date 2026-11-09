@@ -3,10 +3,10 @@
  "version": 1,
  "id": "lang-german-a1",
  "title": "German A1",
- "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
+ "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, conjugation drills practise the present, the imperative and the perfect, sentence-building questions practise word order, and a reading list points to graded readers you can try on your own.",
  "author": "Erudior",
- "revision": 4,
- "changelog": "Fixed vocabulary cards whose English prompt was cut off at a comma (and stray answer fragments that were accepted).",
+ "revision": 5,
+ "changelog": "Conjugation drills for every verb and adjective; sentence-building questions.",
  "modules": [
   {
    "id": "de1-m1",
@@ -277,6 +277,7 @@
     "de1-q-0211",
     "de1-q-0212",
     "de1-q-0213",
+    "de1-q-0214",
     "de1-m1-r2-q06",
     "de1-m1-r2-q07",
     "de1-m1-r2-q08",
@@ -346,6 +347,8 @@
     "de1-q-0411",
     "de1-q-0412",
     "de1-q-0413",
+    "de1-q-0414",
+    "de1-q-0415",
     "de1-m1-r2-q16",
     "de1-m1-r2-q17",
     "de1-m1-r2-q18",
@@ -576,6 +579,7 @@
     "de1-q-0811",
     "de1-q-0812",
     "de1-q-0813",
+    "de1-q-0814",
     "de1-m2-r2-q16",
     "de1-m2-r2-q17",
     "de1-m2-r2-q18",
@@ -743,6 +747,8 @@
     "de1-q-1110",
     "de1-q-1111",
     "de1-q-1112",
+    "de1-q-1113",
+    "de1-q-1114",
     "de1-m3-r2-q11",
     "de1-m3-r2-q12",
     "de1-m3-r2-q13",
@@ -777,6 +783,8 @@
     "de1-q-1210",
     "de1-q-1211",
     "de1-q-1212",
+    "de1-q-1213",
+    "de1-q-1214",
     "de1-m3-r2-q16",
     "de1-m3-r2-q17",
     "de1-m3-r2-q18",
@@ -911,6 +919,8 @@
     "de1-q-1410",
     "de1-q-1411",
     "de1-q-1412",
+    "de1-q-1413",
+    "de1-q-1414",
     "de1-m4-r2-q07",
     "de1-m4-r2-q08",
     "de1-m4-r2-q09",
@@ -945,6 +955,8 @@
     "de1-q-1510",
     "de1-q-1511",
     "de1-q-1512",
+    "de1-q-1513",
+    "de1-q-1514",
     "de1-m4-r2-q12",
     "de1-m4-r2-q13",
     "de1-m4-r2-q14",
@@ -1078,6 +1090,8 @@
     "de1-q-1710",
     "de1-q-1711",
     "de1-q-1712",
+    "de1-q-1713",
+    "de1-q-1714",
     "de1-m5-r2-q01",
     "de1-m5-r2-q02",
     "de1-m5-r2-q03",
@@ -1280,6 +1294,8 @@
     "de1-q-2110",
     "de1-q-2111",
     "de1-q-2112",
+    "de1-q-2113",
+    "de1-q-2114",
     "de1-m6-r2-q01",
     "de1-m6-r2-q02",
     "de1-m6-r2-q03",
@@ -1315,6 +1331,8 @@
     "de1-q-2211",
     "de1-q-2212",
     "de1-q-2213",
+    "de1-q-2214",
+    "de1-q-2215",
     "de1-m6-r2-q06",
     "de1-m6-r2-q07",
     "de1-m6-r2-q08",
@@ -1351,6 +1369,7 @@
     "de1-q-2312",
     "de1-q-2313",
     "de1-q-2314",
+    "de1-q-2315",
     "de1-m6-r2-q11",
     "de1-m6-r2-q12",
     "de1-m6-r2-q13",
@@ -2043,6 +2062,26 @@
      "explanation": "In a W-question the verb comes straight after the question word, then the subject: Woher kommen Sie? Aus is not needed in the question, because woher already means \"where from\"."
     },
     {
+     "id": "de1-q-0214",
+     "section": "de1-m1",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "woher",
+      "kommst",
+      "du"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "kommt"
+     ],
+     "punctuation": "?",
+     "prompt": "Where are you from? (to a friend)",
+     "explanation": "A W-question starts with the question word, and the verb comes second: Woher kommst du? With du the verb ends in -st (kommst); kommt is the er/sie/es and ihr form."
+    },
+    {
      "id": "de1-q-0301",
      "section": "de1-m1",
      "topic": "Numbers",
@@ -2457,6 +2496,42 @@
       2
      ],
      "explanation": "Gern goes after the conjugated verb: Wir spielen gern. In the other sentences the verb is not in second position, and spielt is the wrong ending for wir."
+    },
+    {
+     "id": "de1-q-0414",
+     "section": "de1-m1",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "was",
+      "machst",
+      "du",
+      "heute"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": "?",
+     "prompt": "What are you doing today?",
+     "explanation": "The question word comes first and the verb second, then the subject: Was machst du heute? The time word heute follows the subject pronoun."
+    },
+    {
+     "id": "de1-q-0415",
+     "section": "de1-m1",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'In Berlin'.",
+     "type": "build",
+     "tiles": [
+      "in Berlin",
+      "lernen",
+      "wir",
+      "Deutsch"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": ".",
+     "prompt": "We are learning German in Berlin.",
+     "explanation": "The verb is always the second element. When the sentence starts with In Berlin, the verb lernen comes next and the subject wir moves behind it: In Berlin lernen wir Deutsch."
     },
     {
      "id": "de1-q-0501",
@@ -3259,6 +3334,25 @@
      "explanation": "Ziemlich means quite or fairly, and schwer means heavy (or difficult). \"Too heavy\" would be zu schwer."
     },
     {
+     "id": "de1-q-0814",
+     "section": "de1-m2",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "das Buch",
+      "ist",
+      "nicht",
+      "sehr",
+      "interessant"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": ".",
+     "prompt": "The book isn't very interesting.",
+     "explanation": "nicht goes before the part it negates, here the adjective phrase sehr interessant: Das Buch ist nicht sehr interessant."
+    },
+    {
      "id": "de1-q-0901",
      "section": "de1-m3",
      "topic": "Accusative",
@@ -3835,6 +3929,44 @@
      "explanation": "With Uhr, one is ein: Es ist ein Uhr. Without Uhr it's eins: Es ist eins. \"eins Uhr\" mixes the two. halb eins (12:30) is correct."
     },
     {
+     "id": "de1-q-1113",
+     "section": "de1-m3",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'Um acht Uhr'.",
+     "type": "build",
+     "tiles": [
+      "um acht Uhr",
+      "beginnt",
+      "der Kurs"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": ".",
+     "prompt": "The course starts at eight o'clock.",
+     "explanation": "A time phrase can open the sentence, but the verb stays in second place, so the subject comes after it: Um acht Uhr beginnt der Kurs."
+    },
+    {
+     "id": "de1-q-1114",
+     "section": "de1-m3",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'Am Montag'.",
+     "type": "build",
+     "tiles": [
+      "am Montag",
+      "arbeite",
+      "ich",
+      "bis fünf Uhr"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "arbeitet"
+     ],
+     "punctuation": ".",
+     "prompt": "On Monday I work until five o'clock.",
+     "explanation": "Am Montag takes the first position, so the verb arbeite is second and ich follows it: Am Montag arbeite ich bis fünf Uhr."
+    },
+    {
      "id": "de1-q-1201",
      "section": "de1-m3",
      "topic": "Separable verbs",
@@ -4025,6 +4157,57 @@
       0
      ],
      "explanation": "normalerweise fills position 1, so the verb must come next: Normalerweise stehe ich früh auf. The other sentences all have the verb second and the prefix at the end."
+    },
+    {
+     "id": "de1-q-1213",
+     "section": "de1-m3",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "ich",
+      "stehe",
+      "um sieben Uhr",
+      "auf"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "aufstehe"
+     ],
+     "accept": [
+      [
+       "um sieben Uhr",
+       "stehe",
+       "ich",
+       "auf"
+      ]
+     ],
+     "punctuation": ".",
+     "prompt": "I get up at seven o'clock.",
+     "explanation": "A separable verb splits in a main clause: stehe is in second position and the prefix auf goes to the very end: Ich stehe um sieben Uhr auf. The time can also come first, with the subject after the verb: Um sieben Uhr stehe ich auf."
+    },
+    {
+     "id": "de1-q-1214",
+     "section": "de1-m3",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "wann",
+      "rufst",
+      "du",
+      "Anna",
+      "an"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "anrufst"
+     ],
+     "punctuation": "?",
+     "prompt": "When are you calling Anna?",
+     "explanation": "In a W-question the verb rufst is second, and the separable prefix an still goes to the end: Wann rufst du Anna an?"
     },
     {
      "id": "de1-q-1301",
@@ -4411,6 +4594,48 @@
      "explanation": "Lust haben means to feel like doing something, so keine Lust haben is \"not to feel like it\". No time = keine Zeit, no idea = keine Ahnung, no plan = keinen Plan."
     },
     {
+     "id": "de1-q-1413",
+     "section": "de1-m4",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'Ich'.",
+     "type": "build",
+     "tiles": [
+      "ich",
+      "kann",
+      "gut",
+      "schwimmen"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "schwimme"
+     ],
+     "punctuation": ".",
+     "prompt": "I can swim well.",
+     "explanation": "The modal verb kann is in second position and the infinitive schwimmen goes to the end: Ich kann gut schwimmen."
+    },
+    {
+     "id": "de1-q-1414",
+     "section": "de1-m4",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "willst",
+      "du",
+      "ins Kino",
+      "gehen"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "gehst"
+     ],
+     "punctuation": "?",
+     "prompt": "Do you want to go to the cinema?",
+     "explanation": "A yes/no question starts with the verb, here the modal willst. The infinitive gehen still goes to the end: Willst du ins Kino gehen?"
+    },
+    {
      "id": "de1-q-1501",
      "section": "de1-m4",
      "topic": "Modal verbs",
@@ -4601,6 +4826,55 @@
       3
      ],
      "explanation": "Pünktlich means on time or punctual: Der Termin ist um neun. Wir müssen pünktlich sein. Quiet is leise or ruhig, important is wichtig, allowed is erlaubt."
+    },
+    {
+     "id": "de1-q-1513",
+     "section": "de1-m4",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "hier",
+      "darf",
+      "man",
+      "nicht",
+      "rauchen"
+     ],
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "man",
+       "darf",
+       "hier",
+       "nicht",
+       "rauchen"
+      ]
+     ],
+     "punctuation": ".",
+     "prompt": "You're not allowed to smoke here.",
+     "explanation": "The modal darf is in second position, nicht comes before the infinitive, and rauchen goes to the end: Hier darf man nicht rauchen. Man can also come first: Man darf hier nicht rauchen."
+    },
+    {
+     "id": "de1-q-1514",
+     "section": "de1-m4",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "musst",
+      "du",
+      "morgen",
+      "arbeiten"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "arbeitest"
+     ],
+     "punctuation": "?",
+     "prompt": "Do you have to work tomorrow?",
+     "explanation": "The modal starts the yes/no question and the infinitive arbeiten closes it: Musst du morgen arbeiten?"
     },
     {
      "id": "de1-q-1601",
@@ -4985,6 +5259,53 @@
       2
      ],
      "explanation": "With a stranger you use Sie, and the Sie imperative needs Sie after the verb: Zeigen Sie mir bitte den Weg. Zeig (du) and Zeigt (ihr) are for friends, and Zeigen without Sie is incomplete."
+    },
+    {
+     "id": "de1-q-1713",
+     "section": "de1-m5",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "steigen",
+      "Sie",
+      "am Bahnhof",
+      "aus"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": "!",
+     "prompt": "Get off at the station! (polite)",
+     "explanation": "The Sie imperative starts with the verb, followed by Sie. The separable prefix aus goes to the end: Steigen Sie am Bahnhof aus!"
+    },
+    {
+     "id": "de1-q-1714",
+     "section": "de1-m5",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "ruf",
+      "mich",
+      "bitte",
+      "an"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "du"
+     ],
+     "accept": [
+      [
+       "bitte",
+       "ruf",
+       "mich",
+       "an"
+      ]
+     ],
+     "punctuation": "!",
+     "prompt": "Please call me! (to a friend)",
+     "explanation": "The du imperative has no pronoun: Ruf …! The object pronoun mich comes right after the verb and the prefix an goes to the end: Ruf mich bitte an! bitte can also come first: Bitte ruf mich an!"
     },
     {
      "id": "de1-q-1801",
@@ -5771,6 +6092,53 @@
      "explanation": "\"Verkaufen\" has the inseparable prefix ver-, so its participle has no ge-: \"Wir haben das Auto verkauft.\" The other three are correct: \"gesehen\" and \"geholfen\" are strong participles, and \"verstanden\" also has no ge- because of ver-."
     },
     {
+     "id": "de1-q-2113",
+     "section": "de1-m6",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "gestern",
+      "habe",
+      "ich",
+      "einen Kuchen",
+      "gegessen"
+     ],
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "ich",
+       "habe",
+       "gestern",
+       "einen Kuchen",
+       "gegessen"
+      ]
+     ],
+     "punctuation": ".",
+     "prompt": "Yesterday I ate a cake.",
+     "explanation": "In the perfect, haben is the verb in second position and the participle goes to the end, making a bracket: Gestern habe ich einen Kuchen gegessen, or Ich habe gestern einen Kuchen gegessen."
+    },
+    {
+     "id": "de1-q-2114",
+     "section": "de1-m6",
+     "topic": "Word order",
+     "stem": "Build the question in German.",
+     "type": "build",
+     "tiles": [
+      "was",
+      "hast",
+      "du",
+      "am Wochenende",
+      "gemacht"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": "?",
+     "prompt": "What did you do at the weekend?",
+     "explanation": "The question word, then hast in second position, and the participle gemacht at the end: Was hast du am Wochenende gemacht?"
+    },
+    {
      "id": "de1-q-2201",
      "section": "de1-m6",
      "topic": "haben or sein",
@@ -5977,6 +6345,49 @@
       0
      ],
      "explanation": "The ihr form of \"war\" is \"wart\" (ihr wart), with the -t ending of ihr. \"Waren\" is for wir and sie/Sie, and \"warst\" for du. \"Wartet\" is a form of \"warten\" (to wait)."
+    },
+    {
+     "id": "de1-q-2214",
+     "section": "de1-m6",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'Wir'.",
+     "type": "build",
+     "tiles": [
+      "wir",
+      "sind",
+      "nach Hamburg",
+      "gefahren"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "haben"
+     ],
+     "punctuation": ".",
+     "prompt": "We went to Hamburg (by car or train).",
+     "explanation": "fahren takes sein in the perfect: sind in second position, the participle gefahren at the end: Wir sind nach Hamburg gefahren."
+    },
+    {
+     "id": "de1-q-2215",
+     "section": "de1-m6",
+     "topic": "Word order",
+     "stem": "Build the sentence in German.",
+     "type": "build",
+     "tiles": [
+      "der Zug",
+      "ist",
+      "pünktlich",
+      "angekommen"
+     ],
+     "choices": [],
+     "answer": [],
+     "distractors": [
+      "hat",
+      "geankommen"
+     ],
+     "punctuation": ".",
+     "prompt": "The train arrived on time.",
+     "explanation": "ankommen takes sein, and its participle puts ge- between the prefix and the stem: angekommen, at the end of the sentence: Der Zug ist pünktlich angekommen."
     },
     {
      "id": "de1-q-2301",
@@ -6201,6 +6612,26 @@
       2
      ],
      "explanation": "\"Bestehen\" has the inseparable prefix be-, so there is no ge-, and it is strong (like \"verstehen – verstanden\"): \"bestanden\". \"Gebestanden\" adds a ge- that the prefix blocks."
+    },
+    {
+     "id": "de1-q-2315",
+     "section": "de1-m6",
+     "topic": "Word order",
+     "stem": "Build the sentence in German. Start with 'Ich komme'.",
+     "type": "build",
+     "tiles": [
+      "ich komme",
+      "nicht,",
+      "denn",
+      "ich",
+      "bin",
+      "krank"
+     ],
+     "choices": [],
+     "answer": [],
+     "punctuation": ".",
+     "prompt": "I'm not coming, because I'm ill.",
+     "explanation": "denn joins two main clauses and doesn't count as a position, so the second clause keeps normal order, subject then verb: …, denn ich bin krank."
     },
     {
      "id": "de1-q-2401",
@@ -16497,7 +16928,23 @@
   ],
   "level": "CEFR A1",
   "vocabTarget": 650,
-  "vocabSource": "Goethe-Institut A1 word list size"
+  "vocabSource": "Goethe-Institut A1 word list size",
+  "conjugation": {
+   "forms": [
+    {
+     "form": "present",
+     "lesson": "de1-present-tense"
+    },
+    {
+     "form": "imperative",
+     "lesson": "de1-city-imperative"
+    },
+    {
+     "form": "perfect",
+     "lesson": "de1-perfect-sein"
+    }
+   ]
+  }
  },
  "vocab": [
   {
@@ -16763,6 +17210,7 @@
    "lesson": "de1-sounds",
    "term": "langsam",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "slow (or slowly)",
     "slow",
@@ -16797,6 +17245,7 @@
    "lesson": "de1-sounds",
    "term": "buchstabieren",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to spell (letter by letter)",
     "to spell",
@@ -16811,6 +17260,13 @@
    "lesson": "de1-sounds",
    "term": "schreiben",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "schreibst",
+    "present3": "schreibt",
+    "preterite": "schrieb",
+    "perfect": "hat geschrieben"
+   },
    "meanings": [
     "to write",
     "to spell (in writing)"
@@ -16958,6 +17414,19 @@
    "lesson": "de1-greetings",
    "term": "sein",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present1": "bin",
+    "present2": "bist",
+    "present3": "ist",
+    "present1pl": "sind",
+    "present2pl": "seid",
+    "preterite": "war",
+    "perfect": "ist gewesen",
+    "imperative": "sei",
+    "imperativeSie": "seien Sie",
+    "subjunctive": "wäre"
+   },
    "meanings": [
     "to be"
    ],
@@ -16970,6 +17439,13 @@
    "lesson": "de1-greetings",
    "term": "heißen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "heißt",
+    "present3": "heißt",
+    "preterite": "hieß",
+    "perfect": "hat geheißen"
+   },
    "alt": [
     "heissen"
    ],
@@ -16987,6 +17463,14 @@
    "lesson": "de1-greetings",
    "term": "kommen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "kommst",
+    "present3": "kommt",
+    "preterite": "kam",
+    "perfect": "ist gekommen",
+    "subjunctive": "käme"
+   },
    "meanings": [
     "to come",
     "to come from",
@@ -17001,6 +17485,7 @@
    "lesson": "de1-greetings",
    "term": "wohnen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to live (have your home somewhere)",
     "to live",
@@ -17181,6 +17666,7 @@
    "lesson": "de1-greetings",
    "term": "gut",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "good",
     "well",
@@ -17728,6 +18214,7 @@
    "lesson": "de1-numbers",
    "term": "alt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "old",
     "aged",
@@ -17742,6 +18229,7 @@
    "lesson": "de1-numbers",
    "term": "jung",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "young"
    ],
@@ -17857,6 +18345,14 @@
    "lesson": "de1-numbers",
    "term": "haben",
    "pos": "verb",
+   "conj": "mixed",
+   "forms": {
+    "present2": "hast",
+    "present3": "hat",
+    "preterite": "hatte",
+    "perfect": "hat gehabt",
+    "subjunctive": "hätte"
+   },
    "meanings": [
     "to have",
     "to have got",
@@ -17970,6 +18466,7 @@
    "lesson": "de1-present-tense",
    "term": "machen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to make (or do)",
     "to do",
@@ -17983,6 +18480,7 @@
    "lesson": "de1-present-tense",
    "term": "lernen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to learn",
     "to study (for a test)",
@@ -17997,6 +18495,7 @@
    "lesson": "de1-present-tense",
    "term": "arbeiten",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to work"
    ],
@@ -18009,6 +18508,7 @@
    "lesson": "de1-present-tense",
    "term": "spielen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to play"
    ],
@@ -18020,6 +18520,7 @@
    "lesson": "de1-present-tense",
    "term": "hören",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to hear (or listen to)",
     "to hear",
@@ -18034,6 +18535,7 @@
    "lesson": "de1-present-tense",
    "term": "fragen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to ask (a question)",
     "to ask",
@@ -18049,6 +18551,10 @@
    "lesson": "de1-present-tense",
    "term": "antworten",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat geantwortet"
+   },
    "meanings": [
     "to answer",
     "to reply",
@@ -18063,6 +18569,7 @@
    "lesson": "de1-present-tense",
    "term": "sagen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to say",
     "to tell"
@@ -18075,6 +18582,14 @@
    "lesson": "de1-present-tense",
    "term": "gehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "gehst",
+    "present3": "geht",
+    "preterite": "ging",
+    "perfect": "ist gegangen",
+    "subjunctive": "ginge"
+   },
    "meanings": [
     "to go (on foot)",
     "to go",
@@ -18089,6 +18604,7 @@
    "lesson": "de1-present-tense",
    "term": "leben",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to live (be alive; spend your life)",
     "to live",
@@ -18102,6 +18618,7 @@
    "lesson": "de1-present-tense",
    "term": "studieren",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to study (at university)",
     "to study",
@@ -18117,6 +18634,13 @@
    "lesson": "de1-present-tense",
    "term": "verstehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "verstehst",
+    "present3": "versteht",
+    "preterite": "verstand",
+    "perfect": "hat verstanden"
+   },
    "meanings": [
     "to understand",
     "to see (understand)",
@@ -18909,6 +19433,7 @@
    "lesson": "de1-family",
    "term": "verheiratet",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "married"
    ],
@@ -18920,6 +19445,7 @@
    "lesson": "de1-family",
    "term": "ledig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "single (not married)",
     "single",
@@ -18933,6 +19459,7 @@
    "lesson": "de1-family",
    "term": "geschieden",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "divorced"
    ],
@@ -19388,6 +19915,14 @@
    "lesson": "de1-jobs-languages",
    "term": "sprechen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "sprichst",
+    "present3": "spricht",
+    "preterite": "sprach",
+    "perfect": "hat gesprochen",
+    "imperative": "sprich"
+   },
    "meanings": [
     "to speak",
     "to talk"
@@ -19491,6 +20026,7 @@
    "lesson": "de1-jobs-languages",
    "term": "international",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "international"
    ],
@@ -19502,6 +20038,7 @@
    "lesson": "de1-describing",
    "term": "groß",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "big (also: tall)",
     "big",
@@ -19520,6 +20057,7 @@
    "lesson": "de1-describing",
    "term": "klein",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "small (also: short, of people)",
     "small",
@@ -19534,6 +20072,7 @@
    "lesson": "de1-describing",
    "term": "neu",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "new"
    ],
@@ -19545,6 +20084,7 @@
    "lesson": "de1-describing",
    "term": "schön",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "beautiful",
     "nice",
@@ -19565,6 +20105,7 @@
    "lesson": "de1-describing",
    "term": "schlecht",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "bad",
     "poor"
@@ -19577,6 +20118,7 @@
    "lesson": "de1-describing",
    "term": "lang",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "long"
    ],
@@ -19588,6 +20130,7 @@
    "lesson": "de1-describing",
    "term": "kurz",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "short (in length or time)",
     "short",
@@ -19601,6 +20144,7 @@
    "lesson": "de1-describing",
    "term": "teuer",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "expensive",
     "dear",
@@ -19615,6 +20159,7 @@
    "lesson": "de1-describing",
    "term": "billig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "cheap",
     "inexpensive"
@@ -19627,6 +20172,7 @@
    "lesson": "de1-describing",
    "term": "richtig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "correct",
     "right",
@@ -19640,6 +20186,7 @@
    "lesson": "de1-describing",
    "term": "falsch",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "wrong",
     "incorrect",
@@ -19653,6 +20200,7 @@
    "lesson": "de1-describing",
    "term": "leicht",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "easy (also: light, not heavy)",
     "easy",
@@ -19667,6 +20215,7 @@
    "lesson": "de1-describing",
    "term": "schwer",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "difficult (also: heavy)",
     "difficult",
@@ -19681,6 +20230,7 @@
    "lesson": "de1-describing",
    "term": "schnell",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "fast",
     "quick",
@@ -19695,6 +20245,7 @@
    "lesson": "de1-describing",
    "term": "interessant",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "interesting"
    ],
@@ -19706,6 +20257,7 @@
    "lesson": "de1-describing",
    "term": "langweilig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "boring",
     "dull"
@@ -19719,6 +20271,7 @@
    "lesson": "de1-describing",
    "term": "toll",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "great",
     "fantastic",
@@ -19737,6 +20290,7 @@
    "lesson": "de1-describing",
    "term": "kaputt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "broken",
     "broken down",
@@ -19810,6 +20364,7 @@
    "lesson": "de1-describing",
    "term": "rot",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "red"
    ],
@@ -19821,6 +20376,7 @@
    "lesson": "de1-describing",
    "term": "blau",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "blue"
    ],
@@ -19832,6 +20388,7 @@
    "lesson": "de1-describing",
    "term": "grün",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "green"
    ],
@@ -19846,6 +20403,7 @@
    "lesson": "de1-describing",
    "term": "gelb",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "yellow"
    ],
@@ -19857,6 +20415,7 @@
    "lesson": "de1-describing",
    "term": "schwarz",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "black"
    ],
@@ -19868,6 +20427,7 @@
    "lesson": "de1-describing",
    "term": "weiß",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "white"
    ],
@@ -19882,6 +20442,7 @@
    "lesson": "de1-describing",
    "term": "grau",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "grey",
     "gray"
@@ -19894,6 +20455,7 @@
    "lesson": "de1-describing",
    "term": "braun",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "brown"
    ],
@@ -20053,6 +20615,14 @@
    "lesson": "de1-food-accusative",
    "term": "essen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "isst",
+    "present3": "isst",
+    "preterite": "aß",
+    "perfect": "hat gegessen",
+    "imperative": "iss"
+   },
    "meanings": [
     "to eat"
    ],
@@ -20065,6 +20635,13 @@
    "lesson": "de1-food-accusative",
    "term": "trinken",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "trinkst",
+    "present3": "trinkt",
+    "preterite": "trank",
+    "perfect": "hat getrunken"
+   },
    "meanings": [
     "to drink"
    ],
@@ -20077,6 +20654,14 @@
    "lesson": "de1-food-accusative",
    "term": "nehmen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "nimmst",
+    "present3": "nimmt",
+    "preterite": "nahm",
+    "perfect": "hat genommen",
+    "imperative": "nimm"
+   },
    "meanings": [
     "to take",
     "to have (when ordering)",
@@ -20466,6 +21051,7 @@
    "lesson": "de1-food-accusative",
    "term": "lecker",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "tasty",
     "delicious",
@@ -20479,6 +21065,7 @@
    "lesson": "de1-shopping",
    "term": "kaufen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to buy",
     "to purchase"
@@ -20491,6 +21078,7 @@
    "lesson": "de1-shopping",
    "term": "kosten",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to cost"
    ],
@@ -20503,6 +21091,10 @@
    "lesson": "de1-shopping",
    "term": "bezahlen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat bezahlt"
+   },
    "meanings": [
     "to pay",
     "to pay for"
@@ -20516,6 +21108,10 @@
    "lesson": "de1-shopping",
    "term": "brauchen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "subjunctive": "bräuchte"
+   },
    "meanings": [
     "to need"
    ],
@@ -20527,6 +21123,7 @@
    "lesson": "de1-shopping",
    "term": "suchen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to look for",
     "to search for",
@@ -20953,6 +21550,7 @@
    "lesson": "de1-time",
    "term": "halb",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "half",
     "half past (halb vier = 3:30)"
@@ -21273,6 +21871,7 @@
    "lesson": "de1-time",
    "term": "früh",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "early"
    ],
@@ -21284,6 +21883,7 @@
    "lesson": "de1-time",
    "term": "spät",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "late"
    ],
@@ -21317,6 +21917,14 @@
    "lesson": "de1-daily-routine",
    "term": "aufstehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "stehst auf",
+    "present3": "steht auf",
+    "preterite": "stand auf",
+    "perfect": "ist aufgestanden",
+    "sep": "auf"
+   },
    "meanings": [
     "to get up",
     "to stand up",
@@ -21331,6 +21939,14 @@
    "lesson": "de1-daily-routine",
    "term": "anfangen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "fängst an",
+    "present3": "fängt an",
+    "preterite": "fing an",
+    "perfect": "hat angefangen",
+    "sep": "an"
+   },
    "meanings": [
     "to begin",
     "to start"
@@ -21344,6 +21960,10 @@
    "lesson": "de1-daily-routine",
    "term": "einkaufen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "ein"
+   },
    "meanings": [
     "to go shopping",
     "to shop",
@@ -21358,6 +21978,14 @@
    "lesson": "de1-daily-routine",
    "term": "anrufen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "rufst an",
+    "present3": "ruft an",
+    "preterite": "rief an",
+    "perfect": "hat angerufen",
+    "sep": "an"
+   },
    "meanings": [
     "to phone",
     "to call (on the phone)",
@@ -21373,6 +22001,15 @@
    "lesson": "de1-daily-routine",
    "term": "fernsehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "siehst fern",
+    "present3": "sieht fern",
+    "preterite": "sah fern",
+    "perfect": "hat ferngesehen",
+    "imperative": "sieh fern",
+    "sep": "fern"
+   },
    "meanings": [
     "to watch TV",
     "to watch television"
@@ -21386,6 +22023,10 @@
    "lesson": "de1-daily-routine",
    "term": "aufräumen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "auf"
+   },
    "meanings": [
     "to tidy up",
     "to tidy",
@@ -21400,6 +22041,14 @@
    "lesson": "de1-daily-routine",
    "term": "mitkommen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "kommst mit",
+    "present3": "kommt mit",
+    "preterite": "kam mit",
+    "perfect": "ist mitgekommen",
+    "sep": "mit"
+   },
    "meanings": [
     "to come along",
     "to come with",
@@ -21414,6 +22063,10 @@
    "lesson": "de1-daily-routine",
    "term": "abholen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "ab"
+   },
    "meanings": [
     "to pick up (collect)",
     "to pick up",
@@ -21429,6 +22082,14 @@
    "lesson": "de1-daily-routine",
    "term": "ankommen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "kommst an",
+    "present3": "kommt an",
+    "preterite": "kam an",
+    "perfect": "ist angekommen",
+    "sep": "an"
+   },
    "meanings": [
     "to arrive",
     "to get (somewhere)"
@@ -21442,6 +22103,13 @@
    "lesson": "de1-daily-routine",
    "term": "schlafen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "schläfst",
+    "present3": "schläft",
+    "preterite": "schlief",
+    "perfect": "hat geschlafen"
+   },
    "meanings": [
     "to sleep"
    ],
@@ -21454,6 +22122,7 @@
    "lesson": "de1-daily-routine",
    "term": "duschen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to shower",
     "to take a shower",
@@ -21467,6 +22136,7 @@
    "lesson": "de1-daily-routine",
    "term": "frühstücken",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to have breakfast",
     "to eat breakfast"
@@ -21480,6 +22150,7 @@
    "lesson": "de1-daily-routine",
    "term": "kochen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to cook",
     "to boil"
@@ -21492,6 +22163,7 @@
    "lesson": "de1-daily-routine",
    "term": "putzen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to clean"
    ],
@@ -21504,6 +22176,13 @@
    "lesson": "de1-daily-routine",
    "term": "waschen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "wäschst",
+    "present3": "wäscht",
+    "preterite": "wusch",
+    "perfect": "hat gewaschen"
+   },
    "meanings": [
     "to wash"
    ],
@@ -21635,6 +22314,7 @@
    "lesson": "de1-daily-routine",
    "term": "müde",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "tired",
     "sleepy"
@@ -21647,6 +22327,7 @@
    "lesson": "de1-daily-routine",
    "term": "fertig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "finished",
     "ready",
@@ -21687,6 +22368,14 @@
    "lesson": "de1-hobbies",
    "term": "lesen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "liest",
+    "present3": "liest",
+    "preterite": "las",
+    "perfect": "hat gelesen",
+    "imperative": "lies"
+   },
    "meanings": [
     "to read"
    ],
@@ -21699,6 +22388,14 @@
    "lesson": "de1-hobbies",
    "term": "sehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "siehst",
+    "present3": "sieht",
+    "preterite": "sah",
+    "perfect": "hat gesehen",
+    "imperative": "sieh"
+   },
    "meanings": [
     "to see",
     "to watch"
@@ -21712,6 +22409,13 @@
    "lesson": "de1-hobbies",
    "term": "fahren",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "fährst",
+    "present3": "fährt",
+    "preterite": "fuhr",
+    "perfect": "ist gefahren"
+   },
    "meanings": [
     "to go (by vehicle)",
     "to go",
@@ -21728,6 +22432,13 @@
    "lesson": "de1-hobbies",
    "term": "schwimmen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "schwimmst",
+    "present3": "schwimmt",
+    "preterite": "schwamm",
+    "perfect": "ist geschwommen"
+   },
    "meanings": [
     "to swim",
     "to go swimming"
@@ -21741,6 +22452,7 @@
    "lesson": "de1-hobbies",
    "term": "tanzen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to dance"
    ],
@@ -21753,6 +22465,13 @@
    "lesson": "de1-hobbies",
    "term": "singen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "singst",
+    "present3": "singt",
+    "preterite": "sang",
+    "perfect": "hat gesungen"
+   },
    "meanings": [
     "to sing"
    ],
@@ -21765,6 +22484,10 @@
    "lesson": "de1-hobbies",
    "term": "reisen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist gereist"
+   },
    "meanings": [
     "to travel",
     "to journey",
@@ -21779,6 +22502,10 @@
    "lesson": "de1-hobbies",
    "term": "wandern",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist gewandert"
+   },
    "meanings": [
     "to hike",
     "to go hiking",
@@ -21795,6 +22522,10 @@
    "lesson": "de1-hobbies",
    "term": "joggen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist gejoggt"
+   },
    "meanings": [
     "to jog",
     "to go jogging",
@@ -21809,6 +22540,7 @@
    "lesson": "de1-hobbies",
    "term": "malen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to paint",
     "to draw (a picture)"
@@ -21821,6 +22553,7 @@
    "lesson": "de1-hobbies",
    "term": "fotografieren",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to take photos",
     "to take pictures",
@@ -21836,6 +22569,14 @@
    "lesson": "de1-hobbies",
    "term": "treffen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "triffst",
+    "present3": "trifft",
+    "preterite": "traf",
+    "perfect": "hat getroffen",
+    "imperative": "triff"
+   },
    "meanings": [
     "to meet",
     "to meet up with",
@@ -21993,6 +22734,15 @@
    "lesson": "de1-hobbies",
    "term": "geben",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "gibst",
+    "present3": "gibt",
+    "preterite": "gab",
+    "perfect": "hat gegeben",
+    "imperative": "gib",
+    "subjunctive": "gäbe"
+   },
    "meanings": [
     "to give",
     "to hand"
@@ -22006,6 +22756,14 @@
    "lesson": "de1-hobbies",
    "term": "helfen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "hilfst",
+    "present3": "hilft",
+    "preterite": "half",
+    "perfect": "hat geholfen",
+    "imperative": "hilf"
+   },
    "meanings": [
     "to help"
    ],
@@ -22086,6 +22844,13 @@
    "lesson": "de1-modals-1",
    "term": "können",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "kann",
+    "preterite": "konnte",
+    "perfect": "hat gekonnt",
+    "subjunctive": "könnte"
+   },
    "meanings": [
     "can (be able to)",
     "can",
@@ -22102,6 +22867,13 @@
    "lesson": "de1-modals-1",
    "term": "wollen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "will",
+    "preterite": "wollte",
+    "perfect": "hat gewollt",
+    "subjunctive": "wollte"
+   },
    "meanings": [
     "to want (to)",
     "to want",
@@ -22117,6 +22889,13 @@
    "lesson": "de1-modals-1",
    "term": "mögen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "mag",
+    "preterite": "mochte",
+    "perfect": "hat gemocht",
+    "subjunctive": "möchte"
+   },
    "meanings": [
     "to like (a thing or person)",
     "to like",
@@ -22446,6 +23225,14 @@
    "lesson": "de1-modals-1",
    "term": "einladen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "lädst ein",
+    "present3": "lädt ein",
+    "preterite": "lud ein",
+    "perfect": "hat eingeladen",
+    "sep": "ein"
+   },
    "meanings": [
     "to invite",
     "to treat (pay for someone)"
@@ -22459,6 +23246,7 @@
    "lesson": "de1-modals-1",
    "term": "feiern",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to celebrate",
     "to party",
@@ -22473,6 +23261,13 @@
    "lesson": "de1-modals-2",
    "term": "müssen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "muss",
+    "preterite": "musste",
+    "perfect": "hat gemusst",
+    "subjunctive": "müsste"
+   },
    "meanings": [
     "must (have to)",
     "must",
@@ -22489,6 +23284,13 @@
    "lesson": "de1-modals-2",
    "term": "dürfen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "darf",
+    "preterite": "durfte",
+    "perfect": "hat gedurft",
+    "subjunctive": "dürfte"
+   },
    "meanings": [
     "may (be allowed to)",
     "may",
@@ -22505,6 +23307,13 @@
    "lesson": "de1-modals-2",
    "term": "sollen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "soll",
+    "preterite": "sollte",
+    "perfect": "hat gesollt",
+    "subjunctive": "sollte"
+   },
    "meanings": [
     "should (be supposed to)",
     "should",
@@ -22538,6 +23347,7 @@
    "lesson": "de1-modals-2",
    "term": "rauchen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to smoke"
    ],
@@ -22549,6 +23359,7 @@
    "lesson": "de1-modals-2",
    "term": "parken",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to park"
    ],
@@ -22560,6 +23371,7 @@
    "lesson": "de1-modals-2",
    "term": "warten",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to wait"
    ],
@@ -22572,6 +23384,14 @@
    "lesson": "de1-modals-2",
    "term": "bleiben",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "bleibst",
+    "present3": "bleibt",
+    "preterite": "blieb",
+    "perfect": "ist geblieben",
+    "subjunctive": "bliebe"
+   },
    "meanings": [
     "to stay",
     "to remain"
@@ -22585,6 +23405,7 @@
    "lesson": "de1-modals-2",
    "term": "öffnen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to open"
    ],
@@ -22597,6 +23418,13 @@
    "lesson": "de1-modals-2",
    "term": "schließen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "schließt",
+    "present3": "schließt",
+    "preterite": "schloss",
+    "perfect": "hat geschlossen"
+   },
    "meanings": [
     "to close",
     "to shut"
@@ -22613,6 +23441,7 @@
    "lesson": "de1-modals-2",
    "term": "verboten",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "forbidden",
     "prohibited",
@@ -22627,6 +23456,7 @@
    "lesson": "de1-modals-2",
    "term": "erlaubt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "allowed",
     "permitted"
@@ -22698,6 +23528,7 @@
    "lesson": "de1-modals-2",
    "term": "pünktlich",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "on time",
     "punctual",
@@ -22711,6 +23542,7 @@
    "lesson": "de1-modals-2",
    "term": "ruhig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "calm (quiet, peaceful)",
     "calm",
@@ -22727,6 +23559,7 @@
    "lesson": "de1-modals-2",
    "term": "laut",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "loud",
     "noisy",
@@ -22740,6 +23573,7 @@
    "lesson": "de1-modals-2",
    "term": "leise",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "quiet (not loud)",
     "quiet",
@@ -22756,6 +23590,7 @@
    "lesson": "de1-modals-2",
    "term": "wichtig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "important"
    ],
@@ -22798,6 +23633,10 @@
    "lesson": "de1-modals-2",
    "term": "ausfüllen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "aus"
+   },
    "meanings": [
     "to fill in (a form)",
     "to fill in",
@@ -22813,6 +23652,13 @@
    "lesson": "de1-modals-2",
    "term": "unterschreiben",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "unterschreibst",
+    "present3": "unterschreibt",
+    "preterite": "unterschrieb",
+    "perfect": "hat unterschrieben"
+   },
    "meanings": [
     "to sign"
    ],
@@ -23177,6 +24023,13 @@
    "lesson": "de1-dates-weather",
    "term": "scheinen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "scheinst",
+    "present3": "scheint",
+    "preterite": "schien",
+    "perfect": "hat geschienen"
+   },
    "meanings": [
     "to shine",
     "to seem"
@@ -23190,6 +24043,7 @@
    "lesson": "de1-dates-weather",
    "term": "warm",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "warm"
    ],
@@ -23201,6 +24055,7 @@
    "lesson": "de1-dates-weather",
    "term": "kalt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "cold"
    ],
@@ -23213,6 +24068,7 @@
    "lesson": "de1-dates-weather",
    "term": "heiß",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "hot"
    ],
@@ -23227,6 +24083,7 @@
    "lesson": "de1-dates-weather",
    "term": "kühl",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "cool (chilly)",
     "cool",
@@ -23667,6 +24524,7 @@
    "lesson": "de1-city-imperative",
    "term": "weit",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "far",
     "far away",
@@ -23680,6 +24538,7 @@
    "lesson": "de1-city-imperative",
    "term": "nah",
    "pos": "adjective",
+   "conj": "adj",
    "alt": [
     "nahe"
    ],
@@ -23746,6 +24605,7 @@
    "lesson": "de1-city-imperative",
    "term": "zweite",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "second (ordinal)",
     "second",
@@ -23760,6 +24620,7 @@
    "lesson": "de1-city-imperative",
    "term": "zeigen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to show",
     "to point"
@@ -23772,6 +24633,14 @@
    "lesson": "de1-city-imperative",
    "term": "finden",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "findest",
+    "present3": "findet",
+    "preterite": "fand",
+    "perfect": "hat gefunden",
+    "subjunctive": "fände"
+   },
    "meanings": [
     "to find",
     "to think (have an opinion)",
@@ -23786,6 +24655,14 @@
    "lesson": "de1-city-imperative",
    "term": "abbiegen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "biegst ab",
+    "present3": "biegt ab",
+    "preterite": "bog ab",
+    "perfect": "ist abgebogen",
+    "sep": "ab"
+   },
    "meanings": [
     "to turn (left or right)",
     "to turn",
@@ -24080,6 +24957,14 @@
    "lesson": "de1-travel-dative",
    "term": "abfahren",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "fährst ab",
+    "present3": "fährt ab",
+    "preterite": "fuhr ab",
+    "perfect": "ist abgefahren",
+    "sep": "ab"
+   },
    "meanings": [
     "to leave (by vehicle)",
     "to leave",
@@ -24096,6 +24981,14 @@
    "lesson": "de1-travel-dative",
    "term": "einsteigen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "steigst ein",
+    "present3": "steigt ein",
+    "preterite": "stieg ein",
+    "perfect": "ist eingestiegen",
+    "sep": "ein"
+   },
    "meanings": [
     "to get on (a vehicle)",
     "to get on",
@@ -24111,6 +25004,14 @@
    "lesson": "de1-travel-dative",
    "term": "aussteigen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "steigst aus",
+    "present3": "steigt aus",
+    "preterite": "stieg aus",
+    "perfect": "ist ausgestiegen",
+    "sep": "aus"
+   },
    "meanings": [
     "to get off (a vehicle)",
     "to get off",
@@ -24125,6 +25026,14 @@
    "lesson": "de1-travel-dative",
    "term": "umsteigen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "steigst um",
+    "present3": "steigt um",
+    "preterite": "stieg um",
+    "perfect": "ist umgestiegen",
+    "sep": "um"
+   },
    "meanings": [
     "to change (trains or buses)",
     "to change",
@@ -24140,6 +25049,13 @@
    "lesson": "de1-travel-dative",
    "term": "fliegen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "fliegst",
+    "present3": "fliegt",
+    "preterite": "flog",
+    "perfect": "ist geflogen"
+   },
    "meanings": [
     "to fly"
    ],
@@ -24493,6 +25409,7 @@
    "lesson": "de1-home",
    "term": "mieten",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to rent",
     "to hire",
@@ -24506,6 +25423,7 @@
    "lesson": "de1-home",
    "term": "hell",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "bright",
     "light"
@@ -24518,6 +25436,7 @@
    "lesson": "de1-home",
    "term": "dunkel",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "dark"
    ],
@@ -24529,6 +25448,7 @@
    "lesson": "de1-home",
    "term": "modern",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "modern"
    ],
@@ -24540,6 +25460,7 @@
    "lesson": "de1-home",
    "term": "gemütlich",
    "pos": "adjective",
+   "conj": "adj",
    "alt": [
     "gemuetlich"
    ],
@@ -24875,6 +25796,7 @@
    "lesson": "de1-body-health",
    "term": "krank",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "ill",
     "sick",
@@ -24888,6 +25810,7 @@
    "lesson": "de1-body-health",
    "term": "gesund",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "healthy",
     "well",
@@ -24993,6 +25916,14 @@
    "lesson": "de1-body-health",
    "term": "wehtun",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "tust weh",
+    "present3": "tut weh",
+    "preterite": "tat weh",
+    "perfect": "hat wehgetan",
+    "sep": "weh"
+   },
    "alt": [
     "weh tun"
    ],
@@ -25146,6 +26077,10 @@
    "lesson": "de1-perfect-haben",
    "term": "besuchen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat besucht"
+   },
    "meanings": [
     "to visit",
     "to go and see",
@@ -25160,6 +26095,13 @@
    "lesson": "de1-perfect-haben",
    "term": "bekommen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "bekommst",
+    "present3": "bekommt",
+    "preterite": "bekam",
+    "perfect": "hat bekommen"
+   },
    "meanings": [
     "to get (to receive)",
     "to get",
@@ -25175,6 +26117,14 @@
    "lesson": "de1-perfect-haben",
    "term": "vergessen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "vergisst",
+    "present3": "vergisst",
+    "preterite": "vergaß",
+    "perfect": "hat vergessen",
+    "imperative": "vergiss"
+   },
    "meanings": [
     "to forget",
     "to leave behind"
@@ -25188,6 +26138,13 @@
    "lesson": "de1-perfect-haben",
    "term": "verlieren",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "verlierst",
+    "present3": "verliert",
+    "preterite": "verlor",
+    "perfect": "hat verloren"
+   },
    "meanings": [
     "to lose"
    ],
@@ -25200,6 +26157,10 @@
    "lesson": "de1-perfect-haben",
    "term": "erzählen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat erzählt"
+   },
    "meanings": [
     "to tell (a story)",
     "to tell",
@@ -25215,6 +26176,11 @@
    "lesson": "de1-perfect-haben",
    "term": "kennen",
    "pos": "verb",
+   "conj": "mixed",
+   "forms": {
+    "preterite": "kannte",
+    "perfect": "hat gekannt"
+   },
    "meanings": [
     "to know (a person or place)",
     "to know",
@@ -25230,6 +26196,13 @@
    "lesson": "de1-perfect-haben",
    "term": "wissen",
    "pos": "verb",
+   "conj": "modal",
+   "forms": {
+    "present1": "weiß",
+    "preterite": "wusste",
+    "perfect": "hat gewusst",
+    "subjunctive": "wüsste"
+   },
    "meanings": [
     "to know (a fact)",
     "to know"
@@ -25243,6 +26216,7 @@
    "lesson": "de1-perfect-haben",
    "term": "glauben",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to believe",
     "to think (to suppose)",
@@ -25257,6 +26231,11 @@
    "lesson": "de1-perfect-haben",
    "term": "denken",
    "pos": "verb",
+   "conj": "mixed",
+   "forms": {
+    "preterite": "dachte",
+    "perfect": "hat gedacht"
+   },
    "meanings": [
     "to think",
     "to consider"
@@ -25270,6 +26249,7 @@
    "lesson": "de1-perfect-haben",
    "term": "lachen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to laugh"
    ],
@@ -25281,6 +26261,7 @@
    "lesson": "de1-perfect-haben",
    "term": "weinen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to cry",
     "to weep"
@@ -25293,6 +26274,10 @@
    "lesson": "de1-perfect-haben",
    "term": "kennenlernen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "kennen"
+   },
    "alt": [
     "kennen lernen"
    ],
@@ -25311,6 +26296,10 @@
    "lesson": "de1-perfect-haben",
    "term": "verkaufen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat verkauft"
+   },
    "meanings": [
     "to sell"
    ],
@@ -25323,6 +26312,10 @@
    "lesson": "de1-perfect-haben",
    "term": "benutzen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat benutzt"
+   },
    "meanings": [
     "to use",
     "to make use of"
@@ -25336,6 +26329,7 @@
    "lesson": "de1-perfect-haben",
    "term": "schenken",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to give (as a present)",
     "to give",
@@ -25350,6 +26344,11 @@
    "lesson": "de1-perfect-haben",
    "term": "bringen",
    "pos": "verb",
+   "conj": "mixed",
+   "forms": {
+    "preterite": "brachte",
+    "perfect": "hat gebracht"
+   },
    "meanings": [
     "to bring",
     "to take (somewhere)"
@@ -25519,6 +26518,10 @@
    "lesson": "de1-perfect-sein",
    "term": "passieren",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist passiert"
+   },
    "meanings": [
     "to happen",
     "to occur"
@@ -25532,6 +26535,15 @@
    "lesson": "de1-perfect-sein",
    "term": "werden",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "wirst",
+    "present3": "wird",
+    "preterite": "wurde",
+    "perfect": "ist geworden",
+    "imperative": "werde",
+    "subjunctive": "würde"
+   },
    "meanings": [
     "to become",
     "to get (to turn into)",
@@ -25547,6 +26559,13 @@
    "lesson": "de1-perfect-sein",
    "term": "laufen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "läufst",
+    "present3": "läuft",
+    "preterite": "lief",
+    "perfect": "ist gelaufen"
+   },
    "meanings": [
     "to run",
     "to walk",
@@ -25561,6 +26580,14 @@
    "lesson": "de1-perfect-sein",
    "term": "umziehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "ziehst um",
+    "present3": "zieht um",
+    "preterite": "zog um",
+    "perfect": "ist umgezogen",
+    "sep": "um"
+   },
    "meanings": [
     "to move (house)",
     "to move",
@@ -25576,6 +26603,14 @@
    "lesson": "de1-perfect-sein",
    "term": "zurückkommen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "kommst zurück",
+    "present3": "kommt zurück",
+    "preterite": "kam zurück",
+    "perfect": "ist zurückgekommen",
+    "sep": "zurück"
+   },
    "meanings": [
     "to come back",
     "to return",
@@ -25997,6 +27032,7 @@
    "lesson": "de1-writing",
    "term": "schicken",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to send"
    ],
@@ -26074,6 +27110,7 @@
    "lesson": "de1-writing",
    "term": "männlich",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "male",
     "masculine"
@@ -26086,6 +27123,7 @@
    "lesson": "de1-writing",
    "term": "weiblich",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "female",
     "feminine"
@@ -26126,6 +27164,10 @@
    "lesson": "de1-writing",
    "term": "absagen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "ab"
+   },
    "meanings": [
     "to cancel (an appointment or event)",
     "to cancel",
@@ -26196,6 +27238,13 @@
    "lesson": "de1-writing",
    "term": "bestehen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "bestehst",
+    "present3": "besteht",
+    "preterite": "bestand",
+    "perfect": "hat bestanden"
+   },
    "meanings": [
     "to pass (an exam)",
     "to pass"
@@ -26266,6 +27315,10 @@
    "lesson": "de1-exam-review",
    "term": "ankreuzen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "sep": "an"
+   },
    "meanings": [
     "to tick (mark with a cross)",
     "to tick",
@@ -26282,6 +27335,10 @@
    "lesson": "de1-exam-review",
    "term": "ergänzen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat ergänzt"
+   },
    "meanings": [
     "to complete (fill in the gaps)",
     "to complete",
@@ -26298,6 +27355,10 @@
    "lesson": "de1-exam-review",
    "term": "wiederholen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat wiederholt"
+   },
    "meanings": [
     "to repeat",
     "to revise",
@@ -26313,6 +27374,10 @@
    "lesson": "de1-exam-review",
    "term": "erklären",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat erklärt"
+   },
    "meanings": [
     "to explain"
    ],
@@ -26325,6 +27390,7 @@
    "lesson": "de1-exam-review",
    "term": "üben",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to practise",
     "to practice",
@@ -26735,6 +27801,14 @@
    "lesson": "de1-h-ankommen",
    "term": "dabeihaben",
    "pos": "verb",
+   "conj": "mixed",
+   "forms": {
+    "present2": "hast dabei",
+    "present3": "hat dabei",
+    "preterite": "hatte dabei",
+    "perfect": "hat dabeigehabt",
+    "sep": "dabei"
+   },
    "meanings": [
     "to have with you",
     "to have on you",
@@ -26802,6 +27876,7 @@
    "lesson": "de1-h-zusammen-wohnen",
    "term": "leer",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "empty"
    ],
@@ -26813,6 +27888,14 @@
    "lesson": "de1-h-zusammen-wohnen",
    "term": "werfen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "wirfst",
+    "present3": "wirft",
+    "preterite": "warf",
+    "perfect": "hat geworfen",
+    "imperative": "wirf"
+   },
    "meanings": [
     "to throw",
     "to toss",
@@ -26827,6 +27910,7 @@
    "lesson": "de1-h-zusammen-wohnen",
    "term": "bohren",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to drill",
     "to bore"
@@ -27008,6 +28092,10 @@
    "lesson": "de1-h-maerchen",
    "term": "bellen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat gebellt"
+   },
    "meanings": [
     "to bark"
    ],
@@ -27047,6 +28135,14 @@
    "lesson": "de1-h-maerchen",
    "term": "weglaufen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "läufst weg",
+    "present3": "läuft weg",
+    "preterite": "lief weg",
+    "perfect": "ist weggelaufen",
+    "sep": "weg"
+   },
    "meanings": [
     "to run away",
     "to run off"
@@ -27172,6 +28268,13 @@
    "lesson": "de1-h-gemuetlich",
    "term": "gießen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "gießt",
+    "present3": "gießt",
+    "preterite": "goss",
+    "perfect": "hat gegossen"
+   },
    "alt": [
     "giessen"
    ],
@@ -27189,6 +28292,10 @@
    "lesson": "de1-h-gemuetlich",
    "term": "ernten",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat geerntet"
+   },
    "meanings": [
     "to harvest",
     "to pick (fruit or vegetables)",
@@ -27410,6 +28517,15 @@
    "lesson": "de1-m1-h-sounds-in-depth",
    "term": "aussprechen",
    "pos": "verb",
+   "conj": "strong",
+   "forms": {
+    "present2": "sprichst aus",
+    "present3": "spricht aus",
+    "preterite": "sprach aus",
+    "perfect": "hat ausgesprochen",
+    "imperative": "sprich aus",
+    "sep": "aus"
+   },
    "meanings": [
     "to pronounce",
     "to say (a word or sound)"
@@ -27479,6 +28595,10 @@
    "lesson": "de1-m1-h-sounds-in-depth",
    "term": "verreisen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist verreist"
+   },
    "meanings": [
     "to go away (on a trip)",
     "to go on a trip",
@@ -27506,6 +28626,7 @@
    "lesson": "de1-m1-h-german-world",
    "term": "duzen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to say du (to someone)",
     "to use du",
@@ -27521,6 +28642,7 @@
    "lesson": "de1-m1-h-german-world",
    "term": "siezen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to say Sie (to someone)",
     "to use Sie",
@@ -27663,6 +28785,7 @@
    "lesson": "de1-m1-h-numbers-life",
    "term": "rechnen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to calculate",
     "to do sums",
@@ -27680,6 +28803,7 @@
    "lesson": "de1-m1-h-numbers-life",
    "term": "zählen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to count"
    ],
@@ -27691,6 +28815,7 @@
    "lesson": "de1-m1-h-numbers-life",
    "term": "zeichnen",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to draw",
     "to sketch"
@@ -28172,6 +29297,7 @@
    "lesson": "de1-m2-h-family-names",
    "term": "getrennt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "separated (couple)",
     "separated",
@@ -28332,6 +29458,7 @@
    "lesson": "de1-m3-h-food-culture",
    "term": "satt",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "full (after eating)",
     "full",
@@ -28623,6 +29750,7 @@
    "lesson": "de1-m3-h-week-planning",
    "term": "geöffnet",
    "pos": "adjective",
+   "conj": "adj",
    "alt": [
     "geoeffnet"
    ],
@@ -28639,6 +29767,7 @@
    "lesson": "de1-m3-h-week-planning",
    "term": "geschlossen",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "closed",
     "shut"
@@ -29026,6 +30155,10 @@
    "lesson": "de1-m5-h-unterwegs",
    "term": "entwerten",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "hat entwertet"
+   },
    "meanings": [
     "to validate (a ticket)",
     "to validate",
@@ -29244,6 +30377,7 @@
    "lesson": "de1-m5-h-wohnungssuche",
    "term": "möbliert",
    "pos": "adjective",
+   "conj": "adj",
    "alt": [
     "moebliert"
    ],
@@ -29291,6 +30425,7 @@
    "lesson": "de1-m5-h-wohnungssuche",
    "term": "niedrig",
    "pos": "adjective",
+   "conj": "adj",
    "meanings": [
     "low"
    ],
@@ -29433,6 +30568,7 @@
    "lesson": "de1-m6-h-past-stories",
    "term": "klingeln",
    "pos": "verb",
+   "conj": "weak",
    "meanings": [
     "to ring (a bell or alarm)",
     "to ring",
@@ -29447,6 +30583,11 @@
    "lesson": "de1-m6-h-past-stories",
    "term": "aufwachen",
    "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist aufgewacht",
+    "sep": "auf"
+   },
    "meanings": [
     "to wake up",
     "to awake",
