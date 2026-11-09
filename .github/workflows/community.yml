@@ -43,6 +43,7 @@ on:
       - "src/lib/code.ts"
       - "src/lib/courseAudio.ts"
       - "src/lib/courseContentTypes.ts"
+      - "src/lib/courseConjugation.ts"
       - "src/lib/diagram.ts"
       - "src/lib/dialogueContent.ts"
       - "src/lib/drills.ts"

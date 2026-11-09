@@ -43,6 +43,8 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
+import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
+import { CONJ_FORMS, DE_ADJ_FORMS, DE_CLASSES, DE_FORM_KEYS, DE_VERB_FORMS, JA_ADJ_FORMS, JA_CLASSES, JA_VERB_FORMS } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -99,9 +101,13 @@ async function checkExercise(q: Question, say: (s: string) => void): Promise<voi
   if (starter && spec.tests.every((t, i) => judge(spec, t, starter[i]).ok)) say(`question ${q.id}: the starter code already passes every test`);
 }
 
-export async function checkCourse(file: string, opts: { runs?: number; money?: boolean } = {}): Promise<string[]> {
+/** `warnings` collects things to look at again that aren't errors (e.g. ichidan/godan look-alikes). */
+export async function checkCourse(file: string, opts: { runs?: number; money?: boolean; warnings?: string[] } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
+  const warn = (s: string) => {
+    if (!opts.warnings?.includes(s)) opts.warnings?.push(s);
+  };
   const raw = JSON.parse(readFileSync(file, "utf8"));
   const c = normalizeCourse(raw);
   const runs = opts.runs ?? 40;
@@ -348,6 +354,47 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     if (new Set(list).size !== list.length) say(`${where}: "pitch" lists the same accent twice`);
   }
 
+  // --- Conjugation drills ---------------------------------------------------------------------
+  {
+    const lang = c.language?.code ?? "";
+    const rawConj = raw.language?.conjugation;
+    const settings = c.language?.conjugation;
+    const own = new Set(c.lessons.map((l) => l.id));
+    const usable = lang === "ja" ? [...JA_VERB_FORMS, ...JA_ADJ_FORMS] : lang === "de" ? [...DE_VERB_FORMS, ...DE_ADJ_FORMS] : [];
+    if (rawConj !== undefined) {
+      if (!Array.isArray(rawConj?.forms)) say(`language.conjugation: needs "forms": [{ "form": "…", "lesson": "…" }]`);
+      else
+        for (const f of rawConj.forms) {
+          const form = f?.form;
+          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese and German have conjugation drills"})`);
+          else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
+        }
+      if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)
+        say(`language.conjugation: a form is listed twice`);
+      if (rawConj?.round !== undefined && settings?.round === undefined) say(`language.conjugation.round: must be a whole number from 1 to 100`);
+    }
+    for (const s of settings?.forms ?? [])
+      if (s.lesson && !s.from && !own.has(s.lesson)) say(`language.conjugation form ${s.form}: unknown lesson "${s.lesson}"`);
+    const conjugatable = (c.vocab ?? []).filter((v) => v.conj);
+    for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
+      if (v?.conj !== undefined && ![...JA_CLASSES, ...DE_CLASSES].includes(v.conj))
+        say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${lang === "ja" ? JA_CLASSES.join(", ") : DE_CLASSES.join(", ")})`);
+      if (v?.forms !== undefined)
+        for (const k of Object.keys(v.forms ?? {})) if (!(DE_FORM_KEYS as readonly string[]).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${DE_FORM_KEYS.join(", ")})`);
+    }
+    for (const v of c.vocab ?? []) {
+      const p = conjWordProblem(lang, v);
+      if (p) say(`word ${v.id}: ${p}`);
+      const adjClass = v.conj === "adj" || v.conj === "i-adj" || v.conj === "ii-adj" || v.conj === "na-adj";
+      if (v.conj && v.pos && (adjClass ? !/adj/.test(v.pos) : !/verb/.test(v.pos))) warn(`word ${v.id}: "conj" ${v.conj} on a word whose pos is "${v.pos}"`);
+      for (const w of conjWordWarnings(lang, v)) warn(`word ${v.id}: ${w}`);
+    }
+    if (settings && !conjugatable.length) say(`language.conjugation: no vocabulary has "conj", so there's nothing to drill`);
+    if (conjugatable.length && !settings) warn(`vocabulary has "conj" but the course has no language.conjugation, so no forms are drilled`);
+    if (lang === "de" && settings?.forms.some((f) => f.form.startsWith("adj-")) && !(c.vocab ?? []).some((v) => deNoun(v)))
+      say(`language.conjugation: adjective endings need nouns written with their article ("der Hund")`);
+  }
+
   // --- Sound -----------------------------------------------------------------------------
   const big = (src: string) => audioBytes(src) > 400_000;
   for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
@@ -487,9 +534,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 if (process.argv[1]?.endsWith("check-course.mts")) {
   let total = 0;
   for (const f of process.argv.slice(2)) {
-    const p = await checkCourse(f);
+    const warnings: string[] = [];
+    const p = await checkCourse(f, { warnings });
     total += p.length;
     console.log(p.length ? `${f}: ${p.length} problem(s)\n  ${p.join("\n  ")}` : `${f}: OK`);
+    if (warnings.length) console.log(`${f}: ${warnings.length} warning(s) to review\n  ${warnings.join("\n  ")}`);
   }
   if (total) process.exit(1);
 }

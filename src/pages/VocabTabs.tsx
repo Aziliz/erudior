@@ -8,6 +8,7 @@ import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
 import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
 import { hasKanji } from "../lib/kana";
+import { buildRound, conjSettings, conjSummary, conjWords } from "../lib/conjugation";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
@@ -16,6 +17,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const [filter, setFilter] = useState<"all" | "unlocked" | "learning" | "learned">("unlocked");
   const lessonTitle = useMemo(() => new Map(course.lessons.map((l) => [l.id, l.title])), [course]);
   const target = lang?.vocabTarget;
+  const conj = useMemo(() => !!conjSettings(course) && conjWords(course).length > 0, [course]);
 
   const unlocked = new Set(unlockedItems(course, progress).map((v) => v.id));
   const groupOf = (v: { from?: string; lesson: string }) => (v.from ? `from:${v.from}` : v.lesson);
@@ -61,6 +63,8 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
           </button>
         </div>
       </section>
+
+      {conj && <ConjugationPanel api={api} course={course} lessonTitle={lessonTitle} />}
 
       <section className="panel">
         <div className="vocab-stats">
@@ -148,6 +152,63 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
         })}
       </section>
     </div>
+  );
+}
+
+/** Conjugation drills: start a round, and accuracy for every form the course drills. */
+function ConjugationPanel({ api, course, lessonTitle }: { api: AppApi; course: Course; lessonTitle: Map<string, string> }) {
+  const { progress } = api;
+  const rows = conjSummary(course, progress);
+  const canStart = useMemo(() => buildRound(course, progress, 1).length > 0, [course, progress]);
+  const openCount = rows.filter((r) => r.open).length;
+  return (
+    <section className="panel conj-panel" aria-labelledby="conj-heading">
+      <div className="review-banner conj-banner">
+        <div>
+          <h2 id="conj-heading">Conjugation</h2>
+          <p className="muted small">
+            Type the forms of the verbs and adjectives you've unlocked, like the past tense or the {course.language?.code === "ja" ? "て form" : "Perfekt"}. Each
+            form joins practice when you finish the lesson that teaches it. Your first answer to each prompt counts toward that form's accuracy.
+          </p>
+        </div>
+        <div className="row">
+          <button className="btn primary" disabled={!canStart} onClick={() => api.go({ name: "vocab", courseId: course.id, mode: "conjugation" })}>
+            Practice conjugation
+          </button>
+        </div>
+      </div>
+      {!canStart && (
+        <p className="muted small">
+          {openCount ? "Finish a lesson with verbs or adjectives to start." : "Finish the lesson that teaches the first form to start."}
+        </p>
+      )}
+      <table className="table conj-table">
+        <caption className="sr-only">Conjugation accuracy by form</caption>
+        <thead>
+          <tr>
+            <th scope="col">Form</th>
+            <th scope="col">Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => {
+            const total = r.right + r.wrong;
+            return (
+              <tr key={r.form}>
+                <td>{r.name}</td>
+                <td className="muted small">
+                  {!r.open
+                    ? `Unlocks with ${r.from ? "a lesson in an earlier course" : `“${lessonTitle.get(r.lesson ?? "") ?? r.lesson}”`}`
+                    : total
+                      ? `${r.right} of ${total} right (${Math.round((100 * r.right) / total)}%)`
+                      : "Not practiced yet"}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
   );
 }
 

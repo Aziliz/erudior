@@ -183,6 +183,14 @@ export interface VocabState {
   intro?: string;
 }
 
+/** Conjugation drill accuracy for one form in one language. */
+export interface ConjTally {
+  right: number;
+  wrong: number;
+  /** YYYY-MM-DD last answered. */
+  last?: string;
+}
+
 // ---------------------------------------------------------------------------
 
 export interface CardState {
@@ -261,6 +269,8 @@ export interface Progress {
   drills: Record<string, { attempts: number; correct: number }>;
   /** `${courseId}/${itemId}/${direction}` -> vocabulary review state */
   vocab?: Record<string, VocabState>;
+  /** `${languageCode}:${formId}` -> conjugation drill accuracy for that form (lib/conjugation.ts) */
+  conj?: Record<string, ConjTally>;
   /** `${bankId}/${questionId}` -> the user's persistent flag and note */
   qmeta?: Record<string, QuestionMeta>;
   /** Study habits for practice (see BankHome). */
