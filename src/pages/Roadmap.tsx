@@ -1,4 +1,5 @@
 // erudior.com/roadmap: school courses, all language levels, and product progress.
+import type { CourseOutline } from "../lib/roadmapOutlines/types";
 import { CATALOG } from "../lib/catalog";
 import { ENGINE, ENGINE_IN_PROGRESS, ENGINE_PROGRESS_DETAILS, ENGINE_PLANNED, PUBLIC_ROADMAP, UPDATES } from "../lib/roadmap";
 import { appUrl } from "../lib/site";
@@ -56,10 +57,11 @@ export default function Roadmap() {
                 {g.courses.map((c) => (
                   <li key={c.title} className={c.entry ? "is-done" : ""}>
                     <span className={`pill ${c.entry ? "pass" : ""}`}>{c.entry ? "Available" : "Planned"}</span>
-                    <span className="roadmap-name">
+                    <div className="roadmap-name">
                       {c.entry ? <a href={appUrl("/" + slugify(c.entry.title))}>{c.title}</a> : c.title}
                       {c.covers && <span className="faint small"> · {c.covers}</span>}
-                    </span>
+                      {!c.entry && <OutlineDetails title={c.title} outline={c.outline} />}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -75,10 +77,11 @@ export default function Roadmap() {
                 {language.courses.map((course) => (
                   <li key={course.title} className={course.entry ? "is-done" : ""}>
                     <span className={`pill ${course.entry ? "pass" : ""}`}>{course.entry ? "Available" : "Planned"}</span>
-                    <span className="roadmap-name">
+                    <div className="roadmap-name">
                       {course.entry ? <a href={appUrl("/" + slugify(course.entry.title))}>{course.title}</a> : course.title}
                       {course.covers && <span className="faint small"> · {course.covers}</span>}
-                    </span>
+                      {!course.entry && <OutlineDetails title={course.title} outline={course.outline} />}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -129,4 +132,15 @@ export default function Roadmap() {
 
     </div>
   );
+}
+
+/** A planned course's outline, collapsed under its name. */
+function OutlineDetails({ title, outline }: { title: string; outline?: CourseOutline }) {
+  if (!outline) return null;
+  return <details className="roadmap-outline">
+    <summary className="small">Course outline<span className="sr-only">: {title}</span></summary>
+    <h4 className="small">Modules</h4><ol className="small">{outline.modules.map(module => <li key={module}>{module}</li>)}</ol>
+    <h4 className="small">Outcomes</h4><ul className="small">{outline.outcomes.map(outcome => <li key={outcome}>{outcome}</li>)}</ul>
+    <p className="small"><b>Capstone:</b> {outline.capstone}</p>
+  </details>;
 }

@@ -7758,7 +7758,10 @@ button.fn-ref {
   --roadmap-row-gap: 10px;
   --roadmap-section-gap: 28px;
   --roadmap-accent: #4b8c96;
+  --roadmap-gold: #7d5a24; /* 5.5:1 on the light page; the lighter gold below is for dark themes */
 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) .roadmap { --roadmap-gold: #a47735; } }
+:root[data-theme="dark"] .roadmap, :root[data-theme="dim"] .roadmap { --roadmap-gold: #a47735; }
 .roadmap .roadmap-group { margin-top: var(--roadmap-section-gap); }
 .roadmap .roadmap-group > h2 {
   color: var(--roadmap-accent);
@@ -7768,7 +7771,7 @@ button.fn-ref {
   font-size: 1.15rem;
 }
 .roadmap #course-updates h3 {
-  color: #a47735;
+  color: var(--roadmap-gold, #7d5a24);
   margin: 24px 0 12px;
   font-size: 1.05rem;
 }
@@ -8149,3 +8152,12 @@ html .pitch-toggle .pa-d::after {
 .program-group > summary::-webkit-details-marker { display: none; }
 .program-group > summary::before { content: "▸"; color: var(--ink-2); }
 .program-group[open] > summary::before { content: "▾"; }
+
+/* Roadmap course outlines */
+.roadmap-outline { margin: 4px 0 8px; }
+.roadmap-outline > summary { cursor: pointer; min-height: 24px; padding: 2px 0; }
+.roadmap .roadmap-list .roadmap-outline li, .roadmap-list .roadmap-outline li { display: list-item; gap: 0; padding: 0; border: 0; margin: 0; }
+.roadmap-outline ol { list-style: decimal; }
+.roadmap-outline ul { list-style: disc; }
+.roadmap-outline h4 { margin: 8px 0 2px; }
+.roadmap-outline ol, .roadmap-outline ul { margin: 0 0 4px 1.25rem; padding: 0; }

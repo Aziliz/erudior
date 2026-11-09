@@ -33,3 +33,23 @@ try {
   assert((await readFile("src/pages/Roadmap.tsx", "utf8")).includes("const all = rows.flatMap"), "counts use displayed scope");
 } finally { await unlink(outfile); }
 console.log("Public roadmap scope and preserved sections passed.");
+
+// Every course that isn't built yet has an outline: modules, outcomes and a capstone.
+{
+  const { CATALOG } = await import('../src/lib/catalog');
+  const { K8_OUTLINES } = await import('../src/lib/roadmapOutlines/k8');
+  const { HS_OUTLINES } = await import('../src/lib/roadmapOutlines/hs');
+  const { ELECTIVE_OUTLINES } = await import('../src/lib/roadmapOutlines/electives');
+  const built = new Set(CATALOG.map(entry => entry.title));
+  const courses = PUBLIC_ROADMAP.flatMap(group => group.courses);
+  const planned = courses.filter(course => !built.has(course.catalog ?? course.title));
+  for (const course of planned) {
+    const outline = course.outline;
+    assert(outline, `${course.title} has an outline`);
+    assert(outline.modules.length >= 4 && outline.outcomes.length >= 2 && outline.capstone.length > 30, `${course.title}: outline detail`);
+    assert.equal(new Set(outline.modules).size, outline.modules.length, `${course.title}: no repeated module`);
+  }
+  const titles = new Set(courses.map(course => course.title));
+  for (const title of Object.keys({ ...K8_OUTLINES, ...HS_OUTLINES, ...ELECTIVE_OUTLINES })) assert(titles.has(title), `outline for unknown roadmap course: ${title}`);
+  console.log(`Roadmap outlines: ${planned.length} planned courses outlined.`);
+}

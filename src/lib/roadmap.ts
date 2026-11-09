@@ -1,4 +1,10 @@
 import { JD_PROGRAM } from "./jdProgram";
+import { STUDY_PROGRAMS, programCourses } from "./studyPrograms";
+import type { CourseOutline } from "./roadmapOutlines/types";
+import { K8_OUTLINES } from "./roadmapOutlines/k8";
+import { HS_OUTLINES } from "./roadmapOutlines/hs";
+import { ELECTIVE_OUTLINES } from "./roadmapOutlines/electives";
+import { languageOutline } from "./roadmapOutlines/languages";
 
 // What Erudior needs before version 1.0 (ready to be a family's whole homeschool program or a
 // teacher's course set): the K–12 course map from Jon's homeschool roadmap, and the lesson-engine
@@ -11,6 +17,8 @@ export interface RoadmapCourse {
   covers?: string;
   /** Catalog title when it exists (or will exist) under another name. */
   catalog?: string;
+  /** Modules, outcomes and capstone for a course that isn't built yet (filled in below). */
+  outline?: CourseOutline;
 }
 
 export interface RoadmapGroup {
@@ -831,6 +839,22 @@ export const ROADMAP: RoadmapGroup[] = [
     { title: "Real estate practical applications — jurisdiction-specific hours" },
   ] },
 ];
+
+// Attach an outline to every course: a program's outline when a program teaches it, else the
+// written roadmap outlines, else (for modern-language levels) the shared level outline.
+{
+  const programOutlines = new Map(STUDY_PROGRAMS.flatMap(programCourses)
+    .map(course => [course.title, { modules: course.modules, outcomes: course.outcomes, capstone: course.assignment }] as const));
+  const written: Record<string, CourseOutline> = { ...K8_OUTLINES, ...HS_OUTLINES, ...ELECTIVE_OUTLINES };
+  const levelOf = (title: string) => /^(.*) ((?:HSK|TOPIK|Level) \d|N\d|[ABC][12]|Novice|Intermediate|Advanced|Superior|Distinguished)$/.exec(title);
+  for (const group of ROADMAP) {
+    const modern = group.id.startsWith("language-") && !["language-latin", "language-ancient-greek", "language-asl"].includes(group.id);
+    group.courses.forEach((course, index) => {
+      course.outline ??= programOutlines.get(course.title) ?? written[course.title]
+        ?? (modern && levelOf(course.title) ? languageOutline(levelOf(course.title)![1]!, levelOf(course.title)![2]!, index, group.courses.length) : undefined);
+    });
+  }
+}
 
 /** Public course scope: pre-K–12, the college general education core and every language proficiency level.
  * Keep professional programs and college electives in the internal data/catalog.
