@@ -209,10 +209,22 @@ try{
    await page.getByLabel('Backup passphrase',{exact:true}).fill(backupPass);const downloaded=page.waitForEvent('download');await button('Back up now').click();await authenticate();const download=await downloaded;await download.saveAs(backupPath);
    const envelope=JSON.parse(await readFile(backupPath,'utf8'));assert.equal(envelope.format,'examiner-backup-encrypted');assert.equal(JSON.stringify(envelope).includes('Synthetic Alice'),false,'backup output is encrypted');
    async function restoreBackup(expectSuccess){
-    await page.getByLabel('Passphrase of the backup to restore',{exact:true}).fill(backupPass);const picker=page.waitForEvent('filechooser');await button('Restore from backup…').click();await authenticate();const chooser=await picker;acceptDialogs=true;const restored=expectSuccess?page.waitForEvent('load'):null;await chooser.setFiles(backupPath);
-    if(expectSuccess){await restored;await page.goto(origin+'/parent/planning');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();}
-    else await page.getByRole('alert').filter({hasText:'This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.'}).waitFor();
-    acceptDialogs=false;
+    await button('Verify an encrypted backup').click();await authenticate();
+    // Authentication precedes private inputs; verification is separate from restore.
+    await page.getByLabel('Encrypted Family backup file',{exact:true}).setInputFiles(backupPath);
+    await page.getByLabel('Backup passphrase to verify',{exact:true}).fill(backupPass);
+    await button('Verify selected backup').click();
+    if(expectSuccess){
+     await heading('Backup verified').waitFor();await button('Review restore').click();
+     assert.equal(await button('Restore this verified backup').isDisabled(),true,'Explicit replacement acknowledgement is required');
+     await page.getByLabel('I understand this replaces local Family data',{exact:true}).check();
+     const restored=page.waitForEvent('load');await button('Restore this verified backup').click();await restored;
+     await page.goto(origin+'/parent/planning');await heading('Parent area').waitFor();await authenticate();await page.getByRole('navigation',{name:'Parent sections',exact:true}).waitFor();
+    }else{
+     await page.getByRole('alert').filter({hasText:'This backup contains a deleted learner. Erased learner records cannot be restored to their old identity.'}).waitFor();
+     assert.equal(await heading('Backup verified').count(),0,'Deleted learner backup is rejected before a restore review exists');
+     assert.equal(await button('Restore this verified backup').count(),0);
+    }
    }
    await restoreBackup(true);
    await page.getByRole('navigation',{name:'Parent sections',exact:true}).getByRole('button',{name:'Students',exact:true}).click();acceptDialogs=true;await button('Remove Synthetic Bob').click();await authenticate();await waitForPersisted(async id=>!(await(await import('/src/lib/family.ts')).loadFamily()).students.some(s=>s.id===id),ids[1]);acceptDialogs=false;

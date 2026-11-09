@@ -1,0 +1,35 @@
+name: Family backup recovery acceptance
+on:
+  pull_request:
+    branches: [main]
+    paths: ['src/**', 'tests/**', 'scripts/family-recovery-browser.mjs', 'scripts/fixtures/family-recovery-fixture.mjs', '.github/workflows/family-recovery.yml', 'package*.json']
+  push:
+    branches: [main]
+    paths: ['src/**', 'tests/**', 'scripts/family-recovery-browser.mjs', 'scripts/fixtures/family-recovery-fixture.mjs', '.github/workflows/family-recovery.yml', 'package*.json']
+permissions:
+  contents: read
+concurrency:
+  group: family-recovery-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  family-recovery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run test:family-recovery
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/family-recovery-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: family-recovery-browser
+          path: test-results/family-recovery-browser/
+          if-no-files-found: warn
+          retention-days: 14
