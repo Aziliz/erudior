@@ -15,7 +15,8 @@ import { SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
 import { useAssignmentLinks } from "./WorkView";
-import { FuriganaToggle, RubyText } from "../components/Ruby";
+import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { hasKanji } from "../lib/kana";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
   const key = lessonKey(course.id, lesson.id);
@@ -101,7 +102,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1 data-ra="title">{lesson.title}</h1>
-        {course.language?.code === "ja" && <FuriganaToggle />}
+        {course.language?.code === "ja" && <JapaneseToggles />}
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}
@@ -158,8 +159,11 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
               {words.map((v) => (
                 <tr key={v.id}>
                   <td lang={lang?.code}>
-                    <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} /></span>
+                    <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} pitch={v.pitch} /></span>
                     <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
+                    {lang?.code === "ja" && v.pitch !== undefined && v.reading && hasKanji(v.term) && (
+                      <div className="vocab-pitch-reading small"><PitchText kana={v.reading} pitch={v.pitch} /></div>
+                    )}
                     {v.plural && <div className="muted small">pl. {v.plural}</div>}
                   </td>
                   <td>

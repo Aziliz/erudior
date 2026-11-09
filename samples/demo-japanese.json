@@ -3,8 +3,8 @@
  "version": 1,
  "id": "demo-japanese",
  "title": "Japanese demo",
- "revision": 2,
- "description": "Sample of Japanese support: furigana, romaji typing, kana answers, sentence building.",
+ "revision": 3,
+ "description": "Sample of Japanese support: furigana, pitch accent, romaji typing, kana answers, sentence building.",
  "language": {
   "code": "ja",
   "name": "Japanese",
@@ -33,7 +33,7 @@
     "q3",
     "q4"
    ],
-   "body": "## Words with kanji\n\nKanji often carry a reading above them, called **furigana**: {猫|ねこ} (cat), {お茶|おちゃ} (tea), {日本語|にほんご} (Japanese).\n\n> *{猫|ねこ}が すきです。* — I like cats.\n\n| Kanji | Reading | Meaning |\n|---|---|---|\n| {水|みず} | みず | water |\n| {食|た}べる | たべる | to eat |\n\nKatakana is for loanwords: *タクシー* (taxi), *コーヒー* (coffee).\n\n## Writing kana\n\n```trace\nねがパ\n```\n\n## Writing kanji\n\nKanji have a set stroke order too: {日|ひ} (sun, day) takes four strokes and {本|ほん} (book) five.\n\n```trace\n日本\n```\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson."
+   "body": "## Words with kanji\n\nKanji often carry a reading above them, called **furigana**: {猫|ねこ} (cat), {お茶|おちゃ} (tea), {日本語|にほんご} (Japanese).\n\n> *{猫|ねこ}が すきです。* — I like cats.\n\n| Kanji | Reading | Meaning |\n|---|---|---|\n| {水|みず} | みず | water |\n| {食|た}べる | たべる | to eat |\n\nKatakana is for loanwords: *タクシー* (taxi), *コーヒー* (coffee).\n\n## Pitch accent\n\nTokyo Japanese gives each mora (beat) of a word a high or low pitch. The line shows the high morae and the tick shows where the pitch drops. {箸|はし:1} (chopsticks) drops after its first mora; {橋|はし:2} (bridge) stays high to its end and drops before a particle: {橋|はし:2}を わたる (cross a bridge). Words with no drop are flat: [おちゃ:0] (tea). Kana words take the same marks: [ねこ:1] (cat), [タクシー:1] (taxi). The **Pitch accent** switch hides the marks.\n\n## Writing kana\n\n```trace\nねがパ\n```\n\n## Writing kanji\n\nKanji have a set stroke order too: {日|ひ} (sun, day) takes four strokes and {本|ほん} (book) five.\n\n```trace\n日本\n```\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson."
   }
  ],
  "banks": [
@@ -142,7 +142,8 @@
     "cat"
    ],
    "example": "{猫|ねこ}が すきです。",
-   "exampleEn": "I like cats."
+   "exampleEn": "I like cats.",
+   "pitch": 1
   },
   {
    "id": "ocha",
@@ -153,7 +154,8 @@
    "meanings": [
     "tea",
     "green tea"
-   ]
+   ],
+   "pitch": 0
   },
   {
    "id": "taberu",
@@ -163,7 +165,8 @@
    "pos": "verb",
    "meanings": [
     "to eat"
-   ]
+   ],
+   "pitch": 2
   },
   {
    "id": "takushii",
@@ -172,7 +175,8 @@
    "pos": "noun",
    "meanings": [
     "taxi"
-   ]
+   ],
+   "pitch": 1
   }
  ]
 }

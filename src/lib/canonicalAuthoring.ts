@@ -1,4 +1,5 @@
 import { validateReaderMarkdownAssets, readerMarkdownParts } from './readerMarkdownAssets';
+import { moraCount, validAccent } from './kana';
 import { validateImageAsset } from "./imageAssets";
 import { validateLessonSource, validateInteractiveQuestion, validateFigureSpec } from "./lessonSource";
 import { validateCourseAudioFields, validateQuestionAudioFields, validateVocabAudioFields } from "./courseAudio";
@@ -134,6 +135,13 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         return; const ids = new Set<string>(); v.forEach((x, i) => { const p = `${path}[${i}]`; if (!shape(x, keys, p))
         return; if (keys.includes('id'))
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
+    /** Japanese pitch accent: a whole number (or non-empty list of distinct ones) from 0 to the reading's mora count. */
+    function pitchAccent(v: Record<string, unknown>, path: string) { if ((c.language as { code?: unknown } | undefined)?.code !== 'ja')
+        return add(path, 'pitch accent is only for Japanese courses'); const kana = typeof v.reading === 'string' && v.reading ? v.reading : typeof v.term === 'string' ? v.term : ''; const morae = moraCount(kana); const list = Array.isArray(v.pitch) ? v.pitch : [v.pitch];
+        if (!list.length || list.length > 4 || new Set(list).size !== list.length)
+            return add(path, 'one accent number or a short list of distinct ones required'); for (const a of list)
+            if (!validAccent(a, morae))
+                add(path, `accent from 0 to ${morae} (the reading's morae) required`); }
     function glossary(v: unknown, path: string) { objects(v, path, ['term', 'definition', 'aliases', 'topic'], (g, p) => { str(g.term, p + '.term', true); str(g.definition, p + '.definition', true); optionalStr(g, ['topic'], p); if (g.aliases !== undefined)
         strings(g.aliases, p + '.aliases'); }); }
     const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'documentReviews', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
@@ -403,7 +411,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             integer(c.language.vocabTarget, 'language.vocabTarget');
     }
     if (c.vocab !== undefined)
-        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions'], (v, p) => { str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
+        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions'], (v, p) => { if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
         else if (!lessonIds.has(v.lesson) && !(validId(v.from) && v.from !== c.id)) add(p+'.lesson','unknown local lesson');
         if(v.from!==undefined&&!validId(v.from))add(p+'.from','invalid source course ID'); optionalStr(v, ['from', 'reading', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio'], p); if (v.kind !== undefined && !['word', 'phrase', 'char'].includes(v.kind as string))
             add(p + '.kind', 'unknown vocabulary kind'); if (v.alt !== undefined)

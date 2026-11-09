@@ -37,7 +37,7 @@ import vm from "node:vm";
 import { DEFAULT_TIME_LIMIT, codeBlockProblems, findCodeBlocks, judge, testCall, type CodeLang } from "../src/lib/code.ts";
 import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
-import { hasKanji, isKanaOnly, normJa, rubyProblems } from "../src/lib/kana.ts";
+import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAccent } from "../src/lib/kana.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
@@ -328,6 +328,25 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         say(`${where}: typing its reading "${typed}" isn't accepted`);
       for (const x of [v.example, v.note]) if (x) for (const p of rubyProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
     }
+
+  // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.
+  for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
+    if (v?.pitch === undefined) continue;
+    const where = `word ${v.id ?? i + 1}`;
+    if (!japanese) {
+      say(`${where}: "pitch" (pitch accent) is only for Japanese courses`);
+      continue;
+    }
+    const kana = typeof v.reading === "string" && v.reading ? v.reading : typeof v.term === "string" && !hasKanji(v.term) ? v.term : "";
+    if (!kana) continue; // a kanji term without a reading is reported above
+    const n = moraCount(kana);
+    const list: unknown[] = Array.isArray(v.pitch) ? v.pitch : [v.pitch];
+    if (!list.length) say(`${where}: "pitch" is an empty list; give the accent as a number, or leave it out`);
+    for (const a of list)
+      if (!validAccent(a, n))
+        say(`${where}: "pitch" ${JSON.stringify(a)} isn't an accent for "${kana}": use a whole number from 0 (flat) to ${n} (its morae: ${morae(kana).join("・")})`);
+    if (new Set(list).size !== list.length) say(`${where}: "pitch" lists the same accent twice`);
+  }
 
   // --- Sound -----------------------------------------------------------------------------
   const big = (src: string) => audioBytes(src) > 400_000;

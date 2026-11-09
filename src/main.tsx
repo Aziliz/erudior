@@ -20,9 +20,10 @@ import "./advanced-assessment.css";
 import "./learningGames.css";
 import "./learningProgress.css";
 import "./startupSplash.css";
-import { applyFurigana } from "./components/Ruby";
+import { applyFurigana, applyPitch } from "./components/Ruby";
 // Furigana on/off (Japanese courses) is a per-device display setting.
 applyFurigana();
+applyPitch();
 // Footer styles must be in the entry CSS, including restored prerendered pages.
 import "./engineAttribution.css";
 import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismissal } from "./lib/startupSplash";

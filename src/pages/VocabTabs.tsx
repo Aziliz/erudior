@@ -6,7 +6,8 @@ import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
-import { RubyText } from "../components/Ruby";
+import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { hasKanji } from "../lib/kana";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
@@ -96,6 +97,11 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             <option value="all">All, including locked</option>
           </select>
         </div>
+        {lang?.code === "ja" && (
+          <div className="row ja-toggles" style={{ marginBottom: 8 }}>
+            <JapaneseToggles />
+          </div>
+        )}
         {!ordered.length && (
           <p className="muted">{filter === "unlocked" ? "Finish a lesson to unlock its words." : "Nothing here yet."}</p>
         )}
@@ -117,8 +123,11 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                   {items.map((v) => (
                     <tr key={v.id}>
                       <td lang={lang?.code}>
-                        <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} /></span>
+                        <span className="vocab-term"><RubyText text={v.term} reading={v.reading} lang={lang?.code} pitch={v.pitch} /></span>
                         <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
+                        {lang?.code === "ja" && v.pitch !== undefined && v.reading && hasKanji(v.term) && (
+                          <div className="vocab-pitch-reading small"><PitchText kana={v.reading} pitch={v.pitch} /></div>
+                        )}
                         {v.plural && <div className="muted small">pl. {v.plural}</div>}
                       </td>
                       <td>{v.meanings.join("; ")}</td>
