@@ -5185,6 +5185,10 @@ figure.manip {
   align-items: stretch;
   gap: 8px;
 }
+/* KaTeX fraction layout can extend outside the option and intercept a nearby control. */
+.choice .katex-html {
+  pointer-events: none;
+}
 .choice-row .choice {
   flex: 1;
   min-width: 0;

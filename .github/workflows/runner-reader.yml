@@ -49,20 +49,19 @@ jobs:
           node-version: '22'
           cache: npm
           cache-dependency-path: guided-integration/package-lock.json
-      - name: Apply only the spacing rule and synthetic regression to pinned PR 138
+      - name: Apply the reader CSS fixes and synthetic regression to pinned PR 138
         run: |
           cp scripts/runner-reader-browser.mjs guided-integration/scripts/
           cp tests/fixtures/runner-reader.tsx tests/fixtures/runner-reader.tsconfig.json guided-integration/tests/fixtures/
           python3 - <<'PY'
           from pathlib import Path
           source = Path('src/styles.css').read_text()
-          selector = '.ra-course .q-stem-row ~ .q-type {'
-          assert source.count(selector) == 1
-          rule = selector + source.split(selector, 1)[1].split('}', 1)[0] + '}'
           target = Path('guided-integration/src/styles.css')
           css = target.read_text()
-          assert selector not in css
-          target.write_text(css + '\n' + rule + '\n')
+          for selector in ('.ra-course .q-stem-row ~ .q-type {', '.choice .katex-html {'):
+              assert source.count(selector) == 1 and selector not in css
+              css += '\n' + selector + source.split(selector, 1)[1].split('}', 1)[0] + '}\n'
+          target.write_text(css)
           PY
       - run: npm ci
         working-directory: guided-integration

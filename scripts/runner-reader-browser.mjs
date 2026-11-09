@@ -120,6 +120,43 @@ try {
       await page.screenshot({ path: path.join(out, `${current}.png`) });
       checks.push({ width, kind, textGap: geometry.textGap, boxGap: geometry.boxGap, bottomTouch: true, keyboard: true });
     }
+    current = width + '-fraction-choice';
+    await page.evaluate(() => window.readerFixture.show(7));
+    const fraction = page.locator('.choice .mfrac').first();
+    await fraction.waitFor();
+    await page.evaluate(() => document.fonts.ready);
+    const reader = page.locator('.read-q');
+    await reader.scrollIntoViewIfNeeded();
+    const hit = await reader.evaluate(button => {
+      const rect = button.getBoundingClientRect();
+      const x = rect.x + rect.width / 2, y = rect.y + rect.height / 2;
+      const target = document.elementFromPoint(x, y);
+      return { x, y, reader: button.contains(target), target: target?.outerHTML.slice(0, 120) };
+    });
+    assert(hit.reader, current + ': reader center intercepted by ' + hit.target);
+    const calls = await page.evaluate(() => window.readerVoice.calls);
+    await page.touchscreen.tap(hit.x, hit.y);
+    await page.waitForFunction(calls => window.readerVoice.calls > calls, calls);
+    assert.equal(await reader.getAttribute('aria-pressed'), 'true');
+    await reader.click();
+    // Selecting prose in the question still works with a real pointer drag.
+    const text = await page.locator('.q-stem').evaluate(stem => {
+      const range = document.createRange();
+      range.setStart(stem.firstChild, 0); range.setEnd(stem.firstChild, 5);
+      const r = range.getBoundingClientRect();
+      return { left: r.left, right: r.right, y: r.top + r.height / 2 };
+    });
+    await page.mouse.move(text.left, text.y);
+    await page.mouse.down();
+    await page.mouse.move(text.right, text.y, { steps: 8 });
+    await page.mouse.up();
+    assert.equal(await page.evaluate(() => getSelection().toString()), 'A row');
+    const option = page.getByRole('radio').first();
+    assert.equal(await option.getAttribute('aria-checked'), 'false');
+    const formula = await fraction.boundingBox();
+    await page.mouse.click(formula.x + formula.width / 2, formula.y + formula.height / 2);
+    assert.equal(await option.getAttribute('aria-checked'), 'true');
+    checks.push({ width, kind: 'fraction-choice', readerTouch: true, proseSelection: true, formulaClick: true });
     // Ordinary courses retain their existing compact question layout.
     await page.evaluate(() => window.readerFixture.show(6, false));
     await page.waitForFunction(() => document.querySelector('main')?.dataset.readAloud === 'false');
