@@ -5469,8 +5469,8 @@
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
   "title": "Japanese: Hiragana and Katakana",
-  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards. This course comes before Japanese N5.",
-  "revision": 1,
+  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards, and every word shows its pitch accent. This course comes before Japanese N5.",
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5559,8 +5559,8 @@
   "file": "languages/lang-japanese-n5.json",
   "order": 121,
   "title": "Japanese N5",
-  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), about 100 kanji through notecards and inside words, with furigana you can turn off. Requires Japanese: Hiragana and Katakana.",
-  "revision": 1,
+  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), each with its pitch accent marked, and verb and adjective forms are practised in conjugation drills. About 100 kanji are learned through notecards, inside words and by tracing them stroke by stroke, with furigana you can turn off, and every core lesson has sentence-building questions. Requires Japanese: Hiragana and Katakana.",
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5572,7 +5572,7 @@
   ],
   "lessons": 30,
   "honors": 12,
-  "questions": 744,
+  "questions": 804,
   "cards": 102,
   "drills": 0,
   "words": 1086,
@@ -5710,6 +5710,166 @@
     "honors": [
      "A longer story",
      "Writing messages"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n4",
+  "file": "languages/lang-japanese-n4.json",
+  "order": 122,
+  "title": "Japanese N4",
+  "description": "The second step in Japanese, from N5 to JLPT N4. Grammar lessons cover explaining with んです, the potential and volitional forms, plans and decisions, giving and receiving and doing favours, transitive and intransitive verbs, the conditionals と, ば, たら and なら, must and need not, seeming and hearsay, the passive, causative and causative-passive, and respectful and humble keigo. About 700 new words build on the 860 from the kana and N5 courses for about 1,500 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 180 new kanji (about 280 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N5.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 747,
+  "cards": 177,
+  "drills": 0,
+  "words": 1811,
+  "carried": 1086,
+  "requires": [
+   "lang-japanese-n5"
+  ],
+  "lessonIds": [
+   "n4-explaining",
+   "n4-potential",
+   "n4-volitional",
+   "n4-plans",
+   "n4-temiru-teoku",
+   "n4-giving",
+   "n4-favors",
+   "n4-trans-intrans",
+   "n4-shimau",
+   "n4-tokoro-nagara",
+   "n4-to-cond",
+   "n4-ba-cond",
+   "n4-tara",
+   "n4-nara-temo",
+   "n4-must",
+   "n4-sou-looks",
+   "n4-hearsay",
+   "n4-you-mitai",
+   "n4-hazu-kamo",
+   "n4-indirect",
+   "n4-passive",
+   "n4-causative",
+   "n4-causative-passive",
+   "n4-you-ni",
+   "n4-yasui-sugiru",
+   "n4-node-noni",
+   "n4-honorific",
+   "n4-humble",
+   "n4-practice",
+   "n4-exam"
+  ],
+  "honorsLessonIds": [
+   "n4-pitch-accent",
+   "n4-moving",
+   "n4-gift-customs",
+   "n4-deliveries",
+   "n4-emergencies",
+   "n4-city-office",
+   "n4-news-easy",
+   "n4-luck",
+   "n4-school-life",
+   "n4-work-culture",
+   "n4-story",
+   "n4-polite-writing"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Explaining, abilities and plans",
+    "lessons": [
+     "Explaining and joining: 〜んです and て forms",
+     "Can do: the potential form",
+     "Let's and I think I'll: the volitional form",
+     "Plans and decisions: つもり, よてい, ことにする, ことになる",
+     "Trying and preparing: 〜てみる, 〜ておく"
+    ],
+    "honors": [
+     "Pitch accent",
+     "Moving in: renting and the neighbours"
+    ]
+   },
+   {
+    "title": "Giving, receiving and getting things done",
+    "lessons": [
+     "Giving and receiving: あげる, くれる, もらう",
+     "Doing favours: 〜てあげる, 〜てくれる, 〜てもらう",
+     "Transitive and intransitive pairs; 〜ている and 〜てある",
+     "Done and regretted: 〜てしまう; starting, finishing and continuing",
+     "While, just and still: 〜ながら, 〜ところ, 〜たばかり, 〜まま, 〜ないで"
+    ],
+    "honors": [
+     "Gifts in Japan",
+     "Deliveries, convenience stores and services"
+    ]
+   },
+   {
+    "title": "If, when and must",
+    "lessons": [
+     "When A, B happens: the と conditional",
+     "If: the ば form",
+     "If and after: 〜たら",
+     "なら, 〜ても, and only: しか, だけ, ばかり",
+     "Must and don't have to; commands"
+    ],
+    "honors": [
+     "Earthquakes and emergencies",
+     "At the city office"
+    ]
+   },
+   {
+    "title": "Seeming, hearsay and guessing",
+    "lessons": [
+     "Looks like: 〜そう",
+     "I hear that: hearsay そうだ and 〜って",
+     "Seems: 〜ようだ, 〜みたい, 〜らしい",
+     "Should be, might be: はずだ, かもしれない",
+     "Do you know when…? Indirect questions"
+    ],
+    "honors": [
+     "Reading easy news",
+     "Luck, fortune and folk beliefs"
+    ]
+   },
+   {
+    "title": "Passive, causative and change",
+    "lessons": [
+     "The passive",
+     "Making and letting: the causative",
+     "Being made to: the causative-passive",
+     "Becoming, habits and goals: ようになる, ようにする, ように, ために",
+     "Easy, hard, too much, how to: やすい, にくい, すぎる, かた, さ, がる"
+    ],
+    "honors": [
+     "School life in Japan",
+     "Working in Japan"
+    ]
+   },
+   {
+    "title": "Polite Japanese and the N4 exam",
+    "lessons": [
+     "Reasons and contrasts: ので, のに, し, とか",
+     "Respectful language: sonkeigo",
+     "Humble language: kenjōgo",
+     "Reading and listening practice",
+     "The JLPT N4 and review"
+    ],
+    "honors": [
+     "A longer story: the Saturday bakery",
+     "Writing polite emails and letters"
     ]
    }
   ]

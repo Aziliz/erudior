@@ -3,10 +3,10 @@
  "version": 1,
  "id": "lang-japanese-kana",
  "title": "Japanese: Hiragana and Katakana",
- "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards. This course comes before Japanese N5.",
+ "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards, and every word shows its pitch accent. This course comes before Japanese N5.",
  "author": "Erudior",
- "revision": 1,
- "changelog": "First release.",
+ "revision": 2,
+ "changelog": "Pitch accent on every word; pitch marks in the greetings lesson.",
  "modules": [
   {
    "id": "kana-m1",
@@ -719,7 +719,7 @@
     "Greetings",
     "Politeness"
    ],
-   "body": "## What this lesson is for\n\nThis is the last core lesson of the course, and the one where kana turns into conversation.\nYou'll learn about thirty-five greetings and everyday phrases, all written in kana, and,\njust as important, *when* to use each one. Japanese greetings change with the time of day,\nwith the situation (leaving home, starting a meal) and with who you're talking to. Pick the\nwrong level and you'll still be understood, but you'll sound either stiff or rude; pick the\nright one and people will notice.\n\n## Polite and casual\n\nLesson 13 introduced です and ます, the polite sentence endings. Many greetings have a\npolite form and a short, casual one:\n\n| Polite | Casual | Meaning |\n|---|---|---|\n| おはようございます | おはよう | good morning |\n| ありがとうございます | ありがとう | thank you / thanks |\n| おやすみなさい | おやすみ | good night |\n| おかえりなさい | おかえり | welcome home |\n\nThe rule of thumb:\n\n- Use the polite form with anyone you don't know well, anyone older or senior to you (a\n  teacher, a boss, a customer), and staff in shops and offices. As a learner, polite is\n  always the safe choice.\n- Use the casual form with family, close friends, and people younger than you whom you know\n  well.\n\nございます is a very polite word for \"there is\" or \"is\"; tacked onto a greeting it simply\nmakes it formal. It's said \"go-zai-mas\", with the final す very light.\n\n## Through the day\n\n| Phrase | When |\n|---|---|\n| おはようございます (ohayō gozaimasu) | in the morning, until about 10 or 11 |\n| こんにちは (konnichiwa) | from late morning to early evening |\n| こんばんは (konbanwa) | in the evening, after dark |\n| おやすみなさい (oyasuminasai) | going to bed, or parting late at night |\n\nこんにちは and こんばんは are the two greetings spelled with the particle は from Lesson 13,\nso they end in \"wa\" but are written は. こんにちわ is a very common mistake, even among\nJapanese people in casual messages, but は is the correct spelling.\n\nThey are also greetings for people *outside* your circle: a neighbour, a shopkeeper, someone\nyou meet in the afternoon. You don't say こんにちは to your own family, and co-workers who see\neach other every day don't keep repeating it. The morning greeting is different: it's said\nto everyone, as おはよう to family and friends and おはようございます to colleagues and\nteachers.\n\n## Saying goodbye\n\nさようなら (sayōnara) is the goodbye every learner knows, and it's real, but Japanese people\nuse it less than you'd expect. It sounds rather final, a parting for a long time. Children\nsay it to their teacher at the end of the school day, and it's fine at the end of a formal\nevent, but between friends it would sound oddly heavy. Spoken quickly it's often さよなら.\n\nWhat people actually say:\n\n| Phrase | Use |\n|---|---|\n| じゃあね | \"bye, then\": friends and family |\n| またね | \"see you\": friends and family |\n| また あした | \"see you tomorrow\": classmates, friends, colleagues |\n| しつれいします | \"excuse me\": leaving a teacher's room or an office, and entering one |\n\nしつれいします literally means \"I'm going to be rude\", that is, \"excuse me for disturbing\nyou\". You say it as you go in or out of someone's room and at the end of a phone call.\n\n## Thank you and sorry\n\n| Phrase | Use |\n|---|---|\n| ありがとうございます | thank you (polite) |\n| ありがとう | thanks (casual) |\n| どうも ありがとう ございます | thank you very much |\n| どういたしまして | you're welcome |\n| すみません | excuse me; sorry; thank you for the trouble |\n| ごめんなさい | I'm sorry |\n\nFor something that's already finished, such as a meal you were served or help that's over,\npeople often switch to the past form ありがとうございました. Shop staff say it as you leave.\n\nどういたしまして really is \"you're welcome\", but it can sound a little formal or textbook-like.\nMany people just wave thanks away with いいえ (no, not at all) or a quick いえいえ.\n\nすみません is the most useful word in this lesson. It does three jobs:\n\n1. Getting attention: calling a waiter, or before asking a stranger the way. すみません、…\n2. A light apology: bumping into someone, being a little late.\n3. Thanks, when someone has gone to trouble for you: it acknowledges the bother you've caused\n   (\"sorry to put you out\"), so it's often said where English says \"thank you\".\n\nIn fast speech it often sounds like すいません; write すみません.\n\nごめんなさい is a real, personal apology, mostly to family, friends and people you're close\nto. With a teacher or at work, use すみません (and later you'll learn even more formal ways to\napologise). ごめん is the very casual short form.\n\n## Yes and no\n\nはい (hai) is \"yes\", but it's also \"I'm listening\", \"here!\" when your name is called, and\n\"here you are\" when handing something over.\n\nいいえ (iie) is \"no\", but Japanese avoids a flat \"no\" more than English does. To decline\nsomething, people often soften it, for example with a polite thanks, instead of a bare いいえ.\nYou'll hear いいえ most often in its other use: brushing off thanks or an apology, \"not at all\".\n\n## Meeting someone\n\nWhen you meet someone for the first time:\n\n1. はじめまして — \"how do you do\", literally \"for the first time\". Only at a first meeting.\n2. Your name + です: スミスです (I'm Smith).\n3. よろしく おねがいします — \"please treat me well\". It has no English equivalent; it asks for\n   a good relationship from now on. You'll also hear it when someone takes on a job for you,\n   or at the start of working together.\n\nThe other person answers こちらこそ (kochira koso, \"likewise\") and よろしく おねがいします.\nAmong young people or friends of friends, the short よろしく is enough.\n\nさん after a person's name is a polite title: たなかさん is Mr or Ms Tanaka, and it works with\nfirst names too (ゆきさん). Use it for everyone else, but never for yourself: say スミスです,\nnot スミスさんです.\n\n## Asking and answering\n\n| Phrase | Use |\n|---|---|\n| おねがいします | please (asking for something): コーヒー、おねがいします |\n| どうぞ | please, go ahead; here you are (offering something) |\n| わかりました | I understand; OK, will do |\n| わかりません | I don't understand; I don't know |\n| もう いちど おねがいします | once more, please |\n\nEnglish has one \"please\"; Japanese has two. おねがいします is for asking: \"a coffee, please\".\nどうぞ is for offering: holding a door, handing over a seat or a cup, \"please, go ahead\".\n\n## At home and at meals\n\nThese come in pairs, and they're said every day in every Japanese home:\n\n| You say | The other person says |\n|---|---|\n| いってきます (leaving home: \"I'm off\") | いってらっしゃい (\"see you, take care\") |\n| ただいま (coming home: \"I'm home\") | おかえりなさい (\"welcome home\") |\n\nいってきます literally means \"I'll go and come back\"; いってらっしゃい is \"go and come back\".\nBoth have a small っ, so hold the beat: \"it-te-ki-mas\".\n\nBefore eating, put your hands together and say いただきます; after eating, ごちそうさまでした\n(more casually, ごちそうさま). Neither has an English equivalent: いただきます is a humble\n\"I gratefully receive\", a thank-you for the food and everyone who made it; ごちそうさまでした\nthanks whoever provided the meal. It's also said to the staff as you leave a restaurant.\n\n## A few more\n\n- おげんきですか — \"how are you?\", literally \"are you well?\" (げんき = healthy, well). It's for\n  someone you haven't seen for a while, not a daily \"how are you\": you don't ask it of\n  someone you saw yesterday. A typical answer: はい、げんきです。\n- おめでとうございます — \"congratulations\", for a birthday, a new job, a wedding. Casual:\n  おめでとう.\n- いらっしゃいませ — \"welcome (come in)\", said by staff when you enter a shop or restaurant.\n  Customers don't say it back; a nod is enough.\n\n## Pronunciation\n\n- Long vowels matter: おはよう is \"o-ha-yō\" (よう is a long o), ありがとう \"a-ri-ga-tō\",\n  どうぞ \"dō-zo\". Give each beat its time.\n- こんにちは has five beats: こ・ん・に・ち・は, with ん a full beat of its own.\n- The す of ございます, します, です is very light, and often you hear only \"s\".\n- In ごちそうさまでした the し is whispered: \"go-chi-sō-sa-ma-desh'ta\".\n\n## Dialogue: meeting a neighbour\n\n```dialogue\n# A new neighbour\nたなか: こんにちは。\n= Hello.\nスミス: こんにちは。はじめまして。スミスです。\n= Hello. How do you do? I'm Smith.\nたなか: はじめまして、たなかです。\n= How do you do? I'm Tanaka.\nスミス: よろしく おねがいします。\n= I'm glad to know you.\nたなか: こちらこそ、よろしく おねがいします。スミスさんは がくせいですか。\n= Likewise, it's a pleasure. Are you a student, Mr Smith?\nスミス: すみません、もう いちど おねがいします。\n= Sorry, could you say that once more?\nたなか: スミスさんは、がくせいですか。\n= Are you a student?\nスミス: ああ、はい、がくせいです。\n= Oh, yes, I'm a student.\nたなか: そうですか。じゃあ、また。\n= I see. Well, see you.\nスミス: しつれいします。\n= Goodbye.\n```\n\nじゃあ、また is a friendly short goodbye between neighbours. ああ is \"oh\", the sound you make\nwhen you suddenly understand.\n\n## Dialogue: at home\n\n```dialogue\n# A school day\nこども: いってきます！\n= I'm off!\nおかあさん: いってらっしゃい。\n= See you later, take care.\nこども: ただいま。\n= I'm home.\nおかあさん: おかえり。ごはんですよ。\n= Welcome back. Dinner's ready.\nこども: いただきます。\n= (before eating) Thanks for the food.\nこども: ごちそうさまでした。おやすみなさい。\n= (after eating) That was delicious. Good night.\nおかあさん: おやすみ。\n= Good night.\n```\n\nこども is \"child\" and おかあさん \"mother\"; よ at the end of ごはんですよ adds \"you know\", telling the listener something. The mother uses casual forms with her child\n(おかえり, おやすみ); the child uses the full おやすみなさい, which children are taught to say\nto their parents.\n\n## Say it\n\n```speak\nおはようございます。\n= Good morning.\nこんにちは。\n= Hello.\nこんばんは。\n= Good evening.\nありがとうございます。\n= Thank you.\nすみません。\n= Excuse me.\nはじめまして。よろしく おねがいします。\n= How do you do? Glad to know you.\nいただきます。\n= (before a meal) Thanks for the food.\nごちそうさまでした。\n= (after a meal) Thank you, that was delicious.\nいってきます。\n= I'm off.\nただいま。\n= I'm home.\n```\n\n## Common mistakes\n\n- Writing こんにちわ or こんばんわ. The last kana is the particle は.\n- Saying さようなら to friends every day. Use じゃあね or またね; さようなら is for longer or\n  more formal partings.\n- Casual forms with a teacher or a stranger (ありがとう, おはよう). Use the polite form.\n- Asking おげんきですか every time you see someone. Save it for after time apart.\n- Using どうぞ to ask for something. To ask, say おねがいします; どうぞ offers.\n- Calling yourself さん (スミスさんです).\n- Saying ごめんなさい to your boss. すみません fits there.\n- Answering すみません with どういたしまして. When someone thanks you with すみません, a\n  simple いいえ works better.\n\n## Key points\n\n- Many greetings have a polite form (おはようございます, ありがとうございます, おやすみなさい)\n  and a casual one (おはよう, ありがとう, おやすみ); polite is the safe default.\n- こんにちは and こんばんは end in the particle は, read \"wa\".\n- さようなら is a fairly formal or final goodbye; friends say じゃあね or またね, and\n  しつれいします is for leaving (and entering) a room.\n- すみません is \"excuse me\", \"sorry\" and \"thanks for the trouble\"; ごめんなさい is a personal\n  apology.\n- おねがいします asks; どうぞ offers.\n- Daily pairs: いってきます / いってらっしゃい, ただいま / おかえりなさい, and いただきます\n  before a meal, ごちそうさまでした after.\n- はじめまして starts a self-introduction at a first meeting, よろしく おねがいします ends it; さん goes after other\n  people's names, never your own.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you\ncomplete the lesson.\n",
+   "body": "## What this lesson is for\n\nThis is the last core lesson of the course, and the one where kana turns into conversation.\nYou'll learn about thirty-five greetings and everyday phrases, all written in kana, and,\njust as important, *when* to use each one. Japanese greetings change with the time of day,\nwith the situation (leaving home, starting a meal) and with who you're talking to. Pick the\nwrong level and you'll still be understood, but you'll sound either stiff or rude; pick the\nright one and people will notice.\n\n## Polite and casual\n\nLesson 13 introduced です and ます, the polite sentence endings. Many greetings have a\npolite form and a short, casual one:\n\n| Polite | Casual | Meaning |\n|---|---|---|\n| おはようございます | おはよう | good morning |\n| ありがとうございます | ありがとう | thank you / thanks |\n| おやすみなさい | おやすみ | good night |\n| おかえりなさい | おかえり | welcome home |\n\nThe rule of thumb:\n\n- Use the polite form with anyone you don't know well, anyone older or senior to you (a\n  teacher, a boss, a customer), and staff in shops and offices. As a learner, polite is\n  always the safe choice.\n- Use the casual form with family, close friends, and people younger than you whom you know\n  well.\n\nございます is a very polite word for \"there is\" or \"is\"; tacked onto a greeting it simply\nmakes it formal. It's said \"go-zai-mas\", with the final す very light.\n\n## Through the day\n\n| Phrase | When |\n|---|---|\n| おはようございます (ohayō gozaimasu) | in the morning, until about 10 or 11 |\n| こんにちは (konnichiwa) | from late morning to early evening |\n| こんばんは (konbanwa) | in the evening, after dark |\n| おやすみなさい (oyasuminasai) | going to bed, or parting late at night |\n\nこんにちは and こんばんは are the two greetings spelled with the particle は from Lesson 13,\nso they end in \"wa\" but are written は. こんにちわ is a very common mistake, even among\nJapanese people in casual messages, but は is the correct spelling.\n\nThey are also greetings for people *outside* your circle: a neighbour, a shopkeeper, someone\nyou meet in the afternoon. You don't say こんにちは to your own family, and co-workers who see\neach other every day don't keep repeating it. The morning greeting is different: it's said\nto everyone, as おはよう to family and friends and おはようございます to colleagues and\nteachers.\n\n## Saying goodbye\n\nさようなら (sayōnara) is the goodbye every learner knows, and it's real, but Japanese people\nuse it less than you'd expect. It sounds rather final, a parting for a long time. Children\nsay it to their teacher at the end of the school day, and it's fine at the end of a formal\nevent, but between friends it would sound oddly heavy. Spoken quickly it's often さよなら.\n\nWhat people actually say:\n\n| Phrase | Use |\n|---|---|\n| じゃあね | \"bye, then\": friends and family |\n| またね | \"see you\": friends and family |\n| また あした | \"see you tomorrow\": classmates, friends, colleagues |\n| しつれいします | \"excuse me\": leaving a teacher's room or an office, and entering one |\n\nしつれいします literally means \"I'm going to be rude\", that is, \"excuse me for disturbing\nyou\". You say it as you go in or out of someone's room and at the end of a phone call.\n\n## Thank you and sorry\n\n| Phrase | Use |\n|---|---|\n| ありがとうございます | thank you (polite) |\n| ありがとう | thanks (casual) |\n| どうも ありがとう ございます | thank you very much |\n| どういたしまして | you're welcome |\n| すみません | excuse me; sorry; thank you for the trouble |\n| ごめんなさい | I'm sorry |\n\nFor something that's already finished, such as a meal you were served or help that's over,\npeople often switch to the past form ありがとうございました. Shop staff say it as you leave.\n\nどういたしまして really is \"you're welcome\", but it can sound a little formal or textbook-like.\nMany people just wave thanks away with いいえ (no, not at all) or a quick いえいえ.\n\nすみません is the most useful word in this lesson. It does three jobs:\n\n1. Getting attention: calling a waiter, or before asking a stranger the way. すみません、…\n2. A light apology: bumping into someone, being a little late.\n3. Thanks, when someone has gone to trouble for you: it acknowledges the bother you've caused\n   (\"sorry to put you out\"), so it's often said where English says \"thank you\".\n\nIn fast speech it often sounds like すいません; write すみません.\n\nごめんなさい is a real, personal apology, mostly to family, friends and people you're close\nto. With a teacher or at work, use すみません (and later you'll learn even more formal ways to\napologise). ごめん is the very casual short form.\n\n## Yes and no\n\nはい (hai) is \"yes\", but it's also \"I'm listening\", \"here!\" when your name is called, and\n\"here you are\" when handing something over.\n\nいいえ (iie) is \"no\", but Japanese avoids a flat \"no\" more than English does. To decline\nsomething, people often soften it, for example with a polite thanks, instead of a bare いいえ.\nYou'll hear いいえ most often in its other use: brushing off thanks or an apology, \"not at all\".\n\n## Meeting someone\n\nWhen you meet someone for the first time:\n\n1. はじめまして — \"how do you do\", literally \"for the first time\". Only at a first meeting.\n2. Your name + です: スミスです (I'm Smith).\n3. よろしく おねがいします — \"please treat me well\". It has no English equivalent; it asks for\n   a good relationship from now on. You'll also hear it when someone takes on a job for you,\n   or at the start of working together.\n\nThe other person answers こちらこそ (kochira koso, \"likewise\") and よろしく おねがいします.\nAmong young people or friends of friends, the short よろしく is enough.\n\nさん after a person's name is a polite title: たなかさん is Mr or Ms Tanaka, and it works with\nfirst names too (ゆきさん). Use it for everyone else, but never for yourself: say スミスです,\nnot スミスさんです.\n\n## Asking and answering\n\n| Phrase | Use |\n|---|---|\n| おねがいします | please (asking for something): コーヒー、おねがいします |\n| どうぞ | please, go ahead; here you are (offering something) |\n| わかりました | I understand; OK, will do |\n| わかりません | I don't understand; I don't know |\n| もう いちど おねがいします | once more, please |\n\nEnglish has one \"please\"; Japanese has two. おねがいします is for asking: \"a coffee, please\".\nどうぞ is for offering: holding a door, handing over a seat or a cup, \"please, go ahead\".\n\n## At home and at meals\n\nThese come in pairs, and they're said every day in every Japanese home:\n\n| You say | The other person says |\n|---|---|\n| いってきます (leaving home: \"I'm off\") | いってらっしゃい (\"see you, take care\") |\n| ただいま (coming home: \"I'm home\") | おかえりなさい (\"welcome home\") |\n\nいってきます literally means \"I'll go and come back\"; いってらっしゃい is \"go and come back\".\nBoth have a small っ, so hold the beat: \"it-te-ki-mas\".\n\nBefore eating, put your hands together and say いただきます; after eating, ごちそうさまでした\n(more casually, ごちそうさま). Neither has an English equivalent: いただきます is a humble\n\"I gratefully receive\", a thank-you for the food and everyone who made it; ごちそうさまでした\nthanks whoever provided the meal. It's also said to the staff as you leave a restaurant.\n\n## A few more\n\n- おげんきですか — \"how are you?\", literally \"are you well?\" (げんき = healthy, well). It's for\n  someone you haven't seen for a while, not a daily \"how are you\": you don't ask it of\n  someone you saw yesterday. A typical answer: はい、げんきです。\n- おめでとうございます — \"congratulations\", for a birthday, a new job, a wedding. Casual:\n  おめでとう.\n- いらっしゃいませ — \"welcome (come in)\", said by staff when you enter a shop or restaurant.\n  Customers don't say it back; a nod is enough.\n\n## Pronunciation\n\n- Long vowels matter: おはよう is \"o-ha-yō\" (よう is a long o), ありがとう \"a-ri-ga-tō\",\n  どうぞ \"dō-zo\". Give each beat its time.\n- こんにちは has five beats: こ・ん・に・ち・は, with ん a full beat of its own.\n- The す of ございます, します, です is very light, and often you hear only \"s\".\n- In ごちそうさまでした the し is whispered: \"go-chi-sō-sa-ma-desh'ta\".\n- Each word also has its own pitch: some beats are said higher, some lower (lesson 1). The line\n  over a word shows the high beats, and a short tick shows where the pitch drops: [ありがとう:2]\n  drops after あり, [すみません:4] after すみませ, and [はい:1] after は, while [こんにちは:0] has no drop\n  and stays level to the end. Your word list shows this for every word. You don't need to learn\n  it yet; listen and copy the tune.\n\n## Dialogue: meeting a neighbour\n\n```dialogue\n# A new neighbour\nたなか: こんにちは。\n= Hello.\nスミス: こんにちは。はじめまして。スミスです。\n= Hello. How do you do? I'm Smith.\nたなか: はじめまして、たなかです。\n= How do you do? I'm Tanaka.\nスミス: よろしく おねがいします。\n= I'm glad to know you.\nたなか: こちらこそ、よろしく おねがいします。スミスさんは がくせいですか。\n= Likewise, it's a pleasure. Are you a student, Mr Smith?\nスミス: すみません、もう いちど おねがいします。\n= Sorry, could you say that once more?\nたなか: スミスさんは、がくせいですか。\n= Are you a student?\nスミス: ああ、はい、がくせいです。\n= Oh, yes, I'm a student.\nたなか: そうですか。じゃあ、また。\n= I see. Well, see you.\nスミス: しつれいします。\n= Goodbye.\n```\n\nじゃあ、また is a friendly short goodbye between neighbours. ああ is \"oh\", the sound you make\nwhen you suddenly understand.\n\n## Dialogue: at home\n\n```dialogue\n# A school day\nこども: いってきます！\n= I'm off!\nおかあさん: いってらっしゃい。\n= See you later, take care.\nこども: ただいま。\n= I'm home.\nおかあさん: おかえり。ごはんですよ。\n= Welcome back. Dinner's ready.\nこども: いただきます。\n= (before eating) Thanks for the food.\nこども: ごちそうさまでした。おやすみなさい。\n= (after eating) That was delicious. Good night.\nおかあさん: おやすみ。\n= Good night.\n```\n\nこども is \"child\" and おかあさん \"mother\"; よ at the end of ごはんですよ adds \"you know\", telling the listener something. The mother uses casual forms with her child\n(おかえり, おやすみ); the child uses the full おやすみなさい, which children are taught to say\nto their parents.\n\n## Say it\n\n```speak\nおはようございます。\n= Good morning.\nこんにちは。\n= Hello.\nこんばんは。\n= Good evening.\nありがとうございます。\n= Thank you.\nすみません。\n= Excuse me.\nはじめまして。よろしく おねがいします。\n= How do you do? Glad to know you.\nいただきます。\n= (before a meal) Thanks for the food.\nごちそうさまでした。\n= (after a meal) Thank you, that was delicious.\nいってきます。\n= I'm off.\nただいま。\n= I'm home.\n```\n\n## Common mistakes\n\n- Writing こんにちわ or こんばんわ. The last kana is the particle は.\n- Saying さようなら to friends every day. Use じゃあね or またね; さようなら is for longer or\n  more formal partings.\n- Casual forms with a teacher or a stranger (ありがとう, おはよう). Use the polite form.\n- Asking おげんきですか every time you see someone. Save it for after time apart.\n- Using どうぞ to ask for something. To ask, say おねがいします; どうぞ offers.\n- Calling yourself さん (スミスさんです).\n- Saying ごめんなさい to your boss. すみません fits there.\n- Answering すみません with どういたしまして. When someone thanks you with すみません, a\n  simple いいえ works better.\n\n## Key points\n\n- Many greetings have a polite form (おはようございます, ありがとうございます, おやすみなさい)\n  and a casual one (おはよう, ありがとう, おやすみ); polite is the safe default.\n- こんにちは and こんばんは end in the particle は, read \"wa\".\n- さようなら is a fairly formal or final goodbye; friends say じゃあね or またね, and\n  しつれいします is for leaving (and entering) a room.\n- すみません is \"excuse me\", \"sorry\" and \"thanks for the trouble\"; ごめんなさい is a personal\n  apology.\n- おねがいします asks; どうぞ offers.\n- Daily pairs: いってきます / いってらっしゃい, ただいま / おかえりなさい, and いただきます\n  before a meal, ごちそうさまでした after.\n- はじめまして starts a self-introduction at a first meeting, よろしく おねがいします ends it; さん goes after other\n  people's names, never your own.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you\ncomplete the lesson.\n",
    "quiz": [
     "kana-q-1501",
     "kana-q-1502",
@@ -10708,6 +10708,7 @@
    "id": "watashi",
    "lesson": "kana-particles",
    "term": "わたし",
+   "pitch": 0,
    "pos": "pronoun",
    "meanings": [
     "I (myself)",
@@ -10722,6 +10723,7 @@
    "id": "gakusei",
    "lesson": "kana-particles",
    "term": "がくせい",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "student",
@@ -10734,6 +10736,7 @@
    "id": "sensei",
    "lesson": "kana-particles",
    "term": "せんせい",
+   "pitch": 3,
    "pos": "noun",
    "meanings": [
     "teacher",
@@ -10748,6 +10751,7 @@
    "id": "gakkou",
    "lesson": "kana-particles",
    "term": "がっこう",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "school"
@@ -10759,6 +10763,7 @@
    "id": "nihon",
    "lesson": "kana-particles",
    "term": "にほん",
+   "pitch": 2,
    "pos": "noun",
    "meanings": [
     "Japan"
@@ -10770,6 +10775,7 @@
    "id": "uchi",
    "lesson": "kana-particles",
    "term": "うち",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "home (one's house)",
@@ -10784,6 +10790,7 @@
    "id": "mizu",
    "lesson": "kana-particles",
    "term": "みず",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "water",
@@ -10797,6 +10804,7 @@
    "id": "gohan",
    "lesson": "kana-particles",
    "term": "ごはん",
+   "pitch": 1,
    "pos": "noun",
    "meanings": [
     "meal (or cooked rice)",
@@ -10812,6 +10820,7 @@
    "id": "hon",
    "lesson": "kana-particles",
    "term": "ほん",
+   "pitch": 1,
    "pos": "noun",
    "meanings": [
     "book",
@@ -10824,6 +10833,8 @@
    "id": "iku",
    "lesson": "kana-particles",
    "term": "いく",
+   "conj": "godan",
+   "pitch": 0,
    "pos": "verb",
    "alt": [
     "いきます"
@@ -10839,6 +10850,8 @@
    "id": "kaeru",
    "lesson": "kana-particles",
    "term": "かえる",
+   "conj": "godan",
+   "pitch": 1,
    "pos": "verb",
    "alt": [
     "かえります"
@@ -10858,6 +10871,8 @@
    "id": "nomu",
    "lesson": "kana-particles",
    "term": "のむ",
+   "conj": "godan",
+   "pitch": 1,
    "pos": "verb",
    "alt": [
     "のみます"
@@ -10874,6 +10889,8 @@
    "id": "taberu",
    "lesson": "kana-particles",
    "term": "たべる",
+   "conj": "ichidan",
+   "pitch": 2,
    "pos": "verb",
    "alt": [
     "たべます"
@@ -10889,6 +10906,8 @@
    "id": "yomu",
    "lesson": "kana-particles",
    "term": "よむ",
+   "conj": "godan",
+   "pitch": 1,
    "pos": "verb",
    "alt": [
     "よみます"
@@ -10904,6 +10923,7 @@
    "id": "kyou",
    "lesson": "kana-punctuation",
    "term": "きょう",
+   "pitch": 1,
    "pos": "noun",
    "meanings": [
     "today"
@@ -10915,6 +10935,7 @@
    "id": "ashita",
    "lesson": "kana-punctuation",
    "term": "あした",
+   "pitch": 3,
    "pos": "noun",
    "meanings": [
     "tomorrow"
@@ -10926,6 +10947,7 @@
    "id": "ame",
    "lesson": "kana-punctuation",
    "term": "あめ",
+   "pitch": 1,
    "pos": "noun",
    "meanings": [
     "rain"
@@ -10938,6 +10960,7 @@
    "id": "tomodachi",
    "lesson": "kana-punctuation",
    "term": "ともだち",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "friend",
@@ -10950,6 +10973,7 @@
    "id": "tegami",
    "lesson": "kana-punctuation",
    "term": "てがみ",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "letter (mail)",
@@ -10963,6 +10987,7 @@
    "id": "namae",
    "lesson": "kana-punctuation",
    "term": "なまえ",
+   "pitch": 0,
    "pos": "noun",
    "meanings": [
     "name"
@@ -10975,6 +11000,7 @@
    "id": "koohii",
    "lesson": "kana-punctuation",
    "term": "コーヒー",
+   "pitch": 3,
    "pos": "noun",
    "meanings": [
     "coffee"
@@ -10986,6 +11012,7 @@
    "id": "issho-ni",
    "lesson": "kana-punctuation",
    "term": "いっしょに",
+   "pitch": 0,
    "pos": "adverb",
    "meanings": [
     "together",
@@ -10998,6 +11025,8 @@
    "id": "iu",
    "lesson": "kana-punctuation",
    "term": "いう",
+   "conj": "godan",
+   "pitch": 0,
    "pos": "verb",
    "alt": [
     "いいます"
@@ -11015,6 +11044,8 @@
    "id": "kaku",
    "lesson": "kana-punctuation",
    "term": "かく",
+   "conj": "godan",
+   "pitch": 1,
    "pos": "verb",
    "alt": [
     "かきます"
@@ -11032,6 +11063,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おはようございます",
+   "pitch": 8,
    "pos": "phrase",
    "meanings": [
     "good morning (polite)",
@@ -11046,6 +11078,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おはよう",
+   "pitch": 0,
    "pos": "phrase",
    "meanings": [
     "good morning (casual)",
@@ -11061,6 +11094,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "こんにちは",
+   "pitch": 0,
    "pos": "phrase",
    "meanings": [
     "hello",
@@ -11077,6 +11111,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "こんばんは",
+   "pitch": 0,
    "pos": "phrase",
    "meanings": [
     "good evening",
@@ -11091,6 +11126,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おやすみなさい",
+   "pitch": 6,
    "pos": "phrase",
    "meanings": [
     "good night (polite)",
@@ -11104,6 +11140,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おやすみ",
+   "pitch": 0,
    "pos": "phrase",
    "meanings": [
     "good night (casual)",
@@ -11118,6 +11155,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "さようなら",
+   "pitch": 4,
    "pos": "phrase",
    "alt": [
     "さよなら"
@@ -11136,6 +11174,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "じゃあね",
+   "pitch": 1,
    "pos": "phrase",
    "alt": [
     "じゃね"
@@ -11155,6 +11194,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "またね",
+   "pitch": 1,
    "pos": "phrase",
    "meanings": [
     "see you (casual)",
@@ -11171,6 +11211,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "またあした",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "see you tomorrow",
@@ -11184,6 +11225,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "ありがとうございます",
+   "pitch": 2,
    "pos": "phrase",
    "meanings": [
     "thank you (polite)",
@@ -11199,6 +11241,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "ありがとう",
+   "pitch": 2,
    "pos": "phrase",
    "meanings": [
     "thanks (casual)",
@@ -11213,6 +11256,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "どうもありがとうございます",
+   "pitch": 1,
    "pos": "phrase",
    "meanings": [
     "thank you very much",
@@ -11231,6 +11275,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "どういたしまして",
+   "pitch": 1,
    "pos": "phrase",
    "meanings": [
     "you're welcome",
@@ -11247,6 +11292,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "すみません",
+   "pitch": 4,
    "pos": "phrase",
    "meanings": [
     "excuse me",
@@ -11264,6 +11310,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "ごめんなさい",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "I'm sorry (personal apology)",
@@ -11280,6 +11327,7 @@
    "id": "hai",
    "lesson": "kana-first-words",
    "term": "はい",
+   "pitch": 1,
    "pos": "interjection",
    "meanings": [
     "yes",
@@ -11294,6 +11342,7 @@
    "id": "iie",
    "lesson": "kana-first-words",
    "term": "いいえ",
+   "pitch": 3,
    "pos": "interjection",
    "meanings": [
     "no (answer to a question)",
@@ -11310,6 +11359,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "はじめまして",
+   "pitch": 4,
    "pos": "phrase",
    "meanings": [
     "how do you do",
@@ -11325,6 +11375,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "よろしくおねがいします",
+   "pitch": 10,
    "pos": "phrase",
    "alt": [
     "よろしく"
@@ -11345,6 +11396,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おねがいします",
+   "pitch": 6,
    "pos": "phrase",
    "meanings": [
     "please (asking for something)",
@@ -11358,6 +11410,7 @@
    "id": "douzo",
    "lesson": "kana-first-words",
    "term": "どうぞ",
+   "pitch": 1,
    "pos": "adverb",
    "meanings": [
     "go ahead (please, offering)",
@@ -11376,6 +11429,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "いただきます",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "thanks for the food (before eating)",
@@ -11391,6 +11445,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "ごちそうさまでした",
+   "pitch": 7,
    "pos": "phrase",
    "alt": [
     "ごちそうさま"
@@ -11409,6 +11464,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "いってきます",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "I'm off (leaving home)",
@@ -11425,6 +11481,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "いってらっしゃい",
+   "pitch": 6,
    "pos": "phrase",
    "meanings": [
     "take care (to someone leaving home)",
@@ -11441,6 +11498,10 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "ただいま",
+   "pitch": [
+    4,
+    2
+   ],
    "pos": "phrase",
    "meanings": [
     "I'm home",
@@ -11454,6 +11515,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おかえりなさい",
+   "pitch": 6,
    "pos": "phrase",
    "alt": [
     "おかえり"
@@ -11470,6 +11532,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おげんきですか",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "how are you (after some time apart)",
@@ -11485,6 +11548,8 @@
    "id": "genki",
    "lesson": "kana-first-words",
    "term": "げんき",
+   "conj": "na-adj",
+   "pitch": 1,
    "pos": "adjective",
    "meanings": [
     "well (healthy)",
@@ -11502,6 +11567,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "おめでとうございます",
+   "pitch": 9,
    "pos": "phrase",
    "alt": [
     "おめでとう"
@@ -11518,6 +11584,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "しつれいします",
+   "pitch": 2,
    "pos": "phrase",
    "meanings": [
     "excuse me (entering or leaving a room)",
@@ -11533,6 +11600,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "いらっしゃいませ",
+   "pitch": 6,
    "pos": "phrase",
    "meanings": [
     "welcome (said by shop staff)",
@@ -11548,6 +11616,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "わかりました",
+   "pitch": 4,
    "pos": "phrase",
    "meanings": [
     "understood (or OK, will do)",
@@ -11566,6 +11635,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "わかりません",
+   "pitch": 5,
    "pos": "phrase",
    "meanings": [
     "I don't understand",
@@ -11580,6 +11650,7 @@
    "lesson": "kana-first-words",
    "kind": "phrase",
    "term": "もういちどおねがいします",
+   "pitch": 11,
    "pos": "phrase",
    "meanings": [
     "once more, please",
