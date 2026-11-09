@@ -1,6 +1,9 @@
 import type { LearningPathway } from "./learningPathways";
 import { JD_PROGRAM } from "./jdProgram";
 import { COLLEGE_CORE_PROGRAM } from "./collegeCoreProgram";
+import { MEDICAL_PROGRAM, PRE_MED_PROGRAM } from "./medicalPrograms";
+import { COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM } from "./engineeringPrograms";
+import { COSMETOLOGY_PROGRAM } from "./cosmetologyProgram";
 
 export interface ProgramCourse {
   courseId: string;
@@ -52,7 +55,10 @@ export interface StudyProgram {
   reviewedOn: string;
 }
 
-export const STUDY_PROGRAMS: readonly StudyProgram[] = [JD_PROGRAM, COLLEGE_CORE_PROGRAM];
+export const STUDY_PROGRAMS: readonly StudyProgram[] = [
+  JD_PROGRAM, COLLEGE_CORE_PROGRAM, PRE_MED_PROGRAM, MEDICAL_PROGRAM,
+  COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM, COSMETOLOGY_PROGRAM,
+];
 
 /** Every course outline the program describes: required stage courses, then area outlines. */
 export function programCourses(program: StudyProgram): ProgramCourse[] {

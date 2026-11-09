@@ -282,6 +282,13 @@ const OUTLINES: ProgramCourse[] = [
     "Keep a four-week wellness log and write a reflection on what changed and why."),
 ];
 
+/** Shared outline for a core course reused by another program (same object, same content). */
+export function coreOutline(courseId: string): ProgramCourse {
+  const found = OUTLINES.find(course => course.courseId === courseId);
+  if (!found) throw new Error(`No College Core outline for ${courseId}`);
+  return found;
+}
+
 const ids = (...slugs: string[]) => slugs.map(id);
 const ARTS = ids("art-appreciation", "art-history-1", "art-history-2", "introduction-to-music", "introduction-to-theatre", "introduction-to-film");
 const LITERATURE = ids("introduction-to-literature", "american-literature-1", "american-literature-2", "british-literature-1", "british-literature-2", "introduction-to-world-literature", "mythology");

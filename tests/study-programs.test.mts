@@ -140,8 +140,12 @@ console.log('Study programs: complete three-stage outline, valid ordered depende
     assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30, course.courseId);
     for (const id of course.recommendedBefore) assert(outlineIds.has(id), `${course.courseId} recommends unknown ${id}`);
   }
-  const allIds = STUDY_PROGRAMS.flatMap(programCourses).map(c => c.courseId);
-  assert.equal(new Set(allIds).size, allIds.length, 'course outlines are unique across programs');
+  const outlinesById = new Map<string, unknown>();
+  for (const outline of STUDY_PROGRAMS.flatMap(programCourses)) {
+    const seen = outlinesById.get(outline.courseId);
+    assert(!seen || seen === outline, `${outline.courseId}: a course shared by programs uses one outline`);
+    outlinesById.set(outline.courseId, outline);
+  }
   const plan = programPathway(core);
   assert.equal(plan.courseIds.length, 25, 'default picks meet every area at the minimum');
   assert.deepEqual(parseLearningPathways([plan]), [plan]);
@@ -155,7 +159,38 @@ console.log('Study programs: complete three-stage outline, valid ordered depende
   const done = poolStatus(arts, arts.defaults, new Set(arts.defaults));
   assert(done.planned && done.met);
   assert(programCourseIds(core).includes('math-calculus'), 'existing catalog courses can be chosen');
-  assert(!plannedProgramCourse('math-calculus'), 'catalog courses need no planned outline');
+  assert.equal(plannedProgramCourse('math-calculus')?.title, 'Calculus', 'catalog courses reused by programs share one outline');
   assert.equal(plannedProgramCourse('college-ethics')?.title, 'Ethics');
 }
 console.log('College core areas passed.');
+
+// Staged programs: Pre-Med, Medical School Preparation, Computer Science, Electrical Engineering, Cosmetology Theory.
+{
+  const staged = ['pre-med', 'medical-school-preparation', 'computer-science', 'electrical-engineering', 'cosmetology-theory'];
+  for (const programId of staged) {
+    const program = STUDY_PROGRAMS.find(p => p.id === programId)!;
+    assert(program, `${programId} is listed`);
+    assert(!program.pools?.length && program.stages.length >= 3, `${programId} is a staged program`);
+    const courses = programCourses(program);
+    assert.equal(new Set(courses.map(c => c.courseId)).size, courses.length, `${programId}: no repeated course`);
+    const earlier = new Set<string>();
+    for (const course of courses) {
+      assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30, `${programId}: ${course.courseId}`);
+      for (const id of course.recommendedBefore) assert(earlier.has(id), `${programId}: ${course.courseId} recommends ${id}, which is not earlier in the program`);
+      earlier.add(course.courseId);
+    }
+    const plan = programPathway(program);
+    assert.deepEqual(parseLearningPathways([plan]), [plan]);
+    assert.equal(matchingProgram(plan), program);
+    assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds].reverse() }), undefined, `${programId}: a reordered plan is custom`);
+    for (const stage of program.stages) assert(stage.summary && stage.milestone, `${programId}: ${stage.id} has a summary and portfolio`);
+  }
+  const cosmo = STUDY_PROGRAMS.find(p => p.id === 'cosmetology-theory')!;
+  assert.match(cosmo.notice, /Theory only/);
+  assert.match(cosmo.notice, /practice hours/);
+  const medical = STUDY_PROGRAMS.find(p => p.id === 'medical-school-preparation')!;
+  assert.match(medical.description, /Pre-Med comes first/);
+  assert.equal(programCourses(medical).at(-1)!.courseId, 'med-usmle-step1-preparation');
+  assert.equal(programCourses(STUDY_PROGRAMS.find(p => p.id === 'pre-med')!).at(-1)!.courseId, 'pre-med-mcat-preparation');
+}
+console.log('Staged programs passed.');

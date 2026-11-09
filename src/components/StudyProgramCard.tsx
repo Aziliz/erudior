@@ -23,7 +23,7 @@ export default function StudyProgramCard({ program, availableIds, action, summar
     <p className="small"><b>Recommended first:</b> {course.recommendedBefore.length ? course.recommendedBefore.map(id => titles.get(id) ?? id).join("; ") : none}</p>
     <h4>Module outline</h4><ol>{course.modules.map(module => <li key={module}>{module}</li>)}</ol>
     <h4>Learning outcomes</h4><ul>{course.outcomes.map(outcome => <li key={outcome}>{outcome}</li>)}</ul>
-    <p><b>Planned assignment:</b> {course.assignment}</p>
+    <p><b>Capstone:</b> {course.assignment}</p>
   </>;
   return <article className="panel study-program" aria-label={`${program.title} program`}>
     <header className="progress-section-heading"><div><p className="small muted">Program · {pools.length ? `${pools.length} areas · ${ids.length} courses to choose from` : `${program.stages.length} stages · ${courses.length} courses`}</p>
