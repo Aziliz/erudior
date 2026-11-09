@@ -64,6 +64,7 @@ on:
       - "src/lib/kanjiStrokes.ts"
       - "src/lib/kanjiList.ts"
       - "src/lib/kana.ts"
+      - "src/lib/sentenceBuild.ts"
       - "src/lib/imageAssets.ts"
       - "src/lib/interactiveContent.ts"
       - "src/lib/lessonFences.ts"

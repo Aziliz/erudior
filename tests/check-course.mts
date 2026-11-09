@@ -39,6 +39,7 @@ import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, normJa, rubyProblems } from "../src/lib/kana.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
+import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
@@ -206,7 +207,10 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         ["explanation", q.explanation],
         ...q.choices.map((ch, i): [string, string] => [kind === "order" ? `item ${i + 1}` : `choice ${i + 1}`, ch]),
         ...(q.left ?? []).map((l, i): [string, string] => [`left ${i + 1}`, l]),
-        ...(q.accept ?? []).flatMap((a, i) => a.map((x, j): [string, string] => [`blank ${i + 1} answer ${j + 1}`, x])),
+        ...(q.accept ?? []).flatMap((a, i) => a.map((x, j): [string, string] => [kind === "build" ? `other order ${i + 1} tile ${j + 1}` : `blank ${i + 1} answer ${j + 1}`, x])),
+        ...(q.tiles ?? []).map((x, i): [string, string] => [`tile ${i + 1}`, x]),
+        ...(q.distractors ?? []).map((x, i): [string, string] => [`distractor ${i + 1}`, x]),
+        ...(q.prompt ? [["prompt", q.prompt] as [string, string]] : []),
         ...(q.image?.caption ? [["image caption", q.image.caption] as [string, string]] : []),
       ];
       if (kind === "code") {
@@ -234,6 +238,23 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (!isCorrect(q, q.answer)) say(`question ${q.id}: its own answer is rejected`);
       }
       if (kind === "order" && !isCorrect(q, q.choices.map((_, i) => i))) say(`question ${q.id}: the correct order is rejected`);
+      if (kind === "build") {
+        // Sentence builders: every correct order builds from the tiles and is accepted; the
+        // starting bank doesn't already read as a sentence; no repeated alternatives.
+        if ((q.tiles ?? []).length < 2) say(`question ${q.id}: a sentence builder needs at least two "tiles"`);
+        buildAnswers(q).forEach((a, i) => {
+          const idx = indicesFor(q, a);
+          const what = i === 0 ? '"tiles"' : `"accept" entry ${i}`;
+          if (!idx) say(`question ${q.id}: ${what} uses a tile that isn't in "tiles" or "distractors"`);
+          else if (!isCorrect(q, idx)) say(`question ${q.id}: ${what} is rejected`);
+        });
+        for (const w of buildWarnings(q)) say(`question ${q.id}: ${w}`);
+        if (readsAsAnswer(q, bankOrder(q)))
+          say(`question ${q.id}: so many orders are right that the tiles can't start out of order`);
+        if (isCorrect(q, [0])) say(`question ${q.id}: one tile alone is accepted`);
+        if (q.joiner === " " && japanese) say(`question ${q.id}: "joiner" is a space in a Japanese course (Japanese is written without spaces)`);
+        if (q.choices.length || q.answer.length) say(`question ${q.id}: sentence builders use "tiles"; leave "choices" and "answer" empty`);
+      }
       if (kind === "model") {
         const r = readSpec(q.model);
         for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) say(`question ${q.id}: model: ${p}`);

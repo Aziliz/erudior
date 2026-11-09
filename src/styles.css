@@ -3409,6 +3409,116 @@ fieldset.block-edit > legend {
   min-width: 36px;
   min-height: 36px;
 }
+/* Sentence builder: a sentence line and a bank of word tiles; both wrap on narrow screens. */
+.q-stem-row .q-stem-wrap {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.q-prompt {
+  font-size: 1.0625rem;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.build-sentence,
+.build-bank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+.build-sentence {
+  min-height: 3.25rem;
+  padding: 8px 10px;
+  border: 1px solid var(--field);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  margin: 0;
+}
+.build-sentence.is-empty {
+  border-style: dashed;
+  align-items: center;
+}
+.build-sentence.is-shown {
+  border-color: var(--rule);
+}
+.build-placeholder {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+.build-bank {
+  padding: 4px 0;
+}
+.build-tile {
+  display: inline-flex;
+  align-items: flex-end;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  padding: 6px 12px;
+  border: 1px solid var(--field);
+  border-bottom-width: 3px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.build-tile:lang(ja) {
+  line-height: 1.9; /* room for furigana */
+}
+button.build-tile {
+  cursor: pointer;
+}
+button.build-tile:hover:not(:disabled) {
+  border-color: var(--ink-3);
+}
+button.build-tile:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.build-tile.placed {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.build-tile.ghost {
+  visibility: hidden;
+}
+.build-tile.is-right {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+.build-tile.is-wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+  border-style: dashed;
+}
+.build-punct {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  padding-bottom: 8px;
+  margin-left: -4px;
+}
+.build.is-right,
+.build.is-wrong {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+}
+.build-label {
+  margin: 0;
+}
+.build-answer {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+}
 .pair-edit {
   display: flex;
   gap: 8px;

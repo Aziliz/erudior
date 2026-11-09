@@ -23,6 +23,8 @@ import { validateCanonicalAuthoring, demoteRuntimeCourse, runtimeCourseFromCanon
 import type { Course } from "./courseContentTypes";
 export { LEVELS, SUBJECTS, TYPES };
 
+// The community editor's question kinds. Newer app kinds (map, timeline, code, build) are left
+// out on purpose: the community editor has no fields for them yet, so they can't be written here.
 export type QKind = "choice" | "text" | "match" | "label" | "order" | "model";
 export const Q_KINDS: QKind[] = ["choice", "text", "match", "label", "order", "model"];
 

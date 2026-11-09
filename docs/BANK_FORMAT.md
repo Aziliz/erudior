@@ -71,8 +71,44 @@ Answer choices are shuffled at run time unless the user turns that off, so don't
 | `"timeline"` | `slots`: dates, oldest first, e.g. `["44 BCE", "79 CE"]`; `choices`: the events (extra ones are distractors); `answer[i]`: the event that belongs at `slots[i]`; optional `timeline`: periods for context, in timeline block lines (`era: 27 BCE – 476 CE \| Empire`). | A small timeline shows numbered slots at their dates; each slot gets a drop-down of events. |
 
 | `"code"` | `code`: language, starter code, tests, hints, model solution (see [Code exercises](COURSE_FORMAT.md#code-exercises)). `choices` and `answer` are `[]`. | The learner writes Python or JavaScript in an editor and runs the tests; the stem is Markdown. |
+| `"build"` | `tiles`: the sentence's word tiles in the correct order; optional `distractors` (extra tiles), `accept` (other correct orders, each a list of tiles), `joiner`, `punctuation`, `prompt`. `choices` and `answer` are `[]`. | Sentence builder: the learner builds the sentence from shuffled tiles. See [Sentence builders](#sentence-builders). |
 
 Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
+
+## Sentence builders
+
+The learner builds a sentence from word tiles (for language courses, or any ordering of words).
+
+```json
+{
+  "id": "ja-build-1",
+  "topic": "Sentences",
+  "type": "build",
+  "stem": "Build the sentence in Japanese.",
+  "prompt": "I drink tea every morning.",
+  "tiles": ["{私|わたし}は", "{毎朝|まいあさ}", "お{茶|ちゃ}を", "{飲|の}みます"],
+  "distractors": ["{水|みず}を"],
+  "accept": [["{毎朝|まいあさ}", "{私|わたし}は", "お{茶|ちゃ}を", "{飲|の}みます"]],
+  "punctuation": "。",
+  "choices": [],
+  "answer": []
+}
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `tiles` | yes | The tiles in the correct order, at least two, with at least two different texts (up to 30). A tile can be several words and can hold furigana markup (`{漢字|かんじ}`). |
+| `distractors` | no | Extra tiles that aren't in the sentence (up to 20). |
+| `accept` | no | Other correct orders, each a list of tiles. Each must be built from `tiles` and `distractors` (each tile used at most once), so an alternative may leave a tile out or use a distractor. |
+| `joiner` | no | What goes between tiles when the sentence is shown: `""` (no spaces) or `" "`. Default: `""` when the course language is Japanese (`ja`), Chinese or another language written without spaces (or the tiles are Japanese/Chinese), else `" "`. |
+| `punctuation` | no | A mark added after the last tile, e.g. `"。"`, `"."` or `"?"` (up to 4 characters, no spaces). Don't put it on the last tile too. |
+| `prompt` | no | The meaning of the sentence (e.g. the English), shown under the stem. |
+
+- Tiles start in a shuffled bank that never reads as a correct sentence from left to right. The shuffle depends on the question and the session, so a resumed run looks the same. Selecting a tile adds it to the end of the sentence; selecting a placed tile sends it back. With the keyboard, tiles are buttons; in the sentence, Left/Right arrows move the focused tile, Home/End move it to the start or end, and Delete or Backspace sends it back. Tiles can also be dragged. Screen readers hear the sentence after each change.
+- Graded all or nothing: the placed tiles must spell `tiles` or one of the `accept` orders. Grading compares the tiles' text (furigana and width differences ignored), so two tiles with the same text (two "die" tiles) are interchangeable. After checking, tiles in the wrong place are marked and the correct sentence is shown (the correct order closest to the learner's).
+- The saved answer is the list of placed tiles (indices into `tiles` followed by `distractors`), so runs save and resume.
+- Practice, quizzes and timed exams use sentence builders. Live rooms and community courses don't (live rooms use choice questions only; the community editor has no fields for them).
+- The course checker reports: fewer than two tiles, an `accept` order that uses a tile not in the pool or repeats `tiles` or another order, a distractor that's also a tile, a tile ending with the `punctuation` mark, so many accepted orders that the tiles can't start out of order, a space `joiner` in a Japanese course, and furigana problems in Japanese courses.
 
 ## Model questions
 

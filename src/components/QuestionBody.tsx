@@ -10,6 +10,7 @@ import { canPlay, playClip, stopAudio } from "../lib/audio";
 import { onVoices } from "../lib/speech";
 import Markdown from "./Markdown";
 import CodeExercise from "./CodeExercise";
+import SentenceBuilder from "./SentenceBuilder";
 import type { Chosen, Question } from "../lib/types";
 import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, qtype } from "../lib/questions";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
@@ -54,6 +55,10 @@ interface Props {
   read?: { lib?: AudioLib };
   /** Language courses with an input converter (Japanese: romaji → kana) for typed answers. */
   ime?: Ime;
+  /** The course language code ("ja", "de"…): sentence-builder tiles' language and default spacing. */
+  lang?: string;
+  /** Sentence builders: mixed into the tile shuffle (e.g. the session id) so a resumed run looks the same. */
+  seed?: string;
 }
 
 /** A small button that reads one choice or item aloud. */
@@ -72,6 +77,16 @@ function ReadOne({ text, read, owner }: { text: string; read: { lib?: AudioLib }
 export function QuestionStem({ q, className = "q-stem" }: { q: Question; className?: string }) {
   // Code exercises explain a task, often with `code`, so their prompt is Markdown.
   if (qtype(q) === "code") return <Markdown source={q.stem} className={`${className} code-prompt`} />;
+  // Sentence builders: the meaning of the sentence to build goes under the stem.
+  if (qtype(q) === "build" && q.prompt)
+    return (
+      <div className="q-stem-wrap">
+        <MathText as="p" className={className} text={q.stem} />
+        <p className="q-prompt">
+          <MathText text={q.prompt} />
+        </p>
+      </div>
+    );
   if (qtype(q) !== "text" || !/_{3,}/.test(q.stem)) return <MathText as="p" className={className} text={q.stem} />;
   const parts = q.stem.split(BLANK);
   const many = parts.length > 2;
@@ -171,13 +186,16 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const off = disabled || reveal;
 
   if (kind === "code" && q.code)
     return <CodeExercise key={q.id} q={q} chosen={chosen} onChange={onChange} reveal={reveal} review={review} disabled={disabled} exam={exam} draftKey={draftKey} />;
+
+  if (kind === "build")
+    return <SentenceBuilder key={q.id} q={q} chosen={chosen} onChange={onChange} reveal={reveal} disabled={disabled} review={review} lang={lang} seed={seed} />;
 
   if (kind === "text") {
     const n = blankCount(q);

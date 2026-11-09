@@ -3,8 +3,8 @@
  "version": 1,
  "id": "demo-japanese",
  "title": "Japanese demo",
- "revision": 1,
- "description": "Sample of Japanese support: furigana, romaji typing, kana answers.",
+ "revision": 2,
+ "description": "Sample of Japanese support: furigana, romaji typing, kana answers, sentence building.",
  "language": {
   "code": "ja",
   "name": "Japanese",
@@ -30,7 +30,8 @@
    "quiz": [
     "q1",
     "q2",
-    "q3"
+    "q3",
+    "q4"
    ],
    "body": "## Words with kanji\n\nKanji often carry a reading above them, called **furigana**: {猫|ねこ} (cat), {お茶|おちゃ} (tea), {日本語|にほんご} (Japanese).\n\n> *{猫|ねこ}が すきです。* — I like cats.\n\n| Kanji | Reading | Meaning |\n|---|---|---|\n| {水|みず} | みず | water |\n| {食|た}べる | たべる | to eat |\n\nKatakana is for loanwords: *タクシー* (taxi), *コーヒー* (coffee).\n\n## Writing kana\n\n```trace\nねがパ\n```\n\n## Writing kanji\n\nKanji have a set stroke order too: {日|ひ} (sun, day) takes four strokes and {本|ほん} (book) five.\n\n```trace\n日本\n```\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson."
   }
@@ -41,7 +42,7 @@
    "title": "Questions",
    "sections": [],
    "exam": {
-    "questionCount": 3,
+    "questionCount": 4,
     "timeLimitMinutes": 5,
     "passingPercent": 70
    },
@@ -89,6 +90,34 @@
      "choices": [],
      "answer": [],
      "explanation": "タクシー"
+    },
+    {
+     "id": "q4",
+     "topic": "Sentences",
+     "type": "build",
+     "stem": "Build the sentence in Japanese.",
+     "prompt": "I drink tea every morning.",
+     "tiles": [
+      "{私|わたし}は",
+      "{毎朝|まいあさ}",
+      "お{茶|ちゃ}を",
+      "{飲|の}みます"
+     ],
+     "distractors": [
+      "{水|みず}を"
+     ],
+     "accept": [
+      [
+       "{毎朝|まいあさ}",
+       "{私|わたし}は",
+       "お{茶|ちゃ}を",
+       "{飲|の}みます"
+      ]
+     ],
+     "punctuation": "。",
+     "choices": [],
+     "answer": [],
+     "explanation": "The verb {飲|の}みます comes last; は marks the topic and を the object. The time word {毎朝|まいあさ} can come first or after {私|わたし}は."
     }
    ]
   }

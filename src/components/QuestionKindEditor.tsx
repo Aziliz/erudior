@@ -8,6 +8,7 @@ import { DEFAULT_TARGET, ModelFields, modelErrors } from "./ManipEditor";
 import { parseMapSpec } from "../lib/mapSpec";
 import { parseSpan, parseTimeline } from "../lib/timeline";
 import { DEFAULT_TIME_LIMIT, normalizeCodeSpec, type CodeLang, type CodeSpec } from "../lib/code";
+import { buildWarnings, normalizeBuild, sentenceText } from "../lib/sentenceBuild";
 
 const TYPE_NAMES: Record<QuestionType, string> = {
   choice: "Multiple choice",
@@ -19,6 +20,7 @@ const TYPE_NAMES: Record<QuestionType, string> = {
   map: "Map: find or label places",
   timeline: "Place events on a timeline",
   code: "Code exercise",
+  build: "Build a sentence from word tiles",
 };
 
 const lines = (s: string) =>
@@ -30,7 +32,7 @@ const uniq = (xs: string[]) => [...new Set(xs)];
 
 /** Defaults when a question changes kind (keeps the stem, topic, section, picture, explanation). */
 export function changeKind(q: Question, kind: QuestionType): Question {
-  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, model: _mo, target: _ta, map: _mp, targets: _tg, marks: _mk, slots: _sl, timeline: _tl, dates: _d, code: _k, ...base } = q;
+  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, model: _mo, target: _ta, map: _mp, targets: _tg, marks: _mk, slots: _sl, timeline: _tl, dates: _d, code: _k, tiles: _ti, distractors: _di, joiner: _j, punctuation: _p, prompt: _pr, ...base } = q;
   switch (kind) {
     case "choice":
       return { ...base, choices: ["", "", "", ""], answer: [0] };
@@ -62,6 +64,8 @@ export function changeKind(q: Question, kind: QuestionType): Question {
         answer: [],
         code: { language: "python", function: "solve", starter: "def solve(n):\n    pass\n", solution: "def solve(n):\n    return n\n", tests: [{ args: [1], expect: 1 }] },
       };
+    case "build":
+      return { ...base, type: "build", choices: [], answer: [], tiles: ["", "", ""] };
   }
 }
 
@@ -128,6 +132,17 @@ export function kindErrors(q: Question): string[] {
       }
       if (!q.code?.solution?.trim()) e.push("Add a model solution (shown after a correct answer).");
       break;
+    case "build": {
+      if ((q.tiles ?? []).some((t) => !t.trim())) e.push("Fill in or remove empty tiles.");
+      else
+        try {
+          normalizeBuild(q as unknown as Record<string, unknown>);
+          e.push(...buildWarnings(q).filter((w) => w.startsWith('"accept"')).map((w) => `Other correct orders: ${w.replace(/^"accept" entry/, "line")}.`));
+        } catch (err) {
+          e.push(`The sentence ${(err as Error).message.replace(/^\(build\) /, "")}`);
+        }
+      break;
+    }
   }
   return e;
 }
@@ -300,6 +315,7 @@ export function KindFields({ q, onChange }: { q: Question; onChange: (q: Questio
   if (kind === "map") return <MapFields q={q} onChange={onChange} />;
   if (kind === "timeline") return <TimelineFields q={q} onChange={onChange} />;
   if (kind === "code") return <CodeFields q={q} onChange={onChange} />;
+  if (kind === "build") return <BuildFields q={q} onChange={onChange} />;
 
   if (kind === "text") {
     const blanks = Math.max(1, (q.stem.match(BLANK) ?? []).length);
@@ -667,6 +683,103 @@ function TimelineFields({ q, onChange }: { q: Question; onChange: (q: Question) 
         <span>Periods shown for context (optional; lines like era: 1861–1865 | Civil War)</span>
         <textarea className="textarea mono" rows={2} value={q.timeline ?? ""} onChange={(e) => onChange({ ...q, timeline: e.target.value || undefined })} />
       </label>
+    </div>
+  );
+}
+
+/** Other correct orders as text: one order per line, tiles separated by " / ". */
+const ordersText = (accept: string[][] | undefined) => (accept ?? []).map((a) => a.join(" / ")).join("\n");
+const readOrders = (text: string) =>
+  lines(text)
+    .map((l) => l.split(/\s+\/\s+/).map((t) => t.trim()).filter(Boolean))
+    .filter((a) => a.length);
+
+/** Sentence builders: the tiles in order, extra tiles, other correct orders, spacing and punctuation. */
+function BuildFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
+  const tiles = q.tiles ?? [];
+  const set = (patch: Partial<Question>) => onChange({ ...q, ...patch });
+  const setTiles = (ts: string[]) => set({ tiles: ts });
+  const id = `bf-${q.id}`;
+  const done = tiles.filter((t) => t.trim());
+  return (
+    <div className="field build-fields">
+      <label className="field">
+        <span>Meaning (optional; shown under the question, e.g. the English sentence)</span>
+        <input className="input" value={q.prompt ?? ""} onChange={(e) => set({ prompt: e.target.value || undefined })} />
+      </label>
+      <span>Tiles, in the correct order (learners see them shuffled; furigana like {"{猫|ねこ}"} is fine)</span>
+      {tiles.map((t, i) => (
+        <div key={i} className="pair-edit">
+          <span className="order-num" aria-hidden="true">
+            {i + 1}
+          </span>
+          <input className="input" aria-label={`Tile ${i + 1}`} value={t} onChange={(e) => setTiles(tiles.map((x, j) => (j === i ? e.target.value : x)))} />
+          <button
+            className="btn ghost sm"
+            aria-label={`Move tile ${i + 1} earlier`}
+            disabled={i === 0}
+            onClick={() => setTiles(tiles.map((x, j) => (j === i - 1 ? tiles[i] : j === i ? tiles[i - 1] : x)))}
+          >
+            ↑
+          </button>
+          <button className="btn ghost sm" aria-label={`Remove tile ${i + 1}`} disabled={tiles.length <= 2} onClick={() => setTiles(tiles.filter((_, j) => j !== i))}>
+            Remove
+          </button>
+        </div>
+      ))}
+      <div className="row" style={{ marginTop: 8 }}>
+        <button className="btn sm" disabled={tiles.length >= 30} onClick={() => setTiles([...tiles, ""])}>
+          Add tile
+        </button>
+      </div>
+      <label className="field">
+        <span>Extra wrong tiles (optional, one per line)</span>
+        <textarea
+          className="textarea"
+          rows={2}
+          defaultValue={(q.distractors ?? []).join("\n")}
+          key={`d-${q.id}`}
+          onBlur={(e) => set({ distractors: lines(e.target.value).length ? lines(e.target.value) : undefined })}
+        />
+      </label>
+      <label className="field">
+        <span>Other correct orders (optional): one per line, tiles separated by " / "</span>
+        <textarea
+          className="textarea"
+          rows={2}
+          aria-describedby={`${id}-orders`}
+          defaultValue={ordersText(q.accept)}
+          key={`a-${q.id}`}
+          onBlur={(e) => set({ accept: readOrders(e.target.value).length ? readOrders(e.target.value) : undefined })}
+        />
+      </label>
+      <p id={`${id}-orders`} className="small muted">
+        For example <code>毎朝 / 私は / お茶を / 飲みます</code>. Each order uses the tiles above (and any extra tiles); tiles with the same text are interchangeable.
+      </p>
+      <div className="row">
+        <label className="field">
+          <span>Between tiles</span>
+          <select
+            className="select"
+            value={q.joiner === undefined ? "default" : q.joiner === "" ? "none" : "space"}
+            onChange={(e) => set({ joiner: e.target.value === "default" ? undefined : e.target.value === "none" ? "" : " " })}
+          >
+            <option value="default">Course language default</option>
+            <option value="none">No spaces (Japanese, Chinese)</option>
+            <option value="space">One space</option>
+          </select>
+        </label>
+        <label className="field">
+          <span>Final punctuation (optional)</span>
+          <input className="input num-input" maxLength={4} value={q.punctuation ?? ""} onChange={(e) => set({ punctuation: e.target.value.trim() || undefined })} />
+        </label>
+      </div>
+      {done.length > 0 && (
+        <p className="small">
+          <span className="muted">The sentence: </span>
+          {sentenceText(q, done)}
+        </p>
+      )}
     </div>
   );
 }
