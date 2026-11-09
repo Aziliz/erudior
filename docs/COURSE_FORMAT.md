@@ -606,6 +606,8 @@ Progress is kept per language and form (`progress.conj["ja:te"] = { right, wrong
 
 The course checker reports unknown forms or classes, forms of the other language, unknown lessons, a Japanese class that doesn't fit the dictionary form (ichidan needs る after an い/え-row kana; godan must end in う, く, ぐ, す, つ, ぬ, ぶ, む or る), missing German parts, separable-looking verbs without `forms.sep`, and adjective drills with no nouns. It also prints warnings to review, which don't fail the check: godan verbs that look ichidan (帰る, 入る, 知る, 切る), readings shared by an ichidan and a godan verb (かえる, きる, いる, へる, ねる), な-adjectives ending in い marked `i-adj` (きれい), compounds of いい, one-kanji する verbs (愛する), and e → i German verbs without `forms.imperative`.
 
+**`noForms`** (optional, on a word with `conj`): forms the word doesn't have or that sound wrong, left out of its drills, e.g. `"noForms": ["potential", "volitional"]` on できる or 分かる. Use the form names above.
+
 ## Math drills
 
 A drill is a problem template. Each run picks random inputs, computes the answer, and fills both into the text.

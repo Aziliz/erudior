@@ -381,6 +381,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${lang === "ja" ? JA_CLASSES.join(", ") : DE_CLASSES.join(", ")})`);
       if (v?.forms !== undefined)
         for (const k of Object.keys(v.forms ?? {})) if (!(DE_FORM_KEYS as readonly string[]).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${DE_FORM_KEYS.join(", ")})`);
+      if (v?.noForms !== undefined) {
+        if (!v.conj) say(`word ${v.id ?? i + 1}: "noForms" without "conj"`);
+        for (const f of Array.isArray(v.noForms) ? v.noForms : [v.noForms])
+          if (!CONJ_FORMS.includes(f)) say(`word ${v.id ?? i + 1}: unknown form "${f}" in noForms`);
+      }
     }
     for (const v of c.vocab ?? []) {
       const p = conjWordProblem(lang, v);

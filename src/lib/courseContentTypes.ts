@@ -306,6 +306,8 @@ export interface VocabItem {
     conj?: ConjClass;
     /** German conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }. */
     forms?: DeForms;
+    /** Conjugation drills: forms this word doesn't have or that sound wrong (e.g. できる: potential). */
+    noForms?: string[];
 }
 export interface ReadingItem {
     title: string;
