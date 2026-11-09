@@ -183,4 +183,19 @@ has('question punct: a tile ends with the "punctuation" mark');
   assert.ok(validateCanonicalAuthoring(bad).some((e: string) => e.includes("choices")), "build keeps choices empty");
 }
 
+// A sentence starts with a capital wherever its first tile came from.
+{
+  const { buildCorrect, sentenceText, startCase } = await import("../src/lib/sentenceBuild.ts");
+  const q = { tiles: ["die Fenster", "müssen", "bis Ende Mai", "geputzt werden"], accept: [["bis Ende Mai", "müssen", "die Fenster", "geputzt werden"]], punctuation: "." };
+  assert.equal(startCase("die Fenster"), "Die Fenster");
+  assert.equal(startCase("„ja"), "„Ja");
+  assert.equal(startCase("日本"), "日本");
+  assert.ok(buildCorrect(q, [0, 1, 2, 3]), "authored order");
+  assert.ok(buildCorrect(q, [2, 1, 0, 3]), "alternative order starting with a lowercase tile");
+  assert.ok(!buildCorrect(q, [1, 0, 2, 3]), "wrong order");
+  assert.equal(sentenceText(q, ["bis Ende Mai", "müssen", "die Fenster", "geputzt werden"], "de"), "Bis Ende Mai müssen die Fenster geputzt werden.");
+  const cap = { tiles: ["Am Montag", "fahre", "ich", "nach Berlin"], accept: [["ich", "fahre", "am Montag", "nach Berlin"]] };
+  assert.ok(buildCorrect(cap, [2, 1, 0, 3]) === false, "tiles must match apart from the first letter of the sentence");
+}
+
 console.log("sentence builder: all passed");

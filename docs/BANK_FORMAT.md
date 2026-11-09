@@ -110,6 +110,8 @@ The learner builds a sentence from word tiles (for language courses, or any orde
 - Practice, quizzes and timed exams use sentence builders. Live rooms and community courses don't (live rooms use choice questions only; the community editor has no fields for them).
 - The course checker reports: fewer than two tiles, an `accept` order that uses a tile not in the pool or repeats `tiles` or another order, a distractor that's also a tile, a tile ending with the `punctuation` mark, so many accepted orders that the tiles can't start out of order, a space `joiner` in a Japanese course, and furigana problems in Japanese courses.
 
+**Capitals at the start.** The sentence's first letter is capitalized for display and ignored in grading, so write tiles in their mid-sentence case (`"die Fenster"`, `"bis Ende Mai"`; nouns and names keep their capitals). Then other correct orders that start with a different tile can be listed in `accept`.
+
 ## Model questions
 
 The learner answers by using a math manipulative (the same models as lesson blocks; see "Math manipulatives" in [COURSE_FORMAT.md](COURSE_FORMAT.md#math-manipulatives) for every kind and its starting options).
