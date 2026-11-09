@@ -10,8 +10,9 @@ import { parseMapSpec } from "./mapSpec";
 import { samePlace } from "./mapNames";
 import { parseSpan, parseTimeline } from "./timeline";
 import { normalizeCodeSpec, readStamp } from "./code";
+import { buildAnswers, buildCorrect, buildParts, buildPool, normalizeBuild, placedTiles, sentenceText } from "./sentenceBuild";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code", "build"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -122,6 +123,8 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
     case "code":
       // Handed in = the tests ran on the code as it is now.
       return readStamp(chosen) !== null;
+    case "build":
+      return placedTiles(q, chosen).length > 0;
     default:
       return true;
   }
@@ -140,6 +143,9 @@ export function isComplete(q: Question, chosen: Chosen | undefined): boolean {
     case "label":
     case "timeline":
       return q.answer.every((_, i) => typeof chosen![i] === "number" && (chosen![i] as number) >= 0);
+    case "build":
+      // At least as many tiles as the shortest correct sentence.
+      return placedTiles(q, chosen).length >= Math.min(...buildAnswers(q).map((a) => a.length));
     default:
       return true;
   }
@@ -168,6 +174,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return !!q.target && manipCorrect(readSpec(q.model).model, q.target, chosen);
     case "code":
       return !!readStamp(chosen)?.pass;
+    case "build":
+      return buildCorrect(q, chosen);
     default:
       return sameSet(
         q.answer,
@@ -194,6 +202,9 @@ export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
       return q.answer.map((a, i) => chosen[i] === a);
     case "order":
       return q.choices.map((_, i) => chosen[i] === i);
+    case "build":
+      // Each position of the closest correct sentence.
+      return buildParts(q, chosen);
     default:
       return [];
   }
@@ -219,6 +230,8 @@ export function answerText(q: Question): string {
       return q.target ? targetText(readSpec(q.model).model, q.target) : "";
     case "code":
       return q.code?.solution?.trim() ?? "Code that passes every test";
+    case "build":
+      return buildAnswers(q).map((a) => sentenceText(q, a)).join("; ");
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -255,6 +268,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
       const s = readStamp(chosen);
       return s ? `Code that passed ${s.passed} of ${s.total} tests` : "Code (tests not run)";
     }
+    case "build": {
+      const pool = buildPool(q);
+      return sentenceText(q, placedTiles(q, chosen).map((i) => pool[i]));
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -279,6 +296,8 @@ export function typeLabel(q: Question): string {
       return actionLabel(readSpec(q.model).model.kind);
     case "code":
       return "Write code";
+    case "build":
+      return "Build the sentence";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -423,5 +442,7 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
     }
     case "code":
       return { ...base, choices: [], answer: [], code: normalizeCodeSpec(q.code) };
+    case "build":
+      return { ...base, choices: [], answer: [], ...normalizeBuild(q) };
   }
 }

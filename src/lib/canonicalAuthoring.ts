@@ -179,7 +179,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.advancedAssessments) && c.advancedAssessments.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
     }
     const context: CanonicalValidationContext = { strict, course: c as unknown as PortableAuthoredCourse, mode: options.mode, communityImageOrigin: options.communityImageOrigin };
-    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio'];
+    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio', 'tiles', 'distractors', 'joiner', 'punctuation', 'prompt'];
     let bankIndex = 0;
     objects(c.banks, 'banks', ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'sections', 'exam', 'questions'], (b, p) => {
         const index = bankIndex++;
@@ -217,16 +217,16 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 firstQuestions.add(q.id);
             str(q.topic, path + '.topic');
             str(q.stem, path + '.stem', true);
-            optionalStr(q, ['explanation', 'listen', 'map', 'timeline'], path);
+            optionalStr(q, ['explanation', 'listen', 'map', 'timeline', 'joiner', 'punctuation', 'prompt'], path);
             boolean(q, ['caseSensitive', 'lowestTerms', 'honors'], path);
             if (q.section !== undefined && !sectionIds.has(q.section as string))
                 add(path + '.section', 'unknown bank section');
-            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code'].includes(q.type as string))
+            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code', 'build'].includes(q.type as string))
                 add(path + '.type', 'unsupported question type');
             strings(q.choices, path + '.choices');
             if (array(q.answer, path + '.answer'))
                 q.answer.forEach((a, i) => integer(a, `${path}.answer[${i}]`, 0, 10000));
-            for (const k of ['left', 'dates', 'targets', 'marks', 'slots', 'blend'])
+            for (const k of ['left', 'dates', 'targets', 'marks', 'slots', 'blend', 'tiles', 'distractors'])
                 if (q[k] !== undefined)
                     strings(q[k], path + '.' + k);
             if (q.accept !== undefined && array(q.accept, path + '.accept'))
@@ -252,9 +252,9 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 add(path, 'choice needs two choices and an answer');
             if (strict && kind === 'order' && choices.length < 2)
                 add(path, 'order needs two items');
-            if (['text', 'model', 'code'].includes(kind as string) && answers.length)
+            if (['text', 'model', 'code', 'build'].includes(kind as string) && answers.length)
                 add(path + '.answer', 'must be empty for question type');
-            if (['text', 'model', 'code'].includes(kind as string) && choices.length)
+            if (['text', 'model', 'code', 'build'].includes(kind as string) && choices.length)
                 add(path + '.choices', 'must be empty for question type');
             if(kind==='order'&&answers.length&&(answers.length!==choices.length||answers.some((a,i)=>a!==i)))add(path+'.answer','legacy order answers must be the identity sequence');
             if (kind === 'text' && strict) {

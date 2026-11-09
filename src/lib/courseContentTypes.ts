@@ -8,7 +8,7 @@ export interface Section {
     id: string;
     name: string;
 }
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code";
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code" | "build";
 export interface QuestionImage {
     /** A data: URL (bundled and community courses) or an app-relative path. */
     src: string;
@@ -36,8 +36,18 @@ export interface Question {
         x: number;
         y: number;
     }[];
-    /** text: accepted answers per blank. */
+    /** text: accepted answers per blank. build: other correct orders, each a list of tiles. */
     accept?: string[][];
+    /** build: the sentence's word tiles, in the correct order (may hold furigana markup). */
+    tiles?: string[];
+    /** build: extra tiles that aren't in the sentence. */
+    distractors?: string[];
+    /** build: what goes between tiles, "" or " " (default: "" for Japanese and other unspaced languages, else " "). */
+    joiner?: string;
+    /** build: added after the last tile, e.g. "。" or ".". */
+    punctuation?: string;
+    /** build: the meaning of the sentence to build (e.g. its translation), shown under the stem. */
+    prompt?: string;
     /** text: answers must match capital letters too (e.g. gene symbols). */
     caseSensitive?: boolean;
     /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */

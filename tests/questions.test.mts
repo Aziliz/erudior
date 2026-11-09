@@ -1,6 +1,7 @@
 // Question kinds: grading, answered checks, validation; honors handling. Run: npm test
 import assert from "node:assert/strict";
-import { answerText, blankCount, chosenText, isAnswered, isComplete, isCorrect, normText, normalizeQuestionKind, partsCorrect, textMatches } from "../src/lib/questions.ts";
+import { answerText, blankCount, chosenText, isAnswered, isComplete, isCorrect, normText, normalizeQuestionKind, partsCorrect, textMatches, typeLabel } from "../src/lib/questions.ts";
+import { bankOrder, buildJoiner, buildPool, buildWarnings, readsAsAnswer, sentenceText } from "../src/lib/sentenceBuild.ts";
 import { normalizeBank } from "../src/lib/validate.ts";
 import { defaultExamOptions, startExam, drawExamQuestions, finishSession, practicePool, startPractice } from "../src/lib/session.ts";
 import { coreLessons, isHonorsLesson, moduleCoreLessons, normalizeCourse } from "../src/lib/course.ts";
@@ -83,6 +84,76 @@ t("order", () => {
   assert.ok(!isCorrect(order, [1, 0, 2, 3]));
   assert.deepEqual(partsCorrect(order, [1, 0, 2, 3]), [false, false, true, true]);
   assert.equal(answerText(order), "P → M → A → T");
+});
+
+t("build: sentence from tiles", () => {
+  // Japanese: no spaces, furigana on tiles, an alternative order, a distractor.
+  const ja = { id: "b-ja", topic: "x", stem: "Build the sentence.", ...normalizeQuestionKind({
+    type: "build", tiles: ["{私|わたし}は", "{毎朝|まいあさ}", "お{茶|ちゃ}を", "{飲|の}みます"], distractors: ["を"],
+    accept: [["{毎朝|まいあさ}", "{私|わたし}は", "お{茶|ちゃ}を", "{飲|の}みます"]], punctuation: "。", prompt: "I drink tea every morning.",
+  }) } as Question;
+  assert.equal(ja.type, "build");
+  assert.deepEqual(ja.choices, []);
+  assert.equal(ja.prompt, "I drink tea every morning.");
+  assert.ok(isCorrect(ja, [0, 1, 2, 3]));
+  assert.ok(isCorrect(ja, [1, 0, 2, 3]), "alternative order");
+  assert.ok(!isCorrect(ja, [0, 2, 1, 3]));
+  assert.ok(!isCorrect(ja, [0, 1, 2]), "all or nothing");
+  assert.ok(!isCorrect(ja, [0, 1, 2, 3, 4]), "an extra tile is wrong");
+  assert.ok(!isCorrect(ja, []));
+  assert.ok(isAnswered(ja, [2]) && !isComplete(ja, [2]) && isComplete(ja, [3, 2, 1, 0]));
+  assert.ok(!isAnswered(ja, [9, -1, "x"]), "invalid tiles are ignored");
+  assert.ok(isCorrect(ja, [0, 0, 1, 2, 3]), "a repeated index counts once");
+  assert.equal(chosenText(ja, [0, 1, 2, 3]), "私は毎朝お茶を飲みます。", "Japanese tiles join without spaces");
+  assert.equal(answerText(ja), "私は毎朝お茶を飲みます。; 毎朝私はお茶を飲みます。");
+  assert.equal(typeLabel(ja), "Build the sentence");
+  assert.deepEqual(partsCorrect(ja, [1, 0, 3, 2]), [true, true, false, false], "marked against the closest correct order");
+  assert.deepEqual(partsCorrect(ja, [0, 1]), [true, true, false, false], "missing tiles are wrong");
+
+  // Identical tiles are interchangeable: grading is by text, not by which tile.
+  const de = { id: "b-de", topic: "x", stem: "Baue den Satz.", ...normalizeQuestionKind({
+    type: "build", tiles: ["die", "Katze", "sieht", "die", "Maus"], distractors: ["der"], punctuation: ".",
+  }) } as Question;
+  assert.ok(isCorrect(de, [0, 1, 2, 3, 4]));
+  assert.ok(isCorrect(de, [3, 1, 2, 0, 4]), "the two \"die\" tiles swap freely");
+  assert.ok(!isCorrect(de, [5, 1, 2, 3, 4]), "the distractor is wrong");
+  assert.equal(chosenText(de, [3, 1, 2, 0, 4]), "die Katze sieht die Maus.", "other languages join with a space");
+
+  // Joiner: explicit, from the course language, or from the script.
+  assert.equal(buildJoiner({ tiles: ["a", "b"] }), " ");
+  assert.equal(buildJoiner({ tiles: ["a", "b"] }, "ja"), "");
+  assert.equal(buildJoiner({ tiles: ["a", "b"] }, "zh-CN"), "");
+  assert.equal(buildJoiner({ tiles: ["猫", "が"] }, "en"), "");
+  assert.equal(buildJoiner({ tiles: ["猫", "が"], joiner: " " }), " ");
+  assert.equal(sentenceText({ tiles: ["Ich", "bin"], joiner: "" }, ["Ich", "bin"]), "Ichbin");
+  assert.equal(sentenceText({ tiles: ["a", "b"], punctuation: "?" }, []), "", "no punctuation on an empty sentence");
+
+  // The bank never starts in a correct order, and the shuffle is stable.
+  for (const q of [ja, de, { id: "two", tiles: ["x", "y"] }, { id: "dup", tiles: ["a", "a", "b"] }]) {
+    for (const seed of ["", "s1", "s2", "s3"]) {
+      const o = bankOrder(q, seed);
+      assert.deepEqual([...o].sort((a, b) => a - b), buildPool(q).map((_, i) => i));
+      assert.ok(!readsAsAnswer(q, o), `${q.id}/${seed} starts solved`);
+      assert.deepEqual(bankOrder(q, seed), o, "deterministic");
+    }
+  }
+  assert.ok(readsAsAnswer(de, [5, 0, 1, 2, 3, 4]), "a distractor in between still reads as the sentence");
+
+  // Validation.
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["only"] }), /at least two/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "a"] }), /two different/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", " "] }), /empty tile/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "b"], accept: [["b", "c"]] }), /not in "tiles"/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "b"], accept: [["b", "a", "a"]] }), /too often/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "b"], accept: ["b a"] }), /at least two tiles/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "b"], joiner: "-" }), /joiner/);
+  assert.throws(() => normalizeQuestionKind({ type: "build", tiles: ["a", "b"], punctuation: ". ." }), /punctuation/);
+  assert.ok(normalizeQuestionKind({ type: "build", tiles: ["a", "b"], distractors: ["c"], accept: [["b", "c"]] }).accept, "an alternative may use a distractor");
+  assert.deepEqual(buildWarnings({ tiles: ["a", "b"], accept: [["a", "b"], ["b", "a"], ["b", "a"]] }), ['"accept" entry 1 is the same as "tiles"', '"accept" entry 3 repeats "accept" entry 2']);
+  assert.ok(buildWarnings({ tiles: ["a", "b"], distractors: ["a"] })[0].includes("interchangeable"));
+  const bank = normalizeBank({ title: "B", questions: [{ id: "b", stem: "Build", type: "build", tiles: ["x", "y"], joiner: "" }] });
+  assert.deepEqual(bank.questions[0].tiles, ["x", "y"]);
+  assert.equal(bank.questions[0].joiner, "");
 });
 
 t("choice and select-all", () => {

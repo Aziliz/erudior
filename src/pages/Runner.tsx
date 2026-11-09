@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { imeFor } from "../lib/ime";
+import { bankOrder, buildPool, tilePlain } from "../lib/sentenceBuild";
 import { FuriganaToggle } from "../components/Ruby";
 import MathText from "../components/MathText";
 import QuestionBody, { QuestionAudio, QuestionImage, QuestionStem } from "../components/QuestionBody";
@@ -388,8 +389,13 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
     if (kind === "match") (q.left ?? []).forEach((l) => out.push(sayItem(lib, mathTextSpeech(l), { key: l, pause: 150 })));
     if (kind === "match" || kind === "label") out.push({ text: `Choices: ${item.order.map((o) => mathTextSpeech(q.choices[o])).join(", ")}.`, pause: 150 });
     if (kind === "order") item.order.forEach((o) => out.push(sayItem(lib, mathTextSpeech(q.choices[o]), { key: q.choices[o], pause: 150 })));
+    if (kind === "build") {
+      if (q.prompt) out.push(sayItem(lib, mathTextSpeech(q.prompt), { key: q.prompt, pause: 150 }));
+      // The tiles are in the course language; the reader skips the readings of furigana.
+      out.push({ text: `Tiles: ${bankOrder(q, session.id).map((i) => tilePlain(buildPool(q)[i])).join(", ")}.`, pause: 150 });
+    }
     return out;
-  }, [q, item.order, lib, choicesHidden]);
+  }, [q, item.order, lib, choicesHidden, session.id]);
 
   const feedbackItems = useCallback((): SayItem[] => {
     const box = scrollRef.current?.querySelector<HTMLElement>(".feedback");
@@ -564,6 +570,8 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               reveal={isChecked}
               read={readAloud ? { lib } : undefined}
               ime={imeFor(course?.language)}
+              lang={course?.language?.code}
+              seed={session.id}
               exam={isExam}
               draftKey={metaKey(session.bankId, q.id)}
             />

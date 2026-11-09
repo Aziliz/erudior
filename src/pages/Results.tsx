@@ -327,7 +327,7 @@ export default function Results({
               <QuestionAudio q={q} revealed fallbackLang={course?.language?.tts ?? course?.language?.code} />
               {meta[q.id]?.note && <p className="note-show">Your note: {meta[q.id]?.note}</p>}
               {!isChoice(q) ? (
-                <QuestionBody q={q} order={q.choices.map((_, i) => i)} chosen={rec.chosen} reveal review />
+                <QuestionBody q={q} order={q.choices.map((_, i) => i)} chosen={rec.chosen} reveal review lang={course?.language?.code} />
               ) : (
               <ul className="review-choices">
                 {q.choices.map((c, i) => {
