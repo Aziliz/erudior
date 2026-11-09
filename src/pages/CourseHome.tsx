@@ -1,3 +1,5 @@
+import { isGuidedPractice } from "../lib/assessmentPresentation";
+import { GuidedCourseHome } from "./GuidedPractice";
 import { catalogEntry, isPublishedCourse } from "../lib/catalog";
 import { useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
@@ -128,7 +130,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         ))}
       </nav>
 
-      {tab === "today" && <TodayTab api={api} course={course} />}
+      {tab === "today" && (isGuidedPractice(course) ? <GuidedCourseHome api={api} course={course} /> : <TodayTab api={api} course={course} />)}
       {tab === "progress" && <CourseProgress api={api} course={course} />}
       {tab === "lessons" && <LessonsTab api={api} course={course} />}
       {tab === "work" && (hasWork(course) || courseActivities(course).length > 0) && <WorkTab api={api} course={course} />}
@@ -503,9 +505,9 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                             session: startLessonQuiz(bank!, { courseId: course.id, lessonId: l.id }, l.quiz ?? []),
                           })
                         }
-                        title="Take this lesson's quiz"
+                        title={isGuidedPractice(course) ? "Practice this lesson" : "Take this lesson's quiz"}
                       >
-                        Quiz: {nq}
+                        {isGuidedPractice(course) ? "Practice" : "Quiz"}: {nq}
                         {best ? ` · best ${best.correct}/${best.total}` : ""}
                         {isDone ? " ✓" : ""}
                       </button>
@@ -530,12 +532,12 @@ function LessonsTab({ api, course }: { api: AppApi; course: Course }) {
                         })
                       }
                     >
-                      <span className={`bubble ${passed ? "right" : ""}`} aria-label={passed ? "Passed" : "Not passed"}>
+                      <span className={`bubble ${passed ? "right" : ""}`} aria-label={isGuidedPractice(course) ? passed ? "Practice complete" : "Practice not complete" : passed ? "Passed" : "Not passed"}>
                         {passed ? "✓" : ""}
                       </span>
                       <span className="lesson-title">
                         <b>
-                          Module {mi + 1} quiz: all of {m.title}
+                          {isGuidedPractice(course) ? "Unit" : "Module"} {mi + 1} {isGuidedPractice(course) ? "practice" : "quiz"}: all of {m.title}
                         </b>{" "}
                         <span className="muted small">
                           ({n} questions
@@ -592,17 +594,17 @@ function BanksTab({ api, course }: { api: AppApi; course: Course }) {
                     <div className="meta">
                       {b.questions.length} questions
                       {b.sections.length > 0 && <>, {b.sections.map((s) => s.name).join(" and ")}</>}
-                      {`. Exams: ${Math.min(b.exam.questionCount, b.questions.length)} questions, ${b.exam.timeLimitMinutes} min`}
+                      {isGuidedPractice(course) ? ". Untimed practice" : `. Exams: ${Math.min(b.exam.questionCount, b.questions.length)} questions, ${b.exam.timeLimitMinutes} min`}
                     </div>
                   </div>
                   <div className="stat">
                     <b>{percent(cov.seen, cov.total)}%</b>
                     <span className="small muted">studied</span>
                   </div>
-                  <div className="stat">
+{!isGuidedPractice(course) && (                  <div className="stat">
                     <b>{last ? `${percent(last.correct, last.total)}%` : "None"}</b>
                     <span className="small muted">last exam</span>
-                  </div>
+                  </div>)}
                 </button>
               );
             })}

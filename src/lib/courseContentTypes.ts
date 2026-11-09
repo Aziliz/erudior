@@ -1,3 +1,4 @@
+import type { AssessmentPresentation } from "./assessmentPresentation";
 // Authored course data only; shared by app, worker, and portable adapters.
 import type { Drill } from "./exerciseTypes";
 import type { ManipSpec, ManipTarget } from "./manip";
@@ -173,6 +174,8 @@ export interface RefSheet {
     body: string; // Markdown
 }
 export interface Course {
+    /** Opt-in untimed learning presentation; not an age, grade, or credit decision. */
+    assessmentPresentation?: AssessmentPresentation;
     format: "examiner-course";
     version: 1;
     id: string;

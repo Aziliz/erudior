@@ -222,6 +222,18 @@ export function speechText(root: Element, opts: { tex?: boolean } = {}): string 
     if (n.nodeType !== 1) return;
     const el = n as Element;
     if (el !== root && skipEl(el)) return;
+    // Hydrated models already expose their current state in a direct live region.
+    // Narrate that once, not the SVG, toolbar labels and duplicate readout. Leave
+    // authored captions outside the model and all keyboard/ARIA controls intact.
+    const modelStatus = el.classList.contains("mp") ? el.querySelector<HTMLElement>(':scope > [aria-live="polite"]') : null;
+    if (modelStatus && !skipEl(modelStatus)) {
+      const description = modelStatus.textContent?.trim();
+      if (description) {
+        out.push(` ${description} `);
+        end();
+        return;
+      }
+    }
     if (el.classList.contains("katex")) {
       const tex = el.getAttribute("data-tex") ?? el.querySelector("annotation")?.textContent ?? "";
       out.push(` ${opts.tex ? tex : texToSpeech(tex)} `);

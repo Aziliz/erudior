@@ -1,3 +1,4 @@
+import "../reference-reflow.css";
 import type { AppApi } from "../App";
 import type { Course, RefSheet } from "../lib/types";
 import Markdown from "../components/Markdown";

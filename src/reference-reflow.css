@@ -1,0 +1,6 @@
+/* Keep reference headings and long source links inside enlarged-text layouts.
+ * Wrap content rather than clipping it or reducing the selected text size. */
+.ref-sheet {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
