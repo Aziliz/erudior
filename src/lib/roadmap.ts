@@ -37,6 +37,17 @@ const K8_TOPICS: Record<string, [string, string, string, string]> = {
 const SUBJECTS = ["Math", "Language Arts", "Science", "Social Studies"] as const;
 
 export const ROADMAP: RoadmapGroup[] = [
+  {
+    id: "prek",
+    title: "Pre-kindergarten",
+    note: "Play-based and read aloud; no reading or typing needed.",
+    courses: [
+      { title: "Pre-K Math", covers: "Counting to 20, shapes, sorting, patterns, bigger and smaller" },
+      { title: "Pre-K Language Arts", covers: "Letter names and sounds, rhyming, listening to stories, pre-writing strokes" },
+      { title: "Pre-K Science and Social Studies", covers: "Senses, seasons, animals, me and my family, helpers" },
+      { title: "Pre-K Art, Music and Movement", covers: "Colors, songs, rhythm, movement games" },
+    ],
+  },
   ...SUBJECTS.map((subject, i) => ({
     id: `k8-${subject.toLowerCase().replace(/\s+/g, "-")}`,
     title: `${subject}, kindergarten to grade 8`,
@@ -46,6 +57,26 @@ export const ROADMAP: RoadmapGroup[] = [
       ...(subject === "Math" && g === "8" ? { catalog: "Pre-algebra and Arithmetic" } : {}),
     })),
   })),
+  {
+    id: "k8-social-more",
+    title: "Geography and state history, grades 6 to 8",
+    courses: [
+      { title: "World Geography 6–8", covers: "Maps and map skills, world regions, landforms, climate, population, cultures" },
+      { title: "State History 6–8", covers: "An edition for each state that requires it" },
+    ],
+  },
+  {
+    id: "k8-languages",
+    title: "World languages, kindergarten to grade 8",
+    note: "Built for children: read aloud, songs, pictures and games before typing. Grade 6–8 courses lead into the A1 or Latin I courses.",
+    courses: [
+      { title: "Spanish K–2", covers: "Greetings, colors, numbers, family, songs and listening" },
+      { title: "Spanish 3–5", covers: "Everyday words and phrases, first reading and simple sentences" },
+      { title: "Spanish 6–8", covers: "Prepares for Spanish A1" },
+      { title: "Latin 3–5", covers: "Pronunciation, chants, first vocabulary, English words from Latin" },
+      { title: "Latin 6–8", covers: "Noun and verb endings, simple sentences; prepares for Latin I" },
+    ],
+  },
   {
     id: "k8-other",
     title: "Art, music, health and PE, kindergarten to grade 8",
@@ -86,12 +117,20 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Precalculus" },
       { title: "Calculus" },
       { title: "AP Statistics" },
+      { title: "Consumer Math", covers: "Fourth-year option instead of Precalculus: budgets, interest, loans, taxes, insurance, data" },
     ],
   },
   {
     id: "hs-science",
     title: "High school science",
-    courses: [{ title: "Biology" }, { title: "Chemistry" }, { title: "Earth and Environmental Science" }, { title: "Physics" }],
+    courses: [
+      { title: "Physical Science", covers: "Ninth-grade introduction to chemistry and physics" },
+      { title: "Biology" },
+      { title: "Chemistry" },
+      { title: "Earth and Environmental Science" },
+      { title: "Physics" },
+      { title: "Anatomy and Physiology", covers: "Body systems, cells and tissues, health connections" },
+    ],
   },
   {
     id: "hs-english",
@@ -106,7 +145,47 @@ export const ROADMAP: RoadmapGroup[] = [
   {
     id: "hs-social",
     title: "High school social studies",
-    courses: [{ title: "World History" }, { title: "US History" }, { title: "US Government and Civics" }, { title: "Economics" }],
+    courses: [
+      { title: "World History" },
+      { title: "US History" },
+      { title: "US Government and Civics" },
+      { title: "Economics" },
+      { title: "World Geography", covers: "Physical and human geography, regions, maps and data" },
+      { title: "State History", covers: "An edition for each state that requires it" },
+    ],
+  },
+  {
+    id: "hs-ap",
+    title: "High school Advanced Placement",
+    note: "Prepares for the College Board exams; not endorsed by the College Board.",
+    courses: [
+      { title: "AP English Language and Composition" },
+      { title: "AP English Literature and Composition" },
+      { title: "AP US History" },
+      { title: "AP World History: Modern" },
+      { title: "AP US Government and Politics" },
+      { title: "AP Human Geography" },
+      { title: "AP Macroeconomics" },
+      { title: "AP Psychology" },
+      { title: "AP Biology" },
+      { title: "AP Chemistry" },
+      { title: "AP Physics 1" },
+      { title: "AP Environmental Science" },
+      { title: "AP Calculus AB" },
+      { title: "AP Calculus BC" },
+      { title: "AP Computer Science A" },
+    ],
+  },
+  {
+    id: "hs-test-prep",
+    title: "College admission, college credit and equivalency exams",
+    courses: [
+      { title: "PSAT/NMSQT Prep" },
+      { title: "SAT Prep" },
+      { title: "ACT Prep" },
+      { title: "CLEP Prep", covers: "College credit by exam, starting with the most-taken subjects" },
+      { title: "GED Prep", covers: "Math, reasoning through language arts, science, social studies" },
+    ],
   },
   {
     id: "language-french",
@@ -118,6 +197,16 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "French B2", covers: "Extended discussion, argument, complex reading and clear writing" },
       { title: "French C1", covers: "Advanced fluency, academic and professional communication" },
       { title: "French C2", covers: "Near-comprehensive comprehension, nuanced expression and complex texts" },
+    ],
+  },
+  {
+    id: "language-latin",
+    title: "Latin — classical reading courses",
+    courses: [
+      { title: "Latin I", covers: "Pronunciation, the five declensions, present system verbs, simple prose" },
+      { title: "Latin II", covers: "Perfect system, participles, subjunctive, adapted readings" },
+      { title: "Latin III", covers: "Caesar, Cicero and other prose authors" },
+      { title: "Latin IV", covers: "Vergil and Latin poetry, meter" },
     ],
   },
   {
@@ -446,7 +535,12 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Health", covers: "Including first aid and CPR knowledge" },
       { title: "Physical Education", covers: "Activity log and fitness planning" },
       { title: "Art" },
+      { title: "Art History" },
       { title: "Music" },
+      { title: "Music Theory" },
+      { title: "Theatre", covers: "Acting, scripts, stagecraft and theatre history" },
+      { title: "Logic", covers: "Informal fallacies, formal logic, argument analysis" },
+      { title: "Driver Education", covers: "Classroom portion; state rules vary, not a state-approved course" },
       { title: "Personal Finance" },
       { title: "Computer Science" },
     ],
@@ -471,7 +565,7 @@ export const ROADMAP: RoadmapGroup[] = [
  * Keep professional programs and college electives in the internal data/catalog.
  */
 export const PUBLIC_ROADMAP = ROADMAP.filter((group) =>
-  group.id.startsWith("k8-") || group.id.startsWith("hs-") || group.id.startsWith("language-"),
+  group.id === "prek" || group.id.startsWith("k8-") || group.id.startsWith("hs-") || group.id.startsWith("language-"),
 ).map((group) => group.id === "hs-programming"
   ? { ...group, title: "Programming and web development — high school" }
   : group);

@@ -10,7 +10,7 @@ assert(ROADMAP.some(g => g.id.startsWith("jd-")), "internal professional roadmap
 assert(ROADMAP.some(g => g.id === "professional-real-estate"));
 assert(ELECTIVES.includes("University Physics I"));
 assert.deepEqual(PUBLIC_ROADMAP.filter(g => g.id.startsWith("language-")), ROADMAP.filter(g => g.id.startsWith("language-")));
-assert.deepEqual(PUBLIC_ROADMAP.filter(g => !g.id.startsWith("language-")).map(g => g.id), ROADMAP.filter(g => g.id.startsWith("k8-") || g.id.startsWith("hs-")).map(g => g.id));
+assert.deepEqual(PUBLIC_ROADMAP.filter(g => !g.id.startsWith("language-")).map(g => g.id), ROADMAP.filter(g => g.id === "prek" || g.id.startsWith("k8-") || g.id.startsWith("hs-")).map(g => g.id));
 
 const outfile = "tests/.public-roadmap-bundle.mjs";
 await build({ entryPoints: ["src/pages/Roadmap.tsx"], outfile, bundle: true, platform: "node", format: "esm", packages: "external", define: { "import.meta.env": "{}" } });
