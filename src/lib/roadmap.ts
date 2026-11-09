@@ -708,6 +708,111 @@ export const ROADMAP: RoadmapGroup[] = [
       { title: "Computer Science" },
     ],
   },
+  {
+    id: "college-written",
+    title: "College core — written and oral communication (GT-CO)",
+    note: "College general education built on Colorado's GT Pathways, so it lines up with what most degrees require. Each course is a full college-level course and also prepares for its CLEP exam where one exists. Independent study: credit comes from CLEP or from the college that accepts it, and the GT code is the area a course is written to, not a transfer guarantee.",
+    courses: [
+      { title: "English Composition I", covers: "Academic essays, critical reading, the writing process. GT-CO1; CLEP College Composition" },
+      { title: "English Composition II", covers: "Argument, research, sources and citation. GT-CO2; CLEP College Composition" },
+      { title: "Advanced Composition", covers: "Writing in the disciplines, advanced research and style. GT-CO3" },
+      { title: "Public Speaking", covers: "Preparing and delivering informative and persuasive speeches. Required by many degrees" },
+      { title: "Interpersonal Communication", covers: "Listening, conflict, relationships and workplace communication. Accepted in place of Public Speaking by many degrees" },
+    ],
+  },
+  {
+    id: "college-math",
+    title: "College core — mathematics (GT-MA1)",
+    note: "STEM degrees take Precalculus (CLEP Pre-Calculus) and Calculus (CLEP Calculus) from High school math instead; both courses will be aligned to their CLEP exams.",
+    courses: [
+      { title: "College Algebra", covers: "Functions; polynomial, rational, exponential and logarithmic models; systems. GT-MA1; CLEP College Algebra" },
+      { title: "Quantitative Reasoning", covers: "Math for the liberal arts: logic, sets, personal finance, probability, data. GT-MA1; CLEP College Mathematics" },
+      { title: "Introductory Statistics", covers: "Data, probability, sampling, confidence intervals, hypothesis tests. GT-MA1" },
+      { title: "Finite Mathematics", covers: "Linear models, matrices, linear programming, finance and probability for business and social science. GT-MA1" },
+    ],
+  },
+  {
+    id: "college-science",
+    title: "College core — natural and physical sciences (GT-SC)",
+    note: "Lab courses use the lab and simulation engine. Physics (algebra-based) and University Physics I and II, already in the catalog, meet the physics requirement.",
+    courses: [
+      { title: "Concepts of Biology", covers: "Non-majors biology with lab. GT-SC1; CLEP Natural Sciences" },
+      { title: "General Biology I", covers: "For majors: chemistry of life, cells, energy, genetics, with lab. GT-SC1; CLEP Biology" },
+      { title: "General Biology II", covers: "For majors: evolution, diversity of life, ecology, with lab. GT-SC1; CLEP Biology" },
+      { title: "Introduction to Chemistry", covers: "Non-majors chemistry with lab. GT-SC1" },
+      { title: "General Chemistry I", covers: "Atoms, bonding, stoichiometry, gases, thermochemistry, with lab. GT-SC1; CLEP Chemistry" },
+      { title: "General Chemistry II", covers: "Kinetics, equilibrium, acids and bases, electrochemistry, with lab. GT-SC1; CLEP Chemistry" },
+      { title: "College Physical Science", covers: "Non-majors physics and chemistry with lab. GT-SC1; CLEP Natural Sciences" },
+      { title: "Introduction to Astronomy", covers: "The sky, solar system, stars and galaxies, with lab. GT-SC1" },
+      { title: "Physical Geology", covers: "Minerals, rocks, plate tectonics, surface processes, with lab. GT-SC1" },
+      { title: "Introduction to Environmental Science", covers: "Ecosystems, resources, pollution and sustainability, with lab. GT-SC1" },
+    ],
+  },
+  {
+    id: "college-humanities",
+    title: "College core — arts and humanities (GT-AH)",
+    note: "World language (GT-AH4): two semesters are taken as the A1 and A2 courses of a language above; French, German and Spanish also prepare for their CLEP exams.",
+    courses: [
+      { title: "Art Appreciation", covers: "Visual elements, media and art across cultures. GT-AH1" },
+      { title: "Art History I", covers: "Prehistoric through Gothic. GT-AH1" },
+      { title: "Art History II", covers: "Renaissance to the present. GT-AH1" },
+      { title: "Introduction to Music", covers: "Listening, elements of music, Western and world traditions. GT-AH1" },
+      { title: "Introduction to Theatre", covers: "Theatre as an art form, its history and production. GT-AH1" },
+      { title: "Introduction to Film", covers: "Film form, genres and film history. GT-AH1" },
+      { title: "Introduction to Literature", covers: "Fiction, poetry and drama: reading and writing about them. GT-AH2; CLEP Analyzing and Interpreting Literature" },
+      { title: "American Literature I", covers: "Beginnings to 1865. GT-AH2; CLEP American Literature" },
+      { title: "American Literature II", covers: "1865 to the present. GT-AH2; CLEP American Literature" },
+      { title: "British Literature I", covers: "Old English through the 18th century. GT-AH2; CLEP English Literature" },
+      { title: "British Literature II", covers: "Romantics to the present. GT-AH2; CLEP English Literature" },
+      { title: "Introduction to World Literature", covers: "Major works in translation from around the world. GT-AH2" },
+      { title: "Introduction to Humanities", covers: "Art, music, literature and ideas from antiquity to today. GT-AH2; CLEP Humanities" },
+      { title: "Mythology", covers: "Greek, Roman, Norse and world myths and their influence. GT-AH2" },
+      { title: "Introduction to Philosophy", covers: "Knowledge, reality, mind, free will, God and meaning. GT-AH3" },
+      { title: "Ethics", covers: "Moral theories and contemporary ethical issues. GT-AH3" },
+      { title: "Introduction to Logic", covers: "Arguments, fallacies, categorical and propositional logic. GT-AH3" },
+      { title: "Introduction to World Religions", covers: "Academic survey of the major world religions. GT-AH3" },
+    ],
+  },
+  {
+    id: "college-history",
+    title: "College core — history (GT-HI1)",
+    courses: [
+      { title: "US History I", covers: "Colonial era to 1877. GT-HI1; CLEP History of the United States I" },
+      { title: "US History II", covers: "1877 to the present. GT-HI1; CLEP History of the United States II" },
+      { title: "Western Civilization I", covers: "Ancient Near East to 1648. GT-HI1; CLEP Western Civilization I" },
+      { title: "Western Civilization II", covers: "1648 to the present. GT-HI1; CLEP Western Civilization II" },
+      { title: "World Civilization I", covers: "Early societies to 1500. GT-HI1" },
+      { title: "World Civilization II", covers: "1500 to the present. GT-HI1" },
+    ],
+  },
+  {
+    id: "college-social",
+    title: "College core — social and behavioral sciences (GT-SS)",
+    note: "CLEP Social Sciences and History covers this area and history together.",
+    courses: [
+      { title: "American Government", covers: "Constitution, institutions, parties, elections, civil liberties. GT-SS1; CLEP American Government" },
+      { title: "State and Local Government", covers: "State constitutions, legislatures, courts and local government. Required in some states, such as Texas" },
+      { title: "Principles of Macroeconomics", covers: "GDP, inflation, unemployment, money, fiscal and monetary policy. GT-SS1; CLEP Principles of Macroeconomics" },
+      { title: "Principles of Microeconomics", covers: "Supply and demand, markets, firms, market failure. GT-SS1; CLEP Principles of Microeconomics" },
+      { title: "Human Geography", covers: "Population, culture, migration, cities and development. GT-SS2" },
+      { title: "World Regional Geography", covers: "The world's regions: environments, peoples and economies. GT-SS2" },
+      { title: "Introduction to Psychology", covers: "Brain, development, learning, cognition, personality, disorders. GT-SS3; CLEP Introductory Psychology" },
+      { title: "Introduction to Sociology", covers: "Culture, socialization, inequality, institutions, social change. GT-SS3; CLEP Introductory Sociology" },
+      { title: "Cultural Anthropology", covers: "Culture, kinship, economy, belief and fieldwork. GT-SS3" },
+      { title: "Human Growth and Development", covers: "Lifespan development from conception to old age. GT-SS3; CLEP Human Growth and Development" },
+      { title: "Introduction to Ethnic Studies", covers: "Race, ethnicity and the experiences of US ethnic groups. Required for California transfer" },
+    ],
+  },
+  {
+    id: "college-other",
+    title: "College core — other common degree requirements",
+    note: "Outside the state cores but required by many colleges.",
+    courses: [
+      { title: "First-Year Seminar: College Success", covers: "Study skills, time management, information literacy, planning a degree" },
+      { title: "Computer and Information Literacy", covers: "Computer concepts, productivity software, information systems. CLEP Information Systems" },
+      { title: "Health and Wellness", covers: "Nutrition, fitness, sleep, stress and healthy habits" },
+    ],
+  },
   ...JD_PROGRAM.stages.map((stage, index) => ({
     id: `jd-${stage.id}`,
     title: `J.D. preparation — stage ${index + 1}: ${stage.title}`,
@@ -724,11 +829,11 @@ export const ROADMAP: RoadmapGroup[] = [
   ] },
 ];
 
-/** Public course scope: pre-K–12 and every language proficiency level.
+/** Public course scope: pre-K–12, the college general education core and every language proficiency level.
  * Keep professional programs and college electives in the internal data/catalog.
  */
 export const PUBLIC_ROADMAP = ROADMAP.filter((group) =>
-  group.id === "prek" || group.id.startsWith("k8-") || group.id.startsWith("hs-") || group.id.startsWith("language-"),
+  group.id === "prek" || group.id.startsWith("k8-") || group.id.startsWith("hs-") || group.id.startsWith("college-") || group.id.startsWith("language-"),
 ).map((group) => group.id === "hs-programming"
   ? { ...group, title: "Programming and web development — high school" }
   : group);

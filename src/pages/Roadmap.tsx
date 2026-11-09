@@ -46,7 +46,7 @@ export default function Roadmap() {
 
       <section id="course-updates" className="roadmap-group" aria-labelledby="h-course-updates">
         <h2 id="h-course-updates">Course update</h2>
-        <p className="small muted">Pre-K through grade 12, plus languages at every proficiency level.</p>
+        <p className="small muted">Pre-K through grade 12, the college general education core, and languages at every proficiency level.</p>
         {rows.filter((g) => !g.id.startsWith("language-")).map((g) => {
           const n = g.courses.filter((c) => c.entry).length;
           return (
