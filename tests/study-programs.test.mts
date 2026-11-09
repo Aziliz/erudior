@@ -83,7 +83,15 @@ assert.deepEqual(contracts.outline?.map(m => m.title), contractsPlan.modules);
 assert.deepEqual(contractsPlan.recommendedBefore, ['law-legal-writing-1']);
 const contractsStep = pathwayProgress(path, [], emptyProgress(), CATALOG).steps.find(s => s.courseId === contracts.id)!;
 assert.equal(contractsStep.available, true); assert.equal(contractsStep.enrolled, false);
-assert.equal(CATALOG.find(e => e.id === 'law-contracts-2'), undefined, 'Contracts II remains planned');
+const contracts2 = CATALOG.find(e => e.id === 'law-contracts-2')!;
+assert(contracts2, 'Contracts II is available after Contracts I in Stage 2');
+assert.equal(contracts2.lessons, 8); assert.equal(contracts2.questions, 80); assert.equal(contracts2.cards, 64);
+const contracts2Plan = courses.find(c => c.courseId === contracts2.id)!;
+assert.deepEqual(contracts2.outline?.map(m => m.title), contracts2Plan.modules);
+assert.deepEqual(contracts2Plan.recommendedBefore, ['law-contracts-1']);
+const contracts2Step = pathwayProgress(path, [], emptyProgress(), CATALOG).steps.find(s => s.courseId === contracts2.id)!;
+assert.equal(contracts2Step.available, true); assert.equal(contracts2Step.enrolled, false);
+assert.equal(CATALOG.find(e => e.id === 'law-torts'), undefined, 'Torts remains planned');
 const publishedCourses = courses.filter(c => CATALOG.some(e => e.id === c.courseId));
 const allAvailableComplete = emptyProgress();
 for (const course of publishedCourses) {

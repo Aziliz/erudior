@@ -114,14 +114,36 @@ try {
   await page.locator('.lesson-body').waitFor();
   await audit('case-reading-lesson');
   await page.goto(origin+'/?app');
+  await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
+  await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();await saved.waitFor();
+  await saved.locator('.study-program > details > summary').nth(1).click();
+  const contracts = saved.locator('.study-program li details').filter({has:page.locator('summary',{hasText:/^Contracts II:/})});
+  assert.match(await contracts.locator('summary').innerText(), /Available$/);
+  assert.match(await saved.locator('.study-program li details > summary').filter({hasText:/^Torts/}).innerText(), /Planned$/);
+  await contracts.locator('summary').click();
+  await contracts.getByRole('button',{name:/^View course/}).click();
+  await page.getByRole('heading',{name:'Contracts II: Performance, Breach and Remedies',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'Overview',exact:true}).waitFor();
+  assert.deepEqual((await installed()).sort(),['law-case-reading','law-us-legal-system','lsat-180-mastery'], 'viewing Contracts II does not install it');
+  await audit('contracts-2-overview');
+  await page.getByRole('button',{name:'Start course',exact:true}).click();
+  await page.locator('.overview').waitFor({state:'detached'});
+  assert.deepEqual((await installed()).sort(),['law-case-reading','law-contracts-2','law-us-legal-system','lsat-180-mastery']);
+  await page.getByRole('button',{name:'Lessons',exact:true}).click();
+  assert.equal(await page.locator('.lesson-row').count(),8);
+  assert.equal(await page.locator('.module-quiz button:disabled').count(),4);
+  await page.locator('.lesson-row > button:first-child').first().click();
+  await page.locator('.lesson-body').waitFor();
+  await audit('contracts-2-lesson');
+  await page.goto(origin+'/?app');
   await page.reload();await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
   await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();await saved.waitFor();
   await saved.getByRole('button',{name:'Stop following',exact:true}).click();await saved.waitFor({state:'detached'});
   assert.equal((await read()).learningPathways?.length??0,0);
-  assert.deepEqual((await installed()).sort(),['law-case-reading','law-us-legal-system','lsat-180-mastery'], 'stopping the program preserves all explicitly started courses');
+  assert.deepEqual((await installed()).sort(),['law-case-reading','law-contracts-2','law-us-legal-system','lsat-180-mastery'], 'stopping the program preserves all explicitly started courses');
   await ctx.close();
  }
  assert.deepEqual(errors,[]);
  await writeFile(path.join(out,'results.json'),JSON.stringify({checks,errors},null,2));
- console.log(`Public/app JD program: LSAT first, keyboard outlines, follow, persistence, removal, explicit enrollment of LSAT and two law courses, planned-course launch prevention and ${checks.length} responsive/accessibility states passed.`);
+ console.log(`Public/app JD program: LSAT first, keyboard outlines, follow, persistence, removal, explicit enrollment of LSAT and three law courses, Contracts II lesson/module gates, planned-course launch prevention and ${checks.length} responsive/accessibility states passed.`);
 } finally {await browser?.close();await server.close();}

@@ -5228,6 +5228,66 @@
   ]
  },
  {
+  "id": "law-contracts-2",
+  "file": "math/law-contracts-2.json",
+  "order": 106,
+  "title": "Contracts II: Performance, Breach and Remedies",
+  "description": "Continue Contracts I by analyzing conditions, performance, breach, excuse and third-party rights. Four modules combine original worked problems with alternative damages calculations and a complete fictional breach memorandum, model analysis and self-assessment rubric.",
+  "revision": 1,
+  "disclaimer": "Independent educational preparation only; not legal advice, university credit, a J.D. degree or bar eligibility. Numbered exercise rules are expressly stipulated teaching assumptions, not a national contract code or the law of a fictional real jurisdiction. Actual primary-law readings are identified separately. Writing tasks are self-assessed, not automatically graded.",
+  "subject": "Law",
+  "level": [
+   "College"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 80,
+  "cards": 64,
+  "drills": 0,
+  "lessonIds": [
+   "ct2-conditions",
+   "ct2-performance",
+   "ct2-repudiation",
+   "ct2-excuse",
+   "ct2-beneficiaries",
+   "ct2-transfers",
+   "ct2-money-remedies",
+   "ct2-equity-capstone"
+  ],
+  "outline": [
+   {
+    "title": "Conditions and performance",
+    "lessons": [
+     "Separate promises from conditions",
+     "Evaluate defective performance and available responses"
+    ]
+   },
+   {
+    "title": "Breach, repudiation and excuse",
+    "lessons": [
+     "Distinguish insecurity, repudiation and retraction",
+     "Analyze changed circumstances and allocated risk"
+    ]
+   },
+   {
+    "title": "Third-party rights",
+    "lessons": [
+     "Identify who may enforce a promised benefit",
+     "Distinguish assignment, delegation and release"
+    ]
+   },
+   {
+    "title": "Expectation, reliance, restitution and equitable relief",
+    "lessons": [
+     "Compare monetary remedies without counting a loss twice",
+     "Evaluate agreed and equitable relief, then write the breach memorandum"
+    ]
+   }
+  ]
+ },
+ {
   "id": "lang-japanese-kana",
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
