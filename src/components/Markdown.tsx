@@ -47,6 +47,15 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
   );
 }
 
+// Chinese and Japanese have no spaces between words, so a line break inside a paragraph
+// (a soft break, which HTML shows as a space) joins the lines directly when both sides are
+// CJK text or furigana.
+const CJK = "\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff01-\uff60";
+const CJK_BREAK = new RegExp(`([${CJK}]|</ruby>|</span>)\n(?=[${CJK}]|<ruby>|<span class="pa")`, "g");
+export function joinCjkBreaks(html: string): string {
+  return html.replace(CJK_BREAK, "$1");
+}
+
 export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined): string {
   // Shield ordinary fences before *any* interactive parser. A literal tutorial
   // containing nested widget fences must remain code, including longer/tilde
@@ -88,7 +97,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   const code = protectCode(figs.text);
   const math = protectMath(code.text);
   // Furigana ({漢字|かんじ} → <ruby>) runs after code and math are set aside, so braces there stay.
-  const html = diags.restore(code.restore(math.restore(figs.restore(marked.parse(linkTerms(rubyHtml(math.text)), { async: false }) as string))));
+  const html = diags.restore(code.restore(math.restore(figs.restore(joinCjkBreaks(marked.parse(linkTerms(rubyHtml(math.text)), { async: false }) as string)))));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
   const tidy = html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>");
   const clean = DOMPurify.sanitize(tidy, {
