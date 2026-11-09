@@ -5458,6 +5458,22 @@ figure.manip {
 .tr-ink-line.is-ok {
   stroke: var(--ok);
 }
+/* Kanji: many short strokes close together, so thinner lines and smaller numbers. */
+.is-kanji .tr-center {
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+.is-kanji .tr-start text {
+  font-size: 8px;
+}
+.is-kanji .tr-ink-line {
+  stroke-width: 4;
+}
+/* On a live kanji pad only the current stroke's number and arrow show (printed pads show all). */
+.is-live.is-kanji .tr-start:not(.is-current),
+.is-live.is-kanji .tr-arrow:not(.is-current) {
+  visibility: hidden;
+}
 .tr-demo {
   fill: var(--fig-1);
 }

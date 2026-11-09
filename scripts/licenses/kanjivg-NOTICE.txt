@@ -1,0 +1,12 @@
+KanjiVG r20260714 (CC BY-SA 3.0) https://kanjivg.tagaini.net https://github.com/KanjiVG/kanjivg
+Kanji stroke-order data for tracing kanji in lessons.
+
+KanjiVG is copyright Ulrich Apel and released under the Creative Commons Attribution-Share Alike
+3.0 licence (https://creativecommons.org/licenses/by-sa/3.0/).
+
+Erudior uses an adaptation of KanjiVG release r20260714 (commit
+d95a97627fd9fe5b2c8d06ca81e38149609c0c1e): the stroke paths of the 2,136 jōyō kanji and of
+叱 填 剥 頬 were converted to Erudior's stroke format, scaled to a 0–100 square and rounded to whole
+units, with stroke order and direction unchanged (src/lib/kanjiStrokes.data.ts, made by
+scripts/build-kanji-strokes.mjs). That adapted data is licensed under CC BY-SA 3.0 as well. It is
+downloaded only when a lesson traces kanji. The rest of Erudior is not covered by this license.

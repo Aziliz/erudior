@@ -21,6 +21,7 @@ import { hydrateTimelines } from "../lib/timeline";
 import { protectCode } from "../lib/code";
 import { rubyHtml } from "../lib/kana";
 import { scanLessonFences } from "../lib/lessonFences";
+import { loadKanjiStrokes, needsKanjiStrokes } from "../lib/kanjiLoad";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -215,6 +216,20 @@ export default function Markdown({
   scope?: Record<string, number>;
 }) {
   const marking = !!read;
+  // Kanji tracing strokes load on first use (their own chunk); the lesson redraws when they arrive.
+  const needKanji = !prerendered && needsKanjiStrokes(source);
+  const [kanjiReady, setKanjiReady] = useState(0);
+  useEffect(() => {
+    if (!needKanji) return;
+    let alive = true;
+    loadKanjiStrokes().then(
+      () => alive && setKanjiReady((n) => n + 1),
+      (e) => console.error("Kanji strokes didn't load", e),
+    );
+    return () => {
+      alive = false;
+    };
+  }, [needKanji]);
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
     const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info);
@@ -227,7 +242,8 @@ export default function Markdown({
       .replace(/<em>/g, `<em lang="${code}">`)
       .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
       .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
-  }, [source, scope, foreignLang, className, marking, readButtons, assignments, prerendered, decorate]);
+    // kanjiReady: not read here, but the kanji pads need redrawing once the strokes have loaded.
+  }, [source, scope, foreignLang, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);

@@ -226,6 +226,12 @@ export function ThirdPartyLicenses() {
         Python in code exercises is Pyodide (Mozilla Public License 2.0, source at github.com/pyodide/pyodide), downloaded from jsDelivr the first time
         Python runs; it isn't part of the app download.
       </p>
+      <p>
+        Kanji stroke order for tracing comes from <a href="https://kanjivg.tagaini.net">KanjiVG</a>, copyright Ulrich Apel, under the{" "}
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0</a> license. Erudior uses an adapted
+        copy of its strokes for the 2,136 jōyō kanji (converted to Erudior's format and scaled, with stroke order and direction unchanged); that
+        adapted data is shared under the same license. Details are in the list below.
+      </p>
       {text === null ? <p className="muted">Loading…</p> : <pre className="licenses-text" tabIndex={0} aria-label="License texts">{text}</pre>}
     </article>
   );
