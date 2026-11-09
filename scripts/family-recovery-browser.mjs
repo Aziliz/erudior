@@ -116,6 +116,40 @@ async function confirmRestore({ duplicate = false } = {}) {
   if (duplicate) await button('Restore this verified backup').evaluate(element => { element.click(); element.click(); });
   else await page.keyboard.press('Enter');
 }
+// The app deliberately scrolls inside .main. Capture real visible viewports,
+// paging through a tall review instead of enlarging the page beyond its scroller.
+async function captureReviewViewports(name, target) {
+  await target.waitFor({ state: 'visible' });
+  let offset = 0, previousScroll = null;
+  for (let part = 1; part <= 12; part++) {
+    const frame = await target.evaluate((element, offset) => {
+      let scroller = element.parentElement;
+      while (scroller && !(scroller.scrollHeight > scroller.clientHeight + 1 && /auto|scroll/.test(getComputedStyle(scroller).overflowY))) scroller = scroller.parentElement;
+      const headerBottom = Math.max(0, document.querySelector('header.topbar')?.getBoundingClientRect().bottom ?? 0);
+      const clip = scroller?.getBoundingClientRect();
+      const top = Math.max(0, headerBottom, clip?.top ?? 0) + 12;
+      const bottom = Math.min(innerHeight, clip?.bottom ?? innerHeight) - 12;
+      const adjustment = element.getBoundingClientRect().top - (top - offset);
+      if (scroller) scroller.scrollTop += adjustment;
+      else window.scrollBy({ top: adjustment, behavior: 'instant' });
+      const rect = element.getBoundingClientRect();
+      return { top, bottom, targetTop: rect.top, targetBottom: rect.bottom,
+        visibleHeight: Math.min(rect.bottom, bottom) - Math.max(rect.top, top),
+        scroll: scroller ? scroller.scrollTop : window.scrollY };
+    }, offset);
+    assert(frame.visibleHeight > 0, `${name}: intended review content must be visible (${JSON.stringify(frame)})`);
+    if (part === 1) assert(frame.targetTop >= frame.top - 1, `${name}: review starts below the app header`);
+    if (previousScroll !== null) assert(frame.scroll > previousScroll, `${name}: review screenshots must advance through the actual scroller`);
+    const filename = name + (part === 1 ? '' : `-part-${part}`) + '.png';
+    await page.screenshot({ path: path.join(out, filename), fullPage: false });
+    screenshots.push(filename);
+    if (frame.targetBottom <= frame.bottom + 1) return;
+    // Overlap makes the inventory, warnings and final action sequence readable.
+    offset += Math.max(1, frame.visibleHeight - 96);
+    previousScroll = frame.scroll;
+  }
+  assert.fail(`${name}: review exceeds the bounded screenshot sequence`);
+}
 async function audit(name, target = verified()) {
   current = name;
   await page.evaluate(() => document.fonts.ready);
@@ -125,12 +159,7 @@ async function audit(name, target = verified()) {
     runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] },
   })).violations.map(v => ({ id: v.id, targets: v.nodes.map(node => node.target) })));
   assert.deepEqual(violations, [], `${name}: accessibility`);
-  await target.scrollIntoViewIfNeeded();
-  // Full-page screenshots show inventory and explicit acknowledgement together,
-  // including below-fold warnings at 320px. They never contain actual user data.
-  const filename = name + '.png';
-  await page.screenshot({ path: path.join(out, filename), fullPage: true });
-  screenshots.push(filename);
+  await captureReviewViewports(name, target);
 }
 async function installProbes() {
   await page.exposeFunction('__familyRecoveryWrite', entry => writes.push(entry));
@@ -215,7 +244,7 @@ try {
     await verified().getByText(/missing/i).first().waitFor();
     await verified().getByText(/attachment|file/i).first().waitFor();
     assert.match(await verified().innerText(), /2/);
-    assert.equal(await page.locator('input[type="password"]').filter({ visible: true }).evaluateAll(inputs => inputs.some(input => input.value === passphrase)), false, 'Verification clears the passphrase field');
+    assert.equal(await page.locator('input[type="password"]').filter({ visible: true }).evaluateAll((inputs, expectedPassphrase) => inputs.some(input => input.value === expectedPassphrase), passphrase), false, 'Verification clears the passphrase field');
     await audit(prefix + '-verified-inventory');
     await finishVerification(before);
     await audit(prefix + '-finished-without-restoring', button('Verify an encrypted backup'));
@@ -358,7 +387,15 @@ try {
 } catch (error) {
   const diagnostic = page ? await page.evaluate(() => ({ url: location.href, headings: [...document.querySelectorAll('h1,h2,h3')].map(node => node.textContent), notices: [...document.querySelectorAll('[role=alert],[role=status]')].map(node => node.textContent) })).catch(() => null) : null;
   await writeFile(path.join(out, 'failure.json'), JSON.stringify({ passed: false, current, error: String(error), checks, screenshots, errors, externalRequests, diagnostic }, null, 2));
-  if (page) await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: true }).catch(() => {});
+  if (page) {
+    // Frame the failed recovery state if it exists; otherwise keep the actual
+    // viewport. Never expand the screenshot outside production scroll bounds.
+    try {
+      const target = await verified().isVisible() ? verified() : page.getByRole('region', { name: 'Encrypted Family backup recovery', exact: true });
+      if (await target.isVisible()) await captureReviewViewports('failure', target);
+      else await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: false });
+    } catch { await page.screenshot({ path: path.join(out, 'failure.png'), fullPage: false }).catch(() => {}); }
+  }
   throw error;
 } finally {
   await browser?.close(); await server?.close();
