@@ -17,7 +17,10 @@ import { blankCount, isCorrect, qtype } from "../src/lib/questions.ts";
 import { MERMAID_BLOCK, mermaidA11y } from "../src/lib/diagram.ts";
 import { EXAMPLE_BLOCK, exampleProblems, parseExample } from "../src/lib/examples.ts";
 import { MANIP_BLOCK, manipProblems, readSpec, solution, startState, targetProblems } from "../src/lib/manip.ts";
-import { PHONICS_BLOCK, parseUnits, phonicsProblems } from "../src/lib/phonics.ts";
+import { PHONICS_BLOCK, parseTrace, parseUnits, phonicsProblems } from "../src/lib/phonics.ts";
+import { letterGuide } from "../src/lib/handwriting.ts";
+import { addKanjiStrokes } from "../src/lib/kanjiStrokes.ts";
+import KANJI_STROKES from "../src/lib/kanjiStrokes.data.ts";
 import { clipKey, isAudioValue } from "../src/lib/readAloud.ts";
 import { workProblems } from "../src/lib/work.ts";
 import { MEDIA_BLOCK, mediaProblems, parseMedia } from "../src/lib/dialogue.ts";
@@ -36,6 +39,9 @@ import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, normJa, rubyProblems } from "../src/lib/kana.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
+
+// Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
+addKanjiStrokes(KANJI_STROKES);
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -114,6 +120,9 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       for (const p of exampleProblems(t)) say(`${where}: ${p}`);
       // Phonics blocks (sounds, blend, trace): their own checks; they hold no math.
       for (const p of phonicsProblems(t)) say(`${where}: ${p}`);
+      // Every traced letter, kana and kanji must have strokes to draw (kanji: the KanjiVG data).
+      for (const m of t.matchAll(PHONICS_BLOCK))
+        if (m[1] === "trace") for (const ch of parseTrace(m[2], m[3]).letters) if (!letterGuide(ch)?.strokes.length) say(`${where}: trace: no stroke data for "${ch}"`);
       t = t.replace(PHONICS_BLOCK, "");
       // Runnable code blocks: well formed, and the code at least compiles.
       for (const p of codeBlockProblems(t)) say(`${where}: ${p}`);

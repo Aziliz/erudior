@@ -1,5 +1,6 @@
 // Pure phonics parsers shared by runtime and worker-side canonical authoring validation.
 import { letterGuide, TOLERANCE, type Tolerance } from "./handwriting";
+import { isTraceKanji } from "./kanjiStrokes";
 
 export const PHONICS_BLOCK = /^```(sounds|blend|trace)\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
@@ -117,8 +118,10 @@ export function parseTrace(info: string, body: string): TraceSpec {
   }
   const letters: string[] = [];
   for (const ch of body.replace(/\s+/g, "")) {
-    if (letterGuide(ch)) letters.push(ch);
-    else problems.push(`"${ch}" can't be traced (letters a–z and A–Z, or hiragana and katakana with ゛ ゜ — not small kana)`);
+    // Kanji are known from the list even before their stroke data has loaded.
+    if (letterGuide(ch) || isTraceKanji(ch)) letters.push(ch);
+    else if (/\p{Script=Han}/u.test(ch)) problems.push(`"${ch}" can't be traced: kanji tracing covers the 2,136 jōyō kanji (and 叱 填 剥 頬), not this one`);
+    else problems.push(`"${ch}" can't be traced (letters a–z and A–Z, hiragana and katakana with ゛ ゜ — not small kana — or jōyō kanji)`);
   }
   if (!letters.length) problems.push("no letters to trace");
   return { letters, tolerance, problems };

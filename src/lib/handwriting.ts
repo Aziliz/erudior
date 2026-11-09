@@ -10,10 +10,12 @@
 //                90 = down, -90 = up). Rising angles turn clockwise on screen, falling
 //                angles counterclockwise ("circle back" letters such as c, a, o).
 //   D x y        a dot (i, j): a tap
-//   C x1 y1 x2 y2 x y   a cubic curve to x y (used by the kana in kanaStrokes.ts)
+//   C x1 y1 x2 y2 x y   a cubic curve to x y (used by the kana in kanaStrokes.ts and the kanji
+//                in kanjiStrokes.ts)
 // An E that starts a stroke starts at its own first point.
 
 import { kanaStrokes } from "./kanaStrokes";
+import { kanjiStrokes } from "./kanjiStrokes";
 export type Pt = [number, number];
 
 const S: Record<string, string[]> = {
@@ -116,12 +118,14 @@ export function strokePoints(cmds: string): Pt[] {
 
 export interface LetterGuide {
   char: string;
-  /** Strokes in writing order, shifted so the letter starts at x = 0. Kana keep their place in
-   * the 0–100 square instead. */
+  /** Strokes in writing order, shifted so the letter starts at x = 0. Kana and kanji keep their
+   * place in the 0–100 square instead. */
   strokes: Pt[][];
   width: number;
   /** A Japanese kana, drawn in a square box rather than on writing lines. */
   kana?: boolean;
+  /** A kanji (from KanjiVG), drawn in the same square box as kana. */
+  kanji?: boolean;
 }
 
 const cache = new Map<string, LetterGuide>();
@@ -131,8 +135,10 @@ export function letterGuide(ch: string): LetterGuide | undefined {
   if (hit) return hit;
   if (!S[ch]) {
     const k = kanaStrokes(ch);
-    if (!k) return undefined;
-    const g = { char: ch, strokes: k.map(strokePoints), width: 100, kana: true };
+    // Kanji have a guide only once their data is loaded (kanjiLoad.ts); until then, undefined.
+    const kj = k ? undefined : kanjiStrokes(ch);
+    if (!k && !kj) return undefined;
+    const g: LetterGuide = k ? { char: ch, strokes: k.map(strokePoints), width: 100, kana: true } : { char: ch, strokes: kj!.map(strokePoints), width: 100, kanji: true };
     cache.set(ch, g);
     return g;
   }

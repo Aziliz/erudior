@@ -49,6 +49,21 @@ for (const [dir, pj] of js) {
   out.push(text ? text.replace(/\r\n/g, "\n") : "(No license file in the package; license field above.)", "", "-".repeat(72), "");
 }
 
+// Data (not packages): hand-written notices in scripts/licenses/*-NOTICE.txt, each followed by
+// the license text it names (kanjivg-NOTICE.txt -> the kanjivg-*-COPYING.txt next to it).
+const lic = path.join(root, "scripts", "licenses");
+const notices = readdirSync(lic).filter((n) => n.endsWith("-NOTICE.txt")).sort();
+if (notices.length) {
+  out.push("=".repeat(72), "DATA (app and website)", "=".repeat(72), "");
+  for (const n of notices) {
+    const stem = n.slice(0, -"-NOTICE.txt".length);
+    out.push(readFileSync(path.join(lic, n), "utf8").trim(), "");
+    for (const f of readdirSync(lic).filter((f) => f.startsWith(`${stem}-`) && f.endsWith("-COPYING.txt")).sort())
+      out.push(readFileSync(path.join(lic, f), "utf8").replace(/\r\n/g, "\n").trim(), "");
+    out.push("-".repeat(72), "");
+  }
+}
+
 // Rust
 let crates = [];
 try {

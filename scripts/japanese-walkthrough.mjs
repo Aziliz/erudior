@@ -1,6 +1,7 @@
 // End-to-end check of Japanese support with samples/demo-japanese.json: furigana in a lesson,
-// the furigana switch, romaji → kana typing in quiz text answers (hiragana, CAPITALS → katakana),
-// and typed vocabulary practice in both directions. axe audits and an overflow check.
+// the furigana switch, tracing a kana and a kanji (日, whose strokes load on demand) with the
+// mouse, romaji → kana typing in quiz text answers (hiragana, CAPITALS → katakana), and typed
+// vocabulary practice in both directions. axe audits and an overflow check.
 //   npm run build && npx vite preview --port 5298
 //   node scripts/japanese-walkthrough.mjs [light|dark] [width] [shots dir]
 const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
@@ -17,6 +18,11 @@ const pg = await ctx.newPage();
 const problems = [];
 pg.on("dialog", (d) => d.accept());
 pg.on("pageerror", (e) => problems.push(`PAGE ERROR ${e.message}`));
+// The kanji stroke data is its own chunk, fetched only when a lesson traces kanji.
+const kanjiFetches = [];
+pg.on("request", (r) => {
+  if (/kanjiStrokes\.data/.test(r.url())) kanjiFetches.push(r.url());
+});
 const check = (name, cond) => {
   if (!cond) problems.push(name);
 };
@@ -84,31 +90,52 @@ await btn(/Furigana off/).click();
 await pg.waitForTimeout(200);
 check("furigana back", (await rtVisible()) === "visible");
 
+// Traces the pad showing in a trace block, stroke by stroke along its center lines, with the mouse.
+async function traceShown(block) {
+  const pad = block.locator(".ph-trace-item:not([hidden]) .trace-pad");
+  await pad.scrollIntoViewIfNeeded();
+  const strokes = await pad.evaluate((svg) => {
+    const m = svg.getScreenCTM();
+    return [...svg.querySelectorAll(".tr-center")].map((pl) =>
+      pl.getAttribute("points").trim().split(/\s+/).map((xy) => {
+        const [x, y] = xy.split(",").map(Number);
+        return [m.a * x + m.c * y + m.e, m.b * x + m.d * y + m.f];
+      }),
+    );
+  });
+  for (const s of strokes) {
+    await pg.mouse.move(s[0][0], s[0][1]);
+    await pg.mouse.down();
+    for (const [x, y] of s.filter((_, k) => k % 3 === 0).concat([s[s.length - 1]])) await pg.mouse.move(x, y);
+    await pg.mouse.up();
+    await pg.waitForTimeout(150);
+  }
+  return { count: strokes.length, status: (await block.locator(".ph-trace-item:not([hidden]) .tr-status").textContent()) ?? "" };
+}
+
 // Kana tracing: a square pad, kana names, tracing ね stroke by stroke with the mouse.
-const pad = pg.locator(".ph-trace-item:not([hidden]) .trace-pad");
+const kanaBlock = pg.locator(".ph-trace").first();
+const pad = kanaBlock.locator(".ph-trace-item:not([hidden]) .trace-pad");
 check("kana pad", (await pg.locator(".trace-pad.is-kana").count()) === 3);
 check("kana pad label", ((await pad.getAttribute("aria-label")) ?? "").startsWith("Trace the hiragana ne: 2 strokes"));
-check("kana kicker", ((await pg.locator(".ph-trace .ph-kicker").textContent()) ?? "").startsWith("Trace the kana"));
-await pad.scrollIntoViewIfNeeded();
-const strokes = await pad.evaluate((svg) => {
-  const m = svg.getScreenCTM();
-  return [...svg.querySelectorAll(".tr-center")].map((pl) =>
-    pl.getAttribute("points").trim().split(/\s+/).map((xy) => {
-      const [x, y] = xy.split(",").map(Number);
-      return [m.a * x + m.c * y + m.e, m.b * x + m.d * y + m.f];
-    }),
-  );
-});
-for (const s of strokes) {
-  await pg.mouse.move(s[0][0], s[0][1]);
-  await pg.mouse.down();
-  for (const [x, y] of s.filter((_, k) => k % 3 === 0).concat([s[s.length - 1]])) await pg.mouse.move(x, y);
-  await pg.mouse.up();
-  await pg.waitForTimeout(150);
-}
-const status = (await pg.locator(".ph-trace-item:not([hidden]) .tr-status").textContent()) ?? "";
-check(`traced ね (${status})`, status.includes("You traced the hiragana ne"));
+check("kana kicker", ((await kanaBlock.locator(".ph-kicker").textContent()) ?? "").startsWith("Trace the kana"));
+const kana = await traceShown(kanaBlock);
+check(`traced ね (${kana.status})`, kana.status.includes("You traced the hiragana ne"));
 await audit("lesson-trace");
+
+// Kanji tracing: 日's strokes arrive in their own chunk, then the pad is traced like the kana.
+const kanjiBlock = pg.locator(".ph-trace").nth(1);
+await kanjiBlock.locator(".trace-pad.is-kanji.is-live").first().waitFor({ timeout: 10000 });
+check(`kanji data fetched once (${kanjiFetches.length})`, kanjiFetches.length === 1);
+check("kanji pads", (await kanjiBlock.locator(".trace-pad.is-kanji:not(.is-pending)").count()) === 2);
+const kpad = kanjiBlock.locator(".ph-trace-item:not([hidden]) .trace-pad");
+check("kanji pad label", ((await kpad.getAttribute("aria-label")) ?? "").startsWith("Trace the kanji 日: 4 strokes"));
+check("kanji kicker", ((await kanjiBlock.locator(".ph-kicker").textContent()) ?? "").startsWith("Trace the kanji"));
+check("kanji nav", ((await kanjiBlock.locator(".ph-count").textContent()) ?? "") === "Kanji 1 of 2");
+const kj = await traceShown(kanjiBlock);
+check(`traced 日 in ${kj.count} strokes (${kj.status})`, kj.count === 4 && kj.status.includes("You traced the kanji 日"));
+check("日 done", (await kanjiBlock.locator(".ph-trace-item.is-done").count()) === 1);
+await audit("lesson-kanji-trace");
 
 // Quiz: choice + typed kana answers.
 await btn(/Take the quiz/).click();

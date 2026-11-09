@@ -15,6 +15,9 @@
 //   a b c A B C
 //   ```
 //
+// Trace blocks take kana and jōyō kanji too. Kanji strokes (KanjiVG) load separately
+// (kanjiLoad.ts); until they have, a kanji's pad is an empty box.
+//
 // Sounds come from the course's audio library (lib/readAloud.ts): the sound of "m" is the
 // clip under the key `sound:m` unless the line names another (`sound=` a key or a data:audio
 // URL; in a blend, `c[k]` plays sound:k for the letter c). Text-to-speech can say words and
@@ -96,7 +99,10 @@ export function renderBlend(words: BlendWord[]): string {
 
 const fmt = (n: number) => String(Math.round(n * 10) / 10);
 const pts = (p: Pt[]) => p.map(([x, y]) => `${fmt(x)},${fmt(y)}`).join(" ");
+const isKanji = (ch: string) => /^\p{Script=Han}$/u.test(ch);
+/** "small letter a", "hiragana ne", or for a kanji just "kanji 日" (its reading depends on the word). */
 export const letterName = (ch: string) => {
+  if (isKanji(ch)) return `kanji ${ch}`;
   const kana = kanaRomaji(ch);
   if (kana) return `${/[ァ-ヺ]/.test(ch) ? "katakana" : "hiragana"} ${kana}`;
   return ch === ch.toUpperCase() ? `capital letter ${ch}` : `small letter ${ch}`;
@@ -105,14 +111,26 @@ export const letterName = (ch: string) => {
 /** The letter as a lane to trace with a dashed center line, an arrow on each stroke and a
  * numbered dot where each stroke starts, plus the layer the learner's ink goes in. */
 function padStrokes(g: LetterGuide, tol: number): string {
-  const lane = fmt(tol * 1.6);
+  // Kanji strokes are short and close together: narrower lanes, smaller numbers and arrows (only
+  // the drawing; the check still allows the full tolerance).
+  const dense = !!g.kanji;
+  const lane = fmt(dense ? Math.min(tol * 1.6, 11) : tol * 1.6);
+  const r = dense ? 5.5 : 8;
   const placed: Pt[] = [];
   const badges = g.strokes.map((s, i) => {
     let [x, y] = s[0];
-    // Strokes that start at the same spot (E, B) get their numbers side by side.
-    while (placed.some(([px, py]) => Math.hypot(px - x, py - y) < 15)) x -= 16;
+    if (dense) {
+      // Each number goes at its stroke's start, or the nearest free spot around it.
+      const free = ([px, py]: Pt) => px >= -6 && px <= 106 && py >= -6 && py <= 106 && !placed.some(([qx, qy]) => Math.hypot(qx - px, qy - py) < 2 * r + 0.5);
+      const spots: Pt[] = [[x, y]];
+      for (const d of [9, 13, 17]) for (let a = 0; a < 8; a++) spots.push([x + d * Math.cos(((a * 45 + 180) * Math.PI) / 180), y + d * Math.sin(((a * 45 + 180) * Math.PI) / 180)]);
+      [x, y] = spots.find(free) ?? [x, y];
+    } else {
+      // Strokes that start at the same spot (E, B) get their numbers side by side.
+      while (placed.some(([px, py]) => Math.hypot(px - x, py - y) < 15)) x -= 16;
+    }
     placed.push([x, y]);
-    return `<g class="tr-start" data-s="${i}"><circle cx="${fmt(x)}" cy="${fmt(y)}" r="8"/><text x="${fmt(x)}" y="${fmt(y)}" dy="0.35em">${i + 1}</text></g>`;
+    return `<g class="tr-start" data-s="${i}"><circle cx="${fmt(x)}" cy="${fmt(y)}" r="${r}"/><text x="${fmt(x)}" y="${fmt(y)}" dy="0.35em">${i + 1}</text></g>`;
   });
   const roads = g.strokes
     .map((s, i) =>
@@ -125,7 +143,7 @@ function padStrokes(g: LetterGuide, tol: number): string {
   const arrows = g.strokes
     .map((s, i) => {
       const a = arrowAt(s);
-      return a ? `<path class="tr-arrow" data-s="${i}" d="M -6 -5 L 4 0 L -6 5 Z" transform="translate(${fmt(a.at[0])} ${fmt(a.at[1])}) rotate(${fmt(a.angle)})"/>` : "";
+      return a ? `<path class="tr-arrow" data-s="${i}" d="M -6 -5 L 4 0 L -6 5 Z" transform="translate(${fmt(a.at[0])} ${fmt(a.at[1])}) rotate(${fmt(a.angle)})${dense ? " scale(0.65)" : ""}"/>` : "";
     })
     .join("");
   return `<g class="tr-roads">${roads}</g><g class="tr-centers">${centers}</g><g class="tr-arrows">${arrows}</g><g class="tr-starts">${badges.join("")}</g><g class="tr-ink"></g>`;
@@ -138,13 +156,19 @@ const padLabel = (g: LetterGuide) => {
 
 /** The writing pad for one letter: writing lines (or, for a kana, a square box with a dashed
  * cross like Japanese writing-practice paper) and the strokes to trace. */
+const squareBox =
+  `<rect class="tr-line" x="0" y="0" width="100" height="100" fill="none"/>` +
+  `<line class="tr-line mid" x1="50" x2="50" y1="0" y2="100"/><line class="tr-line mid" x1="0" x2="100" y1="50" y2="50"/>`;
+
 export function renderPad(ch: string, tol: number): string {
-  const g = letterGuide(ch)!;
-  if (g.kana)
+  const g = letterGuide(ch);
+  // A kanji whose strokes haven't loaded yet: the empty box, redrawn once they have.
+  if (!g)
+    return `<svg class="trace-pad is-kanji is-pending" viewBox="-12 -12 124 124" role="img" aria-label="Trace the ${esc(letterName(ch))}: loading its strokes.">${squareBox}</svg>`;
+  if (g.kana || g.kanji)
     return (
-      `<svg class="trace-pad is-kana" viewBox="-12 -12 124 124" role="img" aria-label="${padLabel(g)}">` +
-      `<rect class="tr-line" x="0" y="0" width="100" height="100" fill="none"/>` +
-      `<line class="tr-line mid" x1="50" x2="50" y1="0" y2="100"/><line class="tr-line mid" x1="0" x2="100" y1="50" y2="50"/>` +
+      `<svg class="trace-pad ${g.kanji ? "is-kanji" : "is-kana"}" viewBox="-12 -12 124 124" role="img" aria-label="${padLabel(g)}">` +
+      squareBox +
       padStrokes(g, tol) +
       `</svg>`
     );
@@ -167,16 +191,21 @@ export function renderTrace(spec: TraceSpec): string {
   const tol = TOLERANCE[spec.tolerance];
   const many = spec.letters.length > 1;
   const kana = spec.letters.every((ch) => letterGuide(ch)?.kana);
-  const what = kana ? "kana" : `letter${many ? "s" : ""}`;
+  const kanji = spec.letters.every(isKanji);
+  // "Kana", "Kanji", "Character" (kana and kanji mixed) or "Letter".
+  const noun = kana ? "Kana" : kanji ? "Kanji" : spec.letters.every((ch) => isKanji(ch) || letterGuide(ch)?.kana) ? "Character" : "Letter";
+  const what = kana || kanji ? noun.toLowerCase() : `${noun.toLowerCase()}${many ? "s" : ""}`;
   return (
-    `<section class="ph ph-trace" data-noread data-tol="${tol}" data-noun="${kana ? "Kana" : "Letter"}" aria-label="${kana ? "Kana" : "Letter"} tracing">` +
+    `<section class="ph ph-trace" data-noread data-tol="${tol}" data-noun="${noun}" aria-label="${noun} tracing">` +
     `<p class="ph-kicker">Trace the ${what} <span class="ph-hint">Start at number 1 and follow the arrows with your finger, pen or mouse.</span></p>` +
     `<ol class="ph-trace-list">` +
     spec.letters
       .map(
         (ch, i) =>
           `<li class="ph-trace-item" data-char="${esc(ch)}"${i ? " hidden" : ""}>` +
-          `<p class="tr-name"><span class="tr-glyph" aria-hidden="true">${esc(ch)}</span><span class="tr-label">${esc(letterName(ch))}</span></p>` +
+          // Kana and kanji are marked Japanese, so the Japanese (not Chinese) glyph form shows.
+          `<p class="tr-name"><span class="tr-glyph" aria-hidden="true"${/[^\x00-\x7f]/.test(ch) ? ' lang="ja"' : ""}>${esc(ch)}</span>` +
+          `<span class="tr-label">${isKanji(ch) ? `kanji <span lang="ja">${esc(ch)}</span>` : esc(letterName(ch))}</span></p>` +
           renderPad(ch, tol) +
           `<p class="tr-status" role="status"></p>` +
           `<div class="tr-actions" hidden><button type="button" class="btn sm" data-tr="show">Show me</button><button type="button" class="btn sm ghost" data-tr="clear">Start over</button></div>` +
@@ -186,8 +215,8 @@ export function renderTrace(spec: TraceSpec): string {
     `</ol>` +
     (many
       ? `<div class="ph-nav" hidden><button type="button" class="btn sm" data-ph="prev" disabled>Back</button>` +
-        `<span class="ph-count" role="status">${kana ? "Kana" : "Letter"} 1 of ${spec.letters.length}</span>` +
-        `<button type="button" class="btn sm" data-ph="next">Next ${kana ? "kana" : "letter"}</button></div>`
+        `<span class="ph-count" role="status">${noun} 1 of ${spec.letters.length}</span>` +
+        `<button type="button" class="btn sm" data-ph="next">Next ${noun.toLowerCase()}</button></div>`
       : "") +
     `</section>`
   );
@@ -329,7 +358,8 @@ export function hydratePhonics(root: HTMLElement, ctx: PhonicsCtx): void {
     const nav = box.querySelector<HTMLElement>(".ph-nav");
     if (nav) nav.hidden = false;
     if (box.classList.contains("ph-trace"))
-      for (const item of box.querySelectorAll<HTMLElement>(".ph-trace-item")) if (!tracers.has(item)) tracers.set(item, new Tracer(item, Number(box.dataset.tol) || TOLERANCE.normal, ctx));
+      for (const item of box.querySelectorAll<HTMLElement>(".ph-trace-item"))
+        if (!tracers.has(item) && !item.querySelector(".trace-pad.is-pending")) tracers.set(item, new Tracer(item, Number(box.dataset.tol) || TOLERANCE.normal, ctx));
   }
 }
 
@@ -345,6 +375,8 @@ class Tracer {
   private guide: Pt[][];
   /** Kana pads speak only the finished kana, in Japanese: the feedback is written in English. */
   private kana = false;
+  /** Kanji pads don't speak at all (a kanji alone has no one right reading): feedback is written. */
+  private kanji = false;
   private stroke = 0;
   /** Points of a stroke traced in more than one go (lifted the pen part way). */
   private pending: Pt[] = [];
@@ -364,6 +396,7 @@ class Tracer {
     const g = letterGuide(item.dataset.char ?? "");
     this.guide = g?.strokes ?? [];
     this.kana = !!g?.kana;
+    this.kanji = !!g?.kanji;
     const actions = item.querySelector<HTMLElement>(".tr-actions");
     if (actions) actions.hidden = false;
     this.svg.classList.add("is-live");
@@ -478,6 +511,7 @@ class Tracer {
   /** Written feedback, and spoken when the device can (children may not read it yet). */
   private say(text: string, spoken?: string) {
     this.status.textContent = text;
+    if (this.kanji) return;
     if (this.kana) {
       if (spoken && /[ぁ-ヺ]/.test(spoken) && canSpeak("ja")) speaker.play([{ text: spoken }], { lang: "ja", owner: "phonics" });
       return;

@@ -61,6 +61,8 @@ on:
       - "src/lib/figure.ts"
       - "src/lib/handwriting.ts"
       - "src/lib/kanaStrokes.ts"
+      - "src/lib/kanjiStrokes.ts"
+      - "src/lib/kanjiList.ts"
       - "src/lib/kana.ts"
       - "src/lib/imageAssets.ts"
       - "src/lib/interactiveContent.ts"
