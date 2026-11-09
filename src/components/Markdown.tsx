@@ -233,9 +233,9 @@ export default function Markdown({
   const popDialog = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!pop) return;
-    popDialog.current?.querySelector<HTMLButtonElement>("button")?.focus({ preventScroll: true });
+    popDialog.current?.querySelector<HTMLButtonElement>("button")?.focus();
     return () => {
-      if (pop.trigger.isConnected) pop.trigger.focus({ preventScroll: true });
+      if (pop.trigger.isConnected) pop.trigger.focus();
     };
   }, [pop]);
   const ref = useRef<HTMLDivElement>(null);
