@@ -6050,5 +6050,165 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-japanese-n3",
+  "file": "languages/lang-japanese-n3.json",
+  "order": 123,
+  "title": "Japanese N3",
+  "description": "The third step in Japanese, from N4 to JLPT N3. Grammar lessons cover time and timing (うちに, 最中に, たびに, ところ), change and degree (につれて, ば〜ほど, ほど, さえ), reasons and judgements (おかげで, せいで, わけだ, ことはない, べきだ, ものだ), the formal phrases として, にとって, に対して, について and によって, impressions and attitudes (っぽい, がち, らしい, くせに), quoting and passing on requests, more keigo, casual contractions, compound verbs and the written である style, with a longer reading in every lesson. About 1,900 new words build on the 1,800 from the kana, N5 and N4 courses for about 3,700 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 370 new kanji (about 650 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N4.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 370,
+  "drills": 0,
+  "words": 3683,
+  "carried": 1811,
+  "requires": [
+   "lang-japanese-n4"
+  ],
+  "lessonIds": [
+   "n3-uchi-ni",
+   "n3-tabi-ni",
+   "n3-tokoro",
+   "n3-change",
+   "n3-trying",
+   "n3-okage-sei",
+   "n3-wake",
+   "n3-koto-wa-nai",
+   "n3-beki-mono",
+   "n3-zuni-shikanai",
+   "n3-to-shite",
+   "n3-ni-tsuite",
+   "n3-ni-yotte",
+   "n3-ni-kurabete",
+   "n3-hodo-sae",
+   "n3-ppoi-gachi",
+   "n3-ni-chigainai",
+   "n3-kuse-ni",
+   "n3-to-shitara",
+   "n3-bakari-ka",
+   "n3-you-ni-iu",
+   "n3-quoting",
+   "n3-to-ieba",
+   "n3-keigo",
+   "n3-casual",
+   "n3-written",
+   "n3-compound-verbs",
+   "n3-conjunctions",
+   "n3-practice",
+   "n3-exam"
+  ],
+  "honorsLessonIds": [
+   "n3-intonation",
+   "n3-onsen",
+   "n3-neighbourhood",
+   "n3-pets",
+   "n3-job-hunting",
+   "n3-proverbs",
+   "n3-mystery",
+   "n3-haiku",
+   "n3-dialects",
+   "n3-speech-styles",
+   "n3-long-story",
+   "n3-essay"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Time, timing and change",
+    "lessons": [
+     "While it lasts: うちに, 最中に, 途中で, 〜中",
+     "Every time and right after: たびに, ごとに, たとたん, てはじめて, ついでに",
+     "Moments in an action: ところに, ところを, たところ, かける, たて, きり",
+     "As things change: につれて, にしたがって, とともに, 一方だ, ば〜ほど",
+     "Trying, meaning to and pretending: ようとする, つもり, ふりをする, たことにする"
+    ],
+    "honors": [
+     "Natural speech: intonation, fillers and aizuchi",
+     "Hot springs and public baths"
+    ]
+   },
+   {
+    "title": "Reasons, conclusions and should",
+    "lessons": [
+     "Thanks to and because of: おかげで, せいで, ことから",
+     "That's why, not that, no way: わけ",
+     "No need and not necessarily: ことはない, とはかぎらない, てすむ",
+     "Should and the way things are: べきだ, ものだ, ことだ",
+     "Without, no choice, can't help: ずに, しかない, てしょうがない"
+    ],
+    "honors": [
+     "The neighbourhood and volunteering",
+     "Pets"
+    ]
+   },
+   {
+    "title": "The formal phrases and degree",
+    "lessons": [
+     "Roles and viewpoints: として, にとって, に対して",
+     "About and centred on: について, に関して, を中心に, をはじめ, において",
+     "Depending on and instead of: によって, による, 代わりに, に反して",
+     "Comparing places and times: に比べて, から〜にかけて, を通して, 最も",
+     "Degree and emphasis: ほど, くらい, さえ, こそ, あまり"
+    ],
+    "honors": [
+     "Job hunting in Japan",
+     "Proverbs and four-character compounds"
+    ]
+   },
+   {
+    "title": "Impressions, guesses and emphasis",
+    "lessons": [
+     "-ish, tends to, full of: っぽい, 気味, がち, だらけ, 的, 向き / 向け",
+     "Impressions and certainty: 気がする, ように見える, に違いない, っけ",
+     "Against expectations: くせに, にしては, 割に, ながらも, ば〜のに",
+     "Supposing and guessing: としたら, まさか, もしかしたら, のではないか",
+     "Not only…, and how!: だけでなく, ばかりか, はもちろん, 上に, ことか, なんて"
+    ],
+    "honors": [
+     "A mystery story: the painting that disappeared",
+     "Haiku and seasonal words"
+    ]
+   },
+   {
+    "title": "Passing on words, keigo and casual speech",
+    "lessons": [
+     "Passing on requests: ように言う, てもらいたい, とおりに",
+     "Reporting what you heard: ということだ, とのことだ, んだって",
+     "Topics and definitions: というのは, とは, と言えば, といっても, というより",
+     "More keigo: させていただく, お〜です, 〜ております",
+     "Casual speech and contractions"
+    ],
+    "honors": [
+     "Kansai and other dialects",
+     "Who says what: role language and slang"
+    ]
+   },
+   {
+    "title": "Written Japanese and the N3 exam",
+    "lessons": [
+     "Written Japanese: である, 〜ず and joining with the stem",
+     "Compound verbs: 〜出す, 〜込む, 〜切る, 〜直す, 〜合う, 〜っぱなし",
+     "Connecting ideas: ところが, 一方, その上, 結局, むしろ, 上で",
+     "Reading and listening practice",
+     "The JLPT N3 and review"
+    ],
+    "honors": [
+     "A longer story: the watch in the drawer",
+     "Writing an opinion piece: さくぶん and げんこうようし"
+    ]
+   }
+  ]
  }
 ]
