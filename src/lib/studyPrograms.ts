@@ -4,6 +4,9 @@ import { COLLEGE_CORE_PROGRAM } from "./collegeCoreProgram";
 import { MEDICAL_PROGRAM, PRE_MED_PROGRAM } from "./medicalPrograms";
 import { COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM } from "./engineeringPrograms";
 import { COSMETOLOGY_PROGRAM } from "./cosmetologyProgram";
+import { HEALTH_PROGRAMS } from "./healthPrograms";
+import { TRADE_PROGRAMS } from "./tradePrograms";
+import { BUSINESS_LAW_PROGRAMS, ENGINEERING_EDUCATION_PROGRAMS, PUBLIC_SAFETY_IT_PROGRAMS } from "./professionalPrograms";
 
 export interface ProgramCourse {
   courseId: string;
@@ -58,6 +61,7 @@ export interface StudyProgram {
 export const STUDY_PROGRAMS: readonly StudyProgram[] = [
   JD_PROGRAM, COLLEGE_CORE_PROGRAM, PRE_MED_PROGRAM, MEDICAL_PROGRAM,
   COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM, COSMETOLOGY_PROGRAM,
+  ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
 ];
 
 /** Every course outline the program describes: required stage courses, then area outlines. */
@@ -150,4 +154,40 @@ export function programPoolProblems(program: StudyProgram, knownCourseIds: Reado
 
 export function plannedProgramCourse(id: string): ProgramCourse | undefined {
   return STUDY_PROGRAMS.flatMap(programCourses).find(course => course.courseId === id);
+}
+
+/** Program catalog groups, in display order. */
+export const PROGRAM_CATEGORIES = ["College", "Law", "Medicine and health", "Engineering and technology", "Business and finance", "Education", "Public safety", "Trades and transportation"] as const;
+export type ProgramCategory = typeof PROGRAM_CATEGORIES[number];
+
+const CATEGORY_BY_ID: Record<string, ProgramCategory> = {
+  "college-core": "College",
+  "jd-preparation": "Law", paralegal: "Law", "patent-bar": "Law",
+  "pre-med": "Medicine and health", "medical-school-preparation": "Medicine and health", "nursing-rn": "Medicine and health", "nursing-lpn": "Medicine and health",
+  emt: "Medicine and health", paramedic: "Medicine and health", "pharmacy-technician": "Medicine and health", "dental-school": "Medicine and health",
+  "dental-hygiene": "Medicine and health", "physician-assistant": "Medicine and health", "physical-therapy": "Medicine and health",
+  "occupational-therapy": "Medicine and health", "respiratory-therapy": "Medicine and health", "radiologic-technology": "Medicine and health",
+  "professional-counseling": "Medicine and health", "social-work": "Medicine and health", "psychology-licensure": "Medicine and health",
+  "massage-therapy": "Medicine and health", "veterinary-technician": "Medicine and health",
+  "computer-science": "Engineering and technology", "electrical-engineering": "Engineering and technology",
+  "professional-engineer-electrical": "Engineering and technology", "land-surveying": "Engineering and technology",
+  "comptia-it": "Engineering and technology", ccna: "Engineering and technology", "cloud-certifications": "Engineering and technology",
+  cpa: "Business and finance", "enrolled-agent": "Business and finance", securities: "Business and finance",
+  "insurance-producer": "Business and finance", "financial-planning": "Business and finance", "real-estate-appraiser": "Business and finance",
+  "teacher-licensure": "Education",
+  firefighter: "Public safety", "law-enforcement": "Public safety", "emergency-dispatcher": "Public safety",
+  "cosmetology-theory": "Trades and transportation", barbering: "Trades and transportation", esthetics: "Trades and transportation",
+  "nail-technology": "Trades and transportation", electrician: "Trades and transportation", plumbing: "Trades and transportation",
+  hvac: "Trades and transportation", "commercial-drivers-license": "Trades and transportation", "private-pilot": "Trades and transportation",
+  "aviation-maintenance": "Trades and transportation", "home-inspection": "Trades and transportation", "building-inspection": "Trades and transportation",
+};
+
+export function programCategory(program: StudyProgram): ProgramCategory {
+  return CATEGORY_BY_ID[program.id] ?? "College";
+}
+
+/** Programs grouped by category in display order, skipping empty groups. */
+export function groupPrograms<T extends StudyProgram>(programs: readonly T[]): { category: ProgramCategory; programs: T[] }[] {
+  return PROGRAM_CATEGORIES.map(category => ({ category, programs: programs.filter(program => programCategory(program) === category) }))
+    .filter(group => group.programs.length);
 }

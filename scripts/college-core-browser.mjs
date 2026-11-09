@@ -36,6 +36,7 @@ try {
   }
   // Public outline
   await page.goto(origin+'/programs?site');
+  await page.locator('details.program-group > summary').filter({hasText:/^College/}).click();
   const card=page.getByRole('article',{name:'College Core program',exact:true});await card.waitFor();
   const text=await card.innerText();
   assert.match(text, /16 areas · \d+ courses to choose from/);
@@ -50,6 +51,7 @@ try {
   await page.goto(origin+'/?app');await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
   await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();
   await page.getByRole('heading',{name:'Your courses',exact:true}).waitFor();
+  await page.locator('details.program-group > summary').filter({hasText:/^College/}).click();
   await page.getByRole('button',{name:/^Follow program.*College Core/}).click();
   const saved=page.getByRole('article',{name:'College Core pathway',exact:true});await saved.waitFor();
   const read=()=>page.evaluate(async()=>(await import('/src/lib/storage.ts')).loadProgress());

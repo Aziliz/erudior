@@ -5,7 +5,7 @@ import { enrollmentProgress, type CourseProgressSummary } from "../lib/learningP
 import { LEARNING_PATHWAY_LIMITS, parseLearningPathways, pathwayProgress, starterPathways, type LearningPathway } from "../lib/learningPathways";
 
 import StudyProgramCard from "../components/StudyProgramCard";
-import { STUDY_PROGRAMS, matchingProgram, programCourseIds, programCourses, programPathway, plannedProgramCourse } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, matchingProgram, programCourseIds, programCourses, programPathway, plannedProgramCourse } from "../lib/studyPrograms";
 
 const ProgressTools = lazy(() => import("./ProgressTools"));
 type PathDraft = { pathway: LearningPathway; original: string | null };
@@ -177,14 +177,18 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
     <section className="progress-section" aria-labelledby="study-programs-title">
       <h2 id="study-programs-title">Explore programs</h2>
       <p className="muted">A program groups courses into stages with learning outcomes and portfolio milestones. You can save a plan before all its courses are published.</p>
-      {STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id)).map(program => {
-        const existing = pathways.find(path => path.id === program.id);
-        return <StudyProgramCard key={program.id} program={program} availableIds={availableProgramIds}
-          onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
-          action={existing ? <p className="small muted">You are following a customized version. Your saved course order is preserved.</p> :
-            <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
-              onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
-      })}
+      {groupPrograms(STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id))).map(group =>
+        <details key={group.category} className="program-group">
+          <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
+          {group.programs.map(program => {
+            const existing = pathways.find(path => path.id === program.id);
+            return <StudyProgramCard key={program.id} program={program} availableIds={availableProgramIds}
+              onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
+              action={existing ? <p className="small muted">You are following a customized version. Your saved course order is preserved.</p> :
+                <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
+                  onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
+          })}
+        </details>)}
     </section>
 
     <details className="progress-tools-disclosure" open={toolsOpen} onToggle={event => setToolsOpen(event.currentTarget.open)}>

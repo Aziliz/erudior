@@ -166,11 +166,15 @@ console.log('College core areas passed.');
 
 // Staged programs: Pre-Med, Medical School Preparation, Computer Science, Electrical Engineering, Cosmetology Theory.
 {
-  const staged = ['pre-med', 'medical-school-preparation', 'computer-science', 'electrical-engineering', 'cosmetology-theory'];
+  const staged = STUDY_PROGRAMS.filter(p => !p.pools?.length).map(p => p.id);
+  assert(staged.length >= 50, 'license and major programs are listed');
+  assert.equal(new Set(STUDY_PROGRAMS.map(p => p.id)).size, STUDY_PROGRAMS.length, 'program ids are unique');
   for (const programId of staged) {
     const program = STUDY_PROGRAMS.find(p => p.id === programId)!;
     assert(program, `${programId} is listed`);
-    assert(!program.pools?.length && program.stages.length >= 3, `${programId} is a staged program`);
+    assert(!program.pools?.length && program.stages.length >= 2, `${programId} is a staged program`);
+    assert(program.sources.length && program.sources.every(s => /^https:\/\//.test(s.url)), `${programId}: sources`);
+    assert(/independent|theory only|ground school/i.test(program.notice), `${programId}: says what it is not`);
     const courses = programCourses(program);
     assert.equal(new Set(courses.map(c => c.courseId)).size, courses.length, `${programId}: no repeated course`);
     const earlier = new Set<string>();

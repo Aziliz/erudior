@@ -34,6 +34,7 @@ try {
    checks.push(`${name}-${theme}-${width}`);
   }
   await page.goto(origin+'/programs?site');
+  await page.locator('details.program-group > summary').filter({hasText:/^Law/}).click();
   await page.getByRole('heading',{name:'Programs',exact:true}).waitFor();
   const card=page.getByRole('article',{name:'J.D. Preparation program',exact:true});
   const availableProgramCount = await page.evaluate(async()=>{
@@ -52,6 +53,7 @@ try {
   await page.goto(origin+'/?app');await page.getByRole('heading',{name:'Library',exact:true}).waitFor();
   await page.locator('header.topbar').getByRole('button',{name:'Courses',exact:true}).click();
   await page.getByRole('heading',{name:'Your courses',exact:true}).waitFor();
+  await page.locator('details.program-group > summary').filter({hasText:/^Law/}).click();
   await page.getByRole('button',{name:/^Follow program.*J\.D\. Preparation/}).click();
   const saved=page.getByRole('article',{name:'J.D. Preparation pathway',exact:true});await saved.waitFor();
   const read=()=>page.evaluate(async()=>(await import('/src/lib/storage.ts')).loadProgress());

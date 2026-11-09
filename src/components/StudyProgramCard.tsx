@@ -53,7 +53,7 @@ export default function StudyProgramCard({ program, availableIds, action, summar
     {program.stages.map((stage, index) => {
       const summary = summaries[index];
       return <details key={stage.id} className="pathway-sequence">
-        <summary>Stage {index + 1}: {stage.title} · {stage.courses.length} courses{summary ? ` · ${summary.completedCourses}/${summary.totalCourses} completed` : ""}</summary>
+        <summary>Stage {index + 1}: {stage.title} · {stage.courses.length} {stage.courses.length === 1 ? "course" : "courses"}{summary ? ` · ${summary.completedCourses}/${summary.totalCourses} completed` : ""}</summary>
         <p>{stage.summary}</p>
         {summary && <div className="learning-progress-meter"><progress max={100} value={summary.percent} aria-label={`${stage.title} progress`} /><strong>{summary.percent}%</strong></div>}
         <ol>{stage.courses.map(course => <li key={course.courseId}>

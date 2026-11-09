@@ -22,7 +22,7 @@ import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
 import { GENERAL_DISCLAIMER } from "../components/Terms";
-import { STUDY_PROGRAMS, programCourseIds, programCourses } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, programCourseIds, programCourses } from "../lib/studyPrograms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
@@ -260,8 +260,10 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
           <span className="small muted">{STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
         </div>
         <p className="muted small" style={{ marginBottom: 16 }}>Follow a pathway of courses toward a larger learning goal. Explore its stages, recommended prerequisites and course outlines.</p>
+        {groupPrograms(STUDY_PROGRAMS).map(group => <details key={group.category} className="program-group">
+        <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
         <div className="catalog-grid">
-          {STUDY_PROGRAMS.map(program => {
+          {group.programs.map(program => {
             const planned = programCourses(program);
             const ids = program.pools?.length ? programCourseIds(program) : planned.map(course => course.courseId);
             const available = ids.filter(id => CATALOG.some(entry => entry.id === id)).length;
@@ -281,6 +283,7 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
             </article>;
           })}
         </div>
+        </details>)}
       </section>
 
       <Catalog api={api} />

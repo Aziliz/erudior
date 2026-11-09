@@ -81,3 +81,10 @@ export const COSMETOLOGY_PROGRAM: StudyProgram = {
   ],
   reviewedOn: "2026-11-09",
 };
+
+/** Shared outline from Cosmetology Theory, reused by barbering, esthetics and nail technology. */
+export function cosmetologyOutline(courseId: string): ProgramCourse {
+  const found = COSMETOLOGY_PROGRAM.stages.flatMap(item => item.courses).find(item => item.courseId === courseId);
+  if (!found) throw new Error(`No Cosmetology Theory outline for ${courseId}`);
+  return found;
+}

@@ -1,6 +1,7 @@
 import type { ProgramCourse, StudyProgram } from "./studyPrograms";
 import { coreOutline } from "./collegeCoreProgram";
 import { PHYSICS } from "./catalogOutlines";
+import { ANATOMY_PHYSIOLOGY_1, ANATOMY_PHYSIOLOGY_2 } from "./healthPrograms";
 
 const course = (courseId: string, title: string, modules: string[], outcomes: string[], assignment: string, recommendedBefore: string[] = []): ProgramCourse =>
   ({ courseId, title, recommendedBefore, modules, outcomes, assignment });
@@ -48,10 +49,8 @@ export const PRE_MED_PROGRAM: StudyProgram = {
           ["Mendelian inheritance", "Chromosomes and linkage", "Molecular genetics and gene regulation", "Mutation and repair", "Population genetics", "Genomics and genetic testing"],
           ["Solve inheritance and population genetics problems.", "Explain how genetic testing works and its limits."],
           "Analyze a family pedigree and genetic test results for a fictional patient case.", ["college-general-biology-2"]),
-        course("pre-med-anatomy-physiology", "Human Anatomy and Physiology",
-          ["Tissues and the integumentary system", "Skeletal and muscular systems", "Nervous system and senses", "Endocrine system", "Cardiovascular and respiratory systems", "Digestive, urinary and reproductive systems", "Labs"],
-          ["Describe the structure and function of each body system.", "Explain how body systems maintain homeostasis."],
-          "Build an illustrated homeostasis guide for one system, including what happens when it fails.", ["college-general-biology-2"]),
+        ANATOMY_PHYSIOLOGY_1,
+        ANATOMY_PHYSIOLOGY_2,
       ] },
     { id: "behavior-mcat", title: "Behavioral science and the MCAT",
       summary: "Psychology and sociology for the MCAT's behavioral section, then full MCAT preparation.",

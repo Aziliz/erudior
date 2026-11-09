@@ -8139,3 +8139,13 @@ html .pitch-toggle .pa-d::after {
 
 .public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .public-learning-banner-close { flex-shrink: 0; min-width: 44px; min-height: 44px; }
+
+/* Program catalog groups */
+.program-group { margin: 8px 0; border-top: 1px solid var(--line, var(--field)); }
+.program-group > summary { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; cursor: pointer; padding: 12px 0; min-height: 44px; }
+.program-group > summary > h2, .program-group > summary > h3 { display: inline; margin: 0; font-size: 1.1rem; }
+.program-group[open] > summary { margin-bottom: 8px; }
+.program-group > summary { list-style: none; }
+.program-group > summary::-webkit-details-marker { display: none; }
+.program-group > summary::before { content: "▸"; color: var(--ink-2); }
+.program-group[open] > summary::before { content: "▾"; }
