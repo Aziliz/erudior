@@ -35,12 +35,22 @@ async function authenticate() {
   await form.getByRole('button', { name: 'Open', exact: true }).click();
 }
 async function openSettings() {
-  // Full reload is intentional: startup must require real adult authentication.
-  await page.goto(origin + '/parent/planning');
+  // This fixture uses the routed browser App (VITE_AS_DESKTOP is unset), not
+  // its desktop sidebar. A fresh page must first select and authorize a learner
+  // through the actual chooser so the real shared-device header controls exist.
+  await page.goto(origin);
+  await heading("Who's learning?").waitFor();
+  await page.getByRole('button', { name: /^Synthetic Recovery Alice\b/ }).click();
+  await page.getByRole('region', { name: 'Locked shared device', exact: true }).getByRole('status').filter({ hasText: 'Authorize Synthetic Recovery Alice to learn' }).waitFor();
+  await authenticate();
+  await heading('Library').waitFor();
+  await button('Student: Synthetic Recovery Alice. Switch student').waitFor();
+  await page.getByRole('navigation', { name: 'Main', exact: true }).getByRole('button', { name: 'Family', exact: true }).click();
   await heading('Parent area').waitFor();
   await authenticate();
   await page.getByRole('navigation', { name: 'Parent sections', exact: true }).getByRole('button', { name: 'Settings and backup', exact: true }).click();
   await button('Verify an encrypted backup').waitFor();
+  await page.locator('header.topbar .family-nav').getByRole('button', { name: 'Lock device', exact: true }).waitFor();
   const authority = await page.evaluate(async () => {
     const session = await import('/src/lib/localSession.ts');
     session.assertLocalAdult();
@@ -306,21 +316,17 @@ try {
         assert.equal(await page.evaluate(() => window.__familyRecoveryDecrypt.calls), 1, 'Repeated Verify submits start one real decryption');
         if (race === 'cancel') await button('Cancel verification').click();
         if (race === 'lock') {
-          // A direct Parent-route reload has no selected learner, so its header
-          // has no learner toolbar. Use the real app-wide navigation command.
-          await button('Open Erudior navigation').click();
-          const navigation = page.getByRole('dialog', { name: 'Navigation', exact: true });
-          await navigation.getByRole('button', { name: 'Lock device', exact: true }).click();
+          // openSettings selected and authorized Alice through the real UI.
+          // The routed App exposes this command in the learner header toolbar.
+          await page.locator('header.topbar .family-nav').getByRole('button', { name: 'Lock device', exact: true }).click();
           await page.getByRole('region', { name: 'Locked shared device', exact: true }).waitFor();
-          assert.equal(await page.evaluate(async () => (await import('/src/lib/localSession.ts')).localSessionLocked()), true, 'Navigation command actually revokes the adult session');
+          assert.equal(await page.evaluate(async () => (await import('/src/lib/localSession.ts')).localSessionLocked()), true, 'Header lock command actually revokes the adult session');
         }
         if (race === 'hide') await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, value: true }); document.dispatchEvent(new Event('visibilitychange')); });
         if (race === 'profile') {
-          // Use the explicit learner-switch action rather than depending on
-          // Library redirecting a Parent session without a selected learner.
-          await button('Open Erudior navigation').click();
-          await page.getByRole('dialog', { name: 'Navigation', exact: true }).getByRole('button', { name: /^Account management/ }).click();
-          await page.getByRole('dialog', { name: 'Account management', exact: true }).getByRole('navigation', { name: 'Account actions', exact: true }).getByRole('button', { name: /^Switch learner/ }).click();
+          // The same production toolbar opens the learner chooser in routed
+          // mode. Choosing Bob then requires a new adult grant, never a menu grant.
+          await button('Student: Synthetic Recovery Alice. Switch student').click();
           await heading("Who's learning?").waitFor();
           await page.getByRole('button', { name: /^Synthetic Recovery Bob\b/ }).click();
           const lock = page.getByRole('region', { name: 'Locked shared device', exact: true });
