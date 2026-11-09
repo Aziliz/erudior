@@ -305,17 +305,37 @@ try {
         await waitForHeldDecryption();
         assert.equal(await page.evaluate(() => window.__familyRecoveryDecrypt.calls), 1, 'Repeated Verify submits start one real decryption');
         if (race === 'cancel') await button('Cancel verification').click();
-        if (race === 'lock') await button('Lock device').click();
+        if (race === 'lock') {
+          // A direct Parent-route reload has no selected learner, so its header
+          // has no learner toolbar. Use the real app-wide navigation command.
+          await button('Open Erudior navigation').click();
+          const navigation = page.getByRole('dialog', { name: 'Navigation', exact: true });
+          await navigation.getByRole('button', { name: 'Lock device', exact: true }).click();
+          await page.getByRole('region', { name: 'Locked shared device', exact: true }).waitFor();
+          assert.equal(await page.evaluate(async () => (await import('/src/lib/localSession.ts')).localSessionLocked()), true, 'Navigation command actually revokes the adult session');
+        }
         if (race === 'hide') await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, value: true }); document.dispatchEvent(new Event('visibilitychange')); });
         if (race === 'profile') {
-          await page.getByRole('navigation', { name: 'Main', exact: true }).getByRole('button', { name: 'Library', exact: true }).click();
+          // Use the explicit learner-switch action rather than depending on
+          // Library redirecting a Parent session without a selected learner.
+          await button('Open Erudior navigation').click();
+          await page.getByRole('dialog', { name: 'Navigation', exact: true }).getByRole('button', { name: /^Account management/ }).click();
+          await page.getByRole('dialog', { name: 'Account management', exact: true }).getByRole('navigation', { name: 'Account actions', exact: true }).getByRole('button', { name: /^Switch learner/ }).click();
           await heading("Who's learning?").waitFor();
-          await page.locator('.who-card').filter({ hasText: 'Synthetic Recovery Bob' }).click();
-          await page.getByRole('status').filter({ hasText: 'Authorize Synthetic Recovery Bob to learn' }).waitFor();
+          await page.getByRole('button', { name: /^Synthetic Recovery Bob\b/ }).click();
+          const lock = page.getByRole('region', { name: 'Locked shared device', exact: true });
+          await lock.getByRole('status').filter({ hasText: 'Authorize Synthetic Recovery Bob to learn' }).waitFor();
+          await lock.getByLabel('Parent password', { exact: true }).waitFor();
+          assert.equal(await page.evaluate(async () => (await import('/src/lib/localSession.ts')).localSessionLocked()), true, 'Choosing another learner still requires the real adult gate');
         }
         if (race === 'native-lifecycle') await page.evaluate(() => window.dispatchEvent(new CustomEvent('erudior-native-lifecycle', { cancelable: true, detail: { bridgeId: 'synthetic-recovery-probe', sequence: 1, revocation: 1, paused: true, backgroundMs: 32_000 } })));
         if (race === 'pagehide') await page.evaluate(() => window.dispatchEvent(new Event('pagehide')));
-        if (race === 'navigation') await page.getByRole('navigation', { name: 'Parent sections', exact: true }).getByRole('button', { name: 'Students', exact: true }).click();
+        if (race === 'navigation') {
+          const students = page.getByRole('navigation', { name: 'Parent sections', exact: true }).getByRole('button', { name: 'Students', exact: true });
+          await students.click();
+          await heading('Students').waitFor();
+          assert.equal(await students.getAttribute('aria-current'), 'page', 'Navigation really reaches the Students section');
+        }
         await releaseDecryption();
         if (race === 'hide') await page.evaluate(() => { delete document.hidden; document.dispatchEvent(new Event('visibilitychange')); });
         // Wait until the underlying real crypto promise has had a chance to settle.
