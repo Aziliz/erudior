@@ -19,10 +19,11 @@ try {
   const doc = new JSDOM(renderToStaticMarkup(React.createElement(Roadmap))).window.document;
   const course = doc.querySelector("#course-updates")!;
   for (const group of PUBLIC_ROADMAP) assert(course.querySelector("#" + group.id), group.id);
-  assert.equal(course.querySelectorAll("li").length, PUBLIC_ROADMAP.reduce((n, g) => n + g.courses.length, 0));
+  assert.equal(course.querySelectorAll(".roadmap-list > li").length, PUBLIC_ROADMAP.reduce((n, g) => n + g.courses.length, 0));
   assert(!course.textContent!.includes("J.D. preparation"));
   assert(!course.textContent!.includes("Professional education"));
   assert(!course.textContent!.includes("Advanced college electives"));
+  assert.equal(course.querySelectorAll("details.roadmap-outline").length, course.querySelectorAll(".roadmap-list > li:not(.is-done)").length, "every planned course shows its outline");
   for (const area of UPDATES.filter(a => ["web-app-updates", "application-updates"].includes(a.id))) {
     const section = doc.querySelector("#" + area.id)!;
     assert.equal(section.querySelectorAll("li").length, area.items.length);
