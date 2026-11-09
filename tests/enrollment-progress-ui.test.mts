@@ -264,7 +264,11 @@ const contractsSection = [...jdPath.querySelectorAll<HTMLElement>('.study-progra
 assert(contractsSection, 'Contracts I remains in the Stage 2 outline');
 await click(contractsSection.querySelector('button')!);
 assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-contracts-1' });
-assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing the second course does not enroll');
+const contracts2Section = [...jdPath.querySelectorAll<HTMLElement>('.study-program details')].find(e => e.querySelector('summary')?.textContent?.includes('Contracts II: Performance, Breach and Remedies'));
+assert(contracts2Section, 'Contracts II remains in the Stage 2 outline');
+await click(contracts2Section.querySelector('button')!);
+assert.deepEqual(routes.pop(), { name: 'overview', catalogId: 'law-contracts-2' });
+assert.equal(stored.get('bob')!.enrolled?.length ?? 0, 0, 'viewing course overviews does not enroll');
 api = makeApi('bob', []);await mount();
 assert.equal(pathway(jd.title).querySelector('progress')?.value, 0, "saved program survives remount");
 await click('Edit pathway', pathway(jd.title));
@@ -274,7 +278,8 @@ assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Ca
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing I: Objective Analysis \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Legal Writing II: Persuasion and Advocacy \(planned\)/);
 assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Contracts I: Formation and Interpretation \(planned\)/);
-assert.match(document.querySelector('.pathway-editor')!.textContent!, /Contracts II: Performance, Breach and Remedies \(planned\)/);
+assert.doesNotMatch(document.querySelector('.pathway-editor')!.textContent!, /Contracts II: Performance, Breach and Remedies \(planned\)/);
+assert.match(document.querySelector('.pathway-editor')!.textContent!, /Torts \(planned\)/);
 await click('Move Legal Writing II: Persuasion and Advocacy up');
 await click('Save pathway');
 assert.equal(pathway(jd.title).querySelector('.study-program'), null, "custom course order does not inherit canonical stage progress");
