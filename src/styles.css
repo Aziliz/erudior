@@ -133,6 +133,7 @@ h3 {
   line-height: 1.2;
   font-weight: 650;
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
 }
 h1 {
   font-size: 1.625rem;
@@ -1567,6 +1568,7 @@ button.course-row:hover {
   font-family: var(--serif);
   font-size: 1.0938rem;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 .prose > * + * {
   margin-top: 0.85em;
