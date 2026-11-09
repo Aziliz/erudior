@@ -8,6 +8,7 @@ import { speaker } from '../../src/lib/speech';
 import type { AppApi } from '../../src/App';
 import type { Course, Bank, Question } from '../../src/lib/types';
 import type { Session } from '../../src/lib/session';
+import 'katex/dist/katex.min.css';
 import '../../src/styles.css';
 
 const models = [
@@ -29,6 +30,9 @@ for (const q of questions) {
   if (checked.problems.length || targetProblems(checked.model, q.target).length) throw Error('Invalid synthetic model: ' + q.id);
 }
 questions.push({ id: 'text', type: 'text', topic: 'Synthetic practice', stem: 'Write the number that comes after two.', choices: [], answer: [], accept: [['3']] });
+questions.push({ id: 'fraction-choice', type: 'choice', topic: 'Synthetic practice',
+  stem: 'A row has nine flags. Two of the flags are blue. Which fraction of the row is blue?',
+  choices: [String.raw`$\frac{2}{9}$`, String.raw`$\frac{9}{2}$`], answer: [0] });
 function Fixture() {
   const [selection, setSelection] = useState({ index: 0, readAloud: true });
   const bank = { id: 'synthetic-bank', title: 'Synthetic practice', courseId: 'synthetic', sections: [] } as unknown as Bank;
@@ -37,7 +41,7 @@ function Fixture() {
   progress.study = { autoRead: false, explainFirst: false };
   const api = { progress, courses: [course], go: () => {}, toast: () => {}, saveLearnerSession: async () => {} } as unknown as AppApi;
   const q = questions[selection.index];
-  const session: Session = { id: `synthetic-${q.id}`, bankId: bank.id, bankTitle: bank.title, mode: 'practice', startedAt: Date.now(), items: [{ q, order: [] }], blocks: [{ start: 0, end: 1 }] };
+  const session: Session = { id: `synthetic-${q.id}`, bankId: bank.id, bankTitle: bank.title, mode: 'practice', startedAt: Date.now(), items: [{ q, order: q.choices.map((_, i) => i) }], blocks: [{ start: 0, end: 1 }] };
   Object.assign(window, { readerFixture: { show(index: number, readAloud = true) { speaker.stop(); setSelection({ index, readAloud }); } } });
   // Match App's production scroll container, rather than letting Runner overflow the document.
   return <div className="shell"><main className="main" id="main" tabIndex={-1} data-question={q.id} data-read-aloud={selection.readAloud}><Runner key={`${q.id}-${selection.readAloud}`} api={api} bank={bank} session={session}/></main></div>;
