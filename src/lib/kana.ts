@@ -226,23 +226,155 @@ export const isKanaOnly = (s: string) => /^[ぁ-ゖゝゞァ-ヺーヽヾ・]+$/
 export const hasJapanese = (s: string) => HIRA.test(s) || KATA.test(s) || KANJI.test(s);
 
 // ---------------------------------------------------------------------------
-// Furigana: {漢字|かんじ} in course text becomes <ruby>漢字<rt>かんじ</rt></ruby>.
+// Pitch accent (standard Tokyo): a word's accent is the mora after which the pitch drops.
+//   0 heiban (flat): low, then high to the end and onto a following particle
+//   1 atamadaka: high on the first mora, low after
+//   n nakadaka: low, high up to mora n, low after
+//   n = mora count odaka: like heiban inside the word, but a following particle is low
 
-/** `{base|reading}` where base has a kanji and reading is kana. */
+/** Small kana that belong to the mora before them (きゃ, ふぁ, ティ). っ, ん and ー are morae of their own. */
+const SMALL = /[ぁぃぅぇぉゃゅょゎァィゥェォャュョヮ]/;
+const KANA_CHAR = /[ぁ-ゖゝゞァ-ヺーヽヾ]/;
+
+/** The morae of a kana string: きょうと → きょ・う・と. Characters that aren't kana are skipped. */
+export function morae(kana: string): string[] {
+  const out: string[] = [];
+  for (const c of kana) {
+    if (!KANA_CHAR.test(c)) continue;
+    if (SMALL.test(c) && out.length) out[out.length - 1] += c;
+    else out.push(c);
+  }
+  return out;
+}
+
+export const moraCount = (kana: string) => morae(kana).length;
+
+/** A word's accents as a list (a vocabulary `pitch` is one number or a list of them). */
+export const accentList = (pitch: number | number[] | undefined): number[] =>
+  pitch === undefined ? [] : Array.isArray(pitch) ? pitch : [pitch];
+
+/** True if `accent` is a valid accent position for a word of `count` morae. */
+export const validAccent = (accent: unknown, count: number): accent is number =>
+  typeof accent === "number" && Number.isInteger(accent) && accent >= 0 && accent <= count && count > 0;
+
+/**
+ * High (H) or low (L) for each mora, plus one more for a following particle (e.g. が).
+ * pitchPattern(2, 0) → ["L","H","H"] (はし, 端: flat, particle high); (2, 2) → ["L","H","L"] (橋).
+ */
+export function pitchPattern(count: number, accent: number): ("H" | "L")[] {
+  const out: ("H" | "L")[] = [];
+  for (let i = 1; i <= count + 1; i++) {
+    if (accent === 1) out.push(i === 1 ? "H" : "L");
+    else if (i === 1) out.push("L");
+    else out.push(accent === 0 || i <= accent ? "H" : "L");
+  }
+  return out;
+}
+
+const ordinal = (n: number) => {
+  const s = n % 100 >= 11 && n % 100 <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th";
+  return `${n}${s}`;
+};
+
+/** Words for one accent: "flat", "drop after the 2nd mora", "drop after the 3rd and last mora". */
+export function accentWords(accent: number, count: number): string {
+  if (accent === 0) return "flat";
+  return `drop after the ${ordinal(accent)}${accent === count && count > 1 ? " and last" : ""} mora`;
+}
+
+/** The screen-reader text for a word's accents: "pitch: flat, or drop after the 2nd mora". */
+export function pitchLabel(accents: number[], count: number): string {
+  return `pitch: ${accents.map((a) => accentWords(a, count)).join(", or ")}`;
+}
+
+/**
+ * HTML for kana with its pitch accent: each mora is a span (.pa-h high, .pa-l low, .pa-d where
+ * the pitch drops after it). The line and tick are drawn by CSS (::before/::after, so assistive
+ * tech never sees them); the accent in words is visually hidden text (.pa-sr) for screen readers.
+ * Extra accents (several standard ones) follow the first as further marked copies.
+ * Returns the kana escaped and unmarked when no accent fits the word.
+ */
+export function pitchHtml(kana: string, accents: number | number[] | undefined, escape = true): string {
+  const esc = (s: string) => (escape ? escapeHtml(s) : s);
+  const count = moraCount(kana);
+  const list = accentList(accents).filter((a) => validAccent(a, count));
+  if (!list.length) return esc(kana);
+  // Morae, with anything else (・, spaces) kept in place unmarked.
+  const segs: { text: string; mora: boolean }[] = [];
+  for (const c of kana) {
+    const last = segs[segs.length - 1];
+    if (KANA_CHAR.test(c) && SMALL.test(c) && last?.mora) last.text += c;
+    else segs.push({ text: c, mora: KANA_CHAR.test(c) });
+  }
+  const word = (accent: number) => {
+    const pat = pitchPattern(count, accent);
+    let i = 0;
+    const spans = segs
+      .map((s) => {
+        if (!s.mora) return esc(s.text);
+        const hi = pat[i] === "H";
+        const drop = hi && pat[i + 1] === "L";
+        i++;
+        return `<span class="pa-m pa-${hi ? "h" : "l"}${drop ? " pa-d" : ""}">${esc(s.text)}</span>`;
+      })
+      .join("");
+    return `<span class="pa-w" data-pitch="${accent}">${spans}</span>`;
+  };
+  const alts = list.slice(1).map((a) => `<span class="pa-alt"><span class="pa-or" aria-hidden="true">・</span>${word(a)}</span>`).join("");
+  return `<span class="pa">${word(list[0])}${alts}<span class="sr-only pa-sr" lang="en"> (${pitchLabel(list, count)})</span></span>`;
+}
+
+// ---------------------------------------------------------------------------
+// Furigana: {漢字|かんじ} in course text becomes <ruby>漢字<rt>かんじ</rt></ruby>.
+// Pitch accent rides along after a colon: {橋|はし:2} (accent over the furigana), and kana-only
+// words take [はし:2]. The plain {漢字|かんじ} form is unchanged.
+
+/** `{base|reading}` or `{base|reading:accent}` where base has a kanji and reading is kana. */
 export const RUBY_RE = /\{([^{}|\n]+)\|([^{}|\n]+)\}/g;
+/** `[kana:accent]`: a kana-only word with its pitch accent. Not `[[…]]` glossary links, `\[` math or `[…](link)`. */
+export const PITCH_RE = /(?<![\\[])\[([ぁ-ゖゝゞァ-ヺーヽヾ]+)[:：](\d{1,2})\](?![\](])/g;
+/** Anything shaped like pitch markup, for the checker to report what PITCH_RE won't take. */
+const PITCH_LIKE = /(?<![\\[])\[([^[\]\n:：]+)[:：]\s*([^[\]\n]*)\](?![\](])/g;
+
+/** A furigana reading, split from its accent: "はし:2" → { reading: "はし", accent: 2 }. */
+export function splitReading(raw: string): { reading: string; accent?: number; accentText?: string } {
+  const r = raw.trim();
+  const m = /^(.*?)\s*[:：]\s*(\S*)$/.exec(r);
+  if (!m) return { reading: r };
+  return { reading: m[1], accentText: m[2], accent: /^\d{1,2}$/.test(m[2]) ? Number(m[2]) : undefined };
+}
+
+/** A furigana match that renders: kanji in the base, kana reading, and (if given) an accent that fits. */
+function rubyParts(base: string, rawReading: string) {
+  if (!hasKanji(base)) return null;
+  const { reading, accent, accentText } = splitReading(rawReading);
+  if (!isKanaOnly(reading)) return null;
+  // A bad accent ({橋|はし:9}) still shows the furigana, just without the accent (the checker reports it).
+  return { reading, accent: accentText !== undefined && validAccent(accent, moraCount(reading)) ? accent : undefined };
+}
 
 export interface RubyProblem {
   match: string;
   problem: string;
 }
 
-/** Problems with furigana markup in a piece of course text (for the course checker). */
+/** Problems with furigana and pitch-accent markup in a piece of course text (for the course checker). */
 export function rubyProblems(text: string): RubyProblem[] {
   const out: RubyProblem[] = [];
   for (const m of text.matchAll(RUBY_RE)) {
-    const [whole, base, reading] = m;
+    const [whole, base, raw] = m;
+    const { reading, accent, accentText } = splitReading(raw);
     if (!hasKanji(base)) out.push({ match: whole, problem: "furigana base has no kanji" });
-    if (!isKanaOnly(reading.trim())) out.push({ match: whole, problem: "furigana reading must be kana only" });
+    if (!isKanaOnly(reading)) out.push({ match: whole, problem: "furigana reading must be kana only" });
+    else if (accentText !== undefined && !validAccent(accent, moraCount(reading)))
+      out.push({ match: whole, problem: `pitch accent must be a whole number from 0 to ${moraCount(reading)} (the reading's morae)` });
+  }
+  for (const m of text.matchAll(PITCH_LIKE)) {
+    const [whole, word, n] = m;
+    if (!hasJapanese(word)) continue;
+    if (!isKanaOnly(word)) out.push({ match: whole, problem: hasKanji(word) ? "pitch markup [かな:n] is for kana; write {漢字|かな:n} for a word with kanji" : "pitch markup word must be kana only" });
+    else if (!/^\d{1,2}$/.test(n) || !validAccent(Number(n), moraCount(word)))
+      out.push({ match: whole, problem: `pitch accent must be a whole number from 0 to ${moraCount(word)} (the word's morae)` });
   }
   return out;
 }
@@ -251,32 +383,48 @@ const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 /**
- * Replace furigana markup with <ruby>. Only markup whose base has a kanji is converted, so
- * braces elsewhere (math, code, set notation) are left alone. `escape` escapes the base and
- * reading (for plain-text callers; Markdown callers pass false since Markdown escapes later).
+ * Replace furigana markup with <ruby> and pitch markup with marked kana. Only furigana markup
+ * whose base has a kanji is converted, so braces elsewhere (math, code, set notation) are left
+ * alone. `escape` escapes the base and reading (for plain-text callers; Markdown callers pass
+ * false since Markdown escapes later).
  */
 export function rubyHtml(text: string, escape = true): string {
-  if (!text.includes("|")) return text;
-  return text.replace(RUBY_RE, (whole, base: string, reading: string) => {
-    if (!hasKanji(base) || !isKanaOnly(reading.trim())) return whole;
-    const b = escape ? escapeHtml(base) : base;
-    const r = escape ? escapeHtml(reading.trim()) : reading.trim();
-    return `<ruby>${b}<rp>(</rp><rt>${r}</rt><rp>)</rp></ruby>`;
-  });
+  if (!text.includes("|") && !text.includes("[")) return text;
+  return text
+    .replace(RUBY_RE, (whole, base: string, raw: string) => {
+      const p = rubyParts(base, raw);
+      if (!p) return whole;
+      const b = escape ? escapeHtml(base) : base;
+      const r = p.accent !== undefined ? pitchHtml(p.reading, p.accent, escape) : escape ? escapeHtml(p.reading) : p.reading;
+      return `<ruby>${b}<rp>(</rp><rt>${r}</rt><rp>)</rp></ruby>`;
+    })
+    .replace(PITCH_RE, (whole, kana: string, n: string) =>
+      validAccent(Number(n), moraCount(kana)) ? pitchHtml(kana, Number(n), escape) : whole,
+    );
 }
 
-/** The text with furigana markup reduced to the base ({漢字|かんじ} → 漢字). */
+/** The text with furigana and pitch markup reduced to what's written ({漢字|かんじ} → 漢字, [はし:2] → はし). */
 export function stripRuby(text: string): string {
-  return text.replace(RUBY_RE, (whole, base: string, reading: string) =>
-    hasKanji(base) && isKanaOnly(reading.trim()) ? base : whole,
-  );
+  return text
+    .replace(RUBY_RE, (whole, base: string, raw: string) => (rubyParts(base, raw) ? base : whole))
+    .replace(PITCH_RE, (_whole, kana: string) => kana);
 }
 
-/** The text with furigana markup reduced to the reading ({漢字|かんじ} → かんじ). */
+/** The text with furigana markup reduced to the reading ({漢字|かんじ} → かんじ, [はし:2] → はし). */
 export function rubyReading(text: string): string {
-  return text.replace(RUBY_RE, (whole, base: string, reading: string) =>
-    hasKanji(base) && isKanaOnly(reading.trim()) ? reading.trim() : whole,
-  );
+  return text
+    .replace(RUBY_RE, (whole, base: string, raw: string) => rubyParts(base, raw)?.reading ?? whole)
+    .replace(PITCH_RE, (_whole, kana: string) => kana);
+}
+
+/** Text for search: furigana markup keeps both the kanji and its reading ({漢字|かんじ} → 漢字 かんじ). */
+export function rubySearchText(text: string): string {
+  return text
+    .replace(RUBY_RE, (whole, base: string, raw: string) => {
+      const p = rubyParts(base, raw);
+      return p ? `${base} ${p.reading}` : whole;
+    })
+    .replace(PITCH_RE, (_whole, kana: string) => kana);
 }
 
 /**

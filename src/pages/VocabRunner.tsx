@@ -20,7 +20,7 @@ import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
 import { playClip } from "../lib/audio";
 import { composing, imeFor } from "../lib/ime";
-import { FuriganaToggle, RubyText } from "../components/Ruby";
+import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
 import { confirmAction } from "../lib/storage";
 
 export type VocabMode = "review" | "practice";
@@ -292,7 +292,7 @@ export default function VocabRunner({
         <button className="back" onClick={quit}>
           ← End
         </button>
-        {ja && <FuriganaToggle />}
+        {ja && <JapaneseToggles />}
         <span className="muted">
           {mode === "review" ? "Review" : "Extra practice"} · {done}/
           {initial.length}
@@ -431,12 +431,12 @@ export default function VocabRunner({
             </p>
             <p className="vocab-answer" lang={lang?.code}>
               <span>
-                <RubyText text={item.term} reading={item.reading} lang={lang?.code} />
+                <RubyText text={item.term} reading={item.reading} lang={lang?.code} pitch={item.pitch} />
               </span>
               {ja && item.reading && item.reading !== item.term && (
-                <span className="muted" lang="ja">
+                <span className="muted vocab-reading" lang="ja">
                   {" "}
-                  ({item.reading})
+                  (<PitchText kana={item.reading} pitch={item.pitch} />)
                 </span>
               )}
               <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />

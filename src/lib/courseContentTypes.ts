@@ -284,6 +284,9 @@ export interface VocabItem {
     meanings: string[];
     /** Romanization or pronunciation guide (non-Roman scripts). */
     reading?: string;
+    /** Japanese: standard (Tokyo) pitch accent of the kana reading, as the mora after which the pitch
+     * drops (0 = flat/heiban), or a list when more than one is standard (the first is the main one). */
+    pitch?: number | number[];
     /** Part of speech, e.g. "noun", "verb". */
     pos?: string;
     /** Noun plural, e.g. "die Hunde". */

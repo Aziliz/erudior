@@ -2340,6 +2340,8 @@ h1.h2 {
 }
 .vocab-run .run-head {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
@@ -8049,6 +8051,69 @@ html.furigana-off rt {
 }
 html .furigana-toggle rt {
   visibility: visible;
+}
+
+/* Pitch accent (kana.ts pitchHtml): a line over high morae and a short tick where the pitch drops
+   (after the last mora for odaka, so a following particle is low; none for heiban). The marks are
+   CSS-only (::before/::after), so screen readers get just the visually hidden .pa-sr words. */
+.pa {
+  --pa-stroke: max(1px, 0.07em);
+  white-space: nowrap;
+}
+.pa-w {
+  display: inline-block;
+  text-indent: 0;
+  line-height: 1; /* the marks sit just above the em box, whatever the line height */
+  /* Kana metrics (not the Latin font's) decide the box, so the line clears the kana in every font. */
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP",
+    "Noto Sans JP", "Source Han Sans JP", "IPAexGothic", sans-serif;
+}
+.pa-m {
+  display: inline-block;
+  position: relative;
+}
+.pa-h::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.14em;
+  border-top: var(--pa-stroke) solid currentColor;
+}
+.pa-d::before {
+  right: -0.03em;
+}
+.pa-d::after {
+  content: "";
+  position: absolute;
+  right: -0.03em;
+  top: -0.14em;
+  height: 0.42em;
+  border-right: var(--pa-stroke) solid currentColor;
+}
+.pa-alt {
+  margin-inline-start: 0.15em;
+}
+.pa-or {
+  color: var(--ink-2);
+}
+.vocab-pitch-reading {
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+/* Pitch accent switched off: no marks, no accent words, no extra forms or accent-only readings. */
+html.pitch-off .pa-h::before,
+html.pitch-off .pa-d::after {
+  content: none;
+}
+html.pitch-off .pa-sr,
+html.pitch-off .pa-alt,
+html.pitch-off .vocab-pitch-reading {
+  display: none;
+}
+html .pitch-toggle .pa-h::before,
+html .pitch-toggle .pa-d::after {
+  content: "";
 }
 
 .public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }

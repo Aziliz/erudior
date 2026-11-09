@@ -1,7 +1,8 @@
 // End-to-end check of Japanese support with samples/demo-japanese.json: furigana in a lesson,
-// the furigana switch, tracing a kana and a kanji (日, whose strokes load on demand) with the
-// mouse, romaji → kana typing in quiz text answers (hiragana, CAPITALS → katakana), and typed
-// vocabulary practice in both directions. axe audits and an overflow check.
+// the furigana switch, pitch-accent marks and their switch, tracing a kana and a kanji (日, whose
+// strokes load on demand) with the mouse, romaji → kana typing in quiz text answers (hiragana,
+// CAPITALS → katakana), and typed vocabulary practice in both directions (accents shown after
+// answering). axe audits and an overflow check.
 //   npm run build && npx vite preview --port 5298
 //   node scripts/japanese-walkthrough.mjs [light|dark] [width] [shots dir]
 const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
@@ -89,6 +90,62 @@ check("furigana hidden after toggle", (await rtVisible()) === "hidden");
 await btn(/Furigana off/).click();
 await pg.waitForTimeout(200);
 check("furigana back", (await rtVisible()) === "visible");
+
+// Pitch accent: {橋|はし:2} over the furigana, [ねこ:1] on kana, the word list, the switch.
+const pitch = () =>
+  pg.evaluate(() => {
+    const mark = (sel, pseudo) => {
+      const el = document.querySelector(sel);
+      if (!el) return "missing";
+      const cs = getComputedStyle(el, pseudo);
+      return cs.content === "none" || cs.visibility === "hidden" ? "none" : cs.borderTopStyle !== "none" || cs.borderRightStyle !== "none" ? "shown" : "none";
+    };
+    return {
+      words: document.querySelectorAll(".prose .pa").length,
+      inRuby: document.querySelectorAll(".prose rt .pa").length,
+      line: mark(".prose .pa .pa-h", "::before"),
+      tick: mark(".prose .pa .pa-d", "::after"),
+      rubyLine: mark(".prose rt .pa-h", "::before"),
+      kanaLine: mark(".prose :not(rt) > .pa .pa-h", "::before"),
+      sr: [...document.querySelectorAll(".prose .pa-sr")].filter((e) => getComputedStyle(e).display !== "none").map((e) => e.textContent.trim()),
+      odaka: document.querySelector('.prose rt .pa-w[data-pitch="2"] .pa-m:last-child')?.className ?? "",
+      listReadings: document.querySelectorAll(".lesson-words .vocab-pitch-reading .pa").length,
+      listKana: document.querySelectorAll(".lesson-words .vocab-term .pa").length,
+    };
+  });
+let pa = await pitch();
+check(`pitch words in lesson (${pa.words})`, pa.words === 6);
+check(`pitch over furigana (${pa.inRuby})`, pa.inRuby === 3);
+check(`pitch line and tick shown (${pa.line}/${pa.tick})`, pa.line === "shown" && pa.tick === "shown");
+check(`odaka drop on the last mora (${pa.odaka})`, pa.odaka.includes("pa-d"));
+check(`pitch for screen readers (${pa.sr[0]})`, pa.sr.length === 6 && pa.sr.includes("(pitch: drop after the 1st mora)") && pa.sr.includes("(pitch: flat)"));
+check(`word list readings with accent (${pa.listReadings}/${pa.listKana})`, pa.listReadings === 3 && pa.listKana === 1);
+const pitchMarkup = await pg.evaluate(() => [...document.querySelectorAll(".prose p")].some((p) => /\[[^\]]*:\d\]|\|はし:/.test(p.textContent)));
+check("no raw pitch markup left in the lesson", !pitchMarkup);
+if (shots) {
+  const line = pg.locator(".prose p", { hasText: "chopsticks" });
+  await line.scrollIntoViewIfNeeded();
+  await line.screenshot({ path: `${shots}/ja-${scheme}-${width}-pitch-lesson.png` });
+}
+await btn(/Furigana on/).click();
+await pg.waitForTimeout(200);
+pa = await pitch();
+check(`furigana off hides the accent over furigana (${pa.rubyLine})`, pa.rubyLine === "none");
+check(`furigana off keeps kana accents (${pa.kanaLine})`, pa.kanaLine === "shown");
+await btn(/Furigana off/).click();
+await btn(/Pitch accent on/).click();
+await pg.waitForTimeout(200);
+pa = await pitch();
+check(`pitch off hides marks (${pa.line}/${pa.tick})`, pa.line === "none" && pa.tick === "none");
+check(`pitch off hides accent words (${pa.sr.length})`, pa.sr.length === 0);
+check("pitch off hides accent-only readings", (await pg.locator(".lesson-words .vocab-pitch-reading").first().isVisible()) === false);
+await audit("lesson-pitch-off");
+check("pitch setting saved", (await pg.evaluate(() => localStorage.getItem("erudior.pitch"))) === "off");
+check("pitch switch pressed state", (await btn(/Pitch accent off/).getAttribute("aria-pressed")) === "false");
+await btn(/Pitch accent off/).click();
+await pg.waitForTimeout(200);
+pa = await pitch();
+check(`pitch back on (${pa.line})`, pa.line === "shown");
 
 // Traces the pad showing in a trace block, stroke by stroke along its center lines, with the mouse.
 async function traceShown(block) {
@@ -178,7 +235,8 @@ await btn(/Extra practice/).click();
 await pg.waitForTimeout(800);
 const words = { cat: ["neko", "猫"], tea: ["ocha", "お茶"], "to eat": ["taberu", "食べる"], taxi: ["TAKUSHI-", "タクシー"] };
 const meanings = { 猫: "cat", お茶: "tea", 食べる: "to eat", タクシー: "taxi" };
-let sawRecall = false, sawMeaning = false, sawKanjiNote = false, prompts = 0;
+let sawRecall = false, sawMeaning = false, sawKanjiNote = false, sawAccentShot = false, prompts = 0;
+check("no accent before answering", (await pg.locator(".vocab-card .pa").count()) === 0);
 for (let i = 0; i < 12; i++) {
   if (!(await pg.locator(".vocab-prompt").count())) break;
   // The prompt's text without furigana (<rt>/<rp>).
@@ -206,6 +264,19 @@ for (let i = 0; i < 12; i++) {
   await pg.waitForTimeout(300);
   const result = (await pg.locator(".vocab-result").textContent()) ?? "";
   check(`vocab "${prompt}" right (${result.slice(0, 60)})`, result.startsWith("Right"));
+  // The accent shows on the reading (or a kana word itself) after answering.
+  const marks = await pg.evaluate(() => ({
+    n: document.querySelectorAll(".vocab-answer .pa").length,
+    sr: document.querySelector(".vocab-answer .pa-sr")?.textContent ?? "",
+    onReading: document.querySelectorAll(".vocab-answer .vocab-reading .pa").length,
+  }));
+  check(`vocab "${prompt}" accent after answering (${JSON.stringify(marks)})`, marks.n === 1 && marks.sr.includes("pitch:"));
+  if (/[猫茶食]/.test(prompt) || ["cat", "tea", "to eat"].includes(prompt)) check(`vocab "${prompt}" accent on the reading`, marks.onReading === 1);
+  if (!sawAccentShot) {
+    sawAccentShot = true;
+    await audit("vocab-result");
+    if (shots) await pg.locator(".vocab-card").screenshot({ path: `${shots}/ja-${scheme}-${width}-pitch-card.png` });
+  }
   if (/Written with kanji/.test(result)) sawKanjiNote = true;
   prompts++;
   await btn(/^Next$/).click();
@@ -215,6 +286,19 @@ check("saw recall cards", sawRecall);
 check("saw meaning cards", sawMeaning);
 check("kana answer for a kanji word gets the kanji note", sawKanjiNote);
 check(`answered all 8 cards (${prompts})`, prompts === 8);
+
+// Vocabulary tab: the word list shows accented readings, and both switches are there.
+await btn(/^Vocabulary$/).click().catch(() => {});
+await pg.goto(B);
+await pg.waitForTimeout(1200);
+await btn(/^Japanese demo/).click();
+await pg.waitForTimeout(600);
+await btn(/^Vocabulary$/).click();
+await pg.waitForTimeout(400);
+check("vocab tab pitch switch", (await btn(/Pitch accent on/).count()) === 1);
+check(`vocab tab accented readings (${await pg.locator(".vocab-table .vocab-pitch-reading .pa").count()})`, (await pg.locator(".vocab-table .vocab-pitch-reading .pa").count()) === 3);
+check("vocab tab kana word accent", (await pg.locator(".vocab-table .vocab-term .pa").count()) === 1);
+await audit("vocab-tab");
 
 await b.close();
 if (problems.length) {

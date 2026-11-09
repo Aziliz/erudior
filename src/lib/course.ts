@@ -5,6 +5,7 @@ import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
 import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
+import { moraCount, validAccent } from "./kana";
 import { parseCourseDocumentReviews } from "./documentCoursePackage";
 import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
@@ -188,6 +189,14 @@ export function normalizeCourse(raw: unknown): Course {
     vocabSource: str(lang.vocabSource) || undefined,
   };
 
+  // Japanese pitch accent: a number or a list of numbers, each 0..morae of the reading (the
+  // checker reports anything else; here bad values are just dropped).
+  const pitchOf = (v: Record<string, unknown>, code?: string): { pitch?: number | number[] } => {
+    if (code !== "ja" || v.pitch === undefined) return {};
+    const morae = moraCount(str(v.reading) || str(v.term));
+    const list = [...new Set((Array.isArray(v.pitch) ? v.pitch : [v.pitch]).filter((a) => validAccent(a, morae)) as number[])];
+    return list.length ? { pitch: Array.isArray(v.pitch) ? list : list[0] } : {};
+  };
   const seenVocab = new Set<string>();
   const vocab: VocabItem[] = arr(raw.vocab)
     .filter(isObj)
@@ -202,6 +211,7 @@ export function normalizeCourse(raw: unknown): Course {
         alt: strs(v.alt).length ? strs(v.alt) : undefined,
         meanings: strs(v.meanings).length ? strs(v.meanings) : strs([v.meaning]),
         reading: str(v.reading) || undefined,
+        ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
         plural: str(v.plural) || undefined,
         example: str(v.example) || undefined,

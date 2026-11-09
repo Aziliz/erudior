@@ -4,6 +4,7 @@ import type { Bank, Card, Course, GlossaryEntry, Lesson, Question, RefSheet } fr
 import { startPractice } from "../lib/session";
 import { LETTERS } from "../lib/util";
 import { answerText, isChoice } from "../lib/questions";
+import { rubySearchText } from "../lib/kana";
 
 type Hit =
   | { kind: "lesson"; course: Course; item: Lesson; text: string }
@@ -20,9 +21,9 @@ const GROUPS: { kind: Hit["kind"]; label: string }[] = [
   { kind: "card", label: "Notecards" },
 ];
 
-/** Strip Markdown and glossary-link syntax down to plain text for matching and snippets. */
+/** Strip Markdown, glossary-link, furigana and pitch syntax down to plain text for matching and snippets. */
 function plain(md: string): string {
-  return md
+  return rubySearchText(md)
     .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_m, t, s) => s ?? t)
     .replace(/[#>*_`|]/g, " ")
     .replace(/-{3,}/g, " ")
@@ -68,7 +69,7 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
       for (const l of c.lessons) out.push({ kind: "lesson", course: c, item: l, text: `${l.title} ${plain(l.body)}` });
       for (const r of c.references) out.push({ kind: "ref", course: c, item: r, text: `${r.title} ${plain(r.body)}` });
       for (const g of c.glossary)
-        out.push({ kind: "term", course: c, item: g, text: `${g.term} ${(g.aliases ?? []).join(" ")} ${g.definition}` });
+        out.push({ kind: "term", course: c, item: g, text: rubySearchText(`${g.term} ${(g.aliases ?? []).join(" ")} ${g.definition}`) });
       for (const d of c.decks)
         for (const card of d.cards)
           out.push({ kind: "card", course: c, deck: d.title, item: card, text: plain(`${card.front} ${card.back}`) });
@@ -81,7 +82,7 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
           bank: b,
           course,
           item: qq,
-          text: `${qq.stem} ${qq.choices.join(" ")} ${(qq.left ?? []).join(" ")} ${(qq.accept ?? []).flat().join(" ")} ${qq.explanation ?? ""}`,
+          text: rubySearchText(`${qq.stem} ${qq.choices.join(" ")} ${(qq.left ?? []).join(" ")} ${(qq.accept ?? []).flat().join(" ")} ${qq.explanation ?? ""}`),
         });
     }
     return out;

@@ -197,8 +197,9 @@ export function mathTextSpeech(s: string): string {
 const BLOCKS = new Set(["P", "LI", "DIV", "H1", "H2", "H3", "H4", "H5", "H6", "TR", "FIGCAPTION", "BLOCKQUOTE", "SECTION", "UL", "OL", "TABLE", "FIGURE", "DT", "DD"]);
 
 function skipEl(el: Element): boolean {
-  // rt/rp: furigana readings; the voice reads the kanji they sit on.
-  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select, rt, rp")) return true;
+  // rt/rp: furigana readings; the voice reads the kanji they sit on. .pa-sr / .pa-alt: pitch-accent
+  // words for screen readers and extra accent forms (the word itself is read once).
+  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select, rt, rp, .pa-sr, .pa-alt")) return true;
   if ((el as HTMLElement).hidden) return true;
   return el.getAttribute("aria-hidden") === "true" && !el.classList.contains("katex");
 }
