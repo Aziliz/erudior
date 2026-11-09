@@ -67,14 +67,15 @@ export const ROADMAP: RoadmapGroup[] = [
   },
   {
     id: "k8-languages",
-    title: "World languages, kindergarten to grade 8",
-    note: "Built for children: read aloud, songs, pictures and games before typing. Grade 6–8 courses lead into the A1 or Latin I courses.",
+    title: "World languages, kindergarten to grade 5",
+    note: "Built for children: read aloud, songs, pictures and tap-to-answer games before typing. From grade 6, students start at the A1 or Latin I courses.",
     courses: [
       { title: "Spanish K–2", covers: "Greetings, colors, numbers, family, songs and listening" },
       { title: "Spanish 3–5", covers: "Everyday words and phrases, first reading and simple sentences" },
-      { title: "Spanish 6–8", covers: "Prepares for Spanish A1" },
-      { title: "Latin 3–5", covers: "Pronunciation, chants, first vocabulary, English words from Latin" },
-      { title: "Latin 6–8", covers: "Noun and verb endings, simple sentences; prepares for Latin I" },
+      { title: "German K–2", covers: "Greetings, colors, numbers, family, songs and listening" },
+      { title: "German 3–5", covers: "Everyday words and phrases, first reading and simple sentences" },
+      { title: "Latin K–2", covers: "Pronunciation, songs and chants, first words, Latin in English words" },
+      { title: "Latin 3–5", covers: "Chants, noun and verb endings, simple sentences, English words from Latin" },
     ],
   },
   {
