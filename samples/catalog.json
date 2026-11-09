@@ -5225,6 +5225,183 @@
   ]
  },
  {
+  "id": "lang-german-c1",
+  "file": "languages/lang-german-c1.json",
+  "order": 104,
+  "title": "German C1",
+  "description": "The fifth step in German, from B2 to CEFR level C1, the level of the Goethe-Zertifikat C1. Lessons cover modal verbs in every tense and their subjective use about the past, the Konjunktiv II of the past with modal verbs and the passive, the Konjunktiv I in academic and legal reporting, focus and modal particles, advanced nominal style, Funktionsverbgefüge and participial constructions, every alternative to the passive, the word es and other pointing words, text cohesion, idioms, register and advanced word formation, and the texts of law, economics, science, politics and culture. Writing and speaking reach C1: summaries, graph descriptions, the Erörterung, forum posts and half-formal messages, talks and discussions, and mediation, with a look at regional German and literature. About 1,000 new words build on the roughly 3,400 core words of German A1 to B2 for about 4,400 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German B2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 16,
+  "questions": 792,
+  "cards": 0,
+  "drills": 0,
+  "words": 5593,
+  "carried": 4311,
+  "requires": [
+   "lang-german-b2"
+  ],
+  "lessonIds": [
+   "de5-modals-tenses",
+   "de5-subjective-modals-past",
+   "de5-konj2-past-modals",
+   "de5-konj1-academic",
+   "de5-gradpartikeln",
+   "de5-nominal-advanced",
+   "de5-fvg-advanced",
+   "de5-participles-deep",
+   "de5-passive-substitutes",
+   "de5-es-verweis",
+   "de5-cohesion",
+   "de5-summary",
+   "de5-graph-description",
+   "de5-eroerterung",
+   "de5-forum-message",
+   "de5-particles-advanced",
+   "de5-idioms",
+   "de5-register",
+   "de5-word-formation-adv",
+   "de5-emphasis-negation",
+   "de5-law-texts",
+   "de5-economy-texts",
+   "de5-science-texts",
+   "de5-social-texts",
+   "de5-culture-texts",
+   "de5-varieties",
+   "de5-poetry",
+   "de5-speaking-c1",
+   "de5-mediation-c1",
+   "de5-exam-review"
+  ],
+  "honorsLessonIds": [
+   "de5-m1-h-rules-modality",
+   "de5-m1-h-weather",
+   "de5-m2-h-arztbrief",
+   "de5-m2-h-rail",
+   "de5-m3-h-leserbrief",
+   "de5-m3-h-bildbeschreibung",
+   "de5-m4-h-euphemism",
+   "de5-m4-h-occasions",
+   "de5-m5-h-data-protection",
+   "de5-m5-h-clinical-trials",
+   "de5-m6-h-kohlhaas",
+   "de5-m6-h-film",
+   "de5-h-kant",
+   "de5-h-grimm",
+   "de5-h-language-history",
+   "de5-h-humboldt"
+  ],
+  "honorsModuleIds": [
+   "de5-h1"
+  ],
+  "outline": [
+   {
+    "title": "Modality and stance",
+    "lessons": [
+     "Had to, would have been able to: modal verbs in every tense",
+     "She must have known: subjective modal verbs about the past",
+     "It could have been prevented: Konjunktiv II of the past",
+     "According to the author: Konjunktiv I in academic and extended reports",
+     "Even, only, of all things: focus particles"
+    ],
+    "honors": [
+     "Darf, soll, kann: modality in rules and regulations",
+     "Mit hoher Wahrscheinlichkeit: weather forecasts and probability"
+    ]
+   },
+   {
+    "title": "Nominal style and technical German",
+    "lessons": [
+     "Whole clauses into phrases: advanced nominal style",
+     "Unter Druck geraten, zum Erliegen kommen: Funktionsverbgefüge at C1",
+     "Genau genommen: participial attributes and participial clauses",
+     "To be taken twice daily: every alternative to the passive",
+     "Es, darauf, dies: the word es and pointing words"
+    ],
+    "honors": [
+     "Befund unauffällig: reading a doctor's letter",
+     "Stellwerk und Oberleitung: technical German on the railway"
+    ]
+   },
+   {
+    "title": "Coherent texts and academic writing",
+    "lessons": [
+     "Folglich, wobei, Letzteres: cohesion and coherence",
+     "Summing up a text: Zusammenfassung and Textwiedergabe",
+     "Charts and figures: Grafikbeschreibung",
+     "Weighing it up: the Erörterung and the Stellungnahme",
+     "Writing at C1: the forum post and the half-formal message"
+    ],
+    "honors": [
+     "Opinion journalism: Kommentar and Leserbrief",
+     "Describing a picture: painting, photo and cartoon"
+    ]
+   },
+   {
+    "title": "Expression, idiom and style",
+    "lessons": [
+     "Halt mal, ja nicht, eh schon: modal particles at C1",
+     "Den Nagel auf den Kopf treffen: idioms and Redewendungen",
+     "Kriegen, bekommen, erhalten: register and stylistic levels",
+     "Blitzschnell, spottbillig, Unmenge: advanced word formation",
+     "Was mich stört, ist …: emphasis, information structure and negation"
+    ],
+    "honors": [
+     "Framing and euphemism: the language of politics",
+     "Words for solemn occasions: condolence, congratulation, tribute"
+    ]
+   },
+   {
+    "title": "Specialised texts",
+    "lessons": [
+     "Wer erbt? Reading legal texts",
+     "Kraft, mangels, zuzüglich: monetary policy and written-language prepositions",
+     "Man versteht darunter …: definitions and classification in science",
+     "Was dazu führt, dass …: the welfare state and continuing relative clauses",
+     "Der Direktor, ein erfahrener Kurator: museums, heritage and the apposition"
+    ],
+    "honors": [
+     "Ihre Daten: reading a privacy notice",
+     "Doppelblind und randomisiert: reading about clinical trials"
+    ]
+   },
+   {
+    "title": "Varieties, literature and the C1 exam",
+    "lessons": [
+     "Brötchen, Semmel, Schrippe: regional German in Germany",
+     "Vers, Reim und Metapher: reading poems and stylistic devices",
+     "Talk and discussion at C1: presenting, rephrasing, holding your ground",
+     "Passing it on: mediation at C1",
+     "The Goethe-Zertifikat C1 and review"
+    ],
+    "honors": [
+     "Kleist, Michael Kohlhaas: the long sentence",
+     "Einstellung, Schnitt, Rückblende: talking about film"
+    ]
+   },
+   {
+    "title": "Honors: Denken, Sprache und Geschichte (thought, language and history)",
+    "lessons": [],
+    "honors": [
+     "Kant, Was ist Aufklärung?: reading philosophical German",
+     "Die Brüder Grimm: fairy tales and a dictionary",
+     "From Althochdeutsch to today: a short history of German",
+     "Alexander von Humboldt: science, travel and the essay"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
   "id": "law-legal-writing-1",
   "file": "math/law-legal-writing-1.json",
   "order": 103,
