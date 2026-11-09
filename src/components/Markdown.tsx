@@ -174,6 +174,7 @@ interface Pop {
   term: string;
   x: number;
   y: number;
+  trigger: HTMLElement;
 }
 
 export default function Markdown({
@@ -229,6 +230,14 @@ export default function Markdown({
       .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
   }, [source, scope, foreignLang, className, marking, readButtons, assignments, prerendered, decorate]);
   const [pop, setPop] = useState<Pop | null>(null);
+  const popDialog = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!pop) return;
+    popDialog.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    return () => {
+      if (pop.trigger.isConnected) pop.trigger.focus();
+    };
+  }, [pop]);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
   // Manipulative blocks get their controls here, rendered into each block's box.
@@ -408,6 +417,7 @@ export default function Markdown({
     const host = ref.current!.getBoundingClientRect();
     setPop({
       term,
+      trigger: el,
       entry: fn ? (note ? { term, definition: note.text } : undefined) : findTerm(glossary, term),
       x: Math.min(box.left - host.left, host.width - 340),
       y: box.bottom - host.top + 6,
@@ -421,7 +431,19 @@ export default function Markdown({
       {pop && (
         <>
           <div className="pop-scrim" onClick={() => setPop(null)} />
-          <div className="gloss-pop" style={{ left: Math.max(0, pop.x), top: pop.y }} role="dialog" aria-label={pop.term}>
+          <div className="gloss-pop" ref={popDialog} style={{ left: Math.max(0, pop.x), top: pop.y }}
+            role="dialog" aria-modal="true" aria-label={pop.term}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                event.preventDefault();
+                event.stopPropagation();
+                setPop(null);
+              } else if (event.key === "Tab") {
+                // The close button is the only interactive control in the definition.
+                event.preventDefault();
+                popDialog.current?.querySelector<HTMLButtonElement>("button")?.focus();
+              }
+            }}>
             <div className="row" style={{ justifyContent: "space-between", flexWrap: "nowrap" }}>
               <strong>{pop.entry?.term ?? pop.term}</strong>
               <button className="btn ghost sm" onClick={() => setPop(null)} aria-label="Close">

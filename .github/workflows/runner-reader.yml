@@ -2,10 +2,10 @@ name: Runner reader layout acceptance
 on:
   pull_request:
     branches: [main]
-    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'scripts/markdown-popover-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
   push:
     branches: [main]
-    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
+    paths: ['src/**', 'scripts/runner-reader-browser.mjs', 'scripts/markdown-popover-browser.mjs', 'tests/fixtures/runner-reader*', '.github/workflows/runner-reader.yml', 'package*.json']
 permissions:
   contents: read
 concurrency:
@@ -26,11 +26,14 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: node scripts/runner-reader-browser.mjs
+      - run: node scripts/markdown-popover-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: runner-reader-browser
-          path: test-results/runner-reader/
+          path: |
+            test-results/runner-reader/
+            test-results/markdown-popover/
           if-no-files-found: warn
           retention-days: 14
   guided-practice-integration:
