@@ -2464,6 +2464,27 @@ h1.h2 {
 .lesson-words .table {
   margin-top: 10px;
 }
+/* Conjugation drills */
+.conj-target {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 0 14px;
+  overflow-wrap: anywhere;
+}
+.conj-rule {
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.conj-card .ime-help {
+  text-align: center;
+  margin-top: 8px;
+}
+.conj-table {
+  margin-top: 12px;
+}
+.conj-table td {
+  overflow-wrap: anywhere;
+}
 .reading-list {
   list-style: none;
   padding: 0;

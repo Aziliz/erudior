@@ -3,14 +3,43 @@
  "version": 1,
  "id": "demo-japanese",
  "title": "Japanese demo",
- "revision": 3,
- "description": "Sample of Japanese support: furigana, pitch accent, romaji typing, kana answers, sentence building.",
+ "revision": 4,
+ "description": "Sample of Japanese support: furigana, pitch accent, romaji typing, kana answers, sentence building, conjugation drills.",
  "language": {
   "code": "ja",
   "name": "Japanese",
   "tts": "ja-JP",
   "ime": "ja",
-  "level": "JLPT N5"
+  "level": "JLPT N5",
+  "conjugation": {
+   "round": 6,
+   "forms": [
+    {
+     "form": "polite",
+     "lesson": "ja-l2"
+    },
+    {
+     "form": "negative",
+     "lesson": "ja-l2"
+    },
+    {
+     "form": "te",
+     "lesson": "ja-l2"
+    },
+    {
+     "form": "past",
+     "lesson": "ja-l2"
+    },
+    {
+     "form": "adj-negative",
+     "lesson": "ja-l2"
+    },
+    {
+     "form": "adj-past",
+     "lesson": "ja-l2"
+    }
+   ]
+  }
  },
  "modules": [
   {
@@ -34,6 +63,17 @@
     "q4"
    ],
    "body": "## Words with kanji\n\nKanji often carry a reading above them, called **furigana**: {猫|ねこ} (cat), {お茶|おちゃ} (tea), {日本語|にほんご} (Japanese).\n\n> *{猫|ねこ}が すきです。* — I like cats.\n\n| Kanji | Reading | Meaning |\n|---|---|---|\n| {水|みず} | みず | water |\n| {食|た}べる | たべる | to eat |\n\nKatakana is for loanwords: *タクシー* (taxi), *コーヒー* (coffee).\n\n## Pitch accent\n\nTokyo Japanese gives each mora (beat) of a word a high or low pitch. The line shows the high morae and the tick shows where the pitch drops. {箸|はし:1} (chopsticks) drops after its first mora; {橋|はし:2} (bridge) stays high to its end and drops before a particle: {橋|はし:2}を わたる (cross a bridge). Words with no drop are flat: [おちゃ:0] (tea). Kana words take the same marks: [ねこ:1] (cat), [タクシー:1] (taxi). The **Pitch accent** switch hides the marks.\n\n## Writing kana\n\n```trace\nねがパ\n```\n\n## Writing kanji\n\nKanji have a set stroke order too: {日|ひ} (sun, day) takes four strokes and {本|ほん} (book) five.\n\n```trace\n日本\n```\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson."
+  },
+  {
+   "id": "ja-l2",
+   "module": "m1",
+   "title": "Verbs and adjectives",
+   "minutes": 10,
+   "topics": [
+    "Verbs",
+    "Adjectives"
+   ],
+   "body": "## Three groups of verbs\n\nJapanese verbs change their endings, and how they change depends on the verb's group.\n\n| Group | Example | Polite | て form |\n|---|---|---|---|\n| 1 (う-verbs) | {書|か}く (write) | {書|か}きます | {書|か}いて |\n| 2 (る-verbs) | {食|た}べる (eat) | {食|た}べます | {食|た}べて |\n| 3 (irregular) | する, {来|く}る | します, {来|き}ます | して, {来|き}て |\n\n{行|い}く is a group 1 verb with one exception: its て form is {行|い}って.\n\n## Adjectives\n\nい-adjectives such as {高|たか}い drop い: {高|たか}くない (not expensive), {高|たか}かった (was expensive). いい is irregular: よくない, よかった. な-adjectives such as {静|しず}か add じゃない or だった.\n\nFinish this lesson to unlock **Conjugation** practice on the Vocabulary tab."
   }
  ],
  "banks": [
@@ -166,7 +206,8 @@
    "meanings": [
     "to eat"
    ],
-   "pitch": 2
+   "pitch": 2,
+   "conj": "ichidan"
   },
   {
    "id": "takushii",
@@ -177,6 +218,83 @@
     "taxi"
    ],
    "pitch": 1
+  },
+  {
+   "id": "kaku",
+   "lesson": "ja-l2",
+   "term": "書く",
+   "reading": "かく",
+   "pos": "verb",
+   "meanings": [
+    "to write"
+   ],
+   "conj": "godan"
+  },
+  {
+   "id": "iku",
+   "lesson": "ja-l2",
+   "term": "行く",
+   "reading": "いく",
+   "pos": "verb",
+   "meanings": [
+    "to go"
+   ],
+   "conj": "godan"
+  },
+  {
+   "id": "suru",
+   "lesson": "ja-l2",
+   "term": "する",
+   "pos": "verb",
+   "meanings": [
+    "to do"
+   ],
+   "conj": "suru"
+  },
+  {
+   "id": "kuru",
+   "lesson": "ja-l2",
+   "term": "来る",
+   "reading": "くる",
+   "pos": "verb",
+   "meanings": [
+    "to come"
+   ],
+   "conj": "kuru"
+  },
+  {
+   "id": "takai",
+   "lesson": "ja-l2",
+   "term": "高い",
+   "reading": "たかい",
+   "pos": "adjective",
+   "meanings": [
+    "expensive",
+    "high",
+    "tall"
+   ],
+   "conj": "i-adj"
+  },
+  {
+   "id": "ii",
+   "lesson": "ja-l2",
+   "term": "いい",
+   "pos": "adjective",
+   "meanings": [
+    "good"
+   ],
+   "conj": "i-adj"
+  },
+  {
+   "id": "shizuka",
+   "lesson": "ja-l2",
+   "term": "静か",
+   "reading": "しずか",
+   "pos": "adjective",
+   "meanings": [
+    "quiet"
+   ],
+   "conj": "na-adj"
   }
  ]
 }

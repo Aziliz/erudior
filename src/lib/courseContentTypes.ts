@@ -4,6 +4,7 @@ import type { ManipSpec, ManipTarget } from "./manip";
 import type { CodeSpec } from "./code";
 import type { ActivityLogSpec, Lab, Rubric, WritingTask } from "./courseWork";
 import type { GlossaryEntry, ReaderText } from "./readerContent";
+import type { ConjClass, ConjugationSettings, DeForms } from "./courseConjugation";
 export interface Section {
     id: string;
     name: string;
@@ -267,6 +268,8 @@ export interface LanguageInfo {
     vocabTarget?: number;
     /** Where vocabTarget comes from. */
     vocabSource?: string;
+    /** Conjugation drills: the forms drilled and the lessons that unlock them (docs/COURSE_FORMAT.md). */
+    conjugation?: ConjugationSettings;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {
@@ -299,6 +302,10 @@ export interface VocabItem {
     audio?: string;
     /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
     directions?: VocabDirection[];
+    /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…). */
+    conj?: ConjClass;
+    /** German conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }. */
+    forms?: DeForms;
 }
 export interface ReadingItem {
     title: string;

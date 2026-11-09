@@ -114,7 +114,7 @@ export function viewToPath(v: View, all: RouteCourse[], bankCourse: (bankId: str
     case "ref":
       return course(v.courseId) + "/reference/" + encodeURIComponent(v.refId);
     case "vocab":
-      return course(v.courseId) + "/vocabulary-practice";
+      return course(v.courseId) + (v.mode === "conjugation" ? "/conjugation-practice" : "/vocabulary-practice");
     case "read":
       return course(v.courseId) + "/read/" + encodeURIComponent(v.textId);
     case "bank":

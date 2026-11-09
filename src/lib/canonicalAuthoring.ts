@@ -4,6 +4,7 @@ import { validateImageAsset } from "./imageAssets";
 import { validateLessonSource, validateInteractiveQuestion, validateFigureSpec } from "./lessonSource";
 import { validateCourseAudioFields, validateQuestionAudioFields, validateVocabAudioFields } from "./courseAudio";
 import type { Drill } from "./exerciseTypes";
+import { conjugationShapeProblems } from "./courseConjugation";
 /** Versioned, lossless authored course envelope. Never grants publication authority. */
 import type { Course, Bank } from "./courseContentTypes";
 import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems, normalizeValidatedCourseWork, validateCourseWork } from "./courseWork";
@@ -401,7 +402,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             }
     objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); }); });
     glossary(c.glossary, 'glossary');
-    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource'], 'language')) {
+    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation'], 'language')) {
         str(c.language.code, 'language.code', true);
         str(c.language.name, 'language.name', true);
         optionalStr(c.language, ['tts', 'ime', 'level', 'vocabSource'], 'language');
@@ -411,7 +412,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             integer(c.language.vocabTarget, 'language.vocabTarget');
     }
     if (c.vocab !== undefined)
-        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions'], (v, p) => { if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
+        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions', 'conj', 'forms'], (v, p) => { if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
         else if (!lessonIds.has(v.lesson) && !(validId(v.from) && v.from !== c.id)) add(p+'.lesson','unknown local lesson');
         if(v.from!==undefined&&!validId(v.from))add(p+'.from','invalid source course ID'); optionalStr(v, ['from', 'reading', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio'], p); if (v.kind !== undefined && !['word', 'phrase', 'char'].includes(v.kind as string))
             add(p + '.kind', 'unknown vocabulary kind'); if (v.alt !== undefined)
@@ -419,6 +420,8 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             for (const d of v.directions)
                 if (!['meaning', 'recall'].includes(d as string))
                     add(p + '.directions', 'unknown direction'); });
+    for (const [path, message] of conjugationShapeProblems(isObject(c.language) ? c.language : undefined, Array.isArray(c.vocab) ? c.vocab : []))
+        add(path, message);
     if (c.readingList !== undefined)
         objects(c.readingList, 'readingList', ['title', 'author', 'publisher', 'level', 'url', 'isbn', 'free', 'note'], (r, p) => { str(r.title, p + '.title', true); optionalStr(r, ['author', 'publisher', 'level', 'url', 'isbn', 'note'], p); boolean(r, ['free'], p); if (r.url !== undefined && (typeof r.url !== 'string' || !/^https?:\/\//i.test(r.url)))
             add(p + '.url', 'HTTP(S) URL required'); });

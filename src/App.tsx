@@ -57,6 +57,7 @@ import { fetchCatalog, type CatalogSource } from "./lib/courseSource";
 import RefView from "./pages/RefView";
 import Reader from "./pages/Reader";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
+import ConjugationRunner from "./pages/ConjugationRunner";
 import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
@@ -1697,7 +1698,13 @@ export default function App() {
     }
     case "vocab": {
       const c = courseFor(view.courseId);
-      if (c) body = <VocabRunner key={JSON.stringify(view)} api={api} course={c} mode={view.mode} lessonIds={view.lessonIds} count={view.count} />;
+      if (c)
+        body =
+          view.mode === "conjugation" ? (
+            <ConjugationRunner key={JSON.stringify(view)} api={api} course={c} />
+          ) : (
+            <VocabRunner key={JSON.stringify(view)} api={api} course={c} mode={view.mode} lessonIds={view.lessonIds} count={view.count} />
+          );
       fullScreen = true;
       break;
     }
