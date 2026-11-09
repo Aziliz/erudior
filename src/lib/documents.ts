@@ -45,7 +45,7 @@ function toB64(bytes: Uint8Array): string {
 export interface StoredDocument { mime: string; data: string }
 export interface DocumentBackend {
   read(id: string): Promise<string | null>;
-  write(id: string, content: string): Promise<void>;
+  write(id: string, content: string, guard?: () => void): Promise<void>;
   remove(id: string): Promise<void>;
 }
 const documentTails = new Map<string, Promise<void>>();
@@ -84,9 +84,9 @@ async function withDocumentLock<T>(id: string, run: () => Promise<T>): Promise<T
 /** Injectable backend keeps race/error tests independent of IndexedDB and Tauri. */
 export function documentTransactions(backend: DocumentBackend) {
   return {
-    put(id: string, file: StoredDocument): Promise<void> {
+    put(id: string, file: StoredDocument, guard: () => void = () => {}): Promise<void> {
       const content = documentContent(file); // capture before any await
-      return withDocumentLock(id, () => backend.write(id, content));
+      return withDocumentLock(id, () => { guard(); return backend.write(id, content, guard); });
     },
     preserve(id: string, file: StoredDocument): Promise<void> {
       const content = documentContent(file);
@@ -106,8 +106,10 @@ export function documentTransactions(backend: DocumentBackend) {
 }
 const rawDocumentBackend: DocumentBackend = {
   read: id => inApp ? invoke<string | null>("load_item", { kind: "documents", id }) : webGet(WEB_KEY + id),
-  async write(id, content) {
+  async write(id, content, guard = () => {}) {
+    guard();
     const anonymousGeneration=await anonymousDocumentGeneration();
+    guard();
     if (inApp) await invoke("save_item", { kind: "documents", id, content, anonymousGeneration });
     else if(anonymousGeneration!==undefined)await webAnonymousDocument(WEB_KEY+id,content,anonymousGeneration);
     else await webSet(WEB_KEY + id, content);
@@ -138,7 +140,7 @@ export async function loadFile(fileId: string): Promise<StoredDocument | null> {
 export const deleteFile = (fileId: string): Promise<void> => documentStore.remove(fileId);
 
 /** Explicit backup restore retains replacement semantics, under the same ID lock. */
-export const putFile = (fileId: string, file: StoredDocument): Promise<void> => documentStore.put(fileId, file);
+export const putFile = (fileId: string, file: StoredDocument, guard?: () => void): Promise<void> => documentStore.put(fileId, file, guard);
 
 /** Classroom import: identical content is idempotent; conflicting evidence fails closed. */
 export const putFilePreserving = (fileId: string, file: StoredDocument): Promise<void> => documentStore.preserve(fileId, file);

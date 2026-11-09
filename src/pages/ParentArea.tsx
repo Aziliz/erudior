@@ -1,4 +1,5 @@
 import ClassroomWorkflowWorkspace from "./ClassroomWorkflowWorkspace";
+import FamilyBackupRecovery from "../components/FamilyBackupRecovery";
 import HomeschoolPlanningWorkspace from "../components/HomeschoolPlanningWorkspace";
 import ParentCommunityReview from "../components/ParentCommunityReview";
 import AcademicRecordsWorkspace from "../components/AcademicRecordsWorkspace";
@@ -46,12 +47,7 @@ import {
 import { routeOptions, stateInfo, statesData } from "../lib/states";
 import { addDays, today } from "../lib/srs";
 import * as store from "../lib/storage";
-import {
-  decryptText,
-  exportEncrypted,
-  isEncryptedBackup,
-  restoreContents,
-} from "../lib/backup";
+import { exportEncrypted } from "../lib/backup";
 import { uid } from "../lib/util";
 import type { Progress } from "../lib/types";
 import { deleteStudentWithSubmissionHistory } from "../lib/classroomSubmissionStore";
@@ -1300,7 +1296,6 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
   const [pw, setPw] = useState("");
   const [pin, setPin] = useState("");
   const [bpass, setBpass] = useState("");
-  const [rpass, setRpass] = useState("");
   const [msg, setMsg] = useState("");
 
   const sensitiveWorking = useRef(false);
@@ -1364,33 +1359,6 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
     await sensitive(async authorize => {
       if (await exportEncrypted(api.allCourses, api.banks, bpass, authorize)) api.toast("Encrypted backup saved");
       setBpass("");
-    });
-  }
-
-  async function restore(e: React.FormEvent) {
-    e.preventDefault();
-    await sensitive(async authorize => {
-      let started = false;
-      try {
-        const text = await store.pickJsonFile();
-        authorize();
-        if (text === null) return;
-        const raw = JSON.parse(text);
-        if (!isEncryptedBackup(raw)) throw Error("That file isn't an encrypted Erudior family backup.");
-        const plain = await decryptText(raw, rpass);
-        authorize();
-        const ok = await store.confirmAction(
-          "Restore this backup? It replaces the family settings, every student's progress and records, and the courses on this computer.",
-          "Restore backup",
-        );
-        authorize();
-        if (!ok) return;
-        started = true;
-        await restoreContents(plain, { courses: api.allCourses, banks: api.banks }, authorize);
-        window.location.reload();
-      } catch (err) {
-        throw Error(`${err instanceof Error ? err.message : String(err)}${started ? " Restore did not finish; some files may already have changed. Unlock, reload saved Family and explicitly retry the same backup." : ""}`);
-      }
     });
   }
 
@@ -1555,25 +1523,11 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
             Back up now
           </button>
         </form>
-        <form
-          className="row"
-          style={{ alignItems: "flex-end", marginTop: 16 }}
-          onSubmit={restore}
-        >
-          <label className="field grow">
-            <span>Passphrase of the backup to restore</span>
-            <input
-              className="input"
-              type="password"
-              autoComplete="off"
-              value={rpass}
-              onChange={(e) => setRpass(e.target.value)}
-            />
-          </label>
-          <button className="btn" type="submit" disabled={sensitiveBusy}>
-            Restore from backup…
-          </button>
-        </form>
+        <FamilyBackupRecovery
+          reauthenticateAdult={api.reauthenticateAdult}
+          current={{ courses: api.allCourses, banks: api.banks }}
+          contextKey={JSON.stringify({ student: api.student?.id, students: family.students, year: family.year, password: family.parent.password, pin: family.parent.pin, recovery: family.parent.recovery })}
+        />
         <p
           className={msg ? "notice error" : "sr-only"}
           role="alert"

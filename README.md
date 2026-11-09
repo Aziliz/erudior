@@ -14,7 +14,7 @@ Content is organized into **courses**. Each course is one file with its own less
 - **Missed questions deck**: every question you get wrong becomes a spaced-repetition notecard.
 - **Flags and notes**: flags and personal notes stay with a question across sessions; practice just your flagged questions; jump from a missed question to the lesson that covers it.
 - **Search**: one box (Ctrl+K) across lessons, glossary, reference sheets, questions and notecards.
-- **Backup and restore**: one file with every course, bank, note and schedule.
+- **Backup and restore**: encrypted local Family backups with [inspect-only verification and staged recovery](docs/FAMILY_BACKUP_RECOVERY.md), including readable inventory and replacement warnings before an explicit restore.
 - **Course updates**: bundled courses offer their newer revisions in the app. (App self-updates are built in but turned off while the repo is private; see `src/lib/updates.ts`.)
 - **Practice mode**: check each answer and read the explanation. Filter by topic, section, unseen, last missed, or under-70% questions.
 - **Built-in editor**: write and edit questions, sections and exam defaults. Supports multi-answer questions.
