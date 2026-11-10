@@ -89,6 +89,68 @@ assert.equal(answers("fr", payer, "present")[0], "paie");
 assert(ok("fr", payer, "imperative", "tu", "paye") && ok("fr", payer, "imperative", "tu", "paie"));
 assert.match(conjWordProblem("es", w("hablar", "re"))!, /isn't a Spanish verb class/);
 
+// --- A2 forms ---
+assert.deepEqual(answers("es", hablar, "imperfect"), { 0: "hablaba", 1: "hablabas", 2: "hablaba", 3: "hablábamos", 5: "hablaban" });
+assert.equal(answers("es", w("vivir", "ir"), "imperfect")[3], "vivíamos");
+assert.equal(answers("es", w("ser", "er", { present: "soy, eres, es, somos, sois, son" }), "imperfect")[0], undefined, "era must be given");
+assert.equal(answers("es", w("ser", "er", { present: "soy, eres, es, somos, sois, son", imperfect: "era, eras, era, éramos, erais, eran" }), "imperfect")[3], "éramos");
+assert.equal(answers("es", levantarse, "imperfect")[0], "me levantaba");
+assert.deepEqual(answers("es", hablar, "future"), { 0: "hablaré", 1: "hablarás", 2: "hablará", 3: "hablaremos", 5: "hablarán" });
+assert.equal(answers("es", w("comer", "er"), "conditional")[0], "comería");
+assert.equal(answers("es", tener, "future")[0], undefined, "tendré must be given");
+assert.equal(answers("es", w("tener", "er", { present: "tengo, tienes, tiene, tenemos, tenéis, tienen", futureStem: "tendr" }), "conditional")[5], "tendrían");
+assert.equal(answers("es", w("oír", "ir", { present: "oigo, oyes, oye, oímos, oís, oyen" }), "future")[0], "oiré");
+assert.equal(answers("es", w("mantener", "er", { present: "mantengo, mantienes, mantiene, mantenemos, mantenéis, mantienen" }), "future")[0], undefined);
+assert.deepEqual(answers("es", hablar, "gerund"), { gerund: "hablando" });
+assert.equal(answers("es", w("comer", "er"), "gerund").gerund, "comiendo");
+assert.equal(answers("es", w("leer", "er"), "gerund").gerund, "leyendo");
+assert.equal(answers("es", w("construir", "ir", { present: "construyo, construyes, construye, construimos, construís, construyen" }), "gerund").gerund, "construyendo", "-uir verbs: -yendo by rule");
+assert.equal(answers("es", pedir, "gerund").gerund, undefined, "pidiendo must be given");
+assert.equal(answers("es", w("pedir", "ir", { present: "pido, pides, pide, pedimos, pedís, piden", gerund: "pidiendo" }), "gerund").gerund, "pidiendo");
+assert.equal(answers("es", w("ir", "ir", { present: "voy, vas, va, vamos, vais, van" }), "gerund").gerund, "yendo");
+assert.equal(answers("es", levantarse, "gerund").gerund, undefined, "reflexive gerunds aren't drilled");
+assert(conjWordWarnings("es", w("hacer", "er", { present: "hago, haces, hace, hacemos, hacéis, hacen" })).some((x) => /futureStem/.test(x)));
+
+assert.deepEqual(answers("fr", parler, "imperfect"), { 0: "parlais", 1: "parlais", 2: "parlait", 3: "parlions", 4: "parliez", 5: "parlaient" });
+const manger = w("manger", "er", { present: "mange, manges, mange, mangeons, mangez, mangent" });
+assert.equal(answers("fr", manger, "imperfect")[0], "mangeais");
+assert.equal(answers("fr", manger, "imperfect")[3], "mangions");
+assert.equal(answers("fr", w("commencer", "er", { present: "commence, commences, commence, commençons, commencez, commencent" }), "imperfect")[4], "commenciez");
+assert.equal(answers("fr", w("finir", "ir"), "imperfect")[2], "finissait");
+const faire = w("faire", "irr", { present: "fais, fais, fait, faisons, faites, font", participle: "fait" });
+assert.equal(answers("fr", faire, "imperfect")[0], "faisais");
+assert.equal(answers("fr", w("être", "irr", { present: "suis, es, est, sommes, êtes, sont", participle: "été" }), "imperfect")[0], undefined, "ét- must be given");
+assert.equal(answers("fr", w("être", "irr", { present: "suis, es, est, sommes, êtes, sont", participle: "été", imperfectStem: "ét" }), "imperfect")[0], "étais");
+assert(ok("fr", w("aimer", "er"), "imperfect", "0", "j'aimais"));
+assert.equal(answers("fr", seLever, "imperfect")[0], "me levais");
+assert.deepEqual(answers("fr", parler, "future"), { 0: "parlerai", 1: "parleras", 2: "parlera", 3: "parlerons", 4: "parlerez", 5: "parleront" });
+assert.equal(answers("fr", w("vendre", "re"), "future")[0], "vendrai");
+assert.equal(answers("fr", w("finir", "ir"), "conditional")[2], "finirait");
+assert.equal(answers("fr", w("acheter", "er", { present: "achète, achètes, achète, achetons, achetez, achètent" }), "future")[0], "achèterai");
+assert(ok("fr", payer, "future", "0", "je paierai") && ok("fr", payer, "future", "0", "je payerai"));
+const preferer = w("préférer", "er", { present: "préfère, préfères, préfère, préférons, préférez, préfèrent" });
+assert(ok("fr", preferer, "future", "0", "je préférerai") && ok("fr", preferer, "future", "0", "je préfèrerai"));
+assert.equal(answers("fr", faire, "future")[0], undefined, "ferai must be given");
+const epeler = w("épeler", "er", { present: "épelle/épèle, épelles/épèles, épelle/épèle, épelons, épelez, épellent/épèlent" });
+assert(ok("fr", epeler, "future", "0", "j'épellerai") && ok("fr", epeler, "future", "0", "j'épèlerai") && !ok("fr", epeler, "future", "0", "j'épelerai"));
+assert.equal(answers("fr", w("faire", "irr", { present: "fais, fais, fait, faisons, faites, font", participle: "fait", futureStem: "fer" }), "future")[0], "ferai");
+assert(ok("fr", w("aller", "irr", { present: "vais, vas, va, allons, allez, vont", participle: "allé", aux: "être", futureStem: "ir" }), "future", "0", "j'irai"));
+assert.equal(answers("fr", w("prendre", "irr", { present: "prends, prends, prend, prenons, prenez, prennent", participle: "pris" }), "future")[0], "prendrai");
+assert.equal(answers("fr", w("partir", "irr", { present: "pars, pars, part, partons, partez, partent", participle: "parti", aux: "être" }), "conditional")[0], "partirais");
+assert.equal(answers("fr", w("pouvoir", "irr", { present: "peux, peux, peut, pouvons, pouvez, peuvent", participle: "pu" }), "future")[0], undefined);
+assert.equal(answers("fr", seLever, "future")[2], "se lèvera");
+assert(conjWordWarnings("fr", faire).some((x) => /futureStem/.test(x)));
+
+const seParler = w("se parler", "er");
+assert(ok("fr", seParler, "perfect", "5", "ils se sont parlé") && !ok("fr", seParler, "perfect", "5", "ils se sont parlés"), "indirect se: no agreement");
+assert(ok("fr", w("se demander", "er"), "perfect", "2", "elle s'est demandé"));
+assert(ok("fr", w("se marier", "er"), "perfect", "5", "ils se sont mariés"));
+assert(ok("fr", w("se battre", "re", { agreement: "none" }), "perfect", "5", "ils se sont battu"));
+
+const imprimir = w("imprimir", "ir", { participle: "impreso/imprimido" });
+assert(ok("es", imprimir, "perfect", "0", "he impreso") && ok("es", imprimir, "perfect", "0", "yo he imprimido"));
+assert.equal(answers("es", imprimir, "perfect")[2], "ha impreso");
+
 // --- Vocabulary recall ---
 const noun = (term: string, extra: Partial<VocabItem> = {}): VocabItem => ({ id: term, lesson: "l1", term, pos: "noun", meanings: ["x"], ...extra }) as VocabItem;
 assert.equal(checkRecall(noun("el perro"), "el perro", "es").ok, true);

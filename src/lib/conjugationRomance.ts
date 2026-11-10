@@ -78,8 +78,9 @@ function esVerb(item: VocabItem): EsVerb | string {
   const ending = base.slice(-2).replace("í", "i");
   if (ending !== cls) return `"${term}" ends in -${ending}, not -${cls}`;
   const f = item.forms ?? {};
-  for (const k of ["present", "preterite"] as const)
+  for (const k of ["present", "preterite", "imperfect"] as const)
     if (f[k] && !table(f[k])) return `forms.${k} needs six comma-separated forms (yo, tú, él, nosotros, vosotros, ellos)`;
+  if (f.imperfectStem) return `forms.imperfectStem is for French`;
   const present = table(f.present);
   const preterite = table(f.preterite);
   if (present && reflexive && !present.every((x, i) => x.startsWith(ES_REFL[i] + " ")))
@@ -92,6 +93,19 @@ function esVerb(item: VocabItem): EsVerb | string {
     if (base === "ir" || base.length < 4) return `"${term}" is irregular: give forms.present`;
   }
   return { term, cls, reflexive, base, stem, present, preterite, f };
+}
+
+const ES_IMPERFECT_AR = ["aba", "abas", "aba", "ábamos", "abais", "aban"];
+const ES_IMPERFECT_ER = ["ía", "ías", "ía", "íamos", "íais", "ían"];
+const ES_FUTURE_END = ["é", "ás", "á", "emos", "éis", "án"];
+const ES_CONDITIONAL_END = ["ía", "ías", "ía", "íamos", "íais", "ían"];
+/** Verbs (and their compounds) whose future stem isn't the infinitive: tendr-, har-, dir-… */
+const ES_IRREGULAR_FUTURE = /(tener|poner|salir|venir|poder|saber|haber|caber|querer|hacer|decir|valer)$/;
+
+function esFutureStem(v: EsVerb): string | undefined {
+  if (v.f.futureStem) return v.f.futureStem;
+  if (ES_IRREGULAR_FUTURE.test(v.base)) return undefined;
+  return v.base.replace(/ír$/, "ir");
 }
 
 export function esWordProblem(item: VocabItem): string | undefined {
@@ -143,9 +157,47 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
     }
     case "perfect": {
       const { p, given } = esParticiple(v);
-      const x = `${v.reflexive ? ES_REFL[i] + " " : ""}${HABER[i]} ${p}`;
-      const rule = `Pretérito perfecto: haber (${HABER[i]}) + the participle ${p}${given ? " (irregular)" : v.cls === "ar" ? " (-ar → -ado)" : " (-er/-ir → -ido)"}`;
+      const xs = alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${HABER[i]} ${pp}`);
+      const rule = `Pretérito perfecto: haber (${HABER[i]}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : v.cls === "ar" ? " (-ar → -ado)" : " (-er/-ir → -ido)"}`;
+      return { answers: [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))], rule };
+    }
+    case "imperfect": {
+      const given = table(v.f.imperfect);
+      let x: string;
+      if (given) x = given[i];
+      else {
+        if (["ser", "ir", "ver"].includes(v.base)) return undefined; // era, iba, veía: must be given
+        x = v.stem + (v.cls === "ar" ? ES_IMPERFECT_AR : ES_IMPERFECT_ER)[i];
+      }
+      if (v.reflexive && !given) x = `${ES_REFL[i]} ${x}`;
+      const rule = given
+        ? `${v.term} is irregular in the imperfect: ${given.filter((_, k) => k !== 4).join(", ")}`
+        : `Imperfect: stem ${v.stem}- + ${v.cls === "ar" ? "-aba, -abas, -aba, -ábamos, -aban" : "-ía, -ías, -ía, -íamos, -ían"}`;
       return { answers: withPronouns(x, ES_PRONOUNS[i], "es"), rule };
+    }
+    case "future":
+    case "conditional": {
+      const stem = esFutureStem(v);
+      if (!stem) return undefined;
+      const ends = form === "future" ? ES_FUTURE_END : ES_CONDITIONAL_END;
+      const x = `${v.reflexive ? ES_REFL[i] + " " : ""}${stem}${ends[i]}`;
+      const name = form === "future" ? "Future" : "Conditional";
+      const rule = v.f.futureStem
+        ? `${name}: the irregular stem ${stem}- + -${ends[i]}`
+        : `${name}: the whole infinitive (${stem}) + -${ends[i]}`;
+      return { answers: withPronouns(x, ES_PRONOUNS[i], "es"), rule };
+    }
+    case "gerund": {
+      if (v.reflexive) return undefined;
+      if (v.f.gerund) return { answers: alts(v.f.gerund), rule: `${v.term} has an irregular gerund: ${v.f.gerund}` };
+      if (v.base === "ir") return { answers: ["yendo"], rule: "ir: the gerund is yendo" };
+      if (["poder", "reír", "sonreír", "freír"].includes(v.base)) return undefined;
+      if (/[^g]uir$/.test(v.base)) return { answers: [v.stem + "yendo"], rule: `-uir verbs: -iendo is spelled -yendo (${v.stem}yendo)` };
+      if (v.cls === "ir" && v.present && alts(v.present[0])[0] !== `${v.stem}o`) return undefined; // pedir → pidiendo: must be given
+      if (v.cls !== "ar" && /[aeiou]$/.test(v.stem.replace(/[áéíóú]$/, (c) => "aeiou"["áéíóú".indexOf(c)])))
+        return { answers: [v.stem.replace(/í$/, "i") + "yendo"], rule: `After a vowel, -iendo is spelled -yendo: ${v.stem}yendo` };
+      const x = v.stem + (v.cls === "ar" ? "ando" : "iendo");
+      return { answers: [x], rule: `Gerund: stem ${v.stem}- + ${v.cls === "ar" ? "-ando" : "-iendo"} (estar + gerund: estoy ${x})` };
     }
     case "imperative": {
       if (person === "tú") {
@@ -180,8 +232,11 @@ export function esWordWarnings(item: VocabItem): string[] {
   if (ES_IRREGULAR.includes(term) && !f.present && !f.preterite)
     out.push(`"${item.term}" is usually irregular (stem change or irregular yo): check whether it needs forms.present or forms.preterite`);
   if (/[iu]ar$/.test(term) && !f.present) out.push(`"${item.term}": some -iar/-uar verbs stress the i or u (envío, continúo), others don't (estudio): check whether it needs forms.present`);
+  if (ES_IRREGULAR_FUTURE.test(term) && !f.futureStem) out.push(`"${item.term}" has an irregular future stem (tendr-, har-, dir-…): give forms.futureStem or the future and conditional aren't drilled`);
+  if (/ir$/.test(term) && term !== "ir" && !/se$/.test(item.term.trim()) && f.present && !f.gerund && !/(salir|vivir|escribir|abrir|subir|recibir|decidir|cubrir|existir|permitir|insistir|asistir|unir|partir|compartir|discutir|sufrir|imprimir|interrumpir|describir|añadir|ocurrir)$/.test(term))
+    out.push(`"${item.term}" has an irregular present: if its gerund changes too (pidiendo, durmiendo, diciendo, viniendo), give forms.gerund; otherwise it isn't drilled`);
   if (/(car|gar|zar)$/.test(term) && !f.preterite) out.push(`"${item.term}" respells its yo preterite (busqué, llegué, empecé): give forms.preterite or the preterite isn't drilled`);
-  if (/(ar|er|ir)se$/.test(item.term) && !f.imperative) out.push(`reflexive "${item.term}" has no forms.imperative/imperativeUsted (levántate, levántese): its commands aren't drilled`);
+  if (/(ar|er|ir)se$/.test(item.term) && !f.imperative && !item.noForms?.includes("imperative")) out.push(`reflexive "${item.term}" has no forms.imperative/imperativeUsted (levántate, levántese): its commands aren't drilled`);
   if (["abrir", "escribir", "ver", "volver", "poner", "hacer", "decir", "romper", "morir", "descubrir", "devolver", "resolver", "cubrir", "satisfacer", "freír", "imprimir"].includes(term) && !f.participle)
     out.push(`"${item.term}" has an irregular participle: give forms.participle`);
   return out;
@@ -223,7 +278,7 @@ function frVerb(item: VocabItem): FrVerb | string {
   const reflexive = !!m[1];
   const base = m[2];
   const f = item.forms ?? {};
-  if (f.preterite || f.imperativeUsted) return `forms.preterite and forms.imperativeUsted are for Spanish`;
+  if (f.preterite || f.imperativeUsted || f.imperfect || f.gerund) return `forms.preterite, imperfect, gerund and imperativeUsted are for Spanish`;
   if (f.present && !table(f.present)) return `forms.present needs six comma-separated forms (je, tu, il, nous, vous, ils)`;
   const present = table(f.present);
   if (present && reflexive && !present.every((x, i) => x.startsWith(FR_REFL[i] + " ") || x.startsWith(FR_REFL[i][0] + "'")))
@@ -243,6 +298,27 @@ function frVerb(item: VocabItem): FrVerb | string {
   const stem = cls === "irr" ? "" : base.slice(0, -2);
   const etre = reflexive || f.aux === "être";
   return { term, cls, reflexive, base, stem, present, f, etre };
+}
+
+const FR_IMPERFECT_END = ["ais", "ais", "ait", "ions", "iez", "aient"];
+const FR_FUTURE_END = ["ai", "as", "a", "ons", "ez", "ont"];
+/** Verbs (and compounds) whose future stem isn't made from the infinitive: ser-, aur-, ir-, fer-, viendr-… */
+/** Pronominal verbs whose se is an indirect object ("to oneself / each other"): no participle agreement. */
+const FR_INDIRECT_SE = ["demander", "rappeler", "parler", "téléphoner", "dire", "écrire", "sourire", "plaire", "mentir", "ressembler", "succéder", "rendre compte", "répondre", "envoyer", "offrir", "donner"];
+const FR_IRREGULAR_FUTURE = /^(être|avoir|aller|faire|défaire|refaire|satisfaire|.*venir|.*tenir|envoyer|renvoyer|courir|parcourir|mourir|cueillir|accueillir|recueillir|acquérir|conquérir|falloir|.*oir)$/;
+
+function frFutureStems(v: FrVerb): string[] {
+  if (v.f.futureStem) return alts(v.f.futureStem);
+  if (FR_IRREGULAR_FUTURE.test(v.base)) return [];
+  if (v.cls === "re" || (v.cls === "irr" && v.base.endsWith("re"))) return [v.base.slice(0, -1)];
+  if (v.cls === "er" && v.present) {
+    const je = alts(v.present[0]).map((x) => x.replace(/^(me |m')/, ""));
+    const out = je.map((x) => x + "r");
+    // é → è verbs (préférer: je préfère) keep é in the traditional future (préférerai); 1990 spelling préfèrerai.
+    if (je.some((x) => x.replace(/è(?=[^è]*$)/, "é") + "r" === v.base)) out.unshift(v.base);
+    return [...new Set(out)];
+  }
+  return [v.base];
 }
 
 export function frWordProblem(item: VocabItem): string | undefined {
@@ -280,14 +356,16 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
     }
     case "perfect": {
       const i = Number(person);
-      const { p, given } = frParticiple(v);
+      const { p: pAll, given } = frParticiple(v);
+      const p = alts(pAll)[0];
       const aux = (v.etre ? ETRE : AVOIR)[i];
       // With être the participle agrees with the subject: accept every agreement the person allows.
-      const parts = !v.etre ? [p] : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
+      const agrees = v.etre && !(v.reflexive && (v.f.agreement === "none" || FR_INDIRECT_SE.includes(v.base)));
+      const parts = !agrees ? alts(pAll) : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
       const forms = parts.map((pp) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`));
       const verb = (pp: string) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`);
       // With être and a subject that shows gender, the agreement must match it: il est allé, elle est allée.
-      const gendered: string[] | undefined = !v.etre
+      const gendered: string[] | undefined = !agrees
         ? undefined
         : i === 2
           ? [verb(p), verb(p + "e"), `il ${verb(p)}`, `Il ${verb(p)}`, `elle ${verb(p + "e")}`, `Elle ${verb(p + "e")}`, ...[p, p + "e", p + "s", p + "es"].flatMap((x) => [`on ${verb(x)}`, `On ${verb(x)}`])]
@@ -295,10 +373,43 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
             ? [verb(p + "s"), verb(p + "es"), `ils ${verb(p + "s")}`, `Ils ${verb(p + "s")}`, `elles ${verb(p + "es")}`, `Elles ${verb(p + "es")}`]
             : undefined;
       const how = given ? "" : ` (-${v.cls} → -${{ er: "é", ir: "i", re: "u", irr: "" }[v.cls]})`;
-      const rule = v.etre
+      const rule = v.etre && !agrees
+        ? `Passé composé with être (${aux}) + ${p}${how}; here se means "to oneself / to each other", so the participle doesn't agree`
+        : v.etre
         ? `Passé composé with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
         : `Passé composé: avoir (${aux}) + the participle ${p}${how}`;
       return { answers: gendered ?? frAnswers(forms, i), rule };
+    }
+    case "imperfect": {
+      const i = Number(person);
+      let stem: string | undefined = v.f.imperfectStem;
+      if (!stem) {
+        if (v.base === "être") return undefined; // ét-: must be given
+        const nous = (v.present ? alts(v.present[3])[0] : v.stem + FR_END[v.cls as "er"][3]).replace(/^nous /, "");
+        if (!nous.endsWith("ons")) return undefined;
+        stem = nous.slice(0, -3);
+      }
+      let st = stem;
+      if (i === 3 || i === 4) st = st.replace(/ge$/, "g").replace(/ç$/, "c"); // mangions, commencions
+      const x0 = st + FR_IMPERFECT_END[i];
+      const x = v.reflexive ? refl(FR_REFL[i], x0) : x0;
+      const rule = v.f.imperfectStem
+        ? `Imparfait: the stem ${stem}- + -ais, -ais, -ait, -ions, -iez, -aient`
+        : `Imparfait: the nous present without -ons (${stem}-) + -${FR_IMPERFECT_END[i]}`;
+      return { answers: frAnswers([x], i), rule };
+    }
+    case "future":
+    case "conditional": {
+      const i = Number(person);
+      const stems = frFutureStems(v);
+      if (!stems.length) return undefined;
+      const ends = form === "future" ? FR_FUTURE_END : FR_IMPERFECT_END;
+      const xs = stems.map((st) => (v.reflexive ? refl(FR_REFL[i], st + ends[i]) : st + ends[i]));
+      const name = form === "future" ? "Futur simple" : "Conditionnel";
+      const rule = v.f.futureStem
+        ? `${name}: the irregular stem ${stems[0]}- + -${ends[i]}`
+        : `${name}: ${v.cls === "re" || (v.cls === "irr" && v.base.endsWith("re")) ? "the infinitive without its final -e" : v.present && v.cls === "er" ? "the je present + r" : "the infinitive"} (${stems[0]}-) + -${ends[i]}`;
+      return { answers: frAnswers(xs, i), rule };
     }
     case "imperative": {
       const k = FR_IMPERATIVES.indexOf(person as never);
@@ -332,6 +443,7 @@ export function frWordWarnings(item: VocabItem): string[] {
   const f = item.forms ?? {};
   const base = item.term.trim().replace(/^(se |s')/, "");
   if (FR_ETRE_VERBS.includes(base) && f.aux !== "être" && base !== "passer") out.push(`"${item.term}" takes être in the passé composé: add forms.aux "être"`);
+  if (FR_IRREGULAR_FUTURE.test(base) && !f.futureStem) out.push(`"${item.term}" has an irregular future stem (ser-, aur-, ir-, fer-, viendr-…): give forms.futureStem or the future and conditional aren't drilled`);
   if (item.conj === "irr" && ["être", "avoir", "savoir", "vouloir"].includes(base) && !f.imperative) out.push(`"${item.term}" has an irregular imperative: give forms.imperative (tu, nous, vous)`);
   if (item.conj === "er" && /[eé](bl|br|cl|cr|dr|gl|gr|pl|pr|tr|vr)er$/.test(base) && !f.present) out.push(`"${item.term}" may change e → è (célèbre): check whether it needs forms.present`);
   if (item.conj === "ir" && ["partir", "sortir", "dormir", "sentir", "servir", "mentir", "ouvrir", "offrir", "souffrir", "venir", "tenir", "courir", "mourir", "cueillir", "fuir"].includes(base))
