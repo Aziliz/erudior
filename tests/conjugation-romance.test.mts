@@ -104,7 +104,7 @@ assert.equal(answers("es", w("mantener", "er", { present: "mantengo, mantienes, 
 assert.deepEqual(answers("es", hablar, "gerund"), { gerund: "hablando" });
 assert.equal(answers("es", w("comer", "er"), "gerund").gerund, "comiendo");
 assert.equal(answers("es", w("leer", "er"), "gerund").gerund, "leyendo");
-assert.equal(answers("es", w("construir", "ir", { present: "construyo, construyes, construye, construimos, construís, construyen" }), "gerund").gerund, undefined, "irregular present -ir: gerund must be given");
+assert.equal(answers("es", w("construir", "ir", { present: "construyo, construyes, construye, construimos, construís, construyen" }), "gerund").gerund, "construyendo", "-uir verbs: -yendo by rule");
 assert.equal(answers("es", pedir, "gerund").gerund, undefined, "pidiendo must be given");
 assert.equal(answers("es", w("pedir", "ir", { present: "pido, pides, pide, pedimos, pedís, piden", gerund: "pidiendo" }), "gerund").gerund, "pidiendo");
 assert.equal(answers("es", w("ir", "ir", { present: "voy, vas, va, vamos, vais, van" }), "gerund").gerund, "yendo");

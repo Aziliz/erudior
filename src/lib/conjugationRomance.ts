@@ -192,6 +192,7 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
       if (v.f.gerund) return { answers: alts(v.f.gerund), rule: `${v.term} has an irregular gerund: ${v.f.gerund}` };
       if (v.base === "ir") return { answers: ["yendo"], rule: "ir: the gerund is yendo" };
       if (["poder", "reír", "sonreír", "freír"].includes(v.base)) return undefined;
+      if (/[^g]uir$/.test(v.base)) return { answers: [v.stem + "yendo"], rule: `-uir verbs: -iendo is spelled -yendo (${v.stem}yendo)` };
       if (v.cls === "ir" && v.present && alts(v.present[0])[0] !== `${v.stem}o`) return undefined; // pedir → pidiendo: must be given
       if (v.cls !== "ar" && /[aeiou]$/.test(v.stem.replace(/[áéíóú]$/, (c) => "aeiou"["áéíóú".indexOf(c)])))
         return { answers: [v.stem.replace(/í$/, "i") + "yendo"], rule: `After a vowel, -iendo is spelled -yendo: ${v.stem}yendo` };
