@@ -195,7 +195,54 @@ export function normMeaning(s: string): string {
 }
 
 function normTerm(s: string): string {
-  return s.normalize("NFC").replace(/[.,!?;:"„“”…]/g, " ").replace(/\s+/g, " ").trim();
+  return s
+    .normalize("NFC")
+    .replace(/[’‘]/g, "'")
+    .replace(/[.,!?;:"„“”…¿¡«»]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b([ljdmtsnc]|qu|jusqu|lorsqu|puisqu)' /gi, "$1'");
+}
+
+/** Spanish and French articles on nouns (French l' is written joined: l'école). */
+const ROMANCE_ARTICLES: Record<string, string[]> = { es: ["el", "la", "los", "las"], fr: ["le", "la", "les", "l'"] };
+const stripAccents = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/œ/g, "oe").replace(/Œ/g, "Oe").normalize("NFC");
+function splitArticle(term: string, lang: string): { art: string; bare: string } | undefined {
+  const arts = ROMANCE_ARTICLES[lang];
+  if (!arts) return undefined;
+  const t = term.trim();
+  if (lang === "fr" && /^l'/i.test(t)) return { art: "l'", bare: t.slice(2) };
+  const [a, ...rest] = t.split(" ");
+  return rest.length && arts.includes(a.toLowerCase()) ? { art: a.toLowerCase(), bare: rest.join(" ") } : undefined;
+}
+
+/** Spanish and French: missing article or accents get another try; a wrong article is wrong. */
+function checkRecallRomance(item: VocabItem, t: string, lang: "es" | "fr", wants: string[]): Verdict | undefined {
+  const lower = t.toLowerCase();
+  const isNoun = item.pos === "noun" || !!splitArticle(item.term, lang);
+  if (isNoun) {
+    for (const w of wants) {
+      const want = splitArticle(w, lang);
+      if (!want) continue;
+      const bare = want.bare.toLowerCase();
+      if (lower === bare || stripAccents(lower) === stripAccents(bare))
+        return { ok: false, retry: true, note: lang === "es" ? "Include the article: el, la, los or las." : "Include the article: le, la, l' or les." };
+      const typed = splitArticle(t, lang);
+      if (typed && stripAccents(typed.bare.toLowerCase()) === stripAccents(bare) && typed.art !== want.art) {
+        if (lang === "fr" && want.art === "l'" && (typed.art === "le" || typed.art === "la"))
+          return { ok: false, retry: true, note: `Before a vowel or mute h, le and la become l': ${w}.` };
+        return { ok: false, note: `Wrong article: it's ${w}.` };
+      }
+    }
+  }
+  // Same letters without the accents (or n for ñ, c for ç): ask for the accents, no penalty.
+  if (wants.some((w) => stripAccents(w).toLowerCase() === stripAccents(lower)))
+    return {
+      ok: false,
+      retry: true,
+      note: lang === "es" ? "Check the accents (á, é, í, ó, ú, ñ); the buttons below the box type them." : "Check the accents (é, è, ê, à, ç…); the buttons below the box type them.",
+    };
+  return undefined;
 }
 
 const DIGRAPHS: [RegExp, string][] = [
@@ -263,6 +310,7 @@ export function checkRecall(item: VocabItem, typed: string, lang = "de"): Verdic
   const lower = t.toLowerCase();
   const ci = wants.find((w) => w.toLowerCase() === lower);
   if (ci) return { ok: true, note: lang === "de" ? `Watch the capitals: ${ci}` : `Spelled ${ci}` };
+  if (lang === "es" || lang === "fr") return checkRecallRomance(item, t, lang, wants) ?? { ok: false };
 
   if (lang === "de") {
     const isNoun = item.pos === "noun" || ARTICLES.includes(item.term.split(" ")[0]);

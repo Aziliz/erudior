@@ -521,6 +521,14 @@ Wie heißt du?
 
 Without JavaScript (printing, prerendered pages) dialogues and phrases show as text with their translations. The course checker reports unknown options, lines without a speaker, translations or audio before the first line, repeated translations, audio that isn't an embedded `data:audio` URL, clips over 400 KB, empty and unclosed blocks, and listening questions without `text` (or without a voice language). `samples/demo-listening.json` shows all of it (its clips are made with a computer voice, espeak-ng; real courses should use recordings of native speakers).
 
+## Spanish and French
+
+Courses with `"language": { "code": "es" }` or `"fr"` check typed words like German, with their own leniencies:
+
+- **Nouns** are written with their article (`el perro`, `la casa`; `le chien`, `l'école`). Leaving the article out gets another try ("Include the article"); a wrong article (`la perro`) is wrong. French `le école` or `la école` gets another try with a note that le and la become l' before a vowel.
+- **Accents** are part of the spelling. The same letters without them (`cancion`, `nino`, `fenetre`, `coeur`) get another try with a note pointing to the accent buttons (`keys`), never a miss.
+- Spanish ¿ ¡ and French « » are ignored, curly apostrophes count as straight ones, and a space after an elided word (`l' école`, `j' aime`) is ignored.
+
 ## Japanese
 
 Language courses with `"language": { "code": "ja", "tts": "ja-JP", "ime": "ja", … }` get Japanese support (demo: `samples/demo-japanese.json`; walkthroughs `scripts/japanese-walkthrough.mjs` and `scripts/build-walkthrough.mjs`).
@@ -539,7 +547,7 @@ Language courses with `"language": { "code": "ja", "tts": "ja-JP", "ime": "ja", 
 
 ## Conjugation drills
 
-Japanese and German courses can drill verb and adjective forms: the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.
+Japanese, German, Spanish and French courses can drill verb (and, for Japanese and German, adjective) forms: the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.
 
 **The course** lists the forms it drills, each unlocked by the lesson that teaches it (no `lesson`: always on; `from`: the lesson is in an earlier course, as on carried-over words). The button appears on the Vocabulary tab when the course has this setting and at least one word with `conj`.
 
@@ -601,6 +609,29 @@ German `forms` (all text, written as in a main clause, er/sie/es unless named; a
   "conj": "strong", "forms": { "present2": "fährst", "present3": "fährt", "preterite": "fuhr", "perfect": "ist gefahren" } },
 { "id": "kaku", "lesson": "n5-masu", "term": "書く", "reading": "かく", "pos": "verb", "meanings": ["to write"], "conj": "godan" }
 ```
+
+Spanish and French verbs (persons drilled: Spanish yo, tú, él/ella/usted, nosotros, ellos/ellas/ustedes, never vosotros; French je, tu, il/elle/on, nous, vous, ils/elles):
+
+| `conj` | Language | What it means |
+|---|---|---|
+| `ar`, `er`, `ir` | es | -ar, -er, -ir verbs (hablar, comer, vivir; reflexive levantarse). Regular forms are generated; irregular ones come from `forms`. |
+| `er` | fr | Regular -er verbs (parler; se laver, s'appeler). -ger, -cer, -yer and e/é + consonant + -er verbs (manger, commencer, payer, acheter, préférer, appeler) need `forms.present`. |
+| `ir` | fr | finir-type verbs with -iss- (finir, choisir). |
+| `re` | fr | vendre-type verbs (vendre, attendre). |
+| `irr` | fr | Everything else (être, avoir, aller, faire, prendre, venir…): needs `forms.present` and `forms.participle`. |
+
+Spanish and French `forms` (tables are six comma-separated forms: es yo, tú, él, nosotros, vosotros, ellos; fr je, tu, il, nous, vous, ils; reflexive tables include the pronoun, `me levanto, …`):
+
+| Key | Example | When |
+|---|---|---|
+| `present` | `tengo, tienes, tiene, tenemos, tenéis, tienen` | any irregular person: stem changes, irregular yo, spelling changes. Spanish -cer/-cir/-ger/-gir/-uir verbs and very short verbs (ser, ir, dar, ver) are refused without it |
+| `preterite` | `tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron` | es: irregular or respelled pretérito indefinido. Not drilled without it for -car/-gar/-zar, -aer/-eer/-uir, stem-changing -ir verbs and one-syllable stems |
+| `participle` | `hecho`, `fait` | irregular past participle (regular: -ado/-ido, -ído after a, e, o; French -é/-i/-u) |
+| `imperative` | `ten`; `sois, soyons, soyez` | es: tú command when not the él present; fr: tu, nous, vous when not the present (an -er verb's tu drops the -s by rule). Spanish reflexive commands (levántate) are drilled only when given |
+| `imperativeUsted` | `sea`, `vaya` | es: usted command when not made from the yo present (hablo → hable, busco → busque, tengo → tenga) |
+| `aux` | `être` | fr: verbs conjugated with être; pronominal verbs use être automatically. With être, every agreement of the participle the person allows is accepted (elle est allée, ils sont allés) |
+
+Forms: Spanish `present`, `preterite` (pretérito indefinido), `perfect` (pretérito perfecto, he hablado), `imperative` (tú and usted); French `present`, `perfect` (passé composé), `imperative` (tu, nous, vous). Answers may include the subject pronoun (yo hablo, j'aime).
 
 Progress is kept per language and form (`progress.conj["ja:te"] = { right, wrong, last }`), like vocabulary, so a German A1 learner's Perfekt accuracy carries into A2; it travels with backups and family student files.
 

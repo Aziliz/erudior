@@ -44,7 +44,7 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
 import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
-import { CONJ_FORMS, DE_ADJ_FORMS, DE_CLASSES, DE_FORM_KEYS, DE_VERB_FORMS, JA_ADJ_FORMS, JA_CLASSES, JA_VERB_FORMS } from "../src/lib/courseConjugation.ts";
+import { ALL_CLASSES, CONJ_FORMS, languageClasses, languageFormKeys, languageForms } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -360,13 +360,13 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     const rawConj = raw.language?.conjugation;
     const settings = c.language?.conjugation;
     const own = new Set(c.lessons.map((l) => l.id));
-    const usable = lang === "ja" ? [...JA_VERB_FORMS, ...JA_ADJ_FORMS] : lang === "de" ? [...DE_VERB_FORMS, ...DE_ADJ_FORMS] : [];
+    const usable = [...languageForms(lang)];
     if (rawConj !== undefined) {
       if (!Array.isArray(rawConj?.forms)) say(`language.conjugation: needs "forms": [{ "form": "…", "lesson": "…" }]`);
       else
         for (const f of rawConj.forms) {
           const form = f?.form;
-          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese and German have conjugation drills"})`);
+          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish and French have conjugation drills"})`);
           else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
         }
       if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)
@@ -377,10 +377,10 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       if (s.lesson && !s.from && !own.has(s.lesson)) say(`language.conjugation form ${s.form}: unknown lesson "${s.lesson}"`);
     const conjugatable = (c.vocab ?? []).filter((v) => v.conj);
     for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
-      if (v?.conj !== undefined && ![...JA_CLASSES, ...DE_CLASSES].includes(v.conj))
-        say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${lang === "ja" ? JA_CLASSES.join(", ") : DE_CLASSES.join(", ")})`);
+      if (v?.conj !== undefined && !(ALL_CLASSES.includes(v.conj) && languageClasses(lang).includes(v.conj)))
+        say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${languageClasses(lang).join(", ")})`);
       if (v?.forms !== undefined)
-        for (const k of Object.keys(v.forms ?? {})) if (!(DE_FORM_KEYS as readonly string[]).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${DE_FORM_KEYS.join(", ")})`);
+        for (const k of Object.keys(v.forms ?? {})) if (!languageFormKeys(lang).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${languageFormKeys(lang).join(", ")})`);
       if (v?.noForms !== undefined) {
         if (!v.conj) say(`word ${v.id ?? i + 1}: "noForms" without "conj"`);
         for (const f of Array.isArray(v.noForms) ? v.noForms : [v.noForms])

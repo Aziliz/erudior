@@ -10,9 +10,17 @@
 export const JA_CLASSES = ["godan", "ichidan", "suru", "kuru", "i-adj", "ii-adj", "na-adj"] as const;
 /** German word classes. Strong, mixed and modal verbs carry their irregular forms in `forms`. */
 export const DE_CLASSES = ["weak", "strong", "mixed", "modal", "adj"] as const;
+/** Spanish verb classes: regular by ending; irregular forms given in `forms` (docs/COURSE_FORMAT.md). */
+export const ES_CLASSES = ["ar", "er", "ir"] as const;
+/** French verb classes: regular -er, finir-type -ir, vendre-type -re, and irregular (`irr`, forms given). */
+export const FR_CLASSES = ["er", "ir", "re", "irr"] as const;
 export type JaClass = (typeof JA_CLASSES)[number];
 export type DeClass = (typeof DE_CLASSES)[number];
-export type ConjClass = JaClass | DeClass;
+export type EsClass = (typeof ES_CLASSES)[number];
+export type FrClass = (typeof FR_CLASSES)[number];
+export type ConjClass = JaClass | DeClass | EsClass | FrClass;
+/** Every class of every language (the checker matches a class to the course's language). */
+export const ALL_CLASSES: readonly string[] = [...new Set<string>([...JA_CLASSES, ...DE_CLASSES, ...ES_CLASSES, ...FR_CLASSES])];
 
 export const JA_VERB_FORMS = [
   "polite",
@@ -33,7 +41,17 @@ export const JA_VERB_FORMS = [
 export const JA_ADJ_FORMS = ["adj-negative", "adj-past", "adj-past-negative", "adj-te", "adverb"] as const;
 export const DE_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "subjunctive"] as const;
 export const DE_ADJ_FORMS = ["adj-nom", "adj-acc", "adj-dat", "adj-gen"] as const;
-export const CONJ_FORMS: readonly string[] = [...new Set<string>([...JA_VERB_FORMS, ...JA_ADJ_FORMS, ...DE_VERB_FORMS, ...DE_ADJ_FORMS])];
+export const ES_VERB_FORMS = ["present", "preterite", "perfect", "imperative"] as const;
+export const FR_VERB_FORMS = ["present", "perfect", "imperative"] as const;
+export const CONJ_FORMS: readonly string[] = [...new Set<string>([...JA_VERB_FORMS, ...JA_ADJ_FORMS, ...DE_VERB_FORMS, ...DE_ADJ_FORMS, ...ES_VERB_FORMS, ...FR_VERB_FORMS])];
+/** The forms a language's courses can drill. */
+export function languageForms(lang: string): readonly string[] {
+  return lang === "ja" ? [...JA_VERB_FORMS, ...JA_ADJ_FORMS] : lang === "de" ? [...DE_VERB_FORMS, ...DE_ADJ_FORMS] : lang === "es" ? ES_VERB_FORMS : lang === "fr" ? FR_VERB_FORMS : [];
+}
+/** The classes a language's words can use. */
+export function languageClasses(lang: string): readonly string[] {
+  return lang === "ja" ? JA_CLASSES : lang === "de" ? DE_CLASSES : lang === "es" ? ES_CLASSES : lang === "fr" ? FR_CLASSES : [];
+}
 
 /**
  * German `forms` keys. Verb forms are written as in a main clause, third person singular
@@ -55,7 +73,25 @@ export const DE_FORM_KEYS = [
   "stem", // adjectives: the stem the endings go on, when irregular (hoh for hoch)
 ] as const;
 export type DeFormKey = (typeof DE_FORM_KEYS)[number];
-export type DeForms = Partial<Record<DeFormKey, string>>;
+/**
+ * Spanish and French `forms` keys. Tables are six comma-separated persons (es: yo, tú, él,
+ * nosotros, vosotros, ellos; fr: je, tu, il, nous, vous, ils), verb only.
+ */
+export const ROMANCE_FORM_KEYS = [
+  "present", // six-person present table, when any person is irregular
+  "preterite", // es: six-person pretérito indefinido table, when irregular or spelled differently
+  "participle", // past participle, when irregular (hecho; fait, pris)
+  "imperative", // es: tú affirmative (ten); fr: tu, nous, vous (sois, soyons, soyez)
+  "imperativeUsted", // es: usted affirmative, when not from the yo present (sea, vaya)
+  "aux", // fr: "être" for verbs conjugated with être
+] as const;
+export type RomanceFormKey = (typeof ROMANCE_FORM_KEYS)[number];
+export const FORM_KEYS: readonly string[] = [...new Set<string>([...DE_FORM_KEYS, ...ROMANCE_FORM_KEYS])];
+/** The `forms` keys a language's words can use. */
+export function languageFormKeys(lang: string): readonly string[] {
+  return lang === "es" || lang === "fr" ? ROMANCE_FORM_KEYS : DE_FORM_KEYS;
+}
+export type DeForms = Partial<Record<DeFormKey | RomanceFormKey, string>>;
 
 export interface ConjugationFormSetting {
   /** A form id from CONJ_FORMS. */
@@ -100,10 +136,10 @@ export function normalizeConjugationSettings(raw: unknown): ConjugationSettings 
 export function normalizeConjFields(v: Record<string, unknown>): { conj?: ConjClass; forms?: DeForms; noForms?: string[] } {
   const out: { conj?: ConjClass; forms?: DeForms; noForms?: string[] } = {};
   const conj = str(v.conj);
-  if ((JA_CLASSES as readonly string[]).includes(conj) || (DE_CLASSES as readonly string[]).includes(conj)) out.conj = conj as ConjClass;
+  if (ALL_CLASSES.includes(conj)) out.conj = conj as ConjClass;
   if (isObj(v.forms)) {
     const forms: DeForms = {};
-    for (const k of DE_FORM_KEYS) if (str(v.forms[k])) forms[k] = str(v.forms[k]);
+    for (const k of FORM_KEYS) if (str(v.forms[k])) forms[k as keyof DeForms] = str(v.forms[k]);
     if (Object.keys(forms).length) out.forms = forms;
   }
   if (Array.isArray(v.noForms)) {
@@ -135,7 +171,7 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
   vocab.forEach((v, i) => {
     if (!isObj(v)) return;
     const p = `vocab[${i}]`;
-    if (v.conj !== undefined && (typeof v.conj !== "string" || ![...JA_CLASSES, ...DE_CLASSES].includes(v.conj as never)))
+    if (v.conj !== undefined && (typeof v.conj !== "string" || !ALL_CLASSES.includes(v.conj)))
       out.push([`${p}.conj`, "unknown conjugation class"]);
     if (v.noForms !== undefined) {
       if (!Array.isArray(v.noForms) || !v.noForms.length) out.push([`${p}.noForms`, "must be a non-empty list of forms"]);
@@ -147,7 +183,7 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
       if (!isObj(v.forms)) out.push([`${p}.forms`, "must be an object"]);
       else
         for (const [k, x] of Object.entries(v.forms)) {
-          if (!(DE_FORM_KEYS as readonly string[]).includes(k)) out.push([`${p}.forms.${k}`, "unsupported or authority/runtime field"]);
+          if (!FORM_KEYS.includes(k)) out.push([`${p}.forms.${k}`, "unsupported or authority/runtime field"]);
           else if (typeof x !== "string" || !x.trim()) out.push([`${p}.forms.${k}`, "must be non-empty text"]);
         }
     }
