@@ -5,7 +5,7 @@ import { enrollmentProgress, type CourseProgressSummary } from "../lib/learningP
 import { LEARNING_PATHWAY_LIMITS, parseLearningPathways, pathwayProgress, starterPathways, type LearningPathway } from "../lib/learningPathways";
 
 import StudyProgramCard from "../components/StudyProgramCard";
-import { STUDY_PROGRAMS, groupPrograms, matchingProgram, programCourseIds, programCourses, programPathway, plannedProgramCourse } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, matchingProgram, programCourseIds, programCourses, programPathway, plannedProgramCourse, searchPrograms } from "../lib/studyPrograms";
 
 const ProgressTools = lazy(() => import("./ProgressTools"));
 type PathDraft = { pathway: LearningPathway; original: string | null };
@@ -27,6 +27,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
   const summary = enrollmentProgress(api.courses, api.progress);
   const pathways = parseLearningPathways(api.progress.learningPathways);
   const [filter, setFilter] = useState("all");
+  const [programQuery, setProgramQuery] = useState("");
   const [draft, setDraft] = useState<PathDraft | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -177,8 +178,12 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
     <section className="progress-section" aria-labelledby="study-programs-title">
       <h2 id="study-programs-title">Explore programs</h2>
       <p className="muted">A program groups courses into stages with learning outcomes and portfolio milestones. You can save a plan before all its courses are published.</p>
-      {groupPrograms(STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id))).map(group =>
-        <details key={group.category} className="program-group">
+      <div className="catalog-filters"><input className="input" type="search" placeholder="Search programs" aria-label="Search programs" value={programQuery} onChange={(e) => setProgramQuery(e.target.value)} /></div>
+      {(() => { const unfollowed = STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id)); const matched = searchPrograms(unfollowed, programQuery);
+        return <>{programQuery.trim() && <p className="small muted" aria-live="polite">{matched.length} of {unfollowed.length} programs</p>}
+        {matched.length === 0 && <p className="muted small">No programs match.</p>}
+        {groupPrograms(matched).map(group =>
+        <details key={group.category} className="program-group" open={programQuery.trim() ? true : undefined}>
           <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
           {group.programs.map(program => {
             const existing = pathways.find(path => path.id === program.id);
@@ -188,7 +193,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
                 <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
                   onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
           })}
-        </details>)}
+        </details>)}</>; })()}
     </section>
 
     <details className="progress-tools-disclosure" open={toolsOpen} onToggle={event => setToolsOpen(event.currentTarget.open)}>
