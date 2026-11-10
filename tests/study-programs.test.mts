@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse } from '../src/lib/studyPrograms';
+import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse, programCategory, searchPrograms } from '../src/lib/studyPrograms';
 import { parseLearningPathways, pathwayProgress, starterPathways } from '../src/lib/learningPathways';
 import { emptyCourse } from '../src/lib/course';
 import { emptyProgress } from '../src/lib/storage';
@@ -118,3 +118,97 @@ const installed = {...emptyCourse(published.title),id:published.id,modules:[{id:
 assert.equal(pathwayProgress(path,[installed],p,[published]).completedCourses,0,'current installed content takes precedence over older catalog checkpoints');
 assert.equal(pathwayProgress(path,[],emptyProgress(),[published]).percent,0,'a different learner receives no inherited completion');
 console.log('Study programs: complete three-stage outline, valid ordered dependencies, snapshot matching, honest availability and equal-course/stage progress passed.');
+
+// College core: "choose at least N" areas built on the strictest state minimum per area.
+{
+  const { poolStatus, programCourseIds, programPoolProblems } = await import('../src/lib/studyPrograms');
+  const core = STUDY_PROGRAMS.find(p => p.id === 'college-core')!;
+  assert(core && core.pools?.length, 'college core program is listed');
+  assert.deepEqual(programPoolProblems(core, new Set(CATALOG.map(e => e.id))), []);
+  const minimums = Object.fromEntries(core.pools!.map(pool => [pool.id, pool.minimum]));
+  assert.deepEqual(minimums, {
+    'written-communication': 3, 'oral-communication': 1, mathematics: 2, 'natural-sciences': 3, 'arts-humanities': 4,
+    history: 2, government: 2, 'social-behavioral': 3, 'world-language': 2, 'diversity-global': 2, 'critical-thinking': 2,
+    'ethics-civic': 1, 'people-environment': 1, 'computer-literacy': 1, 'college-success': 1, 'health-wellness': 1,
+  });
+  const subject = core.pools!.filter(pool => !pool.theme);
+  assert.equal(subject.reduce((n, pool) => n + pool.minimum, 0), 25);
+  const subjectIds = new Set(subject.flatMap(pool => pool.courseIds));
+  for (const pool of core.pools!.filter(p => p.theme)) for (const id of pool.courseIds) assert(subjectIds.has(id), `${pool.id}: ${id} also counts in a subject area`);
+  const outlineIds = new Set(programCourses(core).map(c => c.courseId));
+  for (const course of programCourses(core)) {
+    assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30, course.courseId);
+    for (const id of course.recommendedBefore) assert(outlineIds.has(id), `${course.courseId} recommends unknown ${id}`);
+  }
+  const outlinesById = new Map<string, unknown>();
+  for (const outline of STUDY_PROGRAMS.flatMap(programCourses)) {
+    const seen = outlinesById.get(outline.courseId);
+    assert(!seen || seen === outline, `${outline.courseId}: a course shared by programs uses one outline`);
+    outlinesById.set(outline.courseId, outline);
+  }
+  const plan = programPathway(core);
+  assert.equal(plan.courseIds.length, 25, 'default picks meet every area at the minimum');
+  assert.deepEqual(parseLearningPathways([plan]), [plan]);
+  assert.equal(matchingProgram(plan), core);
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds].reverse() }), core, 'any order of choices still follows the program');
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds, 'college-mythology'] }), core, 'extra courses are allowed');
+  assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds, 'law-torts'] }), undefined, 'courses outside the program make it a custom plan');
+  const arts = core.pools!.find(p => p.id === 'arts-humanities')!;
+  const litOnly = poolStatus(arts, ['college-introduction-to-literature', 'college-mythology', 'college-ethics', 'college-introduction-to-logic'], new Set());
+  assert(!litOnly.planned, 'four courses without an arts course do not meet the area');
+  const done = poolStatus(arts, arts.defaults, new Set(arts.defaults));
+  assert(done.planned && done.met);
+  assert(programCourseIds(core).includes('math-calculus'), 'existing catalog courses can be chosen');
+  assert.equal(plannedProgramCourse('math-calculus')?.title, 'Calculus', 'catalog courses reused by programs share one outline');
+  assert.equal(plannedProgramCourse('college-ethics')?.title, 'Ethics');
+}
+console.log('College core areas passed.');
+
+// Staged programs: Pre-Med, Medical School Preparation, Computer Science, Electrical Engineering, Cosmetology Theory.
+{
+  const staged = STUDY_PROGRAMS.filter(p => !p.pools?.length).map(p => p.id);
+  assert(staged.length >= 50, 'license and major programs are listed');
+  assert.equal(new Set(STUDY_PROGRAMS.map(p => p.id)).size, STUDY_PROGRAMS.length, 'program ids are unique');
+  for (const programId of staged) {
+    const program = STUDY_PROGRAMS.find(p => p.id === programId)!;
+    assert(program, `${programId} is listed`);
+    assert(!program.pools?.length && program.stages.length >= 2, `${programId} is a staged program`);
+    assert(program.sources.length && program.sources.every(s => /^https:\/\//.test(s.url)), `${programId}: sources`);
+    assert(/independent|theory only|ground school/i.test(program.notice), `${programId}: says what it is not`);
+    const courses = programCourses(program);
+    assert.equal(new Set(courses.map(c => c.courseId)).size, courses.length, `${programId}: no repeated course`);
+    const earlier = new Set<string>();
+    for (const course of courses) {
+      assert(course.modules.length >= 4 && course.outcomes.length >= 2 && course.assignment.length > 30, `${programId}: ${course.courseId}`);
+      for (const id of course.recommendedBefore) assert(earlier.has(id), `${programId}: ${course.courseId} recommends ${id}, which is not earlier in the program`);
+      earlier.add(course.courseId);
+    }
+    const plan = programPathway(program);
+    assert.deepEqual(parseLearningPathways([plan]), [plan]);
+    assert.equal(matchingProgram(plan), program);
+    assert.equal(matchingProgram({ ...plan, courseIds: [...plan.courseIds].reverse() }), undefined, `${programId}: a reordered plan is custom`);
+    for (const stage of program.stages) assert(stage.summary && stage.milestone, `${programId}: ${stage.id} has a summary and portfolio`);
+  }
+  const cosmo = STUDY_PROGRAMS.find(p => p.id === 'cosmetology-theory')!;
+  assert.match(cosmo.notice, /Theory only/);
+  assert.match(cosmo.notice, /practice hours/);
+  const medical = STUDY_PROGRAMS.find(p => p.id === 'medical-school-preparation')!;
+  assert.match(medical.description, /Pre-Med comes first/);
+  assert.equal(programCourses(medical).at(-1)!.courseId, 'med-usmle-step1-preparation');
+  assert.equal(programCourses(STUDY_PROGRAMS.find(p => p.id === 'pre-med')!).at(-1)!.courseId, 'pre-med-mcat-preparation');
+}
+{
+  for (const program of STUDY_PROGRAMS) if (program.id !== 'college-core')
+    assert.notEqual(programCategory(program), 'College', `${program.id} has a subject category`);
+  const majors = STUDY_PROGRAMS.filter(p => p.id.startsWith('major-'));
+  assert(majors.length >= 30, 'college majors are listed');
+  for (const major of majors) assert.match(major.notice, /not a degree/, `${major.id}: says it is not a degree`);
+}
+{
+  assert.equal(searchPrograms(STUDY_PROGRAMS, '  ').length, STUDY_PROGRAMS.length, 'an empty search shows every program');
+  assert(searchPrograms(STUDY_PROGRAMS, 'chemical ENGINEERING').some(p => p.id === 'major-chemical-engineering'), 'search matches every word, ignoring case');
+  assert(searchPrograms(STUDY_PROGRAMS, 'Thermodynamics').length > 1, 'search matches course titles');
+  assert(searchPrograms(STUDY_PROGRAMS, 'Social sciences').some(p => p.id === 'major-sociology'), 'search matches the category');
+  assert.equal(searchPrograms(STUDY_PROGRAMS, 'zzqx').length, 0);
+}
+console.log('Staged programs passed.');

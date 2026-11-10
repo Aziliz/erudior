@@ -5,7 +5,7 @@ import { enrollmentProgress, type CourseProgressSummary } from "../lib/learningP
 import { LEARNING_PATHWAY_LIMITS, parseLearningPathways, pathwayProgress, starterPathways, type LearningPathway } from "../lib/learningPathways";
 
 import StudyProgramCard from "../components/StudyProgramCard";
-import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, matchingProgram, programCourseIds, programCourses, programPathway, plannedProgramCourse, searchPrograms } from "../lib/studyPrograms";
 
 const ProgressTools = lazy(() => import("./ProgressTools"));
 type PathDraft = { pathway: LearningPathway; original: string | null };
@@ -27,6 +27,7 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
   const summary = enrollmentProgress(api.courses, api.progress);
   const pathways = parseLearningPathways(api.progress.learningPathways);
   const [filter, setFilter] = useState("all");
+  const [programQuery, setProgramQuery] = useState("");
   const [draft, setDraft] = useState<PathDraft | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -114,7 +115,11 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
     </section>
 
     {error && <p role="alert" className="notice">{error}</p>}
-    {draft && <PathwayEditor key={draft.pathway.id} draft={draft} options={[...options.values(), ...STUDY_PROGRAMS.flatMap(programCourses).filter(course => draft.pathway.courseIds.includes(course.courseId) && !options.has(course.courseId)).map(course => ({ id: course.courseId, title: course.title + " (planned)" }))]}
+    {draft && <PathwayEditor key={draft.pathway.id} draft={draft} options={[...options.values(), ...[...new Set([
+      ...STUDY_PROGRAMS.flatMap(programCourses).filter(course => draft.pathway.courseIds.includes(course.courseId)).map(course => course.courseId),
+      // A program with areas offers every course in its areas, so learners can change or add choices.
+      ...STUDY_PROGRAMS.filter(program => program.pools?.length && program.id === draft.pathway.id).flatMap(programCourseIds),
+    ])].filter(id => !options.has(id)).map(id => ({ id, title: (plannedProgramCourse(id)?.title ?? id) + " (planned)" }))]}
       busy={busy} onCancel={() => setDraft(null)} onSave={pathway => void savePathway(pathway, draft.original)} />}
 
     <section aria-labelledby="enrolled-courses-title" className="progress-section">
@@ -158,7 +163,8 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
           </div>
           {program && <StudyProgramCard program={program} availableIds={availableProgramIds}
             onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
-            summaries={program.stages.map(stage => pathwayProgress({ id: stage.id, title: stage.title, courseIds: stage.courses.map(course => course.courseId) }, api.courses, api.progress, CATALOG))} />}
+            summaries={program.stages.map(stage => pathwayProgress({ id: stage.id, title: stage.title, courseIds: stage.courses.map(course => course.courseId) }, api.courses, api.progress, CATALOG))}
+            selection={program.pools?.length ? { chosen: pathway.courseIds, completed: new Set(model.steps.filter(step => step.complete).map(step => step.courseId)) } : undefined} />}
           <details className="pathway-sequence"><summary>View course sequence ({model.totalCourses})</summary><ol>{model.steps.map((step, index) => <li key={step.courseId} className={step.complete ? "pathway-step complete" : "pathway-step"}>
             <span className="pathway-step-number" aria-hidden="true">{step.complete ? "✓" : index + 1}</span><div><strong>{step.title}</strong><span className="small muted">{step.completionBasis === "exam" ? "Completed by exam" : step.complete ? "Complete" : !step.available ? (program ? "Planned; not yet published" : "Course unavailable") : step.enrolled ? `${step.percent ?? 0}% complete` : step.percent ? `${step.percent}% saved · not enrolled` : "Not enrolled"}</span></div>
             {step.available && <button className="btn sm ghost" onClick={() => viewStep(step.courseId, step.enrolled)}>{step.enrolled ? "View progress" : "View course"}</button>}
@@ -172,14 +178,22 @@ export default function ProgressPage({ api, initialToolsOpen = false }: { api: A
     <section className="progress-section" aria-labelledby="study-programs-title">
       <h2 id="study-programs-title">Explore programs</h2>
       <p className="muted">A program groups courses into stages with learning outcomes and portfolio milestones. You can save a plan before all its courses are published.</p>
-      {STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id)).map(program => {
-        const existing = pathways.find(path => path.id === program.id);
-        return <StudyProgramCard key={program.id} program={program} availableIds={availableProgramIds}
-          onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
-          action={existing ? <p className="small muted">You are following a customized version. Your saved course order is preserved.</p> :
-            <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
-              onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
-      })}
+      <div className="catalog-filters"><input className="input" type="search" placeholder="Search programs" aria-label="Search programs" value={programQuery} onChange={(e) => setProgramQuery(e.target.value)} /></div>
+      {(() => { const unfollowed = STUDY_PROGRAMS.filter(program => !pathways.some(path => matchingProgram(path)?.id === program.id)); const matched = searchPrograms(unfollowed, programQuery);
+        return <>{programQuery.trim() && <p className="small muted" aria-live="polite">{matched.length} of {unfollowed.length} programs</p>}
+        {matched.length === 0 && <p className="muted small">No programs match.</p>}
+        {groupPrograms(matched).map(group =>
+        <details key={group.category} className="program-group" open={programQuery.trim() ? true : undefined}>
+          <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
+          {group.programs.map(program => {
+            const existing = pathways.find(path => path.id === program.id);
+            return <StudyProgramCard key={program.id} program={program} availableIds={availableProgramIds}
+              onOpenCourse={id => viewStep(id, api.courses.some(course => course.id === id))}
+              action={existing ? <p className="small muted">You are following a customized version. Your saved course order is preserved.</p> :
+                <button className="btn" disabled={busy || pathways.length >= LEARNING_PATHWAY_LIMITS.pathways}
+                  onClick={() => void savePathway(programPathway(program))}>Follow program<span className="sr-only">: {program.title}</span></button>} />;
+          })}
+        </details>)}</>; })()}
     </section>
 
     <details className="progress-tools-disclosure" open={toolsOpen} onToggle={event => setToolsOpen(event.currentTarget.open)}>
