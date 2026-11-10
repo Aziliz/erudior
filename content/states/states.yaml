@@ -5,7 +5,13 @@
 #   days, hoursPerDay, hours (grade bands, K = 0): yearly minimums; either: true means days OR hours
 #   guidance: true means the figures are an agency reading rather than statute
 #   testGrades: grades with a required test; annualAssessment: an assessment every year
-#   reports: other yearly deadlines
+#   reports: other yearly deadlines; each has `due` (MM-DD), or `midYear: true` / `yearEnd: true` (dates vary by family)
+#   evaluationFromNotice: the yearly evaluation is due on the anniversary of the notice of intent
+#   qualification: the parent must meet (and be able to show) the `teacher` requirement
+#   subjectAreas: the app's subject areas the `subjects` list falls under (our grouping, for the coverage check)
+#   coreHours: part of the yearly hours that must be in the listed subject areas
+#   lowScore: test result that triggers state follow-up (percentileAtMost / percentileBelow / stanineBelow)
+#   plan: written plan the state asks for: ihip (NY), objectives (PA affidavit), education (approval or notice plan)
 # This is a summary, not legal advice. Re-check each state yearly and update `checked`.
 # Build: python3 content/states/build.py
 - code: AL
@@ -54,6 +60,11 @@
     notice:
       kind: once
       afterStart: 30
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
   sources:
   - https://law.justia.com/codes/arizona/title-15/section-15-802/
   checked: '2026-10-23'
@@ -89,6 +100,13 @@
       kind: annual
       due: 10-15
       opens: 10-01
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://www.cde.ca.gov/sp/ps/schoolingathomefaq.asp
   checked: '2026-10-23'
@@ -115,6 +133,15 @@
     - 7
     - 9
     - 11
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    lowScore:
+      percentileAtMost: 13
+      then: Retest or evaluation; still at or below the 13th percentile means enrolling
+        in a school
   sources:
   - https://colorado.public.law/statutes/crs_22-33-104.5
   - https://www.cde.state.co.us/node/773
@@ -132,6 +159,10 @@
   rules:
     notice:
       kind: none
+    subjectAreas:
+    - English language arts
+    - Math
+    - Social studies
   sources:
   - https://law.justia.com/codes/connecticut/title-10/chapter-168/section-10-184/
   - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00037-R00HB-05468-PA.PDF
@@ -173,6 +204,14 @@
       kind: annual
       due: 08-15
     annualAssessment: false
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
+    qualification: true
   sources:
   - https://osse.dc.gov/service/homeschooling-district-columbia
   - https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/DCMR%205200%20Homeschooling.pdf
@@ -193,9 +232,10 @@
       kind: once
       afterStart: 30
     annualAssessment: true
+    evaluationFromNotice: true
   sources:
   - http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=1000-1099/1002/Sections/1002.41.html
-  checked: '2026-10-23'
+  checked: '2026-11-10'
 - code: GA
   name: Georgia
   ages: 6–16
@@ -217,6 +257,12 @@
     - 6
     - 9
     - 12
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    qualification: true
   sources:
   - https://law.justia.com/codes/georgia/title-20/chapter-2/article-16/part-1/subpart-2/section-20-2-690/
   - https://gadoe.org/Curriculum-Instruction-and-Assessment/Pages/Home-Schools.aspx
@@ -243,6 +289,13 @@
     - 8
     - 10
     annualAssessment: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://hawaiipublicschools.org/enrolling-in-school/homeschool/
   - https://www.law.cornell.edu/regulations/hawaii/title-8/subtitle-2/part-1/chapter-12
@@ -277,6 +330,13 @@
   rules:
     notice:
       kind: none
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://www.isbe.net/Documents/homeschool-faq.pdf
   checked: '2026-10-23'
@@ -359,6 +419,11 @@
       to: 12
       hours: 1062
     guidance: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
   sources:
   - https://www.education.ky.gov/federal/Documents/Kentucky%20Homeschool%20Information%20Packet.pdf
   checked: '2026-10-23'
@@ -404,6 +469,13 @@
     reports:
     - due: 09-01
       what: Annual assessment
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://legislature.maine.gov/statutes/20-A/title20-Asec5001-A.html
   - https://www.maine.gov/doe/schools/schoolops/homeinstruction/requirements
@@ -423,6 +495,13 @@
       kind: annual
       beforeStart: 15
     annualAssessment: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://dsd.maryland.gov/regulations/Pages/13A.10.01.01.aspx
   checked: '2026-10-23'
@@ -440,6 +519,13 @@
   rules:
     notice:
       kind: approval
+    subjectAreas:
+    - English language arts
+    - Math
+    - Social studies
+    - Arts
+    - Health and PE
+    plan: education
   sources:
   - https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXII/Chapter76/Section1
   - https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXII/Chapter71/Section1
@@ -459,6 +545,11 @@
   rules:
     notice:
       kind: none
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
   sources:
   - https://www.michigan.gov/mde/services/flexible-learning/options/nonpub-home/home-school-information/exemption-f-home-school
   checked: '2026-10-23'
@@ -478,6 +569,17 @@
       kind: annual
       due: 10-01
     annualAssessment: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
+    qualification: true
+    lowScore:
+      percentileAtMost: 30
+      then: Further evaluation for learning problems
   sources:
   - https://www.revisor.mn.gov/statutes/cite/120A.24
   - https://www.revisor.mn.gov/statutes/cite/120A.22
@@ -516,6 +618,15 @@
     - from: 0
       to: 12
       hours: 1000
+    subjectAreas: &id001
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    coreHours:
+      hours: 600
+      areas: *id001
+      note: 400 of the core hours at the regular place of instruction
   sources:
   - https://revisor.mo.gov/main/OneSection.aspx?section=167.012
   checked: '2026-10-23'
@@ -564,6 +675,13 @@
     - from: 9
       to: 12
       hours: 1080
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Health and PE
+    qualification: true
   sources:
   - https://nebraskalegislature.gov/laws/statutes.php?statute=79-1601
   - https://www.education.ne.gov/fos/exempt-schools/
@@ -581,6 +699,12 @@
   rules:
     notice:
       kind: once
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    plan: education
   sources:
   - https://www.leg.state.nv.us/nrs/nrs-388d.html
   - https://doe.nv.gov/offices/craleo/nevada-homeschooling
@@ -600,7 +724,7 @@
       kind: none
   sources:
   - https://gc.nh.gov/rsa/html/XV/193-A/193-A-mrg.htm
-  checked: '2026-10-23'
+  checked: '2026-11-10'
   unsettled: The homeschool law was rewritten in July 2026; check for further rules.
 - code: NJ
   name: New Jersey
@@ -633,6 +757,12 @@
       kind: annual
       due: 08-01
       afterStart: 30
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    qualification: true
   sources:
   - https://webnew.ped.state.nm.us/wp-content/uploads/2024/05/Homeschool-Notification-Form-with-Statutes-2024.pdf
   checked: '2026-10-23'
@@ -664,9 +794,29 @@
     reports:
     - due: 08-15
       what: IHIP (instruction plan)
+    - due: '11-15'
+      what: Quarterly report 1
+    - due: 01-31
+      what: Quarterly report 2
+    - due: 04-15
+      what: Quarterly report 3
+    - due: 06-30
+      what: Quarterly report 4 and annual assessment
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
+    lowScore:
+      percentileAtMost: 33
+      then: 'Below the passing threshold: probation and a remediation plan (unless one
+        year of growth is shown)'
+    plan: ihip
   sources:
   - https://www.p12.nysed.gov/part100/pages/100_10.html
-  checked: '2026-10-23'
+  checked: '2026-11-10'
 - code: NC
   name: North Carolina
   ages: 7–15
@@ -682,6 +832,7 @@
       kind: once
       beforeStart: 5
     annualAssessment: true
+    qualification: true
   sources:
   - https://ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-564.html
   - https://doa.nc.gov/divisions/non-public-education/home-schools/requirements-recommendations
@@ -707,6 +858,7 @@
     - 6
     - 8
     - 10
+    qualification: true
   sources:
   - https://www.ndlegis.gov/cencode/t15-1c23.pdf
   checked: '2026-10-23'
@@ -726,6 +878,11 @@
       kind: annual
       due: 08-30
       afterStart: 5
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
   sources:
   - https://codes.ohio.gov/ohio-revised-code/section-3321.042
   checked: '2026-10-23'
@@ -765,6 +922,10 @@
     - 5
     - 8
     - 10
+    lowScore:
+      percentileBelow: 15
+      then: Retest within a year; continued decline can mean supervision by a licensed
+        teacher
   sources:
   - https://oregon.public.law/statutes/ors_339.035
   checked: '2026-10-23'
@@ -800,9 +961,18 @@
     reports:
     - due: 06-30
       what: Evaluator's certification
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
+    qualification: true
+    plan: objectives
   sources:
   - https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/home-education-and-private-tutoring.html
-  checked: '2026-10-23'
+  checked: '2026-11-10'
 - code: RI
   name: Rhode Island
   ages: 6–17
@@ -823,6 +993,11 @@
       to: 12
       hours: 1080
     guidance: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Social studies
+    plan: education
   sources:
   - http://webserver.rilegislature.gov/Statutes/TITLE16/16-19/16-19-1.htm
   - https://ride.ri.gov/Home-Schooling
@@ -843,9 +1018,20 @@
       kind: annual
     days: 180
     hoursPerDay: 4.5
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    reports:
+    - midYear: true
+      what: Semiannual progress report (first half)
+    - yearEnd: true
+      what: Semiannual progress report (second half)
+    qualification: true
   sources:
   - https://www.scstatehouse.gov/code/t59c065.php
-  checked: '2026-10-23'
+  checked: '2026-11-10'
 - code: SD
   name: South Dakota
   ages: Until 18 (start age unconfirmed)
@@ -860,6 +1046,9 @@
     notice:
       kind: once
       afterStart: 30
+    subjectAreas:
+    - English language arts
+    - Math
   sources:
   - https://doe.sd.gov/oatq/homeschooling.aspx
   checked: '2026-10-23'
@@ -872,7 +1061,7 @@
   subjects: None named (curriculum in notice)
   assessment: Standardized test grades 5, 7, 9; results to director and state; remediation if behind
   records: Attendance kept and submitted at year-end
-  teacher: HS diploma or equivalent
+  teacher: HS diploma or equivalent; proof goes with the notice
   routes: Church-related umbrella school; accredited online school
   rules:
     notice:
@@ -884,10 +1073,14 @@
     - 5
     - 7
     - 9
+    reports:
+    - yearEnd: true
+      what: Attendance records to the director of schools
+    qualification: true
   sources:
   - https://law.justia.com/codes/tennessee/title-49/chapter-6/part-30/section-49-6-3050
   - https://www.tn.gov/education/families/school-options/home-schooling-in-tn/
-  checked: '2026-10-23'
+  checked: '2026-11-10'
   unsettled: Ages not confirmed.
 - code: TX
   name: Texas
@@ -902,9 +1095,13 @@
   rules:
     notice:
       kind: none
+    subjectAreas:
+    - English language arts
+    - Math
+    - Social studies
   sources:
   - https://tea.texas.gov/about-tea/news-and-multimedia/correspondence/taa-letters/home-schools
-  checked: '2026-10-23'
+  checked: '2026-11-10'
 - code: UT
   name: Utah
   ages: 6–18 (unconfirmed)
@@ -940,6 +1137,13 @@
       beforeStart: 14
     days: 175
     annualAssessment: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
   sources:
   - https://legislature.vermont.gov/statutes/section/16/003/00166b
   - https://legislature.vermont.gov/statutes/section/16/023/00906
@@ -962,6 +1166,10 @@
     reports:
     - due: 08-01
       what: Test results or evaluation
+    qualification: true
+    lowScore:
+      stanineBelow: 4
+      then: Probation for a year with a remediation plan
   sources:
   - https://law.lis.virginia.gov/vacode/title22.1/chapter14/section22.1-254.1/
   checked: '2026-10-23'
@@ -990,6 +1198,14 @@
       hours: 1000
     guidance: true
     annualAssessment: true
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Arts
+    - Health and PE
+    qualification: true
   sources:
   - https://app.leg.wa.gov/RCW/default.aspx?cite=28A.200.010
   - https://ospi.k12.wa.us/student-success/learning-alternatives/home-based-instruction
@@ -1014,6 +1230,15 @@
     - 5
     - 8
     - 11
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    qualification: true
+    lowScore:
+      stanineBelow: 4
+      then: Remedial help, then a retest the next year
   sources:
   - https://code.wvlegislature.gov/18-8-1/
   checked: '2026-10-23'
@@ -1035,6 +1260,12 @@
     - from: 0
       to: 12
       hours: 875
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
+    - Health and PE
   sources:
   - https://docs.legis.wisconsin.gov/statutes/statutes/118/165
   - https://dpi.wi.gov/parental-education-options/home-based
@@ -1052,6 +1283,11 @@
   rules:
     notice:
       kind: none
+    subjectAreas:
+    - English language arts
+    - Math
+    - Science
+    - Social studies
   sources:
   - https://www.wyoleg.gov/2025/Enroll/HB0046.pdf
   checked: '2026-10-23'

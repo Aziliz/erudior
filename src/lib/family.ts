@@ -96,6 +96,8 @@ export interface Family {
   year: { start: string; end: string };
   /** A day with at least this much learning is proposed as a school day. */
   dailyMinutes: number;
+  /** YYYY-MM-DD the first notice of intent was filed (Florida dates the yearly evaluation from it). */
+  noticeFiled?: string;
   parent: {
     password: Secret;
     pin?: Secret;

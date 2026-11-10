@@ -197,6 +197,7 @@ function parseContents(text: string): Contents {
     if (f.mode !== undefined && !["homeschool", "classroom"].includes(f.mode)) throw Error("Invalid Family mode in backup.");
     for (const field of ["state", "route"]) if (f[field] !== undefined) boundedText(f[field], 1000, `family ${field}`);
     if (f.dailyMinutes !== undefined && (!Number.isFinite(f.dailyMinutes) || f.dailyMinutes < 0 || f.dailyMinutes > 1440)) throw Error("Invalid Family daily minutes.");
+    if (f.noticeFiled !== undefined && (typeof f.noticeFiled !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(f.noticeFiled))) throw Error("Invalid Family notice date.");
     if (f.year !== undefined) { object(f.year, "school year"); for (const key of ["start", "end"]) if (typeof f.year[key] !== "string" || !Number.isFinite(Date.parse(f.year[key]))) throw Error("Invalid Family school year."); }
     if (f.parent !== undefined) {
       object(f.parent, "parent credentials");
@@ -713,6 +714,7 @@ function validateVerifiedFamily(family: Family | null): void {
   const start = day(family.year.start, "year start"), end = day(family.year.end, "year end");
   if (start >= end) throw Error("Invalid Family school year order.");
   finite(family.dailyMinutes, "daily minutes", 1440);
+  if (family.noticeFiled !== undefined) day(family.noticeFiled, "notice date");
   const parent = object(family.parent, "required parent credentials");
   for (const key of ["password", "pin", "recovery"] as const) {
     if (key === "pin" && parent.pin === undefined) continue;

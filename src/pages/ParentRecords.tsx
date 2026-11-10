@@ -7,8 +7,11 @@ import { SUBJECTS, gradeLabel, gradingOf, GRADES, isClassroom, type Family } fro
 import { LEVEL_LABEL, letterFor, type CourseLevel, type CourseRecord } from "../lib/grades";
 import { loadRecords, saveRecords, type Records } from "../lib/records";
 import {
+  DEFAULT_METHOD,
   coursesInYear,
+  instructionPlan,
   periodKey,
+  planKey,
   quarters,
   recordYears,
   titleOf,
@@ -19,9 +22,10 @@ import {
 } from "../lib/reports";
 import { loadPhotos, newPhoto, savePhotos, shrinkImage } from "../lib/portfolio";
 import { today } from "../lib/srs";
+import { lowScore, lowScoreLine, stateInfo } from "../lib/states";
 import * as store from "../lib/storage";
 import { uid } from "../lib/util";
-import { ComplianceDoc, PortfolioDoc, ReportCardDoc, TranscriptDoc, clampPeriod, fmtDate } from "../components/ReportDocs";
+import { ComplianceDoc, InstructionPlanDoc, PortfolioDoc, ReportCardDoc, TranscriptDoc, clampPeriod, fmtDate } from "../components/ReportDocs";
 
 export function useStudentData(api: AppApi, family: Family, sid: string) {
   const [data, setData] = useState<StudentData | null>(null);
@@ -495,8 +499,17 @@ function OutsideCourses({ api, data, setRecords }: { api: AppApi; data: StudentD
 
 function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setRecords: Setter }) {
   const r = data.records;
-  const blank = { date: today(), name: "", result: "", notes: "" };
+  const blank = { date: today(), name: "", result: "", notes: "", score: "" };
   const [f, setF] = useState(blank);
+  const st = stateInfo(data.family.state);
+  const line = st ? lowScoreLine(st.rules) : undefined;
+  const stanine = !!st?.rules.lowScore?.stanineBelow;
+  const scoreOf = (raw: string) => {
+    const n = Number(raw);
+    if (!raw.trim() || !Number.isInteger(n)) return {};
+    if (stanine) return n >= 1 && n <= 9 ? { stanine: n } : {};
+    return n >= 1 && n <= 99 ? { percentile: n } : {};
+  };
   return (
     <section className="panel">
       <div className="panel-head">
@@ -507,7 +520,8 @@ function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setR
         onSubmit={async (e) => {
           e.preventDefault();
           if (!f.name.trim() || !f.result.trim()) return api.toast("Enter the test and the result.");
-          if (!await setRecords({ ...r, tests: [...r.tests, { id: uid("t"), date: f.date, name: f.name.trim(), result: f.result.trim(), notes: f.notes.trim() }] })) return;
+          if (f.score.trim() && !Object.keys(scoreOf(f.score)).length) return api.toast(stanine ? "Enter a stanine from 1 to 9." : "Enter a percentile from 1 to 99.");
+          if (!await setRecords({ ...r, tests: [...r.tests, { id: uid("t"), date: f.date, name: f.name.trim(), result: f.result.trim(), notes: f.notes.trim(), ...scoreOf(f.score) }] })) return;
           setF(blank);
           api.toast("Result added");
         }}
@@ -528,6 +542,13 @@ function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setR
           <span>Notes (optional)</span>
           <input className="input" value={f.notes} onChange={(e) => setF({ ...f, notes: e.target.value })} />
         </label>
+        {line && st && (
+          <label className="field">
+            <span>{stanine ? "Composite stanine" : "Composite percentile"} (optional)</span>
+            <input className="input" type="number" min={1} max={stanine ? 9 : 99} value={f.score} onChange={(e) => setF({ ...f, score: e.target.value })} />
+            <span className="small muted">{st.name} follows up on a result {line}.</span>
+          </label>
+        )}
         <div>
           <button className="btn" type="submit">
             Add result
@@ -543,6 +564,11 @@ function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setR
                 <span>
                   {fmtDate(t.date)}: <b>{t.name}</b>: {t.result}
                   {t.notes && <span className="muted"> ({t.notes})</span>}
+                  {st && lowScore(st.rules, t) && (
+                    <span className="pill fail" style={{ marginLeft: 8 }}>
+                      {line}: {st.rules.lowScore!.then}
+                    </span>
+                  )}
                 </span>
                 <button className="btn sm ghost" onClick={() => setRecords({ ...r, tests: r.tests.filter((x) => x.id !== t.id) })}>
                   Delete<span className="sr-only">: {t.name}</span>
@@ -557,12 +583,13 @@ function Tests({ api, data, setRecords }: { api: AppApi; data: StudentData; setR
 
 // ---------- Reports ----------
 
-type Kind = "card" | "transcript" | "portfolio" | "progress";
+type Kind = "card" | "transcript" | "portfolio" | "progress" | "plan";
 const KINDS: { id: Kind; label: string }[] = [
   { id: "card", label: "Report card" },
   { id: "transcript", label: "High school transcript" },
   { id: "progress", label: "State progress report (attendance, hours, material covered)" },
   { id: "portfolio", label: "Portfolio (log, work samples, photos)" },
+  { id: "plan", label: "Instruction plan (IHIP, objectives, education plan)" },
 ];
 
 /** The document's own styles, for "Save as web page" (the file opens and prints anywhere). */
@@ -627,7 +654,7 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
             ))}
           </select>
         </label>
-        {(kind === "card" || kind === "portfolio") && (
+        {(kind === "card" || kind === "portfolio" || kind === "plan") && (
           <label className="field">
             <span>School year</span>
             <select className="select" value={year} onChange={(e) => setYear(e.target.value)}>
@@ -669,6 +696,7 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
       )}
 
       {kind === "progress" && <Narratives data={data} period={period} setRecords={setRecords} />}
+      {kind === "plan" && <PlanEditor data={data} yearStart={year} setRecords={setRecords} />}
       {kind === "portfolio" && (
         <Photos
           api={api}
@@ -686,8 +714,58 @@ export function ReportsTab({ api, family }: { api: AppApi; family: Family }) {
         {kind === "transcript" && <TranscriptDoc d={data} />}
         {kind === "progress" && <ComplianceDoc d={data} period={period} title={family.state === "NY" && periodId !== "year" ? "Quarterly report" : undefined} />}
         {kind === "portfolio" && <PortfolioDoc d={data} yearStart={year} photos={photos} />}
+        {kind === "plan" && <InstructionPlanDoc d={data} yearStart={year} />}
       </div>
     </>
+  );
+}
+
+/** The parent's own wording for the plan, per subject; blank fields print the defaults from the courses. */
+function PlanEditor({ data, yearStart, setRecords }: { data: StudentData; yearStart: string; setRecords: Setter }) {
+  const p = instructionPlan(data, yearStart);
+  const key = planKey(p.year.from);
+  const r = data.records;
+  const st = stateInfo(data.family.state);
+  const subjects = [...new Set([...p.subjects.map((x) => x.subject), ...p.unplanned])];
+  const save = (field: string, value: string) => {
+    const v = value.trim();
+    const cur = { ...(r.narratives[key] ?? {}) };
+    if (v === (cur[field] ?? "")) return;
+    if (v) cur[field] = v;
+    else delete cur[field];
+    setRecords({ ...r, narratives: { ...r.narratives, [key]: cur } });
+  };
+  const box = (field: string, label: string, placeholder: string) => (
+    <label className="field">
+      <span>{label}</span>
+      <textarea className="textarea" defaultValue={r.narratives[key]?.[field] ?? ""} placeholder={placeholder} onBlur={(e) => save(field, e.target.value)} />
+    </label>
+  );
+  return (
+    <details className="panel no-print" style={{ marginBottom: 16 }} open={p.subjects.length === 0}>
+      <summary>
+        <b>Edit the plan</b>{" "}
+        <span className="small muted">
+          (blank fields use the assigned courses; one item per line{st?.rules.plan === "ihip" ? "; New York districts may ask for changes" : ""})
+        </span>
+      </summary>
+      {subjects.map((subject) => (
+        <fieldset key={subject} className="form-grid" style={{ marginTop: 12 }}>
+          <legend>
+            <b>{subject}</b>
+            {p.unplanned.includes(subject) && <span className="small muted"> (required by {st?.name}, no course assigned)</span>}
+          </legend>
+          {box(`objectives:${subject}`, "Objectives or syllabus", "Default: the units of each assigned course")}
+          {box(`materials:${subject}`, "Materials and textbooks", "Default: the Erudior courses")}
+          {box(`method:${subject}`, "Plan of instruction", DEFAULT_METHOD)}
+        </fieldset>
+      ))}
+      {st?.rules.plan === "ihip" && (
+        <div className="form-grid" style={{ marginTop: 12 }}>
+          {box("quarters", "Quarterly report dates", p.quarters.dates.map((q) => fmtDate(q)).join("\n"))}
+        </div>
+      )}
+    </details>
   );
 }
 

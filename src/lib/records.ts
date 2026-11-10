@@ -63,6 +63,10 @@ export interface TestResult {
   /** Free text: score, percentile, stanine, or the evaluator's conclusion. */
   result: string;
   notes: string;
+  /** Composite national percentile (1–99), when the state has a follow-up line. */
+  percentile?: number;
+  /** Composite stanine (1–9). */
+  stanine?: number;
 }
 
 export interface ManualEntry {
@@ -180,7 +184,7 @@ export function parseRecords(value: unknown): Records {
     for (const row of rows) {
       assertObject(row); strings(row, keys);
       if (!row.id || ids.has(row.id)) throw recordError(); ids.add(row.id);
-      for (const k of ["minutes", "hours", "credits", "bytes", "percent", "gradeLevel"]) if (row[k] !== undefined) number(row[k], k === "percent" ? 100 : 1e12, k === "gradeLevel" ? -1 : 0);
+      for (const k of ["minutes", "hours", "credits", "bytes", "percent", "gradeLevel", "percentile", "stanine"]) if (row[k] !== undefined) number(row[k], k === "percent" || k === "percentile" ? 100 : k === "stanine" ? 9 : 1e12, k === "gradeLevel" ? -1 : 0);
       if (field === "manual" && row.minutes === undefined || field === "grades" && row.percent === undefined || field === "outside" && row.credits === undefined || field === "documents" && row.bytes === undefined || field === "activities" && row.hours === undefined) throw recordError();
       if (field === "outside" && !["regular", "honors", "ap"].includes(row.level)) throw recordError();
       if (row.textKey !== undefined) string(row.textKey);
@@ -423,9 +427,28 @@ export function reminders(f: Family): Reminder[] {
       const date = n.afterStart !== undefined ? addDays(f.year.start, n.afterStart) : addDays(f.year.start, -(n.beforeStart ?? 0));
       out.push({ key: `notice-once`, date, text: `If this is your first year: ${s.notice}` });
     }
-    for (const r of s.rules.reports ?? []) out.push({ key: `report:${r.what}:${y}`, date: inYear(f, r.due), text: `${r.what} due (${s.name})` });
+    for (const r of s.rules.reports ?? []) {
+      const date = r.due ? inYear(f, r.due) : r.midYear ? addDays(f.year.start, Math.floor(daysBetween(f.year.start, f.year.end) / 2)) : f.year.end;
+      out.push({ key: `report:${r.what}:${y}`, date, text: `${r.what} due (${s.name})` });
+    }
+    if (s.rules.qualification)
+      out.push({ key: "qualification", date: f.year.start, text: `Keep proof of your qualification on file (${s.name}): ${s.teacher}` });
     const testing = f.students.filter((st) => s.rules.testGrades?.includes(st.grade));
-    if (testing.length)
+    if (s.rules.evaluationFromNotice) {
+      // Due one year after the notice of intent, on its anniversary each year after.
+      const filed = f.noticeFiled;
+      if (filed) {
+        let date = `${y}-${filed.slice(5)}`;
+        if (date < f.year.start) date = `${Number(y) + 1}-${filed.slice(5)}`;
+        if (date <= filed) date = `${Number(filed.slice(0, 4)) + 1}-${filed.slice(5)}`;
+        out.push({ key: `assess:${y}`, date, text: `Yearly evaluation due (${s.name}), one year from your notice of intent: ${s.assessment}` });
+      } else
+        out.push({
+          key: `assess:${y}`,
+          date: f.year.start,
+          text: `Yearly evaluation (${s.name}) is due on the anniversary of your notice of intent. Add the date you filed it in State rules to get the exact date.`,
+        });
+    } else if (testing.length)
       out.push({
         key: `test:${y}`,
         date: addDays(f.year.end, -60),

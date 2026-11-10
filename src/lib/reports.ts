@@ -433,3 +433,101 @@ export function workSamples(d: StudentData, yearStart: string): WorkSample[] {
   }
   return out;
 }
+
+// ---------- instruction plan (NY IHIP, PA objectives, MA/RI/NV education plan) ----------
+
+export const PLAN_TITLES = {
+  ihip: "Individualized Home Instruction Plan (IHIP)",
+  objectives: "Outline of proposed educational objectives",
+  education: "Home education plan",
+} as const;
+
+/** Where the parent's own wording for a year's plan is kept (in `records.narratives`). */
+export const planKey = (yearStart: string) => `plan:${yearStart}`;
+
+export interface PlanCourse {
+  courseId: string;
+  title: string;
+  description?: string;
+  /** Units (module titles), in order; honors units are left out. */
+  units: string[];
+}
+
+export interface PlanSubject {
+  subject: string;
+  courses: PlanCourse[];
+  /** The parent's own objectives, materials and method (empty = use the defaults). */
+  objectives?: string;
+  materials?: string;
+  method?: string;
+}
+
+export interface InstructionPlan {
+  title: string;
+  year: Period;
+  gradeLevel: number;
+  subjects: PlanSubject[];
+  /** State subject areas with nothing planned. */
+  unplanned: string[];
+  /** Quarterly report dates (NY), the parent's override text first. */
+  quarters: { text?: string; dates: string[] };
+  needHours?: number;
+  needDays?: number;
+}
+
+export const DEFAULT_METHOD =
+  "Daily lessons and practice questions in Erudior with parent instruction and discussion; module tests and parent-graded written work measure progress.";
+
+function planCourse(d: StudentData, id: string): PlanCourse {
+  const course = d.courses.find((c) => c.id === id);
+  const entry = CATALOG.find((e) => e.id === id);
+  const units = course
+    ? course.modules.filter((m) => !m.honors).map((m) => m.title)
+    : ((entry as { outline?: { title: string }[] } | undefined)?.outline ?? []).map((o) => o.title);
+  return { courseId: id, title: titleOf(id, d.courses), description: course?.description ?? entry?.description, units };
+}
+
+/** The plan for a school year: the student's assigned courses (and any already on record that year), by subject. */
+export function instructionPlan(d: StudentData, yearStart: string): InstructionPlan {
+  const year = yearOf(d.family, yearStart);
+  const st = stateInfo(d.family.state);
+  const text = d.records.narratives[planKey(year.from)] ?? {};
+  const ids = new Set<string>(coursesInYear(d, year.from).map((r) => r.courseId));
+  if (year.from === d.family.year.start) for (const a of d.student.assigned) if (!a.courseId.startsWith("community-")) ids.add(a.courseId);
+  const bySubject = new Map<string, PlanCourse[]>();
+  for (const id of ids) {
+    const subject = subjectOf(id, d.student);
+    bySubject.set(subject, [...(bySubject.get(subject) ?? []), planCourse(d, id)]);
+  }
+  for (const k of Object.keys(text)) {
+    const m = /^(objectives|materials|method):(.+)$/.exec(k);
+    if (m && !bySubject.has(m[2])) bySubject.set(m[2], []);
+  }
+  const subjects = [...bySubject]
+    .map(([subject, courses]) => ({
+      subject,
+      courses,
+      objectives: text[`objectives:${subject}`],
+      materials: text[`materials:${subject}`],
+      method: text[`method:${subject}`],
+    }))
+    .sort((a, b) => a.subject.localeCompare(b.subject));
+  const quarterDates = (st?.rules.reports ?? [])
+    .filter((r) => r.due && /^Quarterly report/.test(r.what))
+    .map((r) => {
+      const c = `${year.from.slice(0, 4)}-${r.due}`;
+      return c >= year.from ? c : `${Number(year.from.slice(0, 4)) + 1}-${r.due}`;
+    })
+    .sort();
+  const grade = gradeIn(d.family, d.student, year.from);
+  return {
+    title: st?.rules.plan ? PLAN_TITLES[st.rules.plan] : "Instruction plan",
+    year,
+    gradeLevel: grade,
+    subjects,
+    unplanned: (st?.rules.subjectAreas ?? []).filter((a) => !bySubject.has(a)),
+    quarters: { text: text.quarters, dates: quarterDates },
+    needHours: st ? hoursFor(st.rules, grade) : undefined,
+    needDays: st?.rules.days,
+  };
+}
