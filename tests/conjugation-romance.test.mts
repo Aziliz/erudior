@@ -147,6 +147,10 @@ assert(ok("fr", w("se demander", "er"), "perfect", "2", "elle s'est demandé"));
 assert(ok("fr", w("se marier", "er"), "perfect", "5", "ils se sont mariés"));
 assert(ok("fr", w("se battre", "re", { agreement: "none" }), "perfect", "5", "ils se sont battu"));
 
+const imprimir = w("imprimir", "ir", { participle: "impreso/imprimido" });
+assert(ok("es", imprimir, "perfect", "0", "he impreso") && ok("es", imprimir, "perfect", "0", "yo he imprimido"));
+assert.equal(answers("es", imprimir, "perfect")[2], "ha impreso");
+
 // --- Vocabulary recall ---
 const noun = (term: string, extra: Partial<VocabItem> = {}): VocabItem => ({ id: term, lesson: "l1", term, pos: "noun", meanings: ["x"], ...extra }) as VocabItem;
 assert.equal(checkRecall(noun("el perro"), "el perro", "es").ok, true);

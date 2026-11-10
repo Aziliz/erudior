@@ -157,9 +157,9 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
     }
     case "perfect": {
       const { p, given } = esParticiple(v);
-      const x = `${v.reflexive ? ES_REFL[i] + " " : ""}${HABER[i]} ${p}`;
-      const rule = `Pretérito perfecto: haber (${HABER[i]}) + the participle ${p}${given ? " (irregular)" : v.cls === "ar" ? " (-ar → -ado)" : " (-er/-ir → -ido)"}`;
-      return { answers: withPronouns(x, ES_PRONOUNS[i], "es"), rule };
+      const xs = alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${HABER[i]} ${pp}`);
+      const rule = `Pretérito perfecto: haber (${HABER[i]}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : v.cls === "ar" ? " (-ar → -ado)" : " (-er/-ir → -ido)"}`;
+      return { answers: [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))], rule };
     }
     case "imperfect": {
       const given = table(v.f.imperfect);
@@ -356,11 +356,12 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
     }
     case "perfect": {
       const i = Number(person);
-      const { p, given } = frParticiple(v);
+      const { p: pAll, given } = frParticiple(v);
+      const p = alts(pAll)[0];
       const aux = (v.etre ? ETRE : AVOIR)[i];
       // With être the participle agrees with the subject: accept every agreement the person allows.
       const agrees = v.etre && !(v.reflexive && (v.f.agreement === "none" || FR_INDIRECT_SE.includes(v.base)));
-      const parts = !agrees ? [p] : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
+      const parts = !agrees ? alts(pAll) : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
       const forms = parts.map((pp) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`));
       const verb = (pp: string) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`);
       // With être and a subject that shows gender, the agreement must match it: il est allé, elle est allée.
