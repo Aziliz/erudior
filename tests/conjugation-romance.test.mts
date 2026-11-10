@@ -217,4 +217,7 @@ assert(!r.ok && "retry" in r && r.retry, "oe for œ: try again");
 assert.equal(checkRecall(noun("le chien"), "le chat", "fr").ok, false);
 assert.equal(checkRecall(noun("der Hund"), "Hund", "de").ok, false, "German unchanged");
 
+const evacuar = w("evacuar", "ar", { imperativeUsted: "evacúe/evacue" });
+assert(ok("es", evacuar, "imperative", "usted", "evacúe") && ok("es", evacuar, "imperative", "usted", "evacue"), "slash alternatives in imperativeUsted");
+
 console.log("Spanish and French conjugation and recall passed.");

@@ -259,13 +259,13 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
     }
     case "imperative": {
       if (person === "tú") {
-        if (v.f.imperative) return { answers: [v.f.imperative], rule: `tú command of ${v.term}: ${v.f.imperative}` };
+        if (v.f.imperative) return { answers: alts(v.f.imperative), rule: `tú command of ${v.term}: ${v.f.imperative}` };
         if (v.reflexive) return undefined; // levántate: the accent must be given
         const x = esPresent(v, 2).form;
         return { answers: alts(x), rule: `Affirmative tú command: the él/ella form of the present (${x})` };
       }
       if (person === "usted") {
-        if (v.f.imperativeUsted) return { answers: [v.f.imperativeUsted], rule: `usted command of ${v.term}: ${v.f.imperativeUsted}` };
+        if (v.f.imperativeUsted) return { answers: alts(v.f.imperativeUsted), rule: `usted command of ${v.term}: ${v.f.imperativeUsted}` };
         if (v.reflexive) return undefined;
         const yo = alts(esPresent(v, 0).form)[0];
         if (!yo.endsWith("o")) return undefined; // soy, voy, doy, sé, estoy: must be given
