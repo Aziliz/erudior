@@ -4709,7 +4709,7 @@
   "order": 101,
   "title": "German A2",
   "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all. Conjugation drills add adjective endings to the A1 verb forms, sentence-building questions practise word order, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4724,7 +4724,7 @@
   "questions": 667,
   "cards": 193,
   "drills": 0,
-  "words": 1791,
+  "words": 1795,
   "carried": 924,
   "requires": [
    "lang-german-a1"
@@ -4876,7 +4876,7 @@
   "order": 102,
   "title": "German B1",
   "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Conjugation drills add the simple past, the Konjunktiv II and genitive adjective endings, and sentence-building questions practise word order. Unlocks when German A2 is complete.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4891,8 +4891,8 @@
   "questions": 776,
   "cards": 187,
   "drills": 0,
-  "words": 3044,
-  "carried": 1791,
+  "words": 3048,
+  "carried": 1795,
   "requires": [
    "lang-german-a2"
   ],
@@ -5053,7 +5053,7 @@
   "order": 103,
   "title": "German B2",
   "description": "The fourth step in German, from B1 to CEFR level B2, the level of the Goethe-Zertifikat B2. Lessons cover reporting what others said with the Konjunktiv I, the passive and its alternatives (sein + zu, sich lassen, -bar), extended participial attributes, the nominal style of formal texts, Funktionsverbgefüge, modal particles, subjective modal verbs, complex connectors such as indem, je nachdem and insofern als, the Futur II, word formation, and writing and speaking at B2: forum posts that argue a case, formal messages at work, presentations and discussions. About 1,000 new words build on the roughly 2,400 core words of German A1 to B1 for about 3,400 in all, and a reading list suggests novels, news and podcasts at this level. Unlocks when German B1 is complete.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5068,8 +5068,8 @@
   "questions": 794,
   "cards": 0,
   "drills": 0,
-  "words": 4311,
-  "carried": 3044,
+  "words": 4315,
+  "carried": 3048,
   "requires": [
    "lang-german-b1"
   ],
@@ -5230,7 +5230,7 @@
   "order": 104,
   "title": "German C1",
   "description": "The fifth step in German, from B2 to CEFR level C1, the level of the Goethe-Zertifikat C1. Lessons cover modal verbs in every tense and their subjective use about the past, the Konjunktiv II of the past with modal verbs and the passive, the Konjunktiv I in academic and legal reporting, focus and modal particles, advanced nominal style, Funktionsverbgefüge and participial constructions, every alternative to the passive, the word es and other pointing words, text cohesion, idioms, register and advanced word formation, and the texts of law, economics, science, politics and culture. Writing and speaking reach C1: summaries, graph descriptions, the Erörterung, forum posts and half-formal messages, talks and discussions, and mediation, with a look at regional German and literature. About 1,000 new words build on the roughly 3,400 core words of German A1 to B2 for about 4,400 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German B2 is complete.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5245,8 +5245,8 @@
   "questions": 792,
   "cards": 0,
   "drills": 0,
-  "words": 5593,
-  "carried": 4311,
+  "words": 5597,
+  "carried": 4315,
   "requires": [
    "lang-german-b2"
   ],
@@ -5396,6 +5396,183 @@
      "Die Brüder Grimm: fairy tales and a dictionary",
      "From Althochdeutsch to today: a short history of German",
      "Alexander von Humboldt: science, travel and the essay"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-german-c2",
+  "file": "languages/lang-german-c2.json",
+  "order": 105,
+  "title": "German C2",
+  "description": "The sixth and last step in German, from C1 to CEFR level C2, the level of the Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom. Lessons cover precise word choice among near-synonyms and their connotations, deliberate shifts of register from Amtsdeutsch to salopp, the Konjunktiv and modality in their subtle uses, verbs with genitive objects, rewriting between nominal and verbal style, complex periods and fine word order, productive word formation and verb prefixes, argument and rhetoric, academic and journalistic writing, idioms, proverbs, collocations, humour, irony and metaphor, and the specialist German of law, medicine, finance, science and administration. Literary German is read across the periods in public-domain texts, with older German, contemporary language change, mediation at C2 and the Goethe C2 exam. About 1,000 new words build on the roughly 4,450 core words of German A1 to C1 for about 5,450 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German C1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 16,
+  "questions": 793,
+  "cards": 0,
+  "drills": 0,
+  "words": 6895,
+  "carried": 5597,
+  "requires": [
+   "lang-german-c1"
+  ],
+  "lessonIds": [
+   "de6-wortfelder",
+   "de6-register-shift",
+   "de6-konjunktiv-nuance",
+   "de6-modality-nuance",
+   "de6-genitive-valency",
+   "de6-nominal-verbal",
+   "de6-complex-syntax",
+   "de6-word-order",
+   "de6-word-formation",
+   "de6-verb-prefixes",
+   "de6-argumentation",
+   "de6-rhetoric",
+   "de6-academic-writing",
+   "de6-journalism",
+   "de6-writing-c2",
+   "de6-idioms-c2",
+   "de6-proverbs-quotations",
+   "de6-collocations",
+   "de6-humour-wordplay",
+   "de6-metaphor",
+   "de6-legal-language",
+   "de6-medical-language",
+   "de6-finance-language",
+   "de6-science-language",
+   "de6-administrative-language",
+   "de6-older-german",
+   "de6-literary-prose",
+   "de6-language-change",
+   "de6-mediation-c2",
+   "de6-exam-review"
+  ],
+  "honorsLessonIds": [
+   "de6-m1-h-translation",
+   "de6-m1-h-stilkritik",
+   "de6-m2-h-twain",
+   "de6-m2-h-zweifelsfaelle",
+   "de6-m3-h-speeches",
+   "de6-m3-h-scicomm",
+   "de6-m4-h-nonsense",
+   "de6-m4-h-fables",
+   "de6-m5-h-bverfg",
+   "de6-m5-h-insurance",
+   "de6-m6-h-tonio-kroeger",
+   "de6-m6-h-schnitzler",
+   "de6-h-romantik",
+   "de6-h-nietzsche",
+   "de6-h-freud",
+   "de6-h-zweig"
+  ],
+  "honorsModuleIds": [
+   "de6-h1"
+  ],
+  "outline": [
+   {
+    "title": "Precision, register and nuance",
+    "lessons": [
+     "Raunen, tuscheln, wispern: near-synonyms, connotation and the precise word",
+     "Malochen oder arbeiten: shifting register on purpose",
+     "Komme, was wolle: the Konjunktiv in its subtle uses",
+     "Dürfte, schwerlich, droht zu: modality beyond the modal verbs",
+     "Er bedarf keiner Hilfe: genitive objects and the government of verbs"
+    ],
+    "honors": [
+     "Übersetzen: English ↔ German and where it goes wrong",
+     "Schwulst und Prägnanz: Lichtenberg, Schopenhauer and Kraus on style"
+    ]
+   },
+   {
+    "title": "Sentence building and word formation",
+    "lessons": [
+     "Umformulieren: Nominalstil and Verbalstil in both directions",
+     "Satzperioden: reading and building complex sentences",
+     "Kühe hat er drei: fine word order in the Mittelfeld and Vorfeld",
+     "Gerede, Schreiberling, notlanden: productive word formation",
+     "Umschiffen oder umschiffen: verb prefixes and particle verbs"
+    ],
+    "honors": [
+     "\"The Awful German Language\": Mark Twain's complaints, checked",
+     "Gewinkt oder gewunken? Doubtful cases of German grammar"
+    ]
+   },
+   {
+    "title": "Argument, rhetoric, scholarship and the press",
+    "lessons": [
+     "Das greift zu kurz: argument structure and fallacies",
+     "Überzeugen: rhetoric, the C2 talk and the pro-and-contra discussion",
+     "Einer Frage nachgehen: academic German at C2",
+     "Aufmacher, Lead, Kommentar: journalistic genres and press style",
+     "Writing at C2: Umformulierung, Leserbrief, Buchbesprechung"
+    ],
+    "honors": [
+     "Reden, die Geschichte machten: analysing historic German speeches",
+     "Verständlich erklären: science communication"
+    ]
+   },
+   {
+    "title": "Idiom, humour and imagery",
+    "lessons": [
+     "Den Bogen überspannen: idioms at depth",
+     "Des Pudels Kern: proverbs and geflügelte Worte",
+     "Bedenken äußern, Zweifel hegen: collocations",
+     "Kalauer, Ironie, Understatement: humour and wordplay",
+     "Der Konflikt schwelt: metaphor, metonymy and image fields"
+    ],
+    "honors": [
+     "Das große Lalula: nonsense poetry and Dada",
+     "Der Rabe und der Fuchs: fables, parables and Lessing"
+    ]
+   },
+   {
+    "title": "Specialist German",
+    "lessons": [
+     "Fraglich ist, ob …: judgments, Gutachtenstil and contracts",
+     "Inzidenz und Prävalenz: medical German from the clinic to the public",
+     "Bilanz und Lagebericht: the language of company finance",
+     "Die Messreihe zeigt …: physics and chemistry in German",
+     "Gegen diesen Bescheid …: administrative German"
+    ],
+    "honors": [
+     "Das Volkszählungsurteil: reading a Constitutional Court judgment",
+     "Das Kleingedruckte: insurance terms and general conditions"
+    ]
+   },
+   {
+    "title": "Literature, variation, mediation and the C2 exam",
+    "lessons": [
+     "Es ist alles eitel: reading older German, 1600–1800",
+     "Erzählhaltung und Zwischentöne: reading literary prose, 1850–1930",
+     "Weil das ist so: language change and variation today",
+     "Synthesizing sources: mediation and summary at C2",
+     "The Goethe-Zertifikat C2: GDS and review"
+    ],
+    "honors": [
+     "Thomas Mann, Tonio Kröger: irony and the artist",
+     "Schnitzler, Leutnant Gustl: the interior monologue and Vienna 1900"
+    ]
+   },
+   {
+    "title": "Honors: Von der Romantik zum Exil (from Romanticism to exile)",
+    "lessons": [],
+    "honors": [
+     "Die blaue Blume: German Romanticism (Novalis, Schlegel, Hoffmann)",
+     "Ein bewegliches Heer von Metaphern: Nietzsche's German",
+     "Das Ich und das Es: Freud's German and its translation",
+     "Stefan Zweig, Die Welt von Gestern: memory, Europe and exile"
     ],
     "isHonors": true
    }
@@ -6207,6 +6384,166 @@
     "honors": [
      "A longer story: the watch in the drawer",
      "Writing an opinion piece: さくぶん and げんこうようし"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n2",
+  "file": "languages/lang-japanese-n2.json",
+  "order": 124,
+  "title": "Japanese N2",
+  "description": "The fourth step in Japanese, from N3 to JLPT N2. Grammar lessons cover concession and contrast (ものの, にもかかわらず, とはいえ, 反面), time and occasion (に先立って, に際して, 次第, 上で, 以来, つつ), reasons and grounds (からには, 以上, ばかりに, だけに, に基づいて, に応じて, をめぐって), possibility and judgement (かねない, かねる, ざるを得ない, っこない, に越したことはない, ないことには), scope and emphasis (はもとより, に限らず, を問わず, どころか, ずにはいられない, ものなら, とか), and the written forms of newspapers, columns and essays, with a long reading in every lesson and exam practice at the end. About 2,300 new words build on the 3,700 from the earlier courses for about 6,000 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; 390 new kanji (about 1,040 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N3.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 390,
+  "drills": 0,
+  "words": 5995,
+  "carried": 3683,
+  "requires": [
+   "lang-japanese-n3"
+  ],
+  "lessonIds": [
+   "n2-mono-no",
+   "n2-ni-mo-kakawarazu",
+   "n2-hanmen",
+   "n2-ni-shiro",
+   "n2-hedging",
+   "n2-ni-sakidatte",
+   "n2-shidai",
+   "n2-irai",
+   "n2-tsutsu",
+   "n2-kikkake",
+   "n2-kara-ni-wa",
+   "n2-bakari-ni",
+   "n2-ni-motozuite",
+   "n2-o-megutte",
+   "n2-ni-tsuki",
+   "n2-kanenai",
+   "n2-zaru-o-enai",
+   "n2-kkonai",
+   "n2-ni-koshita",
+   "n2-ni-suginai",
+   "n2-wa-motoyori",
+   "n2-te-tamaranai",
+   "n2-mono-ga-aru",
+   "n2-toka",
+   "n2-mono-nara",
+   "n2-written",
+   "n2-word-formation",
+   "n2-argument",
+   "n2-practice",
+   "n2-exam"
+  ],
+  "honorsLessonIds": [
+   "n2-rakugo",
+   "n2-soseki",
+   "n2-sado",
+   "n2-akutagawa",
+   "n2-saibanin",
+   "n2-yojijukugo",
+   "n2-hatarakikata",
+   "n2-kenji",
+   "n2-onomatopoeia",
+   "n2-yokai",
+   "n2-long-story",
+   "n2-shouronbun"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Although, despite and on the other hand",
+    "lessons": [
+     "Although: ものの, とはいえ, からといって",
+     "Despite: にもかかわらず, ながらも, つつも",
+     "Two sides: 反面, 一方で, かと思うと, どころか",
+     "Even if: にしても, にしろ, にせよ, としても",
+     "Not exactly: というわけではない, ないこともない, ないとも限らない"
+    ],
+    "honors": [
+     "Rakugo and manzai",
+     "Natsume Soseki and \"Ten Nights of Dreams\""
+    ]
+   },
+   {
+    "title": "Time, occasion and process",
+    "lessons": [
+     "Before and on the occasion: に先立って, にあたって, に際して",
+     "As soon as and depending on: 次第, た上で, 末に, あげく",
+     "Since and throughout: 以来, てからというもの, にわたって",
+     "While and in progress: つつ, つつある, にともなって",
+     "Triggers and occasions: をきっかけに, を機に, につけ"
+    ],
+    "honors": [
+     "The tea ceremony and wagashi",
+     "Akutagawa and \"The Spider's Thread\""
+    ]
+   },
+   {
+    "title": "Reasons, grounds and basis",
+    "lessons": [
+     "Since it's so: からには, 以上は, 上は",
+     "Just because, precisely because: ばかりに, だけに, だけあって",
+     "Based on and in line with: にもとづいて, をもとに, にそって, におうじて",
+     "Over and concerning: をめぐって, に関する, にこたえて",
+     "Reasons in notices: につき, により, ため, とあって"
+    ],
+    "honors": [
+     "The lay-judge system",
+     "Four-character compounds"
+    ]
+   },
+   {
+    "title": "Possibility, judgement and obligation",
+    "lessons": [
+     "It could happen: かねない, おそれがある, 得る",
+     "Can't and must: かねる, がたい, ざるを得ない, わけにはいかない",
+     "No way: っこない, まい, ようがない, ものか",
+     "Best to, unless, must: にこしたことはない, ないことには, ほかない",
+     "Only, the best, as long as: に過ぎない, に限る, 限り"
+    ],
+    "honors": [
+     "How Japan works: work-style reform",
+     "Miyazawa Kenji: 雨ニモマケズ"
+    ]
+   },
+   {
+    "title": "Scope, emphasis and feeling",
+    "lessons": [
+     "Not only, regardless of: はもとより, のみならず, を問わず, に限らず",
+     "Can't help it: てたまらない, てならない, ないではいられない",
+     "Exclamations: ものがある, ことに, 限りだ",
+     "Hearsay and seeming: とか, という話だ, かのように, げ",
+     "If only, if you dare: ものなら, ようものなら, ては"
+    ],
+    "honors": [
+     "Onomatopoeia",
+     "Yōkai and folklore"
+    ]
+   },
+   {
+    "title": "Written Japanese and the N2 exam",
+    "lessons": [
+     "Written forms: ねばならない, ぬ, とする, にいたる",
+     "Word formation: prefixes and suffixes",
+     "Building an argument: したがって, もっとも, ただし, というものだ",
+     "Reading and listening practice",
+     "The JLPT N2 and review"
+    ],
+    "honors": [
+     "A longer story: letters in the storehouse",
+     "Writing a short essay"
     ]
    }
   ]

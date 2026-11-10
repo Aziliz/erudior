@@ -5,8 +5,8 @@
  "title": "German B1",
  "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Conjugation drills add the simple past, the Konjunktiv II and genitive adjective endings, and sentence-building questions practise word order. Unlocks when German A2 is complete.",
  "author": "Erudior",
- "revision": 4,
- "changelog": "Conjugation drills for every verb and adjective; sentence-building questions.",
+ "revision": 5,
+ "changelog": "Reviews include the new A2 words for travel by water.",
  "modules": [
   {
    "id": "de3-m1",
@@ -39384,6 +39384,69 @@
    ],
    "example": "Mein Schreibtisch steht am Fenster.",
    "exampleEn": "My desk is by the window.",
+   "from": "lang-german-a2"
+  },
+  {
+   "id": "schiff",
+   "lesson": "de2-travel",
+   "term": "das Schiff",
+   "pos": "noun",
+   "plural": "die Schiffe",
+   "meanings": [
+    "ship (large boat)",
+    "ship",
+    "boat"
+   ],
+   "example": "Wir fahren mit dem Schiff über den Bodensee.",
+   "exampleEn": "We're crossing Lake Constance by ship.",
+   "from": "lang-german-a2"
+  },
+  {
+   "id": "boot",
+   "lesson": "de2-travel",
+   "term": "das Boot",
+   "pos": "noun",
+   "plural": "die Boote",
+   "meanings": [
+    "boat (small)",
+    "boat"
+   ],
+   "example": "Am See kann man ein Boot mieten.",
+   "exampleEn": "You can rent a boat at the lake.",
+   "from": "lang-german-a2"
+  },
+  {
+   "id": "hafen",
+   "lesson": "de2-travel",
+   "term": "der Hafen",
+   "pos": "noun",
+   "plural": "die Häfen",
+   "meanings": [
+    "harbour",
+    "port",
+    "harbor"
+   ],
+   "example": "Das Schiff kommt um zehn Uhr im Hafen an.",
+   "exampleEn": "The ship arrives in the harbour at ten.",
+   "note": "der Flughafen (A1) is the \"air harbour\": the airport.",
+   "from": "lang-german-a2"
+  },
+  {
+   "id": "segeln",
+   "lesson": "de2-travel",
+   "term": "segeln",
+   "pos": "verb",
+   "conj": "weak",
+   "forms": {
+    "perfect": "ist gesegelt"
+   },
+   "meanings": [
+    "to sail",
+    "to go sailing"
+   ],
+   "example": "Im Sommer segeln wir oft auf der Ostsee.",
+   "exampleEn": "In summer we often go sailing on the Baltic.",
+   "note": "Perfect with sein when you go somewhere (Wir sind nach Dänemark gesegelt); haben is also heard for the activity itself.",
    "from": "lang-german-a2"
   },
   {
