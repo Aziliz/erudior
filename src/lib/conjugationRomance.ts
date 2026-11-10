@@ -160,7 +160,7 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
         x = v.preterite[i];
         rule = `${v.term} has an irregular or respelled preterite: ${v.preterite.filter((_, k) => k !== 4).join(", ")}`;
       } else {
-        if (/(car|gar|zar)$/.test(v.base) || /[aeo](er|ir)$/.test(v.base) || /uir$/.test(v.base)) return undefined; // busqué, leyó: must be given
+        if (/(car|gar|zar|guar)$/.test(v.base) || /[aeo](er|ir)$/.test(v.base) || /uir$/.test(v.base)) return undefined; // busqué, averigüé, leyó: must be given
         if (v.stem.length < 2) return undefined; // ver: vi, vio (no accents); ir, dar: irregular
         if (v.cls === "ir" && v.present && v.present[0] !== `${v.reflexive ? "me " : ""}${v.stem}o`) return undefined; // pedir → pidió, dormir → durmió
         x = v.stem + ES_PRETERITE_END[v.cls][i];
@@ -185,7 +185,7 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
       } else {
         if (v.present || /(ger|gir|guir|cer|cir)$/.test(v.base) || ["ser", "ir", "estar", "dar", "saber", "haber", "ver"].includes(v.base)) return undefined;
         let root = v.stem;
-        if (v.cls === "ar") root = root.replace(/c$/, "qu").replace(/g$/, "gu").replace(/z$/, "c");
+        if (v.cls === "ar") root = root.replace(/gu$/, "gü").replace(/c$/, "qu").replace(/g$/, "gu").replace(/z$/, "c");
         const end = (v.cls === "ar" ? ES_SUBJ_AR : ES_SUBJ_ER)[i];
         x = `${v.reflexive ? ES_REFL[i] + " " : ""}${root}${end}`;
         rule = `Present subjunctive: the yo present without -o (${v.stem}-) + the "other" vowel: ${v.cls === "ar" ? "-ar verbs take -e" : "-er/-ir verbs take -a"} (${root}${end})`;
@@ -271,7 +271,8 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
         if (!yo.endsWith("o")) return undefined; // soy, voy, doy, sé, estoy: must be given
         let root = yo.slice(0, -1);
         let end = v.cls === "ar" ? "e" : "a";
-        if (v.cls === "ar" && /c$/.test(root)) root = root.slice(0, -1) + "qu";
+        if (v.cls === "ar" && /gu$/.test(root)) root = root.slice(0, -1) + "ü";
+        else if (v.cls === "ar" && /c$/.test(root)) root = root.slice(0, -1) + "qu";
         else if (v.cls === "ar" && /g$/.test(root)) root = root + "u";
         else if (v.cls === "ar" && /z$/.test(root)) root = root.slice(0, -1) + "c";
         const x = root + end;

@@ -185,6 +185,10 @@ assert.deepEqual(answers("fr", parler, "pluperfect"), { 0: "avais parlé", 1: "a
 assert(ok("fr", aller, "pluperfect", "2", "elle était allée") && !ok("fr", aller, "pluperfect", "2", "il était allée"));
 assert.equal(answers("fr", seLever, "pluperfect")[2], "s'était levé");
 
+assert.equal(answers("es", w("averiguar", "ar"), "subjunctive")[0], "averigüe");
+assert.equal(answers("es", w("averiguar", "ar"), "imperative").usted, "averigüe");
+assert.equal(answers("es", w("averiguar", "ar"), "preterite")[0], undefined, "averigüé must be given");
+
 // --- Vocabulary recall ---
 const noun = (term: string, extra: Partial<VocabItem> = {}): VocabItem => ({ id: term, lesson: "l1", term, pos: "noun", meanings: ["x"], ...extra }) as VocabItem;
 assert.equal(checkRecall(noun("el perro"), "el perro", "es").ok, true);
