@@ -141,6 +141,12 @@ assert.equal(answers("fr", w("pouvoir", "irr", { present: "peux, peux, peut, pou
 assert.equal(answers("fr", seLever, "future")[2], "se lèvera");
 assert(conjWordWarnings("fr", faire).some((x) => /futureStem/.test(x)));
 
+const seParler = w("se parler", "er");
+assert(ok("fr", seParler, "perfect", "5", "ils se sont parlé") && !ok("fr", seParler, "perfect", "5", "ils se sont parlés"), "indirect se: no agreement");
+assert(ok("fr", w("se demander", "er"), "perfect", "2", "elle s'est demandé"));
+assert(ok("fr", w("se marier", "er"), "perfect", "5", "ils se sont mariés"));
+assert(ok("fr", w("se battre", "re", { agreement: "none" }), "perfect", "5", "ils se sont battu"));
+
 // --- Vocabulary recall ---
 const noun = (term: string, extra: Partial<VocabItem> = {}): VocabItem => ({ id: term, lesson: "l1", term, pos: "noun", meanings: ["x"], ...extra }) as VocabItem;
 assert.equal(checkRecall(noun("el perro"), "el perro", "es").ok, true);

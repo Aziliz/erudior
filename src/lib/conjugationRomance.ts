@@ -236,7 +236,7 @@ export function esWordWarnings(item: VocabItem): string[] {
   if (/ir$/.test(term) && term !== "ir" && !/se$/.test(item.term.trim()) && f.present && !f.gerund && !/(salir|vivir|escribir|abrir|subir|recibir|decidir|cubrir|existir|permitir|insistir|asistir|unir|partir|compartir|discutir|sufrir|imprimir|interrumpir|describir|añadir|ocurrir)$/.test(term))
     out.push(`"${item.term}" has an irregular present: if its gerund changes too (pidiendo, durmiendo, diciendo, viniendo), give forms.gerund; otherwise it isn't drilled`);
   if (/(car|gar|zar)$/.test(term) && !f.preterite) out.push(`"${item.term}" respells its yo preterite (busqué, llegué, empecé): give forms.preterite or the preterite isn't drilled`);
-  if (/(ar|er|ir)se$/.test(item.term) && !f.imperative) out.push(`reflexive "${item.term}" has no forms.imperative/imperativeUsted (levántate, levántese): its commands aren't drilled`);
+  if (/(ar|er|ir)se$/.test(item.term) && !f.imperative && !item.noForms?.includes("imperative")) out.push(`reflexive "${item.term}" has no forms.imperative/imperativeUsted (levántate, levántese): its commands aren't drilled`);
   if (["abrir", "escribir", "ver", "volver", "poner", "hacer", "decir", "romper", "morir", "descubrir", "devolver", "resolver", "cubrir", "satisfacer", "freír", "imprimir"].includes(term) && !f.participle)
     out.push(`"${item.term}" has an irregular participle: give forms.participle`);
   return out;
@@ -303,6 +303,8 @@ function frVerb(item: VocabItem): FrVerb | string {
 const FR_IMPERFECT_END = ["ais", "ais", "ait", "ions", "iez", "aient"];
 const FR_FUTURE_END = ["ai", "as", "a", "ons", "ez", "ont"];
 /** Verbs (and compounds) whose future stem isn't made from the infinitive: ser-, aur-, ir-, fer-, viendr-… */
+/** Pronominal verbs whose se is an indirect object ("to oneself / each other"): no participle agreement. */
+const FR_INDIRECT_SE = ["demander", "parler", "téléphoner", "dire", "écrire", "sourire", "plaire", "mentir", "ressembler", "succéder", "rendre compte", "répondre", "envoyer", "offrir", "donner"];
 const FR_IRREGULAR_FUTURE = /^(être|avoir|aller|faire|défaire|refaire|satisfaire|.*venir|.*tenir|envoyer|renvoyer|courir|parcourir|mourir|cueillir|accueillir|recueillir|acquérir|conquérir|falloir|.*oir)$/;
 
 function frFutureStems(v: FrVerb): string[] {
@@ -357,11 +359,12 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
       const { p, given } = frParticiple(v);
       const aux = (v.etre ? ETRE : AVOIR)[i];
       // With être the participle agrees with the subject: accept every agreement the person allows.
-      const parts = !v.etre ? [p] : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
+      const agrees = v.etre && !(v.reflexive && (v.f.agreement === "none" || FR_INDIRECT_SE.includes(v.base)));
+      const parts = !agrees ? [p] : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
       const forms = parts.map((pp) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`));
       const verb = (pp: string) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`);
       // With être and a subject that shows gender, the agreement must match it: il est allé, elle est allée.
-      const gendered: string[] | undefined = !v.etre
+      const gendered: string[] | undefined = !agrees
         ? undefined
         : i === 2
           ? [verb(p), verb(p + "e"), `il ${verb(p)}`, `Il ${verb(p)}`, `elle ${verb(p + "e")}`, `Elle ${verb(p + "e")}`, ...[p, p + "e", p + "s", p + "es"].flatMap((x) => [`on ${verb(x)}`, `On ${verb(x)}`])]
@@ -369,7 +372,9 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
             ? [verb(p + "s"), verb(p + "es"), `ils ${verb(p + "s")}`, `Ils ${verb(p + "s")}`, `elles ${verb(p + "es")}`, `Elles ${verb(p + "es")}`]
             : undefined;
       const how = given ? "" : ` (-${v.cls} → -${{ er: "é", ir: "i", re: "u", irr: "" }[v.cls]})`;
-      const rule = v.etre
+      const rule = v.etre && !agrees
+        ? `Passé composé with être (${aux}) + ${p}${how}; here se means "to oneself / to each other", so the participle doesn't agree`
+        : v.etre
         ? `Passé composé with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
         : `Passé composé: avoir (${aux}) + the participle ${p}${how}`;
       return { answers: gendered ?? frAnswers(forms, i), rule };

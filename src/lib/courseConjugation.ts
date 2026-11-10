@@ -88,6 +88,7 @@ export const ROMANCE_FORM_KEYS = [
   "futureStem", // irregular future/conditional stem (tendr; ser, aur)
   "gerund", // es: irregular gerund (durmiendo, diciendo)
   "imperfectStem", // fr: être only (ét)
+  "agreement", // fr: "none" for pronominal verbs whose se is indirect (se parler: ils se sont parlé)
 ] as const;
 export type RomanceFormKey = (typeof ROMANCE_FORM_KEYS)[number];
 export const FORM_KEYS: readonly string[] = [...new Set<string>([...DE_FORM_KEYS, ...ROMANCE_FORM_KEYS])];
