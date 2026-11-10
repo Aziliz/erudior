@@ -6,15 +6,15 @@ const exam = (id: string, title: string, modules: string[], before: string[]) =>
     "Complete timed practice exams and a final-review plan from your error log.", before);
 
 /** Shared business and finance outlines. */
-const FINANCIAL_ACCOUNTING = c("biz-financial-accounting", "Financial Accounting",
+export const FINANCIAL_ACCOUNTING = c("biz-financial-accounting", "Financial Accounting",
   ["The accounting cycle", "Financial statements", "Receivables and inventory", "Long-lived assets", "Liabilities and equity", "Cash flows and analysis"],
   ["Record transactions and prepare financial statements.", "Prepares for the CLEP Financial Accounting exam."],
   "Prepare a full set of statements for a fictional small business and analyze them.");
-const MANAGERIAL_ACCOUNTING = c("biz-managerial-accounting", "Managerial Accounting",
+export const MANAGERIAL_ACCOUNTING = c("biz-managerial-accounting", "Managerial Accounting",
   ["Cost behavior", "Costing systems", "Cost-volume-profit analysis", "Budgeting", "Variance analysis", "Decision making"],
   ["Use cost information for planning and decisions.", "Build and analyze budgets."],
   "Build a budget and variance analysis for a fictional company.", ["biz-financial-accounting"]);
-const BUSINESS_LAW = c("biz-business-law", "Business Law",
+export const BUSINESS_LAW = c("biz-business-law", "Business Law",
   ["The legal system", "Contracts", "Sales and the UCC", "Agency and employment", "Business organizations", "Property, torts and ethics"],
   ["Apply contract and business organization law to business problems.", "Prepares for the CLEP Introductory Business Law exam."],
   "Analyze a fictional business dispute and draft a short memo.");
@@ -26,7 +26,7 @@ const BUSINESS_TAX = c("biz-business-taxation", "Business Taxation",
   ["Sole proprietorships", "Partnerships", "C corporations", "S corporations", "Trusts, estates and exempt organizations", "Payroll and employment taxes"],
   ["Explain how each business form is taxed.", "Prepare simple business returns."],
   "Compare the tax results of operating a fictional business as three different entities.", ["biz-individual-taxation"]);
-const INVESTMENTS = c("biz-investments", "Investments",
+export const INVESTMENTS = c("biz-investments", "Investments",
   ["Securities markets", "Stocks", "Bonds", "Funds and other products", "Risk, return and diversification", "Portfolio management"],
   ["Explain how securities and funds work and their risks.", "Build a diversified portfolio for stated goals."],
   "Build and defend an investment policy statement for a fictional client.");

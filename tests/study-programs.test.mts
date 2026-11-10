@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse } from '../src/lib/studyPrograms';
+import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse, programCategory } from '../src/lib/studyPrograms';
 import { parseLearningPathways, pathwayProgress, starterPathways } from '../src/lib/learningPathways';
 import { emptyCourse } from '../src/lib/course';
 import { emptyProgress } from '../src/lib/storage';
@@ -196,5 +196,12 @@ console.log('College core areas passed.');
   assert.match(medical.description, /Pre-Med comes first/);
   assert.equal(programCourses(medical).at(-1)!.courseId, 'med-usmle-step1-preparation');
   assert.equal(programCourses(STUDY_PROGRAMS.find(p => p.id === 'pre-med')!).at(-1)!.courseId, 'pre-med-mcat-preparation');
+}
+{
+  for (const program of STUDY_PROGRAMS) if (program.id !== 'college-core')
+    assert.notEqual(programCategory(program), 'College', `${program.id} has a subject category`);
+  const majors = STUDY_PROGRAMS.filter(p => p.id.startsWith('major-'));
+  assert(majors.length >= 30, 'college majors are listed');
+  for (const major of majors) assert.match(major.notice, /not a degree/, `${major.id}: says it is not a degree`);
 }
 console.log('Staged programs passed.');

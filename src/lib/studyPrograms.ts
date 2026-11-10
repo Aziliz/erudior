@@ -6,6 +6,11 @@ import { COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM } from "./engi
 import { COSMETOLOGY_PROGRAM } from "./cosmetologyProgram";
 import { HEALTH_PROGRAMS } from "./healthPrograms";
 import { TRADE_PROGRAMS } from "./tradePrograms";
+import { SCIENCE_MAJORS } from "./majorsScience";
+import { ENGINEERING_MAJORS } from "./majorsEngineering";
+import { SOCIAL_SCIENCE_MAJORS } from "./majorsSocial";
+import { HUMANITIES_ARTS_MAJORS } from "./majorsHumanitiesArts";
+import { BUSINESS_HEALTH_MAJORS } from "./majorsBusinessHealth";
 import { BUSINESS_LAW_PROGRAMS, ENGINEERING_EDUCATION_PROGRAMS, PUBLIC_SAFETY_IT_PROGRAMS } from "./professionalPrograms";
 
 export interface ProgramCourse {
@@ -46,6 +51,8 @@ export interface ProgramPool {
 /** Editorial program definitions are separate from the signed, available-course catalog. */
 export interface StudyProgram {
   id: string;
+  /** Catalog group; programs without one fall back to the id map below. */
+  category?: ProgramCategory;
   version: number;
   title: string;
   description: string;
@@ -62,6 +69,7 @@ export const STUDY_PROGRAMS: readonly StudyProgram[] = [
   JD_PROGRAM, COLLEGE_CORE_PROGRAM, PRE_MED_PROGRAM, MEDICAL_PROGRAM,
   COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM, COSMETOLOGY_PROGRAM,
   ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
+  ...SCIENCE_MAJORS, ...ENGINEERING_MAJORS, ...SOCIAL_SCIENCE_MAJORS, ...HUMANITIES_ARTS_MAJORS, ...BUSINESS_HEALTH_MAJORS,
 ];
 
 /** Every course outline the program describes: required stage courses, then area outlines. */
@@ -157,7 +165,7 @@ export function plannedProgramCourse(id: string): ProgramCourse | undefined {
 }
 
 /** Program catalog groups, in display order. */
-export const PROGRAM_CATEGORIES = ["College", "Law", "Medicine and health", "Engineering and technology", "Business and finance", "Education", "Public safety", "Trades and transportation"] as const;
+export const PROGRAM_CATEGORIES = ["College", "Sciences and mathematics", "Engineering and technology", "Medicine and health", "Social sciences", "Humanities", "Arts and communication", "Business and finance", "Law", "Education", "Public safety", "Trades and transportation"] as const;
 export type ProgramCategory = typeof PROGRAM_CATEGORIES[number];
 
 const CATEGORY_BY_ID: Record<string, ProgramCategory> = {
@@ -183,7 +191,7 @@ const CATEGORY_BY_ID: Record<string, ProgramCategory> = {
 };
 
 export function programCategory(program: StudyProgram): ProgramCategory {
-  return CATEGORY_BY_ID[program.id] ?? "College";
+  return program.category ?? CATEGORY_BY_ID[program.id] ?? "College";
 }
 
 /** Programs grouped by category in display order, skipping empty groups. */
