@@ -80,6 +80,10 @@ assert.match(conjWordProblem("fr", w("faire", "irr"))!, /forms.present and forms
 assert.match(conjWordProblem("fr", w("aller", "er"))!, /irregular/);
 assert(conjWordWarnings("fr", w("partir", "ir")).some((x) => /irr/.test(x)));
 assert(conjWordWarnings("fr", w("arriver", "er")).some((x) => /être/.test(x)));
+const payer = w("payer", "er", { present: "paie/paye, paies/payes, paie/paye, payons, payez, paient/payent" });
+assert(ok("fr", payer, "present", "0", "je paie") && ok("fr", payer, "present", "0", "je paye"), "both spellings count");
+assert.equal(answers("fr", payer, "present")[0], "paie");
+assert(ok("fr", payer, "imperative", "tu", "paye") && ok("fr", payer, "imperative", "tu", "paie"));
 assert.match(conjWordProblem("es", w("hablar", "re"))!, /isn't a Spanish verb class/);
 
 // --- Vocabulary recall ---

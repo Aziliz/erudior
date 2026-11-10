@@ -6,7 +6,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { Chosen, Question } from "../lib/types";
 import { hasJapanese } from "../lib/kana";
-import { bankOrder, buildJoiner, buildParts, buildPool, closestAnswer, placedTiles, sentenceText, startCase, tilePlain } from "../lib/sentenceBuild";
+import { bankOrder, openingMark, buildJoiner, buildParts, buildPool, closestAnswer, placedTiles, sentenceText, startCase, tilePlain } from "../lib/sentenceBuild";
 import { isCorrect } from "../lib/questions";
 import { RubyText } from "./Ruby";
 
@@ -105,6 +105,7 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
         <p className="small muted build-label">Your sentence</p>
         {placed.length ? (
           <p className="build-sentence is-shown" lang={tileLang}>
+            {openingMark(q, placed.map((i) => pool[i]), lang) && <span className="build-punct">{openingMark(q, placed.map((i) => pool[i]), lang)}</span>}
             {placed.map((tile, pos) => {
               const ok = parts[pos];
               return (
@@ -126,6 +127,7 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
             <p className="build-answer">
               <span className="part-mark bad">✗ Answer:</span>{" "}
               <span lang={tileLang}>
+                {openingMark(q, answer, lang)}
                 {answer.map((t, i) => (
                   <Fragment key={i}>
                     {i > 0 && joiner}
@@ -193,6 +195,11 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
           dropAt(placed.length);
         }}
       >
+        {openingMark(q, placed.map((i) => pool[i]), lang) && (
+          <span className="build-punct" aria-hidden="true">
+            {openingMark(q, placed.map((i) => pool[i]), lang)}
+          </span>
+        )}
         {placed.map((tile, pos) => (
           <button
             key={tile}

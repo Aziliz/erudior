@@ -110,10 +110,17 @@ export function buildParts(q: BuildFields, chosen: readonly unknown[]): boolean[
   return want.map((k, i) => got[i] === k);
 }
 
-/** The sentence as plain text, with the joiner and the final punctuation. */
+/** Spanish questions and exclamations open with ¿ or ¡: the mark added before the sentence. */
+export function openingMark(q: BuildFields, tiles: readonly string[], lang?: string): string {
+  if (lang !== "es" || !tiles.length) return "";
+  const open = q.punctuation === "?" ? "¿" : q.punctuation === "!" ? "¡" : "";
+  return open && !tilePlain(tiles[0]).trimStart().startsWith(open) ? open : "";
+}
+
+/** The sentence as plain text, with the joiner and the final punctuation (and Spanish ¿ ¡). */
 export function sentenceText(q: BuildFields, tiles: string[], lang?: string): string {
   const s = startCase(tiles.map(tilePlain).join(buildJoiner(q, lang)));
-  return tiles.length ? s + (q.punctuation ?? "") : s;
+  return tiles.length ? openingMark(q, tiles, lang) + s + (q.punctuation ?? "") : s;
 }
 
 // --- The bank's starting order ---------------------------------------------------------------

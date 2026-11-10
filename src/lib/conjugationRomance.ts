@@ -27,8 +27,12 @@ const table = (s: string | undefined): string[] | undefined => {
   return t.length === 6 && t.every(Boolean) ? t : undefined;
 };
 
-/** Add "yo ", "Yo " … variants. French je elides before a vowel or h. */
+/** A table cell may give alternatives: "paie/paye". */
+const alts = (cell: string) => cell.split("/").map((x) => x.trim()).filter(Boolean);
+
+/** Add "yo ", "Yo " … variants. French je elides before a vowel or h. A cell's alternatives all count. */
 function withPronouns(form: string, prons: string[], lang: "es" | "fr"): string[] {
+  if (form.includes("/")) return [...new Set(alts(form).flatMap((f) => withPronouns(f, prons, lang)))];
   const out = [form];
   for (const p of prons) {
     const joined = lang === "fr" && p === "je" && /^[aeiouyhâàéèêëîïôûœ]/i.test(form) ? `j'${form}` : `${p} ${form}`;
@@ -148,12 +152,12 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
         if (v.f.imperative) return { answers: [v.f.imperative], rule: `tú command of ${v.term}: ${v.f.imperative}` };
         if (v.reflexive) return undefined; // levántate: the accent must be given
         const x = esPresent(v, 2).form;
-        return { answers: [x], rule: `Affirmative tú command: the él/ella form of the present (${x})` };
+        return { answers: alts(x), rule: `Affirmative tú command: the él/ella form of the present (${x})` };
       }
       if (person === "usted") {
         if (v.f.imperativeUsted) return { answers: [v.f.imperativeUsted], rule: `usted command of ${v.term}: ${v.f.imperativeUsted}` };
         if (v.reflexive) return undefined;
-        const yo = esPresent(v, 0).form;
+        const yo = alts(esPresent(v, 0).form)[0];
         if (!yo.endsWith("o")) return undefined; // soy, voy, doy, sé, estoy: must be given
         let root = yo.slice(0, -1);
         let end = v.cls === "ar" ? "e" : "a";
@@ -295,16 +299,20 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
       if (given) x = given[k];
       else {
         const presentIndex = [1, 3, 4][k];
-        let p = v.present ? v.present[presentIndex] : v.stem + FR_END[v.cls as "er"][presentIndex];
-        if (v.reflexive) p = p.replace(/^(te|nous|vous) /, "").replace(/^t'/, "");
-        if (k === 0 && /es$/.test(p) && (v.cls === "er" || v.cls === "irr")) p = p.slice(0, -1); // parles → parle; ouvres → ouvre
-        if (k === 0 && v.cls === "irr" && p === "vas") return undefined;
-        x = v.reflexive ? `${p}-${["toi", "nous", "vous"][k]}` : p;
+        const cell = v.present ? v.present[presentIndex] : v.stem + FR_END[v.cls as "er"][presentIndex];
+        const forms: string[] = [];
+        for (let p of alts(cell)) {
+          if (v.reflexive) p = p.replace(/^(te|nous|vous) /, "").replace(/^t'/, "");
+          if (k === 0 && /es$/.test(p) && (v.cls === "er" || v.cls === "irr")) p = p.slice(0, -1); // parles → parle; ouvres → ouvre
+          if (k === 0 && v.cls === "irr" && p === "vas") return undefined;
+          forms.push(v.reflexive ? `${p}-${["toi", "nous", "vous"][k]}` : p);
+        }
+        x = forms.join("/");
       }
       const rule = given
         ? `Imperative of ${v.term}: ${given.join(", ")}`
         : `Imperative: the ${["tu", "nous", "vous"][k]} present without the pronoun${k === 0 && v.cls === "er" ? "; -er verbs drop the -s for tu" : ""}${v.reflexive ? `, with -${["toi", "nous", "vous"][k]} after it` : ""}`;
-      return { answers: [x, x.replace(/-/g, " ")], rule };
+      return { answers: [...new Set(alts(x).flatMap((y) => [y, y.replace(/-/g, " ")]))], rule };
     }
   }
   return undefined;

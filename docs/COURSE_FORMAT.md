@@ -631,6 +631,8 @@ Spanish and French `forms` (tables are six comma-separated forms: es yo, tú, é
 | `imperativeUsted` | `sea`, `vaya` | es: usted command when not made from the yo present (hablo → hable, busco → busque, tengo → tenga) |
 | `aux` | `être` | fr: verbs conjugated with être; pronominal verbs use être automatically. With être, every agreement of the participle the person allows is accepted (elle est allée, ils sont allés) |
 
+A table cell may list alternatives with a slash (`paie/paye`): all are accepted and the first is shown. A Spanish sentence-builder question whose `punctuation` is `?` or `!` gets the opening ¿ or ¡ automatically, so tiles don't need it.
+
 Forms: Spanish `present`, `preterite` (pretérito indefinido), `perfect` (pretérito perfecto, he hablado), `imperative` (tú and usted); French `present`, `perfect` (passé composé), `imperative` (tu, nous, vous). Answers may include the subject pronoun (yo hablo, j'aime).
 
 Progress is kept per language and form (`progress.conj["ja:te"] = { right, wrong, last }`), like vocabulary, so a German A1 learner's Perfekt accuracy carries into A2; it travels with backups and family student files.
