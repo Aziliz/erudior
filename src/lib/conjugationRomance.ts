@@ -357,7 +357,7 @@ function frVerb(item: VocabItem): FrVerb | string {
     const ending = cls === "re" ? "re" : base.slice(-2);
     if (!base.endsWith(cls)) return `"${term}" doesn't end in -${cls}${ending ? "" : ""}`;
     if (cls === "er" && base === "aller") return `aller is irregular: use conj irr`;
-    if (cls === "er" && !present && (/(ger|cer|yer)$/.test(base) || /[eé]([bcdfghjklmnpqrstvwxz]|ch)er$/.test(base)))
+    if (cls === "er" && !present && (/(ger|cer|yer)$/.test(base) || /[eé]([bcdfghjklmnpqrstvz]|ch)er$/.test(base)))
       return `"${term}" changes its spelling in the present (mangeons, commençons, achète, préfère, paie, appelle): give forms.present`;
   }
   const stem = cls === "irr" ? "" : base.slice(0, -2);
