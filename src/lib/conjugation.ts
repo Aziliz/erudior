@@ -817,8 +817,17 @@ export function formName(lang: string, form: string): string {
   if (lang === "fr") return FR_NAME[form] ?? form;
   return DE_NAME[form] ?? form;
 }
-const ES_NAME: Record<string, string> = { present: "present", preterite: "pretérito indefinido (simple past)", perfect: "pretérito perfecto (he hablado)", imperative: "commands (tú, usted)" };
-const FR_NAME: Record<string, string> = { present: "présent", perfect: "passé composé", imperative: "imperative" };
+const ES_NAME: Record<string, string> = {
+  present: "present",
+  preterite: "pretérito indefinido (simple past)",
+  perfect: "pretérito perfecto (he hablado)",
+  imperative: "commands (tú, usted)",
+  imperfect: "imperfect (hablaba)",
+  future: "future (hablaré)",
+  conditional: "conditional (hablaría)",
+  gerund: "gerund (hablando)",
+};
+const FR_NAME: Record<string, string> = { present: "présent", perfect: "passé composé", imperative: "imperative", imperfect: "imparfait", future: "futur simple", conditional: "conditionnel" };
 
 // ---------------------------------------------------------------------------------------------
 // Prompts and rounds
@@ -869,13 +878,14 @@ export function promptsFor(course: Course, item: VocabItem, form: string, nouns:
     return g ? [{ item, form, label: JA_LABEL[form], answers: g.answers, readings: g.readings, also: [...new Set(g.answers.slice(1))], rule: g.rule }] : [];
   }
   if (lang === "es" || lang === "fr") {
-    const persons: (string | number)[] = form === "imperative" ? [...(lang === "es" ? ES_IMPERATIVES : FR_IMPERATIVES)] : [...(lang === "es" ? ES_PERSONS : FR_PERSONS)];
+    const persons: (string | number)[] =
+      form === "gerund" ? ["gerund"] : form === "imperative" ? [...(lang === "es" ? ES_IMPERATIVES : FR_IMPERATIVES)] : [...(lang === "es" ? ES_PERSONS : FR_PERSONS)];
     const out: ConjPrompt[] = [];
     for (const person of persons) {
       const g = lang === "es" ? esVerbForm(item, form, person) : frVerbForm(item, form, person);
       if (!g) continue;
       const who = typeof person === "number" ? (lang === "es" ? ES_LABEL : FR_LABEL)[person] : person;
-      const label = form === "imperative" ? `command, ${who}` : `${formName(lang, form)}, ${who}`;
+      const label = form === "gerund" ? "gerund (estar + -ndo)" : form === "imperative" ? `command, ${who}` : `${formName(lang, form)}, ${who}`;
       out.push({ item, form, person: String(person), label, answers: g.answers, also: [], rule: g.rule });
     }
     return out;
