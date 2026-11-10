@@ -11,6 +11,8 @@ import {
   type Period,
   type PortfolioPhoto,
   type StudentData,
+  instructionPlan,
+  DEFAULT_METHOD,
 } from "../lib/reports";
 import { stateInfo } from "../lib/states";
 import { bookMinutes, type Activity, type BookEntry } from "../lib/records";
@@ -614,4 +616,112 @@ export function PortfolioDoc({ d, yearStart, photos }: { d: StudentData; yearSta
 /** A period ending today at the latest (reports for the current year stop at today). */
 export function clampPeriod(p: Period, today: string): Period {
   return p.to > today && p.from <= today ? { ...p, to: today } : p;
+}
+
+// ---------- instruction plan ----------
+
+export function InstructionPlanDoc({ d, yearStart }: { d: StudentData; yearStart: string }) {
+  const p = instructionPlan(d, yearStart);
+  const st = stateInfo(d.family.state);
+  const isIhip = st?.rules.plan === "ihip";
+  const lines = (t: string) => t.split("\n").map((l) => l.trim()).filter(Boolean);
+  return (
+    <article className="doc" aria-label={p.title}>
+      <Letterhead family={d.family} student={d.student} title={p.title} sub={`School year ${p.year.label} · ${gradeLabel(p.gradeLevel)}`} />
+      <dl className="doc-facts">
+        <div>
+          <dt>Student</dt>
+          <dd>{d.student.name}</dd>
+        </div>
+        <div>
+          <dt>Grade</dt>
+          <dd>{gradeLabel(p.gradeLevel)}</dd>
+        </div>
+        <div>
+          <dt>School year</dt>
+          <dd>
+            {fmtDate(p.year.from)} to {fmtDate(p.year.to)}
+          </dd>
+        </div>
+        {(p.needHours || p.needDays) && (
+          <div>
+            <dt>Planned instruction</dt>
+            <dd>
+              {[p.needDays && `${p.needDays} days`, p.needHours && `${p.needHours.toLocaleString()} hours`].filter(Boolean).join(st?.rules.either ? " or " : ", ")}
+            </dd>
+          </div>
+        )}
+      </dl>
+      {st && st.subjects !== "None" && <p className="doc-small">Subjects {st.name} requires: {st.subjects}.</p>}
+
+      {p.subjects.length === 0 && <p>No courses are assigned yet. Assign courses to this student, or add subjects in the plan editor.</p>}
+      {p.subjects.map((s) => (
+        <section key={s.subject} className="doc-section">
+          <h3>{s.subject}</h3>
+          <h4>{isIhip ? "Syllabus and objectives" : "Objectives"}</h4>
+          {s.objectives ? (
+            <ul>{lines(s.objectives).map((l, i) => <li key={i}>{l}</li>)}</ul>
+          ) : s.courses.some((c) => c.units.length) ? (
+            s.courses.map((c) => (
+              <div key={c.courseId}>
+                <p>
+                  <b>{c.title}</b>
+                  {c.description ? `: ${c.description}` : ""}
+                </p>
+                {c.units.length > 0 && (
+                  <ol>
+                    {c.units.map((u, i) => (
+                      <li key={i}>{u}</li>
+                    ))}
+                  </ol>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className="doc-small">To be written by the parent.</p>
+          )}
+          <h4>{isIhip ? "Curriculum materials and textbooks" : "Materials"}</h4>
+          {s.materials ? (
+            <ul>{lines(s.materials).map((l, i) => <li key={i}>{l}</li>)}</ul>
+          ) : s.courses.length ? (
+            <ul>
+              {s.courses.map((c) => (
+                <li key={c.courseId}>Erudior course: {c.title} (lessons, practice questions, module tests)</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="doc-small">To be written by the parent.</p>
+          )}
+          <h4>{isIhip ? "Plan of instruction" : "Method"}</h4>
+          <p>{s.method || DEFAULT_METHOD}</p>
+        </section>
+      ))}
+
+      {p.unplanned.length > 0 && (
+        <p className="doc-small">
+          Not planned yet: {p.unplanned.join(", ")}. {st?.name} requires these subject areas; assign a course or add your own objectives.
+        </p>
+      )}
+
+      {isIhip && (
+        <section className="doc-section">
+          <h3>Quarterly report dates</h3>
+          {p.quarters.text ? (
+            <ul>{lines(p.quarters.text).map((l, i) => <li key={i}>{l}</li>)}</ul>
+          ) : (
+            <ol>
+              {p.quarters.dates.map((q) => (
+                <li key={q}>{fmtDate(q)}</li>
+              ))}
+            </ol>
+          )}
+        </section>
+      )}
+
+      <Signature
+        family={d.family}
+        note="Prepared by the parent from the courses planned in Erudior. The parent, as the home school's administrator, is responsible for this plan and for any changes the school district asks for."
+      />
+    </article>
+  );
 }

@@ -15,6 +15,7 @@ export const DOC_KINDS = [
   "Immunization record or exemption",
   "Instruction plan (e.g. IHIP)",
   "Quarterly or progress report",
+  "Parent qualification (diploma, degree, certificate)",
   "Other",
 ] as const;
 

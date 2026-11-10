@@ -88,8 +88,9 @@ ok("NY IHIP Aug 15 this year", ny.some((x) => x.text.startsWith("IHIP") && x.dat
 ok("CO 14 days before start", reminders({ ...family, state: "CO" }).some((x) => x.key === "notice:2026" && x.date === "2026-07-18"));
 ok("other route: no state deadlines", reminders({ ...family, route: "Private school" }).length === 0);
 const custom = { ...family, reminders: [{ id: "x", date: "2026-08-20", text: "Order books" }] };
-ok("upcoming includes custom + soon", upcoming(custom, 45, "2026-08-10").map((x) => x.key).join() === "custom:x,notice:2026");
-ok("done hides", upcoming({ ...custom, done: ["custom:x"] }, 45, "2026-08-10").length === 1);
+// GA sets a parent qualification, so its standing reminder comes first until marked done.
+ok("upcoming includes custom + soon", upcoming(custom, 45, "2026-08-10").map((x) => x.key).join() === "qualification,custom:x,notice:2026");
+ok("done hides", upcoming({ ...custom, done: ["custom:x", "qualification"] }, 45, "2026-08-10").length === 1);
 
 // ---- assignments ----
 const s = { ...family.students[0], assigned: [

@@ -44,7 +44,7 @@ import {
   yearSummary,
   type Records,
 } from "../lib/records";
-import { routeOptions, stateInfo, statesData } from "../lib/states";
+import { belowDailyMinimum, coreHoursDone, routeOptions, stateInfo, statesData, subjectCoverage, type StateInfo } from "../lib/states";
 import { addDays, today } from "../lib/srs";
 import * as store from "../lib/storage";
 import { exportEncrypted } from "../lib/backup";
@@ -512,6 +512,7 @@ function Overview({
                 {y.state.name} subjects: {y.state.subjects}
               </p>
             )}
+            {y.state && <SubjectCheck state={y.state} bySubject={y.bySubject} />}
           </section>
         );
       })}
@@ -713,6 +714,8 @@ function Attendance({
           <span className="small muted">
             A day with {fmtMinutes(family.dailyMinutes)} or more is proposed.
             You decide.
+            {belowDailyMinimum(stateInfo(family.state)?.rules, family.dailyMinutes) &&
+              ` That's less than ${stateInfo(family.state)!.name}'s ${stateInfo(family.state)!.rules.hoursPerDay} hours per day (Settings).`}
           </span>
         </div>
         {rows.length === 0 ? (
@@ -1163,6 +1166,38 @@ function Students({ api, family }: { api: AppApi; family: Family }) {
   );
 }
 
+/** The state's required subject areas with this year's hours, and Missouri-style core hours. */
+function SubjectCheck({ state, bySubject }: { state: StateInfo; bySubject: { subject: string; hours: number }[] }) {
+  const cover = subjectCoverage(state.rules, bySubject);
+  const core = coreHoursDone(state.rules, bySubject);
+  const missing = cover.filter((c) => c.hours === 0);
+  if (!cover.length && core === undefined) return null;
+  return (
+    <div className="subject-check" style={{ marginTop: 8 }}>
+      {cover.length > 0 && (
+        <p className="small">
+          {missing.length === 0 ? (
+            <>Every subject area {state.name} requires has hours this year.</>
+          ) : (
+            <>
+              <b>No hours yet in:</b> {missing.map((m) => m.area).join(", ")}.{" "}
+              <span className="muted">
+                Assign a course in that subject, or log time away from the app under Attendance.
+              </span>
+            </>
+          )}
+        </p>
+      )}
+      {core !== undefined && state.rules.coreHours && (
+        <p className="small">
+          Core subjects ({state.rules.coreHours.areas.join(", ")}): {fmtHours(core)} of {state.rules.coreHours.hours}
+          {state.rules.coreHours.note ? `; ${state.rules.coreHours.note}` : ""}.
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ---------- State rules ----------
 
 function StateTab({ api, family }: { api: AppApi; family: Family }) {
@@ -1253,6 +1288,34 @@ function StateTab({ api, family }: { api: AppApi; family: Family }) {
               Not settled: {s.unsettled}
             </p>
           )}
+          {s.rules.qualification && (
+            <p className="notice" style={{ marginTop: 12 }}>
+              {s.name} sets a parent qualification: {s.teacher}. Keep proof
+              (a diploma, degree or certificate) under Files, as a "Parent
+              qualification" document.
+            </p>
+          )}
+          {mine && s.rules.evaluationFromNotice && (
+            <label className="field" style={{ marginTop: 12, maxWidth: 320 }}>
+              <span>Date you filed your first notice of intent</span>
+              <input
+                className="input"
+                type="date"
+                value={family.noticeFiled ?? ""}
+                onChange={(e) =>
+                  api.setFamily(
+                    e.target.value
+                      ? { ...family, noticeFiled: e.target.value }
+                      : (({ noticeFiled: _, ...rest }) => rest)(family),
+                  )
+                }
+              />
+              <span className="small muted">
+                {s.name}'s yearly evaluation is due on its anniversary;
+                reminders use this date.
+              </span>
+            </label>
+          )}
           <h3 style={{ marginTop: 16 }}>Sources</h3>
           <ul className="plain-list small">
             {s.sources.map((u) => (
@@ -1312,6 +1375,9 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
     } catch (err) { setMsg(err instanceof Error ? err.message : String(err)); }
     finally { sensitiveWorking.current = false; setSensitiveBusy(false); }
   }
+
+  const stateRules = stateInfo(family.state);
+  const shortDay = belowDailyMinimum(stateRules?.rules, minutes);
 
   async function saveYear(e: React.FormEvent) {
     e.preventDefault();
@@ -1401,6 +1467,13 @@ function Settings({ api, family }: { api: AppApi; family: Family }) {
                 value={minutes}
                 onChange={(e) => setMinutes(Number(e.target.value) || 0)}
               />
+              {shortDay && stateRules?.rules.hoursPerDay && (
+                <span className="small" role="status">
+                  {stateRules.name} expects {stateRules.rules.hoursPerDay} hours of
+                  instruction per school day ({stateRules.time}). Shorter days
+                  may not count there.
+                </span>
+              )}
             </label>
           )}
           <div className="row span-2">

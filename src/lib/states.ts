@@ -23,7 +23,20 @@ export interface StateRules {
   guidance?: boolean;
   testGrades?: number[];
   annualAssessment?: boolean;
-  reports?: { due: string; what: string }[];
+  /** Other filings: on a fixed MM-DD, or at the middle or end of the family's school year. */
+  reports?: { due?: string; midYear?: true; yearEnd?: true; what: string }[];
+  /** The yearly evaluation is due on the anniversary of the notice of intent (Florida). */
+  evaluationFromNotice?: boolean;
+  /** The parent must meet the state's `teacher` requirement and be able to show it. */
+  qualification?: boolean;
+  /** Erudior subject areas (family.ts SUBJECTS) the state's subject list falls under. */
+  subjectAreas?: string[];
+  /** Part of the yearly hours that must be in these subject areas (Missouri). */
+  coreHours?: { hours: number; areas: string[]; note?: string };
+  /** A test result at which the state requires follow-up. */
+  lowScore?: { percentileAtMost?: number; percentileBelow?: number; stanineBelow?: number; then: string };
+  /** The written plan the state asks for. */
+  plan?: "ihip" | "objectives" | "education";
 }
 
 export interface StateInfo {
@@ -84,6 +97,45 @@ export function hoursFor(rules: StateRules, grade: number): number | undefined {
   if (band) return band.hours;
   if (rules.days && rules.hoursPerDay) return Math.round(rules.days * rules.hoursPerDay);
   return undefined;
+}
+
+/** True when a test result is at or past the state's follow-up line. */
+export function lowScore(rules: StateRules, t: { percentile?: number; stanine?: number }): boolean {
+  const l = rules.lowScore;
+  if (!l) return false;
+  if (l.percentileAtMost !== undefined && t.percentile !== undefined) return t.percentile <= l.percentileAtMost;
+  if (l.percentileBelow !== undefined && t.percentile !== undefined) return t.percentile < l.percentileBelow;
+  if (l.stanineBelow !== undefined && t.stanine !== undefined) return t.stanine < l.stanineBelow;
+  return false;
+}
+
+/** The state's follow-up line in words, e.g. "at or below the 13th percentile". */
+export function lowScoreLine(rules: StateRules): string | undefined {
+  const l = rules.lowScore;
+  if (!l) return undefined;
+  const nth = (n: number) => `${n}${n % 10 === 1 && n % 100 !== 11 ? "st" : n % 10 === 2 && n % 100 !== 12 ? "nd" : n % 10 === 3 && n % 100 !== 13 ? "rd" : "th"}`;
+  if (l.percentileAtMost !== undefined) return `at or below the ${nth(l.percentileAtMost)} percentile`;
+  if (l.percentileBelow !== undefined) return `below the ${nth(l.percentileBelow)} percentile`;
+  if (l.stanineBelow !== undefined) return `below the ${nth(l.stanineBelow)} stanine`;
+  return undefined;
+}
+
+/** Hours the student has in each of the state's subject areas, flagging any with none. */
+export function subjectCoverage(rules: StateRules, bySubject: { subject: string; hours: number }[]): { area: string; hours: number }[] {
+  const hours = new Map(bySubject.map((b) => [b.subject, b.hours]));
+  return (rules.subjectAreas ?? []).map((area) => ({ area, hours: hours.get(area) ?? 0 }));
+}
+
+/** Hours toward a core-hours rule (Missouri). */
+export function coreHoursDone(rules: StateRules, bySubject: { subject: string; hours: number }[]): number | undefined {
+  const c = rules.coreHours;
+  if (!c) return undefined;
+  return bySubject.filter((b) => c.areas.includes(b.subject)).reduce((s, b) => s + b.hours, 0);
+}
+
+/** Below the state's hours per day, a "school day" wouldn't count there. */
+export function belowDailyMinimum(rules: StateRules | undefined, dailyMinutes: number): boolean {
+  return !!rules?.hoursPerDay && dailyMinutes < Math.round(rules.hoursPerDay * 60);
 }
 
 /** Other legal routes for homeschooling in this state, as listed in the rules file. */
