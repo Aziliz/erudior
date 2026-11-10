@@ -199,3 +199,13 @@ export function groupPrograms<T extends StudyProgram>(programs: readonly T[]): {
   return PROGRAM_CATEGORIES.map(category => ({ category, programs: programs.filter(program => programCategory(program) === category) }))
     .filter(group => group.programs.length);
 }
+
+/** Programs whose title, description, category or course titles contain every word of the query. */
+export function searchPrograms<T extends StudyProgram>(programs: readonly T[], query: string): T[] {
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!words.length) return [...programs];
+  return programs.filter(program => {
+    const text = [program.title, program.description, programCategory(program), ...programCourses(program).map(course => course.title)].join(" ").toLowerCase();
+    return words.every(word => text.includes(word));
+  });
+}

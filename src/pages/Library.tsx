@@ -22,13 +22,15 @@ import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
 import { GENERAL_DISCLAIMER } from "../components/Terms";
-import { STUDY_PROGRAMS, groupPrograms, programCourseIds, programCourses } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, programCourseIds, programCourses, searchPrograms } from "../lib/studyPrograms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
 
   const [offlineImport, setOfflineImport] = useState<Course | null>(null);
   const [importBusy, setImportBusy] = useState(false);
+  const [programQuery, setProgramQuery] = useState("");
+  const matchedPrograms = searchPrograms(STUDY_PROGRAMS, programQuery);
   const offlineImportHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (offlineImport) offlineImportHeading.current?.focus(); }, [offlineImport]);
   const importing = useRef(false);
@@ -257,10 +259,15 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       <section className="program-catalog" aria-labelledby="program-catalog-title">
         <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
           <h2 className="section-title" id="program-catalog-title" style={{ margin: 0 }}>Program catalog</h2>
-          <span className="small muted">{STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
+          <span className="small muted" aria-live="polite">{programQuery.trim() ? `${matchedPrograms.length} of ${STUDY_PROGRAMS.length}` : STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
         </div>
         <p className="muted small" style={{ marginBottom: 16 }}>Follow a pathway of courses toward a larger learning goal. Explore its stages, recommended prerequisites and course outlines.</p>
-        {groupPrograms(STUDY_PROGRAMS).map(group => <details key={group.category} className="program-group">
+        <div className="catalog-filters">
+          <input className="input" type="search" placeholder="Search programs" aria-label="Search programs"
+            value={programQuery} onChange={(e) => setProgramQuery(e.target.value)} />
+        </div>
+        {matchedPrograms.length === 0 && <p className="muted small">No programs match.</p>}
+        {groupPrograms(matchedPrograms).map(group => <details key={group.category} className="program-group" open={programQuery.trim() ? true : undefined}>
         <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
         <div className="catalog-grid">
           {group.programs.map(program => {

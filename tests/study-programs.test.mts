@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse, programCategory } from '../src/lib/studyPrograms';
+import { STUDY_PROGRAMS, matchingProgram, programCourses, programPathway, plannedProgramCourse, programCategory, searchPrograms } from '../src/lib/studyPrograms';
 import { parseLearningPathways, pathwayProgress, starterPathways } from '../src/lib/learningPathways';
 import { emptyCourse } from '../src/lib/course';
 import { emptyProgress } from '../src/lib/storage';
@@ -203,5 +203,12 @@ console.log('College core areas passed.');
   const majors = STUDY_PROGRAMS.filter(p => p.id.startsWith('major-'));
   assert(majors.length >= 30, 'college majors are listed');
   for (const major of majors) assert.match(major.notice, /not a degree/, `${major.id}: says it is not a degree`);
+}
+{
+  assert.equal(searchPrograms(STUDY_PROGRAMS, '  ').length, STUDY_PROGRAMS.length, 'an empty search shows every program');
+  assert(searchPrograms(STUDY_PROGRAMS, 'chemical ENGINEERING').some(p => p.id === 'major-chemical-engineering'), 'search matches every word, ignoring case');
+  assert(searchPrograms(STUDY_PROGRAMS, 'Thermodynamics').length > 1, 'search matches course titles');
+  assert(searchPrograms(STUDY_PROGRAMS, 'Social sciences').some(p => p.id === 'major-sociology'), 'search matches the category');
+  assert.equal(searchPrograms(STUDY_PROGRAMS, 'zzqx').length, 0);
 }
 console.log('Staged programs passed.');
