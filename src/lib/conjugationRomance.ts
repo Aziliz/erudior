@@ -232,7 +232,7 @@ export function esWordWarnings(item: VocabItem): string[] {
     out.push(`"${item.term}" is usually irregular (stem change or irregular yo): check whether it needs forms.present or forms.preterite`);
   if (/[iu]ar$/.test(term) && !f.present) out.push(`"${item.term}": some -iar/-uar verbs stress the i or u (envío, continúo), others don't (estudio): check whether it needs forms.present`);
   if (ES_IRREGULAR_FUTURE.test(term) && !f.futureStem) out.push(`"${item.term}" has an irregular future stem (tendr-, har-, dir-…): give forms.futureStem or the future and conditional aren't drilled`);
-  if (/ir$/.test(term) && f.present && !f.gerund && !/(salir|vivir|escribir|abrir|subir|recibir|decidir|cubrir|existir|permitir|insistir|asistir|unir|partir|compartir|discutir|sufrir|imprimir|interrumpir|describir|añadir|ocurrir)$/.test(term))
+  if (/ir$/.test(term) && term !== "ir" && !/se$/.test(item.term.trim()) && f.present && !f.gerund && !/(salir|vivir|escribir|abrir|subir|recibir|decidir|cubrir|existir|permitir|insistir|asistir|unir|partir|compartir|discutir|sufrir|imprimir|interrumpir|describir|añadir|ocurrir)$/.test(term))
     out.push(`"${item.term}" has an irregular present: if its gerund changes too (pidiendo, durmiendo, diciendo, viniendo), give forms.gerund; otherwise it isn't drilled`);
   if (/(car|gar|zar)$/.test(term) && !f.preterite) out.push(`"${item.term}" respells its yo preterite (busqué, llegué, empecé): give forms.preterite or the preterite isn't drilled`);
   if (/(ar|er|ir)se$/.test(item.term) && !f.imperative) out.push(`reflexive "${item.term}" has no forms.imperative/imperativeUsted (levántate, levántese): its commands aren't drilled`);
@@ -311,7 +311,8 @@ function frFutureStems(v: FrVerb): string[] {
   if (v.cls === "er" && v.present) {
     const je = alts(v.present[0]).map((x) => x.replace(/^(me |m')/, ""));
     const out = je.map((x) => x + "r");
-    if (je.some((x) => x.includes("è")) && v.base.includes("é")) out.unshift(v.base); // préférerai (and 1990 préfèrerai)
+    // é → è verbs (préférer: je préfère) keep é in the traditional future (préférerai); 1990 spelling préfèrerai.
+    if (je.some((x) => x.replace(/è(?=[^è]*$)/, "é") + "r" === v.base)) out.unshift(v.base);
     return [...new Set(out)];
   }
   return [v.base];

@@ -131,6 +131,8 @@ assert(ok("fr", payer, "future", "0", "je paierai") && ok("fr", payer, "future",
 const preferer = w("préférer", "er", { present: "préfère, préfères, préfère, préférons, préférez, préfèrent" });
 assert(ok("fr", preferer, "future", "0", "je préférerai") && ok("fr", preferer, "future", "0", "je préfèrerai"));
 assert.equal(answers("fr", faire, "future")[0], undefined, "ferai must be given");
+const epeler = w("épeler", "er", { present: "épelle/épèle, épelles/épèles, épelle/épèle, épelons, épelez, épellent/épèlent" });
+assert(ok("fr", epeler, "future", "0", "j'épellerai") && ok("fr", epeler, "future", "0", "j'épèlerai") && !ok("fr", epeler, "future", "0", "j'épelerai"));
 assert.equal(answers("fr", w("faire", "irr", { present: "fais, fais, fait, faisons, faites, font", participle: "fait", futureStem: "fer" }), "future")[0], "ferai");
 assert(ok("fr", w("aller", "irr", { present: "vais, vas, va, allons, allez, vont", participle: "allé", aux: "être", futureStem: "ir" }), "future", "0", "j'irai"));
 assert.equal(answers("fr", w("prendre", "irr", { present: "prends, prends, prend, prenons, prenez, prennent", participle: "pris" }), "future")[0], "prendrai");
