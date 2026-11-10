@@ -304,7 +304,7 @@ const FR_IMPERFECT_END = ["ais", "ais", "ait", "ions", "iez", "aient"];
 const FR_FUTURE_END = ["ai", "as", "a", "ons", "ez", "ont"];
 /** Verbs (and compounds) whose future stem isn't made from the infinitive: ser-, aur-, ir-, fer-, viendr-… */
 /** Pronominal verbs whose se is an indirect object ("to oneself / each other"): no participle agreement. */
-const FR_INDIRECT_SE = ["demander", "parler", "téléphoner", "dire", "écrire", "sourire", "plaire", "mentir", "ressembler", "succéder", "rendre compte", "répondre", "envoyer", "offrir", "donner"];
+const FR_INDIRECT_SE = ["demander", "rappeler", "parler", "téléphoner", "dire", "écrire", "sourire", "plaire", "mentir", "ressembler", "succéder", "rendre compte", "répondre", "envoyer", "offrir", "donner"];
 const FR_IRREGULAR_FUTURE = /^(être|avoir|aller|faire|défaire|refaire|satisfaire|.*venir|.*tenir|envoyer|renvoyer|courir|parcourir|mourir|cueillir|accueillir|recueillir|acquérir|conquérir|falloir|.*oir)$/;
 
 function frFutureStems(v: FrVerb): string[] {
