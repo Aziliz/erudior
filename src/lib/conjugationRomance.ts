@@ -285,11 +285,20 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
       // With être the participle agrees with the subject: accept every agreement the person allows.
       const parts = !v.etre ? [p] : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
       const forms = parts.map((pp) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`));
+      const verb = (pp: string) => (v.reflexive ? `${refl(FR_REFL[i], aux)} ${pp}` : `${aux} ${pp}`);
+      // With être and a subject that shows gender, the agreement must match it: il est allé, elle est allée.
+      const gendered: string[] | undefined = !v.etre
+        ? undefined
+        : i === 2
+          ? [verb(p), verb(p + "e"), `il ${verb(p)}`, `Il ${verb(p)}`, `elle ${verb(p + "e")}`, `Elle ${verb(p + "e")}`, ...[p, p + "e", p + "s", p + "es"].flatMap((x) => [`on ${verb(x)}`, `On ${verb(x)}`])]
+          : i === 5
+            ? [verb(p + "s"), verb(p + "es"), `ils ${verb(p + "s")}`, `Ils ${verb(p + "s")}`, `elles ${verb(p + "es")}`, `Elles ${verb(p + "es")}`]
+            : undefined;
       const how = given ? "" : ` (-${v.cls} → -${{ er: "é", ir: "i", re: "u", irr: "" }[v.cls]})`;
       const rule = v.etre
         ? `Passé composé with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
         : `Passé composé: avoir (${aux}) + the participle ${p}${how}`;
-      return { answers: frAnswers(forms, i), rule };
+      return { answers: gendered ?? frAnswers(forms, i), rule };
     }
     case "imperative": {
       const k = FR_IMPERATIVES.indexOf(person as never);

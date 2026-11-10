@@ -64,6 +64,9 @@ const aller = w("aller", "irr", { present: "vais, vas, va, allons, allez, vont",
 assert(ok("fr", aller, "perfect", "2", "elle est allée") && ok("fr", aller, "perfect", "2", "il est allé"));
 assert(ok("fr", aller, "perfect", "5", "ils sont allés") && !ok("fr", aller, "perfect", "5", "ils sont allé"));
 assert(ok("fr", aller, "perfect", "0", "je suis allée"));
+assert(!ok("fr", aller, "perfect", "2", "il est allée") && !ok("fr", aller, "perfect", "2", "elle est allé"), "agreement matches il/elle");
+assert(ok("fr", aller, "perfect", "2", "est allée") && ok("fr", aller, "perfect", "2", "on est allés"));
+assert(ok("fr", aller, "perfect", "5", "elles sont allées") && !ok("fr", aller, "perfect", "5", "elles sont allés"));
 assert.equal(answers("fr", aller, "imperative").tu, "va");
 const seLever = w("se lever", "er", { present: "me lève, te lèves, se lève, nous levons, vous levez, se lèvent" });
 assert.equal(answers("fr", seLever, "perfect")[2], "s'est levé");
