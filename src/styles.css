@@ -4319,6 +4319,71 @@ a.brand {
   line-height: 1.65;
   color: var(--ink-2);
 }
+/* Homeschool requirements by state (homepage section) */
+.home-states {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.home-states h2 {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  margin: 0 0 10px;
+}
+.home-states > p {
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.state-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  margin: 8px 0 16px;
+  min-width: min(320px, 100%);
+}
+.state-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.state-table th,
+.state-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.state-table tr:last-child th,
+.state-table tr:last-child td {
+  border-bottom: 0;
+}
+.state-table th {
+  width: 34%;
+  font-weight: 600;
+}
+.state-table td {
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+.state-note {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .state-table th,
+  .state-table td {
+    display: block;
+    width: auto;
+  }
+  .state-table th {
+    border-bottom: 0;
+    padding-bottom: 2px;
+  }
+}
 @media (max-width: 860px) {
   .home-feature-row {
     grid-template-columns: 1fr;

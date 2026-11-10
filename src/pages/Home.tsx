@@ -1,6 +1,7 @@
 import { CATALOG } from "../lib/catalog";
 import { appUrl } from "../lib/site";
 import { slugify } from "../lib/util";
+import { HomeStatesSection } from "./HomeschoolStates";
 
 interface Feature {
   id: string;
@@ -163,6 +164,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <HomeStatesSection />
     </div>
   );
 }
