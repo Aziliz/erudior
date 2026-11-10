@@ -151,6 +151,40 @@ const imprimir = w("imprimir", "ir", { participle: "impreso/imprimido" });
 assert(ok("es", imprimir, "perfect", "0", "he impreso") && ok("es", imprimir, "perfect", "0", "yo he imprimido"));
 assert.equal(answers("es", imprimir, "perfect")[2], "ha impreso");
 
+// --- B1 forms ---
+assert.deepEqual(answers("es", hablar, "subjunctive"), { 0: "hable", 1: "hables", 2: "hable", 3: "hablemos", 5: "hablen" });
+assert.equal(answers("es", w("vivir", "ir"), "subjunctive")[3], "vivamos");
+assert.equal(answers("es", w("buscar", "ar"), "subjunctive")[0], "busque");
+assert.equal(answers("es", w("llegar", "ar"), "subjunctive")[5], "lleguen");
+assert.equal(answers("es", tener, "subjunctive")[0], undefined, "irregular present: subjunctive must be given");
+assert.equal(answers("es", w("ser", "er", { present: "soy, eres, es, somos, sois, son", subjunctive: "sea, seas, sea, seamos, seáis, sean" }), "subjunctive")[3], "seamos");
+assert(ok("es", hablar, "subjunctive", "0", "que hable") && ok("es", hablar, "subjunctive", "0", "que yo hable"));
+assert.equal(answers("es", levantarse, "subjunctive")[0], "me levante");
+assert.deepEqual(answers("es", hablar, "imperfectSubjunctive"), { 0: "hablara", 1: "hablaras", 2: "hablara", 3: "habláramos", 5: "hablaran" });
+assert(ok("es", hablar, "imperfectSubjunctive", "0", "hablase"));
+assert.equal(answers("es", w("comer", "er"), "imperfectSubjunctive")[3], "comiéramos");
+assert.equal(answers("es", tener, "imperfectSubjunctive")[3], "tuviéramos");
+assert.equal(answers("es", w("leer", "er"), "imperfectSubjunctive")[0], "leyera");
+assert.equal(answers("es", w("buscar", "ar"), "imperfectSubjunctive")[0], "buscara");
+assert.equal(answers("es", pedir, "imperfectSubjunctive")[0], undefined, "pidiera needs the preterite table");
+assert.equal(answers("es", levantarse, "imperfectSubjunctive")[0], "me levantara");
+assert.deepEqual(answers("es", hablar, "pluperfect"), { 0: "había hablado", 1: "habías hablado", 2: "había hablado", 3: "habíamos hablado", 5: "habían hablado" });
+assert.equal(answers("es", w("hacer", "er", { present: "hago, haces, hace, hacemos, hacéis, hacen", participle: "hecho" }), "pluperfect")[0], "había hecho");
+
+assert.deepEqual(answers("fr", parler, "subjunctive"), { 0: "parle", 1: "parles", 2: "parle", 3: "parlions", 4: "parliez", 5: "parlent" });
+assert.equal(answers("fr", w("finir", "ir"), "subjunctive")[0], "finisse");
+const venir = w("venir", "irr", { present: "viens, viens, vient, venons, venez, viennent", participle: "venu", aux: "être" });
+assert.equal(answers("fr", venir, "subjunctive")[0], "vienne");
+assert.equal(answers("fr", venir, "subjunctive")[3], "venions");
+assert.equal(answers("fr", w("boire", "irr", { present: "bois, bois, boit, buvons, buvez, boivent", participle: "bu" }), "subjunctive")[3], "buvions");
+assert.equal(answers("fr", manger, "subjunctive")[3], "mangions");
+assert.equal(answers("fr", faire, "subjunctive")[0], undefined, "fasse must be given");
+assert(ok("fr", parler, "subjunctive", "2", "qu'il parle") && ok("fr", parler, "subjunctive", "0", "que je parle") && ok("fr", w("aimer", "er"), "subjunctive", "0", "que j'aime"));
+assert.equal(answers("fr", seLever, "subjunctive")[0], "me lève");
+assert.deepEqual(answers("fr", parler, "pluperfect"), { 0: "avais parlé", 1: "avais parlé", 2: "avait parlé", 3: "avions parlé", 4: "aviez parlé", 5: "avaient parlé" });
+assert(ok("fr", aller, "pluperfect", "2", "elle était allée") && !ok("fr", aller, "pluperfect", "2", "il était allée"));
+assert.equal(answers("fr", seLever, "pluperfect")[2], "s'était levé");
+
 // --- Vocabulary recall ---
 const noun = (term: string, extra: Partial<VocabItem> = {}): VocabItem => ({ id: term, lesson: "l1", term, pos: "noun", meanings: ["x"], ...extra }) as VocabItem;
 assert.equal(checkRecall(noun("el perro"), "el perro", "es").ok, true);

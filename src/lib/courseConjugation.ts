@@ -41,8 +41,8 @@ export const JA_VERB_FORMS = [
 export const JA_ADJ_FORMS = ["adj-negative", "adj-past", "adj-past-negative", "adj-te", "adverb"] as const;
 export const DE_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "subjunctive"] as const;
 export const DE_ADJ_FORMS = ["adj-nom", "adj-acc", "adj-dat", "adj-gen"] as const;
-export const ES_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "imperfect", "future", "conditional", "gerund"] as const;
-export const FR_VERB_FORMS = ["present", "perfect", "imperative", "imperfect", "future", "conditional"] as const;
+export const ES_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "imperfect", "future", "conditional", "gerund", "subjunctive", "imperfectSubjunctive", "pluperfect"] as const;
+export const FR_VERB_FORMS = ["present", "perfect", "imperative", "imperfect", "future", "conditional", "subjunctive", "pluperfect"] as const;
 export const CONJ_FORMS: readonly string[] = [...new Set<string>([...JA_VERB_FORMS, ...JA_ADJ_FORMS, ...DE_VERB_FORMS, ...DE_ADJ_FORMS, ...ES_VERB_FORMS, ...FR_VERB_FORMS])];
 /** The forms a language's courses can drill. */
 export function languageForms(lang: string): readonly string[] {
@@ -88,6 +88,7 @@ export const ROMANCE_FORM_KEYS = [
   "futureStem", // irregular future/conditional stem (tendr; ser, aur)
   "gerund", // es: irregular gerund (durmiendo, diciendo)
   "imperfectStem", // fr: être only (ét)
+  "subjunctive", // six-person present subjunctive table, when irregular
   "agreement", // fr: "none" for pronominal verbs whose se is indirect (se parler: ils se sont parlé)
 ] as const;
 export type RomanceFormKey = (typeof ROMANCE_FORM_KEYS)[number];

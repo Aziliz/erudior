@@ -60,6 +60,20 @@ const ES_REFL = ["me", "te", "se", "nos", "os", "se"];
 const ES_PRESENT_END = { ar: ["o", "as", "a", "amos", "áis", "an"], er: ["o", "es", "e", "emos", "éis", "en"], ir: ["o", "es", "e", "imos", "ís", "en"] };
 const ES_PRETERITE_END = { ar: ["é", "aste", "ó", "amos", "asteis", "aron"], er: ["í", "iste", "ió", "imos", "isteis", "ieron"], ir: ["í", "iste", "ió", "imos", "isteis", "ieron"] };
 const HABER = ["he", "has", "ha", "hemos", "habéis", "han"];
+const HABIA = ["había", "habías", "había", "habíamos", "habíais", "habían"];
+const ES_SUBJ_AR = ["e", "es", "e", "emos", "éis", "en"];
+const ES_SUBJ_ER = ["a", "as", "a", "amos", "áis", "an"];
+
+/** Subjunctive answers may be typed with "que" (and French elides it: qu'il, qu'elle, qu'on). */
+function withQue(answers: string[], lang: "es" | "fr"): string[] {
+  const out = [...answers];
+  for (const a of answers) {
+    const elide = lang === "fr" && /^(il|elle|on|ils|elles)\b/i.test(a);
+    out.push(elide ? `qu'${a}` : `que ${a}`);
+    out.push(elide ? `Qu'${a}` : `Que ${a}`);
+  }
+  return [...new Set(out)];
+}
 /** Common verbs whose present or preterite isn't regular: warn when their data is missing. */
 const ES_IRREGULAR = [
   "ser", "estar", "ir", "tener", "venir", "hacer", "poner", "salir", "decir", "dar", "ver", "saber", "poder", "querer", "pensar", "empezar",
@@ -78,7 +92,7 @@ function esVerb(item: VocabItem): EsVerb | string {
   const ending = base.slice(-2).replace("í", "i");
   if (ending !== cls) return `"${term}" ends in -${ending}, not -${cls}`;
   const f = item.forms ?? {};
-  for (const k of ["present", "preterite", "imperfect"] as const)
+  for (const k of ["present", "preterite", "imperfect", "subjunctive"] as const)
     if (f[k] && !table(f[k])) return `forms.${k} needs six comma-separated forms (yo, tú, él, nosotros, vosotros, ellos)`;
   if (f.imperfectStem) return `forms.imperfectStem is for French`;
   const present = table(f.present);
@@ -160,6 +174,50 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
       const xs = alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${HABER[i]} ${pp}`);
       const rule = `Pretérito perfecto: haber (${HABER[i]}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : v.cls === "ar" ? " (-ar → -ado)" : " (-er/-ir → -ido)"}`;
       return { answers: [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))], rule };
+    }
+    case "subjunctive": {
+      const given = table(v.f.subjunctive);
+      let x: string;
+      let rule: string;
+      if (given) {
+        x = given[i];
+        rule = `${v.term} is irregular in the subjunctive: ${given.filter((_, k) => k !== 4).join(", ")}`;
+      } else {
+        if (v.present || /(ger|gir|guir|cer|cir)$/.test(v.base) || ["ser", "ir", "estar", "dar", "saber", "haber", "ver"].includes(v.base)) return undefined;
+        let root = v.stem;
+        if (v.cls === "ar") root = root.replace(/c$/, "qu").replace(/g$/, "gu").replace(/z$/, "c");
+        const end = (v.cls === "ar" ? ES_SUBJ_AR : ES_SUBJ_ER)[i];
+        x = `${v.reflexive ? ES_REFL[i] + " " : ""}${root}${end}`;
+        rule = `Present subjunctive: the yo present without -o (${v.stem}-) + the "other" vowel: ${v.cls === "ar" ? "-ar verbs take -e" : "-er/-ir verbs take -a"} (${root}${end})`;
+      }
+      return { answers: withQue(withPronouns(x, ES_PRONOUNS[i], "es"), "es"), rule };
+    }
+    case "imperfectSubjunctive": {
+      let ellos: string;
+      if (v.preterite) ellos = alts(v.preterite[5])[0].replace(/^se /, "");
+      else {
+        // Only the yo preterite respells (busqué), so ellos is regular unless the verb is irregular.
+        if (["dar", "ir", "ser", "estar", "reír", "sonreír", "freír"].includes(v.base)) return undefined;
+        if (v.cls === "ir" && v.present && alts(v.present[0])[0].replace(/^me /, "") !== `${v.stem}o`) return undefined; // pidieron, durmieron
+        const vowel = v.cls !== "ar" && (/[aeo]$/.test(v.stem) || /[^g]u$/.test(v.stem));
+        ellos = v.stem + (v.cls === "ar" ? "aron" : vowel ? "yeron" : "ieron");
+      }
+      if (!ellos.endsWith("ron")) return undefined;
+      const root = ellos.slice(0, -3);
+      const accented = root.replace(/([ae])$/, (c) => (c === "a" ? "á" : "é"));
+      const ra = [`${root}ra`, `${root}ras`, `${root}ra`, `${accented}ramos`, `${root}rais`, `${root}ran`][i];
+      const se = [`${root}se`, `${root}ses`, `${root}se`, `${accented}semos`, `${root}seis`, `${root}sen`][i];
+      const pre = v.reflexive ? ES_REFL[i] + " " : "";
+      const answers = withQue([...withPronouns(pre + ra, ES_PRONOUNS[i], "es"), ...withPronouns(pre + se, ES_PRONOUNS[i], "es")], "es");
+      return { answers, rule: `Imperfect subjunctive: the ellos preterite (${ellos}) without -ron + -ra (or -se): ${ra}${i === 3 ? "; nosotros takes an accent" : ""}` };
+    }
+    case "pluperfect": {
+      const { p, given } = esParticiple(v);
+      const xs = alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${HABIA[i]} ${pp}`);
+      return {
+        answers: [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))],
+        rule: `Pluperfect: haber in the imperfect (${HABIA[i]}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : ""}`,
+      };
     }
     case "imperfect": {
       const given = table(v.f.imperfect);
@@ -259,6 +317,11 @@ interface FrVerb {
 const FR_REFL = ["me", "te", "se", "nous", "vous", "se"];
 const FR_END = { er: ["e", "es", "e", "ons", "ez", "ent"], ir: ["is", "is", "it", "issons", "issez", "issent"], re: ["s", "s", "", "ons", "ez", "ent"] };
 const AVOIR = ["ai", "as", "a", "avons", "avez", "ont"];
+const AVOIR_IMPF = ["avais", "avais", "avait", "avions", "aviez", "avaient"];
+const ETRE_IMPF = ["étais", "étais", "était", "étions", "étiez", "étaient"];
+const FR_SUBJ_END = ["e", "es", "e", "ions", "iez", "ent"];
+/** Verbs whose subjunctive can't be made from the ils present and nous imparfait: forms.subjunctive. */
+const FR_IRREGULAR_SUBJ = ["être", "avoir", "aller", "faire", "pouvoir", "savoir", "vouloir", "valoir", "falloir", "pleuvoir"];
 const ETRE = ["suis", "es", "est", "sommes", "êtes", "sont"];
 const VOWEL_START = /^[aeiouyhâàéèêëîïôûœ]/i;
 const FR_ETRE_VERBS = [
@@ -280,6 +343,7 @@ function frVerb(item: VocabItem): FrVerb | string {
   const f = item.forms ?? {};
   if (f.preterite || f.imperativeUsted || f.imperfect || f.gerund) return `forms.preterite, imperfect, gerund and imperativeUsted are for Spanish`;
   if (f.present && !table(f.present)) return `forms.present needs six comma-separated forms (je, tu, il, nous, vous, ils)`;
+  if (f.subjunctive && !table(f.subjunctive)) return `forms.subjunctive needs six comma-separated forms (je, tu, il, nous, vous, ils), without que`;
   const present = table(f.present);
   if (present && reflexive && !present.every((x, i) => x.startsWith(FR_REFL[i] + " ") || x.startsWith(FR_REFL[i][0] + "'")))
     return `forms.present of a pronominal verb gives the pronouns: "me lève, te lèves, se lève, nous levons, vous levez, se lèvent"`;
@@ -354,11 +418,14 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
         : `Regular -${v.cls} verb: stem ${v.stem}- + -${FR_END[v.cls as "er"][i] || "(no ending)"}${v.reflexive ? `, with the pronoun ${FR_REFL[i]}` : ""}`;
       return { answers: frAnswers([x], i), rule };
     }
-    case "perfect": {
+    case "perfect":
+    case "pluperfect": {
       const i = Number(person);
       const { p: pAll, given } = frParticiple(v);
       const p = alts(pAll)[0];
-      const aux = (v.etre ? ETRE : AVOIR)[i];
+      const plu = form === "pluperfect";
+      const aux = (plu ? (v.etre ? ETRE_IMPF : AVOIR_IMPF) : v.etre ? ETRE : AVOIR)[i];
+      const tense = plu ? "Plus-que-parfait" : "Passé composé";
       // With être the participle agrees with the subject: accept every agreement the person allows.
       const agrees = v.etre && !(v.reflexive && (v.f.agreement === "none" || FR_INDIRECT_SE.includes(v.base)));
       const parts = !agrees ? alts(pAll) : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
@@ -374,11 +441,34 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
             : undefined;
       const how = given ? "" : ` (-${v.cls} → -${{ er: "é", ir: "i", re: "u", irr: "" }[v.cls]})`;
       const rule = v.etre && !agrees
-        ? `Passé composé with être (${aux}) + ${p}${how}; here se means "to oneself / to each other", so the participle doesn't agree`
+        ? `${tense} with être (${aux}) + ${p}${how}; here se means "to oneself / to each other", so the participle doesn't agree`
         : v.etre
-        ? `Passé composé with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
-        : `Passé composé: avoir (${aux}) + the participle ${p}${how}`;
+        ? `${tense} with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
+        : `${tense}: avoir (${aux}) + the participle ${p}${how}`;
       return { answers: gendered ?? frAnswers(forms, i), rule };
+    }
+    case "subjunctive": {
+      const i = Number(person);
+      const given = table(v.f.subjunctive);
+      let x: string;
+      let rule: string;
+      if (given) {
+        x = given[i];
+        rule = `${v.term} is irregular in the subjunctive: que ${given.map((y, k) => (k === 0 && VOWEL_START.test(y) ? "j'" : FR_LABEL[k].split("/")[0] + " ") + y).join(", ")}`;
+      } else {
+        if (FR_IRREGULAR_SUBJ.includes(v.base)) return undefined;
+        const strip = (y: string) => y.replace(/^(se |s'|nous |vous )/, "");
+        const ils = strip(alts(v.present ? v.present[5] : v.stem + FR_END[v.cls as "er"][5])[0]);
+        const nous = strip(alts(v.present ? v.present[3] : v.stem + FR_END[v.cls as "er"][3])[0]);
+        if (!ils.endsWith("ent") || !nous.endsWith("ons")) return undefined;
+        const stem = i === 3 || i === 4 ? nous.slice(0, -3).replace(/ge$/, "g").replace(/ç$/, "c") : ils.slice(0, -3);
+        const x0 = stem + FR_SUBJ_END[i];
+        x = v.reflexive ? refl(FR_REFL[i], x0) : x0;
+        rule = i === 3 || i === 4
+          ? `Subjonctif: nous and vous look like the imparfait (stem ${stem}- from nous ${nous}) + -${FR_SUBJ_END[i]}`
+          : `Subjonctif: the ils present without -ent (${ils} → ${stem}-) + -${FR_SUBJ_END[i]}`;
+      }
+      return { answers: withQue(frAnswers([x], i), "fr"), rule };
     }
     case "imperfect": {
       const i = Number(person);
