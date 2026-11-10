@@ -39,7 +39,7 @@ export interface CanonicalValidationOptions {
     /** Trusted deployment configuration only; never read from an authored payload. */
     communityImageOrigin?: string;
 }
-export const CANONICAL_LIMITS = { bytes: 900 * 1024, nodes: 200000, items: 10000, text: 500000, short: 2000 } as const;
+export const CANONICAL_LIMITS = { bytes: 900 * 1024, nodes: 200000, items: 10000, vocab: 40000, text: 500000, short: 2000 } as const;
 const RESERVED = new Set(["__proto__", "prototype", "constructor"]);
 const isObject = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v) && (Object.getPrototypeOf(v) === Object.prototype || Object.getPrototypeOf(v) === null);
 const validId = (v: unknown): v is string => typeof v === 'string' && /^[A-Za-z0-9_-]{1,100}$/.test(v) && !RESERVED.has(v);
@@ -132,7 +132,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             add(path, 'duplicate ID');
         ids.add(v);
     } }
-    function objects(v: unknown, path: string, keys: string[], visit: (o: Record<string, unknown>, path: string) => void) { if (!array(v, path))
+    function objects(v: unknown, path: string, keys: string[], visit: (o: Record<string, unknown>, path: string) => void, max: number = CANONICAL_LIMITS.items) { if (!array(v, path, max))
         return; const ids = new Set<string>(); v.forEach((x, i) => { const p = `${path}[${i}]`; if (!shape(x, keys, p))
         return; if (keys.includes('id'))
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
@@ -419,7 +419,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             strings(v.alt, p + '.alt'); if (v.directions !== undefined && array(v.directions, p + '.directions'))
             for (const d of v.directions)
                 if (!['meaning', 'recall'].includes(d as string))
-                    add(p + '.directions', 'unknown direction'); });
+                    add(p + '.directions', 'unknown direction'); }, CANONICAL_LIMITS.vocab);
     for (const [path, message] of conjugationShapeProblems(isObject(c.language) ? c.language : undefined, Array.isArray(c.vocab) ? c.vocab : []))
         add(path, message);
     if (c.readingList !== undefined)

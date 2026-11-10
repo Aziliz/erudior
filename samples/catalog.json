@@ -6547,5 +6547,165 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-japanese-n1",
+  "file": "languages/lang-japanese-n1.json",
+  "order": 125,
+  "title": "Japanese N1",
+  "description": "The fifth step in Japanese, from N2 to JLPT N1. Grammar lessons cover time and sequence (が早いか, や否や, なり, そばから, を皮切りに, をもって), concession (といえども, たりとも, ものを, であれ, はおろか, ないまでも), reasons, purpose and basis (ばこそ, んがため, べく, とあれば, をよそに, に即して, いかんによらず), feelings and judgements (を禁じ得ない, てやまない, にたえない, に足る, 極まりない, を余儀なくされる, まじき), scope and likeness (ならでは, に至っては, ずくめ, まみれ, めく, きらいがある, ごとき, なりに, たる) and the literary and academic written language, with long editorials, essays, literary prose and academic texts in every lesson and exam practice at the end. About 4,000 new words build on the 6,000 from the earlier courses for about 10,000 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 960 new kanji (about 2,000 in all, nearly every jōyō kanji in common use) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N2.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 960,
+  "drills": 0,
+  "words": 10021,
+  "carried": 5995,
+  "requires": [
+   "lang-japanese-n2"
+  ],
+  "lessonIds": [
+   "n1-ga-hayai-ka",
+   "n1-o-kawakiri-ni",
+   "n1-katawara",
+   "n1-yasaki",
+   "n1-nakushite",
+   "n1-to-iedomo",
+   "n1-mono-o",
+   "n1-de-are",
+   "n1-wa-oroka",
+   "n1-de-wa-arumai-shi",
+   "n1-ba-koso",
+   "n1-n-ga-tame",
+   "n1-te-mae",
+   "n1-o-yoso-ni",
+   "n1-ni-sokushite",
+   "n1-o-kinji-enai",
+   "n1-ni-taru",
+   "n1-kiwamarinai",
+   "n1-o-yogi-naku",
+   "n1-majiki",
+   "n1-narade-wa",
+   "n1-zukume",
+   "n1-kirai-ga-aru",
+   "n1-nari-ni",
+   "n1-ga-saigo",
+   "n1-literary",
+   "n1-word-formation",
+   "n1-academic",
+   "n1-practice",
+   "n1-exam"
+  ],
+  "honorsLessonIds": [
+   "n1-ichiyo",
+   "n1-kobun-1",
+   "n1-ogai",
+   "n1-noh-kabuki",
+   "n1-kobun-2",
+   "n1-kenpo",
+   "n1-rashomon",
+   "n1-postwar-economy",
+   "n1-dazai",
+   "n1-haiku-waka",
+   "n1-sangetsuki",
+   "n1-aesthetics"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "As soon as, alongside and without",
+    "lessons": [
+     "No sooner than: が早いか, や否や, なり, そばから",
+     "Starting and ending: を皮切りに, をもって, を限りに, を境に",
+     "Alongside: かたわら, がてら, かたがた",
+     "At the very moment: やさきに, 折から, ところを, にあって",
+     "Without and left undone: なくしては, なしに, ずじまい, までだ"
+    ],
+    "honors": [
+     "Higuchi Ichiyo and \"Child's Play\"",
+     "Classical Japanese I: the openings of two classics"
+    ]
+   },
+   {
+    "title": "Even so, let alone and whether or not",
+    "lessons": [
+     "Even: といえども, たりとも, とて, たところで",
+     "If only, and contrary to: ものを, と思いきや, にひきかえ, ながらに",
+     "Whether A or B: であれ, といい, といわず, なり〜なり",
+     "Let alone and more than: はおろか, もさることながら, にもまして, ならいざしらず",
+     "It's not as if: ではあるまいし, ならまだしも, ないまでも, ともなく"
+    ],
+    "honors": [
+     "Mori Ogai and \"The Boat on the Takase River\"",
+     "Noh, kyogen and kabuki"
+    ]
+   },
+   {
+    "title": "Because, in order to and in line with",
+    "lessons": [
+     "Precisely because: ばこそ, ゆえに, とあって, こととて",
+     "In order to: んがため, べく, べくもない, をもって",
+     "Given that: 手前, とあれば, ともなると, あっての",
+     "Paying no heed: をよそに, をものともせず, をかえりみず, にかこつけて",
+     "In line with: にそくして, にのっとって, をふまえて, いかんによらず"
+    ],
+    "honors": [
+     "Classical Japanese II: Essays in Idleness and The Tale of the Heike",
+     "The Constitution of Japan"
+    ]
+   },
+   {
+    "title": "Feelings, judgements and must not",
+    "lessons": [
+     "Can't help feeling: を禁じ得ない, てやまない, にたえない, ずにはおかない",
+     "Worth it or not: に足る, に足りない, にかたくない, かいがある",
+     "To the extreme: 極まりない, のいたり, の極み, とは",
+     "Forced to: をよぎなくされる, ないではすまない, ずにはすまない",
+     "Must not: まじき, べからず, べからざる, しかるべき"
+    ],
+    "honors": [
+     "Akutagawa and \"Rashomon\"",
+     "Japan's postwar economy"
+    ]
+   },
+   {
+    "title": "Only, like, in its own way and once",
+    "lessons": [
+     "Only here: ならでは, をおいて, にして, にいたっては",
+     "Covered in: ずくめ, まみれ, めく, ぐるみ",
+     "Tendencies and likeness: きらいがある, ごとき, ごとく, んばかり",
+     "In its own way: なりに, たる, たるもの, と相まって",
+     "Once it happens: が最後, たら最後, ようが〜まいが, ずとも"
+    ],
+    "honors": [
+     "Dazai Osamu and \"Run, Melos!\"",
+     "Haiku and waka"
+    ]
+   },
+   {
+    "title": "Literary and academic Japanese and the N1 exam",
+    "lessons": [
+     "Literary forms: べし, ごとし, ざる, をして, しめる",
+     "Words and set expressions",
+     "Academic Japanese: ひいては, ならびに, ないし, いわんや",
+     "Reading and listening practice",
+     "The JLPT N1 and review"
+    ],
+    "honors": [
+     "Nakajima Atsushi and \"The Moon over the Mountain\"",
+     "Japanese aesthetics"
+    ]
+   }
+  ]
  }
 ]
