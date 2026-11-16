@@ -1,0 +1,45 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-chinese",
+  "title": "Chinese demo",
+  "revision": 1,
+  "description": "Sample of Mandarin Chinese support: pinyin over characters, the Pinyin and Tone colours switches, read-aloud in Chinese.",
+  "language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", "level": "HSK 1" },
+  "modules": [{ "id": "m1", "title": "First words" }],
+  "lessons": [
+    {
+      "id": "zh-l1",
+      "module": "m1",
+      "title": "Hello and thank you",
+      "minutes": 10,
+      "topics": ["Greetings"],
+      "quiz": ["q1", "q2", "q3"],
+      "body": "## Characters and pinyin\n\nEach character is one syllable. **Pinyin** above it shows the sound and the tone: {你好|nǐ hǎo} (hello), {谢谢|xiè xie} (thank you; the second syllable has the neutral tone, so no mark).\n\n> *{你好|nǐ hǎo}！{我|wǒ}{是|shì}{学生|xué sheng}。* — Hello! I'm a student.\n\n| Characters | Pinyin | Meaning |\n|---|---|---|\n| {中国|Zhōng guó} | Zhōngguó | China |\n| {一点儿|yì diǎnr} | yìdiǎnr | a little |\n\nA line break inside a paragraph joins Chinese text without a space:\n{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n\n## Tones\n\nMandarin has four tones and a neutral tone: {妈|mā} (mother), {麻|má} (hemp), {马|mǎ} (horse), {骂|mà} (to scold), {吗|ma} (question word). Turn on **Tone colours** to colour each syllable by its tone."
+    }
+  ],
+  "banks": [
+    {
+      "id": "main",
+      "title": "Questions",
+      "sections": [],
+      "exam": { "questionCount": 3, "timeLimitMinutes": 5, "passingPercent": 70 },
+      "questions": [
+        { "id": "q1", "topic": "Greetings", "stem": "What does {你好|nǐ hǎo} mean?", "choices": ["hello", "thank you", "goodbye", "China"], "answer": [0], "explanation": "{你好|nǐ hǎo} is hello." },
+        { "id": "q2", "topic": "Greetings", "stem": "Which is “thank you”?", "choices": ["{谢谢|xiè xie}", "{你好|nǐ hǎo}", "{中国|Zhōng guó}"], "answer": [0], "explanation": "{谢谢|xiè xie}: the second syllable is neutral." },
+        { "id": "q3", "topic": "Greetings", "type": "text", "stem": "Type “China” in characters: ___", "accept": [["中国"]], "choices": [], "answer": [], "explanation": "{中国|Zhōng guó}." }
+      ]
+    }
+  ],
+  "decks": [],
+  "glossary": [{ "term": "pinyin", "definition": "The official romanization of Mandarin: {拼音|pīn yīn}, with a tone mark over each syllable." }],
+  "references": [],
+  "drills": [],
+  "vocab": [
+    { "id": "nihao", "lesson": "zh-l1", "term": "你好", "reading": "nǐ hǎo", "pos": "phrase", "kind": "phrase", "meanings": ["hello"], "example": "{你好|nǐ hǎo}！", "exampleEn": "Hello!" },
+    { "id": "xiexie", "lesson": "zh-l1", "term": "谢谢", "reading": "xiè xie", "pos": "verb", "meanings": ["thank you", "thanks"] },
+    { "id": "zhongguo", "lesson": "zh-l1", "term": "中国", "reading": "Zhōng guó", "pos": "noun", "meanings": ["China"] },
+    { "id": "yidianr", "lesson": "zh-l1", "term": "一点儿", "reading": "yì diǎnr", "pos": "noun", "meanings": ["a little", "a bit"] },
+    { "id": "xuesheng", "lesson": "zh-l1", "term": "学生", "reading": "xué sheng", "pos": "noun", "meanings": ["student"], "example": "{我|wǒ}{是|shì}{学生|xué sheng}。", "exampleEn": "I'm a student." }
+  ]
+}

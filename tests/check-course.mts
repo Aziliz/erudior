@@ -38,6 +38,7 @@ import { DEFAULT_TIME_LIMIT, codeBlockProblems, findCodeBlocks, judge, testCall,
 import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAccent } from "../src/lib/kana.ts";
+import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
@@ -117,10 +118,13 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 
   // --- Notation -----------------------------------------------------------------
   const japanese = c.language?.code === "ja";
+  const chinese = c.language?.code === "zh";
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
     // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
     if (japanese) for (const p of rubyProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
+    // Chinese courses: pinyin markup {汉字|hàn zì}: Han characters, one marked syllable each.
+    if (chinese) for (const p of pinyinProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
     let t = text;
     if (allowFigures) {
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
@@ -333,6 +337,20 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       if ((v.directions ?? ["meaning", "recall"]).includes("recall") && !checkRecallJa(v, typed).ok)
         say(`${where}: typing its reading "${typed}" isn't accepted`);
       for (const x of [v.example, v.note]) if (x) for (const p of rubyProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
+    }
+
+  // --- Chinese vocabulary: term in characters (simplified), reading in marked pinyin ---------
+  if (chinese)
+    for (const v of c.vocab ?? []) {
+      const where = `word ${v.id}`;
+      if (/[{}|]/.test(v.term)) say(`${where}: "term" must be plain text (put the pinyin in "reading", not markup)`);
+      else if (!hasHan(v.term)) say(`${where}: "term" must be written in Chinese characters (got "${v.term}")`);
+      else if (!v.reading) say(`${where}: "${v.term}" needs a "reading": its pinyin with tone marks, syllables separated by spaces`);
+      else {
+        const p = pinyinReadingProblem(v.term, v.reading, true);
+        if (p) say(`${where}: "reading" "${v.reading}": ${p}`);
+      }
+      for (const x of [v.example, v.note]) if (x) for (const p of pinyinProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
     }
 
   // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.

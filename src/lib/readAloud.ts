@@ -198,8 +198,9 @@ const BLOCKS = new Set(["P", "LI", "DIV", "H1", "H2", "H3", "H4", "H5", "H6", "T
 
 function skipEl(el: Element): boolean {
   // rt/rp: furigana readings; the voice reads the kanji they sit on. .pa-sr / .pa-alt: pitch-accent
-  // words for screen readers and extra accent forms (the word itself is read once).
-  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select, rt, rp, .pa-sr, .pa-alt")) return true;
+  // words for screen readers and extra accent forms (the word itself is read once). Pinyin rt and
+  // .tone-sr tone words likewise: the voice reads the Chinese characters.
+  if (el.matches("script, style, template, .ra-btn, .ra-skip, button.wx-show, select, rt, rp, .pa-sr, .pa-alt, .tone-sr")) return true;
   if ((el as HTMLElement).hidden) return true;
   return el.getAttribute("aria-hidden") === "true" && !el.classList.contains("katex");
 }

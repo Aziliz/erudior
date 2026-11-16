@@ -6,7 +6,7 @@ import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
-import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { hasKanji } from "../lib/kana";
 import { buildRound, conjSettings, conjSummary, conjWords } from "../lib/conjugation";
 
@@ -101,9 +101,9 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             <option value="all">All, including locked</option>
           </select>
         </div>
-        {lang?.code === "ja" && (
+        {(lang?.code === "ja" || lang?.code === "zh") && (
           <div className="row ja-toggles" style={{ marginBottom: 8 }}>
-            <JapaneseToggles />
+            <LanguageToggles code={lang.code} />
           </div>
         )}
         {!ordered.length && (
