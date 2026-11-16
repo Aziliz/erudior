@@ -571,6 +571,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               read={readAloud ? { lib } : undefined}
               ime={imeFor(course?.language)}
               lang={course?.language?.code}
+              tts={course?.language?.tts}
               seed={session.id}
               exam={isExam}
               draftKey={metaKey(session.bankId, q.id)}
