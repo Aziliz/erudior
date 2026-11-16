@@ -537,6 +537,22 @@ Language courses with `"language": { "code": "ja", "tts": "ja-JP", "ime": "ja", 
 - **Writing.** `` ```trace `` blocks trace kana and the jōyō kanji stroke by stroke (see [Tracing letters](#tracing-letters)); kanji stroke order comes from KanjiVG.
 - **Fonts.** Japanese uses the device's Japanese fonts (Hiragino, Yu Gothic, Meiryo, Noto Sans CJK…); no CJK font is bundled. Japanese text is never italicized, even when it's in `*italics*` to mark the language.
 
+## Chinese
+
+Mandarin courses opt in with `"language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", … }` (demo: `samples/demo-chinese.json`). Courses are written in simplified characters.
+
+- **Pinyin markup.** Write `{汉字|hàn zì}` anywhere furigana works (lesson text, reference sheets, notecards, question stems, choices and explanations, glossary definitions, vocabulary examples and notes). It becomes ruby with **one syllable over each character**. Rules (the checker enforces them in Chinese courses):
+  - The base is Han characters only. Keep digits, Latin letters and punctuation outside the markup: `3{个|gè}`, `{你好|nǐ hǎo}！`.
+  - The reading is Hanyu Pinyin with tone marks (ā á ǎ à; the neutral tone has no mark: `{谢谢|xiè xie}`), one syllable per character, **separated by spaces** (an apostrophe or hyphen also separates: `{西安|Xī'ān}`). Unspaced pinyin (`nǐhǎo`) is not accepted, so a reading always splits one way. Capitals are fine (`{中国|Zhōng guó}`); write ü, not v.
+  - Tone numbers (`ni3 hao3`) are reported, with the marked spelling suggested.
+  - Erhua: a syllable ending in -r covers a following 儿, `{一点儿|yì diǎnr}`; where 儿 is read on its own, give it its syllable (`{女儿|nǚ ér}`).
+  - Braces whose base has no Han characters (set notation, math) are left alone; markup that doesn't fit the rules shows as written.
+- **Vocabulary.** `term` is the word in simplified characters (plain text, no markup); `reading` is required: its pinyin with tone marks, syllables separated by spaces (`"term": "你好", "reading": "nǐ hǎo"`). The checker requires one syllable per Han character (characters such as the OK in 卡拉OK get none). Vocabulary cards and word lists put the pinyin over the characters; it isn't repeated under the word.
+- **Pinyin on/off.** A switch on Chinese lessons, quizzes and vocabulary hides every pinyin reading (per device, like the furigana switch; the two are separate). Hidden readings keep their space so lines don't jump.
+- **Tone colours.** A second switch, off by default (per device), colours each character and its syllable by tone: 1 red, 2 green, 3 blue, 4 purple, neutral grey. The colours are set for every theme (light, sepia, dark, dim, high contrast) with at least 4.5:1 contrast on the page backgrounds (7:1 in high contrast); the tone marks always carry the tone too, and while colours are on, screen readers hear each tone in words ("你 (tone 3)").
+- **Read-aloud, search and answers.** Read-aloud and the speak buttons read the characters (the zh-CN voice), never the pinyin. Search finds both characters and pinyin. Answer checking ignores the markup: an accepted answer `{中国|Zhōng guó}` matches 中国, and spaces and Chinese punctuation are ignored as for Japanese.
+- **Fonts.** Chinese uses the device's fonts (PingFang SC/TC, Microsoft YaHei/JhengHei, Noto Sans CJK SC/TC…); no CJK font is bundled. Chinese is never italicized. Line breaks inside a paragraph join Chinese text without a space.
+
 ## Conjugation drills
 
 Japanese and German courses can drill verb and adjective forms: the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.
