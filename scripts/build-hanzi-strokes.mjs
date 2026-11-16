@@ -157,7 +157,7 @@ const source = [
   `// Source: Make Me a Hanzi graphics.txt, commit ${commit},`,
   `// https://github.com/skishore/makemeahanzi. graphics.txt is derived from the fonts Arphic PL KaitiM GB and`,
   `// Arphic PL UKai (© 1999 Arphic Technology Co., Ltd.) and is distributed under the Arphic Public License; the`,
-  `// licence text (ARPHICPL.TXT) is in public/third-party-licenses.txt and scripts/licenses/ARPHICPL.TXT.`,
+  `// licence text (ARPHICPL.TXT) is in public/third-party-licenses.txt and scripts/licenses/makemeahanzi-ARPHICPL-COPYING.txt.`,
 ];
 const notice = [
   `// NOTICE OF MODIFICATION (Arphic Public License, section 2a): this file was changed from graphics.txt on`,

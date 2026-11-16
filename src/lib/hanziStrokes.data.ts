@@ -4,7 +4,7 @@
 // Source: Make Me a Hanzi graphics.txt, commit bddc96d41bef78427ed0e034e9f7e31d71fd1b92,
 // https://github.com/skishore/makemeahanzi. graphics.txt is derived from the fonts Arphic PL KaitiM GB and
 // Arphic PL UKai (© 1999 Arphic Technology Co., Ltd.) and is distributed under the Arphic Public License; the
-// licence text (ARPHICPL.TXT) is in public/third-party-licenses.txt and scripts/licenses/ARPHICPL.TXT.
+// licence text (ARPHICPL.TXT) is in public/third-party-licenses.txt and scripts/licenses/makemeahanzi-ARPHICPL-COPYING.txt.
 //
 // NOTICE OF MODIFICATION (Arphic Public License, section 2a): this file was changed from graphics.txt on
 // 2026-11-16 by scripts/build-hanzi-strokes.mjs (Erudior). It keeps only 923 characters (HSK 1–3 and their
