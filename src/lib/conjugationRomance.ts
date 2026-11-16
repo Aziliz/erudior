@@ -86,6 +86,8 @@ const ES_SUBJ_ER = ["a", "as", "a", "amos", "áis", "an"];
 function withQue(answers: string[], lang: "es" | "fr"): string[] {
   const out = [...answers];
   for (const a of answers) {
+    // French needs the subject after que (que je parte, not que parte).
+    if (lang === "fr" && !/^(je |j'|tu |il |elle |on |nous |vous |ils |elles )/i.test(a)) continue;
     const elide = lang === "fr" && /^(il|elle|on|ils|elles)\b/i.test(a);
     out.push(elide ? `qu'${a}` : `que ${a}`);
     out.push(elide ? `Qu'${a}` : `Que ${a}`);

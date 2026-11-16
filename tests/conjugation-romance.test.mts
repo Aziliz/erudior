@@ -239,4 +239,6 @@ assert(ok("fr", hierarchiser, "present", "0", "je hiérarchise") && !ok("fr", hi
 assert(ok("fr", w("habiter", "er"), "present", "0", "j'habite"), "mute h still elides");
 assert(ok("fr", payer, "subjunctive", "0", "que je paie") && ok("fr", payer, "subjunctive", "0", "que je paye"), "both spellings in the subjunctive");
 
+assert(!ok("fr", allerB2, "perfectSubjunctive", "0", "que sois allé"), "French que needs the subject");
+assert(ok("fr", allerB2, "perfectSubjunctive", "0", "sois allé"), "bare form still accepted");
 console.log("Spanish and French conjugation and recall passed.");
