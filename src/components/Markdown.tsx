@@ -51,7 +51,7 @@ export function findTerm(glossary: GlossaryEntry[], term: string): GlossaryEntry
 // (a soft break, which HTML shows as a space) joins the lines directly when both sides are
 // CJK text or furigana.
 const CJK = "\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff01-\uff60";
-const CJK_BREAK = new RegExp(`([${CJK}]|</ruby>|</span>)\n(?=[${CJK}]|<ruby>|<span class="pa")`, "g");
+const CJK_BREAK = new RegExp(`([${CJK}]|</ruby>|</span>)\n(?=[${CJK}]|<ruby[ >]|<span class="pa")`, "g");
 export function joinCjkBreaks(html: string): string {
   return html.replace(CJK_BREAK, "$1");
 }
