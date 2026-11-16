@@ -13,6 +13,7 @@ import type { Course, Progress, VocabDirection, VocabItem, VocabState } from "./
 import { today } from "./srs";
 import { hasKanji, hasRomaji, normJa, stripRuby, toHiragana } from "./kana";
 export { normJa } from "./kana";
+import { hasHan, normPinyin, normPinyinToneless } from "./pinyin";
 
 export const STAGES = ["Novice", "Beginner", "Advanced", "Expert"] as const;
 export const PER_STAGE = 5;
@@ -253,9 +254,48 @@ export function checkRecallJa(item: VocabItem, typed: string): Verdict {
   return { ok: false };
 }
 
+export interface RecallOptions {
+  /** Chinese: the learner already had the "check the tones" try for this card. */
+  tonesHinted?: boolean;
+}
+
+/**
+ * Chinese: the characters (`term`, from a Chinese keyboard) or the pinyin `reading` counts.
+ * Pinyin needs the tones; spacing, capitals, apostrophes and v for ü don't matter. Right
+ * syllables with a wrong or missing tone get one more try, then count as a miss.
+ */
+export function checkRecallZh(item: VocabItem, typed: string, opts: RecallOptions = {}): Verdict {
+  if (!typed.trim()) return { ok: false, retry: true, note: "Type an answer." };
+  if (hasHan(typed)) {
+    const t = normJa(typed);
+    return [item.term, ...(item.alt ?? []).filter(hasHan)].map(normJa).includes(t) ? { ok: true } : { ok: false };
+  }
+  const readings = [item.reading, ...(item.alt ?? []).filter((a) => !hasHan(a))].filter((r): r is string => !!r?.trim());
+  const t = normPinyin(typed);
+  if (readings.some((r) => normPinyin(r) === t)) return { ok: true };
+  if (/\d/.test(t))
+    return { ok: false, retry: true, note: "Type each tone number right after its syllable: ni3 hao3." };
+  const toneless = normPinyinToneless(typed);
+  const near = readings.find((r) => normPinyinToneless(r) === toneless);
+  if (near) {
+    const none = t === toneless;
+    if (!opts.tonesHinted)
+      return {
+        ok: false,
+        retry: true,
+        note: none
+          ? "Add the tones: type a number after each syllable (ni3 hao3), 5 for neutral."
+          : "Check the tones: the syllables are right, but a tone isn't.",
+      };
+    return { ok: false, note: `Check the tones: ${near}` };
+  }
+  return { ok: false };
+}
+
 /** Typed word for an English prompt: exact spelling; nouns need their article. */
-export function checkRecall(item: VocabItem, typed: string, lang = "de"): Verdict {
+export function checkRecall(item: VocabItem, typed: string, lang = "de", opts: RecallOptions = {}): Verdict {
   if (lang === "ja") return checkRecallJa(item, typed);
+  if (lang === "zh") return checkRecallZh(item, typed, opts);
   const t = normTerm(typed);
   if (!t) return { ok: false, retry: true, note: "Type an answer." };
   const wants = [item.term, ...(item.alt ?? [])].map(normTerm);
@@ -281,8 +321,8 @@ export function checkRecall(item: VocabItem, typed: string, lang = "de"): Verdic
   return { ok: false };
 }
 
-export function checkAnswer(card: VocabCard, typed: string, lang?: string): Verdict {
-  return card.dir === "meaning" ? checkMeaning(card.item, typed) : checkRecall(card.item, typed, lang);
+export function checkAnswer(card: VocabCard, typed: string, lang?: string, opts?: RecallOptions): Verdict {
+  return card.dir === "meaning" ? checkMeaning(card.item, typed) : checkRecall(card.item, typed, lang, opts);
 }
 
 /** Fisher–Yates shuffle (copy). */
