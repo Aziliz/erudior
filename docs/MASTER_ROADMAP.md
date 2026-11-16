@@ -1,3 +1,19 @@
+## Course authoring completion and availability — November 16, 2026
+
+The user's follow-up identified that the public roadmap did not acknowledge completed course authoring. Public source commit `1044466c662ea8b3c7d3373350f7251773ad38dd` corrects that display on top of the concurrent Chinese pinyin merge, preserving its source and styles.
+
+**Authoring complete** means all planned course material is written; review and public release may still be pending. The public roadmap now identifies ten authored school-course drafts: Math K–5, Language Arts 7–8 and English 9–10. Their descriptions state the completed lesson/question scope, actual review dates and outstanding review, learner/device or release work. English 10's unfinished content review is explicit. Local or assistant review is not presented as independent educator approval.
+
+A separate summary counts **10 authored courses awaiting release**. Catalog membership still determines **Available** badges, course links and the **24 of 255** public-scope availability count; authoring completion cannot create a release link or increase availability. Public scope remains pre-K–12 and all language levels, plus app, website and engine work.
+
+The older Math K–4 and English 9 sources remain on their already-pushed individual PR branches; this display correction does not merge them or the guided-practice dependency. The source integration described below included the newer held batch and did not finish all course release work. No course package, answer key, catalog entry or publication flag changes in this roadmap correction. Its source and documentation commits use `[skip ci]`; this thread runs only the already-authorized website deployment workflow and its included website checks.
+
+The production TypeScript/Vite build passed locally, followed by a focused source review of the completion labels, counts, links and public scope. [Deploy Erudior website #417](https://github.com/Aziliz/erudior/actions/runs/43965777649) completed successfully on November 16, 2026 at **3:04:51 p.m. MST** (`22:04:51 UTC`), deploying `1044466c662ea8b3c7d3373350f7251773ad38dd`. Its build, prerender, browser checks and Cloudflare Pages deployment passed. Live browser verification of [the roadmap](https://erudior.com/roadmap) found exactly ten Authoring complete rows, ten authored courses awaiting release, 24 Available courses out of 255, no links on unpublished drafts, and no desktop horizontal overflow. The rendered page was visually inspected and a screenshot retained.
+
+Public course release remains separate and unfinished for these ten drafts: the publisher reads `samples/catalog.json` and its named public course JSON files, where these courses are still absent. Private manuscripts and roadmap badges are not publisher inputs. Compatible release packages, catalog integration and each course's remaining review/release requirements must be completed before publication. The concurrent pinyin merge started separate workflows; this roadmap correction dispatched only the website workflow.
+
+The initial four In Progress badges in the following deployment history are superseded by this more precise authoring status.
+
 ## Held school-course integration and website roadmap — November 16, 2026
 
 The user's instruction to push all held courses and update the website authorizes integrating the verified batch. Private course main now contains the held sources at `9b9eb37a8d416191a941abe758c6435ea6c0fdd5`, including the shared-builder restoration verified on November 15. The previous source-only queue notes below are historical.
