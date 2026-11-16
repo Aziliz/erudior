@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 import { accentList, autoRuby, hasKanji, pitchHtml, rubyHtml } from "../lib/kana";
+import { pinyinPairs, pinyinRubyHtml } from "../lib/pinyin";
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -9,9 +10,16 @@ const escapeHtml = (s: string) =>
  * Japanese text with furigana: `{漢字|かんじ}` markup in `text` (and pitch markup, `{橋|はし:2}`,
  * `[はし:2]`), or a whole word plus its kana `reading` (the reading goes over the kanji only).
  * `pitch` marks the accent on a kana-only word (a word with kanji shows its accent on the
- * reading instead: see PitchText). Other languages render as plain text.
+ * reading instead: see PitchText). Chinese: `{汉字|hàn zì}` markup, or a term plus its pinyin
+ * `reading` (one syllable over each character). Other languages render as plain text.
  */
 export function RubyText({ text, reading, lang, pitch }: { text: string; reading?: string; lang?: string; pitch?: number | number[] }) {
+  if (lang === "zh") {
+    const pairs = reading && !/[{|]/.test(text) ? pinyinPairs(text, reading, true) : null;
+    const html = pairs ? pinyinRubyHtml(pairs) : rubyHtml(escapeHtml(text), false);
+    if (!html.includes("<ruby")) return <>{text}</>;
+    return <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }} />;
+  }
   if (lang !== "ja") return <>{text}</>;
   if (accentList(pitch).length && !hasKanji(text) && !/[{[]/.test(text)) return <PitchText kana={text} pitch={pitch} />;
   const marked = reading ? autoRuby(text, reading) : text;
@@ -127,6 +135,65 @@ export function PitchToggle({ className = "" }: { className?: string }) {
       Pitch accent {on ? "on" : "off"}
     </button>
   );
+}
+
+/** A switch that shows or hides pinyin over Chinese characters (shown on Chinese course screens). */
+export function PinyinToggle({ className = "" }: { className?: string }) {
+  const on = pinyin.useSetting();
+  return (
+    <button
+      type="button"
+      className={`btn sm ghost pinyin-toggle ${className}`}
+      aria-pressed={on}
+      title="Show the pinyin above Chinese characters"
+      onClick={() => setPinyin(!on)}
+    >
+      <span lang="zh" aria-hidden="true">
+        <ruby className="py">
+          字<rt>zì</rt>
+        </ruby>
+      </span>{" "}
+      Pinyin {on ? "on" : "off"}
+    </button>
+  );
+}
+
+/** A switch that colours characters and pinyin by tone (off unless the learner turns it on). */
+export function ToneToggle({ className = "" }: { className?: string }) {
+  const on = toneColours.useSetting();
+  return (
+    <button
+      type="button"
+      className={`btn sm ghost tone-toggle ${className}`}
+      aria-pressed={on}
+      title="Colour each syllable by its tone (tones 1–4 and neutral)"
+      onClick={() => setToneColours(!on)}
+    >
+      <span lang="zh-Latn" aria-hidden="true">
+        {["ā", "á", "ǎ", "à"].map((v, i) => (
+          <span key={v} className={`tn t${i + 1}`}>{v}</span>
+        ))}
+      </span>{" "}
+      Tone colours {on ? "on" : "off"}
+    </button>
+  );
+}
+
+/** Both Chinese switches, side by side. */
+export function ChineseToggles() {
+  return (
+    <>
+      <PinyinToggle />
+      <ToneToggle />
+    </>
+  );
+}
+
+/** The reading switches for a course language: Japanese or Chinese ones, else nothing. */
+export function LanguageToggles({ code }: { code?: string }) {
+  if (code === "ja") return <JapaneseToggles />;
+  if (code === "zh") return <ChineseToggles />;
+  return null;
 }
 
 /** Both Japanese switches, side by side. */
