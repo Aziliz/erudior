@@ -111,7 +111,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             add(`${path}.${k}`, 'boolean required'); }
     function integer(v: unknown, path: string, min = 0, max = 100000) { if (typeof v !== 'number' || !Number.isInteger(v) || v < min || v > max)
         add(path, 'bounded integer required'); }
-    function array(v: unknown, path: string, max = CANONICAL_LIMITS.items): v is unknown[] { if (!Array.isArray(v) || v.length > max) {
+    function array(v: unknown, path: string, max: number = CANONICAL_LIMITS.items): v is unknown[] { if (!Array.isArray(v) || v.length > max) {
         add(path, 'bounded array required');
         return false;
     } return true; }
