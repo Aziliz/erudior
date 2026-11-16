@@ -173,3 +173,78 @@ export function pinyinPairs(base: string, reading: string, allowOther = false): 
   }
   return i === syls.length && out.some(p => p.syl) ? out : null;
 }
+
+/** Words for a tone, for screen readers: "tone 3", "neutral tone". */
+export const toneWord = (tone: number) => (tone >= 1 && tone <= 4 ? `tone ${tone}` : "neutral tone");
+
+const escHtml = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+
+/**
+ * Ruby HTML for paired characters: each character and its syllable carry a tone class
+ * (.tn.t1–.t4, .t0 neutral) that the Tone colours switch colours, plus visually hidden
+ * tone words (.tone-sr) that only exist for screen readers while tone colours are on.
+ */
+export function pinyinRubyHtml(pairs: PinyinPair[], escape = true): string {
+  const e = (s: string) => (escape ? escHtml(s) : s);
+  const inner = pairs
+    .map((p) =>
+      p.tone < 0
+        ? `${e(p.base)}<rt></rt>`
+        : `<span class="tn t${p.tone}">${e(p.base)}</span><span class="sr-only tone-sr" lang="en"> (${toneWord(p.tone)})</span>` +
+          `<rp>(</rp><rt class="tn t${p.tone}" lang="zh-Latn">${e(p.syl)}</rt><rp>)</rp>`,
+    )
+    .join("");
+  return `<ruby class="py" lang="zh">${inner}</ruby>`;
+}
+
+export interface PinyinProblem {
+  match: string;
+  problem: string;
+}
+
+const MARKED = /[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ]/;
+const PY_RUBY_RE = /\{([^{}|\n]+)\|([^{}|\n]+)\}/g;
+
+/** What's wrong with a pinyin reading for `base` (characters), or undefined if it fits. */
+export function pinyinReadingProblem(base: string, reading: string, allowOther = false): string | undefined {
+  const r = reading.trim();
+  if (/\d/.test(r)) {
+    const fixed = pinyinTokens(r).map((t) => pinyinTyping(t)).join(" ");
+    return `use tone marks, not tone numbers ("${fixed}")`;
+  }
+  const toks = pinyinTokens(r);
+  if (!toks.length) return "the pinyin is empty";
+  for (const t of toks) {
+    if (validPinyinSyllable(t)) continue;
+    if (!/^\p{Script=Latin}+$/u.test(t)) return `the reading must be pinyin with tone marks (got "${t}")`;
+    if ([...t].filter((c) => MARKED.test(c)).length > 1) return `"${t}" has more than one tone mark: put a space between syllables`;
+    return `"${t}" isn't a pinyin syllable (separate syllables with spaces; write ü, not v)`;
+  }
+  if (pinyinPairs(base, r, allowOther)) return undefined;
+  // Count the characters the way pinyinPairs does (erhua 儿 rides on the syllable before).
+  const chars = [...base].filter(isHan).length;
+  const erhua = toks.filter((t) => /[^e]r$/i.test(splitTone(t).plain)).length;
+  return `${chars} character${chars === 1 ? "" : "s"} but ${toks.length} syllable${toks.length === 1 ? "" : "s"}${erhua ? " (an erhua syllable such as diǎnr covers its 儿)" : ""}`;
+}
+
+/** Problems with pinyin markup {汉字|hàn zì} in a piece of course text (for the course checker). */
+export function pinyinProblems(text: string): PinyinProblem[] {
+  const out: PinyinProblem[] = [];
+  for (const m of text.matchAll(PY_RUBY_RE)) {
+    const [whole, base, raw] = m;
+    if (!hasHan(base)) {
+      // Braces in math or set notation aren't markup; a pinyin-looking reading over no characters is.
+      if (MARKED.test(raw) && looksPinyin(raw)) out.push({ match: whole, problem: "the base must be Han characters" });
+      continue;
+    }
+    const other = [...base].filter((c) => !isHan(c));
+    if (other.length) {
+      out.push({ match: whole, problem: `the base must be Han characters only: keep "${other.join("")}" outside the markup` });
+      continue;
+    }
+    const p = pinyinReadingProblem(base, raw);
+    if (p) out.push({ match: whole, problem: p });
+  }
+  return out;
+}
