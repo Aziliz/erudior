@@ -64,4 +64,137 @@ assert.match(probs("{绿|lv}")[0], /isn't a pinyin syllable/);
 assert.match(probs("{abc|nǐ}")[0], /base must be Han/);
 assert.equal(pinyinReadingProblem("卡拉OK", "kǎ lā", true), undefined);
 
-console.log("chinese: pinyin pairing, ruby, markup stripping and checker messages passed");
+// --- Course checker and canonical schema -------------------------------------------------------
+const { checkCourse } = await import("./check-course.mts");
+assert.deepEqual(await checkCourse("samples/demo-chinese.json", { runs: 1 }), [], "demo course is clean");
+const demo = JSON.parse(readFileSync("samples/demo-chinese.json", "utf8"));
+const portable = JSON.parse(exportCourseSnapshot(normalizeCourse(demo)));
+const payload = canonicalAuthoringFromCourse(portable, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER });
+assert.deepEqual(validateCanonicalAuthoring(payload, { mode: "source" }), [], "zh language config and vocab accepted");
+assert.deepEqual(payload.course.language, { code: "zh", name: "Chinese", tts: "zh-CN", ime: "zh", level: "HSK 1" });
+{
+  const dir = mkdtempSync(join(tmpdir(), "zh-check-"));
+  try {
+    const bad = structuredClone(demo);
+    bad.lessons[0].body = "{你好|ni3 hao3} {你好|nǐ} {3个|sān gè}";
+    bad.vocab = [
+      { id: "a", lesson: "zh-l1", term: "你好", meanings: ["hello"] },
+      { id: "b", lesson: "zh-l1", term: "你好", reading: "nǐhǎo", meanings: ["hello"] },
+      { id: "c", lesson: "zh-l1", term: "你好", reading: "ni3 hao3", meanings: ["hello"] },
+      { id: "d", lesson: "zh-l1", term: "{你好|nǐ hǎo}", reading: "nǐ hǎo", meanings: ["hello"] },
+      { id: "e", lesson: "zh-l1", term: "nihao", reading: "nǐ hǎo", meanings: ["hello"] },
+      { id: "f", lesson: "zh-l1", term: "谢谢", reading: "xiè", meanings: ["thanks"], example: "{谢谢|xie4 xie}" },
+    ];
+    const f = join(dir, "bad.json");
+    writeFileSync(f, JSON.stringify(bad));
+    const got = (await checkCourse(f, { runs: 1 })).join("\n");
+    for (const want of [
+      /lesson zh-l1.*\{你好\|ni3 hao3\}: use tone marks/,
+      /\{你好\|nǐ\}: 2 characters but 1 syllable/,
+      /\{3个\|sān gè\}: the base must be Han characters only/,
+      /word a: "你好" needs a "reading"/,
+      /word b: "reading" "nǐhǎo": "nǐhǎo" has more than one tone mark/,
+      /word c: "reading" "ni3 hao3": use tone marks/,
+      /word d: "term" must be plain text/,
+      /word e: "term" must be written in Chinese characters/,
+      /word f: "reading" "xiè": 2 characters but 1 syllable/,
+      /word f: \{谢谢\|xie4 xie\}: use tone marks/,
+    ])
+      assert.match(got, want);
+    // The same markup in a Japanese course isn't checked as pinyin.
+    bad.language = { code: "ja", name: "Japanese" };
+    bad.vocab = [];
+    bad.lessons[0].body = "{猫|ねこ}";
+    writeFileSync(f, JSON.stringify(bad));
+    assert.ok(!(await checkCourse(f, { runs: 1 })).some((p) => /tone marks|syllable|Han characters/.test(p)));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+// --- Rendering in the page ---------------------------------------------------------------------
+const dom = new JSDOM("<!doctype html><html><body></body></html>", { url: "https://example.test", pretendToBeVisual: true });
+Object.assign(globalThis, { window: dom.window, document: dom.window.document, HTMLElement: dom.window.HTMLElement, localStorage: dom.window.localStorage });
+Object.defineProperty(globalThis, "navigator", { configurable: true, value: dom.window.navigator });
+const { renderMarkdown } = await import("../src/components/Markdown.tsx");
+const { speechText } = await import("../src/lib/readAloud.ts");
+const md = renderMarkdown("{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n中文\n{你好|nǐ hǎo}");
+assert.ok(!/\n/.test(md.replace(/\n$/, "")), `soft breaks joined: ${md}`);
+const p = dom.window.document.createElement("p");
+p.innerHTML = md;
+assert.equal(p.querySelectorAll("ruby.py rt").length, 7);
+assert.equal(speechText(p).replace(/\.$/, ""), "我喜欢喝茶。中文你好", "speech reads characters, no pinyin or tone words");
+assert.equal(p.querySelector("ruby.py")?.getAttribute("lang"), "zh");
+
+// --- Switches (per device) and RubyText --------------------------------------------------------
+const Ruby = await import("../src/components/Ruby.tsx");
+const root = dom.window.document.documentElement;
+localStorage.clear();
+assert.equal(Ruby.pinyinOn(), true, "pinyin on by default");
+assert.equal(Ruby.toneColoursOn(), false, "tone colours off by default");
+Ruby.applyPinyin();
+Ruby.applyToneColours();
+assert.ok(!root.classList.contains("pinyin-off") && !root.classList.contains("tones-on"));
+Ruby.setPinyin(false);
+Ruby.setToneColours(true);
+assert.ok(root.classList.contains("pinyin-off") && root.classList.contains("tones-on"));
+assert.equal(localStorage.getItem("erudior.pinyin"), "off");
+assert.equal(localStorage.getItem("erudior.tones"), "on");
+assert.equal(Ruby.pinyinOn(), false);
+assert.equal(Ruby.toneColoursOn(), true);
+Ruby.setPinyin(true);
+Ruby.setToneColours(false);
+assert.ok(!root.classList.contains("pinyin-off") && !root.classList.contains("tones-on"));
+Ruby.setFurigana(false);
+assert.ok(root.classList.contains("furigana-off") && !root.classList.contains("pinyin-off"), "furigana switch is separate");
+Ruby.setFurigana(true);
+
+const { createElement: h } = await import("react");
+const { renderToStaticMarkup } = await import("react-dom/server");
+const term = renderToStaticMarkup(h(Ruby.RubyText, { text: "一点儿", reading: "yì diǎnr", lang: "zh" }));
+assert.ok(term.includes('<ruby class="py" lang="zh">') && term.includes(">diǎnr</rt>") && term.includes("点儿"), term);
+assert.equal(renderToStaticMarkup(h(Ruby.RubyText, { text: "你好", reading: "nǐ", lang: "zh" })), "你好", "a reading that doesn't fit shows plain");
+assert.ok(renderToStaticMarkup(h(Ruby.RubyText, { text: "{你好|nǐ hǎo}！", lang: "zh" })).includes("</ruby>！"));
+const toggles = renderToStaticMarkup(h(Ruby.LanguageToggles, { code: "zh" }));
+assert.ok(toggles.includes("Pinyin on") && toggles.includes("Tone colours off") && toggles.includes('aria-pressed="false"'), toggles);
+assert.equal(renderToStaticMarkup(h(Ruby.LanguageToggles, { code: "de" })), "");
+assert.ok(renderToStaticMarkup(h(Ruby.LanguageToggles, { code: "ja" })).includes("Furigana"));
+
+// --- Tone colours: contrast in every theme -----------------------------------------------------
+const css = readFileSync("src/styles.css", "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+const vars = (selector: string, need: string) => {
+  const blocks = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter((m) => m[1].split(";").pop()!.trim().split(/\s*,\s*/).includes(selector) && m[2].includes(need));
+  assert.ok(blocks.length, `${selector} with ${need}`);
+  const out: Record<string, string> = {};
+  for (const [, name, value] of blocks[0][2].matchAll(/--([\w-]+):\s*(#[0-9a-f]{6})/gi)) out[name] = value;
+  return out;
+};
+const lum = (hex: string) => {
+  const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+};
+const ratio = (a: string, b: string) => {
+  const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m);
+  return (x + 0.05) / (y + 0.05);
+};
+const themes: [string, string, string, number][] = [
+  ["light", ":root", ":root", 4.5],
+  ["sepia", ':root[data-theme="sepia"]', ":root", 4.5],
+  ["dark", ':root[data-theme="dark"]', ':root[data-theme="dark"]', 4.5],
+  ["dim", ':root[data-theme="dim"]', ':root[data-theme="dim"]', 4.5],
+  ["contrast", ':root[data-theme="contrast"]', ':root[data-theme="contrast"]', 7],
+];
+for (const [name, bgSel, toneSel, need] of themes) {
+  const bg = vars(bgSel, "--paper:");
+  const tones = vars(toneSel, "--tone-1:");
+  for (const t of ["1", "2", "3", "4", "0"])
+    for (const b of ["paper", "surface", "sheet"]) {
+      assert.ok(tones[`tone-${t}`] && bg[b], `${name}: tone-${t} / ${b} missing ${JSON.stringify([tones, bg])}`);
+      const r = ratio(tones[`tone-${t}`], bg[b]);
+      assert.ok(r >= need, `${name} tone ${t} on ${b}: ${r.toFixed(2)} < ${need}`);
+    }
+}
+const darkAuto = vars(":root:not([data-theme])", "--tone-1:");
+assert.deepEqual(darkAuto, vars(':root[data-theme="dark"]', "--tone-1:"), "system dark mode uses the dark tone colours");
+
+console.log("chinese: pinyin pairing, ruby, markup stripping, checker, rendering, switches and tone contrast passed");
