@@ -233,4 +233,10 @@ assert(ok("fr", allerB2, "perfectSubjunctive", "2", "qu'elle soit allée"), "gen
 assert(!ok("fr", allerB2, "perfectSubjunctive", "2", "qu'elle soit allé"), "elle needs agreement");
 assert(ok("fr", allerB2, "futurePerfect", "5", "elles seront allées"));
 
+// Aspirated h: no elision; two present spellings give two subjunctives.
+const hierarchiser = w("hiérarchiser", "er");
+assert(ok("fr", hierarchiser, "present", "0", "je hiérarchise") && !ok("fr", hierarchiser, "present", "0", "j'hiérarchise"), "h aspiré");
+assert(ok("fr", w("habiter", "er"), "present", "0", "j'habite"), "mute h still elides");
+assert(ok("fr", payer, "subjunctive", "0", "que je paie") && ok("fr", payer, "subjunctive", "0", "que je paye"), "both spellings in the subjunctive");
+
 console.log("Spanish and French conjugation and recall passed.");

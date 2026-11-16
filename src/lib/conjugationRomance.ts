@@ -30,12 +30,17 @@ const table = (s: string | undefined): string[] | undefined => {
 /** A table cell may give alternatives: "paie/paye". */
 const alts = (cell: string) => cell.split("/").map((x) => x.trim()).filter(Boolean);
 
-/** Add "yo ", "Yo " … variants. French je elides before a vowel or h. A cell's alternatives all count. */
+/** French verbs whose h is aspirated: no elision (je hiérarchise, se hisser, que je haïsse). */
+const FR_H_ASPIRE = /^(hach|haï|hai|hal[aeéèi]|hant|harass|harcel|harcèl|hasard|hât|hauss|heurt|hiérarch|hiss|hurl|hu[eéa]|huons|huiez)/i;
+/** Whether French je, me, te, se, que elide before this form: a vowel or a mute h. */
+const frElides = (form: string) => /^[aeiouyhâàéèêëîïôûœ]/i.test(form) && !FR_H_ASPIRE.test(form);
+
+/** Add "yo ", "Yo " … variants. French je elides before a vowel or mute h. A cell's alternatives all count. */
 function withPronouns(form: string, prons: string[], lang: "es" | "fr"): string[] {
   if (form.includes("/")) return [...new Set(alts(form).flatMap((f) => withPronouns(f, prons, lang)))];
   const out = [form];
   for (const p of prons) {
-    const joined = lang === "fr" && p === "je" && /^[aeiouyhâàéèêëîïôûœ]/i.test(form) ? `j'${form}` : `${p} ${form}`;
+    const joined = lang === "fr" && p === "je" && frElides(form) ? `j'${form}` : `${p} ${form}`;
     out.push(joined, joined[0].toUpperCase() + joined.slice(1));
   }
   return [...new Set(out)];
@@ -358,14 +363,14 @@ const FR_COMPOUND: Record<string, { avoir: string[]; etre: string[]; name: strin
   conditionalPerfect: { avoir: AVOIR_COND, etre: ETRE_COND, name: "Conditionnel passé" },
   perfectSubjunctive: { avoir: AVOIR_SUBJ, etre: ETRE_SUBJ, name: "Subjonctif passé", que: true },
 };
-const VOWEL_START = /^[aeiouyhâàéèêëîïôûœ]/i;
 const FR_ETRE_VERBS = [
   "aller", "venir", "partir", "arriver", "entrer", "sortir", "rester", "tomber", "naître", "mourir", "monter", "descendre", "retourner",
   "devenir", "revenir", "rentrer", "passer",
 ];
 
 /** A reflexive pronoun before a verb form: me → m' before a vowel or h. */
-const refl = (pron: string, form: string) => (["me", "te", "se"].includes(pron) && VOWEL_START.test(form) ? `${pron[0]}'${form}` : `${pron} ${form}`);
+const refl = (pron: string, form: string): string =>
+  form.includes("/") ? alts(form).map((f) => refl(pron, f)).join("/") : ["me", "te", "se"].includes(pron) && frElides(form) ? `${pron[0]}'${form}` : `${pron} ${form}`;
 
 function frVerb(item: VocabItem): FrVerb | string {
   const term = item.term.trim().replace(/’/g, "'");
@@ -493,15 +498,18 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
       let rule: string;
       if (given) {
         x = given[i];
-        rule = `${v.term} is irregular in the subjunctive: que ${given.map((y, k) => (k === 0 && VOWEL_START.test(y) ? "j'" : FR_LABEL[k].split("/")[0] + " ") + y).join(", ")}`;
+        rule = `${v.term} is irregular in the subjunctive: que ${given.map((y, k) => (k === 0 && frElides(y) ? "j'" : FR_LABEL[k].split("/")[0] + " ") + y).join(", ")}`;
       } else {
         if (FR_IRREGULAR_SUBJ.includes(v.base)) return undefined;
         const strip = (y: string) => y.replace(/^(se |s'|nous |vous )/, "");
-        const ils = strip(alts(v.present ? v.present[5] : v.stem + FR_END[v.cls as "er"][5])[0]);
-        const nous = strip(alts(v.present ? v.present[3] : v.stem + FR_END[v.cls as "er"][3])[0]);
-        if (!ils.endsWith("ent") || !nous.endsWith("ons")) return undefined;
-        const stem = i === 3 || i === 4 ? nous.slice(0, -3).replace(/ge$/, "g").replace(/ç$/, "c") : ils.slice(0, -3);
-        const x0 = stem + FR_SUBJ_END[i];
+        // A cell may give two spellings (paient/payent): each gives a subjunctive (paie/paye).
+        const ilsAll = alts(v.present ? v.present[5] : v.stem + FR_END[v.cls as "er"][5]).map(strip);
+        const nousAll = alts(v.present ? v.present[3] : v.stem + FR_END[v.cls as "er"][3]).map(strip);
+        if (!ilsAll.every((y) => y.endsWith("ent")) || !nousAll.every((y) => y.endsWith("ons"))) return undefined;
+        const ils = ilsAll[0], nous = nousAll[0];
+        const stems = i === 3 || i === 4 ? nousAll.map((y) => y.slice(0, -3).replace(/ge$/, "g").replace(/ç$/, "c")) : ilsAll.map((y) => y.slice(0, -3));
+        const stem = stems[0];
+        const x0 = [...new Set(stems)].map((st) => st + FR_SUBJ_END[i]).join("/");
         x = v.reflexive ? refl(FR_REFL[i], x0) : x0;
         rule = i === 3 || i === 4
           ? `Subjonctif: nous and vous look like the imparfait (stem ${stem}- from nous ${nous}) + -${FR_SUBJ_END[i]}`
