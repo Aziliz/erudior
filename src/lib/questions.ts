@@ -3,6 +3,7 @@
 
 import type { AudioClip, Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { hasJapanese, normJa } from "./kana";
+import { isPinyinAnswer, normPinyin, onlyTonesDiffer } from "./pinyin";
 import { sameSet } from "./util";
 import { actionLabel, describe, manipCorrect, readSpec, stateOr, targetProblems, targetText, validState } from "./manip";
 import { isAudioSrc } from "./audio";
@@ -86,6 +87,8 @@ export function textMatches(typed: string, accepted: string[], caseSensitive = f
   if (lowestTerms && !isLowest(tc)) return false;
   const tv = numValue(tc);
   return accepted.some((a) => {
+    // Pinyin answers: tones count; spacing, capitals, apostrophes, v for ü and tone digits don't.
+    if (!caseSensitive && isPinyinAnswer(a) && normPinyin(typed) === normPinyin(a)) return true;
     const n = normText(a, caseSensitive);
     const nc = compact(n);
     if (n === t || nc === tc) return true;
@@ -93,6 +96,14 @@ export function textMatches(typed: string, accepted: string[], caseSensitive = f
     return tv !== null && av !== null && Math.abs(tv - av) <= 1e-9 * Math.max(1, Math.abs(av));
   });
 }
+
+/** The accepted pinyin answer a typed answer misses only by its tones (for "check the tones"), if any. */
+export function toneMissOf(typed: string, accepted: string[]): string | undefined {
+  return accepted.find((a) => isPinyinAnswer(a) && onlyTonesDiffer(typed, a));
+}
+
+/** The blank takes pinyin (so a Chinese course's pinyin typing applies to it). */
+export const pinyinBlank = (accepted: string[] | undefined) => !!accepted?.some(isPinyinAnswer);
 
 const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
 
