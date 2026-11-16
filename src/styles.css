@@ -7869,6 +7869,10 @@ button.fn-ref {
   text-align: center;
 }
 .roadmap .roadmap-name { min-width: 0; }
+.roadmap .pill.authoring-complete {
+  background: var(--study-soft);
+  color: var(--study);
+}
 @media (max-width: 600px) {
   .roadmap .roadmap-list li { align-items: flex-start; }
 }
