@@ -11,6 +11,8 @@ export interface RoadmapCourse {
   covers?: string;
   /** Catalog title when it exists (or will exist) under another name. */
   catalog?: string;
+  /** Draft progress; catalog presence alone determines public availability. */
+  status?: "in_progress";
 }
 
 export interface RoadmapGroup {
@@ -29,10 +31,10 @@ const K8_TOPICS: Record<string, [string, string, string, string]> = {
   "2": ["Adding and subtracting within 1,000, money, measurement", "Paragraphs, grammar, reading for meaning", "Materials, land and water, habitats", "Local history, geography, goods and services"],
   "3": ["Multiplication, division, fractions, area", "Narrative writing, chapter books, cursive", "Forces, life cycles, weather and climate", "State history, Native peoples, branches of government"],
   "4": ["Multi-digit operations, decimals, angles", "Informational writing, vocabulary, poetry", "Energy, waves, Earth's features, body systems", "US regions, exploration"],
-  "5": ["Fraction operations, volume and the coordinate plane. In progress as of November 9, 2026. Independent review covered 45 lessons and 297 answers. One local learner profile completed all nine checkpoints and used touch on all 17 model questions. The draft includes 27 practice drills. The phone pilot is ready for physical screen-reader and learner observations. Public release is pending.", "Research reports, literary devices", "Matter, ecosystems, Earth and space", "US history to 1850"],
+  "5": ["Fraction operations, volume and the coordinate plane. In progress as of November 16, 2026. By November 9, independent review had covered 45 lessons and 297 answers. One local learner profile completed all nine checkpoints and used touch on all 17 model questions. The draft includes 27 practice drills. Physical screen-reader observations, a fresh learner pilot and public release remain pending.", "Research reports, literary devices", "Matter, ecosystems, Earth and space", "US history to 1850"],
   "6": ["Ratios, percents, negative numbers, expressions", "Argument essays, novels, speaking", "Earth science: plates, weather, water", "Ancient civilizations"],
-  "7": ["Proportions, probability, linear equations", "Poetry, persuasive writing and research. In progress as of November 9, 2026: the 32-lesson draft has completed local review; publication is pending.", "Life science: cells, genetics, ecosystems", "Medieval and early modern world"],
-  "8": ["Functions, linear systems, the Pythagorean theorem", "Evidence and analysis, a complete novel, speeches and grammar. In progress as of November 13, 2026: 24 lessons, 24 workshops and 204 questions include sustained informational reading and real-source inquiry. Local content review and focused reading, quiz and writing component checks are complete. Browser/device learner acceptance, independent review and publication remain pending.", "Physical science: chemistry and physics basics", "US history to 1900, civics and the Constitution"],
+  "7": ["Proportions, probability, linear equations", "Poetry, persuasive writing and research. In progress as of November 16, 2026: the 32-lesson draft completed local review by November 9; publication remains pending.", "Life science: cells, genetics, ecosystems", "Medieval and early modern world"],
+  "8": ["Functions, linear systems, the Pythagorean theorem", "Evidence and analysis, a complete novel, speeches and grammar. In progress as of November 16, 2026: 24 lessons, 24 workshops and 204 questions include sustained informational reading and real-source inquiry. Local content review and focused reading, quiz and writing component checks were complete by November 13. Browser/device learner acceptance, independent review and publication remain pending.", "Physical science: chemistry and physics basics", "US history to 1900, civics and the Constitution"],
 };
 const SUBJECTS = ["Math", "Language Arts", "Science", "Social Studies"] as const;
 
@@ -43,6 +45,7 @@ export const ROADMAP: RoadmapGroup[] = [
     courses: K8.map((g) => ({
       title: `${subject} ${g === "K" ? "K" : g}`,
       covers: `${gradeName(g)}: ${K8_TOPICS[g][i]}`,
+      ...((subject === "Math" && g === "5") || (subject === "Language Arts" && (g === "7" || g === "8")) ? { status: "in_progress" as const } : {}),
       ...(subject === "Math" && g === "8" ? { catalog: "Pre-algebra and Arithmetic" } : {}),
     })),
   })),
@@ -98,7 +101,7 @@ export const ROADMAP: RoadmapGroup[] = [
     title: "High school English",
     courses: [
       { title: "English 9", covers: "Composition and grammar, short stories, poetry, drama" },
-      { title: "English 10", covers: "World literature, argument and research writing. Draft: 32 lessons and 32 writing workshops. Writing guidance is in place; the first two units received local source and question review on November 9, 2026. Remaining content review, independent approval, learner acceptance and release are pending." },
+      { title: "English 10", status: "in_progress", covers: "World literature, argument and research writing. In progress as of November 16, 2026. Draft: 32 lessons and 32 writing workshops. Writing guidance is in place; the first two units received local source and question review on November 9, 2026. Remaining content review, independent approval, learner acceptance and release are pending." },
       { title: "English 11", covers: "American literature, rhetoric" },
       { title: "English 12", covers: "British literature, the senior research paper" },
     ],

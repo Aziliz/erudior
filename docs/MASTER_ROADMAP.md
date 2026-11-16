@@ -1,3 +1,13 @@
+## Held school-course integration and website roadmap — November 16, 2026
+
+The user's instruction to push all held courses and update the website authorizes integrating the verified batch. Private course main now contains the held sources at `9b9eb37a8d416191a941abe758c6435ea6c0fdd5`, including the shared-builder restoration verified on November 15. The previous source-only queue notes below are historical.
+
+The public roadmap records Math 5, Language Arts 7, Language Arts 8 and English 10 as **In Progress**. An explicit optional course status now lets the page display that badge instead of labelling every unreleased course Planned. Catalog membership still takes precedence for Available status, course links and all availability counts. The descriptions retain the actual November 9/13 review dates and all open independent-review, learner/device and release gates. Public scope remains school courses and languages plus app, website and engine work.
+
+A focused real React server render verified all four In Progress badges, unchanged availability (24 of 255 courses), identical output for the other 251 course rows, and unchanged app/site/engine sections. Catalog Available status takes precedence over draft progress; private program groups remain excluded. The production TypeScript/Vite build passed after applying the existing November 11 one-line `max: number` annotation in `canonicalAuthoring.ts`; the saved original matched current source exactly, and the repair preserves emitted JavaScript and validation limits. No dependency, workflow or security-setting change was needed.
+
+CI remains paused; commits carry `[skip ci]`. No course signing or public course publication is performed. The standard website workflow includes tests and has not been dispatched. Live website delivery remains pending the existing Cloudflare Pages direct-upload step; merging this source does not itself verify a production update.
+
 ## Classroom and teacher workflows — Done (2026-10-31)
 
 PR #129 merged as `9c8a8d96de0a85f4b22e280d2fd6cb7b0f6a8265`: completed local/shared-device capability. Teacher-created groups/projects and milestones, exact-submission moderated peer feedback, conferences/actions, local notices/acknowledgments and field-trip reflections now form usable teacher → learner → review loops. Existing assignments, immutable hand-ins, gradebook and live games remain integrated.

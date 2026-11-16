@@ -55,7 +55,7 @@ export default function Roadmap() {
               <ul className="roadmap-list">
                 {g.courses.map((c) => (
                   <li key={c.title} className={c.entry ? "is-done" : ""}>
-                    <span className={`pill ${c.entry ? "pass" : ""}`}>{c.entry ? "Available" : "Planned"}</span>
+                    <span className={`pill ${c.entry ? "pass" : ""}`}>{c.entry ? "Available" : c.status === "in_progress" ? "In Progress" : "Planned"}</span>
                     <span className="roadmap-name">
                       {c.entry ? <a href={appUrl("/" + slugify(c.entry.title))}>{c.title}</a> : c.title}
                       {c.covers && <span className="faint small"> · {c.covers}</span>}
@@ -74,7 +74,7 @@ export default function Roadmap() {
               <ul className="roadmap-list roadmap-language-levels">
                 {language.courses.map((course) => (
                   <li key={course.title} className={course.entry ? "is-done" : ""}>
-                    <span className={`pill ${course.entry ? "pass" : ""}`}>{course.entry ? "Available" : "Planned"}</span>
+                    <span className={`pill ${course.entry ? "pass" : ""}`}>{course.entry ? "Available" : course.status === "in_progress" ? "In Progress" : "Planned"}</span>
                     <span className="roadmap-name">
                       {course.entry ? <a href={appUrl("/" + slugify(course.entry.title))}>{course.title}</a> : course.title}
                       {course.covers && <span className="faint small"> · {course.covers}</span>}
