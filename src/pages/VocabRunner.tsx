@@ -102,6 +102,9 @@ export default function VocabRunner({
   const ja = lang?.code === "ja";
   // Japanese: type katakana instead of hiragana (CAPITALS also give katakana).
   const [katakana, setKatakana] = useState(false);
+  const zh = lang?.code === "zh";
+  // Chinese: right syllables, wrong tones get one more try per card.
+  const tonesHinted = useRef(false);
   const initial = useMemo<QItem[]>(() => {
     if (mode === "review")
       return reviewBatch(course, api.progress).map((c) => ({
@@ -137,8 +140,9 @@ export default function VocabRunner({
     if (!card || shown) return;
     const finalTyped = ime && card.dir === "recall" ? ime(typed, { final: true, katakana }) : typed;
     if (finalTyped !== typed) setTyped(finalTyped);
-    const v = checkAnswer(card, finalTyped, lang?.code);
+    const v = checkAnswer(card, finalTyped, lang?.code, { tonesHinted: tonesHinted.current });
     if (!v.ok && v.retry) {
+      if (v.tones) tonesHinted.current = true;
       setHint(v.note);
       return;
     }
@@ -188,6 +192,7 @@ export default function VocabRunner({
     setQueue(rest);
     setShown(undefined);
     setTyped("");
+    tonesHinted.current = false;
   }
 
   function insert(ch: string) {
@@ -399,6 +404,12 @@ export default function VocabRunner({
                 <span lang="ja">{katakana ? "カタカナ" : "ひらがな"}</span>
               </button>
             </div>
+          )}
+          {dir === "recall" && zh && !shown && (
+            <p className="ime-help small muted">
+              Type pinyin with tone numbers: <code>ni3hao3</code> → nǐhǎo, <code>lv4</code> → lǜ, 5 for
+              neutral. Characters from a Chinese keyboard are fine too.
+            </p>
           )}
           {dir === "recall" && !!lang?.keys?.length && !shown && (
             <div className="char-keys" aria-label="Special characters">

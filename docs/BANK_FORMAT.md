@@ -110,6 +110,14 @@ The learner builds a sentence from word tiles (for language courses, or any orde
 - Practice, quizzes and timed exams use sentence builders. Live rooms and community courses don't (live rooms use choice questions only; the community editor has no fields for them).
 - The course checker reports: fewer than two tiles, an `accept` order that uses a tile not in the pool or repeats `tiles` or another order, a distractor that's also a tile, a tile ending with the `punctuation` mark, so many accepted orders that the tiles can't start out of order, a space `joiner` in a Japanese course, and furigana problems in Japanese courses.
 
+**Chinese.** In a Chinese course (`"code": "zh"`, see [COURSE_FORMAT.md](COURSE_FORMAT.md#chinese)) tiles are written in simplified characters and may carry pinyin markup (`"{我|wǒ}"`, `"{学生|xué sheng}"`), shown as one syllable over each character with the Pinyin and Tone colours switches. The joiner defaults to `""`, and grading ignores the markup.
+
+**Chinese `text` answers.** List characters (`"你好"`) or pinyin with tone marks (`"nǐ hǎo"`), or both as separate blanks or as alternatives in one list. Characters compare exactly (spaces and punctuation ignored). A pinyin answer is any accepted answer with tone marks that splits into pinyin syllables: it needs the right tones, while spacing, capitals, apostrophes, `v` for ü and tone numbers don't matter (`ni3hao3` matches `nǐ hǎo`), and a learner who has only the tones wrong is told "Check the tones: nǐ hǎo". With `"ime": "zh"`, blanks that take pinyin turn typed tone numbers into marks. Don't set `caseSensitive` on pinyin answers (it turns the pinyin comparison off).
+
+```json
+{ "id": "zh-hello", "type": "text", "stem": "Hello: pinyin ___, characters ___", "accept": [["nǐ hǎo"], ["你好"]], "choices": [], "answer": [] }
+```
+
 **Capitals at the start.** The sentence's first letter is capitalized for display and ignored in grading, so write tiles in their mid-sentence case (`"die Fenster"`, `"bis Ende Mai"`; nouns and names keep their capitals). Then other correct orders that start with a different tile can be listed in `accept`.
 
 ## Model questions

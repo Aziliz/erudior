@@ -12,7 +12,7 @@ import Markdown from "./Markdown";
 import CodeExercise from "./CodeExercise";
 import SentenceBuilder from "./SentenceBuilder";
 import type { Chosen, Question } from "../lib/types";
-import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, qtype } from "../lib/questions";
+import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, pinyinBlank, qtype, toneMissOf } from "../lib/questions";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
 import { ManipModel } from "./Manipulative";
 import { LETTERS } from "../lib/util";
@@ -204,6 +204,9 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
         {Array.from({ length: n }, (_, i) => {
           const val = String(chosen[i] ?? "");
           const label = n > 1 ? `Blank ${i + 1}` : "Your answer";
+          // Chinese: pinyin typing only in blanks that take pinyin (characters come from the keyboard).
+          const bIme = ime && (lang !== "zh" || pinyinBlank(q.accept?.[i])) ? ime : undefined;
+          const toneMiss = reveal && !parts[i] && lang === "zh" ? toneMissOf(val, q.accept?.[i] ?? []) : undefined;
           return (
             <div key={i} className={`text-answer ${reveal ? (parts[i] ? "is-right" : "is-wrong") : ""}`}>
               {review ? (
@@ -221,22 +224,22 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                     autoComplete="off"
                     autoCapitalize="off"
                     spellCheck={false}
-                    lang={ime ? "ja" : undefined}
+                    lang={bIme ? (lang === "zh" ? "zh-Latn" : "ja") : lang === "zh" ? "zh" : undefined}
                     onChange={(e) => {
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
-                      next[i] = ime && !composing(e) ? ime(e.target.value) : e.target.value;
+                      next[i] = bIme && !composing(e) ? bIme(e.target.value) : e.target.value;
                       onChange?.(next);
                     }}
                     onCompositionEnd={(e) => {
-                      if (!ime) return;
+                      if (!bIme) return;
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
-                      next[i] = ime(e.currentTarget.value);
+                      next[i] = bIme(e.currentTarget.value);
                       onChange?.(next);
                     }}
                     onBlur={(e) => {
                       // Finish a trailing "n" → ん when the learner leaves the box.
-                      if (!ime) return;
-                      const done = ime(e.currentTarget.value, { final: true });
+                      if (!bIme) return;
+                      const done = bIme(e.currentTarget.value, { final: true });
                       if (done === e.currentTarget.value) return;
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
                       next[i] = done;
@@ -246,8 +249,8 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                       if (e.key === "Enter" && !composing(e) && !e.repeat && !e.altKey && !e.ctrlKey && !e.metaKey) {
                         e.preventDefault();
                         let finalAnswer: Chosen | undefined;
-                        if (ime) {
-                          const done = ime(e.currentTarget.value, { final: true });
+                        if (bIme) {
+                          const done = bIme(e.currentTarget.value, { final: true });
                           if (done !== e.currentTarget.value) {
                             const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
                             next[i] = done;
@@ -262,6 +265,11 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                 </label>
               )}
               {reveal && <Mark ok={parts[i]} fix={<MathText text={q.accept?.[i]?.[0] ?? ""} />} />}
+              {toneMiss && (
+                <p className="small">
+                  Check the tones: <span lang="zh-Latn">{toneMiss}</span>
+                </p>
+              )}
               {reveal && (q.accept?.[i]?.length ?? 0) > 1 && <p className="small muted">Also accepted: {q.accept![i].slice(1).join(", ")}</p>}
             </div>
           );
