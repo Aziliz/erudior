@@ -117,11 +117,49 @@ export const tonesOf = (reading: string) => pinyinTokens(reading).map(t => split
  */
 export function normPinyin(s: string): string {
   return pinyinTyping(s.normalize("NFC").toLowerCase().replace(/u:|v/g, "ü"))
-    .replace(/[\s'’\-·.,!?。，！？]/g, "");
+    .replace(/[\s'’\-·.,!?。，！？]/g, "")
+    // After j q x y, ü is written u: "qü" and "qu" are the same syllable.
+    .replace(/([jqxy])([üǖǘǚǜ])/g, (_, c: string, v: string) => c + ({ "ü": "u", "ǖ": "ū", "ǘ": "ú", "ǚ": "ǔ", "ǜ": "ù" })[v]!);
 }
 
 /** Same as normPinyin but with tones removed (to tell "wrong tone" from "wrong word"). */
 export const normPinyinToneless = (s: string) => stripTones(normPinyin(s));
+
+/** True if `word` (no spaces) splits into valid pinyin syllables with at most one tone mark each. */
+export function splitsIntoPinyin(word: string): boolean {
+  const w = word.normalize("NFC");
+  const plain = stripTones(w).toLowerCase();
+  const memo = new Map<number, boolean>();
+  const from = (i: number): boolean => {
+    if (i === w.length) return true;
+    if (memo.has(i)) return memo.get(i)!;
+    let ok = false;
+    for (let j = Math.min(w.length, i + 6); j > i && !ok; j--) {
+      const marks = [...w.slice(i, j)].filter((c) => UNMARK[c]).length;
+      ok = marks <= 1 && validSyllable(plain.slice(i, j)) && from(j);
+    }
+    memo.set(i, ok);
+    return ok;
+  };
+  return !!w && from(0);
+}
+
+/**
+ * An accepted text answer written in pinyin: no Han characters, at least one tone mark, and
+ * every word splits into pinyin syllables ("nǐ hǎo", "nǐhǎo", "Běijīng"). Such answers are
+ * compared with normPinyin, so spacing, capitals, apostrophes, v for ü and tone digits don't matter.
+ */
+export function isPinyinAnswer(s: string): boolean {
+  const t = s.normalize("NFC").replace(/[.,!?。，！？]/g, " ").trim();
+  if (!t || hasHan(t) || !MARKED.test(t)) return false;
+  return pinyinTokens(t).every(splitsIntoPinyin);
+}
+
+/** Typed pinyin has the right syllables but a wrong or missing tone. */
+export function onlyTonesDiffer(typed: string, wanted: string): boolean {
+  if (!typed.trim() || hasHan(typed)) return false;
+  return normPinyin(typed) !== normPinyin(wanted) && normPinyinToneless(typed) === normPinyinToneless(wanted);
+}
 
 export const HAN = /[㐀-䶿一-鿿豈-﫿\u{20000}-\u{2ebef}]/u;
 export const isHan = (c: string) => HAN.test(c);
