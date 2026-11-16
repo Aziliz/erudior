@@ -13,6 +13,7 @@ export default function Roadmap() {
   const languageAvailable = languages.reduce((n, g) => n + g.courses.filter((course) => course.entry).length, 0);
   const languageTotal = languages.reduce((n, g) => n + g.courses.length, 0);
   const done = all.filter((c) => c.entry).length;
+  const authoredAwaitingRelease = all.filter((c) => !c.entry && c.status === "authoring_complete").length;
   const extraAreas = UPDATES.filter((area) => area.id === "web-app-updates" || area.id === "application-updates");
   const engineDone = ENGINE.filter((e) => e.status === "done").length;
   const engineTotal = ENGINE.length + ENGINE_PLANNED.length;
@@ -26,6 +27,10 @@ export default function Roadmap() {
             {done} of {all.length}
           </b>
           <span className="small muted">courses available</span>
+        </div>
+        <div className="roadmap-stat">
+          <b>{authoredAwaitingRelease}</b>
+          <span className="small muted">authored courses awaiting release</span>
         </div>
         <div className="roadmap-stat">
           <b>
@@ -47,6 +52,7 @@ export default function Roadmap() {
       <section id="course-updates" className="roadmap-group" aria-labelledby="h-course-updates">
         <h2 id="h-course-updates">Course update</h2>
         <p className="small muted">Pre-K through grade 12, plus languages at every proficiency level. Currently listed school courses begin with kindergarten.</p>
+        <p className="small muted"><strong>Authoring complete</strong> means the full course draft is written; review and public release may still be pending. <strong>Available</strong> courses can be opened now. Authoring status updated November 16, 2026.</p>
         {rows.filter((g) => !g.id.startsWith("language-")).map((g) => {
           const n = g.courses.filter((c) => c.entry).length;
           return (
@@ -55,7 +61,7 @@ export default function Roadmap() {
               <ul className="roadmap-list">
                 {g.courses.map((c) => (
                   <li key={c.title} className={c.entry ? "is-done" : ""}>
-                    <span className={`pill ${c.entry ? "pass" : ""}`}>{c.entry ? "Available" : c.status === "in_progress" ? "In Progress" : "Planned"}</span>
+                    <span className={`pill ${c.entry ? "pass" : c.status === "authoring_complete" ? "authoring-complete" : ""}`}>{c.entry ? "Available" : c.status === "authoring_complete" ? "Authoring complete" : c.status === "in_progress" ? "In Progress" : "Planned"}</span>
                     <span className="roadmap-name">
                       {c.entry ? <a href={appUrl("/" + slugify(c.entry.title))}>{c.title}</a> : c.title}
                       {c.covers && <span className="faint small"> · {c.covers}</span>}
@@ -74,7 +80,7 @@ export default function Roadmap() {
               <ul className="roadmap-list roadmap-language-levels">
                 {language.courses.map((course) => (
                   <li key={course.title} className={course.entry ? "is-done" : ""}>
-                    <span className={`pill ${course.entry ? "pass" : ""}`}>{course.entry ? "Available" : course.status === "in_progress" ? "In Progress" : "Planned"}</span>
+                    <span className={`pill ${course.entry ? "pass" : course.status === "authoring_complete" ? "authoring-complete" : ""}`}>{course.entry ? "Available" : course.status === "authoring_complete" ? "Authoring complete" : course.status === "in_progress" ? "In Progress" : "Planned"}</span>
                     <span className="roadmap-name">
                       {course.entry ? <a href={appUrl("/" + slugify(course.entry.title))}>{course.title}</a> : course.title}
                       {course.covers && <span className="faint small"> · {course.covers}</span>}
