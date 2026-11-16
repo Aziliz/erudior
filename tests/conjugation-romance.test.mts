@@ -220,4 +220,17 @@ assert.equal(checkRecall(noun("der Hund"), "Hund", "de").ok, false, "German unch
 const evacuar = w("evacuar", "ar", { imperativeUsted: "evacúe/evacue" });
 assert(ok("es", evacuar, "imperative", "usted", "evacúe") && ok("es", evacuar, "imperative", "usted", "evacue"), "slash alternatives in imperativeUsted");
 
+// --- B2 compound tenses ---
+assert.equal(answers("es", hablar, "futurePerfect")["0"], "habré hablado");
+assert.equal(answers("es", hablar, "conditionalPerfect")["3"], "habríamos hablado");
+assert(ok("es", hablar, "perfectSubjunctive", "2", "que haya hablado"), "perfect subjunctive with que");
+assert(ok("es", hablar, "pluperfectSubjunctive", "3", "hubiéramos hablado") && ok("es", hablar, "pluperfectSubjunctive", "3", "hubiésemos hablado"), "-ra and -se");
+assert.equal(answers("fr", parler, "futurePerfect")["0"], "aurai parlé");
+assert.equal(answers("fr", parler, "conditionalPerfect")["5"], "auraient parlé");
+assert(ok("fr", parler, "perfectSubjunctive", "0", "que j'aie parlé"), "subjonctif passé with que");
+const allerB2 = w("aller", "irr", { present: "vais, vas, va, allons, allez, vont", participle: "allé", aux: "être", futureStem: "ir", subjunctive: "aille, ailles, aille, allions, alliez, aillent" });
+assert(ok("fr", allerB2, "perfectSubjunctive", "2", "qu'elle soit allée"), "gendered subjonctif passé with qu'");
+assert(!ok("fr", allerB2, "perfectSubjunctive", "2", "qu'elle soit allé"), "elle needs agreement");
+assert(ok("fr", allerB2, "futurePerfect", "5", "elles seront allées"));
+
 console.log("Spanish and French conjugation and recall passed.");

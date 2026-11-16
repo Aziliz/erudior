@@ -61,6 +61,19 @@ const ES_PRESENT_END = { ar: ["o", "as", "a", "amos", "áis", "an"], er: ["o", "
 const ES_PRETERITE_END = { ar: ["é", "aste", "ó", "amos", "asteis", "aron"], er: ["í", "iste", "ió", "imos", "isteis", "ieron"], ir: ["í", "iste", "ió", "imos", "isteis", "ieron"] };
 const HABER = ["he", "has", "ha", "hemos", "habéis", "han"];
 const HABIA = ["había", "habías", "había", "habíamos", "habíais", "habían"];
+const HABRE = ["habré", "habrás", "habrá", "habremos", "habréis", "habrán"];
+const HABRIA = ["habría", "habrías", "habría", "habríamos", "habríais", "habrían"];
+const HAYA = ["haya", "hayas", "haya", "hayamos", "hayáis", "hayan"];
+const HUBIERA = ["hubiera", "hubieras", "hubiera", "hubiéramos", "hubierais", "hubieran"];
+const HUBIESE = ["hubiese", "hubieses", "hubiese", "hubiésemos", "hubieseis", "hubiesen"];
+/** Spanish compound tenses: haber in some tense + the participle. */
+const ES_COMPOUND: Record<string, { aux: string[][]; name: string; que?: boolean }> = {
+  pluperfect: { aux: [HABIA], name: "Pluperfect: haber in the imperfect" },
+  futurePerfect: { aux: [HABRE], name: "Future perfect: haber in the future" },
+  conditionalPerfect: { aux: [HABRIA], name: "Conditional perfect: haber in the conditional" },
+  perfectSubjunctive: { aux: [HAYA], name: "Perfect subjunctive: haber in the present subjunctive", que: true },
+  pluperfectSubjunctive: { aux: [HUBIERA, HUBIESE], name: "Pluperfect subjunctive: haber in the imperfect subjunctive", que: true },
+};
 const ES_SUBJ_AR = ["e", "es", "e", "emos", "éis", "en"];
 const ES_SUBJ_ER = ["a", "as", "a", "amos", "áis", "an"];
 
@@ -211,12 +224,18 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
       const answers = withQue([...withPronouns(pre + ra, ES_PRONOUNS[i], "es"), ...withPronouns(pre + se, ES_PRONOUNS[i], "es")], "es");
       return { answers, rule: `Imperfect subjunctive: the ellos preterite (${ellos}) without -ron + -ra (or -se): ${ra}${i === 3 ? "; nosotros takes an accent" : ""}` };
     }
-    case "pluperfect": {
+    case "pluperfect":
+    case "futurePerfect":
+    case "conditionalPerfect":
+    case "perfectSubjunctive":
+    case "pluperfectSubjunctive": {
+      const c = ES_COMPOUND[form];
       const { p, given } = esParticiple(v);
-      const xs = alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${HABIA[i]} ${pp}`);
+      const xs = c.aux.flatMap((aux) => alts(p).map((pp) => `${v.reflexive ? ES_REFL[i] + " " : ""}${aux[i]} ${pp}`));
+      const answers = [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))];
       return {
-        answers: [...new Set(xs.flatMap((x) => withPronouns(x, ES_PRONOUNS[i], "es")))],
-        rule: `Pluperfect: haber in the imperfect (${HABIA[i]}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : ""}`,
+        answers: c.que ? withQue(answers, "es") : answers,
+        rule: `${c.name} (${c.aux.map((a) => a[i]).join(" or ")}) + the participle ${alts(p).join(" or ")}${given ? " (irregular)" : ""}`,
       };
     }
     case "imperfect": {
@@ -320,10 +339,25 @@ const FR_END = { er: ["e", "es", "e", "ons", "ez", "ent"], ir: ["is", "is", "it"
 const AVOIR = ["ai", "as", "a", "avons", "avez", "ont"];
 const AVOIR_IMPF = ["avais", "avais", "avait", "avions", "aviez", "avaient"];
 const ETRE_IMPF = ["étais", "étais", "était", "étions", "étiez", "étaient"];
+const AVOIR_FUT = ["aurai", "auras", "aura", "aurons", "aurez", "auront"];
+const ETRE_FUT = ["serai", "seras", "sera", "serons", "serez", "seront"];
+const AVOIR_COND = ["aurais", "aurais", "aurait", "aurions", "auriez", "auraient"];
+const ETRE_COND = ["serais", "serais", "serait", "serions", "seriez", "seraient"];
+const AVOIR_SUBJ = ["aie", "aies", "ait", "ayons", "ayez", "aient"];
+const ETRE_SUBJ = ["sois", "sois", "soit", "soyons", "soyez", "soient"];
+
 const FR_SUBJ_END = ["e", "es", "e", "ions", "iez", "ent"];
 /** Verbs whose subjunctive can't be made from the ils present and nous imparfait: forms.subjunctive. */
 const FR_IRREGULAR_SUBJ = ["être", "avoir", "aller", "faire", "pouvoir", "savoir", "vouloir", "valoir", "falloir", "pleuvoir"];
 const ETRE = ["suis", "es", "est", "sommes", "êtes", "sont"];
+/** French compound tenses: the auxiliary (avoir or être) in some tense + the participle. */
+const FR_COMPOUND: Record<string, { avoir: string[]; etre: string[]; name: string; que?: boolean }> = {
+  perfect: { avoir: AVOIR, etre: ETRE, name: "Passé composé" },
+  pluperfect: { avoir: AVOIR_IMPF, etre: ETRE_IMPF, name: "Plus-que-parfait" },
+  futurePerfect: { avoir: AVOIR_FUT, etre: ETRE_FUT, name: "Futur antérieur" },
+  conditionalPerfect: { avoir: AVOIR_COND, etre: ETRE_COND, name: "Conditionnel passé" },
+  perfectSubjunctive: { avoir: AVOIR_SUBJ, etre: ETRE_SUBJ, name: "Subjonctif passé", que: true },
+};
 const VOWEL_START = /^[aeiouyhâàéèêëîïôûœ]/i;
 const FR_ETRE_VERBS = [
   "aller", "venir", "partir", "arriver", "entrer", "sortir", "rester", "tomber", "naître", "mourir", "monter", "descendre", "retourner",
@@ -370,7 +404,7 @@ const FR_FUTURE_END = ["ai", "as", "a", "ons", "ez", "ont"];
 /** Verbs (and compounds) whose future stem isn't made from the infinitive: ser-, aur-, ir-, fer-, viendr-… */
 /** Pronominal verbs whose se is an indirect object ("to oneself / each other"): no participle agreement. */
 const FR_INDIRECT_SE = ["demander", "rappeler", "parler", "téléphoner", "dire", "écrire", "sourire", "plaire", "mentir", "ressembler", "succéder", "rendre compte", "répondre", "envoyer", "offrir", "donner"];
-const FR_IRREGULAR_FUTURE = /^(être|avoir|aller|faire|défaire|refaire|satisfaire|.*venir|.*tenir|envoyer|renvoyer|courir|parcourir|mourir|cueillir|accueillir|recueillir|acquérir|conquérir|falloir|.*oir)$/;
+const FR_IRREGULAR_FUTURE = /^(être|avoir|aller|faire|défaire|refaire|satisfaire|.*venir|.*tenir|envoyer|renvoyer|.*courir|mourir|cueillir|accueillir|recueillir|.*quérir|falloir|.*oir)$/;
 
 function frFutureStems(v: FrVerb): string[] {
   if (v.f.futureStem) return alts(v.f.futureStem);
@@ -420,13 +454,16 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
       return { answers: frAnswers([x], i), rule };
     }
     case "perfect":
-    case "pluperfect": {
+    case "pluperfect":
+    case "futurePerfect":
+    case "conditionalPerfect":
+    case "perfectSubjunctive": {
       const i = Number(person);
       const { p: pAll, given } = frParticiple(v);
       const p = alts(pAll)[0];
-      const plu = form === "pluperfect";
-      const aux = (plu ? (v.etre ? ETRE_IMPF : AVOIR_IMPF) : v.etre ? ETRE : AVOIR)[i];
-      const tense = plu ? "Plus-que-parfait" : "Passé composé";
+      const c = FR_COMPOUND[form];
+      const aux = (v.etre ? c.etre : c.avoir)[i];
+      const tense = c.name;
       // With être the participle agrees with the subject: accept every agreement the person allows.
       const agrees = v.etre && !(v.reflexive && (v.f.agreement === "none" || FR_INDIRECT_SE.includes(v.base)));
       const parts = !agrees ? alts(pAll) : i === 2 ? [p, p + "e"] : i < 2 ? [p, p + "e"] : i === 4 ? [p, p + "e", p + "s", p + "es"] : [p + "s", p + "es"];
@@ -446,7 +483,8 @@ export function frVerbForm(item: VocabItem, form: string, person: string | numbe
         : v.etre
         ? `${tense} with être (${aux}) + ${p}${how}; the participle agrees with the subject (${p}, ${p}e, ${p}s, ${p}es)${v.reflexive ? "; pronominal verbs always take être" : ""}`
         : `${tense}: avoir (${aux}) + the participle ${p}${how}`;
-      return { answers: gendered ?? frAnswers(forms, i), rule };
+      const answers = gendered ?? frAnswers(forms, i);
+      return { answers: c.que ? withQue(answers, "fr") : answers, rule };
     }
     case "subjunctive": {
       const i = Number(person);

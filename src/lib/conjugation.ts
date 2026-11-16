@@ -829,8 +829,12 @@ const ES_NAME: Record<string, string> = {
   subjunctive: "present subjunctive (hable)",
   imperfectSubjunctive: "imperfect subjunctive (hablara)",
   pluperfect: "pluperfect (había hablado)",
+  futurePerfect: "future perfect (habré hablado)",
+  conditionalPerfect: "conditional perfect (habría hablado)",
+  perfectSubjunctive: "perfect subjunctive (haya hablado)",
+  pluperfectSubjunctive: "pluperfect subjunctive (hubiera hablado)",
 };
-const FR_NAME: Record<string, string> = { present: "présent", perfect: "passé composé", imperative: "imperative", imperfect: "imparfait", future: "futur simple", conditional: "conditionnel", subjunctive: "subjonctif présent", pluperfect: "plus-que-parfait" };
+const FR_NAME: Record<string, string> = { present: "présent", perfect: "passé composé", imperative: "imperative", imperfect: "imparfait", future: "futur simple", conditional: "conditionnel", subjunctive: "subjonctif présent", pluperfect: "plus-que-parfait", futurePerfect: "futur antérieur", conditionalPerfect: "conditionnel passé", perfectSubjunctive: "subjonctif passé" };
 
 // ---------------------------------------------------------------------------------------------
 // Prompts and rounds
