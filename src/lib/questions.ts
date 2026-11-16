@@ -12,8 +12,9 @@ import { samePlace } from "./mapNames";
 import { parseSpan, parseTimeline } from "./timeline";
 import { normalizeCodeSpec, readStamp } from "./code";
 import { buildAnswers, buildCorrect, buildParts, buildPool, normalizeBuild, placedTiles, sentenceText } from "./sentenceBuild";
+import { patternText, picksOf as tonePicksOf, toneAnswered, toneComplete, toneCorrect, toneItemProblem, toneParts, toneSyllables } from "./tones";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code", "build"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code", "build", "tone"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -27,6 +28,10 @@ const picksOf = (chosen: Chosen) => chosen.filter((c): c is string => typeof c =
 
 /** Choice questions with one answer or several (the only kind live rooms and community courses use). */
 export const isChoice = (q: Pick<Question, "type">) => qtype(q) === "choice";
+
+/** Tone questions: the syllables and their written tones. */
+export const toneSyls = (q: Pick<Question, "text" | "reading">) => toneSyllables(q.text ?? "", q.reading ?? "");
+const tonePicks = (q: Question, chosen: Chosen) => tonePicksOf(chosen, toneSyls(q).length);
 
 /** A blank in a fill-in-the-blank stem: three or more underscores. */
 export const BLANK = /_{3,}/g;
@@ -136,6 +141,8 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
       return readStamp(chosen) !== null;
     case "build":
       return placedTiles(q, chosen).length > 0;
+    case "tone":
+      return toneAnswered(tonePicks(q, chosen));
     default:
       return true;
   }
@@ -157,6 +164,8 @@ export function isComplete(q: Question, chosen: Chosen | undefined): boolean {
     case "build":
       // At least as many tiles as the shortest correct sentence.
       return placedTiles(q, chosen).length >= Math.min(...buildAnswers(q).map((a) => a.length));
+    case "tone":
+      return toneComplete(tonePicks(q, chosen!));
     default:
       return true;
   }
@@ -187,6 +196,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return !!readStamp(chosen)?.pass;
     case "build":
       return buildCorrect(q, chosen);
+    case "tone":
+      return toneCorrect(toneSyls(q).map((s) => s.tone), tonePicks(q, chosen));
     default:
       return sameSet(
         q.answer,
@@ -216,6 +227,8 @@ export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
     case "build":
       // Each position of the closest correct sentence.
       return buildParts(q, chosen);
+    case "tone":
+      return toneParts(toneSyls(q).map((s) => s.tone), tonePicks(q, chosen));
     default:
       return [];
   }
@@ -243,6 +256,10 @@ export function answerText(q: Question): string {
       return q.code?.solution?.trim() ?? "Code that passes every test";
     case "build":
       return buildAnswers(q).map((a) => sentenceText(q, a)).join("; ");
+    case "tone": {
+      const syls = toneSyls(q);
+      return `${syls.map((s) => s.marked).join(" ")} (${syls.length === 1 ? "tone" : "tones"} ${patternText(syls.map((s) => s.tone))})`;
+    }
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -283,6 +300,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
       const pool = buildPool(q);
       return sentenceText(q, placedTiles(q, chosen).map((i) => pool[i]));
     }
+    case "tone": {
+      const picks = tonePicks(q, chosen);
+      return `${picks.length === 1 ? "tone" : "tones"} ${picks.map((t) => (t < 0 ? "?" : patternText([t]))).join("+")}`;
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -309,6 +330,8 @@ export function typeLabel(q: Question): string {
       return "Write code";
     case "build":
       return "Build the sentence";
+    case "tone":
+      return toneSyls(q).length > 1 ? "Pick the tones" : "Pick the tone";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -455,5 +478,12 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       return { ...base, choices: [], answer: [], code: normalizeCodeSpec(q.code) };
     case "build":
       return { ...base, choices: [], answer: [], ...normalizeBuild(q) };
+    case "tone": {
+      const text = typeof q.text === "string" ? q.text.trim() : "";
+      const reading = typeof q.reading === "string" ? q.reading.trim() : "";
+      const problem = toneItemProblem(text, reading);
+      if (problem) throw new Error(`(tone) ${problem}.`);
+      return { ...base, choices: [], answer: [], text, reading };
+    }
   }
 }

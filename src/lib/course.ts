@@ -7,6 +7,7 @@ import { normalizeTexts } from "./reader";
 import { isAudioSrc } from "./audio";
 import { moraCount, validAccent } from "./kana";
 import { normalizeConjFields, normalizeConjugationSettings } from "./courseConjugation";
+import { normalizeToneSettings } from "./tones";
 import { parseCourseDocumentReviews } from "./documentCoursePackage";
 import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
@@ -189,6 +190,7 @@ export function normalizeCourse(raw: unknown): Course {
     vocabTarget: Number(lang.vocabTarget) > 0 ? Number(lang.vocabTarget) : undefined,
     vocabSource: str(lang.vocabSource) || undefined,
     conjugation: normalizeConjugationSettings(lang.conjugation),
+    ...(str(lang.code) === "zh" && normalizeToneSettings(lang.tones) ? { tones: normalizeToneSettings(lang.tones) } : {}),
   };
 
   // Japanese pitch accent: a number or a list of numbers, each 0..morae of the reading (the

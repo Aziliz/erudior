@@ -9,6 +9,7 @@ import { parseMapSpec } from "../lib/mapSpec";
 import { parseSpan, parseTimeline } from "../lib/timeline";
 import { DEFAULT_TIME_LIMIT, normalizeCodeSpec, type CodeLang, type CodeSpec } from "../lib/code";
 import { buildWarnings, normalizeBuild, sentenceText } from "../lib/sentenceBuild";
+import { toneItemProblem } from "../lib/tones";
 
 const TYPE_NAMES: Record<QuestionType, string> = {
   choice: "Multiple choice",
@@ -21,6 +22,7 @@ const TYPE_NAMES: Record<QuestionType, string> = {
   timeline: "Place events on a timeline",
   code: "Code exercise",
   build: "Build a sentence from word tiles",
+  tone: "Chinese tones: listen and pick the tone(s)",
 };
 
 const lines = (s: string) =>
@@ -32,7 +34,7 @@ const uniq = (xs: string[]) => [...new Set(xs)];
 
 /** Defaults when a question changes kind (keeps the stem, topic, section, picture, explanation). */
 export function changeKind(q: Question, kind: QuestionType): Question {
-  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, model: _mo, target: _ta, map: _mp, targets: _tg, marks: _mk, slots: _sl, timeline: _tl, dates: _d, code: _k, tiles: _ti, distractors: _di, joiner: _j, punctuation: _p, prompt: _pr, ...base } = q;
+  const { left: _l, markers: _m, accept: _a, caseSensitive: _c, type: _t, model: _mo, target: _ta, map: _mp, targets: _tg, marks: _mk, slots: _sl, timeline: _tl, dates: _d, code: _k, tiles: _ti, distractors: _di, joiner: _j, punctuation: _p, prompt: _pr, text: _tx, reading: _rd, ...base } = q;
   switch (kind) {
     case "choice":
       return { ...base, choices: ["", "", "", ""], answer: [0] };
@@ -66,6 +68,8 @@ export function changeKind(q: Question, kind: QuestionType): Question {
       };
     case "build":
       return { ...base, type: "build", choices: [], answer: [], tiles: ["", "", ""] };
+    case "tone":
+      return { ...base, type: "tone", choices: [], answer: [], text: "", reading: "" };
   }
 }
 
@@ -141,6 +145,11 @@ export function kindErrors(q: Question): string[] {
         } catch (err) {
           e.push(`The sentence ${(err as Error).message.replace(/^\(build\) /, "")}`);
         }
+      break;
+    }
+    case "tone": {
+      const problem = toneItemProblem(q.text ?? "", q.reading ?? "");
+      if (problem) e.push(`The tone item ${problem}.`);
       break;
     }
   }
@@ -316,6 +325,7 @@ export function KindFields({ q, onChange }: { q: Question; onChange: (q: Questio
   if (kind === "timeline") return <TimelineFields q={q} onChange={onChange} />;
   if (kind === "code") return <CodeFields q={q} onChange={onChange} />;
   if (kind === "build") return <BuildFields q={q} onChange={onChange} />;
+  if (kind === "tone") return <ToneFields q={q} onChange={onChange} />;
 
   if (kind === "text") {
     const blanks = Math.max(1, (q.stem.match(BLANK) ?? []).length);
@@ -780,6 +790,22 @@ function BuildFields({ q, onChange }: { q: Question; onChange: (q: Question) => 
           {sentenceText(q, done)}
         </p>
       )}
+    </div>
+  );
+}
+
+/** Tone question fields: the characters the voice says and their marked pinyin. */
+function ToneFields({ q, onChange }: { q: Question; onChange: (q: Question) => void }) {
+  return (
+    <div className="field tone-fields">
+      <label className="field">
+        <span>Characters (the voice reads these; one syllable or a word of up to four)</span>
+        <input className="input" lang="zh" value={q.text ?? ""} onChange={(e) => onChange({ ...q, text: e.target.value })} />
+      </label>
+      <label className="field">
+        <span>Pinyin with tone marks, one syllable per character (e.g. mā, xiè xie)</span>
+        <input className="input" lang="zh-Latn" value={q.reading ?? ""} onChange={(e) => onChange({ ...q, reading: e.target.value })} />
+      </label>
     </div>
   );
 }
