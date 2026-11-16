@@ -14,6 +14,8 @@
 import { HAN } from "./pinyin";
 
 export interface ZhOverrides {
+  /** A traditional form OpenCC gives, replaced everywhere first (臺 → 台). */
+  forms?: Record<string, string>;
   /** In this word or phrase, wherever it appears (longest match first). */
   words?: Record<string, string>;
   /** This character when it stands alone (no Han character next to it). */
@@ -168,12 +170,16 @@ export function overrideRun(run: string[], o: ZhOverrides, base: (i: number) => 
  */
 export function expectedTraditional(text: string, s2tw: (s: string) => string, o: ZhOverrides = {}): string | null {
   let bad = false;
-  const out = eachConvertible(text, (s) =>
-    mapRuns(s, (run, start, visible) => {
-      const conv = [...s2tw(visible.join(""))];
-      if (conv.length !== visible.length) bad = true;
-      return overrideRun(run, o, (i) => conv[start + i] ?? run[i]);
-    }),
-  );
+  const out = eachConvertible(text, (s) => {
+    let conv: string[] | undefined;
+    return mapRuns(s, (run, start, visible) => {
+      if (!conv) {
+        conv = [...s2tw(visible.join(""))].map((c) => o.forms?.[c] ?? c);
+        if (conv.length !== visible.length) bad = true;
+      }
+      const cv = conv;
+      return overrideRun(run, o, (i) => cv[start + i] ?? run[i]);
+    });
+  });
   return bad ? null : out;
 }
