@@ -159,3 +159,63 @@ for (const ch of traceable) {
 }
 ok("8,000+ strokes checked", strokes > 8000, strokes);
 ok("3,000+ long strokes", longOnes > 3000, longOnes);
+
+// --- A live pad: trace 十 stroke by stroke ----------------------------------------------------------
+const host = document.createElement("div");
+document.body.append(host);
+host.innerHTML = renderTrace(parseTrace("", "十", "zh"));
+const svg = host.querySelector<SVGSVGElement>("svg.trace-pad")!;
+(svg as unknown as { getScreenCTM: () => unknown }).getScreenCTM = () => ({ inverse: () => ({}) });
+hydratePhonics(host, { lang: "en-US" });
+ok("hanzi pad is live", svg.classList.contains("is-live") && !host.querySelector(".tr-actions")!.hasAttribute("hidden"));
+const fire = (type: string, [x, y]: Pt) => {
+  const e = new dom.window.MouseEvent(type, { clientX: x, clientY: y, bubbles: true, cancelable: true });
+  Object.defineProperty(e, "pointerId", { value: 1 });
+  svg.dispatchEvent(e);
+};
+const draw = (pts: Pt[]) => {
+  fire("pointerdown", pts[0]);
+  for (const p of pts.slice(1)) fire("pointermove", p);
+  fire("pointerup", pts[pts.length - 1]);
+};
+const status = () => host.querySelector(".tr-status")!.textContent ?? "";
+const shi = letterGuide("十", "zh")!.strokes;
+draw(shi[0].slice().reverse());
+ok("backwards: follow the arrow", /Follow the arrow on stroke 1|Start at number 1/.test(status()), status());
+draw(shi[0]);
+ok("stroke 1 done", status().startsWith("Stroke 1 done") && host.querySelector('.tr-outline[data-s="0"]')!.classList.contains("is-done") && host.querySelector('.tr-outline[data-s="1"]')!.classList.contains("is-current"), status());
+ok("hanzi pads say nothing until the end", spoken.length === 0, spoken);
+draw(shi[1]);
+ok("finished: written in English", status() === "You traced the hanzi 十. Great job!" && host.querySelector(".ph-trace-item")!.classList.contains("is-done"), status());
+ok("finished: the character spoken in Chinese", spoken.length === 1 && spoken[0].text === "十" && spoken[0].lang === "zh-CN", spoken);
+handlePhonicsClick(host.querySelector('[data-tr="clear"]')!, { lang: "en-US" });
+ok("start over", status() === "" && host.querySelector('.tr-outline[data-s="0"]')!.classList.contains("is-current"));
+
+// --- The course checker: Chinese courses check hanzi, Japanese ones kanji -----------------------------
+const { checkCourse } = await import("./check-course.mts");
+ok("Chinese demo traces hanzi and is clean", (await checkCourse("samples/demo-chinese.json", { runs: 1 })).length === 0 && readFileSync("samples/demo-chinese.json", "utf8").includes("```trace\\n人 你 好 们 学 學\\n```"));
+ok("Japanese demo still clean", (await checkCourse("samples/demo-japanese.json", { runs: 1 })).length === 0);
+
+// --- Bundles: the data stays out of the community API worker and the main code ---------------
+const seen = new Set<string>();
+const visit = (file: string) => {
+  file = path.resolve(file);
+  if (seen.has(file) || !existsSync(file)) return;
+  seen.add(file);
+  for (const m of readFileSync(file, "utf8").matchAll(/(?:from\s*|import\s*\(?\s*)["'](\.[^"']+)["']/g)) {
+    let f = path.resolve(path.dirname(file), m[1]);
+    if (!path.extname(f)) f += existsSync(f + ".ts") ? ".ts" : ".tsx";
+    visit(f);
+  }
+};
+visit("worker/src/index.ts");
+const rel = [...seen].map((f) => path.relative(process.cwd(), f));
+ok("worker validates hanzi (list) but never loads the data", rel.includes("src/lib/hanziList.ts") && !rel.some((f) => /hanziStrokes\.data|hanziLoad/.test(f)), rel.filter((f) => /hanzi/.test(f)));
+const staticImports = (f: string) => [...readFileSync(f, "utf8").matchAll(/^import[^;]*from\s*["']([^"']+)["']/gm)].map((m) => m[1]);
+ok("nothing imports the data statically", ["src/lib/hanziLoad.ts", "src/lib/hanziStrokes.ts", "src/lib/handwriting.ts", "src/lib/phonics.ts", "src/lib/phonicsSpec.ts", "src/components/Markdown.tsx"].every((f) => !staticImports(f).some((s) => s.includes("hanziStrokes.data"))));
+
+if (fails) {
+  console.log(`${fails} hanzi test(s) failed`);
+  process.exit(1);
+}
+console.log("hanzi tests passed");
