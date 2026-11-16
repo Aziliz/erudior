@@ -20,10 +20,12 @@ import "./advanced-assessment.css";
 import "./learningGames.css";
 import "./learningProgress.css";
 import "./startupSplash.css";
-import { applyFurigana, applyPitch } from "./components/Ruby";
-// Furigana on/off (Japanese courses) is a per-device display setting.
+import { applyFurigana, applyPinyin, applyPitch, applyToneColours } from "./components/Ruby";
+// Furigana and pitch accent (Japanese), pinyin and tone colours (Chinese): per-device display settings.
 applyFurigana();
 applyPitch();
+applyPinyin();
+applyToneColours();
 // Footer styles must be in the entry CSS, including restored prerendered pages.
 import "./engineAttribution.css";
 import { createStartupSplash, dismissStartupSplash, scheduleStartupSplashDismissal } from "./lib/startupSplash";

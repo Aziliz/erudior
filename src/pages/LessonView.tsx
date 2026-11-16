@@ -15,7 +15,7 @@ import { SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
 import { useAssignmentLinks } from "./WorkView";
-import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { hasKanji } from "../lib/kana";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
@@ -102,7 +102,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1 data-ra="title">{lesson.title}</h1>
-        {course.language?.code === "ja" && <JapaneseToggles />}
+        <LanguageToggles code={course.language?.code} />
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}

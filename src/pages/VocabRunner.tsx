@@ -20,7 +20,7 @@ import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
 import { playClip } from "../lib/audio";
 import { composing, imeFor } from "../lib/ime";
-import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { confirmAction } from "../lib/storage";
 
 export type VocabMode = "review" | "practice" | "conjugation";
@@ -292,7 +292,7 @@ export default function VocabRunner({
         <button className="back" onClick={quit}>
           ← End
         </button>
-        {ja && <JapaneseToggles />}
+        <LanguageToggles code={lang?.code} />
         <span className="muted">
           {mode === "review" ? "Review" : "Extra practice"} · {done}/
           {initial.length}
@@ -334,7 +334,8 @@ export default function VocabRunner({
           {dir === "recall" ? (
             <PosHint item={item} lang={lang?.code} />
           ) : (
-            item.reading && !ja && <span className="muted">{item.reading}</span>
+            // Japanese and Chinese readings sit over the characters (and follow the furigana/pinyin switch).
+            item.reading && !ja && lang?.code !== "zh" && <span className="muted">{item.reading}</span>
           )}
         </div>
 
