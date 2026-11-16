@@ -2,11 +2,13 @@
 // graphics.txt, Arphic Public License): src/lib/hanziStrokes.data.ts (outlines and medians, loaded
 // lazily) and src/lib/hanziList.ts (which characters have data, for the checkers and parsers).
 //
-//   node scripts/build-hanzi-strokes.mjs <graphics.txt> <makemeahanzi commit> <opencc-js package dir> <YYYY-MM-DD>
+//   node scripts/build-hanzi-strokes.mjs <graphics.txt> <makemeahanzi commit> <opencc-js package dir> <STCharacters.txt> <YYYY-MM-DD>
 //
 // graphics.txt is the file at that commit (raw.githubusercontent.com/skishore/makemeahanzi/<commit>/graphics.txt).
 // The opencc-js folder is an installed npm package (npm install opencc-js@1.4.2 in a scratch folder);
-// only its dictionary tables and converter are imported. The date is the day the subset was made,
+// its s2tw converter and TWVariants table are imported. STCharacters.txt is OpenCC's own character
+// table at the matching tag (raw.githubusercontent.com/BYVoid/OpenCC/ver.1.4.2/data/dictionary/STCharacters.txt),
+// which lists every traditional candidate (opencc-js keeps only the first). The date is the day the subset was made,
 // for the change notice the licence asks for. Treat graphics.txt as untrusted data: each line is
 // parsed as JSON and every path is checked strictly and rewritten; nothing in it is run.
 //
@@ -21,9 +23,9 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = path.resolve(import.meta.dirname, "..");
-const [graphics, commit, occDir, date] = process.argv.slice(2);
-if (!graphics || !/^[0-9a-f]{40}$/.test(commit ?? "") || !occDir || !/^\d{4}-\d{2}-\d{2}$/.test(date ?? "")) {
-  console.error("usage: node scripts/build-hanzi-strokes.mjs <graphics.txt> <40-character commit> <opencc-js package dir> <YYYY-MM-DD>");
+const [graphics, commit, occDir, stFile, date] = process.argv.slice(2);
+if (!graphics || !/^[0-9a-f]{40}$/.test(commit ?? "") || !occDir || !stFile || !/^\d{4}-\d{2}-\d{2}$/.test(date ?? "")) {
+  console.error("usage: node scripts/build-hanzi-strokes.mjs <graphics.txt> <40-character commit> <opencc-js package dir> <STCharacters.txt> <YYYY-MM-DD>");
   process.exit(2);
 }
 
@@ -41,7 +43,15 @@ const OpenCC = await occ("dist/esm/full.js");
 const s2tw = OpenCC.Converter({ from: "cn", to: "tw" });
 /** An OpenCC dictionary table ("a b c|d e") as key → candidates. */
 const table = (text) => new Map(text.split("|").map((e) => e.split(" ")).map(([k, ...v]) => [k, v]));
-const ST = table((await occ("dist/esm-lib/dict/STCharacters.js")).default);
+/** OpenCC's STCharacters.txt: "简\t簡 …" per line. */
+const ST = new Map(
+  readFileSync(stFile, "utf8")
+    .split("\n")
+    .filter((l) => l.includes("\t"))
+    .map((l) => l.trim().split(/\s+/))
+    .map(([k, ...v]) => [k, v]),
+);
+if (ST.size < 3000 || ST.get("发")?.join(" ") !== "發 髮") throw new Error(`${stFile} is not OpenCC's STCharacters.txt`);
 const TWV = table((await occ("dist/esm-lib/dict/TWVariants.js")).default);
 const tw = (c) => TWV.get(c)?.[0] ?? c;
 
@@ -152,7 +162,7 @@ const source = [
 const notice = [
   `// NOTICE OF MODIFICATION (Arphic Public License, section 2a): this file was changed from graphics.txt on`,
   `// ${date} by scripts/build-hanzi-strokes.mjs (Erudior). It keeps only ${wanted.length} characters (HSK 1–3 and their`,
-  `// Taiwan traditional forms by OpenCC s2tw); each stroke's outline path is kept with the spaces after its`,
+  `// Taiwan traditional forms from OpenCC); each stroke's outline path is kept with the spaces after its`,
   `// command letters removed, and each stroke's median is converted from the 1024 box (y up) to a 0–100 square`,
   `// (y down) and rounded to 0.1. Stroke order and shapes are otherwise unchanged. This file is distributed`,
   `// under the Arphic Public License, like graphics.txt; Erudior's own code is not covered by it. The script`,
