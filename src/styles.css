@@ -8120,7 +8120,7 @@ rt {
   letter-spacing: 0;
 }
 /* Furigana switched off: the reading keeps its space so lines don't jump, but isn't shown. */
-html.furigana-off rt {
+html.furigana-off ruby:not(.py) rt {
   visibility: hidden;
 }
 .prose :lang(ja),
@@ -8200,6 +8200,73 @@ html.pitch-off .vocab-pitch-reading {
 html .pitch-toggle .pa-h::before,
 html .pitch-toggle .pa-d::after {
   content: "";
+}
+
+/* ---- Chinese -----------------------------------------------------------------
+   Device Chinese fonts (none bundled); never italic. Pinyin (kana.ts / pinyin.ts pinyinRubyHtml:
+   ruby.py, one syllable per character) sits in the Latin font so tone marks render well. */
+:lang(zh) {
+  font-family: var(--sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC",
+    "Source Han Sans SC", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+  font-style: normal;
+}
+ruby.py rt {
+  font-family: var(--sans);
+  font-size: 0.5em;
+  ruby-align: center;
+}
+.prose :lang(zh),
+.prose em:lang(zh) {
+  line-height: 2.1; /* room for pinyin */
+}
+/* Pinyin switched off: like furigana, the space stays so lines don't jump. */
+html.pinyin-off ruby.py rt {
+  visibility: hidden;
+}
+html .pinyin-toggle rt {
+  visibility: visible;
+}
+/* Tone colours (off by default; html.tones-on): character and syllable coloured by tone, with the
+   tone in words for screen readers (.tone-sr). Each colour has at least 4.5:1 contrast on every
+   theme's paper, surface and sheet (7:1 in the high-contrast theme); tests/chinese.test.mts checks. */
+:root {
+  --tone-1: #b42318;
+  --tone-2: #1d6b2f;
+  --tone-3: #1f4fbf;
+  --tone-4: #7a2a9c;
+  --tone-0: #5a6570;
+}
+:root[data-theme="dark"],
+:root[data-theme="dim"] {
+  --tone-1: #ff8f85;
+  --tone-2: #7fd18e;
+  --tone-3: #8fb3ff;
+  --tone-4: #dfa6f7;
+  --tone-0: #aab4bd;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --tone-1: #ff8f85;
+    --tone-2: #7fd18e;
+    --tone-3: #8fb3ff;
+    --tone-4: #dfa6f7;
+    --tone-0: #aab4bd;
+  }
+}
+:root[data-theme="contrast"] {
+  --tone-1: #8a0000;
+  --tone-2: #004d10;
+  --tone-3: #002f99;
+  --tone-4: #4b0070;
+  --tone-0: #333333;
+}
+html.tones-on .tn.t1, .tone-toggle .t1 { color: var(--tone-1); }
+html.tones-on .tn.t2, .tone-toggle .t2 { color: var(--tone-2); }
+html.tones-on .tn.t3, .tone-toggle .t3 { color: var(--tone-3); }
+html.tones-on .tn.t4, .tone-toggle .t4 { color: var(--tone-4); }
+html.tones-on .tn.t0 { color: var(--tone-0); }
+html:not(.tones-on) .tone-sr {
+  display: none;
 }
 
 .public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
