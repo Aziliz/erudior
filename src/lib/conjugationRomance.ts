@@ -378,7 +378,7 @@ function frVerb(item: VocabItem): FrVerb | string {
   const term = item.term.trim().replace(/’/g, "'");
   const cls = item.conj as FrVerb["cls"];
   if (!["er", "ir", "re", "irr"].includes(cls)) return `"${item.conj}" isn't a French verb class (er, ir, re, irr)`;
-  const m = /^(?:(se |s')?)([a-zàâçéèêëîïôûùœ]+)$/.exec(term);
+  const m = /^(?:(se |s')?)([a-zàâçéèêëîïôûùœ]+(?:-[a-zàâçéèêëîïôûùœ]+)*)$/.exec(term);
   if (!m) return `"${term}" must be a one-word infinitive in lower case (se lever, s'appeler for pronominal verbs)`;
   const reflexive = !!m[1];
   const base = m[2];

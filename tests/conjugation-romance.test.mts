@@ -241,4 +241,7 @@ assert(ok("fr", payer, "subjunctive", "0", "que je paie") && ok("fr", payer, "su
 
 assert(!ok("fr", allerB2, "perfectSubjunctive", "0", "que sois allé"), "French que needs the subject");
 assert(ok("fr", allerB2, "perfectSubjunctive", "0", "sois allé"), "bare form still accepted");
+const sousEntendre = w("sous-entendre", "re", { participle: "sous-entendu" });
+assert.equal(answers("fr", sousEntendre, "present")["2"], "sous-entend", "hyphenated infinitive");
+assert(ok("fr", sousEntendre, "perfect", "0", "j'ai sous-entendu"));
 console.log("Spanish and French conjugation and recall passed.");
