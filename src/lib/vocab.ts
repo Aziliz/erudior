@@ -165,7 +165,7 @@ export function stageLabel(s: VocabState): string {
 
 export type Verdict =
   | { ok: true; note?: string }
-  | { ok: false; retry: true; note: string } // try again, not counted (missing article, digraph for umlaut…)
+  | { ok: false; retry: true; note: string; tones?: true } // try again, not counted (missing article, digraph for umlaut, Chinese tones…)
   | { ok: false; retry?: false; note?: string };
 
 const ARTICLES = ["der", "die", "das"];
@@ -283,6 +283,7 @@ export function checkRecallZh(item: VocabItem, typed: string, opts: RecallOption
       return {
         ok: false,
         retry: true,
+        tones: true,
         note: none
           ? "Add the tones: type a number after each syllable (ni3 hao3), 5 for neutral."
           : "Check the tones: the syllables are right, but a tone isn't.",
