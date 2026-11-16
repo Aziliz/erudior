@@ -25,20 +25,25 @@ export function PitchText({ kana, pitch }: { kana: string; pitch?: number | numb
   return <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(pitchHtml(kana, pitch)) }} />;
 }
 
-// --- Learner switches (per device): furigana, pitch accent ----------------------------------
+// --- Learner switches (per device): furigana, pitch accent, pinyin, tone colours ------------
 
-function makeSetting(key: string, htmlClass: string) {
+/**
+ * A per-device on/off setting mirrored as a class on <html>. By default the setting is on and
+ * the class marks "off" (furigana-off); `defaultOn: false` settings put their class on when on.
+ */
+function makeSetting(key: string, htmlClass: string, defaultOn = true) {
   const listeners = new Set<(on: boolean) => void>();
   const isOn = (): boolean => {
     try {
-      return localStorage.getItem(key) !== "off";
+      const v = localStorage.getItem(key);
+      return defaultOn ? v !== "off" : v === "on";
     } catch {
-      return true;
+      return defaultOn;
     }
   };
   /** Apply the saved setting to the page (CSS hides the marks when off). */
   const apply = (on = isOn()) => {
-    if (typeof document !== "undefined") document.documentElement.classList.toggle(htmlClass, !on);
+    if (typeof document !== "undefined") document.documentElement.classList.toggle(htmlClass, defaultOn ? !on : on);
   };
   const set = (on: boolean) => {
     try {
@@ -65,6 +70,8 @@ function makeSetting(key: string, htmlClass: string) {
 
 const furigana = makeSetting("erudior.furigana", "furigana-off");
 const pitchAccent = makeSetting("erudior.pitch", "pitch-off");
+const pinyin = makeSetting("erudior.pinyin", "pinyin-off");
+const toneColours = makeSetting("erudior.tones", "tones-on", false);
 
 export const furiganaOn = furigana.isOn;
 export const applyFurigana = furigana.apply;
@@ -72,6 +79,12 @@ export const setFurigana = furigana.set;
 export const pitchOn = pitchAccent.isOn;
 export const applyPitch = pitchAccent.apply;
 export const setPitch = pitchAccent.set;
+export const pinyinOn = pinyin.isOn;
+export const applyPinyin = pinyin.apply;
+export const setPinyin = pinyin.set;
+export const toneColoursOn = toneColours.isOn;
+export const applyToneColours = toneColours.apply;
+export const setToneColours = toneColours.set;
 
 /** A switch that shows or hides furigana everywhere (shown on Japanese course screens). */
 export function FuriganaToggle({ className = "" }: { className?: string }) {
