@@ -152,4 +152,12 @@ const render = (props: Record<string, unknown>) => renderToStaticMarkup(React.cr
   assert.deepEqual([...ja.matchAll(/<input[^>]*lang="([^"]+)"/g)].map((m) => m[1]), ["ja", "ja"]);
 }
 
+// Sentence builders in Chinese courses: tiles render pinyin ruby (lang zh), not Japanese furigana.
+{
+  const b = { id: "b1", type: "build", stem: "Build it.", tiles: ["{我|wǒ}", "{是|shì}", "{学生|xué sheng}"], choices: [], answer: [] } as unknown as Question;
+  const html = renderToStaticMarkup(React.createElement(QuestionBody as never, { q: b, order: [], chosen: [], lang: "zh" }));
+  assert.match(html, /<ruby class="py" lang="zh">/);
+  assert.ok(!html.includes('lang="ja"'));
+}
+
 console.log("pinyin-typing tests passed");
