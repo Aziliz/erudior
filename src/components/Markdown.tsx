@@ -22,6 +22,8 @@ import { protectCode } from "../lib/code";
 import { rubyHtml } from "../lib/kana";
 import { scanLessonFences } from "../lib/lessonFences";
 import { loadKanjiStrokes, needsKanjiStrokes } from "../lib/kanjiLoad";
+import { loadHanziStrokes, needsHanziStrokes } from "../lib/hanziLoad";
+import type { TraceScript } from "../lib/handwriting";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -56,7 +58,8 @@ export function joinCjkBreaks(html: string): string {
   return html.replace(CJK_BREAK, "$1");
 }
 
-export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined): string {
+/** `script` "zh": a Chinese course, whose ```trace blocks trace Han characters as hanzi. */
+export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined, script?: TraceScript): string {
   // Shield ordinary fences before *any* interactive parser. A literal tutorial
   // containing nested widget fences must remain code, including longer/tilde
   // fences that the legacy widget regular expressions do not understand.
@@ -80,7 +83,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
   // Phonics blocks (```sounds, ```blend, ```trace) are finished HTML built from escaped text.
-  const phonics = protectPhonics(md);
+  const phonics = protectPhonics(md, script);
   const examples = protectExamples(phonics.text, (field) => renderMarkdown(field, scope));
   // Dialogues and speaking practice (```dialogue / ```speak): lines rendered the same way.
   const media = protectMedia(examples.text, (field) => renderMarkdown(field, scope));
@@ -226,22 +229,24 @@ export default function Markdown({
 }) {
   const marking = !!read;
   // Kanji tracing strokes load on first use (their own chunk); the lesson redraws when they arrive.
-  const needKanji = !prerendered && needsKanjiStrokes(source);
+  // Chinese courses trace Han characters as hanzi, with their own strokes (also loaded on first use).
+  const script: TraceScript = foreignLang === "zh" ? "zh" : undefined;
+  const needKanji = !prerendered && (script === "zh" ? needsHanziStrokes(source) : needsKanjiStrokes(source));
   const [kanjiReady, setKanjiReady] = useState(0);
   useEffect(() => {
     if (!needKanji) return;
     let alive = true;
-    loadKanjiStrokes().then(
+    (script === "zh" ? loadHanziStrokes() : loadKanjiStrokes()).then(
       () => alive && setKanjiReady((n) => n + 1),
-      (e) => console.error("Kanji strokes didn't load", e),
+      (e) => console.error(`${script === "zh" ? "Hanzi" : "Kanji"} strokes didn't load`, e),
     );
     return () => {
       alive = false;
     };
-  }, [needKanji]);
+  }, [needKanji, script]);
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
-    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info);
+    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script);
     const decorated = decorate && className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
@@ -252,7 +257,7 @@ export default function Markdown({
       .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
       .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
     // kanjiReady: not read here, but the kanji pads need redrawing once the strokes have loaded.
-  }, [source, scope, foreignLang, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady]);
+  }, [source, scope, foreignLang, script, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
