@@ -128,3 +128,48 @@ export const isHan = (c: string) => HAN.test(c);
 export const hasHan = (s: string) => HAN.test(s);
 /** Looks like pinyin (Latin letters, maybe with tone marks or digits), no Han characters. */
 export const looksPinyin = (s: string) => !hasHan(s) && /[a-zA-ZüÜ]/.test(stripTones(s));
+
+// ---------------------------------------------------------------------------
+// Pinyin over characters: {汉字|hàn zì} in course text becomes ruby with one syllable over
+// each character. Syllables are separated by spaces (apostrophes and hyphens also separate).
+// A syllable ending in erhua -r also covers a following 儿: {一点儿|yì diǎnr}.
+
+export interface PinyinPair {
+  /** One character (or a character + 儿 for erhua). */
+  base: string;
+  /** Its syllable with tone mark; "" for a non-Han character in a vocabulary term. */
+  syl: string;
+  /** 1–4, 0 = neutral; -1 = no syllable. */
+  tone: number;
+}
+
+/**
+ * Pair the Han characters of `base` with the syllables of `reading`. Returns null unless every
+ * syllable is valid marked pinyin and there is exactly one per character. `allowOther` lets
+ * non-Han characters (vocabulary terms such as 卡拉OK) pass through without a syllable.
+ */
+export function pinyinPairs(base: string, reading: string, allowOther = false): PinyinPair[] | null {
+  const syls = pinyinTokens(reading);
+  if (!syls.length || !syls.every(validPinyinSyllable)) return null;
+  const chars = [...base.normalize("NFC")];
+  const out: PinyinPair[] = [];
+  let i = 0;
+  for (let c = 0; c < chars.length; c++) {
+    const ch = chars[c];
+    if (!isHan(ch)) {
+      if (!allowOther) return null;
+      out.push({ base: ch, syl: "", tone: -1 });
+      continue;
+    }
+    const syl = syls[i++];
+    if (syl === undefined) return null;
+    const { plain, tone } = splitTone(syl);
+    let b = ch;
+    if (chars[c + 1] === "儿" && /r$/i.test(plain) && plain.toLowerCase() !== "er") {
+      b += "儿";
+      c++;
+    }
+    out.push({ base: b, syl, tone });
+  }
+  return i === syls.length && out.some(p => p.syl) ? out : null;
+}
