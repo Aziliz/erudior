@@ -66,6 +66,8 @@ export interface ExamOptions {
   shuffleChoices: boolean;
   /** Section id -> minutes. When given for every quota section, each section gets its own clock. */
   sectionMinutes?: Record<string, number>;
+  /** Section id -> questions, replacing the bank's quotas for this run (sections left out or 0 are skipped). */
+  sectionCounts?: Record<string, number>;
 }
 
 export interface PracticeOptions {
@@ -95,12 +97,13 @@ export function makeItems(questions: Question[], shuffleChoices: boolean): Sessi
 }
 
 /** Draw exam questions, honoring per-section quotas when the bank sets them. */
-export function drawExamQuestions(bank: Bank, count: number): Question[] {
+export function drawExamQuestions(bank: Bank, count: number, sectionCounts?: Record<string, number>): Question[] {
   // Full exams cover the core course; honors questions are optional extra depth.
   const core = bank.questions.filter((q) => !q.honors);
   if (core.length && core.length < bank.questions.length) bank = { ...bank, questions: core };
-  const n = Math.min(count, bank.questions.length);
-  const quotas = bank.exam.sectionQuotas ?? {};
+  const chosen = chosenSections(sectionCounts);
+  const quotas = chosen ?? bank.exam.sectionQuotas ?? {};
+  const n = Math.min(chosen ? Object.values(chosen).reduce((a, b) => a + b, 0) : count, bank.questions.length);
   const picked: Question[] = [];
   const used = new Set<string>();
   for (const [sid, want] of Object.entries(quotas)) {
@@ -110,8 +113,11 @@ export function drawExamQuestions(bank: Bank, count: number): Question[] {
       used.add(q.id);
     }
   }
-  const rest = shuffle(bank.questions.filter((q) => !used.has(q.id)));
-  picked.push(...rest.slice(0, n - picked.length));
+  // A per-run section choice draws only from those sections; a short section is not topped up from another.
+  if (!chosen) {
+    const rest = shuffle(bank.questions.filter((q) => !used.has(q.id)));
+    picked.push(...rest.slice(0, n - picked.length));
+  }
   // Keep sections grouped in quota order (like a real two-part exam), shuffled within.
   if (Object.keys(quotas).length) {
     const rank = (q: Question) => {
@@ -125,11 +131,16 @@ export function drawExamQuestions(bank: Bank, count: number): Question[] {
 
 /** One block per quota section when every drawn question belongs to a timed section. */
 function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[] {
-  const quotas = Object.entries(bank.exam.sectionQuotas ?? {}).filter(([, count]) => count > 0).map(([id]) => id);
+  const quotas = Object.entries(chosenSections(opts.sectionCounts) ?? bank.exam.sectionQuotas ?? {}).filter(([, count]) => count > 0).map(([id]) => id);
   const mins = positiveSectionMinutes(opts.sectionMinutes);
   const split =
     mins && quotas.length > 1 && quotas.every((s) => mins[s] > 0) && items.every((it) => quotas.includes(it.q.section ?? ""));
-  if (!split) return [{ start: 0, end: items.length, timeLimitSec: Math.round(opts.minutes * 60) }];
+  if (!split) {
+    const only = quotas.length === 1 && mins?.[quotas[0]] ? quotas[0] : undefined;
+    const minutes = only ? mins![only] : opts.minutes;
+    const name = only ? bank.sections.find((s) => s.id === only)?.name : undefined;
+    return [{ ...(name ? { name } : {}), start: 0, end: items.length, timeLimitSec: Math.round(minutes * 60) }];
+  }
   const blocks: Block[] = [];
   for (const sid of quotas) {
     const start = items.findIndex((it) => it.q.section === sid);
@@ -146,6 +157,20 @@ function examBlocks(bank: Bank, items: SessionItem[], opts: ExamOptions): Block[
   return blocks;
 }
 
+/** The sections picked for this run (positive counts only), or undefined to use the bank's quotas. */
+function chosenSections(counts?: Record<string, number>): Record<string, number> | undefined {
+  const entries = Object.entries(counts ?? {}).filter(([, n]) => Number.isFinite(n) && n > 0).map(([id, n]) => [id, Math.floor(n)] as const);
+  return entries.length ? Object.fromEntries(entries) : undefined;
+}
+
+/** Minutes for `count` questions of a section at the bank's own pace (its time limit over its quota). */
+export function sectionPaceMinutes(bank: Bank, sectionId: string, count: number): number {
+  const quota = bank.exam.sectionQuotas?.[sectionId] ?? 0;
+  const mins = bank.exam.sectionTimeLimits?.[sectionId] ?? 0;
+  if (!(quota > 0) || !(mins > 0)) return Math.max(1, Math.round(count * (bank.exam.timeLimitMinutes / Math.max(1, bank.exam.questionCount))));
+  return Math.max(1, Math.round((count * mins) / quota));
+}
+
 /** Empty/zero authored timing maps mean no section override, without rewriting source. */
 export function positiveSectionMinutes(value?: Record<string, number>): Record<string, number> | undefined {
   const entries = Object.entries(value ?? {}).filter(([, minutes]) => Number.isFinite(minutes) && minutes > 0);
@@ -160,8 +185,10 @@ export function defaultExamOptions(bank: Bank): ExamOptions {
 }
 
 export function startExam(bank: Bank, opts: ExamOptions): Session {
-  const items = makeItems(drawExamQuestions(bank, opts.count), opts.shuffleChoices);
+  const items = makeItems(drawExamQuestions(bank, opts.count, opts.sectionCounts), opts.shuffleChoices);
   const blocks = examBlocks(bank, items, opts);
+  // Only the sections actually taken are scored against their pass marks.
+  const taken = new Set(items.map((it) => it.q.section ?? ""));
   return {
     id: uid("s"),
     bankId: bank.id,
@@ -174,7 +201,7 @@ export function startExam(bank: Bank, opts: ExamOptions): Session {
     passingPercent: bank.exam.passingPercent,
     sectionPassing: bank.exam.sectionPassing
       ? Object.fromEntries(
-          Object.entries(bank.exam.sectionPassing).map(([sid, pct]) => [
+          Object.entries(bank.exam.sectionPassing).filter(([sid]) => taken.has(sid)).map(([sid, pct]) => [
             bank.sections.find((s) => s.id === sid)?.name ?? sid,
             pct,
           ]),
