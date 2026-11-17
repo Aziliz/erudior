@@ -22,13 +22,15 @@ import { daysBetween, today } from "../lib/srs";
 import { percent, uid } from "../lib/util";
 import { subjectKey } from "../lib/taxonomy";
 import { GENERAL_DISCLAIMER } from "../components/Terms";
-import { STUDY_PROGRAMS, programCourses } from "../lib/studyPrograms";
+import { STUDY_PROGRAMS, groupPrograms, programCourseIds, programCourses, searchPrograms } from "../lib/studyPrograms";
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
 
   const [offlineImport, setOfflineImport] = useState<Course | null>(null);
   const [importBusy, setImportBusy] = useState(false);
+  const [programQuery, setProgramQuery] = useState("");
+  const matchedPrograms = searchPrograms(STUDY_PROGRAMS, programQuery);
   const offlineImportHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (offlineImport) offlineImportHeading.current?.focus(); }, [offlineImport]);
   const importing = useRef(false);
@@ -257,13 +259,21 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       <section className="program-catalog" aria-labelledby="program-catalog-title">
         <div className="row" style={{ justifyContent: "space-between", margin: "36px 0 12px" }}>
           <h2 className="section-title" id="program-catalog-title" style={{ margin: 0 }}>Program catalog</h2>
-          <span className="small muted">{STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
+          <span className="small muted" aria-live="polite">{programQuery.trim() ? `${matchedPrograms.length} of ${STUDY_PROGRAMS.length}` : STUDY_PROGRAMS.length} {STUDY_PROGRAMS.length === 1 ? "program" : "programs"}</span>
         </div>
         <p className="muted small" style={{ marginBottom: 16 }}>Follow a pathway of courses toward a larger learning goal. Explore its stages, recommended prerequisites and course outlines.</p>
+        <div className="catalog-filters">
+          <input className="input" type="search" placeholder="Search programs" aria-label="Search programs"
+            value={programQuery} onChange={(e) => setProgramQuery(e.target.value)} />
+        </div>
+        {matchedPrograms.length === 0 && <p className="muted small">No programs match.</p>}
+        {groupPrograms(matchedPrograms).map(group => <details key={group.category} className="program-group" open={programQuery.trim() ? true : undefined}>
+        <summary><h3>{group.category}</h3><span className="small muted">{group.programs.length} {group.programs.length === 1 ? "program" : "programs"}</span></summary>
         <div className="catalog-grid">
-          {STUDY_PROGRAMS.map(program => {
+          {group.programs.map(program => {
             const planned = programCourses(program);
-            const available = planned.filter(course => CATALOG.some(entry => entry.id === course.courseId)).length;
+            const ids = program.pools?.length ? programCourseIds(program) : planned.map(course => course.courseId);
+            const available = ids.filter(id => CATALOG.some(entry => entry.id === id)).length;
             const following = progress.learningPathways?.some(path => path.id === program.id);
             return <article className="catalog-card" key={program.id} aria-label={`${program.title} catalog entry`}>
               <div className="catalog-tags"><span className="pill neutral">Program</span>
@@ -272,14 +282,15 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
                 {program.title}<span className="sr-only">: explore pathway</span>
               </button></h3>
               <p className="muted small clamp3">{program.description}</p>
-              <p className="meta small muted">{program.stages.length} stages · {planned.length} courses</p>
-              <p className="small muted">{available} available · {planned.length - available} planned</p>
+              <p className="meta small muted">{program.pools?.length ? `${program.pools.length} areas · ${programCourseIds(program).length} courses to choose from` : `${program.stages.length} stages · ${planned.length} courses`}</p>
+              <p className="small muted">{available} available · {ids.length - available} planned</p>
               <button className="btn sm primary" onClick={() => api.go({ name: "progress" })}>
                 {following ? "View my pathway" : "Explore pathway"}
               </button>
             </article>;
           })}
         </div>
+        </details>)}
       </section>
 
       <Catalog api={api} />
