@@ -6707,5 +6707,575 @@
     ]
    }
   ]
+ },
+ {
+  "id": "lang-chinese-pinyin",
+  "file": "languages/lang-chinese-pinyin.json",
+  "order": 130,
+  "title": "Chinese: Pinyin and Tones",
+  "description": "Hear, say, read and type Mandarin Chinese sounds from scratch: every initial and final, the four tones and the neutral tone, where the tone mark goes, the tone changes of 一, 不 and two third tones, erhua, ü and the apostrophe, and the whole syllable table, drilled by ear with your device's Chinese voice. Then your first characters, traced stroke by stroke with the basic rules of stroke order, and your first 25 words and greetings, learned through typed review cards (type pinyin with tone numbers). Written in simplified characters, with a switch to traditional. This course comes before Chinese HSK 1.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 15,
+  "honors": 3,
+  "questions": 341,
+  "cards": 21,
+  "drills": 0,
+  "words": 25,
+  "lessonIds": [
+   "py-intro",
+   "py-tones",
+   "py-b-p-m-f",
+   "py-d-t-n-l-g-k-h",
+   "py-j-q-x",
+   "py-zh-ch-sh-r",
+   "py-compound-finals",
+   "py-nasal-finals",
+   "py-writing",
+   "py-tone-pairs",
+   "py-sandhi",
+   "py-erhua-table",
+   "py-strokes",
+   "py-numbers",
+   "py-first-words"
+  ],
+  "honorsLessonIds": [
+   "py-h-history",
+   "py-h-typing",
+   "py-h-scripts"
+  ],
+  "honorsModuleIds": [
+   "py-h1"
+  ],
+  "outline": [
+   {
+    "title": "Sounds and tones",
+    "lessons": [
+     "How Mandarin is written and said",
+     "The four tones and the neutral tone",
+     "Simple finals and the lip sounds: b p m f",
+     "d t n l and g k h",
+     "j q x and ü",
+     "zh ch sh r and z c s",
+     "Compound finals and y/w spelling"
+    ]
+   },
+   {
+    "title": "Writing pinyin and tone changes",
+    "lessons": [
+     "Nasal finals: -n and -ng",
+     "Writing pinyin: tone marks, ü, the apostrophe and words",
+     "Tone pairs and the neutral tone in words",
+     "Tone changes: two third tones, 一 and 不",
+     "Erhua and the syllable table"
+    ]
+   },
+   {
+    "title": "First characters and words",
+    "lessons": [
+     "Strokes and stroke order: 一 二 三 十 人 大",
+     "Numbers from one to ninety-nine: 四 五 六 七 八 九, 日 and 月",
+     "First words and greetings: 你好, 谢谢, 再见"
+    ]
+   },
+   {
+    "title": "Honors: Pinyin and characters in depth",
+    "lessons": [],
+    "honors": [
+     "Where pinyin came from",
+     "Typing Chinese",
+     "Simplified and traditional characters"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk1",
+  "file": "languages/lang-chinese-hsk1.json",
+  "order": 131,
+  "title": "Chinese HSK 1",
+  "description": "Mandarin Chinese from your first sentences to the new HSK 1 (HSK 3.0, in force from July 2026). Grammar lessons cover 是 and 有, questions with 吗, 呢 and question words, numbers, dates and time, measure words, position words, 在 and 正在, the modal verbs 会, 能, 想, 要 and 可以, serial verbs, double objects and 了 for completed actions and change. All 300 words of the level (25 of them from the pinyin course) are learned through typed review cards with tone numbers, and all 246 characters are learned through notecards, inside words and by tracing them stroke by stroke, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading signs and menus, listening and the exam format. Requires Chinese: Pinyin and Tones.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 797,
+  "cards": 225,
+  "drills": 0,
+  "words": 300,
+  "carried": 25,
+  "requires": [
+   "lang-chinese-pinyin"
+  ],
+  "lessonIds": [
+   "zh1-names",
+   "zh1-countries",
+   "zh1-family",
+   "zh1-numbers",
+   "zh1-jobs",
+   "zh1-dates",
+   "zh1-time",
+   "zh1-routine",
+   "zh1-plans",
+   "zh1-phone",
+   "zh1-food",
+   "zh1-restaurant",
+   "zh1-shopping",
+   "zh1-this-that",
+   "zh1-clothes",
+   "zh1-where",
+   "zh1-rooms",
+   "zh1-transport",
+   "zh1-school",
+   "zh1-weather",
+   "zh1-illness",
+   "zh1-hobbies",
+   "zh1-friends",
+   "zh1-pets",
+   "zh1-past",
+   "zh1-questions",
+   "zh1-signs",
+   "zh1-conversation",
+   "zh1-review",
+   "zh1-exam"
+  ],
+  "honorsLessonIds": [
+   "zh1-chinese-names",
+   "zh1-character-origins",
+   "zh1-calendar",
+   "zh1-number-culture",
+   "zh1-tea",
+   "zh1-staple-foods",
+   "zh1-rivers-mountains",
+   "zh1-beijing",
+   "zh1-parks",
+   "zh1-radicals",
+   "zh1-story",
+   "zh1-handwriting"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Meeting people",
+    "lessons": [
+     "Names and 是: who are you?",
+     "Countries and languages: 哪国人, 也, 都, 呢",
+     "Family: 有, 没有, 的, 几 and 个",
+     "Numbers, age and 两",
+     "Jobs and workplaces: 在 + place"
+    ],
+    "honors": [
+     "Chinese names",
+     "How characters began"
+    ]
+   },
+   {
+    "title": "Time and the day",
+    "lessons": [
+     "Days, dates and weeks",
+     "Telling the time",
+     "My day",
+     "Going and coming: 去, 来, 想, 要",
+     "On the phone: 在, 正在 and 呢"
+    ],
+    "honors": [
+     "The Chinese calendar",
+     "Numbers in daily life"
+    ]
+   },
+   {
+    "title": "Food and shopping",
+    "lessons": [
+     "Eating and drinking: 吃, 喝, 喜欢",
+     "At a restaurant: 请, 吧, 一下, 一点儿",
+     "How much is it? Money and measure words",
+     "This one, that one: 这个, 那个, 些, 第",
+     "Clothes and describing: 很, 非常, 真 and A-not-A questions"
+    ],
+    "honors": [
+     "Tea: 茶",
+     "Rice, noodles and dumplings"
+    ]
+   },
+   {
+    "title": "Places, travel and school",
+    "lessons": [
+     "Where is it? 在 and position words",
+     "There is a…: 有 for existence",
+     "Getting there: 坐, 开车, 怎么",
+     "Studying Chinese: 会, 能, 可以",
+     "The weather and change: 了"
+    ],
+    "honors": [
+     "Rivers and mountains",
+     "Beijing"
+    ]
+   },
+   {
+    "title": "Health, free time and the past",
+    "lessons": [
+     "Feeling ill: 有点儿 and 不要",
+     "What I like doing: 爱, 唱歌, 看电影",
+     "Friends: 给, 问 and two objects",
+     "Pets and things: 它, 只, 有的",
+     "What happened: 了 and 没有"
+    ],
+    "honors": [
+     "Morning in the park",
+     "Radicals and dictionaries"
+    ]
+   },
+   {
+    "title": "Putting it together and HSK 1",
+    "lessons": [
+     "Asking questions",
+     "Reading signs, menus and name cards",
+     "Listening and talking",
+     "Grammar review",
+     "The HSK 1 exam"
+    ],
+    "honors": [
+     "A longer story",
+     "Writing by hand"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk2",
+  "file": "languages/lang-chinese-hsk2.json",
+  "order": 132,
+  "title": "Chinese HSK 2",
+  "description": "The second step in Mandarin Chinese, from HSK 1 to the new HSK 2 (HSK 3.0). Grammar lessons cover comparisons with 比, the complements of result, direction, degree and quantity, 得 and 地, 过 for experiences and 着 for states, 是…的, 因为…所以 and 虽然…但是, 还是 questions, 快要…了, 已经, 就, verb and adjective reduplication and 让. The 200 new words of the level (500 in all) are learned through typed review cards and the 125 new characters (371 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading notices and messages, listening, writing short notes and the exam format. Requires Chinese HSK 1.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 801,
+  "cards": 125,
+  "drills": 0,
+  "words": 500,
+  "carried": 300,
+  "requires": [
+   "lang-chinese-hsk1"
+  ],
+  "lessonIds": [
+   "zh2-surnames",
+   "zh2-looks",
+   "zh2-colours",
+   "zh2-family-life",
+   "zh2-feelings",
+   "zh2-directions",
+   "zh2-distance",
+   "zh2-metro",
+   "zh2-in-and-out",
+   "zh2-travel",
+   "zh2-home",
+   "zh2-up-and-down",
+   "zh2-birthdays",
+   "zh2-comparing",
+   "zh2-why",
+   "zh2-school",
+   "zh2-exams",
+   "zh2-how-well",
+   "zh2-sport",
+   "zh2-hobbies",
+   "zh2-cafe",
+   "zh2-restaurant",
+   "zh2-shopping",
+   "zh2-online",
+   "zh2-weather",
+   "zh2-already-soon",
+   "zh2-reading",
+   "zh2-listening",
+   "zh2-writing",
+   "zh2-exam"
+  ],
+  "honorsLessonIds": [
+   "zh2-address-terms",
+   "zh2-colour-culture",
+   "zh2-great-wall",
+   "zh2-trains",
+   "zh2-spring-festival",
+   "zh2-birthday-customs",
+   "zh2-table-tennis",
+   "zh2-school-system",
+   "zh2-cuisines",
+   "zh2-mid-autumn",
+   "zh2-story",
+   "zh2-messages"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "People, looks and feelings",
+    "lessons": [
+     "Surnames and introductions: 姓, 位, 自己",
+     "What people look like",
+     "Colours and what people wear: 着",
+     "Family life: 每, 经常, 有时",
+     "How you feel: 因为…所以"
+    ],
+    "honors": [
+     "What to call people",
+     "Colours in Chinese culture"
+    ]
+   },
+   {
+    "title": "Getting around and travel",
+    "lessons": [
+     "Left, right and next to: 左, 右, 旁边",
+     "How far is it? 离, 从, 往",
+     "By metro, bus and taxi: 是…的",
+     "Coming in and going out: 进来, 出去, 回来",
+     "Have you ever been? 过 and 次"
+    ],
+    "honors": [
+     "The Great Wall",
+     "Travelling by train"
+    ]
+   },
+   {
+    "title": "Home, birthdays and comparing",
+    "lessons": [
+     "Upstairs, downstairs, inside and outside: 上面, 里面, 楼",
+     "Bringing things up and taking them down: 上来, 下去, 拿出来",
+     "Birthdays: 送, 告诉, 准备",
+     "Comparing: 比 and 最",
+     "Why? 为什么, 虽然…但是"
+    ],
+    "honors": [
+     "The Spring Festival",
+     "Birthdays and long-life noodles"
+    ]
+   },
+   {
+    "title": "School, sport and hobbies",
+    "lessons": [
+     "School and classes: 教, 班, 开学",
+     "Exams and results: 看完, 听懂, 做错",
+     "How well? 得, 地 and 让",
+     "Sport: 打篮球, 踢足球, 游泳",
+     "Hobbies: 爱好, 一起, 开始, 一会儿"
+    ],
+    "honors": [
+     "Table tennis, badminton and the national sports",
+     "School in China"
+    ]
+   },
+   {
+    "title": "Eating out, shopping and weather",
+    "lessons": [
+     "At the café: 点, 还是, 别",
+     "Eating out: 这么, 那样 and approximate numbers",
+     "At the shopping centre: 花, 万, 快要",
+     "Online: 上网, 时, 周",
+     "Weather and childhood: 晴, 阴, 从小"
+    ],
+    "honors": [
+     "Chinese cuisines",
+     "The Mid-Autumn Festival and the moon"
+    ]
+   },
+   {
+    "title": "Putting it together and HSK 2",
+    "lessons": [
+     "Already, about to, still",
+     "Reading notices and messages",
+     "Listening and conversation",
+     "Writing forms and short notes",
+     "The HSK 2 exam"
+    ],
+    "honors": [
+     "A longer story",
+     "Messages and greetings"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk3",
+  "file": "languages/lang-chinese-hsk3.json",
+  "order": 133,
+  "title": "Chinese HSK 3",
+  "description": "The third step in Mandarin Chinese, from HSK 2 to the new HSK 3 (HSK 3.0). Grammar lessons cover the 把 and 被 sentences, potential complements (听得懂, 看不见), compound direction complements, comparisons with 更, 越…越 and 跟…一样, the modal verbs 应该, 得 and 需要, and the complex sentences of the level: 不但…而且, 如果…就, 只要…就, 只有…才, 除了…以外, 为了, 一边…一边 and 先…然后. The 500 new words (1,000 in all) are learned through typed review cards and the 284 new characters (655 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading, listening, writing sentences, the speaking test and the exam format. Requires Chinese HSK 2.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 746,
+  "cards": 284,
+  "drills": 0,
+  "words": 1000,
+  "carried": 500,
+  "requires": [
+   "lang-chinese-hsk2"
+  ],
+  "lessonIds": [
+   "zh3-neighbours",
+   "zh3-housing",
+   "zh3-chores",
+   "zh3-looks",
+   "zh3-health",
+   "zh3-snacks",
+   "zh3-eating-out",
+   "zh3-clothes",
+   "zh3-bank",
+   "zh3-seasons",
+   "zh3-city",
+   "zh3-compass",
+   "zh3-traffic",
+   "zh3-trip",
+   "zh3-nature",
+   "zh3-classroom",
+   "zh3-subjects",
+   "zh3-understanding",
+   "zh3-work",
+   "zh3-messages",
+   "zh3-sport",
+   "zh3-arts",
+   "zh3-festivals",
+   "zh3-feelings",
+   "zh3-sequence",
+   "zh3-conditions",
+   "zh3-contrast",
+   "zh3-telling-stories",
+   "zh3-study-abroad",
+   "zh3-exam"
+  ],
+  "honorsLessonIds": [
+   "zh3-courtyard-homes",
+   "zh3-inventions",
+   "zh3-solar-terms",
+   "zh3-regional-food",
+   "zh3-silk-road",
+   "zh3-pandas",
+   "zh3-confucius",
+   "zh3-exams-history",
+   "zh3-painting-calligraphy",
+   "zh3-peking-opera",
+   "zh3-journey-west",
+   "zh3-tang-poems"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "People, home and health",
+    "lessons": [
+     "Neighbours and the people around us: 老-, -员, 咱们",
+     "Moving house: 搬进去, 搬上来, 层",
+     "Housework: the 把 sentence",
+     "Looking alike and different: 比, 没有, 跟…一样",
+     "Staying healthy: 一…就, 小心, 不用"
+    ],
+    "honors": [
+     "Courtyard houses and modern flats",
+     "Paper, printing, the compass and gunpowder"
+    ]
+   },
+   {
+    "title": "Food, clothes and the seasons",
+    "lessons": [
+     "Sweet, fresh and full: 吃得完, 吃不下",
+     "Being a guest and treating friends: 个个, 天天",
+     "Buying clothes: 又…又, 或者",
+     "Money, cards and the bank: 块 and 元, 毛 and 角",
+     "The four seasons and the weather: 刮着风, 变冷了, 没有那么冷"
+    ],
+    "honors": [
+     "The 24 solar terms: 二十四节气",
+     "Regional food and customs: noodles, dim sum, hot pot"
+    ]
+   },
+   {
+    "title": "Cities, travel and nature",
+    "lessons": [
+     "Finding your way in the city: 东南西北, 中间, 哪儿都",
+     "North, south and the world: 越…越, 更",
+     "Traffic: the 被 sentence",
+     "A trip: 一边…一边, 是…的",
+     "Mountains, parks and animals"
+    ],
+    "honors": [
+     "The Silk Road",
+     "Giant pandas"
+    ]
+   },
+   {
+    "title": "School, work and messages",
+    "lessons": [
+     "In the classroom: verb measure words",
+     "Subjects and results: verb repetition with 得",
+     "Do you understand? 听得懂, 以为 and 认为",
+     "At work: 需要, 要求 and separable verbs with a quantity",
+     "Emails, letters and news: 关于, 有关, 根据"
+    ],
+    "honors": [
+     "Confucius and the Analects",
+     "Exams in Chinese history"
+    ]
+   },
+   {
+    "title": "Sport, arts, festivals and feelings",
+    "lessons": [
+     "Matches and competitions: 比赛, 得 dé, 终于",
+     "Music, games and shows: 对…感兴趣, 极了, 挺…的",
+     "Festivals and life events: 过节, 结婚, invitations",
+     "Feelings: 怕, 生气, 让 + feeling",
+     "First, then, finally: 先…然后, 才 and 就"
+    ],
+    "honors": [
+     "Painting and calligraphy",
+     "Peking opera"
+    ]
+   },
+   {
+    "title": "Complex sentences and HSK 3",
+    "lessons": [
+     "If, as long as, only if: conditions and purpose",
+     "Advice, obligation and exceptions: 应该, 得, 必须, 除了",
+     "Telling a story: what happened",
+     "Studying abroad: plans, the library and the speaking test",
+     "The HSK 3 exam"
+    ],
+    "honors": [
+     "Journey to the West: the White Bone Demon",
+     "Two Tang poems: 春晓 and 登鹳雀楼"
+    ]
+   }
+  ]
  }
 ]
