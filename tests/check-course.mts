@@ -21,8 +21,7 @@ import { PHONICS_BLOCK, parseTrace, parseUnits, phonicsProblems } from "../src/l
 import { letterGuide } from "../src/lib/handwriting.ts";
 import { addKanjiStrokes } from "../src/lib/kanjiStrokes.ts";
 import KANJI_STROKES from "../src/lib/kanjiStrokes.data.ts";
-import { addHanziStrokes } from "../src/lib/hanziStrokes.ts";
-import HANZI_STROKES from "../src/lib/hanziStrokes.data.ts";
+import { loadHanziStrokes, tracedHanzi } from "../src/lib/hanziLoad.ts";
 import { clipKey, isAudioValue } from "../src/lib/readAloud.ts";
 import { workProblems } from "../src/lib/work.ts";
 import { MEDIA_BLOCK, mediaProblems, parseMedia } from "../src/lib/dialogue.ts";
@@ -49,8 +48,8 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
-// Chinese courses trace hanzi (Make Me a Hanzi) instead: the checker has those too.
-addHanziStrokes(HANZI_STROKES);
+// Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
+// band), and checkCourse loads the ones a course traces.
 import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
 import { CONJ_FORMS, DE_ADJ_FORMS, DE_CLASSES, DE_FORM_KEYS, DE_VERB_FORMS, JA_ADJ_FORMS, JA_CLASSES, JA_VERB_FORMS } from "../src/lib/courseConjugation.ts";
 
@@ -110,6 +109,13 @@ async function checkExercise(q: Question, say: (s: string) => void): Promise<voi
 }
 
 /** `warnings` collects things to look at again that aren't errors (e.g. ichidan/godan look-alikes). */
+/** Every string in a course file (for the hanzi its trace blocks need). */
+function courseStrings(v: unknown): string[] {
+  if (typeof v === "string") return [v];
+  if (Array.isArray(v)) return v.flatMap(courseStrings);
+  return v && typeof v === "object" ? Object.values(v).flatMap(courseStrings) : [];
+}
+
 export async function checkCourse(file: string, opts: { runs?: number; money?: boolean; warnings?: string[] } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
@@ -126,6 +132,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   // --- Notation -----------------------------------------------------------------
   const japanese = c.language?.code === "ja";
   const chinese = c.language?.code === "zh";
+  if (chinese) await loadHanziStrokes(courseStrings(raw).flatMap(tracedHanzi));
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
     // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
