@@ -275,7 +275,7 @@ const raws = new WeakMap<object, object>();
 const others = new WeakMap<object, string[]>();
 const cache = new WeakMap<object, Partial<Record<"simp" | "trad", object>>>();
 
-/** The course as stored, for a course shown in a script (export, save). */
+/** The course (or bank) as stored, for one shown in a script (export, save). */
 export const rawCourse = <T extends object>(c: T): T => (raws.get(c) as T | undefined) ?? c;
 
 /** A vocab item's term and alternatives in the other script (accepted when typed). */
@@ -420,6 +420,7 @@ export function scriptBank<B extends { id: string }>(bank: B, shown: { banks: { 
   if (!hit || (hit as unknown as { courseId?: unknown }).courseId !== (bank as unknown as { courseId?: unknown }).courseId) {
     hit = { ...bank, ...d } as B;
     bankCache.set(d, hit);
+    raws.set(hit, bank);
   }
   return hit;
 }
