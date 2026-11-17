@@ -39,6 +39,8 @@ import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAccent } from "../src/lib/kana.ts";
 import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.ts";
+import { scriptProblems } from "../src/lib/zhScript.ts";
+import * as OpenCC from "opencc-js";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
@@ -351,7 +353,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (p) say(`${where}: "reading" "${v.reading}": ${p}`);
       }
       for (const x of [v.example, v.note]) if (x) for (const p of pinyinProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
+      if (v.trad !== undefined && (typeof v.trad !== "string" || [...v.trad].length !== [...v.term].length || !hasHan(v.trad)))
+        say(`${where}: "trad" must be the term in traditional characters, character for character`);
     }
+
+  // --- Chinese script switch: the app's conversion equals OpenCC s2tw + the course's overrides --
+  if (chinese) for (const p of scriptProblems(raw, s2tw())) say(p);
 
   // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.
   for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
@@ -552,6 +559,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 
   // One message per distinct problem.
   return [...new Set(problems)];
+}
+
+let opencc: ((s: string) => string) | undefined;
+/** OpenCC s2tw (Taiwan forms; opencc-js, the same data as the courses build's pip opencc). */
+function s2tw() {
+  return (opencc ??= OpenCC.Converter({ from: "cn", to: "tw" }));
 }
 
 if (process.argv[1]?.endsWith("check-course.mts")) {

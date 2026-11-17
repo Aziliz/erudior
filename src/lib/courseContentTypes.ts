@@ -171,6 +171,11 @@ export interface Card {
     front: string;
     back: string;
     topic?: string;
+    /** Chinese: the card in Traditional (shown instead of converting it). */
+    trad?: {
+        front?: string;
+        back?: string;
+    };
 }
 export interface Deck {
     id: string;
@@ -270,6 +275,8 @@ export interface LanguageInfo {
     vocabSource?: string;
     /** Conjugation drills: the forms drilled and the lessons that unlock them (docs/COURSE_FORMAT.md). */
     conjugation?: ConjugationSettings;
+    /** Chinese: the Traditional conversion table (made by the courses build; lib/zhScript). */
+    traditional?: import("./zhScript").ZhTable;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {
@@ -287,6 +294,8 @@ export interface VocabItem {
     meanings: string[];
     /** Romanization or pronunciation guide (non-Roman scripts). */
     reading?: string;
+    /** Chinese: the term in traditional characters, shown when the learner picks Traditional. */
+    trad?: string;
     /** Japanese: standard (Tokyo) pitch accent of the kana reading, as the mora after which the pitch
      * drops (0 = flat/heiban), or a list when more than one is standard (the first is the main one). */
     pitch?: number | number[];

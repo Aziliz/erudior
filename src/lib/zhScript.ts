@@ -333,3 +333,48 @@ export function scriptCourse<T extends object>(course: T, traditional: boolean):
   cache.set(course, { ...cache.get(course), [key]: out });
   return out as unknown as T;
 }
+
+// --- Checker: the runtime conversion against OpenCC + overrides ---------------------------
+
+/**
+ * Problems with a Chinese course's script switch: markup that doesn't pair up, trace `trad=`
+ * of the wrong length, a missing table, and every text whose runtime conversion (in either
+ * script) differs from OpenCC s2tw plus the course's overrides. `s2tw` is OpenCC's converter.
+ */
+export function scriptProblems(course: object, s2tw: (s: string) => string): string[] {
+  const c = course as ScriptableCourse;
+  if (c.language?.code !== "zh") return [];
+  const t = c.language.traditional;
+  const out: string[] = [];
+  if (!t) return ["language.traditional is missing (the courses build makes it): the script switch won't convert"];
+  const o = t.overrides ?? {};
+  const one = aloneTraditional(t);
+  const exp = (s: string, simp = false) => expectedTraditional(s, s2tw, o, simp);
+  for (const [where, text] of scriptTexts(course)) {
+    const bad = scriptMarkupProblem(text);
+    if (bad) out.push(`${where}: ${bad}`);
+    for (const m of text.matchAll(TRACE_RE)) {
+      const p = traceTradProblem(m[2], m[1]);
+      if (p) out.push(`${where}: ${p}`);
+    }
+    if (!HAN.test(text) || bad) continue;
+    let lost = false;
+    const e = (s: string, simp = false) => exp(s, simp) ?? ((lost = true), s);
+    const wantT = withTraces(text, true, (ch) => e(ch), (s) => e(s));
+    const wantS = withTraces(text, false, (ch) => e(ch), (s) => e(s, true));
+    if (lost) out.push(`${where}: OpenCC changes the length of this text`);
+    const gotT = withTraces(text, true, one, (s) => toTraditional(s, t));
+    const gotS = withTraces(text, false, one, (s) => toSimplified(s, t));
+    if (gotT !== wantT) out.push(`${where}: Traditional shows ${diffAt(gotT, wantT)}`);
+    if (gotS !== wantS) out.push(`${where}: Simplified shows ${diffAt(gotS, wantS)}`);
+  }
+  return out;
+}
+
+function diffAt(got: string, want: string): string {
+  const g = [...got], w = [...want];
+  let i = 0;
+  while (i < g.length && g[i] === w[i]) i++;
+  const a = Math.max(0, i - 6);
+  return `"${g.slice(a, i + 6).join("")}" where OpenCC + overrides give "${w.slice(a, i + 6).join("")}"`;
+}
