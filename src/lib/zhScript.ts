@@ -407,3 +407,34 @@ export function normalizeZhTable(v: unknown): ZhTable | undefined {
     }
   return { chars, ...(phrases ? { phrases } : {}), ...(alone ? { alone } : {}), ...(Object.keys(overrides).length ? { overrides } : {}) };
 }
+
+// --- Banks and sessions of a course shown in a script -------------------------------------
+
+const bankCache = new WeakMap<object, object>();
+
+/** A course's bank in the learner's script (`shown` is scriptCourse of its course). */
+export function scriptBank<B extends { id: string }>(bank: B, shown: { banks: { id: string }[] } | undefined): B {
+  const d = shown?.banks.find((x) => x.id === bank.id);
+  if (!d || d === (bank as object)) return bank;
+  let hit = bankCache.get(d) as B | undefined;
+  if (!hit || (hit as unknown as { courseId?: unknown }).courseId !== (bank as unknown as { courseId?: unknown }).courseId) {
+    hit = { ...bank, ...d } as B;
+    bankCache.set(d, hit);
+  }
+  return hit;
+}
+
+const sessionCache = new WeakMap<object, WeakMap<object, object>>();
+
+/** A practice session's questions in the bank's script (matched by question id). */
+export function scriptSession<S extends { items: { q: { id: string } }[] }>(session: S, bank: { questions: { id: string }[] } | undefined): S {
+  if (!bank) return session;
+  const per = sessionCache.get(session) ?? new WeakMap<object, object>();
+  sessionCache.set(session, per);
+  const hit = per.get(bank) as S | undefined;
+  if (hit) return hit;
+  const byId = new Map(bank.questions.map((q) => [q.id, q]));
+  const out = { ...session, items: session.items.map((it) => ({ ...it, q: byId.get(it.q.id) ?? it.q })) } as S;
+  per.set(bank, out);
+  return out;
+}
