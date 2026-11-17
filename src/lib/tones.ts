@@ -141,7 +141,7 @@ export function toneFeedback(syls: ToneSyllable[]): string {
  * 了, 行…) and characters engines are known to misread. Fine inside words; the checker warns on
  * one-character tone questions with these, and generated drills skip them.
  */
-export const RISKY_SINGLE = new Set([..."好了行乐长还得的地着都和只发重为便觉教会少种中数要看假处差当分干相应调朝空传落血薄降率说耳待倒称散冲量曾结似间难背片扇卷担塞削正提盛宿省系尽角漂恶将参兴转缝择露泊晃挣扎拗"]);
+export const RISKY_SINGLE = new Set([..."好了行乐长还得的地着都和只发重为便觉教会少种中数要看假处差当分干相应调朝空传落血薄降率说耳待倒称散冲量曾结似间难背片扇卷担塞削正提盛宿省系尽角漂恶将参兴转缝择露泊晃挣扎拗啊嗯与哦呀吧呢嘛"]);
 
 /** A one-character item the voice may say with the wrong tone (see RISKY_SINGLE), or neutral alone. */
 export function riskySingle(syls: ToneSyllable[]): string | undefined {
