@@ -508,7 +508,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </span>
           )}
           <div className="spacer" />
-          <LanguageToggles code={course?.language?.code} />
+          <LanguageToggles code={course?.language?.code} script={!!course?.language?.traditional} />
           {readAloud && tts && (
             <button type="button" className="btn ghost sm auto-read" aria-pressed={autoRead} onClick={toggleAutoRead}>
               Read questions to me: {autoRead ? "on" : "off"}

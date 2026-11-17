@@ -137,6 +137,18 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
         return; const ids = new Set<string>(); v.forEach((x, i) => { const p = `${path}[${i}]`; if (!shape(x, keys, p))
         return; if (keys.includes('id'))
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
+    /** Chinese script table: maps of simplified → traditional text (bounded; values short). */
+    function textMap(v: unknown, path: string) { if (!isObject(v) || Object.keys(v).length > CANONICAL_LIMITS.vocab) {
+        add(path, 'bounded text map required');
+        return;
+    } for (const [k, x] of Object.entries(v)) {
+        if (!k || k.length > CANONICAL_LIMITS.short) add(path, 'invalid map key');
+        str(x, `${path}.${k}`, true, CANONICAL_LIMITS.short);
+    } }
+    function zhTable(v: unknown, path: string) { if (!shape(v, ['chars', 'phrases', 'alone', 'overrides'], path))
+        return; textMap(v.chars, path + '.chars'); for (const k of ['phrases', 'alone'])
+        if (v[k] !== undefined) textMap(v[k], `${path}.${k}`); if (v.overrides !== undefined && shape(v.overrides, ['forms', 'words', 'alone', 'chars'], path + '.overrides'))
+        for (const [k, m] of Object.entries(v.overrides)) textMap(m, `${path}.overrides.${k}`); }
     /** Japanese pitch accent: a whole number (or non-empty list of distinct ones) from 0 to the reading's mora count. */
     function pitchAccent(v: Record<string, unknown>, path: string) { if ((c.language as { code?: unknown } | undefined)?.code !== 'ja')
         return add(path, 'pitch accent is only for Japanese courses'); const kana = typeof v.reading === 'string' && v.reading ? v.reading : typeof v.term === 'string' ? v.term : ''; const morae = moraCount(kana); const list = Array.isArray(v.pitch) ? v.pitch : [v.pitch];
@@ -401,9 +413,10 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 refs(l.drills, drillIds, `lesson ${label(l.id)} drills`);
                 refs(l.refs, refIds, `lesson ${label(l.id)} refs`);
             }
-    objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); }); });
+    objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic', 'trad'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); if (card.trad !== undefined && shape(card.trad, ['front', 'back'], q + '.trad')) optionalStr(card.trad, ['front', 'back'], q + '.trad'); }); });
     glossary(c.glossary, 'glossary');
-    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation', 'tones'], 'language')) {
+    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation', 'tones', 'traditional'], 'language')) {
+        if (c.language.traditional !== undefined) zhTable(c.language.traditional, 'language.traditional');
         str(c.language.code, 'language.code', true);
         str(c.language.name, 'language.name', true);
         optionalStr(c.language, ['tts', 'ime', 'level', 'vocabSource'], 'language');
@@ -413,7 +426,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             integer(c.language.vocabTarget, 'language.vocabTarget');
     }
     if (c.vocab !== undefined)
-        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions', 'conj', 'forms', 'noForms'], (v, p) => { if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
+        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions', 'conj', 'forms', 'noForms', 'trad'], (v, p) => { if (v.trad !== undefined) str(v.trad, p + '.trad', true, CANONICAL_LIMITS.short); if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
         else if (!lessonIds.has(v.lesson) && !(validId(v.from) && v.from !== c.id)) add(p+'.lesson','unknown local lesson');
         if(v.from!==undefined&&!validId(v.from))add(p+'.from','invalid source course ID'); optionalStr(v, ['from', 'reading', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio'], p); if (v.kind !== undefined && !['word', 'phrase', 'char'].includes(v.kind as string))
             add(p + '.kind', 'unknown vocabulary kind'); if (v.alt !== undefined)

@@ -199,7 +199,7 @@ assert.ok(words.includes("妈") && words.includes("你好") && words.includes("�
 const fresh = { lessonsDone: {}, vocab: {}, conj: {}, attempts: [], cards: {}, stats: {}, plans: {}, activity: {}, drills: {} } as never;
 assert.ok(toneOpen(course, fresh));
 assert.equal(buildToneRound(course, fresh).length, 0, "nothing until a lesson is done");
-assert.equal(buildToneRound(course, fresh, { lessonIds: ["zh-l1"] }).length, words.length, "a lesson's own words any time");
+assert.equal(buildToneRound(course, fresh, { lessonIds: ["zh-l1"] }).length, toneWords(course).filter((w) => w.item.lesson === "zh-l1").length, "a lesson's own words any time");
 const done = { ...(fresh as object), lessonsDone: { "demo-chinese/zh-l1": "2026-11-16" } } as never;
 const round = buildToneRound(course, done, { n: 3 });
 assert.equal(round.length, 3);

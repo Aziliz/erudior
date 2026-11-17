@@ -105,7 +105,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1 data-ra="title">{lesson.title}</h1>
-        <LanguageToggles code={course.language?.code} />
+        <LanguageToggles code={course.language?.code} script={!!course.language?.traditional} />
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}

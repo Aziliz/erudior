@@ -14,6 +14,7 @@ import { today } from "./srs";
 import { hasKanji, hasRomaji, normJa, stripRuby, toHiragana } from "./kana";
 export { normJa } from "./kana";
 import { hasHan, normPinyin, normPinyinToneless } from "./pinyin";
+import { otherScriptForms } from "./zhScript";
 
 export const STAGES = ["Novice", "Beginner", "Advanced", "Expert"] as const;
 export const PER_STAGE = 5;
@@ -268,7 +269,9 @@ export function checkRecallZh(item: VocabItem, typed: string, opts: RecallOption
   if (!typed.trim()) return { ok: false, retry: true, note: "Type an answer." };
   if (hasHan(typed)) {
     const t = normJa(typed);
-    return [item.term, ...(item.alt ?? []).filter(hasHan)].map(normJa).includes(t) ? { ok: true } : { ok: false };
+    // Either script counts: the term as shown, its traditional form, and the other script's forms.
+    const forms = [item.term, item.trad ?? "", ...(item.alt ?? []), ...otherScriptForms(item)].filter(hasHan);
+    return forms.map(normJa).includes(t) ? { ok: true } : { ok: false };
   }
   const readings = [item.reading, ...(item.alt ?? []).filter((a) => !hasHan(a))].filter((r): r is string => !!r?.trim());
   const t = normPinyin(typed);

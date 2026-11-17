@@ -107,7 +107,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
         </div>
         {(lang?.code === "ja" || lang?.code === "zh") && (
           <div className="row ja-toggles" style={{ marginBottom: 8 }}>
-            <LanguageToggles code={lang.code} />
+            <LanguageToggles code={lang.code} script={!!lang.traditional} />
           </div>
         )}
         {!ordered.length && (
