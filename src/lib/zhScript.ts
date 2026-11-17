@@ -3,7 +3,8 @@
  * conversion table (`language.traditional`, made by the courses build from OpenCC s2tw plus the
  * course's hand-checked overrides). The app converts displayed text with it when the learner
  * picks Traditional. Text inside `{=…=}` is never converted (it talks about the simplified forms
- * themselves); the markers are removed in both scripts.
+ * themselves) and `{+…+}` is always shown converted (a character's traditional form beside it);
+ * the markers are removed in both scripts.
  *
  * Conversion works on Han runs: maximal stretches of Han characters as the learner sees them,
  * so pinyin markup in between ({头|tóu}{发|fà}) doesn't split a word. In each run the longest
@@ -32,12 +33,10 @@ export interface ZhTable {
   overrides?: ZhOverrides;
 }
 
-/** `{=…=}`: text that is never converted. */
-export const NO_CONVERT_RE = /\{=([\s\S]*?)=\}/g;
+/** `{=…=}`: text that is never converted (shown simplified); `{+…+}`: always shown traditional. */
+export const SCRIPT_RE = /\{=([\s\S]*?)=\}|\{\+([\s\S]*?)\+\}/g;
 /** Pinyin ruby markup; its reading is skipped, its base belongs to the visible text. */
 const RUBY_RE = /\{([^{}|\n]+)\|([^{}|\n]+)\}/g;
-
-export const stripNoConvert = (text: string) => (text.includes("{=") ? text.replace(NO_CONVERT_RE, "$1") : text);
 
 /** The characters of `s` the learner sees (pinyin readings skipped), with their offsets in `s`. */
 export function visibleChars(s: string): { ch: string; at: number }[] {
@@ -126,22 +125,43 @@ export function mapRuns(s: string, convert: (run: string[], start: number, visib
   return out;
 }
 
-/** Apply `f` to the convertible parts of `text` (outside `{=…=}`), dropping the markers. */
-export function eachConvertible(text: string, f: (s: string) => string): string {
+/**
+ * Rebuild `text` without its script markers: `auto` maps the ordinary parts, `trad` the
+ * `{+…+}` parts; `{=…=}` parts stay as written. Each part converts on its own.
+ */
+export function eachConvertible(text: string, auto: (s: string) => string, trad: (s: string) => string = auto): string {
+  if (!text.includes("{=") && !text.includes("{+")) return auto(text);
   let out = "";
   let last = 0;
-  for (const m of text.matchAll(NO_CONVERT_RE)) {
-    out += f(text.slice(last, m.index)) + m[1];
+  for (const m of text.matchAll(SCRIPT_RE)) {
+    out += auto(text.slice(last, m.index)) + (m[1] ?? trad(m[2]));
     last = m.index! + m[0].length;
   }
-  return out + f(text.slice(last));
+  return out + auto(text.slice(last));
 }
 
-/** Simplified course text → Traditional (Taiwan forms) with the course's table. */
-export function toTraditional(text: string, t: ZhTable): string {
-  if (!HAN.test(text)) return text;
+const convertAll = (t: ZhTable) => {
   const max = phraseMax(t);
-  return eachConvertible(text, (s) => mapRuns(s, (run) => convertRun(run, t, max)));
+  return (s: string) => mapRuns(s, (run) => convertRun(run, t, max));
+};
+
+/** Course text as shown in Traditional (Taiwan forms), with the course's table. */
+export function toTraditional(text: string, t: ZhTable): string {
+  if (!HAN.test(text)) return toSimplified(text);
+  const f = convertAll(t);
+  return eachConvertible(text, f, f);
+}
+
+/** Course text as shown in Simplified: markers removed, `{+…+}` converted (with a table). */
+export function toSimplified(text: string, t?: ZhTable): string {
+  if (!text.includes("{=") && !text.includes("{+")) return text;
+  return eachConvertible(text, (s) => s, t ? convertAll(t) : (s) => s);
+}
+
+/** `{=…=}` / `{+…+}` markers that don't pair up (nested or unclosed), for the checker. */
+export function scriptMarkupProblem(text: string): string | undefined {
+  const rest = text.replace(SCRIPT_RE, "");
+  if (/\{[=+]|[=+]\}/.test(rest)) return "unbalanced {=…=} or {+…+} (they can't nest)";
 }
 
 /** Apply override words, `alone` and `chars` to one run; `base` gives the rest (OpenCC's output). */
@@ -168,9 +188,9 @@ export function overrideRun(run: string[], o: ZhOverrides, base: (i: number) => 
  * What a text should read in Traditional: OpenCC s2tw (`s2tw`, run on each convertible part as
  * the learner sees it) with the course's overrides on top. Null when OpenCC changes the length.
  */
-export function expectedTraditional(text: string, s2tw: (s: string) => string, o: ZhOverrides = {}): string | null {
+export function expectedTraditional(text: string, s2tw: (s: string) => string, o: ZhOverrides = {}, simplified = false): string | null {
   let bad = false;
-  const out = eachConvertible(text, (s) => {
+  const f = (s: string) => {
     let conv: string[] | undefined;
     return mapRuns(s, (run, start, visible) => {
       if (!conv) {
@@ -180,7 +200,8 @@ export function expectedTraditional(text: string, s2tw: (s: string) => string, o
       const cv = conv;
       return overrideRun(run, o, (i) => cv[start + i] ?? run[i]);
     });
-  });
+  };
+  const out = eachConvertible(text, simplified ? (s) => s : f, f);
   return bad ? null : out;
 }
 
@@ -240,13 +261,14 @@ export function scriptCourse<T extends object>(course: T, traditional: boolean):
   const hit = cache.get(course)?.[key];
   if (hit) return hit as T;
   const table = c.language.traditional;
-  const toTrad = (s: string) => (table ? toTraditional(s, table) : stripNoConvert(s));
-  const show = traditional ? toTrad : stripNoConvert;
-  const other = traditional ? stripNoConvert : toTrad;
+  const toTrad = (s: string) => (table ? toTraditional(s, table) : toSimplified(s));
+  const toSimp = (s: string) => toSimplified(s, table);
+  const show = traditional ? toTrad : toSimp;
+  const other = traditional ? toSimp : toTrad;
   const out = mapStrings(course, show) as ScriptableCourse;
   out.vocab = c.vocab?.map((v, i) => {
     const d = { ...out.vocab![i], term: traditional ? (v.trad ?? show(v.term)) : show(v.term) };
-    const forms = [traditional ? stripNoConvert(v.term) : (v.trad ?? other(v.term)), ...(v.alt ?? []).map(other)];
+    const forms = [traditional ? toSimp(v.term) : (v.trad ?? other(v.term)), ...(v.alt ?? []).map(other)];
     others.set(d, [...new Set(forms)].filter((x) => x !== d.term));
     return d;
   });
