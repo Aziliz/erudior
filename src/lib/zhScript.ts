@@ -235,7 +235,7 @@ export function withTraces(text: string, traditional: boolean, one: (c: string) 
   const blocks: string[] = [];
   const held = text.replace(TRACE_RE, (_w, info: string, content: string) => {
     const shown = traditional ? traceTraditional(content, info, one) : content;
-    blocks.push("```trace" + info.replace(TRACE_TRAD, "$1").trimEnd() + "\n" + shown + "```");
+    blocks.push("```trace" + info.replace(TRACE_TRAD, " ").replace(/\s+/g, " ").trimEnd() + "\n" + shown + "```");
     return `\uE000${blocks.length - 1}\uE001`;
   });
   return f(held).replace(/\uE000(\d+)\uE001/g, (_w, i: string) => blocks[Number(i)]);

@@ -71,7 +71,11 @@ const demo = JSON.parse(readFileSync("samples/demo-chinese.json", "utf8"));
 const portable = JSON.parse(exportCourseSnapshot(normalizeCourse(demo)));
 const payload = canonicalAuthoringFromCourse(portable, { mode: "source", maxBytes: Number.MAX_SAFE_INTEGER });
 assert.deepEqual(validateCanonicalAuthoring(payload, { mode: "source" }), [], "zh language config and vocab accepted");
-assert.deepEqual(payload.course.language, { code: "zh", name: "Chinese", tts: "zh-CN", ime: "zh", level: "HSK 1" });
+{
+  const { traditional, ...lang } = payload.course.language as { traditional?: unknown };
+  assert.deepEqual(lang, { code: "zh", name: "Chinese", tts: "zh-CN", ime: "zh", level: "HSK 1" });
+  assert.ok(traditional, "the script table survives the canonical payload");
+}
 {
   const dir = mkdtempSync(join(tmpdir(), "zh-check-"));
   try {
