@@ -1,7 +1,7 @@
 // Pure phonics parsers shared by runtime and worker-side canonical authoring validation.
 import { letterGuide, TOLERANCE, type TraceScript, type Tolerance } from "./handwriting";
 import { isTraceKanji } from "./kanjiStrokes";
-import { isTraceHanzi } from "./hanziStrokes";
+import { hanziInstead, isTraceHanzi } from "./hanziStrokes";
 
 export const PHONICS_BLOCK = /^```(sounds|blend|trace)\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
@@ -111,7 +111,7 @@ export interface TraceSpec {
   script?: TraceScript;
 }
 
-/** A trace block. In a Chinese course (`script` "zh") Han characters are hanzi (HSK 1–3, simplified
+/** A trace block. In a Chinese course (`script` "zh") Han characters are hanzi (HSK 1–9, simplified
  * and traditional); elsewhere they are kanji. */
 export function parseTrace(info: string, body: string, script?: TraceScript): TraceSpec {
   const problems: string[] = [];
@@ -129,7 +129,8 @@ export function parseTrace(info: string, body: string, script?: TraceScript): Tr
     const han = /\p{Script=Han}/u.test(ch);
     if (script === "zh" && han) {
       if (isTraceHanzi(ch)) letters.push(ch);
-      else problems.push(`"${ch}" can't be traced: hanzi tracing covers the characters of HSK 1–3 (simplified and traditional), not this one`);
+      else if (hanziInstead(ch)) problems.push(`"${ch}" can't be traced: the hanzi stroke data (Make Me a Hanzi) has no strokes for it; trace ${hanziInstead(ch)} instead (trad=${hanziInstead(ch)})`);
+      else problems.push(`"${ch}" can't be traced: hanzi tracing covers the characters of HSK 1–9 (simplified and traditional), not this one`);
     } else if (letterGuide(ch) || isTraceKanji(ch)) letters.push(ch);
     else if (/\p{Script=Han}/u.test(ch)) problems.push(`"${ch}" can't be traced: kanji tracing covers the 2,136 jōyō kanji (and 叱 填 剥 頬), not this one`);
     else problems.push(`"${ch}" can't be traced (letters a–z and A–Z, hiragana and katakana with ゛ ゜ — not small kana — or jōyō kanji)`);

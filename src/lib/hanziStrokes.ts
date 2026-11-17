@@ -1,27 +1,34 @@
 // Hanzi tracing strokes for Chinese courses, from Make Me a Hanzi (graphics.txt, Arphic Public
 // License; see hanziStrokes.data.ts and public/third-party-licenses.txt). Like the kanji data, the
-// strokes are big and load on first use (hanziLoad.ts), and which characters can be traced is known
-// without them (hanziList.ts). Each stroke has an outline (what the pad shows, an SVG path in Make
+// strokes are big and load on first use, one chunk per HSK band (hanziLoad.ts), and which characters
+// can be traced, and in which chunk, is known without them (hanziList.ts). Each stroke has an outline (what the pad shows, an SVG path in Make
 // Me a Hanzi's 1024 box with y up) and a median (the line it follows from where it starts, in the
 // 0–100 square): the median is what a traced stroke is checked against.
 
-import { TRACE_HANZI } from "./hanziList";
+import { HANZI_CHUNKS, HANZI_NO_STROKES, type HanziChunk } from "./hanziList";
 
-let loaded: Record<string, string> | null = null;
-const known = new Set<string>();
+const loaded = new Map<string, string>();
+const chunkOf = new Map<string, HanziChunk>();
+
+/** The chunk that holds `ch`'s strokes, or undefined (not a traceable hanzi). */
+export function hanziChunk(ch: string): HanziChunk | undefined {
+  if (!chunkOf.size) for (const [id, chars] of Object.entries(HANZI_CHUNKS)) for (const c of chars) chunkOf.set(c, id as HanziChunk);
+  return chunkOf.get(ch);
+}
 
 /** Whether `ch` is a hanzi that has tracing data (loaded or not). */
-export function isTraceHanzi(ch: string): boolean {
-  if (!known.size) for (const c of TRACE_HANZI) known.add(c);
-  return known.has(ch);
-}
+export const isTraceHanzi = (ch: string): boolean => hanziChunk(ch) !== undefined;
 
-/** Makes the hanzi data available to letterGuide(ch, "zh"). */
+/** For a Taiwan form of an HSK character that has no stroke data (溼), the form to trace instead (濕). */
+export const hanziInstead = (ch: string): string | undefined => (Object.prototype.hasOwnProperty.call(HANZI_NO_STROKES, ch) ? HANZI_NO_STROKES[ch] : undefined);
+
+/** Makes hanzi data (one chunk, or several merged) available to letterGuide(ch, "zh"). */
 export function addHanziStrokes(data: Record<string, string>): void {
-  loaded = data;
+  for (const [ch, s] of Object.entries(data)) loaded.set(ch, s);
 }
 
-export const hanziStrokesLoaded = () => loaded !== null;
+/** Whether `ch`'s strokes have loaded. */
+export const hanziStrokesLoaded = (ch: string): boolean => loaded.has(ch);
 
 /** Draws an outline (1024 box, y up, baseline at 900) in the pad's 0–100 square. */
 export const HANZI_OUTLINE_TRANSFORM = "matrix(0.09765625 0 0 -0.09765625 0 87.890625)";
@@ -47,7 +54,7 @@ export interface HanziStrokes {
 
 /** A hanzi's strokes, or undefined (no data, or not loaded yet). */
 export function hanziStrokes(ch: string): HanziStrokes | undefined {
-  const s = loaded?.[ch];
+  const s = loaded.get(ch);
   if (!s) return undefined;
   const [o, m] = s.split("|");
   const outlines = o.split(";");

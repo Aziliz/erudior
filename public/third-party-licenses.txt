@@ -4195,16 +4195,18 @@ Arphic Technology Co., Ltd., and may be redistributed and modified under the ter
 Public License, printed in full below (ARPHICPL.TXT from Make Me a Hanzi's APL/english folder,
 unaltered).
 
-Notice of modification (section 2a): on 2026-11-16 Erudior made a modified copy of graphics.txt
-from Make Me a Hanzi commit bddc96d41bef78427ed0e034e9f7e31d71fd1b92: it keeps only the 655
-characters of HSK 1-3 and their Taiwan traditional forms from OpenCC (923 characters in all);
-each stroke's outline path is kept with the spaces after its command letters removed, and each
-stroke's median is converted from the 1024 box (y up) to a 0-100 square (y down) and rounded to
-0.1. Stroke order (PRC order) and shapes are otherwise unchanged. The modified file is
-src/lib/hanziStrokes.data.ts, made by scripts/build-hanzi-strokes.mjs; both are freely available
-under the Arphic Public License in Erudior's public source repository
-(https://github.com/Aziliz/erudior). The data is downloaded only when a Chinese lesson traces a
-character. The rest of Erudior is not covered by this license.
+Notice of modification (section 2a): on 2026-11-17 Erudior made a modified copy of graphics.txt
+from Make Me a Hanzi commit bddc96d41bef78427ed0e034e9f7e31d71fd1b92 (the first copy, for HSK
+1-3, was made on 2026-11-16): it keeps only the 3,088 characters of HSK 1-9 (2025 exam syllabus)
+and their Taiwan traditional forms from OpenCC (4,337 characters in all), split into one file per
+HSK band (1-3, 4, 5, 6, and 7-9 in three parts); each stroke's outline path is kept with the
+spaces after its command letters removed, and each stroke's median is converted from the 1024
+box (y up) to a 0-100 square (y down) and rounded to 0.1. Stroke order (PRC order) and shapes are
+otherwise unchanged. The modified files are src/lib/hanziStrokes.<band>.data.ts, made by
+scripts/build-hanzi-strokes.mjs; both are freely available under the Arphic Public License in
+Erudior's public source repository (https://github.com/Aziliz/erudior). A file is downloaded only
+when a Chinese lesson traces one of its characters. The rest of Erudior is not covered by this
+license.
 
 ARPHIC PUBLIC LICENSE
 

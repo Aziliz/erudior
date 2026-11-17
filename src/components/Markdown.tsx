@@ -22,7 +22,7 @@ import { protectCode } from "../lib/code";
 import { rubyHtml } from "../lib/kana";
 import { scanLessonFences } from "../lib/lessonFences";
 import { loadKanjiStrokes, needsKanjiStrokes } from "../lib/kanjiLoad";
-import { loadHanziStrokes, needsHanziStrokes } from "../lib/hanziLoad";
+import { loadHanziStrokes, needsHanziStrokes, tracedHanzi } from "../lib/hanziLoad";
 import type { TraceScript } from "../lib/handwriting";
 
 marked.setOptions({ gfm: true, breaks: false });
@@ -232,18 +232,20 @@ export default function Markdown({
   // Chinese courses trace Han characters as hanzi, with their own strokes (also loaded on first use).
   const script: TraceScript = foreignLang === "zh" ? "zh" : undefined;
   const needKanji = !prerendered && (script === "zh" ? needsHanziStrokes(source) : needsKanjiStrokes(source));
+  // Hanzi come in chunks (by HSK band): load the ones that hold this lesson's characters.
+  const hanzi = needKanji && script === "zh" ? tracedHanzi(source).join("") : "";
   const [kanjiReady, setKanjiReady] = useState(0);
   useEffect(() => {
     if (!needKanji) return;
     let alive = true;
-    (script === "zh" ? loadHanziStrokes() : loadKanjiStrokes()).then(
+    (script === "zh" ? loadHanziStrokes(hanzi) : loadKanjiStrokes()).then(
       () => alive && setKanjiReady((n) => n + 1),
       (e) => console.error(`${script === "zh" ? "Hanzi" : "Kanji"} strokes didn't load`, e),
     );
     return () => {
       alive = false;
     };
-  }, [needKanji, script]);
+  }, [needKanji, script, hanzi]);
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
     const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script);
