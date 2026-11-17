@@ -77,7 +77,20 @@ export function heardTones(tones: number[]): number[] {
 /** The patterns graded right: the written tones, and the heard ones when sandhi changes them. */
 export function acceptedPatterns(tones: number[]): number[][] {
   const heard = heardTones(tones);
-  return heard.some((t, i) => t !== tones[i]) ? [tones, heard] : [tones];
+  const out = heard.some((t, i) => t !== tones[i]) ? [tones, heard] : [tones];
+  // A run of three or more third tones splits by meaning: 小老虎 (小 + 老虎) is heard 3+2+3,
+  // 展览馆 (展览 + 馆) 2+2+3. Accept the variant where the run's first syllable keeps tone 3.
+  for (let i = 0; i < tones.length; i++) {
+    if (tones[i] !== 3 || (i > 0 && tones[i - 1] === 3)) continue;
+    let j = i;
+    while (tones[j + 1] === 3) j++;
+    if (j - i + 1 >= 3) {
+      const alt = heard.slice();
+      alt[i] = 3;
+      if (!out.some((p) => p.every((t, k) => t === alt[k]))) out.push(alt);
+    }
+  }
+  return out;
 }
 
 /** The learner's picks as tones (-1 = not picked yet), one per syllable. */

@@ -118,6 +118,8 @@ export function parseTrace(info: string, body: string, script?: TraceScript): Tr
   let tolerance: Tolerance = "normal";
   for (const tok of info.trim().split(/\s+/).filter(Boolean)) {
     const m = /^tolerance=(.*)$/i.exec(tok);
+    // trad=… (Chinese courses: the block's traditional characters) is read and checked by zhScript.
+    if (script === "zh" && /^trad=\S+$/.test(tok)) continue;
     if (m && m[1] in TOLERANCE) tolerance = m[1] as Tolerance;
     else problems.push(m ? `tolerance must be loose, normal or tight, not "${m[1]}"` : `unknown option "${tok}" (only tolerance=loose|normal|tight)`);
   }
