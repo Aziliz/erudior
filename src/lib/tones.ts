@@ -78,18 +78,27 @@ export function heardTones(tones: number[]): number[] {
 export function acceptedPatterns(tones: number[]): number[][] {
   const heard = heardTones(tones);
   const out = heard.some((t, i) => t !== tones[i]) ? [tones, heard] : [tones];
-  // A run of three or more third tones splits by meaning: 小老虎 (小 + 老虎) is heard 3+2+3,
-  // 展览馆 (展览 + 馆) 2+2+3. Accept the variant where the run's first syllable keeps tone 3.
+  // A run of three or more third tones is grouped by meaning, so several heard patterns are right:
+  // 小老虎 3+2+3, 展览馆 2+2+3, 我也很好 2+3+2+3. Accept every pattern for the run that ends in 3
+  // and never has two 3s side by side (each 3 before another 3 has become 2 somewhere).
+  const runs: [number, number][] = [];
   for (let i = 0; i < tones.length; i++) {
     if (tones[i] !== 3 || (i > 0 && tones[i - 1] === 3)) continue;
     let j = i;
     while (tones[j + 1] === 3) j++;
-    if (j - i + 1 >= 3) {
-      const alt = heard.slice();
-      alt[i] = 3;
-      if (!out.some((p) => p.every((t, k) => t === alt[k]))) out.push(alt);
-    }
+    if (j - i + 1 >= 3 && j - i + 1 <= 6) runs.push([i, j]);
   }
+  let variants: number[][] = [heard];
+  for (const [i, j] of runs) {
+    const n = j - i + 1;
+    const fills: number[][] = [];
+    for (let mask = 0; mask < 1 << (n - 1); mask++) {
+      const f = Array.from({ length: n - 1 }, (_, k) => ((mask >> k) & 1 ? 3 : 2)).concat(3);
+      if (f.every((t, k) => !(t === 3 && f[k + 1] === 3))) fills.push(f);
+    }
+    variants = variants.flatMap((v) => fills.map((f) => { const c = v.slice(); f.forEach((t, k) => (c[i + k] = t)); return c; }));
+  }
+  for (const v of variants) if (!out.some((p) => p.every((t, k) => t === v[k]))) out.push(v);
   return out;
 }
 
