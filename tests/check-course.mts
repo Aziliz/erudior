@@ -289,6 +289,9 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         }
         if (q.choices.length || q.answer.length) say(`question ${q.id}: tone questions use "text" and "reading"; leave "choices" and "answer" empty`);
       }
+      // Listening text is spoken and shown as written: reading or script markup would be read aloud.
+      if (q.audio?.text && /\{[^{}|\n]+\|[^{}\n]+\}|\{=|=\}|\{\+|\+\}/.test(q.audio.text))
+        say(`question ${q.id}: audio text has {…|…}, {=…=} or {+…+} markup; write the words plainly (the voice reads it as written)`);
       if (kind === "model") {
         const r = readSpec(q.model);
         for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) say(`question ${q.id}: model: ${p}`);
