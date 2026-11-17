@@ -483,6 +483,7 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       const reading = typeof q.reading === "string" ? q.reading.trim() : "";
       const problem = toneItemProblem(text, reading);
       if (problem) throw new Error(`(tone) ${problem}.`);
+      if (choices.length || indices(q.answer).length) throw new Error(`(tone) takes "text" and "reading"; leave out "choices" and "answer".`);
       return { ...base, choices: [], answer: [], text, reading };
     }
   }

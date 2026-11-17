@@ -12,11 +12,21 @@ import type { Chosen, Course, Question } from "../src/lib/types.ts";
 // A DOM and a fake speech engine before the app modules load (speech.ts reads voices on import).
 const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', { url: "https://example.test" });
 let voiceList: { lang: string; name: string }[] = [];
+/** The device's voices change (fires "voiceschanged" like a browser). */
+const setVoices = (v: { lang: string; name: string }[]) => {
+  voiceList = v;
+  voiceListeners.forEach((f) => f());
+};
 const spoken: { text: string; lang: string; voice?: string }[] = [];
+const voiceListeners = new Set<() => void>();
 const synth = {
   getVoices: () => voiceList,
-  addEventListener() {},
-  removeEventListener() {},
+  addEventListener(_t: string, f: () => void) {
+    voiceListeners.add(f);
+  },
+  removeEventListener(_t: string, f: () => void) {
+    voiceListeners.delete(f);
+  },
   cancel() {},
   speaking: false,
   pending: false,
@@ -87,6 +97,7 @@ assert.equal(q.text, "你好");
 assert.deepEqual([q.choices, q.answer], [[], []]);
 assert.throws(() => normalizeQuestionKind({ type: "tone", text: "你好", reading: "nǐ" }), /\(tone\).*1 syllable/);
 assert.throws(() => normalizeQuestionKind({ type: "tone", text: "ni", reading: "nǐ" }), /\(tone\)/);
+assert.throws(() => normalizeQuestionKind({ type: "tone", text: "马", reading: "mǎ", choices: ["a", "b"], answer: [0] }), /leave out "choices"/);
 assert.ok(!isAnswered(q, []) && isAnswered(q, [3, -1]) && !isComplete(q, [3, -1]) && isComplete(q, [3, 3]));
 assert.ok(isCorrect(q, [3, 3]) && isCorrect(q, [2, 3]) && !isCorrect(q, [3, 4]));
 assert.deepEqual(partsCorrect(q, [3, 4]), [true, false]);
@@ -95,14 +106,14 @@ assert.equal(chosenText(q, [4, 0]), "tones 4+neutral");
 assert.equal(typeLabel(q), "Pick the tones");
 
 // --- Mandarin voices: zh-CN first, other Mandarin regions next, never Cantonese ---------------
-voiceList = [{ lang: "zh-HK", name: "Sinji" }, { lang: "en-US", name: "Samantha" }];
+setVoices([{ lang: "zh-HK", name: "Sinji" }, { lang: "en-US", name: "Samantha" }]);
 assert.ok(!speech.canSpeak("zh-CN"), "a Cantonese voice isn't Mandarin");
 assert.ok(speech.canSpeak("zh-HK"), "Cantonese courses can use it");
-voiceList = [{ lang: "zh-HK", name: "Sinji" }, { lang: "zh_TW", name: "Meijia" }];
+setVoices([{ lang: "zh-HK", name: "Sinji" }, { lang: "zh_TW", name: "Meijia" }]);
 assert.equal(speech.voiceFor("zh-CN")?.name, "Meijia", "Taiwan Mandarin stands in");
-voiceList = [{ lang: "cmn-CN", name: "Google 普通话" }, { lang: "zh-TW", name: "Meijia" }];
+setVoices([{ lang: "cmn-CN", name: "Google 普通话" }, { lang: "zh-TW", name: "Meijia" }]);
 assert.equal(speech.voiceFor("zh-CN")?.name, "Google 普通话", "cmn = zh, exact region wins");
-voiceList = [{ lang: "de-DE", name: "Anna" }, { lang: "de-AT", name: "x" }];
+setVoices([{ lang: "de-DE", name: "Anna" }, { lang: "de-AT", name: "x" }]);
 assert.equal(speech.voiceFor("de-CH")?.name, "Anna", "other languages unchanged");
 
 // --- The answer UI ---------------------------------------------------------------------------
@@ -125,7 +136,7 @@ const key = async (k: string, el: Element = document.body) =>
 const text = () => host.textContent ?? "";
 
 // With a Mandarin voice: listen buttons, toneless pinyin per syllable, characters hidden.
-voiceList = [{ lang: "zh-CN", name: "Tingting" }];
+setVoices([{ lang: "zh-CN", name: "Tingting" }]);
 await act(async () => root.render(createElement(Harness, { question: q })));
 const groups = [...host.querySelectorAll('[role="radiogroup"]')];
 assert.equal(groups.length, 2, "one tone group per syllable");
@@ -154,7 +165,7 @@ await key("Enter", radio);
 assert.equal(entered, 1, "Enter on a tone checks the answer");
 
 // Revealed: marks, the answer pinyin and the sandhi note.
-await act(async () => root.render(createElement(Harness, { question: { ...q, id: "t1r" }, reveal: true, start: [2, 3] })));
+await act(async () => root.render(createElement(Harness, { key: "t1r", question: { ...q, id: "t1r" }, reveal: true, start: [2, 3] })));
 assert.ok(text().includes("nǐ hǎo: tones 3+3") && text().includes("you hear 2+3"), text());
 assert.ok(host.querySelectorAll(".part-mark.ok").length === 2, "2+3 is right");
 assert.ok(host.querySelector(".tone-answer ruby.py"), "characters with pinyin after checking");
@@ -162,13 +173,13 @@ await key("1");
 assert.deepEqual(latest, [2, 3], "no picking once checked");
 
 // No Mandarin voice: labelled "from memory", characters and toneless pinyin shown.
-voiceList = [{ lang: "zh-HK", name: "Sinji" }];
-await act(async () => root.render(createElement(Harness, { question: { ...q, id: "t2" } })));
+await act(async () => setVoices([{ lang: "zh-HK", name: "Sinji" }]));
+await act(async () => root.render(createElement(Harness, { key: "t2", question: { ...q, id: "t2" } })));
 assert.ok(text().includes("From memory") && text().includes("no Mandarin voice"), text());
 assert.ok(!host.querySelector(".tone-listen"), "no listen buttons");
 assert.ok(text().includes("你好") && text().includes("ni hao") && !text().includes("nǐ"));
 // A recording plays even without a voice.
-await act(async () => root.render(createElement(Harness, { question: { ...q, id: "t3", audio: { src: "data:audio/mpeg;base64,AAAA" } } })));
+await act(async () => root.render(createElement(Harness, { key: "t3", question: { ...q, id: "t3", audio: { src: "data:audio/mpeg;base64,AAAA" } } })));
 assert.ok(host.querySelector(".tone-listen") && !text().includes("From memory"));
 await act(async () => root.unmount());
 
@@ -207,7 +218,6 @@ try {
   bad.language.tones = { lesson: "nope", max: 7 };
   bad.banks[0].questions.push(
     { id: "risky", topic: "T", type: "tone", stem: "s", text: "好", reading: "hǎo" },
-    { id: "chs", topic: "T", type: "tone", stem: "s", text: "马", reading: "mǎ", choices: ["a", "b"], answer: [0] },
   );
   const file = join(dir, "bad.json");
   writeFileSync(file, JSON.stringify(bad));
@@ -216,7 +226,6 @@ try {
   const has = (s: string) => assert.ok(p.some((x) => x.includes(s)), `${s}\n${p.join("\n")}`);
   has("language.tones.max: must be an integer from 1 to 4");
   has('language.tones.lesson: no lesson "nope"');
-  has('question chs: tone questions use "text" and "reading"');
   assert.ok(warnings.some((w) => w.startsWith("question risky:") && w.includes("more than one reading")), warnings.join("\n"));
   // An invalid reading stops the course from loading with a readable message.
   bad.banks[0].questions = [{ id: "n", topic: "T", type: "tone", stem: "s", text: "你好", reading: "ni3 hao3" }];
