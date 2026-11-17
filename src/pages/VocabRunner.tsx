@@ -55,6 +55,8 @@ export function PosHint({ item, lang = "de" }: { item: VocabItem; lang?: string 
   if (item.pos) bits.push(item.pos);
   if (lang === "de" && (item.pos === "noun" || articleOf(item.term)))
     bits.push("with der/die/das");
+  if (lang === "es" && item.pos === "noun") bits.push("with el/la");
+  if (lang === "fr" && item.pos === "noun") bits.push("with le/la/l'");
   // Japanese: say which script the answer is written in, since katakana words need CAPITALS.
   if (lang === "ja" && /^[\u30a0-\u30ff]+$/.test(item.term)) bits.push("katakana");
   return bits.length ? (

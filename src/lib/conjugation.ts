@@ -17,9 +17,13 @@ import {
   DE_VERB_FORMS,
   JA_ADJ_FORMS,
   JA_VERB_FORMS,
+  ES_VERB_FORMS,
+  FR_VERB_FORMS,
+  languageForms,
   type ConjugationFormSetting,
   type DeForms,
 } from "./courseConjugation";
+import { ES_IMPERATIVES, ES_LABEL, ES_PERSONS, FR_IMPERATIVES, FR_LABEL, FR_PERSONS, esVerbForm, esWordProblem, esWordWarnings, frVerbForm, frWordProblem, frWordWarnings } from "./conjugationRomance";
 import { checkRecall, checkRecallJa, shuffled, unlockedItems, type Verdict } from "./vocab";
 import { hasKanji, isKanaOnly, isKanji, stripRuby } from "./kana";
 import { today } from "./srs";
@@ -741,29 +745,36 @@ function classForms(lang: string, item: VocabItem): readonly string[] {
   if (!item.conj) return [];
   if (lang === "ja") return isJaVerb(item) ? JA_VERB_FORMS : isJaAdj(item) ? JA_ADJ_FORMS : [];
   if (lang === "de") return item.conj === "adj" ? DE_ADJ_FORMS : ["weak", "strong", "mixed", "modal"].includes(item.conj) ? DE_VERB_FORMS : [];
+  if (lang === "es") return ["ar", "er", "ir"].includes(item.conj) ? ES_VERB_FORMS : [];
+  if (lang === "fr") return ["er", "ir", "re", "irr"].includes(item.conj) ? FR_VERB_FORMS : [];
   return [];
 }
 
-/** The forms drilled for a word: its class's forms, minus the word's `noForms`. */
+/** The forms drilled for a word: its class's forms, minus the word's `noForms`.
+ *  A recognition-only word (`directions` without "recall": regional or slang words) is never
+ *  drilled, since a drill asks the learner to produce it. Its data is still checked. */
 export function formsForClass(lang: string, item: VocabItem): readonly string[] {
+  if (item.directions?.length && !item.directions.includes("recall")) return [];
   const all = classForms(lang, item);
   return item.noForms?.length ? all.filter((f) => !item.noForms!.includes(f)) : all;
 }
 
 /** Why a word's conjugation data is wrong (for the course checker), or undefined. */
 export function conjWordProblem(lang: string, item: VocabItem): string | undefined {
-  if (!item.conj) return item.forms && lang === "de" ? `"forms" without "conj"` : undefined;
+  if (!item.conj) return item.forms && lang !== "ja" ? `"forms" without "conj"` : undefined;
   if (lang === "ja") {
     if (item.forms) return `"forms" is for German; Japanese forms are generated from the dictionary form`;
     return jaWordProblem(item);
   }
   if (lang === "de") return deWordProblem(item);
-  return `conjugation drills support Japanese and German (this course is "${lang}")`;
+  if (lang === "es") return esWordProblem(item);
+  if (lang === "fr") return frWordProblem(item);
+  return `conjugation drills support Japanese, German, Spanish and French (this course is "${lang}")`;
 }
 
 export function conjWordWarnings(lang: string, item: VocabItem): string[] {
   if (!item.conj) return [];
-  return lang === "ja" ? jaWordWarnings(item) : lang === "de" ? deWordWarnings(item) : [];
+  return lang === "ja" ? jaWordWarnings(item) : lang === "de" ? deWordWarnings(item) : lang === "es" ? esWordWarnings(item) : lang === "fr" ? frWordWarnings(item) : [];
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -805,8 +816,28 @@ const DE_NAME: Record<string, string> = {
 /** A form's name for lists and progress ("polite past", "adjectives: negative", "Perfekt"). */
 export function formName(lang: string, form: string): string {
   if (lang === "ja") return form.startsWith("adj-") || form === "adverb" ? `adjectives: ${JA_LABEL[form]}` : `verbs: ${JA_LABEL[form] ?? form}`;
+  if (lang === "es") return ES_NAME[form] ?? form;
+  if (lang === "fr") return FR_NAME[form] ?? form;
   return DE_NAME[form] ?? form;
 }
+const ES_NAME: Record<string, string> = {
+  present: "present",
+  preterite: "pretérito indefinido (simple past)",
+  perfect: "pretérito perfecto (he hablado)",
+  imperative: "commands (tú, usted)",
+  imperfect: "imperfect (hablaba)",
+  future: "future (hablaré)",
+  conditional: "conditional (hablaría)",
+  gerund: "gerund (hablando)",
+  subjunctive: "present subjunctive (hable)",
+  imperfectSubjunctive: "imperfect subjunctive (hablara)",
+  pluperfect: "pluperfect (había hablado)",
+  futurePerfect: "future perfect (habré hablado)",
+  conditionalPerfect: "conditional perfect (habría hablado)",
+  perfectSubjunctive: "perfect subjunctive (haya hablado)",
+  pluperfectSubjunctive: "pluperfect subjunctive (hubiera hablado)",
+};
+const FR_NAME: Record<string, string> = { present: "présent", perfect: "passé composé", imperative: "imperative", imperfect: "imparfait", future: "futur simple", conditional: "conditionnel", subjunctive: "subjonctif présent", pluperfect: "plus-que-parfait", futurePerfect: "futur antérieur", conditionalPerfect: "conditionnel passé", perfectSubjunctive: "subjonctif passé" };
 
 // ---------------------------------------------------------------------------------------------
 // Prompts and rounds
@@ -838,7 +869,7 @@ const formOpen = (course: Course, p: Progress, s: ConjugationFormSetting) => !s.
 /** The course's drilled forms with whether each is unlocked. */
 export function conjForms(course: Course, p: Progress): { setting: ConjugationFormSetting; open: boolean }[] {
   const lang = course.language?.code ?? "";
-  const usable = new Set([...(lang === "ja" ? [...JA_VERB_FORMS, ...JA_ADJ_FORMS] : lang === "de" ? [...DE_VERB_FORMS, ...DE_ADJ_FORMS] : [])]);
+  const usable = new Set<string>(languageForms(lang));
   return (conjSettings(course)?.forms ?? []).filter((s) => usable.has(s.form as never)).map((setting) => ({ setting, open: formOpen(course, p, setting) }));
 }
 
@@ -855,6 +886,19 @@ export function promptsFor(course: Course, item: VocabItem, form: string, nouns:
   if (lang === "ja") {
     const g = jaForm(item, form);
     return g ? [{ item, form, label: JA_LABEL[form], answers: g.answers, readings: g.readings, also: [...new Set(g.answers.slice(1))], rule: g.rule }] : [];
+  }
+  if (lang === "es" || lang === "fr") {
+    const persons: (string | number)[] =
+      form === "gerund" ? ["gerund"] : form === "imperative" ? [...(lang === "es" ? ES_IMPERATIVES : FR_IMPERATIVES)] : [...(lang === "es" ? ES_PERSONS : FR_PERSONS)];
+    const out: ConjPrompt[] = [];
+    for (const person of persons) {
+      const g = lang === "es" ? esVerbForm(item, form, person) : frVerbForm(item, form, person);
+      if (!g) continue;
+      const who = typeof person === "number" ? (lang === "es" ? ES_LABEL : FR_LABEL)[person] : person;
+      const label = form === "gerund" ? "gerund (estar + -ndo)" : form === "imperative" ? `command, ${who}` : `${formName(lang, form)}, ${who}`;
+      out.push({ item, form, person: String(person), label, answers: g.answers, also: [], rule: g.rule });
+    }
+    return out;
   }
   if (item.conj === "adj") {
     const c = form.slice(4) as DeCase;

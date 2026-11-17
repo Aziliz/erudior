@@ -5819,6 +5819,1998 @@
   ]
  },
  {
+  "id": "lang-spanish-a1",
+  "file": "languages/lang-spanish-a1.json",
+  "order": 110,
+  "title": "Spanish A1",
+  "description": "Latin American Spanish from your first word to CEFR level A1, the level of the Instituto Cervantes DELE A1 exam. Grammar lessons cover sounds, spelling and written accents, greetings, ser and estar, numbers, gender, articles and adjective agreement, the present tense with its stem changes and irregular verbs, hay, gustar, ir a + infinitive for plans, reflexive verbs for daily routines, telling the time and giving dates, commands for directions, and a first look at the past with the preterite and the present perfect. About 700 everyday words, with Mexican usage as the standard and Spain's words noted, are learned through typed vocabulary reviews with pronunciation, conjugation drills practise the present, the preterite, the perfect and the imperative, and a reading list points to graded readers and free material you can use on your own.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 16,
+  "questions": 549,
+  "cards": 358,
+  "drills": 0,
+  "words": 920,
+  "lessonIds": [
+   "es1-sounds",
+   "es1-greetings",
+   "es1-numbers",
+   "es1-present-ar",
+   "es1-nouns-articles",
+   "es1-family",
+   "es1-jobs-countries",
+   "es1-describing",
+   "es1-estar",
+   "es1-home",
+   "es1-food-gustar",
+   "es1-shopping",
+   "es1-time",
+   "es1-ir-plans",
+   "es1-stem-verbs",
+   "es1-routine",
+   "es1-city-imperative",
+   "es1-travel",
+   "es1-dates-weather",
+   "es1-body-health",
+   "es1-preterite",
+   "es1-perfect",
+   "es1-writing",
+   "es1-exam-review"
+  ],
+  "honorsLessonIds": [
+   "es1-m1-h-sounds-americas",
+   "es1-m1-h-names-politeness",
+   "es1-m2-h-spanish-world",
+   "es1-m2-h-family-life",
+   "es1-m3-h-mexican-food",
+   "es1-m3-h-market-money",
+   "es1-m4-h-time-culture",
+   "es1-m4-h-sports-music",
+   "es1-m5-h-getting-around",
+   "es1-m5-h-pharmacy-doctor",
+   "es1-m6-h-past-stories",
+   "es1-m6-h-messages",
+   "es1-h-calendario",
+   "es1-h-ciudad-de-mexico",
+   "es1-h-leyendas",
+   "es1-h-espanol-en-ee-uu"
+  ],
+  "honorsModuleIds": [
+   "es1-h1"
+  ],
+  "outline": [
+   {
+    "title": "Primeros pasos (first steps)",
+    "lessons": [
+     "Sounds, letters and written accents",
+     "Greetings, introductions and ser",
+     "Numbers, age and phone numbers",
+     "Pronouns, the present of -ar verbs and asking questions"
+    ],
+    "honors": [
+     "Honors: How Spanish sounds across the Americas",
+     "Honors: Two surnames, titles and politeness"
+    ]
+   },
+   {
+    "title": "Gente y cosas (people and things)",
+    "lessons": [
+     "Nouns, gender and articles",
+     "Family, tener and possessives",
+     "Jobs, countries, languages and -er/-ir verbs",
+     "Describing people and things: adjective agreement and colours"
+    ],
+    "honors": [
+     "Honors: The Spanish-speaking world",
+     "Honors: Family words, diminutives and affection"
+    ]
+   },
+   {
+    "title": "Casa, comida y compras (home, food and shopping)",
+    "lessons": [
+     "Estar: where you are and how you feel (ser or estar?)",
+     "At home: hay, estar and where things are",
+     "Food, drink and gustar",
+     "Shopping, prices and comparing"
+    ],
+    "honors": [
+     "Honors: La comida mexicana — eating the Mexican way",
+     "Honors: At the market — quantities, change and bargaining"
+    ]
+   },
+   {
+    "title": "Mi día y mis planes (my day and my plans)",
+    "lessons": [
+     "Telling the time and the days of the week",
+     "Going out: ir, venir and plans with ir a",
+     "Free time and stem-changing verbs",
+     "A day in my life: reflexive verbs and irregular yo forms"
+    ],
+    "honors": [
+     "Ahorita, al rato and the 24-hour clock",
+     "Fútbol, béisbol y música"
+    ]
+   },
+   {
+    "title": "La ciudad, los viajes y la salud (town, travel and health)",
+    "lessons": [
+     "In the city: places, directions and commands",
+     "Travel, transport and the hotel",
+     "Dates, seasons and the weather",
+     "Body, clothes and feeling ill"
+    ],
+    "honors": [
+     "Honors: Getting around a Latin American city",
+     "Honors: At the pharmacy and the doctor's"
+    ]
+   },
+   {
+    "title": "El pasado y el DELE A1 (the past and the A1 exam)",
+    "lessons": [
+     "Talking about the past: the preterite",
+     "Experiences and today: the present perfect",
+     "Linking ideas and writing short messages",
+     "The DELE A1 exam and review"
+    ],
+    "honors": [
+     "Honors: Telling a story in the past",
+     "Honors: WhatsApp, e-mail and formal notes"
+    ]
+   },
+   {
+    "title": "Honors: Cultura y vida cotidiana (culture and everyday life)",
+    "lessons": [],
+    "honors": [
+     "El año en fiestas: Día de Muertos, posadas and national holidays",
+     "Una semana en la Ciudad de México",
+     "Leyendas: legends retold in easy Spanish",
+     "El español en Estados Unidos"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-spanish-a2",
+  "file": "languages/lang-spanish-a2.json",
+  "order": 111,
+  "title": "Spanish A2",
+  "description": "The second step in Latin American Spanish, from A1 to CEFR level A2, the level of the Instituto Cervantes DELE A2 exam. Lessons cover telling stories in the past with the preterite and the imperfect, past habits with soler and antes, the present perfect and the preterite as Mexico uses them, time expressions with hace and desde, direct and indirect object pronouns and putting them together (se lo), reflexive and reciprocal verbs, estar + gerund, describing and comparing people and places, indefinites and double negatives, the future tense beside ir a, por and para, commands with pronouns, the conditional for polite requests and advice, reporting what people say, and writing the messages and short texts the exam asks for. About 600 new words build on the roughly 920 from Spanish A1 for about 1,500 in all, with Mexican usage as the standard and Spain's words noted. Conjugation drills add the imperfect, the future, the conditional and the gerund to the A1 forms, and a reading list suggests graded readers for this level. Unlocks when Spanish A1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 16,
+  "questions": 546,
+  "cards": 396,
+  "drills": 0,
+  "words": 1726,
+  "carried": 920,
+  "requires": [
+   "lang-spanish-a1"
+  ],
+  "lessonIds": [
+   "es2-life-story",
+   "es2-imperfect",
+   "es2-telling-stories",
+   "es2-experiences-time",
+   "es2-direct-objects",
+   "es2-indirect-objects",
+   "es2-double-pronouns",
+   "es2-reflexive-reciprocal",
+   "es2-estar-gerund",
+   "es2-describing-people",
+   "es2-comparisons",
+   "es2-indefinites",
+   "es2-future",
+   "es2-por-para",
+   "es2-plans-verb-phrases",
+   "es2-commands-pronouns",
+   "es2-work",
+   "es2-studies-relatives",
+   "es2-conditional",
+   "es2-health-advice",
+   "es2-news-reported",
+   "es2-opinions-environment",
+   "es2-writing",
+   "es2-exam-review"
+  ],
+  "honorsLessonIds": [
+   "es2-m1-h-history-mexico",
+   "es2-m1-h-pluperfect",
+   "es2-m2-h-pronouns-americas",
+   "es2-m2-h-accidental-se",
+   "es2-m3-h-describing-art",
+   "es2-m3-h-intensifiers",
+   "es2-m4-h-road-trip",
+   "es2-m4-h-guessing-future",
+   "es2-m5-h-job-application",
+   "es2-m5-h-phone-messages",
+   "es2-m6-h-reported-past",
+   "es2-m6-h-dele-practice",
+   "es2-h-cuento",
+   "es2-h-cronica",
+   "es2-h-biografias",
+   "es2-h-radio"
+  ],
+  "honorsModuleIds": [
+   "es2-h1"
+  ],
+  "outline": [
+   {
+    "title": "Contar el pasado (telling the past)",
+    "lessons": [
+     "Your life story: the preterite in full",
+     "When I was a child: the imperfect and past habits",
+     "Telling a story: preterite or imperfect?",
+     "How long and since when: the perfect, the preterite and time expressions"
+    ],
+    "honors": [
+     "Honors: Mexico's history told in the past tenses",
+     "Honors: It had already happened: había + participle"
+    ]
+   },
+   {
+    "title": "Gente y relaciones (people and relationships)",
+    "lessons": [
+     "It, him, her, them: direct object pronouns",
+     "To me, for her: indirect objects and verbs like gustar",
+     "Me lo, se lo: two pronouns together",
+     "Love and friendship: reflexive and reciprocal verbs"
+    ],
+    "honors": [
+     "Honors: Pronouns across the Spanish-speaking world",
+     "Honors: It got away from me: se me olvidó, se me cayó"
+    ]
+   },
+   {
+    "title": "Describir y comparar (describing and comparing)",
+    "lessons": [
+     "What's happening? Estar + gerund and describing a photo",
+     "What's she like? Appearance and character",
+     "City or country? Comparatives and superlatives",
+     "Is there any…? None at all: indefinites and negatives; finding a place to live"
+    ],
+    "honors": [
+     "Honors: Describing a painting: murals and portraits",
+     "Honors: Super, bien and -ísimo: making it stronger or softer"
+    ]
+   },
+   {
+    "title": "Planes, viajes y tiempo libre (plans, travel and free time)",
+    "lessons": [
+     "What will happen? The future tense",
+     "Planning a trip: por and para",
+     "Making plans: invitations, excuses and verb + infinitive phrases",
+     "In the kitchen: commands with pronouns"
+    ],
+    "honors": [
+     "Honors: A road trip through Mexico",
+     "Honors: I wonder where she is: the future of probability"
+    ]
+   },
+   {
+    "title": "Trabajo, estudios y servicios (work, studies and services)",
+    "lessons": [
+     "Looking for work: job ads, interviews and impersonal se",
+     "School and university: describing with que, donde and lo que",
+     "Could you…? Polite requests at the bank, the post office and the repair shop: the conditional",
+     "At the doctor's: accidents, symptoms and advice"
+    ],
+    "honors": [
+     "Honors: Applying for a job in Mexico",
+     "Honors: On the phone: appointments, voicemail and spelling"
+    ]
+   },
+   {
+    "title": "Noticias, opiniones y el DELE A2 (news, opinions and the A2 exam)",
+    "lessons": [
+     "In the news: reporting what people say",
+     "What do you think? Opinions, reasons and the environment",
+     "Writing for real life: invitations, thanks, apologies and short texts",
+     "The DELE A2 exam and review"
+    ],
+    "honors": [
+     "Honors: She said she would come: reporting in the past",
+     "Honors: DELE A2 writing and speaking in practice"
+    ]
+   },
+   {
+    "title": "Honors: Leer y escuchar (reading and listening)",
+    "lessons": [],
+    "honors": [
+     "Un cuento: a short story in the past",
+     "Crónica de viaje: Bogotá, Lima y Buenos Aires",
+     "Vidas: three Latin American biographies",
+     "Escuchar: radio, podcasts and announcements"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-spanish-b1",
+  "file": "languages/lang-spanish-b1.json",
+  "order": 112,
+  "title": "Spanish B1",
+  "description": "The third step in Latin American Spanish, from A2 to CEFR level B1, the level of the Instituto Cervantes DELE B1 exam. Lessons cover the present subjunctive for wishes, advice, feelings, doubt, purpose and future time, negative commands, the subjunctive in relative clauses, the pluperfect and narrative connectors, the future perfect and conditional perfect, the passive, the imperfect subjunctive with ojalá and hypothetical si clauses, reporting requests and speech with tense changes, concession, cause and conditions, building an argument, formal and informal register, idioms, verbs of change, and the e-mails, compositions and talks the DELE B1 asks for. About 600 new words build on the roughly 1,730 from Spanish A1 and A2, with Mexican usage as the standard and Spain's words noted. Conjugation drills add the present and imperfect subjunctive and the pluperfect to the A1 and A2 forms, and a reading list suggests graded readers and free resources for this level. Unlocks when Spanish A2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 18,
+  "questions": 558,
+  "cards": 446,
+  "drills": 0,
+  "words": 2552,
+  "carried": 1726,
+  "requires": [
+   "lang-spanish-a2"
+  ],
+  "lessonIds": [
+   "es3-subjunctive-wishes",
+   "es3-advice-influence",
+   "es3-feelings",
+   "es3-doubt-possibility",
+   "es3-negative-commands",
+   "es3-purpose",
+   "es3-time-clauses",
+   "es3-relative-subjunctive",
+   "es3-pluperfect",
+   "es3-narrative",
+   "es3-compound-futures",
+   "es3-passive",
+   "es3-imperfect-subjunctive",
+   "es3-hypothetical-si",
+   "es3-past-subjunctive-requests",
+   "es3-reported-speech",
+   "es3-concession-cause",
+   "es3-conditions",
+   "es3-argument",
+   "es3-register",
+   "es3-idioms-ser-estar",
+   "es3-verbs-change",
+   "es3-writing-b1",
+   "es3-exam-review"
+  ],
+  "honorsLessonIds": [
+   "es3-m1-h-que-wishes",
+   "es3-m1-h-advice-column",
+   "es3-m2-h-earthquakes",
+   "es3-m2-h-whoever-wherever",
+   "es3-m3-h-magical-realism",
+   "es3-m3-h-ancient-americas",
+   "es3-m4-h-past-hypotheticals",
+   "es3-m4-h-utopias",
+   "es3-m5-h-discussion",
+   "es3-m5-h-paperwork",
+   "es3-m5-h-advertising",
+   "es3-m6-h-regional-spanish",
+   "es3-m6-h-dele-practice",
+   "es3-m6-h-music",
+   "es3-h-poesia",
+   "es3-h-columna",
+   "es3-h-teatro",
+   "es3-h-divulgacion"
+  ],
+  "honorsModuleIds": [
+   "es3-h1"
+  ],
+  "outline": [
+   {
+    "title": "Deseos, consejos y sentimientos (wishes, advice and feelings)",
+    "lessons": [
+     "I hope you…: the present subjunctive and wishes",
+     "I want you to…: advice, requests and permission",
+     "I'm glad you came: feelings and reactions",
+     "I doubt it's true: doubt, denial and possibility"
+    ],
+    "honors": [
+     "¡Que te vaya bonito! Wishes, blessings and set phrases with que",
+     "Querida consejera: advice columns"
+    ]
+   },
+   {
+    "title": "Instrucciones, propósitos y planes (instructions, purposes and plans)",
+    "lessons": [
+     "Don't do that! Negative commands and the full command system",
+     "So that everyone can help: para que, sin que and purpose",
+     "When I get there: cuando + subjunctive and time clauses",
+     "I'm looking for one that…: the subjunctive in relative clauses"
+    ],
+    "honors": [
+     "Honors: Ready for the earthquake: Mexico's drills and seismic alert",
+     "Honors: Whatever, whenever, whoever: the open-ended subjunctive"
+    ]
+   },
+   {
+    "title": "Contar con detalle (telling it in detail)",
+    "lessons": [
+     "It had already happened: the pluperfect",
+     "Telling it in order: narrative connectors and three past tenses",
+     "By then I'll have finished: the future perfect and the conditional perfect",
+     "It was built in the year…: the passive voice"
+    ],
+    "honors": [
+     "Honors: Realismo mágico: an original story",
+     "Honors: Maya, mexicas e incas: history in the passive"
+    ]
+   },
+   {
+    "title": "Si yo fuera… (if I were…)",
+    "lessons": [
+     "If only I could: the imperfect subjunctive",
+     "If I were mayor: hypothetical si clauses",
+     "She asked me to: the subjunctive in the past",
+     "He said he would call: reported speech with tense changes"
+    ],
+    "honors": [
+     "Honors: If I had known: si + pluperfect subjunctive",
+     "Honors: Utopías y distopías: what would the world be like if…?"
+    ]
+   },
+   {
+    "title": "Argumentar y convencer (arguing and persuading)",
+    "lessons": [
+     "Even though it's expensive: concession, cause and consequence",
+     "As long as you pay on time: conditions beyond si",
+     "Firstly…: organizing an argument and an opinion text",
+     "Estimados señores: register, formal letters and complaints"
+    ],
+    "honors": [
+     "Honors: Taking part in a discussion",
+     "Honors: Mexican paperwork: documents and formal requests",
+     "Honors: Advertising and persuasion"
+    ]
+   },
+   {
+    "title": "Hablar con naturalidad y el DELE B1 (speaking naturally and the B1 exam)",
+    "lessons": [
+     "Don't pull my leg: idioms, and ser and estar that change the meaning",
+     "She became a doctor: verbs of change and verbs with prepositions",
+     "Writing at B1: e-mails, posts and reviews",
+     "The DELE B1 exam and review"
+    ],
+    "honors": [
+     "Honors: The same thing in other countries: everyday words across the Spanish-speaking world",
+     "Honors: DELE B1 writing and speaking in practice",
+     "Honors: Canciones: Latin American popular music"
+    ]
+   },
+   {
+    "title": "Honors: Prensa, literatura y ciencia (press, literature and science)",
+    "lessons": [],
+    "honors": [
+     "Poesía: how Spanish verse works",
+     "La crónica y la columna de opinión: reading the press",
+     "Teatro: El mole de la abuela, a one-act comedy",
+     "Ciencia para todos: a popular-science article and podcast"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-spanish-b2",
+  "file": "languages/lang-spanish-b2.json",
+  "order": 113,
+  "title": "Spanish B2",
+  "description": "The fourth step in Latin American Spanish, from B1 to CEFR level B2, the level of the Instituto Cervantes DELE B2 exam. Lessons cover the past tenses as Mexico and Spain use them, the perfect and pluperfect subjunctive, past counterfactuals with si and de + infinitive, opinion and value judgments in both moods, feelings about the past, the full range of concessive, causal, consecutive, purpose, time and condition connectors, probability in the present, past and future, relative clauses with el cual and cuyo, reported speech with every tense, the passive and impersonal sentences, the uses of se and object pronouns, verbal periphrases, discourse markers, the nominal style of formal writing, describing data and trends, debating and proposing solutions, word formation and diminutives, por and para, and the letters, opinion articles and spoken tasks the DELE B2 asks for. About 580 new words build on the roughly 2,550 from Spanish A1 to B1, with Mexican usage as the standard and Spain's words noted. Conjugation drills keep all eleven forms of the earlier courses, and a reading list suggests graded readers, podcasts, magazines and stories for this level. Unlocks when Spanish B1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 17,
+  "questions": 534,
+  "cards": 409,
+  "drills": 0,
+  "words": 3298,
+  "carried": 2552,
+  "requires": [
+   "lang-spanish-b1"
+  ],
+  "lessonIds": [
+   "es4-past-tenses",
+   "es4-perfect-subjunctive",
+   "es4-pluperfect-subjunctive",
+   "es4-past-conditionals",
+   "es4-opinion-mood",
+   "es4-feelings-past",
+   "es4-concession",
+   "es4-probability",
+   "es4-relatives",
+   "es4-cause-consequence",
+   "es4-purpose-time",
+   "es4-conditions",
+   "es4-reported-speech",
+   "es4-passive-impersonal",
+   "es4-se-pronouns",
+   "es4-periphrases",
+   "es4-discourse-markers",
+   "es4-nominalization",
+   "es4-formal-writing",
+   "es4-debate",
+   "es4-word-formation",
+   "es4-por-para",
+   "es4-writing-b2",
+   "es4-exam-review"
+  ],
+  "honorsLessonIds": [
+   "es4-m1-h-obituaries",
+   "es4-m1-h-literary-tenses",
+   "es4-m2-h-stereotypes",
+   "es4-m2-h-expedition-diary",
+   "es4-m3-h-legal-spanish",
+   "es4-m3-h-latin-american-science",
+   "es4-m4-h-interview",
+   "es4-m4-h-fact-checking",
+   "es4-m5-h-academic-writing",
+   "es4-m5-h-lectures",
+   "es4-m6-h-voseo",
+   "es4-m6-h-dele-b2-practice",
+   "es4-m6-h-cinema",
+   "es4-h-cuento",
+   "es4-h-ensayo",
+   "es4-h-muralismo",
+   "es4-h-lenguas-de-mexico"
+  ],
+  "honorsModuleIds": [
+   "es4-h1"
+  ],
+  "outline": [
+   {
+    "title": "Lo que pasó y lo que pudo pasar (what happened and what could have happened)",
+    "lessons": [
+     "Así fue: the past tenses at B2, in Mexico and in Spain",
+     "Espero que hayas aprobado: the perfect subjunctive",
+     "Me dolió que no me lo hubieras dicho: the pluperfect subjunctive",
+     "Si hubiera salido antes…: past and mixed conditions"
+    ],
+    "honors": [
+     "Honors: Una vida en pocas líneas: obituaries, death notices and tributes",
+     "Honors: Tenses you'll only read: the pretérito anterior, the literary -ra and the future subjunctive"
+    ]
+   },
+   {
+    "title": "Opinar y matizar (giving and nuancing opinions)",
+    "lessons": [
+     "No es que no me guste: opinions, value judgments and neuter lo",
+     "No soportaba que…: feelings, attitudes and character in the past",
+     "Por más que lo intente: concession at B2",
+     "Habrá perdido el vuelo: probability and hypotheses"
+    ],
+    "honors": [
+     "Honors: Todos los mexicanos…: stereotypes and careful generalizations",
+     "Honors: Bitácora de una expedición: an original travel diary"
+    ]
+   },
+   {
+    "title": "Conectar las ideas (connecting ideas)",
+    "lessons": [
+     "El inventor cuyo nombre nadie recuerda: relative clauses at B2",
+     "Como sube la renta, se van: cause and consequence",
+     "Una vez que te den de alta: purpose and time at B2",
+     "Siempre y cuando firmes: conditions beyond si at B2"
+    ],
+    "honors": [
+     "Honors: El lenguaje jurídico: reading a regulation",
+     "Honors: Ciencia latinoamericana: lives told with relatives and the passive"
+    ]
+   },
+   {
+    "title": "Contar lo que se dice (reporting, the news and the media)",
+    "lessons": [
+     "Recalcó que no habría cambios: reporting at B2",
+     "Fue detenido, se detuvo, detuvieron: passive and impersonal sentences",
+     "Se me quemó el arroz: se and object pronouns",
+     "Llevo un año entrenando: verbal periphrases"
+    ],
+    "honors": [
+     "Honors: La entrevista: from conversation to profile",
+     "Honors: ¿Es verdad? Fact-checking and disinformation"
+    ]
+   },
+   {
+    "title": "Argumentar con precisión (arguing with precision)",
+    "lessons": [
+     "Es más, para colmo…: discourse markers at B2",
+     "La mejora de la calidad: nominal style in formal writing",
+     "El 40 % de los encuestados: data, trends and the formal e-mail",
+     "Yo propondría que…: debating and proposing solutions"
+    ],
+    "honors": [
+     "Honors: Escribir en la universidad: summarizing, quoting and paraphrasing",
+     "Honors: Conferencias y discursos: listening to and giving a talk"
+    ]
+   },
+   {
+    "title": "Los matices de la lengua y el DELE B2 (the fine points of the language and the B2 exam)",
+    "lessons": [
+     "Abrelatas y portazos: word formation, diminutives and augmentatives",
+     "Por la sierra, para el mirador: por and para at B2",
+     "Writing at B2: the formal letter and the opinion article",
+     "The DELE B2 exam and review"
+    ],
+    "honors": [
+     "Honors: Vos, usted y tú across the Americas",
+     "Honors: DELE B2 writing and speaking in practice",
+     "Honors: Cine latinoamericano"
+    ]
+   },
+   {
+    "title": "Honors: Literatura, arte y lenguas de México (literature, art and the languages of Mexico)",
+    "lessons": [],
+    "honors": [
+     "El cuento latinoamericano: the short story",
+     "El ensayo: the essay and Mexican essayists",
+     "El muralismo y el arte mexicano: describing a work of art",
+     "Las lenguas de México: Mexico's many languages"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-spanish-c1",
+  "file": "languages/lang-spanish-c1.json",
+  "order": 114,
+  "title": "Spanish C1",
+  "description": "The fifth step in Latin American Spanish, from B2 to CEFR level C1, the level of the Instituto Cervantes DELE C1 exam. Lessons cover register and style from Mexican colloquial speech to formal writing, tact, euphemism and irony, the norm and its common doubts (dequeísmo, impersonal haber, anglicisms), verbs whose meaning changes with the mood, the reduplicated and Latin American concessives, the subjunctive on its own, comparison and proportion, formal connectors of contrast, cause and condition, cohesion and reference in long texts, argumentation and fallacies, idioms and proverbs, pronominal verbs and verbs with prepositions, collocations and precise vocabulary, academic hedging, participle and gerund constructions, summarizing and mediating, reports from graphics and formal letters, spelling and punctuation doubts, emphasis and word order, and the integrated tasks of the DELE C1. Honors lessons add plain language, other varieties of Spanish, humor, rhetoric, translation, the language of the internet and of business, and classics from Don Quixote and Sor Juana to the novel of the Revolution and the Boom. About 620 new words build on the roughly 3,300 from Spanish A1 to B2, with Mexican usage as the standard and Spain's and other regions' words noted. Conjugation drills keep all fifteen forms of the earlier courses, and a reading list suggests books, magazines, podcasts and official exam material for this level. Unlocks when Spanish B2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 17,
+  "questions": 531,
+  "cards": 384,
+  "drills": 0,
+  "words": 4092,
+  "carried": 3298,
+  "requires": [
+   "lang-spanish-b2"
+  ],
+  "lessonIds": [
+   "es5-registers",
+   "es5-colloquial",
+   "es5-norm-usage",
+   "es5-tact",
+   "es5-mood-meaning",
+   "es5-concessive",
+   "es5-independent-subjunctive",
+   "es5-comparison",
+   "es5-contrast",
+   "es5-formal-connectors",
+   "es5-cohesion",
+   "es5-argumentation",
+   "es5-idioms-people",
+   "es5-idioms-animals",
+   "es5-pronominal-verbs",
+   "es5-collocations",
+   "es5-academic-style",
+   "es5-absolute-constructions",
+   "es5-summarizing",
+   "es5-report-letter",
+   "es5-spelling-punctuation",
+   "es5-emphasis",
+   "es5-dele-c1-writing",
+   "es5-dele-c1-exam"
+  ],
+  "honorsLessonIds": [
+   "es5-m1-h-plain-language",
+   "es5-m1-h-varieties",
+   "es5-m2-h-mood-gray-zones",
+   "es5-m2-h-humor",
+   "es5-m3-h-rhetoric",
+   "es5-m3-h-translation",
+   "es5-m4-h-proverbs",
+   "es5-m4-h-internet",
+   "es5-m5-h-bilingual-brain",
+   "es5-m5-h-economy",
+   "es5-m6-h-dele-reading-listening",
+   "es5-m6-h-dele-oral",
+   "es5-m6-h-meetings",
+   "es5-h-quijote",
+   "es5-h-sor-juana",
+   "es5-h-novela-revolucion",
+   "es5-h-boom"
+  ],
+  "honorsModuleIds": [
+   "es5-h1"
+  ],
+  "outline": [
+   {
+    "title": "Registro y estilo (register and style)",
+    "lessons": [
+     "Según con quién: register and politeness at C1",
+     "Ni modo: colloquial conversation in Mexico",
+     "¿Se dice así? Norm, usage and the language authorities",
+     "Con todo respeto: tact, euphemism and irony"
+    ],
+    "honors": [
+     "Honors: Lenguaje claro: rewriting official texts",
+     "Honors: Oír otros españoles: Spain, the Caribbean, the Andes and the Río de la Plata"
+    ]
+   },
+   {
+    "title": "Los matices del subjuntivo (nuance in the subjunctive)",
+    "lessons": [
+     "Siento que…: when the mood changes the meaning",
+     "Quieras o no: concession at C1",
+     "¡Quién pudiera!: the subjunctive on its own",
+     "Cuanto más entreno…: comparison and proportion at C1"
+    ],
+    "honors": [
+     "Honors: Zonas grises: when both moods are right",
+     "Honors: ¿De qué te ríes? Humor, wordplay and satire"
+    ]
+   },
+   {
+    "title": "Conectar con precisión (connectors, cohesion and argument)",
+    "lessons": [
+     "Ahora bien, con todo: contrast and counterargument",
+     "Toda vez que…: formal cause, consequence and condition",
+     "Dicho lo anterior: cohesion and reference in long texts",
+     "Es cierto que…, pero: argumentation and fallacies"
+    ],
+    "honors": [
+     "Honors: Retórica: the figures of a good speech",
+     "Honors: Entre dos lenguas: false friends, calques and mediating"
+    ]
+   },
+   {
+    "title": "La lengua idiomática (idioms, collocations and verbs with prepositions)",
+    "lessons": [
+     "Hablar hasta por los codos: idioms for people and behavior",
+     "Dar gato por liebre: idioms with animals and food, and sayings",
+     "Hacerse cargo: pronominal verbs and verbs with prepositions",
+     "Cometer un error garrafal: collocations and lexical precision"
+    ],
+    "honors": [
+     "Honors: El refranero: proverbs and how people use them",
+     "Honors: El español en internet"
+    ]
+   },
+   {
+    "title": "Lengua académica y textos largos (academic language and longer texts)",
+    "lessons": [
+     "Cabe señalar que…: academic style and hedging",
+     "Terminada la obra…: participles, gerunds and infinitives in formal writing",
+     "Poner de manifiesto: summarizing and mediating a text",
+     "El gráfico pone de relieve…: reports from graphics and formal letters"
+    ],
+    "honors": [
+     "Honors: Leer un texto largo: el cerebro bilingüe",
+     "Honors: La economía en la prensa"
+    ]
+   },
+   {
+    "title": "La lengua en uso y el DELE C1 (language in use and the C1 exam)",
+    "lessons": [
+     "¿Porque o por qué?: spelling and punctuation doubts",
+     "Fue en 1969 cuando…: emphasis and word order",
+     "Writing at C1: mediation from a talk, reports and formal letters",
+     "The DELE C1 exam and review"
+    ],
+    "honors": [
+     "Honors: DELE C1 reading and listening in practice",
+     "Honors: DELE C1 speaking in practice",
+     "Honors: Reuniones y actas: Spanish at work"
+    ]
+   },
+   {
+    "title": "Honors: Clásicos de la literatura en español (classics of literature in Spanish)",
+    "lessons": [],
+    "honors": [
+     "Don Quijote: reading a classic today",
+     "Sor Juana Inés de la Cruz y el Barroco",
+     "La novela de la Revolución y Pedro Páramo",
+     "El Boom latinoamericano"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-spanish-c2",
+  "file": "languages/lang-spanish-c2.json",
+  "order": 114.5,
+  "title": "Spanish C2",
+  "description": "The sixth and last step in Latin American Spanish, from C1 to CEFR level C2, the level of the Instituto Cervantes DELE C2 exam. Lessons cover the precise word among near-synonyms and confusable pairs, deliberate shifts of register, learned words and Latin phrases, the tenses as style, conditions and counterfactuals without si, relatives and the long sentence, formal prepositional phrases, figures of speech, the critical review and the vocabulary of style, narrative technique, reading between the lines of public language, and the specialized Spanish of law, medicine, finance and patents. A module on Spanish across the world covers dubbing and the pluricentric norm, Spain's Spanish, grammar and usage across the Americas, and language contact and change, and the last module practices writing from several sources, rewriting from notes, texts from data, oral mediation and the three tests of the DELE C2. Honors lessons add lexicography, place names, Old Spanish, hard cases of agreement, Golden Age theater, modernismo, medicine leaflets, notarial Spanish, Judeo-Spanish, Spanish in Equatorial Guinea and the Philippines, interpreting, and classics from the Lazarillo and Galdós to Lorca and Borges. About 620 new words build on the roughly 4,100 from Spanish A1 to C1, with Mexican usage as the standard and Spain's and other regions' usage taught for recognition. Conjugation drills keep all fifteen forms of the earlier courses, and a reading list suggests classics, podcasts, reference works and official exam material for this level. Unlocks when Spanish C1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 17,
+  "questions": 520,
+  "cards": 391,
+  "drills": 0,
+  "words": 4892,
+  "carried": 4092,
+  "requires": [
+   "lang-spanish-c1"
+  ],
+  "lessonIds": [
+   "es6-precise-word",
+   "es6-register-shifts",
+   "es6-paronyms",
+   "es6-cultismos",
+   "es6-tense-style",
+   "es6-hypotheticals",
+   "es6-relatives-periods",
+   "es6-prepositional-phrases",
+   "es6-figures",
+   "es6-review",
+   "es6-narrative",
+   "es6-discourse-analysis",
+   "es6-legal",
+   "es6-medical",
+   "es6-finance",
+   "es6-technical",
+   "es6-pluricentric",
+   "es6-spain",
+   "es6-americas",
+   "es6-contact-change",
+   "es6-synthesis",
+   "es6-rewriting",
+   "es6-data-texts",
+   "es6-dele-c2-exam"
+  ],
+  "honorsLessonIds": [
+   "es6-m1-h-lexicography",
+   "es6-m1-h-place-names",
+   "es6-m2-h-old-spanish",
+   "es6-m2-h-agreement",
+   "es6-m3-h-golden-age-theater",
+   "es6-m3-h-modernismo",
+   "es6-m4-h-package-insert",
+   "es6-m4-h-notary",
+   "es6-m5-h-judeo-spanish",
+   "es6-m5-h-guinea-philippines",
+   "es6-m6-h-dele-test1",
+   "es6-m6-h-dele-oral",
+   "es6-m6-h-interpreting",
+   "es6-h-picaresca",
+   "es6-h-realismo",
+   "es6-h-lorca",
+   "es6-h-fantastico"
+  ],
+  "honorsModuleIds": [
+   "es6-h1"
+  ],
+  "outline": [
+   {
+    "title": "Precisión y matiz (precision, register and the learned word)",
+    "lessons": [
+     "Ahumado, terroso, aterciopelado: the precise word",
+     "Del parte al chisme: shifting register on purpose",
+     "Infligir o infringir: confusable words and the editor's eye",
+     "Motu proprio: learned words, Latin phrases and the names of species"
+    ],
+    "honors": [
+     "Honors: Cómo trabaja un diccionario: lexicography and corpora",
+     "Honors: Los nombres de los lugares: toponymy and demonyms"
+    ]
+   },
+   {
+    "title": "Gramática fina (fine points of grammar)",
+    "lessons": [
+     "Aquella noche moría el comisario: tenses as style",
+     "Si la imprenta hubiera llegado tarde…: conditions and counterfactuals",
+     "La ciudad que se hunde: relatives and the long sentence",
+     "En pos de la monarca: prepositional phrases and government"
+    ],
+    "honors": [
+     "Honors: Leer el español antiguo: from the Cantar to the eighteenth century",
+     "Honors: La mayoría votó o votaron: hard cases of agreement"
+    ]
+   },
+   {
+    "title": "Estilo, retórica y lengua literaria (style, rhetoric and literary language)",
+    "lessons": [
+     "El discurso del premio: figures of speech beyond C1",
+     "Una prosa depurada: the critical review and the vocabulary of style",
+     "Quién cuenta y desde dónde: narrative technique",
+     "Leer entre líneas: framing, implicature and the language of power"
+    ],
+    "honors": [
+     "Honors: La comedia del Siglo de Oro: Lope, Calderón and Ruiz de Alarcón",
+     "Honors: El modernismo: Darío, Martí and Gutiérrez Nájera"
+    ]
+   },
+   {
+    "title": "Lenguajes de especialidad (specialized language)",
+    "lessons": [
+     "Se concede el amparo: reading a Mexican judgment",
+     "Cuadro clínico: from the clinical record to the patient",
+     "La Junta de Gobierno decidió…: central-bank and financial Spanish",
+     "Reivindicaciones: patents, standards and the technical report"
+    ],
+    "honors": [
+     "Honors: Lea el instructivo: the language of medicine leaflets",
+     "Honors: Ante la fe del notario: deeds and wills"
+    ]
+   },
+   {
+    "title": "Un idioma, muchas normas (Spanish across the world)",
+    "lessons": [
+     "Doblado en México: dubbing, neutral Spanish and the pluricentric norm",
+     "Un semestre en Salamanca: reading and hearing Spain's Spanish",
+     "Al tiro, ahorita, ahoritita: grammar and usage across the Americas",
+     "El español que viene: contact, change and the debates about usage"
+    ],
+    "honors": [
+     "Honors: El judeoespañol: the Spanish of the Sephardim",
+     "Honors: Guinea Ecuatorial y Filipinas: Spanish in Africa and Asia"
+    ]
+   },
+   {
+    "title": "Mediación y el DELE C2 (mediation and the C2 exam)",
+    "lessons": [
+     "Con base en varias fuentes: writing from several sources (EMIE task 1)",
+     "De las notas al texto: rewriting and post-editing (EMIE task 2)",
+     "Una pirámide que se invierte: texts from data and oral mediation",
+     "The DELE C2 exam and review"
+    ],
+    "honors": [
+     "Honors: DELE C2 test 1 in practice: language use, reading and listening",
+     "Honors: DELE C2 speaking in practice",
+     "Honors: Interpretar sin cabina: liaison interpreting and mediation in person"
+    ]
+   },
+   {
+    "title": "Honors: Del Lazarillo a Borges (classics across the Spanish-speaking world)",
+    "lessons": [],
+    "honors": [
+     "El Lazarillo y la picaresca: from Tormes to the Periquillo",
+     "Galdós y Clarín: the realist novel",
+     "Lorca y la Generación del 27",
+     "Borges y lo fantástico: from Buenos Aires to Arreola and Amparo Dávila"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-a1",
+  "file": "languages/lang-french-a1.json",
+  "order": 115,
+  "title": "French A1",
+  "description": "French from your first word to CEFR level A1, the level of the DELF A1. Grammar lessons cover sounds, spelling and accents, liaison and elision, greetings, être and avoir, numbers (with soixante-dix and quatre-vingts), gender and the three articles (definite, indefinite, partitive), adjective agreement, the present tense of regular and key irregular verbs, negation, three ways to ask a question, the near future with aller, reflexive verbs for your daily routine, the time and the date, the imperative for directions, and the passé composé with avoir and être. About 675 everyday words are learned through typed vocabulary reviews with pronunciation, conjugation drills practise the present, the imperative and the passé composé, optional honors lessons explore French culture and the French-speaking world, and a reading list points to graded readers and free resources you can try on your own. The standard is the French of France; Belgian, Swiss and Québec usage is noted where it differs.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 18,
+  "questions": 707,
+  "cards": 348,
+  "drills": 0,
+  "words": 908,
+  "lessonIds": [
+   "fr1-sounds",
+   "fr1-greetings",
+   "fr1-etre",
+   "fr1-numbers",
+   "fr1-articles",
+   "fr1-family",
+   "fr1-er-verbs",
+   "fr1-adjectives",
+   "fr1-food",
+   "fr1-shopping",
+   "fr1-questions",
+   "fr1-city",
+   "fr1-faire",
+   "fr1-transport",
+   "fr1-clothes",
+   "fr1-health",
+   "fr1-routine",
+   "fr1-time",
+   "fr1-dates",
+   "fr1-directions",
+   "fr1-pc-avoir",
+   "fr1-pc-etre",
+   "fr1-writing",
+   "fr1-exam-review"
+  ],
+  "honorsLessonIds": [
+   "fr1-m1-h-sounds-in-depth",
+   "fr1-m1-h-francophonie",
+   "fr1-m1-h-numbers-life",
+   "fr1-m2-h-gender-patterns",
+   "fr1-m2-h-portraits",
+   "fr1-m3-h-food-culture",
+   "fr1-m3-h-questions-registers",
+   "fr1-m4-h-leisure",
+   "fr1-m4-h-doctor",
+   "fr1-m4-h-soldes",
+   "fr1-m5-h-timetables",
+   "fr1-m5-h-french-year",
+   "fr1-m6-h-past-story",
+   "fr1-m6-h-letters",
+   "fr1-h-logement",
+   "fr1-h-regions",
+   "fr1-h-fable",
+   "fr1-h-savoir-vivre"
+  ],
+  "honorsModuleIds": [
+   "fr1-h1"
+  ],
+  "outline": [
+   {
+    "title": "First steps",
+    "lessons": [
+     "Sounds, letters and accents",
+     "Bonjour ! Greetings, tu and vous",
+     "Être: who you are and where you're from",
+     "Numbers, age and phone numbers"
+    ],
+    "honors": [
+     "Sounds in depth: liaison, the mute e and sentence melody",
+     "Le monde francophone: French around the world",
+     "Numbers in everyday life: sums, marks and handwriting"
+    ]
+   },
+   {
+    "title": "People and things",
+    "lessons": [
+     "Nouns, gender and articles: at home",
+     "Family, avoir and possessives",
+     "Work, study and languages: the present of -er verbs",
+     "Describing people and things: adjectives"
+    ],
+    "honors": [
+     "Guessing gender: endings and feminine job titles",
+     "Portraits: describing looks and character"
+    ]
+   },
+   {
+    "title": "Café, market and town",
+    "lessons": [
+     "Food and drink: the partitive",
+     "Shopping, prices and ne … pas",
+     "At the café and restaurant: asking questions",
+     "In town: aller, au/à la and the near future"
+    ],
+    "honors": [
+     "Honors: À table — eating and ordering the French way",
+     "Honors: Asking questions in three registers"
+    ]
+   },
+   {
+    "title": "Free time and getting around",
+    "lessons": [
+     "Free time and weather: faire and jouer",
+     "Getting around: prendre, venir and partir",
+     "Clothes and stem-changing -er verbs",
+     "Body and health: -ir and -re verbs"
+    ],
+    "honors": [
+     "Les loisirs à la française",
+     "Chez le médecin et à la pharmacie",
+     "Les soldes and sizes"
+    ]
+   },
+   {
+    "title": "Everyday life",
+    "lessons": [
+     "My day: reflexive verbs",
+     "Telling the time and the days of the week",
+     "Dates, birthdays and invitations: vouloir, pouvoir, devoir",
+     "Finding the way: the imperative"
+    ],
+    "honors": [
+     "Departure boards and timetables",
+     "The French year: holidays and traditions"
+    ]
+   },
+   {
+    "title": "The past and the DELF A1",
+    "lessons": [
+     "What did you do? The passé composé with avoir",
+     "Where did you go? The passé composé with être",
+     "Linking ideas and writing short messages",
+     "The DELF A1 exam and review"
+    ],
+    "honors": [
+     "Honors: telling a story in the past",
+     "Honors: letters, e-mails and texts the French way"
+    ]
+   },
+   {
+    "title": "Honors: Art de vivre (the French way of life)",
+    "lessons": [],
+    "honors": [
+     "Chercher un logement: flat ads, visits and the lease",
+     "La France en régions: a tour of France and overseas France",
+     "Lire une fable: La Cigale et la Fourmi",
+     "Savoir-vivre: bonjour, tu or vous, la bise and dinner with friends"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-a2",
+  "file": "languages/lang-french-a2.json",
+  "order": 116,
+  "title": "French A2",
+  "description": "The second step in French, from A1 to CEFR level A2, the level of the DELF A2. Lessons cover the imparfait and how it works with the passé composé, time expressions with depuis, il y a and pendant, venir de and être en train de, direct and indirect object pronouns, y and en, pronouns in the passé composé, comparatives and superlatives, the relative pronouns qui, que and où, demonstrative and possessive pronouns, adverbs in -ment, the futur simple, the conditionnel for polite requests, wishes and advice, si with the present, negation beyond ne … pas, indefinite words, reporting what someone says, giving an opinion, and writing invitations, thanks and accounts of events. About 625 new words build on the 676 core words of French A1 for about 1,300 in all. Conjugation drills add the imparfait, the futur simple and the conditionnel to the A1 forms, optional honors lessons explore French life, history, songs and stories, and a reading list suggests graded readers for this level. The standard is the French of France. Unlocks when French A1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 18,
+  "questions": 702,
+  "cards": 389,
+  "drills": 0,
+  "words": 1842,
+  "carried": 908,
+  "requires": [
+   "lang-french-a1"
+  ],
+  "lessonIds": [
+   "fr2-imparfait",
+   "fr2-imparfait-pc",
+   "fr2-time-expressions",
+   "fr2-recent-progressive",
+   "fr2-cod",
+   "fr2-coi",
+   "fr2-y-en",
+   "fr2-pronouns-past",
+   "fr2-comparatives",
+   "fr2-relatives",
+   "fr2-demonstrative-possessive",
+   "fr2-adverbs",
+   "fr2-futur",
+   "fr2-conditionnel",
+   "fr2-si-advice",
+   "fr2-environment",
+   "fr2-negation",
+   "fr2-indefinites",
+   "fr2-reported",
+   "fr2-cause-purpose",
+   "fr2-opinions",
+   "fr2-going-out",
+   "fr2-writing",
+   "fr2-exam-review"
+  ],
+  "honorsLessonIds": [
+   "fr2-m1-h-memoirs",
+   "fr2-m1-h-xxe-siecle",
+   "fr2-m2-h-double-pronouns",
+   "fr2-m2-h-families",
+   "fr2-m3-h-dont-ce-que",
+   "fr2-m3-h-cities",
+   "fr2-m3-h-gerondif",
+   "fr2-m4-h-si-imparfait",
+   "fr2-m4-h-ecology",
+   "fr2-m4-h-subjunctive",
+   "fr2-m5-h-cv-letter",
+   "fr2-m5-h-admin",
+   "fr2-m6-h-press",
+   "fr2-m6-h-speaking",
+   "fr2-h-conte",
+   "fr2-h-chansons",
+   "fr2-h-cinema",
+   "fr2-h-une-annee"
+  ],
+  "honorsModuleIds": [
+   "fr2-h1"
+  ],
+  "outline": [
+   {
+    "title": "Then and now",
+    "lessons": [
+     "When I was a child: the imparfait",
+     "Telling a story: imparfait or passé composé?",
+     "How long? depuis, il y a, pendant, en and dans",
+     "Just done, doing now, about to: venir de and être en train de"
+    ],
+    "honors": [
+     "Honors: Écrire ses souvenirs (writing your memories)",
+     "Honors: La France au XXe siècle (France in the 20th century)"
+    ]
+   },
+   {
+    "title": "People and pronouns",
+    "lessons": [
+     "Him, her, it, them: direct object pronouns",
+     "To him, to them: indirect object pronouns",
+     "Y and en",
+     "Pronouns in the past and with two verbs"
+    ],
+    "honors": [
+     "Honors: two pronouns at once",
+     "Honors: Les familles d'aujourd'hui (families today)"
+    ]
+   },
+   {
+    "title": "Describing and comparing",
+    "lessons": [
+     "Comparing: plus, moins, aussi … que and the best",
+     "The person who, the thing that: qui, que and où",
+     "This one, mine: celui, celle and le mien",
+     "How you do it: adverbs in -ment; character and feelings"
+    ],
+    "honors": [
+     "More relatives: dont, ce qui, ce que",
+     "Paris, Lyon, Marseille: comparing cities",
+     "En marchant: the gérondif"
+    ]
+   },
+   {
+    "title": "Plans, wishes and the future",
+    "lessons": [
+     "What will happen: the futur simple",
+     "Would you…? The conditionnel for requests, wishes and advice",
+     "If…: si + present, il faut and advice",
+     "Weather, nature and the environment: il est + adjective + de"
+    ],
+    "honors": [
+     "If I won the lottery: si + imparfait + conditionnel",
+     "L'écologie au quotidien: green habits in France",
+     "Il faut que …: meeting the subjunctive"
+    ]
+   },
+   {
+    "title": "Work, studies and everyday services",
+    "lessons": [
+     "Never, nothing, nobody, no longer: negation beyond ne … pas",
+     "Each, every, several, everyone: indefinite words",
+     "He says that…, I'm asking if…: reported speech and indirect questions",
+     "Why and what for: cause, consequence and purpose"
+    ],
+    "honors": [
+     "Honors: le CV et la lettre de motivation",
+     "Honors: la France administrative"
+    ]
+   },
+   {
+    "title": "Opinions, messages and the DELF A2",
+    "lessons": [
+     "In my opinion: opinions, agreeing and disagreeing",
+     "Shall we go out? Suggestions, invitations and reactions",
+     "Writing at A2: telling about an event; inviting, thanking, apologising",
+     "The DELF A2 exam and review"
+    ],
+    "honors": [
+     "Honors: Lire la presse (reading the news)",
+     "Honors: L'oral du DELF A2 en pratique (the speaking test in practice)"
+    ]
+   },
+   {
+    "title": "Honors: Contes, chansons et cinéma (stories, songs and film)",
+    "lessons": [],
+    "honors": [
+     "Un conte de Perrault: Le Petit Chaperon rouge",
+     "Chansons françaises",
+     "Le cinéma français",
+     "Une année en France"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-b1",
+  "file": "languages/lang-french-b1.json",
+  "order": 117,
+  "title": "French B1",
+  "description": "The third step in French, from A2 to CEFR level B1, the level of the DELF B1. Lessons cover telling stories with the passé composé, imparfait and plus-que-parfait, time clauses, the gérondif and the participe présent, the subjonctif présent after necessity, wishes, feelings, doubt and conjunctions such as pour que, avant que and bien que, si-clauses of all three types, the conditionnel passé, the futur antérieur, the relative pronouns dont, ce qui, ce que and lequel, auquel, duquel, the passive, two pronouns together and faire + infinitive, reported speech with tense changes, cause, consequence, concession and opposition, giving and defending an opinion, formal letters and essays, and the DELF B1. About 600 new words build on the 1,302 core words of French A1 and A2 for about 1,900 in all. Conjugation drills add the subjonctif présent and the plus-que-parfait to the A1 and A2 forms, optional honors lessons explore French literature, the history of the language, the French-speaking world and French inventions, and a reading list suggests graded readers and free resources for this level. The standard is the French of France. Unlocks when French A2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 16,
+  "questions": 663,
+  "cards": 373,
+  "drills": 0,
+  "words": 2640,
+  "carried": 1842,
+  "requires": [
+   "lang-french-a2"
+  ],
+  "lessonIds": [
+   "fr3-recit",
+   "fr3-plus-que-parfait",
+   "fr3-sequence",
+   "fr3-gerondif",
+   "fr3-subjonctif",
+   "fr3-subj-volonte",
+   "fr3-subj-doute",
+   "fr3-subj-conjonctions",
+   "fr3-si-imparfait",
+   "fr3-conditionnel-passe",
+   "fr3-si-passe",
+   "fr3-futur-anterieur",
+   "fr3-dont-ce-que",
+   "fr3-lequel",
+   "fr3-passif",
+   "fr3-pronoms-faire",
+   "fr3-discours-indirect",
+   "fr3-questions-ordres",
+   "fr3-cause-consequence",
+   "fr3-concession",
+   "fr3-argumenter",
+   "fr3-ecrire",
+   "fr3-oral",
+   "fr3-delf-b1"
+  ],
+  "honorsLessonIds": [
+   "fr3-m1-h-biographie",
+   "fr3-m1-h-recit-de-voyage",
+   "fr3-m2-h-subj-passe",
+   "fr3-m2-h-expressions-subj",
+   "fr3-m3-h-uchronie",
+   "fr3-m3-h-conditionnel-info",
+   "fr3-m4-h-negation",
+   "fr3-m4-h-patrimoine",
+   "fr3-m5-h-registres",
+   "fr3-m5-h-expressions",
+   "fr3-m6-h-essai",
+   "fr3-m6-h-oral-delf",
+   "fr3-h-nouvelle",
+   "fr3-h-francophonie",
+   "fr3-h-histoire-langue",
+   "fr3-h-innovations"
+  ],
+  "honorsModuleIds": [
+   "fr3-h1"
+  ],
+  "outline": [
+   {
+    "title": "Telling the past",
+    "lessons": [
+     "Telling a story well: the passé composé and the imparfait in depth",
+     "Before that: the plus-que-parfait",
+     "First this, then that: time clauses and sequence",
+     "En conduisant: the gérondif and the participe présent"
+    ],
+    "honors": [
+     "Honors: Écrire une vie: Marie Curie (writing a life)",
+     "Honors: Le récit de voyage (travel writing)"
+    ]
+   },
+   {
+    "title": "The subjunctive",
+    "lessons": [
+     "Il faut que tu viennes: the subjonctif présent",
+     "I want you to …: wishes, orders and feelings",
+     "I doubt it's true: doubt, possibility and opinion",
+     "So that, before, although: conjunctions with the subjunctive"
+    ],
+    "honors": [
+     "Qu'il soit parti: the subjonctif passé",
+     "Vive les vacances ! Que le meilleur gagne !"
+    ]
+   },
+   {
+    "title": "Hypotheses, regrets and the future perfect",
+    "lessons": [
+     "If I could …: si + imparfait, même si, sinon, au cas où",
+     "I should have …: the conditionnel passé",
+     "If I had known: si + plus-que-parfait and the conditionnel passé",
+     "By then I will have …: future time clauses and the futur antérieur"
+    ],
+    "honors": [
+     "Et si … ? L'uchronie (alternate history)",
+     "Selon nos informations …: the conditionnel in the news"
+    ]
+   },
+   {
+    "title": "Relatives, the passive and getting things done",
+    "lessons": [
+     "The painting I told you about: dont, ce qui, ce que, ce dont",
+     "The project I'm working on: lequel, auquel, duquel",
+     "It was made in France: the passive",
+     "I'll have it fixed: two pronouns together and faire + infinitive"
+    ],
+    "honors": [
+     "Ni l'un ni l'autre: negation and indefinites in depth",
+     "Notre-Dame et la tour Eiffel: le patrimoine au passif"
+    ]
+   },
+   {
+    "title": "Reporting, explaining and contrasting",
+    "lessons": [
+     "She said she would come: reported speech in the past",
+     "He asked me whether …, she told me to …: reported questions and orders",
+     "Since, so much that: cause and consequence at B1",
+     "Although, whereas, however: concession and opposition"
+    ],
+    "honors": [
+     "Familier, courant, soutenu: the registers of French",
+     "Avoir le cafard: twelve French idioms"
+    ]
+   },
+   {
+    "title": "Arguing, writing and the DELF B1",
+    "lessons": [
+     "In my view: giving, structuring and defending an opinion",
+     "Writing at B1: formal letters, articles and the essay",
+     "Speaking at B1: discussing, negotiating, persuading",
+     "The DELF B1 exam and review"
+    ],
+    "honors": [
+     "Honors: From B1 to B2: the argued essay",
+     "Honors: L'oral du DELF B1 en pratique (the speaking test in practice)"
+    ]
+   },
+   {
+    "title": "Honors: Littérature, langue et francophonie (literature, language and the French-speaking world)",
+    "lessons": [],
+    "honors": [
+     "Une nouvelle de Maupassant: La Parure",
+     "Le français dans le monde",
+     "Du latin au français",
+     "Inventé en France: du Minitel au TGV"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-b2",
+  "file": "languages/lang-french-b2.json",
+  "order": 118,
+  "title": "French B2",
+  "description": "The fourth step in French, from B1 to CEFR level B2, the level of the DELF B2. Lessons cover reading literary narrative in the passé simple and the passé antérieur, time relations such as à peine … que and en attendant que, past participle agreement in hard cases, the futur antérieur and the future in the past, the subjonctif passé, the subjunctive in relative clauses and after superlatives, fine choices between the subjunctive and the indicative, concession with quel que soit, si … que and quand bien même, conditions without si, every use of the conditionnel, modal verbs of probability, comparison and proportion, complex relatives, nominalisation, alternatives to the passive, the pronouns le, en and y in depth, cause, consequence, purpose and opposition, reported speech with free indirect speech, emphasis and inversion, the argued essay, the formal letter, defending a point of view aloud, and the DELF B2. About 580 new words build on the roughly 1,900 core words of French A1 to B1 for about 2,500 in all. Conjugation drills carry the A1 to B1 forms, optional honors lessons explore French and francophone literature, the Enlightenment and a capstone press dossier, and a reading list suggests graded readers, novels and free resources for this level. The standard is the French of France; Belgian, Swiss and Québec usage is noted where it differs. Unlocks when French B1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 16,
+  "questions": 714,
+  "cards": 370,
+  "drills": 0,
+  "words": 3381,
+  "carried": 2640,
+  "requires": [
+   "lang-french-b1"
+  ],
+  "lessonIds": [
+   "fr4-passe-simple",
+   "fr4-chronologie",
+   "fr4-accord-participe",
+   "fr4-futur-anterieur",
+   "fr4-subjonctif-passe",
+   "fr4-subj-relatives",
+   "fr4-subj-ou-indicatif",
+   "fr4-concession",
+   "fr4-conditions",
+   "fr4-conditionnel",
+   "fr4-probabilite",
+   "fr4-comparaison",
+   "fr4-relatifs",
+   "fr4-nominalisation",
+   "fr4-passif",
+   "fr4-pronoms",
+   "fr4-cause-consequence",
+   "fr4-but-opposition",
+   "fr4-discours-rapporte",
+   "fr4-mise-en-relief",
+   "fr4-argumenter",
+   "fr4-ecrire",
+   "fr4-oral",
+   "fr4-delf-b2"
+  ],
+  "honorsLessonIds": [
+   "fr4-m1-h-temps-litteraires",
+   "fr4-m1-h-saint-exupery",
+   "fr4-m2-h-norme-usage",
+   "fr4-m2-h-cinema",
+   "fr4-m3-h-chiffres",
+   "fr4-m3-h-jules-verne",
+   "fr4-m4-h-langue-administrative",
+   "fr4-m4-h-institutions",
+   "fr4-m5-h-flaubert",
+   "fr4-m5-h-figures-de-style",
+   "fr4-m6-h-synthese",
+   "fr4-m6-h-oral-delf-b2",
+   "fr4-h-candide",
+   "fr4-h-francophonie-litteraire",
+   "fr4-h-lumieres",
+   "fr4-h-dossier"
+  ],
+  "honorsModuleIds": [
+   "fr4-h1"
+  ],
+  "outline": [
+   {
+    "title": "Narrating and placing events in time",
+    "lessons": [
+     "Il était une fois un crime: the passé simple and the passé antérieur",
+     "À peine arrivée, elle repartit: time relations at B2",
+     "Les lettres que j'ai reçues: past participle agreement in hard cases",
+     "Il aura oublié: the futur antérieur and the future in the past"
+    ],
+    "honors": [
+     "Honors: Qu'il fût: the literary tenses of the subjunctive",
+     "Honors: Saint-Exupéry, aviateur et écrivain"
+    ]
+   },
+   {
+    "title": "The subjunctive in depth",
+    "lessons": [
+     "Bien qu'elle ait perdu: the subjonctif passé",
+     "Je cherche un appartement qui soit calme: the subjunctive in relative clauses",
+     "Qu'il ait raison, personne ne le conteste: fine mood choices",
+     "Quelle que soit la critique: concession at B2"
+    ],
+    "honors": [
+     "Malgré que, après que: la norme et l'usage",
+     "Une brève histoire du cinéma français"
+    ]
+   },
+   {
+    "title": "Conditions, probability and comparison",
+    "lessons": [
+     "Pour peu qu'il fasse beau: conditions without si",
+     "Selon les premiers bilans, il y aurait …: every use of the conditionnel",
+     "Il a dû se tromper: probability and the modal verbs",
+     "Plus on gagne, plus on dépense: comparison and proportion"
+    ],
+    "honors": [
+     "Lire et commenter des chiffres: describing data",
+     "De la Terre à la Lune: Jules Verne et l'anticipation"
+    ]
+   },
+   {
+    "title": "Precise and formal French",
+    "lessons": [
+     "Ce sur quoi je compte: relative pronouns at B2",
+     "La hausse des prix: nominalisation and the style of the press",
+     "Il s'est vu refuser l'entrée: alternatives to the passive",
+     "Je le savais, j'y tiens, je lui en veux: pronouns in depth"
+    ],
+    "honors": [
+     "Le français administratif et juridique",
+     "Les institutions de la Ve République"
+    ]
+   },
+   {
+    "title": "Logical links, reported speech and emphasis",
+    "lessons": [
+     "D'autant que, au point que: cause and consequence at B2",
+     "De peur de rater le train: purpose and opposition at B2",
+     "Selon le ministre … : reporting and commenting on what others say",
+     "C'est en 1947 que tout a commencé: emphasis and word order"
+    ],
+    "honors": [
+     "Madame Bovary et le style indirect libre",
+     "Les figures de style: saying more, less or otherwise"
+    ]
+   },
+   {
+    "title": "Arguing, writing, speaking and the DELF B2",
+    "lessons": [
+     "Convaincre: building an argument at B2",
+     "Écrire au niveau B2: the formal letter, the critical review and the essay",
+     "Parler au niveau B2: presenting a view and debating it",
+     "Le DELF B2: the exam and a course review"
+    ],
+    "honors": [
+     "Honors: Vers le DALF C1: la synthèse de documents",
+     "Honors: L'oral du DELF B2 en pratique"
+    ]
+   },
+   {
+    "title": "Honors: Littérature, idées et société (literature, ideas and society)",
+    "lessons": [],
+    "honors": [
+     "Voltaire, Candide (1759)",
+     "Voix de la francophonie",
+     "Les Lumières et l'Encyclopédie",
+     "Dossier de presse: le train ou l'avion ?"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-c1",
+  "file": "languages/lang-french-c1.json",
+  "order": 119,
+  "title": "French C1",
+  "description": "The fifth step in French, from B2 to CEFR level C1, the level of the DALF C1. Lessons cover choosing a register for every reader, the grammar of spoken French, the formal sentence with inversion and ne used alone, precise verbs and a clean style, the subjunctive in independent clauses and alternatives, the sequence of tenses in every mood, the stylistic values of the tenses, degrees of certainty and distance, fine distinctions in cause, consequence and concession, cohesion in long texts, presupposition, implication and irony, idioms, collocations and support verbs, academic French with quotation and paraphrase, learned word formation, participial clauses and the long sentence, the summary and the compte rendu, the synthèse de documents, the essai argumenté, the exposé, diplomatic debate, following a lecture and taking notes, and the DALF C1. About 620 new words build on the roughly 2,500 core words of French A1 to B2 for about 3,100 in all. Conjugation drills carry every form of A1 to B2, optional honors lessons explore French in Belgium, Switzerland and Québec, slang, professional writing, wordplay, rhetoric, Montaigne, Zola and the Dreyfus affair, Proust and a capstone dossier on spelling reform, and a reading list suggests DALF books, podcasts and free classics for this level. The standard is the French of France; Belgian, Swiss and Québec usage is noted where it differs. Unlocks when French B2 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 17,
+  "questions": 730,
+  "cards": 398,
+  "drills": 0,
+  "words": 4181,
+  "carried": 3381,
+  "requires": [
+   "lang-french-b2"
+  ],
+  "lessonIds": [
+   "fr5-registres",
+   "fr5-francais-parle",
+   "fr5-langue-soutenue",
+   "fr5-style",
+   "fr5-subjonctif-c1",
+   "fr5-concordance",
+   "fr5-valeurs-temps",
+   "fr5-modalisation",
+   "fr5-cause-c1",
+   "fr5-concession-c1",
+   "fr5-cohesion",
+   "fr5-implicite",
+   "fr5-expressions",
+   "fr5-collocations",
+   "fr5-academique",
+   "fr5-formation-mots",
+   "fr5-textes-longs",
+   "fr5-resume",
+   "fr5-synthese",
+   "fr5-essai",
+   "fr5-expose",
+   "fr5-debat",
+   "fr5-ecoute",
+   "fr5-dalf-c1"
+  ],
+  "honorsLessonIds": [
+   "fr5-m1-h-variantes",
+   "fr5-m1-h-ecrits-pro",
+   "fr5-m1-h-argot",
+   "fr5-m2-h-lettres-persanes",
+   "fr5-m2-h-sentiments",
+   "fr5-m3-h-humour",
+   "fr5-m3-h-rhetorique",
+   "fr5-m4-h-terminologie",
+   "fr5-m4-h-proverbes",
+   "fr5-m5-h-dissertation",
+   "fr5-m5-h-eloge-lenteur",
+   "fr5-m6-h-oral-dalf",
+   "fr5-m6-h-note-synthese",
+   "fr5-h-montaigne",
+   "fr5-h-zola-dreyfus",
+   "fr5-h-proust",
+   "fr5-h-dossier-orthographe"
+  ],
+  "honorsModuleIds": [
+   "fr5-h1"
+  ],
+  "outline": [
+   {
+    "title": "Register and style",
+    "lessons": [
+     "Bouquin, livre, ouvrage: choosing a register",
+     "Ben, genre, du coup: the grammar of spoken French",
+     "Sans doute a-t-il raison: the formal sentence",
+     "Effectuer, élaborer, recenser: precision and variety in writing"
+    ],
+    "honors": [
+     "Septante, la tuque, la votation: French in Belgium, Switzerland and Québec",
+     "Le courriel, la note et le procès-verbal: professional writing",
+     "Argot et verlan (recognition)"
+    ]
+   },
+   {
+    "title": "Moods and tenses: the fine points",
+    "lessons": [
+     "Advienne que pourra: the subjunctive at C1",
+     "Il croyait qu'elle viendrait: tense agreement in every mood",
+     "Le lendemain, il mourait: the stylistic values of the tenses",
+     "Manifestement, il semblerait que: degrees of certainty and commitment"
+    ],
+    "honors": [
+     "Honors: Les Lettres persanes et le roman épistolaire",
+     "Honors: L'amertume et le soulagement: nuancing feelings"
+    ]
+   },
+   {
+    "title": "Connectors and the implicit",
+    "lessons": [
+     "Dans la mesure où, en ce sens que: cause and consequence at C1",
+     "Tant s'en faut, il reste que: concession and opposition at C1",
+     "Ce dernier, à savoir, somme toute: cohesion in long texts",
+     "Ce n'est pas faux: presupposition, implication and irony"
+    ],
+    "honors": [
+     "Calembours et contrepèteries: French wordplay",
+     "Ethos, pathos, logos: rhetoric and great speeches"
+    ]
+   },
+   {
+    "title": "Idiomatic and academic French",
+    "lessons": [
+     "Tourner autour du pot: idioms at C1",
+     "Faire preuve de, mettre en œuvre: collocations and support verbs",
+     "Comme le souligne l'auteur: academic French",
+     "Chronophage, énergivore: learned word formation"
+    ],
+    "honors": [
+     "Courriel, mot-dièse, infox: official terminology and anglicisms",
+     "Qui ne dit mot consent: proverbs and sayings"
+    ]
+   },
+   {
+    "title": "Long texts: summary, synthesis and essay",
+    "lessons": [
+     "La réunion terminée, chacun rentra: participial clauses and long sentences",
+     "Résumer, c'est choisir: the summary and the compte rendu",
+     "La synthèse de documents",
+     "L'essai argumenté"
+    ],
+    "honors": [
+     "Honors: La dissertation et le commentaire de texte",
+     "Honors: Éloge de la lenteur: reading a long essay"
+    ]
+   },
+   {
+    "title": "Speaking at C1 and the DALF C1",
+    "lessons": [
+     "L'exposé: from documents to a structured talk",
+     "Nuancer, objecter, concéder: diplomatic debate at C1",
+     "Suivre une conférence: listening and note-taking at C1",
+     "Le DALF C1: the exam and a course review"
+    ],
+    "honors": [
+     "Honors: L'oral du DALF C1 en pratique",
+     "Honors: Le rapport et la note de synthèse"
+    ]
+   },
+   {
+    "title": "Honors: Littérature et pensée (literature and thought)",
+    "lessons": [],
+    "honors": [
+     "Montaigne et l'invention de l'essai",
+     "Zola, l'affaire Dreyfus et l'intellectuel engagé",
+     "Proust et la phrase longue",
+     "Dossier : faut-il simplifier l'orthographe ?"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-french-c2",
+  "file": "languages/lang-french-c2.json",
+  "order": 119.5,
+  "title": "French C2",
+  "description": "The sixth and last step in French, from C1 to CEFR level C2, the level of the DALF C2. Lessons cover the precise word among near-synonyms and paronyms, deliberate shifts of register from the administrative to the popular, the hard cases of agreement and the norm, scope, ambiguity and exact qualification, the passé simple and the literary subjunctives for reading, the second conditional, rhythm, sound and word order in style, pastiche and the analysis of style, the French of law, science and technology, economics and finance, and the language of ideas, French in Africa, the Maghreb, Québec, Acadia, Belgium and Switzerland and the debate over a single standard, reading a long dossier fast, the article, the éditorial, the rapport and the speech, the oral compte rendu of a long recording, the argued monologue, the debate with the jury and the DALF C2. About 620 new words build on the roughly 3,110 core words of French A1 to C1 for about 3,730 in all. Conjugation drills carry every form of A1 to C1, optional honors lessons explore translation, the makers of the norm, French verse, Camus and the passé composé, the French of space, the Code civil, Kourouma, the French-based creoles, the tribune, the commentaire composé, two mock DALF C2 papers, Molière, Hugo and argot, Yourcenar and a capstone dossier on machine translation, and a reading list suggests DALF books, radio and free classics for this level. The standard is the French of France; Belgian, Swiss, Québec and African usage is noted throughout. Unlocks when French C1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 24,
+  "honors": 16,
+  "questions": 790,
+  "cards": 384,
+  "drills": 0,
+  "words": 4976,
+  "carried": 4181,
+  "requires": [
+   "lang-french-c1"
+  ],
+  "lessonIds": [
+   "fr6-precision",
+   "fr6-registres-c2",
+   "fr6-accords",
+   "fr6-portee",
+   "fr6-passe-simple-c2",
+   "fr6-subjonctif-litteraire",
+   "fr6-rythme-style",
+   "fr6-pastiche",
+   "fr6-juridique",
+   "fr6-scientifique",
+   "fr6-economique",
+   "fr6-idees",
+   "fr6-afrique",
+   "fr6-maghreb-contact",
+   "fr6-quebec-acadie",
+   "fr6-norme-pluricentrique",
+   "fr6-dossier",
+   "fr6-article-editorial",
+   "fr6-rapport",
+   "fr6-discours",
+   "fr6-compte-rendu-oral",
+   "fr6-point-de-vue",
+   "fr6-debat-jury",
+   "fr6-dalf-c2"
+  ],
+  "honorsLessonIds": [
+   "fr6-m1-h-traduction",
+   "fr6-m1-h-norme",
+   "fr6-m2-h-versification",
+   "fr6-m2-h-camus",
+   "fr6-m3-h-espace",
+   "fr6-m3-h-code-civil",
+   "fr6-m4-h-kourouma",
+   "fr6-m4-h-creoles",
+   "fr6-m5-h-tribune",
+   "fr6-m5-h-commentaire",
+   "fr6-m6-h-ecrit-blanc",
+   "fr6-m6-h-oral-blanc",
+   "fr6-h-moliere",
+   "fr6-h-hugo-argot",
+   "fr6-h-yourcenar",
+   "fr6-h-dossier-traduction"
+  ],
+  "honorsModuleIds": [
+   "fr6-h1"
+  ],
+  "outline": [
+   {
+    "title": "Precision, register and the norm",
+    "lessons": [
+     "Conjecture ou conjoncture: near-synonyms, paronyms and the exact word",
+     "Se barrer, s'en aller, prendre congé: shifting register on purpose",
+     "Les heures qu'il a dormi: agreement, invariables and the hard cases of the norm",
+     "Tous ne sont pas venus: scope, ambiguity and exact qualification"
+    ],
+    "honors": [
+     "Traduire: English and French at C2",
+     "De Vaugelas au Bon Usage: who makes the norm?"
+    ]
+   },
+   {
+    "title": "Style and the literary tenses",
+    "lessons": [
+     "Il naquit, vécut et mourut: récit and discours",
+     "Qu'il fût, eût-il su: the literary subjunctive and the second conditional",
+     "Cadence, rythme, sonorité: the music of the sentence",
+     "À la manière de: pastiche, parody and the analysis of style"
+    ],
+    "honors": [
+     "L'alexandrin: how French verse works",
+     "L'Étranger: Camus and the passé composé"
+    ]
+   },
+   {
+    "title": "Specialised French",
+    "lessons": [
+     "Nonobstant, le cas échéant: reading legal French",
+     "Il a été montré que: scientific and technical French",
+     "Conjoncture, trésorerie, endettement: economic and financial French",
+     "Aporie, paradigme, dialectique: the language of ideas"
+    ],
+    "honors": [
+     "Ariane, Kourou, le CNES: the French of space",
+     "Le Code civil de 1804: a style of law"
+    ]
+   },
+   {
+    "title": "French across the French-speaking world",
+    "lessons": [
+     "Essencerie, maquis, grin: French in sub-Saharan Africa",
+     "Bled, kif-kif, darija: French in the Maghreb and languages in contact",
+     "Joual, chiac, magasiner: Québec and Acadian French at C2",
+     "Un français ou des français ? Belgium, Switzerland and the pluricentric norm"
+    ],
+    "honors": [
+     "Les Soleils des indépendances: Kourouma and the Malinké novel",
+     "Les créoles à base française: French-based creoles"
+    ]
+   },
+   {
+    "title": "The long written text: from dossier to article, report and speech",
+    "lessons": [
+     "Lire un dossier de 2 000 mots: selection, problématique and personal input",
+     "L'article et l'éditorial: writing for the press at C2",
+     "Le rapport: from constat to préconisations",
+     "Mesdames et Messieurs: writing a speech"
+    ],
+    "honors": [
+     "Honors: La tribune et la lettre ouverte",
+     "Honors: Le commentaire composé"
+    ]
+   },
+   {
+    "title": "Speaking at C2 and the DALF C2",
+    "lessons": [
+     "Rendre compte d'un document sonore",
+     "Le point de vue argumenté: ten minutes on one problématique",
+     "Le débat avec le jury: holding your ground",
+     "Le DALF C2: the exam and a course review"
+    ],
+    "honors": [
+     "Épreuve blanche: the written paper",
+     "Épreuve blanche: the oral"
+    ]
+   },
+   {
+    "title": "Honors: La langue et ses écrivains (language and its writers)",
+    "lessons": [],
+    "honors": [
+     "Molière et la langue classique",
+     "Hugo, Les Misérables et l'argot",
+     "Yourcenar, Mémoires d'Hadrien et la prose classique au XXe siècle",
+     "Dossier : la traduction automatique va-t-elle remplacer les traducteurs ?"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
   "id": "lang-japanese-kana",
   "file": "languages/lang-japanese-kana.json",
   "order": 120,

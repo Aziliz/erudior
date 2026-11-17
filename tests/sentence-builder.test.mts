@@ -194,6 +194,10 @@ has('question punct: a tile ends with the "punctuation" mark');
   assert.ok(buildCorrect(q, [2, 1, 0, 3]), "alternative order starting with a lowercase tile");
   assert.ok(!buildCorrect(q, [1, 0, 2, 3]), "wrong order");
   assert.equal(sentenceText(q, ["bis Ende Mai", "müssen", "die Fenster", "geputzt werden"], "de"), "Bis Ende Mai müssen die Fenster geputzt werden.");
+  assert.equal(sentenceText({ ...q, punctuation: "?" }, ["cómo", "te llamas"], "es"), "¿Cómo te llamas?", "Spanish questions open with ¿");
+  assert.equal(sentenceText({ ...q, punctuation: "!" }, ["qué padre"], "es"), "¡Qué padre!");
+  assert.equal(sentenceText({ ...q, punctuation: "?" }, ["¿cómo", "te llamas"], "es"), "¿Cómo te llamas?", "no second ¿ when the tile has one");
+  assert.equal(sentenceText({ ...q, punctuation: "?" }, ["wie", "heißt du"], "de"), "Wie heißt du?");
   const cap = { tiles: ["Am Montag", "fahre", "ich", "nach Berlin"], accept: [["ich", "fahre", "am Montag", "nach Berlin"]] };
   assert.ok(buildCorrect(cap, [2, 1, 0, 3]) === false, "tiles must match apart from the first letter of the sentence");
 }
