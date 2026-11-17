@@ -297,7 +297,7 @@ export default function VocabRunner({
         <button className="back" onClick={quit}>
           ← End
         </button>
-        <LanguageToggles code={lang?.code} />
+        <LanguageToggles code={lang?.code} script={!!lang?.traditional} />
         <span className="muted">
           {mode === "review" ? "Review" : "Extra practice"} · {done}/
           {initial.length}

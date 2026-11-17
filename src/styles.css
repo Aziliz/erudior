@@ -8214,6 +8214,11 @@ html .pitch-toggle .pa-d::after {
     "Source Han Sans SC", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
   font-style: normal;
 }
+/* Traditional characters: the TC fonts first, so shared code points take Taiwan glyphs. */
+html.zh-trad :lang(zh) {
+  font-family: var(--sans), "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Noto Sans TC", "Source Han Sans TC",
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
 ruby.py rt {
   font-family: var(--sans);
   font-size: 0.5em;

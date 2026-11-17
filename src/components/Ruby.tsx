@@ -80,6 +80,7 @@ const furigana = makeSetting("erudior.furigana", "furigana-off");
 const pitchAccent = makeSetting("erudior.pitch", "pitch-off");
 const pinyin = makeSetting("erudior.pinyin", "pinyin-off");
 const toneColours = makeSetting("erudior.tones", "tones-on", false);
+const traditionalScript = makeSetting("erudior.zhScript", "zh-trad", false);
 
 export const furiganaOn = furigana.isOn;
 export const applyFurigana = furigana.apply;
@@ -93,6 +94,11 @@ export const setPinyin = pinyin.set;
 export const toneColoursOn = toneColours.isOn;
 export const applyToneColours = toneColours.apply;
 export const setToneColours = toneColours.set;
+/** Chinese courses shown in traditional characters (per device; off = simplified). */
+export const traditionalOn = traditionalScript.isOn;
+export const applyTraditional = traditionalScript.apply;
+export const setTraditional = traditionalScript.set;
+export const useTraditional = traditionalScript.useSetting;
 
 /** A switch that shows or hides furigana everywhere (shown on Japanese course screens). */
 export function FuriganaToggle({ className = "" }: { className?: string }) {
@@ -179,20 +185,40 @@ export function ToneToggle({ className = "" }: { className?: string }) {
   );
 }
 
-/** Both Chinese switches, side by side. */
-export function ChineseToggles() {
+/** Simplified or traditional characters for the whole course (shown on courses that can convert). */
+export function ScriptToggle({ className = "" }: { className?: string }) {
+  const on = traditionalScript.useSetting();
+  return (
+    <button
+      type="button"
+      className={`btn sm ghost script-toggle ${className}`}
+      aria-pressed={on}
+      title="Show the course in traditional characters (Taiwan forms) instead of simplified"
+      onClick={() => setTraditional(!on)}
+    >
+      <span lang={on ? "zh-Hant" : "zh-Hans"} aria-hidden="true">
+        {on ? "繁" : "简"}
+      </span>{" "}
+      {on ? "Traditional" : "Simplified"}
+    </button>
+  );
+}
+
+/** The Chinese switches, side by side (the script switch when the course can convert). */
+export function ChineseToggles({ script = false }: { script?: boolean }) {
   return (
     <>
       <PinyinToggle />
       <ToneToggle />
+      {script && <ScriptToggle />}
     </>
   );
 }
 
 /** The reading switches for a course language: Japanese or Chinese ones, else nothing. */
-export function LanguageToggles({ code }: { code?: string }) {
+export function LanguageToggles({ code, script }: { code?: string; script?: boolean }) {
   if (code === "ja") return <JapaneseToggles />;
-  if (code === "zh") return <ChineseToggles />;
+  if (code === "zh") return <ChineseToggles script={script} />;
   return null;
 }
 
