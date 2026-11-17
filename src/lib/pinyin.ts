@@ -53,7 +53,7 @@ export function pinyinTyping(typed: string): string {
     .replace(/([nljqxyNLJQXY])(?:V|U:)/g, (_, c) => c + "Ü");
   out = out.replace(/([a-zA-ZüÜ:]+?)([0-5])/g, (whole, letters: string, d: string) => {
     // Only the last syllable-ish run before the digit takes the tone.
-    const m = /([bpmfdtnlgkhjqxrzcswy]?h?(?:[aeiouüvAEIOUÜV:]+)(?:ng|n|r)?|[mn]g?|hm|er)$/i.exec(letters);
+    const m = /([bpmfdtnlgkhjqxrzcswy]?h?(?:[aeiouüvAEIOUÜV:]+)(?:ng|n)?r?|[mn]g?|hm|er)$/i.exec(letters);
     if (!m) return whole;
     const head = letters.slice(0, letters.length - m[1].length);
     return head + markSyllable(m[1], Number(d));

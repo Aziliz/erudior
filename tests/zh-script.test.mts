@@ -131,3 +131,10 @@ assert.equal(scriptCourse(de, true), de);
 }
 
 console.log("zh-script: conversion, markup, trace blocks, overrides, course views, either-script answers and checker passed");
+
+// trace blocks in Chinese courses take trad=… (checked by zhScript, not reported as unknown)
+{
+  const { parseTrace } = await import("../src/lib/phonicsSpec.ts");
+  assert.deepEqual(parseTrace("trad=鐘", "钟", "zh").problems, [], "trad= is a known trace option in zh");
+  assert.ok(parseTrace("trad=鐘", "钟").problems.length > 0, "trad= is unknown outside Chinese");
+}

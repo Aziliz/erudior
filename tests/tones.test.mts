@@ -75,6 +75,8 @@ assert.deepEqual(heardTones([3, 3]), [2, 3]);
 assert.deepEqual(heardTones([3, 3, 3]), [2, 2, 3]);
 assert.deepEqual(acceptedPatterns([3, 4]), [[3, 4]]);
 assert.deepEqual(acceptedPatterns([3, 3]), [[3, 3], [2, 3]]);
+assert.deepEqual(acceptedPatterns([3, 3, 3]), [[3, 3, 3], [2, 2, 3], [3, 2, 3]], "a run of three third tones: 2+2+3 or 3+2+3 (小老虎)");
+assert.ok(toneCorrect([3, 3, 3], [3, 2, 3]) && !toneCorrect([3, 3, 3], [2, 3, 3]));
 assert.ok(toneCorrect([3, 3], [3, 3]) && toneCorrect([3, 3], [2, 3]) && !toneCorrect([3, 3], [3, 2]));
 assert.ok(!toneCorrect([4, 0], [4, -1]), "every syllable needs a pick");
 assert.deepEqual(toneParts([3, 3], [2, 2]), [true, false], "closest accepted pattern");

@@ -22,6 +22,8 @@ const ime = imeFor({ code: "zh", ime: "zh" } as never)!;
 assert.ok(ime, "zh IME registered");
 const typing: [string, string][] = [
   ["ni3hao3", "nǐhǎo"],
+  ["wanr2", "wánr"],
+  ["wan2r", "wánr"],
   ["ni3 hao3", "nǐ hǎo"],
   ["lv4", "lǜ"],
   ["lu:4", "lǜ"],
