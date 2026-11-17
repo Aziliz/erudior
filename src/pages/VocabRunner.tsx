@@ -23,7 +23,7 @@ import { composing, imeFor } from "../lib/ime";
 import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { confirmAction } from "../lib/storage";
 
-export type VocabMode = "review" | "practice" | "conjugation";
+export type VocabMode = "review" | "practice" | "conjugation" | "tones";
 
 interface Props {
   api: AppApi;

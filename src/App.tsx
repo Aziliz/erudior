@@ -58,6 +58,7 @@ import RefView from "./pages/RefView";
 import Reader from "./pages/Reader";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
 import ConjugationRunner from "./pages/ConjugationRunner";
+import ToneRunner from "./pages/ToneRunner";
 import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
@@ -1702,6 +1703,8 @@ export default function App() {
         body =
           view.mode === "conjugation" ? (
             <ConjugationRunner key={JSON.stringify(view)} api={api} course={c} />
+          ) : view.mode === "tones" ? (
+            <ToneRunner key={JSON.stringify(view)} api={api} course={c} lessonIds={view.lessonIds} />
           ) : (
             <VocabRunner key={JSON.stringify(view)} api={api} course={c} mode={view.mode} lessonIds={view.lessonIds} count={view.count} />
           );
