@@ -205,6 +205,45 @@ export function expectedTraditional(text: string, s2tw: (s: string) => string, o
   return bad ? null : out;
 }
 
+// --- Trace blocks follow the learner's script, even inside {=…=} --------------------------
+
+const TRACE_RE = /^```trace([^\n]*)\n([\s\S]*?)^```/gm;
+const TRACE_TRAD = /(^|\s)trad=(\S+)/;
+
+/** A trace block's characters in Traditional: its `trad=` (character for character), else each on its own. */
+export function traceTraditional(content: string, info: string, one: (c: string) => string): string {
+  const given = info.match(TRACE_TRAD)?.[2];
+  const forms = given ? [...given].filter((c) => HAN.test(c)) : undefined;
+  let k = 0;
+  return [...content].map((c) => (HAN.test(c) ? (forms ? (forms[k++] ?? c) : one(c)) : c)).join("");
+}
+
+/** Problem with a trace block's `trad=` (its Han characters must match the block's one for one). */
+export function traceTradProblem(content: string, info: string): string | undefined {
+  const given = info.match(TRACE_TRAD)?.[2];
+  if (!given) return;
+  const n = (s: string) => [...s].filter((c) => HAN.test(c)).length;
+  if (n(given) !== n(content)) return `trace trad=${given}: give one traditional character for each of ${content.trim()}`;
+}
+
+/**
+ * Apply `f` to text outside trace blocks; the blocks' characters are shown in Traditional
+ * (`one` per character, or the block's `trad=`) when `traditional`, and `trad=` is dropped.
+ */
+export function withTraces(text: string, traditional: boolean, one: (c: string) => string, f: (s: string) => string): string {
+  if (!text.includes("```trace")) return f(text);
+  const blocks: string[] = [];
+  const held = text.replace(TRACE_RE, (_w, info: string, content: string) => {
+    const shown = traditional ? traceTraditional(content, info, one) : content;
+    blocks.push("```trace" + info.replace(TRACE_TRAD, "$1").trimEnd() + "\n" + shown + "```");
+    return `\uE000${blocks.length - 1}\uE001`;
+  });
+  return f(held).replace(/\uE000(\d+)\uE001/g, (_w, i: string) => blocks[Number(i)]);
+}
+
+/** One character as the table converts it standing alone. */
+export const aloneTraditional = (t: ZhTable | undefined) => (c: string) => (t ? (t.alone?.[c] ?? t.chars[c] ?? c) : c);
+
 // --- The course as the learner sees it in the chosen script -------------------------------
 
 /** Keys whose text isn't converted: ids and keys the app matches on (same list as zh_script.py). */
@@ -245,6 +284,7 @@ export const otherScriptForms = (item: object): string[] => others.get(item) ?? 
 interface ScriptableCourse {
   language?: { code: string; traditional?: ZhTable };
   vocab?: { term: string; trad?: string; alt?: string[] }[];
+  decks?: { cards: { front: string; back: string; trad?: { front?: string; back?: string } }[] }[];
   banks: { questions: { accept?: string[][] }[] }[];
 }
 
@@ -263,9 +303,19 @@ export function scriptCourse<T extends object>(course: T, traditional: boolean):
   const table = c.language.traditional;
   const toTrad = (s: string) => (table ? toTraditional(s, table) : toSimplified(s));
   const toSimp = (s: string) => toSimplified(s, table);
-  const show = traditional ? toTrad : toSimp;
-  const other = traditional ? toSimp : toTrad;
+  const one = aloneTraditional(table);
+  const show = (s: string) => withTraces(s, traditional, one, traditional ? toTrad : toSimp);
+  const other = (s: string) => withTraces(s, !traditional, one, traditional ? toSimp : toTrad);
   const out = mapStrings(course, show) as ScriptableCourse;
+  // A card with its own `trad` shows it in Traditional, and isn't converted.
+  out.decks?.forEach((d, di) =>
+    d.cards.forEach((card, ki) => {
+      const src = c.decks![di].cards[ki];
+      if (!traditional || !src.trad) return;
+      card.front = toSimplified(src.trad.front ?? src.front);
+      card.back = toSimplified(src.trad.back ?? src.back);
+    }),
+  );
   out.vocab = c.vocab?.map((v, i) => {
     const d = { ...out.vocab![i], term: traditional ? (v.trad ?? show(v.term)) : show(v.term) };
     const forms = [traditional ? toSimp(v.term) : (v.trad ?? other(v.term)), ...(v.alt ?? []).map(other)];
