@@ -31,7 +31,7 @@ const table = (s: string | undefined): string[] | undefined => {
 const alts = (cell: string) => cell.split("/").map((x) => x.trim()).filter(Boolean);
 
 /** French verbs whose h is aspirated: no elision (je hiérarchise, se hisser, que je haïsse). */
-const FR_H_ASPIRE = /^(hach|haï|hai|hal[aeéèi]|hant|harass|harcel|harcèl|hasard|hât|hauss|heurt|hiérarch|hiss|hurl|hu[eéa]|huons|huiez)/i;
+const FR_H_ASPIRE = /^(hach|harangu|handicap|henni|hériss|hériç|hoch|harponn|haï|hai|hal[aeéèi]|hant|harass|harcel|harcèl|hasard|hât|hauss|heurt|hiérarch|hiss|hurl|hu[eéa]|huons|huiez)/i;
 /** Whether French je, me, te, se, que elide before this form: a vowel or a mute h. */
 const frElides = (form: string) => /^[aeiouyhâàéèêëîïôûœ]/i.test(form) && !FR_H_ASPIRE.test(form);
 
