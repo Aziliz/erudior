@@ -183,3 +183,81 @@ export function expectedTraditional(text: string, s2tw: (s: string) => string, o
   });
   return bad ? null : out;
 }
+
+// --- The course as the learner sees it in the chosen script -------------------------------
+
+/** Keys whose text isn't converted: ids and keys the app matches on (same list as zh_script.py). */
+export const SKIP_KEYS = new Set(["language", "trad", "id", "topic", "topics", "lesson", "module", "section", "refs", "drills", "quiz", "requires", "from", "audio"]);
+
+/** Every string the script switch converts, with where it is (for the checker). */
+export function* scriptTexts(node: unknown, where = "course"): Generator<[string, string]> {
+  if (typeof node === "string") yield [where, node];
+  else if (Array.isArray(node)) for (let i = 0; i < node.length; i++) yield* scriptTexts(node[i], `${where}[${i}]`);
+  else if (node && typeof node === "object") {
+    const o = node as Record<string, unknown>;
+    const name = typeof o.id === "string" ? o.id : where;
+    for (const [k, v] of Object.entries(o)) if (!SKIP_KEYS.has(k)) yield* scriptTexts(v, `${name}.${k}`);
+  }
+}
+
+function mapStrings(node: unknown, f: (s: string) => string): unknown {
+  if (typeof node === "string") return f(node);
+  if (Array.isArray(node)) return node.map((x) => mapStrings(x, f));
+  if (node && typeof node === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(node)) out[k] = SKIP_KEYS.has(k) ? v : mapStrings(v, f);
+    return out;
+  }
+  return node;
+}
+
+const raws = new WeakMap<object, object>();
+const others = new WeakMap<object, string[]>();
+const cache = new WeakMap<object, Partial<Record<"simp" | "trad", object>>>();
+
+/** The course as stored, for a course shown in a script (export, save). */
+export const rawCourse = <T extends object>(c: T): T => (raws.get(c) as T | undefined) ?? c;
+
+/** A vocab item's term and alternatives in the other script (accepted when typed). */
+export const otherScriptForms = (item: object): string[] => others.get(item) ?? [];
+
+interface ScriptableCourse {
+  language?: { code: string; traditional?: ZhTable };
+  vocab?: { term: string; trad?: string; alt?: string[] }[];
+  banks: { questions: { accept?: string[][] }[] }[];
+}
+
+/**
+ * A Chinese course in the learner's script: every displayed text converted (Traditional) or
+ * with its `{=…=}` markers removed (Simplified). Typed answers count in either script: vocab
+ * items remember the other script's forms, and `text` answers list them too. Other courses
+ * come back unchanged. Cached per course object.
+ */
+export function scriptCourse<T extends object>(course: T, traditional: boolean): T {
+  const c = course as unknown as ScriptableCourse;
+  if (c.language?.code !== "zh") return course;
+  const key = traditional ? "trad" : "simp";
+  const hit = cache.get(course)?.[key];
+  if (hit) return hit as T;
+  const table = c.language.traditional;
+  const toTrad = (s: string) => (table ? toTraditional(s, table) : stripNoConvert(s));
+  const show = traditional ? toTrad : stripNoConvert;
+  const other = traditional ? stripNoConvert : toTrad;
+  const out = mapStrings(course, show) as ScriptableCourse;
+  out.vocab = c.vocab?.map((v, i) => {
+    const d = { ...out.vocab![i], term: traditional ? (v.trad ?? show(v.term)) : show(v.term) };
+    const forms = [traditional ? stripNoConvert(v.term) : (v.trad ?? other(v.term)), ...(v.alt ?? []).map(other)];
+    others.set(d, [...new Set(forms)].filter((x) => x !== d.term));
+    return d;
+  });
+  if (!out.vocab) delete out.vocab;
+  out.banks.forEach((b, bi) =>
+    b.questions.forEach((q, qi) => {
+      const src = c.banks[bi].questions[qi].accept;
+      if (q.accept && src) q.accept = q.accept.map((list, li) => [...new Set([...list, ...src[li].map(other)])]);
+    }),
+  );
+  raws.set(out, rawCourse(course));
+  cache.set(course, { ...cache.get(course), [key]: out });
+  return out as unknown as T;
+}
