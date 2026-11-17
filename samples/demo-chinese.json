@@ -1,47 +1,325 @@
 {
-  "format": "examiner-course",
-  "version": 1,
-  "id": "demo-chinese",
-  "title": "Chinese demo",
-  "revision": 1,
-  "description": "Sample of Mandarin Chinese support: pinyin over characters, the Pinyin and Tone colours switches, pinyin typing with tone numbers, read-aloud in Chinese.",
-  "language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", "level": "HSK 1" },
-  "modules": [{ "id": "m1", "title": "First words" }],
-  "lessons": [
-    {
-      "id": "zh-l1",
-      "module": "m1",
-      "title": "Hello and thank you",
-      "minutes": 10,
-      "topics": ["Greetings"],
-      "quiz": ["q1", "q2", "q3", "q4", "q5"],
-      "body": "## Characters and pinyin\n\nEach character is one syllable. **Pinyin** above it shows the sound and the tone: {你好|nǐ hǎo} (hello), {谢谢|xiè xie} (thank you; the second syllable has the neutral tone, so no mark).\n\n> *{你好|nǐ hǎo}！{我|wǒ}{是|shì}{学生|xué sheng}。* — Hello! I'm a student.\n\n| Characters | Pinyin | Meaning |\n|---|---|---|\n| {中国|Zhōng guó} | Zhōngguó | China |\n| {一点儿|yì diǎnr} | yìdiǎnr | a little |\n\nA line break inside a paragraph joins Chinese text without a space:\n{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n\n## Tones\n\nMandarin has four tones and a neutral tone: {妈|mā} (mother), {麻|má} (hemp), {马|mǎ} (horse), {骂|mà} (to scold), {吗|ma} (question word). Turn on **Tone colours** to colour each syllable by its tone."
+ "format": "examiner-course",
+ "version": 1,
+ "id": "demo-chinese",
+ "title": "Chinese demo",
+ "revision": 1,
+ "description": "Sample of Mandarin Chinese support: pinyin over characters, the Pinyin and Tone colours switches, pinyin typing with tone numbers, read-aloud in Chinese, and the Simplified/Traditional switch.",
+ "language": {
+  "code": "zh",
+  "name": "Chinese",
+  "tts": "zh-CN",
+  "ime": "zh",
+  "level": "HSK 1",
+  "traditional": {
+   "chars": {
+    "儿": "兒",
+    "发": "髮",
+    "只": "隻",
+    "吗": "嗎",
+    "国": "國",
+    "头": "頭",
+    "妈": "媽",
+    "学": "學",
+    "条": "條",
+    "欢": "歡",
+    "湾": "灣",
+    "点": "點",
+    "猫": "貓",
+    "谢": "謝",
+    "这": "這",
+    "里": "裡",
+    "钅": "釒",
+    "钟": "鐘",
+    "长": "長",
+    "面": "麵",
+    "马": "馬",
+    "骂": "罵"
+   },
+   "phrases": {},
+   "alone": {
+    "钟": "鐘"
+   },
+   "overrides": {
+    "forms": {
+     "臺": "台"
+    },
+    "alone": {
+     "钟": "鐘"
     }
-  ],
-  "banks": [
+   }
+  }
+ },
+ "modules": [
+  {
+   "id": "m1",
+   "title": "First words"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "zh-l1",
+   "module": "m1",
+   "title": "Hello and thank you",
+   "minutes": 10,
+   "topics": [
+    "Greetings"
+   ],
+   "quiz": [
+    "q1",
+    "q2",
+    "q3",
+    "q4",
+    "q5"
+   ],
+   "body": "## Characters and pinyin\n\nEach character is one syllable. **Pinyin** above it shows the sound and the tone: {你好|nǐ hǎo} (hello), {谢谢|xiè xie} (thank you; the second syllable has the neutral tone, so no mark).\n\n> *{你好|nǐ hǎo}！{我|wǒ}{是|shì}{学生|xué sheng}。* — Hello! I'm a student.\n\n| Characters | Pinyin | Meaning |\n|---|---|---|\n| {中国|Zhōng guó} | Zhōngguó | China |\n| {一点儿|yì diǎnr} | yìdiǎnr | a little |\n\nA line break inside a paragraph joins Chinese text without a space:\n{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n\n## Tones\n\nMandarin has four tones and a neutral tone: {妈|mā} (mother), {麻|má} (hemp), {马|mǎ} (horse), {骂|mà} (to scold), {吗|ma} (question word). Turn on **Tone colours** to colour each syllable by its tone."
+  },
+  {
+   "id": "zh-l2",
+   "module": "m1",
+   "title": "Simplified and traditional",
+   "minutes": 10,
+   "topics": [
+    "Scripts"
+   ],
+   "quiz": [
+    "q6",
+    "q7"
+   ],
+   "body": "## Two scripts\n\nThis course is written in simplified characters. The **Simplified / Traditional** switch shows all of it in traditional characters (Taiwan forms); the pinyin stays the same: {头发|tóu fa} (hair), {面条|miàn tiáo} (noodles), {一只猫|yì zhī māo} (a cat), {这里|zhè lǐ} (here), {台湾|Tái wān} (Taiwan).\n\nNew character: simplified {={学|xué}=} · traditional {+{学|xué}+} (to study).\n\n{=\n### About the simplified form\n\nThis section always stays in simplified characters, because it describes them: 学 has 8 strokes, and its top is written ⺍. One simplified 发 stands for two traditional characters (hair and to send). A trace block follows the learner's script even here:\n\n```trace\n学国\n```\n=}\n"
+  }
+ ],
+ "banks": [
+  {
+   "id": "main",
+   "title": "Questions",
+   "sections": [],
+   "exam": {
+    "questionCount": 3,
+    "timeLimitMinutes": 5,
+    "passingPercent": 70
+   },
+   "questions": [
     {
-      "id": "main",
-      "title": "Questions",
-      "sections": [],
-      "exam": { "questionCount": 3, "timeLimitMinutes": 5, "passingPercent": 70 },
-      "questions": [
-        { "id": "q1", "topic": "Greetings", "stem": "What does {你好|nǐ hǎo} mean?", "choices": ["hello", "thank you", "goodbye", "China"], "answer": [0], "explanation": "{你好|nǐ hǎo} is hello." },
-        { "id": "q2", "topic": "Greetings", "stem": "Which is “thank you”?", "choices": ["{谢谢|xiè xie}", "{你好|nǐ hǎo}", "{中国|Zhōng guó}"], "answer": [0], "explanation": "{谢谢|xiè xie}: the second syllable is neutral." },
-        { "id": "q3", "topic": "Greetings", "type": "text", "stem": "Type “China” in characters: ___", "accept": [["中国"]], "choices": [], "answer": [], "explanation": "{中国|Zhōng guó}." },
-        { "id": "q4", "topic": "Greetings", "type": "text", "stem": "Type “hello” in pinyin with tone numbers (ni3hao3 becomes nǐhǎo): ___", "accept": [["nǐ hǎo"]], "choices": [], "answer": [], "explanation": "{你好|nǐ hǎo}: both syllables are tone 3 (spoken ní hǎo)." },
-        { "id": "q5", "topic": "Greetings", "type": "build", "stem": "Build the sentence.", "prompt": "I am a student.", "tiles": ["{我|wǒ}", "{是|shì}", "{学生|xué sheng}"], "distractors": ["{你|nǐ}"], "punctuation": "。", "choices": [], "answer": [] }
+     "id": "q1",
+     "topic": "Greetings",
+     "stem": "What does {你好|nǐ hǎo} mean?",
+     "choices": [
+      "hello",
+      "thank you",
+      "goodbye",
+      "China"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "{你好|nǐ hǎo} is hello."
+    },
+    {
+     "id": "q2",
+     "topic": "Greetings",
+     "stem": "Which is “thank you”?",
+     "choices": [
+      "{谢谢|xiè xie}",
+      "{你好|nǐ hǎo}",
+      "{中国|Zhōng guó}"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "{谢谢|xiè xie}: the second syllable is neutral."
+    },
+    {
+     "id": "q3",
+     "topic": "Greetings",
+     "type": "text",
+     "stem": "Type “China” in characters: ___",
+     "accept": [
+      [
+       "中国"
       ]
+     ],
+     "choices": [],
+     "answer": [],
+     "explanation": "{中国|Zhōng guó}."
+    },
+    {
+     "id": "q4",
+     "topic": "Greetings",
+     "type": "text",
+     "stem": "Type “hello” in pinyin with tone numbers (ni3hao3 becomes nǐhǎo): ___",
+     "accept": [
+      [
+       "nǐ hǎo"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "explanation": "{你好|nǐ hǎo}: both syllables are tone 3 (spoken ní hǎo)."
+    },
+    {
+     "id": "q5",
+     "topic": "Greetings",
+     "type": "build",
+     "stem": "Build the sentence.",
+     "prompt": "I am a student.",
+     "tiles": [
+      "{我|wǒ}",
+      "{是|shì}",
+      "{学生|xué sheng}"
+     ],
+     "distractors": [
+      "{你|nǐ}"
+     ],
+     "punctuation": "。",
+     "choices": [],
+     "answer": []
+    },
+    {
+     "id": "q6",
+     "topic": "Scripts",
+     "type": "text",
+     "stem": "Type “hair” in characters: ___",
+     "accept": [
+      [
+       "头发"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "explanation": "{头发|tóu fa}. Either script counts."
+    },
+    {
+     "id": "q7",
+     "topic": "Scripts",
+     "stem": "In traditional characters, which form does {=发=} take in {=头发=} (hair)?",
+     "choices": [
+      "{=髮=}",
+      "{=發=}"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "{=髮=} is hair; {=發=} is to send or to start, as in {=出发 / 出發=} (to set off)."
     }
-  ],
-  "decks": [],
-  "glossary": [{ "term": "pinyin", "definition": "The official romanization of Mandarin: {拼音|pīn yīn}, with a tone mark over each syllable." }],
-  "references": [],
-  "drills": [],
-  "vocab": [
-    { "id": "nihao", "lesson": "zh-l1", "term": "你好", "reading": "nǐ hǎo", "pos": "phrase", "kind": "phrase", "meanings": ["hello"], "example": "{你好|nǐ hǎo}！", "exampleEn": "Hello!" },
-    { "id": "xiexie", "lesson": "zh-l1", "term": "谢谢", "reading": "xiè xie", "pos": "verb", "meanings": ["thank you", "thanks"] },
-    { "id": "zhongguo", "lesson": "zh-l1", "term": "中国", "reading": "Zhōng guó", "pos": "noun", "meanings": ["China"] },
-    { "id": "yidianr", "lesson": "zh-l1", "term": "一点儿", "reading": "yì diǎnr", "pos": "noun", "meanings": ["a little", "a bit"] },
-    { "id": "xuesheng", "lesson": "zh-l1", "term": "学生", "reading": "xué sheng", "pos": "noun", "meanings": ["student"], "example": "{我|wǒ}{是|shì}{学生|xué sheng}。", "exampleEn": "I'm a student." }
-  ]
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "demo-chinese-cards",
+   "title": "Chinese demo notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "钟",
+     "back": "clock, bell · radical 钅 · 9 strokes",
+     "topic": "Scripts",
+     "trad": {
+      "front": "鐘",
+      "back": "clock, bell · radical 金 · 20 strokes"
+     }
+    },
+    {
+     "id": "c2",
+     "front": "{面条|miàn tiáo}",
+     "back": "noodles",
+     "topic": "Scripts"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "pinyin",
+   "definition": "The official romanization of Mandarin: {拼音|pīn yīn}, with a tone mark over each syllable."
+  }
+ ],
+ "references": [],
+ "drills": [],
+ "vocab": [
+  {
+   "id": "nihao",
+   "lesson": "zh-l1",
+   "term": "你好",
+   "reading": "nǐ hǎo",
+   "pos": "phrase",
+   "kind": "phrase",
+   "meanings": [
+    "hello"
+   ],
+   "example": "{你好|nǐ hǎo}！",
+   "exampleEn": "Hello!"
+  },
+  {
+   "id": "xiexie",
+   "lesson": "zh-l1",
+   "term": "谢谢",
+   "reading": "xiè xie",
+   "pos": "verb",
+   "meanings": [
+    "thank you",
+    "thanks"
+   ]
+  },
+  {
+   "id": "zhongguo",
+   "lesson": "zh-l1",
+   "term": "中国",
+   "reading": "Zhōng guó",
+   "pos": "noun",
+   "meanings": [
+    "China"
+   ]
+  },
+  {
+   "id": "yidianr",
+   "lesson": "zh-l1",
+   "term": "一点儿",
+   "reading": "yì diǎnr",
+   "pos": "noun",
+   "meanings": [
+    "a little",
+    "a bit"
+   ]
+  },
+  {
+   "id": "xuesheng",
+   "lesson": "zh-l1",
+   "term": "学生",
+   "reading": "xué sheng",
+   "pos": "noun",
+   "meanings": [
+    "student"
+   ],
+   "example": "{我|wǒ}{是|shì}{学生|xué sheng}。",
+   "exampleEn": "I'm a student."
+  },
+  {
+   "id": "zhong",
+   "lesson": "zh-l2",
+   "term": "钟",
+   "trad": "鐘",
+   "reading": "zhōng",
+   "pos": "noun",
+   "kind": "char",
+   "meanings": [
+    "clock",
+    "bell"
+   ],
+   "note": "OpenCC alone gives 鍾 (a cup, a surname); a clock is 鐘, so the word gives trad."
+  },
+  {
+   "id": "toufa",
+   "lesson": "zh-l2",
+   "term": "头发",
+   "reading": "tóu fa",
+   "pos": "noun",
+   "meanings": [
+    "hair (on the head)"
+   ],
+   "example": "{她|tā}{的|de}{头发|tóu fa}{很|hěn}{长|cháng}。",
+   "exampleEn": "Her hair is long."
+  }
+ ]
 }
