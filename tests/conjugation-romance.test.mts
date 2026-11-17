@@ -1,6 +1,6 @@
 // Spanish and French: conjugation drills and vocabulary recall.
 import assert from "node:assert/strict";
-import { conjWordProblem, conjWordWarnings, promptsFor, checkConj } from "../src/lib/conjugation.ts";
+import { conjWordProblem, conjWordWarnings, promptsFor, checkConj, formsForClass } from "../src/lib/conjugation.ts";
 import { checkRecall } from "../src/lib/vocab.ts";
 import type { Course, VocabItem } from "../src/lib/types.ts";
 
@@ -252,4 +252,7 @@ assert.match(conjWordProblem("es", w("argüir", "ir"))!, /arguyo/, "argüir need
 assert.match(conjWordProblem("es", w("aunar", "ar"))!, /aúno/, "aunar needs a present table");
 const arguir = w("argüir", "ir", { present: "arguyo, arguyes, arguye, argüimos, argüís, arguyen", preterite: "argüí, argüiste, arguyó, argüimos, argüisteis, arguyeron", subjunctive: "arguya, arguyas, arguya, arguyamos, arguyáis, arguyan" });
 assert.equal(answers("es", arguir, "gerund")["gerund"], "arguyendo");
+const currar = { ...w("currar", "ar"), directions: ["meaning"] } as VocabItem;
+assert.equal(formsForClass("es", currar).length, 0, "recognition-only verbs aren't drilled");
+assert(formsForClass("es", { ...currar, directions: ["meaning", "recall"] } as VocabItem).length > 0);
 console.log("Spanish and French conjugation and recall passed.");

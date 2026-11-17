@@ -750,8 +750,11 @@ function classForms(lang: string, item: VocabItem): readonly string[] {
   return [];
 }
 
-/** The forms drilled for a word: its class's forms, minus the word's `noForms`. */
+/** The forms drilled for a word: its class's forms, minus the word's `noForms`.
+ *  A recognition-only word (`directions` without "recall": regional or slang words) is never
+ *  drilled, since a drill asks the learner to produce it. Its data is still checked. */
 export function formsForClass(lang: string, item: VocabItem): readonly string[] {
+  if (item.directions?.length && !item.directions.includes("recall")) return [];
   const all = classForms(lang, item);
   return item.noForms?.length ? all.filter((f) => !item.noForms!.includes(f)) : all;
 }
