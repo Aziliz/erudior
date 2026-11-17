@@ -5622,6 +5622,18 @@ figure.manip {
 .tr-road.tr-dot.is-done {
   fill: var(--ok-soft);
 }
+/* Hanzi: each stroke's outline (Make Me a Hanzi) stands in for the lane; same state colours. */
+.tr-outline {
+  fill: var(--sheet);
+  stroke: var(--field);
+  stroke-width: 6;
+}
+.tr-outline.is-current {
+  fill: var(--accent-soft);
+}
+.tr-outline.is-done {
+  fill: var(--ok-soft);
+}
 .tr-center {
   fill: none;
   stroke: var(--ink-3);
