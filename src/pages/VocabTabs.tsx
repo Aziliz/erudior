@@ -6,9 +6,11 @@ import { catalogEntry } from "../lib/catalog";
 import { SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
-import { JapaneseToggles, PitchText, RubyText } from "../components/Ruby";
+import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { hasKanji } from "../lib/kana";
 import { buildRound, conjSettings, conjSummary, conjWords } from "../lib/conjugation";
+import { buildToneRound, toneOpen, toneSettings, toneSummary, toneWords } from "../lib/toneDrills";
+import { toneLabel } from "../lib/tones";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
@@ -18,6 +20,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const lessonTitle = useMemo(() => new Map(course.lessons.map((l) => [l.id, l.title])), [course]);
   const target = lang?.vocabTarget;
   const conj = useMemo(() => !!conjSettings(course) && conjWords(course).length > 0, [course]);
+  const tones = useMemo(() => !!toneSettings(course) && toneWords(course).length > 0, [course]);
 
   const unlocked = new Set(unlockedItems(course, progress).map((v) => v.id));
   const groupOf = (v: { from?: string; lesson: string }) => (v.from ? `from:${v.from}` : v.lesson);
@@ -65,6 +68,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
       </section>
 
       {conj && <ConjugationPanel api={api} course={course} lessonTitle={lessonTitle} />}
+      {tones && <TonePanel api={api} course={course} lessonTitle={lessonTitle} />}
 
       <section className="panel">
         <div className="vocab-stats">
@@ -101,9 +105,9 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             <option value="all">All, including locked</option>
           </select>
         </div>
-        {lang?.code === "ja" && (
+        {(lang?.code === "ja" || lang?.code === "zh") && (
           <div className="row ja-toggles" style={{ marginBottom: 8 }}>
-            <JapaneseToggles />
+            <LanguageToggles code={lang.code} script={!!lang.traditional} />
           </div>
         )}
         {!ordered.length && (
@@ -152,6 +156,57 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
         })}
       </section>
     </div>
+  );
+}
+
+/** Chinese tone drills: start a round, and accuracy for each tone. */
+function TonePanel({ api, course, lessonTitle }: { api: AppApi; course: Course; lessonTitle: Map<string, string> }) {
+  const { progress } = api;
+  const open = toneOpen(course, progress);
+  const canStart = useMemo(() => buildToneRound(course, progress, { n: 1 }).length > 0, [course, progress]);
+  const lesson = toneSettings(course)?.lesson;
+  return (
+    <section className="panel conj-panel tone-panel" aria-labelledby="tone-heading">
+      <div className="review-banner conj-banner">
+        <div>
+          <h2 id="tone-heading">Tones</h2>
+          <p className="muted small">
+            Hear a word and pick the tone of each syllable (keys 1–4, 5 for neutral). Words of the lessons you've finished join tone practice. With no
+            Mandarin voice on this device, you answer from memory. Your first answer to each word counts toward each tone's accuracy.
+          </p>
+        </div>
+        <div className="row">
+          <button className="btn primary" disabled={!canStart} onClick={() => api.go({ name: "vocab", courseId: course.id, mode: "tones" })}>
+            Practise tones
+          </button>
+        </div>
+      </div>
+      {!canStart && (
+        <p className="muted small">
+          {open ? "Finish a lesson with words to start." : `Tone practice opens with “${lessonTitle.get(lesson ?? "") ?? "a lesson in an earlier course"}”.`}
+        </p>
+      )}
+      <table className="table conj-table tone-table">
+        <caption className="sr-only">Tone accuracy</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tone</th>
+            <th scope="col">Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          {toneSummary(progress).map((r) => {
+            const total = r.right + r.wrong;
+            return (
+              <tr key={r.tone}>
+                <td>{toneLabel(r.tone)}</td>
+                <td className="muted small">{total ? `${r.right} of ${total} right (${Math.round((100 * r.right) / total)}%)` : "Not practised yet"}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
   );
 }
 

@@ -1,4 +1,6 @@
 import { flushSync } from "react-dom";
+import { useTraditional } from "./components/Ruby";
+import { scriptBank, scriptCourse, scriptSession } from "./lib/zhScript";
 import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
 import { classroomPeerSourceOptions, resolveClassroomPeerSource, type ClassroomPeerSourceOption } from "./lib/classroomPeerSources";
 import { loadClassroomSubmissions, validateClassroomSubmissionState } from "./lib/classroomSubmissionStore";
@@ -58,6 +60,7 @@ import RefView from "./pages/RefView";
 import Reader from "./pages/Reader";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
 import ConjugationRunner from "./pages/ConjugationRunner";
+import ToneRunner from "./pages/ToneRunner";
 import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
@@ -281,6 +284,8 @@ export default function App() {
   });
   const [standalone, setStandalone] = useState<Bank[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
+  // Chinese courses can be shown in traditional characters (lib/zhScript; per device).
+  const traditional = useTraditional();
   const [broken, setBroken] = useState<string[]>([]);
   const [progress, setProgressState] = useState<Progress>(store.emptyProgress());
   const progressRef = useRef(progress);
@@ -1591,8 +1596,18 @@ export default function App() {
   }
   if (!ready) return null;
 
-  const bankFor = (id: string) => allBanks.find((b) => b.id === id);
-  const courseFor = (id: string) => myCourses.find((c) => c.id === id);
+  // Lookups for learner views show Chinese courses in the chosen script; editors get them as stored.
+  const rawBankFor = (id: string) => allBanks.find((b) => b.id === id);
+  const rawCourseFor = (id: string) => myCourses.find((c) => c.id === id);
+  const courseFor = (id: string) => {
+    const c = rawCourseFor(id);
+    return c && scriptCourse(c, traditional);
+  };
+  const bankFor = (id: string) => {
+    const b = rawBankFor(id);
+    const c = b?.courseId ? courses.find((x) => x.id === b.courseId) : undefined;
+    return b && c ? scriptBank(b, scriptCourse(c, traditional)) : b;
+  };
   const fallback = <Library api={api} broken={broken} standalone={standalone} />;
 
   let body: React.ReactNode = fallback;
@@ -1640,9 +1655,9 @@ export default function App() {
       break;
     }
     case "editor": {
-      const bank = bankFor(view.bankId);
+      const bank = rawBankFor(view.bankId);
       // Published courses can't be edited here (links or old addresses land on the bank instead).
-      if (bank && bank.courseId && isPublishedCourse(courseFor(bank.courseId))) body = <BankHome api={api} bank={bank} />;
+      if (bank && bank.courseId && isPublishedCourse(rawCourseFor(bank.courseId))) body = <BankHome api={api} bank={bankFor(view.bankId)!} />;
       else if (bank) body = <Editor key={bank.id} api={api} bank={bank} isNew={view.isNew} />;
       fullScreen = true;
       break;
@@ -1652,7 +1667,7 @@ export default function App() {
         <Runner
           key={view.session.id}
           api={api}
-          session={view.session}
+          session={scriptSession(view.session, bankFor(view.session.bankId))}
           bank={bankFor(view.session.bankId)}
           initial={view.initial}
         />
@@ -1673,8 +1688,8 @@ export default function App() {
       break;
     }
     case "courseEdit": {
-      const c = courseFor(view.courseId);
-      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={c} tab="today" />;
+      const c = rawCourseFor(view.courseId);
+      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={scriptCourse(c, traditional)} tab="today" />;
       else if (c) body = <CourseEditor key={c.id} api={api} course={c} isNew={view.isNew} />;
       fullScreen = true;
       break;
@@ -1702,6 +1717,8 @@ export default function App() {
         body =
           view.mode === "conjugation" ? (
             <ConjugationRunner key={JSON.stringify(view)} api={api} course={c} />
+          ) : view.mode === "tones" ? (
+            <ToneRunner key={JSON.stringify(view)} api={api} course={c} lessonIds={view.lessonIds} />
           ) : (
             <VocabRunner key={JSON.stringify(view)} api={api} course={c} mode={view.mode} lessonIds={view.lessonIds} count={view.count} />
           );
@@ -1724,9 +1741,9 @@ export default function App() {
       break;
     }
     case "deckEdit": {
-      const c = courseFor(view.courseId);
+      const c = rawCourseFor(view.courseId);
       const d = c?.decks.find((x) => x.id === view.deckId);
-      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={c} tab="cards" />;
+      if (c && isPublishedCourse(c)) body = <CourseHome key={c.id} api={api} course={scriptCourse(c, traditional)} tab="cards" />;
       else if (c && d) body = <DeckEditor key={d.id} api={api} course={c} deck={d} />;
       fullScreen = true;
       break;

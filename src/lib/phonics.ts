@@ -16,7 +16,9 @@
 //   ```
 //
 // Trace blocks take kana and jōyō kanji too. Kanji strokes (KanjiVG) load separately
-// (kanjiLoad.ts); until they have, a kanji's pad is an empty box.
+// (kanjiLoad.ts); until they have, a kanji's pad is an empty box. In Chinese courses (script "zh")
+// Han characters are hanzi instead: Make Me a Hanzi strokes (hanziLoad.ts), the outline of each
+// stroke shown on the pad and its median checked, with the same square box and checks as kanji.
 //
 // Sounds come from the course's audio library (lib/readAloud.ts): the sound of "m" is the
 // clip under the key `sound:m` unless the line names another (`sound=` a key or a data:audio
@@ -32,7 +34,8 @@ import { PHONICS_BLOCK, parseSounds, parseBlend, parseTrace, type SoundTile, typ
 export { PHONICS_BLOCK, soundKey, parseSounds, parseUnits, parseBlend, parseTrace, phonicsProblems, type SoundTile, type BlendUnit, type BlendWord, type TraceSpec } from "./phonicsSpec";
 const esc = (s: string) => s.replace(/[&<>"\']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "\'":"&#39;"})[c]!);
 
-import { arrowAt, checkStroke, letterGuide, TOLERANCE, type LetterGuide, type Pt } from "./handwriting";
+import { arrowAt, checkStroke, letterGuide, TOLERANCE, type LetterGuide, type Pt, type TraceScript } from "./handwriting";
+import { HANZI_OUTLINE_TRANSFORM } from "./hanziStrokes";
 import { kanaRomaji } from "./kana";
 import { resolveAudio, sayItem, SPEAKER_ICON, type AudioLib } from "./readAloud";
 import { canSpeak, speaker, type SayItem } from "./speech";
@@ -100,9 +103,10 @@ export function renderBlend(words: BlendWord[]): string {
 const fmt = (n: number) => String(Math.round(n * 10) / 10);
 const pts = (p: Pt[]) => p.map(([x, y]) => `${fmt(x)},${fmt(y)}`).join(" ");
 const isKanji = (ch: string) => /^\p{Script=Han}$/u.test(ch);
-/** "small letter a", "hiragana ne", or for a kanji just "kanji 日" (its reading depends on the word). */
-export const letterName = (ch: string) => {
-  if (isKanji(ch)) return `kanji ${ch}`;
+/** "small letter a", "hiragana ne", or for a kanji just "kanji 日" (its reading depends on the word);
+ * in a Chinese course (`script` "zh") "hanzi 学". */
+export const letterName = (ch: string, script?: TraceScript) => {
+  if (isKanji(ch)) return `${script === "zh" ? "hanzi" : "kanji"} ${ch}`;
   const kana = kanaRomaji(ch);
   if (kana) return `${/[ァ-ヺ]/.test(ch) ? "katakana" : "hiragana"} ${kana}`;
   return ch === ch.toUpperCase() ? `capital letter ${ch}` : `small letter ${ch}`;
@@ -113,7 +117,7 @@ export const letterName = (ch: string) => {
 function padStrokes(g: LetterGuide, tol: number): string {
   // Kanji strokes are short and close together: narrower lanes, smaller numbers and arrows (only
   // the drawing; the check still allows the full tolerance).
-  const dense = !!g.kanji;
+  const dense = !!(g.kanji || g.hanzi);
   const lane = fmt(dense ? Math.min(tol * 1.6, 11) : tol * 1.6);
   const r = dense ? 5.5 : 8;
   const placed: Pt[] = [];
@@ -132,7 +136,12 @@ function padStrokes(g: LetterGuide, tol: number): string {
     placed.push([x, y]);
     return `<g class="tr-start" data-s="${i}"><circle cx="${fmt(x)}" cy="${fmt(y)}" r="${r}"/><text x="${fmt(x)}" y="${fmt(y)}" dy="0.35em">${i + 1}</text></g>`;
   });
-  const roads = g.strokes
+  // Hanzi: the pad shows each stroke's outline (Make Me a Hanzi) instead of a lane around its median.
+  const roads = g.outlines
+    ? `<g transform="${HANZI_OUTLINE_TRANSFORM}">` +
+      g.outlines.map((d, i) => `<path class="tr-outline${i ? "" : " is-current"}" data-s="${i}" d="${esc(d)}"/>`).join("") +
+      `</g>`
+    : g.strokes
     .map((s, i) =>
       s.length === 1
         ? `<circle class="tr-road tr-dot${i ? "" : " is-current"}" data-s="${i}" cx="${fmt(s[0][0])}" cy="${fmt(s[0][1])}" r="${fmt(tol * 0.8)}"/>`
@@ -151,7 +160,7 @@ function padStrokes(g: LetterGuide, tol: number): string {
 
 const padLabel = (g: LetterGuide) => {
   const n = g.strokes.length;
-  return `Trace the ${esc(letterName(g.char))}: ${n} stroke${n === 1 ? "" : "s"}. Start at number 1 and follow the arrow.`;
+  return `Trace the ${esc(letterName(g.char, g.hanzi ? "zh" : undefined))}: ${n} stroke${n === 1 ? "" : "s"}. Start at number 1 and follow the arrow.`;
 };
 
 /** The writing pad for one letter: writing lines (or, for a kana, a square box with a dashed
@@ -160,14 +169,15 @@ const squareBox =
   `<rect class="tr-line" x="0" y="0" width="100" height="100" fill="none"/>` +
   `<line class="tr-line mid" x1="50" x2="50" y1="0" y2="100"/><line class="tr-line mid" x1="0" x2="100" y1="50" y2="50"/>`;
 
-export function renderPad(ch: string, tol: number): string {
-  const g = letterGuide(ch);
-  // A kanji whose strokes haven't loaded yet: the empty box, redrawn once they have.
+export function renderPad(ch: string, tol: number, script?: TraceScript): string {
+  const g = letterGuide(ch, script);
+  const hanzi = script === "zh" && isKanji(ch);
+  // A kanji or hanzi whose strokes haven't loaded yet: the empty box, redrawn once they have.
   if (!g)
-    return `<svg class="trace-pad is-kanji is-pending" viewBox="-12 -12 124 124" role="img" aria-label="Trace the ${esc(letterName(ch))}: loading its strokes.">${squareBox}</svg>`;
-  if (g.kana || g.kanji)
+    return `<svg class="trace-pad is-kanji${hanzi ? " is-hanzi" : ""} is-pending" viewBox="-12 -12 124 124" role="img" aria-label="Trace the ${esc(letterName(ch, script))}: loading its strokes.">${squareBox}</svg>`;
+  if (g.kana || g.kanji || g.hanzi)
     return (
-      `<svg class="trace-pad ${g.kanji ? "is-kanji" : "is-kana"}" viewBox="-12 -12 124 124" role="img" aria-label="${padLabel(g)}">` +
+      `<svg class="trace-pad ${g.hanzi ? "is-kanji is-hanzi" : g.kanji ? "is-kanji" : "is-kana"}" viewBox="-12 -12 124 124" role="img" aria-label="${padLabel(g)}">` +
       squareBox +
       padStrokes(g, tol) +
       `</svg>`
@@ -192,21 +202,23 @@ export function renderTrace(spec: TraceSpec): string {
   const many = spec.letters.length > 1;
   const kana = spec.letters.every((ch) => letterGuide(ch)?.kana);
   const kanji = spec.letters.every(isKanji);
-  // "Kana", "Kanji", "Character" (kana and kanji mixed) or "Letter".
-  const noun = kana ? "Kana" : kanji ? "Kanji" : spec.letters.every((ch) => isKanji(ch) || letterGuide(ch)?.kana) ? "Character" : "Letter";
+  const zh = spec.script === "zh";
+  // "Kana", "Kanji" ("Hanzi" in a Chinese course), "Character" (kana and kanji mixed) or "Letter".
+  const noun = kana ? "Kana" : kanji ? (zh ? "Hanzi" : "Kanji") : spec.letters.every((ch) => isKanji(ch) || letterGuide(ch)?.kana) ? "Character" : "Letter";
   const what = kana || kanji ? noun.toLowerCase() : `${noun.toLowerCase()}${many ? "s" : ""}`;
   return (
-    `<section class="ph ph-trace" data-noread data-tol="${tol}" data-noun="${noun}" aria-label="${noun} tracing">` +
+    `<section class="ph ph-trace" data-noread data-tol="${tol}" data-noun="${noun}"${zh ? ' data-script="zh"' : ""} aria-label="${noun} tracing">` +
     `<p class="ph-kicker">Trace the ${what} <span class="ph-hint">Start at number 1 and follow the arrows with your finger, pen or mouse.</span></p>` +
     `<ol class="ph-trace-list">` +
     spec.letters
       .map(
         (ch, i) =>
           `<li class="ph-trace-item" data-char="${esc(ch)}"${i ? " hidden" : ""}>` +
-          // Kana and kanji are marked Japanese, so the Japanese (not Chinese) glyph form shows.
-          `<p class="tr-name"><span class="tr-glyph" aria-hidden="true"${/[^\x00-\x7f]/.test(ch) ? ' lang="ja"' : ""}>${esc(ch)}</span>` +
-          `<span class="tr-label">${isKanji(ch) ? `kanji <span lang="ja">${esc(ch)}</span>` : esc(letterName(ch))}</span></p>` +
-          renderPad(ch, tol) +
+          // Kana and kanji are marked Japanese, so the Japanese (not Chinese) glyph form shows;
+          // hanzi are marked Chinese.
+          `<p class="tr-name"><span class="tr-glyph" aria-hidden="true"${/[^\x00-\x7f]/.test(ch) ? ` lang="${zh && isKanji(ch) ? "zh" : "ja"}"` : ""}>${esc(ch)}</span>` +
+          `<span class="tr-label">${isKanji(ch) ? (zh ? `hanzi <span lang="zh">${esc(ch)}</span>` : `kanji <span lang="ja">${esc(ch)}</span>`) : esc(letterName(ch))}</span></p>` +
+          renderPad(ch, tol, spec.script) +
           `<p class="tr-status" role="status"></p>` +
           `<div class="tr-actions" hidden><button type="button" class="btn sm" data-tr="show">Show me</button><button type="button" class="btn sm ghost" data-tr="clear">Start over</button></div>` +
           `</li>`,
@@ -224,10 +236,10 @@ export function renderTrace(spec: TraceSpec): string {
 
 // --- Markdown pipeline ------------------------------------------------------------------
 
-export function renderPhonicsBlock(kind: string, info: string, body: string): string {
+export function renderPhonicsBlock(kind: string, info: string, body: string, script?: TraceScript): string {
   if (kind === "sounds") return renderSounds(parseSounds(info, body).tiles);
   if (kind === "blend") return renderBlend(parseBlend(info, body).words);
-  return renderTrace(parseTrace(info, body));
+  return renderTrace(parseTrace(info, body, script));
 }
 
 /** Every sound/word key a Markdown text's phonics blocks play (for the course checker). */
@@ -242,11 +254,11 @@ export function phonicsKeys(md: string): string[] {
 
 /** Swap phonics blocks for placeholders before Markdown runs; `restore` puts the HTML back (it
  * is built here from escaped text, so it goes in after sanitizing). */
-export function protectPhonics(src: string): { text: string; restore: (html: string) => string } {
+export function protectPhonics(src: string, script?: TraceScript): { text: string; restore: (html: string) => string } {
   if (!/```(sounds|blend|trace)\b/.test(src)) return { text: src, restore: (h) => h };
   const out: string[] = [];
   const text = src.replace(PHONICS_BLOCK, (_w, kind: string, info: string, body: string) => {
-    out.push(renderPhonicsBlock(kind, info, body));
+    out.push(renderPhonicsBlock(kind, info, body, script));
     return `\n\nXPHONICSX${out.length - 1}XPHONICSX\n\n`;
   });
   return {
@@ -366,6 +378,8 @@ export function hydratePhonics(root: HTMLElement, ctx: PhonicsCtx): void {
 // --- Tracing pad ------------------------------------------------------------------------
 
 const tracers = new WeakMap<HTMLElement, Tracer>();
+/** The voice a finished hanzi is spoken in (any Chinese voice will do: it reads the character). */
+const ZH_VOICE = "zh-CN";
 const SVGNS = "http://www.w3.org/2000/svg";
 
 class Tracer {
@@ -377,6 +391,9 @@ class Tracer {
   private kana = false;
   /** Kanji pads don't speak at all (a kanji alone has no one right reading): feedback is written. */
   private kanji = false;
+  /** Hanzi pads (Chinese courses) speak only the finished character, in Chinese, when a voice exists. */
+  private hanzi = false;
+  private script: TraceScript;
   private stroke = 0;
   /** Points of a stroke traced in more than one go (lifted the pen part way). */
   private pending: Pt[] = [];
@@ -393,10 +410,12 @@ class Tracer {
     this.svg = item.querySelector("svg.trace-pad")!;
     this.ink = this.svg.querySelector(".tr-ink")!;
     this.status = item.querySelector(".tr-status")!;
-    const g = letterGuide(item.dataset.char ?? "");
+    this.script = item.closest<HTMLElement>(".ph")?.dataset.script === "zh" ? "zh" : undefined;
+    const g = letterGuide(item.dataset.char ?? "", this.script);
     this.guide = g?.strokes ?? [];
     this.kana = !!g?.kana;
     this.kanji = !!g?.kanji;
+    this.hanzi = !!g?.hanzi;
     const actions = item.querySelector<HTMLElement>(".tr-actions");
     if (actions) actions.hidden = false;
     this.svg.classList.add("is-live");
@@ -472,7 +491,7 @@ class Tracer {
       if (this.stroke >= this.guide.length) {
         this.item.classList.add("is-done");
         const ch = this.item.dataset.char ?? "";
-        this.say(`You traced the ${letterName(ch)}. Great job!`, this.kana ? ch : "Great job!");
+        this.say(`You traced the ${letterName(ch, this.script)}. Great job!`, this.kana || this.hanzi ? ch : "Great job!");
         this.item.closest(".ph")?.querySelector<HTMLButtonElement>('[data-ph="next"]:not(:disabled)')?.focus();
       } else this.say(`Stroke ${this.stroke} done. Now start at number ${this.stroke + 1}.`);
       return;
@@ -512,6 +531,10 @@ class Tracer {
   private say(text: string, spoken?: string) {
     this.status.textContent = text;
     if (this.kanji) return;
+    if (this.hanzi) {
+      if (spoken && /\p{Script=Han}/u.test(spoken) && canSpeak(ZH_VOICE)) speaker.play([{ text: spoken }], { lang: ZH_VOICE, owner: "phonics" });
+      return;
+    }
     if (this.kana) {
       if (spoken && /[ぁ-ヺ]/.test(spoken) && canSpeak("ja")) speaker.play([{ text: spoken }], { lang: "ja", owner: "phonics" });
       return;

@@ -3,6 +3,7 @@
 
 import type { AudioClip, Chosen, Question, QuestionImage, QuestionType } from "./types";
 import { hasJapanese, normJa } from "./kana";
+import { isPinyinAnswer, normPinyin, onlyTonesDiffer } from "./pinyin";
 import { sameSet } from "./util";
 import { actionLabel, describe, manipCorrect, readSpec, stateOr, targetProblems, targetText, validState } from "./manip";
 import { isAudioSrc } from "./audio";
@@ -11,8 +12,9 @@ import { samePlace } from "./mapNames";
 import { parseSpan, parseTimeline } from "./timeline";
 import { normalizeCodeSpec, readStamp } from "./code";
 import { buildAnswers, buildCorrect, buildParts, buildPool, normalizeBuild, placedTiles, sentenceText } from "./sentenceBuild";
+import { patternText, picksOf as tonePicksOf, toneAnswered, toneComplete, toneCorrect, toneItemProblem, toneParts, toneSyllables } from "./tones";
 
-export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code", "build"];
+export const QUESTION_TYPES: QuestionType[] = ["choice", "text", "match", "label", "order", "model", "map", "timeline", "code", "build", "tone"];
 
 export const qtype = (q: Pick<Question, "type">): QuestionType => q.type ?? "choice";
 
@@ -26,6 +28,10 @@ const picksOf = (chosen: Chosen) => chosen.filter((c): c is string => typeof c =
 
 /** Choice questions with one answer or several (the only kind live rooms and community courses use). */
 export const isChoice = (q: Pick<Question, "type">) => qtype(q) === "choice";
+
+/** Tone questions: the syllables and their written tones. */
+export const toneSyls = (q: Pick<Question, "text" | "reading">) => toneSyllables(q.text ?? "", q.reading ?? "");
+const tonePicks = (q: Question, chosen: Chosen) => tonePicksOf(chosen, toneSyls(q).length);
 
 /** A blank in a fill-in-the-blank stem: three or more underscores. */
 export const BLANK = /_{3,}/g;
@@ -86,6 +92,8 @@ export function textMatches(typed: string, accepted: string[], caseSensitive = f
   if (lowestTerms && !isLowest(tc)) return false;
   const tv = numValue(tc);
   return accepted.some((a) => {
+    // Pinyin answers: tones count; spacing, capitals, apostrophes, v for ü and tone digits don't.
+    if (!caseSensitive && isPinyinAnswer(a) && normPinyin(typed) === normPinyin(a)) return true;
     const n = normText(a, caseSensitive);
     const nc = compact(n);
     if (n === t || nc === tc) return true;
@@ -93,6 +101,14 @@ export function textMatches(typed: string, accepted: string[], caseSensitive = f
     return tv !== null && av !== null && Math.abs(tv - av) <= 1e-9 * Math.max(1, Math.abs(av));
   });
 }
+
+/** The accepted pinyin answer a typed answer misses only by its tones (for "check the tones"), if any. */
+export function toneMissOf(typed: string, accepted: string[]): string | undefined {
+  return accepted.find((a) => isPinyinAnswer(a) && onlyTonesDiffer(typed, a));
+}
+
+/** The blank takes pinyin (so a Chinese course's pinyin typing applies to it). */
+export const pinyinBlank = (accepted: string[] | undefined) => !!accepted?.some(isPinyinAnswer);
 
 const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
 
@@ -125,6 +141,8 @@ export function isAnswered(q: Question, chosen: Chosen | undefined): boolean {
       return readStamp(chosen) !== null;
     case "build":
       return placedTiles(q, chosen).length > 0;
+    case "tone":
+      return toneAnswered(tonePicks(q, chosen));
     default:
       return true;
   }
@@ -146,6 +164,8 @@ export function isComplete(q: Question, chosen: Chosen | undefined): boolean {
     case "build":
       // At least as many tiles as the shortest correct sentence.
       return placedTiles(q, chosen).length >= Math.min(...buildAnswers(q).map((a) => a.length));
+    case "tone":
+      return toneComplete(tonePicks(q, chosen!));
     default:
       return true;
   }
@@ -176,6 +196,8 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
       return !!readStamp(chosen)?.pass;
     case "build":
       return buildCorrect(q, chosen);
+    case "tone":
+      return toneCorrect(toneSyls(q).map((s) => s.tone), tonePicks(q, chosen));
     default:
       return sameSet(
         q.answer,
@@ -205,6 +227,8 @@ export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
     case "build":
       // Each position of the closest correct sentence.
       return buildParts(q, chosen);
+    case "tone":
+      return toneParts(toneSyls(q).map((s) => s.tone), tonePicks(q, chosen));
     default:
       return [];
   }
@@ -232,6 +256,10 @@ export function answerText(q: Question): string {
       return q.code?.solution?.trim() ?? "Code that passes every test";
     case "build":
       return buildAnswers(q).map((a) => sentenceText(q, a)).join("; ");
+    case "tone": {
+      const syls = toneSyls(q);
+      return `${syls.map((s) => s.marked).join(" ")} (${syls.length === 1 ? "tone" : "tones"} ${patternText(syls.map((s) => s.tone))})`;
+    }
     default:
       return q.answer.map((a) => q.choices[a]).join("; ");
   }
@@ -272,6 +300,10 @@ export function chosenText(q: Question, chosen: Chosen): string {
       const pool = buildPool(q);
       return sentenceText(q, placedTiles(q, chosen).map((i) => pool[i]));
     }
+    case "tone": {
+      const picks = tonePicks(q, chosen);
+      return `${picks.length === 1 ? "tone" : "tones"} ${picks.map((t) => (t < 0 ? "?" : patternText([t]))).join("+")}`;
+    }
     default:
       return chosen.map((c) => q.choices[c as number]).join("; ");
   }
@@ -298,6 +330,8 @@ export function typeLabel(q: Question): string {
       return "Write code";
     case "build":
       return "Build the sentence";
+    case "tone":
+      return toneSyls(q).length > 1 ? "Pick the tones" : "Pick the tone";
     default:
       return q.answer.length > 1 ? "Select all that apply" : "Multiple choice";
   }
@@ -444,5 +478,13 @@ export function normalizeQuestionKind(q: Record<string, unknown>): Partial<Quest
       return { ...base, choices: [], answer: [], code: normalizeCodeSpec(q.code) };
     case "build":
       return { ...base, choices: [], answer: [], ...normalizeBuild(q) };
+    case "tone": {
+      const text = typeof q.text === "string" ? q.text.trim() : "";
+      const reading = typeof q.reading === "string" ? q.reading.trim() : "";
+      const problem = toneItemProblem(text, reading);
+      if (problem) throw new Error(`(tone) ${problem}.`);
+      if (choices.length || indices(q.answer).length) throw new Error(`(tone) takes "text" and "reading"; leave out "choices" and "answer".`);
+      return { ...base, choices: [], answer: [], text, reading };
+    }
   }
 }

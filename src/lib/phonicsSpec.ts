@@ -1,6 +1,7 @@
 // Pure phonics parsers shared by runtime and worker-side canonical authoring validation.
-import { letterGuide, TOLERANCE, type Tolerance } from "./handwriting";
+import { letterGuide, TOLERANCE, type TraceScript, type Tolerance } from "./handwriting";
 import { isTraceKanji } from "./kanjiStrokes";
+import { hanziInstead, isTraceHanzi } from "./hanziStrokes";
 
 export const PHONICS_BLOCK = /^```(sounds|blend|trace)\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
@@ -106,36 +107,47 @@ export interface TraceSpec {
   letters: string[];
   tolerance: Tolerance;
   problems: string[];
+  /** "zh": a Chinese course, whose Han characters are traced as hanzi. */
+  script?: TraceScript;
 }
 
-export function parseTrace(info: string, body: string): TraceSpec {
+/** A trace block. In a Chinese course (`script` "zh") Han characters are hanzi (HSK 1–9, simplified
+ * and traditional); elsewhere they are kanji. */
+export function parseTrace(info: string, body: string, script?: TraceScript): TraceSpec {
   const problems: string[] = [];
   let tolerance: Tolerance = "normal";
   for (const tok of info.trim().split(/\s+/).filter(Boolean)) {
     const m = /^tolerance=(.*)$/i.exec(tok);
+    // trad=… (Chinese courses: the block's traditional characters) is read and checked by zhScript.
+    if (script === "zh" && /^trad=\S+$/.test(tok)) continue;
     if (m && m[1] in TOLERANCE) tolerance = m[1] as Tolerance;
     else problems.push(m ? `tolerance must be loose, normal or tight, not "${m[1]}"` : `unknown option "${tok}" (only tolerance=loose|normal|tight)`);
   }
   const letters: string[] = [];
   for (const ch of body.replace(/\s+/g, "")) {
-    // Kanji are known from the list even before their stroke data has loaded.
-    if (letterGuide(ch) || isTraceKanji(ch)) letters.push(ch);
+    // Kanji and hanzi are known from their lists even before their stroke data has loaded.
+    const han = /\p{Script=Han}/u.test(ch);
+    if (script === "zh" && han) {
+      if (isTraceHanzi(ch)) letters.push(ch);
+      else if (hanziInstead(ch)) problems.push(`"${ch}" can't be traced: the hanzi stroke data (Make Me a Hanzi) has no strokes for it; trace ${hanziInstead(ch)} instead (trad=${hanziInstead(ch)})`);
+      else problems.push(`"${ch}" can't be traced: hanzi tracing covers the characters of HSK 1–9 (simplified and traditional), not this one`);
+    } else if (letterGuide(ch) || isTraceKanji(ch)) letters.push(ch);
     else if (/\p{Script=Han}/u.test(ch)) problems.push(`"${ch}" can't be traced: kanji tracing covers the 2,136 jōyō kanji (and 叱 填 剥 頬), not this one`);
     else problems.push(`"${ch}" can't be traced (letters a–z and A–Z, hiragana and katakana with ゛ ゜ — not small kana — or jōyō kanji)`);
   }
   if (!letters.length) problems.push("no letters to trace");
-  return { letters, tolerance, problems };
+  return { letters, tolerance, problems, ...(script ? { script } : {}) };
 }
 
 
 /** Authoring problems for a Markdown text ("blend 1: the sounds … don't spell …"). */
-export function phonicsProblems(md: string): string[] {
+export function phonicsProblems(md: string, script?: TraceScript): string[] {
   const out: string[] = [];
   const count: Record<string, number> = {};
   for (const m of md.matchAll(PHONICS_BLOCK)) {
     const kind = m[1];
     count[kind] = (count[kind] ?? 0) + 1;
-    const p = kind === "sounds" ? parseSounds(m[2], m[3]).problems : kind === "blend" ? parseBlend(m[2], m[3]).problems : parseTrace(m[2], m[3]).problems;
+    const p = kind === "sounds" ? parseSounds(m[2], m[3]).problems : kind === "blend" ? parseBlend(m[2], m[3]).problems : parseTrace(m[2], m[3], script).problems;
     out.push(...p.map((x) => `${kind} ${count[kind]}: ${x}`));
   }
   const opened = (md.match(/^```(sounds|blend|trace)\b/gm) ?? []).length;

@@ -16,6 +16,7 @@
 
 import { kanaStrokes } from "./kanaStrokes";
 import { kanjiStrokes } from "./kanjiStrokes";
+import { hanziStrokes } from "./hanziStrokes";
 export type Pt = [number, number];
 
 const S: Record<string, string[]> = {
@@ -126,11 +127,22 @@ export interface LetterGuide {
   kana?: boolean;
   /** A kanji (from KanjiVG), drawn in the same square box as kana. */
   kanji?: boolean;
+  /** A hanzi (Chinese courses, from Make Me a Hanzi), in the same square box: `strokes` are the
+   * medians that tracing is checked against, `outlines` the stroke shapes the pad shows. */
+  hanzi?: boolean;
+  outlines?: string[];
 }
+
+/** Which characters a trace block draws: Chinese courses ("zh") trace Han characters as hanzi
+ * (Make Me a Hanzi, PRC stroke order); everywhere else they are kanji (KanjiVG). */
+export type TraceScript = "zh" | undefined;
+
+const isHan = (ch: string) => /^\p{Script=Han}$/u.test(ch);
 
 const cache = new Map<string, LetterGuide>();
 
-export function letterGuide(ch: string): LetterGuide | undefined {
+export function letterGuide(ch: string, script?: TraceScript): LetterGuide | undefined {
+  if (script === "zh" && isHan(ch)) return hanziGuide(ch);
   const hit = cache.get(ch);
   if (hit) return hit;
   if (!S[ch]) {
@@ -148,6 +160,19 @@ export function letterGuide(ch: string): LetterGuide | undefined {
   const strokes = raw.map((s) => s.map(([x, y]): Pt => [x - min, y]));
   const g = { char: ch, strokes, width: Math.max(...xs) - min };
   cache.set(ch, g);
+  return g;
+}
+
+const hanziCache = new Map<string, LetterGuide>();
+
+/** A hanzi's guide once its data is loaded (hanziLoad.ts); until then, undefined. */
+function hanziGuide(ch: string): LetterGuide | undefined {
+  const hit = hanziCache.get(ch);
+  if (hit) return hit;
+  const h = hanziStrokes(ch);
+  if (!h) return undefined;
+  const g: LetterGuide = { char: ch, strokes: h.medians.map(strokePoints), width: 100, hanzi: true, outlines: h.outlines };
+  hanziCache.set(ch, g);
   return g;
 }
 

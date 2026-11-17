@@ -5,11 +5,12 @@ import type { CodeSpec } from "./code";
 import type { ActivityLogSpec, Lab, Rubric, WritingTask } from "./courseWork";
 import type { GlossaryEntry, ReaderText } from "./readerContent";
 import type { ConjClass, ConjugationSettings, DeForms } from "./courseConjugation";
+import type { ToneSettings } from "./tones";
 export interface Section {
     id: string;
     name: string;
 }
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code" | "build";
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code" | "build" | "tone";
 export interface QuestionImage {
     /** A data: URL (bundled and community courses) or an app-relative path. */
     src: string;
@@ -49,6 +50,10 @@ export interface Question {
     punctuation?: string;
     /** build: the meaning of the sentence to build (e.g. its translation), shown under the stem. */
     prompt?: string;
+    /** tone (Chinese): the characters the voice says (one syllable or a word of up to four). */
+    text?: string;
+    /** tone (Chinese): their pinyin with tone marks, one syllable per character ("mā", "xiè xie"). */
+    reading?: string;
     /** text: answers must match capital letters too (e.g. gene symbols). */
     caseSensitive?: boolean;
     /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
@@ -171,6 +176,11 @@ export interface Card {
     front: string;
     back: string;
     topic?: string;
+    /** Chinese: the card in Traditional (shown instead of converting it). */
+    trad?: {
+        front?: string;
+        back?: string;
+    };
 }
 export interface Deck {
     id: string;
@@ -270,6 +280,10 @@ export interface LanguageInfo {
     vocabSource?: string;
     /** Conjugation drills: the forms drilled and the lessons that unlock them (docs/COURSE_FORMAT.md). */
     conjugation?: ConjugationSettings;
+    /** Chinese: the Traditional conversion table (made by the courses build; lib/zhScript). */
+    traditional?: import("./zhScript").ZhTable;
+    /** Chinese tone drills made from the vocabulary (docs/COURSE_FORMAT.md, "Tone drills"). */
+    tones?: ToneSettings;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {
@@ -287,6 +301,8 @@ export interface VocabItem {
     meanings: string[];
     /** Romanization or pronunciation guide (non-Roman scripts). */
     reading?: string;
+    /** Chinese: the term in traditional characters, shown when the learner picks Traditional. */
+    trad?: string;
     /** Japanese: standard (Tokyo) pitch accent of the kana reading, as the mora after which the pitch
      * drops (0 = flat/heiban), or a list when more than one is standard (the first is the main one). */
     pitch?: number | number[];
@@ -306,6 +322,8 @@ export interface VocabItem {
     conj?: ConjClass;
     /** German conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }. */
     forms?: DeForms;
+    /** Conjugation drills: forms this word doesn't have or that sound wrong (e.g. できる: potential). */
+    noForms?: string[];
 }
 export interface ReadingItem {
     title: string;

@@ -737,11 +737,17 @@ export function deWordWarnings(item: VocabItem): string[] {
 export const isJaVerb = (item: VocabItem) => JA_VERB_CLASSES.includes(item.conj ?? "");
 export const isJaAdj = (item: VocabItem) => JA_ADJ_CLASSES.includes(item.conj ?? "");
 
-export function formsForClass(lang: string, item: VocabItem): readonly string[] {
+function classForms(lang: string, item: VocabItem): readonly string[] {
   if (!item.conj) return [];
   if (lang === "ja") return isJaVerb(item) ? JA_VERB_FORMS : isJaAdj(item) ? JA_ADJ_FORMS : [];
   if (lang === "de") return item.conj === "adj" ? DE_ADJ_FORMS : ["weak", "strong", "mixed", "modal"].includes(item.conj) ? DE_VERB_FORMS : [];
   return [];
+}
+
+/** The forms drilled for a word: its class's forms, minus the word's `noForms`. */
+export function formsForClass(lang: string, item: VocabItem): readonly string[] {
+  const all = classForms(lang, item);
+  return item.noForms?.length ? all.filter((f) => !item.noForms!.includes(f)) : all;
 }
 
 /** Why a word's conjugation data is wrong (for the course checker), or undefined. */

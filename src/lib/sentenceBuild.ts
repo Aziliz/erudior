@@ -28,6 +28,20 @@ export const buildPool = (q: BuildFields): string[] => [...(q.tiles ?? []), ...(
 /** Tile text for comparing: furigana dropped, widths folded, spacing tidied. */
 export const tileKey = (s: string): string => stripRuby(String(s)).normalize("NFKC").replace(/\s+/g, " ").trim();
 
+/**
+ * A sentence starts with a capital, wherever its first tile came from: "bis Ende Mai" placed
+ * first reads "Bis Ende Mai". Authors write tiles in their mid-sentence case (nouns and names
+ * keep their capital), so sentences that start with a different phrase can be accepted.
+ * Leading quote marks are skipped; text without cased letters (Japanese) is unchanged.
+ */
+export function startCase(s: string): string {
+  const m = /^([„“"'‚‘«»(\[¿¡\s]*)(\p{Ll})/u.exec(s);
+  return m ? m[1] + m[2].toLocaleUpperCase() + s.slice(m[0].length) : s;
+}
+
+/** Comparison keys for a tile sequence: like `tileKey`, with the first tile sentence-cased. */
+const seqKeys = (tiles: readonly string[]): string[] => tiles.map((t, i) => (i === 0 ? startCase(tileKey(t)) : tileKey(t)));
+
 /** Tile text for showing as plain text (reports, screen readers): furigana dropped. */
 export const tilePlain = (s: string): string => stripRuby(String(s)).trim();
 
@@ -63,18 +77,18 @@ const sameKeys = (a: string[], b: string[]) => a.length === b.length && a.every(
 /** True when the placed tiles spell one of the correct sentences (all or nothing). */
 export function buildCorrect(q: BuildFields, chosen: readonly unknown[] | undefined): boolean {
   const pool = buildPool(q);
-  const got = placedTiles(q, chosen).map((i) => tileKey(pool[i]));
-  return got.length > 0 && buildAnswers(q).some((a) => a.length > 0 && sameKeys(got, a.map(tileKey)));
+  const got = seqKeys(placedTiles(q, chosen).map((i) => pool[i]));
+  return got.length > 0 && buildAnswers(q).some((a) => a.length > 0 && sameKeys(got, seqKeys(a)));
 }
 
 /** The correct sentence closest to the learner's (most tiles in the right place; first on a tie). */
 export function closestAnswer(q: BuildFields, chosen: readonly unknown[] | undefined): string[] {
   const pool = buildPool(q);
-  const got = placedTiles(q, chosen).map((i) => tileKey(pool[i]));
+  const got = seqKeys(placedTiles(q, chosen).map((i) => pool[i]));
   let best = q.tiles ?? [];
   let score = -1;
   for (const a of buildAnswers(q)) {
-    const keys = a.map(tileKey);
+    const keys = seqKeys(a);
     if (sameKeys(got, keys)) return a;
     const s = keys.reduce((n, k, i) => n + (got[i] === k ? 1 : 0), 0) - Math.abs(keys.length - got.length) / 100;
     if (s > score) {
@@ -91,13 +105,14 @@ export function closestAnswer(q: BuildFields, chosen: readonly unknown[] | undef
  */
 export function buildParts(q: BuildFields, chosen: readonly unknown[]): boolean[] {
   const pool = buildPool(q);
-  const got = placedTiles(q, chosen).map((i) => tileKey(pool[i]));
-  return closestAnswer(q, chosen).map((t, i) => got[i] === tileKey(t));
+  const got = seqKeys(placedTiles(q, chosen).map((i) => pool[i]));
+  const want = seqKeys(closestAnswer(q, chosen));
+  return want.map((k, i) => got[i] === k);
 }
 
 /** The sentence as plain text, with the joiner and the final punctuation. */
 export function sentenceText(q: BuildFields, tiles: string[], lang?: string): string {
-  const s = tiles.map(tilePlain).join(buildJoiner(q, lang));
+  const s = startCase(tiles.map(tilePlain).join(buildJoiner(q, lang)));
   return tiles.length ? s + (q.punctuation ?? "") : s;
 }
 

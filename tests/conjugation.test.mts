@@ -1,6 +1,7 @@
 // Conjugation drills: generated Japanese and German forms against standard tables, the data
 // checks, answer checking, rounds and progress. Run: npx tsx tests/conjugation.test.mts
 import {
+  formsForClass,
   buildRound,
   checkConj,
   conjForms,
@@ -575,6 +576,14 @@ ok("canonical validator rejects bad fields", ["conj", "forms.nonsense", "conjuga
   ok("checker: prefix-looking verb", has(dprobs, "word besuchen:"), dprobs);
   ok("checker: unknown forms key", has(dprobs, "unknown forms.plural"), dprobs);
   ok("checker: adjective endings need nouns", has(dprobs, "need nouns"), dprobs);
+}
+
+// noForms: a word can opt out of forms it doesn't have (できる has no potential).
+{
+  const dekiru = { id: "dekiru", lesson: "l1", term: "できる", meanings: ["can"], conj: "ichidan", noForms: ["potential", "volitional"] } as VocabItem;
+  ok("noForms removes forms", !formsForClass("ja", dekiru).includes("potential") && formsForClass("ja", dekiru).includes("polite"));
+  const norm = normalizeCourse({ format: "erudior-course", id: "c", title: "c", language: { code: "ja", name: "Japanese" }, lessons: [{ id: "l1", title: "l", body: "x" }], vocab: [{ ...dekiru, noForms: ["potential", "bogus"] }] } as never);
+  ok("noForms normalized (unknown forms dropped)", JSON.stringify(norm.vocab?.[0].noForms) === '["potential"]', norm.vocab?.[0]);
 }
 
 console.log(fails ? `${fails} of ${checks} conjugation checks FAILED` : `conjugation tests passed (${checks} checks)`);

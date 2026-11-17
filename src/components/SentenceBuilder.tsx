@@ -6,7 +6,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { Chosen, Question } from "../lib/types";
 import { hasJapanese } from "../lib/kana";
-import { bankOrder, buildJoiner, buildParts, buildPool, closestAnswer, placedTiles, sentenceText, tilePlain } from "../lib/sentenceBuild";
+import { bankOrder, buildJoiner, buildParts, buildPool, closestAnswer, placedTiles, sentenceText, startCase, tilePlain } from "../lib/sentenceBuild";
 import { isCorrect } from "../lib/questions";
 import { RubyText } from "./Ruby";
 
@@ -24,9 +24,11 @@ interface Props {
 }
 
 /** One tile's text; furigana markup shows as ruby. */
-function TileText({ text, lang }: { text: string; lang?: string }) {
+function TileText({ text, lang, first }: { text: string; lang?: string; first?: boolean }) {
+  // Chinese tiles: pinyin markup {你好|nǐ hǎo} shows one syllable over each character.
+  if (lang === "zh") return <RubyText text={text} lang="zh" />;
   const ja = lang === "ja" || hasJapanese(text);
-  return <RubyText text={text} lang={ja ? "ja" : undefined} />;
+  return <RubyText text={first && !ja ? startCase(text) : text} lang={ja ? "ja" : undefined} />;
 }
 
 export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled, review, lang, seed }: Props) {
@@ -109,7 +111,7 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
               const ok = parts[pos];
               return (
                 <span key={tile} className={`build-tile ${reveal ? (ok ? "is-right" : "is-wrong") : ""}`}>
-                  <TileText text={pool[tile]} lang={lang} />
+                  <TileText text={pool[tile]} lang={lang} first={pos === 0} />
                   {reveal && <span className="sr-only">{ok ? " (right)" : " (wrong place)"}</span>}
                 </span>
               );
@@ -129,7 +131,7 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
                 {answer.map((t, i) => (
                   <Fragment key={i}>
                     {i > 0 && joiner}
-                    <TileText text={t} lang={lang} />
+                    <TileText text={t} lang={lang} first={i === 0} />
                   </Fragment>
                 ))}
                 {q.punctuation}
@@ -216,7 +218,7 @@ export default function SentenceBuilder({ q, chosen, onChange, reveal, disabled,
               dropAt(pos);
             }}
           >
-            <TileText text={pool[tile]} lang={lang} />
+            <TileText text={pool[tile]} lang={lang} first={pos === 0} />
           </button>
         ))}
         {placed.length > 0 && q.punctuation && (

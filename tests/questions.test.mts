@@ -117,7 +117,7 @@ t("build: sentence from tiles", () => {
   assert.ok(isCorrect(de, [0, 1, 2, 3, 4]));
   assert.ok(isCorrect(de, [3, 1, 2, 0, 4]), "the two \"die\" tiles swap freely");
   assert.ok(!isCorrect(de, [5, 1, 2, 3, 4]), "the distractor is wrong");
-  assert.equal(chosenText(de, [3, 1, 2, 0, 4]), "die Katze sieht die Maus.", "other languages join with a space");
+  assert.equal(chosenText(de, [3, 1, 2, 0, 4]), "Die Katze sieht die Maus.", "other languages join with a space");
 
   // Joiner: explicit, from the course language, or from the script.
   assert.equal(buildJoiner({ tiles: ["a", "b"] }), " ");

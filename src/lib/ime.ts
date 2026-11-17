@@ -2,10 +2,11 @@
 // Each converter turns what's been typed so far into the text to show in the box; it's run on
 // the whole value after every change, so it must leave already-converted text alone.
 // German and other Roman-script languages need none (they use character buttons).
-// Chinese (pinyin -> hanzi) can plug in here later.
+// Chinese: tone numbers → tone marks (pinyin); characters come from the device keyboard.
 
 import type { LanguageInfo } from "./types";
 import { romajiToKana } from "./kana";
+import { pinyinTyping } from "./pinyin";
 
 export interface ImeOptions {
   /** The learner submitted: finish anything left pending (a trailing "n" → ん). */
@@ -20,6 +21,10 @@ const registry: Record<string, Ime> = {
   // Japanese: romaji → kana. Kanji come from the learner's own Japanese keyboard, if any;
   // answers are accepted in kana, so none is needed.
   ja: (typed, opts) => romajiToKana(typed, opts),
+  // Chinese: pinyin with tone numbers becomes tone marks as it's typed ("ni3hao3" → "nǐhǎo",
+  // "lv4" / "lu:4" → "lǜ", 5 or 0 = neutral). Han characters from a Chinese keyboard and tone
+  // marks typed directly pass through unchanged; nothing is left pending, so `final` is a no-op.
+  zh: (typed) => pinyinTyping(typed),
 };
 
 export function registerIme(name: string, ime: Ime) {

@@ -4425,8 +4425,8 @@
   "file": "languages/lang-german-a1.json",
   "order": 100,
   "title": "German A1",
-  "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, and a reading list points to graded readers you can try on your own.",
-  "revision": 4,
+  "description": "German from your first word to CEFR level A1, the level of the Goethe-Zertifikat A1: Start Deutsch 1. Grammar lessons cover sounds and spelling, greetings, numbers, the present tense, articles and plurals, the accusative and a first look at the dative, modal and separable verbs, the imperative and the perfect tense. About 700 everyday words are learned through typed vocabulary reviews with pronunciation, conjugation drills practise the present, the imperative and the perfect, sentence-building questions practise word order, and a reading list points to graded readers you can try on your own.",
+  "revision": 5,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4438,7 +4438,7 @@
   ],
   "lessons": 24,
   "honors": 17,
-  "questions": 664,
+  "questions": 683,
   "cards": 190,
   "drills": 0,
   "words": 924,
@@ -4708,8 +4708,8 @@
   "file": "languages/lang-german-a2.json",
   "order": 101,
   "title": "German A2",
-  "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
-  "revision": 3,
+  "description": "The second step in German, from A1 to CEFR level A2, the level of the Goethe-Zertifikat A2. Lessons cover talking about the past, reasons and opinions with weil and dass, reflexive verbs, verbs with prepositions, adjective endings, comparisons, two-way prepositions, polite requests with würde and könnte, and writing short messages and e-mails. About 670 new words build on the 717 from German A1 for about 1,380 in all. Conjugation drills add adjective endings to the A1 verb forms, sentence-building questions practise word order, and a reading list suggests graded readers for this level. Unlocks when German A1 is complete.",
+  "revision": 5,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4721,10 +4721,10 @@
   ],
   "lessons": 24,
   "honors": 17,
-  "questions": 647,
+  "questions": 667,
   "cards": 193,
   "drills": 0,
-  "words": 1791,
+  "words": 1795,
   "carried": 924,
   "requires": [
    "lang-german-a1"
@@ -4875,8 +4875,8 @@
   "file": "languages/lang-german-b1.json",
   "order": 102,
   "title": "German B1",
-  "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Unlocks when German A2 is complete.",
-  "revision": 3,
+  "description": "The third step in German, from A2 to CEFR level B1, the level of the Goethe-Zertifikat B1. Lessons cover telling stories in the simple past and past perfect, time clauses, the future, weak and adjectival nouns, obwohl, um … zu and damit, two-part connectors, relative clauses in every case, the genitive, the passive, the full Konjunktiv II, verbs with prepositions, and writing e-mails, forum posts and short presentations. About 1,000 new words build on the 1,384 from German A1 and A2 for about 2,400 in all, and a reading list suggests graded readers and real news at this level. Conjugation drills add the simple past, the Konjunktiv II and genitive adjective endings, and sentence-building questions practise word order. Unlocks when German A2 is complete.",
+  "revision": 5,
   "subject": "Languages",
   "level": [
    "High School",
@@ -4888,11 +4888,11 @@
   ],
   "lessons": 30,
   "honors": 16,
-  "questions": 743,
+  "questions": 776,
   "cards": 187,
   "drills": 0,
-  "words": 3044,
-  "carried": 1791,
+  "words": 3048,
+  "carried": 1795,
   "requires": [
    "lang-german-a2"
   ],
@@ -5042,6 +5042,537 @@
      "Gedichte: reading poems by Eichendorff and Heine",
      "Erinnerungskultur: how Germany remembers",
      "Ein Einwanderungsland: migration history and describing statistics"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-german-b2",
+  "file": "languages/lang-german-b2.json",
+  "order": 103,
+  "title": "German B2",
+  "description": "The fourth step in German, from B1 to CEFR level B2, the level of the Goethe-Zertifikat B2. Lessons cover reporting what others said with the Konjunktiv I, the passive and its alternatives (sein + zu, sich lassen, -bar), extended participial attributes, the nominal style of formal texts, Funktionsverbgefüge, modal particles, subjective modal verbs, complex connectors such as indem, je nachdem and insofern als, the Futur II, word formation, and writing and speaking at B2: forum posts that argue a case, formal messages at work, presentations and discussions. About 1,000 new words build on the roughly 2,400 core words of German A1 to B1 for about 3,400 in all, and a reading list suggests novels, news and podcasts at this level. Unlocks when German B1 is complete.",
+  "revision": 2,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 16,
+  "questions": 794,
+  "cards": 0,
+  "drills": 0,
+  "words": 4315,
+  "carried": 3048,
+  "requires": [
+   "lang-german-b1"
+  ],
+  "lessonIds": [
+   "de4-konj1",
+   "de4-indirect-speech",
+   "de4-subjective-modals",
+   "de4-futur-zwei",
+   "de4-reporting",
+   "de4-zustandspassiv",
+   "de4-passive-alternatives",
+   "de4-passive-all-tenses",
+   "de4-fvg",
+   "de4-verb-prefixes",
+   "de4-participle-attributes",
+   "de4-gerundive",
+   "de4-nominalization",
+   "de4-genitive-preps",
+   "de4-relative-advanced",
+   "de4-modal-particles",
+   "de4-connectors",
+   "de4-concession",
+   "de4-argumentation",
+   "de4-discussion",
+   "de4-noun-formation",
+   "de4-adjective-formation",
+   "de4-infinitive-clauses",
+   "de4-trends",
+   "de4-presentation",
+   "de4-formal-writing",
+   "de4-complex-sentences",
+   "de4-applications",
+   "de4-language-identity",
+   "de4-exam-review"
+  ],
+  "honorsLessonIds": [
+   "de4-m1-h-konj1-beyond",
+   "de4-m1-h-sports-report",
+   "de4-m2-h-technical",
+   "de4-m2-h-process",
+   "de4-m3-h-grundgesetz",
+   "de4-m3-h-review",
+   "de4-m4-h-rhetoric",
+   "de4-m4-h-satire",
+   "de4-m5-h-academic",
+   "de4-m5-h-lecture",
+   "de4-m6-h-labour-law",
+   "de4-m6-h-mediation",
+   "de4-h-kafka",
+   "de4-h-drama",
+   "de4-h-europe",
+   "de4-h-plurizentrisch"
+  ],
+  "honorsModuleIds": [
+   "de4-h1"
+  ],
+  "outline": [
+   {
+    "title": "Reporting and the news",
+    "lessons": [
+     "What they say: Konjunktiv I and indirect speech in the present",
+     "Indirect speech in full: the replacement rule, past, questions and commands",
+     "He is said to …: subjective modal verbs",
+     "Will have done: Futur II and assumptions about the past",
+     "According to …: reporting verbs and the media landscape"
+    ],
+    "honors": [
+     "Man nehme …: the Konjunktiv I beyond reported speech",
+     "Live and in the paper: sports reporting"
+    ]
+   },
+   {
+    "title": "How things are done",
+    "lessons": [
+     "Is closed, was built: Vorgangspassiv and Zustandspassiv",
+     "Can be done: sein + zu, sich lassen, -bar and more",
+     "Had been done, will be done: the passive in every tense",
+     "Make a decision, take into account: Funktionsverbgefüge",
+     "Über-setzen or übersetzen? Verb prefixes and meaning"
+    ],
+    "honors": [
+     "Instructions, norms and warnings: technical German",
+     "From grain to glass: describing a process"
+    ]
+   },
+   {
+    "title": "Dense texts",
+    "lessons": [
+     "The recently renovated station: extended participle attributes",
+     "The problem to be solved: zu + Partizip I and attribute chains",
+     "Verbal style and nominal style",
+     "Notwithstanding, by means of: formal prepositions",
+     "Whose, whoever, which: relative clauses at B2"
+    ],
+    "honors": [
+     "Die Würde des Menschen: reading the Grundgesetz",
+     "Book and film reviews: writing a Rezension"
+    ]
+   },
+   {
+    "title": "Arguing and nuancing",
+    "lessons": [
+     "Doch, ja, halt, eben, mal: modal particles",
+     "By doing, provided that, depending on: indem, sofern, je nachdem",
+     "Even though, whereas, as if: concession, contrast and comparison",
+     "Making the case: argumentation and the forum post",
+     "Discussing and negotiating"
+    ],
+    "honors": [
+     "Speeches and rhetoric",
+     "Satire, Kabarett and the Glosse"
+    ]
+   },
+   {
+    "title": "Science, technology and the future",
+    "lessons": [
+     "Building nouns: suffixes, compounds and short forms",
+     "Building adjectives: -bar, -los, -haft, -wert and compounds",
+     "To have done, to be seen: infinitive clauses at B2",
+     "Rising and falling: forecasts, probability and statistics",
+     "Giving a presentation: word order and signposting"
+    ],
+    "honors": [
+     "Academic German: abstracts, quoting and citing",
+     "Listening to a lecture and taking notes"
+    ]
+   },
+   {
+    "title": "Working life and the B2 exam",
+    "lessons": [
+     "Writing to your manager: formal messages at work",
+     "Long sentences: verb clusters and multiple clauses",
+     "Applying for a job at B2: CV, cover letter and interview",
+     "Language and identity: register and variation",
+     "The Goethe-Zertifikat B2 and review"
+    ],
+    "honors": [
+     "Arbeitsrecht: contracts, works councils and collective agreements",
+     "Sprachmittlung: passing on what you read and heard"
+    ]
+   },
+   {
+    "title": "Honors: Sprache, Literatur und Öffentlichkeit (language, literature and public life)",
+    "lessons": [],
+    "honors": [
+     "Kafka, Die Verwandlung: narrative perspective and erlebte Rede",
+     "Das Drama: reading a scene from Schiller and Büchner",
+     "Europe and federalism: who decides what?",
+     "One language, three standards: Austrian and Swiss German"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-german-c1",
+  "file": "languages/lang-german-c1.json",
+  "order": 104,
+  "title": "German C1",
+  "description": "The fifth step in German, from B2 to CEFR level C1, the level of the Goethe-Zertifikat C1. Lessons cover modal verbs in every tense and their subjective use about the past, the Konjunktiv II of the past with modal verbs and the passive, the Konjunktiv I in academic and legal reporting, focus and modal particles, advanced nominal style, Funktionsverbgefüge and participial constructions, every alternative to the passive, the word es and other pointing words, text cohesion, idioms, register and advanced word formation, and the texts of law, economics, science, politics and culture. Writing and speaking reach C1: summaries, graph descriptions, the Erörterung, forum posts and half-formal messages, talks and discussions, and mediation, with a look at regional German and literature. About 1,000 new words build on the roughly 3,400 core words of German A1 to B2 for about 4,400 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German B2 is complete.",
+  "revision": 2,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 16,
+  "questions": 792,
+  "cards": 0,
+  "drills": 0,
+  "words": 5597,
+  "carried": 4315,
+  "requires": [
+   "lang-german-b2"
+  ],
+  "lessonIds": [
+   "de5-modals-tenses",
+   "de5-subjective-modals-past",
+   "de5-konj2-past-modals",
+   "de5-konj1-academic",
+   "de5-gradpartikeln",
+   "de5-nominal-advanced",
+   "de5-fvg-advanced",
+   "de5-participles-deep",
+   "de5-passive-substitutes",
+   "de5-es-verweis",
+   "de5-cohesion",
+   "de5-summary",
+   "de5-graph-description",
+   "de5-eroerterung",
+   "de5-forum-message",
+   "de5-particles-advanced",
+   "de5-idioms",
+   "de5-register",
+   "de5-word-formation-adv",
+   "de5-emphasis-negation",
+   "de5-law-texts",
+   "de5-economy-texts",
+   "de5-science-texts",
+   "de5-social-texts",
+   "de5-culture-texts",
+   "de5-varieties",
+   "de5-poetry",
+   "de5-speaking-c1",
+   "de5-mediation-c1",
+   "de5-exam-review"
+  ],
+  "honorsLessonIds": [
+   "de5-m1-h-rules-modality",
+   "de5-m1-h-weather",
+   "de5-m2-h-arztbrief",
+   "de5-m2-h-rail",
+   "de5-m3-h-leserbrief",
+   "de5-m3-h-bildbeschreibung",
+   "de5-m4-h-euphemism",
+   "de5-m4-h-occasions",
+   "de5-m5-h-data-protection",
+   "de5-m5-h-clinical-trials",
+   "de5-m6-h-kohlhaas",
+   "de5-m6-h-film",
+   "de5-h-kant",
+   "de5-h-grimm",
+   "de5-h-language-history",
+   "de5-h-humboldt"
+  ],
+  "honorsModuleIds": [
+   "de5-h1"
+  ],
+  "outline": [
+   {
+    "title": "Modality and stance",
+    "lessons": [
+     "Had to, would have been able to: modal verbs in every tense",
+     "She must have known: subjective modal verbs about the past",
+     "It could have been prevented: Konjunktiv II of the past",
+     "According to the author: Konjunktiv I in academic and extended reports",
+     "Even, only, of all things: focus particles"
+    ],
+    "honors": [
+     "Darf, soll, kann: modality in rules and regulations",
+     "Mit hoher Wahrscheinlichkeit: weather forecasts and probability"
+    ]
+   },
+   {
+    "title": "Nominal style and technical German",
+    "lessons": [
+     "Whole clauses into phrases: advanced nominal style",
+     "Unter Druck geraten, zum Erliegen kommen: Funktionsverbgefüge at C1",
+     "Genau genommen: participial attributes and participial clauses",
+     "To be taken twice daily: every alternative to the passive",
+     "Es, darauf, dies: the word es and pointing words"
+    ],
+    "honors": [
+     "Befund unauffällig: reading a doctor's letter",
+     "Stellwerk und Oberleitung: technical German on the railway"
+    ]
+   },
+   {
+    "title": "Coherent texts and academic writing",
+    "lessons": [
+     "Folglich, wobei, Letzteres: cohesion and coherence",
+     "Summing up a text: Zusammenfassung and Textwiedergabe",
+     "Charts and figures: Grafikbeschreibung",
+     "Weighing it up: the Erörterung and the Stellungnahme",
+     "Writing at C1: the forum post and the half-formal message"
+    ],
+    "honors": [
+     "Opinion journalism: Kommentar and Leserbrief",
+     "Describing a picture: painting, photo and cartoon"
+    ]
+   },
+   {
+    "title": "Expression, idiom and style",
+    "lessons": [
+     "Halt mal, ja nicht, eh schon: modal particles at C1",
+     "Den Nagel auf den Kopf treffen: idioms and Redewendungen",
+     "Kriegen, bekommen, erhalten: register and stylistic levels",
+     "Blitzschnell, spottbillig, Unmenge: advanced word formation",
+     "Was mich stört, ist …: emphasis, information structure and negation"
+    ],
+    "honors": [
+     "Framing and euphemism: the language of politics",
+     "Words for solemn occasions: condolence, congratulation, tribute"
+    ]
+   },
+   {
+    "title": "Specialised texts",
+    "lessons": [
+     "Wer erbt? Reading legal texts",
+     "Kraft, mangels, zuzüglich: monetary policy and written-language prepositions",
+     "Man versteht darunter …: definitions and classification in science",
+     "Was dazu führt, dass …: the welfare state and continuing relative clauses",
+     "Der Direktor, ein erfahrener Kurator: museums, heritage and the apposition"
+    ],
+    "honors": [
+     "Ihre Daten: reading a privacy notice",
+     "Doppelblind und randomisiert: reading about clinical trials"
+    ]
+   },
+   {
+    "title": "Varieties, literature and the C1 exam",
+    "lessons": [
+     "Brötchen, Semmel, Schrippe: regional German in Germany",
+     "Vers, Reim und Metapher: reading poems and stylistic devices",
+     "Talk and discussion at C1: presenting, rephrasing, holding your ground",
+     "Passing it on: mediation at C1",
+     "The Goethe-Zertifikat C1 and review"
+    ],
+    "honors": [
+     "Kleist, Michael Kohlhaas: the long sentence",
+     "Einstellung, Schnitt, Rückblende: talking about film"
+    ]
+   },
+   {
+    "title": "Honors: Denken, Sprache und Geschichte (thought, language and history)",
+    "lessons": [],
+    "honors": [
+     "Kant, Was ist Aufklärung?: reading philosophical German",
+     "Die Brüder Grimm: fairy tales and a dictionary",
+     "From Althochdeutsch to today: a short history of German",
+     "Alexander von Humboldt: science, travel and the essay"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-german-c2",
+  "file": "languages/lang-german-c2.json",
+  "order": 105,
+  "title": "German C2",
+  "description": "The sixth and last step in German, from C1 to CEFR level C2, the level of the Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom. Lessons cover precise word choice among near-synonyms and their connotations, deliberate shifts of register from Amtsdeutsch to salopp, the Konjunktiv and modality in their subtle uses, verbs with genitive objects, rewriting between nominal and verbal style, complex periods and fine word order, productive word formation and verb prefixes, argument and rhetoric, academic and journalistic writing, idioms, proverbs, collocations, humour, irony and metaphor, and the specialist German of law, medicine, finance, science and administration. Literary German is read across the periods in public-domain texts, with older German, contemporary language change, mediation at C2 and the Goethe C2 exam. About 1,000 new words build on the roughly 4,450 core words of German A1 to C1 for about 5,450 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German C1 is complete.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 16,
+  "questions": 793,
+  "cards": 0,
+  "drills": 0,
+  "words": 6895,
+  "carried": 5597,
+  "requires": [
+   "lang-german-c1"
+  ],
+  "lessonIds": [
+   "de6-wortfelder",
+   "de6-register-shift",
+   "de6-konjunktiv-nuance",
+   "de6-modality-nuance",
+   "de6-genitive-valency",
+   "de6-nominal-verbal",
+   "de6-complex-syntax",
+   "de6-word-order",
+   "de6-word-formation",
+   "de6-verb-prefixes",
+   "de6-argumentation",
+   "de6-rhetoric",
+   "de6-academic-writing",
+   "de6-journalism",
+   "de6-writing-c2",
+   "de6-idioms-c2",
+   "de6-proverbs-quotations",
+   "de6-collocations",
+   "de6-humour-wordplay",
+   "de6-metaphor",
+   "de6-legal-language",
+   "de6-medical-language",
+   "de6-finance-language",
+   "de6-science-language",
+   "de6-administrative-language",
+   "de6-older-german",
+   "de6-literary-prose",
+   "de6-language-change",
+   "de6-mediation-c2",
+   "de6-exam-review"
+  ],
+  "honorsLessonIds": [
+   "de6-m1-h-translation",
+   "de6-m1-h-stilkritik",
+   "de6-m2-h-twain",
+   "de6-m2-h-zweifelsfaelle",
+   "de6-m3-h-speeches",
+   "de6-m3-h-scicomm",
+   "de6-m4-h-nonsense",
+   "de6-m4-h-fables",
+   "de6-m5-h-bverfg",
+   "de6-m5-h-insurance",
+   "de6-m6-h-tonio-kroeger",
+   "de6-m6-h-schnitzler",
+   "de6-h-romantik",
+   "de6-h-nietzsche",
+   "de6-h-freud",
+   "de6-h-zweig"
+  ],
+  "honorsModuleIds": [
+   "de6-h1"
+  ],
+  "outline": [
+   {
+    "title": "Precision, register and nuance",
+    "lessons": [
+     "Raunen, tuscheln, wispern: near-synonyms, connotation and the precise word",
+     "Malochen oder arbeiten: shifting register on purpose",
+     "Komme, was wolle: the Konjunktiv in its subtle uses",
+     "Dürfte, schwerlich, droht zu: modality beyond the modal verbs",
+     "Er bedarf keiner Hilfe: genitive objects and the government of verbs"
+    ],
+    "honors": [
+     "Übersetzen: English ↔ German and where it goes wrong",
+     "Schwulst und Prägnanz: Lichtenberg, Schopenhauer and Kraus on style"
+    ]
+   },
+   {
+    "title": "Sentence building and word formation",
+    "lessons": [
+     "Umformulieren: Nominalstil and Verbalstil in both directions",
+     "Satzperioden: reading and building complex sentences",
+     "Kühe hat er drei: fine word order in the Mittelfeld and Vorfeld",
+     "Gerede, Schreiberling, notlanden: productive word formation",
+     "Umschiffen oder umschiffen: verb prefixes and particle verbs"
+    ],
+    "honors": [
+     "\"The Awful German Language\": Mark Twain's complaints, checked",
+     "Gewinkt oder gewunken? Doubtful cases of German grammar"
+    ]
+   },
+   {
+    "title": "Argument, rhetoric, scholarship and the press",
+    "lessons": [
+     "Das greift zu kurz: argument structure and fallacies",
+     "Überzeugen: rhetoric, the C2 talk and the pro-and-contra discussion",
+     "Einer Frage nachgehen: academic German at C2",
+     "Aufmacher, Lead, Kommentar: journalistic genres and press style",
+     "Writing at C2: Umformulierung, Leserbrief, Buchbesprechung"
+    ],
+    "honors": [
+     "Reden, die Geschichte machten: analysing historic German speeches",
+     "Verständlich erklären: science communication"
+    ]
+   },
+   {
+    "title": "Idiom, humour and imagery",
+    "lessons": [
+     "Den Bogen überspannen: idioms at depth",
+     "Des Pudels Kern: proverbs and geflügelte Worte",
+     "Bedenken äußern, Zweifel hegen: collocations",
+     "Kalauer, Ironie, Understatement: humour and wordplay",
+     "Der Konflikt schwelt: metaphor, metonymy and image fields"
+    ],
+    "honors": [
+     "Das große Lalula: nonsense poetry and Dada",
+     "Der Rabe und der Fuchs: fables, parables and Lessing"
+    ]
+   },
+   {
+    "title": "Specialist German",
+    "lessons": [
+     "Fraglich ist, ob …: judgments, Gutachtenstil and contracts",
+     "Inzidenz und Prävalenz: medical German from the clinic to the public",
+     "Bilanz und Lagebericht: the language of company finance",
+     "Die Messreihe zeigt …: physics and chemistry in German",
+     "Gegen diesen Bescheid …: administrative German"
+    ],
+    "honors": [
+     "Das Volkszählungsurteil: reading a Constitutional Court judgment",
+     "Das Kleingedruckte: insurance terms and general conditions"
+    ]
+   },
+   {
+    "title": "Literature, variation, mediation and the C2 exam",
+    "lessons": [
+     "Es ist alles eitel: reading older German, 1600–1800",
+     "Erzählhaltung und Zwischentöne: reading literary prose, 1850–1930",
+     "Weil das ist so: language change and variation today",
+     "Synthesizing sources: mediation and summary at C2",
+     "The Goethe-Zertifikat C2: GDS and review"
+    ],
+    "honors": [
+     "Thomas Mann, Tonio Kröger: irony and the artist",
+     "Schnitzler, Leutnant Gustl: the interior monologue and Vienna 1900"
+    ]
+   },
+   {
+    "title": "Honors: Von der Romantik zum Exil (from Romanticism to exile)",
+    "lessons": [],
+    "honors": [
+     "Die blaue Blume: German Romanticism (Novalis, Schlegel, Hoffmann)",
+     "Ein bewegliches Heer von Metaphern: Nietzsche's German",
+     "Das Ich und das Es: Freud's German and its translation",
+     "Stefan Zweig, Die Welt von Gestern: memory, Europe and exile"
     ],
     "isHonors": true
    }
@@ -5292,8 +5823,8 @@
   "file": "languages/lang-japanese-kana.json",
   "order": 120,
   "title": "Japanese: Hiragana and Katakana",
-  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards. This course comes before Japanese N5.",
-  "revision": 1,
+  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards, and every word shows its pitch accent. This course comes before Japanese N5.",
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5382,8 +5913,8 @@
   "file": "languages/lang-japanese-n5.json",
   "order": 121,
   "title": "Japanese N5",
-  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), about 100 kanji through notecards and inside words, with furigana you can turn off. Requires Japanese: Hiragana and Katakana.",
-  "revision": 1,
+  "description": "Japanese from your first sentences to JLPT N5. Grammar lessons cover です and polite verbs, particles, adjectives, the て form, plain forms, wanting, inviting, permission, experiences and comparisons. About 800 everyday words are learned through typed vocabulary reviews (romaji turns into kana as you type), each with its pitch accent marked, and verb and adjective forms are practised in conjugation drills. About 100 kanji are learned through notecards, inside words and by tracing them stroke by stroke, with furigana you can turn off, and every core lesson has sentence-building questions. Requires Japanese: Hiragana and Katakana.",
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5395,7 +5926,7 @@
   ],
   "lessons": 30,
   "honors": 12,
-  "questions": 744,
+  "questions": 804,
   "cards": 102,
   "drills": 0,
   "words": 1086,
@@ -5533,6 +6064,1216 @@
     "honors": [
      "A longer story",
      "Writing messages"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n4",
+  "file": "languages/lang-japanese-n4.json",
+  "order": 122,
+  "title": "Japanese N4",
+  "description": "The second step in Japanese, from N5 to JLPT N4. Grammar lessons cover explaining with んです, the potential and volitional forms, plans and decisions, giving and receiving and doing favours, transitive and intransitive verbs, the conditionals と, ば, たら and なら, must and need not, seeming and hearsay, the passive, causative and causative-passive, and respectful and humble keigo. About 700 new words build on the 860 from the kana and N5 courses for about 1,500 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 180 new kanji (about 280 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N5.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 747,
+  "cards": 177,
+  "drills": 0,
+  "words": 1811,
+  "carried": 1086,
+  "requires": [
+   "lang-japanese-n5"
+  ],
+  "lessonIds": [
+   "n4-explaining",
+   "n4-potential",
+   "n4-volitional",
+   "n4-plans",
+   "n4-temiru-teoku",
+   "n4-giving",
+   "n4-favors",
+   "n4-trans-intrans",
+   "n4-shimau",
+   "n4-tokoro-nagara",
+   "n4-to-cond",
+   "n4-ba-cond",
+   "n4-tara",
+   "n4-nara-temo",
+   "n4-must",
+   "n4-sou-looks",
+   "n4-hearsay",
+   "n4-you-mitai",
+   "n4-hazu-kamo",
+   "n4-indirect",
+   "n4-passive",
+   "n4-causative",
+   "n4-causative-passive",
+   "n4-you-ni",
+   "n4-yasui-sugiru",
+   "n4-node-noni",
+   "n4-honorific",
+   "n4-humble",
+   "n4-practice",
+   "n4-exam"
+  ],
+  "honorsLessonIds": [
+   "n4-pitch-accent",
+   "n4-moving",
+   "n4-gift-customs",
+   "n4-deliveries",
+   "n4-emergencies",
+   "n4-city-office",
+   "n4-news-easy",
+   "n4-luck",
+   "n4-school-life",
+   "n4-work-culture",
+   "n4-story",
+   "n4-polite-writing"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Explaining, abilities and plans",
+    "lessons": [
+     "Explaining and joining: 〜んです and て forms",
+     "Can do: the potential form",
+     "Let's and I think I'll: the volitional form",
+     "Plans and decisions: つもり, よてい, ことにする, ことになる",
+     "Trying and preparing: 〜てみる, 〜ておく"
+    ],
+    "honors": [
+     "Pitch accent",
+     "Moving in: renting and the neighbours"
+    ]
+   },
+   {
+    "title": "Giving, receiving and getting things done",
+    "lessons": [
+     "Giving and receiving: あげる, くれる, もらう",
+     "Doing favours: 〜てあげる, 〜てくれる, 〜てもらう",
+     "Transitive and intransitive pairs; 〜ている and 〜てある",
+     "Done and regretted: 〜てしまう; starting, finishing and continuing",
+     "While, just and still: 〜ながら, 〜ところ, 〜たばかり, 〜まま, 〜ないで"
+    ],
+    "honors": [
+     "Gifts in Japan",
+     "Deliveries, convenience stores and services"
+    ]
+   },
+   {
+    "title": "If, when and must",
+    "lessons": [
+     "When A, B happens: the と conditional",
+     "If: the ば form",
+     "If and after: 〜たら",
+     "なら, 〜ても, and only: しか, だけ, ばかり",
+     "Must and don't have to; commands"
+    ],
+    "honors": [
+     "Earthquakes and emergencies",
+     "At the city office"
+    ]
+   },
+   {
+    "title": "Seeming, hearsay and guessing",
+    "lessons": [
+     "Looks like: 〜そう",
+     "I hear that: hearsay そうだ and 〜って",
+     "Seems: 〜ようだ, 〜みたい, 〜らしい",
+     "Should be, might be: はずだ, かもしれない",
+     "Do you know when…? Indirect questions"
+    ],
+    "honors": [
+     "Reading easy news",
+     "Luck, fortune and folk beliefs"
+    ]
+   },
+   {
+    "title": "Passive, causative and change",
+    "lessons": [
+     "The passive",
+     "Making and letting: the causative",
+     "Being made to: the causative-passive",
+     "Becoming, habits and goals: ようになる, ようにする, ように, ために",
+     "Easy, hard, too much, how to: やすい, にくい, すぎる, かた, さ, がる"
+    ],
+    "honors": [
+     "School life in Japan",
+     "Working in Japan"
+    ]
+   },
+   {
+    "title": "Polite Japanese and the N4 exam",
+    "lessons": [
+     "Reasons and contrasts: ので, のに, し, とか",
+     "Respectful language: sonkeigo",
+     "Humble language: kenjōgo",
+     "Reading and listening practice",
+     "The JLPT N4 and review"
+    ],
+    "honors": [
+     "A longer story: the Saturday bakery",
+     "Writing polite emails and letters"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n3",
+  "file": "languages/lang-japanese-n3.json",
+  "order": 123,
+  "title": "Japanese N3",
+  "description": "The third step in Japanese, from N4 to JLPT N3. Grammar lessons cover time and timing (うちに, 最中に, たびに, ところ), change and degree (につれて, ば〜ほど, ほど, さえ), reasons and judgements (おかげで, せいで, わけだ, ことはない, べきだ, ものだ), the formal phrases として, にとって, に対して, について and によって, impressions and attitudes (っぽい, がち, らしい, くせに), quoting and passing on requests, more keigo, casual contractions, compound verbs and the written である style, with a longer reading in every lesson. About 1,900 new words build on the 1,800 from the kana, N5 and N4 courses for about 3,700 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 370 new kanji (about 650 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N4.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 370,
+  "drills": 0,
+  "words": 3683,
+  "carried": 1811,
+  "requires": [
+   "lang-japanese-n4"
+  ],
+  "lessonIds": [
+   "n3-uchi-ni",
+   "n3-tabi-ni",
+   "n3-tokoro",
+   "n3-change",
+   "n3-trying",
+   "n3-okage-sei",
+   "n3-wake",
+   "n3-koto-wa-nai",
+   "n3-beki-mono",
+   "n3-zuni-shikanai",
+   "n3-to-shite",
+   "n3-ni-tsuite",
+   "n3-ni-yotte",
+   "n3-ni-kurabete",
+   "n3-hodo-sae",
+   "n3-ppoi-gachi",
+   "n3-ni-chigainai",
+   "n3-kuse-ni",
+   "n3-to-shitara",
+   "n3-bakari-ka",
+   "n3-you-ni-iu",
+   "n3-quoting",
+   "n3-to-ieba",
+   "n3-keigo",
+   "n3-casual",
+   "n3-written",
+   "n3-compound-verbs",
+   "n3-conjunctions",
+   "n3-practice",
+   "n3-exam"
+  ],
+  "honorsLessonIds": [
+   "n3-intonation",
+   "n3-onsen",
+   "n3-neighbourhood",
+   "n3-pets",
+   "n3-job-hunting",
+   "n3-proverbs",
+   "n3-mystery",
+   "n3-haiku",
+   "n3-dialects",
+   "n3-speech-styles",
+   "n3-long-story",
+   "n3-essay"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Time, timing and change",
+    "lessons": [
+     "While it lasts: うちに, 最中に, 途中で, 〜中",
+     "Every time and right after: たびに, ごとに, たとたん, てはじめて, ついでに",
+     "Moments in an action: ところに, ところを, たところ, かける, たて, きり",
+     "As things change: につれて, にしたがって, とともに, 一方だ, ば〜ほど",
+     "Trying, meaning to and pretending: ようとする, つもり, ふりをする, たことにする"
+    ],
+    "honors": [
+     "Natural speech: intonation, fillers and aizuchi",
+     "Hot springs and public baths"
+    ]
+   },
+   {
+    "title": "Reasons, conclusions and should",
+    "lessons": [
+     "Thanks to and because of: おかげで, せいで, ことから",
+     "That's why, not that, no way: わけ",
+     "No need and not necessarily: ことはない, とはかぎらない, てすむ",
+     "Should and the way things are: べきだ, ものだ, ことだ",
+     "Without, no choice, can't help: ずに, しかない, てしょうがない"
+    ],
+    "honors": [
+     "The neighbourhood and volunteering",
+     "Pets"
+    ]
+   },
+   {
+    "title": "The formal phrases and degree",
+    "lessons": [
+     "Roles and viewpoints: として, にとって, に対して",
+     "About and centred on: について, に関して, を中心に, をはじめ, において",
+     "Depending on and instead of: によって, による, 代わりに, に反して",
+     "Comparing places and times: に比べて, から〜にかけて, を通して, 最も",
+     "Degree and emphasis: ほど, くらい, さえ, こそ, あまり"
+    ],
+    "honors": [
+     "Job hunting in Japan",
+     "Proverbs and four-character compounds"
+    ]
+   },
+   {
+    "title": "Impressions, guesses and emphasis",
+    "lessons": [
+     "-ish, tends to, full of: っぽい, 気味, がち, だらけ, 的, 向き / 向け",
+     "Impressions and certainty: 気がする, ように見える, に違いない, っけ",
+     "Against expectations: くせに, にしては, 割に, ながらも, ば〜のに",
+     "Supposing and guessing: としたら, まさか, もしかしたら, のではないか",
+     "Not only…, and how!: だけでなく, ばかりか, はもちろん, 上に, ことか, なんて"
+    ],
+    "honors": [
+     "A mystery story: the painting that disappeared",
+     "Haiku and seasonal words"
+    ]
+   },
+   {
+    "title": "Passing on words, keigo and casual speech",
+    "lessons": [
+     "Passing on requests: ように言う, てもらいたい, とおりに",
+     "Reporting what you heard: ということだ, とのことだ, んだって",
+     "Topics and definitions: というのは, とは, と言えば, といっても, というより",
+     "More keigo: させていただく, お〜です, 〜ております",
+     "Casual speech and contractions"
+    ],
+    "honors": [
+     "Kansai and other dialects",
+     "Who says what: role language and slang"
+    ]
+   },
+   {
+    "title": "Written Japanese and the N3 exam",
+    "lessons": [
+     "Written Japanese: である, 〜ず and joining with the stem",
+     "Compound verbs: 〜出す, 〜込む, 〜切る, 〜直す, 〜合う, 〜っぱなし",
+     "Connecting ideas: ところが, 一方, その上, 結局, むしろ, 上で",
+     "Reading and listening practice",
+     "The JLPT N3 and review"
+    ],
+    "honors": [
+     "A longer story: the watch in the drawer",
+     "Writing an opinion piece: さくぶん and げんこうようし"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n2",
+  "file": "languages/lang-japanese-n2.json",
+  "order": 124,
+  "title": "Japanese N2",
+  "description": "The fourth step in Japanese, from N3 to JLPT N2. Grammar lessons cover concession and contrast (ものの, にもかかわらず, とはいえ, 反面), time and occasion (に先立って, に際して, 次第, 上で, 以来, つつ), reasons and grounds (からには, 以上, ばかりに, だけに, に基づいて, に応じて, をめぐって), possibility and judgement (かねない, かねる, ざるを得ない, っこない, に越したことはない, ないことには), scope and emphasis (はもとより, に限らず, を問わず, どころか, ずにはいられない, ものなら, とか), and the written forms of newspapers, columns and essays, with a long reading in every lesson and exam practice at the end. About 2,300 new words build on the 3,700 from the earlier courses for about 6,000 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; 390 new kanji (about 1,040 in all) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N3.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 390,
+  "drills": 0,
+  "words": 5995,
+  "carried": 3683,
+  "requires": [
+   "lang-japanese-n3"
+  ],
+  "lessonIds": [
+   "n2-mono-no",
+   "n2-ni-mo-kakawarazu",
+   "n2-hanmen",
+   "n2-ni-shiro",
+   "n2-hedging",
+   "n2-ni-sakidatte",
+   "n2-shidai",
+   "n2-irai",
+   "n2-tsutsu",
+   "n2-kikkake",
+   "n2-kara-ni-wa",
+   "n2-bakari-ni",
+   "n2-ni-motozuite",
+   "n2-o-megutte",
+   "n2-ni-tsuki",
+   "n2-kanenai",
+   "n2-zaru-o-enai",
+   "n2-kkonai",
+   "n2-ni-koshita",
+   "n2-ni-suginai",
+   "n2-wa-motoyori",
+   "n2-te-tamaranai",
+   "n2-mono-ga-aru",
+   "n2-toka",
+   "n2-mono-nara",
+   "n2-written",
+   "n2-word-formation",
+   "n2-argument",
+   "n2-practice",
+   "n2-exam"
+  ],
+  "honorsLessonIds": [
+   "n2-rakugo",
+   "n2-soseki",
+   "n2-sado",
+   "n2-akutagawa",
+   "n2-saibanin",
+   "n2-yojijukugo",
+   "n2-hatarakikata",
+   "n2-kenji",
+   "n2-onomatopoeia",
+   "n2-yokai",
+   "n2-long-story",
+   "n2-shouronbun"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Although, despite and on the other hand",
+    "lessons": [
+     "Although: ものの, とはいえ, からといって",
+     "Despite: にもかかわらず, ながらも, つつも",
+     "Two sides: 反面, 一方で, かと思うと, どころか",
+     "Even if: にしても, にしろ, にせよ, としても",
+     "Not exactly: というわけではない, ないこともない, ないとも限らない"
+    ],
+    "honors": [
+     "Rakugo and manzai",
+     "Natsume Soseki and \"Ten Nights of Dreams\""
+    ]
+   },
+   {
+    "title": "Time, occasion and process",
+    "lessons": [
+     "Before and on the occasion: に先立って, にあたって, に際して",
+     "As soon as and depending on: 次第, た上で, 末に, あげく",
+     "Since and throughout: 以来, てからというもの, にわたって",
+     "While and in progress: つつ, つつある, にともなって",
+     "Triggers and occasions: をきっかけに, を機に, につけ"
+    ],
+    "honors": [
+     "The tea ceremony and wagashi",
+     "Akutagawa and \"The Spider's Thread\""
+    ]
+   },
+   {
+    "title": "Reasons, grounds and basis",
+    "lessons": [
+     "Since it's so: からには, 以上は, 上は",
+     "Just because, precisely because: ばかりに, だけに, だけあって",
+     "Based on and in line with: にもとづいて, をもとに, にそって, におうじて",
+     "Over and concerning: をめぐって, に関する, にこたえて",
+     "Reasons in notices: につき, により, ため, とあって"
+    ],
+    "honors": [
+     "The lay-judge system",
+     "Four-character compounds"
+    ]
+   },
+   {
+    "title": "Possibility, judgement and obligation",
+    "lessons": [
+     "It could happen: かねない, おそれがある, 得る",
+     "Can't and must: かねる, がたい, ざるを得ない, わけにはいかない",
+     "No way: っこない, まい, ようがない, ものか",
+     "Best to, unless, must: にこしたことはない, ないことには, ほかない",
+     "Only, the best, as long as: に過ぎない, に限る, 限り"
+    ],
+    "honors": [
+     "How Japan works: work-style reform",
+     "Miyazawa Kenji: 雨ニモマケズ"
+    ]
+   },
+   {
+    "title": "Scope, emphasis and feeling",
+    "lessons": [
+     "Not only, regardless of: はもとより, のみならず, を問わず, に限らず",
+     "Can't help it: てたまらない, てならない, ないではいられない",
+     "Exclamations: ものがある, ことに, 限りだ",
+     "Hearsay and seeming: とか, という話だ, かのように, げ",
+     "If only, if you dare: ものなら, ようものなら, ては"
+    ],
+    "honors": [
+     "Onomatopoeia",
+     "Yōkai and folklore"
+    ]
+   },
+   {
+    "title": "Written Japanese and the N2 exam",
+    "lessons": [
+     "Written forms: ねばならない, ぬ, とする, にいたる",
+     "Word formation: prefixes and suffixes",
+     "Building an argument: したがって, もっとも, ただし, というものだ",
+     "Reading and listening practice",
+     "The JLPT N2 and review"
+    ],
+    "honors": [
+     "A longer story: letters in the storehouse",
+     "Writing a short essay"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-japanese-n1",
+  "file": "languages/lang-japanese-n1.json",
+  "order": 125,
+  "title": "Japanese N1",
+  "description": "The fifth step in Japanese, from N2 to JLPT N1. Grammar lessons cover time and sequence (が早いか, や否や, なり, そばから, を皮切りに, をもって), concession (といえども, たりとも, ものを, であれ, はおろか, ないまでも), reasons, purpose and basis (ばこそ, んがため, べく, とあれば, をよそに, に即して, いかんによらず), feelings and judgements (を禁じ得ない, てやまない, にたえない, に足る, 極まりない, を余儀なくされる, まじき), scope and likeness (ならでは, に至っては, ずくめ, まみれ, めく, きらいがある, ごとき, なりに, たる) and the literary and academic written language, with long editorials, essays, literary prose and academic texts in every lesson and exam practice at the end. About 4,000 new words build on the 6,000 from the earlier courses for about 10,000 in all, learned through typed vocabulary reviews with pitch accent, conjugation drills and sentence building; about 960 new kanji (about 2,000 in all, nearly every jōyō kanji in common use) are learned through notecards, tracing and inside words, with furigana you can turn off. Requires Japanese N2.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 744,
+  "cards": 960,
+  "drills": 0,
+  "words": 10021,
+  "carried": 5995,
+  "requires": [
+   "lang-japanese-n2"
+  ],
+  "lessonIds": [
+   "n1-ga-hayai-ka",
+   "n1-o-kawakiri-ni",
+   "n1-katawara",
+   "n1-yasaki",
+   "n1-nakushite",
+   "n1-to-iedomo",
+   "n1-mono-o",
+   "n1-de-are",
+   "n1-wa-oroka",
+   "n1-de-wa-arumai-shi",
+   "n1-ba-koso",
+   "n1-n-ga-tame",
+   "n1-te-mae",
+   "n1-o-yoso-ni",
+   "n1-ni-sokushite",
+   "n1-o-kinji-enai",
+   "n1-ni-taru",
+   "n1-kiwamarinai",
+   "n1-o-yogi-naku",
+   "n1-majiki",
+   "n1-narade-wa",
+   "n1-zukume",
+   "n1-kirai-ga-aru",
+   "n1-nari-ni",
+   "n1-ga-saigo",
+   "n1-literary",
+   "n1-word-formation",
+   "n1-academic",
+   "n1-practice",
+   "n1-exam"
+  ],
+  "honorsLessonIds": [
+   "n1-ichiyo",
+   "n1-kobun-1",
+   "n1-ogai",
+   "n1-noh-kabuki",
+   "n1-kobun-2",
+   "n1-kenpo",
+   "n1-rashomon",
+   "n1-postwar-economy",
+   "n1-dazai",
+   "n1-haiku-waka",
+   "n1-sangetsuki",
+   "n1-aesthetics"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "As soon as, alongside and without",
+    "lessons": [
+     "No sooner than: が早いか, や否や, なり, そばから",
+     "Starting and ending: を皮切りに, をもって, を限りに, を境に",
+     "Alongside: かたわら, がてら, かたがた",
+     "At the very moment: やさきに, 折から, ところを, にあって",
+     "Without and left undone: なくしては, なしに, ずじまい, までだ"
+    ],
+    "honors": [
+     "Higuchi Ichiyo and \"Child's Play\"",
+     "Classical Japanese I: the openings of two classics"
+    ]
+   },
+   {
+    "title": "Even so, let alone and whether or not",
+    "lessons": [
+     "Even: といえども, たりとも, とて, たところで",
+     "If only, and contrary to: ものを, と思いきや, にひきかえ, ながらに",
+     "Whether A or B: であれ, といい, といわず, なり〜なり",
+     "Let alone and more than: はおろか, もさることながら, にもまして, ならいざしらず",
+     "It's not as if: ではあるまいし, ならまだしも, ないまでも, ともなく"
+    ],
+    "honors": [
+     "Mori Ogai and \"The Boat on the Takase River\"",
+     "Noh, kyogen and kabuki"
+    ]
+   },
+   {
+    "title": "Because, in order to and in line with",
+    "lessons": [
+     "Precisely because: ばこそ, ゆえに, とあって, こととて",
+     "In order to: んがため, べく, べくもない, をもって",
+     "Given that: 手前, とあれば, ともなると, あっての",
+     "Paying no heed: をよそに, をものともせず, をかえりみず, にかこつけて",
+     "In line with: にそくして, にのっとって, をふまえて, いかんによらず"
+    ],
+    "honors": [
+     "Classical Japanese II: Essays in Idleness and The Tale of the Heike",
+     "The Constitution of Japan"
+    ]
+   },
+   {
+    "title": "Feelings, judgements and must not",
+    "lessons": [
+     "Can't help feeling: を禁じ得ない, てやまない, にたえない, ずにはおかない",
+     "Worth it or not: に足る, に足りない, にかたくない, かいがある",
+     "To the extreme: 極まりない, のいたり, の極み, とは",
+     "Forced to: をよぎなくされる, ないではすまない, ずにはすまない",
+     "Must not: まじき, べからず, べからざる, しかるべき"
+    ],
+    "honors": [
+     "Akutagawa and \"Rashomon\"",
+     "Japan's postwar economy"
+    ]
+   },
+   {
+    "title": "Only, like, in its own way and once",
+    "lessons": [
+     "Only here: ならでは, をおいて, にして, にいたっては",
+     "Covered in: ずくめ, まみれ, めく, ぐるみ",
+     "Tendencies and likeness: きらいがある, ごとき, ごとく, んばかり",
+     "In its own way: なりに, たる, たるもの, と相まって",
+     "Once it happens: が最後, たら最後, ようが〜まいが, ずとも"
+    ],
+    "honors": [
+     "Dazai Osamu and \"Run, Melos!\"",
+     "Haiku and waka"
+    ]
+   },
+   {
+    "title": "Literary and academic Japanese and the N1 exam",
+    "lessons": [
+     "Literary forms: べし, ごとし, ざる, をして, しめる",
+     "Words and set expressions",
+     "Academic Japanese: ひいては, ならびに, ないし, いわんや",
+     "Reading and listening practice",
+     "The JLPT N1 and review"
+    ],
+    "honors": [
+     "Nakajima Atsushi and \"The Moon over the Mountain\"",
+     "Japanese aesthetics"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-pinyin",
+  "file": "languages/lang-chinese-pinyin.json",
+  "order": 130,
+  "title": "Chinese: Pinyin and Tones",
+  "description": "Hear, say, read and type Mandarin Chinese sounds from scratch: every initial and final, the four tones and the neutral tone, where the tone mark goes, the tone changes of 一, 不 and two third tones, erhua, ü and the apostrophe, and the whole syllable table, drilled by ear with your device's Chinese voice. Then your first characters, traced stroke by stroke with the basic rules of stroke order, and your first 25 words and greetings, learned through typed review cards (type pinyin with tone numbers). Written in simplified characters, with a switch to traditional. This course comes before Chinese HSK 1.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 15,
+  "honors": 3,
+  "questions": 341,
+  "cards": 21,
+  "drills": 0,
+  "words": 25,
+  "lessonIds": [
+   "py-intro",
+   "py-tones",
+   "py-b-p-m-f",
+   "py-d-t-n-l-g-k-h",
+   "py-j-q-x",
+   "py-zh-ch-sh-r",
+   "py-compound-finals",
+   "py-nasal-finals",
+   "py-writing",
+   "py-tone-pairs",
+   "py-sandhi",
+   "py-erhua-table",
+   "py-strokes",
+   "py-numbers",
+   "py-first-words"
+  ],
+  "honorsLessonIds": [
+   "py-h-history",
+   "py-h-typing",
+   "py-h-scripts"
+  ],
+  "honorsModuleIds": [
+   "py-h1"
+  ],
+  "outline": [
+   {
+    "title": "Sounds and tones",
+    "lessons": [
+     "How Mandarin is written and said",
+     "The four tones and the neutral tone",
+     "Simple finals and the lip sounds: b p m f",
+     "d t n l and g k h",
+     "j q x and ü",
+     "zh ch sh r and z c s",
+     "Compound finals and y/w spelling"
+    ]
+   },
+   {
+    "title": "Writing pinyin and tone changes",
+    "lessons": [
+     "Nasal finals: -n and -ng",
+     "Writing pinyin: tone marks, ü, the apostrophe and words",
+     "Tone pairs and the neutral tone in words",
+     "Tone changes: two third tones, 一 and 不",
+     "Erhua and the syllable table"
+    ]
+   },
+   {
+    "title": "First characters and words",
+    "lessons": [
+     "Strokes and stroke order: 一 二 三 十 人 大",
+     "Numbers from one to ninety-nine: 四 五 六 七 八 九, 日 and 月",
+     "First words and greetings: 你好, 谢谢, 再见"
+    ]
+   },
+   {
+    "title": "Honors: Pinyin and characters in depth",
+    "lessons": [],
+    "honors": [
+     "Where pinyin came from",
+     "Typing Chinese",
+     "Simplified and traditional characters"
+    ],
+    "isHonors": true
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk1",
+  "file": "languages/lang-chinese-hsk1.json",
+  "order": 131,
+  "title": "Chinese HSK 1",
+  "description": "Mandarin Chinese from your first sentences to the new HSK 1 (HSK 3.0, in force from July 2026). Grammar lessons cover 是 and 有, questions with 吗, 呢 and question words, numbers, dates and time, measure words, position words, 在 and 正在, the modal verbs 会, 能, 想, 要 and 可以, serial verbs, double objects and 了 for completed actions and change. All 300 words of the level (25 of them from the pinyin course) are learned through typed review cards with tone numbers, and all 246 characters are learned through notecards, inside words and by tracing them stroke by stroke, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading signs and menus, listening and the exam format. Requires Chinese: Pinyin and Tones.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 797,
+  "cards": 225,
+  "drills": 0,
+  "words": 300,
+  "carried": 25,
+  "requires": [
+   "lang-chinese-pinyin"
+  ],
+  "lessonIds": [
+   "zh1-names",
+   "zh1-countries",
+   "zh1-family",
+   "zh1-numbers",
+   "zh1-jobs",
+   "zh1-dates",
+   "zh1-time",
+   "zh1-routine",
+   "zh1-plans",
+   "zh1-phone",
+   "zh1-food",
+   "zh1-restaurant",
+   "zh1-shopping",
+   "zh1-this-that",
+   "zh1-clothes",
+   "zh1-where",
+   "zh1-rooms",
+   "zh1-transport",
+   "zh1-school",
+   "zh1-weather",
+   "zh1-illness",
+   "zh1-hobbies",
+   "zh1-friends",
+   "zh1-pets",
+   "zh1-past",
+   "zh1-questions",
+   "zh1-signs",
+   "zh1-conversation",
+   "zh1-review",
+   "zh1-exam"
+  ],
+  "honorsLessonIds": [
+   "zh1-chinese-names",
+   "zh1-character-origins",
+   "zh1-calendar",
+   "zh1-number-culture",
+   "zh1-tea",
+   "zh1-staple-foods",
+   "zh1-rivers-mountains",
+   "zh1-beijing",
+   "zh1-parks",
+   "zh1-radicals",
+   "zh1-story",
+   "zh1-handwriting"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Meeting people",
+    "lessons": [
+     "Names and 是: who are you?",
+     "Countries and languages: 哪国人, 也, 都, 呢",
+     "Family: 有, 没有, 的, 几 and 个",
+     "Numbers, age and 两",
+     "Jobs and workplaces: 在 + place"
+    ],
+    "honors": [
+     "Chinese names",
+     "How characters began"
+    ]
+   },
+   {
+    "title": "Time and the day",
+    "lessons": [
+     "Days, dates and weeks",
+     "Telling the time",
+     "My day",
+     "Going and coming: 去, 来, 想, 要",
+     "On the phone: 在, 正在 and 呢"
+    ],
+    "honors": [
+     "The Chinese calendar",
+     "Numbers in daily life"
+    ]
+   },
+   {
+    "title": "Food and shopping",
+    "lessons": [
+     "Eating and drinking: 吃, 喝, 喜欢",
+     "At a restaurant: 请, 吧, 一下, 一点儿",
+     "How much is it? Money and measure words",
+     "This one, that one: 这个, 那个, 些, 第",
+     "Clothes and describing: 很, 非常, 真 and A-not-A questions"
+    ],
+    "honors": [
+     "Tea: 茶",
+     "Rice, noodles and dumplings"
+    ]
+   },
+   {
+    "title": "Places, travel and school",
+    "lessons": [
+     "Where is it? 在 and position words",
+     "There is a…: 有 for existence",
+     "Getting there: 坐, 开车, 怎么",
+     "Studying Chinese: 会, 能, 可以",
+     "The weather and change: 了"
+    ],
+    "honors": [
+     "Rivers and mountains",
+     "Beijing"
+    ]
+   },
+   {
+    "title": "Health, free time and the past",
+    "lessons": [
+     "Feeling ill: 有点儿 and 不要",
+     "What I like doing: 爱, 唱歌, 看电影",
+     "Friends: 给, 问 and two objects",
+     "Pets and things: 它, 只, 有的",
+     "What happened: 了 and 没有"
+    ],
+    "honors": [
+     "Morning in the park",
+     "Radicals and dictionaries"
+    ]
+   },
+   {
+    "title": "Putting it together and HSK 1",
+    "lessons": [
+     "Asking questions",
+     "Reading signs, menus and name cards",
+     "Listening and talking",
+     "Grammar review",
+     "The HSK 1 exam"
+    ],
+    "honors": [
+     "A longer story",
+     "Writing by hand"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk2",
+  "file": "languages/lang-chinese-hsk2.json",
+  "order": 132,
+  "title": "Chinese HSK 2",
+  "description": "The second step in Mandarin Chinese, from HSK 1 to the new HSK 2 (HSK 3.0). Grammar lessons cover comparisons with 比, the complements of result, direction, degree and quantity, 得 and 地, 过 for experiences and 着 for states, 是…的, 因为…所以 and 虽然…但是, 还是 questions, 快要…了, 已经, 就, verb and adjective reduplication and 让. The 200 new words of the level (500 in all) are learned through typed review cards and the 125 new characters (371 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading notices and messages, listening, writing short notes and the exam format. Requires Chinese HSK 1.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 801,
+  "cards": 125,
+  "drills": 0,
+  "words": 500,
+  "carried": 300,
+  "requires": [
+   "lang-chinese-hsk1"
+  ],
+  "lessonIds": [
+   "zh2-surnames",
+   "zh2-looks",
+   "zh2-colours",
+   "zh2-family-life",
+   "zh2-feelings",
+   "zh2-directions",
+   "zh2-distance",
+   "zh2-metro",
+   "zh2-in-and-out",
+   "zh2-travel",
+   "zh2-home",
+   "zh2-up-and-down",
+   "zh2-birthdays",
+   "zh2-comparing",
+   "zh2-why",
+   "zh2-school",
+   "zh2-exams",
+   "zh2-how-well",
+   "zh2-sport",
+   "zh2-hobbies",
+   "zh2-cafe",
+   "zh2-restaurant",
+   "zh2-shopping",
+   "zh2-online",
+   "zh2-weather",
+   "zh2-already-soon",
+   "zh2-reading",
+   "zh2-listening",
+   "zh2-writing",
+   "zh2-exam"
+  ],
+  "honorsLessonIds": [
+   "zh2-address-terms",
+   "zh2-colour-culture",
+   "zh2-great-wall",
+   "zh2-trains",
+   "zh2-spring-festival",
+   "zh2-birthday-customs",
+   "zh2-table-tennis",
+   "zh2-school-system",
+   "zh2-cuisines",
+   "zh2-mid-autumn",
+   "zh2-story",
+   "zh2-messages"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "People, looks and feelings",
+    "lessons": [
+     "Surnames and introductions: 姓, 位, 自己",
+     "What people look like",
+     "Colours and what people wear: 着",
+     "Family life: 每, 经常, 有时",
+     "How you feel: 因为…所以"
+    ],
+    "honors": [
+     "What to call people",
+     "Colours in Chinese culture"
+    ]
+   },
+   {
+    "title": "Getting around and travel",
+    "lessons": [
+     "Left, right and next to: 左, 右, 旁边",
+     "How far is it? 离, 从, 往",
+     "By metro, bus and taxi: 是…的",
+     "Coming in and going out: 进来, 出去, 回来",
+     "Have you ever been? 过 and 次"
+    ],
+    "honors": [
+     "The Great Wall",
+     "Travelling by train"
+    ]
+   },
+   {
+    "title": "Home, birthdays and comparing",
+    "lessons": [
+     "Upstairs, downstairs, inside and outside: 上面, 里面, 楼",
+     "Bringing things up and taking them down: 上来, 下去, 拿出来",
+     "Birthdays: 送, 告诉, 准备",
+     "Comparing: 比 and 最",
+     "Why? 为什么, 虽然…但是"
+    ],
+    "honors": [
+     "The Spring Festival",
+     "Birthdays and long-life noodles"
+    ]
+   },
+   {
+    "title": "School, sport and hobbies",
+    "lessons": [
+     "School and classes: 教, 班, 开学",
+     "Exams and results: 看完, 听懂, 做错",
+     "How well? 得, 地 and 让",
+     "Sport: 打篮球, 踢足球, 游泳",
+     "Hobbies: 爱好, 一起, 开始, 一会儿"
+    ],
+    "honors": [
+     "Table tennis, badminton and the national sports",
+     "School in China"
+    ]
+   },
+   {
+    "title": "Eating out, shopping and weather",
+    "lessons": [
+     "At the café: 点, 还是, 别",
+     "Eating out: 这么, 那样 and approximate numbers",
+     "At the shopping centre: 花, 万, 快要",
+     "Online: 上网, 时, 周",
+     "Weather and childhood: 晴, 阴, 从小"
+    ],
+    "honors": [
+     "Chinese cuisines",
+     "The Mid-Autumn Festival and the moon"
+    ]
+   },
+   {
+    "title": "Putting it together and HSK 2",
+    "lessons": [
+     "Already, about to, still",
+     "Reading notices and messages",
+     "Listening and conversation",
+     "Writing forms and short notes",
+     "The HSK 2 exam"
+    ],
+    "honors": [
+     "A longer story",
+     "Messages and greetings"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk3",
+  "file": "languages/lang-chinese-hsk3.json",
+  "order": 133,
+  "title": "Chinese HSK 3",
+  "description": "The third step in Mandarin Chinese, from HSK 2 to the new HSK 3 (HSK 3.0). Grammar lessons cover the 把 and 被 sentences, potential complements (听得懂, 看不见), compound direction complements, comparisons with 更, 越…越 and 跟…一样, the modal verbs 应该, 得 and 需要, and the complex sentences of the level: 不但…而且, 如果…就, 只要…就, 只有…才, 除了…以外, 为了, 一边…一边 and 先…然后. The 500 new words (1,000 in all) are learned through typed review cards and the 284 new characters (655 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading, listening, writing sentences, the speaking test and the exam format. Requires Chinese HSK 2.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 746,
+  "cards": 284,
+  "drills": 0,
+  "words": 1000,
+  "carried": 500,
+  "requires": [
+   "lang-chinese-hsk2"
+  ],
+  "lessonIds": [
+   "zh3-neighbours",
+   "zh3-housing",
+   "zh3-chores",
+   "zh3-looks",
+   "zh3-health",
+   "zh3-snacks",
+   "zh3-eating-out",
+   "zh3-clothes",
+   "zh3-bank",
+   "zh3-seasons",
+   "zh3-city",
+   "zh3-compass",
+   "zh3-traffic",
+   "zh3-trip",
+   "zh3-nature",
+   "zh3-classroom",
+   "zh3-subjects",
+   "zh3-understanding",
+   "zh3-work",
+   "zh3-messages",
+   "zh3-sport",
+   "zh3-arts",
+   "zh3-festivals",
+   "zh3-feelings",
+   "zh3-sequence",
+   "zh3-conditions",
+   "zh3-contrast",
+   "zh3-telling-stories",
+   "zh3-study-abroad",
+   "zh3-exam"
+  ],
+  "honorsLessonIds": [
+   "zh3-courtyard-homes",
+   "zh3-inventions",
+   "zh3-solar-terms",
+   "zh3-regional-food",
+   "zh3-silk-road",
+   "zh3-pandas",
+   "zh3-confucius",
+   "zh3-exams-history",
+   "zh3-painting-calligraphy",
+   "zh3-peking-opera",
+   "zh3-journey-west",
+   "zh3-tang-poems"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "People, home and health",
+    "lessons": [
+     "Neighbours and the people around us: 老-, -员, 咱们",
+     "Moving house: 搬进去, 搬上来, 层",
+     "Housework: the 把 sentence",
+     "Looking alike and different: 比, 没有, 跟…一样",
+     "Staying healthy: 一…就, 小心, 不用"
+    ],
+    "honors": [
+     "Courtyard houses and modern flats",
+     "Paper, printing, the compass and gunpowder"
+    ]
+   },
+   {
+    "title": "Food, clothes and the seasons",
+    "lessons": [
+     "Sweet, fresh and full: 吃得完, 吃不下",
+     "Being a guest and treating friends: 个个, 天天",
+     "Buying clothes: 又…又, 或者",
+     "Money, cards and the bank: 块 and 元, 毛 and 角",
+     "The four seasons and the weather: 刮着风, 变冷了, 没有那么冷"
+    ],
+    "honors": [
+     "The 24 solar terms: 二十四节气",
+     "Regional food and customs: noodles, dim sum, hot pot"
+    ]
+   },
+   {
+    "title": "Cities, travel and nature",
+    "lessons": [
+     "Finding your way in the city: 东南西北, 中间, 哪儿都",
+     "North, south and the world: 越…越, 更",
+     "Traffic: the 被 sentence",
+     "A trip: 一边…一边, 是…的",
+     "Mountains, parks and animals"
+    ],
+    "honors": [
+     "The Silk Road",
+     "Giant pandas"
+    ]
+   },
+   {
+    "title": "School, work and messages",
+    "lessons": [
+     "In the classroom: verb measure words",
+     "Subjects and results: verb repetition with 得",
+     "Do you understand? 听得懂, 以为 and 认为",
+     "At work: 需要, 要求 and separable verbs with a quantity",
+     "Emails, letters and news: 关于, 有关, 根据"
+    ],
+    "honors": [
+     "Confucius and the Analects",
+     "Exams in Chinese history"
+    ]
+   },
+   {
+    "title": "Sport, arts, festivals and feelings",
+    "lessons": [
+     "Matches and competitions: 比赛, 得 dé, 终于",
+     "Music, games and shows: 对…感兴趣, 极了, 挺…的",
+     "Festivals and life events: 过节, 结婚, invitations",
+     "Feelings: 怕, 生气, 让 + feeling",
+     "First, then, finally: 先…然后, 才 and 就"
+    ],
+    "honors": [
+     "Painting and calligraphy",
+     "Peking opera"
+    ]
+   },
+   {
+    "title": "Complex sentences and HSK 3",
+    "lessons": [
+     "If, as long as, only if: conditions and purpose",
+     "Advice, obligation and exceptions: 应该, 得, 必须, 除了",
+     "Telling a story: what happened",
+     "Studying abroad: plans, the library and the speaking test",
+     "The HSK 3 exam"
+    ],
+    "honors": [
+     "Journey to the West: the White Bone Demon",
+     "Two Tang poems: 春晓 and 登鹳雀楼"
     ]
    }
   ]

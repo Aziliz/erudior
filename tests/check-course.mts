@@ -21,6 +21,7 @@ import { PHONICS_BLOCK, parseTrace, parseUnits, phonicsProblems } from "../src/l
 import { letterGuide } from "../src/lib/handwriting.ts";
 import { addKanjiStrokes } from "../src/lib/kanjiStrokes.ts";
 import KANJI_STROKES from "../src/lib/kanjiStrokes.data.ts";
+import { loadHanziStrokes, tracedHanzi } from "../src/lib/hanziLoad.ts";
 import { clipKey, isAudioValue } from "../src/lib/readAloud.ts";
 import { workProblems } from "../src/lib/work.ts";
 import { MEDIA_BLOCK, mediaProblems, parseMedia } from "../src/lib/dialogue.ts";
@@ -38,11 +39,17 @@ import { DEFAULT_TIME_LIMIT, codeBlockProblems, findCodeBlocks, judge, testCall,
 import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAccent } from "../src/lib/kana.ts";
+import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.ts";
+import { scriptCourse, scriptProblems } from "../src/lib/zhScript.ts";
+import * as OpenCC from "opencc-js";
+import { drillableWord, normalizeToneSettings, riskySingle, toneItemProblem, toneSettingsProblems, toneSyllables } from "../src/lib/tones.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
+// Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
+// band), and checkCourse loads the ones a course traces.
 import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
 import { CONJ_FORMS, DE_ADJ_FORMS, DE_CLASSES, DE_FORM_KEYS, DE_VERB_FORMS, JA_ADJ_FORMS, JA_CLASSES, JA_VERB_FORMS } from "../src/lib/courseConjugation.ts";
 
@@ -102,6 +109,13 @@ async function checkExercise(q: Question, say: (s: string) => void): Promise<voi
 }
 
 /** `warnings` collects things to look at again that aren't errors (e.g. ichidan/godan look-alikes). */
+/** Every string in a course file (for the hanzi its trace blocks need). */
+function courseStrings(v: unknown): string[] {
+  if (typeof v === "string") return [v];
+  if (Array.isArray(v)) return v.flatMap(courseStrings);
+  return v && typeof v === "object" ? Object.values(v).flatMap(courseStrings) : [];
+}
+
 export async function checkCourse(file: string, opts: { runs?: number; money?: boolean; warnings?: string[] } = {}): Promise<string[]> {
   const problems: string[] = [];
   const say = (s: string) => problems.push(s);
@@ -117,19 +131,25 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 
   // --- Notation -----------------------------------------------------------------
   const japanese = c.language?.code === "ja";
+  const chinese = c.language?.code === "zh";
+  if (chinese) await loadHanziStrokes(courseStrings(raw).flatMap(tracedHanzi));
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
     // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
     if (japanese) for (const p of rubyProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
+    // Chinese courses: pinyin markup {汉字|hàn zì}: Han characters, one marked syllable each.
+    if (chinese) for (const p of pinyinProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
     let t = text;
     if (allowFigures) {
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
       for (const p of exampleProblems(t)) say(`${where}: ${p}`);
       // Phonics blocks (sounds, blend, trace): their own checks; they hold no math.
-      for (const p of phonicsProblems(t)) say(`${where}: ${p}`);
-      // Every traced letter, kana and kanji must have strokes to draw (kanji: the KanjiVG data).
+      const script = chinese ? "zh" : undefined;
+      for (const p of phonicsProblems(t, script)) say(`${where}: ${p}`);
+      // Every traced letter, kana, kanji and hanzi must have strokes to draw (kanji: the KanjiVG
+      // data; hanzi, in Chinese courses: Make Me a Hanzi).
       for (const m of t.matchAll(PHONICS_BLOCK))
-        if (m[1] === "trace") for (const ch of parseTrace(m[2], m[3]).letters) if (!letterGuide(ch)?.strokes.length) say(`${where}: trace: no stroke data for "${ch}"`);
+        if (m[1] === "trace") for (const ch of parseTrace(m[2], m[3], script).letters) if (!letterGuide(ch, script)?.strokes.length) say(`${where}: trace: no stroke data for "${ch}"`);
       t = t.replace(PHONICS_BLOCK, "");
       // Runnable code blocks: well formed, and the code at least compiles.
       for (const p of codeBlockProblems(t)) say(`${where}: ${p}`);
@@ -261,6 +281,24 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (q.joiner === " " && japanese) say(`question ${q.id}: "joiner" is a space in a Japanese course (Japanese is written without spaces)`);
         if (q.choices.length || q.answer.length) say(`question ${q.id}: sentence builders use "tiles"; leave "choices" and "answer" empty`);
       }
+      if (kind === "tone") {
+        // Tone questions: characters the voice reads + their marked pinyin, one syllable each.
+        const problem = toneItemProblem(q.text ?? "", q.reading ?? "");
+        if (!chinese) say(`question ${q.id}: tone questions are for Chinese courses (language code "zh")`);
+        if (problem) say(`question ${q.id}: ${problem}`);
+        else {
+          const syls = toneSyllables(q.text!, q.reading!);
+          const tones = syls.map((s) => s.tone);
+          if (!isCorrect(q, tones)) say(`question ${q.id}: its own tones are rejected`);
+          if (isCorrect(q, tones.map((t) => (t === 4 ? 1 : t + 1)))) say(`question ${q.id}: wrong tones are accepted`);
+          const risk = riskySingle(syls);
+          if (risk && !q.audio?.src) warn(`question ${q.id}: ${risk}`);
+        }
+        if (q.choices.length || q.answer.length) say(`question ${q.id}: tone questions use "text" and "reading"; leave "choices" and "answer" empty`);
+      }
+      // Listening text is spoken and shown as written: reading or script markup would be read aloud.
+      if (q.audio?.text && /\{[^{}|\n]+\|[^{}\n]+\}|\{=|=\}|\{\+|\+\}/.test(q.audio.text))
+        say(`question ${q.id}: audio text has {…|…}, {=…=} or {+…+} markup; write the words plainly (the voice reads it as written)`);
       if (kind === "model") {
         const r = readSpec(q.model);
         for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) say(`question ${q.id}: model: ${p}`);
@@ -335,6 +373,41 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       for (const x of [v.example, v.note]) if (x) for (const p of rubyProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
     }
 
+  // --- Chinese vocabulary: term in characters (simplified), reading in marked pinyin ---------
+  if (chinese)
+    for (const v of c.vocab ?? []) {
+      const where = `word ${v.id}`;
+      if (/[{}|]/.test(v.term)) say(`${where}: "term" must be plain text (put the pinyin in "reading", not markup)`);
+      else if (!hasHan(v.term)) say(`${where}: "term" must be written in Chinese characters (got "${v.term}")`);
+      else if (!v.reading) say(`${where}: "${v.term}" needs a "reading": its pinyin with tone marks, syllables separated by spaces`);
+      else {
+        const p = pinyinReadingProblem(v.term, v.reading, true);
+        if (p) say(`${where}: "reading" "${v.reading}": ${p}`);
+      }
+      for (const x of [v.example, v.note]) if (x) for (const p of pinyinProblems(x)) say(`${where}: ${p.match}: ${p.problem}`);
+      if (v.trad !== undefined && (typeof v.trad !== "string" || [...v.trad].length !== [...v.term].length || !hasHan(v.trad)))
+        say(`${where}: "trad" must be the term in traditional characters, character for character`);
+    }
+
+  // --- Chinese script switch: the app's conversion equals OpenCC s2tw + the course's overrides --
+  if (chinese) for (const p of scriptProblems(raw, s2tw())) say(p);
+  // Trace blocks in Traditional must still be traceable.
+  if (chinese && c.language?.traditional)
+    for (const l of scriptCourse(c, true).lessons)
+      for (const p of phonicsProblems(l.body, "zh")) if (/can't be traced/.test(p)) say(`lesson ${l.id} (Traditional): ${p}`);
+  // --- Tone drills (language.tones): Chinese only; the unlocking lesson exists; words to drill ----
+  if (raw.language?.tones !== undefined) {
+    const t = normalizeToneSettings(raw.language.tones);
+    if (!chinese) say(`language.tones: tone drills are for Chinese courses (language code "zh")`);
+    else if (!t) say(`language.tones: must be true or an object ({ "lesson", "max", "round" })`);
+    else {
+      for (const [path, message] of toneSettingsProblems(raw.language)) say(`${path}: ${message}`);
+      if (t.lesson && !t.from && !c.lessons.some((l) => l.id === t.lesson)) say(`language.tones.lesson: no lesson "${t.lesson}"`);
+      const words = (c.vocab ?? []).filter((v) => drillableWord(v.term, v.reading, t.max ?? 2));
+      if (!words.length) say(`language.tones: no word in "vocab" can be drilled (words of 1 to ${t.max ?? 2} syllables with a valid "reading")`);
+    }
+  }
+
   // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.
   for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
     if (v?.pitch === undefined) continue;
@@ -381,6 +454,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${lang === "ja" ? JA_CLASSES.join(", ") : DE_CLASSES.join(", ")})`);
       if (v?.forms !== undefined)
         for (const k of Object.keys(v.forms ?? {})) if (!(DE_FORM_KEYS as readonly string[]).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${DE_FORM_KEYS.join(", ")})`);
+      if (v?.noForms !== undefined) {
+        if (!v.conj) say(`word ${v.id ?? i + 1}: "noForms" without "conj"`);
+        for (const f of Array.isArray(v.noForms) ? v.noForms : [v.noForms])
+          if (!CONJ_FORMS.includes(f)) say(`word ${v.id ?? i + 1}: unknown form "${f}" in noForms`);
+      }
     }
     for (const v of c.vocab ?? []) {
       const p = conjWordProblem(lang, v);
@@ -529,6 +607,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 
   // One message per distinct problem.
   return [...new Set(problems)];
+}
+
+let opencc: ((s: string) => string) | undefined;
+/** OpenCC s2tw (Taiwan forms; opencc-js, the same data as the courses build's pip opencc). */
+function s2tw() {
+  return (opencc ??= OpenCC.Converter({ from: "cn", to: "tw" }));
 }
 
 if (process.argv[1]?.endsWith("check-course.mts")) {

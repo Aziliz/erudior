@@ -1,4 +1,5 @@
 import { markdownImageAssets } from "./markdownAssets";
+import { toneItemProblem } from "./tones";
 import { widgetMarkdownFields } from "./widgetMarkdown";
 /** Canonical interactive lesson syntax: validation only, no normalization or execution. */
 import { INTERACTIVE_LESSON_KINDS, scanLessonFences } from "./lessonFences";
@@ -22,6 +23,8 @@ export interface LessonSourceContext {
  mode?: "source" | "publication";
  /** Trusted caller configuration, never a course-authored authority field. */
  communityImageOrigin?: string;
+ /** "zh": a Chinese course (language.code "zh"), whose ```trace blocks trace hanzi. */
+ traceScript?: "zh";
 }
 const plain=plainInteractiveObject;
 function soundProblems(sound:string,context:LessonSourceContext):string[]{
@@ -50,7 +53,7 @@ export function validateLessonSource(raw:unknown,context:LessonSourceContext={})
   try{
    if(kind==="sounds"){const parsed=parseSounds(info,body);problems.push(...parsed.problems);for(const tile of parsed.tiles)problems.push(...soundProblems(tile.sound,context));if(parsed.tiles.length>200)problems.push("too many sound tiles");}
    else if(kind==="blend"){const parsed=parseBlend(info,body);problems.push(...parsed.problems);for(const word of parsed.words)for(const unit of word.units)problems.push(...soundProblems(unit.sound,context));if(parsed.words.length>200)problems.push("too many blend words");}
-   else if(kind==="trace"){if(info && !/^tolerance=(?:loose|normal|tight)$/.test(info))problems.push("trace tolerance must be loose, normal or tight");const parsed=parseTrace(info,body);problems.push(...parsed.problems);if(parsed.letters.length>200)problems.push("too many tracing letters");}
+   else if(kind==="trace"){if(info.replace(/(^|\s)trad=\S+/,"").trim() && !/^tolerance=(?:loose|normal|tight)$/.test(info.replace(/(^|\s)trad=\S+/,"").trim()))problems.push("trace tolerance must be loose, normal or tight");const parsed=parseTrace(info,body,context.traceScript);problems.push(...parsed.problems);if(parsed.letters.length>200)problems.push("too many tracing letters");}
    else if(kind==="map"){if(info)problems.push("map takes no options");problems.push(...validateMapSource(body));}
    else if(kind==="timeline"){if(info)problems.push("timeline takes no options");const parsed=parseTimeline(body);problems.push(...parsed.problems);if(parsed.events.length+parsed.eras.length>500)problems.push("too many timeline entries");}
    else if(kind==="sim"){problems.push(...parseSim(info,body).problems);const fields=body.split(/\r?\n/).filter(line=>/^\w+\s*:/.test(line)).map(line=>line.slice(0,line.indexOf(":")).toLowerCase());if(new Set(fields).size!==fields.length)problems.push("duplicate simulation field");}
@@ -107,6 +110,7 @@ export function validateInteractiveQuestion(raw:unknown,_context:LessonSourceCon
    if(!plain(raw.target))errors.push("target must be an object");else if(Object.values(raw.target).some(v=>typeof v==="number"&&(!Number.isFinite(v)||Math.abs(v)>10000)))errors.push("model target is outside bounded solving limits");else if(!errors.length)errors.push(...targetProblems(parsed.model,raw.target));
   }
  }else if(type==="build"){try{normalizeBuild(raw);}catch(error){errors.push(`build: ${(error as Error).message}`);}
+ }else if(type==="tone"){const problem=toneItemProblem(typeof raw.text==="string"?raw.text:"",typeof raw.reading==="string"?raw.reading:"");if(problem)errors.push(`tone: ${problem}`);
  }else if(type==="order"&&raw.dates!==undefined){const dates=list(raw.dates,"dates");if(!Array.isArray(raw.choices)||dates.length!==raw.choices.length)errors.push("dates must match choices");for(const date of dates)if(!parseSpan(date))errors.push(`Invalid order date: ${date}`);}
  } catch(error) { errors.push(`Malformed interactive question: ${(error as Error).message}`); }
  return errors;

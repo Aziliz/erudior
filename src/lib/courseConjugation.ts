@@ -97,14 +97,18 @@ export function normalizeConjugationSettings(raw: unknown): ConjugationSettings 
 }
 
 /** A vocabulary item's conjugation fields from raw JSON (only known classes and keys). */
-export function normalizeConjFields(v: Record<string, unknown>): { conj?: ConjClass; forms?: DeForms } {
-  const out: { conj?: ConjClass; forms?: DeForms } = {};
+export function normalizeConjFields(v: Record<string, unknown>): { conj?: ConjClass; forms?: DeForms; noForms?: string[] } {
+  const out: { conj?: ConjClass; forms?: DeForms; noForms?: string[] } = {};
   const conj = str(v.conj);
   if ((JA_CLASSES as readonly string[]).includes(conj) || (DE_CLASSES as readonly string[]).includes(conj)) out.conj = conj as ConjClass;
   if (isObj(v.forms)) {
     const forms: DeForms = {};
     for (const k of DE_FORM_KEYS) if (str(v.forms[k])) forms[k] = str(v.forms[k]);
     if (Object.keys(forms).length) out.forms = forms;
+  }
+  if (Array.isArray(v.noForms)) {
+    const no = v.noForms.filter((f): f is string => typeof f === "string" && CONJ_FORMS.includes(f));
+    if (no.length) out.noForms = [...new Set(no)];
   }
   return out;
 }
@@ -133,6 +137,12 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
     const p = `vocab[${i}]`;
     if (v.conj !== undefined && (typeof v.conj !== "string" || ![...JA_CLASSES, ...DE_CLASSES].includes(v.conj as never)))
       out.push([`${p}.conj`, "unknown conjugation class"]);
+    if (v.noForms !== undefined) {
+      if (!Array.isArray(v.noForms) || !v.noForms.length) out.push([`${p}.noForms`, "must be a non-empty list of forms"]);
+      else v.noForms.forEach((f, j) => {
+        if (typeof f !== "string" || !CONJ_FORMS.includes(f)) out.push([`${p}.noForms[${j}]`, "unknown conjugation form"]);
+      });
+    }
     if (v.forms !== undefined) {
       if (!isObj(v.forms)) out.push([`${p}.forms`, "must be an object"]);
       else
