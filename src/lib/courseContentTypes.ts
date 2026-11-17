@@ -5,11 +5,12 @@ import type { CodeSpec } from "./code";
 import type { ActivityLogSpec, Lab, Rubric, WritingTask } from "./courseWork";
 import type { GlossaryEntry, ReaderText } from "./readerContent";
 import type { ConjClass, ConjugationSettings, DeForms } from "./courseConjugation";
+import type { ToneSettings } from "./tones";
 export interface Section {
     id: string;
     name: string;
 }
-export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code" | "build";
+export type QuestionType = "choice" | "text" | "match" | "label" | "order" | "model" | "map" | "timeline" | "code" | "build" | "tone";
 export interface QuestionImage {
     /** A data: URL (bundled and community courses) or an app-relative path. */
     src: string;
@@ -49,6 +50,10 @@ export interface Question {
     punctuation?: string;
     /** build: the meaning of the sentence to build (e.g. its translation), shown under the stem. */
     prompt?: string;
+    /** tone (Chinese): the characters the voice says (one syllable or a word of up to four). */
+    text?: string;
+    /** tone (Chinese): their pinyin with tone marks, one syllable per character ("mā", "xiè xie"). */
+    reading?: string;
     /** text: answers must match capital letters too (e.g. gene symbols). */
     caseSensitive?: boolean;
     /** text: a typed fraction must be in lowest terms (6/8 is wrong when 3/4 is accepted). */
@@ -270,6 +275,8 @@ export interface LanguageInfo {
     vocabSource?: string;
     /** Conjugation drills: the forms drilled and the lessons that unlock them (docs/COURSE_FORMAT.md). */
     conjugation?: ConjugationSettings;
+    /** Chinese tone drills made from the vocabulary (docs/COURSE_FORMAT.md, "Tone drills"). */
+    tones?: ToneSettings;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {

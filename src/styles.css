@@ -8285,5 +8285,33 @@ html:not(.tones-on) .tone-sr {
   display: none;
 }
 
+/* Tone questions and tone practice (components/ToneAnswer.tsx). Tone glyphs sit on the surface
+   colour so the tone colours keep their contrast; the picked tone gets a thick accent border
+   (border width survives forced-colors mode, unlike shadows). Chinese is never italicized. */
+.tone-q { margin: 10px 0 4px; }
+.tone-q .tone-listen { gap: 8px; margin-bottom: 10px; }
+.tone-novoice { border-left: 3px solid var(--flag); background: var(--flag-soft); color: var(--ink); padding: 6px 10px; border-radius: var(--r-sm); }
+.tone-word { margin: 6px 0 10px; font-size: 1.6rem; font-style: normal; }
+.tone-word .tone-plain { font-size: 1.1rem; margin-left: 8px; }
+.tone-rows { display: grid; gap: 10px; }
+.tone-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.tone-syl { min-width: 5.5em; font-size: 1.25rem; display: flex; flex-direction: column; gap: 2px; }
+.tone-row.active .tone-syl { font-weight: 700; }
+.tone-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.tone-opt { position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-width: 56px; min-height: 56px; padding: 4px 8px; border: 1px solid var(--rule); border-radius: var(--r-sm); background: var(--surface); color: var(--ink); cursor: pointer; line-height: 1.15; }
+.tone-opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: inherit; }
+.tone-opt:focus-within { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tone-opt.on { border: 3px solid var(--accent); padding: 2px 6px; font-weight: 700; }
+.tone-opt.answer { border-style: dashed; }
+.tone-opt.on.answer { border-style: solid; }
+.tone-opt:has(input:disabled) { cursor: default; }
+.tone-key { font-size: 0.75rem; color: var(--ink-3); }
+.tone-glyph { font-size: 1.35rem; font-style: normal; }
+.tone-name { font-size: 0.7rem; color: var(--ink-3); }
+.tone-answer { margin: 12px 0 0; }
+.tone-answer .tone-chars-big { font-size: 1.6rem; margin-right: 6px; }
+.tone-q.review .tone-opt { min-width: 40px; min-height: 40px; }
+.tone-panel .tone-table td:first-child { white-space: nowrap; }
+
 .public-learning-banner-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .public-learning-banner-close { flex-shrink: 0; min-width: 44px; min-height: 44px; }

@@ -558,6 +558,29 @@ Mandarin courses opt in with `"language": { "code": "zh", "name": "Chinese", "tt
 - **Writing.** `` ```trace `` blocks trace hanzi stroke by stroke: the HSK 1–3 characters, simplified and traditional, in mainland stroke order (Make Me a Hanzi; see [Tracing letters](#tracing-letters)).
 - **Fonts.** Chinese uses the device's fonts (PingFang SC/TC, Microsoft YaHei/JhengHei, Noto Sans CJK SC/TC…); no CJK font is bundled. Chinese is never italicized. Line breaks inside a paragraph join Chinese text without a space.
 
+- **Tones.** `type: "tone"` questions ask for the tones of a syllable or word ([BANK_FORMAT.md](BANK_FORMAT.md#tone-questions)), and `language.tones` makes tone practice from the vocabulary ([Tone drills](#tone-drills)).
+
+## Tone drills
+
+Chinese courses can turn on tone practice made from their vocabulary: the app says a word with the device's Mandarin voice (from its characters, never the pinyin), and the learner picks the tone of each syllable (keys 1–4, 5 for neutral). Words of one syllable and tone pairs (two syllables) are drilled by default.
+
+```json
+"language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", "tones": { "max": 2, "round": 10 } }
+```
+
+| Field | Meaning |
+|---|---|
+| `tones` | `true` or an object: turns tone practice on (Chinese courses only). |
+| `tones.lesson` | The lesson that opens tone practice (e.g. the course's tones lesson); none: open from the start. `tones.from`: that lesson is in an earlier course. |
+| `tones.max` | Longest word drilled, in syllables, 1 to 4 (default 2: single syllables and tone pairs). |
+| `tones.round` | Prompts per round, 1 to 100 (default 10). |
+
+- **Which words.** Vocabulary items whose `term` is Han characters with a valid `reading` of 1 to `max` syllables. Single characters that voices often misread alone (polyphones such as 好 了 行 乐 长 还, and lone neutral tones such as 吗) are skipped; they're fine inside words. A word's recorded `audio` plays instead of the voice.
+- **Where.** A **Tones** panel on the Vocabulary tab starts a round from the words of every finished lesson (no word repeats in a round; words with the tones the learner misses most come up more), and shows accuracy per tone. Each lesson with drillable words gets a **Practise the tones** button next to "Practice these words", for that lesson's words at any time (once tone practice is open).
+- **Grading and feedback** are as for tone questions: every syllable right, third-tone sandhi accepted as heard, then the marked pinyin and the pattern. The first answer to each word counts toward each tone's accuracy (saved with the conjugation tallies, keys `zh:tone-1` … `zh:tone-0`); misses come back later in the round as practice.
+- **No Mandarin voice.** The round still runs: each item is labelled "From memory (no Mandarin voice)", shows the characters and the toneless pinyin, and asks for the tones the learner remembers, with a hint on adding a Chinese voice in the device's speech settings. Accuracy is counted the same way.
+- The checker reports `tones` in a non-Chinese course, unknown fields, `max` or `round` out of range, an unknown `lesson`, and a course with no word that can be drilled.
+
 ## Conjugation drills
 
 Japanese and German courses can drill verb and adjective forms: the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.

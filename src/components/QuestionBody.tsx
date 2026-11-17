@@ -11,6 +11,7 @@ import { onVoices } from "../lib/speech";
 import Markdown from "./Markdown";
 import CodeExercise from "./CodeExercise";
 import SentenceBuilder from "./SentenceBuilder";
+import ToneAnswer from "./ToneAnswer";
 import type { Chosen, Question } from "../lib/types";
 import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, pinyinBlank, qtype, toneMissOf } from "../lib/questions";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
@@ -57,6 +58,8 @@ interface Props {
   ime?: Ime;
   /** The course language code ("ja", "de"…): sentence-builder tiles' language and default spacing. */
   lang?: string;
+  /** The course's voice (e.g. "zh-CN"): tone questions are said with it. */
+  tts?: string;
   /** Sentence builders: mixed into the tile shuffle (e.g. the session id) so a resumed run looks the same. */
   seed?: string;
 }
@@ -144,7 +147,8 @@ export function QuestionAudio({ q, revealed, fallbackLang }: { q: Question; reve
     return () => stopAudio();
   }, [q.id]);
   const a = q.audio;
-  if (!a) return null;
+  // Tone questions play their own sound (ToneAnswer).
+  if (!a || qtype(q) === "tone") return null;
   const ok = canPlay(a, fallbackLang);
   const lang = (a.lang ?? fallbackLang)?.split(/[-_]/)[0];
   const play = (how: "normal" | "slow") => {
@@ -186,7 +190,7 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed, tts }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const off = disabled || reveal;
@@ -196,6 +200,24 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
 
   if (kind === "build")
     return <SentenceBuilder key={q.id} q={q} chosen={chosen} onChange={onChange} reveal={reveal} disabled={disabled} review={review} lang={lang} seed={seed} />;
+
+  if (kind === "tone")
+    return (
+      <ToneAnswer
+        key={q.id}
+        id={q.id}
+        text={q.text ?? ""}
+        reading={q.reading ?? ""}
+        chosen={chosen}
+        onChange={onChange}
+        onEnter={onEnter && (() => onEnter())}
+        reveal={reveal}
+        disabled={disabled}
+        review={review}
+        voice={tts}
+        clip={q.audio?.src}
+      />
+    );
 
   if (kind === "text") {
     const n = blankCount(q);
