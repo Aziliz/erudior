@@ -72,6 +72,7 @@ Answer choices are shuffled at run time unless the user turns that off, so don't
 
 | `"code"` | `code`: language, starter code, tests, hints, model solution (see [Code exercises](COURSE_FORMAT.md#code-exercises)). `choices` and `answer` are `[]`. | The learner writes Python or JavaScript in an editor and runs the tests; the stem is Markdown. |
 | `"build"` | `tiles`: the sentence's word tiles in the correct order; optional `distractors` (extra tiles), `accept` (other correct orders, each a list of tiles), `joiner`, `punctuation`, `prompt`. `choices` and `answer` are `[]`. | Sentence builder: the learner builds the sentence from shuffled tiles. See [Sentence builders](#sentence-builders). |
+| `"tone"` | `text`: Chinese characters (one syllable, or a word of up to four); `reading`: their pinyin with tone marks, one syllable per character (`"mā"`, `"xiè xie"`). `choices` and `answer` are left out (or `[]`). | Chinese courses: the learner hears the characters and picks the tone of each syllable. See [Tone questions](#tone-questions). |
 
 Any question can have `image`: `{ "src": "data:image/png;base64,…", "alt": "What the picture shows", "caption": "Optional" }`. `alt` is required. Use a `data:` URL (the desktop app doesn't load pictures from the web). The bank editor can add pictures and write every type.
 
@@ -110,7 +111,37 @@ The learner builds a sentence from word tiles (for language courses, or any orde
 - Practice, quizzes and timed exams use sentence builders. Live rooms and community courses don't (live rooms use choice questions only; the community editor has no fields for them).
 - The course checker reports: fewer than two tiles, an `accept` order that uses a tile not in the pool or repeats `tiles` or another order, a distractor that's also a tile, a tile ending with the `punctuation` mark, so many accepted orders that the tiles can't start out of order, a space `joiner` in a Japanese course, and furigana problems in Japanese courses.
 
+**Chinese.** In a Chinese course (`"code": "zh"`, see [COURSE_FORMAT.md](COURSE_FORMAT.md#chinese)) tiles are written in simplified characters and may carry pinyin markup (`"{我|wǒ}"`, `"{学生|xué sheng}"`), shown as one syllable over each character with the Pinyin and Tone colours switches. The joiner defaults to `""`, and grading ignores the markup.
+
+**Chinese `text` answers.** List characters (`"你好"`) or pinyin with tone marks (`"nǐ hǎo"`), or both as separate blanks or as alternatives in one list. Characters compare exactly (spaces and punctuation ignored). A pinyin answer is any accepted answer with tone marks that splits into pinyin syllables: it needs the right tones, while spacing, capitals, apostrophes, `v` for ü and tone numbers don't matter (`ni3hao3` matches `nǐ hǎo`), and a learner who has only the tones wrong is told "Check the tones: nǐ hǎo". With `"ime": "zh"`, blanks that take pinyin turn typed tone numbers into marks. Don't set `caseSensitive` on pinyin answers (it turns the pinyin comparison off). Write characters in simplified: with the Simplified/Traditional switch the answer shown is in the learner's script, and characters typed in either script count ([COURSE_FORMAT.md](COURSE_FORMAT.md#chinese)).
+
+```json
+{ "id": "zh-hello", "type": "text", "stem": "Hello: pinyin ___, characters ___", "accept": [["nǐ hǎo"], ["你好"]], "choices": [], "answer": [] }
+```
+
 **Capitals at the start.** The sentence's first letter is capitalized for display and ignored in grading, so write tiles in their mid-sentence case (`"die Fenster"`, `"bis Ende Mai"`; nouns and names keep their capitals). Then other correct orders that start with a different tile can be listed in `accept`.
+
+## Tone questions
+
+Chinese courses (`"code": "zh"`) can ask for the tone of a syllable, or the tones of a word (a two-syllable word is a tone pair: pick 3+4).
+
+```json
+{ "id": "tone-ma", "topic": "Tones", "type": "tone", "stem": "Listen. Which tone is it?", "text": "马", "reading": "mǎ", "explanation": "{马|mǎ}, horse: the third tone." }
+{ "id": "tone-xiexie", "topic": "Tones", "type": "tone", "stem": "Listen. Which tones are the two syllables?", "text": "谢谢", "reading": "xiè xie" }
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `text` | yes | What the device's voice says: Han characters only, 1 to 4 syllables. The voice always gets characters, never pinyin (engines misread pinyin). |
+| `reading` | yes | The pinyin with tone marks, syllables separated by spaces, one per character (erhua `diǎnr` covers its 儿). The neutral tone has no mark. Tone numbers are refused. |
+| `audio` | no | `{ "src": "data:audio/…" }`: a recording, played instead of the device's voice. |
+
+- **Answering.** Each syllable gets a row of five tone buttons: 1 (ā, high level), 2 (á, rising), 3 (ǎ, falling-rising), 4 (à, falling) and neutral. Keys **1–4** pick a tone and **5** (or 0) the neutral tone, filling the syllables in turn; Tab and the arrow keys move through the buttons (they are radio groups, one per syllable, named "Syllable 1 of 2: xie"), and Enter checks. Screen readers hear each choice as "tone 3, falling-rising" and each pick is announced. With the **Tone colours** switch on, the tone marks on the buttons and the answer are coloured by tone.
+- **Listening.** "Listen" and "Listen slowly" say `text` with a Mandarin voice (the course's `tts`, e.g. `zh-CN`; another Mandarin voice such as zh-TW stands in; Cantonese zh-HK voices never do). Before checking, the syllables show without tone marks and the characters stay hidden.
+- **No Mandarin voice** (and no recording): the item says so ("From memory: this device has no Mandarin voice"), shows the characters and the toneless pinyin, and the learner picks the tones from memory. It is graded and counted like any other question; the hint tells the learner how to add a Chinese voice.
+- **Grading.** All syllables must be right. The written tones are the answer; when third-tone sandhi changes what is heard (3+3 is said 2+3, 3+3+3 is said 2+2+3), the heard tones count too. 一 and 不 are written with their tone changes in our courses (`yí dìng`), so they are graded as written. After checking, each syllable is marked, and the feedback shows the characters with marked pinyin and the pattern ("nǐ hǎo: tones 3+3. Third-tone sandhi: you hear 2+3; both answers count.").
+- **Choosing characters.** Use common characters with one reading for single syllables (妈 mā, 麻 má, 马 mǎ, 骂 mà). Avoid polyphones on their own (好, 了, 行, 乐, 长, 还…) and lone neutral-tone syllables (吗): voices often say them with another tone. Inside a word they are fine; the voice reads whole words with their sandhi and neutral tones.
+- The course checker reports tone questions outside Chinese courses, a `text` that isn't Han characters, a `reading` that isn't valid marked pinyin or doesn't have one syllable per character, more than four syllables, `choices`/`answer` on a tone question, and its own answer being rejected; it warns about the risky single characters above (unless the question has a recording). Practice, quizzes and timed exams use tone questions; live rooms and community courses don't. See also tone practice from the vocabulary: [Tone drills](COURSE_FORMAT.md#tone-drills).
 
 ## Model questions
 

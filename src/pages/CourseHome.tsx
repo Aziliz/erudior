@@ -1,3 +1,4 @@
+import { rawCourse } from "../lib/zhScript";
 import { catalogEntry, isPublishedCourse } from "../lib/catalog";
 import { useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
@@ -81,7 +82,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
 
   async function onExport() {
     try {
-      if (await store.exportCourseFile(course)) api.toast("Course exported");
+      if (await store.exportCourseFile(rawCourse(course))) api.toast("Course exported");
     } catch (e) {
       api.toast(`Export failed: ${String(e)}`);
     }
@@ -119,7 +120,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         </div>
       </div>
 
-      {offlineExport && <OfflineCourseExport key={course.id} course={course} onClose={() => { setOfflineExport(false); offlineExportButton.current?.focus(); }} />}
+      {offlineExport && <OfflineCourseExport key={course.id} course={rawCourse(course)} onClose={() => { setOfflineExport(false); offlineExportButton.current?.focus(); }} />}
       <nav className="tabs" aria-label="Course sections">
         {TABS.filter((t) => t.show(course)).map((t) => (
           <button key={t.id} aria-current={tab === t.id ? "page" : undefined} onClick={() => setTab(t.id)}>
@@ -560,7 +561,7 @@ function BanksTab({ api, course }: { api: AppApi; course: Course }) {
     const b = emptyBank("New question bank");
     const local = `bank-${uid()}`;
     const bank: Bank = { ...b, id: bankKey(course.id, local), courseId: course.id };
-    await api.saveCourse({ ...course, banks: [...course.banks, bank] });
+    await api.saveCourse({ ...rawCourse(course), banks: [...rawCourse(course).banks, bank] });
     api.go({ name: "editor", bankId: bank.id, isNew: true });
   }
   return (
@@ -630,7 +631,7 @@ function CardsTab({ api, course }: { api: AppApi; course: Course }) {
 
   async function addDeck() {
     const deck = { id: `deck-${uid()}`, title: "New deck", cards: [] };
-    await api.saveCourse({ ...course, decks: [...course.decks, deck] });
+    await api.saveCourse({ ...rawCourse(course), decks: [...rawCourse(course).decks, deck] });
     api.go({ name: "deckEdit", courseId: course.id, deckId: deck.id });
   }
 

@@ -20,15 +20,24 @@ function loadVoices() {
 loadVoices();
 synth()?.addEventListener?.("voiceschanged", loadVoices);
 
-const base = (tag: string) => tag.toLowerCase().split(/[-_]/)[0];
+// "cmn" (Mandarin) voices count as "zh"; Android writes zh_CN.
+const tagOf = (tag: string) => tag.toLowerCase().replace(/_/g, "-").replace(/^cmn\b/, "zh");
+const base = (tag: string) => tagOf(tag).split("-")[0];
+/** Cantonese voices (zh-HK, zh-MO, yue) can't stand in for Mandarin, and the other way round. */
+const cantonese = (tag: string) => /^(yue\b|zh-(hk|mo)\b|zh-hant-hk\b)/.test(tagOf(tag));
 
 /** A voice for the language, preferring an exact region match. */
 export function voiceFor(lang: string): SpeechSynthesisVoice | undefined {
   if (!voices.length) loadVoices();
-  const l = lang.toLowerCase().replace("_", "-");
-  return (
-    voices.find((v) => v.lang.toLowerCase().replace("_", "-") === l) ?? voices.find((v) => base(v.lang) === base(lang))
-  );
+  const l = tagOf(lang);
+  const exact = voices.find((v) => tagOf(v.lang) === l);
+  if (exact) return exact;
+  if (base(lang) === "zh" || base(lang) === "yue") {
+    // Chinese: another Mandarin region (zh-CN, zh-TW, zh-SG) is fine; Cantonese isn't Mandarin.
+    const want = cantonese(lang);
+    return voices.find((v) => (base(v.lang) === "zh" || base(v.lang) === "yue") && cantonese(v.lang) === want);
+  }
+  return voices.find((v) => base(v.lang) === base(lang));
 }
 
 /** True when speech is available at all (voices can load late, so the button may appear after a moment). */

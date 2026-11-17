@@ -13,6 +13,8 @@
 //   UPPERCASE letters give katakana for that syllable (TAKUSHI- → タクシー), or pass
 //   `katakana: true` to convert everything to katakana.
 
+import { pinyinPairs, pinyinRubyHtml } from "./pinyin";
+
 const VOWELS = "aiueo";
 
 // Base syllables. Built once into a map; longer keys win (we try 4, 3, 2, 1 letters).
@@ -393,7 +395,11 @@ export function rubyHtml(text: string, escape = true): string {
   return text
     .replace(RUBY_RE, (whole, base: string, raw: string) => {
       const p = rubyParts(base, raw);
-      if (!p) return whole;
+      if (!p) {
+        // Chinese: {汉字|hàn zì}, one pinyin syllable over each character.
+        const py = pinyinPairs(base, raw);
+        return py ? pinyinRubyHtml(py, escape) : whole;
+      }
       const b = escape ? escapeHtml(base) : base;
       const r = p.accent !== undefined ? pitchHtml(p.reading, p.accent, escape) : escape ? escapeHtml(p.reading) : p.reading;
       return `<ruby>${b}<rp>(</rp><rt>${r}</rt><rp>)</rp></ruby>`;
@@ -406,14 +412,14 @@ export function rubyHtml(text: string, escape = true): string {
 /** The text with furigana and pitch markup reduced to what's written ({漢字|かんじ} → 漢字, [はし:2] → はし). */
 export function stripRuby(text: string): string {
   return text
-    .replace(RUBY_RE, (whole, base: string, raw: string) => (rubyParts(base, raw) ? base : whole))
+    .replace(RUBY_RE, (whole, base: string, raw: string) => (rubyParts(base, raw) || pinyinPairs(base, raw) ? base : whole))
     .replace(PITCH_RE, (_whole, kana: string) => kana);
 }
 
 /** The text with furigana markup reduced to the reading ({漢字|かんじ} → かんじ, [はし:2] → はし). */
 export function rubyReading(text: string): string {
   return text
-    .replace(RUBY_RE, (whole, base: string, raw: string) => rubyParts(base, raw)?.reading ?? whole)
+    .replace(RUBY_RE, (whole, base: string, raw: string) => rubyParts(base, raw)?.reading ?? (pinyinPairs(base, raw) ? raw.trim() : whole))
     .replace(PITCH_RE, (_whole, kana: string) => kana);
 }
 
@@ -422,7 +428,8 @@ export function rubySearchText(text: string): string {
   return text
     .replace(RUBY_RE, (whole, base: string, raw: string) => {
       const p = rubyParts(base, raw);
-      return p ? `${base} ${p.reading}` : whole;
+      if (!p) return pinyinPairs(base, raw) ? `${base} ${raw.trim()}` : whole;
+      return `${base} ${p.reading}`;
     })
     .replace(PITCH_RE, (_whole, kana: string) => kana);
 }

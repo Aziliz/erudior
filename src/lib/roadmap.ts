@@ -11,6 +11,8 @@ export interface RoadmapCourse {
   covers?: string;
   /** Catalog title when it exists (or will exist) under another name. */
   catalog?: string;
+  /** Authoring progress; catalog presence alone determines public availability. */
+  status?: "in_progress" | "authoring_complete";
 }
 
 export interface RoadmapGroup {
@@ -24,15 +26,15 @@ const K8 = ["K", "1", "2", "3", "4", "5", "6", "7", "8"];
 const gradeName = (g: string) => (g === "K" ? "Kindergarten" : `Grade ${g}`);
 
 const K8_TOPICS: Record<string, [string, string, string, string]> = {
-  K: ["Counting to 100, shapes, comparing", "Letters, phonics, first sight words", "Senses, weather, plants and animals", "Me, family, community, rules"],
-  "1": ["Adding and subtracting within 20, place value, time", "Reading fluency, sentences, spelling", "Light, sound, sky patterns, animal parents", "Maps, community helpers, holidays"],
-  "2": ["Adding and subtracting within 1,000, money, measurement", "Paragraphs, grammar, reading for meaning", "Materials, land and water, habitats", "Local history, geography, goods and services"],
-  "3": ["Multiplication, division, fractions, area", "Narrative writing, chapter books, cursive", "Forces, life cycles, weather and climate", "State history, Native peoples, branches of government"],
-  "4": ["Multi-digit operations, decimals, angles", "Informational writing, vocabulary, poetry", "Energy, waves, Earth's features, body systems", "US regions, exploration"],
-  "5": ["Fraction operations, volume, the coordinate plane", "Research reports, literary devices", "Matter, ecosystems, Earth and space", "US history to 1850"],
+  K: ["Counting to 100, shapes and comparing. All 44 lessons and 308 questions are written. Local content review and full app walkthroughs were complete by November 5, 2026. Educator and learner review, physical-device speech checks, compatible app delivery and publication remain pending.", "Letters, phonics, first sight words", "Senses, weather, plants and animals", "Me, family, community, rules"],
+  "1": ["Adding and subtracting within 20, place value and time. All 40 lessons and 279 questions are written. Local content checks and full app walkthroughs were complete by November 5, 2026. Compatible app delivery, final release checks and publication remain pending.", "Reading fluency, sentences, spelling", "Light, sound, sky patterns, animal parents", "Maps, community helpers, holidays"],
+  "2": ["Adding and subtracting within 1,000, money and measurement. All 46 lessons and 302 questions are written. Local content checks and full app walkthroughs were complete by November 6, 2026. Compatible app delivery, final release checks and publication remain pending.", "Paragraphs, grammar, reading for meaning", "Materials, land and water, habitats", "Local history, geography, goods and services"],
+  "3": ["Multiplication, division, fractions and area. All 45 lessons and 297 questions are written. Local content review and full local app walkthroughs were complete by November 9, 2026. Compatible app delivery, final release checks and publication remain pending.", "Narrative writing, chapter books, cursive", "Forces, life cycles, weather and climate", "State history, Native peoples, branches of government"],
+  "4": ["Multi-digit operations, decimals and angles. All 45 lessons and 297 questions are written. Local content review and full local app walkthroughs were complete by November 9, 2026. Compatible app delivery, final release checks and publication remain pending.", "Informational writing, vocabulary, poetry", "Energy, waves, Earth's features, body systems", "US regions, exploration"],
+  "5": ["Fraction operations, volume and the coordinate plane. All 45 lessons, 297 questions and 27 practice drills are written. By November 9, 2026, local content review and a full local learner walkthrough were complete, including all nine checkpoints and touch input on all 17 model questions. Physical screen-reader observations, a fresh learner pilot, final release checks and public release remain pending.", "Research reports, literary devices", "Matter, ecosystems, Earth and space", "US history to 1850"],
   "6": ["Ratios, percents, negative numbers, expressions", "Argument essays, novels, speaking", "Earth science: plates, weather, water", "Ancient civilizations"],
-  "7": ["Proportions, probability, linear equations", "Poetry, persuasive writing, research", "Life science: cells, genetics, ecosystems", "Medieval and early modern world"],
-  "8": ["Functions, linear systems, the Pythagorean theorem", "Evidence and analysis, speeches, grammar", "Physical science: chemistry and physics basics", "US history to 1900, civics and the Constitution"],
+  "7": ["Proportions, probability, linear equations", "Poetry, persuasive writing and research. All 32 lessons and 320 questions are written. Local content review and full app learner checks were complete by November 9, 2026. Final release checks and publication remain pending.", "Life science: cells, genetics, ecosystems", "Medieval and early modern world"],
+  "8": ["Functions, linear systems, the Pythagorean theorem", "Evidence and analysis, a complete novel, speeches and grammar. The full draft includes 24 lessons, 24 writing workshops and 204 questions, with sustained informational reading and real-source inquiry. Local content review and focused reading, quiz and writing component checks were complete by November 13, 2026. Browser/device learner acceptance, independent review and publication remain pending.", "Physical science: chemistry and physics basics", "US history to 1900, civics and the Constitution"],
 };
 const SUBJECTS = ["Math", "Language Arts", "Science", "Social Studies"] as const;
 
@@ -43,6 +45,7 @@ export const ROADMAP: RoadmapGroup[] = [
     courses: K8.map((g) => ({
       title: `${subject} ${g === "K" ? "K" : g}`,
       covers: `${gradeName(g)}: ${K8_TOPICS[g][i]}`,
+      ...((subject === "Math" && ["K", "1", "2", "3", "4", "5"].includes(g)) || (subject === "Language Arts" && (g === "7" || g === "8")) ? { status: "authoring_complete" as const } : {}),
       ...(subject === "Math" && g === "8" ? { catalog: "Pre-algebra and Arithmetic" } : {}),
     })),
   })),
@@ -97,8 +100,8 @@ export const ROADMAP: RoadmapGroup[] = [
     id: "hs-english",
     title: "High school English",
     courses: [
-      { title: "English 9", covers: "Composition and grammar, short stories, poetry, drama" },
-      { title: "English 10", covers: "World literature, argument and research writing" },
+      { title: "English 9", status: "authoring_complete", covers: "Composition and grammar, short stories, poetry and drama. All 32 lessons, 320 questions and 32 writing workshops are written. Local content review and full app learner checks were complete by November 9, 2026. Independent review, learner/device observations and public release remain pending." },
+      { title: "English 10", status: "authoring_complete", covers: "World literature, argument and research writing. All 32 lessons, 320 questions and 32 writing workshops are drafted. Writing guidance and the first two units received local source and question review by November 9, 2026. Remaining content review, independent approval, learner acceptance and release are pending." },
       { title: "English 11", covers: "American literature, rhetoric" },
       { title: "English 12", covers: "British literature, the senior research paper" },
     ],

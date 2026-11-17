@@ -5,6 +5,7 @@ import { validateLessonSource, validateInteractiveQuestion, validateFigureSpec }
 import { validateCourseAudioFields, validateQuestionAudioFields, validateVocabAudioFields } from "./courseAudio";
 import type { Drill } from "./exerciseTypes";
 import { conjugationShapeProblems } from "./courseConjugation";
+import { toneSettingsProblems } from "./tones";
 /** Versioned, lossless authored course envelope. Never grants publication authority. */
 import type { Course, Bank } from "./courseContentTypes";
 import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems, normalizeValidatedCourseWork, validateCourseWork } from "./courseWork";
@@ -39,7 +40,7 @@ export interface CanonicalValidationOptions {
     /** Trusted deployment configuration only; never read from an authored payload. */
     communityImageOrigin?: string;
 }
-export const CANONICAL_LIMITS = { bytes: 900 * 1024, nodes: 200000, items: 10000, text: 500000, short: 2000 } as const;
+export const CANONICAL_LIMITS = { bytes: 900 * 1024, nodes: 200000, items: 10000, vocab: 40000, text: 500000, short: 2000 } as const;
 const RESERVED = new Set(["__proto__", "prototype", "constructor"]);
 const isObject = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v) && (Object.getPrototypeOf(v) === Object.prototype || Object.getPrototypeOf(v) === null);
 const validId = (v: unknown): v is string => typeof v === 'string' && /^[A-Za-z0-9_-]{1,100}$/.test(v) && !RESERVED.has(v);
@@ -111,7 +112,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             add(`${path}.${k}`, 'boolean required'); }
     function integer(v: unknown, path: string, min = 0, max = 100000) { if (typeof v !== 'number' || !Number.isInteger(v) || v < min || v > max)
         add(path, 'bounded integer required'); }
-    function array(v: unknown, path: string, max = CANONICAL_LIMITS.items): v is unknown[] { if (!Array.isArray(v) || v.length > max) {
+    function array(v: unknown, path: string, max: number = CANONICAL_LIMITS.items): v is unknown[] { if (!Array.isArray(v) || v.length > max) {
         add(path, 'bounded array required');
         return false;
     } return true; }
@@ -132,10 +133,22 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             add(path, 'duplicate ID');
         ids.add(v);
     } }
-    function objects(v: unknown, path: string, keys: string[], visit: (o: Record<string, unknown>, path: string) => void) { if (!array(v, path))
+    function objects(v: unknown, path: string, keys: string[], visit: (o: Record<string, unknown>, path: string) => void, max: number = CANONICAL_LIMITS.items) { if (!array(v, path, max))
         return; const ids = new Set<string>(); v.forEach((x, i) => { const p = `${path}[${i}]`; if (!shape(x, keys, p))
         return; if (keys.includes('id'))
         identity(x.id, `${p}.id`, ids); visit(x, p); }); }
+    /** Chinese script table: maps of simplified → traditional text (bounded; values short). */
+    function textMap(v: unknown, path: string) { if (!isObject(v) || Object.keys(v).length > CANONICAL_LIMITS.vocab) {
+        add(path, 'bounded text map required');
+        return;
+    } for (const [k, x] of Object.entries(v)) {
+        if (!k || k.length > CANONICAL_LIMITS.short) add(path, 'invalid map key');
+        str(x, `${path}.${k}`, true, CANONICAL_LIMITS.short);
+    } }
+    function zhTable(v: unknown, path: string) { if (!shape(v, ['chars', 'phrases', 'alone', 'overrides'], path))
+        return; textMap(v.chars, path + '.chars'); for (const k of ['phrases', 'alone'])
+        if (v[k] !== undefined) textMap(v[k], `${path}.${k}`); if (v.overrides !== undefined && shape(v.overrides, ['forms', 'words', 'alone', 'chars'], path + '.overrides'))
+        for (const [k, m] of Object.entries(v.overrides)) textMap(m, `${path}.overrides.${k}`); }
     /** Japanese pitch accent: a whole number (or non-empty list of distinct ones) from 0 to the reading's mora count. */
     function pitchAccent(v: Record<string, unknown>, path: string) { if ((c.language as { code?: unknown } | undefined)?.code !== 'ja')
         return add(path, 'pitch accent is only for Japanese courses'); const kana = typeof v.reading === 'string' && v.reading ? v.reading : typeof v.term === 'string' ? v.term : ''; const morae = moraCount(kana); const list = Array.isArray(v.pitch) ? v.pitch : [v.pitch];
@@ -188,7 +201,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.advancedAssessments) && c.advancedAssessments.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
     }
     const context: CanonicalValidationContext = { strict, course: c as unknown as PortableAuthoredCourse, mode: options.mode, communityImageOrigin: options.communityImageOrigin };
-    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio', 'tiles', 'distractors', 'joiner', 'punctuation', 'prompt'];
+    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio', 'tiles', 'distractors', 'joiner', 'punctuation', 'prompt', 'text', 'reading'];
     let bankIndex = 0;
     objects(c.banks, 'banks', ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'sections', 'exam', 'questions'], (b, p) => {
         const index = bankIndex++;
@@ -226,11 +239,11 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 firstQuestions.add(q.id);
             str(q.topic, path + '.topic');
             str(q.stem, path + '.stem', true);
-            optionalStr(q, ['explanation', 'listen', 'map', 'timeline', 'joiner', 'punctuation', 'prompt'], path);
+            optionalStr(q, ['explanation', 'listen', 'map', 'timeline', 'joiner', 'punctuation', 'prompt', 'text', 'reading'], path);
             boolean(q, ['caseSensitive', 'lowestTerms', 'honors'], path);
             if (q.section !== undefined && !sectionIds.has(q.section as string))
                 add(path + '.section', 'unknown bank section');
-            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code', 'build'].includes(q.type as string))
+            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code', 'build', 'tone'].includes(q.type as string))
                 add(path + '.type', 'unsupported question type');
             strings(q.choices, path + '.choices');
             if (array(q.answer, path + '.answer'))
@@ -261,9 +274,9 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 add(path, 'choice needs two choices and an answer');
             if (strict && kind === 'order' && choices.length < 2)
                 add(path, 'order needs two items');
-            if (['text', 'model', 'code', 'build'].includes(kind as string) && answers.length)
+            if (['text', 'model', 'code', 'build', 'tone'].includes(kind as string) && answers.length)
                 add(path + '.answer', 'must be empty for question type');
-            if (['text', 'model', 'code', 'build'].includes(kind as string) && choices.length)
+            if (['text', 'model', 'code', 'build', 'tone'].includes(kind as string) && choices.length)
                 add(path + '.choices', 'must be empty for question type');
             if(kind==='order'&&answers.length&&(answers.length!==choices.length||answers.some((a,i)=>a!==i)))add(path+'.answer','legacy order answers must be the identity sequence');
             if (kind === 'text' && strict) {
@@ -400,9 +413,10 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 refs(l.drills, drillIds, `lesson ${label(l.id)} drills`);
                 refs(l.refs, refIds, `lesson ${label(l.id)} refs`);
             }
-    objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); }); });
+    objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic', 'trad'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); if (card.trad !== undefined && shape(card.trad, ['front', 'back'], q + '.trad')) optionalStr(card.trad, ['front', 'back'], q + '.trad'); }); });
     glossary(c.glossary, 'glossary');
-    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation'], 'language')) {
+    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation', 'tones', 'traditional'], 'language')) {
+        if (c.language.traditional !== undefined) zhTable(c.language.traditional, 'language.traditional');
         str(c.language.code, 'language.code', true);
         str(c.language.name, 'language.name', true);
         optionalStr(c.language, ['tts', 'ime', 'level', 'vocabSource'], 'language');
@@ -412,14 +426,16 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             integer(c.language.vocabTarget, 'language.vocabTarget');
     }
     if (c.vocab !== undefined)
-        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions', 'conj', 'forms', 'noForms'], (v, p) => { if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
+        objects(c.vocab, 'vocab', ['id', 'from', 'lesson', 'kind', 'term', 'alt', 'meanings', 'reading', 'pitch', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio', 'directions', 'conj', 'forms', 'noForms', 'trad'], (v, p) => { if (v.trad !== undefined) str(v.trad, p + '.trad', true, CANONICAL_LIMITS.short); if (v.pitch !== undefined) pitchAccent(v, p + '.pitch'); str(v.term, p + '.term', true); strings(v.meanings, p + '.meanings'); if (strict && Array.isArray(v.meanings) && !v.meanings.length) add(p + '.meanings', 'at least one accepted meaning required'); if (!validId(v.lesson)) add(p+'.lesson','invalid stable lesson ID');
         else if (!lessonIds.has(v.lesson) && !(validId(v.from) && v.from !== c.id)) add(p+'.lesson','unknown local lesson');
         if(v.from!==undefined&&!validId(v.from))add(p+'.from','invalid source course ID'); optionalStr(v, ['from', 'reading', 'pos', 'plural', 'example', 'exampleEn', 'note', 'audio'], p); if (v.kind !== undefined && !['word', 'phrase', 'char'].includes(v.kind as string))
             add(p + '.kind', 'unknown vocabulary kind'); if (v.alt !== undefined)
             strings(v.alt, p + '.alt'); if (v.directions !== undefined && array(v.directions, p + '.directions'))
             for (const d of v.directions)
                 if (!['meaning', 'recall'].includes(d as string))
-                    add(p + '.directions', 'unknown direction'); });
+                    add(p + '.directions', 'unknown direction'); }, CANONICAL_LIMITS.vocab);
+    for (const [path, message] of toneSettingsProblems(isObject(c.language) ? c.language : undefined))
+        add(path, message);
     for (const [path, message] of conjugationShapeProblems(isObject(c.language) ? c.language : undefined, Array.isArray(c.vocab) ? c.vocab : []))
         add(path, message);
     if (c.readingList !== undefined)
@@ -513,8 +529,10 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             }
     if (isObject(c.activityLog) && typeof c.activityLog.prompt === 'string')
         markdown.push(c.activityLog.prompt);
+    // Chinese courses trace Han characters as hanzi (Make Me a Hanzi list), not kanji.
+    const traceScript = (c.language as { code?: unknown } | undefined)?.code === 'zh' ? 'zh' as const : undefined;
     for (const body of markdown)
-        checked('lesson source', () => validateLessonSource(body, context));
+        checked('lesson source', () => validateLessonSource(body, traceScript ? { ...context, traceScript } : context));
     return errors;
 }
 export function courseFromCanonicalAuthoring(raw: unknown, options: CanonicalValidationOptions = {}): PortableAuthoredCourse { const errors = validateCanonicalAuthoring(raw, options); if (errors.length)

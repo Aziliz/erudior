@@ -1,3 +1,4 @@
+import { rawCourse } from "../lib/zhScript";
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Bank } from "../lib/types";
@@ -81,7 +82,7 @@ export default function BankHome({ api, bank }: { api: AppApi; bank: Bank }) {
 
   async function onExport() {
     try {
-      if (await store.exportBankFile(bank)) api.toast("Bank exported");
+      if (await store.exportBankFile(rawCourse(bank))) api.toast("Bank exported");
     } catch (e) {
       api.toast(`Export failed: ${String(e)}`);
     }

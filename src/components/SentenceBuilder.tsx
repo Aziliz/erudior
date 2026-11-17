@@ -25,6 +25,8 @@ interface Props {
 
 /** One tile's text; furigana markup shows as ruby. */
 function TileText({ text, lang, first }: { text: string; lang?: string; first?: boolean }) {
+  // Chinese tiles: pinyin markup {你好|nǐ hǎo} shows one syllable over each character.
+  if (lang === "zh") return <RubyText text={text} lang="zh" />;
   const ja = lang === "ja" || hasJapanese(text);
   return <RubyText text={first && !ja ? startCase(text) : text} lang={ja ? "ja" : undefined} />;
 }
