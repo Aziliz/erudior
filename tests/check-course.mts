@@ -41,7 +41,7 @@ import type { Question } from "../src/lib/types.ts";
 import { pythonPath, runJsNode, runPythonNode } from "./code-node.mts";
 import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAccent } from "../src/lib/kana.ts";
 import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.ts";
-import { scriptProblems } from "../src/lib/zhScript.ts";
+import { scriptCourse, scriptProblems } from "../src/lib/zhScript.ts";
 import * as OpenCC from "opencc-js";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
@@ -365,6 +365,10 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
 
   // --- Chinese script switch: the app's conversion equals OpenCC s2tw + the course's overrides --
   if (chinese) for (const p of scriptProblems(raw, s2tw())) say(p);
+  // Trace blocks in Traditional must still be traceable.
+  if (chinese && c.language?.traditional)
+    for (const l of scriptCourse(c, true).lessons)
+      for (const p of phonicsProblems(l.body, "zh")) if (/can't be traced/.test(p)) say(`lesson ${l.id} (Traditional): ${p}`);
 
   // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.
   for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
