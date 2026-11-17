@@ -1,4 +1,5 @@
 import { markdownImageAssets } from "./markdownAssets";
+import { toneItemProblem } from "./tones";
 import { widgetMarkdownFields } from "./widgetMarkdown";
 /** Canonical interactive lesson syntax: validation only, no normalization or execution. */
 import { INTERACTIVE_LESSON_KINDS, scanLessonFences } from "./lessonFences";
@@ -109,6 +110,7 @@ export function validateInteractiveQuestion(raw:unknown,_context:LessonSourceCon
    if(!plain(raw.target))errors.push("target must be an object");else if(Object.values(raw.target).some(v=>typeof v==="number"&&(!Number.isFinite(v)||Math.abs(v)>10000)))errors.push("model target is outside bounded solving limits");else if(!errors.length)errors.push(...targetProblems(parsed.model,raw.target));
   }
  }else if(type==="build"){try{normalizeBuild(raw);}catch(error){errors.push(`build: ${(error as Error).message}`);}
+ }else if(type==="tone"){const problem=toneItemProblem(typeof raw.text==="string"?raw.text:"",typeof raw.reading==="string"?raw.reading:"");if(problem)errors.push(`tone: ${problem}`);
  }else if(type==="order"&&raw.dates!==undefined){const dates=list(raw.dates,"dates");if(!Array.isArray(raw.choices)||dates.length!==raw.choices.length)errors.push("dates must match choices");for(const date of dates)if(!parseSpan(date))errors.push(`Invalid order date: ${date}`);}
  } catch(error) { errors.push(`Malformed interactive question: ${(error as Error).message}`); }
  return errors;

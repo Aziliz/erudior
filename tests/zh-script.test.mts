@@ -99,17 +99,17 @@ assert.deepEqual([card(simp).front, card(simp).back], ["钟", "clock, bell · ra
 assert.equal(trad.decks[0].cards[1].front, "{麵條|miàn tiáo}", "cards without trad convert");
 // Questions: text answers in either script; choices in no-convert stay.
 const q = (c: Course, id: string) => c.banks[0].questions.find((x) => x.id === id)!;
-assert.ok(textMatches("头发", q(trad, "q6").accept![0]) && textMatches("頭髮", q(trad, "q6").accept![0]));
-assert.ok(textMatches("頭髮", q(simp, "q6").accept![0]), "traditional typed with Simplified on");
-assert.equal(q(trad, "q6").accept![0][0], "頭髮", "the shown answer is in the learner's script");
-assert.deepEqual(q(trad, "q7").choices, ["髮", "發"]);
-assert.match(q(trad, "q7").stem, /does 发 take in 头发/);
+assert.ok(textMatches("头发", q(trad, "zs1").accept![0]) && textMatches("頭髮", q(trad, "zs1").accept![0]));
+assert.ok(textMatches("頭髮", q(simp, "zs1").accept![0]), "traditional typed with Simplified on");
+assert.equal(q(trad, "zs1").accept![0][0], "頭髮", "the shown answer is in the learner's script");
+assert.deepEqual(q(trad, "zs2").choices, ["髮", "發"]);
+assert.match(q(trad, "zs2").stem, /does 发 take in 头发/);
 // Banks and sessions follow the course.
 const bank = scriptBank({ ...demo.banks[0], courseId: demo.id }, trad);
 assert.equal((bank as { courseId?: string }).courseId, demo.id);
 assert.equal(bank.questions, trad.banks[0].questions);
 assert.equal(rawCourse(bank).questions, demo.banks[0].questions);
-const session = { items: [{ q: demo.banks[0].questions.find((x) => x.id === "q6")!, order: [] }] };
+const session = { items: [{ q: demo.banks[0].questions.find((x) => x.id === "zs1")!, order: [] }] };
 assert.equal(scriptSession(session, bank).items[0].q.accept![0][0], "頭髮");
 assert.equal(scriptSession(session, bank), scriptSession(session, bank), "cached");
 // Other languages pass through untouched.

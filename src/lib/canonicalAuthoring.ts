@@ -5,6 +5,7 @@ import { validateLessonSource, validateInteractiveQuestion, validateFigureSpec }
 import { validateCourseAudioFields, validateQuestionAudioFields, validateVocabAudioFields } from "./courseAudio";
 import type { Drill } from "./exerciseTypes";
 import { conjugationShapeProblems } from "./courseConjugation";
+import { toneSettingsProblems } from "./tones";
 /** Versioned, lossless authored course envelope. Never grants publication authority. */
 import type { Course, Bank } from "./courseContentTypes";
 import { courseWorkRevisionProblems, courseWorkLessonRevisionProblems, normalizeValidatedCourseWork, validateCourseWork } from "./courseWork";
@@ -200,7 +201,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             && !(Array.isArray(c.spreadsheetAssignments) && c.spreadsheetAssignments.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.branchingScenarios) && c.branchingScenarios.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.scientificWorkspaces) && c.scientificWorkspaces.some(a => isObject(a) && a.lessonId === lesson.id)) && !(Array.isArray(c.advancedAssessments) && c.advancedAssessments.some(a => isObject(a) && a.lessonId === lesson.id))) add('lesson '+label(lesson.id),'publication requires lesson content, questions, or a linked workbook');
     }
     const context: CanonicalValidationContext = { strict, course: c as unknown as PortableAuthoredCourse, mode: options.mode, communityImageOrigin: options.communityImageOrigin };
-    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio', 'tiles', 'distractors', 'joiner', 'punctuation', 'prompt'];
+    const questionKeys = ['id', 'section', 'topic', 'type', 'stem', 'image', 'choices', 'answer', 'left', 'markers', 'accept', 'caseSensitive', 'lowestTerms', 'dates', 'map', 'targets', 'marks', 'slots', 'timeline', 'code', 'honors', 'model', 'target', 'explanation', 'listen', 'blend', 'audio', 'tiles', 'distractors', 'joiner', 'punctuation', 'prompt', 'text', 'reading'];
     let bankIndex = 0;
     objects(c.banks, 'banks', ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'sections', 'exam', 'questions'], (b, p) => {
         const index = bankIndex++;
@@ -238,11 +239,11 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 firstQuestions.add(q.id);
             str(q.topic, path + '.topic');
             str(q.stem, path + '.stem', true);
-            optionalStr(q, ['explanation', 'listen', 'map', 'timeline', 'joiner', 'punctuation', 'prompt'], path);
+            optionalStr(q, ['explanation', 'listen', 'map', 'timeline', 'joiner', 'punctuation', 'prompt', 'text', 'reading'], path);
             boolean(q, ['caseSensitive', 'lowestTerms', 'honors'], path);
             if (q.section !== undefined && !sectionIds.has(q.section as string))
                 add(path + '.section', 'unknown bank section');
-            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code', 'build'].includes(q.type as string))
+            if (q.type !== undefined && !['choice', 'text', 'match', 'label', 'order', 'model', 'map', 'timeline', 'code', 'build', 'tone'].includes(q.type as string))
                 add(path + '.type', 'unsupported question type');
             strings(q.choices, path + '.choices');
             if (array(q.answer, path + '.answer'))
@@ -273,9 +274,9 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 add(path, 'choice needs two choices and an answer');
             if (strict && kind === 'order' && choices.length < 2)
                 add(path, 'order needs two items');
-            if (['text', 'model', 'code', 'build'].includes(kind as string) && answers.length)
+            if (['text', 'model', 'code', 'build', 'tone'].includes(kind as string) && answers.length)
                 add(path + '.answer', 'must be empty for question type');
-            if (['text', 'model', 'code', 'build'].includes(kind as string) && choices.length)
+            if (['text', 'model', 'code', 'build', 'tone'].includes(kind as string) && choices.length)
                 add(path + '.choices', 'must be empty for question type');
             if(kind==='order'&&answers.length&&(answers.length!==choices.length||answers.some((a,i)=>a!==i)))add(path+'.answer','legacy order answers must be the identity sequence');
             if (kind === 'text' && strict) {
@@ -414,7 +415,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             }
     objects(c.decks, 'decks', ['id', 'title', 'description', 'cards'], (d, p) => { str(d.title, p + '.title', true); optionalStr(d, ['description'], p); objects(d.cards, p + '.cards', ['id', 'front', 'back', 'topic', 'trad'], (card, q) => { str(card.front, q + '.front', true); str(card.back, q + '.back', true); optionalStr(card, ['topic'], q); if (card.trad !== undefined && shape(card.trad, ['front', 'back'], q + '.trad')) optionalStr(card.trad, ['front', 'back'], q + '.trad'); }); });
     glossary(c.glossary, 'glossary');
-    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation', 'traditional'], 'language')) {
+    if (c.language !== undefined && shape(c.language, ['code', 'name', 'tts', 'keys', 'ime', 'level', 'vocabTarget', 'vocabSource', 'conjugation', 'tones', 'traditional'], 'language')) {
         if (c.language.traditional !== undefined) zhTable(c.language.traditional, 'language.traditional');
         str(c.language.code, 'language.code', true);
         str(c.language.name, 'language.name', true);
@@ -433,6 +434,8 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             for (const d of v.directions)
                 if (!['meaning', 'recall'].includes(d as string))
                     add(p + '.directions', 'unknown direction'); }, CANONICAL_LIMITS.vocab);
+    for (const [path, message] of toneSettingsProblems(isObject(c.language) ? c.language : undefined))
+        add(path, message);
     for (const [path, message] of conjugationShapeProblems(isObject(c.language) ? c.language : undefined, Array.isArray(c.vocab) ? c.vocab : []))
         add(path, message);
     if (c.readingList !== undefined)

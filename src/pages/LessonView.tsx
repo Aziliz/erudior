@@ -1,4 +1,5 @@
 import type { AppApi } from "../App";
+import { toneOpen, toneWords } from "../lib/toneDrills";
 import { isHonorsLesson } from "../lib/course";
 import type { Course, Lesson } from "../lib/types";
 import Markdown from "../components/Markdown";
@@ -33,6 +34,8 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
   const lang = course.language;
   const bank = mainBank(course);
   const lessonDrills = course.drills.filter((d) => lesson.drills?.includes(d.id));
+  // Chinese courses with tone drills: this lesson's words of one or two syllables (language.tones).
+  const lessonTones = toneOpen(course, api.progress) && toneWords(course, words).length > 0;
   const lessonRefs = (lesson.refs ?? []).map((id) => course.references.find((r) => r.id === id)).filter((r) => !!r);
   const topicCards = course.decks.reduce((s, d) => s + d.cards.filter((c) => c.topic && topics.includes(c.topic)).length, 0);
 
@@ -187,6 +190,11 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
             >
               Practice these words
             </button>
+            {lessonTones && (
+              <button className="btn" onClick={() => api.go({ name: "vocab", courseId: course.id, mode: "tones", lessonIds: [lesson.id] })}>
+                Practise the tones
+              </button>
+            )}
           </div>
         </section>
       )}

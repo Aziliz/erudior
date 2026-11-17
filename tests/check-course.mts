@@ -43,6 +43,7 @@ import { hasKanji, isKanaOnly, moraCount, morae, normJa, rubyProblems, validAcce
 import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.ts";
 import { scriptCourse, scriptProblems } from "../src/lib/zhScript.ts";
 import * as OpenCC from "opencc-js";
+import { drillableWord, normalizeToneSettings, riskySingle, toneItemProblem, toneSettingsProblems, toneSyllables } from "../src/lib/tones.ts";
 import { checkRecallJa } from "../src/lib/vocab.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
@@ -273,6 +274,21 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         if (q.joiner === " " && japanese) say(`question ${q.id}: "joiner" is a space in a Japanese course (Japanese is written without spaces)`);
         if (q.choices.length || q.answer.length) say(`question ${q.id}: sentence builders use "tiles"; leave "choices" and "answer" empty`);
       }
+      if (kind === "tone") {
+        // Tone questions: characters the voice reads + their marked pinyin, one syllable each.
+        const problem = toneItemProblem(q.text ?? "", q.reading ?? "");
+        if (!chinese) say(`question ${q.id}: tone questions are for Chinese courses (language code "zh")`);
+        if (problem) say(`question ${q.id}: ${problem}`);
+        else {
+          const syls = toneSyllables(q.text!, q.reading!);
+          const tones = syls.map((s) => s.tone);
+          if (!isCorrect(q, tones)) say(`question ${q.id}: its own tones are rejected`);
+          if (isCorrect(q, tones.map((t) => (t === 4 ? 1 : t + 1)))) say(`question ${q.id}: wrong tones are accepted`);
+          const risk = riskySingle(syls);
+          if (risk && !q.audio?.src) warn(`question ${q.id}: ${risk}`);
+        }
+        if (q.choices.length || q.answer.length) say(`question ${q.id}: tone questions use "text" and "reading"; leave "choices" and "answer" empty`);
+      }
       if (kind === "model") {
         const r = readSpec(q.model);
         for (const p of [...r.problems, ...targetProblems(r.model, q.target)]) say(`question ${q.id}: model: ${p}`);
@@ -369,6 +385,18 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   if (chinese && c.language?.traditional)
     for (const l of scriptCourse(c, true).lessons)
       for (const p of phonicsProblems(l.body, "zh")) if (/can't be traced/.test(p)) say(`lesson ${l.id} (Traditional): ${p}`);
+  // --- Tone drills (language.tones): Chinese only; the unlocking lesson exists; words to drill ----
+  if (raw.language?.tones !== undefined) {
+    const t = normalizeToneSettings(raw.language.tones);
+    if (!chinese) say(`language.tones: tone drills are for Chinese courses (language code "zh")`);
+    else if (!t) say(`language.tones: must be true or an object ({ "lesson", "max", "round" })`);
+    else {
+      for (const [path, message] of toneSettingsProblems(raw.language)) say(`${path}: ${message}`);
+      if (t.lesson && !t.from && !c.lessons.some((l) => l.id === t.lesson)) say(`language.tones.lesson: no lesson "${t.lesson}"`);
+      const words = (c.vocab ?? []).filter((v) => drillableWord(v.term, v.reading, t.max ?? 2));
+      if (!words.length) say(`language.tones: no word in "vocab" can be drilled (words of 1 to ${t.max ?? 2} syllables with a valid "reading")`);
+    }
+  }
 
   // Pitch accent: a whole number (or list of them) from 0 to the reading's mora count, Japanese only.
   for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {

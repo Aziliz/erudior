@@ -59,6 +59,7 @@ on:
       - "src/lib/kana.ts"
       - "src/lib/pinyin.ts"
       - "src/lib/zhScript.ts"
+      - "src/lib/tones.ts"
       - "src/lib/sentenceBuild.ts"
       - "src/lib/imageAssets.ts"
       - "src/lib/interactiveContent.ts"

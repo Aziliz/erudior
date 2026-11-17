@@ -73,7 +73,7 @@ const payload = canonicalAuthoringFromCourse(portable, { mode: "source", maxByte
 assert.deepEqual(validateCanonicalAuthoring(payload, { mode: "source" }), [], "zh language config and vocab accepted");
 {
   const { traditional, ...lang } = payload.course.language as { traditional?: unknown };
-  assert.deepEqual(lang, { code: "zh", name: "Chinese", tts: "zh-CN", ime: "zh", level: "HSK 1" });
+  assert.deepEqual(lang, { code: "zh", name: "Chinese", tts: "zh-CN", ime: "zh", level: "HSK 1", tones: { max: 2, round: 8 } });
   assert.ok(traditional, "the script table survives the canonical payload");
 }
 {
