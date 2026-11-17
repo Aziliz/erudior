@@ -4,8 +4,8 @@
   "id": "demo-chinese",
   "title": "Chinese demo",
   "revision": 1,
-  "description": "Sample of Mandarin Chinese support: pinyin over characters, the Pinyin and Tone colours switches, pinyin typing with tone numbers, read-aloud in Chinese.",
-  "language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", "level": "HSK 1" },
+  "description": "Sample of Mandarin Chinese support: pinyin over characters, the Pinyin and Tone colours switches, pinyin typing with tone numbers, read-aloud in Chinese, tone questions and tone practice.",
+  "language": { "code": "zh", "name": "Chinese", "tts": "zh-CN", "ime": "zh", "level": "HSK 1", "tones": { "max": 2, "round": 8 } },
   "modules": [{ "id": "m1", "title": "First words" }],
   "lessons": [
     {
@@ -14,8 +14,8 @@
       "title": "Hello and thank you",
       "minutes": 10,
       "topics": ["Greetings"],
-      "quiz": ["q1", "q2", "q3", "q4", "q5"],
-      "body": "## Characters and pinyin\n\nEach character is one syllable. **Pinyin** above it shows the sound and the tone: {你好|nǐ hǎo} (hello), {谢谢|xiè xie} (thank you; the second syllable has the neutral tone, so no mark).\n\n> *{你好|nǐ hǎo}！{我|wǒ}{是|shì}{学生|xué sheng}。* — Hello! I'm a student.\n\n| Characters | Pinyin | Meaning |\n|---|---|---|\n| {中国|Zhōng guó} | Zhōngguó | China |\n| {一点儿|yì diǎnr} | yìdiǎnr | a little |\n\nA line break inside a paragraph joins Chinese text without a space:\n{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n\n## Tones\n\nMandarin has four tones and a neutral tone: {妈|mā} (mother), {麻|má} (hemp), {马|mǎ} (horse), {骂|mà} (to scold), {吗|ma} (question word). Turn on **Tone colours** to colour each syllable by its tone.\n\n## Writing characters\n\nTrace each character stroke by stroke, in mainland (PRC) stroke order. Start at number 1 and follow the arrow. {学|xué} is written {學|xué} in traditional characters; both trace.\n\n```trace\n人 你 好 们 学 學\n```"
+      "quiz": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "body": "## Characters and pinyin\n\nEach character is one syllable. **Pinyin** above it shows the sound and the tone: {你好|nǐ hǎo} (hello), {谢谢|xiè xie} (thank you; the second syllable has the neutral tone, so no mark).\n\n> *{你好|nǐ hǎo}！{我|wǒ}{是|shì}{学生|xué sheng}。* — Hello! I'm a student.\n\n| Characters | Pinyin | Meaning |\n|---|---|---|\n| {中国|Zhōng guó} | Zhōngguó | China |\n| {一点儿|yì diǎnr} | yìdiǎnr | a little |\n\nA line break inside a paragraph joins Chinese text without a space:\n{我|wǒ}{喜欢|xǐ huan}\n{喝|hē}{茶|chá}。\n\n## Tones\n\nMandarin has four tones and a neutral tone: {妈|mā} (mother), {麻|má} (hemp), {马|mǎ} (horse), {骂|mà} (to scold), {吗|ma} (question word). Turn on **Tone colours** to colour each syllable by its tone.\n\nTwo third tones in a row: the first is said as a second tone ({你好|nǐ hǎo} sounds like ní hǎo). Tone questions accept both. After this lesson, **Practise the tones** drills the words you learned by ear.\n\n## Writing characters\n\nTrace each character stroke by stroke, in mainland (PRC) stroke order. Start at number 1 and follow the arrow. {学|xué} is written {學|xué} in traditional characters; both trace.\n\n```trace\n人 你 好 们 学 學\n```"
     }
   ],
   "banks": [
@@ -29,7 +29,10 @@
         { "id": "q2", "topic": "Greetings", "stem": "Which is “thank you”?", "choices": ["{谢谢|xiè xie}", "{你好|nǐ hǎo}", "{中国|Zhōng guó}"], "answer": [0], "explanation": "{谢谢|xiè xie}: the second syllable is neutral." },
         { "id": "q3", "topic": "Greetings", "type": "text", "stem": "Type “China” in characters: ___", "accept": [["中国"]], "choices": [], "answer": [], "explanation": "{中国|Zhōng guó}." },
         { "id": "q4", "topic": "Greetings", "type": "text", "stem": "Type “hello” in pinyin with tone numbers (ni3hao3 becomes nǐhǎo): ___", "accept": [["nǐ hǎo"]], "choices": [], "answer": [], "explanation": "{你好|nǐ hǎo}: both syllables are tone 3 (spoken ní hǎo)." },
-        { "id": "q5", "topic": "Greetings", "type": "build", "stem": "Build the sentence.", "prompt": "I am a student.", "tiles": ["{我|wǒ}", "{是|shì}", "{学生|xué sheng}"], "distractors": ["{你|nǐ}"], "punctuation": "。", "choices": [], "answer": [] }
+        { "id": "q5", "topic": "Greetings", "type": "build", "stem": "Build the sentence.", "prompt": "I am a student.", "tiles": ["{我|wǒ}", "{是|shì}", "{学生|xué sheng}"], "distractors": ["{你|nǐ}"], "punctuation": "。", "choices": [], "answer": [] },
+        { "id": "q6", "topic": "Tones", "type": "tone", "stem": "Listen. Which tone is it?", "text": "马", "reading": "mǎ", "explanation": "{马|mǎ} (horse) has the falling-rising third tone." },
+        { "id": "q7", "topic": "Tones", "type": "tone", "stem": "Listen. Which tones are the two syllables?", "text": "谢谢", "reading": "xiè xie", "explanation": "{谢谢|xiè xie}: a falling fourth tone, then the neutral tone." },
+        { "id": "q8", "topic": "Tones", "type": "tone", "stem": "Listen. Which tones are the two syllables?", "text": "你好", "reading": "nǐ hǎo", "explanation": "Written 3+3; you hear 2+3 (third-tone sandhi). Either answer counts." }
       ]
     }
   ],
@@ -42,6 +45,8 @@
     { "id": "xiexie", "lesson": "zh-l1", "term": "谢谢", "reading": "xiè xie", "pos": "verb", "meanings": ["thank you", "thanks"] },
     { "id": "zhongguo", "lesson": "zh-l1", "term": "中国", "reading": "Zhōng guó", "pos": "noun", "meanings": ["China"] },
     { "id": "yidianr", "lesson": "zh-l1", "term": "一点儿", "reading": "yì diǎnr", "pos": "noun", "meanings": ["a little", "a bit"] },
+    { "id": "ma-mother", "lesson": "zh-l1", "term": "妈", "reading": "mā", "pos": "noun", "kind": "char", "meanings": ["mum", "mom", "mother"], "directions": ["meaning"] },
+    { "id": "ma-horse", "lesson": "zh-l1", "term": "马", "reading": "mǎ", "pos": "noun", "kind": "char", "meanings": ["horse"], "directions": ["meaning"] },
     { "id": "xuesheng", "lesson": "zh-l1", "term": "学生", "reading": "xué sheng", "pos": "noun", "meanings": ["student"], "example": "{我|wǒ}{是|shì}{学生|xué sheng}。", "exampleEn": "I'm a student." }
   ]
 }
