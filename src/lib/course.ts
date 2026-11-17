@@ -12,6 +12,7 @@ import { parseCourseBranchingScenarios } from "./branchingCoursePackage";
 import { parseCourseScientificWorkspaces } from "./scientificCoursePackage";
 import { parseCourseAdvancedAssessments } from "./advancedAssessmentCoursePackage";
 import { normalizeSpreadsheetAssignment } from "./spreadsheetAssignments";
+import { normalizeZhTable } from "./zhScript";
 
 const SEP = "__";
 
@@ -23,6 +24,12 @@ export function localBankId(bank: Bank): string {
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const str = (v: unknown) => (typeof v === "string" ? v : "");
+/** Chinese notecards: their own Traditional text ({front?, back?}). */
+const cardTrad = (v: unknown): { trad?: { front?: string; back?: string } } => {
+  if (!isObj(v)) return {};
+  const t = { ...(str(v.front) ? { front: str(v.front) } : {}), ...(str(v.back) ? { back: str(v.back) } : {}) };
+  return Object.keys(t).length ? { trad: t } : {};
+};
 const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : []);
 const safeId = (v: unknown, fallback: string) => (/^[A-Za-z0-9_-]{1,100}$/.test(str(v)) ? str(v) : fallback);
 
@@ -134,6 +141,7 @@ export function normalizeCourse(raw: unknown): Course {
           front: str(c.front),
           back: str(c.back),
           topic: str(c.topic) || undefined,
+          ...cardTrad(c.trad),
         }))
         .filter((c) => c.front && c.back),
     }));
@@ -189,6 +197,7 @@ export function normalizeCourse(raw: unknown): Course {
     vocabTarget: Number(lang.vocabTarget) > 0 ? Number(lang.vocabTarget) : undefined,
     vocabSource: str(lang.vocabSource) || undefined,
     conjugation: normalizeConjugationSettings(lang.conjugation),
+    ...(str(lang.code) === "zh" && normalizeZhTable(lang.traditional) ? { traditional: normalizeZhTable(lang.traditional) } : {}),
   };
 
   // Japanese pitch accent: a number or a list of numbers, each 0..morae of the reading (the
@@ -213,6 +222,7 @@ export function normalizeCourse(raw: unknown): Course {
         alt: strs(v.alt).length ? strs(v.alt) : undefined,
         meanings: strs(v.meanings).length ? strs(v.meanings) : strs([v.meaning]),
         reading: str(v.reading) || undefined,
+        ...(language?.code === "zh" && str(v.trad).trim() ? { trad: str(v.trad).trim() } : {}),
         ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
         plural: str(v.plural) || undefined,

@@ -378,3 +378,32 @@ function diffAt(got: string, want: string): string {
   const a = Math.max(0, i - 6);
   return `"${g.slice(a, i + 6).join("")}" where OpenCC + overrides give "${w.slice(a, i + 6).join("")}"`;
 }
+
+// --- Import: keep only well-formed tables ------------------------------------------------
+
+const strMap = (v: unknown, one: boolean): Record<string, string> | undefined => {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return undefined;
+  const out: Record<string, string> = {};
+  for (const [k, x] of Object.entries(v)) {
+    if (typeof x !== "string" || !HAN.test(k) || [...k].length !== [...x].length || (one && [...k].length !== 1)) continue;
+    out[k] = x;
+  }
+  return Object.keys(out).length ? out : undefined;
+};
+
+/** A course file's `language.traditional`, with malformed entries dropped. */
+export function normalizeZhTable(v: unknown): ZhTable | undefined {
+  if (!v || typeof v !== "object") return undefined;
+  const r = v as Record<string, unknown>;
+  const chars = strMap(r.chars, true) ?? {};
+  const phrases = strMap(r.phrases, false);
+  const alone = strMap(r.alone, true);
+  const o = r.overrides && typeof r.overrides === "object" ? (r.overrides as Record<string, unknown>) : undefined;
+  const overrides: ZhOverrides = {};
+  if (o)
+    for (const k of ["forms", "words", "alone", "chars"] as const) {
+      const m = strMap(o[k], k !== "words");
+      if (m) overrides[k] = m;
+    }
+  return { chars, ...(phrases ? { phrases } : {}), ...(alone ? { alone } : {}), ...(Object.keys(overrides).length ? { overrides } : {}) };
+}
