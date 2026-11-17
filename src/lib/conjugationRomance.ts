@@ -122,12 +122,18 @@ function esVerb(item: VocabItem): EsVerb | string {
   if (f.aux) return `forms.aux is for French`;
   const stem = base.slice(0, -2);
   if (!present) {
-    if (/(c|g)[ei]r$/.test(base) || /[^g]uir$/.test(base) || /guir$/.test(base))
-      return `"${term}" changes its spelling in the present (conozco, escojo, sigo, construyo…): give forms.present`;
+    if (/(c|g)[ei]r$/.test(base) || /[^g]uir$/.test(base) || /g[uü]ir$/.test(base))
+      return `"${term}" changes its spelling in the present (conozco, escojo, sigo, construyo, arguyo…): give forms.present`;
+    // Verbs whose stem vowel takes a written accent in the present (aúno, reúno, prohíbo, aíslo).
+    if (ES_ACCENTED_STEM.test(base))
+      return `"${term}" takes a written accent in the present (aúno, reúno, prohíbo…): give forms.present and forms.subjunctive`;
     if (base === "ir" || base.length < 4) return `"${term}" is irregular: give forms.present`;
   }
   return { term, cls, reflexive, base, stem, present, preterite, f };
 }
+
+/** Verbs with a stressed i or u in hiatus in the present: aúno, reúno, prohíbo, aíslo, rehúso, enraízo. */
+const ES_ACCENTED_STEM = /^(aunar|reunir|rehusar|prohibir|cohibir|aislar|aullar|maullar|ahumar|ahijar|ahuyentar|enraizar|airar|amohinar|rehilar|rehundir|aupar|embaular|desahuciar)$/;
 
 const ES_IMPERFECT_AR = ["aba", "abas", "aba", "ábamos", "abais", "aban"];
 const ES_IMPERFECT_ER = ["ía", "ías", "ía", "íamos", "íais", "ían"];
@@ -180,7 +186,7 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
         x = v.preterite[i];
         rule = `${v.term} has an irregular or respelled preterite: ${v.preterite.filter((_, k) => k !== 4).join(", ")}`;
       } else {
-        if (/(car|gar|zar|guar)$/.test(v.base) || /[aeo](er|ir)$/.test(v.base) || /uir$/.test(v.base)) return undefined; // busqué, averigüé, leyó: must be given
+        if (/(car|gar|zar|guar)$/.test(v.base) || /[aeo](er|ir)$/.test(v.base) || /[uü]ir$/.test(v.base)) return undefined; // busqué, averigüé, leyó, arguyó: must be given
         if (v.stem.length < 2) return undefined; // ver: vi, vio (no accents); ir, dar: irregular
         if (v.cls === "ir" && v.present && v.present[0] !== `${v.reflexive ? "me " : ""}${v.stem}o`) return undefined; // pedir → pidió, dormir → durmió
         x = v.stem + ES_PRETERITE_END[v.cls][i];
@@ -277,6 +283,7 @@ export function esVerbForm(item: VocabItem, form: string, person: string | numbe
       if (v.base === "ir") return { answers: ["yendo"], rule: "ir: the gerund is yendo" };
       if (["poder", "reír", "sonreír", "freír"].includes(v.base)) return undefined;
       if (/[^g]uir$/.test(v.base)) return { answers: [v.stem + "yendo"], rule: `-uir verbs: -iendo is spelled -yendo (${v.stem}yendo)` };
+      if (/güir$/.test(v.base)) return { answers: [v.stem.replace(/ü$/, "u") + "yendo"], rule: `-güir verbs drop the diaeresis before y: ${v.stem.replace(/ü$/, "u")}yendo` };
       if (v.cls === "ir" && v.present && alts(v.present[0])[0] !== `${v.stem}o`) return undefined; // pedir → pidiendo: must be given
       if (v.cls !== "ar" && /[aeiou]$/.test(v.stem.replace(/[áéíóú]$/, (c) => "aeiou"["áéíóú".indexOf(c)])))
         return { answers: [v.stem.replace(/í$/, "i") + "yendo"], rule: `After a vowel, -iendo is spelled -yendo: ${v.stem}yendo` };

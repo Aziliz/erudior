@@ -248,4 +248,8 @@ assert(ok("fr", w("haranguer", "er"), "present", "0", "je harangue") && !ok("fr"
 const enquerir = w("s'enquérir", "irr", { present: "m'enquiers, t'enquiers, s'enquiert, nous enquérons, vous enquérez, s'enquièrent", participle: "enquis", aux: "être", futureStem: "enquerr" });
 assert(ok("fr", enquerir, "perfect", "5", "ils se sont enquis") && !ok("fr", enquerir, "perfect", "5", "ils se sont enquiss"), "participle in -s: no extra s");
 assert(ok("fr", enquerir, "perfect", "5", "elles se sont enquises"));
+assert.match(conjWordProblem("es", w("argüir", "ir"))!, /arguyo/, "argüir needs a present table");
+assert.match(conjWordProblem("es", w("aunar", "ar"))!, /aúno/, "aunar needs a present table");
+const arguir = w("argüir", "ir", { present: "arguyo, arguyes, arguye, argüimos, argüís, arguyen", preterite: "argüí, argüiste, arguyó, argüimos, argüisteis, arguyeron", subjunctive: "arguya, arguyas, arguya, arguyamos, arguyáis, arguyan" });
+assert.equal(answers("es", arguir, "gerund")["gerund"], "arguyendo");
 console.log("Spanish and French conjugation and recall passed.");
