@@ -516,8 +516,10 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
             }
     if (isObject(c.activityLog) && typeof c.activityLog.prompt === 'string')
         markdown.push(c.activityLog.prompt);
+    // Chinese courses trace Han characters as hanzi (Make Me a Hanzi list), not kanji.
+    const traceScript = (c.language as { code?: unknown } | undefined)?.code === 'zh' ? 'zh' as const : undefined;
     for (const body of markdown)
-        checked('lesson source', () => validateLessonSource(body, context));
+        checked('lesson source', () => validateLessonSource(body, traceScript ? { ...context, traceScript } : context));
     return errors;
 }
 export function courseFromCanonicalAuthoring(raw: unknown, options: CanonicalValidationOptions = {}): PortableAuthoredCourse { const errors = validateCanonicalAuthoring(raw, options); if (errors.length)

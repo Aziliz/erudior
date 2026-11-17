@@ -23,6 +23,8 @@ export interface LessonSourceContext {
  mode?: "source" | "publication";
  /** Trusted caller configuration, never a course-authored authority field. */
  communityImageOrigin?: string;
+ /** "zh": a Chinese course (language.code "zh"), whose ```trace blocks trace hanzi. */
+ traceScript?: "zh";
 }
 const plain=plainInteractiveObject;
 function soundProblems(sound:string,context:LessonSourceContext):string[]{
@@ -51,7 +53,7 @@ export function validateLessonSource(raw:unknown,context:LessonSourceContext={})
   try{
    if(kind==="sounds"){const parsed=parseSounds(info,body);problems.push(...parsed.problems);for(const tile of parsed.tiles)problems.push(...soundProblems(tile.sound,context));if(parsed.tiles.length>200)problems.push("too many sound tiles");}
    else if(kind==="blend"){const parsed=parseBlend(info,body);problems.push(...parsed.problems);for(const word of parsed.words)for(const unit of word.units)problems.push(...soundProblems(unit.sound,context));if(parsed.words.length>200)problems.push("too many blend words");}
-   else if(kind==="trace"){if(info && !/^tolerance=(?:loose|normal|tight)$/.test(info))problems.push("trace tolerance must be loose, normal or tight");const parsed=parseTrace(info,body);problems.push(...parsed.problems);if(parsed.letters.length>200)problems.push("too many tracing letters");}
+   else if(kind==="trace"){if(info && !/^tolerance=(?:loose|normal|tight)$/.test(info))problems.push("trace tolerance must be loose, normal or tight");const parsed=parseTrace(info,body,context.traceScript);problems.push(...parsed.problems);if(parsed.letters.length>200)problems.push("too many tracing letters");}
    else if(kind==="map"){if(info)problems.push("map takes no options");problems.push(...validateMapSource(body));}
    else if(kind==="timeline"){if(info)problems.push("timeline takes no options");const parsed=parseTimeline(body);problems.push(...parsed.problems);if(parsed.events.length+parsed.eras.length>500)problems.push("too many timeline entries");}
    else if(kind==="sim"){problems.push(...parseSim(info,body).problems);const fields=body.split(/\r?\n/).filter(line=>/^\w+\s*:/.test(line)).map(line=>line.slice(0,line.indexOf(":")).toLowerCase());if(new Set(fields).size!==fields.length)problems.push("duplicate simulation field");}

@@ -21,6 +21,8 @@ import { PHONICS_BLOCK, parseTrace, parseUnits, phonicsProblems } from "../src/l
 import { letterGuide } from "../src/lib/handwriting.ts";
 import { addKanjiStrokes } from "../src/lib/kanjiStrokes.ts";
 import KANJI_STROKES from "../src/lib/kanjiStrokes.data.ts";
+import { addHanziStrokes } from "../src/lib/hanziStrokes.ts";
+import HANZI_STROKES from "../src/lib/hanziStrokes.data.ts";
 import { clipKey, isAudioValue } from "../src/lib/readAloud.ts";
 import { workProblems } from "../src/lib/work.ts";
 import { MEDIA_BLOCK, mediaProblems, parseMedia } from "../src/lib/dialogue.ts";
@@ -45,6 +47,8 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
+// Chinese courses trace hanzi (Make Me a Hanzi) instead: the checker has those too.
+addHanziStrokes(HANZI_STROKES);
 import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
 import { CONJ_FORMS, DE_ADJ_FORMS, DE_CLASSES, DE_FORM_KEYS, DE_VERB_FORMS, JA_ADJ_FORMS, JA_CLASSES, JA_VERB_FORMS } from "../src/lib/courseConjugation.ts";
 
@@ -131,10 +135,12 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       // Worked examples: report malformed blocks, then check their fields like the lesson text.
       for (const p of exampleProblems(t)) say(`${where}: ${p}`);
       // Phonics blocks (sounds, blend, trace): their own checks; they hold no math.
-      for (const p of phonicsProblems(t)) say(`${where}: ${p}`);
-      // Every traced letter, kana and kanji must have strokes to draw (kanji: the KanjiVG data).
+      const script = chinese ? "zh" : undefined;
+      for (const p of phonicsProblems(t, script)) say(`${where}: ${p}`);
+      // Every traced letter, kana, kanji and hanzi must have strokes to draw (kanji: the KanjiVG
+      // data; hanzi, in Chinese courses: Make Me a Hanzi).
       for (const m of t.matchAll(PHONICS_BLOCK))
-        if (m[1] === "trace") for (const ch of parseTrace(m[2], m[3]).letters) if (!letterGuide(ch)?.strokes.length) say(`${where}: trace: no stroke data for "${ch}"`);
+        if (m[1] === "trace") for (const ch of parseTrace(m[2], m[3], script).letters) if (!letterGuide(ch, script)?.strokes.length) say(`${where}: trace: no stroke data for "${ch}"`);
       t = t.replace(PHONICS_BLOCK, "");
       // Runnable code blocks: well formed, and the code at least compiles.
       for (const p of codeBlockProblems(t)) say(`${where}: ${p}`);

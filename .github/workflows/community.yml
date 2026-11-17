@@ -54,6 +54,8 @@ on:
       - "src/lib/kanaStrokes.ts"
       - "src/lib/kanjiStrokes.ts"
       - "src/lib/kanjiList.ts"
+      - "src/lib/hanziStrokes.ts"
+      - "src/lib/hanziList.ts"
       - "src/lib/kana.ts"
       - "src/lib/pinyin.ts"
       - "src/lib/sentenceBuild.ts"
