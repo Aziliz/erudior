@@ -149,6 +149,9 @@ export interface Module {
     quiz?: string[];
 }
 export interface Lesson {
+    vmExamMinutes?: number;
+    vmTasks?: import("./vmLab").VmTask[];
+    vmLab?: import("./vmLab").VmLabScenario;
     id: string;
     module: string;
     title: string;

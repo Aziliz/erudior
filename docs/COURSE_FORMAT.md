@@ -825,3 +825,38 @@ Drills can have a `figure` (or a list of them); lessons can include them as fenc
 The bundled `samples/math-sampler-course.json` (built by `content/math-sampler/build.py`) shows all of this: algebra, geometry, trig, physics, calculus and graphing.
 
 The course editor validates drills and shows a live sample (with its figure and answer) as you type.
+
+## Local virtual machine labs
+
+Set `vmLab` on a lesson to use two local Linux VMs. Learners can run the machines in the Windows, macOS or Linux desktop app and view previously saved results on other platforms.
+
+| Scenario ID | Learner activity | Authored fields |
+| --- | --- | --- |
+| `linux-nfs-autofs-v1` | Repeatable NFS practice, scored out of four | `vmLab` |
+| `linux-nfs-autofs-exam-v1` | Timed NFS practical, scored out of four | `vmLab`, optional `vmExamMinutes` |
+| `rhcsa-rhel10-practice-v1` | Fixed ten-area RHCSA practice form, 180 minutes, 300 practice points | `vmLab` |
+| `linux-admin-exam-v1` | Timed, weighted practical across the selected machines | `vmLab`, required `vmTasks`, optional `vmExamMinutes` |
+
+The following lesson can be imported in a course with a module named `linux`.
+
+```json
+{
+  "id": "multi-task-practical",
+  "module": "linux",
+  "title": "Administer a client and a server",
+  "body": "Work on each task on its designated VM.",
+  "vmLab": "linux-admin-exam-v1",
+  "vmExamMinutes": 30,
+  "vmTasks": [
+    { "id": "client-operator", "points": 3 },
+    { "id": "server-team-directory", "points": 4 },
+    { "id": "client-nfs", "points": 3 }
+  ]
+}
+```
+
+Select one to ten distinct built-in tasks in display order. See the VM guide for the complete task catalog. The fixed RHCSA form supplies its own rubric and duration. Give each task 1–100 whole points. A timed lesson defaults to 20 minutes and accepts whole durations from 1 to 240 minutes. The engine fixes the duration and task weights when each learner begins. A later course revision applies to new attempts.
+
+The client account objective checks that `labtech` belongs to `labops`. The server directory objective checks that `/srv/team` belongs to `labops` with mode `2770`. The NFS objective checks autofs and the expected file on the remote filesystem at `/mnt/projects`. Each objective must pass at submission and after its assigned VM reboots. The engine reports both observations and can resume a partially graded submission.
+
+See the [RHCSA practice exam](../samples/rhcsa-10-practice-exam.json), [importable demonstration](../samples/demo-vm-lab.json) and [host setup and grading guide](VM_LABS.md).

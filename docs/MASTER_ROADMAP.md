@@ -1,3 +1,7 @@
+## Local virtual machine labs — In Progress, November 20, 2026
+
+The engine grades persistent configurations on both machines. The new RHCSA RHEL 10 practice form assigns an original hands-on task to each of ten published EX200 objective areas and reports area scores and an Erudior practice outcome. Earlier receipts preserve the rules used when those learners began. The browser study edition has 16 lessons and 28 questions. The full desktop course has 30 lessons with local native, WSL 2 and Lima providers. Packaged Windows and macOS acceptance with a prepared RHEL 10 pair is in progress. See [VM labs](VM_LABS.md).
+
 ## Course authoring completion and availability — November 16, 2026
 
 The user's follow-up identified that the public roadmap did not acknowledge completed course authoring. Public source commit `1044466c662ea8b3c7d3373350f7251773ad38dd` corrects that display on top of the concurrent Chinese pinyin merge, preserving its source and styles.
