@@ -62,11 +62,7 @@ function render() {
   } } as AppApi;
   root.render(createElement(VmLabPanel, { key: student, api, course: course.id, lesson: "network-mount", scenario: NFS_LAB }));
 }
-const button = (text: string) => {
-  const b = [...document.querySelectorAll("button")].find(b => b.textContent === text);
-  assert(b, text); return b;
-};
-const click = async (label: string) => act(async () => { button(label).click(); });
+const { clickVmButton: click } = await import("./vm-ui-interactions.mts");
 useStudentFiles(student);
 await act(async () => render());
 assert.deepEqual(actions, ["status"]);
@@ -88,7 +84,7 @@ assert.equal(actions.filter(a => a === "reset").length, 1);
 assert.deepEqual(progress.vmLabReports?.[key], report);
 await click("Start lab");
 delay = true;
-await click("Check my work");
+await click("Check my work", () => !!resolved);
 await act(async () => { student = "learnerb"; useStudentFiles(student); progress = emptyProgress(); render(); });
 await act(async () => { resolved!(); });
 assert.equal(progress.vmLabReports, undefined);

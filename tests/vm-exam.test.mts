@@ -98,9 +98,7 @@ function render(){
   root.render(createElement(Panel,{key:generation,api,course:course.id,lesson:lesson.id,scenario:ADMIN_EXAM,
     minutes:30,tasks:generation ? [{...tasks[0],points:99}] : tasks}));
 }
-const click=(label:string)=>act(async()=>{
-  const b=[...document.querySelectorAll("button")].find(x=>x.textContent===label);assert(b,label);b.click();
-});
+const { clickVmButton: click } = await import("./vm-ui-interactions.mts");
 await act(async()=>render());
 await click("Prepare machines");await click("Begin 30-minute exam");
 assert.equal(document.querySelector('[role="timer"]')?.textContent,"10:05 remaining");
