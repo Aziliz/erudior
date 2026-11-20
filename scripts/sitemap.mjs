@@ -6,7 +6,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
-const catalog = JSON.parse(readFileSync(path.join(root, "samples", "catalog.json"), "utf8"));
+const catalog = JSON.parse(readFileSync(path.join(root, "samples", "catalog.json"), "utf8"))
+  .filter(entry => !entry.platform || entry.platform === "study");
 const slug = (t) =>
   t
     .toLowerCase()
