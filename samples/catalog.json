@@ -9392,7 +9392,7 @@
   "order": 135,
   "title": "RHCSA preparation • System administration on RHEL 10",
   "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, ten graded labs, two rehearsals and a reboot-verified final practical.",
-  "revision": 2,
+  "revision": 1,
   "subject": "Information technology",
   "level": [
    "Professional"
