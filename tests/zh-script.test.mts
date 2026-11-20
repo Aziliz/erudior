@@ -138,3 +138,14 @@ console.log("zh-script: conversion, markup, trace blocks, overrides, course view
   assert.deepEqual(parseTrace("trad=鐘", "钟", "zh").problems, [], "trad= is a known trace option in zh");
   assert.ok(parseTrace("trad=鐘", "钟").problems.length > 0, "trad= is unknown outside Chinese");
 }
+
+// {+…+} inside a {=…=} section: the traditional form beside a simplified one
+{
+  const { toTraditional, toSimplified, scriptMarkupProblem } = await import("../src/lib/zhScript.ts");
+  const t = { chars: { "粮": "糧", "卖": "賣" }, phrases: {} };
+  const s = "{=simplified 粮 · traditional {+粮+}=} 卖";
+  assert.equal(toTraditional(s, t), "simplified 粮 · traditional 糧 賣");
+  assert.equal(toSimplified(s, t), "simplified 粮 · traditional 糧 卖");
+  assert.equal(scriptMarkupProblem(s), undefined);
+  assert.ok(scriptMarkupProblem("{+a {=b=} c+}"), "{=…=} inside {+…+} is still a problem");
+}
