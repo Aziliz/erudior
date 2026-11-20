@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
+import {sep} from 'node:path';
 import {normalizeCourse,exportCourseSnapshot,serializeCourse} from '../src/lib/course.ts';
 import {canonicalAuthoringFromCourse,courseFromCanonicalAuthoring,migrateLegacyCourseToCanonical} from '../src/lib/canonicalAuthoring.ts';
 const options={mode:'source' as const,maxBytes:Number.MAX_SAFE_INTEGER};
 const catalog=JSON.parse(readFileSync('samples/catalog.json','utf8')) as {file:string}[];
-const fixtures=['demo-chinese.json','demo-code-course.json','demo-japanese.json','demo-listening.json','demo-maps-timelines-sims.json','demo-reader.json','demo-student-work.json','early-readers-demo.json','manipulatives-demo.json','math-sampler-course.json'];
+const fixtures=['demo-chinese.json','demo-code-course.json','demo-japanese.json','demo-listening.json','demo-maps-timelines-sims.json','demo-reader.json','demo-student-work.json','demo-vm-lab.json','early-readers-demo.json','manipulatives-demo.json','math-sampler-course.json','rhcsa-10-practice-exam.json'];
 const covered=new Set<string>();
 const defects:Record<string,string[]>={
  'math/math-geometry.json':['decks[0].cards[234].E: unsupported or authority/runtime field','decks[0].cards[234].F): unsupported or authority/runtime field'],
@@ -12,7 +13,8 @@ const defects:Record<string,string[]>={
  'math/science-biology.json':['decks[0].cards[328].C4 and CAM plants: unsupported or authority/runtime field'],
 };
 let courses=0,rawPassed=0,rawRejected=0;
-for(const file of readdirSync('samples',{recursive:true}).filter((x):x is string=>typeof x==='string'&&x.endsWith('.json'))){
+for(const relative of readdirSync('samples',{recursive:true}).filter((x):x is string=>typeof x==='string'&&x.endsWith('.json'))){
+ const file=relative.split(sep).join('/');
  const raw=JSON.parse(readFileSync('samples/'+file,'utf8'));if(!raw.modules&&!raw.lessons)continue;courses++;covered.add(file);
  const portable=JSON.parse(exportCourseSnapshot(normalizeCourse(raw)));
  const payload=canonicalAuthoringFromCourse(portable,options);
