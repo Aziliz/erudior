@@ -76,7 +76,7 @@ function hasRecordedActivity(course: Course, progress: Progress, attempts: Attem
   const prefix = `${course.id}/`;
   const scoped = (values: Record<string, unknown> | undefined) =>
     !!values && Object.keys(values).some(key => key.startsWith(prefix));
-  return scoped(progress.lessonsDone) || scoped(progress.modulesDone) || scoped(progress.cards)
+  return scoped(progress.vmLabReports) || scoped(progress.lessonsDone) || scoped(progress.modulesDone) || scoped(progress.cards)
     || scoped(progress.drills) || scoped(progress.vocab) || scoped(progress.reading) || scoped(progress.work)
     || course.banks.some(bank => (!bank.courseId || bank.courseId === course.id) && Object.keys(progress.stats[bank.id] ?? {}).length > 0)
     || !!progress.logs?.some(log => log.courseId === course.id);

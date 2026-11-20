@@ -1,3 +1,4 @@
+import { ADMIN_EXAM, RHCSA_MOCK, isVmExam, readVmLab, validExamMinutes, validVmTasks } from "./vmLab";
 import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
@@ -83,6 +84,10 @@ export function normalizeCourse(raw: unknown): Course {
   const lessons: Lesson[] = arr(raw.lessons)
     .filter(isObj)
     .map((l, i) => {
+      if (l.vmExamMinutes !== undefined && (l.vmLab === RHCSA_MOCK || !isVmExam(l.vmLab) || !validExamMinutes(l.vmExamMinutes)))
+        throw new BankError("Use the built-in duration for the RHCSA mock. Other timed VM exams accept 1 to 240 whole minutes.");
+      if (l.vmLab === ADMIN_EXAM ? !validVmTasks(l.vmTasks) : l.vmTasks !== undefined)
+        throw new BankError("Select distinct built-in tasks with 1 to 100 points for a multi-task exam.");
       const module = str(l.module) || modules[0]?.id || "main";
       if (!modules.some((m) => m.id === module)) modules.push({ id: module, title: module });
       return {
@@ -93,6 +98,9 @@ export function normalizeCourse(raw: unknown): Course {
         topics: arr(l.topics).map(String).filter(Boolean),
         minutes: Number(l.minutes) > 0 ? Number(l.minutes) : undefined,
         body: str(l.body),
+        ...(validVmTasks(l.vmTasks) ? {vmTasks: l.vmTasks.map(({id, points}) => ({id, points}))} : {}),
+        ...(validExamMinutes(l.vmExamMinutes) ? {vmExamMinutes: l.vmExamMinutes} : {}),
+        ...(l.vmLab === undefined ? {} : { vmLab: readVmLab(l.vmLab) }),
         quiz: arr(l.quiz).length ? arr(l.quiz).map(String).filter(Boolean) : undefined,
         drills: arr(l.drills).length ? arr(l.drills).map(String).filter(Boolean) : undefined,
         refs: arr(l.refs).length ? arr(l.refs).map(String).filter(Boolean) : undefined,

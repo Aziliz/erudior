@@ -1,0 +1,51 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-vm-lab",
+  "title": "Virtual machine lab demonstration",
+  "modules": [
+    {
+      "id": "linux",
+      "title": "Linux practice"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "network-mount",
+      "module": "linux",
+      "title": "Mount a shared directory on demand",
+      "body": "The server provides a read-only NFS export. Configure the client so opening the shared directory mounts it on demand, including after a reboot.",
+      "vmLab": "linux-nfs-autofs-v1"
+    },
+    {
+      "id": "timed-network-mount",
+      "module": "linux",
+      "title": "Timed network mount practical",
+      "body": "Configure a persistent on-demand mount, then submit your work.",
+      "vmLab": "linux-nfs-autofs-exam-v1",
+      "vmExamMinutes": 20
+    },
+    {
+      "id": "multi-task-practical",
+      "module": "linux",
+      "title": "Administer a client and a server",
+      "body": "Complete each task on its designated machine. Submit the practical to see how many points each task earned.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 30,
+      "vmTasks": [
+        {
+          "id": "client-operator",
+          "points": 3
+        },
+        {
+          "id": "server-team-directory",
+          "points": 4
+        },
+        {
+          "id": "client-nfs",
+          "points": 3
+        }
+      ]
+    }
+  ]
+}

@@ -228,6 +228,8 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Latest local practice check per course, lesson and versioned VM scenario. */
+  vmLabReports?: Record<string, import("./vmLab").VmLabReport>;
   /** Local anonymous erasure generation; never academic evidence or remote authority. */
   anonymousGeneration?: number;
   /** Learner-imported support instructions only; never adult authority or assessment evidence. */

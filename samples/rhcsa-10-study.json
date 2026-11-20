@@ -1,0 +1,759 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "rhcsa-rhel10-study",
+  "title": "RHCSA preparation • RHEL 10 lessons and quizzes",
+  "description": "Study the ten RHEL 10 administration areas, work through command examples, and check your understanding with 28 questions. The desktop practical course adds local VM labs.",
+  "modules": [
+    {
+      "id": "orientation",
+      "title": "Start here • Study on the web"
+    },
+    {
+      "id": "tools",
+      "title": "Shell tools and shared files"
+    },
+    {
+      "id": "accounts",
+      "title": "Local accounts and delegated access"
+    },
+    {
+      "id": "software",
+      "title": "Software and repository management"
+    },
+    {
+      "id": "scripting",
+      "title": "Shell scripts that other users can run"
+    },
+    {
+      "id": "running",
+      "title": "Running systems, boot and performance"
+    },
+    {
+      "id": "storage",
+      "title": "Local storage, LVM and swap"
+    },
+    {
+      "id": "filesystems",
+      "title": "Local and network file systems"
+    },
+    {
+      "id": "deployment",
+      "title": "Services, scheduled work and time"
+    },
+    {
+      "id": "network",
+      "title": "IP networking and name resolution"
+    },
+    {
+      "id": "security",
+      "title": "Access controls, firewalls and SELinux"
+    },
+    {
+      "id": "practical",
+      "title": "Review and next steps"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "first-session",
+      "module": "orientation",
+      "title": "Plan your RHEL 10 study sessions",
+      "minutes": 20,
+      "topics": [
+        "Lab orientation"
+      ],
+      "body": "You are preparing to administer a RHEL 10 client and server. Follow a request from the user who experiences it to the service, account, disk or configuration that makes it work. Each study lesson includes a worked example, a task to reason through and a quiz with explanations.\n\n## Using this edition\nRead the examples and take the quizzes directly in your browser. To practice the commands, use disposable RHEL 10 guests you control. Examples use a server at `192.168.77.10` and a client at `192.168.77.20`. Examples that mention a supplied export, repository or service assume the desktop course's prepared pair. In a study session you can trace these examples and predict the result without a local VM.\n\n## Identify the machine before making a change\nCompare `hostname`, `ip -brief address` and `cat /etc/redhat-release` in two guest terminals if available. Use `cat /proc/sys/kernel/random/boot_id` to distinguish a new boot from an earlier session. Record the expected machine, the requested live change and what will restore the setting at startup. Only run privileged examples on a disposable guest.\n\n## Moving on to practical work\nIn the Windows, macOS or Linux desktop app, the companion **RHCSA preparation • System administration on RHEL 10** course provides the two local guests and the timed exam. Select **Prepare machines** to boot the guests. The deadline starts when you choose **Begin**. Each task is checked at submission and again after the relevant guest restarts. Here, your study progress comes from the lesson quizzes.",
+      "quiz": [
+        "orientation-identity",
+        "orientation-timing"
+      ]
+    },
+    {
+      "id": "shell-evidence",
+      "module": "tools",
+      "title": "Find evidence and build a shared directory",
+      "minutes": 35,
+      "topics": [
+        "Essential tools"
+      ],
+      "body": "A colleague reports that overnight copies failed. Work as learner on your practice client. Make a private practice directory and turn a noisy log into an archive someone else can inspect.\n\n```sh\nmkdir -p ~/rhcsa-tools && cd ~/rhcsa-tools\nprintf '%s\\n' 'OK copied' 'ERR read' 'OK copied' 'ERR write' > run.log\ngrep '^ERR ' run.log | sort > errors.txt\nwc -l < errors.txt\nln run.log run.hard\nln -s run.log run.link\nls -li run*\ntar -czf evidence.tar.gz run.log errors.txt\ntar -tzf evidence.tar.gz\n```\n\nExpect two errors, the same inode for the two hard-linked names, and a symbolic link containing a pathname. Rename `run.log` to `night.log`. Predict which link still reads the log, then test each. Capture the failed read with `cat run.link 2>link-error.txt`. Restore the name and verify the symbolic link works again. Create a bzip2 version with `tar -cjf evidence.tar.bz2 run.log` after restoring the name. Extract an archive into a new empty directory with `tar -xf evidence.tar.gz -C unpacked` after creating `unpacked` with `mkdir unpacked`. Compare the recovered file with `cmp`. Look up flags using `man tar`, `info coreutils` or `/usr/share/doc`.\n\n## A directory shared by a team\nOn the server, create a practice group with `sudo groupadd editors` if absent. Run `sudo install -d -g editors -m 2770 /srv/editorial`. With `stat -c '%A %a %G' /srv/editorial` expect `drwxrws--- 2770 editors`. Directory execute permission allows traversal. Setgid makes newly created children inherit the directory's group. It does not grant write permission by itself.\n\nTry it with `sudo touch /srv/editorial/draft` and inspect the group on the child. If a user cannot enter a path despite suitable final permissions, inspect every ancestor with `namei -l /srv/editorial/draft`. In a clean practice directory, try `cp`, `mv`, a text editor, and `rm -i` on your own disposable file to practice the file lifecycle.",
+      "quiz": [
+        "tools-hard",
+        "tools-inherit"
+      ]
+    },
+    {
+      "id": "account-policy",
+      "module": "accounts",
+      "title": "Onboard an operator without losing existing access",
+      "minutes": 30,
+      "topics": [
+        "Users and groups"
+      ],
+      "body": "An operator should join a second team without losing an earlier assignment. On your practice client, use spare names for this exercise. Check `getent passwd fieldops` and `getent group dispatch` first. On a fresh guest the names should be unused.\n\n```sh\nsudo groupadd dispatch\nsudo groupadd editors-local\nsudo useradd -m -G dispatch fieldops\nsudo usermod -aG editors-local fieldops\nid fieldops\nsudo chage -M 90 -W 7 fieldops\nsudo chage -l fieldops\nsudo -iu fieldops id\n```\n\nExpect both supplementary groups and a 90-day maximum age. `usermod -G` replaces the supplementary list unless you append. Existing shells keep their group credentials until a new login. Set a password interactively with `sudo passwd fieldops` and verify the aging policy again. Avoid putting passwords in shell history.\n\n## Delegate one administrative action\nLocate `systemctl` with `command -v systemctl`. Use `sudo visudo -f /etc/sudoers.d/fieldops-status` to grant the exact command (adjust its path if necessary).\n\n```text\nfieldops ALL=(root) /usr/bin/systemctl is-active chronyd.service\n```\n\nRun `sudo visudo -c` and `sudo -l -U fieldops`. Compare the granted command and arguments to the request. To retire only this practice identity, remove the new sudoers entry, run `sudo userdel -r fieldops`, then remove only the two groups you created after checking their membership. Verify the lookups now return no record. A local account or group on the client has a separate database from one with the same name on the server.",
+      "quiz": [
+        "accounts-secondary",
+        "accounts-age"
+      ]
+    },
+    {
+      "id": "rpm-flatpak",
+      "module": "software",
+      "title": "Choose and verify a software source",
+      "minutes": 35,
+      "topics": [
+        "Software management"
+      ],
+      "body": "A branch office receives software over removable media. DNF needs a repository root containing `repodata/repomd.xml`. The URL refers to that root. A repository ID identifies the entry to DNF, while `name` is a human-readable label.\n\n## Inspect a local repository\nThe client includes an empty practice repository. In your practice client create `/etc/yum.repos.d/workshop.repo` with this content, then validate only that source.\n\n```ini\n[workshop]\nname=Workshop shelf\nbaseurl=file:///srv/erudior-repo\nenabled=1\ngpgcheck=1\n```\n\n```sh\ntest -r /srv/erudior-repo/repodata/repomd.xml\ndnf repolist --enabled\nsudo dnf --disablerepo='*' --enablerepo=workshop makecache\nrpm -q bash\nrpm -qf /usr/bin/bash\n```\n\nMetadata refresh should succeed even though this shelf has no application packages. Package signature checking applies to actual RPM transactions. In a RHEL guest with a trusted RPM and its dependencies staged, run `rpmkeys --checksig ./package.rpm` on the real file, install with `sudo dnf install ./package.rpm`, then verify with `rpm -q NAME`. On an entitled guest use `dnf repolist` to identify the enabled Red Hat sources and `sudo dnf upgrade NAME` to update a chosen practice package. Review the transaction before removing the practice package with `sudo dnf remove NAME`. Substitute the actual package name throughout.\n\n## Self-check with a Flatpak remote\nUse a guest with Flatpak, a reachable authorized remote descriptor and a practice application. Run `flatpak remote-add --user --if-not-exists training /path/to/training.flatpakrepo` using the supplied real descriptor. List `flatpak remote-ls --user --app training`, choose a listed application ID, run `flatpak install --user training APP_ID`, and verify it appears in `flatpak list --user --app`. Remove the same app with `flatpak uninstall --user APP_ID` and verify it disappears. A user installation and a system-wide installation have different scopes. These package transactions require additional software media or a reachable source.",
+      "quiz": [
+        "software-root",
+        "software-scope"
+      ]
+    },
+    {
+      "id": "script-contract",
+      "module": "scripting",
+      "title": "Turn a shell command into a testable tool",
+      "minutes": 35,
+      "topics": [
+        "Shell scripts"
+      ],
+      "body": "The next shift needs a tool that can report on several files without losing a filename that contains spaces. A script has a contract. Specify its arguments, output, exit status and required permissions before you write it.\n\nIn your home directory, save this as `line-report`. The first line selects the interpreter when the file is executed directly. Quotes around `\"$@\"` preserve the original arguments individually.\n\n```sh\n#!/bin/sh\nif [ \"$#\" -eq 0 ]; then\n    printf '%s\\n' 'supply at least one file' >&2\n    exit 2\nfi\nfor file in \"$@\"; do\n    if [ -f \"$file\" ] && [ -r \"$file\" ]; then\n        lines=$(wc -l < \"$file\")\n        printf '%s %s\\n' \"$lines\" \"$file\"\n    else\n        printf 'unreadable: %s\\n' \"$file\" >&2\n        exit 1\n    fi\ndone\n```\n\nRun `chmod 755 line-report`. Create a file containing two newline-terminated lines named `shift notes`. Run `./line-report 'shift notes'` and check for `2 shift notes`. Run `./line-report missing >out.txt 2>err.txt`, immediately check `echo $?`, and inspect both files. An error belongs on standard error so the next program can use standard output as data.\n\n## Try a numeric boundary\nMake a second executable that reads its first argument as a number and prints `low` below 5 and `high` otherwise. Use the shell numeric test `[ \"$1\" -lt 5 ]`, leaving spaces around the bracket tokens. Exercise 0, 4, 5 and 17. Try launching the installed script by its full path as a second user. A script that works only when invoked with `bash scriptname` may have a bad shebang or lack execute permission.",
+      "quiz": [
+        "scripting-quote",
+        "scripting-boundary"
+      ]
+    },
+    {
+      "id": "operations",
+      "module": "running",
+      "title": "Follow a slowdown from process to journal",
+      "minutes": 35,
+      "topics": [
+        "Running systems"
+      ],
+      "body": "A server is sluggish after a scheduled job. Start with evidence from the current boot. On the workshop server, run `uptime`, `free -h` and `ps -eo pid,user,ni,pcpu,pmem,comm --sort=-pcpu | head`. Reorder by `-pmem` to find memory consumers. Load, CPU use and memory pressure answer different questions.\n\n## Follow one process you own\n```sh\nnice -n 5 sleep 300 &\njobpid=$!\nps -o pid,ni,stat,comm -p \"$jobpid\"\nrenice -n 10 -p \"$jobpid\"\nkill -TERM \"$jobpid\"\nwait \"$jobpid\"\n```\n\nExpect the nice value to rise from 5 to 10 and the process to exit after TERM. A higher nice number gives a normal process a lower scheduling priority. Diagnose a service with `systemctl status NAME` and `journalctl -b -u NAME`, replacing NAME with the unit. Record the first failure and its timestamp. To preserve messages on a default journald setup using `Storage=auto`, create `/var/log/journal` with sudo, run `sudo systemd-tmpfiles --create --prefix /var/log/journal` then `sudo journalctl --flush`. If policy explicitly sets volatile storage, configure `Storage=persistent` in a journald drop-in and restart journald. Write `logger 'workshop boot evidence'`. After a planned workshop reboot check `journalctl -b -1 -t \"$USER\"` or search the previous boot by message.\n\n## Choose a tuning profile\nRun `tuned-adm list`, `tuned-adm recommend` and `tuned-adm active`. Record the current profile name before changing it. On the workshop server choose an installed profile such as `balanced` with `sudo tuned-adm profile balanced`. Verify with `tuned-adm active` and `sudo tuned-adm verify`. Explain why maximizing throughput and reducing energy use can favor different settings. Restore the prior profile when finished.",
+      "quiz": [
+        "running-nice",
+        "running-bootlog"
+      ]
+    },
+    {
+      "id": "boot-targets",
+      "module": "running",
+      "title": "Practice a one-time boot change and restore normal startup",
+      "minutes": 25,
+      "topics": [
+        "Running systems"
+      ],
+      "body": "In your practice server, run `systemctl get-default`, `systemctl list-units --type=target --state=active` and `cat /proc/cmdline`. The configured default is the goal for a normal startup. The running boot can have reached several targets at once.\n\n## Self-check at a local VM console\nUse a disposable RHEL 10 guest with a visible bootloader console and known authorized administrative credentials for rescue mode. Some cloud images lock the root account or hide the early boot menu. Use a suitable console-equipped practice image for this exercise. Keep the graded pair's boot options intact.\n\nAt the GRUB menu highlight the current kernel, press `e`, append `systemd.unit=rescue.target` to the kernel command line, and use the on-screen boot key (usually Ctrl+x). Authenticate when prompted. Run `cat /proc/cmdline` and `systemctl is-active rescue.target`. Resume normal service with `systemctl default`. Reboot normally and confirm the one-time kernel argument has disappeared. For a headless server, practice configuring `multi-user.target` as the default with `sudo systemctl set-default multi-user.target`. Verify with `systemctl get-default`. Restore the original default when finished.\n\nOn a RHEL guest with `grubby`, inspect `sudo grubby --info=DEFAULT`. Practice a reversible persistent change to the default kernel entry: save its path using `kernel=$(grubby --default-kernel)`, add an informational argument with `sudo grubby --update-kernel=\"$kernel\" --args=\"systemd.show_status=yes\"`, then inspect the entry. After booting that entry, check `/proc/cmdline`. Remove only your added argument with `sudo grubby --update-kernel=\"$kernel\" --remove-args=\"systemd.show_status=yes\"`, reselecting the saved path if you logged in anew. Start and stop guests cleanly with `systemctl reboot` and `systemctl poweroff` in a disposable console exercise.",
+      "quiz": [
+        "running-target"
+      ]
+    },
+    {
+      "id": "lvm-workshop",
+      "module": "storage",
+      "title": "Build and extend a disposable LVM volume",
+      "minutes": 50,
+      "topics": [
+        "Local storage"
+      ],
+      "body": "A department needs a filesystem that can grow without moving its existing data. A partition can hold an LVM physical volume (PV). A volume group (VG) pools capacity. A logical volume (LV) draws space from the pool. Growing the LV and growing the filesystem are distinct operations.\n\n## Self-check using a new file as a practice disk\nUse a disposable RHEL guest with loop devices, parted, LVM2 and XFS tools. Run the blocks in the same root shell (`sudo -i`). Use only the newly allocated loop device reported below. Stop if `vgs workshp_vg` already finds a group with that name, or `/mnt/workshp_lv` is already in use. This exercise needs about 1 GiB of free space. The regular-file disk lets you practice without repartitioning a system disk.\n\n```sh\ndiskfile=$(mktemp /var/tmp/rhcsa-disk.XXXXXX)\ntruncate -s 1G \"$diskfile\"\nloop=$(losetup --find --show --partscan \"$diskfile\")\nlosetup \"$loop\"\nparted -s \"$loop\" mklabel gpt mkpart primary 1MiB 100%\npartprobe \"$loop\"\nudevadm settle\npart=\"$loop\"p1\nlsblk -o PATH,SIZE,TYPE,FSTYPE \"$loop\"\n```\n\nConfirm the partition path shown by `lsblk` equals `$part`. If the LVM devices file is in use and the partition is not visible to LVM, add only the practice partition with `lvmdevices --adddev \"$part\"`. An image filtering loop devices may require an attached unused training disk instead. Do not substitute the boot disk.\n\n```sh\npvcreate \"$part\"\nvgcreate workshp_vg \"$part\"\nlvcreate -L 400M -n reports workshp_vg\nmkfs.xfs /dev/workshp_vg/reports\nmkdir /mnt/workshp_lv\nmount /dev/workshp_vg/reports /mnt/workshp_lv\nprintf 'keep me\\n' > /mnt/workshp_lv/proof\ndf -hT /mnt/workshp_lv\nlvextend -L +128M -r /dev/workshp_vg/reports\ncat /mnt/workshp_lv/proof\ndf -hT /mnt/workshp_lv\nlvs\n```\n\nExpect more space and unchanged proof text. `-r` requests a matching filesystem resize. Use `pvs`, `vgs` and `lvs` to find which layer lacks space if growth fails. A loop mapping lasts only for this exercise. Practice mounting by UUID across reboot on an attached practice disk in the next module.\n\n## Clean up the disk you created\nAfter confirming `losetup \"$loop\"` still shows your temporary file and `findmnt /mnt/workshp_lv` identifies your practice LV, unmount it. Remove the practice LV, then the VG, then its PV label using `lvremove /dev/workshp_vg/reports`, `vgremove workshp_vg` and `pvremove \"$part\"`. If you added the partition to the LVM devices file, remove its entry if still present. Delete partition 1 on that loop disk with `parted -s \"$loop\" rm 1`, detach with `losetup -d \"$loop\"`, then remove your temporary file and empty mount directory. Check `lvs` and `losetup -j \"$diskfile\"` to confirm retirement.",
+      "quiz": [
+        "storage-growth",
+        "storage-stack"
+      ]
+    },
+    {
+      "id": "swap-workshop",
+      "module": "storage",
+      "title": "Activate swap and make it return at startup",
+      "minutes": 20,
+      "topics": [
+        "Local storage"
+      ],
+      "body": "Swap supplies extra backing space for idle memory pages. An allocated file, a swap signature, activation now and a boot-time entry are four distinct states. On your practice server inspect `free -h`, `swapon --show --bytes`, `df -h /var/lib` and `findmnt -T /var/lib`. Use the following on the workshop guest's local XFS or ext4 filesystem. Choose a fresh path and ensure at least 70 MiB is free.\n\n```sh\nsudo sh -c 'set -C; umask 077; dd if=/dev/zero bs=1M count=65 status=none > /var/lib/workshop.swap'\n```\n\nIf creation failed or the path already existed, stop and choose a new path. Inspect the resulting regular file and mode with `sudo stat /var/lib/workshop.swap`. Initialize your new file with `sudo mkswap /var/lib/workshop.swap` and activate it with `sudo swapon /var/lib/workshop.swap`. Verify the name and size with `swapon --show --bytes`. Allocating real blocks avoids sparse-file activation errors.\n\nEdit `/etc/fstab` and add one line `/var/lib/workshop.swap none swap defaults 0 0` after confirming that path has no existing entry. Run `sudo systemctl daemon-reload` and `sudo findmnt --verify`. Reboot your practice guest and run `swapon --show` again. A clean configuration file alone cannot prove that the kernel activated the space.",
+      "quiz": [
+        "storage-swap"
+      ]
+    },
+    {
+      "id": "mount-identities",
+      "module": "filesystems",
+      "title": "Mount the right filesystem and prove what is serving a path",
+      "minutes": 40,
+      "topics": [
+        "File systems"
+      ],
+      "body": "On the server inspect `lsblk -f`, `findmnt -T /` and `sudo blkid`. Device names can change after hardware changes. A filesystem UUID or unique label identifies the intended filesystem across boots. A mounted filesystem also hides whatever was in the mount directory underneath it.\n\n## Self-check with disposable filesystems\nUse the preceding lesson's new-file and loop procedure on a disposable guest, with a fresh backing file for each filesystem. For each new empty partition, choose **one** formatter: `mkfs.ext4 -L TRAINEXT \"$part\"`, `mkfs.xfs -L TRAINXFS \"$part\"`, or `mkfs.vfat -n TRAINVF \"$part\"`. VFAT needs dosfstools. Never reformat a partition whose data you intend to keep. Create an empty practice mountpoint, mount the partition, write and read a marker, and use `findmnt -T /path/to/marker` to record the source and type. Unmount, verify the marker disappears, remount and verify it returns. VFAT generally expresses ownership and masks through mount options.\n\nFor a boot test, use a persistent, attached practice disk. Mount its filesystem by UUID or by LABEL at a new path. For example, with an ext4 volume add a single `UUID=actual-uuid /mnt/reports ext4 defaults 0 2` line to `/etc/fstab`, using the real identifier from `blkid`. Create the mountpoint, unmount any manual mount, reload systemd, run `sudo findmnt --verify` and `sudo mount /mnt/reports`. Verify the source and marker after a reboot. Remove the entry before retiring the disk.\n\n## Self-check the network path\nIn your practice client, mount the supplied server export once at a separate empty location. Run `sudo mkdir -p /mnt/nfs-check`, `sudo mount -t nfs -o ro 192.168.77.10:/srv/projects /mnt/nfs-check` and inspect the marker with `findmnt -T /mnt/nfs-check/erudior-lab.txt`. Unmount this test with `sudo umount /mnt/nfs-check`. Compare that manual mount with a direct autofs map. Autofs installs a trigger; reading a path makes the NFS mount appear. A local directory with a copied file cannot supply the live server's data.",
+      "quiz": [
+        "filesystems-uuid",
+        "filesystems-trigger"
+      ]
+    },
+    {
+      "id": "unit-lifecycle",
+      "module": "deployment",
+      "title": "Make a service leave evidence on every boot",
+      "minutes": 30,
+      "topics": [
+        "Deployment and maintenance"
+      ],
+      "body": "A service can be running now and absent after reboot. It can also be enabled and failing on every start. Use a practice oneshot unit to observe what each state means. On the workshop server save the following in `/etc/systemd/system/workshop-stamp.service`.\n\n```ini\n[Unit]\nDescription=Record workshop startup\n\n[Service]\nType=oneshot\nExecStart=/usr/bin/touch /run/workshop-stamp\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n```\n\nRun `sudo systemctl daemon-reload`, then `sudo systemctl start workshop-stamp`. Compare `systemctl is-active workshop-stamp` with `systemctl is-enabled workshop-stamp`. The first should report active and the second disabled on this new unit. Now enable it with `sudo systemctl enable workshop-stamp`. Verify the marker with `stat /run/workshop-stamp`. Because /run is recreated at startup, seeing this marker after reboot is good evidence of a new service invocation.\n\nSelf-check: stop the practice unit and predict both state queries before running them. Start it again and inspect `systemctl cat workshop-stamp` and `journalctl -b -u workshop-stamp`. Distinguish the installed definition, systemd's loaded view and the program's actual outcome. A successful oneshot with RemainAfterExit can legitimately show `active (exited)`.",
+      "quiz": [
+        "deployment-enabled",
+        "deployment-runtime"
+      ]
+    },
+    {
+      "id": "schedules-time",
+      "module": "deployment",
+      "title": "Choose a scheduler and verify its work",
+      "minutes": 30,
+      "topics": [
+        "Deployment and maintenance"
+      ],
+      "body": "Schedule a job that records a harmless timestamp. In an untimed guest with `at` and `atd` installed and active, run `echo '/usr/bin/date -Is >> /tmp/workshop-once.log' | at now + 2 minutes`. Use `atq` while waiting. The job leaves the queue after execution; check the actual log. For recurring work in an image with cronie and active crond, use `crontab -e` and add `*/2 * * * * /usr/bin/date -Is >> /tmp/workshop-cron.log`. Confirm with `crontab -l`, wait for a matching minute, and remove only your practice line when finished. Absolute paths help when a scheduler has a smaller environment than your interactive shell.\n\nFor a systemd alternative, create `/etc/systemd/system/workshop-log.service` with the first block and `/etc/systemd/system/workshop-log.timer` with the second. The shared base name associates the timer with the service.\n\n```ini\n[Unit]\nDescription=Write workshop journal entry\n[Service]\nType=oneshot\nExecStart=/usr/bin/logger -t workshop-timer tick\n```\n\n```ini\n[Unit]\nDescription=Run workshop log job\n[Timer]\nOnCalendar=*-*-* *:*:00\nAccuracySec=1s\nPersistent=true\n[Install]\nWantedBy=timers.target\n```\n\nReload systemd, `sudo systemctl enable --now workshop-log.timer`, and inspect `systemctl list-timers --all workshop-log.timer`. After a minute read `journalctl -t workshop-timer -b`. Disable your practice timer when finished. For a time client use `timedatectl`, `chronyc sources -v` and `chronyc tracking`. On a guest with a designated reachable NTP source, add one `server YOUR_NTP_SOURCE iburst` directive with the real address to `/etc/chrony.conf`, restart chronyd and check for a selected source (`^*`). The private exam network supplies no time server. Merely starting chronyd does not prove synchronization.",
+      "quiz": [
+        "deployment-clock"
+      ]
+    },
+    {
+      "id": "network-path",
+      "module": "network",
+      "title": "Trace a request from name to interface to listener",
+      "minutes": 35,
+      "topics": [
+        "Basic networking"
+      ],
+      "body": "A user can reach a file server by address but cannot reach it by name. Test the same name lookup the application uses before changing routes. On the client compare `getent ahostsv4 server.workshop.test`, `ip route get 192.168.77.10` and `ip -brief address`. On the server inspect listening TCP sockets with `ss -lnt`. A resolver failure, missing route and closed listener have different remedies.\n\nAdd `192.168.77.10 server.workshop.test` once to the client's `/etc/hosts`, then run `getent ahostsv4 server.workshop.test | awk '{print $1}' | sort -u`. Expect one unique address. Multiple rows for stream and datagram socket types are normal. Check `grep '^hosts:' /etc/nsswitch.conf` to see where applications look up hosts. `dig` queries DNS directly and may miss a valid local hosts entry.\n\n## Configure a practice interface without changing the lab link\nIn your practice client with NetworkManager available, create a dummy profile. Check that `workshop-dummy` and `dummy42` are unused first.\n\n```sh\nsudo nmcli connection add type dummy ifname dummy42 con-name workshop-dummy ipv4.method manual ipv4.addresses 192.0.2.44/24 ipv6.method manual ipv6.addresses 2001:db8:42::44/64\nsudo nmcli connection modify workshop-dummy connection.autoconnect yes\nsudo nmcli connection up workshop-dummy\nip -brief address show dummy42\nnmcli -f connection.autoconnect,ipv4.addresses,ipv6.addresses connection show workshop-dummy\n```\n\nVerify both addresses and the autoconnect setting. Reboot the workshop guest and verify again. Remove only the practice profile using `sudo nmcli connection delete workshop-dummy`. Keep the engine-provided interface unchanged. A connection profile persists configuration; commands such as `ip addr add` change runtime state.",
+      "quiz": [
+        "network-resolver",
+        "network-ipv6"
+      ]
+    },
+    {
+      "id": "ssh-firewall",
+      "module": "security",
+      "title": "Control who can connect and what they can reach",
+      "minutes": 40,
+      "topics": [
+        "Security"
+      ],
+      "body": "Use your practice pair as an approved client and server. On the server inspect `systemctl status sshd` and `ss -lnt`. If OpenSSH server is installed but inactive, enable it with `sudo systemctl enable --now sshd`. Use your own guest account for this exercise.\n\nOn the client generate a dedicated key with `ssh-keygen -t ed25519 -f ~/.ssh/workshop_id` and supply a passphrase. Compare the server's console output from `ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub` with the ED25519 host fingerprint when accepting the first connection. Use a key algorithm supported by the guest's crypto policy. If SSH password login for learner is allowed, copy the public key with `ssh-copy-id -i ~/.ssh/workshop_id.pub learner@192.168.77.10`. Otherwise log in locally on the server as learner, create `~/.ssh` with mode 700 and append the single line from the client's **.pub** file to `~/.ssh/authorized_keys`. Set that file to 600 and restore its default SELinux context with `restorecon -RFv ~/.ssh`. Only the public key is copied.\n\nRun `ssh -i ~/.ssh/workshop_id -o IdentitiesOnly=yes learner@192.168.77.10 hostname`. Then transfer your own note using `scp -i ~/.ssh/workshop_id notes.txt learner@192.168.77.10:notes.received`. Create `notes.txt` locally first. Compare `sha256sum` on the two files. For a failed login, check the account, file ownership, mode, and `sudo journalctl -b -u sshd` on the server.\n\n## Test a firewall rule in two stores\nOn a workshop guest with active firewalld, inspect `sudo firewall-cmd --get-active-zones`. Identify the zone for the test interface and substitute its name for ZONE. For an unused demonstration TCP port, query `sudo firewall-cmd --zone=ZONE --query-port=18080/tcp` in runtime and with `--permanent`. If neither allows it, add it first at runtime with `--add-port=18080/tcp` and repeat both queries. Make it persistent with the same add command plus `--permanent`. Reload and verify both queries. Remove only your two practice rules when finished. Opening a firewall port permits traffic to reach a listener; verify listening separately with `ss -lnt`.",
+      "quiz": [
+        "security-keys",
+        "security-firewall"
+      ]
+    },
+    {
+      "id": "selinux-context",
+      "module": "security",
+      "title": "Diagnose a denial while keeping access controls intact",
+      "minutes": 35,
+      "topics": [
+        "Security"
+      ],
+      "body": "A web document is readable by ordinary file mode, yet a confined service cannot access it. Check identity, traversal and standard permissions, then examine SELinux. Use `getenforce`, `ls -Zd /var/www/html`, `ps -eZ` and `sudo ausearch -m AVC -ts recent` when the audit tools are present. Compare an affected file's type with `matchpathcon /var/www/html/example.txt`. The policy convention for read-only web content under the normal document root is `httpd_sys_content_t`.\n\nIn your practice server, create a practice file under `/var/www/html`, using `sudo mkdir -p /var/www/html` if needed. Predict its type. Inspect it with `ls -Z` and then run `sudo restorecon -v /var/www/html/example.txt` on the file you created. A file moved from another directory can retain its old label. A copy or rename is no substitute for checking the resulting context.\n\n## Move the policy with the application\nFor an alternate document root on a guest with semanage, create `/srv/workshop-web` and a test file. Add the path rule `sudo semanage fcontext -a -t httpd_sys_content_t '/srv/workshop-web(/.*)?'`, then apply it with `sudo restorecon -Rv /srv/workshop-web`. Check actual and expected labels. For a web service that needs a different listening port, inspect `semanage port -l` and, on an unused training port with no existing specific assignment, practice `sudo semanage port -a -t http_port_t -p tcp 18081`. Verify the mapping and remove your new mapping when finished. Firewall policy and SELinux port labels are independent.\n\nInspect `getsebool httpd_can_network_connect` and `semanage boolean -l`. In a disposable guest where that capability is needed, record the current value, apply `sudo setsebool -P httpd_can_network_connect on` and verify, then restore the original value. To observe enforcement modes on the untimed disposable guest only, record the current mode, compare `getenforce` after `sudo setenforce 0` and `sudo setenforce 1`, and finish in enforcing mode. A denial identifies a policy decision to investigate. For ordinary default permissions, compare newly created files and directories under `umask 027` in a subshell. Expect 640 and 750 from ordinary creation modes.",
+      "quiz": [
+        "security-fcontext",
+        "security-umask"
+      ]
+    },
+    {
+      "id": "after-action",
+      "module": "practical",
+      "title": "Review results and transfer each skill",
+      "minutes": 20,
+      "topics": [
+        "Practical assessment"
+      ],
+      "body": "Review your lesson quiz results and retry missed concepts. For each area below, write down one check that establishes current state and one that tests what happens after a reboot. If you have practice guests, carry out the exercise with fresh names. The middle column identifies the matching lab in the desktop course.\n\n| Study area | Desktop companion lab | Independent transfer exercise for practice guests |\n| --- | --- | --- |\n| Essential tools | Hand off a team workspace | Make a second group's directory and verify the group of a newly created child. |\n| Users and groups | Add a client operator | Add a second group without removing the first and test through a fresh login. |\n| Software management | Bring an offline RPM source online | Give the supplied shelf a new repository ID and refresh metadata with only that ID enabled. |\n| Shell scripts | Deliver an executable classifier | Use a threshold of 25 and demonstrate both boundary cases as an ordinary user. |\n| Running systems | Apply a persistent performance profile | Select a different installed profile and confirm it after startup. |\n| Local storage | Add persistent swap capacity | Activate a different-sized swap file and compare its requested and usable sizes. |\n| File systems | Recover a share on demand | Mount the same export on demand at a different client path and prove its source. |\n| Deployment and maintenance | Restore a startup service | Write your own oneshot that creates a different marker in /run on each boot. |\n| Basic networking | Make the file server discoverable | Add a new alias, then distinguish an address lookup from a reachability test. |\n| Security | Repair a web document label | Use a second document path and verify expected and actual types after restorecon. |\n\nA configuration that worked before a reboot and failed afterward calls for inspecting the persistent setting, its startup unit or mount, and the journal from the new boot. Use the written quiz for this review. The desktop companion provides the timed VM assessment.\n\n## Keep the official scope handy\nReview the published objective list alongside your results. The RHEL manuals give the command syntax and platform conventions used throughout the course.\n\n- [Red Hat EX200 objectives and exam format](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam)\n- [Red Hat Enterprise Linux 10 documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10)\n- [Managing storage devices](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/managing_storage_devices/index)\n- [Configuring and managing networking](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/configuring_and_managing_networking/index)\n- [Administering RHEL with GNOME, including Flatpak](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/administering_rhel_by_using_the_gnome_desktop_environment/index)",
+      "quiz": [
+        "practical-repair"
+      ]
+    }
+  ],
+  "banks": [
+    {
+      "id": "knowledge-checks",
+      "title": "RHEL 10 administration • Knowledge checks",
+      "description": "Written checks supporting the lessons. Open the final practical lesson to take the scored two-VM exam.",
+      "sections": [
+        {
+          "id": "orientation",
+          "name": "Lab orientation"
+        },
+        {
+          "id": "tools",
+          "name": "Essential tools"
+        },
+        {
+          "id": "accounts",
+          "name": "Users and groups"
+        },
+        {
+          "id": "software",
+          "name": "Software management"
+        },
+        {
+          "id": "scripting",
+          "name": "Shell scripts"
+        },
+        {
+          "id": "running",
+          "name": "Running systems"
+        },
+        {
+          "id": "storage",
+          "name": "Local storage"
+        },
+        {
+          "id": "filesystems",
+          "name": "File systems"
+        },
+        {
+          "id": "deployment",
+          "name": "Deployment and maintenance"
+        },
+        {
+          "id": "network",
+          "name": "Basic networking"
+        },
+        {
+          "id": "security",
+          "name": "Security"
+        },
+        {
+          "id": "practical",
+          "name": "Practical assessment"
+        }
+      ],
+      "questions": [
+        {
+          "id": "orientation-identity",
+          "section": "orientation",
+          "topic": "Lab orientation",
+          "stem": "Two consoles look identical. What most reliably tells you which guest you are about to change?",
+          "choices": [
+            "Compare the shell prompt characters on both machines.",
+            "Check its hostname and interface address.",
+            "Compare the default login account names."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "The prompt and tools can match on both machines. The seeded server uses .10 and the client uses .20."
+        },
+        {
+          "id": "orientation-timing",
+          "section": "orientation",
+          "topic": "Lab orientation",
+          "stem": "When does the timed practical start counting down?",
+          "choices": [
+            "When you import the course.",
+            "When you first open a console in the untimed lab.",
+            "When you select Begin after guest preparation."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Preparation and first boot precede the timer. Leaving a running timed lesson does not pause its deadline."
+        },
+        {
+          "id": "tools-hard",
+          "section": "tools",
+          "topic": "Essential tools",
+          "stem": "You rename a log on the same filesystem. Which name can still read the original data without any repair?",
+          "choices": [
+            "A second hard link to the same inode.",
+            "A symbolic link targeting the old pathname.",
+            "A symbolic link in the parent directory targeting the old pathname."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "A hard link is another name for the inode. A symbolic link follows the path stored in the link."
+        },
+        {
+          "id": "tools-inherit",
+          "section": "tools",
+          "topic": "Essential tools",
+          "stem": "New files in a project directory must inherit its group. What setting belongs on the directory?",
+          "choices": [
+            "The sticky bit alone.",
+            "Setgid and appropriate group access.",
+            "Group write permission alone."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Setgid controls group inheritance. The ordinary group mode controls reading, creation and traversal."
+        },
+        {
+          "id": "accounts-secondary",
+          "section": "accounts",
+          "topic": "Users and groups",
+          "stem": "An existing operator needs one more group and must retain two current groups. Which command does that?",
+          "choices": [
+            "usermod -G dispatch fieldops",
+            "usermod -g dispatch fieldops",
+            "usermod -aG dispatch fieldops"
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Append preserves other supplementary memberships. A fresh login loads the updated group list."
+        },
+        {
+          "id": "accounts-age",
+          "section": "accounts",
+          "topic": "Users and groups",
+          "stem": "Which evidence shows both the maximum password age and warning period for a local account?",
+          "choices": [
+            "chage -l with the account name",
+            "getent group with the account name",
+            "passwd -S without the target account name"
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "chage reads account-aging fields. Membership and home directory permissions do not encode them."
+        },
+        {
+          "id": "software-root",
+          "section": "software",
+          "topic": "Software management",
+          "stem": "The file is /media/content/repodata/repomd.xml. Which local repository URL points to its root?",
+          "choices": [
+            "file:///media/content/repodata/repomd.xml",
+            "file:///media/content",
+            "file:///media"
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "DNF builds the metadata path beneath baseurl. The root contains the repodata directory."
+        },
+        {
+          "id": "software-scope",
+          "section": "software",
+          "topic": "Software management",
+          "stem": "A learner installed a Flatpak with --user. Where should they first look for the installed app?",
+          "choices": [
+            "rpm -qa",
+            "dnf repolist --enabled",
+            "flatpak list --user --app"
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "A per-user Flatpak belongs to that account’s Flatpak installation. RPM inventory and DNF source listings describe different objects."
+        },
+        {
+          "id": "scripting-quote",
+          "section": "scripting",
+          "topic": "Shell scripts",
+          "stem": "A script has two filename arguments, one containing a space. How should its loop expand the positional parameters?",
+          "choices": [
+            "Use a double-quoted expansion of the at-sign parameter.",
+            "Use a double-quoted expansion of the asterisk parameter.",
+            "Expand only the first positional argument."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "Quoted \"$@\" preserves argument boundaries for a loop. Quoted \"$*\" joins the arguments, and $1 covers only the first."
+        },
+        {
+          "id": "scripting-boundary",
+          "section": "scripting",
+          "topic": "Shell scripts",
+          "stem": "A classifier changes category at 5. Which pair best detects a misplaced less-than-or-equal comparison?",
+          "choices": [
+            "0 and 1",
+            "4 and 5",
+            "12 and 13"
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Adjacent inputs on opposite sides of the threshold reveal whether the threshold itself is in the intended category."
+        },
+        {
+          "id": "running-nice",
+          "section": "running",
+          "topic": "Running systems",
+          "stem": "A background process moves from nice 5 to nice 10. What usually happens when CPU time is contested?",
+          "choices": [
+            "It takes priority over normal processes with smaller nice values.",
+            "It is capped at ten percent of a CPU.",
+            "Other normal-priority processes get preference over it."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Increasing the nice value lowers its scheduling priority. It remains eligible to run."
+        },
+        {
+          "id": "running-bootlog",
+          "section": "running",
+          "topic": "Running systems",
+          "stem": "A failure happened before the last reboot. Which first query narrows the investigation to the affected boot and service?",
+          "choices": [
+            "journalctl -b -1 -u NAME",
+            "journalctl -b -u NAME",
+            "systemctl list-unit-files"
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "The -1 boot offset selects the previous boot. That boot must have been retained by the journal."
+        },
+        {
+          "id": "running-target",
+          "section": "running",
+          "topic": "Running systems",
+          "stem": "How can you use rescue.target for one boot while keeping the configured startup default?",
+          "choices": [
+            "Set rescue.target as the default indefinitely.",
+            "Select it with a one-time kernel command-line argument in GRUB.",
+            "Remove multi-user.target as a dependency from a single service."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "GRUB entry edits at the boot menu apply to that invocation. systemctl set-default changes normal future boots."
+        },
+        {
+          "id": "storage-growth",
+          "section": "storage",
+          "topic": "Local storage",
+          "stem": "An LV grew by 128 MiB, but df shows the old XFS size. What should you check next?",
+          "choices": [
+            "Whether df needs the UUID in /etc/fstab to display the new size.",
+            "Whether unmounting alone will make XFS grow to the new size.",
+            "Whether the mounted XFS filesystem was grown as well."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Device capacity and filesystem capacity are tracked separately. Inspect lvs and df, then grow the mounted XFS filesystem when needed."
+        },
+        {
+          "id": "storage-stack",
+          "section": "storage",
+          "topic": "Local storage",
+          "stem": "Which order follows storage from backing device to usable LVM space?",
+          "choices": [
+            "Physical volume, volume group, logical volume, filesystem.",
+            "Filesystem, volume group, partition, logical volume.",
+            "Logical volume, partition, physical volume, volume group."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "A VG pools physical volumes. An LV allocates extents from that pool and can hold a filesystem."
+        },
+        {
+          "id": "storage-swap",
+          "section": "storage",
+          "topic": "Local storage",
+          "stem": "Which observation after a reboot demonstrates that a swap file is in use by the kernel?",
+          "choices": [
+            "The file exists with mode 600.",
+            "Its path appears in swapon --show.",
+            "Its path appears once in /etc/fstab."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Mode and configuration support activation. swapon --show reports the active swap areas."
+        },
+        {
+          "id": "filesystems-uuid",
+          "section": "filesystems",
+          "topic": "File systems",
+          "stem": "Why use the filesystem UUID in a persistent mount entry?",
+          "choices": [
+            "It makes a mount succeed even when its backing disk is missing.",
+            "It makes a mount independent of its filesystem driver.",
+            "It identifies the filesystem even if the device name changes."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "A filesystem UUID is independent of disk discovery order. Check the identifier and filesystem type before rebooting."
+        },
+        {
+          "id": "filesystems-trigger",
+          "section": "filesystems",
+          "topic": "File systems",
+          "stem": "The autofs service is active. What is the best next test of the end-user outcome?",
+          "choices": [
+            "Open the remote marker through its client path, then inspect the mounted source and type.",
+            "List the local mountpoint without opening its contents.",
+            "Count entries in /etc/exports on the client."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "Reading the file triggers the mount. Checking the filesystem serving it distinguishes remote content from a local look-alike."
+        },
+        {
+          "id": "deployment-enabled",
+          "section": "deployment",
+          "topic": "Deployment and maintenance",
+          "stem": "A new oneshot unit has been started but never enabled. It is active now. What has been established?",
+          "choices": [
+            "It is guaranteed to start after reboot.",
+            "It ran this boot; its automatic activation still needs separate verification.",
+            "Its process must keep running indefinitely."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Active and enabled describe different things. A oneshot can remain active after its program exits."
+        },
+        {
+          "id": "deployment-runtime",
+          "section": "deployment",
+          "topic": "Deployment and maintenance",
+          "stem": "Why use a marker in /run to verify a service after reboot?",
+          "choices": [
+            "Files there are permanently archived across boots.",
+            "All changes to /run are automatically written to the unit definition.",
+            "A new boot recreates /run, so something in this boot had to recreate the marker."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "A marker created in volatile runtime storage provides stronger evidence of a fresh service invocation than a file left on a persistent filesystem."
+        },
+        {
+          "id": "deployment-clock",
+          "section": "deployment",
+          "topic": "Deployment and maintenance",
+          "stem": "chronyd is active. Which observation best supports a claim that it is synchronizing with a particular source?",
+          "choices": [
+            "chronyc sources -v shows that source as selected.",
+            "The chronyd unit file exists.",
+            "The designated source appears in /etc/chrony.conf."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "A selected source and tracking data show synchronization. An enabled daemon or configured time zone cannot establish that a source was reachable."
+        },
+        {
+          "id": "network-resolver",
+          "section": "network",
+          "topic": "Basic networking",
+          "stem": "The local hosts file supplies the name. Which check resembles a normal IPv4 application lookup?",
+          "choices": [
+            "dig followed by a public resolver address",
+            "getent ahostsv4 followed by the hostname",
+            "ss -lnt on the server"
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "getent uses the guest name service configuration, including local files when configured. DNS-only queries can give a different answer."
+        },
+        {
+          "id": "network-ipv6",
+          "section": "network",
+          "topic": "Basic networking",
+          "stem": "An address added with ip is lost at reboot. Where should you record both IPv4 and IPv6 configuration on a NetworkManager guest?",
+          "choices": [
+            "As a second ip address add command on the live interface.",
+            "In an ifup command typed at the current shell.",
+            "In the intended NetworkManager connection profile, with autoconnect verified."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Profiles define persistent network configuration. Shell history and logs cannot reactivate addresses."
+        },
+        {
+          "id": "security-keys",
+          "section": "security",
+          "topic": "Security",
+          "stem": "Which item should be installed on the target account for public-key SSH authentication?",
+          "choices": [
+            "The client’s public key in that account’s authorized_keys.",
+            "The server’s public host key in the client account’s authorized_keys.",
+            "The client’s public key only in the client account’s known_hosts."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "The server checks proof that the client holds the matching private key. Only the public half belongs in authorized_keys."
+        },
+        {
+          "id": "security-firewall",
+          "section": "security",
+          "topic": "Security",
+          "stem": "After a firewalld reload a test opening vanished. What paired checks would have exposed this beforehand?",
+          "choices": [
+            "Compare the runtime port listing twice in the default zone.",
+            "Query that port in the interface zone in both runtime and permanent configuration.",
+            "Query only the permanent rules for a different network zone."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Reload replaces runtime state with permanent policy. Both stores and the zone must match the intended outcome."
+        },
+        {
+          "id": "security-fcontext",
+          "section": "security",
+          "topic": "Security",
+          "stem": "Which pair makes a new custom web root recover its intended labels after restorecon?",
+          "choices": [
+            "Change only the current file context with chcon.",
+            "Set the web service port type without updating the file mapping.",
+            "Define a persistent fcontext mapping, then apply it with restorecon."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "The mapping supplies the policy expectation for future relabels. restorecon applies that expected context to the existing tree."
+        },
+        {
+          "id": "security-umask",
+          "section": "security",
+          "topic": "Security",
+          "stem": "A process requests mode 0666 with umask 027 and no default ACL. What is the resulting regular-file mode?",
+          "choices": [
+            "0640",
+            "0750",
+            "0600"
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "The mask removes group write and all permissions for others. Regular-file creation did not request any execute bits."
+        },
+        {
+          "id": "practical-repair",
+          "section": "practical",
+          "topic": "Practical assessment",
+          "stem": "A server task passed before reboot and failed afterward. What should your first retake investigation compare?",
+          "choices": [
+            "Only the output captured before the first reboot.",
+            "Its startup configuration and new-boot journal against its observed live state.",
+            "Whether another guest currently has the right live configuration."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "The earlier check established a working live state. Startup configuration and logs can explain why the guest did not recreate it."
+        }
+      ]
+    }
+  ],
+  "revision": 1
+}

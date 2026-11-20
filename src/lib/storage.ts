@@ -1,3 +1,4 @@
+import { latestVmReports, validateVmReports } from "./vmLab";
 import { captureLocalSession, assertLocalLearner, assertLocalSessionCredential, localSessionEnabled } from "./localSession";
 import { TEMPORARY_GUEST } from "./guestSession";
 import { parseInterventionTasks } from "./interventionTasks";
@@ -232,6 +233,7 @@ function parseProgress(text: string | null): Progress {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
+  if (p.vmLabReports !== undefined) validateVmReports(p.vmLabReports);
   if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   if (p.anonymousGeneration !== undefined) anonymousGeneration(text);
   return { ...emptyProgress(), ...p };
@@ -256,6 +258,7 @@ export async function updateProfileProgress(id: string | null, change: (current:
     if (next.competencies !== undefined) parseCompetencyLedger(next.competencies);
     if (next.interventionTasks !== undefined) parseInterventionTasks(next.interventionTasks);
     if (next.learningPathways !== undefined) parseLearningPathways(next.learningPathways);
+    if (next.vmLabReports !== undefined) validateVmReports(next.vmLabReports);
     if (next.studentWorkspace !== undefined) parseStudentWorkspace(next.studentWorkspace);
     return JSON.stringify(next);
   });
@@ -315,10 +318,13 @@ export interface SaveProgressOptions {
   replaceInterventionTasks?: boolean;
   replaceLearningPathways?: boolean;
   replaceStudentWorkspace?: boolean;
+  replaceVmLabReports?: boolean;
 }
 
 function mergeSavedProgress(p: Progress, current: Progress, options: SaveProgressOptions): Progress {
   return { ...p,
+    ...(!options.replaceVmLabReports && (current.vmLabReports || p.vmLabReports)
+      ? { vmLabReports: latestVmReports(current.vmLabReports, p.vmLabReports) } : {}),
     ...(!options.replaceCompetencies && current.competencies !== undefined ? { competencies: current.competencies } : {}),
     ...(!options.replaceInterventionTasks && current.interventionTasks !== undefined ? { interventionTasks: current.interventionTasks } : {}),
     // Pathway edits use the profile CAS updater. Unrelated activity saves cannot erase a
@@ -332,6 +338,7 @@ export async function saveProgress(p: Progress, options: SaveProgressOptions = {
   if (p.competencies !== undefined) parseCompetencyLedger(p.competencies);
   if (p.interventionTasks !== undefined) parseInterventionTasks(p.interventionTasks);
   if (p.learningPathways !== undefined) parseLearningPathways(p.learningPathways);
+  if (p.vmLabReports !== undefined) validateVmReports(p.vmLabReports);
   if (p.studentWorkspace !== undefined) parseStudentWorkspace(p.studentWorkspace);
   const selected = student;
   await updateProfileProgress(selected, async current => {
@@ -469,6 +476,7 @@ export async function restoreBackup(
   if (b.progress.competencies !== undefined) parseCompetencyLedger(b.progress.competencies);
   if (b.progress.interventionTasks !== undefined) parseInterventionTasks(b.progress.interventionTasks);
   if (b.progress.learningPathways !== undefined) parseLearningPathways(b.progress.learningPathways);
+  if (b.progress.vmLabReports !== undefined) validateVmReports(b.progress.vmLabReports);
   if (b.progress.studentWorkspace !== undefined) parseStudentWorkspace(b.progress.studentWorkspace);
   const currentProgress = await loadProfileProgress(targetStudent);
   const importedCompetencies = importCompetencyHistory(b.progress.competencies,currentProgress.competencies);
@@ -505,7 +513,7 @@ export async function restoreBackup(
     return mergeSavedProgress(
       {...emptyProgress(), ...b.progress, ...(targetStudent===null?{anonymousGeneration:current.anonymousGeneration??0}:{}), competencies:importCompetencyHistory(importedCompetencies,current.competencies), seeded:true},
       current,
-      {replaceCompetencies:true, replaceInterventionTasks:true, replaceLearningPathways:true, replaceStudentWorkspace:true},
+      {replaceVmLabReports:true, replaceCompetencies:true, replaceInterventionTasks:true, replaceLearningPathways:true, replaceStudentWorkspace:true},
     );
   });
   return { courses: courses.length, banks: banks.length };

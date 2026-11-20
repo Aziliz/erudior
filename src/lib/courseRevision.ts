@@ -42,6 +42,10 @@ export function compareCourseRevisions(previous: Course, next: Course): CourseRe
 
   compare("modules", previous.modules, next.modules, (m) => m.id);
   compare("lessons", previous.lessons, next.lessons, (l) => l.id, (l) => l.module);
+  for (const lesson of previous.lessons) {
+    if (lesson.vmLab && next.lessons.find(l => l.id === lesson.id)?.vmLab !== lesson.vmLab)
+      add("blocking", `lessons.${lesson.id}.vmLab`, "Published VM lab scenario changed.");
+  }
   compare("banks", previous.banks, next.banks, localBankId);
   for (const bank of previous.banks) {
     const current = next.banks.find((b) => localBankId(b) === localBankId(bank));

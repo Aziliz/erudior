@@ -1,0 +1,21 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "rhcsa-rhel10-practice",
+  "title": "RHCSA practice exam for RHEL 10",
+  "modules": [
+    {
+      "id": "practical",
+      "title": "Two-machine practical"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "practice-exam",
+      "module": "practical",
+      "title": "RHCSA practice exam",
+      "body": "Complete ten administration tasks on the client and server. The machines share an isolated network. You may use the documentation installed in the guests. Your result shows which objective areas need further practice.",
+      "vmLab": "rhcsa-rhel10-practice-v1"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 //! import/export.
 
 mod portable_files;
+mod vm_lab;
 
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -610,6 +611,10 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             portable_files::pick_portable_course,
             portable_files::export_portable_course,
+            vm_lab::vm_lab,
+            vm_lab::terminal::vm_console_open,
+            vm_lab::terminal::vm_console_write,
+            vm_lab::terminal::vm_console_close,
             list_items,
             save_item,
             compare_and_swap_course,

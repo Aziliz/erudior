@@ -1,3 +1,4 @@
+import { ADMIN_EXAM, RHCSA_MOCK, isVmLab, isVmExam, validExamMinutes, validVmTasks } from "./vmLab";
 import { validateReaderMarkdownAssets, readerMarkdownParts } from './readerMarkdownAssets';
 import { moraCount, validAccent } from './kana';
 import { validateImageAsset } from "./imageAssets";
@@ -183,7 +184,11 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
     objects(c.modules, 'modules', ['id', 'title', 'honors', 'quiz'], (m, p) => { if (validId(m.id))
         moduleIds.add(m.id); str(m.title, p + '.title', true); boolean(m, ['honors'], p); if (m.quiz !== undefined)
         strings(m.quiz, p + '.quiz', true); });
-    objects(c.lessons, 'lessons', ['id', 'module', 'title', 'honors', 'topics', 'minutes', 'body', 'drills', 'refs', 'quiz'], (l, p) => { if (validId(l.id))
+    objects(c.lessons, 'lessons', ['id', 'module', 'title', 'honors', 'topics', 'minutes', 'body', 'drills', 'refs', 'quiz', 'vmLab', 'vmTasks', 'vmExamMinutes'], (l, p) => {
+        if (l.vmExamMinutes !== undefined && (l.vmLab === RHCSA_MOCK || !isVmExam(l.vmLab) || !validExamMinutes(l.vmExamMinutes))) add(p + '.vmExamMinutes', 'use the built-in RHCSA mock duration or 1 to 240 whole minutes for other timed exams');
+        if (l.vmLab === ADMIN_EXAM ? !validVmTasks(l.vmTasks) : l.vmTasks !== undefined) add(p + '.vmTasks', 'select distinct built-in tasks worth 1 to 100 points');
+        if (l.vmLab !== undefined && !isVmLab(l.vmLab)) add(p + '.vmLab', 'unknown VM lab scenario');
+        if (validId(l.id))
         lessonIds.add(l.id); str(l.title, p + '.title', true); str(l.body, p + '.body'); if (!moduleIds.has(l.module as string))
         add(p + '.module', 'unknown module'); boolean(l, ['honors'], p); if (l.minutes !== undefined)
         integer(l.minutes, p + '.minutes', 0, 100000); for (const k of ['drills', 'refs', 'quiz'])
@@ -609,6 +614,7 @@ export function canonicalRevisionProblems(previous: CanonicalAuthoringPayload, n
         if (current) {
             if (old.module !== current.module)
                 errors.push(`lesson ${old.id}: module reassigned`);
+            if (old.vmLab && old.vmLab !== current.vmLab) errors.push(`lesson ${old.id}: published VM lab changed`);
             refs(old.quiz, current.quiz, `lesson ${old.id} quiz`);
             refs(old.drills, current.drills, `lesson ${old.id} drills`);
             refs(old.refs, current.refs, `lesson ${old.id} refs`);

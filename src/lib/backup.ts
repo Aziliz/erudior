@@ -1,3 +1,4 @@
+import { validateVmReports } from "./vmLab";
 import { cutoffProblem } from "./grades";
 import { invoke } from "@tauri-apps/api/core";
 import { webList, webGet } from "./webstore";
@@ -327,6 +328,7 @@ function validateProgressEvidence(progress: Progress): Progress {
   for (const key of ["enrolled", "seededCourses"] as const) if (progress[key] !== undefined && (!Array.isArray(progress[key]) || progress[key]!.some(id => typeof id !== "string"))) throw Error("Invalid progress course references.");
   if (progress.interventionTasks !== undefined) parseInterventionTasks(progress.interventionTasks);
   if (progress.learningPathways !== undefined) parseLearningPathways(progress.learningPathways);
+  if (progress.vmLabReports !== undefined) validateVmReports(progress.vmLabReports);
   if (progress.studentWorkspace !== undefined) parseStudentWorkspace(progress.studentWorkspace);
   if (progress.competencies !== undefined) parseCompetencyLedger(progress.competencies);
   if (progress.assessedWorkSubmissions !== undefined) mergeAssessedWorkSubmissions({}, progress.assessedWorkSubmissions);

@@ -4,6 +4,7 @@
 // when the build sets VITE_COURSES_URL, the signed catalog on the website replaces it at
 // startup and course files are downloaded from there (see courseSource.ts).
 
+import { isTauri } from "@tauri-apps/api/core";
 import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
@@ -21,6 +22,7 @@ export interface CatalogEntry {
   /** Shown on the Overview page (professional and exam-prep courses). */
   disclaimer?: string;
   revision: number;
+  platform?: "study" | "desktop";
   subject: string;
   level: string[];
   type: string[];
@@ -53,10 +55,16 @@ export interface CatalogEntry {
 // Labels are normalized so catalogs published before the current level/type lists still sort and filter.
 const tidy = (e: CatalogEntry): CatalogEntry => ({ ...e, level: normalizeLevels(e.level ?? []), type: normalizeTypes(e.type ?? []) });
 
-export const CATALOG: CatalogEntry[] = (catalogJson as CatalogEntry[]).map(tidy);
+/** Keep the browser study edition and local desktop practical edition distinct in both catalog sources. */
+function visibleEntries(entries: CatalogEntry[]) {
+  const desktop = isTauri() && !/android|iphone|ipad/i.test(globalThis.navigator?.userAgent ?? "");
+  return entries.filter(e => !e.platform || e.platform === (desktop ? "desktop" : "study")).map(tidy);
+}
+
+export const CATALOG: CatalogEntry[] = visibleEntries(catalogJson as CatalogEntry[]);
 
 export function setCatalog(entries: CatalogEntry[]) {
-  CATALOG.splice(0, CATALOG.length, ...entries.map(tidy));
+  CATALOG.splice(0, CATALOG.length, ...visibleEntries(entries));
 }
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {

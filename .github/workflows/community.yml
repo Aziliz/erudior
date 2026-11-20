@@ -10,6 +10,7 @@ on:
       - "worker/**"
       - "src/lib/communityFormat.ts"
       - "src/lib/courseWork.ts"
+      - "src/lib/vmLab.ts"
       - "src/lib/exerciseTypes.ts"
       - "src/lib/spreadsheet*.ts"
       - "src/lib/workbookTemplates.ts"
