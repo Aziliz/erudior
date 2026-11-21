@@ -679,7 +679,7 @@ In `la` and `grc` courses every typed answer — vocabulary recall and meaning c
 
 **Recall** (English → Latin/Greek) accepts the headword (or an `alt`) **or the full entry**: `amo amare amavi amatum`, `amō, amāre, amāvī, amātum` and `amō amāre amāvī amātum` all match `dict` (punctuation, hyphens and spacing don't matter: `magnus a um` matches `magnus, -a, -um`), with the same diacritic rules and notes. **Meaning** cards (→ English) are checked as in other courses; a Latin or Greek name inside a gloss (*Rōma*) ignores diacritics too.
 
-The Vocabulary tab's **Find a word** box and the app's search (Ctrl+K, which now lists words with their entries) ignore Greek diacritics and Latin macrons: `amare` finds amāre, `logos` finds λόγος.
+The Vocabulary tab's **Find a word** box and the app's search (Ctrl+K, which now lists words with their entries) ignore Greek diacritics and Latin macrons: `amare` finds amāre, `λογος` finds λόγος.
 
 A word's recorded `audio` is played for the course's default (first) pronunciation; with another pronunciation picked, the voice reads the word.
 

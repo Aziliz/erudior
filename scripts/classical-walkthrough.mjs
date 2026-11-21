@@ -228,6 +228,20 @@ await pg.waitForTimeout(300);
 check("vocab tab switch", (await pg.getByLabel("Pronunciation").count()) === 1);
 check("vocab tab entries", (await pg.locator(".vocab-table .vocab-dict").count()) === 6);
 await audit("vocab-tab");
+// Find a word, and the app search: macrons and accents don't matter.
+await pg.getByLabel("Find a word").fill("amare");
+await pg.waitForTimeout(200);
+check(`find "amare" finds amō (${await pg.locator(".vocab-table tbody tr").count()})`, (await pg.locator(".vocab-table tbody tr").count()) === 1);
+await pg.getByLabel("Find a word").fill("λογος");
+await pg.waitForTimeout(200);
+check("find unaccented λογος finds λόγος", (await pg.locator(".vocab-table .vocab-term", { hasText: "λόγος" }).count()) === 1);
+await pg.getByLabel("Find a word").fill("");
+const search = pg.getByPlaceholder(/Search/).first();
+await search.fill("ανθρωπου");
+await search.press("Enter");
+await pg.waitForTimeout(800);
+check("search ignores Greek accents", (await pg.locator(".hits", { hasText: "ἀνθρώπου" }).count()) > 0);
+await audit("search");
 check(`Greek font files fetched on demand (${[...new Set(fontFetches)].length})`, fontFetches.length > 0);
 
 await b.close();
