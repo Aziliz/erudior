@@ -47,7 +47,7 @@ Inside the provider use `mkdir -p ~/.local/share/erudior-vm-labs/images` and cop
 
 Open a practice lesson. Start both machines, open each console, press Enter and confirm the guest hostname. For timed work, prepare the pair, begin the attempt and submit from the app. The grader records both observations, and Progress retains the result. Closing a terminal closes its connection. Stopping WSL, Lima or the physical computer interrupts its VMs. After a provider restart, reopen the lesson to see the saved state and recovery options.
 
-The browser catalog offers **RHCSA preparation • RHEL 10 lessons and quizzes**. This edition also imports as an ordinary course JSON, uses browser-local progress and includes 16 instructional lessons with 28 questions. Each edition has a distinct course ID. A browser study record and a desktop VM attempt have independent progress.
+The browser catalog offers **RHCSA preparation • RHEL 10 lessons and quizzes**. This edition also imports as an ordinary course JSON, uses browser-local progress and includes 17 instructional lessons with 36 questions. Each edition has a distinct course ID. A browser study record and a desktop VM attempt have independent progress.
 
 [Microsoft WSL command reference](https://learn.microsoft.com/en-us/windows/wsl/basic-commands) · [Lima usage](https://lima-vm.io/docs/usage/) · [Lima shell](https://lima-vm.io/docs/reference/limactl_shell/)
 

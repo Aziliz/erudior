@@ -9755,8 +9755,8 @@
   "file": "rhcsa-10-study.json",
   "order": 134,
   "title": "RHCSA preparation • RHEL 10 lessons and quizzes",
-  "description": "Study the ten RHEL 10 administration areas, work through command examples, and check your understanding with 28 questions. The desktop practical course adds local VM labs.",
-  "revision": 1,
+  "description": "Study the ten RHEL 10 administration areas, work through command examples, and check your understanding with 36 questions. The desktop practical course adds local VM labs.",
+  "revision": 2,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9765,8 +9765,8 @@
    "Exam prep"
   ],
   "platform": "study",
-  "lessons": 16,
-  "questions": 28,
+  "lessons": 17,
+  "questions": 36,
   "cards": 0,
   "drills": 0,
   "lessonIds": [
@@ -9777,6 +9777,7 @@
    "script-contract",
    "operations",
    "boot-targets",
+   "root-recovery",
    "lvm-workshop",
    "swap-workshop",
    "mount-identities",
@@ -9822,7 +9823,8 @@
     "title": "Running systems, boot and performance",
     "lessons": [
      "Follow a slowdown from process to journal",
-     "Practice a one-time boot change and restore normal startup"
+     "Practice a one-time boot change and restore normal startup",
+     "Recover root access by interrupting the boot"
     ]
    },
    {
@@ -9872,7 +9874,7 @@
   "order": 135,
   "title": "RHCSA preparation • System administration on RHEL 10",
   "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, ten graded labs, two rehearsals and a reboot-verified final practical.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9881,8 +9883,8 @@
    "Exam prep"
   ],
   "platform": "desktop",
-  "lessons": 30,
-  "questions": 28,
+  "lessons": 31,
+  "questions": 36,
   "cards": 0,
   "drills": 0,
   "lessonIds": [
@@ -9898,6 +9900,7 @@
    "script-lab",
    "operations",
    "boot-targets",
+   "root-recovery",
    "tuning-lab",
    "lvm-workshop",
    "swap-workshop",
@@ -9958,6 +9961,7 @@
     "lessons": [
      "Follow a slowdown from process to journal",
      "Practice a one-time boot change and restore normal startup",
+     "Recover root access by interrupting the boot",
      "Lab • Apply a persistent performance profile"
     ]
    },
