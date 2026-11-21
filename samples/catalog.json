@@ -9116,7 +9116,7 @@
   "order": 133,
   "title": "Chinese HSK 3",
   "description": "The third step in Mandarin Chinese, from HSK 2 to the new HSK 3 (HSK 3.0). Grammar lessons cover the 把 and 被 sentences, potential complements (听得懂, 看不见), compound direction complements, comparisons with 更, 越…越 and 跟…一样, the modal verbs 应该, 得 and 需要, and the complex sentences of the level: 不但…而且, 如果…就, 只要…就, 只有…才, 除了…以外, 为了, 一边…一边 and 先…然后. The 500 new words (1,000 in all) are learned through typed review cards and the 284 new characters (655 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading, listening, writing sentences, the speaking test and the exam format. Requires Chinese HSK 2.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -9266,6 +9266,486 @@
     "honors": [
      "Journey to the West: the White Bone Demon",
      "Two Tang poems: 春晓 and 登鹳雀楼"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk4",
+  "file": "languages/lang-chinese-hsk4.json",
+  "order": 134,
+  "title": "Chinese HSK 4",
+  "description": "The fourth step in Mandarin Chinese, from HSK 3 to the new HSK 4 (HSK 3.0), the first of the intermediate levels. Grammar lessons cover 连…都, 即使…也, 尽管…但是, 不管…都, 既然…就, 不是…而是, 一方面…另一方面, 不仅…还, the extended 把 sentence, 叫 and 让 passives, A 不如 B, double negatives, rhetorical 难道…吗, written-style words such as 由, 将, 与 and 此, and numbers with 倍, 来, 左右 and percentages. Topics follow a final university year into first jobs: classes and graduation, the doctor, shopping and renting, job interviews and the office, journeys and hotels, family and feelings, the media, nature and the environment. The 1,000 new words (2,000 in all) are learned through typed review cards and the 441 new characters (1,096 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. Readings grow to about 350 characters, and the last lessons practise the writing and speaking tasks and the exam format. Requires Chinese HSK 3.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 834,
+  "cards": 441,
+  "drills": 0,
+  "words": 2000,
+  "carried": 1000,
+  "requires": [
+   "lang-chinese-hsk3"
+  ],
+  "lessonIds": [
+   "zh4-final-year",
+   "zh4-classes",
+   "zh4-reading",
+   "zh4-campus-activities",
+   "zh4-after-graduation",
+   "zh4-doctor",
+   "zh4-keeping-fit",
+   "zh4-cooking",
+   "zh4-shopping",
+   "zh4-renting",
+   "zh4-part-time-job",
+   "zh4-interview",
+   "zh4-office",
+   "zh4-colleagues",
+   "zh4-money",
+   "zh4-getting-around",
+   "zh4-journeys",
+   "zh4-sightseeing",
+   "zh4-hotels-meals",
+   "zh4-travel-stories",
+   "zh4-family",
+   "zh4-personality",
+   "zh4-emotions",
+   "zh4-media",
+   "zh4-opinions",
+   "zh4-weather-earth",
+   "zh4-animals-science",
+   "zh4-environment",
+   "zh4-performances",
+   "zh4-exam"
+  ],
+  "honorsLessonIds": [
+   "zh4-du-fu",
+   "zh4-script-history",
+   "zh4-tai-chi",
+   "zh4-zhang-heng",
+   "zh4-qin-unification",
+   "zh4-grand-canal",
+   "zh4-tulou",
+   "zh4-dialects",
+   "zh4-mencius-mother",
+   "zh4-zhuangzi",
+   "zh4-instruments",
+   "zh4-analects"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "The last term and graduation",
+    "lessons": [
+     "The last term begins: since, originally, never, each and any",
+     "Classes, exams and marks: more 把, and doing it again",
+     "Books, articles and words: even, so much as",
+     "Clubs, contests and prizes: not only… but also",
+     "Graduation and what comes next: not this but that"
+    ],
+    "honors": [
+     "Du Fu: two poems",
+     "How Chinese writing changed"
+    ]
+   },
+   {
+    "title": "Health, food and home",
+    "lessons": [
+     "At the doctor's: describing an illness, 死了 and 厉害",
+     "Keeping fit: 往往, 偶尔, 老是 and 睡着",
+     "Cooking and tastes: 够…的, 一大碗 and borrowed measure words",
+     "Prices, shops and deliveries: 不如, 跟…相比 and 打八折",
+     "Renting a flat: 不得不, 只好 and 差点儿"
+    ],
+    "honors": [
+     "Tai chi and martial arts: 太极拳, 少林 and 武术",
+     "Zhang Heng's earthquake detector: 张衡 and the 地动仪"
+    ]
+   },
+   {
+    "title": "Work and money",
+    "lessons": [
+     "A part-time job: advertisements, 要是 and 否则",
+     "The job interview: pivotal sentences and 作为",
+     "In the office: 由, 按照 and 将 in notices",
+     "Working with others: 尽管, 然而, 却 and 并不",
+     "Wages, savings and numbers: 来, 左右, 倍 and percentages"
+    ],
+    "honors": [
+     "The first emperor's standards",
+     "The Grand Canal"
+    ]
+   },
+   {
+    "title": "Journeys and travel",
+    "lessons": [
+     "Traffic and getting around",
+     "Planes, trains and delays",
+     "Scenery and sights",
+     "Hotels and eating on the road",
+     "Travel stories"
+    ],
+    "honors": [
+     "The earth buildings of Fujian",
+     "One language, many dialects"
+    ]
+   },
+   {
+    "title": "People, feelings and the media",
+    "lessons": [
+     "Family and generations: 之, 者, 等",
+     "Personality and manners: four-character patterns, X 是 X",
+     "Feelings: 使, 受不了, 再也不, 怎么都不, 还 X 呢",
+     "News, the internet and videos: 对于, 与, 而",
+     "Giving opinions: 不管 / 无论…都, 一方面…另一方面, 拿…来说"
+    ],
+    "honors": [
+     "Mencius's mother moves house: 孟母三迁",
+     "Zhuangzi's butterfly: 庄周梦蝶"
+    ]
+   },
+   {
+    "title": "Nature, the arts and HSK 4",
+    "lessons": [
+     "Climate and the earth: 即使…也, 稍微, 低于",
+     "Animals, plants and science: 棵, 幅, 片, 有着, 用来",
+     "Protecting the environment: 为了…而…, 于是, 不…也…",
+     "Concerts, plays and the arts: writing and speaking",
+     "The HSK 4 exam"
+    ],
+    "honors": [
+     "Chinese instruments: guqin, guzheng, pipa, erhu",
+     "More from the Analects: three sayings"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk5",
+  "file": "languages/lang-chinese-hsk5.json",
+  "order": 135,
+  "title": "Chinese HSK 5",
+  "description": "The fifth step in Mandarin Chinese, from HSK 4 to the new HSK 5 (HSK 3.0). Grammar lessons cover 一旦…就, 哪怕…也, 假如, 万一, 不但不…反而, 没有…就没有, 再…也, 为的是, the extended uses of 下来, 下去, 起来 and 过来, 被…给 passives, 把 with two objects, comparisons such as 他大我三岁, adverbs of mood (毕竟, 居然, 果然, 简直, 反正, 根本) and the written style of notices, news and arguments (便, 较, 及, 其, 某, 如何, 从而, 可见, 因而). The first four-character idioms come with the stories behind them. Topics follow first jobs, health and lifestyles, relationships, study and technology, city and country, the law and the media. The 1,600 new words (3,600 in all) are learned through typed review cards and the 431 new characters (1,527 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. Readings grow to about 600 characters, and the last lessons practise the picture story, the essay, the speaking test and the exam format. Requires Chinese HSK 4.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 749,
+  "cards": 431,
+  "drills": 0,
+  "words": 3600,
+  "carried": 2000,
+  "requires": [
+   "lang-chinese-hsk4"
+  ],
+  "lessonIds": [
+   "zh5-first-job",
+   "zh5-company",
+   "zh5-teamwork",
+   "zh5-business",
+   "zh5-new-ventures",
+   "zh5-modern-life",
+   "zh5-diet",
+   "zh5-hospital",
+   "zh5-home",
+   "zh5-arts-hobbies",
+   "zh5-friendship",
+   "zh5-love-marriage",
+   "zh5-generations",
+   "zh5-conflict",
+   "zh5-gifts-etiquette",
+   "zh5-training",
+   "zh5-education",
+   "zh5-language",
+   "zh5-science-tech",
+   "zh5-online",
+   "zh5-city-country",
+   "zh5-nature",
+   "zh5-safety-law",
+   "zh5-media-society",
+   "zh5-traditions",
+   "zh5-arguments",
+   "zh5-written-style",
+   "zh5-change-data",
+   "zh5-journeys-writing",
+   "zh5-exam"
+  ],
+  "honorsLessonIds": [
+   "zh5-su-shi",
+   "zh5-paper-money",
+   "zh5-porcelain",
+   "zh5-zu-chongzhi",
+   "zh5-zheng-he",
+   "zh5-dongba",
+   "zh5-fables",
+   "zh5-chengyu",
+   "zh5-three-kingdoms",
+   "zh5-shadow-puppets",
+   "zh5-mencius",
+   "zh5-wang-wei"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Work and careers",
+    "lessons": [
+     "A first job",
+     "Inside a company",
+     "Working as a team",
+     "Products, markets and money",
+     "Changing jobs and starting a business"
+    ],
+    "honors": [
+     "Su Shi",
+     "The first paper money"
+    ]
+   },
+   {
+    "title": "Lifestyles, health and home",
+    "lessons": [
+     "Busy lives: sleep, stress and leisure",
+     "Food, diet and nutrition",
+     "At the hospital",
+     "Furnishing, repairs and housework",
+     "Arts, crafts and hobbies"
+    ],
+    "honors": [
+     "Porcelain: celadon, blue-and-white and Jingdezhen",
+     "Zu Chongzhi and π"
+    ]
+   },
+   {
+    "title": "Relationships",
+    "lessons": [
+     "Friends and acquaintances",
+     "Love, marriage and a wedding",
+     "Grandparents, parents and children",
+     "Arguments and making up",
+     "Gifts, visits and good manners"
+    ],
+    "honors": [
+     "Zheng He's voyages",
+     "Lijiang and the Dongba script"
+    ]
+   },
+   {
+    "title": "Learning, language and technology",
+    "lessons": [
+     "Study methods and training: how to improve",
+     "Schools, universities and exams",
+     "Talking about language",
+     "Science, technology and invention",
+     "Life online: accounts, apps and shopping"
+    ],
+    "honors": [
+     "Fables and the idioms they left",
+     "How idioms work"
+    ]
+   },
+   {
+    "title": "Society, nature and tradition",
+    "lessons": [
+     "City and countryside",
+     "Nature and the land",
+     "Accidents, safety and the law",
+     "News, media and society",
+     "Traditions, festivals and the zodiac"
+    ],
+    "honors": [
+     "Romance of the Three Kingdoms",
+     "Shadow puppets"
+    ]
+   },
+   {
+    "title": "Argument, written style and HSK 5",
+    "lessons": [
+     "Making an argument",
+     "Formal Chinese: notices, rules and reports",
+     "Describing change: numbers, trends and data",
+     "Journeys and stories: writing and speaking practice",
+     "The HSK 5 exam"
+    ],
+    "honors": [
+     "Mencius",
+     "Wang Wei and Li Bai: mountains and water"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lang-chinese-hsk6",
+  "file": "languages/lang-chinese-hsk6.json",
+  "order": 136,
+  "title": "Chinese HSK 6",
+  "description": "The sixth step in Mandarin Chinese, from HSK 5 to the new HSK 6 (HSK 3.0), the top of the intermediate band. Grammar lessons cover 要么…要么, 除非…才 and 除非…否则, 凡是…都, 就算…也, 与其…不如, 虽…却, 以便, the word-forming prefixes and suffixes (超-, 多-, 反-, 无-, 准-, -化, -性, -型, -式), the structural particle 所, written prepositions such as 于, 至于, 因 and 除, the colloquial formats of the level (X 归 X，Y 归 Y; 早不…晚不…; 看把你…的; 好不容易) and the register of formal notices, reports and arguments, with a lesson on idioms and set phrases. Topics run from careers, negotiation and finance through cities, health, the law and the media to cultures compared, heritage and history, science, energy and disasters, family life and values. The 1,800 new words (5,400 in all) are learned through typed review cards and the 413 new characters (1,940 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. Readings grow to about 900 characters, and the last lessons practise the practical text, the argued essay, the speaking test and the exam format. Requires Chinese HSK 5.",
+  "revision": 1,
+  "subject": "Languages",
+  "level": [
+   "High School",
+   "College",
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 30,
+  "honors": 12,
+  "questions": 749,
+  "cards": 413,
+  "drills": 0,
+  "words": 5400,
+  "carried": 3600,
+  "requires": [
+   "lang-chinese-hsk5"
+  ],
+  "lessonIds": [
+   "zh6-careers",
+   "zh6-negotiation",
+   "zh6-management",
+   "zh6-finance",
+   "zh6-pressure",
+   "zh6-ageing",
+   "zh6-cities",
+   "zh6-body-health",
+   "zh6-law-order",
+   "zh6-media",
+   "zh6-cultures-compared",
+   "zh6-food-culture",
+   "zh6-celebrations",
+   "zh6-heritage",
+   "zh6-history",
+   "zh6-digital",
+   "zh6-space-sea",
+   "zh6-ecology-energy",
+   "zh6-disasters",
+   "zh6-innovation",
+   "zh6-growing-up",
+   "zh6-marriage",
+   "zh6-conflict",
+   "zh6-values",
+   "zh6-memories",
+   "zh6-argument",
+   "zh6-formal-writing",
+   "zh6-language",
+   "zh6-sport-writing",
+   "zh6-exam"
+  ],
+  "honorsLessonIds": [
+   "zh6-lu-xun",
+   "zh6-tu-youyou",
+   "zh6-red-chamber",
+   "zh6-xiangsheng",
+   "zh6-suzhou-gardens",
+   "zh6-xu-xiake",
+   "zh6-shen-kuo",
+   "zh6-guo-shoujing",
+   "zh6-li-qingzhao",
+   "zh6-mulan",
+   "zh6-laozi",
+   "zh6-peach-blossom"
+  ],
+  "honorsModuleIds": [],
+  "outline": [
+   {
+    "title": "Work, business and money",
+    "lessons": [
+     "Careers, posts and promotion",
+     "Suppliers, orders and negotiation",
+     "Managing people and projects",
+     "Money, investment and the economy",
+     "Pressure, setbacks and coping"
+    ],
+    "honors": [
+     "Lu Xun's \"My Old Home\"",
+     "Tu Youyou and artemisinin"
+    ]
+   },
+   {
+    "title": "Society today",
+    "lessons": [
+     "Ageing, care and the countryside",
+     "City life and housing",
+     "The body, health and medicine",
+     "Law, rules and traffic",
+     "News, media and commentary"
+    ],
+    "honors": [
+     "Dream of the Red Chamber",
+     "Crosstalk"
+    ]
+   },
+   {
+    "title": "Cultures, heritage and history",
+    "lessons": [
+     "Countries, customs and fashions compared",
+     "Food culture",
+     "Festivals, ceremonies and entertainment",
+     "Heritage: arts, crafts and relics",
+     "History: dynasties, war and peace"
+    ],
+    "honors": [
+     "The gardens of Suzhou",
+     "Xu Xiake, traveller"
+    ]
+   },
+   {
+    "title": "Science, the planet and technology",
+    "lessons": [
+     "The digital world and AI",
+     "Space, sea and the planet",
+     "Energy, ecology and the land",
+     "Disasters and rescue",
+     "Products, design and innovation"
+    ],
+    "honors": [
+     "Shen Kuo's notebooks",
+     "Guo Shoujing's calendar"
+    ]
+   },
+   {
+    "title": "Lives, relationships and values",
+    "lessons": [
+     "Growing up and education",
+     "Engagement, marriage and the extended family",
+     "Conflict, debate and reconciliation",
+     "Character and values",
+     "Memories, journeys and time"
+    ],
+    "honors": [
+     "Li Qingzhao",
+     "The Ballad of Mulan"
+    ]
+   },
+   {
+    "title": "Argument, style, language and HSK 6",
+    "lessons": [
+     "Building an argument",
+     "Formal and practical writing",
+     "Dialects, idioms and set phrases",
+     "Sport and competition: writing and speaking practice",
+     "The HSK 6 exam"
+    ],
+    "honors": [
+     "Laozi's sayings",
+     "The Peach Blossom Spring"
     ]
    }
   ]
