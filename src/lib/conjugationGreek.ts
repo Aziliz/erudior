@@ -1095,6 +1095,7 @@ export function grcWordWarnings(item: VocabItem): string[] {
     out.push(`"${term}" may be a compound: the augment goes after the prefix (ἀπέλυον). If the aorist shows that, the augmented forms are refused; give them as tables`);
   if (cls === "decl1" && /της$/.test(bare(term)) && term === "δεσπότης") out.push(`δεσπότης has the vocative δέσποτα: give forms "sg.voc"`);
   if (cls === "decl2" && term === "ἀδελφός") out.push(`ἀδελφός has the vocative ἄδελφε: give forms "sg.voc"`);
-  if (cls === "decl3" && ["ἀνήρ", "πατήρ", "μήτηρ", "θυγάτηρ", "γυνή", "κύων", "ναῦς", "βοῦς", "Ζεύς"].includes(term)) out.push(`${term} is irregular: give its table`);
+  // πατήρ, μήτηρ, θυγάτηρ, ἀνήρ, γυνή and ναῦς are built in (GRC_NOUN_TABLES).
+  if (cls === "decl3" && ["κύων", "βοῦς", "Ζεύς"].includes(term) && !item.forms) out.push(`${term} is irregular: give its table`);
   return out;
 }
