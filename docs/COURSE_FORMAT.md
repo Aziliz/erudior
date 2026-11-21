@@ -884,24 +884,34 @@ Latin (`la`) and Ancient Greek (`grc`, Attic) courses drill nouns, adjectives, p
 | `adj3` | 3rd declension, all i-stems: three endings (ācer), two (omnis), one (fēlīx, ingēns, present participles) | `ācer, ācris, ācre`; `omnis, -e`; `fēlīx, fēlīcis` (one ending: nominative and genitive) |
 | `pron` | pronouns: table only | `ego, meī`; `hic, haec, hoc` |
 | `v1` `v2` `v3` `v3-io` `v4` | the conjugations; deponents are found from the dict (1st part in -or) | `amō, amāre, amāvī, amātum`; `hortor, hortārī, hortātus sum`; semi-deponents `audeō, audēre, ausus sum` |
-| `irr` | irregular verbs | `sum, esse, fuī, futūrus`; `possum, posse, potuī`; `eō, īre, iī, itum`; `ferō, ferre, tulī, lātum`; `volō, velle, voluī`; `nōlō, nōlle, nōluī`; `mālō, mālle, māluī`; `fīō, fierī, factus sum` |
+| `irr` | irregular verbs; compounds of sum, eō and ferō with `forms.prefix` (below) | `sum, esse, fuī, futūrus`; `possum, posse, potuī`; `eō, īre, iī, itum`; `ferō, ferre, tulī, lātum`; `volō, velle, voluī`; `nōlō, nōlle, nōluī`; `mālō, mālle, māluī`; `fīō, fierī, factus sum`; `afferō, afferre, attulī, allātum` |
 
-Gender is `m.`, `f.`, `n.` or `c.` at the end of a noun's `dict`, or `"gender": "m"`/`"f"`/`"n"`. A verb's fourth part may be the supine (`amātum`), the participle (`amātus`) or the future participle (`futūrus`). Write `—` for a part the verb lacks (`timeō, timēre, timuī, —`): those forms then don't exist. If a part is left out instead, the checker asks for it.
+Gender is `m.`, `f.`, `n.` or `c.` at the end of a noun's `dict`, or `"gender": "m"`/`"f"`/`"n"`. A verb's fourth part may be the supine (`amātum`), the participle (`amātus`) or the future participle (`futūrus`). Write `—` for a part the verb lacks (`timeō, timēre, timuī, —`): those forms then don't exist. If a part is left out instead, the checker asks for it. A deponent's or semi-deponent's future participle is made from its perfect participle (*hortātūrus*, *gāvīsūrus*); where it isn't, give it as a fourth part after the perfect: `morior, morī, mortuus sum, moritūrus`, `nāscor, nāscī, nātus sum, nāscitūrus`, `orior, orīrī, ortus sum, oritūrus`, `fruor, fruī, frūctus sum, fruitūrus` (L&S). It makes the future active participle and infinitive; `—` there means the verb has neither.
 
-Rules the generator follows (Allen & Greenough): -ius/-ium nouns take the genitive in -iī (as `dict` gives it), with the older -ī also accepted, and the vocative in -ī (fīlī). -us nouns and adjectives have the vocative in -e. i-stem accusative plural is -ēs, with -īs accepted. -ns adjectives have the ablative -ī, with -e accepted. Comparatives are made with -ior, -ius; superlatives with -issimus, -rimus after -er, and -limus for facilis, difficilis, similis, dissimilis, gracilis and humilis. bonus, malus, magnus, parvus and multus compare irregularly (built in). omnis, tōtus, medius, the possessives and similar adjectives have no comparison. Adjectives in a vowel + -us (idōneus) compare with magis and need forms or `noForms`. dīcō, dūcō and faciō (and compounds) have the imperatives dīc, dūc and fac; compounds in -ficiō keep -e. Deponents have no passive, and their passive-looking forms are drilled under the active ids: the "present indicative" of *hortor* is *hortor, hortāris…*, its "present infinitive" is *hortārī*, and its perfect participle is `perf-pass-ptc`. Semi-deponents have an active present system and a passive-looking perfect, also under the active ids.
+Rules the generator follows (Allen & Greenough): -ius/-ium nouns take the genitive in -iī (as `dict` gives it), with the older -ī also accepted, and the vocative in -ī (fīlī). -us nouns and adjectives have the vocative in -e. i-stem accusative plural is -ēs, with -īs accepted. -ns adjectives have the ablative -ī, with -e accepted. Comparatives are made with -ior, -ius; superlatives with -issimus, -rimus after -er, and -limus for facilis, difficilis, similis, dissimilis, gracilis and humilis. bonus, malus, magnus, parvus and multus compare irregularly (built in). omnis, tōtus, medius, the possessives and similar adjectives have no comparison. Adjectives in a vowel + -us (idōneus, arduus) compare with magis and need forms or `noForms`; -quus is not a vowel + -us, so aequus, antīquus and propinquus compare normally (aequior, aequissimus). dīcō, dūcō and faciō (and compounds) have the imperatives dīc, dūc and fac; compounds in -ficiō keep -e. Deponents have no passive, and their passive-looking forms are drilled under the active ids: the "present indicative" of *hortor* is *hortor, hortāris…*, its "present infinitive" is *hortārī*, and its perfect participle is `perf-pass-ptc`. Semi-deponents have an active present system and a passive-looking perfect, also under the active ids.
 
-Built in, so no table is needed: sum, possum, eō, ferō, volō, nōlō, mālō and fīō (with `conj: "irr"`); deus (plural deī/diī/dī; vocative deus), domus (with the locative domī), vīs (plural vīrēs), mare (ablative marī/mare; no genitive plural); meus (vocative mī); celer (genitive plural celerum).
+Built in, so no table is needed: sum, possum, eō, ferō, volō, nōlō, mālō and fīō (with `conj: "irr"`), and the compounds of sum, eō and ferō with `forms.prefix` (below); deus (plural deī/diī/dī; vocative deus), domus (with the locative domī), vīs (plural vīrēs), mare (ablative marī/mare; no genitive plural); meus (vocative mī); celer (genitive plural celerum).
 
 **Latin words that need a table:**
 - pronouns;
 - pronominal adjectives (ūnus, sōlus, tōtus, alius, alter, uter, nūllus, ūllus, neuter, uterque): at least `sg.gen` and `sg.dat`;
-- consonant-stem adjectives of one ending (vetus, dīves, pauper, prīnceps, particeps, compos, sōspes, superstes, caelebs, inops);
+- adjectives of one ending with consonant-stem forms (A&G 119, 121): vetus, dīves, pauper, prīnceps, particeps, compos, sōspes, superstes, caelebs, caeles, hospes, inops, supplex, praepes, ūber, memor, immemor (ablative memorī, but genitive plural memorum and no neuter plural). The generator refuses them, so they need a full table. Any other one-ending adjective not in -x, -ns or -rs (hebes, pār) is generated as an i-stem and the checker warns: check it;
 - Greek-type nouns; neuters in -us (vulgus);
 - i-stems with -im or -ī (turris, nāvis): `sg.acc`, `sg.abl` (the checker warns);
 - -ubus 4th declension datives (the checker warns);
 - 5th declension nouns other than diēs and rēs, for the plural (the checker warns);
-- other irregular verbs (dō, edō, compounds of sum): `conj: "irr"` with the present system as a table (the perfect system still comes from `dict`);
+- other irregular verbs (dō, edō, compounds of volō or dō): `conj: "irr"` with the present system as a table (the perfect system still comes from `dict`). An `irr` verb ending in -sum, -eō or -ferō without `forms.prefix` gets a checker warning;
 - locatives, given as `sg.loc`/`pl.loc` (Rōmae, Athēnīs).
+
+**Compound verbs (Latin): compounds of sum, eō and ferō.** Give `conj: "irr"` and the prefix as it is written in the first principal part: `"forms": { "prefix": "ab" }` for abeō, `"ad"` for adsum, `"af"` for afferō, `"au"` for auferō, `"cōn"` for cōnferō, `"īn"` for īnferō, `"re"` for referō, `"trāns"` for trānseō. `dict` is written in full, as for any verb: `afferō, afferre, attulī, allātum`; `absum, abesse, āfuī, āfutūrus`. The checker refuses a prefix that doesn't make the term and the infinitive from the simplex.
+- The present system (present, imperfect and future, both subjunctives, imperatives, present infinitives, present participle, gerund, gerundive) is the simplex's with the prefix in front: afferēbam, afferrem, affer; abībam, abeundī.
+- The perfect system comes from `dict`, so assimilated prefixes need nothing more: attulī, allātum; abstulī, ablātum; āfuī, āfutūrus.
+- prō and re keep their old d before a vowel (A&G 198 a, 203 e): `"prō"` makes prōsum, prōdes, prōdesse and prōdeō, prōdīs; `"re"` (or `"red"`) makes redeō and referō.
+- **sum** (A&G 170, 198): no passive, gerund, gerundive or supine. The present participle exists only as absēns and praesēns (A&G 170 b). Absum and adsum also take āforem, adforem beside abessem, adessem, and the future infinitive āfore, adfore, dēfore, prōfore beside -futūrus esse (A&G 170 a, L&S).
+- **eō** (A&G 203): the perfect contracts ii before s (abīstī, abīstis, abīssem, abīsse; abiistī… accepted). Compounds with ad-, ante-, circum-, in-, ob-, praeter-, sub- and trāns- are transitive and have a full personal passive (adeor, adīris, adītur; adībar; aditus sum; adīrī; aditum īrī; adeundus). The others (abeō, exeō, redeō, pereō, prōdeō, coeō…) have no personal passive, only the impersonal 3rd singular, which isn't drilled: their passive forms, perfect passive participle and gerundive aren't drilled, but the supine still makes the future participle (abitūrus). For a compound the rule gets wrong, give the passive as a table or leave it out with `noForms`.
+- **ferō** (A&G 200): every form, active and passive (afferor, afferris, affertur; allātus sum).
+
+A table still overrides single cells (`"pres-act-ind.1sg": "adsum/assum"`). Compounds of other irregular verbs still need the table.
 
 #### Greek classes
 
@@ -1020,7 +1030,7 @@ Latin perfect passive and future infinitive answers accept every gender (amāta 
 | `gerund` | genitive, dative, accusative, ablative | `"gerund": "eundī, eundō, eundum, eundō"` |
 | `perf-act-ind.2sg`… | one form | `"perf-act-ind.2sg": "amāvistī/amāstī"` |
 | `long`, `short` (Greek) | quantity hints (above) | `"long": "ι"` |
-| `prefix` (Greek) | compound verbs (above) | `"prefix": "προσ"` |
+| `prefix` (Greek; Latin compounds of sum, eō, ferō) | compound verbs (above) | `"prefix": "προσ"`, `"prefix": "af"` |
 
 Movable ν in a Greek table is written `(ν)`: `"ἐστί(ν)"`.
 

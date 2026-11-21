@@ -228,8 +228,15 @@ function laNoun(item: VocabItem): ClassicalWord | string {
 
 /** Pronominal adjectives (genitive -īus, dative -ī): UNUS NAUTA (A&G 113). */
 const LA_PRONOMINAL = ["ūnus", "ūllus", "nūllus", "sōlus", "neuter", "alius", "uter", "tōtus", "alter", "uterque"];
-/** 3rd-declension adjectives of one ending declined as consonant stems (A&G 121 b). */
-const LA_CONSONANT_ADJ = ["vetus", "dīves", "pauper", "prīnceps", "particeps", "compos", "sōspes", "superstes", "caelebs", "dēses", "reses", "inops", "pūbēs", "impūbēs"];
+/**
+ * 3rd-declension adjectives of one ending with consonant-stem forms the i-stem rules don't make
+ * (A&G 119, 121): the ablative in -e (dīves, pauper, prīnceps…), the genitive plural in -um
+ * (inops, supplex, memor), the neuter plural in -a or wanting (vetus; memor has none). They are
+ * drilled from a full table.
+ */
+const LA_CONSONANT_ADJ = ["vetus", "dīves", "pauper", "prīnceps", "particeps", "compos", "sōspes", "superstes", "caelebs", "caeles", "dēses", "reses", "hospes", "inops", "supplex", "praepes", "memor", "immemor", "ūber", "pūbēs", "impūbēs"];
+/** One-ending adjectives the i-stem rules fit without a second look: -x, -ns, -rs (A&G 117, 121). */
+const LA_ONE_ENDING_ISTEM = /(x|ns|rs)$/;
 /** No comparison (A&G 131). */
 const LA_NO_COMPARISON = ["omnis", "cūnctus", "tōtus", "sōlus", "ūnus", "nūllus", "ūllus", "medius", "mortuus", "aureus", "argenteus", "ferreus", "meus", "tuus", "suus", "noster", "vester"];
 /** Irregular comparison (A&G 129). */
@@ -323,7 +330,8 @@ function laAdj(item: VocabItem): ClassicalWord | string {
       set(`pl.${c}.n`, stem + pn[i], rule("neuter", pn[i]));
     });
   } else {
-    if (LA_CONSONANT_ADJ.includes(term)) return `${term} is declined as a consonant stem (ablative -e, genitive plural -um; A&G 121 b): give its forms`;
+    if (LA_CONSONANT_ADJ.includes(term))
+      return `${term} has consonant-stem forms the i-stem rules don't make (A&G 119, 121: ablative -e or -ī, genitive plural -um, neuter plural -a or none): give its forms, a full table`;
     const ns = /ns$/.test(m) && d.terminations === 1;
     const what = `3rd declension adjective (i-stem)`;
     const sgMF = ["", "is", "ī", "em", ns ? "ī/e" : "ī", ""];
@@ -354,7 +362,10 @@ function laAdj(item: VocabItem): ClassicalWord | string {
     set("superlative.n", sstem + "um", `${term} has an irregular superlative: ${sup}, ${sstem}a, ${sstem}um`);
   } else if (LA_NO_COMPARISON.includes(term) || LA_PRONOMINAL.includes(term)) {
     for (const s of w.slots.filter((x) => /^(comparative|superlative)\./.test(x))) w.optional.add(s);
-  } else if (/[eiu]us$/.test(m) && d.cls === "adj12") {
+  } else if (/[eiu]us$/.test(m) && !/quus$/.test(m) && d.cls === "adj12") {
+    // -quus isn't a vowel + -us: qu is a consonant, so aequus, antīquus, propinquus compare
+    // normally (aequior, aequissimus). A&G 128 names -us after e or i; -uus (arduus) is asked
+    // about too, since few compare with -ior.
     w.missing.set("comparative", `${term} ends in a vowel + -us: it compares with magis and maximē (A&G 128); give its forms or noForms`);
     w.missing.set("superlative", `${term} ends in a vowel + -us: it compares with magis and maximē (A&G 128); give its forms or noForms`);
   } else {
@@ -496,6 +507,8 @@ interface VerbParts {
   /** dict writes "—" for the perfect or the supine: the verb has none (not drilled, not missing). */
   noPerf?: boolean;
   noSupine?: boolean;
+  /** A deponent's dict gives "—" for the future participle. */
+  noFutPtc?: boolean;
 }
 
 /** The six persons of a periphrastic form: participle + a form of sum, with every gender accepted. */
@@ -540,14 +553,26 @@ function laVerbParts(item: VocabItem, cls: string): VerbParts | string {
 /** The perfect parts of a dict: "amāvī, amātum", "hortātus sum", "ausus sum", "fuī, futūrus". */
 function verbTail(v: VerbParts, rest: string[], deponent: boolean): VerbParts | string {
   const dash = (s: string | undefined) => !s || /^[—–-]+$/.test(s);
+  // A deponent's or semi-deponent's future participle is made from the perfect participle
+  // (hortātūrus) unless dict gives it as a fourth part: "morior, morī, mortuus sum, moritūrus"
+  // (L&S: moritūrus, nāscitūrus, oritūrus, fruitūrus). "—" there: the verb has none.
+  const futFromDict = (p4: string | undefined, ppp: string): string | undefined => {
+    if (p4 === undefined) {
+      v.futPtc = ppp.slice(0, -2) + "ūrus";
+      return;
+    }
+    if (dash(p4)) return void (v.noFutPtc = true);
+    if (!/ūrus$/.test(p4)) return `the fourth part of "${v.term}" after "${ppp} sum" is the future participle in -ūrus ("moritūrus"), not "${p4}"`;
+    v.futPtc = p4;
+  };
   if (deponent) {
     const p3 = rest[0];
     if (dash(p3)) return v;
     const m = /^(\S+us) sum$/.exec(p3);
     if (!m) return `a deponent's third principal part is the perfect participle with sum ("hortātus sum"), not "${p3}"`;
     v.ppp = m[1];
-    v.futPtc = m[1].slice(0, -2) + "ūrus";
-    return v;
+    const bad = futFromDict(rest[1], m[1]);
+    return bad ?? v;
   }
   const p3 = rest[0];
   if (p3 && dash(p3)) v.noPerf = true;
@@ -558,8 +583,9 @@ function verbTail(v: VerbParts, rest: string[], deponent: boolean): VerbParts | 
       v.semi = true;
       v.deponent = false;
       v.ppp = semi[1];
-      v.futPtc = semi[1].slice(0, -2) + "ūrus";
-      return v;
+      v.noSupine = false;
+      const bad = futFromDict(rest[1], semi[1]);
+      return bad ?? v;
     }
     if (!p3.endsWith("ī")) return `the perfect "${p3}" should end in -ī`;
     v.perf = p3.slice(0, -1);
@@ -677,7 +703,8 @@ function laVerbCells(v: VerbParts, w: ClassicalWord, opts: { noPassive?: boolean
     if (v.noSupine) lacks([...keys, "fut-act"]);
     else for (const k of keys) w.missing.set(k, `no fourth principal part (supine) in dict: give it (or "—" if the verb has none), the forms, or noForms`);
   }
-  if (!v.futPtc && !v.noSupine) w.missing.set("fut-act", `no future participle: give the fourth principal part (or "—"), the forms, or noForms`);
+  if (!v.futPtc && v.noFutPtc) lacks(["fut-act"]);
+  else if (!v.futPtc && !v.noSupine) w.missing.set("fut-act", `no future participle: give the fourth principal part (or "—"), the forms, or noForms`);
 }
 
 /**
@@ -803,10 +830,120 @@ const LA_IRREGULAR: Record<string, { model: Omit<VerbParts, "term">; forms: Reco
   },
 };
 
+// --- Compounds of sum, eō and ferō: forms.prefix ("ab" for abeō, "af" for afferō). The
+// present system is the simplex's with the prefix in front; the perfect system comes from dict
+// (attulī, allātum), as for any verb.
+
+const LA_COMPOUND_SIMPLEX: Record<string, string> = { sum: "sum, esse, fuī, futūrus", eō: "eō, īre, iī, itum", ferō: "ferō, ferre, tulī, lātum" };
+const LA_COMPOUND_AG: Record<string, string> = { sum: "A&G 198", eō: "A&G 203", ferō: "A&G 200" };
+/** Compounds of eō with a personal passive: transitive (adeō, ineō, trānseō, obeō, subeō…; A&G 203 a). */
+const LA_EO_TRANSITIVE = ["ad", "ante", "circum", "in", "ob", "praeter", "sub", "trāns"];
+/** The personal passive of a transitive compound of eō, before the prefix (A&G 203 a: adeor, adīris…). */
+const LA_EO_PASSIVE: Record<string, string> = {
+  "pres-pass-ind": "eor, īris/īre, ītur, īmur, īminī, euntur",
+  "impf-pass-ind": "ībar, ībāris/ībāre, ībātur, ībāmur, ībāminī, ībantur",
+  "fut-pass-ind": "ībor, īberis/ībere, ībitur, ībimur, ībiminī, ībuntur",
+  "pres-pass-subj": "ear, eāris/eāre, eātur, eāmur, eāminī, eantur",
+  "impf-pass-subj": "īrer, īrēris/īrēre, īrētur, īrēmur, īrēminī, īrentur",
+  "pres-pass-imp": "īre, īminī",
+  "pres-pass-inf": "īrī",
+  gerundive: "eundus, eunda, eundum",
+};
+/** Compounds of sum with a present participle: absēns, praesēns (A&G 170 b). */
+const LA_SUM_PARTICIPLE = ["ab", "prae"];
+/** Compounds of sum that use fore and forem (L&S: āfore, āforem; adfore, adforem; dēfore; prōfore). */
+const LA_SUM_FORE: Record<string, { inf: boolean; subj: boolean }> = { ā: { inf: true, subj: true }, ad: { inf: true, subj: true }, dē: { inf: true, subj: false }, prō: { inf: true, subj: false } };
+/** Perfect system slots: from dict, not from the simplex. */
+const LA_PERFECT_SYSTEM = /^(perf|plpf|futp)-|^(fut-act-inf|fut-pass-inf|perf-pass-ptc|fut-act-ptc)(\.|$)/;
+
+/** Put a prefix on a form: prō and re keep their old d before a vowel (prōdes, redeō; A&G 198 a, 203 e). */
+function laAttach(prefix: string, form: string): string {
+  const base = prefix === "prōd" || prefix === "red" ? prefix.slice(0, -1) : prefix;
+  const first = form.normalize("NFD")[0];
+  return (base === "prō" || base === "re") && /[aeiou]/.test(first) ? `${base}d${form}` : base + form;
+}
+
+function laCompound(item: VocabItem, w: ClassicalWord, rawPrefix: string): ClassicalWord | string {
+  const term = nfc(item.term);
+  const prefix = nfc(rawPrefix).replace(/-$/, "");
+  const base = prefix === "prōd" || prefix === "red" ? prefix.slice(0, -1) : prefix;
+  const simplex = Object.keys(LA_COMPOUND_SIMPLEX).find((s) => laAttach(prefix, s) === term);
+  if (!simplex) return `forms.prefix "${prefix}": "${term}" isn't ${prefix}- + sum, eō or ferō (written as in the first principal part: "ab" for abeō, "af" for afferō, "prō" for prōsum); other irregular verbs need a table`;
+  const parts = dictParts(item);
+  const sParts = LA_COMPOUND_SIMPLEX[simplex].split(", ");
+  const inf = laAttach(prefix, sParts[1]);
+  if (parts[1] !== inf) return `the infinitive "${parts[1] ?? ""}" should be ${inf} (${prefix}- + ${sParts[1]})`;
+  const s = laVerb({ id: simplex, lesson: "", term: simplex, meanings: [], dict: LA_COMPOUND_SIMPLEX[simplex], conj: "irr" } as unknown as VocabItem);
+  if (typeof s === "string") return s;
+  const ag = LA_COMPOUND_AG[simplex];
+  const passive = simplex === "ferō" || (simplex === "eō" && LA_EO_TRANSITIVE.includes(base));
+  if (simplex === "eō" && passive) applyTable(s, LA_EO_PASSIVE, "eō");
+  // Present system: the simplex's forms with the prefix (sum's forem and fore aside).
+  for (const slot of LA_VERB_SLOTS) {
+    if (LA_PERFECT_SYSTEM.test(slot)) continue;
+    const c = s.cells.get(slot);
+    const forms = c?.forms.filter((f) => !(simplex === "sum" && /^for/.test(f)));
+    if (!c || !forms?.length) {
+      w.optional.add(slot);
+      continue;
+    }
+    const pf = forms.map((f) => laAttach(prefix, f));
+    const every = (f: string) => f.replace(/[^\s,]+/g, (x) => (x.startsWith("-") ? x : laAttach(prefix, x)));
+    w.cells.set(slot, { forms: pf, ...(c.extra ? { extra: c.extra.map(every) } : {}), rule: `${term} is ${prefix}- + ${simplex} (${ag}): ${prefix}- + ${forms[0]} → ${pf[0]}` });
+  }
+  if (simplex === "eō" && w.cells.has("pres-act-ptc.m")) w.cells.get("pres-act-ptc.m")!.extra = [`${laAttach(prefix, "iēns")}, ${laAttach(prefix, "euntis")}`];
+  if (simplex === "sum") {
+    if (LA_SUM_PARTICIPLE.includes(base)) {
+      const p = `${base}sēns`;
+      for (const g of GENDERS) w.cells.set(`pres-act-ptc.${g}`, { forms: [p], extra: g === "m" ? [`${p}, ${base}sentis`] : undefined, rule: `Present participle: ${p}, ${base}sentis (A&G 170 b: sum itself has none)` }), w.optional.delete(`pres-act-ptc.${g}`);
+    }
+  }
+  // Perfect system from dict.
+  const v = verbTail({ cls: "irr", deponent: false, semi: false, term }, parts.slice(2), false);
+  if (typeof v === "string") return v;
+  if (v.semi) return `"${term}": a compound of ${simplex} has an active perfect ("${laAttach(prefix, sParts[2])}")`;
+  laVerbCells(v, w, { noPassive: !passive });
+  // ii before s is regularly contracted to ī in eō and its compounds (A&G 203 c): abīstī, abīsse.
+  if (simplex === "eō" && v.perf !== undefined && v.perf.endsWith("i")) {
+    const p = v.perf.slice(0, -1);
+    const rule = `ii before s is regularly contracted to ī (A&G 203 c): ${p}īstī, ${p}īsse (also ${p}iistī, ${p}iisse)`;
+    const contract = (slot: string, end: string) => w.cells.set(slot, { forms: [`${p}ī${end}`], extra: [`${p}ii${end}`], rule });
+    contract("perf-act-ind.2sg", "stī");
+    contract("perf-act-ind.2pl", "stis");
+    PERSONS.forEach((pp, i) => contract(`plpf-act-subj.${pp}`, E("ssem ssēs sset ssēmus ssētis ssent")[i]));
+    contract("perf-act-inf", "sse");
+  }
+  // fore, forem in the compounds of sum that use them (A&G 170 a; L&S).
+  if (simplex === "sum" && v.perf?.endsWith("fu")) {
+    const pp = v.perf.slice(0, -2);
+    const fore = LA_SUM_FORE[pp];
+    const add = (slot: string, f: string) => {
+      const c = w.cells.get(slot);
+      if (c) w.cells.set(slot, { ...c, forms: [...c.forms, f], rule: `${c.rule}; also ${f} (A&G 170 a)` });
+    };
+    if (fore?.inf) add("fut-act-inf", `${pp}fore`);
+    if (fore?.subj) ["forem", "forēs", "foret", "", "", "forent"].forEach((f, i) => f && add(`impf-act-subj.${PERSONS[i]}`, pp + f));
+  }
+  // No personal passive: sum's compounds, and the intransitive compounds of eō (A&G 203 a: only
+  // the impersonal 3rd singular, not drilled). Their supine still makes the future participle.
+  if (!passive) {
+    for (const slot of w.slots)
+      if (/-pass-/.test(slot) || /^(perf-pass-ptc|gerundive)\./.test(slot)) w.cells.delete(slot), w.optional.add(slot);
+  }
+  if (simplex === "sum") for (const slot of w.slots) if (/^gerund\./.test(slot)) w.optional.add(slot);
+  return w;
+}
+
 function laVerb(item: VocabItem): ClassicalWord | string {
   const cls = item.conj ?? "";
   const term = nfc(item.term);
   const w: ClassicalWord = { kind: "verb", slots: LA_VERB_SLOTS, optional: new Set(), cells: new Map(), missing: new Map() };
+  if (item.forms?.prefix !== undefined) {
+    if (cls !== "irr") return `forms.prefix is for compounds of sum, eō and ferō (conj irr); "${term}" is ${cls}: compounds of regular verbs are generated from dict`;
+    if (!item.dict) return `give "dict", the principal parts ("abeō, abīre, abiī, abitum")`;
+    if (dictParts(item)[0] !== term) return `the term "${item.term}" should be the first principal part in dict ("${dictParts(item)[0]}")`;
+    return laCompound(item, w, item.forms.prefix);
+  }
   if (cls === "irr") {
     const irr = LA_IRREGULAR[term];
     if (!item.dict) return `give "dict", the principal parts ("${irr ? { sum: "sum, esse, fuī, futūrus", possum: "possum, posse, potuī", eō: "eō, īre, iī, itum", ferō: "ferō, ferre, tulī, lātum", volō: "volō, velle, voluī", nōlō: "nōlō, nōlle, nōluī", mālō: "mālō, mālle, māluī", fīō: "fīō, fierī, factus sum" }[term] : "…"}")`;
@@ -831,7 +968,9 @@ function laVerb(item: VocabItem): ClassicalWord | string {
     if (typeof v === "string") return v;
     w.deponent = deponent;
     laVerbCells(v, w);
-    for (const s of w.slots) if (!w.cells.has(s) && !w.missing.has(s.split(".")[0])) w.missing.set(s.split(".")[0], `an irregular verb's present system comes from its table: give forms.${s.split(".")[0]}`);
+    const looks = Object.keys(LA_COMPOUND_SIMPLEX).find((x) => term.endsWith(x) && term !== x);
+    const hint = looks ? ` (or forms.prefix: "${term}" looks like a compound of ${looks}, ${LA_COMPOUND_AG[looks]})` : "";
+    for (const s of w.slots) if (!w.cells.has(s) && !w.missing.has(s.split(".")[0])) w.missing.set(s.split(".")[0], `an irregular verb's present system comes from its table: give forms.${s.split(".")[0]}${hint}`);
     return w;
   }
   const v = laVerbParts(item, cls);
@@ -892,8 +1031,8 @@ export function laWord(item: VocabItem): ClassicalWord | string {
   else w = `"${cls}" isn't a Latin class (${[...LA_NOUN_CLASSES, ...LA_ADJ_CLASSES, "pron", ...LA_VERB_CLASSES].join(", ")})`;
   if (typeof w !== "string" && item.forms) {
     const table = item.forms;
-    for (const k of Object.keys(table)) if (k === "long" || k === "short" || k === "prefix") return (cache.set(item, `forms.${k} is for Greek`), `forms.${k} is for Greek`);
-    const problems = applyTable(w, table, item.term, []);
+    for (const k of Object.keys(table)) if (k === "long" || k === "short" || (k === "prefix" && w.kind !== "verb")) return (cache.set(item, `forms.${k} is for Greek`), `forms.${k} is for Greek`);
+    const problems = applyTable(w, table, item.term, w.kind === "verb" ? ["prefix"] : []);
     if (problems.length) w = problems[0];
   }
   cache.set(item, w);
@@ -919,5 +1058,14 @@ export function laWordWarnings(item: VocabItem): string[] {
   if (["v1", "v2", "v3", "v3-io", "v4"].includes(cls) && parts.length === 3 && !/or$/.test(item.term) && !/ sum$/.test(parts[2])) out.push(`"${item.term}" has no supine in dict: its perfect passive and participles aren't drilled`);
   if (cls === "v3" && /^(dīcō|dūcō|faciō)$/.test(nfc(item.term)) === false && /(dīc|dūc)ō$/.test(nfc(item.term))) out.push(`compound of dīcō/dūcō: imperative ${nfc(item.term).slice(0, -1)} by rule; check it`);
   if (cls === "v3-io" && /ficiō$/.test(nfc(item.term))) out.push(`compounds of faciō with -ficiō keep -e in the imperative (cōnfice)`);
+  if (cls === "irr" && item.forms?.prefix === undefined && !LA_IRREGULAR[nfc(item.term)]) {
+    const s = Object.keys(LA_COMPOUND_SIMPLEX).find((x) => nfc(item.term).endsWith(x) && nfc(item.term) !== x);
+    if (s) out.push(`"${item.term}" looks like a compound of ${s}: forms.prefix makes every form of the present system from ${s} (${LA_COMPOUND_AG[s]}); a table must give them all otherwise`);
+  }
+  if (cls === "adj3" && !item.forms) {
+    const d = laAdjData(item);
+    if (typeof d !== "string" && d.terminations === 1 && !LA_ONE_ENDING_ISTEM.test(d.m) && !LA_CONSONANT_ADJ.includes(nfc(item.term)))
+      out.push(`"${item.term}": a one-ending adjective not in -x, -ns or -rs may have consonant-stem forms (A&G 121: memor, vetus, dīves have -um, -e or no neuter plural): check the ablative singular, genitive plural and neuter plural, and give a table if they differ`);
+  }
   return out;
 }

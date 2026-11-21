@@ -2,7 +2,7 @@
 // from Allen & Greenough's New Latin Grammar (Latin) and Smyth's Greek Grammar (Greek), with
 // macrons, accents and breathings exactly as there; none is derived from the generator.
 import assert from "node:assert/strict";
-import { checkConj, conjMissing, conjWordProblem, formName, formsForClass, promptsFor, classicalWord } from "../src/lib/conjugation.ts";
+import { checkConj, conjMissing, conjWordProblem, conjWordWarnings, formName, formsForClass, promptsFor, classicalWord } from "../src/lib/conjugation.ts";
 import { normalizeConjFields, normalizeConjugationSettings } from "../src/lib/courseConjugation.ts";
 import { slotsOfForm } from "../src/lib/conjugationClassical.ts";
 import type { Course, VocabItem } from "../src/lib/types.ts";
@@ -177,7 +177,21 @@ assert.deepEqual(cell("la", ingens, "sg.abl.m")!.forms, ["ingentī", "ingente"],
 paradigm("la", la("meus", "adj12", "meus, -a, -um"), { "sg.voc": "mī, mea, meum" });
 paradigm("la", la("facilis", "adj3", "facilis, -e"), { superlative: "facillimus, facillima, facillimum" });
 assert.match(conjWordProblem("la", la("ūnus", "adj12", "ūnus, -a, -um"))!, /pronominal/);
-assert.match(conjWordProblem("la", la("vetus", "adj3", "vetus, veteris"))!, /consonant stem/);
+assert.match(conjWordProblem("la", la("vetus", "adj3", "vetus, veteris"))!, /consonant-stem/);
+// -quus is a consonant + -us: aequus, antīquus, propinquus compare normally (A&G 124, 128).
+paradigm("la", la("aequus", "adj12", "aequus, -a, -um"), { comparative: "aequior, aequior, aequius", superlative: "aequissimus, aequissima, aequissimum" });
+paradigm("la", la("antīquus", "adj12", "antīquus, -a, -um"), { comparative: "antīquior, antīquior, antīquius", superlative: "antīquissimus, antīquissima, antīquissimum" });
+paradigm("la", la("propinquus", "adj12", "propinquus, -a, -um"), { comparative: "propinquior, propinquior, propinquius" });
+assert.deepEqual(conjMissing("la", la("idōneus", "adj12", "idōneus, -a, -um"), "comparative").length, 3, "idōneus compares with magis: forms or noForms (A&G 128)");
+// memor: ablative memorī but genitive plural memorum and no neuter plural (A&G 121; L&S): a table.
+assert.match(conjWordProblem("la", la("memor", "adj3", "memor, memoris"))!, /consonant-stem/);
+const memorTable = {
+  sg: "memor, memor, memor, memoris, memoris, memoris, memorī, memorī, memorī, memorem, memorem, memor, memorī, memorī, memorī, memor, memor, memor",
+  pl: "memorēs, memorēs, —, memorum, memorum, memorum, memoribus, memoribus, memoribus, memorēs, memorēs, —, memoribus, memoribus, memoribus, memorēs, memorēs, —",
+};
+paradigm("la", la("memor", "adj3", "memor, memoris", memorTable), { "pl.gen": "memorum, memorum, memorum", "pl.nom": "memorēs, memorēs, —", "sg.abl": "memorī, memorī, memorī" });
+assert(conjWordWarnings("la", la("hebes", "adj3", "hebes, hebetis")).some((x) => /consonant-stem/.test(x)), "one ending not in -x, -ns, -rs: warned");
+assert.deepEqual(conjWordWarnings("la", la("audāx", "adj3", "audāx, audācis")), []);
 
 // =============================================================================================
 // Latin verbs (A&G 184–204). Rows are 1st, 2nd, 3rd singular, 1st, 2nd, 3rd plural.
@@ -401,6 +415,151 @@ paradigm("la", la("volō", "irr", "volō, velle, voluī"), {
   "pres-act-inf": "velle", "perf-act-inf": "voluisse", "pres-act-ptc": "volēns, volēns, volēns",
   "pres-act-imp": "—, —", "pres-pass-ind": "—, —, —, —, —, —", gerund: "—, —, —, —",
 });
+// Compounds of sum, eō and ferō (A&G 170, 198, 200, 203): forms.prefix, written as in the first
+// principal part. The present system is the simplex's with the prefix; the perfect system is from dict.
+const PASSIVE_NONE = {
+  "pres-pass-ind": "—, —, —, —, —, —", "impf-pass-ind": "—, —, —, —, —, —", "fut-pass-ind": "—, —, —, —, —, —",
+  "perf-pass-ind": "—, —, —, —, —, —", "plpf-pass-ind": "—, —, —, —, —, —", "futp-pass-ind": "—, —, —, —, —, —",
+  "pres-pass-subj": "—, —, —, —, —, —", "impf-pass-subj": "—, —, —, —, —, —", "perf-pass-subj": "—, —, —, —, —, —", "plpf-pass-subj": "—, —, —, —, —, —",
+  "pres-pass-imp": "—, —", "pres-pass-inf": "—", "perf-pass-inf": "—", "fut-pass-inf": "—", "perf-pass-ptc": "—, —, —", gerundive: "—, —, —",
+};
+const adsum = la("adsum", "irr", "adsum, adesse, adfuī, adfutūrus", { prefix: "ad" });
+paradigm("la", adsum, {
+  "pres-act-ind": "adsum, ades, adest, adsumus, adestis, adsunt",
+  "impf-act-ind": "aderam, aderās, aderat, aderāmus, aderātis, aderant",
+  "fut-act-ind": "aderō, aderis, aderit, aderimus, aderitis, aderunt",
+  "perf-act-ind": "adfuī, adfuistī, adfuit, adfuimus, adfuistis, adfuērunt",
+  "plpf-act-ind": "adfueram, adfuerās, adfuerat, adfuerāmus, adfuerātis, adfuerant",
+  "futp-act-ind": "adfuerō, adfueris, adfuerit, adfuerimus, adfueritis, adfuerint",
+  "pres-act-subj": "adsim, adsīs, adsit, adsīmus, adsītis, adsint",
+  "impf-act-subj": "adessem, adessēs, adesset, adessēmus, adessētis, adessent",
+  "perf-act-subj": "adfuerim, adfuerīs, adfuerit, adfuerīmus, adfuerītis, adfuerint",
+  "plpf-act-subj": "adfuissem, adfuissēs, adfuisset, adfuissēmus, adfuissētis, adfuissent",
+  "pres-act-imp": "ades, adeste", "fut-act-imp": "adestō, adestō, adestōte, adsuntō",
+  "pres-act-inf": "adesse", "perf-act-inf": "adfuisse", "fut-act-inf": "adfutūrus esse",
+  "pres-act-ptc": "—, —, —", "fut-act-ptc": "adfutūrus, adfutūra, adfutūrum", gerund: "—, —, —, —",
+  ...PASSIVE_NONE,
+});
+assert.deepEqual(cell("la", adsum, "impf-act-subj.1sg")!.forms, ["adessem", "adforem"], "adforem for adessem (L&S)");
+assert.deepEqual(cell("la", adsum, "fut-act-inf")!.forms, ["adfutūrus esse", "adfore"], "adfore (A&G 170 a; L&S)");
+const absum = la("absum", "irr", "absum, abesse, āfuī, āfutūrus", { prefix: "ab" });
+paradigm("la", absum, {
+  "pres-act-ind": "absum, abes, abest, absumus, abestis, absunt", "perf-act-ind": "āfuī, āfuistī, āfuit, āfuimus, āfuistis, āfuērunt",
+  "pres-act-ptc": "absēns, absēns, absēns", "fut-act-inf": "āfutūrus esse", "impf-act-subj": "abessem, abessēs, abesset, abessēmus, abessētis, abessent",
+});
+assert.deepEqual(cell("la", absum, "fut-act-inf")!.forms, ["āfutūrus esse", "āfore"]);
+paradigm("la", la("prōsum", "irr", "prōsum, prōdesse, prōfuī, prōfutūrus", { prefix: "prō" }), {
+  "pres-act-ind": "prōsum, prōdes, prōdest, prōsumus, prōdestis, prōsunt", "impf-act-ind": "prōderam, prōderās, prōderat, prōderāmus, prōderātis, prōderant",
+  "pres-act-subj": "prōsim, prōsīs, prōsit, prōsīmus, prōsītis, prōsint", "impf-act-subj": "prōdessem, prōdessēs, prōdesset, prōdessēmus, prōdessētis, prōdessent",
+  "pres-act-inf": "prōdesse", "pres-act-ptc": "—, —, —",
+});
+paradigm("la", la("dēsum", "irr", "dēsum, dēesse, dēfuī, dēfutūrus", { prefix: "dē" }), { "pres-act-ind": "dēsum, dēes, dēest, dēsumus, dēestis, dēsunt", "pres-act-inf": "dēesse" });
+paradigm("la", la("praesum", "irr", "praesum, praeesse, praefuī, praefutūrus", { prefix: "prae" }), { "pres-act-ind": "praesum, praees, praeest, praesumus, praeestis, praesunt", "pres-act-ptc": "praesēns, praesēns, praesēns" });
+const abeo = la("abeō", "irr", "abeō, abīre, abiī, abitum", { prefix: "ab" });
+paradigm("la", abeo, {
+  "pres-act-ind": "abeō, abīs, abit, abīmus, abītis, abeunt",
+  "impf-act-ind": "abībam, abībās, abībat, abībāmus, abībātis, abībant",
+  "fut-act-ind": "abībō, abībis, abībit, abībimus, abībitis, abībunt",
+  "perf-act-ind": "abiī, abīstī, abiit, abiimus, abīstis, abiērunt",
+  "plpf-act-ind": "abieram, abierās, abierat, abierāmus, abierātis, abierant",
+  "futp-act-ind": "abierō, abieris, abierit, abierimus, abieritis, abierint",
+  "pres-act-subj": "abeam, abeās, abeat, abeāmus, abeātis, abeant",
+  "impf-act-subj": "abīrem, abīrēs, abīret, abīrēmus, abīrētis, abīrent",
+  "perf-act-subj": "abierim, abierīs, abierit, abierīmus, abierītis, abierint",
+  "plpf-act-subj": "abīssem, abīssēs, abīsset, abīssēmus, abīssētis, abīssent",
+  "pres-act-imp": "abī, abīte", "fut-act-imp": "abītō, abītō, abītōte, abeuntō",
+  "pres-act-inf": "abīre", "perf-act-inf": "abīsse", "fut-act-inf": "abitūrus esse",
+  "pres-act-ptc": "abiēns, abiēns, abiēns", "fut-act-ptc": "abitūrus, abitūra, abitūrum",
+  gerund: "abeundī, abeundō, abeundum, abeundō",
+  ...PASSIVE_NONE,
+});
+assert.deepEqual(cell("la", abeo, "perf-act-ind.2sg")!.extra, ["abiistī"], "ii before s contracts, the full form accepted (A&G 203 c)");
+assert(promptsFor(course("la", [abeo], ["pres-act-ptc"]), abeo, "pres-act-ptc")[0].answers.includes("abiēns, abeuntis"), "abiēns, abeuntis (A&G 203)");
+// Transitive compounds of eō have a personal passive (A&G 203 a: adeor, adīris…).
+paradigm("la", la("adeō", "irr", "adeō, adīre, adiī, aditum", { prefix: "ad" }), {
+  "pres-pass-ind": "adeor, adīris, adītur, adīmur, adīminī, adeuntur",
+  "impf-pass-ind": "adībar, adībāris, adībātur, adībāmur, adībāminī, adībantur",
+  "fut-pass-ind": "adībor, adīberis, adībitur, adībimur, adībiminī, adībuntur",
+  "pres-pass-subj": "adear, adeāris, adeātur, adeāmur, adeāminī, adeantur",
+  "impf-pass-subj": "adīrer, adīrēris, adīrētur, adīrēmur, adīrēminī, adīrentur",
+  "perf-pass-ind": "aditus sum, aditus es, aditus est, aditī sumus, aditī estis, aditī sunt",
+  "pres-pass-inf": "adīrī", "perf-pass-inf": "aditus esse", "fut-pass-inf": "aditum īrī",
+  "perf-pass-ptc": "aditus, adita, aditum", gerundive: "adeundus, adeunda, adeundum",
+});
+paradigm("la", la("trānseō", "irr", "trānseō, trānsīre, trānsiī, trānsitum", { prefix: "trāns" }), { "pres-pass-ind": "trānseor, trānsīris, trānsītur, trānsīmur, trānsīminī, trānseuntur", gerundive: "trānseundus, trānseunda, trānseundum" });
+// red- and prōd- before a vowel: "re" and "red", "prō" and "prōd" both work (A&G 203 e).
+for (const p of ["re", "red"]) paradigm("la", la("redeō", "irr", "redeō, redīre, rediī, reditum", { prefix: p }), { "pres-act-ind": "redeō, redīs, redit, redīmus, redītis, redeunt", "perf-act-ind": "rediī, redīstī, rediit, rediimus, redīstis, rediērunt", "pres-pass-ind": "—, —, —, —, —, —" });
+paradigm("la", la("prōdeō", "irr", "prōdeō, prōdīre, prōdiī, prōditum", { prefix: "prō" }), { "pres-act-ind": "prōdeō, prōdīs, prōdit, prōdīmus, prōdītis, prōdeunt" });
+const refero = la("referō", "irr", "referō, referre, rettulī, relātum", { prefix: "re" });
+paradigm("la", refero, {
+  "pres-act-ind": "referō, refers, refert, referimus, refertis, referunt",
+  "impf-act-ind": "referēbam, referēbās, referēbat, referēbāmus, referēbātis, referēbant",
+  "fut-act-ind": "referam, referēs, referet, referēmus, referētis, referent",
+  "perf-act-ind": "rettulī, rettulistī, rettulit, rettulimus, rettulistis, rettulērunt",
+  "plpf-act-ind": "rettuleram, rettulerās, rettulerat, rettulerāmus, rettulerātis, rettulerant",
+  "futp-act-ind": "rettulerō, rettuleris, rettulerit, rettulerimus, rettuleritis, rettulerint",
+  "pres-act-subj": "referam, referās, referat, referāmus, referātis, referant",
+  "impf-act-subj": "referrem, referrēs, referret, referrēmus, referrētis, referrent",
+  "perf-act-subj": "rettulerim, rettulerīs, rettulerit, rettulerīmus, rettulerītis, rettulerint",
+  "plpf-act-subj": "rettulissem, rettulissēs, rettulisset, rettulissēmus, rettulissētis, rettulissent",
+  "pres-pass-ind": "referor, referris, refertur, referimur, referiminī, referuntur",
+  "impf-pass-ind": "referēbar, referēbāris, referēbātur, referēbāmur, referēbāminī, referēbantur",
+  "fut-pass-ind": "referar, referēris, referētur, referēmur, referēminī, referentur",
+  "perf-pass-ind": "relātus sum, relātus es, relātus est, relātī sumus, relātī estis, relātī sunt",
+  "plpf-pass-ind": "relātus eram, relātus erās, relātus erat, relātī erāmus, relātī erātis, relātī erant",
+  "futp-pass-ind": "relātus erō, relātus eris, relātus erit, relātī erimus, relātī eritis, relātī erunt",
+  "pres-pass-subj": "referar, referāris, referātur, referāmur, referāminī, referantur",
+  "impf-pass-subj": "referrer, referrēris, referrētur, referrēmur, referrēminī, referrentur",
+  "perf-pass-subj": "relātus sim, relātus sīs, relātus sit, relātī sīmus, relātī sītis, relātī sint",
+  "plpf-pass-subj": "relātus essem, relātus essēs, relātus esset, relātī essēmus, relātī essētis, relātī essent",
+  "pres-act-imp": "refer, referte", "pres-pass-imp": "referre, referiminī", "fut-act-imp": "refertō, refertō, refertōte, referuntō",
+  "pres-act-inf": "referre", "pres-pass-inf": "referrī", "perf-act-inf": "rettulisse", "perf-pass-inf": "relātus esse", "fut-act-inf": "relātūrus esse", "fut-pass-inf": "relātum īrī",
+  "pres-act-ptc": "referēns, referēns, referēns", "perf-pass-ptc": "relātus, relāta, relātum", "fut-act-ptc": "relātūrus, relātūra, relātūrum", gerundive: "referendus, referenda, referendum",
+  gerund: "referendī, referendō, referendum, referendō",
+});
+assert.deepEqual(cell("la", refero, "pres-pass-ind.2sg")!.forms, ["referris", "referre"]);
+const affero = la("afferō", "irr", "afferō, afferre, attulī, allātum", { prefix: "af" });
+paradigm("la", affero, {
+  "pres-act-ind": "afferō, affers, affert, afferimus, affertis, afferunt",
+  "impf-act-ind": "afferēbam, afferēbās, afferēbat, afferēbāmus, afferēbātis, afferēbant",
+  "fut-act-ind": "afferam, afferēs, afferet, afferēmus, afferētis, afferent",
+  "perf-act-ind": "attulī, attulistī, attulit, attulimus, attulistis, attulērunt",
+  "plpf-act-ind": "attuleram, attulerās, attulerat, attulerāmus, attulerātis, attulerant",
+  "futp-act-ind": "attulerō, attuleris, attulerit, attulerimus, attuleritis, attulerint",
+  "pres-act-subj": "afferam, afferās, afferat, afferāmus, afferātis, afferant",
+  "impf-act-subj": "afferrem, afferrēs, afferret, afferrēmus, afferrētis, afferrent",
+  "perf-act-subj": "attulerim, attulerīs, attulerit, attulerīmus, attulerītis, attulerint",
+  "plpf-act-subj": "attulissem, attulissēs, attulisset, attulissēmus, attulissētis, attulissent",
+  "pres-pass-ind": "afferor, afferris, affertur, afferimur, afferiminī, afferuntur",
+  "impf-pass-ind": "afferēbar, afferēbāris, afferēbātur, afferēbāmur, afferēbāminī, afferēbantur",
+  "fut-pass-ind": "afferar, afferēris, afferētur, afferēmur, afferēminī, afferentur",
+  "perf-pass-ind": "allātus sum, allātus es, allātus est, allātī sumus, allātī estis, allātī sunt",
+  "plpf-pass-ind": "allātus eram, allātus erās, allātus erat, allātī erāmus, allātī erātis, allātī erant",
+  "futp-pass-ind": "allātus erō, allātus eris, allātus erit, allātī erimus, allātī eritis, allātī erunt",
+  "pres-pass-subj": "afferar, afferāris, afferātur, afferāmur, afferāminī, afferantur",
+  "impf-pass-subj": "afferrer, afferrēris, afferrētur, afferrēmur, afferrēminī, afferrentur",
+  "perf-pass-subj": "allātus sim, allātus sīs, allātus sit, allātī sīmus, allātī sītis, allātī sint",
+  "plpf-pass-subj": "allātus essem, allātus essēs, allātus esset, allātī essēmus, allātī essētis, allātī essent",
+  "pres-act-imp": "affer, afferte", "pres-pass-imp": "afferre, afferiminī", "fut-act-imp": "affertō, affertō, affertōte, afferuntō",
+  "pres-act-inf": "afferre", "pres-pass-inf": "afferrī", "perf-act-inf": "attulisse", "perf-pass-inf": "allātus esse", "fut-act-inf": "allātūrus esse", "fut-pass-inf": "allātum īrī",
+  "pres-act-ptc": "afferēns, afferēns, afferēns", "perf-pass-ptc": "allātus, allāta, allātum", "fut-act-ptc": "allātūrus, allātūra, allātūrum", gerundive: "afferendus, afferenda, afferendum",
+  gerund: "afferendī, afferendō, afferendum, afferendō",
+});
+paradigm("la", la("auferō", "irr", "auferō, auferre, abstulī, ablātum", { prefix: "au" }), { "pres-act-ind": "auferō, aufers, aufert, auferimus, aufertis, auferunt", "perf-act-ind": "abstulī, abstulistī, abstulit, abstulimus, abstulistis, abstulērunt", "perf-pass-ptc": "ablātus, ablāta, ablātum" });
+// A table still overrides one cell of a compound (adsum's assum).
+assert.deepEqual(cell("la", la("adsum", "irr", "adsum, adesse, adfuī, adfutūrus", { prefix: "ad", "pres-act-ind.1sg": "adsum/assum" }), "pres-act-ind.1sg")!.forms, ["adsum", "assum"]);
+assert.match(conjWordProblem("la", la("afferō", "irr", "afferō, afferre, attulī, allātum", { prefix: "ad" }))!, /isn't ad- \+ sum, eō or ferō/);
+assert.match(conjWordProblem("la", la("afferō", "irr", "afferō, adferre, attulī, allātum", { prefix: "af" }))!, /should be afferre/);
+assert.match(conjWordProblem("la", la("dēdūcō", "v3", "dēdūcō, dēdūcere, dēdūxī, dēductum", { prefix: "dē" }))!, /compounds of sum, eō and ferō/);
+assert.match(conjMissing("la", la("exeō", "irr", "exeō, exīre, exiī, exitum"), "pres-act-subj")[0].why!, /forms\.prefix/);
+assert(conjWordWarnings("la", la("exeō", "irr", "exeō, exīre, exiī, exitum")).some((x) => /compound of eō/.test(x)));
+// Deponents with an irregular future participle give it as a fourth part (L&S moritūrus, oritūrus…).
+const morior = la("morior", "v3-io", "morior, morī, mortuus sum, moritūrus");
+paradigm("la", morior, { "perf-act-ind": "mortuus sum, mortuus es, mortuus est, mortuī sumus, mortuī estis, mortuī sunt", "fut-act-ptc": "moritūrus, moritūra, moritūrum", "fut-act-inf": "moritūrus esse", "perf-pass-ptc": "mortuus, mortua, mortuum" });
+paradigm("la", la("fruor", "v3", "fruor, fruī, frūctus sum, fruitūrus"), { "fut-act-ptc": "fruitūrus, fruitūra, fruitūrum" });
+paradigm("la", la("gaudeō", "v2", "gaudeō, gaudēre, gāvīsus sum, gāvīsūrus"), { "fut-act-ptc": "gāvīsūrus, gāvīsūra, gāvīsūrum", "perf-act-ind.1sg": "gāvīsus sum" });
+paradigm("la", la("reor", "v2", "reor, rērī, ratus sum, —"), { "fut-act-ptc": "—, —, —", "fut-act-inf": "—" });
+assert.match(conjWordProblem("la", la("morior", "v3-io", "morior, morī, mortuus sum, moritum"))!, /future participle in -ūrus/);
 // dīc, dūc, fac, fer (A&G 182) and compounds; cōnficiō keeps -e.
 assert.equal(row("la", la("dūcō", "v3", "dūcō, dūcere, dūxī, ductum"), "pres-act-imp"), "dūc, dūcite");
 assert.equal(row("la", la("dīcō", "v3", "dīcō, dīcere, dīxī, dictum"), "pres-act-imp"), "dīc, dīcite");
