@@ -18,6 +18,8 @@ import uuid
 GUEST_SOURCE = Path(__file__).with_name("guest_probe.py").read_text() if "__file__" in globals() else sys.argv.pop(1)
 
 SCENARIO = "linux-nfs-autofs-v1"
+RHCSA_COURSE = "rhcsa-rhel10-administration"
+ALMA_IMAGE = "almalinux-10-rhcsa.qcow2"
 ROLES = ("server", "client")
 MACS = {"server": "52:54:00:aa:00:10", "client": "52:54:00:aa:00:20"}
 ADDRESSES = {"server": "192.168.77.10", "client": "192.168.77.20"}
@@ -119,9 +121,18 @@ def connect(role, channel, timeout=3):
         raise
 
 
-def reply(stream):
+def reply(stream, *, quitting=False):
     while True:
-        line = stream.readline(131072)
+        try:
+            line = stream.readline(131072)
+        except ConnectionResetError:
+            if not quitting:
+                raise
+            line = b""
+        # QEMU can exit before acknowledging quit. The caller still waits
+        # for the actual process to exit before removing any guest files.
+        if not line and quitting:
+            return
         if not line or len(line) >= 131072:
             raise LabError("Lost the virtual machine connection.")
         packet = json.loads(line.lstrip(b"\xff"))
@@ -145,7 +156,7 @@ def monitor(role, command):
         send(stream, "qmp_capabilities")
         reply(stream)
         send(stream, command)
-        return reply(stream)
+        return reply(stream, quitting=command == "quit")
 
 
 def process_alive(role):
@@ -323,9 +334,12 @@ def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_prof
     if any(guest.get("ready") is not True for guest in guests.values()):
         raise LabError("The machines are still preparing. Wait for guest startup and retry.")
     platforms = {}
-    if mock_profile:
+    alma_course = attempt.get("baseImage") == ALMA_IMAGE
+    if mock_profile or alma_course:
         for role, guest in guests.items():
             release = guest.get("platform", {})
+            if alma_course and (release.get("id") != "almalinux" or release.get("el10") is not True):
+                raise LabError(f"The {role} must run AlmaLinux 10. Check the prepared course image and guest /etc/os-release.")
             if release.get("el10") is not True or not isinstance(release.get("name"), str) or not release["name"]:
                 raise LabError(f"Prepare the {role} with RHEL 10 or a compatible Enterprise Linux 10 image before starting this mock.")
             platforms[role] = release["name"][:100]
@@ -631,7 +645,7 @@ def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False):
         if tasks:
             exam["rubric"] = tasks
             exam["gradingVersion"] = 2
-        if mock_profile:
+        if "platforms" in prepared:
             exam["platforms"] = prepared["platforms"]
         attempt["exam"] = exam
         ensure_worker(expected)
@@ -676,6 +690,8 @@ def operate(action, base):
         if not attempt:
             attempt = {"id": str(uuid.uuid4()), "password": secrets.token_urlsafe(10),
                        "marker": secrets.token_hex(16)}
+            if base.name == ALMA_IMAGE:
+                attempt["baseImage"] = ALMA_IMAGE
             save("attempt.json", attempt)
         for role in ROLES:
             if not running(role):
@@ -712,7 +728,9 @@ def operate(action, base):
                           "STDIO,rawer", f"UNIX-CONNECT:{role}.serial"],
                          stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                          start_new_session=True)
-    return {"running": {role: running(role) for role in ROLES},
+    # A rebooting guest can take several seconds to answer QMP. Polling the
+    # status panel only needs liveness; process_alive verifies the disk and cwd.
+    return {"running": {role: process_alive(role) or running(role) for role in ROLES},
             "password": attempt["password"] if attempt else None, "report": load("report.json"),
             "attemptId": attempt["id"] if attempt else None,
             "resetPending": Path("reset-pending").exists()}
@@ -757,7 +775,13 @@ def main(args):
             if timed and action == "status":
                 return exam_status()
             raise LabError("Another operation is running for this lab. Try again shortly.") from None
-        base = root / "images" / (SCENARIO + ".qcow2")
+        image = SCENARIO + ".qcow2"
+        if course == RHCSA_COURSE:
+            existing = load("attempt.json")
+            # Existing overlays retain their original backing file and grading contract.
+            if existing is None or existing.get("baseImage") == ALMA_IMAGE:
+                image = ALMA_IMAGE
+        base = root / "images" / image
         return exam_action(action, base, minutes, expected, tasks, mock_profile=scenario == RHCSA_MOCK) if timed else operate(action, base)
 
 

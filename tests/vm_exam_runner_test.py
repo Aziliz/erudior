@@ -159,6 +159,35 @@ class ExamTests(unittest.TestCase):
         state = runner.exam_action("begin", None, 180, self.id, self.tasks, mock_profile=True)
         self.assertEqual(state["exam"]["platforms"], {"client":"Red Hat Enterprise Linux 10","server":"AlmaLinux 10"})
 
+    def test_alma_course_requires_both_guest_ids_and_major_version(self):
+        attempt = runner.load("attempt.json")
+        attempt["baseImage"] = runner.ALMA_IMAGE
+        runner.save("attempt.json", attempt)
+        alma = {"el10": True, "id": "almalinux", "name": "AlmaLinux 10.3"}
+        self.client["platform"] = alma
+        self.server["platform"] = alma
+        for guest in (self.client, self.server):
+            for wrong in (dict(alma, id="rhel"), dict(alma, el10=False), {}):
+                guest["platform"] = wrong
+                with self.assertRaisesRegex(runner.LabError, "must run AlmaLinux 10"):
+                    self.action("begin", self.tasks)
+                self.assertNotIn("exam", runner.load("attempt.json"))
+            guest["platform"] = alma
+        state = self.action("begin", self.tasks)
+        self.assertEqual(state["exam"]["platforms"], dict.fromkeys(runner.ROLES, alma["name"]))
+
+    def test_combined_course_selects_image_without_rebasing_legacy_overlays(self):
+        args = ["start", runner.RHCSA_MOCK, "learner", runner.RHCSA_COURSE, "final"]
+        with patch.object(runner, "exam_action", return_value={}) as action:
+            runner.main(args)
+            self.assertEqual(action.call_args.args[1].name, runner.ALMA_IMAGE)
+            runner.save("attempt.json", {"id": self.id})
+            runner.main(args)
+            self.assertEqual(action.call_args.args[1].name, runner.SCENARIO + ".qcow2")
+            runner.save("attempt.json", {"id": self.id, "baseImage": runner.ALMA_IMAGE})
+            runner.main(args)
+            self.assertEqual(action.call_args.args[1].name, runner.ALMA_IMAGE)
+
     def test_mock_profile_pins_duration_and_rubric(self):
         args = ["status", runner.RHCSA_MOCK, "learner", "course", "unit"]
         self.assertEqual(runner.main(args)["exam"]["phase"], "new")

@@ -4,7 +4,7 @@ Import `samples/demo-vm-lab.json` in the desktop app and open one of its three l
 
 ## RHCSA practice exam for RHEL 10
 
-Import `samples/rhcsa-10-practice-exam.json` and open **RHCSA practice exam**. One client and one server share a private network. Each of the ten tasks represents a different public EX200 objective area. Learners may use normal guest tools and installed documentation. Both guests must identify as RHEL 10 or compatible Enterprise Linux 10 before the timer starts. The lesson shows each guest’s actual distribution. Use RHEL 10 on both machines to practice on the distribution used for EX200. Erudior sets the three-hour time limit, equal 30-point weights and 210/300 practice target.
+Import `samples/rhcsa-10-practice-exam.json` and open **RHCSA practice exam**. One client and one server share a private network. Each of the ten tasks represents a different public EX200 objective area. Learners may use normal guest tools and installed documentation. Both guests must identify as RHEL 10 or compatible Enterprise Linux 10 before the timer starts. The lesson shows each guest’s actual distribution. The standalone profile accepts compatible EL10 guests. In the combined course, new attempts require AlmaLinux 10 on both machines. Red Hat uses RHEL 10 for EX200. Erudior sets the three-hour time limit, equal 30-point weights and 210/300 practice target.
 
 The score report shows a practice outcome and points by objective area. Expand **Review task checks** to compare the observed state at submission with the state after the machine rebooted. A server configuration that disappeared on reboot earns zero even if it was correct at submission. Completed reports from earlier releases keep their original scores and identify unverified server persistence.
 
@@ -25,7 +25,7 @@ The [Red Hat EX200 objectives](https://www.redhat.com/en/services/training/ex200
 
 ## Run the desktop labs
 
-Search the desktop Library for **RHCSA preparation • System administration on RHEL 10** or import `samples/rhcsa-10-administration.json`. The Windows, macOS and Linux desktop programs provide the same two guest consoles inside the lesson. A private Linux provider runs QEMU and the grader locally. The two practice machines remain the x86-64 client and server. On Windows and macOS, the provider is an additional local virtualization layer.
+Search the desktop Library for **Zero to RHCSA on RHEL 10** or import `samples/rhcsa-10-administration.json`. The Windows, macOS and Linux desktop programs provide the same two guest consoles inside the lesson. A private Linux provider runs QEMU and the grader locally. The two practice machines remain the x86-64 client and server. On Windows and macOS, the provider is an additional local virtualization layer.
 
 | Desktop | Where the provider runs | First use |
 | --- | --- | --- |
@@ -35,19 +35,29 @@ Search the desktop Library for **RHCSA preparation • System administration on 
 
 In a Debian 13 provider run `sudo apt update` and `sudo apt install python3 qemu-system-x86 qemu-utils genisoimage`. On other Linux distributions install equivalent packages. Verify `qemu-system-x86_64 --version` is at least 9.2. The provider also needs Python 3.9 or newer, qemu-img and either genisoimage or xorriso. The in-app serial consoles use the local desktop bridge. Each guest gets 1.5 GiB RAM and two virtual CPUs. Allocate enough provider memory for both guests and Linux itself. Eligible x86-64 hosts can use KVM. Apple silicon and other hosts without usable x86 acceleration use QEMU software emulation; first boot and reboot checks can take several minutes.
 
-### Supply the guest image
+### Prepare the AlmaLinux 10 image for the combined RHCSA course
 
-Prepare a BIOS-bootable x86-64 RHEL 10 cloud image from media you are entitled to use, or a compatible Enterprise Linux 10 image. Install cloud-init with NoCloud support, Python 3, systemd, autofs, nfs-utils, sudo, util-linux and coreutils. Enable cloud-init and serial login on ttyS0. Shut down the template with fresh cloud-init state. Leave the autofs maps unconfigured. Include DNF with its Python bindings, TuneD and its standard profiles, SELinux targeted policy and tools, swap utilities and runuser/prlimit. Start with SELinux enforcing and the graded paths and names unused. The engine adds the repository metadata and exercise service when it creates the guest disks.
+Both student consoles in a new combined-course attempt use AlmaLinux 10 x86_64. Debian under WSL or Lima is the provider. The downloaded Generic Cloud disk contains an operating system but may lack required lab packages. Prepare a separate standalone qcow2 once while package sources are reachable. The course gives each learner a private overlay of that base.
 
-Inside the provider use `mkdir -p ~/.local/share/erudior-vm-labs/images` and copy the powered-off standalone qcow2 to `~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2`. If you configure XDG_DATA_HOME for the provider process, use that directory instead of ~/.local/share. Keep the base image in place while overlays refer to it.
+1. Obtain the versioned AlmaLinux 10 **Generic Cloud x86_64 qcow2** and match its SHA-256 to the same filename on the official download page. Use the standard x86_64 build for these QEMU settings. [AlmaLinux images and checksums](https://almalinux.org/get-almalinux/) · [Generic Cloud images](https://wiki.almalinux.org/cloud/Generic-cloud)
+2. In a copy of that VM, with the AlmaLinux repositories or matching DVD attached, confirm `ID=almalinux` and a 10.x `VERSION_ID` in `/etc/os-release`. Install the packages below. Use a console or the cloud login you configured for this preparation VM. The image needs BIOS boot, cloud-init NoCloud, serial login on ttyS0 and SELinux enforcing.
+3. From the console check `dnf repolist --enabled`, `getenforce`, `rpm -q nfs-utils autofs tuned flatpak`, `test -x /usr/bin/python3`, and `/usr/bin/python3 -c 'import dnf'`. Enable serial login with `sudo systemctl enable serial-getty@ttyS0.service`. Confirm the distribution's cloud-init services are enabled and that the image accepts NoCloud seed media. Leave learner exercise names, custom automounts and the graded paths unused.
+4. On this template copy, remove provisioning-only credentials you created and run `sudo cloud-init clean --logs --machine-id`. Shut down with `sudo systemctl poweroff`. Use `qemu-img convert -O qcow2 SOURCE.qcow2 almalinux-10-rhcsa.qcow2` in a fresh directory if you need a standalone disk from an overlay. Inspect `qemu-img info --backing-chain almalinux-10-rhcsa.qcow2`. A standalone base has one image in the chain.
+5. Inside the provider create `~/.local/share/erudior-vm-labs/images` and copy the powered-off base there as **almalinux-10-rhcsa.qcow2**. With a custom XDG_DATA_HOME, use its erudior-vm-labs/images directory. Keep backing disks in place while attempts use them. On Windows copy from the corresponding `/mnt/c/...` path inside WSL. On macOS use `limactl copy ./almalinux-10-rhcsa.qcow2 erudior-labs:/tmp/almalinux-10-rhcsa.qcow2` and install it inside Lima.
 
-- On Windows, open Debian and copy the image from its Windows drive mount, for example `cp '/mnt/c/Users/your-name/Downloads/rhel10.qcow2' ~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2`. Use the actual Windows account and filename.
-- On macOS, transfer the image with `limactl copy ./rhel10.qcow2 erudior-labs:/tmp/erudior-base.qcow2`. Inside the Lima instance move it from that temporary path into the images directory under the exact filename above.
-- On Linux, copy the image directly into the images directory as the Erudior user.
+```sh
+sudo dnf install cloud-init python3 python3-dnf systemd sudo util-linux coreutils \
+  autofs nfs-utils tuned selinux-policy-targeted policycoreutils-python-utils \
+  firewalld NetworkManager openssh-clients openssh-server httpd curl \
+  lvm2 xfsprogs e2fsprogs dosfstools parted at cronie chrony flatpak \
+  createrepo_c grubby bzip2 tar man-db man-pages vim-minimal info
+```
+
+New attempts in the combined course load the AlmaLinux-specific file. The timed labs check both guest OS identities before the clock starts. Their private link has no Internet route. The manual pair can use a separate NAT adapter or the matching DVD for software workshops. Other courses and preexisting attempts retain their original image at `images/linux-nfs-autofs-v1.qcow2`. To move to AlmaLinux after a legacy practical, save its results and use **Reset disks** only when ready to discard that practical's work.
 
 Open a practice lesson. Start both machines, open each console, press Enter and confirm the guest hostname. For timed work, prepare the pair, begin the attempt and submit from the app. The grader records both observations, and Progress retains the result. Closing a terminal closes its connection. Stopping WSL, Lima or the physical computer interrupts its VMs. After a provider restart, reopen the lesson to see the saved state and recovery options.
 
-The browser catalog offers **RHCSA preparation • RHEL 10 lessons and quizzes**. This edition also imports as an ordinary course JSON, uses browser-local progress and includes 17 instructional lessons with 36 questions. Each edition has a distinct course ID. A browser study record and a desktop VM attempt have independent progress.
+The browser and desktop catalogs both offer **Zero to RHCSA on RHEL 10**. Open or import `samples/rhcsa-10-administration.json` for the same 51 lessons and 76 questions. A manual two-guest setup supports hands-on work alongside the browser. The desktop app also records the built-in VM grades. Earlier desktop attempts retain their original course, lesson and scenario IDs. The former web study file stays in the signed history. Previously enrolled learners can open the combined course from their old course page and carry forward completed shared lessons on the same profile. Earlier quiz attempts remain in their original history.
 
 [Microsoft WSL command reference](https://learn.microsoft.com/en-us/windows/wsl/basic-commands) · [Lima usage](https://lima-vm.io/docs/usage/) · [Lima shell](https://lima-vm.io/docs/reference/limactl_shell/)
 
@@ -74,7 +84,7 @@ The sample awards 3 points for the client account, 4 for the server directory an
 
 ### Existing practice disks
 
-New disks receive the current guest probe automatically. To keep an older practice client's work, install the updated `src-tauri/src/vm_lab/guest_probe.py` on the client at `/usr/local/libexec/erudior-lab-probe.py`, run `sudo restorecon /usr/local/libexec/erudior-lab-probe.py` and restart `erudior-lab-probe.service`. This revision can recognize a real NFS file beneath a stacked autofs mount. Previously saved practice scores remain readable. Start the fixed mock with freshly prepared disks to receive the supplied service and local repository. In-flight exams started with the older grader finish with their original policy.
+New disks receive the current guest probe automatically. To retain an older practice pair's work when successive checks time out, install the updated `src-tauri/src/vm_lab/guest_probe.py` on each affected guest at `/usr/local/libexec/erudior-lab-probe.py`, run `sudo restorecon /usr/local/libexec/erudior-lab-probe.py` and restart `erudior-lab-probe.service`. The probe keeps its guest port open between checks and recognizes a real NFS file beneath a stacked autofs mount. Previously saved practice scores remain readable. Start the fixed mock with freshly prepared disks to receive the supplied service and local repository. In-flight exams started with the older grader finish with their original policy.
 
 ## Verify on a Linux host
 

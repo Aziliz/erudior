@@ -105,19 +105,26 @@ def acceptance(base, mock_exam=False):
     with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ, XDG_DATA_HOME=tmp):
         images = Path(tmp) / "erudior-vm-labs/images"
         images.mkdir(parents=True)
-        (images / (runner.SCENARIO + ".qcow2")).symlink_to(base)
+        image_name = runner.ALMA_IMAGE if mock_exam else runner.SCENARIO + ".qcow2"
+        course = runner.RHCSA_COURSE if mock_exam else "fixture"
+        (images / image_name).symlink_to(base)
         try:
             scenario = runner.RHCSA_MOCK if mock_exam else runner.ADMIN_EXAM
             minutes, tasks = ("180", MOCK_TASKS) if mock_exam else ("10", TASKS)
             prepare, check = (configure_mock, verify_mock) if mock_exam else (configure, verify)
             for variant in (False, True):
                 def action(name, expected=""):
-                    return runner.main([name, scenario, "host", "fixture", "weighted", minutes, expected, json.dumps(tasks)])
+                    return runner.main([name, scenario, "host", course, "weighted", minutes, expected, json.dumps(tasks)])
                 started = action("start")
                 attempt = started["exam"]["id"]
                 for role in runner.ROLES:
                     ready(role, attempt)
                 state = action("begin", attempt)
+                if mock_exam:
+                    platforms = state["exam"]["platforms"]
+                    boots = {role: runner.probe(role, "tasks", attempt)["boot"] for role in runner.ROLES}
+                    assert len(set(boots.values())) == len(runner.ROLES)
+                    print(json.dumps({"attempt": attempt, "platforms": platforms, "bootsBefore": boots}), flush=True)
                 for role in runner.ROLES:
                     prepare(role, state["password"], variant)
                 action("submit", attempt)
@@ -130,6 +137,10 @@ def acceptance(base, mock_exam=False):
                         raise RuntimeError(state["exam"]["error"])
                     time.sleep(2)
                 check(state["report"], variant)
+                if mock_exam:
+                    rebooted = {role: runner.probe(role, "tasks", attempt)["boot"] for role in runner.ROLES}
+                    assert all(rebooted[role] != boots[role] for role in runner.ROLES)
+                    print(json.dumps({"attempt": attempt, "bootsAfter": rebooted}), flush=True)
                 print(json.dumps(state["report"]), flush=True)
                 action("reset", attempt)
         finally:

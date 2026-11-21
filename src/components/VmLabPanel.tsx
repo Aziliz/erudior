@@ -98,7 +98,7 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
     <h2>Two-machine Linux lab</h2>
     <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>
     {supported ? <>
-      <VmSetup provider={provider} />
+      <VmSetup provider={provider} course={course} />
       {lab?.resetPending && <p role="alert">Choose Reset disks again to finish the interrupted reset.</p>}
       {lab && <p role="status">Server {lab.running.server ? "running" : "off"} · Client {lab.running.client ? "running" : "off"}</p>}
       <div className="row" aria-busy={!!busy}>

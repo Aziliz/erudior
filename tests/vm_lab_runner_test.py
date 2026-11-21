@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src-tauri/src/vm_lab"))
 import runner
@@ -13,6 +13,34 @@ import guest_probe
 
 
 class RunnerTests(unittest.TestCase):
+    def test_status_can_read_a_live_guest_while_its_monitor_is_busy(self):
+        with patch.object(runner, "process_alive", side_effect=lambda role: role == "server"), \
+                patch.object(runner, "running", return_value=False) as monitor_check:
+            self.assertEqual(runner.operate("status", None)["running"], {"server": True, "client": False})
+        monitor_check.assert_called_once_with("client")
+
+    def test_qmp_can_close_without_a_final_quit_reply(self):
+        stream = Mock()
+        stream.readline.return_value = b""
+        self.assertIsNone(runner.reply(stream, quitting=True))
+        with self.assertRaises(runner.LabError):
+            runner.reply(stream)
+        stream.readline.side_effect = ConnectionResetError()
+        self.assertIsNone(runner.reply(stream, quitting=True))
+        with self.assertRaises(ConnectionResetError):
+            runner.reply(stream)
+
+    def test_guest_port_stays_open_between_host_observations(self):
+        port = Mock()
+        first, second = "a" * 32, "b" * 32
+        port.readline.side_effect = [(first + " observe\n").encode(), b"",
+                                     (second + " observe\n").encode(), OSError("device removed")]
+        with patch.object(guest_probe, "observe", return_value={"ready": True}), patch.object(guest_probe.time, "sleep"):
+            with self.assertRaisesRegex(OSError, "device removed"):
+                guest_probe.serve(port, "client", "practice")
+        replies = [json.loads(call.args[0]) for call in port.write.call_args_list]
+        self.assertEqual([reply["nonce"] for reply in replies], [first, second])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

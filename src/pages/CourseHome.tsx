@@ -1,5 +1,5 @@
 import { rawCourse } from "../lib/zhScript";
-import { catalogEntry, isPublishedCourse } from "../lib/catalog";
+import { isPublishedCourse, replacementFor } from "../lib/catalog";
 import { useMemo, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import type { AppApi } from "../App";
@@ -57,12 +57,15 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
 
   const [offlineExport, setOfflineExport] = useState(false);
   const offlineExportButton = useRef<HTMLButtonElement>(null);
-  const fromCatalog = !!catalogEntry(course.id) || !!course.community;
+  const fromCatalog = isPublishedCourse(course);
+  const replacement = replacementFor(course.id);
 
   async function onDelete() {
     const n = courseCounts(course);
     const ok = await store.confirmAction(
-      fromCatalog
+      replacement
+        ? `Remove the archived course "${course.title}" from In progress? Your learning records are kept. The catalog now offers "${replacement.title}".`
+        : fromCatalog
         ? `Remove "${course.title}" from In progress? Your progress is kept, and you can start it again from the course catalog.`
         : `Delete "${course.title}" (${n.lessons} lessons, ${n.questions} questions, ${n.cards} cards)? Your history stays. This can't be undone.`,
     );
@@ -120,6 +123,13 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         </div>
       </div>
 
+      {replacement && (
+        <section className="panel">
+          <h2>Continue in {replacement.title}</h2>
+          <p>Your completed shared lessons carry forward when you open the combined course. Earlier quiz results stay here.</p>
+          <button className="btn primary" onClick={() => void api.addCourse(replacement.id)}>Open combined course</button>
+        </section>
+      )}
       {offlineExport && <OfflineCourseExport key={course.id} course={rawCourse(course)} onClose={() => { setOfflineExport(false); offlineExportButton.current?.focus(); }} />}
       <nav className="tabs" aria-label="Course sections">
         {TABS.filter((t) => t.show(course)).map((t) => (

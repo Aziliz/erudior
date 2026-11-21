@@ -28,7 +28,7 @@ def readiness():
     release = platform.freedesktop_os_release() if hasattr(platform, "freedesktop_os_release") else {}
     os_id = release.get("ID", "")
     el10 = (os_id in {"rhel", "almalinux", "rocky", "centos"} or "rhel" in release.get("ID_LIKE", "").split()) and release.get("VERSION_ID", "").split(".")[0] == "10"
-    return {"platform": {"el10": el10, "name": release.get("PRETTY_NAME", os_id)[:100]}, "probeRevision": 3, "boot": Path("/proc/sys/kernel/random/boot_id").read_text().strip(),
+    return {"platform": {"id": os_id, "el10": el10, "name": release.get("PRETTY_NAME", os_id)[:100]}, "probeRevision": 3, "boot": Path("/proc/sys/kernel/random/boot_id").read_text().strip(),
              "ready": command("systemctl", "is-system-running")[1] in {"running", "degraded"}}
 
 
@@ -154,7 +154,10 @@ def serve(port, role, attempt):
     while True:
         line = port.readline(256)
         if not line:
-            return
+            # A host check closes its socket after one reply. Keep the guest
+            # port open so the next check can send while this loop is waking.
+            time.sleep(0.1)
+            continue
         match = re.fullmatch(rb"([a-f0-9]{32}) (observe|tasks|tasks-nfs|reboot|extra:[a-z-]+)\n", line)
         if not match:
             continue

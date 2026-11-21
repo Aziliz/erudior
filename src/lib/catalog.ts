@@ -9,6 +9,7 @@ import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
 import { coreLessons } from "./course";
+import { bundledCourse } from "./bundledCourses";
 import { REMOTE, downloadCourse } from "./courseSource";
 import { LEVELS, TYPES, normalizeLevels, normalizeTypes } from "./taxonomy";
 
@@ -22,7 +23,9 @@ export interface CatalogEntry {
   /** Shown on the Overview page (professional and exam-prep courses). */
   disclaimer?: string;
   revision: number;
-  platform?: "study" | "desktop";
+  platform?: "study" | "desktop" | "archived";
+  supersededBy?: string;
+  aliases?: string[];
   subject: string;
   level: string[];
   type: string[];
@@ -55,26 +58,49 @@ export interface CatalogEntry {
 // Labels are normalized so catalogs published before the current level/type lists still sort and filter.
 const tidy = (e: CatalogEntry): CatalogEntry => ({ ...e, level: normalizeLevels(e.level ?? []), type: normalizeTypes(e.type ?? []) });
 
-/** Keep the browser study edition and local desktop practical edition distinct in both catalog sources. */
+/** Respect platform restrictions and keep archived entries out of the active catalog. */
 function visibleEntries(entries: CatalogEntry[]) {
   const desktop = isTauri() && !/android|iphone|ipad/i.test(globalThis.navigator?.userAgent ?? "");
   return entries.filter(e => !e.platform || e.platform === (desktop ? "desktop" : "study")).map(tidy);
 }
 
+let archived = (catalogJson as CatalogEntry[]).filter(entry => entry.platform === "archived");
 export const CATALOG: CatalogEntry[] = visibleEntries(catalogJson as CatalogEntry[]);
 
 export function setCatalog(entries: CatalogEntry[]) {
+  archived = entries.filter(entry => entry.platform === "archived");
   CATALOG.splice(0, CATALOG.length, ...visibleEntries(entries));
 }
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
   if (REMOTE) return downloadCourse(entry);
   // Bundled builds: each course is its own chunk, fetched only when it's added or updated.
-  const { bundledCourse } = await import("./bundledCourses");
   return bundledCourse(entry.file);
 }
 
 export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
+
+export function replacementFor(id: string) {
+  const previous = archived.find(entry => entry.id === id);
+  return previous?.supersededBy ? catalogEntry(previous.supersededBy) : undefined;
+}
+
+/** Carry only shared lesson completions on enrollment. Historical attempts retain their source IDs. */
+export function carryForwardLessons(id: string, progress: Progress): Progress {
+  const current = catalogEntry(id);
+  if (!current?.lessonIds) return progress;
+  let done = progress.lessonsDone;
+  for (const previous of archived.filter(entry => entry.supersededBy === id)) {
+    for (const lesson of previous.lessonIds ?? []) {
+      const date = progress.lessonsDone[`${previous.id}/${lesson}`];
+      const key = `${id}/${lesson}`;
+      if (!date || done[key] || !current.lessonIds.includes(lesson)) continue;
+      if (done === progress.lessonsDone) done = { ...done };
+      done[key] = date;
+    }
+  }
+  return done === progress.lessonsDone ? progress : { ...progress, lessonsDone: done };
+}
 
 /**
  * Erudior's own published courses (in the catalog) and community courses can't be edited in the
@@ -82,7 +108,7 @@ export const catalogEntry = (id: string) => CATALOG.find((e) => e.id === id);
  * courses only in the website's course editor. Updates would overwrite local edits anyway.
  * Courses people make or import under their own ids stay editable.
  */
-export const isPublishedCourse = (c: { id: string; community?: unknown } | undefined | null) => !!c && (!!c.community || !!catalogEntry(c.id));
+export const isPublishedCourse = (c: { id: string; community?: unknown } | undefined | null) => !!c && (!!c.community || !!catalogEntry(c.id) || archived.some(entry => entry.id === c.id));
 
 
 /** Filter values in a stable order: by how they appear in the catalog. */

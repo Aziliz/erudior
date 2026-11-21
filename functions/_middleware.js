@@ -8,6 +8,14 @@ export async function onRequest({ request, env, next }) {
   const host = url.hostname;
   const base = host === "erudior.com" || host === "www.erudior.com" ? "/__site" : host === "app.erudior.com" ? "/__app" : null;
   const p = url.pathname.replace(/\/+$/, "") || "/";
+  // Pages may serve the SPA shell for missing files. Module requests require a real asset.
+  if (base && p.startsWith("/assets/")) {
+    const response = await next();
+    if (response.ok && (response.headers.get("content-type") ?? "").includes("text/html")) {
+      return new Response(null, { status: 404, headers: { "Cache-Control": "no-store" } });
+    }
+    return response;
+  }
   // Only page addresses: no file extensions, no snapshot folders themselves.
   if (!base || /\.[a-z0-9]+$/i.test(p) || p.startsWith("/__")) return next();
   // Course sub-pages (lessons, tabs) and other app screens use the plain app shell.

@@ -17,6 +17,7 @@ import { COURSE_ACTIVITY_KINDS, type CourseActivityKind } from "./courseActiviti
 export interface RouteCourse {
   id: string;
   title: string;
+  aliases?: string[];
 }
 
 const TABS: CourseTab[] = ["today", "progress", "lessons", "banks", "cards", "vocab", "reading", "drills", "glossary", "reference", "work"];
@@ -33,7 +34,7 @@ export function courseSlug(id: string, all: RouteCourse[]): string {
 function findCourse(seg: string, all: RouteCourse[]): RouteCourse | undefined {
   let s: string;
   try { s = decodeURIComponent(seg); } catch { return undefined; }
-  return all.find((x) => x.id === s) ?? all.find((x) => slugify(x.title) === s);
+  return all.find((x) => x.id === s) ?? all.find((x) => slugify(x.title) === s) ?? all.find(x => x.aliases?.includes(s));
 }
 
 /** The course a screen belongs to, if any. */
