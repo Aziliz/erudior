@@ -154,7 +154,10 @@ def serve(port, role, attempt):
     while True:
         line = port.readline(256)
         if not line:
-            return
+            # A host check closes its socket after one reply. Keep the guest
+            # port open so the next check can send while this loop is waking.
+            time.sleep(0.1)
+            continue
         match = re.fullmatch(rb"([a-f0-9]{32}) (observe|tasks|tasks-nfs|reboot|extra:[a-z-]+)\n", line)
         if not match:
             continue

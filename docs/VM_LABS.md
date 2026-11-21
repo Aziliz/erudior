@@ -84,7 +84,7 @@ The sample awards 3 points for the client account, 4 for the server directory an
 
 ### Existing practice disks
 
-New disks receive the current guest probe automatically. To keep an older practice client's work, install the updated `src-tauri/src/vm_lab/guest_probe.py` on the client at `/usr/local/libexec/erudior-lab-probe.py`, run `sudo restorecon /usr/local/libexec/erudior-lab-probe.py` and restart `erudior-lab-probe.service`. This revision can recognize a real NFS file beneath a stacked autofs mount. Previously saved practice scores remain readable. Start the fixed mock with freshly prepared disks to receive the supplied service and local repository. In-flight exams started with the older grader finish with their original policy.
+New disks receive the current guest probe automatically. To retain an older practice pair's work when successive checks time out, install the updated `src-tauri/src/vm_lab/guest_probe.py` on each affected guest at `/usr/local/libexec/erudior-lab-probe.py`, run `sudo restorecon /usr/local/libexec/erudior-lab-probe.py` and restart `erudior-lab-probe.service`. The probe keeps its guest port open between checks and recognizes a real NFS file beneath a stacked autofs mount. Previously saved practice scores remain readable. Start the fixed mock with freshly prepared disks to receive the supplied service and local repository. In-flight exams started with the older grader finish with their original policy.
 
 ## Verify on a Linux host
 

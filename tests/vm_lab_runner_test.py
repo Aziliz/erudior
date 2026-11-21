@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src-tauri/src/vm_lab"))
 import runner
@@ -13,6 +13,17 @@ import guest_probe
 
 
 class RunnerTests(unittest.TestCase):
+    def test_guest_port_stays_open_between_host_observations(self):
+        port = Mock()
+        first, second = "a" * 32, "b" * 32
+        port.readline.side_effect = [(first + " observe\n").encode(), b"",
+                                     (second + " observe\n").encode(), OSError("device removed")]
+        with patch.object(guest_probe, "observe", return_value={"ready": True}), patch.object(guest_probe.time, "sleep"):
+            with self.assertRaisesRegex(OSError, "device removed"):
+                guest_probe.serve(port, "client", "practice")
+        replies = [json.loads(call.args[0]) for call in port.write.call_args_list]
+        self.assertEqual([reply["nonce"] for reply in replies], [first, second])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

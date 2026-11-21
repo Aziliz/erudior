@@ -121,7 +121,10 @@ def acceptance(base, mock_exam=False):
                     ready(role, attempt)
                 state = action("begin", attempt)
                 if mock_exam:
-                    print(json.dumps({"platforms": state["exam"]["platforms"]}), flush=True)
+                    platforms = state["exam"]["platforms"]
+                    boots = {role: runner.probe(role, "tasks", attempt)["boot"] for role in runner.ROLES}
+                    assert len(set(boots.values())) == len(runner.ROLES)
+                    print(json.dumps({"attempt": attempt, "platforms": platforms, "bootsBefore": boots}), flush=True)
                 for role in runner.ROLES:
                     prepare(role, state["password"], variant)
                 action("submit", attempt)
@@ -134,6 +137,10 @@ def acceptance(base, mock_exam=False):
                         raise RuntimeError(state["exam"]["error"])
                     time.sleep(2)
                 check(state["report"], variant)
+                if mock_exam:
+                    rebooted = {role: runner.probe(role, "tasks", attempt)["boot"] for role in runner.ROLES}
+                    assert all(rebooted[role] != boots[role] for role in runner.ROLES)
+                    print(json.dumps({"attempt": attempt, "bootsAfter": rebooted}), flush=True)
                 print(json.dumps(state["report"]), flush=True)
                 action("reset", attempt)
         finally:
