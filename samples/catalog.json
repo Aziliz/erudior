@@ -9284,7 +9284,7 @@
   "type": [
    "Exam prep"
   ],
-  "platform": "study",
+  "platform": "archived",
   "lessons": 16,
   "questions": 28,
   "cards": 0,
@@ -9384,15 +9384,16 @@
      "Review results and transfer each skill"
     ]
    }
-  ]
+  ],
+  "supersededBy": "rhcsa-rhel10-administration"
  },
  {
   "id": "rhcsa-rhel10-administration",
   "file": "rhcsa-10-administration.json",
   "order": 135,
-  "title": "RHCSA preparation • System administration on RHEL 10",
-  "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, ten graded labs, two rehearsals and a reboot-verified final practical.",
-  "revision": 1,
+  "title": "Zero to RHCSA on RHEL 10",
+  "description": "Start with your first Linux login. Learn to explain, configure and troubleshoot RHEL 10, then prove your changes survive a reboot. Study and take quizzes in a browser, practice on your own guests, or run the graded client and server labs in Erudior desktop.",
+  "revision": 2,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9400,54 +9401,79 @@
   "type": [
    "Exam prep"
   ],
-  "platform": "desktop",
-  "lessons": 30,
-  "questions": 28,
+  "lessons": 50,
+  "questions": 68,
   "cards": 0,
   "drills": 0,
   "lessonIds": [
+   "install-workbench",
+   "first-prompt",
    "first-session",
    "practice-console",
+   "path-walk",
+   "edit-help",
+   "streams",
+   "permission-model",
    "shell-evidence",
    "shared-directory",
+   "identity",
    "account-policy",
    "operator-lab",
-   "rpm-flatpak",
-   "repo-lab",
-   "script-contract",
-   "script-lab",
-   "operations",
-   "boot-targets",
-   "tuning-lab",
-   "lvm-workshop",
-   "swap-workshop",
-   "swap-lab",
-   "mount-identities",
-   "nfs-lab",
-   "unit-lifecycle",
-   "schedules-time",
-   "service-lab",
+   "network-model",
    "network-path",
    "resolver-lab",
+   "software-model",
+   "rpm-flatpak",
+   "repo-lab",
+   "processes",
+   "operations",
+   "journal-case",
+   "boot-targets",
+   "boot-repair",
+   "tuning-lab",
+   "unit-lifecycle",
+   "scheduling-model",
+   "schedules-time",
+   "service-lab",
+   "script-input",
+   "script-contract",
+   "script-lab",
+   "storage-map",
+   "lvm-workshop",
+   "swap-workshop",
+   "storage-checkpoint",
+   "swap-lab",
+   "mount-case",
+   "mount-identities",
+   "nfs-reasoning",
+   "nfs-lab",
    "ssh-firewall",
+   "web-case",
    "selinux-context",
    "selinux-lab",
    "rehearsal-handoff",
    "rehearsal-maintenance",
+   "alternate-practical",
    "practice-exam",
    "after-action"
   ],
   "outline": [
    {
-    "title": "Start here • Working with the two machines",
+    "title": "Your first Linux machine and shell",
     "lessons": [
-     "Set up your workspace and take a baseline",
+     "Meet Linux and install your first practice machine",
+     "Read a prompt and recover from a typing mistake",
+     "Choose your workspace and identify both machines",
      "Practice consoles and an on-demand mount"
     ]
    },
    {
     "title": "Shell tools and shared files",
     "lessons": [
+     "Find your way through a Linux filesystem",
+     "Edit a configuration and find help offline",
+     "Follow data through a pipeline",
+     "Predict who can read, change or enter a path",
      "Find evidence and build a shared directory",
      "Lab • Hand off a team workspace"
     ]
@@ -9455,79 +9481,98 @@
    {
     "title": "Local accounts and delegated access",
     "lessons": [
+     "Understand a login, a group and a privileged command",
      "Onboard an operator without losing existing access",
      "Lab • Add a client operator"
     ]
    },
    {
+    "title": "IP networking and name resolution",
+    "lessons": [
+     "Follow one connection from client to service",
+     "Trace a request from name to interface to listener",
+     "Lab • Make the file server discoverable"
+    ]
+   },
+   {
     "title": "Software and repository management",
     "lessons": [
+     "Follow software from a trusted source to an installed file",
      "Choose and verify a software source",
      "Lab • Bring an offline RPM source online"
     ]
    },
    {
-    "title": "Shell scripts that other users can run",
-    "lessons": [
-     "Turn a shell command into a testable tool",
-     "Lab • Deliver an executable classifier"
-    ]
-   },
-   {
     "title": "Running systems, boot and performance",
     "lessons": [
+     "Tell a process, a shell job and a service apart",
      "Follow a slowdown from process to journal",
+     "Read a failure in the journal and preserve its evidence",
      "Practice a one-time boot change and restore normal startup",
+     "Repair a failed mount from the guest console",
      "Lab • Apply a persistent performance profile"
-    ]
-   },
-   {
-    "title": "Local storage, LVM and swap",
-    "lessons": [
-     "Build and extend a disposable LVM volume",
-     "Activate swap and make it return at startup",
-     "Lab • Add persistent swap capacity"
-    ]
-   },
-   {
-    "title": "Local and network file systems",
-    "lessons": [
-     "Mount the right filesystem and prove what is serving a path",
-     "Lab • Recover a share on demand"
     ]
    },
    {
     "title": "Services, scheduled work and time",
     "lessons": [
      "Make a service leave evidence on every boot",
+     "Choose when a job should run and how to prove it ran",
      "Choose a scheduler and verify its work",
      "Lab • Restore a startup service"
     ]
    },
    {
-    "title": "IP networking and name resolution",
+    "title": "Shell scripts that other users can run",
     "lessons": [
-     "Trace a request from name to interface to listener",
-     "Lab • Make the file server discoverable"
+     "Build a decision from arguments and exit statuses",
+     "Turn a shell command into a testable tool",
+     "Lab • Deliver an executable classifier"
+    ]
+   },
+   {
+    "title": "Local storage, LVM and swap",
+    "lessons": [
+     "Trace a file down to the disk that holds it",
+     "Build and extend a disposable LVM volume",
+     "Activate swap and make it return at startup",
+     "Add capacity without disturbing existing data",
+     "Lab • Add persistent swap capacity"
+    ]
+   },
+   {
+    "title": "Local and network file systems",
+    "lessons": [
+     "Explain why a file disappears under a mount",
+     "Mount the right filesystem and prove what is serving a path",
+     "Build a manual NFS client before automating access",
+     "Lab • Recover a share on demand"
     ]
    },
    {
     "title": "Access controls, firewalls and SELinux",
     "lessons": [
      "Control who can connect and what they can reach",
+     "Bring up a small web service and locate a failed request",
      "Diagnose a denial while keeping access controls intact",
      "Lab • Repair a web document label"
     ]
    },
    {
-    "title": "Two-machine rehearsals and final practical",
+    "title": "Independent administration and practical exams",
     "lessons": [
      "Rehearsal • Hand off a working file service",
      "Rehearsal • Bring a branch server back into service",
+     "Independent practical: provision a branch archive",
      "Final • RHCSA practice exam for RHEL 10",
      "Read your result and plan a targeted retake"
     ]
    }
+  ],
+  "aliases": [
+   "rhcsa-rhel10-study",
+   "rhcsa-preparation-rhel-10-lessons-and-quizzes",
+   "rhcsa-preparation-system-administration-on-rhel-10"
   ]
  }
 ]

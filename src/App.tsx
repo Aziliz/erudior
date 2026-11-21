@@ -54,7 +54,7 @@ import WorkView from "./pages/WorkView";
 import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
-import { CATALOG, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites, setCatalog } from "./lib/catalog";
+import { CATALOG, carryForwardLessons, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites, setCatalog } from "./lib/catalog";
 import { fetchCatalog, type CatalogSource } from "./lib/courseSource";
 import RefView from "./pages/RefView";
 import Reader from "./pages/Reader";
@@ -655,10 +655,12 @@ export default function App() {
   useEffect(() => { let live = true; Promise.all(courses.filter(c => c.community).map(async c => [c, await parentCourseDigest(c)] as const)).then(entries => { if (live) setReviewDigests(new Map(entries)); }).catch(() => { if (live) setReviewDigests(new Map()); }); return () => { live = false; }; }, [courses]);
 
   const enroll = useCallback(
-    async (id: string) => {
-      const p = progressRef.current;
-      if (!family || !studentId || p.enrolled?.includes(id)) return;
-      await setProgress({ ...p, enrolled: [...(p.enrolled ?? []), id] });
+    async (id: string, fromCatalog = false) => {
+      const previous = progressRef.current;
+      let p = fromCatalog ? carryForwardLessons(id, previous) : previous;
+      if (family && studentId && !p.enrolled?.includes(id))
+        p = { ...p, enrolled: [...(p.enrolled ?? []), id] };
+      if (p !== previous) await setProgress(p);
     },
     [family, studentId, setProgress],
   );
@@ -910,7 +912,7 @@ export default function App() {
         }
         if (HOMESCHOOL && JSON.stringify(await loadFamily()) !== JSON.stringify(family)) throw Error("Family assignments changed. Reopen the course.");
         if (!current()) return;
-        await enroll(id);
+        await enroll(id, true);
         if (!current()) return;
         await reload();
         if (!current()) return;

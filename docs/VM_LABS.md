@@ -25,7 +25,7 @@ The [Red Hat EX200 objectives](https://www.redhat.com/en/services/training/ex200
 
 ## Run the desktop labs
 
-Search the desktop Library for **RHCSA preparation • System administration on RHEL 10** or import `samples/rhcsa-10-administration.json`. The Windows, macOS and Linux desktop programs provide the same two guest consoles inside the lesson. A private Linux provider runs QEMU and the grader locally. The two practice machines remain the x86-64 client and server. On Windows and macOS, the provider is an additional local virtualization layer.
+Search the desktop Library for **Zero to RHCSA on RHEL 10** or import `samples/rhcsa-10-administration.json`. The Windows, macOS and Linux desktop programs provide the same two guest consoles inside the lesson. A private Linux provider runs QEMU and the grader locally. The two practice machines remain the x86-64 client and server. On Windows and macOS, the provider is an additional local virtualization layer.
 
 | Desktop | Where the provider runs | First use |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ Inside the provider use `mkdir -p ~/.local/share/erudior-vm-labs/images` and cop
 
 Open a practice lesson. Start both machines, open each console, press Enter and confirm the guest hostname. For timed work, prepare the pair, begin the attempt and submit from the app. The grader records both observations, and Progress retains the result. Closing a terminal closes its connection. Stopping WSL, Lima or the physical computer interrupts its VMs. After a provider restart, reopen the lesson to see the saved state and recovery options.
 
-The browser catalog offers **RHCSA preparation • RHEL 10 lessons and quizzes**. This edition also imports as an ordinary course JSON, uses browser-local progress and includes 16 instructional lessons with 28 questions. Each edition has a distinct course ID. A browser study record and a desktop VM attempt have independent progress.
+The browser and desktop catalogs both offer **Zero to RHCSA on RHEL 10**. Open or import `samples/rhcsa-10-administration.json` for the same 50 lessons and 68 questions. A manual two-guest setup supports hands-on work alongside the browser. The desktop app also records the built-in VM grades. Earlier desktop attempts retain their original course, lesson and scenario IDs. The former web study file stays in the signed history. Previously enrolled learners can open the combined course from their old course page and carry forward completed shared lessons on the same profile. Earlier quiz attempts remain in their original history.
 
 [Microsoft WSL command reference](https://learn.microsoft.com/en-us/windows/wsl/basic-commands) · [Lima usage](https://lima-vm.io/docs/usage/) · [Lima shell](https://lima-vm.io/docs/reference/limactl_shell/)
 

@@ -879,7 +879,7 @@ export const ENGINE_IN_PROGRESS = new Set<string>(["Local virtual machine labs"]
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
-  "Local virtual machine labs": "Desktop labs use local QEMU on Linux, WSL 2 on Windows and Lima on macOS. The RHCSA study edition has browser lessons and quizzes. Packaged Windows and macOS VM verification is in progress.",
+  "Local virtual machine labs": "Desktop labs use local QEMU on Linux, WSL 2 on Windows and Lima on macOS. Zero to RHCSA on RHEL 10 combines beginner lessons, quizzes and two-machine practicals in one course. Packaged Windows and macOS VM verification is in progress.",
   "Independent course review, accessibility and learner pilot verification": "Deferred real-world review and learner-pilot obligation, not completed by synthetic engine tests. Remains Planned without Done credit; course adoption follows completion of the requested engine work.",
   "Content review, versioning and auditability": "Skipped at the user’s request on 2026-10-29: the user reports prior content review. No new review-system implementation or Done credit is claimed. Course adoption of new engine features waits until the remaining engine work is complete.",
 };
