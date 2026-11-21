@@ -26,6 +26,8 @@ import {
   submitWork,
   wordCount,
   wordTarget,
+  lengthUnit,
+  lengthLabel,
   workKey,
   workStatus,
   type BlockLink,
@@ -92,7 +94,7 @@ export function useAssignmentLinks(api: AppApi, course: Course) {
         if (!found || found.kind !== l.kind) return undefined;
         const key = workKey(course.id, l.id);
         const s = workStatus(work?.[key], ctx.reviews[key]);
-        if (found.kind === "writing") return { title: found.item.title, kicker: found.item.kind === "short" ? "Short response" : undefined, detail: wordTarget(found.item.words) || undefined, status: statusLabel(s, ctx.adult) };
+        if (found.kind === "writing") return { title: found.item.title, kicker: found.item.kind === "short" ? "Short response" : undefined, detail: wordTarget(found.item.words, lengthUnit(course)) || undefined, status: statusLabel(s, ctx.adult) };
         return { title: found.item.title, detail: found.item.minutes ? `About ${found.item.minutes} minutes` : undefined, status: statusLabel(s, ctx.adult), adult: found.item.adult };
       },
       open: (l: BlockLink) =>
@@ -228,7 +230,7 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
       const t = item as WritingTask;
       const n = wordCount(rec?.text ?? "");
       if (!n) return api.toast("Write something first.");
-      if (t.words?.min && n < t.words.min && !(await store.confirmAction(`You have ${n} words, and the goal is at least ${t.words.min}. Hand it in anyway?`))) return;
+      if (t.words?.min && n < t.words.min && !(await store.confirmAction(`You have ${lengthLabel(n, lengthUnit(course))}, and the goal is at least ${t.words.min}. Hand it in anyway?`))) return;
     } else {
       const lab = item as Lab;
       if ((rec?.done?.length ?? 0) < lab.steps.length && !(await store.confirmAction("Some steps aren't checked off yet. Hand in the lab anyway?"))) return;
@@ -272,7 +274,7 @@ function WorkScreen({ api, course, kind, item }: { api: AppApi; course: Course; 
           {item.title}
         </h1>
         <p className="muted small">
-          {[kind === "writing" ? wordTarget((item as WritingTask).words) : "", item.minutes ? `About ${item.minutes} minutes.` : ""].filter(Boolean).join(" ")}
+          {[kind === "writing" ? wordTarget((item as WritingTask).words, lengthUnit(course)) : "", item.minutes ? `About ${item.minutes} minutes.` : ""].filter(Boolean).join(" ")}
         </p>
       </header>
 
@@ -476,9 +478,7 @@ function WritingPart({
         {/* The printout shows the formatted text whatever is on screen. */}
         {canEdit && !preview && <div className="print-only student-text" dangerouslySetInnerHTML={{ __html: studentHtml(text) }} />}
         <p id={`${id}-wc`} className={`word-count${fit ? ` is-${fit}` : ""}`}>
-          <b>
-            {n} word{n === 1 ? "" : "s"}
-          </b>
+          <b>{lengthLabel(n, lengthUnit(course))}</b>
           {fit === "ok" && " · right on target"}
           {fit === "short" && ` · ${min! - n} more to reach ${min}`}
           {fit === "long" && ` · ${n - max!} over the limit of ${max}`}

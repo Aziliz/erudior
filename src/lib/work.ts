@@ -37,11 +37,20 @@ export function findWork(c: CourseWork, id: string): WorkItem | undefined {
 export const offersSelfCheck = (c: CourseWork, item: WritingTask | Lab) => !!rubricOf(c, item.rubric) && item.selfCheck !== false;
 
 /** "Aim for 150–250 words" and friends. */
-export function wordTarget(w?: { min?: number; max?: number }): string {
+/** What a writing task's length is counted in: characters for Chinese and Japanese courses, words otherwise. */
+export type LengthUnit = "word" | "character";
+export const lengthUnit = (course?: { language?: { code?: string } }): LengthUnit =>
+  ["zh", "ja"].includes((course?.language?.code ?? "").toLowerCase().split("-")[0]) ? "character" : "word";
+
+/** "1 word", "600 characters". */
+export const lengthLabel = (n: number, unit: LengthUnit = "word") => `${n} ${unit}${n === 1 ? "" : "s"}`;
+
+export function wordTarget(w?: { min?: number; max?: number }, unit: LengthUnit = "word"): string {
   if (!w) return "";
-  if (w.min && w.max) return `Aim for ${w.min}–${w.max} words.`;
-  if (w.min) return `Write at least ${w.min} words.`;
-  if (w.max) return `Keep it to ${w.max} words or fewer.`;
+  const u = `${unit}s`;
+  if (w.min && w.max) return `Aim for ${w.min}–${w.max} ${u}.`;
+  if (w.min) return `Write at least ${w.min} ${u}.`;
+  if (w.max) return `Keep it to ${w.max} ${u} or fewer.`;
   return "";
 }
 
@@ -313,10 +322,18 @@ export function reopenWork(w: WorkRecord): WorkRecord {
 
 // ---------- student text ----------
 
-/** Words in the student's text (formatting marks don't count). */
+/** Han characters and kana, which count one each (Chinese and Japanese lengths are given in characters). */
+const CJK = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\u30FC\u3005]/gu;
+
+/**
+ * Length of the student's text (formatting marks don't count): each Han character or kana counts
+ * one, and every other run of letters or digits counts as one word. So an English essay is counted
+ * in words and a Chinese or Japanese one in characters (punctuation never counts).
+ */
 export function wordCount(text: string): number {
   const plain = text.replace(/[*_#>`]+/g, " ").replace(/^\s*[-•]\s+/gm, " ");
-  return (plain.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) ?? []).length;
+  const cjk = (plain.match(CJK) ?? []).length;
+  return cjk + (plain.replace(CJK, " ").match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) ?? []).length;
 }
 
 const inline = (s: string) =>

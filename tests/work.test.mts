@@ -22,6 +22,9 @@ import {
   touchWork,
   weekStart,
   wordCount,
+  lengthUnit,
+  lengthLabel,
+  wordTarget,
   workFileIds,
   workProblems,
   workStatus,
@@ -108,6 +111,12 @@ ok("no block, untouched", protectAssignments("plain", undefined).text === "plain
 // --- Writing ------------------------------------------------------------------------------
 ok("word count", wordCount("Hello, **world**! It's a dog-friendly day.\n\n- one\n- two") === 8, wordCount("Hello, **world**! It's a dog-friendly day.\n\n- one\n- two"));
 ok("word count empty", wordCount("   ") === 0);
+ok("count: Han characters one each", wordCount("我们明天去北京。") === 7, wordCount("我们明天去北京。"));
+ok("count: kana one each", wordCount("きょうは、いい天気ですね。") === 11, wordCount("きょうは、いい天気ですね。"));
+ok("count: mixed Chinese and English", wordCount("我喜欢 New York 的博物馆，去过 3 次。") === 13, wordCount("我喜欢 New York 的博物馆，去过 3 次。"));
+ok("length unit by course language", lengthUnit({ language: { code: "zh" } }) === "character" && lengthUnit({ language: { code: "ja" } }) === "character" && lengthUnit({ language: { code: "fr" } }) === "word" && lengthUnit({}) === "word");
+ok("length labels", lengthLabel(1, "character") === "1 character" && lengthLabel(600, "character") === "600 characters" && lengthLabel(2) === "2 words");
+ok("target in characters", wordTarget({ min: 500, max: 600 }, "character") === "Aim for 500–600 characters." && wordTarget({ min: 80 }) === "Write at least 80 words.");
 const sh = studentHtml("# Title\n\nHi **bold** and *it* <script>x</script>\nline two\n\n- a\n- b");
 ok("student html", sh === "<h3>Title</h3><p>Hi <strong>bold</strong> and <em>it</em> &lt;script&gt;x&lt;/script&gt;<br>line two</p><ul><li>a</li><li>b</li></ul>", sh);
 ok("snake_case stays", !studentHtml("my_var_name").includes("<em>"));
