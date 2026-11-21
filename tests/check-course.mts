@@ -439,7 +439,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       else
         for (const f of rawConj.forms) {
           const form = f?.form;
-          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish and French have conjugation drills"})`);
+          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish, French, Latin and Greek have conjugation drills"})`);
           else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
         }
       if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)

@@ -601,7 +601,7 @@ Chinese courses can turn on tone practice made from their vocabulary: the app sa
 
 ## Conjugation drills
 
-Japanese, German, Spanish and French courses can drill verb (and, for Japanese and German, adjective) forms: the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.
+Japanese, German, Spanish and French courses can drill verb (and, for Japanese and German, adjective) forms, and Latin and Greek courses can drill nouns, adjectives, pronouns and verbs (see "Latin and Greek inflection" below): the app picks a word the learner has unlocked and a target form ("polite past negative", "て form", "er/sie/es, present", "Perfekt, ich", "dative singular, with ein"), the learner types the form, and it's checked exactly, with the same leniencies as vocabulary recall (kana or kanji and romaji typing for Japanese; a capitals note and another try for ae/oe/ue/ss for German). After each answer the right form and a one-line rule are shown ("Group 1 (う-verb) て form: く → いて"). A round has 10 prompts (or `round`); the first answer to each counts toward that form's accuracy, shown on the Vocabulary tab, and misses come back later in the round as practice. Demos: `samples/demo-japanese.json`, `samples/demo-listening.json` (German); walkthrough `scripts/conjugation-walkthrough.mjs`.
 
 **The course** lists the forms it drills, each unlocked by the lesson that teaches it (no `lesson`: always on; `from`: the lesson is in an earlier course, as on carried-over words). The button appears on the Vocabulary tab when the course has this setting and at least one word with `conj`.
 
@@ -700,6 +700,188 @@ Progress is kept per language and form (`progress.conj["ja:te"] = { right, wrong
 The course checker reports unknown forms or classes, forms of the other language, unknown lessons, a Japanese class that doesn't fit the dictionary form (ichidan needs る after an い/え-row kana; godan must end in う, く, ぐ, す, つ, ぬ, ぶ, む or る), missing German parts, separable-looking verbs without `forms.sep`, and adjective drills with no nouns. It also prints warnings to review, which don't fail the check: godan verbs that look ichidan (帰る, 入る, 知る, 切る), readings shared by an ichidan and a godan verb (かえる, きる, いる, へる, ねる), な-adjectives ending in い marked `i-adj` (きれい), compounds of いい, one-kanji する verbs (愛する), and e → i German verbs without `forms.imperative`.
 
 **`noForms`** (optional, on a word with `conj`): forms the word doesn't have or that sound wrong, left out of its drills, e.g. `"noForms": ["potential", "volitional"]` on できる or 分かる. Use the form names above. A word with `"directions": ["meaning"]` (recognition only, such as regional or slang words) is never drilled, though its `conj` and `forms` are still checked.
+
+### Latin and Greek inflection
+
+Latin (`la`) and Ancient Greek (`grc`, Attic) courses drill nouns, adjectives, pronouns and verbs with the same course setting, words, rounds and progress as other conjugation drills. A prompt asks for one form of one word, such as "genitive plural" of *puella* or "3rd person plural, perfect active indicative" of *capiō*, and the learner types it. Generated forms are fully marked: Latin macrons; Greek polytonic accents, breathings and iota subscripts, in NFC. Whether diacritics are optional in the learner's answer is decided by vocabulary recall grading (`checkRecall` in `lib/vocab.ts`), which drill answers go through unchanged (`checkClassical` in `lib/conjugation.ts`). Every accepted spelling (every gender of *amātus est*, *λύουσι* and *λύουσιν*, alternative forms) is one of the prompt's answers.
+
+**The course** lists drilled forms in `language.conjugation.forms`, as for the other languages: `{ "form": "gen", "lesson": "la1-genitive" }`. A form joins the drills when its lesson is done (no `lesson`: always on; `from`: the lesson is in an earlier course). A word joins when its own lesson is done. `noForms` on a word leaves forms out. A recognition-only word (`"directions": ["meaning"]`) is never drilled, but its data is still checked.
+
+**Words** give `conj` (the class), `dict` (the full dictionary entry, which the forms are made from) and, for nouns, the gender (in `dict` or in `gender`). `term` must be the first part of `dict`.
+
+```json
+{ "id": "puella", "lesson": "la1-01", "term": "puella", "dict": "puella, puellae, f.", "gender": "f", "pos": "noun", "meanings": ["girl"], "conj": "decl1" },
+{ "id": "capio", "lesson": "la1-12", "term": "capiō", "dict": "capiō, capere, cēpī, captum", "pos": "verb", "meanings": ["to take", "to seize"], "conj": "v3-io" },
+{ "id": "luo", "lesson": "gr1-05", "term": "λύω", "dict": "λύω, λύσω, ἔλυσα, λέλυκα, λέλυμαι, ἐλύθην", "pos": "verb", "meanings": ["to loosen", "to release"], "conj": "omega", "forms": { "long": "present future aorist", "short": "perfect" } }
+```
+
+#### Latin classes
+
+| `conj` | Words | `dict` |
+|---|---|---|
+| `decl1` | puella, agricola | `puella, puellae, f.` or `puella, -ae, f.` |
+| `decl2` | servus, puer, ager, vir, bellum, fīlius/-ium | `servus, servī, m.`; `puer, puerī, m.`; `ager, agrī, m.`; `bellum, bellī, n.`; `fīlius, fīliī, m.` (`-ī` and `-us`/`-um` abbreviations work) |
+| `decl3` | consonant stems: rēx, corpus, nōmen | `rēx, rēgis, m.`; `corpus, corporis, n.` (genitive in full, except `-is` after a nominative in -is, -ēs or -e) |
+| `decl3-i` | i-stems: cīvis, urbs, nox; neuters in -e, -al, -ar (mare, animal) | `cīvis, cīvis, m.`; `mare, maris, n.` |
+| `decl4` | manus; neuters in -ū (cornū) | `manus, manūs, f.`; `cornū, cornūs, n.` |
+| `decl5` | diēs, rēs | `diēs, diēī, m.`; `rēs, reī, f.` |
+| `adj12` | 1st/2nd declension: magnus, miser, pulcher, meus | `magnus, -a, -um`; `miser, -era, -erum`; `pulcher, -chra, -chrum` (or the three forms in full) |
+| `adj3` | 3rd declension, all i-stems: three endings (ācer), two (omnis), one (fēlīx, ingēns, present participles) | `ācer, ācris, ācre`; `omnis, -e`; `fēlīx, fēlīcis` (one ending: nominative and genitive) |
+| `pron` | pronouns: table only | `ego, meī`; `hic, haec, hoc` |
+| `v1` `v2` `v3` `v3-io` `v4` | the conjugations; deponents are found from the dict (1st part in -or) | `amō, amāre, amāvī, amātum`; `hortor, hortārī, hortātus sum`; semi-deponents `audeō, audēre, ausus sum` |
+| `irr` | irregular verbs | `sum, esse, fuī, futūrus`; `possum, posse, potuī`; `eō, īre, iī, itum`; `ferō, ferre, tulī, lātum`; `volō, velle, voluī`; `nōlō, nōlle, nōluī`; `mālō, mālle, māluī`; `fīō, fierī, factus sum` |
+
+Gender is `m.`, `f.`, `n.` or `c.` at the end of a noun's `dict`, or `"gender": "m"`/`"f"`/`"n"`. A verb's fourth part may be the supine (`amātum`), the participle (`amātus`) or the future participle (`futūrus`). Write `—` for a part the verb lacks (`timeō, timēre, timuī, —`): those forms then don't exist. If a part is left out instead, the checker asks for it.
+
+Rules the generator follows (Allen & Greenough): -ius/-ium nouns take the genitive in -iī (as `dict` gives it), with the older -ī also accepted, and the vocative in -ī (fīlī). -us nouns and adjectives have the vocative in -e. i-stem accusative plural is -ēs, with -īs accepted. -ns adjectives have the ablative -ī, with -e accepted. Comparatives are made with -ior, -ius; superlatives with -issimus, -rimus after -er, and -limus for facilis, difficilis, similis, dissimilis, gracilis and humilis. bonus, malus, magnus, parvus and multus compare irregularly (built in). omnis, tōtus, medius, the possessives and similar adjectives have no comparison. Adjectives in a vowel + -us (idōneus) compare with magis and need forms or `noForms`. dīcō, dūcō and faciō (and compounds) have the imperatives dīc, dūc and fac; compounds in -ficiō keep -e. Deponents have no passive, and their passive-looking forms are drilled under the active ids: the "present indicative" of *hortor* is *hortor, hortāris…*, its "present infinitive" is *hortārī*, and its perfect participle is `perf-pass-ptc`. Semi-deponents have an active present system and a passive-looking perfect, also under the active ids.
+
+Built in, so no table is needed: sum, possum, eō, ferō, volō, nōlō, mālō and fīō (with `conj: "irr"`); deus (plural deī/diī/dī; vocative deus), domus (with the locative domī), vīs (plural vīrēs), mare (ablative marī/mare; no genitive plural); meus (vocative mī); celer (genitive plural celerum).
+
+**Latin words that need a table:**
+- pronouns;
+- pronominal adjectives (ūnus, sōlus, tōtus, alius, alter, uter, nūllus, ūllus, neuter, uterque): at least `sg.gen` and `sg.dat`;
+- consonant-stem adjectives of one ending (vetus, dīves, pauper, prīnceps, particeps, compos, sōspes, superstes, caelebs, inops);
+- Greek-type nouns; neuters in -us (vulgus);
+- i-stems with -im or -ī (turris, nāvis): `sg.acc`, `sg.abl` (the checker warns);
+- -ubus 4th declension datives (the checker warns);
+- 5th declension nouns other than diēs and rēs, for the plural (the checker warns);
+- other irregular verbs (dō, edō, compounds of sum): `conj: "irr"` with the present system as a table (the perfect system still comes from `dict`);
+- locatives, given as `sg.loc`/`pl.loc` (Rōmae, Athēnīs).
+
+#### Greek classes
+
+| `conj` | Words | `dict` |
+|---|---|---|
+| `decl1` | all four types: -η (τιμή), -ᾱ after ε, ι, ρ (χώρα), short -ᾰ (θάλαττα, μοῖρα), masculine -ης/-ᾱς (πολίτης, νεανίας) | `τιμή, τιμῆς, ἡ`; `θάλαττα, θαλάττης, ἡ`; `πολίτης, πολίτου, ὁ` (`-ῆς`, `-ου` abbreviations work) |
+| `decl2` | -ος masculine and feminine, -ον neuter | `λόγος, λόγου, ὁ`; `ὁδός, ὁδοῦ, ἡ`; `δῶρον, δώρου, τό` |
+| `decl3` | consonant stems: stops (φύλαξ, ἐλπίς, σῶμα, χάρις), nasals (δαίμων), ντ (γέρων), liquids (ῥήτωρ, θήρ) | `φύλαξ, φύλακος, ὁ` (genitive in full, with its accent) |
+| `decl3-i` | ι-stems like πόλις, πόλεως | `πόλις, πόλεως, ἡ` |
+| `decl3-eu` | ευ-stems like βασιλεύς | `βασιλεύς, βασιλέως, ὁ` |
+| `decl3-s` | σ-stem neuters like γένος | `γένος, γένους, τό` |
+| `adj12` | ἀγαθός, -ή, -όν; ἄξιος, -ᾱ, -ον; two endings ἄδικος, -ον; μέγας and πολύς (built in) | `ἀγαθός, -ή, -όν`; `ἄξιος, -α, -ον`; `ἄδικος, -ον` |
+| `adj3` | oxytone -ης/-ες (ἀληθής), -ων/-ον (σώφρων) | `ἀληθής, -ές`; `σώφρων, -ον` |
+| `adj` | other adjectives and numerals with genders (πᾶς, ἡδύς): table only | `πᾶς, πᾶσα, πᾶν` |
+| `pron` | the article (built in: `term` ὁ, `dict` `ὁ, ἡ, τό`) and pronouns: tables | `αὐτός, αὐτή, αὐτό` |
+| `omega` | thematic ω-verbs and deponents/middles (-ομαι) | the six principal parts, `—` for a missing one: `λύω, λύσω, ἔλυσα, λέλυκα, λέλυμαι, ἐλύθην`; `βούλομαι, βουλήσομαι, —, —, βεβούλημαι, ἐβουλήθην` |
+| `contract` | -άω, -έω, -όω verbs, written uncontracted | `τιμάω, τιμήσω, ἐτίμησα, τετίμηκα, τετίμημαι, ἐτιμήθην` |
+| `irr` | -μι verbs (δίδωμι, τίθημι, ἵστημι, εἶμι, φημί), οἶδα, suppletive verbs (ἔρχομαι): table only. εἰμί is built in. | the principal parts |
+
+Accents are made by rule (Smyth), not guessed:
+- Finite verbs are recessive, but accents in contract verbs follow the contraction (τιμάω → τιμῶ, τίμαε → τίμα).
+- Final -αι/-οι are short for accent, except in the optative (λῦσαι infinitive, λύσαι optative).
+- Nouns and adjectives keep the accent of the nominative (3rd declension: of the genitive in `dict`), as far as the ultima allows.
+- The 1st declension genitive plural is -ῶν, but feminine adjectives are accented like the masculine (ἀξίων).
+- Oxytone 1st/2nd declension words take a circumflex in the genitive and dative.
+- One-syllable 3rd declension stems accent the ending in the genitive and dative (θηρός, θηρῶν, θηρσί). The exceptions παῖς, δμώς, θώς, Τρώς, δᾴς, οὖς and φῶς keep the stem accent in the genitive plural.
+- -εως/-εων in πόλις count as short.
+- Infinitives and participles have their fixed accents (λιπεῖν, λελυκέναι, λυθῆναι, λελυμένος; participles keep the masculine's syllable).
+
+Augments are made from the present for the imperfect, and taken from `dict` for the aorist and aorist passive indicatives:
+- syllabic ἐ-, ἐρρ- before ρ;
+- temporal augment (α, ε → η, ο → ω, αι → ῃ, οι → ῳ, αυ, ευ → ηυ…);
+- εἰ- for ἔχω, ἕπομαι, ἐργάζομαι, ἐάω, ἐθίζω, ἕλκω, ἕρπω, ἑστιάω, ἑλίσσω;
+- ἐ- or ἠ- for βούλομαι, δύναμαι, μέλλω.
+
+Reduplication comes from the perfect principal parts, and the pluperfect adds ἐ- to a consonant-reduplicated perfect.
+
+Other generation rules:
+- **Future:** a future in -ῶ (μενῶ, ἐρῶ) inflects like -έω. A future in -ομαι has no active.
+- **Aorist:** an aorist in -ον is a second aorist (λιπεῖν, λιπών, λιποῦ). One in -άμην/-όμην has no active. εὑρίσκω and λαμβάνω have the oxytone imperative (εὑρέ, λαβέ).
+- **Deponents:** a -ομαι verb has no active; if its future is middle, it has no future passive either. βούλομαι and οἴομαι have the 2nd singular in -ει only.
+- **Dual:** not drilled.
+
+**Quantity hints (Greek).** Where an accent depends on the length of an α, ι or υ that nothing written shows, the generator refuses those forms until the word says. Examples: πολῖτα and πολῖται, λῦε, λῦσαι, λελύσθαι. The checker names the vowel or stem. For nouns and adjectives, `forms.long` or `forms.short` gives the vowel letter: `"long": "ι"` for πολίτης, `"short": "ι"` for νεανίας. For verbs, it names the stems: `"long": "present future aorist", "short": "perfect"` for λύω, and `"short": "aorist"` for λείπω (λίπε). Lengths the accents in `dict` already show (σῶμα, ἐλπίδος, χώρα after ρ, θάλαττα with -ης) aren't asked for.
+
+**Compound verbs (Greek).** Give the prefix as it is written in the present: `"forms": { "prefix": "προσ" }` for προσβάλλω, `"ἀπο"` for ἀπολύω, `"συλ"` for συλλέγω. `dict` is written in full (`προσβάλλω, προσβαλῶ, προσέβαλον, προσβέβληκα, προσβέβλημαι, προσεβλήθην`). The simplex is generated and the prefix put back:
+- the augment goes after the prefix (προσέβαλλον, ἀπέλυον, παρεῖχον);
+- a final vowel elides before a vowel, except in περί and πρό;
+- before a rough breathing the consonant aspirates (ἀφ-, καθ-, ἐφ-);
+- ἐκ becomes ἐξ before a vowel, and συλ-/συμ-/ἐμ- become συν-/ἐν-;
+- the accent goes no further back than the augment, or than the prefix's last syllable (πρόσβαλλε, ἀπόλυε).
+
+Without the prefix, a compound's aorist doesn't match its present, so its aorist and imperfect are refused.
+
+**Greek words that need a table:**
+- -μι verbs, οἶδα, ἔρχομαι and other suppletive verbs (`irr`);
+- a principal part whose augment isn't regular from the present, such as εἶπον (λέγω) or ἔσχον (ἔχω): the aorist forms, and the imperfect except for the εἰ- verbs;
+- perfect middles of consonant stems (λέλειμμαι, γέγραμμαι);
+- contracted 2nd declension nouns (νοῦς);
+- 3rd declension vowel stems other than πόλις and βασιλεύς (ἰχθύς, βοῦς), and masculine σ-stems (Σωκράτης);
+- barytone -ης adjectives (συνήθης), comparatives in -ίων, πᾶς, ἡδύς and other adjectives;
+- the pronouns: personal pronouns, αὐτός, the reflexives, possessives, οὗτος, ἐκεῖνος, ὅδε, ἄλλος, τίς/τις, ὅς;
+- the numerals εἷς, οὐδείς, δύο, τρεῖς, τέτταρες (`pron`, with genders);
+- vocatives the rule doesn't give (δέσποτα, ἄδελφε; the checker warns).
+
+Built in: εἰμί; πατήρ, μήτηρ, θυγάτηρ, ἀνήρ, γυνή, ναῦς; μέγας, πολύς; the article.
+
+#### Form names
+
+Noun and pronoun forms: `nom`, `gen`, `dat`, `acc`, `abl` (Latin), `voc`, `loc` (Latin; only words that give a locative). A prompt picks the number, and the gender for gendered pronouns ("genitive plural").
+
+Adjective forms: `adj-nom`, `adj-gen`, `adj-dat`, `adj-acc`, `adj-abl` (Latin), `adj-voc`. A prompt picks the number and gender ("genitive plural, feminine"). Latin also has `comparative` and `superlative`: the nominative singular, by gender (maior, maior, maius).
+
+Verb forms are `tense-voice-mood` ids:
+- tenses: `pres`, `impf`, `fut`, `perf`, `plpf`, `futp` (Latin future perfect), `aor` (Greek);
+- voices: `act`, `pass`; Greek also `mid`, and `mp` (middle/passive) in the present, imperfect, perfect and pluperfect;
+- moods: `ind`, `subj`, `opt` (Greek), `imp`, `inf`, `ptc`.
+
+A finite form's prompt picks the person ("3rd person plural, perfect active indicative"); a participle's prompt picks the gender of the nominative singular ("perfect passive participle, masculine"). An infinitive is one prompt.
+
+- **Latin:**
+  - indicative: `pres-act-ind`, `impf-act-ind`, `fut-act-ind`, `perf-act-ind`, `plpf-act-ind`, `futp-act-ind`, and the same with `pass`;
+  - subjunctive: `pres-act-subj`, `impf-act-subj`, `perf-act-subj`, `plpf-act-subj`, and `pass`;
+  - imperatives: `pres-act-imp` (2nd singular and plural), `pres-pass-imp`, `fut-act-imp` (2nd and 3rd singular and plural);
+  - infinitives: `pres-act-inf`, `pres-pass-inf`, `perf-act-inf`, `perf-pass-inf`, `fut-act-inf`, `fut-pass-inf`;
+  - participles: `pres-act-ptc`, `perf-pass-ptc`, `fut-act-ptc`, `gerundive`;
+  - `gerund` (genitive, dative, accusative, ablative).
+- **Greek:**
+  - present: `pres-act-` and `pres-mp-` + `ind`, `subj`, `opt`, `imp`, `inf`, `ptc`;
+  - imperfect: `impf-act-ind`, `impf-mp-ind`;
+  - future: `fut-act-`, `fut-mid-` and `fut-pass-` + `ind`, `opt`, `inf`, `ptc`;
+  - aorist: `aor-act-`, `aor-mid-` and `aor-pass-` + `ind`, `subj`, `opt`, `imp`, `inf`, `ptc`;
+  - perfect: `perf-act-` and `perf-mp-` + `ind`, `inf`, `ptc`;
+  - pluperfect: `plpf-act-ind`, `plpf-mp-ind`.
+  - Imperatives are 2nd and 3rd singular and plural.
+
+Latin perfect passive and future infinitive answers accept every gender (amāta est, amātum esse); the masculine is shown. Greek forms with movable ν are shown as λύουσι(ν) and accepted with or without the ν. Participle prompts also accept the dictionary-style answer "amātus, -a, -um".
+
+#### Tables
+
+`forms` keys are slots, or rows of slots. A row's value lists every slot under it, comma-separated, in table order. Write `—` for a form the word doesn't have (it's then not drilled), and separate alternatives with a slash, the usual one first: `"pl.nom": "deī/diī/dī"`. A slot key overrides the row it's in, and a table overrides generated forms, so a table can fix one cell of a regular word.
+
+| Key | Slots, in order | Example |
+|---|---|---|
+| `sg`, `pl` (nouns, pronouns) | nom, gen, dat, acc, (abl), voc | `"sg": "ego, meī, mihi, mē, mē"` (a pronoun row may leave out the vocative) |
+| `sg.gen`, `pl.abl`… | one form | `"sg.voc": "deus"`, `"sg.loc": "Rōmae"` |
+| `sg`, `pl` (adjectives, gendered pronouns) | each case nom → voc, each masculine, feminine, neuter | `"sg": "hic, haec, hoc, huius, huius, huius, …"` (15 or 18 forms, or 12 or 15 without the vocative) |
+| `sg.nom`… (adjectives) | masculine, feminine, neuter | `"sg.nom": "ūnus, ūna, ūnum"` |
+| `sg.gen.f`… | one form | `"sg.gen.f": "alterīus"` |
+| `comparative`, `superlative` (Latin) | masculine, feminine, neuter | `"comparative": "maior, maior, maius"` |
+| `pres-act-ind`… (finite verbs) | 1st, 2nd, 3rd singular, 1st, 2nd, 3rd plural | `"pres-act-ind": "volō, vīs, vult/volt, volumus, vultis/voltis, volunt"` |
+| `pres-act-imp` (Latin) | 2nd singular, 2nd plural | `"pres-act-imp": "fer, ferte"` |
+| `fut-act-imp` (Latin), Greek `…-imp` | 2nd, 3rd singular, 2nd, 3rd plural | `"aor-act-imp": "ἐλθέ, ἐλθέτω, ἔλθετε, ἐλθόντων"` |
+| `pres-act-inf`… | one form | `"aor-act-inf": "ἐλθεῖν"` |
+| `perf-pass-ptc`, `gerundive`, Greek `…-ptc` | masculine, feminine, neuter | `"aor-act-ptc": "ἐλθών, ἐλθοῦσα, ἐλθόν"` |
+| `gerund` | genitive, dative, accusative, ablative | `"gerund": "eundī, eundō, eundum, eundō"` |
+| `perf-act-ind.2sg`… | one form | `"perf-act-ind.2sg": "amāvistī/amāstī"` |
+| `long`, `short` (Greek) | quantity hints (above) | `"long": "ι"` |
+| `prefix` (Greek) | compound verbs (above) | `"prefix": "προσ"` |
+
+Movable ν in a Greek table is written `(ν)`: `"ἐστί(ν)"`.
+
+#### Checking: `scripts/print-forms.mts`
+
+The course checker (`tests/check-course.mts`) refuses a Latin or Greek word whose `dict` doesn't parse or fit its class, or whose genitive accent doesn't fit the persistent accent. It refuses a table key that isn't a slot of the word's class, and a row with the wrong number of forms. For every drilled form of every word, each slot must generate or come from the table; otherwise the checker says "give its forms", with the reason (a missing principal part, a quantity hint, an irregular augment, a consonant-stem perfect middle), or asks for the form in `noForms`. It also warns about words to look at again, for example nouns that look like i-stems, -ius vocatives, verbs without a supine, and possible compounds.
+
+Writers and reviewers print every form of a word to check it against the grammar:
+
+```
+npx tsx scripts/print-forms.mts content/languages/latin-1/course.json puella capiō
+npx tsx scripts/print-forms.mts content/languages/greek-1/course.json λύω --rules
+npx tsx scripts/print-forms.mts content/languages/greek-1/course.json --missing
+```
+
+A word is its id or its term; with no word, every word with `conj` is printed. Each line gives the slot id, the label the learner sees, the answer and the other accepted forms. `--rules` adds the one-line rule shown after answering. Forms the course doesn't drill are marked "(not drilled)", and slots that are needed but neither generate nor come from a table show `MISSING` with the reason. `--missing` prints only words with something missing in a drilled form, and exits non-zero if there is one. Never assume the generator is right for an unusual word: print it, and give a table or `noForms` where it's wrong.
 
 ## Math drills
 

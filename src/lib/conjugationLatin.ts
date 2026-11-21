@@ -900,6 +900,5 @@ export function laWordWarnings(item: VocabItem): string[] {
   if (["v1", "v2", "v3", "v3-io", "v4"].includes(cls) && parts.length === 3 && !/or$/.test(item.term) && !/ sum$/.test(parts[2])) out.push(`"${item.term}" has no supine in dict: its perfect passive and participles aren't drilled`);
   if (cls === "v3" && /^(dīcō|dūcō|faciō)$/.test(nfc(item.term)) === false && /(dīc|dūc)ō$/.test(nfc(item.term))) out.push(`compound of dīcō/dūcō: imperative ${nfc(item.term).slice(0, -1)} by rule; check it`);
   if (cls === "v3-io" && /ficiō$/.test(nfc(item.term))) out.push(`compounds of faciō with -ficiō keep -e in the imperative (cōnfice)`);
-  if (cls === "adj3" && /^(celer|vetus|dīves)$/.test(nfc(item.term))) out.push(`check the genitive plural of ${item.term}`);
   return out;
 }
