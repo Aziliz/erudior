@@ -135,7 +135,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
       {scenario === RHCSA_MOCK && <p>Erudior practice settings are 180 minutes, 300 points and a 210-point passing target. Each of the ten objective areas is worth 30 points.</p>}
     </> : <p>{VM_TASKS["client-nfs"].instruction} The mount must also work after reboot.</p>}
     {supported ? <>
-      <VmSetup provider={provider} />
+      <VmSetup provider={provider} course={course} />
       {state?.exam.platforms && <p>Client · {state.exam.platforms.client}<br />Server · {state.exam.platforms.server}</p>}
       <p role="status">{messages[phase]}</p>
       {phase === "active" && <strong role="timer">{Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2,"0")} remaining</strong>}

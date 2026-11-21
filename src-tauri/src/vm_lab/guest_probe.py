@@ -28,7 +28,7 @@ def readiness():
     release = platform.freedesktop_os_release() if hasattr(platform, "freedesktop_os_release") else {}
     os_id = release.get("ID", "")
     el10 = (os_id in {"rhel", "almalinux", "rocky", "centos"} or "rhel" in release.get("ID_LIKE", "").split()) and release.get("VERSION_ID", "").split(".")[0] == "10"
-    return {"platform": {"el10": el10, "name": release.get("PRETTY_NAME", os_id)[:100]}, "probeRevision": 3, "boot": Path("/proc/sys/kernel/random/boot_id").read_text().strip(),
+    return {"platform": {"id": os_id, "el10": el10, "name": release.get("PRETTY_NAME", os_id)[:100]}, "probeRevision": 3, "boot": Path("/proc/sys/kernel/random/boot_id").read_text().strip(),
              "ready": command("systemctl", "is-system-running")[1] in {"running", "degraded"}}
 
 

@@ -9392,7 +9392,7 @@
   "file": "rhcsa-10-administration.json",
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
-  "description": "Start with your first Linux login. Learn to explain, configure and troubleshoot RHEL 10, then prove your changes survive a reboot. Study and take quizzes in a browser, practice on your own guests, or run the graded client and server labs in Erudior desktop.",
+  "description": "Start with your first Linux login. Learn, troubleshoot and prove persistent administration skills on an AlmaLinux 10 client and server while preparing for the RHEL 10 RHCSA exam. Study in a browser or run the graded practicals in Erudior desktop.",
   "revision": 2,
   "subject": "Information technology",
   "level": [
