@@ -11,6 +11,7 @@
 // A course's address is its title made URL-safe; its id works too.
 import type { View } from "../App";
 import type { CourseTab } from "../pages/CourseHome";
+import { duplicateCourse } from "./courseDuplicates";
 import { slugify } from "./util";
 import { COURSE_ACTIVITY_KINDS, type CourseActivityKind } from "./courseActivities";
 
@@ -169,9 +170,10 @@ export function pathToView(pathname: string, search: string, installed: RouteCou
   if (first === "admin" && !second) return { name: "review" };
   if (first === "live") return { name: "live" };
   if (first === "presentation") return { name: "presentation", code: new URLSearchParams(search).get("code") ?? undefined };
-  const have = findCourse(first, installed);
+  const found = findCourse(first, installed);
+  const entry = findCourse(first, catalog);
+  const have = found && !duplicateCourse(found.id) ? found : installed.find(course => course.id === entry?.id);
   if (!have) {
-    const entry = findCourse(first, catalog);
     if (!entry) return null;
     if (!second) return { name: "overview", catalogId: entry.id };
     const destination = pathToView(pathname, search, [entry], []);

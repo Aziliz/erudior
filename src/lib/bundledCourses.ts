@@ -2,7 +2,7 @@
 // this module to bundledCourses.remote.ts in vite.config.ts, so no course ships in them.
 
 export async function bundledCourse(file: string): Promise<unknown> {
-  const files = import.meta.glob<{ default: unknown }>(["../../samples/math/*.json", "../../samples/languages/*.json", "../../samples/colorado-broker-course.json", "../../samples/rhcsa-10-study.json", "../../samples/rhcsa-10-administration.json"]);
+  const files = import.meta.glob<{ default: unknown }>(["../../samples/math/*.json", "../../samples/languages/*.json", "../../samples/colorado-broker-course.json", "../../samples/rhcsa-10-administration.json"]);
   const load = files[`../../samples/${file}`];
   if (!load) throw new Error(`Course file ${file} isn't bundled`);
   return (await load()).default;
