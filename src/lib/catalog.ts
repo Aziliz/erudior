@@ -9,6 +9,7 @@ import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
 import { coreLessons } from "./course";
+import { bundledCourse } from "./bundledCourses";
 import { REMOTE, downloadCourse } from "./courseSource";
 import { LEVELS, TYPES, normalizeLevels, normalizeTypes } from "./taxonomy";
 
@@ -57,7 +58,7 @@ export interface CatalogEntry {
 // Labels are normalized so catalogs published before the current level/type lists still sort and filter.
 const tidy = (e: CatalogEntry): CatalogEntry => ({ ...e, level: normalizeLevels(e.level ?? []), type: normalizeTypes(e.type ?? []) });
 
-/** Keep the browser study edition and local desktop practical edition distinct in both catalog sources. */
+/** Respect platform restrictions and keep archived entries out of the active catalog. */
 function visibleEntries(entries: CatalogEntry[]) {
   const desktop = isTauri() && !/android|iphone|ipad/i.test(globalThis.navigator?.userAgent ?? "");
   return entries.filter(e => !e.platform || e.platform === (desktop ? "desktop" : "study")).map(tidy);
@@ -74,7 +75,6 @@ export function setCatalog(entries: CatalogEntry[]) {
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
   if (REMOTE) return downloadCourse(entry);
   // Bundled builds: each course is its own chunk, fetched only when it's added or updated.
-  const { bundledCourse } = await import("./bundledCourses");
   return bundledCourse(entry.file);
 }
 

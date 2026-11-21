@@ -5,7 +5,8 @@
  "title": "Chinese HSK 3",
  "description": "The third step in Mandarin Chinese, from HSK 2 to the new HSK 3 (HSK 3.0). Grammar lessons cover the 把 and 被 sentences, potential complements (听得懂, 看不见), compound direction complements, comparisons with 更, 越…越 and 跟…一样, the modal verbs 应该, 得 and 需要, and the complex sentences of the level: 不但…而且, 如果…就, 只要…就, 只有…才, 除了…以外, 为了, 一边…一边 and 先…然后. The 500 new words (1,000 in all) are learned through typed review cards and the 284 new characters (655 in all) through notecards, words and tracing, with pinyin you can turn off and a switch to traditional characters. The last lessons practise reading, listening, writing sentences, the speaking test and the exam format. Requires Chinese HSK 2.",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
+ "changelog": "Traditional script: Taiwan 帳 in 結帳 (was 賬), and 一個中… no longer shown as 一箇中….",
  "modules": [
   {
    "id": "zh3-m1",
@@ -17815,7 +17816,7 @@
     "谷": "穀",
     "贝": "貝",
     "责": "責",
-    "账": "賬",
+    "账": "帳",
     "贯": "貫",
     "贵": "貴",
     "赛": "賽",
@@ -17903,28 +17904,35 @@
     "黄": "黃"
    },
    "phrases": {
+    "一个中": "一個中",
     "一个周": "一個週",
     "一个头发": "一個頭髮",
     "一只": "一隻",
     "两只": "兩隻",
-    "个中": "箇中",
     "了解": "了解",
     "你干": "你幹",
     "公里": "公里",
     "农历": "農曆",
+    "几分钟": "幾分鐘",
     "几只": "幾隻",
+    "别着": "別著",
     "别着急": "別著急",
     "削面": "削麵",
     "千里": "千里",
+    "发抖": "發抖",
+    "可是只": "可是只",
     "周七": "週七",
     "周两": "週兩",
     "周天": "週天",
     "在干": "在幹",
     "多只": "多隻",
     "头发": "頭髮",
+    "家具": "家具",
     "尝尝": "嘗嘗",
     "干得": "幹得",
     "干活": "幹活",
+    "年历史": "年歷史",
+    "很困难": "很困難",
     "成育言复练平努": "成育言複練平努",
     "手表": "手錶",
     "拉面": "拉麵",
@@ -17937,9 +17945,11 @@
     "游泳": "游泳",
     "牛肉面": "牛肉麵",
     "碗面": "碗麵",
+    "系领带": "繫領帶",
     "老板": "老闆",
     "胡同": "胡同",
     "这只": "這隻",
+    "送钟": "送鐘",
     "面包": "麵包",
     "面条": "麵條",
     "面馆": "麵館"
@@ -17974,21 +17984,31 @@
      "臺": "台"
     },
     "words": {
+     "一个中": "一個中",
      "一个周": "一個週",
      "一个头发": "一個頭髮",
      "了解": "了解",
+     "几分钟": "幾分鐘",
+     "别着": "別著",
      "别着急": "別著急",
+     "发抖": "發抖",
+     "可是只": "可是只",
      "周七": "週七",
      "周两": "週兩",
      "周天": "週天",
+     "家具": "家具",
      "尝尝": "嘗嘗",
+     "年历史": "年歷史",
+     "很困难": "很困難",
      "成育言复练平努": "成育言複練平努",
      "旅游": "旅遊",
      "清谷天": "清穀天",
      "游一": "游一",
      "游了": "游了",
      "游得": "游得",
-     "胡同": "胡同"
+     "系领带": "繫領帶",
+     "胡同": "胡同",
+     "送钟": "送鐘"
     },
     "alone": {
      "余": "餘",
@@ -18012,6 +18032,9 @@
      "里": "裡",
      "钟": "鐘",
      "面": "面"
+    },
+    "chars": {
+     "账": "帳"
     }
    }
   }

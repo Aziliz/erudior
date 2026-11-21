@@ -3,7 +3,7 @@ import { assertCourseImportPreservesFields } from "../lib/courseImport";
 import { importOfflineCoursePackage, isOfflineCoursePackage } from "../lib/offlineCourse";
 import { useEffect, useRef, useState } from "react";
 import type { AppApi } from "../App";
-import { CATALOG, courseFinished, facets, isPublishedCourse, prerequisites, type CatalogEntry } from "../lib/catalog";
+import { CATALOG, courseFinished, facets, isPublishedCourse, replacementFor, prerequisites, type CatalogEntry } from "../lib/catalog";
 import { currentAssignments, isClassroom } from "../lib/family";
 import { ClassAssignments, MyClasses } from "../components/ClassViews";
 import { LIVE } from "../lib/live";
@@ -26,6 +26,8 @@ import { STUDY_PROGRAMS, groupPrograms, programCourseIds, programCourses, search
 
 export default function Library({ api, broken, standalone }: { api: AppApi; broken: string[]; standalone: Bank[] }) {
   const { courses, progress } = api;
+  const activeCourses = courses.filter(course => !replacementFor(course.id));
+  const archivedCourses = courses.filter(course => replacementFor(course.id));
 
   const [offlineImport, setOfflineImport] = useState<Course | null>(null);
   const [importBusy, setImportBusy] = useState(false);
@@ -201,15 +203,25 @@ export default function Library({ api, broken, standalone }: { api: AppApi; brok
       {api.student && !isClassroom(api.family) && api.student.assigned.length > 0 && <Assigned api={api} />}
       {!api.family && <MyClasses api={api} />}
 
+      {archivedCourses.length > 0 && (
+        <details className="panel" style={{ marginBottom: 16 }}>
+          <summary>Archived course records ({archivedCourses.length})</summary>
+          {archivedCourses.map(course => (
+            <p key={course.id}><button className="btn sm" onClick={() => api.go({ name: "course", courseId: course.id })}>
+              View saved work in {course.title}
+            </button></p>
+          ))}
+        </details>
+      )}
       <h2 className="section-title">In progress</h2>
-      {courses.length === 0 ? (
+      {activeCourses.length === 0 ? (
         <div className="panel" style={{ marginBottom: 8, padding: "18px 22px" }}>
           <h2 style={{ fontSize: "1.0625rem", marginBottom: 4 }}>No courses in progress</h2>
           <p className="muted">Pick a course from the catalog below and choose Start course, or import a course file (.json).</p>
         </div>
       ) : (
         <div className="course-list">
-          {courses.map((c) => {
+          {activeCourses.map((c) => {
             const counts = courseCounts(c);
             const n = courseNumbers(c, progress);
             const plan = progress.plans[c.id];

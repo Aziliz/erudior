@@ -50,4 +50,3 @@ assert.equal(p.lessonsDone[current.id + "/shell-evidence"], undefined);
 assert.equal(merged.attempts, p.attempts);
 assert.equal(carryForwardLessons(current.id, merged), merged);
 console.log("Unified RHCSA catalog, routes, course import, quiz links, practicals and legacy completion checks passed.");
-

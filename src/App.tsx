@@ -290,7 +290,7 @@ export default function App() {
   const [progress, setProgressState] = useState<Progress>(store.emptyProgress());
   const progressRef = useRef(progress);
   const [ready, setReady] = useState(false);
-  const [courseOpenError, setCourseOpenError] = useState<string | null>(null);
+  const [courseOpenError, setCourseOpenError] = useState<{ message: string; reload: boolean } | null>(null);
   const courseOpening = useRef<{ view: View; profile: string | null; selection: number } | null>(null);
   const viewRef = useRef(view); viewRef.current = view;
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -920,7 +920,15 @@ export default function App() {
         const target = linked && "courseId" in linked && linked.courseId === id ? linked : { name: "course" as const, courseId: id };
         if (requestNavigation("app", target)) setView(target);
       } catch (e) {
-        if (current()) setCourseOpenError(`Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`);
+        if (current()) {
+          const moduleUnavailable = /failed to fetch dynamically imported module|importing a module script failed|error loading dynamically imported module|loading chunk [\w-]+ failed/i.test(String(e));
+          setCourseOpenError({
+            message: moduleUnavailable
+              ? `Couldn't open "${entry.title}". Reconnect if offline, then reload the app and open the course again. Your saved learning records are kept.`
+              : `Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`,
+            reload: moduleUnavailable,
+          });
+        }
       } finally { if (courseOpening.current === request) courseOpening.current = null; }
     },
     [reload, toast, assignmentBlock, courses, enroll, publicLearning, family],
@@ -2028,7 +2036,7 @@ export default function App() {
             }}>{TEMPORARY_GUEST ? "Use saved device progress" : "Start temporary session"}</button>
           </div>
         </section>}
-        {courseOpenError && <div className="notice error" role="alert">{courseOpenError} <button className="btn sm" onClick={() => setCourseOpenError(null)}>Dismiss</button></div>}
+        {courseOpenError && <div className="notice error" role="alert">{courseOpenError.message} {courseOpenError.reload && <button className="btn sm" onClick={() => window.location.reload()}>Reload app</button>} <button className="btn sm" onClick={() => setCourseOpenError(null)}>Dismiss</button></div>}
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>

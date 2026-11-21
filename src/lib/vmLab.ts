@@ -9,10 +9,10 @@ export type VmExamScenario = typeof NFS_EXAM | typeof ADMIN_EXAM | typeof RHCSA_
 export type VmLabScenario = typeof NFS_LAB | VmExamScenario;
 
 export const VM_TASKS = {
-  "client-operator": {area: "Users and groups", role: "Client", title: "Operator account", instruction: "Create the labtech user and make it a member of the labops group."},
+  "client-operator": {area: "Users and groups", role: "Client", title: "Operator account", instruction: "Create the labtech user and make it a member of the labops group. Create labops on the client if it does not exist."},
   "server-team-directory": {area: "Essential tools", role: "Server", title: "Shared team directory", instruction: "Create /srv/team with group labops and permissions 2770 (setgid)."},
   "client-nfs": {area: "File systems", role: "Client", title: "On-demand NFS mount", instruction: "Use autofs to mount 192.168.77.10:/srv/projects at /mnt/projects on demand and read erudior-lab.txt there."},
-  "client-repo": {area: "Software management", role: "Client", title: "Offline RPM repository", instruction: "Enable a DNF repository called erudior-local at file:///srv/erudior-repo with package signature checking enabled. The directory holds the lab repository metadata."},
+  "client-repo": {area: "Software management", role: "Client", title: "Offline RPM repository", instruction: "Enable a DNF repository with the repository ID erudior-local at file:///srv/erudior-repo with package signature checking enabled. The directory holds the lab repository metadata."},
   "client-script": {area: "Shell scripts", role: "Client", title: "Classify a script argument", instruction: "Create an executable shell script with a shell shebang at /usr/local/bin/lab-classify. For one nonnegative integer argument print small for values below 10 and large otherwise. Allow an unprivileged user to run it."},
   "server-tuning": {area: "Running systems", role: "Server", title: "System tuning", instruction: "Activate the throughput-performance TuneD profile and keep it active after boot."},
   "server-swap": {area: "Local storage", role: "Server", title: "Persistent swap", instruction: "Add and activate a swap file of at least 64 MiB at /var/lib/erudior.swap. Make it activate automatically after boot."},

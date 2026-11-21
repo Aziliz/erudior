@@ -134,7 +134,8 @@ export function eachConvertible(text: string, auto: (s: string) => string, trad:
   let out = "";
   let last = 0;
   for (const m of text.matchAll(SCRIPT_RE)) {
-    out += auto(text.slice(last, m.index)) + (m[1] ?? trad(m[2]));
+    // `{+…+}` may sit inside a `{=…=}` section (a traditional form shown beside a simplified one).
+    out += auto(text.slice(last, m.index)) + (m[1] !== undefined ? m[1].replace(/\{\+([\s\S]*?)\+\}/g, (_, x: string) => trad(x)) : trad(m[2]));
     last = m.index! + m[0].length;
   }
   return out + auto(text.slice(last));
@@ -158,9 +159,10 @@ export function toSimplified(text: string, t?: ZhTable): string {
   return eachConvertible(text, (s) => s, t ? convertAll(t) : (s) => s);
 }
 
-/** `{=…=}` / `{+…+}` markers that don't pair up (nested or unclosed), for the checker. */
+/** `{=…=}` / `{+…+}` markers that don't pair up (unclosed, or `{=…=}` inside `{+…+}`), for the checker. `{+…+}` inside `{=…=}` is fine. */
 export function scriptMarkupProblem(text: string): string | undefined {
-  const rest = text.replace(SCRIPT_RE, "");
+  const rest = text.replace(SCRIPT_RE, (_, x: string | undefined, y: string | undefined) =>
+    x !== undefined ? x.replace(/\{\+[\s\S]*?\+\}/g, "") : y!);
   if (/\{[=+]|[=+]\}/.test(rest)) return "unbalanced {=…=} or {+…+} (they can't nest)";
 }
 
