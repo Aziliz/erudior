@@ -1038,8 +1038,26 @@ export function grcWord(item: VocabItem): ClassicalWord | string {
   if (hit) return hit;
   const cls = item.conj ?? "";
   let w: ClassicalWord | string;
-  if (GRC_NOUN_CLASSES.includes(cls)) w = gNoun(item);
-  else if (GRC_ADJ_CLASSES.includes(cls)) w = gAdj(item);
+  if (GRC_NOUN_CLASSES.includes(cls)) {
+    w = gNoun(item);
+    // A noun the rules can't make (masculine σ-stems like Σωκράτης, ἰχθύς, βοῦς…) can still be
+    // drilled from a full table: every slot the table doesn't give stays missing, with the reason.
+    if (typeof w === "string" && item.forms && Object.keys(item.forms).some((k) => !["long", "short", "prefix"].includes(k))) {
+      const why = w;
+      const ww: ClassicalWord = { kind: "noun", slots: nounSlots(GRC_CASES, false), optional: new Set(), cells: new Map(), missing: new Map() };
+      for (const sl of ww.slots) ww.missing.set(sl, why);
+      w = ww;
+    }
+  }
+  else if (GRC_ADJ_CLASSES.includes(cls)) {
+    w = gAdj(item);
+    if (typeof w === "string" && item.forms && Object.keys(item.forms).some((k) => !["long", "short", "prefix"].includes(k))) {
+      const why = w;
+      const ww: ClassicalWord = { kind: "adj", slots: adjSlots(GRC_CASES), optional: new Set(), cells: new Map(), missing: new Map() };
+      for (const sl of ww.slots) ww.missing.set(sl, why);
+      w = ww;
+    }
+  }
   else if (cls === "omega" || cls === "contract") w = gVerb(item);
   else if (cls === "irr" && GRC_IRREGULAR[nfc(item.term)]) {
     const b = GRC_IRREGULAR[nfc(item.term)];

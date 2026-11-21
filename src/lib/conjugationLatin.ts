@@ -866,8 +866,27 @@ export function laWord(item: VocabItem): ClassicalWord | string {
   if (hit) return hit;
   const cls = item.conj ?? "";
   let w: ClassicalWord | string;
-  if (LA_NOUN_CLASSES.includes(cls)) w = laNoun(item);
-  else if (LA_ADJ_CLASSES.includes(cls)) w = laAdj(item);
+  if (LA_NOUN_CLASSES.includes(cls)) {
+    w = laNoun(item);
+    // A noun the rules can't make (plural-only arma, paterfamiliās…) can still be drilled from
+    // its table; slots the table leaves out stay missing with the reason, or `—` marks them absent.
+    if (typeof w === "string" && item.forms && Object.keys(item.forms).length) {
+      const why = w;
+      const ww: ClassicalWord = { kind: "noun", slots: nounSlots(LA_CASES, true), optional: new Set(), cells: new Map(), missing: new Map() };
+      for (const sl of ww.slots) ww.missing.set(sl, why);
+      w = ww;
+    }
+  }
+  else if (LA_ADJ_CLASSES.includes(cls)) {
+    w = laAdj(item);
+    // An adjective the rules can't make (vetus, veteris…) can be drilled from its table.
+    if (typeof w === "string" && item.forms && Object.keys(item.forms).length) {
+      const why = w;
+      const ww: ClassicalWord = { kind: "adj", slots: [...adjSlots(LA_CASES), "comparative.m", "comparative.f", "comparative.n", "superlative.m", "superlative.f", "superlative.n"], optional: new Set(["comparative.m", "comparative.f", "comparative.n", "superlative.m", "superlative.f", "superlative.n"]), cells: new Map(), missing: new Map() };
+      for (const sl of ww.slots) if (!ww.optional.has(sl)) ww.missing.set(sl, why);
+      w = ww;
+    }
+  }
   else if (LA_VERB_CLASSES.includes(cls)) w = laVerb(item);
   else if (cls === "pron") w = laPron(item);
   else w = `"${cls}" isn't a Latin class (${[...LA_NOUN_CLASSES, ...LA_ADJ_CLASSES, "pron", ...LA_VERB_CLASSES].join(", ")})`;

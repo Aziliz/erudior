@@ -49,7 +49,9 @@ export function classicalTextProblems(text: string): string[] {
       if (letters.length > 1) {
         letters.forEach((ch, i) => {
           if (ch === "ς" && i < letters.length - 1) out.push(`"${w}" has final sigma ς inside the word (write σ)`);
-          if (ch === "σ" && i === letters.length - 1 && BASE_SIGMA.test(ch)) out.push(`"${w}" ends in σ (write final ς)`);
+          // A fragment written with hyphens (-σσ-, -σ-) isn't a word end.
+          const fragment = text[(m.index ?? 0) + w.length] === "-" || text[(m.index ?? 0) - 1] === "-";
+          if (ch === "σ" && i === letters.length - 1 && BASE_SIGMA.test(ch) && !fragment) out.push(`"${w}" ends in σ (write final ς)`);
           if (ch === "ϲ" || ch === "Ϲ") out.push(`"${w}" has a lunate sigma (write σ/ς)`);
         });
       }
