@@ -1,0 +1,190 @@
+{
+  "course": "rhcsa-rhel10-administration",
+  "checkedOn": "2026-11-21",
+  "operatingSystem": "AlmaLinux 10.3 (Mauve Lion) x86_64",
+  "emulator": "QEMU, software emulation",
+  "hostTransport": "Loopback TCP for QMP, serial consoles, guest observations and the private guest link",
+  "applicationScoreCheck": "validVmReport, vmScore and vmTotal",
+  "attempts": [
+    {
+      "case": "Persistent configuration",
+      "platforms": {
+        "server": "AlmaLinux 10.3 (Mauve Lion)",
+        "client": "AlmaLinux 10.3 (Mauve Lion)"
+      },
+      "bootsBefore": {
+        "server": "8a790084-3bfc-493f-9d15-98d6b3f25355",
+        "client": "3ad06370-948d-435e-a867-8c89d33e25cf"
+      },
+      "bootsAfter": {
+        "server": "2d2d5e76-8881-4e10-acc1-3aa5c8df8fb4",
+        "client": "79641c25-049e-4736-919b-aa766ad9b4bd"
+      },
+      "earned": 300,
+      "possible": 300,
+      "report": {
+        "attempt": "5824a544-f8d8-46ed-9896-390a7d3bd5f4",
+        "checkedAt": 1795248584308,
+        "gradingVersion": 2,
+        "tasks": [
+          {
+            "id": "client-operator",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-team-directory",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-nfs",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-repo",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-script",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-tuning",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-swap",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-service",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-resolution",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-selinux",
+            "points": 30,
+            "before": true,
+            "after": true
+          }
+        ],
+        "exam": {
+          "startedAt": 1795248267885,
+          "deadlineAt": 1795259067885,
+          "submittedAt": 1795248318549,
+          "reason": "submitted"
+        }
+      }
+    },
+    {
+      "case": "Transient team directory",
+      "platforms": {
+        "server": "AlmaLinux 10.3 (Mauve Lion)",
+        "client": "AlmaLinux 10.3 (Mauve Lion)"
+      },
+      "bootsBefore": {
+        "server": "2597c807-c0c6-44a5-ba1a-f08593535e95",
+        "client": "5b917d8c-47ca-4ae3-9e71-5ac8e6bce8be"
+      },
+      "bootsAfter": {
+        "server": "0261882c-bec1-476b-8960-24ad3c7cf6a1",
+        "client": "edfd2d18-263c-43ac-8361-82b8cf9a6399"
+      },
+      "earned": 270,
+      "possible": 300,
+      "report": {
+        "attempt": "18e8d24a-473e-4d5e-a9ba-7b9fc2bb2177",
+        "checkedAt": 1795249057983,
+        "gradingVersion": 2,
+        "tasks": [
+          {
+            "id": "client-operator",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-team-directory",
+            "points": 30,
+            "before": true,
+            "after": false
+          },
+          {
+            "id": "client-nfs",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-repo",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-script",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-tuning",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-swap",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-service",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "client-resolution",
+            "points": 30,
+            "before": true,
+            "after": true
+          },
+          {
+            "id": "server-selinux",
+            "points": 30,
+            "before": true,
+            "after": true
+          }
+        ],
+        "exam": {
+          "startedAt": 1795248754808,
+          "deadlineAt": 1795259554808,
+          "submittedAt": 1795248811632,
+          "reason": "submitted"
+        }
+      }
+    }
+  ]
+}
