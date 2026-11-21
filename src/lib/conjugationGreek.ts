@@ -593,8 +593,9 @@ function augments(stem: L[], term: string): L[][] {
     return [...ls, ...rest];
   };
   const alts: string[] = [];
+  // These verbs augment ε to ει only (εἶχον, not *ἦχον: Smyth 431).
   if (EI_AUGMENT.includes(term) && init === "ε") alts.push("ει");
-  if (TEMPORAL[init]) alts.push(TEMPORAL[init]);
+  else if (TEMPORAL[init]) alts.push(TEMPORAL[init]);
   if (init === "ει" || init === "ευ") alts.push(init);
   return [...new Set(alts)].map(make);
 }
