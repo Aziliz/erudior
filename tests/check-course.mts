@@ -53,8 +53,8 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 addKanjiStrokes(KANJI_STROKES);
 // Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
 // band), and checkCourse loads the ones a course traces.
-import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
-import { ALL_CLASSES, CONJ_FORMS, languageClasses, languageFormKeys, languageForms } from "../src/lib/courseConjugation.ts";
+import { conjMissing, conjWordProblem, conjWordWarnings, deNoun, formsForClass } from "../src/lib/conjugation.ts";
+import { ALL_CLASSES, CONJ_FORMS, isClassical, languageClasses, languageFormKeys, languageForms } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -461,7 +461,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       else
         for (const f of rawConj.forms) {
           const form = f?.form;
-          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish and French have conjugation drills"})`);
+          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish, French, Latin and Greek have conjugation drills"})`);
           else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
         }
       if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)
@@ -474,7 +474,8 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
       if (v?.conj !== undefined && !(ALL_CLASSES.includes(v.conj) && languageClasses(lang).includes(v.conj)))
         say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${languageClasses(lang).join(", ")})`);
-      if (v?.forms !== undefined)
+      // Latin and Greek forms keys are slots of the word's class: the generator checks them.
+      if (v?.forms !== undefined && !isClassical(lang))
         for (const k of Object.keys(v.forms ?? {})) if (!languageFormKeys(lang).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${languageFormKeys(lang).join(", ")})`);
       if (v?.noForms !== undefined) {
         if (!v.conj) say(`word ${v.id ?? i + 1}: "noForms" without "conj"`);
@@ -486,8 +487,16 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       const p = conjWordProblem(lang, v);
       if (p) say(`word ${v.id}: ${p}`);
       const adjClass = v.conj === "adj" || v.conj === "i-adj" || v.conj === "ii-adj" || v.conj === "na-adj";
-      if (v.conj && v.pos && (adjClass ? !/adj/.test(v.pos) : !/verb/.test(v.pos))) warn(`word ${v.id}: "conj" ${v.conj} on a word whose pos is "${v.pos}"`);
+      if (v.conj && v.pos && !isClassical(lang) && (adjClass ? !/adj/.test(v.pos) : !/verb/.test(v.pos))) warn(`word ${v.id}: "conj" ${v.conj} on a word whose pos is "${v.pos}"`);
       for (const w of conjWordWarnings(lang, v)) warn(`word ${v.id}: ${w}`);
+      // Latin and Greek: every drilled form of the word generates or comes from its table.
+      if (!p && isClassical(lang))
+        for (const s of settings?.forms ?? []) {
+          if (!formsForClass(lang, v).includes(s.form)) continue;
+          const missing = conjMissing(lang, v, s.form);
+          if (missing.length)
+            say(`word ${v.id}: ${s.form} (${missing.map((m) => m.slot).join(", ")}) can't be generated: give its forms${missing[0].why ? ` (${missing[0].why})` : ""}, or list "${s.form}" in noForms`);
+        }
     }
     if (settings && !conjugatable.length) say(`language.conjugation: no vocabulary has "conj", so there's nothing to drill`);
     if (conjugatable.length && !settings) warn(`vocabulary has "conj" but the course has no language.conjugation, so no forms are drilled`);

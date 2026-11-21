@@ -263,6 +263,8 @@ function readCourse(raw: unknown): Course {
         note: str(v.note) || undefined,
         ...(isAudioSrc(v.audio) ? { audio: v.audio } : {}),
         directions: dirs && dirs.length ? dirs : undefined,
+        ...(str(v.dict).trim() ? { dict: str(v.dict).trim().normalize("NFC") } : {}),
+        ...(str(v.gender).trim() ? { gender: str(v.gender).trim() } : {}),
         ...normalizeConjFields(v),
       };
     })

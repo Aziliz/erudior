@@ -9,6 +9,10 @@
 // their irregular parts in `forms`. Anything the rules can't settle (a verb that might have a
 // prefix, an e→i imperative) is refused unless the data says.
 //
+// Latin and Greek: nouns, adjectives and verbs are inflected from the dictionary entry (`dict`)
+// by conjugationLatin.ts and conjugationGreek.ts; every form is a slot ("pl.gen",
+// "aor-mid-opt.3pl") and each prompt asks for one.
+//
 // Data format: docs/COURSE_FORMAT.md, "Conjugation drills". Field lists: courseConjugation.ts.
 
 import type { ConjTally, Course, Progress, VocabItem } from "./types";
@@ -19,12 +23,16 @@ import {
   JA_VERB_FORMS,
   ES_VERB_FORMS,
   FR_VERB_FORMS,
+  isClassical,
   languageForms,
   type ConjugationFormSetting,
   type DeForms,
 } from "./courseConjugation";
 import { ES_IMPERATIVES, ES_LABEL, ES_PERSONS, FR_IMPERATIVES, FR_LABEL, FR_PERSONS, esVerbForm, esWordProblem, esWordWarnings, frVerbForm, frWordProblem, frWordWarnings } from "./conjugationRomance";
 import { checkRecall, checkRecallJa, shuffled, unlockedItems, type Verdict } from "./vocab";
+import { classicalFormName, missingReason, missingSlots, slotLabel, slotsOfForm, type ClassicalWord } from "./conjugationClassical";
+import { laWord, laWordWarnings } from "./conjugationLatin";
+import { grcWord, grcWordWarnings } from "./conjugationGreek";
 import { hasKanji, isKanaOnly, isKanji, stripRuby } from "./kana";
 import { today } from "./srs";
 
@@ -741,8 +749,30 @@ export function deWordWarnings(item: VocabItem): string[] {
 export const isJaVerb = (item: VocabItem) => JA_VERB_CLASSES.includes(item.conj ?? "");
 export const isJaAdj = (item: VocabItem) => JA_ADJ_CLASSES.includes(item.conj ?? "");
 
+/** A Latin or Greek word's forms, or why it can't be inflected. */
+export function classicalWord(lang: string, item: VocabItem): ClassicalWord | string {
+  return lang === "la" ? laWord(item) : grcWord(item);
+}
+
+/** The drillable forms of a Latin or Greek word: those with a slot that exists or must be given. */
+function classicalForms(lang: string, item: VocabItem): string[] {
+  const w = classicalWord(lang, item);
+  if (typeof w === "string") return [];
+  const all = languageForms(lang);
+  return all.filter((f) => slotsOfForm(w, f).some((s) => w.cells.has(s) || !w.optional.has(s)));
+}
+
+/** Slots of a drilled form that neither generate nor come from the word's table, with the reason. */
+export function conjMissing(lang: string, item: VocabItem, form: string): { slot: string; why?: string }[] {
+  if (!isClassical(lang)) return [];
+  const w = classicalWord(lang, item);
+  if (typeof w === "string") return [];
+  return missingSlots(w, form).map((slot) => ({ slot, why: missingReason(w, slot) }));
+}
+
 function classForms(lang: string, item: VocabItem): readonly string[] {
   if (!item.conj) return [];
+  if (isClassical(lang)) return classicalForms(lang, item);
   if (lang === "ja") return isJaVerb(item) ? JA_VERB_FORMS : isJaAdj(item) ? JA_ADJ_FORMS : [];
   if (lang === "de") return item.conj === "adj" ? DE_ADJ_FORMS : ["weak", "strong", "mixed", "modal"].includes(item.conj) ? DE_VERB_FORMS : [];
   if (lang === "es") return ["ar", "er", "ir"].includes(item.conj) ? ES_VERB_FORMS : [];
@@ -769,11 +799,17 @@ export function conjWordProblem(lang: string, item: VocabItem): string | undefin
   if (lang === "de") return deWordProblem(item);
   if (lang === "es") return esWordProblem(item);
   if (lang === "fr") return frWordProblem(item);
-  return `conjugation drills support Japanese, German, Spanish and French (this course is "${lang}")`;
+  if (isClassical(lang)) {
+    const w = classicalWord(lang, item);
+    return typeof w === "string" ? w : undefined;
+  }
+  return `conjugation drills support Japanese, German, Spanish, French, Latin and Greek (this course is "${lang}")`;
 }
 
 export function conjWordWarnings(lang: string, item: VocabItem): string[] {
   if (!item.conj) return [];
+  if (lang === "la") return laWordWarnings(item);
+  if (lang === "grc") return grcWordWarnings(item);
   return lang === "ja" ? jaWordWarnings(item) : lang === "de" ? deWordWarnings(item) : lang === "es" ? esWordWarnings(item) : lang === "fr" ? frWordWarnings(item) : [];
 }
 
@@ -818,6 +854,7 @@ export function formName(lang: string, form: string): string {
   if (lang === "ja") return form.startsWith("adj-") || form === "adverb" ? `adjectives: ${JA_LABEL[form]}` : `verbs: ${JA_LABEL[form] ?? form}`;
   if (lang === "es") return ES_NAME[form] ?? form;
   if (lang === "fr") return FR_NAME[form] ?? form;
+  if (isClassical(lang)) return classicalFormName(form);
   return DE_NAME[form] ?? form;
 }
 const ES_NAME: Record<string, string> = {
@@ -886,6 +923,15 @@ export function promptsFor(course: Course, item: VocabItem, form: string, nouns:
   if (lang === "ja") {
     const g = jaForm(item, form);
     return g ? [{ item, form, label: JA_LABEL[form], answers: g.answers, readings: g.readings, also: [...new Set(g.answers.slice(1))], rule: g.rule }] : [];
+  }
+  if (isClassical(lang)) {
+    const w = classicalWord(lang, item);
+    if (typeof w === "string") return [];
+    return slotsOfForm(w, form).flatMap((slot) => {
+      const c = w.cells.get(slot);
+      if (!c?.forms.length) return [];
+      return [{ item, form, person: slot, label: slotLabel(slot, w), answers: [...new Set([...c.forms, ...(c.extra ?? [])])], also: c.forms.slice(1), rule: c.rule }];
+    });
   }
   if (lang === "es" || lang === "fr") {
     const persons: (string | number)[] =
@@ -1002,8 +1048,22 @@ export function checkConj(prompt: ConjPrompt, typed: string, lang = "de"): Verdi
     };
     return checkRecallJa(item, typed);
   }
+  if (isClassical(lang)) return checkClassical(prompt, typed, lang);
   const item: VocabItem = { id: prompt.item.id, lesson: prompt.item.lesson, term: first, alt: rest, meanings: prompt.item.meanings, pos: "phrase" };
   return checkRecall(item, typed, lang);
+}
+
+/**
+ * Latin and Greek answers. MERGE HOOK (branch classical/typing): the answers here are fully
+ * marked (macrons; polytonic accents and breathings), NFC. Diacritic-optional grading belongs
+ * in vocab.ts checkRecall for "la" and "grc", so this goes through it unchanged; whatever it
+ * accepts for vocabulary recall it accepts here. A periphrastic or movable-ν answer is one of
+ * `answers`, so every spelling the generator accepts is an exact target for checkRecall.
+ */
+export function checkClassical(prompt: ConjPrompt, typed: string, lang: string): Verdict {
+  const [first, ...rest] = prompt.answers;
+  const item: VocabItem = { id: prompt.item.id, lesson: prompt.item.lesson, term: first, alt: rest, meanings: prompt.item.meanings, pos: "phrase" };
+  return checkRecall(item, typed.normalize("NFC"), lang);
 }
 
 /** Per-form accuracy for the Vocabulary tab: every drilled form, unlocked or not. */
