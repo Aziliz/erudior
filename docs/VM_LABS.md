@@ -4,24 +4,30 @@ Import `samples/demo-vm-lab.json` in the desktop app and open one of its three l
 
 ## RHCSA practice exam for RHEL 10
 
-Import `samples/rhcsa-10-practice-exam.json` and open **RHCSA practice exam**. One client and one server share a private network. Each of the ten tasks represents a different public EX200 objective area. Learners may use normal guest tools and installed documentation. Both guests must identify as RHEL 10 or compatible Enterprise Linux 10 before the timer starts. The lesson shows each guest’s actual distribution. Use RHEL 10 on both machines to practice on the distribution used for EX200. Erudior sets the three-hour time limit, equal 30-point weights and 210/300 practice target.
+The desktop course's final lesson uses `rhcsa-rhel10-practice-v2`. **Prepare machines** draws a form for the attempt: one task from each of the ten objective-area pools below, and fresh values for every name, size, port, address and time the tasks use (`draw_form` and `draw_params` in `runner.py`). The values go into each guest's cloud-init seed as `/etc/erudior-lab/params.json` (mode 0600), and the guest probe reads them when it checks. The task cards appear when the learner chooses **Begin**; the form and values are pinned to the attempt, and the report keeps the values for review. A reset draws a new form.
 
-The score report shows a practice outcome and points by objective area. Expand **Review task checks** to compare the observed state at submission with the state after the machine rebooted. A server configuration that disappeared on reboot earns zero even if it was correct at submission. Completed reports from earlier releases keep their original scores and identify unverified server persistence.
+Both guests must identify as RHEL 10 or compatible Enterprise Linux 10 before the timer starts. Erudior sets the three-hour time limit, equal 30-point weights and 210/300 practice target. A server configuration that disappears on reboot earns zero even if it was correct at submission.
 
-The [Red Hat EX200 objectives](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam) specify RHEL 10, hands-on tasks and configurations that survive reboot. The [certification program guide](https://docs.redhat.com/en/documentation/red_hat_learning_subscription/1-latest/html/red_hat_certification_program_guide/index) describes objective-area reporting. The exercises, weights and passing target in this independent mock are Erudior practice settings. A single form samples each area.
-
-| Area | Graded outcome | VM |
+| Area | Task pool (one is drawn) | VM |
 | --- | --- | --- |
-| Essential tools | Group ownership and mode of a shared directory | Server |
-| Software management | Enabled DNF repository pointed at the supplied local metadata, with package signature checking | Client |
-| Shell scripts | Executable script classifies integer arguments when run unprivileged | Client |
+| Essential tools | Group-owned setgid directory | Server |
+| Software management | DNF repository with a given ID pointed at local metadata, signatures checked | Client |
+| Shell scripts | Executable script that classifies an integer against a threshold, run unprivileged | Client |
 | Running systems | Active TuneD profile | Server |
-| Local storage | Active swap file of the specified size | Server |
-| File systems | Autofs and access to the real NFS marker | Client |
-| Deployment and maintenance | Supplied systemd service enabled and active | Server |
-| Basic networking | Persistent IPv4 hostname resolution | Client |
-| Users and groups | Local account and group membership | Client |
-| Security | Regular web content file with the requested SELinux type in enforcing mode | Server |
+| Local storage | XFS logical volume on the data disk mounted persistently · swap partition or LV on the data disk · swap file | Server |
+| File systems | Autofs mount of the NFS export | Client |
+| Deployment and maintenance | Supplied service enabled and active · daily cron entry in learner's crontab | Server · Client |
+| Basic networking | Static address, gateway and DNS on the second interface plus hostname · hosts-file name resolution | Client |
+| Users and groups | Local account in a supplementary group | Client |
+| Security | httpd on a custom port through firewalld with the SELinux port label · key-based SSH from client to server · SELinux file type | Server · Client |
+
+The fixed first form, `rhcsa-rhel10-practice-v1` (`samples/rhcsa-10-practice-exam.json`), is still accepted, and earlier receipts keep their scores. Its ten tasks are the first or only entry of each pool above, with the default values.
+
+The [Red Hat EX200 objectives](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam) specify RHEL 10, hands-on tasks and configurations that survive reboot. The exercises, weights and passing target in this independent mock are Erudior practice settings.
+
+### Extra guest hardware
+
+New disk sets (prepared after this change) get two extra devices. The server has an empty 2 GiB disk (`server-data.qcow2`, guest path `/dev/disk/by-id/virtio-erudior-data`) for the storage tasks. Each guest has a second network interface (client `52:54:00:aa:01:20`, server `52:54:00:aa:01:10`) attached to an empty QEMU hub, so it carries no traffic; cloud-init declares it without addresses. Disks prepared earlier keep their original hardware; a task that needs the new devices or the probe revision 4 stops before the clock starts and asks for fresh disks. Cloud-init now sets the hostname once (`preserve_hostname`), so a learner's hostname change survives reboot.
 
 ## Run the desktop labs
 
@@ -37,7 +43,7 @@ In a Debian 13 provider run `sudo apt update` and `sudo apt install python3 qemu
 
 ### Supply the guest image
 
-Prepare a BIOS-bootable x86-64 RHEL 10 cloud image from media you are entitled to use, or a compatible Enterprise Linux 10 image. Install cloud-init with NoCloud support, Python 3, systemd, autofs, nfs-utils, sudo, util-linux and coreutils. Enable cloud-init and serial login on ttyS0. Shut down the template with fresh cloud-init state. Leave the autofs maps unconfigured. Include DNF with its Python bindings, TuneD and its standard profiles, SELinux targeted policy and tools, swap utilities and runuser/prlimit. Start with SELinux enforcing and the graded paths and names unused. The engine adds the repository metadata and exercise service when it creates the guest disks.
+Prepare a BIOS-bootable x86-64 RHEL 10 cloud image from media you are entitled to use, or a compatible Enterprise Linux 10 image. Install cloud-init with NoCloud support, Python 3, systemd, autofs, nfs-utils, sudo, util-linux and coreutils. For the newer graded tasks also install lvm2, xfsprogs, parted, httpd, firewalld (enabled), policycoreutils-python-utils, openssh-clients, openssh-server, cronie and NetworkManager. Enable cloud-init and serial login on ttyS0. Shut down the template with fresh cloud-init state. Leave the autofs maps unconfigured. Include DNF with its Python bindings, TuneD and its standard profiles, SELinux targeted policy and tools, swap utilities and runuser/prlimit. Start with SELinux enforcing and the graded paths and names unused. The engine adds the repository metadata and exercise service when it creates the guest disks.
 
 Inside the provider use `mkdir -p ~/.local/share/erudior-vm-labs/images` and copy the powered-off standalone qcow2 to `~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2`. If you configure XDG_DATA_HOME for the provider process, use that directory instead of ~/.local/share. Keep the base image in place while overlays refer to it.
 
@@ -83,6 +89,7 @@ The default runner unit tests use Python. The focused UI tests use the repositor
 ```sh
 python3 tests/vm_lab_runner_test.py
 python3 tests/vm_exam_runner_test.py
+python3 tests/vm_tasks_v2_test.py
 npm run test:vm-labs
 ```
 
@@ -94,4 +101,4 @@ python3 tests/vm_tasks_host.py /absolute/path/to/prepared-cloud-image.qcow2
 python3 tests/vm_tasks_host.py /absolute/path/to/prepared-cloud-image.qcow2 --rhcsa
 ```
 
-Each test creates its own temporary data directory and overlays. The practice test expects zero of four checks on the clean pair, configures the client through its serial login and expects four of four after reboot. It also exercises stop, resume and reset against those test disks. The authored example checks 7/10 and 10/10. The RHCSA profile test submits two separate attempts and verifies 300/300 with persistent settings and 270/300 with a temporary server directory. The test checks each task on both sides of the relevant reboot. The desktop console buttons also require a packaged run on each target desktop.
+Each test creates its own temporary data directory and overlays. The practice test expects zero of four checks on the clean pair, configures the client through its serial login and expects four of four after reboot. It also exercises stop, resume and reset against those test disks. The authored example checks 7/10 and 10/10. The RHCSA profile test submits two separate attempts and verifies 300/300 with persistent settings and 270/300 with a temporary server directory. The test checks each task on both sides of the relevant reboot. The desktop console buttons also require a packaged run on each target desktop. The host test does not yet solve the six newer tasks or the randomized form; `tests/vm_tasks_v2_test.py` covers their grading logic with simulated guest output, and they still need one run against a real RHEL 10 pair.

@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import type { AppApi } from "../App";
 import { activeStudent, confirmAction, inApp } from "../lib/storage";
-import { ADMIN_EXAM, RHCSA_MOCK, VM_TASKS, latestVmReports, validVmReport, vmReportKey, type VmExamScenario, type VmLabReport, type VmTask } from "../lib/vmLab";
+import { ADMIN_EXAM, RHCSA_MOCK2, VM_TASKS, isRhcsaMock, latestVmReports, taskInstruction, validVmReport, vmReportKey, type VmExamScenario, type VmLabReport, type VmTask } from "../lib/vmLab";
 import { VmResult, VmSetup } from "./VmLabParts";
 
 type Phase = "new" | "prepared" | "active" | "submitted" | "complete" | "error" | "interrupted";
 type Action = "status" | "start" | "begin" | "submit" | "stop" | "retry" | "reset" | "console-client" | "console-server";
 interface State {
-  exam: {phase: Phase; id: string | null; remainingMs?: number; rubric?: VmTask[]; gradingVersion?: 2; platforms?: {client: string; server: string}; error?: string};
+  exam: {phase: Phase; id: string | null; remainingMs?: number; rubric?: VmTask[]; gradingVersion?: 2; platforms?: {client: string; server: string}; params?: Record<string, string>; error?: string};
   running: {client: boolean; server: boolean};
   password: string | null;
   report: VmLabReport | null;
@@ -41,7 +41,8 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
   latestApi.current = api;
   const phase = state?.exam.phase ?? "new";
   const rubric = state?.exam.rubric ?? tasks ?? [];
-  const weighted = scenario === ADMIN_EXAM || scenario === RHCSA_MOCK;
+  const weighted = scenario === ADMIN_EXAM || isRhcsaMock(scenario);
+  const mock = isRhcsaMock(scenario);
   const legacy = weighted && !!state?.exam.rubric && state.exam.gradingVersion !== 2;
   const rebootRoles = weighted ? [...new Set(rubric.map(t => VM_TASKS[t.id].role.toLowerCase()))].filter(r => !legacy || r === "client") : ["client"];
   const result = state?.report;
@@ -127,12 +128,13 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
   const seconds = Math.ceil((state?.exam.remainingMs ?? 0) / 1000);
   const machines = state?.running;
   return <section className="panel stack" aria-label="Timed practical exam">
-    <h2>{scenario === RHCSA_MOCK ? "RHCSA practice exam · RHEL 10" : "Timed Linux practical"}</h2>
+    <h2>{mock ? "RHCSA practice exam · RHEL 10" : "Timed Linux practical"}</h2>
     {weighted ? <>
+      {scenario === RHCSA_MOCK2 && !rubric.length && <p>This attempt draws one task for each of the ten objective areas, with its own names, sizes and addresses. The tasks appear when you begin.</p>}
       <ol>{rubric.map(t => <li key={t.id}><strong>{VM_TASKS[t.id].role} · {VM_TASKS[t.id].title}</strong>
-        {scenario !== RHCSA_MOCK && ` · ${t.points} ${t.points === 1 ? "point" : "points"}`}<p>{VM_TASKS[t.id].instruction}</p></li>)}</ol>
+        {!mock && ` · ${t.points} ${t.points === 1 ? "point" : "points"}`}<p>{taskInstruction(t.id, state?.exam.params)}</p></li>)}</ol>
       <p>{legacy ? "This earlier attempt checks server tasks at submission only." : "Each task must work at submission and after its machine reboots to earn its points."}</p>
-      {scenario === RHCSA_MOCK && <p>Erudior practice settings are 180 minutes, 300 points and a 210-point passing target. Each of the ten objective areas is worth 30 points.</p>}
+      {mock && <p>Erudior practice settings are 180 minutes, 300 points and a 210-point passing target. Each of the ten objective areas is worth 30 points.</p>}
     </> : <p>{VM_TASKS["client-nfs"].instruction} The mount must also work after reboot.</p>}
     {supported ? <>
       <VmSetup provider={provider} />

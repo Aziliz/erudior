@@ -3,7 +3,7 @@
   "version": 1,
   "id": "rhcsa-rhel10-administration",
   "title": "RHCSA preparation • System administration on RHEL 10",
-  "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, ten graded labs, two rehearsals and a reboot-verified final practical.",
+  "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, fifteen graded labs, two rehearsals and a reboot-verified final practical that draws a new form each attempt.",
   "modules": [
     {
       "id": "orientation",
@@ -63,7 +63,7 @@
       "topics": [
         "Lab orientation"
       ],
-      "body": "You are the on-call administrator for a small office. The server supplies files and services. The client represents the workstation whose users need them. By the final practical you will make changes on both machines, verify them from the affected user's point of view, and leave them working after startup.\n\n## Before you begin\nYou should be comfortable typing basic shell commands and using a text editor. The reading and quizzes work in Erudior. The desktop app runs a client and server on your computer. Windows uses Debian under WSL 2, macOS uses a local Lima instance named `erudior-labs`, and Linux uses QEMU directly. Open **First-time setup** in a VM lesson for your platform's instructions. Inside the Linux provider, install QEMU 9.2 or newer and a prepared, BIOS-bootable x86-64 RHEL 10 or compatible cloud image. The host supplies both guests from the same image. Reserve 3 GiB for the two guests, plus memory for the provider and the desktop.\n\nFor Red Hat package parity, use an entitled RHEL 10 image. The engine supplies cloud-init configuration and a learner account. The local image must already contain the RHCSA services and tools listed in the engine's **docs/VM_LABS.md**. Place it inside the provider at `~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2` for the default data directory.\n\n## Make a baseline\nOpen **Practice consoles and an on-demand mount**, select **Start lab**, and wait for both guests. Open each console in turn. Under **Console login** find this attempt's credentials for `learner`. Run the following in each guest.\n\n```sh\nhostname\ncat /etc/redhat-release\nid\nip -brief address\ncat /proc/sys/kernel/random/boot_id\n```\n\nWrite down which guest owns `192.168.77.10` and which owns `192.168.77.20`. Hostname, address and boot ID together identify where and when you observed an outcome. If the prompt is silent during first boot, let cloud-init finish and press Enter. Use `sudo` for changes inside these guests. If the learner or guest address differs, confirm you opened a console from this lesson.\n\n## How to study\nUse the untimed pair for the worked examples. Return to the same lesson to resume it. A graded lesson opens its own fresh pair on the first attempt. **Prepare machines** boots the pair and **Begin** starts the deadline. In a timed attempt, leaving the lesson keeps the clock running. When switching lessons, stop the untimed workspace with **Stop lab**, or stop a completed practical after its result is saved. This keeps just two guests running on the host. Stopping the pair preserves its disks. **Reset disks** discards that lesson's guest changes. The final samples ten tasks. Do the self-checks as well to practice the wider EX200 objectives.",
+      "body": "You are the on-call administrator for a small office. The server supplies files and services. The client represents the workstation whose users need them. By the final practical you will make changes on both machines, verify them from the affected user's point of view, and leave them working after startup.\n\n## Before you begin\nYou should be comfortable typing basic shell commands and using a text editor. The reading and quizzes work in Erudior. The desktop app runs a client and server on your computer. Windows uses Debian under WSL 2, macOS uses a local Lima instance named `erudior-labs`, and Linux uses QEMU directly. Open **First-time setup** in a VM lesson for your platform's instructions. Inside the Linux provider, install QEMU 9.2 or newer and a prepared, BIOS-bootable x86-64 RHEL 10 or compatible cloud image. The host supplies both guests from the same image. Reserve 3 GiB for the two guests, plus memory for the provider and the desktop.\n\nFor Red Hat package parity, use an entitled RHEL 10 image. The engine supplies cloud-init configuration and a learner account. The local image must already contain the RHCSA services and tools listed in the engine's **docs/VM_LABS.md**, including LVM, XFS tools, parted, httpd, firewalld, the SELinux management tools, the SSH client, cronie and NetworkManager. The engine adds an empty 2 GiB disk to the server and a second network interface to each guest when it prepares new disks. Place it inside the provider at `~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2` for the default data directory.\n\n## Make a baseline\nOpen **Practice consoles and an on-demand mount**, select **Start lab**, and wait for both guests. Open each console in turn. Under **Console login** find this attempt's credentials for `learner`. Run the following in each guest.\n\n```sh\nhostname\ncat /etc/redhat-release\nid\nip -brief address\ncat /proc/sys/kernel/random/boot_id\n```\n\nWrite down which guest owns `192.168.77.10` and which owns `192.168.77.20`. Hostname, address and boot ID together identify where and when you observed an outcome. If the prompt is silent during first boot, let cloud-init finish and press Enter. Use `sudo` for changes inside these guests. If the learner or guest address differs, confirm you opened a console from this lesson.\n\n## How to study\nUse the untimed pair for the worked examples. Return to the same lesson to resume it. A graded lesson opens its own fresh pair on the first attempt. **Prepare machines** boots the pair and **Begin** starts the deadline. In a timed attempt, leaving the lesson keeps the clock running. When switching lessons, stop the untimed workspace with **Stop lab**, or stop a completed practical after its result is saved. This keeps just two guests running on the host. Stopping the pair preserves its disks. **Reset disks** discards that lesson's guest changes. The final samples ten tasks. Do the self-checks as well to practice the wider EX200 objectives.",
       "quiz": [
         "orientation-identity",
         "orientation-timing"
@@ -316,6 +316,28 @@
       ]
     },
     {
+      "id": "storage-lab",
+      "module": "storage",
+      "title": "Lab • Build persistent storage on a new disk",
+      "minutes": 40,
+      "topics": [
+        "Local storage"
+      ],
+      "body": "The server now has a second, empty 2 GiB disk. Find it before you change anything: `lsblk -o NAME,SIZE,TYPE,MOUNTPOINTS` lists the system disk with mounted partitions and the empty one without. Its stable name is `/dev/disk/by-id/virtio-erudior-data`. Every change in this lab goes on that disk only.\n\nOn the **server**:\n\n1. Create volume group `labvg` with a 400 MiB logical volume `labdata`. Format it with XFS and mount it at `/srv/labdata` so it returns after boot.\n2. Add at least 256 MiB of swap on the same disk, as a partition or a second logical volume, and make it activate after boot. Keep the existing swap.\n\nPlan the disk first. One way is a GPT label with two partitions: one for LVM and one for swap. Another is one partition for LVM holding both logical volumes. Use `parted` (`mklabel gpt`, `mkpart`, `set N lvm on`), then `pvcreate`, `vgcreate`, `lvcreate`, `mkfs.xfs` and `mkswap`. Reference the filesystem and the swap device in `/etc/fstab` by UUID, run `systemctl daemon-reload`, then `mount -a` and `swapon -a` to test the entries before the grader reboots the server.\n\nThe grader checks the volume group, the logical volume's size (allowing for extent rounding), XFS mounted at the path, swap of the requested size on this disk, and all of it again after a reboot. `findmnt --verify` catches most fstab typing errors.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 40,
+      "vmTasks": [
+        {
+          "id": "server-lvm",
+          "points": 10
+        },
+        {
+          "id": "server-swap-part",
+          "points": 10
+        }
+      ]
+    },
+    {
       "id": "mount-identities",
       "module": "filesystems",
       "title": "Mount the right filesystem and prove what is serving a path",
@@ -393,6 +415,24 @@
       ]
     },
     {
+      "id": "cron-lab",
+      "module": "deployment",
+      "title": "Lab • Schedule a recurring job",
+      "minutes": 15,
+      "topics": [
+        "Deployment and maintenance"
+      ],
+      "body": "On the **client**, add an entry to the `learner` account's own crontab that runs `logger erudior-nightly` every day at 02:15.\n\nEdit as that user with `crontab -e`, or as root with `crontab -e -u learner`. The five time fields are minute, hour, day of month, month and day of week. Confirm the entry with `crontab -l -u learner` and that `crond` is active and enabled. A one-time test is to add a second entry for the next minute, watch `journalctl -t learner -f` or `journalctl -f | grep erudior`, then remove the test line.\n\nThe grader reads learner's crontab and checks the daily 02:15 entry and the daemon, before and after a client reboot. Entries in `/etc/crontab` or `/etc/cron.d` do not count for this task, because it asks for the user's own table.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 15,
+      "vmTasks": [
+        {
+          "id": "client-cron",
+          "points": 10
+        }
+      ]
+    },
+    {
       "id": "network-path",
       "module": "network",
       "title": "Trace a request from name to interface to listener",
@@ -422,6 +462,24 @@
       "vmTasks": [
         {
           "id": "client-resolution",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "network-lab",
+      "module": "network",
+      "title": "Lab • Configure a second interface and the hostname",
+      "minutes": 25,
+      "topics": [
+        "Basic networking"
+      ],
+      "body": "The client has a second network interface with MAC address `52:54:00:aa:01:20`. It has no peer, so nothing answers on it; the grader checks configuration, not reachability. Leave the `192.168.77.20` lab link unchanged, or you will lose the server.\n\nOn the **client**:\n\n1. Configure the second interface persistently with IPv4 address `10.88.10.20/24`, gateway `10.88.10.1` and DNS server `10.88.10.53`.\n2. Set the hostname to `client01.lab.test`.\n\nMatch the MAC to an interface name with `ip -brief link`. `nmcli connection show` lists the profile cloud-init created for it; modify that profile, or create one bound to the interface, with `ipv4.method manual`. Bring it up and check `ip -brief address`, `nmcli -g IP4.GATEWAY,IP4.DNS device show IFACE` and `hostnamectl`. The new DNS server cannot answer, so `/etc/hosts` entries keep the lab names working.\n\nThe grader checks the address and prefix on that interface, the gateway and DNS NetworkManager applied, and the static hostname, then repeats after a reboot. Restore the original hostname afterward if you reuse this pair for other lessons.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 25,
+      "vmTasks": [
+        {
+          "id": "client-network",
           "points": 10
         }
       ]
@@ -469,6 +527,42 @@
       "vmTasks": [
         {
           "id": "server-selinux",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "web-port-lab",
+      "module": "security",
+      "title": "Lab • Serve web content on a custom port",
+      "minutes": 25,
+      "topics": [
+        "Security"
+      ],
+      "body": "On the **server**, make `httpd` serve `/var/www/html` on TCP port 18080, running now and at boot. Allow the port through firewalld permanently and keep SELinux enforcing.\n\nThree separate controls must agree. Add `Listen 18080` to the Apache configuration (`/etc/httpd/conf/httpd.conf` or a file in `/etc/httpd/conf.d/`). Label the port for the web server with `semanage port -a -t http_port_t -p tcp 18080`; without the label, enforcing SELinux stops httpd from binding the port and `journalctl -u httpd` shows a permission error. Open the firewall with `firewall-cmd --permanent --add-port=18080/tcp` and `firewall-cmd --reload`. Then `systemctl enable --now httpd`.\n\nTest with `curl -I http://127.0.0.1:18080/` on the server and `curl -I http://192.168.77.10:18080/` from the client. A 403 for an empty document root still proves the server answered. The grader checks the service, the listener, the firewall rule, enforcing mode and an HTTP answer, then repeats after a reboot.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 25,
+      "vmTasks": [
+        {
+          "id": "server-web-port",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "ssh-lab",
+      "module": "security",
+      "title": "Lab • Key-based SSH login between the machines",
+      "minutes": 20,
+      "topics": [
+        "Security"
+      ],
+      "body": "Create the user `labssh` on the **server**. On the **client**, let the `learner` account log in to the server as `labssh` with an SSH key and no password prompt.\n\nOn the client as learner, create a key pair with `ssh-keygen -t ed25519` (an empty passphrase lets the grader log in unattended). The server image may refuse password logins over SSH, so `ssh-copy-id` can fail. In that case copy the contents of `~/.ssh/id_ed25519.pub` from the client and, on the server console, append it to `/home/labssh/.ssh/authorized_keys`. The directory must be mode 700 and the file 600, both owned by labssh. Run `restorecon -Rv /home/labssh/.ssh` if you created them in an unusual way.\n\nTest from the client with `ssh -o BatchMode=yes labssh@192.168.77.10 true; echo $?`. Zero means a key login worked without prompting. The grader runs the same kind of test as learner on the client, before and after the client reboots.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 20,
+      "vmTasks": [
+        {
+          "id": "client-ssh-key",
           "points": 10
         }
       ]
@@ -549,8 +643,8 @@
       "topics": [
         "Practical assessment"
       ],
-      "body": "You have a new client, a new server and three hours. Read the ten tasks in the exam panel. Use the named machine for each and decide your own order. Both machines should identify as RHEL 10 or compatible Enterprise Linux 10 during preparation.\n\nChoose **Prepare machines**. When ready, choose **Begin**. You may use the documentation installed in the guests. For an independent rehearsal, put course notes aside until you submit. Keep a short record of which task works now and what will make it work at boot. Reserve time to test from the client's or service user's point of view.\n\n**Submit exam** closes the consoles. The grader checks the requested state at submission, restarts the relevant machines and checks again. A task earns its 30 points when both checks pass. The ten tasks total 300 practice points, with an Erudior target of 210. Results appear in this lesson and in course **Progress**. The numerical VM result records practical performance. A lesson completion checkmark records study progress. Use **Review task checks** and the next lesson to plan a retake.\n\nErudior authored this fixed practice form using the published EX200 objectives. Its tasks, weights and passing target are Erudior's own. A repeat uses the same form, so use the transfer exercises in the next lesson to judge whether you can apply the skill to a new request.",
-      "vmLab": "rhcsa-rhel10-practice-v1"
+      "body": "You have a new client, a new server and three hours. **Prepare machines** draws this attempt's ten tasks, one for each published objective area, with its own names, sizes, ports and addresses. The tasks appear when you choose **Begin**. Use the named machine for each and decide your own order. Both machines should identify as RHEL 10 or compatible Enterprise Linux 10 during preparation.\n\nYou may use the documentation installed in the guests. For an independent rehearsal, put course notes aside until you submit. Keep a short record of which task works now and what will make it work at boot. Reserve time to test from the client's or service user's point of view.\n\n**Submit exam** closes the consoles. The grader checks the requested state at submission, restarts the relevant machines and checks again. A task earns its 30 points when both checks pass. The ten tasks total 300 practice points, with an Erudior target of 210. Results appear in this lesson and in course **Progress**. Use **Review task checks** and the next lesson to plan a retake.\n\nA retake draws a new form. Some areas have several kinds of task (for example, local storage can be a logical volume, swap on a new device or a swap file), so a second attempt tests whether the skill transfers rather than whether you remember the last one. Erudior authored these tasks from the published EX200 objectives; the tasks, weights and passing target are Erudior's own.",
+      "vmLab": "rhcsa-rhel10-practice-v2"
     },
     {
       "id": "after-action",
@@ -560,7 +654,7 @@
       "topics": [
         "Practical assessment"
       ],
-      "body": "Open **Progress**, then return to the final exam lesson and expand **Review task checks**. Pick one task. Record the target machine, the requested end state, what you observed at submission and what the grader observed after reboot. For any lost points, identify a specific change and one command that would expose its absence.\n\n| Report area | Revisit this lab | Independent transfer exercise in the untimed pair |\n| --- | --- | --- |\n| Essential tools | Hand off a team workspace | Make a second group's directory and verify the group of a newly created child. |\n| Users and groups | Add a client operator | Add a second group without removing the first and test through a fresh login. |\n| Software management | Bring an offline RPM source online | Give the supplied shelf a new repository ID and refresh metadata with only that ID enabled. |\n| Shell scripts | Deliver an executable classifier | Use a threshold of 25 and demonstrate both boundary cases as an ordinary user. |\n| Running systems | Apply a persistent performance profile | Select a different installed profile and confirm it after startup. |\n| Local storage | Add persistent swap capacity | Activate a different-sized swap file and compare its requested and usable sizes. |\n| File systems | Recover a share on demand | Mount the same export on demand at a different client path and prove its source. |\n| Deployment and maintenance | Restore a startup service | Write your own oneshot that creates a different marker in /run on each boot. |\n| Basic networking | Make the file server discoverable | Add a new alias, then distinguish an address lookup from a reachability test. |\n| Security | Repair a web document label | Use a second document path and verify expected and actual types after restorecon. |\n\n**Failed at submission:** reproduce the symptom in the affected account and guest. Check prerequisites, names, paths and active state before persistence. **Passed at submission, failed after reboot:** inspect startup enablement, persistent configuration and the new boot's journal. **Both checks passed:** attempt the transfer exercise with new names or values and explain why it still works. If grading was interrupted, reopen the lesson and use **Retry grading** where offered. A technical interruption and an observed incorrect configuration need different follow-up.\n\nA retake uses **Reset exam disks** in the final lesson. Copy any notes or scores you want to compare first. Starting over removes that attempt's guest changes. Practice until you can verify a fresh configuration unaided, including the independent exercises outside the ten machine-graded tasks.\n\n## Keep the official scope handy\nReview the published objective list alongside your results. The RHEL manuals give the command syntax and platform conventions used throughout the course.\n\n- [Red Hat EX200 objectives and exam format](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam)\n- [Red Hat Enterprise Linux 10 documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10)\n- [Managing storage devices](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/managing_storage_devices/index)\n- [Configuring and managing networking](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/configuring_and_managing_networking/index)\n- [Administering RHEL with GNOME, including Flatpak](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/administering_rhel_by_using_the_gnome_desktop_environment/index)",
+      "body": "Open **Progress**, then return to the final exam lesson and expand **Review task checks**. Pick one task. Record the target machine, the requested end state, what you observed at submission and what the grader observed after reboot. For any lost points, identify a specific change and one command that would expose its absence.\n\n| Report area | Revisit this lab | Independent transfer exercise in the untimed pair |\n| --- | --- | --- |\n| Essential tools | Hand off a team workspace | Make a second group's directory and verify the group of a newly created child. |\n| Users and groups | Add a client operator | Add a second group without removing the first and test through a fresh login. |\n| Software management | Bring an offline RPM source online | Give the supplied shelf a new repository ID and refresh metadata with only that ID enabled. |\n| Shell scripts | Deliver an executable classifier | Use a threshold of 25 and demonstrate both boundary cases as an ordinary user. |\n| Running systems | Apply a persistent performance profile | Select a different installed profile and confirm it after startup. |\n| Local storage | Add persistent swap capacity; Build persistent storage on a new disk | Grow the logical volume and its XFS filesystem by 100 MiB without unmounting it, then confirm with `df -h`. |\n| File systems | Recover a share on demand | Mount the same export on demand at a different client path and prove its source. |\n| Deployment and maintenance | Restore a startup service; Schedule a recurring job | Write your own oneshot that creates a different marker in /run on each boot, or replace the cron entry with a systemd timer. |\n| Basic networking | Make the file server discoverable; Configure a second interface | Add an IPv6 address to the second interface's profile and confirm it after reactivating the connection. |\n| Security | Repair a web document label; Serve web content on a custom port; Key-based SSH login | Move the web service to a second port and remove the first port's firewall rule and label. |\n\n**Failed at submission:** reproduce the symptom in the affected account and guest. Check prerequisites, names, paths and active state before persistence. **Passed at submission, failed after reboot:** inspect startup enablement, persistent configuration and the new boot's journal. **Both checks passed:** attempt the transfer exercise with new names or values and explain why it still works. If grading was interrupted, reopen the lesson and use **Retry grading** where offered. A technical interruption and an observed incorrect configuration need different follow-up.\n\nA retake uses **Reset exam disks** in the final lesson and draws a new form. Copy any notes or scores you want to compare first. Starting over removes that attempt's guest changes. Practice until you can verify a fresh configuration unaided, including the independent exercises outside the ten machine-graded tasks.\n\n## Keep the official scope handy\nReview the published objective list alongside your results. The RHEL manuals give the command syntax and platform conventions used throughout the course.\n\n- [Red Hat EX200 objectives and exam format](https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam)\n- [Red Hat Enterprise Linux 10 documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10)\n- [Managing storage devices](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/managing_storage_devices/index)\n- [Configuring and managing networking](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/configuring_and_managing_networking/index)\n- [Administering RHEL with GNOME, including Flatpak](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/administering_rhel_by_using_the_gnome_desktop_environment/index)",
       "quiz": [
         "practical-repair"
       ]
@@ -1165,6 +1259,6 @@
       ]
     }
   ],
-  "revision": 2,
-  "changelog": "Revision 2: a lesson on recovering root access by interrupting the boot; grep regular expressions, redirection order and su -; swap on a new partition or logical volume; changing an existing NetworkManager profile and the hostname; keeping a umask setting; system-wide Flatpak scope; top, kill and pkill; eight new questions. Clearer wording for the repository ID, the client labops group and the swap size in the labs."
+  "revision": 3,
+  "changelog": "Revision 3: five new graded labs (persistent storage on a new disk, a scheduled job, a second interface and the hostname, a web service on a custom port, key-based SSH). The final practical draws a new form per attempt, one task per objective area with its own names and values. Revision 2: a lesson on recovering root access by interrupting the boot; grep regular expressions, redirection order and su -; swap on a new partition or logical volume; changing an existing NetworkManager profile and the hostname; keeping a umask setting; system-wide Flatpak scope; top, kill and pkill; eight new questions. Clearer wording for the repository ID, the client labops group and the swap size in the labs."
 }

@@ -42,5 +42,5 @@ for (const [course, entry] of [[webCourse, study], [desktopCourse, desktop]] as 
 assert.deepEqual(webCourse.banks.flatMap(bank => bank.questions), desktopCourse.banks.flatMap(bank => bank.questions));
 const questions = webCourse.banks.flatMap(bank => bank.questions).map(q => q.id);
 assert(webCourse.lessons.every(lesson => !lesson.vmLab && lesson.quiz?.length && lesson.quiz.every(id => questions.includes(id))));
-assert.equal(desktopCourse.lessons.filter(lesson => lesson.vmLab).length, 14);
+assert.equal(desktopCourse.lessons.filter(lesson => lesson.vmLab).length, 19);
 console.log("RHCSA catalog visibility, edition revisions, browser quizzes and desktop practicals passed.");

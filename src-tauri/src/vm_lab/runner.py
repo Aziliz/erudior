@@ -20,6 +20,9 @@ GUEST_SOURCE = Path(__file__).with_name("guest_probe.py").read_text() if "__file
 SCENARIO = "linux-nfs-autofs-v1"
 ROLES = ("server", "client")
 MACS = {"server": "52:54:00:aa:00:10", "client": "52:54:00:aa:00:20"}
+# A second client interface with no peer, for static addressing tasks; a blank disk on the server.
+SPARE_MACS = {"server": "52:54:00:aa:01:10", "client": "52:54:00:aa:01:20"}
+DATA_DISK_MIB = 2048
 ADDRESSES = {"server": "192.168.77.10", "client": "192.168.77.20"}
 ACTIONS = {"status", "start", "stop", "reset", "check", "console-client", "console-server"}
 
@@ -62,20 +65,26 @@ def seed(role, attempt):
     # NoCloud accepts JSON as YAML; a static interface works without DHCP or DNS.
     (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": {
         "lab": {"match": {"macaddress": MACS[role]}, "dhcp4": False,
-                "addresses": [ADDRESSES[role] + "/24"]}}}))
+                "addresses": [ADDRESSES[role] + "/24"]},
+        # Declared so the spare link does not wait for DHCP; learners configure it.
+        "spare": {"match": {"macaddress": SPARE_MACS[role]}, "dhcp4": False, "dhcp6": False, "optional": True}}}))
     config = {
+        # Set the role name once; later hostname changes are the learner's (hostname tasks).
+        "preserve_hostname": True,
         "users": [{"name": "learner", "shell": "/bin/bash", "lock_passwd": False,
                    "sudo": ["ALL=(ALL) NOPASSWD:ALL"]}],
         "chpasswd": {"expire": False, "users": [
             {"name": "learner", "type": "text", "password": attempt["password"]}]},
         "write_files": [
             {"path": "/usr/local/libexec/erudior-lab-probe.py", "content": GUEST_SOURCE},
+            {"path": "/etc/erudior-lab/params.json", "permissions": "0600",
+             "content": json.dumps(attempt_params(attempt))},
             {"path": "/etc/systemd/system/erudior-lab-probe.service", "content":
              "[Unit]\nDescription=Erudior practice checks\nAfter=local-fs.target\n"
              "[Service]\nType=simple\nRestart=always\nRestartSec=2\n"
              f"ExecStart=/usr/bin/python3 -I /usr/local/libexec/erudior-lab-probe.py {role} {attempt['id']}\n"
              "[Install]\nWantedBy=multi-user.target\n"}],
-        "runcmd": [["systemctl", "daemon-reload"], ["systemctl", "enable", "erudior-lab-probe.service"],
+        "runcmd": [["hostnamectl", "set-hostname", role], ["systemctl", "daemon-reload"], ["systemctl", "enable", "erudior-lab-probe.service"],
                    ["systemctl", "restart", "erudior-lab-probe.service"]]}
     if role == "client":
         primary = '<metadata xmlns="http://linux.duke.edu/metadata/common" packages="0"/>'
@@ -216,8 +225,16 @@ def launch(role, base, attempt):
     if not Path(image).exists():
         run([tool("qemu-img"), "create", "-f", "qcow2", "-F", "qcow2", "-b", str(base), image + ".tmp"])
         Path(image + ".tmp").replace(image)
-    if not Path(role + "-seed.iso").exists():
+    fresh = not Path(role + "-seed.iso").exists()
+    if fresh:
         seed(role, attempt)
+        # New disk sets get the extra devices; earlier attempts keep their original hardware.
+        Path(role + ".devices").write_text("2")
+    data = role + "-data.qcow2"
+    extra = Path(role + ".devices").exists()
+    if extra and role == "server" and not Path(data).exists():
+        run([tool("qemu-img"), "create", "-f", "qcow2", data + ".tmp", f"{DATA_DISK_MIB}M"])
+        Path(data + ".tmp").replace(data)
     net = "stream,id=wire,addr.type=unix,addr.path=wire.sock,"
     net += "server=on" if role == "server" else "server=off,reconnect-ms=1000"
     kvm = x86_kvm()
@@ -228,6 +245,10 @@ def launch(role, base, attempt):
             "-drive", f"file={image},format=qcow2,if=virtio",
             "-drive", f"file={role}-seed.iso,format=raw,media=cdrom,readonly=on",
             "-netdev", net, "-device", f"virtio-net-pci,netdev=wire,mac={MACS[role]}",
+            *(["-netdev", "hubport,id=spare,hubid=7", "-device", f"virtio-net-pci,netdev=spare,mac={SPARE_MACS[role]}"]
+              if extra else []),
+            *(["-drive", f"file={data},format=qcow2,if=none,id=data",
+               "-device", "virtio-blk-pci,drive=data,serial=erudior-data"] if extra and role == "server" else []),
             "-serial", f"unix:{role}.serial,server=on,wait=off",
             "-qmp", f"unix:{role}.qmp,server=on,wait=off",
             "-device", "virtio-serial-pci",
@@ -272,9 +293,92 @@ RHCSA_MOCK = "rhcsa-rhel10-practice-v1"
 TASK_ROLES = {"client-operator": "client", "server-team-directory": "server", "client-nfs": "client"}
 
 
+RHCSA_MOCK2 = "rhcsa-rhel10-practice-v2"
+EXAMS = {EXAM, ADMIN_EXAM, RHCSA_MOCK, RHCSA_MOCK2}
+SCENARIOS = {SCENARIO, *EXAMS}
+# Tasks graded by the second guest-probe revision: they read per-attempt values and need new devices.
+NEW_TASKS = ("server-lvm", "server-swap-part", "server-web-port", "client-ssh-key", "client-cron", "client-network")
 EXTRA_TASKS = ("client-repo", "client-script", "server-tuning", "server-swap", "server-service",
-               "client-resolution", "server-selinux")
+               "client-resolution", "server-selinux", *NEW_TASKS)
 TASK_ROLES.update({key: key.split("-")[0] for key in EXTRA_TASKS})
+# The fixed first form keeps its original order and tasks for earlier receipts.
+MOCK1_TASKS = ("client-operator", "server-team-directory", "client-nfs", "client-repo", "client-script",
+               "server-tuning", "server-swap", "server-service", "client-resolution", "server-selinux")
+# Guest capabilities each new task needs before the clock can start (reported by probe revision 4).
+TASK_NEEDS = {"server-lvm": ("lvm", "xfs", "dataDisk"), "server-swap-part": ("dataDisk", "parted"),
+              "server-web-port": ("httpd", "firewalld", "semanage"), "client-ssh-key": ("ssh",),
+              "client-cron": ("cron",), "client-network": ("nmcli", "spareNic")}
+NEED_NAMES = {"lvm": "LVM tools", "xfs": "xfsprogs", "dataDisk": "the server data disk (prepare fresh disks)",
+              "parted": "parted", "httpd": "httpd", "firewalld": "firewalld", "semanage": "policycoreutils-python-utils",
+              "ssh": "openssh-clients", "cron": "cronie", "nmcli": "NetworkManager",
+              "spareNic": "the client's second network interface (prepare fresh disks)"}
+
+# Values used by fixed lessons. The randomized mock draws its own per attempt.
+DEFAULT_PARAMS = {
+    "teamDir": "/srv/team", "teamGroup": "labops", "opUser": "labtech", "opGroup": "labops",
+    "repoId": "erudior-local", "scriptPath": "/usr/local/bin/lab-classify", "threshold": "10",
+    "tunedProfile": "throughput-performance", "swapFile": "/var/lib/erudior.swap", "swapMiB": "64",
+    "hostAlias": "files.lab.test", "webFile": "/var/www/html/erudior-status.txt",
+    "vgName": "labvg", "lvName": "labdata", "lvMiB": "400", "lvMount": "/srv/labdata", "swapDevMiB": "256",
+    "webPort": "18080", "sshUser": "labssh", "cronMinute": "15", "cronHour": "2", "cronTag": "erudior-nightly",
+    "spareAddress": "10.88.10.20", "spareGateway": "10.88.10.1", "spareDns": "10.88.10.53",
+    "clientHostname": "client01.lab.test"}
+# One task per published objective area. Pools give the randomized mock different forms.
+AREA_POOLS = (
+    ("Essential tools", ("server-team-directory",)),
+    ("Software management", ("client-repo",)),
+    ("Shell scripts", ("client-script",)),
+    ("Running systems", ("server-tuning",)),
+    ("Local storage", ("server-lvm", "server-swap-part", "server-swap")),
+    ("File systems", ("client-nfs",)),
+    ("Deployment and maintenance", ("server-service", "client-cron")),
+    ("Basic networking", ("client-network", "client-resolution")),
+    ("Users and groups", ("client-operator",)),
+    ("Security", ("server-web-port", "client-ssh-key", "server-selinux")),
+)
+WORDS = ("amber", "birch", "cedar", "delta", "ember", "fjord", "gale", "heron", "iris", "juniper", "kelp",
+         "lumen", "maple", "nova", "onyx", "pine", "quill", "raven", "sage", "tern", "umber", "vale", "willow", "yarrow")
+PEOPLE = ("ana", "bo", "chen", "dara", "eli", "fern", "gus", "hana", "ivo", "jai", "kim", "lena", "mo", "nia",
+          "omar", "pia", "ravi", "sora", "tara", "uma", "vik", "wen", "yuki", "zane")
+
+
+def draw_params(rng=None):
+    rng = rng or secrets.SystemRandom()
+    used = set()
+    def word(pool=WORDS):
+        while True:
+            value = rng.choice(pool)
+            if value not in used:
+                used.add(value)
+                return value
+    def name(pool):
+        return word(pool) + str(rng.randint(10, 99))
+    net = rng.randint(10, 250)
+    group = name(WORDS)
+    p = {
+        "teamDir": "/srv/" + word() + "-team", "teamGroup": group, "opUser": name(PEOPLE), "opGroup": name(WORDS),
+        "repoId": "lab-" + word(), "scriptPath": "/usr/local/bin/" + word() + "-classify",
+        "threshold": str(rng.randint(5, 60)),
+        "tunedProfile": rng.choice(("throughput-performance", "latency-performance", "network-throughput", "balanced")),
+        "swapFile": "/var/lib/" + word() + ".swap", "swapMiB": str(rng.choice((64, 96, 128))),
+        "hostAlias": word() + ".lab.test", "webFile": "/var/www/html/" + word() + "-status.txt",
+        "vgName": word() + "vg", "lvName": word(), "lvMiB": str(rng.choice((300, 400, 500, 600, 700))),
+        "lvMount": "/srv/" + word() + "-data", "swapDevMiB": str(rng.choice((128, 256, 384))),
+        "webPort": str(rng.randint(18000, 18999)), "sshUser": name(PEOPLE),
+        "cronMinute": str(rng.randint(0, 59)), "cronHour": str(rng.randint(0, 23)),
+        "cronTag": "erudior-" + secrets.token_hex(2),
+        "spareAddress": f"10.88.{net}.{rng.randint(10, 200)}", "spareGateway": f"10.88.{net}.1",
+        "spareDns": f"10.88.{net}.53", "clientHostname": name(WORDS) + ".lab.test"}
+    return p
+
+
+def draw_form(rng=None):
+    rng = rng or secrets.SystemRandom()
+    return [{"id": rng.choice(pool), "points": 30} for _, pool in AREA_POOLS]
+
+
+def attempt_params(attempt):
+    return dict(DEFAULT_PARAMS, **attempt.get("params", {}))
 
 
 def rubric(value):
@@ -314,6 +418,10 @@ def task_pass(key, data, marker, attempt_id):
     return result
 
 
+def needs_revision4(attempt, tasks):
+    return "params" in attempt or any(t["id"] in NEW_TASKS for t in tasks or ())
+
+
 def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_profile=False):
     verb = observation_verb(tasks)
     roles = set(ROLES) if tasks is None or preflight else {TASK_ROLES[t["id"]] for t in tasks}
@@ -335,6 +443,11 @@ def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_prof
             raise LabError("The NFS server or its fixture file is unavailable.")
         if preflight and not guests["client"].get("clientToolsReady"):
             raise LabError("The client image needs autofs and nfs-utils before the clock can start.")
+    if preflight:
+        missing = sorted({NEED_NAMES[need] for t in tasks or () for need in TASK_NEEDS.get(t["id"], ())
+                          if guests[TASK_ROLES[t["id"]]].get("capabilities", {}).get(need) is not True})
+        if missing:
+            raise LabError("The guest image is missing " + ", ".join(missing) + ". See the course's image requirements.")
     client = guests.get("client")
     roles_to_reboot = {TASK_ROLES[t["id"]] for t in tasks} if persistent else {"client"} & roles
     boots = {}
@@ -343,7 +456,7 @@ def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_prof
         boot = guest.get("boot")
         if not isinstance(boot, str) or not re.fullmatch(r"[0-9a-f-]{36}", boot):
             raise LabError(f"The {role} did not report a boot identity.")
-        revisions = (3,) if persistent else (2, 3)
+        revisions = (4,) if needs_revision4(attempt, tasks) else (3, 4) if persistent else (2, 3, 4)
         if guest.get("probeRevision") not in revisions:
             raise LabError(f"Update the {role} guest probe or prepare fresh disks before starting this practical.")
         boots[role] = boot
@@ -410,6 +523,8 @@ def grade(attempt, timed=False):
         rows.append(row)
     if persistent:
         report["gradingVersion"] = 2
+    if "params" in exam:
+        report["params"] = exam["params"]
     return dict(report, tasks=rows)
 
 
@@ -550,7 +665,7 @@ def lab_root():
 
 
 def lab_folder(scenario, profile, course, lesson):
-    if scenario not in {SCENARIO, EXAM, ADMIN_EXAM, RHCSA_MOCK}:
+    if scenario not in SCENARIOS:
         raise LabError("Unknown lab scenario.")
     if not all(re.fullmatch(r"[A-Za-z0-9_-]{1,100}", key) for key in (profile, course, lesson)):
         raise LabError("Invalid lab owner or lesson.")
@@ -605,7 +720,7 @@ def exam_status():
     a = load("attempt.json") or {}
     exam = a.get("exam", {})
     phase = exam.get("phase", "prepared" if a else "new")
-    visible = {k: exam[k] for k in ("startedAt", "deadlineAt", "submittedAt", "reason", "error", "rubric", "gradingVersion", "platforms") if k in exam}
+    visible = {k: exam[k] for k in ("startedAt", "deadlineAt", "submittedAt", "reason", "error", "rubric", "gradingVersion", "platforms", "params") if k in exam}
     left = remaining(exam) if phase == "active" else 0
     state["exam"] = dict(visible, id=a.get("id"), phase=phase, remainingMs=left)
     state["password"] = a.get("password") if left else None
@@ -614,8 +729,15 @@ def exam_status():
     return state
 
 
-def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False):
+def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False, randomized=False):
     attempt = load("attempt.json")
+    if randomized and action == "start" and not attempt:
+        # Draw the form before the disks exist so each guest's seed carries its values.
+        attempt = {"id": str(uuid.uuid4()), "password": secrets.token_urlsafe(10), "marker": secrets.token_hex(16),
+                   "form": draw_form(), "params": draw_params()}
+        save("attempt.json", attempt)
+    if randomized:
+        tasks = (attempt or {}).get("form")
     advance(attempt)
     exam = (attempt or {}).get("exam", {})
     phase = exam.get("phase", "prepared" if attempt else "new")
@@ -633,6 +755,8 @@ def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False):
             exam["gradingVersion"] = 2
         if mock_profile:
             exam["platforms"] = prepared["platforms"]
+        if "params" in attempt:
+            exam["params"] = attempt["params"]
         attempt["exam"] = exam
         ensure_worker(expected)
         save("attempt.json", attempt)
@@ -688,7 +812,8 @@ def operate(action, base):
         if action == "reset":
             Path("reset-pending").touch()
             for role in ROLES:
-                for suffix in (".qcow2", ".qcow2.tmp", "-seed.iso", "-seed.iso.tmp", ".log"):
+                for suffix in (".qcow2", ".qcow2.tmp", "-seed.iso", "-seed.iso.tmp", ".log",
+                               "-data.qcow2", "-data.qcow2.tmp", ".devices"):
                     Path(role + suffix).unlink(missing_ok=True)
                 if Path(role + "-seed").exists():
                     shutil.rmtree(role + "-seed")
@@ -720,19 +845,25 @@ def operate(action, base):
 
 def main(args):
     action, scenario, profile, course, lesson, *options = args
-    timed = scenario in {EXAM, ADMIN_EXAM, RHCSA_MOCK}
+    timed = scenario in EXAMS
     if len(options) > 3:
         raise LabError("Invalid exam options.")
     minutes = int(options[0]) if options else 20
     expected = options[1] if len(options) > 1 else None
     tasks = json.loads(options[2]) if len(options) > 2 else None
     if scenario == RHCSA_MOCK:
-        fixed = [{"id": key, "points": 30} for key in TASK_ROLES]
+        fixed = [{"id": key, "points": 30} for key in MOCK1_TASKS]
         if tasks is not None and rubric(tasks) != fixed:
             raise LabError("This practice exam uses a fixed objective rubric.")
         if options and minutes != 180:
             raise LabError("The RHCSA practice exam uses a 180-minute time limit.")
         tasks, minutes = fixed, 180
+    elif scenario == RHCSA_MOCK2:
+        if tasks is not None:
+            raise LabError("This practice exam draws its own tasks.")
+        if options and minutes != 180:
+            raise LabError("The RHCSA practice exam uses a 180-minute time limit.")
+        minutes = 180
     elif scenario == ADMIN_EXAM:
         rubric(tasks)
     elif tasks is not None:
@@ -740,7 +871,7 @@ def main(args):
     if not 1 <= minutes <= 240:
         raise LabError("Exam duration must be between 1 and 240 minutes.")
     permitted = ACTIONS | {"begin", "submit", "retry"} if timed else ACTIONS
-    if action not in permitted or scenario not in {SCENARIO, EXAM, ADMIN_EXAM, RHCSA_MOCK}:
+    if action not in permitted or scenario not in SCENARIOS:
         raise LabError("Unknown lab action or scenario.")
     os.umask(0o077)
     root = lab_root()
@@ -758,7 +889,9 @@ def main(args):
                 return exam_status()
             raise LabError("Another operation is running for this lab. Try again shortly.") from None
         base = root / "images" / (SCENARIO + ".qcow2")
-        return exam_action(action, base, minutes, expected, tasks, mock_profile=scenario == RHCSA_MOCK) if timed else operate(action, base)
+        mock = scenario in {RHCSA_MOCK, RHCSA_MOCK2}
+        return (exam_action(action, base, minutes, expected, tasks, mock_profile=mock, randomized=scenario == RHCSA_MOCK2)
+                if timed else operate(action, base))
 
 
 if __name__ == "__main__":
