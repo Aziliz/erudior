@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { IS_SITE, siteUrl } from "./lib/site";
 import { inApp } from "./lib/storage";
+import { reloadForNewBuild } from "./lib/staleBuild";
+
+// After a website deploy, an open tab's lazy chunks are gone; load the new build instead of failing.
+if (!inApp) window.addEventListener("vite:preloadError", (event) => { if (reloadForNewBuild()) event.preventDefault(); });
 
 // The download page lives on the public site.
 const redirectingToSite = !IS_SITE && /^\/download\/?$/.test(window.location.pathname);

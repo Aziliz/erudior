@@ -1,4 +1,5 @@
 import { flushSync } from "react-dom";
+import { reloadForNewBuild, isStaleChunkError } from "./lib/staleBuild";
 import { useTraditional } from "./components/Ruby";
 import { scriptBank, scriptCourse, scriptSession } from "./lib/zhScript";
 import { createClassroomWorkflowStore } from "./lib/classroomWorkflowStore";
@@ -918,7 +919,10 @@ export default function App() {
         const target = linked && "courseId" in linked && linked.courseId === id ? linked : { name: "course" as const, courseId: id };
         if (requestNavigation("app", target)) setView(target);
       } catch (e) {
-        if (current()) setCourseOpenError(`Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`);
+        if (!store.inApp && isStaleChunkError(e) && reloadForNewBuild()) return;
+        if (current()) setCourseOpenError(isStaleChunkError(e)
+          ? `Couldn't open "${entry.title}": Erudior was updated while this page was open. Reload the page to continue. Your existing learning records are preserved.`
+          : `Couldn't open "${entry.title}": ${String(e)}. Your existing learning records are preserved. Retry when ready.`);
       } finally { if (courseOpening.current === request) courseOpening.current = null; }
     },
     [reload, toast, assignmentBlock, courses, enroll, publicLearning, family],
