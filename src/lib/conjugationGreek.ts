@@ -158,6 +158,21 @@ const GRC_ADJ_TABLES: Record<string, { forms: Record<string, string>; note: stri
   },
 };
 
+/** A 1st-declension noun's group, for class-specific unlocks: decl1-eta (τιμή), decl1-alpha (χώρα),
+ *  decl1-short (θάλαττα, μοῖρα), decl1-masc (πολίτης, νεανίας). Undefined when dict doesn't parse. */
+export function grcDecl1Group(item: VocabItem): string | undefined {
+  const d = gNounData({ ...item, conj: "decl1" });
+  if (typeof d === "string") return undefined;
+  if (d.gender === "m") return "decl1-masc";
+  const nb = bare(d.nom);
+  if (nb.endsWith("η")) return "decl1-eta";
+  if (!nb.endsWith("α")) return undefined;
+  if (bare(d.gen).endsWith("ης")) return "decl1-short";
+  const acc = accentOf(d.nom);
+  const n = nuclei(d.nom).length;
+  return acc && (acc.pos === n - 3 || (acc.pos === n - 2 && acc.accent === CIRC)) ? "decl1-short" : "decl1-alpha";
+}
+
 /** Third-declension nouns whose genitive plural doesn't accent the ending (Smyth 252 a). */
 const MONO_EXCEPT = ["παῖς", "δμώς", "θώς", "Τρώς", "δᾴς", "οὖς", "φῶς"];
 

@@ -699,13 +699,26 @@ Progress is kept per language and form (`progress.conj["ja:te"] = { right, wrong
 
 The course checker reports unknown forms or classes, forms of the other language, unknown lessons, a Japanese class that doesn't fit the dictionary form (ichidan needs る after an い/え-row kana; godan must end in う, く, ぐ, す, つ, ぬ, ぶ, む or る), missing German parts, separable-looking verbs without `forms.sep`, and adjective drills with no nouns. It also prints warnings to review, which don't fail the check: godan verbs that look ichidan (帰る, 入る, 知る, 切る), readings shared by an ichidan and a godan verb (かえる, きる, いる, へる, ねる), な-adjectives ending in い marked `i-adj` (きれい), compounds of いい, one-kanji する verbs (愛する), and e → i German verbs without `forms.imperative`.
 
+**Class-specific unlocks.** A `language.conjugation.forms` entry may give `conj`, a list of the word classes it applies to. Without `conj`, the entry covers every class, as before. The same form may appear in several entries with different `conj` lists and lessons (the same form with the same classes only once). A word's form is open when an entry for that form whose `conj` includes the word's class (or has no `conj`) has its lesson done. The Vocabulary tab shows the form once, open when any entry is. The checker reports classes that aren't the language's.
+
+```json
+"forms": [
+  { "form": "pres-act-ind", "lesson": "la1-first-second-conjugations", "conj": ["v1", "v2"] },
+  { "form": "pres-act-ind", "lesson": "la1-third-conjugation", "conj": ["v3"] },
+  { "form": "pres-act-ind", "lesson": "la1-third-io-fourth", "conj": ["v3-io", "v4"] },
+  { "form": "gen", "lesson": "grc1-second-declension", "conj": ["decl2"] },
+  { "form": "gen", "lesson": "grc1-first-feminine", "conj": ["decl1-eta", "decl1-alpha"] },
+  { "form": "gen", "lesson": "grc1-first-short-masculine", "conj": ["decl1-short", "decl1-masc"] }
+]
+```
+
 **`noForms`** (optional, on a word with `conj`): forms the word doesn't have or that sound wrong, left out of its drills, e.g. `"noForms": ["potential", "volitional"]` on できる or 分かる. Use the form names above. A word with `"directions": ["meaning"]` (recognition only, such as regional or slang words) is never drilled, though its `conj` and `forms` are still checked.
 
 ### Latin and Greek inflection
 
 Latin (`la`) and Ancient Greek (`grc`, Attic) courses drill nouns, adjectives, pronouns and verbs with the same course setting, words, rounds and progress as other conjugation drills. A prompt asks for one form of one word, such as "genitive plural" of *puella* or "3rd person plural, perfect active indicative" of *capiō*, and the learner types it. Generated forms are fully marked: Latin macrons; Greek polytonic accents, breathings and iota subscripts, in NFC. Whether diacritics are optional in the learner's answer is decided by vocabulary recall grading (`checkRecall` in `lib/vocab.ts`), which drill answers go through unchanged (`checkClassical` in `lib/conjugation.ts`). Every accepted spelling (every gender of *amātus est*, *λύουσι* and *λύουσιν*, alternative forms) is one of the prompt's answers.
 
-**The course** lists drilled forms in `language.conjugation.forms`, as for the other languages: `{ "form": "gen", "lesson": "la1-genitive" }`. A form joins the drills when its lesson is done (no `lesson`: always on; `from`: the lesson is in an earlier course). A word joins when its own lesson is done. `noForms` on a word leaves forms out. A recognition-only word (`"directions": ["meaning"]`) is never drilled, but its data is still checked.
+**The course** lists drilled forms in `language.conjugation.forms`, as for the other languages: `{ "form": "gen", "lesson": "la1-genitive" }`. A form joins the drills when its lesson is done (no `lesson`: always on; `from`: the lesson is in an earlier course). A word joins when its own lesson is done. Declensions and conjugations are taught one at a time, so an entry may name the classes it opens the form for, with `conj` (see "Class-specific unlocks" above): `{ "form": "pres-act-ind", "lesson": "la1-third-conjugation", "conj": ["v3"] }`. Greek 1st declension nouns can be unlocked by group: `decl1-eta` (τιμή), `decl1-alpha` (long -ᾱ: χώρα), `decl1-short` (short -ᾰ: θάλαττα, μοῖρα) and `decl1-masc` (πολίτης, νεανίας). The group is read from `dict` (gender, the -η/-α ending, the genitive, and an accent that shows a short α); `conj` stays `decl1`. `noForms` on a word leaves forms out. A recognition-only word (`"directions": ["meaning"]`) is never drilled, but its data is still checked.
 
 **Words** give `conj` (the class), `dict` (the full dictionary entry, which the forms are made from) and, for nouns, the gender (in `dict` or in `gender`). `term` must be the first part of `dict`.
 

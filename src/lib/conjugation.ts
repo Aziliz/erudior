@@ -32,7 +32,7 @@ import { ES_IMPERATIVES, ES_LABEL, ES_PERSONS, FR_IMPERATIVES, FR_LABEL, FR_PERS
 import { checkRecall, checkRecallJa, shuffled, unlockedItems, type Verdict } from "./vocab";
 import { classicalFormName, missingReason, missingSlots, slotLabel, slotsOfForm, type ClassicalWord } from "./conjugationClassical";
 import { laWord, laWordWarnings } from "./conjugationLatin";
-import { grcWord, grcWordWarnings } from "./conjugationGreek";
+import { grcDecl1Group, grcWord, grcWordWarnings } from "./conjugationGreek";
 import { hasKanji, isKanaOnly, isKanji, stripRuby } from "./kana";
 import { today } from "./srs";
 
@@ -903,6 +903,24 @@ export const conjKey = (course: Course, form: string) => `${course.language?.cod
 
 const formOpen = (course: Course, p: Progress, s: ConjugationFormSetting) => !s.lesson || !!p.lessonsDone[`${s.from ?? course.id}/${s.lesson}`];
 
+/** The keys a form entry's `conj` can match for a word: its class, and (Greek 1st declension) its group. */
+export function wordClassKeys(lang: string, item: VocabItem): string[] {
+  const keys = item.conj ? [item.conj as string] : [];
+  if (lang === "grc" && item.conj === "decl1") {
+    const g = grcDecl1Group(item);
+    if (g) keys.push(g);
+  }
+  return keys;
+}
+/** Whether a form entry applies to a word (no `conj`: every word). */
+export const settingFits = (lang: string, s: ConjugationFormSetting, item: VocabItem) => !s.conj || s.conj.some((c) => wordClassKeys(lang, item).includes(c));
+
+/** The forms open for this word: an entry for the form that fits its class has its lesson done. */
+export function openFormsFor(course: Course, p: Progress, item: VocabItem): string[] {
+  const lang = course.language?.code ?? "";
+  return [...new Set(conjForms(course, p).filter((f) => f.open && settingFits(lang, f.setting, item)).map((f) => f.setting.form))];
+}
+
 /** The course's drilled forms with whether each is unlocked. */
 export function conjForms(course: Course, p: Progress): { setting: ConjugationFormSetting; open: boolean }[] {
   const lang = course.language?.code ?? "";
@@ -1000,14 +1018,13 @@ export const DEFAULT_ROUND = 10;
  */
 export function buildRound(course: Course, p: Progress, n = conjSettings(course)?.round ?? DEFAULT_ROUND, rand = Math.random, now = today()): ConjPrompt[] {
   const lang = course.language?.code ?? "";
-  const forms = conjForms(course, p).filter((f) => f.open).map((f) => f.setting.form);
-  if (!forms.length) return [];
+  if (!conjForms(course, p).some((f) => f.open)) return [];
   const unlocked = unlockedItems(course, p, now);
   const words = unlocked.filter((v) => formsForClass(lang, v).length && !conjWordProblem(lang, v));
   const nouns = lang === "de" ? unlocked.filter((v) => deNoun(v)) : [];
   const pairs: { item: VocabItem; form: string; w: number }[] = [];
   for (const item of words)
-    for (const form of forms) {
+    for (const form of openFormsFor(course, p, item)) {
       if (!formsForClass(lang, item).includes(form)) continue;
       if (!promptsFor(course, item, form, nouns, rand).length) continue;
       const t = tallyOf(p, conjKey(course, form));
@@ -1069,7 +1086,14 @@ export function checkClassical(prompt: ConjPrompt, typed: string, lang: string):
 /** Per-form accuracy for the Vocabulary tab: every drilled form, unlocked or not. */
 export function conjSummary(course: Course, p: Progress) {
   const lang = course.language?.code ?? "";
-  return conjForms(course, p).map(({ setting, open }) => {
+  // A form with several entries (one per class) is one row: open once any entry is, unlocked by the first.
+  const rows = new Map<string, { setting: ConjugationFormSetting; open: boolean }>();
+  for (const f of conjForms(course, p)) {
+    const had = rows.get(f.setting.form);
+    if (!had) rows.set(f.setting.form, { ...f });
+    else if (f.open && !had.open) rows.set(f.setting.form, { ...f });
+  }
+  return [...rows.values()].map(({ setting, open }) => {
     const t = tallyOf(p, conjKey(course, setting.form));
     return { form: setting.form, name: formName(lang, setting.form), lesson: setting.lesson, from: setting.from, open, ...t };
   });
