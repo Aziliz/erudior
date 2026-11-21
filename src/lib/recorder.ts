@@ -3,8 +3,8 @@
 // and are gone when it closes, unless the student saves a copy (lib/storage.ts saveBlob).
 // Nothing is uploaded and there's no automatic scoring.
 
-/** Longest recording; speaking drills are a sentence or two. */
-export const MAX_SECONDS = 30;
+/** Longest recording: three minutes, enough for an exam-style spoken answer (HSK 7–9 speaking tasks run 1–3 minutes). */
+export const MAX_SECONDS = 180;
 
 export const canRecord = () =>
   typeof navigator !== "undefined" && !!navigator.mediaDevices?.getUserMedia && typeof MediaRecorder !== "undefined";
