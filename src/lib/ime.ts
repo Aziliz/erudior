@@ -8,7 +8,8 @@
 import type { LanguageInfo } from "./types";
 import { romajiToKana } from "./kana";
 import { pinyinTyping } from "./pinyin";
-import { greekTyping } from "./greek";
+import { greekTyping, hasGreek } from "./greek";
+import { isClassical } from "./classical";
 
 /** Latin: an underscore after a vowel gives its macron (a_ → ā). Idempotent; nothing pending. */
 export function latinTyping(typed: string): string {
@@ -47,6 +48,21 @@ export function registerIme(name: string, ime: Ime) {
 export function imeFor(lang?: LanguageInfo): Ime | undefined {
   return lang?.ime ? registry[lang.ime] : undefined;
 }
+
+/**
+ * The converter for a box whose expected answers are `answers`. Latin and Greek courses follow the
+ * answer's script: Greek answers get Beta Code typing (a Latin course quoting Greek too), other
+ * answers the course's converter unless that's the Greek one (an English or Latin answer in a
+ * Greek course stays as typed). Other courses: the course's converter.
+ */
+export function imeForAnswer(lang: LanguageInfo | undefined, answers: string[] | undefined): Ime | undefined {
+  if (!lang || !isClassical(lang.code)) return imeFor(lang);
+  if (answers?.some(hasGreek)) return registry.grc;
+  return lang.ime === "grc" ? undefined : imeFor(lang);
+}
+
+/** True when `answers` call for the Greek keys (breathings, accents…) under the box. */
+export const greekAnswer = (lang: LanguageInfo | undefined, answers: string[] | undefined) => !!lang && isClassical(lang.code) && !!answers?.some(hasGreek);
 
 /** True while an OS input method is composing (don't rewrite the box under it). */
 export function composing(e: { nativeEvent: Event }): boolean {

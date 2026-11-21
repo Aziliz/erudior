@@ -4,7 +4,7 @@ import type { Course } from "../lib/types";
 import { buildRound, checkConj, conjKey, deNoun, formName, recordConj, type ConjPrompt } from "../lib/conjugation";
 import type { Verdict } from "../lib/vocab";
 import { logActivity } from "../lib/planner";
-import { composing, imeFor } from "../lib/ime";
+import { composing, greekAnswer, imeForAnswer } from "../lib/ime";
 import { JapaneseToggles, LanguageToggles, RubyText } from "../components/Ruby";
 import CharKeys, { applyKey } from "../components/CharKeys";
 import { confirmAction } from "../lib/storage";
@@ -26,7 +26,6 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
   const lang = course.language;
   const code = lang?.code ?? "";
   const ja = code === "ja";
-  const ime = imeFor(lang);
   const initial = useMemo<QItem[]>(() => buildRound(course, api.progress).map((prompt, n) => ({ prompt, counted: true, n })), []);
   const [queue, setQueue] = useState(initial);
   const [typed, setTyped] = useState("");
@@ -35,6 +34,9 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
   const [tally, setTally] = useState<Record<string, { right: number; wrong: number }>>({});
   const input = useRef<HTMLInputElement>(null);
   const current = queue[0];
+  // Latin and Greek: the converter and keys follow the answer's script.
+  const ime = imeForAnswer(lang, current?.prompt.answers);
+  const greekKeys = greekAnswer(lang, current?.prompt.answers);
   const back = () => api.go({ name: "course", courseId: course.id, tab: "vocab" });
 
   useEffect(() => {
@@ -222,7 +224,7 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
               Type romaji: <code>tabemasu</code> → たべます. Kana or kanji are both fine.
             </p>
           )}
-          {!shown && <CharKeys keys={lang?.keys} greek={lang?.ime === "grc"} onKey={insert} />}
+          {!shown && <CharKeys keys={greekKeys ? undefined : lang?.keys} greek={greekKeys} onKey={insert} />}
           {hint && (
             <p className="vocab-hint" role="status">
               {hint}

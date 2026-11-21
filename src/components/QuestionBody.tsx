@@ -66,6 +66,8 @@ interface Props {
   tts?: string;
   /** Character buttons under text blanks (Latin and Greek courses: the course's `keys`, Greek marks). */
   keys?: string[];
+  /** Latin and Greek courses: each blank's converter, by its answers' script (lib/ime.ts imeForAnswer). */
+  imeFor?: (answers: string[] | undefined) => Ime | undefined;
   /** Sentence builders: mixed into the tile shuffle (e.g. the session id) so a resumed run looks the same. */
   seed?: string;
 }
@@ -198,7 +200,7 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed, tts, keys }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed, tts, keys, imeFor: imeOf }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
   const notes = reveal ? partNotes(q, chosen) : [];
@@ -239,8 +241,8 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
           // Chinese: pinyin typing only in blanks that take pinyin (characters come from the keyboard).
           // Greek: Beta Code only in blanks whose answers are Greek (an English answer stays English).
           const greekBlank = !!q.accept?.[i]?.some(hasGreek);
-          const bIme = ime && (lang === "zh" ? pinyinBlank(q.accept?.[i]) : lang === "grc" ? greekBlank : true) ? ime : undefined;
-          const classical = isClassical(lang) && (lang !== "grc" || greekBlank);
+          const classical = isClassical(lang);
+          const bIme = classical && imeOf ? imeOf(q.accept?.[i]) : ime && (lang !== "zh" || pinyinBlank(q.accept?.[i])) ? ime : undefined;
           const setBox = (v: string) => {
             const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
             next[i] = v;
@@ -276,7 +278,7 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                     autoComplete="off"
                     autoCapitalize="off"
                     spellCheck={false}
-                    lang={bIme ? (lang === "zh" ? "zh-Latn" : lang) : lang === "zh" ? "zh" : lang === "grc" && greekBlank ? "grc" : undefined}
+                    lang={classical ? (greekBlank ? "grc" : bIme ? lang : undefined) : bIme ? (lang === "zh" ? "zh-Latn" : "ja") : lang === "zh" ? "zh" : undefined}
                     onChange={(e) => {
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
                       next[i] = bIme && !composing(e) ? bIme(e.target.value) : e.target.value;
@@ -317,7 +319,7 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                 </label>
               )}
               {!review && !reveal && classical && !off && (
-                <CharKeys keys={keys} greek={lang === "grc" && greekBlank} onKey={onKey} label={n > 1 ? `Special characters for blank ${i + 1}` : "Special characters"} />
+                <CharKeys keys={greekBlank ? undefined : keys} greek={greekBlank} onKey={onKey} label={n > 1 ? `Special characters for blank ${i + 1}` : "Special characters"} />
               )}
               {reveal && <Mark ok={parts[i]} fix={<MathText text={q.accept?.[i]?.[0] ?? ""} />} />}
               {reveal && parts[i] && notes[i] && <p className="small q-note">{notes[i]}</p>}

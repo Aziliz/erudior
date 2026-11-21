@@ -19,7 +19,7 @@ import {
 import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
 import { playClip } from "../lib/audio";
-import { composing, imeFor } from "../lib/ime";
+import { composing, greekAnswer, imeForAnswer } from "../lib/ime";
 import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import CharKeys, { applyKey } from "../components/CharKeys";
 import { onPronChange, wordClip } from "../lib/pronunciation";
@@ -118,7 +118,6 @@ export default function VocabRunner({
   count,
 }: Props) {
   const lang = course.language;
-  const ime = imeFor(lang);
   const ja = lang?.code === "ja";
   // Japanese: type katakana instead of hiragana (CAPITALS also give katakana).
   const [katakana, setKatakana] = useState(false);
@@ -149,6 +148,10 @@ export default function VocabRunner({
   const [stats, setStats] = useState({ right: 0, wrong: 0, up: 0, learned: 0 });
   const input = useRef<HTMLInputElement>(null);
   const card = queue[0];
+  // The box's converter: the course's, or for Latin and Greek the one for the word's script.
+  const answers = card ? [card.item.term, ...(card.item.alt ?? [])] : undefined;
+  const ime = imeForAnswer(lang, answers);
+  const greekKeys = greekAnswer(lang, answers);
   const back = () =>
     api.go({ name: "course", courseId: course.id, tab: "vocab" });
 
@@ -434,16 +437,16 @@ export default function VocabRunner({
               neutral. Characters from a Chinese keyboard are fine too.
             </p>
           )}
-          {dir === "recall" && lang?.ime === "grc" && !shown && (
+          {dir === "recall" && greekKeys && !shown && (
             <p className="ime-help small muted">
               Type Beta Code: <code>a)nh/r</code> → ἀνήρ. Marks go after the letter: <code>)</code> smooth, <code>(</code> rough,{" "}
               <code>/</code> acute, <code>\</code> grave, <code>=</code> circumflex, <code>|</code> iota subscript. Accents are optional.
             </p>
           )}
-          {dir === "recall" && lang?.code === "la" && !shown && (
+          {dir === "recall" && lang?.code === "la" && !greekKeys && !shown && (
             <p className="ime-help small muted">Macrons are optional{lang.ime === "la" ? <>; type <code>a_</code> for ā, or use the buttons</> : ""}.</p>
           )}
-          {dir === "recall" && !shown && <CharKeys keys={lang?.keys} greek={lang?.ime === "grc"} onKey={insert} />}
+          {dir === "recall" && !shown && <CharKeys keys={greekKeys ? undefined : lang?.keys} greek={greekKeys} onKey={insert} />}
           {hint && <p className="vocab-hint">{hint}</p>}
           <div className="row" style={{ marginTop: 12 }}>
             <button className="btn primary" type="submit">

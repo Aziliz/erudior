@@ -7,7 +7,7 @@
 
 import type { PronScheme } from "./pronBlocks";
 import { greekRestored, latinEcclesiastical, latinRestored } from "./classicalSpeech";
-import { toMonotonic } from "./greek";
+import { hasGreek, toMonotonic } from "./greek";
 export type { PronScheme } from "./pronBlocks";
 
 /** The schemes the engine knows how to voice, by language (a course lists its own in language.pronunciations). */
@@ -93,7 +93,9 @@ export function audioNote(code: string | undefined, scheme: string | undefined):
  * (transliterated) for restored. Other languages pass through.
  */
 export function routeSpeech(text: string, lang: string): { text: string; lang: string } {
-  const b = baseOf(lang);
+  let b = baseOf(lang);
+  // Greek quoted in a Latin course is read as Greek.
+  if (b === "la" && hasGreek(text) && !/[A-Za-z]/.test(text)) b = "grc";
   if (b === "la") {
     const s = activeScheme("la");
     return { lang: "it-IT", text: s === "restored" ? latinRestored(text) : s === "ecclesiastical" ? latinEcclesiastical(text) : text };

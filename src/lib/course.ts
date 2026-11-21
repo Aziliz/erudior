@@ -42,6 +42,20 @@ export function looksLikeCourse(raw: unknown): boolean {
 }
 
 export function normalizeCourse(raw: unknown): Course {
+  return withAnswerLang(readCourse(raw));
+}
+
+/**
+ * Latin and Greek: every typed answer ignores diacritics (lib/classical.ts), so each question
+ * carries the course language (`lang`) unless it sets its own. Other courses are returned as they are.
+ */
+export function withAnswerLang(course: Course): Course {
+  const code = course.language?.code;
+  if (!code || !isClassical(code) || course.banks.every((b) => b.questions.every((q) => q.lang))) return course;
+  return { ...course, banks: course.banks.map((b) => ({ ...b, questions: b.questions.map((q) => (q.lang ? q : { ...q, lang: code })) })) };
+}
+
+function readCourse(raw: unknown): Course {
   if (!isObj(raw)) throw new BankError("The course must be a JSON object.");
   // Canonical envelopes never fall back to legacy normalization: malformed authored
   // fields must remain visible failures. Local source packages use their own size
@@ -272,9 +286,6 @@ export function normalizeCourse(raw: unknown): Course {
   if (voice)
     for (const b of banks)
       for (const q of b.questions) if (q.audio && !q.audio.src && !q.audio.lang) q.audio = { ...q.audio, lang: voice };
-  // Latin and Greek: every typed answer ignores diacritics (lib/classical.ts), so questions carry the language.
-  if (language && isClassical(language.code))
-    for (const b of banks) for (const q of b.questions) if (!q.lang) q.lang = language.code;
 
   return {
     format: "examiner-course",
