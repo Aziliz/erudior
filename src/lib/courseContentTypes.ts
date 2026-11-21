@@ -4,7 +4,7 @@ import type { ManipSpec, ManipTarget } from "./manip";
 import type { CodeSpec } from "./code";
 import type { ActivityLogSpec, Lab, Rubric, WritingTask } from "./courseWork";
 import type { GlossaryEntry, ReaderText } from "./readerContent";
-import type { ConjClass, ConjugationSettings, DeForms } from "./courseConjugation";
+import type { ConjClass, ConjugationSettings, WordForms } from "./courseConjugation";
 import type { ToneSettings } from "./tones";
 export interface Section {
     id: string;
@@ -321,10 +321,16 @@ export interface VocabItem {
     audio?: string;
     /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
     directions?: VocabDirection[];
-    /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…). */
+    /** Latin and Greek: the full dictionary entry, shown with the word and used to inflect it
+     * ("amō, amāre, amāvī, amātum"; "rēx, rēgis, m."; "ἀνήρ, ἀνδρός, ὁ"). */
+    dict?: string;
+    /** Grammatical gender where it applies ("m", "f", "n"; Latin and Greek). */
+    gender?: string;
+    /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…; Latin decl1, v3…). */
     conj?: ConjClass;
-    /** German conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }. */
-    forms?: DeForms;
+    /** Conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }; Latin and
+     * Greek slot tables, e.g. { "sg.voc": "deus" } (docs/COURSE_FORMAT.md). */
+    forms?: WordForms;
     /** Conjugation drills: forms this word doesn't have or that sound wrong (e.g. できる: potential). */
     noForms?: string[];
 }
