@@ -508,7 +508,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
             </span>
           )}
           <div className="spacer" />
-          <LanguageToggles code={course?.language?.code} script={!!course?.language?.traditional} />
+          <LanguageToggles code={course?.language?.code} script={!!course?.language?.traditional} pron={course?.language?.pronunciations} />
           {readAloud && tts && (
             <button type="button" className="btn ghost sm auto-read" aria-pressed={autoRead} onClick={toggleAutoRead}>
               Read questions to me: {autoRead ? "on" : "off"}
@@ -572,6 +572,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
               ime={imeFor(course?.language)}
               lang={course?.language?.code}
               tts={course?.language?.tts}
+              keys={course?.language?.keys}
               seed={session.id}
               exam={isExam}
               draftKey={metaKey(session.bankId, q.id)}

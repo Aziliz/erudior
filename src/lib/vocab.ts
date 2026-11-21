@@ -15,6 +15,7 @@ import { hasKanji, hasRomaji, normJa, stripRuby, toHiragana } from "./kana";
 export { normJa } from "./kana";
 import { hasHan, normPinyin, normPinyinToneless } from "./pinyin";
 import { otherScriptForms } from "./zhScript";
+import { bareClassical, entryKey, isClassical, matchClassical } from "./classical";
 
 export const STAGES = ["Novice", "Beginner", "Advanced", "Expert"] as const;
 export const PER_STAGE = 5;
@@ -259,11 +260,16 @@ const DIGRAPHS: [RegExp, string][] = [
 const undigraph = (s: string) => DIGRAPHS.reduce((t, [re, r]) => t.replace(re, r), s);
 
 /** Typed English for a word: any listed meaning, small typos forgiven on longer words. */
-export function checkMeaning(item: VocabItem, typed: string): Verdict {
+export function checkMeaning(item: VocabItem, typed: string, lang?: string): Verdict {
   const t = normMeaning(typed);
   if (!t) return { ok: false, retry: true, note: "Type an answer." };
   const wants = item.meanings.flatMap((m) => [m, ...m.split(/\s*[/;]\s*/)]).map(normMeaning).filter(Boolean);
   if (wants.includes(t)) return { ok: true };
+  // Latin and Greek courses: a gloss with a Latin or Greek name in it (Rōma, Ἀθῆναι) ignores diacritics too.
+  if (isClassical(lang)) {
+    const near = wants.find((w) => bareClassical(w) === bareClassical(t));
+    if (near) return { ok: true, note: `Spelled “${item.meanings.find((m) => normMeaning(m) === near) ?? near}”` };
+  }
   for (const w of wants) {
     const allowed = w.length >= 8 ? 2 : w.length >= 4 ? 1 : 0;
     if (allowed && typoDistance(t, w) <= allowed) return { ok: true, note: `Close enough: “${item.meanings[0]}”` };
@@ -343,10 +349,29 @@ export function checkRecallZh(item: VocabItem, typed: string, opts: RecallOption
   return { ok: false };
 }
 
+/**
+ * Latin and Ancient Greek: the headword (or an `alt`) or the full dictionary entry (`dict`, where
+ * punctuation, hyphens and spacing don't matter). Diacritics are optional: a match that needs
+ * them (or has a wrong one) is right with a note giving the full spelling. Case doesn't matter.
+ */
+export function checkRecallClassical(item: VocabItem, typed: string): Verdict {
+  const t = normTerm(typed);
+  if (!t) return { ok: false, retry: true, note: "Type an answer." };
+  const word = matchClassical(t, [item.term, ...(item.alt ?? [])], normTerm);
+  if (word.ok) return word.note ? { ok: true, note: word.note } : { ok: true };
+  if (item.dict) {
+    const entry = matchClassical(t, [item.dict], entryKey);
+    // The note shows the entry as written (with its commas), not the compared form.
+    if (entry.ok) return entry.note ? { ok: true, note: `${entry.note.slice(0, entry.note.indexOf(":"))}: ${item.dict}` } : { ok: true };
+  }
+  return { ok: false };
+}
+
 /** Typed word for an English prompt: exact spelling; nouns need their article. */
 export function checkRecall(item: VocabItem, typed: string, lang = "de", opts: RecallOptions = {}): Verdict {
   if (lang === "ja") return checkRecallJa(item, typed);
   if (lang === "zh") return checkRecallZh(item, typed, opts);
+  if (isClassical(lang)) return checkRecallClassical(item, typed);
   const t = normTerm(typed);
   if (!t) return { ok: false, retry: true, note: "Type an answer." };
   const wants = [item.term, ...(item.alt ?? [])].map(normTerm);
@@ -373,8 +398,16 @@ export function checkRecall(item: VocabItem, typed: string, lang = "de", opts: R
   return { ok: false };
 }
 
+const GENDER_WORDS: Record<string, string> = { m: "masculine", f: "feminine", n: "neuter" };
+/** "m" → "masculine", "m/f" → "masculine or feminine". */
+export const genderLabel = (g: string) =>
+  g
+    .split("/")
+    .map((x) => GENDER_WORDS[x.trim()] ?? x.trim())
+    .join(" or ");
+
 export function checkAnswer(card: VocabCard, typed: string, lang?: string, opts?: RecallOptions): Verdict {
-  return card.dir === "meaning" ? checkMeaning(card.item, typed) : checkRecall(card.item, typed, lang, opts);
+  return card.dir === "meaning" ? checkMeaning(card.item, typed, lang) : checkRecall(card.item, typed, lang, opts);
 }
 
 /** Fisher–Yates shuffle (copy). */

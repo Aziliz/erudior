@@ -3,7 +3,7 @@ import type { AppApi } from "../App";
 import type { Course } from "../lib/types";
 import { REVIEW_CAP, CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
 import { catalogEntry } from "../lib/catalog";
-import { SpeakButton } from "./VocabRunner";
+import { DictLine, SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
 import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
@@ -105,9 +105,9 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             <option value="all">All, including locked</option>
           </select>
         </div>
-        {(lang?.code === "ja" || lang?.code === "zh") && (
+        {(lang?.code === "ja" || lang?.code === "zh" || (lang?.pronunciations?.length ?? 0) > 1) && (
           <div className="row ja-toggles" style={{ marginBottom: 8 }}>
-            <LanguageToggles code={lang.code} script={!!lang.traditional} />
+            <LanguageToggles code={lang!.code} script={!!lang!.traditional} pron={lang!.pronunciations} />
           </div>
         )}
         {!ordered.length && (
@@ -135,6 +135,11 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                         <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                         {lang?.code === "ja" && v.pitch !== undefined && v.reading && hasKanji(v.term) && (
                           <div className="vocab-pitch-reading small"><PitchText kana={v.reading} pitch={v.pitch} /></div>
+                        )}
+                        {(v.dict || v.gender) && (
+                          <div className="small">
+                            <DictLine item={v} lang={lang?.code} />
+                          </div>
                         )}
                         {v.plural && <div className="muted small">pl. {v.plural}</div>}
                       </td>

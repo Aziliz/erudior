@@ -7,6 +7,8 @@ export interface MediaLine {
   text: string;
   translation?: string;
   audio?: string;
+  /** Latin and Greek: recordings per pronunciation scheme (`audio ecclesiastical: data:…`). */
+  audios?: Record<string, string>;
 }
 
 export interface MediaBlock {
@@ -22,7 +24,7 @@ export interface MediaBlock {
 export const MEDIA_BLOCK = /^```(dialogue|speak)\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;
 
 const SPEAKER = /^([^\s:=#][^:=]{0,39}?):\s+(.+)$/;
-const AUDIO = /^audio:\s*(.*)$/i;
+const AUDIO = /^audio(?:\s+([a-z][a-z0-9-]{0,39}))?:\s*(.*)$/;
 const LANG = /^[A-Za-z]{2,3}([-_][A-Za-z0-9]{2,8})*$/;
 
 export function parseMedia(kind: "dialogue" | "speak", info: string, body: string, options: AudioValidationOptions = {}): MediaBlock {
@@ -47,12 +49,16 @@ export function parseMedia(kind: "dialogue" | "speak", info: string, body: strin
       b.title = line.replace(/^#+\s*/, "");
       continue;
     }
-    const audio = AUDIO.exec(line);
+    const audio = AUDIO.exec(line) ?? (/^audio:/i.test(line) ? [line, undefined, line.slice(6).trim()] : null);
     if (audio) {
-      if (!cur) problems.push("audio: before the first line");
-      else if (cur.audio) problems.push(`line ${b.lines.length}: more than one audio:`);
-      else if (validateEmbeddedAudio(audio[1], "audio", options).length > 0) problems.push(`line ${b.lines.length}: audio must be a data:audio/…;base64 URL: ${validateEmbeddedAudio(audio[1], "audio", options).join("; ")}`);
-      else cur.audio = audio[1];
+      const scheme = audio[1];
+      const src = audio[2];
+      const label = scheme ? `audio ${scheme}:` : "audio:";
+      if (!cur) problems.push(`${label} before the first line`);
+      else if (scheme ? cur.audios?.[scheme] : cur.audio) problems.push(`line ${b.lines.length}: more than one ${label}`);
+      else if (validateEmbeddedAudio(src, "audio", options).length > 0) problems.push(`line ${b.lines.length}: audio must be a data:audio/…;base64 URL: ${validateEmbeddedAudio(src, "audio", options).join("; ")}`);
+      else if (scheme) cur.audios = { ...(cur.audios ?? {}), [scheme]: src };
+      else cur.audio = src;
       last = null;
       continue;
     }

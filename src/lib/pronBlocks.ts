@@ -9,10 +9,8 @@
 // rule); the others shrink to a "Shown for … pronunciation" note. Print shows every scheme.
 // Worker-safe: no DOM here.
 
-export interface PronScheme {
-  id: string;
-  label: string;
-}
+import type { PronScheme } from "./courseContentTypes";
+export type { PronScheme } from "./courseContentTypes";
 
 /** A whole ```pron <scheme> block at the start of a line. */
 export const PRON_BLOCK = /^```pron\b([^\n]*)\r?\n([\s\S]*?)^```[ \t]*$/gm;

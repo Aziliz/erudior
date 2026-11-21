@@ -1,6 +1,9 @@
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
-import type { Bank, Card, Course, GlossaryEntry, Lesson, Question, RefSheet } from "../lib/types";
+import type { Bank, Card, Course, GlossaryEntry, Lesson, Question, RefSheet, VocabItem } from "../lib/types";
+import { bareClassical, isClassical } from "../lib/classical";
+import { stripPronMarkup } from "../lib/pronBlocks";
+import { DictLine } from "./VocabRunner";
 import { startPractice } from "../lib/session";
 import { LETTERS } from "../lib/util";
 import { answerText, isChoice } from "../lib/questions";
@@ -11,7 +14,8 @@ type Hit =
   | { kind: "ref"; course: Course; item: RefSheet; text: string }
   | { kind: "term"; course: Course; item: GlossaryEntry; text: string }
   | { kind: "question"; bank: Bank; course?: Course; item: Question; text: string }
-  | { kind: "card"; course: Course; deck: string; item: Card; text: string };
+  | { kind: "card"; course: Course; deck: string; item: Card; text: string }
+  | { kind: "word"; course: Course; item: VocabItem; text: string };
 
 const GROUPS: { kind: Hit["kind"]; label: string }[] = [
   { kind: "term", label: "Glossary" },
@@ -19,11 +23,12 @@ const GROUPS: { kind: Hit["kind"]; label: string }[] = [
   { kind: "ref", label: "Quick reference" },
   { kind: "question", label: "Questions" },
   { kind: "card", label: "Notecards" },
+  { kind: "word", label: "Vocabulary" },
 ];
 
 /** Strip Markdown, glossary-link, furigana and pitch syntax down to plain text for matching and snippets. */
 function plain(md: string): string {
-  return rubySearchText(md)
+  return rubySearchText(stripPronMarkup(md))
     .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_m, t, s) => s ?? t)
     .replace(/[#>*_`|]/g, " ")
     .replace(/-{3,}/g, " ")
@@ -73,6 +78,13 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
       for (const d of c.decks)
         for (const card of d.cards)
           out.push({ kind: "card", course: c, deck: d.title, item: card, text: plain(`${card.front} ${card.back}`) });
+      // Words, with their dictionary entries; in Latin and Greek, macrons and accents don't matter.
+      const classical = isClassical(c.language?.code);
+      for (const v of c.vocab ?? []) {
+        if (v.from) continue;
+        const t = rubySearchText(`${v.term} ${v.dict ?? ""} ${v.reading ?? ""} ${v.meanings.join(" ")}`);
+        out.push({ kind: "word", course: c, item: v, text: classical ? `${t} ${bareClassical(t)}` : t });
+      }
     }
     for (const b of api.banks) {
       const course = b.courseId ? api.courses.find((c) => c.id === b.courseId) : undefined;
@@ -88,10 +100,11 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
     return out;
   }, [api.courses, api.banks]);
 
-  const hits = terms.length ? index.filter((h) => matches(h.text, terms)) : [];
+  const bareTerms = terms.map(bareClassical);
+  const hits = terms.length ? index.filter((h) => matches(h.text, terms) || (h.kind === "word" && matches(h.text, bareTerms))) : [];
   // Rank: title/term matches first within each group.
   const titleOf = (h: Hit) =>
-    h.kind === "term" ? h.item.term : h.kind === "lesson" || h.kind === "ref" ? h.item.title : "";
+    h.kind === "term" ? h.item.term : h.kind === "word" ? `${h.item.term} ${h.item.dict ?? ""}` : h.kind === "lesson" || h.kind === "ref" ? h.item.title : "";
   const scored = hits
     .map((h) => ({ h, s: matches(titleOf(h), terms) ? 0 : 1 }))
     .sort((a, b) => a.s - b.s)
@@ -103,7 +116,7 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
       <div className="page-head">
         <div>
           <h1>Search</h1>
-          <p className="muted">Lessons, glossary, quick reference, questions and notecards.</p>
+          <p className="muted">Lessons, glossary, quick reference, questions, notecards and vocabulary.</p>
         </div>
       </div>
       <input
@@ -168,6 +181,17 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
                           <Highlight text={h.item.definition} terms={terms} />
                         </span>
                       </div>
+                    )}
+                    {h.kind === "word" && (
+                      <button className="hit" onClick={() => api.go({ name: "course", courseId: h.course.id, tab: "vocab" })}>
+                        <b lang={h.course.language?.code}>
+                          <Highlight text={h.item.term} terms={terms} />
+                        </b>
+                        {h.item.dict && <DictLine item={h.item} lang={h.course.language?.code} className="small muted" />}
+                        <span className="small">
+                          <Highlight text={h.item.meanings.join("; ")} terms={terms} />
+                        </span>
+                      </button>
                     )}
                     {h.kind === "card" && (
                       <button className="hit" onClick={() => setOpen(open === key ? null : key)} aria-expanded={open === key}>

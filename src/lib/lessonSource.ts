@@ -13,13 +13,14 @@ import { parseExample } from "./exampleSpec";
 import { parseAssignBlock } from "./courseWork";
 import { mermaidA11y } from "./diagram";
 import { parseMedia } from "./dialogueContent";
+import { PRON_ID, pronProblems } from "./pronBlocks";
 import { validateImageAsset } from "./imageAssets";
 import { validateEmbeddedAudio } from "./courseAudio";
 import { INTERACTIVE_LIMITS, boundedInteractiveJSON, plainInteractiveObject, validateFigureSpec, validateCodeQuestionSpec, validateMapSource } from "./interactiveContent";
 export { validateFigureSpec, validateCodeQuestionSpec, validateMapSource } from "./interactiveContent";
 export interface LessonSourceContext {
  strict?: boolean;
- course?: { writing?: readonly { id: string }[]; labs?: readonly { id: string }[]; activityLog?: unknown; audio?: unknown };
+ course?: { writing?: readonly { id: string }[]; labs?: readonly { id: string }[]; activityLog?: unknown; audio?: unknown; language?: unknown };
  mode?: "source" | "publication";
  /** Trusted caller configuration, never a course-authored authority field. */
  communityImageOrigin?: string;
@@ -80,6 +81,14 @@ export function validateLessonSource(raw:unknown,context:LessonSourceContext={})
     if(info)problems.push("assignment takes no fence options");const result=parseAssignBlock(body);problems.push(...result.problems);
     if(context.course)for(const link of result.links){if(link.kind==="log"?!context.course.activityLog:!(link.kind==="writing"?context.course.writing:context.course.labs)?.some(item=>item.id===link.id))problems.push(`unknown ${link.kind} resource${link.kind==="log"?"":` ${link.id}`}`);}
    }else if(kind==="dialogue"||kind==="speak")problems.push(...parseMedia(kind,info,body,{mode:context.mode}).problems);
+   else if(kind==="pron"){
+    // Pronunciation-specific Markdown (Latin, Greek): one declared scheme id, a non-empty body.
+    const declared=(context.course?.language as {pronunciations?:{id:string}[]}|undefined)?.pronunciations?.map(p=>p.id);
+    if(!PRON_ID.test(info))problems.push(`pron needs one scheme id (lower-case), not "${info.slice(0,40)}"`);
+    else if(declared&&!declared.includes(info))problems.push(`scheme "${info}" isn't in language.pronunciations`);
+    if(!body.trim())problems.push("pron block is empty");
+    problems.push(...pronProblems(body,declared).filter(p=>p.startsWith("inline")||p.startsWith("an inline")));
+   }
   }catch(error){problems.push((error as Error).message);}
   errors.push(...problems.slice(0,50).map(problem=>`${at}: ${problem}`));if(errors.length>=200)return errors.slice(0,200);
  }

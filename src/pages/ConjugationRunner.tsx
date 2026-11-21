@@ -5,7 +5,8 @@ import { buildRound, checkConj, conjKey, deNoun, formName, recordConj, type Conj
 import type { Verdict } from "../lib/vocab";
 import { logActivity } from "../lib/planner";
 import { composing, imeFor } from "../lib/ime";
-import { JapaneseToggles, RubyText } from "../components/Ruby";
+import { JapaneseToggles, LanguageToggles, RubyText } from "../components/Ruby";
+import CharKeys, { applyKey } from "../components/CharKeys";
 import { confirmAction } from "../lib/storage";
 import { SpeakButton } from "./VocabRunner";
 
@@ -71,10 +72,11 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
     const el = input.current;
     const start = el?.selectionStart ?? typed.length;
     const end = el?.selectionEnd ?? typed.length;
-    setTyped(typed.slice(0, start) + ch + typed.slice(end));
+    const r = applyKey(typed, start, end, ch, ime);
+    setTyped(r.text);
     requestAnimationFrame(() => {
       el?.focus();
-      el?.setSelectionRange(start + ch.length, start + ch.length);
+      el?.setSelectionRange(r.caret, r.caret);
     });
   }
 
@@ -153,7 +155,7 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
         <button className="back" onClick={quit}>
           ← End
         </button>
-        {ja && <JapaneseToggles />}
+        {ja ? <JapaneseToggles /> : <LanguageToggles code={code} pron={lang?.pronunciations} />}
         <span className="muted">
           Conjugation · {Math.min(done + 1, initial.length)}/{initial.length}
           {queue.length > initial.length - done ? ` (+${queue.length - (initial.length - done)} again)` : ""}
@@ -220,15 +222,7 @@ export default function ConjugationRunner({ api, course }: { api: AppApi; course
               Type romaji: <code>tabemasu</code> → たべます. Kana or kanji are both fine.
             </p>
           )}
-          {!!lang?.keys?.length && !shown && (
-            <div className="char-keys" aria-label="Special characters">
-              {lang.keys.map((k) => (
-                <button key={k} type="button" className="btn" onMouseDown={(e) => e.preventDefault()} onClick={() => insert(k)}>
-                  {k}
-                </button>
-              ))}
-            </div>
-          )}
+          {!shown && <CharKeys keys={lang?.keys} greek={lang?.ime === "grc"} onKey={insert} />}
           {hint && (
             <p className="vocab-hint" role="status">
               {hint}

@@ -1,6 +1,8 @@
 import { ADMIN_EXAM, RHCSA_MOCK, isVmExam, readVmLab, validExamMinutes, validVmTasks } from "./vmLab";
 import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
-import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
+import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, PronScheme, ReadingItem, RefSheet, VocabItem } from "./types";
+import { isClassical } from "./classical";
+import { PRON_ID } from "./pronBlocks";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
@@ -208,6 +210,7 @@ export function normalizeCourse(raw: unknown): Course {
     conjugation: normalizeConjugationSettings(lang.conjugation),
     ...(str(lang.code) === "zh" && normalizeZhTable(lang.traditional) ? { traditional: normalizeZhTable(lang.traditional) } : {}),
     ...(str(lang.code) === "zh" && normalizeToneSettings(lang.tones) ? { tones: normalizeToneSettings(lang.tones) } : {}),
+    ...(normalizePronunciations(lang.pronunciations) ? { pronunciations: normalizePronunciations(lang.pronunciations) } : {}),
   };
 
   // Japanese pitch accent: a number or a list of numbers, each 0..morae of the reading (the
@@ -235,6 +238,8 @@ export function normalizeCourse(raw: unknown): Course {
         ...(language?.code === "zh" && str(v.trad).trim() ? { trad: str(v.trad).trim() } : {}),
         ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
+        ...(str(v.dict).trim() ? { dict: str(v.dict).trim() } : {}),
+        ...(GENDER.test(str(v.gender).trim()) ? { gender: str(v.gender).trim() } : {}),
         plural: str(v.plural) || undefined,
         example: str(v.example) || undefined,
         exampleEn: str(v.exampleEn) || undefined,
@@ -267,6 +272,9 @@ export function normalizeCourse(raw: unknown): Course {
   if (voice)
     for (const b of banks)
       for (const q of b.questions) if (q.audio && !q.audio.src && !q.audio.lang) q.audio = { ...q.audio, lang: voice };
+  // Latin and Greek: every typed answer ignores diacritics (lib/classical.ts), so questions carry the language.
+  if (language && isClassical(language.code))
+    for (const b of banks) for (const q of b.questions) if (!q.lang) q.lang = language.code;
 
   return {
     format: "examiner-course",
@@ -301,6 +309,22 @@ export function normalizeCourse(raw: unknown): Course {
     ...(advancedAssessments ? { advancedAssessments } : {}),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
+}
+
+/** Grammatical gender of a vocabulary word: m, f, n, or a combination such as m/f. */
+export const GENDER = /^[mfn](\/[mfn]){0,2}$/;
+
+/** language.pronunciations: [{ id, label }] with unique lower-case ids; the first is the default. */
+export function normalizePronunciations(v: unknown): PronScheme[] | undefined {
+  if (!Array.isArray(v)) return undefined;
+  const out: PronScheme[] = [];
+  for (const p of v) {
+    if (!isObj(p)) continue;
+    const id = str(p.id).trim();
+    if (!PRON_ID.test(id) || out.some((o) => o.id === id)) continue;
+    out.push({ id, label: str(p.label).trim() || id });
+  }
+  return out.length ? out : undefined;
 }
 
 /** The audio library: string values only (lib/readAloud.ts decides which are usable). */
