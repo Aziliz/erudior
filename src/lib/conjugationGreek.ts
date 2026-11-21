@@ -49,7 +49,7 @@ import {
 } from "./greekAccent";
 
 export const GRC_NOUN_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl3-eu", "decl3-s"];
-export const GRC_ADJ_CLASSES = ["adj12", "adj3"];
+export const GRC_ADJ_CLASSES = ["adj12", "adj3", "adj"];
 export const GRC_VERB_CLASSES = ["omega", "contract", "irr"];
 
 /** A form with movable ν (λύουσι(ν)): shown with (ν), typed either way. */
@@ -131,10 +131,44 @@ function gNounData(item: VocabItem): GNoun | string {
   return { cls, nom, gen, gender, hintLong: f.long, hintShort: f.short };
 }
 
+/** Built-in tables: syncopated and irregular nouns (Smyth 262, 284, 285). */
+const GRC_NOUN_TABLES: Record<string, { sg: string; pl: string; note: string }> = {
+  πατήρ: { sg: "πατήρ, πατρός, πατρί, πατέρα, πάτερ", pl: "πατέρες, πατέρων, πατράσι(ν), πατέρας, πατέρες", note: "πατήρ is a syncopated stem (Smyth 262)" },
+  μήτηρ: { sg: "μήτηρ, μητρός, μητρί, μητέρα, μῆτερ", pl: "μητέρες, μητέρων, μητράσι(ν), μητέρας, μητέρες", note: "μήτηρ is a syncopated stem (Smyth 262)" },
+  θυγάτηρ: { sg: "θυγάτηρ, θυγατρός, θυγατρί, θυγατέρα, θύγατερ", pl: "θυγατέρες, θυγατέρων, θυγατράσι(ν), θυγατέρας, θυγατέρες", note: "θυγάτηρ is a syncopated stem (Smyth 262)" },
+  ἀνήρ: { sg: "ἀνήρ, ἀνδρός, ἀνδρί, ἄνδρα, ἄνερ", pl: "ἄνδρες, ἀνδρῶν, ἀνδράσι(ν), ἄνδρας, ἄνδρες", note: "ἀνήρ is irregular (Smyth 262 a)" },
+  γυνή: { sg: "γυνή, γυναικός, γυναικί, γυναῖκα, γύναι", pl: "γυναῖκες, γυναικῶν, γυναιξί(ν), γυναῖκας, γυναῖκες", note: "γυνή is irregular (Smyth 284)" },
+  ναῦς: { sg: "ναῦς, νεώς, νηΐ, ναῦν, ναῦ", pl: "νῆες, νεῶν, ναυσί(ν), ναῦς, νῆες", note: "ναῦς is irregular (Smyth 278)" },
+};
+/** Built-in adjective tables (Smyth 311). */
+const GRC_ADJ_TABLES: Record<string, { forms: Record<string, string>; note: string }> = {
+  μέγας: {
+    forms: {
+      sg: "μέγας, μεγάλη, μέγα, μεγάλου, μεγάλης, μεγάλου, μεγάλῳ, μεγάλῃ, μεγάλῳ, μέγαν, μεγάλην, μέγα, μεγάλε/μέγας, μεγάλη, μέγα",
+      pl: "μεγάλοι, μεγάλαι, μεγάλα, μεγάλων, μεγάλων, μεγάλων, μεγάλοις, μεγάλαις, μεγάλοις, μεγάλους, μεγάλας, μεγάλα, μεγάλοι, μεγάλαι, μεγάλα",
+    },
+    note: "μέγας: μεγα- in the masculine and neuter nominative and accusative singular, μεγαλ- elsewhere (Smyth 311)",
+  },
+  πολύς: {
+    forms: {
+      sg: "πολύς, πολλή, πολύ, πολλοῦ, πολλῆς, πολλοῦ, πολλῷ, πολλῇ, πολλῷ, πολύν, πολλήν, πολύ, —, —, —",
+      pl: "πολλοί, πολλαί, πολλά, πολλῶν, πολλῶν, πολλῶν, πολλοῖς, πολλαῖς, πολλοῖς, πολλούς, πολλάς, πολλά, —, —, —",
+    },
+    note: "πολύς: πολυ- in the masculine and neuter nominative and accusative singular, πολλ- elsewhere (Smyth 311)",
+  },
+};
+
 /** Third-declension nouns whose genitive plural doesn't accent the ending (Smyth 252 a). */
 const MONO_EXCEPT = ["παῖς", "δμώς", "θώς", "Τρώς", "δᾴς", "οὖς", "φῶς"];
 
 function gNoun(item: VocabItem): ClassicalWord | string {
+  const builtin = GRC_NOUN_TABLES[nfc(item.term)];
+  if (builtin && dictParts(item)[0] === nfc(item.term)) {
+    const w: ClassicalWord = { kind: "noun", slots: nounSlots(GRC_CASES, false), optional: new Set(), cells: new Map(), missing: new Map() };
+    applyTable(w, { sg: builtin.sg, pl: builtin.pl }, item.term);
+    for (const c of w.cells.values()) c.rule = builtin.note;
+    return w;
+  }
   const d = gNounData(item);
   if (typeof d === "string") return d;
   const w: ClassicalWord = { kind: "noun", slots: nounSlots(GRC_CASES, false), optional: new Set(), cells: new Map(), missing: new Map() };
@@ -380,6 +414,18 @@ function gAdj(item: VocabItem): ClassicalWord | string {
   const parts = dictParts(item);
   const m = parts[0];
   if (nfc(item.term) !== m) return `the term "${item.term}" should be the masculine nominative in dict ("${m}")`;
+  const builtin = GRC_ADJ_TABLES[m];
+  if (builtin) {
+    applyTable(w, builtin.forms, item.term);
+    for (const c of w.cells.values()) c.rule = builtin.note;
+    return w;
+  }
+  if (cls === "adj") {
+    // Table-only adjectives (πᾶς, ἡδύς, numerals with genders…).
+    for (const s of w.slots) w.missing.set(s, `"adj" adjectives come from their table: give forms ("sg": the 15 forms, nominative to vocative, each masculine, feminine, neuter; "pl": the same)`);
+    if (!item.forms) return `"adj" adjectives come from their table: give forms ("sg", "pl"; see docs/COURSE_FORMAT.md)`;
+    return w;
+  }
   const mL = parse(m);
   const acc = accentOf(mL);
   if (!acc) return `"${m}" needs its accent`;
@@ -549,6 +595,56 @@ function unaugment(part: L[], present: L[], term: string): L[] | null {
   return null;
 }
 
+// --- Compound verbs: forms.prefix ("προσ" for προσβάλλω). The simplex is generated and the
+// prefix attached: augment after the prefix, a final vowel elided before a vowel (not περί,
+// πρό), aspirated before a rough breathing (ἀφ-, καθ-), ἐκ → ἐξ, assimilated συλ-/συμ-/ἐμ- → συν-,
+// ἐν- before a vowel. The accent doesn't go back past the augment or the prefix's last syllable.
+
+const NO_ELISION = ["περι", "προ"];
+const ASSIMILATED: Record<string, string> = { συλ: "συν", συμ: "συν", συγ: "συν", συρ: "συν", συσ: "συν", συ: "συν", ἐμ: "ἐν", ἐγ: "ἐν", ἐλ: "ἐν", ἐρ: "ἐν" };
+const ASPIRATE: Record<string, string> = { π: "φ", τ: "θ", κ: "χ" };
+
+/** The prefix as it stands before a vowel (with a rough breathing or not). */
+function prefixBeforeVowel(p: string, rough: boolean): string {
+  let b = bare(p);
+  if (ASSIMILATED[b]) return ASSIMILATED[b];
+  if (b === "ἐκ") return "ἐξ";
+  if (/[αεηιουω]$/.test(b) && !NO_ELISION.includes(b)) b = b.slice(0, -1);
+  if (rough && ASPIRATE[b.slice(-1)]) b = b.slice(0, -1) + ASPIRATE[b.slice(-1)];
+  return b;
+}
+
+/** Strip the prefix from a principal part: the simplex form, or null. */
+function stripPrefix(part: string, p: string): string | null {
+  const word = bare(part);
+  const ls = parse(part);
+  const tries: [string, boolean][] = [[bare(p), false], [prefixBeforeVowel(p, false), false], [prefixBeforeVowel(p, true), true]];
+  if (bare(p) === "ἐξ") tries.push(["ἐκ", false]);
+  for (const [cand, rough] of tries.sort((a, b) => b[0].length - a[0].length)) {
+    if (!word.startsWith(cand)) continue;
+    const n = [...cand.normalize("NFD")].filter((c) => !/\p{M}/u.test(c)).length;
+    const rest = copy(ls.slice(n));
+    if (!rest.length) continue;
+    if (isVowel(rest[0])) {
+      const n0 = nuclei(rest)[0];
+      const has = rest.slice(n0.i, n0.j + 1).some((l) => l.m.has(SMOOTH) || l.m.has(ROUGH));
+      if (!has) rest[n0.j].m.add(rough ? ROUGH : SMOOTH);
+    }
+    return render(rest);
+  }
+  return null;
+}
+
+/** Put the prefix back on a (simplex) stem. */
+function attach(p: string, stem: L[]): L[] {
+  if (!stem.length || !isVowel(stem[0])) return [...parse(bare(p)), ...copy(stem)];
+  const out = copy(stem);
+  const n0 = nuclei(out)[0];
+  const rough = out.slice(n0.i, n0.j + 1).some((l) => l.m.has(ROUGH));
+  for (let k = n0.i; k <= n0.j; k++) out[k].m.delete(SMOOTH), out[k].m.delete(ROUGH);
+  return [...parse(prefixBeforeVowel(p, rough)), ...out];
+}
+
 interface Stem {
   ls: L[];
   /** Name for hints and messages. */
@@ -573,6 +669,8 @@ interface GVerb {
   long: string[];
   short: string[];
   dash: Set<number>;
+  /** Compound verbs: the prefix (forms.prefix); the stems above are the simplex's. */
+  prefix?: string;
 }
 
 const isDash = (s: string | undefined) => !!s && /^[—–-]+$/.test(s.trim());
@@ -585,6 +683,21 @@ function gVerbData(item: VocabItem): GVerb | string {
   if (parts.length !== 6) return `dict "${item.dict}" needs all six principal parts, with — for a part the verb lacks (it has ${parts.length})`;
   if (parts[0] !== term) return `the term "${item.term}" should be the first principal part in dict ("${parts[0]}")`;
   const f = item.forms ?? {};
+  const prefix = f.prefix ? nfc(f.prefix).replace(/-$/, "") : undefined;
+  if (prefix) {
+    for (let i = 0; i < parts.length; i++) {
+      if (isDash(parts[i])) continue;
+      const simple = stripPrefix(parts[i], prefix);
+      if (!simple) return `forms.prefix "${prefix}": the principal part "${parts[i]}" doesn't start with it (or its elided form)`;
+      parts[i] = simple;
+    }
+    return gVerbSimplex(cls, parts, f, prefix);
+  }
+  return gVerbSimplex(cls, parts, f, undefined);
+}
+
+function gVerbSimplex(cls: string, parts: string[], f: NonNullable<VocabItem["forms"]>, prefix: string | undefined): GVerb | string {
+  const term = parts[0];
   const words = (s: string | undefined) => (s ?? "").split(/[\s,]+/).filter(Boolean);
   const long = words(f.long);
   const short = words(f.short);
@@ -603,7 +716,7 @@ function gVerbData(item: VocabItem): GVerb | string {
   } else if (/[αεο]$/.test(bare(pres)) && cls === "omega") return `"${term}" ends in -${bare(pres).slice(-1)}ω: use conj "contract"`;
   const mark = (ls: L[], name: Stem["name"]) => (long.includes(name) ? markLengths(ls, "L") : short.includes(name) ? markLengths(ls, "S") : ls);
   pres = mark(pres, "present");
-  const v: GVerb = { term, deponent, contract, pres, long, short, dash: new Set() };
+  const v: GVerb = { term, deponent, contract, pres, long, short, dash: new Set(), prefix };
   parts.forEach((p, i) => isDash(p) && v.dash.add(i + 1));
   // Future.
   if (!isDash(parts[1])) {
@@ -657,8 +770,8 @@ function gVerbData(item: VocabItem): GVerb | string {
     if (!un) v.aorPassWhy = `the aorist passive ${parts[5]} isn't the augmented stem of ${term}: give its forms`;
     else v.aorPass = { ls: un, aug, second: !bare(un).endsWith("θ") };
   }
-  // The imperfect's augment: checked against the aorist's where there is one.
-  if (v.aorWhy || v.aorPassWhy) v.impfWhy = `the aorist's augment isn't regular, so the imperfect isn't guessed: give forms.impf-act-ind${deponent ? "" : " / impf-mp-ind"}`;
+  // The imperfect's augment: checked against the aorist's where there is one (ει-verbs are known).
+  if ((v.aorWhy || v.aorPassWhy) && !EI_AUGMENT.includes(term)) v.impfWhy = `the aorist's augment isn't regular, so the imperfect isn't guessed: give forms.impf-act-ind${deponent ? "" : " / impf-mp-ind"}`;
   else v.impf = augments(pres, term).map((a) => (long.includes("present") ? markLengths(a, "L") : short.includes("present") ? markLengths(a, "S") : a));
   return v;
 }
@@ -690,6 +803,23 @@ function make(stem: L[], ending: string, acc: Acc, o: { contract?: boolean; min?
 function gVerb(item: VocabItem): ClassicalWord | string {
   const v = gVerbData(item);
   if (typeof v === "string") return v;
+  // A compound: put the prefix on every stem; the accent stays at or after the prefix's last
+  // syllable, and at or after the augment in augmented forms (Smyth 426).
+  // Syllables before the simplex: the accent may go back to the last of them, or (augmented) not past the augment.
+  const pre0 = v.prefix;
+  const pn = (stem: L[]) => (pre0 ? nuclei(stem).length - nuclei(parse(stripPrefix(render(stem), pre0) ?? render(stem))).length : 0);
+  const minFor = (stem: L[], augmented: boolean) => (pre0 ? Math.max(0, augmented ? pn(stem) : pn(stem) - 1) : 0);
+  if (v.prefix) {
+    const pre = v.prefix;
+    const at = (ls: L[]) => attach(pre, ls);
+    v.pres = at(v.pres);
+    if (v.impf) v.impf = v.impf.map(at);
+    if (v.fut) v.fut.ls = at(v.fut.ls);
+    if (v.aor) (v.aor.ls = at(v.aor.ls)), (v.aor.aug = at(v.aor.aug));
+    if (v.aorPass) (v.aorPass.ls = at(v.aorPass.ls)), (v.aorPass.aug = at(v.aorPass.aug));
+    if (v.perfAct) v.perfAct.ls = at(v.perfAct.ls);
+    if (v.perfMp) v.perfMp.ls = at(v.perfMp.ls);
+  }
   const w: ClassicalWord = { kind: "verb", slots: GRC_VERB_SLOTS, optional: new Set(), cells: new Map(), missing: new Map() };
   const why = (stem: string) => `the accent of some ${stem} forms depends on the length of the ${stem} stem's vowel (α, ι or υ): give forms.long or forms.short "${stem}"`;
   const put = (slot: string, m: Made | Made[], rule: string, stemName: string) => {
@@ -707,7 +837,7 @@ function gVerb(item: VocabItem): ClassicalWord | string {
   const alts = (cellEnd: string) => cellEnd.split("/");
   const absent = (prefix: string) => w.slots.filter((s) => s.startsWith(prefix)).forEach((s) => w.optional.add(s));
   const row = (form: string, stem: L[], ends: string[], persons: readonly string[], rule: string, stemName: string, o: { contract?: boolean; acc?: Acc; min?: number } = {}) =>
-    persons.forEach((p, i) => put(`${form}.${p}`, alts(ends[i]).map((e) => make(stem, e, o.acc ?? "rec", o)), rule, stemName));
+    persons.forEach((p, i) => put(`${form}.${p}`, alts(ends[i]).map((e) => make(stem, e, o.acc ?? "rec", { min: minFor(stem, /^(impf|plpf)|^aor-(act|mid|pass)-ind/.test(form)), ...o })), rule, stemName));
   const ptc = (form: string, stem: L[], ends: string[], rule: string, stemName: string, o: { contract?: boolean } = {}) => {
     // The masculine is recessive (or fixed); the feminine and neuter keep its syllable (Smyth 425).
     let target = 0;
@@ -741,7 +871,7 @@ function gVerb(item: VocabItem): ClassicalWord | string {
     if (v.impf) {
       const ends = vo === "act" ? T.impfAct : T.impfMp;
       const augRule = `Imperfect: augment + present stem (${v.impf.map((a) => render(a)).join(" or ")}-) + secondary endings${c ? ", contracted" : ""}`;
-      PERSONS.forEach((p, i) => put(`impf-${vo}-ind.${p}`, v.impf!.flatMap((a) => alts(ends[i]).map((e) => make(a, e, "rec", { contract: c, min: 0 }))), augRule, "present"));
+      PERSONS.forEach((p, i) => put(`impf-${vo}-ind.${p}`, v.impf!.flatMap((a) => alts(ends[i]).map((e) => make(a, e, "rec", { contract: c, min: minFor(a, true) }))), augRule, "present"));
     } else for (const s of w.slots.filter((x) => x.startsWith(`impf-${vo}`))) w.missing.set(s, v.impfWhy!);
   }
   // --- Future.
@@ -797,7 +927,7 @@ function gVerb(item: VocabItem): ClassicalWord | string {
     row("perf-act-ind", K, T.perfAct.ind, PERSONS, what, "perfect");
     put("perf-act-inf", make(K, T.perfAct.inf, "fixed"), `${what}: the infinitive is accented -έναι`, "perfect");
     ptc("perf-act-ptc", K, T.perfAct.ptc, `${what}: the participle is oxytone (-ώς, -υῖα, -ός)`, "perfect");
-    const aug = isVowel(K[0]) ? K : [{ b: "ε", m: new Set([SMOOTH]) }, ...copy(K)];
+    const aug = plpfStem(K, v.prefix);
     row("plpf-act-ind", aug, T.plpfAct, PERSONS, `Pluperfect active: ${isVowel(K[0]) ? "" : "augment + "}the perfect stem ${render(aug)}-`, "perfect");
   } else if (v.dash.has(4) || v.deponent) absent("perf-act"), absent("plpf-act");
   // --- Perfect and pluperfect middle/passive.
@@ -807,7 +937,7 @@ function gVerb(item: VocabItem): ClassicalWord | string {
     row("perf-mp-ind", M, T.perfMp.ind, PERSONS, what, "perfect");
     put("perf-mp-inf", make(M, T.perfMp.inf, "pen"), `${what}: the infinitive -σθαι is accented on the penult`, "perfect");
     ptc("perf-mp-ptc", M, T.perfMp.ptc, `${what}: the participle is accented -μένος`, "perfect");
-    const aug = isVowel(M[0]) ? M : [{ b: "ε", m: new Set([SMOOTH]) }, ...copy(M)];
+    const aug = plpfStem(M, v.prefix);
     row("plpf-mp-ind", aug, T.plpfMp, PERSONS, `Pluperfect middle/passive: ${isVowel(M[0]) ? "" : "augment + "}${render(aug)}-`, "perfect");
   } else if (v.perfMpWhy) for (const s of w.slots.filter((x) => /^(perf|plpf)-mp/.test(x))) w.missing.set(s, v.perfMpWhy);
   else if (v.dash.has(5)) absent("perf-mp"), absent("plpf-mp");
@@ -838,6 +968,33 @@ function gVerb(item: VocabItem): ClassicalWord | string {
   return w;
 }
 
+/** Built-in irregular verbs (Smyth 768). Slots they don't give don't exist. */
+const GRC_IRREGULAR: Record<string, { forms: Record<string, string>; note: string }> = {
+  εἰμί: {
+    forms: {
+      "pres-act-ind": "εἰμί, εἶ, ἐστί(ν), ἐσμέν, ἐστέ, εἰσί(ν)",
+      "pres-act-subj": "ὦ, ᾖς, ᾖ, ὦμεν, ἦτε, ὦσι(ν)",
+      "pres-act-opt": "εἴην, εἴης, εἴη, εἶμεν/εἴημεν, εἶτε/εἴητε, εἶεν/εἴησαν",
+      "pres-act-imp": "ἴσθι, ἔστω, ἔστε, ἔστων/ὄντων",
+      "pres-act-inf": "εἶναι",
+      "pres-act-ptc": "ὤν, οὖσα, ὄν",
+      "impf-act-ind": "ἦ/ἦν, ἦσθα, ἦν, ἦμεν, ἦτε, ἦσαν",
+      "fut-mid-ind": "ἔσομαι, ἔσει/ἔσῃ, ἔσται, ἐσόμεθα, ἔσεσθε, ἔσονται",
+      "fut-mid-opt": "ἐσοίμην, ἔσοιο, ἔσοιτο, ἐσοίμεθα, ἔσοισθε, ἔσοιντο",
+      "fut-mid-inf": "ἔσεσθαι",
+      "fut-mid-ptc": "ἐσόμενος, ἐσομένη, ἐσόμενον",
+    },
+    note: "εἰμί is irregular (Smyth 768); the present indicative is enclitic except εἶ",
+  },
+};
+
+/** The pluperfect stem: ἐ- before a consonant-reduplicated perfect, after the prefix of a compound. */
+function plpfStem(perf: L[], prefix?: string): L[] {
+  if (!prefix) return isVowel(perf[0]) ? perf : [{ b: "ε", m: new Set([SMOOTH]) }, ...copy(perf)];
+  const simplex = parse(stripPrefix(render(perf), prefix) ?? render(perf));
+  return attach(prefix, isVowel(simplex[0]) ? simplex : [{ b: "ε", m: new Set([SMOOTH]) }, ...simplex]);
+}
+
 // ---------------------------------------------------------------------------------------------
 // The article and pronouns: tables.
 
@@ -850,7 +1007,7 @@ function gPron(item: VocabItem): ClassicalWord | string {
   const term = nfc(item.term);
   const f: Record<string, string | undefined> = term === "ὁ" && !item.forms ? ARTICLE_TABLE : (item.forms ?? {});
   if (!Object.keys(f).length) return `pronouns come from their table: give forms ("sg": "ἐγώ, ἐμοῦ/μου, ἐμοί/μοι, ἐμέ/με, —", "pl": …; see docs/COURSE_FORMAT.md)`;
-  const gendered = Object.keys(f).some((k) => k.split(".").length === 3) || ["sg", "pl"].some((k) => typeof f[k] === "string" && f[k]!.split(",").length === 15) || (typeof f["sg.nom"] === "string" && f["sg.nom"]!.split(",").length === 3);
+  const gendered = Object.keys(f).some((k) => k.split(".").length === 3) || ["sg", "pl"].some((k) => typeof f[k] === "string" && [12, 15].includes(f[k]!.split(",").length)) || (typeof f["sg.nom"] === "string" && f["sg.nom"]!.split(",").length === 3);
   const slots = gendered ? adjSlots(GRC_CASES) : nounSlots(GRC_CASES, false);
   return { kind: "pron", slots, optional: new Set(slots.filter((s) => s.split(".")[1] === "voc")), cells: new Map(), missing: new Map(slots.map((s) => [s, `pronouns come from their table: give forms.${s.split(".")[0]}`])) };
 }
@@ -869,8 +1026,14 @@ export function grcWord(item: VocabItem): ClassicalWord | string {
   if (GRC_NOUN_CLASSES.includes(cls)) w = gNoun(item);
   else if (GRC_ADJ_CLASSES.includes(cls)) w = gAdj(item);
   else if (cls === "omega" || cls === "contract") w = gVerb(item);
-  else if (cls === "irr") {
-    if (!item.forms || !Object.keys(item.forms).length) w = `irregular verbs come from their table: give forms ("pres-act-ind": "εἰμί, εἶ, ἐστί(ν), ἐσμέν, ἐστέ, εἰσί(ν)", …)`;
+  else if (cls === "irr" && GRC_IRREGULAR[nfc(item.term)]) {
+    const b = GRC_IRREGULAR[nfc(item.term)];
+    const ww: ClassicalWord = { kind: "verb", slots: GRC_VERB_SLOTS, optional: new Set(GRC_VERB_SLOTS), cells: new Map(), missing: new Map() };
+    applyTable(ww, b.forms, item.term);
+    for (const c of ww.cells.values()) c.rule = b.note;
+    w = ww;
+  } else if (cls === "irr") {
+    if (!item.forms || !Object.keys(item.forms).length) w = `irregular verbs come from their table: give forms ("pres-act-ind": "δίδωμι, δίδως, δίδωσι(ν), δίδομεν, δίδοτε, διδόᾱσι(ν)", …)`;
     else {
       const ww: ClassicalWord = { kind: "verb", slots: GRC_VERB_SLOTS, optional: new Set(), cells: new Map(), missing: new Map() };
       for (const s of GRC_VERB_SLOTS) ww.missing.set(s, `irregular verbs come from their table: give forms.${s.split(".")[0]}`);

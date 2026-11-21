@@ -45,7 +45,7 @@ export const GRC_CASES = ["nom", "gen", "dat", "acc", "voc"] as const;
 export const GERUND_CASES = ["gen", "dat", "acc", "abl"] as const;
 
 /** `forms` keys that aren't table rows: quantity hints (Greek) and the Greek prefix. */
-export const HINT_KEYS = ["long", "short"] as const;
+export const HINT_KEYS = ["long", "short", "prefix"] as const;
 
 export const nfc = (s: string) => s.normalize("NFC").trim();
 

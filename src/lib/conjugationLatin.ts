@@ -665,6 +665,8 @@ function laVerbCells(v: VerbParts, w: ClassicalWord, opts: { noPassive?: boolean
   }
   if (v.supine && !dep && !opts.noPassive) set("fut-pass-inf", { forms: [`${v.supine} īrī`], rule: `Future passive infinitive: the supine + īrī (${v.supine} īrī)` });
   // Why the rest is missing.
+  // Deponents and semi-deponents have no passive (their passive-looking forms are drilled as active).
+  if (dep || v.semi) for (const sl of w.slots) if (/-pass-(ind|subj|imp|inf)/.test(sl)) w.optional.add(sl);
   const lacks = (prefixes: string[]) => w.slots.filter((s) => prefixes.some((k) => s.startsWith(k)) && !w.cells.has(s)).forEach((s) => w.optional.add(s));
   if (v.perf === undefined && !v.semi && !dep) {
     if (v.noPerf) lacks(["perf-act", "plpf-act", "futp-act"]);
@@ -835,7 +837,7 @@ function laVerb(item: VocabItem): ClassicalWord | string {
   const v = laVerbParts(item, cls);
   if (typeof v === "string") return v;
   w.deponent = v.deponent;
-  laVerbCells(v, w);
+  laVerbCells(v, w, { noPassive: v.semi });
   return w;
 }
 
@@ -871,7 +873,7 @@ export function laWord(item: VocabItem): ClassicalWord | string {
   else w = `"${cls}" isn't a Latin class (${[...LA_NOUN_CLASSES, ...LA_ADJ_CLASSES, "pron", ...LA_VERB_CLASSES].join(", ")})`;
   if (typeof w !== "string" && item.forms) {
     const table = item.forms;
-    for (const k of Object.keys(table)) if (k === "long" || k === "short") return (cache.set(item, `forms.${k} is for Greek`), `forms.${k} is for Greek`);
+    for (const k of Object.keys(table)) if (k === "long" || k === "short" || k === "prefix") return (cache.set(item, `forms.${k} is for Greek`), `forms.${k} is for Greek`);
     const problems = applyTable(w, table, item.term, []);
     if (problems.length) w = problems[0];
   }
@@ -895,7 +897,7 @@ export function laWordWarnings(item: VocabItem): string[] {
     out.push(`"${nom}" may have the dative and ablative plural in -ubus (A&G 92 c): check its forms`);
   if (cls === "decl5" && nom && !["diēs", "rēs"].includes(nom)) out.push(`only diēs and rēs have a full plural (A&G 98): give forms "pl" or noForms for the plural cases`);
   if (cls === "decl2" && nom && /ius$/.test(nom) && !["fīlius", "genius"].includes(nom) && !/^[A-Z]/.test(nom)) out.push(`"${nom}": the vocative in -ī is for proper names, fīlius and genius (A&G 49 c): check sg.voc`);
-  if (["v1", "v2", "v3", "v3-io", "v4"].includes(cls) && parts.length === 3 && !/or$/.test(item.term)) out.push(`"${item.term}" has no supine in dict: its perfect passive and participles aren't drilled`);
+  if (["v1", "v2", "v3", "v3-io", "v4"].includes(cls) && parts.length === 3 && !/or$/.test(item.term) && !/ sum$/.test(parts[2])) out.push(`"${item.term}" has no supine in dict: its perfect passive and participles aren't drilled`);
   if (cls === "v3" && /^(dīcō|dūcō|faciō)$/.test(nfc(item.term)) === false && /(dīc|dūc)ō$/.test(nfc(item.term))) out.push(`compound of dīcō/dūcō: imperative ${nfc(item.term).slice(0, -1)} by rule; check it`);
   if (cls === "v3-io" && /ficiō$/.test(nfc(item.term))) out.push(`compounds of faciō with -ficiō keep -e in the imperative (cōnfice)`);
   if (cls === "adj3" && /^(celer|vetus|dīves)$/.test(nfc(item.term))) out.push(`check the genitive plural of ${item.term}`);

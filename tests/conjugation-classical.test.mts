@@ -411,6 +411,7 @@ assert.equal(row("la", la("cōnficiō", "v3-io", "cōnficiō, cōnficere, cōnf�
 const audeo = la("audeō", "v2", "audeō, audēre, ausus sum");
 assert.equal(row("la", audeo, "pres-act-ind"), "audeō, audēs, audet, audēmus, audētis, audent");
 assert.equal(row("la", audeo, "perf-act-ind"), "ausus sum, ausus es, ausus est, ausī sumus, ausī estis, ausī sunt");
+assert.equal(row("la", audeo, "pres-pass-ind"), "—, —, —, —, —, —", "semi-deponents have no passive");
 // Missing parts: a three-part dict leaves the supine forms to the writer; "—" says the verb lacks them.
 const timeo = la("timeō", "v2", "timeō, timēre, timuī");
 assert.deepEqual(conjMissing("la", timeo, "perf-pass-ind").map((m) => m.slot).slice(0, 2), ["perf-pass-ind.1sg", "perf-pass-ind.2sg"]);
@@ -747,6 +748,61 @@ assert.equal(row("grc", lego, "fut-act-ind"), "ἐρῶ, ἐρεῖς, ἐρε�
 assert.match(conjWordProblem("grc", gr("δίδωμι", "omega", "δίδωμι, δώσω, ἔδωκα, δέδωκα, δέδομαι, ἐδόθην"))!, /-μι verbs need a table/);
 assert.match(conjWordProblem("grc", gr("τιμάω", "omega", "τιμάω, τιμήσω, ἐτίμησα, τετίμηκα, τετίμημαι, ἐτιμήθην"))!, /contract/);
 assert.match(conjWordProblem("grc", gr("λύω", "omega", "λύω, λύσω, ἔλυσα"))!, /six principal parts/);
+
+// Compound verbs (forms.prefix): augment after the prefix, elision, accent limits (Smyth 426, 450).
+const prosballo = gr("προσβάλλω", "omega", "προσβάλλω, προσβαλῶ, προσέβαλον, προσβέβληκα, προσβέβλημαι, προσεβλήθην", { prefix: "προσ", short: "aorist" });
+paradigm("grc", prosballo, {
+  "pres-act-ind": "προσβάλλω, προσβάλλεις, προσβάλλει, προσβάλλομεν, προσβάλλετε, προσβάλλουσι(ν)",
+  "impf-act-ind": "προσέβαλλον, προσέβαλλες, προσέβαλλε(ν), προσεβάλλομεν, προσεβάλλετε, προσέβαλλον",
+  "pres-act-imp": "πρόσβαλλε, προσβαλλέτω, προσβάλλετε, προσβαλλόντων",
+  "fut-act-ind": "προσβαλῶ, προσβαλεῖς, προσβαλεῖ, προσβαλοῦμεν, προσβαλεῖτε, προσβαλοῦσι(ν)",
+  "aor-act-ind": "προσέβαλον, προσέβαλες, προσέβαλε(ν), προσεβάλομεν, προσεβάλετε, προσέβαλον",
+  "aor-act-imp": "πρόσβαλε, προσβαλέτω, προσβάλετε, προσβαλόντων",
+  "aor-act-inf": "προσβαλεῖν",
+  "plpf-act-ind": "προσεβεβλήκη, προσεβεβλήκης, προσεβεβλήκει(ν), προσεβεβλήκεμεν, προσεβεβλήκετε, προσεβεβλήκεσαν",
+  "aor-pass-ind": "προσεβλήθην, προσεβλήθης, προσεβλήθη, προσεβλήθημεν, προσεβλήθητε, προσεβλήθησαν",
+});
+const apoluo = gr("ἀπολύω", "omega", "ἀπολύω, ἀπολύσω, ἀπέλυσα, ἀπολέλυκα, ἀπολέλυμαι, ἀπελύθην", { prefix: "ἀπο", long: "present future aorist", short: "perfect" });
+paradigm("grc", apoluo, {
+  "impf-act-ind": "ἀπέλυον, ἀπέλυες, ἀπέλυε(ν), ἀπελύομεν, ἀπελύετε, ἀπέλυον",
+  "pres-act-imp": "ἀπόλυε, ἀπολυέτω, ἀπολύετε, ἀπολυόντων",
+  "aor-act-ind": "ἀπέλυσα, ἀπέλυσας, ἀπέλυσε(ν), ἀπελύσαμεν, ἀπελύσατε, ἀπέλυσαν",
+  "aor-act-imp": "ἀπόλυσον, ἀπολυσάτω, ἀπολύσατε, ἀπολυσάντων",
+  "aor-act-inf": "ἀπολῦσαι",
+  "plpf-act-ind": "ἀπελελύκη, ἀπελελύκης, ἀπελελύκει(ν), ἀπελελύκεμεν, ἀπελελύκετε, ἀπελελύκεσαν",
+});
+assert.match(conjWordProblem("grc", gr("ἀπολύω", "omega", "ἀπολύω, ἀπολύσω, ἀπέλυσα, ἀπολέλυκα, ἀπολέλυμαι, ἀπελύθην", { prefix: "κατα" }))!, /doesn't start with it/);
+// Irregular augments: ἔχω → εἶχον (Smyth 431); ἐθέλω → ἤθελον; the aorist ἔσχον needs a table.
+const echo = gr("ἔχω", "omega", "ἔχω, ἕξω, ἔσχον, ἔσχηκα, —, —");
+assert.equal(row("grc", echo, "impf-act-ind"), "εἶχον, εἶχες, εἶχε(ν), εἴχομεν, εἴχετε, εἶχον");
+assert.match(conjMissing("grc", echo, "aor-act-subj")[0].why!, /augmented/);
+assert.equal(row("grc", gr("παρέχω", "omega", "παρέχω, παρέξω, παρέσχον, παρέσχηκα, —, —", { prefix: "παρα" }), "impf-act-ind"), "παρεῖχον, παρεῖχες, παρεῖχε(ν), παρείχομεν, παρείχετε, παρεῖχον");
+assert.equal(row("grc", gr("ἐθέλω", "omega", "ἐθέλω, ἐθελήσω, ἠθέλησα, ἠθέληκα, —, —"), "impf-act-ind"), "ἤθελον, ἤθελες, ἤθελε(ν), ἠθέλομεν, ἠθέλετε, ἤθελον");
+// εἰμί, syncopated and irregular nouns, μέγας and πολύς: built in (Smyth 262, 278, 284, 311, 768).
+const eimi = gr("εἰμί", "irr", "εἰμί, ἔσομαι, —, —, —, —");
+paradigm("grc", eimi, {
+  "pres-act-ind": "εἰμί, εἶ, ἐστί(ν), ἐσμέν, ἐστέ, εἰσί(ν)",
+  "impf-act-ind": "ἦ, ἦσθα, ἦν, ἦμεν, ἦτε, ἦσαν",
+  "pres-act-imp": "ἴσθι, ἔστω, ἔστε, ἔστων",
+  "pres-act-inf": "εἶναι",
+  "pres-act-ptc": "ὤν, οὖσα, ὄν",
+  "fut-mid-ind": "ἔσομαι, ἔσει, ἔσται, ἐσόμεθα, ἔσεσθε, ἔσονται",
+});
+assert.deepEqual(conjMissing("grc", eimi, "aor-act-ind"), [], "εἰμί has no aorist");
+paradigm("grc", gr("πατήρ", "decl3", "πατήρ, πατρός, ὁ"), { sg: "πατήρ, πατρός, πατρί, πατέρα, πάτερ", pl: "πατέρες, πατέρων, πατράσι(ν), πατέρας, πατέρες" });
+paradigm("grc", gr("μήτηρ", "decl3", "μήτηρ, μητρός, ἡ"), { sg: "μήτηρ, μητρός, μητρί, μητέρα, μῆτερ" });
+paradigm("grc", gr("ἀνήρ", "decl3", "ἀνήρ, ἀνδρός, ὁ"), { sg: "ἀνήρ, ἀνδρός, ἀνδρί, ἄνδρα, ἄνερ", pl: "ἄνδρες, ἀνδρῶν, ἀνδράσι(ν), ἄνδρας, ἄνδρες" });
+paradigm("grc", gr("ναῦς", "decl3", "ναῦς, νεώς, ἡ"), { sg: "ναῦς, νεώς, νηΐ, ναῦν, ναῦ", pl: "νῆες, νεῶν, ναυσί(ν), ναῦς, νῆες" });
+paradigm("grc", gr("μέγας", "adj12", "μέγας, μεγάλη, μέγα"), { "sg.nom": "μέγας, μεγάλη, μέγα", "sg.acc": "μέγαν, μεγάλην, μέγα", "pl.gen": "μεγάλων, μεγάλων, μεγάλων" });
+paradigm("grc", gr("πολύς", "adj12", "πολύς, πολλή, πολύ"), { "sg.acc": "πολύν, πολλήν, πολύ", "pl.nom": "πολλοί, πολλαί, πολλά" });
+// Table-only adjectives and gendered pronoun tables.
+assert.match(conjWordProblem("grc", gr("πᾶς", "adj", "πᾶς, πᾶσα, πᾶν"))!, /table/);
+const autos = gr("αὐτός", "pron", "αὐτός, αὐτή, αὐτό", {
+  sg: "αὐτός, αὐτή, αὐτό, αὐτοῦ, αὐτῆς, αὐτοῦ, αὐτῷ, αὐτῇ, αὐτῷ, αὐτόν, αὐτήν, αὐτό",
+  pl: "αὐτοί, αὐταί, αὐτά, αὐτῶν, αὐτῶν, αὐτῶν, αὐτοῖς, αὐταῖς, αὐτοῖς, αὐτούς, αὐτάς, αὐτά",
+});
+assert.equal(conjWordProblem("grc", autos), undefined);
+assert.equal(row("grc", autos, "pl.dat"), "αὐτοῖς, αὐταῖς, αὐτοῖς");
 
 // Greek prompts and labels.
 const gc = course("grc", [luo], ["aor-mid-opt"]);
