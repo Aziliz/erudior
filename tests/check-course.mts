@@ -43,7 +43,10 @@ import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.
 import { scriptCourse, scriptProblems } from "../src/lib/zhScript.ts";
 import * as OpenCC from "opencc-js";
 import { drillableWord, normalizeToneSettings, riskySingle, toneItemProblem, toneSettingsProblems, toneSyllables } from "../src/lib/tones.ts";
-import { checkRecallJa } from "../src/lib/vocab.ts";
+import { checkRecallClassical, checkRecallJa } from "../src/lib/vocab.ts";
+import { isClassical } from "../src/lib/classical.ts";
+import { classicalCourseProblems, pronTextProblems } from "../src/lib/classicalCheck.ts";
+import { normalizePronunciations } from "../src/lib/course.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
@@ -133,8 +136,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   const japanese = c.language?.code === "ja";
   const chinese = c.language?.code === "zh";
   if (chinese) await loadHanziStrokes(courseStrings(raw).flatMap(tracedHanzi));
+  const pronIds = (c.language?.pronunciations ?? []).map((p) => p.id);
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
+    // ```pron blocks and {pron=…} marks (Latin, Greek): a scheme the course declares.
+    for (const p of pronTextProblems(text, pronIds)) say(`${where}: ${p}`);
     // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
     if (japanese) for (const p of rubyProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
     // Chinese courses: pinyin markup {汉字|hàn zì}: Han characters, one marked syllable each.
@@ -388,6 +394,22 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       if (v.trad !== undefined && (typeof v.trad !== "string" || [...v.trad].length !== [...v.term].length || !hasHan(v.trad)))
         say(`${where}: "trad" must be the term in traditional characters, character for character`);
     }
+
+  // --- Latin and Greek: NFC, no look-alike letters, final sigma, dict/gender, schemes -----------
+  if (isClassical(c.language?.code)) {
+    for (const p of classicalCourseProblems(raw, c.language!.code)) say(p);
+    for (const v of c.vocab ?? []) {
+      if (!(v.directions ?? ["meaning", "recall"]).includes("recall")) continue;
+      if (!checkRecallClassical(v, v.term).ok) say(`word ${v.id}: typing its term "${v.term}" isn't accepted`);
+      if (v.dict && !checkRecallClassical(v, v.dict).ok) say(`word ${v.id}: typing its dict "${v.dict}" isn't accepted`);
+    }
+  }
+  if (raw.language?.pronunciations !== undefined) {
+    const list = normalizePronunciations(raw.language.pronunciations) ?? [];
+    if (!Array.isArray(raw.language.pronunciations) || list.length !== raw.language.pronunciations.length)
+      say(`language.pronunciations: a list of { "id": "restored", "label": "Restored classical" } with unique lower-case ids`);
+    else if (list.length < 2) say(`language.pronunciations: list at least two schemes (one needs no switch)`);
+  }
 
   // --- Chinese script switch: the app's conversion equals OpenCC s2tw + the course's overrides --
   if (chinese) for (const p of scriptProblems(raw, s2tw())) say(p);

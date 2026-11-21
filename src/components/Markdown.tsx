@@ -24,6 +24,10 @@ import { scanLessonFences } from "../lib/lessonFences";
 import { loadKanjiStrokes, needsKanjiStrokes } from "../lib/kanjiLoad";
 import { loadHanziStrokes, needsHanziStrokes, tracedHanzi } from "../lib/hanziLoad";
 import type { TraceScript } from "../lib/handwriting";
+import type { PronScheme } from "../lib/types";
+import { protectPron, pronInlineHtml, type PronContext } from "../lib/pronBlocks";
+import { setScheme } from "../lib/pronunciation";
+import { hasGreek } from "../lib/greek";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -58,8 +62,11 @@ export function joinCjkBreaks(html: string): string {
   return html.replace(CJK_BREAK, "$1");
 }
 
-/** `script` "zh": a Chinese course, whose ```trace blocks trace Han characters as hanzi. */
-export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined, script?: TraceScript): string {
+/**
+ * `script` "zh": a Chinese course, whose ```trace blocks trace Han characters as hanzi.
+ * `pron`: the course language and its pronunciation schemes, for ```pron blocks and {pron=…} marks.
+ */
+export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined, script?: TraceScript, pron?: PronContext): string {
   // Shield ordinary fences before *any* interactive parser. A literal tutorial
   // containing nested widget fences must remain code, including longer/tilde
   // fences that the legacy widget regular expressions do not understand.
@@ -79,20 +86,24 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   // Assignment links (```assignment blocks) become cards with an Open button.
   const assigns = protectAssignments(md, assign);
   md = assigns.text;
+  // Pronunciation-specific text (```pron <scheme>): each body through this same pipeline.
+  const prons = protectPron(md, (body) => renderMarkdown(body, scope, assign, script, pron), pron ?? {});
+  md = prons.text;
+  const sub = (field: string) => renderMarkdown(field, scope, undefined, undefined, pron);
   // Figures (```plot / ```figure blocks) and math are rendered separately and slotted
   // back in after Markdown, so Markdown never mangles their contents.
   // Worked examples (```example blocks): each field goes through this same pipeline.
   // Phonics blocks (```sounds, ```blend, ```trace) are finished HTML built from escaped text.
   const phonics = protectPhonics(md, script);
-  const examples = protectExamples(phonics.text, (field) => renderMarkdown(field, scope));
+  const examples = protectExamples(phonics.text, sub);
   // Dialogues and speaking practice (```dialogue / ```speak): lines rendered the same way.
-  const media = protectMedia(examples.text, (field) => renderMarkdown(field, scope));
+  const media = protectMedia(examples.text, sub);
   md = media.text;
   // Manipulatives (```manipulative blocks): a static picture here; the component mounts controls.
   const manips = protectManipulatives(md);
   md = manips.text;
   // Maps, timelines and simulations: same idea (their short text fields use this pipeline too).
-  const blocks = protectLessonBlocks(md, (field) => renderMarkdown(field, scope));
+  const blocks = protectLessonBlocks(md, sub);
   md = blocks.text;
   const diags = protectDiagrams(md);
   const figs = protectFigures(diags.text, scope);
@@ -100,14 +111,15 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   const code = protectCode(figs.text);
   const math = protectMath(code.text);
   // Furigana ({漢字|かんじ} → <ruby>) runs after code and math are set aside, so braces there stay.
-  const html = diags.restore(code.restore(math.restore(figs.restore(joinCjkBreaks(marked.parse(linkTerms(rubyHtml(math.text)), { async: false }) as string)))));
+  const parsed = marked.parse(linkTerms(rubyHtml(math.text)), { async: false }) as string;
+  const html = diags.restore(code.restore(math.restore(figs.restore(joinCjkBreaks(pron ? pronInlineHtml(parsed, pron) : parsed)))));
   // An empty corner header cell is announced as a blank header; make it a plain cell.
   const tidy = html.replace(/<th([^>]*)>\s*<\/th>/g, "<td$1></td>");
   const clean = DOMPurify.sanitize(tidy, {
     ADD_TAGS: ["marker", "clipPath"],
     ADD_ATTR: ["data-term", "type", "marker-end", "marker-start", "clip-path", "refX", "refY", "orient", "markerWidth", "markerHeight"],
   });
-  return restoreInert(blocks.restore(phonics.restore(assigns.restore(examples.restore(media.restore(manips.restore(mathHeaders(clean))))))));
+  return restoreInert(prons.restore(blocks.restore(phonics.restore(assigns.restore(examples.restore(media.restore(manips.restore(mathHeaders(clean)))))))));
 }
 
 /** A table header holding only math gets plain text for screen readers too (KaTeX's MathML
@@ -132,6 +144,29 @@ function mathHeaders(html: string): string {
     changed = true;
   }
   return changed ? t.innerHTML : html;
+}
+
+/**
+ * Course italics mark the target language (lang="de", "la", "grc"…). Refined by script where the
+ * course language says which: in a Greek course, italics in Latin letters are a transliteration
+ * (grc-Latn); in a Latin course, italics in Greek letters are Greek (grc).
+ */
+export function emLang(code: string, text: string): string {
+  const base = code.split("-")[0];
+  if (base === "grc" && !hasGreek(text) && /[A-Za-z]/.test(text)) return "grc-Latn";
+  if (base === "la" && hasGreek(text) && !/[A-Za-z]/.test(text)) return "grc";
+  return code;
+}
+
+/** Add lang="…" to <em>, blockquotes and dialogue/speech text (see emLang). */
+export function markEmphasis(html: string, code: string): string {
+  const refine = code === "grc" || code.startsWith("grc-") || code === "la" || code.startsWith("la-");
+  const withEm = refine
+    ? html.replace(/<em>([\s\S]*?)<\/em>/g, (_m, inner: string) => `<em lang="${emLang(code, inner.replace(/<[^>]*>/g, ""))}">${inner}</em>`)
+    : html.replace(/<em>/g, `<em lang="${code}">`);
+  return withEm
+    .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
+    .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
 }
 
 /** Section headings that get their own color (every math/science lesson ends with these). */
@@ -201,7 +236,10 @@ export default function Markdown({
   notes,
   html: prerendered,
   decorate = true,
+  pron,
 }: {
+  /** Latin and Greek courses: the pronunciation schemes (```pron blocks name them). */
+  pron?: PronScheme[];
   source: string;
   /**
    * Read-aloud: marks each paragraph, heading, list item, table and equation as something a
@@ -248,18 +286,15 @@ export default function Markdown({
   }, [needKanji, script, hanzi]);
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
-    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script);
+    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script, { lang: foreignLang, schemes: pron });
     const decorated = decorate && className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
     const code = foreignLang.replace(/[^A-Za-z-]/g, "");
     // Dialogues and reading texts are blockquotes in the target language, too.
-    return out
-      .replace(/<em>/g, `<em lang="${code}">`)
-      .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
-      .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
+    return markEmphasis(out, code);
     // kanjiReady: not read here, but the kanji pads need redrawing once the strokes have loaded.
-  }, [source, scope, foreignLang, script, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady]);
+  }, [source, scope, foreignLang, script, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady, pron]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
@@ -417,6 +452,9 @@ export default function Markdown({
     const target = e.target as Element;
     const rb = target.closest<HTMLElement>("button.ra-btn");
     if (rb) return readButton(rb);
+    // "Switch to …" in a hidden ```pron block's note.
+    const ps = target.closest<HTMLElement>("button.pron-switch");
+    if (ps?.dataset.pronSet && ps.dataset.pronLang) return setScheme(ps.dataset.pronLang, ps.dataset.pronSet);
     if (handlePhonicsClick(target, { lib, lang: READ_LANG })) return;
     if (revealExample(target)) return;
     if (

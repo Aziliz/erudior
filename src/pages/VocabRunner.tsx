@@ -19,8 +19,11 @@ import {
 import { logActivity } from "../lib/planner";
 import { canSpeak, onVoices, speak } from "../lib/speech";
 import { playClip } from "../lib/audio";
-import { composing, imeFor } from "../lib/ime";
+import { composing, greekAnswer, imeForAnswer } from "../lib/ime";
 import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
+import CharKeys, { applyKey } from "../components/CharKeys";
+import { onPronChange, wordClip } from "../lib/pronunciation";
+import { genderLabel } from "../lib/vocab";
 import { confirmAction } from "../lib/storage";
 
 export type VocabMode = "review" | "practice" | "conjugation" | "tones";
@@ -64,6 +67,18 @@ export function PosHint({ item, lang = "de" }: { item: VocabItem; lang?: string 
   ) : null;
 }
 
+/** The full dictionary entry and gender under a word (Latin, Greek): "puella, puellae, f." */
+export function DictLine({ item, lang, className = "muted vocab-dict" }: { item: VocabItem; lang?: string; className?: string }) {
+  const gender = item.gender && !(item.dict && /\b[mfn]\.?\s*$/.test(item.dict)) ? genderLabel(item.gender) : undefined;
+  if (!item.dict && !gender) return null;
+  return (
+    <span className={className}>
+      {item.dict && <span lang={lang}>{item.dict}</span>}
+      {gender && <span>{item.dict ? " · " : ""}{gender}</span>}
+    </span>
+  );
+}
+
 export function SpeakButton({
   text,
   lang,
@@ -78,6 +93,9 @@ export function SpeakButton({
 }) {
   const [, tick] = useState(0);
   useEffect(() => onVoices(() => tick((n) => n + 1)), []);
+  // Latin and Greek: the voice (and whether there is one) follows the pronunciation switch.
+  useEffect(() => onPronChange(() => tick((n) => n + 1)), []);
+  audio = wordClip(audio, lang);
   if (!audio && !canSpeak(lang)) return null;
   return (
     <button
@@ -100,7 +118,6 @@ export default function VocabRunner({
   count,
 }: Props) {
   const lang = course.language;
-  const ime = imeFor(lang);
   const ja = lang?.code === "ja";
   // Japanese: type katakana instead of hiragana (CAPITALS also give katakana).
   const [katakana, setKatakana] = useState(false);
@@ -131,6 +148,10 @@ export default function VocabRunner({
   const [stats, setStats] = useState({ right: 0, wrong: 0, up: 0, learned: 0 });
   const input = useRef<HTMLInputElement>(null);
   const card = queue[0];
+  // The box's converter: the course's, or for Latin and Greek the one for the word's script.
+  const answers = card ? [card.item.term, ...(card.item.alt ?? [])] : undefined;
+  const ime = imeForAnswer(lang, answers);
+  const greekKeys = greekAnswer(lang, answers);
   const back = () =>
     api.go({ name: "course", courseId: course.id, tab: "vocab" });
 
@@ -178,7 +199,8 @@ export default function VocabRunner({
       wrong: s.wrong + (v.ok ? 0 : 1),
     }));
     setShown({ verdict: v, typed: finalTyped, change });
-    if (card.dir === "recall" && card.item.audio) playClip({ src: card.item.audio });
+    const clip = wordClip(card.item.audio, lang?.tts ?? lang?.code);
+    if (card.dir === "recall" && clip) playClip({ src: clip });
     else if (card.dir === "recall" && lang?.tts) speak(card.item.term, lang.tts);
   }
 
@@ -201,11 +223,11 @@ export default function VocabRunner({
     const el = input.current;
     const start = el?.selectionStart ?? typed.length;
     const end = el?.selectionEnd ?? typed.length;
-    const t = typed.slice(0, start) + ch + typed.slice(end);
-    setTyped(t);
+    const r = applyKey(typed, start, end, ch, card?.dir === "recall" ? ime : undefined);
+    setTyped(r.text);
     requestAnimationFrame(() => {
       el?.focus();
-      el?.setSelectionRange(start + ch.length, start + ch.length);
+      el?.setSelectionRange(r.caret, r.caret);
     });
   }
 
@@ -299,7 +321,7 @@ export default function VocabRunner({
         <button className="back" onClick={quit}>
           ← End
         </button>
-        <LanguageToggles code={lang?.code} script={!!lang?.traditional} />
+        <LanguageToggles code={lang?.code} script={!!lang?.traditional} pron={lang?.pronunciations} />
         <span className="muted">
           {mode === "review" ? "Review" : "Extra practice"} · {done}/
           {initial.length}
@@ -340,6 +362,8 @@ export default function VocabRunner({
         <div className="vocab-sub">
           {dir === "recall" ? (
             <PosHint item={item} lang={lang?.code} />
+          ) : item.dict ? (
+            <DictLine item={item} lang={lang?.code} />
           ) : (
             // Japanese and Chinese readings sit over the characters (and follow the furigana/pinyin switch).
             item.reading && !ja && lang?.code !== "zh" && <span className="muted">{item.reading}</span>
@@ -368,7 +392,7 @@ export default function VocabRunner({
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}
-            lang={dir === "recall" ? lang?.code : "en"}
+            lang={dir === "recall" ? (greekKeys ? "grc" : lang?.code) : "en"}
             placeholder={
               dir === "meaning"
                 ? "Type the meaning in English"
@@ -413,21 +437,16 @@ export default function VocabRunner({
               neutral. Characters from a Chinese keyboard are fine too.
             </p>
           )}
-          {dir === "recall" && !!lang?.keys?.length && !shown && (
-            <div className="char-keys" aria-label="Special characters">
-              {lang.keys.map((k) => (
-                <button
-                  key={k}
-                  type="button"
-                  className="btn"
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => insert(k)}
-                >
-                  {k}
-                </button>
-              ))}
-            </div>
+          {dir === "recall" && greekKeys && !shown && (
+            <p className="ime-help small muted">
+              Type Beta Code: <code>a)nh/r</code> → ἀνήρ. Marks go after the letter: <code>)</code> smooth, <code>(</code> rough,{" "}
+              <code>/</code> acute, <code>\</code> grave, <code>=</code> circumflex, <code>|</code> iota subscript. Accents are optional.
+            </p>
           )}
+          {dir === "recall" && lang?.code === "la" && !greekKeys && !shown && (
+            <p className="ime-help small muted">Macrons are optional{lang.ime === "la" ? <>; type <code>a_</code> for ā, or use the buttons</> : ""}.</p>
+          )}
+          {dir === "recall" && !shown && <CharKeys keys={greekKeys ? undefined : lang?.keys} greek={greekKeys} onKey={insert} />}
           {hint && <p className="vocab-hint">{hint}</p>}
           <div className="row" style={{ marginTop: 12 }}>
             <button className="btn primary" type="submit">
@@ -456,6 +475,11 @@ export default function VocabRunner({
               <SpeakButton text={item.term} lang={lang?.tts} audio={item.audio} />
               <span className="muted"> — {item.meanings.join("; ")}</span>
             </p>
+            {(item.dict || item.gender) && (
+              <p>
+                <DictLine item={item} lang={lang?.code} />
+              </p>
+            )}
             {item.plural && <p className="muted">Plural: {item.plural}</p>}
             {item.example && (
               <p className="vocab-example">

@@ -1,0 +1,254 @@
+{
+  "format": "examiner-course",
+  "version": 1,
+  "id": "demo-classical",
+  "title": "Latin and Greek demo",
+  "revision": 1,
+  "description": "A two-lesson demo of the Latin and Ancient Greek engine: macrons and accents optional in answers, Beta Code typing, dictionary entries, the pronunciation switch and pron blocks.",
+  "language": {
+    "code": "la",
+    "name": "Latin",
+    "ime": "la",
+    "level": "Latin I",
+    "keys": [
+      "ā",
+      "ē",
+      "ī",
+      "ō",
+      "ū",
+      "ȳ"
+    ],
+    "pronunciations": [
+      {
+        "id": "restored",
+        "label": "Restored classical"
+      },
+      {
+        "id": "ecclesiastical",
+        "label": "Ecclesiastical"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "title": "First steps"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "la-l1",
+      "module": "m1",
+      "title": "Latin: girls and water",
+      "minutes": 10,
+      "topics": [
+        "Latin nouns"
+      ],
+      "quiz": [
+        "q1",
+        "q2",
+        "q5"
+      ],
+      "body": "## The first declension\n\nMost first-declension nouns end in *-a* and are feminine: *puella* (girl), *aqua* (water), *via* (road). The ablative singular has a long vowel: *puellā*. In this course macrons are always printed, but you never have to type them: an answer without them is marked right, with a note showing the full spelling.\n\n> *Puella aquam portat.* — The girl carries water.\n\n## Saying it\n\nThe course teaches two pronunciations. Pick yours with the **Pronunciation** switch at the top of the lesson; the paragraphs below change with it.\n\n```pron restored\n**Restored classical.** *c* is always hard, as in English *cat*: *Cicerō* is [ˈkɪkɛroː]. *v* is English *w*: *vīnum* [ˈwiːnʊm]. *ae* rhymes with English *eye*: *puellae* [pʊˈɛllaɪ̯].\n```\n\n```pron ecclesiastical\n**Ecclesiastical (church Latin).** *c* before *e* or *i* is English *ch*: *Cicerō* is [ˈtʃitʃero]. *v* is English *v*: *vīnum* [ˈvinum]. *ae* sounds like *e* in *bet*: *puellae* [puˈɛlle].\n```\n\nThe genitive *puellae* ends in {pron=restored}[aɪ̯], like *eye*{/pron}{pron=ecclesiastical}[e], like *bet*{/pron}.\n\n```speak\n# Say it\nPuella aquam portat.\n= The girl carries water.\nAmō puellam.\n= I love the girl.\n```\n\nThe recordings you hear are a computer voice reading Latin as if it were Italian, so they're only approximate.\n"
+    },
+    {
+      "id": "grc-l1",
+      "module": "m1",
+      "title": "Greek: first words",
+      "minutes": 10,
+      "topics": [
+        "Greek words"
+      ],
+      "quiz": [
+        "q3",
+        "q4",
+        "q6"
+      ],
+      "body": "## Greek words\n\nGreek is written here in full polytonic spelling: breathings, accents and the iota subscript. Type it in **Beta Code**: letters, then the marks after each letter.\n\n| You type | You get |\n|---|---|\n| `a)nh/r` | *ἀνήρ* |\n| `w)|dh/` | *ᾠδή* |\n| `*(ella/s` | *Ἑλλάς* |\n| `r(h/twr` | *ῥήτωρ* |\n| `tw=| a)nqrw/pw|` | *τῷ ἀνθρώπῳ* |\n\nFinal sigma is automatic: `lo/gos` gives *λόγος*. Accents and breathings are optional in answers, so *ανθρωπου* is marked right, with a note giving *ἀνθρώπου*.\n\n> *ὁ ἄνθρωπος λέγει.* — The man speaks.\n"
+    }
+  ],
+  "banks": [
+    {
+      "format": "examiner-bank",
+      "version": 1,
+      "id": "main",
+      "title": "Questions",
+      "sections": [],
+      "exam": {
+        "questionCount": 6,
+        "timeLimitMinutes": 10,
+        "passingPercent": 70
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "topic": "Latin nouns",
+          "type": "text",
+          "stem": "Type the Latin for “girl”: ___",
+          "accept": [
+            [
+              "puella"
+            ]
+          ],
+          "choices": [],
+          "answer": [],
+          "explanation": "puella, puellae, f."
+        },
+        {
+          "id": "q2",
+          "topic": "Latin nouns",
+          "type": "text",
+          "stem": "The ablative singular of puella: ___",
+          "accept": [
+            [
+              "puellā"
+            ]
+          ],
+          "choices": [],
+          "answer": [],
+          "explanation": "puellā, with a long final ā."
+        },
+        {
+          "id": "q3",
+          "topic": "Greek words",
+          "type": "text",
+          "stem": "The genitive singular of ἄνθρωπος: ___",
+          "accept": [
+            [
+              "ἀνθρώπου"
+            ]
+          ],
+          "choices": [],
+          "answer": [],
+          "explanation": "ἀνθρώπου: the accent moves to the penult because the ending is long."
+        },
+        {
+          "id": "q4",
+          "topic": "Greek words",
+          "type": "text",
+          "stem": "Type the Greek for “man” (Beta Code: a)nh/r): ___",
+          "accept": [
+            [
+              "ἀνήρ"
+            ]
+          ],
+          "choices": [],
+          "answer": [],
+          "explanation": "ἀνήρ, ἀνδρός, ὁ."
+        },
+        {
+          "id": "q5",
+          "topic": "Latin nouns",
+          "stem": "Listen. Which word did you hear?",
+          "audio": {
+            "text": "puella"
+          },
+          "choices": [
+            "puella",
+            "porta",
+            "aqua",
+            "via"
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "puella, girl."
+        },
+        {
+          "id": "q6",
+          "topic": "Greek words",
+          "type": "text",
+          "stem": "“to the man”, dative singular with the article: ___",
+          "accept": [
+            [
+              "τῷ ἀνθρώπῳ"
+            ]
+          ],
+          "choices": [],
+          "answer": [],
+          "explanation": "τῷ ἀνθρώπῳ, with iota subscripts."
+        }
+      ]
+    }
+  ],
+  "decks": [],
+  "glossary": [],
+  "references": [],
+  "drills": [],
+  "vocab": [
+    {
+      "id": "puella",
+      "lesson": "la-l1",
+      "term": "puella",
+      "dict": "puella, puellae, f.",
+      "gender": "f",
+      "pos": "noun",
+      "meanings": [
+        "girl"
+      ],
+      "example": "Puella aquam portat.",
+      "exampleEn": "The girl carries water."
+    },
+    {
+      "id": "amo",
+      "lesson": "la-l1",
+      "term": "amō",
+      "dict": "amō, amāre, amāvī, amātum",
+      "pos": "verb",
+      "meanings": [
+        "love",
+        "like"
+      ],
+      "note": "English derivatives: amatory, amiable."
+    },
+    {
+      "id": "magnus",
+      "lesson": "la-l1",
+      "term": "magnus",
+      "dict": "magnus, -a, -um",
+      "pos": "adjective",
+      "meanings": [
+        "big",
+        "great",
+        "large"
+      ]
+    },
+    {
+      "id": "aner",
+      "lesson": "grc-l1",
+      "term": "ἀνήρ",
+      "dict": "ἀνήρ, ἀνδρός, ὁ",
+      "gender": "m",
+      "pos": "noun",
+      "meanings": [
+        "man",
+        "husband"
+      ]
+    },
+    {
+      "id": "logos",
+      "lesson": "grc-l1",
+      "term": "λόγος",
+      "dict": "λόγος, λόγου, ὁ",
+      "gender": "m",
+      "pos": "noun",
+      "meanings": [
+        "word",
+        "speech",
+        "reason"
+      ]
+    },
+    {
+      "id": "psyche",
+      "lesson": "grc-l1",
+      "term": "ψυχή",
+      "dict": "ψυχή, ψυχῆς, ἡ",
+      "gender": "f",
+      "pos": "noun",
+      "meanings": [
+        "soul",
+        "life"
+      ]
+    }
+  ]
+}

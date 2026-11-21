@@ -55,6 +55,7 @@ on:
       - "src/lib/vmLab.ts"
       - "src/lib/diagram.ts"
       - "src/lib/dialogueContent.ts"
+      - "src/lib/pronBlocks.ts"
       - "src/lib/drills.ts"
       - "src/lib/exampleSpec.ts"
       - "src/lib/exerciseTypes.ts"

@@ -4,6 +4,7 @@
 
 import type { AudioClip } from "./types";
 import { canSpeak, speakAsync, stopSpeaking } from "./speech";
+import { pickClip } from "./pronunciation";
 
 /** Embedded audio the app accepts: common formats the desktop web views and browsers decode. */
 export const AUDIO_SRC = /^data:audio\/(mpeg|mp3|mp4|aac|x-m4a|ogg|opus|wav|x-wav|wave|webm|flac);base64,[A-Za-z0-9+/]+={0,2}$/;
@@ -25,7 +26,7 @@ export function stopAudio() {
 /** True when the clip can be heard on this device: a recording, or a voice for its language. */
 export function canPlay(c: AudioClip | undefined, fallbackLang?: string): boolean {
   if (!c) return false;
-  if (c.src) return true;
+  if (pickClip(c, c.lang ?? fallbackLang)) return true;
   return !!c.text && canSpeak(c.lang ?? fallbackLang);
 }
 
@@ -57,7 +58,9 @@ export function playElement(a: HTMLAudioElement, rate = 1): Promise<void> {
 /** Play a recording (or speak the text) and resolve when it ends or is stopped. */
 export function playClip(c: AudioClip, opts: { rate?: number; fallbackLang?: string } = {}): Promise<void> {
   const rate = opts.rate ?? 1;
-  if (c.src && typeof Audio !== "undefined") return playElement(new Audio(c.src), rate);
+  // Latin and Greek: the recording for the learner's pronunciation, if the clip has one per scheme.
+  const src = pickClip(c, c.lang ?? opts.fallbackLang);
+  if (src && typeof Audio !== "undefined") return playElement(new Audio(src), rate);
   stopAudio();
   const lang = c.lang ?? opts.fallbackLang;
   if (c.text && lang) return speakAsync(c.text, lang, 0.9 * rate);

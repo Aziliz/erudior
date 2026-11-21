@@ -483,7 +483,7 @@ Sheets print cleanly from the app.
 
 Language courses (and any course with spoken content) can use sound in three places: words, lessons and questions. Sound is a recorded clip when the course has one, otherwise the device's own voice (text-to-speech) for the course's `language.tts`. Clips are embedded like pictures, as `data:audio/…;base64` URLs (mp3 is the safest format; m4a/aac, ogg/opus, wav, webm and flac also work), at most 400 KB each.
 
-**Words:** a vocabulary item can have `"audio": "data:audio/mpeg;base64,…"`, its recorded pronunciation. The 🔊 buttons and the automatic playback after a recall card use it in place of the device's voice.
+**Words:** a vocabulary item can have `"audio": "data:audio/mpeg;base64,…"`, its recorded pronunciation. (Latin and Greek: clips per pronunciation scheme and how the voice follows the switch are in [Latin and Greek](#latin-and-greek).) The 🔊 buttons and the automatic playback after a recall card use it in place of the device's voice.
 
 **Dialogues** play line by line with speaker labels and translations:
 
@@ -598,6 +598,148 @@ Chinese courses can turn on tone practice made from their vocabulary: the app sa
 - **Grading and feedback** are as for tone questions: every syllable right, third-tone sandhi accepted as heard, then the marked pinyin and the pattern. The first answer to each word counts toward each tone's accuracy (saved with the conjugation tallies, keys `zh:tone-1` … `zh:tone-0`); misses come back later in the round as practice.
 - **No Mandarin voice.** The round still runs: each item is labelled "From memory (no Mandarin voice)", shows the characters and the toneless pinyin, and asks for the tones the learner remembers, with a hint on adding a Chinese voice in the device's speech settings. Accuracy is counted the same way.
 - The checker reports `tones` in a non-Chinese course, unknown fields, `max` or `round` out of range, an unknown `lesson`, and a course with no word that can be drilled.
+
+## Latin and Greek
+
+Latin (`"code": "la"`) and Ancient Greek (`"code": "grc"`) courses get typing helpers, answers where diacritics are optional, dictionary entries on words, and a switch between two pronunciations. Demo: `samples/demo-classical.json` (a Latin course with a Greek lesson); walkthrough `scripts/classical-walkthrough.mjs`; tests `tests/classical.test.mts`.
+
+```json
+"language": {
+  "code": "la", "name": "Latin", "level": "Latin I", "ime": "la",
+  "keys": ["ā", "ē", "ī", "ō", "ū", "ȳ"],
+  "pronunciations": [
+    { "id": "restored", "label": "Restored classical" },
+    { "id": "ecclesiastical", "label": "Ecclesiastical" }
+  ]
+}
+```
+
+```json
+"language": {
+  "code": "grc", "name": "Ancient Greek", "level": "Ancient Greek I", "ime": "grc",
+  "pronunciations": [
+    { "id": "restored", "label": "Restored Attic" },
+    { "id": "modern", "label": "Modern Greek" }
+  ]
+}
+```
+
+| Field | Meaning |
+|---|---|
+| `language.code` | `la` or `grc`. Every question of the course is checked with diacritics optional (each question gets `"lang"` set to the code when it's loaded; see below). |
+| `language.ime` | `"grc"`: Beta Code typing (below). `"la"`: `a_` → ā (optional, below). |
+| `language.keys` | Buttons under typing boxes. Latin: `["ā", "ē", "ī", "ō", "ū", "ȳ"]`. Greek courses need none: the Greek buttons are built in. |
+| `language.pronunciations` | The pronunciations the learner can pick: a list of `{ "id", "label" }`, at least two, ids unique, lower-case letters, digits and hyphens. **The first is the default.** The engine knows how to voice `restored` and `ecclesiastical` (Latin) and `restored` and `modern` (Greek); see Audio. |
+| `language.tts` | Leave it out (or set it to `la` / `grc`). The voice then follows the pronunciation switch; another value (such as `it-IT`) bypasses it, and the checker reports it. |
+
+### Typing Greek (Beta Code)
+
+`"ime": "grc"` turns on a converter wherever the learner types Greek: vocabulary recall cards, conjugation drills, and `text` blanks whose accepted answers are in Greek letters (a blank whose answers are English or Latin is left as typed). Letters follow TLG Beta Code:
+
+| Type | a | b | g | d | e | z | h | q | i | k | l | m | n | c | o | p | r | s | t | u | f | x | y | w |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Get | α | β | γ | δ | ε | ζ | η | θ | ι | κ | λ | μ | ν | ξ | ο | π | ρ | σ/ς | τ | υ | φ | χ | ψ | ω |
+
+- **Also:** `j` = ξ (as on a Greek keyboard). TLG's `v` (digamma ϝ) is **not** converted: Attic courses don't use it, and a learner who types `v` almost always means ν.
+- **Marks** go after the letter, in any order: `)` smooth breathing, `(` rough breathing, `/` acute, `\` grave, `=` circumflex, `|` iota subscript, `+` diaeresis. `a)nh/r` → ἀνήρ, `a/)` → ἄ too, `w)|dh/` → ᾠδή, `r(h/twr` → ῥήτωρ, `tw=| a)nqrw/pw|` → τῷ ἀνθρώπῳ, `i+/` → ΐ. A second mark of the same kind replaces the first (`ἀ(` → ἁ). A mark that can't go on the letter before it (`k)`) stays as typed.
+- **Capitals:** type the capital letter (`E(lla/s`), or `*` before the letter as TLG does (`*(ella/s`). The marks can come before the capital (TLG: `*)a`, or `)A`) or after it (`A)`). All three give Ἑλλάς / Ἀ. Note that TLG files are all upper case; here an upper-case letter is a capital.
+- **Final sigma** is chosen by position: ς at the end of a word (before a space, punctuation or the end of the box, so also when the answer is submitted), σ inside a word. `s1`, `s2`, `s3` are accepted for TLG compatibility and give the sigma the position calls for (there's no lunate sigma).
+- **Punctuation:** `:` gives the raised dot ·; `;` is the Greek question mark.
+- **Pass-through:** the converter's own output, and Greek typed on a device's Greek keyboard (polytonic or monotonic, NFC or NFD), are left alone. Output is always NFC.
+- **Buttons** under the box: ἀ (smooth breathing), ἁ (rough), ά (acute), ὰ (grave), ᾶ (circumflex), ᾳ (iota subscript), ϊ (diaeresis) and ς. A mark combines with the letter before the cursor into one precomposed character (ἀ + acute → ἄ).
+- A Latin course that asks for a Greek answer (a blank or word in Greek letters) gets the same converter and buttons for that box.
+
+### Typing Latin
+
+Macrons are optional in answers, so Latin needs no converter. The course's `keys` (ā ē ī ō ū ȳ) add them with a click. **Keyboard alternative:** with `"ime": "la"`, an underscore after a vowel gives its macron (`puella_` → puellā, `A_` → Ā). An underscore is never part of Latin text, so nothing else changes; it's for learners who want macrons without leaving the keyboard (phones already offer ā on a long press). Courses may leave `ime` out.
+
+### Answers: diacritics optional
+
+In `la` and `grc` courses every typed answer — vocabulary recall and meaning cards, `text` questions (including dictation, a `text` question with `audio`), and conjugation drills — is compared with macrons, breves, accents, breathings, iota subscript and diaeresis ignored, after NFC, with ς/σ, the oxia/tonos forms, ϐ/β, ϑ/θ, the raised dot (U+0387/U+00B7) and the elision apostrophes (’ ʼ ' ᾽ U+1FBD, U+1FBF, U+02BC) unified. Capitals don't matter (unless the question is `caseSensitive`).
+
+- An exact answer is right.
+- An answer right only once diacritics are ignored — missing **or wrong** (present but wrong) — is **right, with a note** giving the full spelling: "With macrons: puellā", "With accents: ἀνθρώπου", "With accents and breathings: ἀνήρ", "With iota subscript: τῷ". The note names the kinds of mark that differ (in Greek, Latin-style macrons are "vowel lengths").
+- A wrong letter, a wrong ending or another word is wrong.
+- Build questions (`type: "build"`) are answered with tiles, not typed, so nothing changes there. Writers never build a choice question whose only difference is a diacritic, except in lessons that teach it.
+- Questions carry the answers' language in `"lang"` (`"la"`, `"grc"`). It's set automatically on every question of a `la`/`grc` course; a standalone bank can set it itself. A `text` answer written in Greek letters is treated as Greek even without it.
+
+### Vocabulary
+
+```json
+{ "id": "amo", "lesson": "l03", "term": "amō", "dict": "amō, amāre, amāvī, amātum", "pos": "verb", "meanings": ["love", "like"] }
+{ "id": "puella", "lesson": "l02", "term": "puella", "dict": "puella, puellae, f.", "gender": "f", "pos": "noun", "meanings": ["girl"] }
+{ "id": "aner", "lesson": "l04", "term": "ἀνήρ", "dict": "ἀνήρ, ἀνδρός, ὁ", "gender": "m", "pos": "noun", "meanings": ["man", "husband"] }
+```
+
+| Field | Meaning |
+|---|---|
+| `term` | The headword the learner types (*puella*, *amō*, *magnus*, *ἀνήρ*, *λύω*). |
+| `dict` | The full dictionary entry, shown with the word: on both sides of the card (under the word on Latin → English cards, on the back after answering), in the lesson's word list, the Vocabulary tab and search. It must start with the headword (checker). |
+| `gender` | `m`, `f`, `n`, or a combination: `m/f` (also written `m, f`, read as `m/f`). Shown in words ("feminine", "masculine or feminine") unless `dict` already ends with the gender (`… f.`). |
+
+**Recall** (English → Latin/Greek) accepts the headword (or an `alt`) **or the full entry**: `amo amare amavi amatum`, `amō, amāre, amāvī, amātum` and `amō amāre amāvī amātum` all match `dict` (punctuation, hyphens and spacing don't matter: `magnus a um` matches `magnus, -a, -um`), with the same diacritic rules and notes. **Meaning** cards (→ English) are checked as in other courses; a Latin or Greek name inside a gloss (*Rōma*) ignores diacritics too.
+
+The Vocabulary tab's **Find a word** box and the app's search (Ctrl+K, which now lists words with their entries) ignore Greek diacritics and Latin macrons: `amare` finds amāre, `λογος` finds λόγος.
+
+A word's recorded `audio` is played for the course's default (first) pronunciation; with another pronunciation picked, the voice reads the word.
+
+### Pronunciation switch
+
+Lessons, quizzes, the Vocabulary tab and the vocabulary and drill runners show a **Pronunciation** selector (when the course lists two or more), with one line under it saying what the audio is and that it's approximate ("Audio: an Italian voice reading respelled text, so it's only approximate."). The choice is kept per language code on the device (`erudior.pron.la`, `erudior.pron.grc`), like the furigana and script switches, so it carries across Latin I–IV.
+
+**Audio.** No device has a Latin or Ancient Greek voice, so the nearest voice reads a respelling (lib/classicalSpeech.ts). Where the device has no matching voice, the listen buttons hide, as for any language. Lessons must describe the sounds in words, IPA and English comparisons, and never claim the audio is exact.
+
+| Scheme | Voice | Text |
+|---|---|---|
+| Latin `restored` | Italian (it-IT) | Respelled so Italian rules give roughly the classical sounds: c and g hard (ce → che, gi → ghi, sc before e/i → sch), v → u glide (vīnum → uinum), ae → ai, oe → oi, gn → ngn, ph th → p t, y → i, x → cs, h dropped, ti and double consonants kept, macrons dropped. |
+| Latin `ecclesiastical` | Italian (it-IT) | Nearly as written: macrons dropped, ae/oe → e, ti before a vowel → zi (not after s, t, x), ph → f, th → t, y → i, j → i. |
+| Greek `modern` | Greek (el-GR) | Reduced to monotonic: breathings and iota subscripts dropped, grave and circumflex → acute. |
+| Greek `restored` | Italian (it-IT) | Transliterated for an Italian voice: φ θ χ → p t k, η → è, ω → o, υ → u, ει → e, ου → u, αι οι αυ ευ kept, iota subscript silent, γ before γ κ χ ξ → n, rough breathing → h, ζ → sd. Very approximate: no aspiration, no vowel length, no pitch accent. |
+
+Other scheme ids are allowed (for `pron` blocks); their audio is the Italian voice unchanged (Latin) or the Greek voice (Greek). Greek letters quoted in a Latin course are read as Greek.
+
+This applies everywhere the course language is spoken: the 🔊 buttons on words, question `audio` (listening and dictation), and dialogue and speaking blocks.
+
+**Recordings per scheme.** A recording is kept, and can be given per pronunciation:
+
+- Questions: `"audio": { "text": "Cicerō", "src": "data:audio/…", "srcs": { "restored": "data:audio/…", "ecclesiastical": "data:audio/…" } }`. `srcs` maps scheme ids to clips (validated like `src`). With `srcs`, the learner's scheme plays its clip; a scheme without one is read by the voice from `text` (or plays `src` when there's no `text`). Without `srcs`, `src` plays for every scheme, as before.
+- Dialogue and speak lines: `audio: data:…` (every scheme) and `audio ecclesiastical: data:…` (that scheme), one per scheme, after the line. Same choice as `srcs`, the line's text standing in for `text`.
+
+### Pronunciation-specific text: ```` ```pron ````
+
+A block whose body is Markdown, shown only when the learner's pronunciation matches:
+
+````markdown
+```pron restored
+*c* is always hard, as in *cat*: *Cicerō* [ˈkɪkɛroː].
+```
+
+```pron ecclesiastical
+*c* before *e* or *i* is English *ch*: *Cicerō* [ˈtʃitʃero].
+```
+````
+
+- The info string is one scheme id from `language.pronunciations`. The body is Markdown (math, glossary links, tables…) but can't hold another fenced block (no `dialogue`, `example`, … inside: put those outside, since audio follows the switch anyway).
+- On screen, a block for another scheme shrinks to a small note, "Shown for Ecclesiastical pronunciation. Switch to Ecclesiastical", whose button changes the switch; the block for the active scheme is labelled "Restored classical pronunciation". Printing shows every scheme's blocks, each with its label.
+- **Inline**, for a few words inside a paragraph: `{pron=restored}[aɪ̯], like eye{/pron}{pron=ecclesiastical}[e], like bet{/pron}`. Keep each inside one paragraph; it's hidden (not noted) for other schemes, and printed with its scheme's label.
+- Search reads every scheme's text; the checker reports a scheme the course doesn't declare, an empty or unclosed block, a nested fence, and an unclosed or nested inline mark. These work in any course that declares `pronunciations`.
+
+### Language attributes and fonts
+
+- Lesson italics and blockquotes get `lang` from the course code (`lang="la"`, `lang="grc"`), as German gets `lang="de"`. Refined by script: in a Greek course, italics in Latin letters (a transliteration, *anēr*) get `lang="grc-Latn"`; in a Latin course, italics in Greek letters get `lang="grc"`. Greek typing boxes are `lang="grc"`.
+- **Fonts.** Source Serif 4 has only basic Greek and Public Sans none, so Greek and Greek Extended (U+0370–03FF, U+1F00–1FFF) come from Noto Serif / Noto Sans (fontsource, the Greek subsets only, about 40 KB a style), first in both font stacks with a `unicode-range`, so they load only on pages with Greek letters and polytonic text looks the same everywhere. Greek isn't italicized (course italics mark the language); transliterations are.
+- SVG pictures are shown as images, which use the device's fonts: give Greek text a polytonic font in `font-family` (e.g. `"Gentium Plus", "Noto Serif", "Times New Roman", serif`) or convert it to paths. `node scripts/preview-figure.mjs picture.svg` draws Greek with the app's Greek fonts as a fallback and prints that reminder.
+
+### Checks
+
+The course checker (tests/check-course.mts) reports, in `la` and `grc` courses, on every text (lessons, questions and their answers, `accept` lists, vocabulary terms, `dict`, examples, notes, cards, glossary, reference sheets, reader texts):
+
+- Greek text that isn't NFC;
+- a Greek word with Latin or Cyrillic letters in it (look-alikes such as o/ο, a/α, v/ν, k/κ, p/ρ), a Latin word with Greek or Cyrillic letters;
+- ς inside a Greek word, σ at the end of one (a lone σ, as in "the letter σ", is fine), a lunate sigma;
+- a `dict` that doesn't start with the headword, a `gender` that isn't m, f, n or a combination, a word whose own `term` or `dict` typed back isn't accepted;
+- `language.tts` set to a voice that bypasses the switch, and malformed `language.pronunciations` (fewer than two, bad or repeated ids);
+- in any course, `pron` blocks and marks naming a scheme the course doesn't declare.
 
 ## Conjugation drills
 

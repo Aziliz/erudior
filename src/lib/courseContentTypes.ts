@@ -92,9 +92,16 @@ export interface Question {
      * the device's voice). The transcript (`text`) is shown only after the answer is checked.
      */
     audio?: AudioClip;
+    /**
+     * The language of the typed answers. Latin ("la") and Ancient Greek ("grc") make diacritics
+     * optional (docs/COURSE_FORMAT.md, "Latin and Greek"). Set on every question of a la/grc course.
+     */
+    lang?: string;
 }
 export interface AudioClip {
     src?: string;
+    /** Latin and Greek: a recording per pronunciation scheme, e.g. { "ecclesiastical": "data:audio/…" }. */
+    srcs?: Record<string, string>;
     /** What is said. Spoken by text-to-speech when there's no `src`; shown as the transcript. */
     text?: string;
     /** Voice language for text-to-speech, e.g. "de-DE" (defaults to the course language). */
@@ -287,6 +294,14 @@ export interface LanguageInfo {
     traditional?: import("./zhScript").ZhTable;
     /** Chinese tone drills made from the vocabulary (docs/COURSE_FORMAT.md, "Tone drills"). */
     tones?: ToneSettings;
+    /** Pronunciations the learner can pick (Latin, Greek); the first is the default. */
+    pronunciations?: PronScheme[];
+}
+export interface PronScheme {
+    /** Lower-case id used by ```pron blocks and audio `srcs`, e.g. "restored". */
+    id: string;
+    /** Shown on the switch, e.g. "Restored classical". */
+    label: string;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {
@@ -311,6 +326,10 @@ export interface VocabItem {
     pitch?: number | number[];
     /** Part of speech, e.g. "noun", "verb". */
     pos?: string;
+    /** The full dictionary entry, shown with the word: "amō, amāre, amāvī, amātum", "ἀνήρ, ἀνδρός, ὁ". */
+    dict?: string;
+    /** Grammatical gender: "m", "f", "n", or a combination such as "m/f". */
+    gender?: string;
     /** Noun plural, e.g. "die Hunde". */
     plural?: string;
     /** Example sentence and its translation. */

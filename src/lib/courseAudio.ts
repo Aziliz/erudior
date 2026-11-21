@@ -35,11 +35,19 @@ export function validateEmbeddedAudio(raw: unknown, path = 'audio', options: Aud
 }
 export function validateAudioClip(raw: unknown, path = 'audio', options: AudioValidationOptions = {}): string[] {
   if (!object(raw)) return [`${path}: expected an audio clip object`];
-  const errors = Object.keys(raw).filter(k => !['src', 'text', 'lang'].includes(k)).map(k => `${path}.${k}: unsupported audio field`);
+  const errors = Object.keys(raw).filter(k => !['src', 'srcs', 'text', 'lang'].includes(k)).map(k => `${path}.${k}: unsupported audio field`);
   if (own(raw, 'src')) errors.push(...validateEmbeddedAudio(raw.src, `${path}.src`, options));
+  // Latin and Greek: one recording per pronunciation scheme ({ "ecclesiastical": "data:audio/…" }).
+  if (own(raw, 'srcs')) {
+    if (!object(raw.srcs) || !Object.keys(raw.srcs).length) errors.push(`${path}.srcs: expected { scheme: embedded audio }`);
+    else for (const [scheme, src] of Object.entries(raw.srcs)) {
+      if (!/^[a-z][a-z0-9-]{0,39}$/.test(scheme)) errors.push(`${path}.srcs: "${scheme.slice(0, 40)}" isn't a scheme id`);
+      else errors.push(...validateEmbeddedAudio(src, `${path}.srcs.${scheme}`, options));
+    }
+  }
   if (own(raw, 'text') && typeof raw.text !== 'string') errors.push(`${path}.text: expected text`);
   if (own(raw, 'lang') && (typeof raw.lang !== 'string' || !LANGUAGE.test(raw.lang))) errors.push(`${path}.lang: expected a language code`);
-  if (!own(raw, 'src') && !(typeof raw.text === 'string' && raw.text.trim())) errors.push(`${path}: requires a recorded source or nonempty spoken text`);
+  if (!own(raw, 'src') && !own(raw, 'srcs') && !(typeof raw.text === 'string' && raw.text.trim())) errors.push(`${path}: requires a recorded source or nonempty spoken text`);
   return errors;
 }
 export function cloneAudioClip(raw: unknown, options: AudioValidationOptions = {}): AudioClip {

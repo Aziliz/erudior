@@ -1,6 +1,8 @@
 import { ADMIN_EXAM, RHCSA_MOCK, isVmExam, readVmLab, validExamMinutes, validVmTasks } from "./vmLab";
 import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
-import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
+import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, PronScheme, ReadingItem, RefSheet, VocabItem } from "./types";
+import { isClassical } from "./classical";
+import { PRON_ID } from "./pronBlocks";
 import { BankError, normalizeBank } from "./validate";
 import { slugify, uid } from "./util";
 import { normalizeWork } from "./work";
@@ -40,6 +42,23 @@ export function looksLikeCourse(raw: unknown): boolean {
 }
 
 export function normalizeCourse(raw: unknown): Course {
+  return withAnswerLang(readCourse(raw));
+}
+
+/**
+ * Latin and Greek: every typed answer ignores diacritics (lib/classical.ts), so each question
+ * carries the course language (`lang`) unless it sets its own. Other courses are returned as they are.
+ */
+export function withAnswerLang(course: Course): Course {
+  // Genders written "m, f" read as "m/f" (canonical sources keep what was authored).
+  if (course.vocab?.some((v) => v.gender && v.gender !== normGender(v.gender)))
+    course = { ...course, vocab: course.vocab.map((v) => (v.gender && v.gender !== normGender(v.gender) ? { ...v, gender: normGender(v.gender) } : v)) };
+  const code = course.language?.code;
+  if (!code || !isClassical(code) || course.banks.every((b) => b.questions.every((q) => q.lang))) return course;
+  return { ...course, banks: course.banks.map((b) => ({ ...b, questions: b.questions.map((q) => (q.lang ? q : { ...q, lang: code })) })) };
+}
+
+function readCourse(raw: unknown): Course {
   if (!isObj(raw)) throw new BankError("The course must be a JSON object.");
   // Canonical envelopes never fall back to legacy normalization: malformed authored
   // fields must remain visible failures. Local source packages use their own size
@@ -208,6 +227,7 @@ export function normalizeCourse(raw: unknown): Course {
     conjugation: normalizeConjugationSettings(lang.conjugation),
     ...(str(lang.code) === "zh" && normalizeZhTable(lang.traditional) ? { traditional: normalizeZhTable(lang.traditional) } : {}),
     ...(str(lang.code) === "zh" && normalizeToneSettings(lang.tones) ? { tones: normalizeToneSettings(lang.tones) } : {}),
+    ...(normalizePronunciations(lang.pronunciations) ? { pronunciations: normalizePronunciations(lang.pronunciations) } : {}),
   };
 
   // Japanese pitch accent: a number or a list of numbers, each 0..morae of the reading (the
@@ -235,6 +255,8 @@ export function normalizeCourse(raw: unknown): Course {
         ...(language?.code === "zh" && str(v.trad).trim() ? { trad: str(v.trad).trim() } : {}),
         ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
+        ...(str(v.dict).trim() ? { dict: str(v.dict).trim() } : {}),
+        ...(GENDER.test(str(v.gender).trim()) ? { gender: normGender(str(v.gender)) } : {}),
         plural: str(v.plural) || undefined,
         example: str(v.example) || undefined,
         exampleEn: str(v.exampleEn) || undefined,
@@ -301,6 +323,24 @@ export function normalizeCourse(raw: unknown): Course {
     ...(advancedAssessments ? { advancedAssessments } : {}),
     ...(spreadsheetAssignments ? { spreadsheetAssignments } : {}),
   };
+}
+
+/** Grammatical gender of a vocabulary word: m, f, n, or a combination such as m/f. */
+export const GENDER = /^[mfn](\s*[/,]\s*[mfn]){0,2}$/;
+/** "m, f" / "m / f" → "m/f". */
+export const normGender = (g: string) => g.trim().split(/\s*[/,]\s*/).join("/");
+
+/** language.pronunciations: [{ id, label }] with unique lower-case ids; the first is the default. */
+export function normalizePronunciations(v: unknown): PronScheme[] | undefined {
+  if (!Array.isArray(v)) return undefined;
+  const out: PronScheme[] = [];
+  for (const p of v) {
+    if (!isObj(p)) continue;
+    const id = str(p.id).trim();
+    if (!PRON_ID.test(id) || out.some((o) => o.id === id)) continue;
+    out.push({ id, label: str(p.label).trim() || id });
+  }
+  return out.length ? out : undefined;
 }
 
 /** The audio library: string values only (lib/readAloud.ts decides which are usable). */

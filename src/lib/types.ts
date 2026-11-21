@@ -1,5 +1,5 @@
 import type { Chosen } from "./courseContentTypes";
-export type { Section, QuestionType, QuestionImage, Question, AudioClip, Chosen, ExamConfig, Bank, Module, Lesson, Card, Deck, RefSheet, Course, CommunityInfo, LanguageInfo, VocabDirection, VocabItem, ReadingItem } from "./courseContentTypes";
+export type { Section, QuestionType, QuestionImage, Question, AudioClip, Chosen, ExamConfig, Bank, Module, Lesson, Card, Deck, RefSheet, Course, CommunityInfo, LanguageInfo, PronScheme, VocabDirection, VocabItem, ReadingItem } from "./courseContentTypes";
 export type { GlossaryEntry, ReaderText, ReaderSection } from "./readerContent";
 export type { DrillChoice, DrillVar, NumFormat, AnswerPart, Drill, FigureSpec } from "./exerciseTypes";
 

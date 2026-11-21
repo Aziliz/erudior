@@ -1,5 +1,5 @@
 /** Shared Markdown fence boundaries. Never interpret a nested marker inside an outer code fence. */
-export const INTERACTIVE_LESSON_KINDS = ["sounds","blend","trace","map","timeline","sim","code","example","figure","plot","shape","numberline","manipulative","assignment","dialogue","speak","mermaid"] as const;
+export const INTERACTIVE_LESSON_KINDS = ["sounds","blend","trace","map","timeline","sim","code","example","figure","plot","shape","numberline","manipulative","assignment","dialogue","speak","mermaid","pron"] as const;
 export type LessonFence = { kind: string; info: string; body: string; start: number; end: number; interactive: boolean; closed: boolean; marker: string; closeMarker?: string };
 export function scanLessonFences(source: string): LessonFence[] {
   const lines = [...source.matchAll(/[^\n]*(?:\n|$)/g)].filter(match => match[0].length);

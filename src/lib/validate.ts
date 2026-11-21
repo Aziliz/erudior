@@ -78,6 +78,8 @@ export function normalizeBank(raw: unknown): Bank {
       explanation: str(q.explanation).trim() || undefined,
       ...(str(q.listen).trim() ? { listen: str(q.listen).trim() } : {}),
       ...(blendUnits(q.blend) ? { blend: blendUnits(q.blend) } : {}),
+      // The answers' language (la/grc: diacritics optional; docs/COURSE_FORMAT.md, "Latin and Greek").
+      ...(/^[A-Za-z]{2,3}([-_][A-Za-z0-9]{2,8})*$/.test(str(q.lang)) ? { lang: str(q.lang) } : {}),
     };
   });
 

@@ -5,6 +5,8 @@ import type { AudioClip, Chosen, Question, QuestionImage, QuestionType } from ".
 import { hasJapanese, normJa } from "./kana";
 import { isPinyinAnswer, normPinyin, onlyTonesDiffer } from "./pinyin";
 import { sameSet } from "./util";
+import { isClassical, matchClassical } from "./classical";
+import { hasGreek } from "./greek";
 import { actionLabel, describe, manipCorrect, readSpec, stateOr, targetProblems, targetText, validState } from "./manip";
 import { isAudioSrc } from "./audio";
 import { parseMapSpec } from "./mapSpec";
@@ -46,6 +48,7 @@ export function normText(s: string, caseSensitive = false): string {
   // Japanese answers: no spaces between words, Japanese punctuation, furigana markup ignored.
   if (hasJapanese(s)) return normJa(s);
   let t = s
+    .replace(/[\u1fbd\u1fbf\u02bc]/g, "'")
     .normalize("NFKC")
     .replace(/[‘’ʼ]/g, "'")
     .replace(/[“”]/g, '"')
@@ -85,7 +88,34 @@ function numValue(s: string): number | null {
  * and numbers compare by value, fractions and mixed numbers included ("1/2" = "0.5" = ".5",
  * "1 1/2" = "3/2" = "1.5"). A space between two digits is kept, so "1 1/2" never reads as "11/2".
  */
-export function textMatches(typed: string, accepted: string[], caseSensitive = false, lowestTerms = false): boolean {
+export function textMatches(typed: string, accepted: string[], caseSensitive = false, lowestTerms = false, lang?: string): boolean {
+  return textVerdict(typed, accepted, caseSensitive, lowestTerms, lang).ok;
+}
+
+/**
+ * The answers' language for diacritic-optional checking: the question's `lang` (set on every
+ * question of a Latin or Greek course), else "grc" when an accepted answer is in Greek letters.
+ */
+export const answerLang = (accepted: string[], lang?: string) => lang ?? (accepted.some(hasGreek) ? "grc" : undefined);
+
+const capsOf = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{Lu}]/gu, "");
+
+/**
+ * textMatches with a note: in Latin and Greek (lib/classical.ts) an answer that's right apart from
+ * its diacritics (missing or wrong macrons, accents, breathings, iota subscript, diaeresis) is
+ * right, with "With macrons: puellā" or the like.
+ */
+export function textVerdict(typed: string, accepted: string[], caseSensitive = false, lowestTerms = false, lang?: string): { ok: boolean; note?: string } {
+  if (exactTextMatch(typed, accepted, caseSensitive, lowestTerms)) return { ok: true };
+  if (!isClassical(answerLang(accepted, lang))) return { ok: false };
+  const m = matchClassical(typed, accepted, (s) => normText(s, false));
+  if (!m.ok) return { ok: false };
+  // A case-sensitive question still wants its capitals.
+  if (caseSensitive && m.matched && capsOf(typed) !== capsOf(m.matched)) return { ok: false };
+  return { ok: true, note: m.note };
+}
+
+function exactTextMatch(typed: string, accepted: string[], caseSensitive = false, lowestTerms = false): boolean {
   const t = normText(typed, caseSensitive);
   if (!t) return false;
   const tc = compact(t);
@@ -175,7 +205,7 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
   if (!chosen || !isAnswered(q, chosen)) return false;
   switch (qtype(q)) {
     case "text":
-      return (q.accept ?? []).every((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
+      return (q.accept ?? []).every((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms, q.lang));
     case "map":
       if (isMapFind(q)) {
         // Every target picked and nothing else (names compare like "CO" = "Colorado").
@@ -210,7 +240,7 @@ export function isCorrect(q: Question, chosen: Chosen | undefined): boolean {
 export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
   switch (qtype(q)) {
     case "text":
-      return (q.accept ?? []).map((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms));
+      return (q.accept ?? []).map((acc, i) => textMatches(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms, q.lang));
     case "map":
       if (isMapFind(q)) {
         const base = mapBaseOf(q);
@@ -232,6 +262,12 @@ export function partsCorrect(q: Question, chosen: Chosen): boolean[] {
     default:
       return [];
   }
+}
+
+/** Per-blank notes for right answers that needed their diacritics (Latin, Greek): "With accents: ἀνθρώπου". */
+export function partNotes(q: Question, chosen: Chosen): (string | undefined)[] {
+  if (qtype(q) !== "text") return [];
+  return (q.accept ?? []).map((acc, i) => textVerdict(String(chosen[i] ?? ""), acc, q.caseSensitive, q.lowestTerms, q.lang).note);
 }
 
 /** Plain-text description of the correct answer (for review screens and reports). */
@@ -353,9 +389,12 @@ function readAudio(v: unknown): AudioClip | undefined {
   if (!isObj(v)) return undefined;
   const src = isAudioSrc(v.src) ? v.src : undefined;
   const text = typeof v.text === "string" && v.text.trim() ? v.text.trim() : undefined;
-  if (!src && !text) return undefined;
+  // Latin and Greek: a recording per pronunciation scheme.
+  const srcs = isObj(v.srcs) ? Object.fromEntries(Object.entries(v.srcs).filter(([k, s]) => /^[a-z][a-z0-9-]{0,39}$/.test(k) && isAudioSrc(s))) as Record<string, string> : {};
+  const hasSrcs = Object.keys(srcs).length > 0;
+  if (!src && !text && !hasSrcs) return undefined;
   const lang = typeof v.lang === "string" && /^[A-Za-z]{2,3}([-_][A-Za-z0-9]{2,8})*$/.test(v.lang) ? v.lang : undefined;
-  return { ...(src ? { src } : {}), ...(text ? { text } : {}), ...(lang ? { lang } : {}) };
+  return { ...(src ? { src } : {}), ...(hasSrcs ? { srcs } : {}), ...(text ? { text } : {}), ...(lang ? { lang } : {}) };
 }
 
 /**

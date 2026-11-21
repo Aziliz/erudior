@@ -2,6 +2,8 @@
 // Buttons hide when the device has no voice for the language (some desktop webviews have
 // speechSynthesis but no voices at all), so nothing here may throw when speech is missing.
 
+import { routeSpeech } from "./pronunciation";
+
 let voices: SpeechSynthesisVoice[] = [];
 
 function synth(): SpeechSynthesis | undefined {
@@ -29,6 +31,8 @@ const cantonese = (tag: string) => /^(yue\b|zh-(hk|mo)\b|zh-hant-hk\b)/.test(tag
 /** A voice for the language, preferring an exact region match. */
 export function voiceFor(lang: string): SpeechSynthesisVoice | undefined {
   if (!voices.length) loadVoices();
+  // Latin and Ancient Greek have no voices: the learner's pronunciation picks one (lib/pronunciation.ts).
+  lang = routeSpeech("", lang).lang;
   const l = tagOf(lang);
   const exact = voices.find((v) => tagOf(v.lang) === l);
   if (exact) return exact;
@@ -51,6 +55,7 @@ export function speak(text: string, lang: string, rate = 0.9) {
   speaker.stop();
   const s = synth();
   if (!s) return;
+  ({ text, lang } = routeSpeech(text, lang));
   s.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = lang;
@@ -275,8 +280,9 @@ class Speaker {
     const sayOne = (i: number) => {
       if (my !== this.gen) return;
       if (i >= chunks.length) return done();
-      const u = new SpeechSynthesisUtterance(chunks[i]);
-      u.lang = this.opts.lang;
+      const routed = routeSpeech(chunks[i], this.opts.lang);
+      const u = new SpeechSynthesisUtterance(routed.text);
+      u.lang = routed.lang;
       try {
         u.voice = v;
       } catch {
@@ -315,6 +321,7 @@ export const speaker = new Speaker();
 export function speakAsync(text: string, lang: string, rate = 0.9): Promise<void> {
   const s = synth();
   if (!s || !text.trim()) return Promise.resolve();
+  ({ text, lang } = routeSpeech(text, lang));
   return new Promise((resolve) => {
     s.cancel();
     const u = new SpeechSynthesisUtterance(text);
