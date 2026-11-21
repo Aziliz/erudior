@@ -1,5 +1,5 @@
 import VmExamPanel from "../components/VmExamPanel";
-import { RHCSA_MOCK, MOCK_MINUTES, MOCK_TASKS, DEFAULT_VM_EXAM_MINUTES, isVmExam } from "../lib/vmLab";
+import { RHCSA_MOCK, MOCK_MINUTES, MOCK_TASKS, DEFAULT_VM_EXAM_MINUTES, isRhcsaMock, isVmExam } from "../lib/vmLab";
 import VmLabPanel from "../components/VmLabPanel";
 import type { AppApi } from "../App";
 import { toneOpen, toneWords } from "../lib/toneDrills";
@@ -154,7 +154,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
         <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
       </article>
       {isVmExam(lesson.vmLab) ? <VmExamPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab, lesson.vmExamMinutes, lesson.vmTasks])}
-        api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} minutes={lesson.vmLab === RHCSA_MOCK ? MOCK_MINUTES : lesson.vmExamMinutes ?? DEFAULT_VM_EXAM_MINUTES} tasks={lesson.vmLab === RHCSA_MOCK ? MOCK_TASKS : lesson.vmTasks} /> : lesson.vmLab && <VmLabPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab])}
+        api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} minutes={isRhcsaMock(lesson.vmLab) ? MOCK_MINUTES : lesson.vmExamMinutes ?? DEFAULT_VM_EXAM_MINUTES} tasks={lesson.vmLab === RHCSA_MOCK ? MOCK_TASKS : lesson.vmTasks} /> : lesson.vmLab && <VmLabPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab])}
         api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} />}
 
       {words.length > 0 && (

@@ -9873,8 +9873,8 @@
   "file": "rhcsa-10-administration.json",
   "order": 135,
   "title": "RHCSA preparation • System administration on RHEL 10",
-  "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, ten graded labs, two rehearsals and a reboot-verified final practical.",
-  "revision": 2,
+  "description": "Study RHEL 10 administration on Windows, macOS or Linux with two local virtual machines, fifteen graded labs, two rehearsals and a reboot-verified final practical that draws a new form each attempt.",
+  "revision": 3,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9883,7 +9883,7 @@
    "Exam prep"
   ],
   "platform": "desktop",
-  "lessons": 31,
+  "lessons": 36,
   "questions": 36,
   "cards": 0,
   "drills": 0,
@@ -9905,16 +9905,21 @@
    "lvm-workshop",
    "swap-workshop",
    "swap-lab",
+   "storage-lab",
    "mount-identities",
    "nfs-lab",
    "unit-lifecycle",
    "schedules-time",
    "service-lab",
+   "cron-lab",
    "network-path",
    "resolver-lab",
+   "network-lab",
    "ssh-firewall",
    "selinux-context",
    "selinux-lab",
+   "web-port-lab",
+   "ssh-lab",
    "rehearsal-handoff",
    "rehearsal-maintenance",
    "practice-exam",
@@ -9970,7 +9975,8 @@
     "lessons": [
      "Build and extend a disposable LVM volume",
      "Activate swap and make it return at startup",
-     "Lab • Add persistent swap capacity"
+     "Lab • Add persistent swap capacity",
+     "Lab • Build persistent storage on a new disk"
     ]
    },
    {
@@ -9985,14 +9991,16 @@
     "lessons": [
      "Make a service leave evidence on every boot",
      "Choose a scheduler and verify its work",
-     "Lab • Restore a startup service"
+     "Lab • Restore a startup service",
+     "Lab • Schedule a recurring job"
     ]
    },
    {
     "title": "IP networking and name resolution",
     "lessons": [
      "Trace a request from name to interface to listener",
-     "Lab • Make the file server discoverable"
+     "Lab • Make the file server discoverable",
+     "Lab • Configure a second interface and the hostname"
     ]
    },
    {
@@ -10000,7 +10008,9 @@
     "lessons": [
      "Control who can connect and what they can reach",
      "Diagnose a denial while keeping access controls intact",
-     "Lab • Repair a web document label"
+     "Lab • Repair a web document label",
+     "Lab • Serve web content on a custom port",
+     "Lab • Key-based SSH login between the machines"
     ]
    },
    {

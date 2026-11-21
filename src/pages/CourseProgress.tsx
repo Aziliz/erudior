@@ -1,4 +1,4 @@
-import { RHCSA_MOCK, MOCK_PASS_POINTS, isVmExam, validVmReport, vmReportKey, vmScore, vmTotal } from "../lib/vmLab";
+import { MOCK_PASS_POINTS, isRhcsaMock, isVmExam, validVmReport, vmReportKey, vmScore, vmTotal } from "../lib/vmLab";
 import { useEffect, useId, useState } from "react";
 import type { AppApi } from "../App";
 import type { Attempt, Course } from "../lib/types";
@@ -105,7 +105,7 @@ export default function CourseProgress({ api, course }: { api: AppApi; course: C
           const report = progress.vmLabReports?.[vmReportKey(course.id, lesson.id, lesson.vmLab!)];
           return <li key={lesson.id}><button className="btn sm" onClick={() => api.go({ name: "lesson", courseId: course.id, lessonId: lesson.id })}>{lesson.title}</button>{" "}
             {isVmExam(lesson.vmLab) ? "Timed exam · " : "Practice · "}{validVmReport(report, lesson.vmLab) ? `${vmScore(report)}/${vmTotal(report)} ${"tasks" in report ? "points" : "checks passed"} · ${formatDateTime(new Date(report.checkedAt).toISOString())}` : "Awaiting first check"}
-            {lesson.vmLab === RHCSA_MOCK && validVmReport(report, RHCSA_MOCK) &&
+            {isRhcsaMock(lesson.vmLab) && validVmReport(report, lesson.vmLab) &&
               (vmScore(report) >= MOCK_PASS_POINTS ? " · Practice pass" : " · Below practice target")}</li>;
         })}</ul>
       </section>}
