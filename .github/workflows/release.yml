@@ -83,6 +83,9 @@ jobs:
         run: node --test tests/diagnostic-command.test.mjs
       - name: Regression tests
         id: regression
+        env:
+          # The full npm test script exceeds cmd.exe's command-length limit.
+          npm_config_script_shell: bash
         run: node scripts/diagnostic-command.mjs regression -- npm test
 
       - name: Restore exact release sources for packaging
