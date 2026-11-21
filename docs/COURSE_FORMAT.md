@@ -1024,6 +1024,8 @@ Latin perfect passive and future infinitive answers accept every gender (amāta 
 
 Movable ν in a Greek table is written `(ν)`: `"ἐστί(ν)"`.
 
+**Words the rules can't make.** A noun or adjective whose `dict` the generator refuses (plural-only *castra, arma, Ἀθῆναι*; *vetus*; *Σωκράτης, ἰχθύς, ἥρως*) is still drilled under its real class from a complete table: every slot, with `—` for forms the word lacks (plural-only nouns: `"sg": "—, —, —, —, —, —"`). Adjectives need all 18 (Latin) or 15 (Greek) forms per number. Latin nouns may leave out the locative.
+
 #### Checking: `scripts/print-forms.mts`
 
 The course checker (`tests/check-course.mts`) refuses a Latin or Greek word whose `dict` doesn't parse or fit its class, or whose genitive accent doesn't fit the persistent accent. It refuses a table key that isn't a slot of the word's class, and a row with the wrong number of forms. For every drilled form of every word, each slot must generate or come from the table; otherwise the checker says "give its forms", with the reason (a missing principal part, a quantity hint, an irregular augment, a consonant-stem perfect middle), or asks for the form in `noForms`. It also warns about words to look at again, for example nouns that look like i-stems, -ius vocatives, verbs without a supine, and possible compounds.
