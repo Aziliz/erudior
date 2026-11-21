@@ -392,7 +392,7 @@ export default function VocabRunner({
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}
-            lang={dir === "recall" ? lang?.code : "en"}
+            lang={dir === "recall" ? (greekKeys ? "grc" : lang?.code) : "en"}
             placeholder={
               dir === "meaning"
                 ? "Type the meaning in English"
