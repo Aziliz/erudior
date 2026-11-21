@@ -914,7 +914,7 @@ export function laWordWarnings(item: VocabItem): string[] {
     out.push(`"${nom}" has an accusative in -im and/or ablative in -ī (A&G 75, 76): give forms "sg.acc"/"sg.abl"`);
   if (cls === "decl4" && nom && ["artus", "tribus", "lacus", "partus", "specus", "portus", "genū", "verū", "quercus", "arcus"].includes(nom) && !item.forms)
     out.push(`"${nom}" may have the dative and ablative plural in -ubus (A&G 92 c): check its forms`);
-  if (cls === "decl5" && nom && !["diēs", "rēs"].includes(nom)) out.push(`only diēs and rēs have a full plural (A&G 98): give forms "pl" or noForms for the plural cases`);
+  if (cls === "decl5" && nom && !["diēs", "rēs"].includes(nom) && !item.forms?.pl && !Object.keys(item.forms ?? {}).some((k) => k.startsWith("pl.")) && !(item.noForms ?? []).length) out.push(`only diēs and rēs have a full plural (A&G 98): give forms "pl" or noForms for the plural cases`);
   if (cls === "decl2" && nom && /ius$/.test(nom) && !["fīlius", "genius"].includes(nom) && !/^[A-Z]/.test(nom)) out.push(`"${nom}": the vocative in -ī is for proper names, fīlius and genius (A&G 49 c): check sg.voc`);
   if (["v1", "v2", "v3", "v3-io", "v4"].includes(cls) && parts.length === 3 && !/or$/.test(item.term) && !/ sum$/.test(parts[2])) out.push(`"${item.term}" has no supine in dict: its perfect passive and participles aren't drilled`);
   if (cls === "v3" && /^(dīcō|dūcō|faciō)$/.test(nfc(item.term)) === false && /(dīc|dūc)ō$/.test(nfc(item.term))) out.push(`compound of dīcō/dūcō: imperative ${nfc(item.term).slice(0, -1)} by rule; check it`);
