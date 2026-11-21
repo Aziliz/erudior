@@ -9,6 +9,7 @@ import catalogJson from "../../samples/catalog.json";
 import type { Course, Progress } from "./types";
 import { attemptPassed } from "./session";
 import { coreLessons } from "./course";
+import { courseDuplicates, duplicateCourse } from "./courseDuplicates";
 import { bundledCourse } from "./bundledCourses";
 import { REMOTE, downloadCourse } from "./courseSource";
 import { LEVELS, TYPES, normalizeLevels, normalizeTypes } from "./taxonomy";
@@ -61,15 +62,24 @@ const tidy = (e: CatalogEntry): CatalogEntry => ({ ...e, level: normalizeLevels(
 /** Respect platform restrictions and keep archived entries out of the active catalog. */
 function visibleEntries(entries: CatalogEntry[]) {
   const desktop = isTauri() && !/android|iphone|ipad/i.test(globalThis.navigator?.userAgent ?? "");
-  return entries.filter(e => !e.platform || e.platform === (desktop ? "desktop" : "study")).map(tidy);
+  return entries.filter(e => !duplicateCourse(e.id) && (!e.platform || e.platform === (desktop ? "desktop" : "study"))).map(tidy);
 }
 
 let archived = (catalogJson as CatalogEntry[]).filter(entry => entry.platform === "archived");
 export const CATALOG: CatalogEntry[] = visibleEntries(catalogJson as CatalogEntry[]);
 
 export function setCatalog(entries: CatalogEntry[]) {
-  archived = entries.filter(entry => entry.platform === "archived");
-  CATALOG.splice(0, CATALOG.length, ...visibleEntries(entries));
+  archived = entries.filter(entry => entry.platform === "archived" && !duplicateCourse(entry.id));
+  // An offline device may have saved the original split catalog. Keep the shipped
+  // combined listing until a signed catalog can supply that revision's download.
+  const resolved = entries.slice();
+  for (const duplicate of courseDuplicates) {
+    if (!entries.some(e => e.id === duplicate.id)) continue;
+    const shipped = (catalogJson as CatalogEntry[]).find(e => e.id === duplicate.replacementId);
+    const index = resolved.findIndex(e => e.id === duplicate.replacementId);
+    if (shipped && index >= 0 && resolved[index].revision < shipped.revision) resolved[index] = shipped;
+  }
+  CATALOG.splice(0, CATALOG.length, ...visibleEntries(resolved));
 }
 
 export async function loadCatalogCourse(entry: CatalogEntry): Promise<unknown> {
@@ -90,8 +100,12 @@ export function carryForwardLessons(id: string, progress: Progress): Progress {
   const current = catalogEntry(id);
   if (!current?.lessonIds) return progress;
   let done = progress.lessonsDone;
-  for (const previous of archived.filter(entry => entry.supersededBy === id)) {
-    for (const lesson of previous.lessonIds ?? []) {
+  const sources = [
+    ...archived.filter(entry => entry.supersededBy === id).map(entry => ({ id: entry.id, lessons: entry.lessonIds ?? [] })),
+    ...courseDuplicates.filter(entry => entry.replacementId === id).map(entry => ({ id: entry.id, lessons: entry.sharedLessons })),
+  ];
+  for (const previous of sources) {
+    for (const lesson of previous.lessons) {
       const date = progress.lessonsDone[`${previous.id}/${lesson}`];
       const key = `${id}/${lesson}`;
       if (!date || done[key] || !current.lessonIds.includes(lesson)) continue;

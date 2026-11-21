@@ -17,6 +17,7 @@ import { normalizeCourse, serializeCourse } from "./course";
 import { webReplaceAnonymous, webCompareAndSwap, webDelete, webGet, webList, webSet } from "./webstore";
 import { validateCourseWork, validateWorkLessonReferences } from "./courseWork";
 import { validateReaderTexts } from "./readerContent";
+import { duplicateCourse } from "./courseDuplicates";
 import { stateTransactions, validStateName } from "./stateLock";
 import { parseCompetencyLedger, captureCompetencyEvidence, syncCompetencyLedger, importCompetencyHistory } from "./competencyState";
 import type { Competency } from "./competencies";
@@ -50,7 +51,13 @@ export async function listCourses(): Promise<{ courses: Course[]; broken: string
   const broken: string[] = [];
   for (const t of await listRaw("courses")) {
     try {
-      courses.push(normalizeCourse(JSON.parse(t)));
+      const course = normalizeCourse(JSON.parse(t));
+      if (duplicateCourse(course.id)) {
+        // Course content and learner progress live in separate stores.
+        await deleteCourse(course.id);
+      } else {
+        courses.push(course);
+      }
     } catch (e) {
       broken.push(`Course: ${(e as Error).message}`);
     }
@@ -60,6 +67,8 @@ export async function listCourses(): Promise<{ courses: Course[]; broken: string
 }
 
 export async function saveCourse(course: Course): Promise<void> {
+  const duplicate = duplicateCourse(course.id);
+  if (duplicate) throw Error(`This course has been merged. Open its replacement from the catalog: ${duplicate.replacementId}.`);
   const content = serializeCourse(course);
   if (inApp) await invoke("save_item", { kind: "courses", id: course.id, content });
   else await webSet(LS_COURSE + course.id, content);
@@ -502,7 +511,7 @@ export async function restoreBackup(
   const banks = b.banks.map((x) => parseBank(JSON.stringify(x)));
   for (const c of current.courses) if (!courses.some((x) => x.id === c.id)) await deleteCourse(c.id);
   for (const x of current.banks) if (!banks.some((y) => y.id === x.id)) await deleteBank(x.id);
-  for (const c of courses) await saveCourse(c);
+  for (const c of courses) if (!duplicateCourse(c.id)) await saveCourse(c);
   for (const x of banks) await saveBank(x);
   if (b.files) {
     const { putFile } = await import("./documents");

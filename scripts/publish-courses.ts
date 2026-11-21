@@ -9,6 +9,7 @@ import { newKeyPair, publicKeyOf, sha256Hex, signBytes, verifySignature, b64 } f
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 import { compareCourseRevisions } from "../src/lib/courseRevision";
 import { validateSpreadsheetReleaseApproval, type SpreadsheetReleaseApproval } from "../src/lib/spreadsheetReleaseApproval";
+import { courseDuplicates, duplicateCourse } from "../src/lib/courseDuplicates";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -59,10 +60,16 @@ if (previousCatalog && !Array.isArray(previousCatalog.courses)) throw new Error(
 // An empty catalog is permitted only for an explicitly authenticated first release.
 // The caller is responsible for fetching/verifying the prior signed catalog.
 
-// Never silently remove a previously issued course from the published catalog.
-for (const prior of previousCatalog?.courses ?? [])
-  if (!entries.some((entry) => entry.id === prior.id))
+// Only an explicitly consolidated duplicate can be withdrawn. Its successor must ship.
+for (const duplicate of courseDuplicates) {
+  const wasPublished = previousCatalog?.courses.some(entry => entry.id === duplicate.id);
+  if (entries.some(entry => entry.id === duplicate.id) || (wasPublished && !entries.some(entry => entry.id === duplicate.replacementId)))
+    throw new Error(`Publish the combined course ${duplicate.replacementId} and remove its duplicate ${duplicate.id}.`);
+}
+for (const prior of previousCatalog?.courses ?? []) {
+  if (!entries.some(entry => entry.id === prior.id) && !duplicateCourse(prior.id))
     throw new Error(`Previous course ${prior.id} is missing from the new catalog.`);
+}
 
 // Refuse ambiguous manifests before signing: two entries may not share an ID or versioned package name.
 const seenIds = new Set<string>();

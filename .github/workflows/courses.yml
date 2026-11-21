@@ -206,6 +206,22 @@ jobs:
           cmp catalog.json.sig /tmp/erudior-published-catalog.json.sig
           echo "Published catalog and signature match signed release artifacts."
 
+      - name: Withdraw duplicate RHEL 10 study packages
+        working-directory: dist-courses/v1
+        env:
+          RELEASE_BUCKET: ${{ vars.R2_BUCKET }}
+        run: |
+          set -euo pipefail
+          # The preceding step verified these catalog bytes and signature against authoritative R2.
+          jq -e '([.courses[].id] | index("rhcsa-rhel10-study") == null) and
+                 ([.courses[].id] | index("rhcsa-rhel10-administration") != null)' catalog.json > /dev/null
+          for file in rhcsa-rhel10-study.r1.json rhcsa-rhel10-study.r2.json; do
+            status=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' --max-time 25 --retry 2 "${VITE_COURSES_URL%/}/$file")
+            if [ "$status" = 404 ]; then continue; fi
+            if [ "$status" != 200 ]; then echo "Unexpected HTTP $status for $file"; exit 1; fi
+            npx --yes wrangler@3.114.0 r2 object delete "$RELEASE_BUCKET/v1/$file"
+          done
+
       - name: Course publishing diagnostics
         if: always()
         env:
