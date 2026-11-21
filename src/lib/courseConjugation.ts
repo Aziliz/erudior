@@ -18,7 +18,7 @@ export const FR_CLASSES = ["er", "ir", "re", "irr"] as const;
 /** Latin classes: declensions, adjectives, pronouns (tables), conjugations; irregular verbs (`irr`). */
 export const LA_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl4", "decl5", "adj12", "adj3", "pron", "v1", "v2", "v3", "v3-io", "v4", "irr"] as const;
 /** Ancient Greek classes: declensions, adjectives, the article and pronouns (tables), ω-verbs, contract verbs, irregular verbs (`irr`, tables). */
-export const GRC_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl3-eu", "decl3-s", "adj12", "adj3", "pron", "omega", "contract", "irr"] as const;
+export const GRC_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl3-eu", "decl3-s", "adj12", "adj3", "adj", "pron", "omega", "contract", "irr"] as const;
 export type JaClass = (typeof JA_CLASSES)[number];
 export type DeClass = (typeof DE_CLASSES)[number];
 export type EsClass = (typeof ES_CLASSES)[number];
