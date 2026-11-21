@@ -300,10 +300,13 @@ function gNounCells(d: GNoun, w: ClassicalWord, item: VocabItem): string | undef
     if (acc.accent === CIRC && nuclei(stem)[target]) stem = markSyllable(stem, target, "L");
     stem = hinted(stem, d.hintLong, d.hintShort);
     const mono = nuclei(nom).length === 1;
-    if (!mono && gacc.pos !== acc.pos)
+    // The genitive adds a syllable, so an accent on the nominative's antepenult moves one place
+    // along when it would otherwise stand too far back (ὄνομα, ὀνόματος; Smyth 163).
+    const shifted = !mono && gacc.pos === gns.length - 3 && acc.pos === gacc.pos - 1;
+    if (!mono && gacc.pos !== acc.pos && !shifted)
       return `the genitive "${render(d.gen)}" in dict doesn't match the rules for ${cls}: the accent should stay on the syllable it has in "${nomS}" (persistent accent); check the accents, or give a table`;
     // One-syllable stems keep the nominative's accent outside the genitive and dative (θήρ, θῆρα).
-    const gt = mono ? acc.pos : gacc.pos;
+    const gt = mono || shifted ? acc.pos : gacc.pos;
     const neut = gender === "n";
     const rule = (e: string, extra = "") => `3rd declension: stem ${render(stem)}- + -${e}${extra}`;
     const form = (e: string, gd: boolean) => persistent(concat(stem, notation(e)), gt, mono && gd ? { onUltima: true, ultimaCirc: true } : {});
