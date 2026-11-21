@@ -21,6 +21,7 @@
 
 import { playClip, playElement, stopAudio } from "./audio";
 import { canSpeak } from "./speech";
+import { pickClip } from "./pronunciation";
 import { canRecord, micError, recordingExt, startRecording, type ActiveRecording, type Recording } from "./recorder";
 
 import { MEDIA_BLOCK, parseMedia, type MediaBlock, type MediaLine } from "./dialogueContent";
@@ -43,7 +44,9 @@ export function renderMedia(b: MediaBlock, md: (src: string) => string, key: str
   const id = `${b.kind === "dialogue" ? "dlg" : "spk"}-${key}`;
   const langAttr = b.lang ? ` data-lang="${esc(b.lang)}"` : "";
   const textLang = b.lang ? ` lang="${esc(b.lang.split(/[-_]/)[0])}"` : "";
-  const audio = (l: MediaLine) => (l.audio ? ` data-audio="${l.audio}"` : "");
+  const audio = (l: MediaLine) =>
+    (l.audio ? ` data-audio="${l.audio}"` : "") +
+    (l.audios ? ` data-audios="${Object.entries(l.audios).map(([k, v]) => `${esc(k)} ${v}`).join(" ")}"` : "");
   const tr = (l: MediaLine, cls: string) => (l.translation ? `<p class="${cls}">${unwrap(md(l.translation))}</p>` : "");
   if (b.kind === "dialogue") {
     const hasTr = b.lines.some((l) => l.translation);
@@ -136,12 +139,17 @@ const langOf = (el: Element, fallback?: string) => el.closest<HTMLElement>("[dat
 
 /** Play one line: its clip, else the device's voice. False when neither is possible. */
 async function playLine(li: HTMLElement, textSel: string, lang: string | undefined, rate = 1): Promise<boolean> {
-  const src = li.dataset.audio;
   const text = plain(li.querySelector(textSel));
+  // Latin and Greek: "scheme data:…" pairs, one recording per pronunciation.
+  const pairs = (li.dataset.audios ?? "").split(/\s+/).filter(Boolean);
+  const srcs: Record<string, string> = {};
+  for (let i = 0; i + 1 < pairs.length; i += 2) srcs[pairs[i]] = pairs[i + 1];
+  const clip = { src: li.dataset.audio, ...(pairs.length ? { srcs } : {}), text };
+  const src = pickClip(clip, lang);
   if (!src && !canSpeak(lang)) return false;
   li.classList.add("is-playing");
   try {
-    await playClip({ src, text }, { rate, fallbackLang: lang });
+    await playClip(src ? { src, text } : { text }, { rate, fallbackLang: lang });
   } finally {
     li.classList.remove("is-playing");
   }

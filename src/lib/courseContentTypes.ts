@@ -4,7 +4,7 @@ import type { ManipSpec, ManipTarget } from "./manip";
 import type { CodeSpec } from "./code";
 import type { ActivityLogSpec, Lab, Rubric, WritingTask } from "./courseWork";
 import type { GlossaryEntry, ReaderText } from "./readerContent";
-import type { ConjClass, ConjugationSettings, DeForms } from "./courseConjugation";
+import type { ConjClass, ConjugationSettings, WordForms } from "./courseConjugation";
 import type { ToneSettings } from "./tones";
 export interface Section {
     id: string;
@@ -92,9 +92,16 @@ export interface Question {
      * the device's voice). The transcript (`text`) is shown only after the answer is checked.
      */
     audio?: AudioClip;
+    /**
+     * The language of the typed answers. Latin ("la") and Ancient Greek ("grc") make diacritics
+     * optional (docs/COURSE_FORMAT.md, "Latin and Greek"). Set on every question of a la/grc course.
+     */
+    lang?: string;
 }
 export interface AudioClip {
     src?: string;
+    /** Latin and Greek: a recording per pronunciation scheme, e.g. { "ecclesiastical": "data:audio/…" }. */
+    srcs?: Record<string, string>;
     /** What is said. Spoken by text-to-speech when there's no `src`; shown as the transcript. */
     text?: string;
     /** Voice language for text-to-speech, e.g. "de-DE" (defaults to the course language). */
@@ -287,6 +294,14 @@ export interface LanguageInfo {
     traditional?: import("./zhScript").ZhTable;
     /** Chinese tone drills made from the vocabulary (docs/COURSE_FORMAT.md, "Tone drills"). */
     tones?: ToneSettings;
+    /** Pronunciations the learner can pick (Latin, Greek); the first is the default. */
+    pronunciations?: PronScheme[];
+}
+export interface PronScheme {
+    /** Lower-case id used by ```pron blocks and audio `srcs`, e.g. "restored". */
+    id: string;
+    /** Shown on the switch, e.g. "Restored classical". */
+    label: string;
 }
 export type VocabDirection = "meaning" | "recall";
 export interface VocabItem {
@@ -311,6 +326,10 @@ export interface VocabItem {
     pitch?: number | number[];
     /** Part of speech, e.g. "noun", "verb". */
     pos?: string;
+    /** The full dictionary entry, shown with the word and used by the Latin/Greek inflection generator: "amō, amāre, amāvī, amātum", "ἀνήρ, ἀνδρός, ὁ". */
+    dict?: string;
+    /** Grammatical gender: "m", "f", "n", or a combination such as "m/f". */
+    gender?: string;
     /** Noun plural, e.g. "die Hunde". */
     plural?: string;
     /** Example sentence and its translation. */
@@ -321,10 +340,11 @@ export interface VocabItem {
     audio?: string;
     /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
     directions?: VocabDirection[];
-    /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…). */
+    /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…; Latin decl1, v3…). */
     conj?: ConjClass;
-    /** German conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }. */
-    forms?: DeForms;
+    /** Conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }; Latin and
+     * Greek slot tables, e.g. { "sg.voc": "deus" } (docs/COURSE_FORMAT.md). */
+    forms?: WordForms;
     /** Conjugation drills: forms this word doesn't have or that sound wrong (e.g. できる: potential). */
     noForms?: string[];
 }

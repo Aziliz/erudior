@@ -13,7 +13,11 @@ import CodeExercise from "./CodeExercise";
 import SentenceBuilder from "./SentenceBuilder";
 import ToneAnswer from "./ToneAnswer";
 import type { Chosen, Question } from "../lib/types";
-import { BLANK, blankCount, isCorrect, isMapFind, partsCorrect, pinyinBlank, qtype, toneMissOf } from "../lib/questions";
+import { BLANK, blankCount, isCorrect, isMapFind, partNotes, partsCorrect, pinyinBlank, qtype, toneMissOf } from "../lib/questions";
+import { hasGreek } from "../lib/greek";
+import { isClassical } from "../lib/classical";
+import { onPronChange } from "../lib/pronunciation";
+import CharKeys, { applyKey } from "./CharKeys";
 import { describe, drawModel, readSpec, solution, stateOr, targetText } from "../lib/manip";
 import { ManipModel } from "./Manipulative";
 import { LETTERS } from "../lib/util";
@@ -60,6 +64,10 @@ interface Props {
   lang?: string;
   /** The course's voice (e.g. "zh-CN"): tone questions are said with it. */
   tts?: string;
+  /** Character buttons under text blanks (Latin and Greek courses: the course's `keys`, Greek marks). */
+  keys?: string[];
+  /** Latin and Greek courses: each blank's converter, by its answers' script (lib/ime.ts imeForAnswer). */
+  imeFor?: (answers: string[] | undefined) => Ime | undefined;
   /** Sentence builders: mixed into the tile shuffle (e.g. the session id) so a resumed run looks the same. */
   seed?: string;
 }
@@ -141,6 +149,8 @@ export function QuestionAudio({ q, revealed, fallbackLang }: { q: Question; reve
   const [playing, setPlaying] = useState<"normal" | "slow" | null>(null);
   const [showWords, setShowWords] = useState(false);
   useEffect(() => onVoices(() => tick((n) => n + 1)), []);
+  // Latin and Greek: the voice follows the pronunciation switch.
+  useEffect(() => onPronChange(() => tick((n) => n + 1)), []);
   // A new question (or leaving the screen) stops the sound.
   useEffect(() => {
     setShowWords(false);
@@ -190,9 +200,11 @@ function Mark({ ok, fix }: { ok: boolean; fix?: React.ReactNode }) {
   return ok ? <span className="part-mark ok">✓ Right</span> : <span className="part-mark bad">✗{fix !== undefined && <> Answer: {fix}</>}</span>;
 }
 
-export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed, tts }: Props) {
+export default function QuestionBody({ q, order, chosen, onChoose, onChange, onEnter, reveal, disabled, review, read, exam, draftKey, ime, lang, seed, tts, keys, imeFor: imeOf }: Props) {
   const kind = qtype(q);
   const parts = reveal ? partsCorrect(q, chosen) : [];
+  const notes = reveal ? partNotes(q, chosen) : [];
+  const boxes = useRef<(HTMLInputElement | null)[]>([]);
   const off = disabled || reveal;
 
   if (kind === "code" && q.code)
@@ -227,7 +239,24 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
           const val = String(chosen[i] ?? "");
           const label = n > 1 ? `Blank ${i + 1}` : "Your answer";
           // Chinese: pinyin typing only in blanks that take pinyin (characters come from the keyboard).
-          const bIme = ime && (lang !== "zh" || pinyinBlank(q.accept?.[i])) ? ime : undefined;
+          // Greek: Beta Code only in blanks whose answers are Greek (an English answer stays English).
+          const greekBlank = !!q.accept?.[i]?.some(hasGreek);
+          const classical = isClassical(lang);
+          const bIme = classical && imeOf ? imeOf(q.accept?.[i]) : ime && (lang !== "zh" || pinyinBlank(q.accept?.[i])) ? ime : undefined;
+          const setBox = (v: string) => {
+            const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
+            next[i] = v;
+            onChange?.(next);
+          };
+          const onKey = (ch: string) => {
+            const el = boxes.current[i];
+            const r = applyKey(val, el?.selectionStart ?? val.length, el?.selectionEnd ?? val.length, ch, bIme);
+            setBox(r.text);
+            requestAnimationFrame(() => {
+              el?.focus();
+              el?.setSelectionRange(r.caret, r.caret);
+            });
+          };
           const toneMiss = reveal && !parts[i] && lang === "zh" ? toneMissOf(val, q.accept?.[i] ?? []) : undefined;
           return (
             <div key={i} className={`text-answer ${reveal ? (parts[i] ? "is-right" : "is-wrong") : ""}`}>
@@ -240,13 +269,16 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                 <label className="field">
                   <span>{label}</span>
                   <input
+                    ref={(el) => {
+                      boxes.current[i] = el;
+                    }}
                     className="input"
                     value={val}
                     disabled={off}
                     autoComplete="off"
                     autoCapitalize="off"
                     spellCheck={false}
-                    lang={bIme ? (lang === "zh" ? "zh-Latn" : "ja") : lang === "zh" ? "zh" : undefined}
+                    lang={classical ? (greekBlank ? "grc" : bIme ? lang : undefined) : bIme ? (lang === "zh" ? "zh-Latn" : "ja") : lang === "zh" ? "zh" : undefined}
                     onChange={(e) => {
                       const next = Array.from({ length: n }, (_, j) => String(chosen[j] ?? ""));
                       next[i] = bIme && !composing(e) ? bIme(e.target.value) : e.target.value;
@@ -286,7 +318,11 @@ export default function QuestionBody({ q, order, chosen, onChoose, onChange, onE
                   />
                 </label>
               )}
+              {!review && !reveal && classical && !off && (
+                <CharKeys keys={greekBlank ? undefined : keys} greek={greekBlank} onKey={onKey} label={n > 1 ? `Special characters for blank ${i + 1}` : "Special characters"} />
+              )}
               {reveal && <Mark ok={parts[i]} fix={<MathText text={q.accept?.[i]?.[0] ?? ""} />} />}
+              {reveal && parts[i] && notes[i] && <p className="small q-note">{notes[i]}</p>}
               {toneMiss && (
                 <p className="small">
                   Check the tones: <span lang="zh-Latn">{toneMiss}</span>

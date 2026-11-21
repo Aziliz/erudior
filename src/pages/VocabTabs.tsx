@@ -3,7 +3,7 @@ import type { AppApi } from "../App";
 import type { Course } from "../lib/types";
 import { REVIEW_CAP, CARRY_PER_DAY, directions, stageLabel, stateOf, STAGES, unlockedItems, vocabKey, vocabSummary } from "../lib/vocab";
 import { catalogEntry } from "../lib/catalog";
-import { SpeakButton } from "./VocabRunner";
+import { DictLine, SpeakButton } from "./VocabRunner";
 import MathText from "../components/MathText";
 import { readingKey, readingTime, sectionsRead } from "../lib/reader";
 import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
@@ -11,12 +11,16 @@ import { hasKanji } from "../lib/kana";
 import { buildRound, conjSettings, conjSummary, conjWords } from "../lib/conjugation";
 import { buildToneRound, toneOpen, toneSettings, toneSummary, toneWords } from "../lib/toneDrills";
 import { toneLabel } from "../lib/tones";
+import { bareClassical } from "../lib/classical";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
   const lang = course.language;
   const s = vocabSummary(course, progress);
   const [filter, setFilter] = useState<"all" | "unlocked" | "learning" | "learned">("unlocked");
+  // Find a word: case, Greek diacritics and Latin macrons don't matter ("amare" finds amāre).
+  const [find, setFind] = useState("");
+  const findKey = bareClassical(find.trim());
   const lessonTitle = useMemo(() => new Map(course.lessons.map((l) => [l.id, l.title])), [course]);
   const target = lang?.vocabTarget;
   const conj = useMemo(() => !!conjSettings(course) && conjWords(course).length > 0, [course]);
@@ -25,6 +29,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const unlocked = new Set(unlockedItems(course, progress).map((v) => v.id));
   const groupOf = (v: { from?: string; lesson: string }) => (v.from ? `from:${v.from}` : v.lesson);
   const rows = (course.vocab ?? []).filter((v) => {
+    if (findKey && !bareClassical(`${v.term} ${v.dict ?? ""} ${v.reading ?? ""} ${(v.alt ?? []).join(" ")} ${v.meanings.join(" ")}`).includes(findKey)) return false;
     const open = unlocked.has(v.id);
     const learned = directions(v).every((d) => stateOf(progress, vocabKey(course, v.id, d)).done);
     if (filter === "all") return true;
@@ -98,6 +103,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
       <section className="panel">
         <div className="row" style={{ justifyContent: "space-between", marginBottom: 12 }}>
           <h2 style={{ margin: 0 }}>Word list</h2>
+          <input className="input vocab-find" type="search" style={{ width: "auto", flex: "1 1 10rem", maxWidth: "16rem" }} aria-label="Find a word" placeholder="Find a word" value={find} onChange={(e) => setFind(e.target.value)} />
           <select className="select" style={{ width: "auto" }} aria-label="Show words" value={filter} onChange={(e) => setFilter(e.target.value as typeof filter)}>
             <option value="unlocked">Unlocked</option>
             <option value="learning">Still learning</option>
@@ -105,9 +111,9 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
             <option value="all">All, including locked</option>
           </select>
         </div>
-        {(lang?.code === "ja" || lang?.code === "zh") && (
+        {(lang?.code === "ja" || lang?.code === "zh" || (lang?.pronunciations?.length ?? 0) > 1) && (
           <div className="row ja-toggles" style={{ marginBottom: 8 }}>
-            <LanguageToggles code={lang.code} script={!!lang.traditional} />
+            <LanguageToggles code={lang!.code} script={!!lang!.traditional} pron={lang!.pronunciations} />
           </div>
         )}
         {!ordered.length && (
@@ -135,6 +141,11 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
                         <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                         {lang?.code === "ja" && v.pitch !== undefined && v.reading && hasKanji(v.term) && (
                           <div className="vocab-pitch-reading small"><PitchText kana={v.reading} pitch={v.pitch} /></div>
+                        )}
+                        {(v.dict || v.gender) && (
+                          <div className="small">
+                            <DictLine item={v} lang={lang?.code} />
+                          </div>
                         )}
                         {v.plural && <div className="muted small">pl. {v.plural}</div>}
                       </td>

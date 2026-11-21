@@ -1,5 +1,73 @@
 @import "@fontsource-variable/public-sans";
 @import "@fontsource-variable/source-serif-4";
+/* Polytonic Greek (Ancient Greek courses, and Greek anywhere): Source Serif 4 has only basic
+   Greek and Public Sans none, so Greek and Greek Extended (U+0370-03FF, U+1F00-1FFF) come from
+   Noto Serif / Noto Sans, listed first in the stacks below. unicode-range means the files load
+   only on pages with Greek letters (about 40 KB a style). */
+@font-face {
+  font-family: "Erudior Greek Serif";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-serif/files/noto-serif-greek-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: "Erudior Greek Serif";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-serif/files/noto-serif-greek-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+1F00-1FFF;
+}
+@font-face {
+  font-family: "Erudior Greek Serif";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-serif/files/noto-serif-greek-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: "Erudior Greek Serif";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-serif/files/noto-serif-greek-ext-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+1F00-1FFF;
+}
+@font-face {
+  font-family: "Erudior Greek Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-sans/files/noto-sans-greek-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: "Erudior Greek Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-sans/files/noto-sans-greek-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+1F00-1FFF;
+}
+@font-face {
+  font-family: "Erudior Greek Sans";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-sans/files/noto-sans-greek-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: "Erudior Greek Sans";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("../node_modules/@fontsource-variable/noto-sans/files/noto-sans-greek-ext-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+1F00-1FFF;
+}
 
 /* ---------- Tokens ---------- */
 :root {
@@ -31,8 +99,8 @@
   --focus: #244d76;
   --shadow: 0 1px 2px rgba(28, 40, 51, 0.06), 0 4px 16px rgba(28, 40, 51, 0.05);
 
-  --sans: "Public Sans Variable", "Segoe UI", system-ui, sans-serif;
-  --serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+  --sans: "Erudior Greek Sans", "Public Sans Variable", "Segoe UI", system-ui, sans-serif;
+  --serif: "Erudior Greek Serif", "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
 
   --r-sm: 6px;
   --r-md: 10px;
@@ -8342,3 +8410,68 @@ html:not(.tones-on) .tone-sr {
 .roadmap-outline ul { list-style: disc; }
 .roadmap-outline h4 { margin: 8px 0 2px; }
 .roadmap-outline ol, .roadmap-outline ul { margin: 0 0 4px 1.25rem; padding: 0; }
+
+/* ---- Latin and Greek ---------------------------------------------------------
+   Greek text isn't italicized (course italics mark the language; upright polytonic reads more
+   easily). Transliterations (lang="grc-Latn") stay italic. */
+em[lang="grc"],
+[lang="grc"] em {
+  font-style: normal;
+}
+.pron-switch {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+.pron-switch .select.sm {
+  width: auto;
+  min-height: 36px;
+  padding: 4px 8px;
+}
+.pron-audio-note {
+  flex-basis: 100%;
+}
+.vocab-dict {
+  display: inline-block;
+}
+.char-key {
+  min-width: 44px;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+}
+.q-note {
+  margin: 4px 0 0;
+}
+/* ```pron blocks: the learner's scheme shows; others shrink to a note (lib/pronunciation.ts
+   writes the rule that hides them). Print shows every scheme. */
+.pron-blk {
+  border-left: 3px solid var(--rule);
+  padding: 2px 0 2px 12px;
+  margin: 12px 0;
+}
+.pron-tag {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.pron-off {
+  display: none;
+}
+.pron-inl-tag {
+  display: none;
+}
+@media print {
+  .pron-blk > .pron-body,
+  .pron-inl {
+    display: revert !important;
+  }
+  .pron-off,
+  .pron-switch {
+    display: none !important;
+  }
+  .pron-on,
+  .pron-inl-tag {
+    display: inline !important;
+  }
+}

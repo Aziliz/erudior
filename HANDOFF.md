@@ -64,6 +64,12 @@ Jon prefers terse answers and wants clarifying questions asked rather than assum
 - **Calls made at release:** verlan (*ouf*, *relou*) recognition-only; A2 16h3 h38 is multiple choice; *entre más* stays recognition; the French C1 compte rendu keeps 90–130 words; Spanish C1 lesson 01 keeps three short texts; Clemente and the "$" (peso) toll icon stay; French C2 09's invented judgment dropped its receipts claim so *en dernier ressort* is safe.
 - **Open follow-ups:** native-speaker reads (lists in each NOTES file); DELE C1/C2 2024 guides and FEI's DALF pages in a browser (examenes.cervantes.es now redirects to cervantes.org, off the fetch allowlist; lessons hedge every exam fact); dictionary entries that couldn't be fetched (DLE, DPD, DEM, Le Robert, DDF, Usito), listed per module; a clinician's read of Spanish C2 16's note and leaflet; the Mauritius Kreol select committee (French C2 16h2) when it reports.
 
+## Latin and Greek engine (2026-11-21, branch classical/typing)
+
+- Jon's decisions: courses repo `content/languages/CLASSICAL.md`. Codes `la`, `grc`; two pronunciations per language with a learner switch; diacritics optional in answers; Beta Code typing; dict entries.
+- **Engine:** `src/lib/greek.ts` (Beta Code → polytonic, `ime: "grc"`, final sigma by position, monotonic), `classical.ts` (diacritic-optional compare + "With macrons: …" notes), `classicalSpeech.ts` (Latin restored/ecclesiastical respelling and Greek restored transliteration for an Italian voice), `pronunciation.ts` (per-language scheme, voice routing in speech.ts, per-scheme clips `audio.srcs`, the CSS rule for ```pron blocks), `pronBlocks.ts` (```pron <scheme> / `{pron=x}…{/pron}`), `classicalCheck.ts` (checker rules), `components/CharKeys.tsx` (Greek mark buttons). Vocab `dict`/`gender`; question `lang` (set on every question of a la/grc course by `withAnswerLang`); `language.pronunciations`. Greek fonts: Noto Serif/Sans Greek subsets first in the stacks (unicode-range). Docs: COURSE_FORMAT.md "Latin and Greek". Demo `samples/demo-classical.json`; walkthrough `scripts/classical-walkthrough.mjs`; tests `tests/classical.test.mts`.
+- Inflection drills are a separate branch (`classical/inflection`); drill answers go through `checkRecall`, so they get the diacritic rules.
+
 ## What it was (history)
 
 Started 2026-10-12 as "Examiner", a VCE-like desktop exam simulator (Tauri 2 + React 19 + TypeScript + Vite) with the Colorado broker course. App id now `com.erudior.app`. A CCNA course was once mentioned; not planned now.

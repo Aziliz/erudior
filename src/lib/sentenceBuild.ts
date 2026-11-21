@@ -32,10 +32,12 @@ export const tileKey = (s: string): string => stripRuby(String(s)).normalize("NF
  * A sentence starts with a capital, wherever its first tile came from: "bis Ende Mai" placed
  * first reads "Bis Ende Mai". Authors write tiles in their mid-sentence case (nouns and names
  * keep their capital), so sentences that start with a different phrase can be accepted.
- * Leading quote marks are skipped; text without cased letters (Japanese) is unchanged.
+ * Leading quote marks are skipped; text without cased letters (Japanese) and Greek are unchanged.
  */
 export function startCase(s: string): string {
   const m = /^([„“"'‚‘«»(\[¿¡\s]*)(\p{Ll})/u.exec(s);
+  // Greek editions don't capitalize the start of a sentence (only names and paragraphs).
+  if (m && /[\u0370-\u03FF\u1F00-\u1FFF]/u.test(m[2])) return s;
   return m ? m[1] + m[2].toLocaleUpperCase() + s.slice(m[0].length) : s;
 }
 

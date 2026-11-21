@@ -43,15 +43,18 @@ import { hasHan, pinyinProblems, pinyinReadingProblem } from "../src/lib/pinyin.
 import { scriptCourse, scriptProblems } from "../src/lib/zhScript.ts";
 import * as OpenCC from "opencc-js";
 import { drillableWord, normalizeToneSettings, riskySingle, toneItemProblem, toneSettingsProblems, toneSyllables } from "../src/lib/tones.ts";
-import { checkRecallJa } from "../src/lib/vocab.ts";
+import { checkRecallClassical, checkRecallJa } from "../src/lib/vocab.ts";
+import { isClassical } from "../src/lib/classical.ts";
+import { classicalCourseProblems, pronTextProblems } from "../src/lib/classicalCheck.ts";
+import { normalizePronunciations } from "../src/lib/course.ts";
 import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } from "../src/lib/sentenceBuild.ts";
 
 // Kanji in ```trace blocks: the app loads their strokes on demand; the checker has them all.
 addKanjiStrokes(KANJI_STROKES);
 // Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
 // band), and checkCourse loads the ones a course traces.
-import { conjWordProblem, conjWordWarnings, deNoun } from "../src/lib/conjugation.ts";
-import { ALL_CLASSES, CONJ_FORMS, languageClasses, languageFormKeys, languageForms } from "../src/lib/courseConjugation.ts";
+import { conjMissing, conjWordProblem, conjWordWarnings, deNoun, formsForClass, settingFits } from "../src/lib/conjugation.ts";
+import { ALL_CLASSES, CONJ_FORMS, isClassical, languageClasses, languageFormKeys, languageForms, settingClasses } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -133,8 +136,11 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
   const japanese = c.language?.code === "ja";
   const chinese = c.language?.code === "zh";
   if (chinese) await loadHanziStrokes(courseStrings(raw).flatMap(tracedHanzi));
+  const pronIds = (c.language?.pronunciations ?? []).map((p) => p.id);
   const checkText = (where: string, text: string | undefined, allowFigures = false) => {
     if (!text) return;
+    // ```pron blocks and {pron=…} marks (Latin, Greek): a scheme the course declares.
+    for (const p of pronTextProblems(text, pronIds)) say(`${where}: ${p}`);
     // Japanese courses: furigana markup {漢字|かんじ} must have a kanji base and a kana reading.
     if (japanese) for (const p of rubyProblems(text)) say(`${where}: ${p.match}: ${p.problem}`);
     // Chinese courses: pinyin markup {汉字|hàn zì}: Han characters, one marked syllable each.
@@ -389,6 +395,22 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
         say(`${where}: "trad" must be the term in traditional characters, character for character`);
     }
 
+  // --- Latin and Greek: NFC, no look-alike letters, final sigma, dict/gender, schemes -----------
+  if (isClassical(c.language?.code)) {
+    for (const p of classicalCourseProblems(raw, c.language!.code)) say(p);
+    for (const v of c.vocab ?? []) {
+      if (!(v.directions ?? ["meaning", "recall"]).includes("recall")) continue;
+      if (!checkRecallClassical(v, v.term).ok) say(`word ${v.id}: typing its term "${v.term}" isn't accepted`);
+      if (v.dict && !checkRecallClassical(v, v.dict).ok) say(`word ${v.id}: typing its dict "${v.dict}" isn't accepted`);
+    }
+  }
+  if (raw.language?.pronunciations !== undefined) {
+    const list = normalizePronunciations(raw.language.pronunciations) ?? [];
+    if (!Array.isArray(raw.language.pronunciations) || list.length !== raw.language.pronunciations.length)
+      say(`language.pronunciations: a list of { "id": "restored", "label": "Restored classical" } with unique lower-case ids`);
+    else if (list.length < 2) say(`language.pronunciations: list at least two schemes (one needs no switch)`);
+  }
+
   // --- Chinese script switch: the app's conversion equals OpenCC s2tw + the course's overrides --
   if (chinese) for (const p of scriptProblems(raw, s2tw())) say(p);
   // Trace blocks in Traditional must still be traceable.
@@ -439,11 +461,18 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       else
         for (const f of rawConj.forms) {
           const form = f?.form;
-          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish and French have conjugation drills"})`);
+          if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish, French, Latin and Greek have conjugation drills"})`);
           else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
         }
-      if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)
-        say(`language.conjugation: a form is listed twice`);
+      const entryKey = (f: { form?: string; conj?: unknown }) => `${f?.form}|${Array.isArray(f?.conj) ? [...f.conj].sort().join(",") : "*"}`;
+      if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map(entryKey)).size < rawConj.forms.length)
+        say(`language.conjugation: a form is listed twice for the same classes`);
+      if (Array.isArray(rawConj?.forms))
+        for (const f of rawConj.forms) {
+          if (f?.conj === undefined) continue;
+          if (!Array.isArray(f.conj) || !f.conj.length) say(`language.conjugation form ${f?.form}: "conj" must be a non-empty list of classes`);
+          else for (const k of f.conj) if (!settingClasses(lang).includes(k)) say(`language.conjugation form ${f?.form}: unknown class "${k}" in conj (${settingClasses(lang).join(", ")})`);
+        }
       if (rawConj?.round !== undefined && settings?.round === undefined) say(`language.conjugation.round: must be a whole number from 1 to 100`);
     }
     for (const s of settings?.forms ?? [])
@@ -452,7 +481,8 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
     for (const [i, v] of (Array.isArray(raw.vocab) ? raw.vocab : []).entries()) {
       if (v?.conj !== undefined && !(ALL_CLASSES.includes(v.conj) && languageClasses(lang).includes(v.conj)))
         say(`word ${v.id ?? i + 1}: unknown "conj" "${v.conj}" (${languageClasses(lang).join(", ")})`);
-      if (v?.forms !== undefined)
+      // Latin and Greek forms keys are slots of the word's class: the generator checks them.
+      if (v?.forms !== undefined && !isClassical(lang))
         for (const k of Object.keys(v.forms ?? {})) if (!languageFormKeys(lang).includes(k)) say(`word ${v.id ?? i + 1}: unknown forms.${k} (${languageFormKeys(lang).join(", ")})`);
       if (v?.noForms !== undefined) {
         if (!v.conj) say(`word ${v.id ?? i + 1}: "noForms" without "conj"`);
@@ -464,8 +494,16 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       const p = conjWordProblem(lang, v);
       if (p) say(`word ${v.id}: ${p}`);
       const adjClass = v.conj === "adj" || v.conj === "i-adj" || v.conj === "ii-adj" || v.conj === "na-adj";
-      if (v.conj && v.pos && (adjClass ? !/adj/.test(v.pos) : !/verb/.test(v.pos))) warn(`word ${v.id}: "conj" ${v.conj} on a word whose pos is "${v.pos}"`);
+      if (v.conj && v.pos && !isClassical(lang) && (adjClass ? !/adj/.test(v.pos) : !/verb/.test(v.pos))) warn(`word ${v.id}: "conj" ${v.conj} on a word whose pos is "${v.pos}"`);
       for (const w of conjWordWarnings(lang, v)) warn(`word ${v.id}: ${w}`);
+      // Latin and Greek: every drilled form of the word generates or comes from its table.
+      if (!p && isClassical(lang))
+        for (const s of settings?.forms ?? []) {
+          if (!formsForClass(lang, v).includes(s.form) || !settingFits(lang, s, v)) continue;
+          const missing = conjMissing(lang, v, s.form);
+          if (missing.length)
+            say(`word ${v.id}: ${s.form} (${missing.map((m) => m.slot).join(", ")}) can't be generated: give its forms${missing[0].why ? ` (${missing[0].why})` : ""}, or list "${s.form}" in noForms`);
+        }
     }
     if (settings && !conjugatable.length) say(`language.conjugation: no vocabulary has "conj", so there's nothing to drill`);
     if (conjugatable.length && !settings) warn(`vocabulary has "conj" but the course has no language.conjugation, so no forms are drilled`);

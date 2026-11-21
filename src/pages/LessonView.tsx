@@ -15,7 +15,7 @@ import { ReadAloudBar } from "../components/ReadAloud";
 import { audioLibrary, readUnits } from "../lib/readAloud";
 import { bestQuizScore } from "../lib/quiz";
 import { mainBank } from "./CourseHome";
-import { SpeakButton } from "./VocabRunner";
+import { DictLine, SpeakButton } from "./VocabRunner";
 import { CalcDock } from "../components/Calculator";
 import { calcKind } from "../lib/calcKind";
 import { useAssignmentLinks } from "./WorkView";
@@ -108,7 +108,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
           {lesson.minutes ? `, about ${lesson.minutes} min` : ""}
         </p>
         <h1 data-ra="title">{lesson.title}</h1>
-        <LanguageToggles code={course.language?.code} script={!!course.language?.traditional} />
+        <LanguageToggles code={course.language?.code} script={!!course.language?.traditional} pron={course.language?.pronunciations} />
         {isHonorsLesson(course, lesson) && (
           <p className="small">
             <span className="pill honors">Honors · optional</span>{" "}
@@ -151,7 +151,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
 
       <article className="lesson-body">
         <CourseActivityLinks api={api} course={course} lessonId={lesson.id} />
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
+        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} pron={course.language?.pronunciations} />
       </article>
       {isVmExam(lesson.vmLab) ? <VmExamPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab, lesson.vmExamMinutes, lesson.vmTasks])}
         api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} minutes={lesson.vmLab === RHCSA_MOCK ? MOCK_MINUTES : lesson.vmExamMinutes ?? DEFAULT_VM_EXAM_MINUTES} tasks={lesson.vmLab === RHCSA_MOCK ? MOCK_TASKS : lesson.vmTasks} /> : lesson.vmLab && <VmLabPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab])}
@@ -172,6 +172,11 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
                     <SpeakButton text={v.term} lang={lang?.tts} audio={v.audio} />
                     {lang?.code === "ja" && v.pitch !== undefined && v.reading && hasKanji(v.term) && (
                       <div className="vocab-pitch-reading small"><PitchText kana={v.reading} pitch={v.pitch} /></div>
+                    )}
+                    {(v.dict || v.gender) && (
+                      <div className="small">
+                        <DictLine item={v} lang={lang?.code} />
+                      </div>
                     )}
                     {v.plural && <div className="muted small">pl. {v.plural}</div>}
                   </td>

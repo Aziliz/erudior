@@ -3,8 +3,9 @@
 // No imports, so the worker and course tools can use it without pulling in the app.
 //
 // Vocabulary items opt in with `conj` (the word's class) and, for German, `forms` (principal
-// parts and other irregular forms the generator must not guess). The course picks the forms it
-// drills with `language.conjugation.forms`, each unlocked by a lesson.
+// parts and other irregular forms the generator must not guess). Latin and Greek words also give
+// `dict` (the dictionary entry their forms are made from) and may give `forms` slot tables. The
+// course picks the forms it drills with `language.conjugation.forms`, each unlocked by a lesson.
 
 /** Japanese word classes. Forms are generated from the dictionary form (`term` and `reading`). */
 export const JA_CLASSES = ["godan", "ichidan", "suru", "kuru", "i-adj", "ii-adj", "na-adj"] as const;
@@ -14,13 +15,19 @@ export const DE_CLASSES = ["weak", "strong", "mixed", "modal", "adj"] as const;
 export const ES_CLASSES = ["ar", "er", "ir"] as const;
 /** French verb classes: regular -er, finir-type -ir, vendre-type -re, and irregular (`irr`, forms given). */
 export const FR_CLASSES = ["er", "ir", "re", "irr"] as const;
+/** Latin classes: declensions, adjectives, pronouns (tables), conjugations; irregular verbs (`irr`). */
+export const LA_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl4", "decl5", "adj12", "adj3", "pron", "v1", "v2", "v3", "v3-io", "v4", "irr"] as const;
+/** Ancient Greek classes: declensions, adjectives, the article and pronouns (tables), ω-verbs, contract verbs, irregular verbs (`irr`, tables). */
+export const GRC_CLASSES = ["decl1", "decl2", "decl3", "decl3-i", "decl3-eu", "decl3-s", "adj12", "adj3", "adj", "pron", "omega", "contract", "irr"] as const;
 export type JaClass = (typeof JA_CLASSES)[number];
 export type DeClass = (typeof DE_CLASSES)[number];
 export type EsClass = (typeof ES_CLASSES)[number];
 export type FrClass = (typeof FR_CLASSES)[number];
-export type ConjClass = JaClass | DeClass | EsClass | FrClass;
+export type LaClass = (typeof LA_CLASSES)[number];
+export type GrcClass = (typeof GRC_CLASSES)[number];
+export type ConjClass = JaClass | DeClass | EsClass | FrClass | LaClass | GrcClass;
 /** Every class of every language (the checker matches a class to the course's language). */
-export const ALL_CLASSES: readonly string[] = [...new Set<string>([...JA_CLASSES, ...DE_CLASSES, ...ES_CLASSES, ...FR_CLASSES])];
+export const ALL_CLASSES: readonly string[] = [...new Set<string>([...JA_CLASSES, ...DE_CLASSES, ...ES_CLASSES, ...FR_CLASSES, ...LA_CLASSES, ...GRC_CLASSES])];
 
 export const JA_VERB_FORMS = [
   "polite",
@@ -43,13 +50,42 @@ export const DE_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "
 export const DE_ADJ_FORMS = ["adj-nom", "adj-acc", "adj-dat", "adj-gen"] as const;
 export const ES_VERB_FORMS = ["present", "preterite", "perfect", "imperative", "imperfect", "future", "conditional", "gerund", "subjunctive", "imperfectSubjunctive", "pluperfect", "futurePerfect", "conditionalPerfect", "perfectSubjunctive", "pluperfectSubjunctive"] as const;
 export const FR_VERB_FORMS = ["present", "perfect", "imperative", "imperfect", "future", "conditional", "subjunctive", "pluperfect", "futurePerfect", "conditionalPerfect", "perfectSubjunctive"] as const;
-export const CONJ_FORMS: readonly string[] = [...new Set<string>([...JA_VERB_FORMS, ...JA_ADJ_FORMS, ...DE_VERB_FORMS, ...DE_ADJ_FORMS, ...ES_VERB_FORMS, ...FR_VERB_FORMS])];
+/** Latin: noun and pronoun cases, adjective cases and comparison, verb tense-voice-mood ids. */
+export const LA_CASE_FORMS = ["nom", "gen", "dat", "acc", "abl", "voc", "loc"] as const;
+export const LA_ADJ_FORMS = ["adj-nom", "adj-gen", "adj-dat", "adj-acc", "adj-abl", "adj-voc", "comparative", "superlative"] as const;
+export const LA_VERB_FORMS: readonly string[] = [
+  ...["pres", "impf", "fut", "perf", "plpf", "futp"].flatMap((t) => [`${t}-act-ind`, `${t}-pass-ind`]),
+  ...["pres", "impf", "perf", "plpf"].flatMap((t) => [`${t}-act-subj`, `${t}-pass-subj`]),
+  "pres-act-imp", "pres-pass-imp", "fut-act-imp",
+  "pres-act-inf", "pres-pass-inf", "perf-act-inf", "perf-pass-inf", "fut-act-inf", "fut-pass-inf",
+  "pres-act-ptc", "perf-pass-ptc", "fut-act-ptc", "gerundive", "gerund",
+];
+/** Greek: cases, adjective cases, verb tense-voice-mood ids (mp = middle/passive). */
+export const GRC_CASE_FORMS = ["nom", "gen", "dat", "acc", "voc"] as const;
+export const GRC_ADJ_FORMS = ["adj-nom", "adj-gen", "adj-dat", "adj-acc", "adj-voc"] as const;
+export const GRC_VERB_FORMS: readonly string[] = [
+  ...["act", "mp"].flatMap((v) => ["ind", "subj", "opt", "imp", "inf", "ptc"].map((m) => `pres-${v}-${m}`)),
+  "impf-act-ind", "impf-mp-ind",
+  ...["act", "mid", "pass"].flatMap((v) => ["ind", "opt", "inf", "ptc"].map((m) => `fut-${v}-${m}`)),
+  ...["act", "mid", "pass"].flatMap((v) => ["ind", "subj", "opt", "imp", "inf", "ptc"].map((m) => `aor-${v}-${m}`)),
+  ...["act", "mp"].flatMap((v) => ["ind", "inf", "ptc"].map((m) => `perf-${v}-${m}`)),
+  "plpf-act-ind", "plpf-mp-ind",
+];
+export const LA_FORMS: readonly string[] = [...LA_CASE_FORMS, ...LA_ADJ_FORMS, ...LA_VERB_FORMS];
+export const GRC_FORMS: readonly string[] = [...GRC_CASE_FORMS, ...GRC_ADJ_FORMS, ...GRC_VERB_FORMS];
+export const CONJ_FORMS: readonly string[] = [...new Set<string>([...JA_VERB_FORMS, ...JA_ADJ_FORMS, ...DE_VERB_FORMS, ...DE_ADJ_FORMS, ...ES_VERB_FORMS, ...FR_VERB_FORMS, ...LA_FORMS, ...GRC_FORMS])];
+/** Latin and Greek: inflection drills with dictionary entries and slot tables. */
+export const isClassical = (lang: string) => lang === "la" || lang === "grc";
 /** The forms a language's courses can drill. */
 export function languageForms(lang: string): readonly string[] {
+  if (lang === "la") return LA_FORMS;
+  if (lang === "grc") return GRC_FORMS;
   return lang === "ja" ? [...JA_VERB_FORMS, ...JA_ADJ_FORMS] : lang === "de" ? [...DE_VERB_FORMS, ...DE_ADJ_FORMS] : lang === "es" ? ES_VERB_FORMS : lang === "fr" ? FR_VERB_FORMS : [];
 }
 /** The classes a language's words can use. */
 export function languageClasses(lang: string): readonly string[] {
+  if (lang === "la") return LA_CLASSES;
+  if (lang === "grc") return GRC_CLASSES;
   return lang === "ja" ? JA_CLASSES : lang === "de" ? DE_CLASSES : lang === "es" ? ES_CLASSES : lang === "fr" ? FR_CLASSES : [];
 }
 
@@ -93,15 +129,33 @@ export const ROMANCE_FORM_KEYS = [
 ] as const;
 export type RomanceFormKey = (typeof ROMANCE_FORM_KEYS)[number];
 export const FORM_KEYS: readonly string[] = [...new Set<string>([...DE_FORM_KEYS, ...ROMANCE_FORM_KEYS])];
-/** The `forms` keys a language's words can use. */
+/**
+ * Latin and Greek `forms` keys are slots or rows of slots ("pl.gen", "sg", "pres-act-ind",
+ * "perf-pass-ptc.m"), checked against the word's class by the generator, plus the Greek
+ * quantity hints `long` and `short`.
+ */
+export const CLASSICAL_FORM_KEY = /^[a-z0-9]+(?:[.-][a-z0-9]+)*$/;
+/** The `forms` keys a language's words can use (Latin and Greek: slots of the word's class, checked by the generator). */
 export function languageFormKeys(lang: string): readonly string[] {
   return lang === "es" || lang === "fr" ? ROMANCE_FORM_KEYS : DE_FORM_KEYS;
 }
 export type DeForms = Partial<Record<DeFormKey | RomanceFormKey, string>>;
+/** A word's `forms`: the German/Romance keys, or Latin/Greek slot tables. */
+export type WordForms = DeForms & { [key: string]: string | undefined };
+
+/** Greek 1st-declension groups, from the word's dict: -η, long -ᾱ, short -ᾰ, masculine -ης/-ᾱς. */
+export const GRC_DECL1_GROUPS = ["decl1-eta", "decl1-alpha", "decl1-short", "decl1-masc"] as const;
+/** What a `language.conjugation.forms` entry's `conj` may name: the language's classes (Greek: and the 1st-declension groups). */
+export function settingClasses(lang: string): readonly string[] {
+  return lang === "grc" ? [...GRC_CLASSES, ...GRC_DECL1_GROUPS] : languageClasses(lang);
+}
+const SETTING_CLASSES: readonly string[] = [...ALL_CLASSES, ...GRC_DECL1_GROUPS];
 
 export interface ConjugationFormSetting {
   /** A form id from CONJ_FORMS. */
   form: string;
+  /** The word classes this entry applies to (none: every class). The same form may have several entries. */
+  conj?: string[];
   /** The lesson that teaches it; the form joins drills when that lesson is done. None: always on. */
   lesson?: string;
   /** The earlier course the lesson is in (as on carried-over vocabulary). */
@@ -127,11 +181,18 @@ export function normalizeConjugationSettings(raw: unknown): ConjugationSettings 
   for (const f of raw.forms) {
     if (!isObj(f)) continue;
     const form = str(f.form);
-    if (!CONJ_FORMS.includes(form) || seen.has(form)) continue;
-    seen.add(form);
+    let conj: string[] | undefined;
+    if (Array.isArray(f.conj)) {
+      conj = [...new Set(f.conj.map(str).filter((c) => SETTING_CLASSES.includes(c)))];
+      // Classes given but none known: drop the entry rather than open the form for every class.
+      if (!conj.length) continue;
+    }
+    const key = `${form}|${conj ? [...conj].sort().join(",") : "*"}`;
+    if (!CONJ_FORMS.includes(form) || seen.has(key)) continue;
+    seen.add(key);
     const lesson = str(f.lesson);
     const from = str(f.from);
-    forms.push({ form, ...(lesson ? { lesson } : {}), ...(from && ID.test(from) ? { from } : {}) });
+    forms.push({ form, ...(conj ? { conj } : {}), ...(lesson ? { lesson } : {}), ...(from && ID.test(from) ? { from } : {}) });
   }
   if (!forms.length) return undefined;
   const round = Number(raw.round);
@@ -139,13 +200,15 @@ export function normalizeConjugationSettings(raw: unknown): ConjugationSettings 
 }
 
 /** A vocabulary item's conjugation fields from raw JSON (only known classes and keys). */
-export function normalizeConjFields(v: Record<string, unknown>): { conj?: ConjClass; forms?: DeForms; noForms?: string[] } {
-  const out: { conj?: ConjClass; forms?: DeForms; noForms?: string[] } = {};
+export function normalizeConjFields(v: Record<string, unknown>): { conj?: ConjClass; forms?: WordForms; noForms?: string[] } {
+  const out: { conj?: ConjClass; forms?: WordForms; noForms?: string[] } = {};
   const conj = str(v.conj);
   if (ALL_CLASSES.includes(conj)) out.conj = conj as ConjClass;
   if (isObj(v.forms)) {
-    const forms: DeForms = {};
+    const forms: WordForms = {};
     for (const k of FORM_KEYS) if (str(v.forms[k])) forms[k as keyof DeForms] = str(v.forms[k]);
+    // Latin and Greek slot tables (the generator checks the keys against the word's class).
+    for (const [k, x] of Object.entries(v.forms)) if (!FORM_KEYS.includes(k) && CLASSICAL_FORM_KEY.test(k) && str(x)) forms[k] = str(x).normalize("NFC");
     if (Object.keys(forms).length) out.forms = forms;
   }
   if (Array.isArray(v.noForms)) {
@@ -168,7 +231,14 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
       c.forms.forEach((f, i) => {
         const p = `language.conjugation.forms[${i}]`;
         if (!isObj(f)) return out.push([p, "must be an object"]);
-        for (const k of Object.keys(f)) if (!["form", "lesson", "from"].includes(k)) out.push([`${p}.${k}`, "unsupported or authority/runtime field"]);
+        for (const k of Object.keys(f)) if (!["form", "lesson", "from", "conj"].includes(k)) out.push([`${p}.${k}`, "unsupported or authority/runtime field"]);
+        if (f.conj !== undefined) {
+          const known = settingClasses(String(language?.code ?? ""));
+          if (!Array.isArray(f.conj) || !f.conj.length) out.push([`${p}.conj`, "must be a non-empty list of word classes"]);
+          else f.conj.forEach((x, j) => {
+            if (typeof x !== "string" || !known.includes(x)) out.push([`${p}.conj[${j}]`, "unknown word class for this language"]);
+          });
+        }
         if (typeof f.form !== "string" || !CONJ_FORMS.includes(f.form)) out.push([`${p}.form`, "unknown conjugation form"]);
         for (const k of ["lesson", "from"]) if (f[k] !== undefined && (typeof f[k] !== "string" || !ID.test(f[k] as string))) out.push([`${p}.${k}`, "invalid stable ID"]);
       });
@@ -189,7 +259,7 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
       if (!isObj(v.forms)) out.push([`${p}.forms`, "must be an object"]);
       else
         for (const [k, x] of Object.entries(v.forms)) {
-          if (!FORM_KEYS.includes(k)) out.push([`${p}.forms.${k}`, "unsupported or authority/runtime field"]);
+          if (!FORM_KEYS.includes(k) && !(isClassical(String(language?.code ?? "")) && CLASSICAL_FORM_KEY.test(k))) out.push([`${p}.forms.${k}`, "unsupported or authority/runtime field"]);
           else if (typeof x !== "string" || !x.trim()) out.push([`${p}.forms.${k}`, "must be non-empty text"]);
         }
     }

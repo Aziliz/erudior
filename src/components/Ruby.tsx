@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
+import type { PronScheme } from "../lib/types";
+import { activeScheme, applyPronStyle, audioNote, onPronChange, registerSchemes, schemesFor, setScheme } from "../lib/pronunciation";
 import DOMPurify from "dompurify";
 import { accentList, autoRuby, hasKanji, pitchHtml, rubyHtml } from "../lib/kana";
 import { pinyinPairs, pinyinRubyHtml } from "../lib/pinyin";
@@ -215,10 +217,44 @@ export function ChineseToggles({ script = false }: { script?: boolean }) {
   );
 }
 
-/** The reading switches for a course language: Japanese or Chinese ones, else nothing. */
-export function LanguageToggles({ code, script }: { code?: string; script?: boolean }) {
+/**
+ * The learner's pronunciation for a language that teaches more than one (Latin: restored or
+ * ecclesiastical; Greek: restored or modern), per language on this device. It picks which
+ * ```pron blocks show and how the voice reads; the line beside it says the audio is approximate.
+ */
+export function PronunciationSwitch({ code, schemes }: { code?: string; schemes?: PronScheme[] }) {
+  registerSchemes(code, schemes);
+  const [, tick] = useState(0);
+  const id = useId();
+  useEffect(() => {
+    applyPronStyle();
+    return onPronChange(() => tick((n) => n + 1));
+  }, []);
+  const list = schemesFor(code);
+  if (!code || list.length < 2) return null;
+  const on = activeScheme(code) ?? list[0].id;
+  return (
+    <span className="pron-switch">
+      <label htmlFor={id} className="small">
+        Pronunciation
+      </label>
+      <select id={id} className="select sm" value={on} onChange={(e) => setScheme(code, e.target.value)}>
+        {list.map((s) => (
+          <option key={s.id} value={s.id}>
+            {s.label}
+          </option>
+        ))}
+      </select>
+      <span className="small muted pron-audio-note">{audioNote(code, on)}</span>
+    </span>
+  );
+}
+
+/** The reading switches for a course language: Japanese or Chinese ones, the pronunciation switch, else nothing. */
+export function LanguageToggles({ code, script, pron }: { code?: string; script?: boolean; pron?: PronScheme[] }) {
   if (code === "ja") return <JapaneseToggles />;
   if (code === "zh") return <ChineseToggles script={script} />;
+  if (pron && pron.length > 1) return <PronunciationSwitch code={code} schemes={pron} />;
   return null;
 }
 
