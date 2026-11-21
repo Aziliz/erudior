@@ -53,7 +53,7 @@ import { bankOrder, buildAnswers, buildWarnings, indicesFor, readsAsAnswer } fro
 addKanjiStrokes(KANJI_STROKES);
 // Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
 // band), and checkCourse loads the ones a course traces.
-import { conjMissing, conjWordProblem, conjWordWarnings, deNoun, formsForClass } from "../src/lib/conjugation.ts";
+import { conjMissing, conjWordProblem, conjWordWarnings, deNoun, formsForClass, settingFits } from "../src/lib/conjugation.ts";
 import { ALL_CLASSES, CONJ_FORMS, isClassical, languageClasses, languageFormKeys, languageForms, settingClasses } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
@@ -499,7 +499,7 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
       // Latin and Greek: every drilled form of the word generates or comes from its table.
       if (!p && isClassical(lang))
         for (const s of settings?.forms ?? []) {
-          if (!formsForClass(lang, v).includes(s.form)) continue;
+          if (!formsForClass(lang, v).includes(s.form) || !settingFits(lang, s, v)) continue;
           const missing = conjMissing(lang, v, s.form);
           if (missing.length)
             say(`word ${v.id}: ${s.form} (${missing.map((m) => m.slot).join(", ")}) can't be generated: give its forms${missing[0].why ? ` (${missing[0].why})` : ""}, or list "${s.form}" in noForms`);

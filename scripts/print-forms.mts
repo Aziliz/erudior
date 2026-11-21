@@ -11,7 +11,7 @@
 // --missing prints only words with missing slots in drilled forms.
 import { readFileSync } from "node:fs";
 import { normalizeCourse } from "../src/lib/course.ts";
-import { classicalWord, conjWordProblem, conjWordWarnings, formName, formsForClass, promptsFor } from "../src/lib/conjugation.ts";
+import { classicalWord, conjWordProblem, conjWordWarnings, formName, formsForClass, promptsFor, settingFits } from "../src/lib/conjugation.ts";
 import { isClassical, languageForms } from "../src/lib/courseConjugation.ts";
 import { missingReason, slotLabel, slotsOfForm } from "../src/lib/conjugationClassical.ts";
 
@@ -24,7 +24,9 @@ if (!file) {
 }
 const course = normalizeCourse(JSON.parse(readFileSync(file, "utf8")));
 const lang = course.language?.code ?? "";
-const drilled = new Set((course.language?.conjugation?.forms ?? []).map((f) => f.form));
+const settings = course.language?.conjugation?.forms ?? [];
+// A form is drilled for a word when an entry for it fits the word's class (docs: class-specific unlocks).
+const drilledFor = (item: any, form: string) => settings.some((f) => f.form === form && settingFits(course.language?.code ?? "", f, item));
 const want = (v: { id: string; term: string }) => !words.length || words.some((w) => w.normalize("NFC") === v.id || w.normalize("NFC") === v.term.normalize("NFC"));
 const list = (course.vocab ?? []).filter((v) => v.conj && want(v));
 if (!list.length) {
@@ -53,7 +55,7 @@ for (const item of list) {
       const slots = slotsOfForm(w, form);
       if (!slots.some((s) => w.cells.has(s) || !w.optional.has(s))) continue;
       const shown = slots.filter((s) => w.cells.has(s) || !w.optional.has(s) || s.split(".")[1] !== "loc");
-      const on = drilled.has(form) && forms.includes(form);
+      const on = drilledFor(item, form) && forms.includes(form);
       out.push(`  ${formName(lang, form)} [${form}]${on ? "" : "  (not drilled)"}`);
       for (const s of shown) {
         const c = w.cells.get(s);
@@ -72,7 +74,7 @@ for (const item of list) {
     }
   } else {
     for (const form of forms) {
-      out.push(`  ${formName(lang, form)} [${form}]${drilled.has(form) ? "" : "  (not drilled)"}`);
+      out.push(`  ${formName(lang, form)} [${form}]${drilledFor(item, form) ? "" : "  (not drilled)"}`);
       for (const p of promptsFor(course, item, form)) {
         out.push(`    ${p.label.padEnd(48)} ${p.answers[0]}${p.also.length ? `   also ${p.also.join(", ")}` : ""}`);
         if (flags.has("--rules")) out.push(`    ${"".padEnd(48)} ${p.rule}`);
