@@ -872,8 +872,8 @@ export function laWord(item: VocabItem): ClassicalWord | string {
     // its table; slots the table leaves out stay missing with the reason, or `—` marks them absent.
     if (typeof w === "string" && item.forms && Object.keys(item.forms).length) {
       const why = w;
-      const ww: ClassicalWord = { kind: "noun", slots: nounSlots(LA_CASES, true), optional: new Set(), cells: new Map(), missing: new Map() };
-      for (const sl of ww.slots) ww.missing.set(sl, why);
+      const ww: ClassicalWord = { kind: "noun", slots: nounSlots(LA_CASES, true), optional: new Set(["sg.loc", "pl.loc"]), cells: new Map(), missing: new Map() };
+      for (const sl of ww.slots) if (!ww.optional.has(sl)) ww.missing.set(sl, why);
       w = ww;
     }
   }
