@@ -121,9 +121,18 @@ def connect(role, channel, timeout=3):
         raise
 
 
-def reply(stream):
+def reply(stream, *, quitting=False):
     while True:
-        line = stream.readline(131072)
+        try:
+            line = stream.readline(131072)
+        except ConnectionResetError:
+            if not quitting:
+                raise
+            line = b""
+        # QEMU can exit before acknowledging quit. The caller still waits
+        # for the actual process to exit before removing any guest files.
+        if not line and quitting:
+            return
         if not line or len(line) >= 131072:
             raise LabError("Lost the virtual machine connection.")
         packet = json.loads(line.lstrip(b"\xff"))
@@ -147,7 +156,7 @@ def monitor(role, command):
         send(stream, "qmp_capabilities")
         reply(stream)
         send(stream, command)
-        return reply(stream)
+        return reply(stream, quitting=command == "quit")
 
 
 def process_alive(role):
@@ -719,7 +728,9 @@ def operate(action, base):
                           "STDIO,rawer", f"UNIX-CONNECT:{role}.serial"],
                          stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                          start_new_session=True)
-    return {"running": {role: running(role) for role in ROLES},
+    # A rebooting guest can take several seconds to answer QMP. Polling the
+    # status panel only needs liveness; process_alive verifies the disk and cwd.
+    return {"running": {role: process_alive(role) or running(role) for role in ROLES},
             "password": attempt["password"] if attempt else None, "report": load("report.json"),
             "attemptId": attempt["id"] if attempt else None,
             "resetPending": Path("reset-pending").exists()}

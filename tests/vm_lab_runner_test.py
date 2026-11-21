@@ -13,6 +13,23 @@ import guest_probe
 
 
 class RunnerTests(unittest.TestCase):
+    def test_status_can_read_a_live_guest_while_its_monitor_is_busy(self):
+        with patch.object(runner, "process_alive", side_effect=lambda role: role == "server"), \
+                patch.object(runner, "running", return_value=False) as monitor_check:
+            self.assertEqual(runner.operate("status", None)["running"], {"server": True, "client": False})
+        monitor_check.assert_called_once_with("client")
+
+    def test_qmp_can_close_without_a_final_quit_reply(self):
+        stream = Mock()
+        stream.readline.return_value = b""
+        self.assertIsNone(runner.reply(stream, quitting=True))
+        with self.assertRaises(runner.LabError):
+            runner.reply(stream)
+        stream.readline.side_effect = ConnectionResetError()
+        self.assertIsNone(runner.reply(stream, quitting=True))
+        with self.assertRaises(ConnectionResetError):
+            runner.reply(stream)
+
     def test_guest_port_stays_open_between_host_observations(self):
         port = Mock()
         first, second = "a" * 32, "b" * 32
