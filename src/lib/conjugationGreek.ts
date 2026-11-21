@@ -250,6 +250,8 @@ function gNounCells(d: GNoun, w: ClassicalWord, item: VocabItem): string | undef
     if (acc.accent === CIRC && nuclei(stem)[target]) stem = markSyllable(stem, target, "L");
     stem = hinted(stem, d.hintLong, d.hintShort);
     const mono = nuclei(nom).length === 1;
+    if (!mono && gacc.pos !== acc.pos)
+      return `the genitive "${render(d.gen)}" in dict doesn't match the rules for ${cls}: the accent should stay on the syllable it has in "${nomS}" (persistent accent); check the accents, or give a table`;
     // One-syllable stems keep the nominative's accent outside the genitive and dative (θήρ, θῆρα).
     const gt = mono ? acc.pos : gacc.pos;
     const neut = gender === "n";
@@ -260,7 +262,7 @@ function gNounCells(d: GNoun, w: ClassicalWord, item: VocabItem): string | undef
     set("sg.dat", form("ι", true), rule("ι", monoNote(true)));
     // Dative plural: the stem's last consonant meets σ (Smyth 250).
     const dp = datPlural(stem);
-    const dls = persistent(concat(dp.stem, notation("σι")), gt, mono ? { onUltima: true, ultimaCirc: true } : {});
+    const dls = persistent(concat(dp.stem, notation(dp.end ?? "σι")), gt, mono ? { onUltima: true, ultimaCirc: true } : {});
     set("pl.dat", dls, `3rd declension dative plural: ${dp.how} + -σι(ν)${monoNote(true)}`, true);
     const monoGenPl = mono && !MONO_EXCEPT.includes(nomS);
     set("pl.gen", persistent(concat(stem, notation("ων")), gt, monoGenPl ? { onUltima: true, ultimaCirc: true } : {}), rule("ων", monoGenPl ? monoNote(true) : mono ? `; ${nomS} is an exception: the genitive plural keeps the stem accent` : ""));
@@ -342,7 +344,7 @@ function checkGen(w: ClassicalWord, item: VocabItem): string | undefined {
 }
 
 /** Dative plural stems (Smyth 250, 209). */
-function datPlural(stem: L[]): { stem: L[]; how: string } {
+function datPlural(stem: L[]): { stem: L[]; how: string; end?: string } {
   const b = bare(stem);
   let s = copy(stem);
   const last = b.slice(-1);
@@ -358,12 +360,12 @@ function datPlural(stem: L[]): { stem: L[]; how: string } {
   if (/[τδθ]$/.test(b)) {
     s = s.slice(0, -1);
     const b2 = bare(s);
-    if (/[κγχ]$/.test(b2)) return { stem: [...s.slice(0, -1), { b: "ξ", m: new Set() }], how: "the dental drops and κ, γ, χ + σ → ξ" };
+    if (/[κγχ]$/.test(b2)) return { stem: [...s.slice(0, -1), { b: "ξ", m: new Set() }], how: "the dental drops and κ, γ, χ + σ → ξ", end: "ι" };
     return { stem: s, how: "τ, δ, θ drop before σ" };
   }
   if (last === "ν") return { stem: s.slice(0, -1), how: "ν drops before σ" };
-  if (/[κγχ]/.test(last)) return { stem: [...s.slice(0, -1), { b: "ξ", m: new Set() }], how: "κ, γ, χ + σ → ξ" };
-  if (/[πβφ]/.test(last)) return { stem: [...s.slice(0, -1), { b: "ψ", m: new Set() }], how: "π, β, φ + σ → ψ" };
+  if (/[κγχ]/.test(last)) return { stem: [...s.slice(0, -1), { b: "ξ", m: new Set() }], how: "κ, γ, χ + σ → ξ", end: "ι" };
+  if (/[πβφ]/.test(last)) return { stem: [...s.slice(0, -1), { b: "ψ", m: new Set() }], how: "π, β, φ + σ → ψ", end: "ι" };
   if (last === "σ") return { stem: s.slice(0, -1), how: "σσ → σ" };
   return { stem: s, how: `the stem ${render(stem)}-` };
 }
@@ -672,7 +674,8 @@ interface Made {
 
 /** Stem + ending with its accent; contract verbs contract at the stem's last vowel. */
 function make(stem: L[], ending: string, acc: Acc, o: { contract?: boolean; min?: number; spurious?: boolean } = {}): Made {
-  const nu = ending.endsWith("(ν)");
+  // A contracted -ε(ν) has no movable ν (ἐτίμαε → ἐτίμα).
+  const nu = ending.endsWith("(ν)") && !(o.contract && ending === "ε(ν)");
   const e = notation(ending.replace("(ν)", ""));
   let ls = concat(stem, e);
   const fixed = hasAccent(ending);
@@ -750,8 +753,7 @@ function gVerb(item: VocabItem): ClassicalWord | string {
     for (const vo of fv) {
       const t = T[vo === "act" ? "act" : "mp"];
       const what = `Future: ${render(F)}- (from the second principal part) + ${vo === "act" ? "active" : "middle"} endings${fc ? ", contracted like -έω" : ""}`;
-      const ind = vo === "mid" && EI_ONLY.includes(v.term) ? t.ind.map((e, i) => (i === 1 ? "ει" : e)) : t.ind;
-      row(`fut-${vo}-ind`, F, ind, PERSONS, what, "future", { contract: fc });
+      row(`fut-${vo}-ind`, F, t.ind, PERSONS, what, "future", { contract: fc });
       row(`fut-${vo}-opt`, F, fc && vo === "act" ? T.contractOpt : t.opt, PERSONS, what, "future", { contract: fc });
       put(`fut-${vo}-inf`, make(F, t.inf, "rec", { contract: fc, spurious: vo === "act" }), what, "future");
       ptc(`fut-${vo}-ptc`, F, t.ptc, `${what}; participles keep the accent of the masculine`, "future", { contract: fc });

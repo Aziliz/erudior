@@ -493,6 +493,9 @@ interface VerbParts {
   /** Present system active, perfect system passive in form (audeō, ausus sum). */
   semi: boolean;
   term: string;
+  /** dict writes "—" for the perfect or the supine: the verb has none (not drilled, not missing). */
+  noPerf?: boolean;
+  noSupine?: boolean;
 }
 
 /** The six persons of a periphrastic form: participle + a form of sum, with every gender accepted. */
@@ -547,6 +550,8 @@ function verbTail(v: VerbParts, rest: string[], deponent: boolean): VerbParts | 
     return v;
   }
   const p3 = rest[0];
+  if (p3 && dash(p3)) v.noPerf = true;
+  if (rest[1] && dash(rest[1])) v.noSupine = true;
   if (!dash(p3)) {
     const semi = /^(\S+us) sum$/.exec(p3);
     if (semi) {
@@ -660,12 +665,17 @@ function laVerbCells(v: VerbParts, w: ClassicalWord, opts: { noPassive?: boolean
   }
   if (v.supine && !dep && !opts.noPassive) set("fut-pass-inf", { forms: [`${v.supine} īrī`], rule: `Future passive infinitive: the supine + īrī (${v.supine} īrī)` });
   // Why the rest is missing.
-  if (v.perf === undefined && !v.semi) w.missing.set("perf-act", `no perfect in dict: give the third principal part or the forms`).set("plpf-act", "no perfect in dict").set("futp-act", "no perfect in dict");
-  if (!v.ppp && !dep) {
-    const why = `no fourth principal part (supine) in dict: give it, the forms, or noForms`;
-    for (const k of ["perf-pass", "plpf-pass", "futp-pass", "perf-pass-ptc", "fut-pass-inf"]) w.missing.set(k, why);
+  const lacks = (prefixes: string[]) => w.slots.filter((s) => prefixes.some((k) => s.startsWith(k)) && !w.cells.has(s)).forEach((s) => w.optional.add(s));
+  if (v.perf === undefined && !v.semi && !dep) {
+    if (v.noPerf) lacks(["perf-act", "plpf-act", "futp-act"]);
+    else w.missing.set("perf-act", `no perfect in dict: give the third principal part (or "—"), or the forms`).set("plpf-act", "no perfect in dict").set("futp-act", "no perfect in dict");
   }
-  if (!v.futPtc) w.missing.set("fut-act", `no future participle: give the fourth principal part, the forms, or noForms`);
+  if (!v.ppp && !dep) {
+    const keys = ["perf-pass", "plpf-pass", "futp-pass", "fut-pass-inf"];
+    if (v.noSupine) lacks([...keys, "fut-act"]);
+    else for (const k of keys) w.missing.set(k, `no fourth principal part (supine) in dict: give it (or "—" if the verb has none), the forms, or noForms`);
+  }
+  if (!v.futPtc && !v.noSupine) w.missing.set("fut-act", `no future participle: give the fourth principal part (or "—"), the forms, or noForms`);
 }
 
 /**
@@ -703,7 +713,7 @@ const LA_IRREGULAR: Record<string, { model: Omit<VerbParts, "term">; forms: Reco
     note: "possum (pot- + sum) is irregular (A&G 137 b)",
   },
   eō: {
-    model: { cls: "v4", root: "", perf: "i", supine: "itum", futPtc: "itūrus", deponent: false, semi: false },
+    model: { cls: "v4", perf: "i", supine: "itum", futPtc: "itūrus", deponent: false, semi: false },
     forms: {
       "pres-act-ind": "eō, īs, it, īmus, ītis, eunt",
       "impf-act-ind": "ībam, ībās, ībat, ībāmus, ībātis, ībant",
@@ -746,7 +756,7 @@ const LA_IRREGULAR: Record<string, { model: Omit<VerbParts, "term">; forms: Reco
       "impf-act-subj": "vellem, vellēs, vellet, vellēmus, vellētis, vellent",
       "pres-act-inf": "velle",
     },
-    none: ["pass", "imp", "gerund", "gerundive", "fut-act", "perf-pass-ptc"],
+    none: ["pass", "imp", "gerund", "gerundive", "fut-act-inf", "fut-act-ptc", "perf-pass-ptc"],
     note: "volō is irregular (A&G 199)",
   },
   nōlō: {
@@ -770,11 +780,11 @@ const LA_IRREGULAR: Record<string, { model: Omit<VerbParts, "term">; forms: Reco
       "impf-act-subj": "māllem, māllēs, māllet, māllēmus, māllētis, māllent",
       "pres-act-inf": "mālle",
     },
-    none: ["pass", "imp", "ptc", "gerund", "gerundive", "fut-act"],
+    none: ["pass", "imp", "ptc", "gerund", "gerundive", "fut-act-inf"],
     note: "mālō (magis + volō) is irregular (A&G 199)",
   },
   fīō: {
-    model: { cls: "v4", root: "f", ppp: "factus", supine: "factum", deponent: true, semi: false },
+    model: { cls: "v4", ppp: "factus", supine: "factum", deponent: true, semi: false },
     forms: {
       "pres-act-ind": "fīō, fīs, fit, fīmus, fītis, fīunt",
       "impf-act-ind": "fīēbam, fīēbās, fīēbat, fīēbāmus, fīēbātis, fīēbant",
@@ -804,13 +814,13 @@ function laVerb(item: VocabItem): ClassicalWord | string {
       const v: VerbParts = { ...irr.model, term };
       w.deponent = v.deponent;
       laVerbCells(v, w);
-      if (irr.model.root === "" && v.cls === "v4") {
-        // eō: no present root to generate from; its table gives the present system.
-        for (const s of [...w.cells.keys()]) if (/^(pres|impf|fut)-(act|pass)-(ind|subj|imp)|^pres-(act|pass)-(inf|ptc)|^gerund/.test(s) && !/^fut-act-(inf|ptc)/.test(s)) w.cells.delete(s);
-      }
-      for (const none of irr.none) for (const s of w.slots) if (s.startsWith(none) || s.split(".")[0].split("-").includes(none)) w.cells.delete(s), w.optional.add(s);
+      for (const none of irr.none)
+        for (const s of w.slots) {
+          const f = s.split(".")[0];
+          if (f === none || f.startsWith(none + "-") || f.split("-").includes(none)) w.cells.delete(s), w.optional.add(s);
+        }
       applyTable(w, irr.forms, term);
-      for (const k of Object.keys(irr.forms)) for (const s of w.slots) if ((s === k || s.startsWith(k + ".")) && w.cells.has(s)) w.cells.get(s)!.rule = `${irr.note}: ${s.includes(".") ? "" : ""}${w.cells.get(s)!.forms.join(" or ")}`;
+      for (const k of Object.keys(irr.forms)) for (const s of w.slots) if ((s === k || s.startsWith(k + ".")) && w.cells.has(s)) w.cells.get(s)!.rule = `${irr.note}: ${w.cells.get(s)!.forms.join(" or ")}`;
       return w;
     }
     // Any other irregular verb: the table gives the present system; the perfect system comes from dict.
@@ -834,7 +844,7 @@ function laVerb(item: VocabItem): ClassicalWord | string {
 
 function laPron(item: VocabItem): ClassicalWord | string {
   const f = item.forms ?? {};
-  const gendered = Object.keys(f).some((k) => k.split(".").length === 3) || ["sg.nom", "sg", "pl"].some((k) => typeof f[k] === "string" && f[k]!.split(",").length === (k === "sg.nom" ? 3 : 18));
+  const gendered = Object.keys(f).some((k) => k.split(".").length === 3) || ["sg.nom", "sg", "pl"].some((k) => typeof f[k] === "string" && (k === "sg.nom" ? [3] : [15, 18]).includes(f[k]!.split(",").length));
   const slots = gendered ? adjSlots(LA_CASES) : nounSlots(LA_CASES, false);
   // The vocative is rare for pronouns: drilled only when the table gives it.
   const w: ClassicalWord = { kind: "pron", slots, optional: new Set(slots.filter((s) => s.split(".")[1] === "voc")), cells: new Map(), missing: new Map() };
