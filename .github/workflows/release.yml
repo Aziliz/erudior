@@ -65,6 +65,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf rpm libfuse2 file
 
+      - name: Make GNU utilities available on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew list coreutils >/dev/null 2>&1 || brew install coreutils
+          echo "$(brew --prefix coreutils)/libexec/gnubin" >> "$GITHUB_PATH"
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
