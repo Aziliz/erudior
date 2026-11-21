@@ -826,4 +826,61 @@ assert.deepEqual(normalizeConjFields({ conj: "decl3", forms: { "sg.voc": "deus",
 assert.equal(normalizeConjFields({ conj: "v3-io" }).conj, "v3-io");
 assert.deepEqual(slotsOfForm(classicalWord("la", puella) as never, "gen"), ["sg.gen", "pl.gen"]);
 
+// =============================================================================================
+// Class-specific unlocks: a form entry with "conj" opens the form only for those classes.
+
+{
+  const raw = {
+    forms: [
+      { form: "pres-act-ind", lesson: "l2" },
+      { form: "pres-act-ind", lesson: "l9", conj: ["v3"] },
+      { form: "pres-act-ind", lesson: "l2", conj: ["v1", "v2"] },
+      { form: "gen", lesson: "l6", conj: ["decl2"] },
+      { form: "gen", lesson: "l9", conj: ["decl1-eta", "decl1-alpha"] },
+      { form: "gen", lesson: "l10", conj: ["decl1-short", "decl1-masc"] },
+      { form: "gen", conj: ["nope"] },
+      { form: "gen", lesson: "l6", conj: ["decl2"] },
+    ],
+  };
+  const s = normalizeConjugationSettings(raw)!;
+  assert.equal(s.forms.length, 6, "same form + same classes only once; unknown classes drop the entry");
+  assert.deepEqual(s.forms[1], { form: "pres-act-ind", conj: ["v3"], lesson: "l9" });
+  const { conjugationShapeProblems } = await import("../src/lib/courseConjugation.ts");
+  assert.deepEqual(conjugationShapeProblems({ code: "grc", conjugation: { forms: [{ form: "gen", conj: ["decl1-eta"] }] } }, []), []);
+  assert.equal(conjugationShapeProblems({ code: "la", conjugation: { forms: [{ form: "gen", conj: ["decl1-eta"] }] } }, [])[0][0], "language.conjugation.forms[0].conj[0]");
+  assert.equal(conjugationShapeProblems({ code: "la", conjugation: { forms: [{ form: "gen", conj: [] }] } }, [])[0][0], "language.conjugation.forms[0].conj");
+
+  const { buildRound, openFormsFor, conjSummary } = await import("../src/lib/conjugation.ts");
+  const regoW = la("regō", "v3", "regō, regere, rēxī, rēctum");
+  const amoW = { ...la("amō", "v1", "amō, amāre, amāvī, amātum"), id: "amo" };
+  const lc = {
+    id: "c-la", title: "t", lessons: [{ id: "l1" }, { id: "l2" }, { id: "l9" }], vocab: [amoW, { ...regoW, id: "rego" }],
+    language: { code: "la", name: "Latin", conjugation: { forms: [{ form: "pres-act-ind", lesson: "l2", conj: ["v1", "v2"] }, { form: "pres-act-ind", lesson: "l9", conj: ["v3", "v3-io", "v4"] }] } },
+  } as unknown as Course;
+  const prog = (done: string[]) => ({ lessonsDone: Object.fromEntries(done.map((l) => [`c-la/${l}`, "2026-01-01"])), vocab: {}, conj: {} }) as never;
+  assert.deepEqual(openFormsFor(lc, prog(["l1", "l2"]), amoW), ["pres-act-ind"]);
+  assert.deepEqual(openFormsFor(lc, prog(["l1", "l2"]), lc.vocab![1]), [], "the 3rd conjugation waits for its lesson");
+  assert.deepEqual(openFormsFor(lc, prog(["l1", "l2", "l9"]), lc.vocab![1]), ["pres-act-ind"]);
+  const summary = conjSummary(lc, prog(["l2"]));
+  assert.equal(summary.length, 1, "one row per form");
+  assert.equal(summary[0].open, true);
+  const round = buildRound(lc, prog(["l1", "l2"]), 20);
+  assert(round.length > 0 && round.every((q) => q.item.id === "amo"), "a round before lesson 9 drills only the 1st conjugation");
+
+  // Greek 1st declension groups come from dict.
+  const g1 = (term: string, dict: string, forms?: Record<string, string>) => ({ ...gr(term, "decl1", dict, forms), id: term }) as VocabItem;
+  const gc1 = {
+    id: "c-gr", title: "t", lessons: [], vocab: [],
+    language: { code: "grc", name: "Greek", conjugation: { forms: [{ form: "gen", lesson: "l9", conj: ["decl1-eta", "decl1-alpha"] }, { form: "gen", lesson: "l10", conj: ["decl1-short", "decl1-masc"] }] } },
+  } as unknown as Course;
+  const gprog = (done: string[]) => ({ lessonsDone: Object.fromEntries(done.map((l) => [`c-gr/${l}`, "2026-01-01"])), vocab: {}, conj: {} }) as never;
+  const at9 = gprog(["l9"]);
+  assert.deepEqual(openFormsFor(gc1, at9, g1("τιμή", "τιμή, τιμῆς, ἡ")), ["gen"]);
+  assert.deepEqual(openFormsFor(gc1, at9, g1("χώρα", "χώρα, χώρας, ἡ")), ["gen"]);
+  assert.deepEqual(openFormsFor(gc1, at9, g1("θάλαττα", "θάλαττα, θαλάττης, ἡ")), []);
+  assert.deepEqual(openFormsFor(gc1, at9, g1("μοῖρα", "μοῖρα, μοίρας, ἡ")), [], "short α shown by the accent");
+  assert.deepEqual(openFormsFor(gc1, at9, g1("πολίτης", "πολίτης, πολίτου, ὁ")), []);
+  assert.deepEqual(openFormsFor(gc1, gprog(["l9", "l10"]), g1("πολίτης", "πολίτης, πολίτου, ὁ")), ["gen"]);
+}
+
 console.log("conjugation-classical: ok");

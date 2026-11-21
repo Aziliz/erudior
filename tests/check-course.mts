@@ -54,7 +54,7 @@ addKanjiStrokes(KANJI_STROKES);
 // Chinese courses trace hanzi (Make Me a Hanzi) instead: their strokes come in chunks (one per HSK
 // band), and checkCourse loads the ones a course traces.
 import { conjMissing, conjWordProblem, conjWordWarnings, deNoun, formsForClass } from "../src/lib/conjugation.ts";
-import { ALL_CLASSES, CONJ_FORMS, isClassical, languageClasses, languageFormKeys, languageForms } from "../src/lib/courseConjugation.ts";
+import { ALL_CLASSES, CONJ_FORMS, isClassical, languageClasses, languageFormKeys, languageForms, settingClasses } from "../src/lib/courseConjugation.ts";
 
 let mermaidParse: ((src: string) => Promise<unknown>) | null = null;
 async function parseMermaid(src: string): Promise<void> {
@@ -464,8 +464,15 @@ export async function checkCourse(file: string, opts: { runs?: number; money?: b
           if (!CONJ_FORMS.includes(form)) say(`language.conjugation: unknown form "${form}" (${usable.join(", ") || "only Japanese, German, Spanish, French, Latin and Greek have conjugation drills"})`);
           else if (!(usable as string[]).includes(form)) say(`language.conjugation: "${form}" isn't a ${c.language?.name ?? lang} form (${usable.join(", ")})`);
         }
-      if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map((f: { form?: string }) => f?.form)).size < rawConj.forms.length)
-        say(`language.conjugation: a form is listed twice`);
+      const entryKey = (f: { form?: string; conj?: unknown }) => `${f?.form}|${Array.isArray(f?.conj) ? [...f.conj].sort().join(",") : "*"}`;
+      if (Array.isArray(rawConj?.forms) && new Set(rawConj.forms.map(entryKey)).size < rawConj.forms.length)
+        say(`language.conjugation: a form is listed twice for the same classes`);
+      if (Array.isArray(rawConj?.forms))
+        for (const f of rawConj.forms) {
+          if (f?.conj === undefined) continue;
+          if (!Array.isArray(f.conj) || !f.conj.length) say(`language.conjugation form ${f?.form}: "conj" must be a non-empty list of classes`);
+          else for (const k of f.conj) if (!settingClasses(lang).includes(k)) say(`language.conjugation form ${f?.form}: unknown class "${k}" in conj (${settingClasses(lang).join(", ")})`);
+        }
       if (rawConj?.round !== undefined && settings?.round === undefined) say(`language.conjugation.round: must be a whole number from 1 to 100`);
     }
     for (const s of settings?.forms ?? [])

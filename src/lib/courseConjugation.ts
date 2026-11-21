@@ -143,9 +143,19 @@ export type DeForms = Partial<Record<DeFormKey | RomanceFormKey, string>>;
 /** A word's `forms`: the German/Romance keys, or Latin/Greek slot tables. */
 export type WordForms = DeForms & { [key: string]: string | undefined };
 
+/** Greek 1st-declension groups, from the word's dict: -η, long -ᾱ, short -ᾰ, masculine -ης/-ᾱς. */
+export const GRC_DECL1_GROUPS = ["decl1-eta", "decl1-alpha", "decl1-short", "decl1-masc"] as const;
+/** What a `language.conjugation.forms` entry's `conj` may name: the language's classes (Greek: and the 1st-declension groups). */
+export function settingClasses(lang: string): readonly string[] {
+  return lang === "grc" ? [...GRC_CLASSES, ...GRC_DECL1_GROUPS] : languageClasses(lang);
+}
+const SETTING_CLASSES: readonly string[] = [...ALL_CLASSES, ...GRC_DECL1_GROUPS];
+
 export interface ConjugationFormSetting {
   /** A form id from CONJ_FORMS. */
   form: string;
+  /** The word classes this entry applies to (none: every class). The same form may have several entries. */
+  conj?: string[];
   /** The lesson that teaches it; the form joins drills when that lesson is done. None: always on. */
   lesson?: string;
   /** The earlier course the lesson is in (as on carried-over vocabulary). */
@@ -171,11 +181,18 @@ export function normalizeConjugationSettings(raw: unknown): ConjugationSettings 
   for (const f of raw.forms) {
     if (!isObj(f)) continue;
     const form = str(f.form);
-    if (!CONJ_FORMS.includes(form) || seen.has(form)) continue;
-    seen.add(form);
+    let conj: string[] | undefined;
+    if (Array.isArray(f.conj)) {
+      conj = [...new Set(f.conj.map(str).filter((c) => SETTING_CLASSES.includes(c)))];
+      // Classes given but none known: drop the entry rather than open the form for every class.
+      if (!conj.length) continue;
+    }
+    const key = `${form}|${conj ? [...conj].sort().join(",") : "*"}`;
+    if (!CONJ_FORMS.includes(form) || seen.has(key)) continue;
+    seen.add(key);
     const lesson = str(f.lesson);
     const from = str(f.from);
-    forms.push({ form, ...(lesson ? { lesson } : {}), ...(from && ID.test(from) ? { from } : {}) });
+    forms.push({ form, ...(conj ? { conj } : {}), ...(lesson ? { lesson } : {}), ...(from && ID.test(from) ? { from } : {}) });
   }
   if (!forms.length) return undefined;
   const round = Number(raw.round);
@@ -214,7 +231,14 @@ export function conjugationShapeProblems(language: Record<string, unknown> | und
       c.forms.forEach((f, i) => {
         const p = `language.conjugation.forms[${i}]`;
         if (!isObj(f)) return out.push([p, "must be an object"]);
-        for (const k of Object.keys(f)) if (!["form", "lesson", "from"].includes(k)) out.push([`${p}.${k}`, "unsupported or authority/runtime field"]);
+        for (const k of Object.keys(f)) if (!["form", "lesson", "from", "conj"].includes(k)) out.push([`${p}.${k}`, "unsupported or authority/runtime field"]);
+        if (f.conj !== undefined) {
+          const known = settingClasses(String(language?.code ?? ""));
+          if (!Array.isArray(f.conj) || !f.conj.length) out.push([`${p}.conj`, "must be a non-empty list of word classes"]);
+          else f.conj.forEach((x, j) => {
+            if (typeof x !== "string" || !known.includes(x)) out.push([`${p}.conj[${j}]`, "unknown word class for this language"]);
+          });
+        }
         if (typeof f.form !== "string" || !CONJ_FORMS.includes(f.form)) out.push([`${p}.form`, "unknown conjugation form"]);
         for (const k of ["lesson", "from"]) if (f[k] !== undefined && (typeof f[k] !== "string" || !ID.test(f[k] as string))) out.push([`${p}.${k}`, "invalid stable ID"]);
       });
