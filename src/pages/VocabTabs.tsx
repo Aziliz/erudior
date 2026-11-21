@@ -11,12 +11,16 @@ import { hasKanji } from "../lib/kana";
 import { buildRound, conjSettings, conjSummary, conjWords } from "../lib/conjugation";
 import { buildToneRound, toneOpen, toneSettings, toneSummary, toneWords } from "../lib/toneDrills";
 import { toneLabel } from "../lib/tones";
+import { bareClassical } from "../lib/classical";
 
 export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const { progress } = api;
   const lang = course.language;
   const s = vocabSummary(course, progress);
   const [filter, setFilter] = useState<"all" | "unlocked" | "learning" | "learned">("unlocked");
+  // Find a word: case, Greek diacritics and Latin macrons don't matter ("amare" finds amāre).
+  const [find, setFind] = useState("");
+  const findKey = bareClassical(find.trim());
   const lessonTitle = useMemo(() => new Map(course.lessons.map((l) => [l.id, l.title])), [course]);
   const target = lang?.vocabTarget;
   const conj = useMemo(() => !!conjSettings(course) && conjWords(course).length > 0, [course]);
@@ -25,6 +29,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
   const unlocked = new Set(unlockedItems(course, progress).map((v) => v.id));
   const groupOf = (v: { from?: string; lesson: string }) => (v.from ? `from:${v.from}` : v.lesson);
   const rows = (course.vocab ?? []).filter((v) => {
+    if (findKey && !bareClassical(`${v.term} ${v.dict ?? ""} ${v.reading ?? ""} ${(v.alt ?? []).join(" ")} ${v.meanings.join(" ")}`).includes(findKey)) return false;
     const open = unlocked.has(v.id);
     const learned = directions(v).every((d) => stateOf(progress, vocabKey(course, v.id, d)).done);
     if (filter === "all") return true;
@@ -98,6 +103,7 @@ export function VocabTab({ api, course }: { api: AppApi; course: Course }) {
       <section className="panel">
         <div className="row" style={{ justifyContent: "space-between", marginBottom: 12 }}>
           <h2 style={{ margin: 0 }}>Word list</h2>
+          <input className="input vocab-find" type="search" style={{ width: "auto", flex: "1 1 10rem", maxWidth: "16rem" }} aria-label="Find a word" placeholder="Find a word" value={find} onChange={(e) => setFind(e.target.value)} />
           <select className="select" style={{ width: "auto" }} aria-label="Show words" value={filter} onChange={(e) => setFilter(e.target.value as typeof filter)}>
             <option value="unlocked">Unlocked</option>
             <option value="learning">Still learning</option>

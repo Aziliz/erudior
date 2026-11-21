@@ -10,7 +10,7 @@ const { betaToGreek, insertGreekMark, toMonotonic } = await import("../src/lib/g
 const { compareClassical, marksNote, isClassical, entryKey } = await import("../src/lib/classical.ts");
 const { latinRestored, latinEcclesiastical, greekRestored } = await import("../src/lib/classicalSpeech.ts");
 const { imeFor, imeForAnswer, latinTyping } = await import("../src/lib/ime.ts");
-const { checkAnswer, checkMeaning, checkRecall } = await import("../src/lib/vocab.ts");
+const { checkAnswer, checkMeaning, checkRecall, genderLabel } = await import("../src/lib/vocab.ts");
 const { isCorrect, partNotes, partsCorrect, textMatches, textVerdict } = await import("../src/lib/questions.ts");
 const { normalizeCourse } = await import("../src/lib/course.ts");
 const { normalizeBank } = await import("../src/lib/validate.ts");
@@ -172,6 +172,18 @@ const dv = checkConj(promptG, "ανδρος", "grc");
 ok("drill Greek no accent", dv.ok && dv.note === "With accents and breathings: ἀνδρός", dv);
 ok("drill wrong ending", !checkConj(promptG, "ανδρι", "grc").ok);
 // build questions: tiles are picked, not typed, so there's nothing to strip (sentenceBuild unchanged)
+
+// elision apostrophes: ’ ʼ ' ᾽ (U+1FBD) and U+02BC all match, typed or accepted
+for (const ap of ["’", "ʼ", "'", "᾽", "\u02bc", "\u1fbf"]) {
+  ok(`text apostrophe ${JSON.stringify(ap)}`, isCorrect(tq([["ἀλλ’ ἐγώ"]], "grc"), [`ἀλλ${ap} ἐγώ`]));
+  ok(`text apostrophe key ${JSON.stringify(ap)}`, isCorrect(tq([[`δι${ap} αὐτοῦ`]], "grc"), ["δι' αυτου"]));
+  ok(`recall apostrophe ${JSON.stringify(ap)}`, checkRecall({ id: "x", lesson: "l", term: "ἀλλ’", meanings: ["but"] }, `ἀλλ${ap}`, "grc").ok);
+}
+// genders: m/f and "m, f" (normalized)
+const g2 = normalizeCourse({ ...JSON.parse(readFileSync("samples/demo-classical.json", "utf8")), vocab: [{ id: "civis", lesson: "la-l1", term: "cīvis", dict: "cīvis, cīvis, m./f.", gender: "m, f", meanings: ["citizen"] }] });
+eq("gender m, f normalized", g2.vocab?.[0].gender, "m/f");
+ok("gender checker accepts m, f", !classicalCourseProblems({ vocab: [{ id: "a", term: "cīvis", gender: "m, f" }] }, "la").length);
+eq("gender label", genderLabel("m, f"), "masculine or feminine");
 
 // --- Respelling and transliteration --------------------------------------------------------------
 const lr: [string, string][] = [

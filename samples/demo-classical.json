@@ -64,7 +64,7 @@
         "q4",
         "q6"
       ],
-      "body": "## Greek words\n\nGreek is written here in full polytonic spelling: breathings, accents and the iota subscript. Type it in **Beta Code**: letters, then the marks after each letter.\n\n| You type | You get |\n|---|---|\n| `a)nh/r` | *ἀνήρ* |\n| `w)|dh/` | *ᾠδή* |\n| `*(ella/s` | *Ἑλλάς* |\n| `r(h/twr` | *ῥήτωρ* |\n| `tw=| a)nqrw/pw|` | *τῷ ἀνθρώπῳ* |\n\nFinal sigma is automatic: `lo/gos` gives *λόγος*. Accents and breathings are optional in answers, so *ανθρωπου* is marked right, with a note giving *ἀνθρώπου*.\n\n> *ὁ ἄνθρωπος λέγει.* — The man speaks.\n\nA word in Latin letters, such as the transliteration *anthrōpos*, is marked as a transliteration for screen readers.\n"
+      "body": "## Greek words\n\nGreek is written here in full polytonic spelling: breathings, accents and the iota subscript. Type it in **Beta Code**: letters, then the marks after each letter.\n\n| You type | You get |\n|---|---|\n| `a)nh/r` | *ἀνήρ* |\n| `w)|dh/` | *ᾠδή* |\n| `*(ella/s` | *Ἑλλάς* |\n| `r(h/twr` | *ῥήτωρ* |\n| `tw=| a)nqrw/pw|` | *τῷ ἀνθρώπῳ* |\n\nFinal sigma is automatic: `lo/gos` gives *λόγος*. Accents and breathings are optional in answers, so *ανθρωπου* is marked right, with a note giving *ἀνθρώπου*.\n\n> *ὁ ἄνθρωπος λέγει.* — The man speaks.\n"
     }
   ],
   "banks": [

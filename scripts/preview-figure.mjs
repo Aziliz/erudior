@@ -5,6 +5,10 @@
 // source and are drawn with the app's light (or --dark) colors. Labels for a label question
 // can be checked with --markers '[{"x":30,"y":40},…]' (percent positions, numbered 1, 2, …).
 // PLAYWRIGHT_MODULE overrides where Playwright is found (e.g. a global install).
+// An .svg with Greek text is drawn inline with the app's bundled Greek fonts (Noto Serif / Noto
+// Sans, Greek and Greek Extended) as a fallback after its own font-family, so polytonic text
+// renders on any machine; a note reminds you that the app shows SVGs as images, which use the
+// device's fonts (list a polytonic font in font-family, or convert the text to paths).
 const pw = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
 const { chromium } = pw.chromium ? pw : pw.default;
 import { readFileSync } from "node:fs";
@@ -20,7 +24,7 @@ const LIGHT = { bg: "#ffffff", ink: "#1c2833", soft: "#dde8f3", line: "#3e4c58",
 const DARK = { bg: "#182126", ink: "#e4ebe7", soft: "#1f3245", line: "#b4c1ba", accent: "#99c3ea" };
 const c = dark ? DARK : LIGHT;
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 900, height: 4000 }, deviceScaleFactor: 1 });
 if (/\.mmd$/i.test(input)) {
   await page.setContent(`<html><body style="margin:0;padding:16px;background:${c.bg};font-family:sans-serif"><div id="d"></div></body></html>`);
@@ -45,6 +49,21 @@ if (/\.mmd$/i.test(input)) {
     console.error("mermaid error:", err);
     process.exit(1);
   }
+} else if (/\.svg$/i.test(input) && /[\u0370-\u03ff\u1f00-\u1fff]/.test(readFileSync(input, "utf8"))) {
+  const font = (pkg, base, sub) => path.resolve(`node_modules/@fontsource-variable/${pkg}/files/${base}-${sub}-wght-normal.woff2`);
+  const faces = [["Erudior Greek Serif", "noto-serif"], ["Erudior Greek Sans", "noto-sans"]]
+    .flatMap(([fam, pkg]) => [["greek", "U+0370-03FF"], ["greek-ext", "U+1F00-1FFF"]].map(([sub, range]) =>
+      `@font-face{font-family:"${fam}";font-weight:100 900;src:url(data:font/woff2;base64,${readFileSync(font(pkg, pkg, sub)).toString("base64")}) format("woff2");unicode-range:${range}}`))
+    .join("");
+  await page.setContent(`<html><head><style>${faces}</style></head><body style="margin:0;padding:16px;background:${c.bg}"><div id="svg" style="display:inline-block;max-width:860px">${readFileSync(input, "utf8").replace(/<\?xml[^>]*>/, "")}</div></body></html>`);
+  await page.evaluate(async () => {
+    for (const t of document.querySelectorAll("#svg text, #svg tspan")) {
+      const fam = getComputedStyle(t).fontFamily;
+      t.style.fontFamily = `"${/sans/i.test(fam) && !/serif/i.test(fam.replace(/sans-serif/gi, "")) ? "Erudior Greek Sans" : "Erudior Greek Serif"}", ${fam}`;
+    }
+    await document.fonts.ready;
+  });
+  console.error("note: this SVG has Greek text. Lessons show SVGs as images, which use the device's own fonts: name a polytonic font in font-family (e.g. \"Gentium Plus\", \"Noto Serif\", \"Times New Roman\", serif) or convert the text to paths.");
 } else {
   const type = input.endsWith(".svg") ? "image/svg+xml" : input.endsWith(".png") ? "image/png" : "image/jpeg";
   const src = `data:${type};base64,${readFileSync(input).toString("base64")}`;

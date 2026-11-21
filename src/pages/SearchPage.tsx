@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { AppApi } from "../App";
 import type { Bank, Card, Course, GlossaryEntry, Lesson, Question, RefSheet, VocabItem } from "../lib/types";
-import { bareClassical, isClassical } from "../lib/classical";
+import { bareClassical } from "../lib/classical";
 import { stripPronMarkup } from "../lib/pronBlocks";
 import { DictLine } from "./VocabRunner";
 import { startPractice } from "../lib/session";
@@ -79,11 +79,10 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
         for (const card of d.cards)
           out.push({ kind: "card", course: c, deck: d.title, item: card, text: plain(`${card.front} ${card.back}`) });
       // Words, with their dictionary entries; in Latin and Greek, macrons and accents don't matter.
-      const classical = isClassical(c.language?.code);
       for (const v of c.vocab ?? []) {
         if (v.from) continue;
         const t = rubySearchText(`${v.term} ${v.dict ?? ""} ${v.reading ?? ""} ${v.meanings.join(" ")}`);
-        out.push({ kind: "word", course: c, item: v, text: classical ? `${t} ${bareClassical(t)}` : t });
+        out.push({ kind: "word", course: c, item: v, text: t });
       }
     }
     for (const b of api.banks) {
@@ -99,9 +98,11 @@ export default function SearchPage({ api, initial }: { api: AppApi; initial: str
     }
     return out;
   }, [api.courses, api.banks]);
+  const bareIndex = useMemo(() => index.map((h) => bareClassical(h.text)), [index]);
 
   const bareTerms = terms.map(bareClassical);
-  const hits = terms.length ? index.filter((h) => matches(h.text, terms) || (h.kind === "word" && matches(h.text, bareTerms))) : [];
+  // Greek diacritics and Latin macrons don't matter: "logos" finds λόγος only by letters, but "amare" finds amāre.
+  const hits = terms.length ? index.filter((h, i) => matches(h.text, terms) || matches(bareIndex[i], bareTerms)) : [];
   // Rank: title/term matches first within each group.
   const titleOf = (h: Hit) =>
     h.kind === "term" ? h.item.term : h.kind === "word" ? `${h.item.term} ${h.item.dict ?? ""}` : h.kind === "lesson" || h.kind === "ref" ? h.item.title : "";

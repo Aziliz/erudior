@@ -402,7 +402,7 @@ const GENDER_WORDS: Record<string, string> = { m: "masculine", f: "feminine", n:
 /** "m" → "masculine", "m/f" → "masculine or feminine". */
 export const genderLabel = (g: string) =>
   g
-    .split("/")
+    .split(/[/,]/)
     .map((x) => GENDER_WORDS[x.trim()] ?? x.trim())
     .join(" or ");
 

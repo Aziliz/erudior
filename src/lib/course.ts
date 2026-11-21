@@ -50,6 +50,9 @@ export function normalizeCourse(raw: unknown): Course {
  * carries the course language (`lang`) unless it sets its own. Other courses are returned as they are.
  */
 export function withAnswerLang(course: Course): Course {
+  // Genders written "m, f" read as "m/f" (canonical sources keep what was authored).
+  if (course.vocab?.some((v) => v.gender && v.gender !== normGender(v.gender)))
+    course = { ...course, vocab: course.vocab.map((v) => (v.gender && v.gender !== normGender(v.gender) ? { ...v, gender: normGender(v.gender) } : v)) };
   const code = course.language?.code;
   if (!code || !isClassical(code) || course.banks.every((b) => b.questions.every((q) => q.lang))) return course;
   return { ...course, banks: course.banks.map((b) => ({ ...b, questions: b.questions.map((q) => (q.lang ? q : { ...q, lang: code })) })) };
@@ -253,7 +256,7 @@ function readCourse(raw: unknown): Course {
         ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
         ...(str(v.dict).trim() ? { dict: str(v.dict).trim() } : {}),
-        ...(GENDER.test(str(v.gender).trim()) ? { gender: str(v.gender).trim() } : {}),
+        ...(GENDER.test(str(v.gender).trim()) ? { gender: normGender(str(v.gender)) } : {}),
         plural: str(v.plural) || undefined,
         example: str(v.example) || undefined,
         exampleEn: str(v.exampleEn) || undefined,
@@ -323,7 +326,9 @@ function readCourse(raw: unknown): Course {
 }
 
 /** Grammatical gender of a vocabulary word: m, f, n, or a combination such as m/f. */
-export const GENDER = /^[mfn](\/[mfn]){0,2}$/;
+export const GENDER = /^[mfn](\s*[/,]\s*[mfn]){0,2}$/;
+/** "m, f" / "m / f" → "m/f". */
+export const normGender = (g: string) => g.trim().split(/\s*[/,]\s*/).join("/");
 
 /** language.pronunciations: [{ id, label }] with unique lower-case ids; the first is the default. */
 export function normalizePronunciations(v: unknown): PronScheme[] | undefined {

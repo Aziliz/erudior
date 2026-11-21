@@ -48,6 +48,7 @@ export function normText(s: string, caseSensitive = false): string {
   // Japanese answers: no spaces between words, Japanese punctuation, furigana markup ignored.
   if (hasJapanese(s)) return normJa(s);
   let t = s
+    .replace(/[\u1fbd\u1fbf\u02bc]/g, "'")
     .normalize("NFKC")
     .replace(/[‘’ʼ]/g, "'")
     .replace(/[“”]/g, '"')
