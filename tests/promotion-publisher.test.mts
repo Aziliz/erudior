@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { newKeyPair, signBytes, sha256Hex, verifySignature, b64 } from '../src/lib/courseSign.ts';
 import { emptyCourse, exportCourseSnapshot } from '../src/lib/course.ts';
 import { importValidatedCourseSnapshot } from '../src/lib/courseIntegrity.ts';
@@ -20,12 +20,13 @@ try {
   fs.mkdirSync(path.join(temp, 'scripts')); fs.mkdirSync(path.join(temp, 'samples')); fs.mkdirSync(path.join(temp, 'previous'));
   for (const name of ['verify-promotion-handoff.ts', 'publish-courses.ts']) fs.copyFileSync(path.join(root, 'scripts', name), path.join(temp, 'scripts', name));
   fs.writeFileSync(path.join(temp, 'package.json'), '{"type":"module"}');
-  fs.symlinkSync(fs.realpathSync(path.join(root, 'node_modules')), path.join(temp, 'node_modules'), 'dir');
+  fs.symlinkSync(fs.realpathSync(path.join(root, 'node_modules')), path.join(temp, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
   // Test-only public pin inside the disposable copy. No production pin, secret, environment or release is changed.
   const keys = newKeyPair();
   fs.writeFileSync(path.join(temp, 'src/lib/courseKeys.ts'), `export const COURSE_PUBLIC_KEYS: string[] = ${JSON.stringify([keys.publicKey])};\n`);
   const env = { PATH: process.env.PATH, HOME: temp, NODE_ENV: 'test', COURSE_SIGNING_KEY: keys.secretKey };
-  const run = (script: string, argv: string[]) => spawnSync(process.execPath, ['--import', path.join(root, 'node_modules/tsx/dist/loader.mjs'), path.join(temp, 'scripts', script), ...argv], { cwd: temp, env, encoding: 'utf8', timeout: 60000, maxBuffer: 2 * 1024 * 1024 });
+  const loader = pathToFileURL(path.join(root, 'node_modules/tsx/dist/loader.mjs')).href;
+  const run = (script: string, argv: string[]) => spawnSync(process.execPath, ['--import', loader, path.join(temp, 'scripts', script), ...argv], { cwd: temp, env, encoding: 'utf8', timeout: 60000, maxBuffer: 2 * 1024 * 1024 });
   const write = (name: string, value: unknown) => fs.writeFileSync(path.join(temp, name), JSON.stringify(value, null, 2));
   const signedBaseline = (courses: unknown[], signingKeys = keys) => {
     const raw = Buffer.from(JSON.stringify({ format: 'examiner-catalog', version: 1, courses }));

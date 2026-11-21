@@ -81,7 +81,10 @@ function finish(code, signal, error) {
   writeReport(code, signal, error);
   process.exitCode = typeof code === "number" ? code : 1;
 }
-const child = spawn(command, commandArgs, { stdio: ["inherit", "pipe", "pipe"], shell: process.platform === "win32", windowsHide: true });
+// Native Windows executables accept argv directly. Passing them through cmd.exe
+// also interprets JavaScript and other quoted arguments as shell expressions.
+const useShell = process.platform === "win32" && !/\.exe$/i.test(command);
+const child = spawn(command, commandArgs, { stdio: ["inherit", "pipe", "pipe"], shell: useShell, windowsHide: true });
 child.stdout?.on("data", data => { process.stdout.write(data); capture(data); });
 child.stderr?.on("data", data => { process.stderr.write(data); capture(data); });
 child.on("error", error => { console.error("[diagnostics] command failed to start (" + error.code + ")"); finish(null, null, error); });

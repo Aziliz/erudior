@@ -13,6 +13,14 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing tag to rebuild and publish (leave blank for an artifacts-only build)
+        required: false
+        type: string
+
+env:
+  INSTALLER_TAG: ${{ inputs.release_tag || (github.ref_type == 'tag' && github.ref_name) || '' }}
 
 permissions:
   contents: write
@@ -35,6 +43,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Verify the source for a tagged rebuild
+        if: inputs.release_tag != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/main
+          test "$INSTALLER_TAG" = "v$(node -p "require('./src-tauri/tauri.conf.json').version")"
+          git fetch --no-tags origin "refs/tags/$INSTALLER_TAG:refs/tags/$INSTALLER_TAG"
+          # Only the test harness and installer workflow may differ from the
+          # published tag. Compile the original tagged tree after regression.
+          git diff --exit-code "refs/tags/$INSTALLER_TAG" HEAD -- . \
+            ':(exclude).github/workflows/release.yml' ':(exclude)tests/**' \
+            ':(exclude)scripts/diagnostic-command.mjs' ':(exclude)scripts/verify-promotion-handoff.ts'
       - name: Verify Erudior-only product identity
         run: node scripts/check-product-identity.mjs
 
@@ -43,6 +64,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf rpm libfuse2 file
+
+      - name: Make GNU utilities available on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew list coreutils >/dev/null 2>&1 || brew install coreutils
+          echo "$(brew --prefix coreutils)/libexec/gnubin" >> "$GITHUB_PATH"
 
       - uses: actions/setup-node@v4
         with:
@@ -62,7 +89,15 @@ jobs:
         run: node --test tests/diagnostic-command.test.mjs
       - name: Regression tests
         id: regression
+        env:
+          # The full npm test script exceeds cmd.exe's command-length limit.
+          npm_config_script_shell: bash
         run: node scripts/diagnostic-command.mjs regression -- npm test
+
+      - name: Restore exact release sources for packaging
+        if: inputs.release_tag != ''
+        shell: bash
+        run: git checkout --detach "refs/tags/$INSTALLER_TAG"
 
       # Once course hosting is set up (docs/HOSTING.md), installers download courses from
       # the website instead of bundling them.
@@ -75,15 +110,15 @@ jobs:
 
       - name: Build (tagged release)
         id: tagged_build
-        if: startsWith(github.ref, 'refs/tags/')
+        if: env.INSTALLER_TAG != ''
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
         with:
-          tagName: ${{ github.ref_name }}
-          releaseName: Erudior ${{ github.ref_name }}
+          tagName: ${{ env.INSTALLER_TAG }}
+          releaseName: Erudior ${{ env.INSTALLER_TAG }}
           releaseBody: Download the installer for your system below.
           releaseDraft: false
           includeUpdaterJson: true
@@ -91,7 +126,7 @@ jobs:
 
       - name: Build (manual run)
         id: manual_build
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        if: env.INSTALLER_TAG == ''
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
@@ -100,13 +135,13 @@ jobs:
       # Homebrew's cask downloads releases/latest/download/Erudior-macOS-universal.dmg, so the
       # .dmg is also attached under that fixed name.
       - name: Attach the .dmg under a fixed name
-        if: runner.os == 'macOS' && startsWith(github.ref, 'refs/tags/')
+        if: runner.os == 'macOS' && env.INSTALLER_TAG != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           dmg=$(ls src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg | head -1)
           cp "$dmg" Erudior-macOS-universal.dmg
-          gh release upload "${{ github.ref_name }}" Erudior-macOS-universal.dmg --clobber
+          gh release upload "$INSTALLER_TAG" Erudior-macOS-universal.dmg --clobber
 
       - name: Upload installers
         uses: actions/upload-artifact@v4
