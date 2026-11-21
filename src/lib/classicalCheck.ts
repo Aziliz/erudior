@@ -37,7 +37,9 @@ function walk(v: unknown, path: string, out: { path: string; text: string }[]) {
 export function classicalTextProblems(text: string): string[] {
   const out: string[] = [];
   if (GREEK.test(text) && text !== text.normalize("NFC")) out.push("Greek text isn't NFC (normalize it, e.g. with .normalize('NFC'))");
-  for (const m of text.matchAll(WORD)) {
+  // IPA in [brackets] or /slashes/ mixes scripts on purpose ([θeˈos]): leave it out of the word checks.
+  const scan = text.replace(/\[[^\]\n]{1,60}\]/g, (x) => " ".repeat(x.length)).replace(/(^|\s)\/[^/\n]{1,60}\/(?=[\s.,;:)]|$)/g, (x) => " ".repeat(x.length));
+  for (const m of scan.matchAll(WORD)) {
     const w = m[0];
     const greek = GREEK.test(w);
     const latin = LATIN.test(w);
@@ -50,7 +52,7 @@ export function classicalTextProblems(text: string): string[] {
         letters.forEach((ch, i) => {
           if (ch === "ς" && i < letters.length - 1) out.push(`"${w}" has final sigma ς inside the word (write σ)`);
           // A fragment written with hyphens (-σσ-, -σ-) isn't a word end.
-          const fragment = text[(m.index ?? 0) + w.length] === "-" || text[(m.index ?? 0) - 1] === "-";
+          const fragment = scan[(m.index ?? 0) + w.length] === "-" || scan[(m.index ?? 0) - 1] === "-";
           if (ch === "σ" && i === letters.length - 1 && BASE_SIGMA.test(ch) && !fragment) out.push(`"${w}" ends in σ (write final ς)`);
           if (ch === "ϲ" || ch === "Ϲ") out.push(`"${w}" has a lunate sigma (write σ/ς)`);
         });

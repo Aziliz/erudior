@@ -206,5 +206,11 @@ export function slotLabel(slot: string, w: Pick<ClassicalWord, "kind" | "deponen
 
 /** A word's dictionary entry split at commas (empty parts dropped). */
 export function dictParts(item: VocabItem): string[] {
-  return (item.dict ?? "").split(",").map(nfc).filter(Boolean);
+  // Notes in parentheses ("(impf. εἶχον)", "(+ abl.)") aren't parts, and of "X or Y" the first
+  // is the one inflected (give the other as a table alternative).
+  return (item.dict ?? "")
+    .replace(/\([^)]*\)/g, " ")
+    .split(",")
+    .map((p) => nfc(p.split(/\s+or\s+/)[0]).trim())
+    .filter(Boolean);
 }

@@ -118,6 +118,7 @@ function gNounData(item: VocabItem): GNoun | string {
   if (parts.length < 2) return `dict "${item.dict}" needs the nominative, genitive and article ("λόγος, λόγου, ὁ")`;
   const [nomS, genRaw, art] = parts;
   if (nfc(item.term) !== nomS) return `the term "${item.term}" should be the nominative in dict ("${nomS}")`;
+  if (art && ["οἱ", "αἱ", "τά"].includes(nfc(art))) return `"${nomS}" is plural only (${nfc(art)}): give its forms as a table, with — for the singular ("sg": "—, —, —, —, —")`;
   const gender = genderOfArticle(art, item.gender);
   if (art && !ARTICLE[nfc(art)]) return `dict "${item.dict}": the third part should be the article ὁ, ἡ or τό`;
   if (!gender) return `give the article (ὁ, ἡ or τό) at the end of dict ("${nomS}, ${genRaw}, ὁ")`;
@@ -738,7 +739,7 @@ function gVerbSimplex(cls: string, parts: string[], f: NonNullable<VocabItem["fo
     const p = parse(parts[1]);
     const b = bare(p);
     const circ = accentOf(p)?.accent === CIRC;
-    if (b.endsWith("ομαι")) {
+    if (b.endsWith("ομαι") || b.endsWith("ουμαι")) {
       const c = b.endsWith("ουμαι") && circ;
       v.fut = { ls: mark(stripAccents(p).slice(0, p.length - (c ? 5 : 4)), "future"), contract: c, middle: true };
       if (c) v.fut.ls.push({ b: "ε", m: new Set() });
@@ -1091,10 +1092,10 @@ export function grcWordWarnings(item: VocabItem): string[] {
   const out: string[] = [];
   const term = nfc(item.term);
   const cls = item.conj ?? "";
-  if ((cls === "omega" || cls === "contract") && /^(ἀπο|ἀπ|ἀφ|ἐπι|ἐπ|ἐφ|κατα|κατ|καθ|μετα|μετ|μεθ|παρα|παρ|ἀνα|δια|ὑπο|ὑπ|ὑφ|ἀντι|ἀμφι|περι|προσ|προ|συν|συλ|συμ|συγ|ἐκ|ἐξ|εἰσ|ὑπερ|ἐμ|ἐγ)/.test(bare(term)))
+  if ((cls === "omega" || cls === "contract") && !item.forms?.prefix && /^(ἀπο|ἀπ|ἀφ|ἐπι|ἐπ|ἐφ|κατα|κατ|καθ|μετα|μετ|μεθ|παρα|παρ|ἀνα|δια|ὑπο|ὑπ|ὑφ|ἀντι|ἀμφι|περι|προσ|προ|συν|συλ|συμ|συγ|ἐκ|ἐξ|εἰσ|ὑπερ|ἐμ|ἐγ)/.test(bare(term)))
     out.push(`"${term}" may be a compound: the augment goes after the prefix (ἀπέλυον). If the aorist shows that, the augmented forms are refused; give them as tables`);
-  if (cls === "decl1" && /της$/.test(bare(term)) && term === "δεσπότης") out.push(`δεσπότης has the vocative δέσποτα: give forms "sg.voc"`);
-  if (cls === "decl2" && term === "ἀδελφός") out.push(`ἀδελφός has the vocative ἄδελφε: give forms "sg.voc"`);
+  if (cls === "decl1" && term === "δεσπότης" && !item.forms?.["sg.voc"] && !item.forms?.sg) out.push(`δεσπότης has the vocative δέσποτα: give forms "sg.voc"`);
+  if (cls === "decl2" && term === "ἀδελφός" && !item.forms?.["sg.voc"] && !item.forms?.sg) out.push(`ἀδελφός has the vocative ἄδελφε: give forms "sg.voc"`);
   // πατήρ, μήτηρ, θυγάτηρ, ἀνήρ, γυνή and ναῦς are built in (GRC_NOUN_TABLES).
   if (cls === "decl3" && ["κύων", "βοῦς", "Ζεύς"].includes(term) && !item.forms) out.push(`${term} is irregular: give its table`);
   return out;
