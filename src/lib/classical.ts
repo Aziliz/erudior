@@ -94,6 +94,6 @@ export const entryKey = (s: string) =>
   s
     .normalize("NFC")
     .replace(/[,.;:·()[\]’'"!?·;-]+/g, " ")
-    .replace(/[‐‑‒–—]/g, " ")
+    .replace(/[‐‑‒–—…]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
