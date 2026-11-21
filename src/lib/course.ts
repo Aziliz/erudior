@@ -255,7 +255,7 @@ function readCourse(raw: unknown): Course {
         ...(language?.code === "zh" && str(v.trad).trim() ? { trad: str(v.trad).trim() } : {}),
         ...pitchOf(v, language?.code),
         pos: str(v.pos) || undefined,
-        ...(str(v.dict).trim() ? { dict: str(v.dict).trim() } : {}),
+        ...(str(v.dict).trim() ? { dict: str(v.dict).trim().normalize("NFC") } : {}),
         ...(GENDER.test(str(v.gender).trim()) ? { gender: normGender(str(v.gender)) } : {}),
         plural: str(v.plural) || undefined,
         example: str(v.example) || undefined,
@@ -263,8 +263,6 @@ function readCourse(raw: unknown): Course {
         note: str(v.note) || undefined,
         ...(isAudioSrc(v.audio) ? { audio: v.audio } : {}),
         directions: dirs && dirs.length ? dirs : undefined,
-        ...(str(v.dict).trim() ? { dict: str(v.dict).trim().normalize("NFC") } : {}),
-        ...(str(v.gender).trim() ? { gender: str(v.gender).trim() } : {}),
         ...normalizeConjFields(v),
       };
     })

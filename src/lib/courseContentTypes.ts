@@ -326,7 +326,7 @@ export interface VocabItem {
     pitch?: number | number[];
     /** Part of speech, e.g. "noun", "verb". */
     pos?: string;
-    /** The full dictionary entry, shown with the word: "amō, amāre, amāvī, amātum", "ἀνήρ, ἀνδρός, ὁ". */
+    /** The full dictionary entry, shown with the word and used by the Latin/Greek inflection generator: "amō, amāre, amāvī, amātum", "ἀνήρ, ἀνδρός, ὁ". */
     dict?: string;
     /** Grammatical gender: "m", "f", "n", or a combination such as "m/f". */
     gender?: string;
@@ -340,11 +340,6 @@ export interface VocabItem {
     audio?: string;
     /** Which typed cards it gets; default both (meaning: term -> English; recall: English -> term). */
     directions?: VocabDirection[];
-    /** Latin and Greek: the full dictionary entry, shown with the word and used to inflect it
-     * ("amō, amāre, amāvī, amātum"; "rēx, rēgis, m."; "ἀνήρ, ἀνδρός, ὁ"). */
-    dict?: string;
-    /** Grammatical gender where it applies ("m", "f", "n"; Latin and Greek). */
-    gender?: string;
     /** Conjugation drills: the word's class (Japanese godan, i-adj…; German weak, strong, adj…; Latin decl1, v3…). */
     conj?: ConjClass;
     /** Conjugation drills: principal parts and irregular forms, e.g. { present3: "fährt" }; Latin and
