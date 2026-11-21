@@ -52,7 +52,9 @@ export function classicalTextProblems(text: string): string[] {
         letters.forEach((ch, i) => {
           if (ch === "ς" && i < letters.length - 1) out.push(`"${w}" has final sigma ς inside the word (write σ)`);
           // A fragment written with hyphens (-σσ-, -σ-) isn't a word end.
-          const fragment = scan[(m.index ?? 0) + w.length] === "-" || scan[(m.index ?? 0) - 1] === "-";
+          const next = scan[(m.index ?? 0) + w.length];
+          // A fragment written with hyphens isn't a word end, and before an elision mark (ἔπλευσ’) σ stays medial.
+          const fragment = next === "-" || scan[(m.index ?? 0) - 1] === "-" || /['’ʼ᾽᾿]/.test(next ?? "");
           if (ch === "σ" && i === letters.length - 1 && BASE_SIGMA.test(ch) && !fragment) out.push(`"${w}" ends in σ (write final ς)`);
           if (ch === "ϲ" || ch === "Ϲ") out.push(`"${w}" has a lunate sigma (write σ/ς)`);
         });
