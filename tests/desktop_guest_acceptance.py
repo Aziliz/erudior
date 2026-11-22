@@ -45,7 +45,7 @@ def check(console, command):
     console.sendall((command + " && printf 'DESKTOP_%s_PASSED\\n' CHECK || printf 'DESKTOP_%s_FAILED\\n' CHECK\n").encode())
     output = read_prompt(console, rb"DESKTOP_CHECK_(?:PASSED|FAILED)")
     if b"DESKTOP_CHECK_PASSED" not in output:
-        console.sendall(b"cloud-init status --long; systemctl list-jobs --no-pager; ps -eo pid,ppid,etime,stat,wchan:20,comm | tail -90; sudo tail -50 /var/log/cloud-init-output.log; sudo tail -20 /var/log/dnf.log; lsblk -o NAME,SIZE,LABEL; cat /etc/os-release | head -7; getenforce; ip -br a; systemctl --failed --no-pager; sudo grep -Ei 'error|warn|fail' /var/log/cloud-init.log | tail -20; printf 'END_%s_DIAGNOSTICS\\n' GUEST\n")
+        console.sendall(b"cloud-init status --long; sudo cloud-init status --long; namei -l /run/cloud-init/result.json; ls -ldZ /run/cloud-init /var/lib/cloud/data; sudo ls -laZ /run/cloud-init; sudo ls -laZ /var/lib/cloud/data; systemctl list-jobs --no-pager; sudo tail -8 /var/log/cloud-init-output.log; systemctl is-active cloud-final; lsblk -o NAME,SIZE,LABEL; ip -br a; printf 'END_%s_DIAGNOSTICS\\n' GUEST\n")
         detail = read_prompt(console, rb"END_GUEST_DIAGNOSTICS", timeout=40)
         print(detail.decode(errors="replace")[-13500:], flush=True)
         raise RuntimeError(f"Guest verification failed: {output[-850:]!r}")
@@ -66,7 +66,7 @@ def verify(course):
             console = consoles[role] = runner.connect(role, "serial", timeout=30)
             print(course, role, "logging in", flush=True)
             login(console, state["password"])
-            check(console, 'timeout 150 cloud-init status --wait && . /etc/os-release && test "$VERSION_ID" = 10.3 '
+            check(console, 'sudo timeout 240 cloud-init status --wait && . /etc/os-release && test "$VERSION_ID" = 10.3 '
                   '&& test "$(getenforce)" = Enforcing && test -b /dev/vdb && test -b /dev/vdc')
             check(console, "echo practice-change > /var/tmp/erudior-reset-test")
             print(course, role, "booted AlmaLinux with enforcing SELinux and both practice disks", flush=True)
@@ -93,7 +93,7 @@ def verify(course):
         for role in runner.ROLES:
             console = consoles[role] = runner.connect(role, "serial", timeout=30)
             login(console, fresh["password"])
-            check(console, "timeout 150 cloud-init status --wait && test ! -e /var/tmp/erudior-reset-test")
+            check(console, "sudo timeout 240 cloud-init status --wait && test ! -e /var/tmp/erudior-reset-test")
             console.close()
         action("reset")
         print(course, "readiness and second-attempt reset passed on both guests", flush=True)
