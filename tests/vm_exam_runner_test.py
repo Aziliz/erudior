@@ -180,6 +180,11 @@ class ExamTests(unittest.TestCase):
         args = ["start", runner.RHCSA_MOCK, "learner", runner.RHCSA_COURSE, "final"]
         with patch.object(runner, "exam_action", return_value={}) as action:
             runner.main(args)
+            self.assertEqual(action.call_args.args[1].name, runner.AUTO_IMAGE)
+            images = action.call_args.args[1].parent
+            images.mkdir(exist_ok=True, parents=True)
+            (images / runner.ALMA_IMAGE).touch()
+            runner.main(args)
             self.assertEqual(action.call_args.args[1].name, runner.ALMA_IMAGE)
             runner.save("attempt.json", {"id": self.id})
             runner.main(args)

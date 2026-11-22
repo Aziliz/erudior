@@ -122,7 +122,7 @@ export async function verifyPublisherHandoff(argv: string[]) {
     nextStep: 'An independently authorized publisher must recheck current review/source status and baseline freshness, retain this evidence, and use the unchanged scripts/publish-courses.ts production release path with all repository and deployment checks. No catalog, course, key or approval was changed.',
   };
 }
-if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {
+if (process.argv[1] && fs.existsSync(process.argv[1]) && pathToFileURL(fs.realpathSync(process.argv[1])).href === import.meta.url) {
   try { console.log(JSON.stringify(await verifyPublisherHandoff(process.argv.slice(2)), null, 2)); }
   catch (error) { console.error(JSON.stringify({ status: 'blocked', error: error instanceof Error ? error.message : 'Publisher verification failed.' })); process.exitCode = 1; }
 }

@@ -31,7 +31,8 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
   const [provider, setProvider] = useState("");
   const supported = !!provider;
   const [terminal, setTerminal] = useState<{role:GuestRole; sequence:number} | null>(null);
-  const [busy, setBusy] = useState(false);
+  const [pendingAction, setPendingAction] = useState<Action | null>(null);
+  const busy = pendingAction !== null;
   const [error, setError] = useState("");
   const mounted = useRef(false);
   const locked = useRef(false);
@@ -106,7 +107,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
     }
     locked.current = true;
     epoch.current++;
-    setBusy(true);
+    setPendingAction(action);
     setError("");
     try {
       if (action === "submit" && !await confirmAction(rebootRoles.length
@@ -121,7 +122,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
         setError(String(cause));
         try { const data = await request("status"); if (current()) setState(data); } catch { /* Keep the action error. */ }
       }
-    } finally { locked.current = false; if (current()) setBusy(false); }
+    } finally { locked.current = false; if (current()) setPendingAction(null); }
   }
 
   const seconds = Math.ceil((state?.exam.remainingMs ?? 0) / 1000);
@@ -135,7 +136,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
       {scenario === RHCSA_MOCK && <p>Erudior practice settings are 180 minutes, 300 points and a 210-point passing target. Each of the ten objective areas is worth 30 points.</p>}
     </> : <p>{VM_TASKS["client-nfs"].instruction} The mount must also work after reboot.</p>}
     {supported ? <>
-      <VmSetup provider={provider} course={course} />
+      <VmSetup provider={provider} course={course} preparing={pendingAction === "start"} />
       {state?.exam.platforms && <p>Client · {state.exam.platforms.client}<br />Server · {state.exam.platforms.server}</p>}
       <p role="status">{messages[phase]}</p>
       {phase === "active" && <strong role="timer">{Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2,"0")} remaining</strong>}

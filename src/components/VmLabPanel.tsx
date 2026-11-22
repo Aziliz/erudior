@@ -18,6 +18,8 @@ interface LabState {
 export default function VmLabPanel({ api, course, lesson, scenario }: {
   api: AppApi; course: string; lesson: string; scenario: VmLabScenario;
 }) {
+  const rhce = course === "rhce-ansible-alma10";
+  const coursePractice = lesson === "practice-environment";
   const student = api.student?.id ?? null;
   const profile = student === null ? "solo-" + (api.progress.anonymousGeneration ?? 0) : "student-" + student;
   const key = vmReportKey(course, lesson, scenario);
@@ -95,17 +97,17 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
   const pending = lab?.report;
   const needsSave = validVmReport(pending, scenario) && (!validVmReport(saved, scenario) || pending.checkedAt > saved.checkedAt);
   return <section className="panel stack" aria-label="Virtual machine lab">
-    <h2>Two-machine Linux lab</h2>
-    <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>
+    <h2>{coursePractice ? (rhce ? "RHCE practice machines" : "RHCSA practice machines") : "Two-machine Linux lab"}</h2>
+    {rhce ? <p>The client is your Ansible control node. The managed server is <code>192.168.77.10</code>. On first boot, wait for <code>cloud-init status --wait</code> on each guest. On the client, use <code>~/.ssh/erudior_rhce</code> for the learner account on the server.</p> : coursePractice ? <p>Use the client and server throughout the course. Each graded practical has its own disks. Reset this pair when you want a fresh practice environment.</p> : <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>}
     {supported ? <>
-      <VmSetup provider={provider} course={course} />
+      <VmSetup provider={provider} course={course} preparing={busy === "start"} />
       {lab?.resetPending && <p role="alert">Choose Reset disks again to finish the interrupted reset.</p>}
       {lab && <p role="status">Server {lab.running.server ? "running" : "off"} · Client {lab.running.client ? "running" : "off"}</p>}
       <div className="row" aria-busy={!!busy}>
         <button className="btn primary" disabled={!!busy || !!both || lab?.resetPending} onClick={() => act("start")}>Start lab</button>
         <button className="btn" disabled={!!busy || !lab?.running.client} onClick={() => act("console-client")}>Client console</button>
         <button className="btn" disabled={!!busy || !lab?.running.server} onClick={() => act("console-server")}>Server console</button>
-        <button className="btn" disabled={!!busy || !both} onClick={() => act("check")}>Check my work</button>
+        {!coursePractice && <button className="btn" disabled={!!busy || !both} onClick={() => act("check")}>Check my work</button>}
         <button className="btn" disabled={!!busy || !(lab?.running.client || lab?.running.server)} onClick={() => act("stop")}>Stop lab</button>
         <button className="btn" disabled={!!busy || (!lab?.password && !lab?.resetPending)} onClick={() => act("reset")}>Reset disks</button>
         <button className="btn" disabled={!!busy} onClick={() => act("status")}>Refresh status</button>

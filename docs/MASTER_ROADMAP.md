@@ -1,6 +1,6 @@
-## Local virtual machine labs — In Progress, November 20, 2026
+## Local virtual machine labs — In Progress, November 21, 2026
 
-The engine grades persistent configurations on both machines. The new RHCSA RHEL 10 practice form assigns an original hands-on task to each of ten published EX200 objective areas and reports area scores and an Erudior practice outcome. Earlier receipts preserve the rules used when those learners began. Zero to RHCSA on RHEL 10 offers one beginner-through-practical course across browser and desktop. Its 51 lessons and 76 questions include a manual two-machine path, ten graded desktop labs, two rehearsals and a three-hour final practical. Packaged Windows and macOS acceptance with a prepared AlmaLinux 10 pair is in progress. See [VM labs](VM_LABS.md).
+The engine grades persistent configurations on both machines. The new RHCSA RHEL 10 practice form assigns an original hands-on task to each of ten published EX200 objective areas and reports area scores and an Erudior practice outcome. Earlier receipts preserve the rules used when those learners began. Zero to RHCSA on RHEL 10 offers one beginner-through-practical course across browser and desktop. Its 51 lessons and 76 questions include a manual two-machine path, ten graded desktop labs, two rehearsals and a three-hour final practical. Desktop setup can fetch the AlmaLinux 10.3 DVD and practice kit or accept local copies to build a shared base for RHCSA and RHCE. Packaged Windows and macOS VM acceptance is in progress. See [VM labs](VM_LABS.md).
 
 ## Course authoring completion and availability — November 16, 2026
 

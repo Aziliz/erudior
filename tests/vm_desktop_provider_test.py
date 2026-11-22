@@ -34,7 +34,7 @@ class DesktopProvider(unittest.TestCase):
                 ]
                 payload = json.dumps(
                     [
-                        (LIB / "runner.py").read_text(),
+                        (LIB / "alma_setup.py").read_text() + "\n" + (LIB / "runner.py").read_text(),
                         (LIB / "guest_probe.py").read_text(),
                         args,
                     ]
@@ -61,6 +61,20 @@ class DesktopProvider(unittest.TestCase):
                     self.assertEqual(state["exam"]["phase"], "new")
                 bad = subprocess.run(cli, input=payload[:100], capture_output=True)
                 self.assertNotEqual(bad.returncode, 0)
+
+    def test_selected_kit_stream_uses_the_native_frame_and_validates_bytes(self):
+        kit = (LIB.parents[2] / "public/downloads/Erudior-AlmaLinux-10.3-Practice-Kit.zip").read_bytes()
+        source = (LIB / "alma_setup.py").read_text() + "\n" + (LIB / "runner.py").read_text()
+        with tempfile.TemporaryDirectory() as tmp:
+            def invoke(kind, data=b""):
+                frame = json.dumps([source, (LIB / "guest_probe.py").read_text(), ["_media", kind]]).encode()
+                return subprocess.run([sys.executable, "-I", "-u", "-c", (LIB / "bootstrap.py").read_text(),
+                                       str(len(frame))], input=frame + data, capture_output=True,
+                                      env={**os.environ, "XDG_DATA_HOME": tmp})
+            self.assertFalse(json.loads(invoke("status").stdout)["kit"])
+            self.assertTrue(json.loads(invoke("kit", kit).stdout)["kit"])
+            self.assertNotEqual(invoke("kit", kit[:12]).returncode, 0)
+            self.assertTrue(json.loads(invoke("status").stdout)["kit"])
 
     def test_frame_leaves_following_keyboard_bytes_untouched(self):
         code = "import os,sys;sys.argv.pop(1);sys.stdout.buffer.write(os.read(0,4))"

@@ -39,10 +39,15 @@ assert(!validVmReport({ ...report, after: {} }));
 let progress = emptyProgress(), started = false, confirm = false, student = "learnera";
 let latest: typeof report | null = null;
 let saveFail = false, resolved: (() => void) | undefined, delay = false;
+const mediaCalls: string[] = [];
 const actions: string[] = [];
 (dom.window as any).__TAURI_INTERNALS__ = { invoke: async (command: string, args: any) => {
   if (command === "install_kind") return "linux-package";
   if (command === "plugin:dialog|message") return confirm ? "Yes" : "No";
+  if (command === "vm_setup_media") {
+    mediaCalls.push(args.kind);
+    return { dvd: mediaCalls.includes("dvd"), kit: mediaCalls.includes("kit"), message: "" };
+  }
   assert.equal(command, "vm_lab");
   assert.equal(args.scenario, NFS_LAB);
   actions.push(args.action);
@@ -95,5 +100,12 @@ assert.equal(inventoryAnonymousData(restored, null, {}).vmLabChecks, 1);
 assert.throws(() => parseAnonymousProgress({ ...restored, vmLabReports: { [key]: { ...report, password: "unexpected" } } }));
 const { latestVmReports } = await import("../src/lib/vmLab.ts");
 assert.equal(latestVmReports({[key]: report}, {[key]: {...report, checkedAt: 1}})[key].checkedAt, report.checkedAt);
+await act(async () => root.render(createElement(VmLabPanel, { api: { progress } as AppApi, course: "rhce-ansible-alma10", lesson: "practice-environment", scenario: NFS_LAB })));
+await click("Choose DVD ISO");
+await click("Choose practice kit ZIP");
+assert(mediaCalls.includes("dvd") && mediaCalls.includes("kit"));
+assert.match(document.body.textContent!, /DVD cached/);
+assert.match(document.body.textContent!, /Kit cached/);
+assert.doesNotMatch(document.body.textContent!, /Check my work/);
 await act(async () => root.unmount());
 console.log("VM lesson import, roundtrip, revision, scoring, controls, consent, save retry and learner isolation passed");

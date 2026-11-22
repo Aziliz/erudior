@@ -12,10 +12,12 @@ name: Build installers
 on:
   push:
     tags: ["v*"]
+    branches: [main]
+    paths: [".github/desktop-release"]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -34,6 +36,9 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
+      - name: Preserve exact repository bytes on Windows
+        if: runner.os == 'Windows'
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
       - name: Verify Erudior-only product identity
         run: node scripts/check-product-identity.mjs
@@ -43,6 +48,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf rpm libfuse2 file
+
+      - name: Provide GNU utilities used by release transport tests
+        if: runner.os == 'macOS'
+        run: |
+          brew list coreutils >/dev/null 2>&1 || brew install coreutils
+          echo "$(brew --prefix coreutils)/libexec/gnubin" >> "$GITHUB_PATH"
 
       - uses: actions/setup-node@v4
         with:
@@ -62,6 +73,8 @@ jobs:
         run: node --test tests/diagnostic-command.test.mjs
       - name: Regression tests
         id: regression
+        env:
+          npm_config_script_shell: bash
         run: node scripts/diagnostic-command.mjs regression -- npm test
 
       # Once course hosting is set up (docs/HOSTING.md), installers download courses from
@@ -73,40 +86,12 @@ jobs:
           echo "VITE_COURSES_URL=${{ vars.COURSES_URL }}" >> "$GITHUB_ENV"
           echo "VITE_COMMUNITY_API=${{ vars.COMMUNITY_API }}" >> "$GITHUB_ENV"
 
-      - name: Build (tagged release)
-        id: tagged_build
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
-        with:
-          tagName: ${{ github.ref_name }}
-          releaseName: Erudior ${{ github.ref_name }}
-          releaseBody: Download the installer for your system below.
-          releaseDraft: false
-          includeUpdaterJson: true
-          args: --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}
-
-      - name: Build (manual run)
-        id: manual_build
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+      - name: Build signed installers and updater packages
+        id: signed_build
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
         run: npx tauri build --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}
-
-      # Homebrew's cask downloads releases/latest/download/Erudior-macOS-universal.dmg, so the
-      # .dmg is also attached under that fixed name.
-      - name: Attach the .dmg under a fixed name
-        if: runner.os == 'macOS' && startsWith(github.ref, 'refs/tags/')
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          dmg=$(ls src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg | head -1)
-          cp "$dmg" Erudior-macOS-universal.dmg
-          gh release upload "${{ github.ref_name }}" Erudior-macOS-universal.dmg --clobber
 
       - name: Upload installers
         uses: actions/upload-artifact@v4
@@ -118,13 +103,20 @@ jobs:
             src-tauri/target/release/bundle/appimage/*.AppImage
             src-tauri/target/release/bundle/nsis/*.exe
             src-tauri/target/release/bundle/msi/*.msi
+            src-tauri/target/release/bundle/deb/*.deb.sig
+            src-tauri/target/release/bundle/rpm/*.rpm.sig
+            src-tauri/target/release/bundle/appimage/*.AppImage.sig
+            src-tauri/target/release/bundle/nsis/*.exe.sig
+            src-tauri/target/release/bundle/msi/*.msi.sig
             src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
+            src-tauri/target/universal-apple-darwin/release/bundle/macos/*.app.tar.gz*
           if-no-files-found: error
+          compression-level: 0
       - name: Write safe CI diagnostic summary
         if: always()
         env:
           ERUDIOR_DIAG_JOB: "installers-${{ matrix.platform }}"
-          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},tagged_build:${{ steps.tagged_build.outcome }},manual_build:${{ steps.manual_build.outcome }}"
+          ERUDIOR_DIAG_STAGES: "regression:${{ steps.regression.outcome }},signed_build:${{ steps.signed_build.outcome }}"
         shell: bash
         run: node scripts/ci-diagnostics.mjs
       - name: Upload diagnostic report
@@ -135,3 +127,53 @@ jobs:
           path: ${{ runner.temp }}/erudior-ci-diagnostics/
           retention-days: 30
           if-no-files-found: warn
+
+  publish:
+    if: github.event_name == 'push' || github.ref_type == 'tag'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: desktop-release-publication
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: erudior-*
+          path: installers
+      - name: Verify all signed updater packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=$(cat .github/desktop-release)
+          if [[ "$GITHUB_REF_TYPE" == tag ]]; then tag=$GITHUB_REF_NAME; fi
+          [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          echo "DESKTOP_TAG=$tag" >> "$GITHUB_ENV"
+          sudo apt-get update
+          sudo apt-get install -y minisign
+          python3 scripts/prepare-desktop-release.py installers upload "$tag" "$GITHUB_REPOSITORY"
+      - name: Publish the complete desktop release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          ref=$(git ls-remote --refs origin "refs/tags/$DESKTOP_TAG" | cut -f1)
+          if [[ -z "$ref" ]]; then
+            gh api "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$DESKTOP_TAG" -f sha="$GITHUB_SHA" >/dev/null
+          else
+            git fetch --quiet origin "refs/tags/$DESKTOP_TAG"
+            [[ "$(git rev-parse 'FETCH_HEAD^{commit}')" == "$GITHUB_SHA" ]]
+          fi
+          if draft=$(gh release view "$DESKTOP_TAG" --json isDraft --jq .isDraft 2>/dev/null); then
+            [[ "$draft" == true ]]
+          else
+            gh release create "$DESKTOP_TAG" --draft --verify-tag --title "Erudior $DESKTOP_TAG" \
+              --notes "Desktop installers for Windows, macOS and Linux. RHCSA and RHCE practice labs can install from the AlmaLinux DVD and Erudior practice kit."
+          fi
+          latest=$(gh release view --json tagName --jq .tagName)
+          if [[ "$(printf '%s\n' "$latest" "$DESKTOP_TAG" | sort -V | tail -n1)" != "$DESKTOP_TAG" ]]; then
+            echo "::error::A newer desktop release already exists."; exit 1
+          fi
+          gh release upload "$DESKTOP_TAG" upload/* --clobber
+          gh release edit "$DESKTOP_TAG" --draft=false --latest

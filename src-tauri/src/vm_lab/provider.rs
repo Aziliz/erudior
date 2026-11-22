@@ -2,7 +2,7 @@ use std::io::{self, Write};
 use std::process::{Child, Command, Stdio};
 
 const BOOT: &str = include_str!("bootstrap.py");
-const SOURCE: &str = include_str!("runner.py");
+const SOURCE: &str = concat!(include_str!("alma_setup.py"), "\n", include_str!("runner.py"));
 const GUEST: &str = include_str!("guest_probe.py");
 
 fn provider() -> Result<Command, String> {
