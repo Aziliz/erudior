@@ -37,7 +37,7 @@ export default function AlmaSetupMedia({ preparing }: { preparing: boolean }) {
   }
 
   return <div className="stack">
-    <p>On first use, Erudior downloads the <a href={dvdUrl} target="_blank" rel="noreferrer">AlmaLinux 10.3 DVD</a> (10.1 GiB) and the <a href={kitUrl} target="_blank" rel="noreferrer">practice kit</a>, verifies both and installs the lab. If you already have the files, select them below. You can use them offline.</p>
+    <p>On first use, Erudior downloads the <a href={dvdUrl} target="_blank" rel="noreferrer">AlmaLinux 10.3 DVD</a> (10.1 GiB) and uses the included <a href={kitUrl} target="_blank" rel="noreferrer">practice kit</a> to install the lab. Erudior verifies both files. If you already have the files, select them below. You can use them offline.</p>
     <div className="row">
       <button className="btn" disabled={preparing || !!picking} onClick={() => void choose("dvd")}>Choose DVD ISO</button>
       {media?.dvd && <span>DVD cached</span>}
