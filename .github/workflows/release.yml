@@ -174,7 +174,7 @@ jobs:
             [[ "$draft" == true ]]
           else
             gh release create "$DESKTOP_TAG" --draft --verify-tag --title "Erudior $DESKTOP_TAG" \
-              --notes "Desktop installers for Windows, macOS and Linux. Read RHCSA and RHCE lessons beside the AlmaLinux practice terminal. The practice connection stays open as you move between reading lessons. Graded practicals open their own console beside the task instructions."
+              --notes "Desktop installers for Windows, macOS and Linux. Drag the terminal edge to adjust its height while reading RHCSA or RHCE lessons. Keyboard resizing is available, and the desktop remembers the setting."
           fi
           latest=$(gh release view --json tagName --jq .tagName)
           if [[ "$(printf '%s\n' "$latest" "$DESKTOP_TAG" | sort -V | tail -n1)" != "$DESKTOP_TAG" ]]; then

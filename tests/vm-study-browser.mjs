@@ -81,6 +81,22 @@ async function input(pane, command) {
   await page.keyboard.press("Enter");
   await page.waitForFunction(value => window.lastInput?.text.endsWith(value + "\r"), command);
 }
+const grip = pane => pane.getByRole("separator", { name: "Terminal height" });
+const height = pane => pane.locator(".vm-console-screen").evaluate(el => el.getBoundingClientRect().height);
+const rows = pane => pane.locator(".xterm-accessibility-tree [role=listitem]").count();
+
+async function dragHeight(pane, delta) {
+  const handle = grip(pane);
+  await handle.scrollIntoViewIfNeeded();
+  const box = await handle.boundingBox();
+  assert(box);
+  const x = box.x + box.width / 2, y = box.y + box.height / 2;
+  await page.mouse.move(x, y);
+  await page.mouse.down();
+  await page.mouse.move(x, y + delta, { steps: 5 });
+  await page.mouse.up();
+}
+
 try {
   await page.goto("https://erudior.test/");
   await page.locator(".course-row").filter({ hasText: course.title }).click();
@@ -93,6 +109,19 @@ try {
   await read.getByRole("button", { name: new RegExp(title("first-prompt")) }).first().click();
   await read.getByRole("heading", { name: title("first-prompt"), exact: true }).waitFor();
   await geometry(false);
+  const screen = practice.locator(".vm-console-screen");
+  const width = (await screen.boundingBox()).width;
+  const original = await height(practice);
+  const originalRows = await rows(practice);
+  await dragHeight(practice, 84);
+  assert(await height(practice) > original + 65);
+  assert.equal((await screen.boundingBox()).width, width);
+  await page.waitForFunction(count => document.querySelectorAll(".xterm-accessibility-tree [role=listitem]").length > count, originalRows);
+  const taller = await height(practice);
+  await grip(practice).press("ArrowUp");
+  assert(await height(practice) < taller);
+  assert(await height(practice) > original);
+  const chosen = await grip(practice).getAttribute("aria-valuenow");
   await read.locator("article").scrollIntoViewIfNeeded();
   const before = await read.evaluate(el => el.scrollTop);
   await input(practice, "pwd");
@@ -108,11 +137,30 @@ try {
   assert.equal((await opens()).length, 1, "Reading navigation reopened the session");
   await page.setViewportSize({ width: 820, height: 720 });
   await geometry(true);
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), chosen);
+  const narrowBefore = await height(practice);
+  const readerBefore = (await read.boundingBox()).height;
+  await dragHeight(practice, -60);
+  assert(await height(practice) > narrowBefore + 40);
+  assert((await read.boundingBox()).height < readerBefore - 40);
+  await grip(practice).press("Home");
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), await grip(practice).getAttribute("aria-valuemin"));
+  const shortest = await height(practice);
+  await grip(practice).press("ArrowUp");
+  assert(await height(practice) > shortest);
+  await grip(practice).press("End");
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), await grip(practice).getAttribute("aria-valuemax"));
+  await grip(practice).press("ArrowDown");
+  await grip(practice).press("ArrowDown");
+  const remembered = await grip(practice).getAttribute("aria-valuenow");
+  await geometry(true);
+  assert.equal((await opens()).length, 1, "Resizing must preserve the live serial connection");
   await input(practice, "whoami");
   assert.equal(await page.evaluate(() => window.lastInput.id), first.id);
   await page.screenshot({ path: out + "/narrow.png" });
   await practice.getByRole("button", { name: "Server console" }).click();
   await practice.getByRole("region", { name: "server serial console" }).waitFor();
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), remembered);
   await input(practice, "hostname");
   await button("Hide practice terminal").click();
   await page.waitForFunction(() => window.vmCalls.filter(c => c.cmd === "vm_console_close").length === 2);
@@ -124,14 +172,24 @@ try {
   await read.getByRole("button", { name: new RegExp(title("shared-directory")) }).first().click();
   await read.getByRole("button", { name: "Client console" }).click();
   await exam.getByText("Connected. Press Enter for the login prompt.").waitFor();
+  assert.equal(await grip(exam).getAttribute("aria-valuenow"), remembered);
+  await grip(exam).press("ArrowUp");
   await input(exam, "pwd");
   const last = (await opens()).at(-1);
   assert.equal(last.lesson, "shared-directory");
   assert.equal(last.expected, "exam-attempt");
   assert(await read.getByRole("region", { name: "Timed practical exam" }).isVisible());
   assert.equal(await button("Open practice terminal").count(), 0);
+  const examHeight = await grip(exam).getAttribute("aria-valuenow");
   await exam.getByRole("button", { name: "Close console" }).click();
   assert.equal(await exam.isVisible(), false);
+  await page.goto("https://erudior.test/");
+  await page.locator(".course-row").filter({ hasText: course.title }).click();
+  await button("Open practice terminal").click();
+  await practice.getByRole("button", { name: "Start lab" }).click();
+  await practice.getByText("Connected. Press Enter for the login prompt.").waitFor();
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), examHeight, "The preferred height should survive reopening the app");
+  console.log("Pointer and keyboard resizing, row refit, unchanged width and remembered terminal height passed.");
   console.log("Lesson reading, serial input, session continuity, two pane widths, guest switching and exam isolation passed.");
 } catch (error) {
   console.error((await page.locator("body").innerText()).slice(0,2300));
