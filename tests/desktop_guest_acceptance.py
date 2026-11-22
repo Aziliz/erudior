@@ -61,9 +61,10 @@ def verify(course):
                   '&& test "$(getenforce)" = Enforcing && test -b /dev/vdb && test -b /dev/vdc')
             check(console, "echo practice-change > /var/tmp/erudior-reset-test")
             print(course, role, "booted AlmaLinux with enforcing SELinux and both practice disks", flush=True)
+        track = "rhce" if course == runner.RHCE_COURSE else "rhcsa"
+        for role, console in consoles.items():
+            check(console, f"sudo bash /mnt/erudior-tools/check-guest.sh {track} {role}")
         if course == runner.RHCE_COURSE:
-            for role, console in consoles.items():
-                check(console, f"sudo bash /mnt/erudior-tools/check-guest.sh rhce {role}")
             check(consoles["client"], "ANSIBLE_HOST_KEY_CHECKING=True ansible all -i '192.168.77.10,' "
                   "-u learner --private-key ~/.ssh/erudior_rhce -m ansible.builtin.ping")
         else:
