@@ -1,10 +1,13 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
-import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import type { Terminal } from "@xterm/xterm";
 import type { VmLabScenario } from "../lib/vmLab";
 
 type ConsoleEvent = { kind: "output"; bytes: number[] } | { kind: "closed"; message: string };
 export type GuestRole = "client" | "server";
+
+export const VmConsoleTarget = createContext<HTMLDivElement | null>(null);
 
 interface ConsoleProps {
   role: GuestRole;
@@ -17,6 +20,7 @@ interface ConsoleProps {
 }
 
 export default function VmConsole({ role, profile, course, lesson, scenario, expected, close }: ConsoleProps) {
+  const target = useContext(VmConsoleTarget);
   const host = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState("Connecting…");
 
@@ -89,15 +93,15 @@ export default function VmConsole({ role, profile, course, lesson, scenario, exp
       observer?.disconnect();
       terminal?.dispose();
     };
-  }, [role, profile, course, lesson, scenario, expected]);
+  }, [role, profile, course, lesson, scenario, expected, target]);
 
-  return <section aria-label={role + " serial console"}>
+  const consoleView = <section className="vm-console" aria-label={role + " serial console"}>
     <div className="row">
       <h3>{role === "client" ? "Client" : "Server"} console</h3>
       <button className="btn" onClick={close}>Close console</button>
     </div>
     <p role="status">{status}</p>
-    <div ref={host} aria-label={role + " terminal"}
-      style={{ width: "100%", height: "min(55vh, 30rem)", minHeight: "14rem", background: "#000" }} />
+    <div ref={host} className="vm-console-screen" aria-label={role + " terminal"} onKeyDown={event => event.stopPropagation()} />
   </section>;
+  return target ? createPortal(consoleView, target) : consoleView;
 }

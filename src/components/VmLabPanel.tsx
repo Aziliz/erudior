@@ -50,14 +50,17 @@ function Panel({ api, course, lesson, scenario, provider }: PanelProps & { provi
       try {
         if (!provider) return;
         const state = await request("status");
-        if (live) setLab(state);
+        if (live) {
+          setLab(state);
+          if (coursePractice && state.running.client && state.attemptId) setTerminal({ role: "client", sequence: 1 });
+        }
       } catch (cause) {
         if (live) setError(String(cause));
       }
     })();
     return () => { live = false; mounted.current = false; };
     // The owning lesson keys this component on learner, course, lesson and scenario.
-  }, [provider, profile, course, lesson, scenario]);
+  }, [provider, profile, course, lesson, scenario, coursePractice]);
 
   function current() { return mounted.current && activeStudent() === student; }
 
@@ -84,6 +87,7 @@ function Panel({ api, course, lesson, scenario, provider }: PanelProps & { provi
       const next = await request(action);
       if (!current()) return;
       setLab(next);
+      if (action === "start" && coursePractice && next.running.client && next.attemptId) setTerminal({ role: "client", sequence: 1 });
       if (action === "check" && next.report) await record(next.report);
     } catch (cause) {
       if (current()) {

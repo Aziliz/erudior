@@ -1,0 +1,32 @@
+name: Verify lesson and terminal together
+on:
+  pull_request:
+    paths:
+      - 'src/App.tsx'
+      - 'src/pages/CourseHome.tsx'
+      - 'src/pages/LessonView.tsx'
+      - 'src/components/Vm*.tsx'
+      - 'src/styles.css'
+      - 'tests/vm-study-browser.mjs'
+      - '.github/workflows/lesson-terminal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reader-and-console:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/vm-study-browser.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lesson-terminal-layouts
+          path: test-results/vm-study/
