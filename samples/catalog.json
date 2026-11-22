@@ -9755,8 +9755,8 @@
   "file": "rhcsa-10-administration.json",
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
-  "description": "Start with your first Linux login. Learn, troubleshoot and prove persistent administration skills on an AlmaLinux 10 client and server while preparing for the RHEL 10 RHCSA exam. Study in a browser or run the graded practicals in Erudior desktop.",
-  "revision": 3,
+  "description": "Begin with your first AlmaLinux login and build toward independent RHEL 10 administration. Practice in a live terminal beside each reading, solve shift assignments, and test your work on a two-machine RHCSA practice exam.",
+  "revision": 4,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9764,141 +9764,181 @@
   "type": [
    "Exam prep"
   ],
-  "lessons": 51,
-  "questions": 76,
+  "lessons": 73,
+  "questions": 120,
   "cards": 0,
   "drills": 0,
   "lessonIds": [
    "install-workbench",
    "first-prompt",
    "first-session",
-   "practice-console",
+   "shell-words",
+   "offline-manual",
    "path-walk",
+   "links-and-names",
    "edit-help",
    "streams",
+   "log-patterns",
+   "archive-restore",
    "permission-model",
+   "first-shift",
+   "identity",
+   "login-identities",
+   "account-policy",
+   "directory-access",
    "shell-evidence",
    "shared-directory",
-   "identity",
-   "account-policy",
    "operator-lab",
    "network-model",
+   "address-plan",
    "network-path",
    "resolver-lab",
    "software-model",
+   "rpm-transaction",
    "rpm-flatpak",
+   "flatpak-shelf",
    "repo-lab",
    "processes",
+   "process-snapshot",
    "operations",
    "journal-case",
-   "boot-targets",
-   "boot-repair",
-   "root-recovery",
    "tuning-lab",
    "unit-lifecycle",
    "scheduling-model",
+   "timer-workshop",
    "schedules-time",
+   "clock-evidence",
    "service-lab",
+   "service-shift",
    "script-input",
    "script-contract",
+   "incident-script",
    "script-lab",
    "storage-map",
+   "partition-workbench",
    "lvm-workshop",
    "swap-workshop",
    "storage-checkpoint",
    "swap-lab",
    "mount-case",
+   "mount-receipt",
    "mount-identities",
    "nfs-reasoning",
+   "practice-console",
    "nfs-lab",
+   "kernel-entries",
+   "boot-targets",
+   "boot-repair",
+   "root-recovery",
    "ssh-firewall",
+   "firewall-path",
    "web-case",
+   "access-diagnosis",
    "selinux-context",
    "selinux-lab",
    "rehearsal-handoff",
    "rehearsal-maintenance",
    "alternate-practical",
    "practice-exam",
-   "after-action"
+   "after-action",
+   "container-lifecycle"
   ],
   "outline": [
    {
-    "title": "Your first Linux machine and shell",
+    "title": "Start here: meet your AlmaLinux machines",
     "lessons": [
      "Meet Linux and install your first practice machine",
      "Read a prompt and recover from a typing mistake",
-     "Choose your workspace and identify both machines",
-     "Practice consoles and an on-demand mount"
+     "Choose your workspace and identify both machines"
     ]
    },
    {
-    "title": "Shell tools and shared files",
+    "title": "Learn how Bash reads commands and how to find help",
+    "lessons": [
+     "Predict what Bash will pass to a command",
+     "Find the right manual when you forget an option"
+    ]
+   },
+   {
+    "title": "Work with paths, text, links and backups",
     "lessons": [
      "Find your way through a Linux filesystem",
+     "Recover from a renamed file using links and inodes",
      "Edit a configuration and find help offline",
      "Follow data through a pipeline",
+     "Read a log without counting the wrong records",
+     "Deliver a backup another operator can really restore",
      "Predict who can read, change or enter a path",
-     "Find evidence and build a shared directory",
-     "Lab • Hand off a team workspace"
+     "Independent shift: restore an operator's handoff"
     ]
    },
    {
-    "title": "Local accounts and delegated access",
+    "title": "Manage identities, privileges and shared files",
     "lessons": [
      "Understand a login, a group and a privileged command",
+     "See what changes when you become another user",
      "Onboard an operator without losing existing access",
+     "Predict who can create, read or remove a file",
+     "Find evidence and build a shared directory",
+     "Lab • Hand off a team workspace",
      "Lab • Add a client operator"
     ]
    },
    {
-    "title": "IP networking and name resolution",
+    "title": "Connect the client and server by address and name",
     "lessons": [
      "Follow one connection from client to service",
+     "Read an address, a route and a connection profile",
      "Trace a request from name to interface to listener",
      "Lab • Make the file server discoverable"
     ]
    },
    {
-    "title": "Software and repository management",
+    "title": "Manage signed RPM and Flatpak software",
     "lessons": [
      "Follow software from a trusted source to an installed file",
+     "Install and remove a signed package from the lab DVD",
      "Choose and verify a software source",
+     "Install from a signed Flatpak remote without Internet access",
      "Lab • Bring an offline RPM source online"
     ]
    },
    {
-    "title": "Running systems, boot and performance",
+    "title": "Observe running work, logs and performance",
     "lessons": [
      "Tell a process, a shell job and a service apart",
+     "Distinguish a busy CPU from memory pressure",
      "Follow a slowdown from process to journal",
      "Read a failure in the journal and preserve its evidence",
-     "Practice a one-time boot change and restore normal startup",
-     "Repair a failed mount from the guest console",
-     "Recover root access by interrupting the boot",
      "Lab • Apply a persistent performance profile"
     ]
    },
    {
-    "title": "Services, scheduled work and time",
+    "title": "Operate services, schedules and time",
     "lessons": [
      "Make a service leave evidence on every boot",
      "Choose when a job should run and how to prove it ran",
+     "Build a scheduled service and prove it actually ran",
      "Choose a scheduler and verify its work",
-     "Lab • Restore a startup service"
+     "Decide whether a server's clock can be trusted",
+     "Lab • Restore a startup service",
+     "Independent shift: diagnose a service that missed its schedule"
     ]
    },
    {
-    "title": "Shell scripts that other users can run",
+    "title": "Turn repeatable work into Bash scripts",
     "lessons": [
      "Build a decision from arguments and exit statuses",
      "Turn a shell command into a testable tool",
+     "Write a read-only inventory script and test its contract",
      "Lab • Deliver an executable classifier"
     ]
    },
    {
-    "title": "Local storage, LVM and swap",
+    "title": "Provision disks, logical volumes and swap",
     "lessons": [
      "Trace a file down to the disk that holds it",
+     "Draw a partition table before changing a disk",
      "Build and extend a disposable LVM volume",
      "Activate swap and make it return at startup",
      "Add capacity without disturbing existing data",
@@ -9906,31 +9946,50 @@
     ]
    },
    {
-    "title": "Local and network file systems",
+    "title": "Mount local storage and deliver remote files",
     "lessons": [
      "Explain why a file disappears under a mount",
+     "Prove which filesystem contains a user's report",
      "Mount the right filesystem and prove what is serving a path",
      "Build a manual NFS client before automating access",
+     "Workshop: trigger a network mount from the client",
      "Lab • Recover a share on demand"
     ]
    },
    {
-    "title": "Access controls, firewalls and SELinux",
+    "title": "Follow the boot chain and recover a practice guest",
+    "lessons": [
+     "Read the running kernel and the next boot entry",
+     "Practice a one-time boot change and restore normal startup",
+     "Repair a failed mount from the guest console",
+     "Recover root access by interrupting the boot"
+    ]
+   },
+   {
+    "title": "Secure and troubleshoot network services",
     "lessons": [
      "Control who can connect and what they can reach",
+     "Test a listener and its firewall rule separately",
      "Bring up a small web service and locate a failed request",
+     "Diagnose access from the account that needs it",
      "Diagnose a denial while keeping access controls intact",
      "Lab • Repair a web document label"
     ]
    },
    {
-    "title": "Independent administration and practical exams",
+    "title": "Rehearse, sit the practical and review the evidence",
     "lessons": [
      "Rehearsal • Hand off a working file service",
      "Rehearsal • Bring a branch server back into service",
      "Independent practical: provision a branch archive",
      "Final • RHCSA practice exam for RHEL 10",
      "Read your result and plan a targeted retake"
+    ]
+   },
+   {
+    "title": "Optional extension after exam review: containers and image mode",
+    "lessons": [
+     "Optional workshop: keep data when a container is replaced"
     ]
    }
   ],
