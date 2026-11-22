@@ -2,12 +2,14 @@
 import contextlib
 import fcntl
 import hashlib
+import io
 import os
 from pathlib import Path
 import secrets
 import shutil
 import subprocess
 import tempfile
+import urllib.error
 import urllib.request
 import zipfile
 
@@ -89,9 +91,22 @@ def acquire_medium(images, kind):
                 if check.hexdigest() == digest:
                     return path
         raise ValueError(f"The cached {name} failed verification. Choose a replacement in First-time setup.")
-    alma_progress(images, f"Downloading {name}")
-    with urllib.request.urlopen(url, timeout=90) as stream:
-        return cache_medium(images, kind, stream)
+    if kind == "kit" and globals().get("bundled_practice_kit"):
+        return cache_medium(images, kind, io.BytesIO(bundled_practice_kit))
+    # The website and the immutable repository copy contain identical verified kit bytes.
+    sources = [url]
+    if kind == "kit":
+        sources.append("https://raw.githubusercontent.com/Aziliz/erudior/"
+                       "12667a29d28b07b9f484d8e3e99ea8b6e112356f/public/downloads/" + KIT_NAME)
+    for source in sources:
+        alma_progress(images, f"Downloading {name}")
+        request = urllib.request.Request(source, headers={"User-Agent": "Erudior-Desktop-Labs/1"})
+        try:
+            with urllib.request.urlopen(request, timeout=90) as stream:
+                return cache_medium(images, kind, stream)
+        except (urllib.error.URLError, TimeoutError) as error:
+            if source == sources[-1]:
+                raise ValueError(f"Could not download {name}. Choose a local copy or retry. {error}") from error
 
 
 def install_kickstart(token):
@@ -170,7 +185,8 @@ def provision_disk(images, dvd, kit, destination, kvm):
             result = subprocess.run(args, cwd=work, stderr=subprocess.PIPE, timeout=options.pop("timeout", 120),
                                     stdout=options.pop("stdout", subprocess.DEVNULL), **options)
             if result.returncode:
-                raise ValueError(f"{Path(args[0]).name} failed: {result.stderr.decode(errors='replace')[-420:]}")
+                raise ValueError(f"{Path(args[0]).name} exited with status {result.returncode}. "
+                                 f"{result.stderr.decode(errors='replace')[-420:]}")
 
         with zipfile.ZipFile(kit) as archive:
             (work / "setup.iso").write_bytes(archive.read("Erudior-setup.iso"))

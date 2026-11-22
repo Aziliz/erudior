@@ -71,6 +71,11 @@ class DesktopProvider(unittest.TestCase):
                 return subprocess.run([sys.executable, "-I", "-u", "-c", (LIB / "bootstrap.py").read_text(),
                                        str(len(frame))], input=frame + data, capture_output=True,
                                       env={**os.environ, "XDG_DATA_HOME": tmp})
+            # The native start frame carries the offline kit without adding it to worker argv.
+            bundled = json.dumps(["print(len(bundled_practice_kit))", "guest", ["start"], list(kit)]).encode()
+            accepted = subprocess.run([sys.executable, "-I", "-u", "-c", (LIB / "bootstrap.py").read_text(),
+                                       str(len(bundled))], input=bundled, capture_output=True, check=True)
+            self.assertEqual(int(accepted.stdout), len(kit))
             self.assertFalse(json.loads(invoke("status").stdout)["kit"])
             self.assertTrue(json.loads(invoke("kit", kit).stdout)["kit"])
             self.assertNotEqual(invoke("kit", kit[:12]).returncode, 0)
