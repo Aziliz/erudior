@@ -8,6 +8,7 @@ import path from "node:path";
 import { newKeyPair, publicKeyOf, sha256Hex, signBytes, verifySignature, b64 } from "../src/lib/courseSign";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity";
 import { compareCourseRevisions } from "../src/lib/courseRevision";
+import { compareWithLessonMoves } from "./lib/lessonModuleMoves";
 import { validateSpreadsheetReleaseApproval, type SpreadsheetReleaseApproval } from "../src/lib/spreadsheetReleaseApproval";
 import { courseDuplicates, duplicateCourse } from "../src/lib/courseDuplicates";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
@@ -137,7 +138,12 @@ for (const entry of entries) {
         throw new Error(`Course ${entry.id} changed without incrementing revision ${entry.revision}.`);
       continue;
     }
-    const issues = compareCourseRevisions(previous, course);
+    const moveFile = path.join(root, "samples", "reviews",
+      `${entry.id}.r${previousEntry.revision}-r${entry.revision}.lesson-moves.json`);
+    const issues = fs.existsSync(moveFile)
+      ? compareWithLessonMoves(previous, course, JSON.parse(fs.readFileSync(moveFile, "utf8")), digest,
+          await sha256Hex(new TextEncoder().encode(source)))
+      : compareCourseRevisions(previous, course);
     if (issues.length) throw new Error(`Revision compatibility issue in ${entry.id}: ${issues.map((i) => `${i.severity} ${i.path}: ${i.message}`).join("; ")}`);
   }
 }

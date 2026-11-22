@@ -1,0 +1,39 @@
+{
+  "courseId": "rhcsa-rhel10-administration",
+  "fromRevision": 3,
+  "toRevision": 4,
+  "fromSha256": "a3afb9a49a0aeaecc8df4b54aac3793e75ea544fe0de025b7b34984ebdc77883",
+  "toSha256": "0b1a7720b763fc984ddc87d4a39d0a8f99f566ce04d5c635f6dc85e9b5dcb199",
+  "moves": [
+    {
+      "lesson": "practice-console",
+      "from": "orientation",
+      "to": "filesystems"
+    },
+    {
+      "lesson": "shell-evidence",
+      "from": "tools",
+      "to": "accounts"
+    },
+    {
+      "lesson": "shared-directory",
+      "from": "tools",
+      "to": "accounts"
+    },
+    {
+      "lesson": "boot-targets",
+      "from": "running",
+      "to": "boot"
+    },
+    {
+      "lesson": "boot-repair",
+      "from": "running",
+      "to": "boot"
+    },
+    {
+      "lesson": "root-recovery",
+      "from": "running",
+      "to": "boot"
+    }
+  ]
+}

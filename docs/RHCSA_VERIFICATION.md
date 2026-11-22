@@ -1,6 +1,28 @@
 # RHCSA course verification
 
-**Review date** November 21, 2026. **Course** Zero to RHCSA on RHEL 10, revision 2. **Practice system** AlmaLinux 10 x86_64 on the client and server. **Exam reference** Red Hat Enterprise Linux 10.
+**Review date** November 21, 2026. **Course** Zero to RHCSA on RHEL 10, revision 4. **Practice system** AlmaLinux 10 x86_64 on the client and server. **Exam reference** Red Hat Enterprise Linux 10.
+
+## Revision 4 curriculum and checks
+
+The single RHEL 10 course contains 15 modules, 73 lessons and 120 questions. The learner starts inside an AlmaLinux guest, practices each new skill in a shared shell, then completes independent work orders and the existing two-machine assessments. All 51 earlier lesson IDs, 76 question IDs and 14 VM scenarios remain addressable. The optional container extension follows the final review. Its lesson and questions are excluded from core completion and core practice by the existing honors settings.
+
+| Outline comparison | How an Erudior learner practices and checks the skill |
+| --- | --- |
+| Linux setup and shell | Identify a guest, user and prompt. Predict argument boundaries, look up syntax offline, recover from an unfinished command and use the client and server consoles. |
+| Files and identity | Diagnose a broken link, extract precise log records, restore both archive formats and test directory traversal. The first independent shift requires a portable restored handoff. |
+| Networking and software | Predict a private route and contrast device state with a persistent dual-stack profile. Install and remove a signed DVD RPM and a user-scoped Flatpak from a signed offline repository. |
+| Running systems and daily operations | Separate resource usage from elapsed time, inspect journal history, schedule a oneshot and identify the selected time source. The second independent shift requires a working scheduled delivery after boot. |
+| Storage, boot and automation | Verify GPT boundaries before and after a partition change, follow a file through its mount, compare running and selected kernels, and test a script using empty, missing, mixed and space-containing inputs. |
+| Secure network services | Distinguish a blocked port from an absent listener. Test a response as the intended consumer. Walk directory permissions before troubleshooting SELinux contexts and exercise autofs after a manual NFS mount. |
+| Exam and extension | Two rehearsals, an independent archive work order, a timed two-machine assessment and a targeted retake guide. Podman, volume lifetime and the image-mode comparison are optional extensions beyond the current published EX200 task list. |
+
+Pearson's published RHEL 10 lesson outline informed sequencing and the move from demonstration to independent work. Red Hat's public EX200 goals determine the core assessment scope. The **Your route from first login to the practical** reference sets a performance checkpoint for each stage.
+
+The revision 4 import, quiz references, course routes, practical scoring and production build passed. The desktop reader rendered all 73 lessons in Chromium. The release records the six lesson relocations by ID, source module and destination module, bound to the exact revision 3 and 4 package hashes. The publisher still checks all other identities and assessment scenarios. On a disposable AlmaLinux 10.3 guest, checks using the new workshop materials exercised shell expansion, links, regular expressions, both archive formats, directory permissions, script exit codes, GPT partition boundaries, mount hiding and service/timer activation. A signed Flatpak remote installed the inventory app and its runtime, exposed the expected payload and allowed clean removal. A signed tree RPM installed from the course DVD, ran, and was removed. The optional Podman exercise built its shell image locally and recovered the expected text from a named volume after replacing the container. On a second AlmaLinux pair the client fetched the roster through the server firewall, selected the private chrony source and demonstrated the failed and repaired scheduled service. After a client reboot, the timer was enabled and the repaired service delivered its marker in the new boot.
+
+## Earlier practical verification
+
+The results below describe the revision 2 baseline and its unchanged assessment profiles. They are distinct from the revision 4 checks above.
 
 The content review covers 50 lessons, 36 lesson quizzes with 68 distinct questions, 18 glossary entries, two reference guides and both practical assessment formats. The course maps to all 62 skills in the published EX200 list. Both real-guest mock cases and all six rows of the independent practical passed on AlmaLinux 10.3. The desktop transport and documentation-only alternatives are identified below.
 
