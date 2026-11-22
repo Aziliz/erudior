@@ -52,11 +52,14 @@ def verify(course):
     try:
         state = action("start")
         assert all(state["running"].values())
+        base = runner.lab_root() / "images" / runner.AUTO_IMAGE
+        original_base = (base.stat().st_ino, base.stat().st_mtime_ns)
         for role in runner.ROLES:
             console = consoles[role] = runner.connect(role, "serial", timeout=30)
             login(console, state["password"])
             check(console, 'cloud-init status --wait && . /etc/os-release && test "$VERSION_ID" = 10.3 '
                   '&& test "$(getenforce)" = Enforcing && test -b /dev/vdb && test -b /dev/vdc')
+            check(console, "echo practice-change > /var/tmp/erudior-reset-test")
             print(course, role, "booted AlmaLinux with enforcing SELinux and both practice disks", flush=True)
         if course == runner.RHCE_COURSE:
             for role, console in consoles.items():
@@ -73,7 +76,16 @@ def verify(course):
         action("reset")
         assert not any(action("status")["running"].values())
         assert action("status")["password"] is None
-        print(course, "readiness and disk reset passed", flush=True)
+        fresh = action("start")
+        assert fresh["password"] != state["password"] and fresh["attemptId"] != state["attemptId"]
+        assert (base.stat().st_ino, base.stat().st_mtime_ns) == original_base
+        for role in runner.ROLES:
+            console = consoles[role] = runner.connect(role, "serial", timeout=30)
+            login(console, fresh["password"])
+            check(console, "cloud-init status --wait && test ! -e /var/tmp/erudior-reset-test")
+            console.close()
+        action("reset")
+        print(course, "readiness and second-attempt reset passed on both guests", flush=True)
     finally:
         for console in consoles.values():
             console.close()
