@@ -69,6 +69,19 @@ class RunnerTests(unittest.TestCase):
                 self.assertEqual(nets["lab"]["match"]["macaddress"], runner.practice_mac(role, attempt))
                 self.assertTrue(nets["uplink"]["dhcp4"])
 
+    def test_managed_rhcsa_pair_uses_course_kit_and_preserves_grader_marker(self):
+        attempt = {"id": "a", "password": "test", "marker": "proof", "baseImage": runner.AUTO_IMAGE}
+        def create(args):
+            Path(args[args.index("-output") + 1]).touch()
+        with patch.object(runner, "tool", return_value="mkisofs"), patch.object(runner, "run", side_effect=create):
+            for role, suffix in (("server", "10"), ("client", "11")):
+                runner.seed(role, attempt)
+                config = json.loads(Path(role + "-seed/user-data").read_text().split("\n", 1)[1])
+                self.assertEqual(runner.practice_mac(role, attempt), "52:54:00:50:02:" + suffix)
+                self.assertIn("wheel", config["users"][0]["groups"])
+                self.assertIn(["bash", "/mnt/erudior-tools/prepare-guest.sh", "rhcsa", role], config["runcmd"])
+                self.assertEqual(any(f["content"] == "proof\n" for f in config["write_files"]), role == "server")
+
     def test_status_can_read_a_live_guest_while_its_monitor_is_busy(self):
         with patch.object(runner, "process_alive", side_effect=lambda role: role == "server"), \
                 patch.object(runner, "running", return_value=False) as monitor_check:
