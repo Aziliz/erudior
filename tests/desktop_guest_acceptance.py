@@ -38,6 +38,9 @@ def check(console, command):
     console.sendall((command + " && printf 'DESKTOP_%s_PASSED\\n' CHECK || printf 'DESKTOP_%s_FAILED\\n' CHECK\n").encode())
     output = read_prompt(console, rb"DESKTOP_CHECK_(?:PASSED|FAILED)")
     if b"DESKTOP_CHECK_PASSED" not in output:
+        console.sendall(b"cloud-init status --long; lsblk -o NAME,SIZE,LABEL; cat /etc/os-release | head -7; getenforce; ip -br a; systemctl --failed --no-pager; sudo grep -Ei 'error|warn|fail' /var/log/cloud-init.log | tail -20; printf 'END_%s_DIAGNOSTICS\\n' GUEST\n")
+        detail = read_prompt(console, rb"END_GUEST_DIAGNOSTICS", timeout=40)
+        print(detail.decode(errors="replace")[-6500:], flush=True)
         raise RuntimeError(f"Guest verification failed: {output[-850:]!r}")
 
 

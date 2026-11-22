@@ -27,8 +27,10 @@ jobs:
               apt-get update -qq
               DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3 qemu-system-x86 qemu-utils genisoimage openssh-client ca-certificates > /tmp/lab-tools.log
               python3 -u -c "import sys; sys.path.insert(0, \"src-tauri/src/vm_lab\"); import runner; print(\"KVM available:\",runner.x86_kvm(),flush=True); runner.prepare_alma_base(runner.lab_root()/\"images\"/runner.AUTO_IMAGE,runner.x86_kvm()); print(\"Verified base installed from public media\",flush=True)"
-              python3 -u tests/desktop_guest_acceptance.py rhcsa-rhel10-administration
-              python3 -u tests/desktop_guest_acceptance.py rhce-ansible-alma10
+              result=0
+              python3 -u tests/desktop_guest_acceptance.py rhcsa-rhel10-administration || result=1
+              python3 -u tests/desktop_guest_acceptance.py rhce-ansible-alma10 || result=1
+              exit "$result"
             '
       - name: Collect setup logs
         if: always()
