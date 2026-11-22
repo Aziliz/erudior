@@ -31,6 +31,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "samples/catalog.json"
       - "src/**"
       - "index.html"
       - "public/**"
