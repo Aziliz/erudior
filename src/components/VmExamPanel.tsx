@@ -1,3 +1,4 @@
+import VmProvider from "./VmProvider";
 import VmConsole, { type GuestRole } from "./VmConsole";
 import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
@@ -20,15 +21,22 @@ const messages: Record<Phase,string> = {
   error: "Grading was interrupted. Your submission is locked and can be retried.", interrupted: "The host restarted during this attempt.",
 };
 
-export default function VmExamPanel({api, course, lesson, scenario, minutes, tasks}: {
+interface PanelProps {
   api: AppApi; course: string; lesson: string; scenario: VmExamScenario; minutes: number; tasks?: VmTask[];
-}) {
+}
+
+export default function VmExamPanel(props: PanelProps) {
+  return <section className="panel stack" aria-label="Timed practical exam">
+    <VmProvider>{provider => <Panel {...props} provider={provider} />}</VmProvider>
+  </section>;
+}
+
+function Panel({ api, course, lesson, scenario, minutes, tasks, provider }: PanelProps & { provider: string }) {
   const student = api.student?.id ?? null;
   const profile = student ? "student-" + student : "solo-" + (api.progress.anonymousGeneration ?? 0);
   const key = vmReportKey(course, lesson, scenario);
   const saved = api.progress.vmLabReports?.[key];
   const [state, setState] = useState<State | null>(null);
-  const [provider, setProvider] = useState("");
   const supported = !!provider;
   const [terminal, setTerminal] = useState<{role:GuestRole; sequence:number} | null>(null);
   const [pendingAction, setPendingAction] = useState<Action | null>(null);
@@ -62,9 +70,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
     let disposed = false;
     async function initialize() {
       try {
-        const kind = await invoke<string>("install_kind");
-        if (disposed || !["linux-package","appimage","windows","macos"].includes(kind)) return;
-        setProvider(kind);
+        if (!provider) return;
         const version = epoch.current;
         const data = await request("status");
         if (!disposed && current() && version === epoch.current) setState(data);
@@ -72,7 +78,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
     }
     if (inApp) void initialize();
     return () => { disposed = true; mounted.current = false; };
-  }, [profile, course, lesson, scenario, minutes, tasks]);
+  }, [provider, profile, course, lesson, scenario, minutes, tasks]);
 
   useEffect(() => {
     if (!supported || (phase !== "active" && phase !== "submitted")) return;
@@ -127,7 +133,7 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
 
   const seconds = Math.ceil((state?.exam.remainingMs ?? 0) / 1000);
   const machines = state?.running;
-  return <section className="panel stack" aria-label="Timed practical exam">
+  return <>
     <h2>{scenario === RHCSA_MOCK ? "RHCSA practice exam · RHEL 10" : "Timed Linux practical"}</h2>
     {weighted ? <>
       <ol>{rubric.map(t => <li key={t.id}><strong>{VM_TASKS[t.id].role} · {VM_TASKS[t.id].title}</strong>
@@ -164,5 +170,5 @@ export default function VmExamPanel({api, course, lesson, scenario, minutes, tas
     </> : <p className="muted">Open this lesson in the Windows, macOS or Linux desktop app to take the {minutes}-minute practical.</p>}
     {error && <p role="alert">{error}</p>}
     {validVmReport(saved, scenario) && phase !== "active" && phase !== "submitted" && <VmResult saved={saved} scenario={scenario} />}
-  </section>;
+  </>;
 }

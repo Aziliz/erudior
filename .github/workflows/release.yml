@@ -43,6 +43,11 @@ jobs:
       - name: Verify Erudior-only product identity
         run: node scripts/check-product-identity.mjs
 
+      - name: Verify Windows lab onboarding
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: ./tests/windows-lab-setup.tests.ps1
+
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
         run: |
@@ -169,7 +174,7 @@ jobs:
             [[ "$draft" == true ]]
           else
             gh release create "$DESKTOP_TAG" --draft --verify-tag --title "Erudior $DESKTOP_TAG" \
-              --notes "Desktop installers for Windows, macOS and Linux. RHCSA and RHCE practice labs can install from the AlmaLinux DVD and Erudior practice kit."
+              --notes "Desktop installers for Windows, macOS and Linux. Windows can now set up its WSL 2 lab host from inside RHCSA and RHCE practice and exam lessons, then install the AlmaLinux guests from the DVD and practice kit."
           fi
           latest=$(gh release view --json tagName --jq .tagName)
           if [[ "$(printf '%s\n' "$latest" "$DESKTOP_TAG" | sort -V | tail -n1)" != "$DESKTOP_TAG" ]]; then

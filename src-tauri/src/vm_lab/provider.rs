@@ -6,27 +6,14 @@ const SOURCE: &str = concat!(include_str!("alma_setup.py"), "\n", include_str!("
 const GUEST: &str = include_str!("guest_probe.py");
 const ALMA_KIT: &[u8] = include_bytes!("../../../public/downloads/Erudior-AlmaLinux-10.3-Practice-Kit.zip");
 
-fn provider() -> Result<Command, String> {
+fn provider(_app: &tauri::AppHandle) -> Result<Command, String> {
     #[cfg(target_os = "linux")]
     {
         Ok(Command::new("/usr/bin/python3"))
     }
     #[cfg(target_os = "windows")]
     {
-        use std::os::windows::process::CommandExt;
-        let root =
-            std::env::var_os("SystemRoot").ok_or("Windows system directory is unavailable.")?;
-        let mut cmd = Command::new(std::path::Path::new(&root).join("System32").join("wsl.exe"));
-        cmd.args([
-            "--distribution",
-            "Debian",
-            "--cd",
-            "/",
-            "--exec",
-            "/usr/bin/python3",
-        ]);
-        cmd.creation_flags(0x08000000); // CREATE_NO_WINDOW; the terminal lives in Erudior.
-        Ok(cmd)
+        super::windows::provider(_app)
     }
     #[cfg(target_os = "macos")]
     {
@@ -57,10 +44,10 @@ fn provider() -> Result<Command, String> {
 
 /// Send source and arguments over a length-delimited pipe: Windows has a 32K command-line
 /// limit, and Lima forwards arguments through SSH. No learner strings become shell syntax.
-pub(super) fn launch(args: &[String]) -> Result<Child, String> {
+pub(super) fn launch(app: &tauri::AppHandle, args: &[String]) -> Result<Child, String> {
     let kit = args.first().filter(|action| action.as_str() == "start").map(|_| ALMA_KIT);
     let bytes = serde_json::to_vec(&(SOURCE, GUEST, args, kit)).map_err(|e| e.to_string())?;
-    let mut child = provider()?
+    let mut child = provider(app)?
         .args(["-I", "-u", "-c", BOOT, &bytes.len().to_string()])
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
@@ -71,8 +58,16 @@ pub(super) fn launch(args: &[String]) -> Result<Child, String> {
         })?;
     let written: io::Result<()> = child.stdin.as_mut().unwrap().write_all(&bytes);
     if let Err(e) = written {
-        let _ = child.kill();
-        let _ = child.wait();
+        drop(child.stdin.take());
+        if e.kind() == io::ErrorKind::BrokenPipe {
+            if let Ok(output) = child.wait_with_output() {
+                let detail = if output.stderr.is_empty() { &output.stdout } else { &output.stderr };
+                if !detail.is_empty() { return Err(message(detail)); }
+            }
+        } else {
+            let _ = child.kill();
+            let _ = child.wait();
+        }
         return Err(format!(
             "The local provider did not start Python 3. See First-time setup. {e}"
         ));
@@ -92,6 +87,9 @@ pub(super) fn message(bytes: &[u8]) -> String {
     } else {
         String::from_utf8_lossy(bytes).into_owned()
     };
+    if result.contains("WSL_E_DISTRO_NOT_FOUND") || result.contains("WSL_E_DEFAULT_DISTRO_NOT_FOUND") {
+        return "Windows could not find the lab host. Choose Set up Windows labs to install Debian or use an existing WSL 2 host.".into();
+    }
     let detail = result.trim().chars().take(700).collect::<String>();
     if detail.is_empty() {
         "Could not contact the local lab provider. See First-time setup.".into()
