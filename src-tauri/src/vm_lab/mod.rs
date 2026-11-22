@@ -137,14 +137,19 @@ pub async fn vm_setup_media(window: tauri::WebviewWindow, kind: String) -> Resul
     .map_err(|e| e.to_string())?
 }
 
-
 #[tauri::command]
-pub async fn vm_windows_host(window: tauri::WebviewWindow, target: Option<String>) -> Result<serde_json::Value, String> {
+pub async fn vm_windows_host(
+    window: tauri::WebviewWindow,
+    target: Option<String>,
+) -> Result<serde_json::Value, String> {
     own_window(&window)?;
     #[cfg(target_os = "windows")]
     {
-        tauri::async_runtime::spawn_blocking(move || windows::configure(window.app_handle(), target))
-            .await.map_err(|e| e.to_string())?
+        tauri::async_runtime::spawn_blocking(move || {
+            windows::configure(window.app_handle(), target)
+        })
+        .await
+        .map_err(|e| e.to_string())?
     }
     #[cfg(not(target_os = "windows"))]
     {

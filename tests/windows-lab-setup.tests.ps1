@@ -22,6 +22,9 @@ function Invoke-Wsl([string[]]$Arguments, [string]$InputScript) {
     $calls.Add($cmd)
     switch ($Arguments[0]) {
         '--list' {
+            if (!$registry.Count -and $Arguments[1] -eq '--verbose') {
+                return @{ Code = -1; Text = 'No distributions installed.' }
+            }
             $lines = foreach ($name in $registry.Keys) {
                 if ($Arguments[1] -eq '--quiet') { $name } else { "  $name    Angehalten    $($registry[$name])" }
             }
@@ -59,6 +62,7 @@ function Invoke-Wsl([string[]]$Arguments, [string]$InputScript) {
 Reset-Fixture
 Assert-True (!(Get-Inventory 'Debian' $false).ready -and $calls.Count -eq 0) 'Missing wsl.exe should offer first-use setup'
 Assert-True (!(Get-Inventory 'Debian' $true).ready) 'Missing distro must not launch a lab'
+Assert-True (!$calls.Contains('--list|--verbose')) 'Verbose WSL listing fails on an empty registry'
 $feature = $false
 Assert-True ((Setup-Host $Managed).state -eq 'restart') 'Windows feature restart must be surfaced'
 Assert-True (!$registry.Count) 'No distribution should be registered as administrator'

@@ -35,3 +35,24 @@ if ($again.state -ne 'ready') { throw 'Repeat setup failed.' }
 'Verified fresh Debian registration, QEMU and ISO tools, a non-root lab account, rediscovery and repeat setup on Windows.' |
     Tee-Object -Variable summary
 $summary | Out-File -Append -Encoding utf8 $env:GITHUB_STEP_SUMMARY
+
+# A separately registered Debian can hold existing disks under its own default account.
+$existing = 'Erudior-QA-existing'
+if ($before.hosts.name -contains $existing) { throw 'Existing-host fixture name is already taken.' }
+$archive = Join-Path $env:RUNNER_TEMP 'erudior-qa-debian.tar'
+$folder = Join-Path $env:RUNNER_TEMP 'erudior-qa-existing'
+& wsl.exe --export $setup.distribution $archive
+if ($LASTEXITCODE -ne 0) { throw 'Could not export the disposable fixture.' }
+& wsl.exe --import $existing $folder $archive --version 2
+if ($LASTEXITCODE -ne 0) { throw 'Could not register an existing-host fixture under a custom name.' }
+& wsl.exe --manage $existing --set-default-user erudior-lab
+if ($LASTEXITCODE -ne 0) { throw 'Could not select the fixture user.' }
+& wsl.exe -d $existing --cd '~' --exec touch erudior-prior-work
+if ($LASTEXITCODE -ne 0) { throw 'Could not stage prior work.' }
+$reused = Run-HostAction 'setup' $existing
+if ($reused.managed -or $reused.distribution -ne $existing -or $reused.state -ne 'ready') {
+    throw 'The selected existing host was not reused.'
+}
+& wsl.exe -d $existing --cd '~' --exec test -f erudior-prior-work
+if ($LASTEXITCODE -ne 0 -or !(Run-HostAction 'list' $existing).ready) { throw 'Could not resume the original user and files.' }
+Write-Host 'Verified reuse of a custom WSL distribution with its original Linux account and files.'
