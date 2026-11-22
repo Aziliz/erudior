@@ -119,6 +119,7 @@ keyboard us
 timezone Etc/UTC --utc
 rootpw --lock
 firstboot --disable
+services --disabled=kdump
 selinux --enforcing
 firewall --enabled --service=ssh
 ignoredisk --only-use=vda

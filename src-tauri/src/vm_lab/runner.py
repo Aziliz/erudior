@@ -95,7 +95,7 @@ def seed(role, attempt):
                               "dhcp4": True}
     (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": networks}))
     config = {
-        "users": [{"name": "learner", "shell": "/bin/bash", "lock_passwd": False,
+        "users": [{"name": "learner", "shell": "/bin/bash",
                    "sudo": ["ALL=(ALL) NOPASSWD:ALL"]}],
         "chpasswd": {"expire": False, "users": [
             {"name": "learner", "type": "text", "password": attempt["password"]}]},
@@ -119,11 +119,12 @@ def seed(role, attempt):
         keys = attempt["rhceKeys"]
         config["users"][0]["groups"] = ["wheel"]
         config["ssh_pwauth"] = False
-        config["write_files"] = []
         if role == "server":
+            del config["write_files"]
             config["users"][0]["ssh_authorized_keys"] = [keys["controlPub"]]
             config["ssh_keys"] = {"ed25519_private": keys["host"], "ed25519_public": keys["hostPub"]}
         else:
+            config["write_files"] = []
             ssh = "/home/learner/.ssh/"
             for filename, content in (("erudior_rhce", keys["control"]), ("erudior_rhce.pub", keys["controlPub"]),
                                       ("known_hosts", "192.168.77.10 " + keys["hostPub"])):
