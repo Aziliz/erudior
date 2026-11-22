@@ -2,6 +2,9 @@ import base64, json, os, pathlib, subprocess, sys, time, urllib.request
 from urllib.error import HTTPError, URLError
 
 course = json.loads(pathlib.Path("samples/rhcsa-10-administration.json").read_text())
+# A small public fixture selects the RHCE machine profile without redistributing the course.
+course["id"] = "rhce-ansible-alma10"
+course["title"] = "RHCE practice terminal acceptance"
 data = pathlib.Path(os.environ["XDG_DATA_HOME"]) / "com.erudior.app"
 (data / "courses").mkdir(parents=True, exist_ok=True)
 (data / "courses" / (course["id"] + ".json")).write_text(json.dumps(course))
@@ -37,7 +40,7 @@ try:
     button("Lessons")
     wait(lambda:js("const e=[...document.querySelectorAll('.lesson-title')].find(e=>e.textContent.includes('Read a prompt'));if(!e)return false;e.closest('button').click();return true"),"open reading lesson")
     if sys.argv[1]=='preflight':
-        print("Published RPM opened the actual RHCSA reading lesson in Fedora WebKitGTK.",flush=True)
+        print("Published RPM opened a reading in the Fedora RHCE desktop fixture.",flush=True)
         sys.exit()
     button("Open practice terminal")
     button("Start lab")
@@ -65,6 +68,14 @@ try:
     assert js("return window.lastConsole===document.querySelector('.xterm-helper-textarea')")
     key('echo ERUDIOR_CWD="$PWD"\n')
     wait(lambda:'ERUDIOR_CWD=/tmp' in screen(),"working directory in the same shell")
-    print("Fedora RPM verified: a command in the visible RHCSA terminal identified AlmaLinux 10.3. Its working directory and live xterm survived lesson navigation.",flush=True)
+    key("ansible all -i '192.168.77.10,' -u learner --private-key ~/.ssh/erudior_rhce -m ping\n")
+    wait(lambda:'"pong"' in screen(),"Ansible ping from controller to managed guest",90)
+    print("Fedora RPM verified the RHCE practice profile in the reader, the preserved guest shell and an Ansible ping between the two actual AlmaLinux guests.",flush=True)
+except Exception:
+    diagnostic=js("return [...document.querySelectorAll('.vm-console [role=status],.vm-study-machines [role=alert],.vm-study-machines .warn')].map(e=>e.textContent).join(' ')")
+    rows=screen().strip()[-1300:]
+    if "secret" in globals() and secret: rows=rows.replace(secret, "[redacted]")
+    print("Native screen status:",diagnostic,"terminal:",rows,flush=True)
+    raise
 finally:
     req(session,method="DELETE")
