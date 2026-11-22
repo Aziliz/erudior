@@ -4,7 +4,7 @@
 
 ## Revision 4 curriculum and checks
 
-The single RHEL 10 course contains 15 modules, 73 lessons and 120 questions. The learner starts inside an AlmaLinux guest, practices each new skill in a shared shell, then completes independent work orders and the existing two-machine assessments. All 51 earlier lesson IDs, 76 question IDs and 14 VM scenarios remain addressable. The optional container extension follows the final review.
+The single RHEL 10 course contains 15 modules, 73 lessons and 120 questions. The learner starts inside an AlmaLinux guest, practices each new skill in a shared shell, then completes independent work orders and the existing two-machine assessments. All 51 earlier lesson IDs, 76 question IDs and 14 VM scenarios remain addressable. The optional container extension follows the final review. Its lesson and questions are excluded from core completion and core practice by the existing honors settings.
 
 | Outline comparison | How an Erudior learner practices and checks the skill |
 | --- | --- |
@@ -18,7 +18,7 @@ The single RHEL 10 course contains 15 modules, 73 lessons and 120 questions. The
 
 Pearson's published RHEL 10 lesson outline informed sequencing and the move from demonstration to independent work. Red Hat's public EX200 goals determine the core assessment scope. The **Your route from first login to the practical** reference sets a performance checkpoint for each stage.
 
-The revision 4 import, quiz references, course routes, practical scoring and production build passed. On a disposable AlmaLinux 10.3 guest, checks using the new workshop materials exercised shell expansion, links, regular expressions, both archive formats, directory permissions, script exit codes, GPT partition boundaries, mount hiding and service/timer activation. A signed Flatpak remote installed the inventory app and its runtime, exposed the expected payload and allowed clean removal. A signed tree RPM installed from the course DVD, ran, and was removed. The optional Podman exercise built its shell image locally and recovered the expected text from a named volume after replacing the container.
+The revision 4 import, quiz references, course routes, practical scoring and production build passed. The desktop reader rendered all 73 lessons in Chromium. The release records the six lesson relocations by ID, source module and destination module, bound to the exact revision 3 and 4 package hashes. The publisher still checks all other identities and assessment scenarios. On a disposable AlmaLinux 10.3 guest, checks using the new workshop materials exercised shell expansion, links, regular expressions, both archive formats, directory permissions, script exit codes, GPT partition boundaries, mount hiding and service/timer activation. A signed Flatpak remote installed the inventory app and its runtime, exposed the expected payload and allowed clean removal. A signed tree RPM installed from the course DVD, ran, and was removed. The optional Podman exercise built its shell image locally and recovered the expected text from a named volume after replacing the container. On a second AlmaLinux pair the client fetched the roster through the server firewall, selected the private chrony source and demonstrated the failed and repaired scheduled service.
 
 ## Earlier practical verification
 

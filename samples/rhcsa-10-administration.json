@@ -63,7 +63,8 @@
     },
     {
       "id": "optional-containers",
-      "title": "Optional extension after exam review: containers and image mode"
+      "title": "Optional extension after exam review: containers and image mode",
+      "honors": true
     }
   ],
   "lessons": [
@@ -3051,7 +3052,8 @@
           "answer": [
             0
           ],
-          "explanation": "The named volume has an independent lifetime. Reusing the image alone does not recover the first container's writes."
+          "explanation": "The named volume has an independent lifetime. Reusing the image alone does not recover the first container's writes.",
+          "honors": true
         },
         {
           "id": "container-lifecycle-reason-2",
@@ -3066,7 +3068,8 @@
           "answer": [
             1
           ],
-          "explanation": "The pull policy controls image retrieval. It does not select the host's deployment model or make volumes read-only."
+          "explanation": "The pull policy controls image retrieval. It does not select the host's deployment model or make volumes read-only.",
+          "honors": true
         }
       ]
     }

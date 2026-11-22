@@ -1,3 +1,5 @@
+import assert from "node:assert/strict";
+import { compareWithLessonMoves } from "../scripts/lib/lessonModuleMoves.ts";
 import { emptyCourse } from "../src/lib/course.ts";
 import { compareCourseRevisions } from "../src/lib/courseRevision.ts";
 const original = emptyCourse("Versioned test");
@@ -34,3 +36,23 @@ check("vocabulary cannot reference unknown lesson", compareCourseRevisions(withV
 const carriedWord = { id: "carried", lesson: "earlier-intro", from: "earlier-course", term: "salut", meanings: ["hi"] };
 check("carried vocabulary uses the earlier course lesson namespace", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [...withVocab.vocab, carriedWord] }).length === 0);
 check("an explicit same-course vocabulary source still requires a local lesson", compareCourseRevisions(withVocab, { ...withVocab, revision: 2, vocab: [...withVocab.vocab, { ...carriedWord, from: withVocab.id }] }).some(i => i.path === "vocab[1].lesson" && i.severity === "blocking"));
+
+// An explicit module relocation cannot authorize replacing a lesson, a VM scenario or another release.
+const relocated = structuredClone(next);
+relocated.modules.push({ id: "m2", title: "Second" });
+relocated.lessons[0].module = "m2";
+const fromHash = "a".repeat(64), toHash = "b".repeat(64);
+const receipt = { courseId: original.id, fromRevision: 1, toRevision: 2, fromSha256: fromHash, toSha256: toHash,
+  moves: [{ lesson: "intro", from: "m1", to: "m2" }] };
+assert.deepEqual(compareWithLessonMoves(original, relocated, receipt, fromHash, toHash), []);
+assert.equal(original.lessons[0].module, "m1");
+for (const invalid of [{ ...receipt, toSha256: fromHash }, { ...receipt, fromRevision: 2 },
+  { ...receipt, moves: [] }, { ...receipt, moves: [{ lesson: "intro", from: "m1", to: "another" }] }])
+  assert.throws(() => compareWithLessonMoves(original, relocated, invalid, fromHash, toHash), /Lesson moves/);
+const oldLab = structuredClone(original);
+oldLab.lessons[0].vmLab = "linux-nfs-autofs-v1";
+assert(compareWithLessonMoves(oldLab, relocated, receipt, fromHash, toHash).some(i => i.path === "lessons.intro.vmLab"));
+const removed = structuredClone(original);
+removed.lessons.push({ id: "retained", module: "m1", title: "Existing", topics: [], body: "Existing" });
+assert(compareWithLessonMoves(removed, relocated, receipt, fromHash, toHash).some(i => i.path === "lessons.retained"));
+console.log("PASS lesson relocations are bound to both release digests and preserve other compatibility checks");

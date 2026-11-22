@@ -22,6 +22,7 @@ on:
       - "scripts/recheck-course-catalog.ts"
       - "scripts/verify-immutable-release.sh"
       - "scripts/lib/releaseTransport.ts"
+      - "scripts/lib/lessonModuleMoves.ts"
       - "package.json"
       - "package-lock.json"
       - "src/lib/adminStudio.ts"
