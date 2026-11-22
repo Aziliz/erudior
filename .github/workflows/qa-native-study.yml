@@ -1,0 +1,56 @@
+name: Verify Fedora desktop reading with real AlmaLinux guests
+on:
+  push:
+    branches: [qa/lesson-terminal-fedora-0253]
+permissions:
+  contents: read
+jobs:
+  fedora-desktop:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 95
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare an isolated Fedora 44 desktop
+        shell: bash
+        run: |
+          set -eu
+          if (( $(df -PB1 "$RUNNER_TEMP" | tail -1 | awk '{print $4}') < 34000000000 )); then
+            sudo rm -rf /usr/local/lib/android/sdk
+          fi
+          mkdir "$RUNNER_TEMP/downloads"
+          test -c /dev/kvm
+          docker run -d --name fedora-ui --device=/dev/kvm -v "$PWD:/repo:ro" -v "$RUNNER_TEMP/downloads:/downloads:ro" -w /repo -e XDG_DATA_HOME=/home/student/.local/share -e TAURI_WEBVIEW_AUTOMATION=true -e LIBGL_ALWAYS_SOFTWARE=1 -e GDK_BACKEND=x11 -e WEBKIT_DISABLE_DMABUF_RENDERER=1 fedora:44 sleep infinity
+          docker exec fedora-ui dnf -qy install python3 shadow-utils dbus-daemon xorg-x11-server-Xvfb xorg-x11-xauth /usr/bin/WebKitWebDriver qemu-system-x86 qemu-img xorriso openssh-clients ca-certificates dejavu-sans-fonts
+          docker exec fedora-ui bash -ec 'useradd -m student; gid=$(stat -c %g /dev/kvm); getent group "$gid" >/dev/null || groupadd -g "$gid" qa-kvm; usermod -aG "$gid" student; mkdir -p /home/student/.local/share /tmp/student-runtime; chown -R student:student /home/student/.local /tmp/student-runtime; chmod 700 /tmp/student-runtime'
+      - name: Open a native Fedora reading lesson
+        shell: bash
+        run: |
+          curl -fLsS --retry 3 https://github.com/Aziliz/erudior/releases/download/v0.25.2/Erudior-0.25.2-1.x86_64.rpm -o "$RUNNER_TEMP/downloads/old.rpm"
+          docker exec fedora-ui dnf -qy install /downloads/old.rpm
+          docker exec -u student -e HOME=/home/student -e XDG_RUNTIME_DIR=/tmp/student-runtime -e DISPLAY=:99 -d fedora-ui Xvfb :99 -screen 0 1280x850x24 -nolisten tcp
+          docker exec -u student -e HOME=/home/student -e XDG_RUNTIME_DIR=/tmp/student-runtime -e DISPLAY=:99 -d fedora-ui dbus-run-session -- sh -c 'WebKitWebDriver --port=4444 > /tmp/driver.log 2>&1'
+          docker exec -u student -e HOME=/home/student fedora-ui python3 -u tests/native-study.py preflight
+      - name: Prepare and verify the AlmaLinux guest base
+        run: |
+          docker exec -u student -e HOME=/home/student -e PYTHONDONTWRITEBYTECODE=1 fedora-ui python3 -u -c 'import sys; sys.path.insert(0,"src-tauri/src/vm_lab"); import runner; assert runner.x86_kvm(); runner.prepare_alma_base(runner.lab_root()/"images"/runner.AUTO_IMAGE,True); print("Verified AlmaLinux practice base")'
+      - name: Install the published RPM and type in the live guest alongside its lesson
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -eu
+          for attempt in $(seq 1 160); do
+            if gh api repos/Aziliz/erudior/releases/tags/v0.25.3 > "$RUNNER_TEMP/release.json" 2>/dev/null && jq -e '.draft == false' "$RUNNER_TEMP/release.json" >/dev/null; then break; fi
+            sleep 20
+          done
+          uri=$(jq -er '.assets[]|select(.name=="Erudior-0.25.3-1.x86_64.rpm")|.browser_download_url' "$RUNNER_TEMP/release.json")
+          sha=$(jq -er '.assets[]|select(.name=="Erudior-0.25.3-1.x86_64.rpm")|.digest|sub("^sha256:";"")' "$RUNNER_TEMP/release.json")
+          curl -fLsS --retry 3 "$uri" -o "$RUNNER_TEMP/downloads/new.rpm"
+          echo "$sha  $RUNNER_TEMP/downloads/new.rpm" | sha256sum -c -
+          docker exec fedora-ui dnf -qy install /downloads/new.rpm
+          docker exec -u student -e HOME=/home/student fedora-ui python3 -u tests/native-study.py terminal
+      - name: Show desktop diagnostics on failure
+        if: failure()
+        run: docker exec fedora-ui sh -c 'tail -c 3500 /tmp/driver.log 2>/dev/null || true; find /home/student/.local/share -name alma-progress -exec cat {} \;' || true
