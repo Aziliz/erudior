@@ -8344,7 +8344,16 @@ html:not(.tones-on) .tone-sr {
 .roadmap-outline ol, .roadmap-outline ul { margin: 0 0 4px 1.25rem; padding: 0; }
 
 /* Reading and serial input each keep their own visible, scrollable area. */
-.vm-console-screen { width: 100%; height: min(55vh, 30rem); min-height: 14rem; background: #000; }
+.vm-console-screen { width: 100%; height: calc(var(--vm-terminal-percent, 55) * 1vh); background: #000; }
+.vm-console-grip {
+  height: 24px; display: grid; place-items: center; flex: none;
+  cursor: ns-resize; touch-action: none; user-select: none;
+}
+.vm-console-grip::after {
+  content: ""; width: 3rem; height: 4px; border-radius: 2px; background: var(--ink-3);
+}
+.vm-console-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.vm-console-grip:hover::after, .vm-console-grip:focus-visible::after { background: var(--ink); }
 @media screen {
   .main:has(> .vm-study) { display: flex; flex-direction: column; }
   .main:has(> .vm-study) > :not(.vm-study) { flex: none; }
@@ -8355,11 +8364,12 @@ html:not(.tones-on) .tone-sr {
   .vm-study-tools { grid-area: tools; display: flex; justify-content: flex-end; padding: .45rem 2.5%; border-bottom: 1px solid var(--rule); }
   .vm-study-reader { grid-area: reader; }
   .vm-study-reader, .vm-study-machines { min-width: 0; min-height: 0; overflow: auto; overscroll-behavior: contain; }
-  .vm-study-machines { display: none; grid-area: machines; padding: .85rem; border-left: 1px solid var(--rule); background: var(--surface); }
+  .vm-study-machines { display: none; container-type: size; grid-area: machines; padding: .85rem; border-left: 1px solid var(--rule); background: var(--surface); }
   .vm-study-open, .vm-study:has(.vm-study-console-slot > .vm-console) {
     grid-template: "tools tools" auto "reader machines" minmax(0, 1fr) / minmax(0, 1.1fr) minmax(0, 1fr);
   }
   .vm-study-open > .vm-study-machines, .vm-study-machines:has(.vm-console) { display: block; }
+  .vm-study-machines .vm-console-screen { height: calc(var(--vm-terminal-percent, 55) * 1cqh); }
   .vm-study-machines .panel { margin: 0; }
   .vm-study-console-slot:not(:empty) { margin-bottom: .8rem; }
   .vm-console > .row { justify-content: space-between; }
@@ -8370,5 +8380,10 @@ html:not(.tones-on) .tone-sr {
     grid-template: "tools" auto "reader" minmax(0, 1fr) "machines" minmax(0, 1fr) / minmax(0, 1fr);
   }
   .vm-study-machines { padding: .5rem 2.5%; border-left: 0; border-top: 1px solid var(--rule); }
-  .vm-study-machines .vm-console-screen { height: clamp(6rem, 26vh, 15rem); min-height: 0; }
+  .vm-study:has(.vm-study-console-slot > .vm-console) {
+    grid-template-rows: auto minmax(0, 1fr) calc(var(--vm-terminal-percent, 55) * 1%);
+  }
+  .vm-study-machines .vm-console { display: flex; flex-direction: column; min-height: 8rem; height: 100cqh; }
+  .vm-study-machines .vm-console-grip { order: -1; }
+  .vm-study-machines .vm-console-screen { flex: 1 0 3rem; min-height: 0; height: auto; }
 }

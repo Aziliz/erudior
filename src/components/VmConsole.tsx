@@ -1,7 +1,8 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
 import { createPortal } from "react-dom";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useId, useRef, useState } from "react";
 import type { Terminal } from "@xterm/xterm";
+import VmConsoleHeight from "./VmConsoleHeight";
 import type { VmLabScenario } from "../lib/vmLab";
 
 type ConsoleEvent = { kind: "output"; bytes: number[] } | { kind: "closed"; message: string };
@@ -21,6 +22,7 @@ interface ConsoleProps {
 
 export default function VmConsole({ role, profile, course, lesson, scenario, expected, close }: ConsoleProps) {
   const target = useContext(VmConsoleTarget);
+  const screenId = useId();
   const host = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState("Connecting…");
 
@@ -102,7 +104,8 @@ export default function VmConsole({ role, profile, course, lesson, scenario, exp
     </div>
     <p role="status">{status}</p>
     {target && <p className="small muted"><kbd>F6</kbd> switches between the reading and the terminal.</p>}
-    <div ref={host} className="vm-console-screen" aria-label={role + " terminal"} onKeyDown={event => event.stopPropagation()} />
+    <div id={screenId} ref={host} className="vm-console-screen" aria-label={role + " terminal"} onKeyDown={event => event.stopPropagation()} />
+    <VmConsoleHeight screenId={screenId} />
   </section>;
   return target ? createPortal(consoleView, target) : consoleView;
 }
