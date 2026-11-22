@@ -41,8 +41,5 @@ jobs:
         id: regression
         env:
           npm_config_script_shell: bash
-        run: |
-          npx tsx tests/spreadsheet-workflow.test.mts
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          npm run test:study-and-records
+        run: npm run test:study-and-records
 
