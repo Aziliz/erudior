@@ -46,6 +46,10 @@ try:
     button("Start lab")
     wait(lambda:js("return document.querySelector('.vm-console [role=status]')?.textContent.includes('Connected')"),"native console",180)
     secret=wait(lambda:js("const d=[...document.querySelectorAll('details')].find(d=>d.querySelector('summary')?.textContent==='Console login');return d?.querySelectorAll('code')[1]?.textContent"),"lab credentials")
+    # Both guests configure the course profile on first boot. Wait for the client
+    # to finish writing boot messages to its serial console before typing a login.
+    wait(lambda:"Reached target cloud-init.target" in screen() or "Finished cloud-final.service" in screen(),"guest finished first boot",210)
+    print("Guest first boot completed in the native console",flush=True)
     for _ in range(45):
         key("\n")
         if 'login:' in screen(): break
@@ -68,8 +72,7 @@ try:
     assert js("return window.lastConsole===document.querySelector('.xterm-helper-textarea')")
     key('echo ERUDIOR_CWD="$PWD"\n')
     wait(lambda:'ERUDIOR_CWD=/tmp' in screen(),"working directory in the same shell")
-    key('cloud-init status --wait >/dev/null; echo ERUDIOR_CLOUD=$?\n')
-    wait(lambda:"ERUDIOR_CLOUD=0" in screen(),"finished guest configuration",180)
+    print("Native RPM kept the live RHCE shell and working directory across readings.",flush=True)
     key("export ANSIBLE_HOST_KEY_CHECKING=True\n")
     key("export ANSIBLE_PRIVATE_KEY_FILE=/home/learner/.ssh/erudior_rhce\n")
     key("for n in 1 2 3 4 5; do ansible all -i '192.168.77.10,' -u learner -m ansible.builtin.ping > /tmp/erudior-ansible.log 2>&1 && grep -q pong /tmp/erudior-ansible.log && break; sleep 4; done; tail -8 /tmp/erudior-ansible.log; grep -q pong /tmp/erudior-ansible.log; echo ERUDIOR_PING=$?\n")
@@ -77,7 +80,9 @@ try:
     print("Fedora RPM verified the RHCE practice profile in the reader, the preserved guest shell and an Ansible ping between the two actual AlmaLinux guests.",flush=True)
 except Exception:
     diagnostic=js("return [...document.querySelectorAll('.vm-console [role=status],.vm-study-machines [role=alert],.vm-study-machines .warn')].map(e=>e.textContent).join(' ')")
-    rows=screen().strip()[-1300:]
+    if 'secret' in globals():
+        key("\n"); key("id -un; pwd; date\n"); time.sleep(2)
+    rows=screen().strip()[-1800:]
     if "secret" in globals() and secret: rows=rows.replace(secret, "[redacted]")
     print("Native screen status:",diagnostic,"terminal:",rows,flush=True)
     raise
