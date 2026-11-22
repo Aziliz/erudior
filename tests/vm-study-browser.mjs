@@ -15,7 +15,7 @@ page.on("pageerror", error => console.error(error.message));
 
 await page.route("**/*", async route => {
   const url = new URL(route.request().url());
-  if (url.origin !== "http://erudior.test") return route.abort();
+  if (url.origin !== "https://erudior.test") return route.abort();
   const file = path.join("dist", url.pathname === "/" ? "index.html" : url.pathname);
   await route.fulfill({ path: file }).catch(() => route.abort());
 });
@@ -82,7 +82,7 @@ async function input(pane, command) {
   await page.waitForFunction(value => window.lastInput?.text.endsWith(value + "\r"), command);
 }
 try {
-  await page.goto("http://erudior.test/");
+  await page.goto("https://erudior.test/");
   await page.locator(".course-row").filter({ hasText: course.title }).click();
   await button("Lessons").click();
   await button("Open practice terminal").click();
@@ -96,6 +96,10 @@ try {
   await read.locator("article").scrollIntoViewIfNeeded();
   const before = await read.evaluate(el => el.scrollTop);
   await input(practice, "pwd");
+  await page.keyboard.press("F6");
+  assert(await read.evaluate(el => el === document.activeElement));
+  await page.keyboard.press("F6");
+  assert(await practice.locator(".xterm-helper-textarea").evaluate(el => el === document.activeElement));
   assert.equal(await read.evaluate(el => el.scrollTop), before);
   await page.screenshot({ path: out + "/desktop.png" });
   await read.getByRole("button", { name: "Previous", exact: true }).click();

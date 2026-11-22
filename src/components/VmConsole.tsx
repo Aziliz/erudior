@@ -101,6 +101,7 @@ export default function VmConsole({ role, profile, course, lesson, scenario, exp
       <button className="btn" onClick={close}>Close console</button>
     </div>
     <p role="status">{status}</p>
+    {target && <p className="small muted"><kbd>F6</kbd> switches between the reading and the terminal.</p>}
     <div ref={host} className="vm-console-screen" aria-label={role + " terminal"} onKeyDown={event => event.stopPropagation()} />
   </section>;
   return target ? createPortal(consoleView, target) : consoleView;
