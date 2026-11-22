@@ -1,0 +1,37 @@
+name: Verify Windows lab setup
+on:
+  pull_request:
+    paths:
+      - 'src-tauri/src/vm_lab/windows*'
+      - 'tests/windows-lab-*.ps1'
+      - '.github/workflows/windows-lab-host.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  onboarding:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Exercise first use, upgrades and recovery
+        shell: powershell
+        run: ./tests/windows-lab-setup.tests.ps1
+      - name: Provision a fresh host on Windows
+        shell: powershell
+        run: ./tests/windows-lab-live.ps1
+  provider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Debian tools and account
+        run: |
+          docker run --rm -i -v "$PWD/src-tauri/src/vm_lab/windows-host.sh:/host.sh:ro" debian:trixie sh -ec '
+            sh /host.sh managed
+            su -s /bin/sh erudior-lab -c "sh /host.sh check"
+            test "$(id -u erudior-lab)" -ne 0
+            sh /host.sh managed
+          '

@@ -1,5 +1,8 @@
 //! Only the packaged main window can control a learner's local VM pair.
 mod provider;
+#[cfg(target_os = "windows")]
+mod windows;
+use tauri::Manager;
 pub(super) mod terminal;
 
 use std::io;
@@ -66,7 +69,7 @@ pub async fn vm_lab(
         rubric,
     ];
     tauri::async_runtime::spawn_blocking(move || {
-        let child = provider::launch(&args)?;
+        let child = provider::launch(window.app_handle(), &args)?;
         let output = child
             .wait_with_output()
             .map_err(|e: io::Error| e.to_string())?;
@@ -79,7 +82,7 @@ pub async fn vm_lab(
         }
         #[cfg(target_os = "windows")]
         if args[0] == "start" {
-            let mut guard = provider::launch(&["_hold_wsl".into()])?;
+            let mut guard = provider::launch(window.app_handle(), &["_hold_wsl".into()])?;
             drop(guard.stdin.take());
             std::thread::spawn(move || {
                 let _ = guard.wait_with_output();
@@ -119,7 +122,7 @@ pub async fn vm_setup_media(window: tauri::WebviewWindow, kind: String) -> Resul
             }
             _ => return Err("Unknown setup medium.".into()),
         };
-        let mut child = provider::launch(&["_media".into(), kind])?;
+        let mut child = provider::launch(window.app_handle(), &["_media".into(), kind])?;
         let mut input = child.stdin.take().ok_or("Missing provider input")?;
         let copied = file.as_mut().map(|f| io::copy(f, &mut input)).transpose();
         drop(input);
@@ -132,4 +135,20 @@ pub async fn vm_setup_media(window: tauri::WebviewWindow, kind: String) -> Resul
     })
     .await
     .map_err(|e| e.to_string())?
+}
+
+
+#[tauri::command]
+pub async fn vm_windows_host(window: tauri::WebviewWindow, target: Option<String>) -> Result<serde_json::Value, String> {
+    own_window(&window)?;
+    #[cfg(target_os = "windows")]
+    {
+        tauri::async_runtime::spawn_blocking(move || windows::configure(window.app_handle(), target))
+            .await.map_err(|e| e.to_string())?
+    }
+    #[cfg(not(target_os = "windows"))]
+    {
+        let _ = target;
+        Err("Windows lab setup is available in the Windows desktop app.".into())
+    }
 }

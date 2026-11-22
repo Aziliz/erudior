@@ -613,6 +613,7 @@ pub fn run() {
             portable_files::export_portable_course,
             vm_lab::vm_lab,
             vm_lab::vm_setup_media,
+            vm_lab::vm_windows_host,
             vm_lab::terminal::vm_console_open,
             vm_lab::terminal::vm_console_write,
             vm_lab::terminal::vm_console_close,

@@ -1,3 +1,4 @@
+import VmProvider from "./VmProvider";
 import VmConsole, { type GuestRole } from "./VmConsole";
 import { VmSetup, VmResult } from "./VmLabParts";
 import { useEffect, useRef, useState } from "react";
@@ -15,16 +16,23 @@ interface LabState {
   report: VmLabReport | null;
 }
 
-export default function VmLabPanel({ api, course, lesson, scenario }: {
+interface PanelProps {
   api: AppApi; course: string; lesson: string; scenario: VmLabScenario;
-}) {
+}
+
+export default function VmLabPanel(props: PanelProps) {
+  return <section className="panel stack" aria-label="Virtual machine lab">
+    <VmProvider>{provider => <Panel {...props} provider={provider} />}</VmProvider>
+  </section>;
+}
+
+function Panel({ api, course, lesson, scenario, provider }: PanelProps & { provider: string }) {
   const rhce = course === "rhce-ansible-alma10";
   const coursePractice = lesson === "practice-environment";
   const student = api.student?.id ?? null;
   const profile = student === null ? "solo-" + (api.progress.anonymousGeneration ?? 0) : "student-" + student;
   const key = vmReportKey(course, lesson, scenario);
   const saved = api.progress.vmLabReports?.[key];
-  const [provider, setProvider] = useState("");
   const supported = !!provider;
   const [terminal, setTerminal] = useState<{role:GuestRole; sequence:number} | null>(null);
   const [lab, setLab] = useState<LabState | null>(null);
@@ -40,9 +48,7 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
     let live = true;
     if (inApp) void (async () => {
       try {
-        const kind = await invoke<string>("install_kind");
-        if (!live || !["linux-package","appimage","windows","macos"].includes(kind)) return;
-        setProvider(kind);
+        if (!provider) return;
         const state = await request("status");
         if (live) setLab(state);
       } catch (cause) {
@@ -51,7 +57,7 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
     })();
     return () => { live = false; mounted.current = false; };
     // The owning lesson keys this component on learner, course, lesson and scenario.
-  }, [profile, course, lesson, scenario]);
+  }, [provider, profile, course, lesson, scenario]);
 
   function current() { return mounted.current && activeStudent() === student; }
 
@@ -96,7 +102,7 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
   const both = lab?.running.client && lab.running.server;
   const pending = lab?.report;
   const needsSave = validVmReport(pending, scenario) && (!validVmReport(saved, scenario) || pending.checkedAt > saved.checkedAt);
-  return <section className="panel stack" aria-label="Virtual machine lab">
+  return <>
     <h2>{coursePractice ? (rhce ? "RHCE practice machines" : "RHCSA practice machines") : "Two-machine Linux lab"}</h2>
     {rhce ? <p>The client is your Ansible control node. The managed server is <code>192.168.77.10</code>. On first boot, wait for <code>sudo cloud-init status --wait</code> on each guest. On the client, use <code>~/.ssh/erudior_rhce</code> for the learner account on the server.</p> : coursePractice ? <p>Use the client and server throughout the course. Each graded practical has its own disks. Reset this pair when you want a fresh practice environment.</p> : <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>}
     {supported ? <>
@@ -119,5 +125,5 @@ export default function VmLabPanel({ api, course, lesson, scenario }: {
     </> : <p className="muted">Use the Windows, macOS or Linux desktop app to start the machines and check your work.</p>}
     {error && <p role="alert">{error}</p>}
     {validVmReport(saved, scenario) && <VmResult saved={saved} />}
-  </section>;
+  </>;
 }

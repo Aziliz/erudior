@@ -107,5 +107,42 @@ assert(mediaCalls.includes("dvd") && mediaCalls.includes("kit"));
 assert.match(document.body.textContent!, /DVD cached/);
 assert.match(document.body.textContent!, /Kit cached/);
 assert.doesNotMatch(document.body.textContent!, /Check my work/);
+// Both practice and timed lessons must wait for Windows onboarding before starting a provider.
+const { default: ExamPanel } = await import("../src/components/VmExamPanel.tsx");
+const { NFS_EXAM } = await import("../src/lib/vmLab.ts");
+const calls: string[] = [];
+let setupState = "restart", target: string | null = null;
+(dom.window as any).__TAURI_INTERNALS__.invoke = async (command: string, args: any) => {
+  calls.push(command);
+  if (command === "install_kind") return "windows";
+  if (command === "vm_windows_host" && !args?.target) return {
+    selected: "Missing", ready: false, hosts: [{ name: "Legacy", version: 1 }, { name: "My Debian", version: 2 }],
+  };
+  if (command === "vm_windows_host") { target = args.target; return { state: setupState }; }
+  if (command === "vm_lab") return { running: { client: false, server: false }, exam: { phase: "new" }, report: null };
+  throw Error(command);
+};
+for (const kind of ["practice", "exam"]) {
+  setupState = "restart";
+  calls.length = 0;
+  const api = { progress } as AppApi;
+  await act(async () => root.render(kind === "practice"
+    ? createElement(VmLabPanel, { key: kind, api, course: course.id, lesson: "network-mount", scenario: NFS_LAB })
+    : createElement(ExamPanel, { key: kind, api, course: course.id, lesson: "timed", scenario: NFS_EXAM, minutes: 20 })));
+  assert.deepEqual(calls, ["install_kind", "vm_windows_host"]);
+  assert.match(document.body.textContent!, /previous host, Missing/);
+  const select = document.querySelector("select")!;
+  assert.deepEqual([...select.options].map(o => o.value), ["Erudior-Labs", "My Debian"]);
+  assert.equal(select.value, "Erudior-Labs");
+  await act(async () => { select.value = "My Debian"; select.dispatchEvent(new dom.window.Event("change", { bubbles: true })); });
+  await click("Set up Windows labs");
+  assert.equal(target, "My Debian");
+  assert.match(document.body.textContent!, /Restart Windows/);
+  assert(!calls.includes("vm_lab"));
+  setupState = "ready";
+  await click("Set up Windows labs");
+  assert(calls.includes("vm_lab"));
+  assert(!document.querySelector('[aria-label="Windows lab setup"]'));
+}
 await act(async () => root.unmount());
 console.log("VM lesson import, roundtrip, revision, scoring, controls, consent, save retry and learner isolation passed");

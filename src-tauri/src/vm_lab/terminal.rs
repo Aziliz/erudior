@@ -3,6 +3,7 @@ use std::io::{Read, Write};
 use std::process::ChildStdin;
 use std::sync::{Arc, Mutex, OnceLock};
 use tauri::ipc::Channel;
+use tauri::Manager;
 
 type Pipe = Arc<Mutex<ChildStdin>>;
 static INPUTS: OnceLock<Mutex<HashMap<String, Pipe>>> = OnceLock::new();
@@ -38,7 +39,7 @@ pub async fn vm_console_open(
         return Err("Invalid guest console.".into());
     }
     tauri::async_runtime::spawn_blocking(move || {
-        let mut child = super::provider::launch(&[
+        let mut child = super::provider::launch(window.app_handle(), &[
             "_stream".into(),
             role,
             scenario,

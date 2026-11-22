@@ -6,10 +6,10 @@ export function VmSetup({provider, course, preparing}:{provider:string; course:s
   const almaCourse = course === "rhcsa-rhel10-administration" || rhce;
 
   return <><details open={preparing || undefined}><summary>First-time setup</summary>
-    {provider==="windows" ? <p>Install Debian 13 or later in WSL 2 using <code>wsl --install -d Debian</code>. Open Debian once to create your Linux user. Run the setup commands below in Debian.</p>
+    {provider==="windows" ? <p>Erudior uses your configured WSL 2 host to run the practice machines.</p>
       : provider==="macos" ? <p>Install Lima and run <code>limactl start --name=erudior-labs --cpus=4 --memory={rhce ? 8 : 6} template:debian</code>. Run <code>limactl shell erudior-labs</code> for the setup commands below. On subsequent sessions start the existing instance with <code>limactl start erudior-labs</code>.</p>
       : <p>Use the Linux user account that runs Erudior. Install QEMU 9.2 or newer, qemu-img, Python 3 and genisoimage or xorriso.</p>}
-    {["windows","macos"].includes(provider) && <p>Inside Debian install the tools with <code>sudo apt update</code> and <code>sudo apt install python3 qemu-system-x86 qemu-utils genisoimage{rhce ? " openssh-client" : ""}</code>. Check <code>qemu-system-x86_64 --version</code> for 9.2 or newer.</p>}
+    {provider === "macos" && <p>Inside Debian install the tools with <code>sudo apt update</code> and <code>sudo apt install python3 qemu-system-x86 qemu-utils genisoimage{rhce ? " openssh-client" : ""}</code>. Check <code>qemu-system-x86_64 --version</code> for 9.2 or newer.</p>}
     {almaCourse ? <p>Allow at least 19 GiB of free space in the provider for setup. {rhce && "Allocate at least 8 GiB of provider memory for the RHCE pair. "}Keep it running while the base installs. Later attempts reuse the prepared base.</p>
       : <p>Place the prepared x86-64 Enterprise Linux 10 qcow2 image inside that Linux environment at <code>~/.local/share/erudior-vm-labs/images/linux-nfs-autofs-v1.qcow2</code> (or under XDG_DATA_HOME).</p>}
   </details>{almaCourse && <AlmaSetupMedia preparing={preparing} />}</>;
