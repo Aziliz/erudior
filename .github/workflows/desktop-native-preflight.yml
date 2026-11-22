@@ -1,0 +1,49 @@
+name: Verify native release regression
+on:
+  push:
+    branches: [qa/desktop-native-0.25.1]
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-latest
+            bundles: nsis,msi
+          - platform: macos-latest
+            # "app" makes the signed .app.tar.gz the macOS auto-updater downloads.
+            bundles: app,dmg
+            target: universal-apple-darwin
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - name: Preserve exact repository bytes on Windows
+        if: runner.os == 'Windows'
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Verify Erudior-only product identity
+        run: node scripts/check-product-identity.mjs
+
+      - name: Provide GNU utilities used by release transport tests
+        if: runner.os == 'macOS'
+        run: |
+          brew list coreutils >/dev/null 2>&1 || brew install coreutils
+          echo "$(brew --prefix coreutils)/libexec/gnubin" >> "$GITHUB_PATH"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - name: Diagnostic runner tests
+        run: node --test tests/diagnostic-command.test.mjs
+      - name: Regression tests
+        id: regression
+        env:
+          npm_config_script_shell: bash
+        run: node scripts/diagnostic-command.mjs regression -- npm test
+
