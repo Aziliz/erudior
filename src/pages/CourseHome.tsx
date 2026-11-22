@@ -29,7 +29,6 @@ import WorkTab from "./WorkTab";
 import { hasWork } from "../lib/work";
 import { courseActivities } from "../lib/courseActivities";
 import CourseProgress from "./CourseProgress";
-import VmLabPanel from "../components/VmLabPanel";
 import OfflineCourseExport from "../components/OfflineCourseExport";
 
 export type CourseTab = "today" | "progress" | "lessons" | "banks" | "cards" | "vocab" | "reading" | "drills" | "glossary" | "reference" | "work";
@@ -140,8 +139,6 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
         ))}
       </nav>
 
-      {store.inApp && tab === "today" && ["rhcsa-rhel10-administration", "rhce-ansible-alma10"].includes(course.id) &&
-        <VmLabPanel key={api.student?.id ?? api.progress.anonymousGeneration ?? 0} api={api} course={course.id} lesson="practice-environment" scenario="linux-nfs-autofs-v1" />}
       {tab === "today" && <TodayTab api={api} course={course} />}
       {tab === "progress" && <CourseProgress api={api} course={course} />}
       {tab === "lessons" && <LessonsTab api={api} course={course} />}

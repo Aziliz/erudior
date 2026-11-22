@@ -26,7 +26,7 @@ import { startPractice } from "./lib/session";
 import { validateCourseIntegrity } from "./lib/courseIntegrity";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { registerNavigationGuard, requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
-import type { Bank, Course, Progress } from "./lib/types";
+import type { Bank, Course, Lesson, Progress } from "./lib/types";
 import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
 import { formatClock } from "./lib/util";
 import * as store from "./lib/storage";
@@ -48,6 +48,7 @@ import { courseJsonLd, courseUrl, setSeo } from "./lib/seo";
 import { APP_ORIGIN, SITE_ORIGIN } from "./lib/site";
 import CourseHome, { type CourseTab } from "./pages/CourseHome";
 import LessonView from "./pages/LessonView";
+import VmStudyWorkspace from "./components/VmStudyWorkspace";
 import CourseActivityView from "./pages/CourseActivityView";
 import type { CourseActivityKind } from "./lib/courseActivities";
 import WorkView from "./pages/WorkView";
@@ -1620,6 +1621,17 @@ export default function App() {
   };
   const fallback = <Library api={api} broken={broken} standalone={standalone} />;
 
+  function studyPage(course: Course, content: React.ReactNode, lesson?: Lesson) {
+    const sharedMachines = course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10";
+    if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !lesson?.vmLab)) return content;
+    if (localLocked || gate || concealed || (family && !student)) return null;
+    const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id, lesson?.vmLab ? lesson.id : null]);
+    const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);
+    return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson?.vmLab}>
+      {content}
+    </VmStudyWorkspace>;
+  }
+
   let body: React.ReactNode = fallback;
   let fullScreen = false;
   switch (view.name) {
@@ -1694,7 +1706,7 @@ export default function App() {
       break;
     case "course": {
       const c = courseFor(view.courseId);
-      if (c) body = <CourseHome key={c.id} api={api} course={c} tab={view.tab ?? "today"} />;
+      if (c) body = studyPage(c, <CourseHome key={c.id} api={api} course={c} tab={view.tab ?? "today"} />);
       break;
     }
     case "courseEdit": {
@@ -1707,18 +1719,18 @@ export default function App() {
     case "lesson": {
       const c = courseFor(view.courseId);
       const l = c?.lessons.find((x) => x.id === view.lessonId);
-      if (c && l) body = <LessonView key={l.id} api={api} course={c} lesson={l} />;
+      if (c && l) body = studyPage(c, <LessonView key={l.id} api={api} course={c} lesson={l} />, l);
       else body = <div className="page"><h1>Lesson unavailable</h1><p role="alert">This lesson is not in the current course. The link may be outdated.</p><button className="btn" onClick={() => api.go(c ? {name:"course",courseId:c.id,tab:"lessons"} : {name:"library"})}>Browse available lessons</button></div>;
       break;
     }
     case "courseActivity": {
       const c = courseFor(view.courseId);
-      if (c) body = <CourseActivityView key={JSON.stringify([view, c.revision, api.student?.id])} api={api} course={c} kind={view.kind} sourceId={view.sourceId} />;
+      if (c) body = studyPage(c, <CourseActivityView key={JSON.stringify([view, c.revision, api.student?.id])} api={api} course={c} kind={view.kind} sourceId={view.sourceId} />);
       break;
     }
     case "work": {
       const c = courseFor(view.courseId);
-      if (c) body = <WorkView key={view.itemId} api={api} course={c} itemId={view.itemId} />;
+      if (c) body = studyPage(c, <WorkView key={view.itemId} api={api} course={c} itemId={view.itemId} />);
       break;
     }
     case "vocab": {
@@ -1778,13 +1790,13 @@ export default function App() {
     case "read": {
       const c = courseFor(view.courseId);
       const t = c?.texts?.find((x) => x.id === view.textId);
-      if (c && t) body = <Reader key={`${c.id}/${t.id}`} api={api} course={c} text={t} />;
+      if (c && t) body = studyPage(c, <Reader key={`${c.id}/${t.id}`} api={api} course={c} text={t} />);
       break;
     }
     case "ref": {
       const c = courseFor(view.courseId);
       const r = c?.references.find((x) => x.id === view.refId);
-      if (c && r) body = <RefView api={api} course={c} sheet={r} />;
+      if (c && r) body = studyPage(c, <RefView api={api} course={c} sheet={r} />);
       break;
     }
     case "who":
