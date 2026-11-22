@@ -62,6 +62,8 @@ class RunnerTests(unittest.TestCase):
                 runner.seed(role, attempt)
                 config = json.loads(Path(role + "-seed/user-data").read_text().split("\n",1)[1])
                 self.assertIn(["bash", "/mnt/erudior-tools/prepare-guest.sh", "rhce", role], config["runcmd"])
+                self.assertNotIn("lock_passwd", config["users"][0])  # chpasswd sets the console password.
+                self.assertTrue(config.get("write_files", [True]))  # cloud-init rejects an empty module.
                 self.assertNotIn(attempt["rhceKeys"]["control" if role == "server" else "host"], json.dumps(config))
                 nets = json.loads(Path(role + "-seed/network-config").read_text())["ethernets"]
                 self.assertEqual(nets["lab"]["match"]["macaddress"], runner.practice_mac(role, attempt))
