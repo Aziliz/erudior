@@ -599,6 +599,22 @@
       ]
     },
     {
+      "id": "service-account-access",
+      "module": "deployment",
+      "title": "Repair a boot job that only root can run",
+      "minutes": 30,
+      "topics": [
+        "Service identity and file access"
+      ],
+      "body": "Dispatch receives a small boot-time job. Root can read its configuration at the console, yet systemd reports that the job failed. Your job is to explain the discrepancy, make the smallest repair, and verify the result after reboot.\n\nUse the **untimed practice server**. The marker in this exercise is public training text. The permission fault is deliberate. Leave the practice client available for reading or notes. First check `getent passwd erushift`, `getent group erushift`, `systemctl cat erudior-shift-read.service` and `sudo ls -ld /etc/erudior-shift-read`. Start with unused names on a new pair or continue with the objects you created for this exercise.\n\n## Install the job and observe the failure\n\nOn a fresh server, create a service identity and its configuration. The directory lets the group traverse it. The file initially allows only root to read it.\n\n```sh\nsudo groupadd --system erushift\nsudo useradd --system --gid erushift --no-create-home --shell /sbin/nologin erushift\nsudo install -d -o root -g erushift -m 0750 /etc/erudior-shift-read\nprintf '%s\\n' 'shift=evening' | sudo tee /etc/erudior-shift-read/desk.conf >/dev/null\nsudo chown root:erushift /etc/erudior-shift-read/desk.conf\nsudo chmod 0600 /etc/erudior-shift-read/desk.conf\nsudo tee /etc/systemd/system/erudior-shift-read.service >/dev/null <<'UNIT'\n[Unit]\nDescription=Read the practice shift assignment\n\n[Service]\nType=oneshot\nUser=erushift\nGroup=erushift\nExecStart=/usr/bin/cat /etc/erudior-shift-read/desk.conf\n\n[Install]\nWantedBy=multi-user.target\nUNIT\nsudo restorecon -RF /etc/erudior-shift-read /etc/systemd/system/erudior-shift-read.service\nsudo systemctl daemon-reload\nsudo systemctl start erudior-shift-read.service\n```\n\nExpect the last command to fail. Find the denial in `sudo journalctl -b -u erudior-shift-read.service --no-pager`. Which account opened the file? Compare the unit's effective identity, the two modes and an actual read as that identity.\n\n```sh\nsystemctl show erudior-shift-read.service -p User -p Group -p Result -p ExecMainStatus\nnamei -l /etc/erudior-shift-read/desk.conf\nsudo cat /etc/erudior-shift-read/desk.conf\nsudo -u erushift cat /etc/erudior-shift-read/desk.conf\n```\n\nThe root read succeeds and the service read fails. The process needs search permission on every parent and read permission on the file. It has the former. Predict the single mode bit that will fix the latter while keeping the marker private to root and the service group.\n\n## Repair and prove the boot result\n\n```sh\nsudo chmod g+r /etc/erudior-shift-read/desk.conf\nsudo -u erushift cat /etc/erudior-shift-read/desk.conf\nsudo -u nobody test ! -r /etc/erudior-shift-read/desk.conf && echo outsider-excluded\nsudo systemctl enable --now erudior-shift-read.service\nsystemctl show erudior-shift-read.service -p Result -p ExecMainStatus -p ActiveState\nsudo journalctl -b -u erudior-shift-read.service -o cat --no-pager\ncat /proc/sys/kernel/random/boot_id\n```\n\nA successful oneshot can be **inactive** after completing its work. Expect Result=success, ExecMainStatus=0 and an exact shift=evening message. Earlier failures can still appear in this boot's journal. Record the boot ID and run `sudo systemctl reboot` on the practice server. Reconnect and run these checks before starting the unit yourself.\n\n```sh\ncat /proc/sys/kernel/random/boot_id\nsystemctl is-enabled erudior-shift-read.service\nsystemctl show erudior-shift-read.service -p Result -p ExecMainStatus\nsudo journalctl -b -u erudior-shift-read.service -o cat --no-pager | grep -Fx 'shift=evening'\n```\n\n## Independent repair\n\nA second ticket arrives. Set `sudo chmod 0740 /etc/erudior-shift-read` and start the unit again. The file still has mode 0640. Show that root can read it, the configured identity cannot, and the nonzero service exit matches the journal. Repair the parent with the smallest change that restores traversal to erushift. Restart the job. Give the next operator the two final modes, the successful service result and the outsider's failed read. Award yourself the handoff only if all three are present.\n\nTo check your diagnosis, the expected modes are 0750 for the directory and 0640 for the file. Group read on a directory allows listing names. Group execute allows looking up the named file. Keep the service running as erushift and SELinux enforcing throughout.\n",
+      "quiz": [
+        "shift-read-identity",
+        "shift-read-directory",
+        "shift-read-result",
+        "shift-read-reboot"
+      ]
+    },
+    {
       "id": "scheduling-model",
       "module": "deployment",
       "title": "Choose when a job should run and how to prove it ran",
@@ -2863,7 +2879,7 @@
           "id": "incident-script-reason-1",
           "section": "scripting",
           "topic": "Shell scripts",
-          "stem": "Why use \"$@\" in the inventory loop?",
+          "stem": "A script receives two quoted filenames, each containing spaces. Why should its inventory loop preserve the boundary of each positional argument?",
           "choices": [
             "It converts each input to an absolute path.",
             "It discards missing files automatically.",
@@ -2872,7 +2888,7 @@
           "answer": [
             2
           ],
-          "explanation": "Quoted \"$@\" preserves the argument boundaries established by the caller. The test inside the loop checks each path."
+          "explanation": "The double-quoted dollar-at expansion passes each original argument as one word. A filename containing spaces reaches the loop as one item."
         },
         {
           "id": "incident-script-reason-2",
@@ -3070,11 +3086,71 @@
           ],
           "explanation": "The pull policy controls image retrieval. It does not select the host's deployment model or make volumes read-only.",
           "honors": true
+        },
+        {
+          "id": "shift-read-identity",
+          "section": "deployment",
+          "topic": "Service identity and file access",
+          "stem": "Root can read the marker. The unit declares User=erushift and Group=erushift. Which check best isolates the reported access failure?",
+          "choices": [
+            "Run cat on the path under the erushift identity.",
+            "Reload systemd and repeat the root read.",
+            "List the user’s login shell as root."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "Testing as the consumer exercises its actual UID and groups along the full path."
+        },
+        {
+          "id": "shift-read-directory",
+          "section": "deployment",
+          "topic": "Service identity and file access",
+          "stem": "The marker is root:erushift mode 0640 and its parent is root:erushift mode 0740. Why can the service group still receive a denial?",
+          "choices": [
+            "Read permission on the file requires write permission too.",
+            "The group lacks search permission on the parent directory.",
+            "A service identity must have an interactive login shell."
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "A process needs search permission on every directory component even when it knows the exact filename."
+        },
+        {
+          "id": "shift-read-result",
+          "section": "deployment",
+          "topic": "Service identity and file access",
+          "stem": "The repaired oneshot reports inactive after it runs. Which evidence establishes a successful run?",
+          "choices": [
+            "The unit is enabled and its file exists.",
+            "The service account has a primary group.",
+            "Its exit status is zero and this boot’s journal contains the expected marker."
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "A oneshot can exit and become inactive. Correlate its execution result with the observable work it performed."
+        },
+        {
+          "id": "shift-read-reboot",
+          "section": "deployment",
+          "topic": "Service identity and file access",
+          "stem": "Which sequence most directly demonstrates that the boot job works unattended?",
+          "choices": [
+            "Reboot the server, confirm a different boot ID and find the correct unit message from this boot before starting it manually.",
+            "Restart the unit twice and show the same marker in each run.",
+            "Run daemon-reload after reboot and display the unit file."
+          ],
+          "answer": [
+            0
+          ],
+          "explanation": "A manual restart can mask a missing enablement. The current-boot journal distinguishes a fresh run from old output."
         }
       ]
     }
   ],
-  "revision": 4,
+  "revision": 5,
   "references": [
     {
       "id": "manual-pair",
@@ -3206,5 +3282,5 @@
       "definition": "A packaged starting filesystem and configuration from which a container can be created."
     }
   ],
-  "changelog": "Revision 4 teaches the path from first login to independent administration. New guided workshops, transfer assignments and an offline signed Flatpak shelf complement the existing graded practicals. The NFS workshop now follows networking and mounts."
+  "changelog": "Adds a hands-on service-account fault and repair lesson plus four knowledge checks. Learners distinguish a successful root read from the service identity’s real access and verify a oneshot job on a fresh boot."
 }

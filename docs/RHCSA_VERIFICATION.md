@@ -1,6 +1,10 @@
 # RHCSA course verification
 
-**Review date** November 21, 2026. **Course** Zero to RHCSA on RHEL 10, revision 4. **Practice system** AlmaLinux 10 x86_64 on the client and server. **Exam reference** Red Hat Enterprise Linux 10.
+**Review date** November 22, 2026. **Course** Zero to RHCSA on RHEL 10, revision 5. **Practice system** AlmaLinux 10 x86_64 on the client and server. **Exam reference** Red Hat Enterprise Linux 10.
+
+## Revision 5 service-account workshop
+
+The course now contains 15 modules, 74 lessons and 124 questions. In **Repair a boot job that only root can run**, the learner compares a root read with a read under the unit's service identity, isolates a file permission fault, and verifies the oneshot result in the current boot's journal. A second fault changes search permission on the parent directory. All revision 4 lesson, quiz and practical identifiers remain available.
 
 ## Revision 4 curriculum and checks
 

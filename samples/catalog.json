@@ -9756,7 +9756,7 @@
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
   "description": "Begin with your first AlmaLinux login and build toward independent RHEL 10 administration. Practice in a live terminal beside each reading, solve shift assignments, and test your work on a two-machine RHCSA practice exam.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9764,8 +9764,8 @@
   "type": [
    "Exam prep"
   ],
-  "lessons": 73,
-  "questions": 120,
+  "lessons": 74,
+  "questions": 124,
   "cards": 0,
   "drills": 0,
   "lessonIds": [
@@ -9804,6 +9804,7 @@
    "journal-case",
    "tuning-lab",
    "unit-lifecycle",
+   "service-account-access",
    "scheduling-model",
    "timer-workshop",
    "schedules-time",
@@ -9917,6 +9918,7 @@
     "title": "Operate services, schedules and time",
     "lessons": [
      "Make a service leave evidence on every boot",
+     "Repair a boot job that only root can run",
      "Choose when a job should run and how to prove it ran",
      "Build a scheduled service and prove it actually ran",
      "Choose a scheduler and verify its work",
