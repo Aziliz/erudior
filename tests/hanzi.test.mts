@@ -245,7 +245,7 @@ const visit = (file: string) => {
   }
 };
 visit("worker/src/index.ts");
-const rel = [...seen].map((f) => path.relative(process.cwd(), f));
+const rel = [...seen].map((f) => path.relative(process.cwd(), f).split(path.sep).join("/"));
 ok("worker validates hanzi (list) but never loads the data", rel.includes("src/lib/hanziList.ts") && !rel.some((f) => /hanziStrokes\..*data|hanziLoad/.test(f)), rel.filter((f) => /hanzi/.test(f)));
 const staticImports = (f: string) => [...readFileSync(f, "utf8").matchAll(/^import[^;]*from\s*["']([^"']+)["']/gm)].map((m) => m[1]);
 ok("nothing imports the data statically", ["src/lib/hanziLoad.ts", "src/lib/hanziStrokes.ts", "src/lib/handwriting.ts", "src/lib/phonics.ts", "src/lib/phonicsSpec.ts", "src/components/Markdown.tsx"].every((f) => !staticImports(f).some((s) => /hanziStrokes\..*data/.test(s))));

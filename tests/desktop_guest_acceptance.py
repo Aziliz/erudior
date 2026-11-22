@@ -26,12 +26,19 @@ def read_prompt(console, pattern, timeout=600):
 
 
 def login(console, password):
-    console.sendall(b"\n")
-    read_prompt(console, rb"login: ")
-    console.sendall(b"learner\n")
-    read_prompt(console, rb"Password: ")
-    console.sendall(password.encode() + b"\n")
-    read_prompt(console, rb"\$ ")
+    # The serial console may attach before cloud-init creates the learner or
+    # after a login prompt was printed on a disconnected port.
+    for attempt in range(5):
+        console.sendall(b"\n")
+        read_prompt(console, rb"login: ", timeout=100)
+        console.sendall(b"learner\n")
+        read_prompt(console, rb"Password: ", timeout=25)
+        console.sendall(password.encode() + b"\n")
+        reply = read_prompt(console, rb"\$ |[Ll]ogin incorrect|login: ", timeout=40)
+        if re.search(rb"\$ ", reply):
+            return
+        time.sleep(3)
+    raise RuntimeError("The generated learner credential did not open the console.")
 
 
 def check(console, command):
@@ -50,12 +57,14 @@ def verify(course):
 
     consoles = {}
     try:
+        print(course, "starting practice pair", flush=True)
         state = action("start")
         assert all(state["running"].values())
         base = runner.lab_root() / "images" / runner.AUTO_IMAGE
         original_base = (base.stat().st_ino, base.stat().st_mtime_ns)
         for role in runner.ROLES:
             console = consoles[role] = runner.connect(role, "serial", timeout=30)
+            print(course, role, "logging in", flush=True)
             login(console, state["password"])
             check(console, 'cloud-init status --wait && . /etc/os-release && test "$VERSION_ID" = 10.3 '
                   '&& test "$(getenforce)" = Enforcing && test -b /dev/vdb && test -b /dev/vdc')
@@ -63,6 +72,7 @@ def verify(course):
             print(course, role, "booted AlmaLinux with enforcing SELinux and both practice disks", flush=True)
         track = "rhce" if course == runner.RHCE_COURSE else "rhcsa"
         for role, console in consoles.items():
+            print(track, role, "validating the course kit", flush=True)
             check(console, f"sudo bash /mnt/erudior-tools/check-guest.sh {track} {role}")
         if course == runner.RHCE_COURSE:
             check(consoles["client"], "ANSIBLE_HOST_KEY_CHECKING=True ansible all -i '192.168.77.10,' "

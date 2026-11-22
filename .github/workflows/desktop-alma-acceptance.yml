@@ -7,12 +7,12 @@ permissions:
 jobs:
   guest-setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Boot the installer and both course pairs
+      - name: Start a clean Debian provider
         shell: bash
         run: |
           set -euo pipefail
@@ -22,17 +22,19 @@ jobs:
             sudo rm -rf /usr/local/lib/android/sdk
           fi
           mkdir -p "$RUNNER_TEMP/alma-acceptance"
-          docker run --rm "${devices[@]}" -v "$PWD:/repo:ro" -v "$RUNNER_TEMP/alma-acceptance:/lab" -w /repo \
-            -e XDG_DATA_HOME=/lab -e PYTHONDONTWRITEBYTECODE=1 debian:trixie-slim bash -eu -o pipefail -c '
-              apt-get update -qq
-              DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3 qemu-system-x86 qemu-utils genisoimage openssh-client ca-certificates > /tmp/lab-tools.log
-              python3 -u -c "import sys; sys.path.insert(0, \"src-tauri/src/vm_lab\"); import runner; print(\"KVM available:\",runner.x86_kvm(),flush=True); runner.prepare_alma_base(runner.lab_root()/\"images\"/runner.AUTO_IMAGE,runner.x86_kvm()); print(\"Verified base installed from public media\",flush=True)"
-              result=0
-              python3 -u tests/desktop_guest_acceptance.py rhcsa-rhel10-administration || result=1
-              python3 -u tests/desktop_guest_acceptance.py rhce-ansible-alma10 || result=1
-              exit "$result"
-            '
-      - name: Collect setup logs
-        if: always()
+          docker run -d --name provider "${devices[@]}" -v "$PWD:/repo:ro" -v "$RUNNER_TEMP/alma-acceptance:/lab" -w /repo \
+            -e XDG_DATA_HOME=/lab -e PYTHONDONTWRITEBYTECODE=1 debian:trixie-slim sleep infinity
+          docker exec provider bash -euc 'apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -qy --no-install-recommends python3 qemu-system-x86 qemu-utils genisoimage openssh-client ca-certificates > /tmp/lab-tools.log'
+      - name: Install the verified AlmaLinux DVD and kit
+        id: install
         run: |
-          sudo find "$RUNNER_TEMP/alma-acceptance" -name 'alma-*.log' -exec tail -c 16000 '{}' ';' | tr '\r' '\n' | tail -160
+          docker exec provider python3 -u -c 'import sys; sys.path.insert(0, "src-tauri/src/vm_lab"); import runner; print("KVM available:",runner.x86_kvm(),flush=True); runner.prepare_alma_base(runner.lab_root()/"images"/runner.AUTO_IMAGE,runner.x86_kvm()); print("Verified base installed from public media",flush=True)'
+      - name: RHCSA readiness, grader, and second attempt
+        run: docker exec provider python3 -u tests/desktop_guest_acceptance.py rhcsa-rhel10-administration
+      - name: RHCE readiness, Ansible, and second attempt
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: docker exec provider python3 -u tests/desktop_guest_acceptance.py rhce-ansible-alma10
+      - name: Collect setup logs
+        if: failure()
+        run: |
+          sudo find "$RUNNER_TEMP/alma-acceptance" -name 'alma-*.log' -exec tail -c 3000 '{}' ';' | tr '\r' '\n' | tail -110
