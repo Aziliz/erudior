@@ -2,8 +2,9 @@ use std::io::{self, Write};
 use std::process::{Child, Command, Stdio};
 
 const BOOT: &str = include_str!("bootstrap.py");
-const SOURCE: &str = include_str!("runner.py");
+const SOURCE: &str = concat!(include_str!("alma_setup.py"), "\n", include_str!("runner.py"));
 const GUEST: &str = include_str!("guest_probe.py");
+const ALMA_KIT: &[u8] = include_bytes!("../../../public/downloads/Erudior-AlmaLinux-10.3-Practice-Kit.zip");
 
 fn provider() -> Result<Command, String> {
     #[cfg(target_os = "linux")]
@@ -57,7 +58,8 @@ fn provider() -> Result<Command, String> {
 /// Send source and arguments over a length-delimited pipe: Windows has a 32K command-line
 /// limit, and Lima forwards arguments through SSH. No learner strings become shell syntax.
 pub(super) fn launch(args: &[String]) -> Result<Child, String> {
-    let bytes = serde_json::to_vec(&(SOURCE, GUEST, args)).map_err(|e| e.to_string())?;
+    let kit = args.first().filter(|action| action.as_str() == "start").map(|_| ALMA_KIT);
+    let bytes = serde_json::to_vec(&(SOURCE, GUEST, args, kit)).map_err(|e| e.to_string())?;
     let mut child = provider()?
         .args(["-I", "-u", "-c", BOOT, &bytes.len().to_string()])
         .stdin(Stdio::piped())

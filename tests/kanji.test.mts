@@ -191,7 +191,7 @@ const visit = (file: string) => {
   }
 };
 visit("worker/src/index.ts");
-const rel = [...seen].map((f) => path.relative(process.cwd(), f));
+const rel = [...seen].map((f) => path.relative(process.cwd(), f).split(path.sep).join("/"));
 ok("worker validates kanji (list) but never loads the data", rel.includes("src/lib/kanjiList.ts") && !rel.some((f) => /kanjiStrokes\.data|kanjiLoad/.test(f)), rel.filter((f) => /kanji/.test(f)));
 const staticImports = (f: string) => [...readFileSync(f, "utf8").matchAll(/^import[^;]*from\s*["']([^"']+)["']/gm)].map((m) => m[1]);
 ok("nothing imports the data statically", ["src/lib/kanjiLoad.ts", "src/lib/kanjiStrokes.ts", "src/lib/handwriting.ts", "src/lib/phonics.ts", "src/lib/phonicsSpec.ts", "src/components/Markdown.tsx"].every((f) => !staticImports(f).some((s) => s.includes("kanjiStrokes.data"))));

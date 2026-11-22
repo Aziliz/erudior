@@ -17,3 +17,5 @@ Website and app frontend, community API, and signed courses are separate deploym
 ## Operational rules
 
 Deploy only complete features. The site can publish independently of courses. Never publish an incomplete course to make frontend changes visible. Keep diagnostics artifacts and native GitHub logs. Before confirming a release, verify the appropriate production page, Worker endpoint or signed catalog. If a lane fails, repair it without disabling its gates; the other lanes can continue independently.
+
+For an approved desktop release, update the application version and set `.github/desktop-release` to its matching tag in the same release PR. Merging the marker to main builds all three platforms at that commit. Pushing a new version tag also starts this lane. A manual branch build produces review artifacts. The publisher checks the updater packages against the key embedded in the app and publishes the installers and combined updater manifest together.

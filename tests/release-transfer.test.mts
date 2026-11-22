@@ -28,15 +28,15 @@ printf '%s' "$FAKE_ORIGIN_BYTES" > "$out"
 `,{mode:0o755});
   const run=(extra:Record<string,string>={})=>{
     const trace=path.join(tmp,"trace");fs.writeFileSync(trace,"");
-    const result=spawnSync("bash",["scripts/verify-immutable-release.sh",path.join(tmp,"sample.r1.json"),"erudior-courses","https://example.test/v1/"],{
+    const result=spawnSync("bash",["scripts/verify-immutable-release.sh",path.join(tmp,"sample.r1.json").split(path.sep).join("/"),"erudior-courses","https://example.test/v1/"],{
       encoding:"utf8",env:{...process.env,PATH:bin+path.delimiter+process.env.PATH,TRACE:trace,
         FAKE_PUBLIC_BYTES:"expected bytes",FAKE_STATUS:"200",FAKE_CURL_EXIT:"0",FAKE_ORIGIN_EXIT:"0",FAKE_ORIGIN_BYTES:"expected bytes",...extra}});
     return {...result,origin:fs.readFileSync(trace,"utf8")};
   };
-  assert.equal(run().status,0);
+  const success=run();assert.equal(success.status,0,success.stderr);
   assert.equal(run({FAKE_STATUS:"404"}).status,10);
   const mismatch=run({FAKE_PUBLIC_BYTES:"wrong bytes"});assert.equal(mismatch.status,2);assert.equal(mismatch.origin,"");
-  const fallback=run({FAKE_CURL_EXIT:"28",FAKE_PUBLIC_BYTES:"partial",FAKE_STATUS:"200"});assert.equal(fallback.status,0);assert(fallback.origin);
+  const fallback=run({FAKE_CURL_EXIT:"28",FAKE_PUBLIC_BYTES:"partial",FAKE_STATUS:"200"});assert.equal(fallback.status,0,fallback.stderr);assert(fallback.origin);
   assert.equal(run({FAKE_CURL_EXIT:"28",FAKE_ORIGIN_BYTES:"different"}).status,2);
   assert.notEqual(run({FAKE_CURL_EXIT:"28",FAKE_ORIGIN_EXIT:"1"}).status,10,"uncertain origin is never treated as absence");
   assert.equal(run({FAKE_CURL_EXIT:"28",FAKE_ORIGIN_EXIT:"10"}).status,2,"origin error 10 must not masquerade as confirmed404");

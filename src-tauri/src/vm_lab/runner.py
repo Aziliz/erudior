@@ -14,12 +14,20 @@ import sys
 import time
 import uuid
 
+# Tauri concatenates alma_setup.py with this runner. Standalone tests import it normally.
+if "__file__" in globals():
+    from alma_setup import (DVD_NAME, MEDIA, alma_lock, alma_progress, cache_medium,
+                            media_status, prepare_alma_base)
+import tempfile
+
 # Tauri embeds both source files. The standalone runner reads its adjacent guest service.
 GUEST_SOURCE = Path(__file__).with_name("guest_probe.py").read_text() if "__file__" in globals() else sys.argv.pop(1)
 
 SCENARIO = "linux-nfs-autofs-v1"
 RHCSA_COURSE = "rhcsa-rhel10-administration"
 ALMA_IMAGE = "almalinux-10-rhcsa.qcow2"
+AUTO_IMAGE = "almalinux-10.3-practice.qcow2"
+RHCE_COURSE = "rhce-ansible-alma10"
 ROLES = ("server", "client")
 MACS = {"server": "52:54:00:aa:00:10", "client": "52:54:00:aa:00:20"}
 ADDRESSES = {"server": "192.168.77.10", "client": "192.168.77.20"}
@@ -56,17 +64,39 @@ def run(args):
         raise LabError(f"{Path(args[0]).name}: {result.stderr.strip()[-450:]}")
 
 
+def rhce_keys():
+    keys = {}
+    with tempfile.TemporaryDirectory() as folder:
+        for name in ("control", "host"):
+            path = Path(folder) / name
+            run([tool("ssh-keygen"), "-q", "-t", "ed25519", "-N", "", "-f", str(path)])
+            keys[name] = path.read_text()
+            keys[name + "Pub"] = path.with_suffix(".pub").read_text().strip()
+    return keys
+
+
+def practice_mac(role, attempt):
+    if attempt.get("baseImage") == AUTO_IMAGE:
+        track = "51" if "rhceKeys" in attempt else "50"
+        return f"52:54:00:{track}:02:" + ("10" if role == "server" else "11")
+    return MACS[role]
+
+
 def seed(role, attempt):
     folder = Path(role + "-seed")
     folder.mkdir(exist_ok=True)
     (folder / "meta-data").write_text(json.dumps({
         "instance-id": attempt["id"] + "-" + role, "local-hostname": role}))
     # NoCloud accepts JSON as YAML; a static interface works without DHCP or DNS.
-    (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": {
-        "lab": {"match": {"macaddress": MACS[role]}, "dhcp4": False,
-                "addresses": [ADDRESSES[role] + "/24"]}}}))
+    networks = {
+        "lab": {"match": {"macaddress": practice_mac(role, attempt)}, "dhcp4": False,
+                "addresses": [ADDRESSES[role] + "/24"]}}
+    if "rhceKeys" in attempt:
+        networks["uplink"] = {"match": {"macaddress": "52:54:00:51:03:" + ("10" if role == "server" else "11")},
+                              "dhcp4": True}
+    (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": networks}))
     config = {
-        "users": [{"name": "learner", "shell": "/bin/bash", "lock_passwd": False,
+        "users": [{"name": "learner", "shell": "/bin/bash",
                    "sudo": ["ALL=(ALL) NOPASSWD:ALL"]}],
         "chpasswd": {"expire": False, "users": [
             {"name": "learner", "type": "text", "password": attempt["password"]}]},
@@ -79,7 +109,34 @@ def seed(role, attempt):
              "[Install]\nWantedBy=multi-user.target\n"}],
         "runcmd": [["systemctl", "daemon-reload"], ["systemctl", "enable", "erudior-lab-probe.service"],
                    ["systemctl", "restart", "erudior-lab-probe.service"]]}
-    if role == "client":
+    managed = attempt.get("baseImage") == AUTO_IMAGE
+    if managed:
+        config["users"][0]["groups"] = ["wheel"]
+        track = "rhce" if "rhceKeys" in attempt else "rhcsa"
+        prepare = ["set -e", ["mkdir", "-p", "/mnt/erudior-tools"],
+                   ["mount", "-o", "ro", "/dev/disk/by-label/ERUDIORLAB", "/mnt/erudior-tools"],
+                   ["bash", "/mnt/erudior-tools/prepare-guest.sh", track, role]]
+        if track == "rhcsa" and role == "server":
+            # The kit creates the share. Give this attempt its own grading marker.
+            marker = "/var/lib/erudior/practice-marker"
+            config["write_files"].append({"path": marker, "content": attempt["marker"] + "\n"})
+            prepare.append(["install", "-m", "0644", marker, "/srv/projects/erudior-lab.txt"])
+        config["runcmd"] = prepare if track == "rhce" else prepare + config["runcmd"]
+    if "rhceKeys" in attempt:
+        keys = attempt["rhceKeys"]
+        config["ssh_pwauth"] = False
+        if role == "server":
+            del config["write_files"]
+            config["users"][0]["ssh_authorized_keys"] = [keys["controlPub"]]
+            config["ssh_keys"] = {"ed25519_private": keys["host"], "ed25519_public": keys["hostPub"]}
+        else:
+            config["write_files"] = []
+            ssh = "/home/learner/.ssh/"
+            for filename, content in (("erudior_rhce", keys["control"]), ("erudior_rhce.pub", keys["controlPub"]),
+                                      ("known_hosts", "192.168.77.10 " + keys["hostPub"])):
+                config["write_files"].append({"path": ssh + filename, "content": content.rstrip() + "\n",
+                                              "permissions": "0600", "owner": "learner:learner", "defer": True})
+    elif not managed and role == "client":
         primary = '<metadata xmlns="http://linux.duke.edu/metadata/common" packages="0"/>'
         digest = hashlib.sha256(primary.encode()).hexdigest()
         repomd = ('<repomd xmlns="http://linux.duke.edu/metadata/repo"><revision>1</revision>'
@@ -88,7 +145,7 @@ def seed(role, attempt):
         config["write_files"].extend([
             {"path": "/srv/erudior-repo/repodata/primary.xml", "content": primary},
             {"path": "/srv/erudior-repo/repodata/repomd.xml", "content": repomd}])
-    if role == "server":
+    if not managed and role == "server":
         config["write_files"] += [
             {"path": "/srv/projects/erudior-lab.txt", "content": attempt["marker"] + "\n"},
             {"path": "/etc/systemd/system/erudior-maint.service", "content":
@@ -234,16 +291,30 @@ def launch(role, base, attempt):
     kvm = x86_kvm()
     args = [tool("qemu-system-x86_64"), "-name", "Erudior-" + role,
             "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), "-cpu", "host" if kvm else "max",
-            "-m", "1536", "-smp", "2", "-display", "none", "-nodefaults",
+            "-m", "3072" if "rhceKeys" in attempt else "1536", "-smp", "2" if kvm else "1", "-display", "none", "-nodefaults",
             "-pidfile", role + ".pid",
             "-drive", f"file={image},format=qcow2,if=virtio",
             "-drive", f"file={role}-seed.iso,format=raw,media=cdrom,readonly=on",
-            "-netdev", net, "-device", f"virtio-net-pci,netdev=wire,mac={MACS[role]}",
+            "-netdev", net, "-device", f"virtio-net-pci,netdev=wire,mac={practice_mac(role, attempt)}",
             "-serial", f"unix:{role}.serial,server=on,wait=off",
             "-qmp", f"unix:{role}.qmp,server=on,wait=off",
             "-device", "virtio-serial-pci",
             "-chardev", f"socket,id=probe,path={role}.probe,server=on,wait=off",
             "-device", "virtserialport,chardev=probe,name=com.erudior.lab.0"]
+    if attempt.get("baseImage") == AUTO_IMAGE:
+        for name, source in (("practice-dvd.iso", DVD_NAME), ("practice-tools.iso", "Erudior-setup.iso")):
+            if not Path(name).exists():
+                Path(name).symlink_to(base.parent / source)
+            args += ["-drive", f"file={name},media=cdrom,readonly=on,format=raw"]
+        for index in (1, 2):
+            disk = f"{role}-practice{index}.qcow2"
+            if not Path(disk).exists():
+                run([tool("qemu-img"), "create", "-f", "qcow2", disk + ".tmp", "2G"])
+                Path(disk + ".tmp").replace(disk)
+            args += ["-drive", f"file={disk},if=virtio,format=qcow2"]
+    if "rhceKeys" in attempt:
+        suffix = "10" if role == "server" else "11"
+        args += ["-netdev", "user,id=uplink", "-device", "virtio-net-pci,netdev=uplink,mac=52:54:00:51:03:" + suffix]
     with open(role + ".log", "w") as log:
         proc = subprocess.Popen(args, stdin=subprocess.DEVNULL, stdout=log, stderr=log,
                                 start_new_session=True)
@@ -334,7 +405,7 @@ def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_prof
     if any(guest.get("ready") is not True for guest in guests.values()):
         raise LabError("The machines are still preparing. Wait for guest startup and retry.")
     platforms = {}
-    alma_course = attempt.get("baseImage") == ALMA_IMAGE
+    alma_course = attempt.get("baseImage") in {ALMA_IMAGE, AUTO_IMAGE}
     if mock_profile or alma_course:
         for role, guest in guests.items():
             release = guest.get("platform", {})
@@ -680,18 +751,22 @@ def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False):
     return exam_status()
 
 
-def operate(action, base):
+def operate(action, base, *, rhce=False):
     attempt = load("attempt.json")
     if Path("reset-pending").exists() and action not in {"reset", "status"}:
         raise LabError("A disk reset was interrupted. Choose Reset disks to finish.")
     if action == "start":
+        if not base.is_file() and base.name == AUTO_IMAGE and not attempt:
+            prepare_alma_base(base, x86_kvm())
         if not base.is_file():
             raise LabError(f"Set up the lab base image at {base}.")
         if not attempt:
             attempt = {"id": str(uuid.uuid4()), "password": secrets.token_urlsafe(10),
                        "marker": secrets.token_hex(16)}
-            if base.name == ALMA_IMAGE:
-                attempt["baseImage"] = ALMA_IMAGE
+            if base.name in {ALMA_IMAGE, AUTO_IMAGE}:
+                attempt["baseImage"] = base.name
+            if rhce:
+                attempt["rhceKeys"] = rhce_keys()
             save("attempt.json", attempt)
         for role in ROLES:
             if not running(role):
@@ -706,10 +781,16 @@ def operate(action, base):
             for role in ROLES:
                 for suffix in (".qcow2", ".qcow2.tmp", "-seed.iso", "-seed.iso.tmp", ".log"):
                     Path(role + suffix).unlink(missing_ok=True)
+                if attempt and attempt.get("baseImage") == AUTO_IMAGE:
+                    for suffix in ("-practice1.qcow2", "-practice2.qcow2", "-practice1.qcow2.tmp", "-practice2.qcow2.tmp"):
+                        Path(role + suffix).unlink(missing_ok=True)
                 if Path(role + "-seed").exists():
                     shutil.rmtree(role + "-seed")
             if attempt and "exam" in attempt:
                 lease_path(attempt["id"], attempt["exam"].get("retryNumber", 0)).unlink(missing_ok=True)
+            if attempt and attempt.get("baseImage") == AUTO_IMAGE:
+                for name in ("practice-dvd.iso", "practice-tools.iso"):
+                    Path(name).unlink(missing_ok=True)
             Path("report.json").unlink(missing_ok=True)
             Path("attempt.json").unlink(missing_ok=True)
             Path("reset-pending").unlink()
@@ -776,18 +857,31 @@ def main(args):
                 return exam_status()
             raise LabError("Another operation is running for this lab. Try again shortly.") from None
         image = SCENARIO + ".qcow2"
-        if course == RHCSA_COURSE:
+        if course in {RHCSA_COURSE, RHCE_COURSE}:
             existing = load("attempt.json")
             # Existing overlays retain their original backing file and grading contract.
-            if existing is None or existing.get("baseImage") == ALMA_IMAGE:
-                image = ALMA_IMAGE
+            if existing is None:
+                image = ALMA_IMAGE if course == RHCSA_COURSE and (root / "images" / ALMA_IMAGE).is_file() else AUTO_IMAGE
+            elif existing.get("baseImage") in {ALMA_IMAGE, AUTO_IMAGE}:
+                image = existing["baseImage"]
         base = root / "images" / image
-        return exam_action(action, base, minutes, expected, tasks, mock_profile=scenario == RHCSA_MOCK) if timed else operate(action, base)
+        return exam_action(action, base, minutes, expected, tasks, mock_profile=scenario == RHCSA_MOCK) if timed else operate(action, base, rhce=course == RHCE_COURSE)
 
 
 if __name__ == "__main__":
     try:
-        if sys.argv[1] == "_watch":
+        if sys.argv[1] == "_media":
+            os.umask(0o077)
+            images = lab_root() / "images"
+            kind = sys.argv[2]
+            if kind != "status":
+                if kind not in MEDIA:
+                    raise ValueError("Unknown setup medium.")
+                with alma_lock(images):
+                    cache_medium(images, kind, sys.stdin.buffer)
+                    alma_progress(images, "Verified local " + MEDIA[kind][0])
+            print(json.dumps(media_status(images)))
+        elif sys.argv[1] == "_watch":
             watch(sys.argv[2], int(sys.argv[3]))
         elif sys.argv[1] == "_stream":
             stream_console(*sys.argv[2:])

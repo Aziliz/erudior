@@ -12,6 +12,7 @@ while len(payload) < length:
     if not chunk:
         raise SystemExit("Incomplete VM bootstrap")
     payload.extend(chunk)
-source, guest, arguments = json.loads(payload)
+source, guest, arguments, *media = json.loads(payload)
 sys.argv = ["erudior-vm", guest, *arguments]
-exec(compile(source, "<erudior-vm>", "exec"), {"__name__": "__main__", "runner_source": source})
+exec(compile(source, "<erudior-vm>", "exec"), {"__name__": "__main__", "runner_source": source,
+                                                  "bundled_practice_kit": bytes(media[0]) if media and media[0] else None})

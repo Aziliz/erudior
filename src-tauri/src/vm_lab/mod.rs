@@ -90,3 +90,46 @@ pub async fn vm_lab(
     .await
     .map_err(|e| e.to_string())?
 }
+
+/// Only native file dialogs supply host paths. Stream picked media into the provider so
+/// Windows and Lima do not need shared folders, and no ISO crosses the JavaScript bridge.
+#[tauri::command]
+pub async fn vm_setup_media(window: tauri::WebviewWindow, kind: String) -> Result<serde_json::Value, String> {
+    use tauri_plugin_dialog::DialogExt;
+
+    own_window(&window)?;
+    tauri::async_runtime::spawn_blocking(move || {
+        let mut file = match kind.as_str() {
+            "status" => None,
+            "dvd" | "kit" => {
+                let (label, ext, size) = if kind == "dvd" {
+                    ("AlmaLinux 10.3 DVD", "iso", 10_824_908_800_u64)
+                } else {
+                    ("Erudior practice kit", "zip", 24_703)
+                };
+                let Some(selected) = window.dialog().file().add_filter(label, &[ext]).blocking_pick_file() else {
+                    return Ok(serde_json::Value::Null);
+                };
+                let path = selected.into_path().map_err(|_| "Unsupported file location")?;
+                let metadata = std::fs::metadata(&path).map_err(|e| e.to_string())?;
+                if !metadata.is_file() || metadata.len() != size {
+                    return Err(format!("Choose the official {label} ({size} bytes)."));
+                }
+                Some(std::fs::File::open(path).map_err(|e| e.to_string())?)
+            }
+            _ => return Err("Unknown setup medium.".into()),
+        };
+        let mut child = provider::launch(&["_media".into(), kind])?;
+        let mut input = child.stdin.take().ok_or("Missing provider input")?;
+        let copied = file.as_mut().map(|f| io::copy(f, &mut input)).transpose();
+        drop(input);
+        let output = child.wait_with_output().map_err(|e| e.to_string())?;
+        if !output.status.success() {
+            return Err(provider::message(if output.stderr.is_empty() { &output.stdout } else { &output.stderr }));
+        }
+        copied.map_err(|e| e.to_string())?;
+        serde_json::from_slice(&output.stdout).map_err(|_| "Unreadable setup response.".into())
+    })
+    .await
+    .map_err(|e| e.to_string())?
+}

@@ -1,18 +1,87 @@
 """Fast provider and grading regressions; requires only Python on Linux."""
+import io
 import json
 import os
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+import zipfile
 from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src-tauri/src/vm_lab"))
 import runner
 import guest_probe
+import alma_setup
 
 
 class RunnerTests(unittest.TestCase):
+    def test_verified_kit_import_and_failed_replacement(self):
+        source = Path(__file__).resolve().parents[1] / "public" / "downloads" / alma_setup.KIT_NAME
+        images = Path(self.temp.name)
+        good = source.read_bytes()
+        with alma_setup.alma_lock(images):
+            with self.assertRaisesRegex(ValueError, "already running"), alma_setup.alma_lock(images):
+                pass
+            path = alma_setup.cache_medium(images, "kit", io.BytesIO(good))
+            for damaged in (good[:-1], good[:-1] + bytes([good[-1] ^ 1]), good + b"0"):
+                with self.assertRaises(ValueError):
+                    alma_setup.cache_medium(images, "kit", io.BytesIO(damaged))
+                self.assertEqual(path.read_bytes(), good)
+                self.assertFalse(path.with_suffix(".zip.partial").exists())
+        with patch("urllib.request.urlopen", side_effect=AssertionError("unexpected network request")):
+            self.assertEqual(alma_setup.acquire_medium(images, "kit"), path)
+        with zipfile.ZipFile(source) as kit:
+            self.assertIn(alma_setup.MEDIA["dvd"][2], kit.read("CHECKSUM").decode())
+
+    def test_setup_retries_failed_install_and_reuses_base(self):
+        from types import SimpleNamespace
+        images = Path(self.temp.name)
+        base = images / runner.AUTO_IMAGE
+        with patch.object(alma_setup.shutil, "which", return_value="/bin/tool"), \
+                patch.object(alma_setup.shutil, "disk_usage", return_value=SimpleNamespace(free=30*1024**3)), \
+                patch.object(alma_setup, "acquire_medium", side_effect=lambda folder,k: folder / k) as media, \
+                patch.object(alma_setup, "provision_disk", side_effect=ValueError("guest failed")):
+            with self.assertRaisesRegex(ValueError, "guest failed"):
+                alma_setup.prepare_alma_base(base, False)
+            self.assertFalse(base.exists())
+            with patch.object(alma_setup, "provision_disk", side_effect=lambda *args: base.touch()) as install:
+                alma_setup.prepare_alma_base(base, False)
+                alma_setup.prepare_alma_base(base, False)
+                self.assertEqual(install.call_count, 1)
+            self.assertEqual(media.call_count, 4)
+
+    def test_rhce_seeds_use_kit_roles_and_private_peer_keys(self):
+        attempt = {"id": "test", "marker": "marker", "password": "test", "baseImage": runner.AUTO_IMAGE,
+                   "rhceKeys": {"control": "private-client", "controlPub": "public-client",
+                                "host": "private-server", "hostPub": "public-server"}}
+        def create(args):
+            Path(args[args.index("-output")+1]).touch()
+        with patch.object(runner, "tool", return_value="mkisofs"), patch.object(runner, "run", side_effect=create):
+            for role in runner.ROLES:
+                runner.seed(role, attempt)
+                config = json.loads(Path(role + "-seed/user-data").read_text().split("\n",1)[1])
+                self.assertIn(["bash", "/mnt/erudior-tools/prepare-guest.sh", "rhce", role], config["runcmd"])
+                self.assertNotIn("lock_passwd", config["users"][0])  # chpasswd sets the console password.
+                self.assertTrue(config.get("write_files", [True]))  # cloud-init rejects an empty module.
+                self.assertNotIn(attempt["rhceKeys"]["control" if role == "server" else "host"], json.dumps(config))
+                nets = json.loads(Path(role + "-seed/network-config").read_text())["ethernets"]
+                self.assertEqual(nets["lab"]["match"]["macaddress"], runner.practice_mac(role, attempt))
+                self.assertTrue(nets["uplink"]["dhcp4"])
+
+    def test_managed_rhcsa_pair_uses_course_kit_and_preserves_grader_marker(self):
+        attempt = {"id": "a", "password": "test", "marker": "proof", "baseImage": runner.AUTO_IMAGE}
+        def create(args):
+            Path(args[args.index("-output") + 1]).touch()
+        with patch.object(runner, "tool", return_value="mkisofs"), patch.object(runner, "run", side_effect=create):
+            for role, suffix in (("server", "10"), ("client", "11")):
+                runner.seed(role, attempt)
+                config = json.loads(Path(role + "-seed/user-data").read_text().split("\n", 1)[1])
+                self.assertEqual(runner.practice_mac(role, attempt), "52:54:00:50:02:" + suffix)
+                self.assertIn("wheel", config["users"][0]["groups"])
+                self.assertIn(["bash", "/mnt/erudior-tools/prepare-guest.sh", "rhcsa", role], config["runcmd"])
+                self.assertEqual(any(f["content"] == "proof\n" for f in config["write_files"]), role == "server")
+
     def test_status_can_read_a_live_guest_while_its_monitor_is_busy(self):
         with patch.object(runner, "process_alive", side_effect=lambda role: role == "server"), \
                 patch.object(runner, "running", return_value=False) as monitor_check:
