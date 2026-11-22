@@ -17,8 +17,8 @@ let checks = 0;
 try {
   fs.mkdirSync(path.join(temp, 'src/lib'), { recursive: true });
   fs.cpSync(path.join(root, 'src/lib'), path.join(temp, 'src/lib'), { recursive: true });
-  fs.mkdirSync(path.join(temp, 'scripts')); fs.mkdirSync(path.join(temp, 'samples')); fs.mkdirSync(path.join(temp, 'previous'));
-  for (const name of ['verify-promotion-handoff.ts', 'publish-courses.ts']) fs.copyFileSync(path.join(root, 'scripts', name), path.join(temp, 'scripts', name));
+  fs.mkdirSync(path.join(temp, 'scripts/lib'), { recursive: true }); fs.mkdirSync(path.join(temp, 'samples')); fs.mkdirSync(path.join(temp, 'previous'));
+  for (const name of ['verify-promotion-handoff.ts', 'publish-courses.ts', 'lib/lessonModuleMoves.ts']) fs.copyFileSync(path.join(root, 'scripts', name), path.join(temp, 'scripts', name));
   fs.writeFileSync(path.join(temp, 'package.json'), '{"type":"module"}');
   fs.symlinkSync(fs.realpathSync(path.join(root, 'node_modules')), path.join(temp, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
   // Test-only public pin inside the disposable copy. No production pin, secret, environment or release is changed.
