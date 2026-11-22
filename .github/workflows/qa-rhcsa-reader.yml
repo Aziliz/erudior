@@ -7,7 +7,7 @@ permissions:
 jobs:
   reader:
     runs-on: ubuntu-24.04
-    timeout-minutes: 14
+    timeout-minutes: 80
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +15,15 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Wait for the signed revision on the public catalog
+        shell: bash
+        run: |
+          set -eu
+          for attempt in $(seq 1 120); do
+            if curl -fsSL --max-time 12 "https://courses.erudior.com/v1/catalog.json?check=$attempt" | jq -e '.courses[]|select(.id=="rhcsa-rhel10-administration" and .revision==4)' >/dev/null; then exit 0; fi
+            sleep 25
+          done
+          exit 1
       - run: node tests/qa-rhcsa-reader.mjs
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
