@@ -16,7 +16,7 @@ import uuid
 
 # Tauri concatenates alma_setup.py with this runner. Standalone tests import it normally.
 if "__file__" in globals():
-    from alma_setup import (DVD_LABEL, DVD_NAME, MEDIA, alma_lock, alma_progress, cache_medium,
+    from alma_setup import (DVD_NAME, MEDIA, alma_lock, alma_progress, cache_medium,
                             media_status, prepare_alma_base)
 import tempfile
 
@@ -76,8 +76,9 @@ def rhce_keys():
 
 
 def practice_mac(role, attempt):
-    if "rhceKeys" in attempt:
-        return "52:54:00:51:02:" + ("10" if role == "server" else "11")
+    if attempt.get("baseImage") == AUTO_IMAGE:
+        track = "51" if "rhceKeys" in attempt else "50"
+        return f"52:54:00:{track}:02:" + ("10" if role == "server" else "11")
     return MACS[role]
 
 
@@ -95,7 +96,7 @@ def seed(role, attempt):
                               "dhcp4": True}
     (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": networks}))
     config = {
-        "users": [{"name": "learner", "shell": "/bin/bash", "lock_passwd": False,
+        "users": [{"name": "learner", "shell": "/bin/bash",
                    "sudo": ["ALL=(ALL) NOPASSWD:ALL"]}],
         "chpasswd": {"expire": False, "users": [
             {"name": "learner", "type": "text", "password": attempt["password"]}]},
@@ -108,31 +109,34 @@ def seed(role, attempt):
              "[Install]\nWantedBy=multi-user.target\n"}],
         "runcmd": [["systemctl", "daemon-reload"], ["systemctl", "enable", "erudior-lab-probe.service"],
                    ["systemctl", "restart", "erudior-lab-probe.service"]]}
-    if attempt.get("baseImage") == AUTO_IMAGE and "rhceKeys" not in attempt:
-        config["mounts"] = [[f"LABEL={DVD_LABEL}", "/mnt/erudior-dvd", "iso9660",
-                             "ro,nofail,x-systemd.automount,x-systemd.device-timeout=5s", "0", "0"]]
-        config["write_files"].append({"path": "/etc/yum.repos.d/erudior-dvd.repo", "content": "".join(
-            f"[erudior-dvd-{repo.lower()}]\nname=AlmaLinux DVD {repo}\nbaseurl=file:///mnt/erudior-dvd/{repo}/\n"
-            "enabled=0\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-10\n"
-            for repo in ("BaseOS", "AppStream"))})
+    managed = attempt.get("baseImage") == AUTO_IMAGE
+    if managed:
+        config["users"][0]["groups"] = ["wheel"]
+        track = "rhce" if "rhceKeys" in attempt else "rhcsa"
+        prepare = ["set -e", ["mkdir", "-p", "/mnt/erudior-tools"],
+                   ["mount", "-o", "ro", "/dev/disk/by-label/ERUDIORLAB", "/mnt/erudior-tools"],
+                   ["bash", "/mnt/erudior-tools/prepare-guest.sh", track, role]]
+        if track == "rhcsa" and role == "server":
+            # The kit creates the share. Give this attempt its own grading marker.
+            marker = "/var/lib/erudior/practice-marker"
+            config["write_files"].append({"path": marker, "content": attempt["marker"] + "\n"})
+            prepare.append(["install", "-m", "0644", marker, "/srv/projects/erudior-lab.txt"])
+        config["runcmd"] = prepare if track == "rhce" else prepare + config["runcmd"]
     if "rhceKeys" in attempt:
         keys = attempt["rhceKeys"]
-        config["users"][0]["groups"] = ["wheel"]
         config["ssh_pwauth"] = False
-        config["write_files"] = []
         if role == "server":
+            del config["write_files"]
             config["users"][0]["ssh_authorized_keys"] = [keys["controlPub"]]
             config["ssh_keys"] = {"ed25519_private": keys["host"], "ed25519_public": keys["hostPub"]}
         else:
+            config["write_files"] = []
             ssh = "/home/learner/.ssh/"
             for filename, content in (("erudior_rhce", keys["control"]), ("erudior_rhce.pub", keys["controlPub"]),
                                       ("known_hosts", "192.168.77.10 " + keys["hostPub"])):
                 config["write_files"].append({"path": ssh + filename, "content": content.rstrip() + "\n",
                                               "permissions": "0600", "owner": "learner:learner", "defer": True})
-        config["runcmd"] = [["mkdir", "-p", "/mnt/erudior-tools"],
-                            ["mount", "-o", "ro", "/dev/disk/by-label/ERUDIORLAB", "/mnt/erudior-tools"],
-                            ["bash", "/mnt/erudior-tools/prepare-guest.sh", "rhce", role]]
-    elif role == "client":
+    elif not managed and role == "client":
         primary = '<metadata xmlns="http://linux.duke.edu/metadata/common" packages="0"/>'
         digest = hashlib.sha256(primary.encode()).hexdigest()
         repomd = ('<repomd xmlns="http://linux.duke.edu/metadata/repo"><revision>1</revision>'
@@ -141,7 +145,7 @@ def seed(role, attempt):
         config["write_files"].extend([
             {"path": "/srv/erudior-repo/repodata/primary.xml", "content": primary},
             {"path": "/srv/erudior-repo/repodata/repomd.xml", "content": repomd}])
-    if role == "server" and "rhceKeys" not in attempt:
+    if not managed and role == "server":
         config["write_files"] += [
             {"path": "/srv/projects/erudior-lab.txt", "content": attempt["marker"] + "\n"},
             {"path": "/etc/systemd/system/erudior-maint.service", "content":

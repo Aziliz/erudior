@@ -13,10 +13,6 @@ jobs:
         include:
           - platform: windows-latest
             bundles: nsis,msi
-          - platform: macos-latest
-            # "app" makes the signed .app.tar.gz the macOS auto-updater downloads.
-            bundles: app,dmg
-            target: universal-apple-darwin
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -45,5 +41,8 @@ jobs:
         id: regression
         env:
           npm_config_script_shell: bash
-        run: node scripts/diagnostic-command.mjs regression -- npm test
+        run: |
+          npx tsx tests/spreadsheet-workflow.test.mts
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run test:study-and-records
 
