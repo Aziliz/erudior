@@ -1,0 +1,21 @@
+name: Check every RHCSA revision 4 lesson in the desktop reader
+on:
+  push:
+    branches: [qa/rhcsa-revision4-reader]
+permissions:
+  contents: read
+jobs:
+  reader:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node tests/qa-rhcsa-reader.mjs
+        env:
+          CHROMIUM_PATH: /usr/bin/google-chrome
