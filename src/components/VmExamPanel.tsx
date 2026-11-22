@@ -78,7 +78,7 @@ function Panel({ api, course, lesson, scenario, minutes, tasks, provider }: Pane
     }
     if (inApp) void initialize();
     return () => { disposed = true; mounted.current = false; };
-  }, [profile, course, lesson, scenario, minutes, tasks]);
+  }, [provider, profile, course, lesson, scenario, minutes, tasks]);
 
   useEffect(() => {
     if (!supported || (phase !== "active" && phase !== "submitted")) return;

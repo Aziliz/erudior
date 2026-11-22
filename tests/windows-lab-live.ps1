@@ -11,6 +11,11 @@ function Run-HostAction([string]$Action, [string]$Target) {
     if ($LASTEXITCODE -ne 0) { throw "Desktop host action $Action failed (exit $LASTEXITCODE)." }
     return ($result | ConvertFrom-Json)
 }
+$env:WSL_UTF8 = '1'
+foreach ($switch in @('--version','--status','--list')) {
+    & wsl.exe $switch 2>&1 | ForEach-Object { Write-Host "$_" }
+    Write-Host "$switch exited with $LASTEXITCODE."
+}
 $before = Run-HostAction 'list' 'Debian'
 if ($before.hosts.name -contains 'Erudior-Labs') { throw 'This test requires a fresh lab host.' }
 $setup = Run-HostAction 'setup' 'Erudior-Labs'

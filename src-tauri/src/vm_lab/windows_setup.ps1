@@ -1,5 +1,6 @@
 # Only the signed desktop application supplies the action, selection and host script.
 $ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
 $Managed = 'Erudior-Labs'
 
 function Invoke-Wsl([string[]]$Arguments, [string]$InputScript) {
@@ -17,9 +18,13 @@ function Invoke-Wsl([string[]]$Arguments, [string]$InputScript) {
 
 function Get-Hosts {
     $names = Invoke-Wsl @('--list', '--quiet')
-    if ($names.Code -ne 0) { return }
+    if ($names.Code -ne 0 -or !$names.Text.Trim()) { return }
     $details = Invoke-Wsl @('--list', '--verbose')
-    if ($details.Code -ne 0) { throw 'Windows could not list WSL versions. Update WSL and retry setup.' }
+    if ($details.Code -ne 0) {
+        # WSL reports an empty registry differently across Windows versions and output modes.
+        if ($details.Text -match 'WSL_E_(DEFAULT_)?DISTRO_NOT_FOUND|WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED') { return }
+        throw "Windows could not list its registered WSL versions. $($details.Text)"
+    }
     foreach ($line in ($names.Text -split "`n")) {
         $name = $line.Trim()
         if (!$name -or $name -match '^[*-]|[\x00-\x1f]' -or $name -match '^(docker-desktop|podman-machine|rancher-desktop)(-|$)') { continue }
