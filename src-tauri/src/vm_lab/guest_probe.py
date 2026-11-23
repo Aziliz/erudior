@@ -340,6 +340,9 @@ EXTRA = {"client-repo", "client-script", "server-tuning", "server-swap", "server
 
 ANSIBLE_TARGET = Path("/etc/erudior-proof.conf")
 ANSIBLE_PLAY = "/home/learner/site.yml"
+ANSIBLE_ENV = ["runuser", "-u", "learner", "--", "/usr/bin/env", "-i", "HOME=/home/learner",
+               "PATH=/usr/bin:/bin", "LANG=C.UTF-8", "ANSIBLE_CONFIG=/etc/erudior-lab/ansible.cfg",
+               "ANSIBLE_NOCOLOR=1", "ANSIBLE_HOST_KEY_CHECKING=True"]
 
 
 def ansible_state():
@@ -354,9 +357,7 @@ def ansible_state():
 
 def run_play(repeat):
     # Use the course inventory and packaged Ansible. Execute entirely as the guest learner.
-    args = ["runuser", "-u", "learner", "--", "/usr/bin/env", "-i", "HOME=/home/learner",
-            "PATH=/usr/bin:/bin", "LANG=C.UTF-8", "ANSIBLE_CONFIG=/dev/null",
-            "ANSIBLE_NOCOLOR=1", "ANSIBLE_HOST_KEY_CHECKING=True", "/usr/bin/ansible-playbook",
+    args = [*ANSIBLE_ENV, "/usr/bin/ansible-playbook",
             "-i", "/etc/erudior-lab/inventory.ini", "--limit", "dispatch", ANSIBLE_PLAY]
     # Playbook output can be large. Stream it to a temporary file and read only the final recap.
     with tempfile.TemporaryFile() as log:
@@ -378,6 +379,11 @@ def ansible_observation(role, verb):
     marker = Path("/etc/erudior-lab/ansible-exam")
     if not marker.is_file() or marker.read_text().strip() != role:
         return False
+    if role == "client" and verb == "ansible-ready":
+        return (command(*ANSIBLE_ENV, "/usr/bin/ansible-playbook", "--version", seconds=12)[0] == 0
+                and command(*ANSIBLE_ENV, "/usr/bin/ssh", "-n", "-o", "BatchMode=yes", "-o", "StrictHostKeyChecking=yes",
+                            "-o", "ConnectTimeout=5", "-i", "/home/learner/.ssh/erudior_rhce",
+                            "learner@" + SERVER, "true", seconds=10)[0] == 0)
     if role == "server" and verb == "ansible-reset":
         ANSIBLE_TARGET.unlink(missing_ok=True)
         return True
@@ -394,7 +400,7 @@ def serve(port, role, attempt):
             # port open so the next check can send while this loop is waking.
             time.sleep(0.1)
             continue
-        match = re.fullmatch(rb"([a-f0-9]{32}) (observe|tasks|tasks-nfs|reboot|extra:[a-z-]+|ansible-(?:reset|state|run|repeat))\n", line)
+        match = re.fullmatch(rb"([a-f0-9]{32}) (observe|tasks|tasks-nfs|reboot|extra:[a-z-]+|ansible-(?:ready|reset|state|run|repeat))\n", line)
         if not match:
             continue
         nonce, verb = (field.decode() for field in match.groups())

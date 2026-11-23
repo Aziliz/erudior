@@ -72,7 +72,7 @@ def verify():
                 time.sleep(2)
             assert state["exam"]["phase"] == "complete", state["exam"].get("error")
             report = state["report"]
-            assert report["tasks"] == [dict(TASKS[0], before=True, after=True)]
+            assert report["tasks"] == [dict(TASKS[0], before=True, after=True)], report["tasks"]
             assert report["exam"]["reason"] == "submitted"
             assert all("AlmaLinux 10" in name for name in state["exam"]["platforms"].values())
             (original / "ansible-guest-receipt.json").write_text(json.dumps({

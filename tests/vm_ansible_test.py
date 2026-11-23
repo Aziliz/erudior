@@ -20,7 +20,7 @@ class AnsibleGrading(unittest.TestCase):
                 return {"passed": verb != failure}
             with self.subTest(failure=failure), patch.object(runner, "probe", side_effect=response):
                 runner.capture(attempt, tasks, preflight=True, persistent=True)
-                self.assertEqual(verbs, [("server","tasks"),("client","tasks")])
+                self.assertEqual(verbs, [("server","tasks"),("client","tasks"),("client","ansible-ready")])
                 verbs.clear()
                 check = runner.capture(attempt, tasks, persistent=True)
                 self.assertEqual(check["before"][runner.ANSIBLE_TASK], failure is None)

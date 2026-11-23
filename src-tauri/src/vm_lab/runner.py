@@ -136,6 +136,8 @@ def seed(role, attempt):
         if attempt.get("ansibleExam"):
             config["write_files"].append({"path": "/etc/erudior-lab/ansible-exam", "content": role})
             if role == "client":
+                config["write_files"].append({"path": "/etc/erudior-lab/ansible.cfg", "permissions": "0644",
+                                              "content": "[defaults]\nhost_key_checking = True\n"})
                 config["write_files"].append({"path": "/etc/erudior-lab/inventory.ini", "content":
                     "[managed]\ndispatch ansible_host=192.168.77.10 ansible_user=learner "
                     "ansible_ssh_private_key_file=/home/learner/.ssh/erudior_rhce\n"})
@@ -568,6 +570,8 @@ def capture(attempt, tasks=None, *, preflight=False, persistent=False, mock_prof
         if preflight:
             if not guests["client"].get("capabilities", {}).get("ansible"):
                 raise LabError("Prepare ansible-core on the control node before beginning.")
+            if probe("client", "ansible-ready", attempt["id"]).get("passed") is not True:
+                raise LabError("The control node needs a working Ansible configuration and a key-based connection to dispatch. Wait for both guests and retry.")
             return {"boots": boots, "before": {}, "platforms": platforms}
         def passed(role, verb):
             result = probe(role, verb, attempt["id"]).get("passed")
