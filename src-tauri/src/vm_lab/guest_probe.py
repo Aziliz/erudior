@@ -200,32 +200,42 @@ def web_port_result(p):
     if not (command("systemctl", "is-active", "--quiet", "httpd")[0] == 0 and
             command("systemctl", "is-enabled", "httpd") == (0, "enabled") and command("getenforce") == (0, "Enforcing")):
         return False
-    code, listening = command("ss", "-Hltn", "sport = :" + port)
-    if code or not listening:
+    code, listening = command("ss", "-Hltnp", "sport = :" + port)
+    if code or '"httpd"' not in listening:
         return False
-    if command("firewall-cmd", "--state")[0] or command("firewall-cmd", "--query-port=" + port + "/tcp")[1] != "yes":
+    code, routes = command("ip", "-j", "route", "get", "192.168.77.20")
+    if code:
         return False
-    for host in ("127.0.0.1", SERVER):  # httpd may listen on the lab address only.
-        try:
-            request.urlopen("http://" + host + ":" + port + "/", timeout=5)
+    routes = json.loads(routes)
+    if not routes or not routes[0].get("dev"):
+        return False
+    code, zone = command("firewall-cmd", "--get-zone-of-interface=" + routes[0]["dev"])
+    if code or not zone or zone == "no zone":
+        code, zone = command("firewall-cmd", "--get-default-zone")
+    if code or not zone:
+        return False
+    for flags in ([], ["--permanent"]):
+        if command("firewall-cmd", *flags, "--zone=" + zone, "--query-port=" + port + "/tcp") != (0, "yes"):
+            return False
+    try:
+        with request.urlopen("http://" + SERVER + ":" + port + "/", timeout=5):
             return True
-        except error.HTTPError as answer:
-            if answer.code < 500:  # A 403 for an empty document root still proves httpd answered.
-                return True
-        except (OSError, ValueError):
-            continue
-    return False
+    except error.HTTPError as answer:
+        answer.close()
+        return answer.code == 403  # The supplied image may have an empty document root.
+    except (OSError, ValueError):
+        return False
 
 
 def ssh_result(p):
     user = p["sshUser"]
     if not re.fullmatch(r"[a-z_][a-z0-9_-]{0,31}", user):
         return False
-    code, _ = command("runuser", "-u", "learner", "--", "ssh", "-n", "-o", "BatchMode=yes",
+    code, identity = command("runuser", "-u", "learner", "--", "ssh", "-n", "-o", "BatchMode=yes", "-o", "PreferredAuthentications=publickey",
                       "-o", "PasswordAuthentication=no", "-o", "KbdInteractiveAuthentication=no",
                       "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-o", "LogLevel=ERROR",
-                      "-o", "ConnectTimeout=10", user + "@" + SERVER, "true", seconds=30)
-    return code == 0
+                      "-o", "ConnectTimeout=10", user + "@" + SERVER, "id -un", seconds=30)
+    return code == 0 and identity == user
 
 
 def cron_result(p):

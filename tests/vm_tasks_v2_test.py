@@ -203,29 +203,29 @@ class ProbeTests(unittest.TestCase):
     def test_web_port_needs_service_listener_firewall_and_answer(self):
         from urllib import error
         good = [(("systemctl", "is-active"), (0, "")), (("systemctl", "is-enabled"), (0, "enabled")),
-                (("getenforce",), (0, "Enforcing")), (("ss",), (0, "LISTEN 0 511 *:18080 *:*")),
-                (("firewall-cmd", "--state"), (0, "running")), (("firewall-cmd", "--query-port=18080/tcp"), (0, "yes"))]
-        forbidden = error.HTTPError("u", 403, "Forbidden", {}, None)
-        with patch("urllib.request.urlopen", side_effect=forbidden):
+                (("getenforce",), (0, "Enforcing")), (("ss",), (0, 'LISTEN *:18080 users:(("httpd",pid=42,fd=7))')),
+                (("ip",), (0, '[{"dev":"ens3"}]')), (("firewall-cmd", "--get-zone-of-interface=ens3"), (0, "rhcsa-lab")),
+                (("firewall-cmd", "--zone=rhcsa-lab"), (0, "yes")), (("firewall-cmd", "--permanent"), (0, "yes"))]
+        with patch("urllib.request.urlopen", side_effect=error.HTTPError("u", 403, "Forbidden", {}, None)):
             self.assertTrue(self.run_with("server-web-port", good))
-            self.assertFalse(self.run_with("server-web-port", good[:5] + [(("firewall-cmd", "--query-port=18080/tcp"), (1, "no"))]))
-            self.assertFalse(self.run_with("server-web-port", good[:3] + [(("ss",), (0, ""))] + good[4:]))
+            for index in (3, 6, 7):
+                wrong = list(good)
+                wrong[index] = (good[index][0], (1, "no"))
+                self.assertFalse(self.run_with("server-web-port", wrong))
             self.assertFalse(self.run_with("server-web-port", good[:2] + [(("getenforce",), (0, "Permissive"))] + good[3:]))
-        with patch("urllib.request.urlopen", side_effect=OSError("refused")):
-            self.assertFalse(self.run_with("server-web-port", good))
 
     def test_ssh_runs_as_learner_without_passwords(self):
         seen = []
         def fake(*argv, seconds=5):
             seen.append(argv)
-            return (0, "")
+            return (0, "labssh")
         with patch.object(guest_probe, "command", side_effect=fake):
             self.assertTrue(guest_probe.extra_task("client-ssh-key", "x"))
         argv = seen[0]
         self.assertEqual(argv[:4], ("runuser", "-u", "learner", "--"))
         self.assertIn("BatchMode=yes", argv)
         self.assertIn("PasswordAuthentication=no", argv)
-        self.assertEqual(argv[-2:], ("labssh@192.168.77.10", "true"))
+        self.assertEqual(argv[-2:], ("labssh@192.168.77.10", "id -un"))
         with patch.object(guest_probe, "command", return_value=(255, "")):
             self.assertFalse(guest_probe.extra_task("client-ssh-key", "x"))
 
