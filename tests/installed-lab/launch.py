@@ -16,7 +16,7 @@ if receipt.exists():
 for target in ("restart", "verified"):
     process = subprocess.Popen([app])
     try:
-        deadline = time.monotonic() + 42 * 60
+        deadline = time.monotonic() + 55 * 60
         phase = None
         while time.monotonic() < deadline:
             if process.poll() is not None:

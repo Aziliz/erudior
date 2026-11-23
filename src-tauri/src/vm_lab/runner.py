@@ -17,7 +17,7 @@ import uuid
 # Tauri concatenates alma_setup.py with this runner. Standalone tests import it normally.
 if "__file__" in globals():
     from alma_setup import (DVD_NAME, MEDIA, alma_lock, alma_progress, cache_medium,
-                            media_status, prepare_alma_base)
+                            media_status, prepare_alma_base, lima_guest_clock)
 import tempfile
 
 # Tauri embeds both source files. The standalone runner reads its adjacent guest service.
@@ -290,7 +290,7 @@ def launch(role, base, attempt):
     net += "server=on" if role == "server" else "server=off,reconnect-ms=1000"
     kvm = x86_kvm()
     args = [tool("qemu-system-x86_64"), "-name", "Erudior-" + role,
-            "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), "-cpu", "host" if kvm else "max",
+            "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), *lima_guest_clock(kvm), "-cpu", "host" if kvm else "max",
             "-m", "3072" if "rhceKeys" in attempt else "1536", "-smp", "2" if kvm else "1", "-display", "none", "-nodefaults",
             "-pidfile", role + ".pid",
             "-drive", f"file={image},format=qcow2,if=virtio",

@@ -107,6 +107,13 @@ class DesktopProvider(unittest.TestCase):
             ):
                 self.assertFalse(runner.x86_kvm())
 
+    def test_lima_software_emulation_uses_virtual_clocks(self):
+        with patch.dict(os.environ, {"ERUDIOR_VM_PROVIDER": "lima"}):
+            self.assertEqual(runner.lima_guest_clock(False), ["-icount", "shift=3,sleep=on", "-rtc", "clock=vm"])
+            self.assertEqual(runner.lima_guest_clock(True), [])
+        with patch.dict(os.environ, {"ERUDIOR_VM_PROVIDER": ""}):
+            self.assertEqual(runner.lima_guest_clock(False), [])
+
     def test_only_accelerate_when_kvm_can_create_a_vm(self):
         device = mock_open()
         with (
