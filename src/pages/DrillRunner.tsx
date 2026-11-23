@@ -189,7 +189,7 @@ export default function DrillRunner({ api, course, drills, count }: { api: AppAp
 
   return (
     <div className="runner-main" style={{ height: "100%" }}>
-      <CalcDock kind={calcKind(course)} />
+      <CalcDock kind={calcKind(course, api.progress.courseCalculators)} />
       <h1 className="sr-only">Math drills: {course.title}</h1>
       <div className="runner-bar">
         <button className="btn ghost sm" onClick={back}>

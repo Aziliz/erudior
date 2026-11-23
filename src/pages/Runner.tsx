@@ -487,7 +487,7 @@ export default function Runner({ api, session: started, bank, initial }: Props) 
   return (
     <div className={`runner${readAloud ? " ra-course" : ""}`} ref={runnerRef} aria-busy={operationPending}>
       <div className="runner-main">
-      <CalcDock kind={calcKind(course)} />
+      <CalcDock kind={calcKind(course, api.progress.courseCalculators)} />
       {(saveError || failedOperation) && <div className="notice error" role="alert">
         {submissionCommitted ? "Your result is saved, but the recovery draft could not be cleared. " : "Session could not be saved. Your quiz is still here. "}
         {saveError}

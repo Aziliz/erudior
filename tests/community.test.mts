@@ -156,7 +156,8 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
   ok("drills", c.drills[0].id === "x1" && c.drills[0].calc?.t === "a * b");
   ok("language", c.language?.code === "de" && c.vocab?.[0].term === "der Vogel" && c.readingList?.[0].free === true);
   ok("image ids include questions", imageIds(full).sort().join() === "img1,img2");
-  ok("calculator by subject", normalizeCourse(toCourse(doc, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "graphing");
+  ok("math subject offers graphing", normalizeCourse(toCourse({ ...doc, subject: "Math" }, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "graphing");
+  ok("other subjects leave the calculator optional", normalizeCourse(toCourse(doc, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === undefined);
   ok("no calculator", normalizeCourse(toCourse({ ...doc, calculator: "none" }, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "none");
 
   const bad = (name: string, edit: (d: CommunityDoc) => void, re: RegExp, strict = true) => {

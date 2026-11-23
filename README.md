@@ -83,7 +83,7 @@ To release:
 
 Or run **Build installers** manually from the Actions tab and download the artifacts from the run.
 
-The repo is private, so installed copies can't check its releases and in-app updates are off; install new versions by hand. To turn updates back on, publish releases to a public repo, add the updater signing key as the `TAURI_SIGNING_PRIVATE_KEY` secret, and follow the notes in `src/lib/updates.ts`.
+Desktop builds check the public GitHub Releases update manifest. The release workflow uses `TAURI_SIGNING_PRIVATE_KEY` to sign update packages. The app verifies the signature against its bundled public key before installation.
 
 The Windows installers aren't code-signed, so SmartScreen shows a warning on first run. Choose **More info**, then **Run anyway**.
 

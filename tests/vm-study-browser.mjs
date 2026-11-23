@@ -23,7 +23,7 @@ await page.addInitScript(raw => {
   window.isTauri = true;
   const progress = { version: 1, seeded: true, catalogV1: true, attempts: [], stats: {}, cards: {},
     lessonsDone: {}, plans: {}, activity: {}, drills: {} };
-  const states = new Map([["progress", JSON.stringify(progress)]]);
+  const states = new Map([["progress", sessionStorage.getItem("test.progress") ?? JSON.stringify(progress)]]);
   const sessions = new Map();
   window.vmCalls = [];
   window.releaseCalls = [];
@@ -35,7 +35,12 @@ await page.addInitScript(raw => {
       if (cmd.startsWith("vm_")) window.vmCalls.push({ cmd, course, lesson, expected, role, id, action: args.action });
       if (cmd === "list_items") return args.kind === "courses" ? [JSON.stringify(raw)] : [];
       if (cmd === "load_state") return states.get(args.name) ?? null;
-      if (cmd === "save_state") { states.set(args.name, args.content); return; }
+      if (cmd === "save_state" || cmd === "compare_and_swap_state") {
+        if (cmd === "compare_and_swap_state" && (states.get(args.name) ?? null) !== args.expected) return false;
+        states.set(args.name, args.content);
+        if (args.name === "progress") sessionStorage.setItem("test.progress", args.content);
+        return cmd === "compare_and_swap_state" ? true : undefined;
+      }
       if (cmd === "install_kind") return "rpm";
       if (cmd.startsWith("plugin:updater|") || cmd === "plugin:process|restart") {
         window.releaseCalls.push(cmd);
@@ -94,6 +99,7 @@ async function input(pane, command) {
   await page.keyboard.press("Enter");
   await page.waitForFunction(value => window.lastInput?.text.endsWith(value + "\r"), command);
 }
+const calculatorSetting = page.getByRole("checkbox", { name: "Show calculator in this course" });
 const grip = pane => pane.getByRole("separator", { name: "Terminal height" });
 const height = pane => pane.locator(".vm-console-screen").evaluate(el => el.getBoundingClientRect().height);
 const rows = pane => pane.locator(".xterm-accessibility-tree [role=listitem]").count();
@@ -113,6 +119,7 @@ async function dragHeight(pane, delta) {
 try {
   await page.goto("https://erudior.test/");
   await page.locator(".course-row").filter({ hasText: course.title }).click();
+  assert.equal(await calculatorSetting.isChecked(), false);
   await button("Lessons").click();
   await button("Open practice terminal").click();
   await practice.getByRole("button", { name: "Start lab" }).click();
@@ -121,6 +128,7 @@ try {
   assert.equal(first.lesson, "practice-environment");
   await read.getByRole("button", { name: new RegExp(title("first-prompt")) }).first().click();
   await read.getByRole("heading", { name: title("first-prompt"), exact: true }).waitFor();
+  assert.equal(await page.locator(".calc-toggle, .calc-panel, html.calc-open").count(), 0);
   await geometry(false);
   const screen = practice.locator(".vm-console-screen");
   const width = (await screen.boundingBox()).width;
@@ -182,7 +190,9 @@ try {
 
   await page.setViewportSize({ width: 1280, height: 850 });
   await read.getByRole("button", { name: "← " + course.title }).click();
+  await calculatorSetting.check();
   await read.getByRole("button", { name: new RegExp(title("shared-directory")) }).first().click();
+  await button("Open the basic calculator").waitFor();
   await read.getByRole("button", { name: "Client console" }).click();
   await exam.getByText("Connected. Press Enter for the login prompt.").waitFor();
   assert.equal(await grip(exam).getAttribute("aria-valuenow"), remembered);
@@ -198,6 +208,8 @@ try {
   assert.equal(await exam.isVisible(), false);
   await page.goto("https://erudior.test/");
   await page.locator(".course-row").filter({ hasText: course.title }).click();
+  assert.equal(await calculatorSetting.isChecked(), true, "Course preference survived reopening the app");
+  await calculatorSetting.uncheck();
   await button("Open practice terminal").click();
   await practice.getByRole("button", { name: "Start lab" }).click();
   await practice.getByText("Connected. Press Enter for the login prompt.").waitFor();
