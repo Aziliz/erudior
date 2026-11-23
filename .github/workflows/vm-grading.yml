@@ -23,10 +23,10 @@ jobs:
       - run: node --import tsx tests/vm-exam.test.mts && node --import tsx tests/rhcsa-editions.test.mts
   real-ansible:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - name: Grade a changing and a converged playbook on two AlmaLinux 10 guests
+      - name: Grade Ansible convergence and six RHCSA tasks on fresh AlmaLinux 10 guests
         run: |
           devices=()
           if [[ -e /dev/kvm ]]; then devices+=(--device /dev/kvm); fi
@@ -47,9 +47,15 @@ jobs:
               (directory / "Erudior-setup.iso").write_bytes(archive.read("Erudior-setup.iso"))
           alma_setup.acquire_medium(directory,"dvd")
           PY
-            python3 tests/vm_ansible_host.py'
+            python3 tests/vm_ansible_host.py
+            python3 tests/vm_rhcsa_host.py'
       - uses: actions/upload-artifact@v4
         with:
           name: ansible-managed-node-receipt
           path: ansible-guest-receipt.json
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rhcsa-six-task-receipt
+          path: rhcsa-six-guest-receipt.json
           if-no-files-found: error

@@ -35,6 +35,8 @@ jobs:
           limactl start --tty=false --name=erudior-labs --cpus=3 --memory=5 --disk=18 template:debian
           limactl shell --tty=false erudior-labs sudo sh -s -- packages < src-tauri/src/vm_lab/windows-host.sh
           limactl shell --tty=false erudior-labs sh -s < tests/installed-lab/provider-media.sh
+          limactl shell --tty=false erudior-labs sudo tee /usr/local/bin/qemu-system-x86_64 < tests/installed-lab/macos-boot-diagnostics.py > /dev/null
+          limactl shell --tty=false erudior-labs sudo chmod 755 /usr/local/bin/qemu-system-x86_64
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -69,6 +71,18 @@ jobs:
           ditto "$mount/Erudior.app" "$RUNNER_TEMP/Erudior.app"
           hdiutil detach "$mount"
           python3 tests/installed-lab/launch.py "$RUNNER_TEMP/Erudior.app/Contents/MacOS/erudior"
+      - name: Read guest boot milestones after a failed macOS run
+        if: failure() && runner.os == 'macOS'
+        run: |
+          limactl shell --tty=false erudior-labs sh -s <<'SH'
+          cd "$HOME/.local/share/erudior-vm-labs/attempts" || exit 0
+          for boot in */*.serial.boot; do
+            test -f "$boot" || continue
+            echo "$boot"
+            # Serial streams stay on the disposable VM. Emit only known boot milestones.
+            tr '\r' '\n' < "$boot" | grep -Eio 'kernel panic[^[:cntrl:]]{0,160}|CPU does not support[^[:cntrl:]]{0,120}|fatal glibc error[^[:cntrl:]]{0,120}|Entering emergency mode|Reached target [[:alnum:] -]+|[[:alnum:]-]+ login:|Starting kernel|Booting from Hard Disk|dracut-initqueue[^[:cntrl:]]{0,120}|No bootable device|cloud-init[^[:cntrl:]]{0,75}finished' | tail -25 || true
+          done
+          SH
       - uses: actions/upload-artifact@v4
         if: always()
         with:

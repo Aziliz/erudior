@@ -55,7 +55,7 @@ async function exercise() {
   }
   let state = await action("start");
   if (!state.running.client || !state.running.server) throw Error("Both guests must be running.");
-  const expected = state.exam.id, deadline = Date.now() + 18 * 60000;
+  const expected = state.exam.id, deadline = Date.now() + 30 * 60000;
   for (;;) {
     try {state = await action("begin", expected); break;} catch (error) {
       if (Date.now() > deadline) throw error;
