@@ -1,0 +1,2499 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "law-us-legal-system",
+ "title": "Introduction to the U.S. Legal System",
+ "description": "Learn to identify legal sources, map federal and state courts, evaluate authority, and follow a fictional civil dispute from intake through appeal. First course in the J.D. Preparation pathway. Independent educational preparation, not degree credit.",
+ "author": "Erudior",
+ "revision": 1,
+ "disclaimer": "Educational preparation only; not legal advice, university credit, a J.D. degree, or a determination of bar eligibility. Jurisdiction-specific rules must be researched.",
+ "modules": [
+  {
+   "id": "lus-m1",
+   "title": "Sources of law and legal institutions",
+   "quiz": [
+    "lus-q1-02",
+    "lus-q1-05",
+    "lus-q1-08",
+    "lus-q1-09",
+    "lus-q2-02",
+    "lus-q2-05",
+    "lus-q2-08",
+    "lus-q2-09"
+   ]
+  },
+  {
+   "id": "lus-m2",
+   "title": "Federal and state court structures",
+   "quiz": [
+    "lus-q3-02",
+    "lus-q3-05",
+    "lus-q3-08",
+    "lus-q3-09",
+    "lus-q4-02",
+    "lus-q4-05",
+    "lus-q4-08",
+    "lus-q4-09"
+   ]
+  },
+  {
+   "id": "lus-m3",
+   "title": "Precedent, jurisdiction and authority",
+   "quiz": [
+    "lus-q5-02",
+    "lus-q5-05",
+    "lus-q5-08",
+    "lus-q5-09",
+    "lus-q6-02",
+    "lus-q6-05",
+    "lus-q6-08",
+    "lus-q6-09"
+   ]
+  },
+  {
+   "id": "lus-m4",
+   "title": "From client problem to judicial decision",
+   "quiz": [
+    "lus-q7-02",
+    "lus-q7-05",
+    "lus-q7-08",
+    "lus-q7-09",
+    "lus-q8-02",
+    "lus-q8-05",
+    "lus-q8-08",
+    "lus-q8-09"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "lus-sources",
+   "module": "lus-m1",
+   "title": "Recognizing sources of law",
+   "minutes": 35,
+   "topics": [
+    "Sources of law"
+   ],
+   "refs": [
+    "lus-ref-sources"
+   ],
+   "body": "## Start with the document, not the conclusion\n\nSuppose a bicycle repair shop refuses to return a customer's bicycle until an unexpected storage charge is paid. Searching online produces a statute, a proposed agency rule, a court opinion, and an article titled “Know your rights.” All four may be useful. They do not do the same job. Before deciding which argument is strongest, identify who produced each document, what legal function it performs, and whether it applies to this problem.\n\nA **[[constitution]]** establishes governmental structures, powers, and limitations. The U.S. Constitution creates the federal framework; states also have constitutions. A **[[statute]]** is law enacted by a legislature. Congress enacts federal statutes, while state legislatures enact state statutes. A local legislative body may enact an **[[ordinance]]** within its delegated powers. These labels identify sources, not an automatic answer to every dispute involving them.\n\nA **[[regulation]]** is an agency rule. An agency needs legal authority for its action, and a rule's legal effect depends on such matters as the enabling law, the kind of rule, adoption procedures, and applicable judicial decisions. A document labeled “proposed rule” generally proposes a future rule rather than announcing an already effective requirement. Read its status and dates before treating it as governing conduct.\n\n**[[Case law]]** consists of law developed through judicial decisions. Courts interpret constitutions, statutes, and regulations and develop common-law doctrines. **[[Common law]]** refers here to doctrines developed through decisions rather than solely through a legislative text. A statute may change a common-law rule. A court opinion may decide how a statutory term applies. Research often requires reading these sources together.\n\n## Primary and secondary authority\n\n**[[Primary authority]]** is a law-producing source, such as a constitution, statute, regulation, or judicial decision. **[[Secondary authority]]** explains, analyzes, or organizes the law: a treatise, article, legal encyclopedia, or research guide. Secondary materials can help you learn vocabulary and find primary sources. Their usefulness does not turn them into enacted law or a judicial holding.\n\n“Primary” does not mean “binding on every court.” An opinion from another state's highest court remains primary authority, but ordinarily does not control your state's interpretation of its own law. Conversely, an official educational webpage may be highly reliable as an explanation while still being secondary material. Classify the document's function, not simply its domain name or professional appearance.\n\nUse this first-pass inventory:\n\n| Document | Source category | Next question |\n|---|---|---|\n| Enacted repair-shop statute | Statutory primary authority | Which transactions and dates does it cover? |\n| Final agency regulation | Regulatory primary authority | Was it authorized and effective for this event? |\n| Judicial opinion | Case-law primary authority | Which issue did it decide, and does it control here? |\n| Agency consumer guide | Explanatory material | Which underlying legal provisions support it? |\n| Proposed amendment | Proposal | Has any operative change actually occurred? |\n\n## Read scope and time\n\nAn **[[effective date]]** identifies when a provision becomes operative, subject to transition rules. A new statute might govern only contracts formed after a specified date. An old dispute might require the earlier version. Publication date, enactment date, and effective date can differ. Record each relevant date instead of assuming the newest page governs every event.\n\nRead definitions and exceptions with the operative rule. If a fictional statute regulates “commercial repairers,” you need its definition before applying it to a neighbor repairing a bike as a favor. If a remedy applies only after a written demand, the demand requirement matters as much as the remedy. A search result that omits these details is a lead, not a complete rule.\n\n### Example 1: Sorting a storage-fee packet\n\nAll rules in this example are invented. A state statute requires a commercial repairer to disclose storage fees before accepting goods. An agency has proposed a standard disclosure form. A consumer guide says to request a written estimate. The shop accepted the bicycle before disclosing any storage fee.\n\nFirst, identify the statute as enacted law and check that the shop is a covered repairer. Second, separate the proposed form from an operative legal requirement; a proposal alone does not establish that the shop had to use that form. Third, use the guide to locate supporting provisions. Fourth, reserve the remedy question: a disclosure violation does not itself tell us whether the bicycle must be returned, whether damages are available, or who can enforce the statute. Those require additional law.\n\n### Example 2: A rule changes during a dispute\n\nAn invented amendment takes effect July 1 and expressly covers agreements formed on or after that date. Mira's agreement was formed June 20; her disagreement with the shop began July 8. The later dispute date does not change the amendment's stated coverage. Begin with the earlier rule for her agreement, then check whether any other transition provision changes the result. This is a reading exercise, not a general rule that amendments never affect earlier events.\n\n## Practice before checking\n\nCreate five rows for the documents in the inventory. Add columns for issuing institution, jurisdiction, relevant date, and unanswered question. Then explain in two sentences why an official consumer guide cannot substitute for the underlying statute.\n\n**Model response:** The guide can orient the reader and identify useful provisions, but its summary may omit definitions, exceptions, or date limits. The legal analysis should identify the operative primary sources and use the guide as an explanation, not assume that every sentence independently creates a duty.\n\n## Common mistakes and key points\n\nDo not equate “official” with “binding,” “primary” with “controlling,” or “newest” with “applicable.” Do not read one sentence apart from definitions and exceptions. For every source, record its institution, document type, scope, status, and relevant dates. Later lessons add the court relationships that determine precedential force.\n\n## Source reading\n\n- [U.S. Constitution, Articles I–III and VI](https://www.archives.gov/founding-docs/constitution-transcript).\n- [Government Publishing Office: Federal Register document categories](https://www.govinfo.gov/help/fr).\n- [Library of Congress: introduction to case law](https://guides.loc.gov/case-law/).\n",
+   "quiz": [
+    "lus-q1-01",
+    "lus-q1-02",
+    "lus-q1-03",
+    "lus-q1-04",
+    "lus-q1-05",
+    "lus-q1-06",
+    "lus-q1-07",
+    "lus-q1-08",
+    "lus-q1-09",
+    "lus-q1-10"
+   ]
+  },
+  {
+   "id": "lus-institutions",
+   "module": "lus-m1",
+   "title": "Institutions, powers and legal conflicts",
+   "minutes": 35,
+   "topics": [
+    "Legal institutions"
+   ],
+   "refs": [
+    "lus-ref-sources"
+   ],
+   "body": "## Two ways of dividing government\n\nThe previous lesson identified documents. This lesson asks who can create, apply, or challenge them. **[[Separation of powers]]** divides governmental functions among branches. **[[Federalism]]** distributes governmental authority between the national government and states. These are different dimensions: the federal government has its own branches, and state governments have their own institutions.\n\nAt the federal level, Congress legislates, the executive branch administers and enforces law, and courts decide cases within their jurisdiction. These descriptions are starting points, not walls that eliminate interaction. Agencies may make rules under statutory authority and adjudicate administrative matters. Courts interpret statutes and review challenged governmental action. Congress determines many aspects of the lower federal court system within constitutional limits.\n\nStates have broad responsibilities in areas such as property, contracts, family relationships, and criminal law, but federal law can affect those subjects. Local governments derive authority under the applicable state framework. Tribal nations have distinct sovereign governmental and legal systems; territorial systems also require separate attention. This introductory course maps the common state/federal civil-court routes rather than providing a complete jurisdictional map for every sovereign or specialized tribunal.\n\n## A source relationship is not a single ladder\n\nThe **[[Supremacy Clause]]** establishes the controlling status of the U.S. Constitution, federal laws made pursuant to it, and treaties within the constitutional framework. A valid federal rule may displace an inconsistent state rule through **[[preemption]]**. But “federal” is not a magic label that makes every federal document prevail over every state document. First establish federal authority, operative legal status, and the actual conflict or scope of displacement.\n\nA state may regulate a subject even though the federal government also regulates it. Some federal laws leave room for additional state protection; others displace specified state requirements. The governing text and judicial decisions matter. It is unsafe to infer that a federal minimum necessarily forbids stricter state rules, or that state power always survives merely because it historically existed.\n\nA state constitution constrains state institutions, but cannot override controlling federal constitutional requirements. State courts interpret state law, and federal courts can encounter state-law issues. Avoid collapsing the institution deciding a case into the source of every rule it applies.\n\n## Agencies and private parties\n\nAn **[[administrative agency]]** carries out public responsibilities under a legal framework. Its actions may include rules, licenses, investigations, enforcement proceedings, or benefits determinations. The review route depends on the program and applicable statutes. An administrative hearing is not automatically a trial in a federal district court.\n\nA private agreement can establish obligations between parties. It is not a statute, and the parties cannot automatically authorize a court to exercise powers it lacks. They also cannot assume their agreement defeats every mandatory legal protection. The interaction between contract terms and governing law is a research question.\n\nLikewise, the existence of a prohibition does not always give an individual a right to sue. A **[[cause of action]]** supplies a legal basis for seeking judicial relief. An enforcement provision might authorize an agency to act, authorize a private action, or do both under stated conditions. Identify the authorized claimant and remedy rather than jumping from “unlawful” to “I can recover damages.”\n\n### Example 1: The city, the state, and the shop\n\nThese rules are fictional. A state authorizes cities to license repair businesses but reserves regulation of storage-fee disclosures to the state. A city issues a shop license and then purports to excuse that shop from the state disclosure statute.\n\nStep one: identify the city as a local institution whose powers come from the state framework. Step two: separate permission to license from permission to change state duties. Step three: apply the supplied reservation: this licensing authority does not include the power to excuse the disclosure requirement. Step four: avoid inventing an additional conclusion. Whether a customer may sue, and what relief is available, still depends on other supplied rules.\n\nThe lesson is about delegated power. Do not export this fictional allocation to an actual city without researching that state's constitution and statutes.\n\n### Example 2: Federal and state rules overlap\n\nAn invented federal law requires covered sellers to retain transaction records for at least two years and expressly permits states to require longer retention. An invented state statute requires four years. A covered seller argues that keeping records for two years defeats the state demand because federal law is supreme.\n\nFirst read the federal rule's actual scope: it establishes a minimum and preserves longer state requirements. Next ask whether the seller can comply with both rules. Keeping records for four years satisfies the fictional two-year minimum too. The seller's argument mistakes overlap for displacement. A different federal text, such as an express prohibition on longer retention, would require different analysis.\n\n## Try a power-and-remedy table\n\nFor the fictional bicycle dispute, identify four institutions: legislature, regulatory agency, trial court, and appellate court. Write one question for each. A useful answer asks what duties the legislature enacted, what enforcement authority the agency has, whether the trial court can grant the requested relief, and what the appellate court may review. A weak answer simply lists which institution seems most powerful.\n\nNow add a private contract promising arbitration. Do not decide enforceability from the label alone. Record the agreement and flag its scope, validity, governing law, and any effect on court proceedings for later research. Identifying a possible issue is more accurate than asserting that every dispute must now bypass court.\n\n## Common mistakes and key points\n\nDo not confuse federalism with separation of powers. Do not assume a federal regulation controls without identifying its authority and scope. Do not infer a private damages action from every regulatory violation. Trace the institution's power, the operative rule, the actor it governs, and the available enforcement route. Those four links turn a broad institutional diagram into usable legal analysis.\n\n## Source reading\n\n- [U.S. Constitution, Articles I–III and VI](https://www.archives.gov/founding-docs/constitution-transcript).\n- [U.S. Courts: comparing federal and state courts](https://www.uscourts.gov/about-federal-courts/court-role-and-structure/comparing-federal-state-courts).\n- [U.S. Courts: appeals, including agency review routes](https://www.uscourts.gov/about-federal-courts/types-cases/appeals).\n",
+   "quiz": [
+    "lus-q2-01",
+    "lus-q2-02",
+    "lus-q2-03",
+    "lus-q2-04",
+    "lus-q2-05",
+    "lus-q2-06",
+    "lus-q2-07",
+    "lus-q2-08",
+    "lus-q2-09",
+    "lus-q2-10"
+   ]
+  },
+  {
+   "id": "lus-courts",
+   "module": "lus-m2",
+   "title": "Mapping trial and appellate courts",
+   "minutes": 35,
+   "topics": [
+    "Court structure"
+   ],
+   "refs": [
+    "lus-ref-courts"
+   ],
+   "body": "## Identify the system before drawing the arrows\n\nA court's name can be misleading. A state court called a “supreme court” is not necessarily that state's highest appellate court. Learn the court's actual function from the jurisdiction's official materials. A useful map records the system, the starting tribunal, the ordinary review route, and any specialized route.\n\nA **[[trial court]]** develops the evidentiary record and resolves disputes at the first judicial level. It can decide motions, determine facts through authorized procedures, and enter judgments. A **[[factfinder]]** is the judge or jury responsible for deciding factual issues in the proceeding. The judge decides legal questions and manages the case. In a bench trial, the judge also performs the factfinding role.\n\nAn **[[appellate court]]** reviews decisions of a lower tribunal within its authority. It generally works from the record, briefs, and sometimes oral argument. Its job is not ordinarily to hear every witness again. Whether review is available, when it is available, and which court performs it depend on the governing law and rules.\n\n## The ordinary federal civil route\n\nFor an ordinary federal civil action within its jurisdiction, a U.S. district court is the starting trial court. A regional U.S. court of appeals ordinarily reviews appealable district-court decisions from its circuit. The U.S. Supreme Court may review selected cases, usually through a petition for certiorari. There are specialized routes and statutory exceptions; this map is an orientation rather than a filing guide.\n\n```mermaid\nflowchart TD\n  accTitle: Ordinary civil court routes\n  accDescr: A federal district court leads to a regional federal court of appeals and potentially Supreme Court review. A state trial court leads through its state appellate system, with possible Supreme Court review of qualifying federal issues.\n  F[Federal district court] --> A[Federal court of appeals]\n  A -->|Possible review| U[U.S. Supreme Court]\n  S[State trial court] --> I[State appellate route]\n  I -->|Qualifying federal issue| U\n```\n\nThe arrows show possible review routes, not promises that every case receives every level of review. State appellate routes differ; some systems have an intermediate appellate court, while others have different arrangements. A petition for discretionary review asks a court to hear the matter. It is not equivalent to winning a right to another full trial.\n\n## Parallel systems with intersections\n\nState courts are not branch offices of federal district courts. A party generally cannot appeal a state trial judgment by asking a federal district court to reconsider the result. Ordinary review proceeds through the state system. Under the conditions in 28 U.S.C. § 1257, the U.S. Supreme Court can review qualifying final state-court judgments involving federal questions. Its role is not to correct every disagreement about purely state law.\n\nFederal courts can hear state-law issues when an appropriate jurisdictional basis exists. State courts can hear many federal claims unless federal law makes jurisdiction exclusive or otherwise restricts the route. The subject label alone therefore does not identify the proper court. “Contract case” does not automatically mean only state court; “federal right” does not automatically mean only federal court.\n\nSpecialized tribunals require their own maps. Bankruptcy matters, agency proceedings, tribal cases, and military cases cannot safely be placed on the ordinary civil diagram without checking their specific rules. Recognizing the limit of a general map is part of using it correctly.\n\n### Example 1: A state repair dispute\n\nAssume fictional State Alder gives its general trial court authority over Mira's repair-contract claim. Its supplied rules provide an intermediate appeal and then discretionary review in the state's highest court. The dispute raises only Alder law, with no federal issue.\n\nStart at the Alder trial court. Draw the next arrow to Alder's intermediate appellate court. Mark highest-court review as discretionary under the exercise rules. Do not draw an arrow to the local federal district court merely because Mira loses in state court. Do not promise Supreme Court review of this purely state-law question.\n\nNow change one fact: the case contains a properly preserved federal constitutional issue. That may create a potential Supreme Court review question after the appropriate state process, subject to statutory and procedural requirements. It does not erase the state appellate route or automatically establish that the Supreme Court will hear the case.\n\n### Example 2: Choosing the factfinder\n\nIn a fictional civil jury trial, the parties dispute whether the shop gave Mira a disclosure form. A witness says it did; Mira says it did not. The judge explains the applicable legal requirements, and the jury evaluates the admitted evidence under the instructions. The jury's factfinding role does not authorize it to rewrite the statute.\n\nSuppose the same dispute is tried to the judge without a jury under the exercise's procedural assumptions. The judge decides both legal questions and factual disputes. This does not convert the trial into an appeal. The procedural role, not the number of people in the room, distinguishes trial from appellate review.\n\n## Practice: annotate a court map\n\nFor each box in the diagram, write whether it ordinarily creates the trial record or reviews a record. Next mark the path for a federal district-court judgment and the path for a state trial-court judgment. Explain where you would consult local rules before making the map more specific.\n\n**Model response:** Trial courts ordinarily develop the record; appellate courts ordinarily review it. The federal route begins with the relevant federal circuit's appellate court. The state route stays in that state's appellate structure, with possible Supreme Court review only when federal jurisdiction and procedural requirements permit. The state's official court materials are needed to identify actual court names and review stages.\n\n## Common mistakes and key points\n\nAvoid treating all “supreme” courts as equivalent, treating an appeal as a new trial, or placing federal district courts above state trial courts. Begin with jurisdiction and function. Label discretionary steps. A correct map explains both where a case may go and which arrows are unavailable on the stated facts.\n\n## Source reading\n\n- [U.S. Courts: court role and structure](https://www.uscourts.gov/about-federal-courts/court-role-and-structure).\n- [U.S. Courts: comparing federal and state courts](https://www.uscourts.gov/about-federal-courts/court-role-and-structure/comparing-federal-state-courts).\n- [28 U.S.C. § 1257: state-court judgments](https://uscode.house.gov/us/usc/119-120/t28/s1257/).\n",
+   "quiz": [
+    "lus-q3-01",
+    "lus-q3-02",
+    "lus-q3-03",
+    "lus-q3-04",
+    "lus-q3-05",
+    "lus-q3-06",
+    "lus-q3-07",
+    "lus-q3-08",
+    "lus-q3-09",
+    "lus-q3-10"
+   ]
+  },
+  {
+   "id": "lus-jurisdiction",
+   "module": "lus-m2",
+   "title": "Separating jurisdiction, venue and governing law",
+   "minutes": 40,
+   "topics": [
+    "Jurisdiction and venue"
+   ],
+   "refs": [
+    "lus-ref-courts"
+   ],
+   "body": "## Four questions that sound alike\n\nImagine that Mira lives in State Alder, the repair shop operates in State Birch, and a federal courthouse is closer than either state courthouse. Convenience does not establish judicial authority. Before analyzing whether she should win, separate four questions.\n\n**[[Subject-matter jurisdiction]]** concerns the court's authority over the category of dispute. **[[Personal jurisdiction]]** concerns its authority over the relevant defendant or party; this introductory course focuses on jurisdiction over defendants rather than property-based jurisdiction. **[[Venue]]** concerns the proper geographic location within the court system under applicable rules. **[[Governing law]]** concerns which legal rules decide the issues. Answering one does not automatically answer the others.\n\n| Question | What it asks | What does not answer it alone |\n|---|---|---|\n| Subject matter | Can this court hear this kind of case? | The parties prefer this court |\n| Personal jurisdiction | Can this court exercise authority over this defendant? | The plaintiff lives nearby |\n| Venue | Is this the proper location under venue rules? | The judge knows contract law |\n| Governing law | Which law resolves this issue? | The courthouse is federal |\n\n## Limited federal jurisdiction\n\nFederal courts need a constitutional and statutory basis for their jurisdiction. Two familiar grounds for federal district-court civil jurisdiction are federal-question jurisdiction and diversity jurisdiction. These are introductory routes, not an exhaustive list. Specialized statutes and supplemental jurisdiction require further study.\n\nUnder 28 U.S.C. § 1331, federal district courts have jurisdiction over civil actions arising under federal law. A federal issue mentioned somewhere in a dispute does not necessarily satisfy that standard. In the ordinary well-pleaded-complaint framework, a predicted federal defense to a state-law claim does not by itself create federal-question jurisdiction. More complex embedded-federal-issue doctrines are beyond this lesson.\n\nFor ordinary diversity jurisdiction under 28 U.S.C. § 1332(a), the amount in controversy must exceed 75,000 dollars, excluding interest and costs, and the citizenship requirements must be met. For the ordinary citizen-of-different-states cases used here, complete diversity means no plaintiff shares state citizenship with any defendant. Citizenship is not simply a mailing address. Individual domicile and entity citizenship involve distinct rules; an LLC should not automatically be treated like a corporation.\n\nThe threshold is “exceeds,” not “equals.” The claimed amount must satisfy the applicable legal standard; simply adding an unsupported number to a complaint is not a reliable route into federal court. These details are introduced here to show why jurisdiction requires facts and law, not to provide a complete pleading manual.\n\n## Authority over the defendant and location\n\nEven when subject-matter jurisdiction exists, personal jurisdiction requires its own analysis. A defendant's contacts, valid consent, and other recognized bases can matter, together with the relevant statutes and constitutional limits. The complete doctrine belongs in Civil Procedure. Here, learn to flag the question and avoid treating one internet purchase or a plaintiff's residence as automatically decisive.\n\nProper **[[service of process]]** provides legally required notice through an authorized method. It is related to, but not a substitute for, every jurisdictional inquiry. Knowing about a lawsuit does not always cure defective service. The ability to serve papers does not mean subject-matter jurisdiction necessarily exists.\n\nVenue rules can identify a proper district based on factors such as defendants' residence or relevant events, with qualifications. Never infer that the closest courthouse is the proper venue. Finally, a federal court hearing a state-law dispute does not automatically replace state substantive law with a national contract code. Governing-law questions remain separate from forum selection.\n\n### Example 1: Two independent defects\n\nAssume Mira and the shop owner are individuals and both are citizens of Alder. Mira asserts only a state contract claim for 12,000 dollars. No other federal jurisdictional basis exists. The owner agrees that federal court would be convenient.\n\nFirst, the claim as supplied does not arise under federal law. Second, ordinary diversity is unavailable both because the parties share state citizenship and because the amount does not exceed the threshold. Third, consent does not supply missing federal subject-matter jurisdiction. Fourth, do not infer that Mira has no claim anywhere: a state court with the necessary authority may still be available.\n\n### Example 2: A jurisdictional basis is not the whole analysis\n\nNow assume Mira is a citizen of Alder and the defendant is a citizen of Birch. The exercise stipulates a good-faith 90,000-dollar amount in controversy, complete diversity, and no applicable exception. These facts support ordinary diversity jurisdiction. They do not establish personal jurisdiction in every federal district or proper venue everywhere.\n\nList the next questions: where is the defendant subject to jurisdiction, where did relevant events occur, what venue provisions apply, how must service occur, and which substantive law governs? A useful answer is conditional. It recognizes the established subject-matter basis while reserving questions the packet has not answered.\n\n## Practice and explanation\n\nA state-law complaint seeks exactly 75,000 dollars, exclusive of interest and costs, between otherwise completely diverse individuals. No other federal basis exists. Does it satisfy § 1332(a)'s amount requirement? No: the ordinary statutory threshold must be exceeded. Increasing the amount on paper without a legal basis does not solve the problem. A separate exercise gives 100,000 dollars but shared citizenship; that still fails the supplied ordinary diversity route.\n\n## Common mistakes and key points\n\nDo not substitute residence for citizenship, convenience for venue, consent for subject-matter jurisdiction, or a federal courtroom for federal substantive law. Write four separate headings before reaching a forum conclusion. Preserve unknowns instead of assuming away facts that determine the result.\n\n## Source reading\n\n- [28 U.S.C. § 1331](https://uscode.house.gov/us/usc/119-124/t28/s1331/).\n- [28 U.S.C. § 1332](https://uscode.house.gov/us/usc/119-124/t28/s1332/).\n- [U.S. Courts: types of cases](https://www.uscourts.gov/about-federal-courts/types-cases).\n\n- [Rivet v. Regions Bank of Louisiana, 522 U.S. 470, 475–476 (1998)](https://www.law.cornell.edu/supremecourt/text/96-1971): ordinary federal-defense distinction and complete-preemption qualification.\n",
+   "quiz": [
+    "lus-q4-01",
+    "lus-q4-02",
+    "lus-q4-03",
+    "lus-q4-04",
+    "lus-q4-05",
+    "lus-q4-06",
+    "lus-q4-07",
+    "lus-q4-08",
+    "lus-q4-09",
+    "lus-q4-10"
+   ]
+  },
+  {
+   "id": "lus-precedent",
+   "module": "lus-m3",
+   "title": "Deciding which authority controls",
+   "minutes": 35,
+   "topics": [
+    "Precedent and authority"
+   ],
+   "refs": [
+    "lus-ref-authority"
+   ],
+   "body": "## A good quotation is not enough\n\nYou find an opinion containing a sentence that appears to resolve Mira's storage-fee problem. Before relying on it, ask which court wrote it, which issue it decided, what law it applied, whether the relevant statement was necessary to its decision, and whether the decision remains good authority. An attractive sentence can be relevant but nonbinding, superseded, or taken out of context.\n\n**[[Precedent]]** is an earlier judicial decision used in resolving a later legal question. **[[Stare decisis]]** describes the practice and doctrine of adhering to prior decisions. **[[Binding authority]]** must be followed by the deciding court when it governs the issue. **[[Persuasive authority]]** may influence the court without controlling its conclusion. Persuasive does not mean worthless; binding does not mean every sentence decides every later problem.\n\nVertical precedent concerns relationships between higher and lower courts. Horizontal precedent concerns a court's treatment of its own prior decisions. Rules governing panels, full-court reconsideration, publication, and precedential status differ. In this lesson's exercises, assume identified precedential decisions remain valid and address the issue unless the packet says otherwise.\n\n## Begin with the issue and the forum\n\nFor a federal-law issue in a federal district court, controlling U.S. Supreme Court holdings and applicable precedential decisions of that district's federal circuit are central. A decision from another circuit may be persuasive, but that circuit does not ordinarily supervise this district. A trial-level opinion from a neighboring district is not promoted to circuit authority because its facts look similar.\n\nFor a state-law issue in that state's courts, the state's highest court is the leading authority on its own law. Intermediate appellate precedent requires attention to the state's rules and court structure. A federal circuit court is not an ordinary appellate supervisor of state courts. On federal-law questions, U.S. Supreme Court holdings control state courts, while lower federal opinions are ordinarily persuasive rather than hierarchically binding on them.\n\nWhen a federal court applies state substantive law, it must attend to that state's authoritative law. The full Erie and choice-of-law analysis comes later. For now, avoid the error of treating every federal opinion as superior on every state-law question. The relevant sovereign's law and the deciding court's relationships both matter.\n\n## Holdings, dicta, and separate opinions\n\nA **[[holding]]** is the court's resolution of a legal issue necessary to its decision. **[[Dicta]]** are observations not necessary to that resolution. Drawing the boundary can require careful reading. Identify the legal question actually before the court, its procedural posture, and the reasoning needed to support the result.\n\nA **[[majority opinion]]** expresses reasoning supported by a majority of the deciding judges. A **[[concurrence]]** agrees with the judgment but may offer different or additional reasoning. A **[[dissent]]** disagrees with the majority's result or reasoning. Separate opinions can be valuable analysis without becoming the court's controlling holding. Plurality decisions and fractured reasoning need additional study; do not pretend every case supplies one simple majority rule.\n\n### Example 1: Ranking authority for a federal issue\n\nA federal district court in fictional Circuit North considers a federal statute. The packet gives three valid, precedential decisions: a controlling Supreme Court holding addressing the exact statutory issue; an earlier Circuit North opinion adopting an inconsistent rule; and a recent Circuit South opinion criticizing the Supreme Court's approach.\n\nStart with the Supreme Court holding. The district court cannot disregard it merely because another circuit's criticism is recent or persuasive. The earlier circuit rule cannot prevail over controlling higher authority. The other circuit's reasoning may help describe a debate, but it does not empower this district court to overrule the Supreme Court. Explain the conflict rather than counting how many opinions support each side.\n\n### Example 2: A broad sentence in a narrow case\n\nIn an invented Alder highest-court case, a repairer kept a bicycle after demanding an undisclosed fee. The court held that, under the supplied statute, the repairer could not justify retention by that fee. The opinion also remarked that bicycle repairs are often overpriced. The price of the authorized repair was not disputed or necessary to the judgment.\n\nThe retention ruling is the relevant holding. The general remark about prices does not establish a binding rule that every expensive repair is unlawful. A dissent favoring the repairer may suggest arguments for later reform, but it does not replace the majority's holding. Record the actual legal step that resolved the dispute.\n\n## Practice: build an authority table\n\nUse columns for source, deciding court, issue, governing law, precedential status, treatment, and proposed use. “Treatment” asks whether later law has limited, overruled, or otherwise affected the source. A search engine ranking is not a treatment check. Finding an opinion on a court website establishes access to the document; it does not establish the absence of later developments.\n\nFor practice, classify an Alder high-court holding, a Birch high-court holding, and a law-review article for an Alder statutory issue. Assuming the Alder holding controls and remains valid, it is binding. The Birch opinion is primary but generally persuasive. The article is secondary and potentially persuasive. If the Alder statute was later amended, all three sources need a fresh scope and currency analysis.\n\n## Common mistakes and key points\n\nDo not rank authority by recency alone, confuse the holding with the judgment's dollar amount, or cite a dissent as the court's rule. Begin with forum, governing law, issue, and court relationship. Then read the opinion's actual reasoning and verify its current treatment. Unfavorable controlling authority belongs in the analysis too.\n\n## Source reading\n\n- [Library of Congress: case law and precedent](https://guides.loc.gov/case-law/).\n- [U.S. Courts: courts of appeals](https://www.uscourts.gov/about-federal-courts/court-role-and-structure/about-us-courts-appeals).\n- [U.S. Courts: glossary](https://www.uscourts.gov/glossary).\n\n- [Erie Railroad Co. v. Tompkins, 304 U.S. 64, 78 (1938)](https://www.law.cornell.edu/supremecourt/text/304/64): state substantive law in federal court.\n- [Johnson v. Williams, 568 U.S. 289, 305 (2013)](https://www.law.cornell.edu/supremecourt/text/11-465): state courts and federal circuit precedent.\n",
+   "quiz": [
+    "lus-q5-01",
+    "lus-q5-02",
+    "lus-q5-03",
+    "lus-q5-04",
+    "lus-q5-05",
+    "lus-q5-06",
+    "lus-q5-07",
+    "lus-q5-08",
+    "lus-q5-09",
+    "lus-q5-10"
+   ]
+  },
+  {
+   "id": "lus-reading",
+   "module": "lus-m3",
+   "title": "Reading a rule and applying it to changed facts",
+   "minutes": 40,
+   "topics": [
+    "Rule application"
+   ],
+   "refs": [
+    "lus-ref-authority"
+   ],
+   "body": "## Turn reading into an explanation\n\nLegal analysis is not complete when you locate a promising rule. You must explain how the rule connects to facts, which facts are disputed, and how the conclusion changes when a legally important fact changes. This lesson introduces that process; the next course develops full case-reading skills.\n\nAn **[[issue]]** is the legal question the analysis must resolve. An **[[element]]** is a required component of a claim, offense, defense, or other legal test. A **[[material fact]]** matters to the relevant legal rule or decision. Materiality depends on the issue. The bicycle's color may be irrelevant to fee disclosure but important to identifying which bicycle the shop retained.\n\n**[[Procedural posture]]** describes where the case stands and what the court is being asked to do. An opinion reviewing a pleading is not necessarily deciding what actually happened after a trial. If a court accepts alleged facts for a limited motion, that assumption must not be rewritten as a factual finding after evidence was tested.\n\n## Use a small, explicit rule packet\n\nThe following Alder rules and cases are entirely fictional and apply only to the course exercises:\n\n- Rule A: A commercial repairer may impose a storage fee only if the fee and its start date were disclosed in writing before the customer delivered the item for repair.\n- Rule B: If Rule A was not satisfied, an unpaid storage fee alone does not authorize retention of the item. This exercise supplies no rule about retention for unpaid authorized repair charges.\n- Rule C: A customer seeking return must establish ownership and that the repairer still possesses the item.\n- Rule D: A final order for return is available when the supplied requirements are proven and no supplied justification for retention remains. This packet supplies no damages or fee-shifting remedy.\n- Reed: Alder's highest court applied Rules A and B to an oral disclosure made before delivery and held that oral disclosure did not satisfy the writing requirement.\n\nThese are a closed instructional packet, not descriptions of any state's actual repair-shop law. Do not cite Reed in a real legal memorandum. The point is to practice tracing conclusions to stated authority rather than importing unstated rules.\n\n### Example 1: Apply each component\n\nMira owns a bicycle. A commercial shop accepted it Monday and first emailed the storage fee and start date Tuesday. Mira paid the authorized repair charge; the shop still holds the bicycle solely for unpaid storage. Assume these facts are established.\n\nFirst identify the issue: may this shop justify retention solely through the storage fee? Rule A requires writing and timing. The email satisfies the writing component but not disclosure before delivery. Rule B then removes the unpaid storage fee as a justification for retention. Rule C's ownership and possession requirements are satisfied by the stated facts.\n\nThe strongest conclusion under this packet is that the shop cannot justify retention by this storage fee and Mira has established the supplied requirements for the return order under Rule D. Do not add punitive damages, attorney fees, or a criminal offense: the packet supplies no such remedies or rules. Precision includes refusing to enlarge the result beyond its premises.\n\n### Example 2: Change one fact and reassess\n\nChange the facts so that the shop sent the written fee and start date on Sunday, before Monday delivery, and Mira received that disclosure. Rule A's stated requirements now appear satisfied. Rule B's consequence for noncompliance no longer follows from the same reasoning. That does not prove that retention is lawful under every possible rule; it means this particular argument against retention has lost its premise.\n\nNow change a different fact: the repair charge remains unpaid. Rule B expressly leaves that issue unresolved. A complete answer identifies the gap and asks for the law governing retention for repair charges. It does not treat silence as permission or as a prohibition.\n\n## Analogies and distinctions\n\nAn **[[analogy]]** explains why a prior case's relevant reasoning fits a new situation. A **[[distinction]]** explains why a legally meaningful difference changes that fit. Saying “both involve bicycles” is weak if the controlling rule concerns written notice. Saying “both lack the required pre-delivery writing” connects the similarity to Rule A.\n\nReed concerns oral notice, while Mira received late written notice. The cases differ factually, but each fails a separate required component of Rule A. You can use Reed to illustrate the importance of the express disclosure requirements without claiming that it directly decided late email disclosure. Accurately describe what the case establishes and what your application adds.\n\nOrganize a short response with issue, rule, application, and conclusion. This familiar pattern is sometimes called IRAC. It is a tool for clear reasoning, not a requirement to use four labels in every paragraph. The application should do real work: identify the relevant fact, explain how it satisfies or fails the rule, and address the strongest counterargument.\n\n## Practice with disputed evidence\n\nAssume the shop says it supplied a signed disclosure before delivery, but Mira denies receiving it. A photocopy exists, and the date is unclear. Write a conditional analysis rather than choosing the witness you prefer.\n\n**Model response:** If the shop supplied the required writing before delivery, the packet's disclosure condition may be satisfied. If the only disclosure was the later email, it was not timely under Rule A. The date, delivery, and contents of the alleged writing need evidentiary development. The current uncertainty concerns a fact material to the rule; it is not resolved by repeating the rule more confidently.\n\n## Common mistakes and key points\n\nDo not replace application with a quotation, label every difference material, or treat an allegation as a finding. State the limits of the packet. Explain why the chosen facts matter, consider competing facts, and separate “this argument fails” from “the other side necessarily wins.” Keep real authority and fictional exercise authority unmistakably distinct.\n\n## Source reading\n\n- [U.S. Courts: civil cases and the development of evidence](https://www.uscourts.gov/about-federal-courts/types-cases/civil-cases).\n- [U.S. Courts: glossary of procedural terms](https://www.uscourts.gov/glossary).\n- The Alder packet above is original fiction created for this course; it is the exclusive substantive rule source for these worked examples.\n",
+   "quiz": [
+    "lus-q6-01",
+    "lus-q6-02",
+    "lus-q6-03",
+    "lus-q6-04",
+    "lus-q6-05",
+    "lus-q6-06",
+    "lus-q6-07",
+    "lus-q6-08",
+    "lus-q6-09",
+    "lus-q6-10"
+   ]
+  },
+  {
+   "id": "lus-litigation",
+   "module": "lus-m4",
+   "title": "From intake to a trial-court judgment",
+   "minutes": 40,
+   "topics": [
+    "Civil litigation"
+   ],
+   "refs": [
+    "lus-ref-casefile"
+   ],
+   "body": "## Begin with the client's problem\n\nMira wants her bicycle back. That practical goal is not yet a fully specified legal claim. At intake, identify the people involved, what happened, what records exist, what outcome is sought, and which dates may matter. Separate facts reported by the client from documents you have inspected and inferences you have drawn.\n\nA **[[remedy]]** is legal relief for a claim. **[[Damages]]** are monetary relief; an **[[injunction]]** is a court order requiring or prohibiting conduct. A declaration can resolve legal rights. The available remedies depend on the governing law and procedural requirements. A request for relief is not proof of entitlement to it.\n\nCreate an intake table with columns for fact, source, uncertainty, and follow-up. “Shop received the bicycle Monday” might be supported by a receipt. “Shop intended to deceive” is an inference requiring support. Preserve the original messages and documents. A sound analysis becomes easier when you know which propositions are evidence, which are allegations, and which remain questions.\n\n## Filing does not prove the case\n\nA **[[plaintiff]]** starts a civil action; a **[[defendant]]** is the party sued. A **[[complaint]]** states allegations and claims and requests relief. An **[[answer]]** responds and may assert defenses. A **[[motion]]** asks the court for a ruling. Different motions use different standards, so always identify the particular request before describing what the judge decided.\n\nThe federal civil process includes filing and service, responses, pretrial proceedings, and possible trial and judgment. Actual cases vary. Some end through dismissal or settlement. Some require administrative steps first. Deadlines, service methods, pleading standards, and local procedures must be checked in the applicable rules; this course deliberately does not supply a universal deadline chart.\n\n**[[Discovery]]** is the formal process for obtaining and exchanging information under procedural rules. It may include written questions, document requests, and depositions. It is not unlimited access to everything the opponent possesses. Relevance, proportionality, privilege, protective orders, and other limits can matter.\n\nA **[[deposition]]** is testimony taken under oath outside the trial under applicable procedures. It can help establish what a witness knows and preserve testimony for later use. A lawyer's assertion in a brief is not itself equivalent to sworn testimony or an admitted document.\n\n## Paths that avoid trial\n\nA **[[settlement]]** is an agreement resolving some or all of a dispute. **[[Mediation]]** uses a neutral facilitator to help parties seek agreement; the mediator does not ordinarily impose a merits judgment. **[[Arbitration]]** uses a decision-maker under an agreement or legal framework, with consequences depending on the applicable arrangement and law. Do not treat all alternative dispute resolution as interchangeable.\n\nA **[[summary judgment]]** motion asks for judgment under a standard that, in federal civil practice, requires no genuine dispute of material fact and entitlement to judgment as a matter of law. It is not simply a request that the judge believe the movant's witness over an opposing witness on a genuinely disputed material fact. The evidentiary record and the applicable standard determine whether trial is needed.\n\nAt trial, evidence is presented under evidentiary rules, witnesses may be examined, and the factfinder resolves relevant disputes. Many civil claims use a **[[preponderance of the evidence]]** standard: more likely than not. Some issues use a different burden, so never turn this common standard into a universal rule for all civil proceedings. Criminal guilt generally requires proof beyond a reasonable doubt, a different standard and procedural setting.\n\n### Example 1: A claim supported by records\n\nUse the fictional Alder packet from Lesson 6. For this example only, assume Alder uses the same summary-judgment standard described above. Mira produces a Monday delivery receipt, the Tuesday email containing the first storage disclosure, proof that she paid the repair charge, and a message showing the shop retains her bicycle solely for the storage fee.\n\nFirst, map each record to a required proposition: timing, payment, possession, and the asserted basis for retention. Second, determine whether the shop disputes authenticity or offers a pre-delivery disclosure. Third, identify the procedural stage. If the facts are genuinely disputed, a motion that requires the absence of a genuine material dispute cannot be justified merely by saying Mira seems credible. If the facts are undisputed under the supplied procedural rules, a legal ruling may resolve the issue without a trial. The record drives the analysis.\n\n### Example 2: A resolution without a legal ruling\n\nThe shop offers to return the bicycle and waive the storage charge if Mira dismisses the dispute. Mira accepts a written agreement resolving the specified claims. The immediate practical goal may be achieved without a court deciding the disputed statutory interpretation.\n\nThat agreement does not ordinarily become binding precedent for all other shops. Its effect on these parties depends on its terms and applicable law. A later learner should not write “the court held that the fee was unlawful” if the case ended by agreement without that decision. Distinguish the outcome from the route that produced it.\n\n## Practice: prepare an evidence plan\n\nFor the disputed pre-delivery disclosure, name three useful categories of information and explain their relevance. Then identify one proposition that a document does not establish by itself.\n\n**Model response:** The original disclosure and transmission records address timing and content; the delivery receipt identifies when the shop accepted the bicycle; testimony from the person who allegedly supplied the disclosure addresses delivery. A document dated Sunday does not alone prove that it was actually delivered to Mira before Monday. Additional evidence or stipulations may be needed.\n\n## Common mistakes and key points\n\nA complaint is not a finding, discovery is not a trial, settlement is not precedent, and judgment is not necessarily payment or compliance. Enforcement may require additional lawful steps. Keep practical goals, legal claims, proof, procedure, and remedies in separate parts of the case plan. Revisit each as new information arrives.\n\n## Source reading\n\n- [U.S. Courts: civil cases](https://www.uscourts.gov/about-federal-courts/types-cases/civil-cases).\n- [U.S. Courts: glossary](https://www.uscourts.gov/glossary).\n- [Federal Rules of Civil Procedure, including Rules 26 and 56](https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure).\n",
+   "quiz": [
+    "lus-q7-01",
+    "lus-q7-02",
+    "lus-q7-03",
+    "lus-q7-04",
+    "lus-q7-05",
+    "lus-q7-06",
+    "lus-q7-07",
+    "lus-q7-08",
+    "lus-q7-09",
+    "lus-q7-10"
+   ]
+  },
+  {
+   "id": "lus-appeal",
+   "module": "lus-m4",
+   "title": "Review a judgment and complete the case map",
+   "minutes": 55,
+   "topics": [
+    "Appeals and case mapping"
+   ],
+   "refs": [
+    "lus-ref-courts",
+    "lus-ref-authority",
+    "lus-ref-casefile"
+   ],
+   "body": "## An appeal asks a different question\n\nAt trial, the central questions may be what happened and what relief follows. On appeal, identify the challenged ruling, the alleged error, the applicable **[[standard of review]]**, and the requested appellate result. An **[[appellant]]** seeks review; an **[[appellee]]** defends against the appeal. Those labels do not tell you which party was originally the plaintiff.\n\nThe **[[record on appeal]]** supplies the materials available for review under the governing rules, such as filed documents, admitted exhibits, and transcripts. A party cannot ordinarily cure an evidentiary omission by attaching a new witness story to the appellate brief. Record correction and other exceptions require actual procedural authority; do not assume that any new document is allowed because it seems helpful.\n\n## Standards and possible results\n\n**[[De novo review]]** means the appellate court decides the relevant question anew without deferring to the lower court's legal conclusion. It does not mean holding a new trial with new witnesses. Legal interpretations commonly receive this review. Factual findings by a trial judge commonly receive clear-error review; discretionary decisions commonly receive abuse-of-discretion review. These are orientation categories. The exact issue and governing law determine the standard, and jury findings have their own review framework.\n\nTo **[[affirm]]** is to leave the challenged decision standing. To **[[reverse]]** is to overturn it in the relevant respect. To **[[remand]]** is to send the case back for further proceedings. An appellate disposition may combine results: affirm one issue, reverse another, and remand for work under a corrected legal rule. **[[Vacate]]** means to set aside a decision or order; the precise effect depends on the disposition.\n\nNot every error requires reversal. Its significance to the result, preservation, the applicable standard, and other procedural requirements matter. Likewise, an appeal is not automatically available immediately from every interim ruling. The final-judgment framework and exceptions belong in Civil Procedure. Here, avoid inventing a right to appeal just because a party dislikes a ruling.\n\n### Example 1: Correct the rule, then decide what remains\n\nUse the fictional Alder rules. The trial judge holds that an oral pre-delivery disclosure satisfies Rule A, despite its express writing requirement and Reed's controlling holding. The judge therefore rejects Mira's challenge to retention solely for storage fees. Assume the legal issue was preserved and a timely appeal is authorized.\n\nFirst identify a legal interpretation, rather than merely a disagreement about witness credibility. Second explain the conflict with the supplied text and controlling case. Third identify the consequence: if reversing that interpretation leaves unresolved material facts, remand may be necessary. Do not announce that the appellate court must immediately award a particular sum. The packet supplies neither a damages rule nor every fact needed for all forms of relief.\n\n### Example 2: Separate evidence from appellate argument\n\nThe trial judge instead applies the correct rule and finds, after a bench trial, that the shop delivered a valid written disclosure before Mira delivered the bicycle. Mira wants to appeal by offering a new email she never presented below. Assume the appeal uses the existing record and no exception permits additional evidence.\n\nHer disagreement is not solved by labeling it a pure legal issue. A challenge to the factual finding requires the applicable factual-review standard and record support. Under the exercise assumption, the new email cannot simply be inserted into appellate argument as though it had been admitted at trial. A careful analysis identifies those limits without predicting that every factual challenge necessarily fails.\n\n## Capstone: Mira's bicycle case\n\nPrepare a 900–1,200-word case map with an authority table and a procedural timeline. All people, state names, rules, and cases below are fictional. Use the Alder substantive packet in Lesson 6, together with these additional assumptions:\n\n- Mira and the individual shop owner are citizens of Alder. The dispute concerns a bicycle worth 1,200 dollars and only state-law claims. No separate federal jurisdictional basis exists.\n- The shop is a covered commercial repairer. Mira owns the bicycle and paid all authorized repair charges. The shop retains it solely for the storage fee.\n- The receipt shows Monday delivery. The first undisputed written fee disclosure was emailed Tuesday. The shop alleges an earlier signed disclosure, but the authenticity and delivery of that document are disputed.\n- Alder's general trial court has subject-matter and personal jurisdiction, venue is proper, and service is valid. Its rules provide an appeal from a final judgment to an intermediate appellate court, then discretionary highest-court review.\n- Apply Rule D from Lesson 6: a final order for return is available when the supplied requirements are proven and no supplied justification for retention remains. No damages or fee-shifting remedy is supplied.\n- In the appeal variation, the trial judge relies only on oral disclosure as legally sufficient. The legal issue is preserved, and appeal is timely and authorized.\n\n### Deliverables and model reasoning\n\nFirst, identify Mira's practical goal and requested remedy: return of the bicycle through the supplied final-order remedy. Second, explain why the packet supplies no ordinary federal-question or diversity route, while expressly establishing the relevant Alder trial-court requirements. Third, rank Rules A–C and Reed within the fictional packet; classify general explanatory materials separately.\n\nFourth, connect each element to evidence. The alleged earlier writing creates a material factual question about timing and delivery. Do not resolve it by assertion. Fifth, map intake, filing and service, response, evidence development, possible settlement or motion resolution, trial if needed, and judgment. Label the sequence illustrative; procedural events can overlap or differ.\n\nSixth, analyze the appeal variation separately from the disputed-fact version. Oral disclosure alone fails the packet's writing requirement, and Reed is controlling. Identify legal error, the review route, and possible reversal and remand without inventing additional remedies. Explain that an appeal result and enforcement of a final order are different tasks.\n\n## Self-assessment rubric\n\nScore each category 0–2: institutional and source accuracy; jurisdiction and route; authority ranking; fact-to-rule application; procedural clarity; limits and counterarguments. Zero means missing or materially mistaken, one means partly supported, and two means clear and supported. A complete response addresses all six categories. This rubric supports revision; it is not an automated certificate or a claim of professional competence.\n\n## Source reading\n\n- [U.S. Courts: appeals](https://www.uscourts.gov/about-federal-courts/types-cases/appeals).\n- [U.S. Courts: glossary](https://www.uscourts.gov/glossary).\n- [28 U.S.C. § 1257](https://uscode.house.gov/us/usc/119-120/t28/s1257/).\n\n- [Federal Rule of Appellate Procedure 10](https://www.law.cornell.edu/rules/frap/rule_10): record on appeal.\n- [Federal Rule of Civil Procedure 52(a)(6)](https://www.law.cornell.edu/rules/frcp/rule_52): review of bench-trial factual findings.\n",
+   "quiz": [
+    "lus-q8-01",
+    "lus-q8-02",
+    "lus-q8-03",
+    "lus-q8-04",
+    "lus-q8-05",
+    "lus-q8-06",
+    "lus-q8-07",
+    "lus-q8-08",
+    "lus-q8-09",
+    "lus-q8-10"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "law-us-legal-system-bank",
+   "title": "Introduction to the U.S. Legal System questions",
+   "sections": [
+    {
+     "id": "lus-m1",
+     "name": "Sources of law and legal institutions"
+    },
+    {
+     "id": "lus-m2",
+     "name": "Federal and state court structures"
+    },
+    {
+     "id": "lus-m3",
+     "name": "Precedent, jurisdiction and authority"
+    },
+    {
+     "id": "lus-m4",
+     "name": "From client problem to judicial decision"
+    }
+   ],
+   "exam": {
+    "questionCount": 50,
+    "timeLimitMinutes": 90,
+    "passingPercent": 70
+   },
+   "questions": [
+    {
+     "id": "lus-q1-01",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "A state legislature enacts a repair-shop disclosure requirement. What source is it?",
+     "choices": [
+      "A statute",
+      "An agency regulation",
+      "A judicial opinion",
+      "A secondary guide"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Legislation enacted by a legislature is a statute; the issuing institution and function identify this source."
+    },
+    {
+     "id": "lus-q1-02",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "Which item is secondary authority?",
+     "choices": [
+      "An enacted state contract statute",
+      "A treatise explaining contract cases",
+      "A court opinion deciding a contract claim",
+      "A valid regulation governing contract notices"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A treatise analyzes law rather than enacting a rule or deciding a case."
+    },
+    {
+     "id": "lus-q1-03",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "An agency publishes a proposed disclosure form. What should a reader check before treating it as mandatory?",
+     "choices": [
+      "Whether the proposal has a document number",
+      "Whether the agency accepts public comments",
+      "Whether an operative rule requires it",
+      "Whether a guide reproduces the proposed form"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Proposed status does not itself establish an effective requirement. Check adoption, authority, scope, and dates."
+    },
+    {
+     "id": "lus-q1-04",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "An amendment applies only to agreements formed on or after July 1. An agreement formed June 20 is disputed July 8. Which date controls this coverage question?",
+     "choices": [
+      "July 8, when the alleged violation was disputed",
+      "July 1, whenever any later disagreement occurs",
+      "The filing date of the resulting civil action",
+      "June 20, the agreement date"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The supplied transition language uses formation, not the later dispute, as its coverage trigger."
+    },
+    {
+     "id": "lus-q1-05",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "A court in another state issues an opinion on its own law. Which classification is sound?",
+     "choices": [
+      "Primary authority, not necessarily binding here",
+      "Secondary authority because it is out of state",
+      "Binding authority throughout the federal system",
+      "Binding authority wherever the facts are similar"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Judicial decisions are primary authority. Their binding force is a separate question about issue and court relationships."
+    },
+    {
+     "id": "lus-q1-06",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "A statute covers commercial repairers. What should you read before applying it to an unpaid favor?",
+     "choices": [
+      "Only the statute’s general statement of purpose",
+      "The definition and relevant exceptions",
+      "Only a case applying it to a paid business",
+      "Only a guide describing ordinary repair shops"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Coverage depends on the operative text, including definitions and exceptions."
+    },
+    {
+     "id": "lus-q1-07",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "An official agency guide summarizes a statute. What is its best initial use?",
+     "choices": [
+      "Replace the statute when the guide is newer",
+      "Establish a remedy omitted from governing law",
+      "Locate and understand the underlying law",
+      "Treat every recommendation as a legal duty"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A guide can orient research, but its summary does not substitute for governing primary authority."
+    },
+    {
+     "id": "lus-q1-08",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "Which description best fits common law as used in this course?",
+     "choices": [
+      "Rules enacted by a legislature and later codified",
+      "Rules announced in agency enforcement guidance",
+      "Legal customs enforceable without any authority",
+      "Doctrines developed through judicial decisions"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Common-law doctrines develop through decisions; statutes can modify them."
+    },
+    {
+     "id": "lus-q1-09",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Constitution",
+      "Statute",
+      "Regulation",
+      "Case law"
+     ],
+     "choices": [
+      "Foundational governmental framework",
+      "Legislative enactment",
+      "Agency rule",
+      "Law developed through decisions"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Constitution: foundational governmental framework; Statute: legislative enactment; Regulation: agency rule; Case law: law developed through decisions. These roles are distinct."
+    },
+    {
+     "id": "lus-q1-10",
+     "section": "lus-m1",
+     "topic": "Sources of law",
+     "stem": "An agency rule is a ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "regulation",
+       "rule",
+       "administrative regulation",
+       "agency regulation",
+       "administrative rule"
+      ]
+     ],
+     "explanation": "A regulation is an agency rule; its legal effect requires examination of authority and status."
+    },
+    {
+     "id": "lus-q2-01",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Which question primarily concerns federalism?",
+     "choices": [
+      "How legislative and executive duties interact",
+      "How national and state authority interact",
+      "How an agency delegates duties to its staff",
+      "How trial and appellate functions differ"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Federalism concerns the relationship between national and state authority."
+    },
+    {
+     "id": "lus-q2-02",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Which question primarily concerns separation of powers?",
+     "choices": [
+      "Which sovereign’s rules govern a transaction",
+      "Which state court has geographic venue",
+      "How legislative and executive functions interact",
+      "Which state’s law a federal court applies"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Separation of powers concerns governmental branches and their functions."
+    },
+    {
+     "id": "lus-q2-03",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "A fictional federal law expressly permits longer state record-retention periods. The federal minimum is two years; state law requires four. What follows?",
+     "choices": [
+      "The federal minimum caps all state requirements",
+      "The seller may choose either period independently",
+      "The state period applies only to uncovered sellers",
+      "Four years can satisfy both stated rules"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The supplied federal rule preserves longer state requirements, so overlap does not itself establish preemption."
+    },
+    {
+     "id": "lus-q2-04",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "A city may license shops but cannot change state disclosure duties. It issues a license waiving those duties. What is the problem?",
+     "choices": [
+      "The waiver exceeds the supplied city authority",
+      "Licensing power includes waiver of related duties",
+      "The license creates an exception to state law",
+      "The shop’s acceptance validates the city waiver"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The exercise delegates licensing power, not authority to excuse state duties."
+    },
+    {
+     "id": "lus-q2-05",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "A regulation forbids conduct. What further question matters before assuming a customer can sue for damages?",
+     "choices": [
+      "Whether the agency calls the conduct unlawful",
+      "Whether law authorizes that private remedy",
+      "Whether the customer can document an injury",
+      "Whether the defendant acted intentionally"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A prohibition does not automatically establish a private cause of action or damages remedy."
+    },
+    {
+     "id": "lus-q2-06",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Which statement about agency action is most accurate?",
+     "choices": [
+      "Every agency case follows the district-court route",
+      "Every agency guide creates enforceable duties",
+      "Its authority and review route need identification",
+      "Every agency decision is reviewed in the same court"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Agency powers and review routes depend on the applicable legal framework."
+    },
+    {
+     "id": "lus-q2-07",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Parties agree that a federal court may hear any dispute between them. What remains necessary?",
+     "choices": [
+      "Only their written consent to the selected forum",
+      "Only valid service on the consenting defendant",
+      "Only a venue clause naming the selected district",
+      "A valid subject-matter jurisdictional basis"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Private agreement cannot supply missing federal subject-matter jurisdiction."
+    },
+    {
+     "id": "lus-q2-08",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Why is a federal label insufficient to resolve a conflict with state law?",
+     "choices": [
+      "Authority, legal status, and displacement still matter",
+      "Federal rules displace all state rules on the topic",
+      "A newer state statute automatically takes priority",
+      "Both rules always apply despite an actual conflict"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Supremacy requires analysis of valid governing federal law and its scope, not just a label."
+    },
+    {
+     "id": "lus-q2-09",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Federalism",
+      "Separation of powers",
+      "Cause of action"
+     ],
+     "choices": [
+      "National and state allocation",
+      "Division among governmental branches",
+      "Legal basis for seeking judicial relief"
+     ],
+     "answer": [
+      0,
+      1,
+      2
+     ],
+     "explanation": "Federalism: national and state allocation; Separation of powers: division among governmental branches; Cause of action: legal basis for seeking judicial relief. These roles are distinct."
+    },
+    {
+     "id": "lus-q2-10",
+     "section": "lus-m1",
+     "topic": "Legal institutions",
+     "stem": "Displacement of state law by governing federal law is called ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "preemption",
+       "pre-emption"
+      ]
+     ],
+     "explanation": "Preemption concerns displacement, not merely overlap."
+    },
+    {
+     "id": "lus-q3-01",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "What is a trial court ordinarily responsible for?",
+     "choices": [
+      "Reviewing the existing record without factfinding",
+      "Selecting which appeals merit discretionary review",
+      "Developing the record and resolving the case",
+      "Advising the parties before any dispute is filed"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Trial courts develop the record and resolve matters before them, including factual and legal issues under applicable procedures."
+    },
+    {
+     "id": "lus-q3-02",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "What is an appellate court ordinarily reviewing?",
+     "choices": [
+      "The same evidence through a required new trial",
+      "Any new evidence appended to the appellate brief",
+      "Only whether the losing party accepts the verdict",
+      "A challenged lower-tribunal decision on its record"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Appellate review generally works from the existing record rather than conducting a new trial."
+    },
+    {
+     "id": "lus-q3-03",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "A state trial court decides a purely state-law dispute. Where does ordinary appeal proceed?",
+     "choices": [
+      "Through the state appellate system",
+      "To the district court serving the same region",
+      "To the federal circuit covering that state",
+      "Directly to the U.S. Supreme Court as of right"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Federal district courts are not ordinary appellate supervisors of state trial courts."
+    },
+    {
+     "id": "lus-q3-04",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "A federal district court enters an appealable judgment in an ordinary civil case. Which court ordinarily reviews it first?",
+     "choices": [
+      "The highest state court in the district’s state",
+      "The appropriate federal court of appeals",
+      "The state intermediate court covering that city",
+      "The U.S. Supreme Court as the first appeal"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The ordinary federal civil route runs from district court to the relevant federal court of appeals, subject to specialized exceptions."
+    },
+    {
+     "id": "lus-q3-05",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "A state court is named Supreme Court. What should a learner check?",
+     "choices": [
+      "Whether the title alone guarantees final authority",
+      "Whether it is automatically above federal courts",
+      "Its actual role in that state system",
+      "Whether every order it issues is unreviewable"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Court names do not always identify their level; consult the state structure."
+    },
+    {
+     "id": "lus-q3-06",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "A case reaches the end of a state appellate route. What could support possible U.S. Supreme Court review?",
+     "choices": [
+      "A disagreement limited to interpreting state law",
+      "A larger claimed loss than the state court awarded",
+      "A request to retry all witnesses before federal judges",
+      "A qualifying federal issue under the applicable rules"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Review of state judgments requires a proper federal basis and procedural conditions, not mere dissatisfaction."
+    },
+    {
+     "id": "lus-q3-07",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "During a jury trial, who ordinarily resolves disputed facts submitted to the jury?",
+     "choices": [
+      "The jury under the court’s instructions",
+      "The trial judge alone despite jury submission",
+      "The appellate panel before a judgment is entered",
+      "The parties’ lawyers through their closing arguments"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The jury is the factfinder for issues properly submitted to it, while the judge supplies legal instructions."
+    },
+    {
+     "id": "lus-q3-08",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "A judge decides facts and law in a bench trial. What kind of proceeding is it?",
+     "choices": [
+      "An appeal because no jury is present",
+      "A trial without a jury",
+      "A mediation because one neutral hears the case",
+      "An arbitration because a judge resolves facts"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A bench trial remains a trial; the judge performs the factfinding role as well as deciding law."
+    },
+    {
+     "id": "lus-q3-09",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Trial court",
+      "Appellate court",
+      "Discretionary review"
+     ],
+     "choices": [
+      "Develops the evidentiary record",
+      "Reviews challenged lower decisions",
+      "Review that is not automatically granted"
+     ],
+     "answer": [
+      0,
+      1,
+      2
+     ],
+     "explanation": "Trial court: develops the evidentiary record; Appellate court: reviews challenged lower decisions; Discretionary review: review that is not automatically granted. These roles are distinct."
+    },
+    {
+     "id": "lus-q3-10",
+     "section": "lus-m2",
+     "topic": "Court structure",
+     "stem": "The judge or jury resolving factual disputes is the ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "factfinder",
+       "fact-finder",
+       "finder of fact"
+      ]
+     ],
+     "explanation": "The factfinder resolves facts under the governing procedures."
+    },
+    {
+     "id": "lus-q4-01",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Which question concerns subject-matter jurisdiction?",
+     "choices": [
+      "May this court exercise power over the defendant?",
+      "Is this geographic district a proper location?",
+      "Which state’s substantive law decides the claim?",
+      "May this court hear this category of dispute?"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Subject-matter jurisdiction concerns judicial authority over the kind of case."
+    },
+    {
+     "id": "lus-q4-02",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Which question concerns personal jurisdiction?",
+     "choices": [
+      "May this court exercise authority over this defendant?",
+      "Does this category of case fall within federal power?",
+      "Is this the proper district under venue rules?",
+      "Which legal rule supplies the requested remedy?"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Personal jurisdiction addresses authority over the defendant, distinct from the merits or appellate route."
+    },
+    {
+     "id": "lus-q4-03",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Which question concerns venue?",
+     "choices": [
+      "Does the court have power over this case category?",
+      "Is this the proper geographic court location?",
+      "Does the court have authority over the defendant?",
+      "Which sovereign’s substantive law governs?"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Venue concerns the proper location within the judicial system under the applicable rules."
+    },
+    {
+     "id": "lus-q4-04",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Assume ordinary diversity rules, complete diversity, and no other basis. A claim seeks exactly 75,000 dollars, excluding interest and costs. What is the amount result?",
+     "choices": [
+      "It meets a threshold of at least 75,000 dollars",
+      "It qualifies because complete diversity is present",
+      "It does not exceed the statutory threshold",
+      "It qualifies if service and venue are also proper"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Section 1332(a) requires an amount exceeding 75,000 dollars, not merely equaling it."
+    },
+    {
+     "id": "lus-q4-05",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Two Alder citizens dispute a 12,000-dollar state contract claim. No other federal basis exists. Their agreement to use federal court does what?",
+     "choices": [
+      "Creates diversity by consenting to a federal forum",
+      "Waives the citizenship and amount requirements",
+      "Converts a state claim into a federal-question claim",
+      "Does not create subject-matter jurisdiction"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Neither the supplied federal-question nor ordinary diversity basis exists, and consent does not cure that absence."
+    },
+    {
+     "id": "lus-q4-06",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Complete diversity and the required amount are stipulated. What remains separate?",
+     "choices": [
+      "Personal jurisdiction and proper venue",
+      "Whether the amount alone supplies personal jurisdiction",
+      "Whether diverse citizenship makes every venue proper",
+      "Whether federal procedure replaces all substantive law"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Establishing one subject-matter basis does not resolve personal jurisdiction or venue."
+    },
+    {
+     "id": "lus-q4-07",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Why is a mailing address insufficient by itself for an individual’s diversity citizenship?",
+     "choices": [
+      "Citizenship follows any current residence address",
+      "Citizenship requires the applicable domicile analysis",
+      "Citizenship is set by the chosen court’s location",
+      "Citizenship follows the place the claim arose"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Residence or an address alone does not necessarily establish domicile and state citizenship."
+    },
+    {
+     "id": "lus-q4-08",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "A state contract complaint anticipates a federal defense. What is the ordinary federal-question lesson?",
+     "choices": [
+      "The defense creates jurisdiction if anticipated",
+      "The defense creates jurisdiction if it is important",
+      "The defense alone does not create that jurisdiction",
+      "The defense creates jurisdiction if both parties agree"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Under the ordinary well-pleaded-complaint framework, an anticipated federal defense alone is insufficient."
+    },
+    {
+     "id": "lus-q4-09",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Subject-matter jurisdiction",
+      "Personal jurisdiction",
+      "Venue",
+      "Governing law"
+     ],
+     "choices": [
+      "Authority over the case category",
+      "Authority over the defendant",
+      "Proper geographic court location",
+      "Rules deciding the issues"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Subject-matter jurisdiction: authority over the case category; Personal jurisdiction: authority over the defendant; Venue: proper geographic court location; Governing law: rules deciding the issues. These roles are distinct."
+    },
+    {
+     "id": "lus-q4-10",
+     "section": "lus-m2",
+     "topic": "Jurisdiction and venue",
+     "stem": "The proper geographic location of a case is a question of ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "venue"
+      ]
+     ],
+     "explanation": "Venue is separate from subject-matter and personal jurisdiction."
+    },
+    {
+     "id": "lus-q5-01",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "A district court faces a controlling Supreme Court holding on federal law. A newer out-of-circuit opinion criticizes it. Which should control?",
+     "choices": [
+      "The governing Supreme Court holding",
+      "The newest circuit opinion regardless of hierarchy",
+      "The circuit opinion with the closest factual match",
+      "The opinion preferred by both parties to the case"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Recency and criticism do not authorize a lower court to disregard controlling higher authority."
+    },
+    {
+     "id": "lus-q5-02",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "For an Alder state-law issue in an Alder trial court, which supplied source controls if valid and on point?",
+     "choices": [
+      "A Birch highest-court holding on Birch law",
+      "Alder’s highest-court holding",
+      "A federal district opinion predicting Alder law",
+      "A newer treatise favoring a different interpretation"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The state’s highest court authoritatively interprets its own law for lower state courts."
+    },
+    {
+     "id": "lus-q5-03",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "What is a holding?",
+     "choices": [
+      "Any legal proposition discussed by the majority",
+      "The prevailing party’s entire requested remedy",
+      "A legal resolution necessary to the decision",
+      "The factual allegations quoted from the complaint"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A holding resolves a legal issue needed for the decision; unnecessary observations are not automatically holdings."
+    },
+    {
+     "id": "lus-q5-04",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "An opinion remarks that repairs are often overpriced, but price fairness was unnecessary to the result. How should the remark be treated?",
+     "choices": [
+      "As a holding on every repair-price dispute",
+      "As part of the binding retention rule by placement",
+      "As a statutory remedy available to later customers",
+      "As an observation outside the necessary holding"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The remark is dicta on the supplied facts, not a holding that every expensive repair is unlawful."
+    },
+    {
+     "id": "lus-q5-05",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "What does a dissent ordinarily represent?",
+     "choices": [
+      "A judge’s disagreement with the court’s result or reasoning",
+      "The court’s holding when its reasoning is persuasive",
+      "A majority rule limited to the dissenting judge",
+      "A judgment adopted by the panel as a whole"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A dissent can offer persuasive reasoning but is not the majority’s holding."
+    },
+    {
+     "id": "lus-q5-06",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "A federal circuit opinion addresses federal law in a state court case. What is the ordinary relationship?",
+     "choices": [
+      "Binding as a decision of a geographically higher court",
+      "Persuasive, rather than hierarchically binding there",
+      "Binding whenever it interprets the same federal statute",
+      "Binding unless the state legislature rejects it"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Lower federal courts are not ordinary appellate supervisors of state courts; Supreme Court holdings on federal law are different."
+    },
+    {
+     "id": "lus-q5-07",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "An old case is found on an official court website. What still needs checking?",
+     "choices": [
+      "Whether website publication eliminates later conflicts",
+      "Whether the hosting date replaces the decision date",
+      "Later treatment and changes in governing law",
+      "Whether official access guarantees precedential status"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Access to the opinion does not establish that later decisions or legislation have left it unchanged."
+    },
+    {
+     "id": "lus-q5-08",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "Which comparison best describes horizontal precedent?",
+     "choices": [
+      "A district court following its circuit’s holding",
+      "A state trial court following its highest court",
+      "A lower court applying a Supreme Court decision",
+      "A court considering its own earlier decisions"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Horizontal stare decisis concerns a court’s own precedents; vertical precedent concerns court hierarchy."
+    },
+    {
+     "id": "lus-q5-09",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Holding",
+      "Dicta",
+      "Dissent",
+      "Concurrence"
+     ],
+     "choices": [
+      "Necessary legal resolution",
+      "Unnecessary judicial observations",
+      "Separate disagreement",
+      "Agreement in judgment with separate reasoning"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Holding: necessary legal resolution; Dicta: unnecessary judicial observations; Dissent: separate disagreement; Concurrence: agreement in judgment with separate reasoning. These roles are distinct."
+    },
+    {
+     "id": "lus-q5-10",
+     "section": "lus-m3",
+     "topic": "Precedent and authority",
+     "stem": "A prior judicial decision used in deciding a later legal question is ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "precedent",
+       "a precedent"
+      ]
+     ],
+     "explanation": "Precedent can be binding or persuasive depending on the issue and court relationships."
+    },
+    {
+     "id": "lus-q6-01",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "Under fictional Rule A, an email first discloses the fee after delivery. What fails?",
+     "choices": [
+      "The requirement that disclosure remain unwritten",
+      "The pre-delivery timing requirement",
+      "The ownership requirement merely because notice was late",
+      "The requirement that repair charges remain unpaid"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "The writing exists, but the supplied rule requires disclosure before delivery."
+    },
+    {
+     "id": "lus-q6-02",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "Under Rule A, timely oral disclosure alone is given. What fails?",
+     "choices": [
+      "The timing requirement despite pre-delivery notice",
+      "The ownership requirement despite stipulated ownership",
+      "The written-disclosure requirement",
+      "The possession requirement despite the shop retaining it"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Rule A expressly requires writing, and fictional Reed confirms that oral disclosure is insufficient."
+    },
+    {
+     "id": "lus-q6-03",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "The packet leaves retention for unpaid repair charges unresolved. What is the sound response?",
+     "choices": [
+      "Apply Rule B to all unpaid charges without distinction",
+      "Treat the packet’s silence as permission to retain",
+      "Treat the packet’s silence as an automatic forfeiture",
+      "Flag the missing rule for further research"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "A gap in the packet does not establish either permission or prohibition."
+    },
+    {
+     "id": "lus-q6-04",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "Which similarity supports an analogy under Rule A?",
+     "choices": [
+      "Both cases lack the required pre-delivery writing",
+      "Both customers used the same model of bicycle",
+      "Both repairs required the same replacement part",
+      "Both disputes arose during the same calendar year"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A useful analogy connects a fact to the operative rule, rather than identifying incidental similarities."
+    },
+    {
+     "id": "lus-q6-05",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "The shop produces a disputed, unclear-date disclosure. What should the analysis do?",
+     "choices": [
+      "Accept the document’s existence as proof of delivery",
+      "State conditional results and identify needed evidence",
+      "Resolve credibility from the parties’ allegations alone",
+      "Treat written form as enough regardless of timing"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Timing and delivery are material to Rule A, so unresolved facts call for conditional analysis."
+    },
+    {
+     "id": "lus-q6-06",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "A court assumes alleged facts for a limited pleading motion. What should a case reader avoid?",
+     "choices": [
+      "Treating the motion as a decision on legal sufficiency",
+      "Identifying the ruling as occurring before trial",
+      "Calling those assumptions trial findings",
+      "Separating assumed allegations from contested evidence"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "Procedural assumptions are not the same as findings after evidence is evaluated."
+    },
+    {
+     "id": "lus-q6-07",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "The packet supports return of an item but supplies no damages rule. What conclusion is justified?",
+     "choices": [
+      "Infer damages from the presence of any violation",
+      "Add fee shifting because the customer has a claim",
+      "Treat the return remedy as proof of punitive liability",
+      "Analyze return without inventing monetary remedies"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "An analysis must stay within supplied authority and identify missing remedial law."
+    },
+    {
+     "id": "lus-q6-08",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "What makes a difference between cases legally material?",
+     "choices": [
+      "Its connection to the governing rule or issue",
+      "Its importance to the client’s personal preferences",
+      "Its absence from the older opinion’s fact summary",
+      "Its similarity to a fact described in a dissent"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Materiality depends on the legal issue; a difference alone does not distinguish a case meaningfully."
+    },
+    {
+     "id": "lus-q6-09",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Issue",
+      "Element",
+      "Material fact",
+      "Procedural posture"
+     ],
+     "choices": [
+      "Legal question to resolve",
+      "Required component of a legal test",
+      "Fact relevant to the governing issue",
+      "Stage and request before the court"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Issue: legal question to resolve; Element: required component of a legal test; Material fact: fact relevant to the governing issue; Procedural posture: stage and request before the court. These roles are distinct."
+    },
+    {
+     "id": "lus-q6-10",
+     "section": "lus-m3",
+     "topic": "Rule application",
+     "stem": "Explaining a legally meaningful difference from a prior case is making a ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "distinction",
+       "legal distinction",
+       "legally meaningful distinction"
+      ]
+     ],
+     "explanation": "A distinction connects a relevant difference to the legal rule."
+    },
+    {
+     "id": "lus-q7-01",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "What does filing a complaint ordinarily establish?",
+     "choices": [
+      "That admissible evidence proves the pleaded facts",
+      "That the court has accepted each factual assertion",
+      "That allegations and claims have been presented",
+      "That service establishes the plaintiff’s legal entitlement"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The complaint presents claims and allegations; proof and adjudication occur through later procedures."
+    },
+    {
+     "id": "lus-q7-02",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "What is discovery?",
+     "choices": [
+      "An unrestricted search for any unfavorable material",
+      "A trial-like proceeding that finally resolves liability",
+      "An exchange limited to evidence both parties accept",
+      "Information exchange under procedural rules"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Discovery develops information subject to limits such as privilege and proportionality."
+    },
+    {
+     "id": "lus-q7-03",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "What is a deposition?",
+     "choices": [
+      "Testimony taken under oath outside trial",
+      "A lawyer’s unsworn summary of an interview",
+      "A witness’s allegation in the initial complaint",
+      "A judge’s account of the facts after a bench trial"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Depositions obtain sworn testimony under applicable procedures; they are distinct from legal argument."
+    },
+    {
+     "id": "lus-q7-04",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "Which feature best distinguishes ordinary mediation?",
+     "choices": [
+      "The neutral imposes a merits ruling without agreement",
+      "A neutral helps parties seek agreement",
+      "The neutral resolves disputed facts as an arbitrator",
+      "The neutral enters a verdict after hearing testimony"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Mediation facilitates agreement rather than ordinarily imposing a merits decision."
+    },
+    {
+     "id": "lus-q7-05",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "A settlement returns Mira’s bicycle without a court ruling on the statute. What should a case summary say?",
+     "choices": [
+      "The court interpreted the statute against the shop",
+      "The agreement bound all other repairers as precedent",
+      "The parties resolved the dispute by agreement",
+      "The shop admitted every allegation by settling"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A settlement outcome should not be misreported as a judicial holding."
+    },
+    {
+     "id": "lus-q7-06",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "Under the stated federal standard, what supports summary judgment?",
+     "choices": [
+      "The movant’s witness seems more credible on key facts",
+      "The complaint alleges facts sufficient to state a claim",
+      "The disputed facts favor the movant when weighed",
+      "No genuine material factual dispute and legal entitlement"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Summary judgment uses a specific standard; a genuine material factual dispute cannot simply be ignored."
+    },
+    {
+     "id": "lus-q7-07",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "Which statement describes preponderance of the evidence?",
+     "choices": [
+      "The proposition is more likely true than not",
+      "The proposition must be established beyond doubt",
+      "The proposition requires clear and convincing proof",
+      "The proposition is accepted once plausibly alleged"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "Preponderance is a common civil standard, but some civil issues use other burdens."
+    },
+    {
+     "id": "lus-q7-08",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "A document bears a Sunday date. What does that fact alone leave unresolved?",
+     "choices": [
+      "Whether the printed date conclusively proves receipt",
+      "Whether it was delivered before Monday intake",
+      "Whether written form eliminates the timing requirement",
+      "Whether the date itself establishes the court’s venue"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A date on a document does not by itself prove delivery to the customer at that time."
+    },
+    {
+     "id": "lus-q7-09",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Complaint",
+      "Discovery",
+      "Settlement",
+      "Deposition"
+     ],
+     "choices": [
+      "Presents allegations and claims",
+      "Develops information under rules",
+      "Agreement resolving a dispute",
+      "Sworn testimony outside trial"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Complaint: presents allegations and claims; Discovery: develops information under rules; Settlement: agreement resolving a dispute; Deposition: sworn testimony outside trial. These roles are distinct."
+    },
+    {
+     "id": "lus-q7-10",
+     "section": "lus-m4",
+     "topic": "Civil litigation",
+     "stem": "A court order requiring or prohibiting conduct is an ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "injunction"
+      ]
+     ],
+     "explanation": "An injunction is a form of relief; its availability depends on governing law."
+    },
+    {
+     "id": "lus-q8-01",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "Who is the appellant?",
+     "choices": [
+      "The original plaintiff in every civil appeal",
+      "The party that prevailed on every issue below",
+      "The party defending the challenged judgment",
+      "The party seeking appellate review"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "Either original side may seek review when authorized; appellant identifies the appellate role."
+    },
+    {
+     "id": "lus-q8-02",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "What does de novo review of a legal question mean?",
+     "choices": [
+      "Independent review of that legal conclusion",
+      "A new evidentiary hearing on all disputed facts",
+      "Deference unless the legal conclusion is clearly wrong",
+      "Review limited to whether discretion was abused"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "De novo review addresses the question anew; it does not mean a new evidentiary trial."
+    },
+    {
+     "id": "lus-q8-03",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "What does remand mean?",
+     "choices": [
+      "Leave the lower court’s decision standing unchanged",
+      "Send the case back for further proceedings",
+      "Set aside a decision without specifying further work",
+      "Overturn a ruling and always enter final relief"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Remand returns the matter for further proceedings under the appellate disposition."
+    },
+    {
+     "id": "lus-q8-04",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "A court affirms one issue and reverses another. Is this conceptually possible?",
+     "choices": [
+      "No, an appeal must affirm or reverse every issue together",
+      "No, reversal always eliminates every part of the judgment",
+      "Yes, appellate dispositions can address issues separately",
+      "Yes, but only when both parties agree to partial review"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "An appellate court can resolve different issues differently and remand as needed."
+    },
+    {
+     "id": "lus-q8-05",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "The appeal permits only the existing record, with no exception. May Mira simply add a new email to prove her case?",
+     "choices": [
+      "Yes, appending it to the brief makes it record evidence",
+      "Yes, relevance overrides the stated record limitation",
+      "Yes, new evidence is automatically allowed on de novo review",
+      "No, the stated record limit prevents that use"
+     ],
+     "answer": [
+      3
+     ],
+     "explanation": "The exercise expressly restricts review to the existing record; it does not prohibit documents at trial."
+    },
+    {
+     "id": "lus-q8-06",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "A judge accepts oral notice as sufficient under fictional Rule A. What is the central alleged error?",
+     "choices": [
+      "A legal interpretation contrary to the writing requirement",
+      "A credibility finding about whether oral notice occurred",
+      "A factual finding that the bicycle remained at the shop",
+      "A procedural decision about when the complaint was filed"
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "The challenged premise concerns the legal requirement, not an incidental factual detail."
+    },
+    {
+     "id": "lus-q8-07",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "After correcting a legal rule, material facts remain unresolved. Which result may be appropriate?",
+     "choices": [
+      "Immediate final relief without resolving remaining facts",
+      "Reversal and remand for further proceedings",
+      "Affirmance because legal error never warrants remand",
+      "A required appellate trial with new witness testimony"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Correcting the rule may leave factual or remedial work for the lower court."
+    },
+    {
+     "id": "lus-q8-08",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "What should the capstone do with disputed pre-delivery disclosure?",
+     "choices": [
+      "Assume the disputed document proves timely receipt",
+      "Treat the later email as conclusive despite other evidence",
+      "Map the evidence and explain conditional outcomes",
+      "Resolve the issue using allegations without proof"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The disputed disclosure is material to the stated rule and requires evidentiary analysis."
+    },
+    {
+     "id": "lus-q8-09",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "Match each term to its role in this lesson.",
+     "type": "match",
+     "left": [
+      "Affirm",
+      "Reverse",
+      "Remand",
+      "Vacate"
+     ],
+     "choices": [
+      "Leave the challenged decision standing",
+      "Overturn the decision in the relevant respect",
+      "Send back for further proceedings",
+      "Set aside a decision or order"
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "explanation": "Affirm: leave the challenged decision standing; Reverse: overturn the decision in the relevant respect; Remand: send back for further proceedings; Vacate: set aside a decision or order. These roles are distinct."
+    },
+    {
+     "id": "lus-q8-10",
+     "section": "lus-m4",
+     "topic": "Appeals and case mapping",
+     "stem": "The party defending against an appeal is the ___.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "appellee"
+      ]
+     ],
+     "explanation": "Appellee identifies an appellate role, not necessarily the original defendant."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "law-us-legal-system-cards",
+   "title": "Introduction to the U.S. Legal System notecards",
+   "cards": [
+    {
+     "id": "c1",
+     "front": "What does constitution mean in this course?",
+     "back": "A foundational legal document establishing governmental powers, structures, and limits.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c2",
+     "front": "What does statute mean in this course?",
+     "back": "Law enacted by a legislature.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c3",
+     "front": "What does ordinance mean in this course?",
+     "back": "A local legislative enactment within the local government's authority.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c4",
+     "front": "What does regulation mean in this course?",
+     "back": "An agency rule whose legal effect depends on its authority, type, adoption, and applicable law.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c5",
+     "front": "What does case law mean in this course?",
+     "back": "Law developed through judicial decisions interpreting and applying legal principles.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c6",
+     "front": "What does common law mean in this course?",
+     "back": "Doctrines developed through judicial decisions rather than solely through legislative text.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c7",
+     "front": "What does primary authority mean in this course?",
+     "back": "A law-producing source, such as a constitution, statute, regulation, or judicial decision.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c8",
+     "front": "What does secondary authority mean in this course?",
+     "back": "Material explaining or analyzing law rather than itself enacting law or deciding a case.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c9",
+     "front": "What does effective date mean in this course?",
+     "back": "The date a provision becomes operative, subject to its scope and transition rules.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c10",
+     "front": "What does separation of powers mean in this course?",
+     "back": "The division of governmental functions among branches, with interactions and checks.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c11",
+     "front": "What does federalism mean in this course?",
+     "back": "The allocation and interaction of authority between national and state governments.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c12",
+     "front": "What does Supremacy Clause mean in this course?",
+     "back": "The constitutional provision establishing the controlling status of the Constitution, federal laws made pursuant to it, and treaties within the constitutional framework.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c13",
+     "front": "What does preemption mean in this course?",
+     "back": "Displacement of state law by governing federal law within its proper scope.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c14",
+     "front": "What does administrative agency mean in this course?",
+     "back": "A public body carrying out assigned governmental responsibilities under a legal framework.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c15",
+     "front": "What does cause of action mean in this course?",
+     "back": "A legal basis for seeking judicial relief on a claim.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c16",
+     "front": "What does trial court mean in this course?",
+     "back": "A court that develops the record and initially resolves a case through applicable procedures.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c17",
+     "front": "What does appellate court mean in this course?",
+     "back": "A court that reviews lower-tribunal decisions within its authority, generally on an existing record.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c18",
+     "front": "What does factfinder mean in this course?",
+     "back": "The judge or jury responsible for resolving factual issues in a proceeding.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c19",
+     "front": "What does bench trial mean in this course?",
+     "back": "A trial in which the judge, rather than a jury, performs the factfinding role.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c20",
+     "front": "What does discretionary review mean in this course?",
+     "back": "Review that a court may choose to grant under governing criteria rather than automatically provide.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c21",
+     "front": "What does certiorari mean in this course?",
+     "back": "A means of requesting review by a higher court, commonly associated with discretionary Supreme Court review.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c22",
+     "front": "What does subject-matter jurisdiction mean in this course?",
+     "back": "A court's authority over the category of dispute.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c23",
+     "front": "What does personal jurisdiction mean in this course?",
+     "back": "A court's authority over a party; this course focuses on authority over defendants.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c24",
+     "front": "What does venue mean in this course?",
+     "back": "The proper geographic location for a case under applicable procedural rules.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c25",
+     "front": "What does governing law mean in this course?",
+     "back": "The legal rules used to decide a particular issue.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c26",
+     "front": "What does service of process mean in this course?",
+     "back": "Delivery of legally required process through an authorized method under governing rules.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c27",
+     "front": "What does federal-question jurisdiction mean in this course?",
+     "back": "Jurisdiction over cases arising under federal law under the applicable constitutional and statutory framework.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c28",
+     "front": "What does diversity jurisdiction mean in this course?",
+     "back": "A federal jurisdictional basis involving qualifying differences in citizenship and other statutory requirements.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c29",
+     "front": "What does complete diversity mean in this course?",
+     "back": "For ordinary diverse-state-citizen cases, the absence of shared state citizenship between any plaintiff and any defendant.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c30",
+     "front": "What does domicile mean in this course?",
+     "back": "An individual's legal home, involving presence and intent under applicable citizenship rules; not established by a mailing address alone.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c31",
+     "front": "What does precedent mean in this course?",
+     "back": "An earlier judicial decision used in resolving a later legal question.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c32",
+     "front": "What does stare decisis mean in this course?",
+     "back": "The practice and doctrine of adhering to prior judicial decisions, subject to the governing court's rules.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c33",
+     "front": "What does binding authority mean in this course?",
+     "back": "Authority the deciding court must follow when it governs the issue.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c34",
+     "front": "What does persuasive authority mean in this course?",
+     "back": "Authority that may influence a decision without controlling it.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c35",
+     "front": "What does holding mean in this course?",
+     "back": "A court's legal resolution necessary to its decision.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c36",
+     "front": "What does dicta mean in this course?",
+     "back": "Judicial observations unnecessary to resolving the issue decided.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c37",
+     "front": "What does majority opinion mean in this course?",
+     "back": "An opinion stating reasoning supported by a majority of the deciding judges.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c38",
+     "front": "What does concurrence mean in this course?",
+     "back": "A separate opinion agreeing with the judgment while offering different or additional reasoning.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c39",
+     "front": "What does dissent mean in this course?",
+     "back": "A separate opinion disagreeing with the court's result or reasoning.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c40",
+     "front": "What does issue mean in this course?",
+     "back": "The legal question an analysis must resolve.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c41",
+     "front": "What does element mean in this course?",
+     "back": "A required component of a legal claim, defense, offense, or test.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c42",
+     "front": "What does material fact mean in this course?",
+     "back": "A fact that matters to the relevant legal rule or decision.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c43",
+     "front": "What does procedural posture mean in this course?",
+     "back": "The stage of a proceeding and the particular request or ruling under consideration.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c44",
+     "front": "What does analogy mean in this course?",
+     "back": "A comparison explaining why a prior case's legally relevant reasoning fits new facts.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c45",
+     "front": "What does distinction mean in this course?",
+     "back": "A legally meaningful difference explaining why a prior case's reasoning may not govern new facts.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c46",
+     "front": "What does remedy mean in this course?",
+     "back": "Legal relief available for a claim under governing law.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c47",
+     "front": "What does damages mean in this course?",
+     "back": "Monetary relief awarded under an applicable legal rule.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c48",
+     "front": "What does injunction mean in this course?",
+     "back": "A court order requiring or prohibiting conduct.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c49",
+     "front": "What does plaintiff mean in this course?",
+     "back": "The party initiating a civil action.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c50",
+     "front": "What does defendant mean in this course?",
+     "back": "The party against whom an action is brought.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c51",
+     "front": "What does complaint mean in this course?",
+     "back": "A pleading presenting allegations and claims and requesting relief.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c52",
+     "front": "What does answer mean in this course?",
+     "back": "A pleading responding to a complaint and potentially asserting defenses.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c53",
+     "front": "What does motion mean in this course?",
+     "back": "A request that a court make a ruling.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c54",
+     "front": "What does discovery mean in this course?",
+     "back": "The process of obtaining and exchanging case information under procedural rules and limits.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c55",
+     "front": "What does deposition mean in this course?",
+     "back": "Testimony taken under oath outside trial under applicable procedures.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c56",
+     "front": "What does settlement mean in this course?",
+     "back": "An agreement resolving some or all of a dispute.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c57",
+     "front": "What does mediation mean in this course?",
+     "back": "A process in which a neutral facilitates efforts to reach an agreement.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c58",
+     "front": "What does arbitration mean in this course?",
+     "back": "A dispute-resolution process using a decision-maker under an agreement or legal framework.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c59",
+     "front": "What does summary judgment mean in this course?",
+     "back": "Judgment under a procedure that, in federal civil practice, requires no genuine dispute of material fact and entitlement as a matter of law.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c60",
+     "front": "What does preponderance of the evidence mean in this course?",
+     "back": "A standard requiring a proposition to be more likely true than not; common but not universal in civil matters.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c61",
+     "front": "What does standard of review mean in this course?",
+     "back": "The framework determining how an appellate court examines a challenged ruling and the deference it gives.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c62",
+     "front": "What does appellant mean in this course?",
+     "back": "The party seeking appellate review.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c63",
+     "front": "What does appellee mean in this course?",
+     "back": "The party defending against an appeal.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c64",
+     "front": "What does record on appeal mean in this course?",
+     "back": "The materials properly available for appellate review under governing rules.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c65",
+     "front": "What does de novo review mean in this course?",
+     "back": "Independent review of a question without deference to the lower tribunal's conclusion on that question.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c66",
+     "front": "What does affirm mean in this course?",
+     "back": "Leave the challenged decision standing in the relevant respect.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c67",
+     "front": "What does reverse mean in this course?",
+     "back": "Overturn a challenged decision in the relevant respect.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c68",
+     "front": "What does remand mean in this course?",
+     "back": "Send a matter back for further proceedings.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c69",
+     "front": "What does vacate mean in this course?",
+     "back": "Set aside a decision or order, with effects determined by the disposition.",
+     "topic": "Appeals and case mapping"
+    },
+    {
+     "id": "c70",
+     "front": "Does primary authority always bind the deciding court?",
+     "back": "No. Identify the forum, issue, governing law, court relationship, and current precedential status.",
+     "topic": "Sources of law"
+    },
+    {
+     "id": "c71",
+     "front": "Does overlap between federal and state regulation automatically establish preemption?",
+     "back": "No. Examine valid governing federal law and the scope of any displacement.",
+     "topic": "Legal institutions"
+    },
+    {
+     "id": "c72",
+     "front": "Is a federal district court the ordinary appeal route from a state trial court?",
+     "back": "No. Ordinary review proceeds through the state appellate system.",
+     "topic": "Court structure"
+    },
+    {
+     "id": "c73",
+     "front": "Does exactly 75,000 dollars satisfy the ordinary § 1332(a) amount requirement?",
+     "back": "No. The amount must exceed 75,000 dollars, excluding interest and costs.",
+     "topic": "Jurisdiction and venue"
+    },
+    {
+     "id": "c74",
+     "front": "Does a newer out-of-circuit opinion displace a controlling Supreme Court holding?",
+     "back": "No. Recency alone does not change the hierarchy.",
+     "topic": "Precedent and authority"
+    },
+    {
+     "id": "c75",
+     "front": "Fictional Rule A requires writing before delivery. Does a later email meet both components?",
+     "back": "No. The email is written, but the supplied timing requirement is not satisfied.",
+     "topic": "Rule application"
+    },
+    {
+     "id": "c76",
+     "front": "Does a settlement necessarily establish a judicial holding?",
+     "back": "No. Identify whether a court actually decided the legal issue.",
+     "topic": "Civil litigation"
+    },
+    {
+     "id": "c77",
+     "front": "Does de novo review necessarily allow a new evidentiary trial?",
+     "back": "No. It means independent review of the relevant question, not an automatic new trial.",
+     "topic": "Appeals and case mapping"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "constitution",
+   "definition": "A foundational legal document establishing governmental powers, structures, and limits.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "statute",
+   "definition": "Law enacted by a legislature.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "ordinance",
+   "definition": "A local legislative enactment within the local government's authority.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "regulation",
+   "definition": "An agency rule whose legal effect depends on its authority, type, adoption, and applicable law.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "case law",
+   "definition": "Law developed through judicial decisions interpreting and applying legal principles.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "common law",
+   "definition": "Doctrines developed through judicial decisions rather than solely through legislative text.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "primary authority",
+   "definition": "A law-producing source, such as a constitution, statute, regulation, or judicial decision.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "secondary authority",
+   "definition": "Material explaining or analyzing law rather than itself enacting law or deciding a case.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "effective date",
+   "definition": "The date a provision becomes operative, subject to its scope and transition rules.",
+   "topic": "Sources of law"
+  },
+  {
+   "term": "separation of powers",
+   "definition": "The division of governmental functions among branches, with interactions and checks.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "federalism",
+   "definition": "The allocation and interaction of authority between national and state governments.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "Supremacy Clause",
+   "definition": "The constitutional provision establishing the controlling status of the Constitution, federal laws made pursuant to it, and treaties within the constitutional framework.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "preemption",
+   "definition": "Displacement of state law by governing federal law within its proper scope.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "administrative agency",
+   "definition": "A public body carrying out assigned governmental responsibilities under a legal framework.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "cause of action",
+   "definition": "A legal basis for seeking judicial relief on a claim.",
+   "topic": "Legal institutions"
+  },
+  {
+   "term": "trial court",
+   "definition": "A court that develops the record and initially resolves a case through applicable procedures.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "appellate court",
+   "definition": "A court that reviews lower-tribunal decisions within its authority, generally on an existing record.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "factfinder",
+   "definition": "The judge or jury responsible for resolving factual issues in a proceeding.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "bench trial",
+   "definition": "A trial in which the judge, rather than a jury, performs the factfinding role.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "discretionary review",
+   "definition": "Review that a court may choose to grant under governing criteria rather than automatically provide.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "certiorari",
+   "definition": "A means of requesting review by a higher court, commonly associated with discretionary Supreme Court review.",
+   "topic": "Court structure"
+  },
+  {
+   "term": "subject-matter jurisdiction",
+   "definition": "A court's authority over the category of dispute.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "personal jurisdiction",
+   "definition": "A court's authority over a party; this course focuses on authority over defendants.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "venue",
+   "definition": "The proper geographic location for a case under applicable procedural rules.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "governing law",
+   "definition": "The legal rules used to decide a particular issue.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "service of process",
+   "definition": "Delivery of legally required process through an authorized method under governing rules.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "federal-question jurisdiction",
+   "definition": "Jurisdiction over cases arising under federal law under the applicable constitutional and statutory framework.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "diversity jurisdiction",
+   "definition": "A federal jurisdictional basis involving qualifying differences in citizenship and other statutory requirements.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "complete diversity",
+   "definition": "For ordinary diverse-state-citizen cases, the absence of shared state citizenship between any plaintiff and any defendant.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "domicile",
+   "definition": "An individual's legal home, involving presence and intent under applicable citizenship rules; not established by a mailing address alone.",
+   "topic": "Jurisdiction and venue"
+  },
+  {
+   "term": "precedent",
+   "definition": "An earlier judicial decision used in resolving a later legal question.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "stare decisis",
+   "definition": "The practice and doctrine of adhering to prior judicial decisions, subject to the governing court's rules.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "binding authority",
+   "definition": "Authority the deciding court must follow when it governs the issue.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "persuasive authority",
+   "definition": "Authority that may influence a decision without controlling it.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "holding",
+   "definition": "A court's legal resolution necessary to its decision.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "dicta",
+   "definition": "Judicial observations unnecessary to resolving the issue decided.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "majority opinion",
+   "definition": "An opinion stating reasoning supported by a majority of the deciding judges.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "concurrence",
+   "definition": "A separate opinion agreeing with the judgment while offering different or additional reasoning.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "dissent",
+   "definition": "A separate opinion disagreeing with the court's result or reasoning.",
+   "topic": "Precedent and authority"
+  },
+  {
+   "term": "issue",
+   "definition": "The legal question an analysis must resolve.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "element",
+   "definition": "A required component of a legal claim, defense, offense, or test.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "material fact",
+   "definition": "A fact that matters to the relevant legal rule or decision.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "procedural posture",
+   "definition": "The stage of a proceeding and the particular request or ruling under consideration.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "analogy",
+   "definition": "A comparison explaining why a prior case's legally relevant reasoning fits new facts.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "distinction",
+   "definition": "A legally meaningful difference explaining why a prior case's reasoning may not govern new facts.",
+   "topic": "Rule application"
+  },
+  {
+   "term": "remedy",
+   "definition": "Legal relief available for a claim under governing law.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "damages",
+   "definition": "Monetary relief awarded under an applicable legal rule.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "injunction",
+   "definition": "A court order requiring or prohibiting conduct.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "plaintiff",
+   "definition": "The party initiating a civil action.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "defendant",
+   "definition": "The party against whom an action is brought.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "complaint",
+   "definition": "A pleading presenting allegations and claims and requesting relief.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "answer",
+   "definition": "A pleading responding to a complaint and potentially asserting defenses.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "motion",
+   "definition": "A request that a court make a ruling.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "discovery",
+   "definition": "The process of obtaining and exchanging case information under procedural rules and limits.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "deposition",
+   "definition": "Testimony taken under oath outside trial under applicable procedures.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "settlement",
+   "definition": "An agreement resolving some or all of a dispute.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "mediation",
+   "definition": "A process in which a neutral facilitates efforts to reach an agreement.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "arbitration",
+   "definition": "A dispute-resolution process using a decision-maker under an agreement or legal framework.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "summary judgment",
+   "definition": "Judgment under a procedure that, in federal civil practice, requires no genuine dispute of material fact and entitlement as a matter of law.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "preponderance of the evidence",
+   "definition": "A standard requiring a proposition to be more likely true than not; common but not universal in civil matters.",
+   "topic": "Civil litigation"
+  },
+  {
+   "term": "standard of review",
+   "definition": "The framework determining how an appellate court examines a challenged ruling and the deference it gives.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "appellant",
+   "definition": "The party seeking appellate review.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "appellee",
+   "definition": "The party defending against an appeal.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "record on appeal",
+   "definition": "The materials properly available for appellate review under governing rules.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "de novo review",
+   "definition": "Independent review of a question without deference to the lower tribunal's conclusion on that question.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "affirm",
+   "definition": "Leave the challenged decision standing in the relevant respect.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "reverse",
+   "definition": "Overturn a challenged decision in the relevant respect.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "remand",
+   "definition": "Send a matter back for further proceedings.",
+   "topic": "Appeals and case mapping"
+  },
+  {
+   "term": "vacate",
+   "definition": "Set aside a decision or order, with effects determined by the disposition.",
+   "topic": "Appeals and case mapping"
+  }
+ ],
+ "references": [
+  {
+   "id": "lus-ref-sources",
+   "title": "Source and institution checklist",
+   "body": "| Source | Institution or function | Required follow-up |\n|---|---|---|\n| Constitution | Foundational governmental law | Relevant provision, interpretation, and amendment |\n| Statute | Legislature | Definitions, scope, effective date, exceptions, remedies |\n| Ordinance | Local legislature | Delegated authority and applicable higher law |\n| Regulation | Agency | Authority, adoption, status, scope, and dates |\n| Opinion | Court | Issue, holding, court relationship, later treatment |\n| Guide or treatise | Explanation | Locate and read underlying primary authority |\n\nFor each document record: title, issuer, jurisdiction, citation or URL, version/date, relevant passage, and unresolved question. Primary/secondary classification is separate from binding/persuasive classification. A proposed rule is not automatically an operative rule. An official summary is not a substitute for governing text.\n\nInstitution questions: Who made the rule? Under what authority? Who enforces it? Who can seek what relief? Which tribunal reviews the decision? Federalism and separation of powers answer different organizational questions.\n"
+  },
+  {
+   "id": "lus-ref-courts",
+   "title": "Forum and review-route worksheet",
+   "body": "Complete these separately:\n\n1. **Subject matter:** What constitutional and statutory basis authorizes this court to hear this category of case?\n2. **Personal jurisdiction:** What supports authority over the defendant?\n3. **Venue:** What makes this geographic location proper?\n4. **Service:** What authorized process and notice requirements apply?\n5. **Governing law:** Which jurisdiction's rules decide each issue?\n6. **Review:** Which decision is appealable, to which court, under which rules?\n\nOrdinary federal civil route: district court → appropriate federal court of appeals → possible U.S. Supreme Court review. Specialized matters require separate research.\n\nOrdinary state civil route: state trial court → that state's appellate route. A federal district court is not an ordinary appeal destination. Qualifying final state judgments raising federal issues may reach the U.S. Supreme Court under applicable requirements; purely state-law disagreement alone is insufficient.\n\nOrdinary § 1332(a) orientation: more than 75,000 dollars excluding interest and costs, plus qualifying citizenship and all other statutory requirements. For the ordinary different-state-citizen exercises, no plaintiff may share state citizenship with a defendant. Do not substitute address for citizenship or apply corporate citizenship rules mechanically to every entity.\n\nSource: [28 U.S.C. § 1332](https://uscode.house.gov/us/usc/119-124/t28/s1332/). Recheck operative law for actual cases.\n"
+  },
+  {
+   "id": "lus-ref-authority",
+   "title": "Authority table and short analysis template",
+   "body": "Complete one record per source:\n\n| Field | What to record |\n|---|---|\n| Source | Title and citation or URL |\n| Issue | Specific question and governing law |\n| Courts | Issuing court and deciding court |\n| Proposition | The actual holding or other supported point |\n| Status | Date, later treatment, and remaining checks |\n| Use | Binding, persuasive, or background |\n\nUse a separate record for an amended statute, an opinion construing its earlier version, and a secondary explanation. A search hit is not a completed currency check. Identify adverse authority rather than silently omitting it.\n\nShort analysis:\n\n- **Issue:** Ask a precise legal question.\n- **Rule:** Identify the governing source and required components.\n- **Application:** Connect each material fact to the rule; explain counterarguments and disputed evidence.\n- **Conclusion:** State the supported result and conditions or uncertainties.\n\nCase-reading prompts: What happened procedurally? What question did the court decide? What reasoning was necessary? Which statements are dicta? Is the passage in a majority, concurrence, or dissent? What legally relevant similarity or difference connects it to the new problem?\n\nThe fictional Alder Rules A–D and Reed exist only in this course. Do not present them as actual law or real citations.\n"
+  },
+  {
+   "id": "lus-ref-casefile",
+   "title": "Intake, evidence and capstone worksheets",
+   "body": "## Intake and proof\n\nUse one record per factual proposition. Example:\n\n| Field | Entry |\n|---|---|\n| Proposition | Delivery occurred Monday |\n| Evidence | Receipt |\n| Status | Document inspected |\n| Dispute | Check the opponent's position |\n| Rule link | Rule A timing |\n| Next step | Confirm authenticity and delivery context |\n\nRecord practical goals separately from legal remedies. Record missing evidence rather than replacing it with confidence. A dated document alone may not establish when it was delivered.\n\n## Procedural timeline\n\nMap intake → forum and claim analysis → filing/service → response → evidence development → possible motion or settlement → trial if needed → judgment → authorized review → enforcement as needed. This is an illustrative planning sequence, not a universal set of mandatory steps or deadlines.\n\nFor every court ruling, add the request, relevant standard, facts assumed or found, result, and next authorized step. For an appeal, identify the record, preserved issue, review standard, and requested disposition.\n\n## Capstone rubric\n\nFor each category: **0** = missing or materially wrong; **1** = partly supported; **2** = clear and supported. The table describes full-credit work.\n\n| Category | Full-credit work |\n|---|---|\n| Sources and institutions | Correct roles and source categories |\n| Jurisdiction and route | Separate questions and correct assumed route |\n| Authority | Forum-specific ranking and treatment limits |\n| Application | Each component linked to facts and uncertainty |\n| Procedure | Clear stages, evidence, and appellate task |\n| Limits and counterarguments | Addresses alternatives and packet limits |\n\nMaximum 12 points. Use the rubric to revise; it is not an automated completion credential. The full prompt and model reasoning appear in the last lesson.\n"
+  }
+ ],
+ "drills": []
+}
