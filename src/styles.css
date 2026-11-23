@@ -8387,3 +8387,8 @@ html:not(.tones-on) .tone-sr {
   .vm-study-machines .vm-console-grip { order: -1; }
   .vm-study-machines .vm-console-screen { flex: 1 0 3rem; min-height: 0; height: auto; }
 }
+
+.command-step { margin: 1rem 0; }
+.command-step .row { align-items: center; gap: .7rem; }
+.command-step pre { margin: .4rem 0 .75rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.command-line::before { content: "> "; user-select: none; color: var(--muted); }

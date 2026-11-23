@@ -281,20 +281,15 @@ export function lessonQuizNeeded(n: number): number {
   return Math.ceil((n * LESSON_QUIZ_PASS) / 100 - 1e-9);
 }
 
-/**
- * Warm-up questions before reading a lesson (pretesting: trying first helps the lesson stick,
- * even when you get them wrong). Bank questions on the lesson's topics, no honors questions.
- * Questions outside `quizIds` (the lesson's own quiz) come first, then quiz questions; unseen
- * before seen. Empty when there aren't at least two.
- */
-export function pretestQuestions(bank: Bank | undefined, quizIds: Set<string>, topics: string[], progress: Progress, n = 3): Question[] {
-  if (!bank || !topics.length) return [];
+/** Only questions explicitly linked to this lesson are eligible for its warm-up. */
+export function pretestQuestions(bank: Bank | undefined, quiz: string[] | undefined, progress: Progress, n = 3): Question[] {
+  if (!bank) return [];
   const stats = progress.stats[bank.id] ?? {};
-  // Code exercises take too long for a quick warm-up.
-  const cands = bank.questions.filter((q) => topics.includes(q.topic) && !q.honors && qtype(q) !== "code");
-  const group = (inQuiz: boolean, seen: boolean) => shuffle(cands.filter((q) => quizIds.has(q.id) === inQuiz && !!stats[q.id] === seen));
-  const out = [...group(false, false), ...group(false, true), ...group(true, false), ...group(true, true)].slice(0, n);
-  return out.length >= 2 ? out : [];
+  const candidates = lessonQuizQuestions(bank, [...new Set(quiz)]).filter(q => !q.honors && qtype(q) !== "code");
+  const unseen = shuffle(candidates.filter(q => !stats[q.id]));
+  const seen = shuffle(candidates.filter(q => stats[q.id]));
+  const selected = [...unseen, ...seen].slice(0, n);
+  return selected.length >= 2 ? selected : [];
 }
 
 export function startPretest(bank: Bank, lesson: LessonRef, questions: Question[]): Session {

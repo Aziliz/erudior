@@ -8,6 +8,11 @@ on:
       - 'src/pages/CourseHome.tsx'
       - 'src/pages/LessonView.tsx'
       - 'src/components/Vm*.tsx'
+      - 'src/components/Markdown.tsx'
+      - 'src/lib/session.ts'
+      - 'src/lib/commandTranscript.ts'
+      - 'tests/canonical-render-safety.test.mts'
+      - 'tests/mastery.test.mts'
       - 'src/styles.css'
       - 'tests/vm-study-browser.mjs'
       - '.github/workflows/lesson-terminal.yml'
@@ -25,6 +30,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: node --import tsx tests/mastery.test.mts && node --import tsx tests/canonical-render-safety.test.mts
       - run: node tests/vm-study-browser.mjs
         env:
           CHROMIUM_PATH: /usr/bin/google-chrome
