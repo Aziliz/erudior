@@ -6,6 +6,7 @@
 // last good catalog is cached so the app works offline; installed courses are stored locally.
 
 import type { CatalogEntry } from "./catalog";
+import { GITHUB_COURSE_FEED } from "./githubCourseFeed";
 import { COURSE_PUBLIC_KEYS } from "./courseKeys";
 import { sha256Hex, verifySignature } from "./courseSign";
 
@@ -22,7 +23,7 @@ async function fetchBytes(file: string, timeoutMs: number): Promise<Uint8Array> 
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), timeoutMs);
   try {
-    const res = await fetch(url(file), { signal: ctl.signal, cache: "no-cache" });
+    const res = await fetch(url(file), { signal: ctl.signal, cache: "no-cache", credentials: "omit" });
     if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`);
     return new Uint8Array(await res.arrayBuffer());
   } finally {
@@ -69,6 +70,17 @@ function readCache(): CatalogEntry[] | null {
   }
 }
 
+async function fetchSignedCatalog(timeoutMs: number): Promise<{ text: string; sig: string }> {
+  const decode = new TextDecoder();
+  if (BASE === GITHUB_COURSE_FEED) {
+    const envelope = JSON.parse(decode.decode(await fetchBytes("catalog.signed.json", timeoutMs)));
+    if (typeof envelope?.text !== "string" || typeof envelope.sig !== "string") throw new Error("Invalid signed course catalog.");
+    return { text: envelope.text, sig: envelope.sig };
+  }
+  const [bytes, sig] = await Promise.all([fetchBytes("catalog.json", timeoutMs), fetchBytes("catalog.json.sig", timeoutMs)]);
+  return { text: decode.decode(bytes), sig: decode.decode(sig).trim() };
+}
+
 export type CatalogSource = "bundled" | "website" | "saved";
 
 /**
@@ -78,11 +90,10 @@ export type CatalogSource = "bundled" | "website" | "saved";
 export async function fetchCatalog(timeoutMs = 8000): Promise<{ entries: CatalogEntry[]; source: CatalogSource; error?: string } | null> {
   if (!REMOTE) return null;
   try {
-    const [bytes, sigBytes] = await Promise.all([fetchBytes("catalog.json", timeoutMs), fetchBytes("catalog.json.sig", timeoutMs)]);
-    const sig = new TextDecoder().decode(sigBytes).trim();
-    const entries = openCatalog(bytes, sig);
+    const { text, sig } = await fetchSignedCatalog(timeoutMs);
+    const entries = openCatalog(new TextEncoder().encode(text), sig);
     try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ text: new TextDecoder().decode(bytes), sig }));
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ text, sig }));
     } catch {
       /* no storage: the catalog is just fetched again next time */
     }

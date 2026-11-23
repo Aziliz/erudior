@@ -46,11 +46,13 @@ jobs:
           if [ "$EVENT_NAME" != "pull_request" ] || [ -z "$BASE_SHA" ] || [ -z "$HEAD_SHA" ]; then
             echo "site_only=false" >> "$GITHUB_OUTPUT"
           else
-            git diff --name-only "$BASE_SHA" "$HEAD_SHA" > /tmp/erudior-changed-files
+            git diff --name-only "$BASE_SHA...$HEAD_SHA" > /tmp/erudior-changed-files
             node --input-type=module <<'NODE'
           import {readFileSync, appendFileSync} from 'node:fs';
           const files = readFileSync('/tmp/erudior-changed-files','utf8').trim().split('\n').filter(Boolean);
           const exact = new Set(['src/Site.tsx','src/pages/Home.tsx','src/pages/AudiencePage.tsx','src/pages/Roadmap.tsx','src/pages/DownloadPage.tsx','src/components/Terms.tsx','src/components/Mark.tsx','src/lib/startupSplash.ts','src/lib/roadmap.ts','src/lib/seo.ts','src/main.tsx','src/styles.css','index.html','scripts/prerender.mjs','scripts/sitemap.mjs']);
+          const courseOnly = files.length > 0 && files.every(f => f.startsWith('samples/') || f.startsWith('content/') || f === 'public/sitemap.xml');
+          appendFileSync(process.env.GITHUB_OUTPUT, 'course_only=' + courseOnly + '\n');
           const siteOnly = files.length > 0 && files.every(f => exact.has(f) || f.startsWith('public/'));
           appendFileSync(process.env.GITHUB_OUTPUT, 'site_only=' + siteOnly + '\n');
           console.log('Site-only change:',siteOnly,'files:',files.length);
@@ -66,6 +68,7 @@ jobs:
         if: steps.scope.outputs.site_only != 'true'
         run: node scripts/diagnostic-command.mjs pr-regression -- npm test
       - name: Production web build
+        if: steps.scope.outputs.course_only != 'true'
         id: build
         run: node scripts/diagnostic-command.mjs pr-build -- npm run build
 

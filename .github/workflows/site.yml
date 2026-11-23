@@ -22,6 +22,12 @@ on:
       - "public/engine-license-draft.txt"
       - "src/components/Terms.tsx"
       - "tests/engine-license.test.mts"
+      - "src/lib/githubCourseFeed.ts"
+      - "src/lib/courseSource.ts"
+      - "functions/_middleware.js"
+      - "scripts/github-course-feed-browser.mjs"
+      - "scripts/desktop-engine-changed.py"
+      - "tests/desktop-engine-changed.py"
       - "src/Site.tsx"
       - "src/main.tsx"
       - "src/App.tsx"
@@ -31,10 +37,10 @@ on:
   push:
     branches: [main]
     paths:
-      - "samples/catalog.json"
       - "src/**"
       - "index.html"
       - "public/**"
+      - "!public/sitemap.xml"
       - "functions/**"
       - "vite.config.ts"
       - "package.json"
@@ -86,6 +92,10 @@ jobs:
         run: |
           npx playwright install --with-deps chromium
           node scripts/prerender.mjs
+      - name: Verify independent course updates against one engine build
+        run: |
+          python3 tests/desktop-engine-changed.py
+          node scripts/github-course-feed-browser.mjs
       - name: Review splash choreography and lifecycle in browser
         id: splash_browser
         run: node scripts/diagnostic-command.mjs website-splash-browser -- node scripts/startup-splash-browser.mjs
@@ -122,7 +132,6 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          VITE_COURSES_URL: ${{ vars.COURSES_URL }}
         run: node scripts/diagnostic-command.mjs website-deploy -- npx --yes wrangler@3.114.0 pages deploy dist --project-name "${{ vars.PAGES_PROJECT }}" --branch main
       - name: Write safe CI diagnostic summary
         if: always()

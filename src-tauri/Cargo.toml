@@ -1,6 +1,6 @@
 [package]
 name = "erudior"
-version = "0.25.6"
+version = "0.25.8"
 description = "Free courses and homeschool records"
 authors = ["Jon"]
 edition = "2021"

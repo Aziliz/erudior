@@ -29,7 +29,7 @@ jobs:
   android-apk:
     runs-on: ubuntu-24.04
     env:
-      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COURSES_URL: https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     timeout-minutes: 60
     steps:
@@ -171,7 +171,7 @@ jobs:
   android-emulator-install:
     runs-on: ubuntu-24.04
     env:
-      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COURSES_URL: https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     timeout-minutes: 75
     steps:
@@ -276,7 +276,7 @@ jobs:
     permissions:
       contents: write
     env:
-      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COURSES_URL: https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
