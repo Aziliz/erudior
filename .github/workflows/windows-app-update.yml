@@ -1,0 +1,71 @@
+name: Windows automatic release upgrade
+on:
+  pull_request:
+    paths:
+      - 'src/lib/appUpdateController.ts'
+      - 'src/lib/updates.ts'
+      - '.github/workflows/windows-app-update.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  signed-nsis-upgrade:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    env:
+      VITE_COURSES_URL: https://courses.erudior.com/v1/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - run: npm ci
+      - name: Package this branch as an older local installation
+        shell: pwsh
+        run: |
+          # The fixture is installed only on this runner. Keep the production
+          # update endpoint and public key in the app that will check for updates.
+          $config = Join-Path $env:RUNNER_TEMP 'baseline.json'
+          '{"version":"0.0.1","bundle":{"createUpdaterArtifacts":false}}' | Set-Content -Encoding utf8NoBOM $config
+          npx tauri build --bundles nsis --config $config
+      - name: Start Erudior and observe the signed release replace it
+        shell: pwsh
+        run: |
+          $manifest = Invoke-RestMethod 'https://github.com/Aziliz/erudior/releases/latest/download/latest.json'
+          $target = $manifest.version
+          $asset = $manifest.platforms.'windows-x86_64-nsis'
+          if (!$asset.signature -or !$asset.url.EndsWith('_x64-setup.exe')) { throw 'Missing signed NSIS update' }
+          $setup = Get-Item 'src-tauri/target/release/bundle/nsis/*_0.0.1_x64-setup.exe'
+          $installer = Start-Process $setup.FullName -ArgumentList '/S' -Wait -PassThru
+          if ($installer.ExitCode -ne 0) { throw "Baseline installer exited $($installer.ExitCode)" }
+          $exe = Join-Path $env:LOCALAPPDATA 'Erudior/erudior.exe'
+          function installedVersion { (Get-Item $exe).VersionInfo.ProductVersion }
+          if ((installedVersion) -ne '0.0.1') { throw "Unexpected baseline at $exe" }
+          $data = Join-Path $env:APPDATA 'com.erudior.app'
+          $courses = New-Item -Force -Type Directory (Join-Path $data 'courses')
+          $course = Join-Path $courses.FullName 'rhcsa-rhel10-administration.json'
+          Copy-Item 'samples/rhcsa-10-administration.json' $course
+          $hash = (Get-FileHash $course).Hash
+          $lesson = 'rhcsa-rhel10-administration/first-prompt'
+          $progressFile = Join-Path $data 'progress.json'
+          @{ version=1; seeded=$true; catalogV1=$true; lessonsDone=@{$lesson='2026-11-01'}; attempts=@(); stats=@{}; cards=@{}; plans=@{}; activity=@{}; drills=@{} } | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8NoBOM $progressFile
+          $first = Start-Process $exe -PassThru
+          $deadline = (Get-Date).AddMinutes(6)
+          do {
+            Start-Sleep 2
+            $running = Get-Process erudior -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $exe -and $_.Id -ne $first.Id }
+            if ($running -and (installedVersion) -eq $target) { break }
+          } while ((Get-Date) -lt $deadline)
+          if (!$running -or (installedVersion) -ne $target) {
+            throw "Expected automatic upgrade and relaunch to $target. Installed: $(installedVersion)"
+          }
+          if ((Get-FileHash $course).Hash -ne $hash) { throw 'Installed course changed during upgrade' }
+          if ((Get-Content -Raw $progressFile | ConvertFrom-Json).lessonsDone.$lesson -ne '2026-11-01') { throw 'Lesson completion lost during upgrade' }
+          Write-Host "Automatically upgraded Erudior from 0.0.1 to $target and relaunched with course and completion intact."

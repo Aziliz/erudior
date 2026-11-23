@@ -38,7 +38,7 @@ const FEATURES: Feature[] = [
     points: [
       "Assigned courses by subject; the next one unlocks when the current one is done",
       "Lesson quizzes, practice exams, flashcards that space out reviews, and math drills with fresh numbers",
-      "A calculator beside every quiz and lesson: graphing for math and science",
+      "Optional calculators for lessons and quizzes, with graphing available in math",
       "Honors lessons for students who want to go further",
     ],
     shot: "/shots/kid-library.png",

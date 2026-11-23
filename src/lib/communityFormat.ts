@@ -994,7 +994,7 @@ function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: 
     ...(d.language ? { language: { code: d.language.code, name: d.language.name.trim(), ...(d.language.tts ? { tts: d.language.tts } : {}), ...(d.language.keys?.length ? { keys: d.language.keys } : {}), ...(d.language.level ? { level: d.language.level } : {}) } } : {}),
     ...(d.language && d.vocab?.length ? { vocab: d.vocab.filter((v) => v.term.trim() && v.meanings.some((m) => m.trim())).map((v) => ({ ...v, meanings: v.meanings.filter((m) => m.trim()) })) } : {}),
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
-    calculator,
+    ...(d.calculator || calculator !== "none" ? { calculator } : {}),
     ...(d.branchingScenarios === undefined ? {} : { branchingScenarios: parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id))) }),
     ...(d.scientificWorkspaces === undefined ? {} : { scientificWorkspaces: parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id))) }),
     ...(d.advancedAssessments === undefined ? {} : { advancedAssessments: parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id))) }),

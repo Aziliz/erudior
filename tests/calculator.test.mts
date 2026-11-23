@@ -28,10 +28,21 @@ ok("nCr", calc("nCr(6,2)") === 15);
 ok("format big", formatResult(1.234e15) === "1.234 × 10^15", formatResult(1.234e15));
 ok("format rounding", formatResult(0.1 + 0.2) === "0.3", formatResult(0.1 + 0.2));
 ok("format int", formatResult(42) === "42");
-ok("no course: scientific", calcKind(undefined) === "scientific");
-ok("real estate: basic", calcKind({ id: "colorado-broker" } as never) === "basic");
-ok("algebra: graphing", calcKind({ id: "math-algebra1" } as never) === "graphing");
-ok("course override", calcKind({ calculator: "basic" } as never) === "basic");
+const algebra = { id: "math-algebra1" };
+const linux = { id: "rhcsa-rhel10-administration" };
+ok("no course has no calculator", calcKind(undefined) === null);
+ok("algebra offers graphing", calcKind(algebra) === "graphing");
+for (const id of [linux.id, "rhce", "colorado-broker", "science-biology", "imported"]) {
+  ok(`${id} starts without a calculator`, calcKind({ id }) === null);
+}
+const preferences = { [linux.id]: true, [algebra.id]: false };
+ok("enable a calculator in RHCSA", calcKind(linux, preferences) === "basic");
+ok("hide it in algebra", calcKind(algebra, preferences) === null);
+ok("other courses stay independent", calcKind({ id: "law" }, preferences) === null);
+for (const calculator of ["basic", "scientific", "graphing"] as const) {
+  ok(`course selects ${calculator}`, calcKind({ ...linux, calculator }) === calculator);
+}
+ok("authors can prohibit a calculator", calcKind({ ...linux, calculator: "none" }, preferences) === null);
 
 if (fails) {
   console.log(`${fails} calculator test(s) failed`);

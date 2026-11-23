@@ -15,7 +15,7 @@ Content is organized into **courses**. Each course is one file with its own less
 - **Flags and notes**: flags and personal notes stay with a question across sessions; practice just your flagged questions; jump from a missed question to the lesson that covers it.
 - **Search**: one box (Ctrl+K) across lessons, glossary, reference sheets, questions and notecards.
 - **Backup and restore**: encrypted local Family backups with [inspect-only verification and staged recovery](docs/FAMILY_BACKUP_RECOVERY.md), including readable inventory and replacement warnings before an explicit restore.
-- **Course updates**: bundled courses offer their newer revisions in the app. (App self-updates are built in but turned off while the repo is private; see `src/lib/updates.ts`.)
+- **Course updates**: bundled courses offer their newer revisions in the app. Desktop installers check GitHub Releases for signed app updates. They download in the background and restart from the Library or profile picker.
 - **Practice mode**: check each answer and read the explanation. Filter by topic, section, unseen, last missed, or under-70% questions.
 - **Built-in editor**: write and edit questions, sections and exam defaults. Supports multi-answer questions.
 - **Progress tracking**: session history, score trend, weakest topics, and one-click practice of missed questions.
@@ -83,7 +83,7 @@ To release:
 
 Or run **Build installers** manually from the Actions tab and download the artifacts from the run.
 
-The repo is private, so installed copies can't check its releases and in-app updates are off; install new versions by hand. To turn updates back on, publish releases to a public repo, add the updater signing key as the `TAURI_SIGNING_PRIVATE_KEY` secret, and follow the notes in `src/lib/updates.ts`.
+Desktop builds check the public GitHub Releases update manifest. The release workflow uses `TAURI_SIGNING_PRIVATE_KEY` to sign update packages. The app verifies the signature against its bundled public key before installation.
 
 The Windows installers aren't code-signed, so SmartScreen shows a warning on first run. Choose **More info**, then **Run anyway**.
 

@@ -5,7 +5,7 @@ name: Build installers
 # website's Download page (app.erudior.com/download) offers the latest release, and the
 # Homebrew cask (Aziliz/homebrew-erudior) installs its .dmg under a fixed name.
 # In-app updates: tauri-action uploads latest.json and the signed update bundles; installed
-# apps (Windows, macOS, AppImage) check it at startup. Needs the TAURI_SIGNING_PRIVATE_KEY
+# apps (Windows, macOS, RPM, DEB and AppImage) check it at startup. Needs the TAURI_SIGNING_PRIVATE_KEY
 # secret (the key whose public half is in tauri.conf.json; no password).
 # Run it by hand from the Actions tab to just build (installers are attached
 # to the workflow run as artifacts).
@@ -174,7 +174,7 @@ jobs:
             [[ "$draft" == true ]]
           else
             gh release create "$DESKTOP_TAG" --draft --verify-tag --title "Erudior $DESKTOP_TAG" \
-              --notes "Desktop installers for Windows, macOS and Linux. Drag the terminal edge to adjust its height while reading RHCSA or RHCE lessons. Keyboard resizing is available, and the desktop remembers the setting."
+              --notes "Desktop installers for Windows, macOS and Linux. Newer GitHub releases download automatically and install when you return to the Library or profile picker. Includes Windows, macOS, AppImage, RPM and DEB updates. Math courses offer a calculator by default. Other courses can opt in from the course page."
           fi
           latest=$(gh release view --json tagName --jq .tagName)
           if [[ "$(printf '%s\n' "$latest" "$DESKTOP_TAG" | sort -V | tail -n1)" != "$DESKTOP_TAG" ]]; then

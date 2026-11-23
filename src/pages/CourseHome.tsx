@@ -1,3 +1,4 @@
+import { calcKind } from "../lib/calcKind";
 import { rawCourse } from "../lib/zhScript";
 import { isPublishedCourse, replacementFor } from "../lib/catalog";
 import { useMemo, useRef, useState } from "react";
@@ -60,6 +61,18 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
   const fromCatalog = isPublishedCourse(course);
   const replacement = replacementFor(course.id);
 
+  const [savingCalculator, setSavingCalculator] = useState(false);
+  async function setCalculator(enabled: boolean) {
+    setSavingCalculator(true);
+    try {
+      await api.updateProgress(p => ({ ...p, courseCalculators: { ...p.courseCalculators, [course.id]: enabled } }));
+    } catch (error) {
+      api.toast(`Could not save the calculator setting. ${String(error)}`);
+    } finally {
+      setSavingCalculator(false);
+    }
+  }
+
   async function onDelete() {
     const n = courseCounts(course);
     const ok = await store.confirmAction(
@@ -108,6 +121,13 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
           {course.community && <CommunityNote api={api} course={course} />}
         </div>
         <div className="row">
+          {course.calculator !== "none" && (
+            <label className="check">
+              <input type="checkbox" checked={!!calcKind(course, api.progress.courseCalculators)} disabled={savingCalculator}
+                onChange={e => void setCalculator(e.target.checked)} />
+              Show calculator in this course
+            </label>
+          )}
           {!fromCatalog && (
             <button className="btn" onClick={() => api.go({ name: "courseEdit", courseId: course.id })}>
               Edit course

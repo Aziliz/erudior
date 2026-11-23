@@ -24,7 +24,7 @@ import { taskFromPlan, parseInterventionTask, sameInterventionTask, type Interve
 import { validateInterventionActivities, interventionStatus, type InterventionActivity } from "./lib/interventions";
 import { startPractice } from "./lib/session";
 import { validateCourseIntegrity } from "./lib/courseIntegrity";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { registerNavigationGuard, requestNavigation, navigationPosition, newNavigationPosition, withNavigationPosition, sameNavigationPosition, restoreBlockedPop, type DisplayedHistory } from "./lib/navigationGuard";
 import type { Bank, Course, Lesson, Progress } from "./lib/types";
 import { restoreRun, runSummary, type Resumable, type RunState, type Session } from "./lib/session";
@@ -66,7 +66,8 @@ import { migrateVocabKeys } from "./lib/vocab";
 import CourseOverview from "./pages/CourseOverview";
 import CourseEditor from "./pages/CourseEditor";
 import SearchPage from "./pages/SearchPage";
-import { checkForUpdate, openReleasesPage, type AvailableUpdate } from "./lib/updates";
+import { AppUpdateController } from "./lib/appUpdateController";
+import { checkForUpdate, openReleasesPage } from "./lib/updates";
 import { Mark } from "./components/Mark";
 import PhoneNavigation from "./components/PhoneNavigation";
 import AppSidebar from "./components/AppSidebar";
@@ -209,8 +210,7 @@ export interface AppApi {
   saveCourse: (course: Course, options?: { enroll?: boolean }) => Promise<void>;
   /** Add a catalog course to In progress (loads and stores it), then open it. */
   addCourse: (id: string, requestedPath?: string) => Promise<void>;
-  /** Show the app-update banner for an update found elsewhere (e.g. a manual check). */
-  notifyUpdate: (u: AvailableUpdate) => void;
+  checkAppUpdate: () => Promise<string | null>;
   /** Go back from a bank: to its course if it has one, else the library. */
   bankBack: (bank: Bank) => View;
   /** Homeschool features available (desktop app). */
@@ -308,8 +308,8 @@ export default function App() {
   const [courseUpdates, setCourseUpdates] = useState<Course[]>([]);
   const courseUpdate = courseUpdates[0] ?? null;
   const dropUpdate = () => setCourseUpdates((u) => u.slice(1));
-  const [appUpdate, setAppUpdate] = useState<AvailableUpdate | null>(null);
-  const [installing, setInstalling] = useState<number | null | false>(false);
+  const [updater] = useState(() => new AppUpdateController(checkForUpdate));
+  const appUpdate = useSyncExternalStore(updater.subscribe, updater.snapshot);
   const searchRef = useRef<HTMLInputElement>(null);
   const [family, setFamilyState] = useState<Family | null>(null);
   const [studentId, setStudentId] = useState<string | null>(null);
@@ -469,8 +469,6 @@ export default function App() {
         setProgressState(p);
         await reload();
         setReady(true);
-        // Quietly look for a new version of the app; offline is fine.
-        checkForUpdate().then(setAppUpdate, () => {});
         // Builds that download courses: get the signed catalog from the website (or the last
         // one saved here when offline). Bundled builds keep the catalog they shipped with.
         const fetched = await fetchCatalog();
@@ -493,13 +491,35 @@ export default function App() {
     })();
   }, [reload]);
 
-  // Recheck on a long-running Android session and when the app regains focus.
   useEffect(() => {
-    const check = () => checkForUpdate().then((u) => { if (u) setAppUpdate(u); }, () => {});
-    const timer = window.setInterval(check, 6 * 60 * 60 * 1000);
-    window.addEventListener("focus", check);
-    return () => { window.clearInterval(timer); window.removeEventListener("focus", check); };
-  }, []);
+    if (!ready || !store.inApp) return;
+    let lastCheck = 0;
+    const check = () => {
+      lastCheck = Date.now();
+      void updater.check().catch(() => {});
+    };
+    const onFocus = () => {
+      if (Date.now() - lastCheck >= 15 * 60_000 || updater.snapshot()?.phase === "opened") check();
+    };
+    check();
+    const timer = window.setInterval(check, 6 * 60 * 60_000);
+    window.addEventListener("focus", onFocus);
+    window.addEventListener("online", check);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("online", check);
+    };
+  }, [ready, updater]);
+
+  useEffect(() => {
+    if (appUpdate?.phase !== "ready" || (view.name !== "library" && view.name !== "who") || gate) return;
+    const timer = window.setTimeout(() => {
+      if (!courseOpening.current && !gateRef.current && (viewRef.current.name === "library" || viewRef.current.name === "who"))
+        void updater.act();
+    }, 1500);
+    return () => window.clearTimeout(timer);
+  }, [appUpdate, view.name, gate, updater]);
 
   // Homeschool students each see the courses they started (course files are shared on disk).
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
@@ -1470,7 +1490,7 @@ export default function App() {
         await reload();
       }
     },
-    notifyUpdate: setAppUpdate,
+    checkAppUpdate: updater.check,
     bankBack: (bank) =>
       bank.courseId ? { name: "course", courseId: bank.courseId, tab: "banks" } : { name: "library" },
     homeschool: HOMESCHOOL,
@@ -1625,7 +1645,7 @@ export default function App() {
     const sharedMachines = course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10";
     if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !lesson?.vmLab)) return content;
     if (localLocked || gate || concealed || (family && !student)) return null;
-    const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id, lesson?.vmLab ? lesson.id : null]);
+    const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id]);
     const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);
     return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson?.vmLab}>
       {content}
@@ -2052,48 +2072,30 @@ export default function App() {
         {!fullScreen && appUpdate && (
           <div className="resume-banner update-banner" role="region" aria-label="App update">
             <div>
-              <b>Erudior {appUpdate.version} is available</b>
-              <span className="small muted">
-                {installing !== false
-                  ? (appUpdate.actionLabel
-                    ? "Preparing verified Android update… Approve installation in Android when prompted."
-                    : `Downloading${installing !== null ? ` (${installing}%)` : ""}… Erudior restarts when it's done.`)
-                  : appUpdate.canInstall
-                    ? appUpdate.guidance ?? "Install it now; your courses and progress are kept."
-                    : "Download the new .deb or .rpm from the release page and install it over this one. Your data is kept."}
+              <b>Erudior {appUpdate.release.version} update</b>
+              <span className="small muted" role="status">
+                {appUpdate.phase === "downloading" && `Downloading signed update${appUpdate.percent == null ? "…" : " (" + appUpdate.percent + "%)…"}`}
+                {appUpdate.phase === "ready" && "Downloaded. Erudior will update and restart at the Library or profile picker."}
+                {appUpdate.phase === "installing" && (appUpdate.release.kind === "android"
+                  ? "Preparing verified Android update… Approve installation in Android when prompted."
+                  : "Installing update… Your operating system may ask for approval.")}
+                {appUpdate.phase === "restarting" && "Restarting Erudior…"}
+                {appUpdate.phase === "failed" && `Update failed: ${appUpdate.message}`}
+                {appUpdate.phase === "opened" && "Android installer opened. Approve the update to finish."}
+                {appUpdate.phase === "offered" && (appUpdate.release.kind === "android"
+                  ? "Android asks you to approve the installation." : "Choose the installer for your system on GitHub Releases.")}
               </span>
             </div>
-            {installing === false && (
-              <div className="row">
-                <button className="btn sm ghost" onClick={() => setAppUpdate(null)}>
-                  Later
-                </button>
-                {appUpdate.canInstall ? (
-                  <button
-                    className="btn sm primary"
-                    onClick={async () => {
-                      setInstalling(null);
-                      try {
-                        await appUpdate.install((pct) => setInstalling(pct));
-                        if (appUpdate.actionLabel) {
-                          setInstalling(false);
-                          toast("Android installer opened. Approve the update to finish.");
-                        }
-                      } catch (e) {
-                        setInstalling(false);
-                        toast(`Update failed: ${String(e)}`);
-                      }
-                    }}
-                  >
-                    {appUpdate.actionLabel ?? "Install and restart"}
-                  </button>
-                ) : (
-                  <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>
-                    Open download page
-                  </button>
-                )}
-              </div>
-            )}
+            <div className="row">
+              {(appUpdate.phase === "offered" || appUpdate.phase === "opened") &&
+                <button className="btn sm ghost" onClick={updater.dismiss}>Later</button>}
+              {appUpdate.release.kind === "external" &&
+                <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>Open download page</button>}
+              {(appUpdate.release.kind === "android" && ["offered", "failed", "opened"].includes(appUpdate.phase)) &&
+                <button className="btn sm primary" onClick={updater.act}>Verify and open installer</button>}
+              {appUpdate.release.kind === "desktop" && (appUpdate.phase === "ready" || appUpdate.phase === "failed") &&
+                <button className="btn sm primary" onClick={updater.act}>{appUpdate.phase === "failed" ? "Retry update" : "Install and restart now"}</button>}
+            </div>
           </div>
         )}
         {!fullScreen && courseUpdate && (view.name === "library" || (view.name === "course" && view.courseId === courseUpdate.id)) && (

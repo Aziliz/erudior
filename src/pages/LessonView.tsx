@@ -98,7 +98,7 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
 
   return (
     <div className={`page lesson-page${course.readAloud ? " ra-course" : ""}`} ref={pageRef}>
-      <CalcDock kind={calcKind(course)} />
+      <CalcDock kind={calcKind(course, api.progress.courseCalculators)} />
       <button className="back" onClick={() => api.go({ name: "course", courseId: course.id, tab: "lessons" })}>
         ← {course.title}
       </button>

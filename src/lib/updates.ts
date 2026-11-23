@@ -1,9 +1,5 @@
-// App self-updates. Installs on Windows, macOS and AppImage; .deb/.rpm installs get a
-// notice with a link to the release page, since the system package manager
-// owns those files. Releases (Build installers, on a v* tag) publish latest.json, signed
-// with the TAURI_SIGNING_PRIVATE_KEY secret; the public key is in tauri.conf.json.
-
 import { invoke } from "@tauri-apps/api/core";
+import type { Release } from "./appUpdateController";
 import { inApp } from "./storage";
 import { validateAndroidRelease, shouldOfferAndroidUpdate } from "./androidUpdates";
 
@@ -12,16 +8,7 @@ export const RELEASES_URL = "https://github.com/Aziliz/erudior/releases/latest";
 /** On since v0.24.0 (the repo and its releases are public). */
 export const UPDATES_ENABLED = true;
 
-export type InstallKind = "windows" | "macos" | "appimage" | "linux-package" | "android" | "other";
-
-export interface AvailableUpdate {
-  version: string;
-  notes?: string;
-  canInstall: boolean;
-  actionLabel?: string;
-  guidance?: string;
-  install: (onProgress: (pct: number | null) => void) => Promise<void>;
-}
+export type InstallKind = "windows" | "macos" | "appimage" | "deb" | "rpm" | "linux-package" | "android" | "other";
 
 export async function appVersion(): Promise<string> {
   if (!inApp) return "dev";
@@ -29,7 +16,7 @@ export async function appVersion(): Promise<string> {
   return getVersion();
 }
 
-export async function checkForUpdate(): Promise<AvailableUpdate | null> {
+export async function checkForUpdate(): Promise<Release | null> {
   if (!inApp || !UPDATES_ENABLED) return null;
   const kind = await invoke<InstallKind>("install_kind");
   if (kind === "android") {
@@ -39,42 +26,42 @@ export async function checkForUpdate(): Promise<AvailableUpdate | null> {
     if (!shouldOfferAndroidUpdate(release, currentVersion, currentBuild)) return null;
     return {
       version: release.version,
-      notes: release.notes,
-      canInstall: true,
-      actionLabel: "Verify and open installer",
-      guidance: "Android asks you to approve the installation. Updates signed with the same certificate retain app data.",
-      install: async (progress) => {
-        // A browser download is a second, unverified file. Do not present it as
-        // an install of the verified bytes. Native FileProvider handoff is required.
-        progress(null);
+      kind: "android",
+      install: async () => {
         const verified = await invoke<string>("android_download_verified_apk", { expectedSha256: release.sha256, bytes: release.bytes });
         if (verified.toLowerCase() !== release.sha256.toLowerCase()) throw new Error("Native APK checksum mismatch");
-        progress(100);
         const launched = await invoke<boolean>("launch_android_installer", { expectedSha256: release.sha256 });
         if (!launched) throw new Error("Android installer was not launched.");
       },
     };
   }
   const { check } = await import("@tauri-apps/plugin-updater");
-  const update = await check();
+  const update = await check({ timeout: 30_000 });
   if (!update) return null;
+  const version = update.version;
+  if (!["windows", "macos", "appimage", "deb", "rpm"].includes(kind)) {
+    await update.close();
+    return { kind: "external", version };
+  }
   return {
-    version: update.version,
-    notes: update.body ?? undefined,
-    canInstall: kind === "windows" || kind === "macos" || kind === "appimage",
-    install: async (onProgress) => {
+    kind: "desktop", version,
+    download: async onProgress => {
       let total = 0;
-      let got = 0;
-      await update.downloadAndInstall((e) => {
-        if (e.event === "Started") total = e.data.contentLength ?? 0;
-        else if (e.event === "Progress") {
-          got += e.data.chunkLength;
-          onProgress(total ? Math.round((got / total) * 100) : null);
+      let received = 0;
+      await update.download(event => {
+        if (event.event === "Started") total = event.data.contentLength ?? 0;
+        if (event.event === "Progress") {
+          received += event.data.chunkLength;
+          onProgress(total ? Math.min(100, Math.round(received / total * 100)) : null);
         }
-      });
-      const { relaunch } = await import("@tauri-apps/plugin-process");
-      await relaunch();
+      }, { timeout: 300_000 });
     },
+    install: () => update.install(),
+    // Windows hands off to a native installer that exits and relaunches the app.
+    restart: async () => {
+      if (kind !== "windows") await (await import("@tauri-apps/plugin-process")).relaunch();
+    },
+    close: () => update.close(),
   };
 }
 

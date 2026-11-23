@@ -8,7 +8,7 @@ import type { VmLabScenario } from "../lib/vmLab";
 type ConsoleEvent = { kind: "output"; bytes: number[] } | { kind: "closed"; message: string };
 export type GuestRole = "client" | "server";
 
-export const VmConsoleTarget = createContext<HTMLDivElement | null>(null);
+export const VmConsoleTarget = createContext<{ target: HTMLDivElement | null; visible: boolean }>({ target: null, visible: true });
 
 interface ConsoleProps {
   role: GuestRole;
@@ -21,7 +21,7 @@ interface ConsoleProps {
 }
 
 export default function VmConsole({ role, profile, course, lesson, scenario, expected, close }: ConsoleProps) {
-  const target = useContext(VmConsoleTarget);
+  const { target, visible } = useContext(VmConsoleTarget);
   const screenId = useId();
   const host = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState("Connecting…");
@@ -105,7 +105,7 @@ export default function VmConsole({ role, profile, course, lesson, scenario, exp
     <p role="status">{status}</p>
     {target && <p className="small muted"><kbd>F6</kbd> switches between the reading and the terminal.</p>}
     <div id={screenId} ref={host} className="vm-console-screen" aria-label={role + " terminal"} onKeyDown={event => event.stopPropagation()} />
-    <VmConsoleHeight screenId={screenId} />
+    {visible && <VmConsoleHeight screenId={screenId} />}
   </section>;
   return target ? createPortal(consoleView, target) : consoleView;
 }

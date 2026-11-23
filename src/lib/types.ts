@@ -228,6 +228,8 @@ export interface DayActivity {
 }
 
 export interface Progress {
+  /** Whether this learner shows the calculator in each course. */
+  courseCalculators?: Record<string, boolean>;
   /** Latest local practice check per course, lesson and versioned VM scenario. */
   vmLabReports?: Record<string, import("./vmLab").VmLabReport>;
   /** Local anonymous erasure generation; never academic evidence or remote authority. */
