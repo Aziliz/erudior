@@ -1,4 +1,4 @@
-import { ADMIN_EXAM, RHCSA_MOCK, isVmExam, readVmLab, validExamMinutes, validVmTasks } from "./vmLab";
+import { ADMIN_EXAM, isRhcsaMock, isVmExam, readVmLab, validExamMinutes, validVmTasks } from "./vmLab";
 import { courseFromCanonicalAuthoring, demoteRuntimeCourse, migrateLegacyCourseToCanonical } from "./canonicalAuthoring";
 import type { Bank, Card, Course, Deck, Drill, GlossaryEntry, LanguageInfo, Lesson, Module, ReadingItem, RefSheet, VocabItem } from "./types";
 import { BankError, normalizeBank } from "./validate";
@@ -84,7 +84,7 @@ export function normalizeCourse(raw: unknown): Course {
   const lessons: Lesson[] = arr(raw.lessons)
     .filter(isObj)
     .map((l, i) => {
-      if (l.vmExamMinutes !== undefined && (l.vmLab === RHCSA_MOCK || !isVmExam(l.vmLab) || !validExamMinutes(l.vmExamMinutes)))
+      if (l.vmExamMinutes !== undefined && (isRhcsaMock(l.vmLab) || !isVmExam(l.vmLab) || !validExamMinutes(l.vmExamMinutes)))
         throw new BankError("Use the built-in duration for the RHCSA mock. Other timed VM exams accept 1 to 240 whole minutes.");
       if (l.vmLab === ADMIN_EXAM ? !validVmTasks(l.vmTasks) : l.vmTasks !== undefined)
         throw new BankError("Select distinct built-in tasks with 1 to 100 points for a multi-task exam.");

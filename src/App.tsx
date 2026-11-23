@@ -1,3 +1,4 @@
+import { lessonVmScenario } from "./lib/vmLab";
 import { flushSync } from "react-dom";
 import { useTraditional } from "./components/Ruby";
 import { scriptBank, scriptCourse, scriptSession } from "./lib/zhScript";
@@ -1647,7 +1648,7 @@ export default function App() {
     if (localLocked || gate || concealed || (family && !student)) return null;
     const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id]);
     const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);
-    return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson?.vmLab}>
+    return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson && !!lessonVmScenario(course.id, lesson)}>
       {content}
     </VmStudyWorkspace>;
   }

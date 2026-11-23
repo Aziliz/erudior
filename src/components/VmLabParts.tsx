@@ -1,8 +1,8 @@
 import AlmaSetupMedia from "./AlmaSetupMedia";
-import { RHCSA_MOCK, MOCK_PASS_POINTS, type VmLabScenario, VM_TASKS, taskEarned, vmScore, vmTotal, type VmLabReport } from "../lib/vmLab";
+import { isRhcsaMock, MOCK_PASS_POINTS, type VmLabScenario, VM_TASKS, taskEarned, vmScore, vmTotal, type VmLabReport } from "../lib/vmLab";
 
-export function VmSetup({provider, course, preparing}:{provider:string; course:string; preparing:boolean}) {
-  const rhce = course === "rhce-ansible-alma10";
+export function VmSetup({provider, course, preparing, ansible = false}:{provider:string; course:string; preparing:boolean; ansible?:boolean}) {
+  const rhce = ansible || course === "rhce-ansible-alma10";
   const almaCourse = course === "rhcsa-rhel10-administration" || rhce;
 
   return <><details open={preparing || undefined}><summary>First-time setup</summary>
@@ -19,12 +19,12 @@ export function VmResult({saved, scenario}: {saved: VmLabReport; scenario?: VmLa
   return <div><h3>{saved.exam ? "Practical exam result" : "Latest saved practice check"}</h3>
     <p>{vmScore(saved)} of {vmTotal(saved)} {"tasks" in saved ? "points" : "checks passed"} · {new Date(saved.checkedAt).toLocaleString()}</p>
     {saved.exam && <p>{saved.exam.reason === "expired" ? "Submitted at the time limit" : "Submitted by learner"}</p>}
-    {scenario === RHCSA_MOCK && "tasks" in saved && <>
+    {isRhcsaMock(scenario) && "tasks" in saved && <>
       <p><strong>Erudior practice result · {vmScore(saved) >= MOCK_PASS_POINTS ? "Pass" : "Below target"}</strong> · Target {MOCK_PASS_POINTS}/300</p>
       <table className="table"><thead><tr><th>Objective area</th><th>Score</th></tr></thead>
       <tbody>{saved.tasks.map(t => <tr key={t.id}><th scope="row">{VM_TASKS[t.id].area}</th><td>{taskEarned(t)}/{t.points}</td></tr>)}</tbody></table>
     </>}
-    {"tasks" in saved ? <details open={scenario !== RHCSA_MOCK}><summary>Review task checks</summary><table className="table"><thead><tr><th>Task</th><th>At submission</th><th>After its VM reboot</th><th>Points</th></tr></thead>
+    {"tasks" in saved ? <details open={!isRhcsaMock(scenario)}><summary>Review task checks</summary><table className="table"><thead><tr><th>Task</th><th>At submission</th><th>After its VM reboot</th><th>Points</th></tr></thead>
       <tbody>{saved.tasks.map(t => <tr key={t.id}><th scope="row">{VM_TASKS[t.id].role} · {VM_TASKS[t.id].title}</th>
         <td>{t.before ? "Passed" : "Missed"}</td><td>{t.after === undefined ? "Unverified (earlier grading)" : t.after ? "Passed" : "Missed"}</td>
         <td>{taskEarned(t)}/{t.points}</td></tr>)}</tbody></table></details> :

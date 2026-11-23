@@ -47,7 +47,7 @@ The RHCE pair has a private link, a NAT adapter, two empty practice disks per gu
 
 Open a practice lesson. Start both machines, open each console, press Enter and confirm the guest hostname. For timed work, prepare the pair, begin the attempt and submit from the app. The grader records both observations, and Progress retains the result. Closing a terminal closes its connection. Stopping WSL, Lima or the physical computer interrupts its VMs. After a provider restart, reopen the lesson to see the saved state and recovery options.
 
-The browser and desktop catalogs both offer **Zero to RHCSA on RHEL 10**. Open or import `samples/rhcsa-10-administration.json` for the same 15 modules, 74 lessons and 124 questions. A manual two-guest setup supports hands-on work alongside the browser. The desktop app also records the built-in VM grades. Earlier desktop attempts retain their original course, lesson and scenario IDs. RHEL 10 has one published RHCSA course. The former web study edition was a duplicate for the same major version and has been removed. Old links open the combined course, where completed shared lessons carry forward on the same profile. Separate editions are retained when they teach different major versions, such as RHEL 9 and RHEL 10. Earlier quiz attempts remain in their original history.
+The browser and desktop catalogs both offer **Zero to RHCSA on RHEL 10**. Open or import `samples/rhcsa-10-administration.json` for the same 15 modules, 80 lessons and 124 questions. A manual two-guest setup supports hands-on work alongside the browser. The desktop app also records the built-in VM grades. Earlier desktop attempts retain their original course, lesson and scenario IDs. RHEL 10 has one published RHCSA course. The former web study edition was a duplicate for the same major version and has been removed. Old links open the combined course, where completed shared lessons carry forward on the same profile. Separate editions are retained when they teach different major versions, such as RHEL 9 and RHEL 10. Earlier quiz attempts remain in their original history.
 
 [Microsoft WSL command reference](https://learn.microsoft.com/en-us/windows/wsl/basic-commands) · [Lima usage](https://lima-vm.io/docs/usage/) · [Lima shell](https://lima-vm.io/docs/reference/limactl_shell/)
 
@@ -95,3 +95,13 @@ python3 tests/vm_tasks_host.py /absolute/path/to/prepared-cloud-image.qcow2 --rh
 ```
 
 Each test creates its own temporary data directory and overlays. The practice test expects zero of four checks on the clean pair, configures the client through its serial login and expects four of four after reboot. It also exercises stop, resume and reset against those test disks. The authored example checks 7/10 and 10/10. The RHCSA profile test submits two separate attempts and verifies 300/300 with persistent settings and 270/300 with a temporary server directory. The test checks each task on both sides of the relevant reboot. The desktop console buttons also require a packaged run on each target desktop.
+
+### Copyable command examples
+
+Use a fenced `console` block in a lesson. Prefix each command line with `> ` and write its expected result on the next unprefixed line. Separate silent commands with a blank line. Consecutive prompt lines form one multiline command. Describe variable results in words, for example “Your current boot ID, which changes after restarting.” The copy button copies only the shell input.
+
+### Graded Linux practicals
+
+The RHCSA course retains the fixed three-hour exam. Its second final, `rhcsa-rhel10-practice-v2`, draws ten tasks and their parameters once for each attempt. The storage tasks use the dedicated disk with serial `erudior-data`. The network task uses the second interface identified by its MAC.
+
+Use `"vmLab": "rhce-ansible-idempotence-v1"` on an Ansible lesson. The distributed AlmaLinux RHCE course also opens this practical from its collector convergence lesson. The learner writes `/home/learner/site.yml` on the control node. Submission tests initial convergence and a second run with zero changes, inspects file contents, owner, group and mode on the managed node, and checks persistence after reboot.
