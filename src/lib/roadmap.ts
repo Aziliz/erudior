@@ -875,13 +875,13 @@ export const ELECTIVES = ["Multivariable Calculus", "Linear Algebra", "Different
 /** Status reflects the full deliverable, not merely the existence of foundation code.
  * Done subfeatures live in ENGINE; broad items stay in progress until fully integrated.
  */
-export const ENGINE_IN_PROGRESS = new Set<string>(["Local virtual machine labs"]);
+export const ENGINE_IN_PROGRESS = new Set<string>(["Local virtual machine labs", "Content review, versioning and auditability"]);
 
 /** Deployed slices and remaining work; each capability still has one roadmap row. */
 export const ENGINE_PROGRESS_DETAILS: Record<string, string> = {
   "Local virtual machine labs": "Desktop labs use local QEMU on Linux, WSL 2 on Windows and Lima on macOS. Zero to RHCSA on RHEL 10 combines beginner lessons, quizzes and two-machine practicals in one course. Desktop setup from the AlmaLinux 10.3 DVD and practice kit is in testing for RHCSA and RHCE. Packaged Windows and macOS VM verification is in progress.",
   "Independent course review, accessibility and learner pilot verification": "Deferred real-world review and learner-pilot obligation, not completed by synthetic engine tests. Remains Planned without Done credit; course adoption follows completion of the requested engine work.",
-  "Content review, versioning and auditability": "Skipped at the user’s request on 2026-10-29: the user reports prior content review. No new review-system implementation or Done credit is claimed. Course adoption of new engine features waits until the remaining engine work is complete.",
+  "Content review, versioning and auditability": "The course editor maps learning objectives to lessons, independent tasks, rubrics and source comparisons. Portable worksheets identify missing evidence and record an independent reviewer’s findings against the course revision. Reviewers trace worked examples, guided practice and independent application, solve questions before revealing the key, and inspect changed lessons, tasks, rubrics, questions, explanations and answer keys.",
 };
 
 export const ENGINE_PLANNED = [
