@@ -4,14 +4,19 @@ permissions:
   contents: read
 jobs:
   probe:
-    runs-on: macos-15-intel
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15-intel, macos-15]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 42
     steps:
       - uses: actions/checkout@v4
       - name: Set up Lima
         run: |
           brew install lima qemu
-          limactl start --tty=false --name=erudior-labs --cpus=4 --memory=6 --disk=18 template:debian
+          sysctl -n hw.ncpu hw.memsize
+          limactl start --tty=false --name=erudior-labs --cpus=3 --memory=5 --disk=18 template:debian
           limactl shell --tty=false erudior-labs sudo sh -s -- packages < src-tauri/src/vm_lab/windows-host.sh
           limactl shell --tty=false erudior-labs sh -s < tests/installed-lab/provider-media.sh
       - name: Boot the actual pair with the production provider runner
@@ -29,7 +34,7 @@ jobs:
           args=[runner.ADMIN_EXAM,"acceptance","installed-test","two-guests","60"]
           tasks=json.dumps([{"id":"client-operator","points":50},{"id":"server-team-directory","points":50}])
           status=runner.main(["start",*args,"",tasks]); attempt=status["exam"]["id"]
-          for i in range(22):
+          for i in range(9):
               try:
                   status=runner.main(["begin",*args,attempt,tasks])
                   print("phase",status["exam"]["phase"])
@@ -43,5 +48,5 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lima-serial-startup
+          name: lima-serial-startup-${{ matrix.os }}
           path: boot.log
