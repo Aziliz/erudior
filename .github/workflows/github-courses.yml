@@ -1,0 +1,63 @@
+name: Publish signed GitHub course feed
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: &inputs
+      - 'samples/**'
+      - 'scripts/publish-courses.ts'
+      - 'scripts/fetch-previous-courses.ts'
+      - 'scripts/github-course-feed.py'
+      - 'scripts/sitemap.mjs'
+      - 'src/lib/courseKeys.ts'
+      - '.github/workflows/github-courses.yml'
+      - 'tests/github-course-feed.py'
+  pull_request:
+    paths: *inputs
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tests/github-course-feed.py
+  publish:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: signed-github-course-feed
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Prepare GitHub channel
+        id: channel
+        run: python3 scripts/github-course-feed.py prepare >> "$GITHUB_OUTPUT"
+      - name: Authenticate the legacy catalog on first migration
+        if: steps.channel.outputs.existing == 'false'
+        env:
+          COURSE_PREVIOUS_URL: ${{ vars.COURSES_URL || 'https://courses.erudior.com/v1/' }}
+          COURSE_PREVIOUS_R2_BUCKET: ${{ vars.R2_BUCKET }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          COURSE_PREVIOUS_RELEASE_DIR: .legacy-courses
+        run: npx tsx scripts/fetch-previous-courses.ts
+      - name: Validate revisions, sign and publish atomically
+        env:
+          COURSE_SIGNING_KEY: ${{ secrets.COURSE_SIGNING_KEY }}
+          COURSE_PREVIOUS_RELEASE_DIR: ${{ steps.channel.outputs.existing == 'true' && '.github-course-channel/v1' || '.legacy-courses' }}
+        run: |
+          npx tsx scripts/check-signing-key.ts
+          npm run courses:publish
+          node scripts/sitemap.mjs
+          cp public/sitemap.xml dist-courses/v1/sitemap.xml
+          python3 scripts/github-course-feed.py publish --previous "$COURSE_PREVIOUS_RELEASE_DIR"
