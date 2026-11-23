@@ -25,6 +25,7 @@ on:
       - "src/lib/githubCourseFeed.ts"
       - "src/lib/courseSource.ts"
       - "functions/_middleware.js"
+      - "tests/github-course-preview.test.mjs"
       - "scripts/github-course-feed-browser.mjs"
       - "scripts/desktop-engine-changed.py"
       - "tests/desktop-engine-changed.py"
@@ -84,7 +85,7 @@ jobs:
         run: |
           node --import tsx tests/public-roadmap.test.mts
           node --import tsx tests/engine-license.test.mts
-          node --test tests/website-community-env.test.mjs
+          node --test tests/website-community-env.test.mjs tests/github-course-preview.test.mjs
           node scripts/check-website-community-env.mjs
           node scripts/diagnostic-command.mjs website-build -- npm run build
       - name: Prerender public pages
