@@ -183,21 +183,26 @@ try {
   await practice.getByRole("region", { name: "server serial console" }).waitFor();
   assert.equal(await grip(practice).getAttribute("aria-valuenow"), remembered);
   await input(practice, "hostname");
-  await button("Hide practice terminal").click();
-  await page.waitForFunction(() => window.vmCalls.filter(c => c.cmd === "vm_console_close").length === 2);
-  assert.equal(await practice.isVisible(), false);
-  assert.equal(await page.evaluate(() => window.vmCalls.some(c => c.action === "stop" || c.action === "reset")), false);
+  const serverId = await page.evaluate(() => window.lastInput.id);
 
   await page.setViewportSize({ width: 1280, height: 850 });
   await read.getByRole("button", { name: "← " + course.title }).click();
   await calculatorSetting.check();
+  await read.getByRole("button", { name: new RegExp(title("shell-words")) }).first().click();
+  await read.getByRole("heading", { name: title("shell-words"), exact: true }).waitFor();
+  await input(practice, "pwd");
+  assert.equal(await page.evaluate(() => window.lastInput.id), serverId, "Changing modules kept the server shell");
+  await read.getByRole("button", { name: "← " + course.title }).click();
   await read.getByRole("button", { name: new RegExp(title("shared-directory")) }).first().click();
   await button("Open the basic calculator").waitFor();
+  assert.equal(await exam.isVisible(), false, "A practical only shows its own console");
   await read.getByRole("button", { name: "Client console" }).click();
-  await exam.getByText("Connected. Press Enter for the login prompt.").waitFor();
+  const examClient = exam.getByRole("region", { name: "client serial console" });
+  await examClient.getByText("Connected. Press Enter for the login prompt.").waitFor();
+  assert.equal(await exam.getByRole("region", { name: "server serial console" }).count(), 0);
   assert.equal(await grip(exam).getAttribute("aria-valuenow"), remembered);
   await grip(exam).press("ArrowUp");
-  await input(exam, "pwd");
+  await input(examClient, "pwd");
   const last = (await opens()).at(-1);
   assert.equal(last.lesson, "shared-directory");
   assert.equal(last.expected, "exam-attempt");
@@ -206,6 +211,16 @@ try {
   const examHeight = await grip(exam).getAttribute("aria-valuenow");
   await exam.getByRole("button", { name: "Close console" }).click();
   assert.equal(await exam.isVisible(), false);
+  await read.getByRole("button", { name: "Previous", exact: true }).click();
+  await read.getByRole("heading", { name: title("shell-evidence"), exact: true }).waitFor();
+  assert.equal(await grip(practice).getAttribute("aria-valuenow"), examHeight);
+  await input(practice, "whoami");
+  assert.deepEqual(await page.evaluate(() => window.lastInput), { id: serverId, text: "hostname\rpwd\rwhoami\r" });
+  assert.equal((await opens()).length, 3, "Returning from a practical reused the original practice console");
+  await button("Hide practice terminal").click();
+  await page.waitForFunction(id => window.vmCalls.some(c => c.cmd === "vm_console_close" && c.id === id), serverId);
+  assert.equal(await practice.isVisible(), false);
+  assert.equal(await page.evaluate(() => window.vmCalls.some(c => c.action === "stop" || c.action === "reset")), false);
   await page.goto("https://erudior.test/");
   await page.locator(".course-row").filter({ hasText: course.title }).click();
   assert.equal(await calculatorSetting.isChecked(), true, "Course preference survived reopening the app");
@@ -227,6 +242,12 @@ try {
   await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
   assert.deepEqual(await page.evaluate(() => window.releaseCalls.filter(cmd => !cmd.endsWith("|check"))),
     ["plugin:updater|download", "plugin:updater|install", "plugin:process|restart"]);
+  await page.addInitScript(() => { window.offerRelease = true; });
+  await page.goto("https://erudior.test/");
+  await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
+  assert.deepEqual(await page.evaluate(() => window.releaseCalls),
+    ["plugin:updater|check", "plugin:updater|download", "plugin:updater|install", "plugin:process|restart"]);
+  console.log("A newer signed release installed and restarted from a cold launch without a click.");
   console.log("A live lesson survived automatic download, and returning to the Library installed the staged RPM update once.");
   console.log("Pointer and keyboard resizing, row refit, unchanged width and remembered terminal height passed.");
   console.log("Lesson reading, serial input, session continuity, two pane widths, guest switching and exam isolation passed.");

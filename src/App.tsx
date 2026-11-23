@@ -1645,7 +1645,7 @@ export default function App() {
     const sharedMachines = course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10";
     if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !lesson?.vmLab)) return content;
     if (localLocked || gate || concealed || (family && !student)) return null;
-    const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id, lesson?.vmLab ? lesson.id : null]);
+    const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id]);
     const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);
     return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson?.vmLab}>
       {content}

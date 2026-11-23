@@ -43,6 +43,7 @@ export async function verifyClassroomWorkflows({page:initialPage,adb,pkg,screens
   await notice().getByRole('button',{name:'Review response',exact:true}).click();
   await notice().getByLabel('Review note',{exact:true}).fill('Synthetic native acknowledgment reviewed.');
   await notice().getByRole('button',{name:'Release review',exact:true}).click();
+  await notice().getByRole('button',{name:'Revoke release',exact:true}).waitFor();
   await notice().getByText('Synthetic native acknowledgment reviewed.',{exact:true}).waitFor();
   const state=await page.evaluate(()=>window.__erudiorUpgradeE2E.classroomSnapshot());
   assert.equal(state.items.filter(i=>i.title==='Synthetic Android class notice'&&i.published).length,1);
