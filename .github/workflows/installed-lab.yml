@@ -50,7 +50,7 @@ jobs:
           echo 'import "../tests/installed-lab/driver";' > src/main.tsx
           node --input-type=module -e 'import fs from "node:fs"; fs.writeFileSync("src-tauri/acceptance.json", JSON.stringify({identifier:"com.erudior.acceptance",bundle:{createUpdaterArtifacts:false}}))'
           if [[ "$RUNNER_OS" == Windows ]]; then bundle=nsis; else bundle=dmg; fi
-          npx tauri build --bundles "$bundle" --config src-tauri/acceptance.json
+          npx tauri build --ci --bundles "$bundle" --config src-tauri/acceptance.json
       - name: Install and launch the Windows package twice
         if: runner.os == 'Windows'
         shell: pwsh
@@ -68,9 +68,14 @@ jobs:
           hdiutil attach src-tauri/target/release/bundle/dmg/*.dmg -mountpoint "$mount" -nobrowse
           ditto "$mount/Erudior.app" "$RUNNER_TEMP/Erudior.app"
           hdiutil detach "$mount"
+          limactl shell --tty=false erudior-labs python3 - < tests/installed-lab/lima-boot-log.py > installed-lima-boot.log 2>&1 &
+          observer=$!
+          trap 'kill "$observer" 2>/dev/null || true' EXIT
           python3 tests/installed-lab/launch.py "$RUNNER_TEMP/Erudior.app/Contents/MacOS/erudior"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: installed-vm-${{ matrix.os }}
-          path: installed-lab-receipt.json
+          path: |
+            installed-lab-receipt.json
+            installed-lima-boot.log
