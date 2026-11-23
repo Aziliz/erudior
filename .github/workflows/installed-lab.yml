@@ -26,7 +26,7 @@ jobs:
           ./tests/windows-lab-live.ps1
           if ($LASTEXITCODE -ne 0) { throw 'WSL 2 host setup failed.' }
           $env:WSL_UTF8 = '1'
-          Get-Content -Raw tests/installed-lab/provider-media.sh | wsl.exe -d Erudior-Labs -u erudior-lab -- sh -s
+          python -c "import subprocess; from pathlib import Path; subprocess.run(['wsl.exe','-d','Erudior-Labs','-u','erudior-lab','--','sh','-s'], input=Path('tests/installed-lab/provider-media.sh').read_bytes(), check=True)"
           if ($LASTEXITCODE -ne 0) { throw 'A running WSL 2 provider with verified media is required.' }
       - name: Prepare Lima provider and verified guest image
         if: runner.os == 'macOS'
