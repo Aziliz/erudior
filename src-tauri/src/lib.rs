@@ -418,10 +418,14 @@ fn install_kind() -> &'static str {
     } else if cfg!(target_os = "macos") {
         "macos"
     } else if cfg!(target_os = "linux") {
-        if std::env::var_os("APPIMAGE").is_some() {
-            "appimage"
-        } else {
-            "linux-package"
+        use tauri::utils::{config::BundleType, platform::bundle_type};
+        // Use the same bundle marker as the native updater when selecting an
+        // installer. An unpackaged executable has no package to replace.
+        match bundle_type() {
+            Some(BundleType::Deb) => "deb",
+            Some(BundleType::Rpm) => "rpm",
+            Some(BundleType::AppImage) => "appimage",
+            _ => "linux-package",
         }
     } else {
         "other"

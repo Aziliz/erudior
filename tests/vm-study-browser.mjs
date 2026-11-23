@@ -26,6 +26,7 @@ await page.addInitScript(raw => {
   const states = new Map([["progress", JSON.stringify(progress)]]);
   const sessions = new Map();
   window.vmCalls = [];
+  window.releaseCalls = [];
   let running = false, sequence = 0;
   window.__TAURI_INTERNALS__ = {
     transformCallback: () => ++sequence, unregisterCallback: () => {},
@@ -35,7 +36,19 @@ await page.addInitScript(raw => {
       if (cmd === "list_items") return args.kind === "courses" ? [JSON.stringify(raw)] : [];
       if (cmd === "load_state") return states.get(args.name) ?? null;
       if (cmd === "save_state") { states.set(args.name, args.content); return; }
-      if (cmd === "install_kind") return "linux-package";
+      if (cmd === "install_kind") return "rpm";
+      if (cmd.startsWith("plugin:updater|") || cmd === "plugin:process|restart") {
+        window.releaseCalls.push(cmd);
+        switch (cmd) {
+          case "plugin:updater|check":
+            return window.offerRelease ? { rid: 90, currentVersion: "1.0.0", version: "1.1.0", rawJson: {} } : null;
+          case "plugin:updater|download":
+            return 91;
+          case "plugin:updater|install":
+            if (args.bytesRid !== 91 || args.updateRid !== 90) throw Error("Wrong staged update");
+        }
+        return;
+      }
       if (cmd === "vm_setup_media") return { dvd: true, kit: true };
       if (cmd === "vm_lab") {
         if (lesson !== "practice-environment") return { exam: { phase: "active", id: "exam-attempt", remainingMs: 600000 },
@@ -189,6 +202,20 @@ try {
   await practice.getByRole("button", { name: "Start lab" }).click();
   await practice.getByText("Connected. Press Enter for the login prompt.").waitFor();
   assert.equal(await grip(practice).getAttribute("aria-valuenow"), examHeight, "The preferred height should survive reopening the app");
+  // A release is discovered on reconnect while a live practice session is open.
+  await page.evaluate(() => {
+    window.offerRelease = true;
+    window.dispatchEvent(new Event("online"));
+    window.dispatchEvent(new Event("online"));
+  });
+  await page.getByRole("button", { name: "Install and restart now" }).waitFor();
+  await input(practice, "id");
+  assert.equal(await page.evaluate(() => window.releaseCalls.includes("plugin:updater|install")), false);
+  await page.getByRole("navigation", { name: "Main", exact: true }).getByRole("button", { name: "Library", exact: true }).click();
+  await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
+  assert.deepEqual(await page.evaluate(() => window.releaseCalls.filter(cmd => !cmd.endsWith("|check"))),
+    ["plugin:updater|download", "plugin:updater|install", "plugin:process|restart"]);
+  console.log("A live lesson survived automatic download, and returning to the Library installed the staged RPM update once.");
   console.log("Pointer and keyboard resizing, row refit, unchanged width and remembered terminal height passed.");
   console.log("Lesson reading, serial input, session continuity, two pane widths, guest switching and exam isolation passed.");
 } catch (error) {

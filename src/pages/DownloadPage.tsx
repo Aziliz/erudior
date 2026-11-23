@@ -263,8 +263,10 @@ export default function DownloadPage() {
         <details>
           <summary>How do updates work?</summary>
           <p>
-            On Windows, macOS and the AppImage, the app checks for a new version when it starts and offers to install it. With Homebrew, run{" "}
-            <code>brew upgrade --cask --greedy erudior</code>. The .deb and .rpm show a notice instead; install the newer package to update. On Android, Erudior can check for a verified APK update and opens the Android installer for your approval.
+            On Windows, macOS and Linux (AppImage, RPM or DEB), Erudior checks GitHub Releases on startup, on reconnect and periodically while open.
+            It downloads and verifies newer versions automatically, then installs and restarts from the Library or profile picker.
+            You can finish a lesson or exam first. Your system may prompt for permission to install.
+            Android opens its verified APK in the system installer for your approval.
           </p>
         </details>
         <details>

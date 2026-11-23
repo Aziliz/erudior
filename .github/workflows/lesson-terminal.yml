@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'src/App.tsx'
+      - 'src/lib/updates.ts'
+      - 'src/lib/appUpdateController.ts'
       - 'src/pages/CourseHome.tsx'
       - 'src/pages/LessonView.tsx'
       - 'src/components/Vm*.tsx'

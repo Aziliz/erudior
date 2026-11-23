@@ -22,7 +22,8 @@ export default function VmProvider({ children }: { children: (provider: string) 
         const kind = await invoke<string>("install_kind");
         if (!live) return;
         if (kind !== "windows") {
-          setProvider(["linux-package", "appimage", "macos"].includes(kind) ? kind : "");
+          const provider = kind === "deb" || kind === "rpm" ? "linux-package" : kind;
+          setProvider(["linux-package", "appimage", "macos"].includes(provider) ? provider : "");
           return;
         }
         const data = await invoke<Inventory>("vm_windows_host");

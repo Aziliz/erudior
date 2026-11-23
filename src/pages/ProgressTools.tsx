@@ -18,7 +18,7 @@ import { competencyQuestionIds } from "../lib/competencyEvidence";
 import { explainCompetencyBlock } from "../lib/competencyPlacement";
 import * as store from "../lib/storage";
 import { inApp } from "../lib/storage";
-import { UPDATES_ENABLED, appVersion, checkForUpdate } from "../lib/updates";
+import { UPDATES_ENABLED, appVersion } from "../lib/updates";
 import { formatDateTime, formatDuration, percent } from "../lib/util";
 import { AccuracyBar, ScorePill } from "../components/Bars";
 import SpreadsheetLab from "../components/SpreadsheetLab";
@@ -37,15 +37,14 @@ export default function ProgressTools({ api }: { api: AppApi }) {
   async function checkUpdates() {
     setUpdateMsg("Checking…");
     try {
-      const u = await checkForUpdate();
+      const version = await api.checkAppUpdate();
       setUpdateMsg(
-        u
-          ? `Version ${u.version} is available. See the banner at the top to install it.`
+        version
+          ? `Version ${version} is available. See the app update banner for its status.`
           : inApp
             ? "You're on the latest version."
             : "Update checks only run in the desktop app.",
       );
-      if (u) api.notifyUpdate(u);
     } catch {
       setUpdateMsg("Couldn't reach the update server. Check your connection and try again.");
     }
