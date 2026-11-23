@@ -24,13 +24,19 @@ public final class NativeLifecycleState {
     }
 
     public void resume(long now) {
-        backgroundMs = backgroundAt < 0L ? 0L : Math.max(0L, now - backgroundAt);
+        // A missing pause callback (or invalid monotonic interval) is not evidence
+        // of a short absence. Keep the measured duration honest and separately
+        // require the JS consumer to revoke before the native paint fence opens.
+        boolean unknownAbsence = backgroundAt < 0L || now < backgroundAt;
+        backgroundMs = unknownAbsence ? 0L : now - backgroundAt;
         backgroundAt = -1L;
         paused = false;
         sequence++;
         // A new qualifying absence is a new obligation, even if an older ACK was lost.
         // Short/duplicate resumes never erase an unconsumed obligation.
-        if (backgroundMs >= GRACE_MS) revocation = sequence;
+        if (backgroundMs >= GRACE_MS || (unknownAbsence && revocation == 0L)) {
+            revocation = sequence;
+        }
     }
 
     public void replayForNewWebView() {

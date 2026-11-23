@@ -37,7 +37,7 @@ def prepare(root: Path) -> None:
     # callbacks, state reducer, timing, authorization and endpoints stay untouched.
     diagnostics = {
         "    private fun notifyLifecycle() {":
-            '\n        android.util.Log.i("ErudiorLifecycleE2E", "notify sequence=${lifecycleState.sequence()} paused=${lifecycleState.paused()} backgroundMs=${lifecycleState.backgroundMs()} webView=${lifecycleWebView != null}")',
+            '\n        android.util.Log.i("ErudiorLifecycleE2E", "notify sequence=${lifecycleState.sequence()} paused=${lifecycleState.paused()} backgroundMs=${lifecycleState.backgroundMs()} webView=${lifecycleWebView != null} revocation=${lifecycleState.revocation()}")',
         "    override fun load(webView: WebView) {":
             '\n        android.util.Log.i("ErudiorLifecycleE2E", "load")',
         "    override fun onDestroy(activity: AppCompatActivity) {":
@@ -61,7 +61,21 @@ def prepare(root: Path) -> None:
         raise RuntimeError("Unknown lifecycle fields; refusing diagnostic rewrite")
     source = source.replace(anchor, anchor + '\n    private var lifecycleLongResumes = 0\n'
         '    private var lifecycleDropSequence = -1L\n    private var lifecycleDropDone = false\n'
-        '    private var lifecyclePauseDropSequence = -1L\n    private var lifecyclePauseDropDone = false')
+        '    private var lifecyclePauseDropSequence = -1L\n    private var lifecyclePauseDropDone = false\n'
+        '    private var lifecycleNativePauseDropDone = false')
+    # The third HOME omits the native callback itself, reproducing an unpaired
+    # resume rather than the second case's lost JavaScript evaluation. Do not set
+    # clocks, revocation tokens, DOM locks, or authorization in this fault fixture.
+    anchor = "    override fun onPause(activity: AppCompatActivity) {"
+    if source.count(anchor) != 1:
+        raise RuntimeError("Unknown native pause callback; refusing fault injection")
+    source = source.replace(anchor, anchor + '\n'
+        '        if (lifecycleLongResumes == 2 && lifecyclePauseDropDone && lifecycleDropDone && !lifecycleNativePauseDropDone) {\n'
+        '            check(!lifecycleState.paused() && !lifecycleState.pending() && lifecycleState.revocation() == 0L) { "Missing-pause fixture requires consumed foreground state" }\n'
+        '            lifecycleNativePauseDropDone = true\n'
+        '            android.util.Log.i("ErudiorLifecycleE2E", "drop-native-pause sequence=${lifecycleState.sequence()}")\n'
+        '            return\n'
+        '        }')
     evaluation = "            webView.evaluateJavascript("
     if source.count(evaluation) != 1:
         raise RuntimeError("Unknown lifecycle evaluation; refusing diagnostic rewrite")

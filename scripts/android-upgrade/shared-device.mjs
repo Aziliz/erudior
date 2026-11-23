@@ -1,6 +1,33 @@
 // Real App/WebView lifecycle on the same disposable emulator as the upgrade test.
 // No second install, data clearing, production permissions, or authentication hook.
 import assert from 'node:assert/strict';
+// A native log is filtered to the captured application PID by the caller.
+// Return null while evidence is incomplete; contradictory evidence fails closed.
+export function unknownResumeEvidence(log) {
+  const drops = [...log.matchAll(/drop-native-pause sequence=(\d+)/g)];
+  assert.ok(drops.length <= 1, 'exactly one native pause may be omitted');
+  if (!drops.length) return null;
+  const dropped = drops[0], previous = Number(dropped[1]);
+  assert.ok(Number.isSafeInteger(previous) && previous > 0, 'valid pre-pause sequence');
+  const tail = log.slice(dropped.index + dropped[0].length);
+  assert.ok(!/notify sequence=\d+ paused=true/.test(tail), 'omitted callback must not record a native pause');
+  const resumed = /notify sequence=(\d+) paused=false backgroundMs=(\d+) webView=(true|false) revocation=(\d+)/.exec(tail);
+  if (!resumed) return null;
+  const sequence = Number(resumed[1]);
+  assert.ok(Number.isSafeInteger(sequence) && sequence === previous + 1, 'unpaired resume advances exactly once');
+  assert.equal(Number(resumed[2]), 0, 'unknown duration stays unmeasured, not fabricated');
+  assert.equal(resumed[3], 'true', 'resume belongs to the attached WebView');
+  assert.equal(Number(resumed[4]), sequence, 'unknown resume creates a fresh revocation');
+  const acknowledgements = [...tail.matchAll(/evaluated sequence=(\d+) result=false/g)]
+    .filter(match => Number(match[1]) === sequence && match.index > resumed.index);
+  const reveals = [...tail.matchAll(/visible sequence=(\d+)(?!\d)/g)]
+    .filter(match => Number(match[1]) === sequence);
+  if (!reveals.length) return null;
+  assert.ok(acknowledgements.length > 0 && acknowledgements[0].index < reveals[0].index,
+    'matching consumer ACK must precede paint-fenced reveal');
+  return { sequence, backgroundMs: 0, revocation: sequence };
+}
+
 export async function verifySharedDevice({ page: initialPage, adb, pkg, sleep, screenshot, passed, restart, lifecycleEvidence }) {
   let page = initialPage;
   const fixture = await page.evaluate(() => window.__erudiorUpgradeE2E.seedSyntheticFamily());
@@ -126,6 +153,33 @@ export async function verifySharedDevice({ page: initialPage, adb, pkg, sleep, s
   await button('Unlock device').click(); await authenticate();
   await heading('Student dashboard and notebook').waitFor();
   passed('Dropped native pause and resume evaluations replay the same owed revocation and still require fresh adult authentication', {sequence:droppedSequence});
+
+  // Third absence: the generated CI copy omits the native pause callback,
+  // not just its JavaScript delivery. This is the original failure condition.
+  // The production reducer/consumer must revoke using honest zero-duration
+  // telemetry. This case does NOT prove concealment during the omitted pause.
+  assert.equal(adb('shell','pidof',pkg), lifecyclePid, 'same version-B process before missing-pause case');
+  assert.equal(unknownResumeEvidence(nativeLifecycleLog()), null, 'missing-pause fault has not occurred early');
+  adb('shell','input','keyevent','KEYCODE_HOME');
+  lifecycleEvidence('native-gap-after-home', adb('shell','dumpsys','activity','activities'));
+  await sleep(32000);
+  adb('shell','monkey','-p',pkg,'-c','android.intent.category.LAUNCHER','1');
+  lifecycleEvidence('native-gap-after-foreground', adb('shell','dumpsys','activity','activities'));
+  assert.equal(adb('shell','pidof',pkg), lifecyclePid, 'missing-pause result cannot be supplied by a restarted process');
+  const deadline = Date.now()+45000;
+  let gapEvidence = null;
+  while (Date.now()<deadline && !gapEvidence) {
+    gapEvidence = unknownResumeEvidence(nativeLifecycleLog());
+    if (!gapEvidence) await sleep(250);
+  }
+  assert.ok(gapEvidence, 'unknown native resume must revoke, acknowledge and pass the paint fence');
+  await heading('Shared device locked').waitFor({timeout:45000});
+  assert.equal(await heading('Student dashboard and notebook').isVisible(),false);
+  lifecycleEvidence('native-gap-locked', gapEvidence);
+  screenshot('10c-shared-device-missing-native-pause-locked');
+  await button('Unlock device').click(); await authenticate();
+  await heading('Student dashboard and notebook').waitFor();
+  passed('Omitted native pause callback produces zero measured time with a fresh revocation, paint-fenced locking and fresh adult authentication', gapEvidence);
 
   adb('shell','am','force-stop',pkg);
   page = await restart();
