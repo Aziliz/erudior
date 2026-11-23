@@ -4,7 +4,7 @@ import { ADMIN_EXAM, latestVmReports, validVmReport, vmReportKey, vmScore, type 
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const tasks = [{id: "client-operator", points: 50}, {id: "server-team-directory", points: 50}];
-const scope = {scenario: ADMIN_EXAM, profile: "acceptance", course: "installed-test", lesson: "two-guests"};
+const scope = {scenario: ADMIN_EXAM, profile: "acceptance", course: "installed-test", lesson: "two-guests"} as const;
 const key = vmReportKey(scope.course, scope.lesson, scope.scenario);
 type Status = {password: string; running: Record<string, boolean>; report?: VmLabReport; exam: {phase: string; id: string; error?: string}};
 const action = (action: string, expected?: string) => invoke<Status>("vm_lab", {...scope, action, tasks, minutes: 60, expected});
