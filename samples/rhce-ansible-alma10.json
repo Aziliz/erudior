@@ -2089,7 +2089,7 @@
           "topic": "Apply and verify a zone-scoped firewall policy",
           "stem": "Which observation directly shows the role converges on an already-correct server?",
           "choices": [
-            "A second live run reports changed=0 and failed=0",
+            "A second live run completes the expected tasks on dispatch with ok greater than zero, changed=0, failed=0 and unreachable=0",
             "A syntax check names the playbook",
             "The RPM exists on the control node"
           ],
@@ -2174,7 +2174,7 @@
           "choices": [
             "Test that this noninteractive escalation succeeds",
             "Identify the server",
-            "Permit its holder to authenticate"
+            "Permit authentication with the corresponding private key"
           ],
           "answer": [
             1,
@@ -2202,7 +2202,7 @@
           "id": "rhce-deploy-the-notice-apply-1",
           "section": "change-and-verification",
           "topic": "Deploy the shift notice and repair drift",
-          "stem": "Arrange this experiment so each observation explains the next.",
+          "stem": "Record the original state before previewing. Arrange the rest of the drift check so that you read the deployed file immediately after the first live apply, before measuring convergence.",
           "explanation": "A baseline and preview precede mutation. The target read and repeat establish two different postconditions.",
           "type": "order",
           "choices": [
@@ -2362,7 +2362,7 @@
           "id": "rhce-loop-over-channels-apply-1",
           "section": "variable-driven-plays",
           "topic": "Deploy and repair a list of files",
-          "stem": "With the default loop variable, which expression supplies the name field of the current dictionary: {{ ___ }}?",
+          "stem": "Use dot notation and the default loop variable to supply the name field of the current dictionary: {{ ___ }}.",
           "explanation": "The current element is item, and each element carries its own name.",
           "type": "text",
           "choices": [],
@@ -2401,7 +2401,7 @@
           "explanation": "Each piece addresses a separate requirement of the handoff.",
           "type": "match",
           "left": [
-            "Both target files after transfer",
+            "Pager path present on the incoming desk and absent on the outgoing desk",
             "Second run with zero changes",
             "New boot ID and unassisted target read"
           ],
@@ -2670,7 +2670,7 @@
           "id": "rhce-author-role-apply-1",
           "section": "reuse-and-recovery",
           "topic": "Author one duty-record role for two desks",
-          "stem": "Which role directory contains low-precedence caller-overridable values?",
+          "stem": "Give the single directory name, without a path, used for low-precedence caller-overridable role values.",
           "explanation": "Role defaults are designed for inputs that inventory or a caller can replace.",
           "type": "text",
           "choices": [],
@@ -2886,7 +2886,7 @@
           "id": "rhce-release-handoff-apply-1",
           "section": "reuse-and-recovery",
           "topic": "Independent practical: deliver a versioned duty collection",
-          "stem": "Which ansible-galaxy collection list field distinguishes a project installation from a global copy of the same version?",
+          "stem": "The same collection name and version appear twice in ansible-galaxy collection list. What does the heading above each group identify?",
           "explanation": "The same namespace and version can exist under several search locations.",
           "type": "text",
           "choices": [],
@@ -2896,7 +2896,12 @@
               "path",
               "installation path",
               "collection path",
-              "directory"
+              "directory",
+              "installation directory",
+              "location",
+              "collection location",
+              "collection installation path",
+              "collection installation directory"
             ]
           ]
         },
