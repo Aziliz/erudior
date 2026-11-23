@@ -1,7 +1,8 @@
+import ObjectiveReviewPanel from "../components/ObjectiveReviewPanel";
 import { assignCourseLesson, courseLessonDeleteReason, courseModuleDeleteReason, deleteCourseItem, reorderCourseItem } from "../lib/courseStructureControls";
 import { CourseMetadataEditor } from "../components/CourseMetadataEditor";
 import { validateCourseAudioFields, validateVocabAudioFields } from "../lib/courseAudio";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { registerNavigationGuard, type NavigationTarget } from "../lib/navigationGuard";
 import DrillFigure from "../components/DrillFigure";
 import MathText from "../components/MathText";
@@ -23,7 +24,7 @@ import { workProblems } from "../lib/work";
 import { validateCourseWork, validateWorkLessonReferences } from "../lib/courseWork";
 import SpreadsheetReviewPanel from "../components/SpreadsheetReviewPanel";
 
-type Tab = "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "branching" | "scientific" | "advanced" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
+type Tab = "objectives" | "metadata" | "details" | "lessons" | "glossary" | "reference" | "drills" | "branching" | "scientific" | "advanced" | "spreadsheets" | "spreadsheetReview" | "work" | "reading";
 
 export default function CourseEditor({ api, course, isNew, communityMode = false }: { api: AppApi; course: Course; isNew?: boolean; communityMode?: boolean }) {
   const [draft, setDraft] = useState<Course>(() => structuredClone(course));
@@ -36,12 +37,18 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
   const uploadPending = useRef(false);
   const closingRef = useRef(false);
   const discardTarget = useRef<NavigationTarget | null>(null);
-  const hasPendingChanges = () => savingRef.current || editingRef.current || uploadPending.current || draftVersion.current !== persistedVersion.current;
+  const reviewDirty = useRef(false);
+  const reviewVersion = useRef(0);
+  const [reviewOpened, setReviewOpened] = useState(false);
+  const latestCourse = api.courses.find(c => c.id === course.id) ?? course;
+  const reviewCourse = useMemo(() => ({ ...draft, banks: latestCourse.banks, decks: latestCourse.decks }),
+    [draft, latestCourse.banks, latestCourse.decks]);
+  const hasPendingChanges = () => reviewDirty.current || savingRef.current || editingRef.current || uploadPending.current || draftVersion.current !== persistedVersion.current;
   useEffect(() => {
     const unregister = registerNavigationGuard((kind, target) => {
       if (kind === "app" && target && discardTarget.current?.name === target.name && discardTarget.current.courseId === target.courseId) return true;
       if (!hasPendingChanges()) return true;
-      api.toast("Save your course, or use Done to explicitly discard changes before leaving.");
+      api.toast(reviewDirty.current ? "Export your objective review, or use Done to discard it." : "Save your course, or use Done to explicitly discard changes before leaving.");
       return false;
     });
     const beforeUnload = (event: BeforeUnloadEvent) => {
@@ -107,8 +114,9 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
     try {
       const version = draftVersion.current;
       const editing = editingRef.current;
-      if (hasPendingChanges() && !(await confirmAction("Discard unsaved changes to this course?", "Unsaved changes"))) return;
-      if (savingRef.current || version !== draftVersion.current || editing !== editingRef.current) {
+      const reviewAtConfirmation = reviewVersion.current;
+      if (hasPendingChanges() && !(await confirmAction(reviewDirty.current ? "Discard unexported objective review and any unsaved course changes?" : "Discard unsaved changes to this course?", "Unsaved changes"))) return;
+      if (savingRef.current || version !== draftVersion.current || reviewAtConfirmation !== reviewVersion.current || editing !== editingRef.current) {
         api.toast("The draft changed while confirming. Finish your changes before leaving.");
         return;
       }
@@ -158,6 +166,7 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
             [
               ["details", "Details"],
               ["metadata", "Metadata & audio"],
+              ["objectives", "Objective review"],
               ["lessons", `Lessons (${draft.lessons.length})`],
               ["glossary", `Glossary (${draft.glossary.length})`],
               ["reference", `Quick reference (${draft.references.length})`],
@@ -171,11 +180,12 @@ export default function CourseEditor({ api, course, isNew, communityMode = false
               ...(!communityMode && draft.spreadsheetAssignments?.length ? [["spreadsheetReview", "Spreadsheet review"] as [Tab,string]] : []),
             ] as [Tab, string][]
           ).map(([id, label]) => (
-            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if ((assignmentEditing || uploadPending.current) && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else setTab(id); }}>
+            <button key={id} aria-current={tab === id ? "page" : undefined} onClick={() => { if ((assignmentEditing || uploadPending.current) && id !== tab) api.toast("Apply or cancel assignment changes before changing sections."); else { if (id === "objectives") setReviewOpened(true); setTab(id); } }}>
               {label}
             </button>
           ))}
         </nav>
+        {reviewOpened && <ObjectiveReviewPanel course={reviewCourse} active={tab === "objectives"} onDirty={value => { reviewDirty.current = value; reviewVersion.current++; }} />}
         {tab === "metadata" && <CourseMetadataEditor onPendingChange={value=>{uploadPending.current=value;}} key={draft.id} course={draft} onChange={next => update(() => next)} />}
         {tab === "details" && <Details draft={draft} update={update} />}
         {tab === "lessons" && <Lessons draft={draft} update={update} />}

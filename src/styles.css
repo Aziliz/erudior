@@ -8392,3 +8392,14 @@ html:not(.tones-on) .tone-sr {
 .command-step .row { align-items: center; gap: .7rem; }
 .command-step pre { margin: .4rem 0 .75rem; white-space: pre-wrap; overflow-wrap: anywhere; }
 .command-line::before { content: "> "; user-select: none; color: var(--muted); }
+
+.objective-review { max-width: 62rem; }
+.objective-review fieldset { min-width: 0; border: 1px solid var(--field); border-radius: var(--r-sm); padding: 1rem; margin: .75rem 0; }
+.objective-review .row { flex-wrap: wrap; gap: .6rem; }
+.objective-fields label:not(.row) { display: grid; gap: .25rem; margin: .65rem 0; }
+.objective-fields input:not([type=checkbox]), .objective-fields textarea, .objective-fields select { box-sizing: border-box; width: 100%; max-width: 48rem; }
+.objective-fields form { margin-bottom: 1rem; }
+.objective-list { padding-inline-start: 1.3rem; }
+.objective-list li { margin-block: .5rem; }
+.objective-list li span { display: block; overflow-wrap: anywhere; }
+.objective-list button { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }

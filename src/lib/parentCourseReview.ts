@@ -1,22 +1,12 @@
 /** Private local parental suitability decisions, never publication approval or verified credit. */
 import { loadFamily, type Assignment, type Family } from "./family";
 import type { Course } from "./types";
-import { exportCourseSnapshot, normalizeCourse } from "./course";
-import { sha256Hex } from "./courseSign";
+import { reviewCourseDigest as parentCourseDigest } from "./reviewSnapshot";
+export { parentCourseDigest };
 import { competencyProfileExists, loadStoredCourseSnapshot, updateState } from "./storage";
 export interface ParentCourseReview { learnerId: string; communityId: string; version: number; contentDigest: string; reviewedAt: string }
 const digestPattern = /^[a-f0-9]{64}$/;
 const learnerPattern = /^[a-z0-9]{1,24}$/;
-function canonical(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(canonical);
-  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0).map(([key, child]) => [key, canonical(child)]));
-  return value;
-}
-/** Normalized portable content includes embedded media and provenance; save/reload is stable. */
-export async function parentCourseDigest(course: Course): Promise<string> {
-  const portable = JSON.parse(exportCourseSnapshot(normalizeCourse(JSON.parse(exportCourseSnapshot(course)))));
-  return sha256Hex(new TextEncoder().encode(JSON.stringify(canonical(portable))));
-}
 export function makeParentCourseReview(learnerId: string, course: Course, contentDigest: string, now = new Date().toISOString()): ParentCourseReview {
   if (!learnerPattern.test(learnerId) || !course.community?.id || !Number.isSafeInteger(course.community.version) || course.community.version < 1 || !digestPattern.test(contentDigest) || !Number.isFinite(Date.parse(now))) throw Error("This community course review is incomplete. Preview the course again.");
   return { learnerId, communityId: course.community.id, version: course.community.version, contentDigest, reviewedAt: now };
