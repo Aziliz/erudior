@@ -2,7 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { Course } from "../lib/types";
 import { confirmAction, exportText, pickJsonFile } from "../lib/storage";
-import { reviewCourseDigest } from "../lib/reviewSnapshot";
+import { reviewBaseline, type ReviewBaseline } from "../lib/reviewSnapshot";
+import BlindQuestionReview, { type QuestionLocation } from "./BlindQuestionReview";
+import CourseReviewChanges from "./CourseReviewChanges";
+import type { QuestionAttempt } from "../lib/questionReview";
 import {
   newObjective, objectiveGaps, objectiveTasks, readObjectiveFile, recordObjective, reviewState,
   sourceLabels, type Objective, type ObjectiveFile,
@@ -12,31 +15,50 @@ export default function ObjectiveReviewPanel({ course, active, onDirty }: {
   course: Course; active: boolean; onDirty: (dirty: boolean) => void;
 }) {
   const [objectives, setObjectives] = useState<Objective[]>([]);
+  const [attempts, setAttempts] = useState<QuestionAttempt[]>([]);
+  const [baselines, setBaselines] = useState<ReviewBaseline[]>([]);
+  const [baselineChoice, setBaselineChoice] = useState("");
+  const [showQuestions, setShowQuestions] = useState(false);
+  const [question, selectQuestion] = useState<QuestionLocation | null>(null);
   const [selected, select] = useState("");
   const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState(false);
   const io = useRef(false);
   const [notice, setNotice] = useState("");
-  const [snapshot, setSnapshot] = useState<{ course: Course; digest: string } | null>(null);
+  const [snapshot, setSnapshot] = useState<{ course: Course; baseline: ReviewBaseline } | null>(null);
   const [onlyGaps, setOnlyGaps] = useState(false);
   const current = objectives.find(o => o.id === selected);
   const draftDecision = current?.draftDecision ?? { reviewer: "", findings: "", result: "reviewed" as const };
   const revision = course.revision ?? 1;
   const tasks = useMemo(() => objectiveTasks(course), [course]);
-  const digest = snapshot?.course === course ? snapshot.digest : "";
+  const baseline = snapshot?.course === course ? snapshot.baseline : undefined;
+  const digest = baseline?.digest ?? "";
+  const previousDigest = baselineChoice || current?.review?.digest || baselines[baselines.length - 1]?.digest;
+  const previous = baselines.find(b => b.digest === previousDigest);
+  function keepBaseline() {
+    if (baseline) setBaselines(list => list.some(b => b.digest === baseline.digest) ? list : [...list, baseline]);
+  }
   useEffect(() => {
     if (!active || snapshot?.course === course) return;
     let live = true;
-    reviewCourseDigest(course).then(value => {
-      if (live) setSnapshot({ course, digest: value });
+    reviewBaseline(course).then(value => {
+      if (live) setSnapshot({ course, baseline: value });
     }).catch(() => { if (live) setNotice("The course snapshot could not be identified. Save a valid course before recording review."); });
     return () => { live = false; };
   }, [active, course, snapshot]);
-  function change(list: Objective[]) {
-    setObjectives(list);
+  function markDirty() {
     setDirty(true);
     onDirty(true);
     setNotice("");
+  }
+  function change(list: Objective[]) {
+    setObjectives(list);
+    markDirty();
+  }
+  function saveAttempt(attempt: QuestionAttempt) {
+    setAttempts(list => list.some(a => a.id === attempt.id) ? list.map(a => a.id === attempt.id ? attempt : a) : [...list, attempt]);
+    if (attempt.stage === "recorded") keepBaseline();
+    markDirty();
   }
   function edit(fields: Partial<Objective>) {
     if (current) change(objectives.map(o => o.id === current.id ? { ...o, ...fields } : o));
@@ -59,10 +81,15 @@ export default function ObjectiveReviewPanel({ course, active, onDirty }: {
         const file = readObjectiveFile(text, course.id);
         if (dirty && !(await confirmAction("Replace your unsaved objective review with this file?", "Open review file"))) return;
         setObjectives(file.objectives);
+        setAttempts(file.attempts ?? []);
+        setBaselines(file.baselines ?? []);
+        setBaselineChoice("");
+        selectQuestion(null);
+        setShowQuestions(false);
         select(file.objectives[0]?.id ?? "");
         setNotice("Review file opened.");
       } else {
-        const file: ObjectiveFile = { format: "erudior-objective-review", version: 1, courseId: course.id, objectives };
+        const file: ObjectiveFile = { format: "erudior-objective-review", version: 2, courseId: course.id, objectives, attempts, baselines };
         if (!(await exportText(JSON.stringify(file, null, 2), course.id + ".objectives.json", "Course objective review"))) return;
         setNotice("Review file exported.");
       }
@@ -92,6 +119,8 @@ export default function ObjectiveReviewPanel({ course, active, onDirty }: {
       const result = data.get("result") === "changes" ? "changes" : "reviewed";
       const review = recordObjective(current, digest, revision, String(data.get("reviewer") ?? ""), result, String(data.get("findings") ?? ""));
       const previousReviews = current.review ? [...(current.previousReviews ?? []), current.review] : current.previousReviews;
+      keepBaseline();
+      setBaselineChoice("");
       edit({ draftDecision: undefined, previousReviews, review });
       form.reset();
       setNotice("Independent review recorded. Export the worksheet to keep the record.");
@@ -105,9 +134,20 @@ export default function ObjectiveReviewPanel({ course, active, onDirty }: {
       <legend>Review worksheet</legend>
       <div className="row wrap">
         <button className="btn sm" type="button" onClick={() => void fileAction(true)}>Open review file</button>
-        <button className="btn sm" type="button" onClick={() => void fileAction(false)} disabled={!objectives.length && !dirty}>Export review file</button>
+        <button className="btn sm" type="button" onClick={() => void fileAction(false)} disabled={!objectives.length && !attempts.length && !baselines.length && !dirty}>Export review file</button>
         {dirty && <span>Unexported changes</span>}
       </div>
+      <details><summary>Changes since review</summary>
+        {!!baselines.length && <label className="field">Compare with<select className="select" value={previousDigest ?? ""} onChange={e => setBaselineChoice(e.target.value)}>
+          {previousDigest && !previous && <option value={previousDigest}>Older worksheet without item details</option>}
+          {baselines.map(b => <option key={b.digest} value={b.digest}>Revision {b.revision} · {b.digest.slice(0, 8)}</option>)}
+        </select></label>}
+        <CourseReviewChanges current={baseline} previous={previous} openQuestion={where => { selectQuestion(where); setShowQuestions(true); }} />
+      </details>
+      <button className="btn sm" type="button" aria-expanded={showQuestions} onClick={() => setShowQuestions(!showQuestions)}>
+        {showQuestions ? "Close blind question review" : "Open blind question review"}
+      </button>
+      {showQuestions && <BlindQuestionReview course={course} digest={digest} attempts={attempts} location={question} select={selectQuestion} save={saveAttempt} />}
       <p>Course revision {revision} · {rows.filter(r => !r.gaps.length).length} of {rows.length} objectives have all evidence recorded · {unmapped.length} lessons without a mapped objective</p>
       <button className="btn sm" type="button" onClick={() => add(unmapped[0]?.id ?? course.lessons[0]?.id ?? "")}>Add objective</button>
       {!!unmapped.length && <details><summary>Lessons without a mapped objective ({unmapped.length})</summary>
@@ -128,6 +168,12 @@ export default function ObjectiveReviewPanel({ course, active, onDirty }: {
           {current.lessonId && !course.lessons.some(l => l.id === current.lessonId) && <option value={current.lessonId}>Missing lesson · {current.lessonId}</option>}
           {course.lessons.map(l => <option key={l.id} value={l.id}>{l.title || l.id}</option>)}
         </select></label>
+        <label>Worked example<textarea className="textarea" value={current.workedExample ?? ""} placeholder="Where does the lesson model the skill and explain the reasoning?"
+          onChange={e => edit({ workedExample: e.target.value })} /></label>
+        <label>Guided practice<textarea className="textarea" value={current.guidedPractice ?? ""} placeholder="Where does the learner try the skill with feedback or scaffolding?"
+          onChange={e => edit({ guidedPractice: e.target.value })} /></label>
+        <label>Independent application<textarea className="textarea" value={current.independentApplication ?? ""} placeholder="What new situation does the learner handle independently in the linked task?"
+          onChange={e => edit({ independentApplication: e.target.value })} /></label>
         <label>Independent task<select className="select" value={current.task} onChange={e => edit({ task: e.target.value, taskNote: "", rubric: "", rubricNote: "" })}>
           <option value="">Choose a task</option><option value="manual">Manual assignment or reference</option>
           {current.task && current.task !== "manual" && !chosenTask && <option value={current.task}>Missing task · {current.task}</option>}

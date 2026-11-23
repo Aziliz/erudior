@@ -1,3 +1,5 @@
+import { validAttempt, validBaseline, type QuestionAttempt } from "./questionReview";
+import type { ReviewBaseline } from "./reviewSnapshot";
 import type { Course } from "./types";
 import { activityLabels, courseActivities } from "./courseActivities";
 import { ASSIGN_BLOCK, parseAssignBlock } from "./courseWork";
@@ -24,11 +26,14 @@ export interface Objective {
   rubricNote: string;
   author: string;
   comparisons: Comparison[];
+  workedExample?: string;
+  guidedPractice?: string;
+  independentApplication?: string;
   review: ReviewDecision | null;
   previousReviews?: ReviewDecision[];
   draftDecision?: { reviewer: string; findings: string; result: ReviewDecision["result"] };
 }
-export interface ObjectiveFile { format: "erudior-objective-review"; version: 1; courseId: string; objectives: Objective[] }
+export interface ObjectiveFile { format: "erudior-objective-review"; version: 1 | 2; courseId: string; objectives: Objective[]; attempts?: QuestionAttempt[]; baselines?: ReviewBaseline[] }
 export interface TaskEvidence { key: string; title: string; lessons: string[]; rubric?: string }
 export const sourceLabels = ["University source 1", "University source 2", "Official source"];
 export function newObjective(lessonId: string, author = ""): Objective {
@@ -90,7 +95,8 @@ export function comparisonCoverage(items: Comparison[]) {
 // Fixed field order also binds imported decisions to their objective and all comparison notes.
 export function objectiveEvidence(o: Objective): string {
   return JSON.stringify([o.id, o.outcome, o.lessonId, o.author, o.task, o.taskNote, o.rubric, o.rubricNote,
-    o.comparisons.map(s => [s.url, s.finding])]);
+    o.comparisons.map(s => [s.url, s.finding]),
+    ...(o.workedExample || o.guidedPractice || o.independentApplication ? [o.workedExample ?? "", o.guidedPractice ?? "", o.independentApplication ?? ""] : [])]);
 }
 export function reviewState(o: Objective, digest: string, revision: number) {
   if (!o.review) return "Missing review";
@@ -108,6 +114,9 @@ export function objectiveGaps(course: Course, tasks: Map<string, TaskEvidence>, 
   const gaps: string[] = [];
   if (!o.outcome.trim()) gaps.push("Objective");
   if (!course.lessons.some(l => l.id === o.lessonId)) gaps.push("Lesson");
+  if (!o.workedExample?.trim()) gaps.push("Worked example");
+  if (!o.guidedPractice?.trim()) gaps.push("Guided practice");
+  if (!o.independentApplication?.trim()) gaps.push("Independent application");
   const task = tasks.get(o.task);
   if (!task && !(o.task === "manual" && o.taskNote.trim())) gaps.push("Independent task");
   if (!(task?.rubric || course.rubrics?.some(r => r.id === o.rubric && r.criteria.length) || (o.rubric === "#manual" && o.rubricNote.trim()))) gaps.push("Rubric");
@@ -122,13 +131,19 @@ const isObject = (v: unknown): v is Record<string, unknown> => !!v && typeof v =
 const stringFields = (v: Record<string, unknown>, keys: string[]) => keys.every(k => typeof v[k] === "string");
 export function readObjectiveFile(text: string, courseId: string): ObjectiveFile {
   const value: unknown = JSON.parse(text);
-  if (!isObject(value) || value.format !== "erudior-objective-review" || value.version !== 1 || value.courseId !== courseId || !Array.isArray(value.objectives))
+  if (!isObject(value) || value.format !== "erudior-objective-review" || (value.version !== 1 && value.version !== 2) || value.courseId !== courseId || !Array.isArray(value.objectives))
     throw Error("Choose an objective review file for this course.");
+  if (value.attempts !== undefined && (!Array.isArray(value.attempts) || !value.attempts.every(validAttempt) ||
+      new Set(value.attempts.map(a => a.id)).size !== value.attempts.length)) throw Error("Invalid question review records.");
+  if (value.baselines !== undefined && (!Array.isArray(value.baselines) || !value.baselines.every(validBaseline) ||
+      new Set(value.baselines.map(b => b.digest)).size !== value.baselines.length)) throw Error("Invalid course comparison records.");
   const seen = new Set<string>();
   for (const o of value.objectives) {
     if (!isObject(o) || !stringFields(o, ["id","outcome","lessonId","task","taskNote","rubric","rubricNote","author"]) ||
         typeof o.id !== "string" || !o.id.trim() || seen.has(o.id) || !Array.isArray(o.comparisons) || o.comparisons.length !== 3 ||
         !o.comparisons.every(s => isObject(s) && stringFields(s, ["url","finding"]))) throw Error("Invalid or duplicate objective in review file.");
+    if ([o.workedExample, o.guidedPractice, o.independentApplication].some(s => s !== undefined && typeof s !== "string"))
+      throw Error("Invalid skill progression evidence.");
     seen.add(o.id);
     const draft = o.draftDecision;
     if (draft !== undefined && (!isObject(draft) || !stringFields(draft, ["reviewer", "findings"]) || (draft.result !== "reviewed" && draft.result !== "changes")))

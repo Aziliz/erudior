@@ -1,0 +1,9 @@
+# Erudior course writing and review
+
+Apply these instructions to every course a chat creates or revises. Include the course ID and revision in the handoff so the reviewer can open the same material.
+
+1. Define the intended learner, prerequisites and what they should be able to do by the end. Compare the planned scope and level with free materials from at least two distinct .edu institutions and an additional official source. Record the exact pages, the objective each supports, what agrees or differs, and the date checked.
+2. For each major skill, identify a worked example that explains the reasoning, guided practice with feedback, and a fresh independent task with a rubric or success criteria. Use varied question types, assignments and notecards suited to the subject. Identify anything taught only through recall.
+3. Hand off the exact course revision, source comparisons, skill-to-lesson and assessment references, known gaps, and test results. Identify the file or worksheet containing the evidence. Describe any engine limitation using the specific activity a learner needs and send the recommendation to the project owner.
+4. A reviewer working independently of the author checks the writing, claims, prompts, scoring, explanations, notecards, assignments and rubrics. Solve questions before revealing their keys. Record ambiguous items, alternate valid answers, and missing instruction against their lesson, bank, question or task IDs. Report review coverage and any untested items.
+5. During a reviewer-only pass, annotate discrepancies and return them to the author. Record each finding with its location, observed problem and expected correction. On the revised course, inspect changed items and affected objectives, retest corrections, and record the reviewed revision, reviewer and any open findings. Claim completion only for the scope actually checked.

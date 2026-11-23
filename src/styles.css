@@ -8403,3 +8403,7 @@ html:not(.tones-on) .tone-sr {
 .objective-list li { margin-block: .5rem; }
 .objective-list li span { display: block; overflow-wrap: anywhere; }
 .objective-list button { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
+
+.review-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: .75rem; }
+.review-comparison > * { min-width: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.review-comparison > p, .review-comparison > :last-child { grid-column: 1 / -1; }

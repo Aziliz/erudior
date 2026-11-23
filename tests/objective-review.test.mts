@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { emptyCourse, exportCourseSnapshot, normalizeCourse } from "../src/lib/course.ts";
-import { reviewCourseDigest } from "../src/lib/reviewSnapshot.ts";
+import { emptyBank } from "../src/lib/validate.ts";
+import { reviewBaseline, compareReviewEntries, reviewCourseDigest } from "../src/lib/reviewSnapshot.ts";
 import { newObjective, objectiveTasks, comparisonCoverage, objectiveGaps, readObjectiveFile, recordObjective, reviewState } from "../src/lib/objectiveReview.ts";
 
 const course = emptyCourse("Reading workshop");
@@ -15,8 +16,8 @@ const tasks = objectiveTasks(course);
 assert.deepEqual(tasks.get("writing:response")?.lessons, ["claims"]);
 const objective = newObjective("claims", course.author);
 const digest = await reviewCourseDigest(course);
-assert.deepEqual(objectiveGaps(course,tasks,objective,digest), ["Objective","Independent task","Rubric","University comparisons","Official comparison","Missing review"]);
-Object.assign(objective, { outcome: "Support a claim with evidence", task: "writing:response" });
+assert.deepEqual(objectiveGaps(course,tasks,objective,digest), ["Objective","Worked example","Guided practice","Independent application","Independent task","Rubric","University comparisons","Official comparison","Missing review"]);
+Object.assign(objective, { outcome: "Support a claim with evidence", workedExample: "Page 1", guidedPractice: "Page 2", independentApplication: "New claim on page 3", task: "writing:response" });
 objective.comparisons = [
   {url: "https://owl.purdue.edu/example", finding: "Evidence is tied to the claim."},
   {url: "https://library.purdue.edu/example", finding: "Explains source choice."},
@@ -51,3 +52,40 @@ duplicatePage[2].url = duplicatePage[0].url + "#outcomes";
 assert.equal(comparisonCoverage(duplicatePage).official, false);
 assert.throws(() => readObjectiveFile(JSON.stringify({ ...file, objectives: [{ ...objective, previousReviews: [{}] }] }), course.id));
 console.log("Objective review passed: task links, rubrics, independent sources, missing evidence, worksheet round-trip and revision binding.");
+
+const bank = emptyBank("Practice");
+bank.id = "source";
+bank.questions = [
+  { id: "q1", topic: "Claims", stem: "Choose the stronger evidence", choices: ["A", "B"], answer: [0], explanation: "First source." },
+  { id: "q2", topic: "Claims", stem: "Explain your choice", choices: ["X", "Y"], answer: [0] },
+];
+const keyed = { ...course, banks: [bank] };
+const baseline = await reviewBaseline(keyed);
+assert.equal(baseline.digest, await reviewCourseDigest(keyed));
+assert.equal((await reviewBaseline(normalizeCourse(JSON.parse(exportCourseSnapshot(keyed))))).digest, baseline.digest);
+const revised = structuredClone(keyed);
+revised.banks[0].questions[0].answer = [1];
+revised.banks[0].questions[0].explanation = "Second source.";
+revised.banks[0].questions.pop();
+revised.lessons[0].body += " A new worked example.";
+revised.rubrics![0].title = "Updated criteria";
+const differences = compareReviewEntries(baseline.entries, (await reviewBaseline(revised)).entries);
+const changed = (kind: string, ...ids: string[]) => differences.find(change => change.key === JSON.stringify([kind, ...ids]))?.change;
+assert.equal(changed("Answer key", "source", "q1"), "Edited");
+assert.equal(changed("Explanation", "source", "q1"), "Edited");
+assert.equal(changed("Question", "source", "q1"), undefined);
+assert.equal(changed("Question", "source", "q2"), "Removed");
+assert.equal(changed("Lesson", "claims"), "Edited");
+assert.equal(changed("Rubric", "reasons"), "Edited");
+revised.lessons.push({ ...revised.lessons[0], id: "new" });
+assert.ok(compareReviewEntries(baseline.entries, (await reviewBaseline(revised)).entries)
+  .some(c => c.change === "Added" && c.key === JSON.stringify(["Lesson", "new"])));
+const legacy = newObjective("claims", "Writer");
+legacy.outcome = "Check a claim"; legacy.review = recordObjective(legacy, digest, 3, "Reader", "reviewed", "Earlier finding");
+const oldFile = readObjectiveFile(JSON.stringify({ ...file, version: 1, objectives: [legacy] }), course.id);
+assert.equal(reviewState(oldFile.objectives[0], digest, 3), "Review recorded");
+assert.ok(objectiveGaps(course, tasks, legacy, digest).includes("Guided practice"));
+assert.equal(reviewState({ ...legacy, guidedPractice: "Lesson 2" }, digest, 3), "Review outdated");
+assert.throws(() => readObjectiveFile(JSON.stringify({ ...file, version: 2, baselines: [{ ...baseline, entries: [null] }] }), course.id));
+assert.throws(() => readObjectiveFile(JSON.stringify({ ...file, version: 2, attempts: [{ stage: "recorded" }] }), course.id));
+console.log("Revision comparisons, new skill evidence and legacy worksheet compatibility passed.");

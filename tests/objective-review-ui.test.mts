@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
+import { emptyBank } from "../src/lib/validate.ts";
 import { emptyCourse } from "../src/lib/course.ts";
 import { requestNavigation } from "../src/lib/navigationGuard.ts";
 import { readObjectiveFile } from "../src/lib/objectiveReview.ts";
@@ -20,6 +21,13 @@ course.revision = 3;
 course.lessons = [{ id: "lesson", module: "m1", title: "Support a claim", body: "Choose evidence." }];
 course.writing = [{ id: "response", title: "Short response", kind: "essay", prompt: "Explain your reasoning.", rubric: "guide" }];
 course.rubrics = [{ id: "guide", title: "Evidence guide", criteria: [{ id: "reason", name: "Evidence", levels: [{ points: 1, label: "Supported" }, { points: 0, label: "Missing" }] }] }];
+const bank = emptyBank("Item review bank");
+bank.id = "evidence-bank";
+bank.questions = [
+  { id: "claim", topic: "Evidence", type: "text", stem: "Name the source.", choices: [], answer: [], accept: [["Witness", "Eyewitness"]], explanation: "Firsthand observation explains the claim." },
+  { id: "broken", topic: "Evidence", stem: "Choose from an unavailable diagram.", choices: ["A", "B"], answer: [1], explanation: "Missing figure example." },
+];
+course.banks = [bank];
 const api = { courses: [course], toast() {} } as Parameters<typeof CourseEditor>[0]["api"];
 const root = createRoot(document.querySelector("main")!);
 let download: Blob | undefined, filename = "", imported = "";
@@ -70,8 +78,33 @@ async function waitForText(text: string) {
 }
 
 await openEditor("writer");
+await click("Open blind question review");
+await waitForText("Name the source.");
+const revealButton = () => [...document.querySelectorAll("button")].find(b => b.textContent === "Lock response and reveal key")!;
+assert.ok(revealButton().disabled);
+assert.doesNotMatch(page(), /Firsthand observation|Witness/);
+await fill("Your answer", "Eyewitness");
+await click("Lock response and reveal key");
+assert.match(page(), /The engine accepted this response/);
+assert.match(page(), /Firsthand observation/);
+await fill("Question reviewer", "Author");
+await fill("Item review note", "The accepted alternative graded correctly.");
+await click("Record item finding");
+assert.match(page(), /independent of the author/);
+await fill("Question reviewer", "Reader");
+await click("Record item finding");
+assert.match(page(), /Question review recorded/);
+await fill("Question to review", "broken");
+await fill("Question reviewer", "Reader");
+await fill("Item finding", "Unanswerable");
+await fill("Item review note", "The question refers to a missing diagram.");
+await click("Record item finding");
+await click("Close blind question review");
 await click("Add objective");
 await fill("Learning objective", "Defend a claim using evidence");
+await fill("Worked example", "Lesson opening, paragraph 2");
+await fill("Guided practice", "Practice with feedback, step 3");
+await fill("Independent application", "Select evidence for a new claim");
 await fill("Independent task", "writing:response");
 assert.match(page(), /Linked rubric · Evidence guide/);
 const sourceFields = document.querySelectorAll(".objective-fields fieldset");
@@ -91,12 +124,24 @@ assert.equal(requestNavigation(), true);
 assert.equal(filename, course.id + ".objectives.json");
 assert.ok(download);
 const saved = await download.text();
+const stored = readObjectiveFile(saved, course.id);
+assert.equal(stored.baselines?.length, 1);
+assert.equal(stored.attempts?.length, 2);
+assert.equal(stored.attempts?.[0].comparison?.correct, true);
+assert.equal(stored.attempts?.[1].comparison, undefined);
+assert.equal(stored.attempts?.[1].issue, "Unanswerable");
+bank.questions[0] = { ...bank.questions[0], accept: [["Witness"]] };
 assert.equal(readObjectiveFile(saved, course.id).objectives[0].previousReviews?.[0].result, "changes");
 
 await openEditor("independent-reader");
 imported = saved;
 await click("Open review file");
-await waitForText("1 of 1 objectives have all evidence recorded");
+await waitForText("Review outdated");
+await waitForText("Edited · Answer key · Item review bank / claim");
+await click("Review question");
+await waitForText("Name the source.");
+assert.ok(revealButton().disabled);
+await click("Close blind question review");
 await click("Details");
 await fill("Title", "Changed course content");
 await click("Objective review");
