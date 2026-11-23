@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Android shell layout fixture</title></head>
+<body>
+<div class="shell erudior-android-shell">
+<header class="topbar">
+  <button class="brand" type="button">Erudior</button>
+  <nav class="nav" aria-label="Main"><button>Library</button><button>Progress</button></nav>
+  <div class="spacer"></div>
+  <div class="row family-nav">
+    <button class="btn sm ghost" aria-label="Student: Learner. Switch student">Student: Learner</button>
+    <button class="btn sm" aria-current="page">Parent</button>
+  </div>
+  <div class="display-menu"><button class="btn sm" type="button" aria-controls="display-panel" aria-expanded="false">Display</button>
+    <div id="display-panel" class="display-panel" role="group" aria-label="Display settings" hidden>
+      <label class="field"><span>Theme</span><select class="select"><option>System (light or dark)</option><option>High contrast</option></select></label>
+      <label class="field"><span>Text size</span><select class="select"><option>Normal</option><option>Larger</option></select></label>
+      <button class="btn sm" type="button" data-close>Done</button>
+    </div>
+  </div>
+</header>
+<main class="main" id="main"><div class="page">
+  <div class="page-head no-print"><div><h1>Parent area</h1><p class="muted">Homeschool · School year overview</p></div><button class="btn">Lock</button></div>
+  <nav class="tabs no-print" aria-label="Parent sections">
+    <button aria-current="page">Overview</button><button>Learning paths</button><button>Learning diagnostics</button><button>Content exchange</button><button>Document cases</button><button>Advanced assessment</button><button>Scientific workspaces</button><button>Branching scenarios</button><button>Transaction practice</button><button>Workload evidence</button><button>Credential evidence</button><button>Learner privacy</button><button>Attendance and hours</button><button>Courses</button><button>Grades</button><button>Student work</button><button>Reading and activities</button><button>Documents</button><button>Reports</button><button>Students</button><button>State rules</button><button>Learning games</button><button>Interactive presentations</button><button>Live room</button><button>Settings and backup</button>
+  </nav>
+  <section class="card"><h2>Learning plan</h2><p class="muted">Layout fixture. No learner data is stored or synchronized.</p><div class="form-grid"><label class="field"><span>Student</span><select class="select"><option>Learner</option></select></label><label class="field"><span>School year</span><input class="input" value="2026–2027"></label></div><button class="btn primary">Review assignments</button></section>
+  <div class="table-wrap" tabindex="0" aria-label="Gradebook, scroll horizontally"><table class="table" style="min-width:640px"><thead><tr><th>Course</th><th>Progress</th><th>Review</th><th>Evidence</th><th>Actions</th></tr></thead><tbody><tr><td>Mathematics</td><td>Awaiting work</td><td>Not graded</td><td>None submitted</td><td><button class="btn">Open</button></td></tr></tbody></table></div>
+</div></main>
+<nav class="android-bottom-nav" aria-label="Phone navigation"><button type="button"><span aria-hidden="true">⌂</span><span>Home</span></button><button type="button"><span aria-hidden="true">◫</span><span>Community</span></button><button type="button"><span aria-hidden="true">◉</span><span>Progress</span></button><button type="button"><span aria-hidden="true">⌕</span><span>Search</span></button><button type="button" aria-current="page"><span aria-hidden="true">♙</span><span>Family</span></button></nav>
+</div>
+<script>
+const toggle = document.querySelector('[aria-controls="display-panel"]');
+const panel = document.querySelector('#display-panel');
+toggle.addEventListener('click', () => { panel.hidden = !panel.hidden; toggle.setAttribute('aria-expanded', String(!panel.hidden)); });
+document.querySelector('[data-close]').addEventListener('click', () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); });
+document.querySelectorAll('.tabs button').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('.tabs button').forEach(b => b.removeAttribute('aria-current')); button.setAttribute('aria-current','page'); }));
+</script>
+</body></html>
