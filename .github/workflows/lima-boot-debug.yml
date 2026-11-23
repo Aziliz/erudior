@@ -1,0 +1,47 @@
+name: Diagnose AlmaLinux boot in Lima
+on: push
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: macos-15-intel
+    timeout-minutes: 42
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Lima
+        run: |
+          brew install lima qemu
+          limactl start --tty=false --name=erudior-labs --cpus=4 --memory=6 --disk=18 template:debian
+          limactl shell --tty=false erudior-labs sudo sh -s -- packages < src-tauri/src/vm_lab/windows-host.sh
+          limactl shell --tty=false erudior-labs sh -s < tests/installed-lab/provider-media.sh
+      - name: Boot the actual pair with the production provider runner
+        run: |
+          limactl shell --tty=false erudior-labs mkdir -p /tmp/vm-test
+          tar -C src-tauri/src/vm_lab -cf - guest_probe.py runner.py alma_setup.py | limactl shell --tty=false erudior-labs tar xf - -C /tmp/vm-test
+          limactl shell --tty=false erudior-labs python3 - < tests/installed-lab/lima-boot-log.py > boot.log 2>&1 &
+          observer=$!
+          trap 'kill "$observer" 2>/dev/null || true; tail -110 boot.log' EXIT
+          limactl shell --tty=false erudior-labs python3 -u - <<'PY'
+          import sys,time,os,json,traceback
+          sys.path.insert(0,"/tmp/vm-test")
+          import runner
+          print("kvm",runner.x86_kvm(),"cpus",os.cpu_count(), flush=True)
+          args=[runner.ADMIN_EXAM,"acceptance","installed-test","two-guests","60"]
+          tasks=json.dumps([{"id":"client-operator","points":50},{"id":"server-team-directory","points":50}])
+          status=runner.main(["start",*args,"",tasks]); attempt=status["exam"]["id"]
+          for i in range(22):
+              try:
+                  status=runner.main(["begin",*args,attempt,tasks])
+                  print("phase",status["exam"]["phase"])
+                  break
+              except Exception as e:
+                  print(i,type(e).__name__,str(e))
+                  time.sleep(2)
+          else:
+              raise RuntimeError("No preflight response")
+          PY
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lima-serial-startup
+          path: boot.log
