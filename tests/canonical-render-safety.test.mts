@@ -70,3 +70,22 @@ try {
   assert.deepEqual(q, before);
 } finally { await React.act(async () => root.unmount()); host.remove(); globalThis.Worker = previousWorker; }
 console.log('canonical code runtime: language aliases and starter defaults derived without source mutation; JavaScript execution lane verified');
+
+const { copyTranscriptCommand } = await import('../src/lib/commandTranscript.ts');
+const transcript = document.createElement('div');
+transcript.innerHTML = renderMarkdown([
+  '```console', '> printf "%s" \\', '>   "<b>ok</b>"', '<b>ok</b>',
+  '> hostname', 'Your machine name varies.', '> cd /tmp', '```'
+].join('\n'));
+assert.equal(transcript.querySelectorAll('.command-step').length, 3);
+assert.equal(transcript.querySelector('.command-result')?.textContent, '<b>ok</b>');
+assert.equal(transcript.querySelector('b'), null);
+assert.equal(transcript.querySelectorAll('.command-result')[2].textContent, 'No output on success.');
+let copied = '';
+Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async (s: string) => { copied = s; } } });
+await copyTranscriptCommand(transcript.querySelector('button')!);
+assert.equal(copied, 'printf "%s" \\\n  "<b>ok</b>"');
+assert.equal(transcript.querySelector('[role=status]')?.textContent, 'Copied.');
+for (const literal of ['````markdown\n```console\n> pwd\n/tmp\n```\n````','```console\n> pwd', '```console\nplain code\n```']) {
+  assert(!renderMarkdown(literal).includes('command-copy'));
+}

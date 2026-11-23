@@ -20,6 +20,7 @@ import { protectLessonBlocks } from "../lib/lessonBlocks";
 import { hydrateTimelines } from "../lib/timeline";
 import { protectCode } from "../lib/code";
 import { rubyHtml } from "../lib/kana";
+import { copyTranscriptCommand, renderCommandTranscript } from "../lib/commandTranscript";
 import { scanLessonFences } from "../lib/lessonFences";
 import { loadKanjiStrokes, needsKanjiStrokes } from "../lib/kanjiLoad";
 import { loadHanziStrokes, needsHanziStrokes, tracedHanzi } from "../lib/hanziLoad";
@@ -70,7 +71,8 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   for (const fence of fences.reverse()) {
     const original = md.slice(fence.start, fence.end);
     const code = fence.interactive ? protectCode(original) : undefined;
-    const rendered = code ? code.restore(code.text) : marked.parse(original, { async: false }) as string;
+    const transcript = fence.closed && fence.kind === "console" && !fence.info ? renderCommandTranscript(fence.body) : undefined;
+    const rendered = transcript ?? (code ? code.restore(code.text) : marked.parse(original, { async: false }) as string);
     const index = inert.push(DOMPurify.sanitize(rendered)) - 1;
     md = md.slice(0, fence.start) + `\n\n${token}${index}END\n\n` + md.slice(fence.end);
   }
@@ -415,6 +417,8 @@ export default function Markdown({
 
   function onClick(e: React.MouseEvent) {
     const target = e.target as Element;
+    const copy = target.closest<HTMLButtonElement>("button.command-copy");
+    if (copy) { void copyTranscriptCommand(copy); return; }
     const rb = target.closest<HTMLElement>("button.ra-btn");
     if (rb) return readButton(rb);
     if (handlePhonicsClick(target, { lib, lang: READ_LANG })) return;

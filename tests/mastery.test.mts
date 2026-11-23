@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 // The adaptive engine (src/lib/mastery.ts): topic mastery, smart practice ordering, in-session
 // swaps and the "what to study next" list after an exam.
 import { adaptAfterCheck, adaptiveOrder, focusAreas, masteryFrom, topicMastery, topicPriority, weakTopics } from "../src/lib/mastery.ts";
@@ -142,13 +143,16 @@ ok("weekly due after 7 days", weeklyReview(course, pw, "2026-10-23").due);
 // Spacing nudge: lots of work crammed into one day.
 ok("nudge when crammed", !!spacingNudge({ activity: { "2026-10-20": { questions: 120, cards: 0, lessons: 0, drills: 0 } } } as any, "2026-10-21"));
 ok("no nudge when spread", spacingNudge({ activity: Object.fromEntries(["15", "17", "19", "21"].map((d) => [`2026-10-${d}`, { questions: 40, cards: 0, lessons: 0, drills: 0 }])) } as any, "2026-10-21") === null);
-// Warm-up questions never come from a quiz.
-const quizIds = new Set(["A0", "A1", "A2"]);
-const wq = pretestQuestions(bank, quizIds, ["Alpha"], p);
-ok("warm-up prefers non-quiz questions", wq.length === 3 && wq.every((q) => !quizIds.has(q.id) && q.topic === "Alpha"), wq.map((q) => q.id));
-const allQuiz = new Set(questions.filter((q) => q.id !== "A5").map((q) => q.id));
-const wq2 = pretestQuestions(bank, allQuiz, ["Alpha"], p);
-ok("warm-up falls back to quiz questions", wq2.length === 3 && wq2[0].id === "A5", wq2.map((q) => q.id));
+// A shared topic must never pull a future lesson into the current warm-up.
+const quizIds = ["A0", "A1", "A2"];
+const warmup = pretestQuestions(bank, quizIds, p);
+ok("same-topic neighbours excluded", warmup.length === 3 && warmup.every(q => quizIds.includes(q.id)));
+ok("unlinked lesson has no warm-up", !pretestQuestions(bank, undefined, p).length);
+ok("duplicates cannot fill a warm-up", !pretestQuestions(bank, ["A0", "A0", "missing"], p).length);
+const rhcsa = JSON.parse(readFileSync(new URL("../samples/rhcsa-10-administration.json", import.meta.url), "utf8"));
+const early = rhcsa.lessons.find((l: {id: string}) => l.id === "shell-words");
+const earlyIds = pretestQuestions(rhcsa.banks[0], early.quiz, p).map(q => q.id);
+ok("first Bash lesson excludes later grep questions", earlyIds.length >= 2 && earlyIds.every(id => early.quiz.includes(id)));
 
 if (fails) {
   console.log(`${fails} mastery test(s) failed`);
