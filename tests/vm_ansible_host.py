@@ -75,9 +75,11 @@ def verify():
             assert report["tasks"] == [dict(TASKS[0], before=True, after=True)], report["tasks"]
             assert report["exam"]["reason"] == "submitted"
             assert all("AlmaLinux 10" in name for name in state["exam"]["platforms"].values())
-            (original / "ansible-guest-receipt.json").write_text(json.dumps({
+            evidence = original / "ansible-guest-receipt.json"
+            evidence.write_text(json.dumps({
                 "platforms": state["exam"]["platforms"], "nonIdempotentRejected": True, "report": report
             }, indent=2))
+            evidence.chmod(0o644)  # Only this synthetic score is exported from the root-owned CI container.
         finally:
             for role in runner.ROLES:
                 if runner.running(role):
