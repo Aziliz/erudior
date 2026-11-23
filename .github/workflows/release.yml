@@ -1,6 +1,6 @@
 name: Build installers
 
-# Push a tag like v0.3.0 to build and publish a GitHub release with every installer:
+# Advance .github/desktop-release on main to publish a new engine with every installer:
 # Windows (.exe, .msi), Linux (.deb, .rpm, AppImage) and macOS (universal .dmg). The
 # website's Download page (app.erudior.com/download) offers the latest release, and the
 # Homebrew cask (Aziliz/homebrew-erudior) installs its .dmg under a fixed name.
@@ -11,7 +11,6 @@ name: Build installers
 # to the workflow run as artifacts).
 on:
   push:
-    tags: ["v*"]
     branches: [main]
     paths: [".github/desktop-release"]
   workflow_dispatch:
@@ -20,7 +19,21 @@ permissions:
   contents: read
 
 jobs:
+  engine:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.engine.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check engine inputs since the last desktop release
+        id: engine
+        run: python3 scripts/desktop-engine-changed.py >> "$GITHUB_OUTPUT"
+
   build:
+    needs: engine
+    if: needs.engine.outputs.changed == 'true'
     strategy:
       fail-fast: false
       matrix:
@@ -82,18 +95,10 @@ jobs:
           npm_config_script_shell: bash
         run: node scripts/diagnostic-command.mjs regression -- npm test
 
-      # Once course hosting is set up (docs/HOSTING.md), installers download courses from
-      # the website instead of bundling them.
-      - name: Course download address
-        if: ${{ vars.COURSES_URL != '' }}
-        shell: bash
-        run: |
-          echo "VITE_COURSES_URL=${{ vars.COURSES_URL }}" >> "$GITHUB_ENV"
-          echo "VITE_COMMUNITY_API=${{ vars.COMMUNITY_API }}" >> "$GITHUB_ENV"
-
       - name: Build signed installers and updater packages
         id: signed_build
         env:
+          VITE_COMMUNITY_API: ${{ vars.COMMUNITY_API }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
         run: npx tauri build --bundles ${{ matrix.bundles }}${{ matrix.target && format(' --target {0}', matrix.target) || '' }}

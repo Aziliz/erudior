@@ -1,5 +1,5 @@
 interface ImportMetaEnv {
-  /** Where course packages are published (e.g. https://courses.erudior.com/v1/). Unset = bundled courses. */
+  /** Course feed override. Production defaults to GitHub. Local development defaults to bundled samples. */
   readonly VITE_COURSES_URL?: string;
   /** Community course API (e.g. https://api.erudior.com). Unset = no community courses. */
   readonly VITE_COMMUNITY_API?: string;

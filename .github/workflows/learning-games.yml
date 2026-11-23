@@ -3,6 +3,7 @@ name: Learning games browser and live protocol
 on:
   pull_request:
     branches: [main]
+    paths-ignore: ['samples/**', 'content/**', 'public/sitemap.xml']
   push:
     branches: [main]
     paths:

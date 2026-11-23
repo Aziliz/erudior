@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
-      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COURSES_URL: https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/
       VITE_COMMUNITY_API: https://api.erudior.com
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:
@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
-      VITE_COURSES_URL: https://courses.erudior.com/v1/
+      VITE_COURSES_URL: https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/
       VITE_COMMUNITY_API: https://api.erudior.com
       VITE_ANDROID_BUILD_SHA: ${{ github.sha }}
     steps:

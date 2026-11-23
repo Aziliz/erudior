@@ -5,28 +5,29 @@ Erudior has two front doors:
 - **app.erudior.com** — the web app for free learning, on Cloudflare Pages.
 - **The desktop app** — for homeschool families and schools (records stay on the computer).
 
-Both download courses from **courses.erudior.com/v1/**, a public Cloudflare R2 bucket.
+Production web, desktop and Android builds fetch the signed official catalog from the public **published-courses** branch of **Aziliz/erudior** on GitHub. The website refreshes its course listings on startup.
 Nothing about a student is sent anywhere; the only requests are for the catalog and course files.
 
 ## How it works
 
 `npm run courses:publish` turns `samples/` into `dist-courses/v1/`:
 
-| File | What it is | Cache |
+| File | What it is | Client behavior |
 | --- | --- | --- |
-| `catalog.json` | Every course's metadata, plus the file name, size and SHA-256 of its package | 5 minutes |
-| `catalog.json.sig` | Ed25519 signature of `catalog.json`'s exact bytes | 5 minutes |
-| `<course-id>.r<revision>.json` | One file per course revision; never changes once uploaded | 1 year, immutable |
-| `states.<YYYY-MM-DD>.json` | The state homeschool rules (`content/states`), named by the date last checked; listed in the catalog with its SHA-256 | 1 year, immutable |
+| `catalog.json` | Every course's metadata, plus the file name, size and SHA-256 of its package | Refreshed at startup |
+| `catalog.json.sig` | Ed25519 signature of `catalog.json`'s exact bytes | Refreshed at startup |
+| `<course-id>.r<revision>.json` | One file per course revision; never changes once uploaded | Immutable by revision |
+| `states.<YYYY-MM-DD>.json` | The state homeschool rules (`content/states`), named by the date last checked; listed in the catalog with its SHA-256 | Immutable by revision |
 
 The app accepts a catalog only if its signature matches a public key in `src/lib/courseKeys.ts`,
 and a course file only if its SHA-256 matches the signed catalog. The last good catalog is saved on
 the device, so the app works offline; courses already started are stored locally.
 
-Builds without `VITE_COURSES_URL` (local development, or before hosting exists) bundle the courses
-as before.
+The GitHub feed publishes the catalog and its detached signature together in `v1/catalog.signed.json`. Clients verify the exact catalog text before caching it and download individual revision files on demand. Local development can use bundled samples or a custom `VITE_COURSES_URL`.
 
-## One-time setup
+To publish a course, merge its reviewed package, catalog entry and any required revision approvals under `samples/` on main. **Publish signed GitHub course feed** validates revisions and advances the public branch in one commit. Existing revisions stay available. Course publication requires the course signing key. The first migration also authenticates the existing release on R2, which continues to serve older clients.
+
+## Signing, legacy R2 and website setup
 
 1. **Signing key** (on your own machine, in the repo):
    - `npm run course-keys` — writes the secret key to `.keys/course-signing.key` (git-ignored) and
@@ -52,12 +53,8 @@ as before.
      of `.keys/course-signing.key`).
    - Variables: `COURSES_URL` = `https://courses.erudior.com/v1/`, `R2_BUCKET` =
      `erudior-courses`, `PAGES_PROJECT` = `erudior`.
-6. Actions → **Publish website and courses** → Run workflow. Check
-   `https://courses.erudior.com/v1/catalog.json` and `https://app.erudior.com`.
-7. Actions → **Build installers**: with `COURSES_URL` set, new installers download courses instead
-   of bundling them.
-
-After that, every push to `main` that changes courses or the app republishes automatically.
+6. Check **Publish signed GitHub course feed** and confirm its signed catalog is available at `https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/catalog.signed.json`.
+7. Deploy the website for engine changes. Advance `.github/desktop-release` with a versioned desktop engine change to publish signed installers.
 
 ## Community courses (api.erudior.com)
 
@@ -87,8 +84,7 @@ marks that version **Reviewed**.
      `OAUTH_GITHUB_CLIENT_ID`.
    - Secrets: `GOOGLE_CLIENT_SECRET`, `OAUTH_GITHUB_CLIENT_SECRET` (GitHub doesn't allow
      names starting with `GITHUB_`).
-6. Actions → **Deploy community API** → Run workflow; then re-run **Publish website and
-   courses** so the web app picks up `COMMUNITY_API`. Sign in at app.erudior.com → Create.
+6. Actions → **Deploy community API** → Run workflow; then re-run **Deploy Erudior website** so the web app picks up `COMMUNITY_API`. Sign in at app.erudior.com → Create.
    Admins can give others the Reviewer role from the review queue's People section.
 
 **Live rooms** run in the same Worker as a Durable Object (`LiveRoom`, SQLite-backed so it
@@ -105,7 +101,7 @@ and `node scripts/live-walkthrough.mjs` check the whole flows in a browser.
 
 ## Desktop app downloads
 
-Push a tag (`git tag v0.23.0 && git push origin v0.23.0`) to run **Build installers**: it
+Merge an engine version and its matching `.github/desktop-release` marker to run **Build installers**. The workflow
 builds Windows (.exe, .msi), Linux (.deb, .rpm, AppImage) and macOS (universal .dmg) and
 publishes a GitHub release. app.erudior.com/download links the latest release's files, and
 `brew install --cask aziliz/erudior/erudior` (tap: Aziliz/homebrew-erudior) installs its
@@ -127,5 +123,5 @@ macOS Gatekeeper warn on first launch (signing needs a certificate / an Apple De
 ## Privacy note
 
 Community authors' name, email and courses are stored in D1; reports store a daily-salted
-hash of the reporter's IP for rate limiting only. Cloudflare sees the IP address of each download, like any web host. Erudior adds no analytics
+hash of the reporter's IP for rate limiting only. GitHub receives requests for official course downloads. Cloudflare serves the website, community content and legacy downloads. Both hosts receive the IP address of requests they serve. Erudior adds no analytics
 and sends no student data. The children's privacy notice (roadmap section 7) should say so.

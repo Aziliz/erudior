@@ -81,7 +81,7 @@ test('release compiles the real frontend on PRs and verifies again before signin
   const contract = workflow.split('  release-contract:')[1].split('  upgrade-acceptance:')[0];
   assert.match(contract, /run: npm ci/);
   assert.match(contract, /VITE_COMMUNITY_API: https:\/\/api\.erudior\.com/);
-  assert.match(contract, /VITE_COURSES_URL: https:\/\/courses\.erudior\.com\/v1\//);
+  assert.match(contract, /VITE_COURSES_URL: https:\/\/raw\.githubusercontent\.com\/Aziliz\/erudior\/published-courses\/v1\//);
   assert.match(contract, /npm run build/);
   assert.match(contract, /node scripts\/check-android-community-env\.mjs --dist dist/);
   const signed = workflow.split('  signed-arm64:')[1].split('  publish-preview:')[0];
