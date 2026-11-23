@@ -10,7 +10,8 @@ import PublicCommunity from "./pages/PublicCommunity";
 import { Mark } from "./components/Mark";
 import EngineAttribution from "./components/EngineAttribution";
 import { SITE_ORIGIN, appUrl } from "./lib/site";
-import { CATALOG } from "./lib/catalog";
+import { fetchCatalog } from "./lib/courseSource";
+import { CATALOG, setCatalog } from "./lib/catalog";
 import { DEFAULT_TITLE, homeJsonLd, setSeo } from "./lib/seo";
 import { GENERAL_DISCLAIMER, LEGAL_TITLES, LegalView, type LegalPage } from "./components/Terms";
 
@@ -24,6 +25,17 @@ function pageFor(path: string): Page | null {
 export default function Site() {
   const [path, setPath] = useState(() => window.location.pathname);
   const page = pageFor(path);
+  const [catalogVersion, setCatalogVersion] = useState(0);
+  useEffect(() => {
+    let active = true;
+    fetchCatalog().then(result => {
+      if (active && result) {
+        setCatalog(result.entries);
+        setCatalogVersion(version => version + 1);
+      }
+    });
+    return () => { active = false; };
+  }, []);
   const communityId = page === "community" ? path.replace(/\/+$/, "").split("/")[2] : undefined;
   const goCommunity = (id?: string) => {
     const next = id ? `/community/${encodeURIComponent(id)}` : "/community";
@@ -64,8 +76,9 @@ export default function Site() {
         description: page === "terms" ? "Erudior's Terms of Use." : page === "privacy" ? "How Erudior handles your information: no accounts to study, no tracking, no ads." : page === "engine-license" ? "Read the proposed Erudior Engine source-available license, pending legal approval." : "Open-source software used by Erudior.",
         url: `${SITE_ORIGIN}/${page}`,
       });
-    window.scrollTo({ top: 0 });
-  }, [page, path]);
+  }, [page, path, catalogVersion]);
+
+  useEffect(() => { window.scrollTo({ top: 0 }); }, [page, path]);
 
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);

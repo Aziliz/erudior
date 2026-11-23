@@ -5,9 +5,8 @@ import { ENGINE, ENGINE_IN_PROGRESS, ENGINE_PROGRESS_DETAILS, ENGINE_PLANNED, PU
 import { appUrl } from "../lib/site";
 import { slugify } from "../lib/util";
 
-const byTitle = new Map(CATALOG.map((e) => [e.title.toLowerCase(), e]));
-
 export default function Roadmap() {
+  const byTitle = new Map(CATALOG.map((e) => [e.title.toLowerCase(), e]));
   const rows = PUBLIC_ROADMAP.map((g) => ({ ...g, courses: g.courses.map((c) => ({ ...c, entry: byTitle.get((c.catalog ?? c.title).toLowerCase()) })) }));
   const all = rows.flatMap((g) => g.courses);
   const languages = rows.filter((g) => g.id.startsWith("language-"));

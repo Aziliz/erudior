@@ -5,7 +5,7 @@ Erudior has two front doors:
 - **app.erudior.com** — the web app for free learning, on Cloudflare Pages.
 - **The desktop app** — for homeschool families and schools (records stay on the computer).
 
-Both download courses from **courses.erudior.com/v1/**, a public Cloudflare R2 bucket.
+Production web, desktop and Android builds fetch the signed official catalog from the public **published-courses** branch of **Aziliz/erudior** on GitHub. The website refreshes its course listings on startup.
 Nothing about a student is sent anywhere; the only requests are for the catalog and course files.
 
 ## How it works
@@ -23,10 +23,11 @@ The app accepts a catalog only if its signature matches a public key in `src/lib
 and a course file only if its SHA-256 matches the signed catalog. The last good catalog is saved on
 the device, so the app works offline; courses already started are stored locally.
 
-Builds without `VITE_COURSES_URL` (local development, or before hosting exists) bundle the courses
-as before.
+The GitHub feed publishes the catalog and its detached signature together in `v1/catalog.signed.json`. Clients verify the exact catalog text before caching it and download individual revision files on demand. Local development can use bundled samples or a custom `VITE_COURSES_URL`.
 
-## One-time setup
+To publish a course, merge its reviewed package, catalog entry and any required revision approvals under `samples/` on main. **Publish signed GitHub course feed** validates revisions and advances the public branch in one commit. Existing revisions stay available. Course publication requires the course signing key. The first migration also authenticates the existing release on R2, which continues to serve older clients.
+
+## Signing, legacy R2 and website setup
 
 1. **Signing key** (on your own machine, in the repo):
    - `npm run course-keys` — writes the secret key to `.keys/course-signing.key` (git-ignored) and
@@ -52,80 +53,5 @@ as before.
      of `.keys/course-signing.key`).
    - Variables: `COURSES_URL` = `https://courses.erudior.com/v1/`, `R2_BUCKET` =
      `erudior-courses`, `PAGES_PROJECT` = `erudior`.
-6. Actions → **Publish website and courses** → Run workflow. Check
-   `https://courses.erudior.com/v1/catalog.json` and `https://app.erudior.com`.
-7. Actions → **Build installers**: with `COURSES_URL` set, new installers download courses instead
-   of bundling them.
-
-After that, every push to `main` that changes courses or the app republishes automatically.
-
-## Community courses (api.erudior.com)
-
-The `worker/` folder is a Cloudflare Worker with a D1 database (accounts, drafts, reviews,
-reports) and a private R2 bucket (published versions and images). Builds with
-`VITE_COMMUNITY_API` show community courses in the Library; the website build also gets the
-editor (Create) and the review queue. Authors sign in with Google or GitHub, must confirm
-they're 18+ and accept the terms; courses go live tagged **Not reviewed** until a reviewer
-marks that version **Reviewed**.
-
-1. **Database and bucket** (Cloudflare dashboard, or `npx wrangler` in `worker/`):
-   - `npx wrangler d1 create erudior-community` and note the database id.
-   - R2 → create a bucket named `erudior-community` (keep it private; the Worker serves it).
-2. **Google sign-in** (Google Cloud console → APIs & Services):
-   - OAuth consent screen: External, app name Erudior, scopes `openid`, `email`, `profile`.
-   - Credentials → Create OAuth client ID → Web application. Authorized redirect URI:
-     `https://api.erudior.com/auth/google/callback`. Note the client id and secret.
-3. **GitHub sign-in** (GitHub → Settings → Developer settings → OAuth Apps → New):
-   - Homepage `https://app.erudior.com`, callback `https://api.erudior.com/auth/github/callback`.
-     Note the client id; generate a client secret.
-4. **API token**: add Account · Workers Scripts · Edit, Account · D1 · Edit and
-   Zone (erudior.com) · Workers Routes · Edit to the token from step 4 above (the Worker
-   claims `api.erudior.com` as a custom domain when it deploys).
-5. **GitHub** (Aziliz/erudior → Settings → Secrets and variables → Actions):
-   - Variables: `COMMUNITY_API` = `https://api.erudior.com`, `D1_DATABASE_ID` = the id from
-     step 1, `ADMIN_EMAILS` = your sign-in email (comma-separate several), `GOOGLE_CLIENT_ID`,
-     `OAUTH_GITHUB_CLIENT_ID`.
-   - Secrets: `GOOGLE_CLIENT_SECRET`, `OAUTH_GITHUB_CLIENT_SECRET` (GitHub doesn't allow
-     names starting with `GITHUB_`).
-6. Actions → **Deploy community API** → Run workflow; then re-run **Publish website and
-   courses** so the web app picks up `COMMUNITY_API`. Sign in at app.erudior.com → Create.
-   Admins can give others the Reviewer role from the review queue's People section.
-
-**Live rooms** run in the same Worker as a Durable Object (`LiveRoom`, SQLite-backed so it
-works on the free plan; declared in `wrangler.toml`, created on the first deploy). Hosts are
-the desktop app's parent or teacher area (no account); students join at app.erudior.com
-(`/?live=CODE`). Rooms live in memory only and close 10 minutes after the host leaves or after
-4 hours; D1 keeps only a daily-salted IP hash per room opened, to limit 30 rooms an hour.
-
-Local development: `cd worker && npm install && npm run migrate:local && npm run dev`
-(http://localhost:8787 with a development sign-in), then
-`VITE_COMMUNITY_API=http://localhost:8787 npx vite --port 5181`. `node test/api.test.mjs`
-checks the API and `node test/live.test.mjs` the live rooms; `node scripts/community-walkthrough.mjs`
-and `node scripts/live-walkthrough.mjs` check the whole flows in a browser.
-
-## Desktop app downloads
-
-Push a tag (`git tag v0.23.0 && git push origin v0.23.0`) to run **Build installers**: it
-builds Windows (.exe, .msi), Linux (.deb, .rpm, AppImage) and macOS (universal .dmg) and
-publishes a GitHub release. app.erudior.com/download links the latest release's files, and
-`brew install --cask aziliz/erudior/erudior` (tap: Aziliz/homebrew-erudior) installs its
-`Erudior-macOS-universal.dmg`. Installers aren't code-signed yet, so Windows SmartScreen and
-macOS Gatekeeper warn on first launch (signing needs a certificate / an Apple Developer account).
-
-## Day to day
-
-- **New course revision:** build it as usual (`content/math/build.py …`), commit, push. The
-  workflow uploads the new `<id>.r<revision>.json` and a new signed catalog; apps offer the update.
-- **State rules update:** edit `content/states/states.yaml` (bump `checked` on the states you
-  re-verified), run `python3 content/states/build.py`, commit, push. Desktop apps pick up the newer
-  file from the signed catalog; every build also bundles the copy it was built with.
-- **Try it locally:** `npm run dev:remote` signs with a local dev key and serves the packages at
-  `/courses-dev/v1/` from the dev server.
-- **Rotating the key:** `npm run course-keys -- --force` adds a second public key; ship an app
-  update with it, then replace the `COURSE_SIGNING_KEY` secret.
-
-## Privacy note
-
-Community authors' name, email and courses are stored in D1; reports store a daily-salted
-hash of the reporter's IP for rate limiting only. Cloudflare sees the IP address of each download, like any web host. Erudior adds no analytics
-and sends no student data. The children's privacy notice (roadmap section 7) should say so.
+6. Check **Publish signed GitHub course feed** and confirm its signed catalog is available at `https://raw.githubusercontent.com/Aziliz/erudior/published-courses/v1/catalog.signed.json`.
+7. Deploy the website for engine changes. Advance `.github/desktop-release` with a versioned desktop engine change to publish signed installers.
