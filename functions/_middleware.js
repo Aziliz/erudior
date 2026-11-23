@@ -24,7 +24,11 @@ async function findPreview(slug) {
   return previews.entries.get(slug);
 }
 
-function coursePreview(request, shell, course) {
+// HTMLRewriter treats <noscript> children as text. Put the accessible preview in
+// the app mount point, which React replaces when the interactive course opens.
+const escapeText = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+
+export function coursePreview(request, shell, course) {
   const title = course.title + " · Erudior";
   const canonical = new URL(request.url);
   canonical.search = "";
@@ -34,8 +38,13 @@ function coursePreview(request, shell, course) {
     .on('meta[property="og:title"]', { element(el) { el.setAttribute("content", title); } })
     .on('meta[property="og:url"]', { element(el) { el.setAttribute("content", canonical.href); } })
     .on("head", { element(el) { el.append('<link rel="canonical" href="' + canonical.origin + canonical.pathname + '">', { html: true }); } })
-    .on("noscript h1", { element(el) { el.setInnerContent(course.title); } })
-    .on("noscript p", { element(el) { el.setInnerContent(course.description || "Open this course in Erudior."); } });
+    .on("#root", { element(el) {
+      const modules = (course.outline || []).map(module => "<li>" + escapeText(module.title) + "</li>").join("");
+      const outline = modules ? "<h2>Course outline</h2><ol>" + modules + "</ol>" : "";
+      el.setInnerContent("<main><h1>" + escapeText(course.title) + "</h1><p>" +
+        escapeText(course.description || "Open this course in Erudior.") + "</p>" + outline + "</main>", { html: true });
+    } })
+    .on("noscript", { element(el) { el.setInnerContent("Enable JavaScript to open the lessons and practice exercises."); } });
   const preview = transform.transform(shell);
   const headers = new Headers(preview.headers);
   headers.delete("ETag");
