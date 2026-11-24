@@ -5,6 +5,7 @@ import { ADMIN_EXAM, latestVmReports, validVmReport, vmReportKey, vmScore, type 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const tasks = [{id: "client-operator", points: 50}, {id: "server-team-directory", points: 50}];
 const scope = {scenario: ADMIN_EXAM, profile: "acceptance", course: "installed-test", lesson: "two-guests"} as const;
+const macOS = /Mac/i.test(navigator.platform);
 const key = vmReportKey(scope.course, scope.lesson, scope.scenario);
 type Status = {password: string; running: Record<string, boolean>; report?: VmLabReport; exam: {phase: string; id: string; error?: string}};
 const action = (action: string, expected?: string) => invoke<Status>("vm_lab", {...scope, action, tasks, minutes: 60, expected});
@@ -55,7 +56,7 @@ async function exercise() {
   }
   let state = await action("start");
   if (!state.running.client || !state.running.server) throw Error("Both guests must be running.");
-  const expected = state.exam.id, deadline = Date.now() + 30 * 60000;
+  const expected = state.exam.id, deadline = Date.now() + (macOS ? 45 : 30) * 60000;
   for (;;) {
     try {state = await action("begin", expected); break;} catch (error) {
       if (Date.now() > deadline) throw error;
@@ -65,7 +66,8 @@ async function exercise() {
   if (state.exam.phase !== "active") throw Error("The timer did not start.");
   for (const role of ["server", "client"]) {await receipt("console-" + role); await consoleTask(role, expected, state.password);}
   await action("submit", expected);
-  const stopAt = Date.now() + 20 * 60000;
+  await receipt("grading");
+  const stopAt = Date.now() + (macOS ? 75 : 20) * 60000;
   do {
     await sleep(2000); state = await action("status");
     if (state.exam.phase === "error" || Date.now() > stopAt) throw Error(state.exam.error || "Grading timed out.");

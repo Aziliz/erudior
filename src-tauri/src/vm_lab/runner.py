@@ -601,7 +601,11 @@ def observe_after_reboot(role, verb, attempt_id, previous_boot, fresh):
     if fresh or probe(role, verb, attempt_id).get("boot") == previous_boot:
         if probe(role, "reboot", attempt_id).get("reboot") is not True:
             raise LabError(f"The {role} did not accept the reboot request.")
-    seconds = 240 if x86_kvm() else 480
+    accelerated = x86_kvm()
+    seconds = 240 if accelerated else 480
+    # An x86 guest running entirely in software inside Lima can take over 20 minutes to boot.
+    if lima_guest_clock(accelerated):
+        seconds = 35 * 60
     deadline = time.monotonic() + seconds
     while time.monotonic() < deadline:
         time.sleep(2)

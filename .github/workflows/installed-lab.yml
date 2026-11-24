@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [windows-2025, macos-15-intel]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 90
+    timeout-minutes: ${{ matrix.os == 'macos-15-intel' && 160 || 90 }}
     steps:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
           echo 'import "../tests/installed-lab/driver";' > src/main.tsx
           node --input-type=module -e 'import fs from "node:fs"; fs.writeFileSync("src-tauri/acceptance.json", JSON.stringify({identifier:"com.erudior.acceptance",bundle:{createUpdaterArtifacts:false}}))'
           if [[ "$RUNNER_OS" == Windows ]]; then bundle=nsis; else bundle=dmg; fi
-          npx tauri build --bundles "$bundle" --config src-tauri/acceptance.json
+          npx tauri build --ci --bundles "$bundle" --config src-tauri/acceptance.json
       - name: Install and launch the Windows package twice
         if: runner.os == 'Windows'
         shell: pwsh
