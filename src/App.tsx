@@ -309,7 +309,7 @@ export default function App() {
   const [courseUpdates, setCourseUpdates] = useState<Course[]>([]);
   const courseUpdate = courseUpdates[0] ?? null;
   const dropUpdate = () => setCourseUpdates((u) => u.slice(1));
-  const [updater] = useState(() => new AppUpdateController(checkForUpdate));
+  const [updater] = useState(() => new AppUpdateController(checkForUpdate, window.localStorage));
   const appUpdate = useSyncExternalStore(updater.subscribe, updater.snapshot);
   const searchRef = useRef<HTMLInputElement>(null);
   const [family, setFamilyState] = useState<Family | null>(null);
@@ -512,15 +512,6 @@ export default function App() {
       window.removeEventListener("online", check);
     };
   }, [ready, updater]);
-
-  useEffect(() => {
-    if (appUpdate?.phase !== "ready" || (view.name !== "library" && view.name !== "who") || gate) return;
-    const timer = window.setTimeout(() => {
-      if (!courseOpening.current && !gateRef.current && (viewRef.current.name === "library" || viewRef.current.name === "who"))
-        void updater.act();
-    }, 1500);
-    return () => window.clearTimeout(timer);
-  }, [appUpdate, view.name, gate, updater]);
 
   // Homeschool students each see the courses they started (course files are shared on disk).
   const enrolled = family && studentId ? new Set(progress.enrolled ?? []) : null;
@@ -1491,7 +1482,7 @@ export default function App() {
         await reload();
       }
     },
-    checkAppUpdate: updater.check,
+    checkAppUpdate: () => updater.check(true),
     bankBack: (bank) =>
       bank.courseId ? { name: "course", courseId: bank.courseId, tab: "banks" } : { name: "library" },
     homeschool: HOMESCHOOL,
@@ -2076,26 +2067,29 @@ export default function App() {
               <b>Erudior {appUpdate.release.version} update</b>
               <span className="small muted" role="status">
                 {appUpdate.phase === "downloading" && `Downloading signed update${appUpdate.percent == null ? "…" : " (" + appUpdate.percent + "%)…"}`}
-                {appUpdate.phase === "ready" && "Downloaded. Erudior will update and restart at the Library or profile picker."}
+                {appUpdate.phase === "ready" && "The signed update is saved. Install it when you’re ready to restart Erudior."}
                 {appUpdate.phase === "installing" && (appUpdate.release.kind === "android"
                   ? "Preparing verified Android update… Approve installation in Android when prompted."
-                  : "Installing update… Your operating system may ask for approval.")}
+                  : "Installing update… If your system asks, use the administrator account shown in its prompt.")}
                 {appUpdate.phase === "restarting" && "Restarting Erudior…"}
                 {appUpdate.phase === "failed" && `Update failed: ${appUpdate.message}`}
                 {appUpdate.phase === "opened" && "Android installer opened. Approve the update to finish."}
-                {appUpdate.phase === "offered" && (appUpdate.release.kind === "android"
-                  ? "Android asks you to approve the installation." : "Choose the installer for your system on GitHub Releases.")}
+                {appUpdate.phase === "offered" && (appUpdate.message ?? (appUpdate.release.kind === "desktop"
+                  ? "A new version is available. Download it now or choose Later." : appUpdate.release.kind === "android"
+                  ? "Android asks you to approve the installation." : "Choose the installer for your system on GitHub Releases."))}
               </span>
             </div>
             <div className="row">
-              {(appUpdate.phase === "offered" || appUpdate.phase === "opened") &&
+              {(["offered", "opened", "ready", "failed"].includes(appUpdate.phase) && appUpdate.retry !== "restart") &&
                 <button className="btn sm ghost" onClick={updater.dismiss}>Later</button>}
               {appUpdate.release.kind === "external" &&
                 <button className="btn sm primary" onClick={() => openReleasesPage().catch(() => toast("Couldn't open the browser."))}>Open download page</button>}
               {(appUpdate.release.kind === "android" && ["offered", "failed", "opened"].includes(appUpdate.phase)) &&
                 <button className="btn sm primary" onClick={updater.act}>Verify and open installer</button>}
+              {appUpdate.release.kind === "desktop" && appUpdate.phase === "offered" &&
+                <button className="btn sm primary" onClick={updater.act}>Download update</button>}
               {appUpdate.release.kind === "desktop" && (appUpdate.phase === "ready" || appUpdate.phase === "failed") &&
-                <button className="btn sm primary" onClick={updater.act}>{appUpdate.phase === "failed" ? "Retry update" : "Install and restart now"}</button>}
+                <button className="btn sm primary" onClick={updater.act}>{appUpdate.retry === "download" ? "Retry download" : appUpdate.retry === "restart" ? "Retry restart" : appUpdate.retry === "install" ? "Retry installation" : "Install and restart now"}</button>}
             </div>
           </div>
         )}

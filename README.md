@@ -15,7 +15,7 @@ Content is organized into **courses**. Each course is one file with its own less
 - **Flags and notes**: flags and personal notes stay with a question across sessions; practice just your flagged questions; jump from a missed question to the lesson that covers it.
 - **Search**: one box (Ctrl+K) across lessons, glossary, reference sheets, questions and notecards.
 - **Backup and restore**: encrypted local Family backups with [inspect-only verification and staged recovery](docs/FAMILY_BACKUP_RECOVERY.md), including readable inventory and replacement warnings before an explicit restore.
-- **Course updates**: bundled courses offer their newer revisions in the app. Desktop installers check GitHub Releases for signed app updates. They download in the background and restart from the Library or profile picker.
+- **Course updates**: bundled courses offer their newer revisions in the app. Desktop installers check GitHub Releases for signed app updates. Choose when to download and when to install. A verified download stays available after reopening the app.
 - **Practice mode**: check each answer and read the explanation. Filter by topic, section, unseen, last missed, or under-70% questions.
 - **Built-in editor**: write and edit questions, sections and exam defaults. Supports multi-answer questions.
 - **Progress tracking**: session history, score trend, weakest topics, and one-click practice of missed questions.

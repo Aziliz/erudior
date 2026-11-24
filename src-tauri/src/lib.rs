@@ -2,6 +2,7 @@
 //! per-user app data directory, and reads/writes files the user picks for
 //! import/export.
 
+mod desktop_updates;
 mod portable_files;
 mod vm_lab;
 
@@ -407,8 +408,6 @@ fn data_location(app: AppHandle) -> Result<String, String> {
 }
 
 /// How this copy was installed, so the app knows whether it can update itself.
-/// Tauri's updater can replace an AppImage, a Windows install or the macOS app, but not a
-/// .deb or .rpm installed through the system package manager.
 #[tauri::command]
 fn install_kind() -> &'static str {
     if cfg!(target_os = "android") {
@@ -637,6 +636,9 @@ pub fn run() {
             write_text_file,
             data_location,
             install_kind,
+            desktop_updates::desktop_update_cached,
+            desktop_updates::desktop_update_download,
+            desktop_updates::desktop_update_install,
             stage_android_update,
             launch_android_installer,
             android_fetch_manifest,

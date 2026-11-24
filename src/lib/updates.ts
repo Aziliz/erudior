@@ -1,4 +1,4 @@
-import { invoke } from "@tauri-apps/api/core";
+import { Channel, invoke } from "@tauri-apps/api/core";
 import type { Release } from "./appUpdateController";
 import { inApp } from "./storage";
 import { validateAndroidRelease, shouldOfferAndroidUpdate } from "./androidUpdates";
@@ -37,26 +37,26 @@ export async function checkForUpdate(): Promise<Release | null> {
   }
   const { check } = await import("@tauri-apps/plugin-updater");
   const update = await check({ timeout: 30_000 });
-  if (!update) return null;
+  if (!update) {
+    await invoke("desktop_update_cached", { rid: null });
+    return null;
+  }
   const version = update.version;
   if (!["windows", "macos", "appimage", "deb", "rpm"].includes(kind)) {
     await update.close();
     return { kind: "external", version };
   }
+  const rid = update.rid;
+  let cached: boolean;
+  try { cached = await invoke<boolean>("desktop_update_cached", { rid }); }
+  catch (error) { await update.close(); throw error; }
   return {
-    kind: "desktop", version,
+    kind: "desktop", version, cached,
     download: async onProgress => {
-      let total = 0;
-      let received = 0;
-      await update.download(event => {
-        if (event.event === "Started") total = event.data.contentLength ?? 0;
-        if (event.event === "Progress") {
-          received += event.data.chunkLength;
-          onProgress(total ? Math.min(100, Math.round(received / total * 100)) : null);
-        }
-      }, { timeout: 300_000 });
+      const progress = new Channel<number | null>(onProgress);
+      await invoke("desktop_update_download", { rid, progress });
     },
-    install: () => update.install(),
+    install: () => invoke<boolean>("desktop_update_install", { rid }),
     // Windows hands off to a native installer that exits and relaunches the app.
     restart: async () => {
       if (kind !== "windows") await (await import("@tauri-apps/plugin-process")).relaunch();
