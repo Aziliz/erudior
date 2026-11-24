@@ -10019,7 +10019,7 @@
   "order": 137,
   "title": "RHCE in Ansible on AlmaLinux 10",
   "description": "Prepare for EX294 after RHCSA with two AlmaLinux 10 guests. Build and recover repeatable automation for services, security, storage and scheduled backups. Includes original two-host practicals, graded knowledge checks, spaced-repetition cards and reviewer-scored work orders.",
-  "revision": 3,
+  "revision": 4,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -10174,7 +10174,7 @@
   "order": 138,
   "title": "RHCE Enterprise Linux",
   "description": "Prepare for EX342 after RHCSA. Diagnose and restore AlmaLinux 10 hosts through controlled incidents covering boot, encrypted storage, RPM, networking, applications, PAM and crash evidence. Includes independent practicals and a two-host final.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -10284,7 +10284,7 @@
   "order": 139,
   "title": "RHCE in OpenShift: From Project Administration to Cluster Operations",
   "description": "Prepare for EX280 and EX380 on OpenShift 4.22. Build a notice service, hand off a governed project, then restore data, place workloads and trace incidents on a multi-worker practice cluster. Each stage ends with an independent practical.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -10381,7 +10381,7 @@
   "order": 140,
   "title": "RHCE in Cloud-native Applications",
   "description": "Prepare for EX188 and EX288 by building Shiftboard with rootless Podman, deploying it on OpenShift, and proving a release can be promoted, rejected and rolled back. Includes a portable source kit and two independent stage finals.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Information technology",
   "level": [
    "Professional"
