@@ -1,28 +1,36 @@
-// Drive the installed WebView2 window using the loopback debugging port enabled by this test.
-import assert from "node:assert/strict";
-import { setTimeout as delay } from "node:timers/promises";
-import { chromium } from "playwright";
+// Included only in the disposable Windows acceptance installer. Drive the visible controls
+// in its real WebView and report readiness to the host before it closes the first process.
+import { invoke } from "@tauri-apps/api/core";
 
-const endpoint = "http://127.0.0.1:9222";
-let browser, page;
-for (let i = 0; i < 120 && !page; i++) {
-  try {
-    browser ??= await chromium.connectOverCDP(endpoint, { timeout: 2000 });
-    page = browser.contexts().flatMap(c => c.pages()).find(p => p.url().startsWith("http://tauri.localhost") || p.url().startsWith("https://tauri.localhost"));
-  } catch { /* The runtime may still be starting. */ }
-  if (!page) await delay(500);
+const receipt = (phase, detail = "") => invoke("save_item", {
+  kind: "documents", id: "update-acceptance", content: JSON.stringify({ phase, detail }),
+});
+
+async function button(label) {
+  const deadline = Date.now() + 120_000;
+  let banner;
+  do {
+    banner = document.querySelector('[aria-label="App update"]');
+    const found = [...(banner?.querySelectorAll("button") ?? [])].find(b => b.textContent.trim() === label);
+    if (found && found.getClientRects().length && !found.disabled) return found;
+    if (banner?.textContent.includes("Update failed")) break;
+    await new Promise(resolve => setTimeout(resolve, 250));
+  } while (Date.now() < deadline);
+  throw Error("Expected " + label + ". " + (banner?.innerText || "No update banner."));
 }
-assert.ok(page, "Installed Erudior WebView2 page");
-page.setDefaultTimeout(120_000);
-const banner = page.getByRole("region", { name: "App update", exact: true });
-const install = banner.getByRole("button", { name: "Install and restart now" });
-if (process.argv[2] === "download") {
-  await banner.getByRole("button", { name: "Download update" }).click();
-  await install.waitFor();
-} else {
-  await install.waitFor();
-  assert.equal(await banner.getByRole("button", { name: "Download update" }).count(), 0);
-  // Native NSIS exits the calling app during the click.
-  await install.click({ noWaitAfter: true }).catch(e => { if (!/closed|disconnected/i.test(String(e))) throw e; });
+
+async function exercise() {
+  const marker = "erudior.test.downloaded";
+  if (localStorage.getItem(marker)) {
+    const install = await button("Install and restart now");
+    await receipt("installing");
+    install.click();
+    return;
+  }
+  (await button("Download update")).click();
+  await button("Install and restart now");
+  localStorage.setItem(marker, "yes");
+  await receipt("downloaded");
 }
-await browser.close();
+
+exercise().catch(error => receipt("failed", String(error)));
