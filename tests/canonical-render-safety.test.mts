@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 const dom = new JSDOM('<!doctype html><html><body></body></html>', { url: 'https://example.test', pretendToBeVisual: true });
 Object.assign(globalThis, { window: dom.window, document: dom.window.document, HTMLElement: dom.window.HTMLElement, localStorage: dom.window.localStorage });
@@ -93,3 +94,32 @@ for (const literal of ['````markdown\n```console\n> pwd\n/tmp\n```\n````','```co
 const legacyBlock = "```text\n> hostname\nYour guest name varies.\n```";
 assert(!renderMarkdown(legacyBlock).includes("command-copy"));
 assert(renderMarkdown(legacyBlock, undefined, undefined, undefined, true).includes("command-copy"));
+
+// RHCSA pages use the same literal transcript in readers that recognize legacy console examples.
+const rhcsa = JSON.parse(readFileSync(new URL('../samples/rhcsa-10-administration.json', import.meta.url), 'utf8'));
+const independentPages = new Set([
+  'shared-directory', 'repo-lab', 'tuning-lab', 'service-lab', 'selinux-lab',
+  'rehearsal-handoff', 'rehearsal-maintenance', 'alternate-practical',
+  'practice-exam-v2', 'after-action', 'review-map', 'study-path',
+]);
+for (const page of [...rhcsa.lessons, ...rhcsa.references]) {
+  const source = page.body.match(/^```plaintext\n([\s\S]*?)^```$/m);
+  const view = document.createElement('div');
+  view.innerHTML = renderMarkdown(page.body, undefined, undefined, undefined, true);
+  const blocks = view.querySelectorAll('pre code');
+  assert.equal(blocks.length, independentPages.has(page.id) ? 0 : 1, page.id);
+  assert.equal(view.querySelectorAll('.command-step, .command-copy').length, 0, page.id);
+  if (!blocks.length) continue;
+  assert(source, page.id);
+  // Marked consumes one trailing newline from a fence that ends in a blank line.
+  const transcript = source[1].replace(/\n\n\n$/, "\n\n");
+  assert.equal(blocks[0].textContent, transcript, page.id);
+  if (transcript.trimEnd().split("\n").at(-1)?.startsWith(">")) {
+    assert(transcript.endsWith("\n\n"), page.id);
+  }
+  assert.match(source[1], /^>\S/, page.id);
+  assert.doesNotMatch(source[1], /^(Command|Expected results?|No output on success)[:.]?$/mi, page.id);
+  if (page.id === 'shell-words') {
+    assert.match(source[1], /^>cd "\$work"\n\n>pwd\n\/tmp\//m);
+  }
+}
