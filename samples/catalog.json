@@ -10007,7 +10007,7 @@
   "order": 137,
   "title": "RHCE in Ansible on AlmaLinux 10",
   "description": "Prepare for EX294 after RHCSA with two AlmaLinux 10 guests. Build and recover repeatable automation for services, security, storage and scheduled backups. Includes original two-host practicals, graded knowledge checks, spaced-repetition cards and reviewer-scored work orders.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -10152,6 +10152,310 @@
     "lessons": [
      "Final practical A: build the replacement desks",
      "Final practical B: recover the evidence desk"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rhce-enterprise-linux",
+  "file": "rhce-enterprise-linux.json",
+  "order": 138,
+  "title": "RHCE Enterprise Linux",
+  "description": "Prepare for EX342 after RHCSA. Diagnose and restore AlmaLinux 10 hosts through controlled incidents covering boot, encrypted storage, RPM, networking, applications, PAM and crash evidence. Includes independent practicals and a two-host final.",
+  "revision": 1,
+  "subject": "Information technology",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ],
+  "lessons": 21,
+  "questions": 63,
+  "cards": 42,
+  "drills": 0,
+  "lessonIds": [
+   "baseline",
+   "forward",
+   "integrity",
+   "unit",
+   "boot",
+   "hardware",
+   "ext",
+   "lvm",
+   "luks",
+   "resolve",
+   "rpmdb",
+   "layers",
+   "capture",
+   "libraries",
+   "memory",
+   "labels",
+   "account",
+   "pam",
+   "dump",
+   "handoff",
+   "final"
+  ],
+  "outline": [
+   {
+    "title": "Observe, bound and reproduce",
+    "lessons": [
+     "Build a record another shift can reproduce",
+     "Follow one message from producer to collector",
+     "Separate approved changes from unexplained drift"
+    ]
+   },
+   {
+    "title": "Recover boot and service availability",
+    "lessons": [
+     "Read the failed dependency before changing the service",
+     "Choose a recovery boundary at the console",
+     "Distinguish device presence from driver and configuration"
+    ]
+   },
+   {
+    "title": "Recover files, volumes and encrypted data",
+    "lessons": [
+     "Read a damaged copy before repairing it",
+     "Recover access across the LVM layers",
+     "Recover the record with the authorized key"
+    ]
+   },
+   {
+    "title": "Repair software transactions and provenance",
+    "lessons": [
+     "Distinguish a missing provider from a broken database",
+     "Verify the package record and repair an isolated database copy"
+    ]
+   },
+   {
+    "title": "Diagnose a broken network path",
+    "lessons": [
+     "Work from the client request toward the listener",
+     "Use a narrow trace to discriminate between causes"
+    ]
+   },
+   {
+    "title": "Debug application failures without relaxing controls",
+    "lessons": [
+     "Find the library the loader actually needs",
+     "Test a growth hypothesis under fixed input",
+     "Restore a service's intended SELinux access"
+    ]
+   },
+   {
+    "title": "Diagnose identity, admission and account policy",
+    "lessons": [
+     "Separate identity lookup from account eligibility",
+     "Repair a dedicated PAM policy stack"
+    ]
+   },
+   {
+    "title": "Prepare and preserve third-party diagnostics",
+    "lessons": [
+     "Prepare a crash capture and validate the result",
+     "Select, redact and verify a support bundle"
+    ]
+   },
+   {
+    "title": "Independent duty shift",
+    "lessons": [
+     "Restore the east desk and produce a defensible handoff"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rhce-openshift-administration",
+  "file": "rhce-openshift-administration.json",
+  "order": 139,
+  "title": "RHCE in OpenShift: From Project Administration to Cluster Operations",
+  "description": "Prepare for EX280 and EX380 on OpenShift 4.22. Build a notice service, hand off a governed project, then restore data, place workloads and trace incidents on a multi-worker practice cluster. Each stage ends with an independent practical.",
+  "revision": 1,
+  "subject": "Information technology",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ],
+  "lessons": 22,
+  "questions": 46,
+  "cards": 44,
+  "drills": 0,
+  "lessonIds": [
+   "scope",
+   "desired",
+   "render",
+   "ingress",
+   "isolation",
+   "budgets",
+   "tenancy",
+   "self-service",
+   "project-final",
+   "providers",
+   "directory",
+   "credentials",
+   "access-trial",
+   "backup",
+   "restore",
+   "pool",
+   "schedule",
+   "storage-trial",
+   "gitops",
+   "metrics",
+   "logs",
+   "platform-final"
+  ],
+  "outline": [
+   {
+    "title": "EX280 · Read and change a live project",
+    "lessons": [
+     "Establish the bench and read cluster health",
+     "Read a rollout from spec to running bytes",
+     "Render overlays, templates and Helm releases"
+    ]
+   },
+   {
+    "title": "EX280 · Publish and isolate the notice service",
+    "lessons": [
+     "Locate a failed request across route, service and pod",
+     "Prove one allowed client and one denied client",
+     "Budget a tenant and produce bounded batch work"
+    ]
+   },
+   {
+    "title": "EX280 · Delegate a project, then hand it over",
+    "lessons": [
+     "Separate identity, permission and workload admission",
+     "Maintain project templates and an operator lifecycle",
+     "Stage A practical — hand off a governed bulletin"
+    ]
+   },
+   {
+    "title": "EX380 · Integrate identities and reconcile access",
+    "lessons": [
+     "Change identity providers without losing the recovery session",
+     "Reconcile group membership, including removals",
+     "Prove which credentials a kubeconfig is using",
+     "Independent practical — reconcile the night shift"
+    ]
+   },
+   {
+    "title": "EX380 · Move data and place resilient workloads",
+    "lessons": [
+     "Prepare a backup that contains application data",
+     "Restore a snapshot into an isolated namespace",
+     "Roll a configuration to an identified worker pool",
+     "Separate admission, placement and voluntary disruption",
+     "Independent practical — prove a second copy exists"
+    ]
+   },
+   {
+    "title": "EX380 · Reconcile delivery and investigate incidents",
+    "lessons": [
+     "Promote a release by reconciling a reviewed commit",
+     "Follow an alert from expression to test receiver",
+     "Trace an event through Vector, Loki and an external sink",
+     "Stage B practical — recover the archive shift"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "rhce-cloud-native-applications",
+  "file": "rhce-cloud-native-applications.json",
+  "order": 140,
+  "title": "RHCE in Cloud-native Applications",
+  "description": "Prepare for EX188 and EX288 by building Shiftboard with rootless Podman, deploying it on OpenShift, and proving a release can be promoted, rejected and rolled back. Includes a portable source kit and two independent stage finals.",
+  "revision": 1,
+  "subject": "Information technology",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ],
+  "lessons": 22,
+  "questions": 66,
+  "cards": 44,
+  "drills": 0,
+  "lessonIds": [
+   "contract",
+   "image-build",
+   "registry",
+   "mount-run",
+   "pod-stack",
+   "triage",
+   "local-final",
+   "projects",
+   "binary",
+   "deployment",
+   "boundaries",
+   "source-build",
+   "builder-image",
+   "hooks",
+   "promotion",
+   "template",
+   "overlay",
+   "chart",
+   "registry-access",
+   "pipeline",
+   "operator",
+   "cluster-final"
+  ],
+  "outline": [
+   {
+    "title": "Build and distribute a Podman image",
+    "lessons": [
+     "Start from the customer-visible contract",
+     "Choose what goes into the image",
+     "Deliver a pullable image and an offline copy"
+    ]
+   },
+   {
+    "title": "Operate and recover a rootless two-container service",
+    "lessons": [
+     "Wire inputs to an unprivileged process",
+     "Separate the service from its observer",
+     "Find the first failed boundary",
+     "Independent practical A — deliver a replacement workstation"
+    ]
+   },
+   {
+    "title": "Deploy the same application into two OpenShift projects",
+    "lessons": [
+     "Establish two project boundaries",
+     "Build inside the cluster and identify the output",
+     "Make the desired image serve real data",
+     "Prove an image and a setting crossed the right boundary"
+    ]
+   },
+   {
+    "title": "Build from source and promote a verified digest",
+    "lessons": [
+     "Build the reviewed Git revision",
+     "Package a reusable source-validation builder",
+     "Make a bad candidate fail before promotion",
+     "Promote and roll back an image without rebuilding it"
+    ]
+   },
+   {
+    "title": "Package independent releases with templates, Kustomize and Helm",
+    "lessons": [
+     "Parameterize two cooperating containers",
+     "Use a Kustomize overlay without changing the base",
+     "Use Helm to upgrade and reverse a customer release"
+    ]
+   },
+   {
+    "title": "Verify delivery with the registry, Tekton and an installed operator",
+    "lessons": [
+     "Choose a supported access path to the internal registry",
+     "Turn an acceptance claim into a Tekton run",
+     "Consume an installed operator through its API",
+     "Independent practical B — promote a reviewed application"
     ]
    }
   ]
