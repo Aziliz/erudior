@@ -76,6 +76,12 @@ The sample awards 3 points for the client account, 4 for the server directory an
 
 New disks receive the current guest probe automatically. To retain an older practice pair's work when successive checks time out, install the updated `src-tauri/src/vm_lab/guest_probe.py` on each affected guest at `/usr/local/libexec/erudior-lab-probe.py`, run `sudo restorecon /usr/local/libexec/erudior-lab-probe.py` and restart `erudior-lab-probe.service`. The probe keeps its guest port open between checks and recognizes a real NFS file beneath a stacked autofs mount. Previously saved practice scores remain readable. Start the fixed mock with freshly prepared disks to receive the supplied service and local repository. In-flight exams started with the older grader finish with their original policy.
 
+## v0.25.8 release verification
+
+- [AlmaLinux grading run 45302550164](https://github.com/Aziliz/erudior/actions/runs/45302550164) retained AlmaLinux 10.3 receipts for all six added RHCSA tasks and the RHCE idempotence/managed-state practical.
+- [Installed-package run 45302550220](https://github.com/Aziliz/erudior/actions/runs/45302550220) retained Windows and macOS receipts showing submission, provider restart, app relaunch and recovered practical results.
+- [Desktop release run 45332408316](https://github.com/Aziliz/erudior/actions/runs/45332408316) passed Linux, Windows and macOS regression/build/signature verification and published v0.25.8 with signed updater packages and `latest.json`.
+
 ## Verify on a Linux host
 
 The default runner unit tests use Python. The focused UI tests use the repository's installed JavaScript dependencies.
