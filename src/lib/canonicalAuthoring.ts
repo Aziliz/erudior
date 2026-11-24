@@ -175,7 +175,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
     if (c.requires !== undefined) strings(c.requires,'course.requires',true);
     if (c.revision !== undefined)
         integer(c.revision, 'course.revision', 1);
-    if (c.practiceEnvironment !== undefined && c.practiceEnvironment !== "almalinux-10.3")
+    if (c.practiceEnvironment !== undefined && c.practiceEnvironment !== "almalinux-10.3" && c.practiceEnvironment !== "none")
         add('course.practiceEnvironment', 'unknown practice environment');
     if (c.calculator !== undefined && !['basic', 'scientific', 'graphing', 'none'].includes(c.calculator as string))
         add('course.calculator', 'unknown calculator');

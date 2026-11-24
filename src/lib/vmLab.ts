@@ -15,11 +15,10 @@ export type VmLabScenario = typeof NFS_LAB | VmExamScenario;
 export type VmConsoleScenario = VmLabScenario | typeof ALMA_PRACTICE;
 
 export function coursePracticeScenario(course: {id: string; practiceEnvironment?: string}) {
-  // Preserve existing practice overlays and the Ansible control-node setup.
+  if (course.practiceEnvironment === "none") return undefined;
+  // These older course packages already have persistent disks in the original scenario.
   if (course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10") return NFS_LAB;
-  // Earlier desktop versions can have saved these courses before the metadata existed.
-  if (course.practiceEnvironment === "almalinux-10.3" ||
-      ["rhce-enterprise-linux", "rhce-openshift-administration", "rhce-cloud-native-applications"].includes(course.id)) return ALMA_PRACTICE;
+  if (course.practiceEnvironment === "almalinux-10.3") return ALMA_PRACTICE;
   return undefined;
 }
 

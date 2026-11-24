@@ -36,7 +36,7 @@ for (const id of [linux.id, "rhce", "colorado-broker", "science-biology", "impor
   ok(`${id} starts without a calculator`, calcKind({ id }) === null);
 }
 const preferences = { [linux.id]: true, [algebra.id]: false };
-ok("enable a calculator in RHCSA", calcKind(linux, preferences) === "basic");
+ok("a learner preference cannot enable a calculator the course does not offer", calcKind(linux, preferences) === null);
 ok("hide it in algebra", calcKind(algebra, preferences) === null);
 ok("other courses stay independent", calcKind({ id: "law" }, preferences) === null);
 for (const calculator of ["basic", "scientific", "graphing"] as const) {

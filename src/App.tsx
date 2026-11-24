@@ -1635,7 +1635,7 @@ export default function App() {
 
   function studyPage(course: Course, content: React.ReactNode, lesson?: Lesson) {
     const sharedMachines = coursePracticeScenario(course);
-    if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !lesson?.vmLab)) return content;
+    if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !(lesson && lessonVmScenario(course.id, lesson)))) return content;
     if (localLocked || gate || concealed || (family && !student)) return null;
     const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id]);
     const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);

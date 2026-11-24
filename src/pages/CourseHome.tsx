@@ -121,7 +121,7 @@ export default function CourseHome({ api, course, tab }: { api: AppApi; course: 
           {course.community && <CommunityNote api={api} course={course} />}
         </div>
         <div className="row">
-          {course.calculator !== "none" && (
+          {calcKind(course) && (
             <label className="check">
               <input type="checkbox" checked={!!calcKind(course, api.progress.courseCalculators)} disabled={savingCalculator}
                 onChange={e => void setCalculator(e.target.checked)} />

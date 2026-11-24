@@ -65,9 +65,7 @@ console.log("Unified RHCSA catalog, routes, course import, quiz links, practical
 
 assert.equal(coursePracticeScenario(course), NFS_LAB);
 assert.equal(coursePracticeScenario({ id: "rhce-ansible-alma10" }), NFS_LAB);
-for (const id of ["rhce-enterprise-linux", "rhce-openshift-administration", "rhce-cloud-native-applications"]) {
-  assert.equal(coursePracticeScenario({id}), ALMA_PRACTICE);
-}
+assert.equal(coursePracticeScenario({id: "rhce-ansible-alma10", practiceEnvironment: "none"}), undefined);
 const declared = importValidatedCourseSnapshot(JSON.stringify({...JSON.parse(exportCourseSnapshot(course)), id: "custom-workshop", practiceEnvironment: "almalinux-10.3"}));
 assert.equal(coursePracticeScenario(declared), ALMA_PRACTICE);
 assert.equal(JSON.parse(exportCourseSnapshot(declared)).practiceEnvironment, "almalinux-10.3");

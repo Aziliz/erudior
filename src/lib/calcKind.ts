@@ -9,5 +9,5 @@ export function calcKind(course: Pick<Course, "id" | "calculator"> | undefined, 
   if (enabled === false) return null;
   const kind = course.calculator ?? calculatorForSubject(catalogEntry(course.id)?.subject);
   if (kind !== "none") return kind;
-  return enabled === true ? "basic" : null;
+  return null;
 }

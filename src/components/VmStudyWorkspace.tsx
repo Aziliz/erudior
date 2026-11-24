@@ -13,7 +13,7 @@ interface Props {
   children: ReactNode;
 }
 
-export default function VmStudyWorkspace({ api, course, page, practiceScenario = NFS_LAB, lessonMachines, children }: Props) {
+export default function VmStudyWorkspace({ api, course, page, practiceScenario, lessonMachines, children }: Props) {
   const [open, setOpen] = useState(false);
   const [practiceTarget, setPracticeTarget] = useState<HTMLDivElement | null>(null);
   const [lessonTarget, setLessonTarget] = useState<HTMLDivElement | null>(null);
@@ -32,7 +32,7 @@ export default function VmStudyWorkspace({ api, course, page, practiceScenario =
   }
 
   return <div onKeyDownCapture={switchPane} className={`vm-study${open && !lessonMachines ? " vm-study-open" : ""}`}>
-    {!lessonMachines && <div className="vm-study-tools no-print">
+    {practiceScenario && !lessonMachines && <div className="vm-study-tools no-print">
       <button className="btn sm" aria-expanded={open} aria-controls="vm-study-machines" onClick={() => setOpen(!open)}>
         {open ? "Hide practice terminal" : "Open practice terminal"}
       </button>
@@ -43,7 +43,7 @@ export default function VmStudyWorkspace({ api, course, page, practiceScenario =
     <aside className="vm-study-machines no-print" id="vm-study-machines" aria-label={lessonMachines ? "Lesson terminal" : "Practice terminal"}>
       <div className="vm-study-console-slot" ref={setLessonTarget} hidden={!lessonMachines} />
       <div className="vm-study-console-slot" ref={setPracticeTarget} hidden={lessonMachines} />
-      {open && <div hidden={lessonMachines}>
+      {open && practiceScenario && <div hidden={lessonMachines}>
         <VmConsoleTarget.Provider value={{ target: practiceTarget, visible: !lessonMachines }}>
           <VmLabPanel api={api} course={course} lesson="practice-environment" scenario={practiceScenario} />
         </VmConsoleTarget.Provider>

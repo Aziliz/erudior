@@ -860,3 +860,9 @@ Select one to ten distinct built-in tasks in display order. See the VM guide for
 The client account objective checks that `labtech` belongs to `labops`. The server directory objective checks that `/srv/team` belongs to `labops` with mode `2770`. The NFS objective checks autofs and the expected file on the remote filesystem at `/mnt/projects`. Each objective must pass at submission and after its assigned VM reboots. The engine reports both observations and can resume a partially graded submission.
 
 See the [RHCSA practice exam](../samples/rhcsa-10-practice-exam.json), [importable demonstration](../samples/demo-vm-lab.json) and [host setup and grading guide](VM_LABS.md).
+
+### Course tools
+
+Set `practiceEnvironment` to `"almalinux-10.3"` to offer a desktop practice terminal or `"none"` to disable it. The terminal reuses the installed AlmaLinux practice kit and keeps a separate working environment for each learner and course. Existing RHCSA and Ansible packages retain their original practice disks. Lessons with a graded VM exercise keep their own exercise environment.
+
+Set `calculator` to `"none"`, `"basic"`, `"scientific"` or `"graphing"`. Learners can hide an offered calculator. Older courses that omit the calculator setting retain the subject default. Both settings travel with course exports and published revisions.
