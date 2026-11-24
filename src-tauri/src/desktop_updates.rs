@@ -152,3 +152,22 @@ fn install_linux_package(kind: &str, bytes: &[u8]) -> Result<(), String> {
             if detail.trim().is_empty() { stdout.trim() } else { detail.trim() }),
     })
 }
+
+#[cfg(all(test, target_os = "linux"))]
+mod tests {
+    use super::install_linux_package;
+
+    // The Fedora acceptance job supplies a verified release and a disposable RPM database.
+    #[test]
+    #[ignore]
+    fn install_fedora_release() {
+        let bytes = std::fs::read(std::env::var("ERUDIOR_TEST_RPM").unwrap()).unwrap();
+        let result = install_linux_package("rpm", &bytes);
+        if std::env::var_os("ERUDIOR_EXPECT_DENIAL").is_some() {
+            let message = result.unwrap_err();
+            assert!(message.contains("authorization was unavailable or denied"), "{message}");
+        } else {
+            result.unwrap();
+        }
+    }
+}

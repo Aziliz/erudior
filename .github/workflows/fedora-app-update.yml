@@ -1,0 +1,50 @@
+name: Fedora signed RPM installation
+on:
+  pull_request:
+    paths:
+      - 'src-tauri/src/desktop_updates.rs'
+      - '.github/workflows/fedora-app-update.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  signed-rpm:
+    runs-on: ubuntu-latest
+    container: fedora:45
+    timeout-minutes: 30
+    steps:
+      - name: Install build and desktop authorization dependencies
+        run: dnf -y install gcc-c++ pkgconf-pkg-config openssl-devel gtk3-devel webkit2gtk4.1-devel libappindicator-gtk3-devel librsvg2-devel polkit dbus-daemon minisign jq util-linux git tar gzip zstd
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - name: Build the native RPM installation test
+        shell: bash
+        run: |
+          cd src-tauri
+          cargo test --locked --lib --no-run --message-format=json > /tmp/test-build.json
+          exe=$(jq -r 'select(.executable != null) | .executable' /tmp/test-build.json | tail -1)
+          install -m 755 "$exe" /tmp/erudior-rpm-test
+      - name: Verify a release and exercise authorization denial and DNF installation
+        shell: bash
+        env:
+          ERUDIOR_TEST_RPM: /tmp/erudior-release.rpm
+        run: |
+          set -euo pipefail
+          curl -fsSL 'https://github.com/Aziliz/erudior/releases/latest/download/latest.json' > /tmp/latest.json
+          key=$(jq -r '.plugins.updater.pubkey' src-tauri/tauri.conf.json | base64 -d | tail -1)
+          jq -r '.platforms["linux-x86_64-rpm"].signature' /tmp/latest.json | base64 -d > /tmp/release.sig
+          curl -fsSL "$(jq -r '.platforms["linux-x86_64-rpm"].url' /tmp/latest.json)" > "$ERUDIOR_TEST_RPM"
+          minisign -Vm "$ERUDIOR_TEST_RPM" -P "$key" -x /tmp/release.sig
+          package=$(rpm -qp --queryformat '%{NAME}' "$ERUDIOR_TEST_RPM")
+          mkdir -p /run/dbus
+          dbus-uuidgen --ensure
+          dbus-daemon --system --fork
+          /usr/lib/polkit-1/polkitd --no-debug &
+          for i in {1..30}; do pkaction >/dev/null 2>&1 && break; sleep 1; done
+          runuser -u nobody -- env ERUDIOR_TEST_RPM="$ERUDIOR_TEST_RPM" ERUDIOR_EXPECT_DENIAL=1 /tmp/erudior-rpm-test --ignored --exact desktop_updates::tests::install_fedora_release
+          if rpm -q "$package"; then echo 'Installed without authorization'; exit 1; fi
+          /tmp/erudior-rpm-test --ignored --exact desktop_updates::tests::install_fedora_release
+          test "$(rpm -q --queryformat '%{VERSION}' "$package")" = "$(jq -r .version /tmp/latest.json)"
