@@ -96,6 +96,7 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
   const full: CommunityDoc = {
     ...structuredClone(doc),
     calculator: "basic",
+    practiceEnvironment: "almalinux-10.3",
     exam: { questionCount: 3, minutes: 20, passingPercent: 80 },
     modules: [
       { id: "m1", title: "Basics", quiz: [{ id: "q1", stem: "Pick A", choices: ["A", "B"], answer: [0], explanation: "" }] },
@@ -130,6 +131,7 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
   full.lessons.push({ id: "l2", title: "Owls", module: "m2", honors: true, blocks: [{ type: "text", md: "Night birds." }, { type: "question", id: "q6", stem: "Owls hunt at?", choices: ["Night", "Noon"], answer: [0], explanation: "" }] });
   ok("full doc valid", checkDoc(full, true).length === 0, checkDoc(full, true));
   const c = normalizeCourse(toCourse(full, { id: "f", version: 1, review: "not_reviewed", author: "A" }, (id) => `data:image/png;base64,${id}`));
+  ok("practice terminal", c.practiceEnvironment === "almalinux-10.3");
   ok("calculator", c.calculator === "basic");
   ok("modules", c.modules.length === 2 && c.modules[1].honors === true && c.modules[0].quiz?.[0] === "m1-q1", c.modules);
   ok("lesson fields", c.lessons[0].module === "m1" && c.lessons[0].minutes === 15 && c.lessons[0].drills?.[0] === "x1" && c.lessons[0].refs?.[0] === "r1");
@@ -157,7 +159,7 @@ ok("no questions = no bank", noQ.banks.length === 0 && noQ.community?.review ===
   ok("language", c.language?.code === "de" && c.vocab?.[0].term === "der Vogel" && c.readingList?.[0].free === true);
   ok("image ids include questions", imageIds(full).sort().join() === "img1,img2");
   ok("math subject offers graphing", normalizeCourse(toCourse({ ...doc, subject: "Math" }, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "graphing");
-  ok("other subjects leave the calculator optional", normalizeCourse(toCourse(doc, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === undefined);
+  ok("other subjects publish with calculator off", normalizeCourse(toCourse(doc, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "none");
   ok("no calculator", normalizeCourse(toCourse({ ...doc, calculator: "none" }, { id: "s", version: 1, review: "not_reviewed", author: "A" }, () => "")).calculator === "none");
 
   const bad = (name: string, edit: (d: CommunityDoc) => void, re: RegExp, strict = true) => {

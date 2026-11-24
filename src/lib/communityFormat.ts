@@ -186,6 +186,7 @@ export interface CommunityDoc extends CourseWork {
   type?: string;
   /** The calculator learners get (missing: chosen from the subject, like official courses). */
   calculator?: CalcChoice;
+  practiceEnvironment?: "none" | "almalinux-10.3";
   /** The practice exam (missing: up to 50 questions, 1.5 minutes each, 70% to pass). */
   exam?: CExam;
   /** Missing or empty: one module named after the course. */
@@ -482,6 +483,7 @@ export function checkDoc(raw: unknown, strict: boolean, context: { communityImag
     if (d.canonical?.course?.title !== d.title) errs.push("Listing title must match the canonical course title.");
     return errs;
   }
+  if (d.practiceEnvironment !== undefined && d.practiceEnvironment !== "none" && d.practiceEnvironment !== "almalinux-10.3") errs.push("Choose a supported practice terminal.");
   if (d.calculator !== undefined && !CALCULATORS.includes(d.calculator)) errs.push("Choose a calculator.");
   if (d.exam !== undefined) {
     const e = d.exam;
@@ -994,7 +996,8 @@ function convertCommunityCourse(d: CommunityDoc, meta: CommunityMeta, imageSrc: 
     ...(d.language ? { language: { code: d.language.code, name: d.language.name.trim(), ...(d.language.tts ? { tts: d.language.tts } : {}), ...(d.language.keys?.length ? { keys: d.language.keys } : {}), ...(d.language.level ? { level: d.language.level } : {}) } } : {}),
     ...(d.language && d.vocab?.length ? { vocab: d.vocab.filter((v) => v.term.trim() && v.meanings.some((m) => m.trim())).map((v) => ({ ...v, meanings: v.meanings.filter((m) => m.trim()) })) } : {}),
     ...(d.readingList?.length ? { readingList: d.readingList.filter((r) => r.title.trim()) } : {}),
-    ...(d.calculator || calculator !== "none" ? { calculator } : {}),
+    calculator,
+    ...(d.practiceEnvironment === undefined ? {} : { practiceEnvironment: d.practiceEnvironment }),
     ...(d.branchingScenarios === undefined ? {} : { branchingScenarios: parseCourseBranchingScenarios(d.branchingScenarios,new Set(d.lessons.map(l=>l.id))) }),
     ...(d.scientificWorkspaces === undefined ? {} : { scientificWorkspaces: parseCourseScientificWorkspaces(d.scientificWorkspaces,new Set(d.lessons.map(l=>l.id))) }),
     ...(d.advancedAssessments === undefined ? {} : { advancedAssessments: parseCourseAdvancedAssessments(d.advancedAssessments,new Set(d.lessons.map(l=>l.id))) }),

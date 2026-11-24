@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { createContext, useContext, useEffect, useId, useRef, useState } from "react";
 import type { Terminal } from "@xterm/xterm";
 import VmConsoleHeight from "./VmConsoleHeight";
-import type { VmLabScenario } from "../lib/vmLab";
+import type { VmConsoleScenario } from "../lib/vmLab";
 
 type ConsoleEvent = { kind: "output"; bytes: number[] } | { kind: "closed"; message: string };
 export type GuestRole = "client" | "server";
@@ -15,7 +15,7 @@ interface ConsoleProps {
   profile: string;
   course: string;
   lesson: string;
-  scenario: VmLabScenario;
+  scenario: VmConsoleScenario;
   expected: string;
   close: () => void;
 }

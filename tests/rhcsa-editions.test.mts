@@ -3,6 +3,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { CATALOG, carryForwardLessons, setCatalog, type CatalogEntry } from "../src/lib/catalog.ts";
 import { importValidatedCourseSnapshot } from "../src/lib/courseIntegrity.ts";
 import { pathToView } from "../src/lib/routes.ts";
+import { ALMA_PRACTICE, NFS_LAB, coursePracticeScenario } from "../src/lib/vmLab.ts";
+import { exportCourseSnapshot } from "../src/lib/course.ts";
 import type { Progress } from "../src/lib/types.ts";
 
 const entries: CatalogEntry[] = JSON.parse(readFileSync("samples/catalog.json", "utf8"));
@@ -59,3 +61,12 @@ assert.equal(p.lessonsDone[current.id + "/shell-evidence"], undefined);
 assert.equal(merged.attempts, p.attempts);
 assert.equal(carryForwardLessons(current.id, merged), merged);
 console.log("Unified RHCSA catalog, routes, course import, quiz links, practicals and legacy completion checks passed.");
+
+
+assert.equal(coursePracticeScenario(course), NFS_LAB);
+assert.equal(coursePracticeScenario({ id: "rhce-ansible-alma10" }), NFS_LAB);
+assert.equal(coursePracticeScenario({id: "rhce-ansible-alma10", practiceEnvironment: "none"}), undefined);
+const declared = importValidatedCourseSnapshot(JSON.stringify({...JSON.parse(exportCourseSnapshot(course)), id: "custom-workshop", practiceEnvironment: "almalinux-10.3"}));
+assert.equal(coursePracticeScenario(declared), ALMA_PRACTICE);
+assert.equal(JSON.parse(exportCourseSnapshot(declared)).practiceEnvironment, "almalinux-10.3");
+assert.equal(coursePracticeScenario({ id: "unrelated" }), undefined);

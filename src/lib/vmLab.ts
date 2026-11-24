@@ -1,3 +1,4 @@
+export const ALMA_PRACTICE = "alma10-course-practice-v1";
 export const NFS_LAB = "linux-nfs-autofs-v1";
 export const NFS_EXAM = "linux-nfs-autofs-exam-v1";
 export const ADMIN_EXAM = "linux-admin-exam-v1";
@@ -11,6 +12,15 @@ export const MOCK_PASS_POINTS = 210;
 export const DEFAULT_VM_EXAM_MINUTES = 20;
 export type VmExamScenario = typeof NFS_EXAM | typeof ADMIN_EXAM | typeof RHCSA_MOCK | typeof RHCSA_MOCK2 | typeof RHCE_EXAM;
 export type VmLabScenario = typeof NFS_LAB | VmExamScenario;
+export type VmConsoleScenario = VmLabScenario | typeof ALMA_PRACTICE;
+
+export function coursePracticeScenario(course: {id: string; practiceEnvironment?: string}) {
+  if (course.practiceEnvironment === "none") return undefined;
+  // These older course packages already have persistent disks in the original scenario.
+  if (course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10") return NFS_LAB;
+  if (course.practiceEnvironment === "almalinux-10.3") return ALMA_PRACTICE;
+  return undefined;
+}
 
 // {name} placeholders are filled with the attempt's values (DEFAULT_PARAMS for fixed lessons).
 export const VM_TASKS = {
@@ -110,7 +120,7 @@ function validResults(value: unknown, persistent: boolean) {
       Object.keys(t).length === 4 && "after" in t && typeof t.after === "boolean";
   });
 }
-export function vmReportKey(course: string, lesson: string, scenario: VmLabScenario) {
+export function vmReportKey(course: string, lesson: string, scenario: VmConsoleScenario) {
   return [course, lesson, scenario].join("/");
 }
 function validReceipt(e: VmExamReceipt, checked: number) {
@@ -120,7 +130,8 @@ function validReceipt(e: VmExamReceipt, checked: number) {
     e.submittedAt >= e.startedAt && e.submittedAt <= e.deadlineAt && e.submittedAt <= checked &&
     ["submitted", "expired"].includes(e.reason) && ((e.reason === "expired") === (e.submittedAt === e.deadlineAt));
 }
-export function validVmReport(value: unknown, scenario?: VmLabScenario): value is VmLabReport {
+export function validVmReport(value: unknown, scenario?: VmConsoleScenario): value is VmLabReport {
+  if (scenario === ALMA_PRACTICE) return false;
   if (!value || typeof value !== "object") return false;
   const r = value as VmLabReport;
   if (typeof r.attempt !== "string" || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(r.attempt) ||

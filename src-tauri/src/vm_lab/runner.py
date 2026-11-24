@@ -34,6 +34,7 @@ import tempfile
 GUEST_SOURCE = Path(__file__).with_name("guest_probe.py").read_text() if "__file__" in globals() else sys.argv.pop(1)
 
 SCENARIO = "linux-nfs-autofs-v1"
+ALMA_PRACTICE = "alma10-course-practice-v1"
 RHCSA_COURSE = "rhcsa-rhel10-administration"
 ALMA_IMAGE = "almalinux-10-rhcsa.qcow2"
 AUTO_IMAGE = "almalinux-10.3-practice.qcow2"
@@ -88,6 +89,10 @@ def rhce_keys():
     return keys
 
 
+def has_uplink(attempt):
+    return bool(attempt.get("almaWorkshop") or ("rhceKeys" in attempt and not attempt.get("ansibleExam")))
+
+
 def practice_mac(role, attempt):
     if attempt.get("baseImage") == AUTO_IMAGE:
         track = "51" if "rhceKeys" in attempt else "50"
@@ -106,7 +111,7 @@ def seed(role, attempt):
                 "addresses": [ADDRESSES[role] + "/24"]}}
     if attempt.get("extraDevices"):
         networks["spare"] = {"match": {"macaddress": SPARE_MACS[role]}, "dhcp4": False, "dhcp6": False, "optional": True}
-    if "rhceKeys" in attempt and not attempt.get("ansibleExam"):
+    if has_uplink(attempt):
         networks["uplink"] = {"match": {"macaddress": "52:54:00:51:03:" + ("10" if role == "server" else "11")},
                               "dhcp4": True}
     (folder / "network-config").write_text(json.dumps({"version": 2, "ethernets": networks}))
@@ -134,6 +139,9 @@ def seed(role, attempt):
         prepare = ["set -e", ["mkdir", "-p", "/mnt/erudior-tools"],
                    ["mount", "-o", "ro", "/dev/disk/by-label/ERUDIORLAB", "/mnt/erudior-tools"],
                    ["bash", "/mnt/erudior-tools/prepare-guest.sh", track, role]]
+        if attempt.get("almaWorkshop") and role == "client":
+            prepare.append(["dnf", "-y", "--disablerepo=*", "--enablerepo=erudior-dvd-baseos,erudior-dvd-appstream",
+                            "install", "podman", "git-core", "ansible-core"])
         if track == "rhcsa" and role == "server":
             # The kit creates the share. Give this attempt its own grading marker.
             marker = "/var/lib/erudior/practice-marker"
@@ -338,7 +346,7 @@ def launch(role, base, attempt):
                        "-device", "virtio-blk-pci,drive=osdisk,bootindex=1"]
     args = [tool("qemu-system-x86_64"), "-name", "Erudior-" + role,
             "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), *lima_guest_clock(kvm), "-cpu", "host" if kvm else "max",
-            "-m", "3072" if "rhceKeys" in attempt else "1536", "-smp", "2" if kvm else "1", "-display", "none", "-nodefaults",
+            "-m", "3072" if "rhceKeys" in attempt or attempt.get("almaWorkshop") else "1536", "-smp", "2" if kvm else "1", "-display", "none", "-nodefaults",
             "-pidfile", role + ".pid",
             *system_disk,
             "-drive", f"file={role}-seed.iso,format=raw,media=cdrom,readonly=on",
@@ -363,7 +371,7 @@ def launch(role, base, attempt):
                 run([tool("qemu-img"), "create", "-f", "qcow2", disk + ".tmp", "2G"])
                 Path(disk + ".tmp").replace(disk)
             args += ["-drive", f"file={disk},if=virtio,format=qcow2"]
-    if "rhceKeys" in attempt and not attempt.get("ansibleExam"):
+    if has_uplink(attempt):
         suffix = "10" if role == "server" else "11"
         args += ["-netdev", "user,id=uplink", "-device", "virtio-net-pci,netdev=uplink,mac=52:54:00:51:03:" + suffix]
     with open(role + ".log", "w") as log:
@@ -410,7 +418,7 @@ RHCE_EXAM = "rhce-ansible-idempotence-v1"
 ANSIBLE_TASK = "server-ansible-state"
 EXAMS = {EXAM, ADMIN_EXAM, RHCSA_MOCK, RHCSA_MOCK2, RHCE_EXAM}
 TASK_ROLES[ANSIBLE_TASK] = "server"
-SCENARIOS = {SCENARIO, *EXAMS}
+SCENARIOS = {SCENARIO, ALMA_PRACTICE, *EXAMS}
 # Tasks graded by the second guest-probe revision: they read per-attempt values and need new devices.
 NEW_TASKS = ("server-lvm", "server-swap-part", "server-web-port", "client-ssh-key", "client-cron", "client-network")
 EXTRA_TASKS = ("client-repo", "client-script", "server-tuning", "server-swap", "server-service",
@@ -828,7 +836,7 @@ def stream_console(role, scenario, profile, course, lesson, attempt_id):
         raise LabError("Invalid guest console.")
     os.chdir(lab_folder(scenario, profile, course, lesson))
     def allowed():
-        if scenario == SCENARIO:
+        if scenario not in EXAMS:
             return (load("attempt.json") or {}).get("id") == attempt_id and not Path("reset-pending").exists()
         return input_open(attempt_id)
     if not allowed() or not running(role):
@@ -839,7 +847,7 @@ def stream_console(role, scenario, profile, course, lesson, attempt_id):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise LabError("Close the other console for this guest first.") from None
-        relay_serial(role, allowed, "lock" if scenario == SCENARIO else "exam-input.lock")
+        relay_serial(role, allowed, "exam-input.lock" if scenario in EXAMS else "lock")
 
 
 def hold_wsl():
@@ -935,7 +943,7 @@ def exam_action(action, base, minutes, expected, tasks, *, mock_profile=False, r
     return exam_status()
 
 
-def operate(action, base, *, rhce=False, randomized=False, tasks=None):
+def operate(action, base, *, rhce=False, workshop=False, randomized=False, tasks=None):
     attempt = load("attempt.json")
     if Path("reset-pending").exists() and action not in {"reset", "status"}:
         raise LabError("A disk reset was interrupted. Choose Reset disks to finish.")
@@ -953,6 +961,8 @@ def operate(action, base, *, rhce=False, randomized=False, tasks=None):
                 attempt.update(form=draw_form(), params=draw_params())
             if randomized or any(t["id"] in NEW_TASKS for t in tasks or ()):
                 attempt["extraDevices"] = True
+            if workshop:
+                attempt["almaWorkshop"] = True
             if rhce and tasks:
                 attempt["ansibleExam"] = True
             if rhce:
@@ -1040,6 +1050,8 @@ def main(args):
     if not 1 <= minutes <= 240:
         raise LabError("Exam duration must be between 1 and 240 minutes.")
     permitted = ACTIONS | {"begin", "submit", "retry"} if timed else ACTIONS
+    if scenario == ALMA_PRACTICE and (action in {"check", "begin", "submit", "retry"} or lesson != "practice-environment"):
+        raise LabError("This workshop is for untimed course practice.")
     if action not in permitted or scenario not in SCENARIOS:
         raise LabError("Unknown lab action or scenario.")
     os.umask(0o077)
@@ -1058,7 +1070,7 @@ def main(args):
                 return exam_status()
             raise LabError("Another operation is running for this lab. Try again shortly.") from None
         image = SCENARIO + ".qcow2"
-        if course in {RHCSA_COURSE, RHCE_COURSE} or scenario == RHCE_EXAM:
+        if course in {RHCSA_COURSE, RHCE_COURSE} or scenario in {RHCE_EXAM, ALMA_PRACTICE}:
             existing = load("attempt.json")
             # Existing overlays retain their original backing file and grading contract.
             if existing is None:
@@ -1068,7 +1080,7 @@ def main(args):
         base = root / "images" / image
         mock = scenario in {RHCSA_MOCK, RHCSA_MOCK2}
         return (exam_action(action, base, minutes, expected, tasks, mock_profile=mock, randomized=scenario == RHCSA_MOCK2)
-                if timed else operate(action, base, rhce=course == RHCE_COURSE))
+                if timed else operate(action, base, rhce=course == RHCE_COURSE, workshop=scenario == ALMA_PRACTICE))
 
 
 if __name__ == "__main__":

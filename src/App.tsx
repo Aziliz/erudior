@@ -1,4 +1,4 @@
-import { lessonVmScenario } from "./lib/vmLab";
+import { coursePracticeScenario, lessonVmScenario } from "./lib/vmLab";
 import { flushSync } from "react-dom";
 import { useTraditional } from "./components/Ruby";
 import { scriptBank, scriptCourse, scriptSession } from "./lib/zhScript";
@@ -1634,12 +1634,12 @@ export default function App() {
   const fallback = <Library api={api} broken={broken} standalone={standalone} />;
 
   function studyPage(course: Course, content: React.ReactNode, lesson?: Lesson) {
-    const sharedMachines = course.id === "rhcsa-rhel10-administration" || course.id === "rhce-ansible-alma10";
-    if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !lesson?.vmLab)) return content;
+    const sharedMachines = coursePracticeScenario(course);
+    if (!store.inApp || ANDROID_NATIVE || (!sharedMachines && !(lesson && lessonVmScenario(course.id, lesson)))) return content;
     if (localLocked || gate || concealed || (family && !student)) return null;
     const scope = JSON.stringify([studentId, progress.anonymousGeneration ?? 0, course.id]);
     const page = view.name === "course" ? view.tab ?? "today" : pageKey(view);
-    return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} lessonMachines={!!lesson && !!lessonVmScenario(course.id, lesson)}>
+    return <VmStudyWorkspace key={scope} api={api} course={course.id} page={page} practiceScenario={sharedMachines} lessonMachines={!!lesson && !!lessonVmScenario(course.id, lesson)}>
       {content}
     </VmStudyWorkspace>;
   }

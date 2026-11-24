@@ -375,6 +375,13 @@ function About({ doc, update }: { doc: CommunityDoc; update: Update }) {
         </select>
       </label>
       <label className="field">
+        <span>Practice terminal</span>
+        <select className="select" value={doc.practiceEnvironment ?? "none"}
+          onChange={e => update(d => ({ ...d, practiceEnvironment: e.target.value as CommunityDoc["practiceEnvironment"] }))}>
+          <option value="none">Off</option><option value="almalinux-10.3">AlmaLinux 10.3</option>
+        </select>
+      </label>
+      <label className="field">
         <span>Calculator beside lessons, quizzes and drills</span>
         <select
           className="select"

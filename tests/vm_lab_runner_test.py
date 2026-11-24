@@ -16,6 +16,22 @@ import alma_setup
 
 
 class RunnerTests(unittest.TestCase):
+    def test_shared_alma_workshops_use_separate_overlays_and_one_base(self):
+        scenario = runner.ALMA_PRACTICE
+        key = "practice-environment"
+        with patch.object(runner, "lab_root", return_value=Path(self.temp.name)), patch.object(runner, "operate") as operate:
+            for course in ("rhce-cloud-native-applications", "rhce-openshift-administration", "custom"):
+                runner.main(["start", scenario, "student", course, key])
+                args, kwargs = operate.call_args
+                self.assertEqual(args, ("start", Path(self.temp.name) / "images" / runner.AUTO_IMAGE))
+                self.assertTrue(kwargs["workshop"])
+                self.assertFalse(kwargs["rhce"])
+            self.assertNotEqual(runner.lab_folder(scenario, "student", "one", key), runner.lab_folder(scenario, "student", "two", key))
+            with self.assertRaises(runner.LabError):
+                runner.main(["check", scenario, "student", "one", key])
+        self.assertTrue(runner.has_uplink({"almaWorkshop": True}))
+        self.assertFalse(runner.has_uplink({"rhceKeys": {}, "ansibleExam": True}))
+
     def test_verified_kit_import_and_failed_replacement(self):
         source = Path(__file__).resolve().parents[1] / "public" / "downloads" / alma_setup.KIT_NAME
         images = Path(self.temp.name)

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import type { AppApi } from "../App";
 import { activeStudent, confirmAction, inApp } from "../lib/storage";
-import { latestVmReports, validVmReport, vmReportKey, type VmLabReport, type VmLabScenario } from "../lib/vmLab";
+import { ALMA_PRACTICE, latestVmReports, validVmReport, vmReportKey, type VmLabReport, type VmConsoleScenario } from "../lib/vmLab";
 
 type Action = "status" | "start" | "stop" | "reset" | "check" | "console-client" | "console-server";
 interface LabState {
@@ -17,7 +17,7 @@ interface LabState {
 }
 
 interface PanelProps {
-  api: AppApi; course: string; lesson: string; scenario: VmLabScenario;
+  api: AppApi; course: string; lesson: string; scenario: VmConsoleScenario;
 }
 
 export default function VmLabPanel(props: PanelProps) {
@@ -107,10 +107,10 @@ function Panel({ api, course, lesson, scenario, provider }: PanelProps & { provi
   const pending = lab?.report;
   const needsSave = validVmReport(pending, scenario) && (!validVmReport(saved, scenario) || pending.checkedAt > saved.checkedAt);
   return <>
-    <h2>{coursePractice ? (rhce ? "RHCE practice machines" : "RHCSA practice machines") : "Two-machine Linux lab"}</h2>
-    {rhce ? <p>The client is your Ansible control node. The managed server is <code>192.168.77.10</code>. On first boot, wait for <code>sudo cloud-init status --wait</code> on each guest. On the client, use <code>~/.ssh/erudior_rhce</code> for the learner account on the server.</p> : coursePractice ? <p>Use the client and server throughout the course. Each graded practical has its own disks. Reset this pair when you want a fresh practice environment.</p> : <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>}
+    <h2>{coursePractice ? (scenario === ALMA_PRACTICE ? "AlmaLinux practice machines" : rhce ? "RHCE practice machines" : "RHCSA practice machines") : "Two-machine Linux lab"}</h2>
+    {scenario === ALMA_PRACTICE ? <p>Use the AlmaLinux 10.3 client and server throughout this course. Wait for <code>cloud-init status --wait</code> on first boot. For cluster exercises, sign in to your assigned OpenShift cluster from the client.</p> : rhce ? <p>The client is your Ansible control node. The managed server is <code>192.168.77.10</code>. On first boot, wait for <code>sudo cloud-init status --wait</code> on each guest. On the client, use <code>~/.ssh/erudior_rhce</code> for the learner account on the server.</p> : coursePractice ? <p>Use the client and server throughout the course. Each graded practical has its own disks. Reset this pair when you want a fresh practice environment.</p> : <p>The server at <code>192.168.77.10</code> exports <code>/srv/projects</code>. On the client, configure autofs to open the share at <code>/mnt/projects</code>. Your practice check tests the mount and reads a file from the server before and after a client reboot.</p>}
     {supported ? <>
-      <VmSetup provider={provider} course={course} preparing={busy === "start"} />
+      <VmSetup provider={provider} course={course} almaPractice={scenario === ALMA_PRACTICE} preparing={busy === "start"} />
       {lab?.resetPending && <p role="alert">Choose Reset disks again to finish the interrupted reset.</p>}
       {lab && <p role="status">Server {lab.running.server ? "running" : "off"} · Client {lab.running.client ? "running" : "off"}</p>}
       <div className="row" aria-busy={!!busy}>
@@ -128,6 +128,6 @@ function Panel({ api, course, lesson, scenario, provider }: PanelProps & { provi
       {needsSave && <button className="btn" disabled={!!busy} onClick={() => void record(pending).catch(cause => setError(String(cause)))}>Save latest check to course progress</button>}
     </> : <p className="muted">Use the Windows, macOS or Linux desktop app to start the machines and check your work.</p>}
     {error && <p role="alert">{error}</p>}
-    {validVmReport(saved, scenario) && <VmResult saved={saved} />}
+    {scenario !== ALMA_PRACTICE && validVmReport(saved, scenario) && <VmResult saved={saved} />}
   </>;
 }
