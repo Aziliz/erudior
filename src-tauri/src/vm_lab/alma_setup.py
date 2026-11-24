@@ -35,6 +35,14 @@ def alma_lock(images):
         yield
 
 
+def lima_guest_clock(kvm):
+    # Nested TCG can lose PIT/HPET calibration when macOS deschedules Lima.
+    # The guest clocks follow emulated instructions. Exam deadlines use the provider clock.
+    if not kvm and os.environ.get("ERUDIOR_VM_PROVIDER") == "lima":
+        return ["-icount", "shift=3,sleep=on", "-rtc", "clock=vm"]
+    return []
+
+
 def alma_progress(images, message):
     temp = images / ".alma-progress.tmp"
     temp.write_text(message)
@@ -207,7 +215,7 @@ def provision_disk(images, dvd, kit, destination, kvm):
         # All drive arguments below are fixed, relative names (paths may contain commas).
         (work / "dvd.iso").symlink_to(dvd)
         qemu = ["qemu-system-x86_64", "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"),
-                "-cpu", "host" if kvm else "max", "-smp", "2" if kvm else "1", "-m", "3072", "-display", "none",
+                *lima_guest_clock(kvm), "-cpu", "host" if kvm else "max", "-smp", "2" if kvm else "1", "-m", "3072", "-display", "none",
                 "-monitor", "none", "-nic", "none", "-no-reboot",
                 "-drive", "file=base.qcow2,format=qcow2,if=virtio",
                 "-drive", "file=dvd.iso,media=cdrom,readonly=on,format=raw"]

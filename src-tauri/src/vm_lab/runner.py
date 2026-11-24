@@ -17,7 +17,7 @@ import uuid
 # Tauri concatenates alma_setup.py with this runner. Standalone tests import it normally.
 if "__file__" in globals():
     from alma_setup import (DVD_NAME, MEDIA, alma_lock, alma_progress, cache_medium,
-                            media_status, prepare_alma_base)
+                            media_status, prepare_alma_base, lima_guest_clock)
 import tempfile
 
 # Tauri embeds both source files. The standalone runner reads its adjacent guest service.
@@ -240,9 +240,11 @@ def process_alive(role):
     pidfile = Path(role + ".pid")
     try:
         pid = int(pidfile.read_text())
-        return (Path(f"/proc/{pid}/cwd").resolve(strict=True) == Path.cwd() and
-                f"file={role}.qcow2,format=qcow2,if=virtio".encode() in
-                Path(f"/proc/{pid}/cmdline").read_bytes().split(b"\0"))
+        if Path(f"/proc/{pid}/cwd").resolve(strict=True) != Path.cwd():
+            return False
+        argv = Path(f"/proc/{pid}/cmdline").read_bytes().split(b"\0")
+        return any(f"file={role}.qcow2,format=qcow2,if={drive}".encode() in argv
+                   for drive in ("virtio", "none,id=osdisk"))
     except (FileNotFoundError, ProcessLookupError, ValueError):
         return False
 
@@ -319,11 +321,16 @@ def launch(role, base, attempt):
     net = "stream,id=wire,addr.type=unix,addr.path=wire.sock,"
     net += "server=on" if role == "server" else "server=off,reconnect-ms=1000"
     kvm = x86_kvm()
+    system_disk = ["-drive", f"file={image},format=qcow2,if=virtio"]
+    if extra and role == "server":
+        # SeaBIOS otherwise tries the explicit blank data disk, then boots the setup DVD.
+        system_disk = ["-drive", f"file={image},format=qcow2,if=none,id=osdisk",
+                       "-device", "virtio-blk-pci,drive=osdisk,bootindex=1"]
     args = [tool("qemu-system-x86_64"), "-name", "Erudior-" + role,
-            "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), "-cpu", "host" if kvm else "max",
+            "-machine", "q35,accel=" + ("kvm" if kvm else "tcg"), *lima_guest_clock(kvm), "-cpu", "host" if kvm else "max",
             "-m", "3072" if "rhceKeys" in attempt else "1536", "-smp", "2" if kvm else "1", "-display", "none", "-nodefaults",
             "-pidfile", role + ".pid",
-            "-drive", f"file={image},format=qcow2,if=virtio",
+            *system_disk,
             "-drive", f"file={role}-seed.iso,format=raw,media=cdrom,readonly=on",
             "-netdev", net, "-device", f"virtio-net-pci,netdev=wire,mac={practice_mac(role, attempt)}",
             *(["-netdev", "hubport,id=spare,hubid=7", "-device", f"virtio-net-pci,netdev=spare,mac={SPARE_MACS[role]}"]
