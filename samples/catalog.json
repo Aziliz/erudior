@@ -10000,5 +10000,160 @@
    "rhcsa-preparation-rhel-10-lessons-and-quizzes",
    "rhcsa-preparation-system-administration-on-rhel-10"
   ]
+ },
+ {
+  "id": "rhce-ansible-alma10",
+  "file": "rhce-ansible-alma10.json",
+  "order": 137,
+  "title": "RHCE in Ansible on AlmaLinux 10",
+  "description": "Prepare for EX294 after RHCSA with two AlmaLinux 10 guests. Build and recover repeatable automation for services, security, storage and scheduled backups. Includes original two-host practicals, graded knowledge checks, spaced-repetition cards and reviewer-scored work orders.",
+  "revision": 1,
+  "subject": "Information technology",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Exam prep"
+  ],
+  "lessons": 41,
+  "questions": 152,
+  "cards": 82,
+  "drills": 0,
+  "lessonIds": [
+   "define-the-work",
+   "trust-and-privilege",
+   "select-the-target",
+   "deploy-the-notice",
+   "morning-handoff",
+   "version-the-project",
+   "inspect-the-runtime",
+   "run-from-a-clone",
+   "editor-container",
+   "promote-beta",
+   "resolve-desk-policy",
+   "observe-and-validate",
+   "loop-over-channels",
+   "reconcile-pager",
+   "rotate-pager-duty",
+   "declare-web-repos",
+   "install-web-package",
+   "trace-web-service",
+   "handle-web-changes",
+   "promote-web-service",
+   "collector-identity",
+   "collector-template",
+   "collector-vault",
+   "collector-converge",
+   "collector-handoff",
+   "trace-private-http",
+   "bind-private-http",
+   "apply-private-firewall",
+   "handoff-private-firewall",
+   "author-role",
+   "install-role",
+   "install-collection",
+   "reject-candidate",
+   "release-handoff",
+   "disk-identity",
+   "persist-storage",
+   "archive-restore",
+   "schedule-worker",
+   "evidence-handoff",
+   "final-build",
+   "final-repair"
+  ],
+  "outline": [
+   {
+    "title": "Control node, access and inventory",
+    "lessons": [
+     "Translate a support ticket into a testable state",
+     "Prove who is on each end of SSH",
+     "Select the right machines before running a task"
+    ]
+   },
+   {
+    "title": "A repeatable change and its evidence",
+    "lessons": [
+     "Deploy the shift notice and repair drift",
+     "Independent practical: the morning handoff"
+    ]
+   },
+   {
+    "title": "Git, Navigator and the development container",
+    "lessons": [
+     "Hand a reproducible project to a teammate",
+     "Identify the Ansible runtime that will execute your play",
+     "Prove a fresh checkout can deploy the release",
+     "Author and run an inspection play in VS Code",
+     "Independent practical: promote a tested revision"
+    ]
+   },
+   {
+    "title": "One playbook for two different hosts",
+    "lessons": [
+     "Give two managed hosts different policies",
+     "Separate requested policy from observed state",
+     "Deploy and repair a list of files",
+     "Make both branches reach the requested state",
+     "Independent practical: rotate duty across two desks"
+    ]
+   },
+   {
+    "title": "Deploy and operate a local web service",
+    "lessons": [
+     "Define trusted software sources for dispatch",
+     "Install a package from the approved repositories",
+     "Trace a request through systemd and Apache",
+     "Reload Apache when its configuration changes",
+     "Independent practical: promote and recover the status service"
+    ]
+   },
+   {
+    "title": "Manage service identities, templates and encrypted credentials",
+    "lessons": [
+     "Give a service account read-only access",
+     "Render a policy and reject a broken candidate",
+     "Deploy a credential without exposing it in a diff",
+     "Repair permission drift and rotate just the credential",
+     "Independent practical: hand the collector to the evening shift"
+    ]
+   },
+   {
+    "title": "Publish and maintain a private HTTP service",
+    "lessons": [
+     "Trace the route from the client to the green page",
+     "Add one private listener while keeping the firewall closed",
+     "Apply and verify a zone-scoped firewall policy",
+     "Independent practical: reopen the private dispatch desk"
+    ]
+   },
+   {
+    "title": "Release reusable automation and recover from failure",
+    "lessons": [
+     "Author one duty-record role for two desks",
+     "Install a standalone role in a clean project",
+     "Build, install and inspect an offline collection",
+     "Reject a bad candidate and preserve the active record",
+     "Independent practical: deliver a versioned duty collection"
+    ]
+   },
+   {
+    "title": "Provision storage, archive records and schedule recovery",
+    "lessons": [
+     "Identify the authorized disk before writing",
+     "Mount the evidence volume and prove it survives a reboot",
+     "Archive a single record and prove it can be restored",
+     "Schedule the archive and inspect the worker result",
+     "Independent practical: recover the evidence desk"
+    ]
+   },
+   {
+    "title": "Independent two-host final practicals",
+    "lessons": [
+     "Final practical A: build the replacement desks",
+     "Final practical B: recover the evidence desk"
+    ]
+   }
+  ]
  }
 ]
