@@ -292,6 +292,7 @@ export function normalizeCourse(raw: unknown): Course {
     ...(texts.length ? { texts } : {}),
     ...(["basic", "scientific", "graphing", "none"].includes(str(raw.calculator)) ? { calculator: str(raw.calculator) as Course["calculator"] } : {}),
     ...(community(raw.community) ? { community: community(raw.community)! } : {}),
+    ...(raw.practiceEnvironment === "almalinux-10.3" || raw.practiceEnvironment === "none" ? { practiceEnvironment: raw.practiceEnvironment } : {}),
     ...(raw.readAloud === true ? { readAloud: true } : {}),
     ...(audioLib(raw.audio) ? { audio: audioLib(raw.audio)! } : {}),
     ...normalizeWork(raw),
