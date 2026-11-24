@@ -197,6 +197,7 @@ export interface RefSheet {
     body: string; // Markdown
 }
 export interface Course {
+    practiceEnvironment?: "almalinux-10.3";
     format: "examiner-course";
     version: 1;
     id: string;

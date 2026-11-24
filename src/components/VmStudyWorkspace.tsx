@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import type { AppApi } from "../App";
-import { NFS_LAB } from "../lib/vmLab";
+import { ALMA_PRACTICE, NFS_LAB } from "../lib/vmLab";
 import VmLabPanel from "./VmLabPanel";
 import { VmConsoleTarget } from "./VmConsole";
 
@@ -9,10 +9,11 @@ interface Props {
   course: string;
   page: string;
   lessonMachines: boolean;
+  practiceScenario?: typeof ALMA_PRACTICE | typeof NFS_LAB;
   children: ReactNode;
 }
 
-export default function VmStudyWorkspace({ api, course, page, lessonMachines, children }: Props) {
+export default function VmStudyWorkspace({ api, course, page, practiceScenario = NFS_LAB, lessonMachines, children }: Props) {
   const [open, setOpen] = useState(false);
   const [practiceTarget, setPracticeTarget] = useState<HTMLDivElement | null>(null);
   const [lessonTarget, setLessonTarget] = useState<HTMLDivElement | null>(null);
@@ -44,7 +45,7 @@ export default function VmStudyWorkspace({ api, course, page, lessonMachines, ch
       <div className="vm-study-console-slot" ref={setPracticeTarget} hidden={lessonMachines} />
       {open && <div hidden={lessonMachines}>
         <VmConsoleTarget.Provider value={{ target: practiceTarget, visible: !lessonMachines }}>
-          <VmLabPanel api={api} course={course} lesson="practice-environment" scenario={NFS_LAB} />
+          <VmLabPanel api={api} course={course} lesson="practice-environment" scenario={practiceScenario} />
         </VmConsoleTarget.Provider>
       </div>}
     </aside>

@@ -159,7 +159,7 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
                 add(path, `accent from 0 to ${morae} (the reading's morae) required`); }
     function glossary(v: unknown, path: string) { objects(v, path, ['term', 'definition', 'aliases', 'topic'], (g, p) => { str(g.term, p + '.term', true); str(g.definition, p + '.definition', true); optionalStr(g, ['topic'], p); if (g.aliases !== undefined)
         strings(g.aliases, p + '.aliases'); }); }
-    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'documentReviews', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
+    const top = ['format', 'version', 'id', 'title', 'description', 'author', 'updated', 'revision', 'changelog', 'disclaimer', 'requires', 'modules', 'lessons', 'banks', 'decks', 'glossary', 'references', 'drills', 'language', 'vocab', 'readingList', 'texts', 'calculator', 'practiceEnvironment', 'readAloud', 'audio', 'rubrics', 'writing', 'labs', 'activityLog', 'spreadsheetAssignments', 'documentReviews', 'branchingScenarios', 'scientificWorkspaces', 'advancedAssessments'];
     if (!shape(raw, ['format', 'version', 'course'], 'payload'))
         return errors;
     if (raw.format !== 'erudior-canonical-authoring' || raw.version !== 1)
@@ -175,6 +175,8 @@ export function validateCanonicalAuthoring(raw: unknown, options: CanonicalValid
     if (c.requires !== undefined) strings(c.requires,'course.requires',true);
     if (c.revision !== undefined)
         integer(c.revision, 'course.revision', 1);
+    if (c.practiceEnvironment !== undefined && c.practiceEnvironment !== "almalinux-10.3")
+        add('course.practiceEnvironment', 'unknown practice environment');
     if (c.calculator !== undefined && !['basic', 'scientific', 'graphing', 'none'].includes(c.calculator as string))
         add('course.calculator', 'unknown calculator');
     boolean(c, ['readAloud'], 'course');
