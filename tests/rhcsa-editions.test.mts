@@ -43,7 +43,9 @@ assert.equal(course.lessons.length, current.lessons);
 assert.equal(questions.length, current.questions);
 assert.deepEqual(course.lessons.map(l => l.id), current.lessonIds);
 assert.deepEqual(current.outline, course.modules.map(m => ({ title: m.title, lessons: course.lessons.filter(l => l.module === m.id).map(l => l.title) })));
-assert.equal(course.lessons.filter(l => l.vmLab).length, 14);
+assert.equal(course.lessons.filter(l => l.vmLab).length, 20);
+assert.equal(course.lessons.find(l => l.id === "practice-exam")?.vmLab, "rhcsa-rhel10-practice-v1");
+assert.equal(course.lessons.find(l => l.id === "practice-exam-v2")?.vmLab, "rhcsa-rhel10-practice-v2");
 assert(course.lessons.filter(l => !l.vmLab).every(l => l.quiz?.length && l.quiz.every(id => questions.some(q => q.id === id))));
 assert(course.lessons.findIndex(l => l.id === "first-prompt") < course.lessons.findIndex(l => l.id === "shell-evidence"));
 

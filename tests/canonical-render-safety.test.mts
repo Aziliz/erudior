@@ -89,3 +89,7 @@ assert.equal(transcript.querySelector('[role=status]')?.textContent, 'Copied.');
 for (const literal of ['````markdown\n```console\n> pwd\n/tmp\n```\n````','```console\n> pwd', '```console\nplain code\n```']) {
   assert(!renderMarkdown(literal).includes('command-copy'));
 }
+
+const legacyBlock = "```text\n> hostname\nYour guest name varies.\n```";
+assert(!renderMarkdown(legacyBlock).includes("command-copy"));
+assert(renderMarkdown(legacyBlock, undefined, undefined, undefined, true).includes("command-copy"));

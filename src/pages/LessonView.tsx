@@ -1,5 +1,5 @@
 import VmExamPanel from "../components/VmExamPanel";
-import { RHCSA_MOCK, MOCK_MINUTES, MOCK_TASKS, DEFAULT_VM_EXAM_MINUTES, isVmExam } from "../lib/vmLab";
+import { RHCSA_MOCK, MOCK_MINUTES, MOCK_TASKS, DEFAULT_VM_EXAM_MINUTES, lessonVmScenario, isRhcsaMock, isVmExam } from "../lib/vmLab";
 import VmLabPanel from "../components/VmLabPanel";
 import type { AppApi } from "../App";
 import { toneOpen, toneWords } from "../lib/toneDrills";
@@ -23,6 +23,7 @@ import { LanguageToggles, PitchText, RubyText } from "../components/Ruby";
 import { hasKanji } from "../lib/kana";
 
 export default function LessonView({ api, course, lesson }: { api: AppApi; course: Course; lesson: Lesson }) {
+  const scenario = lessonVmScenario(course.id, lesson);
   const key = lessonKey(course.id, lesson.id);
   const done = !!api.progress.lessonsDone[key];
   const ordered = orderedLessons(course);
@@ -149,11 +150,11 @@ export default function LessonView({ api, course, lesson }: { api: AppApi; cours
 
       <article className="lesson-body">
         <CourseActivityLinks api={api} course={course} lessonId={lesson.id} />
-        <Markdown source={lesson.body} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
+        <Markdown source={lesson.body} legacyConsole={course.id === "rhce-ansible-alma10" || course.id === "rhcsa-rhel10-administration"} glossary={course.glossary} foreignLang={course.language?.code} read={read} assignments={assignments} ttsLang={course.language?.tts} />
       </article>
-      {isVmExam(lesson.vmLab) ? <VmExamPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab, lesson.vmExamMinutes, lesson.vmTasks])}
-        api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} minutes={lesson.vmLab === RHCSA_MOCK ? MOCK_MINUTES : lesson.vmExamMinutes ?? DEFAULT_VM_EXAM_MINUTES} tasks={lesson.vmLab === RHCSA_MOCK ? MOCK_TASKS : lesson.vmTasks} /> : lesson.vmLab && <VmLabPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, lesson.vmLab])}
-        api={api} course={course.id} lesson={lesson.id} scenario={lesson.vmLab} />}
+      {isVmExam(scenario) ? <VmExamPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, scenario, lesson.vmExamMinutes, lesson.vmTasks])}
+        api={api} course={course.id} lesson={lesson.id} scenario={scenario} minutes={isRhcsaMock(scenario) ? MOCK_MINUTES : lesson.vmExamMinutes ?? DEFAULT_VM_EXAM_MINUTES} tasks={scenario === RHCSA_MOCK ? MOCK_TASKS : lesson.vmTasks} /> : scenario && <VmLabPanel key={JSON.stringify([api.student?.id ?? api.progress.anonymousGeneration ?? 0, course.id, lesson.id, scenario])}
+        api={api} course={course.id} lesson={lesson.id} scenario={scenario} />}
 
       {words.length > 0 && (
         <section className="panel lesson-words">

@@ -49,7 +49,7 @@ pub async fn vm_lab(
     {
         return Err("Unknown lab action.".into());
     }
-    let duration = minutes.unwrap_or(if scenario == "rhcsa-rhel10-practice-v1" {
+    let duration = minutes.unwrap_or(if scenario.starts_with("rhcsa-rhel10-practice-v") {
         180
     } else {
         20

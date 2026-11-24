@@ -145,3 +145,66 @@ const restoredView = renderToStaticMarkup(createElement(ProgressView,{api:{...ap
 assert.match(new JSDOM(restoredView).window.document.body.textContent!, /270\/300 points.*Practice pass/);
 assert.deepEqual(restoredMock.vmLabReports?.[mockKey], persistentReport);
 console.log("RHEL 10 practice profile, ten-area report, both sides of the pass target, backup and lesson launch passed.");
+
+// Randomized second form: values drawn per attempt, one task per area.
+{
+  const { RHCSA_MOCK2, DEFAULT_PARAMS, AREA_POOLS, taskInstruction } = await import("../src/lib/vmLab.ts");
+  const { spawnSync } = await import("node:child_process");
+  const py = spawnSync("python3", ["-c", "import sys,json;sys.path.insert(0,'src-tauri/src/vm_lab');import runner;print(json.dumps([runner.DEFAULT_PARAMS,[list(p) for _,p in runner.AREA_POOLS],[[a,list(p)] for a,p in runner.AREA_POOLS]]))"], {encoding: "utf8"});
+  assert.equal(py.status, 0, py.stderr);
+  const [pyDefaults, pyPools, pyAreas] = JSON.parse(py.stdout);
+  assert.deepEqual(pyDefaults, DEFAULT_PARAMS);
+  assert.deepEqual(pyPools, AREA_POOLS);
+  for (const [area, pool] of pyAreas as [string, string[]][]) for (const id of pool) assert.equal(VM_TASKS[id as keyof typeof VM_TASKS].area, area);
+  for (const id of Object.keys(VM_TASKS) as (keyof typeof VM_TASKS)[]) assert.doesNotMatch(taskInstruction(id), /\{\w+\}/);
+  assert.match(taskInstruction("client-cron", {...DEFAULT_PARAMS, cronHour: "7", cronMinute: "5"}), /at 7:05/);
+  assert.match(taskInstruction("client-operator", {...DEFAULT_PARAMS, opUser: "kim42"}), /kim42 user/);
+  const params = {...DEFAULT_PARAMS, opUser: "kim42", webPort: "18555"};
+  const drawn = {...persistentReport, params,
+    tasks: AREA_POOLS.map(pool => ({id: pool[0] as keyof typeof VM_TASKS, points: 30, before: true, after: true}))};
+  assert(validVmReport(drawn, RHCSA_MOCK2));
+  assert(!validVmReport(drawn, RHCSA_MOCK));
+  assert(!validVmReport(persistentReport, RHCSA_MOCK2));
+  const {params: _omit, ...withoutParams} = drawn;
+  assert(!validVmReport(withoutParams, RHCSA_MOCK2));
+  assert(!validVmReport({...drawn, params: {...params, extra: "x"}}, RHCSA_MOCK2));
+  assert(!validVmReport({...drawn, tasks: [...drawn.tasks].reverse()}, RHCSA_MOCK2));
+  assert(!validVmReport({...drawn, tasks: drawn.tasks.map((t, i) => i ? t : {...t, points: 31})}, RHCSA_MOCK2));
+  validateVmReports({[vmReportKey("c", "l", RHCSA_MOCK2)]: drawn});
+  const text = new JSDOM(renderToStaticMarkup(createElement(VmResult,{saved:drawn,scenario:RHCSA_MOCK2}))).window.document.body.textContent!;
+  assert.match(text, /300 of 300 points.*Pass/);
+  assert.match(text, /Local storage/);
+
+  const v2Course = {...mockCourse, lessons: [{...mockLesson, vmLab: RHCSA_MOCK2}]} as typeof mockCourse;
+  let begun = false;
+  (dom.window as any).__TAURI_INTERNALS__.invoke = async (cmd:string,args:any) => {
+    if(cmd === "install_kind") return "linux-package";
+    assert.equal(args.scenario, RHCSA_MOCK2);
+    assert.equal(args.minutes, 180);
+    assert.equal(args.tasks, undefined);
+    if (args.action === "begin") begun = true;
+    return {running:{client:true,server:true}, password:null, report:null,
+      exam: begun ? {phase:"active",id:report.attempt,gradingVersion:2,remainingMs:180*60000,rubric:drawn.tasks.map(({id,points})=>({id,points})),params}
+        : {phase:"prepared",id:report.attempt}};
+  };
+  const v2Root = createRoot(document.querySelector("main")!);
+  await act(async()=>v2Root.render(createElement(LessonView,{api:{...api,courses:[v2Course]},course:v2Course,lesson:v2Course.lessons[0]})));
+  assert.match(document.body.textContent!, /tasks appear when you begin/);
+  await click("Begin 180-minute exam");
+  assert.match(document.body.textContent!, /kim42 user/);
+  assert.match(document.body.textContent!, /TCP port 18555/);
+  await act(async()=>v2Root.unmount());
+  console.log("Randomized RHCSA form: shared defaults, drawn values on task cards and report validation passed.");
+}
+
+const { RHCE_EXAM, ANSIBLE_TASK, lessonVmScenario, validVmTasks } = await import("../src/lib/vmLab.ts");
+assert.equal(lessonVmScenario("rhce-ansible-alma10", {id:"collector-converge"}), RHCE_EXAM);
+assert.equal(lessonVmScenario("ordinary-course", {id:"collector-converge"}), undefined);
+assert.equal(lessonVmScenario("rhce-ansible-alma10", {id:"collector-converge", vmLab:NFS_LAB}), NFS_LAB);
+const ansibleReport = {...persistentReport, tasks:[{id:ANSIBLE_TASK, points:100, before:true, after:true}]};
+assert(validVmReport(ansibleReport, RHCE_EXAM));
+assert(!validVmReport(ansibleReport, ADMIN_EXAM));
+assert(!validVmReport({...ansibleReport, tasks:[{...ansibleReport.tasks[0], points:5}]}, RHCE_EXAM));
+assert(!validVmTasks([{id:ANSIBLE_TASK, points:100}]));
+assert.equal(vmScore(ansibleReport), 100);
+validateVmReports({[vmReportKey("rhce-ansible-alma10","collector-converge", RHCE_EXAM)]:ansibleReport});

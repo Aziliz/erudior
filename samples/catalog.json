@@ -9756,7 +9756,7 @@
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
   "description": "Begin with your first AlmaLinux login and build toward independent RHEL 10 administration. Practice in a live terminal beside each reading, solve shift assignments, and test your work on a two-machine RHCSA practice exam.",
-  "revision": 5,
+  "revision": 6,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9764,7 +9764,7 @@
   "type": [
    "Exam prep"
   ],
-  "lessons": 74,
+  "lessons": 80,
   "questions": 124,
   "cards": 0,
   "drills": 0,
@@ -9793,6 +9793,7 @@
    "address-plan",
    "network-path",
    "resolver-lab",
+   "network-lab",
    "software-model",
    "rpm-transaction",
    "rpm-flatpak",
@@ -9810,6 +9811,7 @@
    "schedules-time",
    "clock-evidence",
    "service-lab",
+   "cron-lab",
    "service-shift",
    "script-input",
    "script-contract",
@@ -9821,6 +9823,7 @@
    "swap-workshop",
    "storage-checkpoint",
    "swap-lab",
+   "storage-lab",
    "mount-case",
    "mount-receipt",
    "mount-identities",
@@ -9837,10 +9840,13 @@
    "access-diagnosis",
    "selinux-context",
    "selinux-lab",
+   "web-port-lab",
+   "ssh-lab",
    "rehearsal-handoff",
    "rehearsal-maintenance",
    "alternate-practical",
    "practice-exam",
+   "practice-exam-v2",
    "after-action",
    "container-lifecycle"
   ],
@@ -9891,7 +9897,8 @@
      "Follow one connection from client to service",
      "Read an address, a route and a connection profile",
      "Trace a request from name to interface to listener",
-     "Lab • Make the file server discoverable"
+     "Lab • Make the file server discoverable",
+     "Lab • Configure a second interface and the hostname"
     ]
    },
    {
@@ -9924,6 +9931,7 @@
      "Choose a scheduler and verify its work",
      "Decide whether a server's clock can be trusted",
      "Lab • Restore a startup service",
+     "Lab • Schedule a recurring job",
      "Independent shift: diagnose a service that missed its schedule"
     ]
    },
@@ -9944,7 +9952,8 @@
      "Build and extend a disposable LVM volume",
      "Activate swap and make it return at startup",
      "Add capacity without disturbing existing data",
-     "Lab • Add persistent swap capacity"
+     "Lab • Add persistent swap capacity",
+     "Lab • Build persistent storage on a new disk"
     ]
    },
    {
@@ -9975,7 +9984,9 @@
      "Bring up a small web service and locate a failed request",
      "Diagnose access from the account that needs it",
      "Diagnose a denial while keeping access controls intact",
-     "Lab • Repair a web document label"
+     "Lab • Repair a web document label",
+     "Lab • Serve web content on a custom port",
+     "Lab • Key-based SSH login between the machines"
     ]
    },
    {
@@ -9985,6 +9996,7 @@
      "Rehearsal • Bring a branch server back into service",
      "Independent practical: provision a branch archive",
      "Final • RHCSA practice exam for RHEL 10",
+     "Randomized RHCSA practice exam",
      "Read your result and plan a targeted retake"
     ]
    },

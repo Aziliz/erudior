@@ -250,6 +250,9 @@ class ExamTests(unittest.TestCase):
         env = dict(os.environ, XDG_DATA_HOME=str(Path.cwd()))
         result = subprocess.run(command, env=env, capture_output=True, text=True, check=True)
         self.assertEqual(json.loads(result.stdout)["exam"], {"phase": "new", "id": None})
+        media = subprocess.run(runner.child_command("_media", "status"), env=env,
+                               capture_output=True, text=True, check=True)
+        self.assertFalse(json.loads(media.stdout)["dvd"])
         self.assertFalse(Path("erudior-vm-labs").exists())
 
     def test_open_terminal_stops_forwarding_at_submission_and_expiry(self):

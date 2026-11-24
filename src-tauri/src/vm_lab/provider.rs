@@ -32,6 +32,8 @@ fn provider(_app: &tauri::AppHandle) -> Result<Command, String> {
             "--workdir",
             "/tmp",
             "erudior-labs",
+            "/usr/bin/env",
+            "ERUDIOR_VM_PROVIDER=lima",
             "/usr/bin/python3",
         ]);
         Ok(cmd)

@@ -109,7 +109,7 @@
       "topics": [
         "Lab orientation"
       ],
-      "body": "You are responsible for a small office's client and file server. Later a user will report a missing share, a failed login and a service that disappeared after reboot. A useful incident note starts with **where** you observed the failure and **as whom** you tested. Today you will make that baseline without changing either machine.\n\n## Read each console\nOpen the shared practice terminal beside this lesson. In **Client console**, log in as `learner` using **Console login**. On a manual pair, use the account you created. Run these commands individually.\n\n```sh\nhostname\nid\nip -brief address\ncat /proc/sys/kernel/random/boot_id\n```\n\nRead `uid` as the numerical identity of your account and `groups` as the memberships held by this login. `ip -brief address` lists interfaces and addresses. Ignore `lo` for the private network comparison. The boot ID is a long identifier generated at each boot. A hostname can survive many reboots. A boot ID lets you prove that a service really worked after a restart.\n\nSwitch to **Server console** and gather the same four observations. In the supplied pair, the private server address is `192.168.77.10` and the private client address is `192.168.77.20`. Your own pair may use different addresses. Record actual values.\n\n| Record | Client | Server |\n| --- | --- | --- |\n| Hostname and account | Fill from hostname and id | Fill from hostname and id |\n| Private address and interface | Read the active interface | Read the active interface |\n| Current boot | First eight characters of boot ID | First eight characters of boot ID |\n\n## Work the course in three passes\n\nOn the first reading, predict one observable result and then run the worked example. Next, do the transfer ticket with its new filenames, accounts or values. Only then check the worked review or answer the quiz. Keep notes in your own notebook or outside the resettable guests. Use **Read your result and plan a targeted retake** after the final to choose the skill to repeat.\n\nThe shared workshop belongs to this course and learner. Navigate to another ordinary reading while it is open and run `pwd` or `hostname` again. A timed practical opens a different attempt. **Prepare machines** boots that attempt, and **Begin** starts its clock. Leaving a timed lesson keeps the deadline running. Stop idle pairs if your computer is short of memory. To repeat an assessment, use that practical's reset after saving any evidence you want.\n\n**Independent handoff.** Give a partner two observations that would distinguish “wrong account,” “wrong guest,” and “right guest, different boot.” Show the command that produced each observation. A heading on the screen or a prompt by itself is weaker evidence than a command run inside the guest.",
+      "body": "You are responsible for a small office's client and file server. Later a user will report a missing share, a failed login and a service that disappeared after reboot. A useful incident note starts with **where** you observed the failure and **as whom** you tested. Today you will make that baseline without changing either machine.\n\n## Read each console\nOpen the shared practice terminal beside this lesson. In **Client console**, log in as `learner` using **Console login**. On a manual pair, use the account you created. Run these commands individually.\n\n```console\n> hostname\nThe name of the guest you opened.\n> id\nYour numeric user ID, primary group, and supplementary groups. Values vary.\n> ip -brief address\nOne row per interface. The private client address is 192.168.77.20/24 in the supplied pair.\n> cat /proc/sys/kernel/random/boot_id\nA UUID that changes after each boot.\n```\n\nRead `uid` as the numerical identity of your account and `groups` as the memberships held by this login. `ip -brief address` lists interfaces and addresses. Ignore `lo` for the private network comparison. The boot ID is a long identifier generated at each boot. A hostname can survive many reboots. A boot ID lets you prove that a service really worked after a restart.\n\nSwitch to **Server console** and gather the same four observations. In the supplied pair, the private server address is `192.168.77.10` and the private client address is `192.168.77.20`. Your own pair may use different addresses. Record actual values.\n\n| Record | Client | Server |\n| --- | --- | --- |\n| Hostname and account | Fill from hostname and id | Fill from hostname and id |\n| Private address and interface | Read the active interface | Read the active interface |\n| Current boot | First eight characters of boot ID | First eight characters of boot ID |\n\n## Work the course in three passes\n\nOn the first reading, predict one observable result and then run the worked example. Next, do the transfer ticket with its new filenames, accounts or values. Only then check the worked review or answer the quiz. Keep notes in your own notebook or outside the resettable guests. Use **Read your result and plan a targeted retake** after the final to choose the skill to repeat.\n\nThe shared workshop belongs to this course and learner. Navigate to another ordinary reading while it is open and run `pwd` or `hostname` again. A timed practical opens a different attempt. **Prepare machines** boots that attempt, and **Begin** starts its clock. Leaving a timed lesson keeps the deadline running. Stop idle pairs if your computer is short of memory. To repeat an assessment, use that practical's reset after saving any evidence you want.\n\n**Independent handoff.** Give a partner two observations that would distinguish “wrong account,” “wrong guest,” and “right guest, different boot.” Show the command that produced each observation. A heading on the screen or a prompt by itself is weaker evidence than a command run inside the guest.",
       "quiz": [
         "orientation-identity",
         "orientation-timing"
@@ -127,7 +127,7 @@
       "topics": [
         "Essential tools"
       ],
-      "body": "You receive a request to print the names of every report in a directory. One report is called `night shift.txt`. A space is ordinary in a filename. At the prompt, an unquoted space separates arguments. An argument is one piece of information given to a command. Bash interprets the line before the program sees those arguments.\n\n## Watch Bash do its work\nOn the client, as `learner`, make a fresh directory. `mktemp -d` creates one with a unique name, and `$(...)` substitutes its output. The assignment saves that name for this shell. Type one line at a time.\n\n```sh\nwork=$(mktemp -d)\ncd \"$work\"\ntouch 'night shift.txt' day.txt\nprintf '<%s>\\n' night shift.txt\nprintf '<%s>\\n' 'night shift.txt'\nprintf '<%s>\\n' *.txt\n```\n\nThe first print produces two lines. The second prints one. In the third, Bash expands the wildcard into two filenames before starting `printf`. Each matches one argument, including the name with a space. Try quoting `'*.txt'` and explain why the star itself reaches the program. `touch` created two empty files, so counting their bytes would tell you nothing about how many names matched.\n\nSet `ticket='night shift.txt'`. Compare `printf '<%s>\\n' \"$ticket\"` with `printf '<%s>\\n' '$ticket'`. Double quotes allow variable expansion and keep its result together. Single quotes preserve the characters you typed. Type `type cd` and `type -a ls`. Bash handles some commands itself and finds other programs using the directories in `PATH`. When a command fails, first check the spelling with `type` and its inputs with `printf`.\n\n## Take the next ticket\nCreate a third file named `night cover.txt`. List just the two night filenames, one per line, then print the same wildcard literally. Arrange both results before reading on.\n\n**Check your work.** An unquoted `night*.txt` expands to two names. Quoting that pattern produces one line containing a star. Your original directory should still contain three files. Return to your home directory with `cd`. The variable disappears when you log out, while the files remain until the temporary directory is cleaned.",
+      "body": "You receive a request to print the names of every report in a directory. One report is called `night shift.txt`. A space is ordinary in a filename. At the prompt, an unquoted space separates arguments. An argument is one piece of information given to a command. Bash interprets the line before the program sees those arguments.\n\n## Watch Bash do its work\nOn the client, as `learner`, make a fresh directory. `mktemp -d` creates one with a unique name, and `$(...)` substitutes its output. The assignment saves that name for this shell. Type one line at a time.\n\n```console\n> work=$(mktemp -d)\n\n> cd \"$work\"\n\n> touch 'night shift.txt' day.txt\n\n> printf '<%s>\\n' night shift.txt\n<night>\n<shift.txt>\n> printf '<%s>\\n' 'night shift.txt'\n<night shift.txt>\n> printf '<%s>\\n' *.txt\n<day.txt>\n<night shift.txt>\n```\n\nThe first print produces two lines. The second prints one. In the third, Bash expands the wildcard into two filenames before starting `printf`. Each matches one argument, including the name with a space. Try quoting `'*.txt'` and explain why the star itself reaches the program. `touch` created two empty files, so counting their bytes would tell you nothing about how many names matched.\n\nSet `ticket='night shift.txt'`. Compare `printf '<%s>\\n' \"$ticket\"` with `printf '<%s>\\n' '$ticket'`. Double quotes allow variable expansion and keep its result together. Single quotes preserve the characters you typed. Type `type cd` and `type -a ls`. Bash handles some commands itself and finds other programs using the directories in `PATH`. When a command fails, first check the spelling with `type` and its inputs with `printf`.\n\n## Take the next ticket\nCreate a third file named `night cover.txt`. List just the two night filenames, one per line, then print the same wildcard literally. Arrange both results before reading on.\n\n**Check your work.** An unquoted `night*.txt` expands to two names. Quoting that pattern produces one line containing a star. Your original directory should still contain three files. Return to your home directory with `cd`. The variable disappears when you log out, while the files remain until the temporary directory is cleaned.",
       "quiz": [
         "shell-words-reason-1",
         "shell-words-reason-2"
@@ -431,6 +431,24 @@
       ]
     },
     {
+      "id": "network-lab",
+      "module": "network",
+      "title": "Lab • Configure a second interface and the hostname",
+      "minutes": 25,
+      "topics": [
+        "Basic networking"
+      ],
+      "body": "The client has a second network interface with MAC address `52:54:00:aa:01:20`. It has no peer, so nothing answers on it; the grader checks configuration, not reachability. Leave the `192.168.77.20` lab link unchanged, or you will lose the server.\n\nOn the **client**:\n\n1. Configure the second interface persistently with IPv4 address `10.88.10.20/24`, gateway `10.88.10.1` and DNS server `10.88.10.53`.\n2. Set the hostname to `client01.lab.test`.\n\nMatch the MAC to an interface name with `ip -brief link`. `nmcli connection show` lists the profile cloud-init created for it; modify that profile, or create one bound to the interface, with `ipv4.method manual`. Bring it up and check `ip -brief address`, `nmcli -g IP4.GATEWAY,IP4.DNS device show IFACE` and `hostnamectl`. The new DNS server cannot answer, so `/etc/hosts` entries keep the lab names working.\n\nThe grader checks the address and prefix on that interface, the gateway and DNS NetworkManager applied, and the static hostname, then repeats after a reboot. Restore the original hostname afterward if you reuse this pair for other lessons.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 25,
+      "vmTasks": [
+        {
+          "id": "client-network",
+          "points": 10
+        }
+      ]
+    },
+    {
       "id": "software-model",
       "module": "software",
       "title": "Follow software from a trusted source to an installed file",
@@ -694,6 +712,24 @@
       ]
     },
     {
+      "id": "cron-lab",
+      "module": "deployment",
+      "title": "Lab • Schedule a recurring job",
+      "minutes": 15,
+      "topics": [
+        "Deployment and maintenance"
+      ],
+      "body": "On the **client**, add an entry to the `learner` account's own crontab that runs `logger erudior-nightly` every day at 02:15.\n\nEdit as that user with `crontab -e`, or as root with `crontab -e -u learner`. The five time fields are minute, hour, day of month, month and day of week. Confirm the entry with `crontab -l -u learner` and that `crond` is active and enabled. A one-time test is to add a second entry for the next minute, watch `journalctl -t learner -f` or `journalctl -f | grep erudior`, then remove the test line.\n\nThe grader reads learner's crontab and checks the daily 02:15 entry and the daemon, before and after a client reboot. Entries in `/etc/crontab` or `/etc/cron.d` do not count for this task, because it asks for the user's own table.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 15,
+      "vmTasks": [
+        {
+          "id": "client-cron",
+          "points": 10
+        }
+      ]
+    },
+    {
       "id": "service-shift",
       "module": "deployment",
       "title": "Independent shift: diagnose a service that missed its schedule",
@@ -851,6 +887,28 @@
       "vmTasks": [
         {
           "id": "server-swap",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "storage-lab",
+      "module": "storage",
+      "title": "Lab • Build persistent storage on a new disk",
+      "minutes": 40,
+      "topics": [
+        "Local storage"
+      ],
+      "body": "Use the dedicated empty 2 GiB grading disk at `/dev/disk/by-id/virtio-erudior-data`. Confirm its serial number with `lsblk -o NAME,SIZE,TYPE,SERIAL,MOUNTPOINTS`. The practice kit also supplies other 2 GiB disks. Apply both tasks only to the disk whose serial is `erudior-data`.\n\nOn the **server**:\n\n1. Create volume group `labvg` with a 400 MiB logical volume `labdata`. Format it with XFS and mount it at `/srv/labdata` so it returns after boot.\n2. Add at least 256 MiB of swap on the same disk, as a partition or a second logical volume, and make it activate after boot. Keep the existing swap.\n\nPlan the disk first. One way is a GPT label with two partitions: one for LVM and one for swap. Another is one partition for LVM holding both logical volumes. Use `parted` (`mklabel gpt`, `mkpart`, `set N lvm on`), then `pvcreate`, `vgcreate`, `lvcreate`, `mkfs.xfs` and `mkswap`. Reference the filesystem and the swap device in `/etc/fstab` by UUID, run `systemctl daemon-reload`, then `mount -a` and `swapon -a` to test the entries before the grader reboots the server.\n\nThe grader checks the volume group, the logical volume's size (allowing for extent rounding), XFS mounted at the path, swap of the requested size on this disk, and all of it again after a reboot. `findmnt --verify` catches most fstab typing errors.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 40,
+      "vmTasks": [
+        {
+          "id": "server-lvm",
+          "points": 10
+        },
+        {
+          "id": "server-swap-part",
           "points": 10
         }
       ]
@@ -1091,6 +1149,42 @@
       ]
     },
     {
+      "id": "web-port-lab",
+      "module": "security",
+      "title": "Lab • Serve web content on a custom port",
+      "minutes": 25,
+      "topics": [
+        "Security"
+      ],
+      "body": "On the **server**, make `httpd` serve `/var/www/html` on TCP port 18080, running now and at boot. Allow the port through firewalld permanently and keep SELinux enforcing.\n\nThree separate controls must agree. Add `Listen 18080` to the Apache configuration (`/etc/httpd/conf/httpd.conf` or a file in `/etc/httpd/conf.d/`). Label the port for the web server with `semanage port -a -t http_port_t -p tcp 18080`; without the label, enforcing SELinux stops httpd from binding the port and `journalctl -u httpd` shows a permission error. Find the private interface’s zone with `firewall-cmd --get-active-zones`. On the supplied pair, run `firewall-cmd --permanent --zone=rhcsa-lab --add-port=18080/tcp` and `firewall-cmd --reload`. On a manual pair, substitute its active zone. Then `systemctl enable --now httpd`.\n\nTest with `curl -I http://127.0.0.1:18080/` on the server and `curl -I http://192.168.77.10:18080/` from the client. A 403 for an empty document root still proves the server answered. The grader checks the service, the listener, the firewall rule, enforcing mode and an HTTP answer, then repeats after a reboot.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 25,
+      "vmTasks": [
+        {
+          "id": "server-web-port",
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "ssh-lab",
+      "module": "security",
+      "title": "Lab • Key-based SSH login between the machines",
+      "minutes": 20,
+      "topics": [
+        "Security"
+      ],
+      "body": "Create the user `labssh` on the **server**. On the **client**, let the `learner` account log in to the server as `labssh` with an SSH key and no password prompt.\n\nOn the client as learner, create a key pair with `ssh-keygen -t ed25519` (an empty passphrase lets the grader log in unattended). The server image may refuse password logins over SSH, so `ssh-copy-id` can fail. In that case copy the contents of `~/.ssh/id_ed25519.pub` from the client and, on the server console, append it to `/home/labssh/.ssh/authorized_keys`. The directory must be mode 700 and the file 600, both owned by labssh. Run `restorecon -Rv /home/labssh/.ssh` if you created them in an unusual way.\n\nTest from the client with `ssh -o BatchMode=yes labssh@192.168.77.10 true; echo $?`. Zero means a key login worked without prompting. The grader runs the same kind of test as learner on the client, before and after the client reboots.",
+      "vmLab": "linux-admin-exam-v1",
+      "vmExamMinutes": 20,
+      "vmTasks": [
+        {
+          "id": "client-ssh-key",
+          "points": 10
+        }
+      ]
+    },
+    {
       "id": "rehearsal-handoff",
       "module": "practical",
       "title": "Rehearsal • Hand off a working file service",
@@ -1189,6 +1283,17 @@
         "manual-pair",
         "alma103-setup"
       ]
+    },
+    {
+      "id": "practice-exam-v2",
+      "module": "practical",
+      "title": "Randomized RHCSA practice exam",
+      "minutes": 180,
+      "topics": [
+        "Practical assessment"
+      ],
+      "body": "You have a new client, a new server and three hours. **Prepare machines** draws this attempt's ten tasks, one for each published objective area, with its own names, sizes, ports and addresses. The tasks appear when you choose **Begin**. Use the named machine for each and decide your own order. Both machines should identify as AlmaLinux 10 during preparation.\n\nYou may use the documentation installed in the guests. For an independent rehearsal, put course notes aside until you submit. Keep a short record of which task works now and what will make it work at boot. Reserve time to test from the client's or service user's point of view.\n\n**Submit exam** closes the consoles. The grader checks the requested state at submission, restarts the relevant machines and checks again. A task earns its 30 points when both checks pass. The ten tasks total 300 practice points, with an Erudior target of 210. Results appear in this lesson and in course **Progress**. Use **Review task checks** and the next lesson to plan a retake.\n\nA retake draws a new form. Some areas have several kinds of task (for example, local storage can be a logical volume, swap on a new device or a swap file), so a second attempt tests whether the skill transfers rather than whether you remember the last one. Erudior authored these tasks from the published EX200 objectives; the tasks, weights and passing target are Erudior's own.",
+      "vmLab": "rhcsa-rhel10-practice-v2"
     },
     {
       "id": "after-action",
@@ -3150,7 +3255,7 @@
       ]
     }
   ],
-  "revision": 5,
+  "revision": 6,
   "references": [
     {
       "id": "manual-pair",
@@ -3282,5 +3387,5 @@
       "definition": "A packaged starting filesystem and configuration from which a container can be created."
     }
   ],
-  "changelog": "Adds a hands-on service-account fault and repair lesson plus four knowledge checks. Learners distinguish a successful root read from the service identity’s real access and verify a oneshot job on a fresh boot."
+  "changelog": "Adds six graded administration tasks, a randomized final exam and copyable Bash examples. Previous exam receipts keep their original lesson and grading form."
 }

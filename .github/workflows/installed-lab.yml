@@ -1,0 +1,90 @@
+name: Installed desktop VM acceptance
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/installed-lab.yml'
+      - 'tests/installed-lab/**'
+      - 'src-tauri/src/vm_lab/**'
+permissions:
+  contents: read
+jobs:
+  installed:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: ${{ matrix.os == 'macos-15-intel' && 160 || 90 }}
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Prepare WSL 2 provider and verified guest image
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          ./tests/windows-lab-live.ps1
+          if ($LASTEXITCODE -ne 0) { throw 'WSL 2 host setup failed.' }
+          $env:WSL_UTF8 = '1'
+          python -c "import subprocess; from pathlib import Path; subprocess.run(['wsl.exe','-d','Erudior-Labs','-u','erudior-lab','--','sh','-s'], input=Path('tests/installed-lab/provider-media.sh').read_bytes(), check=True)"
+          if ($LASTEXITCODE -ne 0) { throw 'A running WSL 2 provider with verified media is required.' }
+      - name: Prepare Lima provider and verified guest image
+        if: runner.os == 'macOS'
+        run: |
+          brew install lima qemu
+          limactl start --tty=false --name=erudior-labs --cpus=3 --memory=5 --disk=18 template:debian
+          limactl shell --tty=false erudior-labs sudo sh -s -- packages < src-tauri/src/vm_lab/windows-host.sh
+          limactl shell --tty=false erudior-labs sh -s < tests/installed-lab/provider-media.sh
+          limactl shell --tty=false erudior-labs sudo tee /usr/local/bin/qemu-system-x86_64 < tests/installed-lab/macos-boot-diagnostics.py > /dev/null
+          limactl shell --tty=false erudior-labs sudo chmod 755 /usr/local/bin/qemu-system-x86_64
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - run: npm ci
+      - name: Build a disposable acceptance installer
+        shell: bash
+        run: |
+          echo 'import "../tests/installed-lab/driver";' > src/main.tsx
+          node --input-type=module -e 'import fs from "node:fs"; fs.writeFileSync("src-tauri/acceptance.json", JSON.stringify({identifier:"com.erudior.acceptance",bundle:{createUpdaterArtifacts:false}}))'
+          if [[ "$RUNNER_OS" == Windows ]]; then bundle=nsis; else bundle=dmg; fi
+          npx tauri build --ci --bundles "$bundle" --config src-tauri/acceptance.json
+      - name: Install and launch the Windows package twice
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $installer = (Get-ChildItem src-tauri/target/release/bundle/nsis/*-setup.exe).FullName
+          $dir = Join-Path $env:RUNNER_TEMP 'ErudiorInstalled'
+          $installation = Start-Process -FilePath $installer -ArgumentList "/S /D=$dir" -Wait -PassThru
+          if ($installation.ExitCode -ne 0) { throw 'Installer failed' }
+          $app = (Get-ChildItem $dir -Filter erudior.exe -Recurse | Select-Object -First 1).FullName
+          python tests/installed-lab/launch.py $app
+      - name: Install and launch the macOS package twice
+        if: runner.os == 'macOS'
+        run: |
+          mount="$RUNNER_TEMP/erudior-volume"
+          hdiutil attach src-tauri/target/release/bundle/dmg/*.dmg -mountpoint "$mount" -nobrowse
+          ditto "$mount/Erudior.app" "$RUNNER_TEMP/Erudior.app"
+          hdiutil detach "$mount"
+          python3 tests/installed-lab/launch.py "$RUNNER_TEMP/Erudior.app/Contents/MacOS/erudior"
+      - name: Read guest boot milestones after a failed macOS run
+        if: failure() && runner.os == 'macOS'
+        run: |
+          limactl shell --tty=false erudior-labs sh -s <<'SH'
+          cd "$HOME/.local/share/erudior-vm-labs/attempts" || exit 0
+          for boot in */*.serial.boot; do
+            test -f "$boot" || continue
+            echo "$boot"
+            # Serial streams stay on the disposable VM. Emit only known boot milestones.
+            tr '\r' '\n' < "$boot" | grep -Eio 'kernel panic[^[:cntrl:]]{0,160}|CPU does not support[^[:cntrl:]]{0,120}|fatal glibc error[^[:cntrl:]]{0,120}|Entering emergency mode|Reached target [[:alnum:] -]+|[[:alnum:]-]+ login:|Starting kernel|Booting from Hard Disk|dracut-initqueue[^[:cntrl:]]{0,120}|No bootable device|cloud-init[^[:cntrl:]]{0,75}finished' | tail -25 || true
+          done
+          SH
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: installed-vm-${{ matrix.os }}
+          path: installed-lab-receipt.json

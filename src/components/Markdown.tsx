@@ -60,7 +60,7 @@ export function joinCjkBreaks(html: string): string {
 }
 
 /** `script` "zh": a Chinese course, whose ```trace blocks trace Han characters as hanzi. */
-export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined, script?: TraceScript): string {
+export function renderMarkdown(md: string, scope?: Record<string, number>, assign?: (l: BlockLink) => LinkInfo | undefined, script?: TraceScript, legacyConsole = false): string {
   // Shield ordinary fences before *any* interactive parser. A literal tutorial
   // containing nested widget fences must remain code, including longer/tilde
   // fences that the legacy widget regular expressions do not understand.
@@ -71,7 +71,7 @@ export function renderMarkdown(md: string, scope?: Record<string, number>, assig
   for (const fence of fences.reverse()) {
     const original = md.slice(fence.start, fence.end);
     const code = fence.interactive ? protectCode(original) : undefined;
-    const transcript = fence.closed && fence.kind === "console" && !fence.info ? renderCommandTranscript(fence.body) : undefined;
+    const transcript = fence.closed && (fence.kind === "console" || legacyConsole && fence.kind === "text") && !fence.info ? renderCommandTranscript(fence.body) : undefined;
     const rendered = transcript ?? (code ? code.restore(code.text) : marked.parse(original, { async: false }) as string);
     const index = inert.push(DOMPurify.sanitize(rendered)) - 1;
     md = md.slice(0, fence.start) + `\n\n${token}${index}END\n\n` + md.slice(fence.end);
@@ -202,9 +202,11 @@ export default function Markdown({
   ttsLang,
   notes,
   html: prerendered,
+  legacyConsole = false,
   decorate = true,
 }: {
   source: string;
+  legacyConsole?: boolean;
   /**
    * Read-aloud: marks each paragraph, heading, list item, table and equation as something a
    * reader can read (data-ra), and with `buttons` adds a read button to each. `lib` is the
@@ -250,7 +252,7 @@ export default function Markdown({
   }, [needKanji, script, hanzi]);
   const readButtons = !!read?.buttons;
   const html = useMemo(() => {
-    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script);
+    const plain = prerendered ? source : renderMarkdown(source, scope, assignments?.info, script, legacyConsole);
     const decorated = decorate && className.includes("prose") ? decorateLesson(plain, { foreign: !!foreignLang }) : plain;
     const out = marking ? markReadUnits(decorated, readButtons) : decorated;
     if (!foreignLang) return out;
@@ -261,7 +263,7 @@ export default function Markdown({
       .replace(/<blockquote>/g, `<blockquote lang="${code}">`)
       .replace(/<p class="(dlg-text|spk-text)">/g, `<p class="$1" lang="${code}">`);
     // kanjiReady: not read here, but the kanji pads need redrawing once the strokes have loaded.
-  }, [source, scope, foreignLang, script, className, marking, readButtons, assignments, prerendered, decorate, kanjiReady]);
+  }, [source, scope, foreignLang, script, className, marking, readButtons, assignments, prerendered, legacyConsole, decorate, kanjiReady]);
   const [pop, setPop] = useState<Pop | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const body = useRef<HTMLDivElement>(null);
