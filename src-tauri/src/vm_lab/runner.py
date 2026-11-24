@@ -1,5 +1,15 @@
 """Run and grade built-in two-machine practice labs and timed practicals."""
-import fcntl
+try:
+    import fcntl
+except ModuleNotFoundError:
+    class _ProviderOnlyFcntl:
+        LOCK_EX = LOCK_NB = LOCK_SH = LOCK_UN = 0
+
+        def __getattr__(self, _name):
+            raise OSError("POSIX locking is available only inside the Linux VM provider.")
+
+    fcntl = _ProviderOnlyFcntl()
+
 import hashlib
 import json
 import os
