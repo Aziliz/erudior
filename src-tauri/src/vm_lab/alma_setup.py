@@ -1,6 +1,16 @@
 """Prepare one standalone AlmaLinux base from the course DVD and practice kit."""
 import contextlib
-import fcntl
+try:
+    import fcntl
+except ModuleNotFoundError:
+    class _ProviderOnlyFcntl:
+        LOCK_EX = LOCK_NB = 0
+
+        def __getattr__(self, _name):
+            raise OSError("POSIX locking is available only inside the Linux VM provider.")
+
+    fcntl = _ProviderOnlyFcntl()
+
 import hashlib
 import io
 import os
