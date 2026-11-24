@@ -21,8 +21,14 @@ await page.route("**/*", async route => {
 });
 await page.addInitScript(raw => {
   window.isTauri = true;
+  // The author offers a calculator. This learner initially hides it.
+  raw.calculator = "basic";
+  if (sessionStorage.getItem("test.courseTools") === "off") {
+    raw.calculator = "none";
+    raw.practiceEnvironment = "none";
+  }
   const progress = { version: 1, seeded: true, catalogV1: true, attempts: [], stats: {}, cards: {},
-    lessonsDone: {}, plans: {}, activity: {}, drills: {} };
+    lessonsDone: {}, plans: {}, activity: {}, drills: {}, courseCalculators: { [raw.id]: false } };
   const states = new Map([["progress", sessionStorage.getItem("test.progress") ?? JSON.stringify(progress)]]);
   const sessions = new Map();
   window.vmCalls = [];
@@ -264,6 +270,12 @@ try {
   await page.getByRole("button", { name: "Retry installation" }).click();
   await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
   assert.deepEqual(await actions(), ["desktop_update_install", "desktop_update_install", "plugin:process|restart"]);
+  await page.evaluate(() => sessionStorage.setItem("test.courseTools", "off"));
+  await page.goto("https://erudior.test/");
+  await page.locator(".course-row").filter({ hasText: course.title }).click();
+  await page.getByRole("heading", { name: course.title, exact: true }).waitFor();
+  assert.equal(await calculatorSetting.count(), 0, "Author disabled the calculator");
+  assert.equal(await button("Open practice terminal").count(), 0, "Author disabled course practice");
   console.log("Desktop consent, cached RPM recovery across reload and installation retry passed.");
   console.log("Pointer and keyboard resizing, row refit, unchanged width and remembered terminal height passed.");
   console.log("Lesson reading, serial input, session continuity, two pane widths, guest switching and exam isolation passed.");
