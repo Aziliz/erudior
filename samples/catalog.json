@@ -9756,7 +9756,7 @@
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
   "description": "Begin with your first AlmaLinux login and build toward independent RHEL 10 administration. Practice in a live terminal beside each reading, solve shift assignments, and test your work on a two-machine RHCSA practice exam.",
-  "revision": 6,
+  "revision": 7,
   "subject": "Information technology",
   "level": [
    "Professional"
