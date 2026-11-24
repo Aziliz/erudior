@@ -677,7 +677,11 @@ def remaining(exam):
 
 
 def child_command(*args):
-    source = Path(__file__).read_text() if "__file__" in globals() else runner_source
+    if "__file__" in globals():
+        runner_file = Path(__file__)
+        source = runner_file.with_name("alma_setup.py").read_text() + "\n" + runner_file.read_text()
+    else:
+        source = runner_source
     return [sys.executable, "-I", "-c", "import sys;runner_source=sys.argv.pop(1);exec(runner_source)",
             source, GUEST_SOURCE, *args]
 
