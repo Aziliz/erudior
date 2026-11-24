@@ -264,8 +264,8 @@ export default function DownloadPage() {
           <summary>How do updates work?</summary>
           <p>
             On Windows, macOS and Linux (AppImage, RPM or DEB), Erudior checks GitHub Releases on startup, on reconnect and periodically while open.
-            It downloads and verifies newer versions automatically, then installs and restarts from the Library or profile picker.
-            You can finish a lesson or exam first. Your system may prompt for permission to install.
+            Choose Download update when a new version is offered. Erudior verifies and saves the download so you can reopen the app and install it later.
+            Choose Install and restart when ready. If your system asks for authorization, use the administrator account shown in its prompt.
             Android opens its verified APK in the system installer for your approval.
           </p>
         </details>

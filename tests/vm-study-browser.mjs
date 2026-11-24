@@ -42,15 +42,22 @@ await page.addInitScript(raw => {
         return cmd === "compare_and_swap_state" ? true : undefined;
       }
       if (cmd === "install_kind") return "rpm";
-      if (cmd.startsWith("plugin:updater|") || cmd === "plugin:process|restart") {
+      if (cmd.startsWith("plugin:updater|") || cmd.startsWith("desktop_update_") || cmd === "plugin:process|restart") {
         window.releaseCalls.push(cmd);
+        function assertUpdateResource() { if (args.rid !== 90) throw Error("Wrong update resource"); }
         switch (cmd) {
           case "plugin:updater|check":
             return window.offerRelease ? { rid: 90, currentVersion: "1.0.0", version: "1.1.0", rawJson: {} } : null;
-          case "plugin:updater|download":
-            return 91;
-          case "plugin:updater|install":
-            if (args.bytesRid !== 91 || args.updateRid !== 90) throw Error("Wrong staged update");
+          case "desktop_update_cached":
+            return args.rid === 90 && localStorage.getItem("test.package") === "verified";
+          case "desktop_update_download":
+            assertUpdateResource();
+            localStorage.setItem("test.package", "verified");
+            return;
+          case "desktop_update_install":
+            assertUpdateResource();
+            if (window.denyInstallation) throw Error("System authorization denied");
+            return localStorage.getItem("test.package") === "verified";
         }
         return;
       }
@@ -235,20 +242,29 @@ try {
     window.dispatchEvent(new Event("online"));
     window.dispatchEvent(new Event("online"));
   });
-  await page.getByRole("button", { name: "Install and restart now" }).waitFor();
+  const downloadUpdate = page.getByRole("button", { name: "Download update" });
+  const installUpdate = page.getByRole("button", { name: "Install and restart now" });
+  const actions = () => page.evaluate(() => window.releaseCalls.filter(cmd =>
+    ["desktop_update_download", "desktop_update_install", "plugin:process|restart"].includes(cmd)));
+  await downloadUpdate.waitFor();
   await input(practice, "id");
-  assert.equal(await page.evaluate(() => window.releaseCalls.includes("plugin:updater|install")), false);
+  assert.deepEqual(await actions(), []);
+  await downloadUpdate.click();
+  await installUpdate.waitFor();
   await page.getByRole("navigation", { name: "Main", exact: true }).getByRole("button", { name: "Library", exact: true }).click();
-  await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
-  assert.deepEqual(await page.evaluate(() => window.releaseCalls.filter(cmd => !cmd.endsWith("|check"))),
-    ["plugin:updater|download", "plugin:updater|install", "plugin:process|restart"]);
+  assert.deepEqual(await actions(), ["desktop_update_download"]);
   await page.addInitScript(() => { window.offerRelease = true; });
-  await page.goto("https://erudior.test/");
+  await page.reload();
+  await installUpdate.waitFor();
+  assert.deepEqual(await actions(), []);
+  await page.evaluate(() => { window.denyInstallation = true; });
+  await installUpdate.click();
+  await page.getByText(/System authorization denied/).waitFor();
+  await page.evaluate(() => { window.denyInstallation = false; });
+  await page.getByRole("button", { name: "Retry installation" }).click();
   await page.waitForFunction(() => window.releaseCalls.includes("plugin:process|restart"));
-  assert.deepEqual(await page.evaluate(() => window.releaseCalls),
-    ["plugin:updater|check", "plugin:updater|download", "plugin:updater|install", "plugin:process|restart"]);
-  console.log("A newer signed release installed and restarted from a cold launch without a click.");
-  console.log("A live lesson survived automatic download, and returning to the Library installed the staged RPM update once.");
+  assert.deepEqual(await actions(), ["desktop_update_install", "desktop_update_install", "plugin:process|restart"]);
+  console.log("Desktop consent, cached RPM recovery across reload and installation retry passed.");
   console.log("Pointer and keyboard resizing, row refit, unchanged width and remembered terminal height passed.");
   console.log("Lesson reading, serial input, session continuity, two pane widths, guest switching and exam isolation passed.");
 } catch (error) {

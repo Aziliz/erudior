@@ -1,9 +1,11 @@
-name: Windows automatic release upgrade
+name: Windows signed release upgrade
 on:
   pull_request:
     paths:
       - 'src/lib/appUpdateController.ts'
       - 'src/lib/updates.ts'
+      - 'src-tauri/src/desktop_updates.rs'
+      - 'tests/windows-update-consent.mjs'
       - '.github/workflows/windows-app-update.yml'
   workflow_dispatch:
 
@@ -34,6 +36,8 @@ jobs:
           # update endpoint and public key in the app that will check for updates.
           $config = Join-Path $env:RUNNER_TEMP 'baseline.json'
           '{"version":"0.0.1","bundle":{"createUpdaterArtifacts":false}}' | Set-Content -Encoding utf8NoBOM $config
+          $html = Get-Content index.html -Raw
+          $html.Replace('</body>', '<script type="module" src="/tests/windows-update-consent.mjs"></script></body>') | Set-Content -Encoding utf8NoBOM index.html
           npx tauri build --bundles nsis --config $config
       - name: Start Erudior and observe the signed release replace it
         shell: pwsh
@@ -56,7 +60,26 @@ jobs:
           $lesson = 'rhcsa-rhel10-administration/first-prompt'
           $progressFile = Join-Path $data 'progress.json'
           @{ version=1; seeded=$true; catalogV1=$true; lessonsDone=@{$lesson='2026-11-01'}; attempts=@(); stats=@{}; cards=@{}; plans=@{}; activity=@{}; drills=@{} } | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8NoBOM $progressFile
+          $receipt = Join-Path $data 'documents/update-acceptance.json'
+          function waitReceipt($expected) {
+            $deadline = (Get-Date).AddMinutes(3)
+            do {
+              if (Test-Path $receipt) {
+                $state = Get-Content -Raw $receipt | ConvertFrom-Json
+                if ($state.phase -eq 'failed') { throw $state.detail }
+                if ($state.phase -eq $expected) { return }
+              }
+              Start-Sleep 1
+            } while ((Get-Date) -lt $deadline)
+            throw "No $expected update receipt"
+          }
+          $downloadSession = Start-Process $exe -PassThru
+          waitReceipt 'downloaded'
+          if ((installedVersion) -ne '0.0.1') { throw 'Installed before approval' }
+          Stop-Process -Id $downloadSession.Id
+          $downloadSession.WaitForExit()
           $first = Start-Process $exe -PassThru
+          waitReceipt 'installing'
           $deadline = (Get-Date).AddMinutes(6)
           do {
             Start-Sleep 2
@@ -64,8 +87,8 @@ jobs:
             if ($running -and (installedVersion) -eq $target) { break }
           } while ((Get-Date) -lt $deadline)
           if (!$running -or (installedVersion) -ne $target) {
-            throw "Expected automatic upgrade and relaunch to $target. Installed: $(installedVersion)"
+            throw "Expected approved upgrade and relaunch to $target. Installed: $(installedVersion)"
           }
           if ((Get-FileHash $course).Hash -ne $hash) { throw 'Installed course changed during upgrade' }
           if ((Get-Content -Raw $progressFile | ConvertFrom-Json).lessonsDone.$lesson -ne '2026-11-01') { throw 'Lesson completion lost during upgrade' }
-          Write-Host "Automatically upgraded Erudior from 0.0.1 to $target and relaunched with course and completion intact."
+          Write-Host "Upgraded Erudior after explicit download and install approval from 0.0.1 to $target and relaunched with course and completion intact."
