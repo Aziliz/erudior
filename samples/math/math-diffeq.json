@@ -5,8 +5,8 @@
  "title": "Differential Equations",
  "description": "Ordinary differential equations from the AP-calculus bridge (slope fields, separable equations, exponential and logistic growth, Euler's method) through a full sophomore college course: first-order methods and models, autonomous equations and bifurcations, numerical methods, second-order and higher-order linear equations, vibrations and circuits, Laplace transforms, linear and nonlinear systems with phase portraits, series solutions, and an introduction to Fourier series and the heat and wave equations.",
  "author": "Erudior",
- "revision": 4,
- "changelog": "Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for.",
+ "revision": 5,
+ "changelog": "Adds a scored independent application with a three-criterion self-review: Estimate a cooling time.",
  "modules": [
   {
    "id": "de-m1",
@@ -382,7 +382,7 @@
    "refs": [
     "de-ref-methods"
    ],
-   "body": "## The first real solving method\n\nSlope fields showed the shape of solutions. Now we find formulas. The first method,\nand the one you'll use most often in this module, works when the right side of\n$\\dfrac{dy}{dx} = f(x, y)$ splits into a factor depending only on $x$ times a factor\ndepending only on $y$. Such an equation is called **[[separable]]**:\n\n$$\\frac{dy}{dx} = g(x)\\,h(y).$$\n\nExamples: $y' = xy$, $y' = \\dfrac{x^2}{y}$, $y' = e^{x - y} = e^x e^{-y}$. Not separable:\n$y' = x + y$ (a sum can't be factored that way).\n\n## The method and why it works\n\n1. Divide by $h(y)$ (where $h(y) \\ne 0$) and multiply by $dx$:\n   $$\\frac{1}{h(y)}\\,dy = g(x)\\,dx.$$\n2. Integrate both sides: $\\displaystyle\\int \\frac{dy}{h(y)} = \\int g(x)\\,dx + C$.\n3. Solve for $y$ if you can, then apply any initial condition.\n\nWriting $dy$ and $dx$ as if they were separate quantities looks like a trick, but it is\njust the chain rule in reverse. If $H(y)$ is an antiderivative of $1/h(y)$, then for a\nsolution $y(x)$,\n\n$$\\frac{d}{dx}H(y(x)) = \\frac{1}{h(y)}\\frac{dy}{dx} = g(x).$$\n\nSo $H(y(x))$ and $\\int g(x)\\,dx$ have the same derivative and differ by a constant. One\nconstant on one side is enough; constants from both sides combine into a single $C$.\n\n## Don't lose the equilibria\n\nDividing by $h(y)$ is illegal where $h(y) = 0$. If $h(c) = 0$, then $y = c$ is a constant\n(equilibrium) solution, and it may not appear in your formula. Always check those values\nseparately.\n\nThe whole method, with the equilibrium check done first so it isn't forgotten, fits in one\nchart. (Using the initial condition and solving for $y$ can also be done in the other order;\nsee below.)\n\n```mermaid\nflowchart TD\n  accTitle: Solving a separable equation\n  accDescr: Write the equation as dy/dx = g(x) h(y). Solve h(y) = 0; each root c gives an equilibrium solution y = c. Separate to dy/h(y) = g(x) dx. Integrate both sides, adding one constant. Use the initial condition to find the constant. Solve for y, or leave the solution implicit. Check by differentiating and substituting.\n  A[\"Write dy/dx = g(x) h(y)\"] --> B[\"Solve h(y) = 0: equilibria y = c\"]\n  B --> C[\"Separate: dy/h(y) = g(x) dx\"]\n  C --> D[\"Integrate both sides, add one constant\"]\n  D --> E[\"Use the initial condition to find the constant\"]\n  E --> F[\"Solve for y, or leave it implicit\"]\n  F --> G[\"Check: differentiate and substitute\"]\n```\n\n### Example 1\n\nSolve $\\dfrac{dy}{dx} = xy$, $y(0) = 3$.\n\n- Separate: $\\dfrac{dy}{y} = x\\,dx$ (assuming $y \\ne 0$).\n- Integrate: $\\ln|y| = \\dfrac{x^2}{2} + C$.\n- Exponentiate: $|y| = e^C e^{x^2/2}$, so $y = Ae^{x^2/2}$ where $A = \\pm e^C$. Allowing\n  $A = 0$ also brings back the equilibrium $y = 0$.\n- Initial condition: $3 = Ae^0$, so $A = 3$, and $y = 3e^{x^2/2}$.\n\nThis step, replacing $\\pm e^C$ by one constant $A$, happens every time you integrate\n$\\dfrac{dy}{y}$. Remember it.\n\nThe figure shows several members of the family $y = Ae^{x^2/2}$. The flat member $A = 0$ is\nthe equilibrium solution that dividing by $y$ would have lost.\n\n```plot\n{\"x\": [-2.5, 2.5], \"y\": [-6, 6], \"functions\": [{\"f\": \"3exp(x^2/2)\", \"label\": \"A = 3\"}, {\"f\": \"exp(x^2/2)\", \"label\": \"A = 1\"}, {\"f\": \"0\", \"label\": \"A = 0\"}, {\"f\": \"-exp(x^2/2)\"}, {\"f\": \"-2exp(x^2/2)\"}], \"points\": [{\"at\": [0, 3], \"label\": \"(0, 3)\"}], \"caption\": \"Solutions y = Ae^(x²/2) of dy/dx = xy; the two curves below the axis have A = −1 and A = −2. The equilibrium y = 0 (A = 0) is the one that dividing by y would lose.\"}\n```\n\n### Example 2\n\nSolve $\\dfrac{dy}{dx} = \\dfrac{6x^2}{y}$, $y(1) = 4$.\n\n- Separate: $y\\,dy = 6x^2\\,dx$.\n- Integrate: $\\dfrac{y^2}{2} = 2x^3 + C$.\n- Initial condition first (it's easier before solving for $y$): $\\dfrac{16}{2} = 2 + C$,\n  so $C = 6$.\n- Then $y^2 = 4x^3 + 12$. Choose the sign that matches $y(1) = 4 > 0$:\n  $$y = \\sqrt{4x^3 + 12}.$$\n- The solution only exists where $4x^3 + 12 > 0$, that is $x > -\\sqrt[3]{3}$. Solutions\n  of nonlinear equations often live on limited intervals.\n\n### Example 3\n\nSolve $\\dfrac{dy}{dx} = y^2$, $y(0) = 1$.\n\n- Separate: $y^{-2}\\,dy = dx$.\n- Integrate: $-\\dfrac{1}{y} = x + C$.\n- Initial condition: $-1 = C$. So $-\\dfrac1y = x - 1$, giving $y = \\dfrac{1}{1 - x}$.\n- This blows up at $x = 1$. The solution of the IVP exists only on $(-\\infty, 1)$, the\n  interval containing $x_0 = 0$, even though the equation $y' = y^2$ looks perfectly\n  harmless everywhere.\n\n```plot\n{\"x\": [-3, 2], \"y\": [-1, 6], \"slopeField\": {\"f\": \"y^2\", \"step\": 0.5}, \"functions\": [{\"f\": \"1/(1 - x)\", \"to\": 0.98, \"label\": \"y = 1/(1 − x)\"}], \"points\": [{\"at\": [0, 1], \"label\": \"(0, 1)\"}], \"caption\": \"The solution of y′ = y², y(0) = 1 shoots to infinity as x → 1.\"}\n```\n\n### Example 4\n\nSolve $\\dfrac{dy}{dt} = e^{t - y}$, $y(0) = 0$.\n\n- Rewrite: $e^{t - y} = e^t e^{-y}$, so $e^{y}\\,dy = e^t\\,dt$.\n- Integrate: $e^y = e^t + C$.\n- Initial condition: $1 = 1 + C$, so $C = 0$, and $e^y = e^t$, giving $y = t$.\n- Check: $y' = 1$ and $e^{t - t} = e^0 = 1$. Correct.\n\n## Implicit solutions\n\nSometimes you can't solve for $y$. Separating $\\dfrac{dy}{dx} = \\dfrac{x}{y + \\cos y}$\ngives $\\dfrac{y^2}{2} + \\sin y = \\dfrac{x^2}{2} + C$. That equation, which defines $y$ as\na function of $x$ without isolating it, is an **[[implicit solution]]**. It is a perfectly\ngood answer; you can still apply an initial condition to find $C$.\n\n## Choosing when to use the initial condition\n\nYou may plug in the initial condition right after integrating (as in Example 2) or after\nsolving for $y$ (as in Example 1). Plugging in early is usually easier, especially before\ntaking square roots or exponentials. Either way, the answer must satisfy the original\ncondition, and that check catches most sign errors.\n\n## Checking your answer\n\nSeparable problems involve several steps where signs and constants can slip, so finish by\nchecking. Differentiate your $y$ and confirm $y' = g(x)h(y)$, then confirm the initial value.\nFor Example 2: $y = (4x^3 + 12)^{1/2}$ gives $y' = \\dfrac{12x^2}{2\\sqrt{4x^3 + 12}} = \\dfrac{6x^2}{y}$, and\n$y(1) = \\sqrt{16} = 4$. Both check. This takes a minute and catches nearly every error.\n\n## Common mistakes\n\n- **Forgetting the constant** or adding it after exponentiating as $e^{x^2/2} + C$. The\n  constant belongs right after integrating; after exponentiating it becomes a factor.\n- **Separating a sum.** $y' = x + y$ is not separable; you can't write $dy = x\\,dx + y\\,dx$\n  and integrate $y\\,dx$ as if $y$ were constant.\n- **Losing equilibrium solutions** when dividing by $h(y)$.\n- **Wrong sign of the square root.** Pick the branch that matches the initial value.\n- **Ignoring the interval.** The solution of an IVP lives on the largest interval\n  containing $x_0$ on which the formula is defined and differentiable.\n\n## Key points\n\n- Separable means $y' = g(x)h(y)$. Separate, integrate both sides, add one constant.\n- $\\int \\frac{dy}{y} = \\ln|y|$ leads to $y = Ae^{(\\cdots)}$; let $A$ absorb $\\pm e^C$.\n- Check values with $h(y) = 0$; they are equilibrium solutions.\n- Nonlinear equations can have solutions that blow up in finite time; give the interval.\n",
+   "body": "## The first real solving method\n\nSlope fields showed the shape of solutions. Now we find formulas. The first method,\nand the one you'll use most often in this module, works when the right side of\n$\\dfrac{dy}{dx} = f(x, y)$ splits into a factor depending only on $x$ times a factor\ndepending only on $y$. Such an equation is called **[[separable]]**:\n\n$$\\frac{dy}{dx} = g(x)\\,h(y).$$\n\nExamples: $y' = xy$, $y' = \\dfrac{x^2}{y}$, $y' = e^{x - y} = e^x e^{-y}$. Not separable:\n$y' = x + y$ (a sum can't be factored that way).\n\n## The method and why it works\n\n1. Divide by $h(y)$ (where $h(y) \\ne 0$) and multiply by $dx$:\n   $$\\frac{1}{h(y)}\\,dy = g(x)\\,dx.$$\n2. Integrate both sides: $\\displaystyle\\int \\frac{dy}{h(y)} = \\int g(x)\\,dx + C$.\n3. Solve for $y$ if you can, then apply any initial condition.\n\nWriting $dy$ and $dx$ as if they were separate quantities looks like a trick, but it is\njust the chain rule in reverse. If $H(y)$ is an antiderivative of $1/h(y)$, then for a\nsolution $y(x)$,\n\n$$\\frac{d}{dx}H(y(x)) = \\frac{1}{h(y)}\\frac{dy}{dx} = g(x).$$\n\nSo $H(y(x))$ and $\\int g(x)\\,dx$ have the same derivative and differ by a constant. One\nconstant on one side is enough; constants from both sides combine into a single $C$.\n\n## Don't lose the equilibria\n\nDividing by $h(y)$ is illegal where $h(y) = 0$. If $h(c) = 0$, then $y = c$ is a constant\n(equilibrium) solution, and it may not appear in your formula. Always check those values\nseparately.\n\nThe whole method, with the equilibrium check done first so it isn't forgotten, fits in one\nchart. (Using the initial condition and solving for $y$ can also be done in the other order;\nsee below.)\n\n```mermaid\nflowchart TD\n  accTitle: Solving a separable equation\n  accDescr: Write the equation as dy/dx = g(x) h(y). Solve h(y) = 0; each root c gives an equilibrium solution y = c. Separate to dy/h(y) = g(x) dx. Integrate both sides, adding one constant. Use the initial condition to find the constant. Solve for y, or leave the solution implicit. Check by differentiating and substituting.\n  A[\"Write dy/dx = g(x) h(y)\"] --> B[\"Solve h(y) = 0: equilibria y = c\"]\n  B --> C[\"Separate: dy/h(y) = g(x) dx\"]\n  C --> D[\"Integrate both sides, add one constant\"]\n  D --> E[\"Use the initial condition to find the constant\"]\n  E --> F[\"Solve for y, or leave it implicit\"]\n  F --> G[\"Check: differentiate and substitute\"]\n```\n\n### Example 1\n\nSolve $\\dfrac{dy}{dx} = xy$, $y(0) = 3$.\n\n- Separate: $\\dfrac{dy}{y} = x\\,dx$ (assuming $y \\ne 0$).\n- Integrate: $\\ln|y| = \\dfrac{x^2}{2} + C$.\n- Exponentiate: $|y| = e^C e^{x^2/2}$, so $y = Ae^{x^2/2}$ where $A = \\pm e^C$. Allowing\n  $A = 0$ also brings back the equilibrium $y = 0$.\n- Initial condition: $3 = Ae^0$, so $A = 3$, and $y = 3e^{x^2/2}$.\n\nThis step, replacing $\\pm e^C$ by one constant $A$, happens every time you integrate\n$\\dfrac{dy}{y}$. Remember it.\n\nThe figure shows several members of the family $y = Ae^{x^2/2}$. The flat member $A = 0$ is\nthe equilibrium solution that dividing by $y$ would have lost.\n\n```plot\n{\"x\": [-2.5, 2.5], \"y\": [-6, 6], \"functions\": [{\"f\": \"3exp(x^2/2)\", \"label\": \"A = 3\"}, {\"f\": \"exp(x^2/2)\", \"label\": \"A = 1\"}, {\"f\": \"0\", \"label\": \"A = 0\"}, {\"f\": \"-exp(x^2/2)\"}, {\"f\": \"-2exp(x^2/2)\"}], \"points\": [{\"at\": [0, 3], \"label\": \"(0, 3)\"}], \"caption\": \"Solutions y = Ae^(x²/2) of dy/dx = xy; the two curves below the axis have A = −1 and A = −2. The equilibrium y = 0 (A = 0) is the one that dividing by y would lose.\"}\n```\n\n### Example 2\n\nSolve $\\dfrac{dy}{dx} = \\dfrac{6x^2}{y}$, $y(1) = 4$.\n\n- Separate: $y\\,dy = 6x^2\\,dx$.\n- Integrate: $\\dfrac{y^2}{2} = 2x^3 + C$.\n- Initial condition first (it's easier before solving for $y$): $\\dfrac{16}{2} = 2 + C$,\n  so $C = 6$.\n- Then $y^2 = 4x^3 + 12$. Choose the sign that matches $y(1) = 4 > 0$:\n  $$y = \\sqrt{4x^3 + 12}.$$\n- The solution only exists where $4x^3 + 12 > 0$, that is $x > -\\sqrt[3]{3}$. Solutions\n  of nonlinear equations often live on limited intervals.\n\n### Example 3\n\nSolve $\\dfrac{dy}{dx} = y^2$, $y(0) = 1$.\n\n- Separate: $y^{-2}\\,dy = dx$.\n- Integrate: $-\\dfrac{1}{y} = x + C$.\n- Initial condition: $-1 = C$. So $-\\dfrac1y = x - 1$, giving $y = \\dfrac{1}{1 - x}$.\n- This blows up at $x = 1$. The solution of the IVP exists only on $(-\\infty, 1)$, the\n  interval containing $x_0 = 0$, even though the equation $y' = y^2$ looks perfectly\n  harmless everywhere.\n\n```plot\n{\"x\": [-3, 2], \"y\": [-1, 6], \"slopeField\": {\"f\": \"y^2\", \"step\": 0.5}, \"functions\": [{\"f\": \"1/(1 - x)\", \"to\": 0.98, \"label\": \"y = 1/(1 − x)\"}], \"points\": [{\"at\": [0, 1], \"label\": \"(0, 1)\"}], \"caption\": \"The solution of y′ = y², y(0) = 1 shoots to infinity as x → 1.\"}\n```\n\n### Example 4\n\nSolve $\\dfrac{dy}{dt} = e^{t - y}$, $y(0) = 0$.\n\n- Rewrite: $e^{t - y} = e^t e^{-y}$, so $e^{y}\\,dy = e^t\\,dt$.\n- Integrate: $e^y = e^t + C$.\n- Initial condition: $1 = 1 + C$, so $C = 0$, and $e^y = e^t$, giving $y = t$.\n- Check: $y' = 1$ and $e^{t - t} = e^0 = 1$. Correct.\n\n## Implicit solutions\n\nSometimes you can't solve for $y$. Separating $\\dfrac{dy}{dx} = \\dfrac{x}{y + \\cos y}$\ngives $\\dfrac{y^2}{2} + \\sin y = \\dfrac{x^2}{2} + C$. That equation, which defines $y$ as\na function of $x$ without isolating it, is an **[[implicit solution]]**. It is a perfectly\ngood answer; you can still apply an initial condition to find $C$.\n\n## Choosing when to use the initial condition\n\nYou may plug in the initial condition right after integrating (as in Example 2) or after\nsolving for $y$ (as in Example 1). Plugging in early is usually easier, especially before\ntaking square roots or exponentials. Either way, the answer must satisfy the original\ncondition, and that check catches most sign errors.\n\n## Checking your answer\n\nSeparable problems involve several steps where signs and constants can slip, so finish by\nchecking. Differentiate your $y$ and confirm $y' = g(x)h(y)$, then confirm the initial value.\nFor Example 2: $y = (4x^3 + 12)^{1/2}$ gives $y' = \\dfrac{12x^2}{2\\sqrt{4x^3 + 12}} = \\dfrac{6x^2}{y}$, and\n$y(1) = \\sqrt{16} = 4$. Both check. This takes a minute and catches nearly every error.\n\n## Common mistakes\n\n- **Forgetting the constant** or adding it after exponentiating as $e^{x^2/2} + C$. The\n  constant belongs right after integrating; after exponentiating it becomes a factor.\n- **Separating a sum.** $y' = x + y$ is not separable; you can't write $dy = x\\,dx + y\\,dx$\n  and integrate $y\\,dx$ as if $y$ were constant.\n- **Losing equilibrium solutions** when dividing by $h(y)$.\n- **Wrong sign of the square root.** Pick the branch that matches the initial value.\n- **Ignoring the interval.** The solution of an IVP lives on the largest interval\n  containing $x_0$ on which the formula is defined and differentiable.\n\n## Key points\n\n- Separable means $y' = g(x)h(y)$. Separate, integrate both sides, add one constant.\n- $\\int \\frac{dy}{y} = \\ln|y|$ leads to $y = Ae^{(\\cdots)}$; let $A$ absorb $\\pm e^C$.\n- Check values with $h(y) = 0$; they are equilibrium solutions.\n- Nonlinear equations can have solutions that blow up in finite time; give the interval.\n\n## Independent application\n\n```assignment\nwriting: math-diffeq-applied-case\n```\n",
    "quiz": [
     "de-q-0301",
     "de-q-0302",
@@ -34899,6 +34899,91 @@
    "solution": "$\\dot V = 2x(-{a:coef}x {m:signedcoef}xy^2) + 2y(-{a:coef}y {m:signedcoef}x^2y) = -{A2}(x^2 + y^2) + {M4}x^2y^2$. On the circle of radius $r$, $x^2y^2 = \\tfrac14r^4\\sin^2 2\\theta$ is at most $\\tfrac14r^4$, with equality on the diagonals. So the largest value of $\\dot V$ on that circle is $-{A2}r^2 + {m:coef}r^4 = -r^2\\big({A2} - {m:coef}r^2\\big)$, which is negative exactly when $r^2 < \\dfrac{{A2}}{{m}} = {Rs:num4}$. So $R = \\sqrt{{Rs:num4}} \\approx$ **{R:num2}**. The disk can't be any bigger: the saddles $(\\pm{E:num4}, \\pm{E:num4})$ lie on its edge.",
    "answer": "",
    "format": "number"
+  }
+ ],
+ "writing": [
+  {
+   "id": "math-diffeq-applied-case",
+   "title": "Estimate a cooling time",
+   "module": "de-m1",
+   "kind": "short",
+   "prompt": "A warm object in a constant 20°C room follows dT/dt = -k(T - 20) with t in minutes. It starts at 80°C and is 50°C after 10 minutes. Estimate when it reaches 27.5°C. Show how the measurement determines k, verify the initial condition, and explain why this model never predicts a crossing below room temperature.",
+   "rubric": "math-diffeq-applied-case-rubric",
+   "minutes": 25
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "math-diffeq-applied-case-rubric",
+   "title": "Estimate a cooling time · Review",
+   "criteria": [
+    {
+     "id": "step-1",
+     "name": "Set up the problem",
+     "description": "Solve for the temperature difference using the initial condition.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Solve for the temperature difference using the initial condition."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    },
+    {
+     "id": "step-2",
+     "name": "Carry out the analysis",
+     "description": "Determine k with time units and use it to calculate the requested time.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Determine k with time units and use it to calculate the requested time."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    },
+    {
+     "id": "step-3",
+     "name": "Check and interpret",
+     "description": "Verify the initial condition, distinguish elapsed time from time after the observation, and explain the long-term behavior.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Verify the initial condition, distinguish elapsed time from time after the observation, and explain the long-term behavior."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

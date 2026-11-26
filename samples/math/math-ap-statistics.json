@@ -5,8 +5,8 @@
  "title": "AP Statistics",
  "description": "AP Statistics: exploring one- and two-variable data, z-scores and the normal model, correlation and regression, sampling and experimental design, probability, random variables, sampling distributions and the Central Limit Theorem, confidence intervals and significance tests for proportions and means, and chi-square tests, with AP-style four-step inference. Also covers topics the 2026–27 AP framework dropped but college intro courses still teach (geometric distribution, combining random variables, transformations, goodness of fit, slope inference), each marked with an AP scope note.",
  "author": "Erudior",
- "revision": 5,
- "changelog": "Honors lessons for every module, pictures and diagrams in every lesson, and new question types (fill in the blank, matching, labeling, ordering); corrections from a second full review of every lesson, question and drill; clearer graphs; answers shown at the precision each problem asks for. Adds the College Board trademark notice.",
+ "revision": 6,
+ "changelog": "Adds a scored independent application with a three-criterion self-review: Evaluate a return-rate claim.",
  "disclaimer": "AP® is a registered trademark of the College Board, which is not affiliated with, and does not endorse, this course. It is independent study material covering AP Statistics topics: it is not an authorized AP course, and AP scores come only from the College Board's AP Exam.",
  "modules": [
   {
@@ -2094,7 +2094,7 @@
     "stat-ref-inference",
     "stat-ref-which-test"
    ],
-   "body": "## Applying the framework\n\nThe last two lessons set up the logic of tests and the errors they can make. This lesson\nputs the logic to work on the most common categorical questions: is a population\nproportion different from a claimed value, and do two populations (or two treatments)\nhave different proportions?\n\n## One-proportion z test\n\nTo test $H_0: p = p_0$:\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\dfrac{p_0(1-p_0)}{n}}}.$$\n\nNotice the standard error uses $p_0$, not $\\hat{p}$ (unlike the confidence interval). The\np-value is computed *assuming $H_0$ is true*, and under $H_0$ the standard deviation of\n$\\hat{p}$ is exactly $\\sqrt{p_0(1-p_0)/n}$ — no estimate needed.\n\n*Conditions*:\n\n- **[[Random]]**: random sample or random assignment.\n- *10%*: $n \\le 0.10N$ when sampling without replacement.\n- **[[Large counts]]**: $np_0 \\ge 10$ and $n(1 - p_0) \\ge 10$ (expected counts under $H_0$).\n\n### Example 1\n\nA rail operator claims at least 90% of riders are satisfied. A consumer group surveys an SRS\nof 300 riders and finds 258 satisfied. Is there convincing evidence at $\\alpha = 0.05$ that\nthe true proportion is less than 90%?\n\n1. *State*: $H_0: p = 0.90$, $H_a: p < 0.90$, where $p$ is the proportion of all riders\n   who are satisfied. $\\alpha = 0.05$.\n2. *Plan*: one-proportion z test. Random ✓. 10%: the operator has far more than 3,000\n   riders ✓. Large counts: $300(0.9) = 270$ and $300(0.1) = 30$, both $\\ge 10$ ✓.\n3. *Do*: $\\hat{p} = 258/300 = 0.86$. $SE = \\sqrt{0.9(0.1)/300} \\approx 0.01732$.\n   $z = (0.86 - 0.90)/0.01732 \\approx -2.31$. p-value $= P(Z \\le -2.31) \\approx 0.0105$.\n4. *Conclude*: Since $0.0105 < 0.05$, reject $H_0$. There is convincing evidence that fewer\n   than 90% of riders are satisfied.\n\n### Example 2: a two-sided test\n\nA coin-flip machine is supposed to be fair. In 1,000 flips it produces 530 heads. Test\n$H_0: p = 0.5$ vs. $H_a: p \\ne 0.5$ at $\\alpha = 0.05$.\n\n$z = \\dfrac{0.53 - 0.5}{\\sqrt{0.25/1000}} \\approx 1.90$; p-value $= 2P(Z \\ge 1.90) \\approx 0.058$.\nSince $0.058 > 0.05$, fail to reject $H_0$: not convincing evidence the machine is unfair.\n(A 95% CI for $p$, about $(0.499, 0.561)$, contains 0.5 — consistent with the test.)\n\nFor a two-sided test the p-value is the area in *both* tails, beyond $-1.90$ and beyond $1.90$:\n\n```plot\n{\"x\": [-3.5, 3.5], \"y\": [-0.04, 0.42], \"grid\": false, \"functions\": [{\"f\": \"normpdf(x)\"}], \"shade\": [{\"f\": \"normpdf(x)\", \"from\": -3.5, \"to\": -1.9}, {\"f\": \"normpdf(x)\", \"from\": 1.9, \"to\": 3.5}], \"segments\": [{\"from\": [-3.5, 0], \"to\": [3.5, 0]}], \"labels\": [{\"at\": [-1.9, -0.025], \"text\": \"−1.90\"}, {\"at\": [1.9, -0.025], \"text\": \"z = 1.90\"}, {\"at\": [0, -0.025], \"text\": \"0\"}, {\"at\": [2.6, 0.08], \"text\": \"0.029\"}, {\"at\": [-2.6, 0.08], \"text\": \"0.029\"}], \"caption\": \"Two-sided p-value: 0.029 in each tail, about 0.058 in all\"}\n```\n\n## Two-proportion z test\n\nTo compare two proportions, test $H_0: p_1 = p_2$ (equivalently $p_1 - p_2 = 0$) against a\none- or two-sided alternative.\n\nIf $H_0$ is true, both groups share a common proportion $p$. The best estimate of it\ncombines the samples — the **[[pooled proportion]]**:\n\n$$\\hat{p}_c = \\frac{X_1 + X_2}{n_1 + n_2} = \\frac{\\text{total successes}}{\\text{total sample size}}.$$\n\nThen\n\n$$z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}_c(1 - \\hat{p}_c)\\left(\\dfrac{1}{n_1} + \\dfrac{1}{n_2}\\right)}}.$$\n\nWhy pool here but not in the confidence interval? A test computes probabilities assuming\n$H_0$ ($p_1 = p_2$), so we use the single estimate that $H_0$ implies. A confidence interval\nmakes no such assumption, so it estimates each $p$ separately.\n\n*Conditions*: random samples or random assignment; independent groups; 10% for each\nsample; large counts — $n_1\\hat{p}_c$, $n_1(1 - \\hat{p}_c)$, $n_2\\hat{p}_c$, $n_2(1 - \\hat{p}_c)$ all\nat least 10.\n\n### Example 3\n\nIn the fare-reminder experiment, 168 of 400 riders with message A and 132 of 400 with\nmessage B renewed their pass. Is there a difference at $\\alpha = 0.01$?\n\n1. *State*: $H_0: p_A = p_B$; $H_a: p_A \\ne p_B$, where $p_A$, $p_B$ are the renewal rates\n   for riders who would receive each message. $\\alpha = 0.01$.\n2. *Plan*: two-proportion z test. Random assignment ✓. Pooled\n   $\\hat{p}_c = 300/800 = 0.375$; expected counts $400(0.375) = 150$ and $400(0.625) = 250$ ✓.\n3. *Do*: $SE = \\sqrt{0.375(0.625)(1/400 + 1/400)} \\approx 0.03423$.\n   $z = (0.42 - 0.33)/0.03423 \\approx 2.63$. p-value $= 2P(Z \\ge 2.63) \\approx 0.0086$.\n4. *Conclude*: $0.0086 < 0.01$: reject $H_0$. There is convincing evidence that the renewal\n   rates differ; since riders were randomly assigned, message A appears to *cause* a higher\n   renewal rate.\n\n## Interpreting the p-value in context\n\nFor Example 3: \"Assuming the two messages produce the same renewal rate, there is about a\n0.86% probability of getting a difference in sample proportions of 0.09 or more in either\ndirection just from the random assignment.\"\n\n### Example 4: when conditions fail\n\nA railway claims only 2% of its trains are cancelled. In a random sample of 150 trains, 6 were\ncancelled (4%). Can we use a one-proportion z test? Check large counts with $p_0$:\n$150(0.02) = 3 < 10$. No — the normal approximation is poor. An exact binomial calculation\nworks instead: if $p = 0.02$, $P(X \\ge 6) = 1 - P(X \\le 5) \\approx 0.08$ for $X \\sim B(150, 0.02)$.\nAt $\\alpha = 0.05$ that is not convincing evidence against the claim.\n\nThe whole decision, from the kind of question to the procedure, fits in one chart:\n\n```mermaid\nflowchart TD\n  accTitle: Choosing a significance test for proportions\n  accDescr: First ask whether one sample is compared with a claimed value p0 or two groups are compared. For one sample, check large counts using p0: n times p0 and n times 1 minus p0 must both be at least 10. If they are, use the one-proportion z test with a standard error built from p0; if not, use an exact binomial calculation. For two groups, first pool the samples: the pooled proportion is total successes over total sample size. Then check that all four expected counts built from the pooled proportion are at least 10. If they are, use the two-proportion z test with the pooled standard error; if not, use an exact or simulation-based method.\n  A{\"One sample vs. a claimed p₀, or two groups?\"}\n  A -->|\"One sample\"| B{\"Large counts with p₀: np₀ and n(1 − p₀) at least 10?\"}\n  B -->|\"Yes\"| C[\"One-proportion z test, SE from p₀\"]\n  B -->|\"No\"| E[\"Exact binomial calculation\"]\n  A -->|\"Two groups\"| F[\"Pool: p̂c = total successes ÷ total sample size\"]\n  F --> G{\"All four expected counts from p̂c at least 10?\"}\n  G -->|\"Yes\"| H[\"Two-proportion z test, pooled SE\"]\n  G -->|\"No\"| I[\"Exact or simulation-based method\"]\n```\n\n## One-sided two-proportion tests\n\nIf the agency in Example 3 had stated in advance that it expected message A to do *better*\n($H_a: p_A > p_B$), the p-value would be the single upper tail: $P(Z \\ge 2.63) \\approx 0.0043$.\nThe test statistic is the same; only the tail area changes. As always, the direction must come\nfrom the research question, not from looking at which sample proportion came out larger.\n\n## Common mistakes\n\n- Using $\\hat{p}$ instead of $p_0$ in the one-sample test's standard error.\n- Forgetting to pool in the two-sample test (or pooling in the interval).\n- Checking large counts with $\\hat{p}$ for a one-sample test instead of $p_0$.\n- Concluding causation from observational samples.\n- Saying \"the probability $H_0$ is true is 0.0086.\"\n\n## Key points\n\n- One-proportion: $z = (\\hat{p} - p_0)/\\sqrt{p_0(1-p_0)/n}$; large counts with $p_0$.\n- Two-proportion: pool $\\hat{p}_c = (X_1 + X_2)/(n_1 + n_2)$;\n  $z = (\\hat{p}_1 - \\hat{p}_2)/\\sqrt{\\hat{p}_c(1-\\hat{p}_c)(1/n_1 + 1/n_2)}$.\n- Tests use the null value in the standard error; intervals use the sample estimates.\n- Follow State–Plan–Do–Conclude and interpret in context.\n",
+   "body": "## Applying the framework\n\nThe last two lessons set up the logic of tests and the errors they can make. This lesson\nputs the logic to work on the most common categorical questions: is a population\nproportion different from a claimed value, and do two populations (or two treatments)\nhave different proportions?\n\n## One-proportion z test\n\nTo test $H_0: p = p_0$:\n\n$$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\dfrac{p_0(1-p_0)}{n}}}.$$\n\nNotice the standard error uses $p_0$, not $\\hat{p}$ (unlike the confidence interval). The\np-value is computed *assuming $H_0$ is true*, and under $H_0$ the standard deviation of\n$\\hat{p}$ is exactly $\\sqrt{p_0(1-p_0)/n}$ — no estimate needed.\n\n*Conditions*:\n\n- **[[Random]]**: random sample or random assignment.\n- *10%*: $n \\le 0.10N$ when sampling without replacement.\n- **[[Large counts]]**: $np_0 \\ge 10$ and $n(1 - p_0) \\ge 10$ (expected counts under $H_0$).\n\n### Example 1\n\nA rail operator claims at least 90% of riders are satisfied. A consumer group surveys an SRS\nof 300 riders and finds 258 satisfied. Is there convincing evidence at $\\alpha = 0.05$ that\nthe true proportion is less than 90%?\n\n1. *State*: $H_0: p = 0.90$, $H_a: p < 0.90$, where $p$ is the proportion of all riders\n   who are satisfied. $\\alpha = 0.05$.\n2. *Plan*: one-proportion z test. Random ✓. 10%: the operator has far more than 3,000\n   riders ✓. Large counts: $300(0.9) = 270$ and $300(0.1) = 30$, both $\\ge 10$ ✓.\n3. *Do*: $\\hat{p} = 258/300 = 0.86$. $SE = \\sqrt{0.9(0.1)/300} \\approx 0.01732$.\n   $z = (0.86 - 0.90)/0.01732 \\approx -2.31$. p-value $= P(Z \\le -2.31) \\approx 0.0105$.\n4. *Conclude*: Since $0.0105 < 0.05$, reject $H_0$. There is convincing evidence that fewer\n   than 90% of riders are satisfied.\n\n### Example 2: a two-sided test\n\nA coin-flip machine is supposed to be fair. In 1,000 flips it produces 530 heads. Test\n$H_0: p = 0.5$ vs. $H_a: p \\ne 0.5$ at $\\alpha = 0.05$.\n\n$z = \\dfrac{0.53 - 0.5}{\\sqrt{0.25/1000}} \\approx 1.90$; p-value $= 2P(Z \\ge 1.90) \\approx 0.058$.\nSince $0.058 > 0.05$, fail to reject $H_0$: not convincing evidence the machine is unfair.\n(A 95% CI for $p$, about $(0.499, 0.561)$, contains 0.5 — consistent with the test.)\n\nFor a two-sided test the p-value is the area in *both* tails, beyond $-1.90$ and beyond $1.90$:\n\n```plot\n{\"x\": [-3.5, 3.5], \"y\": [-0.04, 0.42], \"grid\": false, \"functions\": [{\"f\": \"normpdf(x)\"}], \"shade\": [{\"f\": \"normpdf(x)\", \"from\": -3.5, \"to\": -1.9}, {\"f\": \"normpdf(x)\", \"from\": 1.9, \"to\": 3.5}], \"segments\": [{\"from\": [-3.5, 0], \"to\": [3.5, 0]}], \"labels\": [{\"at\": [-1.9, -0.025], \"text\": \"−1.90\"}, {\"at\": [1.9, -0.025], \"text\": \"z = 1.90\"}, {\"at\": [0, -0.025], \"text\": \"0\"}, {\"at\": [2.6, 0.08], \"text\": \"0.029\"}, {\"at\": [-2.6, 0.08], \"text\": \"0.029\"}], \"caption\": \"Two-sided p-value: 0.029 in each tail, about 0.058 in all\"}\n```\n\n## Two-proportion z test\n\nTo compare two proportions, test $H_0: p_1 = p_2$ (equivalently $p_1 - p_2 = 0$) against a\none- or two-sided alternative.\n\nIf $H_0$ is true, both groups share a common proportion $p$. The best estimate of it\ncombines the samples — the **[[pooled proportion]]**:\n\n$$\\hat{p}_c = \\frac{X_1 + X_2}{n_1 + n_2} = \\frac{\\text{total successes}}{\\text{total sample size}}.$$\n\nThen\n\n$$z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}_c(1 - \\hat{p}_c)\\left(\\dfrac{1}{n_1} + \\dfrac{1}{n_2}\\right)}}.$$\n\nWhy pool here but not in the confidence interval? A test computes probabilities assuming\n$H_0$ ($p_1 = p_2$), so we use the single estimate that $H_0$ implies. A confidence interval\nmakes no such assumption, so it estimates each $p$ separately.\n\n*Conditions*: random samples or random assignment; independent groups; 10% for each\nsample; large counts — $n_1\\hat{p}_c$, $n_1(1 - \\hat{p}_c)$, $n_2\\hat{p}_c$, $n_2(1 - \\hat{p}_c)$ all\nat least 10.\n\n### Example 3\n\nIn the fare-reminder experiment, 168 of 400 riders with message A and 132 of 400 with\nmessage B renewed their pass. Is there a difference at $\\alpha = 0.01$?\n\n1. *State*: $H_0: p_A = p_B$; $H_a: p_A \\ne p_B$, where $p_A$, $p_B$ are the renewal rates\n   for riders who would receive each message. $\\alpha = 0.01$.\n2. *Plan*: two-proportion z test. Random assignment ✓. Pooled\n   $\\hat{p}_c = 300/800 = 0.375$; expected counts $400(0.375) = 150$ and $400(0.625) = 250$ ✓.\n3. *Do*: $SE = \\sqrt{0.375(0.625)(1/400 + 1/400)} \\approx 0.03423$.\n   $z = (0.42 - 0.33)/0.03423 \\approx 2.63$. p-value $= 2P(Z \\ge 2.63) \\approx 0.0086$.\n4. *Conclude*: $0.0086 < 0.01$: reject $H_0$. There is convincing evidence that the renewal\n   rates differ; since riders were randomly assigned, message A appears to *cause* a higher\n   renewal rate.\n\n## Interpreting the p-value in context\n\nFor Example 3: \"Assuming the two messages produce the same renewal rate, there is about a\n0.86% probability of getting a difference in sample proportions of 0.09 or more in either\ndirection just from the random assignment.\"\n\n### Example 4: when conditions fail\n\nA railway claims only 2% of its trains are cancelled. In a random sample of 150 trains, 6 were\ncancelled (4%). Can we use a one-proportion z test? Check large counts with $p_0$:\n$150(0.02) = 3 < 10$. No — the normal approximation is poor. An exact binomial calculation\nworks instead: if $p = 0.02$, $P(X \\ge 6) = 1 - P(X \\le 5) \\approx 0.08$ for $X \\sim B(150, 0.02)$.\nAt $\\alpha = 0.05$ that is not convincing evidence against the claim.\n\nThe whole decision, from the kind of question to the procedure, fits in one chart:\n\n```mermaid\nflowchart TD\n  accTitle: Choosing a significance test for proportions\n  accDescr: First ask whether one sample is compared with a claimed value p0 or two groups are compared. For one sample, check large counts using p0: n times p0 and n times 1 minus p0 must both be at least 10. If they are, use the one-proportion z test with a standard error built from p0; if not, use an exact binomial calculation. For two groups, first pool the samples: the pooled proportion is total successes over total sample size. Then check that all four expected counts built from the pooled proportion are at least 10. If they are, use the two-proportion z test with the pooled standard error; if not, use an exact or simulation-based method.\n  A{\"One sample vs. a claimed p₀, or two groups?\"}\n  A -->|\"One sample\"| B{\"Large counts with p₀: np₀ and n(1 − p₀) at least 10?\"}\n  B -->|\"Yes\"| C[\"One-proportion z test, SE from p₀\"]\n  B -->|\"No\"| E[\"Exact binomial calculation\"]\n  A -->|\"Two groups\"| F[\"Pool: p̂c = total successes ÷ total sample size\"]\n  F --> G{\"All four expected counts from p̂c at least 10?\"}\n  G -->|\"Yes\"| H[\"Two-proportion z test, pooled SE\"]\n  G -->|\"No\"| I[\"Exact or simulation-based method\"]\n```\n\n## One-sided two-proportion tests\n\nIf the agency in Example 3 had stated in advance that it expected message A to do *better*\n($H_a: p_A > p_B$), the p-value would be the single upper tail: $P(Z \\ge 2.63) \\approx 0.0043$.\nThe test statistic is the same; only the tail area changes. As always, the direction must come\nfrom the research question, not from looking at which sample proportion came out larger.\n\n## Common mistakes\n\n- Using $\\hat{p}$ instead of $p_0$ in the one-sample test's standard error.\n- Forgetting to pool in the two-sample test (or pooling in the interval).\n- Checking large counts with $\\hat{p}$ for a one-sample test instead of $p_0$.\n- Concluding causation from observational samples.\n- Saying \"the probability $H_0$ is true is 0.0086.\"\n\n## Key points\n\n- One-proportion: $z = (\\hat{p} - p_0)/\\sqrt{p_0(1-p_0)/n}$; large counts with $p_0$.\n- Two-proportion: pool $\\hat{p}_c = (X_1 + X_2)/(n_1 + n_2)$;\n  $z = (\\hat{p}_1 - \\hat{p}_2)/\\sqrt{\\hat{p}_c(1-\\hat{p}_c)(1/n_1 + 1/n_2)}$.\n- Tests use the null value in the standard error; intervals use the sample estimates.\n- Follow State–Plan–Do–Conclude and interpret in context.\n\n## Independent application\n\n```assignment\nwriting: math-ap-statistics-applied-case\n```\n",
    "quiz": [
     "stat-q-3501",
     "stat-q-3502",
@@ -36496,6 +36496,91 @@
    "solution": "$t = \\dfrac{r\\sqrt{n - 2}}{\\sqrt{1 - r^2}} = \\dfrac{{r}\\sqrt{{dfree}}}{\\sqrt{1 - ({r})^2}} =$ **{tt:dp3}**, df $= {dfree}$.\nTwo-sided p-value $= 2P(t_{{dfree}} \\ge |{tt:dp3}|) \\approx$ **{pv:num4}**.",
    "answer": "",
    "format": "number"
+  }
+ ],
+ "writing": [
+  {
+   "id": "math-ap-statistics-applied-case",
+   "title": "Evaluate a return-rate claim",
+   "module": "stat-m8",
+   "kind": "short",
+   "prompt": "A retailer says its return rate is 10 percent. In a simple random sample of 200 purchases from 10,000 purchases, 29 were returned. At a 5 percent significance level, test whether the rate is higher. Write hypotheses, check conditions, compute the one-sided p-value using the normal approximation without continuity correction, and state a conclusion in context.",
+   "rubric": "math-ap-statistics-applied-case-rubric",
+   "minutes": 25
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "math-ap-statistics-applied-case-rubric",
+   "title": "Evaluate a return-rate claim · Review",
+   "criteria": [
+    {
+     "id": "step-1",
+     "name": "Set up the problem",
+     "description": "Specify the population parameter, null value and direction of the alternative.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Specify the population parameter, null value and direction of the alternative."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    },
+    {
+     "id": "step-2",
+     "name": "Carry out the analysis",
+     "description": "Check randomness, sampling fraction and expected counts under the null.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Check randomness, sampling fraction and expected counts under the null."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    },
+    {
+     "id": "step-3",
+     "name": "Check and interpret",
+     "description": "Use the null standard error and connect the one-sided p-value to a contextual conclusion.",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Use the null standard error and connect the one-sided p-value to a contextual conclusion."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "The response addresses this step but leaves a calculation, condition or reasoning step unsupported."
+      },
+      {
+       "points": 0,
+       "label": "Rework",
+       "description": "The evidence for this step is missing or contradicts the setup."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
