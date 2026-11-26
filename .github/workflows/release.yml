@@ -190,32 +190,4 @@ jobs:
 
   windows-course-catalog:
     needs: publish
-    runs-on: windows-latest
-    timeout-minutes: 12
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - uses: actions/download-artifact@v4
-        with:
-          name: erudior-Windows
-          path: installers
-      - name: Open a signed program and lesson in the installed Windows release
-        shell: pwsh
-        run: |
-          $setup = @(Get-ChildItem installers -Recurse -Filter '*_x64-setup.exe')
-          if ($setup.Count -ne 1) { throw 'Expected one Windows installer' }
-          $installed = Start-Process $setup[0].FullName -ArgumentList '/S' -Wait -PassThru
-          if ($installed.ExitCode -ne 0) { throw "Installer exited $($installed.ExitCode)" }
-          $exe = Join-Path $env:LOCALAPPDATA 'Erudior/erudior.exe'
-          $expected = (Get-Content .github/desktop-release -Raw).Trim().TrimStart('v')
-          if ((Get-Item $exe).VersionInfo.ProductVersion -ne $expected) { throw 'Installed app version differs from the release' }
-          $env:WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS = '--remote-debugging-port=9222 --remote-debugging-address=127.0.0.1'
-          $app = Start-Process $exe -PassThru
-          try {
-            node tests/windows-course-catalog.mjs
-            if ($LASTEXITCODE -ne 0) { throw 'Windows catalog acceptance failed' }
-          } finally { if (!$app.HasExited) { Stop-Process -Id $app.Id } }
+    uses: ./.github/workflows/windows-course-catalog.yml
