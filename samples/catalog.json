@@ -10019,7 +10019,7 @@
   "order": 137,
   "title": "RHCE in Ansible on AlmaLinux 10",
   "description": "Prepare for EX294 after RHCSA with two AlmaLinux 10 guests. Build and recover repeatable automation for services, security, storage and scheduled backups. Includes original two-host practicals, graded knowledge checks, spaced-repetition cards and reviewer-scored work orders.",
-  "revision": 4,
+  "revision": 5,
   "subject": "Information technology",
   "level": [
    "Professional"
