@@ -4,9 +4,9 @@
  "id": "auto-electrical",
  "title": "Automotive Electrical Systems and Diagnosis",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare starters, alternators, converters, batteries, relays and networked controls. Build a protected harness, measure a fault and verify the repair. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A labeled circuit and voltage-drop record that locates one physical fault.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Harness design",
    "quiz": [
     "electrical-2-q2",
-    "cmp-controls-network-q2"
+    "cmp-controls-network-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Wiring practice",
    "quiz": [
     "electrical-3-q3",
-    "shop-change-electrical"
+    "shop-change-electrical",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -125,6 +129,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Budget voltage drop on the supply and return",
+   "minutes": 30,
+   "topics": [
+    "Budget voltage drop on the supply and return"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Draw battery positive, protection, switch or relay, load and return as a continuous loop. A small series resistance can be invisible to an unloaded meter. Under load that same resistance develops a voltage drop and dissipates heat. Separate the feed path from the return path. Avoid putting an ammeter directly across a power source. Perform the exercise on the course’s fused, current-limited low-voltage lamp trainer.\n\n**Worked circuit.** A training supply provides 12.4 V under load. The positive path drops 0.5 V and the return drops 0.7 V. The load should see 11.2 V. At 2 A, 0.7 V across a return segment means 0.35 ohm and 1.4 W in that segment. Compare the drop to the known-good condition and equipment limits. The highest absolute voltage you see is not necessarily across the faulty segment. Place the probes at its two ends with the lamp operating.\n\n**Design your test.** Draw a relay-fed accessory with serviceable test points at the source, each end of its contacts and the load return. Show the fuse protecting the selected conductor, including any smaller downstream branch. Choose ratings from the component data and actual current, wire length, temperature and routing. Predict how a poor positive connection and a poor return would change the four measurements.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "electrical-3",
    "module": "m3",
    "title": "Assemble and fault-find a 12 V trainer",
@@ -166,6 +189,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nSupply, wiring and body electronics, Additional body controls. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Auxiliary fused circuit and relay\n- Amplifier, speakers and subwoofer\n- Auxiliary data display or head unit with retained climate controls\n\n## Worked example\n\nA 4 A lamp circuit has 0.08 Ω total supply-and-return resistance under load. Its predicted drop is 0.32 V. If the measured current remains 4 A, an unplanned 0.10 Ω splice adds another 0.40 V and dissipates 1.6 W there. Inspect that connection before changing a lamp or upsizing a fuse.\n\n## Guided decision\n\n```example fade=1\nproblem: A loaded 2 A tester shows 0.4 V across one terminal. How much power is lost there?\nstep: Multiply the measured drop by load current.\nanswer: 0.8 W at the terminal; compare the drop again after the connection is corrected.\n```\n\n## Independent workshop\n\nBuild the fused low-voltage lamp project in the bench plans. Identify every terminal and protective item, compare baseline and changed configuration and attach the measured drops.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-electrical"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Find a hidden connection loss with the lamp operating",
+   "minutes": 45,
+   "topics": [
+    "Find a hidden connection loss with the lamp operating"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Mark each measurement node before energizing the protected trainer. Measure source voltage at its terminals, voltage directly across the lamp and the drops along each side. The three measured differences around the circuit should approximately balance under the same load. If the readings were taken across different conditions, repeat them before attributing the error to the harness.\n\n**Worked fault.** The lamp dims. The source remains 12.2 V, the lamp has 9.8 V, and the total return drop is 0.1 V. About 2.3 V is missing on the feed side. Measure from the source to relay input, then across the closed contacts and from relay output to lamp feed. If the large drop is across a connector, isolate the supply before inspecting the terminals. An unloaded continuity beep after unplugging it cannot demonstrate performance at 2 A.\n\n**Independent work.** Have another person select a documented fault insert rated for the trainer. Predict the side from the first measurements, divide that side into segments and identify the first excessive drop. Remove power, restore the circuit and repeat the readings at the same load. Explain how an added light bar, longer return lead or different grounding point would change the design calculation.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -211,8 +253,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -427,6 +469,66 @@
       "Increase speaker impedance alone."
      ],
      "explanation": "The source can drive a short anywhere along the unprotected run."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "11.5"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "The source reads 12.5 V under load, with 0.4 V feed drop and 0.6 V return drop. What voltage is across the load, in V? Enter the number only.",
+     "section": "m2",
+     "topic": "Budget voltage drop on the supply and return",
+     "explanation": "12.5 − 0.4 − 0.6 = 11.5 V."
+    },
+    {
+     "choices": [
+      "The capacity of the branch conductor and the expected load and installation conditions.",
+      "Only the relay’s largest printed contact rating.",
+      "Only the original battery capacity."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "What does a fuse protecting a newly added branch need to account for?",
+     "section": "m2",
+     "topic": "Budget voltage drop on the supply and return",
+     "explanation": "A branch may have a smaller conductor or different routing from its upstream supply."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "1.5"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A source reads 12.0 V, a lamp 10.2 V and its loaded return drop is 0.3 V. What is the total feed-side drop in V? Enter the number only.",
+     "section": "m3",
+     "topic": "Find a hidden connection loss with the lamp operating",
+     "explanation": "Total loss is 1.8 V. Removing the 0.3 V return loss leaves 1.5 V."
+    },
+    {
+     "choices": [
+      "Read drops across connected segments while the lamp is connected and operating under the symptom condition.",
+      "Read open-circuit battery voltage alone.",
+      "Change both feed and return terminals before taking readings."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "A dim lamp harness passes an unloaded continuity test. Which next test localizes the loss?",
+     "section": "m3",
+     "topic": "Find a hidden connection loss with the lamp operating",
+     "explanation": "Current makes a series resistance produce a measurable segment drop."
     }
    ]
   }
@@ -501,6 +603,18 @@
      "front": "An accessory amplifier sounds fine but its positive cable has an unprotected section through the body. What change addresses the cable fault hazard?",
      "back": "Fit source-side protection selected for the conductor and protect its passage through the panel. The source can drive a short anywhere along the unprotected run.",
      "topic": "From accessory load to a serviceable harness"
+    },
+    {
+     "id": "case-design-card",
+     "front": "What does a fuse protecting a newly added branch need to account for?",
+     "back": "The capacity of the branch conductor and the expected load and installation conditions. A branch may have a smaller conductor or different routing from its upstream supply.",
+     "topic": "Budget voltage drop on the supply and return"
+    },
+    {
+     "id": "case-test-card",
+     "front": "A dim lamp harness passes an unloaded continuity test. Which next test localizes the loss?",
+     "back": "Read drops across connected segments while the lamp is connected and operating under the symptom condition. Current makes a series resistance produce a measurable segment drop.",
+     "topic": "Find a hidden connection loss with the lamp operating"
     }
    ]
   }
@@ -597,6 +711,11 @@
    "id": "bench-plan",
    "title": "Make a fused, removable lamp harness",
    "body": "**Objective.** Build a serviceable low-voltage accessory branch and prove both circuit operation and conductor condition. Use a current-limited 12 V DC bench supply, a 12 V lamp rated approximately 3 W with insulated holder, a compatible switch, source-end fuse and holder, polarized connector, insulated copper wire, terminals and a meter. Use the workshop’s approved component ratings and current limit, including lamp inrush. Keep the vehicle battery disconnected from this bench exercise.\n\n1. Draw source positive → source-side fuse → switch → connector → lamp → connector return → source negative. Assign connector pin numbers and mark positive/return on your sketch. Approximately 3 W at 12 V gives 0.25 A under rated steady-state operation. Use actual measured current for your results.\n2. Establish a route on the board. Measure both legs including service slack. Select insulation, terminals, wire, switch and protection from their documented ratings and the lowest-rated downstream conductor/connection. Verify the fuse suits expected current and inrush. Record fuse identity and rating rationale.\n3. De-energize the supply. Cut and label conductors. Strip to the terminal maker's length, crimp with the matching die, inspect the conductor and insulation crimps, and seat and lock each contact. Fit source protection close to the source. Secure the loom and isolate exposed conductor.\n4. Before power, verify polarity, routing, switch action, and absence of an unintended supply-to-return short with the load disconnected. Reconnect the lamp, configure the bench current limit under supervision, energize and check expected operation. Measure current using a compatible meter configuration or the supply readout. Never place an ammeter directly across the source.\n5. With load on, measure voltage across the supply path, the lamp, and the return path. Their sum should agree with measured source voltage within measurement uncertainty. For example, 0.08 + 11.86 + 0.06 = 12.00 V. Disconnect power, replace a deliberately prepared high-resistance connector fixture with a known-good connector, repeat and compare at matched current. Do not create a short to test the fuse.\n\n**Fresh assignment.** Add a serviceable second connector to a new branch on the board. Predict the allowed drop from your design limits, build it, test under load and explain whether easier service meets the electrical target. Capture all contacts, housings, seals, source protection, clips and wires by location. A lit lamp alone earns no measurement credit."
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF118/119 cover electrical theory and lab practice. UVU AUT1160 and AUT2140/2145 address electrical fundamentals and diagnosis. ASE VI.A.5–6 (PDF p. 80) cover Ohm’s law and loaded meter readings. Here a fused lamp exposes the fault without modifying a vehicle harness. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -917,6 +1036,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Source, load, feed and return readings from the healthy, faulted and restored circuit at comparable operation; the observation that locates the actual bad segment."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1012,6 +1200,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Find a hidden connection loss with the lamp operating — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A labeled circuit and voltage-drop record that locates one physical fault.",
+   "safety": [
+    "Use the fused current-limited trainer. De-energize before inserting faults or changing connections. Keep the meter in the correct mode and never connect an ammeter directly across a source."
+   ],
+   "materials": [
+    "Fused current-limited low-voltage lamp trainer, rated removable fault insert, suitable meter and schematic"
+   ],
+   "steps": [
+    "Read “Budget voltage drop on the supply and return”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Have another person select a documented fault insert rated for the trainer. Predict the side from the first measurements, divide that side into segments and identify the first excessive drop. Remove power, restore the circuit and repeat the readings at the same load. Explain how an added light bar, longer return lead or different grounding point would change the design calculation.",
+    "File the following evidence with the course project. A labeled circuit and voltage-drop record that locates one physical fault."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Node pair",
+      "Source / load condition",
+      "Healthy V",
+      "Faulted V",
+      "Restored V",
+      "Expected relationship"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

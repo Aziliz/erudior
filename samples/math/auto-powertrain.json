@@ -4,9 +4,9 @@
  "id": "auto-powertrain",
  "title": "Engine and Drivetrain Service",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare four-, six-, eight- and twelve-cylinder engines, bank layouts, induction and injection. Measure an actual teaching engine and verify its assembly. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. An engine envelope comparison and a physical four-stroke timing demonstration.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -24,7 +24,9 @@
    "id": "m2",
    "title": "Design — Inspection design",
    "quiz": [
-    "powertrain-2-q2"
+    "powertrain-2-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -32,7 +34,9 @@
    "title": "Implementation — Bench service",
    "quiz": [
     "powertrain-3-q3",
-    "shop-change-powertrain"
+    "shop-change-powertrain",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -146,6 +150,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Compare cylinder count at the same total displacement",
+   "minutes": 30,
+   "topics": [
+    "Compare cylinder count at the same total displacement"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "An engine’s total displacement is the sum of its cylinders’ swept volumes. Holding total displacement constant isolates one variable in comparing four-, six-, eight- and twelve-cylinder layouts. At 6.0 L total, each cylinder displaces 1.5 L, 1.0 L, 0.75 L or 0.50 L respectively. This comparison says nothing by itself about torque, fuel economy or durability. Bore, stroke, breathing, operating speed, losses and control strategy still matter.\n\n**Worked design.** In an even-firing four-stroke engine, a complete cycle spans 720 crank degrees. Four cylinders give a nominal 180-degree firing interval, six give 120, eight give 90, and twelve give 60. More frequent smaller impulses may smooth delivered torque. Firing order, balance shafts, crank design, mounts and flywheel inertia also affect vibration. An inline six and a V6 can share displacement and still differ in width, length, exhaust routing and accessory access.\n\n**Compare candidates.** Place two real engine outlines on one scale drawing at the same driveline datum. Add the bellhousing, sump, intake, cooling connections and tool-removal envelopes. Use torque curves at the intended road speed and gearing. Record where tight access will change a mount, service procedure or component choice before ranking the layouts.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "powertrain-3",
    "module": "m3",
    "title": "Disassemble, measure and reassemble a trainer",
@@ -187,6 +210,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nInduction, fuel and engine installation, Fuel plumbing and crankcase ventilation. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Sealed intake and heat shield\n- Intercooler and charge piping\n- Turbocharger or supercharger package\n- Engine swap\n- Closed crankcase oil separator\n\n## Worked example\n\nAt the same flow and ambient temperature, a teaching duct has 1.2 kPa loss in a clean baseline and 1.1 kPa after a bend change. Repeated readings vary by ±0.2 kPa. The 0.1 kPa difference cannot support a repeatable performance claim. Packaging or service access might still justify the change.\n\n## Guided decision\n\n```example fade=1\nproblem: A new intake shows cooler air only when tested with the hood open. Which condition must you repeat?\nstep: Use the same hood position, airflow, engine state and ambient reference for both configurations.\nanswer: The temperature difference must persist in the intended installed use to support the design goal.\n```\n\n## Independent workshop\n\nCreate a clean, unpowered intake or charge-pipe fit fixture. Label filters, sensors, clamps, bypass connections and heat/water risks. Document a measured clearance and a controlled comparison.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-powertrain"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Separate valve timing from ring and valve sealing",
+   "minutes": 45,
+   "topics": [
+    "Separate valve timing from ring and valve sealing"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Compression needs a sealed volume as well as correctly timed intake and exhaust events. A low cranking figure may reflect a weak test battery, throttle restriction, dissimilar cranking conditions, cam timing, a valve sealing problem or loss past the rings. One number alone does not select a replacement part. Use service information for actual testing and keep rotating and pressurized equipment under qualified control.\n\n**Worked dataset.** A recorded four-cylinder test gives 180, 178, 119 and 181 in the same pressure units under matched conditions. Cylinder three is around two-thirds of the best. A follow-up recorded leak-down result localizes most audible flow at the intake on that cylinder at the specified compression position. Intake valve sealing becomes the leading hypothesis. If every cylinder were similarly low and cam/crank reference marks disagreed, the next test would instead address timing and cranking conditions. Some leakage paths coexist.\n\n**Independent records for comparison.** These fictional records use identical cranking conditions within each set. Case A has readings of 174, 172, 112 and 175 psi. The leak test on the third cylinder repeatedly produces flow at the exhaust outlet with the valves expected closed. Case B has 119, 120, 118 and 121 psi versus a known-good 169–176 psi on the same trainer. Test speed, throttle condition and gauge were verified. Its cam and crank reference marks disagree at the service-check position. Choose the next inspection for each; identify one cause the evidence still cannot resolve.\n\n**Independent task.** Use a cutaway or hand-turned non-running trainer with the instructor's safe procedure. Mark two crank revolutions and map the four strokes to valve events on one cylinder. Compare your map with the donor procedure and with two recorded compression/leak-down cases. List the alternate explanations, the observation that discriminates between them and the evidence needed before removing a head. Demonstrate the map on the physical trainer.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -232,8 +274,8 @@
     }
    ],
    "exam": {
-    "questionCount": 16,
-    "timeLimitMinutes": 38,
+    "questionCount": 20,
+    "timeLimitMinutes": 48,
     "passingPercent": 75
    },
    "questions": [
@@ -478,6 +520,66 @@
       "Compare peak readings taken at different ambient temperatures and loads."
      ],
      "explanation": "Changing one variable and reporting uncertainty improves the comparison."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "90"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "An even-firing four-stroke eight-cylinder engine completes its cycle in 720 crank degrees. What is the nominal interval between firing events in degrees? Enter the number only.",
+     "section": "m2",
+     "topic": "Compare cylinder count at the same total displacement",
+     "explanation": "720 ÷ 8 = 90 crank degrees."
+    },
+    {
+     "choices": [
+      "The installed width, length, sump, exhaust and service envelopes.",
+      "The cylinder count.",
+      "Whether total displacement is equal."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "A 3.6 L V6 and a 3.6 L inline six are candidates. Which difference still requires a scale drawing?",
+     "section": "m2",
+     "topic": "Compare cylinder count at the same total displacement",
+     "explanation": "Architecture and component arrangement differ even at equal count and capacity."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "60"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "In a recorded compression test one cylinder reads 108 units and the highest cylinder reads 180. The low reading is what percentage of the highest? Enter the number only.",
+     "section": "m3",
+     "topic": "Separate valve timing from ring and valve sealing",
+     "explanation": "108 ÷ 180 × 100 = 60 percent. A percentage alone does not select a repair."
+    },
+    {
+     "choices": [
+      "Final-drive gearing.",
+      "The cam timing has necessarily shifted equally on all cylinders.",
+      "Sealing at that cylinder’s intake valve and its actuation."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "One low cylinder has repeatable intake-side leakage at the prescribed compression position. Which is the leading investigation?",
+     "section": "m3",
+     "topic": "Separate valve timing from ring and valve sealing",
+     "explanation": "The leakage location localizes the loss while still leaving more than one possible cause at that valve."
     }
    ]
   }
@@ -558,6 +660,18 @@
      "front": "A new intake is credited with higher output after one cooler-weather run. Which test would distinguish the intake effect?",
      "back": "Repeat matched baseline and modified runs at comparable inlet conditions and load while recording repeatability. Changing one variable and reporting uncertainty improves the comparison.",
      "topic": "Measure the restriction you intend to change"
+    },
+    {
+     "id": "case-design-card",
+     "front": "A 3.6 L V6 and a 3.6 L inline six are candidates. Which difference still requires a scale drawing?",
+     "back": "The installed width, length, sump, exhaust and service envelopes. Architecture and component arrangement differ even at equal count and capacity.",
+     "topic": "Compare cylinder count at the same total displacement"
+    },
+    {
+     "id": "case-test-card",
+     "front": "One low cylinder has repeatable intake-side leakage at the prescribed compression position. Which is the leading investigation?",
+     "back": "Sealing at that cylinder’s intake valve and its actuation. The leakage location localizes the loss while still leaving more than one possible cause at that valve.",
+     "topic": "Separate valve timing from ring and valve sealing"
     }
    ]
   }
@@ -654,6 +768,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF110/111 link engine theory and lab work. UVU AUT1230 and AUT1120/1125 cover engine and powertrain principles. ASE VIII.A.10–11 (PDF p. 94) address compression and leakage tests. Recorded traces complement a hand-turned valve-event demonstration. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -974,6 +1093,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "An identified engine envelope comparison, the learner’s physical two-revolution valve-event map and a separate next test for each provided pressure case."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1069,6 +1257,52 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Separate valve timing from ring and valve sealing — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "An engine envelope comparison and a physical four-stroke timing demonstration.",
+   "safety": [
+    "Use a non-running isolated teaching engine with the approved hand-turn tool and a qualified instructor. Keep hands out of pinch points. Use recorded pressure/leakage results for this comparison."
+   ],
+   "materials": [
+    "Non-running cutaway four-stroke trainer, approved hand-turn tool, crank reference marks, identified recorded pressure data"
+   ],
+   "steps": [
+    "Read “Compare cylinder count at the same total displacement”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Use a cutaway or hand-turned non-running trainer with the instructor's safe procedure. Mark two crank revolutions and map the four strokes to valve events on one cylinder. Compare your map with the donor procedure and with two recorded compression/leak-down cases. List the alternate explanations, the observation that discriminates between them and the evidence needed before removing a head. Demonstrate the map on the physical trainer.",
+    "File the following evidence with the course project. An engine envelope comparison and a physical four-stroke timing demonstration."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Crank position / cylinder",
+      "Evidence",
+      "Predicted valve state",
+      "Observed state or trace",
+      "Discriminating test"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

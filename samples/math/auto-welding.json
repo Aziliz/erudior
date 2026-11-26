@@ -4,9 +4,9 @@
  "id": "auto-welding",
  "title": "Automotive Welding and Weld Inspection",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Choose a joining process, draw a steel joint, set up a MIG welder and practice on matched coupons. Fabricate a removable shop organizer, measure distortion and destructively test a plug weld before transferring the evidence to chassis design.",
- "changelog": "First public edition.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. An annotated joint section and a traceable destructive-test comparison.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "requires": [
@@ -30,7 +30,9 @@
     "layout-1",
     "layout-2",
     "setup-1",
-    "setup-2"
+    "setup-2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -40,7 +42,9 @@
     "stringer-1",
     "stringer-2",
     "joints-1",
-    "joints-2"
+    "joints-2",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -128,6 +132,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "design",
+   "title": "Design a representative test for an offset lap joint",
+   "minutes": 30,
+   "topics": [
+    "Design a representative test for an offset lap joint"
+   ],
+   "refs": [
+    "case-sources",
+    "machine",
+    "shop"
+   ],
+   "body": "A flat fillet bead can be consistent while a plug weld on an overlap fails to reach the lower sheet. In a new design the joint also changes the path of force. A load along two offset sheet centrelines creates a turning moment that can tend to open the overlap. Edge distance, overlap, fixture restraint, electrode access and the corrosion trap at the faying surfaces belong on the drawing. Coupon success for one test geometry cannot establish the fatigue life of a road part.\n\n**Worked sketch.** A teaching fixture applies 200 N with the line of action 6 mm from its support reference. The moment about that reference is 1,200 N·mm, or 1.2 N·m. At the same force a 12 mm offset doubles that moment. Compare an offset lap with a symmetric test fixture. Draw the force arrows and actual offset on each cross-section. Choose a test that exposes the intended interface, obtain its criteria from the approved practice sheet, and explain which load modes it does and does not exercise.\n\n**At the drawing board.** Make a full-size paper section of the organizer's proposed joint. Show which face can be inspected, which surfaces will be hidden, where moisture might remain and the post-weld finish sequence. For a vehicle repair identify the exact OEM process and corrosion-restoration instruction. Leave coated and unknown metal out of the beginner arc lab. Use a detached coupon pair matched to the actual teaching joint before a design change.\n\nUse this drawing exercise alongside the existing joint-design traveler.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "stringer",
    "module": "implementation",
    "title": "Run repeatable beads on bare mild steel",
@@ -161,6 +184,25 @@
    "quiz": [
     "joints-1",
     "joints-2"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "implementation",
+   "title": "Read a fracture surface and trace the process change",
+   "minutes": 45,
+   "topics": [
+    "Read a fracture surface and trace the process change"
+   ],
+   "refs": [
+    "case-sources",
+    "machine",
+    "shop"
+   ],
+   "body": "A ground-smooth face hides surface evidence and does not prove root fusion. Inspect and photograph as-welded specimens before permitted finishing. Under the qualified instructor's guarded test procedure, keep the two separated pieces together and mark their orientation. Locate fracture within the base sheet, along the interface or near a weld toe. Record hole dimensions in the directions required by the exercise. A tear-out alone is insufficient if a second visual criterion fails.\n\n**Worked comparison.** Two practice plug welds have similar faces. Specimen A opens along a shiny lower interface. Specimen B pulls material from the lower sheet but has a visible crack at an edge. The practice sheet requires evidence of lower-sheet fusion and rejects visible cracking. Both specimens fail for different observations. For A compare fit and whether the process reached the lower sheet. For B examine location, restraint, preparation and heat history. Do not assume a single machine adjustment will correct both conditions.\n\n**Independent retest.** For a failed pair, select one justified, permitted change with the instructor and test fresh matching bare mild-steel coupons, keeping other variables and the destructive method fixed. For a pair that passed on the first attempt, use its recorded fractures to confirm both specimens met the same criteria and compare their repeatability. No setup change or invented failure is needed. Preserve the original coupon identities, prediction, test measurements and qualified witness. Include new coupon identities when a retest was necessary. End by writing the maximum claim the evidence supports for the bench setup and what would require a separate vehicle procedure.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -224,8 +266,8 @@
     }
    ],
    "exam": {
-    "questionCount": 16,
-    "timeLimitMinutes": 35,
+    "questionCount": 20,
+    "timeLimitMinutes": 45,
     "passingPercent": 75
    },
    "questions": [
@@ -473,6 +515,66 @@
       1
      ],
      "explanation": "Traceable evidence can inform a later design review. The actual vehicle joint still needs its own applicable procedure and acceptance."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "1200"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "The line of action of 150 N is 8 mm from a support reference. What is its moment about that reference in N·mm? Enter the number only.",
+     "section": "design",
+     "topic": "Design a representative test for an offset lap joint",
+     "explanation": "Force times perpendicular offset is 150 × 8 = 1,200 N·mm."
+    },
+    {
+     "choices": [
+      "A section showing the load centrelines and their perpendicular offsets.",
+      "Only the weld face color.",
+      "The order of the initials on the traveler."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which drawing feature reveals the load-path difference between a single lap and a symmetric specimen?",
+     "section": "design",
+     "topic": "Design a representative test for an offset lap joint",
+     "explanation": "The section reveals the lever arm and the possible opening moment."
+    },
+    {
+     "choices": [
+      "The joint is acceptable for suspension use.",
+      "Only superficial appearance; the tested interface failed its fusion criterion.",
+      "The lower sheet must have met every test criterion."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q3",
+     "stem": "A face is smooth but the lower sheet separates along an unbonded interface under the specified test. What does the face establish?",
+     "section": "implementation",
+     "topic": "Read a fracture surface and trace the process change",
+     "explanation": "The hidden interface is assessed by the specified test."
+    },
+    {
+     "choices": [
+      "Authorize every vehicle joint using the same type of welder.",
+      "Create a false failure so the record includes repair.",
+      "Record their actual results, configuration and witness, and state the limits of the evidence."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Both practice specimens meet every specified criterion on the first pass. Which record is appropriate?",
+     "section": "implementation",
+     "topic": "Read a fracture surface and trace the process change",
+     "explanation": "A valid first-pass result needs traceability and a scoped claim."
     }
    ]
   }
@@ -529,6 +631,18 @@
      "front": "A plug looks good from above. Which evidence assesses the hidden interface?",
      "back": "Inspect the reverse and use the specified destructive test on a matching specimen. Compare the fracture and dimensions with that test’s criteria.",
      "topic": "Test the weld and hand off the evidence"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which drawing feature reveals the load-path difference between a single lap and a symmetric specimen?",
+     "back": "A section showing the load centrelines and their perpendicular offsets. The section reveals the lever arm and the possible opening moment.",
+     "topic": "Design a representative test for an offset lap joint"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Both practice specimens meet every specified criterion on the first pass. Which record is appropriate?",
+     "back": "Record their actual results, configuration and witness, and state the limits of the evidence. A valid first-pass result needs traceability and a scoped claim.",
+     "topic": "Read a fracture surface and trace the process change"
     }
    ]
   }
@@ -568,6 +682,11 @@
    "id": "training",
    "title": "Where these skills fit",
    "body": "Course-scope comparison checked November 26, 2026. WLD 131 teaches setup and GMAW practice on ferrous stock, including multiple transfer modes. This course practices short-circuit GMAW on mild-steel coupons and compares other processes in design exercises. ACR185 connects equipment, vehicle protection, joint preparation and destructive testing. Here those skills culminate in a detached organizer. Aluminum and vehicle panel repairs are comparison cases. I-CAR supplies separate criteria by joint configuration, which informs specimen records and the destructive-test lab. [Portland Community College, WLD 131](https://www.pcc.edu/ccog/wld/131/) · [Highland Community College, ACR185 Panel Fabrication](https://highlandcc.edu/academics/areasofstudy/_program-documents/autocollision/autocollision-syllabi/acr185-panelfabrication-2025syl.pdf) · [I-CAR practice welding guide](https://info.i-car.com/getmedia/5bf41ea3-7245-46a2-9d3f-9e6723bcb69f/i-car_practice-welding-guide.pdf)"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. PCC WLD 131 develops GMAW skills on ferrous stock. Highland ACR185 includes joint selection and destructive testing. I-CAR distinguishes criteria by specimen configuration. The independent exercise extends those skills with offset, fracture location and a witnessed record on bare mild steel. [PCC WLD 131](https://www.pcc.edu/ccog/wld/131/) · [Highland ACR185](https://highlandcc.edu/academics/areasofstudy/_program-documents/autocollision/autocollision-syllabi/acr185-panelfabrication-2025syl.pdf) · [I-CAR practice welding guide](https://info.i-car.com/getmedia/5bf41ea3-7245-46a2-9d3f-9e6723bcb69f/i-car_practice-welding-guide.pdf) See WLD 131 outcomes 2 and 5, Highland ACR185 competencies 9–11 and I-CAR PDF page 7, steel GMA plug specimen 4. Apply the stated dimensions only to that exercise configuration.\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "glossary": [
@@ -830,6 +949,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "A dimensioned section with load arrows and offset, the two original specimen IDs, fracture location and criteria for each, and either a controlled retest of a failure or repeatability evidence for two first-pass successes."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -998,6 +1186,53 @@
    ],
    "photos": "Keep dated, labeled photos or witnessed sketches of the actual work and the corresponding measurements. Record the instructor who observed the controlled operation.",
    "rubric": "work"
+  },
+  {
+   "id": "case-record",
+   "title": "Read a fracture surface and trace the process change — workshop record",
+   "module": "implementation",
+   "adult": true,
+   "intro": "An annotated joint section and a traceable destructive-test comparison.",
+   "safety": [
+    "Use a qualified instructor, released hot-work booth, matched bare mild-steel specimens and the approved guarded destructive fixture. Follow the selected practice sheet, ventilation, PPE and fire controls."
+   ],
+   "materials": [
+    "Approved matching bare-steel coupons, supervised GMAW booth and guarded destructive station, original test sheet and measuring scale"
+   ],
+   "steps": [
+    "Read “Design a representative test for an offset lap joint”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "For a failed pair, select one justified, permitted change with the instructor and test fresh matching bare mild-steel coupons, keeping other variables and the destructive method fixed. For a pair that passed on the first attempt, use its recorded fractures to confirm both specimens met the same criteria and compare their repeatability. No setup change or invented failure is needed. Preserve the original coupon identities, prediction, test measurements and qualified witness. Include new coupon identities when a retest was necessary. End by writing the maximum claim the evidence supports for the bench setup and what would require a separate vehicle procedure.",
+    "File the following evidence with the course project. An annotated joint section and a traceable destructive-test comparison."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Specimen / sheet side",
+      "Joint stack",
+      "Face / reverse",
+      "Fracture location",
+      "Criterion and disposition",
+      "Retest ID"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": []

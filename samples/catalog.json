@@ -10478,7 +10478,7 @@
   "order": 201,
   "title": "Workshop Measurement and Vehicle Service",
   "description": "Use a real vehicle to compare tire constructions, wheel offsets and bearing designs, then document a cold tire service and fitment check. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10486,16 +10486,18 @@
   "type": [
    "Course"
   ],
-  "lessons": 6,
-  "questions": 12,
-  "cards": 10,
+  "lessons": 8,
+  "questions": 16,
+  "cards": 12,
   "drills": 0,
   "lessonIds": [
    "shop-1",
    "cmp-wheels-tires",
    "shop-2",
+   "case-design",
    "shop-3",
    "parts-and-modifications",
+   "case-test",
    "shop-4"
   ],
   "outline": [
@@ -10509,14 +10511,16 @@
    {
     "title": "Design — Service planning",
     "lessons": [
-     "Design a four-wheel service card"
+     "Design a four-wheel service card",
+     "Decide whether two measurements really disagree"
     ]
    },
    {
     "title": "Implementation — Service procedure",
     "lessons": [
      "Make and verify a cold pressure adjustment",
-     "From hub face to tire envelope"
+     "From hub face to tire envelope",
+     "Separate instrument error from a changing part"
     ]
    },
    {
@@ -10533,7 +10537,7 @@
   "order": 202,
   "title": "Preventive Maintenance and Shop Operations",
   "description": "Identify fluid approvals, filter designs and belt drives. Plan and carry out a scheduled service using the exact donor requirements and record the waste transfer. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10541,9 +10545,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 6,
-  "questions": 12,
-  "cards": 10,
+  "lessons": 8,
+  "questions": 16,
+  "cards": 12,
   "drills": 0,
   "requires": [
    "auto-shop"
@@ -10552,8 +10556,10 @@
    "maintenance-1",
    "cmp-fluids-filters",
    "maintenance-2",
+   "case-design",
    "maintenance-3",
    "parts-and-modifications",
+   "case-test",
    "maintenance-4"
   ],
   "outline": [
@@ -10567,14 +10573,16 @@
    {
     "title": "Design — Service design",
     "lessons": [
-     "Write the estimate and get authorization"
+     "Write the estimate and get authorization",
+     "Size a service plan for actual duty"
     ]
    },
    {
     "title": "Implementation — Scheduled service",
     "lessons": [
      "Change the oil and filter and inspect the vehicle",
-     "Remote filter access versus added interfaces"
+     "Remote filter access versus added interfaces",
+     "Distinguish a fresh leak from residue after service"
     ]
    },
    {
@@ -10591,7 +10599,7 @@
   "order": 203,
   "title": "Automotive Electrical Systems and Diagnosis",
   "description": "Compare starters, alternators, converters, batteries, relays and networked controls. Build a protected harness, measure a fault and verify the repair. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10599,9 +10607,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-shop"
@@ -10611,8 +10619,10 @@
    "cmp-starting-charging",
    "cmp-controls-network",
    "electrical-2",
+   "case-design",
    "electrical-3",
    "parts-and-modifications",
+   "case-test",
    "electrical-4"
   ],
   "outline": [
@@ -10627,14 +10637,16 @@
     "title": "Design — Harness design",
     "lessons": [
      "Switches, relays, solid-state drivers, CAN and LIN",
-     "Place protection and service test points"
+     "Place protection and service test points",
+     "Budget voltage drop on the supply and return"
     ]
    },
    {
     "title": "Implementation — Wiring practice",
     "lessons": [
      "Assemble and fault-find a 12 V trainer",
-     "From accessory load to a serviceable harness"
+     "From accessory load to a serviceable harness",
+     "Find a hidden connection loss with the lamp operating"
     ]
    },
    {
@@ -10651,7 +10663,7 @@
   "order": 204,
   "title": "Engine and Drivetrain Service",
   "description": "Compare four-, six-, eight- and twelve-cylinder engines, bank layouts, induction and injection. Measure an actual teaching engine and verify its assembly. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10659,9 +10671,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 8,
-  "questions": 16,
-  "cards": 12,
+  "lessons": 10,
+  "questions": 20,
+  "cards": 14,
   "drills": 0,
   "requires": [
    "auto-shop",
@@ -10673,8 +10685,10 @@
    "cmp-bank-layout",
    "cmp-induction",
    "powertrain-2",
+   "case-design",
    "powertrain-3",
    "parts-and-modifications",
+   "case-test",
    "powertrain-4"
   ],
   "outline": [
@@ -10690,14 +10704,16 @@
    {
     "title": "Design — Inspection design",
     "lessons": [
-     "Specify the measurement before teardown"
+     "Specify the measurement before teardown",
+     "Compare cylinder count at the same total displacement"
     ]
    },
    {
     "title": "Implementation — Bench service",
     "lessons": [
      "Disassemble, measure and reassemble a trainer",
-     "Measure the restriction you intend to change"
+     "Measure the restriction you intend to change",
+     "Separate valve timing from ring and valve sealing"
     ]
    },
    {
@@ -10714,7 +10730,7 @@
   "order": 205,
   "title": "Transmissions, Clutches and Final Drives",
   "description": "Trace manual, conventional automatic, automated manual, dual-clutch, pulley CVT and power-split drives. Compare final drives and axle joints, then assemble and measure a gear trainer. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10722,9 +10738,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 10,
-  "questions": 20,
-  "cards": 14,
+  "lessons": 12,
+  "questions": 24,
+  "cards": 16,
   "drills": 0,
   "requires": [
    "auto-powertrain"
@@ -10737,8 +10753,10 @@
    "cmp-cvt-ecvt",
    "cmp-differentials",
    "drives-2",
+   "case-design",
    "drives-3",
    "parts-and-modifications",
+   "case-test",
    "drives-4"
   ],
   "outline": [
@@ -10756,14 +10774,16 @@
      "Single-clutch automated manuals and dual-clutch gearboxes",
      "Belt and chain CVTs versus power-split hybrid drives",
      "Transaxles, transfer cases, differentials and axle joints",
-     "Choose a serviceable drive ratio"
+     "Choose a serviceable drive ratio",
+     "Predict road speed and torque for two gearboxes"
     ]
    },
    {
     "title": "Implementation — Bench assembly",
     "lessons": [
      "Set up a hand-driven gear pair",
-     "Predict the gearing change before ordering a differential"
+     "Predict the gearing change before ordering a differential",
+     "Tell a ratio error from clutch or converter slip"
     ]
    },
    {
@@ -10780,7 +10800,7 @@
   "order": 206,
   "title": "Brake, Steering and Suspension Service",
   "description": "Compare disc and drum brakes, calipers, master cylinders, steering gears and assist systems. Inspect a physical wheel end and document its measured condition. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10788,9 +10808,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-shop"
@@ -10800,8 +10820,10 @@
    "cmp-friction-hydraulics",
    "cmp-steering",
    "brakes-2",
+   "case-design",
    "brakes-3",
    "parts-and-modifications",
+   "case-test",
    "brakes-4"
   ],
   "outline": [
@@ -10816,14 +10838,16 @@
     "title": "Design — Inspection layout",
     "lessons": [
      "Steering gears, column, linkage and assist",
-     "Design a rotor measurement map"
+     "Design a rotor measurement map",
+     "Separate hydraulic force from brake torque"
     ]
    },
    {
     "title": "Implementation — Wheel-end service",
     "lessons": [
      "Inspect a known-clean training corner",
-     "Measure repeatability before changing brake hardware"
+     "Measure repeatability before changing brake hardware",
+     "Find the source of rotor runout on a bench hub"
     ]
    },
    {
@@ -10840,7 +10864,7 @@
   "order": 207,
   "title": "Cooling, Cabin HVAC and Refrigerant Practice",
   "description": "Trace coolant and refrigerant loops, compare pumps, expansion devices and cabin heat sources, then construct and test an air-distribution prototype. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10848,9 +10872,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-electrical",
@@ -10861,8 +10885,10 @@
    "cmp-engine-cooling",
    "cmp-hvac-types",
    "climate-2",
+   "case-design",
    "climate-3",
    "parts-and-modifications",
+   "case-test",
    "climate-4"
   ],
   "outline": [
@@ -10877,14 +10903,16 @@
     "title": "Design — Airflow design",
     "lessons": [
      "Heater cores, expansion devices, compressors and heat pumps",
-     "Route two ducts and provide service access"
+     "Route two ducts and provide service access",
+     "Trace a heat shortfall through coolant and cabin air"
     ]
    },
    {
     "title": "Implementation — Physical installation",
     "lessons": [
      "Build a blower and defrost mock-up",
-     "Separate cooling at idle from cooling at speed"
+     "Separate cooling at idle from cooling at speed",
+     "Use a duct pressure map to distinguish blockage from leakage"
     ]
    },
    {
@@ -10901,7 +10929,7 @@
   "order": 208,
   "title": "Engine Performance, Emissions and Hybrid Diagnostics",
   "description": "Distinguish fuel delivery, ignition and air-metering faults. Map gasoline and diesel emissions controls, diagnose a trainer and verify its restored function. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10909,9 +10937,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-electrical",
@@ -10922,8 +10950,10 @@
    "cmp-engine-controls",
    "cmp-aftertreatment",
    "diagnostics-2",
+   "case-design",
    "diagnostics-3",
    "parts-and-modifications",
+   "case-test",
    "diagnostics-4"
   ],
   "outline": [
@@ -10938,14 +10968,16 @@
     "title": "Design — Diagnostic design",
     "lessons": [
      "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR",
-     "Design a scan capture that can separate causes"
+     "Design a scan capture that can separate causes",
+     "Distinguish unmetered air from a fuel-delivery shortfall"
     ]
    },
    {
     "title": "Implementation — Trainer diagnostics",
     "lessons": [
      "Introduce and recover a known sensor fault",
-     "Separate an acoustic improvement from an emissions change"
+     "Separate an acoustic improvement from an emissions change",
+     "Read a fault timeline before replacing the named sensor"
     ]
    },
    {
@@ -10962,7 +10994,7 @@
   "order": 209,
   "title": "Electrified Vehicles, ABS and Driver Assistance",
   "description": "Compare hybrid and battery-electric power paths, wheel-speed sensors, stability control, restraints and driver assistance. Test a protected sensor fixture and plan model-specific calibration. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -10970,9 +11002,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-electrical",
@@ -10984,8 +11016,10 @@
    "cmp-hybrid-topologies",
    "cmp-safety-sensors",
    "electrified-2",
+   "case-design",
    "electrified-3",
    "parts-and-modifications",
+   "case-test",
    "electrified-4"
   ],
   "outline": [
@@ -11000,14 +11034,16 @@
     "title": "Design — System design",
     "lessons": [
      "Wheel-speed sensors, stability control, restraints and ADAS",
-     "Design a sensor fixture and set an intervention boundary"
+     "Design a sensor fixture and set an intervention boundary",
+     "Interpret regenerative and friction braking together"
     ]
    },
    {
     "title": "Implementation — Instrumented implementation",
     "lessons": [
      "Build a low-voltage wheel-speed trainer",
-     "Measure efficiency without hiding the operating conditions"
+     "Measure efficiency without hiding the operating conditions",
+     "Resolve a wheel-speed mismatch before requesting calibration"
     ]
    },
    {
@@ -11024,7 +11060,7 @@
   "order": 209.5,
   "title": "Automotive Welding and Weld Inspection",
   "description": "Choose a joining process, draw a steel joint, set up a MIG welder and practice on matched coupons. Fabricate a removable shop organizer, measure distortion and destructively test a plug weld before transferring the evidence to chassis design.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11032,9 +11068,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 8,
-  "questions": 16,
-  "cards": 8,
+  "lessons": 10,
+  "questions": 20,
+  "cards": 10,
   "drills": 0,
   "requires": [
    "auto-shop"
@@ -11044,8 +11080,10 @@
    "process",
    "layout",
    "setup",
+   "case-design",
    "stringer",
    "joints",
+   "case-test",
    "tray",
    "inspect"
   ],
@@ -11061,14 +11099,16 @@
     "title": "Design — Joint drawings and setup",
     "lessons": [
      "Draw a joint that can be made and inspected",
-     "Set up the wire path and a representative test coupon"
+     "Set up the wire path and a representative test coupon",
+     "Design a representative test for an offset lap joint"
     ]
    },
    {
     "title": "Implementation — GMAW bead and joint practice",
     "lessons": [
      "Run repeatable beads on bare mild steel",
-     "Make fillet and plug welds that reveal the interface"
+     "Make fillet and plug welds that reveal the interface",
+     "Read a fracture surface and trace the process change"
     ]
    },
    {
@@ -11086,7 +11126,7 @@
   "order": 210,
   "title": "Chassis Design, Welding and Fabrication",
   "description": "Compare unibody, ladder-frame and spaceframe structures, choose materials and joints, then fabricate and inspect a structural teaching bay. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11094,9 +11134,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-shop",
@@ -11107,8 +11147,10 @@
    "cmp-frame-types",
    "cmp-joints-materials",
    "fabrication-2",
+   "case-design",
    "fabrication-3",
    "parts-and-modifications",
+   "case-test",
    "fabrication-4"
   ],
   "outline": [
@@ -11123,14 +11165,16 @@
     "title": "Design — Fixture design",
     "lessons": [
      "Steel, aluminum, composites and their joints",
-     "Dimension from datums and plan inspection access"
+     "Dimension from datums and plan inspection access",
+     "Design a fixture that locates without overconstraining"
     ]
    },
    {
     "title": "Implementation — Fabrication",
     "lessons": [
      "Make a jig and a representative welded bay",
-     "Make a drawing someone else can inspect"
+     "Make a drawing someone else can inspect",
+     "Map tack-stage drift and released-frame error"
     ]
    },
    {
@@ -11147,7 +11191,7 @@
   "order": 211,
   "title": "Scratch-Built Engines and Precision Machining",
   "description": "Compare blocks, pistons, rings, bearings, valvetrains and lubrication architectures. Machine and assemble an original bench engine and document its witnessed run. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11155,9 +11199,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 8,
-  "questions": 16,
-  "cards": 12,
+  "lessons": 10,
+  "questions": 20,
+  "cards": 14,
   "drills": 0,
   "requires": [
    "auto-powertrain",
@@ -11169,8 +11213,10 @@
    "cmp-valvetrain",
    "cmp-oil-systems",
    "engine-build-2",
+   "case-design",
    "engine-build-3",
    "parts-and-modifications",
+   "case-test",
    "engine-build-4"
   ],
   "outline": [
@@ -11186,14 +11232,16 @@
     "title": "Design — Machining design",
     "lessons": [
      "Oil pumps, filtration and wet versus dry sumps",
-     "Define fits, datums and make-or-buy choices"
+     "Define fits, datums and make-or-buy choices",
+     "Allocate rod-bearing clearance across its tolerances"
     ]
    },
    {
     "title": "Implementation — Engine manufacture",
     "lessons": [
      "Produce and assemble the single-cylinder engine",
-     "Measure the actual compression geometry"
+     "Measure the actual compression geometry",
+     "Map taper and out-of-round before choosing a machining operation"
     ]
    },
    {
@@ -11210,7 +11258,7 @@
   "order": 212,
   "title": "Suspension Geometry, Design and Fabrication",
   "description": "Compare five wheel-guidance layouts, springs, dampers and roll control. Design and fabricate a suspension corner, then measure wheel travel, camber and toe. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11218,9 +11266,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-brakes",
@@ -11231,8 +11279,10 @@
    "cmp-suspension-families",
    "cmp-spring-damper",
    "suspension-build-2",
+   "case-design",
    "suspension-build-3",
    "parts-and-modifications",
+   "case-test",
    "suspension-build-4"
   ],
   "outline": [
@@ -11247,14 +11297,16 @@
     "title": "Design — Geometry design",
     "lessons": [
      "Springs, dampers, anti-roll bars and compliant joints",
-     "Lay out and review the hard points"
+     "Lay out and review the hard points",
+     "Turn spring position into wheel rate and travel margin"
     ]
    },
    {
     "title": "Implementation — Fabrication and assembly",
     "lessons": [
      "Build an unloaded front corner fixture",
-     "Separate spring rate from installed wheel rate"
+     "Separate spring rate from installed wheel rate",
+     "Measure bump steer separately from lateral wheel movement"
     ]
    },
    {
@@ -11271,7 +11323,7 @@
   "order": 213,
   "title": "Bodywork, Occupant Packaging and Refinishing",
   "description": "Compare panel joints, glazing, closures, lamps and restraint layouts. Form and fit an original panel and validate occupant controls, access and visibility. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11279,9 +11331,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 7,
-  "questions": 14,
-  "cards": 11,
+  "lessons": 9,
+  "questions": 18,
+  "cards": 13,
   "drills": 0,
   "requires": [
    "auto-fabrication",
@@ -11292,8 +11344,10 @@
    "cmp-closure-glazing",
    "cmp-lighting-occupants",
    "body-2",
+   "case-design",
    "body-3",
    "parts-and-modifications",
+   "case-test",
    "body-4"
   ],
   "outline": [
@@ -11308,14 +11362,16 @@
     "title": "Design — Body design",
     "lessons": [
      "Lighting optics, seats, restraints and occupant controls",
-     "Turn an exterior shape into a buildable panel"
+     "Turn an exterior shape into a buildable panel",
+     "Budget the closure gap before forming the panel"
     ]
    },
    {
     "title": "Implementation — Panel manufacture",
     "lessons": [
      "Form and fit a removable skin",
-     "Size a removable speaker adapter without fouling the glass"
+     "Size a removable speaker adapter without fouling the glass",
+     "Trace a water leak without confusing the entry and exit points"
     ]
    },
    {
@@ -11332,7 +11388,7 @@
   "order": 214,
   "title": "Capstone: Build and Commission Your Own Car",
   "description": "Fabricate and assemble your own complete car. Defend component choices, reconcile the actual bill of materials, and demonstrate starting, moving, steering, braking, holding and shutdown. Includes a parts atlas and an assessed modification workshop.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Automotive Mechanics",
   "level": [
    "Professional"
@@ -11340,9 +11396,9 @@
   "type": [
    "Course"
   ],
-  "lessons": 6,
-  "questions": 12,
-  "cards": 10,
+  "lessons": 8,
+  "questions": 16,
+  "cards": 12,
   "drills": 0,
   "requires": [
    "auto-diagnostics",
@@ -11358,8 +11414,10 @@
    "capstone-1",
    "cmp-as-built",
    "capstone-2",
+   "case-design",
    "capstone-3",
    "parts-and-modifications",
+   "case-test",
    "capstone-4"
   ],
   "outline": [
@@ -11373,14 +11431,16 @@
     "title": "Design — Vehicle design release",
     "lessons": [
      "Defend every major component choice on the car you build",
-     "Coordinate the systems before materials are cut"
+     "Coordinate the systems before materials are cut",
+     "Trace one design change across the entire car"
     ]
    },
    {
     "title": "Implementation — Full-size construction",
     "lessons": [
      "Build the complete car and retain the evidence",
-     "Close an as-built discrepancy one position at a time"
+     "Close an as-built discrepancy one position at a time",
+     "Close a failed commissioning check and repeat dependent tests"
     ]
    },
    {

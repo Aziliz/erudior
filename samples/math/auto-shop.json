@@ -4,9 +4,9 @@
  "id": "auto-shop",
  "title": "Workshop Measurement and Vehicle Service",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Use a real vehicle to compare tire constructions, wheel offsets and bearing designs, then document a cold tire service and fitment check. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A dimension map and a signed release-or-hold decision for a detached training part.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -22,7 +22,9 @@
    "id": "m2",
    "title": "Design — Service planning",
    "quiz": [
-    "shop-2-q2"
+    "shop-2-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -30,7 +32,9 @@
    "title": "Implementation — Service procedure",
    "quiz": [
     "shop-3-q3",
-    "shop-change-shop"
+    "shop-change-shop",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -102,6 +106,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Decide whether two measurements really disagree",
+   "minutes": 30,
+   "topics": [
+    "Decide whether two measurements really disagree"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A dial indicator reads movement relative to its base. A tire gauge compares the air in a tire with the surrounding atmosphere. Both can repeat a biased measurement. Before diagnosing a component, choose the instrument range, resolution, reference condition and acceptance source. Write down the decision the measurement must support. A repeatable number taken from the wrong datum answers a different question.\n\n**Worked example.** A training pin has a drawing range of 9.95–10.05 mm. A caliper repeatedly displays 10.04 mm. On a 10.00 mm check standard it reads 10.03 mm. That discrepancy is too close to the tolerance boundary to release the pin on the raw reading. Do not treat one check at one size as calibration of the whole instrument. Clean the contact surfaces, check zero, verify the standard and repeat with an appropriate checked instrument. Record both the original reading and the reason for holding it.\n\n**Design your check.** Sketch the two surfaces the jaws contact. Mark hand pressure, orientation, units, measurement locations and how you will confirm the instrument at the size of interest. Compare a dial indicator for relative movement, a caliper for a general width, and a micrometer for a small external diameter. Pick the instrument for one identified feature and explain how its uncertainty affects a near-limit decision.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "shop-3",
    "module": "m3",
    "title": "Make and verify a cold pressure adjustment",
@@ -139,6 +162,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nWheel and tire. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Seasonal wheel and tire set\n- Wider wheels and tires\n\n## Worked example\n\nA 7-inch wheel with +40 mm offset is compared with an 8-inch +35 mm wheel. One extra inch is 25.4 mm. Each edge moves 12.7 mm from the centerline; reducing positive offset moves the centerline outward by 5 mm. The new outer edge moves outward 17.7 mm and the inner edge moves inward 7.7 mm. The tire sidewall and spokes still need separate checks.\n\n## Guided decision\n\n```example fade=1\nproblem: A second candidate keeps width constant and increases positive offset by 6 mm. What changes?\nstep: Fix the mounting face and move the wheel center inward.\nanswer: Both edges move inward 6 mm. Recheck inside clearance and brake-spoke profile.\n```\n\n## Independent workshop\n\nTrace one real wheel-end exploded view through its bearing, stem, core, mounting hardware and sensor. Pattern both candidate profiles and record the limiting clearance.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-shop"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Separate instrument error from a changing part",
+   "minutes": 45,
+   "topics": [
+    "Separate instrument error from a changing part"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "On a detached clean practice pin, mark two axial stations and two orientations at each. Let the pieces and instrument share the same shop conditions. Check a known standard before and after the series. Record the actual instrument ID and resolution. Take repeated readings with consistent light measuring force. Return to the first station at the end so a change in handling or temperature is visible.\n\n**Trace the evidence.** A practice series at one station is 12.02, 12.01 and 12.03 mm. The range is 0.02 mm. A second station averages 12.08 mm. The station difference is a reason to investigate taper, burrs or technique. It does not, by itself, tell which mechanism caused it. Rotate the pin while keeping the station fixed, then repeat at the other station. If the difference follows a marked orientation, investigate local shape. If it follows the operator or instrument, revisit the measurement method.\n\n**Independent work.** Make a four-cell measurement map and swap operators or instruments for one blind repeat. Record range, check-standard readings and the drawing limit. Release, hold for a more capable measurement, or identify a definite out-of-tolerance feature. Preserve borderline readings in the work order.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -184,8 +226,8 @@
     }
    ],
    "exam": {
-    "questionCount": 12,
-    "timeLimitMinutes": 30,
+    "questionCount": 16,
+    "timeLimitMinutes": 40,
     "passingPercent": 75
    },
    "questions": [
@@ -375,6 +417,66 @@
       "Verify the indicated rpm at idle."
      ],
      "explanation": "A reference speed can test the relationship between wheel pulses and actual travel."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "18.04"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A drawing calls for 18.00 ± 0.04 mm. What is the upper limit in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Decide whether two measurements really disagree",
+     "explanation": "The positive tolerance adds 0.04 mm to nominal."
+    },
+    {
+     "choices": [
+      "The number of repeated digits on the display.",
+      "A repeat measurement with an appropriate verified instrument.",
+      "The average of additional readings from the same unchecked setup."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "A gauge repeats closely but misses a checked standard by nearly the entire part tolerance. Which evidence should determine release?",
+     "section": "m2",
+     "topic": "Decide whether two measurements really disagree",
+     "explanation": "Repeats show precision. They do not correct the suspected systematic error."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.03"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A practice pin reads 8.01, 8.04 and 8.02 mm at one station. What is the range in mm? Enter the number only.",
+     "section": "m3",
+     "topic": "Separate instrument error from a changing part",
+     "explanation": "Range is the maximum minus the minimum, 8.04 − 8.01."
+    },
+    {
+     "choices": [
+      "Local shape variation with angle.",
+      "A constant axial taper has been proven.",
+      "The standard has necessarily changed size."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "A diameter change follows the angular mark on a stationary axial section through two independent setups. Which hypothesis gains support?",
+     "section": "m3",
+     "topic": "Separate instrument error from a changing part",
+     "explanation": "A feature that follows orientation at the same station suggests nonuniform shape around that section."
     }
    ]
   }
@@ -443,6 +545,18 @@
      "front": "A taller tire turns fewer times per mile. A speed display still uses the old revolutions-per-mile calibration. Which independent measurement tests the effect?",
      "back": "Compare indicated and measured speed over the same controlled interval with a calibrated reference. A reference speed can test the relationship between wheel pulses and actual travel.",
      "topic": "From hub face to tire envelope"
+    },
+    {
+     "id": "case-design-card",
+     "front": "A gauge repeats closely but misses a checked standard by nearly the entire part tolerance. Which evidence should determine release?",
+     "back": "A repeat measurement with an appropriate verified instrument. Repeats show precision. They do not correct the suspected systematic error.",
+     "topic": "Decide whether two measurements really disagree"
+    },
+    {
+     "id": "case-test-card",
+     "front": "A diameter change follows the angular mark on a stationary axial section through two independent setups. Which hypothesis gains support?",
+     "back": "Local shape variation with angle. A feature that follows orientation at the same station suggests nonuniform shape around that section.",
+     "topic": "Separate instrument error from a changing part"
     }
    ]
   }
@@ -519,6 +633,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF101/102 introduce precision measuring tools. UVU AUT1010 covers maintenance and light repair. ASE foundational Tools and Equipment task 5 (PDF p. 47) covers calibrated precision measurement. The pin exercise adds a repeatability and near-limit decision. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -839,6 +958,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Four station/orientation cells with repeated values; verified standard before and after; instrument resolution, drawing limit and a justified near-limit decision."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -933,6 +1121,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Separate instrument error from a changing part — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A dimension map and a signed release-or-hold decision for a detached training part.",
+   "safety": [
+    "Secure the detached pin on a stable clean surface, inspect edges and use the instrument as intended. Never measure rotating stock with a hand tool."
+   ],
+   "materials": [
+    "Detached training pin, identified check standard, suitable inspected measuring tools"
+   ],
+   "steps": [
+    "Read “Decide whether two measurements really disagree”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Make a four-cell measurement map and swap operators or instruments for one blind repeat. Record range, check-standard readings and the drawing limit. Release, hold for a more capable measurement, or identify a definite out-of-tolerance feature. Preserve borderline readings in the work order.",
+    "File the following evidence with the course project. A dimension map and a signed release-or-hold decision for a detached training part."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Station and orientation",
+      "Instrument / unit",
+      "Repeat 1",
+      "Repeat 2",
+      "Repeat 3",
+      "Range and decision"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": []

@@ -4,9 +4,9 @@
  "id": "auto-maintenance",
  "title": "Preventive Maintenance and Shop Operations",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Identify fluid approvals, filter designs and belt drives. Plan and carry out a scheduled service using the exact donor requirements and record the waste transfer. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A duty-based service plan and repeatable leak-source record.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -22,7 +22,9 @@
    "id": "m2",
    "title": "Design — Service design",
    "quiz": [
-    "maintenance-2-q2"
+    "maintenance-2-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -30,7 +32,9 @@
    "title": "Implementation — Scheduled service",
    "quiz": [
     "maintenance-3-q3",
-    "shop-change-maintenance"
+    "shop-change-maintenance",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -102,6 +106,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Size a service plan for actual duty",
+   "minutes": 30,
+   "topics": [
+    "Size a service plan for actual duty"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A service schedule has parallel triggers. Time ages fluids and elastomers even at low mileage. Repeated short cold runs, towing, dust and prolonged idling may place a vehicle in the maker's severe-service category. Establish the exact engine, fuel, model year and duty pattern. Use the published calendar and distance limits and determine which comes first. A viscosity label alone does not establish the required oil approval, fill quantity or filter compatibility.\n\n**Worked plan.** An invented schedule specifies 8,000 km or 12 months. A vehicle has covered 5,000 km in 11 months and is expected to travel 500 km each month. It would reach the distance trigger in six months, but the time trigger arrives in one. Put the earlier date on the work order. For a change in duty, retrieve the schedule that applies to the new duty and record the source. These values are an exercise, not a service interval.\n\n**Design the job.** Draw the path from sump pickup to pump, filter, galleries and drainback using the donor diagram. Identify where a bypass valve or anti-drainback valve is located in that design. Compare two candidate filters using the exact application, sealing dimensions and specified internal functions. A matching thread only establishes that the filter can screw on. Attach the part identity and required fluid approval to your service plan.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "maintenance-3",
    "module": "m3",
    "title": "Change the oil and filter and inspect the vehicle",
@@ -139,6 +162,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nConsumables and service hardware. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Remote oil filter\n- Thermostatic oil cooler\n\n## Worked example\n\nA filter mounted against a bulkhead takes 12 minutes to remove. A mock remote head takes four but adds two hoses and four hose-end connections. The eight-minute service gain justifies a prototype. Release also needs pressure at equal oil temperature and engine speed, a verified fill level, a supported hose route and a leak inspection after cycling.\n\n## Guided decision\n\n```example fade=1\nproblem: Pressure is lower with cold baseline readings and hot modified readings. Which experiment isolates the change?\nstep: Repeat at matched oil temperature, level, oil grade and speed.\nanswer: A repeat then separates circuit effects from viscosity; record the gauge location too.\n```\n\n## Independent workshop\n\nBuild a dry, unpressurized routing mock-up or filter-access fixture. Time both configurations and enumerate seals, plugs, brackets and clips.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-maintenance"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Distinguish a fresh leak from residue after service",
+   "minutes": 45,
+   "topics": [
+    "Distinguish a fresh leak from residue after service"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Oil can travel down a housing and collect at its lowest point. A drip on a drain plug may have originated above it. A pressure warning, a growing leak or a level outside the maker's permitted range changes the decision to stop and investigate. Never crawl beneath an unsupported vehicle or reach near a running belt to look for a leak. Use the manufacturer's check conditions and a supervised stationary setup.\n\n**Worked diagnosis.** A wiped, cold trainer has fresh oil at the filter mounting face while the drain interface remains dry. Inspect the filter application, sealing surface, retained old seal and installation method with the engine stopped and safe. On another trainer, all interfaces remain dry but a shield carries oil spilled during filling. Clean the accessible residue using the approved method, then recheck under the same documented conditions. Record what changes, where it first appears and how the fluid level was measured.\n\n**Independent work.** On a detached training housing, simulate leaks with an instructor-approved harmless tracer, tray and low-head gravity feed. Tag three observation stations from high to low. Predict the source from the first inspection, clean and repeat to find the first wet interface. Transfer the diagnostic method to the service work order and include the waste or reuse route appropriate to the actual material.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -184,8 +226,8 @@
     }
    ],
    "exam": {
-    "questionCount": 12,
-    "timeLimitMinutes": 30,
+    "questionCount": 16,
+    "timeLimitMinutes": 40,
     "passingPercent": 75
    },
    "questions": [
@@ -370,6 +412,66 @@
       "Confirm that the filter thread matches and close the decision there."
      ],
      "explanation": "Lines and filters change the circuit, fill and potential loss points."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "An exercise schedule sets 12 months or 9,000 km. At 10 months and 4,000 km, usage will be 500 km/month. In how many months does the earlier trigger occur? Enter the number only.",
+     "section": "m2",
+     "topic": "Size a service plan for actual duty",
+     "explanation": "The calendar limit arrives in two months. The remaining 5,000 km would take ten months."
+    },
+    {
+     "choices": [
+      "The color of its anti-drainback valve.",
+      "Its documented application, seal fit and required valve functions.",
+      "The larger outer diameter by itself."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "Two spin-on filters share a thread. Which evidence supports selecting one for a specific engine?",
+     "section": "m2",
+     "topic": "Size a service plan for actual duty",
+     "explanation": "The thread cannot establish sealing geometry or internal behavior under the required oil flow."
+    },
+    {
+     "choices": [
+      "How dark the old stain looks.",
+      "The lowest point the old oil reached.",
+      "The first newly wet location after cleaning and a repeat under comparable conditions."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q3",
+     "stem": "After a service, a shield is oily under a dry drain interface. What observation best distinguishes old spilled oil from an active leak?",
+     "section": "m3",
+     "topic": "Distinguish a fresh leak from residue after service",
+     "explanation": "Fresh changes observed in sequence localize a source."
+    },
+    {
+     "choices": [
+      "Clear the warning and record the job as complete.",
+      "Stop the engine safely and investigate according to its service procedure.",
+      "Extend the run until the oil stain evaporates."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q4",
+     "stem": "A stationary supervised service check triggers an oil-pressure warning. Which response fits the evidence?",
+     "section": "m3",
+     "topic": "Distinguish a fresh leak from residue after service",
+     "explanation": "A pressure warning changes the risk of continuing to operate the engine."
     }
    ]
   }
@@ -438,6 +540,18 @@
      "front": "A remote filter adapter adds two hoses. Which observation must be logged before a higher-capacity filter can be accepted?",
      "back": "Oil pressure in the specified operating conditions plus leakage and routing after cycling. Lines and filters change the circuit, fill and potential loss points.",
      "topic": "Remote filter access versus added interfaces"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Two spin-on filters share a thread. Which evidence supports selecting one for a specific engine?",
+     "back": "Its documented application, seal fit and required valve functions. The thread cannot establish sealing geometry or internal behavior under the required oil flow.",
+     "topic": "Size a service plan for actual duty"
+    },
+    {
+     "id": "case-test-card",
+     "front": "A stationary supervised service check triggers an oil-pressure warning. Which response fits the evidence?",
+     "back": "Stop the engine safely and investigate according to its service procedure. A pressure warning changes the risk of continuing to operate the engine.",
+     "topic": "Distinguish a fresh leak from residue after service"
     }
    ]
   }
@@ -514,6 +628,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF101/102 cover lubrication and oil service. UVU AUT1010 sets the maintenance scope. ASE I.D.1–2 (PDF p. 54) cover lubrication system identification and manufacturer-specified oil/filter service. The gravity tracer is a low-energy exercise for locating an entry point. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -834,6 +953,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Duty and calendar/distance trigger, documented filter application and sealing requirements, and a repeated three-station leak test showing where fluid first appears."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -929,6 +1117,52 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Distinguish a fresh leak from residue after service — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A duty-based service plan and repeatable leak-source record.",
+   "safety": [
+    "Use only a shop-approved low-head tracer and training housing. Contain the fluid and follow its actual disposal or reuse instructions. Stop a live service check safely if a pressure warning appears."
+   ],
+   "materials": [
+    "Service schedule for the chosen vehicle, detached training housing, gravity feed, manufacturer-compatible harmless tracer, collection tray"
+   ],
+   "steps": [
+    "Read “Size a service plan for actual duty”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a detached training housing, simulate leaks with an instructor-approved harmless tracer, tray and low-head gravity feed. Tag three observation stations from high to low. Predict the source from the first inspection, clean and repeat to find the first wet interface. Transfer the diagnostic method to the service work order and include the waste or reuse route appropriate to the actual material.",
+    "File the following evidence with the course project. A duty-based service plan and repeatable leak-source record."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Station / elevation",
+      "Initial condition",
+      "First wet point",
+      "Repeat conditions",
+      "Source or open question"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

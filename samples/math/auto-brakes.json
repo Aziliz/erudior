@@ -4,9 +4,9 @@
  "id": "auto-brakes",
  "title": "Brake, Steering and Suspension Service",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare disc and drum brakes, calipers, master cylinders, steering gears and assist systems. Inspect a physical wheel end and document its measured condition. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A repeatable hub/rotor runout trace and a separate thickness map.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Inspection layout",
    "quiz": [
     "brakes-2-q2",
-    "cmp-steering-q2"
+    "cmp-steering-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Wheel-end service",
    "quiz": [
     "brakes-3-q3",
-    "shop-change-brakes"
+    "shop-change-brakes",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -125,6 +129,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Separate hydraulic force from brake torque",
+   "minutes": 30,
+   "topics": [
+    "Separate hydraulic force from brake torque"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "In a simplified hydraulic brake circuit, line pressure is force at the master piston divided by its area. The caliper converts pressure to piston force. Rotor effective radius and pad friction affect brake torque. A larger master piston moves more fluid per stroke but needs greater force for the same pressure. Pedal leverage, booster assistance, component stiffness, available travel and front-rear balance all enter an actual design.\n\n**Worked comparison.** An idealized master is driven with 400 N and has 200 mm² of area. Pressure is 2 N/mm², or 2 MPa. Doubling the area at the same force halves pressure. At the same stroke the larger piston displaces twice as much fluid. A bigger caliper kit or different master can change pedal travel as well as force. Greater effective radius at the same tangential pad force increases torque, but tire grip, balance and ABS control still limit braking performance.\n\n**Design review.** Trace the two circuits from the donor master to each wheel, including the ABS hydraulic unit. Label the piston and friction interfaces and the specified fluid. Compare stock and proposed components using manufacturer dimensions. Record bore, effective radius, wheel clearance, thermal capacity and evidence needed from a qualified reviewer. Use the calculation only to identify dependencies. A production brake change needs system-level validation.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "brakes-3",
    "module": "m3",
    "title": "Inspect a known-clean training corner",
@@ -165,6 +188,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nBraking and steering, Friction, hydraulic and steering detail. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Pad compound and rotor package\n- Brake cooling ducts\n- Larger brake kit\n\n## Worked example\n\nAt fixed vehicle mass, kinetic energy scales with speed squared. A stop from 80 km/h has four times the initial translational kinetic energy of a stop from 40 km/h. Temperature measurements taken after those two stops cannot isolate a duct's effect. Tire grip, brake balance and pedal condition also matter.\n\n## Guided decision\n\n```example fade=1\nproblem: A cooler rotor reading follows a run with half the vehicle speed. What must the next test hold constant?\nstep: Control mass, speed schedule, initial temperatures, airflow, braking conditions and measurement delay.\nanswer: Compare matched repeated-stop results at a controlled facility using the same method and instrument location.\n```\n\n## Independent workshop\n\nBuild an unpowered duct-to-wheel-end mock-up and safely sweep the rig. Record the tightest hose/steering clearance; a static exercise does not qualify brake performance.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-brakes"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Find the source of rotor runout on a bench hub",
+   "minutes": 45,
+   "topics": [
+    "Find the source of rotor runout on a bench hub"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Lateral runout is side-to-side movement at a chosen radius. Disc thickness variation is the change in thickness around the rotor, measured with a micrometer at the specified positions. One instrument trace cannot measure both. Rust or debris at the mounting face, hub movement or uneven mounting can distort a runout result. Inspect the mount and bearing condition before condemning the rotor.\n\n**Worked trace.** An indicator on a properly mounted training rotor swings between −0.03 and +0.06 mm. Total indicated runout is 0.09 mm. Mark the high point on the rotor and the matching hub position. Re-index the rotor only if the trainer procedure permits, secure it using the same specified mounting method, and repeat. If the high point consistently follows the rotor, investigate the rotor. If it stays at the same hub position, examine the hub and mounting conditions. Combined sources can partly cancel, so measure the hub face when indicated.\n\n**Independent work.** On a detached bench hub, record mounting conditions, gauge radius, high and low readings and index marks for two trials. Make a separate thickness map. Identify which observation would distinguish lateral wobble from thickness variation and decide against the exact service limit for that assembly. Do not infer roadworthiness from this bench measurement.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -210,8 +252,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -426,6 +468,66 @@
       "A soft pedal on the first cold stop with an unresolved hydraulic leak."
      ],
      "explanation": "Establish a repeatable heat-related problem and control load, tires, initial temperature and stop cycle."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "An idealized master piston with area 150 mm² receives 450 N. What is the pressure in MPa, taking 1 N/mm² as 1 MPa? Enter the number only.",
+     "section": "m2",
+     "topic": "Separate hydraulic force from brake torque",
+     "explanation": "450 ÷ 150 = 3 N/mm²."
+    },
+    {
+     "choices": [
+      "More displaced volume and lower pressure.",
+      "More displaced volume and higher pressure.",
+      "Less displaced volume and higher pressure."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "At equal input force and stroke, a larger master-piston area changes two things. Which pair is correct in this idealized model?",
+     "section": "m2",
+     "topic": "Separate hydraulic force from brake torque",
+     "explanation": "Volume is area times stroke. Pressure is force divided by area."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.11"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "Bench rotor indicator readings range from −0.04 to +0.07 mm. What is total indicated runout in mm? Enter the number only.",
+     "section": "m3",
+     "topic": "Find the source of rotor runout on a bench hub",
+     "explanation": "+0.07 − (−0.04) = 0.11 mm."
+    },
+    {
+     "choices": [
+      "Hub face, mounting conditions and bearing movement.",
+      "A larger caliper is necessarily required.",
+      "Rotor thickness variation is already proven."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "After a controlled re-index, the high point stays at the same hub position. What should be checked next?",
+     "section": "m3",
+     "topic": "Find the source of rotor runout on a bench hub",
+     "explanation": "The association with the hub points to mounting or hub contributions. Thickness requires a different measurement."
     }
    ]
   }
@@ -500,6 +602,18 @@
      "front": "Which observation supports brake cooling as the next design investigation?",
      "back": "Repeated stops produce a temperature-related change in braking behavior under controlled conditions. Establish a repeatable heat-related problem and control load, tires, initial temperature and stop cycle.",
      "topic": "Measure repeatability before changing brake hardware"
+    },
+    {
+     "id": "case-design-card",
+     "front": "At equal input force and stroke, a larger master-piston area changes two things. Which pair is correct in this idealized model?",
+     "back": "More displaced volume and lower pressure. Volume is area times stroke. Pressure is force divided by area.",
+     "topic": "Separate hydraulic force from brake torque"
+    },
+    {
+     "id": "case-test-card",
+     "front": "After a controlled re-index, the high point stays at the same hub position. What should be checked next?",
+     "back": "Hub face, mounting conditions and bearing movement. The association with the hub points to mounting or hub contributions. Thickness requires a different measurement.",
+     "topic": "Find the source of rotor runout on a bench hub"
     }
    ]
   }
@@ -591,6 +705,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF116/117 teach disc brake inspection. UVU AUT2210/2215 connect brake theory to diagnosis. ASE disc-brake task 5 (PDF p. 76) specifies rotor thickness, variation and lateral runout. The exercise uses a detached hub and documents the index. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -911,6 +1030,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Indicator radius, marked hub/rotor positions, two indexed runout trials and a separate thickness map with source limits."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1006,6 +1194,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Find the source of rotor runout on a bench hub — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A repeatable hub/rotor runout trace and a separate thickness map.",
+   "safety": [
+    "Secure the detached hub with the correct mounting procedure. Control pinch points; use the approved method for brake dust. Keep this bench measurement separate from a vehicle return-to-service decision."
+   ],
+   "materials": [
+    "Detached bench hub and rotor, specified mounting hardware, indicator and rigid base, suitable disc micrometer"
+   ],
+   "steps": [
+    "Read “Separate hydraulic force from brake torque”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a detached bench hub, record mounting conditions, gauge radius, high and low readings and index marks for two trials. Make a separate thickness map. Identify which observation would distinguish lateral wobble from thickness variation and decide against the exact service limit for that assembly. Do not infer roadworthiness from this bench measurement.",
+    "File the following evidence with the course project. A repeatable hub/rotor runout trace and a separate thickness map."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Index marks",
+      "Indicator radius",
+      "Low / high mm",
+      "Total runout mm",
+      "Thickness location / value",
+      "Disposition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

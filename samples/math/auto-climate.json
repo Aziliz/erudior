@@ -4,9 +4,9 @@
  "id": "auto-climate",
  "title": "Cooling, Cabin HVAC and Refrigerant Practice",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Trace coolant and refrigerant loops, compare pumps, expansion devices and cabin heat sources, then construct and test an air-distribution prototype. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A labeled airflow map and a diagnosis supported by a baseline and restoration.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Airflow design",
    "quiz": [
     "climate-2-q2",
-    "cmp-hvac-types-q2"
+    "cmp-hvac-types-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Physical installation",
    "quiz": [
     "climate-3-q3",
-    "shop-change-climate"
+    "shop-change-climate",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -123,6 +127,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Trace a heat shortfall through coolant and cabin air",
+   "minutes": 30,
+   "topics": [
+    "Trace a heat shortfall through coolant and cabin air"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "In heating mode, engine coolant transfers energy to the heater core and the blower carries that energy into the cabin. A blend door can route air around a hot core. Low engine temperature, low coolant flow, trapped air, a sticking door, a clogged filter and a weak blower can all disappoint the driver. A warm outlet alone says little about total delivered heat if almost no air reaches it.\n\n**Worked model.** For a steady training duct, air mass flow is 0.08 kg/s and the air warms by 20 K. Using a specific heat of 1.0 kJ/(kg·K), heat delivered to the air is approximately 1.6 kW. A second configuration warms the air by 24 K but only moves 0.05 kg/s, about 1.2 kW. The warmer outlet delivers less total heat. An actual car also has transient heat storage, leakage and humidity effects. Measure flow and temperature at comparable blower settings before redesigning the duct.\n\n**Plan the installation.** Draw the coolant path, heater core, fresh/recirculated air inlet, blower, filter, evaporator, blend door, outlets and condensate drain. Compare service access with the dashboard fitted. For a custom car, mark the windshield air path and preserve demisting performance. Use donor service information to identify the checks that require an equipped refrigerant-service technician.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "climate-3",
    "module": "m3",
    "title": "Build a blower and defrost mock-up",
@@ -161,6 +184,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nCooling and cabin climate, Climate controls and plumbing. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Radiator shroud and duct seals\n- Radiator or electric fan upgrade\n\n## Worked example\n\nBaseline stabilized idle readings are 100, 101 and 100 °C. After a mock shroud change, matched values are 96, 97 and 97 °C. This repeat suggests improvement at idle. A poorly vented shroud could still restrict flow at road speed. A guarded airflow rig tests direction and bypass before a vehicle installation.\n\n## Guided decision\n\n```example fade=1\nproblem: A second run begins with a colder engine and ends earlier. How do you make it comparable?\nstep: Use the same load, ambient reference, fan state and stabilization criterion.\nanswer: Record a comparable steady interval rather than a colder starting value.\n```\n\n## Independent workshop\n\nBuild a removable duct seal on the existing ambient-air trainer. Check leak paths and record baseline/changed outlet velocity at the same blower setting.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-climate"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Use a duct pressure map to distinguish blockage from leakage",
+   "minutes": 45,
+   "topics": [
+    "Use a duct pressure map to distinguish blockage from leakage"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use an unheated bench duct and a low-voltage protected blower. Open pressure taps only on the purpose-built trainer. Keep fingers, hair and probes clear of its guarded impeller. Measure repeatable pressure differences across the filter section and compare outlet air speed at the same marked locations. Record blower supply voltage and switch position. A local velocity reading is not automatically the total flow through an irregular outlet.\n\n**Worked data.** Across a training filter the upstream static pressure is +70 Pa and downstream is +25 Pa relative to the same reference, a 45 Pa drop. After a deliberately added restriction on the trainer the readings become +90 and +10 Pa. The larger drop and reduced outlet speed support a restriction in that section. If two outlets disagree but the filter differential is close to baseline, inspect a leak, split duct or door position downstream. Keep the blower setting and test geometry fixed while changing one item.\n\n**Independent job.** Map a baseline and a removable restriction or leak. Predict what will change upstream and at two outlets. Restore the original configuration and retest. Attach a sketch of sensor locations, three sets of readings and a reasoned next test. The experiment exercises air delivery and leaves the refrigerant circuit sealed.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -206,8 +248,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -422,6 +464,66 @@
       "Clearance, fan current or controls as applicable, and cooling at other design operating conditions."
      ],
      "explanation": "One operating point cannot establish clearance or behavior across the design envelope."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.6"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "Air flows at 0.04 kg/s, warms by 15 K and has specific heat 1.0 kJ/(kg·K). What is the approximate heat rate in kW? Enter the number only.",
+     "section": "m2",
+     "topic": "Trace a heat shortfall through coolant and cabin air",
+     "explanation": "0.04 × 15 × 1.0 = 0.6 kJ/s, equivalent to 0.6 kW."
+    },
+    {
+     "choices": [
+      "Outlet temperature alone.",
+      "Air mass flow multiplied by specific heat and temperature rise.",
+      "The warmest point on the heater case."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "A hotter outlet has much lower airflow at the same test condition. What determines heat delivered to the cabin air in this simplified model?",
+     "section": "m2",
+     "topic": "Trace a heat shortfall through coolant and cabin air",
+     "explanation": "Both flow and temperature change enter the steady energy balance."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "65"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "Trainer filter taps are +85 and +20 Pa relative to the same reference. What is the upstream-to-downstream pressure drop in Pa? Enter the number only.",
+     "section": "m3",
+     "topic": "Use a duct pressure map to distinguish blockage from leakage",
+     "explanation": "85 − 20 = 65 Pa."
+    },
+    {
+     "choices": [
+      "Inspect the branch duct and distribution door downstream of the filter.",
+      "Replace the refrigerant charge based on outlet speed.",
+      "Remove both outlets before recording their positions."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "Only one outlet loses flow while filter drop stays near baseline at matched blower voltage. Which check best separates local causes?",
+     "section": "m3",
+     "topic": "Use a duct pressure map to distinguish blockage from leakage",
+     "explanation": "The branch difference localizes the next test and avoids disturbing the sealed refrigerant circuit."
     }
    ]
   }
@@ -496,6 +598,18 @@
      "front": "A new radiator shroud reduces idle coolant temperature on a matched repeat. Which check is still needed before approving the installation?",
      "back": "Clearance, fan current or controls as applicable, and cooling at other design operating conditions. One operating point cannot establish clearance or behavior across the design envelope.",
      "topic": "Separate cooling at idle from cooling at speed"
+    },
+    {
+     "id": "case-design-card",
+     "front": "A hotter outlet has much lower airflow at the same test condition. What determines heat delivered to the cabin air in this simplified model?",
+     "back": "Air mass flow multiplied by specific heat and temperature rise. Both flow and temperature change enter the steady energy balance.",
+     "topic": "Trace a heat shortfall through coolant and cabin air"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Only one outlet loses flow while filter drop stays near baseline at matched blower voltage. Which check best separates local causes?",
+     "back": "Inspect the branch duct and distribution door downstream of the filter. The branch difference localizes the next test and avoids disturbing the sealed refrigerant circuit.",
+     "topic": "Use a duct pressure map to distinguish blockage from leakage"
     }
    ]
   }
@@ -577,6 +691,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF256/257 address heater and ventilation diagnosis. UVU AUT2240/2245 cover HVAC operation and service. ASE HVAC (PDF pp. 90–91) includes heater delivery and duct, door, filter and outlet checks. The unheated duct isolates airflow from refrigerant work. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -897,6 +1016,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Marked tap and outlet locations plus baseline, changed and restored readings at matched blower settings; use the same readings to distinguish the single tested fault from the alternate explanation."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -992,6 +1180,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Use a duct pressure map to distinguish blockage from leakage — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A labeled airflow map and a diagnosis supported by a baseline and restoration.",
+   "safety": [
+    "Use a guarded low-voltage unheated blower. Keep probes outside the impeller, secure loose material and keep the refrigerant circuit closed."
+   ],
+   "materials": [
+    "Guarded low-voltage unheated blower, training duct and removable restriction, differential pressure gauge and airspeed instrument"
+   ],
+   "steps": [
+    "Read “Trace a heat shortfall through coolant and cabin air”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Map a baseline and a removable restriction or leak. Predict what will change upstream and at two outlets. Restore the original configuration and retest. Attach a sketch of sensor locations, three sets of readings and a reasoned next test. The experiment exercises air delivery and leaves the refrigerant circuit sealed.",
+    "File the following evidence with the course project. A labeled airflow map and a diagnosis supported by a baseline and restoration."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Configuration",
+      "Tap pair and units",
+      "Blower setting / voltage",
+      "Outlet A",
+      "Outlet B",
+      "Restored result"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

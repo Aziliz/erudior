@@ -4,9 +4,9 @@
  "id": "auto-body",
  "title": "Bodywork, Occupant Packaging and Refinishing",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare panel joints, glazing, closures, lamps and restraint layouts. Form and fit an original panel and validate occupant controls, access and visibility. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A closure-sweep template, gap/flush map and verified water path on the mock-up.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Body design",
    "quiz": [
     "body-2-q2",
-    "cmp-lighting-occupants-q2"
+    "cmp-lighting-occupants-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Panel manufacture",
    "quiz": [
     "body-3-q3",
-    "shop-change-body"
+    "shop-change-body",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -128,6 +132,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Budget the closure gap before forming the panel",
+   "minutes": 30,
+   "topics": [
+    "Budget the closure gap before forming the panel"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A closure must swing through its entire path, compress the intended seal and meet the striker without using the latch to pull a distorted panel into place. Gap is the spacing between adjacent edges. Flushness is the step between neighboring surfaces. A panel can have an even gap and still sit proud, or be flush and scrape a corner. Poor hinge-axis placement can make the static closed position look acceptable while the moving edge collides.\n\n**Worked stack.** A mock opening is 502 ± 1 mm wide and the removable panel is 496 ± 1 mm. If perfectly centered, nominal side gaps are 3 mm each. The worst-case total clearance is 501 − 497 = 4 mm, or 2 mm per side before centering error. A 1 mm centering shift then leaves 1 mm at one side. Specify a datum and an adjustment range rather than relying on nominal widths alone. This training stack supplies no production door clearance requirement.\n\n**Design the sweep.** Build a cardboard section locating the hinge axis, moving corner, adjacent trim, service fasteners and compressed seal. Swing it through several angles with the actual thickness represented. Decide which interface can be adjusted, where repeatable locating features are needed and how you will measure gap and flush independently. Record which occupant protection, glazing or latch work must follow the donor's approved procedure.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "body-3",
    "module": "m3",
    "title": "Form and fit a removable skin",
@@ -174,6 +197,25 @@
    ]
   },
   {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Trace a water leak without confusing the entry and exit points",
+   "minutes": 45,
+   "topics": [
+    "Trace a water leak without confusing the entry and exit points"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A water mark in a footwell may be downstream from a seam, blocked drain or displaced barrier. On a model door, water admitted to the intended wet cavity should leave through its drains; the inner barrier and seal keep it out of the dry side. Plugging every opening can trap moisture and create corrosion. Inspect the designed path before proposing a sealer or weatherstrip change.\n\n**Worked investigation.** On a detached mock closure, a gentle application to the bottom zone produces no dry-side mark. After drying, wetting only a higher seam produces a mark at the lower corner. The exit location does not identify the entry. Narrow the wetted zone and place separate dry witness strips along the suspected path. If the first strip to wet is behind the barrier edge while its upstream neighbor stays dry, inspect that interface and repeat the same exposure after repair. Flooding every seam together loses localization.\n\n**Independent work.** Fit your removable mock panel, measure gap and flush at labeled points, and mark the intended drain. With electronics and energized equipment kept clear, test one zone at a time using a gentle controlled volume and collect runoff. Compare two equivalent tests before and after a reversible seal correction. Include the sweep check, drainage, latch clearance if fitted and future service access in the body handoff.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
    "id": "body-4",
    "module": "m4",
    "title": "Check latching, sealing and maintenance",
@@ -216,8 +258,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -432,6 +474,66 @@
       "Window, regulator, latch cable, water barrier and weather-seal clearance through full travel."
      ],
      "explanation": "The door contains moving mechanisms and water-management features behind the opening."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "An opening is 402 ± 1 mm and its panel is 396 ± 1 mm. At worst-case minimum clearance and perfect centering, what is each side gap in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Budget the closure gap before forming the panel",
+     "explanation": "Smallest opening 401 minus largest panel 397 leaves 4 mm total, or 2 mm each."
+    },
+    {
+     "choices": [
+      "The hinge axis and swept envelope with the actual part thickness.",
+      "A thicker coat of finish.",
+      "Only the static closed gap again."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "A panel meets the closed-gap drawing but collides midway through opening. What should the layout check next?",
+     "section": "m2",
+     "topic": "Budget the closure gap before forming the panel",
+     "explanation": "Motion through the full arc reveals interference absent in the closed position."
+    },
+    {
+     "choices": [
+      "The entry is directly behind the strip.",
+      "The water reached that point; the entry still needs localization.",
+      "Every designed drain must be sealed."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q3",
+     "stem": "A dry-side strip becomes wet at the bottom of a mock door. What does that observation establish by itself?",
+     "section": "m3",
+     "topic": "Trace a water leak without confusing the entry and exit points",
+     "explanation": "Water can travel downstream before the first visible exit."
+    },
+    {
+     "choices": [
+      "Dry the mock-up and repeat the same localized exposure with the same witness locations.",
+      "Move all witness strips before recording their prior positions.",
+      "Wet all seams simultaneously with greater volume."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "Which repeat test makes a reversible seal change interpretable?",
+     "section": "m3",
+     "topic": "Trace a water leak without confusing the entry and exit points",
+     "explanation": "Holding the exposure and observation points constant supports comparison."
     }
    ]
   }
@@ -506,6 +608,18 @@
      "front": "A heavier door speaker fits its trim opening. What other fit check is directly relevant?",
      "back": "Window, regulator, latch cable, water barrier and weather-seal clearance through full travel. The door contains moving mechanisms and water-management features behind the opening.",
      "topic": "Size a removable speaker adapter without fouling the glass"
+    },
+    {
+     "id": "case-design-card",
+     "front": "A panel meets the closed-gap drawing but collides midway through opening. What should the layout check next?",
+     "back": "The hinge axis and swept envelope with the actual part thickness. Motion through the full arc reveals interference absent in the closed position.",
+     "topic": "Budget the closure gap before forming the panel"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Which repeat test makes a reversible seal change interpretable?",
+     "back": "Dry the mock-up and repeat the same localized exposure with the same witness locations. Holding the exposure and observation points constant supports comparison.",
+     "topic": "Trace a water leak without confusing the entry and exit points"
     }
    ]
   }
@@ -612,6 +726,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Highland Community College ACR185 pairs sheet-metal fabrication with fitting and installing the finished panel. San Bernardino Valley College places nonstructural repair, preparation and finishing in its collision curriculum. This mock-up concentrates on closure sweep, seal and drainage. Vehicle-specific structural and occupant protection work stays with the appropriate repair authority. [Highland ACR185](https://highlandcc.edu/academics/areasofstudy/_program-documents/autocollision/autocollision-syllabi/acr185-panelfabrication-2025syl.pdf) · [Valley College ACR](https://catalog.valleycollege.edu/courses/acr/) · [ASE collision standards](https://www.aseeducationfoundation.org/wp-content/uploads/2023-Collision-Program-Standards_Rev.-2024.pdf) Highland ACR185 lists fitting and installation. ASE Collision Non-Structural Analysis B.16 addresses water-leak diagnosis.\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -932,6 +1051,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "A full-swing template, labeled gap and flush readings, intended drain and first-wet witness records for matched water exposures before and after a reversible correction."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1027,6 +1215,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Trace a water leak without confusing the entry and exit points — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A closure-sweep template, gap/flush map and verified water path on the mock-up.",
+   "safety": [
+    "Use the detached closure mock-up for water and sweep tests. Keep electrical equipment clear of water, control sharp edges and prevent pinch injuries."
+   ],
+   "materials": [
+    "Detached closure mock-up with a dry and wet side, gauge or shims, paper witness strips, gentle water source and collection tray"
+   ],
+   "steps": [
+    "Read “Budget the closure gap before forming the panel”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Fit your removable mock panel, measure gap and flush at labeled points, and mark the intended drain. With electronics and energized equipment kept clear, test one zone at a time using a gentle controlled volume and collect runoff. Compare two equivalent tests before and after a reversible seal correction. Include the sweep check, drainage, latch clearance if fitted and future service access in the body handoff.",
+    "File the following evidence with the course project. A closure-sweep template, gap/flush map and verified water path on the mock-up."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Zone and marked point",
+      "Gap",
+      "Flush step",
+      "Water application",
+      "First witness wet",
+      "Post-repair repeat"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],
