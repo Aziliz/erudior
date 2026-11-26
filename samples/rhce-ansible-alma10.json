@@ -1,7 +1,7 @@
 {
   "format": "examiner-course",
   "version": 1,
-  "revision": 4,
+  "revision": 5,
   "id": "rhce-ansible-alma10",
   "title": "RHCE in Ansible on AlmaLinux 10",
   "description": "Prepare for EX294 after RHCSA with two AlmaLinux 10 guests. Build and recover repeatable automation for services, security, storage and scheduled backups. Includes original two-host practicals, graded knowledge checks, spaced-repetition cards and reviewer-scored work orders.",
@@ -2202,7 +2202,7 @@
           "id": "rhce-deploy-the-notice-apply-1",
           "section": "change-and-verification",
           "topic": "Deploy the shift notice and repair drift",
-          "stem": "Record the original state before previewing. Arrange the rest of the drift check so that you read the deployed file immediately after the first live apply, before measuring convergence.",
+          "stem": "Arrange all five steps. Establish the original file state before previewing. After the first live apply, read the deployed file before measuring convergence.",
           "explanation": "A baseline and preview precede mutation. The target read and repeat establish two different postconditions.",
           "type": "order",
           "choices": [
@@ -2362,7 +2362,7 @@
           "id": "rhce-loop-over-channels-apply-1",
           "section": "variable-driven-plays",
           "topic": "Deploy and repair a list of files",
-          "stem": "Use dot notation and the default loop variable to supply the name field of the current dictionary: {{ ___ }}.",
+          "stem": "Using the default loop variable, supply the expression that reads the current dictionary’s name field. Use dot notation or quoted bracket notation: {{ ___ }}.",
           "explanation": "The current element is item, and each element carries its own name.",
           "type": "text",
           "choices": [],
@@ -2670,7 +2670,7 @@
           "id": "rhce-author-role-apply-1",
           "section": "reuse-and-recovery",
           "topic": "Author one duty-record role for two desks",
-          "stem": "Give the single directory name, without a path, used for low-precedence caller-overridable role values.",
+          "stem": "Identify the standard role directory for low-precedence values that callers can override. Enter the directory name or its main.yml path: ___.",
           "explanation": "Role defaults are designed for inputs that inventory or a caller can replace.",
           "type": "text",
           "choices": [],
@@ -3527,7 +3527,7 @@
       "body": "## Choose a specialization\n\nAn operations team can put the same application in four different hands. The Linux administrator restores the host after a boot or storage failure. The automation engineer writes a play that brings many hosts back to the agreed state. The OpenShift administrator looks after the cluster and its tenants. The application developer builds the image, tests it and promotes the application. Choose the work you want to practice.\n\n| Role and credential route | First stage | Engineer stage | Erudior practice |\n| --- | --- | --- | --- |\n| Enterprise Linux | EX200, system administration | EX342, diagnostics and troubleshooting | Start with [Zero to RHCSA](https://app.erudior.com/rhcsa-rhel10-administration), then open [Enterprise Linux](https://app.erudior.com/rhce-enterprise-linux). |\n| Ansible | EX200, system administration | EX294, advanced Ansible administration | Start with [Zero to RHCSA](https://app.erudior.com/rhcsa-rhel10-administration), then open [Ansible on AlmaLinux 10](https://app.erudior.com/rhce-in-ansible-on-almalinux-10). |\n| OpenShift | EX280, cluster administration | EX380, advanced cluster administration | [OpenShift administration](https://app.erudior.com/rhce-openshift-administration) contains both stages. |\n| Cloud-native applications | EX188, container development | EX288, advanced OpenShift application development | [Cloud-native applications](https://app.erudior.com/rhce-cloud-native-applications) contains both stages. |\n\nThe two Linux-based routes share EX200. An OpenShift application developer and an OpenShift cluster administrator use the same platform but prepare for different exam pairs. Each Erudior practical is an original learning exercise. Red Hat awards credentials through its own examinations.\n\nAs of November 23, 2026, Red Hat also lists the AI developer credential, EX267. Its public catalog lists no engineer-level exam for AI. Check [Red Hat’s certification requirements](https://www.redhat.com/en/services/certifications?type=role) for updates or a particular exam version before registering.\n"
     }
   ],
-  "changelog": "The desktop practice terminal is enabled. Each guided page puts its inputs and sample output in one terminal transcript. The course uses the shared AlmaLinux 10.3 kit.",
+  "changelog": "Clarifies the scope of three application questions and their accepted answer formats.",
   "decks": [
     {
       "id": "control-and-targets-cards",
