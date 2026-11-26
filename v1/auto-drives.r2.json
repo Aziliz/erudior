@@ -1,0 +1,1459 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-drives",
+ "title": "Transmissions, Clutches and Final Drives",
+ "author": "Erudior",
+ "revision": 2,
+ "description": "Trace manual, conventional automatic, automated manual, dual-clutch, pulley CVT and power-split drives. Compare final drives and axle joints, then assemble and measure a gear trainer. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Power flow",
+   "quiz": [
+    "drives-1-q2",
+    "cmp-manual-automatic-q2",
+    "cmp-planetary-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Gearbox design",
+   "quiz": [
+    "drives-2-q2",
+    "cmp-dct-amt-q2",
+    "cmp-cvt-ecvt-q2",
+    "cmp-differentials-q2",
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Bench assembly",
+   "quiz": [
+    "drives-3-q3",
+    "shop-change-drives",
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Transmission diagnostics",
+   "quiz": [
+    "drives-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "drives-1",
+   "module": "m1",
+   "title": "Follow a selected ratio",
+   "minutes": 20,
+   "topics": [
+    "Power flow"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-2-1",
+    "parts-3-1"
+   ],
+   "body": "Entry skills: complete Engine and Drivetrain Service, or demonstrate the equivalent workshop skills.\n\nA manual gearbox selects gear pairs using clutches or synchronizers. An automatic can hold or couple elements of a planetary set with clutches and brakes. Its torque converter transmits torque through fluid and may lock mechanically. A CVT can vary its effective ratio continuously. Identify the architecture before choosing a fluid check, shift diagnosis or test specification.\n\n## Worked shop case\n\nOn a simple gear pair the 15-tooth input turns a 45-tooth output. The input makes three revolutions for one output revolution. Two external gears also reverse rotation direction.\n\n## Guided practice\n\nA 12-tooth input drives a 48-tooth output. How many input turns produce one output turn?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A working hand-driven transmission trainer and its verified ratio sheet.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "drives-1-q1",
+    "drives-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-manual-automatic",
+   "module": "m1",
+   "title": "Manual clutch or torque converter at launch",
+   "minutes": 25,
+   "topics": [
+    "Manual clutch or torque converter at launch"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "In a typical constant-mesh manual, torque travels from flywheel to friction disc, gearbox input, selected gears and final drive. The pressure plate clamps the disc. A cable or hydraulic release system lifts that load when the driver presses the pedal. Synchronizer friction matches speeds before engagement teeth lock the chosen gear to its shaft. The clutch creates heat while slipping during launch. Fully engaged at steady speed, it should transmit torque without sustained slip.\n\nA conventional automatic starts through a torque converter. The pump impeller drives fluid into the turbine; the stator redirects returning flow and can multiply torque when the turbine is slow. A commanded lockup clutch can couple the two sides mechanically. Internal clutches and brakes select gear ratios. Both architectures can deliver the same wheel torque at a given overall reduction once mechanically coupled. They need different controls, thermal capacity, pedal space, mounts, flywheel or flexplate, and service access.\n\n## Worked shop case\n\nIn a manual, engine rpm rises at steady road speed in a fully engaged fixed gear on a verified non-slipping tire. Investigate the clutch and its release system. For the same observation in an automatic first obtain selected gear, input and output speed, lockup command and actual slip. An intentional converter unlock or downshift can produce the observation during normal operation.\n\n## Guided practice\n\n```example fade=2\nproblem: A donor automatic is sold without controller or cooler. What changes in the manual-versus-automatic budget?\nstep: Price the compatible controller, harness, selector and cooling circuit.\nstep: For the manual price pedal clearance, compatible clutch actuation and flywheel.\nanswer: Evaluate complete installed systems and service space before comparing purchase prices.\n```\n\n## Independent shop or design task\n\nTrace both paths on two identified donor diagrams. Annotate launch, engaged cruise, power interruption, heat rejection and compatible controls. Record the actual service access or connector position on one isolated unit.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-manual-automatic-q1",
+    "cmp-manual-automatic-q2"
+   ]
+  },
+  {
+   "id": "cmp-planetary",
+   "module": "m1",
+   "title": "Planetary gearsets, valve bodies and shift diagnosis",
+   "minutes": 25,
+   "topics": [
+    "Planetary gearsets, valve bodies and shift diagnosis"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "The sun gear meshes with planets on a carrier. The planets mesh with an internally toothed ring. Power flow depends on which member is driven, held or used as output. In a simple set with ring fixed, sun input and carrier output, input turns per output turn equal 1 + ring teeth / sun teeth. Locking any two members together makes the set rotate as one. Production transmissions combine sets, clutches, brakes and sometimes one-way elements. The same transmission may use different elements in reverse and forward ranges.\n\nThe pump supplies hydraulic flow; the valve body routes it. The controller uses sensors and solenoids to command circuits and clutch apply timing. A delayed engagement can arise from low supply pressure, a leaking circuit or a command problem. A speed change by itself cannot distinguish them. Use the exact transmission identification, element-application chart, fluid type, temperature window and authorized measurement procedure.\n\n## Worked shop case\n\nA training set has a 30-tooth sun and 60-tooth ring. With the ring held the carrier turns once per three sun turns. If a clutch locks sun and ring together, it takes one input turn. On a real unit a ratio error in one range suggests checking which apply elements are unique to that range before pricing a rebuild.\n\n## Guided practice\n\n```example fade=2\nproblem: An identified simple set has a fixed 72-tooth ring and a 24-tooth sun input. What should a marked carrier do?\nstep: Calculate one plus 72 divided by 24.\nstep: Note that the fixed member is essential to the calculation.\nanswer: Four input turns produce one carrier turn in the same direction.\n```\n\n## Independent shop or design task\n\nLabel the three members of a hand-driven model. Mark positions, predict rotation, then count at least two carrier turns. Attach a donor application chart and identify one diagnostic test for a failed shift.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-planetary-q1",
+    "cmp-planetary-q2"
+   ]
+  },
+  {
+   "id": "cmp-dct-amt",
+   "module": "m2",
+   "title": "Single-clutch automated manuals and dual-clutch gearboxes",
+   "minutes": 25,
+   "topics": [
+    "Single-clutch automated manuals and dual-clutch gearboxes"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "An automated manual can use one conventional friction clutch and actuators to operate clutch and selector. Engine torque normally drops as that unit unloads one gear and selects the next. A dual-clutch transmission typically routes alternating ratios through two clutches and two input paths. The controller can preselect the next ratio on the unloaded path, then hand torque across by coordinating the clutches. An unexpected shift can still require another selection. Paddle shifters identify a driver control and reveal little about the internal design.\n\nWet clutches use oil to carry heat away; fluid specification, pump and cooler capacity matter. Dry clutches shed heat through their surrounding structure; extended creeping or holding on a grade through clutch slip increases temperature. Verify the actual launch device, actuator type, control integration and adaptation procedure. A wet or dry clutch describes the friction pack; separate gear lubricant requirements can still apply.\n\n## Worked shop case\n\nA kit must creep for long periods and accommodate a specific donor controller. Candidate A is a dry DCT with no approved duty data; B is a wet DCT with compatible cooling and documented duty capacity. B supplies evidence for that requirement if the cooler fits and measurements confirm capacity. Pedal count alone would miss the thermal issue.\n\n## Guided practice\n\n```example fade=2\nproblem: Why can an automated manual pause even when the accelerator position stays constant?\nstep: Trace torque through its single input clutch.\nstep: Identify when the selector unloads and re-engages a ratio.\nanswer: Clutch actuation and the gear change can interrupt torque; compare commanded versus measured behavior.\n```\n\n## Independent shop or design task\n\nDraw torque flow in first and second for one identified DCT. Compare the service fluids, control adaptations and thermal provisions against a single-clutch automated manual.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-dct-amt-q1",
+    "cmp-dct-amt-q2"
+   ]
+  },
+  {
+   "id": "cmp-cvt-ecvt",
+   "module": "m2",
+   "title": "Belt and chain CVTs versus power-split hybrid drives",
+   "minutes": 25,
+   "topics": [
+    "Belt and chain CVTs versus power-split hybrid drives"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A pulley CVT changes its effective running diameters as a metal belt or chain moves along opposed pulley faces. Clamping force must transmit torque without uncontrolled slip. Controls regulate ratio and pressure, so correct fluid and temperature matter. Launch devices vary by model. Engine speed can remain near a target as road speed rises smoothly. Compare commanded to measured input/output ratio under the documented conditions.\n\nSome hybrids sold as eCVTs use planetary power-split devices and motor-generators. Their continuously variable engine-to-wheel speed relationship comes from electrical-machine speed control and gear constraints. Those examples contain no belt-and-pulley variator. Other hybrid designs use different couplings; verify a power-flow schematic for the exact generation. Component lists, diagnostic data, training and electrical isolation requirements follow the actual design.\n\n## Worked shop case\n\nTwo customers describe constant engine speed during acceleration. One vehicle has a metal-chain variator, the other a planetary power split. A technician can compare shaft-speed ratio to pulley commands on the first. On the second, interpret engine speed, machine speeds, state of charge and requested torque together using the hybrid service information.\n\n## Guided practice\n\n```example fade=2\nproblem: A diagram shows variable-diameter pulleys and a chain. What should the next service lookup address?\nstep: Identify the transmission code and launch device.\nstep: Check its specified fluid, fill procedure and ratio/pressure data.\nanswer: Use the pulley CVT procedure applicable to that code.\n```\n\n## Independent shop or design task\n\nPut a pulley CVT and a documented power-split transaxle side by side on paper. Label energy paths, diagnostic parameters and components available for external inspection. Keep high-voltage work within the qualified service plan.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-cvt-ecvt-q1",
+    "cmp-cvt-ecvt-q2"
+   ]
+  },
+  {
+   "id": "cmp-differentials",
+   "module": "m2",
+   "title": "Transaxles, transfer cases, differentials and axle joints",
+   "minutes": 25,
+   "topics": [
+    "Transaxles, transfer cases, differentials and axle joints"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A transaxle combines transmission and final drive in one assembly. A longitudinal rear-drive layout commonly sends torque through a propeller shaft to a separate differential. Front-drive half shafts often use an inboard plunging joint for length change and an outboard constant-velocity joint for steering angle. A single Cardan joint operating at an angle creates cyclic output-speed variation. A paired driveshaft depends on correct phasing and operating angles. Compare joint angle, plunge, travel, flange compatibility, critical speed and rated torque using the chosen hardware's engineering data.\n\nAn open axle differential permits unequal wheel speeds through a turn and delivers approximately equal axle-shaft torques, ignoring friction. A clutch or helical limited-slip unit can bias torque subject to its design, load and available traction. A locked axle constrains both wheel speeds. An AWD system may allow front/rear speed difference through a center differential or controlled coupling. Many part-time 4WD systems mechanically couple the axles when engaged. Tire size and permissible surfaces matter; a coupled driveline can wind up on a high-grip turn.\n\n## Worked shop case\n\nWith both tires loaded, one wheel can support only 100 N·m before slipping. An ideal open differential delivers about 100 N·m to the other shaft too. A 3:1 torque-bias specification may permit up to about 300 N·m on the high-traction side in the specified conditions. It does not promise that amount with one wheel fully unloaded or with insufficient engine torque.\n\n## Guided practice\n\n```example fade=2\nproblem: A fixed gearbox ratio of 3 and final drive of 4 receive 100 N·m. Predict torque entering the differential after reduction, ignoring loss.\nstep: Multiply the two ratios.\nstep: Multiply 100 by the combined 12:1.\nanswer: 1,200 N·m is total final-drive output torque before distribution to the wheels.\n```\n\n## Independent shop or design task\n\nSelect one actual axle and one alternative. Map gearbox location, driven wheels, joint types, center coupling, serviceable bearings and shaft length at ride height and travel extremes. Record the measurement method and the source of each allowable range.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-differentials-q1",
+    "cmp-differentials-q2"
+   ]
+  },
+  {
+   "id": "drives-2",
+   "module": "m2",
+   "title": "Choose a serviceable drive ratio",
+   "minutes": 20,
+   "topics": [
+    "Gearbox design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-clutch-and-flywheel-change",
+    "mod-shorter-shifter-throw",
+    "mod-final-drive-ratio-change",
+    "mod-limited-slip-differential",
+    "mod-manual-transmission-conversion",
+    "mod-transmission-cooler-for-sustained-load"
+   ],
+   "body": "Select a target output speed first. Write down each ratio as input turns per output turn and define the load assumptions. An open differential allows left and right wheel speeds to differ in a turn. A final drive and axle pair must suit torque, travel and joint angles. Using a gearbox's ratio alone misses the final reduction.\n\n## Worked shop case\n\nAt a fixed 1,800 rpm input, a 2:1 gearbox and 3:1 final drive give 300 rpm at the differential carrier. Straight-ahead equal wheel speed is assumed.\n\n## Guided practice\n\nAt 2,400 input rpm with 2:1 and 4:1 reductions, what carrier rpm do you predict?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSelect gear pairs for two reductions on your trainer. Draw shafts, supports, guards and the indicator location. Predict turns and direction for each pair. Give the acceptance check and explain which automatic or manual service tasks need vehicle-specific data.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "drives-2-q1",
+    "drives-2-q2"
+   ]
+  },
+  {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Predict road speed and torque for two gearboxes",
+   "minutes": 30,
+   "topics": [
+    "Predict road speed and torque for two gearboxes"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A manual transmits torque through a clamped clutch and a selected gear pair. A conventional automatic can multiply torque during converter operation, then its lockup clutch can remove steady slip. A DCT uses two clutches for alternating gear paths. A belt or chain CVT varies effective pulley radii. Compare gear ratios, launch element, cooling load, control requirements, final drive and tire circumference together.\n\n**Worked comparison.** At 3,000 engine rpm, a locked or fully engaged 1.00 top gear and 4.00 final drive yield 750 wheel rpm. With a measured loaded rolling circumference of 2.0 m, that is 1,500 m/min, or 90 km/h neglecting slip. With a 0.80 top ratio the same engine speed gives 937.5 wheel rpm. At equal engine torque and the same final drive, the taller ratio provides less wheel torque. A lower engine speed does not guarantee lower consumption at every operating load.\n\n**Design the match.** Use two documented ratio sets. Draw the power path in first gear, top gear and reverse. Include the clutch or converter, synchronizer or holding element, differential, axles and tires. Compare launch, cruise rpm, service access and the heat-rejection provisions required by the transmission manufacturer. Declare tire size, slip assumptions and torque limits beside the calculation.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "drives-3",
+   "module": "m3",
+   "title": "Set up a hand-driven gear pair",
+   "minutes": 15,
+   "topics": [
+    "Bench assembly"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Identify bearings, thrust surfaces, shaft support and mesh. On an isolated trainer, lock one gear according to its instructions and gently rock the other without rolling through the mesh. An indicator near the specified radius records backlash. A powered assembly needs its own procedure. A teaching gear train must not be used to set a road differential's preload or contact pattern.\n\n## Worked shop case\n\nA pointer moves 0.08 mm one way and 0.05 mm the other from zero. Total backlash at the stated radius is 0.13 mm. Moving the pointer to a different radius would change the reading.\n\n## Guided practice\n\nAn indicator moves between 0.02 and 0.17 mm during the specified lash check. Give the range in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nBefore handling transmissions, secure the load on rated equipment and address hydraulic accumulators, rotating parts and stored spring energy. A covered workplace determines applicable guarding and energy-control procedures. Apply brake/clutch asbestos controls to suspect clutch dust. Used transmission oil goes into the appropriate identified recovery stream. Record isolation, supported load and waste disposition.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [OSHA — brake/clutch asbestos controls, 29 CFR 1910.1001 Appendix F](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1001AppF) · [EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses)\n\n## Workshop preparation\n\nUse a hand-driven guarded trainer only. Isolate it before adjustment. Keep fingers and loose clothing away from mesh and never energize an open gearbox.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "drives-3-q1",
+    "drives-3-q2",
+    "drives-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Predict the gearing change before ordering a differential",
+   "minutes": 35,
+   "topics": [
+    "Predict the gearing change before ordering a differential"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-2-1",
+    "parts-3-1",
+    "mod-clutch-and-flywheel-change",
+    "mod-shorter-shifter-throw",
+    "mod-final-drive-ratio-change",
+    "mod-limited-slip-differential",
+    "mod-manual-transmission-conversion",
+    "mod-transmission-cooler-for-sustained-load",
+    "as-built-ledger",
+    "bench-plan"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nClutch, gearbox and final drive, Driver controls and transmission details, Transmission subcomponents and seals. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Clutch and flywheel change\n- Shorter shifter throw\n- Final-drive ratio change\n- Limited-slip differential\n- Manual transmission conversion\n- Transmission cooler for sustained load\n\n## Worked example\n\nWith a 1.00 top gear, 4.10 final drive and 2.00 m rolling circumference, 100 km/h means roughly 833 wheel rpm and 3,417 engine rpm in a coupled, lossless speed model. A 3.50 final gives about 2,917 rpm. At identical engine torque the 4.10 gives about 17% more wheel torque than the 3.50.\n\n## Guided decision\n\n```example fade=1\nproblem: If both ratios are tested at the same road speed, is equal engine torque guaranteed?\nstep: Use the calculated engine speeds to locate each point on the torque curve.\nanswer: No. Recalculate wheel torque using actual engine torque at each operating point.\n```\n\n## Independent workshop\n\nBuild a hand-driven shifter or ratio fixture. Record input/output travel or turns, trace detents/retention and compare two setups before selecting donor parts.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-drives"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Tell a ratio error from clutch or converter slip",
+   "minutes": 45,
+   "topics": [
+    "Tell a ratio error from clutch or converter slip"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A speed ratio compares rotating elements on opposite sides of a known power path. In a manual or locked-up automatic with first gear fully engaged, the steady input-to-output ratio should track the selected fixed gearing. During a shift, at launch or with the converter unlocked, engine speed and turbine speed can diverge normally. In a CVT, use the commanded and measured ratio under its stated test condition.\n\n**Worked traces.** For a steady command of 2.00, the input shaft is at 2,400 rpm and the gearbox output is at 1,200 rpm. The gear train agrees with the command. If engine speed is simultaneously 2,700 rpm with an unlocked converter, the extra 300 rpm lies upstream of the measured input. Investigate the control state before attributing it to a clutch pack. In another trace with a fixed gear commanded, stable sensor signals and a rising input speed while output stays steady under load, compare the measured ratio and the clutch control data with the procedure.\n\n**Independent trace.** The instructor labels a steady third-gear interval with specified input/output ratio 1.50. Engine speed is 2,260 rpm, turbine/input speed 2,100 rpm and output speed 1,400 rpm. Lockup is commanded off. On a second steady interval lockup is confirmed engaged, with engine/input/output speeds of 1,800/1,800/1,200 rpm. Identify where the first speed difference occurs, whether either gear measurement is outside 1.50 and which assumption would fail if you had only engine speed.\n\n**Independent work.** Hand-drive a guarded, unloaded two-ratio gear trainer. Mark the input and output, count several turns to reduce counting error, and calculate both ratios. Analyze a separate supplied or recorded example with engine, input, output and lockup state. Locate the mismatch and say which extra measurement could disprove your diagnosis. Keep all powered-vehicle testing within the manufacturer's supervised procedure.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "drives-4",
+   "module": "m4",
+   "title": "Separate a ratio error from slip",
+   "minutes": 15,
+   "topics": [
+    "Transmission diagnostics"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "When input and output speeds do not match prediction, check selected gear, clutch or converter state and the test condition. A wheel that turns freely on an open differential can invalidate a one-wheel ratio inference. On an automatic, distinguish a controller's command from evidence that a clutch actually applied. Use model-specific scan and pressure procedures.\n\n## Worked shop case\n\nA hand-driven trainer with positively engaged gears repeatedly yields one output turn for four input turns when the drawing predicts three. Count the actual teeth and inspect which pair is engaged before blaming slip.\n\n## Guided practice\n\nA verified 4:1 trainer produces three full output turns. How many input turns are expected?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nBoth tooth-count and shaft-mark methods support the reported ratio, with repeatable lash readings. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "drives-4-q1",
+    "drives-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-drives-bank",
+   "title": "Transmissions, Clutches and Final Drives practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Power flow"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Gearbox design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Bench assembly"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Transmission diagnostics"
+    }
+   ],
+   "exam": {
+    "questionCount": 24,
+    "timeLimitMinutes": 56,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "drives-1-q1",
+     "section": "m1",
+     "topic": "Power flow",
+     "stem": "A 12-tooth input drives a 48-tooth output. How many input turns produce one output turn? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "4"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Divide driven teeth by driving teeth."
+    },
+    {
+     "id": "drives-1-q2",
+     "section": "m1",
+     "topic": "Power flow",
+     "stem": "Which part can directly couple the engine and transmission input in a conventional automatic at cruise?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Torque-converter lockup clutch.",
+      "Differential side gear.",
+      "Steering coupler."
+     ],
+     "explanation": "The applied lockup clutch provides a mechanical connection across the converter."
+    },
+    {
+     "id": "drives-2-q1",
+     "section": "m2",
+     "topic": "Gearbox design",
+     "stem": "At 2,400 input rpm with 2:1 and 4:1 reductions, what carrier rpm do you predict? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "300"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "2,400 ÷ 8 = 300."
+    },
+    {
+     "id": "drives-2-q2",
+     "section": "m2",
+     "topic": "Gearbox design",
+     "stem": "Which proposed comparison fairly tests two drive ratios?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Change tire size and input speed together.",
+      "Compare wheel speed with both gearboxes in neutral.",
+      "Hold input speed and load condition constant."
+     ],
+     "explanation": "Holding other conditions stable makes the ratio comparison interpretable."
+    },
+    {
+     "id": "drives-3-q1",
+     "section": "m3",
+     "topic": "Bench assembly",
+     "stem": "An indicator moves between 0.02 and 0.17 mm during the specified lash check. Give the range in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.15"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Subtract the lower endpoint from the higher one."
+    },
+    {
+     "id": "drives-3-q2",
+     "section": "m3",
+     "topic": "Bench assembly",
+     "stem": "Why lock the other gear during a backlash check?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "To establish automatic fluid temperature.",
+      "To isolate tooth clearance from rolling motion.",
+      "To increase the number of teeth."
+     ],
+     "explanation": "An unconstrained mating gear can rotate with the test gear."
+    },
+    {
+     "id": "drives-3-q3",
+     "section": "m3",
+     "topic": "Bench assembly",
+     "stem": "Select two controls for work on a detached automatic drivetrain in a covered workplace. Select all that apply.",
+     "choices": [
+      "Count an empty electrical connector as proof all accumulators are discharged.",
+      "Secure the unit and address stored pressure using model-specific procedures.",
+      "Segregate used transmission oil for the appropriate receiving stream.",
+      "Support the transmission on a loose stack of tires."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "Before handling transmissions, secure the load on rated equipment and address hydraulic accumulators, rotating parts and stored spring energy. A covered workplace determines applicable guarding and energy-control procedures. Apply brake/clutch asbestos controls to suspect clutch dust. Used transmission oil goes into the appropriate identified recovery stream. Record isolation, supported load and waste disposition."
+    },
+    {
+     "id": "drives-4-q1",
+     "section": "m4",
+     "topic": "Transmission diagnostics",
+     "stem": "A verified 4:1 trainer produces three full output turns. How many input turns are expected? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "12"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Three output turns require twelve input turns."
+    },
+    {
+     "id": "drives-4-q2",
+     "section": "m4",
+     "topic": "Transmission diagnostics",
+     "stem": "A scan log shows a shift commanded but the expected ratio never appears. What does the log support?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Investigate actual clutch application and speed signals.",
+      "The clutches are mechanically proven good.",
+      "Replace the final drive immediately."
+     ],
+     "explanation": "A command and a physical response are distinct observations."
+    },
+    {
+     "id": "cmp-manual-automatic-q1",
+     "section": "m1",
+     "topic": "Manual clutch or torque converter at launch",
+     "stem": "Which observation most directly supports slip across an engaged manual clutch in a steady fixed gear with no wheelspin?",
+     "explanation": "The clutch couples engine and input shaft. Excess relative speed across that interface localizes the loss.",
+     "choices": [
+      "The selector moves freely while parked.",
+      "Engine speed rises relative to gearbox input speed under load.",
+      "Engine speed follows gearbox input exactly."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-manual-automatic-q2",
+     "section": "m1",
+     "topic": "Manual clutch or torque converter at launch",
+     "stem": "Which automatic operating detail must you obtain before interpreting a difference between engine rpm and turbine rpm at cruise?",
+     "explanation": "A converter may be unlocked or modulate its lockup clutch under commanded conditions.",
+     "choices": [
+      "Paint color of the transmission pan.",
+      "Number of differential cover bolts.",
+      "Converter lockup command and the specified slip behavior for that condition."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-planetary-q1",
+     "section": "m1",
+     "topic": "Planetary gearsets, valve bodies and shift diagnosis",
+     "stem": "An automatic loses one range but retains another. Which document helps distinguish shared from unique clutch elements?",
+     "explanation": "The application chart identifies the elements applied in each range.",
+     "choices": [
+      "A generic final-drive ratio list.",
+      "The starter current specification.",
+      "The application chart for the exact transmission code."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-planetary-q2",
+     "section": "m1",
+     "topic": "Planetary gearsets, valve bodies and shift diagnosis",
+     "stem": "A simple planetary has a 20-tooth sun input, a fixed 60-tooth ring and carrier output. How many input turns give one carrier turn? Enter the number only.",
+     "explanation": "With that member held, reduction is 1 + 60/20.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "4"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-dct-amt-q1",
+     "section": "m2",
+     "topic": "Single-clutch automated manuals and dual-clutch gearboxes",
+     "stem": "Which feature permits a typical DCT to preselect its next ratio while transmitting torque?",
+     "explanation": "The unloaded input path can stage the next ratio.",
+     "choices": [
+      "Separate clutch-controlled paths for alternating ratios.",
+      "A fixed final drive common to both wheels.",
+      "A single dry clutch mounted to a conventional manual input."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-dct-amt-q2",
+     "section": "m2",
+     "topic": "Single-clutch automated manuals and dual-clutch gearboxes",
+     "stem": "A dry-clutch DCT is discarded because its gearcase has an oil fill plug. Which inference is valid?",
+     "explanation": "Gear lubrication and clutch cooling are distinct design choices.",
+     "choices": [
+      "Any oil fill proves its launch clutch runs in oil.",
+      "The clutch type and gear lubrication must be identified separately.",
+      "An oil fill proves that it uses a torque converter."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-cvt-ecvt-q1",
+     "section": "m2",
+     "topic": "Belt and chain CVTs versus power-split hybrid drives",
+     "stem": "Which feature identifies the planetary power-split example?",
+     "explanation": "Electrical-machine speed and planetary constraints establish the speed relationship.",
+     "choices": [
+      "A chain changes effective pulley diameters.",
+      "A motor-generator controls a planetary member's speed as power divides between paths.",
+      "A single clutch disconnects a conventional manual gearbox at each shift."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-cvt-ecvt-q2",
+     "section": "m2",
+     "topic": "Belt and chain CVTs versus power-split hybrid drives",
+     "stem": "Which evidence best separates a commanded CVT ratio change from unintended slip?",
+     "explanation": "Commands, conditions and measured behavior test the intended ratio.",
+     "choices": [
+      "Count pedals.",
+      "Compare synchronized commanded ratio and measured shaft speeds under the specified conditions.",
+      "Count the simulated shift steps on the display."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-differentials-q1",
+     "section": "m2",
+     "topic": "Transaxles, transfer cases, differentials and axle joints",
+     "stem": "Which axle arrangement directly constrains left and right wheel speeds to be equal while engaged?",
+     "explanation": "A mechanical axle lock removes the normal left/right speed difference.",
+     "choices": [
+      "An open differential.",
+      "A fully locked axle differential.",
+      "An unlocked center differential alone."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-differentials-q2",
+     "section": "m2",
+     "topic": "Transaxles, transfer cases, differentials and axle joints",
+     "stem": "An ideal 2:1 gearbox feeds a 4:1 final drive with 80 N·m at the gearbox input. Enter total torque in N·m after reduction, before distribution to the wheels.",
+     "explanation": "80 × 2 × 4 = 640 N·m, ignoring loss.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "640"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-drives",
+     "section": "m3",
+     "topic": "Predict the gearing change before ordering a differential",
+     "stem": "After a final-drive swap, the teacher's car has greater wheel torque in a fixed gear at identical engine torque. Which other quantity must be revisited?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "The clutch disc friction coefficient solely because of the ratio change.",
+      "The rated engine torque at the same measured engine speed solely because of the ratio change.",
+      "Engine speed at a fixed road speed when coupled with the same tires."
+     ],
+     "explanation": "Changing reduction also changes the relationship between shaft speed and road speed."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "800"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "With clutch fully engaged, 2,400 input rpm, a 1.00 gearbox ratio and 3.00 final drive, what is wheel rpm with no slip? Enter the number only.",
+     "section": "m2",
+     "topic": "Predict road speed and torque for two gearboxes",
+     "explanation": "2,400 ÷ (1 × 3) = 800 rpm."
+    },
+    {
+     "choices": [
+      "The confirmed lockup state or the actual gearbox input shaft speed.",
+      "The fluid-pan color.",
+      "Only the shift-lever label."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which measurement is needed to compare locked cruise gearing without including normal converter slip?",
+     "section": "m2",
+     "topic": "Predict road speed and torque for two gearboxes",
+     "explanation": "Engine rpm may differ from input-shaft rpm when the converter is unlocked."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "2.5"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A hand trainer turns 30 times at the input for 12 output turns. What is the input-to-output ratio as a number? Enter the number only.",
+     "section": "m3",
+     "topic": "Tell a ratio error from clutch or converter slip",
+     "explanation": "30 ÷ 12 = 2.5."
+    },
+    {
+     "choices": [
+      "Across a tire contact patch.",
+      "In the measured 2.00 gear ratio.",
+      "Upstream of the gearbox input."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Commanded gear is 2.00, turbine speed 2,000 rpm, output 1,000 rpm, engine 2,250 rpm, converter unlocked. Where is the observed engine-to-turbine difference?",
+     "section": "m3",
+     "topic": "Tell a ratio error from clutch or converter slip",
+     "explanation": "The actual input-to-output ratio matches 2.00. The observed difference is across the converter path."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-drives-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Gear reduction",
+     "back": "Input turns divided by output turns under the stated convention.",
+     "topic": "Power flow"
+    },
+    {
+     "id": "c1b",
+     "front": "Which part can directly couple the engine and transmission input in a conventional automatic at cruise?",
+     "back": "Torque-converter lockup clutch. The applied lockup clutch provides a mechanical connection across the converter.",
+     "topic": "Power flow"
+    },
+    {
+     "id": "c2a",
+     "front": "Backlash",
+     "back": "Relative free movement between mating teeth measured by a defined method.",
+     "topic": "Gearbox design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which proposed comparison fairly tests two drive ratios?",
+     "back": "Hold input speed and load condition constant. Holding other conditions stable makes the ratio comparison interpretable.",
+     "topic": "Gearbox design"
+    },
+    {
+     "id": "c3a",
+     "front": "Final drive",
+     "back": "Reduction between transmission output and the driven wheels.",
+     "topic": "Bench assembly"
+    },
+    {
+     "id": "c3b",
+     "front": "Why lock the other gear during a backlash check?",
+     "back": "To isolate tooth clearance from rolling motion. An unconstrained mating gear can rotate with the test gear.",
+     "topic": "Bench assembly"
+    },
+    {
+     "id": "c4a",
+     "front": "Lockup clutch",
+     "back": "A clutch that directly couples the two sides of a torque converter.",
+     "topic": "Transmission diagnostics"
+    },
+    {
+     "id": "c4b",
+     "front": "A scan log shows a shift commanded but the expected ratio never appears. What does the log support?",
+     "back": "Investigate actual clutch application and speed signals. A command and a physical response are distinct observations.",
+     "topic": "Transmission diagnostics"
+    },
+    {
+     "id": "cmp-manual-automatic-card",
+     "front": "Which observation most directly supports slip across an engaged manual clutch in a steady fixed gear with no wheelspin?",
+     "back": "Engine speed rises relative to gearbox input speed under load. The clutch couples engine and input shaft. Excess relative speed across that interface localizes the loss.",
+     "topic": "Manual clutch or torque converter at launch"
+    },
+    {
+     "id": "cmp-planetary-card",
+     "front": "An automatic loses one range but retains another. Which document helps distinguish shared from unique clutch elements?",
+     "back": "The application chart for the exact transmission code. The application chart identifies the elements applied in each range.",
+     "topic": "Planetary gearsets, valve bodies and shift diagnosis"
+    },
+    {
+     "id": "cmp-dct-amt-card",
+     "front": "Which feature permits a typical DCT to preselect its next ratio while transmitting torque?",
+     "back": "Separate clutch-controlled paths for alternating ratios. The unloaded input path can stage the next ratio.",
+     "topic": "Single-clutch automated manuals and dual-clutch gearboxes"
+    },
+    {
+     "id": "cmp-cvt-ecvt-card",
+     "front": "Which feature identifies the planetary power-split example?",
+     "back": "A motor-generator controls a planetary member's speed as power divides between paths. Electrical-machine speed and planetary constraints establish the speed relationship.",
+     "topic": "Belt and chain CVTs versus power-split hybrid drives"
+    },
+    {
+     "id": "cmp-differentials-card",
+     "front": "Which axle arrangement directly constrains left and right wheel speeds to be equal while engaged?",
+     "back": "A fully locked axle differential. A mechanical axle lock removes the normal left/right speed difference.",
+     "topic": "Transaxles, transfer cases, differentials and axle joints"
+    },
+    {
+     "id": "change-evidence",
+     "front": "After a final-drive swap, the teacher's car has greater wheel torque in a fixed gear at identical engine torque. Which other quantity must be revisited?",
+     "back": "Engine speed at a fixed road speed when coupled with the same tires. Changing reduction also changes the relationship between shaft speed and road speed.",
+     "topic": "Predict the gearing change before ordering a differential"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which measurement is needed to compare locked cruise gearing without including normal converter slip?",
+     "back": "The confirmed lockup state or the actual gearbox input shaft speed. Engine rpm may differ from input-shaft rpm when the converter is unlocked.",
+     "topic": "Predict road speed and torque for two gearboxes"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Commanded gear is 2.00, turbine speed 2,000 rpm, output 1,000 rpm, engine 2,250 rpm, converter unlocked. Where is the observed engine-to-turbine difference?",
+     "back": "Upstream of the gearbox input. The actual input-to-output ratio matches 2.00. The observed difference is across the converter path.",
+     "topic": "Tell a ratio error from clutch or converter slip"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Gear reduction",
+   "definition": "Input turns divided by output turns under the stated convention.",
+   "topic": "Power flow"
+  },
+  {
+   "term": "Backlash",
+   "definition": "Relative free movement between mating teeth measured by a defined method.",
+   "topic": "Gearbox design"
+  },
+  {
+   "term": "Final drive",
+   "definition": "Reduction between transmission output and the driven wheels.",
+   "topic": "Bench assembly"
+  },
+  {
+   "term": "Lockup clutch",
+   "definition": "A clutch that directly couples the two sides of a torque converter.",
+   "topic": "Transmission diagnostics"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [Citrus College — Fundamentals of Automotive Service, Diagnosis and Repair](https://catalog.citruscollege.edu/course-outlines/AUTO-101/AUTO-101.pdf) · [ASE — Automobile and Light Truck task lists](https://www.ase.com/uploads/ASE_Automobile_Study_Guide_2025_V2.pdf)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nBefore handling transmissions, secure the load on rated equipment and address hydraulic accumulators, rotating parts and stored spring energy. A covered workplace determines applicable guarding and energy-control procedures. Apply brake/clutch asbestos controls to suspect clutch dust. Used transmission oil goes into the appropriate identified recovery stream. Record isolation, supported load and waste disposition.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [OSHA — brake/clutch asbestos controls, 29 CFR 1910.1001 Appendix F](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1001AppF) · [EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Launch element; Flywheel, flexplate and release; Ratio selection; Shift actuation; Continuously variable drive; Gearbox position and driven axles; Axle differential; Half shafts and propeller shafts. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Launch element | Single-plate friction clutch / torque converter with lockup | Clutch capacity and converter lockup behavior imply different heat, controls and service. | Compare input and engine speeds under an identified operating condition. |\n| Flywheel, flexplate and release | Single-mass / dual-mass flywheel / flexplate; cable / hydraulic release | Crank interface, starter ring, alignment, inertia and release travel are package-specific. | Document the matched flywheel or flexplate, pilot, fasteners and available release travel from source data. |\n| Ratio selection | Synchronized manual / planetary automatic | Manual dog engagement and automatic apply elements create different failure signatures. | Trace power in two gears and identify a shared and a unique element. |\n| Shift actuation | Driver-operated / single-clutch automated / wet or dry DCT | Shifting can interrupt one torque path or hand it to a preselected path. | Review actuator commands, thermal duty and adaptations for the actual unit. |\n| Continuously variable drive | Belt or chain variator / planetary power-split eCVT | Pulleys vary effective diameter; a power-split device coordinates gear and electrical-machine speeds. | Identify physical parts on diagrams and name the diagnostic data unique to each. |\n| Gearbox position and driven axles | FWD transaxle / RWD longitudinal / AWD / part-time 4WD | A coupled transfer case may constrain front and rear speeds; packaging changes shaft lengths. | Map the output paths and the permitted operating surfaces and tire tolerances. |\n| Axle differential | Open / helical or clutch limited-slip / locking | Differentiate torque bias from a constraint on wheel speeds. | Record installed final ratio, required lubricant and specified operating checks. |\n| Half shafts and propeller shafts | Plunging or fixed CV joint / Cardan pair | Axle travel needs plunge and angular capacity; Cardan layouts depend on phasing and angle. | Document plunge, joint angle range and shaft clearance for a reviewer. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [DOE and EPA, advanced transmission technologies](https://www.fueleconomy.gov/feg/tech_transmission.shtml)\n\n- [NHTSA, transmission designs, chapter 6](https://www.nhtsa.gov/sites/nhtsa.gov/files/documents/ld_cafe_my2021-26_pria_0.pdf)\n\n- [Eaton, differential design families](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Clutch, gearbox and final drive · Clutch disc to Input shaft",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Clutch disc\n\n**Function.** Transmits torque by friction between flywheel and cover.\n\n**Design.** Choose spline, diameter, friction material and torque/duty capacity.\n\n**Make, assemble or fit.** Center the matched disc in the prescribed direction before fitting cover.\n\n**Verify.** Check release, engagement and slip under documented conditions.\n\n### Pressure plate and cover\n\n**Function.** Clamps and releases the disc.\n\n**Design.** Match flywheel dowels, friction surface, release stroke and clamp load.\n\n**Make, assemble or fit.** Locate cover and tighten progressively to the approved sequence.\n\n**Verify.** Verify even lift or specified release travel and pedal operation.\n\n### Pilot bearing\n\n**Function.** Centers the transmission input relative to the crank where fitted.\n\n**Design.** Match shaft nose, bore and fit.\n\n**Make, assemble or fit.** Install the specified bearing to the documented depth.\n\n**Verify.** Check fit, rotation and alignment.\n\n### Release bearing\n\n**Function.** Transfers axial force from actuator to spinning clutch.\n\n**Design.** Match release geometry, preload and stroke.\n\n**Make, assemble or fit.** Fit the correct bearing and lubricate only specified surfaces.\n\n**Verify.** Confirm travel without overextension and check for noise.\n\n### Clutch master cylinder\n\n**Function.** Converts pedal travel to hydraulic displacement.\n\n**Design.** Match bore, pedal ratio, stroke and fluid.\n\n**Make, assemble or fit.** Fit to aligned pedal box and connect approved line.\n\n**Verify.** Measure pedal/release travel and inspect for leakage.\n\n### Clutch slave cylinder\n\n**Function.** Converts hydraulic pressure to clutch release motion.\n\n**Design.** Match concentric or external layout and available stroke.\n\n**Make, assemble or fit.** Install matched actuator and bleed using the maker's method.\n\n**Verify.** Verify clean disengagement without bottoming.\n\n### Shift lever and cables\n\n**Function.** Transmit driver selection to gearbox.\n\n**Design.** Choose cable length, bend radius, lever ratio and detent pattern.\n\n**Make, assemble or fit.** Secure cable housings then adjust end positions using donor references.\n\n**Verify.** Confirm neutral, every gate, reverse lockout and full engagement.\n\n### Input shaft\n\n**Function.** Receives engine torque into the gearbox.\n\n**Design.** Match spline, pilot, bearing fits and torque duty.\n\n**Make, assemble or fit.** Fit manufactured shaft with correct bearings and retainers during documented rebuild.\n\n**Verify.** Measure endplay, runout and spline condition."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Clutch, gearbox and final drive · Countershaft and gear pair to Planetary sun gear",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Countershaft and gear pair\n\n**Function.** Establish discrete speed ratios.\n\n**Design.** Choose tooth counts, module, center distance, helix and rated load as a matched set.\n\n**Make, assemble or fit.** Assemble matched precision gears and thrust elements to shaft sequence.\n\n**Verify.** Measure backlash and check tooth contact and rotation.\n\n### Synchronizer ring\n\n**Function.** Matches rotating speeds before dog engagement.\n\n**Design.** Match cone taper, friction surface and gear clearance.\n\n**Make, assemble or fit.** Inspect matched cone and install ring in its correct orientation.\n\n**Verify.** Measure specified blocking clearance and check synchronization.\n\n### Synchronizer sleeve and hub\n\n**Function.** Lock the selected gear to its shaft.\n\n**Design.** Match spline, dogs, keys, springs and orientation.\n\n**Make, assemble or fit.** Assemble in documented order in a clean fixture.\n\n**Verify.** Check movement, detents and complete dog overlap.\n\n### Shift fork and rail\n\n**Function.** Move a sleeve to engage a ratio.\n\n**Design.** Match fork thickness, rail travel and interlock geometry.\n\n**Make, assemble or fit.** Fit pins and detents correctly and verify single-ratio interlock.\n\n**Verify.** Check fork clearance and every selected position on the bench.\n\n### Gearcase and breather\n\n**Function.** Support shafts, retain lubricant and equalize pressure.\n\n**Design.** Set bearing datums, oil level, vent routing and mount pattern.\n\n**Make, assemble or fit.** Use inspected housings with matched dowels, sealant and breathers.\n\n**Verify.** Measure play and inspect vent, seals and leakage.\n\n### Flexplate\n\n**Function.** Couples crank to converter while allowing locating compliance.\n\n**Design.** Match crank balance, converter bolt circle, spacing and starter ring.\n\n**Make, assemble or fit.** Install the matched plate and correctly seated converter per service data.\n\n**Verify.** Measure flexplate runout and converter mounting clearance.\n\n### Torque converter\n\n**Function.** Transfers launch torque through fluid and may lock mechanically.\n\n**Design.** Match stall behavior, transmission pump drive, pilot and controller.\n\n**Make, assemble or fit.** Use a rated sealed converter fully seated by the prescribed checks.\n\n**Verify.** Verify seating before mating and commanded slip after commissioning.\n\n### Planetary sun gear\n\n**Function.** Provides one central gear member.\n\n**Design.** Match tooth counts, splines and planet set.\n\n**Make, assemble or fit.** Install matched production gear and thrust elements from the application chart.\n\n**Verify.** Trace ratio with the specified member held."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Clutch, gearbox and final drive · Planet carrier and planet gears to Transfer case and coupling",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Planet carrier and planet gears\n\n**Function.** Transmit planet reactions through carrier pins.\n\n**Design.** Match pins, bearings, thrusts and mesh geometry.\n\n**Make, assemble or fit.** Assemble matched carrier or fit qualified replacement unit.\n\n**Verify.** Check play, end float and smooth mesh.\n\n### Planetary ring gear\n\n**Function.** Provides internally toothed outer member.\n\n**Design.** Match tooth count, spline or clutch path and alignment.\n\n**Make, assemble or fit.** Fit ring and its specified retaining elements.\n\n**Verify.** Verify constrained-member ratio and mesh.\n\n### Friction clutch pack\n\n**Function.** Selects power paths through alternating plates.\n\n**Design.** Specify friction material, stack order, apply capacity and clearance.\n\n**Make, assemble or fit.** Assemble matched steels and frictions using prescribed fluid preparation.\n\n**Verify.** Measure pack clearance and approved apply response.\n\n### Valve body and shift solenoid\n\n**Function.** Meter hydraulic flow to apply elements.\n\n**Design.** Match separator plate, check balls, coding and solenoid controls.\n\n**Make, assemble or fit.** Work cleanly to identified diagram and program if required.\n\n**Verify.** Check commanded gear/solenoid response and pressure per service data.\n\n### ATF pump and cooler\n\n**Function.** Supply hydraulic flow and reject transmission heat.\n\n**Design.** Match pump drive, fluid path, cooler duty and line pressure.\n\n**Make, assemble or fit.** Fit matched pump and rated cooler with supported lines.\n\n**Verify.** Verify fill level at temperature, flow and leakage.\n\n### CVT pulleys and belt or chain\n\n**Function.** Vary drive radius between shafts.\n\n**Design.** Match complete variator, control pressure and specified fluid.\n\n**Make, assemble or fit.** Source a matched variator and follow qualified assembly procedure.\n\n**Verify.** Compare commanded and measured ratios under specified conditions.\n\n### DCT clutch module\n\n**Function.** Feeds alternate ratios through two torque paths.\n\n**Design.** Match wet/dry design, controller generation, thermal load and shimming.\n\n**Make, assemble or fit.** Install matched module using specified measuring and setup tools.\n\n**Verify.** Confirm clearances, adaptations and actual input-speed response.\n\n### Transfer case and coupling\n\n**Function.** Distribute torque to front and rear axles.\n\n**Design.** Match ratios, tires, controls and center speed-difference capability.\n\n**Make, assemble or fit.** Fit matching donor unit with its mount, lubricant and actuator.\n\n**Verify.** Check engagement and allowable operating conditions."
+  },
+  {
+   "id": "parts-1-4",
+   "title": "Clutch, gearbox and final drive · Propeller shaft and slip joint to CV boot and clamps",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Propeller shaft and slip joint\n\n**Function.** Transmit torque while accommodating length change.\n\n**Design.** Specify working length, joint angles, phasing and critical speed.\n\n**Make, assemble or fit.** Have a qualified driveline shop make and balance shaft to installed measurements.\n\n**Verify.** Verify engagement, balance record and clearance throughout travel.\n\n### Universal joint\n\n**Function.** Allows angled shafts to transmit torque.\n\n**Design.** Match cross size, load, retention and operating angle.\n\n**Make, assemble or fit.** Fit indexed yokes, bearings and retainers per manufacturer.\n\n**Verify.** Check retention, smooth movement and phasing.\n\n### Ring and pinion\n\n**Function.** Provide final reduction and turn the torque path where applicable.\n\n**Design.** Use a matched gearset with specified tooth ratio and support stiffness.\n\n**Make, assemble or fit.** Set up bearings, pinion depth and lash by the axle-specific procedure.\n\n**Verify.** Measure backlash in several positions and verify contact pattern.\n\n### Differential carrier and side gears\n\n**Function.** Permit axle-speed difference while transmitting torque.\n\n**Design.** Choose open, limited-slip or locker behavior and axle spline.\n\n**Make, assemble or fit.** Fit matched carrier and correct bearings or shims under axle procedure.\n\n**Verify.** Verify preload, lash and intended differential response.\n\n### Half shaft and CV joints\n\n**Function.** Feed a wheel through suspension and steering movement.\n\n**Design.** Set compressed and extended lengths, plunge, joint angles and torque capacity.\n\n**Make, assemble or fit.** Fit a matched shaft, circlips, specified grease and boots.\n\n**Verify.** Inspect retention, boot clearance and plunge across travel.\n\n### CV boot and clamps\n\n**Function.** Retain grease and exclude contamination.\n\n**Design.** Choose joint-specific material, bellows length and clamp size.\n\n**Make, assemble or fit.** Clean, fill and secure by the joint-specific method.\n\n**Verify.** Check sealed engagement with no folds rubbing through full travel."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Driver controls and transmission details · Clutch pedal and linkage to Bellhousing and alignment dowels",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Clutch pedal and linkage\n\n**Function.** Transmit foot input to the release mechanism.\n\n**Design.** Define pedal ratio, master pushrod alignment, stop travel and interlocks.\n\n**Make, assemble or fit.** Fit compatible pedal box, pivot bushes and clevis with positive retention.\n\n**Verify.** Measure master and pedal travel, return, free play and interlock operation.\n\n### Clutch start switch\n\n**Function.** Reports permitted starting state.\n\n**Design.** Match contact state, travel threshold and donor controller logic.\n\n**Make, assemble or fit.** Fit the matched switch and adjust to the documented reference.\n\n**Verify.** Test start permission at the approved clutch positions in the secured vehicle.\n\n### Automatic selector and range switch\n\n**Function.** Request a range and report lever position.\n\n**Design.** Match gate, detents, park lock, cable travel and electrical coding.\n\n**Make, assemble or fit.** Index selector and transmission lever at the specified position before adjusting.\n\n**Verify.** Confirm indicated range, start inhibition and reverse-lamp operation.\n\n### Parking pawl and park gear\n\n**Function.** Mechanically restrain transmission output in park.\n\n**Design.** Identify correct engagement linkage and allowed stationary use.\n\n**Make, assemble or fit.** Fit matched internal parts under the exact transmission rebuild procedure.\n\n**Verify.** Verify positive engagement by the prescribed secured test; use separate parking brake.\n\n### Differential pinion seal\n\n**Function.** Retains lubricant around the pinion flange.\n\n**Design.** Match shaft finish, dust lip and assembly preload requirements.\n\n**Make, assemble or fit.** Fit specified seal while preserving or restoring pinion preload by the exact axle procedure.\n\n**Verify.** Check rotational preload if required and inspect for leakage.\n\n### Transmission mount\n\n**Function.** Supports gearbox and controls driveline movement.\n\n**Design.** Set driveline angles, movement envelope, isolator stiffness and service access.\n\n**Make, assemble or fit.** Install rated isolator on a reviewed crossmember and correctly centered powertrain.\n\n**Verify.** Measure installed driveline working angles and clearances under load.\n\n### Bellhousing and alignment dowels\n\n**Function.** Align gearbox shaft with engine crank and enclose clutch or converter.\n\n**Design.** Match bolt circle, dowel registers, input depth and concentricity.\n\n**Make, assemble or fit.** Use compatible housing and dowels and check runout of custom adapter arrangements.\n\n**Verify.** Record bore concentricity, face runout and shaft engagement against design limits."
+  },
+  {
+   "id": "parts-3-1",
+   "title": "Transmission subcomponents and seals · Converter stator to Differential thrust washer",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Converter stator\n\n**Function.** Redirects return fluid to improve launch torque multiplication.\n\n**Design.** Match vane design and one-way operation to converter and engine application.\n\n**Make, assemble or fit.** Study a cutaway and install an approved complete balanced converter on the car.\n\n**Verify.** Check one-way function on the training unit and installed behavior against data.\n\n### Lockup clutch\n\n**Function.** Mechanically connects converter input and turbine under command.\n\n**Design.** Match capacity, friction behavior, control strategy and cooler rating.\n\n**Make, assemble or fit.** Use the specified complete converter or qualified rebuild.\n\n**Verify.** Log commanded lockup and actual slip under defined conditions.\n\n### Transmission speed sensor\n\n**Function.** Measures input or output shaft speed.\n\n**Design.** Match sensor technology, target wheel, gap and controller scaling.\n\n**Make, assemble or fit.** Fit matched pickup to its indexed bore and route harness away from heat.\n\n**Verify.** Compare shaft speed ratio with commanded gear.\n\n### Transmission pan and strainer\n\n**Function.** Retain transmission fluid and protect hydraulic pickup.\n\n**Design.** Identify pan shape, pickup depth, seals, magnet and serviceable filter type.\n\n**Make, assemble or fit.** Fit matched strainer and inlet seal and clean pan and magnets before closure.\n\n**Verify.** Verify fill at specified temperature and inspect for leaks.\n\n### Output shaft seal\n\n**Function.** Retains lubricant where output shaft or yoke exits housing.\n\n**Design.** Match lip material, shaft finish, yoke motion and vent condition.\n\n**Make, assemble or fit.** Fit the correct seal at specified depth and inspect mating shaft.\n\n**Verify.** Check for seepage after a controlled run.\n\n### Differential spider pin\n\n**Function.** Supports and locates differential pinions.\n\n**Design.** Match carrier cross-bore, pin hardness and retainer design.\n\n**Make, assemble or fit.** Fit the matched pin and new designated retention hardware during differential assembly.\n\n**Verify.** Check retention, pinion movement and specified clearances.\n\n### Differential thrust washer\n\n**Function.** Controls side or pinion gear end clearance.\n\n**Design.** Match thickness, shape, oiling features and gear position.\n\n**Make, assemble or fit.** Install measured washer in its assigned orientation before closing carrier.\n\n**Verify.** Check gear endplay or lash using axle-specific procedure."
+  },
+  {
+   "id": "mod-clutch-and-flywheel-change",
+   "title": "Modification · Clutch and flywheel change",
+   "body": "**Purpose.** Increase torque capacity or change engine response and pedal feel.\n\n**Design and baseline.** Compare duty-rated clutch, inertia, heat capacity, drivability, engine balance, release travel and bellhousing clearance. A lighter flywheel can make launching less forgiving.\n\n**Build and installation.** Use a matched rated flywheel/disc/cover and approved hardware. Measure runout, pilot fit and release geometry, align disc and install to the transmission-specific procedure.\n\n**Test and disposition.** Verify full release, clean engagement, clutch return, noise and prescribed bedding under controlled use. Reject drag or sustained slip.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "mod-shorter-shifter-throw",
+   "title": "Modification · Shorter shifter throw",
+   "body": "**Purpose.** Reduce hand movement between ratios.\n\n**Design and baseline.** Model upper/lower lever arm lengths, cable stroke, effort, gate width and reverse interlock. Shorter hand travel tends to increase required hand force for the same cable load.\n\n**Build and installation.** Make a hand-operated lever/cable mock-up with adjustable pivot holes. Measure travel at both ends, then install a matched kit with bushings, positive retention and cable adjustment.\n\n**Test and disposition.** Select every gear with engine off, verify full detent travel and lockout, then test authorized dynamic shifts. Short hand travel with incomplete engagement fails.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "mod-final-drive-ratio-change",
+   "title": "Modification · Final-drive ratio change",
+   "body": "**Purpose.** Trade cruise rpm and road speed per gear for wheel torque and acceleration response.\n\n**Design and baseline.** Calculate overall ratio, tire loaded circumference, engine speed at cruise, shift points and traction capacity. Match front/rear ratios where the drivetrain requires it.\n\n**Build and installation.** Use a matched gearset with correct carrier, bearings and tools. Have a qualified builder establish pinion depth, bearing preload, lash and contact pattern to exact axle data.\n\n**Test and disposition.** Record measured ratio, backlash at multiple positions, pattern, temperature, noise and speed-indication correction after the specified break-in.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "mod-limited-slip-differential",
+   "title": "Modification · Limited-slip differential",
+   "body": "**Purpose.** Reduce loss of useful drive when the wheels have unequal traction.\n\n**Design and baseline.** Compare helical torque bias, clutch preload, lock behavior, cornering feel, maintenance and compatibility with brake-based traction control.\n\n**Build and installation.** Identify axle code, ratios and splines. Install matched carrier and bearings with required shimming/setup and lubricant; retain measured ring-gear position and lash.\n\n**Test and disposition.** Check preload or bias using the design-specific method. Compare repeatable controlled traction behavior and evaluate turn-in, noise and temperature.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "mod-manual-transmission-conversion",
+   "title": "Modification · Manual transmission conversion",
+   "body": "**Purpose.** Choose manual control, gear spacing or serviceability for a given package.\n\n**Design and baseline.** Map crank pilot, flywheel/clutch, gearbox and mounts, pedal box, hydraulic actuation, axle lengths, vehicle-speed source, start/reverse interlocks and ECU/emissions compatibility. Price the complete conversion.\n\n**Build and installation.** Mock pedals and shifter in the cabin; locate the drivetrain on reviewed mounts, measure driveshaft fit through travel, route the clutch circuit and install compatible interlocks and controls.\n\n**Test and disposition.** Verify neutral/start interlock, reverse lamps, complete release, selected ratios, leakage, clearances and required diagnostics during controlled commissioning.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "mod-transmission-cooler-for-sustained-load",
+   "title": "Modification · Transmission cooler for sustained load",
+   "body": "**Purpose.** Control documented fluid-temperature rise during repeated high-load operation.\n\n**Design and baseline.** Identify cooler circuit, bypass/thermostat, line ratings, allowable pressure drop and effect on radiator airflow. Water/oil heat exchangers may help warm fluid as well as reject heat.\n\n**Build and installation.** Use a matched cooler package and supported rated lines. Mock service access, install with correct flow path, then follow specified fill quantity, temperature and level method.\n\n**Test and disposition.** Compare steady warm-up and hot fluid temperature under the same load. Check pressure/flow if specified, leaks and shift behavior before accepting the change.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Eaton, differential types and applications](https://www.eaton.com/us/en-us/products/differentials-traction-control.html)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "bench-plan",
+   "title": "Build and compare two shifter lever geometries",
+   "body": "**Objective.** Demonstrate why a short-throw shifter changes effort and travel using an unpowered hand fixture. Materials are a rigid board, hand lever, low-friction retained pivot, two rounded link points, string or guarded teaching link, a ruler, a spring scale and a low-force elastic return. Secure the fixture, protect pinch points and stay within the fixture and scale ratings.\n\n1. Draw one pivot with link attachment radii of 25 and 40 mm, and a hand point 150 mm from the pivot. At small angles, for forces perpendicular to the lever, link travel/hand travel is approximately link radius/hand radius. At a fixed 30 mm hand movement the predictions are about 5 and 8 mm of link travel.\n2. Make a card layout. Drill the approved lever material on a clamped backer, deburr holes, assemble with spacers and a retained pivot and fit a low-force load. Confirm collision-free movement and protect fingers.\n3. Mark zero without spring slack. At each link radius measure hand travel needed for 5 mm link movement and scale force at matched link load and perpendicular geometry. Ideal predictions are about 30 and 18.75 mm of hand travel. If the link load is 6 N, ideal hand forces are 1.0 and 1.6 N respectively. Friction and changing angles explain some differences.\n4. Repeat three trials per configuration. Record units, scatter, pivot play and return-to-neutral behavior. Use a physical stop representing the gearbox's required full engagement. Demonstrate that the shorter option reaches that stop while retaining adequate hand clearance.\n5. For a real installation source rated hardware, keep full engagement and reverse/start interlocks, verify cable routing and consult the actual gearbox. The bench lever supplies geometry evidence for a prototype.\n\n**Fresh assignment.** For an 8 mm required link travel and 150 mm hand radius, propose a geometry giving roughly 32 mm of hand movement, build it, measure three repeats and explain the difference from the ideal. The target radius is about 37.5 mm in the small-angle model; the measured result determines acceptance."
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF152/153 and AMF156/157 distinguish automatic and manual drive systems. UVU AUT1120/1125 cover powertrain theory and lab. ASE II.A.2 (PDF p. 56) addresses transmission configurations. The hand trainer isolates ratio from the separate converter trace. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Select gear pairs for two reductions on your trainer. Draw shafts, supports, guards and the indicator location. Predict turns and direction for each pair. Give the acceptance check and explain which automatic or manual service tasks need vehicle-specific data."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A working hand-driven transmission trainer and its verified ratio sheet."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Both tooth-count and shaft-mark methods support the reported ratio, with repeatable lash readings."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Counted input and output turns for two trainer ratios and a separate trace interpretation that distinguishes engine, input and output with lockup state."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design a two-ratio teaching drive",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Select gear pairs for two reductions on your trainer. Draw shafts, supports, guards and the indicator location. Predict turns and direction for each pair. Give the acceptance check and explain which automatic or manual service tasks need vehicle-specific data. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Launch element; Flywheel, flexplate and release; Ratio selection; Shift actuation; Continuously variable drive; Gearbox position and driven axles; Axle differential; Half shafts and propeller shafts. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Predict the gearing change before ordering a differential",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Build a hand-driven shifter or ratio fixture. Record input/output travel or turns, trace detents/retention and compare two setups before selecting donor parts. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Assemble and measure a gear train",
+   "module": "m3",
+   "adult": true,
+   "intro": "A working hand-driven transmission trainer and its verified ratio sheet. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use a hand-driven guarded trainer only. Isolate it before adjustment. Keep fingers and loose clothing away from mesh and never energize an open gearbox."
+   ],
+   "materials": [
+    "Hand-driven teaching gears and supported shafts",
+    "Trainer instructions, guard and indicator",
+    "Marking tape and tooth-count record"
+   ],
+   "steps": [
+    "Assemble a selected pair and mark shaft zeros.",
+    "Count input and output turns over several complete cycles. Reverse by hand to identify lost motion.",
+    "Isolate one gear as instructed and measure backlash at the specified point. Reassemble a second ratio or inspect a second gear pair.",
+    "Compare actual and predicted results, then identify one measurement that would differ on a limited-slip or automatic system."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Gear pair",
+      "Tooth counts",
+      "Predicted turns",
+      "Measured turns",
+      "Backlash and radius"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Both tooth-count and shaft-mark methods support the reported ratio, with repeatable lash readings. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Tell a ratio error from clutch or converter slip — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested.",
+   "safety": [
+    "Use a stable guarded hand-driven gear pair. Keep fingers, hair and loose clothing clear of meshes. Use recorded speeds for converter or road-load cases."
+   ],
+   "materials": [
+    "Guarded hand-driven gear trainer, input and output marks, a documented transmission ratio set and labeled speed trace"
+   ],
+   "steps": [
+    "Read “Predict road speed and torque for two gearboxes”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Hand-drive a guarded, unloaded two-ratio gear trainer. Mark the input and output, count several turns to reduce counting error, and calculate both ratios. Analyze a separate supplied or recorded example with engine, input, output and lockup state. Locate the mismatch and say which extra measurement could disprove your diagnosis. Keep all powered-vehicle testing within the manufacturer's supervised procedure.",
+    "File the following evidence with the course project. A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Command / gear",
+      "Engine or driver rpm",
+      "Input turns or rpm",
+      "Output turns or rpm",
+      "Measured ratio",
+      "Control state"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-powertrain"
+ ]
+}

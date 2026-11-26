@@ -1,0 +1,1258 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-diagnostics",
+ "title": "Engine Performance, Emissions and Hybrid Diagnostics",
+ "author": "Erudior",
+ "revision": 2,
+ "description": "Distinguish fuel delivery, ignition and air-metering faults. Map gasoline and diesel emissions controls, diagnose a trainer and verify its restored function. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A fault timeline, competing hypotheses and an evidence-based repair disposition.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Operating theory",
+   "quiz": [
+    "diagnostics-1-q2",
+    "cmp-engine-controls-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Diagnostic design",
+   "quiz": [
+    "diagnostics-2-q2",
+    "cmp-aftertreatment-q2",
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Trainer diagnostics",
+   "quiz": [
+    "diagnostics-3-q3",
+    "shop-change-diagnostics",
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Hybrid and emissions verification",
+   "quiz": [
+    "diagnostics-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "diagnostics-1",
+   "module": "m1",
+   "title": "Read fuel control in context",
+   "minutes": 20,
+   "topics": [
+    "Operating theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Automotive Electrical Systems and Diagnosis, Engine and Drivetrain Service, or demonstrate the equivalent workshop skills.\n\nThe controller estimates fuel from air, speed and load. In closed-loop gasoline operation it adjusts delivery using exhaust feedback. Positive fuel trim means the controller is adding fuel relative to its base estimate. A lean indication can come from extra air, low delivery or biased measurement. A diesel may use EGR, a particulate filter and selective catalytic reduction. Identify the engine and operating strategy before interpreting its data.\n\n## Worked shop case\n\nOne gasoline bank shows positive trim at idle that moves toward zero at raised speed. A fixed air leak is relatively more important at idle. Inspect for a leak and test alternatives before replacing an oxygen sensor.\n\n## Guided practice\n\nShort-term trim moves from +15% to +3%. By how many percentage points does it fall?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A scan record, a diagnosed physical trainer and a verified restoration.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "diagnostics-1-q1",
+    "diagnostics-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-engine-controls",
+   "module": "m1",
+   "title": "Fuel delivery, ignition and air metering",
+   "minutes": 25,
+   "topics": [
+    "Fuel delivery, ignition and air metering"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "In a return-style fuel system, a regulator can send excess fuel from the rail back to the tank. Returnless designs move regulation nearer the tank or vary pump output under control. Port injectors discharge upstream of the intake valve. A gasoline direct-injection system adds a high-pressure stage feeding in-cylinder injectors. A diesel common-rail system stores high-pressure fuel for electronically timed injection. Compare specified pressure at the correct stage and signal under the same load. Use service data and an approved trainer; a high-pressure leak must never be sought by hand.\n\nA mass-airflow sensor reports air mass entering at its location. A speed-density strategy estimates charge from manifold absolute pressure, temperature, speed and calibration. A throttle controls flow on many spark-ignition engines. A distributor routes spark from a shared coil; coil-on-plug dedicates a coil to each plug in a typical design. Compression, fueling and ignition can each cause a cylinder misfire. A misfire code identifies where to investigate.\n\n## Worked shop case\n\nOne cylinder repeatedly misfires. On an approved training engine the fault follows an authorized swap of two identical coils, while the injectors and plugs stay put. That supports a coil-related fault. If it stays with the cylinder, use the documented next tests for command, fuel, compression and harness condition before ordering a part.\n\n## Guided practice\n\n```example fade=2\nproblem: A direct-injection system's low-side supply tracks command but its high-side rail reading falls under load. Where is evidence missing?\nstep: Separate the low- and high-pressure stages.\nstep: Check high-side command, sensor plausibility, pump drive and specified tests.\nanswer: A good inlet reading alone cannot establish high-side delivery; use model-specific approved diagnostics.\n```\n\n## Independent shop or design task\n\nDocument an actual donor's pump stages, regulation, air sensors, ignition and diagnostic access. Annotate which data items are measured or estimated and plan a reversible single-variable test on the existing training fixture.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-engine-controls-q1",
+    "cmp-engine-controls-q2"
+   ]
+  },
+  {
+   "id": "cmp-aftertreatment",
+   "module": "m2",
+   "title": "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR",
+   "minutes": 25,
+   "topics": [
+    "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A three-way catalyst in a suitable gasoline system treats hydrocarbons, carbon monoxide and oxides of nitrogen near its intended mixture. Upstream feedback sensors help mixture control; a downstream sensor often supports catalyst monitoring. A wideband sensor and a traditional narrowband switching sensor produce different signals. An exhaust leak can bias interpretation. Compare commanded conditions and the service description for the exact sensor before interpreting a graph.\n\nExhaust gas recirculation dilutes intake charge in selected conditions to reduce peak combustion temperatures and formation of nitrogen oxides. EVAP manages fuel vapors from the tank and purges them under command. A diesel particulate filter retains particulate matter; regeneration oxidizes combustible soot, while ash can accumulate. SCR meters reductant to aid NOx conversion. A differential-pressure sensor and temperature sensors inform different decisions. Keeping required control hardware, calibration and routing intact belongs in the original donor plan and the final as-built review. Use the linked EPA applicability notes.\n\n## Worked shop case\n\nA training diesel reports a high pressure difference across its DPF at a documented flow. A kinked sensing tube, a biased sensor or restriction can affect that observation. Compare key-on/engine-off plausibility, permitted sensor checks and readings at a second specified flow. A forced regeneration is a specialized heat-producing service, and the code by itself does not justify one.\n\n## Guided practice\n\n```example fade=2\nproblem: An unready monitor appears after power was disconnected. What evidence would distinguish incomplete operation from a component failure?\nstep: Check monitor enable criteria and stored or pending faults.\nstep: Compare recorded operating conditions with service data.\nanswer: Report readiness, enabling conditions and actual codes separately; retain the original controls.\n```\n\n## Independent shop or design task\n\nProduce an as-designed fuel, vapor and exhaust map for the candidate donor. Mark ports, control devices, catalysts, oxygen or NOx sensors, service access, calibration and evidence of retained function. Add diesel-only devices only where fitted.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-aftertreatment-q1",
+    "cmp-aftertreatment-q2"
+   ]
+  },
+  {
+   "id": "diagnostics-2",
+   "module": "m2",
+   "title": "Design a scan capture that can separate causes",
+   "minutes": 20,
+   "topics": [
+    "Diagnostic design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-cat-back-exhaust-and-resonator",
+    "mod-ecu-calibration-for-matched-hardware",
+    "mod-fuel-pump-or-injector-capacity-upgrade",
+    "mod-application-approved-exhaust-manifold-or-header"
+   ],
+   "body": "Store the complaint, code status, freeze frame, operating mode and units before clearing anything. Choose a signal related to the fault and an independent reference. Define the stimulus, response and stop condition. OBD readiness describes whether a monitor ran. A single unset monitor cannot tell you that its system failed.\n\n## Worked shop case\n\nAfter an overnight soak a coolant sensor reports 65 °C while ambient and intake air are near 12 °C. Compare the coolant signal with a trusted independent temperature reading and inspect the circuit using its service procedure.\n\n## Guided practice\n\nAfter a cold soak a trainer reports 40 °C vs an independent 16 °C. Give the magnitude of the discrepancy in °C.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSelect a gasoline sensor fault. Compare sensor bias with a wiring fault, name the evidence each predicts, and give a test that separates them. Include a diesel aftertreatment comparison and a model-specific hybrid handoff for an energized-vehicle concern.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "diagnostics-2-q1",
+    "diagnostics-2-q2"
+   ]
+  },
+  {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Distinguish unmetered air from a fuel-delivery shortfall",
+   "minutes": 30,
+   "topics": [
+    "Distinguish unmetered air from a fuel-delivery shortfall"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "In a closed-loop spark-ignition example, a positive correction means the controller is adding fuel relative to its base calculation. The correction is a response to an observed mixture error. It does not identify the failed component. Compare conditions in which the possible faults behave differently. Exhaust leaks upstream of a sensor, air-meter error and a biased sensor can imitate other conditions. Read the manufacturer's definitions and units for the data items.\n\n**Worked comparison.** A recorded warm engine shows combined positive correction near +20% at idle, dropping near +4% at a stable raised speed. An intake leak that contributes a roughly fixed airflow would form a larger fraction of total flow at idle. That makes it a candidate. A second trace stays positive at both conditions and worsens as demand rises. Fuel delivery or air-meter accuracy moves higher on the list. Neither pattern alone establishes cause. Verify closed-loop state, coolant temperature, bank behavior and the original freeze frame before choosing the next test.\n\n**Design a discriminating test.** Draw air from the meter to each intake runner and exhaust from the ports past the upstream sensor. Mark paths that bypass the meter or admit oxygen ahead of the sensor. Choose the next manufacturer-approved check for two competing explanations. Use stored data, a trainer or an intact supervised vehicle. Preserve emissions devices, fault evidence and readiness information.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "diagnostics-3",
+   "module": "m3",
+   "title": "Introduce and recover a known sensor fault",
+   "minutes": 15,
+   "topics": [
+    "Trainer diagnostics"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use a physical training board with documented fault switches or a plug-in simulator attached to a scan tool. Establish a healthy baseline, change one permitted trainer condition, and compare live data and stored information. A real customer vehicle may be used for read-only observation with permission. Do all induced faults on the bench.\n\n## Worked shop case\n\nA trainer's open sensor mode drives its displayed value to an extreme. Returning the switch to normal restores the signal while a history code remains. Record current data and code status separately.\n\n## Guided practice\n\nA trainer reads 18 °C, then 48 °C during a simulated bias. By how many °C did it change?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nClean Air Act §203(a)(3) addresses tampering and defeat devices. Preserve the designed emissions controls and diagnostic monitoring. A pass in a local inspection or an extinguished fault lamp is insufficient evidence for a modified configuration. Record engine family, original configuration, fault, corrective action and functional checks. Apply the separate federal kit-car policy only to a build that actually fits it.\n\n[EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and) · [EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy)\n\n## Workshop preparation\n\nUse a protected low-voltage trainer for introduced faults. No emissions-control modification or traction-voltage work. Run a combustion vehicle outdoors only where authorized.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "diagnostics-3-q1",
+    "diagnostics-3-q2",
+    "diagnostics-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Separate an acoustic improvement from an emissions change",
+   "minutes": 35,
+   "topics": [
+    "Separate an acoustic improvement from an emissions change"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1",
+    "mod-cat-back-exhaust-and-resonator",
+    "mod-ecu-calibration-for-matched-hardware",
+    "mod-fuel-pump-or-injector-capacity-upgrade",
+    "mod-application-approved-exhaust-manifold-or-header",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nEngine control, vapor and exhaust, Vapor and diesel detail. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Cat-back exhaust and resonator\n- ECU calibration for matched hardware\n- Fuel pump or injector capacity upgrade\n- Application-approved exhaust manifold or header\n\n## Worked example\n\nA downstream resonator makes a steady-rpm cabin tone quieter but does little to the peak exterior reading. That supports a limited acoustic claim. It supplies no evidence about emissions compliance or torque. Inventory every sensor and catalyst on the exact car before defining where a downstream modification begins.\n\n## Guided decision\n\n```example fade=1\nproblem: Two sound measurements use different road speeds and microphone locations. Which claim can be made?\nstep: Repeat at fixed load/rpm, microphone position and comparable background conditions.\nanswer: Until then report observations only; check applicable noise rules by their own prescribed method.\n```\n\n## Independent workshop\n\nMock up a removable cold exhaust section in card or tube off the vehicle. Locate service joints, hot-movement allowance and retained emissions interfaces; compare two acoustic designs on paper or a safe sound fixture.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-diagnostics"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Read a fault timeline before replacing the named sensor",
+   "minutes": 45,
+   "topics": [
+    "Read a fault timeline before replacing the named sensor"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A fault code identifies a monitored condition. In a shared-reference circuit one shorted load can pull several sensors out of range. A healthy sensor can also report a genuine mechanical fault. Compare the commanded state with measured electrical and mechanical evidence and place each observation on a time axis.\n\n**Worked trace.** On a low-voltage simulator, a 5.0 V reference and two sensor outputs drop together when a replaceable fault card is selected. The supply input to the controller stays normal. The first drop appears on the shared reference. Two simultaneous sensor replacements would not explain that common event. With the simulator de-energized, isolate branches as its schematic permits, energize and compare the reference with the same supply, fault selection and remaining branches. A recovered reference after removing one branch identifies a branch for further inspection. It does not identify which wire or device within the branch failed.\n\n**Independent simulator trace.** A supply held at 12.0 V feeds a model controller. At t = 0 s, fault inactive, its reference and outputs A/B read 5.0/1.5/3.0 V. At t = 2 s, fault active, they read 1.0/0.3/0.6 V. All three changed between sampled rows; their exact order inside that interval is unresolved. After power-down, branch B is disconnected and the same fault selection is retained. At t = 10 s on restart, reference/A read 5.0/1.5 V and B is disconnected. After another power-down, reconnect B and remove the fault. At t = 20 s, with the original load restored, reference/A/B return to 5.0/1.5/3.0 V. The supply stays at 12.0 V for each energized row. Record the branch this implicates and one test that would distinguish its wiring from its sensor. The isolated branch’s load has deliberately changed.\n\n**Independent work.** Use a current-limited sensor trainer or recorded traces. Identify the earliest change, label the points that share a supply or ground, and write down a prediction before the isolation test. Restore the normal circuit and compare both sensor range and reference stability at the original load. On the capstone file record what would count as a verified repair under the original enabling conditions. A cleared code alone is insufficient evidence.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "diagnostics-4",
+   "module": "m4",
+   "title": "Separate low-voltage diagnosis from traction work",
+   "minutes": 15,
+   "topics": [
+    "Hybrid and emissions verification"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "A hybrid may be ready to propel while its engine is silent. A 12 V disconnection alone does not establish that traction circuits are safe. Use vehicle-specific service and emergency information and hand high-voltage isolation or measurements to qualified personnel. Compare emissions repairs with the original approved configuration. Retain the catalyst, sensors, evaporative controls and functional diagnostics applicable to the build.\n\n## Worked shop case\n\nAn engine is quiet but the READY indicator is on. Treat propulsion as available. For a diagnostic exercise, use the trainer outside the vehicle and select the exact model's service-information entry for a technician handoff.\n\n## Guided practice\n\nA drive cycle reports 5 of 7 supported monitors complete. How many supported monitors are still incomplete?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe selected test differentiates the hypotheses and the restored state is actually measured. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "diagnostics-4-q1",
+    "diagnostics-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-diagnostics-bank",
+   "title": "Engine Performance, Emissions and Hybrid Diagnostics practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Operating theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Diagnostic design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Trainer diagnostics"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Hybrid and emissions verification"
+    }
+   ],
+   "exam": {
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "diagnostics-1-q1",
+     "section": "m1",
+     "topic": "Operating theory",
+     "stem": "Short-term trim moves from +15% to +3%. By how many percentage points does it fall? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "12"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Subtract 3 from 15. State the engine condition alongside the change."
+    },
+    {
+     "id": "diagnostics-1-q2",
+     "section": "m1",
+     "topic": "Operating theory",
+     "stem": "A lean code is stored. What does that justify first?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Compare operating conditions and test competing causes.",
+      "Replace every oxygen sensor.",
+      "Delete the catalyst monitor."
+     ],
+     "explanation": "A code identifies a monitored condition and cannot establish the failed part."
+    },
+    {
+     "id": "diagnostics-2-q1",
+     "section": "m2",
+     "topic": "Diagnostic design",
+     "stem": "After a cold soak a trainer reports 40 °C vs an independent 16 °C. Give the magnitude of the discrepancy in °C. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "24"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "40 − 16 = 24 °C."
+    },
+    {
+     "id": "diagnostics-2-q2",
+     "section": "m2",
+     "topic": "Diagnostic design",
+     "stem": "Which record is most vulnerable if codes are cleared immediately?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "The VIN stamped into the chassis.",
+      "The stamped spark plug part number.",
+      "Freeze-frame context and readiness state."
+     ],
+     "explanation": "Record diagnostic evidence before operations that can erase or reset it."
+    },
+    {
+     "id": "diagnostics-3-q1",
+     "section": "m3",
+     "topic": "Trainer diagnostics",
+     "stem": "A trainer reads 18 °C, then 48 °C during a simulated bias. By how many °C did it change? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "30"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "48 − 18 = 30 °C."
+    },
+    {
+     "id": "diagnostics-3-q2",
+     "section": "m3",
+     "topic": "Trainer diagnostics",
+     "stem": "Which test verifies that the sensor responds over a range?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Clear the readiness monitors twice.",
+      "Compare several known trainer inputs with the live readings.",
+      "Observe one stored code only."
+     ],
+     "explanation": "Several reference points can reveal fixed offset or nonlinear response."
+    },
+    {
+     "id": "diagnostics-3-q3",
+     "section": "m3",
+     "topic": "Trainer diagnostics",
+     "stem": "A customer wants the catalyst monitor disabled to extinguish a lamp. Select two responses. Select all that apply.",
+     "choices": [
+      "Document the configuration, corrective action and functional retest.",
+      "Record a cleared lamp as proof the catalyst operates properly.",
+      "Treat the local inspection pass as authorization to defeat the monitor.",
+      "Retain the certified control function and diagnose the actual fault."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "Clean Air Act §203(a)(3) addresses tampering and defeat devices. Preserve the designed emissions controls and diagnostic monitoring. A pass in a local inspection or an extinguished fault lamp is insufficient evidence for a modified configuration. Record engine family, original configuration, fault, corrective action and functional checks. Apply the separate federal kit-car policy only to a build that actually fits it."
+    },
+    {
+     "id": "diagnostics-4-q1",
+     "section": "m4",
+     "topic": "Hybrid and emissions verification",
+     "stem": "A drive cycle reports 5 of 7 supported monitors complete. How many supported monitors are still incomplete? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Seven minus five equals two. Readiness does not by itself establish legal compliance."
+    },
+    {
+     "id": "diagnostics-4-q2",
+     "section": "m4",
+     "topic": "Hybrid and emissions verification",
+     "stem": "Which change restores the intended diagnostic function?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Repair a verified wiring fault and observe the monitor run under its specified conditions.",
+      "Suppress the fault in software.",
+      "Substitute a fixed signal to force a passing result."
+     ],
+     "explanation": "Repair and functional verification preserve emissions-control operation."
+    },
+    {
+     "id": "cmp-engine-controls-q1",
+     "section": "m1",
+     "topic": "Fuel delivery, ignition and air metering",
+     "stem": "Which observation most directly supports a movable coil fault in a controlled teaching-engine test?",
+     "explanation": "Moving one variable and seeing the fault follow improves fault localization.",
+     "choices": [
+      "The fuel tank is half full.",
+      "The misfire stays on the original cylinder after all coils are changed.",
+      "The misfire follows the same coil when only two compatible coils exchange positions."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-engine-controls-q2",
+     "section": "m1",
+     "topic": "Fuel delivery, ignition and air metering",
+     "stem": "Which pair supplies two distinct inputs commonly used by a speed-density strategy?",
+     "explanation": "Pressure and temperature help estimate charge density.",
+     "choices": [
+      "Wheel offset and lug-seat shape.",
+      "Manifold absolute pressure and intake-air temperature.",
+      "Compressor oil type and fan blade count."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-aftertreatment-q1",
+     "section": "m2",
+     "topic": "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR",
+     "stem": "Which pairing correctly assigns the primary function of each diesel device?",
+     "explanation": "They act on different emission constituents and need different diagnostics.",
+     "choices": [
+      "Both are substitutes for a fuel-tank cap.",
+      "DPF captures particulates and SCR supports NOx conversion using reductant.",
+      "SCR stores soot and the DPF stores fuel vapors."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-aftertreatment-q2",
+     "section": "m2",
+     "topic": "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR",
+     "stem": "Which observation can directly compromise interpretation of a pressure drop across a diesel particulate filter?",
+     "explanation": "The sensor depends on accurate pressure transmission from both taps.",
+     "choices": [
+      "A damaged pressure-sensing tube connected to the filter.",
+      "A matching cabin-filter part number.",
+      "A different spare-tire wheel cover."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "shop-change-diagnostics",
+     "section": "m3",
+     "topic": "Separate an acoustic improvement from an emissions change",
+     "stem": "An ECU calibration is advertised for the same engine family. What evidence belongs in a road-use design review?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Exact vehicle, hardware and calibration applicability, required emissions evidence and a reproducible validation plan.",
+      "A seller's peak-power figure alone.",
+      "Clearing diagnostic monitors immediately before inspection."
+     ],
+     "explanation": "Compatibility and applicable emissions requirements depend on the actual configuration."
+    },
+    {
+     "choices": [
+      "A specific oxygen sensor is proven failed.",
+      "An ignition coil is proven open.",
+      "A roughly fixed unmetered intake airflow."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q1",
+     "stem": "A recorded warmed engine adds much more fuel trim at idle than at higher steady airflow. Which hypothesis fits that dependency?",
+     "section": "m2",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall",
+     "explanation": "The fraction of total airflow from a fixed leak is greater at idle. Additional checks must distinguish alternatives."
+    },
+    {
+     "choices": [
+      "Compare known loop state, load, banks and temperature using the donor data definitions.",
+      "Use the diagnostic trouble code alone as the part number.",
+      "Compare two random snapshots with unknown load."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which comparison makes a fuel-trim test interpretable?",
+     "section": "m2",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall",
+     "explanation": "Trims and control responses depend on operating conditions."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3.8"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A training reference drops from 5.0 V to 1.2 V when a fault card is selected. How large is the drop in V? Enter the number only.",
+     "section": "m3",
+     "topic": "Read a fault timeline before replacing the named sensor",
+     "explanation": "5.0 − 1.2 = 3.8 V."
+    },
+    {
+     "choices": [
+      "Replace both sensors immediately.",
+      "Assume a permanent processor failure from the two codes.",
+      "Isolate one branch with power off, re-energize and remeasure the shared reference with the same supply, fault selection and remaining branches."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Two sensors change simultaneously when their shared reference falls. Which test best narrows the cause on the approved simulator?",
+     "section": "m3",
+     "topic": "Read a fault timeline before replacing the named sensor",
+     "explanation": "Recovery after a controlled branch change identifies the branch for further localization."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-diagnostics-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Fuel trim",
+     "back": "The controller's correction to base fuel delivery.",
+     "topic": "Operating theory"
+    },
+    {
+     "id": "c1b",
+     "front": "A lean code is stored. What does that justify first?",
+     "back": "Compare operating conditions and test competing causes. A code identifies a monitored condition and cannot establish the failed part.",
+     "topic": "Operating theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Freeze frame",
+     "back": "Operating data captured in association with a recorded fault.",
+     "topic": "Diagnostic design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which record is most vulnerable if codes are cleared immediately?",
+     "back": "Freeze-frame context and readiness state. Record diagnostic evidence before operations that can erase or reset it.",
+     "topic": "Diagnostic design"
+    },
+    {
+     "id": "c3a",
+     "front": "Readiness",
+     "back": "A monitor's completion state for its defined diagnostic check.",
+     "topic": "Trainer diagnostics"
+    },
+    {
+     "id": "c3b",
+     "front": "Which test verifies that the sensor responds over a range?",
+     "back": "Compare several known trainer inputs with the live readings. Several reference points can reveal fixed offset or nonlinear response.",
+     "topic": "Trainer diagnostics"
+    },
+    {
+     "id": "c4a",
+     "front": "Aftertreatment",
+     "back": "Exhaust-system processes such as catalytic conversion or particulate filtration.",
+     "topic": "Hybrid and emissions verification"
+    },
+    {
+     "id": "c4b",
+     "front": "Which change restores the intended diagnostic function?",
+     "back": "Repair a verified wiring fault and observe the monitor run under its specified conditions. Repair and functional verification preserve emissions-control operation.",
+     "topic": "Hybrid and emissions verification"
+    },
+    {
+     "id": "cmp-engine-controls-card",
+     "front": "Which observation most directly supports a movable coil fault in a controlled teaching-engine test?",
+     "back": "The misfire follows the same coil when only two compatible coils exchange positions. Moving one variable and seeing the fault follow improves fault localization.",
+     "topic": "Fuel delivery, ignition and air metering"
+    },
+    {
+     "id": "cmp-aftertreatment-card",
+     "front": "Which pairing correctly assigns the primary function of each diesel device?",
+     "back": "DPF captures particulates and SCR supports NOx conversion using reductant. They act on different emission constituents and need different diagnostics.",
+     "topic": "Oxygen feedback, catalysts, EGR, EVAP, DPF and SCR"
+    },
+    {
+     "id": "change-evidence",
+     "front": "An ECU calibration is advertised for the same engine family. What evidence belongs in a road-use design review?",
+     "back": "Exact vehicle, hardware and calibration applicability, required emissions evidence and a reproducible validation plan. Compatibility and applicable emissions requirements depend on the actual configuration.",
+     "topic": "Separate an acoustic improvement from an emissions change"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which comparison makes a fuel-trim test interpretable?",
+     "back": "Compare known loop state, load, banks and temperature using the donor data definitions. Trims and control responses depend on operating conditions.",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Two sensors change simultaneously when their shared reference falls. Which test best narrows the cause on the approved simulator?",
+     "back": "Isolate one branch with power off, re-energize and remeasure the shared reference with the same supply, fault selection and remaining branches. Recovery after a controlled branch change identifies the branch for further localization.",
+     "topic": "Read a fault timeline before replacing the named sensor"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Fuel trim",
+   "definition": "The controller's correction to base fuel delivery.",
+   "topic": "Operating theory"
+  },
+  {
+   "term": "Freeze frame",
+   "definition": "Operating data captured in association with a recorded fault.",
+   "topic": "Diagnostic design"
+  },
+  {
+   "term": "Readiness",
+   "definition": "A monitor's completion state for its defined diagnostic check.",
+   "topic": "Trainer diagnostics"
+  },
+  {
+   "term": "Aftertreatment",
+   "definition": "Exhaust-system processes such as catalytic conversion or particulate filtration.",
+   "topic": "Hybrid and emissions verification"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [College of the Desert — Automotive General Service](https://catalog.collegeofthedesert.edu/programs/automotive-technology/general-automotive-service-certificate-of-achievement/) · [EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nClean Air Act §203(a)(3) addresses tampering and defeat devices. Preserve the designed emissions controls and diagnostic monitoring. A pass in a local inspection or an extinguished fault lamp is insufficient evidence for a modified configuration. Record engine family, original configuration, fault, corrective action and functional checks. Apply the separate federal kit-car policy only to a build that actually fits it.\n\n[EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and) · [EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Fuel supply and storage; Airflow and throttle; Ignition; Exhaust manifold and feedback; Gasoline controls; Diesel aftertreatment. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Fuel supply and storage | Return / returnless; in-tank supply / additional high-pressure stage | Pressure regulation, line routing, tank venting and service access change. | Trace pressure stages, vent, purge and donor rollover provisions on the exact drawing. |\n| Airflow and throttle | MAF / speed-density; mechanical / electronic throttle | Measured mass and inferred charge require different checks; throttle commands have feedback. | Compare commanded and observed data under the same conditions. |\n| Ignition | Distributor / shared coil / coil-on-plug | Primary timing and secondary routing determine which cylinders can share a fault. | Use an authorized controlled swap or specified signal test to localize a trainer fault. |\n| Exhaust manifold and feedback | Single / split bank; narrowband / wideband sensor | Bank identification and signal type determine how feedback is interpreted. | Mark banks, pre- and post-catalyst sensors, flex joints, hangers and shielding clearance. |\n| Gasoline controls | Three-way catalyst / EGR / EVAP | These address different pollutants or vapor paths; one cannot replace another. | Map each donor device and its enable criteria and preserve the approved configuration. |\n| Diesel aftertreatment | Oxidation catalyst / DPF / SCR | Oxidation, particulate capture and NOx reduction are different functions. | Identify temperature, pressure and reductant data and record the approved service route. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [Bosch, port fuel injection](https://www.bosch-mobility.com/en/solutions/powertrain/gasoline/gasoline-port-fuel-injection/)\n\n- [EPA, vehicle and engine tampering policy](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Engine control, vapor and exhaust · Engine control module to Throttle pedal position sensor",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Engine control module\n\n**Function.** Commands fueling, ignition, actuators and diagnostics.\n\n**Design.** Match engine identity, immobilizer, harness, transmission and applicable calibration.\n\n**Make, assemble or fit.** Use a supported matched controller and retain required control and monitoring equipment.\n\n**Verify.** Confirm software ID, communications, monitor function and fault status.\n\n### Crankshaft position sensor and target\n\n**Function.** Report phase reference and engine speed.\n\n**Design.** Match trigger pattern, polarity, air gap and controller input.\n\n**Make, assemble or fit.** Mount specified pickup on a rigid datum and index the correct target.\n\n**Verify.** Compare waveform and index to service reference.\n\n### Camshaft position sensor\n\n**Function.** Identifies cam phase for sequenced operation.\n\n**Design.** Match target, sensor type and angular relationship to crank.\n\n**Make, assemble or fit.** Install specified sensor and route away from interference.\n\n**Verify.** Check synchronization and phase plausibility.\n\n### Mass-airflow sensor\n\n**Function.** Measures incoming air mass at its housing.\n\n**Design.** Match transfer function, cross-section, flow direction and approach length.\n\n**Make, assemble or fit.** Retain validated housing and clean, sealed flow path.\n\n**Verify.** Log airflow versus reference under matched conditions.\n\n### MAP sensor\n\n**Function.** Measures absolute manifold pressure.\n\n**Design.** Choose pressure range, port and control calibration.\n\n**Make, assemble or fit.** Fit a matched sensor to a clean reference port.\n\n**Verify.** Compare engine-off reading with local barometric reference.\n\n### Intake-air temperature sensor\n\n**Function.** Reports charge temperature.\n\n**Design.** Choose location representative of measured charge and sensor curve.\n\n**Make, assemble or fit.** Use matched thermistor or integrated sensor and protect connector.\n\n**Verify.** Compare cold-soak reading with an independent temperature reference.\n\n### Coolant temperature sensor\n\n**Function.** Reports coolant temperature to controls or gauge.\n\n**Design.** Match thread, sealing method and resistance curve.\n\n**Make, assemble or fit.** Install approved sensor in the intended wetted passage.\n\n**Verify.** Compare cold-soaked and warmed data to independent references.\n\n### Throttle pedal position sensor\n\n**Function.** Reports driver demand with plausibility channels.\n\n**Design.** Match pedal module, travel, controller and correlation logic.\n\n**Make, assemble or fit.** Fit matched pedal with stops and clear footwell.\n\n**Verify.** Compare channels through full permitted travel."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Engine control, vapor and exhaust · Knock sensor to Muffler and resonator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Knock sensor\n\n**Function.** Detects block vibration used in combustion control.\n\n**Design.** Match frequency response, block location and clamping conditions.\n\n**Make, assemble or fit.** Install specified sensor on correct clean mounting face.\n\n**Verify.** Check circuit and permitted diagnostic data for plausibility.\n\n### Oxygen or air-fuel sensor\n\n**Function.** Reports exhaust oxygen for mixture control or monitoring.\n\n**Design.** Match narrow/wideband electronics, bank position, heater and thermal limits.\n\n**Make, assemble or fit.** Fit approved sensor and route wiring clear of exhaust heat and motion.\n\n**Verify.** Check heater and expected signal response using exact data.\n\n### Ignition coil\n\n**Function.** Raises voltage to initiate spark.\n\n**Design.** Match primary controls, dwell strategy, mounting and insulation.\n\n**Make, assemble or fit.** Install matched coil with intact boot and clean grounding where applicable.\n\n**Verify.** Compare command and cylinder response using approved test equipment.\n\n### Spark plug\n\n**Function.** Initiates spark at the combustion chamber.\n\n**Design.** Match thread reach, heat range, seat type, resistance and prescribed gap.\n\n**Make, assemble or fit.** Install matched plug on clean threads to its specified tightening procedure.\n\n**Verify.** Record gap where adjustable and inspect firing condition.\n\n### High-pressure fuel pump\n\n**Function.** Raises supply pressure for direct injection or common rail.\n\n**Design.** Match drive, rated pressure and control method to engine.\n\n**Make, assemble or fit.** Use trained, clean-system installation and exact pressure isolation and line-replacement rules.\n\n**Verify.** Use approved pressure data and leak procedure without hand searching.\n\n### Exhaust manifold and gasket\n\n**Function.** Collect hot exhaust from cylinders and seal the head joint.\n\n**Design.** Match port, thermal expansion, sensor and catalyst locations.\n\n**Make, assemble or fit.** Fit compatible manifold, gasket, shielding and supports per specification.\n\n**Verify.** Inspect leaks, sensor routing and hot clearances.\n\n### Catalytic converter\n\n**Function.** Converts specified pollutants in the exhaust.\n\n**Design.** Select the lawful and approved application, position, volume and control arrangement.\n\n**Make, assemble or fit.** Install applicable replacement or retained donor unit with correct sensors and hangers.\n\n**Verify.** Verify original control functions, leaks and applicable inspection evidence.\n\n### Muffler and resonator\n\n**Function.** Attenuate exhaust sound in different frequency bands.\n\n**Design.** Choose flow capacity, internal acoustic design, space and heat clearance.\n\n**Make, assemble or fit.** Build supported downstream tubing around compatible silencing components.\n\n**Verify.** Check leaks, cabin drone, applicable noise rules and clearance when hot."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Engine control, vapor and exhaust · Exhaust hanger and flex section to SCR catalyst and reductant injector",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Exhaust hanger and flex section\n\n**Function.** Allow powertrain motion without stressing hot joints.\n\n**Design.** Choose travel, support spacing, thermal expansion and material.\n\n**Make, assemble or fit.** Place compliant supports on reviewed brackets with correct flex alignment.\n\n**Verify.** Check clearance cold/hot and with expected engine movement.\n\n### Heat shield\n\n**Function.** Reduces radiant heat reaching body, fuel, wiring or occupants.\n\n**Design.** Design shielding coverage, air gap, attachment and corrosion allowance.\n\n**Make, assemble or fit.** Pattern and form sheet on a bench, hem edges and isolate dissimilar materials.\n\n**Verify.** Measure protected-side temperature at matched duty and inspect attachments.\n\n### EGR valve and cooler\n\n**Function.** Meter and cool recirculated exhaust where fitted.\n\n**Design.** Match flow, controls and cooling circuit to rated donor configuration.\n\n**Make, assemble or fit.** Fit matched clean passages and approved hardware.\n\n**Verify.** Compare command, flow response and leakage.\n\n### EVAP canister\n\n**Function.** Stores fuel vapor for controlled purge.\n\n**Design.** Match capacity, vent routing and permitted vehicle system.\n\n**Make, assemble or fit.** Fit approved canister upright as specified with correct vapor-resistant lines.\n\n**Verify.** Run the manufacturer's approved monitor or leak check.\n\n### Purge and vent valves\n\n**Function.** Connect stored vapor to intake and manage venting or leak tests.\n\n**Design.** Match normally open/closed state, flow and connector to donor.\n\n**Make, assemble or fit.** Install identified valves on their correct ports without swapping lines.\n\n**Verify.** Command each valve and verify expected pressure/flow response.\n\n### Diesel oxidation catalyst\n\n**Function.** Oxidizes selected exhaust constituents in its intended thermal range.\n\n**Design.** Match certified engine and aftertreatment sequence.\n\n**Make, assemble or fit.** Fit the correct assembly with specified sensors and insulation.\n\n**Verify.** Check inlet/outlet data and monitor results.\n\n### Diesel particulate filter\n\n**Function.** Traps particulates for controlled regeneration and servicing.\n\n**Design.** Match ash capacity, pressure sensing and engine configuration.\n\n**Make, assemble or fit.** Fit specified DPF and reconnect indexed pressure tubes and temperature sensors.\n\n**Verify.** Check pressure differential at known flow and approved service history.\n\n### SCR catalyst and reductant injector\n\n**Function.** Convert NOx using metered reductant.\n\n**Design.** Match catalyst, injector, dosing control and temperature window.\n\n**Make, assemble or fit.** Install matched unit, lines and sensors using clean approved materials.\n\n**Verify.** Check dosing, NOx feedback and required readiness."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Vapor and diesel detail · EVAP vapor line to DEF tank and delivery pump",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### EVAP vapor line\n\n**Function.** Carries tank vapors between tank, canister and engine.\n\n**Design.** Use compatible low-permeation hose and routing with no unintended liquid traps.\n\n**Make, assemble or fit.** Install specified line, indexed fittings and supports away from exhaust heat.\n\n**Verify.** Verify routing and sealing with the approved EVAP test.\n\n### DPF differential-pressure sensor and tubes\n\n**Function.** Measure exhaust pressure difference across the particulate filter.\n\n**Design.** Match range, port order, heat-resistant tubes and sensor location.\n\n**Make, assemble or fit.** Fit the matched sensor and route upstream/downstream tubes to correct taps.\n\n**Verify.** Check zero/equal-pressure plausibility and readings under specified flow.\n\n### NOx sensor and controller\n\n**Function.** Measure exhaust NOx in the intended monitoring position.\n\n**Design.** Match generation, upstream/downstream location, wiring and thermal limits.\n\n**Make, assemble or fit.** Fit vehicle-specific sensor and follow any required initialization.\n\n**Verify.** Check specified warm-up, diagnostics and response data.\n\n### DEF tank and delivery pump\n\n**Function.** Store and supply reductant to the SCR dosing system.\n\n**Design.** Match reductant-compatible materials, heating provisions and controller.\n\n**Make, assemble or fit.** Fit approved tank, pump and lines with scrupulous cleanliness.\n\n**Verify.** Check commanded pressure, level and freeze-protection functions as equipped."
+  },
+  {
+   "id": "mod-cat-back-exhaust-and-resonator",
+   "title": "Modification · Cat-back exhaust and resonator",
+   "body": "**Purpose.** Change sound character, reduce drone or address a measured downstream restriction.\n\n**Design and baseline.** Locate all original catalysts, sensors and any downstream emissions hardware first. Choose lawful routing, tube size, resonator volume, hangers and hot clearances. Check local noise requirements.\n\n**Build and installation.** Mock up the downstream route with bends and a slip joint before cutting. Support the assembly independently, tack on a fixture using qualified hot-work controls and retain factory emissions branches and shields.\n\n**Test and disposition.** Check leaks and cabin fumes with proper equipment, measure comparable interior/exterior sound at defined rpm, inspect hot movement and verify unchanged emissions-system operation.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-ecu-calibration-for-matched-hardware",
+   "title": "Modification · ECU calibration for matched hardware",
+   "body": "**Purpose.** Coordinate a documented hardware change, torque request or drivability problem.\n\n**Design and baseline.** Record baseline calibration ID and faults, fuel specification, authorized hardware/calibration combination, emissions evidence for intended use, knock margin and rollback. Identify the actual problem before changing control settings.\n\n**Build and installation.** Use a qualified calibrator and a documented applicable calibration; preserve OE protections and required monitors. Establish a stable supply and recovery path and commission on an instrumented facility.\n\n**Test and disposition.** Compare matched torque, fueling, knock indicators, thermal limits, drive quality and monitor behavior. A passing scan or a marketing claim alone cannot establish road-use legality.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-fuel-pump-or-injector-capacity-upgrade",
+   "title": "Modification · Fuel pump or injector capacity upgrade",
+   "body": "**Purpose.** Maintain required delivery and control when actual demand exceeds a validated baseline.\n\n**Design and baseline.** Compare required flow at operating pressure and voltage, pump reserve, injector characterization at low and high pulse widths, controller support and legal configuration.\n\n**Build and installation.** Use matched rated pump, injector seals, filters, lines and electrical feed. Route and commission with fuel-system specialists for high-pressure work and retain required vapor control.\n\n**Test and disposition.** Verify pressure and available delivery under demand, idle/transition response, hot restart and approved leak checks. Oversizing without characterization can impair operation.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-application-approved-exhaust-manifold-or-header",
+   "title": "Modification · Application-approved exhaust manifold or header",
+   "body": "**Purpose.** Address measured restriction, packaging or a cracked original while preserving emissions performance.\n\n**Design and baseline.** Compare flange, runner layout, heat load, catalyst location/light-off, sensor positions and local noise. Verify legally applicable configuration before buying or fabricating.\n\n**Build and installation.** Template surrounding steering, brake and fuel clearances. Use a documented eligible assembly or reviewed lawful design, fit specified gaskets, heat shields, flex section and independent exhaust supports.\n\n**Test and disposition.** Verify sealing, thermal clearance through movement, sensor performance and applicable emissions evidence. Compare matched torque or pressure measurements if a performance claim was made.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF216/217 cover fuel injection inputs, outputs and diagnosis. UVU AUT2255 works with electronic fuel delivery and scan data. ASE computerized control tasks 5 and 7 (PDF pp. 94–95) address sensor/circuit tests and graphed control data. The cases use recorded data or a current-limited simulator. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Select a gasoline sensor fault. Compare sensor bias with a wiring fault, name the evidence each predicts, and give a test that separates them. Include a diesel aftertreatment comparison and a model-specific hybrid handoff for an energized-vehicle concern."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A scan record, a diagnosed physical trainer and a verified restoration."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The selected test differentiates the hypotheses and the restored state is actually measured."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "A synchronized trace of supply, reference and both outputs, a written branch-isolation prediction, post-isolation evidence and verification after restoration."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design a two-hypothesis diagnostic test",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Select a gasoline sensor fault. Compare sensor bias with a wiring fault, name the evidence each predicts, and give a test that separates them. Include a diesel aftertreatment comparison and a model-specific hybrid handoff for an energized-vehicle concern. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Fuel supply and storage; Airflow and throttle; Ignition; Exhaust manifold and feedback; Gasoline controls; Diesel aftertreatment. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Separate an acoustic improvement from an emissions change",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Mock up a removable cold exhaust section in card or tube off the vehicle. Locate service joints, hot-movement allowance and retained emissions interfaces; compare two acoustic designs on paper or a safe sound fixture. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Capture a real scan and diagnose a trainer fault",
+   "module": "m3",
+   "adult": true,
+   "intro": "A scan record, a diagnosed physical trainer and a verified restoration. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use a protected low-voltage trainer for introduced faults. No emissions-control modification or traction-voltage work. Run a combustion vehicle outdoors only where authorized."
+   ],
+   "materials": [
+    "Fault-capable physical OBD trainer and compatible scan tool",
+    "Trainer schematic and expected values",
+    "Applicable service and emergency information"
+   ],
+   "steps": [
+    "Read and save baseline live values, units, code state and available freeze-frame/readiness data.",
+    "Ask a partner to select a hidden trainer fault. Test two hypotheses with independent evidence.",
+    "Record the identified cause, restore the trainer and compare the original variables. Explain code history or monitor states that persist.",
+    "Label any unsupported fields and document differences from a real vehicle. Identify the qualified handoff for the hybrid example."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Condition",
+      "Signal and units",
+      "Independent reference",
+      "Code or readiness state",
+      "Conclusion"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The selected test differentiates the hypotheses and the restored state is actually measured. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Read a fault timeline before replacing the named sensor — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A fault timeline, competing hypotheses and an evidence-based repair disposition.",
+   "safety": [
+    "Use the current-limited simulator or provided traces. De-energize the simulator before isolating branches. Keep vehicle emission controls intact."
+   ],
+   "materials": [
+    "Current-limited simulator or recorded traces with time, reference, supply, ground and sensor channels, plus the matching diagram"
+   ],
+   "steps": [
+    "Read “Distinguish unmetered air from a fuel-delivery shortfall”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Use a current-limited sensor trainer or recorded traces. Identify the earliest change, label the points that share a supply or ground, and write down a prediction before the isolation test. Restore the normal circuit and compare both sensor range and reference stability at the original load. On the capstone file record what would count as a verified repair under the original enabling conditions. A cleared code alone is insufficient evidence.",
+    "File the following evidence with the course project. A fault timeline, competing hypotheses and an evidence-based repair disposition."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Timestamp / load",
+      "Command",
+      "Reference V",
+      "Sensor A / B",
+      "First change",
+      "Retest result"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-electrical",
+  "auto-powertrain"
+ ]
+}

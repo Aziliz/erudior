@@ -1,0 +1,1265 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-suspension-build",
+ "title": "Suspension Geometry, Design and Fabrication",
+ "author": "Erudior",
+ "revision": 2,
+ "description": "Compare five wheel-guidance layouts, springs, dampers and roll control. Design and fabricate a suspension corner, then measure wheel travel, camber and toe. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A local motion-ratio measurement and a bump-steer curve with a return check.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Suspension theory",
+   "quiz": [
+    "suspension-build-1-q2",
+    "cmp-suspension-families-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Geometry design",
+   "quiz": [
+    "suspension-build-2-q2",
+    "cmp-spring-damper-q2",
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Fabrication and assembly",
+   "quiz": [
+    "suspension-build-3-q3",
+    "shop-change-suspension-build",
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Validation",
+   "quiz": [
+    "suspension-build-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "suspension-build-1",
+   "module": "m1",
+   "title": "Predict wheel motion from link constraints",
+   "minutes": 20,
+   "topics": [
+    "Suspension theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Brake, Steering and Suspension Service, Chassis Design, Welding and Fabrication, or demonstrate the equivalent workshop skills.\n\nCamber is wheel tilt viewed from the front. Toe describes wheel heading viewed from above. Caster describes the steering axis in side view. Unequal-length links move the top and bottom of the upright on different arcs. The tie rod follows its own arc. If the arcs disagree, wheel heading changes through vertical travel even with the rack held centered. This is bump steer.\n\n## Worked shop case\n\nAt reference height toe is +0.10° on a declared toe-in-positive convention. At bump it becomes −0.20°. Subtract the initial reading from the final one. The wheel changed by −0.30°, toward toe-out.\n\n## Guided practice\n\nWith toe-in positive, toe moves from +0.2° to −0.1°. Enter the signed change in degrees.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A physical suspension corner, reviewed drawings, measured plots and a revision decision.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "suspension-build-1-q1",
+    "suspension-build-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-suspension-families",
+   "module": "m1",
+   "title": "Strut, double wishbone, multilink, twist beam and live axle",
+   "minutes": 25,
+   "topics": [
+    "Strut, double wishbone, multilink, twist beam and live axle"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Identify which features locate the wheel center, carry vertical load and steer the upright. A MacPherson strut provides structural guidance alongside a lower arm; tower height and top mount matter. Double wishbones use upper and lower arms, allowing the designer to tune camber change through hard-point placement, with extra packaging and joints. A multilink system distributes constraints across links and bushings; changing one pickup can alter toe, camber and compliance together. Count and function of constraints matter more than marketing names.\n\nA twist-beam rear uses trailing arms joined by a beam that resists relative twist, so left and right motion is coupled. A live axle carries the differential and axle shafts with the wheels and generally adds unsprung mass. Independent drives can mount the differential to the chassis and use articulated shafts. Compare wheel travel, camber and toe, roll behavior, steering clearance, joint articulation, drive/brake loads and the routes those loads take to the body.\n\n## Worked shop case\n\nA short strut tower conflicts with an intended hood line. A double-wishbone concept offers a different upper load path but needs space for the upper arm through bump and steer. Before changing the chassis, overlay wheel, tire, arms and spring/damper across travel and identify pickup reactions on both candidate frames.\n\n## Guided practice\n\n```example fade=2\nproblem: A beam axle model moves one wheel upward while the other rests on the ground. What do you watch?\nstep: Observe axle orientation and motion of the far wheel and body.\nstep: Compare this with independent wheel guidance at the same body position.\nanswer: Record coupled movement and contact/clearance effects under the same boundary conditions.\n```\n\n## Independent shop or design task\n\nBuild the course's original suspension corner. Draw a second architecture for the same upright and compare hard points, body load paths, wheel/toe/camber travel and service access. Record which actual measurements validate your final layout.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-suspension-families-q1",
+    "cmp-suspension-families-q2"
+   ]
+  },
+  {
+   "id": "cmp-spring-damper",
+   "module": "m2",
+   "title": "Springs, dampers, anti-roll bars and compliant joints",
+   "minutes": 25,
+   "topics": [
+    "Springs, dampers, anti-roll bars and compliant joints"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Coil springs support load by deflecting. A leaf pack can support load and help locate an axle. A torsion bar supplies spring force through twist. An air spring uses compressed gas and its effective area and installed volume influence rate. A damper dissipates motion energy; a conventional damper cannot replace the spring's static support function. An anti-roll bar couples left/right motion and adds resistance to difference in wheel travel. Matched heave on an ideal symmetric installation produces little bar twist. A strut can combine spring support, damping and wheel guidance.\n\nDefine motion ratio as spring travel divided by wheel travel near the position of interest. Over a small interval of nearly constant motion ratio, neglect geometric stiffness from spring preload. In this ideal model the wheel rate due to the spring is spring rate times motion ratio squared. Do not use an inverse definition in the same calculation. Bushing stiffness, tire compliance, geometry and anti-roll elements affect real corner response. Inspect clearance, joint misalignment, droop stops, bump stops and spring containment through travel using the approved unloaded fixture. Stored spring energy calls for the correct equipment and supervision.\n\n## Worked shop case\n\nA 40 N/mm spring moves 0.75 mm for 1 mm of wheel travel. Its local wheel rate is 40 × 0.75² = 22.5 N/mm. Moving the spring pickup inward can reduce that rate even with exactly the same spring. It can also change damper shaft speed for a given wheel speed.\n\n## Guided practice\n\n```example fade=2\nproblem: Select between two dampers with similar length but different compression curves.\nstep: Identify wheel-speed range and motion ratio.\nstep: Convert to damper shaft speed and compare the supplied force curves.\nanswer: Check travel and hard limits separately. Length alone cannot establish damping performance.\n```\n\n## Independent shop or design task\n\nMeasure wheel travel and spring or damper pickup travel at three rig positions. Compare the local motion ratios with the drawing and document bump, droop, containment and reviewer disposition before considering a vehicle installation.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-spring-damper-q1",
+    "cmp-spring-damper-q2"
+   ]
+  },
+  {
+   "id": "suspension-build-2",
+   "module": "m2",
+   "title": "Lay out and review the hard points",
+   "minutes": 20,
+   "topics": [
+    "Geometry design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-matched-springs-dampers-or-coilovers",
+    "mod-anti-roll-bar-and-end-links",
+    "mod-alignment-and-adjustable-arms",
+    "mod-ride-height-lift-or-larger-tire-package",
+    "mod-bushings-or-spherical-joints"
+   ],
+   "body": "Set chassis-fixed datums, signs and a nominal ride height. Locate control-arm pivots, ball joints, steering rack and tie-rod ends in three dimensions. Include the chosen upright, tire envelope, damper and brake-hose routing. Predict camber and toe at several fixed travel stations, including droop. Assess combined braking, bump and cornering loads with a qualified chassis reviewer before any vehicle-use arm is made.\n\n## Worked shop case\n\nUsing shock travel divided by wheel travel as the motion ratio, 15 mm shock movement for 30 mm wheel movement gives 0.5. Reversing this ratio changes the predicted wheel rate, so explicitly state which displacement is the numerator.\n\n## Guided practice\n\nA damper moves 18 mm during 30 mm of wheel travel. Using damper/wheel convention, what is the motion ratio?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSelect a real upright and wheel. Submit a dimensioned coordinate table, damper/wheel convention, travel stations and predicted toe/camber curves. Mark load cases, joint-angle limits and clearance envelopes. Have a qualified chassis reviewer evaluate the proposed joints, materials and structure before vehicle-use fabrication.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "suspension-build-2-q1",
+    "suspension-build-2-q2"
+   ]
+  },
+  {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Turn spring position into wheel rate and travel margin",
+   "minutes": 30,
+   "topics": [
+    "Turn spring position into wheel rate and travel margin"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Define motion ratio before using it. In this lesson r means spring displacement divided by vertical wheel displacement near one ride position. For an ideal lossless linear mechanism, force balance and displacement give wheel rate approximately equal to spring rate times r squared. A coilover moved inward on a control arm can lower wheel rate even if it retains the same spring. A real ratio can change through travel and with link angle.\n\n**Worked comparison.** A 60 N/mm spring with r = 0.80 gives 38.4 N/mm at the wheel. Moving the pickup so r = 0.60 yields 21.6 N/mm at the same local condition. A 40 mm wheel displacement corresponds to 24 mm at the spring if the latter ratio stays constant. Check damper stroke, spring seating, bump-stop engagement, tire clearance, hose routing and joint articulation across travel. Rate at ride height does not prove that travel is safe at bump and droop.\n\n**Plan a measurement.** On the unloaded geometry fixture choose a repeatable wheel-center datum, zero position and a dummy spring-length gauge. Mark independent wheel and spring scales. Make a prediction at three positions. Compare a strut, double wishbone and linked solid axle by locating the spring and the wheel-force path. Keep actual spring removal and structural pickup design within appropriately equipped and qualified work.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "suspension-build-3",
+   "module": "m3",
+   "title": "Build an unloaded front corner fixture",
+   "minutes": 15,
+   "topics": [
+    "Fabrication and assembly"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Fabricate locating fixtures and the instructional arm or link to the reviewed drawing. Use suitable commercially specified bearings, ball joints, hub and fasteners. Isolate the rig from vehicle use and spring preload during the geometry survey. Secure the upright and any moving masses so they cannot fall. Observe joint articulation and hose and tire envelopes while an operator moves the rig through its permitted travel.\n\n## Worked shop case\n\nThe drawing predicts 5 mm clearance at bump. A witness strip is crushed during the sweep. The nominal drawing has failed to describe the as-built envelope. Identify the interference and revise the assembly before accepting that position.\n\n## Guided practice\n\nPredicted clearance is 8 mm and measured clearance is 3 mm. Give the magnitude of the discrepancy in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nA spring-free geometry sweep demonstrates kinematics. Safe road use also requires material, joint, fatigue, steering and vehicle-level review under the intended-use criteria. Use guarding and energy controls where applicable in the workplace and check the rules in the registration jurisdiction. Preserve an inspection record for safety-related equipment. A supplier's certification for an item covers that item; it does not certify the assembled car.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [Colorado DMV — certified VIN inspections for custom-built vehicles](https://dmv.colorado.gov/vin-inspections)\n\n## Workshop preparation\n\nSupport moving masses independently, guard pinch points and use an experienced fabrication supervisor. Remove spring loads by an appropriate professional procedure before this unloaded test. Mark the fixture as a prototype.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "suspension-build-3-q1",
+    "suspension-build-3-q2",
+    "suspension-build-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Separate spring rate from installed wheel rate",
+   "minutes": 35,
+   "topics": [
+    "Separate spring rate from installed wheel rate"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1",
+    "mod-matched-springs-dampers-or-coilovers",
+    "mod-anti-roll-bar-and-end-links",
+    "mod-alignment-and-adjustable-arms",
+    "mod-ride-height-lift-or-larger-tire-package",
+    "mod-bushings-or-spherical-joints",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nWheel guidance and compliance, Suspension service hardware. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Matched springs, dampers or coilovers\n- Anti-roll bar and end links\n- Alignment and adjustable arms\n- Ride-height lift or larger tire package\n- Bushings or spherical joints\n\n## Worked example\n\nA spring-free teaching corner moves the spring seat 20 mm while the wheel moves 40 mm. Here the local spring/wheel motion ratio is 0.5. With a 60 N/mm spring, near-constant ratio and negligible preload geometry effects, local spring contribution to wheel rate is 15 N/mm. A shorter spring by itself says nothing about that rate.\n\n## Guided decision\n\n```example fade=1\nproblem: If the same 60 N/mm spring has a local spring/wheel ratio of 0.8, what rate follows in the same model?\nstep: Multiply 60 by 0.8 squared.\nanswer: 38.4 N/mm. Recheck wheel travel, bump-stop contact and damping separately.\n```\n\n## Independent workshop\n\nUse the spring-free rig to compare two pickup or ride-height configurations. Record wheel position, motion ratio, toe, camber and clearance over actual travel.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-suspension-build"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Measure bump steer separately from lateral wheel movement",
+   "minutes": 45,
+   "topics": [
+    "Measure bump steer separately from lateral wheel movement"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A tie rod tracing a different arc from the suspension links can steer the upright while the steering rack stays fixed. Measuring the lateral motion of one rim point alone mixes steer with the entire wheel moving sideways. Use two points separated fore and aft on a rigid toe plate, measured from a common fixture reference. State which direction is positive before taking data. An actual alignment rig needs its own calibrated procedure.\n\n**Worked fixture.** Two gauge points are 400 mm apart. Through one travel step the front point moves laterally +3 mm and the rear moves +1 mm relative to the baseline. Their mean, +2 mm, represents the plate's lateral translation near its center. Their 2 mm differential over 400 mm gives a small yaw change of roughly 0.005 rad, or 0.29 degrees. The toe-in or toe-out label depends on side of the vehicle and the sign convention. Reversing the two gauge labels reverses the computed sign.\n\n**Independent work.** On a spring-free, securely supported hand-operated trainer, lock the rack reference and measure front and rear gauge points at bump, ride and droop. Take a return-travel reading to reveal play or fixture movement. Plot differential displacement against wheel travel. Test a reviewed reversible change on the unloaded trainer and repeat the same sweep. Submit both curves and state the limitations before any vehicle application.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "suspension-build-4",
+   "module": "m4",
+   "title": "Plot the measured curve and evaluate a revision",
+   "minutes": 15,
+   "topics": [
+    "Validation"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Plot wheel travel on the horizontal axis and individual toe and camber readings on separate vertical axes. Repeat the midpoint on the return sweep to expose play or hysteresis. Change one mount location only under a reviewed fixture revision. A successful kinematic sweep does not demonstrate weld strength, fatigue life, high-speed stability or crash protection.\n\n## Worked shop case\n\nTwo curves agree at ride height but diverge at bump. Compare the full curves and physical clearance. A revised tie-rod height can improve the bump end and worsen droop, so inspect both.\n\n## Guided practice\n\nThe same travel station reads +0.4° on the upward sweep and +0.1° on return. What is their absolute difference in degrees?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nTwo measured sweeps, predicted curves and a justified revision are present; structural review remains separately documented. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "suspension-build-4-q1",
+    "suspension-build-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-suspension-build-bank",
+   "title": "Suspension Geometry, Design and Fabrication practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Suspension theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Geometry design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Fabrication and assembly"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Validation"
+    }
+   ],
+   "exam": {
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "suspension-build-1-q1",
+     "section": "m1",
+     "topic": "Suspension theory",
+     "stem": "With toe-in positive, toe moves from +0.2° to −0.1°. Enter the signed change in degrees. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "-0.3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "−0.1 − 0.2 = −0.3°."
+    },
+    {
+     "id": "suspension-build-1-q2",
+     "section": "m1",
+     "topic": "Suspension theory",
+     "stem": "Which observation demonstrates bump steer?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Steering wheel position changes because the operator turns it.",
+      "Camber is negative at rest.",
+      "Toe changes as the wheel moves vertically while the rack is fixed."
+     ],
+     "explanation": "Holding the rack position isolates heading change induced by wheel travel."
+    },
+    {
+     "id": "suspension-build-2-q1",
+     "section": "m2",
+     "topic": "Geometry design",
+     "stem": "A damper moves 18 mm during 30 mm of wheel travel. Using damper/wheel convention, what is the motion ratio? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.6"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "18 ÷ 30 gives 0.6."
+    },
+    {
+     "id": "suspension-build-2-q2",
+     "section": "m2",
+     "topic": "Geometry design",
+     "stem": "Which geometry record allows the measured corner to be reconstructed?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "An unlabeled view of the outside of the car.",
+      "Coordinates of each pivot in one named coordinate system plus upright and joint orientation.",
+      "Control-arm lengths without mounting locations."
+     ],
+     "explanation": "Lengths alone leave the joint locations and directions ambiguous."
+    },
+    {
+     "id": "suspension-build-3-q1",
+     "section": "m3",
+     "topic": "Fabrication and assembly",
+     "stem": "Predicted clearance is 8 mm and measured clearance is 3 mm. Give the magnitude of the discrepancy in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "5"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "8 − 3 = 5 mm."
+    },
+    {
+     "id": "suspension-build-3-q2",
+     "section": "m3",
+     "topic": "Fabrication and assembly",
+     "stem": "Which condition makes an unloaded fixture test repeatable?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Fixed chassis datums, centered rack and a defined ride-height zero.",
+      "Different rack positions for each reading.",
+      "Applying an undocumented corner load by hand."
+     ],
+     "explanation": "A consistent reference isolates geometry changes."
+    },
+    {
+     "id": "suspension-build-3-q3",
+     "section": "m3",
+     "topic": "Fabrication and assembly",
+     "stem": "Select two conclusions that follow from a spring-free fixture sweep. Select all that apply.",
+     "choices": [
+      "Strength, fatigue and whole-car road behavior need separate validation.",
+      "Every supplied part's marking now certifies the homemade arm.",
+      "The fixture test certifies the entire car for public roads.",
+      "It can establish measured toe against travel over the tested range."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "A spring-free geometry sweep demonstrates kinematics. Safe road use also requires material, joint, fatigue, steering and vehicle-level review under the intended-use criteria. Use guarding and energy controls where applicable in the workplace and check the rules in the registration jurisdiction. Preserve an inspection record for safety-related equipment. A supplier's certification for an item covers that item; it does not certify the assembled car."
+    },
+    {
+     "id": "suspension-build-4-q1",
+     "section": "m4",
+     "topic": "Validation",
+     "stem": "The same travel station reads +0.4° on the upward sweep and +0.1° on return. What is their absolute difference in degrees? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The repeat difference is 0.3°. Investigate instrument setup and free play."
+    },
+    {
+     "id": "suspension-build-4-q2",
+     "section": "m4",
+     "topic": "Validation",
+     "stem": "A prototype tracks the desired curve. What remains before road use?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Nothing once the plot matches.",
+      "Paint approval only.",
+      "Structural and fatigue review, joint travel and vehicle-level validation."
+     ],
+     "explanation": "A motion plot tests geometry within its measured range."
+    },
+    {
+     "id": "cmp-suspension-families-q1",
+     "section": "m1",
+     "topic": "Strut, double wishbone, multilink, twist beam and live axle",
+     "stem": "Which design relies on its strut as a structural wheel-guiding member?",
+     "explanation": "Removing the structural strut would remove part of the wheel guidance.",
+     "choices": [
+      "A double-wishbone corner with a separately mounted damper between lower arm and chassis.",
+      "A conventional MacPherson strut corner.",
+      "A leaf-sprung live axle with separate telescopic dampers."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-suspension-families-q2",
+     "section": "m1",
+     "topic": "Strut, double wishbone, multilink, twist beam and live axle",
+     "stem": "Which check best reveals an unintended toe change after moving an inner link pickup?",
+     "explanation": "The wheel's orientation depends on linkage geometry through travel.",
+     "choices": [
+      "Measure paint thickness at ride height only.",
+      "Measure toe at a sequence of measured bump and rebound positions.",
+      "Read spring free length only."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-spring-damper-q1",
+     "section": "m2",
+     "topic": "Springs, dampers, anti-roll bars and compliant joints",
+     "stem": "Which component most directly adds resistance to opposite left and right wheel travel on a conventional axle pair?",
+     "explanation": "Relative movement twists the bar and produces resisting torque.",
+     "choices": [
+      "An anti-roll bar coupling the sides.",
+      "An uncoupled bearing seal.",
+      "A single wheel speed sensor."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-spring-damper-q2",
+     "section": "m2",
+     "topic": "Springs, dampers, anti-roll bars and compliant joints",
+     "stem": "For a 60 N/mm spring with spring-travel/wheel-travel ratio of 0.5, enter local wheel rate in N/mm in the stated ideal model.",
+     "explanation": "60 × 0.5 squared equals 15.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "15"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-suspension-build",
+     "section": "m3",
+     "topic": "Separate spring rate from installed wheel rate",
+     "stem": "A coilover lowers static ride height. What measurement directly catches a new steering or suspension interference?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A ground-to-fender measurement at center steering only.",
+      "The published stroke of the damper without wheel and tire installed.",
+      "Clearance across bump, droop and steering travel with the reviewed geometry and wheel/tire combination."
+     ],
+     "explanation": "Static ride height cannot locate an interference that occurs only in combined motion."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "18"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "For a 50 N/mm spring, with spring travel divided by wheel travel equal to 0.60, what is ideal local wheel rate in N/mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Turn spring position into wheel rate and travel margin",
+     "explanation": "50 × 0.60² = 18 N/mm for the stated ratio convention."
+    },
+    {
+     "choices": [
+      "Assume the ride-height ratio applies over the whole sweep.",
+      "Use only the unloaded spring free length.",
+      "Measure wheel and spring displacement across multiple travel positions."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q2",
+     "stem": "The ratio measured at ride height changes near full bump. Which approach addresses the change?",
+     "section": "m2",
+     "topic": "Turn spring position into wheel rate and travel margin",
+     "explanation": "The geometry can vary, so a local ratio need not describe full-stroke motion."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "The front and rear points on a rigid toe plate move laterally +5 mm and +2 mm, respectively. What is their differential displacement in mm, front minus rear? Enter the number only.",
+     "section": "m3",
+     "topic": "Measure bump steer separately from lateral wheel movement",
+     "explanation": "5 − 2 = 3 mm. Shared translation cancels in the difference."
+    },
+    {
+     "choices": [
+      "To reveal play, hysteresis or movement of the fixture.",
+      "To turn every calculated toe sign positive.",
+      "To replace the need for a measured wheel-travel datum."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "Why collect a return-travel reading on a hand-operated fixture?",
+     "section": "m3",
+     "topic": "Measure bump steer separately from lateral wheel movement",
+     "explanation": "A difference at the same nominal position can identify repeatability problems."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-suspension-build-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Hard point",
+     "back": "A reference coordinate defining a suspension or steering joint.",
+     "topic": "Suspension theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Which observation demonstrates bump steer?",
+     "back": "Toe changes as the wheel moves vertically while the rack is fixed. Holding the rack position isolates heading change induced by wheel travel.",
+     "topic": "Suspension theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Bump steer",
+     "back": "Toe change with vertical wheel travel at fixed rack position.",
+     "topic": "Geometry design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which geometry record allows the measured corner to be reconstructed?",
+     "back": "Coordinates of each pivot in one named coordinate system plus upright and joint orientation. Lengths alone leave the joint locations and directions ambiguous.",
+     "topic": "Geometry design"
+    },
+    {
+     "id": "c3a",
+     "front": "Droop",
+     "back": "Wheel travel away from the chassis relative to ride height.",
+     "topic": "Fabrication and assembly"
+    },
+    {
+     "id": "c3b",
+     "front": "Which condition makes an unloaded fixture test repeatable?",
+     "back": "Fixed chassis datums, centered rack and a defined ride-height zero. A consistent reference isolates geometry changes.",
+     "topic": "Fabrication and assembly"
+    },
+    {
+     "id": "c4a",
+     "front": "Motion ratio",
+     "back": "Here, damper displacement divided by vertical wheel displacement.",
+     "topic": "Validation"
+    },
+    {
+     "id": "c4b",
+     "front": "A prototype tracks the desired curve. What remains before road use?",
+     "back": "Structural and fatigue review, joint travel and vehicle-level validation. A motion plot tests geometry within its measured range.",
+     "topic": "Validation"
+    },
+    {
+     "id": "cmp-suspension-families-card",
+     "front": "Which design relies on its strut as a structural wheel-guiding member?",
+     "back": "A conventional MacPherson strut corner. Removing the structural strut would remove part of the wheel guidance.",
+     "topic": "Strut, double wishbone, multilink, twist beam and live axle"
+    },
+    {
+     "id": "cmp-spring-damper-card",
+     "front": "Which component most directly adds resistance to opposite left and right wheel travel on a conventional axle pair?",
+     "back": "An anti-roll bar coupling the sides. Relative movement twists the bar and produces resisting torque.",
+     "topic": "Springs, dampers, anti-roll bars and compliant joints"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A coilover lowers static ride height. What measurement directly catches a new steering or suspension interference?",
+     "back": "Clearance across bump, droop and steering travel with the reviewed geometry and wheel/tire combination. Static ride height cannot locate an interference that occurs only in combined motion.",
+     "topic": "Separate spring rate from installed wheel rate"
+    },
+    {
+     "id": "case-design-card",
+     "front": "The ratio measured at ride height changes near full bump. Which approach addresses the change?",
+     "back": "Measure wheel and spring displacement across multiple travel positions. The geometry can vary, so a local ratio need not describe full-stroke motion.",
+     "topic": "Turn spring position into wheel rate and travel margin"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Why collect a return-travel reading on a hand-operated fixture?",
+     "back": "To reveal play, hysteresis or movement of the fixture. A difference at the same nominal position can identify repeatability problems.",
+     "topic": "Measure bump steer separately from lateral wheel movement"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Hard point",
+   "definition": "A reference coordinate defining a suspension or steering joint.",
+   "topic": "Suspension theory"
+  },
+  {
+   "term": "Bump steer",
+   "definition": "Toe change with vertical wheel travel at fixed rack position.",
+   "topic": "Geometry design"
+  },
+  {
+   "term": "Droop",
+   "definition": "Wheel travel away from the chassis relative to ride height.",
+   "topic": "Fabrication and assembly"
+  },
+  {
+   "term": "Motion ratio",
+   "definition": "Here, damper displacement divided by vertical wheel displacement.",
+   "topic": "Validation"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[University of Delaware — Formula SAE Suspension design and fabrication report](https://cpb-us-w2.wpmucdn.com/sites.udel.edu/dist/e/299/files/2011/08/FSAE_Suspension_Phase_4_NN.pdf) · [George Mason University — mechanical engineering capstones, Patriot Motorsports](https://webdocs.gmu.edu/wp-content/uploads/2024-Capstone-Brochure-final-ATI.pdf) · [SAE International — Design of Formula SAE Suspension, abstract](https://saemobilus.sae.org/papers/design-formula-sae-suspension-2002-01-3310)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nA spring-free geometry sweep demonstrates kinematics. Safe road use also requires material, joint, fatigue, steering and vehicle-level review under the intended-use criteria. Use guarding and energy controls where applicable in the workplace and check the rules in the registration jurisdiction. Preserve an inspection record for safety-related equipment. A supplier's certification for an item covers that item; it does not certify the assembled car.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [Colorado DMV — certified VIN inspections for custom-built vehicles](https://dmv.colorado.gov/vin-inspections)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Wheel guidance; Spring and damper; Roll control and travel limits; Joints, knuckle and control arms. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Wheel guidance | Strut / double wishbone / multilink / twist beam / live axle | Guidance constraints, cross-axle coupling and body loads differ. | Plot camber and toe against wheel position using consistent datums. |\n| Spring and damper | Coil / leaf / torsion / air; separate shock / structural strut | Static load support, damping and wheel location are distinct functions. | Measure local motion ratio, wheel rate estimate and available stroke. |\n| Roll control and travel limits | Anti-roll bar / no cross-link; bump / droop stops | Cross-axle twist and terminal travel limits address different modes. | Check opposite-wheel travel, travel extremes and spring containment on the approved rig. |\n| Joints, knuckle and control arms | Ball joint / compliant bushing / spherical bearing | Articulation, stiffness, contamination, fatigue and service life change with choice. | Check misalignment, binding, loads and service limits against the reviewed design. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [ZF, multilink suspension systems](https://aftermarket.zf.com/en/aftermarket-portal/knowledge-hub/multi-link-suspension-systems/)\n\n- [KYB, shock versus strut](https://www.kyb.com/resource/faqs/whats-the-difference-between-shocks-and-struts/)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Wheel guidance and compliance · Upright or steering knuckle to Coil spring",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Upright or steering knuckle\n\n**Function.** Connects wheel bearing, steering arm and suspension points.\n\n**Design.** Review loads, bearing fit, steering geometry, brake attachment and fatigue.\n\n**Make, assemble or fit.** Choose compatible rated upright or have original design independently engineered and manufactured.\n\n**Verify.** Verify bore, pickup coordinates, cracks and interfaces using reviewed criteria.\n\n### Upper control arm\n\n**Function.** Locates upper upright and sets geometry through travel.\n\n**Design.** Define hard points, loads, bushings, articulation and clearance.\n\n**Make, assemble or fit.** Fixture a teaching arm to reviewed drawing; qualify structural joints separately.\n\n**Verify.** Measure pickup centers and camber/toe over rig travel.\n\n### Lower control arm\n\n**Function.** Transfers wheel forces to lower chassis pickups.\n\n**Design.** Determine bending and axial loads, motion ratio and ball-joint geometry.\n\n**Make, assemble or fit.** Use traceable arm or reviewed fabrication fixture and joining method.\n\n**Verify.** Check travel limits, fit, fastener retention and inspection evidence.\n\n### Trailing arm\n\n**Function.** Locates wheel longitudinally while swinging about a pivot.\n\n**Design.** Choose pivot axis, compliance, axle clearance and load path.\n\n**Make, assemble or fit.** Install matched donor part or engineer and jig prototype before production.\n\n**Verify.** Measure wheel path and compliance clearance.\n\n### Toe link\n\n**Function.** Controls rear or auxiliary steering angle through travel.\n\n**Design.** Choose inner/outer pivot positions, adjuster range and locking method.\n\n**Make, assemble or fit.** Install matched ends and spacers with documented engagement and articulation.\n\n**Verify.** Plot toe over travel and lock measured adjustment.\n\n### Ball joint\n\n**Function.** Provides multi-axis connection for loaded suspension members.\n\n**Design.** Match taper, load direction, retention and articulation.\n\n**Make, assemble or fit.** Install a rated joint with exact press or bolt-on procedure.\n\n**Verify.** Check seating, retention, movement and play limits.\n\n### Control-arm bushing\n\n**Function.** Allows controlled motion and isolates vibration.\n\n**Design.** Choose rubber, elastomer or spherical joint for load and compliance.\n\n**Make, assemble or fit.** Press the specified orientation; tighten bonded bushes at prescribed position.\n\n**Verify.** Record ride-height condition and verify free travel.\n\n### Coil spring\n\n**Function.** Carries load elastically.\n\n**Design.** Match rate, installed length, allowable travel and seat geometry.\n\n**Make, assemble or fit.** Source rated spring and fit with approved stored-energy controls.\n\n**Verify.** Check ride height, containment and full travel."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Wheel guidance and compliance · Leaf spring to Droop limiter",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Leaf spring\n\n**Function.** Supports load and may locate a rigid axle.\n\n**Design.** Choose pack rate, camber, shackle path and axle attachment.\n\n**Make, assemble or fit.** Install rated matched pack with specified bolts and U-bolts.\n\n**Verify.** Check axle alignment, shackle clearance and required torque follow-up.\n\n### Air spring\n\n**Function.** Supports load using compressed gas.\n\n**Design.** Determine pressure range, effective area, minimum height and stops.\n\n**Make, assemble or fit.** Fit matched air spring and rated fittings on reviewed mounts.\n\n**Verify.** Check leaks, alignment and clearance throughout travel.\n\n### Damper\n\n**Function.** Dissipates motion energy.\n\n**Design.** Choose stroke, extended length, motion ratio and damping curves.\n\n**Make, assemble or fit.** Install rated unit with proper bushings, orientation and hardware.\n\n**Verify.** Measure bump/droop margin and inspect response and leaks.\n\n### Strut and top mount\n\n**Function.** Guide the wheel and transmit spring/damper loads to the tower.\n\n**Design.** Match knuckle interface, tower load, bearing and travel.\n\n**Make, assemble or fit.** Use a matched strut assembly and approved spring-handling procedure.\n\n**Verify.** Check bearing rotation, wheel alignment and full steer clearance.\n\n### Anti-roll bar\n\n**Function.** Adds roll stiffness through opposed wheel movement.\n\n**Design.** Choose torsional stiffness, lever arms, mounting and balance.\n\n**Make, assemble or fit.** Fit a reviewed bar, lubricated bushes as specified and correctly oriented arms.\n\n**Verify.** Verify through-travel clearance and neutral setup at stated load.\n\n### End link\n\n**Function.** Transfers suspension motion to the bar.\n\n**Design.** Choose length, load rating and joint articulation.\n\n**Make, assemble or fit.** Fit matched joints and establish specified preload or neutral setting.\n\n**Verify.** Check for binding and record ride-height setup.\n\n### Bump stop\n\n**Function.** Limits jounce and progressively transfers load.\n\n**Design.** Define engagement point, energy absorption and protected clearances.\n\n**Make, assemble or fit.** Install rated stop and reviewed support pad on intended contact path.\n\n**Verify.** Measure contact position and remaining clearance.\n\n### Droop limiter\n\n**Function.** Restricts extension before joints or shafts overtravel.\n\n**Design.** Choose load rating, length and anchor geometry.\n\n**Make, assemble or fit.** Fit the designed limiting device to reviewed anchors.\n\n**Verify.** Check limiting sequence and joint angles at full extension."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Wheel guidance and compliance · Solid axle housing to Panhard rod or lateral locator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Solid axle housing\n\n**Function.** Carries differential, wheel ends and link reactions.\n\n**Design.** Match track, axle loads, bracket geometry and lubrication attitude.\n\n**Make, assemble or fit.** Select inspected housing; qualified shop fixtures any structural modification.\n\n**Verify.** Measure straightness, mount positions and drive angles.\n\n### Panhard rod or lateral locator\n\n**Function.** Controls lateral motion of a linked axle.\n\n**Design.** Choose length, inclination, roll center and end-joint travel.\n\n**Make, assemble or fit.** Fit reviewed rod and brackets at design ride height.\n\n**Verify.** Measure axle side shift and clearance through travel."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Suspension service hardware · Spring perch and isolator to Axle U-bolt and seat",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Spring perch and isolator\n\n**Function.** Locate the spring and isolate contact noise.\n\n**Design.** Match coil end shape, contact area, retention and allowable travel.\n\n**Make, assemble or fit.** Seat the correct isolator and index the coil to its specified stop.\n\n**Verify.** Verify position at ride height and full droop.\n\n### Strut bearing\n\n**Function.** Allows spring/strut assembly to turn during steering.\n\n**Design.** Match axial load, bearing stack and orientation.\n\n**Make, assemble or fit.** Install matched bearing and spring-seat order with approved spring controls.\n\n**Verify.** Check smooth rotation and absence of spring wind-up or binding.\n\n### Damper dust boot\n\n**Function.** Protects piston rod and seal from contamination.\n\n**Design.** Match rod, travel and space around the bump stop.\n\n**Make, assemble or fit.** Fit compatible boot without trapping or limiting moving components.\n\n**Verify.** Inspect through stroke for rubbing, tears or detachment.\n\n### Leaf-spring shackle\n\n**Function.** Accommodates eye-to-eye length change as a spring flexes.\n\n**Design.** Define shackle angle, travel, loads and clearance to body.\n\n**Make, assemble or fit.** Install matched pins and bushes to the specified loaded-state sequence.\n\n**Verify.** Check for inversion, bind and body contact across travel.\n\n### Axle U-bolt and seat\n\n**Function.** Clamp a leaf-sprung axle to its locating seat.\n\n**Design.** Match axle diameter, material, clamp, thread and locking method.\n\n**Make, assemble or fit.** Fit specified new hardware where required and tighten evenly to source sequence.\n\n**Verify.** Record seating, axle position and required torque reinspection."
+  },
+  {
+   "id": "mod-matched-springs-dampers-or-coilovers",
+   "title": "Modification · Matched springs, dampers or coilovers",
+   "body": "**Purpose.** Change ride height, wheel rate or damping response for a stated use.\n\n**Design and baseline.** Measure axle loads, motion ratio, ride height and existing bump/droop travel. Choose rate, damping curve, stroke and spring retention together.\n\n**Build and installation.** Mock wheel travel on the spring-free approved corner rig. Fit rated matched assemblies using approved stored-energy controls, set initial height by product data, then settle and align.\n\n**Test and disposition.** Record bump/droop, tire and shaft clearance, camber/toe curves and repeatable ride/handling behavior. Reject bottoming, unseated springs or joint bind.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)"
+  },
+  {
+   "id": "mod-anti-roll-bar-and-end-links",
+   "title": "Modification · Anti-roll bar and end links",
+   "body": "**Purpose.** Change roll stiffness distribution or balance while retaining heave compliance.\n\n**Design and baseline.** Compare baseline balance, bar lever arm and rate, linkage motion, tire grip and axle interaction. Equal-looking holes can give different leverage.\n\n**Build and installation.** Fit chassis-matched bar, bushes and links on reviewed mounts; use specified lubrication and neutral/preload setup at the prescribed ride condition.\n\n**Test and disposition.** Sweep opposite-wheel travel. Compare body roll and handling on a controlled repeat, checking for inside-wheel unloading and link bind.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)"
+  },
+  {
+   "id": "mod-alignment-and-adjustable-arms",
+   "title": "Modification · Alignment and adjustable arms",
+   "body": "**Purpose.** Set camber, caster or toe to suit duty, tire wear and response.\n\n**Design and baseline.** Define alignment under specified vehicle load. Review steering axis, tire temperatures/wear, joint articulation and minimum thread engagement; anticipate toe changes after camber changes.\n\n**Build and installation.** Use approved adjustable components, establish reference ride height, set alignment on suitable equipment, lock adjusters and remeasure after settling.\n\n**Test and disposition.** Retain before/after alignment sheets and full-travel toe/clearance checks. Check straight-ahead stability, wear and retained settings over the planned interval.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)"
+  },
+  {
+   "id": "mod-ride-height-lift-or-larger-tire-package",
+   "title": "Modification · Ride-height lift or larger tire package",
+   "body": "**Purpose.** Gain clearance at defined body or suspension points for a stated operating environment.\n\n**Design and baseline.** Map lowest body, axle and differential points separately. Check caster, driveshaft and CV angles, hose length, wheel travel, rollover/stability effects, calibration triggers and local equipment-height requirements.\n\n**Build and installation.** Use an engineered model-specific system. Measure the baseline laden/unladen configuration, mock wheel sweep and axle travel, then fit the matched geometry corrections and protected lines under qualified supervision.\n\n**Test and disposition.** Record actual clearance at each limiting point, bump/droop, drive angles, alignment, speed accuracy and calibration. A body lift alone leaves a rigid axle differential at the same height on unchanged tires.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)"
+  },
+  {
+   "id": "mod-bushings-or-spherical-joints",
+   "title": "Modification · Bushings or spherical joints",
+   "body": "**Purpose.** Reduce unwanted compliance or restore a deteriorated locating joint.\n\n**Design and baseline.** Separate worn rubber from deliberate compliance. Compare load direction, rotation, vibration, sealing and maintenance, and check that constraining one axis does not bind a multi-axis joint.\n\n**Build and installation.** Measure the original joint and angular envelope. Select rated compatible parts; use the proper press supports, orient directional bushes and tighten at the specified position.\n\n**Test and disposition.** Compare motion and alignment under matched load, check noise, articulation and clearance at travel extremes, and set an inspection interval.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [KYB, alignment after strut replacement](https://www.kyb.com/resource/faqs/do-i-need-to-align-my-wheels-after-replacing-my-struts/)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry Motorsports Management and Technology connects chassis work to vehicle setup. Northwest Technical College’s motorsports program combines chassis and fabricated components. This case assesses motion-ratio and toe-plate measurements on an unloaded fixture. Real pickup design requires qualified engineering. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Select a real upright and wheel. Submit a dimensioned coordinate table, damper/wheel convention, travel stations and predicted toe/camber curves. Mark load cases, joint-angle limits and clearance envelopes. Have a qualified chassis reviewer evaluate the proposed joints, materials and structure before vehicle-use fabrication."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A physical suspension corner, reviewed drawings, measured plots and a revision decision."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Two measured sweeps, predicted curves and a justified revision are present; structural review remains separately documented."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Measured wheel and spring travel, both toe-plate points, a return check and two labeled comparison sweeps for the baseline and reviewed change on the unloaded fixture."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design the first suspension corner",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Select a real upright and wheel. Submit a dimensioned coordinate table, damper/wheel convention, travel stations and predicted toe/camber curves. Mark load cases, joint-angle limits and clearance envelopes. Have a qualified chassis reviewer evaluate the proposed joints, materials and structure before vehicle-use fabrication. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Wheel guidance; Spring and damper; Roll control and travel limits; Joints, knuckle and control arms. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Separate spring rate from installed wheel rate",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Use the spring-free rig to compare two pickup or ride-height configurations. Record wheel position, motion ratio, toe, camber and clearance over actual travel. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Fabricate and measure one full-size corner",
+   "module": "m3",
+   "adult": true,
+   "intro": "A physical suspension corner, reviewed drawings, measured plots and a revision decision. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Support moving masses independently, guard pinch points and use an experienced fabrication supervisor. Remove spring loads by an appropriate professional procedure before this unloaded test. Mark the fixture as a prototype."
+   ],
+   "materials": [
+    "Measured upright and wheel envelope",
+    "Reviewed arm and fixture drawings, secure spring-free rig",
+    "Camber/toe instrumentation, rule and travel control"
+   ],
+   "steps": [
+    "Make the locating jig and at least one link or arm. Inspect attachment coordinates before assembly.",
+    "Install the real upright, hub, steering linkage and wheel envelope. Establish ride height and signs.",
+    "Sweep at five or more stations through bump and droop; record toe, camber, articulation and minimum clearance. Repeat a midpoint in reverse.",
+    "Against prediction, revise one reviewed fixture parameter and repeat the sweep. Record structural questions separately before adopting parts for the car."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Travel and direction",
+      "Predicted toe/camber",
+      "Measured toe/camber",
+      "Clearance",
+      "Revision"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Two measured sweeps, predicted curves and a justified revision are present; structural review remains separately documented. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Measure bump steer separately from lateral wheel movement — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A local motion-ratio measurement and a bump-steer curve with a return check.",
+   "safety": [
+    "Secure the unloaded, spring-free fixture before sweeping it by hand. Verify stable support and clear pinch zones. Do not alter a loaded vehicle suspension for this exercise."
+   ],
+   "materials": [
+    "Secure unloaded spring-free geometry trainer, fixed rack reference, dummy spring gauge, rigid toe plate and two measuring stations"
+   ],
+   "steps": [
+    "Read “Turn spring position into wheel rate and travel margin”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a spring-free, securely supported hand-operated trainer, lock the rack reference and measure front and rear gauge points at bump, ride and droop. Take a return-travel reading to reveal play or fixture movement. Plot differential displacement against wheel travel. Test a reviewed reversible change on the unloaded trainer and repeat the same sweep. Submit both curves and state the limitations before any vehicle application.",
+    "File the following evidence with the course project. A local motion-ratio measurement and a bump-steer curve with a return check."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Travel / direction",
+      "Wheel displacement",
+      "Dummy spring travel",
+      "Toe front",
+      "Toe rear",
+      "Computed difference"
+     ],
+     "rows": 8
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-brakes",
+  "auto-fabrication"
+ ]
+}

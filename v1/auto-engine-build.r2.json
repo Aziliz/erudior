@@ -1,0 +1,1328 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-engine-build",
+ "title": "Scratch-Built Engines and Precision Machining",
+ "author": "Erudior",
+ "revision": 2,
+ "description": "Compare blocks, pistons, rings, bearings, valvetrains and lubrication architectures. Machine and assemble an original bench engine and document its witnessed run. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A clearance limit calculation and a labeled bore or journal measurement map.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Engine design theory",
+   "quiz": [
+    "engine-build-1-q2",
+    "cmp-rotating-assembly-q2",
+    "cmp-valvetrain-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Machining design",
+   "quiz": [
+    "engine-build-2-q2",
+    "cmp-oil-systems-q2",
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Engine manufacture",
+   "quiz": [
+    "engine-build-3-q3",
+    "shop-change-engine-build",
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Engine testing",
+   "quiz": [
+    "engine-build-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "engine-build-1",
+   "module": "m1",
+   "title": "Relate swept volume to breathing and heat",
+   "minutes": 20,
+   "topics": [
+    "Engine design theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-1-5",
+    "parts-2-1",
+    "parts-2-2"
+   ],
+   "body": "Entry skills: complete Engine and Drivetrain Service, Chassis Design, Welding and Fabrication, or demonstrate the equivalent workshop skills.\n\nSwept volume is piston area times stroke. Clearance volume remains above the piston at top dead center. Their sum divided by clearance volume gives geometric compression ratio. A running design must also seal the chamber, admit mixture, time ignition, remove heat and deliver lubricant. Scaling the drawing of a model engine changes thermal and mechanical demands.\n\n## Worked shop case\n\nA cylinder with 90 cm³ swept volume and 10 cm³ clearance volume has a 10:1 geometric ratio. Halving clearance without changing stroke increases this ratio and changes mechanical and combustion margins.\n\n## Guided practice\n\nA cylinder sweeps 80 cm³ and retains 10 cm³ clearance. What is the geometric compression ratio, entered as a number?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A running, learner-machined bench engine, inspection sheets and witnessed run record.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "engine-build-1-q1",
+    "engine-build-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-rotating-assembly",
+   "module": "m1",
+   "title": "Blocks, bores, pistons, rings, rods and crankshafts",
+   "minutes": 25,
+   "topics": [
+    "Blocks, bores, pistons, rings, rods and crankshafts"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Start at the gas load on the piston crown. It passes through the pin, connecting rod, crankpin, main journals, bearings and block into the mounts. The piston also accelerates and reverses at each end of the stroke. Loads, lubrication and thermal growth therefore change with crank angle and speed. A stronger-looking part can still be wrong at the pin, deck, bore or bearing interface.\n\n| Component choices | Difference in operation and manufacture | Dimensions or evidence needed |\n|----|----|----|\n| Iron block or aluminum block with an engineered bore surface | Iron and aluminum have different thermal expansion and stiffness. Aluminum engines may use liners or specially finished cylinder surfaces. | Identify bore material, repair allowance, honing method, deck and main-bore limits before machining. |\n| Parent bore, dry liner, wet liner | Dry liners transfer heat through the host bore. Wet liners contact coolant on the outside and require defined locating and sealing features. | Check liner fit, protrusion and seal locations to the design. |\n| Cast or forged piston | Alloy and manufacturing route affect thermal expansion, ductility, shape and required running clearance. Rings seal gas, manage oil and transfer heat. | Use the maker's gauge point, temperature and matched bore. Check ring gap in the relevant bore and groove side clearance. |\n| Rod, pin and crank choices | Pin retention and rod bearing design determine fit and oil path. Counterweights balance selected rotating/reciprocating masses. Plain shell bearings rely on a correctly supplied oil film. | Record rod orientation, pin type, journal diameters, housing bore, end float and oil-hole alignment. |\n\nCompression height (pin center to crown reference), crank throw, rod length and deck height determine piston position. A different piston crown can change valve clearance and compression ratio even when the pin fits.\n\n## Worked shop case\n\nA drawing calls for a 25.000 mm shaft in a 25.035 mm assembled bearing bore. Diametral clearance is 0.035 mm. Dividing by two gives a geometric radial half-clearance only. Compare the 0.035 figure with the plan's stated diametral specification and account for tool uncertainty.\n\n## Guided practice\n\n```example fade=2\nproblem: Two pistons share bore size. One has a compression height 2 mm greater. What must be revisited before turning the crank?\nstep: Hold deck, rod length and stroke fixed and track the crown at top dead center.\nstep: Recheck head clearance, chamber volume and valve travel.\nanswer: The reference crown moves 2 mm closer to the head; interference and compression can change.\n```\n\n## Independent shop or design task\n\nMake a component traveler for a matched piston, pin, rod, crank journal and bearing. Mark a measurement point and a design limit for each interface. Use a micrometer and bore gauge on at least one physical pair.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-rotating-assembly-q1",
+    "cmp-rotating-assembly-q2"
+   ]
+  },
+  {
+   "id": "cmp-valvetrain",
+   "module": "m1",
+   "title": "Cylinder heads, valvetrains and timing drives",
+   "minutes": 25,
+   "topics": [
+    "Cylinder heads, valvetrains and timing drives"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A valve must open the required area at the right crank angle, then seat to seal and transfer heat. Springs, followers, rockers, guides and seats form a moving system. More valve area can improve breathing at speed; extra parts and head width also affect fabrication and service access. Valve timing controls events. Ignition timing controls when the spark occurs.\n\n| Arrangement | Path from cam to valve | Packaging and service effect |\n|---|---|---|\n| Cam in block with pushrods (OHV) | Cam, lifter, pushrod, rocker and valve. | A compact head can help a V engine fit. Pushrod length, rocker geometry and lifter adjustment matter. |\n| Single overhead cam (SOHC) | One cam per head actuates intake and exhaust valves through the model's followers or rockers. | One cam per head does not imply a fixed valve count. Check head width and valve clearance method. |\n| Double overhead cam (DOHC) | Separate intake and exhaust cams in each head. Many designs vary phase independently. | A two-bank DOHC engine commonly has four cams. Verify phaser positions and locking tools during service. |\n| Belt, chain or gears | Couple crank and cam at the four-stroke timing ratio. Belt aging, chain/tensioner wear and gear lash need different inspections. | Identify interference risk and the exact service procedure before moving shafts independently. |\n\nA hydraulic lash adjuster compensates within its working range. A solid follower may require shims or screw adjustment. Compression loss can follow a valve that never seats even when static timing marks line up.\n\n## Worked shop case\n\nOn a four-stroke engine the crank turns 720° while the cam turns 360°. A one-tooth error on a 40-tooth cam sprocket is 9 cam degrees, or 18 crank degrees. This is large enough to invalidate a timing diagnosis. The arithmetic alone cannot authorize starting an interference engine.\n\n## Guided practice\n\n```example fade=2\nproblem: A V6 has DOHC heads on both banks. How many cam endpoints must the timing plan identify?\nstep: Count two distinct shafts on each head.\nstep: Consult the specific drive schematic, including idlers, phasers and secondary drives.\nanswer: Four camshafts; the path connecting them can differ by design.\n```\n\n## Independent shop or design task\n\nDiagram one OHV and one overhead-cam actuation path. On an isolated trainer identify the timing reference, adjuster type and a non-running verification permitted by the actual manual.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-valvetrain-q1",
+    "cmp-valvetrain-q2"
+   ]
+  },
+  {
+   "id": "cmp-oil-systems",
+   "module": "m2",
+   "title": "Oil pumps, filtration and wet versus dry sumps",
+   "minutes": 25,
+   "topics": [
+    "Oil pumps, filtration and wet versus dry sumps"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "The oil pickup, pump, relief valve, filter, galleries and bearings form a loop. The pump supplies flow; restrictions and leakage affect measured pressure. The relief valve can limit pressure, and a filter bypass may keep oil flowing when filter differential pressure is excessive. The two valves protect different conditions. An oil warning switch may only report that a threshold has been crossed.\n\n| Layout | Oil path | Build and diagnostic consequence |\n|---|---|---|\n| Wet sump | Oil stored in the pan returns by gravity to a pickup and pressure pump. A baffle or trap door can help retain oil around the pickup. | Check sump depth, pickup clearance, chassis and steering clearance, and pickup coverage under the intended motion. |\n| Dry sump | A scavenge stage removes oil from the crankcase and returns it to a separate tank. A pressure stage draws from that tank. | Shallow pans can help packaging. Tank height, deaeration, external lines, pump drive and priming are added interfaces. |\n| Fixed or variable output pump | A fixed-displacement pump moves an approximate volume each revolution. Controlled pumps can change output to suit demand. | Interpret readings with oil temperature, speed, control state and the manufacturer's specified test point. |\n\nPressure, flow and bearing-film condition describe different things. A clogged gallery downstream of the gauge may leave gauge pressure while starving a bearing. Cold thick oil and hot oil cannot be compared without the relevant operating condition.\n\n## Worked shop case\n\nA trace drops only in long left turns, then recovers on a straight. Before changing the relief spring, verify level by the correct procedure and examine pan, baffle, pickup coverage and aeration. Sustained lateral motion changes where oil collects. A pressure increase at straight-line idle would not establish that the pickup stays covered in a turn.\n\n## Guided practice\n\n```example fade=2\nproblem: A bench model uses splash lubrication; a full-size design uses pressurized plain bearings. Can its successful idle verify the full-size circuit?\nstep: Identify which bearings receive pressurized flow and which evidence the model supplies.\nstep: Specify a separate priming, pressure, flow-path and hot-condition validation for the full-size design.\nanswer: The model demonstrates motion and combustion, while the full-size oil system needs its own tests.\n```\n\n## Independent shop or design task\n\nTrace supply, filtration, relief, bearing feed and return on actual plans. Mark where a blocked branch might evade a single gauge, and record an inspection your shop can perform safely before first operation.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-oil-systems-q1",
+    "cmp-oil-systems-q2"
+   ]
+  },
+  {
+   "id": "engine-build-2",
+   "module": "m2",
+   "title": "Define fits, datums and make-or-buy choices",
+   "minutes": 20,
+   "topics": [
+    "Machining design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-camshaft-and-valve-spring-package",
+    "mod-piston-and-compression-ratio-change",
+    "mod-cylinder-head-and-valve-seat-work"
+   ],
+   "body": "Start with a complete, matched single-cylinder plan such as the linked Webster four-stroke drawing set. Map crankcase, crankshaft, rod, piston, cylinder, head, valve gear, lubrication and ignition. Mark each mating pair and its reference temperature. Choose the parts you will machine, certified stock or components you will buy, and the honing, grinding or balancing operations requiring a machine shop. Use the actual plan's fits.\n\n## Worked shop case\n\nA drawing for a fictional shaft specifies 12.000–12.010 mm and the mating bore 12.030–12.040 mm. Worst-case minimum diametral clearance is 12.030 − 12.010 = 0.020 mm. Maximum is 0.040 mm. These teaching dimensions are unrelated to the running engine.\n\n## Guided practice\n\nFor a teaching shaft 9.98–10.00 mm and a bore 10.02–10.05 mm, give the largest possible diametral clearance in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSelect a complete four-stroke plan. Include the drawing revision, swept volume calculation, timing sketch, bill of materials and make/buy/shop assignments. Annotate at least three critical fits and state how, when and with what instruments you will verify them. Extend one decision to a full-size engine.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "engine-build-2-q1",
+    "engine-build-2-q2"
+   ]
+  },
+  {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Allocate rod-bearing clearance across its tolerances",
+   "minutes": 30,
+   "topics": [
+    "Allocate rod-bearing clearance across its tolerances"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Oil clearance is a dimensional relationship among the journal, fitted bearing shells and housing. The measured housing must be assembled under the exact specified fastener and lubrication conditions. A nominal crank diameter and a loose shell measured on the bench cannot establish assembled clearance. Oil viscosity, temperature, alignment, supply and load also matter; larger clearance is not an automatic improvement.\n\n**Worked stack.** A fictional installed bearing inside diameter is 30.030–30.040 mm, and its journal is 29.995–30.005 mm. Minimum diametral clearance uses the smallest bearing and largest journal, 0.025 mm. Maximum uses the largest bearing and smallest journal, 0.045 mm. Radial clearance for concentric ideal circles is half the diametral value. Compare with the approved drawing for the actual engine. A design that accepts a nominal 0.035 mm may still reject a limit condition.\n\n**Design for measurement.** Make a section drawing of the journal, shells, housing and oil feed. Label the datum, measurement planes and specified method. On a teaching journal, choose the micrometer and bore gauge range, establish their checks, and record temperature and directions. Add a hold point if the uncertainty of your measurement could change the decision.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "engine-build-3",
+   "module": "m3",
+   "title": "Produce and assemble the single-cylinder engine",
+   "minutes": 15,
+   "topics": [
+    "Engine manufacture"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Work from the dimensioned drawings in an equipped machine shop. Use stable datums across related features. Leave the stated finish allowance for final operations, deburr crossings and verify that passages are clean and open. Measure the cylinder and piston at the plan's stated locations. Keep a traveler for each part recording stock, operation, tool, measurement and disposition. Assemble in stages and stop if motion binds.\n\n## Worked shop case\n\nA piston and cylinder each measure within their individual limits yet their paired clearance is outside the plan's range. Record both individual values and the calculated fit. Consult the design before material removal or exchange.\n\n## Guided practice\n\nA piston measures 19.96 mm where specified and the cylinder 20.01 mm. Give the measured diametral clearance in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nUse guarded machine tools and an outdoor supervised combustion test, with the test limits and shutdown method approved before fuel is introduced. A bench engine is a separate project from an on-road powertrain. EPA's kit-car rebuilt-configuration route requires, among other criteria, a previously used block and heads and an emissions configuration traceable to one certified vehicle. An original block cannot rely on that route. Confirm eligibility before committing the road car to an original engine.\n\n[OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [CDC/NIOSH — carbon monoxide and combustion equipment](https://www.cdc.gov/niosh/docs/2022-130/2022-130.pdf) · [EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy) · [EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n## Workshop preparation\n\nMachining requires instruction, guarding and safe workholding. Keep chips and clothing clear of rotating tools. Use the plan's approved fuel and a supervised outdoor test site with a working stop, fire precautions and an exclusion area. Stop for leaks, heat, looseness, binding or loss of lubrication.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "engine-build-3-q1",
+    "engine-build-3-q2",
+    "engine-build-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Measure the actual compression geometry",
+   "minutes": 35,
+   "topics": [
+    "Measure the actual compression geometry"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-1-5",
+    "parts-2-1",
+    "parts-2-2",
+    "mod-camshaft-and-valve-spring-package",
+    "mod-piston-and-compression-ratio-change",
+    "mod-cylinder-head-and-valve-seat-work",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nShort block and cylinder head, Bearing, seal and valve-train detail. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Camshaft and valve-spring package\n- Piston and compression-ratio change\n- Cylinder-head and valve-seat work\n\n## Worked example\n\nOne cylinder sweeps 450 cm³ and contains 50 cm³ at top dead center. Static compression ratio is (450 + 50) / 50 = 10.0:1. Reducing clearance volume to 45 cm³ gives 11.0:1. This calculation cannot establish running cylinder pressure, fuel suitability or valve clearance.\n\n## Guided decision\n\n```example fade=1\nproblem: The gasket in a mock assembly is thicker than the proposed installed gasket. Which measurements need revision?\nstep: Recalculate clearance volume and inspect mechanical clearances with the correct compressed-thickness basis.\nanswer: Verify piston-to-head and valve-to-piston margins by the specified methods, then record actual ratio.\n```\n\n## Independent workshop\n\nMeasure a chamber or use a nonrunning volume model. Produce a part drawing and clearance sheet for a proposed piston or cam change, and document your supervised machining or inspection.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-engine-build"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Map taper and out-of-round before choosing a machining operation",
+   "minutes": 45,
+   "topics": [
+    "Map taper and out-of-round before choosing a machining operation"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A diameter reading depends on axial location and angular orientation. A bore can be round at each station but tapered along its length, or nearly constant in mean diameter while oval at each station. Number the top, middle and bottom stations and mark two reference directions. Keep within the instrument's working range and use the exact procedure for the part. Do not remove material to correct a measurement you cannot reproduce.\n\n**Worked map.** A training bore reads 40.02/40.05 mm on two axes at the top and 40.01/40.02 mm at the bottom. The top two-axis difference is 0.03 mm. Along the second axis, the top-to-bottom change is also 0.03 mm. These are different comparisons that happen to give the same number. Two directions sample shape; they do not prove full roundness. Compare the map, not only the average, with the drawing, surface finish, piston and ring requirements.\n\n**Independent work.** Make a six-location map on a detached teaching sleeve or machined practice block. Repeat the worst reading after resetting the gauge. Identify which operation you would investigate, what finishing allowance it requires and which component dimensions must be verified before authorizing removal. Record the actual pre- and post-work or inspection-only disposition, plus cleaning and recheck evidence before assembly.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "engine-build-4",
+   "module": "m4",
+   "title": "Demonstrate a controlled run and inspect the result",
+   "minutes": 15,
+   "topics": [
+    "Engine testing"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Commission the model on an anchored, guarded stand approved for that engine. Check free rotation, timing, lubrication, retention and the shutdown control before introducing fuel. Use a competent operator, an outdoor approved location clear of people and openings, and the plan's operating envelope. Record run duration, speed if instrumented, temperature where specified, leaks, shutdown response and post-run findings.\n\n## Worked shop case\n\nA model runs for one minute but a mounting witness mark has moved. The run proves combustion occurred. The fastener movement is a failed acceptance item. Correct the retention problem and repeat the required checks before further running.\n\n## Guided practice\n\nTwo successful runs last 45 and 75 seconds. Give total running time in seconds.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nA witnessed operating engine and measured learner-made parts are required for the practical. A failed run stays open until corrected and demonstrated. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "engine-build-4-q1",
+    "engine-build-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-engine-build-bank",
+   "title": "Scratch-Built Engines and Precision Machining practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Engine design theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Machining design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Engine manufacture"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Engine testing"
+    }
+   ],
+   "exam": {
+    "questionCount": 20,
+    "timeLimitMinutes": 48,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "engine-build-1-q1",
+     "section": "m1",
+     "topic": "Engine design theory",
+     "stem": "A cylinder sweeps 80 cm³ and retains 10 cm³ clearance. What is the geometric compression ratio, entered as a number? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "9"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "(80 + 10) ÷ 10 = 9."
+    },
+    {
+     "id": "engine-build-1-q2",
+     "section": "m1",
+     "topic": "Engine design theory",
+     "stem": "Which observation distinguishes displacement from clearance volume?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Displacement is the volume swept between dead centers.",
+      "Displacement is the remaining space at top dead center.",
+      "Both are the oil-pan capacity."
+     ],
+     "explanation": "The piston sweeps displacement while clearance remains at the top."
+    },
+    {
+     "id": "engine-build-2-q1",
+     "section": "m2",
+     "topic": "Machining design",
+     "stem": "For a teaching shaft 9.98–10.00 mm and a bore 10.02–10.05 mm, give the largest possible diametral clearance in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.07"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The largest bore minus the smallest shaft gives 10.05 − 9.98 = 0.07 mm."
+    },
+    {
+     "id": "engine-build-2-q2",
+     "section": "m2",
+     "topic": "Machining design",
+     "stem": "Which inspection establishes alignment of multiple crank bearing bores?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Measure one bore's diameter at a single point.",
+      "Measure only the outside block length.",
+      "Measure their common axis with suitable alignment tooling."
+     ],
+     "explanation": "Several individually correct diameters may still be misaligned."
+    },
+    {
+     "id": "engine-build-3-q1",
+     "section": "m3",
+     "topic": "Engine manufacture",
+     "stem": "A piston measures 19.96 mm where specified and the cylinder 20.01 mm. Give the measured diametral clearance in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.05"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "20.01 − 19.96 = 0.05 mm."
+    },
+    {
+     "id": "engine-build-3-q2",
+     "section": "m3",
+     "topic": "Engine manufacture",
+     "stem": "A crankshaft binds after the second support is tightened. Which check comes next?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Proceed to ignition setup under power.",
+      "Stop and inspect axis alignment, assembly orientation and end clearance.",
+      "Run it faster to polish away the interference."
+     ],
+     "explanation": "The change after tightening localizes a mechanical fit or assembly problem."
+    },
+    {
+     "id": "engine-build-3-q3",
+     "section": "m3",
+     "topic": "Engine manufacture",
+     "stem": "A learner plans to rely on EPA's rebuilt-certified-configuration kit policy. Select two checks. Select all that apply.",
+     "choices": [
+      "Treat a newly machined block as used when it has idled on the bench.",
+      "Verify the policy's used block and used heads conditions.",
+      "Verify all applicable configuration and documentation criteria before relying on that route.",
+      "Use state VIN assignment as federal engine certification."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "Use guarded machine tools and an outdoor supervised combustion test, with the test limits and shutdown method approved before fuel is introduced. A bench engine is a separate project from an on-road powertrain. EPA's kit-car rebuilt-configuration route requires, among other criteria, a previously used block and heads and an emissions configuration traceable to one certified vehicle. An original block cannot rely on that route. Confirm eligibility before committing the road car to an original engine."
+    },
+    {
+     "id": "engine-build-4-q1",
+     "section": "m4",
+     "topic": "Engine testing",
+     "stem": "Two successful runs last 45 and 75 seconds. Give total running time in seconds. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "120"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "45 + 75 = 120. Duration and achieved conditions belong in the log."
+    },
+    {
+     "id": "engine-build-4-q2",
+     "section": "m4",
+     "topic": "Engine testing",
+     "stem": "Which evidence supports using a new design at sustained full-size vehicle load?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Separate instrumented load, cooling, lubrication and durability validation for that design.",
+      "A successful model engine idle.",
+      "Matching model and vehicle paint."
+     ],
+     "explanation": "The model demonstrates a mechanism; the full-size engine has its own operating envelope."
+    },
+    {
+     "id": "cmp-rotating-assembly-q1",
+     "section": "m1",
+     "topic": "Blocks, bores, pistons, rings, rods and crankshafts",
+     "stem": "A block has a coated bore and a machine shop proposes its standard iron-block finishing process. What information is needed first?",
+     "explanation": "Ring seating and bore survival depend on the actual surface and repair process.",
+     "choices": [
+      "Cylinder count alone.",
+      "The substrate, coating, repair allowance and specified surface finish for the selected rings.",
+      "The color of the coolant previously used."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-rotating-assembly-q2",
+     "section": "m1",
+     "topic": "Blocks, bores, pistons, rings, rods and crankshafts",
+     "stem": "An assembled bearing ID is 32.040 mm and its journal OD is 32.010 mm. Enter diametral clearance in mm as a number only.",
+     "explanation": "32.040 − 32.010 = 0.030 mm.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "0.030"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-valvetrain-q1",
+     "section": "m1",
+     "topic": "Cylinder heads, valvetrains and timing drives",
+     "stem": "Timing marks align but a solid-lifter valve measures zero lash on its base circle when its cold specification calls for positive lash. Which condition should be investigated?",
+     "explanation": "Static cam phase and valve-to-follower clearance are separate checks.",
+     "choices": [
+      "All valves are proven sealed when marks align.",
+      "The valve may be held off its seat as the train expands.",
+      "The flywheel tooth count changes the lash specification."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-valvetrain-q2",
+     "section": "m1",
+     "topic": "Cylinder heads, valvetrains and timing drives",
+     "stem": "On a 48-tooth cam sprocket, one tooth is how many crankshaft degrees on a conventional four-stroke? Enter the number only.",
+     "explanation": "One tooth is 360 ÷ 48 = 7.5 cam degrees; the crank rotates twice as far.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "15"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-oil-systems-q1",
+     "section": "m2",
+     "topic": "Oil pumps, filtration and wet versus dry sumps",
+     "stem": "Which addition converts a shallow pan into part of a functioning dry-sump system?",
+     "explanation": "Oil must be removed, stored, deaerated and supplied through a designed path.",
+     "choices": [
+      "A larger drain plug alone.",
+      "A designed scavenge return, external reservoir and pressure supply.",
+      "Removing the dipstick without changing the oil circuit."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-oil-systems-q2",
+     "section": "m2",
+     "topic": "Oil pumps, filtration and wet versus dry sumps",
+     "stem": "Which valve usually limits maximum pressure on a conventional fixed-displacement oil pump circuit?",
+     "explanation": "A relief path limits system pressure; the filter bypass responds to restriction across the filter.",
+     "choices": [
+      "Filter bypass alone",
+      "PCV valve",
+      "Pressure-relief valve"
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "shop-change-engine-build",
+     "section": "m3",
+     "topic": "Measure the actual compression geometry",
+     "stem": "A higher-lift cam fits the cam bearings. What must be checked before treating the engine as operable?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Only whether the cover can be closed.",
+      "Only matching the crank and cam timing marks at top dead center.",
+      "Valve-to-piston clearance through the critical crank-angle range and compatibility of the complete valvetrain."
+     ],
+     "explanation": "Fits at the journals do not establish dynamic or static clearance elsewhere."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.025"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A training bearing ID is 25.030–25.040 mm and its journal is 24.995–25.005 mm. What is the minimum diametral clearance in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Allocate rod-bearing clearance across its tolerances",
+     "explanation": "The limiting pair is 25.030 − 25.005 = 0.025 mm."
+    },
+    {
+     "choices": [
+      "The installed bearing ID under its specified housing assembly conditions and the corresponding journal diameter.",
+      "Only an unloaded shell measured loose.",
+      "Outer block width divided by journal count."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which measurement is relevant to the assembled bearing clearance?",
+     "section": "m2",
+     "topic": "Allocate rod-bearing clearance across its tolerances",
+     "explanation": "Assembly and housing conditions change the fitted bearing geometry."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.06"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "At one bore station two measured axes are 50.04 mm and 50.10 mm. What is the sampled axis difference in mm? Enter the number only.",
+     "section": "m3",
+     "topic": "Map taper and out-of-round before choosing a machining operation",
+     "explanation": "50.10 − 50.04 = 0.06 mm at that station."
+    },
+    {
+     "choices": [
+      "Compare the average of all stations with the crankshaft length.",
+      "Compare only two perpendicular axes at the top station.",
+      "Compare top and bottom measurements along the same marked axis."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Which comparison estimates axial diameter change without mixing orientations?",
+     "section": "m3",
+     "topic": "Map taper and out-of-round before choosing a machining operation",
+     "explanation": "Changing axial position while holding orientation fixed addresses taper along that direction."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-engine-build-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Swept volume",
+     "back": "Cylinder volume displaced by piston travel from one dead center to the other.",
+     "topic": "Engine design theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Which observation distinguishes displacement from clearance volume?",
+     "back": "Displacement is the volume swept between dead centers. The piston sweeps displacement while clearance remains at the top.",
+     "topic": "Engine design theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Clearance volume",
+     "back": "Space remaining above the piston at top dead center.",
+     "topic": "Machining design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which inspection establishes alignment of multiple crank bearing bores?",
+     "back": "Measure their common axis with suitable alignment tooling. Several individually correct diameters may still be misaligned.",
+     "topic": "Machining design"
+    },
+    {
+     "id": "c3a",
+     "front": "Fit",
+     "back": "Relationship between the sizes and tolerances of mating parts.",
+     "topic": "Engine manufacture"
+    },
+    {
+     "id": "c3b",
+     "front": "A crankshaft binds after the second support is tightened. Which check comes next?",
+     "back": "Stop and inspect axis alignment, assembly orientation and end clearance. The change after tightening localizes a mechanical fit or assembly problem.",
+     "topic": "Engine manufacture"
+    },
+    {
+     "id": "c4a",
+     "front": "Traveler",
+     "back": "The individual part's record of material, operations, measurements and disposition.",
+     "topic": "Engine testing"
+    },
+    {
+     "id": "c4b",
+     "front": "Which evidence supports using a new design at sustained full-size vehicle load?",
+     "back": "Separate instrumented load, cooling, lubrication and durability validation for that design. The model demonstrates a mechanism; the full-size engine has its own operating envelope.",
+     "topic": "Engine testing"
+    },
+    {
+     "id": "cmp-rotating-assembly-card",
+     "front": "A block has a coated bore and a machine shop proposes its standard iron-block finishing process. What information is needed first?",
+     "back": "The substrate, coating, repair allowance and specified surface finish for the selected rings. Ring seating and bore survival depend on the actual surface and repair process.",
+     "topic": "Blocks, bores, pistons, rings, rods and crankshafts"
+    },
+    {
+     "id": "cmp-valvetrain-card",
+     "front": "Timing marks align but a solid-lifter valve measures zero lash on its base circle when its cold specification calls for positive lash. Which condition should be investigated?",
+     "back": "The valve may be held off its seat as the train expands. Static cam phase and valve-to-follower clearance are separate checks.",
+     "topic": "Cylinder heads, valvetrains and timing drives"
+    },
+    {
+     "id": "cmp-oil-systems-card",
+     "front": "Which addition converts a shallow pan into part of a functioning dry-sump system?",
+     "back": "A designed scavenge return, external reservoir and pressure supply. Oil must be removed, stored, deaerated and supplied through a designed path.",
+     "topic": "Oil pumps, filtration and wet versus dry sumps"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A higher-lift cam fits the cam bearings. What must be checked before treating the engine as operable?",
+     "back": "Valve-to-piston clearance through the critical crank-angle range and compatibility of the complete valvetrain. Fits at the journals do not establish dynamic or static clearance elsewhere.",
+     "topic": "Measure the actual compression geometry"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which measurement is relevant to the assembled bearing clearance?",
+     "back": "The installed bearing ID under its specified housing assembly conditions and the corresponding journal diameter. Assembly and housing conditions change the fitted bearing geometry.",
+     "topic": "Allocate rod-bearing clearance across its tolerances"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Which comparison estimates axial diameter change without mixing orientations?",
+     "back": "Compare top and bottom measurements along the same marked axis. Changing axial position while holding orientation fixed addresses taper along that direction.",
+     "topic": "Map taper and out-of-round before choosing a machining operation"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Swept volume",
+   "definition": "Cylinder volume displaced by piston travel from one dead center to the other.",
+   "topic": "Engine design theory"
+  },
+  {
+   "term": "Clearance volume",
+   "definition": "Space remaining above the piston at top dead center.",
+   "topic": "Machining design"
+  },
+  {
+   "term": "Fit",
+   "definition": "Relationship between the sizes and tolerances of mating parts.",
+   "topic": "Engine manufacture"
+  },
+  {
+   "term": "Traveler",
+   "definition": "The individual part's record of material, operations, measurements and disposition.",
+   "topic": "Engine testing"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[MIT OpenCourseWare — Internal Combustion Engines, lecture notes](https://ocw.mit.edu/courses/2-61-internal-combustion-engines-spring-2017/pages/lecture-notes/) · [Citrus College — Cylinder Block Development](https://catalog.citruscollege.edu/course-outlines/AUTO-297/) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212)\n\nFor the physical engine use this dimensioned set or a complete alternative approved by your machining instructor. Agree the materials, operating envelope and stop criteria with that instructor before machining or introducing fuel. [Joe Webster — dimensioned four-cycle model-engine plans](https://cdn.imagearchive.com/homemodelenginemachinist/data/attach/51/51892-Webstergasengine.pdf)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nUse guarded machine tools and an outdoor supervised combustion test, with the test limits and shutdown method approved before fuel is introduced. A bench engine is a separate project from an on-road powertrain. EPA's kit-car rebuilt-configuration route requires, among other criteria, a previously used block and heads and an emissions configuration traceable to one certified vehicle. An original block cannot rely on that route. Confirm eligibility before committing the road car to an original engine.\n\n[OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [CDC/NIOSH — carbon monoxide and combustion equipment](https://www.cdc.gov/niosh/docs/2022-130/2022-130.pdf) · [EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy) · [EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Block, bore and liners; Pistons, rings and rods; Crankshaft, bearings and seals; Head and valve drive; Timing drive and valve control; Lubrication and sump. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Block, bore and liners | Parent bore / dry liner / wet liner / plated bore | Cooling contact, sealing, surface finish and repair limits vary. | Measure taper and out-of-round at specified stations and axes. |\n| Pistons, rings and rods | Cast / forged piston; compression / oil rings; varied rod and pin layouts | Clearance must match material, heat and maker's measuring datum. | Record piston, groove, ring and pin measurements and source limits. |\n| Crankshaft, bearings and seals | Plain main and rod shells / other bearing arrangements; split / one-piece seals | Oil film, journal geometry, thrust location and housing alignment are independent. | Map journals, bearing clearance, endplay and sealing surfaces before assembly. |\n| Head and valve drive | OHV / SOHC / DOHC; solid / hydraulic lash control | Cam location, follower mechanism and lash control determine adjustment and diagnostics. | Identify base circle, verify specified lash or preload and document actual phase checks. |\n| Timing drive and valve control | Belt / chain / gear; fixed / variable cam timing | Index, tension and phase control each affect valve timing. | Use correct timing references and compare command to actual phase where supported. |\n| Lubrication and sump | Wet / dry sump; fixed / variable pump | Supply, scavenging, regulation, filtration and aeration determine delivery. | Map pickup, relief, gallery and return; compare temperature, pressure and speed together. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [MIT, internal combustion engines](https://ocw.mit.edu/courses/2-61-internal-combustion-engines-spring-2017/pages/lecture-notes/)\n\n- [Citrus College, cylinder block development](https://catalog.citruscollege.edu/course-outlines/AUTO-297/)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Citrus College, cylinder block development and measurement](https://catalog.citruscollege.edu/course-outlines/AUTO-297/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Short block and cylinder head · Cylinder block to Rod bolt",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Cylinder block\n\n**Function.** Locates bores, main bearings, oil and coolant passages.\n\n**Design.** Choose layout, stiffness, bore spacing, material and machining allowances.\n\n**Make, assemble or fit.** Machine a bench-engine blank from a reviewed drawing using common datums; use verified castings for road applications.\n\n**Verify.** Inspect bore locations, decks and main alignment.\n\n### Cylinder liner\n\n**Function.** Provides a replaceable or engineered cylinder wall.\n\n**Design.** Specify wet/dry support, fit, finish and sealing.\n\n**Make, assemble or fit.** Fit by the prescribed method before finishing to the matched piston specification.\n\n**Verify.** Measure bore, protrusion, roundness and leak integrity as applicable.\n\n### Piston\n\n**Function.** Transfers gas pressure through its pin to the rod.\n\n**Design.** Define crown, pin position, running clearance and thermal growth.\n\n**Make, assemble or fit.** Use a specified forging/casting or machine the supervised bench-engine part to drawing.\n\n**Verify.** Measure at the specified skirt datum and compare to its actual bore.\n\n### Compression ring\n\n**Function.** Seals combustion gas against the cylinder wall.\n\n**Design.** Match bore finish, groove width, face profile and end-gap specification.\n\n**Make, assemble or fit.** Fit each ring to its bore and orient markings per manufacturer.\n\n**Verify.** Measure end gap in the squared bore and groove clearance.\n\n### Oil-control ring\n\n**Function.** Meters oil on the cylinder wall.\n\n**Design.** Match expander and rail arrangement to piston drainback design.\n\n**Make, assemble or fit.** Assemble clean rails and expander per identified orientation.\n\n**Verify.** Inspect expander ends and freedom of the complete ring pack.\n\n### Wrist pin and retainer\n\n**Function.** Forms the pivot between piston and connecting rod.\n\n**Design.** Choose pin fit, lubrication and retention.\n\n**Make, assemble or fit.** Match floating or press fit and install new retainers where specified.\n\n**Verify.** Check pin fit, rod freedom and full retainer engagement.\n\n### Connecting rod\n\n**Function.** Transmits cyclic load between piston pin and crank journal.\n\n**Design.** Review material, length, section, bearing alignment and fatigue requirements.\n\n**Make, assemble or fit.** Use matched traceable rod and cap, or machine an approved low-energy teaching design.\n\n**Verify.** Measure both bores, center distance and alignment.\n\n### Rod bolt\n\n**Function.** Clamps the split big end under cyclic loading.\n\n**Design.** Specify matched fastener, lubricant, stretch or torque-angle method.\n\n**Make, assemble or fit.** Install approved bolts and keep caps with the original rod.\n\n**Verify.** Record stretch or tightening result and recheck big-end bore where specified."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Short block and cylinder head · Crankshaft to Cylinder head",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Crankshaft\n\n**Function.** Converts piston motion to output rotation.\n\n**Design.** Set stroke, firing layout, journal size, balance and torsional behavior.\n\n**Make, assemble or fit.** Machine and finish the approved teaching crank around common datums or obtain a rated road crank.\n\n**Verify.** Measure journal size, taper, runout, endplay and balance report.\n\n### Main bearing shell\n\n**Function.** Supports the crankshaft on an oil film.\n\n**Design.** Match housing bore, journal, oil-feed location and clearance.\n\n**Make, assemble or fit.** Seat shell backs against clean dry housing bores; apply specified final-assembly lubricant to the journal-facing surfaces.\n\n**Verify.** Measure assembled clearance and verify unobstructed oil feed.\n\n### Thrust bearing\n\n**Function.** Limits crankshaft axial travel.\n\n**Design.** Match thrust face location, material and endplay range.\n\n**Make, assemble or fit.** Fit the matched thrust shells or washers and seat the crank as specified.\n\n**Verify.** Measure endplay with a dial indicator.\n\n### Main cap and fasteners\n\n**Function.** Close the main bearing housing and maintain alignment.\n\n**Design.** Preserve orientation, bore geometry and designed clamp.\n\n**Make, assemble or fit.** Install identified caps and correct fasteners in their specified sequence.\n\n**Verify.** Measure housing alignment and free rotation with documented clearances.\n\n### Crank seal\n\n**Function.** Controls oil leakage at a rotating shaft exit.\n\n**Design.** Match shaft finish, lip material, direction and installation depth.\n\n**Make, assemble or fit.** Fit using the prescribed tool and lip preparation for that seal.\n\n**Verify.** Inspect running surface and check for seepage after operation.\n\n### Crank pulley and torsional damper\n\n**Function.** Drive accessories and attenuate selected crank oscillations.\n\n**Design.** Match engine balance, elastomer/inertia design and pulley alignment.\n\n**Make, assemble or fit.** Fit the engineered matched damper using the specified installation tool.\n\n**Verify.** Check runout, rubber condition and timing reference.\n\n### Flywheel\n\n**Function.** Stores rotational energy and presents a clutch surface.\n\n**Design.** Match crank balance, starter ring, torque capacity and inertia.\n\n**Make, assemble or fit.** Fit a rated matched unit with specified hardware and locating features.\n\n**Verify.** Measure face runout and verify crank and clutch compatibility.\n\n### Cylinder head\n\n**Function.** Closes cylinders and houses ports and valves.\n\n**Design.** Define chamber, cooling, stiffness, bolt loads and gasket interface.\n\n**Make, assemble or fit.** Machine the bench head to a reviewed drawing or source a compatible tested head.\n\n**Verify.** Check flatness, chamber integrity, guides and seat sealing."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Short block and cylinder head · Head gasket to Camshaft",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Head gasket\n\n**Function.** Seals combustion, oil and coolant across the joint.\n\n**Design.** Match bore, compressed thickness, finish and passage registration.\n\n**Make, assemble or fit.** Fit correct gasket to prepared faces in specified orientation.\n\n**Verify.** Check passages before tightening and verify sealing after assembly.\n\n### Head bolt or stud\n\n**Function.** Produces and maintains head joint clamp load.\n\n**Design.** Match fastener type, thread engagement, lubricant and tightening method.\n\n**Make, assemble or fit.** Use specified one-use replacements and staged sequence.\n\n**Verify.** Record tightening angles or values and any required follow-up.\n\n### Intake valve\n\n**Function.** Admits charge during the intake event.\n\n**Design.** Specify diameter, stem, seat angle, lift and piston clearance.\n\n**Make, assemble or fit.** Fit matched valve to its inspected seat and guide.\n\n**Verify.** Measure stem clearance, seating contact and leakage.\n\n### Exhaust valve\n\n**Function.** Releases hot combustion gases.\n\n**Design.** Select material and seat arrangement appropriate to thermal load.\n\n**Make, assemble or fit.** Install identified exhaust valve and match its guide and seat finish.\n\n**Verify.** Measure face condition, seat contact and stem clearance.\n\n### Valve guide\n\n**Function.** Locates the valve stem.\n\n**Design.** Choose thermal fit and specified stem clearance.\n\n**Make, assemble or fit.** Install guide by approved process and finish relative to its seat.\n\n**Verify.** Measure guide bore and seat concentricity.\n\n### Valve spring and retainer\n\n**Function.** Return and control the valve over its lift cycle.\n\n**Design.** Specify installed height, force, coil-bind margin and retainer clearance.\n\n**Make, assemble or fit.** Use the correct compressor and matched keepers and retainer.\n\n**Verify.** Record installed height and clearance throughout the specified lift.\n\n### Valve stem seal\n\n**Function.** Controls oil passing between stem and guide.\n\n**Design.** Match guide size, material and retainer travel.\n\n**Make, assemble or fit.** Use the approved fitting sleeve and driver.\n\n**Verify.** Inspect seating and retainer-to-seal clearance.\n\n### Camshaft\n\n**Function.** Defines valve lift, duration and phase.\n\n**Design.** Compare lobe profile, follower type, lubrication and interference envelope.\n\n**Make, assemble or fit.** Install compatible cam or machine a supervised teaching profile and finish bearing surfaces.\n\n**Verify.** Measure runout and verify lift events against a degree reference."
+  },
+  {
+   "id": "parts-1-4",
+   "title": "Short block and cylinder head · Tappet or lifter to Oil pump",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Tappet or lifter\n\n**Function.** Follows the cam and transfers motion.\n\n**Design.** Match roller or sliding face, lash method and lubrication path.\n\n**Make, assemble or fit.** Fit compatible followers in designated locations with prescribed preparation.\n\n**Verify.** Measure lash or preload on the specified base circle.\n\n### Pushrod\n\n**Function.** Transfers lifter movement to the rocker in an OHV engine.\n\n**Design.** Choose length, straightness and end geometry for the installed stack.\n\n**Make, assemble or fit.** Install a matched rod, keeping oil passages clear.\n\n**Verify.** Verify seating, rocker contact pattern and clearance.\n\n### Rocker arm\n\n**Function.** Changes motion direction and leverage at the valve.\n\n**Design.** Match ratio, pivot support and tip sweep.\n\n**Make, assemble or fit.** Assemble matched rocker and pivot, then set lash or preload as specified.\n\n**Verify.** Check valve lift and contact path.\n\n### Timing chain or belt\n\n**Function.** Synchronizes crank and cam rotation.\n\n**Design.** Match pitch, tooth count, drive type and timing marks.\n\n**Make, assemble or fit.** Install matched drive with engine at the prescribed reference position.\n\n**Verify.** Rotate by the approved method and recheck phase.\n\n### Timing sprocket and guides\n\n**Function.** Index shafts and constrain the timing drive path.\n\n**Design.** Match tooth profile, keying, guide geometry and oil feed.\n\n**Make, assemble or fit.** Fit indexed sprockets, guides and specified attaching hardware.\n\n**Verify.** Check mark relationship and clearance over a full cycle.\n\n### Timing tensioner\n\n**Function.** Maintains timing-drive tension.\n\n**Design.** Match mechanical or hydraulic operation and range.\n\n**Make, assemble or fit.** Prepare, release or prime exactly as specified for the unit.\n\n**Verify.** Verify extension and timing after permitted hand rotation.\n\n### Cam phaser and oil-control valve\n\n**Function.** Alter valve timing under command.\n\n**Design.** Match base phase, control strategy and clean oil passages.\n\n**Make, assemble or fit.** Fit matched phaser and solenoid using the donor locking procedure.\n\n**Verify.** Compare commanded and observed phase within prescribed conditions.\n\n### Oil pump\n\n**Function.** Moves oil into the engine galleries.\n\n**Design.** Match delivery, pressure regulation, drive and inlet conditions.\n\n**Make, assemble or fit.** Fit inspected pump with clean drive and prescribed priming method.\n\n**Verify.** Verify pressure at specified temperatures and speeds."
+  },
+  {
+   "id": "parts-1-5",
+   "title": "Short block and cylinder head · Oil pickup and screen to PCV valve and separator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Oil pickup and screen\n\n**Function.** Draw oil from the sump while excluding coarse debris.\n\n**Design.** Set pickup clearance, support and seal integrity.\n\n**Make, assemble or fit.** Fit clean pickup, sound inlet seal and retained support.\n\n**Verify.** Verify measured sump clearance and leak-free suction path.\n\n### Oil pan and baffle\n\n**Function.** Store oil and control movement around the pickup.\n\n**Design.** Allow oil volume, crank clearance, drain access and pickup coverage.\n\n**Make, assemble or fit.** Pattern and fit a reviewed pan or baffle; remove all debris before closure.\n\n**Verify.** Check clearance, leakage and pressure under intended operation.\n\n### PCV valve and separator\n\n**Function.** Route blow-by gases and separate entrained oil.\n\n**Design.** Match metering and closed routing to engine operating pressures.\n\n**Make, assemble or fit.** Fit a compatible valve, separator and oil-resistant hoses per diagram.\n\n**Verify.** Check crankcase pressure and emissions system function."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Bearing, seal and valve-train detail · Rod bearing shell to Oil gallery plug",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Rod bearing shell\n\n**Function.** Provides oil-film support between rod big end and crankpin.\n\n**Design.** Match journal, rod bore, oil clearance and bearing material.\n\n**Make, assemble or fit.** Seat clean dry backs in inspected rod and cap; lubricate the running surfaces for final assembly to specification.\n\n**Verify.** Measure assembled clearance and verify rod motion without binding.\n\n### Cylinder-head valve seat\n\n**Function.** Transfers heat from the valve and seals combustion pressure.\n\n**Design.** Match seat material, interference, angle and contact width.\n\n**Make, assemble or fit.** Qualified machinist locates and finishes the seat relative to its guide.\n\n**Verify.** Check concentricity, contact position and leakage.\n\n### Valve keeper\n\n**Function.** Locks spring retainer to grooves in a valve stem.\n\n**Design.** Match stem groove, retainer taper and pair type.\n\n**Make, assemble or fit.** Fit matched keepers with approved spring compressor and slow controlled release.\n\n**Verify.** Verify both keepers fully seated at equal height.\n\n### Camshaft bearing or cap\n\n**Function.** Locates cam journals and supplies an oil film.\n\n**Design.** Match bore geometry, oil feed, journal diameter and cap sequence.\n\n**Make, assemble or fit.** Install matched bearings or identified caps under the valve-load and tightening procedure.\n\n**Verify.** Check oil clearance, endplay and free rotation as applicable.\n\n### Cam cover\n\n**Function.** Contains oil around the valvetrain and may house ventilation passages.\n\n**Design.** Specify flange stiffness, gasket path, baffles and access.\n\n**Make, assemble or fit.** Fit matched cover with clean flange, correct gasket and approved fastening sequence.\n\n**Verify.** Check leakage and crankcase ventilation after a heat cycle.\n\n### Timing cover\n\n**Function.** Encloses the timing drive and may carry an oil seal.\n\n**Design.** Match crank centerline, alignment dowels and gasket intersections.\n\n**Make, assemble or fit.** Locate on its prescribed datums before final fastening.\n\n**Verify.** Check seal centering, drive clearance and oil leakage.\n\n### Oil pressure relief valve\n\n**Function.** Limits oil pressure by opening a bypass path.\n\n**Design.** Match spring setting, seat geometry and oil pump capacity.\n\n**Make, assemble or fit.** Fit clean matched plunger and spring to the correct bore without stretching the spring.\n\n**Verify.** Verify free movement and compare system pressure with temperature and speed data.\n\n### Oil gallery plug\n\n**Function.** Seals an end of a drilled lubrication passage.\n\n**Design.** Match thread or interference fit, depth, sealing method and adjacent passages.\n\n**Make, assemble or fit.** After cleaning the gallery, fit specified plug to its documented depth.\n\n**Verify.** Verify all gallery plugs and unobstructed feeds before assembly."
+  },
+  {
+   "id": "parts-2-2",
+   "title": "Bearing, seal and valve-train detail · Core plug to Cam follower roller or bucket",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Core plug\n\n**Function.** Seals casting core openings in the block or head.\n\n**Design.** Choose exact bore size, material and corrosion-compatible finish.\n\n**Make, assemble or fit.** Clean bore and fit approved plug using its prescribed driver and depth.\n\n**Verify.** Inspect for leaks in approved cooling-system test.\n\n### Cam follower roller or bucket\n\n**Function.** Transfers cam motion to the valve train with controlled contact.\n\n**Design.** Match profile, orientation, surface hardness and clearance.\n\n**Make, assemble or fit.** Clean, inspect and fit matched follower with specified lubrication and location.\n\n**Verify.** Check rolling or bucket movement and documented lash."
+  },
+  {
+   "id": "mod-camshaft-and-valve-spring-package",
+   "title": "Modification · Camshaft and valve-spring package",
+   "body": "**Purpose.** Move useful breathing and torque toward a target speed range.\n\n**Design and baseline.** Compare lift, duration, overlap and installed timing plus idle requirements, spring loads, piston clearance, control calibration and emissions applicability.\n\n**Build and installation.** Choose matched cam, follower and springs. On a mock engine degree the cam and measure valve-to-piston, coil-bind and retainer clearances by the named supplier's procedure before final assembly.\n\n**Test and disposition.** Log measured events and minimum clearances, then use a controlled baseline/modified torque curve and idle behavior. Journal fit alone cannot qualify the change.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Citrus College, cylinder block development and measurement](https://catalog.citruscollege.edu/course-outlines/AUTO-297/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)"
+  },
+  {
+   "id": "mod-piston-and-compression-ratio-change",
+   "title": "Modification · Piston and compression-ratio change",
+   "body": "**Purpose.** Alter combustion geometry for a specified fuel and output target.\n\n**Design and baseline.** Calculate geometric ratio from measured swept and clearance volumes. Include chamber, gasket, deck and piston crown volume, material growth, fuel and knock constraints.\n\n**Build and installation.** Measure volumes and deck position on the teaching engine, choose a compatible piston and ring set, machine clearances to its specification and check valve clearance before final closure.\n\n**Test and disposition.** Verify actual ratio, ring and bore measurements, compression/leak-down and controlled combustion data. Higher compression can reduce knock margin.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Citrus College, cylinder block development and measurement](https://catalog.citruscollege.edu/course-outlines/AUTO-297/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)"
+  },
+  {
+   "id": "mod-cylinder-head-and-valve-seat-work",
+   "title": "Modification · Cylinder-head and valve-seat work",
+   "body": "**Purpose.** Restore sealing or improve breathing at the intended valve lifts.\n\n**Design and baseline.** Distinguish a leaking seat from limited flow. Evaluate port cross-section, short-side shape, seat widths, chamber volume and safe wall thickness using actual casting data. More area can reduce velocity.\n\n**Build and installation.** Begin on a scrap casting or supervised bench head. Establish repeatable flow/leak baselines, document measured geometry, use a qualified machinist for guide/seat work and clean out all abrasive before assembly.\n\n**Test and disposition.** Compare flow across the full intended lift range under the same test depression, verify seat concentricity/leakage, chamber volume and valve clearances. Do not extrapolate a single high-lift bench result into engine power.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Citrus College, cylinder block development and measurement](https://catalog.citruscollege.edu/course-outlines/AUTO-297/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry MTS 140 and 150 address engine configuration, machining and applied mathematics. Northwest Technical College’s high-performance engine program includes engine rebuilding and machining alongside fabrication. Here the assessed work is a limit stack and a six-location map before authorizing material removal. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Select a complete four-stroke plan. Include the drawing revision, swept volume calculation, timing sketch, bill of materials and make/buy/shop assignments. Annotate at least three critical fits and state how, when and with what instruments you will verify them. Extend one decision to a full-size engine."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A running, learner-machined bench engine, inspection sheets and witnessed run record."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A witnessed operating engine and measured learner-made parts are required for the practical. A failed run stays open until corrected and demonstrated."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Minimum and maximum assembled diametral clearance, a six-location measurement map with directions and stations, and a reset/repeat of the worst measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Release a drawing and inspection pack for a model engine",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Select a complete four-stroke plan. Include the drawing revision, swept volume calculation, timing sketch, bill of materials and make/buy/shop assignments. Annotate at least three critical fits and state how, when and with what instruments you will verify them. Extend one decision to a full-size engine. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Block, bore and liners; Pistons, rings and rods; Crankshaft, bearings and seals; Head and valve drive; Timing drive and valve control; Lubrication and sump. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Measure the actual compression geometry",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Measure a chamber or use a nonrunning volume model. Produce a part drawing and clearance sheet for a proposed piston or cam change, and document your supervised machining or inspection. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Machine, assemble and run a bench engine",
+   "module": "m3",
+   "adult": true,
+   "intro": "A running, learner-machined bench engine, inspection sheets and witnessed run record. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Machining requires instruction, guarding and safe workholding. Keep chips and clothing clear of rotating tools. Use the plan's approved fuel and a supervised outdoor test site with a working stop, fire precautions and an exclusion area. Stop for leaks, heat, looseness, binding or loss of lubrication."
+   ],
+   "materials": [
+    "Complete documented model engine drawing set",
+    "Suitable metals, metrology, guarded machine tools and qualified shop instructor",
+    "Plan-compatible bought parts, approved anchored guarded test stand and instrumentation"
+   ],
+   "steps": [
+    "Make the crankcase or frame, cylinder, piston and at least one rotating or reciprocating component yourself from stock. Record who performs specialist operations.",
+    "Inspect three critical fits, verify oil delivery as applicable, assemble the matched components and hand-cycle through a full four-stroke cycle.",
+    "With a competent supervisor verify guarding, retention and shutdown. Perform a controlled live demonstration to the plan and record measurements.",
+    "Shut down, inspect, correct any fault and repeat the affected check. Retain the instructor witness and the physical engine."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Part or run ID",
+      "Drawing requirement",
+      "Measured result and units",
+      "Instrument/condition",
+      "Disposition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "A witnessed operating engine and measured learner-made parts are required for the practical. A failed run stays open until corrected and demonstrated. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Map taper and out-of-round before choosing a machining operation — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A clearance limit calculation and a labeled bore or journal measurement map.",
+   "safety": [
+    "Use detached clean components and secured measuring equipment. Keep machinery de-energized during hand measurement. Only qualified personnel may authorize powered machining."
+   ],
+   "materials": [
+    "Detached teaching journal, sleeve or practice block, sizing drawing, checked micrometer, bore gauge and reference"
+   ],
+   "steps": [
+    "Read “Allocate rod-bearing clearance across its tolerances”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Make a six-location map on a detached teaching sleeve or machined practice block. Repeat the worst reading after resetting the gauge. Identify which operation you would investigate, what finishing allowance it requires and which component dimensions must be verified before authorizing removal. Record the actual pre- and post-work or inspection-only disposition, plus cleaning and recheck evidence before assembly.",
+    "File the following evidence with the course project. A clearance limit calculation and a labeled bore or journal measurement map."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Station / axis",
+      "Reference check",
+      "Reading mm",
+      "Repeat mm",
+      "Mate dimension",
+      "Drawing disposition"
+     ],
+     "rows": 6
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-powertrain",
+  "auto-fabrication"
+ ]
+}

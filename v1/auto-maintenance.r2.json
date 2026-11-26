@@ -1,0 +1,1172 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-maintenance",
+ "title": "Preventive Maintenance and Shop Operations",
+ "author": "Erudior",
+ "revision": 2,
+ "description": "Identify fluid approvals, filter designs and belt drives. Plan and carry out a scheduled service using the exact donor requirements and record the waste transfer. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A duty-based service plan and repeatable leak-source record.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Maintenance theory",
+   "quiz": [
+    "maintenance-1-q2",
+    "cmp-fluids-filters-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Service design",
+   "quiz": [
+    "maintenance-2-q2",
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Scheduled service",
+   "quiz": [
+    "maintenance-3-q3",
+    "shop-change-maintenance",
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Verification and waste",
+   "quiz": [
+    "maintenance-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "maintenance-1",
+   "module": "m1",
+   "title": "Select a service interval and the correct fluid",
+   "minutes": 20,
+   "topics": [
+    "Maintenance theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2"
+   ],
+   "body": "Entry skills: complete Workshop Measurement and Vehicle Service, or demonstrate the equivalent workshop skills.\n\nLubricants separate surfaces, carry heat and suspend contaminants. The filter traps some particles. Oil viscosity alone does not specify the performance approvals an engine requires. Consult the exact engine, duty cycle, time and mileage schedule. Inspect belts, hoses, battery restraint, visible leaks and air filters following their procedures. Severe service may have different intervals.\n\n## Worked shop case\n\nA fictional schedule specifies 6,000 miles or 12 months, whichever occurs first. A vehicle has traveled only 3,000 miles in 14 months. Time makes the service due. Verify the manual's schedule on the real job.\n\n## Guided practice\n\nA fictional 12-month interval was last completed 15 months ago. By how many months is service overdue?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A serviced vehicle or engine, closed work order and waste transfer record.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "maintenance-1-q1",
+    "maintenance-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-fluids-filters",
+   "module": "m1",
+   "title": "Fluids, filters, belts and the service interval",
+   "minutes": 25,
+   "topics": [
+    "Fluids, filters, belts and the service interval"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Start with the required performance specification. An SAE engine-oil grade describes viscosity behavior; the engine maker can also specify an approval for wear, deposits and aftertreatment compatibility. ATF, CVT fluids, DCT fluids and manual gear oils serve different friction systems. Color is an unreliable identifier for coolant chemistry. Brake-fluid specifications, moisture handling and replacement intervals depend on the prescribed system. Keep fluids and waste streams identified and segregated. Never use packaging resemblance to decide compatibility.\n\nA spin-on oil filter incorporates a disposable can; a cartridge reuses the housing and usually renews specified seals. Check bypass and anti-drainback provisions where specified. Intake air filters protect the engine, cabin filters protect cabin airflow, and a diesel fuel filter/water separator serves a different contaminant path. A serpentine accessory belt drives accessories; a timing belt maintains crank/cam phase. Age, duty, leaks and tensioner condition affect service planning. A timing error can allow valve-to-piston contact on interference engines.\n\n## Worked shop case\n\nA service order lists “replace the belt” and the parts bin contains a multi-rib belt. The donor uses a serpentine accessory belt and a toothed timing belt. Identify which interval triggered the work, verify the engine code and document both parts and access. A new accessory belt cannot close a timing-belt service item.\n\n## Guided practice\n\n```example fade=2\nproblem: Two oils carry the same viscosity grade. How do you select between them?\nstep: Identify the exact engine and required approval.\nstep: Compare printed approval and intended duty against the service source.\nanswer: Select a matching documented product and record the grade, approval, source and quantity.\n```\n\n## Independent shop or design task\n\nBuild a service matrix for your donor's engine oil, transmission lubricant, brake fluid, coolant, filters and belts. Record specification, exact source, normal/severe schedule, drain or access point, waste destination and what you actually serviced.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-fluids-filters-q1",
+    "cmp-fluids-filters-q2"
+   ]
+  },
+  {
+   "id": "maintenance-2",
+   "module": "m2",
+   "title": "Write the estimate and get authorization",
+   "minutes": 20,
+   "topics": [
+    "Service design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-remote-oil-filter",
+    "mod-thermostatic-oil-cooler"
+   ],
+   "body": "Write the concern and requested work in the owner's words. Identify mileage, time, vehicle configuration, materials, quantities, labor and the procedure for extra work. Give each line a source. Scope an accessible filter or belt check at the same visit. A newly discovered defect requires a separate disposition and any required authorization.\n\n## Worked shop case\n\nA proposed job costs 42 in parts plus 0.5 hours at 80 per hour. Before fees and tax the estimate is 82. An additional belt is outside that approved scope.\n\n## Guided practice\n\nWithout tax or fees, 55 in parts and 0.6 hours at 90 per hour produce what total?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nUse the identified vehicle, duty cycle, date, mileage and owner manual. Make a priced estimate with specific approval, quantity and part identifiers. Specify support points, fluid collection, additional-work authorization and level/leak verification.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "maintenance-2-q1",
+    "maintenance-2-q2"
+   ]
+  },
+  {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Size a service plan for actual duty",
+   "minutes": 30,
+   "topics": [
+    "Size a service plan for actual duty"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A service schedule has parallel triggers. Time ages fluids and elastomers even at low mileage. Repeated short cold runs, towing, dust and prolonged idling may place a vehicle in the maker's severe-service category. Establish the exact engine, fuel, model year and duty pattern. Use the published calendar and distance limits and determine which comes first. A viscosity label alone does not establish the required oil approval, fill quantity or filter compatibility.\n\n**Worked plan.** An invented schedule specifies 8,000 km or 12 months. A vehicle has covered 5,000 km in 11 months and is expected to travel 500 km each month. It would reach the distance trigger in six months, but the time trigger arrives in one. Put the earlier date on the work order. For a change in duty, retrieve the schedule that applies to the new duty and record the source. These values are an exercise, not a service interval.\n\n**Design the job.** Draw the path from sump pickup to pump, filter, galleries and drainback using the donor diagram. Identify where a bypass valve or anti-drainback valve is located in that design. Compare two candidate filters using the exact application, sealing dimensions and specified internal functions. A matching thread only establishes that the filter can screw on. Attach the part identity and required fluid approval to your service plan.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
+   "id": "maintenance-3",
+   "module": "m3",
+   "title": "Change the oil and filter and inspect the vehicle",
+   "minutes": 15,
+   "topics": [
+    "Scheduled service"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Identify the correct drain, filter and fill point before opening the system. Plan for the entire fluid volume and clean containment. Work with the vehicle supported and level as its procedure requires. Use the specified seal, replacement fasteners where applicable, filter installation method and torque specification. Check for a retained old gasket. Add the specified fluid in accordance with the measured-level procedure.\n\n## Worked shop case\n\nA filter's old seal sticks to the mounting face. Fitting a new sealed filter over it can create a leak. Inspect and clean the interface as directed before fitting the replacement.\n\n## Guided practice\n\nA training job expects 4.8 L drained and the approved catch container holds 7.0 L. What is its nominal spare capacity in liters?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nIn a US business, determine used-oil generator obligations under 40 CFR Part 279. Keep sound containers labeled Used Oil, separate solvents and document spill response and the authorized destination. A household changing its own oil should store it in a clean sealed container and use a local collection facility. Confirm local acceptance of filters, coolant and batteries separately. For paid repairs, check your state's estimate and authorization rules. The FTC page is consumer guidance.\n\n[EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses) · [EPA — household used-oil collection](https://www.epa.gov/recycle/managing-reusing-and-recycling-used-oil) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [FTC — automotive estimates and completed repair records](https://consumer.ftc.gov/articles/0211-auto-repair-basics) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\n## Workshop preparation\n\nUse competent supervision for vehicle lifting and restarting. Chock on firm level ground. Never get under a vehicle supported only by a jack. Engage approved lift locks or use correctly rated stands at the specified points according to the manuals. Keep clear of hot oil and moving parts. Do combustion checks outdoors at a suitable site. Contain spills.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "maintenance-3-q1",
+    "maintenance-3-q2",
+    "maintenance-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Remote filter access versus added interfaces",
+   "minutes": 35,
+   "topics": [
+    "Remote filter access versus added interfaces"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "mod-remote-oil-filter",
+    "mod-thermostatic-oil-cooler",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nConsumables and service hardware. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Remote oil filter\n- Thermostatic oil cooler\n\n## Worked example\n\nA filter mounted against a bulkhead takes 12 minutes to remove. A mock remote head takes four but adds two hoses and four hose-end connections. The eight-minute service gain justifies a prototype. Release also needs pressure at equal oil temperature and engine speed, a verified fill level, a supported hose route and a leak inspection after cycling.\n\n## Guided decision\n\n```example fade=1\nproblem: Pressure is lower with cold baseline readings and hot modified readings. Which experiment isolates the change?\nstep: Repeat at matched oil temperature, level, oil grade and speed.\nanswer: A repeat then separates circuit effects from viscosity; record the gauge location too.\n```\n\n## Independent workshop\n\nBuild a dry, unpressurized routing mock-up or filter-access fixture. Time both configurations and enumerate seals, plugs, brackets and clips.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-maintenance"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Distinguish a fresh leak from residue after service",
+   "minutes": 45,
+   "topics": [
+    "Distinguish a fresh leak from residue after service"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Oil can travel down a housing and collect at its lowest point. A drip on a drain plug may have originated above it. A pressure warning, a growing leak or a level outside the maker's permitted range changes the decision to stop and investigate. Never crawl beneath an unsupported vehicle or reach near a running belt to look for a leak. Use the manufacturer's check conditions and a supervised stationary setup.\n\n**Worked diagnosis.** A wiped, cold trainer has fresh oil at the filter mounting face while the drain interface remains dry. Inspect the filter application, sealing surface, retained old seal and installation method with the engine stopped and safe. On another trainer, all interfaces remain dry but a shield carries oil spilled during filling. Clean the accessible residue using the approved method, then recheck under the same documented conditions. Record what changes, where it first appears and how the fluid level was measured.\n\n**Independent work.** On a detached training housing, simulate leaks with an instructor-approved harmless tracer, tray and low-head gravity feed. Tag three observation stations from high to low. Predict the source from the first inspection, clean and repeat to find the first wet interface. Transfer the diagnostic method to the service work order and include the waste or reuse route appropriate to the actual material.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
+   "id": "maintenance-4",
+   "module": "m4",
+   "title": "Close the repair order and send waste to its destination",
+   "minutes": 15,
+   "topics": [
+    "Verification and waste"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Follow the model-specific post-run and settling procedure for fill level and leaks. Record findings and the next interval. Separate used oil, filters, coolant, brake fluid, batteries and solvents. Verify what the authorized receiver accepts and document the transfer. A commercial shop must determine requirements for its waste streams. A household collection site may exclude business waste.\n\n## Worked shop case\n\nA shop labels a sound used-oil container and records a collection receipt. Adding solvent could change waste handling and contaminate the batch. Keep the streams separate and investigate any spill under the facility procedure.\n\n## Guided practice\n\nA sealed container starts with 2 L and receives 4.5 L of used oil. How many liters does it contain?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe actual service, post-service level/leak verification and waste destination are traceable. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "maintenance-4-q1",
+    "maintenance-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-maintenance-bank",
+   "title": "Preventive Maintenance and Shop Operations practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Maintenance theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Service design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Scheduled service"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Verification and waste"
+    }
+   ],
+   "exam": {
+    "questionCount": 16,
+    "timeLimitMinutes": 40,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "maintenance-1-q1",
+     "section": "m1",
+     "topic": "Maintenance theory",
+     "stem": "A fictional 12-month interval was last completed 15 months ago. By how many months is service overdue? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "15 − 12 = 3."
+    },
+    {
+     "id": "maintenance-1-q2",
+     "section": "m1",
+     "topic": "Maintenance theory",
+     "stem": "Two oils have the same viscosity but only one carries the specified approval. What should go on the order?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "The fluid meeting both viscosity and required approval.",
+      "Whichever has the lower purchase price.",
+      "A mixture of both to average their properties."
+     ],
+     "explanation": "Viscosity by itself does not establish the required performance."
+    },
+    {
+     "id": "maintenance-2-q1",
+     "section": "m2",
+     "topic": "Service design",
+     "stem": "Without tax or fees, 55 in parts and 0.6 hours at 90 per hour produce what total? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "109"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "55 + (0.6 × 90) = 109."
+    },
+    {
+     "id": "maintenance-2-q2",
+     "section": "m2",
+     "topic": "Service design",
+     "stem": "A split hose is discovered during an authorized oil change. What records the correct next step?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Conceal the defect until the next visit.",
+      "Silently increase the invoice after replacement.",
+      "Document the finding and obtain any additional authorization before repair."
+     ],
+     "explanation": "A finding, an authorized repair and a billed repair are distinct."
+    },
+    {
+     "id": "maintenance-3-q1",
+     "section": "m3",
+     "topic": "Scheduled service",
+     "stem": "A training job expects 4.8 L drained and the approved catch container holds 7.0 L. What is its nominal spare capacity in liters? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "2.2"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "7.0 − 4.8 = 2.2 L."
+    },
+    {
+     "id": "maintenance-3-q2",
+     "section": "m3",
+     "topic": "Scheduled service",
+     "stem": "Which checks should precede a first restart after an oil service?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Relying on a clean floor beneath the car.",
+      "Closure, new filter/seal, correct initial oil fill and cleared tools.",
+      "Resetting the reminder alone."
+     ],
+     "explanation": "The initial configuration must be ready for the manual's restart and leak check."
+    },
+    {
+     "id": "maintenance-3-q3",
+     "section": "m3",
+     "topic": "Scheduled service",
+     "stem": "A paid shop is closing an oil service. Select two appropriate records. Select all that apply.",
+     "choices": [
+      "The authorized scope, actual parts and final service verification.",
+      "An instruction to mix solvent into the used-oil stream.",
+      "A household drop-off address without checking it accepts business waste.",
+      "The labeled used-oil stream and receiving facility or collection record."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "In a US business, determine used-oil generator obligations under 40 CFR Part 279. Keep sound containers labeled Used Oil, separate solvents and document spill response and the authorized destination. A household changing its own oil should store it in a clean sealed container and use a local collection facility. Confirm local acceptance of filters, coolant and batteries separately. For paid repairs, check your state's estimate and authorization rules. The FTC page is consumer guidance."
+    },
+    {
+     "id": "maintenance-4-q1",
+     "section": "m4",
+     "topic": "Verification and waste",
+     "stem": "A sealed container starts with 2 L and receives 4.5 L of used oil. How many liters does it contain? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "6.5"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "2 + 4.5 = 6.5 L, assuming no loss."
+    },
+    {
+     "id": "maintenance-4-q2",
+     "section": "m4",
+     "topic": "Verification and waste",
+     "stem": "Which job evidence tells the next technician what was actually completed?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Fluid approval, filter part number, level procedure, leak check, date and mileage.",
+      "A generic maintenance sticker alone.",
+      "An unverified estimate copy."
+     ],
+     "explanation": "The closing record distinguishes installed parts and verified work from planned work."
+    },
+    {
+     "id": "cmp-fluids-filters-q1",
+     "section": "m1",
+     "topic": "Fluids, filters, belts and the service interval",
+     "stem": "What evidence best supports selecting replacement coolant?",
+     "explanation": "Products with the same color can use different chemistries.",
+     "choices": [
+      "Equal bottle volume.",
+      "Similar dye color.",
+      "Exact vehicle specification and documented product compatibility."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-fluids-filters-q2",
+     "section": "m1",
+     "topic": "Fluids, filters, belts and the service interval",
+     "stem": "Which service item preserves crankshaft-to-camshaft phase on a belt-timed engine?",
+     "explanation": "The timing drive controls valve timing relative to piston motion.",
+     "choices": [
+      "The cabin blower belt.",
+      "The transmission oil strainer.",
+      "The toothed timing belt and its specified drive hardware."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "shop-change-maintenance",
+     "section": "m3",
+     "topic": "Remote filter access versus added interfaces",
+     "stem": "A remote filter adapter adds two hoses. Which observation must be logged before a higher-capacity filter can be accepted?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Oil pressure in the specified operating conditions plus leakage and routing after cycling.",
+      "The sump holds the same amount as before without checking the dipstick.",
+      "Confirm that the filter thread matches and close the decision there."
+     ],
+     "explanation": "Lines and filters change the circuit, fill and potential loss points."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "An exercise schedule sets 12 months or 9,000 km. At 10 months and 4,000 km, usage will be 500 km/month. In how many months does the earlier trigger occur? Enter the number only.",
+     "section": "m2",
+     "topic": "Size a service plan for actual duty",
+     "explanation": "The calendar limit arrives in two months. The remaining 5,000 km would take ten months."
+    },
+    {
+     "choices": [
+      "The color of its anti-drainback valve.",
+      "Its documented application, seal fit and required valve functions.",
+      "The larger outer diameter by itself."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "Two spin-on filters share a thread. Which evidence supports selecting one for a specific engine?",
+     "section": "m2",
+     "topic": "Size a service plan for actual duty",
+     "explanation": "The thread cannot establish sealing geometry or internal behavior under the required oil flow."
+    },
+    {
+     "choices": [
+      "How dark the old stain looks.",
+      "The lowest point the old oil reached.",
+      "The first newly wet location after cleaning and a repeat under comparable conditions."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q3",
+     "stem": "After a service, a shield is oily under a dry drain interface. What observation best distinguishes old spilled oil from an active leak?",
+     "section": "m3",
+     "topic": "Distinguish a fresh leak from residue after service",
+     "explanation": "Fresh changes observed in sequence localize a source."
+    },
+    {
+     "choices": [
+      "Clear the warning and record the job as complete.",
+      "Stop the engine safely and investigate according to its service procedure.",
+      "Extend the run until the oil stain evaporates."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q4",
+     "stem": "A stationary supervised service check triggers an oil-pressure warning. Which response fits the evidence?",
+     "section": "m3",
+     "topic": "Distinguish a fresh leak from residue after service",
+     "explanation": "A pressure warning changes the risk of continuing to operate the engine."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-maintenance-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Service interval",
+     "back": "The time, distance or duty condition that triggers a scheduled task.",
+     "topic": "Maintenance theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Two oils have the same viscosity but only one carries the specified approval. What should go on the order?",
+     "back": "The fluid meeting both viscosity and required approval. Viscosity by itself does not establish the required performance.",
+     "topic": "Maintenance theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Fluid approval",
+     "back": "A specified performance standard or manufacturer approval for a fluid.",
+     "topic": "Service design"
+    },
+    {
+     "id": "c2b",
+     "front": "A split hose is discovered during an authorized oil change. What records the correct next step?",
+     "back": "Document the finding and obtain any additional authorization before repair. A finding, an authorized repair and a billed repair are distinct.",
+     "topic": "Service design"
+    },
+    {
+     "id": "c3a",
+     "front": "Repair order",
+     "back": "The record connecting authorized work, installed parts and verified results.",
+     "topic": "Scheduled service"
+    },
+    {
+     "id": "c3b",
+     "front": "Which checks should precede a first restart after an oil service?",
+     "back": "Closure, new filter/seal, correct initial oil fill and cleared tools. The initial configuration must be ready for the manual's restart and leak check.",
+     "topic": "Scheduled service"
+    },
+    {
+     "id": "c4a",
+     "front": "Waste stream",
+     "back": "Material kept separate for a particular handling and receiving route.",
+     "topic": "Verification and waste"
+    },
+    {
+     "id": "c4b",
+     "front": "Which job evidence tells the next technician what was actually completed?",
+     "back": "Fluid approval, filter part number, level procedure, leak check, date and mileage. The closing record distinguishes installed parts and verified work from planned work.",
+     "topic": "Verification and waste"
+    },
+    {
+     "id": "cmp-fluids-filters-card",
+     "front": "What evidence best supports selecting replacement coolant?",
+     "back": "Exact vehicle specification and documented product compatibility. Products with the same color can use different chemistries.",
+     "topic": "Fluids, filters, belts and the service interval"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A remote filter adapter adds two hoses. Which observation must be logged before a higher-capacity filter can be accepted?",
+     "back": "Oil pressure in the specified operating conditions plus leakage and routing after cycling. Lines and filters change the circuit, fill and potential loss points.",
+     "topic": "Remote filter access versus added interfaces"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Two spin-on filters share a thread. Which evidence supports selecting one for a specific engine?",
+     "back": "Its documented application, seal fit and required valve functions. The thread cannot establish sealing geometry or internal behavior under the required oil flow.",
+     "topic": "Size a service plan for actual duty"
+    },
+    {
+     "id": "case-test-card",
+     "front": "A stationary supervised service check triggers an oil-pressure warning. Which response fits the evidence?",
+     "back": "Stop the engine safely and investigate according to its service procedure. A pressure warning changes the risk of continuing to operate the engine.",
+     "topic": "Distinguish a fresh leak from residue after service"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Service interval",
+   "definition": "The time, distance or duty condition that triggers a scheduled task.",
+   "topic": "Maintenance theory"
+  },
+  {
+   "term": "Fluid approval",
+   "definition": "A specified performance standard or manufacturer approval for a fluid.",
+   "topic": "Service design"
+  },
+  {
+   "term": "Repair order",
+   "definition": "The record connecting authorized work, installed parts and verified results.",
+   "topic": "Scheduled service"
+  },
+  {
+   "term": "Waste stream",
+   "definition": "Material kept separate for a particular handling and receiving route.",
+   "topic": "Verification and waste"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Citrus College — Fundamentals of Automotive Service, Diagnosis and Repair](https://catalog.citruscollege.edu/course-outlines/AUTO-101/AUTO-101.pdf) · [College of the Desert — Automotive Service: Oil Change, AUTO 306](https://www.collegeofthedesert.edu/_web-items/documents/pdf-files/course-outlines/auto-306-fa22.pdf) · [EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nIn a US business, determine used-oil generator obligations under 40 CFR Part 279. Keep sound containers labeled Used Oil, separate solvents and document spill response and the authorized destination. A household changing its own oil should store it in a clean sealed container and use a local collection facility. Confirm local acceptance of filters, coolant and batteries separately. For paid repairs, check your state's estimate and authorization rules. The FTC page is consumer guidance.\n\n[EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses) · [EPA — household used-oil collection](https://www.epa.gov/recycle/managing-reusing-and-recycling-used-oil) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [FTC — automotive estimates and completed repair records](https://consumer.ftc.gov/articles/0211-auto-repair-basics) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Oil filtration; Air, fuel and cabin filters; Service fluids; Belt and tensioner. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Oil filtration | Spin-on / cartridge | Media, bypass, housing seal and drainback features must suit the specified engine. | Compare the housing and sealing arrangement to its service drawing. |\n| Air, fuel and cabin filters | Dry intake element / cabin particulate or carbon / fuel-water separator | Each protects a different stream. Flow direction, restriction and replacement interval follow the device. | Locate and label each filter; record mileage, interval and observed restriction indicator if fitted. |\n| Service fluids | Oil / ATF / CVT fluid / gear oil / coolant / brake fluid | Compatibility and viscosity or friction characteristics are system-specific. | Read product approval against the exact donor requirement and log disposal. |\n| Belt and tensioner | Accessory / cam timing; automatic / manual tension | A drive belt can serve accessories or establish valve phase; tension procedure differs. | Mark which belt drives what, service interval, and tension verification method. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [EPA, used oil management for businesses](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Consumables and service hardware · Engine oil to Water separator bowl",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Engine oil\n\n**Function.** Carries load at bearings, cools and transports contaminants.\n\n**Design.** Select viscosity and approvals for engine, duty and aftertreatment.\n\n**Make, assemble or fit.** Fill the clean engine with the specified product using the prescribed level method.\n\n**Verify.** Record level, temperature, pressure and leaks.\n\n### Oil filter element\n\n**Function.** Traps particulate from circulating oil.\n\n**Design.** Match media, flow, bypass provision and housing.\n\n**Make, assemble or fit.** Fit an approved cartridge or spin-on assembly and renew designated seals.\n\n**Verify.** Verify pressure, sealing and correct part identity after running.\n\n### Filter housing and cap\n\n**Function.** Retains element and routes supply and return.\n\n**Design.** Match flow direction, thread and O-ring groove.\n\n**Make, assemble or fit.** Clean housing, fit seal in its designated groove and tighten to data.\n\n**Verify.** Inspect both housing joint and drain after cycling.\n\n### Drain plug and sealing washer\n\n**Function.** Close a service drain repeatedly.\n\n**Design.** Match thread, plug reach, seat and washer material.\n\n**Make, assemble or fit.** Inspect receiving threads and install a specified new seal where required.\n\n**Verify.** Check for seepage and record tightening value.\n\n### Air cleaner element\n\n**Function.** Traps intake dust ahead of the engine.\n\n**Design.** Choose specified filtration, flow and sealing edge.\n\n**Make, assemble or fit.** Seat the element evenly in the cleaned airbox.\n\n**Verify.** Inspect downstream side for evidence of bypass.\n\n### Cabin air filter\n\n**Function.** Removes contaminants from ventilation air.\n\n**Design.** Match pressure drop, size and indicated flow direction.\n\n**Make, assemble or fit.** Slide into guided slots and refit the cover.\n\n**Verify.** Check door closure, blower output and odor source.\n\n### Fuel filter\n\n**Function.** Protects injection hardware from particles.\n\n**Design.** Match pressure rating, flow, filtration and fuel compatibility.\n\n**Make, assemble or fit.** Install a specified filter using donor pressure isolation and cleanliness procedures.\n\n**Verify.** Verify correct direction and approved leak inspection.\n\n### Water separator bowl\n\n**Function.** Collects separated water in applicable diesel systems.\n\n**Design.** Choose capacity, sensor and drain arrangement.\n\n**Make, assemble or fit.** Fit a compatible separator with its drain, seals and sensor.\n\n**Verify.** Check for water indication and secure leak-free closure."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Consumables and service hardware · Accessory drive belt to Brake fluid",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Accessory drive belt\n\n**Function.** Transfers crank power to accessories.\n\n**Design.** Match rib profile, length and routing diagram.\n\n**Make, assemble or fit.** Release tension with the correct tool and seat ribs on every pulley.\n\n**Verify.** Check tracking and tensioner position.\n\n### Idler pulley\n\n**Function.** Guides belt wrap without powering an accessory.\n\n**Design.** Specify groove profile, bearing and alignment.\n\n**Make, assemble or fit.** Fit matched pulley, spacer and hardware on a clean mount.\n\n**Verify.** Verify alignment and bearing condition.\n\n### Belt tensioner\n\n**Function.** Maintains drive-belt tension across load changes.\n\n**Design.** Match arm range, spring and damping.\n\n**Make, assemble or fit.** Install the approved assembly with controlled spring release.\n\n**Verify.** Confirm arm position and travel in its specified operating range.\n\n### Transmission fluid\n\n**Function.** Lubricates gears and may operate clutches and hydraulics.\n\n**Design.** Match the exact friction characteristics and approval.\n\n**Make, assemble or fit.** Fill at the specified temperature and operating state.\n\n**Verify.** Record level and verify shift or engagement behavior.\n\n### Coolant mixture\n\n**Function.** Transports heat and provides freeze and corrosion protection.\n\n**Design.** Select approved chemistry, concentration and water quality.\n\n**Make, assemble or fit.** Fill the cool system with its prescribed bleed sequence.\n\n**Verify.** Measure protection with a compatible instrument and check for leaks.\n\n### Brake fluid\n\n**Function.** Transfers pressure and tolerates operating heat.\n\n**Design.** Match class and exact brake-system requirements.\n\n**Make, assemble or fit.** Use fresh approved fluid with the specified filling and bleed process.\n\n**Verify.** Verify system integrity and pedal response per service procedure."
+  },
+  {
+   "id": "mod-remote-oil-filter",
+   "title": "Modification · Remote oil filter",
+   "body": "**Purpose.** Improve filter service access when packaging blocks the stock location.\n\n**Design and baseline.** Trace inlet/outlet, required flow, bypass location, oil compatibility, line rating and routing away from exhaust. Include added fill volume and potential drainback.\n\n**Build and installation.** Mock up adapter, head and filter with cardboard and hose patterns. Fit rated connectors and supported hoses per equipment data. Establish fill and priming sequence from the engine source.\n\n**Test and disposition.** Compare pressure at matched oil temperature/speed, inspect for leaks after cycles and time filter removal. Reject a convenient installation that compromises supply.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)"
+  },
+  {
+   "id": "mod-thermostatic-oil-cooler",
+   "title": "Modification · Thermostatic oil cooler",
+   "body": "**Purpose.** Reduce repeatable high oil temperature during sustained load.\n\n**Design and baseline.** First verify gauge and baseline temperature. Choose thermostat behavior, core pressure drop, rated plumbing and position relative to radiator.\n\n**Build and installation.** Template core and hose paths, fabricate supported isolated mounts and install matched cooler kit using its flow orientation. Prime and establish correct level.\n\n**Test and disposition.** Log cold warm-up, hot oil pressure/temperature and coolant temperature at matched load. Remove or redesign if pressure drops or cold operation worsens beyond accepted limits.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF101/102 cover lubrication and oil service. UVU AUT1010 sets the maintenance scope. ASE I.D.1–2 (PDF p. 54) cover lubrication system identification and manufacturer-specified oil/filter service. The gravity tracer is a low-energy exercise for locating an entry point. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Use the identified vehicle, duty cycle, date, mileage and owner manual. Make a priced estimate with specific approval, quantity and part identifiers. Specify support points, fluid collection, additional-work authorization and level/leak verification."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A serviced vehicle or engine, closed work order and waste transfer record."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The actual service, post-service level/leak verification and waste destination are traceable."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Duty and calendar/distance trigger, documented filter application and sealing requirements, and a repeated three-station leak test showing where fluid first appears."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Prepare a maintenance estimate",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Use the identified vehicle, duty cycle, date, mileage and owner manual. Make a priced estimate with specific approval, quantity and part identifiers. Specify support points, fluid collection, additional-work authorization and level/leak verification. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Oil filtration; Air, fuel and cabin filters; Service fluids; Belt and tensioner. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Remote filter access versus added interfaces",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Build a dry, unpressurized routing mock-up or filter-access fixture. Time both configurations and enumerate seals, plugs, brackets and clips. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Complete a scheduled vehicle service",
+   "module": "m3",
+   "adult": true,
+   "intro": "A serviced vehicle or engine, closed work order and waste transfer record. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use competent supervision for vehicle lifting and restarting. Chock on firm level ground. Never get under a vehicle supported only by a jack. Engage approved lift locks or use correctly rated stands at the specified points according to the manuals. Keep clear of hot oil and moving parts. Do combustion checks outdoors at a suitable site. Contain spills."
+   ],
+   "materials": [
+    "Approved vehicle or operating teaching engine due for oil service",
+    "Correct fluid and filter, manual, rated support and tools",
+    "Containment, labeled containers and receiving site"
+   ],
+   "steps": [
+    "Obtain authorization and record maintenance history, fluid specification and condition. Inspect accessible belt, hoses, air filter and battery installation.",
+    "Perform the actual oil and filter change to the service procedure, noting seal and fastener requirements.",
+    "Perform the manual's fill verification and leak check. Record any hold and repeat affected checks after correction.",
+    "Close the work order and retain a receipt or site log for the separated waste."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Work item",
+      "Manual requirement",
+      "As found",
+      "Work completed",
+      "Verification or waste record"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The actual service, post-service level/leak verification and waste destination are traceable. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Distinguish a fresh leak from residue after service — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A duty-based service plan and repeatable leak-source record.",
+   "safety": [
+    "Use only a shop-approved low-head tracer and training housing. Contain the fluid and follow its actual disposal or reuse instructions. Stop a live service check safely if a pressure warning appears."
+   ],
+   "materials": [
+    "Service schedule for the chosen vehicle, detached training housing, gravity feed, manufacturer-compatible harmless tracer, collection tray"
+   ],
+   "steps": [
+    "Read “Size a service plan for actual duty”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a detached training housing, simulate leaks with an instructor-approved harmless tracer, tray and low-head gravity feed. Tag three observation stations from high to low. Predict the source from the first inspection, clean and repeat to find the first wet interface. Transfer the diagnostic method to the service work order and include the waste or reuse route appropriate to the actual material.",
+    "File the following evidence with the course project. A duty-based service plan and repeatable leak-source record."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Station / elevation",
+      "Initial condition",
+      "First wet point",
+      "Repeat conditions",
+      "Source or open question"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-shop"
+ ]
+}
