@@ -1,0 +1,1004 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-welding",
+ "title": "Automotive Welding and Weld Inspection",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Choose a joining process, draw a steel joint, set up a MIG welder and practice on matched coupons. Fabricate a removable shop organizer, measure distortion and destructively test a plug weld before transferring the evidence to chassis design.",
+ "changelog": "First public edition.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "requires": [
+  "auto-shop"
+ ],
+ "modules": [
+  {
+   "id": "theory",
+   "title": "Theory — Hot work and welding processes",
+   "quiz": [
+    "bay-1",
+    "bay-2",
+    "process-1",
+    "process-2"
+   ]
+  },
+  {
+   "id": "design",
+   "title": "Design — Joint drawings and setup",
+   "quiz": [
+    "layout-1",
+    "layout-2",
+    "setup-1",
+    "setup-2"
+   ]
+  },
+  {
+   "id": "implementation",
+   "title": "Implementation — GMAW bead and joint practice",
+   "quiz": [
+    "stringer-1",
+    "stringer-2",
+    "joints-1",
+    "joints-2"
+   ]
+  },
+  {
+   "id": "verification",
+   "title": "Verification — Build, inspect and test",
+   "quiz": [
+    "tray-1",
+    "tray-2",
+    "inspect-1",
+    "inspect-2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "bay",
+   "module": "theory",
+   "title": "Clear the bay before striking an arc",
+   "minutes": 25,
+   "topics": [
+    "Clear the bay before striking an arc"
+   ],
+   "refs": [
+    "shop",
+    "waste"
+   ],
+   "body": "A spark does not stop at the edge of your table. It can roll through a floor opening or heat something combustible on the other side of a metal wall. A welding screen protects nearby eyes. A screen can also hide the first sign of a fire. Begin with a cold walk-through of the proposed booth and the adjoining spaces. If the garage cannot provide a controlled hot-work area, do the drawing and layout there and book the arc work in an equipped teaching shop.\n\n**Worked walk-through.** The drawing shows a clean bench. On site, an open solvent container sits behind the screen, the fume-capture arm is out of reach, and a cardboard box touches the far side of the metal partition. Mark the vapor source, the path from the arc to the operator’s breathing zone, and the heat path through the wall. Suspend hot work. Have the shop remove the hazards, set and check local exhaust, inspect both sides and designate the fire watch where required. Opening the garage door alone does not establish exposure control.\n\nUse dry intact gloves, safety glasses, a welding helmet with the correct filter for the process/current, flame-resistant clothing, and protective footwear. Protect bystanders from the arc and use the specified eye and face protection for grinding and testing. Secure cylinders upright and use compatible regulators. Have the supervisor check leads, insulation, work connection, ventilation and fire equipment. Keep chlorinated degreasers and their vapors away from arc radiation. Unknown coatings, used tanks, fuel-bearing parts, sealed vessels and high-voltage vehicle systems are outside this bench exercise.\n\n**Try it cold.** Draw where a spark could land beneath your bench and where fumes would travel with the capture arm on the far side of your face. A useful correction puts capture near the source without pulling the plume across your face or disrupting the shielding gas. Have the supervisor verify effectiveness. Independently mark the isolation point, extinguisher, alarm route, openings, waste streams and the person who can stop work on your own bay sketch. Keep it with your first lab.",
+   "quiz": [
+    "bay-1",
+    "bay-2"
+   ]
+  },
+  {
+   "id": "process",
+   "module": "theory",
+   "title": "Read the material and choose a joining process",
+   "minutes": 30,
+   "topics": [
+    "Read the material and choose a joining process"
+   ],
+   "refs": [
+    "processes",
+    "training"
+   ],
+   "body": "Start with the material identifier, sheet thickness, coating, joint function and access. A magnet is a screening tool. It cannot distinguish ordinary mild steel from several high-strength grades. For an existing vehicle, use the maker’s repair information for the exact year, model, location and joint. Heat can change the properties of high-strength steel, destroy corrosion protection, and damage nearby adhesives or components.\n\n**Follow the heat and filler.** In gas metal arc welding (GMAW, often called MIG), the wire is both electrode and filler. An external gas shields the pool. Short-circuit transfer is often used on thin mild steel when the equipment and procedure support it. In GTAW (TIG) the tungsten electrode carries current while filler can be added separately. That control is valuable on suitable clean material but requires two-hand coordination and careful heat management. Flux-cored wire can be self-shielded or gas-shielded. Flux and slag change cleanup and inspection. SMAW (stick) uses a flux-coated rod and is a poor default choice for thin body sheet. Resistance spot welding squeezes stacked sheets between electrodes and heats their interface. MIG brazing melts a lower-melting filler to join the sheets. Neither process is a drop-in substitute for a specified fusion joint.\n\n**Worked decision.** A known mild-steel tool tray can be designed for the available GMAW trainer. A replacement body flange that looks the same carries an OEM procedure calling for resistance spot welding. The tray decision comes from your bench drawing. The body decision comes from the OEM material map, approved method, access and any authorized alternative. For aluminum compare alloy, temper, oxide preparation, filler compatibility and dedicated tooling with the manufacturer's procedure. A steel coupon gives no evidence about an aluminum repair.\n\n**Try a second case.** You have unidentified painted donor sheet and certified uncoated mild-steel offcuts. Pick material for a first coupon and explain why. The offcuts give known inputs and avoid unknown coatings. Independently write a three-row decision sheet for the tray, the body flange, and an unidentified bracket. Record process, source, access and a release or referral decision for each.",
+   "quiz": [
+    "process-1",
+    "process-2"
+   ]
+  },
+  {
+   "id": "layout",
+   "module": "design",
+   "title": "Draw a joint that can be made and inspected",
+   "minutes": 35,
+   "topics": [
+    "Draw a joint that can be made and inspected"
+   ],
+   "refs": [
+    "drawing",
+    "practice"
+   ],
+   "body": "A butt joint puts two edges in one plane. A lap joint overlaps the sheets and introduces an interface that is hard to see. A T-joint puts an edge against a face and can take a fillet weld. A plug weld is deposited through a prepared hole to join the underlying sheet. Decide what the joint must accomplish, where the tool can reach, what moisture might be trapped and how a reviewer will observe both sides. On a training drawing identify the joint, orientation, weld location and guiding procedure. Read the arrow, reference line, side and size/length information using the drawing's stated symbol convention. Refer an ambiguous symbol back to the drawing owner.\n\n**Worked layout.** For a bench lap specimen, two strips each 30 mm wide overlap 10 mm, for an assembled width of 50 mm. Mark which face receives the hole, the hole location from a datum, the edges that register against the stops, and two clamp positions outside the gun path. Draw a section through the hole. Without that section, a helper might drill both sheets and remove the material the weld must fuse to. Use the actual practice sheet for diameters, overlap, position, tolerances and inspection limits.\n\n**Dry run.** Make cardboard stand-ins. Approach with the disconnected gun and simulate removal from the fixture. If you can reach the start but your clamp blocks the finish, relocate the clamp and test the whole path again. For the independent layout, draw a free-standing open-top organizer for small shop parts. Specify the base, sides, joint type, datum, released dimensions, a usable fit gauge and how each weld will be inspected. Put the clamp sequence and fit checks on the drawing before requesting review.\n\n```assignment\nwriting: traveler\n```",
+   "quiz": [
+    "layout-1",
+    "layout-2"
+   ]
+  },
+  {
+   "id": "setup",
+   "module": "design",
+   "title": "Set up the wire path and a representative test coupon",
+   "minutes": 30,
+   "topics": [
+    "Set up the wire path and a representative test coupon"
+   ],
+   "refs": [
+    "machine",
+    "practice"
+   ],
+   "body": "Trace the GMAW circuit from the power source to the contact tip, through the wire and arc to the work, then back through the work lead. The work clamp carries welding current. Protective earth has a different function. On the detached bench connect the work clamp to a clean, sound contact on the work or approved fixture near the joint. A poor return can mimic an unstable arc. Trace shielding gas from the secured cylinder through its regulator, hose, solenoid and nozzle.\n\nWith the instructor, read the machine and consumable manuals and approved procedure. Match material and thickness, wire classification and diameter, polarity, gas, position and transfer mode. Use the setup chart as a starting point within the allowed procedure. With equipment made safe per its manual, verify the drive roll, liner and contact tip match the wire. Route the gun lead smoothly. Only perform powered feed or purge checks exactly as directed, with the gun pointed clear of people and the trigger controlled. Voltage and wire-feed speed interact on a constant-voltage machine. Work angle, travel speed and contact-tip-to-work distance also affect results.\n\n**Worked diagnosis.** Wire delivery changes when the lead is bent sharply. Raising voltage does not remove drag. With the machine made safe, straighten the lead, inspect the feed system and repeat the approved check. If a test arc remains unstable, check the work connection and setup against the procedure before experimenting. Record the actual settings, units, consumables and coupon ID so the next trial can reproduce them.\n\n**Set a fair comparison.** Your drawing calls for a two-sheet lap tested in a given position. A bead on a single plate cannot test fusion at the interface. Prepare matched, clean bare stock and duplicate the joint, fit, hole preparation where applicable, position and clamping. Independently prepare and label one baseline and one spare specimen, then have the instructor check the traveler and setup before energizing.",
+   "quiz": [
+    "setup-1",
+    "setup-2"
+   ]
+  },
+  {
+   "id": "stringer",
+   "module": "implementation",
+   "title": "Run repeatable beads on bare mild steel",
+   "minutes": 45,
+   "topics": [
+    "Run repeatable beads on bare mild steel"
+   ],
+   "refs": [
+    "machine",
+    "shop"
+   ],
+   "body": "Use the supervised booth and an instructor-approved flat-position practice sheet. Before energizing, rehearse the complete path with the gun made safe. Brace your hands, confirm visibility of the joint, and check that your cable, clamp or body position will not pull the gun away from the intended path. Put the helmet down before the arc starts. Use the instructor’s demonstration and the equipment manual for contact-tip distance, work angle, travel angle and arc starts and stops.\n\nWatch where the leading edge of the pool meets the base metal. Follow a marked line at the procedure’s travel speed. After the run, mark the coupon hot, place it in the designated cooling area and record what you observed before cleanup. Keep the same lighting and scale for each cooled sample. A sound-looking face is a reason to inspect the joint further. It cannot establish internal fusion.\n\n**Worked comparison.** On a training run, 60 mm of bead in 15 seconds gives 4 mm/s mean travel. A second run covers the same length in 12 seconds, or 5 mm/s. With all other settings held constant, less arc time is spent per unit length in the second run. Compare width, consistency, edge wetting and evidence on the reverse. These speeds describe this experiment only. If clamp contact was lost midway, repeat the comparison because more than one condition changed.\n\n**Guided run and feedback.** Have the instructor observe your first run and point to the pool edge where the bead wandered. Rehearse that reach cold, then repeat. Independently make a labeled pair varying one permitted factor. Record the baseline, change, arc time, bead length and differences you can see. Use the evidence to choose which setup to carry to a fresh joint.\n\n```assignment\nlab: bead-series\n```",
+   "quiz": [
+    "stringer-1",
+    "stringer-2"
+   ]
+  },
+  {
+   "id": "joints",
+   "module": "implementation",
+   "title": "Make fillet and plug welds that reveal the interface",
+   "minutes": 60,
+   "topics": [
+    "Make fillet and plug welds that reveal the interface"
+   ],
+   "refs": [
+    "practice",
+    "shop"
+   ],
+   "body": "Move from a bead on plate to two pieces that must actually join. On a T-joint, identify the root where the pieces meet and the toes where the weld face joins each parent piece. Work angle affects how the arc reaches each side. A large fillet leg on one side can coexist with poor fusion on the other. On a plug joint the upper sheet forms a hole and the lower sheet is the target for fusion. A circular cap can hide an empty interface.\n\n**At the bench.** Transfer the approved practice dimensions onto matching uncoated mild-steel coupons. Deburr, clean using the shop-approved method and clamp the pieces in the specified position. Dry-run torch access and label specimens before the test. On the supervised fillet coupon, watch how the pool meets both pieces. For the plug coupon use the instructor-demonstrated sequence specified for that sheet to establish fusion at the lower sheet and tie into the upper edge. Let the specimens cool safely. Photograph the face and reverse. Retain a matched plug sample for the prescribed destructive inspection.\n\n**Worked observation.** A learner’s plug face is round and flush. The test opens at a smooth sheet interface with no qualifying tear-out. Check whether the upper sheet was tightly fitted, whether the arc reached the lower sheet, and whether preparation and settings matched the trial sheet. Record the failure before changing anything. One plausible cause is not yet a diagnosis.\n\n**Independent run.** Make one labeled fillet and two matching plug specimens. Write down a prediction from their faces before looking at the reverse or testing. Use the exact exercise acceptance criteria. If a superficial indication conflicts with the specified test, retain both observations and follow the test disposition.\n\n```assignment\nlab: joint-set\n```",
+   "quiz": [
+    "joints-1",
+    "joints-2"
+   ]
+  },
+  {
+   "id": "tray",
+   "module": "verification",
+   "title": "Fixture, tack and weld a removable shop organizer",
+   "minutes": 75,
+   "topics": [
+    "Fixture, tack and weld a removable shop organizer"
+   ],
+   "refs": [
+    "drawing",
+    "shop"
+   ],
+   "body": "A weld and its surrounding material expand as they heat, then contract as they cool. If the surrounding sheet constrains that contraction, the part may change angle or bow. A rigid fixture can hold the work to size during welding and hide movement until release. Tack placement, joint preparation, weld length and weld order all affect the result.\n\n**Worked change.** On a fictitious tray, tab spacing is 90.0 mm before tack, 90.2 mm tacked, and 91.3 mm after cooling and releasing. Most of the observed change happened after the tack measurement. The record does not say whether clamping, sequence or fit dominated. On trial two keep the same material, joints and reference faces. Change one approved variable, such as alternating the planned short joints across the tray. Measure under the same conditions. Avoid adding weld length beyond the drawing or using unapproved quenching to force a fit.\n\n**Build your design.** Begin after your instructor has accepted representative test coupons for each joint used on the drawing. If the organizer introduces a different joint, thickness or position, prepare and test that configuration first. Use your approved organizer drawing, known sheet, signed coupon record and specified joints. Cut, deburr and dry-fit the parts using approved tools and guards. Mark the datum, clamp to the fixture, tack per the reviewed plan and recheck fit before completing the specified weld sequence. Place the piece in the hot-work cooling area. After it cools and is released, measure the same features again. Remove sharp edges without grinding away a required weld. Verify the intended contents fit, the tray sits flat within your drawing tolerance, and it can be lifted away by hand. Keep this organizer for the garage bench.\n\n**Feedback on a miss.** Compare your three measurement sets with the tolerance you chose before cutting. If the released part rocks or the gauge binds, document the discrepancy, revise one feature or operation and repeat the relevant check. Keep the original result visible in the evidence.\n\n```assignment\nlab: organizer\n```",
+   "quiz": [
+    "tray-1",
+    "tray-2"
+   ]
+  },
+  {
+   "id": "inspect",
+   "module": "verification",
+   "title": "Test the weld and hand off the evidence",
+   "minutes": 45,
+   "topics": [
+    "Test the weld and hand off the evidence"
+   ],
+   "refs": [
+    "practice",
+    "waste",
+    "training"
+   ],
+   "body": "Use the test named on the approved sheet. Clean and examine a cooled sample under good light. Identify cracks, pores, undercut at a toe, overlap or burn-through. At a toe, a groove melted into the parent metal and left unfilled suggests undercut. A lip of deposited metal rolling over the surface without fusing suggests overlap. Viewed in profile, one removes material at the edge while the other leaves an overhanging edge. Record location and size where the procedure requires. Porosity may point to contamination or shielding loss. Undercut has several possible causes. Compare the observed pattern with work position, consumables, surface condition and settings before assigning a cause.\n\nA trained instructor must demonstrate the approved destructive fixture, guards, PPE and separation method. Record which piece tears, whether the interface opens and the dimensions requested by that test. Secure the fixture and contain sharp edges and flying fragments. Do not improvise a pry test in a loose hand-held sample. A peel test can show how a particular plug specimen fractured. A bend or instructor-prepared cross-section answers a different question. Select the test appropriate to the joint and its stated criteria.\n\n**Worked disposition.** A fictional coupon rule calls for parent-sheet tear-out in a stated size range AND no visible cracks. A specimen can have adequate tear-out and still fail because of a crack. Preserve the labeled pieces and photos, identify which condition failed, correct one justified cause and repeat on a fresh matching specimen. Never average a failed weld with another that passed. Repeat on a second specimen whenever required by the procedure.\n\n**Independent handoff.** Retrieve the prediction you wrote before testing the second plug in the joint lab. Compare it with your recorded fracture evidence and measurements. Cite the criteria, decision and witness. Link the organizer drawing and readings, the process sheet and any failed trials. Name the real joint you propose to study in the chassis course and identify its material, design authority and separate inspection procedure. A witnessed coupon supplies evidence for that exact setup. Vehicle structural repairs, restraints, steering and suspension joints need their own approved design, qualified personnel and inspections.\n\n```assignment\nwriting: disposition\n```",
+   "quiz": [
+    "inspect-1",
+    "inspect-2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "welding-bank",
+   "title": "Automotive welding practice",
+   "sections": [
+    {
+     "id": "theory",
+     "name": "Theory — Hot work and welding processes"
+    },
+    {
+     "id": "design",
+     "name": "Design — Joint drawings and setup"
+    },
+    {
+     "id": "implementation",
+     "name": "Implementation — GMAW bead and joint practice"
+    },
+    {
+     "id": "verification",
+     "name": "Verification — Build, inspect and test"
+    }
+   ],
+   "exam": {
+    "questionCount": 16,
+    "timeLimitMinutes": 35,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "bay-1",
+     "section": "theory",
+     "topic": "Clear the bay before striking an arc",
+     "stem": "A welding screen hides a drain opening and stacked cardboard in the next bay. What should happen before the instructor releases the booth?",
+     "choices": [
+      "Clear or protect exposed areas and verify the far side with the instructor.",
+      "Move the welding screen closer to the joint.",
+      "Have the welder watch the cardboard while striking the arc."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A screen shields people from arc radiation. Sparks can cross openings or ignite material out of sight."
+    },
+    {
+     "id": "bay-2",
+     "section": "theory",
+     "topic": "Clear the bay before striking an arc",
+     "stem": "Which pair belongs in a hot-work survey for a detached training bench? Select both.",
+     "choices": [
+      "The path of sparks beyond the bench",
+      "The color of the coupon label",
+      "Airborne contaminants and the means of capture",
+      "The resale value of the fixture"
+     ],
+     "answer": [
+      0,
+      2
+     ],
+     "explanation": "The survey follows ignition paths and exposure at the source. Identification matters elsewhere in the work record."
+    },
+    {
+     "id": "process-1",
+     "section": "theory",
+     "topic": "Read the material and choose a joining process",
+     "stem": "A repair manual specifies squeeze-type resistance spot welding at a flange. The available gun cannot reach the back. What should the planner do?",
+     "choices": [
+      "Select TIG for the visible face.",
+      "Find an explicitly permitted alternative in the model-specific procedure or refer the repair.",
+      "Replace each specified spot with a continuous MIG seam."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Access rules out the proposed setup. Substitution changes how heat and force reach the joint and needs manufacturer authorization."
+    },
+    {
+     "id": "process-2",
+     "section": "theory",
+     "topic": "Read the material and choose a joining process",
+     "stem": "Which process uses a nonconsumable tungsten electrode and allows the operator to add a separate filler rod?",
+     "choices": [
+      "GMAW",
+      "FCAW",
+      "GTAW",
+      "SMAW"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "GTAW, also called TIG, separates the electrode from the filler. In GMAW the wire serves both functions."
+    },
+    {
+     "id": "layout-1",
+     "section": "design",
+     "topic": "Draw a joint that can be made and inspected",
+     "stem": "Why mark a measurement datum on the fixture drawing before arranging the clamps?",
+     "choices": [
+      "To determine wire-feed speed",
+      "To give tack-stage and released measurements the same reference",
+      "To certify the joint for vehicle use"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A common datum lets the builder compare shape at each stage and locate an error."
+    },
+    {
+     "id": "layout-2",
+     "section": "design",
+     "topic": "Draw a joint that can be made and inspected",
+     "stem": "Two 36 mm wide strips overlap by 12 mm across their widths. What assembled width should the coupon drawing show, in mm? Enter the number only.",
+     "choices": [],
+     "answer": [],
+     "explanation": "36 + 36 − 12 = 60 mm. The overlap is counted once.",
+     "type": "text",
+     "accept": [
+      [
+       "60"
+      ]
+     ]
+    },
+    {
+     "id": "setup-1",
+     "section": "design",
+     "topic": "Set up the wire path and a representative test coupon",
+     "stem": "On a constant-voltage GMAW trainer the gun feeds erratically during the approved feed check. The work clamp is sound. What is the most direct next inspection?",
+     "choices": [
+      "Increase gas flow to its maximum.",
+      "Choose a thicker test piece.",
+      "Use the manual to check the spool path, drive-roll fit, liner and contact tip with the unit made safe."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A feed problem has a mechanical path. Correct it before changing the approved welding variables."
+    },
+    {
+     "id": "setup-2",
+     "section": "design",
+     "topic": "Set up the wire path and a representative test coupon",
+     "stem": "Which sample gives a meaningful rehearsal for a lap plug weld on two equal bare mild-steel sheets?",
+     "choices": [
+      "One plate as thick as both sheets added together.",
+      "Matching sheets with the same joint preparation, position and clamping as the planned test.",
+      "Any scrap that accepts the same filler wire."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A single plate removes the hidden interface. Preparation, position and fit affect heat flow and fusion."
+    },
+    {
+     "id": "stringer-1",
+     "section": "implementation",
+     "topic": "Run repeatable beads on bare mild steel",
+     "stem": "Two trial beads differ in speed, work angle and stickout. Both show inconsistent width. What experiment can isolate the effect of travel speed?",
+     "choices": [
+      "Change all three again.",
+      "Select the smoother bead and skip testing.",
+      "Make labeled trials varying speed alone within the approved procedure while holding other conditions steady."
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "A controlled pair makes a difference attributable to one variable within the limits of the trial."
+    },
+    {
+     "id": "stringer-2",
+     "section": "implementation",
+     "topic": "Run repeatable beads on bare mild steel",
+     "stem": "A bead centerline is 72 mm long and arc-on time is 12 seconds. What was the mean travel speed in mm/s? Enter the number only.",
+     "choices": [],
+     "answer": [],
+     "explanation": "72 mm ÷ 12 s = 6 mm/s. This describes one trial and does not establish a target.",
+     "type": "text",
+     "accept": [
+      [
+       "6"
+      ]
+     ]
+    },
+    {
+     "id": "joints-1",
+     "section": "implementation",
+     "topic": "Make fillet and plug welds that reveal the interface",
+     "stem": "A plug-weld coupon has a filled hole. The specified destructive test exposes a smooth, unbonded lower sheet. Which decision follows?",
+     "choices": [
+      "Reject the specimen, check fit and fusion at the lower sheet, then make and test a fresh matching coupon.",
+      "Accept it because the top hole is full.",
+      "Grind the failed pieces and record a pass."
+     ],
+     "answer": [
+      0
+     ],
+     "explanation": "A filled upper hole can hide a failure to join the lower sheet. Keep the fracture evidence with its specimen ID."
+    },
+    {
+     "id": "joints-2",
+     "section": "implementation",
+     "topic": "Make fillet and plug welds that reveal the interface",
+     "stem": "Which details should be copied from an approved plug-coupon sheet into the joint traveler? Select both.",
+     "choices": [
+      "Wire brand from a different booth regardless of the sheet",
+      "Diameter and location of the top-sheet hole",
+      "Position and required contact between the two sheets",
+      "Torque rating of the bench legs"
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "Hole geometry, position and fit are part of the joint configuration and must match the test instruction."
+    },
+    {
+     "id": "tray-1",
+     "section": "verification",
+     "topic": "Fixture, tack and weld a removable shop organizer",
+     "stem": "A removable organizer measures 100.4 mm between its tabs while clamped. Cooled and released it measures 102.1 mm. What was the increase in mm? Enter the number only.",
+     "choices": [],
+     "answer": [],
+     "explanation": "102.1 − 100.4 = 1.7 mm. The released dimension describes the part that must fit.",
+     "type": "text",
+     "accept": [
+      [
+       "1.7"
+      ]
+     ]
+    },
+    {
+     "id": "tray-2",
+     "section": "verification",
+     "topic": "Fixture, tack and weld a removable shop organizer",
+     "stem": "A cool tray misses the released drawing tolerance. What should the learner do before making a second one?",
+     "choices": [
+      "Move the datum so the first one passes.",
+      "Review the tack sequence, joint fit and fixture restraint, revise one documented cause, then remeasure a new trial.",
+      "Accept the clamped dimension as the final reading."
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "A recorded revision and another released measurement test whether the change worked."
+    },
+    {
+     "id": "inspect-1",
+     "section": "verification",
+     "topic": "Test the weld and hand off the evidence",
+     "stem": "A fictitious exercise sheet accepts a 5–7 mm tear-out in the lower sheet AND requires no visible cracks. A coupon shows a 6 mm tear-out and a toe crack. How should it be marked?",
+     "choices": [
+      "Pass by average",
+      "Pass after photographing the tear-out",
+      "Reject and record both observations"
+     ],
+     "answer": [
+      2
+     ],
+     "explanation": "The exercise has two independent conditions. An acceptable tear-out size cannot cancel a crack."
+    },
+    {
+     "id": "inspect-2",
+     "section": "verification",
+     "topic": "Test the weld and hand off the evidence",
+     "stem": "Which evidence should go in the vehicle capstone folder after an accepted practice series?",
+     "choices": [
+      "A blanket release for frame and suspension welds",
+      "The joint procedure revision, specimen IDs, inspected results, and the limits of that evidence",
+      "Only a cropped photograph of the best weld"
+     ],
+     "answer": [
+      1
+     ],
+     "explanation": "Traceable evidence can inform a later design review. The actual vehicle joint still needs its own applicable procedure and acceptance."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "weld-cards",
+   "title": "At the welding bench",
+   "cards": [
+    {
+     "id": "card-bay",
+     "front": "What can an arc screen shield, and what must you inspect separately?",
+     "back": "It shields others from arc radiation. Inspect spark paths, openings, adjacent materials and fume capture separately.",
+     "topic": "Clear the bay before striking an arc"
+    },
+    {
+     "id": "card-process",
+     "front": "What is consumed in MIG welding compared with TIG welding?",
+     "back": "The MIG wire serves as electrode and filler. The TIG tungsten electrode is nonconsumable and filler may be added separately.",
+     "topic": "Read the material and choose a joining process"
+    },
+    {
+     "id": "card-layout",
+     "front": "What does a section view add to a plug-joint drawing?",
+     "back": "It identifies the stack and the upper sheet to drill, the continuous lower sheet, the overlap and interfaces.",
+     "topic": "Draw a joint that can be made and inspected"
+    },
+    {
+     "id": "card-setup",
+     "front": "Why trace the return lead and the feed path independently?",
+     "back": "Both affect arc stability. The return carries welding current. The rolls, liner and tip deliver wire and can cause mechanical drag.",
+     "topic": "Set up the wire path and a representative test coupon"
+    },
+    {
+     "id": "card-stringer",
+     "front": "What must stay constant in a travel-speed comparison?",
+     "back": "Keep stock, position, joint, equipment settings, work angle and contact-tip distance consistent. Label trials and record actual length and time.",
+     "topic": "Run repeatable beads on bare mild steel"
+    },
+    {
+     "id": "card-joints",
+     "front": "Where are the root and the toes on a T-joint fillet?",
+     "back": "The root is at the joint between the pieces. The toes mark the transitions from weld face to each parent piece.",
+     "topic": "Make fillet and plug welds that reveal the interface"
+    },
+    {
+     "id": "card-tray",
+     "front": "Which spacing should you use for the finished organizer?",
+     "back": "Use the cooled, released spacing from the drawing datums. Compare with the dry-fit and tack-stage readings to investigate distortion.",
+     "topic": "Fixture, tack and weld a removable shop organizer"
+    },
+    {
+     "id": "card-inspect",
+     "front": "A plug looks good from above. Which evidence assesses the hidden interface?",
+     "back": "Inspect the reverse and use the specified destructive test on a matching specimen. Compare the fracture and dimensions with that test’s criteria.",
+     "topic": "Test the weld and hand off the evidence"
+    }
+   ]
+  }
+ ],
+ "references": [
+  {
+   "id": "shop",
+   "title": "Release the hot-work area",
+   "body": "For covered U.S. general-industry employers, federal welding rules address fire prevention, employee protection and ventilation. Under 1910.252(a)(2)(iii), evaluate combustible material and openings within 35 feet, easily ignitable material farther away, and combustibles on the far side of partitions. Where required, a trained fire watch with suitable equipment continues at least 30 minutes after the work. Local fire codes, permits, the facility or insurer may impose additional controls. Document which controls apply where you actually weld. Federal OSHA generally does not cover self-employed people. Check local fire-authority requirements for a personal garage. For these beginner arc labs use an equipped teaching bay with a qualified instructor and functioning exposure controls. [OSHA 29 CFR 1910.252](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252) · [OSHA coverage](https://www.osha.gov/node/59586) · [NIOSH welding fumes](https://www.cdc.gov/niosh/npg/npgd0666.html)"
+  },
+  {
+   "id": "waste",
+   "title": "Sort clean offcuts and used materials",
+   "body": "Keep clean known steel separate from used solvents, contaminated wipes, coatings and swept residue. In a business, identify each waste at generation and have the responsible person determine whether it is hazardous using process knowledge or testing as appropriate. Generator requirements depend on waste and quantity, and state rules can be more stringent. Keep the determination and the collection route together. For household work contact the local household hazardous waste program about what it accepts. Do not pour solvents into drains, burn residues or mix them with scrap. [EPA hazardous waste guide for small businesses](https://www.epa.gov/hwgenerators/managing-your-hazardous-waste-guide-small-businesses) · [EPA typical wastes by industry](https://www.epa.gov/hwgenerators/typical-wastes-generated-industry-sectors)"
+  },
+  {
+   "id": "processes",
+   "title": "Choose the process for the material and joint",
+   "body": "Record material identity, thickness of each layer, coating, joint type, access, welding position and source of authorization. For an OEM repair obtain the current model-specific repair manual, exact joint instructions, allowed heat/joining methods and corrosion-restoration steps. Coating preparation is manufacturer- and joint-specific. Do not generalize a primer instruction across makes or materials. The hands-on exercises use traceable bare mild steel. [I-CAR on OEM-specific weld-through primer instructions](https://rts.i-car.com/crn-2249.html) · [Highland Community College, ACR185 Panel Fabrication](https://highlandcc.edu/academics/areasofstudy/_program-documents/autocollision/autocollision-syllabi/acr185-panelfabrication-2025syl.pdf)"
+  },
+  {
+   "id": "drawing",
+   "title": "Make a two-sided inspection traveler",
+   "body": "On the front put the part and specimen IDs, drawing/procedure revisions, section sketch, material, thicknesses, process, consumables, settings and units, joint access, clamps, inspection method and acceptance source. On the reverse log the operator, equipment ID, released dimensions, face and reverse observations, failure location, test disposition, correction, fresh specimen ID and witness. Use dimensions from the selected exercise or reviewed drawing. A teaching coupon, a tray and a vehicle repair each have a distinct disposition."
+  },
+  {
+   "id": "machine",
+   "title": "Find the specifications on the machine used",
+   "body": "Use the operator manual for the exact machine, consumable instructions and approved procedure. Record the marked units for voltage and wire feed. Trace the feed rolls, liner and contact tip before changing settings to compensate for mechanical drag. Check dryness, insulation, return connection, shielding and the hot-work release with the instructor. The linked manual illustrates GMAW controls. Its setup figures apply to the equipment and conditions it specifies. [Miller GMAW guidelines, section 11](https://www.millerwelds.com/files/owners-manuals/O279299D_MIL.pdf)"
+  },
+  {
+   "id": "practice",
+   "title": "Match the test to the specimen",
+   "body": "Use the diagram and complete visual, reverse-side and destructive criteria for the selected exercise in its stated material, thickness and position. Some practice sheets specify a tear-out size. Apply numbers only to the exact exercise that gives them. If a trial fails, retain its evidence and the fresh retest record. If all trials pass on the first attempt, retain those results as measured. The program uses original bench exercises and does not award a welding qualification. [I-CAR practice welding guide](https://info.i-car.com/getmedia/5bf41ea3-7245-46a2-9d3f-9e6723bcb69f/i-car_practice-welding-guide.pdf)"
+  },
+  {
+   "id": "training",
+   "title": "Where these skills fit",
+   "body": "Course-scope comparison checked November 26, 2026. WLD 131 teaches setup and GMAW practice on ferrous stock, including multiple transfer modes. This course practices short-circuit GMAW on mild-steel coupons and compares other processes in design exercises. ACR185 connects equipment, vehicle protection, joint preparation and destructive testing. Here those skills culminate in a detached organizer. Aluminum and vehicle panel repairs are comparison cases. I-CAR supplies separate criteria by joint configuration, which informs specimen records and the destructive-test lab. [Portland Community College, WLD 131](https://www.pcc.edu/ccog/wld/131/) · [Highland Community College, ACR185 Panel Fabrication](https://highlandcc.edu/academics/areasofstudy/_program-documents/autocollision/autocollision-syllabi/acr185-panelfabrication-2025syl.pdf) · [I-CAR practice welding guide](https://info.i-car.com/getmedia/5bf41ea3-7245-46a2-9d3f-9e6723bcb69f/i-car_practice-welding-guide.pdf)"
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Coupon",
+   "definition": "A representative test specimen prepared to examine the process or resulting joint.",
+   "topic": "Welding"
+  },
+  {
+   "term": "Heat-affected zone",
+   "definition": "Base metal that has not melted but whose properties or structure have been changed by welding heat.",
+   "topic": "Welding"
+  },
+  {
+   "term": "Fusion",
+   "definition": "Melting together of base material with other base material or deposited weld metal.",
+   "topic": "Welding"
+  },
+  {
+   "term": "Undercut",
+   "definition": "A groove melted into base metal at a weld edge that was left unfilled.",
+   "topic": "Welding"
+  },
+  {
+   "term": "Distortion",
+   "definition": "A change in shape or dimension associated with uneven heating, contraction and restraint.",
+   "topic": "Welding"
+  },
+  {
+   "term": "Traveler",
+   "definition": "The record that follows the specimen or part through preparation, welding, examination and disposition.",
+   "topic": "Welding"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "plan",
+   "title": "Joint design review",
+   "criteria": [
+    {
+     "id": "c1",
+     "name": "Job definition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Identifies parent material, both thicknesses, purpose and authority for the selected process."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Material or procedure is incompletely identified."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "name": "Inspectability",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Section, datum, fit, clamps and both inspection faces can be reproduced."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One access or fit dimension is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "name": "Release",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Lists site controls, test and measurable criteria before work."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "At least one hold point lacks a check."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "work",
+   "title": "Witnessed bench work",
+   "criteria": [
+    {
+     "id": "c1",
+     "name": "Work release",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "A qualified instructor observes the approved setup and safe sequence."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence of setup or release is incomplete. Repeat under supervision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "name": "Personal workmanship",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Individually identified physical specimens or tray match the reviewed traveler, with direct observation or dated images and a witness."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The specimen is present but the record omits an identifying feature or observed step."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "name": "Comparability",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Actual settings or dimensions, position, units and controlled changes are traceable."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Records omit a condition needed to compare the trials."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c4",
+     "name": "Disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Compares each required result with its criterion, contains failures, and records the witness and retest where needed."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A result lacks its criterion, disposition or witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "report",
+   "title": "Inspection handoff",
+   "criteria": [
+    {
+     "id": "c1",
+     "name": "Evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Pairs labeled images or observations of both faces and fracture with the actual test dimensions."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Only one face or an unscaled observation is available."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "name": "Decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Separately evaluates each criterion and records accept, reject or hold, with a retest for a rejected setup."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a criterion or the disposition of a failure."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "name": "Transfer",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Demonstrated",
+       "description": "Names the proposed future joint and its separate design or procedure authority."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Mentions the future assembly without its applicable authority."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks observable evidence for this criterion."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "traveler",
+   "kind": "short",
+   "title": "Draw the organizer and plan its coupons",
+   "module": "design",
+   "rubric": "plan",
+   "selfCheck": true,
+   "prompt": "Submit your original dimensioned organizer and coupon sketches, indicating datum, sheet stock and thickness, fixture and access, joint sequence, procedure revision, actual inspection criteria and the site release. Mark every side that must remain accessible. Demonstrate a cold dry run to your reviewer."
+  },
+  {
+   "id": "disposition",
+   "kind": "short",
+   "title": "Write the inspection and capstone handoff",
+   "module": "verification",
+   "rubric": "report",
+   "selfCheck": true,
+   "prompt": "For your second plug specimen, write the prediction, actual observations and dimensions, test instruction and each acceptance condition. Identify failed trials and their retest IDs. Link your tray drawing, released measurements, witness and date. Name one specific proposed vehicle joint, its different requirements and who must authorize it."
+  }
+ ],
+ "labs": [
+  {
+   "id": "bead-series",
+   "title": "Run a controlled bead series",
+   "module": "implementation",
+   "adult": true,
+   "intro": "Produce and retain a baseline bead and a repeat with one approved variable changed.",
+   "safety": [
+    "Use the released hot-work booth under a qualified instructor, with appropriate ventilation, PPE, screens and fire controls. Use known bare mild steel. Keep these specimens and organizer off the vehicle.",
+    "Mark hot pieces and use the provided cooling area. Perform destructive testing only under the approved guarded procedure with the instructor. Stop when conditions differ from the approved setup."
+   ],
+   "materials": [
+    "Released welding bay, assigned GMAW trainer and its manual",
+    "Matched bare mild-steel coupons, clamps, marked scale and timer"
+   ],
+   "steps": [
+    "Walk the booth with the supervisor and record its fire and fume controls, shutdown and waste route. Obtain permission to energize.",
+    "Trace the wire, shielding and current paths. Enter the supervised settings and units. Rehearse cold, then run a labeled baseline.",
+    "Record length and arc time. Choose a single approved variable, repeat on matched material, compare the faces and retain the coupons."
+   ],
+   "tables": [
+    {
+     "id": "record",
+     "title": "Specimen and measurement record",
+     "columns": [
+      "Coupon ID",
+      "Settings and changed factor",
+      "Length (mm)",
+      "Arc time (s)",
+      "Observed result"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "observed",
+     "kind": "observation",
+     "prompt": "How did the two cooled specimens differ and what other conditions did you hold constant?"
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Record the applicable criterion, measured result, hold/reject/accept decision, witness and date. Identify any correction and fresh retest. A quiz score alone cannot sign off this work."
+    }
+   ],
+   "photos": "Keep dated, labeled photos or witnessed sketches of the actual work and the corresponding measurements. Record the instructor who observed the controlled operation.",
+   "rubric": "work"
+  },
+  {
+   "id": "joint-set",
+   "title": "Make and inspect a fillet and paired plug coupons",
+   "module": "implementation",
+   "adult": true,
+   "intro": "Make three specimens and test the hidden interface under supervision.",
+   "safety": [
+    "Use the released hot-work booth under a qualified instructor, with appropriate ventilation, PPE, screens and fire controls. Use known bare mild steel. Keep these specimens and organizer off the vehicle.",
+    "Mark hot pieces and use the provided cooling area. Perform destructive testing only under the approved guarded procedure with the instructor. Stop when conditions differ from the approved setup."
+   ],
+   "materials": [
+    "Approved practice sheet and matched bare mild steel",
+    "GMAW booth, fixture and clamps, inspection scale",
+    "Instructor-controlled guarded destructive test station and appropriate PPE"
+   ],
+   "steps": [
+    "Identify and prepare the T-joint and two matched plug coupons. Verify stock, position, preparation and limits with the instructor.",
+    "Make and cool all three specimens. Examine the fillet toes and both faces of each plug. Enter predictions and labels before testing.",
+    "With the instructor, destructively test the plug specimens under the named instruction. Compare each fracture with its predicted result and required limits. Retain pieces and make fresh retests if needed."
+   ],
+   "tables": [
+    {
+     "id": "record",
+     "title": "Specimen and measurement record",
+     "columns": [
+      "Specimen and type",
+      "Preparation and position",
+      "Face / reverse",
+      "Fracture or measurement",
+      "Criterion / disposition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "observed",
+     "kind": "observation",
+     "prompt": "Which observations predicted the destructive result? What was hidden before the pieces separated?"
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Record the applicable criterion, measured result, hold/reject/accept decision, witness and date. Identify any correction and fresh retest. A quiz score alone cannot sign off this work."
+    }
+   ],
+   "photos": "Keep dated, labeled photos or witnessed sketches of the actual work and the corresponding measurements. Record the instructor who observed the controlled operation.",
+   "rubric": "work"
+  },
+  {
+   "id": "organizer",
+   "title": "Fabricate and gauge your bench organizer",
+   "module": "verification",
+   "adult": true,
+   "intro": "Build a removable steel organizer from your drawing and document the cooled, released fit.",
+   "safety": [
+    "Use the released hot-work booth under a qualified instructor, with appropriate ventilation, PPE, screens and fire controls. Use known bare mild steel. Keep these specimens and organizer off the vehicle.",
+    "Mark hot pieces and use the provided cooling area. Perform destructive testing only under the approved guarded procedure with the instructor. Stop when conditions differ from the approved setup."
+   ],
+   "materials": [
+    "Approved organizer drawing, matched coupon record, known bare steel",
+    "Supervised booth, forming/cutting tools, clamps, fixture, measuring tools and fit gauge"
+   ],
+   "steps": [
+    "Obtain the instructor’s acceptance of matching coupon tests for every planned joint, material, thickness and position. Hold the build and test a new specimen if any configuration differs. Review the drawing and approval. Dry-fit the cut, deburred parts. Mark datum faces and predicted change.",
+    "Tack and remeasure. Complete the approved welding sequence, recording deviations. Let the part cool safely and remove clamps.",
+    "Measure the same features from the same datums. Check gauge fit, rocking and sharp edges. Record disposition, rework if approved, and repeat the fit check."
+   ],
+   "tables": [
+    {
+     "id": "record",
+     "title": "Specimen and measurement record",
+     "columns": [
+      "Feature and datum",
+      "Drawing tolerance",
+      "Dry fit",
+      "Tacked",
+      "Cool and released",
+      "Pass / corrective action"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "observed",
+     "kind": "observation",
+     "prompt": "Which feature shifted the most between tack and release, and which change would you test next?"
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Record the applicable criterion, measured result, hold/reject/accept decision, witness and date. Identify any correction and fresh retest. A quiz score alone cannot sign off this work."
+    }
+   ],
+   "photos": "Keep dated, labeled photos or witnessed sketches of the actual work and the corresponding measurements. Record the instructor who observed the controlled operation.",
+   "rubric": "work"
+  }
+ ],
+ "drills": []
+}
