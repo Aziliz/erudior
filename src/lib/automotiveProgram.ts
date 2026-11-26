@@ -4,7 +4,7 @@ import { outline, stage } from "./programBuilder";
 export const AUTOMOTIVE_PROGRAM: StudyProgram = {
   id: "automotive-mechanics-custom-construction",
   category: "Trades and transportation",
-  version: 3,
+  version: 4,
   title: "Automotive Mechanics and Custom Vehicle Construction",
   description: "Identify, design, build and verify automotive parts, evaluate common modifications, and fabricate, assemble and demonstrate your own full-size car.",
   notice: "Independent adult light-vehicle workshop program. Lessons and exam scores track academic progress. Practical completion requires the physical work and a witnessed final car. ASE credentials, EPA Section 609 certification and road approval have separate requirements.",
@@ -51,7 +51,11 @@ export const AUTOMOTIVE_PROGRAM: StudyProgram = {
         ["Recognize energized propulsion and identify the qualified service boundary.", "Build and test a physical wheel-speed sensor rig and identify calibration dependencies."],
         "A tested sensor fixture, waveforms or counts and the model-specific referral record.", ["auto-electrical", "auto-brakes", "auto-diagnostics"]),
     ]),
-    stage("engineering", "Vehicle design and fabrication", "Produce documented parts from original layouts and build a running engine and full-size suspension corner.", "Inspected chassis bay, running model engine, suspension curves, and a fitted removable body panel.", [
+    stage("engineering", "Vehicle design and fabrication", "Produce documented parts from original layouts and build a running engine and full-size suspension corner.", "Tested weld coupons, a welded organizer, inspected chassis bay, running model engine, suspension curves, and a fitted removable body panel.", [
+      outline("auto-welding", "Automotive Welding and Weld Inspection",
+        ["Theory — Hot work and welding processes", "Design — Joint drawings and setup", "Implementation — GMAW bead and joint practice", "Verification — Build, inspect and test"],
+        ["Select a joining method and lay out a representative test joint.", "Make and inspect mild-steel welds, destructively test a plug coupon and measure a finished shop organizer."],
+        "A welded organizer, identified test coupons, inspection results and a witnessed disposition for the capstone portfolio.", ["auto-shop"]),
       outline("auto-fabrication", "Chassis Design, Welding and Fabrication",
         ["Theory — Structure theory", "Design — Fixture design", "Implementation — Fabrication", "Verification — Structural inspection"],
         ["Trace loads to structural nodes and dimension a fixture from datums.", "Fabricate, inspect and document a representative chassis bay."],
