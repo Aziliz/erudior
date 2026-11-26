@@ -95,7 +95,7 @@
       "topics": [
         "Lab orientation"
       ],
-      "body": "Open the client practice terminal and log in as your ordinary learner. In a prompt such as `[learner@client ~]$`, the text before @ is your account, the text after @ names the guest, and ~ stands for your home directory. Bash waits here for your next instruction.\n\nStart by finding out where you are. Use a long listing to inspect the directory named /etc.\n\n`pwd` prints the full path of the current working directory.\n\n`ls` lists directory entries. With -l it includes permissions and ownership. Add -d to inspect the directory itself.\n\nIn the listing, the first character tells you the type of entry. Now look inside the same directory. Notice how the number of names changes.\n\n## When a command seems to hang\n\nPrint a short message. The single quotes keep the two words together as one argument.\n\n`printf` writes formatted text. %s inserts one argument and the backslash-n sequence ends the line.\n\nUse the Up arrow to recall the command. Delete its closing quote and press Enter. Bash displays its own continuation prompt, usually a lone greater-than sign. It is waiting for the closing quote. Press Ctrl+C to cancel the unfinished line. Now try interrupting a running program.\n\n`sleep` waits for the number of seconds you supply.\n\nA waiting shell, a running program and a pager look different. Ctrl+C cancels the first two examples. In the manual-page viewer you will meet later, q closes the viewer.\n\n## Read an error while it is fresh\n\nAsk for a path that does not exist. Check its exit status immediately afterward.\n\n`echo` writes its arguments followed by a newline. Bash replaces $? with the last command's exit status before echo runs.\n\nOn AlmaLinux, the missing-path listing normally returns 2. Now compare it with a successful command.\n\nEvery command replaces the previous status. If the goal is to diagnose a failed copy, read the status before running a listing or even printing a message.\n\n**Try it independently.** Without retyping the successful listing, recall it and inspect /var. Show how you would tell the difference between a shell waiting for the rest of a quotation, a pager awaiting a key, and a command that has already failed and returned to the prompt.\n\n## Terminal session\n\n```plaintext\n>pwd\n/home/learner\n>ls -ld /etc\ndrwxr-xr-x. 87 root root 8192 Nov 24 19:43 /etc\n>ls /etc\nDIR_COLORS\t\t exports.d\t machine-id\t   rwtab.d\nDIR_COLORS.lightbgcolor  filesystems\t magic\t\t   samba\nGREP_COLORS\t\t fonts\t\t man_db.conf\t   sasl2\nNetworkManager\t\t fstab\t\t microcode_ctl\t   security\nX11\t\t\t fwupd\t\t mke2fs.conf\t   selinux\nadjtime\t\t\t gcrypt\t\t modprobe.d\t   services\naliases\t\t\t gnupg\t\t modules-load.d    sestatus.conf\nalmalinux-release\t groff\t\t motd\t\t   shadow\nalternatives\t\t group\t\t motd.d\t\t   shadow-\nanacrontab\t\t group-\t\t mtab\t\t   shells\naudit\t\t\t grub.d\t\t mtools.conf\t   skel\nauthselect\t\t grub2-efi.cfg\t netconfig\t   ssh\nbash_completion.d\t grub2.cfg\t networks\t   ssl\nbashrc\t\t\t gshadow\t nfs.conf\t   sssd\nbindresvport.blacklist\t gshadow-\t nfsmount.conf\t   statetab.d\nbinfmt.d\t\t gss\t\t nsswitch.conf\t   subgid\nchrony.conf\t\t gssproxy\t nvme\t\t   subgid-\ncifs-utils\t\t host.conf\t openldap\t   subuid\ncloud\t\t\t hostname\t opt\t\t   subuid-\ncredstore\t\t hosts\t\t os-release\t   sudo-ldap.conf\ncredstore.encrypted\t idmapd.conf\t pam.d\t\t   sudo.conf\ncron.d\t\t\t inittab\t passwd\t\t   sudoers\ncron.daily\t\t inputrc\t passwd-\t   sudoers.d\ncron.deny\t\t iproute2\t pkcs11\t\t   sysconfig\ncron.hourly\t\t issue\t\t pki\t\t   sysctl.conf\ncron.monthly\t\t issue.d\t pm\t\t   sysctl.d\ncron.weekly\t\t issue.net\t polkit-1\t   system-release\ncrontab\t\t\t kernel\t\t popt.d\t\t   system-release-cpe\ncrypto-policies\t\t keys\t\t printcap\t   systemd\ncrypttab\t\t keyutils\t profile\t   terminfo\ncsh.cshrc\t\t krb5.conf\t profile.d\t   tmpfiles.d\ncsh.login\t\t krb5.conf.d\t protocols\t   tpm2-tss\ndbus-1\t\t\t ld.so.cache\t qemu-ga\t   tuned\ndconf\t\t\t ld.so.conf\t rc.d\t\t   udev\ndefault\t\t\t ld.so.conf.d\t rc.local\t   vconsole.conf\ndepmod.d\t\t libaudit.conf\t redhat-release    virc\ndhcp\t\t\t libibverbs.d\t request-key.conf  xattr.conf\ndhcpcd.conf\t\t libnl\t\t request-key.d\t   xdg\ndnf\t\t\t libssh\t\t resolv.conf\t   yum\ndracut.conf\t\t locale.conf\t rpc\t\t   yum.conf\ndracut.conf.d\t\t localtime\t rpm\t\t   yum.repos.d\nenvironment\t\t login.defs\t rsyncd.conf\nethertypes\t\t logrotate.conf  rsyslog.conf\nexports\t\t\t logrotate.d\t rsyslog.d\n>printf '%s\\n' 'night shift'\nnight shift\n>sleep 30\n\n>ls /no-such-training-path\nls: cannot access '/no-such-training-path': No such file or directory\n>echo $?\n2\n>pwd\n/home/learner\n>echo $?\n0\n```",
+      "body": "Open the client practice terminal and log in as your ordinary learner. In a prompt such as `[learner@client ~]$`, the text before @ is your account, the text after @ names the guest, and ~ stands for your home directory. Bash waits here for your next instruction.\n\nStart by finding out where you are. Use a long listing to inspect the directory named /etc.\n\n`pwd` prints the full path of the current working directory.\n\n`ls` lists directory entries. With -l it includes permissions and ownership. Add -d to inspect the directory itself.\n\nIn the listing, the first character tells you the type of entry. Now look inside the same directory. Notice how the number of names changes.\n\n## When a command seems to hang\n\nPrint a short message. The single quotes keep the two words together as one argument.\n\n`printf` writes formatted text. %s inserts one argument and the backslash-n sequence ends the line.\n\nUse the Up arrow to recall the command. Delete its closing quote and press Enter. Bash displays its own continuation prompt, usually a lone greater-than sign. It is waiting for the closing quote. Press Ctrl+C to cancel the unfinished line. Now try interrupting a running program.\n\n`sleep` waits for the number of seconds you supply.\n\nA waiting shell, a running program and a pager look different. Ctrl+C cancels the first two examples. In the manual-page viewer you will meet later, q closes the viewer.\n\n## Read an error while it is fresh\n\nAsk for a path that does not exist. Check its exit status immediately afterward.\n\n`echo` writes its arguments followed by a newline. Bash replaces `$?` with the last command's exit status before echo runs.\n\nOn AlmaLinux, the missing-path listing normally returns 2. Now compare it with a successful command.\n\nEvery command replaces the previous status. If the goal is to diagnose a failed copy, read the status before running a listing or even printing a message.\n\n**Try it independently.** Without retyping the successful listing, recall it and inspect /var. Show how you would tell the difference between a shell waiting for the rest of a quotation, a pager awaiting a key, and a command that has already failed and returned to the prompt.\n\n## Terminal session\n\n```plaintext\n>pwd\n/home/learner\n>ls -ld /etc\ndrwxr-xr-x. 87 root root 8192 Nov 24 19:43 /etc\n>ls /etc\nDIR_COLORS\t\t exports.d\t machine-id\t   rwtab.d\nDIR_COLORS.lightbgcolor  filesystems\t magic\t\t   samba\nGREP_COLORS\t\t fonts\t\t man_db.conf\t   sasl2\nNetworkManager\t\t fstab\t\t microcode_ctl\t   security\nX11\t\t\t fwupd\t\t mke2fs.conf\t   selinux\nadjtime\t\t\t gcrypt\t\t modprobe.d\t   services\naliases\t\t\t gnupg\t\t modules-load.d    sestatus.conf\nalmalinux-release\t groff\t\t motd\t\t   shadow\nalternatives\t\t group\t\t motd.d\t\t   shadow-\nanacrontab\t\t group-\t\t mtab\t\t   shells\naudit\t\t\t grub.d\t\t mtools.conf\t   skel\nauthselect\t\t grub2-efi.cfg\t netconfig\t   ssh\nbash_completion.d\t grub2.cfg\t networks\t   ssl\nbashrc\t\t\t gshadow\t nfs.conf\t   sssd\nbindresvport.blacklist\t gshadow-\t nfsmount.conf\t   statetab.d\nbinfmt.d\t\t gss\t\t nsswitch.conf\t   subgid\nchrony.conf\t\t gssproxy\t nvme\t\t   subgid-\ncifs-utils\t\t host.conf\t openldap\t   subuid\ncloud\t\t\t hostname\t opt\t\t   subuid-\ncredstore\t\t hosts\t\t os-release\t   sudo-ldap.conf\ncredstore.encrypted\t idmapd.conf\t pam.d\t\t   sudo.conf\ncron.d\t\t\t inittab\t passwd\t\t   sudoers\ncron.daily\t\t inputrc\t passwd-\t   sudoers.d\ncron.deny\t\t iproute2\t pkcs11\t\t   sysconfig\ncron.hourly\t\t issue\t\t pki\t\t   sysctl.conf\ncron.monthly\t\t issue.d\t pm\t\t   sysctl.d\ncron.weekly\t\t issue.net\t polkit-1\t   system-release\ncrontab\t\t\t kernel\t\t popt.d\t\t   system-release-cpe\ncrypto-policies\t\t keys\t\t printcap\t   systemd\ncrypttab\t\t keyutils\t profile\t   terminfo\ncsh.cshrc\t\t krb5.conf\t profile.d\t   tmpfiles.d\ncsh.login\t\t krb5.conf.d\t protocols\t   tpm2-tss\ndbus-1\t\t\t ld.so.cache\t qemu-ga\t   tuned\ndconf\t\t\t ld.so.conf\t rc.d\t\t   udev\ndefault\t\t\t ld.so.conf.d\t rc.local\t   vconsole.conf\ndepmod.d\t\t libaudit.conf\t redhat-release    virc\ndhcp\t\t\t libibverbs.d\t request-key.conf  xattr.conf\ndhcpcd.conf\t\t libnl\t\t request-key.d\t   xdg\ndnf\t\t\t libssh\t\t resolv.conf\t   yum\ndracut.conf\t\t locale.conf\t rpc\t\t   yum.conf\ndracut.conf.d\t\t localtime\t rpm\t\t   yum.repos.d\nenvironment\t\t login.defs\t rsyncd.conf\nethertypes\t\t logrotate.conf  rsyslog.conf\nexports\t\t\t logrotate.d\t rsyslog.d\n>printf '%s\\n' 'night shift'\nnight shift\n>sleep 30\n\n>ls /no-such-training-path\nls: cannot access '/no-such-training-path': No such file or directory\n>echo $?\n2\n>pwd\n/home/learner\n>echo $?\n0\n```",
       "quiz": [
         "first-prompt-check-1",
         "first-prompt-check-2"
@@ -242,7 +242,8 @@
       "body": "Linux checks the caller's identity against the file's owner, group and other permission classes. Read the first character of `ls -l` for the file type, then the three permission triplets. For a regular file, r reads data, w changes data and x permits execution. For a directory, r lists names, x traverses to a known entry, and w with x allows changes to directory entries. Deleting a file is a change to its parent directory.\n\nRun the following as your ordinary user in an empty directory you own. The parentheses start a subshell so the changed umask lasts only for this exercise.\n\n`umask` sets which permission bits new files and directories should lose at creation. Without an argument it displays the current mask. `stat` shows file metadata. The -c option selects fields such as %a for octal permissions or %n for the name.\n\n`chmod` changes permissions. In symbolic modes u means owner, g group and o others. A plus grants a bit and a minus removes it.\n\nA new ordinary file commonly starts from requested mode 666, a directory from 777. A mask of 027 removes group write and all permissions for others. Expect 640 for notes and 750 for crew. A mask removes bits from what was requested, so it cannot grant execute permission to a new ordinary file. Existing objects keep their earlier mode.\n\n**Diagnose one failure.** Temporarily remove your own search permission with `chmod u-x crew`.\n\nPredict whether `cat crew/notes` works.\n\nRun it, then `namei -l \"$PWD/crew/notes\"` to inspect every path component.\n\n`namei` walks a path component by component. With -l it shows the mode and owner at each step.\n\nRestore traversal with `chmod u+x crew`.\n\nConfirm the file is still 640. An administrator testing as root can miss this denial.\n\n**Independent ticket.** Give the owner read/write, group read, and others no access on a second file using numeric mode. Set the parent directory so its group can enter and list it. Explain why group members who can list the filename might still fail to open the file.\n\n## Terminal session\n\n```plaintext\n>(umask 027; mkdir crew; touch crew/notes; stat -c '%a %n' crew crew/notes)\n750 crew\n640 crew/notes\n>chmod u=rw,g=r,o= crew/notes\n\n>ls -ld crew crew/notes\ndrwxr-x---. 2 learner learner 19 Nov 24 19:44 crew\n-rw-r-----. 1 learner learner  0 Nov 24 19:44 crew/notes\n>chmod u-x crew\n\n>cat crew/notes\ncat: crew/notes: Permission denied\n>namei -l \"$PWD/crew/notes\"\nf: /home/learner/crew/notes\ndr-xr-xr-x root    root    /\ndrwxr-xr-x root    root    home\ndrwx------ learner learner learner\ndrw-r-x--- learner learner crew\n                            notes - Permission denied\n>chmod u+x crew\n\n>stat -c '%a %n' crew/notes\n640 crew/notes\n```",
       "quiz": [
         "permission-model-check-1",
-        "permission-model-check-2"
+        "permission-model-check-2",
+        "permission-model-symbolic-0640"
       ]
     },
     {
@@ -536,7 +537,7 @@
       "topics": [
         "Running systems"
       ],
-      "body": "When you launch a command, the kernel gives its process a numeric ID (PID). A shell can keep track of jobs it started. A service manager can start and supervise processes even after an administrator logs out. These are three views of running work. Killing a process belonging to a service can trigger its restart policy.\n\n## Watch one harmless process\n\nStart `sleep 120 &` as your regular user.\n\nThe ampersand returns control of the terminal immediately. Save its PID with `worker=$!`, then run `jobs -l` and `ps -o pid,ppid,user,stat,ni,comm -p \"$worker\"`.\n\n`jobs` lists the background jobs launched by the current interactive shell.\n\n`ps` shows process information. The -p option selects a PID and -o chooses which fields to show.\n\nThe parent PID identifies the process that launched it. A sleeping process usually consumes almost no CPU. Use `top`, press P to sort by CPU or M for memory, then q to exit.\n\n`top` opens a live process display. Use q to return to the shell.\n\nCompare a process's resident memory with the system view in `free -h`.\n\n`free` shows memory and swap usage. The -h option formats sizes in readable units.\n\nLinux uses spare memory as cache; the available column includes memory it can make available to programs.\n\nOpen another terminal as the same user. Its `jobs` list does not show the first shell's job, while `ps -p PID` with the recorded number can still see it.\n\nBack in the original shell, check the PID still identifies your sleep process, then use the terminal session.\n\n`kill` sends a signal to a process identified by its PID. TERM requests orderly termination.\n\nUse `wait \"$worker\"` followed by `ps -p \"$worker\"` to observe completion.\n\n`wait` waits for a child of this shell and returns that child's termination status.\n\nTERM requests termination and allows a program to clean up. Select a specific disposable process for this exercise.\n\n**Independent ticket.** A dashboard lists two processes with the same name. Show how to distinguish them using PID, owner and parent. Before adjusting priority, decide whether the symptom is CPU contention or a process waiting for I/O. In the next exercise, predict the direction of a nice-value change before you apply it.\n\n## Terminal session\n\nThe plain jobs query and the numeric PID lookup immediately after it belong in a second terminal. Substitute the PID printed in your first shell. Return to the first shell for the lookup using $worker and for cleanup.\n\n```plaintext\n>sleep 120 &\n[1] 2451\n>worker=$!\n\n>jobs -l\n[1]+  2451 Running                 sleep 120 &\n>ps -o pid,ppid,user,stat,ni,comm -p \"$worker\"\n    PID    PPID USER     STAT  NI COMMAND\n   2451    2400 learner  S      0 sleep\n>top\ntop - 08:10:00 up 12 min,  1 user,  load average: 0.02, 0.04, 0.01\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n>free -h\n               total        used        free      shared  buff/cache   available\nMem:           1.2Gi       347Mi       924Mi       6.9Mi       139Mi       924Mi\nSwap:             0B          0B          0B\n>jobs\n\n>ps -p 2451\n    PID TTY          TIME CMD\n   2451 pts/0    00:00:00 sleep\n>ps -p \"$worker\" -o pid,comm\n    PID COMMAND\n   2451 sleep\n>kill -TERM \"$worker\"\n\n>wait \"$worker\"\n\n>ps -p \"$worker\"\n    PID TTY          TIME CMD\n```",
+      "body": "When you launch a command, the kernel gives its process a numeric ID (PID). A shell can keep track of jobs it started. A service manager can start and supervise processes even after an administrator logs out. These are three views of running work. Killing a process belonging to a service can trigger its restart policy.\n\n## Watch one harmless process\n\nStart `sleep 120 &` as your regular user.\n\nThe ampersand returns control of the terminal immediately. Save its PID with `worker=$!`, then run `jobs -l` and `ps -o pid,ppid,user,stat,ni,comm -p \"$worker\"`.\n\n`jobs` lists the background jobs launched by the current interactive shell.\n\n`ps` shows process information. The -p option selects a PID and -o chooses which fields to show.\n\nThe parent PID identifies the process that launched it. A sleeping process usually consumes almost no CPU. Use `top`, press P to sort by CPU or M for memory, then q to exit.\n\n`top` opens a live process display. Use q to return to the shell.\n\nCompare a process's resident memory with the system view in `free -h`.\n\n`free` shows memory and swap usage. The -h option formats sizes in readable units.\n\nLinux uses spare memory as cache; the available column includes memory it can make available to programs.\n\nOpen another terminal as the same user. Its `jobs` list does not show the first shell's job, while `ps -p PID` with the recorded number can still see it.\n\nBack in the original shell, check the PID still identifies your sleep process, then use the terminal session.\n\n`kill` sends a signal to a process identified by its PID. TERM requests orderly termination.\n\nUse `wait \"$worker\"` followed by `ps -p \"$worker\"` to observe completion.\n\n`wait` waits for a child of this shell and returns that child's termination status.\n\nTERM requests termination and allows a program to clean up. Select a specific disposable process for this exercise.\n\n**Independent ticket.** A dashboard lists two processes with the same name. Show how to distinguish them using PID, owner and parent. Before adjusting priority, decide whether the symptom is CPU contention or a process waiting for I/O. In the next exercise, predict the direction of a nice-value change before you apply it.\n\n## Terminal session\n\nThe plain jobs query and the numeric PID lookup immediately after it belong in a second terminal. Substitute the PID printed in your first shell. Return to the first shell for the lookup using `$worker` and for cleanup.\n\n```plaintext\n>sleep 120 &\n[1] 2451\n>worker=$!\n\n>jobs -l\n[1]+  2451 Running                 sleep 120 &\n>ps -o pid,ppid,user,stat,ni,comm -p \"$worker\"\n    PID    PPID USER     STAT  NI COMMAND\n   2451    2400 learner  S      0 sleep\n>top\ntop - 08:10:00 up 12 min,  1 user,  load average: 0.02, 0.04, 0.01\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n>free -h\n               total        used        free      shared  buff/cache   available\nMem:           1.2Gi       347Mi       924Mi       6.9Mi       139Mi       924Mi\nSwap:             0B          0B          0B\n>jobs\n\n>ps -p 2451\n    PID TTY          TIME CMD\n   2451 pts/0    00:00:00 sleep\n>ps -p \"$worker\" -o pid,comm\n    PID COMMAND\n   2451 sleep\n>kill -TERM \"$worker\"\n\n>wait \"$worker\"\n\n>ps -p \"$worker\"\n    PID TTY          TIME CMD\n```",
       "quiz": [
         "processes-check-1",
         "processes-check-2"
@@ -2459,7 +2460,7 @@
           "id": "running-rootpw",
           "topic": "Running systems",
           "section": "running",
-          "stem": "You reset the root password from an rd.break shell on an SELinux-enforcing system. Which step before resuming startup prevents logins from failing afterward?",
+          "stem": "During rd.break recovery you have remounted the installed root writable, entered its chroot and reset the root password. With SELinux enforcing at normal boot, what should you do inside this chroot before resuming startup?",
           "choices": [
             "Run setenforce 0 inside the chroot.",
             "Create /.autorelabel so the next boot restores default file contexts.",
@@ -2519,7 +2520,7 @@
           "id": "security-umask-persist",
           "topic": "Security",
           "section": "security",
-          "stem": "One user wants new files to default to 640 in every future interactive shell. What makes that persistent?",
+          "stem": "On this AlmaLinux account, the Bash login profile sources ~/.bashrc. New ordinary files request mode 0666 in a directory without a default ACL. Which change makes those files default to 0640 in future interactive Bash sessions?",
           "choices": [
             "Run umask 027 once in the current shell.",
             "Add umask 027 to that user's ~/.bashrc.",
@@ -2528,7 +2529,7 @@
           "answer": [
             1
           ],
-          "explanation": "umask applies to the shell that sets it and its children. A line in ~/.bashrc runs in each new interactive shell. Directory modes do not change the creation mask."
+          "explanation": "A mask of 027 removes group write and all other permissions from 0666. Interactive non-login Bash reads ~/.bashrc; this account’s login profile also sources it. Changing the home directory mode does not set the creation mask."
         },
         {
           "id": "shell-words-reason-1",
@@ -3251,11 +3252,27 @@
             0
           ],
           "explanation": "A manual restart can mask a missing enablement. The current-boot journal distinguishes a fresh run from old output."
+        },
+        {
+          "id": "permission-model-symbolic-0640",
+          "topic": "Essential tools",
+          "section": "tools",
+          "type": "text",
+          "caseSensitive": true,
+          "choices": [],
+          "answer": [],
+          "accept": [
+            [
+              "rw-r-----"
+            ]
+          ],
+          "stem": "An ordinary file has mode 0640. Give its nine lowercase owner/group/other permission characters as shown by ls -l, omitting the leading file-type character.",
+          "explanation": "Owner 6 gives rw-, group 4 gives r--, and other 0 gives ---. Together these are rw-r-----."
         }
       ]
     }
   ],
-  "revision": 8,
+  "revision": 9,
   "references": [
     {
       "id": "manual-pair",
@@ -3387,5 +3404,61 @@
       "definition": "A packaged starting filesystem and configuration from which a container can be created."
     }
   ],
-  "changelog": "Lessons and setup guides now show each terminal session in one block. Enter the lines marked >. Sample output follows immediately, with a blank line when the program prints nothing."
+  "changelog": "Adds study cards for applying and distinguishing concepts from the lessons. Clarifies two review questions and adds a typed file-permissions check.",
+  "decks": [
+    {
+      "id": "rhcsa-rhel10-administration-concepts",
+      "title": "Zero to RHCSA on RHEL 10 · Concept practice",
+      "cards": [
+        {
+          "id": "rhcsa-rhel10-administration-concept-01",
+          "topic": "Shell quoting",
+          "front": "A shell variable holds a path containing spaces. How do you pass the entire value as one argument to ls?",
+          "back": "Put the variable expansion in double quotes as the operand after ls --. The quotes keep the expanded value together. The double dash ends option parsing."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-02",
+          "topic": "File identity",
+          "front": "A file and its hard link have different names. What should ls -li show when both refer to the same file in one filesystem?",
+          "back": "The same inode number for both names. Removing one name leaves the other link usable."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-03",
+          "topic": "Permissions",
+          "front": "A user can list names in a directory but cannot open a known readable file inside it. Which directory permission should you check?",
+          "back": "Check execute (search) permission on each directory component. Read permission on the directory can allow names to be listed without allowing lookup."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-04",
+          "topic": "Services",
+          "front": "How can a unit be enabled yet inactive? Which commands distinguish those states?",
+          "back": "Enablement controls activation links, typically for boot. It does not guarantee the unit is running now. Check systemctl is-enabled UNIT and systemctl is-active UNIT."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-05",
+          "topic": "Logs",
+          "front": "Which journalctl filters let you inspect a named unit only during the current boot?",
+          "back": "journalctl -b -u UNIT. Replace UNIT with the actual unit name. The boot filter keeps older failures out of the current diagnosis."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-06",
+          "topic": "Storage",
+          "front": "A partner enlarged an LV but df still shows the old capacity. Which two layers should you compare before making another change?",
+          "back": "Compare the logical volume size (lvs) and mounted filesystem size (df -hT). Confirm the mount source with findmnt. The filesystem may still need to grow."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-07",
+          "topic": "Persistent mounts",
+          "front": "A filesystem is mounted right now. What separate evidence supports the claim that it will mount at boot?",
+          "back": "Inspect its intended persistent configuration, such as its /etc/fstab entry. Verify the configuration and check the mount again after rebooting the practice guest."
+        },
+        {
+          "id": "rhcsa-rhel10-administration-concept-08",
+          "topic": "Backups",
+          "front": "An archive lists every expected pathname. What check demonstrates that the files are usable?",
+          "back": "Restore it to a separate test directory. Compare the restored contents and the ownership or modes the task requires against the expected values."
+        }
+      ]
+    }
+  ]
 }
