@@ -1,0 +1,1010 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-electrified",
+ "title": "Electrified Vehicles, ABS and Driver Assistance",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare hybrid and battery-electric power paths, wheel-speed sensors, stability control, restraints and driver assistance. Test a protected sensor fixture and plan model-specific calibration. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Electronic chassis theory",
+   "quiz": [
+    "electrified-1-q2",
+    "cmp-hybrid-topologies-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — System design",
+   "quiz": [
+    "electrified-2-q2",
+    "cmp-safety-sensors-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Instrumented implementation",
+   "quiz": [
+    "electrified-3-q3",
+    "shop-change-electrified"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Calibration verification",
+   "quiz": [
+    "electrified-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "electrified-1",
+   "module": "m1",
+   "title": "Read wheel speed and blend brake demands",
+   "minutes": 20,
+   "topics": [
+    "Electronic chassis theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Automotive Electrical Systems and Diagnosis, Brake, Steering and Suspension Service, Engine Performance, Emissions and Hybrid Diagnostics, or demonstrate the equivalent workshop skills.\n\nABS uses wheel-speed information to control hydraulic braking when slip warrants intervention. Electrified vehicles can also request motor braking, subject to battery limits, grip and system state. Friction braking remains a separate system. A Hall sensor and a toothed ring can produce recurring pulses. Tooth count, pulse rate and wheel speed are related; identify the actual sensing design.\n\n## Worked shop case\n\nA trainer gives one pulse per tooth on a 20-tooth ring. At two revolutions per second the sensor produces 40 pulses per second. Tire circumference becomes relevant when converting rotation into road speed.\n\n## Guided practice\n\nA trainer ring has 12 teeth at 3 revolutions per second and one pulse per tooth. What is its frequency in Hz?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A tested sensor fixture, waveforms or counts and the model-specific referral record.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "electrified-1-q1",
+    "electrified-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-hybrid-topologies",
+   "module": "m1",
+   "title": "Series, parallel, power-split and battery-electric propulsion",
+   "minutes": 25,
+   "topics": [
+    "Series, parallel, power-split and battery-electric propulsion"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Identify what can physically turn the wheels. In a pure series hybrid the combustion engine drives a generator and the traction motor drives the axle. A parallel hybrid permits mechanical torque from the engine to reach the wheels along with motor torque under some conditions. A power-split design can divide power between mechanical and electrical paths. Plug-in describes an external charging capability. A plug-in hybrid can use more than one mechanical architecture. A battery-electric vehicle uses stored electricity for traction and has no combustion exhaust system.\n\nAn inverter controls current between the DC bus and a typical AC traction motor. Regeneration reverses useful power flow through the machine and power electronics subject to tire traction and battery limits. The onboard charger converts external AC supply for battery charging; the DC/DC converter commonly feeds the auxiliary bus. A BMS supervises cell voltage, temperature and operating limits. Cooling circuits and contactors have distinct roles. Keep the class comparison diagram-based and the physical exercise on the isolated low-voltage fixture.\n\n## Worked shop case\n\nAfter a full charge on a cold morning, the car shows less available regenerative braking. Battery acceptance limits can constrain electrical braking. The friction braking system still needs independent verification through the vehicle-specific method. Treat a complaint about stopping as safety critical and refer actual vehicle testing to the qualified reviewer.\n\n## Guided practice\n\n```example fade=2\nproblem: A diagram shows an engine driving only a generator, with no mechanical route to the differential. What architecture fits?\nstep: Follow shafts, then follow electrical cables separately.\nstep: Look for the unit applying torque to the axle.\nanswer: In the described operating architecture the engine supplies a series path and the traction motor drives the axle.\n```\n\n## Independent shop or design task\n\nTrace traction, regeneration, AC charging and auxiliary power on two published propulsion diagrams. Name the mode and the physical battery, machine, inverter, charger and converter that actually participate.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-hybrid-topologies-q1",
+    "cmp-hybrid-topologies-q2"
+   ]
+  },
+  {
+   "id": "cmp-safety-sensors",
+   "module": "m2",
+   "title": "Wheel-speed sensors, stability control, restraints and ADAS",
+   "minutes": 25,
+   "topics": [
+    "Wheel-speed sensors, stability control, restraints and ADAS"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Passive inductive wheel sensors generate an AC signal whose amplitude changes with speed and air gap. Active sensors require supply or bias and can encode speed and sometimes direction. Some active two-wire sensors modulate current. Wire count alone is insufficient to identify the test method. A damaged magnetic encoder, incorrect bearing orientation, harness fault and sensor fault can create similar symptoms. Use the specified target, supply and signal reference.\n\nABS controls wheel slip during braking; stability control additionally compares motion with the intended path using inputs such as steering angle and yaw rate. ADAS may use cameras, radar and ultrasonic sensors with different fields of view and mounting sensitivities. Windshield replacement, wheel alignment, ride height or a minor impact can trigger a model-specific calibration procedure. Seat belts, pretensioners, occupant sensors and airbags form a coordinated restraint system. Consult exact restraint procedures and authorized personnel; never probe live initiator circuits or substitute a resistor to clear a fault.\n\n## Worked shop case\n\nA wheel bearing is installed and a wheel-speed fault appears immediately. The active sensor's supply is present. Confirm encoder compatibility and orientation, then evaluate the approved live-data or waveform check. Correct supply does not establish a valid signal at the controller. Record what triggered the fault before blaming the new sensor.\n\n## Guided practice\n\n```example fade=2\nproblem: One camera uses the windshield as its optical window. What must a windshield substitution preserve?\nstep: Verify the exact glazing, mounting position and optical requirements.\nstep: Check calibration triggers and acceptance procedure for that vehicle.\nanswer: Arrange the specified calibration and retain its results before releasing the affected function.\n```\n\n## Independent shop or design task\n\nMap a sensor target, sensor, harness, controller, actuator and driver warning. Collect pulses on the protected speed fixture. For the donor, record actual alignment, glazing or restraint events that require specialist inspection or calibration.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-safety-sensors-q1",
+    "cmp-safety-sensors-q2"
+   ]
+  },
+  {
+   "id": "electrified-2",
+   "module": "m2",
+   "title": "Design a sensor fixture and set an intervention boundary",
+   "minutes": 20,
+   "topics": [
+    "System design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-low-rolling-resistance-tires-on-a-hybrid-or-ev",
+    "mod-driver-assistance-compatible-wheel-or-ride-height-change"
+   ],
+   "body": "Use a guarded low-voltage trainer, a stable mount and an adjustable sensor gap within supplier limits. Specify the target feature, measurement window and independent reference count. On a real hybrid or EV use model-specific rescue information for recognition and the manufacturer's service manual for repair. Treat airbag inflators, pretensioners and high-voltage components as specialist work.\n\n## Worked shop case\n\nTwelve marks give twelve pulses per turn. If the count repeats at eight pulses, compare the independent hand count with target condition and scope setup before blaming the vehicle controller.\n\n## Guided practice\n\nFour turns of a 10-tooth ring should produce how many pulses with one pulse per tooth?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nDraw a guarded low-voltage rig, identify pulse conversion, gap reference, independent rotation count and expected failure signature. For a selected real vehicle, cite a service trigger for ADAS calibration or a qualified HV referral. Record the exact model and source.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "electrified-2-q1",
+    "electrified-2-q2"
+   ]
+  },
+  {
+   "id": "electrified-3",
+   "module": "m3",
+   "title": "Build a low-voltage wheel-speed trainer",
+   "minutes": 15,
+   "topics": [
+    "Instrumented implementation"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Mount a compatible sensor on a protected trainer and secure the hand-turned target. Wire according to sensor type. Count pulses over several complete turns using a counter or scope rated for the trainer. Set and record the gap using the component instructions, change one permitted variable, and repeat. Keep hands outside the guarded sensing region.\n\n## Worked shop case\n\nOne of ten equally spaced targets is deliberately absent on a trainer. Five hand turns produce 45 pulses instead of 50. The repeatable count suggests a missing target rather than random noise.\n\n## Guided practice\n\nA trainer expects 72 pulses and repeatedly shows 66 after six turns. How many pulses are missing per turn?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nUse the exact vehicle service procedure and an appropriately qualified specialist for high-voltage and pyrotechnic work. NHTSA rescue sheets identify hazards for emergency responders; they are separate from repair instructions. In a covered workplace the employer determines applicable energy-control and PPE requirements. The low-voltage rig practical supplies evidence about its sensor only. Record referral for actual HV, restraint or driver-assistance calibration work.\n\n[NHTSA — vehicle-specific emergency response guides](https://www.nhtsa.gov/emergency-response-guides) · [US DOE — maintenance and safety of electric vehicles](https://afdc.energy.gov/vehicles/electric-maintenance) · [OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132)\n\n## Workshop preparation\n\nUse the low-voltage rig only. Do not probe traction circuits, airbag wiring, pyrotechnic devices or a real moving wheel. Keep the target secured and keep clothing clear.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "electrified-3-q1",
+    "electrified-3-q2",
+    "electrified-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Measure efficiency without hiding the operating conditions",
+   "minutes": 35,
+   "topics": [
+    "Measure efficiency without hiding the operating conditions"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1",
+    "mod-low-rolling-resistance-tires-on-a-hybrid-or-ev",
+    "mod-driver-assistance-compatible-wheel-or-ride-height-change",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nElectrified drive, restraint and assistance, Hybrid and EV thermal and charge hardware. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Low-rolling-resistance tires on a hybrid or EV\n- Driver-assistance-compatible wheel or ride-height change\n\n## Worked example\n\nOn a 100 km equivalent cycle a hybrid in charge-sustaining operation must start and end at comparable battery state of charge to support a fuel comparison. A BEV test separately compares kWh per distance. A colder pack, active cabin heat or mismatched pressure can dominate a wheel-related change.\n\n## Guided decision\n\n```example fade=1\nproblem: A BEV uses 9 kWh in 50 km on one controlled test. How do you normalize it?\nstep: Divide energy by distance and multiply by 100.\nanswer: 18 kWh/100 km. Match HVAC, tires, route and temperature to the baseline before attributing a difference.\n```\n\n## Independent workshop\n\nUse a wheel/sensor trainer or guarded low-voltage model to compare encoder counts or losses. Map the untouched high-voltage assemblies by exact ID and record specialist evidence where needed.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-electrified"
+   ]
+  },
+  {
+   "id": "electrified-4",
+   "module": "m4",
+   "title": "Identify the calibration and referral decision",
+   "minutes": 15,
+   "topics": [
+    "Calibration verification"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Wheel alignment, sensor aim and vehicle ride height can affect driver-assistance systems. A replaced windshield, repaired sensor bracket or structural change may require a manufacturer-specified calibration. Determine the exact model, trigger, target, floor, equipment and recorded result. Clearing a trouble code alone cannot establish target alignment or obstacle detection.\n\n## Worked shop case\n\nAn original-equipment service procedure calls for camera calibration after windshield replacement. A code-free scan is useful inventory, but the calibration record and prescribed verification still belong in the handoff.\n\n## Guided practice\n\nA target position is specified at 1,500 mm on a training drawing; actual distance is 1,485 mm. Give the absolute setup error in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nA working physical rig produces documented baseline, changed and restored results with an appropriate real-vehicle handoff. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "electrified-4-q1",
+    "electrified-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-electrified-bank",
+   "title": "Electrified Vehicles, ABS and Driver Assistance practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Electronic chassis theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — System design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Instrumented implementation"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Calibration verification"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "electrified-1-q1",
+     "section": "m1",
+     "topic": "Electronic chassis theory",
+     "stem": "A trainer ring has 12 teeth at 3 revolutions per second and one pulse per tooth. What is its frequency in Hz? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "36"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "12 × 3 = 36 Hz."
+    },
+    {
+     "id": "electrified-1-q2",
+     "section": "m1",
+     "topic": "Electronic chassis theory",
+     "stem": "Which observation could reduce regenerative braking even with sound foundation brakes?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A dashboard clock adjustment.",
+      "A new cabin filter.",
+      "A battery state that limits accepted charging power."
+     ],
+     "explanation": "Regeneration sends energy to a store that must be able to accept it."
+    },
+    {
+     "id": "electrified-2-q1",
+     "section": "m2",
+     "topic": "System design",
+     "stem": "Four turns of a 10-tooth ring should produce how many pulses with one pulse per tooth? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "40"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "4 × 10 = 40 pulses."
+    },
+    {
+     "id": "electrified-2-q2",
+     "section": "m2",
+     "topic": "System design",
+     "stem": "Which document controls traction-system isolation for a specific repair?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "The 12 V lamp trainer drawing.",
+      "The model-specific service procedure used by a qualified technician.",
+      "An unrelated vehicle's rescue diagram."
+     ],
+     "explanation": "Emergency recognition and authorized maintenance require different information."
+    },
+    {
+     "id": "electrified-3-q1",
+     "section": "m3",
+     "topic": "Instrumented implementation",
+     "stem": "A trainer expects 72 pulses and repeatedly shows 66 after six turns. How many pulses are missing per turn? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "(72 − 66) ÷ 6 = 1."
+    },
+    {
+     "id": "electrified-3-q2",
+     "section": "m3",
+     "topic": "Instrumented implementation",
+     "stem": "Which check best separates sensor dropout from varying hand speed?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Compare counted pulses for a fixed number of complete turns.",
+      "Compare two runs of unknown length.",
+      "Infer pulses from lamp brightness alone."
+     ],
+     "explanation": "Pulse count per completed rotation remains meaningful as speed varies."
+    },
+    {
+     "id": "electrified-3-q3",
+     "section": "m3",
+     "topic": "Instrumented implementation",
+     "stem": "Select two appropriate resources or actions for a crash-damaged hybrid. Select all that apply.",
+     "choices": [
+      "Treat a rescue diagram as a complete repair procedure.",
+      "Use the model-specific emergency material for hazard recognition.",
+      "Refer traction or pyrotechnic intervention to appropriately qualified personnel.",
+      "Clear faults to establish an electrically safe condition."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "Use the exact vehicle service procedure and an appropriately qualified specialist for high-voltage and pyrotechnic work. NHTSA rescue sheets identify hazards for emergency responders; they are separate from repair instructions. In a covered workplace the employer determines applicable energy-control and PPE requirements. The low-voltage rig practical supplies evidence about its sensor only. Record referral for actual HV, restraint or driver-assistance calibration work."
+    },
+    {
+     "id": "electrified-4-q1",
+     "section": "m4",
+     "topic": "Calibration verification",
+     "stem": "A target position is specified at 1,500 mm on a training drawing; actual distance is 1,485 mm. Give the absolute setup error in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "15"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "1,500 − 1,485 = 15 mm. Use actual OEM tolerances for a live job."
+    },
+    {
+     "id": "electrified-4-q2",
+     "section": "m4",
+     "topic": "Calibration verification",
+     "stem": "A collision-damaged EV has exposed traction components. What is the learner's appropriate role?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Measure exposed conductors with the lamp trainer meter.",
+      "Assume absence of noise makes it de-energized.",
+      "Keep clear, secure access and refer to qualified responders or technicians per the site plan."
+     ],
+     "explanation": "Unverified high-voltage systems require a controlled qualified response."
+    },
+    {
+     "id": "cmp-hybrid-topologies-q1",
+     "section": "m1",
+     "topic": "Series, parallel, power-split and battery-electric propulsion",
+     "stem": "Which device normally supplies the low-voltage auxiliary bus from the higher-voltage battery on a BEV?",
+     "explanation": "The converter steps DC voltage between the specified domains.",
+     "choices": [
+      "AC charge inlet alone.",
+      "DC/DC converter.",
+      "Cabin evaporator."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-hybrid-topologies-q2",
+     "section": "m1",
+     "topic": "Series, parallel, power-split and battery-electric propulsion",
+     "stem": "A teaching BEV uses 15 kWh per 100 km and has 45 kWh usable under the same conditions. Enter idealized range in km.",
+     "explanation": "Divide usable energy by energy per distance. Real range varies with conditions and reserve.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "300"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-safety-sensors-q1",
+     "section": "m2",
+     "topic": "Wheel-speed sensors, stability control, restraints and ADAS",
+     "stem": "Which fact most directly determines the approved test for a two-wire wheel-speed sensor?",
+     "explanation": "Active and passive designs can share a wire count.",
+     "choices": [
+      "Its connector shell color alone.",
+      "The presence of two wires alone.",
+      "The donor circuit description identifying sensor technology and signal encoding."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-safety-sensors-q2",
+     "section": "m2",
+     "topic": "Wheel-speed sensors, stability control, restraints and ADAS",
+     "stem": "A trainer tone wheel has 48 equally spaced teeth and makes 2 revolutions per second. Assuming one pulse per tooth, enter signal frequency in Hz.",
+     "explanation": "Multiply pulses per revolution by revolutions per second.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "96"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-electrified",
+     "section": "m3",
+     "topic": "Measure efficiency without hiding the operating conditions",
+     "stem": "A regenerative-braking complaint appears only with a cold full battery. What data helps distinguish an expected limit?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Compare requested regeneration, allowable charge power, battery temperature and state of charge during the event.",
+      "Only the advertised tire energy-efficiency class.",
+      "The vehicle's advertised maximum charging rate by itself."
+     ],
+     "explanation": "The battery controller can constrain accepted power at particular operating conditions."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-electrified-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Regeneration",
+     "back": "Motor braking that converts motion into electrical energy when the system can accept it.",
+     "topic": "Electronic chassis theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Which observation could reduce regenerative braking even with sound foundation brakes?",
+     "back": "A battery state that limits accepted charging power. Regeneration sends energy to a store that must be able to accept it.",
+     "topic": "Electronic chassis theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Pulse frequency",
+     "back": "Number of signal cycles per second.",
+     "topic": "System design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which document controls traction-system isolation for a specific repair?",
+     "back": "The model-specific service procedure used by a qualified technician. Emergency recognition and authorized maintenance require different information.",
+     "topic": "System design"
+    },
+    {
+     "id": "c3a",
+     "front": "Calibration",
+     "back": "A prescribed procedure to align or teach a sensing system to its references.",
+     "topic": "Instrumented implementation"
+    },
+    {
+     "id": "c3b",
+     "front": "Which check best separates sensor dropout from varying hand speed?",
+     "back": "Compare counted pulses for a fixed number of complete turns. Pulse count per completed rotation remains meaningful as speed varies.",
+     "topic": "Instrumented implementation"
+    },
+    {
+     "id": "c4a",
+     "front": "Rescue sheet",
+     "back": "Model-specific hazard and construction information for emergency response.",
+     "topic": "Calibration verification"
+    },
+    {
+     "id": "c4b",
+     "front": "A collision-damaged EV has exposed traction components. What is the learner's appropriate role?",
+     "back": "Keep clear, secure access and refer to qualified responders or technicians per the site plan. Unverified high-voltage systems require a controlled qualified response.",
+     "topic": "Calibration verification"
+    },
+    {
+     "id": "cmp-hybrid-topologies-card",
+     "front": "Which device normally supplies the low-voltage auxiliary bus from the higher-voltage battery on a BEV?",
+     "back": "DC/DC converter. The converter steps DC voltage between the specified domains.",
+     "topic": "Series, parallel, power-split and battery-electric propulsion"
+    },
+    {
+     "id": "cmp-safety-sensors-card",
+     "front": "Which fact most directly determines the approved test for a two-wire wheel-speed sensor?",
+     "back": "The donor circuit description identifying sensor technology and signal encoding. Active and passive designs can share a wire count.",
+     "topic": "Wheel-speed sensors, stability control, restraints and ADAS"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A regenerative-braking complaint appears only with a cold full battery. What data helps distinguish an expected limit?",
+     "back": "Compare requested regeneration, allowable charge power, battery temperature and state of charge during the event. The battery controller can constrain accepted power at particular operating conditions.",
+     "topic": "Measure efficiency without hiding the operating conditions"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Regeneration",
+   "definition": "Motor braking that converts motion into electrical energy when the system can accept it.",
+   "topic": "Electronic chassis theory"
+  },
+  {
+   "term": "Pulse frequency",
+   "definition": "Number of signal cycles per second.",
+   "topic": "System design"
+  },
+  {
+   "term": "Calibration",
+   "definition": "A prescribed procedure to align or teach a sensing system to its references.",
+   "topic": "Instrumented implementation"
+  },
+  {
+   "term": "Rescue sheet",
+   "definition": "Model-specific hazard and construction information for emergency response.",
+   "topic": "Calibration verification"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Skyline College — Hybrid/Electric Vehicles, ADAS and Climate Control](https://catalog.skylinecollege.edu/current/courses/automotive-technology/auto-546.php) · [College of the Desert — Automotive General Service](https://catalog.collegeofthedesert.edu/programs/automotive-technology/general-automotive-service-certificate-of-achievement/) · [NHTSA — vehicle-specific emergency response guides](https://www.nhtsa.gov/emergency-response-guides)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nUse the exact vehicle service procedure and an appropriately qualified specialist for high-voltage and pyrotechnic work. NHTSA rescue sheets identify hazards for emergency responders; they are separate from repair instructions. In a covered workplace the employer determines applicable energy-control and PPE requirements. The low-voltage rig practical supplies evidence about its sensor only. Record referral for actual HV, restraint or driver-assistance calibration work.\n\n[NHTSA — vehicle-specific emergency response guides](https://www.nhtsa.gov/emergency-response-guides) · [US DOE — maintenance and safety of electric vehicles](https://afdc.energy.gov/vehicles/electric-maintenance) · [OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Propulsion topology; Traction battery and BMS; Motor, inverter and reduction; Charge and auxiliary conversion; ABS and stability control; Driver assistance. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Propulsion topology | Series / parallel / power split / BEV; plug-in / non-plug-in | Trace mechanical and electrical routes separately, then locate external charging capability. | Draw both propulsion and regenerative modes. |\n| Traction battery and BMS | Different chemistry, capacity and cooling packages | Usable energy, allowable current and thermal limits govern operating modes. | Read ratings and interpret permitted charge or regeneration from published data. |\n| Motor, inverter and reduction | Permanent-magnet / induction machine; single / multi-speed reducer | A permanent-magnet rotor supplies its own field; an induction rotor develops current from relative field motion. Match the machine and inverter. | Compare matched donor motor, inverter, controls and thermal interfaces from documentation. |\n| Charge and auxiliary conversion | Onboard AC charger / external DC charging / DC-DC auxiliary conversion | The energy conversion takes place in different devices and voltage domains. | Draw arrows from inlet to pack and pack to auxiliary bus with the covers closed. |\n| ABS and stability control | Passive inductive / powered speed sensor; ABS / ESC | Wheel speed, yaw and steering angle support distinct functions. | Record sensor type, waveform or counts on the trainer and specified calibrations. |\n| Driver assistance | Camera / radar / ultrasonic | Optics, radio returns and short-range acoustic echoes have different mounting and calibration needs. | Cross-reference replacement and alignment operations to the donor calibration procedure. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [DOE, battery-electric powertrain and auxiliaries](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work.html)\n\n- [DOE, plug-in hybrid components](https://afdc.energy.gov/vehicles/how-do-plug-in-hybrid-electric-cars-work)\n\n- [HELLA, wheel speed sensor technologies and diagnosis](https://www.hella.com/techworld/us/technical/sensors-and-actuators/check-and-change-abs-and-wheel-speed-sensors/)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [DOE Alternative Fuels Data Center, battery-electric drive components](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work.html)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Electrified drive, restraint and assistance · Traction cell and module to Traction motor",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Traction cell and module\n\n**Function.** Store energy electrochemically.\n\n**Design.** Compare chemistry, permitted current, usable window, enclosure and thermal conditions.\n\n**Make, assemble or fit.** Select a manufacturer-integrated pack; study cell assembly using inert models.\n\n**Verify.** Verify identification, ratings and authorized condition report.\n\n### Traction pack enclosure\n\n**Function.** Protects cells and controls exposure and structural loads.\n\n**Design.** Review sealing, crash loads, venting, isolation and service access.\n\n**Make, assemble or fit.** Use a qualified matched pack and approved structural mounting design.\n\n**Verify.** Obtain qualified installation, sealing and isolation records.\n\n### Battery management controller\n\n**Function.** Monitors cells and enforces operating limits.\n\n**Design.** Match cell configuration, sensors and authenticated control interface.\n\n**Make, assemble or fit.** Retain matched pack controls under qualified service.\n\n**Verify.** Compare permitted power and temperature/state-of-charge data using approved readouts.\n\n### High-voltage contactors\n\n**Function.** Connect or isolate traction power under control.\n\n**Design.** Select rated voltage, interrupt capability and matching interlocks.\n\n**Make, assemble or fit.** Service only through the qualified pack procedure; demonstrate switching on a low-voltage trainer.\n\n**Verify.** Verify intended states and diagnostic records with the prescribed system test.\n\n### Precharge circuit\n\n**Function.** Limits inrush into DC-link capacitance.\n\n**Design.** Coordinate resistor energy, timing and contactor sequencing.\n\n**Make, assemble or fit.** Model and test a current-limited low-voltage equivalent; retain qualified matched road hardware.\n\n**Verify.** Compare measured low-voltage rise curve and obtain qualified system test record.\n\n### Service disconnect and interlock\n\n**Function.** Provide a service isolation point and monitored connector-loop state.\n\n**Design.** Match pack and vehicle interlock design and approved access.\n\n**Make, assemble or fit.** Identify externally and retain manufacturer hardware; qualified personnel perform HV operations.\n\n**Verify.** Use the qualified isolation and return-to-service documentation.\n\n### Inverter\n\n**Function.** Controls current between battery DC bus and traction machine.\n\n**Design.** Match voltage, current, cooling, rotor sensor and control software.\n\n**Make, assemble or fit.** Source a matched rated assembly and arrange qualified HV integration.\n\n**Verify.** Review commanded versus delivered torque and temperature records.\n\n### Traction motor\n\n**Function.** Converts electrical energy to wheel torque and can regenerate.\n\n**Design.** Compare speed/torque envelope, field type, gearbox, cooling and duty cycle.\n\n**Make, assemble or fit.** Use matched machine and reduction unit; explore winding principles on a small isolated motor.\n\n**Verify.** Compare torque/speed curves and qualified installed diagnostics."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Electrified drive, restraint and assistance · Resolver or rotor sensor to Airbag module and inflator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Resolver or rotor sensor\n\n**Function.** Reports rotor angle and speed to inverter.\n\n**Design.** Match excitation, mounting phase, resolution and controller.\n\n**Make, assemble or fit.** Retain correctly indexed matched hardware using specialist service.\n\n**Verify.** Verify signal plausibility and specified calibration.\n\n### Onboard charger\n\n**Function.** Converts incoming AC to battery charging power.\n\n**Design.** Match supply, connectors, cooling and pack control.\n\n**Make, assemble or fit.** Use qualified integration of compatible charging hardware.\n\n**Verify.** Check permitted AC charging session and logged power.\n\n### Charge inlet and latch\n\n**Function.** Provide the external charging interface and interlock.\n\n**Design.** Match accepted connector, signaling, retention and environmental seal.\n\n**Make, assemble or fit.** Fit approved inlet assembly and qualified harness with drainage provisions.\n\n**Verify.** Verify lock behavior and supported charging using prescribed procedure.\n\n### DC/DC converter\n\n**Function.** Supplies lower-voltage bus from traction source.\n\n**Design.** Match output rating, control interfaces, grounding and cooling.\n\n**Make, assemble or fit.** Use compatible qualified module and correctly protected low-voltage distribution.\n\n**Verify.** Measure the auxiliary bus under specified accessible conditions.\n\n### Wheel-speed pickup and encoder\n\n**Function.** Report rotation for ABS and stability control.\n\n**Design.** Match active/passive technology, pole or tooth count, orientation and air gap.\n\n**Make, assemble or fit.** Install compatible bearing/target and pickup along specified cable route.\n\n**Verify.** Check waveform or live data across matched wheel speeds.\n\n### Yaw and acceleration sensor\n\n**Function.** Measure body motion for stability control.\n\n**Design.** Match orientation, mounting location and calibration datum.\n\n**Make, assemble or fit.** Rigidly fit matched module at its defined reference location.\n\n**Verify.** Perform prescribed zeroing and plausibility checks.\n\n### Steering-angle sensor\n\n**Function.** Reports steering position to assistance and stability systems.\n\n**Design.** Match steering center, clocking and bus interface.\n\n**Make, assemble or fit.** Retain matched hardware and calibrate after specified geometry changes.\n\n**Verify.** Verify straight-ahead reading and full sensor response.\n\n### Airbag module and inflator\n\n**Function.** Provide timed occupant cushioning as part of a restraint system.\n\n**Design.** Match exact vehicle, occupant position, sensors and controller.\n\n**Make, assemble or fit.** Use traceable approved complete assemblies and qualified restraint service.\n\n**Verify.** Verify exact parts and authorized diagnostics; never probe an initiator."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Electrified drive, restraint and assistance · Crash sensor and restraint controller to Ultrasonic sensor",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Crash sensor and restraint controller\n\n**Function.** Detect crash conditions and coordinate restraints.\n\n**Design.** Preserve orientation, mounting stiffness, software and compatible restraint components.\n\n**Make, assemble or fit.** Follow exact OEM replacement and handling procedures with qualified personnel.\n\n**Verify.** Obtain documented diagnostic and configuration clearance.\n\n### Seat-belt pretensioner\n\n**Function.** Removes slack during specified crash conditions.\n\n**Design.** Match belt, buckle, anchor, sensing and control logic.\n\n**Make, assemble or fit.** Use approved complete assembly under qualified restraint procedure.\n\n**Verify.** Verify part identity, recall status and approved system diagnosis.\n\n### Occupant classification sensor\n\n**Function.** Supports seat-dependent restraint deployment decisions.\n\n**Design.** Match cushion, sensor, controller and intended trim.\n\n**Make, assemble or fit.** Retain matched seat components and perform exact seat calibration if required.\n\n**Verify.** Document specified unloaded and occupant-system checks.\n\n### Forward camera\n\n**Function.** Interprets lane, object or sign information depending on system.\n\n**Design.** Match optics, windshield, bracket geometry and sightline.\n\n**Make, assemble or fit.** Use approved mount and model-specific calibration after qualifying changes.\n\n**Verify.** Document target setup, calibration success and required functional check.\n\n### Radar module\n\n**Function.** Measures reflected radio signals for driver assistance.\n\n**Design.** Preserve mounting angle, cover material, distance and alignment.\n\n**Make, assemble or fit.** Install exact module behind an approved cover and calibrate as specified.\n\n**Verify.** Verify alignment, diagnostic status and approved functional test.\n\n### Ultrasonic sensor\n\n**Function.** Measures short-range obstacle distance.\n\n**Design.** Match height, orientation, surface coating and harness.\n\n**Make, assemble or fit.** Fit approved sensor holder and compatible paint procedure.\n\n**Verify.** Check defined targets across sensing zones."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Hybrid and EV thermal and charge hardware · Traction coolant manifold to Charge-port door",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Traction coolant manifold\n\n**Function.** Distributes coolant to pack, inverter or motor loops.\n\n**Design.** Respect isolation, coolant spec, flow balance and pressure rating of each domain.\n\n**Make, assemble or fit.** Use qualified matched assembly and prescribed fill/bleed process.\n\n**Verify.** Retain qualified temperature, pressure and isolation records.\n\n### Pack temperature sensor\n\n**Function.** Reports cell or coolant thermal state for operating limits.\n\n**Design.** Match sensor curve, thermal contact and BMS input.\n\n**Make, assemble or fit.** Use approved qualified battery service or read-only study of existing system.\n\n**Verify.** Verify plausibility across sensors and response to stated conditions.\n\n### HV fuse\n\n**Function.** Interrupts excessive current in the designated high-voltage circuit.\n\n**Design.** Match DC interrupt capability and protection coordination to the pack.\n\n**Make, assemble or fit.** Use qualified service and the exact approved fuse or pack assembly.\n\n**Verify.** Obtain documented isolation, diagnosis and correct replacement record.\n\n### Charge-port door\n\n**Function.** Protects the charge inlet from exposure and permits access.\n\n**Design.** Account for locking, drainage, connector clearance and icing.\n\n**Make, assemble or fit.** Fit compatible door/actuator without altering live inlet parts.\n\n**Verify.** Check door travel, seal and access for supported plugs."
+  },
+  {
+   "id": "mod-low-rolling-resistance-tires-on-a-hybrid-or-ev",
+   "title": "Modification · Low-rolling-resistance tires on a hybrid or EV",
+   "body": "**Purpose.** Increase range while retaining actual braking, handling and load capacity.\n\n**Design and baseline.** Compare approved load index, pressure, tire size, temperature range, wet grip, noise and measured consumption. Include wheel-cover and brake cooling requirements.\n\n**Build and installation.** Choose rated fitment, mount and balance through qualified service, initialize pressure monitoring and preserve calibrated wheel-speed relationships.\n\n**Test and disposition.** Run repeated matched routes or controlled cycle with matched pressure, speed, ambient, state of charge and HVAC. Report energy per distance, wet-grip evidence and uncertainty.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [DOE Alternative Fuels Data Center, battery-electric drive components](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work.html)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)"
+  },
+  {
+   "id": "mod-driver-assistance-compatible-wheel-or-ride-height-change",
+   "title": "Modification · Driver-assistance-compatible wheel or ride-height change",
+   "body": "**Purpose.** Adapt wheels or stance while retaining calibrated sensing and warning functions.\n\n**Design and baseline.** Review donor alignment, ride-height limits, radar/camera heights, wheel circumference, sensor fields and calibration triggers before changing hardware.\n\n**Build and installation.** Measure original corner heights and alignment, install approved changes within documented fitment, settle suspension and perform exact required specialist calibrations.\n\n**Test and disposition.** Record final geometry, calibration report and approved function check. Hold affected assistance functions and vehicle release if a trigger or geometry limit is unresolved.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [DOE Alternative Fuels Data Center, battery-electric drive components](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work.html)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Draw a guarded low-voltage rig, identify pulse conversion, gap reference, independent rotation count and expected failure signature. For a selected real vehicle, cite a service trigger for ADAS calibration or a qualified HV referral. Record the exact model and source."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A tested sensor fixture, waveforms or counts and the model-specific referral record."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A working physical rig produces documented baseline, changed and restored results with an appropriate real-vehicle handoff."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design a wheel-speed sensing experiment",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Draw a guarded low-voltage rig, identify pulse conversion, gap reference, independent rotation count and expected failure signature. For a selected real vehicle, cite a service trigger for ADAS calibration or a qualified HV referral. Record the exact model and source. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Propulsion topology; Traction battery and BMS; Motor, inverter and reduction; Charge and auxiliary conversion; ABS and stability control; Driver assistance. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Measure efficiency without hiding the operating conditions",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Use a wheel/sensor trainer or guarded low-voltage model to compare encoder counts or losses. Map the untouched high-voltage assemblies by exact ID and record specialist evidence where needed. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Build and verify a wheel-speed sensor rig",
+   "module": "m3",
+   "adult": true,
+   "intro": "A tested sensor fixture, waveforms or counts and the model-specific referral record. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use the low-voltage rig only. Do not probe traction circuits, airbag wiring, pyrotechnic devices or a real moving wheel. Keep the target secured and keep clothing clear."
+   ],
+   "materials": [
+    "Hand-driven guarded target",
+    "Compatible low-voltage sensor and current-limited supply",
+    "Counter or suitable scope and gap gauge"
+   ],
+   "steps": [
+    "Build the fixture, choose an in-spec gap and calculate an expected pulse count.",
+    "Record results across at least three complete turns, then repeat independently.",
+    "Use one approved trainer-only target or gap change and compare the count or waveform with the baseline.",
+    "Restore the setup and demonstrate repeatability. Append a real-model calibration/referral decision."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Run",
+      "Turns",
+      "Predicted pulses",
+      "Measured pulses",
+      "Gap or target condition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "A working physical rig produces documented baseline, changed and restored results with an appropriate real-vehicle handoff. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-electrical",
+  "auto-brakes",
+  "auto-diagnostics"
+ ]
+}

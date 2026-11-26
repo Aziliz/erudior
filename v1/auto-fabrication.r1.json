@@ -1,0 +1,1008 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-fabrication",
+ "title": "Chassis Design, Welding and Fabrication",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare unibody, ladder-frame and spaceframe structures, choose materials and joints, then fabricate and inspect a structural teaching bay. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Structure theory",
+   "quiz": [
+    "fabrication-1-q2",
+    "cmp-frame-types-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Fixture design",
+   "quiz": [
+    "fabrication-2-q2",
+    "cmp-joints-materials-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Fabrication",
+   "quiz": [
+    "fabrication-3-q3",
+    "shop-change-fabrication"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Structural inspection",
+   "quiz": [
+    "fabrication-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "fabrication-1",
+   "module": "m1",
+   "title": "Trace a load through a frame bay",
+   "minutes": 20,
+   "topics": [
+    "Structure theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Workshop Measurement and Vehicle Service, Brake, Steering and Suspension Service, or demonstrate the equivalent workshop skills.\n\nA chassis carries loads from suspension, powertrain, restraints and body mounts. Sketch forces from the point of application to supporting nodes. A pinned rectangular frame can rack. A diagonal provides an axial load path, although real joints and joints in bending still need calculation and testing. Stiffness describes deflection under load. Strength and fatigue life are separate design questions.\n\n## Worked shop case\n\nTwo equal frames move 3 mm and 6 mm under the same small fixture load. The first frame has twice the test stiffness under that loading. These data give no ultimate strength or fatigue rating.\n\n## Guided practice\n\nA bench frame deflects 2 mm under 100 N in a small-deflection test. What is its stiffness in N/mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A fabricated bay, its jig, inspected coupons and an as-built dimensional report.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "fabrication-1-q1",
+    "fabrication-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-frame-types",
+   "module": "m1",
+   "title": "Body-on-frame, unibody and triangulated spaceframes",
+   "minutes": 25,
+   "topics": [
+    "Body-on-frame, unibody and triangulated spaceframes"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Follow loads from the contact patches into the suspension pickups, then through the structure to the supported masses. A ladder frame uses longitudinal rails and crossmembers with a body attached through mounts. A unibody distributes loads through joined floor, sills, pillars, bulkheads and panels. Removing a seemingly minor panel can interrupt a structural path. A tubular spaceframe can take loads through triangulated members when pickup loads reach nodes and joints behave as designed. Bending still occurs under off-node loads, local eccentricity and real boundary conditions.\n\nCompare stiffness, crash-management provisions, corrosion protection, joint inspection, repair access, occupant protection and mass for a stated use. Material strength, stiffness and fatigue resistance are different properties. A stiff frame can still have an unsafe joint. Never infer crashworthiness from a torsion rig or a visually straight frame. For the learner-built car, record who reviewed each structural design and what evidence qualified it for the intended operation.\n\n## Worked shop case\n\nA pickup on an unbraced tube midspan adds bending that a pin-jointed truss model at a node would miss. Trace both load and reaction, update the model and request joint review before fabrication. A student bay can test build accuracy and load-deflection behavior within a reviewed fixture. Its result does not qualify a complete chassis.\n\n## Guided practice\n\n```example fade=2\nproblem: A fixture twists 2 degrees under 400 N·m at its stated boundary conditions. How would you compare a second bay?\nstep: Compute stiffness as torque divided by angle.\nstep: Hold supports, load and measurement points constant.\nanswer: The first result is 200 N·m per degree; compare the second under the same conditions and account for fixture compliance.\n```\n\n## Independent shop or design task\n\nTrace front suspension and seat-belt loads on two candidate chassis drawings. Identify nodes, mounting pads, access to inspect the back side, corrosion traps and where a qualified reviewer must establish acceptance.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-frame-types-q1",
+    "cmp-frame-types-q2"
+   ]
+  },
+  {
+   "id": "cmp-joints-materials",
+   "module": "m2",
+   "title": "Steel, aluminum, composites and their joints",
+   "minutes": 25,
+   "topics": [
+    "Steel, aluminum, composites and their joints"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Mild steel sheet is formable and often joinable by familiar processes. Advanced high-strength steel grades can be heat-sensitive and require location-specific repair instructions. Aluminum alloys differ in temper and weldability; joining can change local properties. A composite laminate carries loads according to fiber direction, matrix and ply schedule. Impact damage or delamination can be hard to see. Choose an identified grade or laminate schedule, thickness, joining process, corrosion control and inspection method together.\n\nA welded seam can transmit continuous load but introduces heat, distortion and a heat-affected zone. Rivets and bolts transfer load through bearing, shear, tension or clamp friction as designed. An adhesive distributes load over an area but depends on surface preparation, temperature, cure, joint geometry and peel exposure. Dissimilar conductive materials in an electrolyte can corrode galvanically. A higher-strength bolt or thicker plate alone does not validate the joint, surrounding structure or crash behavior.\n\n## Worked shop case\n\nAn aluminum outer panel and steel support fit geometrically. The specified procedure uses an isolating adhesive, sealed edges and coated fasteners. A bare metal direct joint could introduce a corrosion path even if it fits more neatly. Record the source for material identity, required preparation, cure and physical inspection access.\n\n## Guided practice\n\n```example fade=2\nproblem: Two bonded coupons carry the same load but one sees edge peel. Should equal bonded area imply equal capacity?\nstep: Identify how load enters each bond.\nstep: Check the documented lap-shear and peel geometry, materials and cure.\nanswer: Equal area can distribute stress very differently. Test approved coupons and avoid inferring structural equivalence.\n```\n\n## Independent shop or design task\n\nMake nonstructural sample joints under the shop's approved process. Identify parent material, joint geometry, preparation, settings or cure conditions, and inspected result. Record where the selected vehicle build needs a different qualified procedure.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-joints-materials-q1",
+    "cmp-joints-materials-q2"
+   ]
+  },
+  {
+   "id": "fabrication-2",
+   "module": "m2",
+   "title": "Dimension from datums and plan inspection access",
+   "minutes": 20,
+   "topics": [
+    "Fixture design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-bolt-on-chassis-brace",
+    "mod-serviceable-undertray"
+   ],
+   "body": "Define three reference planes, label longitudinal stations and set one dimension origin. Give the fixture a way to locate tubes without over-constraining the assembly. Locate critical mount coordinates independently of overall diagonal checks. Plan inspection access before covering welds or installing panels.\n\n## Worked shop case\n\nA 300 by 400 mm rectangular fixture has a nominal 500 mm diagonal. Equal diagonals are a quick rack check. Both diagonals can still be equal if the fixture was built to the wrong size.\n\n## Guided practice\n\nA rectangular 600 by 800 mm fixture should have which nominal diagonal in mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nChoose a bay from a documented design or a chassis engineer's reviewed concept. Mark three datums, simple load paths, wheel and seat reference locations, tolerances, tool access and a fixture inspection sequence. Identify where the structural reviewer must approve the proposed use.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "fabrication-2-q1",
+    "fabrication-2-q2"
+   ]
+  },
+  {
+   "id": "fabrication-3",
+   "module": "m3",
+   "title": "Make a jig and a representative welded bay",
+   "minutes": 15,
+   "topics": [
+    "Fabrication"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Select traceable material from a reviewed design. Record section, alloy, thickness and joining process. Practice on coupons of the same material and joint type; have the welding instructor evaluate fit and joints before structural fabrication. Clamp the bay to identified stops, verify dimensions at tack stage and remeasure after cooling. Do structural work under the reviewed procedure.\n\n## Worked shop case\n\nA tack-stage width is 400.0 mm. After joining and cooling it is 399.1 mm. The recorded change is 0.9 mm, and the part must be dispositioned against its drawing tolerance.\n\n## Guided practice\n\nTarget width is 450.0 mm. Cooled width is 448.8 mm. Give the magnitude of the error in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nCovered workplaces must address machine guarding (29 CFR 1910.212) and hot-work fire and exposure controls (1910.252). Use the shop's hot-work authorization where applicable and document ventilation, combustibles, PPE, guarding and the responsible reviewer before making sparks. Check local fire, occupancy and zoning requirements for your own workshop. Retain material and joint inspection records.\n\n[OSHA — welding, cutting and brazing, 29 CFR 1910.252](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [OSHA — workers and establishments covered](https://www.osha.gov/node/59586)\n\n## Workshop preparation\n\nOnly weld under a qualified shop's hot-work controls with appropriate local exhaust, PPE and fire precautions. Never weld on containers or structures with fuel or unknown residues. Keep prototype parts out of vehicle use until reviewed.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "fabrication-3-q1",
+    "fabrication-3-q2",
+    "fabrication-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Make a drawing someone else can inspect",
+   "minutes": 35,
+   "topics": [
+    "Make a drawing someone else can inspect"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1",
+    "mod-bolt-on-chassis-brace",
+    "mod-serviceable-undertray",
+    "as-built-ledger",
+    "bench-plan"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nPrimary structure, joints and attachment hardware, Mounting and underbody protection. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Bolt-on chassis brace\n- Serviceable undertray\n\n## Worked example\n\nA teaching bracket's two hole centers are nominally 40.0 mm apart. A direct center-spacing tolerance of ±0.5 mm makes 40.4 acceptable and 40.7 a rework. If both holes instead have ±0.5 mm independent position dimensions from an edge, the worst-case separation error is ±1.0 mm. Specify the functional distance directly.\n\n## Guided decision\n\n```example fade=1\nproblem: A bracket fits only after bending the cables around its cut edge. Which design item was missed?\nstep: Check edge condition, protected clearance and cable bend radius with the actual connector fitted.\nanswer: Revise the route or bracket and inspect the measured assembly before adding it to the build.\n```\n\n## Independent workshop\n\nMake the two-hole nonstructural service plate in the bench plans, log each manufactured and purchased part, and test removal and refit.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-fabrication"
+   ]
+  },
+  {
+   "id": "fabrication-4",
+   "module": "m4",
+   "title": "Document an as-built bay",
+   "minutes": 15,
+   "topics": [
+    "Structural inspection"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Compare coordinates, diagonals, joint condition and material traceability to the reviewed drawing. Have an appropriate reviewer inspect welds and select applicable nondestructive or destructive tests. Keep a nonconforming part quarantined until disposition is documented. A coupon test and an unloaded bay mock-up answer narrower questions than vehicle-level durability or occupant protection.\n\n## Worked shop case\n\nA representative brace passes a coupon check but the actual belt mount has no load review. Log the coupon result under joining and carry the belt mount as a separate unresolved requirement.\n\n## Guided practice\n\nAn allowed fixture interval is 299.5–300.5 mm. A reading of 300.8 mm exceeds its upper limit by how many mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe physically fabricated bay, coupon record and datum-based measurements can be traced to one drawing revision. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "fabrication-4-q1",
+    "fabrication-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-fabrication-bank",
+   "title": "Chassis Design, Welding and Fabrication practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Structure theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Fixture design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Fabrication"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Structural inspection"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "fabrication-1-q1",
+     "section": "m1",
+     "topic": "Structure theory",
+     "stem": "A bench frame deflects 2 mm under 100 N in a small-deflection test. What is its stiffness in N/mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "50"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "100 N ÷ 2 mm = 50 N/mm in this setup."
+    },
+    {
+     "id": "fabrication-1-q2",
+     "section": "m1",
+     "topic": "Structure theory",
+     "stem": "Which sketch supports review of a suspension mount?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Only the total tube length.",
+      "A force path from the mounting point through members to supported nodes.",
+      "Only the exterior paint profile."
+     ],
+     "explanation": "An engineer needs to see how concentrated loads reach the structure."
+    },
+    {
+     "id": "fabrication-2-q1",
+     "section": "m2",
+     "topic": "Fixture design",
+     "stem": "A rectangular 600 by 800 mm fixture should have which nominal diagonal in mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1000"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The Pythagorean relation gives a 1,000 mm diagonal."
+    },
+    {
+     "id": "fabrication-2-q2",
+     "section": "m2",
+     "topic": "Fixture design",
+     "stem": "Both diagonals match, but a mount is off its drawing location. Which result controls that mount?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Its coordinate measured from the drawing datums.",
+      "The average diagonal alone.",
+      "The finish of the weld bead."
+     ],
+     "explanation": "A global symmetry check cannot establish local mount position."
+    },
+    {
+     "id": "fabrication-3-q1",
+     "section": "m3",
+     "topic": "Fabrication",
+     "stem": "Target width is 450.0 mm. Cooled width is 448.8 mm. Give the magnitude of the error in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1.2"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "450.0 − 448.8 = 1.2 mm."
+    },
+    {
+     "id": "fabrication-3-q2",
+     "section": "m3",
+     "topic": "Fabrication",
+     "stem": "A coupon has incomplete fusion on sectioning. What follows?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Grind the visible surface smooth and release it.",
+      "Increase the drawing tolerance.",
+      "Revise the process and repeat representative coupons before structural work."
+     ],
+     "explanation": "Surface appearance and dimensional tolerance cannot correct a fusion defect."
+    },
+    {
+     "id": "fabrication-3-q3",
+     "section": "m3",
+     "topic": "Fabrication",
+     "stem": "Select two items for the shop's hot-work job record. Select all that apply.",
+     "choices": [
+      "Inspection of guarding and suitable personal protection for the operation.",
+      "Permission to weld on an unidentified fuel container.",
+      "A note that location in a private building removes all duties to employees.",
+      "Fire and ventilation controls for the work area."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "Covered workplaces must address machine guarding (29 CFR 1910.212) and hot-work fire and exposure controls (1910.252). Use the shop's hot-work authorization where applicable and document ventilation, combustibles, PPE, guarding and the responsible reviewer before making sparks. Check local fire, occupancy and zoning requirements for your own workshop. Retain material and joint inspection records."
+    },
+    {
+     "id": "fabrication-4-q1",
+     "section": "m4",
+     "topic": "Structural inspection",
+     "stem": "An allowed fixture interval is 299.5–300.5 mm. A reading of 300.8 mm exceeds its upper limit by how many mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "300.8 − 300.5 = 0.3 mm."
+    },
+    {
+     "id": "fabrication-4-q2",
+     "section": "m4",
+     "topic": "Structural inspection",
+     "stem": "What can the as-built bay substantiate?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Fatigue life under any use.",
+      "Its recorded dimensions and the specific inspections that were performed.",
+      "Crashworthiness of the completed vehicle."
+     ],
+     "explanation": "Evidence must stay tied to its specimen and load case."
+    },
+    {
+     "id": "cmp-frame-types-q1",
+     "section": "m1",
+     "topic": "Body-on-frame, unibody and triangulated spaceframes",
+     "stem": "Which change undermines treating a spaceframe member as carrying mostly axial load?",
+     "explanation": "A transverse off-node load introduces bending into that span.",
+     "choices": [
+      "Applying a substantial suspension load between nodes on an unbraced span.",
+      "Marking the same end points on a drawing.",
+      "Recording fixture compliance."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-frame-types-q2",
+     "section": "m1",
+     "topic": "Body-on-frame, unibody and triangulated spaceframes",
+     "stem": "A frame fixture deflects 1.5 degrees under 450 N·m. Enter measured torsional stiffness in N·m per degree.",
+     "explanation": "Divide torque by measured angular deflection.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "300"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-joints-materials-q1",
+     "section": "m2",
+     "topic": "Steel, aluminum, composites and their joints",
+     "stem": "Which information most directly governs a repair join in an identified high-strength body panel?",
+     "explanation": "The procedure accounts for alloy, temper, location and permissible process.",
+     "choices": [
+      "A neighboring panel's thickness alone.",
+      "The material and location-specific manufacturer's joining procedure.",
+      "Sheet color after sanding."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-joints-materials-q2",
+     "section": "m2",
+     "topic": "Steel, aluminum, composites and their joints",
+     "stem": "Two nominally identical coupons differ in adhesive cure temperature. Which conclusion follows before comparing strength?",
+     "explanation": "Cure affects joint properties independently of nominal area.",
+     "choices": [
+      "Both joints have the same ultimate strength because their area matches.",
+      "Cure temperature never matters after assembly.",
+      "Cure condition is an uncontrolled variable that must be recorded or equalized."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "shop-change-fabrication",
+     "section": "m3",
+     "topic": "Make a drawing someone else can inspect",
+     "stem": "A bolted brace passes a dimensional check but has an unreviewed attachment to thin sheet. What evidence is missing?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A diagonal measurement at zero load.",
+      "Its bare-brace axial stiffness measured without the mounting hardware.",
+      "The load path through the attachment and the supporting structure under the intended loads."
+     ],
+     "explanation": "A brace can move the weak point into its attachment or surrounding body."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-fabrication-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Datum",
+     "back": "A reference feature or plane used to locate other features.",
+     "topic": "Structure theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Which sketch supports review of a suspension mount?",
+     "back": "A force path from the mounting point through members to supported nodes. An engineer needs to see how concentrated loads reach the structure.",
+     "topic": "Structure theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Load path",
+     "back": "The route of forces through an assembly to its supports.",
+     "topic": "Fixture design"
+    },
+    {
+     "id": "c2b",
+     "front": "Both diagonals match, but a mount is off its drawing location. Which result controls that mount?",
+     "back": "Its coordinate measured from the drawing datums. A global symmetry check cannot establish local mount position.",
+     "topic": "Fixture design"
+    },
+    {
+     "id": "c3a",
+     "front": "Coupon",
+     "back": "A representative test piece used to evaluate a process or material.",
+     "topic": "Fabrication"
+    },
+    {
+     "id": "c3b",
+     "front": "A coupon has incomplete fusion on sectioning. What follows?",
+     "back": "Revise the process and repeat representative coupons before structural work. Surface appearance and dimensional tolerance cannot correct a fusion defect.",
+     "topic": "Fabrication"
+    },
+    {
+     "id": "c4a",
+     "front": "Nonconformance",
+     "back": "An as-built condition outside the applicable drawing or inspection requirement.",
+     "topic": "Structural inspection"
+    },
+    {
+     "id": "c4b",
+     "front": "What can the as-built bay substantiate?",
+     "back": "Its recorded dimensions and the specific inspections that were performed. Evidence must stay tied to its specimen and load case.",
+     "topic": "Structural inspection"
+    },
+    {
+     "id": "cmp-frame-types-card",
+     "front": "Which change undermines treating a spaceframe member as carrying mostly axial load?",
+     "back": "Applying a substantial suspension load between nodes on an unbraced span. A transverse off-node load introduces bending into that span.",
+     "topic": "Body-on-frame, unibody and triangulated spaceframes"
+    },
+    {
+     "id": "cmp-joints-materials-card",
+     "front": "Which information most directly governs a repair join in an identified high-strength body panel?",
+     "back": "The material and location-specific manufacturer's joining procedure. The procedure accounts for alloy, temper, location and permissible process.",
+     "topic": "Steel, aluminum, composites and their joints"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A bolted brace passes a dimensional check but has an unreviewed attachment to thin sheet. What evidence is missing?",
+     "back": "The load path through the attachment and the supporting structure under the intended loads. A brace can move the weak point into its attachment or surrounding body.",
+     "topic": "Make a drawing someone else can inspect"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Datum",
+   "definition": "A reference feature or plane used to locate other features.",
+   "topic": "Structure theory"
+  },
+  {
+   "term": "Load path",
+   "definition": "The route of forces through an assembly to its supports.",
+   "topic": "Fixture design"
+  },
+  {
+   "term": "Coupon",
+   "definition": "A representative test piece used to evaluate a process or material.",
+   "topic": "Fabrication"
+  },
+  {
+   "term": "Nonconformance",
+   "definition": "An as-built condition outside the applicable drawing or inspection requirement.",
+   "topic": "Structural inspection"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[MIT — Design, manufacturing and verification of a steel tube spaceframe chassis](https://dspace.mit.edu/entities/publication/fd94ee78-fcfd-46a3-8e82-9ed94f0539df) · [South Georgia Technical College — Motorsports Fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t) · [OSHA — welding, cutting and brazing, 29 CFR 1910.252](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nCovered workplaces must address machine guarding (29 CFR 1910.212) and hot-work fire and exposure controls (1910.252). Use the shop's hot-work authorization where applicable and document ventilation, combustibles, PPE, guarding and the responsible reviewer before making sparks. Check local fire, occupancy and zoning requirements for your own workshop. Retain material and joint inspection records.\n\n[OSHA — welding, cutting and brazing, 29 CFR 1910.252](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/) · [OSHA — machine guarding, 29 CFR 1910.212](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.212) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [OSHA — workers and establishments covered](https://www.osha.gov/node/59586)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Primary chassis; Material and structural joint; Mounts and fasteners. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Primary chassis | Unibody / ladder frame / triangulated spaceframe | Trace static, fatigue and occupant loads to actual structural paths. | Provide reviewed drawings, datum survey and measured fixture results. |\n| Material and structural joint | Mild or advanced steel / aluminum / composite; weld / fastener / adhesive | Heat, cure, galvanic isolation and local load direction affect each joint. | Record material traceability, coupon results, joining procedure and inspection. |\n| Mounts and fasteners | Rigid / compliant mounts; bolted / studded or welded attachments | Clamp load, joint stiffness, movement and service removability interact. | Document fastener spec, torque procedure, witness marking and isolation at interfaces. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [I-CAR, OEM example of location-specific body material and repair instructions](https://rts.i-car.com/images/pdf/oem-info/rivian/material-matrix/71389x.pdf)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [OSHA, welding and cutting precautions for covered workplaces](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/)\n\n- [South Georgia Technical College, motorsports fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Primary structure, joints and attachment hardware · Frame rail to Weld joint",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Frame rail\n\n**Function.** Transfers suspension and body loads through the vehicle.\n\n**Design.** Choose section, material, load path, fatigue detail and corrosion protection.\n\n**Make, assemble or fit.** Cut/fixture a supervised teaching section or build to an engineered released drawing.\n\n**Verify.** Survey datums and inspect joints to reviewed acceptance criteria.\n\n### Crossmember\n\n**Function.** Connects rails and supports concentrated loads.\n\n**Design.** Define mounting reactions, local reinforcement and clearance.\n\n**Make, assemble or fit.** Fixture a reviewed design, attach along specified nodes and protect joints.\n\n**Verify.** Measure diagonals, pickup coordinates and resulting distortion.\n\n### Subframe\n\n**Function.** Positions suspension or powertrain relative to the body.\n\n**Design.** Design attachment loads, bushing compliance, locating features and service extraction.\n\n**Make, assemble or fit.** Install traceable donor unit or fabricate from reviewed drawings on a jig.\n\n**Verify.** Verify locations, fastener retention, alignment and clearance.\n\n### Bulkhead and firewall\n\n**Function.** Separate compartments and carry loads or close penetrations.\n\n**Design.** Plan structure, fire-resistant separation, sealing and service penetrations.\n\n**Make, assemble or fit.** Form reviewed panels with flanges and approved sealed pass-throughs.\n\n**Verify.** Inspect seams, cable protection and isolation of cabin from fumes.\n\n### Floorpan and sill\n\n**Function.** Support occupant area and contribute to body load paths.\n\n**Design.** Design section continuity, drains, anchor reinforcement and corrosion protection.\n\n**Make, assemble or fit.** Form/join only to the released material and joint schedule.\n\n**Verify.** Inspect joint continuity, datum fit and drainage.\n\n### A/B/C pillar and roof rail\n\n**Function.** Frame door and glazing openings and contribute to occupant structure.\n\n**Design.** Preserve approved section, joint and crash-load design.\n\n**Make, assemble or fit.** Use qualified structural method for the exact material and location.\n\n**Verify.** Measure aperture alignment and retain structural review.\n\n### Gusset and doubler\n\n**Function.** Spread localized forces into adjoining structure.\n\n**Design.** Specify thickness transitions, load introduction and joint access.\n\n**Make, assemble or fit.** Cut, deburr and fixture to reviewed pattern; use qualified joining method.\n\n**Verify.** Check parent distortion, weld or fastener pattern and fit.\n\n### Weld joint\n\n**Function.** Joins load-bearing members by local fusion.\n\n**Design.** Define materials, joint geometry, heat input, access and inspection criteria.\n\n**Make, assemble or fit.** Practice on identical coupons before a qualified structural operation.\n\n**Verify.** Document procedure, coupon outcomes and required inspection."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Primary structure, joints and attachment hardware · Through bolt to Jacking point and reinforcement",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Through bolt\n\n**Function.** Produces clamping force or resists defined joint loading.\n\n**Design.** Specify grade, grip, engagement, coating and tightening method.\n\n**Make, assemble or fit.** Fit traceable bolt and correct mating nut or insert with specified lubricant conditions.\n\n**Verify.** Record identity, measured tightening and post-test disposition.\n\n### Threaded insert or weld nut\n\n**Function.** Provides a serviceable thread in a panel or member.\n\n**Design.** Choose load class, base thickness, anti-rotation and process.\n\n**Make, assemble or fit.** Set insert in a specified hole or install weld nut using the qualified procedure.\n\n**Verify.** Check seating, thread condition and required pull-out or torque evidence.\n\n### Washer or load-spreading plate\n\n**Function.** Distributes clamp load or locates a joint.\n\n**Design.** Specify hardness, diameter, thickness and exact bearing surface.\n\n**Make, assemble or fit.** Install the documented type in the correct stack order.\n\n**Verify.** Verify count, orientation and seating at each location.\n\n### Locating dowel\n\n**Function.** Positions mating parts repeatably.\n\n**Design.** Choose controlled fit, positional tolerance and insertion depth.\n\n**Make, assemble or fit.** Ream matched datums where specified and press the approved dowel.\n\n**Verify.** Check protrusion, registration and repeatability after reassembly.\n\n### Rivet\n\n**Function.** Joins sheet through shank loading and clamp.\n\n**Design.** Match grip range, material, head, access and designed joint pattern.\n\n**Make, assemble or fit.** Prepare holes and set the specified rivet using approved tooling.\n\n**Verify.** Inspect set head, coverage, joint closure and corrosion isolation.\n\n### Bondline adhesive\n\n**Function.** Transfers load or seals between prepared surfaces.\n\n**Design.** Choose product, substrate, bond gap, cure and peel control.\n\n**Make, assemble or fit.** Prepare surfaces and apply and cure per product and vehicle procedure.\n\n**Verify.** Record batch, cure conditions and coupon or joint inspection.\n\n### Tow or recovery eye\n\n**Function.** Provides a defined vehicle recovery load path.\n\n**Design.** Identify rated direction, capacity and structural attachment.\n\n**Make, assemble or fit.** Fit a designed, rated eye to an approved attachment.\n\n**Verify.** Verify engagement, clearance and load documentation.\n\n### Jacking point and reinforcement\n\n**Function.** Carry local lifting load into the structure.\n\n**Design.** Design or identify load path, contact geometry and stand locations.\n\n**Make, assemble or fit.** Install only to approved structure, marking lifting and support points separately.\n\n**Verify.** Obtain structural review and confirm accessible, stable support provisions."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Mounting and underbody protection · Stud and captive nut to Skid plate",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Stud and captive nut\n\n**Function.** Provide retained mounting threads where rear access is limited.\n\n**Design.** Choose base material, thread, weld or mechanical retention and expected load.\n\n**Make, assemble or fit.** Fit by approved process on a coupon before the released panel.\n\n**Verify.** Check thread gauge, position, anti-rotation and designed retention.\n\n### Harness bracket\n\n**Function.** Locates a protected wiring branch relative to moving parts.\n\n**Design.** Set hole spacing, stand-off, bend radius, edge distance and vibration support.\n\n**Make, assemble or fit.** Template a nonstructural bracket, cut/deburr, bend and fit retained clip.\n\n**Verify.** Inspect clearance and inspect again after shaker or use cycles.\n\n### Battery tray\n\n**Function.** Provides a stable mounting base for the auxiliary battery.\n\n**Design.** Check mass, retention path, acid/heat compatibility, drainage and post clearance.\n\n**Make, assemble or fit.** Install approved donor tray or structurally reviewed replacement with hold-down.\n\n**Verify.** Verify battery and tray retention and protected terminals.\n\n### Skid plate\n\n**Function.** Protects selected underbody components from limited impacts.\n\n**Design.** Define intended loads, mounts, ground clearance, cooling and serviceability.\n\n**Make, assemble or fit.** Use reviewed plate and designed load-bearing mounting points.\n\n**Verify.** Check clearance before and after test and review any transferred impact load."
+  },
+  {
+   "id": "mod-bolt-on-chassis-brace",
+   "title": "Modification · Bolt-on chassis brace",
+   "body": "**Purpose.** Seek a measurable reduction in deflection at a defined load path.\n\n**Design and baseline.** Identify loaded nodes and measure initial deflection. Size brace, end fittings and parent structure against reviewed loads, fatigue and adjacent crash or service spaces.\n\n**Build and installation.** Model brackets in card, fixture the teaching brace, build coupons using intended process and trial-fit on a reviewed noncritical bay. Use qualified design evidence for any vehicle structural attachment.\n\n**Test and disposition.** Repeat the same supported-bay load/deflection test and inspect joints. Discard or redesign if parent structure distorts or service access disappears.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [OSHA, welding and cutting precautions for covered workplaces](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/)\n\n- [South Georgia Technical College, motorsports fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t)"
+  },
+  {
+   "id": "mod-serviceable-undertray",
+   "title": "Modification · Serviceable undertray",
+   "body": "**Purpose.** Improve debris protection, maintenance access or airflow management.\n\n**Design and baseline.** Set requirements for drainage, engine heat, ground clearance, tire envelope, loads and removal; value aero claims only against measurements.\n\n**Build and installation.** Make a full-size card pattern from chassis datums, transfer and cut suitable sheet, form stiffening bends, remove sharp edges and attach to reviewed supports with retained hardware.\n\n**Test and disposition.** Check full steer/travel, heat, ground clearance, repeated removal and fastener security. Validate any aerodynamic or cooling claim separately.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [OSHA, welding and cutting precautions for covered workplaces](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252/)\n\n- [South Georgia Technical College, motorsports fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "bench-plan",
+   "title": "Make a removable two-hole service plate",
+   "body": "**Objective.** Make a non-load-bearing cover for a flat scrap practice board. Its two mounting holes must register on existing threaded bench-fixture holes, and a second person must be able to remove and refit it with the specified hand tool. This teaches how to set datums, lay out a part, select hardware and reconcile every installed item.\n\n**Drawing SP-01, revision A.** For the exercise use 1.0 mm formable aluminum sheet, two M4 machine screws, two plain washers and two M4 threaded fixture positions 40.0 mm apart. Select screw length for the actual board/support stack without bottoming or breaking through into a hazard. A tapped practice board or two secured nuts may provide the female threads. Record the version you actually use.\n\n| Feature | Dimension or acceptance condition |\n|---|---|\n| Outer rectangle | 70.0 × 35.0 mm, ±0.5 mm each direction |\n| Datum A | Bottom long edge viewed from marked face |\n| Datum B | Left short edge viewed from marked face |\n| Left hole center | 15.0 ±0.3 mm from B, 17.5 ±0.3 mm from A |\n| Right hole center | 40.0 ±0.5 mm to the right of the left hole, 17.5 ±0.3 mm from A |\n| Both through holes | 4.5 mm nominal, exercise acceptance 4.4–4.7 mm |\n| Finish and fit | Broken/deburred edges, clearance to hardware, both screws start by hand without moving either threaded position, cover removes and refits three times |\n\n1. Measure the board, actual threaded-hole spacing, screw major diameter, washer outside diameter, stack and tool envelope. Make and label a card template from the two datums. If the board differs from the drawing, record a revision before cutting.\n2. Mark stock and hole centers using square and rule or height gauge. Cut oversize with suitable sheet tools and finish to the outline. Clamp thin sheet flat to a sacrificial backer for drilling, use eye protection and keep hands clear of the tool. Use safe chip removal and shop-approved tooling.\n3. Drill the two holes, deburr both faces, radius sharp corners and mark the datum face. Use equal, close-fitting gauge pins of known diameter in measured holes of comparable diameter, or a suitable center-measuring tool. For the equal-pin method, outside-over-pins minus one pin diameter estimates center spacing. Account for pin-to-hole clearance and instrument uncertainty. If the resulting interval crosses a limit, remeasure with a more suitable method.\n4. Assemble left and right M4 screws with one specified washer at each position. If using separate nuts, add both as individual bill-of-materials instances. Verify clearance on the underside of the board and that hardware does not bottom out. Cycle removal and refit three times.\n5. Compare as-built numbers against the drawing. Example inspection: with two 4.49 mm pins in 4.50 mm holes, an outside measurement of 44.69 mm estimates 40.20 mm center spacing. With estimated total uncertainty ±0.03 mm the complete interval is inside the specified spacing range; it cannot prove hole diameter or edge position. Check those separately.\n\n**Fresh assignment.** A supplied teaching board has holes 52.0 mm apart. Design a new cover which keeps the left datum and comparable edge margins, document a new overall length and right-hole location, make it and have another learner inspect it. Submit the drawing, finished sample, actual readings and bill of materials. A disproportionate or slotted second hole to hide an error requires a documented design change."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Choose a bay from a documented design or a chassis engineer's reviewed concept. Mark three datums, simple load paths, wheel and seat reference locations, tolerances, tool access and a fixture inspection sequence. Identify where the structural reviewer must approve the proposed use."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A fabricated bay, its jig, inspected coupons and an as-built dimensional report."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The physically fabricated bay, coupon record and datum-based measurements can be traced to one drawing revision."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Draw a chassis bay and its fixture",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Choose a bay from a documented design or a chassis engineer's reviewed concept. Mark three datums, simple load paths, wheel and seat reference locations, tolerances, tool access and a fixture inspection sequence. Identify where the structural reviewer must approve the proposed use. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Primary chassis; Material and structural joint; Mounts and fasteners. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Make a drawing someone else can inspect",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Make the two-hole nonstructural service plate in the bench plans, log each manufactured and purchased part, and test removal and refit. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Fabricate and inspect a representative chassis bay",
+   "module": "m3",
+   "adult": true,
+   "intro": "A fabricated bay, its jig, inspected coupons and an as-built dimensional report. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Only weld under a qualified shop's hot-work controls with appropriate local exhaust, PPE and fire precautions. Never weld on containers or structures with fuel or unknown residues. Keep prototype parts out of vehicle use until reviewed."
+   ],
+   "materials": [
+    "Approved working drawing and material",
+    "Fixture table, stops, measurement tools",
+    "Equipped supervised welding shop and representative coupons"
+   ],
+   "steps": [
+    "Make the fixture and document datum checks. Fit the cut members and retain labeled material records.",
+    "Practice on representative coupons and record the welding instructor's disposition.",
+    "Fabricate the bay to the reviewed work instruction. Measure it at tack stage and again when cool.",
+    "Have the bay inspected against its drawing. Record every deviation and disposition before adopting the process for the car."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Feature or joint",
+      "Drawing value",
+      "Tacked",
+      "Cooled",
+      "Reviewer disposition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The physically fabricated bay, coupon record and datum-based measurements can be traced to one drawing revision. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-shop",
+  "auto-brakes"
+ ]
+}

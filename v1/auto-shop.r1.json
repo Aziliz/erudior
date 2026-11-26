@@ -1,0 +1,939 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-shop",
+ "title": "Workshop Measurement and Vehicle Service",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Use a real vehicle to compare tire constructions, wheel offsets and bearing designs, then document a cold tire service and fitment check. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Reference conditions",
+   "quiz": [
+    "shop-1-q2",
+    "cmp-wheels-tires-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Service planning",
+   "quiz": [
+    "shop-2-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Service procedure",
+   "quiz": [
+    "shop-3-q3",
+    "shop-change-shop"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Verification",
+   "quiz": [
+    "shop-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "shop-1",
+   "module": "m1",
+   "title": "Which pressure belongs on the work order?",
+   "minutes": 20,
+   "topics": [
+    "Reference conditions"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2"
+   ],
+   "body": "Entry level: adult beginner with basic arithmetic and access to the listed equipment.\n\nA pneumatic tire supports load through its inflated structure. Pressure changes as the air warms. A comparison to the vehicle placard is meaningful when taken under the specified cold conditions. Front and rear targets can differ. Identify the exact vehicle, fitted tires and load case, then read the placard and owner's manual. The pressure molded into the sidewall describes a tire limit. It cannot tell you the vehicle maker's recommended cold setting.\n\n## Worked shop case\n\nA cold front tire reads 30 psi against a front placard target of 33 psi. The rear target is 35 psi. The useful comparison is 33 minus 30, so record a 3 psi front deficit.\n\n## Guided practice\n\nA training vehicle calls for 34 psi front and 36 rear. A cold rear reads 32 psi. How far below its target is it, in psi?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A legible service card, before/after readings and a documented follow-up. Start a build log now. Record intended use, home jurisdiction, garage dimensions, budget and what you want to make yourself. Add to it throughout the program.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "shop-1-q1",
+    "shop-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-wheels-tires",
+   "module": "m1",
+   "title": "Tire construction, wheel offset, hubs and bearings",
+   "minutes": 25,
+   "topics": [
+    "Tire construction, wheel offset, hubs and bearings"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A tire carries load through inflation pressure and carcass tension. Compare the load and speed ratings, rim-width range, actual section width and rolling circumference for the selected product. Summer, all-season and winter designs use different tread compounds and patterns. A winter marking, run-flat capability and spare-wheel provision answer different questions. A run-flat needs compatible wheels and the manufacturer's pressure-loss procedure. Get cold pressure from applicable vehicle or engineered build data. The sidewall maximum is a limit, not a vehicle pressure recommendation.\n\nWheel offset measures mounting-face position relative to the wheel centerline. Holding width constant, increasing positive offset moves the wheel inward. Compare both sides of the tire, the brake barrel, bolt pattern, pilot diameter, lug-seat shape and stud engagement. A sealed hub bearing may include the ABS encoder; a serviceable tapered pair can require a model-specific preload or endplay setting. The attachment may fit while the sensor or adjustment method differs.\n\n## Worked shop case\n\nTwo 7-inch wheels use +35 and +45 mm offset. With all else equal, +45 places the wheel 10 mm closer to the strut and gives 10 mm more outside clearance. Caliper clearance still depends on barrel and spoke shape. A static fit at steering center leaves full-lock and suspension-travel clearance unanswered.\n\n## Guided practice\n\n```example fade=2\nproblem: What happens when a candidate gets 20 mm wider at the same offset?\nstep: Split the width change around the wheel centerline.\nstep: Compare at both the inner and outer edges.\nanswer: Nominal wheel edges extend 10 mm each way. Check actual tire growth and profile separately.\n```\n\n## Independent shop or design task\n\nRead a real tire sidewall and placard. Record size, date code, service description and cold pressure with units. On a safely accessible loose wheel, identify the offset, seat and pilot, then use a template to check a second candidate.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-wheels-tires-q1",
+    "cmp-wheels-tires-q2"
+   ]
+  },
+  {
+   "id": "shop-2",
+   "module": "m2",
+   "title": "Design a four-wheel service card",
+   "minutes": 20,
+   "topics": [
+    "Service planning"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-seasonal-wheel-and-tire-set",
+    "mod-wider-wheels-and-tires"
+   ],
+   "body": "A service plan connects a complaint, the reference value and a test that can change a decision. Record wheel positions from the driver's perspective. Give each position its own row. Include units, instrument, cold condition and space for a repeat reading. Plan an escalation for exposed cords, a damaged sidewall, an abnormal loss or incompatible equipment.\n\n## Worked shop case\n\nTwo dial gauges disagree by 3 psi on the same tire. Adjusting the tire cannot tell you which gauge is right. Check both against a known reference before committing to a setting.\n\n## Guided practice\n\nA gauge displays 200 kPa. Your paper sheet is headed psi. Which work-order field must you change or explicitly convert?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nUse the placard and manual for a vehicle available to you. Draw a four-position layout and specify cold conditions, units, gauge check and a reason to stop. Predict which observation would trigger leak diagnosis.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "shop-2-q1",
+    "shop-2-q2"
+   ]
+  },
+  {
+   "id": "shop-3",
+   "module": "m3",
+   "title": "Make and verify a cold pressure adjustment",
+   "minutes": 15,
+   "topics": [
+    "Service procedure"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Park on a firm level site, secure the vehicle against movement and keep it on its wheels. Inspect the sidewall before connecting anything. Seat the gauge squarely on the valve and read it after the hiss stops. If the equipment and tire are serviceable, adjust per the owner's manual, remove the inflator and verify with the gauge. Refit the cap. Record a repeat even when no adjustment is needed.\n\n## Worked shop case\n\nA valve reading changes from 29 to 33 psi after the connector is reseated without adding air. The first contact leaked or failed to seal. Take a consistent repeat before acting.\n\n## Guided practice\n\nThree readings after correct reseating are 32, 32 and 32 psi. What is their range in psi?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nFor a US employer or covered workplace, assess PPE needs and communicate chemical hazards. State-plan coverage varies, including for public employees. Solo personal work generally falls outside federal employer duties. A school follows its own policies and determines staff and student coverage. The practical uses shop controls in every setting. For employed minors, check federal and state age and task restrictions before assigning lifting or machinery work.\n\n[OSHA — workers and establishments covered](https://www.osha.gov/node/59586) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [U.S. DOL — hazardous occupations and youth employment](https://webapps.dol.gov/elaws/whd/flsa/cl/t16.asp) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\n## Workshop preparation\n\nWork on the ground with the parking brake applied. Stop for sidewall damage, a mismatched setup or an unsafe wheel assembly. Ask a technician about abnormal loss before driving.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "shop-3-q1",
+    "shop-3-q2",
+    "shop-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "From hub face to tire envelope",
+   "minutes": 35,
+   "topics": [
+    "From hub face to tire envelope"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "mod-seasonal-wheel-and-tire-set",
+    "mod-wider-wheels-and-tires",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nWheel and tire. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Seasonal wheel and tire set\n- Wider wheels and tires\n\n## Worked example\n\nA 7-inch wheel with +40 mm offset is compared with an 8-inch +35 mm wheel. One extra inch is 25.4 mm. Each edge moves 12.7 mm from the centerline; reducing positive offset moves the centerline outward by 5 mm. The new outer edge moves outward 17.7 mm and the inner edge moves inward 7.7 mm. The tire sidewall and spokes still need separate checks.\n\n## Guided decision\n\n```example fade=1\nproblem: A second candidate keeps width constant and increases positive offset by 6 mm. What changes?\nstep: Fix the mounting face and move the wheel center inward.\nanswer: Both edges move inward 6 mm. Recheck inside clearance and brake-spoke profile.\n```\n\n## Independent workshop\n\nTrace one real wheel-end exploded view through its bearing, stem, core, mounting hardware and sensor. Pattern both candidate profiles and record the limiting clearance.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-shop"
+   ]
+  },
+  {
+   "id": "shop-4",
+   "module": "m4",
+   "title": "Hand off a service record another mechanic can use",
+   "minutes": 15,
+   "topics": [
+    "Verification"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Separate what you observed from what you inferred. A recorded pressure drop establishes a change. It does not locate the leak. Record the date, tire position, initial value, action, final value, instrument and follow-up condition. A missed observation is an open item, even when every other tire passed.\n\n## Worked shop case\n\nOne rear tire returns from 35 to 31 psi under the same cold conditions. Repeated loss at that wheel supports leak inspection. It does not establish a puncture location.\n\n## Guided practice\n\nA tire drops from 36 to 33 psi across comparable checks. Record the size of the drop in psi.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nFour labeled results agree with the placard or state why service stopped. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "shop-4-q1",
+    "shop-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-shop-bank",
+   "title": "Workshop Measurement and Vehicle Service practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Reference conditions"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Service planning"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Service procedure"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Verification"
+    }
+   ],
+   "exam": {
+    "questionCount": 12,
+    "timeLimitMinutes": 30,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "shop-1-q1",
+     "section": "m1",
+     "topic": "Reference conditions",
+     "stem": "A training vehicle calls for 34 psi front and 36 rear. A cold rear reads 32 psi. How far below its target is it, in psi? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "4"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Use the rear axle target. The difference is 36 − 32 = 4 psi."
+    },
+    {
+     "id": "shop-1-q2",
+     "section": "m1",
+     "topic": "Reference conditions",
+     "stem": "After a highway trip the pressure is higher than the cold target. What gives a comparable baseline?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Substitute the sidewall maximum.",
+      "Recheck after the manual's cold-soak condition is met.",
+      "Bleed to the placard figure immediately."
+     ],
+     "explanation": "The placard, temperature condition and axle position must match."
+    },
+    {
+     "id": "shop-2-q1",
+     "section": "m2",
+     "topic": "Service planning",
+     "stem": "A gauge displays 200 kPa. Your paper sheet is headed psi. Which work-order field must you change or explicitly convert?",
+     "type": "text",
+     "accept": [
+      [
+       "unit",
+       "units",
+       "unit of pressure",
+       "units of pressure",
+       "pressure unit",
+       "pressure units"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "A number only has meaning with the scale used to measure it."
+    },
+    {
+     "id": "shop-2-q2",
+     "section": "m2",
+     "topic": "Service planning",
+     "stem": "Which pair of records can establish a repeated loss?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Same wheel and comparable cold conditions on different dates.",
+      "Two different tires measured once.",
+      "The placard and the sidewall maximum."
+     ],
+     "explanation": "Matching the wheel and temperature lets a later change be interpreted."
+    },
+    {
+     "id": "shop-3-q1",
+     "section": "m3",
+     "topic": "Service procedure",
+     "stem": "Three readings after correct reseating are 32, 32 and 32 psi. What is their range in psi? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The largest and smallest readings both equal 32."
+    },
+    {
+     "id": "shop-3-q2",
+     "section": "m3",
+     "topic": "Service procedure",
+     "stem": "One tire has a visible sidewall bulge. What belongs on the work order?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Inflate until the bulge disappears.",
+      "Average its pressure with the other three.",
+      "Stop the pressure exercise on that tire and refer the defect."
+     ],
+     "explanation": "A structural defect needs assessment before inflation or use."
+    },
+    {
+     "id": "shop-3-q3",
+     "section": "m3",
+     "topic": "Service procedure",
+     "stem": "A training center has employees and a minor in a work placement. Which two decisions belong before assigning machinery work? Select all that apply.",
+     "choices": [
+      "Treat adult supervision as an exemption from every youth rule.",
+      "Determine workplace safety coverage and the applicable state plan.",
+      "Check age- and task-specific employment restrictions.",
+      "Use the learner's quiz score as the only authorization."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "For a US employer or covered workplace, assess PPE needs and communicate chemical hazards. State-plan coverage varies, including for public employees. Solo personal work generally falls outside federal employer duties. A school follows its own policies and determines staff and student coverage. The practical uses shop controls in every setting. For employed minors, check federal and state age and task restrictions before assigning lifting or machinery work."
+    },
+    {
+     "id": "shop-4-q1",
+     "section": "m4",
+     "topic": "Verification",
+     "stem": "A tire drops from 36 to 33 psi across comparable checks. Record the size of the drop in psi. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "36 − 33 = 3 psi. The location and cause of the leak are still open."
+    },
+    {
+     "id": "shop-4-q2",
+     "section": "m4",
+     "topic": "Verification",
+     "stem": "Which closing entry is supported by one pressure check?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "The wheel will hold pressure for a month.",
+      "Left rear measured 3 psi below its listed target.",
+      "A tread puncture is confirmed."
+     ],
+     "explanation": "A measurement supports the observed deficit. A leak diagnosis needs another test."
+    },
+    {
+     "id": "cmp-wheels-tires-q1",
+     "section": "m1",
+     "topic": "Tire construction, wheel offset, hubs and bearings",
+     "stem": "What determines the initial cold inflation specification of a stock vehicle with the approved tire fitment?",
+     "explanation": "Pressure must suit the vehicle, load and approved fitment.",
+     "choices": [
+      "The pressure molded as the tire's maximum.",
+      "The wheel offset stamp.",
+      "Its vehicle placard or manufacturer specification."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-wheels-tires-q2",
+     "section": "m1",
+     "topic": "Tire construction, wheel offset, hubs and bearings",
+     "stem": "Width stays constant and positive offset rises from +30 to +42 mm. By how many millimeters does the wheel center move inward? Enter the number only.",
+     "explanation": "Subtract the offsets while holding the mounting face fixed.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "12"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-shop",
+     "section": "m3",
+     "topic": "From hub face to tire envelope",
+     "stem": "A taller tire turns fewer times per mile. A speed display still uses the old revolutions-per-mile calibration. Which independent measurement tests the effect?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Compare only the unloaded section widths.",
+      "Compare indicated and measured speed over the same controlled interval with a calibrated reference.",
+      "Verify the indicated rpm at idle."
+     ],
+     "explanation": "A reference speed can test the relationship between wheel pulses and actual travel."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-shop-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Cold pressure",
+     "back": "A tire reading taken under the vehicle maker's specified cold conditions.",
+     "topic": "Reference conditions"
+    },
+    {
+     "id": "c1b",
+     "front": "After a highway trip the pressure is higher than the cold target. What gives a comparable baseline?",
+     "back": "Recheck after the manual's cold-soak condition is met. The placard, temperature condition and axle position must match.",
+     "topic": "Reference conditions"
+    },
+    {
+     "id": "c2a",
+     "front": "Placard",
+     "back": "The vehicle label identifying recommended cold pressures for its specified configuration.",
+     "topic": "Service planning"
+    },
+    {
+     "id": "c2b",
+     "front": "Which pair of records can establish a repeated loss?",
+     "back": "Same wheel and comparable cold conditions on different dates. Matching the wheel and temperature lets a later change be interpreted.",
+     "topic": "Service planning"
+    },
+    {
+     "id": "c3a",
+     "front": "Repeatability",
+     "back": "Agreement of repeated readings under the same conditions.",
+     "topic": "Service procedure"
+    },
+    {
+     "id": "c3b",
+     "front": "One tire has a visible sidewall bulge. What belongs on the work order?",
+     "back": "Stop the pressure exercise on that tire and refer the defect. A structural defect needs assessment before inflation or use.",
+     "topic": "Service procedure"
+    },
+    {
+     "id": "c4a",
+     "front": "Disposition",
+     "back": "The recorded decision to accept, correct, refer or hold a finding.",
+     "topic": "Verification"
+    },
+    {
+     "id": "c4b",
+     "front": "Which closing entry is supported by one pressure check?",
+     "back": "Left rear measured 3 psi below its listed target. A measurement supports the observed deficit. A leak diagnosis needs another test.",
+     "topic": "Verification"
+    },
+    {
+     "id": "cmp-wheels-tires-card",
+     "front": "What determines the initial cold inflation specification of a stock vehicle with the approved tire fitment?",
+     "back": "Its vehicle placard or manufacturer specification. Pressure must suit the vehicle, load and approved fitment.",
+     "topic": "Tire construction, wheel offset, hubs and bearings"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A taller tire turns fewer times per mile. A speed display still uses the old revolutions-per-mile calibration. Which independent measurement tests the effect?",
+     "back": "Compare indicated and measured speed over the same controlled interval with a calibrated reference. A reference speed can test the relationship between wheel pulses and actual travel.",
+     "topic": "From hub face to tire envelope"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Cold pressure",
+   "definition": "A tire reading taken under the vehicle maker's specified cold conditions.",
+   "topic": "Reference conditions"
+  },
+  {
+   "term": "Placard",
+   "definition": "The vehicle label identifying recommended cold pressures for its specified configuration.",
+   "topic": "Service planning"
+  },
+  {
+   "term": "Repeatability",
+   "definition": "Agreement of repeated readings under the same conditions.",
+   "topic": "Service procedure"
+  },
+  {
+   "term": "Disposition",
+   "definition": "The recorded decision to accept, correct, refer or hold a finding.",
+   "topic": "Verification"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [College of the Desert — Automotive General Service](https://catalog.collegeofthedesert.edu/programs/automotive-technology/general-automotive-service-certificate-of-achievement/) · [ASE — Automobile and Light Truck task lists](https://www.ase.com/uploads/ASE_Automobile_Study_Guide_2025_V2.pdf)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nFor a US employer or covered workplace, assess PPE needs and communicate chemical hazards. State-plan coverage varies, including for public employees. Solo personal work generally falls outside federal employer duties. A school follows its own policies and determines staff and student coverage. The practical uses shop controls in every setting. For employed minors, check federal and state age and task restrictions before assigning lifting or machinery work.\n\n[OSHA — workers and establishments covered](https://www.osha.gov/node/59586) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [U.S. DOL — hazardous occupations and youth employment](https://webapps.dol.gov/elaws/whd/flsa/cl/t16.asp) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Tire assembly; Wheel and attachment; Wheel bearings and hub. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Tire assembly | Summer / all-season / winter tread; conventional / run-flat construction | Compare usable temperature, load and rim range, tread and replacement strategy. | Read sidewall and placard and record cold readings at all four positions. |\n| Wheel and attachment | Stamped steel / cast or forged alloy | Offset, width and barrel profile set clearance. Match pilot, seat and fastener engagement. | Identify part markings and measure both sides at steering lock and travel extremes. |\n| Wheel bearings and hub | Serviceable tapered pair / sealed hub unit | Preload or endplay procedure and encoder location change with design. | Record bearing specification, axial play and encoder orientation where fitted. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [NHTSA, tire selection, inflation and ratings](https://www.nhtsa.gov/vehicle-safety/tires)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Wheel and tire · Tread to Valve core",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Tread\n\n**Function.** Develops contact forces with the road.\n\n**Design.** Select compound, tread pattern, operating temperature and wet capability for duty.\n\n**Make, assemble or fit.** Tire maker molds and cures the tread with the carcass; fit the approved complete tire.\n\n**Verify.** Read wear bars and measure multiple grooves across the width.\n\n### Sidewall\n\n**Function.** Flexes under load and carries markings.\n\n**Design.** Match load index, speed category and approved operating conditions.\n\n**Make, assemble or fit.** Select the complete rated tire and protect the sidewall when mounting.\n\n**Verify.** Inspect both sides for damage and compare markings with the specification.\n\n### Carcass and belt package\n\n**Function.** Supports inflation load and stabilizes tread.\n\n**Design.** Choose radial construction and approved rim range.\n\n**Make, assemble or fit.** Manufacturer builds cord plies and steel or textile belts into the cured tire.\n\n**Verify.** Inspect the complete assembly for distortion and professional discard conditions.\n\n### Tire bead\n\n**Function.** Locates and seals the tire on its seat.\n\n**Design.** Match bead diameter, rim profile and retention design.\n\n**Make, assemble or fit.** Use a trained tire installer and the wheel/tire mounting procedure.\n\n**Verify.** Verify even seating and leak check both circumferences.\n\n### Wheel rim\n\n**Function.** Carries the tire and contains inflation pressure.\n\n**Design.** Specify bead diameter, width, offset, load and clearance.\n\n**Make, assemble or fit.** Source a rated wheel; mount with the specified tire equipment.\n\n**Verify.** Measure radial and lateral runout at specified points.\n\n### Wheel center and spokes\n\n**Function.** Transfer cornering, braking and drive load to the hub.\n\n**Design.** Match bolt circle, pilot, offset, spoke envelope and load rating.\n\n**Make, assemble or fit.** Choose an engineered rated assembly; trial-fit with a brake template.\n\n**Verify.** Check hub seating, spoke clearance and full wheel rotation.\n\n### Valve stem\n\n**Function.** Connects the tire cavity to a service fitting.\n\n**Design.** Choose rim-hole diameter, pressure class and TPMS compatibility.\n\n**Make, assemble or fit.** Fit the correct stem, seal and core with service-specific tools.\n\n**Verify.** Check for leakage at the core and rim base.\n\n### Valve core\n\n**Function.** Opens for inflation and seals the stem afterward.\n\n**Design.** Match service pressure, stem compatibility and specified core type.\n\n**Make, assemble or fit.** Install a compatible core with the specified tool and cap.\n\n**Verify.** Check core leakage independently of the rim seal."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Wheel and tire · TPMS transmitter to Axle nut and retainer",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### TPMS transmitter\n\n**Function.** Reports pressure or sensor data from a wheel.\n\n**Design.** Match protocol, mount and vehicle relearn capability.\n\n**Make, assemble or fit.** Fit the matching service kit and perform prescribed learn procedure.\n\n**Verify.** Compare sensor data to a calibrated gauge and verify warning function.\n\n### Wheel stud\n\n**Function.** Provides threaded wheel attachment.\n\n**Design.** Match knurl or bolt attachment, thread, engagement and shoulder support.\n\n**Make, assemble or fit.** Use a traceable fastener and hub-specific installation method.\n\n**Verify.** Check seating, threads and engagement before torquing.\n\n### Lug nut or wheel bolt\n\n**Function.** Clamps the wheel to the flange.\n\n**Design.** Select the exact taper, ball or flat seat and thread length.\n\n**Make, assemble or fit.** Hand-start and tighten in the approved sequence with calibrated equipment.\n\n**Verify.** Verify seat contact, specified torque and the specified follow-up.\n\n### Balance weight\n\n**Function.** Cancels rotating imbalance.\n\n**Design.** Choose approved clip or adhesive for wheel finish and profile.\n\n**Make, assemble or fit.** Measure on a balancer, clean the location and attach indicated weights.\n\n**Verify.** Repeat the balance measurement and check caliper clearance.\n\n### Hub flange\n\n**Function.** Locates wheel and brake rotor.\n\n**Design.** Specify bearing fit, pilot, runout and fastener pattern.\n\n**Make, assemble or fit.** Fit a compatible machined hub under its specified bearing procedure.\n\n**Verify.** Measure flange runout on a clean face.\n\n### Wheel bearing\n\n**Function.** Allows loaded rotation.\n\n**Design.** Choose axial/radial capacity, seal, preload and encoder variant.\n\n**Make, assemble or fit.** Support the specified race during pressing or install a complete hub unit.\n\n**Verify.** Check endplay, noise and encoder data by the approved method.\n\n### Axle nut and retainer\n\n**Function.** Maintains the designed wheel-end clamp.\n\n**Design.** Match thread, clamp procedure and one-use locking feature.\n\n**Make, assemble or fit.** Fit new hardware where specified and apply the source sequence.\n\n**Verify.** Document final tightening and locking feature."
+  },
+  {
+   "id": "mod-seasonal-wheel-and-tire-set",
+   "title": "Modification · Seasonal wheel and tire set",
+   "body": "**Purpose.** Improve grip in the expected temperature, snow or rain while retaining daily usability.\n\n**Design and baseline.** Record axle loads, tire service descriptions, approved sizes, brake template, hub/seat geometry and matched circumference requirements for AWD. Compare tire data at the same size and duty.\n\n**Build and installation.** Measure the current wheel from the hub face. Trial-fit the correct rated wheel without forcing it. Have the tire mounted and balanced, confirm TPMS compatibility, then install using specified hardware and cold inflation.\n\n**Test and disposition.** Record loaded clearance across travel, warnings and reference speed. Compare controlled wet or winter test evidence for the actual tire. Reject contact, insufficient rating or incompatible tread combinations.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)"
+  },
+  {
+   "id": "mod-wider-wheels-and-tires",
+   "title": "Modification · Wider wheels and tires",
+   "body": "**Purpose.** Seek greater available grip or brake clearance while changing steering effort and packaging.\n\n**Design and baseline.** Calculate both edge shifts from width and offset. Include actual tire section width, bearing load effects, scrub geometry, fender coverage and load capacity.\n\n**Build and installation.** Make two profile templates using actual manufacturer sections. Sweep them at lock and travel on a reviewed fixture; then trial-fit and inspect the selected wheel/tire assembly.\n\n**Test and disposition.** Record minimum inside/outside clearances and speed calibration. Check alignment and measured handling under controlled conditions; reject rubbing or increased effort outside the design target.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, tires, inflation and identification](https://www.nhtsa.gov/vehicle-safety/tires)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Use the placard and manual for a vehicle available to you. Draw a four-position layout and specify cold conditions, units, gauge check and a reason to stop. Predict which observation would trigger leak diagnosis."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A legible service card, before/after readings and a documented follow-up."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Four labeled results agree with the placard or state why service stopped."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design a vehicle-specific service card",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Use the placard and manual for a vehicle available to you. Draw a four-position layout and specify cold conditions, units, gauge check and a reason to stop. Predict which observation would trigger leak diagnosis. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Tire assembly; Wheel and attachment; Wheel bearings and hub. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · From hub face to tire envelope",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Trace one real wheel-end exploded view through its bearing, stem, core, mounting hardware and sensor. Pattern both candidate profiles and record the limiting clearance. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Perform cold tire service",
+   "module": "m3",
+   "adult": true,
+   "intro": "A legible service card, before/after readings and a documented follow-up. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Work on the ground with the parking brake applied. Stop for sidewall damage, a mismatched setup or an unsafe wheel assembly. Ask a technician about abnormal loss before driving."
+   ],
+   "materials": [
+    "A secured, parked vehicle with serviceable tires",
+    "Vehicle placard and manual",
+    "Suitable pressure gauge and controlled tire inflator"
+   ],
+   "steps": [
+    "Identify the cold condition and record front and rear placard targets.",
+    "Inspect each accessible tire, then record two cold readings at each position.",
+    "With permission, adjust serviceable tires to their specified targets if necessary. Recheck after disconnecting the inflator and replace the caps.",
+    "Compare the four results. Record exceptions, who gets the handoff, and the condition for a future check."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Wheel position",
+      "Target and unit",
+      "Two initial readings",
+      "Final reading and action"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Four labeled results agree with the placard or state why service stopped. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": []
+}
