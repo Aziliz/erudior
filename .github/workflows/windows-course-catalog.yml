@@ -1,0 +1,38 @@
+name: Installed Windows course catalog
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/windows-course-catalog.yml'
+      - 'tests/windows-course-catalog.ps1'
+permissions:
+  contents: read
+
+jobs:
+  installed-library:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the published release
+        id: install
+        shell: pwsh
+        run: |
+          $tag = (Get-Content .github/desktop-release -Raw).Trim()
+          $release = Invoke-RestMethod "https://api.github.com/repos/$env:GITHUB_REPOSITORY/releases/tags/$tag"
+          $assets = @($release.assets | Where-Object name -like '*_x64-setup.exe')
+          if ($assets.Count -ne 1 -or $release.draft) { throw 'Expected one published Windows installer' }
+          $setup = Join-Path $env:RUNNER_TEMP 'erudior-setup.exe'
+          Invoke-WebRequest $assets[0].browser_download_url -OutFile $setup
+          if ("sha256:$((Get-FileHash $setup).Hash)" -ne $assets[0].digest) { throw 'Installer digest mismatch' }
+          $result = Start-Process $setup -ArgumentList '/S' -Wait -PassThru
+          if ($result.ExitCode -ne 0) { throw "Installer exited $($result.ExitCode)" }
+          $exe = Join-Path $env:LOCALAPPDATA 'Erudior/erudior.exe'
+          if ((Get-Item $exe).VersionInfo.ProductVersion -ne $tag.TrimStart('v')) { throw 'Installed version differs from release' }
+          "exe=$exe" >> $env:GITHUB_OUTPUT
+      - name: Find a program, install its first course and open a lesson
+        shell: powershell
+        env:
+          ERUDIOR_TEST_EXE: ${{ steps.install.outputs.exe }}
+        run: ./tests/windows-course-catalog.ps1
