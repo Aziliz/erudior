@@ -65,7 +65,7 @@ try {
     Write-Host "Opened native window: $($window.Current.Name)"
     Open-Control (Get-Control 'Refresh catalog' 'Button')
     Search-Library 'Search programs' $program.title
-    $null = Get-Control $program.title $null
+    $null = Get-Control "$($program.title) catalog entry" 'Group'
     $null = Get-Control 'Explore pathway' 'Button'
     Write-Host "Found signed program: $($program.title)"
     Search-Library 'Search courses' $course.title
