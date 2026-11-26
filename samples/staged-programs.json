@@ -1,0 +1,372 @@
+[
+  {
+    "id": "automotive-mechanics-custom-construction",
+    "category": "Trades and transportation",
+    "version": 4,
+    "title": "Automotive Mechanics and Custom Vehicle Construction",
+    "description": "Identify, design, build and verify automotive parts, evaluate common modifications, and fabricate, assemble and demonstrate your own full-size car.",
+    "notice": "Independent adult light-vehicle workshop program. Lessons and exam scores track academic progress. Practical completion requires the physical work and a witnessed final car. ASE credentials, EPA Section 609 certification and road approval have separate requirements.",
+    "practicalAssessment": "Record design and hands-on assessments in each course. The final vehicle demonstration requires independent workshop sign-off.",
+    "reviewedOn": "2026-11-26",
+    "stages": [
+      {
+        "id": "foundations",
+        "title": "Workshop foundations and maintenance",
+        "summary": "Service a real vehicle and build the electrical tools and habits needed for diagnosis.",
+        "milestone": "An authorized work order, an actual service record and a protected circuit with a diagnosed fault.",
+        "courses": [
+          {
+            "courseId": "auto-shop",
+            "title": "Workshop Measurement and Vehicle Service",
+            "recommendedBefore": [],
+            "modules": [
+              "Theory — Reference conditions",
+              "Design — Service planning",
+              "Implementation — Service procedure",
+              "Verification — Verification"
+            ],
+            "outcomes": [
+              "Select the right service information and measurement tool.",
+              "Perform and document a cold tire-pressure service against the vehicle placard."
+            ],
+            "assignment": "A legible service card, before/after readings and a documented follow-up."
+          },
+          {
+            "courseId": "auto-maintenance",
+            "title": "Preventive Maintenance and Shop Operations",
+            "recommendedBefore": [
+              "auto-shop"
+            ],
+            "modules": [
+              "Theory — Maintenance theory",
+              "Design — Service design",
+              "Implementation — Scheduled service",
+              "Verification — Verification and waste"
+            ],
+            "outcomes": [
+              "Plan due services from use, time, mileage and manufacturer data.",
+              "Complete a real oil and filter service, verify the result and close the repair order."
+            ],
+            "assignment": "A serviced vehicle or engine, closed work order and waste transfer record."
+          },
+          {
+            "courseId": "auto-electrical",
+            "title": "Automotive Electrical Systems and Diagnosis",
+            "recommendedBefore": [
+              "auto-shop"
+            ],
+            "modules": [
+              "Theory — Circuit theory",
+              "Design — Harness design",
+              "Implementation — Wiring practice",
+              "Verification — Diagnostic verification"
+            ],
+            "outcomes": [
+              "Predict voltage at points in a loaded circuit.",
+              "Build, fault-find and retest a fused lamp harness."
+            ],
+            "assignment": "A labeled circuit, physical harness and healthy/faulted/restored measurement log."
+          }
+        ]
+      },
+      {
+        "id": "systems",
+        "title": "Vehicle systems and diagnosis",
+        "summary": "Follow power, force, heat and signals through the actual vehicle systems.",
+        "milestone": "A measured wheel end, teaching engine and gear train, plus airflow and diagnostic records.",
+        "courses": [
+          {
+            "courseId": "auto-powertrain",
+            "title": "Engine and Drivetrain Service",
+            "recommendedBefore": [
+              "auto-shop",
+              "auto-electrical"
+            ],
+            "modules": [
+              "Theory — Mechanical theory",
+              "Design — Inspection design",
+              "Implementation — Bench service",
+              "Verification — Mechanical verification"
+            ],
+            "outcomes": [
+              "Distinguish compression, timing, lubrication and drive-ratio faults.",
+              "Measure a teaching engine and verify its assembly by hand."
+            ],
+            "assignment": "Marked-up service sheet, measurements and a photograph or witnessed record of the reassembled trainer."
+          },
+          {
+            "courseId": "auto-drives",
+            "title": "Transmissions, Clutches and Final Drives",
+            "recommendedBefore": [
+              "auto-powertrain"
+            ],
+            "modules": [
+              "Theory — Power flow",
+              "Design — Gearbox design",
+              "Implementation — Bench assembly",
+              "Verification — Transmission diagnostics"
+            ],
+            "outcomes": [
+              "Predict ratio and explain the role of clutch, converter and differential.",
+              "Measure lash and speed reduction on a physical gear pair."
+            ],
+            "assignment": "A working hand-driven transmission trainer and its verified ratio sheet."
+          },
+          {
+            "courseId": "auto-brakes",
+            "title": "Brake, Steering and Suspension Service",
+            "recommendedBefore": [
+              "auto-shop"
+            ],
+            "modules": [
+              "Theory — Wheel-end theory",
+              "Design — Inspection layout",
+              "Implementation — Wheel-end service",
+              "Verification — Return to service"
+            ],
+            "outcomes": [
+              "Separate wear, looseness and hydraulic faults.",
+              "Measure a wheel end and demonstrate repeatable inspection."
+            ],
+            "assignment": "An inspected physical wheel end and its completed measurement and disposition sheet."
+          },
+          {
+            "courseId": "auto-climate",
+            "title": "Cooling, Cabin HVAC and Refrigerant Practice",
+            "recommendedBefore": [
+              "auto-electrical",
+              "auto-powertrain"
+            ],
+            "modules": [
+              "Theory — Heat transfer",
+              "Design — Airflow design",
+              "Implementation — Physical installation",
+              "Verification — Performance checks"
+            ],
+            "outcomes": [
+              "Separate air delivery, heat transfer and refrigerant faults.",
+              "Build and measure an air-distribution prototype and apply EPA service rules."
+            ],
+            "assignment": "A working HVAC duct prototype, performance record and refrigerant-service decision."
+          },
+          {
+            "courseId": "auto-diagnostics",
+            "title": "Engine Performance, Emissions and Hybrid Diagnostics",
+            "recommendedBefore": [
+              "auto-electrical",
+              "auto-powertrain"
+            ],
+            "modules": [
+              "Theory — Operating theory",
+              "Design — Diagnostic design",
+              "Implementation — Trainer diagnostics",
+              "Verification — Hybrid and emissions verification"
+            ],
+            "outcomes": [
+              "Select a test that distinguishes a circuit fault from a failed component.",
+              "Capture and interpret before/fault/after data without defeating a monitor."
+            ],
+            "assignment": "A scan record, a diagnosed physical trainer and a verified restoration."
+          },
+          {
+            "courseId": "auto-electrified",
+            "title": "Electrified Vehicles, ABS and Driver Assistance",
+            "recommendedBefore": [
+              "auto-electrical",
+              "auto-brakes",
+              "auto-diagnostics"
+            ],
+            "modules": [
+              "Theory — Electronic chassis theory",
+              "Design — System design",
+              "Implementation — Instrumented implementation",
+              "Verification — Calibration verification"
+            ],
+            "outcomes": [
+              "Recognize energized propulsion and identify the qualified service boundary.",
+              "Build and test a physical wheel-speed sensor rig and identify calibration dependencies."
+            ],
+            "assignment": "A tested sensor fixture, waveforms or counts and the model-specific referral record."
+          }
+        ]
+      },
+      {
+        "id": "engineering",
+        "title": "Vehicle design and fabrication",
+        "summary": "Produce documented parts from original layouts and build a running engine and full-size suspension corner.",
+        "milestone": "Tested weld coupons, a welded organizer, inspected chassis bay, running model engine, suspension curves, and a fitted removable body panel.",
+        "courses": [
+          {
+            "courseId": "auto-welding",
+            "title": "Automotive Welding and Weld Inspection",
+            "recommendedBefore": [
+              "auto-shop"
+            ],
+            "modules": [
+              "Theory — Hot work and welding processes",
+              "Design — Joint drawings and setup",
+              "Implementation — GMAW bead and joint practice",
+              "Verification — Build, inspect and test"
+            ],
+            "outcomes": [
+              "Select a joining method and lay out a representative test joint.",
+              "Make and inspect mild-steel welds, destructively test a plug coupon and measure a finished shop organizer."
+            ],
+            "assignment": "A welded organizer, identified test coupons, inspection results and a witnessed disposition for the capstone portfolio."
+          },
+          {
+            "courseId": "auto-fabrication",
+            "title": "Chassis Design, Welding and Fabrication",
+            "recommendedBefore": [
+              "auto-shop",
+              "auto-brakes"
+            ],
+            "modules": [
+              "Theory — Structure theory",
+              "Design — Fixture design",
+              "Implementation — Fabrication",
+              "Verification — Structural inspection"
+            ],
+            "outcomes": [
+              "Trace loads to structural nodes and dimension a fixture from datums.",
+              "Fabricate, inspect and document a representative chassis bay."
+            ],
+            "assignment": "A fabricated bay, its jig, inspected coupons and an as-built dimensional report."
+          },
+          {
+            "courseId": "auto-engine-build",
+            "title": "Scratch-Built Engines and Precision Machining",
+            "recommendedBefore": [
+              "auto-powertrain",
+              "auto-fabrication"
+            ],
+            "modules": [
+              "Theory — Engine design theory",
+              "Design — Machining design",
+              "Implementation — Engine manufacture",
+              "Verification — Engine testing"
+            ],
+            "outcomes": [
+              "Choose and verify critical fits, cooling, oiling and timing.",
+              "Machine, assemble and demonstrate a physical four-stroke bench engine."
+            ],
+            "assignment": "A running, learner-machined bench engine, inspection sheets and witnessed run record."
+          },
+          {
+            "courseId": "auto-suspension-build",
+            "title": "Suspension Geometry, Design and Fabrication",
+            "recommendedBefore": [
+              "auto-brakes",
+              "auto-fabrication"
+            ],
+            "modules": [
+              "Theory — Suspension theory",
+              "Design — Geometry design",
+              "Implementation — Fabrication and assembly",
+              "Verification — Validation"
+            ],
+            "outcomes": [
+              "Predict wheel and steering changes from a drawing.",
+              "Fabricate a physical corner fixture and compare its measured travel with the prediction."
+            ],
+            "assignment": "A physical suspension corner, reviewed drawings, measured plots and a revision decision."
+          },
+          {
+            "courseId": "auto-body",
+            "title": "Bodywork, Occupant Packaging and Refinishing",
+            "recommendedBefore": [
+              "auto-fabrication",
+              "auto-climate"
+            ],
+            "modules": [
+              "Theory — Occupant packaging",
+              "Design — Body design",
+              "Implementation — Panel manufacture",
+              "Verification — Fit and finish inspection"
+            ],
+            "outcomes": [
+              "Dimension access, sightlines and interfaces using real components.",
+              "Form, fit and refit a removable body panel against an original drawing."
+            ],
+            "assignment": "A learner-formed panel, physical fit check, finishing coupon or documented professional finish, and as-built body drawing."
+          }
+        ]
+      },
+      {
+        "id": "vehicle",
+        "title": "Individual vehicle capstone",
+        "summary": "Integrate the actual systems into one complete learner-built car and prove the agreed functions at a controlled site.",
+        "milestone": "A complete independently witnessed car, signed build dossier and closed critical findings.",
+        "courses": [
+          {
+            "courseId": "auto-capstone",
+            "title": "Capstone: Build and Commission Your Own Car",
+            "recommendedBefore": [
+              "auto-diagnostics",
+              "auto-drives",
+              "auto-climate",
+              "auto-engine-build",
+              "auto-suspension-build",
+              "auto-body",
+              "auto-maintenance",
+              "auto-electrified"
+            ],
+            "modules": [
+              "Theory — Vehicle requirements",
+              "Design — Vehicle design release",
+              "Implementation — Full-size construction",
+              "Verification — Commissioning and handoff"
+            ],
+            "outcomes": [
+              "Build and integrate a complete car and substantiate personal workmanship.",
+              "Demonstrate repeatable operation with witnessed testing and a serviceable as-built dossier."
+            ],
+            "assignment": "The complete car, accompanied by a build portfolio, verified service record and signed demonstration."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Portland Community College — Automotive Service Technology",
+        "url": "https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/"
+      },
+      {
+        "title": "College of the Desert — Automotive Service: Oil Change, AUTO 306",
+        "url": "https://www.collegeofthedesert.edu/_web-items/documents/pdf-files/course-outlines/auto-306-fa22.pdf"
+      },
+      {
+        "title": "Citrus College — Cylinder Block Development",
+        "url": "https://catalog.citruscollege.edu/course-outlines/AUTO-297/"
+      },
+      {
+        "title": "South Georgia Technical College — Motorsports Fabrication",
+        "url": "https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t"
+      },
+      {
+        "title": "University of Delaware — Formula SAE Suspension design and fabrication report",
+        "url": "https://cpb-us-w2.wpmucdn.com/sites.udel.edu/dist/e/299/files/2011/08/FSAE_Suspension_Phase_4_NN.pdf"
+      },
+      {
+        "title": "ASE — Automobile and Light Truck task lists",
+        "url": "https://www.ase.com/uploads/ASE_Automobile_Study_Guide_2025_V2.pdf"
+      },
+      {
+        "title": "EPA — Kit Car Policy and rebuilt certified configurations",
+        "url": "https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy"
+      },
+      {
+        "title": "EPA — motor vehicle air conditioning service, CAA §§608–609",
+        "url": "https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing"
+      },
+      {
+        "title": "OSHA — workers and establishments covered",
+        "url": "https://www.osha.gov/node/59586"
+      },
+      {
+        "title": "Colorado DMV — certified VIN inspections for custom-built vehicles",
+        "url": "https://dmv.colorado.gov/vin-inspections"
+      }
+    ]
+  }
+]

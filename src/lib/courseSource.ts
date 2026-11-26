@@ -7,6 +7,7 @@
 
 import type { CatalogEntry } from "./catalog";
 import { GITHUB_COURSE_FEED } from "./githubCourseFeed";
+import { setPublishedPrograms } from "./studyPrograms";
 import { COURSE_PUBLIC_KEYS } from "./courseKeys";
 import { sha256Hex, verifySignature } from "./courseSign";
 
@@ -44,6 +45,7 @@ interface Published {
   version: number;
   courses: CatalogEntry[];
   states?: DataPackage;
+  stagedPrograms?: unknown;
 }
 
 /** The state-rules package named by the last trusted catalog, if any. */
@@ -55,6 +57,7 @@ export function openCatalog(bytes: Uint8Array, sig: string, keys = KEYS): Catalo
   if (!verifySignature(bytes, sig, keys)) throw new Error("The course catalog's signature didn't check out.");
   const data = JSON.parse(new TextDecoder().decode(bytes)) as Published;
   if (data.format !== "examiner-catalog" || !Array.isArray(data.courses)) throw new Error("Unrecognized course catalog.");
+  setPublishedPrograms(data.stagedPrograms, new Set(data.courses.map(c => c.id)));
   statesPackage = data.states ?? null;
   return data.courses;
 }
