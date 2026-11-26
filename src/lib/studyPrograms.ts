@@ -5,6 +5,7 @@ import { MEDICAL_PROGRAM, PRE_MED_PROGRAM } from "./medicalPrograms";
 import { COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM } from "./engineeringPrograms";
 import { COSMETOLOGY_PROGRAM } from "./cosmetologyProgram";
 import { HEALTH_PROGRAMS } from "./healthPrograms";
+import { AUTOMOTIVE_PROGRAM } from "./automotiveProgram";
 import { TRADE_PROGRAMS } from "./tradePrograms";
 import { SCIENCE_MAJORS } from "./majorsScience";
 import { ENGINEERING_MAJORS } from "./majorsEngineering";
@@ -57,6 +58,8 @@ export interface StudyProgram {
   title: string;
   description: string;
   notice: string;
+  /** How practical work is assessed, when it is required by the program. */
+  practicalAssessment?: string;
   stages: ProgramStage[];
   /** Areas to choose from; their courses are described in courseOutlines or the catalog. */
   pools?: ProgramPool[];
@@ -68,7 +71,7 @@ export interface StudyProgram {
 export const STUDY_PROGRAMS: readonly StudyProgram[] = [
   JD_PROGRAM, COLLEGE_CORE_PROGRAM, PRE_MED_PROGRAM, MEDICAL_PROGRAM,
   COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM, COSMETOLOGY_PROGRAM,
-  ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
+  ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, AUTOMOTIVE_PROGRAM, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
   ...SCIENCE_MAJORS, ...ENGINEERING_MAJORS, ...SOCIAL_SCIENCE_MAJORS, ...HUMANITIES_ARTS_MAJORS, ...BUSINESS_HEALTH_MAJORS,
 ];
 

@@ -6,6 +6,17 @@ import { emptyProgress } from '../src/lib/storage';
 import { CATALOG } from '../src/lib/catalog';
 import type { CatalogEntry } from '../src/lib/catalog';
 
+const automotive = STUDY_PROGRAMS.find(p => p.id === 'automotive-mechanics-custom-construction')!;
+assert(automotive.practicalAssessment, 'the workshop sign-off is explicit');
+assert.deepEqual(automotive.stages.map(s => s.courses.length), [3, 6, 4, 1]);
+for (const course of programCourses(automotive)) {
+  const entry = CATALOG.find(e => e.id === course.courseId);
+  assert(entry, `available workshop course: ${course.courseId}`);
+  assert.deepEqual(entry.requires ?? [], course.recommendedBefore);
+  assert.deepEqual(entry.outline?.map(m => m.title), course.modules);
+}
+assert.equal(programCourses(automotive).at(-1)?.courseId, 'auto-capstone');
+
 const jd = STUDY_PROGRAMS.find(p => p.id === 'jd-preparation')!;
 assert(jd);
 assert.deepEqual(jd.stages.map(s => s.courses.length), [6, 10, 9]);

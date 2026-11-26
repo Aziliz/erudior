@@ -58,12 +58,12 @@ export default function StudyProgramCard({ program, availableIds, action, summar
         {summary && <div className="learning-progress-meter"><progress max={100} value={summary.percent} aria-label={`${stage.title} progress`} /><strong>{summary.percent}%</strong></div>}
         <ol>{stage.courses.map(course => <li key={course.courseId}>
           <details><summary>{course.title} — {availableIds.has(course.courseId) ? "Available" : "Planned"}</summary>
-            {outline(course, "No prior legal study required.")}
+            {outline(course, "No prior courses required.")}
             {availableIds.has(course.courseId) && onOpenCourse && <button className="btn sm" onClick={() => onOpenCourse(course.courseId)}>View course<span className="sr-only">: {course.title}</span></button>}
           </details>
         </li>)}</ol>
         <p><b>Stage portfolio:</b> {stage.milestone}</p>
-        <p className="small muted">Portfolio work is a study recommendation, separate from measured course completion. It is not automatically graded or credited.</p>
+        <p className="small muted">{program.practicalAssessment ?? "Portfolio work is a study recommendation, separate from measured course completion. It is not automatically graded or credited."}</p>
       </details>;
     })}
     <details className="pathway-sequence"><summary>Curriculum references</summary>
