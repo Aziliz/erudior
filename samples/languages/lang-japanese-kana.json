@@ -5,8 +5,8 @@
  "title": "Japanese: Hiragana and Katakana",
  "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards, and every word shows its pitch accent. This course comes before Japanese N5.",
  "author": "Erudior",
- "revision": 2,
- "changelog": "Pitch accent on every word; pitch marks in the greetings lesson.",
+ "revision": 3,
+ "changelog": "Adds study cards for applying and distinguishing concepts from the lessons.",
  "modules": [
   {
    "id": "kana-m1",
@@ -6791,7 +6791,56 @@
    ]
   }
  ],
- "decks": [],
+ "decks": [
+  {
+   "id": "lang-japanese-kana-cards",
+   "title": "Japanese: Hiragana and Katakana notecards",
+   "cards": [
+    {
+     "id": "lang-japanese-kana-concept-01",
+     "topic": "Hiragana",
+     "front": "Read ぬ and め. Which one has the small loop near the lower right in standard handwriting?",
+     "back": "ぬ is nu and has the loop. め is me and lacks that loop. Trace each from the beginning before comparing the ending."
+    },
+    {
+     "id": "lang-japanese-kana-concept-02",
+     "topic": "Voicing",
+     "front": "Read か, が, は, ば and ぱ. What changes in each family?",
+     "back": "ka, ga, ha, ba, pa. The two short marks are dakuten. The small circle on ぱ is handakuten."
+    },
+    {
+     "id": "lang-japanese-kana-concept-03",
+     "topic": "Contracted sounds",
+     "front": "Read きや and きゃ aloud. How many morae are in each?",
+     "back": "きや is ki-ya, two morae. きゃ is kya, one mora. The size of や changes the timing."
+    },
+    {
+     "id": "lang-japanese-kana-concept-04",
+     "topic": "Consonant length",
+     "front": "Compare さか and さっか. Where does the extra beat fall?",
+     "back": "さか is sa-ka. さっか is sa-k-ka, with a beat of closure before the second syllable. Small っ has its own mora."
+    },
+    {
+     "id": "lang-japanese-kana-concept-05",
+     "topic": "Katakana",
+     "front": "Read シ and ツ. How does the long stroke travel when you write each?",
+     "back": "シ is shi. Its long stroke rises from lower left. ツ is tsu. Its long stroke descends toward lower left. Compare the stroke direction as well as the angle of the two short marks."
+    },
+    {
+     "id": "lang-japanese-kana-concept-06",
+     "topic": "Vowel length",
+     "front": "Read ビル and ビール. Which one means beer and how does its timing differ?",
+     "back": "ビル (biru) means building. ビール (bīru) means beer. The long-vowel mark adds a mora to ビ."
+    },
+    {
+     "id": "lang-japanese-kana-concept-07",
+     "topic": "Particles",
+     "front": "Read わたしは and へやへ. Which characters change their usual reading here?",
+     "back": "The topic particle は is wa in watashi wa. The direction particle へ is e in heya e. The initial へ in へや keeps its ordinary reading he."
+    }
+   ]
+  }
+ ],
  "glossary": [
   {
    "term": "man'yōgana",

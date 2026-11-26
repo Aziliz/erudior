@@ -5053,7 +5053,7 @@
   "order": 103,
   "title": "German B2",
   "description": "The fourth step in German, from B1 to CEFR level B2, the level of the Goethe-Zertifikat B2. Lessons cover reporting what others said with the Konjunktiv I, the passive and its alternatives (sein + zu, sich lassen, -bar), extended participial attributes, the nominal style of formal texts, Funktionsverbgefüge, modal particles, subjective modal verbs, complex connectors such as indem, je nachdem and insofern als, the Futur II, word formation, and writing and speaking at B2: forum posts that argue a case, formal messages at work, presentations and discussions. About 1,000 new words build on the roughly 2,400 core words of German A1 to B1 for about 3,400 in all, and a reading list suggests novels, news and podcasts at this level. Unlocks when German B1 is complete.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5066,7 +5066,7 @@
   "lessons": 30,
   "honors": 16,
   "questions": 794,
-  "cards": 0,
+  "cards": 6,
   "drills": 0,
   "words": 4315,
   "carried": 3048,
@@ -5230,7 +5230,7 @@
   "order": 104,
   "title": "German C1",
   "description": "The fifth step in German, from B2 to CEFR level C1, the level of the Goethe-Zertifikat C1. Lessons cover modal verbs in every tense and their subjective use about the past, the Konjunktiv II of the past with modal verbs and the passive, the Konjunktiv I in academic and legal reporting, focus and modal particles, advanced nominal style, Funktionsverbgefüge and participial constructions, every alternative to the passive, the word es and other pointing words, text cohesion, idioms, register and advanced word formation, and the texts of law, economics, science, politics and culture. Writing and speaking reach C1: summaries, graph descriptions, the Erörterung, forum posts and half-formal messages, talks and discussions, and mediation, with a look at regional German and literature. About 1,000 new words build on the roughly 3,400 core words of German A1 to B2 for about 4,400 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German B2 is complete.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5243,7 +5243,7 @@
   "lessons": 30,
   "honors": 16,
   "questions": 792,
-  "cards": 0,
+  "cards": 6,
   "drills": 0,
   "words": 5597,
   "carried": 4315,
@@ -5407,7 +5407,7 @@
   "order": 105,
   "title": "German C2",
   "description": "The sixth and last step in German, from C1 to CEFR level C2, the level of the Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom. Lessons cover precise word choice among near-synonyms and their connotations, deliberate shifts of register from Amtsdeutsch to salopp, the Konjunktiv and modality in their subtle uses, verbs with genitive objects, rewriting between nominal and verbal style, complex periods and fine word order, productive word formation and verb prefixes, argument and rhetoric, academic and journalistic writing, idioms, proverbs, collocations, humour, irony and metaphor, and the specialist German of law, medicine, finance, science and administration. Literary German is read across the periods in public-domain texts, with older German, contemporary language change, mediation at C2 and the Goethe C2 exam. About 1,000 new words build on the roughly 4,450 core words of German A1 to C1 for about 5,450 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German C1 is complete.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -5420,7 +5420,7 @@
   "lessons": 30,
   "honors": 16,
   "questions": 793,
-  "cards": 0,
+  "cards": 6,
   "drills": 0,
   "words": 6895,
   "carried": 5597,
@@ -6820,7 +6820,7 @@
   "order": 115,
   "title": "French A1",
   "description": "French from your first word to CEFR level A1, the level of the DELF A1. Grammar lessons cover sounds, spelling and accents, liaison and elision, greetings, être and avoir, numbers (with soixante-dix and quatre-vingts), gender and the three articles (definite, indefinite, partitive), adjective agreement, the present tense of regular and key irregular verbs, negation, three ways to ask a question, the near future with aller, reflexive verbs for your daily routine, the time and the date, the imperative for directions, and the passé composé with avoir and être. About 675 everyday words are learned through typed vocabulary reviews with pronunciation, conjugation drills practise the present, the imperative and the passé composé, optional honors lessons explore French culture and the French-speaking world, and a reading list points to graded readers and free resources you can try on your own. The standard is the French of France; Belgian, Swiss and Québec usage is noted where it differs.",
-  "revision": 1,
+  "revision": 2,
   "subject": "Languages",
   "level": [
    "High School",
@@ -7816,7 +7816,7 @@
   "order": 120,
   "title": "Japanese: Hiragana and Katakana",
   "description": "Read and write Japanese's two syllabaries from scratch: all 46 hiragana and 46 katakana, their voiced forms, combinations, small っ and long vowels, the sounds used in loanwords, the particles は, へ and を, punctuation and vertical text, and your first words and greetings. Every kana is traced stroke by stroke, heard with your device's Japanese voice and drilled with typed review cards, and every word shows its pitch accent. This course comes before Japanese N5.",
-  "revision": 2,
+  "revision": 3,
   "subject": "Languages",
   "level": [
    "High School",
@@ -7829,7 +7829,7 @@
   "lessons": 15,
   "honors": 3,
   "questions": 339,
-  "cards": 0,
+  "cards": 7,
   "drills": 0,
   "words": 286,
   "lessonIds": [
@@ -9756,7 +9756,7 @@
   "order": 135,
   "title": "Zero to RHCSA on RHEL 10",
   "description": "Begin with your first AlmaLinux login and build toward independent RHEL 10 administration. Practice in a live terminal beside each reading, solve shift assignments, and test your work on a two-machine RHCSA practice exam.",
-  "revision": 8,
+  "revision": 9,
   "subject": "Information technology",
   "level": [
    "Professional"
@@ -9765,8 +9765,8 @@
    "Exam prep"
   ],
   "lessons": 80,
-  "questions": 124,
-  "cards": 0,
+  "questions": 125,
+  "cards": 8,
   "drills": 0,
   "lessonIds": [
    "install-workbench",

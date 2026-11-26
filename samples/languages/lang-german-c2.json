@@ -5,8 +5,8 @@
  "title": "German C2",
  "description": "The sixth and last step in German, from C1 to CEFR level C2, the level of the Goethe-Zertifikat C2: Großes Deutsches Sprachdiplom. Lessons cover precise word choice among near-synonyms and their connotations, deliberate shifts of register from Amtsdeutsch to salopp, the Konjunktiv and modality in their subtle uses, verbs with genitive objects, rewriting between nominal and verbal style, complex periods and fine word order, productive word formation and verb prefixes, argument and rhetoric, academic and journalistic writing, idioms, proverbs, collocations, humour, irony and metaphor, and the specialist German of law, medicine, finance, science and administration. Literary German is read across the periods in public-domain texts, with older German, contemporary language change, mediation at C2 and the Goethe C2 exam. About 1,000 new words build on the roughly 4,450 core words of German A1 to C1 for about 5,450 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German C1 is complete.",
  "author": "Erudior",
- "revision": 1,
- "changelog": "First release.",
+ "revision": 2,
+ "changelog": "Adds study cards for applying and distinguishing concepts from the lessons.",
  "modules": [
   {
    "id": "de6-m1",
@@ -17987,7 +17987,50 @@
    ]
   }
  ],
- "decks": [],
+ "decks": [
+  {
+   "id": "lang-german-c2-cards",
+   "title": "German C2 notecards",
+   "cards": [
+    {
+     "id": "lang-german-c2-concept-01",
+     "topic": "Register",
+     "front": "Rewrite Der Plan ist Murks for a formal dissent that identifies a specific weakness.",
+     "back": "Der Vorschlag lässt offen, wie die Folgekosten gedeckt werden sollen. The criticism now targets an assessable omission."
+    },
+    {
+     "id": "lang-german-c2-concept-02",
+     "topic": "Attribution",
+     "front": "Rewrite Die Maßnahme ist gescheitert to attribute that judgment solely to the committee.",
+     "back": "Nach Einschätzung des Ausschusses ist die Maßnahme gescheitert. The phrase identifies whose assessment is being reported."
+    },
+    {
+     "id": "lang-german-c2-concept-03",
+     "topic": "Rhetoric",
+     "front": "In “Wir brauchen Zeit. Wir brauchen Geduld. Wir brauchen Vertrauen”, identify the device and its effect.",
+     "back": "Anapher. Repeating the opening gives the three demands equal emphasis and creates a cumulative rhythm."
+    },
+    {
+     "id": "lang-german-c2-concept-04",
+     "topic": "Idioms",
+     "front": "A colleague says Jetzt überspannst du den Bogen during negotiations. What are they implying?",
+     "back": "They think the other person is pushing a demand too far. A neutral paraphrase is Diese Forderung geht aus meiner Sicht zu weit."
+    },
+    {
+     "id": "lang-german-c2-concept-05",
+     "topic": "Mediation",
+     "front": "One source reports lower costs during a trial. Another forecasts higher costs after expansion. Summarize without creating a contradiction.",
+     "back": "Der ersten Quelle zufolge sanken die Kosten im Versuch. Für die Zeit nach dem Ausbau rechnet die zweite Quelle mit höheren Kosten. Preserve the different periods and the distinction between observation and forecast."
+    },
+    {
+     "id": "lang-german-c2-concept-06",
+     "topic": "Narrative voice",
+     "front": "A narrator calls a disastrous decision ein wahres Meisterstück. What would support an ironic reading?",
+     "back": "A clash between the praise and the consequences shown in the surrounding passage supports irony. The phrase alone could also express genuine admiration."
+    }
+   ]
+  }
+ ],
  "glossary": [
   {
    "term": "fragment",
