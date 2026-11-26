@@ -4,9 +4,9 @@
  "id": "auto-drives",
  "title": "Transmissions, Clutches and Final Drives",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Trace manual, conventional automatic, automated manual, dual-clutch, pulley CVT and power-split drives. Compare final drives and axle joints, then assemble and measure a gear trainer. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -26,7 +26,9 @@
     "drives-2-q2",
     "cmp-dct-amt-q2",
     "cmp-cvt-ecvt-q2",
-    "cmp-differentials-q2"
+    "cmp-differentials-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -34,7 +36,9 @@
    "title": "Implementation — Bench assembly",
    "quiz": [
     "drives-3-q3",
-    "shop-change-drives"
+    "shop-change-drives",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -190,6 +194,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Predict road speed and torque for two gearboxes",
+   "minutes": 30,
+   "topics": [
+    "Predict road speed and torque for two gearboxes"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A manual transmits torque through a clamped clutch and a selected gear pair. A conventional automatic can multiply torque during converter operation, then its lockup clutch can remove steady slip. A DCT uses two clutches for alternating gear paths. A belt or chain CVT varies effective pulley radii. Compare gear ratios, launch element, cooling load, control requirements, final drive and tire circumference together.\n\n**Worked comparison.** At 3,000 engine rpm, a locked or fully engaged 1.00 top gear and 4.00 final drive yield 750 wheel rpm. With a measured loaded rolling circumference of 2.0 m, that is 1,500 m/min, or 90 km/h neglecting slip. With a 0.80 top ratio the same engine speed gives 937.5 wheel rpm. At equal engine torque and the same final drive, the taller ratio provides less wheel torque. A lower engine speed does not guarantee lower consumption at every operating load.\n\n**Design the match.** Use two documented ratio sets. Draw the power path in first gear, top gear and reverse. Include the clutch or converter, synchronizer or holding element, differential, axles and tires. Compare launch, cruise rpm, service access and the heat-rejection provisions required by the transmission manufacturer. Declare tire size, slip assumptions and torque limits beside the calculation.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "drives-3",
    "module": "m3",
    "title": "Set up a hand-driven gear pair",
@@ -239,6 +262,25 @@
    ]
   },
   {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Tell a ratio error from clutch or converter slip",
+   "minutes": 45,
+   "topics": [
+    "Tell a ratio error from clutch or converter slip"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A speed ratio compares rotating elements on opposite sides of a known power path. In a manual or locked-up automatic with first gear fully engaged, the steady input-to-output ratio should track the selected fixed gearing. During a shift, at launch or with the converter unlocked, engine speed and turbine speed can diverge normally. In a CVT, use the commanded and measured ratio under its stated test condition.\n\n**Worked traces.** For a steady command of 2.00, the input shaft is at 2,400 rpm and the gearbox output is at 1,200 rpm. The gear train agrees with the command. If engine speed is simultaneously 2,700 rpm with an unlocked converter, the extra 300 rpm lies upstream of the measured input. Investigate the control state before attributing it to a clutch pack. In another trace with a fixed gear commanded, stable sensor signals and a rising input speed while output stays steady under load, compare the measured ratio and the clutch control data with the procedure.\n\n**Independent trace.** The instructor labels a steady third-gear interval with specified input/output ratio 1.50. Engine speed is 2,260 rpm, turbine/input speed 2,100 rpm and output speed 1,400 rpm. Lockup is commanded off. On a second steady interval lockup is confirmed engaged, with engine/input/output speeds of 1,800/1,800/1,200 rpm. Identify where the first speed difference occurs, whether either gear measurement is outside 1.50 and which assumption would fail if you had only engine speed.\n\n**Independent work.** Hand-drive a guarded, unloaded two-ratio gear trainer. Mark the input and output, count several turns to reduce counting error, and calculate both ratios. Analyze a separate supplied or recorded example with engine, input, output and lockup state. Locate the mismatch and say which extra measurement could disprove your diagnosis. Keep all powered-vehicle testing within the manufacturer's supervised procedure.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
    "id": "drives-4",
    "module": "m4",
    "title": "Separate a ratio error from slip",
@@ -281,8 +323,8 @@
     }
    ],
    "exam": {
-    "questionCount": 20,
-    "timeLimitMinutes": 46,
+    "questionCount": 24,
+    "timeLimitMinutes": 56,
     "passingPercent": 75
    },
    "questions": [
@@ -587,6 +629,66 @@
       "Engine speed at a fixed road speed when coupled with the same tires."
      ],
      "explanation": "Changing reduction also changes the relationship between shaft speed and road speed."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "800"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "With clutch fully engaged, 2,400 input rpm, a 1.00 gearbox ratio and 3.00 final drive, what is wheel rpm with no slip? Enter the number only.",
+     "section": "m2",
+     "topic": "Predict road speed and torque for two gearboxes",
+     "explanation": "2,400 ÷ (1 × 3) = 800 rpm."
+    },
+    {
+     "choices": [
+      "The confirmed lockup state or the actual gearbox input shaft speed.",
+      "The fluid-pan color.",
+      "Only the shift-lever label."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which measurement is needed to compare locked cruise gearing without including normal converter slip?",
+     "section": "m2",
+     "topic": "Predict road speed and torque for two gearboxes",
+     "explanation": "Engine rpm may differ from input-shaft rpm when the converter is unlocked."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "2.5"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A hand trainer turns 30 times at the input for 12 output turns. What is the input-to-output ratio as a number? Enter the number only.",
+     "section": "m3",
+     "topic": "Tell a ratio error from clutch or converter slip",
+     "explanation": "30 ÷ 12 = 2.5."
+    },
+    {
+     "choices": [
+      "Across a tire contact patch.",
+      "In the measured 2.00 gear ratio.",
+      "Upstream of the gearbox input."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Commanded gear is 2.00, turbine speed 2,000 rpm, output 1,000 rpm, engine 2,250 rpm, converter unlocked. Where is the observed engine-to-turbine difference?",
+     "section": "m3",
+     "topic": "Tell a ratio error from clutch or converter slip",
+     "explanation": "The actual input-to-output ratio matches 2.00. The observed difference is across the converter path."
     }
    ]
   }
@@ -679,6 +781,18 @@
      "front": "After a final-drive swap, the teacher's car has greater wheel torque in a fixed gear at identical engine torque. Which other quantity must be revisited?",
      "back": "Engine speed at a fixed road speed when coupled with the same tires. Changing reduction also changes the relationship between shaft speed and road speed.",
      "topic": "Predict the gearing change before ordering a differential"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which measurement is needed to compare locked cruise gearing without including normal converter slip?",
+     "back": "The confirmed lockup state or the actual gearbox input shaft speed. Engine rpm may differ from input-shaft rpm when the converter is unlocked.",
+     "topic": "Predict road speed and torque for two gearboxes"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Commanded gear is 2.00, turbine speed 2,000 rpm, output 1,000 rpm, engine 2,250 rpm, converter unlocked. Where is the observed engine-to-turbine difference?",
+     "back": "Upstream of the gearbox input. The actual input-to-output ratio matches 2.00. The observed difference is across the converter path.",
+     "topic": "Tell a ratio error from clutch or converter slip"
     }
    ]
   }
@@ -800,6 +914,11 @@
    "id": "bench-plan",
    "title": "Build and compare two shifter lever geometries",
    "body": "**Objective.** Demonstrate why a short-throw shifter changes effort and travel using an unpowered hand fixture. Materials are a rigid board, hand lever, low-friction retained pivot, two rounded link points, string or guarded teaching link, a ruler, a spring scale and a low-force elastic return. Secure the fixture, protect pinch points and stay within the fixture and scale ratings.\n\n1. Draw one pivot with link attachment radii of 25 and 40 mm, and a hand point 150 mm from the pivot. At small angles, for forces perpendicular to the lever, link travel/hand travel is approximately link radius/hand radius. At a fixed 30 mm hand movement the predictions are about 5 and 8 mm of link travel.\n2. Make a card layout. Drill the approved lever material on a clamped backer, deburr holes, assemble with spacers and a retained pivot and fit a low-force load. Confirm collision-free movement and protect fingers.\n3. Mark zero without spring slack. At each link radius measure hand travel needed for 5 mm link movement and scale force at matched link load and perpendicular geometry. Ideal predictions are about 30 and 18.75 mm of hand travel. If the link load is 6 N, ideal hand forces are 1.0 and 1.6 N respectively. Friction and changing angles explain some differences.\n4. Repeat three trials per configuration. Record units, scatter, pivot play and return-to-neutral behavior. Use a physical stop representing the gearbox's required full engagement. Demonstrate that the shorter option reaches that stop while retaining adequate hand clearance.\n5. For a real installation source rated hardware, keep full engagement and reverse/start interlocks, verify cable routing and consult the actual gearbox. The bench lever supplies geometry evidence for a prototype.\n\n**Fresh assignment.** For an 8 mm required link travel and 150 mm hand radius, propose a geometry giving roughly 32 mm of hand movement, build it, measure three repeats and explain the difference from the ideal. The target radius is about 37.5 mm in the small-angle model; the measured result determines acceptance."
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF152/153 and AMF156/157 distinguish automatic and manual drive systems. UVU AUT1120/1125 cover powertrain theory and lab. ASE II.A.2 (PDF p. 56) addresses transmission configurations. The hand trainer isolates ratio from the separate converter trace. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -1120,6 +1239,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Counted input and output turns for two trainer ratios and a separate trace interpretation that distinguishes engine, input and output with lockup state."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1215,6 +1403,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Tell a ratio error from clutch or converter slip — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested.",
+   "safety": [
+    "Use a stable guarded hand-driven gear pair. Keep fingers, hair and loose clothing clear of meshes. Use recorded speeds for converter or road-load cases."
+   ],
+   "materials": [
+    "Guarded hand-driven gear trainer, input and output marks, a documented transmission ratio set and labeled speed trace"
+   ],
+   "steps": [
+    "Read “Predict road speed and torque for two gearboxes”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Hand-drive a guarded, unloaded two-ratio gear trainer. Mark the input and output, count several turns to reduce counting error, and calculate both ratios. Analyze a separate supplied or recorded example with engine, input, output and lockup state. Locate the mismatch and say which extra measurement could disprove your diagnosis. Keep all powered-vehicle testing within the manufacturer's supervised procedure.",
+    "File the following evidence with the course project. A gear-trainer ratio record and a diagnosis that identifies the shaft pair actually tested."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Command / gear",
+      "Engine or driver rpm",
+      "Input turns or rpm",
+      "Output turns or rpm",
+      "Measured ratio",
+      "Control state"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

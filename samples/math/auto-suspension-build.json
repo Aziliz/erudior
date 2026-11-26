@@ -4,9 +4,9 @@
  "id": "auto-suspension-build",
  "title": "Suspension Geometry, Design and Fabrication",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare five wheel-guidance layouts, springs, dampers and roll control. Design and fabricate a suspension corner, then measure wheel travel, camber and toe. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A local motion-ratio measurement and a bump-steer curve with a return check.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Geometry design",
    "quiz": [
     "suspension-build-2-q2",
-    "cmp-spring-damper-q2"
+    "cmp-spring-damper-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Fabrication and assembly",
    "quiz": [
     "suspension-build-3-q3",
-    "shop-change-suspension-build"
+    "shop-change-suspension-build",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -127,6 +131,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Turn spring position into wheel rate and travel margin",
+   "minutes": 30,
+   "topics": [
+    "Turn spring position into wheel rate and travel margin"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Define motion ratio before using it. In this lesson r means spring displacement divided by vertical wheel displacement near one ride position. For an ideal lossless linear mechanism, force balance and displacement give wheel rate approximately equal to spring rate times r squared. A coilover moved inward on a control arm can lower wheel rate even if it retains the same spring. A real ratio can change through travel and with link angle.\n\n**Worked comparison.** A 60 N/mm spring with r = 0.80 gives 38.4 N/mm at the wheel. Moving the pickup so r = 0.60 yields 21.6 N/mm at the same local condition. A 40 mm wheel displacement corresponds to 24 mm at the spring if the latter ratio stays constant. Check damper stroke, spring seating, bump-stop engagement, tire clearance, hose routing and joint articulation across travel. Rate at ride height does not prove that travel is safe at bump and droop.\n\n**Plan a measurement.** On the unloaded geometry fixture choose a repeatable wheel-center datum, zero position and a dummy spring-length gauge. Mark independent wheel and spring scales. Make a prediction at three positions. Compare a strut, double wishbone and linked solid axle by locating the spring and the wheel-force path. Keep actual spring removal and structural pickup design within appropriately equipped and qualified work.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "suspension-build-3",
    "module": "m3",
    "title": "Build an unloaded front corner fixture",
@@ -172,6 +195,25 @@
    ]
   },
   {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Measure bump steer separately from lateral wheel movement",
+   "minutes": 45,
+   "topics": [
+    "Measure bump steer separately from lateral wheel movement"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A tie rod tracing a different arc from the suspension links can steer the upright while the steering rack stays fixed. Measuring the lateral motion of one rim point alone mixes steer with the entire wheel moving sideways. Use two points separated fore and aft on a rigid toe plate, measured from a common fixture reference. State which direction is positive before taking data. An actual alignment rig needs its own calibrated procedure.\n\n**Worked fixture.** Two gauge points are 400 mm apart. Through one travel step the front point moves laterally +3 mm and the rear moves +1 mm relative to the baseline. Their mean, +2 mm, represents the plate's lateral translation near its center. Their 2 mm differential over 400 mm gives a small yaw change of roughly 0.005 rad, or 0.29 degrees. The toe-in or toe-out label depends on side of the vehicle and the sign convention. Reversing the two gauge labels reverses the computed sign.\n\n**Independent work.** On a spring-free, securely supported hand-operated trainer, lock the rack reference and measure front and rear gauge points at bump, ride and droop. Take a return-travel reading to reveal play or fixture movement. Plot differential displacement against wheel travel. Test a reviewed reversible change on the unloaded trainer and repeat the same sweep. Submit both curves and state the limitations before any vehicle application.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
    "id": "suspension-build-4",
    "module": "m4",
    "title": "Plot the measured curve and evaluate a revision",
@@ -214,8 +256,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -430,6 +472,66 @@
       "Clearance across bump, droop and steering travel with the reviewed geometry and wheel/tire combination."
      ],
      "explanation": "Static ride height cannot locate an interference that occurs only in combined motion."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "18"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "For a 50 N/mm spring, with spring travel divided by wheel travel equal to 0.60, what is ideal local wheel rate in N/mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Turn spring position into wheel rate and travel margin",
+     "explanation": "50 × 0.60² = 18 N/mm for the stated ratio convention."
+    },
+    {
+     "choices": [
+      "Assume the ride-height ratio applies over the whole sweep.",
+      "Use only the unloaded spring free length.",
+      "Measure wheel and spring displacement across multiple travel positions."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q2",
+     "stem": "The ratio measured at ride height changes near full bump. Which approach addresses the change?",
+     "section": "m2",
+     "topic": "Turn spring position into wheel rate and travel margin",
+     "explanation": "The geometry can vary, so a local ratio need not describe full-stroke motion."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "The front and rear points on a rigid toe plate move laterally +5 mm and +2 mm, respectively. What is their differential displacement in mm, front minus rear? Enter the number only.",
+     "section": "m3",
+     "topic": "Measure bump steer separately from lateral wheel movement",
+     "explanation": "5 − 2 = 3 mm. Shared translation cancels in the difference."
+    },
+    {
+     "choices": [
+      "To reveal play, hysteresis or movement of the fixture.",
+      "To turn every calculated toe sign positive.",
+      "To replace the need for a measured wheel-travel datum."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "Why collect a return-travel reading on a hand-operated fixture?",
+     "section": "m3",
+     "topic": "Measure bump steer separately from lateral wheel movement",
+     "explanation": "A difference at the same nominal position can identify repeatability problems."
     }
    ]
   }
@@ -504,6 +606,18 @@
      "front": "A coilover lowers static ride height. What measurement directly catches a new steering or suspension interference?",
      "back": "Clearance across bump, droop and steering travel with the reviewed geometry and wheel/tire combination. Static ride height cannot locate an interference that occurs only in combined motion.",
      "topic": "Separate spring rate from installed wheel rate"
+    },
+    {
+     "id": "case-design-card",
+     "front": "The ratio measured at ride height changes near full bump. Which approach addresses the change?",
+     "back": "Measure wheel and spring displacement across multiple travel positions. The geometry can vary, so a local ratio need not describe full-stroke motion.",
+     "topic": "Turn spring position into wheel rate and travel margin"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Why collect a return-travel reading on a hand-operated fixture?",
+     "back": "To reveal play, hysteresis or movement of the fixture. A difference at the same nominal position can identify repeatability problems.",
+     "topic": "Measure bump steer separately from lateral wheel movement"
     }
    ]
   }
@@ -605,6 +719,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry Motorsports Management and Technology connects chassis work to vehicle setup. Northwest Technical College’s motorsports program combines chassis and fabricated components. This case assesses motion-ratio and toe-plate measurements on an unloaded fixture. Real pickup design requires qualified engineering. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -925,6 +1044,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Measured wheel and spring travel, both toe-plate points, a return check and two labeled comparison sweeps for the baseline and reviewed change on the unloaded fixture."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1020,6 +1208,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Measure bump steer separately from lateral wheel movement — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A local motion-ratio measurement and a bump-steer curve with a return check.",
+   "safety": [
+    "Secure the unloaded, spring-free fixture before sweeping it by hand. Verify stable support and clear pinch zones. Do not alter a loaded vehicle suspension for this exercise."
+   ],
+   "materials": [
+    "Secure unloaded spring-free geometry trainer, fixed rack reference, dummy spring gauge, rigid toe plate and two measuring stations"
+   ],
+   "steps": [
+    "Read “Turn spring position into wheel rate and travel margin”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a spring-free, securely supported hand-operated trainer, lock the rack reference and measure front and rear gauge points at bump, ride and droop. Take a return-travel reading to reveal play or fixture movement. Plot differential displacement against wheel travel. Test a reviewed reversible change on the unloaded trainer and repeat the same sweep. Submit both curves and state the limitations before any vehicle application.",
+    "File the following evidence with the course project. A local motion-ratio measurement and a bump-steer curve with a return check."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Travel / direction",
+      "Wheel displacement",
+      "Dummy spring travel",
+      "Toe front",
+      "Toe rear",
+      "Computed difference"
+     ],
+     "rows": 8
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

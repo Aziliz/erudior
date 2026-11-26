@@ -4,9 +4,9 @@
  "id": "auto-diagnostics",
  "title": "Engine Performance, Emissions and Hybrid Diagnostics",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Distinguish fuel delivery, ignition and air-metering faults. Map gasoline and diesel emissions controls, diagnose a trainer and verify its restored function. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A fault timeline, competing hypotheses and an evidence-based repair disposition.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Diagnostic design",
    "quiz": [
     "diagnostics-2-q2",
-    "cmp-aftertreatment-q2"
+    "cmp-aftertreatment-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Trainer diagnostics",
    "quiz": [
     "diagnostics-3-q3",
-    "shop-change-diagnostics"
+    "shop-change-diagnostics",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -126,6 +130,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Distinguish unmetered air from a fuel-delivery shortfall",
+   "minutes": 30,
+   "topics": [
+    "Distinguish unmetered air from a fuel-delivery shortfall"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "In a closed-loop spark-ignition example, a positive correction means the controller is adding fuel relative to its base calculation. The correction is a response to an observed mixture error. It does not identify the failed component. Compare conditions in which the possible faults behave differently. Exhaust leaks upstream of a sensor, air-meter error and a biased sensor can imitate other conditions. Read the manufacturer's definitions and units for the data items.\n\n**Worked comparison.** A recorded warm engine shows combined positive correction near +20% at idle, dropping near +4% at a stable raised speed. An intake leak that contributes a roughly fixed airflow would form a larger fraction of total flow at idle. That makes it a candidate. A second trace stays positive at both conditions and worsens as demand rises. Fuel delivery or air-meter accuracy moves higher on the list. Neither pattern alone establishes cause. Verify closed-loop state, coolant temperature, bank behavior and the original freeze frame before choosing the next test.\n\n**Design a discriminating test.** Draw air from the meter to each intake runner and exhaust from the ports past the upstream sensor. Mark paths that bypass the meter or admit oxygen ahead of the sensor. Choose the next manufacturer-approved check for two competing explanations. Use stored data, a trainer or an intact supervised vehicle. Preserve emissions devices, fault evidence and readiness information.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "diagnostics-3",
    "module": "m3",
    "title": "Introduce and recover a known sensor fault",
@@ -167,6 +190,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nEngine control, vapor and exhaust, Vapor and diesel detail. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Cat-back exhaust and resonator\n- ECU calibration for matched hardware\n- Fuel pump or injector capacity upgrade\n- Application-approved exhaust manifold or header\n\n## Worked example\n\nA downstream resonator makes a steady-rpm cabin tone quieter but does little to the peak exterior reading. That supports a limited acoustic claim. It supplies no evidence about emissions compliance or torque. Inventory every sensor and catalyst on the exact car before defining where a downstream modification begins.\n\n## Guided decision\n\n```example fade=1\nproblem: Two sound measurements use different road speeds and microphone locations. Which claim can be made?\nstep: Repeat at fixed load/rpm, microphone position and comparable background conditions.\nanswer: Until then report observations only; check applicable noise rules by their own prescribed method.\n```\n\n## Independent workshop\n\nMock up a removable cold exhaust section in card or tube off the vehicle. Locate service joints, hot-movement allowance and retained emissions interfaces; compare two acoustic designs on paper or a safe sound fixture.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-diagnostics"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Read a fault timeline before replacing the named sensor",
+   "minutes": 45,
+   "topics": [
+    "Read a fault timeline before replacing the named sensor"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A fault code identifies a monitored condition. In a shared-reference circuit one shorted load can pull several sensors out of range. A healthy sensor can also report a genuine mechanical fault. Compare the commanded state with measured electrical and mechanical evidence and place each observation on a time axis.\n\n**Worked trace.** On a low-voltage simulator, a 5.0 V reference and two sensor outputs drop together when a replaceable fault card is selected. The supply input to the controller stays normal. The first drop appears on the shared reference. Two simultaneous sensor replacements would not explain that common event. With the simulator de-energized, isolate branches as its schematic permits, energize and compare the reference with the same supply, fault selection and remaining branches. A recovered reference after removing one branch identifies a branch for further inspection. It does not identify which wire or device within the branch failed.\n\n**Independent simulator trace.** A supply held at 12.0 V feeds a model controller. At t = 0 s, fault inactive, its reference and outputs A/B read 5.0/1.5/3.0 V. At t = 2 s, fault active, they read 1.0/0.3/0.6 V. All three changed between sampled rows; their exact order inside that interval is unresolved. After power-down, branch B is disconnected and the same fault selection is retained. At t = 10 s on restart, reference/A read 5.0/1.5 V and B is disconnected. After another power-down, reconnect B and remove the fault. At t = 20 s, with the original load restored, reference/A/B return to 5.0/1.5/3.0 V. The supply stays at 12.0 V for each energized row. Record the branch this implicates and one test that would distinguish its wiring from its sensor. The isolated branch’s load has deliberately changed.\n\n**Independent work.** Use a current-limited sensor trainer or recorded traces. Identify the earliest change, label the points that share a supply or ground, and write down a prediction before the isolation test. Restore the normal circuit and compare both sensor range and reference stability at the original load. On the capstone file record what would count as a verified repair under the original enabling conditions. A cleared code alone is insufficient evidence.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -212,8 +254,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -428,6 +470,66 @@
       "Clearing diagnostic monitors immediately before inspection."
      ],
      "explanation": "Compatibility and applicable emissions requirements depend on the actual configuration."
+    },
+    {
+     "choices": [
+      "A specific oxygen sensor is proven failed.",
+      "An ignition coil is proven open.",
+      "A roughly fixed unmetered intake airflow."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q1",
+     "stem": "A recorded warmed engine adds much more fuel trim at idle than at higher steady airflow. Which hypothesis fits that dependency?",
+     "section": "m2",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall",
+     "explanation": "The fraction of total airflow from a fixed leak is greater at idle. Additional checks must distinguish alternatives."
+    },
+    {
+     "choices": [
+      "Compare known loop state, load, banks and temperature using the donor data definitions.",
+      "Use the diagnostic trouble code alone as the part number.",
+      "Compare two random snapshots with unknown load."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which comparison makes a fuel-trim test interpretable?",
+     "section": "m2",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall",
+     "explanation": "Trims and control responses depend on operating conditions."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3.8"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A training reference drops from 5.0 V to 1.2 V when a fault card is selected. How large is the drop in V? Enter the number only.",
+     "section": "m3",
+     "topic": "Read a fault timeline before replacing the named sensor",
+     "explanation": "5.0 − 1.2 = 3.8 V."
+    },
+    {
+     "choices": [
+      "Replace both sensors immediately.",
+      "Assume a permanent processor failure from the two codes.",
+      "Isolate one branch with power off, re-energize and remeasure the shared reference with the same supply, fault selection and remaining branches."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Two sensors change simultaneously when their shared reference falls. Which test best narrows the cause on the approved simulator?",
+     "section": "m3",
+     "topic": "Read a fault timeline before replacing the named sensor",
+     "explanation": "Recovery after a controlled branch change identifies the branch for further localization."
     }
    ]
   }
@@ -502,6 +604,18 @@
      "front": "An ECU calibration is advertised for the same engine family. What evidence belongs in a road-use design review?",
      "back": "Exact vehicle, hardware and calibration applicability, required emissions evidence and a reproducible validation plan. Compatibility and applicable emissions requirements depend on the actual configuration.",
      "topic": "Separate an acoustic improvement from an emissions change"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which comparison makes a fuel-trim test interpretable?",
+     "back": "Compare known loop state, load, banks and temperature using the donor data definitions. Trims and control responses depend on operating conditions.",
+     "topic": "Distinguish unmetered air from a fuel-delivery shortfall"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Two sensors change simultaneously when their shared reference falls. Which test best narrows the cause on the approved simulator?",
+     "back": "Isolate one branch with power off, re-energize and remeasure the shared reference with the same supply, fault selection and remaining branches. Recovery after a controlled branch change identifies the branch for further localization.",
+     "topic": "Read a fault timeline before replacing the named sensor"
     }
    ]
   }
@@ -598,6 +712,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF216/217 cover fuel injection inputs, outputs and diagnosis. UVU AUT2255 works with electronic fuel delivery and scan data. ASE computerized control tasks 5 and 7 (PDF pp. 94–95) address sensor/circuit tests and graphed control data. The cases use recorded data or a current-limited simulator. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -918,6 +1037,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "A synchronized trace of supply, reference and both outputs, a written branch-isolation prediction, post-isolation evidence and verification after restoration."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1013,6 +1201,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Read a fault timeline before replacing the named sensor — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A fault timeline, competing hypotheses and an evidence-based repair disposition.",
+   "safety": [
+    "Use the current-limited simulator or provided traces. De-energize the simulator before isolating branches. Keep vehicle emission controls intact."
+   ],
+   "materials": [
+    "Current-limited simulator or recorded traces with time, reference, supply, ground and sensor channels, plus the matching diagram"
+   ],
+   "steps": [
+    "Read “Distinguish unmetered air from a fuel-delivery shortfall”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Use a current-limited sensor trainer or recorded traces. Identify the earliest change, label the points that share a supply or ground, and write down a prediction before the isolation test. Restore the normal circuit and compare both sensor range and reference stability at the original load. On the capstone file record what would count as a verified repair under the original enabling conditions. A cleared code alone is insufficient evidence.",
+    "File the following evidence with the course project. A fault timeline, competing hypotheses and an evidence-based repair disposition."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Timestamp / load",
+      "Command",
+      "Reference V",
+      "Sensor A / B",
+      "First change",
+      "Retest result"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

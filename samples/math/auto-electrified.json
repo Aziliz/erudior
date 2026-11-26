@@ -4,9 +4,9 @@
  "id": "auto-electrified",
  "title": "Electrified Vehicles, ABS and Driver Assistance",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare hybrid and battery-electric power paths, wheel-speed sensors, stability control, restraints and driver assistance. Test a protected sensor fixture and plan model-specific calibration. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A wheel-speed comparison and a justified service or calibration referral.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — System design",
    "quiz": [
     "electrified-2-q2",
-    "cmp-safety-sensors-q2"
+    "cmp-safety-sensors-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Instrumented implementation",
    "quiz": [
     "electrified-3-q3",
-    "shop-change-electrified"
+    "shop-change-electrified",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -124,6 +128,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Interpret regenerative and friction braking together",
+   "minutes": 30,
+   "topics": [
+    "Interpret regenerative and friction braking together"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "In many hybrids and EVs the controller blends regenerative motor torque with friction braking. Battery charge acceptance, temperature, traction control and motor speed affect available regeneration. The driver may request the same deceleration on two runs while the system assigns different work to each source. A change in regeneration is not evidence by itself that hydraulic brakes have failed. Use the donor's actual signal definitions and sign convention.\n\n**Worked energy balance.** An idealized 1,000 kg vehicle slows from 20 m/s to 10 m/s on level ground. Its change in kinetic energy is 0.5 × 1,000 × (400 − 100) = 150 kJ. A recorded 90 kJ of electrical energy returned to the battery represents 60% of that change. Some energy heats friction brakes, some is lost in the drivetrain and conversion, and some goes to road and air resistance. The remaining 60 kJ cannot all be assigned to the brake discs from those two measurements.\n\n**Plan a comparison.** On published or instructor-supplied traces mark speed, deceleration request, regenerative command, reported battery limits, friction demand and wheel slip. Compare events with similar speed and request. Keep all exercises on recorded data or the existing low-voltage sensor rig. Opening a traction pack or probing high-voltage circuits is outside the exercise.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "electrified-3",
    "module": "m3",
    "title": "Build a low-voltage wheel-speed trainer",
@@ -163,6 +186,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nElectrified drive, restraint and assistance, Hybrid and EV thermal and charge hardware. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Low-rolling-resistance tires on a hybrid or EV\n- Driver-assistance-compatible wheel or ride-height change\n\n## Worked example\n\nOn a 100 km equivalent cycle a hybrid in charge-sustaining operation must start and end at comparable battery state of charge to support a fuel comparison. A BEV test separately compares kWh per distance. A colder pack, active cabin heat or mismatched pressure can dominate a wheel-related change.\n\n## Guided decision\n\n```example fade=1\nproblem: A BEV uses 9 kWh in 50 km on one controlled test. How do you normalize it?\nstep: Divide energy by distance and multiply by 100.\nanswer: 18 kWh/100 km. Match HVAC, tires, route and temperature to the baseline before attributing a difference.\n```\n\n## Independent workshop\n\nUse a wheel/sensor trainer or guarded low-voltage model to compare encoder counts or losses. Map the untouched high-voltage assemblies by exact ID and record specialist evidence where needed.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-electrified"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Resolve a wheel-speed mismatch before requesting calibration",
+   "minutes": 45,
+   "topics": [
+    "Resolve a wheel-speed mismatch before requesting calibration"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "ABS, traction and some driver-assistance functions share wheel-speed information. Pulse frequency, effective rolling circumference and conversion in the controller all matter. A periodic dropout can follow a damaged encoder segment. A steady percentage bias can reflect a different circumference or an incorrect pulse count. Verify the basic mechanical and signal inputs before a calibration decision.\n\n**Worked bench test.** An unloaded hand-driven encoder ring has 48 evenly spaced events per revolution. At two revolutions per second it produces 96 events per second. A second ring at exactly the same shaft speed produces 88 events per second. Check its event count and the measurement window. A wrong 44-event ring could explain that stable ratio. A single missing event repeatedly at one marked angle suggests a local defect instead. On the vehicle, differing actual wheel speeds in a turn are expected and must not be diagnosed as a fault using straight-line assumptions.\n\n**Independent stored traces.** At the same indicated vehicle speed and requested deceleration, event A reports high available charge acceptance, high regen request and low friction demand. Event B limits charge acceptance, reduces regen request and raises friction demand; its wheel speeds agree to the instrument resolution. Explain why the two traces warrant different first checks from an event with one repeating wheel-speed dropout.\n\n**Independent work.** On a guarded hand-driven low-voltage trainer, mark one revolution, count events and measure a second run over several revolutions. Introduce a removable optical marker fault only if the trainer allows it. Restore the reference condition. In a separate service scenario, identify what the exact OEM requires after a sensor, wheel or camera-related repair and document whether a calibration referral is needed.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -208,8 +250,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -424,6 +466,66 @@
       "The vehicle's advertised maximum charging rate by itself."
      ],
      "explanation": "The battery controller can constrain accepted power at particular operating conditions."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "55"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A recorded braking event removes 100 kJ of kinetic energy and returns 55 kJ to the battery. What percentage of that kinetic-energy change reached the battery? Enter the number only.",
+     "section": "m2",
+     "topic": "Interpret regenerative and friction braking together",
+     "explanation": "55 ÷ 100 × 100 = 55 percent."
+    },
+    {
+     "choices": [
+      "No. Other mechanical, electrical and road losses can contribute.",
+      "Yes, if tire circumference is known.",
+      "Yes, because the battery meter captured every other energy transfer."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Can the balance of kinetic energy after measured battery recovery be assigned entirely to disc heat?",
+     "section": "m2",
+     "topic": "Interpret regenerative and friction braking together",
+     "explanation": "The two available energy measurements cannot distinguish the remaining sinks."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "120"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A 40-event ring runs at 3 revolutions/s. What is its event frequency in Hz? Enter the number only.",
+     "section": "m3",
+     "topic": "Resolve a wheel-speed mismatch before requesting calibration",
+     "explanation": "40 × 3 = 120 events per second."
+    },
+    {
+     "choices": [
+      "The traction battery’s state of charge.",
+      "Road curvature.",
+      "The local encoder feature, gap or sensing condition at that angle."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "One signal dropout repeats at the same marked angle of the hand-turned trainer. What should be examined first?",
+     "section": "m3",
+     "topic": "Resolve a wheel-speed mismatch before requesting calibration",
+     "explanation": "Angular repeatability points to a localized ring or sensing issue on the trainer."
     }
    ]
   }
@@ -498,6 +600,18 @@
      "front": "A regenerative-braking complaint appears only with a cold full battery. What data helps distinguish an expected limit?",
      "back": "Compare requested regeneration, allowable charge power, battery temperature and state of charge during the event. The battery controller can constrain accepted power at particular operating conditions.",
      "topic": "Measure efficiency without hiding the operating conditions"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Can the balance of kinetic energy after measured battery recovery be assigned entirely to disc heat?",
+     "back": "No. Other mechanical, electrical and road losses can contribute. The two available energy measurements cannot distinguish the remaining sinks.",
+     "topic": "Interpret regenerative and friction braking together"
+    },
+    {
+     "id": "case-test-card",
+     "front": "One signal dropout repeats at the same marked angle of the hand-turned trainer. What should be examined first?",
+     "back": "The local encoder feature, gap or sensing condition at that angle. Angular repeatability points to a localized ring or sensing issue on the trainer.",
+     "topic": "Resolve a wheel-speed mismatch before requesting calibration"
     }
    ]
   }
@@ -584,6 +698,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Mt. Hood AMF136/137 cover ABS diagnosis. UVU AUT2210/2215 connect braking theory, including regenerative braking, with diagnostic work. ASE electronic brake control tasks 1, 2 and 5 (PDF p. 78) inform the wheel-speed exercises. Regenerative energy is studied on recorded data without opening a traction system. [Mt. Hood AMF outcomes](https://catalog.mhcc.edu/courses-az/amf/amf.pdf) · [Utah Valley University AUT courses](https://catalog.uvu.edu/courses/aut/) · [ASE automobile standards](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -904,6 +1023,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Known ring event count and timing window, at least two measured trials, dropout or repeatability evidence and a donor-specific calibration or referral record."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -999,6 +1187,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Resolve a wheel-speed mismatch before requesting calibration — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A wheel-speed comparison and a justified service or calibration referral.",
+   "safety": [
+    "Use recorded data or a guarded hand-driven low-voltage rig. Do not access high-voltage components or disable vehicle safety systems for this exercise."
+   ],
+   "materials": [
+    "Hand-driven low-voltage encoder trainer, labeled encoder rings, counter or recorded pulse trace, verified timing reference"
+   ],
+   "steps": [
+    "Read “Interpret regenerative and friction braking together”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "On a guarded hand-driven low-voltage trainer, mark one revolution, count events and measure a second run over several revolutions. Introduce a removable optical marker fault only if the trainer allows it. Restore the reference condition. In a separate service scenario, identify what the exact OEM requires after a sensor, wheel or camera-related repair and document whether a calibration referral is needed.",
+    "File the following evidence with the course project. A wheel-speed comparison and a justified service or calibration referral."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Ring ID",
+      "Turns / interval",
+      "Expected events",
+      "Observed events",
+      "Angle pattern",
+      "Restored result"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

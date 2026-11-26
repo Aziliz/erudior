@@ -4,9 +4,9 @@
  "id": "auto-capstone",
  "title": "Capstone: Build and Commission Your Own Car",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Fabricate and assemble your own complete car. Defend component choices, reconcile the actual bill of materials, and demonstrate starting, moving, steering, braking, holding and shutdown. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A closed cross-system change record attached to the actual completed-car demonstration.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -22,7 +22,9 @@
    "title": "Design — Vehicle design release",
    "quiz": [
     "capstone-2-q2",
-    "cmp-as-built-q2"
+    "cmp-as-built-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -30,7 +32,9 @@
    "title": "Implementation — Full-size construction",
    "quiz": [
     "capstone-3-q3",
-    "shop-change-capstone"
+    "shop-change-capstone",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -102,6 +106,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Trace one design change across the entire car",
+   "minutes": 30,
+   "topics": [
+    "Trace one design change across the entire car"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Build a change record for a real interface before accepting a modification. Start with its purpose and measurable success criterion. Follow affected geometry, fasteners, material compatibility, thermal load, wiring, service access and inspection requirements. A successful fit at one position can conceal an interference at full travel, a harness near heat or a connection that cannot be serviced with the body installed.\n\n**Worked change.** A proposed radiator module moves 15 mm rearward on a drawing. The old stationary gap to a nearby envelope was 24 mm, leaving a nominal 9 mm after the change if everything else stays fixed. That number is a starting point. Establish motion, mounting flexibility, fan shroud clearance, hose bend and bleed routing, support load path, electrical protection and removal access. Select the points to measure cold, with the allowed representative motion and during supervised commissioning. A clearance target must come from the applicable engineering or component authority.\n\n**Design review.** Select one real change from your own bill of materials. Show the original and proposed part on the same datums. Link at least three dependent interfaces, the source of each acceptance limit, the person authorized to accept it and the state to restore if it fails. Add the actual inspections and evidence to the existing commissioning plan, including any effect on the registration or emissions configuration.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "capstone-3",
    "module": "m3",
    "title": "Build the complete car and retain the evidence",
@@ -139,6 +162,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nFinal detail and accountability, Attachment and sealing details, Small hardware and finishing. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Full-build change control and rollback\n\n## Worked example\n\nThe released service-plate drawing requires two mounting screws and two washers. Stores issued two washers and the receipt agrees, but inspection finds only the left one installed. Required 2, issued 2, installed 1, verified 1. Log the missing right-hand instance and hold that assembly. Fit a verified part, recheck and update only that position.\n\n## Guided decision\n\n```example fade=1\nproblem: A supplier's sealed module has no published internal service breakdown. How is it accounted for?\nstep: Record the complete traceable module, revision, supplier, quantity, installation and external interfaces; identify its internal boundary explicitly.\nanswer: Close the sealed assembly with traceability and functional evidence. Add separately supplied seals, brackets, connectors and hardware as their own installed items.\n```\n\n## Independent workshop\n\nUse the full bill-of-materials reconciliation and witness inspection. Submit one built modification or fitted prototype with measured results and the final real-car demonstration.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-capstone"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Close a failed commissioning check and repeat dependent tests",
+   "minutes": 45,
+   "topics": [
+    "Close a failed commissioning check and repeat dependent tests"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Commissioning proceeds in stages so that a failed check has a known boundary. On a complete project separate cold static inspection, secured stationary functional checks and independently authorized controlled-site movement. Disable or isolate energy according to applicable service procedures before adjustment. Release of brakes, steering, restraints, fuel systems, high voltage or public-road use requires the applicable qualified inspection or legal approval. Academic completion never substitutes for those releases.\n\n**Worked decision.** In a stationary training record a fan draws 11 A at the measured supply and its return connector drops 0.55 V under that load. About 6.05 W is dissipated across that connection. The connector warms and the project fails its specified check. Stop, de-energize, investigate terminal fit and conductor/connector suitability, then remeasure under the same load. A new connector producing a 0.05 V drop at 11 A dissipates about 0.55 W. Retest cooling fan operation, harness clearance and nearby affected systems before closing the finding. Those numbers illustrate the comparison and do not establish an allowed connector temperature or voltage drop.\n\n**Independent handoff.** Take a real discrepancy from the garage build. Preserve its original measurement and configuration. Record the correction, affected part IDs, inspection authority, repeat result and any dependent tests that must run again. Present the signed closure with the complete vehicle, as-built dossier and witnessed final demonstration. If there is an open critical finding, document the hold and repair it before movement.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -184,8 +226,8 @@
     }
    ],
    "exam": {
-    "questionCount": 12,
-    "timeLimitMinutes": 30,
+    "questionCount": 16,
+    "timeLimitMinutes": 40,
     "passingPercent": 75
    },
    "questions": [
@@ -370,6 +412,66 @@
       "Mark the assembly verified because it moves."
      ],
      "explanation": "Procured, installed and verified quantities are distinct evidence."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "16"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A stationary packaging gap is 28 mm. A design moves a component 12 mm toward the obstruction with everything else fixed. What is the new nominal stationary gap in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Trace one design change across the entire car",
+     "explanation": "28 − 12 = 16 mm before motion, tolerances or mount compliance."
+    },
+    {
+     "choices": [
+      "Only the static front-view photo.",
+      "Clearance over relevant motion, hoses, fan electrical load, airflow and service access.",
+      "Only the purchase receipt."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "A radiator fits statically after relocation. Which evidence belongs in the change review?",
+     "section": "m2",
+     "topic": "Trace one design change across the entire car",
+     "explanation": "A geometry change can disturb thermal, electrical and maintenance interfaces together."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "3.2"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "A loaded trainer connector drops 0.40 V at 8 A. What power is dissipated across that connector in watts? Enter the number only.",
+     "section": "m3",
+     "topic": "Close a failed commissioning check and repeat dependent tests",
+     "explanation": "Power in the connection is Vdrop × I = 0.40 × 8 = 3.2 W."
+    },
+    {
+     "choices": [
+      "Trace the part change, repeat under the original conditions, retest affected systems and obtain the applicable witness disposition.",
+      "Erase the initial failed measurement.",
+      "Conclude the entire vehicle is ready from one unloaded voltage reading."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q4",
+     "stem": "The terminal repair passes a local voltage-drop test. What closes the capstone finding?",
+     "section": "m3",
+     "topic": "Close a failed commissioning check and repeat dependent tests",
+     "explanation": "Closure requires evidence under comparable conditions plus the dependent checks affected by the change."
     }
    ]
   }
@@ -438,6 +540,18 @@
      "front": "An exploded drawing shows a washer at each of four mounts. The bill lists four, but one is unaccounted for on the car. What closes the discrepancy?",
      "back": "Verify each installation position against the exact released drawing, correct or document the disposition, then obtain reinspection. Procured, installed and verified quantities are distinct evidence.",
      "topic": "Close an as-built discrepancy one position at a time"
+    },
+    {
+     "id": "case-design-card",
+     "front": "A radiator fits statically after relocation. Which evidence belongs in the change review?",
+     "back": "Clearance over relevant motion, hoses, fan electrical load, airflow and service access. A geometry change can disturb thermal, electrical and maintenance interfaces together.",
+     "topic": "Trace one design change across the entire car"
+    },
+    {
+     "id": "case-test-card",
+     "front": "The terminal repair passes a local voltage-drop test. What closes the capstone finding?",
+     "back": "Trace the part change, repeat under the original conditions, retest affected systems and obtain the applicable witness disposition. Closure requires evidence under comparable conditions plus the dependent checks affected by the change.",
+     "topic": "Close a failed commissioning check and repeat dependent tests"
     }
    ]
   }
@@ -514,6 +628,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry’s motorsports lab sequence ties engines, chassis and fabrication to a complete vehicle. Northwest Technical College’s program includes an integrated project and fabrication coursework. This portfolio requires a whole-vehicle change record and a witnessed closure in addition to the existing full-car demonstration. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -876,6 +995,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "The actual vehicle discrepancy with original and revised part IDs, the acceptance authority, comparable before/after measurements, all dependent checks and an identified witness who signs the disposition."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The actual vehicle discrepancy is closed under the applicable authority with dependent retests, witness and date. An open critical item stays on hold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -995,6 +1183,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Close a failed commissioning check and repeat dependent tests — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A closed cross-system change record attached to the actual completed-car demonstration.",
+   "safety": [
+    "Use the actual vehicle, its approved commissioning plan and qualified review. Stop on open critical findings. Isolate energy before adjustment and obtain the applicable independent release before movement."
+   ],
+   "materials": [
+    "Actual vehicle change record, original and revised drawing, measured discrepancy and applicable inspection procedure"
+   ],
+   "steps": [
+    "Read “Trace one design change across the entire car”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Take a real discrepancy from the garage build. Preserve its original measurement and configuration. Record the correction, affected part IDs, inspection authority, repeat result and any dependent tests that must run again. Present the signed closure with the complete vehicle, as-built dossier and witnessed final demonstration. If there is an open critical finding, document the hold and repair it before movement.",
+    "File the following evidence with the course project. A closed cross-system change record attached to the actual completed-car demonstration."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Finding / part ID",
+      "Original configuration",
+      "Measured result and criterion",
+      "Change",
+      "Retest / dependent checks",
+      "Witness and status"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

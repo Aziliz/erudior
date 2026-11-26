@@ -4,9 +4,9 @@
  "id": "auto-fabrication",
  "title": "Chassis Design, Welding and Fabrication",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare unibody, ladder-frame and spaceframe structures, choose materials and joints, then fabricate and inspect a structural teaching bay. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A locator drawing and a three-stage inspection map that detects out-of-plane error.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -23,7 +23,9 @@
    "title": "Design — Fixture design",
    "quiz": [
     "fabrication-2-q2",
-    "cmp-joints-materials-q2"
+    "cmp-joints-materials-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -31,7 +33,9 @@
    "title": "Implementation — Fabrication",
    "quiz": [
     "fabrication-3-q3",
-    "shop-change-fabrication"
+    "shop-change-fabrication",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -123,6 +127,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Design a fixture that locates without overconstraining",
+   "minutes": 30,
+   "topics": [
+    "Design a fixture that locates without overconstraining"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A weldment can match the fixture while clamped and spring out of shape when released. Separate locating from clamping. A locator defines position. A clamp holds the work against that locator. Three separated contacts can establish a primary plane, two contacts a secondary reference and one an end stop on a suitable rigid workpiece. Thin sheet or tube can deform when excessive force is used to force contact. Choose support locations and forces that suit the work.\n\n**Worked stack.** A fixture stop can shift 0.3 mm from its datum. A cut part can vary 0.4 mm along the same axis, and clearance at the locator permits another 0.2 mm displacement. A simple worst-case stack is 0.9 mm if all errors act in the same direction. A drawing allowing only ±0.5 mm cannot rely on that stack alone. Redesign the reference or add an independent final check. Statistical cancellation is an assumption requiring evidence.\n\n**Design the bay.** On a tabletop geometry model, identify six rigid-body motions and mark what constrains each. Show access to fit, tack, inspect and remove the assembly. Compare a removable stop with a permanently welded stop in the path of extraction. The jig plan must specify at least one dimension checked from the drawing datum independently of the jig.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "fabrication-3",
    "module": "m3",
    "title": "Make a jig and a representative welded bay",
@@ -162,6 +185,25 @@
    "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nPrimary structure, joints and attachment hardware, Mounting and underbody protection. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Bolt-on chassis brace\n- Serviceable undertray\n\n## Worked example\n\nA teaching bracket's two hole centers are nominally 40.0 mm apart. A direct center-spacing tolerance of ±0.5 mm makes 40.4 acceptable and 40.7 a rework. If both holes instead have ±0.5 mm independent position dimensions from an edge, the worst-case separation error is ±1.0 mm. Specify the functional distance directly.\n\n## Guided decision\n\n```example fade=1\nproblem: A bracket fits only after bending the cables around its cut edge. Which design item was missed?\nstep: Check edge condition, protected clearance and cable bend radius with the actual connector fitted.\nanswer: Revise the route or bracket and inspect the measured assembly before adding it to the build.\n```\n\n## Independent workshop\n\nMake the two-hole nonstructural service plate in the bench plans, log each manufactured and purchased part, and test removal and refit.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
    "quiz": [
     "shop-change-fabrication"
+   ]
+  },
+  {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Map tack-stage drift and released-frame error",
+   "minutes": 45,
+   "topics": [
+    "Map tack-stage drift and released-frame error"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Matching diagonals are one check on a nominal rectangle. They do not establish that the member lengths, 3D height or pickup coordinates meet the drawing. A correctly shaped but misplaced rectangle can have equal diagonals. A twisted bay can also fool a two-dimensional photograph. Use a common reference plane and identify the same measuring points at each stage.\n\n**Worked diagnosis.** A detached teaching bay has two equal plan diagonals. Three datum pads contact the surface plate, but a feeler gauge reveals a 1.2 mm gap under the fourth pad after release. The diagonals cannot resolve the out-of-plane discrepancy. First confirm the reference is suitable, the contact faces are clean and the part is supported as the drawing specifies. Measure the pad height and remeasure after turning or repositioning as appropriate. Distinguish a burr or local pad error from a twisted assembly.\n\n**Independent work.** Build a cold, bolted tabletop mock-up or use the existing supervised teaching bay. Record locator contacts, two diagonals and four heights at fit, tack or equivalent temporary assembly, and release. Change one removable shim on the unloaded mock-up and predict which checks will change. Restore it. Carry the evidence into the chassis drawing review; safety-critical chassis loads and welds require separate competent engineering and inspection.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -207,8 +249,8 @@
     }
    ],
    "exam": {
-    "questionCount": 14,
-    "timeLimitMinutes": 34,
+    "questionCount": 18,
+    "timeLimitMinutes": 44,
     "passingPercent": 75
    },
    "questions": [
@@ -423,6 +465,66 @@
       "The load path through the attachment and the supporting structure under the intended loads."
      ],
      "explanation": "A brace can move the weak point into its attachment or surrounding body."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.9"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A one-axis worst-case stack contains 0.2, 0.3 and 0.4 mm possible errors in the same direction. What is the resulting displacement in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Design a fixture that locates without overconstraining",
+     "explanation": "Add the same-direction contributions: 0.2 + 0.3 + 0.4."
+    },
+    {
+     "choices": [
+      "Prove the resulting assembly is structurally qualified.",
+      "Hold the work against the intended locating features.",
+      "Redefine its datum each time the screw is tightened."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q2",
+     "stem": "What is the distinct job of a clamp in a fixture with dedicated locators?",
+     "section": "m2",
+     "topic": "Design a fixture that locates without overconstraining",
+     "explanation": "A locator defines geometry. A clamp supplies holding force."
+    },
+    {
+     "choices": [
+      "The combined length of the weld beads.",
+      "Individual pad heights or gaps from the drawing reference plane.",
+      "A third reading of the same two diagonals alone."
+     ],
+     "answer": [
+      1
+     ],
+     "id": "case-q3",
+     "stem": "A released bay has equal diagonals but rocks on a verified flat reference. Which measurement directly examines the missed condition?",
+     "section": "m3",
+     "topic": "Map tack-stage drift and released-frame error",
+     "explanation": "The rocking suggests out-of-plane error or a local contact issue."
+    },
+    {
+     "choices": [
+      "Change the reference plane between trials without recording it.",
+      "Use only a photograph taken while clamped.",
+      "Repeat the same datum-based readings before, while held, and after release."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "An unloaded mock-up changes after clamping. Which comparison distinguishes fixture restraint from the released condition?",
+     "section": "m3",
+     "topic": "Map tack-stage drift and released-frame error",
+     "explanation": "Matched measurements expose the stage at which a discrepancy appears."
     }
    ]
   }
@@ -497,6 +599,18 @@
      "front": "A bolted brace passes a dimensional check but has an unreviewed attachment to thin sheet. What evidence is missing?",
      "back": "The load path through the attachment and the supporting structure under the intended loads. A brace can move the weak point into its attachment or surrounding body.",
      "topic": "Make a drawing someone else can inspect"
+    },
+    {
+     "id": "case-design-card",
+     "front": "What is the distinct job of a clamp in a fixture with dedicated locators?",
+     "back": "Hold the work against the intended locating features. A locator defines geometry. A clamp supplies holding force.",
+     "topic": "Design a fixture that locates without overconstraining"
+    },
+    {
+     "id": "case-test-card",
+     "front": "An unloaded mock-up changes after clamping. Which comparison distinguishes fixture restraint from the released condition?",
+     "back": "Repeat the same datum-based readings before, while held, and after release. Matched measurements expose the stage at which a discrepancy appears.",
+     "topic": "Map tack-stage drift and released-frame error"
     }
    ]
   }
@@ -583,6 +697,11 @@
    "id": "bench-plan",
    "title": "Make a removable two-hole service plate",
    "body": "**Objective.** Make a non-load-bearing cover for a flat scrap practice board. Its two mounting holes must register on existing threaded bench-fixture holes, and a second person must be able to remove and refit it with the specified hand tool. This teaches how to set datums, lay out a part, select hardware and reconcile every installed item.\n\n**Drawing SP-01, revision A.** For the exercise use 1.0 mm formable aluminum sheet, two M4 machine screws, two plain washers and two M4 threaded fixture positions 40.0 mm apart. Select screw length for the actual board/support stack without bottoming or breaking through into a hazard. A tapped practice board or two secured nuts may provide the female threads. Record the version you actually use.\n\n| Feature | Dimension or acceptance condition |\n|---|---|\n| Outer rectangle | 70.0 × 35.0 mm, ±0.5 mm each direction |\n| Datum A | Bottom long edge viewed from marked face |\n| Datum B | Left short edge viewed from marked face |\n| Left hole center | 15.0 ±0.3 mm from B, 17.5 ±0.3 mm from A |\n| Right hole center | 40.0 ±0.5 mm to the right of the left hole, 17.5 ±0.3 mm from A |\n| Both through holes | 4.5 mm nominal, exercise acceptance 4.4–4.7 mm |\n| Finish and fit | Broken/deburred edges, clearance to hardware, both screws start by hand without moving either threaded position, cover removes and refits three times |\n\n1. Measure the board, actual threaded-hole spacing, screw major diameter, washer outside diameter, stack and tool envelope. Make and label a card template from the two datums. If the board differs from the drawing, record a revision before cutting.\n2. Mark stock and hole centers using square and rule or height gauge. Cut oversize with suitable sheet tools and finish to the outline. Clamp thin sheet flat to a sacrificial backer for drilling, use eye protection and keep hands clear of the tool. Use safe chip removal and shop-approved tooling.\n3. Drill the two holes, deburr both faces, radius sharp corners and mark the datum face. Use equal, close-fitting gauge pins of known diameter in measured holes of comparable diameter, or a suitable center-measuring tool. For the equal-pin method, outside-over-pins minus one pin diameter estimates center spacing. Account for pin-to-hole clearance and instrument uncertainty. If the resulting interval crosses a limit, remeasure with a more suitable method.\n4. Assemble left and right M4 screws with one specified washer at each position. If using separate nuts, add both as individual bill-of-materials instances. Verify clearance on the underside of the board and that hardware does not bottom out. Cycle removal and refit three times.\n5. Compare as-built numbers against the drawing. Example inspection: with two 4.49 mm pins in 4.50 mm holes, an outside measurement of 44.69 mm estimates 40.20 mm center spacing. With estimated total uncertainty ±0.03 mm the complete interval is inside the specified spacing range; it cannot prove hole diameter or edge position. Check those separately.\n\n**Fresh assignment.** A supplied teaching board has holes 52.0 mm apart. Design a new cover which keeps the left datum and comparable edge margins, document a new overall length and right-hole location, make it and have another learner inspect it. Submit the drawing, finished sample, actual readings and bill of materials. A disproportionate or slotted second hole to hide an error requires a documented design change."
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry MTS 130 and 135 cover motorsports structural technology and sheet-metal fabrication. Northwest Technical College lists Motorsports Fabrication I and II (MOTO 2225 and 2231). This case adds a datum-based three-stage dimensional map; chassis load acceptance belongs to the design authority. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -903,6 +1022,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "The locator sketch, both plan diagonals and four identified pad heights or gaps from a common reference at fit-up, temporary assembly and release, including an independent datum check."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -998,6 +1186,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Map tack-stage drift and released-frame error — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A locator drawing and a three-stage inspection map that detects out-of-plane error.",
+   "safety": [
+    "Use the secured cold tabletop model for the reversible shim trial. Keep it unloaded. Hot work, if separately authorized for the existing teaching bay, follows the approved shop controls."
+   ],
+   "materials": [
+    "Detached cold tabletop bay or bolted fixture, flat reference, stops, shims and a suitable height-measuring tool"
+   ],
+   "steps": [
+    "Read “Design a fixture that locates without overconstraining”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Build a cold, bolted tabletop mock-up or use the existing supervised teaching bay. Record locator contacts, two diagonals and four heights at fit, tack or equivalent temporary assembly, and release. Change one removable shim on the unloaded mock-up and predict which checks will change. Restore it. Carry the evidence into the chassis drawing review; safety-critical chassis loads and welds require separate competent engineering and inspection.",
+    "File the following evidence with the course project. A locator drawing and a three-stage inspection map that detects out-of-plane error."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Feature / datum",
+      "Dry fit",
+      "Temporary assembly",
+      "Released",
+      "Independent check",
+      "Disposition"
+     ],
+     "rows": 6
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],

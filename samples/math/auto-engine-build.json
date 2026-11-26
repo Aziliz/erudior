@@ -4,9 +4,9 @@
  "id": "auto-engine-build",
  "title": "Scratch-Built Engines and Precision Machining",
  "author": "Erudior",
- "revision": 1,
+ "revision": 2,
  "description": "Compare blocks, pistons, rings, bearings, valvetrains and lubrication architectures. Machine and assemble an original bench engine and document its witnessed run. Includes a parts atlas and an assessed modification workshop.",
- "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "changelog": "Added two in-depth cases, four assessed questions, two study cards and a practical evidence record. A clearance limit calculation and a labeled bore or journal measurement map.",
  "calculator": "scientific",
  "practiceEnvironment": "none",
  "modules": [
@@ -24,7 +24,9 @@
    "title": "Design — Machining design",
    "quiz": [
     "engine-build-2-q2",
-    "cmp-oil-systems-q2"
+    "cmp-oil-systems-q2",
+    "case-q1",
+    "case-q2"
    ]
   },
   {
@@ -32,7 +34,9 @@
    "title": "Implementation — Engine manufacture",
    "quiz": [
     "engine-build-3-q3",
-    "shop-change-engine-build"
+    "shop-change-engine-build",
+    "case-q3",
+    "case-q4"
    ]
   },
   {
@@ -148,6 +152,25 @@
    ]
   },
   {
+   "id": "case-design",
+   "module": "m2",
+   "title": "Allocate rod-bearing clearance across its tolerances",
+   "minutes": 30,
+   "topics": [
+    "Allocate rod-bearing clearance across its tolerances"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Oil clearance is a dimensional relationship among the journal, fitted bearing shells and housing. The measured housing must be assembled under the exact specified fastener and lubrication conditions. A nominal crank diameter and a loose shell measured on the bench cannot establish assembled clearance. Oil viscosity, temperature, alignment, supply and load also matter; larger clearance is not an automatic improvement.\n\n**Worked stack.** A fictional installed bearing inside diameter is 30.030–30.040 mm, and its journal is 29.995–30.005 mm. Minimum diametral clearance uses the smallest bearing and largest journal, 0.025 mm. Maximum uses the largest bearing and smallest journal, 0.045 mm. Radial clearance for concentric ideal circles is half the diametral value. Compare with the approved drawing for the actual engine. A design that accepts a nominal 0.035 mm may still reject a limit condition.\n\n**Design for measurement.** Make a section drawing of the journal, shells, housing and oil feed. Label the datum, measurement planes and specified method. On a teaching journal, choose the micrometer and bore gauge range, establish their checks, and record temperature and directions. Add a hold point if the uncertainty of your measurement could change the decision.",
+   "quiz": [
+    "case-q1",
+    "case-q2"
+   ]
+  },
+  {
    "id": "engine-build-3",
    "module": "m3",
    "title": "Produce and assemble the single-cylinder engine",
@@ -194,6 +217,25 @@
    ]
   },
   {
+   "id": "case-test",
+   "module": "m3",
+   "title": "Map taper and out-of-round before choosing a machining operation",
+   "minutes": 45,
+   "topics": [
+    "Map taper and out-of-round before choosing a machining operation"
+   ],
+   "refs": [
+    "case-sources",
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "A diameter reading depends on axial location and angular orientation. A bore can be round at each station but tapered along its length, or nearly constant in mean diameter while oval at each station. Number the top, middle and bottom stations and mark two reference directions. Keep within the instrument's working range and use the exact procedure for the part. Do not remove material to correct a measurement you cannot reproduce.\n\n**Worked map.** A training bore reads 40.02/40.05 mm on two axes at the top and 40.01/40.02 mm at the bottom. The top two-axis difference is 0.03 mm. Along the second axis, the top-to-bottom change is also 0.03 mm. These are different comparisons that happen to give the same number. Two directions sample shape; they do not prove full roundness. Compare the map, not only the average, with the drawing, surface finish, piston and ring requirements.\n\n**Independent work.** Make a six-location map on a detached teaching sleeve or machined practice block. Repeat the worst reading after resetting the gauge. Identify which operation you would investigate, what finishing allowance it requires and which component dimensions must be verified before authorizing removal. Record the actual pre- and post-work or inspection-only disposition, plus cleaning and recheck evidence before assembly.\n\n```assignment\nlab: case-record\n```",
+   "quiz": [
+    "case-q3",
+    "case-q4"
+   ]
+  },
+  {
    "id": "engine-build-4",
    "module": "m4",
    "title": "Demonstrate a controlled run and inspect the result",
@@ -236,8 +278,8 @@
     }
    ],
    "exam": {
-    "questionCount": 16,
-    "timeLimitMinutes": 38,
+    "questionCount": 20,
+    "timeLimitMinutes": 48,
     "passingPercent": 75
    },
    "questions": [
@@ -482,6 +524,66 @@
       "Valve-to-piston clearance through the critical crank-angle range and compatibility of the complete valvetrain."
      ],
      "explanation": "Fits at the journals do not establish dynamic or static clearance elsewhere."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.025"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q1",
+     "stem": "A training bearing ID is 25.030–25.040 mm and its journal is 24.995–25.005 mm. What is the minimum diametral clearance in mm? Enter the number only.",
+     "section": "m2",
+     "topic": "Allocate rod-bearing clearance across its tolerances",
+     "explanation": "The limiting pair is 25.030 − 25.005 = 0.025 mm."
+    },
+    {
+     "choices": [
+      "The installed bearing ID under its specified housing assembly conditions and the corresponding journal diameter.",
+      "Only an unloaded shell measured loose.",
+      "Outer block width divided by journal count."
+     ],
+     "answer": [
+      0
+     ],
+     "id": "case-q2",
+     "stem": "Which measurement is relevant to the assembled bearing clearance?",
+     "section": "m2",
+     "topic": "Allocate rod-bearing clearance across its tolerances",
+     "explanation": "Assembly and housing conditions change the fitted bearing geometry."
+    },
+    {
+     "type": "text",
+     "accept": [
+      [
+       "0.06"
+      ]
+     ],
+     "choices": [],
+     "answer": [],
+     "id": "case-q3",
+     "stem": "At one bore station two measured axes are 50.04 mm and 50.10 mm. What is the sampled axis difference in mm? Enter the number only.",
+     "section": "m3",
+     "topic": "Map taper and out-of-round before choosing a machining operation",
+     "explanation": "50.10 − 50.04 = 0.06 mm at that station."
+    },
+    {
+     "choices": [
+      "Compare the average of all stations with the crankshaft length.",
+      "Compare only two perpendicular axes at the top station.",
+      "Compare top and bottom measurements along the same marked axis."
+     ],
+     "answer": [
+      2
+     ],
+     "id": "case-q4",
+     "stem": "Which comparison estimates axial diameter change without mixing orientations?",
+     "section": "m3",
+     "topic": "Map taper and out-of-round before choosing a machining operation",
+     "explanation": "Changing axial position while holding orientation fixed addresses taper along that direction."
     }
    ]
   }
@@ -562,6 +664,18 @@
      "front": "A higher-lift cam fits the cam bearings. What must be checked before treating the engine as operable?",
      "back": "Valve-to-piston clearance through the critical crank-angle range and compatibility of the complete valvetrain. Fits at the journals do not establish dynamic or static clearance elsewhere.",
      "topic": "Measure the actual compression geometry"
+    },
+    {
+     "id": "case-design-card",
+     "front": "Which measurement is relevant to the assembled bearing clearance?",
+     "back": "The installed bearing ID under its specified housing assembly conditions and the corresponding journal diameter. Assembly and housing conditions change the fitted bearing geometry.",
+     "topic": "Allocate rod-bearing clearance across its tolerances"
+    },
+    {
+     "id": "case-test-card",
+     "front": "Which comparison estimates axial diameter change without mixing orientations?",
+     "back": "Compare top and bottom measurements along the same marked axis. Changing axial position while holding orientation fixed addresses taper along that direction.",
+     "topic": "Map taper and out-of-round before choosing a machining operation"
     }
    ]
   }
@@ -668,6 +782,11 @@
    "id": "as-built-ledger",
    "title": "How to account for every installed part",
    "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "case-sources",
+   "title": "Practice sources and acceptance criteria",
+   "body": "Scope checked November 26, 2026. Patrick & Henry MTS 140 and 150 address engine configuration, machining and applied mathematics. Northwest Technical College’s high-performance engine program includes engine rebuilding and machining alongside fabrication. Here the assessed work is a limit stack and a six-location map before authorizing material removal. [Patrick & Henry College catalog, motorsports MTS courses](https://www.patrickhenry.edu/wp-content/uploads/2025/03/2425-catalog.pdf) · [Northwest Technical College program sheet](https://www.ntcmn.edu/career-paths/automotive-motorsports/high-performance-engine-machining/wp-content/uploads/sites/18/2015/07/HighPerformanceEngine3.pdf) · [ASE automobile standards and inspection tasks](https://www.aseeducationfoundation.org/wp-content/uploads/2024-Automobile-Program-Standards-1.pdf)\n\nUse the numerical examples only for the stated training conditions. Before physical work enter the actual procedure revision, instrument, units and acceptance limits on the lab sheet."
   }
  ],
  "rubrics": [
@@ -988,6 +1107,75 @@
      ]
     }
    ]
+  },
+  {
+   "id": "case-evidence",
+   "title": "Design and verification record",
+   "criteria": [
+    {
+     "id": "prediction",
+     "name": "Prediction and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Traceable",
+       "description": "Identifies the reference conditions, describes the mechanism and predicts a distinguishing measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "Names a cause but omits the expected observation or reference condition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No independent prediction is recorded."
+      }
+     ]
+    },
+    {
+     "id": "measurement",
+     "name": "Measured evidence",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Repeatable",
+       "description": "Minimum and maximum assembled diametral clearance, a six-location measurement map with directions and stations, and a reset/repeat of the worst measurement."
+      },
+      {
+       "points": 1,
+       "label": "Partial",
+       "description": "One or more named deliverables in the full-credit criterion are missing or cannot be reproduced from the units, locations and recorded conditions."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable measurement or trace is available."
+      }
+     ]
+    },
+    {
+     "id": "closure",
+     "name": "Decision and physical handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Supports a scoped decision with the measured comparison, applicable criteria, corrected or open findings, and an identified reviewer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "The decision omits a competing cause, check or required witness."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The record lacks a testable disposition."
+      }
+     ]
+    }
+   ]
   }
  ],
  "writing": [
@@ -1083,6 +1271,53 @@
    ],
    "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
    "rubric": "physical"
+  },
+  {
+   "id": "case-record",
+   "title": "Map taper and out-of-round before choosing a machining operation — workshop record",
+   "module": "m3",
+   "adult": true,
+   "intro": "A clearance limit calculation and a labeled bore or journal measurement map.",
+   "safety": [
+    "Use detached clean components and secured measuring equipment. Keep machinery de-energized during hand measurement. Only qualified personnel may authorize powered machining."
+   ],
+   "materials": [
+    "Detached teaching journal, sleeve or practice block, sizing drawing, checked micrometer, bore gauge and reference"
+   ],
+   "steps": [
+    "Read “Allocate rod-bearing clearance across its tolerances”. Prepare the marked drawing or schematic, acceptance source and prediction for your own case.",
+    "Make a six-location map on a detached teaching sleeve or machined practice block. Repeat the worst reading after resetting the gauge. Identify which operation you would investigate, what finishing allowance it requires and which component dimensions must be verified before authorizing removal. Record the actual pre- and post-work or inspection-only disposition, plus cleaning and recheck evidence before assembly.",
+    "File the following evidence with the course project. A clearance limit calculation and a labeled bore or journal measurement map."
+   ],
+   "tables": [
+    {
+     "id": "case-readings",
+     "title": "Observed evidence",
+     "columns": [
+      "Station / axis",
+      "Reference check",
+      "Reading mm",
+      "Repeat mm",
+      "Mate dimension",
+      "Drawing disposition"
+     ],
+     "rows": 6
+    }
+   ],
+   "questions": [
+    {
+     "id": "control",
+     "kind": "observation",
+     "prompt": "Which variable, datum or condition did you hold fixed? Record the actual case and the evidence you personally collected."
+    },
+    {
+     "id": "release",
+     "kind": "conclusion",
+     "prompt": "Which observation changed or confirmed your initial decision? Identify an alternate explanation, the applicable acceptance authority, any unresolved limitation, and the reviewer/date."
+    }
+   ],
+   "photos": "Identify actual photos, annotated sketches, recorded trace IDs or a witnessed observation with the specimen, drawing revision and date.",
+   "rubric": "case-evidence"
   }
  ],
  "drills": [],
