@@ -5,8 +5,8 @@
  "title": "German B2",
  "description": "The fourth step in German, from B1 to CEFR level B2, the level of the Goethe-Zertifikat B2. Lessons cover reporting what others said with the Konjunktiv I, the passive and its alternatives (sein + zu, sich lassen, -bar), extended participial attributes, the nominal style of formal texts, Funktionsverbgefüge, modal particles, subjective modal verbs, complex connectors such as indem, je nachdem and insofern als, the Futur II, word formation, and writing and speaking at B2: forum posts that argue a case, formal messages at work, presentations and discussions. About 1,000 new words build on the roughly 2,400 core words of German A1 to B1 for about 3,400 in all, and a reading list suggests novels, news and podcasts at this level. Unlocks when German B1 is complete.",
  "author": "Erudior",
- "revision": 2,
- "changelog": "Reviews include the new A2 words for travel by water.",
+ "revision": 3,
+ "changelog": "Adds study cards for applying and distinguishing concepts from the lessons. Adds an independent German forum post and a four-criterion revision rubric.",
  "modules": [
   {
    "id": "de4-m1",
@@ -1115,7 +1115,7 @@
    "refs": [
     "de4-ref-connectors"
    ],
-   "body": "## What this lesson is for\n\nYou now have the connectors (lesson 17) and the language of concession and contrast (lesson 18). This lesson puts them to work in a complete argument: a short text that states a position, supports it, takes the other side seriously and comes to a conclusion.\n\nThat is exactly the first writing task of the Goethe-Zertifikat B2: a contribution to an online forum or discussion page, about 150 words, in which you give your opinion on a social question and respond to a set of content points. Even if you never take the exam, the same skills make you convincing in e-mails, comments, meetings and lesson 20's discussions.\n\nThe theme is the debate about food and farming: organic or conventional, meat or plant-based, subsidies, animal welfare and food waste. It's a good topic for practice because almost everyone has an opinion and good arguments exist on several sides.\n\n## The parts of an argument\n\nA clear argument has a recognizable structure. German school and university writing uses these terms:\n\n| Part | German | What it does |\n|---|---|---|\n| Claim | *die These* | the position you defend: *Fleisch sollte teurer werden.* |\n| Argument | *das Argument* | a reason for the claim: *weil die Massentierhaltung dem Tierwohl schadet* |\n| Evidence, example | *der Beleg, das Beispiel* | a fact, figure or case that supports the reason |\n| Counterargument | *das Gegenargument, der Einwand* | what the other side says |\n| Conclusion | *die Schlussfolgerung, das Fazit* | what follows, your final position |\n\nA strong argument is *stichhaltig* (sound, watertight): its reasons are relevant and its evidence holds. A weak one can be *widerlegt* (refuted). *der Beleg* is the word you know as \"receipt\": here it means \"evidence, proof\", as in *Gibt es dafür einen Beleg?* (Is there any evidence for that?).\n\n## Stating a position\n\nTo introduce your claim, avoid starting every sentence with *Ich denke*. Some alternatives, from neutral to formal:\n\n- *Meiner Meinung nach …* / *Ich bin der Meinung, dass …* (B1)\n- *Ich vertrete die Ansicht, dass …* — I take the view that …\n- *Meines Erachtens …* — In my view … (formal; verb follows: *Meines Erachtens ist das zu teuer.*)\n- *Aus meiner Sicht …* — From my point of view …\n- *Ich bin fest davon überzeugt, dass …* — I'm firmly convinced that …\n\n*Meines Erachtens* (abbreviated *m. E.*) is a fixed genitive phrase from *erachten* (to consider); you can't say ~~meiner Erachtens~~.\n\n## Giving reasons and evidence\n\nReasons come with the connectors you know (*weil, da, denn*) and with nominal phrases (*aufgrund, wegen*). B2 adds ways to emphasize and order them:\n\n- *Dafür spricht vor allem, dass …* — The main argument in favour is that …\n- *Ein weiterer Gesichtspunkt ist …* — A further aspect is …\n- *Hinzu kommt, dass …* — In addition, … (literally \"added to this comes\")\n- *Nicht zuletzt …* — Last but not least … (verb follows: *Nicht zuletzt spielt der Preis eine Rolle.*)\n- *Das zeigt sich zum Beispiel daran, dass …* — This can be seen, for example, in the fact that …\n- *Studien belegen, dass …* — Studies show that …\n\n## Weighing and conceding\n\nA B2 argument doesn't ignore the other side. It names the counterargument, concedes what is true in it, then explains why it doesn't change the conclusion:\n\n- *Zwar ist Bio-Fleisch teurer, aber …* — Organic meat is more expensive, admittedly, but …\n- *Man könnte einwenden, dass …* — One could object that …\n- *Kritiker wenden ein, dass …* — Critics object that …\n- *Dem lässt sich entgegenhalten, dass …* — Against this, one can argue that …\n- *Das mag stimmen, allerdings …* — That may be true; however, …\n- *Abgesehen davon …* — Apart from that …\n\n*einwenden* (to object) is separable: *Er wandte ein, dass … / Er hat eingewandt, dass …* (the forms *wendete ein, eingewendet* are also correct). The noun is *der Einwand*: *Das ist ein berechtigter Einwand.* — That's a fair objection.\n\n*Dem lässt sich entgegenhalten* uses *sich lassen* + infinitive from module 2 (= *kann entgegengehalten werden*), with *dem* as a dative pronoun pointing back to the counterargument.\n\n## Hedging: not claiming too much\n\nAt B2 you show that you can make a claim exactly as strong as the evidence. This is called **[[hedging]]**:\n\n- *Es scheint, dass …* / *Es sieht so aus, als …* — It seems that … / It looks as if …\n- *Vieles spricht dafür, dass …* — There's a lot to suggest that …\n- *In vielen Fällen …* / *in der Regel …* — In many cases … / as a rule …\n- *tendenziell, eher, weitgehend* — tend to, rather, largely\n- subjective modal verbs from module 1: *Das dürfte der Hauptgrund sein.* — That is probably the main reason.\n\nCompare *Bio-Lebensmittel sind gesünder* (a strong claim that's hard to prove) with *Bio-Lebensmittel enthalten in der Regel weniger Pestizidrückstände* (narrower and defensible).\n\n## Concluding\n\n- *Zusammenfassend lässt sich sagen, dass …* — In summary, it can be said that …\n- *Alles in allem …* — All in all … (verb follows)\n- *Daraus ergibt sich, dass …* / *Daraus folgt, dass …* — It follows that …\n- *Für mich überwiegen daher die Vorteile.* — For me, the advantages therefore outweigh the disadvantages.\n\n## The forum post: a model\n\nIn the exam you read a short prompt (for example, a viewer's comment on a TV programme) and write your own contribution covering several given points. The points typically ask for your opinion, reasons, other people's views or alternatives, and an example or experience. Check the current official model test for the exact wording and number of points; the strategy is the same: cover every point, in a sensible order, in connected text.\n\nHere is an original prompt and a model answer.\n\nThe prompt: *In einer Diskussionssendung ging es um die Frage: Sollte Fleisch durch eine Steuer teurer werden? Im Forum der Sendung schreiben Sie Ihre Meinung. Gehen Sie dabei auf diese Punkte ein: Ihre Meinung zu einer Fleischsteuer; Gründe für Ihre Meinung; andere Möglichkeiten, den Fleischkonsum zu senken; Ihre eigene Ernährungsweise.*\n\n> Ich verfolge die Debatte über eine Fleischsteuer seit Langem und vertrete die Ansicht, dass eine moderate Abgabe sinnvoll wäre.\n>\n> Dafür spricht vor allem das Tierwohl: Massentierhaltung ist nur möglich, weil Fleisch so billig ist. Hinzu kommt, dass die Tierhaltung viele Treibhausgase verursacht. Zwar wenden Kritiker ein, dass sich Familien mit wenig Geld dann kaum noch Fleisch leisten könnten. Dem lässt sich jedoch entgegenhalten, dass man die Einnahmen gezielt einsetzen könnte, etwa um Landwirte beim Umbau ihrer Ställe zu unterstützen.\n>\n> Abgesehen von Steuern gibt es weitere Möglichkeiten: Kantinen könnten mehr vegetarische Gerichte anbieten, und bessere Informationen über die Herkunft würden vielen beim Einkaufen helfen.\n>\n> Ich selbst esse seit zwei Jahren nur noch selten Fleisch, und wenn, dann vom Biohof in unserer Nähe. Vegan lebe ich nicht, aber ich vermisse wenig.\n>\n> Alles in allem überwiegen für mich die Vorteile einer Fleischsteuer, sofern sie sozial gerecht gestaltet wird.\n\nIn English:\n\n> I've been following the debate on a meat tax for a long time and I take the view that a moderate levy would make sense.\n>\n> The main argument in favour is animal welfare: factory farming is only possible because meat is so cheap. In addition, livestock farming causes a lot of greenhouse gases. Critics object, admittedly, that families on low incomes would then hardly be able to afford meat. Against this, one can argue that the revenue could be used in a targeted way, for example to support farmers in converting their barns.\n>\n> Apart from taxes, there are other options: canteens could offer more vegetarian dishes, and better information about where meat comes from would help many people when shopping.\n>\n> I myself have only rarely eaten meat for the past two years, and when I do, it's from the organic farm near us. I'm not vegan, but I don't miss much.\n>\n> All in all, for me the advantages of a meat tax outweigh the disadvantages, provided it is designed in a socially fair way.\n\nThe text has about 150 words, and each paragraph answers one content point (the opinion and the conclusion frame the whole). Notice what makes it B2: the concession (*Zwar … jedoch*), the counterargument (*Dem lässt sich entgegenhalten*), Konjunktiv II for proposals (*könnten, würden*), the connectors *sofern, abgesehen von, hinzu kommt*, and a personal example.\n\n### A checklist for your forum post\n\n1. Read the prompt and the points twice. Plan one paragraph (or two or three sentences) per point.\n2. Start with a short introduction that refers to the topic; don't copy the prompt.\n3. Cover every point. Missing one costs more marks than a few grammar errors.\n4. Connect your sentences: *außerdem, hinzu kommt, zwar … aber, deshalb, abgesehen davon*.\n5. Include at least one counterargument and react to it.\n6. End with a conclusion. A greeting isn't needed in a forum post, but a name is fine.\n7. Leave five minutes to check verb positions, endings and the points.\n\n## Words for the food debate\n\n- *die Landwirtschaft* (agriculture, farming); *der Landwirt / die Landwirtin* is the official word for a farmer (*der Bauer* is everyday). *der Anbau* is growing, cultivation, and *anbauen* (separable) to grow crops: *In der Region wird viel Gemüse angebaut.* *die Ernte* is the harvest and *der Ertrag* the yield.\n- *ökologisch* (ecological, organic in farming: *ökologischer Landbau*) vs *konventionell* (conventional). *der Ökolandbau* is organic farming; products carry the *Bio* label.\n- *die Massentierhaltung* (factory farming) and *die Tierhaltung* (keeping livestock); *das Tierwohl* (animal welfare).\n- *vegan*, *der Veganer / die Veganerin*. *der Fleischkonsum* (meat consumption), *der Fleischersatz* (meat substitute), *die Ernährungsweise* (diet, way of eating).\n- *saisonal* (seasonal): *saisonales Obst*. *das Pestizid* (plural *die Pestizide*), *die Gentechnik* (genetic engineering).\n- *die Lebensmittelverschwendung* (food waste).\n- *die Subvention* (subsidy) and *subventionieren*: *Die EU subventioniert die Landwirtschaft.*\n- *der Gesichtspunkt* (aspect, point of view) is a good word for structuring: *Unter diesem Gesichtspunkt …* (from this point of view …).\n\n## Pronunciation\n\n- *die These*: TEH-ze, long *e*; the plural *die Thesen* is TEH-zen.\n- *die Subvention*: sub-wen-TSJOHN.\n- *vegan*: we-GAHN, stress on the second syllable; *der Veganer*: we-GAH-ner.\n- *meines Erachtens*: MAI-nes er-ACH-tens, with *ch* as in *Bach*.\n\n## Common mistakes\n\n- Writing a list instead of an argument: *Fleisch ist billig. Tiere leiden. Das Klima leidet.* Connect: *Weil Fleisch so billig ist, leiden die Tiere, und hinzu kommt, dass …*\n- Forgetting inversion after introductory phrases: ~~Meines Erachtens das ist zu teuer.~~ → *Meines Erachtens ist das zu teuer.* The same after *Nicht zuletzt, Alles in allem, Abgesehen davon*.\n- *Hinzu kommt* without *dass* or a noun: *Hinzu kommt, dass Fleisch …* or *Hinzu kommen die Kosten.*\n- Ignoring the other side. In the exam, a text without any counterargument or alternative usually loses marks for content.\n- Claims that are too strong: *Alle Landwirte quälen ihre Tiere.* Hedge and be specific.\n- Writing far more than asked. About 150 words means roughly 130 to 180; quality matters more than length.\n\n## Key points\n\n- An argument has a claim (*These*), reasons (*Argumente*), evidence (*Belege*), counterarguments (*Einwände*) and a conclusion (*Schlussfolgerung*).\n- Vary your opening: *Ich vertrete die Ansicht, dass …; Meines Erachtens …; Aus meiner Sicht …*\n- Concede and respond: *Zwar …, aber …; Man könnte einwenden, dass …; Dem lässt sich entgegenhalten, dass …*\n- Hedge where you can't prove: *Vieles spricht dafür, dass …; in der Regel; dürfte*.\n- The forum post: about 150 words, every content point covered, connected paragraphs, a counterargument and a conclusion.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.\n",
+   "body": "## What this lesson is for\n\nYou now have the connectors (lesson 17) and the language of concession and contrast (lesson 18). This lesson puts them to work in a complete argument: a short text that states a position, supports it, takes the other side seriously and comes to a conclusion.\n\nThat is exactly the first writing task of the Goethe-Zertifikat B2: a contribution to an online forum or discussion page, about 150 words, in which you give your opinion on a social question and respond to a set of content points. Even if you never take the exam, the same skills make you convincing in e-mails, comments, meetings and lesson 20's discussions.\n\nThe theme is the debate about food and farming: organic or conventional, meat or plant-based, subsidies, animal welfare and food waste. It's a good topic for practice because almost everyone has an opinion and good arguments exist on several sides.\n\n## The parts of an argument\n\nA clear argument has a recognizable structure. German school and university writing uses these terms:\n\n| Part | German | What it does |\n|---|---|---|\n| Claim | *die These* | the position you defend: *Fleisch sollte teurer werden.* |\n| Argument | *das Argument* | a reason for the claim: *weil die Massentierhaltung dem Tierwohl schadet* |\n| Evidence, example | *der Beleg, das Beispiel* | a fact, figure or case that supports the reason |\n| Counterargument | *das Gegenargument, der Einwand* | what the other side says |\n| Conclusion | *die Schlussfolgerung, das Fazit* | what follows, your final position |\n\nA strong argument is *stichhaltig* (sound, watertight): its reasons are relevant and its evidence holds. A weak one can be *widerlegt* (refuted). *der Beleg* is the word you know as \"receipt\": here it means \"evidence, proof\", as in *Gibt es dafür einen Beleg?* (Is there any evidence for that?).\n\n## Stating a position\n\nTo introduce your claim, avoid starting every sentence with *Ich denke*. Some alternatives, from neutral to formal:\n\n- *Meiner Meinung nach …* / *Ich bin der Meinung, dass …* (B1)\n- *Ich vertrete die Ansicht, dass …* — I take the view that …\n- *Meines Erachtens …* — In my view … (formal; verb follows: *Meines Erachtens ist das zu teuer.*)\n- *Aus meiner Sicht …* — From my point of view …\n- *Ich bin fest davon überzeugt, dass …* — I'm firmly convinced that …\n\n*Meines Erachtens* (abbreviated *m. E.*) is a fixed genitive phrase from *erachten* (to consider); you can't say ~~meiner Erachtens~~.\n\n## Giving reasons and evidence\n\nReasons come with the connectors you know (*weil, da, denn*) and with nominal phrases (*aufgrund, wegen*). B2 adds ways to emphasize and order them:\n\n- *Dafür spricht vor allem, dass …* — The main argument in favour is that …\n- *Ein weiterer Gesichtspunkt ist …* — A further aspect is …\n- *Hinzu kommt, dass …* — In addition, … (literally \"added to this comes\")\n- *Nicht zuletzt …* — Last but not least … (verb follows: *Nicht zuletzt spielt der Preis eine Rolle.*)\n- *Das zeigt sich zum Beispiel daran, dass …* — This can be seen, for example, in the fact that …\n- *Studien belegen, dass …* — Studies show that …\n\n## Weighing and conceding\n\nA B2 argument doesn't ignore the other side. It names the counterargument, concedes what is true in it, then explains why it doesn't change the conclusion:\n\n- *Zwar ist Bio-Fleisch teurer, aber …* — Organic meat is more expensive, admittedly, but …\n- *Man könnte einwenden, dass …* — One could object that …\n- *Kritiker wenden ein, dass …* — Critics object that …\n- *Dem lässt sich entgegenhalten, dass …* — Against this, one can argue that …\n- *Das mag stimmen, allerdings …* — That may be true; however, …\n- *Abgesehen davon …* — Apart from that …\n\n*einwenden* (to object) is separable: *Er wandte ein, dass … / Er hat eingewandt, dass …* (the forms *wendete ein, eingewendet* are also correct). The noun is *der Einwand*: *Das ist ein berechtigter Einwand.* — That's a fair objection.\n\n*Dem lässt sich entgegenhalten* uses *sich lassen* + infinitive from module 2 (= *kann entgegengehalten werden*), with *dem* as a dative pronoun pointing back to the counterargument.\n\n## Hedging: not claiming too much\n\nAt B2 you show that you can make a claim exactly as strong as the evidence. This is called **[[hedging]]**:\n\n- *Es scheint, dass …* / *Es sieht so aus, als …* — It seems that … / It looks as if …\n- *Vieles spricht dafür, dass …* — There's a lot to suggest that …\n- *In vielen Fällen …* / *in der Regel …* — In many cases … / as a rule …\n- *tendenziell, eher, weitgehend* — tend to, rather, largely\n- subjective modal verbs from module 1: *Das dürfte der Hauptgrund sein.* — That is probably the main reason.\n\nCompare *Bio-Lebensmittel sind gesünder* (a strong claim that's hard to prove) with *Bio-Lebensmittel enthalten in der Regel weniger Pestizidrückstände* (narrower and defensible).\n\n## Concluding\n\n- *Zusammenfassend lässt sich sagen, dass …* — In summary, it can be said that …\n- *Alles in allem …* — All in all … (verb follows)\n- *Daraus ergibt sich, dass …* / *Daraus folgt, dass …* — It follows that …\n- *Für mich überwiegen daher die Vorteile.* — For me, the advantages therefore outweigh the disadvantages.\n\n## The forum post: a model\n\nIn the exam you read a short prompt (for example, a viewer's comment on a TV programme) and write your own contribution covering several given points. The points typically ask for your opinion, reasons, other people's views or alternatives, and an example or experience. Check the current official model test for the exact wording and number of points; the strategy is the same: cover every point, in a sensible order, in connected text.\n\nHere is an original prompt and a model answer.\n\nThe prompt: *In einer Diskussionssendung ging es um die Frage: Sollte Fleisch durch eine Steuer teurer werden? Im Forum der Sendung schreiben Sie Ihre Meinung. Gehen Sie dabei auf diese Punkte ein: Ihre Meinung zu einer Fleischsteuer; Gründe für Ihre Meinung; andere Möglichkeiten, den Fleischkonsum zu senken; Ihre eigene Ernährungsweise.*\n\n> Ich verfolge die Debatte über eine Fleischsteuer seit Langem und vertrete die Ansicht, dass eine moderate Abgabe sinnvoll wäre.\n>\n> Dafür spricht vor allem das Tierwohl: Massentierhaltung ist nur möglich, weil Fleisch so billig ist. Hinzu kommt, dass die Tierhaltung viele Treibhausgase verursacht. Zwar wenden Kritiker ein, dass sich Familien mit wenig Geld dann kaum noch Fleisch leisten könnten. Dem lässt sich jedoch entgegenhalten, dass man die Einnahmen gezielt einsetzen könnte, etwa um Landwirte beim Umbau ihrer Ställe zu unterstützen.\n>\n> Abgesehen von Steuern gibt es weitere Möglichkeiten: Kantinen könnten mehr vegetarische Gerichte anbieten, und bessere Informationen über die Herkunft würden vielen beim Einkaufen helfen.\n>\n> Ich selbst esse seit zwei Jahren nur noch selten Fleisch, und wenn, dann vom Biohof in unserer Nähe. Vegan lebe ich nicht, aber ich vermisse wenig.\n>\n> Alles in allem überwiegen für mich die Vorteile einer Fleischsteuer, sofern sie sozial gerecht gestaltet wird.\n\nIn English:\n\n> I've been following the debate on a meat tax for a long time and I take the view that a moderate levy would make sense.\n>\n> The main argument in favour is animal welfare: factory farming is only possible because meat is so cheap. In addition, livestock farming causes a lot of greenhouse gases. Critics object, admittedly, that families on low incomes would then hardly be able to afford meat. Against this, one can argue that the revenue could be used in a targeted way, for example to support farmers in converting their barns.\n>\n> Apart from taxes, there are other options: canteens could offer more vegetarian dishes, and better information about where meat comes from would help many people when shopping.\n>\n> I myself have only rarely eaten meat for the past two years, and when I do, it's from the organic farm near us. I'm not vegan, but I don't miss much.\n>\n> All in all, for me the advantages of a meat tax outweigh the disadvantages, provided it is designed in a socially fair way.\n\nThe text has about 150 words, and each paragraph answers one content point (the opinion and the conclusion frame the whole). Notice what makes it B2: the concession (*Zwar … jedoch*), the counterargument (*Dem lässt sich entgegenhalten*), Konjunktiv II for proposals (*könnten, würden*), the connectors *sofern, abgesehen von, hinzu kommt*, and a personal example.\n\n### A checklist for your forum post\n\n1. Read the prompt and the points twice. Plan one paragraph (or two or three sentences) per point.\n2. Start with a short introduction that refers to the topic; don't copy the prompt.\n3. Cover every point. Missing one costs more marks than a few grammar errors.\n4. Connect your sentences: *außerdem, hinzu kommt, zwar … aber, deshalb, abgesehen davon*.\n5. Include at least one counterargument and react to it.\n6. End with a conclusion. A greeting isn't needed in a forum post, but a name is fine.\n7. Leave five minutes to check verb positions, endings and the points.\n\n## Words for the food debate\n\n- *die Landwirtschaft* (agriculture, farming); *der Landwirt / die Landwirtin* is the official word for a farmer (*der Bauer* is everyday). *der Anbau* is growing, cultivation, and *anbauen* (separable) to grow crops: *In der Region wird viel Gemüse angebaut.* *die Ernte* is the harvest and *der Ertrag* the yield.\n- *ökologisch* (ecological, organic in farming: *ökologischer Landbau*) vs *konventionell* (conventional). *der Ökolandbau* is organic farming; products carry the *Bio* label.\n- *die Massentierhaltung* (factory farming) and *die Tierhaltung* (keeping livestock); *das Tierwohl* (animal welfare).\n- *vegan*, *der Veganer / die Veganerin*. *der Fleischkonsum* (meat consumption), *der Fleischersatz* (meat substitute), *die Ernährungsweise* (diet, way of eating).\n- *saisonal* (seasonal): *saisonales Obst*. *das Pestizid* (plural *die Pestizide*), *die Gentechnik* (genetic engineering).\n- *die Lebensmittelverschwendung* (food waste).\n- *die Subvention* (subsidy) and *subventionieren*: *Die EU subventioniert die Landwirtschaft.*\n- *der Gesichtspunkt* (aspect, point of view) is a good word for structuring: *Unter diesem Gesichtspunkt …* (from this point of view …).\n\n## Pronunciation\n\n- *die These*: TEH-ze, long *e*; the plural *die Thesen* is TEH-zen.\n- *die Subvention*: sub-wen-TSJOHN.\n- *vegan*: we-GAHN, stress on the second syllable; *der Veganer*: we-GAH-ner.\n- *meines Erachtens*: MAI-nes er-ACH-tens, with *ch* as in *Bach*.\n\n## Common mistakes\n\n- Writing a list instead of an argument: *Fleisch ist billig. Tiere leiden. Das Klima leidet.* Connect: *Weil Fleisch so billig ist, leiden die Tiere, und hinzu kommt, dass …*\n- Forgetting inversion after introductory phrases: ~~Meines Erachtens das ist zu teuer.~~ → *Meines Erachtens ist das zu teuer.* The same after *Nicht zuletzt, Alles in allem, Abgesehen davon*.\n- *Hinzu kommt* without *dass* or a noun: *Hinzu kommt, dass Fleisch …* or *Hinzu kommen die Kosten.*\n- Ignoring the other side. Address every point in the prompt. In this practice task, explain a disadvantage and offer an alternative or a way to offset it.\n- Claims that are too strong: *Alle Landwirte quälen ihre Tiere.* Hedge and be specific.\n- Writing far more than asked. Follow the word minimum in the task. This course assignment asks for at least 150 words.\n\n## Key points\n\n- An argument has a claim (*These*), reasons (*Argumente*), evidence (*Belege*), counterarguments (*Einwände*) and a conclusion (*Schlussfolgerung*).\n- Vary your opening: *Ich vertrete die Ansicht, dass …; Meines Erachtens …; Aus meiner Sicht …*\n- Concede and respond: *Zwar …, aber …; Man könnte einwenden, dass …; Dem lässt sich entgegenhalten, dass …*\n- Hedge where you can't prove: *Vieles spricht dafür, dass …; in der Regel; dürfte*.\n- The practice forum post: at least 150 words, every content point covered, connected paragraphs, a counterargument and a conclusion.\n\nThe words from this lesson are listed below; they join your vocabulary reviews when you complete the lesson.\n\n## Independent writing\n\nComplete **Abends in die Bibliothek?** below. Apply the argument structure to a new topic, then use the rubric to revise one passage.\n\n```assignment\nwriting: de4-library-forum\n```\n",
    "quiz": [
     "de4-q-1901",
     "de4-q-1902",
@@ -16488,7 +16488,50 @@
    ]
   }
  ],
- "decks": [],
+ "decks": [
+  {
+   "id": "lang-german-b2-concepts",
+   "title": "German B2 · Concept practice",
+   "cards": [
+    {
+     "id": "lang-german-b2-concept-01",
+     "topic": "Indirect speech",
+     "front": "Report “Ich bin bereit” using Konjunktiv I and naming the speaker, Eva.",
+     "back": "Eva sagt, sie sei bereit. The change to sei marks reported speech without committing the reporter to the claim."
+    },
+    {
+     "id": "lang-german-b2-concept-02",
+     "topic": "Passive voice",
+     "front": "Describe the process and then its result using die Tür and schließen.",
+     "back": "Die Tür wird geschlossen describes someone closing it. Die Tür ist geschlossen describes its resulting state."
+    },
+    {
+     "id": "lang-german-b2-concept-03",
+     "topic": "Relative clauses",
+     "front": "Fill the gap and explain the case. Das ist die Kollegin, mit ___ ich arbeite.",
+     "back": "der. Mit governs the dative inside the relative clause. Kollegin supplies feminine singular."
+    },
+    {
+     "id": "lang-german-b2-concept-04",
+     "topic": "Connectors",
+     "front": "Combine Die Plätze sind knapp and Wir finden eine Lösung using obwohl.",
+     "back": "Obwohl die Plätze knapp sind, finden wir eine Lösung. The finite verb ends the subordinate clause. The whole clause occupies first position before finden."
+    },
+    {
+     "id": "lang-german-b2-concept-05",
+     "topic": "Evidence",
+     "front": "Turn “Der Kurs ist beliebt” into an argument using a waiting list of 30 as evidence.",
+     "back": "Für einen zweiten Kurs spricht, dass bereits 30 Personen auf der Warteliste stehen. A concrete observation supports a specific proposal."
+    },
+    {
+     "id": "lang-german-b2-concept-06",
+     "topic": "Concession",
+     "front": "Answer a cost objection to adding bike racks without dismissing it.",
+     "back": "Neue Fahrradständer kosten zwar Geld, aber wir könnten zunächst nur einen Standort ausstatten und die Nutzung prüfen. The reply takes the cost seriously and suggests a limited trial."
+    }
+   ]
+  }
+ ],
  "glossary": [
   {
    "term": "Prague German literature",
@@ -84086,6 +84129,112 @@
    "url": "https://www.goethe.de/pro/relaunch/prf/materialien/B2/b2_modellsatz_erwachsene.pdf",
    "free": true,
    "note": "The official model test with all four modules, answer keys, listening transcripts and sample answers for writing and speaking. Use it after lesson 30 to try the exam under real timing."
+  }
+ ],
+ "writing": [
+  {
+   "id": "de4-library-forum",
+   "title": "Abends in die Bibliothek?",
+   "module": "de4-m4",
+   "kind": "essay",
+   "words": {
+    "min": 150
+   },
+   "minutes": 35,
+   "rubric": "de4-forum-review",
+   "prompt": "Im Stadtforum schlägt Mira vor: „Unsere Bibliothek sollte an zwei Abenden bis 21 Uhr öffnen. Dafür könnte sie am Samstag früher schließen.“ Schreiben Sie einen zusammenhängenden Forumsbeitrag von mindestens 150 Wörtern. Nehmen Sie Stellung. Erläutern Sie an einem konkreten Beispiel, wer von Ihrem Vorschlag profitieren würde. Gehen Sie auf einen möglichen Nachteil ein und schlagen Sie eine Alternative oder einen Ausgleich vor.\n\nLesen Sie Ihren Entwurf mit dem Bewertungsraster. Überarbeiten Sie anschließend die Stelle, an der Ihr Argument am wenigsten überzeugt."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "de4-forum-review",
+   "title": "Forumsbeitrag überarbeiten",
+   "criteria": [
+    {
+     "id": "position",
+     "name": "Position und Adressaten",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Erfüllt",
+       "description": "Ihre Position zur Änderung ist klar. Sie sprechen andere Forumsmitglieder in einem passenden Ton an."
+      },
+      {
+       "points": 1,
+       "label": "Teilweise erfüllt",
+       "description": "Ihre Meinung ist erkennbar. Benennen Sie die Änderung, die Sie unterstützen oder ablehnen."
+      },
+      {
+       "points": 0,
+       "label": "Überarbeiten",
+       "description": "Formulieren Sie einen Satz, der Miras Vorschlag direkt beantwortet."
+      }
+     ]
+    },
+    {
+     "id": "support",
+     "name": "Begründung und Beispiel",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Erfüllt",
+       "description": "Ein konkretes Beispiel zeigt, wem die Regelung aus welchem Grund hilft."
+      },
+      {
+       "points": 1,
+       "label": "Teilweise erfüllt",
+       "description": "Sie nennen eine Gruppe. Erklären Sie anhand einer Situation, was sich für sie ändert."
+      },
+      {
+       "points": 0,
+       "label": "Überarbeiten",
+       "description": "Wählen Sie eine Personengruppe und schildern Sie einen typischen Bibliotheksbesuch."
+      }
+     ]
+    },
+    {
+     "id": "response",
+     "name": "Einwand und Ausgleich",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Erfüllt",
+       "description": "Sie erklären einen Nachteil und zeigen, wie Ihre Alternative oder Ihr Ausgleich darauf reagiert."
+      },
+      {
+       "points": 1,
+       "label": "Teilweise erfüllt",
+       "description": "Nachteil und Alternative sind genannt. Erklären Sie, wie die Alternative das Problem mindert."
+      },
+      {
+       "points": 0,
+       "label": "Überarbeiten",
+       "description": "Fragen Sie, wer durch die Änderung etwas verliert. Schlagen Sie dafür einen Ausgleich vor."
+      }
+     ]
+    },
+    {
+     "id": "coherence",
+     "name": "Zusammenhang und Verständlichkeit",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Erfüllt",
+       "description": "Ihre Absätze führen nachvollziehbar von der Position zum Schluss. Wortwahl und Satzbau machen die Beziehungen klar; einzelne Fehler behindern das Verständnis nicht."
+      },
+      {
+       "points": 1,
+       "label": "Teilweise erfüllt",
+       "description": "Eine Verbindung bleibt unklar. Machen Sie an dieser Stelle Ursache oder Gegensatz deutlich."
+      },
+      {
+       "points": 0,
+       "label": "Überarbeiten",
+       "description": "Ordnen Sie Ihre Sätze nach Position, Begründung und Abwägung. Prüfen Sie danach die Verbstellung."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

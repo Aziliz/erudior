@@ -5,8 +5,8 @@
  "title": "German C1",
  "description": "The fifth step in German, from B2 to CEFR level C1, the level of the Goethe-Zertifikat C1. Lessons cover modal verbs in every tense and their subjective use about the past, the Konjunktiv II of the past with modal verbs and the passive, the Konjunktiv I in academic and legal reporting, focus and modal particles, advanced nominal style, Funktionsverbgefüge and participial constructions, every alternative to the passive, the word es and other pointing words, text cohesion, idioms, register and advanced word formation, and the texts of law, economics, science, politics and culture. Writing and speaking reach C1: summaries, graph descriptions, the Erörterung, forum posts and half-formal messages, talks and discussions, and mediation, with a look at regional German and literature. About 1,000 new words build on the roughly 3,400 core words of German A1 to B2 for about 4,400 in all, and a reading list suggests books, newspapers and podcasts at this level. Unlocks when German B2 is complete.",
  "author": "Erudior",
- "revision": 2,
- "changelog": "Comma-rule references use the 2024 numbering of the official rules.",
+ "revision": 3,
+ "changelog": "Adds study cards for applying and distinguishing concepts from the lessons.",
  "modules": [
   {
    "id": "de5-m1",
@@ -17029,7 +17029,50 @@
    ]
   }
  ],
- "decks": [],
+ "decks": [
+  {
+   "id": "lang-german-c1-concepts",
+   "title": "German C1 · Concept practice",
+   "cards": [
+    {
+     "id": "lang-german-c1-concept-01",
+     "topic": "Reported claims",
+     "front": "Contrast Er soll den Bericht geändert haben with Er will den Bericht geändert haben.",
+     "back": "Soll presents a claim attributed to others. Will presents his own claim. Neither sentence alone verifies the change."
+    },
+    {
+     "id": "lang-german-c1-concept-02",
+     "topic": "Nominal style",
+     "front": "Make Nach der Auswertung der Daten wurde das Verfahren geändert clearer when the team did both things.",
+     "back": "Nachdem das Team die Daten ausgewertet hatte, änderte es das Verfahren. Both actions now have an explicit agent and their order is clear."
+    },
+    {
+     "id": "lang-german-c1-concept-03",
+     "topic": "Academic stance",
+     "front": "One small sample improved. Revise Die Methode wirkt immer to match the evidence.",
+     "back": "In dieser Stichprobe war eine Verbesserung zu beobachten. Ob sie sich auf andere Gruppen übertragen lässt, bleibt offen."
+    },
+    {
+     "id": "lang-german-c1-concept-04",
+     "topic": "Cohesion",
+     "front": "Why might Dies ist überraschend be unclear after two different findings? Repair it if only the drop in costs was surprising.",
+     "back": "Der Rückgang der Kosten ist überraschend. Naming the intended finding removes the ambiguous reference."
+    },
+    {
+     "id": "lang-german-c1-concept-05",
+     "topic": "Register",
+     "front": "Replace Das kriegen wir schon hin with an appropriate sentence in a formal project update, retaining uncertainty.",
+     "back": "Nach heutigem Stand halten wir das Ziel für erreichbar. The sentence states an assessment rather than promising the outcome."
+    },
+    {
+     "id": "lang-german-c1-concept-06",
+     "topic": "Concession",
+     "front": "Use wenngleich to qualify Die Ergebnisse stützen die Hypothese when the sample was small.",
+     "back": "Die Ergebnisse stützen die Hypothese, wenngleich die Stichprobe klein war. This preserves the conclusion while acknowledging its limit."
+    }
+   ]
+  }
+ ],
  "glossary": [
   {
    "term": "genitive object",
