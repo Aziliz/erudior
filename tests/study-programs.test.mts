@@ -8,7 +8,8 @@ import type { CatalogEntry } from '../src/lib/catalog';
 
 const automotive = STUDY_PROGRAMS.find(p => p.id === 'automotive-mechanics-custom-construction')!;
 assert(automotive.practicalAssessment, 'the workshop sign-off is explicit');
-assert.deepEqual(automotive.stages.map(s => s.courses.length), [3, 6, 4, 1]);
+assert.deepEqual(automotive.stages.map(s => s.courses.length), [3, 6, 5, 1]);
+assert.deepEqual(automotive.stages[2].courses.slice(0, 2).map(c => c.courseId), ['auto-welding', 'auto-fabrication']);
 for (const course of programCourses(automotive)) {
   const entry = CATALOG.find(e => e.id === course.courseId);
   assert(entry, `available workshop course: ${course.courseId}`);

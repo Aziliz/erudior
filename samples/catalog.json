@@ -11019,6 +11019,68 @@
   ]
  },
  {
+  "id": "auto-welding",
+  "file": "math/auto-welding.json",
+  "order": 209.5,
+  "title": "Automotive Welding and Weld Inspection",
+  "description": "Choose a joining process, draw a steel joint, set up a MIG welder and practice on matched coupons. Fabricate a removable shop organizer, measure distortion and destructively test a plug weld before transferring the evidence to chassis design.",
+  "revision": 1,
+  "subject": "Automotive Mechanics",
+  "level": [
+   "Professional"
+  ],
+  "type": [
+   "Course"
+  ],
+  "lessons": 8,
+  "questions": 16,
+  "cards": 8,
+  "drills": 0,
+  "requires": [
+   "auto-shop"
+  ],
+  "lessonIds": [
+   "bay",
+   "process",
+   "layout",
+   "setup",
+   "stringer",
+   "joints",
+   "tray",
+   "inspect"
+  ],
+  "outline": [
+   {
+    "title": "Theory — Hot work and welding processes",
+    "lessons": [
+     "Clear the bay before striking an arc",
+     "Read the material and choose a joining process"
+    ]
+   },
+   {
+    "title": "Design — Joint drawings and setup",
+    "lessons": [
+     "Draw a joint that can be made and inspected",
+     "Set up the wire path and a representative test coupon"
+    ]
+   },
+   {
+    "title": "Implementation — GMAW bead and joint practice",
+    "lessons": [
+     "Run repeatable beads on bare mild steel",
+     "Make fillet and plug welds that reveal the interface"
+    ]
+   },
+   {
+    "title": "Verification — Build, inspect and test",
+    "lessons": [
+     "Fixture, tack and weld a removable shop organizer",
+     "Test the weld and hand off the evidence"
+    ]
+   }
+  ]
+ },
+ {
   "id": "auto-fabrication",
   "file": "math/auto-fabrication.json",
   "order": 210,
