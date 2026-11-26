@@ -1,0 +1,1015 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-brakes",
+ "title": "Brake, Steering and Suspension Service",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare disc and drum brakes, calipers, master cylinders, steering gears and assist systems. Inspect a physical wheel end and document its measured condition. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Wheel-end theory",
+   "quiz": [
+    "brakes-1-q2",
+    "cmp-friction-hydraulics-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Inspection layout",
+   "quiz": [
+    "brakes-2-q2",
+    "cmp-steering-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Wheel-end service",
+   "quiz": [
+    "brakes-3-q3",
+    "shop-change-brakes"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Return to service",
+   "quiz": [
+    "brakes-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "brakes-1",
+   "module": "m1",
+   "title": "Follow brake force and track a loose wheel",
+   "minutes": 20,
+   "topics": [
+    "Wheel-end theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Workshop Measurement and Vehicle Service, or demonstrate the equivalent workshop skills.\n\nPedal force acts on the master cylinder. Fluid pressure acts on caliper pistons, pads clamp the rotor and friction creates wheel torque. The tire-road contact limits how much force reaches the ground. Steering and suspension joints constrain wheel motion. Movement measured at the wheel can originate in several joints, so watch the joint as the trainer is moved.\n\n## Worked shop case\n\nPressure of 2 N/mm² acting on one 300 mm² piston produces 600 N at that piston. This is piston force. Calculating road force would also require clamp geometry, friction, effective radius and tire radius.\n\n## Guided practice\n\nPressure of 3 N/mm² acts on one 200 mm² piston. What piston force results in newtons?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** An inspected physical wheel end and its completed measurement and disposition sheet.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "brakes-1-q1",
+    "brakes-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-friction-hydraulics",
+   "module": "m1",
+   "title": "Disc and drum brakes, master cylinders and brake assist",
+   "minutes": 25,
+   "topics": [
+    "Disc and drum brakes, master cylinders and brake assist"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A master cylinder converts pushrod force to hydraulic pressure. At fixed input force a larger master piston lowers pressure but displaces more volume per unit travel. A booster adds force by vacuum, hydraulics or electric actuation. A split hydraulic system limits what a single circuit failure can affect. ABS valves and a pump intervene in pressure control. Electronic parking brakes and regenerative blending add controls and service modes that must be identified before work.\n\nIn a floating disc caliper, reaction moves the caliper on guides to apply the outer pad. In a fixed caliper opposed pistons apply pads on both sides. A drum uses shoes against its inner surface and can obtain self-energizing action from rotation depending on geometry. Compare heat dissipation, parking mechanism, inspection access and adjustment. Lateral rotor runout, rotor thickness variation and minimum thickness describe three different measurements. Select the correct test and component-specific discard limits.\n\n## Worked shop case\n\nInner and outer pads on a floating caliper have very different wear. Guide movement, pad supports, piston release and hose condition merit investigation; contrasting wear alone cannot select one cause. On a fixed caliper inspect the opposed pistons and pad freedom. Do not invent a guide-slide test for a caliper bolted rigidly in place.\n\n## Guided practice\n\n```example fade=2\nproblem: At fixed pushrod force a training master doubles its piston area. What follows?\nstep: Divide the force by the new area.\nstep: Compare displaced volume at equal stroke.\nanswer: Pressure halves and volume per fixed stroke doubles. No installation recommendation follows from this calculation alone.\n```\n\n## Independent shop or design task\n\nIdentify the installed caliper or drum architecture, parking brake, assist type and hydraulic split from the donor drawings. Perform the course wheel-end inspection with the appropriate dust controls and measure the specified features.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-friction-hydraulics-q1",
+    "cmp-friction-hydraulics-q2"
+   ]
+  },
+  {
+   "id": "cmp-steering",
+   "module": "m2",
+   "title": "Steering gears, column, linkage and assist",
+   "minutes": 25,
+   "topics": [
+    "Steering gears, column, linkage and assist"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A rack directly converts pinion rotation to lateral travel and moves tie rods. A recirculating-ball steering box commonly rotates a sector shaft and pitman arm to drive external linkage. Linkage slack, joints, mounts and column couplings can each contribute to steering free play. Mechanical steering ratio relates steering-wheel angle to road-wheel angle under defined conditions. Variable ratio, Ackermann geometry and compliance can change a measured result across the travel.\n\nHydraulic power steering uses a pump, lines, control valve and actuator; check fluid, leakage, belt or pump drive and pressure/flow under specified conditions. Electric power steering adds a torque sensor, controller and assist motor at the column or rack. A loss of electrical assist may involve supply, sensor plausibility or a controller fault. Rack mounting, inner-pivot location, collapsible column, shaft joints and alignment must agree with the chassis and suspension through their travel.\n\n## Worked shop case\n\nTwo racks share mounting-hole spacing but have different inner tie-rod pivot widths. At ride height both can be adjusted to the same static toe. During bump their tie rods swing on different arcs, so measured toe curves can differ. Select using the loaded geometry and measured travel as well as the bolt pattern.\n\n## Guided practice\n\n```example fade=2\nproblem: A teaching steering wheel turns 240° for 15° at the stated road-wheel reference. Estimate the steering ratio.\nstep: Use angles measured over the same interval.\nstep: Divide wheel angle by road-wheel angle.\nanswer: The average is 16:1 over this interval. Verify the rest of the travel separately.\n```\n\n## Independent shop or design task\n\nMap the complete donor path from steering wheel to knuckles. Record power or hydraulic interfaces, mount locations, joint angles, travel stops and the way that free play and toe change will be measured.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-steering-q1",
+    "cmp-steering-q2"
+   ]
+  },
+  {
+   "id": "brakes-2",
+   "module": "m2",
+   "title": "Design a rotor measurement map",
+   "minutes": 20,
+   "topics": [
+    "Inspection layout"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-pad-compound-and-rotor-package",
+    "mod-brake-cooling-ducts",
+    "mod-larger-brake-kit"
+   ],
+   "body": "Rotor thickness variation and lateral runout describe different quantities. Measure thickness at equal radius around the disc with a suitable micrometer. For runout, secure the disc as specified and measure lateral indicator travel as it turns. Clean mounting faces and identify the exact model's limits before interpreting either test.\n\n## Worked shop case\n\nFour thicknesses at equal radius span 22.01–22.05 mm. Variation is 0.04 mm. Minimum thickness requires a separate comparison with the actual discard limit.\n\n## Guided practice\n\nThickness varies from 24.12 to 24.18 mm. Enter variation in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nUse service data for a selected wheel end. Sketch four thickness points and the runout fixture. Give separate limits, units and dispositions for thickness, variation, play and runout.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "brakes-2-q1",
+    "brakes-2-q2"
+   ]
+  },
+  {
+   "id": "brakes-3",
+   "module": "m3",
+   "title": "Inspect a known-clean training corner",
+   "minutes": 15,
+   "topics": [
+    "Wheel-end service"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use a known-clean teaching assembly. Unknown brake and clutch dust needs appropriate controls. Identify tire condition, hose routing, pad wear, free movement and attachment points before disturbing the parts. Follow the service manual's limits, fastener rules, bleed procedure and functional checks if hydraulic service is undertaken by the shop.\n\n## Worked shop case\n\nA training rotor is stamped MIN 20.0 mm. The lowest repeatable measurement is 19.8 mm. Resurfacing would remove more material. Segregate this part from serviceable stock.\n\n## Guided practice\n\nA rotor's lowest reading is 21.30 mm against its 21.50 mm minimum. How far below minimum is it, in mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nFor covered employees performing brake or clutch work with potential asbestos exposure, use the controls and work practices in 29 CFR 1910.1001 and Appendix F for the operation. Use a known-clean training rig. Leave suspect dust undisturbed; dry sweeping or blowing it around the shop is inappropriate. Record the friction material's provenance and the controlled work method. Buy traceable hoses and brake fluid suitable for the intended vehicle.\n\n[OSHA — brake/clutch asbestos controls, 29 CFR 1910.1001 Appendix F](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1001AppF) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\n## Workshop preparation\n\nUse a secured, unloaded training assembly. Leave unknown dust, loaded springs, airbag components and pressurized hydraulics to an appropriately equipped shop.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "brakes-3-q1",
+    "brakes-3-q2",
+    "brakes-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Measure repeatability before changing brake hardware",
+   "minutes": 35,
+   "topics": [
+    "Measure repeatability before changing brake hardware"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1",
+    "mod-pad-compound-and-rotor-package",
+    "mod-brake-cooling-ducts",
+    "mod-larger-brake-kit",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nBraking and steering, Friction, hydraulic and steering detail. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Pad compound and rotor package\n- Brake cooling ducts\n- Larger brake kit\n\n## Worked example\n\nAt fixed vehicle mass, kinetic energy scales with speed squared. A stop from 80 km/h has four times the initial translational kinetic energy of a stop from 40 km/h. Temperature measurements taken after those two stops cannot isolate a duct's effect. Tire grip, brake balance and pedal condition also matter.\n\n## Guided decision\n\n```example fade=1\nproblem: A cooler rotor reading follows a run with half the vehicle speed. What must the next test hold constant?\nstep: Control mass, speed schedule, initial temperatures, airflow, braking conditions and measurement delay.\nanswer: Compare matched repeated-stop results at a controlled facility using the same method and instrument location.\n```\n\n## Independent workshop\n\nBuild an unpowered duct-to-wheel-end mock-up and safely sweep the rig. Record the tightest hose/steering clearance; a static exercise does not qualify brake performance.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-brakes"
+   ]
+  },
+  {
+   "id": "brakes-4",
+   "module": "m4",
+   "title": "Verify a correction and record remaining limits",
+   "minutes": 15,
+   "topics": [
+    "Return to service"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "A low or sinking pedal demands diagnosis. A rotor measurement alone cannot clear an entire braking system. For the teaching corner, reassemble to the manual and remeasure using the original setup. On a complete vehicle, professional checks also include leaks, firm pedal, reserve travel, fluid level, assist and a controlled functional brake test.\n\n## Worked shop case\n\nDisc runout drops after a mounting face is cleaned and the disc is secured correctly. The matched test supports a mounting influence. It does not explain an unrelated sinking pedal.\n\n## Guided practice\n\nAn indicator ranges from −0.03 to +0.04 mm. Give total indicator travel in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe sheet distinguishes thickness variation, lateral runout and joint play, each with its own evidence. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "brakes-4-q1",
+    "brakes-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-brakes-bank",
+   "title": "Brake, Steering and Suspension Service practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Wheel-end theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Inspection layout"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Wheel-end service"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Return to service"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "brakes-1-q1",
+     "section": "m1",
+     "topic": "Wheel-end theory",
+     "stem": "Pressure of 3 N/mm² acts on one 200 mm² piston. What piston force results in newtons? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "600"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Pressure multiplied by piston area gives 600 N."
+    },
+    {
+     "id": "brakes-1-q2",
+     "section": "m1",
+     "topic": "Wheel-end theory",
+     "stem": "Wheel play moves the hub relative to the upright while the ball joint stays still. Where should the next measurement focus?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Steering wheel rim.",
+      "Brake-fluid reservoir.",
+      "Hub or bearing assembly."
+     ],
+     "explanation": "The observed relative motion localizes the next check."
+    },
+    {
+     "id": "brakes-2-q1",
+     "section": "m2",
+     "topic": "Inspection layout",
+     "stem": "Thickness varies from 24.12 to 24.18 mm. Enter variation in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.06"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Maximum minus minimum is 0.06 mm."
+    },
+    {
+     "id": "brakes-2-q2",
+     "section": "m2",
+     "topic": "Inspection layout",
+     "stem": "Which instrument setup measures lateral runout?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "A pressure gauge on the valve stem.",
+      "A fixed indicator against the rotating disc face.",
+      "A caliper across the outside diameter."
+     ],
+     "explanation": "The indicator measures side-to-side travel relative to a fixed reference."
+    },
+    {
+     "id": "brakes-3-q1",
+     "section": "m3",
+     "topic": "Wheel-end service",
+     "stem": "A rotor's lowest reading is 21.30 mm against its 21.50 mm minimum. How far below minimum is it, in mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.20"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "21.50 − 21.30 = 0.20 mm."
+    },
+    {
+     "id": "brakes-3-q2",
+     "section": "m3",
+     "topic": "Wheel-end service",
+     "stem": "A discarded brake assembly has unknown dust. What is the appropriate training action?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Leave it undisturbed and use the site's asbestos-control procedure.",
+      "Blow it clean with an air nozzle.",
+      "Sweep the debris into a parts bin."
+     ],
+     "explanation": "Identification by appearance cannot establish that dust is safe."
+    },
+    {
+     "id": "brakes-3-q3",
+     "section": "m3",
+     "topic": "Wheel-end service",
+     "stem": "An older clutch assembly has unknown friction material. Select two appropriate steps. Select all that apply.",
+     "choices": [
+      "Choose a documented clean trainer while the suspect assembly is assessed.",
+      "Infer dust safety from the year stamped on the pressure plate.",
+      "Use compressed air to discover where the dust settles.",
+      "Treat possible asbestos exposure under the facility's controls."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "For covered employees performing brake or clutch work with potential asbestos exposure, use the controls and work practices in 29 CFR 1910.1001 and Appendix F for the operation. Use a known-clean training rig. Leave suspect dust undisturbed; dry sweeping or blowing it around the shop is inappropriate. Record the friction material's provenance and the controlled work method. Buy traceable hoses and brake fluid suitable for the intended vehicle."
+    },
+    {
+     "id": "brakes-4-q1",
+     "section": "m4",
+     "topic": "Return to service",
+     "stem": "An indicator ranges from −0.03 to +0.04 mm. Give total indicator travel in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.07"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The distance between the extrema is 0.07 mm."
+    },
+    {
+     "id": "brakes-4-q2",
+     "section": "m4",
+     "topic": "Return to service",
+     "stem": "A corner passes its dimensional checks but a vehicle's brake pedal slowly sinks. What is the disposition?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Release because rotor thickness passed.",
+      "Replace the tires to mask the symptom.",
+      "Hold the vehicle and diagnose the hydraulic fault."
+     ],
+     "explanation": "Passing one part cannot clear a continuing brake-system fault."
+    },
+    {
+     "id": "cmp-friction-hydraulics-q1",
+     "section": "m1",
+     "topic": "Disc and drum brakes, master cylinders and brake assist",
+     "stem": "Which feature distinguishes a typical floating disc caliper from a fixed opposed-piston caliper?",
+     "explanation": "Lateral movement allows the outer pad to apply.",
+     "choices": [
+      "Its rotor must be solid.",
+      "Guides allow the caliper body to react and apply the opposite pad.",
+      "Its hydraulic circuit must lack ABS."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-friction-hydraulics-q2",
+     "section": "m1",
+     "topic": "Disc and drum brakes, master cylinders and brake assist",
+     "stem": "A training piston receives 600 N over 200 mm². Enter hydraulic pressure in MPa, using 1 N/mm² = 1 MPa.",
+     "explanation": "Divide force by piston area.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "3"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-steering-q1",
+     "section": "m2",
+     "topic": "Steering gears, column, linkage and assist",
+     "stem": "Which measurement directly evaluates bump steer after a rack change?",
+     "explanation": "Bump steer is a change of toe as suspension moves.",
+     "choices": [
+      "Toe versus wheel travel with steering held at its reference.",
+      "Steering-wheel diameter at rest.",
+      "Assist motor current with the wheels removed."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-steering-q2",
+     "section": "m2",
+     "topic": "Steering gears, column, linkage and assist",
+     "stem": "A rig shows 180° of steering-wheel rotation for 12° of road-wheel angle. Enter the average steering ratio as a number.",
+     "explanation": "180 divided by 12 is 15.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "15"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-brakes",
+     "section": "m3",
+     "topic": "Measure repeatability before changing brake hardware",
+     "stem": "Which observation supports brake cooling as the next design investigation?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Repeated stops produce a temperature-related change in braking behavior under controlled conditions.",
+      "One shorter stopping distance on a different tire proves a duct works.",
+      "A soft pedal on the first cold stop with an unresolved hydraulic leak."
+     ],
+     "explanation": "Establish a repeatable heat-related problem and control load, tires, initial temperature and stop cycle."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-brakes-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Runout",
+     "back": "Side-to-side deviation of the rotating face relative to a fixed reference.",
+     "topic": "Wheel-end theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Wheel play moves the hub relative to the upright while the ball joint stays still. Where should the next measurement focus?",
+     "back": "Hub or bearing assembly. The observed relative motion localizes the next check.",
+     "topic": "Wheel-end theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Thickness variation",
+     "back": "Maximum minus minimum thickness at specified stations.",
+     "topic": "Inspection layout"
+    },
+    {
+     "id": "c2b",
+     "front": "Which instrument setup measures lateral runout?",
+     "back": "A fixed indicator against the rotating disc face. The indicator measures side-to-side travel relative to a fixed reference.",
+     "topic": "Inspection layout"
+    },
+    {
+     "id": "c3a",
+     "front": "Upright",
+     "back": "The suspension member that locates the wheel-end bearing or hub.",
+     "topic": "Wheel-end service"
+    },
+    {
+     "id": "c3b",
+     "front": "A discarded brake assembly has unknown dust. What is the appropriate training action?",
+     "back": "Leave it undisturbed and use the site's asbestos-control procedure. Identification by appearance cannot establish that dust is safe.",
+     "topic": "Wheel-end service"
+    },
+    {
+     "id": "c4a",
+     "front": "Discard limit",
+     "back": "The manufacturer's dimensional boundary for rejecting a part.",
+     "topic": "Return to service"
+    },
+    {
+     "id": "c4b",
+     "front": "A corner passes its dimensional checks but a vehicle's brake pedal slowly sinks. What is the disposition?",
+     "back": "Hold the vehicle and diagnose the hydraulic fault. Passing one part cannot clear a continuing brake-system fault.",
+     "topic": "Return to service"
+    },
+    {
+     "id": "cmp-friction-hydraulics-card",
+     "front": "Which feature distinguishes a typical floating disc caliper from a fixed opposed-piston caliper?",
+     "back": "Guides allow the caliper body to react and apply the opposite pad. Lateral movement allows the outer pad to apply.",
+     "topic": "Disc and drum brakes, master cylinders and brake assist"
+    },
+    {
+     "id": "cmp-steering-card",
+     "front": "Which measurement directly evaluates bump steer after a rack change?",
+     "back": "Toe versus wheel travel with steering held at its reference. Bump steer is a change of toe as suspension moves.",
+     "topic": "Steering gears, column, linkage and assist"
+    },
+    {
+     "id": "change-evidence",
+     "front": "Which observation supports brake cooling as the next design investigation?",
+     "back": "Repeated stops produce a temperature-related change in braking behavior under controlled conditions. Establish a repeatable heat-related problem and control load, tires, initial temperature and stop cycle.",
+     "topic": "Measure repeatability before changing brake hardware"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Runout",
+   "definition": "Side-to-side deviation of the rotating face relative to a fixed reference.",
+   "topic": "Wheel-end theory"
+  },
+  {
+   "term": "Thickness variation",
+   "definition": "Maximum minus minimum thickness at specified stations.",
+   "topic": "Inspection layout"
+  },
+  {
+   "term": "Upright",
+   "definition": "The suspension member that locates the wheel-end bearing or hub.",
+   "topic": "Wheel-end service"
+  },
+  {
+   "term": "Discard limit",
+   "definition": "The manufacturer's dimensional boundary for rejecting a part.",
+   "topic": "Return to service"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [College of the Desert — Automotive General Service](https://catalog.collegeofthedesert.edu/programs/automotive-technology/general-automotive-service-certificate-of-achievement/) · [OSHA — brake/clutch asbestos controls, 29 CFR 1910.1001 Appendix F](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1001AppF)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nFor covered employees performing brake or clutch work with potential asbestos exposure, use the controls and work practices in 29 CFR 1910.1001 and Appendix F for the operation. Use a known-clean training rig. Leave suspect dust undisturbed; dry sweeping or blowing it around the shop is inappropriate. Record the friction material's provenance and the controlled work method. Buy traceable hoses and brake fluid suitable for the intended vehicle.\n\n[OSHA — brake/clutch asbestos controls, 29 CFR 1910.1001 Appendix F](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1001AppF) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [HSE — working under supported vehicles, shop guidance](https://www.hse.gov.uk/mvr/mechanical-repair/under-vehicles.htm)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Friction brake; Master cylinder and split circuits; Assist and parking brake; Rack, box and linkages; Steering assist and column. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Friction brake | Disc / drum; fixed / floating caliper | Follow clamp or shoe force, guide movement, heat rejection and parking mechanism. | Measure applicable rotor thickness and runout or drum diameter against source limits. |\n| Master cylinder and split circuits | Different bores and split layouts | Piston area trades pressure for displacement; the split defines the effect of circuit loss. | Draw both circuits and compare master travel and pressure using the approved design. |\n| Assist and parking brake | Vacuum / hydraulic / electric assist; cable / electric parking brake | Assist energy, failure response and service mode differ. | Identify reserve and warning checks, required service mode and an independent holding check. |\n| Rack, box and linkages | Rack-and-pinion / recirculating-ball steering gear | Gear output and linkage paths control toe changes, turning radius and available space. | Record free play, stops, static alignment and toe over travel. |\n| Steering assist and column | Manual / hydraulic / column- or rack-electric assist | Supply, sensors, shaft joints and collapsible-column support must suit layout. | Diagram the steering path and document motion and clearance across the adjustment range. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [Raybestos, floating and fixed caliper operation, bulletin 18-16](https://www.brakepartsinc.com/dam/jcr%3A554fe92c-a4ae-470d-90c3-a29b4f66906c/Technical%20Bulletin%2018-16.pdf)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Brembo, racing brake system selection and brake balance](https://www.brembo.com/jp/Varie/2015-16%20BREMBO%20RACING%20CATALOGUE%20%28595%29.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Braking and steering · Brake pedal and pivot to Caliper body and pistons",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Brake pedal and pivot\n\n**Function.** Provide leverage and input travel.\n\n**Design.** Choose ratio, sweep, pivot support and pedal spacing.\n\n**Make, assemble or fit.** Fixture a reviewed assembly and fit bushed pivot, return and stop.\n\n**Verify.** Measure free play and travel and inspect adjacent control clearance.\n\n### Brake booster\n\n**Function.** Adds assist force.\n\n**Design.** Match vacuum, hydraulic or electric source, pushrod and master interface.\n\n**Make, assemble or fit.** Fit a matched approved booster and restore needed lines or calibration.\n\n**Verify.** Check reserve, assist response and warning functions.\n\n### Brake master cylinder\n\n**Function.** Produces hydraulic pressure in multiple circuits.\n\n**Design.** Match bore, stroke, volume, split and booster interface.\n\n**Make, assemble or fit.** Install matched unit and bleed in the prescribed sequence.\n\n**Verify.** Verify no bypass, stable pressure/pedal and working reserve.\n\n### Brake reservoir\n\n**Function.** Holds fluid reserve and allows level monitoring.\n\n**Design.** Match fluid, volume and vent sealing; provide service access.\n\n**Make, assemble or fit.** Fit clean seals, level switch and approved cap.\n\n**Verify.** Verify level change, cap fit and low-level indication.\n\n### Hard brake pipe\n\n**Function.** Transmits pressure along the chassis.\n\n**Design.** Select approved material, diameter, flare type and fittings.\n\n**Make, assemble or fit.** Practice flares on coupons then bend and support the specified tubing using proper tooling.\n\n**Verify.** Inspect every flare seat and perform approved hydraulic leak/proof checks.\n\n### Flexible brake hose\n\n**Function.** Maintains pressure path to moving wheel.\n\n**Design.** Match pressure approval, fittings, length, twist and full-travel clearance.\n\n**Make, assemble or fit.** Fit approved assembly and orient locating tabs without twist.\n\n**Verify.** Check at full steer, bump and droop and verify pressure integrity.\n\n### Disc rotor\n\n**Function.** Provides friction track and thermal mass.\n\n**Design.** Match diameter, thickness, offset, ventilation and caliper clearance.\n\n**Make, assemble or fit.** Fit compatible rotor on a clean flange without trapping debris.\n\n**Verify.** Measure thickness, lateral runout and variation under the specified clamp.\n\n### Caliper body and pistons\n\n**Function.** Convert hydraulic pressure to pad clamping.\n\n**Design.** Match swept area, piston area, pad shape and master displacement.\n\n**Make, assemble or fit.** Use a qualified matched caliper and specified mounting hardware.\n\n**Verify.** Check full pad contact, leak-free operation and release."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Braking and steering · Caliper slide pin to Parking brake actuator and cable",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Caliper slide pin\n\n**Function.** Allows a floating caliper to center itself.\n\n**Design.** Match clearance, boot material and approved lubricant.\n\n**Make, assemble or fit.** Clean or replace parts as specified; seat boots and retainers.\n\n**Verify.** Check free travel and pad wear symmetry.\n\n### Caliper piston seal and boot\n\n**Function.** Retain pressure and exclude debris.\n\n**Design.** Match seal kit to piston bore, fluid and model.\n\n**Make, assemble or fit.** Rebuild only approved calipers with clean correct seals and piston inspection.\n\n**Verify.** Use prescribed pressure/leak and release checks.\n\n### Brake pad and backing plate\n\n**Function.** Transform vehicle motion into heat at the rotor.\n\n**Design.** Select cold response, temperature range, friction compatibility and intended duty.\n\n**Make, assemble or fit.** Fit approved matched axle set and hardware; follow specified bedding process.\n\n**Verify.** Measure pad clearance/wear and evaluate repeated stops on controlled site.\n\n### Bleed screw\n\n**Function.** Provides high-point release for air and fluid.\n\n**Design.** Match seat, thread and access in installed orientation.\n\n**Make, assemble or fit.** Fit compatible screw and seal the seat per specified tightening value.\n\n**Verify.** Check no leakage after bleeding and reinstall dust cap.\n\n### Brake drum\n\n**Function.** Provides internal friction surface for shoes.\n\n**Design.** Specify diameter, maximum service limit, heat capacity and offset.\n\n**Make, assemble or fit.** Fit rated drum after measuring actual diameter and shoe compatibility.\n\n**Verify.** Check diameter, roundness and drag after adjustment.\n\n### Wheel cylinder\n\n**Function.** Pushes drum shoes apart hydraulically.\n\n**Design.** Match bore, fitting, mounting and fluid.\n\n**Make, assemble or fit.** Fit approved cylinder and secure correctly oriented shoes and hardware.\n\n**Verify.** Inspect under boots as prescribed and perform leak check.\n\n### Brake shoes, return springs and adjuster\n\n**Function.** Apply, release and maintain working clearance in a drum.\n\n**Design.** Match shoe orientation, spring set and left/right adjuster threads.\n\n**Make, assemble or fit.** Reassemble with approved brake-dust controls and exact side-specific diagram.\n\n**Verify.** Verify self-adjustment, release and parking operation.\n\n### Parking brake actuator and cable\n\n**Function.** Hold a parked vehicle independently of normal pedal command.\n\n**Design.** Match lever or electric actuator, return and adjustment range.\n\n**Make, assemble or fit.** Route cable away from heat and movement or initialize matched motor service mode.\n\n**Verify.** Verify independent hold and complete release by approved procedure."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Braking and steering · ABS modulator to Electric assist motor and torque sensor",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### ABS modulator\n\n**Function.** Adjusts wheel-circuit pressure under controller command.\n\n**Design.** Match hydraulic split, sensor format, coding and bleed routine.\n\n**Make, assemble or fit.** Use a compatible complete unit and prescribed scan-tool bleed.\n\n**Verify.** Check codes, base brake function and approved ABS verification.\n\n### Steering wheel and hub\n\n**Function.** Transfer driver torque to column.\n\n**Design.** Match spline, clocking, airbag and electrical interfaces and occupant geometry.\n\n**Make, assemble or fit.** Install the matched approved assembly under the donor restraint procedure.\n\n**Verify.** Verify centered position, lock movement and retained functions.\n\n### Steering column and intermediate shaft\n\n**Function.** Transmit input while accommodating collapse and packaging.\n\n**Design.** Preserve designed collapse path, splines, joints and support spacing.\n\n**Make, assemble or fit.** Use compatible column and qualified joints, keeping clamp bolts in their designed grooves.\n\n**Verify.** Check binding, engagement and clearances across travel.\n\n### Steering rack\n\n**Function.** Converts rotation into tie-rod motion.\n\n**Design.** Match ratio, travel, pivot width, mounts and assist strategy.\n\n**Make, assemble or fit.** Install centered rack with correct mounting and load-rated fasteners.\n\n**Verify.** Measure stop-to-stop freedom, toe curve and steering center.\n\n### Steering box and pitman arm\n\n**Function.** Convert steering rotation into linkage movement on box layouts.\n\n**Design.** Match sector spline, pitman indexing, linkage travel and mount stiffness.\n\n**Make, assemble or fit.** Fit matched box and indexed arm to reviewed support.\n\n**Verify.** Check free play, travel limits, interference and attachment.\n\n### Tie rod and outer end\n\n**Function.** Transfer rack or linkage travel to the steering arm.\n\n**Design.** Choose thread engagement, taper, range and articulation.\n\n**Make, assemble or fit.** Fit compatible joint and engage locking hardware; set toe using proper equipment.\n\n**Verify.** Check taper seating, measured toe and articulation through travel.\n\n### Hydraulic assist pump and hoses\n\n**Function.** Supply fluid flow and pressure for steering assist.\n\n**Design.** Match pump capacity, reservoir, relief, pulley and rated hose ends.\n\n**Make, assemble or fit.** Install matched hoses, support return and bleed using donor data.\n\n**Verify.** Check leakage, temperature and assist under specified conditions.\n\n### Electric assist motor and torque sensor\n\n**Function.** Supply assist according to driver input and control logic.\n\n**Design.** Match motor position, electrical demand and safety calibration.\n\n**Make, assemble or fit.** Install matched rack or column and perform approved initialization.\n\n**Verify.** Verify plausible torque signal, center calibration and manual path."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Friction, hydraulic and steering detail · Brake shoe hold-down pin to Rack inner ball joint",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Brake shoe hold-down pin\n\n**Function.** Retains shoe against backing plate while permitting actuation.\n\n**Design.** Match pin length, cup, spring and backing-plate configuration.\n\n**Make, assemble or fit.** Install matching hardware with correct brake tools and dust controls.\n\n**Verify.** Verify cups locked and shoes move without fouling.\n\n### Drum brake adjuster screw\n\n**Function.** Maintains shoe-to-drum clearance.\n\n**Design.** Match left/right handed thread and operating lever.\n\n**Make, assemble or fit.** Clean or replace as specified and install correct side and orientation.\n\n**Verify.** Check adjuster action and resulting shoe drag.\n\n### Brake hose retaining clip\n\n**Function.** Secures hose end in bracket without stressing rigid line.\n\n**Design.** Match slot, hose groove and bracket thickness.\n\n**Make, assemble or fit.** Fully seat matched clip after locating the line fitting.\n\n**Verify.** Check that fitting cannot rotate or move under suspension travel.\n\n### Brake wear sensor\n\n**Function.** Signals pad wear by the system's intended method.\n\n**Design.** Match electronic loop or mechanical tab to pad position.\n\n**Make, assemble or fit.** Install matched sensor and protect harness from rotor, wheel and heat.\n\n**Verify.** Check warning diagnostics and retained routing.\n\n### Brake-light switch\n\n**Function.** Signals pedal application to lamps and controllers.\n\n**Design.** Match switch logic, location and pedal free-play relationship.\n\n**Make, assemble or fit.** Fit and adjust to exact donor reference without preloading the pedal.\n\n**Verify.** Check all stop lamps, release and relevant controller inputs.\n\n### Brake vacuum check valve\n\n**Function.** Maintains booster reserve against reverse flow.\n\n**Design.** Match orientation, bore, vacuum source and hose rating.\n\n**Make, assemble or fit.** Fit the specified valve into a sound grommet and reinforced vacuum line.\n\n**Verify.** Check one-way and reserve function by approved procedure.\n\n### Steering rack bellows\n\n**Function.** Keep contaminants away from rack and inner joints.\n\n**Design.** Match rack travel, length and vent or equalization path.\n\n**Make, assemble or fit.** Fit appropriate clamps without twisting the boot on centered steering.\n\n**Verify.** Inspect both ends through full steer for pull-off and folding.\n\n### Rack inner ball joint\n\n**Function.** Allows the inner tie rod to articulate as the rack moves.\n\n**Design.** Match thread, load class, locking and pivot-center geometry.\n\n**Make, assemble or fit.** Fit matched joint with specified housing support and locking feature.\n\n**Verify.** Check axial play, toe setting and full-travel movement."
+  },
+  {
+   "id": "mod-pad-compound-and-rotor-package",
+   "title": "Modification · Pad compound and rotor package",
+   "body": "**Purpose.** Manage fade, response or wear in a specified duty cycle.\n\n**Design and baseline.** Start with tires, existing hydraulic condition and repeatable symptoms. Compare cold bite, useful temperature range, rotor capacity, compatibility, dust, noise and road-use status.\n\n**Build and installation.** Select axle-matched rated parts and inspect hubs, guides and seals. Measure rotor runout and thickness, fit hardware and use the manufacturer's bedding process in a suitable controlled setting.\n\n**Test and disposition.** Compare repeated stops with matched initial speed, mass and conditions, logging temperatures, pedal behavior and recovery. Reject a track compound unsuitable at normal cold temperatures.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Brembo, racing brake system selection and brake balance](https://www.brembo.com/jp/Varie/2015-16%20BREMBO%20RACING%20CATALOGUE%20%28595%29.pdf)"
+  },
+  {
+   "id": "mod-brake-cooling-ducts",
+   "title": "Modification · Brake cooling ducts",
+   "body": "**Purpose.** Improve repeated-stop heat management when logged data identifies a thermal limitation.\n\n**Design and baseline.** Plan inlet, flexible route, articulation, safe mounting and delivery toward a suitable vented rotor inlet for the designed rotor. Protect steering, tire, hose and ABS routing.\n\n**Build and installation.** Pattern an inlet and removable backing duct on a mock corner. Form a deburred bracket, fit heat-rated hose and support it through full travel without contact. Obtain review before installation.\n\n**Test and disposition.** Check clearances at both locks and all travel, then compare matched repeated-stop temperature and recovery. Remove a duct that rubs or worsens imbalance.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Brembo, racing brake system selection and brake balance](https://www.brembo.com/jp/Varie/2015-16%20BREMBO%20RACING%20CATALOGUE%20%28595%29.pdf)"
+  },
+  {
+   "id": "mod-larger-brake-kit",
+   "title": "Modification · Larger brake kit",
+   "body": "**Purpose.** Increase thermal capacity and repeatability for a known duty.\n\n**Design and baseline.** Compare rotor mass/effective radius, piston area, fluid volume, front/rear balance, parking brake, ABS compatibility, wheel barrel and track width.\n\n**Build and installation.** Use a vehicle-matched engineered kit. Template the wheel first, inspect hub face, install approved brackets/hardware, route hoses and perform prescribed bleeding and bedding.\n\n**Test and disposition.** Verify pedal reserve, leaks, full wheel clearance, balance and performance on controlled tests. Larger rotors alone do not establish a shorter single stop.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Brembo, racing brake system selection and brake balance](https://www.brembo.com/jp/Varie/2015-16%20BREMBO%20RACING%20CATALOGUE%20%28595%29.pdf)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Use service data for a selected wheel end. Sketch four thickness points and the runout fixture. Give separate limits, units and dispositions for thickness, variation, play and runout."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "An inspected physical wheel end and its completed measurement and disposition sheet."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The sheet distinguishes thickness variation, lateral runout and joint play, each with its own evidence."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design a wheel-end inspection sheet",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Use service data for a selected wheel end. Sketch four thickness points and the runout fixture. Give separate limits, units and dispositions for thickness, variation, play and runout. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Friction brake; Master cylinder and split circuits; Assist and parking brake; Rack, box and linkages; Steering assist and column. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Measure repeatability before changing brake hardware",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Build an unpowered duct-to-wheel-end mock-up and safely sweep the rig. Record the tightest hose/steering clearance; a static exercise does not qualify brake performance. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Inspect and reassemble a wheel end",
+   "module": "m3",
+   "adult": true,
+   "intro": "An inspected physical wheel end and its completed measurement and disposition sheet. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use a secured, unloaded training assembly. Leave unknown dust, loaded springs, airbag components and pressurized hydraulics to an appropriately equipped shop."
+   ],
+   "materials": [
+    "Known-clean training hub, rotor and steering joint",
+    "Correct manual and tools",
+    "Micrometer and dial indicator with rigid stand"
+   ],
+   "steps": [
+    "Mark four measurement stations at the specified radius. Record thickness at each.",
+    "Mount the indicator and record minimum and maximum over a revolution. Repeat the setup.",
+    "Observe one joint under the manual's prescribed inspection and document where motion occurs.",
+    "Complete assigned reassembly and recheck. Keep any rejected or uncertain part tagged and out of service."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Station or joint",
+      "Reading and units",
+      "Limit/source",
+      "Repeat",
+      "Disposition"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The sheet distinguishes thickness variation, lateral runout and joint play, each with its own evidence. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-shop"
+ ]
+}

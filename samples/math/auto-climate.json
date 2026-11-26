@@ -1,0 +1,1002 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-climate",
+ "title": "Cooling, Cabin HVAC and Refrigerant Practice",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Trace coolant and refrigerant loops, compare pumps, expansion devices and cabin heat sources, then construct and test an air-distribution prototype. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Heat transfer",
+   "quiz": [
+    "climate-1-q2",
+    "cmp-engine-cooling-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Airflow design",
+   "quiz": [
+    "climate-2-q2",
+    "cmp-hvac-types-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Physical installation",
+   "quiz": [
+    "climate-3-q3",
+    "shop-change-climate"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Performance checks",
+   "quiz": [
+    "climate-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "climate-1",
+   "module": "m1",
+   "title": "Follow heat from engine and cabin to outside air",
+   "minutes": 20,
+   "topics": [
+    "Heat transfer"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Automotive Electrical Systems and Diagnosis, Engine and Drivetrain Service, or demonstrate the equivalent workshop skills.\n\nEngine coolant absorbs heat and rejects it through the radiator. A thermostat regulates circulation and fans support airflow. In cabin cooling, refrigerant absorbs heat at the evaporator and rejects heat at the condenser. Blower flow, blend doors and cabin filtration affect comfort before conclusions about charge can be drawn. Inspect coolant only on a cold system under its service procedure.\n\n## Worked shop case\n\nCabin air enters a test duct at 26 °C and leaves at 19 °C. A 7 °C drop describes temperature change. Without mass flow and humidity information it does not establish total cooling capacity.\n\n## Guided practice\n\nInlet air is 28 °C and outlet air is 21 °C. Give the temperature drop in degrees Celsius.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A working HVAC duct prototype, performance record and refrigerant-service decision.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "climate-1-q1",
+    "climate-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-engine-cooling",
+   "module": "m1",
+   "title": "Coolant flow, radiator airflow and oil or charge coolers",
+   "minutes": 25,
+   "topics": [
+    "Coolant flow, radiator airflow and oil or charge coolers"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Heat must travel from the metal to coolant, through the radiator tubes and fins and into outside air. A pump moves coolant; the thermostat regulates flow through the radiator or bypass according to the specific circuit. A mechanical pump follows its drive speed. An electric pump can run independently and may require a commanded bleed cycle. A pressure cap raises the system's boiling margin within its design rating. Expansion or recovery tanks connect differently; identify the pressure boundary before planning filling or testing. Open a system only when cool and serviced according to its manual.\n\nA sealed duct and fan shroud help air pass through the core at low road speed. A condenser, charge cooler or oil cooler ahead of the radiator heats and restricts the incoming stream. More radiator rows or a higher-pressure cap cannot establish system capacity. Compare temperature behavior against heat load, ambient conditions, commanded flow and actual fan operation.\n\n## Worked shop case\n\nA trainer cools normally at road-equivalent airflow but temperature climbs during stationary operation. Concentrate first on fan command, actual fan direction and air bypass. If it also overheats under high airflow, inspect coolant circulation, thermostat behavior, internal blockage and combustion heat inputs using specified tests. In a separate water rig, heat removed equals mass flow × specific heat × temperature drop: 0.2 kg/s × 4 kJ/(kg·K) × 3 K = 2.4 kJ/s, or 2.4 kW. Measure under steady flow and identify the fluid before using its specific heat.\n\n## Guided practice\n\n```example fade=2\nproblem: A cooling fan draws current, yet a fixed, guarded directional airflow indicator at the inlet shows reversed flow. What should be verified?\nstep: Establish intended airflow direction from the donor drawing.\nstep: Check shrouding and fan installation with equipment safely isolated for inspection.\nanswer: Electrical demand proves the fan draws power; actual through-core flow needs separate evidence.\n```\n\n## Independent shop or design task\n\nMark hot, cold, bypass and bleed paths on the actual donor diagram. Compare pulley versus electric pump controls, fan command, heat-exchanger order and service access on the proposed car.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-engine-cooling-q1",
+    "cmp-engine-cooling-q2"
+   ]
+  },
+  {
+   "id": "cmp-hvac-types",
+   "module": "m2",
+   "title": "Heater cores, expansion devices, compressors and heat pumps",
+   "minutes": 25,
+   "topics": [
+    "Heater cores, expansion devices, compressors and heat pumps"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A vapor-compression system absorbs cabin heat in its evaporator and rejects heat at its condenser. The compressor raises vapor pressure and temperature. The expansion device creates a pressure drop before the evaporator. A thermostatic expansion valve meters flow in response to evaporator outlet conditions; a fixed orifice has fixed geometry. In common layouts the valve system has a high-side receiver/drier, while an orifice-tube system uses a low-side accumulator. Verify the vehicle diagram. Refrigerant identity, oil and service equipment must match the actual system.\n\nCombustion vehicles can use engine coolant in a heater core. A battery electric vehicle may use resistive heating, a reversible refrigerant heat pump, recovered component heat or a combination. A heat pump moves heat and can consume less electrical energy for the same delivered cabin heat in suitable conditions. An electric compressor can present a high-voltage hazard. Blowers, blend doors, filters and ducts control where air moves. An airflow complaint can often be investigated without opening the refrigerant circuit.\n\n## Worked shop case\n\nAir volume drops on every temperature setting, but the blower command is unchanged. Inspect the inlet, filter, blower wheel, duct and actual blower speed. If volume is normal but the outlet temperature fails to follow the blend command, compare door position, heat-source availability and evaporator temperature before arranging refrigerant service.\n\n## Guided practice\n\n```example fade=2\nproblem: A 2 kW electric input heat pump delivers 5 kW of heat at one test condition. How does it compare with an ideal resistance heater?\nstep: Calculate delivered heat divided by input power.\nstep: Compare at the same boundary and ambient condition.\nanswer: Its heating coefficient of performance is 2.5 versus about 1 for ideal resistance heat at point of use.\n```\n\n## Independent shop or design task\n\nDraw two donor climate systems with airflow and energy arrows. Mark each expansion device, drying/storage component and source of cabin heat. On the ambient-air rig measure clear and deliberately restricted inlet behavior without handling refrigerant.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-hvac-types-q1",
+    "cmp-hvac-types-q2"
+   ]
+  },
+  {
+   "id": "climate-2",
+   "module": "m2",
+   "title": "Route two ducts and provide service access",
+   "minutes": 20,
+   "topics": [
+    "Airflow design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-radiator-shroud-and-duct-seals",
+    "mod-radiator-or-electric-fan-upgrade"
+   ],
+   "body": "A bend, abrupt contraction or crushed hose raises flow resistance. Draw branch areas and a removable filter hatch. Separate airflow into occupant and windshield branches and mark the measurement plane so trial configurations can be compared. Temperature, fan supply and sensor position must stay consistent.\n\n## Worked shop case\n\nVolume flow equals area times mean air speed. For 0.020 m² at 2 m/s, flow is 0.040 m³/s. Two outlets of equal area give different average air speeds. At equal area the slower branch carries less volume. Redesign its restriction and compare at the same fan voltage.\n\n## Guided practice\n\nA duct opening is 0.010 m² with mean speed 3 m/s. What is its volume flow in m³/s?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSketch a blower, filter, cabin branch and windshield branch for your cockpit. Specify a removable service panel, fixed speed setting, measurement grid and acceptance criterion. Identify which operations would open the refrigerant circuit and how to handle a paid referral.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "climate-2-q1",
+    "climate-2-q2"
+   ]
+  },
+  {
+   "id": "climate-3",
+   "module": "m3",
+   "title": "Build a blower and defrost mock-up",
+   "minutes": 15,
+   "topics": [
+    "Physical installation"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use a protected low-voltage blower with a finger guard and a simple removable duct. Measure a grid across each outlet so one jet does not dominate the result. A cardboard duct is a geometry prototype: document the compatible temperature, flammability and mounting specifications needed for a final vehicle material. Refrigerant handling is a separate operation. In the US, Section 609 covers service for payment or barter and requires certification and approved equipment. Section 608 separately restricts intentional refrigerant venting during service, including personal projects, subject to specific refrigerant exemptions.\n\n## Worked shop case\n\nOutlet grid speeds of 2, 3 and 4 m/s average 3 m/s for equal-area samples. A single centerline value of 4 m/s would overstate the mean.\n\n## Guided practice\n\nEqual-area readings are 2, 4 and 6 m/s. What is the mean speed in m/s?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nUS Clean Air Act §609 applies when a person services an MVAC for consideration, including barter. Certification through an approved program and approved handling equipment are required. Section 608 separately addresses intentional venting during service; R-744 (CO₂) is a refrigerant-specific exception to that prohibition, while §609 still applies to compensated R-744 service. For a personal project the venting decision remains separate from the payment question. Record the refrigerant, task and referral. The course bench uses ambient air.\n\n[EPA — motor vehicle air conditioning service, CAA §§608–609](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)\n\n## Workshop preparation\n\nWork on ambient air only. Keep fingers clear of the guarded fan. Leave the refrigerant circuit sealed and hot coolant systems closed.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "climate-3-q1",
+    "climate-3-q2",
+    "climate-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Separate cooling at idle from cooling at speed",
+   "minutes": 35,
+   "topics": [
+    "Separate cooling at idle from cooling at speed"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1",
+    "mod-radiator-shroud-and-duct-seals",
+    "mod-radiator-or-electric-fan-upgrade",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nCooling and cabin climate, Climate controls and plumbing. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Radiator shroud and duct seals\n- Radiator or electric fan upgrade\n\n## Worked example\n\nBaseline stabilized idle readings are 100, 101 and 100 °C. After a mock shroud change, matched values are 96, 97 and 97 °C. This repeat suggests improvement at idle. A poorly vented shroud could still restrict flow at road speed. A guarded airflow rig tests direction and bypass before a vehicle installation.\n\n## Guided decision\n\n```example fade=1\nproblem: A second run begins with a colder engine and ends earlier. How do you make it comparable?\nstep: Use the same load, ambient reference, fan state and stabilization criterion.\nanswer: Record a comparable steady interval rather than a colder starting value.\n```\n\n## Independent workshop\n\nBuild a removable duct seal on the existing ambient-air trainer. Check leak paths and record baseline/changed outlet velocity at the same blower setting.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-climate"
+   ]
+  },
+  {
+   "id": "climate-4",
+   "module": "m4",
+   "title": "Distinguish an airflow improvement from an A/C repair",
+   "minutes": 15,
+   "topics": [
+    "Performance checks"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Repeat airflow measurements after changing a single duct or seal. Record both branches. Specify a separate defogging test for a complete car because strong outlet flow alone cannot establish visibility in cold, humid operation. For service involving refrigerant, identify the refrigerant label, who accepts the job and applicable EPA requirements.\n\n## Worked shop case\n\nAfter sealing a branch, mean speed rises from 2.0 to 2.5 m/s at the same opening. This is a 25% improvement in that branch. Recheck the other branch before accepting the layout.\n\n## Guided practice\n\nSpeed rises from 4 to 5 m/s with opening area constant. Give the percentage increase.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nBoth branches are physically measured before and after a single design change. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "climate-4-q1",
+    "climate-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-climate-bank",
+   "title": "Cooling, Cabin HVAC and Refrigerant Practice practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Heat transfer"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Airflow design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Physical installation"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Performance checks"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "climate-1-q1",
+     "section": "m1",
+     "topic": "Heat transfer",
+     "stem": "Inlet air is 28 °C and outlet air is 21 °C. Give the temperature drop in degrees Celsius. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "7"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "28 − 21 = 7."
+    },
+    {
+     "id": "climate-1-q2",
+     "section": "m1",
+     "topic": "Heat transfer",
+     "stem": "Cold air at one outlet with poor flow at all outlets first suggests checking what?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Replacing the radiator cap based on air speed.",
+      "Filter, blower and distribution path.",
+      "Opening the refrigerant circuit immediately."
+     ],
+     "explanation": "Air delivery can be restricted while the evaporator still cools."
+    },
+    {
+     "id": "climate-2-q1",
+     "section": "m2",
+     "topic": "Airflow design",
+     "stem": "A duct opening is 0.010 m² with mean speed 3 m/s. What is its volume flow in m³/s? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.03"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Flow equals cross-sectional area times mean velocity."
+    },
+    {
+     "id": "climate-2-q2",
+     "section": "m2",
+     "topic": "Airflow design",
+     "stem": "Which design allows a useful A/B duct test?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Change one bend and retain measurement plane and fan setting.",
+      "Change the fan supply, duct and instrument together.",
+      "Measure one branch at its fastest point and average the other."
+     ],
+     "explanation": "Stable conditions allow a difference to be attributed to the duct."
+    },
+    {
+     "id": "climate-3-q1",
+     "section": "m3",
+     "topic": "Physical installation",
+     "stem": "Equal-area readings are 2, 4 and 6 m/s. What is the mean speed in m/s? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "4"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The sum is 12. Divide by three."
+    },
+    {
+     "id": "climate-3-q2",
+     "section": "m3",
+     "topic": "Physical installation",
+     "stem": "A neighbor offers parts in exchange for refrigerant-circuit service. Under EPA Section 609 this counts as what?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A personal unpaid service on your own vehicle.",
+      "An exemption from certified equipment.",
+      "Consideration, including barter."
+     ],
+     "explanation": "EPA includes nonmonetary payment. Refer the refrigerant work to a certified technician using approved equipment."
+    },
+    {
+     "id": "climate-3-q3",
+     "section": "m3",
+     "topic": "Physical installation",
+     "stem": "Select two accurate US MVAC decisions. Select all that apply.",
+     "choices": [
+      "Payment in parts exempts the worker from Section 609.",
+      "Bartered refrigerant service triggers the Section 609 consideration question.",
+      "Check the Section 608 venting rule independently of whether the job is paid.",
+      "A household garage location authorizes venting an HFC refrigerant."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "US Clean Air Act §609 applies when a person services an MVAC for consideration, including barter. Certification through an approved program and approved handling equipment are required. Section 608 separately addresses intentional venting during service; R-744 (CO₂) is a refrigerant-specific exception to that prohibition, while §609 still applies to compensated R-744 service. For a personal project the venting decision remains separate from the payment question. Record the refrigerant, task and referral. The course bench uses ambient air."
+    },
+    {
+     "id": "climate-4-q1",
+     "section": "m4",
+     "topic": "Performance checks",
+     "stem": "Speed rises from 4 to 5 m/s with opening area constant. Give the percentage increase. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "25"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The increase is one quarter of the original."
+    },
+    {
+     "id": "climate-4-q2",
+     "section": "m4",
+     "topic": "Performance checks",
+     "stem": "Which observation proves the actual windshield demists in the tested conditions?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "A refrigerant pressure reading alone.",
+      "A witnessed demisting test with recorded conditions and visibility.",
+      "A dry-bench reading at one outlet."
+     ],
+     "explanation": "The outcome requires testing the glass and airflow together."
+    },
+    {
+     "id": "cmp-engine-cooling-q1",
+     "section": "m1",
+     "topic": "Coolant flow, radiator airflow and oil or charge coolers",
+     "stem": "Which install detail most directly addresses air bypassing the radiator at low vehicle speed?",
+     "explanation": "Shrouding and sealing route fan flow through the heat exchanger.",
+     "choices": [
+      "A different expansion cap color.",
+      "Correct shroud and sealed path across the core.",
+      "A shorter temperature-sensor wire."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-engine-cooling-q2",
+     "section": "m1",
+     "topic": "Coolant flow, radiator airflow and oil or charge coolers",
+     "stem": "A water-loop teaching rig moves 0.5 kg/s, with specific heat 4 kJ/(kg·K) and a measured temperature drop of 5 K. Enter heat removed in kW.",
+     "explanation": "Multiply mass flow by specific heat and temperature drop.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "10"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-hvac-types-q1",
+     "section": "m2",
+     "topic": "Heater cores, expansion devices, compressors and heat pumps",
+     "stem": "Which component normally protects the compressor inlet by collecting liquid in a common fixed-orifice system?",
+     "explanation": "The accumulator is situated between evaporator outlet and compressor inlet in this layout.",
+     "choices": [
+      "A high-side condenser fan relay.",
+      "The blend door.",
+      "A low-side accumulator."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-hvac-types-q2",
+     "section": "m2",
+     "topic": "Heater cores, expansion devices, compressors and heat pumps",
+     "stem": "A heater delivers 4 kW of cabin heat for 2 kW of electrical input at one condition. Enter the measured heating coefficient of performance.",
+     "explanation": "Divide delivered thermal power by electrical power.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "2"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-climate",
+     "section": "m3",
+     "topic": "Separate cooling at idle from cooling at speed",
+     "stem": "A new radiator shroud reduces idle coolant temperature on a matched repeat. Which check is still needed before approving the installation?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Only the fan current at idle while stationary.",
+      "Only the radiator dimensions measured with the fan disconnected.",
+      "Clearance, fan current or controls as applicable, and cooling at other design operating conditions."
+     ],
+     "explanation": "One operating point cannot establish clearance or behavior across the design envelope."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-climate-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Evaporator",
+     "back": "The heat exchanger where refrigerant absorbs heat from the cabin air stream.",
+     "topic": "Heat transfer"
+    },
+    {
+     "id": "c1b",
+     "front": "Cold air at one outlet with poor flow at all outlets first suggests checking what?",
+     "back": "Filter, blower and distribution path. Air delivery can be restricted while the evaporator still cools.",
+     "topic": "Heat transfer"
+    },
+    {
+     "id": "c2a",
+     "front": "Condenser",
+     "back": "The heat exchanger that releases refrigerant heat to outside air.",
+     "topic": "Airflow design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which design allows a useful A/B duct test?",
+     "back": "Change one bend and retain measurement plane and fan setting. Stable conditions allow a difference to be attributed to the duct.",
+     "topic": "Airflow design"
+    },
+    {
+     "id": "c3a",
+     "front": "Volume flow",
+     "back": "Air volume passing an area per unit time.",
+     "topic": "Physical installation"
+    },
+    {
+     "id": "c3b",
+     "front": "A neighbor offers parts in exchange for refrigerant-circuit service. Under EPA Section 609 this counts as what?",
+     "back": "Consideration, including barter. EPA includes nonmonetary payment. Refer the refrigerant work to a certified technician using approved equipment.",
+     "topic": "Physical installation"
+    },
+    {
+     "id": "c4a",
+     "front": "Consideration",
+     "back": "Payment or barter relevant to EPA MVAC service certification.",
+     "topic": "Performance checks"
+    },
+    {
+     "id": "c4b",
+     "front": "Which observation proves the actual windshield demists in the tested conditions?",
+     "back": "A witnessed demisting test with recorded conditions and visibility. The outcome requires testing the glass and airflow together.",
+     "topic": "Performance checks"
+    },
+    {
+     "id": "cmp-engine-cooling-card",
+     "front": "Which install detail most directly addresses air bypassing the radiator at low vehicle speed?",
+     "back": "Correct shroud and sealed path across the core. Shrouding and sealing route fan flow through the heat exchanger.",
+     "topic": "Coolant flow, radiator airflow and oil or charge coolers"
+    },
+    {
+     "id": "cmp-hvac-types-card",
+     "front": "Which component normally protects the compressor inlet by collecting liquid in a common fixed-orifice system?",
+     "back": "A low-side accumulator. The accumulator is situated between evaporator outlet and compressor inlet in this layout.",
+     "topic": "Heater cores, expansion devices, compressors and heat pumps"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A new radiator shroud reduces idle coolant temperature on a matched repeat. Which check is still needed before approving the installation?",
+     "back": "Clearance, fan current or controls as applicable, and cooling at other design operating conditions. One operating point cannot establish clearance or behavior across the design envelope.",
+     "topic": "Separate cooling at idle from cooling at speed"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Evaporator",
+   "definition": "The heat exchanger where refrigerant absorbs heat from the cabin air stream.",
+   "topic": "Heat transfer"
+  },
+  {
+   "term": "Condenser",
+   "definition": "The heat exchanger that releases refrigerant heat to outside air.",
+   "topic": "Airflow design"
+  },
+  {
+   "term": "Volume flow",
+   "definition": "Air volume passing an area per unit time.",
+   "topic": "Physical installation"
+  },
+  {
+   "term": "Consideration",
+   "definition": "Payment or barter relevant to EPA MVAC service certification.",
+   "topic": "Performance checks"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [Skyline College — Hybrid/Electric Vehicles, ADAS and Climate Control](https://catalog.skylinecollege.edu/current/courses/automotive-technology/auto-546.php) · [EPA — motor vehicle air conditioning service, CAA §§608–609](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nUS Clean Air Act §609 applies when a person services an MVAC for consideration, including barter. Certification through an approved program and approved handling equipment are required. Section 608 separately addresses intentional venting during service; R-744 (CO₂) is a refrigerant-specific exception to that prohibition, while §609 still applies to compensated R-744 service. For a personal project the venting decision remains separate from the payment question. Record the refrigerant, task and referral. The course bench uses ambient air.\n\n[EPA — motor vehicle air conditioning service, CAA §§608–609](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Radiator, fan and shroud; Pump, thermostat and expansion space; Cabin heat and defrost; Refrigerant circuit; Blower, doors and ducts. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Radiator, fan and shroud | Mechanical or electric fan / single or stacked heat exchangers | Air must pass through each core; a blocked stack or bypass can limit cooling. | Document fan direction, shroud coverage and temperature under matched conditions. |\n| Pump, thermostat and expansion space | Mechanical / electric pump; expansion / recovery tank | Determine both the circulation path and pressure boundary. | Trace bypass and bleed points and identify the specified fill or bleed sequence. |\n| Cabin heat and defrost | Coolant heater core / resistance heater / heat pump | Heat source, electrical load and controls affect available heat during cold start. | Check heater source and airflow to screen under the specified conditions. |\n| Refrigerant circuit | TXV plus receiver / fixed orifice plus accumulator | Metering and liquid storage occur in different locations and pressure regions. | Trace the actual layout and identify the lawful service route. |\n| Blower, doors and ducts | Stepped resistor / electronic control; cable / actuator doors | Command, motor speed and actual delivered air can disagree. | Measure inlet versus outlet behavior and record filter and door state. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [HELLA, refrigerant circuit components and functions](https://www.hella.com/techworld/au/technical/car-air-conditioning/car-air-conditioning/)\n\n- [Gates, water pump drive identification](https://www.gates.com/us/en/power-transmission/water-pumps/water-pumps-electric.p.7702-000000-000000.html)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, motor vehicle air conditioning service requirements](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Cooling and cabin climate · Radiator core and tanks to Heater core",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Radiator core and tanks\n\n**Function.** Reject coolant heat to airflow.\n\n**Design.** Match thermal duty, pressure, frontal area, core restriction and hose position.\n\n**Make, assemble or fit.** Fit rated heat exchanger with supported compliant mounts and sealed airflow route.\n\n**Verify.** Verify leak integrity and heat rejection at idle and load.\n\n### Radiator pressure cap\n\n**Function.** Controls pressure and recovery in the specified circuit.\n\n**Design.** Match neck, rating and vacuum/recovery function.\n\n**Make, assemble or fit.** Install the exact rated cap on an inspected neck when cool.\n\n**Verify.** Test cap and cool system to approved limits.\n\n### Water pump and impeller\n\n**Function.** Circulate coolant through engine or electric drive loops.\n\n**Design.** Match flow curve, rotation, drive or control and seal.\n\n**Make, assemble or fit.** Fit compatible assembly with the specified gasket and bleed method.\n\n**Verify.** Check circulation, leakage and commanded response.\n\n### Thermostat and housing\n\n**Function.** Regulate bypass and radiator flow during warm-up.\n\n**Design.** Match opening characteristics, orientation and bypass arrangement.\n\n**Make, assemble or fit.** Fit specified thermostat and seal into clean housing.\n\n**Verify.** Log warm-up and verify stable temperature under representative load.\n\n### Coolant hose and clamp\n\n**Function.** Connect moving components while retaining hot coolant.\n\n**Design.** Match chemistry, diameter, pressure, bend radius and end retention.\n\n**Make, assemble or fit.** Trim formed hose only as allowed and position specified clamps over designed seats.\n\n**Verify.** Inspect at cold and hot clearances and pressure-test per service data.\n\n### Expansion or recovery tank\n\n**Function.** Accommodates changing coolant volume.\n\n**Design.** Identify pressurized header versus recovery bottle and level/vent routing.\n\n**Make, assemble or fit.** Mount the correct tank at the specified position with matching plumbing.\n\n**Verify.** Check cold and hot levels and recovery function.\n\n### Cooling fan and shroud\n\n**Function.** Move air through the core at low speed.\n\n**Design.** Match flow against restriction, control, electrical load and tip clearance.\n\n**Make, assemble or fit.** Use a compatible guarded fan; pattern and attach shroud without loading core fins.\n\n**Verify.** Test airflow direction, current and clearance with independent controls.\n\n### Heater core\n\n**Function.** Delivers coolant heat to cabin air.\n\n**Design.** Choose flow capacity, hose interface and service access.\n\n**Make, assemble or fit.** Fit a rated core with sealed firewall passages and air seals.\n\n**Verify.** Check for coolant leakage, outlet temperature and proper defrost."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Cooling and cabin climate · Blower wheel and motor to Receiver-drier or accumulator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Blower wheel and motor\n\n**Function.** Drive air through evaporator, heater and ducts.\n\n**Design.** Select flow at system resistance, voltage and impeller orientation.\n\n**Make, assemble or fit.** Mount matched blower with clear wheel and sealed inlet.\n\n**Verify.** Measure current and delivered air at several speed settings.\n\n### Blend and mode doors\n\n**Function.** Mix heater and bypass air and direct discharge.\n\n**Design.** Define travel, seals, actuator stroke and default visibility mode.\n\n**Make, assemble or fit.** Fit seals and linkages without binding and calibrate actuator if specified.\n\n**Verify.** Compare command with actual vent temperature and flow direction.\n\n### Refrigerant compressor\n\n**Function.** Raises refrigerant pressure and circulates oil.\n\n**Design.** Match refrigerant, oil, capacity, drive and high-voltage requirements.\n\n**Make, assemble or fit.** Use qualified service and approved recovery equipment as applicable; fit specified unit and seals.\n\n**Verify.** Record service charge and specified operating measurements.\n\n### Condenser\n\n**Function.** Rejects refrigerant heat to ambient air.\n\n**Design.** Match refrigerant pressure, airflow and line connections.\n\n**Make, assemble or fit.** Fit compatible core with protected fins, supports and qualified service.\n\n**Verify.** Verify airflow order, leak integrity and high-side behavior.\n\n### Evaporator\n\n**Function.** Absorbs cabin heat and condenses moisture.\n\n**Design.** Match metering system, airflow, drain and housing seals.\n\n**Make, assemble or fit.** Fit matched core with verified drain and insulation during approved service.\n\n**Verify.** Inspect condensate drainage and outlet conditions.\n\n### Expansion valve or orifice tube\n\n**Function.** Meters refrigerant to the evaporator.\n\n**Design.** Match fixed or controlled device to exact system and refrigerant.\n\n**Make, assemble or fit.** Install identified metering device in the specified direction during qualified service.\n\n**Verify.** Check specified pressures, temperatures and compressor protection.\n\n### Receiver-drier or accumulator\n\n**Function.** Manages liquid/vapor inventory and moisture.\n\n**Design.** Match architecture and high- or low-side position.\n\n**Make, assemble or fit.** Fit the exact sealed component at the required service stage.\n\n**Verify.** Verify port orientation and system charging/diagnostic results."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Climate controls and plumbing · Refrigerant lines and O-rings to Heater hoses and control valve",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Refrigerant lines and O-rings\n\n**Function.** Carry refrigerant/oil between components.\n\n**Design.** Match correct refrigerant, lubricant, barrier hose, rated fittings and seals.\n\n**Make, assemble or fit.** Use approved assemblies and qualified service for recovery, connection and charge.\n\n**Verify.** Verify leak test, routing, drainage and system performance.\n\n### Cabin temperature sensor\n\n**Function.** Provides feedback to automatic climate controls.\n\n**Design.** Match sensor response, air sampling path and controller.\n\n**Make, assemble or fit.** Install the matched sensor away from unintended direct heat sources.\n\n**Verify.** Compare reported temperature with a reference and verify blend response.\n\n### Blower resistor or control module\n\n**Function.** Regulates blower speed.\n\n**Design.** Match motor current, control signal and cooling air path.\n\n**Make, assemble or fit.** Fit the correct module into its intended heat-sinking or airflow location.\n\n**Verify.** Check every speed, current and connector temperature.\n\n### HVAC control panel\n\n**Function.** Translates user selections into blower, heat and air-routing requests.\n\n**Design.** Map hardwired or network functions retained when changing a head unit.\n\n**Make, assemble or fit.** Retain compatible panel/controllers and connect verified harness or integration interface.\n\n**Verify.** Verify temperature, fan, AC and windshield defrost in every relevant mode.\n\n### Heater hoses and control valve\n\n**Function.** Route or meter engine coolant through cabin heater.\n\n**Design.** Specify coolant-rated hose, flow direction and movement allowance.\n\n**Make, assemble or fit.** Fit matched hoses and clamps; connect valve actuator and bleed cold system as prescribed.\n\n**Verify.** Verify cabin heat, valve operation, leak-free firewall interfaces and safe hot clearance."
+  },
+  {
+   "id": "mod-radiator-shroud-and-duct-seals",
+   "title": "Modification · Radiator shroud and duct seals",
+   "body": "**Purpose.** Improve airflow through the core at idle or low speed.\n\n**Design and baseline.** Measure air bypass, fan coverage and current. Design inlet/outlet path, fan tip clearance and maintenance access; consider restriction at higher speed.\n\n**Build and installation.** Make a card pattern around hard datums, transfer to suitable sheet, create stand-offs and edge protection, seal static gaps and fasten to rated supports independent of fragile fins.\n\n**Test and disposition.** Check fan clearance de-energized before power-up. Compare stabilized idle and loaded coolant temperature at matched ambient, airflow direction and fan command.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, motor vehicle air conditioning service requirements](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)"
+  },
+  {
+   "id": "mod-radiator-or-electric-fan-upgrade",
+   "title": "Modification · Radiator or electric fan upgrade",
+   "body": "**Purpose.** Increase available heat rejection or controllability where a verified cooling limit exists.\n\n**Design and baseline.** Distinguish poor coolant flow, insufficient airflow and inadequate core capacity. Compare heat exchangers and fan curves at system resistance and alternator capacity at idle.\n\n**Build and installation.** Mock up mounts and hose paths. Fit matched radiator and fan, shroud and electrically protected control circuit; fill and bleed cool system to source method.\n\n**Test and disposition.** Record warm-up, fan staging, charging voltage at idle, leaks and temperature under sustained load. Diagnose circulation separately if increased fan capacity has little effect.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, motor vehicle air conditioning service requirements](https://www.epa.gov/mvac/regulatory-requirements-mvac-system-servicing)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Sketch a blower, filter, cabin branch and windshield branch for your cockpit. Specify a removable service panel, fixed speed setting, measurement grid and acceptance criterion. Identify which operations would open the refrigerant circuit and how to handle a paid referral."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A working HVAC duct prototype, performance record and refrigerant-service decision."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Both branches are physically measured before and after a single design change."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design the cabin air route",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Sketch a blower, filter, cabin branch and windshield branch for your cockpit. Specify a removable service panel, fixed speed setting, measurement grid and acceptance criterion. Identify which operations would open the refrigerant circuit and how to handle a paid referral. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Radiator, fan and shroud; Pump, thermostat and expansion space; Cabin heat and defrost; Refrigerant circuit; Blower, doors and ducts. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Separate cooling at idle from cooling at speed",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Build a removable duct seal on the existing ambient-air trainer. Check leak paths and record baseline/changed outlet velocity at the same blower setting. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Build and compare two duct arrangements",
+   "module": "m3",
+   "adult": true,
+   "intro": "A working HVAC duct prototype, performance record and refrigerant-service decision. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Work on ambient air only. Keep fingers clear of the guarded fan. Leave the refrigerant circuit sealed and hot coolant systems closed."
+   ],
+   "materials": [
+    "Guarded fused low-voltage blower and appropriate supply",
+    "Sheet stock for a cool-air mock-up, tape and anemometer",
+    "Ruler and data sheet"
+   ],
+   "steps": [
+    "Build both outlets and mark an equal-area measurement grid at each.",
+    "Record the fan setting, outlet sizes and grid speeds at baseline.",
+    "Change one bend or seal, then repeat at both outlets under the same conditions.",
+    "Document the effect on the windshield branch and passenger branch and select the design for integration."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Configuration and branch",
+      "Outlet area",
+      "Mean speed",
+      "Calculated flow",
+      "Decision"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "Both branches are physically measured before and after a single design change. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-electrical",
+  "auto-powertrain"
+ ]
+}

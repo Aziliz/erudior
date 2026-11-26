@@ -1,0 +1,1011 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-capstone",
+ "title": "Capstone: Build and Commission Your Own Car",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Fabricate and assemble your own complete car. Defend component choices, reconcile the actual bill of materials, and demonstrate starting, moving, steering, braking, holding and shutdown. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Vehicle requirements",
+   "quiz": [
+    "capstone-1-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Vehicle design release",
+   "quiz": [
+    "capstone-2-q2",
+    "cmp-as-built-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Full-size construction",
+   "quiz": [
+    "capstone-3-q3",
+    "shop-change-capstone"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Commissioning and handoff",
+   "quiz": [
+    "capstone-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "capstone-1",
+   "module": "m1",
+   "title": "Write requirements that survive the whole build",
+   "minutes": 20,
+   "topics": [
+    "Vehicle requirements"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-2-1",
+    "parts-3-1"
+   ],
+   "body": "Entry skills: complete Engine Performance, Emissions and Hybrid Diagnostics, Transmissions, Clutches and Final Drives, Cooling, Cabin HVAC and Refrigerant Practice, Scratch-Built Engines and Precision Machining, Suspension Geometry, Design and Fabrication, Bodywork, Occupant Packaging and Refinishing, Preventive Maintenance and Shop Operations, Electrified Vehicles, ABS and Driver Assistance, or demonstrate the equivalent workshop skills.\n\nStart this dossier during the first course. State intended use, jurisdiction, occupants, body style, mass and package targets, budget, time, equipment and people available. Give every requirement a test and an owner. Preserve original component provenance and receipts. A personal, prototype or kit classification has different consequences from building for sale. Confirm the intended route before selecting the road powertrain or cutting structural stock.\n\n## Worked shop case\n\nAn owner wants cabin heat and easy filter service. A useful requirement specifies an accessible opening, the intended filter, an installation trial and recording the measured replacement time with final trim installed.\n\n## Guided practice\n\nA build budget is 30,000 currency units and committed parts total 22,500. Enter the remaining amount before contingency.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** The complete car, accompanied by a build portfolio, verified service record and signed demonstration.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "capstone-1-q1",
+    "capstone-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-as-built",
+   "module": "m2",
+   "title": "Defend every major component choice on the car you build",
+   "minutes": 25,
+   "topics": [
+    "Defend every major component choice on the car you build"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Start with the job the car must do. Record its intended use, occupant and load assumptions, jurisdiction, service equipment, budget and verification plan. Maintain one row per build component, subsystem or purchase assembly; expand purchased assemblies into the interfaces and service items that can affect safety, legality or performance. Candidate A and B may be two architectures, two donor parts or an original design and a purchased unit. Record why alternatives were rejected, what you made yourself, what you assembled and what a qualified specialist did.\n\nUse changes to test integration. A gearbox change can alter final drive, wheel torque, shaft lengths, mounts, shifter, controller and cooling. A wheel change can alter brake clearance, steering loads and speed calibration. Trace each affected requirement to a drawing, measurement and test outcome. Mark gaps explicitly and close them before releasing the affected function. Use the course's physical commissioning sequence, independent witness and authority-specific conditions.\n\n## Worked shop case\n\nThe build switches from a manual gearbox to a conventional automatic late in assembly. The bellhousing fits. Trace converter/flexplate compatibility, crank interface, mounts, tunnel, cooler path, lines, selector/interlock, reverse lamps, controller and diagnostic access. Then revisit axle ratios, speed indication, static checks and the controlled start, drive and brake evidence. A matching bolt pattern closes only one interface.\n\n## Guided practice\n\n```example fade=2\nproblem: The tire clears the frame at steering center in CAD, but the installed tire rubs the frame at full steering lock. What closes the issue?\nstep: Identify the interference under the exact condition and log the affected parts/drawings.\nstep: Choose a reviewed correction and recheck travel, fasteners, alignment and related geometry.\nanswer: Retain before/after measurements and reviewer acceptance. Keep the affected motion test on hold until resolved.\n```\n\n## Independent shop or design task\n\nWalk around and under the safely supported car with your reviewer. Match the as-built system map to installed identifiers and measurements. Resolve open safety or legal release items and perform the existing controlled-site capstone demonstration under its agreed conditions.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-as-built-q1",
+    "cmp-as-built-q2"
+   ]
+  },
+  {
+   "id": "capstone-2",
+   "module": "m2",
+   "title": "Coordinate the systems before materials are cut",
+   "minutes": 20,
+   "topics": [
+    "Vehicle design release"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-full-build-change-control-and-rollback"
+   ],
+   "body": "Produce a layout drawing locating actual occupants, wheels through their travel, powertrain, prop shaft, steering, brakes, fuel or energy store, wiring, cooling, exhaust, cabin systems, body and service openings. Give mating interfaces common datums. Include a component make/buy/rebuild list, mass and cost budgets, responsible witnesses and jurisdiction-specific review. Qualified specialists review structural joints, restraints, steering and braking before structural release.\n\n## Worked shop case\n\nA heater hose clears the exhaust in a static drawing but the engine rotates on its mounts. Plot the swept envelopes, specify a separation or protection measure to the component guidance, and define the physical verification step.\n\n## Guided practice\n\nTwo component envelopes extend 14 and 18 mm into a 40 mm space from opposite sides. How much nominal separation remains in mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nSubmit the full-size packaging drawing, systems schematics, bill of materials, costs, dates, make/buy matrix and each prior practical's as-built result. Trace at least one theory prediction through drawing tolerance to measured evidence in each major assembly. Resolve the intended use and applicable legal route. Name the sign-off authority and list the static and closed-site acceptance criteria before fabrication or driving.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "capstone-2-q1",
+    "capstone-2-q2"
+   ]
+  },
+  {
+   "id": "capstone-3",
+   "module": "m3",
+   "title": "Build the complete car and retain the evidence",
+   "minutes": 15,
+   "topics": [
+    "Full-size construction"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use a documented chassis design or an individually reviewed frame. Set up the jig, build or assemble the chassis, install all four corners and validate static controls. Fit the engine and drivetrain selected for the intended use, brakes, steering, wheels, energy and fluid systems, protective structures, electrical system, seats, restraints and body. Add lights, visibility equipment and access panels for the intended configuration. Build in stages and photograph personally completed work before it becomes inaccessible.\n\n## Worked shop case\n\nOne builder fabricated the chassis and body, assembled the engine, installed and wired the systems, and sent crank grinding and glazing to specialists. A good dossier identifies both the maker and evidence for every major assembly. A specialist invoice verifies only its stated process.\n\n## Guided practice\n\nOf 18 planned interface inspections, 15 are signed. How many remain open?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nResolve federal emissions configuration, applicable safety equipment and state title/inspection separately. EPA's kit rebuild route has requirements for used drivetrain components, block and heads, controls, labeling and other features. A state-assigned VIN cannot establish federal emissions eligibility. NHTSA's kit interpretation concerns a particular seller and equipment; a project intended for sale, import or production requires its own assessment. In Colorado, check with the county/CSP how the exact build is classified, what proof of ownership and certified VIN inspection are needed, and which emissions process applies. Elsewhere identify local authorities. Record official guidance, current forms, conditions, insurance and any limits on public-road use. A closed-site demonstration earns only the educational practical.\n\n[EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy) · [EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [Colorado DMV — kit and specialized vehicle definitions](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles) · [Colorado DMV — certified VIN inspections for custom-built vehicles](https://dmv.colorado.gov/vin-inspections) · [Colorado DMV — DR 2709 assigned VIN checklist](https://dmv.colorado.gov/sites/dmv/files/documents/DR2709.pdf) · [Colorado DMV — gasoline emissions testing](https://dmv.colorado.gov/gas-vehicles)\n\n## Workshop preparation\n\nNever conduct initial tests on a public road. Stop for any critical brake, steering, restraint, structural, fire, tire or fluid fault. Keep personnel clear, avoid running combustion engines in a garage and arrange controlled recovery. For public use secure the applicable inspection, title, insurance and registration first.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "capstone-3-q1",
+    "capstone-3-q2",
+    "capstone-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Close an as-built discrepancy one position at a time",
+   "minutes": 35,
+   "topics": [
+    "Close an as-built discrepancy one position at a time"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-2-1",
+    "parts-3-1",
+    "mod-full-build-change-control-and-rollback",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nFinal detail and accountability, Attachment and sealing details, Small hardware and finishing. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Full-build change control and rollback\n\n## Worked example\n\nThe released service-plate drawing requires two mounting screws and two washers. Stores issued two washers and the receipt agrees, but inspection finds only the left one installed. Required 2, issued 2, installed 1, verified 1. Log the missing right-hand instance and hold that assembly. Fit a verified part, recheck and update only that position.\n\n## Guided decision\n\n```example fade=1\nproblem: A supplier's sealed module has no published internal service breakdown. How is it accounted for?\nstep: Record the complete traceable module, revision, supplier, quantity, installation and external interfaces; identify its internal boundary explicitly.\nanswer: Close the sealed assembly with traceability and functional evidence. Add separately supplied seals, brackets, connectors and hardware as their own installed items.\n```\n\n## Independent workshop\n\nUse the full bill-of-materials reconciliation and witness inspection. Submit one built modification or fitted prototype with measured results and the final real-car demonstration.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-capstone"
+   ]
+  },
+  {
+   "id": "capstone-4",
+   "module": "m4",
+   "title": "Prove the car can start, move, steer and stop",
+   "minutes": 15,
+   "topics": [
+    "Commissioning and handoff"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Before energy or motion, establish vehicle-specific limits, approved test site, exclusion area, fire and recovery plan and an independent competent witness. Inspect structure, restraints, brake hydraulics, steering retention, wheels, fluid/fuel routing and shutdown. Progress through static tests, a guarded stationary first start, then controlled low-speed closed-site tests only after previous holds are cleared. Reinspect for movement, contact, leaks or heat damage. Keep road registration and wider performance or durability validation as separate evidence.\n\n## Worked shop case\n\nBefore any motion, a static brake hold reveals fluid at one union. Suspend motion testing. Correct the fault under the service procedure, repeat the leak/hold checks and obtain a witnessed clearance before any movement resumes.\n\n## Guided practice\n\nNine mandatory test items are planned. Eight passed and one was deferred. How many still lack a pass?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nA real complete learner-built car must demonstrate every required function under witness with all mandatory tests passed and critical findings closed. A drawing, model, purchased completed car, loose engine or incomplete rolling chassis cannot earn the practical pass. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "capstone-4-q1",
+    "capstone-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-capstone-bank",
+   "title": "Capstone: Build and Commission Your Own Car practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Vehicle requirements"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Vehicle design release"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Full-size construction"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Commissioning and handoff"
+    }
+   ],
+   "exam": {
+    "questionCount": 12,
+    "timeLimitMinutes": 30,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "capstone-1-q1",
+     "section": "m1",
+     "topic": "Vehicle requirements",
+     "stem": "A build budget is 30,000 currency units and committed parts total 22,500. Enter the remaining amount before contingency. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "7500"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "30,000 − 22,500 = 7,500. Reserve for freight, inspections and rework still has to fit."
+    },
+    {
+     "id": "capstone-1-q2",
+     "section": "m1",
+     "topic": "Vehicle requirements",
+     "stem": "Which requirement can be verified on the finished vehicle?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Remove and reinstall the specified filter with final trim fitted and record the result.",
+      "Make servicing feel premium.",
+      "Aim for a clean design."
+     ],
+     "explanation": "A test identifies an observable action and configuration."
+    },
+    {
+     "id": "capstone-2-q1",
+     "section": "m2",
+     "topic": "Vehicle design release",
+     "stem": "Two component envelopes extend 14 and 18 mm into a 40 mm space from opposite sides. How much nominal separation remains in mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "8"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "40 − 14 − 18 = 8 mm. Thermal and motion allowances still need review."
+    },
+    {
+     "id": "capstone-2-q2",
+     "section": "m2",
+     "topic": "Vehicle design release",
+     "stem": "Which drawing revision belongs on the shop floor after a steering change?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "The oldest clean drawing.",
+      "Only a picture of the steering wheel.",
+      "The approved interface revision that updates adjacent components and their checks."
+     ],
+     "explanation": "Changing an interface can invalidate nearby clearances, hose routes and test assumptions."
+    },
+    {
+     "id": "capstone-3-q1",
+     "section": "m3",
+     "topic": "Full-size construction",
+     "stem": "Of 18 planned interface inspections, 15 are signed. How many remain open? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "18 − 15 = 3. Each remaining interface needs its own disposition."
+    },
+    {
+     "id": "capstone-3-q2",
+     "section": "m3",
+     "topic": "Full-size construction",
+     "stem": "Which submission demonstrates the implementation stage?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "A finished vehicle purchased and photographed afterward.",
+      "The assembled full-size car, dated build sequence, personal work record and traceable component records.",
+      "A complete CAD model alone."
+     ],
+     "explanation": "The practical requires the learner's build and the physical integrated vehicle."
+    },
+    {
+     "id": "capstone-3-q3",
+     "section": "m3",
+     "topic": "Full-size construction",
+     "stem": "Select two decisions that must be addressed separately for a US road-intended build. Select all that apply.",
+     "choices": [
+      "Determine state title, VIN, inspection and registration conditions for the exact build.",
+      "Use a donor title as proof an original block has emissions coverage.",
+      "Treat a closed-site drive as a public operating permit.",
+      "Identify federal emissions configuration and relevant vehicle-equipment requirements."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "Resolve federal emissions configuration, applicable safety equipment and state title/inspection separately. EPA's kit rebuild route has requirements for used drivetrain components, block and heads, controls, labeling and other features. A state-assigned VIN cannot establish federal emissions eligibility. NHTSA's kit interpretation concerns a particular seller and equipment; a project intended for sale, import or production requires its own assessment. In Colorado, check with the county/CSP how the exact build is classified, what proof of ownership and certified VIN inspection are needed, and which emissions process applies. Elsewhere identify local authorities. Record official guidance, current forms, conditions, insurance and any limits on public-road use. A closed-site demonstration earns only the educational practical."
+    },
+    {
+     "id": "capstone-4-q1",
+     "section": "m4",
+     "topic": "Commissioning and handoff",
+     "stem": "Nine mandatory test items are planned. Eight passed and one was deferred. How many still lack a pass? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "A deferred test is open and cannot be counted as a successful demonstration."
+    },
+    {
+     "id": "capstone-4-q2",
+     "section": "m4",
+     "topic": "Commissioning and handoff",
+     "stem": "Which condition earns the final physical capstone sign-off?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "The complete learner-built car performs the agreed closed-site tests and all critical findings are closed with witnessed retests.",
+      "A passing quiz plus an engine-start video.",
+      "A rolling chassis with brakes still on order."
+     ],
+     "explanation": "The final requires the finished car, an observed functional demonstration, and a closed critical-defect record."
+    },
+    {
+     "id": "cmp-as-built-q1",
+     "section": "m2",
+     "topic": "Defend every major component choice on the car you build",
+     "stem": "Which record best establishes the effect of a substituted gearbox on this particular car?",
+     "explanation": "Integration depends on all affected interfaces and verified operation.",
+     "choices": [
+      "The seller's statement that it bolts up.",
+      "An as-built change record linking actual parts, affected interfaces, repeat tests and measured results.",
+      "The number of theoretical ratios in isolation."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-as-built-q2",
+     "section": "m2",
+     "topic": "Defend every major component choice on the car you build",
+     "stem": "Which submission demonstrates physical completion of this program's capstone?",
+     "explanation": "The course assesses the actual integrated vehicle and its observed operation.",
+     "choices": [
+      "The complete learner-built car with attributable build evidence and witnessed controlled start, movement, steering, braking, hold and shutdown.",
+      "A fully rendered model of an unassembled car.",
+      "A passing quiz and a shopping list."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "shop-change-capstone",
+     "section": "m3",
+     "topic": "Close an as-built discrepancy one position at a time",
+     "stem": "An exploded drawing shows a washer at each of four mounts. The bill lists four, but one is unaccounted for on the car. What closes the discrepancy?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Treat the purchase receipt as four confirmed installations.",
+      "Verify each installation position against the exact released drawing, correct or document the disposition, then obtain reinspection.",
+      "Mark the assembly verified because it moves."
+     ],
+     "explanation": "Procured, installed and verified quantities are distinct evidence."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-capstone-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Acceptance criterion",
+     "back": "An observable result or limit agreed before testing.",
+     "topic": "Vehicle requirements"
+    },
+    {
+     "id": "c1b",
+     "front": "Which requirement can be verified on the finished vehicle?",
+     "back": "Remove and reinstall the specified filter with final trim fitted and record the result. A test identifies an observable action and configuration.",
+     "topic": "Vehicle requirements"
+    },
+    {
+     "id": "c2a",
+     "front": "Hold point",
+     "back": "A stage that requires a defined check before work progresses.",
+     "topic": "Vehicle design release"
+    },
+    {
+     "id": "c2b",
+     "front": "Which drawing revision belongs on the shop floor after a steering change?",
+     "back": "The approved interface revision that updates adjacent components and their checks. Changing an interface can invalidate nearby clearances, hose routes and test assumptions.",
+     "topic": "Vehicle design release"
+    },
+    {
+     "id": "c3a",
+     "front": "As-built record",
+     "back": "A record of the configuration actually manufactured and installed.",
+     "topic": "Full-size construction"
+    },
+    {
+     "id": "c3b",
+     "front": "Which submission demonstrates the implementation stage?",
+     "back": "The assembled full-size car, dated build sequence, personal work record and traceable component records. The practical requires the learner's build and the physical integrated vehicle.",
+     "topic": "Full-size construction"
+    },
+    {
+     "id": "c4a",
+     "front": "Commissioning",
+     "back": "Staged verification of installed systems and integrated vehicle functions.",
+     "topic": "Commissioning and handoff"
+    },
+    {
+     "id": "c4b",
+     "front": "Which condition earns the final physical capstone sign-off?",
+     "back": "The complete learner-built car performs the agreed closed-site tests and all critical findings are closed with witnessed retests. The final requires the finished car, an observed functional demonstration, and a closed critical-defect record.",
+     "topic": "Commissioning and handoff"
+    },
+    {
+     "id": "cmp-as-built-card",
+     "front": "Which record best establishes the effect of a substituted gearbox on this particular car?",
+     "back": "An as-built change record linking actual parts, affected interfaces, repeat tests and measured results. Integration depends on all affected interfaces and verified operation.",
+     "topic": "Defend every major component choice on the car you build"
+    },
+    {
+     "id": "change-evidence",
+     "front": "An exploded drawing shows a washer at each of four mounts. The bill lists four, but one is unaccounted for on the car. What closes the discrepancy?",
+     "back": "Verify each installation position against the exact released drawing, correct or document the disposition, then obtain reinspection. Procured, installed and verified quantities are distinct evidence.",
+     "topic": "Close an as-built discrepancy one position at a time"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Acceptance criterion",
+   "definition": "An observable result or limit agreed before testing.",
+   "topic": "Vehicle requirements"
+  },
+  {
+   "term": "Hold point",
+   "definition": "A stage that requires a defined check before work progresses.",
+   "topic": "Vehicle design release"
+  },
+  {
+   "term": "As-built record",
+   "definition": "A record of the configuration actually manufactured and installed.",
+   "topic": "Full-size construction"
+  },
+  {
+   "term": "Commissioning",
+   "definition": "Staged verification of installed systems and integrated vehicle functions.",
+   "topic": "Commissioning and handoff"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[South Georgia Technical College — Motorsports Fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t) · [George Mason University — mechanical engineering capstones, Patriot Motorsports](https://webdocs.gmu.edu/wp-content/uploads/2024-Capstone-Brochure-final-ATI.pdf) · [EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nResolve federal emissions configuration, applicable safety equipment and state title/inspection separately. EPA's kit rebuild route has requirements for used drivetrain components, block and heads, controls, labeling and other features. A state-assigned VIN cannot establish federal emissions eligibility. NHTSA's kit interpretation concerns a particular seller and equipment; a project intended for sale, import or production requires its own assessment. In Colorado, check with the county/CSP how the exact build is classified, what proof of ownership and certified VIN inspection are needed, and which emissions process applies. Elsewhere identify local authorities. Record official guidance, current forms, conditions, insurance and any limits on public-road use. A closed-site demonstration earns only the educational practical.\n\n[EPA — Kit Car Policy and rebuilt certified configurations](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy) · [EPA — vehicle and engine tampering, Clean Air Act §203(a)(3)](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv) · [Colorado DMV — kit and specialized vehicle definitions](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles) · [Colorado DMV — certified VIN inspections for custom-built vehicles](https://dmv.colorado.gov/vin-inspections) · [Colorado DMV — DR 2709 assigned VIN checklist](https://dmv.colorado.gov/sites/dmv/files/documents/DR2709.pdf) · [Colorado DMV — gasoline emissions testing](https://dmv.colorado.gov/gas-vehicles)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Whole-vehicle configuration. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Whole-vehicle configuration | Original-fabricated / donor / purchased assembly | Every architecture choice constrains neighboring systems, maintenance and approval. | Add one as-built row for every remaining actual part and document who did the work. |\n\nIn the downloadable component register, reconcile all 66 families from the preceding courses. Add any component present on your own bill of materials. If working from standalone JSON, bring forward the registers printed from each preceding course."
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [EPA, kit car policy and configuration](https://www.epa.gov/importing-vehicles-and-engines/kit-car-policy)\n\n- [Colorado DMV, kit vehicles, one state example](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Final detail and accountability · Hose support P-clip to Service access cover and captive fastener",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Hose support P-clip\n\n**Function.** Prevents line vibration and abrasion.\n\n**Design.** Match diameter, lining, temperature and spacing to the supported line.\n\n**Make, assemble or fit.** Place at reviewed attachment points with clearance for motion.\n\n**Verify.** Inspect routing after thermal and vibration cycling.\n\n### Circlip or snap ring\n\n**Function.** Retains a component axially in a groove.\n\n**Design.** Specify groove, ring type, orientation and axial load.\n\n**Make, assemble or fit.** Use correct pliers and install specified new ring where required.\n\n**Verify.** Confirm seating around the full groove.\n\n### Cotter pin or locking tab\n\n**Function.** Provides positive hardware retention.\n\n**Design.** Match hole size, fastener design and new-use requirement.\n\n**Make, assemble or fit.** Fit new approved locking device to the verified joint.\n\n**Verify.** Inspect engagement and mark the actual location in the build record.\n\n### O-ring\n\n**Function.** Seals a static or moving interface.\n\n**Design.** Choose material compatibility, cross-section, gland squeeze and surface finish.\n\n**Make, assemble or fit.** Fit to the correct clean groove using the specified compatible preparation.\n\n**Verify.** Inspect for cuts or twist and test for leakage under stated conditions.\n\n### Body plug and drain grommet\n\n**Function.** Close openings or drain trapped water.\n\n**Design.** Distinguish sealed cavities from intended drains and pressure vents.\n\n**Make, assemble or fit.** Fit the correct molded plug without sealing a designed outlet.\n\n**Verify.** Check retention and verify the intended water path.\n\n### Label and identification plate\n\n**Function.** Identify configuration, hazards or legally assigned identity.\n\n**Design.** Match required content and authorized location for the jurisdiction.\n\n**Make, assemble or fit.** Fit builder service labels; obtain and handle any VIN through the authorized process.\n\n**Verify.** Check every marking against records, receipts and authority instructions.\n\n### Jack, spare and tool retainer\n\n**Function.** Secure service equipment and prevent movement.\n\n**Design.** Check load and compatibility of spare with brake/wheel, plus stowage loads.\n\n**Make, assemble or fit.** Install reviewed brackets or original retainers and document safe lifting points.\n\n**Verify.** Verify positive retention, safe access and correct spare fit.\n\n### Service access cover and captive fastener\n\n**Function.** Permit inspection without disturbing unrelated systems.\n\n**Design.** Choose access area, captive attachment, sealing and clear edges.\n\n**Make, assemble or fit.** Make a card pattern, transfer datums to sheet, form edges and fit specified retainers.\n\n**Verify.** Time removal and refit, check sealing and reconcile each fastener position."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Attachment and sealing details · Shim to Foam anti-chafe pad",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Shim\n\n**Function.** Sets spacing, alignment, gear position or preload.\n\n**Design.** Specify material, thickness, tolerance, position and stack limit.\n\n**Make, assemble or fit.** Select measured shims or machine a drawing-controlled teaching spacer.\n\n**Verify.** Record final stack, location and achieved adjustment.\n\n### Spacer sleeve\n\n**Function.** Transmits clamp between members while establishing separation.\n\n**Design.** Choose length, diameter, strength and end-face squareness for the load path.\n\n**Make, assemble or fit.** Machine the reviewed sleeve from specified stock and deburr both ends.\n\n**Verify.** Measure length, fit, end contact and assembled clamp path.\n\n### Key and keyway\n\n**Function.** Transmit torque or index a shaft-mounted component.\n\n**Design.** Choose specified key section, engagement, fits and shaft stress allowance.\n\n**Make, assemble or fit.** Machine the reviewed bench keyway and fit a matched key without wedging the hub.\n\n**Verify.** Verify alignment, engagement and retained coupling.\n\n### Locknut\n\n**Function.** Retains a threaded joint against specified service conditions.\n\n**Design.** Select approved locking mechanism, temperature range and reuse rule.\n\n**Make, assemble or fit.** Fit correct new locknut where required with proper thread engagement.\n\n**Verify.** Verify torque method, actual engagement and locking feature.\n\n### Thread sealant or locking compound\n\n**Function.** Seals specified threads or provides additional retention.\n\n**Design.** Choose compatible product, temperature, fluid exposure and joint design.\n\n**Make, assemble or fit.** Clean and apply the product only where specified and observe cure time.\n\n**Verify.** Record grade, cure and leak/retention check without contaminating blind passages.\n\n### Foam anti-chafe pad\n\n**Function.** Isolates adjacent components from rubbing or rattling.\n\n**Design.** Choose material for heat, fluid, compression set and exposure.\n\n**Make, assemble or fit.** Cut and fit to reviewed contact area without blocking drains or service movement.\n\n**Verify.** Inspect after cycling and verify dry drainage paths."
+  },
+  {
+   "id": "parts-3-1",
+   "title": "Small hardware and finishing · Cable tie mount to Protective edge trim",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Cable tie mount\n\n**Function.** Locates lightweight wire bundles between primary supports.\n\n**Design.** Match environment, attachment rating, bundle size and service access.\n\n**Make, assemble or fit.** Install suitable mechanical or approved adhesive mounts on prepared surface.\n\n**Verify.** Check retention and route after heat cycling.\n\n### Sealing washer or crush ring\n\n**Function.** Seals fluid fittings at defined mating faces.\n\n**Design.** Match material, bore, OD, thickness and single-use requirement.\n\n**Make, assemble or fit.** Fit a new matched washer to prepared fluid joint where specified.\n\n**Verify.** Verify clean seating and approved leak-test result.\n\n### Retaining spring clip\n\n**Function.** Provides positive retention at a pin, connector or trim joint.\n\n**Design.** Match exact groove, thickness and serviceability rule.\n\n**Make, assemble or fit.** Install the specified clip with appropriate tool without overstretching.\n\n**Verify.** Verify full seating and actual retention in the assigned location.\n\n### Protective edge trim\n\n**Function.** Prevents contact with accessible or cable-adjacent sheet edges.\n\n**Design.** Choose channel grip, thickness, heat and moisture compatibility.\n\n**Make, assemble or fit.** Deburr the underlying sheet and seat matched trim with positive retention if needed.\n\n**Verify.** Inspect with adjacent panels and harness installed across intended motion."
+  },
+  {
+   "id": "mod-full-build-change-control-and-rollback",
+   "title": "Modification · Full-build change control and rollback",
+   "body": "**Purpose.** Permit a justified change without losing evidence for the complete build.\n\n**Design and baseline.** Choose one real modification from this guide and one plausible alternative. Define a measurable objective, side effects and release criteria before ordering.\n\n**Build and installation.** Build one permitted reversible prototype, bench fixture or real vehicle assembly. Record its part numbers, tools, drawings, photos, deviations and as-built quantities. Identify work performed by specialists.\n\n**Test and disposition.** Measure baseline and modified outcomes under matched conditions. Log retests of affected systems. Accept, revise or restore the baseline, and demonstrate the commissioned car independently.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Submit the full-size packaging drawing, systems schematics, bill of materials, costs, dates, make/buy matrix and each prior practical's as-built result. Trace at least one theory prediction through drawing tolerance to measured evidence in each major assembly. Resolve the intended use and applicable legal route. Name the sign-off authority and list the static and closed-site acceptance criteria before fabrication or driving."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The complete car, accompanied by a build portfolio, verified service record and signed demonstration."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A real complete learner-built car must demonstrate every required function under witness with all mandatory tests passed and critical findings closed. A drawing, model, purchased completed car, loose engine or incomplete rolling chassis cannot earn the practical pass."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    },
+    {
+     "id": "criterion-4",
+     "name": "Final practical decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Witness signs and dates the complete car, all mandatory tests passed, critical issues closed and student work identified."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "HOLD while any required evidence, test, correction or witness is outstanding."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No observed complete running car."
+      }
+     ]
+    },
+    {
+     "id": "as-built-parts",
+     "name": "Complete as-built inventory",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Drawing-to-car and car-to-drawing checks agree at every fitted position. All source or quantity discrepancies have a verified disposition, and sealed module boundaries and external fittings are documented."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Major assemblies are present but an installed item, quantity or disposition is unverified."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No traceable build-specific bill of materials."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Release the complete vehicle design and commissioning plan",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Submit the full-size packaging drawing, systems schematics, bill of materials, costs, dates, make/buy matrix and each prior practical's as-built result. Trace at least one theory prediction through drawing tolerance to measured evidence in each major assembly. Resolve the intended use and applicable legal route. Name the sign-off authority and list the static and closed-site acceptance criteria before fabrication or driving. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Whole-vehicle configuration. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record. Reconcile all 66 starting families and every additional as-built part. Mark genuinely absent systems with a reason, link open items to a release decision, record who made each part and attach the witnessed vehicle demonstration."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Close an as-built discrepancy one position at a time",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Use the full bill-of-materials reconciliation and witness inspection. Submit one built modification or fitted prototype with measured results and the final real-car demonstration. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Build, present and demonstrate your complete car",
+   "module": "m3",
+   "adult": true,
+   "intro": "The complete car, accompanied by a build portfolio, verified service record and signed demonstration. Plan shop time with your supervisor over the sessions the work actually takes. Practical pass requires all mandatory items, verified on this car by an independent competent witness. A total rubric score or a completed lesson does not override a missing item.",
+   "safety": [
+    "Never conduct initial tests on a public road. Stop for any critical brake, steering, restraint, structural, fire, tire or fluid fault. Keep personnel clear, avoid running combustion engines in a garage and arrange controlled recovery. For public use secure the applicable inspection, title, insurance and registration first."
+   ],
+   "materials": [
+    "Complete full-size learner-built car and as-built portfolio",
+    "Qualified structural/vehicle reviewers, test operator and independent witness",
+    "Approved controlled site, instrumentation, suitable fire protection and recovery arrangements"
+   ],
+   "steps": [
+    "Build the full-size chassis, wheel ends, brakes, powertrain, steering, wiring, body and occupant systems. Record dated work and personally performed fabrication and assembly; attribute all specialist work.",
+    "Present the finished car to the competent reviewer. Obtain recorded static inspections and passed acceptance checks for safety-critical systems. Clear holds before first start or motion.",
+    "At the approved site demonstrate start, controlled movement under its own power, steering both ways, service braking to rest, parking restraint and normal/emergency shutdown per the reviewed test plan. Record observations and witness identity/date.",
+    "Reinspect the actual car, address and retest faults, attach as-built drawings, service information, proof of ownership, component traceability and legal disposition. Obtain a signed practical pass only after every critical check passes.",
+    "Before final release, match every drawing callout and every observed installed part in both directions through the position-level as-built bill of materials. Reconcile quantities, resolve holds and obtain independent inspection. Keep the complete car demonstration and witness record."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "System/test",
+      "Predeclared acceptance criterion",
+      "Observed result and units",
+      "Witness/date",
+      "Fault, correction and retest"
+     ],
+     "rows": 5
+    },
+    {
+     "id": "release",
+     "title": "Mandatory final sign-off",
+     "columns": [
+      "Mandatory item",
+      "Evidence / result",
+      "Witness / date",
+      "Pass or hold"
+     ],
+     "rows": 10,
+     "rowLabels": [
+      "Attributable complete car and build history",
+      "Structure, wheels and restraint checks",
+      "Brake/steering static checks",
+      "Fluid/energy isolation and leak checks",
+      "Self-propelled start and movement",
+      "Steering in both directions",
+      "Service stop and parking restraint",
+      "Normal and emergency shutdown per plan",
+      "Post-test inspection and critical retests",
+      "Independent signed practical disposition"
+     ]
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "A real complete learner-built car must demonstrate every required function under witness with all mandatory tests passed and critical findings closed. A drawing, model, purchased completed car, loose engine or incomplete rolling chassis cannot earn the practical pass. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-diagnostics",
+  "auto-drives",
+  "auto-climate",
+  "auto-engine-build",
+  "auto-suspension-build",
+  "auto-body",
+  "auto-maintenance",
+  "auto-electrified"
+ ]
+}

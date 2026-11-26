@@ -1,0 +1,1079 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-powertrain",
+ "title": "Engine and Drivetrain Service",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare four-, six-, eight- and twelve-cylinder engines, bank layouts, induction and injection. Measure an actual teaching engine and verify its assembly. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Mechanical theory",
+   "quiz": [
+    "powertrain-1-q2",
+    "cmp-cylinder-count-q2",
+    "cmp-bank-layout-q2",
+    "cmp-induction-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Inspection design",
+   "quiz": [
+    "powertrain-2-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Bench service",
+   "quiz": [
+    "powertrain-3-q3",
+    "shop-change-powertrain"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Mechanical verification",
+   "quiz": [
+    "powertrain-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "powertrain-1",
+   "module": "m1",
+   "title": "Track torque from piston to axle",
+   "minutes": 20,
+   "topics": [
+    "Mechanical theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Workshop Measurement and Vehicle Service, Automotive Electrical Systems and Diagnosis, or demonstrate the equivalent workshop skills.\n\nIn a four-stroke engine the piston travels through intake, compression, power and exhaust. There are two top-dead-center events per cycle. The cam on a conventional four-stroke turns once per two crank turns. A clutch couples engine torque to the gearbox, and the final drive multiplies wheel torque while reducing speed. A slipping clutch breaks the fixed speed relationship.\n\n## Worked shop case\n\nWith the clutch engaged, a gearbox ratio of 2:1 and a final drive of 3:1 give 6:1 overall. At 3,000 engine rpm the ideal wheel speed is 500 rpm, neglecting slip.\n\n## Guided practice\n\nA 3:1 gearbox ratio and 4:1 final drive give what overall reduction? Enter the number before :1.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** Marked-up service sheet, measurements and a photograph or witnessed record of the reassembled trainer.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "powertrain-1-q1",
+    "powertrain-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-cylinder-count",
+   "module": "m1",
+   "title": "Four, six, eight and twelve cylinders at equal displacement",
+   "minutes": 25,
+   "topics": [
+    "Four, six, eight and twelve cylinders at equal displacement"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Cylinder count tells you how an engine divides its swept volume and how often it can deliver a power stroke. It does not specify displacement, boost, maximum torque or rated power. Start with a controlled comparison. Give four hypothetical four-stroke engines the same 4.0 L displacement and speed, and assume even firing with all cylinders active. Each cylinder fires once every 720 crankshaft degrees.\n\n| Cylinders | Volume per cylinder | Interval between engine firing events | What changes on a build |\n|---|---|---|---|\n| 4 | 1,000 cm³ | 180° | Four pistons and four sets of rings. Such large individual cylinders prompt questions about bore, stroke, combustion time and vibration. |\n| 6 | About 667 cm³ | 120° | More frequent, smaller events at the same total displacement. An inline six needs one long bank; a V6 splits the length across two banks. |\n| 8 | 500 cm³ | 90° | Eight rotating/reciprocating assemblies. A V8 trades longitudinal length for width, two heads and two exhaust routes. |\n| 12 | About 333 cm³ | 60° | More frequent torque impulses and more repeated parts to machine, cool, seal and service. A V12 needs access to both banks. |\n\nAt equal brake mean effective pressure (average useful pressure over the cycle) and equal displacement, mean crank torque is equal. Raising engine speed at the same torque raises power. More frequent impulses can reduce torque ripple, while crankshaft balance, mounts, exhaust layout and flywheel inertia separately affect what the occupants feel. Friction, breathing and permissible speed can differ between real engines. Compare their measured curves at the speed your gearing will actually use.\n\n## Worked shop case\n\nTwo advertised 4.0 L candidates both make 300 N·m at 3,000 rpm. Power there is torque × rpm ÷ 9,550, or about 94 kW for either. The V12 has three firing events for every one of the four-cylinder's events over the same crank rotation. That explains a difference in pulse spacing. A claim that the V12 makes three times the power at that point conflicts with the measured torque and speed.\n\n## Guided practice\n\n```example fade=2\nproblem: How would an even-firing 3.0 L six and an even-firing 3.0 L twelve differ at 2,000 rpm?\nstep: Divide 3,000 cm³ by 6 and by 12.\nstep: Divide 720 crank degrees by each count.\nanswer: The six has 500 cm³ per cylinder and 120° between events; the twelve has 250 cm³ and 60°. You still need torque to compare power.\n```\n\n## Independent shop or design task\n\nMake a four-column candidate sheet for 4, 6, 8 and 12 cylinders. Use real published engine data for at least two candidates. Separate facts held equal in the classroom calculation from actual installed mass, torque curve, availability, cost and service access.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-cylinder-count-q1",
+    "cmp-cylinder-count-q2"
+   ]
+  },
+  {
+   "id": "cmp-bank-layout",
+   "module": "m1",
+   "title": "Inline, V and horizontally opposed engines",
+   "minutes": 25,
+   "topics": [
+    "Inline, V and horizontally opposed engines"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "The cylinder arrangement determines the outer envelope, crankshaft form, exhaust routing and service access. Count and layout are independent decisions. The firing interval calculated for an even-fire engine covers all its cylinders together. Intervals at a single bank's exhaust collector can differ.\n\n| Layout | Mechanical arrangement | A fitting or service consequence |\n|---|---|---|\n| Inline four or six | One cylinder bank, usually one head. A conventional inline four has a second-order shaking force. A conventional symmetrical inline six cancels primary and secondary inertial forces and couples. | The six is long. Check front accessory clearance and the removal path to the rear cylinder. A balance shaft on some fours changes the timing-drive job. |\n| V6 or V8 | Two cylinder banks share a crankshaft. Bank angle and crankpin layout influence firing regularity, shaking and counterweights. Cross-plane and flat-plane V8 cranks produce different bank pulse patterns. | Two head and exhaust routes compete for steering, footwell and service space. Identify cylinder numbering from the specific manual. |\n| Boxer four or six | Opposing pistons move in and out as pairs on separate crankpins. The low assembly is wide at the heads. A 180° V engine can share crankpins and has different piston motion. | A low hood may fit while spark-plug or head removal needs more side access. Check sump and exhaust heights separately. |\n| V12 | Two six-cylinder banks on one crank. A conventional even-firing 60° V12 has frequent events and favorable balance. | Count both banks' service components and map two exhaust and cooling paths. Full installed length includes drives and accessories. |\n\nOrientation adds another variable. A transverse assembly spans the car side-to-side; a longitudinal assembly occupies length. State the crankshaft orientation and wheel-drive layout separately.\n\n## Worked shop case\n\nA boxer fits below a proposed hood with 40 mm to spare, but its plug and socket need 115 mm to withdraw laterally. Only 70 mm remains to the rail. The 45 mm access shortfall can make a routine tune-up an engine-removal job. Mock up the actual socket before changing the frame.\n\n## Guided practice\n\n```example fade=2\nproblem: A short V6 and a longer inline six both fit between front and rear package planes. Which check could still rule out the V6?\nstep: Place its installed manifolds and heat shields on both sides of the layout.\nstep: Sweep the steering shaft and reserve tools and hand clearance at the rear bank.\nanswer: The V6 may lose on width, heat separation or accessibility even though its core is shorter.\n```\n\n## Independent shop or design task\n\nTrace a dimensioned side, front and top envelope around an identified engine, including induction, oil pan, starter and exhaust. Show where the largest service tool and one removable part must travel.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-bank-layout-q1",
+    "cmp-bank-layout-q2"
+   ]
+  },
+  {
+   "id": "cmp-induction",
+   "module": "m1",
+   "title": "Air, boost and fuel delivery",
+   "minutes": 25,
+   "topics": [
+    "Air, boost and fuel delivery"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "An engine must trap a useful mass of air, meter fuel to that air and control combustion. A naturally aspirated engine uses the pressure difference produced by the intake stroke. A turbocharger uses exhaust energy to drive a compressor. A belt-driven supercharger takes shaft power from the engine. Air compression raises temperature; charge cooling can increase density and reduce knock tendency on a spark-ignition engine. Engine load, compressor speed and controls matter when interpreting manifold pressure.\n\n| Fuel system | Where mixture forms | Distinguishing hardware and tests |\n|---|---|---|\n| Carburetor | A pressure difference draws fuel into the intake airstream. | Check float level, choke and airflow circuits. Mixture distribution depends on the manifold. |\n| Port injection | Each injector usually sprays into its intake port before the valve. | Verify approved fuel pressure, injector command and cylinder contribution. |\n| Gasoline direct injection | A high-pressure pump feeds injectors spraying into the cylinders. Some engines use port and direct injection together. | Compare commanded and measured low- and high-side pressure from approved data. Never loosen a high-pressure line to look for spray. |\n| Common-rail diesel | Compressed air is hot enough to ignite timed fuel injected into the chamber. | Check supply and commanded/actual rail pressure with approved tooling. Injector coding, aftertreatment and cold starting can affect diagnosis. |\n\nFor any turbo candidate, budget for lubrication, drainage, cooling where specified, charge plumbing, shielding and transient response. A supercharger's drive and bypass system require belt and pulley packaging. A naturally aspirated alternative still needs suitable induction and exhaust space.\n\n## Worked shop case\n\nA scan shows 160 kPa manifold absolute pressure at load and 90 kPa ambient pressure. Gauge boost is 70 kPa. Comparing 160 kPa directly with a gauge reading overstates boost by one atmosphere at this location. Before condemning the turbo, match units, sensor reference, engine load and intended target.\n\n## Guided practice\n\n```example fade=2\nproblem: A GDI engine cranks with low rail pressure. Which readings separate causes?\nstep: Check whether the low-pressure supply meets its specified demand.\nstep: Compare controller high-side command with actual rail response under the same test.\nanswer: A supply shortfall can starve a sound high-pressure pump. Follow the OEM procedure before isolating that pump.\n```\n\n## Independent shop or design task\n\nTrace the air path and fuel delivery on two identified engine configurations. Mark pressure stages, energy source, temperature measurement, control actuator and which readings can be obtained without opening the system.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-induction-q1",
+    "cmp-induction-q2"
+   ]
+  },
+  {
+   "id": "powertrain-2",
+   "module": "m2",
+   "title": "Specify the measurement before teardown",
+   "minutes": 20,
+   "topics": [
+    "Inspection design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-sealed-intake-and-heat-shield",
+    "mod-intercooler-and-charge-piping",
+    "mod-turbocharger-or-supercharger-package",
+    "mod-engine-swap",
+    "mod-closed-crankcase-oil-separator"
+   ],
+   "body": "Oil supports moving journals on a film, while coolant carries heat away from the cylinder walls and head. Low compression can have a different cause from overheating or low oil pressure. Choose a measurement that separates alternatives. Identify inspection points by exact engine code, manual revision, specified measuring temperature and tool resolution. For an overheating complaint, verify fan operation or thermostat flow per the manual. A shop combustion-gas test can separately evaluate a suspected breach into the coolant. Keep matched caps in order.\n\n## Worked shop case\n\nA shaft specification is 20.00–20.03 mm. Readings of 20.01 and 20.02 mm fit the interval, but neither measures the housing. Calculate clearance only after measuring both mating parts at the specified locations.\n\n## Guided practice\n\nA bore is 25.04 mm and the mating journal is 25.00 mm. Calculate diametral clearance in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nChoose an available teaching engine. Record its ID and manual revision. Draw the power path through a selected gear, choose two measurements that discriminate different fault modes and specify how timing will be verified after reassembly.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "powertrain-2-q1",
+    "powertrain-2-q2"
+   ]
+  },
+  {
+   "id": "powertrain-3",
+   "module": "m3",
+   "title": "Disassemble, measure and reassemble a trainer",
+   "minutes": 15,
+   "topics": [
+    "Bench service"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Use a secured cutaway or serviceable teaching engine isolated from fuel and ignition. Mark component position and direction. Use the model's service order and specified tools. A measurement sheet should link each reading to a part, orientation and accepted range. Return reusable parts to their matched locations, and follow the documented sequence, fastener replacement rules and torque method.\n\n## Worked shop case\n\nDiameters at the same cylinder height are 50.02 and 50.06 mm across perpendicular axes. Their difference is 0.04 mm. This is evidence of out-of-round at that height. Compare readings at different heights on the same axis to assess taper.\n\n## Guided practice\n\nAt one height you measure 60.01 and 60.04 mm on perpendicular axes. Give the out-of-round difference in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nCollect oil and coolant separately. A commercial used-oil generator and a household taking oil to a local collection point have different obligations. When a machine is being serviced in a covered workplace, identify and control its stored energy under the applicable procedure. Use the model-specific engine service manual to specify measurements and fasteners. Attach the material and waste records to the job.\n\n[EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses) · [EPA — household used-oil collection](https://www.epa.gov/recycle/managing-reusing-and-recycling-used-oil) · [OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [CDC/NIOSH — carbon monoxide and combustion equipment](https://www.cdc.gov/niosh/docs/2022-130/2022-130.pdf)\n\n## Workshop preparation\n\nUse a de-energized trainer. Isolate ignition, fuel and starting power. Use an instructor for disassembly or stored spring loads. Never force a hard stop.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "powertrain-3-q1",
+    "powertrain-3-q2",
+    "powertrain-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Measure the restriction you intend to change",
+   "minutes": 35,
+   "topics": [
+    "Measure the restriction you intend to change"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-2-1",
+    "mod-sealed-intake-and-heat-shield",
+    "mod-intercooler-and-charge-piping",
+    "mod-turbocharger-or-supercharger-package",
+    "mod-engine-swap",
+    "mod-closed-crankcase-oil-separator",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nInduction, fuel and engine installation, Fuel plumbing and crankcase ventilation. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Sealed intake and heat shield\n- Intercooler and charge piping\n- Turbocharger or supercharger package\n- Engine swap\n- Closed crankcase oil separator\n\n## Worked example\n\nAt the same flow and ambient temperature, a teaching duct has 1.2 kPa loss in a clean baseline and 1.1 kPa after a bend change. Repeated readings vary by ±0.2 kPa. The 0.1 kPa difference cannot support a repeatable performance claim. Packaging or service access might still justify the change.\n\n## Guided decision\n\n```example fade=1\nproblem: A new intake shows cooler air only when tested with the hood open. Which condition must you repeat?\nstep: Use the same hood position, airflow, engine state and ambient reference for both configurations.\nanswer: The temperature difference must persist in the intended installed use to support the design goal.\n```\n\n## Independent workshop\n\nCreate a clean, unpowered intake or charge-pipe fit fixture. Label filters, sensors, clamps, bypass connections and heat/water risks. Document a measured clearance and a controlled comparison.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-powertrain"
+   ]
+  },
+  {
+   "id": "powertrain-4",
+   "module": "m4",
+   "title": "Check timing and interpret the hand-turn result",
+   "minutes": 15,
+   "topics": [
+    "Mechanical verification"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Before any powered run, clear the work area, check timing marks by the manual, verify lubrication preparation and rotate the isolated assembly by hand through its specified checks. Stop at unexpected contact. Hand rotation can show binding and phase errors. Oil pressure, sealing at temperature and heat rejection require their own tests.\n\n## Worked shop case\n\nAn engine completes two crank turns but its cam mark is a tooth out at the specified reference. The motion rules out a hard lock in that test. The timing discrepancy is still an open fault.\n\n## Guided practice\n\nFour crankshaft revolutions on a conventional four-stroke produce how many camshaft revolutions?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe part is traceable, paired readings are interpretable, and the reassembled timing result is observed. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "powertrain-4-q1",
+    "powertrain-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-powertrain-bank",
+   "title": "Engine and Drivetrain Service practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Mechanical theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Inspection design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Bench service"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Mechanical verification"
+    }
+   ],
+   "exam": {
+    "questionCount": 16,
+    "timeLimitMinutes": 38,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "powertrain-1-q1",
+     "section": "m1",
+     "topic": "Mechanical theory",
+     "stem": "A 3:1 gearbox ratio and 4:1 final drive give what overall reduction? Enter the number before :1. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "12"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Multiply the two speed ratios, 3 × 4."
+    },
+    {
+     "id": "powertrain-1-q2",
+     "section": "m1",
+     "topic": "Mechanical theory",
+     "stem": "How can a technician distinguish the two top-dead-center events on a conventional four-stroke?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Use piston height alone.",
+      "Observe valve events or timing references for the compression stroke.",
+      "Count the teeth on one road wheel."
+     ],
+     "explanation": "The piston reaches the same height twice per operating cycle."
+    },
+    {
+     "id": "powertrain-2-q1",
+     "section": "m2",
+     "topic": "Inspection design",
+     "stem": "A bore is 25.04 mm and the mating journal is 25.00 mm. Calculate diametral clearance in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.04"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Diametral clearance is bore diameter minus shaft diameter."
+    },
+    {
+     "id": "powertrain-2-q2",
+     "section": "m2",
+     "topic": "Inspection design",
+     "stem": "An engine that overheated in service is now cold. What test plan distinguishes a cooling fault from a sealing problem?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Trace coolant circulation and select a separate sealing test if indicated.",
+      "Replace all piston rings from that symptom alone.",
+      "Infer bearing clearance from reservoir color."
+     ],
+     "explanation": "These systems need separate observations before parts are condemned."
+    },
+    {
+     "id": "powertrain-3-q1",
+     "section": "m3",
+     "topic": "Bench service",
+     "stem": "At one height you measure 60.01 and 60.04 mm on perpendicular axes. Give the out-of-round difference in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "0.03"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Compare the two axes at the same height."
+    },
+    {
+     "id": "powertrain-3-q2",
+     "section": "m3",
+     "topic": "Bench service",
+     "stem": "Which record preserves evidence of bore taper?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Two pressure readings from one tire.",
+      "Two diameters on different axes at one height only.",
+      "Diameters on the same axis at two specified heights."
+     ],
+     "explanation": "Using the same axis isolates variation with height."
+    },
+    {
+     "id": "powertrain-3-q3",
+     "section": "m3",
+     "topic": "Bench service",
+     "stem": "Select the two appropriate provisions for engine teardown in a service facility. Select all that apply.",
+     "choices": [
+      "Collect used oil and coolant in separate appropriate streams.",
+      "Dispose of all liquids according to their color alone.",
+      "Use the engine sump as a solvent disposal container.",
+      "Identify isolation and stored-energy controls for the operation."
+     ],
+     "answer": [
+      0,
+      3
+     ],
+     "explanation": "Collect oil and coolant separately. A commercial used-oil generator and a household taking oil to a local collection point have different obligations. When a machine is being serviced in a covered workplace, identify and control its stored energy under the applicable procedure. Use the model-specific engine service manual to specify measurements and fasteners. Attach the material and waste records to the job."
+    },
+    {
+     "id": "powertrain-4-q1",
+     "section": "m4",
+     "topic": "Mechanical verification",
+     "stem": "Four crankshaft revolutions on a conventional four-stroke produce how many camshaft revolutions? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "The cam turns at half crank speed."
+    },
+    {
+     "id": "powertrain-4-q2",
+     "section": "m4",
+     "topic": "Mechanical verification",
+     "stem": "A rebuilt engine rotates freely by hand. Which test remains open?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Whether the operator could reach the crank.",
+      "Oil pressure during operation.",
+      "Whether the crank moved at all by hand."
+     ],
+     "explanation": "Turning by hand cannot establish a pressurized oil supply under operating conditions."
+    },
+    {
+     "id": "cmp-cylinder-count-q1",
+     "section": "m1",
+     "topic": "Four, six, eight and twelve cylinders at equal displacement",
+     "stem": "An eight and a twelve have the same measured torque at the same crank speed. Which conclusion follows?",
+     "explanation": "Power is torque times angular speed. Count alone fixes none of the other proposed outcomes.",
+     "choices": [
+      "They make the same power at that operating point.",
+      "The twelve makes 50 percent more power there.",
+      "Their packaging and fuel consumption are identical."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-cylinder-count-q2",
+     "section": "m1",
+     "topic": "Four, six, eight and twelve cylinders at equal displacement",
+     "stem": "An even-firing four-stroke V8 runs with every cylinder active. How many crank degrees separate consecutive firing events across the entire engine? Enter the number only.",
+     "explanation": "Divide the 720-degree cycle by eight.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "90"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-bank-layout-q1",
+     "section": "m1",
+     "topic": "Inline, V and horizontally opposed engines",
+     "stem": "A builder labels the left bank as bank 1 from appearance alone. What determines bank 1 during diagnosis?",
+     "explanation": "Numbering and vehicle orientation vary. Use the engine's service identification.",
+     "choices": [
+      "The bank nearest the radiator in every car.",
+      "The bank nearest the driver's door in every car.",
+      "The bank containing the manufacturer's designated cylinder 1."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-bank-layout-q2",
+     "section": "m1",
+     "topic": "Inline, V and horizontally opposed engines",
+     "stem": "A spark plug and tool require 105 mm of withdrawal space. The rail leaves 72 mm. How many mm of additional access are needed? Enter the number only.",
+     "explanation": "105 − 72 = 33 mm.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "33"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-induction-q1",
+     "section": "m1",
+     "topic": "Air, boost and fuel delivery",
+     "stem": "A packaging drawing for a turbo conversion contains only a compressor and a larger intake pipe. Which missing interface is fundamental?",
+     "explanation": "A turbo couples an exhaust turbine to the compressor and needs its actual support systems.",
+     "choices": [
+      "A mandatory mechanical belt from the crank to every turbo.",
+      "A requirement to convert all injectors to carburetors.",
+      "The exhaust-driven turbine and its oil, heat and routing requirements."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-induction-q2",
+     "section": "m1",
+     "topic": "Air, boost and fuel delivery",
+     "stem": "Ambient pressure is 85 kPa absolute and manifold pressure is 145 kPa absolute. Give gauge boost in kPa as a number only.",
+     "explanation": "Subtract ambient absolute pressure from manifold absolute pressure.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "60"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-powertrain",
+     "section": "m3",
+     "topic": "Measure the restriction you intend to change",
+     "stem": "A new intake is credited with higher output after one cooler-weather run. Which test would distinguish the intake effect?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Compare an acceleration run in another gear.",
+      "Repeat matched baseline and modified runs at comparable inlet conditions and load while recording repeatability.",
+      "Compare peak readings taken at different ambient temperatures and loads."
+     ],
+     "explanation": "Changing one variable and reporting uncertainty improves the comparison."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-powertrain-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Top dead center",
+     "back": "Piston position nearest the cylinder head.",
+     "topic": "Mechanical theory"
+    },
+    {
+     "id": "c1b",
+     "front": "How can a technician distinguish the two top-dead-center events on a conventional four-stroke?",
+     "back": "Observe valve events or timing references for the compression stroke. The piston reaches the same height twice per operating cycle.",
+     "topic": "Mechanical theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Diametral clearance",
+     "back": "Mating bore diameter minus shaft diameter at the specified points.",
+     "topic": "Inspection design"
+    },
+    {
+     "id": "c2b",
+     "front": "An engine that overheated in service is now cold. What test plan distinguishes a cooling fault from a sealing problem?",
+     "back": "Trace coolant circulation and select a separate sealing test if indicated. These systems need separate observations before parts are condemned.",
+     "topic": "Inspection design"
+    },
+    {
+     "id": "c3a",
+     "front": "Taper",
+     "back": "Change in diameter along one axis at different heights.",
+     "topic": "Bench service"
+    },
+    {
+     "id": "c3b",
+     "front": "Which record preserves evidence of bore taper?",
+     "back": "Diameters on the same axis at two specified heights. Using the same axis isolates variation with height.",
+     "topic": "Bench service"
+    },
+    {
+     "id": "c4a",
+     "front": "Out-of-round",
+     "back": "Difference between diameters measured in different directions at one height.",
+     "topic": "Mechanical verification"
+    },
+    {
+     "id": "c4b",
+     "front": "A rebuilt engine rotates freely by hand. Which test remains open?",
+     "back": "Oil pressure during operation. Turning by hand cannot establish a pressurized oil supply under operating conditions.",
+     "topic": "Mechanical verification"
+    },
+    {
+     "id": "cmp-cylinder-count-card",
+     "front": "An eight and a twelve have the same measured torque at the same crank speed. Which conclusion follows?",
+     "back": "They make the same power at that operating point. Power is torque times angular speed. Count alone fixes none of the other proposed outcomes.",
+     "topic": "Four, six, eight and twelve cylinders at equal displacement"
+    },
+    {
+     "id": "cmp-bank-layout-card",
+     "front": "A builder labels the left bank as bank 1 from appearance alone. What determines bank 1 during diagnosis?",
+     "back": "The bank containing the manufacturer's designated cylinder 1. Numbering and vehicle orientation vary. Use the engine's service identification.",
+     "topic": "Inline, V and horizontally opposed engines"
+    },
+    {
+     "id": "cmp-induction-card",
+     "front": "A packaging drawing for a turbo conversion contains only a compressor and a larger intake pipe. Which missing interface is fundamental?",
+     "back": "The exhaust-driven turbine and its oil, heat and routing requirements. A turbo couples an exhaust turbine to the compressor and needs its actual support systems.",
+     "topic": "Air, boost and fuel delivery"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A new intake is credited with higher output after one cooler-weather run. Which test would distinguish the intake effect?",
+     "back": "Repeat matched baseline and modified runs at comparable inlet conditions and load while recording repeatability. Changing one variable and reporting uncertainty improves the comparison.",
+     "topic": "Measure the restriction you intend to change"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Top dead center",
+   "definition": "Piston position nearest the cylinder head.",
+   "topic": "Mechanical theory"
+  },
+  {
+   "term": "Diametral clearance",
+   "definition": "Mating bore diameter minus shaft diameter at the specified points.",
+   "topic": "Inspection design"
+  },
+  {
+   "term": "Taper",
+   "definition": "Change in diameter along one axis at different heights.",
+   "topic": "Bench service"
+  },
+  {
+   "term": "Out-of-round",
+   "definition": "Difference between diameters measured in different directions at one height.",
+   "topic": "Mechanical verification"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Citrus College — Cylinder Block Development](https://catalog.citruscollege.edu/course-outlines/AUTO-297/) · [Ferris State University — Performance Machining](https://www.ferris.edu/cet/performance-machining-certificate/homepage.htm) · [ASE — Automobile and Light Truck task lists](https://www.ase.com/uploads/ASE_Automobile_Study_Guide_2025_V2.pdf)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nCollect oil and coolant separately. A commercial used-oil generator and a household taking oil to a local collection point have different obligations. When a machine is being serviced in a covered workplace, identify and control its stored energy under the applicable procedure. Use the model-specific engine service manual to specify measurements and fasteners. Attach the material and waste records to the job.\n\n[EPA — used oil requirements for businesses, 40 CFR Part 279](https://www.epa.gov/hw/managing-used-oil-answers-frequent-questions-businesses) · [EPA — household used-oil collection](https://www.epa.gov/recycle/managing-reusing-and-recycling-used-oil) · [OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [CDC/NIOSH — carbon monoxide and combustion equipment](https://www.cdc.gov/niosh/docs/2022-130/2022-130.pdf)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Displacement and cylinder count; Cylinder layout and mounts; Air induction and charge cooler; Fuel and ignition strategy. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Displacement and cylinder count | Four / six / eight / twelve | Compare displacement per cylinder and firing events, then look up actual torque, speed and installed mass. | Compare two real engines at the same operating point and chart all four counts. |\n| Cylinder layout and mounts | Inline / V / boxer; rubber / hydraulic mount | Length, width, bank access, engine movement and isolation change installed clearance. | Use common datums to measure the installed envelope, service extraction and movement allowance. |\n| Air induction and charge cooler | Naturally aspirated / turbo / supercharged; air-air / liquid-air | Boost introduces requirements for drive or exhaust energy, heat rejection and control. | Trace charge flow, boost regulation, temperature sensing and heat rejection. |\n| Fuel and ignition strategy | Port / direct / dual injection; spark / compression ignition | Injector location, fuel-pressure stages and ignition mechanism change diagnosis. | Identify both injector location and engine operating strategy from the donor schematic. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [MIT, combustion, air supply, operating characteristics and pressure cycles](https://ocw.mit.edu/courses/2-61-internal-combustion-engines-spring-2017/pages/lecture-notes/)\n\n- [Ahsanullah University, internal combustion engine laboratory](https://www.aust.edu/lab_manuals/MPE/ME/me_me_4102.pdf)\n\n- [Bosch, port fuel injection](https://www.bosch-mobility.com/en/solutions/powertrain/gasoline/gasoline-port-fuel-injection/)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Induction, fuel and engine installation · Airbox to Supercharger and drive",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Airbox\n\n**Function.** Supplies filtered, relatively cool air to the engine.\n\n**Design.** Size filter area and outlet and preserve sensor approach flow.\n\n**Make, assemble or fit.** Pattern a sealed enclosure or fit the matched donor airbox and gasket.\n\n**Verify.** Check seal, service access and pressure loss at matched flow.\n\n### Throttle body\n\n**Function.** Meters intake airflow where applicable.\n\n**Design.** Match bore, idle control, actuator, pedal and calibration.\n\n**Make, assemble or fit.** Install a compatible assembly and gasket; perform prescribed learning.\n\n**Verify.** Compare commanded versus measured angle and verified idle behavior.\n\n### Intake manifold\n\n**Function.** Distributes charge among runners.\n\n**Design.** Choose plenum, runner geometry, ports, injector mounts and packaging.\n\n**Make, assemble or fit.** Use an engineered casting or reviewed fabricated manifold with clean mating faces.\n\n**Verify.** Test for leaks and compare cylinder behavior at specified load.\n\n### Turbocharger turbine\n\n**Function.** Extracts energy from exhaust gas.\n\n**Design.** Match housing, flow range, temperature and shaft system to duty.\n\n**Make, assemble or fit.** Source matched balanced turbo assembly and support exhaust independently.\n\n**Verify.** Inspect mounting, oil return and temperature and boost data.\n\n### Turbocharger compressor\n\n**Function.** Raises intake-air pressure.\n\n**Design.** Compare pressure ratio, corrected flow and efficiency envelope.\n\n**Make, assemble or fit.** Fit the manufacturer's balanced rotating assembly; connect clean charge piping.\n\n**Verify.** Check pressure, temperature and operating range under approved conditions.\n\n### Wastegate\n\n**Function.** Regulates turbine power by controlling exhaust bypass.\n\n**Design.** Match actuator, flow capacity, control strategy and lawful calibration.\n\n**Make, assemble or fit.** Install matched gate in the documented orientation and route control lines.\n\n**Verify.** Verify command and pressure response using specified tests.\n\n### Compressor bypass valve\n\n**Function.** Relieves pressure across a closing throttle in applicable boosted systems.\n\n**Design.** Match plumbing, sensing and mass-air metering strategy.\n\n**Make, assemble or fit.** Fit a matched valve with sealed hoses and correct control reference.\n\n**Verify.** Verify commanded or pressure response and absence of boost leaks.\n\n### Supercharger and drive\n\n**Function.** Mechanically compress the engine's intake charge.\n\n**Design.** Match compressor envelope, drive load, belt path and cooling.\n\n**Make, assemble or fit.** Fit reviewed bracket, pulleys and specified drive and guarding.\n\n**Verify.** Check alignment, drive temperature and permitted charge conditions."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Induction, fuel and engine installation · Charge-air cooler to Engine mount and isolator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Charge-air cooler\n\n**Function.** Rejects heat from compressed intake air.\n\n**Design.** Trade heat rejection against pressure loss, volume and front-end airflow.\n\n**Make, assemble or fit.** Fit rated core on compliant supports and couple the measured pipe runs.\n\n**Verify.** Record pre/post temperature and pressure at matched load.\n\n### Charge pipe and coupler\n\n**Function.** Retains pressurized air between compressor and throttle.\n\n**Design.** Specify diameter, bend geometry, heat rating and engine movement.\n\n**Make, assemble or fit.** Cut and deburr clean tube, provide bead retention and fit rated couplers.\n\n**Verify.** Perform a regulated, component-rated leak check.\n\n### Fuel tank\n\n**Function.** Stores liquid fuel with vapor and expansion space.\n\n**Design.** Specify compatible material, mounting, venting, pickup and rollover protection.\n\n**Make, assemble or fit.** Use a rated tank or qualified specialist-built assembly in a reviewed mounting system.\n\n**Verify.** Verify service access, retention, approved leak checks and vent routing.\n\n### Filler neck and cap\n\n**Function.** Guide fuel into the tank and seal the fill path.\n\n**Design.** Match fuel, vent, sealing and body movement requirements.\n\n**Make, assemble or fit.** Install compatible neck, cap and filler hose with specified supports.\n\n**Verify.** Check seal and fill/vent operation by the approved method.\n\n### Fuel pump and strainer\n\n**Function.** Deliver fuel and screen larger debris.\n\n**Design.** Match fuel type, flow at pressure, electrical demand and tank pickup geometry.\n\n**Make, assemble or fit.** Fit approved module or specified pump in a clean fuel system.\n\n**Verify.** Compare delivery and current at the specified demand.\n\n### Fuel rail and injectors\n\n**Function.** Distribute and meter pressurized fuel per cylinder.\n\n**Design.** Match injector flow, control, spray location, pressure and seals.\n\n**Make, assemble or fit.** Use compatible rated parts and exact donor pressure-isolation and seal procedures.\n\n**Verify.** Run approved leak and balance tests and compare commanded delivery.\n\n### Pressure regulator\n\n**Function.** Controls fuel pressure relative to the system reference.\n\n**Design.** Match return or returnless layout and control range.\n\n**Make, assemble or fit.** Fit the donor-specified regulator and any required reference connection.\n\n**Verify.** Compare pressure against command or reference at prescribed conditions.\n\n### Engine mount and isolator\n\n**Function.** Carry engine weight and limit torque movement.\n\n**Design.** Define load, reaction, compliance, mount travel and driveline alignment.\n\n**Make, assemble or fit.** Fixture a reviewed bracket and fit load-rated mount hardware.\n\n**Verify.** Record loaded position and clearance throughout expected movement."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Fuel plumbing and crankcase ventilation · Fuel feed line to Crankcase breather hose",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Fuel feed line\n\n**Function.** Carries pressurized fuel toward the delivery system.\n\n**Design.** Choose approved fuel/ethanol compatibility, pressure and temperature rating, fitting family and protected route.\n\n**Make, assemble or fit.** Use vehicle-rated line and manufacturer-specified ends or complete assemblies; route clear of heat and travel with correct clips.\n\n**Verify.** Perform exact pressure-isolation and approved leak checks; document part and fitting IDs.\n\n### Fuel return line\n\n**Function.** Routes excess fuel to the tank on return-type systems.\n\n**Design.** Size for return flow/backpressure and identify its correct tank port.\n\n**Make, assemble or fit.** Install approved compatible line with right connectors and supports.\n\n**Verify.** Check return restriction and pressure regulation under stated demand.\n\n### Fuel quick-connect and retainer\n\n**Function.** Seals and positively locks a fuel-line connection.\n\n**Design.** Match tube diameter, seal material, pressure rating and locking design.\n\n**Make, assemble or fit.** Use the specified seals and retainer and the exact seating procedure.\n\n**Verify.** Check positive engagement and use the approved leak test.\n\n### Fuel-level sender\n\n**Function.** Reports tank level through float or another sensing method.\n\n**Design.** Match tank depth, sweep, sender range and instrument calibration.\n\n**Make, assemble or fit.** Install a matched unit with protected float travel and sound seal.\n\n**Verify.** Compare readings at known levels without introducing ignition sources.\n\n### Tank straps and isolating pads\n\n**Function.** Hold tank loads while preventing chafe.\n\n**Design.** Design retention, protection, expansion allowance and avoidance of crush zones.\n\n**Make, assemble or fit.** Fit compatible straps and support pads to reviewed structural points.\n\n**Verify.** Verify clearance and retention under all intended loaded conditions.\n\n### Tank rollover or grade valve\n\n**Function.** Restricts liquid escape into vapor system when orientation changes.\n\n**Design.** Match approved tank vent and rollover design; preserve required orientation.\n\n**Make, assemble or fit.** Use an approved valve and fuel-vapor-rated plumbing per donor schematic.\n\n**Verify.** Check vent operation using the approved method and verify installation orientation.\n\n### Crankcase breather hose\n\n**Function.** Carries fresh air or blow-by as designed.\n\n**Design.** Choose oil-compatible hose, sizing and closed routing for measured air systems.\n\n**Make, assemble or fit.** Use rated hose and seals with secure support clear of heat.\n\n**Verify.** Check air leaks and specified crankcase pressure."
+  },
+  {
+   "id": "mod-sealed-intake-and-heat-shield",
+   "title": "Modification · Sealed intake and heat shield",
+   "body": "**Purpose.** Reduce inlet restriction or heat soak while maintaining filtration, sensor accuracy and water protection.\n\n**Design and baseline.** Measure inlet temperature relative to ambient and pressure loss at a matched load. Preserve validated metering housing and all required emissions connections. Choose a dry, protected air inlet.\n\n**Build and installation.** Pattern a removable enclosure around the filter, provide seal flange, drain and service clearance, form/deburr the shield, isolate mounts and connect approved ducting. Inspect for post-meter leaks.\n\n**Test and disposition.** Repeat comparable baseline/modified runs with the hood closed. Log temperature, airflow plausibility, trims and restriction. Reject hotter air, water risk or a gain indistinguishable from scatter.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-intercooler-and-charge-piping",
+   "title": "Modification · Intercooler and charge piping",
+   "body": "**Purpose.** Lower charge temperature on repeated load without excessive pressure drop or reduced radiator airflow.\n\n**Design and baseline.** Compare core capacity, frontal exposure, control effects and pressure ratings. Map sensor ports, crash structures and pipe motion. Establish separate temperature and pressure targets.\n\n**Build and installation.** Pattern pipes on the car, cut and clean tubing, form specified retained ends, fit rated couplers and independently support the core. Keep structure and sensor line of sight intact.\n\n**Test and disposition.** Perform a regulated leak check within system limits. Compare inlet/outlet temperature, pressure loss and coolant temperature at matched ambient, airflow and load.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-turbocharger-or-supercharger-package",
+   "title": "Modification · Turbocharger or supercharger package",
+   "body": "**Purpose.** Increase available air and potential torque for a defined operating range.\n\n**Design and baseline.** Set torque and duty targets first. Check airflow/pressure envelope, knock margin, charge temperature, fuel capacity, cooling, driveline rating, controller and emissions eligibility of the exact package.\n\n**Build and installation.** Use a documented matched system. Mock up compressor drive or exhaust/oil/coolant routing, intercooler and shields, fit supplied controls and arrange qualified calibration and instrumented commissioning.\n\n**Test and disposition.** Require fuel delivery, boost control, temperature, knock monitoring, emissions function and repeatability within the authorized envelope. Retain the baseline configuration and stop on excursions.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-engine-swap",
+   "title": "Modification · Engine swap",
+   "body": "**Purpose.** Meet a torque, serviceability or packaging goal when the original engine cannot satisfy the design brief.\n\n**Design and baseline.** Compare installed mass, crank centerline, sump/steering clearance, transmission, mounts, fuel, cooling, immobilizer, complete emission controls and jurisdiction path before purchase.\n\n**Build and installation.** Make full-scale package templates and a service envelope. Locate the donor on a reviewed fixture, engineer mounts, route complete donor systems, document harness mapping and verify each subsystem before first start.\n\n**Test and disposition.** Record mounted geometry, axle loads, diagnostics, fluid integrity, cooling and controlled movement. Hold road-use release until build-specific eligibility and inspection requirements are resolved.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "mod-closed-crankcase-oil-separator",
+   "title": "Modification · Closed crankcase oil separator",
+   "body": "**Purpose.** Reduce oil carryover in an application with a documented problem while preserving required ventilation and emissions functions.\n\n**Design and baseline.** Measure the baseline symptom, verify PCV function and confirm that the exact installation is lawful for the configuration. Size the flow path, reservoir, drain/service interval and freeze protection.\n\n**Build and installation.** Use an application-compatible closed system, retain the prescribed metered and fresh-air paths and route oil-resistant hoses without low spots that can collect liquid. Provide secure, accessible mounting.\n\n**Test and disposition.** Check crankcase pressure in the specified modes, leaks, cold operation and collected quantity over a defined interval. Restore original configuration if flow or diagnostics are compromised.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Garrett, turbo system optimization and installation considerations](https://www.garrettmotion.com/racing-and-performance/choosing-a-turbocharger/turbo-system-optimization/)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Choose an available teaching engine. Record its ID and manual revision. Draw the power path through a selected gear, choose two measurements that discriminate different fault modes and specify how timing will be verified after reassembly."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Marked-up service sheet, measurements and a photograph or witnessed record of the reassembled trainer."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The part is traceable, paired readings are interpretable, and the reassembled timing result is observed."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Plan a mechanical inspection",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Choose an available teaching engine. Record its ID and manual revision. Draw the power path through a selected gear, choose two measurements that discriminate different fault modes and specify how timing will be verified after reassembly. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Displacement and cylinder count; Cylinder layout and mounts; Air induction and charge cooler; Fuel and ignition strategy. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Measure the restriction you intend to change",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Create a clean, unpowered intake or charge-pipe fit fixture. Label filters, sensors, clamps, bypass connections and heat/water risks. Document a measured clearance and a controlled comparison. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Inspect and return a teaching engine to timing",
+   "module": "m3",
+   "adult": true,
+   "intro": "Marked-up service sheet, measurements and a photograph or witnessed record of the reassembled trainer. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use a de-energized trainer. Isolate ignition, fuel and starting power. Use an instructor for disassembly or stored spring loads. Never force a hard stop."
+   ],
+   "materials": [
+    "Secured four-stroke trainer and model-specific service information",
+    "Micrometer or bore gauge appropriate to the tolerance",
+    "Specified hand and torque tools, organizer"
+   ],
+   "steps": [
+    "Label the parts and photograph reference timing on the isolated engine.",
+    "Follow the manual to expose the assigned journal, cylinder or other accessible fit. Measure at two specified locations and compare with the proper limits.",
+    "Reassemble the assigned parts using their identified positions and the manual procedure.",
+    "Hand-cycle through the specified timing check. Log the result and leave powered tests explicitly open."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Part and location",
+      "Method",
+      "Spec and units",
+      "As measured",
+      "Retest"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The part is traceable, paired readings are interpretable, and the reassembled timing result is observed. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-shop",
+  "auto-electrical"
+ ]
+}

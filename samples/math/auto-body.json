@@ -1,0 +1,1037 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-body",
+ "title": "Bodywork, Occupant Packaging and Refinishing",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare panel joints, glazing, closures, lamps and restraint layouts. Form and fit an original panel and validate occupant controls, access and visibility. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Occupant packaging",
+   "quiz": [
+    "body-1-q2",
+    "cmp-closure-glazing-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Body design",
+   "quiz": [
+    "body-2-q2",
+    "cmp-lighting-occupants-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Panel manufacture",
+   "quiz": [
+    "body-3-q3",
+    "shop-change-body"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Fit and finish inspection",
+   "quiz": [
+    "body-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "body-1",
+   "module": "m1",
+   "title": "Lay out the car around the driver",
+   "minutes": 20,
+   "topics": [
+    "Occupant packaging"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-2-1",
+    "parts-3-1"
+   ],
+   "body": "Entry skills: complete Chassis Design, Welding and Fabrication, Cooling, Cabin HVAC and Refrigerant Practice, or demonstrate the equivalent workshop skills.\n\nBegin with a real seat, pedal location and steering wheel in a stable full-size mock-up. Record hip reference, eye location, sightlines, reach, ingress and pedal travel. Allow for shoes, trim, steering travel and adjustment. Reserve locations for restraint anchors and side structure for engineering review. Select obtainable safety glazing and its mounting envelope early.\n\n## Worked shop case\n\nA driver fits when seated, but a fixed steering wheel blocks entry once a roof rail is mocked up. The failure concerns the path into the seat. Include the opening and travel envelope in the next revision.\n\n## Guided practice\n\nA driver mock-up provides 64 mm static clearance where the design target for that mock-up is 75 mm. Give the shortfall in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A learner-formed panel, physical fit check, finishing coupon or documented professional finish, and as-built body drawing.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "body-1-q1",
+    "body-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-closure-glazing",
+   "module": "m1",
+   "title": "Doors, closures, glass, weather sealing and visibility",
+   "minutes": 25,
+   "topics": [
+    "Doors, closures, glass, weather sealing and visibility"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A closure combines hinges, latch, striker, seals, stops and reinforcement. The hinges carry its weight; the latch must engage securely without having to lift a sagging closure into position. Weatherstrips seal compressed interfaces; water passing the outer beltline of a door needs managed drainage. Compare welded or bonded fixed panels with service-removable panels and record replacement access. A serviceable opening also needs trim clearance, inside release, glass guides and water management.\n\nLaminated glass retains fragments in an interlayer when broken. Tempered glass fractures differently. Windshields and other glazing positions require the appropriate approved glazing for the vehicle and jurisdiction; side glass can also be laminated. Bonded windshields may contribute to body and restraint performance and can carry camera optics. Wiper sweep, washer delivery, defrost airflow and mirrors or cameras determine usable visibility. Verify part markings, aperture geometry, retention method, cure and calibration with approved information.\n\n## Worked shop case\n\nA mock-up door shuts smoothly with its glass down but binds with the glass raised. Check hinge alignment, glass guides, roof seal compression and frame deflection before moving the striker. Moving the striker first can disguise a glass alignment problem and change latch engagement.\n\n## Guided practice\n\n```example fade=2\nproblem: After a trim change, the inside carpet is wet below a door that passes the exterior seal check. Where do you look?\nstep: Trace water entering the outer glass slot.\nstep: Verify membrane sealing and drain paths.\nanswer: Water may be correctly entering the door cavity and then escaping through a failed inner barrier or blocked drain.\n```\n\n## Independent shop or design task\n\nFit a removable practice closure or panel. Record gaps and flushness at identified points, latch or fastener engagement, two egress observations, and water path. Log glazing, wiper and demist choices for the full build.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-closure-glazing-q1",
+    "cmp-closure-glazing-q2"
+   ]
+  },
+  {
+   "id": "cmp-lighting-occupants",
+   "module": "m2",
+   "title": "Lighting optics, seats, restraints and occupant controls",
+   "minutes": 25,
+   "topics": [
+    "Lighting optics, seats, restraints and occupant controls"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "Halogen lamps use a heated filament, HID units use an arc and ballast, and LED units use semiconductor emitters, drivers and thermal management. Beam shape depends on the light source, optics, aim and installation. A physically compatible bulb socket does not establish that a different source works in that optic or is lawful. Compare the complete appropriate lamp assembly, photometric approval or marking requirements, mounting height, aim, compatibility and service access for the intended use.\n\nA seat, track, anchor, belt, head restraint and any airbags work together. Belt geometry changes with the occupant and seat travel. Compare seat-integrated versus body-mounted belt load paths and verify compatible anchor support using reviewed design information. Do not mix restraint elements on appearance. Consider pedal travel, positive throttle return, steering reach, head clearance and sight lines through the complete adjustment range. Retain a specialist review of restraint and crash-related systems.\n\n## Worked shop case\n\nA donor seat carries its upper belt anchor. Installing it on custom sliders now sends upper-belt loads through the seat and sliders to the floor. A floor designed for a seat with a body-mounted upper anchor may lack a verified path for this load. Resolve it with the designer before drilling or commissioning.\n\n## Guided practice\n\n```example fade=2\nproblem: One candidate headlamp draws less current yet produces glare on a wall. What does current establish?\nstep: It informs the circuit load.\nstep: Verify optical compatibility and the prescribed aim and approval for that assembly.\nanswer: Lower current alone does not establish a usable legal beam.\n```\n\n## Independent shop or design task\n\nMock up a seat and pedals with intended occupants and record reach, visibility, adjustment and emergency exit checks. Identify belt-anchor loads, lamp assemblies and aim method on the as-built drawings. Record independent review of safety-critical choices.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-lighting-occupants-q1",
+    "cmp-lighting-occupants-q2"
+   ]
+  },
+  {
+   "id": "body-2",
+   "module": "m2",
+   "title": "Turn an exterior shape into a buildable panel",
+   "minutes": 20,
+   "topics": [
+    "Body design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-sound-treatment-and-door-speaker-adapters",
+    "mod-complete-headlamp-assembly-replacement",
+    "mod-seat-and-slider-substitution",
+    "mod-spoiler-or-front-splitter"
+   ],
+   "body": "A buck is a physical form defining the panel shape. Plot cross-sections from a common datum and install them at numbered stations. Design panel splits, flange returns, fastener access, edge treatment and water paths before forming. Separate removable skin from load-bearing structures and occupant restraint attachments.\n\n## Worked shop case\n\nA panel is 404 mm outside edge to outside edge across a 410 mm trial opening. If centered on the same axis it leaves a nominal 3 mm gap per side. Fit variability and hinge travel still need inspection.\n\n## Guided practice\n\nA 508 mm opening takes a 500 mm centered panel. Enter nominal gap per side in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nUse full-size seat and glazing references. Submit a section drawing, buck stations, attachment detail, target gaps and an access test. Identify required lighting or glazing evidence and link the selected finish process to its safety data and shop controls.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "body-2-q1",
+    "body-2-q2"
+   ]
+  },
+  {
+   "id": "body-3",
+   "module": "m3",
+   "title": "Form and fit a removable skin",
+   "minutes": 15,
+   "topics": [
+    "Panel manufacture"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "Transfer the chosen section to a template, establish a datum edge and form a representative panel in a suitable shop. Deburr edges and protect nearby wiring. Trial-fit with temporary location hardware and test removal in the intended order. Keep first articles away from structural or restraint use. Read coating product safety data and discuss process and facility choice before applying final paint.\n\n## Worked shop case\n\nA panel fits before its return flange is formed. After forming, one edge pulls away. Recheck the section template and flange sequence while the mounting datums remain fixed.\n\n## Guided practice\n\nThe first gap is 2 mm and the opposite gap 6 mm. Give the difference in mm.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nFor US spray finishing, determine whether EPA's Auto Body Rule (40 CFR Part 63 Subpart HHHHHH) applies to the operation, materials and operator. The personal-vehicle provision has conditions, including a threshold of more than two vehicles or pieces of mobile equipment spray-coated per year, even without compensation. Local air and fire rules can still apply. Covered workplaces also evaluate 29 CFR 1910.107 for flammable/combustible spray finishing, PPE and hazard communication. Obtain component documentation for glazing, lamps and belts. Keep finish safety data and process records.\n\n[EPA — Auto Body Rule, 40 CFR Part 63 Subpart HHHHHH](https://www.epa.gov/collision-repair-campaign/about-epas-auto-body-rule) · [40 CFR 63.11169(d)(3) — personal-use conditions](https://www.govinfo.gov/content/pkg/CFR-2025-title40-vol16/pdf/CFR-2025-title40-vol16-part63-subpartHHHHHH.pdf) · [OSHA — spray finishing, 29 CFR 1910.107](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.107) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv)\n\n## Workshop preparation\n\nUse sheet-edge protection, secure work and supervised cutting/forming. Choose a low-hazard coupon process or a qualified paint facility. Isocyanate spraying requires professional exposure controls. Protect electrical equipment during seal tests.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "body-3-q1",
+    "body-3-q2",
+    "body-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "Size a removable speaker adapter without fouling the glass",
+   "minutes": 35,
+   "topics": [
+    "Size a removable speaker adapter without fouling the glass"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-1-4",
+    "parts-2-1",
+    "parts-3-1",
+    "mod-sound-treatment-and-door-speaker-adapters",
+    "mod-complete-headlamp-assembly-replacement",
+    "mod-seat-and-slider-substitution",
+    "mod-spoiler-or-front-splitter",
+    "as-built-ledger"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nExterior, glazing, cabin and access, Interior and exterior detail, Body hardware and interior controls. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Sound treatment and door-speaker adapters\n- Complete headlamp assembly replacement\n- Seat and slider substitution\n- Spoiler or front splitter\n\n## Worked example\n\nA door mock-up offers 51 mm depth to the lowered glass measured from the mounting face. A driver extends 58 mm behind its flange. A 12 mm adapter ideally leaves 51 + 12 − 58 = 5 mm clearance before seals compress and the assembly moves. Confirm both rear clearance and front grille clearance physically.\n\n## Guided decision\n\n```example fade=1\nproblem: A second driver needs 61 mm depth with the same adapter. What static rear margin remains?\nstep: Subtract driver depth from available depth plus adapter thickness.\nanswer: 2 mm before tolerances or movement. Compare with measured design allowance and revise if inadequate.\n```\n\n## Independent workshop\n\nMake a card or sheet adapter using actual driver and opening templates. Measure the least clearance throughout glass travel, preserve water management and document all fasteners.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-body"
+   ]
+  },
+  {
+   "id": "body-4",
+   "module": "m4",
+   "title": "Check latching, sealing and maintenance",
+   "minutes": 15,
+   "topics": [
+    "Fit and finish inspection"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "Document panel fit along its perimeter, sound attachment and access after final mounting. On the finished vehicle separately verify door latches, sightlines, mirrors, lights, belt anchors, glazing, wipers and defogging under their applicable criteria. An attractive skin has no implied crash rating. Use a low-pressure water check on a suitable body sample, keeping electrical components protected.\n\n## Worked shop case\n\nA removable panel passes a fit check but prevents replacement of the cabin filter. Rework access now, then repeat both service and seal checks after reassembly.\n\n## Guided practice\n\nAt four equally spaced stations gaps are 3, 4, 5 and 4 mm. What is the range in mm?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe fitted physical part can be removed and installed with its intended access and has measured gaps against the drawing. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "body-4-q1",
+    "body-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-body-bank",
+   "title": "Bodywork, Occupant Packaging and Refinishing practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Occupant packaging"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Body design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Panel manufacture"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Fit and finish inspection"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "body-1-q1",
+     "section": "m1",
+     "topic": "Occupant packaging",
+     "stem": "A driver mock-up provides 64 mm static clearance where the design target for that mock-up is 75 mm. Give the shortfall in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "11"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "75 − 64 = 11 mm. This project target is specific to the mock-up."
+    },
+    {
+     "id": "body-1-q2",
+     "section": "m1",
+     "topic": "Occupant packaging",
+     "stem": "Which trial tests an entry path?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "View a rendering from the passenger side.",
+      "Have the intended user enter and exit the stable full-size stationary buck.",
+      "Measure seated eye height alone."
+     ],
+     "explanation": "Ingress is a moving envelope involving the opening, occupant and wheel."
+    },
+    {
+     "id": "body-2-q1",
+     "section": "m2",
+     "topic": "Body design",
+     "stem": "A 508 mm opening takes a 500 mm centered panel. Enter nominal gap per side in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "4"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "(508 − 500) ÷ 2 = 4 mm."
+    },
+    {
+     "id": "body-2-q2",
+     "section": "m2",
+     "topic": "Body design",
+     "stem": "Which design choice keeps a service opening useful after assembly?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Reserve tool and withdrawal space around the fasteners and component.",
+      "Cover its only fastener with a permanently bonded skin.",
+      "Measure panel area alone."
+     ],
+     "explanation": "A part must pass through the opening and its retainers must be reachable."
+    },
+    {
+     "id": "body-3-q1",
+     "section": "m3",
+     "topic": "Panel manufacture",
+     "stem": "The first gap is 2 mm and the opposite gap 6 mm. Give the difference in mm. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "4"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "6 − 2 = 4 mm; inspect centering and panel shape."
+    },
+    {
+     "id": "body-3-q2",
+     "section": "m3",
+     "topic": "Panel manufacture",
+     "stem": "Which sample tests whether a finish system suits the substrate?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A wet color sample on unrelated scrap.",
+      "An unprepared panel sprayed outdoors regardless of instructions.",
+      "A labeled coupon prepared and cured with the specified product sequence."
+     ],
+     "explanation": "Surface preparation, substrate and cure are part of the finish system."
+    },
+    {
+     "id": "body-3-q3",
+     "section": "m3",
+     "topic": "Panel manufacture",
+     "stem": "Select two records appropriate before spray finishing a vehicle. Select all that apply.",
+     "choices": [
+      "Assume any unpaid application is exempt from every limit.",
+      "Determine applicability of EPA 6H and local air/fire rules to the actual operation.",
+      "Obtain the coating safety data and identify the required controls and facility.",
+      "Use ordinary household ventilation as proof a coating process is controlled."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "For US spray finishing, determine whether EPA's Auto Body Rule (40 CFR Part 63 Subpart HHHHHH) applies to the operation, materials and operator. The personal-vehicle provision has conditions, including a threshold of more than two vehicles or pieces of mobile equipment spray-coated per year, even without compensation. Local air and fire rules can still apply. Covered workplaces also evaluate 29 CFR 1910.107 for flammable/combustible spray finishing, PPE and hazard communication. Obtain component documentation for glazing, lamps and belts. Keep finish safety data and process records."
+    },
+    {
+     "id": "body-4-q1",
+     "section": "m4",
+     "topic": "Fit and finish inspection",
+     "stem": "At four equally spaced stations gaps are 3, 4, 5 and 4 mm. What is the range in mm? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "2"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "5 − 3 = 2 mm."
+    },
+    {
+     "id": "body-4-q2",
+     "section": "m4",
+     "topic": "Fit and finish inspection",
+     "stem": "Which finding calls for a design correction before trim is installed?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "The finish coupon carries a batch label.",
+      "The required latch adjustment becomes inaccessible behind permanent trim.",
+      "An inspection photo includes a ruler."
+     ],
+     "explanation": "Service and adjustment access must remain available after final assembly."
+    },
+    {
+     "id": "cmp-closure-glazing-q1",
+     "section": "m1",
+     "topic": "Doors, closures, glass, weather sealing and visibility",
+     "stem": "Which evidence best supports a replacement windshield on a camera-equipped vehicle?",
+     "explanation": "Geometry, optics, retention and calibration each affect the installed system.",
+     "choices": [
+      "Approved glazing for that position, compatible optical mount and the specified post-installation calibration record.",
+      "The glass fits between the pillars by eye.",
+      "Matching outside width alone."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-closure-glazing-q2",
+     "section": "m1",
+     "topic": "Doors, closures, glass, weather sealing and visibility",
+     "stem": "A door binds only with the glass fully raised. Which first comparison best localizes the new load?",
+     "explanation": "This changes one condition while observing the contacting interfaces.",
+     "choices": [
+      "Compare glass guide path and upper-seal contact with the glass lowered and raised.",
+      "Remove the primary latch permanently.",
+      "Raise tire pressure to change the roof opening."
+     ],
+     "answer": [
+      0
+     ]
+    },
+    {
+     "id": "cmp-lighting-occupants-q1",
+     "section": "m2",
+     "topic": "Lighting optics, seats, restraints and occupant controls",
+     "stem": "Moving the upper belt anchor from the body to the seat changes which design input directly?",
+     "explanation": "The load now travels through the seat assembly into the floor.",
+     "choices": [
+      "The tire's molded load index.",
+      "The engine's firing interval.",
+      "The belt load that the seat, track and floor attachments must transfer."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-lighting-occupants-q2",
+     "section": "m2",
+     "topic": "Lighting optics, seats, restraints and occupant controls",
+     "stem": "Which item most directly tests a driver's ability to use the cabin controls after a seat-track change?",
+     "explanation": "Adjusting a seat changes the relationship between the occupant, controls and exits.",
+     "choices": [
+      "Headlamp wattage alone.",
+      "An occupant fit trial through the adjustment range against defined reach, sightline and egress criteria.",
+      "A photograph of the empty dashboard alone."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "shop-change-body",
+     "section": "m3",
+     "topic": "Size a removable speaker adapter without fouling the glass",
+     "stem": "A heavier door speaker fits its trim opening. What other fit check is directly relevant?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "The diameter of the cosmetic grille alone.",
+      "Speaker impedance on a bench with the door card removed.",
+      "Window, regulator, latch cable, water barrier and weather-seal clearance through full travel."
+     ],
+     "explanation": "The door contains moving mechanisms and water-management features behind the opening."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-body-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Buck",
+     "back": "A physical form representing the geometry of a panel or body.",
+     "topic": "Occupant packaging"
+    },
+    {
+     "id": "c1b",
+     "front": "Which trial tests an entry path?",
+     "back": "Have the intended user enter and exit the stable full-size stationary buck. Ingress is a moving envelope involving the opening, occupant and wheel.",
+     "topic": "Occupant packaging"
+    },
+    {
+     "id": "c2a",
+     "front": "Station",
+     "back": "A known section location measured from a reference datum.",
+     "topic": "Body design"
+    },
+    {
+     "id": "c2b",
+     "front": "Which design choice keeps a service opening useful after assembly?",
+     "back": "Reserve tool and withdrawal space around the fasteners and component. A part must pass through the opening and its retainers must be reachable.",
+     "topic": "Body design"
+    },
+    {
+     "id": "c3a",
+     "front": "Ingress envelope",
+     "back": "The occupied space swept while a person enters the cockpit.",
+     "topic": "Panel manufacture"
+    },
+    {
+     "id": "c3b",
+     "front": "Which sample tests whether a finish system suits the substrate?",
+     "back": "A labeled coupon prepared and cured with the specified product sequence. Surface preparation, substrate and cure are part of the finish system.",
+     "topic": "Panel manufacture"
+    },
+    {
+     "id": "c4a",
+     "front": "Flange",
+     "back": "A turned edge used for stiffness, mounting or joining.",
+     "topic": "Fit and finish inspection"
+    },
+    {
+     "id": "c4b",
+     "front": "Which finding calls for a design correction before trim is installed?",
+     "back": "The required latch adjustment becomes inaccessible behind permanent trim. Service and adjustment access must remain available after final assembly.",
+     "topic": "Fit and finish inspection"
+    },
+    {
+     "id": "cmp-closure-glazing-card",
+     "front": "Which evidence best supports a replacement windshield on a camera-equipped vehicle?",
+     "back": "Approved glazing for that position, compatible optical mount and the specified post-installation calibration record. Geometry, optics, retention and calibration each affect the installed system.",
+     "topic": "Doors, closures, glass, weather sealing and visibility"
+    },
+    {
+     "id": "cmp-lighting-occupants-card",
+     "front": "Moving the upper belt anchor from the body to the seat changes which design input directly?",
+     "back": "The belt load that the seat, track and floor attachments must transfer. The load now travels through the seat assembly into the floor.",
+     "topic": "Lighting optics, seats, restraints and occupant controls"
+    },
+    {
+     "id": "change-evidence",
+     "front": "A heavier door speaker fits its trim opening. What other fit check is directly relevant?",
+     "back": "Window, regulator, latch cable, water barrier and weather-seal clearance through full travel. The door contains moving mechanisms and water-management features behind the opening.",
+     "topic": "Size a removable speaker adapter without fouling the glass"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Buck",
+   "definition": "A physical form representing the geometry of a panel or body.",
+   "topic": "Occupant packaging"
+  },
+  {
+   "term": "Station",
+   "definition": "A known section location measured from a reference datum.",
+   "topic": "Body design"
+  },
+  {
+   "term": "Ingress envelope",
+   "definition": "The occupied space swept while a person enters the cockpit.",
+   "topic": "Panel manufacture"
+  },
+  {
+   "term": "Flange",
+   "definition": "A turned edge used for stiffness, mounting or joining.",
+   "topic": "Fit and finish inspection"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[South Georgia Technical College — Motorsports Fabrication](https://www.southgatech.edu/college-catalog/current/programs/motorsports-fabrication-t) · [MIT — Design, manufacturing and verification of a steel tube spaceframe chassis](https://dspace.mit.edu/entities/publication/fd94ee78-fcfd-46a3-8e82-9ed94f0539df) · [EPA — Auto Body Rule, 40 CFR Part 63 Subpart HHHHHH](https://www.epa.gov/collision-repair-campaign/about-epas-auto-body-rule)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nFor US spray finishing, determine whether EPA's Auto Body Rule (40 CFR Part 63 Subpart HHHHHH) applies to the operation, materials and operator. The personal-vehicle provision has conditions, including a threshold of more than two vehicles or pieces of mobile equipment spray-coated per year, even without compensation. Local air and fire rules can still apply. Covered workplaces also evaluate 29 CFR 1910.107 for flammable/combustible spray finishing, PPE and hazard communication. Obtain component documentation for glazing, lamps and belts. Keep finish safety data and process records.\n\n[EPA — Auto Body Rule, 40 CFR Part 63 Subpart HHHHHH](https://www.epa.gov/collision-repair-campaign/about-epas-auto-body-rule) · [40 CFR 63.11169(d)(3) — personal-use conditions](https://www.govinfo.gov/content/pkg/CFR-2025-title40-vol16/pdf/CFR-2025-title40-vol16-part63-subpartHHHHHH.pdf) · [OSHA — spray finishing, 29 CFR 1910.107](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.107) · [OSHA — Hazard Communication, 29 CFR 1910.1200](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1200) · [NHTSA — equipment standards and a specific kit-manufacturer interpretation](https://www.nhtsa.gov/interpretations/19664ztv)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Body panel and surface finish; Closures, hinges, latch and seals; Glazing, wiper and washer; Lighting and signaling; Seating, belts and restraints; Pedals and controls. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Body panel and surface finish | Stamped / hand-formed / composite; single-stage / basecoat-clearcoat finish | Thermal expansion, joint movement, coating compatibility and exposure determine a finish plan. | Record fit, substrate preparation, coating data, shop controls and coupon outcome. |\n| Closures, hinges, latch and seals | Hinged / removable panel; bonded / compressed seal | Load, latch engagement, service access and water path differ. | Measure gap and flushness, evaluate egress and verify drainage. |\n| Glazing, wiper and washer | Laminated / tempered; bonded / gasketed glazing; coordinated sweep | Retention, optics and field of view depend on part and position. | Document markings, sweep/washer coverage, demist and calibration evidence. |\n| Lighting and signaling | Halogen / HID / LED assemblies | Optic, source, driver and heat management determine output and beam shape. | Identify correct assemblies and verify aim, indicators and required visibility. |\n| Seating, belts and restraints | Body-mounted / seat-integrated belt; adjustable / fixed seat | The belt load path and occupant range must be reviewed with anchors, track and floor. | Record fit, egress, anchor review and compatible donor restraints. |\n| Pedals and controls | Mechanical / electronic accelerator; suspended / floor-mounted pedals | Travel, return, leverage, interference and command plausibility depend on layout. | Inspect positive return, clearances and full seat-adjustment range before motion testing. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [HELLA, headlamp technology and optics](https://www.hella.com/techworld/us/technical/automotive-lighting/headlamp-technologies-in-electric-vehicles/)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, supplemental lighting and replacement-equipment interpretation](https://www.nhtsa.gov/interpretations/571108-supplement-beam-boykin-16-0884)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Exterior, glazing, cabin and access · Hood to Door latch and striker",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Hood\n\n**Function.** Closes engine compartment while allowing service access.\n\n**Design.** Plan hinges, primary/secondary latches, load, sightline and edge clearance.\n\n**Make, assemble or fit.** Form reviewed panel or align compatible donor hood and reinforcements.\n\n**Verify.** Verify latch redundancy where required, clearance and service opening.\n\n### Hood latch and secondary catch\n\n**Function.** Retain hood under airflow and incidentally released primary latch.\n\n**Design.** Match striker, catch reach and support stiffness.\n\n**Make, assemble or fit.** Fit approved latches and guided release cable on reinforced mounts.\n\n**Verify.** Perform specified pull, release and secondary retention checks.\n\n### Fender and wheelhouse liner\n\n**Function.** Cover wheel and manage spray, debris and airflow.\n\n**Design.** Set coverage and clearance across full combined steer and wheel travel.\n\n**Make, assemble or fit.** Template a liner or panel with serviceable clips and protected edges.\n\n**Verify.** Check tire clearance at all intended travel combinations.\n\n### Front fascia and grille\n\n**Function.** Manage airflow, protect openings and house sensors.\n\n**Design.** Define open area, mounts, lamp clearance and radar compatibility.\n\n**Make, assemble or fit.** Fit shaped panel and approved sensor-compatible inserts.\n\n**Verify.** Check cooling, retention, sensor function and edges.\n\n### Bumper beam and crash absorbers\n\n**Function.** Route impact loads through a designed crush sequence.\n\n**Design.** Match vehicle structure and energy absorption design.\n\n**Make, assemble or fit.** Retain engineered compatible beam and absorbers and prescribed fasteners.\n\n**Verify.** Verify condition, alignment and documented structural compatibility.\n\n### Door shell and intrusion beam\n\n**Function.** Support closures and contribute to side impact protection.\n\n**Design.** Plan hinge/latch reactions, regulator space, drainage and approved beam continuity.\n\n**Make, assemble or fit.** Fit a compatible structural door or qualified reviewed design; form removable skins separately.\n\n**Verify.** Check opening geometry, load paths and drain operation.\n\n### Door hinge and pins\n\n**Function.** Support and guide door travel.\n\n**Design.** Match mass, pivot alignment, opening angle and reinforcement.\n\n**Make, assemble or fit.** Install matched hinge and locate shims to set gaps without the latch lifting the door.\n\n**Verify.** Measure sag, gaps and full travel.\n\n### Door latch and striker\n\n**Function.** Retain door and release it on command.\n\n**Design.** Match catch, striker orientation, handle cable and interlock.\n\n**Make, assemble or fit.** Fit approved latch and adjust striker only after hinge and glass alignment.\n\n**Verify.** Check full latch, inside/outside release and emergency exit."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Exterior, glazing, cabin and access · Door handle and lock actuator to Washer reservoir, hoses and jets",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Door handle and lock actuator\n\n**Function.** Operate latch and central locking.\n\n**Design.** Define rod or cable travel, electrical control and manual release.\n\n**Make, assemble or fit.** Route controls away from moving glass and verify correct retaining clips.\n\n**Verify.** Cycle each handle and lock from both sides.\n\n### Window regulator\n\n**Function.** Moves and locates door glass.\n\n**Design.** Match guide paths, drive torque and anti-pinch controls where equipped.\n\n**Make, assemble or fit.** Fit matched cable/scissor regulator and set glass stops per service data.\n\n**Verify.** Check the full sweep, sealing and prescribed anti-pinch initialization.\n\n### Door weatherstrip and vapor barrier\n\n**Function.** Limit wind and water transfer to cabin.\n\n**Design.** Choose compression profile, adhesive and unblocked drain path.\n\n**Make, assemble or fit.** Fit seal to a clean flange and reseal inner barrier around harness exits.\n\n**Verify.** Run a controlled water test and inspect inside trim and sill.\n\n### Windshield\n\n**Function.** Provides forward view and can have a structural or optical role.\n\n**Design.** Match rated laminated glazing, optical area, camera bracket and adhesive system.\n\n**Make, assemble or fit.** Use qualified glazing installation and required safe drive-away cure time.\n\n**Verify.** Verify bond, leaks and associated ADAS calibration.\n\n### Side and rear glass\n\n**Function.** Provide visibility and close openings.\n\n**Design.** Specify approved glazing type, curvature, encapsulation and defrost provisions.\n\n**Make, assemble or fit.** Install the position-specific glass into correct guides or bonded aperture.\n\n**Verify.** Check markings, movement, sealing and electrical function.\n\n### Wiper arms and blades\n\n**Function.** Sweep water from specified viewing areas.\n\n**Design.** Match length, park angle, downforce and collision-free sweep.\n\n**Make, assemble or fit.** Fit correctly indexed arms and approved blades.\n\n**Verify.** Check on wet glass at all speeds and verify park position.\n\n### Wiper linkage\n\n**Function.** Converts motor rotation to coordinated blade motion.\n\n**Design.** Choose crank radius, pivot positions and protected sweep limits.\n\n**Make, assemble or fit.** Install matched linkages in the motor park position.\n\n**Verify.** Check link clearance, backlash and both blade endpoints.\n\n### Washer reservoir, hoses and jets\n\n**Function.** Store and deliver cleaning fluid to the glass.\n\n**Design.** Size volume; match fluid, routing and nozzle coverage.\n\n**Make, assemble or fit.** Mount tank securely, route hoses clear of hinges and aim nozzles.\n\n**Verify.** Check for leaks and wet coverage across the working wipe area."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Exterior, glazing, cabin and access · Exterior mirror to Head restraint",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Exterior mirror\n\n**Function.** Provides required rearward and adjacent field of view.\n\n**Design.** Choose mounting stiffness, size, adjustment and applicable approval.\n\n**Make, assemble or fit.** Fit stable compatible assembly and verify heaters or indicators as equipped.\n\n**Verify.** Check view across the defined driver range and vibration.\n\n### Headlamp assembly\n\n**Function.** Forms and aims the forward beam.\n\n**Design.** Select complete appropriate optical unit, mounting, controls and aim adjustment.\n\n**Make, assemble or fit.** Install approved lamp on rigid datums and aim by applicable procedure.\n\n**Verify.** Verify low/high functions, beam aim and applicable equipment requirements.\n\n### Tail, stop and turn lamps\n\n**Function.** Convey presence, braking and direction to others.\n\n**Design.** Choose approved optics and placement, visibility angles and correct signaling logic.\n\n**Make, assemble or fit.** Install compatible assemblies, wiring protection and water seals.\n\n**Verify.** Test each function separately and in combination.\n\n### Reverse lamp and plate lamp\n\n**Function.** Indicate reverse selection and illuminate registration plate.\n\n**Design.** Match trigger, color, output and legal mounting requirements.\n\n**Make, assemble or fit.** Install compatible lamps and protect their power and return paths.\n\n**Verify.** Verify reverse interlock response and plate illumination.\n\n### Seat frame and track\n\n**Function.** Support occupant and permit position adjustment.\n\n**Design.** Define strength, lock engagement, belt loads, reach and anchorage.\n\n**Make, assemble or fit.** Fit reviewed seat/track/anchor assembly with correct fasteners.\n\n**Verify.** Check both rail locks, occupant fit and full control reach.\n\n### Seat belt and retractor\n\n**Function.** Provide the occupant restraint load path.\n\n**Design.** Match routing, anchor geometry, retractor orientation and seat travel.\n\n**Make, assemble or fit.** Install an approved matched restraint with designated anchorage hardware.\n\n**Verify.** Verify retraction, latch, locking and anchorage review.\n\n### Buckle and anchor plate\n\n**Function.** Close belt loop and transfer belt loads to structure.\n\n**Design.** Match buckle tongue, orientation, fastener and seat-dependent load path.\n\n**Make, assemble or fit.** Install compatible buckle and reviewed reinforcement on specified datum.\n\n**Verify.** Check latch release, warnings and structural disposition.\n\n### Head restraint\n\n**Function.** Limits relative head motion under specified occupant loads.\n\n**Design.** Choose compatible mounting, height and fore-aft adjustment.\n\n**Make, assemble or fit.** Fit matched head restraint and guides with positive detents.\n\n**Verify.** Check retention and fit across seat positions."
+  },
+  {
+   "id": "parts-1-4",
+   "title": "Exterior, glazing, cabin and access · Dashboard and demister ducts to Primer, coating and seam sealer",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Dashboard and demister ducts\n\n**Function.** Locate controls and direct air to glazed areas.\n\n**Design.** Allow sightlines, knee clearance, deployment zones, sealing and access.\n\n**Make, assemble or fit.** Pattern ducts and serviceable trim around retained safety clearances.\n\n**Verify.** Check visibility, vent flow, rattles and service removal.\n\n### Center console and shift boot\n\n**Function.** Surround controls and limit dust/noise intrusion.\n\n**Design.** Keep all selector positions, releases and wiring accessible.\n\n**Make, assemble or fit.** Template a removable panel and fit flexible boot with adequate travel.\n\n**Verify.** Check all gears, parking brake, emergency access and edge finish.\n\n### Carpet and heel mat\n\n**Function.** Protect the floor and reduce cabin noise.\n\n**Design.** Specify secure retention and full pedal clearance.\n\n**Make, assemble or fit.** Cut to template, bind edges and use compatible retention points.\n\n**Verify.** Check full brake and throttle travel without mat movement.\n\n### Undertray and splash shield\n\n**Function.** Manage debris, airflow and access below the car.\n\n**Design.** Set heat clearance, water drains, attachment load and service openings.\n\n**Make, assemble or fit.** Template sheet or fit compatible molded panel with captive retainers.\n\n**Verify.** Check full steer/jounce, ground clearance, heat and fastener retention.\n\n### Liftgate or trunk lid\n\n**Function.** Closes cargo opening and provides access.\n\n**Design.** Match hinge geometry, water channels, load and latch release.\n\n**Make, assemble or fit.** Fit closure and align hinges, seals and striker in order.\n\n**Verify.** Verify retention, drainage and release.\n\n### Gas strut or torsion assist\n\n**Function.** Supports a raised closure and reduces lifting force.\n\n**Design.** Match stroke, lever arms, temperature range and retaining clips.\n\n**Make, assemble or fit.** Support closure independently while fitting rated matched assistance hardware.\n\n**Verify.** Confirm open hold, smooth travel and positive retention.\n\n### Sound absorber and damping sheet\n\n**Function.** Reduce airborne noise or vibrating panel response.\n\n**Design.** Select acoustic treatment by source and preserve drainage, heat zones and restraint paths.\n\n**Make, assemble or fit.** Apply suitable approved material to a clean test area and retain trim access.\n\n**Verify.** Compare matched sound data and inspect for moisture trapping.\n\n### Primer, coating and seam sealer\n\n**Function.** Protect surfaces and joints against corrosion and exposure.\n\n**Design.** Match substrate, pretreatment, product system and required exposure controls.\n\n**Make, assemble or fit.** Prepare a coupon, apply approved products per data sheet or commission qualified finishing.\n\n**Verify.** Inspect adhesion, coverage, cure and protected drain openings."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Interior and exterior detail · Interior rearview mirror to Cargo tie-down",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Interior rearview mirror\n\n**Function.** Provides a rearward field from the driver's normal head position.\n\n**Design.** Match mount, adjustment, any electronics and approved windshield attachment.\n\n**Make, assemble or fit.** Fit compatible mirror and prescribed attachment method without damaging glazing or camera area.\n\n**Verify.** Verify view across seat positions and any dimming or display function.\n\n### Accelerator pedal pad and return mechanism\n\n**Function.** Provide driver input surface and a reliable return to idle request.\n\n**Design.** Specify travel stops, surface, pedal force, return springs or electronic module and clearance.\n\n**Make, assemble or fit.** Fit compatible pedal and retained return parts; keep mats, trim and wiring clear.\n\n**Verify.** Verify full return from all positions with appropriate static tests.\n\n### Interior trim clips\n\n**Function.** Retain serviceable trim and allow designed release.\n\n**Design.** Match hole, thickness, clip orientation, reuse rule and restraint deployment zones.\n\n**Make, assemble or fit.** Fit correct clips before aligning trim; replace broken or one-use retainers.\n\n**Verify.** Check retention, rattle, access and clearance of deployment paths.\n\n### Headliner and sun visor\n\n**Function.** Finish roof area and limit glare.\n\n**Design.** Maintain driver visibility, visor retention and curtain-airbag clearance.\n\n**Make, assemble or fit.** Fit approved trim and mounts in their designed locations.\n\n**Verify.** Check deployment-zone clearance, visor adjustment and forward sightline.\n\n### Door check strap\n\n**Function.** Limits and detents door opening.\n\n**Design.** Match door mass, desired opening angle and pillar reinforcement.\n\n**Make, assemble or fit.** Fit a matched check to reviewed mount points with approved hardware.\n\n**Verify.** Check travel stop and clearance from wiring and glass.\n\n### Wheel arch mud flap\n\n**Function.** Limits spray and stone throw behind a wheel.\n\n**Design.** Choose coverage, ground/tire clearance, flexibility and attachment loads.\n\n**Make, assemble or fit.** Pattern flexible sheet or fit model-specific flap to supported mounts.\n\n**Verify.** Verify ground, tire and body clearance at full travel.\n\n### Rear-window demister grid\n\n**Function.** Converts current to heat for rearward visibility.\n\n**Design.** Match glass, rated circuit, relay and timer.\n\n**Make, assemble or fit.** Fit approved glazed assembly or use specified grid repair for a local break.\n\n**Verify.** Check continuity, commanded current and clearing pattern.\n\n### Cargo tie-down\n\n**Function.** Restrains secured cargo through a rated load path.\n\n**Design.** Specify load rating, direction and attachment to structure.\n\n**Make, assemble or fit.** Install a rated anchor to its reviewed structural mount using correct hardware.\n\n**Verify.** Document rating and verify anchor retention and access."
+  },
+  {
+   "id": "parts-3-1",
+   "title": "Body hardware and interior controls · Window run channel to Air distribution outlet",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Window run channel\n\n**Function.** Guides and cushions glass inside the moving aperture.\n\n**Design.** Match glass thickness, channel shape, transition and seal friction.\n\n**Make, assemble or fit.** Fit matched channel to clean guides and inspect continuous seating.\n\n**Verify.** Check motor load, glass alignment and closure.\n\n### Door wiring boot\n\n**Function.** Protects a flexing harness between door and pillar.\n\n**Design.** Match repeated bend radius, opening travel, water sealing and wire slack.\n\n**Make, assemble or fit.** Route harness through matched bellows and positively seat both ends.\n\n**Verify.** Cycle the door while checking clearance, continuity and water seal.\n\n### Luggage-compartment seal\n\n**Function.** Prevents water and dirt crossing the cargo opening.\n\n**Design.** Choose compression profile and flange geometry with continuous water path.\n\n**Make, assemble or fit.** Fit seal with approved splice orientation and adhesive if specified.\n\n**Verify.** Use a controlled water test and inspect channel drainage.\n\n### Fuel filler door and hinge\n\n**Function.** Cover and locate the filler opening.\n\n**Design.** Match hinge sweep, spring retention, drain access and latch release.\n\n**Make, assemble or fit.** Fit aligned closure with specified hinge and release hardware.\n\n**Verify.** Verify access, clearance and opening with vehicle locked/unlocked as designed.\n\n### Front or rear side marker\n\n**Function.** Shows vehicle presence and orientation from the side.\n\n**Design.** Match applicable lens color, position, viewing angles and electrical function.\n\n**Make, assemble or fit.** Fit a compliant assembly and weatherproof its connector.\n\n**Verify.** Check visibility, illumination and correct circuit operation.\n\n### License plate bracket\n\n**Function.** Retains the required plate in a visible position.\n\n**Design.** Choose legal location, clear lamp view, mounting and service access.\n\n**Make, assemble or fit.** Fabricate a non-structural bracket with deburred edges or fit donor holder.\n\n**Verify.** Verify retention, plate illumination and clearance from sensors.\n\n### Seat adjuster motor\n\n**Function.** Moves a powered seat track or recliner.\n\n**Design.** Match gearbox, current, travel limits and occupant-sensor compatibility.\n\n**Make, assemble or fit.** Install the matched service assembly and route wires through full travel.\n\n**Verify.** Check stops, manual egress plan and diagnostics.\n\n### Air distribution outlet\n\n**Function.** Directs air into cabin or onto glazing.\n\n**Design.** Choose opening area, adjuster reach, grille resistance and line of sight.\n\n**Make, assemble or fit.** Form a smooth duct-to-outlet transition and fit serviceable trim.\n\n**Verify.** Measure flow distribution at intended blower settings."
+  },
+  {
+   "id": "mod-sound-treatment-and-door-speaker-adapters",
+   "title": "Modification · Sound treatment and door-speaker adapters",
+   "body": "**Purpose.** Reduce a measured resonance or improve audio while retaining dry, serviceable doors.\n\n**Design and baseline.** Identify vibrating panel versus airborne leak. Map glass and regulator sweep, drainage, side-airbag paths and added mass. Choose moisture-compatible material and supported mounting points.\n\n**Build and installation.** Make a card template, drill an adapter on the bench, seal its edges and trial-fit with glass down. Apply a small controlled amount of suitable damping and restore the water barrier.\n\n**Test and disposition.** Compare the same sound sweep or route, inspect rattles, water ingress, latch operation and glass travel. Reject improvements that compromise drainage or egress.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, supplemental lighting and replacement-equipment interpretation](https://www.nhtsa.gov/interpretations/571108-supplement-beam-boykin-16-0884)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "mod-complete-headlamp-assembly-replacement",
+   "title": "Modification · Complete headlamp assembly replacement",
+   "body": "**Purpose.** Improve usable illumination or serviceability for a compatible vehicle.\n\n**Design and baseline.** Identify lawful matched optics, light source, driver, leveling and beam pattern for the intended market. Check mounting, connector load and visibility constraints.\n\n**Build and installation.** Template and mount a compatible approved assembly at its required datums, preserve adjusters and seals, then set aim by the applicable procedure with vehicle at specified load.\n\n**Test and disposition.** Verify beam aim, switching and glare criteria, current draw, weather sealing and required markings. Socket fit alone does not establish optical or legal compatibility.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, supplemental lighting and replacement-equipment interpretation](https://www.nhtsa.gov/interpretations/571108-supplement-beam-boykin-16-0884)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "mod-seat-and-slider-substitution",
+   "title": "Modification · Seat and slider substitution",
+   "body": "**Purpose.** Improve driving position, support or access.\n\n**Design and baseline.** Mock intended occupants, belt loads, reach, airbag and occupancy-sensor compatibility, track locking and seat-integrated belt load paths.\n\n**Build and installation.** Use an engineered compatible seat/track/anchor system. Mock the location before drilling and obtain structural/restraint review of the complete installed system.\n\n**Test and disposition.** Test lock on both rails, full pedal reach, mirror/sight lines, egress and required restraint diagnostics. Upholstery fit cannot validate crash loads.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, supplemental lighting and replacement-equipment interpretation](https://www.nhtsa.gov/interpretations/571108-supplement-beam-boykin-16-0884)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "mod-spoiler-or-front-splitter",
+   "title": "Modification · Spoiler or front splitter",
+   "body": "**Purpose.** Change aerodynamic balance or stability at a defined speed; styling and measured aerodynamic benefit are separate goals.\n\n**Design and baseline.** Establish a baseline and where loads enter the body. Dynamic pressure rises with speed squared; a static-looking panel can load its supports heavily. Check sightlines, ground clearance, cooling, edge requirements and both-axle balance.\n\n**Build and installation.** Build a non-driving full-size fit template, locate service openings and attachment structure, and have the loaded design and supports reviewed. Fit the rated assembly only to the reviewed mounting arrangement.\n\n**Test and disposition.** Verify travel/clearances, fastener retention and controlled professional stability or aero evidence at the intended duty. Treat a cosmetic change as cosmetic while performance evidence is absent.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [NHTSA, supplemental lighting and replacement-equipment interpretation](https://www.nhtsa.gov/interpretations/571108-supplement-beam-boykin-16-0884)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Use full-size seat and glazing references. Submit a section drawing, buck stations, attachment detail, target gaps and an access test. Identify required lighting or glazing evidence and link the selected finish process to its safety data and shop controls."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A learner-formed panel, physical fit check, finishing coupon or documented professional finish, and as-built body drawing."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The fitted physical part can be removed and installed with its intended access and has measured gaps against the drawing."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Design one body panel and its interfaces",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "Use full-size seat and glazing references. Submit a section drawing, buck stations, attachment detail, target gaps and an access test. Identify required lighting or glazing evidence and link the selected finish process to its safety data and shop controls. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Body panel and surface finish; Closures, hinges, latch and seals; Glazing, wiper and washer; Lighting and signaling; Seating, belts and restraints; Pedals and controls. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · Size a removable speaker adapter without fouling the glass",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Make a card or sheet adapter using actual driver and opening templates. Measure the least clearance throughout glass travel, preserve water management and document all fasteners. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Make and install an original removable panel",
+   "module": "m3",
+   "adult": true,
+   "intro": "A learner-formed panel, physical fit check, finishing coupon or documented professional finish, and as-built body drawing. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use sheet-edge protection, secure work and supervised cutting/forming. Choose a low-hazard coupon process or a qualified paint facility. Isocyanate spraying requires professional exposure controls. Protect electrical equipment during seal tests."
+   ],
+   "materials": [
+    "Stable full-size buck or reviewed chassis",
+    "Template stock, sheet material and suitable forming tools",
+    "Temporary fasteners, gap gauges and compatible finishing coupon"
+   ],
+   "steps": [
+    "Construct the full-size stations and make a physical seat/door access check.",
+    "Shape a real removable skin, finish cut edges and fit its fasteners and flange.",
+    "Measure at four stations, remove and refit the panel, and check tool withdrawal and occupant access.",
+    "Correct the largest fit problem, record the new measurements and demonstrate a safe finishing sample or documented professional finish."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Station or interface",
+      "Drawing target",
+      "Initial result",
+      "Revised result",
+      "Evidence"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The fitted physical part can be removed and installed with its intended access and has measured gaps against the drawing. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-fabrication",
+  "auto-climate"
+ ]
+}

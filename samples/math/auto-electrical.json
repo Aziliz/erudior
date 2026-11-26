@@ -1,0 +1,1021 @@
+{
+ "format": "examiner-course",
+ "version": 1,
+ "id": "auto-electrical",
+ "title": "Automotive Electrical Systems and Diagnosis",
+ "author": "Erudior",
+ "revision": 1,
+ "description": "Compare starters, alternators, converters, batteries, relays and networked controls. Build a protected harness, measure a fault and verify the repair. Includes a parts atlas and an assessed modification workshop.",
+ "changelog": "Added an individual parts atlas, hands-on modification workshop, instance-level build ledger and pre/post verification.",
+ "calculator": "scientific",
+ "practiceEnvironment": "none",
+ "modules": [
+  {
+   "id": "m1",
+   "title": "Theory — Circuit theory",
+   "quiz": [
+    "electrical-1-q2",
+    "cmp-starting-charging-q2"
+   ]
+  },
+  {
+   "id": "m2",
+   "title": "Design — Harness design",
+   "quiz": [
+    "electrical-2-q2",
+    "cmp-controls-network-q2"
+   ]
+  },
+  {
+   "id": "m3",
+   "title": "Implementation — Wiring practice",
+   "quiz": [
+    "electrical-3-q3",
+    "shop-change-electrical"
+   ]
+  },
+  {
+   "id": "m4",
+   "title": "Verification — Diagnostic verification",
+   "quiz": [
+    "electrical-4-q2"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "electrical-1",
+   "module": "m1",
+   "title": "Follow the complete current path",
+   "minutes": 20,
+   "topics": [
+    "Circuit theory"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1"
+   ],
+   "body": "Entry skills: complete Workshop Measurement and Vehicle Service, or demonstrate the equivalent workshop skills.\n\nA working load needs a path from the source through protection and a switch, through the load, and back to the source. Voltage is measured between two nodes. A connection can show continuity with the circuit off yet drop most of the supply voltage under load. Sketch the loop and choose the two exact nodes for each measurement.\n\n## Worked shop case\n\nA 12.0 V source supplies a 6 ohm resistive trainer. Ideal current is voltage divided by resistance, or 2 A. An incandescent lamp has temperature-dependent resistance, so use its operating rating to plan the real load.\n\n## Guided practice\n\nAn ideal 12 V resistive circuit has 8 ohms total. Predict current in amperes.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n**What you will produce.** A labeled circuit, physical harness and healthy/faulted/restored measurement log.\n\nIdentify individual components in the parts atlas and trace their interfaces on your exact donor drawing.",
+   "quiz": [
+    "electrical-1-q1",
+    "electrical-1-q2"
+   ]
+  },
+  {
+   "id": "cmp-starting-charging",
+   "module": "m1",
+   "title": "Starter circuits, alternators, batteries and converters",
+   "minutes": 25,
+   "topics": [
+    "Starter circuits, alternators, batteries and converters"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A starter solenoid switches a heavy load and may also engage the pinion. A conventional alternator rectifies generated AC for the DC bus. A smart charging system can vary its commanded voltage with load, temperature and battery state. Flooded lead-acid and AGM batteries can require different test and charging settings. Obtain the rated capacity, cold cranking specification, terminal orientation, restraint and applicable replacement procedure.\n\nA mild hybrid can use a belt starter-generator and separate voltage domains joined by a DC/DC converter. A battery-electric car often maintains its low-voltage bus through a converter supplied by the traction system. A weak auxiliary battery can prevent systems from booting even with a charged traction pack. Trace power, return and command as separate paths. Keep live work on the fused, current-limited low-voltage trainer. Identify higher-energy systems from service information with their covers closed.\n\n## Worked shop case\n\nA fused teaching lamp draws 4 A. A measured 0.8 V drop across a connector under load implies 0.2 Ω and 3.2 W lost there. The circuit may show nearly full supply voltage on a high-impedance meter with the lamp disconnected. Loading turns the hidden resistance into a measurable loss.\n\n## Guided practice\n\n```example fade=2\nproblem: A 3 A trainer has a 0.6 V drop on its return. Calculate the return resistance.\nstep: Use the measured drop across the return.\nstep: Divide volts by amperes.\nanswer: 0.2 Ω; repeat under the same load after correcting the connection.\n```\n\n## Independent shop or design task\n\nTrace a conventional starter/alternator layout and a donor with a DC/DC converter. Mark the source of low-voltage power, protection, return and wake request. On your fused trainer, measure actual healthy and faulted voltage drops.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-starting-charging-q1",
+    "cmp-starting-charging-q2"
+   ]
+  },
+  {
+   "id": "cmp-controls-network",
+   "module": "m2",
+   "title": "Switches, relays, solid-state drivers, CAN and LIN",
+   "minutes": 25,
+   "topics": [
+    "Switches, relays, solid-state drivers, CAN and LIN"
+   ],
+   "refs": [
+    "component-register",
+    "component-reading",
+    "workbench-rules"
+   ],
+   "body": "A mechanical relay separates the coil command from load contacts. A solid-state driver switches with transistors, may regulate by pulse-width modulation and may report overload or open-load faults. A fuse protects its specified conductor circuit against excessive current. Changing the fuse size to mask a fault can leave the wire unprotected. Choose wire, terminal, protection, routing and seals as an assembly using applicable design data.\n\nDistributed controls separate a driver's request from actuation. In one architecture a door module reads the switch, a body module receives a network message, and a motor driver feeds the window. High-speed CAN commonly uses a differential pair and LIN a single signal wire with a schedule controlled by a master node. Gateways can bridge networks. Connector appearance identifies neither protocol nor pin function. Start with topology, module power/grounds, network status and a trusted wiring diagram.\n\n## Worked shop case\n\nA scan tool sees the door switch change and the body module reports receiving the command. The window motor stays still. The evidence supports moving downstream to the output enable, driver protection, harness, motor and mechanism. Replacing the input switch would repeat a test already passed.\n\n## Guided practice\n\n```example fade=2\nproblem: A relay clicks and the lamp stays dark. What did the click establish?\nstep: It supports mechanical movement of the relay armature.\nstep: It cannot establish continuity through loaded contacts or the lamp return.\nanswer: Compare coil command, loaded contact drop and lamp supply/return on a protected trainer.\n```\n\n## Independent shop or design task\n\nDraw a relay-switched version and a module-driven version of one accessory. On a low-current trainer compare control and load sides, label protection and demonstrate one diagnosed open connection.\n\nRecord the selected component, alternative, source and measured result in your component record. Identify open items for the design or practical reviewer.",
+   "quiz": [
+    "cmp-controls-network-q1",
+    "cmp-controls-network-q2"
+   ]
+  },
+  {
+   "id": "electrical-2",
+   "module": "m2",
+   "title": "Place protection and service test points",
+   "minutes": 20,
+   "topics": [
+    "Harness design"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "mod-auxiliary-fused-circuit-and-relay",
+    "mod-amplifier-speakers-and-subwoofer",
+    "mod-auxiliary-data-display-or-head-unit-with-retained-climate-controls"
+   ],
+   "body": "Draw the supply, protective device, switch, lamp and return before cutting wire. Place source protection close to the supply and choose it with the trainer manufacturer's conductor and load ratings. Black-box components need named pins, polarity and connection labels. A lamp can have an accessible power point and a separate return test point.\n\n## Worked shop case\n\nA rated 12 W load at 12 V draws about 1 A at its working point. This identifies the running load. Final fuse and conductor selection also needs inrush, conductor rating, connector rating and supplier guidance.\n\n## Guided practice\n\nTwo 6 W branches at 12 V are powered together. Predict the combined nominal current in amperes.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Your design\n\nFor a 12 V lamp of your choice, identify operating current from its rating. Draw and label protection, disconnect, return, meter points and expected healthy readings. Document supplier limits and specify a fault that a trainer can introduce safely.\n\n```assignment\nwriting: design\n```\n\n## Component design review\n\nCompare the candidates in the component register and bring your selected configuration into this design.\n\n```assignment\nwriting: component-selection\n```\n\nRead a modification card, choose a baseline and identify the changed parts, including hardware and seals.",
+   "quiz": [
+    "electrical-2-q1",
+    "electrical-2-q2"
+   ]
+  },
+  {
+   "id": "electrical-3",
+   "module": "m3",
+   "title": "Assemble and fault-find a 12 V trainer",
+   "minutes": 15,
+   "topics": [
+    "Wiring practice"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules"
+   ],
+   "body": "De-energize before crimping or moving connectors. Use the specified terminals and crimp tool, check conductor capture and secure the harness. With power off, inspect continuity and check for unintended paths. Use a fused, current-limited trainer. Select DC volts and the voltage jacks before taking a reading across two powered nodes.\n\n## Worked shop case\n\nSource 12.1 V, lamp 9.0 V, and return drop 0.1 V leaves roughly 3.0 V on the feed path. Break that path into smaller segments under the same load to localize the loss.\n\n## Guided practice\n\nA 12.0 V source, 10.5 V at the lamp terminals and 0.2 V on the return leave how many volts on the feed path?\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## US rules at the workbench\n\nFor covered workplace servicing where unexpected energization could injure workers, assess energy sources and apply the employer's energy-control procedure under 29 CFR 1910.147 where applicable. For this trainer, isolate and verify the source before changing wiring. A disconnected 12 V battery does not establish a safe traction-voltage condition in a hybrid. Document the meter, reference node and isolation boundary.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [US DOE — maintenance and safety of electric vehicles](https://afdc.energy.gov/vehicles/electric-maintenance)\n\n## Workshop preparation\n\nUse a low-voltage instructional source. Keep leads in the voltage jacks for powered tests. Isolate power before changing wiring. Exclude vehicle battery, airbag and high-voltage circuits.\n\n```assignment\nlab: workshop\n```\n\nBring the selected component record to the lab and enter what you personally inspected, made, measured or assembled, with the part identifier and actual conditions.",
+   "quiz": [
+    "electrical-3-q1",
+    "electrical-3-q2",
+    "electrical-3-q3"
+   ]
+  },
+  {
+   "id": "parts-and-modifications",
+   "module": "m3",
+   "title": "From accessory load to a serviceable harness",
+   "minutes": 35,
+   "topics": [
+    "From accessory load to a serviceable harness"
+   ],
+   "refs": [
+    "parts-mods-sources",
+    "parts-1-1",
+    "parts-1-2",
+    "parts-1-3",
+    "parts-2-1",
+    "mod-auxiliary-fused-circuit-and-relay",
+    "mod-amplifier-speakers-and-subwoofer",
+    "mod-auxiliary-data-display-or-head-unit-with-retained-climate-controls",
+    "as-built-ledger",
+    "bench-plan"
+   ],
+   "body": "Open the parts atlas for this system. Trace a parent assembly into its named children and mounting hardware. Explain the function of each item, identify its controlling dimensions or interfaces, then decide which pieces you can machine or fabricate, which you can assemble and which to obtain as qualified assemblies. Put exact drawing or donor references beside your decision.\n\n## Parts on the bench\n\nSupply, wiring and body electronics, Additional body controls. The quick references linked below include the function, design, fabrication or installation route, and verification of every indexed item.\n\n## Modifications to evaluate\n\n- Auxiliary fused circuit and relay\n- Amplifier, speakers and subwoofer\n- Auxiliary data display or head unit with retained climate controls\n\n## Worked example\n\nA 4 A lamp circuit has 0.08 Ω total supply-and-return resistance under load. Its predicted drop is 0.32 V. If the measured current remains 4 A, an unplanned 0.10 Ω splice adds another 0.40 V and dissipates 1.6 W there. Inspect that connection before changing a lamp or upsizing a fuse.\n\n## Guided decision\n\n```example fade=1\nproblem: A loaded 2 A tester shows 0.4 V across one terminal. How much power is lost there?\nstep: Multiply the measured drop by load current.\nanswer: 0.8 W at the terminal; compare the drop again after the connection is corrected.\n```\n\n## Independent workshop\n\nBuild the fused low-voltage lamp project in the bench plans. Identify every terminal and protective item, compare baseline and changed configuration and attach the measured drops.\n\nOpen a modification card for its design, build and test sequence. Record original and changed readings under comparable conditions. Separate physical evidence from predictions and document a safe rollback.\n\n```assignment\nwriting: modification-record\n```",
+   "quiz": [
+    "shop-change-electrical"
+   ]
+  },
+  {
+   "id": "electrical-4",
+   "module": "m4",
+   "title": "Verify a repair at the original load",
+   "minutes": 15,
+   "topics": [
+    "Diagnostic verification"
+   ],
+   "refs": [
+    "shop-references",
+    "workbench-rules",
+    "as-built-ledger"
+   ],
+   "body": "A lamp lighting up is a coarse check. Recreate the original load and repeat the same voltage-drop measurements with the same reference points. Record a small remaining drop with the meter resolution. If the fault remains intermittent, identify what condition is missing before replacing another part.\n\n## Worked shop case\n\nA switch lost 1.6 V before terminal replacement and 0.1 V after. Source voltage stayed steady under the same load. The measured improvement across that segment is 1.5 V.\n\n## Guided practice\n\nA connection lost 2.1 V before repair and 0.2 V afterward. Give the improvement in volts.\n\nPredict the result, then use the first quiz item to check your reasoning.\n\n## Practical sign-off\n\nThe faulted segment is identified from loaded readings and verified by a matched retest. Record actual measurements and the disposition of faults. Submit the physical evidence in the workshop record.\n\n```assignment\nlab: workshop\n```\n\nClose each build-relevant component row with its measured result, reviewer disposition or an identified open issue and retest. Transfer the accepted configuration to your capstone record.\n\nReconcile required, issued, installed and verified quantities against the physical assembly and mark unresolved items.",
+   "quiz": [
+    "electrical-4-q1",
+    "electrical-4-q2"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "id": "auto-electrical-bank",
+   "title": "Automotive Electrical Systems and Diagnosis practice",
+   "sections": [
+    {
+     "id": "m1",
+     "name": "Theory — Circuit theory"
+    },
+    {
+     "id": "m2",
+     "name": "Design — Harness design"
+    },
+    {
+     "id": "m3",
+     "name": "Implementation — Wiring practice"
+    },
+    {
+     "id": "m4",
+     "name": "Verification — Diagnostic verification"
+    }
+   ],
+   "exam": {
+    "questionCount": 14,
+    "timeLimitMinutes": 34,
+    "passingPercent": 75
+   },
+   "questions": [
+    {
+     "id": "electrical-1-q1",
+     "section": "m1",
+     "topic": "Circuit theory",
+     "stem": "An ideal 12 V resistive circuit has 8 ohms total. Predict current in amperes. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1.5"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "12 ÷ 8 = 1.5 A."
+    },
+    {
+     "id": "electrical-1-q2",
+     "section": "m1",
+     "topic": "Circuit theory",
+     "stem": "Which measurement directly checks the loaded return path?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "Resistance of an energized wire.",
+      "Supply voltage with the load disconnected.",
+      "Voltage between load return and supply negative with the load on."
+     ],
+     "explanation": "The two probe locations isolate the return segment."
+    },
+    {
+     "id": "electrical-2-q1",
+     "section": "m2",
+     "topic": "Harness design",
+     "stem": "Two 6 W branches at 12 V are powered together. Predict the combined nominal current in amperes. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Total power is 12 W. Divide by 12 V."
+    },
+    {
+     "id": "electrical-2-q2",
+     "section": "m2",
+     "topic": "Harness design",
+     "stem": "Where would you mark test points to isolate a suspect switch?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "At the two supply terminals only.",
+      "At its input and output.",
+      "At both ends of the lamp glass."
+     ],
+     "explanation": "A voltage measurement across the closed switch isolates its loss."
+    },
+    {
+     "id": "electrical-3-q1",
+     "section": "m3",
+     "topic": "Wiring practice",
+     "stem": "A 12.0 V source, 10.5 V at the lamp terminals and 0.2 V on the return leave how many volts on the feed path? Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1.3"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "12.0 − 10.5 − 0.2 = 1.3 V."
+    },
+    {
+     "id": "electrical-3-q2",
+     "section": "m3",
+     "topic": "Wiring practice",
+     "stem": "How should a trainer introduce a reproducible voltage-drop fault?",
+     "answer": [
+      0
+     ],
+     "choices": [
+      "Use a rated fault insert with power off before reconnecting.",
+      "Short the supply leads.",
+      "Loosen an energized terminal until it arcs."
+     ],
+     "explanation": "A purpose-built rated insert creates a controlled test condition."
+    },
+    {
+     "id": "electrical-3-q3",
+     "section": "m3",
+     "topic": "Wiring practice",
+     "stem": "Before changing a motor circuit on covered workplace equipment, select two appropriate actions. Select all that apply.",
+     "choices": [
+      "Assume a dark lamp proves isolation.",
+      "Identify energy sources, including stored energy.",
+      "Apply the applicable energy-control procedure and verify isolation.",
+      "Use the trainer wiring diagram as a traction-pack procedure."
+     ],
+     "answer": [
+      1,
+      2
+     ],
+     "explanation": "For covered workplace servicing where unexpected energization could injure workers, assess energy sources and apply the employer's energy-control procedure under 29 CFR 1910.147 where applicable. For this trainer, isolate and verify the source before changing wiring. A disconnected 12 V battery does not establish a safe traction-voltage condition in a hybrid. Document the meter, reference node and isolation boundary."
+    },
+    {
+     "id": "electrical-4-q1",
+     "section": "m4",
+     "topic": "Diagnostic verification",
+     "stem": "A connection lost 2.1 V before repair and 0.2 V afterward. Give the improvement in volts. Enter the number only.",
+     "type": "text",
+     "accept": [
+      [
+       "1.9"
+      ]
+     ],
+     "answer": [],
+     "choices": [],
+     "explanation": "Subtract the after reading from the before reading."
+    },
+    {
+     "id": "electrical-4-q2",
+     "section": "m4",
+     "topic": "Diagnostic verification",
+     "stem": "Which evidence most strongly connects the correction to the symptom?",
+     "answer": [
+      2
+     ],
+     "choices": [
+      "A different lamp lights from a different source.",
+      "Continuity is present with all loads unplugged.",
+      "The original symptom clears and the segment drop improves under the same load."
+     ],
+     "explanation": "Repeating the matched test isolates the effect of the correction."
+    },
+    {
+     "id": "cmp-starting-charging-q1",
+     "section": "m1",
+     "topic": "Starter circuits, alternators, batteries and converters",
+     "stem": "Which reading best detects unwanted return-path resistance in a working low-voltage trainer?",
+     "explanation": "A loaded voltage drop locates resistance in that section.",
+     "choices": [
+      "Battery case length.",
+      "Voltage across an unloaded battery taken in isolation.",
+      "Voltage across the return connection while carrying its normal load."
+     ],
+     "answer": [
+      2
+     ]
+    },
+    {
+     "id": "cmp-starting-charging-q2",
+     "section": "m1",
+     "topic": "Starter circuits, alternators, batteries and converters",
+     "stem": "A trainer draws 5 A with 0.5 V across one connection. What is the connection resistance in ohms? Enter the number only.",
+     "explanation": "Resistance is voltage drop divided by current.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "0.1"
+      ]
+     ]
+    },
+    {
+     "id": "cmp-controls-network-q1",
+     "section": "m2",
+     "topic": "Switches, relays, solid-state drivers, CAN and LIN",
+     "stem": "Which observation best establishes that a door request crossed the gateway in a mapped network?",
+     "explanation": "The downstream data item confirms receipt at that point.",
+     "choices": [
+      "The switch physically clicks.",
+      "The identified module downstream of that gateway reports the request changing with the switch.",
+      "Its connector has two terminals."
+     ],
+     "answer": [
+      1
+     ]
+    },
+    {
+     "id": "cmp-controls-network-q2",
+     "section": "m2",
+     "topic": "Switches, relays, solid-state drivers, CAN and LIN",
+     "stem": "A 12 V resistive lamp trainer is driven continuously for 3 ms in every 12 ms cycle. What is the duty cycle in percent? Enter the number only.",
+     "explanation": "On time divided by period is 3/12.",
+     "type": "text",
+     "choices": [],
+     "answer": [],
+     "accept": [
+      [
+       "25"
+      ]
+     ]
+    },
+    {
+     "id": "shop-change-electrical",
+     "section": "m3",
+     "topic": "From accessory load to a serviceable harness",
+     "stem": "An accessory amplifier sounds fine but its positive cable has an unprotected section through the body. What change addresses the cable fault hazard?",
+     "answer": [
+      1
+     ],
+     "choices": [
+      "Add a fuse only at the distant amplifier and leave the whole supply run unprotected.",
+      "Fit source-side protection selected for the conductor and protect its passage through the panel.",
+      "Increase speaker impedance alone."
+     ],
+     "explanation": "The source can drive a short anywhere along the unprotected run."
+    }
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "id": "auto-electrical-cards",
+   "title": "Workshop notecards",
+   "cards": [
+    {
+     "id": "c1a",
+     "front": "Voltage drop",
+     "back": "Potential difference across a segment while current flows.",
+     "topic": "Circuit theory"
+    },
+    {
+     "id": "c1b",
+     "front": "Which measurement directly checks the loaded return path?",
+     "back": "Voltage between load return and supply negative with the load on. The two probe locations isolate the return segment.",
+     "topic": "Circuit theory"
+    },
+    {
+     "id": "c2a",
+     "front": "Return path",
+     "back": "The conducting path back to the supply.",
+     "topic": "Harness design"
+    },
+    {
+     "id": "c2b",
+     "front": "Where would you mark test points to isolate a suspect switch?",
+     "back": "At its input and output. A voltage measurement across the closed switch isolates its loss.",
+     "topic": "Harness design"
+    },
+    {
+     "id": "c3a",
+     "front": "Fault insert",
+     "back": "A rated trainer component that introduces a controlled fault.",
+     "topic": "Wiring practice"
+    },
+    {
+     "id": "c3b",
+     "front": "How should a trainer introduce a reproducible voltage-drop fault?",
+     "back": "Use a rated fault insert with power off before reconnecting. A purpose-built rated insert creates a controlled test condition.",
+     "topic": "Wiring practice"
+    },
+    {
+     "id": "c4a",
+     "front": "Reference node",
+     "back": "The circuit point used as one end of a voltage measurement.",
+     "topic": "Diagnostic verification"
+    },
+    {
+     "id": "c4b",
+     "front": "Which evidence most strongly connects the correction to the symptom?",
+     "back": "The original symptom clears and the segment drop improves under the same load. Repeating the matched test isolates the effect of the correction.",
+     "topic": "Diagnostic verification"
+    },
+    {
+     "id": "cmp-starting-charging-card",
+     "front": "Which reading best detects unwanted return-path resistance in a working low-voltage trainer?",
+     "back": "Voltage across the return connection while carrying its normal load. A loaded voltage drop locates resistance in that section.",
+     "topic": "Starter circuits, alternators, batteries and converters"
+    },
+    {
+     "id": "cmp-controls-network-card",
+     "front": "Which observation best establishes that a door request crossed the gateway in a mapped network?",
+     "back": "The identified module downstream of that gateway reports the request changing with the switch. The downstream data item confirms receipt at that point.",
+     "topic": "Switches, relays, solid-state drivers, CAN and LIN"
+    },
+    {
+     "id": "change-evidence",
+     "front": "An accessory amplifier sounds fine but its positive cable has an unprotected section through the body. What change addresses the cable fault hazard?",
+     "back": "Fit source-side protection selected for the conductor and protect its passage through the panel. The source can drive a short anywhere along the unprotected run.",
+     "topic": "From accessory load to a serviceable harness"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "Voltage drop",
+   "definition": "Potential difference across a segment while current flows.",
+   "topic": "Circuit theory"
+  },
+  {
+   "term": "Return path",
+   "definition": "The conducting path back to the supply.",
+   "topic": "Harness design"
+  },
+  {
+   "term": "Fault insert",
+   "definition": "A rated trainer component that introduces a controlled fault.",
+   "topic": "Wiring practice"
+  },
+  {
+   "term": "Reference node",
+   "definition": "The circuit point used as one end of a voltage measurement.",
+   "topic": "Diagnostic verification"
+  }
+ ],
+ "references": [
+  {
+   "id": "shop-references",
+   "title": "Service data and further reading",
+   "body": "Use the manufacturer’s or drawing owner’s exact procedure, dimensions and acceptance limits for your project. All unsourced numerical examples in the lessons are fictional training data.\n\n[Portland Community College — Automotive Service Technology](https://catalog.pcc.edu/programsanddisciplines/automotiveservicetechnology/) · [College of the Desert — Automotive General Service](https://catalog.collegeofthedesert.edu/programs/automotive-technology/general-automotive-service-certificate-of-achievement/) · [ASE — Automobile and Light Truck task lists](https://www.ase.com/uploads/ASE_Automobile_Study_Guide_2025_V2.pdf)"
+  },
+  {
+   "id": "workbench-rules",
+   "title": "Applicable rules and safety controls",
+   "body": "## US rules at the workbench\n\nFor covered workplace servicing where unexpected energization could injure workers, assess energy sources and apply the employer's energy-control procedure under 29 CFR 1910.147 where applicable. For this trainer, isolate and verify the source before changing wiring. A disconnected 12 V battery does not establish a safe traction-voltage condition in a hybrid. Document the meter, reference node and isolation boundary.\n\n[OSHA — control of hazardous energy, 29 CFR 1910.147](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.147) · [OSHA — PPE, 29 CFR 1910.132](https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132) · [US DOE — maintenance and safety of electric vehicles](https://afdc.energy.gov/vehicles/electric-maintenance)\n\nChecked November 26, 2026. Recheck the current rule and local requirements before doing the job."
+  },
+  {
+   "id": "component-register",
+   "title": "Component register and build evidence",
+   "body": "For this course examine Starter and flywheel drive; Charging and auxiliary battery; Harness, protection and switching; Body controls and communications; Instruments and warning indicators. Document manufacturer, part revision, drawing, selection, applicable authority or service requirement, installer, measured result with units, and reviewer disposition. Begin in design and update after installation.\n\n| Family | Candidate designs | What changes | What to verify |\n| --- | --- | --- | --- |\n| Starter and flywheel drive | Conventional solenoid starter / integrated starter-generator | Engagement method, current path and controller interlocks differ. | Trace supply and return on the correct diagram and measure the protected trainer under load. |\n| Charging and auxiliary battery | Alternator / DC-DC; flooded lead-acid / AGM | Storage, regulation, terminal layout and charging strategy must match. | Record source mode, applicable test settings and load conditions. |\n| Harness, protection and switching | Relay / solid-state driver; fuse / fusible link | Control and load paths differ. Protection must match the conductor and environment. | Draw a branch and record normal and faulted voltage drops on the fused trainer. |\n| Body controls and communications | Direct switch / LIN node / CAN module with gateway | A received request and a powered actuator are separate facts. | Trace one request to a named downstream data point and then to its load. |\n| Instruments and warning indicators | Discrete gauge or lamp / networked cluster | Changing a sender or controller can change scale, warning logic and diagnostic visibility. | Check units, plausibility and telltale operation against donor data. |"
+  },
+  {
+   "id": "component-reading",
+   "title": "Sources for component comparisons",
+   "body": "Use these sources for operating principles. Obtain the service procedure, acceptance limits and legal basis for the exact build separately.\n\n- [DOE, converters and the auxiliary power system](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work.html)"
+  },
+  {
+   "id": "parts-mods-sources",
+   "title": "Parts identification, modification sources and applicable rules",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\nUse the parts identity record and the service procedure for the exact donor. EPA's federal tampering and defeat-device provisions can apply to emissions-related hardware or software. Identify supporting compliance evidence for the exact configuration. In California, check the specific Executive Order and application where an exemption is relevant. A successful dyno pull, cleared fault code or ready monitor cannot establish permission. For road use confirm state and local rules for registration, equipment, noise and inspection with the responsible authority. Colorado is the program's worked state example. Refer to the course's workbench rules for the actor, activity and jurisdiction involved. Clarify these decisions before buying or fabricating a part that depends on them.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)\n\n- [EPA, vehicle and engine tampering and aftermarket devices](https://www.epa.gov/enforcement/epa-tampering-policy-epa-enforcement-policy-vehicle-and-engine-tampering-and)\n\n- [California Air Resources Board, application-specific aftermarket parts database](https://ww2.arb.ca.gov/applications/aftermarket-parts-database)\n\n- [Colorado DMV, kit and specialized vehicles](https://dmv.colorado.gov/specialized-unconventional-and-other-vehicles)"
+  },
+  {
+   "id": "parts-1-1",
+   "title": "Supply, wiring and body electronics · Auxiliary battery to Voltage regulator",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Auxiliary battery\n\n**Function.** Supplies low-voltage energy and stabilizes supply.\n\n**Design.** Choose chemistry, capacity, cranking rating, venting and terminal position.\n\n**Make, assemble or fit.** Secure in a reviewed tray, connect vent if required and initialize per donor.\n\n**Verify.** Perform a chemistry-appropriate condition test and inspect retention.\n\n### Battery hold-down\n\n**Function.** Restrains the battery under vibration and vehicle loads.\n\n**Design.** Design ears, load path, clearance from posts and corrosion protection.\n\n**Make, assemble or fit.** Fabricate a reviewed bracket or fit the matched donor clamp.\n\n**Verify.** Verify retention and clearance from hood and cables.\n\n### Positive cable\n\n**Function.** Carries starter or distribution current.\n\n**Design.** Calculate drop and conductor rating for length, duty, environment and protection.\n\n**Make, assemble or fit.** Cut to measured route, fit correct crimped lugs and protect bulkhead crossings.\n\n**Verify.** Measure loaded drop and inspect heat, strain and abrasion.\n\n### Ground strap\n\n**Function.** Provides a low-resistance return between moving assemblies.\n\n**Design.** Choose flexible conductor, current capacity and clean attachment points.\n\n**Make, assemble or fit.** Fit with movement allowance and protect joint after achieving contact.\n\n**Verify.** Measure loaded voltage drop from case to return point.\n\n### Starter motor\n\n**Function.** Converts battery energy to cranking torque.\n\n**Design.** Match direction, pinion, flywheel geometry and cranking duty.\n\n**Make, assemble or fit.** Fit the specified unit and draw the connection and mounting interfaces.\n\n**Verify.** Compare cranking voltage, current and shaft speed with donor data.\n\n### Starter solenoid\n\n**Function.** Engages the drive and/or switches high current.\n\n**Design.** Match control voltage, terminal order and starter drive.\n\n**Make, assemble or fit.** Install matched solenoid or supplied starter assembly.\n\n**Verify.** Check command, contact drop and pinion disengagement.\n\n### Alternator\n\n**Function.** Supplies electrical power while the engine turns.\n\n**Design.** Match pulley ratio, output at operating speed and control protocol.\n\n**Make, assemble or fit.** Fit aligned brackets and the specified wiring and drive.\n\n**Verify.** Measure commanded and loaded output and inspect belt tracking.\n\n### Voltage regulator\n\n**Function.** Controls alternator field or output.\n\n**Design.** Determine local versus ECU control and sensing reference.\n\n**Make, assemble or fit.** Fit matched regulator or complete alternator and preserve sense circuit.\n\n**Verify.** Compare commanded and actual voltage at stated load."
+  },
+  {
+   "id": "parts-1-2",
+   "title": "Supply, wiring and body electronics · Rectifier bridge to CAN gateway",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Rectifier bridge\n\n**Function.** Converts alternator AC to DC.\n\n**Design.** Match current, thermal capacity and internal alternator design.\n\n**Make, assemble or fit.** Use a matched rectifier during an authorized alternator rebuild.\n\n**Verify.** Verify ripple against service limits using the approved method.\n\n### Fuse or fusible link\n\n**Function.** Opens a faulted conductor circuit.\n\n**Design.** Coordinate wire rating, fault current, time characteristic and environment.\n\n**Make, assemble or fit.** Install specified protection at the documented supply location.\n\n**Verify.** Verify rating, continuity and protection of downstream wiring.\n\n### Relay\n\n**Function.** Switches a load with a separate command circuit.\n\n**Design.** Choose contact rating, pinout, coil polarity and suppression.\n\n**Make, assemble or fit.** Build with a rated socket and properly terminated conductors.\n\n**Verify.** Measure coil command and loaded contact drop.\n\n### Bulkhead grommet\n\n**Function.** Prevents a panel edge from cutting a cable.\n\n**Design.** Match cutout, sheet thickness, cable size, heat and movement.\n\n**Make, assemble or fit.** Deburr the hole and seat the grommet around the protected run.\n\n**Verify.** Pull gently and inspect both sides for contact or a displaced lip.\n\n### Connector and terminal\n\n**Function.** Provide separable electrical connections.\n\n**Design.** Select current rating, keying, conductor size, seals and terminal finish.\n\n**Make, assemble or fit.** Use the named crimp tool, fit seals and engage secondary locks.\n\n**Verify.** Inspect crimp geometry and perform specified retention and loaded tests.\n\n### Harness loom and clips\n\n**Function.** Protect and support bundled conductors.\n\n**Design.** Allow branch lengths, flex, temperature, bend radius and future service.\n\n**Make, assemble or fit.** Lay out on a fixture, wrap or sleeve, then attach at approved points.\n\n**Verify.** Sweep moving parts and inspect for pinch, rub and strain.\n\n### Body control module\n\n**Function.** Coordinates body inputs, outputs and network messages.\n\n**Design.** Match donor network, software, security pairing and power states.\n\n**Make, assemble or fit.** Install with compatible harness and authorized configuration.\n\n**Verify.** Check communications, sleep/wake behavior and intended output.\n\n### CAN gateway\n\n**Function.** Transfers permitted data between vehicle networks.\n\n**Design.** Match bus topology, protocol and module configuration.\n\n**Make, assemble or fit.** Use donor wiring and verified termination; mount module as specified.\n\n**Verify.** Trace a test request across the gateway with approved diagnostics."
+  },
+  {
+   "id": "parts-1-3",
+   "title": "Supply, wiring and body electronics · Instrument cluster to Amplifier",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Instrument cluster\n\n**Function.** Displays speed, status and telltales.\n\n**Design.** Match sender scales, bus protocol, warning logic and driver visibility.\n\n**Make, assemble or fit.** Fit matched cluster and configure according to service information.\n\n**Verify.** Check telltale self-test and compare indicated values with references.\n\n### Horn and switch\n\n**Function.** Provide an audible warning by driver request.\n\n**Design.** Match current, mounting, drainage and control path.\n\n**Make, assemble or fit.** Fit compatible horn on a supported mount and connect protected circuit.\n\n**Verify.** Test operation at installed orientation and verify routing clear of steering.\n\n### Wiper motor\n\n**Function.** Drives the wiping mechanism and establishes park.\n\n**Design.** Choose speed range, torque, sweep and park logic.\n\n**Make, assemble or fit.** Install motor and crank in the specified park position.\n\n**Verify.** Check wet sweep, stop position and current.\n\n### Washer pump\n\n**Function.** Moves washer fluid to jets.\n\n**Design.** Match reservoir seal, voltage and delivery pressure.\n\n**Make, assemble or fit.** Seat pump and grommet in the reservoir and route compatible hose.\n\n**Verify.** Check leakage and coverage with hood closed.\n\n### Audio head unit\n\n**Function.** Selects and routes audio and may host vehicle controls.\n\n**Design.** Map amplifier signals, steering controls, climate display and bus dependencies.\n\n**Make, assemble or fit.** Use matched harness/interface and retain needed original modules.\n\n**Verify.** Check audio channels, climate controls, warnings and sleep current.\n\n### Speaker driver\n\n**Function.** Converts an electrical waveform into sound.\n\n**Design.** Match impedance, depth, enclosure and amplifier limits.\n\n**Make, assemble or fit.** Fit a sealed adapter and secure the driver clear of window motion.\n\n**Verify.** Check polarity, sweep, rattles, drainage and glass travel.\n\n### Amplifier\n\n**Function.** Provides higher-power audio output.\n\n**Design.** Design circuit, cooling, signal level, gain and load around actual ratings.\n\n**Make, assemble or fit.** Mount securely, fuse the supply near its source and make a sound return.\n\n**Verify.** Set gain with a clean reference signal and check clipping and voltage drop."
+  },
+  {
+   "id": "parts-2-1",
+   "title": "Additional body controls · Ignition switch or start button to Harness splice and heat-shrink seal",
+   "body": "For an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n### Ignition switch or start button\n\n**Function.** Requests accessory, run and crank states.\n\n**Design.** Match interlocks, authentication and relay/module logic.\n\n**Make, assemble or fit.** Retain matched control set or wire approved replacement to documented inputs.\n\n**Verify.** Verify each power mode, authorized start and safe shutdown.\n\n### Fuse box and distribution bus\n\n**Function.** Distribute protected supply to individual circuits.\n\n**Design.** Size main feed, bus current, covers, ingress protection and service access.\n\n**Make, assemble or fit.** Mount a rated block and label each branch, conductor and protective device.\n\n**Verify.** Verify correct isolation of each branch and loaded supply drop.\n\n### 12 V accessory socket or USB module\n\n**Function.** Powers low-voltage consumer loads.\n\n**Design.** Match voltage, continuous duty, fuse protection, sleep behavior and connector rating.\n\n**Make, assemble or fit.** Fit supported socket or DC converter to the protected accessory circuit.\n\n**Verify.** Measure delivered voltage under load and vehicle-off current.\n\n### Door switch and courtesy lamp\n\n**Function.** Indicate entry and illuminate cabin.\n\n**Design.** Map polarity or network logic and timed shutoff requirements.\n\n**Make, assemble or fit.** Fit compatible switch or latch sensor and protected lamp assembly.\n\n**Verify.** Check all doors, dimming and sleep behavior.\n\n### Turn-signal stalk and hazard switch\n\n**Function.** Request directional or simultaneous warning lamps.\n\n**Design.** Match body-module protocol or flasher configuration.\n\n**Make, assemble or fit.** Fit matched switches and route using the column restraint procedure.\n\n**Verify.** Confirm left, right and hazard operation with other lamps on.\n\n### Harness splice and heat-shrink seal\n\n**Function.** Join conductors while maintaining electrical and environmental integrity.\n\n**Design.** Choose connector, tooling and seal rated for wire, load and location.\n\n**Make, assemble or fit.** Use manufacturer-approved splice method plus support and moisture seal.\n\n**Verify.** Inspect crimp, retention and voltage drop under load."
+  },
+  {
+   "id": "mod-auxiliary-fused-circuit-and-relay",
+   "title": "Modification · Auxiliary fused circuit and relay",
+   "body": "**Purpose.** Add a fan, lamp or accessory without loading a dashboard switch or donor module beyond rating.\n\n**Design and baseline.** Measure running and startup current, wire length both directions, ambient temperature, connector ratings and permissible drop. Coordinate protection with the wire and load.\n\n**Build and installation.** Draw battery, protection, relay contacts, load and return separately from the coil command. Build a low-current duplicate on the bench, crimp with the correct die, label ends, then route, sleeve and secure the vehicle circuit.\n\n**Test and disposition.** Test off/on, commanded failure state, loaded voltage drop and warm connections. Confirm sleep current if network controlled. Correct an unprotected feed before energizing.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "mod-amplifier-speakers-and-subwoofer",
+   "title": "Modification · Amplifier, speakers and subwoofer",
+   "body": "**Purpose.** Increase clean output and low-frequency extension, or retain sound quality with the original climate/audio interface.\n\n**Design and baseline.** Set listening target; match continuous amplifier output, speaker impedance and enclosure recommendations. Map factory amplifier, active noise control, chimes, climate controls, integration adapter and charging budget.\n\n**Build and installation.** Template a speaker spacer and check the lowered window. Build the enclosure to the driver's specified net internal volume after displacement. Seal joints, secure enclosure, route signal and protected power, and keep wiring out of restraint zones.\n\n**Test and disposition.** Set gain with a clean reference, check clipping, channel polarity, rattles, heat and sleep current. Verify climate, chimes, cameras and steering controls still operate.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "mod-auxiliary-data-display-or-head-unit-with-retained-climate-controls",
+   "title": "Modification · Auxiliary data display or head unit with retained climate controls",
+   "body": "**Purpose.** Add logging, navigation or audio control while retaining dashboard functions.\n\n**Design and baseline.** Inventory which donor module generates climate control, chimes, parking camera, vehicle settings and diagnostic access. Determine what a documented interface preserves.\n\n**Build and installation.** Template a removable fascia, bench-check the matched adapter, build a labeled protected harness and provide service slack. Keep visibility and airbag zones clear and retain original climate controls where needed.\n\n**Test and disposition.** Exercise each original function including defrost, steering controls, camera, key-off sleep and restore baseline if any required function disappears.\n\nFor an actual vehicle, identify the exact model, part revision, operating conditions and source before using a specification. Course examples are teaching fixtures. Document the physical work you perform, your inspection measurements and any specialist operations. Preserve relevant emissions controls, required safety equipment and diagnostic functions. Determine requirements for the specific intended use and jurisdiction before committing to changes.\n\n- [Ford, vehicle-specific genuine parts lookup](https://www.ford.com/parts)\n\n- [ASE Education Foundation, Automobile Program Standards](https://www.aseeducationfoundation.org/uploads/2024-Automobile-Program-Standards.pdf)\n\n- [Crutchfield, amplifier supply-cable protection](https://www.crutchfield.com/learn/car-amplifier-power-wire-fuses.html)"
+  },
+  {
+   "id": "as-built-ledger",
+   "title": "How to account for every installed part",
+   "body": "# Build-specific parts reconciliation\n\nThe teaching atlas lists common light-vehicle parts and service assemblies across multiple architectures. A gasoline manual, a diesel automatic and a battery-electric car have different inventories. The as-built bill of materials establishes what **your particular car** contains, down to separately installed hardware. Start with the actual model year, market, engine, transmission, option codes and donor/source identity. Mark privacy-sensitive paperwork for private instructor review.\n\n1. Make a system tree for the exact vehicle. Give each parent assembly an ID. Identify the source of every child from a dated OEM parts catalog or exploded figure, engineering drawing, kit packing list, supplier specification, harness diagram or direct teardown. A commercial catalog is good for identity and fitment. Use separate authoritative service data for torque, installation and test limits. For original parts, assign drawing numbers and revisions yourself.\n2. Start a line in As-Built-BOM.csv for each **part at each installation position**, including each clip, washer, spacer, seal, terminal, retainer, ground strap, hose end, fluid charge, service label and replacement-only fastener. Split left/right, front/rear, orientation and hardware stack order; link each to its parent. A separate serialized component gets its own instance. Account for consumables retained on the finished part, e.g. coating or sealant by product, batch and measured or specified amount where applicable. Mark discarded assembly aids separately.\n3. Tie every row to an approved configuration. Record exact part/revision, the number or amount required, received or made, installed and independently verified, with units. Compare numbers at that installation position; purchased spare stock belongs to inventory, not installed quantity. Add any part missing from the teaching atlas. Mark a nonapplicable teaching family with the architecture-specific reason. A missing source entry is an open item.\n4. Distinguish **make** (original or drawing-controlled part), **assemble** (purchased parts you personally integrated), **buy** (approved component) and **specialist** (named service or operation). Record material, tooling, process, measured features or supplier documents and who inspected it. Document critical work before it is hidden. Preserve service access and replace-only rules.\n5. For a sealed bought assembly with no serviceable internal list, identify its make, model, revision or serial where available, supplier and functional boundary. List every separately fitted connector, seal, mount and fastener. If the manufacturer publishes a serviceable breakdown or you rebuild it, expand the children you actually service. Leave inaccessible internal details marked as supplier-controlled. Do not dismantle restraint inflators or sealed traction assemblies for an inventory exercise.\n6. Reconcile from both directions. Walk each drawing callout into the build ledger, then walk each real installed item back to a drawing, receipt, material record or revision. Have a second person inspect quantities, location, retention and test evidence. Mark each row accepted, absent by design, awaiting evidence, rework or spare. Release a function only when all its relevant rows and measured acceptance tests have passed. Record who accepted the change. The complete car still requires the existing witnessed commissioning demonstration and its intended-use approvals.\n\n## Worked example\n\nThe SP-01 removable-plate fixture drawing calls for one plate and one fastener/washer stack at each of two identified positions. Its practice board supplies tapped holes. The separate example CSV includes eight rows. They identify the board, the plate, two labeled mounting positions as parent groups, and the two screws and two washers distributed under those groups. Parent groups carry no physical quantities. A missing right washer is an intentional open finding. Correct the installed count only after fitting the washer; update verified count only after reinspection. Accepting the measured board and plate as individual parts leaves fixture release on hold until the corrected right stack is verified. An unused spare remains a stock item.\n\n## Graduation review\n\nTurn in the assembly tree, marked exploded views, drawing revisions, actual bill of materials, inspection evidence, change records and final service schedule. Account for every called-out or observed item and every receiving/installation discrepancy. An instructor must be able to pick an item on the physical car, identify who made or fitted it, locate its source or released drawing, and see how it passed the appropriate acceptance check. A passing written exam cannot certify workmanship, registration, emissions compliance or crashworthiness.\n"
+  },
+  {
+   "id": "bench-plan",
+   "title": "Make a fused, removable lamp harness",
+   "body": "**Objective.** Build a serviceable low-voltage accessory branch and prove both circuit operation and conductor condition. Use a current-limited 12 V DC bench supply, a 12 V lamp rated approximately 3 W with insulated holder, a compatible switch, source-end fuse and holder, polarized connector, insulated copper wire, terminals and a meter. Use the workshop’s approved component ratings and current limit, including lamp inrush. Keep the vehicle battery disconnected from this bench exercise.\n\n1. Draw source positive → source-side fuse → switch → connector → lamp → connector return → source negative. Assign connector pin numbers and mark positive/return on your sketch. Approximately 3 W at 12 V gives 0.25 A under rated steady-state operation. Use actual measured current for your results.\n2. Establish a route on the board. Measure both legs including service slack. Select insulation, terminals, wire, switch and protection from their documented ratings and the lowest-rated downstream conductor/connection. Verify the fuse suits expected current and inrush. Record fuse identity and rating rationale.\n3. De-energize the supply. Cut and label conductors. Strip to the terminal maker's length, crimp with the matching die, inspect the conductor and insulation crimps, and seat and lock each contact. Fit source protection close to the source. Secure the loom and isolate exposed conductor.\n4. Before power, verify polarity, routing, switch action, and absence of an unintended supply-to-return short with the load disconnected. Reconnect the lamp, configure the bench current limit under supervision, energize and check expected operation. Measure current using a compatible meter configuration or the supply readout. Never place an ammeter directly across the source.\n5. With load on, measure voltage across the supply path, the lamp, and the return path. Their sum should agree with measured source voltage within measurement uncertainty. For example, 0.08 + 11.86 + 0.06 = 12.00 V. Disconnect power, replace a deliberately prepared high-resistance connector fixture with a known-good connector, repeat and compare at matched current. Do not create a short to test the fuse.\n\n**Fresh assignment.** Add a serviceable second connector to a new branch on the board. Predict the allowed drop from your design limits, build it, test under load and explain whether easier service meets the electrical target. Capture all contacts, housings, seals, source protection, clips and wires by location. A lit lamp alone earns no measurement credit."
+  }
+ ],
+ "rubrics": [
+  {
+   "id": "design-review",
+   "title": "Design review",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Drawing or test plan",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "For a 12 V lamp of your choice, identify operating current from its rating. Draw and label protection, disconnect, return, meter points and expected healthy readings. Document supplier limits and specify a fault that a trainer can introduce safely."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "An interface, datum or test location is ambiguous."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable drawing or test plan."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Design basis",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the exact reference, assumptions and predicted measurable outcome."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A reference or prediction is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No stated basis for the decision."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Acceptance and rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Names the limit or observed condition, jurisdiction/setting, applicable control and rejection action."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One decision lacks a source or rejection action."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No criterion or applicable-control decision."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Practical assessment",
+   "criteria": [
+    {
+     "id": "criterion-1",
+     "name": "Physical deliverable",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "A labeled circuit, physical harness and healthy/faulted/restored measurement log."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "A physical assembly or service is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "Only a proposal, simulation or quiz was submitted."
+      }
+     ]
+    },
+    {
+     "id": "criterion-2",
+     "name": "Measurement and verification",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "The faulted segment is identified from loaded readings and verified by a matched retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One or more required observations or witnesses are missing."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No measured test evidence."
+      }
+     ]
+    },
+    {
+     "id": "criterion-3",
+     "name": "Traceability and safe disposition",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records design reference, actual configuration, relevant rule and who performed each operation. Resolves or explicitly holds every failed check."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One record or disposition is incomplete."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "An unsafe release, missing hold, or unattributed work prevents sign-off."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "component-review",
+   "title": "Component selection and evidence",
+   "criteria": [
+    {
+     "id": "inventory",
+     "name": "Identification and operating principle",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Identifies every applicable family in the course register, explains absent items and traces operation of the shortlisted candidates."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Lists candidates but omits a family or a power, load, flow or signal path."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable identification or functional trace."
+      }
+     ]
+    },
+    {
+     "id": "selection",
+     "name": "Comparison and design decision",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Uses two specific candidates, common operating conditions and a dated source for a relevant limit. Defends a choice and a condition that reverses it."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One candidate lacks source data or the comparison uses unequal conditions without explaining them."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The decision has no supporting comparison."
+      }
+     ]
+    },
+    {
+     "id": "integration",
+     "name": "Interfaces, service and applicable rules",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Maps the affected interfaces and specifies service access, failure mode, discriminating test and applicable legal or shop control."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "One critical interface, test condition or applicability decision needs revision."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable interface or test plan."
+      }
+     ]
+    },
+    {
+     "id": "evidence",
+     "name": "Physical evidence and handoff",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Links an identified drawing or part to an actual safe observation or measurement, its conditions and disposition; unresolved issues have a named retest."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Evidence exists but part identity, condition or disposition is unclear."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "The physical link and disposition are absent."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mod-review",
+   "title": "Modification workshop record",
+   "criteria": [
+    {
+     "id": "intent",
+     "name": "Purpose and design",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Defines a functional goal, baseline, design change and adverse effect with an applicable source and an acceptance threshold."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for purpose and design but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for purpose and design."
+      }
+     ]
+    },
+    {
+     "id": "parts",
+     "name": "Parts and build",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Lists actual parts, positions, quantities, material or approvals, controlled drawings, methods, builder and deviation records."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for parts and build but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for parts and build."
+      }
+     ]
+    },
+    {
+     "id": "test",
+     "name": "Verification and interpretation",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Records comparable baseline and changed measurements with units and conditions, or explicitly distinguishes fixture evidence from outstanding vehicle tests."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for verification and interpretation but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for verification and interpretation."
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "name": "Disposition and rollback",
+     "levels": [
+      {
+       "points": 2,
+       "label": "Verified",
+       "description": "Justifies accept, revise or restore with source-based limits, open issues, safe rollback and authority or reviewer decision as appropriate."
+      },
+      {
+       "points": 1,
+       "label": "Revise",
+       "description": "Provides relevant evidence for disposition and rollback but omits a required condition or disposition."
+      },
+      {
+       "points": 0,
+       "label": "Missing",
+       "description": "No usable evidence for disposition and rollback."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "writing": [
+  {
+   "id": "design",
+   "title": "Draw a protected accessory circuit",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "design-review",
+   "selfCheck": true,
+   "prompt": "For a 12 V lamp of your choice, identify operating current from its rating. Draw and label protection, disconnect, return, meter points and expected healthy readings. Document supplier limits and specify a fault that a trainer can introduce safely. Include a labeled drawing or table in the work record and identify the applicable shop or legal requirement."
+  },
+  {
+   "id": "component-selection",
+   "title": "Component selection and evidence",
+   "kind": "short",
+   "module": "m2",
+   "rubric": "component-review",
+   "selfCheck": true,
+   "prompt": "For this course examine Starter and flywheel drive; Charging and auxiliary battery; Harness, protection and switching; Body controls and communications; Instruments and warning indicators. Identify each applicable family on your own vehicle or donor and explain absent families. Use two identified alternatives for at least one consequential choice. Show the job each design performs, how its operating principle differs, one failure mode and a test that separates the alternatives. Identify a real model or part number for each shortlisted candidate. Compare a sourced limit or performance figure under common conditions, interfaces, legal or shop implications and service access. Defend your choice and explain one change that would reverse it. Link your drawing and physical observation or measurement to the build record."
+  },
+  {
+   "id": "modification-record",
+   "title": "Workshop record · From accessory load to a serviceable harness",
+   "kind": "short",
+   "module": "m3",
+   "selfCheck": true,
+   "rubric": "mod-review",
+   "prompt": "Build the fused low-voltage lamp project in the bench plans. Identify every terminal and protective item, compare baseline and changed configuration and attach the measured drops. List your donor or drawing revision, part identities, position, material or rating, method, who made or fitted each item, and the governing source. State the goal, the baseline test, a controlled change, a potential adverse effect, comparable measured results, acceptance threshold and rollback. Include an attributable photograph, recorded direct observation or measurement. An inert prototype or mock-up qualifies for this comparison exercise when the vehicle modification requires specialist or legal approval. Identify exactly which vehicle results are still unproven."
+  }
+ ],
+ "labs": [
+  {
+   "id": "workshop",
+   "title": "Build and diagnose a lamp harness",
+   "module": "m3",
+   "adult": true,
+   "intro": "A labeled circuit, physical harness and healthy/faulted/restored measurement log. Plan shop time with your supervisor over the sessions the work actually takes.",
+   "safety": [
+    "Use a low-voltage instructional source. Keep leads in the voltage jacks for powered tests. Isolate power before changing wiring. Exclude vehicle battery, airbag and high-voltage circuits."
+   ],
+   "materials": [
+    "Current-limited instructional DC supply and fused trainer",
+    "Rated lamp, switch, fuse, terminals and wire",
+    "DMM and appropriately rated fault insert"
+   ],
+   "steps": [
+    "Build your drawing on a bench with the source disconnected. Inspect crimps and polarity.",
+    "Power the protected trainer and record supply, load, feed-drop and return-drop readings.",
+    "Have a partner install one approved fault insert out of sight with power off. Diagnose its segment using loaded readings.",
+    "Remove the insert under isolation. Re-energize and repeat the original measurements."
+   ],
+   "tables": [
+    {
+     "id": "measurement",
+     "title": "Workshop record",
+     "columns": [
+      "Test condition",
+      "Supply V",
+      "Load V",
+      "Feed and return drops V",
+      "Finding"
+     ],
+     "rows": 5
+    }
+   ],
+   "questions": [
+    {
+     "id": "changes",
+     "kind": "observation",
+     "prompt": "What did you personally make or service? Record actual conditions, measured values, instruments, and any specialist operations."
+    },
+    {
+     "id": "decision",
+     "kind": "conclusion",
+     "prompt": "The faulted segment is identified from loaded readings and verified by a matched retest. Record your result, corrections, retest and sign-off status. Include the witness name and date where required."
+    },
+    {
+     "id": "law",
+     "kind": "conclusion",
+     "prompt": "Which rule, authority or shop control applied at this site? Identify the actor, triggering operation, source and the record kept."
+    },
+    {
+     "id": "as-built-component",
+     "kind": "conclusion",
+     "prompt": "Name the actual part or trainer component and the design alternative you considered. Record the observed or measured result, units and conditions where applicable, and its effect on the as-built decision."
+    },
+    {
+     "id": "parts-ledger",
+     "kind": "observation",
+     "prompt": "Identify one fitted part and each fastener, seal, clip or connector that you personally handled. Record parent assembly, position, source, required and observed quantity, and evidence."
+    }
+   ],
+   "photos": "Attach dated photographs of your own work, with part or revision identification. An instructor may also document direct observation.",
+   "rubric": "physical"
+  }
+ ],
+ "drills": [],
+ "requires": [
+  "auto-shop"
+ ]
+}
