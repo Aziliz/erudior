@@ -11,6 +11,8 @@ import { compareCourseRevisions } from "../src/lib/courseRevision";
 import { compareWithLessonMoves } from "./lib/lessonModuleMoves";
 import { validateSpreadsheetReleaseApproval, type SpreadsheetReleaseApproval } from "../src/lib/spreadsheetReleaseApproval";
 import { courseDuplicates, duplicateCourse } from "../src/lib/courseDuplicates";
+import { readPublishedPrograms } from "../src/lib/publishedPrograms";
+import { PROGRAM_CATEGORIES } from "../src/lib/studyPrograms";
 import { COURSE_PUBLIC_KEYS } from "../src/lib/courseKeys";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -151,6 +153,7 @@ for (const { courseId, sourceId, lessonId } of carriedVocabulary) {
   if (!lessonIdsByCourse.get(sourceId)?.has(lessonId))
     throw new Error(`Carried vocabulary in ${courseId} refers to unknown source lesson ${sourceId}/${lessonId}.`);
 }
+const stagedPrograms = readPublishedPrograms(JSON.parse(fs.readFileSync(path.join(root, "samples/staged-programs.json"), "utf8")), seenIds, PROGRAM_CATEGORIES);
 const key = secretKey();
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
@@ -169,7 +172,7 @@ const statesFile = `states.${statesVersion}.json`;
 fs.writeFileSync(path.join(out, statesFile), statesBytes);
 const states = { file: statesFile, version: statesVersion, bytes: statesBytes.length, sha256: await sha256Hex(new Uint8Array(statesBytes)) };
 const catalog = new TextEncoder().encode(
-  JSON.stringify({ format: "examiner-catalog", version: 1, published: new Date().toISOString(), courses: published, states }),
+  JSON.stringify({ format: "examiner-catalog", version: 1, published: new Date().toISOString(), courses: published, states, stagedPrograms }),
 );
 fs.writeFileSync(path.join(out, "catalog.json"), catalog);
 fs.writeFileSync(path.join(out, "catalog.json.sig"), signBytes(catalog, b64.decode(key)) + "\n");

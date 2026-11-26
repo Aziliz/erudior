@@ -57,7 +57,7 @@ import CardsRunner from "./pages/CardsRunner";
 import DeckEditor from "./pages/DeckEditor";
 import DrillRunner from "./pages/DrillRunner";
 import { CATALOG, carryForwardLessons, catalogUpdates, hasActivity, loadCatalogCourse, prerequisites, setCatalog } from "./lib/catalog";
-import { fetchCatalog, type CatalogSource } from "./lib/courseSource";
+import { fetchCatalog, REMOTE, type CatalogSource } from "./lib/courseSource";
 import RefView from "./pages/RefView";
 import Reader from "./pages/Reader";
 import VocabRunner, { type VocabMode } from "./pages/VocabRunner";
@@ -165,7 +165,8 @@ export interface AppApi {
   classroomPeerSources?: (classId: string) => Promise<ClassroomPeerSourceOption[]>;
   learnerPrivacy?: ReturnType<typeof createLearnerPrivacyStore>;
   authorizeAcademicRecords?: (id: string) => Promise<void>;
-  catalog: { source: CatalogSource; error?: string };
+  catalog: { source: CatalogSource; error?: string; checking?: boolean };
+  refreshCatalog?: () => Promise<void>;
   banks: Bank[];
   courses: Course[];
   progress: Progress;
@@ -307,6 +308,35 @@ export default function App() {
   const mainRef = useRef<HTMLElement>(null);
   const [resumable, setResumable] = useState<Resumable | null>(null);
   const [courseUpdates, setCourseUpdates] = useState<Course[]>([]);
+  const [catalogTried, setCatalogTried] = useState(false);
+  const [catalogChecking, setCatalogChecking] = useState(false);
+  const pendingCatalog = useRef<Promise<void> | null>(null);
+  const lastCatalogCheck = useRef(0);
+  const refreshCatalog = useCallback((): Promise<void> => {
+    if (pendingCatalog.current) return pendingCatalog.current;
+    lastCatalogCheck.current = Date.now();
+    setCatalogChecking(true);
+    const request = (async () => {
+      const result = await fetchCatalog();
+      if (result) {
+        setCatalog(result.entries);
+        setCatalogInfo({ source: result.source, error: result.error });
+      } else if (REMOTE) {
+        setCatalogInfo(previous => ({ ...previous, error: "The current signed catalog could not be loaded." }));
+      }
+      setCatalogTried(true);
+      const { courses: installed } = await store.listCourses();
+      const updates = await catalogUpdates(installed);
+      setCourseUpdates(updates.map(x => normalizeCourse(x.course)));
+    })().catch(() => {
+      setCatalogInfo(previous => ({ ...previous, error: "Could not finish checking for course updates." }));
+    }).finally(() => {
+      pendingCatalog.current = null;
+      setCatalogChecking(false);
+    });
+    pendingCatalog.current = request;
+    return request;
+  }, []);
   const courseUpdate = courseUpdates[0] ?? null;
   const dropUpdate = () => setCourseUpdates((u) => u.slice(1));
   const [updater] = useState(() => new AppUpdateController(checkForUpdate, window.localStorage));
@@ -472,25 +502,31 @@ export default function App() {
         setReady(true);
         // Builds that download courses: get the signed catalog from the website (or the last
         // one saved here when offline). Bundled builds keep the catalog they shipped with.
-        const fetched = await fetchCatalog();
-        if (fetched) {
-          setCatalog(fetched.entries);
-          setCatalogInfo({ source: fetched.source, error: fetched.error });
-          if (fam) refreshStates().catch(() => {});
-        }
-        // Offer newer catalog versions of courses that are already added.
-        const { courses: installed } = await store.listCourses();
-        catalogUpdates(installed).then(
-          (u) => setCourseUpdates(u.map((x) => normalizeCourse(x.course))),
-          () => {},
-        );
+        await refreshCatalog();
+        if (fam) refreshStates().catch(() => {});
       } catch (e) {
         setLoadError(String(e));
       } finally {
         setCatalogTried(true);
       }
     })();
-  }, [reload]);
+  }, [reload, refreshCatalog]);
+
+  useEffect(() => {
+    if (!ready || !store.inApp || !REMOTE) return;
+    const onFocus = () => {
+      if (Date.now() - lastCatalogCheck.current >= 15 * 60_000) void refreshCatalog();
+    };
+    const onOnline = () => { void refreshCatalog(); };
+    const timer = window.setInterval(onFocus, 60 * 60_000);
+    window.addEventListener("online", onOnline);
+    window.addEventListener("focus", onFocus);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener("online", onOnline);
+      window.removeEventListener("focus", onFocus);
+    };
+  }, [ready, refreshCatalog]);
 
   useEffect(() => {
     if (!ready || !store.inApp) return;
@@ -553,7 +589,6 @@ export default function App() {
   const displayedHistory = useRef<DisplayedHistory>({ url: window.location.pathname + window.location.search + window.location.hash, state: window.history.state });
   const restoringHistory = useRef(false);
   const lastPage = useRef<string | null>(null);
-  const [catalogTried, setCatalogTried] = useState(false);
   const routeCourses = (): RouteCourse[] => {
     const seen = new Map<string, RouteCourse>();
     for (const c of [...courses, ...CATALOG]) if (!seen.has(c.id)) seen.set(c.id, { id: c.id, title: c.title });
@@ -1263,7 +1298,8 @@ export default function App() {
     classroomWorkflows: classroomAccess.workflows,
     classroomPeerSources: classroomAccess.peerSources,
     learnerPrivacy,
-    catalog: catalogInfo,
+    catalog: { ...catalogInfo, checking: catalogChecking },
+    refreshCatalog,
     banks: allBanks,
     courses: myCourses,
     progress,

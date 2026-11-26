@@ -469,14 +469,18 @@ function Catalog({ api }: { api: AppApi }) {
         <h2 className="section-title" style={{ margin: 0 }}>
           Course catalog
         </h2>
-        <span className="small muted">
+        {REMOTE && api.refreshCatalog && <button className="btn sm" disabled={api.catalog.checking} onClick={() => void api.refreshCatalog?.()}>
+          {api.catalog.checking ? "Checking catalog…" : "Refresh catalog"}
+        </button>}
+        <span className="small muted" aria-live="polite">
           {shown.length === CATALOG.length ? `${CATALOG.length} courses` : `${shown.length} of ${CATALOG.length} courses`}
           {pages > 1 && ` · page ${pageNow + 1} of ${pages}`}
         </span>
       </div>
-      {REMOTE && api.catalog.source !== "website" && (
+      {REMOTE && (api.catalog.source !== "website" || api.catalog.error) && (
         <p className="notice small" role="status">
-          {api.catalog.source === "saved"
+          {api.catalog.error && api.catalog.source !== "saved" ? "The latest course catalog could not be loaded. This device is showing its existing catalog. Use Refresh catalog to try again."
+            : api.catalog.source === "saved"
             ? "Couldn't reach the course website, so this is the catalog saved on this device. Courses you've started work offline."
             : "Connecting to the course website… New courses can be added once it's reachable; courses you've started work offline."}
         </p>

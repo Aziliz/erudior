@@ -5,7 +5,8 @@ import { MEDICAL_PROGRAM, PRE_MED_PROGRAM } from "./medicalPrograms";
 import { COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM } from "./engineeringPrograms";
 import { COSMETOLOGY_PROGRAM } from "./cosmetologyProgram";
 import { HEALTH_PROGRAMS } from "./healthPrograms";
-import { AUTOMOTIVE_PROGRAM } from "./automotiveProgram";
+import stagedPrograms from "../../samples/staged-programs.json";
+import { readPublishedPrograms } from "./publishedPrograms";
 import { TRADE_PROGRAMS } from "./tradePrograms";
 import { SCIENCE_MAJORS } from "./majorsScience";
 import { ENGINEERING_MAJORS } from "./majorsEngineering";
@@ -49,7 +50,7 @@ export interface ProgramPool {
   defaults: string[];
 }
 
-/** Editorial program definitions are separate from the signed, available-course catalog. */
+/** Program outlines used by the catalog and saved learning pathways. */
 export interface StudyProgram {
   id: string;
   /** Catalog group; programs without one fall back to the id map below. */
@@ -68,12 +69,21 @@ export interface StudyProgram {
   reviewedOn: string;
 }
 
-export const STUDY_PROGRAMS: readonly StudyProgram[] = [
+const bundledPrograms: readonly StudyProgram[] = [
   JD_PROGRAM, COLLEGE_CORE_PROGRAM, PRE_MED_PROGRAM, MEDICAL_PROGRAM,
   COMPUTER_SCIENCE_PROGRAM, ELECTRICAL_ENGINEERING_PROGRAM, COSMETOLOGY_PROGRAM,
-  ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, AUTOMOTIVE_PROGRAM, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
+  ...HEALTH_PROGRAMS, ...TRADE_PROGRAMS, ...BUSINESS_LAW_PROGRAMS, ...ENGINEERING_EDUCATION_PROGRAMS, ...PUBLIC_SAFETY_IT_PROGRAMS,
   ...SCIENCE_MAJORS, ...ENGINEERING_MAJORS, ...SOCIAL_SCIENCE_MAJORS, ...HUMANITIES_ARTS_MAJORS, ...BUSINESS_HEALTH_MAJORS,
 ];
+
+export let STUDY_PROGRAMS: readonly StudyProgram[] = [...bundledPrograms, ...stagedPrograms as StudyProgram[]];
+
+/** Older/offline catalogs use the bundled outlines until a signed replacement arrives. */
+export function setPublishedPrograms(value: unknown, courseIds: ReadonlySet<string>) {
+  const programs = value === undefined ? stagedPrograms as StudyProgram[] : readPublishedPrograms(value, courseIds, PROGRAM_CATEGORIES);
+  if (programs.some(p => bundledPrograms.some(b => b.id === p.id))) throw new Error("Conflicting published program ID.");
+  STUDY_PROGRAMS = [...bundledPrograms, ...programs];
+}
 
 /** Every course outline the program describes: required stage courses, then area outlines. */
 export function programCourses(program: StudyProgram): ProgramCourse[] {

@@ -22,8 +22,8 @@ function entry(id, title, revision) {
   return { id, title, revision, file, sha256: createHash("sha256").update(body).digest("hex"), bytes: Buffer.byteLength(body),
     order: 1, description: "Approved revision " + revision, level: [], type: [], subject: "Science", lessons: 1, questions: 0, cards: 0, drills: 0 };
 }
-function sign(courses) {
-  const text = JSON.stringify({ format: "examiner-catalog", version: 1, courses });
+function sign(courses, stagedPrograms) {
+  const text = JSON.stringify({ format: "examiner-catalog", version: 1, courses, stagedPrograms });
   return { text, sig: b64(nacl.sign.detached(Buffer.from(text), key.secretKey)) };
 }
 let catalog = sign([entry("feed-first", "Existing feed course", 1)]);
@@ -64,7 +64,27 @@ try {
   await page.goto("https://erudior.com/");
   await page.getByRole("link", { name: "Existing feed course", exact: true }).waitFor({ state: "attached" });
   const next = entry("feed-new", "New feed course", 1);
-  const second = sign([entry("feed-first", "Existing feed course", 2), next]);
+  const program = { id: "feed-pathway", version: 1, category: "Trades and transportation", title: "Workshop pathway",
+    description: "A signed workshop sequence.", notice: "Independent study.", reviewedOn: "2026-11-26", sources: [],
+    stages: [{ id: "practice", title: "Practice", summary: "Study the new course.", milestone: "Finish a project.", courses: [
+      { courseId: next.id, title: next.title, recommendedBefore: [], modules: ["Workshop"], outcomes: ["Build a project."], assignment: "Present a project." },
+    ] }] };
+  const second = sign([entry("feed-first", "Existing feed course", 2), next], [program]);
+  const library = await ctx.newPage();
+  await library.goto("https://app.erudior.com/");
+  const search = library.getByRole("searchbox", { name: "Search programs" });
+  await search.fill(program.title);
+  const card = library.getByRole("article", { name: program.title + " catalog entry" });
+  assert.equal(await card.count(), 0);
+  catalog = second;
+  await library.getByRole("button", { name: "Refresh catalog" }).click();
+  await card.waitFor();
+  offline = true;
+  await library.reload();
+  await search.fill(program.title);
+  await card.waitFor();
+  offline = false;
+  await library.close();
   catalog = second;
   await page.reload();
   const link = page.getByRole("link", { name: next.title, exact: true });

@@ -179,7 +179,7 @@ jobs:
             [[ "$draft" == true ]]
           else
             gh release create "$DESKTOP_TAG" --draft --verify-tag --title "Erudior $DESKTOP_TAG" \
-              --notes "Desktop installers for Windows, macOS and Linux. Erudior offers new versions before downloading and saves verified updates until you choose to install and restart. Includes Windows, macOS, AppImage, RPM and DEB updates. Course authors can offer an AlmaLinux practice terminal and choose a basic, scientific or graphing calculator. Learners can open the tools their course provides."
+              --notes "Desktop installers for Windows, macOS and Linux. Erudior offers new versions before downloading and saves verified updates until you choose to install and restart. Includes Windows, macOS, AppImage, RPM and DEB updates. The course library refreshes signed course and program listings on demand and when the app reconnects. Includes the Automotive Mechanics and Custom Vehicle Construction pathway."
           fi
           latest=$(gh release view --json tagName --jq .tagName)
           if [[ "$(printf '%s\n' "$latest" "$DESKTOP_TAG" | sort -V | tail -n1)" != "$DESKTOP_TAG" ]]; then
